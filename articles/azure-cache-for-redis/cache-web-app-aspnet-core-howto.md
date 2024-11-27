@@ -5,10 +5,9 @@ description: In this quickstart, you learn how to create an ASP.NET Core web app
 
 
 ms.devlang: csharp
-ms.custom: devx-track-csharp, mvc, mode-other
+ms.custom: devx-track-csharp, mvc, mode-other, ignite-2024
 ms.topic: quickstart
 ms.date: 04/24/2024
-
 ---
 
 # Quickstart: Use Azure Cache for Redis with an ASP.NET Core web app
@@ -51,7 +50,7 @@ Deployment instructions are in the README.md.
 
 [!INCLUDE [redis-cache-create](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/redis-cache-create-entra-id.md)]
 
-[!INCLUDE [redis-cache-passwordless](includes/redis-cache-passwordless.md)]
+[!INCLUDE [cache-entra-access](includes/cache-entra-access.md)]
 
 [!INCLUDE [redis-access-policy](includes/redis-access-policy.md)]
 
@@ -61,6 +60,12 @@ In your command window, execute the following command to store a new secret name
 
 ```dos
 dotnet user-secrets set RedisHostName "<cache-name>.redis.cache.windows.net"
+```
+
+For using Azure Managed Redis (preview) instance, store a new secret named RedisHostName as below:
+
+```dos
+dotnet user-secrets set RedisHostName "<cache-name>.<region>.redis.azure.net"
 ```
 
 ## Connect to the cache with RedisConnection
@@ -94,7 +99,7 @@ The home page layout for this sample is stored in the *_Layout.cshtml* file. Fro
     <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="RedisCache">Azure Cache for Redis Test</a>
     ```
 
-:::image type="content" source="media/cache-web-app-aspnet-core-howto/cache-welcome-page.png" alt-text="screenshot of welcome page":::
+:::image type="content" source="media/cache-web-app-aspnet-core-howto/cache-welcome-page.png" alt-text="Screenshot of welcome page.":::
 
 ### Showing data from the cache
 
@@ -158,7 +163,7 @@ From the home page, you select **Azure Cache for Redis Test** to see the sample 
 
 1. Select **Azure Cache for Redis Test** in the navigation bar of the web page to test cache access.
 
-:::image type="content" source="./media/cache-web-app-aspnet-core-howto/cache-simple-test-complete-local.png" alt-text="Screenshot of simple test completed local":::
+:::image type="content" source="./media/cache-web-app-aspnet-core-howto/cache-simple-test-complete-local.png" alt-text="Screenshot of simple test completed locally.":::
 
 <!-- Clean up include -->
 [!INCLUDE [cache-delete-resource-group](includes/cache-delete-resource-group.md)]

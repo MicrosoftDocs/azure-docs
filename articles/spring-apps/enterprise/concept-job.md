@@ -11,12 +11,11 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 # Job in Azure Spring Apps (Preview)
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ✔️ Java ✔️ C#
+**This article applies to:** ✅ Java ✅ C#
 
-**This article applies to:** ❌ Basic/Standard ✔️ Enterprise
+**This article applies to:** ❎ Basic/Standard ✅ Enterprise
 
 *Job* is a key concept in the resource model of Azure Spring Apps. Like *App* in Azure Spring Apps, both are considered resources managed within the service.
 

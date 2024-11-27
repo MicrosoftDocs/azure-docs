@@ -5,7 +5,8 @@ author: eshashah-msft
 ms.author: eshashah
 ms.date: 10/11/2023
 ms.topic: concept-article
-ms.service: iot-hub-device-update
+ms.service: azure-iot-hub
+ms.subservice: device-update
 ---
 
 # Device Update for IoT Hub configuration file
@@ -51,7 +52,7 @@ When installing Debian agent on an IoT Device with a Linux OS, modify the `/etc/
     "do"
   ],
   "iotHubProtocol": "mqtt",
-  "compatPropertyNames":"manufacturer,model,location,language" <The property values must be in lower case only>,
+  "compatPropertyNames":"manufacturer,model,location,environment" <The property values must be in lower case only>,
   "manufacturer": <Place your device info manufacturer here>,
   "model": <Place your device info model here>,
   "agents": [

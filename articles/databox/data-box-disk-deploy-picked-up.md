@@ -4,8 +4,7 @@ description: In this tutorial, learn how to return your Azure Data Box Disk. The
 services: databox
 author: stevenmatthew
 
-ms.service: databox
-ms.subservice: disk
+ms.service: azure-data-box-disk
 ms.topic: tutorial
 ms.date: 07/17/2024
 ms.author: shaas

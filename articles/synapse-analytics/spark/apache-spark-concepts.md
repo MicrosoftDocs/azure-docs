@@ -93,7 +93,7 @@ The following article describes how to request an increase in workspace vCore qu
 - Select "Azure Synapse Analytics" as the service type.
 - In the Quota details window, select Apache Spark (vCore) per workspace
 
-[Request a capacity increase via the Azure portal](../../azure-portal/supportability/per-vm-quota-requests.md)
+[Request a capacity increase via the Azure portal](/azure/azure-portal/supportability/per-vm-quota-requests)
 
 ### Spark pool level
 

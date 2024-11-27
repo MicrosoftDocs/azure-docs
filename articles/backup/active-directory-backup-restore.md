@@ -1,8 +1,8 @@
 ---
 title: Back up and restore Active Directory 
 description: Learn how to back up and restore Active Directory domain controllers.
-ms.topic: conceptual
-ms.date: 08/20/2024
+ms.topic: how-to
+ms.date: 09/09/2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ms.custom: engagement-fy24

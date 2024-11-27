@@ -5,12 +5,14 @@ services: cdn
 author: duongau
 manager: kumud
 ms.service: azure-cdn
-ms.topic: article
+ms.topic: concept-article
 ms.date: 03/20/2024
 ms.author: duau
 ---
 
 # How caching works
+
+[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
 
 This article provides an overview of general caching concepts and how [Azure Content Delivery Network](cdn-overview.md) uses caching to improve performance. If you'd like to learn about how to customize caching behavior on your content delivery network endpoint, see [Control Azure Content Delivery Network caching behavior with caching rules](cdn-caching-rules.md) and [Control Azure Content Delivery Network caching behavior with query strings](cdn-query-string.md).
 

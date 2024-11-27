@@ -5,12 +5,12 @@ description: An introduction to the new App registration experience in Azure AD 
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: reference
 ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As an Azure AD B2C user, I want to understand the new App registrations experience, so that I can manage all my app registrations in one place and take advantage of new features like unified app list, API permissions, and support for different account types.

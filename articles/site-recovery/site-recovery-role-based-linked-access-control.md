@@ -4,7 +4,7 @@ description: This article describes how to apply Azure role-based access control
 ms.service: azure-site-recovery
 ms.date: 04/08/2019
 author: ankitaduttaMSFT
-ms.topic: conceptual
+ms.topic: overview
 ms.author: ankitadutta
 
 ---

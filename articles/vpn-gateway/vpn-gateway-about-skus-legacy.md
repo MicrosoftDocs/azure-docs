@@ -3,7 +3,7 @@ title: VPN Gateway legacy SKUs
 description: How to work with the old virtual network gateway SKUs; Standard, and High Performance.
 author: cherylmc
 ms.service: azure-vpn-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/06/2024
 ms.author: cherylmc 
 ---

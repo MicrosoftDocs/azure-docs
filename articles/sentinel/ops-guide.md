@@ -1,18 +1,18 @@
 ---
 title: Operational guide - Microsoft Sentinel
 description: Learn about the operational recommendations to help security operations teams to plan and run security activities.
-ms.date: 06/28/2024
+ms.date: 08/30/2024
 ms.topic: reference
 ms.author: cwatson
 author: cwatson-cat
 appliesto:
   - Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
-#Customer intent: As a security operations (SOC) team member or security administrator, I want to know what operational activities I should plan to do daily, weekly, and monthly with Microsoft Sentinel to help keep my organization's environment secure. 
+#Customer intent: As a security operations (SOC) team member or security administrator, I want to know what operational activities I should plan to do daily, weekly, and monthly with Microsoft Sentinel to help keep my organization's environment secure.
 ---
 
 # Microsoft Sentinel operational guide
 
-This article lists the operational activities that we recommend security operations (SOC) teams and security administrators plan for and run as part of their regular security activities with Microsoft Sentinel.
+This article lists the operational activities that we recommend security operations (SOC) teams and security administrators plan for and run as part of their regular security activities with Microsoft Sentinel. For more information about managing your security operations, see [Security operations overview](/security/operations/overview).
 
 ## Daily tasks
 
@@ -24,7 +24,7 @@ Schedule the following activities daily.
 |**Explore hunting queries and bookmarks**|Explore results for all built-in queries, and update existing hunting queries and bookmarks. Manually generate new incidents or update old incidents if applicable. For more information, see:</br></br>- [Automatically create incidents from Microsoft security alerts](create-incidents-from-alerts.md)</br>- [Hunt for threats with Microsoft Sentinel](hunting.md)</br>- [Keep track of data during hunting with Microsoft Sentinel](bookmarks.md)|
 |**Analytic rules**|Review and enable new analytics rules as applicable, including both newly released or newly available rules from recently connected data connectors.|
 |**Data connectors**| Review the status, date, and time of the last log received from each data connector to ensure that data is flowing. Check for new connectors, and review ingestion to ensure set limits aren't exceeded. For more information, see [Data collection best practices](best-practices-data.md) and [Connect data sources](connect-data-sources.md).|
-|**Log Analytics Agent**| Verify that servers and workstations are actively connected to the workspace, and troubleshoot and remediate any failed connections.   For more information, see     [Log Analytics Agent overview](../azure-monitor/agents/log-analytics-agent.md).|
+|**Azure Monitor Agent**| Verify that servers and workstations are actively connected to the workspace, and troubleshoot and remediate any failed connections.   For more information, see     [Azure Monitor Agent overview](/azure/azure-monitor/agents/azure-monitor-agent-overview).|
 |**Playbook failures**| Verify playbook run statuses and troubleshoot any failures.   For more information, see  [Tutorial: Respond to threats by using playbooks with automation rules in Microsoft Sentinel](tutorial-respond-threats-playbook.md).|
 
 ## Weekly tasks
@@ -48,4 +48,6 @@ Schedule the following activities monthly.
 
 ## Related content
 
+- [Security operations overview](/security/operations/overview)
+- [Implement Microsoft Sentinel and Microsoft Defender XDR for Zero Trust](/security/operations/siem-xdr-overview)
 - [Deployment guide for Microsoft Sentinel](deploy-overview.md)

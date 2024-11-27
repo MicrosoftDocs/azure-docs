@@ -4,8 +4,7 @@ description: Tutorial to deploy Azure Stack Edge Mini R instructs you to configu
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: tutorial
 ms.date: 11/10/2023
 ms.author: alkohli

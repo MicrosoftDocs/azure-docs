@@ -126,7 +126,7 @@ This section shows the match conditions and actions supported for the Route-maps
 
 |Property|	Action|	Value	|Interpretation|
 |---|---|---|---|
-|Route-prefix|	Add	|10.3.0.0/8,10.4.0.0/8 |The routes specified in the rules are added. |
+|Route-prefix|	drop	|10.3.0.0/8,10.4.0.0/8 |The routes specified in the rule are dropped. |
 |Route-prefix |	Replace|	10.0.0.0/8,192.168.0.0/16|Replace all the matched routes with the routes specified in the rule.  |
 |As-Path |	Add |	64580,64581	|Prepend AS-PATH with the list of ASNs specified in the rule. These ASNs are applied in the same order for the matched routes. |
 |As-Path |	Replace |	65004,65005 |AS-PATH will be set to this list in the same order, for every matched route. See key considerations for reserved AS numbers. |

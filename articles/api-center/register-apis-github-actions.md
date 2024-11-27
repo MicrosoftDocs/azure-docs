@@ -55,7 +55,7 @@ In the following steps, create a Microsoft Entra ID service principal, which wil
 > [!NOTE]
 > Configuring a service principal is shown for demonstration purposes. The recommended way to authenticate with Azure for GitHub Actions is with OpenID Connect, an authentication method that uses short-lived tokens. Setting up OpenID Connect with GitHub Actions is more complex but offers hardened security. [Learn more](../app-service/deploy-github-actions.md?tabs=openid%2Caspnetcore#1-generate-deployment-credentials)
 
-Create a service principal using the [az ad sp create-for-rbac](/cli/azure/ad#az-ad-sp-create-for-rbac) command. The following example first uses the [az apic show](/cli/azure/apic#az-apic-show) command to retrieve the resource ID of the API center. The service principal is then created with the Contributor role for the API center.
+Create a service principal using the [az ad sp create-for-rbac](/cli/azure/ad#az-ad-sp-create-for-rbac) command. The following example first uses the [az apic show](/cli/azure/apic#az-apic-show) command to retrieve the resource ID of the API center. The service principal is then created with the Azure API Center Service Contributor role for the API center.
 
 #### [Bash](#tab/bash)
 
@@ -67,7 +67,7 @@ spName=<service-principal-name>
 
 apicResourceId=$(az apic show --name $apiCenter --resource-group $resourceGroup --query "id" --output tsv)
 
-az ad sp create-for-rbac --name $spName --role Contributor --scopes $apicResourceId --json-auth
+az ad sp create-for-rbac --name $spName --role "Azure API Center Service Contributor" --scopes $apicResourceId --json-auth
 ```
 
 #### [PowerShell](#tab/powershell)
@@ -80,7 +80,7 @@ $spName = "<service-principal-name>"
 
 $apicResourceId = $(az apic show --name $apiCenter --resource-group $resourceGroup --query "id" --output tsv)
 
-az ad sp create-for-rbac --name $spName --role Contributor --scopes $apicResourceId --json-auth
+az ad sp create-for-rbac --name $spName --role "Azure API Center Service Contributor" --scopes $apicResourceId --json-auth
 ```
 ---
 
@@ -138,7 +138,7 @@ To configure the workflow file:
 1. Add this workflow file in the  `/.github/workflows/` path in your GitHub repository.
 
 > [!TIP]
-> Using the [Visual Studio Code extension](use-vscode-extension.md) for Azure API Center, you can generate a starting workflow file by running an extension command. In the Command Palette, select **Azure API Center: Register APIs**. Select **CI/CD** > **GitHub**. You can then modify the file for your scenario.
+> Using the [Visual Studio Code extension](build-register-apis-vscode-extension.md) for Azure API Center, you can generate a starting workflow file by running an extension command. In the Command Palette, select **Azure API Center: Register APIs**. Select **CI/CD** > **GitHub**. You can then modify the file for your scenario.
 
 ```yml
 name: Register API Definition to Azure API Center

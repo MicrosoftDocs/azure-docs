@@ -5,6 +5,10 @@ author: oshezaf
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: ofshezaf
+
+
+#Customer intent: As a security analyst, I want to use ASIM schemas so that I can normalize and query security data consistently across different sources.
+
 --- 
 
 # Advanced Security Information Model (ASIM) schemas
@@ -69,7 +73,7 @@ Each schema field has a type. Some have built-in, Log Analytics types, such as `
 |<a name="usertype"></a>**UserType** | Enumerated | The type of a user. For more information and list of allowed values, see [The User entity](#the-user-entity).  |
 |<a name="apptype"></a>**AppType** | Enumerated | The type of an application. Supported values include: `Process`<br>, `Service`,  `Resource`, `URL`, `SaaS application`, `CSP`, and `Other`. |
 |**Country**     |   String      |    A string using [ISO 3166-1](https://www.iso.org/iso-3166-country-codes.html), according to the following priority: <br><br> - Alpha-2 codes, such as `US` for the United States. <br> - Alpha-3 codes, such as `USA` for the United States. <br>- Short name.<br><br>The list of codes can be found on the [International Standards Organization (ISO) website](https://www.iso.org/obp/ui/#search).|
-|**Region**     | String        |   The country subdivision name, using ISO 3166-2.<br><br>The list of codes can be found on the [International Standards Organization (ISO) website](https://www.iso.org/obp/ui/#search).|
+|**Region**     | String        |   The country/region subdivision name, using ISO 3166-2.<br><br>The list of codes can be found on the [International Standards Organization (ISO) website](https://www.iso.org/obp/ui/#search).|
 |**City**     |  String       |         |
 |**Longitude**     | Double        |  ISO 6709 coordinate representation (signed decimal).       |
 |**Latitude**     | Double        |    ISO 6709 coordinate representation (signed decimal).     |
@@ -208,7 +212,7 @@ The allowed values for a device ID type are:
 | **VectraId** | A Vectra AI assigned resource ID.|
 | **Other** | An ID type not listed above.| 
 
-For example, the Azure Monitor [VM Insights solution](../azure-monitor/vm/vminsights-log-query.md) provides network sessions information in the `VMConnection`. The table provides an Azure Resource ID in the `_ResourceId` field and a VM insights specific device ID in the `Machine` field. Use the following mapping to represent those IDs:
+For example, the Azure Monitor [VM Insights solution](/azure/azure-monitor/vm/vminsights-log-query) provides network sessions information in the `VMConnection`. The table provides an Azure Resource ID in the `_ResourceId` field and a VM insights specific device ID in the `Machine` field. Use the following mapping to represent those IDs:
 
 | Field | Map to  |
 | ----- | ----- | 

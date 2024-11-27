@@ -155,6 +155,10 @@ module.exports = async function (context, req) {
       var certThumbprint = null;
       if (req.body.clientCertificates) {
           certThumbprint = req.body.clientCertificates[0].thumbprint;
+          // Certificate content in PEM
+          var certContent = req.body.clientCertificates[0].content;
+          var cert = new crypto.X509Certificate(certContent);
+          console.log('Client cert:', cert);
       }
       if (certThumbprint != validCertThumbprint) {
           context.log('Expect client cert:', validCertThumbprint, 'but got:', certThumbprint);

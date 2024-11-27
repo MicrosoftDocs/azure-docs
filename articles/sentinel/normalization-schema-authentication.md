@@ -5,6 +5,10 @@ author: oshezaf
 ms.topic: reference
 ms.date: 11/09/2021
 ms.author: ofshezaf
+
+
+#Customer intent: As a security analyst, I want to use the ASIM Authentication normalization schema so that I can standardize and analyze authentication events across multiple sources for improved threat detection.
+
 ---
 
 # The Advanced Security Information Model (ASIM) Authentication normalization schema reference (Public preview)
@@ -83,7 +87,7 @@ Authentication events reference the following entities:
 
 - **TargetUser** - The user information used to authenticate to the system. The **TargetSystem** is the primary subject of the authentication event, and the alias User aliases a **TargetUser** identified.
 - **TargetApp** - The application authenticated to.
-- **Target** - The system on which **TaregtApp*** is running.
+- **Target** - The system on which **TargetApp*** is running.
 - **Actor** - The user initiating the authentication, if different than **TargetUser**.
 - **ActingApp** - The application used by the **Actor** to perform the authentication.
 - **Src** - The system used by the **Actor** to initiate the authentication.
@@ -234,7 +238,7 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 |<a name="targetipaddr"></a>**TargetIpAddr** |Optional | IP Address|The IP address of the target device. <br><br>Example: `2.2.2.2` |
 | **TargetDvcOs**| Optional| String| The OS of the target device. <br><br>Example: `Windows 10`|
 | **TargetPortNumber** |Optional |Integer |The port of the target device.|
-| **TargetGeoCountry** | Optional | Country | The country associated with the target IP address.<br><br>Example: `USA` |
+| **TargetGeoCountry** | Optional | Country | The country/region associated with the target IP address.<br><br>Example: `USA` |
 | **TargetGeoRegion** | Optional | Region | The region associated with the target IP address.<br><br>Example: `Vermont` |
 | **TargetGeoCity** | Optional | City | The city associated with the target IP address.<br><br>Example: `Burlington` |
 | **TargetGeoLatitude** | Optional | Latitude | The latitude of the geographical coordinate associated with the target IP address.<br><br>Example: `44.475833` |

@@ -3,7 +3,7 @@ title: Sync data from Azure SQL Edge by using Azure Data Factory
 description: Learn about syncing data between Azure SQL Edge and Azure Blob storage
 author: rwestMSFT
 ms.author: randolphwest
-ms.date: 09/14/2023
+ms.date: 09/21/2024
 ms.service: azure-sql-edge
 ms.topic: tutorial
 keywords:
@@ -13,7 +13,9 @@ keywords:
 ---
 # Tutorial: Sync data from SQL Edge to Azure Blob storage by using Azure Data Factory
 
-> [!IMPORTANT]  
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
+
+> [!NOTE]  
 > Azure SQL Edge no longer supports the ARM64 platform.
 
 This tutorial shows you how to use Azure Data Factory to incrementally sync data to Azure Blob storage from a table in an instance of Azure SQL Edge.
@@ -221,6 +223,6 @@ Create a data factory by following the instructions in [this tutorial](../data-f
 
 1. Switch to the **Monitor** tab on the left. You can see the status of the pipeline run triggered by the manual trigger. Select **Refresh** to refresh the list.
 
-## Next steps
+## ## Related content
 
 - The Azure Data Factory pipeline in this tutorial copies data from a table on a SQL Edge instance to a location in Azure Blob storage once every hour. To learn about using Data Factory in other scenarios, see these [tutorials](../data-factory/tutorial-copy-data-portal.md).

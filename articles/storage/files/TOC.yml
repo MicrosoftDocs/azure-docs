@@ -77,6 +77,50 @@
       href: ../common/storage-use-azcopy-files.md?toc=/azure/storage/files/toc.json
     - name: Configure, optimize, and troubleshoot AzCopy
       href: ../common/storage-use-azcopy-configure.md?toc=/azure/storage/files/toc.json
+- name: Authentication and authorization
+  items:
+  - name: Overview of identity-based authentication options
+    href: storage-files-active-directory-overview.md
+  - name: Windows identity-based authentication
+    items:
+    - name: Enable an AD source
+      items:
+      - name: On-premises AD DS authentication
+        items:
+        - name: AD DS overview
+          href: storage-files-identity-ad-ds-overview.md
+        - name: Enable AD DS authentication
+          href: storage-files-identity-ad-ds-enable.md
+        - name: Use Azure Files with multiple AD DS forests
+          href: storage-files-identity-multiple-forests.md
+        - name: Update password
+          href: storage-files-identity-ad-ds-update-password.md
+      - name: Microsoft Entra Domain Services authentication
+        items:
+        - name: Enable Microsoft Entra Domain Services
+          href: storage-files-identity-auth-domain-services-enable.md
+      - name: Microsoft Entra Kerberos authentication
+        items:
+        - name: Enable authentication for hybrid identities
+          href: storage-files-identity-auth-hybrid-identities-enable.md
+        - name: Enable authentication for hybrid identities on legacy clients
+          href: storage-files-identity-auth-hybrid-cloud-trust.md
+    - name: Assign and manage permissions
+      items:
+      - name: Assign share-level permissions
+        href: storage-files-identity-assign-share-level-permissions.md
+      - name: Configure directory/file-level permissions
+        href: storage-files-identity-configure-file-level-permissions.md
+    - name: Mount file share
+      href: storage-files-identity-mount-file-share.md
+  - name: Linux identity-based authentication
+    href: storage-files-identity-auth-linux-kerberos-enable.md
+  - name: Authorize access to file data
+    items:
+    - name: Choose how to authorize access to file data
+      href: authorize-data-operations-portal.md
+    - name: Authorize access with Microsoft Entra ID using OAuth over REST
+      href: authorize-oauth-rest.md
 - name: Security and networking
   items:
   - name: Networking
@@ -137,38 +181,10 @@
         href: ../common/transport-layer-security-configure-minimum-version.md?toc=/azure/storage/files/toc.json
       - name: Configure TLS version for a client application
         href: ../common/transport-layer-security-configure-client-version.md?toc=/azure/storage/files/toc.json
-  - name: Authorization
-    items:
-    - name: Overview of identity-based authentication options
-      href: storage-files-active-directory-overview.md
-    - name: Enable on-premises AD DS authentication
-      items:
-      - name: AD DS overview
-        href: storage-files-identity-auth-active-directory-enable.md
-      - name: Enable AD DS authentication
-        href: storage-files-identity-ad-ds-enable.md
-      - name: Assign share-level permissions
-        href: storage-files-identity-ad-ds-assign-permissions.md
-      - name: Assign directory/file-level permissions
-        href: storage-files-identity-ad-ds-configure-permissions.md
-      - name: Mount file share
-        href: storage-files-identity-ad-ds-mount-file-share.md
-      - name: Update password
-        href: storage-files-identity-ad-ds-update-password.md
-    - name: Use Azure Files with multiple AD DS forests
-      href: storage-files-identity-multiple-forests.md
-    - name: Enable Microsoft Entra Domain Services authentication
-      href: storage-files-identity-auth-domain-services-enable.md
-    - name: Enable Microsoft Entra Kerberos authentication for hybrid identities
-      href: storage-files-identity-auth-hybrid-identities-enable.md
-    - name: Enable AD Kerberos authentication for Linux clients (SMB)
-      href: storage-files-identity-auth-linux-kerberos-enable.md
-    - name: Choose how to authorize access to file data
-      href: authorize-data-operations-portal.md
-    - name: Authorize access with Microsoft Entra ID using OAuth over REST
-      href: authorize-oauth-rest.md
   - name: Enable threat protection
     href: ../common/azure-defender-storage-configure.md?toc=/azure/storage/files/toc.json
+  - name: Configure root squash (NFS shares)
+    href: nfs-root-squash.md    
 - name: Data protection
   items:
   - name: Data protection overview
@@ -371,7 +387,7 @@
       - name: Data Movement library
         href: https://github.com/Azure/azure-storage-net-data-movement
       - name: Storage Resource Provider library
-        href: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.Management.Storage
+        href: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage/Azure.ResourceManager.Storage
     - name: Java
       items:
       - name: Azure Storage client library version 12.x (preview)

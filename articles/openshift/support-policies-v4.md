@@ -5,7 +5,7 @@ author: johnmarco
 ms.author: johnmarc
 ms.service: azure-redhat-openshift
 ms.topic: conceptual
-ms.date: 07/25/2024
+ms.date: 09/30/2024
 #Customer intent: I need to understand the Azure Red Hat OpenShift support policies for OpenShift 4.0.
 ---
 
@@ -47,7 +47,7 @@ Certain configurations for Azure Red Hat OpenShift 4 clusters can affect your cl
 
 ### Network and security
 
-* The ARO-provided Network Security Group can't be modified or replaced. Any attempt to modify or replace it will be reverted.
+* Unless you're using your own Network Security Group through the ["bring your own" Network Security Group feature](howto-bring-nsg.md), the ARO-provided Network Security Group can't be modified or replaced. Any attempt to modify or replace it will be reverted.
 * All cluster virtual machines must have direct outbound internet access, at least to the Azure Resource Manager (ARM) and service logging (Geneva) endpoints.  No form of HTTPS proxying is supported.
 * The Azure Red Hat OpenShift service accesses your cluster via Private Link Service.  Don't remove or modify service access.
 * Migrating from OpenShift SDN to OVN isn't supported.
@@ -55,12 +55,12 @@ Certain configurations for Azure Red Hat OpenShift 4 clusters can affect your cl
 ### Cluster management
 
 * Don't remove or modify the 'arosvc.azurecr.io' cluster pull secret.
-* Don't override any of the cluster's MachineConfig objects (for example, the kubelet configuration) in any way.
+* Don't create new MachineConfig objects or modify existing ones, unless explicitly supported in the Azure Red Hat OpenShift documentation.
+* Don't create new KubeletConfig objects or modify existing ones, unless explicitly supported in the Azure Red Hat OpenShift documentation.
 * Don't set any unsupportedConfigOverrides options. Setting these options prevents minor version upgrades.
 * Don't place policies within your subscription or management group that prevent SREs from performing normal maintenance against the Azure Red Hat OpenShift cluster. For example, don't require tags on the Azure Red Hat OpenShift RP-managed cluster resource group.
 * Don't circumvent the deny assignment that is configured as part of the service, or perform administrative tasks normally prohibited by the deny assignment.
 * OpenShift relies on the ability to automatically tag Azure resources. If you have configured a tagging policy, don't apply more than 10 user-defined tags to resources in the managed resource group.
-
 
 ## Incident management
 

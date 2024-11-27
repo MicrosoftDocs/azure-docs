@@ -1,7 +1,7 @@
 ---
 ms.service: azure-policy
 ms.topic: include
-ms.date: 08/26/2024
+ms.date: 11/04/2024
 ms.author: davidsmatlak
 author: davidsmatlak
 ms.custom: generated
@@ -140,7 +140,7 @@ For more information about this compliance standard, see
 
 |Domain |Control ID |Control title |Policy<br /><sub>(Azure portal)</sub> |Policy version<br /><sub>(GitHub)</sub>  |
 |---|---|---|---|---|
-|Operational framework | op.exp.6 |Operation |[Configure the Microsoft Defender for SQL Log Analytics workspace](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F242300d6-1bfc-4d64-8d01-cee583709ebd) |[1.3.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/MDC_DfSQL_DeployDefaultWorkspace.json) |
+|Operational framework | op.exp.6 |Operation |[Configure the Microsoft Defender for SQL Log Analytics workspace](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F242300d6-1bfc-4d64-8d01-cee583709ebd) |[1.4.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/MDC_DfSQL_DeployDefaultWorkspace.json) |
 
 ## SWIFT CSP-CSCF v2022
 

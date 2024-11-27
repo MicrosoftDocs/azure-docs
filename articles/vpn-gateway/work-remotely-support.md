@@ -32,7 +32,7 @@ At a high level, the following steps are needed to enable users to connect to Az
 1. Create a virtual network gateway (if one doesn't exist).
 1. Configure point-to-site VPN on the gateway.
 
-   * For certificate authentication, see [Configure point-to-site certificate authentication](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
+   * For certificate authentication, see [Configure point-to-site certificate authentication](point-to-site-certificate-gateway.md).
    * For Microsoft Entra ID authentication, see [Configure point-to-site Microsoft Entra ID authentication](point-to-site-entra-gateway.md)
    * For troubleshooting point-to-site connections, see [Troubleshooting: Azure point-to-site connection problems](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).
 1. Download and distribute the VPN client configuration.
@@ -58,7 +58,7 @@ To learn how to set up a site-to-site VPN tunnel, see [Create a site-to-site VPN
 ## Next Steps
 
 * [Configure a P2S connection - Microsoft Entra ID authentication](point-to-site-entra-gateway.md)
-* [Configure a P2S connection - Certificate authentication](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+* [Configure a P2S connection - Certificate authentication](point-to-site-certificate-gateway.md)
 * [Configure a P2S connection - RADIUS authentication](point-to-site-how-to-radius-ps.md)
 * [About VPN Gateway point-to-site VPN](point-to-site-about.md)
 * [About point-to-site VPN routing](vpn-gateway-about-point-to-site-routing.md)

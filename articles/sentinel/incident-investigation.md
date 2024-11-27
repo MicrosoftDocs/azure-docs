@@ -1,13 +1,16 @@
 ---
-title: Understand Microsoft Sentinel's incident investigation and case management capabilities
-description: This article describes Microsoft Sentinel's incident investigation and case management capabilities and features, taking you through the phases of a typical incident investigation while presenting all the displays and tools available to you to help you along.
+title: Incident investigation with Microsoft Sentinel in the Azure portal
+description: This article describes Microsoft Sentinel's incident investigation and case management capabilities and features in the Azure portal, taking you through the phases of a typical incident investigation while presenting all the displays and tools available to you to help you along.
 author: yelevin
 ms.author: yelevin
 ms.topic: conceptual
 ms.date: 01/01/2023
+appliesto: 
+  - Microsoft Sentinel in the Azure portal
+#Customer intent: As a security analyst, I want to use Microsoft Sentinel for incident investigation so that I can efficiently manage and resolve security threats.
 ---
 
-# Understand Microsoft Sentinel's incident investigation and case management capabilities
+# Incident investigation with Microsoft Sentinel in the Azure portal
 
 Microsoft Sentinel gives you a complete, full-featured case management platform for investigating and managing security incidents. **Incidents** are Microsoft Sentinel’s name for case files that contain a complete and constantly updated chronology of a security threat, whether it’s individual pieces of evidence (alerts), suspects and parties of interest (entities), insights collected and curated by security experts and AI/machine learning models, or comments and logs of all the actions taken in the course of the investigation.
 
@@ -69,8 +72,6 @@ The **Entities tab** contains a list of all the entities in the incident. When a
 - **Info** contains basic information about the entity. For a user account entity this might be things like the username, domain name, security identifier (SID), organizational information, security information, and more.
 - **Timeline** contains a list of the alerts that feature this entity and activities the entity has done, as collected from logs in which the entity appears.
 - **Insights** contains answers to questions about the entity relating to its behavior in comparison to its peers and its own history, its presence on watchlists or in threat intelligence, or any other sort of unusual occurrence relating to it. These answers are the results of queries defined by Microsoft security researchers that provide valuable and contextual security information on entities, based on data from a collection of sources.
-
-    As of November 2023, the **Insights** panel includes the next generation of insights, available in **PREVIEW**, in the form of enrichment widgets, alongside the existing insights. To take advantage of these new widgets, you must [enable the widget experience](enable-enrichment-widgets.md).
 
 Depending on the entity type, you can take a number of further actions from this side panel:
 - Pivot to the entity's full [entity page](entity-pages.md) to get even more details over a longer timespan or launch the graphical investigation tool centered on that entity.

@@ -31,6 +31,8 @@
     href: signalr-quickstart-rest-api.md
 - name: Tutorials
   items:
+  - name: Build a group chat app with OpenAI
+    href: signalr-tutorial-group-chat-with-openai.md
   - name: Build a serverless real-time app with authentication
     href: signalr-tutorial-authenticate-azure-functions.md
   - name: Build a Blazor Server chat app

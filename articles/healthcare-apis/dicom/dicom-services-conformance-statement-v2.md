@@ -2,12 +2,12 @@
 title: DICOM Conformance Statement version 2 for Azure Health Data Services
 description: Read about the features and specifications of the DICOM service v2 API, which supports a subset of the DICOMweb Standard for medical imaging data. A DICOM Conformance Statement is a technical document that describes how a device or software implements the DICOM standard.
 services: healthcare-apis
-author: mmitrik
+author: varunbms
 ms.service: azure-health-data-services
 ms.subservice: dicom-service
 ms.topic: reference
 ms.date: 1/18/2024
-ms.author: mmitrik
+ms.author: buchvarun
 ---
 
 # DICOM Conformance Statement v2
@@ -496,6 +496,7 @@ We support the following matching types.
 | Range Query | `StudyDate`/`PatientBirthDate` | `{attributeID}={value1}-{value2}`. For date/time values, we support an inclusive range on the tag. This range is mapped to `attributeID >= {value1} AND attributeID <= {value2}`. If `{value1}` isn't specified, all occurrences of dates/times prior to, and including `{value2}` are matched. Likewise, if `{value2}` isn't specified, all occurrences of `{value1}` and subsequent dates/times are matched. However, one of these values has to be present. `{attributeID}={value1}-` and `{attributeID}=-{value2}` are valid, however, `{attributeID}=-` is invalid. |
 | Exact Match | All supported attributes | `{attributeID}={value1}` |
 | Fuzzy Match | `PatientName`, `ReferringPhysicianName` | Matches any component of the name that starts with the value |
+| UID List Match | `StudyInstanceUID` | Matches studies identified by the values provided in the list. Supports comma (,) or a backslash (\\) as a valid separator. `{attributeID}=1.2.3,5.6.7,8.9.0` will return details associated with all the studies, given they exist. |
 
 #### Attribute ID
 
@@ -614,6 +615,7 @@ The query API returns one of the following status codes in the response.
 | `400 (Bad Request)` | The server was unable to perform the query because the query component was invalid. The response body contains details of the failure. |
 | `401 (Unauthorized)` | The client isn't authenticated. |
 | `403 (Forbidden)` | The user isn't authorized. |
+| `414 (URI Too Long)` | URI exceeded maximum supported length of 8192 characters. |
 | `424 (Failed Dependency)` | The DICOM service can't access a resource it depends on to complete this request. An example is failure to access the connected Data Lake store, or the key vault for supporting customer-managed key encryption. |
 | `503 (Service Unavailable)` | The service is unavailable or busy. Try again later. |
 
@@ -936,6 +938,7 @@ We support the following matching types.
 | Range Query | `ScheduledProcedureStepStartDateTime` | `{attributeID}={value1}-{value2}`. For date/time values, we support an inclusive range on the tag. This range is mapped to `attributeID >= {value1} AND attributeID <= {value2}`. If `{value1}` isn't specified, all occurrences of dates/times prior to, and including `{value2}` is matched. Likewise, if `{value2}` isn't specified, all occurrences of `{value1}` and subsequent dates/times are matched. However, one of these values must be present. `{attributeID}={value1}-` and `{attributeID}=-{value2}` are valid, however, `{attributeID}=-` isn't valid. |
 | Exact Match | All supported attributes | `{attributeID}={value1}` |
 | Fuzzy Match | `PatientName` | Matches any component of the name that starts with the value. |
+| WildCard Match | `PatientID`, <br/> `ReferencedRequestSequence.AccessionNumber`, <br/> `ReferencedRequestSequence.RequestedProcedureID`, <br/> `ProcedureStepState`, <br/> `ScheduledStationNameCodeSequence.CodeValue`, <br/> `ScheduledStationClassCodeSequence.CodeValue`, <br/> `ScheduledStationGeographicLocationCodeSequence.CodeValue` | Following wildcard characters are supported: <br/> `*` - Matches zero or more characters. For example - `{attributeID}={val*}` matches "val", "valid", "value" but not "evaluate". <br/> `?` - Matches a single character. For example - `{attributeID}={valu?}` matches "value", "valu1" but not "valued" or "valu" |
 
 > [!NOTE]
 > Although we don't support full sequence matching, we do support exact match on the attributes listed that are contained in a sequence.

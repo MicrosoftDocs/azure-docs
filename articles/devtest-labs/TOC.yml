@@ -4,6 +4,9 @@
   items:
   - name: What is DevTest Labs?
     href: devtest-lab-overview.md
+  - name: Roadmap for Azure DevTest Labs
+    displayName: roadmap, future, features, enhancements, coming soon, in development
+    href: devtest-labs-roadmap.md
 - name: Quickstart
   items:
   - name: Create a lab - Portal
@@ -211,10 +214,6 @@
     href: encrypt-disks-customer-managed-keys.md
   - name: Integrate with CI/CD
     items:
-    - name: Integrate labs into your Azure Pipelines CI/CD pipeline
-      href: devtest-lab-integrate-ci-cd.md
-    - name: Integrate environments into your Azure Pipelines CI/CD pipeline
-      href: integrate-environments-devops-pipeline.md
     - name: Use DevTest Labs in Azure Pipelines build and release pipelines
       href: use-devtest-labs-build-release-pipelines.md
   - name: Extend DevTest Labs
@@ -242,7 +241,7 @@
     - name: Troubleshoot issues when applying artifacts
       href: devtest-lab-troubleshoot-apply-artifacts.md
     - name: Troubleshoot VM deployment failures
-      href: troubleshoot-vm-deployment-failures.md  
+      href: troubleshoot-vm-deployment-failures.md
   - name: Monitor
     items:
     - name: View activity logs
@@ -270,4 +269,4 @@
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/devtest-lab/
   - name: DevTest Labs Developer Community
-    href: https://aka.ms/dtl/communityforum  
+    href: https://aka.ms/dtl/communityforum

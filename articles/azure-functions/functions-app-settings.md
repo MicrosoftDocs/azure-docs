@@ -14,7 +14,7 @@ Application settings in a function app contain configuration options that affect
 
 In this article, example connection string values are truncated for readability.
 
-Because Azure Functions leverages the Azure App Service platform for hosting, you might find some settings relevant to your function app hosting documented in [Environment variables and app settings in Azure App Service](../app-service/reference-app-settings.md).
+Because Azure Functions uses the Azure App Service platform for hosting, you might find some settings relevant to your function app hosting documented in [Environment variables and app settings in Azure App Service](../app-service/reference-app-settings.md).
 
 ## App setting considerations
 
@@ -22,7 +22,7 @@ When using app settings, you should be aware of the following considerations:
 
 + Changes to function app settings require your function app to be restarted.
 
-+ In setting names, double-underscore (`__`) and colon (`:`) are considered reserved values. Double-underscores are interpreted as hierarchical delimiters on both Windows and Linux, and colons are interpreted in the same way only on Linux. For example, the setting `AzureFunctionsWebHost__hostid=somehost_123456` would be interpreted as the following JSON object:
++ In setting names, double-underscore (`__`) and colon (`:`) are considered reserved values. Double-underscores are interpreted as hierarchical delimiters on both Windows and Linux, and colons are interpreted in the same way only on Windows. For example, the setting `AzureFunctionsWebHost__hostid=somehost_123456` would be interpreted as the following JSON object:
 
     ```json
     "AzureFunctionsWebHost": {
@@ -58,7 +58,7 @@ Don't use both `APPINSIGHTS_INSTRUMENTATIONKEY` and `APPLICATIONINSIGHTS_CONNECT
 
 ## APPLICATIONINSIGHTS_AUTHENTICATION_STRING
 
-Enables access to Application Insights by using Microsoft Entra authentication. Use this setting when you must connect to your Application Insights workspace by using Microsoft Entra authentication. For more information, see [Microsoft Entra authentication for Application Insights](../azure-monitor/app/azure-ad-authentication.md).
+Enables access to Application Insights by using Microsoft Entra authentication. Use this setting when you must connect to your Application Insights workspace by using Microsoft Entra authentication. For more information, see [Microsoft Entra authentication for Application Insights](/azure/azure-monitor/app/azure-ad-authentication).
 
 When you use `APPLICATIONINSIGHTS_AUTHENTICATION_STRING`, the specific value that you set depends on the type of managed identity:
 
@@ -75,10 +75,10 @@ This authentication requirement is applied to connections from the Functions hos
 
 The connection string for Application Insights. Don't use both `APPINSIGHTS_INSTRUMENTATIONKEY` and `APPLICATIONINSIGHTS_CONNECTION_STRING`. While the use of `APPLICATIONINSIGHTS_CONNECTION_STRING` is recommended in all cases, it's required in the following cases:
 
-+ When your function app requires the added customizations supported by using the connection string.  
-+ When your Application Insights instance runs in a sovereign cloud, which requires a custom endpoint.
++ When your function app requires the added customizations supported by using the connection string  
++ When your Application Insights instance runs in a sovereign cloud, which requires a custom endpoint
 
-For more information, see [Connection strings](../azure-monitor/app/sdk-connection-string.md).
+For more information, see [Connection strings](/azure/azure-monitor/app/sdk-connection-string).
 
 |Key|Sample value|
 |---|------------|
@@ -189,7 +189,7 @@ When this app setting is omitted or set to `false`, a page similar to the follow
 
 ## AzureWebJobsDotNetReleaseCompilation
 
-`true` means use Release mode when compiling .NET code; `false` means use Debug mode. Default is `true`.
+`true` means use `Release` mode when compiling .NET code; `false` means use Debug mode. Default is `true`.
 
 |Key|Sample value|
 |---|------------|
@@ -438,7 +438,7 @@ For Node.js v18 or lower, the app setting is used, and the default behavior depe
 
 ## FUNCTIONS\_REQUEST\_BODY\_SIZE\_LIMIT
 
-Overrides the default limit on the body size of requests sent to HTTP endpoints. The value is given in bytes, with a default maximum request size of 104857600 bytes. 
+Overrides the default limit on the body size of requests sent to HTTP endpoints. The value is given in bytes, with a default maximum request size of 104,857,600 bytes. 
 
 |Key|Sample value|
 |---|------------|
@@ -812,6 +812,21 @@ Indicates whether the `/home` directory is shared across scaled instances, with 
 
 Some configurations must be maintained at the App Service level as site settings, such as language versions. These settings are managed in the portal, by using REST APIs, or by using Azure CLI or Azure PowerShell. The following are site settings that could be required, depending on your runtime language, OS, and versions: 
 
+## AcrUseManagedIdentityCreds
+
+Indicates whether the image is obtained from an Azure Container Registry instance using managed identity authentication. A value of `true` requires that managed identity be used, which is recommended over stored authentication credentials as a security best practice. 
+
+## AcrUserManagedIdentityID 
+
+Indicates the managed identity to use when obtaining the image from an Azure Container Registry instance. Requires that `AcrUseManagedIdentityCreds` is set to `true`. These are the valid values:   
+
+| Value | Description |
+| ---- | ---- |
+| `system` | The system assigned managed identity of the function app is used. |
+| `<USER_IDENTITY_RESOURCE_ID>` | The fully qualified resource ID of a user-assigned managed identity. | 
+
+The identity that you specify must be added to the `ACRPull` role in the container registry. For more information, see [Create and configure a function app on Azure with the image](functions-deploy-container-apps.md?tabs=acr#create-and-configure-a-function-app-on-azure-with-the-image).
+
 ## alwaysOn
 
 On a function app running in a [Dedicated (App Service) plan](./dedicated-plan.md), the Functions runtime goes idle after a few minutes of inactivity, a which point only requests to an HTTP trigger _wakes up_ your function app. To make sure that your non-HTTP triggered functions run correctly, including Timer trigger functions, enable Always On for the function app by setting the `alwaysOn` site setting to a value of `true`. 
@@ -894,7 +909,7 @@ In the [Flex Consumption plan](./flex-consumption-plan.md), these site propertie
 | `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` |Replaced by functionAppConfig's deployment section|
 | `WEBSITE_CONTENTOVERVNET` |Not used for networking in Flex Consumption|
 | `WEBSITE_CONTENTSHARE` |Replaced by functionAppConfig's deployment section|
-| `WEBSITE_DNS_SERVER` |DNS is inherited from the integrated VNet in Flex|
+| `WEBSITE_DNS_SERVER` |DNS is inherited from the integrated virtual network in Flex|
 | `WEBSITE_NODE_DEFAULT_VERSION` |Replaced by `version` in `properties.functionAppConfig.runtime`|
 | `WEBSITE_RUN_FROM_PACKAGE`|Not used for deployments in Flex Consumption|
 | `WEBSITE_SKIP_CONTENTSHARE_VALIDATION` |Content share is not used in Flex Consumption|

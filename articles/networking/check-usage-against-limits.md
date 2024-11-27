@@ -6,7 +6,7 @@ author: mbender-ms
 ms.author: mbender
 ms.custom: devx-track-azurecli
 ms.service: azure
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/05/2018
 ---
 # Check resource usage against limits

@@ -1,8 +1,8 @@
 ---
 title: Azure Communications Gateway and your network
 description: Azure Communication Gateway sits on the edge of your network. Its interoperability features allow it to adapt to your requirements.
-author: rcdun
-ms.author: rdunstan
+author: GemmaWakeford 
+ms.author: gwakeford
 ms.service: azure-communications-gateway
 ms.topic: concept-article
 ms.date: 03/31/2024

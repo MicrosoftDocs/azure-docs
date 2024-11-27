@@ -5,7 +5,7 @@ author: troyhopwood
 ms.author: troyhop
 ms.date: 06/12/2023
 ms.topic: how-to
-ms.service: iot-central
+ms.service: azure-iot-central
 ms.custom: devx-track-azurecli
 ---
 
@@ -50,7 +50,7 @@ You need the following prerequisites to complete the steps in this guide:
 
 ## Download the sample code
 
-To get started, fork the IoT Central CI/CD GitHub repository and then clone your fork to your local machine:
+To get started, fork the IoT Central CI/CD GitHub repository and then clne your fork to your local machine:o
 
 1. To fork the GitHub repository, open the [IoT Central CI/CD GitHub repository](https://github.com/Azure/iot-central-CICD-sample) and select **Fork**.
 
@@ -212,8 +212,8 @@ Now that you have a configuration file that represents the settings for your dev
             "displayName": "Blob destination",
             "type": "blobstorage@v1",
             "authorization": {
-              "type": "connectionString",
-              "connectionString": "DefaultEndpointsProtocol=https;AccountName=yourexportaccount;AccountKey=*****;EndpointSuffix=core.windows.net",
+              "type": "systemAssignedManagedIdentity",
+              "endpointUri": "https://yourstorageaccount.blob.core.windows.net/",
               "containerName": "dataexport"
             },
             "status": "waiting"
@@ -237,7 +237,9 @@ Now that you have a configuration file that represents the settings for your dev
     az keyvault secret set --name FileUpload --vault-name {your production key vault name} --value '{your production storage account connection string}'
     ```
 
-1. If your application uses data exports, add secrets for the destinations to the production key vault. The config file doesn't contain any actual secrets for your destination, the secrets are stored in your key vault.
+1. If your application uses managed identities for data export destinations, there are no secrets for you to manage. However, you do need to enable the system-assigned managed identity for your production IoT Central application and give it the necessary permissions to write to the destination.
+
+1. If your application uses connection strings for data export destinations, add secrets for the destinations to the production key vault. The config file doesn't contain any actual secrets for your destination, the secrets are stored in your key vault.
 1. Update the secrets in the config file with the name of the secret in your key vault.
 
     | Destination type | Property to change |

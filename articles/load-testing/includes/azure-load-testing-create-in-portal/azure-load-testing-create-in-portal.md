@@ -38,8 +38,6 @@ ms.date: 10/11/2023
 
 1. To view the new resource, select **Go to resource**.
     
-    :::image type="content" source="../../media/azure-load-testing-create-in-portal/create-azure-load-testing-goto-resource.png" alt-text="Screenshot that shows the deployment completion screen.":::
-
 1. Optionally, [manage access to your Azure Load Testing resource](../../how-to-assign-roles.md).
 
     Azure Load Testing uses role-based access control (RBAC) to manage permissions for your resource. If you encounter this message, your account doesn't have the necessary permissions to manage tests.

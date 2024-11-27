@@ -3,7 +3,7 @@ title: How to manage devices and modules using twins
 titleSuffix: Azure IoT Hub
 description: Use the Azure portal and Azure CLI to query and update device twins and module twins in your Azure IoT hub.
 author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: how-to
 ms.date: 08/14/2024

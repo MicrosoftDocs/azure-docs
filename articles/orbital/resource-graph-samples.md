@@ -1,15 +1,16 @@
 ---
-title: Azure Resource Graph Sample Queries for Azure Orbital Ground Station
-description: Provides a collection of Azure Resource Graph sample queries for Azure Orbital Ground Station.
+title: Sample Queries for Azure Orbital Ground Station
+description: Provides a sample collection of Azure Resource Graph queries to be used for Azure Orbital Ground Station.
 author: kellydevens
-ms.service: orbital
+ms.service: azure-orbital
 ms.topic: how-to
 ms.custom: ga
 ms.date: 09/08/2023
-ms.author: kellydevens
+ms.author: mosagie
+#customer intent: As a satellite operator, I need contact info
 ---
 
-# Azure Resource Graph sample queries for Azure Orbital Ground Station
+# Sample Resource Graph Queries for Azure Orbital Ground Station
 
 This page is a collection of [Azure Resource Graph](../governance/resource-graph/overview.md) sample queries for Azure Orbital Ground Station. For a complete list of Azure Resource Graph samples, see
 [Resource Graph samples by Category](../governance/resource-graph/samples/samples-by-category.md) and [Resource Graph samples by Table](../governance/resource-graph/samples/samples-by-table.md).
@@ -51,7 +52,7 @@ OrbitalResources
 | project Contact = tostring(name), Groundstation = tostring(properties.groundStationName), Spacecraft, Contact_Profile, Reservation_Start_Time = todatetime(properties.reservationStartTime), Reservation_End_Time = todatetime(properties.reservationEndTime), Status=properties.status, Provisioning_Status=properties.provisioningState
 ```
 
-### List Contacts from Past ‘x’ Days
+### List Contacts from Past "x" Days
 
 #### Sorted by reservation start time 
 
@@ -64,7 +65,7 @@ OrbitalResources
 | project Contact = tostring(name), Groundstation = tostring(properties.groundStationName), Spacecraft, Contact_Profile, Reservation_Start_Time = todatetime(properties.reservationStartTime), Reservation_End_Time = todatetime(properties.reservationEndTime), Status=properties.status, Provisioning_Status=properties.provisioningState 
 ```
 
-#### On a specified ground station 
+#### Filtered for a specified ground station 
 
 This query will help customers track all the past contacts sorted by reservation start time for a specified ground station. 
 
@@ -77,7 +78,7 @@ OrbitalResources
 | project Contact = tostring(name), Groundstation = tostring(properties.groundStationName), Spacecraft, Contact_Profile, Reservation_Start_Time = todatetime(properties.reservationStartTime), Reservation_End_Time = todatetime(properties.reservationEndTime), Status=properties.status, Provisioning_Status=properties.provisioningState 
 ```
 
-#### On specified contact profile 
+#### Filtered for a specified contact profile 
 
 This query will help customers track all the past contacts sorted by reservation start time for a specified contact profile.
 

@@ -3,7 +3,8 @@ title: Expose Superset to the internet
 description: Learn how to expose Superset to the internet
 ms.service: azure-hdinsight-on-aks
 ms.topic: how-to 
-ms.date: 12/11/2023
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Expose Apache Superset to Internet

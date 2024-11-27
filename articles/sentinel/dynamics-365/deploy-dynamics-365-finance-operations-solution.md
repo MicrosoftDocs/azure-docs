@@ -5,6 +5,10 @@ author: batamig
 ms.author: bagol
 ms.topic: how-to
 ms.date: 02/12/2024
+
+
+#Customer intent: As a security administrator, I want to deploy a monitoring solution for Dynamics 365 Finance and Operations so that I can detect and respond to threats and suspicious activities in real-time.
+
 ---
 
 # Deploy Microsoft Sentinel solution for Dynamics 365 Finance and Operations
@@ -23,7 +27,7 @@ Before you begin, verify that:
 - You have a defined Microsoft Sentinel workspace and have read and write permissions to the workspace.
 - [Microsoft Dynamics 365 Finance version 10.0.33 or above](/dynamics365/finance/get-started/whats-new-changed-changed-10-0-33) is enabled and you have administrative access to the monitored environments.  
 - You can create an [Azure Function App](../../azure-functions/functions-overview.md) with the `Microsoft.Web/Sites`, `Microsoft.Web/ServerFarms`, `Microsoft.Insights/Components`, and `Microsoft.Storage/StorageAccounts` permissions.
-- You can create [Data Collection Rules/Endpoints](../../azure-monitor/essentials/data-collection-rule-overview.md) with the permissions:
+- You can create [Data Collection Rules/Endpoints](/azure/azure-monitor/essentials/data-collection-rule-overview) with the permissions:
     - `Microsoft.Insights/DataCollectionEndpoints`, and `Microsoft.Insights/DataCollectionRules`.
     - Assign the Monitoring Metrics Publisher role to the Azure Function. 
 

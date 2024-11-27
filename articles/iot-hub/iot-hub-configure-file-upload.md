@@ -4,7 +4,7 @@ description: How to use the Azure portal to configure your IoT hub to enable fil
 author: kgremban
 
 ms.author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.topic: how-to
 ms.date: 07/20/2021
 ---

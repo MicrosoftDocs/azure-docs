@@ -2,12 +2,12 @@
 title: Log storage and monitoring options in Azure Container Apps
 description: Description of logging options in Azure Container Apps
 services: container-apps
-author: v-jaswel
+author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: conceptual
 ms.date: 09/29/2022
-ms.author: v-wellsjason
+ms.author: cshoe
 ---
 
 # Log storage and monitoring options in Azure Container Apps
@@ -27,10 +27,10 @@ You can choose between these logs destinations:
     - Log Analytics workspace for viewing and analysis.
     - Azure storage account to archive.
     - Azure event hub for data ingestion and analytic services. For more information, see [Azure Event Hubs](../event-hubs/event-hubs-about.md).
-    - An Azure partner monitoring solution such as, Datadog, Elastic, Logz.io and others.  For more information, see [Partner solutions](../partner-solutions/overview.md).  
-- **None**: You can disable the storage of log data. When disabled, you can still view real-time container logs via the **Logs stream** feature in your container app. For more information, see [Log streaming](log-streaming.md).
+    - An Azure partner monitoring solution such as Datadog, Elastic, Logz.io and others.  For more information, see [Partner solutions](../partner-solutions/overview.md).  
+- **Don't save logs**: You can disable the storage of log data. When disabled, you can still view real-time container logs via the **Logs stream** feature in your container app. For more information, see [Log streaming](log-streaming.md).
 
-When *None* or the *Azure Monitor* destination is selected, the **Logs** menu item providing the Log Analytics query editor in the Azure portal is disabled.
+When *Don't save logs* or the *Azure Monitor* destination is selected, the **Logs** menu item providing the Log Analytics query editor in the Azure portal is disabled.
 
 ## Configure options via the Azure portal
 
@@ -41,14 +41,14 @@ Use these steps to configure the logging options for your Container Apps environ
 1. You can choose from the following **Logs Destination** options:
     - **Log Analytics**: With this option, you select a Log Analytics workspace to store your log data.  Your logs can be viewed through Log Analytics queries.  To learn more about Log Analytics, see [Azure Monitor Log Analytics](log-monitoring.md).
     - **Azure Monitor**: Azure Monitor routes your logs to a destination. When you select this option, you must select **Diagnostic settings** to complete the configuration after you select **Save** on this page.
-    - **None**:  This option disables the storage of log data.
+    - **Don't save logs**:  This option disables the storage of log data.
 1. Select **Save**.
     :::image type="content" source="media/observability/log-opts-screenshot-page-save-button.png" alt-text="Screenshot Logging options page.":::
 1. If you have selected **Azure Monitor** as your logs destination, you must configure **Diagnostic settings**.  The **Diagnostic settings** item appears below the **Logging options** menu item.
 
 ### Diagnostic settings
 
-When you select **Azure Monitor** as your logs destination, you must configure the destination details. Select **Diagnostic settings** from the left side menu of the Container Apps Environment window in the portal.
+When you select **Azure Monitor** as your logs destination, you must configure the destination details. Select **Diagnostic settings** from the left side menu of the Container Apps Environment window in the portal. You might need to refresh the page for **Diagnostic settings** to appear.
 
 :::image type="content" source="media/observability/log-opts-diag-setting-menu-item.png" alt-text="Screenshot Diagnostic setting menu item.":::
 
@@ -65,14 +65,13 @@ To create a new *diagnostic setting*:
 1. Select one or more **Destination details**:
     - **Send to Log Analytics workspace**:  Select from existing Log Analytics workspaces.
     :::image type="content" source="media/observability/diag-setting-log-analytics-console-log.png" alt-text="Screenshot diagnostic settings Log Analytics destination.":::
-    - **Archive to a storage account**:  You can choose from existing storage accounts.  When the individual log categories are selected, you can set the **Retention (days)** for each category.
-    :::image type="content" source="media/observability/diag-setting-storage-acct.png" alt-text="Screenshot Diagnostic settings storage destination.":::
+    - **Archive to a storage account**: This option is deprecated.
     - **Stream to an event hub**:  Select from Azure event hubs.  
     :::image type="content" source="media/observability/diag-settings-event-hub.png" alt-text="Screenshot Diagnostic settings event hub destination.":::
     - **Send to a partner solution**: Select from Azure partner solutions.  
 1. Select **Save**.
 
-For more information about Diagnostic settings, see [Diagnostic settings in Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md).
+For more information about Diagnostic settings, see [Diagnostic settings in Azure Monitor](/azure/azure-monitor/essentials/diagnostic-settings).
 
 ## Configure options using the Azure CLI
 

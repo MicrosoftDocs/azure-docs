@@ -1,15 +1,18 @@
 ---
-title: Collaborate in Microsoft Teams with a Microsoft Sentinel incident team | Microsoft Docs
+title: Collaborate in Microsoft Teams with a Microsoft Sentinel incident team
 description: Learn how to connect to Microsoft Teams from Microsoft Sentinel to collaborate with others on your team using Microsoft Sentinel data.
 author: yelevin
 ms.topic: how-to
 ms.date: 03/30/2022
 ms.author: yelevin
+appliesto: 
+  - Microsoft Sentinel in the Azure portal
+#Customer intent: As a security analyst, I want to take advantage of Microsoft Teams' integration with Microsoft Sentinel to collaborate efficiently on incident investigations with my team.
 ---
 
-# Collaborate in Microsoft Teams (Public preview)
+# Collaborate in Microsoft Teams in the Azure portal (Public preview)
 
-Microsoft Sentinel supports a direct integration with [Microsoft Teams](/microsoftteams/), enabling you to jump directly into teamwork on specific incidents.
+Microsoft Sentinel in the Azure portal supports a direct integration with [Microsoft Teams](/microsoftteams/), enabling you to jump directly into teamwork on specific incidents.
 
 
 > [!IMPORTANT]

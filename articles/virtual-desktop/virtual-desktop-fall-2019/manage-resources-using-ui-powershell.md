@@ -143,11 +143,11 @@ To verify the Microsoft Entra application configuration and provide consent:
 3. Select **All applications** and search the unique app name you provided for the PowerShell script in [Create a Microsoft Entra app registration](#create-an-azure-active-directory-app-registration).
 4. In the panel on the left side of the browser, select **Authentication** and make sure the redirect URI is the same as the web app URL for the management tool, as shown in the following image.
 
-    :::image type="content" source="../media/management-ui-redirect-uri-inline.png" alt-text="Screenshot of the Configure Web page on the Authentication tab for an app registration."
+    :::image type="content" source="../media/management-ui-redirect-uri-inline.png" alt-text="Screenshot of the Configure Web page on the Authentication tab for an app registration.":::
 
-5. In the left panel, select **API permissions** to confirm that permissions were added. If you're a global admin, select the **Grant admin consent for `tenantname`**  button and follow the dialog prompts to provide admin consent for your organization.
+5. In the left panel, select **API permissions** to confirm that permissions were added. If you're providing admin consent for all users, select the **Grant admin consent for `tenantname`**  button and follow the dialog prompts.
 
-    :::image type="content" source="../media/management-ui-permissions-inline.png" alt-text="Screenshot of the API permissions page for an app registration that highlights the option to grant admin consent for Contoso." lightbox="../media/management-ui-permissions-expanded.png"
+    :::image type="content" source="../media/management-ui-permissions-inline.png" alt-text="Screenshot of the API permissions page for an app registration that highlights the option to grant admin consent for Contoso." lightbox="../media/management-ui-permissions-expanded.png":::
 
 You can now start using the management tool.
 

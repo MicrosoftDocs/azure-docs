@@ -11,13 +11,13 @@ ms.author: kesheth
 
 # Register a confidential client application in Microsoft Entra ID for Azure API for FHIR
 
-[!INCLUDE [retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
+[!INCLUDE[retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
 
-In this tutorial, you'll learn how to register a confidential client application in Microsoft Entra ID.  
+In this tutorial, you learn how to register a confidential client application in Microsoft Entra ID.  
 
-A client application registration is a Microsoft Entra representation of an application that can be used to authenticate on behalf of a user and request access to [resource applications](register-resource-azure-ad-client-app.md). A confidential client application is an application that can be trusted to hold a secret and present that secret when requesting access tokens. Examples of confidential applications are server-side applications. 
+A client application registration is a Microsoft Entra representation of an application that can be used to authenticate on behalf of a user, and request access to [resource applications](register-resource-azure-ad-client-app.md). A confidential client application is an application that can be trusted to hold a secret and present that secret when requesting access tokens. Examples of confidential applications are server-side applications. 
 
-To register a new confidential client application, refer to the steps below. 
+To register a new confidential client application, use the following steps. 
 
 ## Register a new application
 
@@ -41,10 +41,10 @@ To register a new confidential client application, refer to the steps below.
 
 ## API permissions
 
-Permissions for Azure API for FHIR are managed through RBAC. For more details, visit [Configure Azure RBAC for FHIR](configure-azure-rbac.md).
+Permissions for Azure API for FHIR are managed through role-based access control (RBAC). For more details, visit [Configure Azure RBAC for FHIR](configure-azure-rbac.md).
 
 >[!NOTE]
->Use  grant_type of client_credentials when trying to obtain an access token for Azure API for FHIR using tools such as Postman. For more details, visit [Testing the FHIR API on Azure API for FHIR](tutorial-web-app-test-postman.md).
+>Use a  `grant_type` of `client_credentials` when trying to obtain an access token for Azure API for FHIR using tools such as Postman. For more details, visit [Testing the FHIR API on Azure API for FHIR](tutorial-web-app-test-postman.md).
 
 
 ## Application secret
@@ -53,7 +53,7 @@ Permissions for Azure API for FHIR are managed through RBAC. For more details, v
 
     :::image type="content" source="media/add-azure-active-directory/portal-aad-register-new-app-registration-confidential-client-secret.png" alt-text="Confidential client. Application Secret.":::
 
-1. Enter a **Description** for the client secret. Select the **Expires** drop-down menu to choose an expiration time frame, and then click **Add**.
+1. Enter a **Description** for the client secret. Select the **Expires** drop-down menu to choose an expiration time frame, and then select **Add**.
 
    :::image type="content" source="media/add-azure-active-directory/add-a-client-secret.png" alt-text="Add a client secret.":::
 
@@ -66,9 +66,10 @@ Permissions for Azure API for FHIR are managed through RBAC. For more details, v
  
 ## Next steps
 
-In this article, you were guided through the steps of how to register a confidential client application in the Microsoft Entra ID. You were also guided through the steps of how to add API permissions in Microsoft Entra ID for Azure API for FHIR. Lastly, you were shown how to create an application secret. Furthermore, you can learn how to access your FHIR server using Postman.
+In this article, you were guided through the steps of how to register a confidential client application in the Microsoft Entra ID. You were also guided through the steps of how to add API permissions in Microsoft Entra ID for Azure API for FHIR. Lastly, you were shown how to create an application secret.<br>
+You can also learn how to access your FHIR server using Postman.
  
 >[!div class="nextstepaction"]
 >[Access the FHIR service using Postman](./../fhir/use-postman.md)
 
-FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
+[!INCLUDE[FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]

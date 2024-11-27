@@ -1,17 +1,17 @@
 ---
 title:  Access DICOMweb APIs to manage DICOM data in Azure Health Data Services
 description: Learn how to use DICOMweb APIs to store, review, search, and delete DICOM objects. Learn how to use custom APIs to track changes and assign unique tags to DICOM data.
-author: mmitrik
+author: varunbms
 ms.service: azure-health-data-services
 ms.subservice: dicom-service
 ms.topic: tutorial
 ms.date: 05/29/2024
-ms.author: mmitrik
+ms.author: buchvarun
 ---
 
 # Access DICOMweb APIs to manage DICOM data
 
-The DICOM&reg; service allows you to store, review, search, and delete DICOM objects by using a subset of DICOMweb APIs. The DICOMweb APIs are web-based services that follow the DICOM standard. By using these APIs, you can access and manage your organization's DICOM data without requiring complex protocols or formats.
+The DICOM&reg; service allows you to store, review, search, and delete DICOM objects by using a subset of DICOMweb APIs. The DICOMweb APIs are web-based services that follow the DICOM standard. Using these APIs, you can access and manage your organization's DICOM data without requiring complex protocols or formats.
 
 The supported services are:
 
@@ -39,7 +39,7 @@ In addition to the subset of DICOMweb APIs, the DICOM service supports these cus
 
 The DICOM service provides a web-based interface that follows REST (representational state transfer) principles. The REST API allows different applications or systems to communicate with each other using standard methods like GET, POST, PUT, and DELETE. To interact with the DICOM service, use any programming language that supports HTTP requests and responses.
 
-Refer to the language-specific examples. You can view Postman collection examples in several languages including:
+Refer to the language-specific examples. You can view Postman collection examples in several languages including the following.
 
 - Go 
 - Java 
@@ -73,7 +73,7 @@ For more information about how to use Python with the DICOM service, see [Using 
 
 Postman is an excellent tool for designing, building, and testing REST APIs. [Download Postman](https://www.postman.com/downloads/) to get started. For more information, see [Postman learning site](https://learning.postman.com/).
 
-One important caveat with Postman and the DICOMweb standard is that Postman only supports uploading DICOM files by using the single-part payload defined in the DICOM standard. This caveat is because Postman can't support custom separators in a multipart/related POST request. For more information, see [Multipart POST not working for me # 576](https://github.com/postmanlabs/postman-app-support/issues/576). All examples in the Postman collection for uploading DICOM documents by using a multipart request are prefixed with **[won't work - see description]**. The examples for uploading by using a single-part request are included in the collection and are prefixed with **Store-Single-Instance**.
+One important caution with Postman and the DICOMweb standard is that Postman only supports uploading DICOM files by using the single-part payload defined in the DICOM standard. This is because Postman can't support custom separators in a multipart/related POST request. For more information, see [Multipart POST not working for me # 576](https://github.com/postmanlabs/postman-app-support/issues/576). All examples in the Postman collection for uploading DICOM documents by using a multipart request are prefixed with **[won't work - see description]**. The examples for uploading by using a single-part request are included in the collection and are prefixed with **Store-Single-Instance**.
 
 To use the Postman collection, download it locally and then import the collection through Postman. To access the collection, see [Postman Collection Examples](https://github.com/microsoft/dicom-server/blob/main/docs/resources/Conformance-as-Postman.postman_collection.json).
 

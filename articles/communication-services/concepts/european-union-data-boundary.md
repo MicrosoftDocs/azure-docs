@@ -30,7 +30,7 @@ For EU communication resources, when the organizer, initiator, or guests join a 
 
 ## SMS
 
-Azure Communication Services guarantees that SMS data within the EUDB is stored in EUDB regions. As of today, we process and store data in the Netherlands, Ireland or Switzerland regions, ensuring no unauthorized data transfer outside the EEA.  
+Azure Communication Services guarantees that SMS data within the EUDB is stored in EUDB regions. As of today, we process and store data in the Netherlands, Ireland or Switzerland regions, ensuring no unauthorized data transfer outside the EEA (European Economic Area).  
 Also, Azure Communication Services employs advanced security measures, including encryption, to protect SMS data both at rest and in transit. Customers can select their preferred data residency within the EUDB, making sure data remains within the designated EU regions. 
 
 #### SMS EUDB FAQ

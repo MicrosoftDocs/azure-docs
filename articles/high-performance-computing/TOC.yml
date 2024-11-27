@@ -1,0 +1,61 @@
+- name: High-Performance Computing on-premises to cloud lift and shift
+  href: index.yml
+- name: Get started
+  expanded: true
+  items:
+  - name: Overview
+    href: lift-and-shift-overview.md
+- name: Migration guide
+  expanded: true
+  items:
+  - name: Proof-of-concept migration guide
+    href: lift-and-shift-proof-of-concept.md
+  - name: Production-level environment migration guide
+    expanded: true
+    items:
+    - name: Overview
+      href: lift-and-shift-production-level-overview.md
+    - name: Deployment step 1 - Basic infrastructure
+      items:
+      - name: Overview
+        href: lift-and-shift-step-1-overview.md
+      - name: Resource group
+        href: lift-and-shift-step-1-resource-group.md
+      - name: Network access
+        href: lift-and-shift-step-1-networking.md
+      - name: Storage
+        href: lift-and-shift-step-1-storage.md
+    - name: Deployment step 2 - Base services
+      items:
+      - name: Overview
+        href: lift-and-shift-step-2-overview.md
+      - name: Job scheduler
+        href: lift-and-shift-step-2-job-scheduler.md
+      - name: Resource orchestrator
+        href: lift-and-shift-step-2-resource-orchestrator.md
+      - name: Identity management
+        href: lift-and-shift-step-2-identity.md
+      - name: Accounting
+        href: lift-and-shift-step-2-accounting.md
+      - name: Monitoring
+        href: lift-and-shift-step-2-monitor.md
+    - name: Deployment step 3 - Storage
+      items:
+      - name: Overview
+        href: lift-and-shift-step-3-overview.md
+      - name: Storage
+        href: lift-and-shift-step-3-storage.md
+      - name: Data migration
+        href: lift-and-shift-step-3-data-migration.md
+    - name: Deployment step 4 - Compute nodes
+      items:
+      - name: Overview
+        href: lift-and-shift-step-4-overview.md
+      - name: VM images
+        href: lift-and-shift-step-4-vm-images.md
+    - name: Deployment step 5 - End user entry point
+      items:
+      - name: Overview
+        href: lift-and-shift-step-5-overview.md
+      - name: End-user entry point
+        href: lift-and-shift-step-5-end-user-entry-point.md

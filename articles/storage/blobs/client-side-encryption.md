@@ -7,7 +7,7 @@ author: normesta
 
 ms.service: azure-blob-storage
 ms.topic: article
-ms.date: 08/07/2024
+ms.date: 10/03/2024
 ms.author: normesta
 ms.reviewer: ozgun
 ms.devlang: csharp
@@ -25,7 +25,7 @@ For a step-by-step tutorial that leads you through the process of encrypting blo
 
 ## About client-side encryption
 
-The Azure Blob Storage client library uses [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) in order to encrypt user data. There are two versions of client-side encryption available in the client library:
+The Azure Blob Storage client library uses [Advanced Encryption Standard (AES)](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) to encrypt user data. There are two versions of client-side encryption available in the client library:
 
 - Version 2 uses [Galois/Counter Mode (GCM)](https://en.wikipedia.org/wiki/Galois/Counter_Mode) mode with AES.
 - Version 1 uses [Cipher Block Chaining (CBC)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) mode with AES.
@@ -41,12 +41,12 @@ Due to a security vulnerability discovered in the Blob Storage client library's 
 
 - If you need to use client-side encryption, then migrate your applications from client-side encryption v1 to client-side encryption v2.
 
-The following table summarizes the steps you'll need to take if you choose to migrate your applications to client-side encryption v2:
+The following table summarizes the steps to take if you choose to migrate your applications to client-side encryption v2:
 
 | Client-side encryption status | Recommended actions |
 |---|---|
-| Application is using client-side encryption a version of the client library that supports only client-side encryption v1. | Update your application to use a version of the client library that supports client-side encryption v2. See [SDK support matrix for client-side encryption](#sdk-support-matrix-for-client-side-encryption) for a list of supported versions. [Learn more...](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Azure.Storage.Blobs/AzureStorageNetMigrationV12.md)<br/><br/>Update your code to use client-side encryption v2. [Learn more...](#example-encrypting-and-decrypting-a-blob-with-client-side-encryption-v2)<br/><br/>Download any encrypted data to decrypt it, then reencrypt it with client-side encryption v2. [Learn more...](#reencrypt-previously-encrypted-data-with-client-side-encryption-v2) |
-| Application is using client-side encryption with a version of the client library that supports client-side encryption v2. | Update your code to use client-side encryption v2. [Learn more...](#example-encrypting-and-decrypting-a-blob-with-client-side-encryption-v2)<br/><br/>Download any encrypted data to decrypt it, then reencrypt it with client-side encryption v2. [Learn more...](#reencrypt-previously-encrypted-data-with-client-side-encryption-v2) |
+| Application is using client-side encryption a version of the client library that supports only client-side encryption v1. | Update your application to use a version of the client library that supports client-side encryption v2. See [SDK support matrix for client-side encryption](#sdk-support-matrix-for-client-side-encryption) for a list of supported versions. [Learn more...](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Azure.Storage.Blobs/AzureStorageNetMigrationV12.md)<br/><br/>Update your code to use client-side encryption v2. [Learn more...](#example-encrypting-and-decrypting-a-blob-with-client-side-encryption-v2)<br/><br/>Download any encrypted data to decrypt it, then re-encrypt it with client-side encryption v2. [Learn more...](#re-encrypt-previously-encrypted-data-with-client-side-encryption-v2) |
+| Application is using client-side encryption with a version of the client library that supports client-side encryption v2. | Update your code to use client-side encryption v2. [Learn more...](#example-encrypting-and-decrypting-a-blob-with-client-side-encryption-v2)<br/><br/>Download any encrypted data to decrypt it, then re-encrypt it with client-side encryption v2. [Learn more...](#re-encrypt-previously-encrypted-data-with-client-side-encryption-v2) |
 
 Additionally, Microsoft recommends that you take the following steps to help secure your data:
 
@@ -55,14 +55,17 @@ Additionally, Microsoft recommends that you take the following steps to help sec
 
 ### SDK support matrix for client-side encryption
 
-The following table shows which versions of the client libraries for .NET, Java, and Python support which versions of client-side encryption:
+The following table shows which versions of the client libraries for .NET, Java, and Python support different versions of client-side encryption:
 
 |  | .NET | Java | Python |
-|--|--|--|--|
+| --- | --- | --- | --- |
 | **Client-side encryption v2 and v1** | [Versions 12.13.0 and later](https://www.nuget.org/packages/Azure.Storage.Blobs) | [Versions 12.18.0 and later](https://search.maven.org/artifact/com.azure/azure-storage-blob) | [Versions 12.13.0 and later](https://pypi.org/project/azure-storage-blob) |
 | **Client-side encryption v1 only** | Versions 12.12.0 and earlier | Versions 12.17.0 and earlier | Versions 12.12.0 and earlier |
 
-If your application is using client-side encryption with an earlier version of the .NET, Java, or Python client library, you must first upgrade your code to a version that supports client-side encryption v2. Next, you must decrypt and re-encrypt your data with client-side encryption v2. If necessary, you can use a version of the client library that supports client-side encryption v2 side-by-side with an earlier version of the client library while you are migrating your code. For code examples, see [Example: Encrypting and decrypting a blob with client-side encryption v2](#example-encrypting-and-decrypting-a-blob-with-client-side-encryption-v2).
+> [!NOTE]
+> Client-side encryption v2.1 is available in the Java SDK for versions 12.27.0 and later. This version allows you to configure the region length for authenticated encryption, from 16 bytes to 1 GiB. For more information, see the Java example at [Example: Encrypting and decrypting a blob with client-side encryption v2](#example-encrypting-and-decrypting-a-blob-with-client-side-encryption-v2).
+
+If your application is using client-side encryption with an earlier version of the .NET, Java, or Python client library, you must first upgrade your code to a version that supports client-side encryption v2. Next, you must decrypt and re-encrypt your data with client-side encryption v2. If necessary, you can use a version of the client library that supports client-side encryption v2 side-by-side with an earlier version of the client library while you're migrating your code. For code examples, see [Example: Encrypting and decrypting a blob with client-side encryption v2](#example-encrypting-and-decrypting-a-blob-with-client-side-encryption-v2).
 
 ## How client-side encryption works
 
@@ -86,18 +89,18 @@ Decryption via the envelope technique works as follows:
 
 1. The Azure Storage client library assumes that the user is managing the KEK either locally or in an Azure Key Vault. The user doesn't need to know the specific key that was used for encryption. Instead, a key resolver that resolves different key identifiers to keys can be set up and used.
 1. The client library downloads the encrypted data along with any encryption material that is stored in Azure Storage.
-1. The wrapped CEK) is then unwrapped (decrypted) using the KEK. The client library doesn't have access to the KEK during this process, but only invokes the unwrapping algorithm of the Azure Key Vault or other key store.
+1. The wrapped CEK is then unwrapped (decrypted) using the KEK. The client library doesn't have access to the KEK during this process, but only invokes the unwrapping algorithm of the Azure Key Vault or other key store.
 1. The client library uses the CEK to decrypt the encrypted user data.
 
 ### Encryption/decryption on blob upload/download
 
-The Blob Storage client library supports encryption of whole blobs only on upload. For downloads, both complete and range downloads are supported. Client-side encryption v2 chunks data into 4MB buffered authenticated encryption blocks which can only be transformed whole.
+The Blob Storage client library supports encryption of whole blobs only on upload. For downloads, both complete and range downloads are supported. Client-side encryption v2 chunks data into 4 MiB buffered authenticated encryption blocks which can only be transformed whole. To adjust the chunk size, make sure you're using the most recent version of the SDK that supports client-side encryption v2.1. The region length is configurable from 16 bytes up to 1 GiB.
 
 During encryption, the client library generates a random initialization vector (IV) of 16 bytes and a random CEK of 32 bytes, and performs envelope encryption of the blob data using this information. The wrapped CEK and some additional encryption metadata are then stored as blob metadata along with the encrypted blob.
 
 When a client downloads an entire blob, the wrapped CEK is unwrapped and used together with the IV to return the decrypted data to the client.
 
-Downloading an arbitrary range in the encrypted blob involves adjusting the range provided by users in order to get a small amount of additional data that can be used to successfully decrypt the requested range.
+Downloading an arbitrary range in the encrypted blob involves adjusting the range provided by users to get a small amount of additional data that can be used to successfully decrypt the requested range.
 
 All blob types (block blobs, page blobs, and append blobs) can be encrypted/decrypted using this scheme.
 
@@ -111,26 +114,26 @@ All blob types (block blobs, page blobs, and append blobs) can be encrypted/decr
 The code example in this section shows how to use client-side encryption v2 to encrypt and decrypt a blob.
 
 > [!IMPORTANT]
-> If you have data that has been previously encrypted with client-side encryption v1, then you'll need to decrypt that data and reencrypt it with client-side encryption v2. See the guidance and sample for your client library below.
+> If you have data that has been previously encrypted with client-side encryption v1, then you'll need to decrypt that data and re-encrypt it with client-side encryption v2. See the guidance and sample for your client library below.
 
 ### [.NET](#tab/dotnet)
 
-To use client-side encryption from your .NET code, reference the [Blob Storage client library](/dotnet/api/overview/azure/storage.blobs-readme). Make sure that you are using version 12.13.0 or later. If you need to migrate from version 11.x to version 12.13.0, see the [Migration guide](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Azure.Storage.Blobs/AzureStorageNetMigrationV12.md).
+To use client-side encryption from your .NET code, reference the [Blob Storage client library](/dotnet/api/overview/azure/storage.blobs-readme). Make sure that you're using version 12.13.0 or later. If you need to migrate from version 11.x to version 12.13.0, see the [Migration guide](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Azure.Storage.Blobs/AzureStorageNetMigrationV12.md).
 
 Two additional packages are required for Azure Key Vault integration for client-side encryption:
 
 - The **Azure.Core** package provides the `IKeyEncryptionKey` and `IKeyEncryptionKeyResolver` interfaces. The Blob Storage client library for .NET already defines this assembly as a dependency.
-- The **Azure.Security.KeyVault.Keys** package (version 4.x and later) provides the Key Vault REST client and the cryptographic clients that are used with client-side encryption. You'll need to ensure that this package is referenced in your project if you're using Azure Key Vault as your key store.
+- The **Azure.Security.KeyVault.Keys** package (version 4.x and later) provides the Key Vault REST client and the cryptographic clients that are used with client-side encryption. Make sure that this package is referenced in your project if you're using Azure Key Vault as your key store.
 
     Azure Key Vault is designed for high-value master keys, and throttling limits per key vault reflect this design. As of version 4.1.0 of Azure.Security.KeyVault.Keys, the `IKeyEncryptionKeyResolver` interface doesn't support key caching. Should caching be necessary due to throttling, you can use the approach demonstrated in [this sample](/samples/azure/azure-sdk-for-net/azure-key-vault-proxy/) to inject a caching layer into an `Azure.Security.KeyVault.Keys.Cryptography.KeyResolver` instance.
 
 Developers can provide a key, a key resolver, or both a key and a key resolver. Keys are identified using a key identifier that provides the logic for wrapping and unwrapping the CEK. A key resolver is used to resolve a key during the decryption process. The key resolver defines a resolve method that returns a key given a key identifier. The resolver provides users the ability to choose between multiple keys that are managed in multiple locations.
 
-On encryption, the key is used always and the absence of a key will result in an error.
+On encryption, the key is always used and the absence of a key results in an error.
 
 On decryption, if the key is specified and its identifier matches the required key identifier, that key is used for decryption. Otherwise, the client library attempts to call the resolver. If there's no resolver specified, then the client library throws an error. If a resolver is specified, then the key resolver is invoked to get the key. If the resolver is specified but doesn't have a mapping for the key identifier, then the client library throws an error.
 
-To use client-side encryption, create a **ClientSideEncryptionOptions** object and set it on client creation with **SpecializedBlobClientOptions**. You can't set encryption options on a per-API basis. Everything else will be handled by the client library internally.
+To use client-side encryption, create a **ClientSideEncryptionOptions** object and set it on client creation with **SpecializedBlobClientOptions**. You can't set encryption options on a per-API basis. Everything else is handled by the client library internally.
 
 ```csharp
 // Your key and key resolver instances, either through Azure Key Vault SDK or an external implementation.
@@ -180,19 +183,54 @@ ClientSideEncryptionOptions encryptionOptions;
 BlobClient clientSideEncryptionBlob = plaintextBlob.WithClientSideEncryptionOptions(encryptionOptions);
 ```
 
-After you update your code to use client-side encryption v2, make sure that you deencrypt and reencrypt any existing encrypted data, as described in [Reencrypt previously encrypted data with client-side encryption v2](#reencrypt-previously-encrypted-data-with-client-side-encryption-v2).
+After you update your code to use client-side encryption v2, make sure that you decrypt and re-encrypt any existing encrypted data, as described in [Re-encrypt previously encrypted data with client-side encryption v2](#re-encrypt-previously-encrypted-data-with-client-side-encryption-v2).
 
 ### [Java](#tab/java)
 
-To use client-side encryption from your Java code, reference the [Blob Storage client library](/java/api/overview/azure/storage-blob-readme). Make sure that you are using version 12.18.0 or later. If you need to migrate from an earlier version of the Java client library, see the [Blob Storage migration guide for Java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/storage/azure-storage-blob/migrationGuides/V8_V12.md).
+To use client-side encryption from your Java code, reference the [Blob Storage client library](/java/api/overview/azure/storage-blob-readme). Make sure that you're using version 12.18.0 or later. If you need to migrate from an earlier version of the Java client library, see the [Blob Storage migration guide for Java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/storage/azure-storage-blob/migrationGuides/V8_V12.md).
 
-For sample code that shows how to use client-side encryption v2 from Java, see [ClientSideEncryptionV2Uploader.java](https://github.com/wastore/azure-storage-samples-for-java/blob/f1621c807a4b2be8b6e04e226cbf0a288468d7b4/ClientSideEncryptionMigration/src/main/java/ClientSideEncryptionV2Uploader.java).
+To use client-side encryption v2.1, include a dependency on `azure-storage-blob-cryptography` version 12.27.0 or later. Client-side encryption v2 has a fixed chunk size of 4 MiB, while v2.1 includes the ability to configure the region length for authenticated encryption. The region length is configurable from 16 bytes up to 1 GiB.
 
-After you update your code to use client-side encryption v2, make sure that you deencrypt and reencrypt any existing encrypted data, as described in [Reencrypt previously encrypted data with client-side encryption v2](#reencrypt-previously-encrypted-data-with-client-side-encryption-v2).
+To use client-side encryption v2.1, create a [BlobClientSideEncryptionOptions](/java/api/com.azure.storage.blob.specialized.cryptography.blobclientsideencryptionoptions) instance and optionally set the region length using the `setAuthenticatedRegionDataLengthInBytes` method. Then pass the encryption options to the [EncryptedBlobClientBuilder](/java/api/com.azure.storage.blob.specialized.cryptography.encryptedblobclientbuilder) constructor.
+
+Add the following `import` directives to your code:
+
+```java
+import com.azure.core.cryptography.*;
+import com.azure.storage.blob.specialized.cryptography.*;
+```
+
+The following code example shows how to use client-side encryption v2.1 to encrypt a blob for upload:
+
+```java
+// Your key instance, either through Azure Key Vault SDK or an external implementation
+AsyncKeyEncryptionKey keyEncryptionKey;
+AsyncKeyEncryptionKeyResolver keyResolver;
+String keyWrapAlgorithm = "algorithm name";
+
+// Sets the region length to 4 KiB
+BlobClientSideEncryptionOptions encryptionOptions = new BlobClientSideEncryptionOptions()
+    .setAuthenticatedRegionDataLengthInBytes(1024 * 4);
+ 
+EncryptedBlobClient ebc = new EncryptedBlobClientBuilder(EncryptionVersion.V2_1)
+    .blobClient(client)
+    .key(key, keyWrapAlgorithm)
+    .keyResolver(keyResolver)
+    .credential(new DefaultAzureCredentialBuilder().build())
+    .endpoint("https://<storage-account-name>.blob.core.windows.net/")
+    .clientSideEncryptionOptions(encryptionOptions)
+    .buildEncryptedBlobClient();
+
+ebc.upload(BinaryData.fromString("sample data"));
+```
+
+To learn more about the library used for client-side encryption, see [Azure Storage Blobs Cryptography client library for Java](/java/api/overview/azure/storage-blob-cryptography-readme).
+
+If you're migrating from client-side encryption v1, make sure that you decrypt and re-encrypt any existing encrypted data, as described in [Re-encrypt previously encrypted data with client-side encryption v2](#re-encrypt-previously-encrypted-data-with-client-side-encryption-v2).
 
 ### [Python](#tab/python)
 
-To use client-side encryption from your Python code, reference the [Blob Storage client library](/python/api/overview/azure/storage-blob-readme). Make sure that you are using version 12.13.0 or later. If you need to migrate from an earlier version of the Python client library, see the [Blob Storage migration guide for Python](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/storage/azure-storage-blob/migration_guide.md).
+To use client-side encryption from your Python code, reference the [Blob Storage client library](/python/api/overview/azure/storage-blob-readme). Make sure that you're using version 12.13.0 or later. If you need to migrate from an earlier version of the Python client library, see the [Blob Storage migration guide for Python](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/storage/azure-storage-blob/migration_guide.md).
 
 The following example shows how to use client-side migration v2 from Python:
 
@@ -206,13 +244,13 @@ blob_client = blob_service_client.get_blob_client(container=container_name, blob
         blob_client.upload_blob(stream, overwrite=OVERWRITE_EXISTING)
 ```
 
-After you update your code to use client-side encryption v2, make sure that you deencrypt and reencrypt any existing encrypted data, as described in [Reencrypt previously encrypted data with client-side encryption v2](#reencrypt-previously-encrypted-data-with-client-side-encryption-v2).
+After you update your code to use client-side encryption v2, make sure that you decrypt and re-encrypt any existing encrypted data, as described in [Re-encrypt previously encrypted data with client-side encryption v2](#re-encrypt-previously-encrypted-data-with-client-side-encryption-v2).
 
 ---
 
-## Reencrypt previously encrypted data with client-side encryption v2
+## Re-encrypt previously encrypted data with client-side encryption v2
 
-Any data that was previously encrypted with client-side encryption v1 must be decrypted and then reencrypted with client-side encryption v2 to mitigate the security vulnerability. Decryption requires downloading the data and reencryption requires reuploading it to Blob Storage.
+Any data that was previously encrypted with client-side encryption v1 must be decrypted and then re-encrypted with client-side encryption v2 to mitigate the security vulnerability. Decryption requires downloading the data and re-encryption requires reuploading it to Blob Storage.
 
 ### [.NET](#tab/dotnet)
 

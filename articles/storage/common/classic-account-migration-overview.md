@@ -83,17 +83,13 @@ For step-by-step instructions for migrating your classic storage accounts, see [
 
 ### Can I create new classic accounts?
 
-Depending on when your subscription was created, you may no longer be able to create classic storage accounts:
-
-- Subscriptions created after August 31, 2022 can no longer create classic storage accounts.
-- Subscriptions created before September 1, 2022 will be able to create classic storage accounts until September 1, 2023.
-- Also, beginning August 31, 2022, the ability to create classic storage accounts has been discontinued in additional phases based on the last time a classic storage account was created.
+After August 16, 2024, customers can no longer create classic storage accounts.
 
 We recommend creating storage accounts only in Azure Resource Manager from this point forward.
 
 ### What happens to existing classic storage accounts after August 31, 2024?
 
-After August 31, 2024, you'll no longer be able to manage data in your classic storage accounts through Azure Service Manager. The data will be preserved but we highly recommend migrating these accounts to Azure Resource Manager to avoid any service interruptions.
+After August 31, 2024, you'll no longer be able to manage data in your classic storage accounts through Azure Service Manager and the classic management plane APIs. The data will be preserved but we highly recommend migrating these accounts to Azure Resource Manager to avoid any service interruptions.
 
 ### Will there be downtime when migrating my storage account from Classic to Resource Manager?
 

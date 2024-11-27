@@ -11,10 +11,9 @@ ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 
 # Manage and use jobs in the Azure Spring Apps Enterprise plan
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ❌ Basic/Standard ✔️ Enterprise
+**This article applies to:** ❎ Basic/Standard ✅ Enterprise
 
 This article shows you how to manage the lifecycle of a job and run it in the Azure Spring Apps Enterprise plan.
 

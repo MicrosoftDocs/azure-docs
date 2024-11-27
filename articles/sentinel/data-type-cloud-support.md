@@ -5,6 +5,10 @@ author: batamig
 ms.topic: conceptual
 ms.date: 06/09/2024
 ms.author: bagol
+
+
+#Customer intent: As a security analyst, I want to understand the data type support for Microsoft Sentinel across different cloud environments so that I can ensure comprehensive threat detection and response.
+
 ---
 
 # Support for data types in Microsoft Sentinel across different clouds
