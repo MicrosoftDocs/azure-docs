@@ -24,7 +24,7 @@ With these changes, Azure expects to better serve your evolving needs. If you're
 - Although most customers are currently on Regional provisioned deployments, the Global and Managed Area (Data Zone) provisioned deployments might better suit your needs if you want to:
   - Access the model that you need.
   - Scale PTUs to support your usage growth.
-- Additionally, for the Global and Managed Area (Data Zone) provisioned deployments, Microsoft also [announced](https://azure.microsoft.com/blog/accelerate-scale-with-azure-openai-service-provisioned-offering/) lower hourly prices and smaller deployment minimums. There's no change to the price for monthly and yearly reservations with that announcement.
+- For Global and Managed Area (Data Zone) provisioned deployments, Microsoft [announced](https://azure.microsoft.com/blog/accelerate-scale-with-azure-openai-service-provisioned-offering/) lower hourly prices and smaller deployment minimums. There's no change to the price for monthly and yearly reservations with that announcement.
 - With the launch of the Global and Managed Area (Data Zone) provisioned deployments, Azure now offers services that better serve your evolving needs.
 - For pricing information, see the [Azure OpenAI Service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) page.
 
@@ -64,7 +64,7 @@ If you use existing Azure OpenAI Regional Provisioned deployments, there are two
   - Avoid hourly charges for deployments by ensuring that all deployments have a matching reservation
   - Avoid purchasing reservations ahead of time to prevent charges for deployments that aren’t active yet
   - Cancel reservations that don’t cover any deployments
-- Cancellation of existing Provisioned Regional Reservations is approved when you buy new Global or Managed Area (Data Zone) reservations to replace or exchange for your existing reservations.  
+- Existing Provisioned Regional reservation cancellation is approved when you buy new Global or Managed Area (Data Zone) reservations to replace or exchange your existing reservations.  
     >[!NOTE]
     >Cancellations are supported for a limited time. You should stop auto renewals for your Provisioned Regional Reservations if want to transition to Global or Managed Area (Data Zone) reservations.
 
@@ -75,7 +75,7 @@ If you use existing Azure OpenAI Regional Provisioned deployments, there are two
 2. To cover the deployments that you want to transition, purchase corresponding Global or Managed Area (Data Zone) reservations.  
   For example, assume you have 300 PTUs on the Regional deployment. You decide to transition 200 PTUs to Managed Area (Data Zone) deployment and keep the remaining 100 on Regional deployment. Also, assume that you have one or more reservations to cover all of the 300 existing Regional deployments.
     1. To consolidate and realign reservations, your need to cancel your existing reservations for 300 PTUs.
-    2. Purchase a Managed Area (Data Zone) reservation to cover the 200 Managed Area (Data Zone) deployments.
+    2. To cover the 200 Managed Area (Data Zone) deployments, purchase a Managed Area (Data Zone) reservation.
     3. Purchase a Regional reservation to cover the 100 Regional deployments.
 3. If you think there’s an error or a credit due, you can [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
@@ -86,7 +86,7 @@ In this scenario, you have two options:
 **Option 1** - Recommended for a single monthly reservation
 
 1. Let your current monthly reservations expire on their own. For example, stop auto renewal of your existing reservations.
-2. To consolidate and realign reservations, purchase corresponding Global, Managed Area (Data Zone) or Regional reservations to cover the deployments that you want to transition to.  
+2. To consolidate and realign reservations, purchase corresponding Global, Managed Area (Data Zone), or Regional reservations. They cover the deployments that you want to transition to.  
     For example, assume you have 300 PTUs on the Regional deployment. You decide to transition 200 PTUs to Managed Area (Data Zone) deployment and keep the remaining 100 on Regional deployment. Also, assume that you have a single reservation to cover all of the 300 existing Regional deployments.
       1. To realign reservations, you need to stop auto renewal of the existing reservation that covers the 300 PTUs.
       2. On the same or following day that a reservation expires, buy a Managed Area (Data Zone) reservation to cover the 200 Managed Area (Data Zone) deployments. Purchase a Regional reservation to cover the 100 Regional deployments.
