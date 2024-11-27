@@ -122,7 +122,7 @@ The App Configuration JavaScript provider provides feature flags in as a `Map` o
 ``` javascript
 import { DefaultAzureCredential } from "@azure/identity";
 import { load } from "@azure/app-configuration-provider";
-
+import { ConfigurationMapFeatureFlagProvider, FeatureManager } from "@microsoft/feature-management";
 const appConfig = await load("YOUR_APP-CONFIG-ENDPOINT",
                              new DefaultAzureCredential(), // For more information: https://learn.microsoft.com/javascript/api/overview/azure/identity-readme
                              {featureFlagOptions: { enabled: true }}); // load feature flags from Azure App Configuration service
@@ -137,7 +137,7 @@ const featureManager = new FeatureManager(featureProvider);
 
 The following example shows the format used to set up feature flags in a JSON file.
 
-```json
+``` json
 {
     "feature_management": {
         "feature_flags": [
@@ -184,7 +184,7 @@ The `requirement_type` property of a feature flag is used to determine if the fi
 
 A `requirement_type` of `All` changes the traversal. First, if there are no filters, the feature is disabled. Then, the feature filters are traversed until one of the filters decides that the feature should be disabled. If no filter indicates that the feature should be disabled, it's considered enabled.
 
-```json
+``` json
 {
     "feature_management": {
         "feature_flags": [
