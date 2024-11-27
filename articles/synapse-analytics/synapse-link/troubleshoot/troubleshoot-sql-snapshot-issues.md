@@ -14,6 +14,9 @@ ms.date: 05/03/2023
 
 This article is a guide to troubleshooting issues with initial snapshot on Azure Synapse Link for Azure SQL Database and SQL Server.
 
+## Pre-requisite
+Please ensure your configuration is accurate. https://learn.microsoft.com/en-us/azure/synapse-analytics/synapse-link/connect-synapse-link-sql-database#configure-your-source-azure-sql-database
+
 ## Symptom
 
 The users can follow the below resolution steps to investigate the below cases: 
