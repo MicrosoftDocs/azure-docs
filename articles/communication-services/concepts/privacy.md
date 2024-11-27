@@ -14,7 +14,7 @@ ms.custom: references_regions
 
 # Region availability and data residency
 
-Azure Communication Services is committed to helping our customers meet their privacy and personal data requirements. As a developer using Communication Services with a direct relationship with humans using the application, you are potentially a controller of their data. Since Azure Communication Services is storing and encrypting this data at rest on your behalf, we are most likely a processor of this data. This page summarizes how the service retains data and how you can identify, export, and delete this data.
+Azure Communication Services is committed to helping our customers meet their privacy and personal data requirements. As a developer using Communication Services with a direct relationship with humans using the application, you're potentially a controller of their data. Since Azure Communication Services is storing and encrypting this data at rest on your behalf, we're most likely a processor of this data. This page summarizes how the service retains data and how you can identify, export, and delete this data.
 
 ## Data residency
 
@@ -58,13 +58,13 @@ There are two categories of Communication Service data:
 
 ### Identities
 
-Azure Communication Services maintains a directory of identities, use the [DeleteIdentity](/rest/api/communication/communication-identity/delete?tabs=HTTP) API to remove them. Deleting an identity revokes all associated access tokens and deletes their chat messages. For more information on how to remove an identity [see this page](../quickstarts/identity/access-tokens.md).
+Azure Communication Services maintains a directory of identities. Use the [DeleteIdentity](/rest/api/communication/communication-identity/delete?tabs=HTTP) API to remove identities. If you remove an identity, it revokes all associated access tokens and deletes their chat messages. For more information on how to remove an identity, see [Create and manage access tokens](../quickstarts/identity/access-tokens.md).
 
-- DeleteIdentity
+- `Delete Identity`
 
 ### Azure Resource Manager
 
-Using the Azure portal or Azure Resource Manager APIs with Communication Services, can create personal data. [Use this page to learn how to manage personal data in Azure Resource Manager systems.](../../azure-resource-manager/management/resource-manager-personal-data.md)
+You can use the Azure portal or Azure Resource Manager APIs with Azure Communication Services to create personal data. For more information, see [Manage personal data associated with Azure Resource Manager](../../azure-resource-manager/management/resource-manager-personal-data.md).
 
 ### Telephone number management
 
@@ -77,7 +77,7 @@ Azure Communication Services maintains a directory of phone numbers associated w
 
 Azure Communication Services stores chat threads according to the [data retention policy](/purview/create-retention-policies) in effect when the thread is created. You can update the retention policy if needed during the retention time period you set. After you delete a chat thread (by policy or by a Delete API request), it can't be retrieved.
 
-[!INCLUDE [chat-retention-policy.md](../../includes/chat-retention-policy.md)]
+[!INCLUDE [chat-retention-policy.md](../includes/chat-retention-policy.md)]
 
 You can choose between indefinite thread retention, automatic deletion between 30 and 90 days via the retention policy on the [Create Chat Thread API](/rest/api/communication/chat/chat/create-chat-thread), or immediate deletion using the APIs [Delete Chat Message](/rest/api/communication/chat/chat-thread/delete-chat-message) or [Delete Chat Thread](/rest/api/communication/chat/chat/delete-chat-thread). 
 
@@ -98,7 +98,7 @@ For customers that use Virtual appointments, refer to our Teams Interoperability
 
 ### SMS
 
-Sent and received SMS messages are ephemerally processed by the service and not retained.
+The service temporarily processes sent and received SMS messages and they are not retained.
 
 ### PSTN voice calling
 
@@ -110,16 +110,16 @@ Audio and video communication is ephemerally processed by the service and no cal
 
 ### Call Recording
 
-Call recordings are stored temporarily in the same geography that was selected for ```Data Location``` during resource creation for 24 hours. After this the recording is deleted and you are responsible for storing the recording in a secure and compliant location.
+Call recordings are stored temporarily in the same geography you selected for `Data Location` during resource creation for 24 hours. After this the recording is deleted, you are responsible for storing the recording in a secure and compliant location.
 
 ### Email
-Email message content is ephemerally stored for processing in the resource's ```Data Location``` specified by you during resource provisioning. Email message delivery logs are available in Azure Monitor Logs, where you are in control to define the workspace to store logs. Domain sender usernames (or MailFrom) values are stored in the resource's ```Data Location``` until explicitly deleted. Recipient's email addresses that result in hard bounced messages are temporarily retained for spam and abuse prevention and detection.
+Email message content is ephemerally stored for processing in the resource's `Data Location` specified by you during resource provisioning. Email message delivery logs are available in Azure Monitor Logs, where you are in control to define the workspace to store logs. Domain sender usernames (or MailFrom) values are stored in the resource's `Data Location` until explicitly deleted. Recipient's email addresses that result in hard bounced messages are temporarily retained for spam and abuse prevention and detection.
 
 ## Azure Monitor and Log Analytics
 
-Azure Communication Services feed into Azure Monitor logging data for understanding operational health and utilization of the service. Some of these logs include Communication Service identities and phone numbers as field data. To delete any potentially personal data, [use these procedures for Azure Monitor](/azure/azure-monitor/logs/personal-data-mgmt). You may also want to configure [the default retention period for Azure Monitor](/azure/azure-monitor/logs/data-retention-configure).
+Azure Communication Services feed into Azure Monitor logging data for understanding operational health and use of the service. Some of these logs include Communication Service identities and phone numbers as field data. To delete any potentially personal data, [use these procedures for Azure Monitor](/azure/azure-monitor/logs/personal-data-mgmt). You may also want to configure [the default retention period for Azure Monitor](/azure/azure-monitor/logs/data-retention-configure).
 
-## Additional resources
+## Related articles
 
 - [Azure Data Subject Requests for the GDPR and CCPA](/microsoft-365/compliance/gdpr-dsr-azure)
 - [Microsoft Trust Center](https://www.microsoft.com/trust-center/privacy/data-location)

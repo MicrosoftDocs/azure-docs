@@ -47,7 +47,7 @@ You can choose between indefinite thread retention, automatic deletion between 3
 
 Any thread created before the new retention policy isn't affected unless you specifically change the policy for that thread. If you submit a support request for a deleted chat thread more than 30 days after the retention policy deleted that thread, it can no longer be retrieved and no information about that thread is available. If needed, open a support ticket as quickly as possible within the 30 day window after you create a thread so we can assist you.
 
-Chat thread participants can use `ListMessages` to view message history for a particular thread. The `ListMessages` API can't return the history of a thread if the thread is deleted. Users that are removed from a chat thread are able to view previous message history but can't send or receive new messages. Accidentally deleted messages aren't recoverable by the system. To learn more about data being stored in Azure Communication Services chat service, refer to the [data residency and privacy page](../privacy.md). 
+Chat thread participants can use `ListMessages` to view message history for a particular thread. The `ListMessages` API can't return the history of a thread if the thread is deleted. Users that are removed from a chat thread are able to view previous message history but can't send or receive new messages. Accidentally deleted messages aren't recoverable by the system. To learn more about data being stored in Azure Communication Services chat service, see [Region availability and data residency](../privacy.md).
 
 For customers that use Virtual appointments, refer to our Teams Interoperability [user privacy](../interop/guest/privacy.md#chat-storage) for storage of chat messages in Teams meetings.
 
@@ -124,13 +124,13 @@ The client app can subscribe to following events:
 
 ## Server events
 
-This feature lets server applications listen to events such as when a message is sent and when a participant is joining or leaving the chat. Server applications can react to these events, adding/removing participants to the chat, archiving chats, performing analysis, and many other scenarios for orchestration. To see what kinds of chat events can be used by developers, see [Server Events](../../../event-grid/event-schema-communication-services.md?bc=/azure/bread/toc.json&toc=/azure/communication-services/toc.json).
+This feature lets server applications listen to events such as when a message is sent and when a participant is joining or leaving the chat. Server applications can react to these events, adding/removing participants to the chat, archiving chats, performing analysis, and many other scenarios for orchestration. To see which chat events are available to developers, see [Azure Communication Services as an Azure Event Grid source](../../../event-grid/event-schema-communication-services.md?bc=/azure/bread/toc.json&toc=/azure/communication-services/toc.json).
 
 ## Push notifications 
 
-Android and iOS Chat SDKs support push notifications. To send push notifications for messages missed by your participants while they were away, connect a Notification Hub resource with Communication Services resource to send push notifications. Doing this notifies your application participants about incoming chats and messages when the mobile app isn't running in the foreground.    
+Android and iOS Chat SDKs support push notifications. To send push notifications for messages missed by your participants while they were away, connect a Notification Hub resource with Communication Services resource to send push notifications. Doing so notifies your application participants about incoming chats and messages when the mobile app isn't running in the foreground.    
     
-IOS and Android SDK support the below event:
+IOS and Android SDK support the following events:
 - `chatMessageReceived` - when a participant sends a new message to a chat thread.     
    
 Android SDK supports extra events:
