@@ -20,7 +20,7 @@ To purchase an Azure OpenAI reservation, you choose an Azure region, quantity, a
 When you purchase a reservation, the Azure OpenAI provisioned throughput usage that matches the reservation attributes is no longer charged at the hourly rates. 
 
 >[!NOTE]
->Reservations for Global, Managed Area (Data Zone), and Regional deployments aren't interchangeable. You need to purchase a separate reservation for each deployment type. For more information about transitioning provisioned deployments, see [Transition Azure OpenAI provisioned deployments](azure-openai-provisioned-deployments.md).
+>Reservations for Global, Managed Area (Data Zone), and Regional deployments aren't interchangeable. You need to purchase a separate reservation for each deployment type. For more information about transitioning provisioned deployments, see [Transition Azure OpenAI provisioned deployments](transition-azure-openai-provisoned-deployments.md).
 
 For pricing information, see the [Azure OpenAI Service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) page.
 
