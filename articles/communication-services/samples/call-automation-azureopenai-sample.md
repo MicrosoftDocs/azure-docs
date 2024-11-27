@@ -20,5 +20,5 @@ This is a sample application demonstrated during Microsoft Ignite 2024. It highl
 In this sample, we'll cover off what this sample does and what you need as pre-requisites before we run this sample locally on your machine. 
 
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [Azure Communication Services Call Automation OpenAI C# sample](./includes/call-automation-ai-csharp.md)]
+[!INCLUDE [Azure Communication Services Call Automation OpenAI C# sample](./includes/call-automation-azureopenai-csharp.md)]
 ::: zone-end
