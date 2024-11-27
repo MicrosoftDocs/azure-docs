@@ -127,7 +127,16 @@ The [*initial backlog*](/azure/devops/boards/backlogs/backlogs-overview?view=azu
 
 For example, suppose you have a BizTalk Server project with an orchestration called "LoanReception" that customers use to request bank loans. So, you have the following proposed Feature and User Story:
 
->Feature: 
+- **Feature**: Loan processing
+
+- **User story**: "As a customer, I want to prepare a loan application that I can submit to a bank."
+
+   This User Story, which might currently exist as an implementation in BizTalk Server, has the following tasks in Azure Logic Apps and Azure Integration Services:
+   
+   - Create a loan reception using an Azure Logic Apps workflow.
+   - Configure asynchronous messaging using Azure Service Bus.
+   - Map JSON to XML data using an Azure Logic Apps workflow.
+   - Customize Azure Integration Services as required for messaging patterns.
 >Loan Processing
 >
 >User story:
