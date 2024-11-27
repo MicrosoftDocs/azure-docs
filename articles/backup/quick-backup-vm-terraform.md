@@ -5,8 +5,8 @@ ms.topic: quickstart
 ms.date: 11/27/2024
 ms.custom: devx-track-terraform
 ms.service: windows
-author: v-abhmallick
-ms.author: AbhishekMallick-MS
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 #customer intent: As a Terraform user, I want to see how to create and configure an Azure virtual network, subnet, public IP, network security group, network interface, storage account, virtual machine, Azure Backup recovery services vault, and Backup policy.
 content_well_notification: 
   - AI-contribution
