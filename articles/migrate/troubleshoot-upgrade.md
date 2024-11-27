@@ -44,7 +44,7 @@ Add the target VNET into the firewall in the storage account that you select i
 
 1. Go to **Networking** > **Firewall and Virtual Networks** > **Public Network Access – Enabled from selected Virtual Network and IP address** > **Virtual Network** > Add existing Virtual Network and add your target VNET. Then proceed with the Test Migration/Migration.    
 
-2. Perform the initial replication by following [these](migrate-vmware-servers-to-azure-using-private-link.md?pivots=agentlessvmware#replicate-vms) steps.  
+2. Perform the initial replication by following [these](migrate-servers-to-azure-using-private-link.md?pivots=agentlessvmware#replicate-vms) steps.  
 
 ## Server is migrated without OS upgrade with status “Completed with errors”  
 
