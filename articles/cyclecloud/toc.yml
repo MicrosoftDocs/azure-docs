@@ -88,6 +88,8 @@
       href: ./how-to/ccws/cleanup-roles.md
     - name: How to connect to a Login Node through Bastion
       href: ./how-to/ccws/connect-to-login-node-with-bastion.md
+    - name: How to connect to the CycleCloud Portal through Bastion
+      href: ./how-to/ccws/connect-to-portal-with-bastion.md
   - name: Cluster Operations
     items:
     - name: Create a Cluster
