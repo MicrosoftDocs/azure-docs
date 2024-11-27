@@ -50,9 +50,7 @@ By the end of this article, you deploy one web application and three backend app
 
 ## Setup
 
-Create environment variables, create a resource group, and create an Azure Container Apps environment using the following steps:
-
-1. Create environment variables with your custom values. Before you run this command, replace the placeholder values surrounded by `<>` with your own values.
+1. Create environment variables, a resource group, and an Azure Container Apps environment using the steps that follow. The environment variables contain your custom values, so replace the placeholder values surrounded by `<>` with your own values before you run the following commands:
 
     ```bash
     export RESOURCE_GROUP=<RESOURCE_GROUP>
@@ -60,7 +58,7 @@ Create environment variables, create a resource group, and create an Azure Conta
     export CONTAINER_APP_ENVIRONMENT=<CONTAINER_APPS_ENVIRONMENT>
     ```
 
-1. Create environment variables that contain the settings for your microservices app. These values are used to define the names and configurations of the Java components and the Azure Container Apps that will be used to deploy the microservices.
+1. Now you create additional environment variables that contain the settings for your microservices app. These values are used to define the names and configurations of the Java components and the Azure Container Apps that will be used to deploy the microservices. Create these environment variables by using the following commands:
 
     ```bash
     export CONFIG_SERVER_COMPONENT=configserver
@@ -77,13 +75,13 @@ Create environment variables, create a resource group, and create an Azure Conta
     export API_GATEWAY_IMAGE=ghcr.io/azure-samples/javaaccelerator/spring-petclinic-api-gateway
     ```
 
-1. Log in to the Azure CLI and choose your active subscription.
+1. Log in to the Azure CLI and choose your active subscription by using the following command:
 
     ```azurecli
     az login
     ```
 
-1. Create a resource group to organize your Azure services.
+1. Create a resource group to organize your Azure services by using the following command:
 
     ```azurecli
     az group create \
@@ -91,7 +89,7 @@ Create environment variables, create a resource group, and create an Azure Conta
         --location $LOCATION
     ```
 
-1. Create your Azure Container Apps environment, which hosts both the Java components and your container apps.
+1. Create your Azure Container Apps environment, which hosts both the Java components and your container apps, using the following command:
 
     ```azurecli
     az containerapp env create \
@@ -102,15 +100,17 @@ Create environment variables, create a resource group, and create an Azure Conta
 
 ## Create Java components
 
-Next create the different Java components that support your app:
+Now you create the following Java components that support your app:
 
-* **Config Server**: Used to manage configuration settings for your microservices apps.
-* **Eureka Server**: Used to manage service registry and discovery.
-* **Admin**: Used to monitor and manage the health and metrics of your microservices apps.
+* Config server. Used to manage configuration settings for your microservices apps.
+* Eureka server. Used to manage service registry and discovery.
+* Admin server. Used to monitor and manage the health and metrics of your microservices apps.
+
+To create these server components, use the following steps:
 
 ### [Azure CLI](#tab/azure-cli)
 
-1. Create the Config Server for Java component.
+1. Create the config server for your Java components by using the following command:
 
     ```azurecli
     az containerapp env java-component config-server-for-spring create \
@@ -120,76 +120,76 @@ Next create the different Java components that support your app:
       --configuration spring.cloud.config.server.git.uri=$CONFIG_SERVER_URI
     ```
 
-2. Create the Eureka Server for Java component.
+1. Create the Eureka server for your Java components by using the following command:
 
     ```azurecli
     az containerapp env java-component eureka-server-for-spring create \
-      --environment $CONTAINER_APP_ENVIRONMENT \
-      --resource-group $RESOURCE_GROUP \
-      --name $EUREKA_SERVER_COMPONENT
+        --resource-group $RESOURCE_GROUP \
+        --name $EUREKA_SERVER_COMPONENT
+        --environment $CONTAINER_APP_ENVIRONMENT \
     ```
 
-3. Create the Admin Server for Java component.
+1. Create the admin server for your Java components by using the following command:
 
     ```azurecli
     az containerapp env java-component admin-for-spring create \
-      --environment $CONTAINER_APP_ENVIRONMENT \
-      --resource-group $RESOURCE_GROUP \
-      --name $ADMIN_SERVER_COMPONENT
+        --resource-group $RESOURCE_GROUP \
+        --name $ADMIN_SERVER_COMPONENT
+        --environment $CONTAINER_APP_ENVIRONMENT \
     ```
 
 ### [Azure portal](#tab/azure-portal)
 
+To create the three Java components, use the following steps:
+
 1. Open your Container Apps environment in the Azure portal.
 
-1. From the left menu, expand the *Services* menu and select the **Service**.
+1. Go to **Services**, select **Service**, and choose your service.
 
-    In this section, you create three components in total.
+1. To create the config server component, use these steps:
 
-1. Create the Config Server component.
+    1. Select **Configure** and choose **Java component** to create a new Java component.
 
-    Select **Configure** and choose **Java component** to create a new Java component.
-
-    Use the following table to add the values in the portal window.
+    1. Use the following table to add the values in the portal window:
 
     | Setting | Value | Remarks |
-    |---|---|
+    |---|---|---|
     | Java component type | Select **Config Server for Spring**. | |
     | Java component name | Enter **configserver**. | This value matches what you defined for the `$CONFIG_SERVER_COMPONENT` variable. |
 
-    In the *Git repositories* section, select **Add**.
+    1. In the **Git repositories** section, select **Add**.
 
-    For the *URI* field, enter **https://github.com/spring-petclinic/spring-petclinic-microservices-config.git**
+    1. For the **URI** field, enter **https://github.com/spring-petclinic/spring-petclinic-microservices-config.git**. (Do not include the final period.)
 
-    Select **Add**.
+    1. Select **Add**.
 
-    Select **Next**.
+    1. Select **Next**.
 
-    Select **Configure** to finish the configuration.
+    1. Select **Configure** to finish the configuration.
 
-1. Create the Eureka Server component.
+1. To create the Eureka server component, use these steps:
 
-    Select **Configure** and choose **Java component** to create a new Java component.
+    1. Select **Configure**, and choose **Java component** to create a new Java component.
 
-    Use the following table to add the values in the portal window.
+    1. Use the following table to add the values in the portal window:
 
     | Setting | Value | Remarks |
-    |---|---|
+    |---|---|---|
     | Java component type | Select **Eureka Server for Spring**. | |
     | Java component name | Enter **eureka**. | This value matches what you defined for the `$EUREKA_SERVER_COMPONENT` variable. |
 
-    Select **Next**.
+    1. Select **Next**.
 
-    Select **Configure** to finish the configuration.
+    1. Select **Configure** to finish the configuration.
 
-1. Create the Admin Server component.
+1. To create the admin server component, use the following steps:
 
-    Select **Configure** and choose **Java component** to create a new Java component.
+    1. Select **Configure** and choose **Java component** to create a new Java component.
 
-    Use the following table to add the values in the portal window.
+    1. Use the following table to add the values in the portal window:
 
     | Setting | Value | Remarks |
-    |---|---|
+    |---|---|---|
     | Java component type | Select **Admin for Spring**. | |
     | Java component name | Enter **admin**. | This value matches what you defined for the `$ADMIN_SERVER_COMPONENT` variable. |
 
