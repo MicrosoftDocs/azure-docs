@@ -2,13 +2,15 @@
 title: Troubleshoot Azure Database for MySQL - Flexible Server backup using Azure Backup
 description: Troubleshooting information for backing up Azure Database for MySQL - Flexible server.
 ms.topic: troubleshooting
-ms.date: 03/29/2024
+ms.date: 11/21/2024
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
 # Troubleshoot Azure Database for MySQL - Flexible Server backup (preview)
+
+[!INCLUDE [Azure Database for MySQL - Flexible Server backup advisory](../../includes/backup-mysql-flexible-server-advisory.md)]
 
 This article provides the recommended actions to troubleshoot the issues you might encounter during the backup or restore of Azure Database for MySQL - Flexible server.
 

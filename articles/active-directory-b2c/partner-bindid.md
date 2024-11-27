@@ -5,11 +5,11 @@ description: Configure Azure AD B2C with Transmit Security hosted sign in for pa
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.topic: how-to
 ms.date: 06/21/2024
 ms.author: gasinh
-ms.subservice: B2C
+ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
 
 # Customer intent: I'm a developer integrating Azure Active Directory B2C with Transmit Security BindID. I need instructions to configure integration, so I can enable passwordless authentication using FIDO2 biometrics for my application.
@@ -195,7 +195,7 @@ You can define the Transmit Security as a claims provider by adding it to the **
              <Metadata>
                <Item Key="METADATA">https://api.transmitsecurity.io/cis/oidc/.well-known/openid-configuration</Item>
                 <!-- Update the Client ID below to the Transmit Security client ID -->
-               <Item Key="client_id">00000000-0000-0000-0000-000000000000</Item>
+               <Item Key="client_id">00001111-aaaa-2222-bbbb-3333cccc4444</Item>
                <Item Key="response_types">code</Item>
                <Item Key="scope">openid email</Item>
                <Item Key="response_mode">form_post</Item>

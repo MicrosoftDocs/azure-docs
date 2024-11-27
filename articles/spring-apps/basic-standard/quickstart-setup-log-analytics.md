@@ -12,10 +12,9 @@ ms.devlang: azurecli
 
 # Quickstart: Set up a Log Analytics workspace
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ✔️ Basic/Standard ❌ Enterprise
+**This article applies to:** ✅ Basic/Standard ❎ Enterprise
 
 This quickstart explains how to set up a Log Analytics workspace in Azure Spring Apps for application development.
 

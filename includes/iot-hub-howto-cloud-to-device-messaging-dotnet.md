@@ -1,7 +1,7 @@
 ---
 author: kgremban
 ms.author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.devlang: csharp
 ms.topic: include
 ms.date: 06/20/2024

@@ -1,12 +1,12 @@
 ---
 title: Azure Orbital Ground Station - Configure a contact profile
-description: Learn how to configure a contact profile
+description: Learn how to configure a contact profile with Azure Orbital Ground Station to save and reuse contact configurations.
 author: hrshelar
-ms.service: orbital
+ms.service: azure-orbital
 ms.topic: quickstart
 ms.custom: ga
 ms.date: 12/06/2022
-ms.author: hrshelar
+ms.author: mosagie
 # Customer intent: As a satellite operator, I want to ingest data from my satellite into Azure.
 ---
 

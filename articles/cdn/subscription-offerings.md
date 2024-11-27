@@ -12,6 +12,8 @@ ms.author: duau
 
 # Azure CDN subscription offers and bandwidth throttling
 
+[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
+
 Some Azure CDNs offerings are only available to certain subscription types. Bandwidth throttling might also apply depending on your subscription type.
 
 ## Free and Trial Subscription

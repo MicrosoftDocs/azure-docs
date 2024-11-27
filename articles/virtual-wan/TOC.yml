@@ -204,13 +204,13 @@
             href: virtual-wan-point-to-site-powershell.md
         - name: Generate self-signed certificates
           href: certificates-point-to-site.md
-      - name: Microsoft Entra authentication
+      - name: Microsoft Entra ID authentication
         items:
         - name: Configure a P2S VPN
           href: virtual-wan-point-to-site-azure-ad.md
         - name: Configure a tenant
           href: openvpn-azure-ad-tenant.md
-        - name: Configure Multi-Factor Authentication(MFA)
+        - name: Configure multifactor authentication (MFA)
           href: openvpn-azure-ad-mfa.md   
     - name: P2S client configuration
       items:

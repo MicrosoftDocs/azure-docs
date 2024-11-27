@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 08/30/2024
 ms.topic: conceptual
-ms.service: iot
+ms.service: azure-iot
 ---
 
 # Use IoT Plug and Play models in an IoT solution

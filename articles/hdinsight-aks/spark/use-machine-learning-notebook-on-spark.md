@@ -22,8 +22,6 @@ The following tutorial notebook shows an example of training machine learning mo
 1. Find your storage and container name in the portal JSON view
 
    :::image type="content" source="./media/use-machine-learning-notebook-on-spark/json-view.png" alt-text="Screenshot showing JSON view." lightbox="./media/use-machine-learning-notebook-on-spark/json-view.png":::
-   
-   :::image type="content" source="./media/use-machine-learning-notebook-on-spark/resource-json.png" alt-text="Screenshot showing resource JSON view." lightbox="./media/use-machine-learning-notebook-on-spark/resource-json.png":::
         
 1. Navigate into your primary HDI storage>container>base folder> upload the [CSV](https://github.com/Azure-Samples/hdinsight-aks/blob/main/spark/iris_csv.csv)
 

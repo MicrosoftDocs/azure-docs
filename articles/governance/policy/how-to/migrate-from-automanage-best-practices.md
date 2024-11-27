@@ -1,235 +1,121 @@
 ---
 title: Azure Automanage Best Practices to Azure Policy migration planning
-description: This article provides process and technical guidance for customers interested in moving from Automanage Best Practices to Azure Policy.
+description: This article provides process and technical guidance for customers interested in moving from Azure Automanage Best Practices to Azure Policy.
 ms.date: 08/21/2024
 ms.topic: how-to
 author: MutemwaRMasheke
 ms.author: mmasheke
 ---
  
-# Overview
+# Automanage Best Practices to Azure Policy migration planning
 
 > [!CAUTION]
-> On September 30, 2027, the Automanage Best Practices product will be retired. Migrate to Azure Policy before that date. [Migrate here](https://ms.portal.azure.com/).
+> On September 30, 2027, the Azure Automanage Best Practices service will be retired. Migrate to Azure Policy before that date. For more information on migration, see the [Azure portal](https://ms.portal.azure.com/).
 
-Azure Policy is a more robust cloud resource governance, enforcement and compliance offering with full parity with the Automanage Best Practices service. When possible, you should plan to move your content and machines to the new service. This
-article provides guidance on developing a migration strategy from Azure Automation to machine
-configuration. Azure Policy implements a robust array of features including:
+Azure Policy is a more robust cloud resource governance, enforcement, and compliance offering with full parity with the Azure Automanage Best Practices service. When possible, you should plan to move your content and machines to the new service. This article provides guidance on developing a migration strategy from Azure Automation to machine
+configuration. Azure Policy implements a robust array of features, including:
 
-- *Granular Control and Flexibility:* Azure Policy allows for highly granular control over resources. You can create custom policies tailored to your specific regulatory and organizational compliance needs, ensuring that every aspect of your infrastructure meets the required standards. This level of customization may not be as easily achievable with the predefined configurations in Automanage.
+- **Granular control and flexibility:** Azure Policy allows for highly granular control over resources. You can create custom policies tailored to your specific regulatory and organizational compliance needs to ensure that every aspect of your infrastructure meets the required standards. This level of customization might not be as easy to achieve with the predefined configurations in Automanage.
+- **Comprehensive compliance management:** Azure Policy offers comprehensive compliance management by continuously assessing and auditing your resources. Detailed reports and dashboards help you to track compliance status. These features help you to quickly detect and rectify noncompliance issues across your environment.
+- **Scalability:** Azure Policy is built to manage large-scale environments efficiently. You can apply policies at different scopes, such as management group, subscription, and resource group levels. This capability helps you to enforce compliance across multiple resources and regions systematically.
+- **Integration with Azure Security Center:** Azure Policy integrates seamlessly with Azure Security Center. You have the ability to manage security policies and ensure that your servers adhere to best practices. This integration provides more insights and recommendations, which further strengthen your security posture.
 
-- *Comprehensive Compliance Management:* Azure Policy offers comprehensive compliance management by continuously assessing and auditing your resources. It provides detailed reports and dashboards to track compliance status, helping you to quickly detect and rectify non-compliance issues across your environment.
-
-- *Scalability:* Azure Policy is built to manage large-scale environments efficiently. It allows you to apply policies at different scopes (for example, Management Group, Subscription, Resource Group levels), making it easier to enforce compliance across multiple resources and regions systematically.
-
-- *Integration with Azure Security Center:* Azure Policy integrates seamlessly with Azure Security Center, enhancing your ability to manage security policies and ensuring your servers adhere to best practices. This integration provides more insights and recommendations, further strengthening your security posture.
-
-Before you begin, it's a good idea to read the conceptual overview information at the page
-[Azure Policy][01].
+Before you begin, read the conceptual overview information on the [Azure Policy][01] webpage.
 
 ## Understand migration
 
-The best approach to migration is to identify how to map services in an Automanage configuration profile to respective Azure Policy content first, and then offboard your subscriptions from Automanage. This section outlines the expected steps for migration. Automanage’s capabilities involved creating a deploy-and-forget experience for Azure customers to onboard new and existing virtual machines to a recommended set of Azure Services to ensure compliance with Azure’s best practices. These capabilities were achieved by the creation of a configuration profile, a reusable template of management, monitoring,
-security and resiliency services that customers could opt into. The profile is then assigned to a set of VMs that are onboarded to those services and receive reports on the state of their machines. 
+The best approach to migration is to identify how to map services in an Automanage configuration profile to the respective Azure Policy content first. Then offboard your subscriptions from Automanage. This section outlines the expected steps for migration.
 
+Automanage designers created an experience for Azure customers to onboard new and existing virtual machines (VMs) to a recommended set of Azure services to ensure compliance with Azure best practices. The capabilities include a configuration profile, a reusable template of management, monitoring, security, and resiliency services that customers can opt into. The profile is assigned to a set of VMs that are onboarded to those services, and customers then receive reports on the state of their machines.
 
-This functionality is available in Azure Policy as an initiative with a variety of configurable parameters, Azure services, regional availability, compliance states, and remediation actions. Configuration Profiles are the main onboarding vehicle for Automanage customers. Just like Azure Policy Initiatives, Automanage configuration profiles are applicable to VMs at the
-subscription and resource group level and enables further specification of the zone of
-applicability.  The following Automanage feature parities are available in Azure Policy:
+This functionality is available in Azure Policy as an initiative with various configurable parameters, Azure services, regional availability, compliance states, and remediation actions. Configuration profiles are the main onboarding vehicle for Automanage customers. Just like Azure Policy initiatives, Automanage configuration profiles apply to VMs at the subscription and resource group level. They enable further specification of the zone of
+applicability. The following Automanage feature parities are available in Azure Policy.
 
-### Azure Monitoring Agent
+### Azure Monitor Insights and analytics
 
-Azure Monitor Agent (AMA) collects monitoring data from the guest operating system of
-Azure and hybrid virtual machines and delivers it to Azure Monitor for use by features,
-insights, and other services, such as Microsoft Sentinel and Microsoft Defender for Cloud.
-Azure Monitor Agent replaces all of Azure Monitor's legacy monitoring agents. This
-extension is deployable using the following Azure Policies:
+[Azure Monitor][13] is a suite of tools designed to enhance the performance, reliability, and quality of your applications. It offers features like application performance management, monitoring alerts, metrics analysis, diagnostic settings, and logs. With Azure Monitor Insights, you can gain valuable insights into your application's behavior, troubleshoot issues, and optimize performance.
 
-- Configure Linux virtual machines to run Azure Monitor Agent with user-assigned
-managed identity-based authentication
-- Configure Windows Machines to be associated with a Data Collection Rule or a
-Data Collection Endpoint
-- Configure Windows virtual machines to run Azure Monitor Agent with user-assigned
-managed identity-based authentication
-- Configure Linux Machines to be associated with a Data Collection Rule or a Data
-Collection Endpoint
-- Deploy Dependency agent for Linux virtual machines with Azure Monitoring Agent
-settings
-- Deploy Dependency agent to be enabled on Windows virtual machines with Azure
-Monitoring Agent settings
+The Azure Monitor agent collects monitoring data from the guest operating system of Azure and hybrid VMs. The agent delivers the data to Azure Monitor for use by features, insights, and other services, such as Microsoft Sentinel and Microsoft Defender for Cloud. The Azure Monitor agent replaces all of the Azure Monitor legacy monitoring agents like the deprecated Microsoft Monitor Agent. The new Azure Monitor Agent is unsupported in Automanage but can be configured at-scale using Azure Policy. Visit [Azure Monitor Agent Built-In Policy][12] to learn more.
 
 ### Azure Backup
 
-Azure Backup provides independent and isolated backups to guard against unintended
-destruction of the data on your VMs. Backups are stored in a Recovery Services vault with
-built-in management of recovery points. To back up Azure VMs, Azure Backup installs an
-extension on the VM agent running on the machine. Azure Backup can be configured using
-the following policies:
+[Azure Backup][14] provides independent and isolated backups to guard against unintended destruction of the data on your VMs. Backups are stored in a Recovery Services vault with built-in management of recovery points. To back up Azure VMs, Backup installs an extension on the VM agent running on the machine. Visit [Azure Backup Built-In Policy][11] to learn how to configure Backup at scale through Azure Policy. To configure Backup time and duration, create a custom Azure policy based on the properties of the Backup policy resource or by a REST API call. For more information, see [Create Recovery Services backup policies by using the REST API][02].
 
-- Configure backup on virtual machines with a given tag to an existing recovery
-services vault in the same location
-- Azure Backup should be enabled for Virtual Machines
+### Microsoft Antimalware for Azure
 
-To configure backup time and duration, you can create a custom Azure policy based on the
-properties of the Azure backup policy resource or by a REST API call. Learn more [here][02].
+[Microsoft Antimalware][10] for Azure Cloud Services and Virtual Machines offers free real-time protection that helps identify and remove viruses, spyware, and other malicious software. It generates alerts when known malicious or unwanted software tries to install itself or run on your Azure systems. The Azure Guest agent (or the Microsoft Fabric agent) opens the Microsoft Antimalware for Azure extension and applies the antimalware configuration settings that were supplied as input. This step enables the antimalware service with either default or custom configuration settings.
 
-### Azure Antimalware
+Deploy the following Microsoft Antimalware for Azure policies in Azure Policy:
 
-Microsoft Antimalware for Azure is a free real-time protection that helps identify and
-remove viruses, spyware, and other malicious software. It generates alerts when known
-malicious or unwanted software tries to install itself or run on your Azure systems. The
-Azure Guest Agent (or the Fabric Agent) launches the Antimalware Extension, applying the
-Antimalware configuration settings supplied as input. This step enables the Antimalware
-service with either default or custom configuration settings.
-The following Azure Antimalware policies are deployable in Azure Policy:
+- Configure Microsoft Antimalware for Azure to automatically update protection signatures.
+- Deploy the Microsoft `IaaSAntimalware` extension on Windows servers.
+- Deploy the default Microsoft `IaaSAntimalware` extension for Windows Server.
 
-- Microsoft Antimalware for Azure should be configured to automatically update
-protection signatures
-- Microsoft IaaSAntimalware extension should be deployed on Windows servers
-- Deploy default Microsoft IaaSAntimalware extension for Windows Server
+You can create a custom Azure policy based on the properties of the Azure `IaaSAntimalware` policy resource or by using an Azure Resource Manager template (ARM template). You can use the custom policy to:
 
-To configure excluded files, locations, file extensions and processes, enable real-time
-protection and schedule scan and scan type, day and time, you can create a custom Azure
-policy based on the properties of the Azure IaaSAntimalware policy resource or by an ARM
-Template. Learn more [here][03].
+- Configure excluded files, locations, file extensions, and processes.
+- Enable real-time protection.
+- Schedule a scan, and scan type, day, and time.
 
-### Azure Insights and Analytics
-
-Azure Insights is a suite of tools within Azure Monitor designed to enhance the
-performance, reliability, and quality of your applications. It offers features like application
-performance management (APM), monitoring alerts, metrics analysis, diagnostic settings,
-logs, and more. With Azure Insights, you can gain valuable insights into your application’s
-behavior, troubleshoot issues, and optimize performance. The following policies provide
-the same capabilities as Automanage:
-
-- Assign Built-In User-Assigned Managed Identity to Virtual Machines
-- Configure Linux virtual machines to run Azure Monitor Agent with user-assigned
-managed identity-based authentication
-- Configure Windows virtual machines to run Azure Monitor Agent with user-assigned managed identity-based authentication
-- Deploy Dependency agent to be enabled on Windows virtual machines with
-Azure Monitoring Agent settings
-- Deploy Dependency agent for Linux virtual machines with Azure Monitoring
-Agent settings
-- Configure Linux Machines to be associated with a Data Collection Rule or a Data
-Collection Endpoint
-- Configure Windows Machines to be associated with a Data Collection Rule or a
-Data Collection Endpoint
-
-All the previous options are configurable by deploying the Enable Azure Monitor for VMs with Azure
-Monitoring Agent (AMA) Policy initiative.
+For more information, see [this webpage][03].
 
 ### Change Tracking and Inventory
 
-Change Tracking and Inventory is a feature within Azure Automation that monitors changes
-in virtual machines across Azure, on-premises, and other cloud environments. It tracks
-modifications to installed software, files, registry keys, and services on both Windows and
-Linux systems. By using the Log Analytics agent, the Change Tracking service collects data and forwards it to
-Azure Monitor Logs for analysis. Additionally, it integrates with Microsoft Defender for
-Cloud File Integrity Monitoring (FIM) to enhance security and operational insights. The
-following policies enable change tracking on VMs:
+[Change Tracking and Inventory][15] is a feature within Automation that monitors changes in VMs across Azure, on-premises, and in other cloud environments. It tracks modifications to installed software, files, registry keys, and services on both Windows and Linux systems. Change Tracking and Inventory uses the Log Analytics agent to collect data and then forwards it to Azure Monitor Logs for analysis. It also integrates with Microsoft Defender for Cloud File Integrity Monitoring to enhance security and operational insights.
 
-- Assign Built-In User-Assigned Managed Identity to Virtual Machines
-- Configure Windows VMs to install AMA for ChangeTracking and Inventory with user-assigned managed identity
-- Configure Linux VMs to install AMA for ChangeTracking and Inventory with user-assigned managed identity
-- Configure ChangeTracking Extension for Windows virtual machines
-- Configure ChangeTracking Extension for Linux virtual machines
-- Configure Windows Virtual Machines to be associated with a Data Collection Rule
-for ChangeTracking and Inventory
+Enable change tracking on VMs by using the following policies:
 
-The above Azure policies are configurable in bulk using the following Policy initiatives:
+- Assign built-in user-assigned managed identity to VMs.
+- Configure Windows VMs to install the Azure Monitor agent for Change Tracking and Inventory with user-assigned managed identity.
+- Configure Linux VMs to install the Azure Monitor agent for Change Tracking and Inventory with a user-assigned managed identity.
+- Configure the Change Tracking and Inventory extension for Windows VMs.
+- Configure the Change Tracking and Inventory extension for Linux VMs.
+- Configure Windows VMs to associate with a data collection rule for Change Tracking and Inventory.
 
-- [Preview]: Enable ChangeTracking and Inventory for virtual machine scale sets
-- [Preview]: Enable ChangeTracking and Inventory for virtual machines
-- [Preview]: Enable ChangeTracking and Inventory for Arc-enabled virtual machines
+Configure the preceding Azure policies in bulk by using the following Azure Policy initiatives:
+
+- [Preview]: Enable Change Tracking and Inventory for virtual machine scale sets.
+- [Preview]: Enable Change Tracking and Inventory for VMs.
+- [Preview]: Enable Change Tracking and Inventory for Azure Arc-enabled VMs.
 
 ### Microsoft Defender for Cloud
 
-Microsoft Defender for Cloud provides unified security management and advanced threat
-protection across hybrid cloud workloads. MDC is configurable in Policy through the
-following policy initiatives:
+[Microsoft Defender for Cloud][16] (MDC) provides unified security management and advanced threat protection across hybrid cloud workloads. Visit [Configure Defender for Cloud in Azure Policy][17] to learn more about at-scale compliance and monitoring for MDC.
 
-- Configure multiple Microsoft Defender for Endpoint integration settings with
-Microsoft Defender for Cloud
-- Microsoft cloud security benchmark
-- Configure Microsoft Defender for Cloud plans
+### Azure Update Manager
 
-### Update Management
+[Azure Update Manager][19] (AUM) is a service included as part of your Azure subscription. Use it to assess your update status across your environment and manage your Windows and Linux server patching from a single pane of glass, both for on-premises and Azure. It provides a unified solution to help you keep your systems up to date. Update Manager oversees update compliance, deploys critical updates, and offers flexible patching options. Visit [Azure Update Manager Built-In Policy][18] to learn how to configure AUM at scale through Azure Policy.
 
-Azure Update Management is a service included as part of your Azure Subscription that
-enables you to assess your update status across your environment and manage your
-Windows and Linux server patching from a single pane of glass, both for on-premises and
-Azure. It provides a unified solution to help you keep your systems up to date by overseeing
-update compliance, deploying critical updates, and offering flexible patching options.
-Azure Update Management is configurable in Azure Policy through the following policies:
+### Azure Automation account
 
-- Configure periodic checking for missing system updates on Azure Arc-enabled
-servers
-- Machines should be configured to periodically check for missing system updates
-- Schedule recurring updates using Azure Update Manager
-- [Preview]: Set prerequisite for Scheduling recurring updates on Azure virtual
-machines.
-- Configure periodic checking for missing system updates on Azure virtual machines
+[Azure Automation][21] is a cloud-based service that provides consistent management across your Azure and non-Azure environments. Use it to automate repetitive tasks, enforce configuration consistency, and manage updates for VMs. By using runbooks and shared assets, you can streamline operations and reduce operational costs. Visit [Azure Automation Built-In Policy][20] to learn how to configure AUM at scale through Azure Policy.
 
-### Azure Automation Account
+### Boot diagnostics
 
-Azure Automation is a cloud-based service that provides consistent management across
-both your Azure and non-Azure environments. It allows you to automate repetitive tasks,
-enforce configuration consistency, and manage updates for virtual machines. By
-leveraging runbooks and shared assets, you can streamline operations and reduce
-operational costs. Azure Automation is configurable in Azure Policy through the following
-policies:
-
-- Automation Account should have Managed Identity
-- Configure private endpoint connections on Azure Automation accounts
-- Automation accounts should disable public network access
-- Configure Azure Automation accounts with private DNS zones
-- Azure Automation accounts should use customer-managed keys to encrypt data at
-rest
-- Azure Automation account should have local authentication method disabled
-- Automation account variables should be encrypted
-- Configure Azure Automation account to disable local authentication
-- Configure Azure Automation accounts to disable public network access
-- Private endpoint connections on Automation Accounts should be enabled
-
-### Boot Diagnostics
-
-Azure Boot Diagnostics is a debugging feature for Azure virtual machines (VM) that allows
-diagnosis of VM boot failures. It enables a user to observe the state of their VM as it is
-booting up by collecting serial log information and screenshots. Enabling Boot Diagnostics
-feature allows Microsoft Azure cloud platform to inspect the virtual machine operating
-system (OS) for provisioning errors, helping to provide deeper information on the root
-causes of the startup failures. Boot diagnostics is enabled by default when we create a VM
-and is enforced by the _Boot Diagnostics should be enabled on virtual machines_ policy.
+Boot diagnostics is a debugging feature for Azure VMs that you can use to diagnose VM boot failures. The feature collects serial log information and screenshots so that you can observe the state of your VM as it boots up. After you enable the boot diagnostics feature, the Azure cloud platform can inspect the VM operating system for provisioning errors. The feature helps to provide deeper information on the root causes of startup failures. Boot diagnostics is enabled by default when you create a VM and is enforced by the **Boot Diagnostics should be enabled on virtual machines** policy.
 
 ### Windows Admin Center
 
-Azure Boot Diagnostics is a debugging feature for Azure virtual machines (VM) that allows
-diagnosis of VM boot failures by collecting serial log information and screenshots during
-the boot process. It's configurable either through an ARM template or a custom Azure Policy. Learn more [here][04].
+You can now use Windows Admin Center in the Azure portal to manage the Windows operating system inside an Azure VM. You can also manage operating system functions from the Azure portal and work with files in the VM without using Remote Desktop or PowerShell. You can use an ARM template or a custom Azure Policy for configuration. For more information, see [Manage a Windows VM by using Windows Admin Center in Azure][04].
 
-### Log Analytics Workspace
+### Log Analytics workspace
 
-Azure Log Analytics is a service that monitors your cloud and on-premises resources and
-applications. It allows you to collect and analyze data generated by resources in your
-cloud and on-premises environments. With Azure Log Analytics, you can search, analyze,
-and visualize data to identify trends, troubleshoot issues, and monitor your systems. On August 31, 2024, both Automation Update Management and the Log Analytics agent it uses
-will be retired. Migrate to Azure Update Manager before that. Refer to guidance on
-migrating to Azure Update Manager [here][05]. We advise you to migrate [now][06] as this feature will
-no longer be supported in Automanage.
+Log Analytics is an Azure Monitor feature that monitors your cloud and on-premises resources and applications. Use it to collect and analyze data generated by resources in your cloud and on-premises environments. With Log Analytics, you can search, analyze, and visualize data to identify trends, troubleshoot issues, and monitor your systems.
+
+On August 31, 2024, both Automation Update Management and the Log Analytics agent that it used were retired. You should have migrated to Azure Update Manager before that date. For guidance on how to migrate to Azure Update Manager, see [Overview of migration from Automation Update Management to Azure Update Manager][05]. We advise you to migrate [now][06] because this feature is no longer supported in Automanage.
 
 ## Pricing
 
-As you migrate, it's worthwhile to note that Automanage Best Practices is a cost-free service. As such, you won't receive a bill from the Automanage service. 
-However, if you used Automanage to enable paid services like Azure Insights, there may be usage charges incurred that are billed directly by those services.
-Read more about Automanage and pricing [here][09].
+Automanage Best Practices is a free service, so you don't receive a bill from Automanage. If you used Automanage to enable paid services like Azure Monitor Insights, you might incur usage charges. Those services bill you directly.
+
+Read more about Automanage and pricing on the [Azure Automanage pricing webpage][09].
 
 ## Next steps
 
-Now that you have an overview of Azure Policy and some of the key concepts, here are the suggested
-next steps:
+Now that you have an overview of Azure Policy and some of the key concepts, here are the suggested next steps:
 
-- [Review the policy definition structure][07].
-- [Assign a policy definition using the portal][08].
+- [Review the policy definition structure][07]
+- [Assign a policy definition by using the portal][08]
 
 <!-- Reference link definitions -->
 [01]: ../overview.md
@@ -241,3 +127,15 @@ next steps:
 [07]: ../concepts/definition-structure-basics.md
 [08]: ../assign-policy-portal.md
 [09]: https://azure.microsoft.com/pricing/details/azure-automanage/
+[10]: https://learn.microsoft.com/azure/security/fundamentals/antimalware#antimalware-deployment-scenarios
+[11]: https://learn.microsoft.com/azure/backup/policy-reference
+[12]: https://learn.microsoft.com/azure/azure-monitor/policy-reference
+[13]: https://learn.microsoft.com/azure/azure-monitor/overview
+[14]: https://learn.microsoft.com/azure/backup/backup-overview
+[15]: https://learn.microsoft.com/azure/automation/change-tracking/overview
+[16]: https://learn.microsoft.com/azure/defender-for-cloud/defender-for-cloud-introduction
+[17]: https://learn.microsoft.com/azure/defender-for-cloud/policy-reference
+[18]: https://learn.microsoft.com/azure/update-manager/periodic-assessment-at-scale
+[19]: https://learn.microsoft.com/azure/update-manager/overview
+[20]: https://learn.microsoft.com/azure/automation/policy-reference
+[21]: https://learn.microsoft.com/azure/automation/overview

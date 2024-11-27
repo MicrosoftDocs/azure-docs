@@ -38,14 +38,18 @@
         href: manage-apis-azure-cli.md
       - name: Import APIs from API Management
         href: import-api-management-apis.md
-      - name: Register APIs - VS Code extension
-        href: use-vscode-extension.md
+      - name: Synchronize APIs from API Management
+        href: synchronize-api-management-apis.md
+      - name: Build and register APIs - VS Code extension
+        href: build-register-apis-vscode-extension.md
       - name: Register APIs - GitHub Actions
         href: register-apis-github-actions.md
 - name: API governance
   items:
       - name: Use metadata for governance
         href: metadata.md
+      - name: Govern APIs - VS Code extension
+        href: govern-apis-vscode-extension.md
       - name: API analysis - Microsoft managed
         href: enable-managed-api-analysis-linting.md
       - name: API analysis - self-managed
@@ -54,8 +58,14 @@
         href: discover-shadow-apis-dev-proxy.md
       - name: Find nonproduction API requests with Dev Proxy
         href: find-nonproduction-api-requests-dev-proxy.md
+      - name: Workflow automation to set API status
+        href: set-up-notification-workflow.md
 - name: API discovery and consumption
   items:
+      - name: Discover and consume APIs - VS Code extension
+        href: discover-apis-vscode-extension.md
+      - name: Enable platform API catalog - VS Code extension
+        href: enable-platform-api-catalog-vscode-extension.md
       - name: Self-host Azure API Center portal
         href: enable-api-center-portal.md
       - name: Check API calls use minimal permissions with Dev Proxy
@@ -88,5 +98,7 @@
   items:
       - name: Samples and labs
         href: resources.md
+      - name: Building an API security strategy
+        href: https://aka.ms/API-Security-EBook
       - name: Azure updates
         href: https://aka.ms/apic/updates

@@ -4,7 +4,7 @@ titleSuffix: Azure NAT Gateway
 description: Learn how to integrate a NAT gateway and Azure Firewall in a hub and spoke network.
 author: asudbring
 ms.author: allensu
-ms.service: nat-gateway
+ms.service: azure-nat-gateway
 ms.topic: tutorial
 ms.date: 09/07/2023
 ms.custom: template-tutorial

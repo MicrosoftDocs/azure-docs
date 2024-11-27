@@ -2,7 +2,7 @@
 title: Move operation support by resource type
 description: Lists the Azure resource types that can be moved to a new resource group, subscription, or region.
 ms.topic: conceptual
-ms.date: 06/27/2024
+ms.date: 09/24/2024
 ---
 
 # Move operation support for resources
@@ -807,6 +807,13 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
 > | databaseaccounts | **Yes** | **Yes** | No |
+> | mongoClusters | No | No | No |
+> | cassandraClusters | No | No | No |
+
+Moves between Resource groups and subscriptions are supported for APIs that use the RU architecture (Microsoft.DocumentDB/databaseAccounts), but not for those based on the vCore architecture, such as:
+
+- MongoDB vCore (Microsoft.DocumentDB/mongoClusters)
+- Azure Managed Instance for Apache Cassandra (Microsoft.DocumentDB/cassandraClusters)
 
 ## Microsoft.DomainRegistration
 
@@ -1486,6 +1493,19 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
 > | capacities | **Yes** | **Yes** | No |
+
+## Microsoft.ProgrammableConnectivity
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Resource group | Subscription | Region move |
+> | ------------- | ----------- | ---------- | ----------- |
+> | gateways | No | No | No |
+> | openApiGatewayOfferings | No | No | No |
+> | openApiGateways | No | No | No |
+> | operatorApiConnections | No | No | No |
+> | operatorApiPlans | No | No | No |
+> | OperatorConnections | No | No | No |
+> | OperatorOfferings | No | No | No |
 
 ## Microsoft.ProjectBabylon
 

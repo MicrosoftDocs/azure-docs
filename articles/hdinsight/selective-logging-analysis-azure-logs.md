@@ -4,7 +4,8 @@ description: Learn how to use the selective logging feature with a script action
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: references-regions
-ms.date: 09/06/2024
+ms.date: 10/15/2024
+ROBOTS: NOINDEX
 ---
 
 # Use selective logging with a script action in Azure HDInsight
@@ -37,7 +38,7 @@ Selective logging allows you to enable or disable all the tables, or enable sele
    * Interactive Query
    * Spark
 
-For instructions on how to create an HDInsight cluster, see [Get started with Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).  
+For instructions on how to create a HDInsight cluster, see [Get started with Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).  
 
 ## Enable or disable logs by using a script action for multiple tables and log types
 

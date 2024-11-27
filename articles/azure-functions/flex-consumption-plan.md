@@ -3,17 +3,14 @@ title: Azure Functions Flex Consumption plan hosting
 description: Running your function code in the Azure Functions Flex Consumption plan provides virtual network integration, dynamic scale (to zero), and reduced cold starts.
 ms.service: azure-functions
 ms.topic: concept-article
-ms.date: 08/22/2024
-ms.custom: references_regions, build-2024
+ms.date: 11/01/2024
+ms.custom: references_regions, build-2024, ignite-2024
 # Customer intent: As a developer, I want to understand the benefits of using the Flex Consumption plan so I can get the scalability benefits of Azure Functions without having to pay for resources I don't need.
 ---
 
 # Azure Functions Flex Consumption plan hosting
 
 Flex Consumption is a Linux-based Azure Functions hosting plan that builds on the Consumption _pay for what you use_ serverless billing model. It gives you more flexibility and customizability by introducing private networking, instance memory size selection, and fast/large scale-out features still based on a <em>serverless</em> model.
-
-> [!IMPORTANT]
-> The Flex Consumption plan is currently in preview. For a list of current limitations when using this hosting plan, see [Considerations](#considerations). For current information about billing during the preview, see [Billing](#billing).
 
 You can review end-to-end samples that feature the Flex Consumption plan in the [Flex Consumption plan samples repository](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples).
 
@@ -98,9 +95,7 @@ Deployments in the Flex Consumption plan follow a single path. After your projec
 
 The minimum billable execution period for both execution modes is 1,000 ms. Past that, the billable activity period is rounded up to the nearest 100 ms. You can find details on the Flex Consumption plan billing meters in the [Monitoring reference](monitor-functions-reference.md?tab=flex-consumption-plan#metrics).
 
-For details about how costs are calculated when you run in a Flex Consumption plan, including examples, see [Consumption-based costs](functions-consumption-costs.md?tabs=flex-consumtion-plan#consumption-based-costs). 
-
-For the most up-to-date information on execution pricing, always ready baseline costs, and free grants for on demand executions, see the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/).  
+For details about how costs are calculated when you run in a Flex Consumption plan, including examples, see [Consumption-based costs](functions-consumption-costs.md?tabs=flex-consumtion-plan#consumption-based-costs).   
 
 ## Supported language stack versions
 
@@ -119,7 +114,7 @@ This table shows the language stack versions that are currently supported for Fl
 
 ## Regional subscription memory quotas
 
-Currently in preview each region in a given subscription has a memory limit of `512,000 MB` for all instances of apps running on Flex Consumption plans. This means that, in a given subscription and region, you could have any combination of instance memory sizes and counts, as long as they stay under the quota limit. For example, each the following examples would mean the quota has been reached and the apps would stop scaling:
+Currently, each region in a given subscription has a memory limit of `512,000 MB` for all instances of apps running on Flex Consumption plans. This means that, in a given subscription and region, you could have any combination of instance memory sizes and counts, as long as they stay under the quota limit. For example, each the following examples would mean the quota has been reached and the apps would stop scaling:
 
 + You have one 2,048 MB app scaled to 100 and a second 2,048 MB app scaled to 150 instances
 + You have one 2,048 MB app that scaled out to 250 instances
@@ -134,22 +129,21 @@ In Flex Consumption, many of the standard application settings and site configur
 
 ## Considerations
 
-Keep these other considerations in mind when using Flex Consumption plan during the current preview:
+Keep these other considerations in mind when using Flex Consumption plan:
 
-+ **VNet Integration** Ensure that the `Microsoft.App` Azure resource provider is enabled for your subscription by [following these instructions](/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider). The subnet delegation required by Flex Consumption apps is `Microsoft.App/environments`.
++ **Host**: There is a 30 second timeout for app initialization. When your function app takes longer than 30 seconds to start, you might see gRPC-related `System.TimeoutException` entries logged. You can't currently configure this timeout. For more information, see [this host work item](https://github.com/Azure/azure-functions-host/issues/10482).
++ **Durable Functions**: Azure Storage is currently the only supported [storage provider](./durable/durable-functions-storage-providers.md) for Durable Functions when hosted in the Flex Consumption plan. See [recommendations](./durable/durable-functions-azure-storage-provider.md#flex-consumption-plan) when hosting Durable Functions in the Flex Consumption plan.
++ **Virtual network integration** Ensure that the `Microsoft.App` Azure resource provider is enabled for your subscription by [following these instructions](/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider). The subnet delegation required by Flex Consumption apps is `Microsoft.App/environments`.
 + **Triggers**: All triggers are fully supported except for Kafka and Azure SQL triggers. The Blob storage trigger only supports the [Event Grid source](./functions-event-grid-blob-trigger.md). Non-C# function apps must use version `[4.0.0, 5.0.0)` of the [extension bundle](./functions-bindings-register.md#extension-bundles), or a later version. 
-+ **Regions**:
-  + Not all regions are currently supported. To learn more, see [View currently supported regions](flex-consumption-how-to.md#view-currently-supported-regions).
-  + There is a temporary limitation where App Service quota limits for creating new apps are also being applied to Flex Consumption apps. If you see the following error "This region has quota of 0 instances for your subscription. Try selecting different region or SKU." please raise a support ticket so that your app creation can be unblocked.
-+ **Deployments**: These deployment-related features aren't currently supported:
-  + Deployment slots
-  + Continuous deployment using Azure DevOps Tasks (`AzureFunctionApp@2`)
-  + Continuous deployment using GitHub Actions (`functions-action@v1`) 
-+ **Scale**: The lowest maximum scale in preview is `40`. The highest currently supported value is `1000`.
++ **Regions**: Not all regions are currently supported. To learn more, see [View currently supported regions](flex-consumption-how-to.md#view-currently-supported-regions).
++ **Deployments**: Deployment slots are not currently supported.
++ **Scale**: The lowest maximum scale is currently `40`. The highest currently supported value is `1000`. 
 + **Managed dependencies**: [Managed dependencies in PowerShell](functions-reference-powershell.md#dependency-management) aren't supported by Flex Consumption. You must instead [define your own custom modules](functions-reference-powershell.md#custom-modules).
 + **Diagnostic settings**: Diagnostic settings are not currently supported.
- 
-## Related articles 
++ **Certificates**: Loading certificates with the WEBSITE_LOAD_CERTIFICATES app setting is currently not supported.
++ **Key Vault References**: Key Vault references in app settings don't work when Key Vault is network access restricted, even if the function app has Virtual Network integration. The current workaround is to directly reference the Key Vault in code and read the required secrets.
+
+## Related articles
 
 [Azure Functions hosting options](functions-scale.md)
 [Create and manage function apps in the Flex Consumption plan](flex-consumption-how-to.md)

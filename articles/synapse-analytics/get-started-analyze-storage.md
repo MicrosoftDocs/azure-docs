@@ -25,6 +25,9 @@ So far, we've covered scenarios where data resides in databases in the workspace
 
 Run the following code in a notebook in a new code cell. It creates a CSV file and a parquet file in the storage account.
 
+>[!TIP]
+>This table was created earlier in the quickstart, and you can find the steps [here](get-started-analyze-spark.md#analyze-the-nyc-taxi-data-using-spark-and-notebooks).
+
 ```py
 %%pyspark
 df = spark.sql("SELECT * FROM nyctaxi.passengercountstats")

@@ -4,7 +4,7 @@ description: A brief overview of Azure Modeling and Simulation Workbench.
 author: becha8
 ms.author: becha
 ms.reviewer: becha
-ms.service: modeling-simulation-workbench
+ms.service: azure-modeling-simulation-workbench
 ms.topic: overview
 ms.date: 08/05/2024
 #Customer intent: As a new Modeling and Simulation Workbench user, I want to understand about Azure Modeling and Simulation Workbench so that I can use the environment for creating chambers and connectors.

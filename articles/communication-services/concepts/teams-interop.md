@@ -18,7 +18,7 @@ Azure Communication Services can be used to build custom applications and experi
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWGTqQ]
 
-[!INCLUDE [Survey Request](../includes/survey-request.md)]
+<!-- [!INCLUDE [Survey Request](./includes/survey-request.md)] -->
 
 ## User identity models
 

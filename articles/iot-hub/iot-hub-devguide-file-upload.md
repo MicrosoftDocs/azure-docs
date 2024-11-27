@@ -4,7 +4,7 @@ description: This article shows how to use the file upload feature of IoT Hub to
 author: kgremban
 
 ms.author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.topic: concept-article
 ms.date: 12/30/2022
 ms.custom: [mqtt, 'Role: Cloud Development', 'Role: IoT Device']

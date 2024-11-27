@@ -36,11 +36,12 @@ For a list of supported features for all available connectors, visit the [Connec
 ## Using Self-hosted Integration Runtime
 
 > [!IMPORTANT]
-> For copy empowered by Self-hosted Integration Runtime e.g. between on-premises and cloud data stores, if you are not copying Parquet files **as-is**, you need to install the **64-bit JRE 8 (Java Runtime Environment) or OpenJDK** on your IR machine. Check the following paragraph with more details.
+> For copy empowered by Self-hosted Integration Runtime e.g. between on-premises and cloud data stores, if you are not copying Parquet files **as-is**, you need to install the **64-bit JRE 8 (Java Runtime Environment), JDK 23 (Java Devleopment Kit),  or OpenJDK** on your IR machine. Check the following paragraph with more details.
 
 For copy running on Self-hosted IR with Parquet file serialization/deserialization, the service locates the Java runtime by firstly checking the registry *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* for JRE, if not found, secondly checking system variable *`JAVA_HOME`* for OpenJDK.
 
 - **To use JRE**: The 64-bit IR requires 64-bit JRE. You can find it from [here](https://go.microsoft.com/fwlink/?LinkId=808605).
+- **To use JDK**: The 64-but IR requires 64-bit JDK 23. You can find it from [here](https://www.oracle.com/java/technologies/downloads/#jdk23-windows). Be sure to update the `JAVA_HOME` system variable to the root folder of the JDK 23 installation i.e. `C:\Program Files\Java\jdk-23`, and add the path to both the `C:\Program Files\Java\jdk-23\bin` and `C:\Program Files\Java\jdk-23\bin\server` folders to the `Path` system variable.
 - **To use OpenJDK**: It's supported since IR version 3.13. Package the jvm.dll with all other required assemblies of OpenJDK into Self-hosted IR machine, and set system environment variable JAVA_HOME accordingly, and then restart Self-hosted IR for taking effect immediately.
 
 > [!TIP]

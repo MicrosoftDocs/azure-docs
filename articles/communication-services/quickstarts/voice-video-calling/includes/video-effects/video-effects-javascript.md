@@ -19,11 +19,12 @@ You can use the Video effects feature to add effects to your video in video call
 
 ## Using video effects
 ### Install the package
-> [!NOTE]
+> [!IMPORTANT]
 > Background blur and background replacement for **Web Desktop browsers** is in GA availability. This quickstart uses the Azure Communication Services Calling SDK version of `1.13.1` (or greater) and the Azure Communication Services Calling Effects SDK version greater than or equil to `1.0.1`. Currently desktop browser support for creating video background effects is only supported on Chrome and Edge Desktop Browser (Windows and Mac) and Mac Safari Desktop.
 
-> [!IMPORTANT]
-> Background blur and replacement for **Android Chrome mobile browser** is available in public preview starting in build [1.29.1](https://github.com/Azure/Communication/blob/master/releasenotes/acs-javascript-calling-library-release-notes.md#1291-beta1-2024-08-26) and later beta WebJS SDK versions. This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+> [!NOTE]
+> Background blur and background replacement for **Android Chrome and Android Edge mobile browser** is available in public preview starting in build [1.29.1](https://github.com/Azure/Communication/blob/master/releasenotes/acs-javascript-calling-library-release-notes.md#1291-beta1-2024-08-26) and later beta WebJS SDK versions.
 
 Use the `npm install` command to install the Azure Communication Services Effects SDK for JavaScript.
 

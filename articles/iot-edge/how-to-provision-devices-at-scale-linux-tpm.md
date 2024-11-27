@@ -6,7 +6,7 @@ manager: lizross
 ms.author: patricka
 ms.date: 04/17/2024
 ms.topic: conceptual
-ms.service: iot-edge
+ms.service: azure-iot-edge
 ms.custom: linux-related-content
 services: iot-edge
 ---

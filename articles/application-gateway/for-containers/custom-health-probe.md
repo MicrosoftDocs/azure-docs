@@ -3,10 +3,9 @@ title: Custom health probe for Azure Application Gateway for Containers
 description: Learn how to configure a custom health probe for Azure Application Gateway for Containers.
 services: application gateway
 author: greg-lindsay
-ms.service: azure-application-gateway
-ms.subservice: appgw-for-containers
+ms.service: azure-appgw-for-containers
 ms.topic: conceptual
-ms.date: 9/16/2024
+ms.date: 10/28/2024
 ms.author: greglin
 ---
 
@@ -36,7 +35,7 @@ The following properties make up custom health probes:
 | (http) host | The hostname specified in the request to the backend target. |
 | (http) path | The specific path of the request. If a single file should be loaded, the path might be /index.html. |
 | (http -> match) statusCodes | Contains two properties, `start` and `end`, that define the range of valid HTTP status codes returned from the backend. |
-| UseTLS | UseTLS indicates whether health check should enforce TLS. If not specified, health check uses the same protocol as the service if the same port is used for health check. If the port is different, health check is cleartext. |
+| useTLS | Specifies if the health check should enforce TLS. If not specified, health check uses the same protocol as the service if the same port is used for health check. If the port is different, health check is cleartext. |
 
 [![A diagram showing the Application Gateway for Containers using custom health probes to determine backend health.](./media/custom-health-probe/custom-health-probe.png)](./media/custom-health-probe/custom-health-probe.png#lightbox)
 
@@ -57,7 +56,7 @@ When the default health probe is used, the following values for each health prob
 | port | The port number used is defined by the backend port number in the Ingress resource or HttpRoute backend port in the HttpRoute resource. |
 | (http) host | localhost |
 | (http) path | / |
-| UseTLS | HTTP for HTTP and HTTPS when TLS is specified. |
+| useTLS | HTTP for HTTP and HTTPS when TLS is specified. |
 
 <sup>1</sup> HTTPS is used when a backendTLSPolicy references a target backend service (for Gateway API implementation) or IngressExtension with a backendSetting protocol of HTTPS (for Ingress API implementation) is specified.
 
@@ -97,6 +96,6 @@ spec:
         statusCodes: 
         - start: 200
           end: 299
-    UseTLS: true
+    useTLS: true
 EOF
 ```

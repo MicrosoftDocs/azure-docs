@@ -6,9 +6,8 @@ summary: Documentation for creating and managing Azure Modeling and Simulation W
 metadata:
   title: Azure Modeling and Simulation Workbench (preview) documentation
   description: Documentation for creating and managing Azure Modeling and Simulation Workbench (preview).
-  ms.author: lynnar
-  ms.reviewer: yochu
-  ms.service: modeling-simulation-workbench
+  ms.author: yousefi
+  ms.service: azure-modeling-simulation-workbench
   ms.topic: index
   ms.date: 08/21/2024
 
@@ -24,13 +23,37 @@ landingContent:
         links:
           - text: What is Modeling and Simulation Workbench?
             url: ./modeling-simulation-workbench-overview.md
+      - linkListType: concept
+        links:
+          - text: Workbench
+            url: ./concept-workbench.md
+          - text: Chamber
+            url: ./concept-chamber.md
+          - text: Connector
+            url: ./concept-connector.md
+          - text: User personas
+            url: ./concept-user-personas.md
+          - text: Data pipeline
+            url: ./concept-data-pipeline.md
+          - text: License service
+            url: ./concept-license-service.md
+          - text: Storage
+            url: ./concept-storage.md
   # Card: Get started
   - title: Get started
     linkLists:
+      - linkListType: get-started
+        links:
+          - text: Get started with Modeling and Simulation Workbench
+            url: ./get-started-modeling-simulation-workbench.md
       - linkListType: quickstart
         links:
-          - text: Create an Azure Modeling and Simulation Workbench
-            url: ./quickstart-create-portal.md
+          - text: Add users
+            url: ./quickstart-add-users.md
+          - text: Connect to desktop
+            url: ./quickstart-connect-desktop.md
+  - title: Learn
+    linkLists:
       - linkListType: how-to-guide
         links:
           - text: Manage users
@@ -49,27 +72,41 @@ landingContent:
             url: ./how-to-guide-manage-shared-storage.md
           - text: Configure VM firewalls
             url: ./how-to-guide-configure-firewall-red-hat.md
-  # Card: Concepts
-  - title: Concepts
+  - title: Resources
     linkLists:
-      - linkListType: concept
+      - linkListType: reference
         links:
-          - text: Workbench
-            url: ./concept-workbench.md
-          - text: Chamber
-            url: ./concept-chamber.md
-          - text: Connector
-            url: ./concept-connector.md
-          - text: User personas
-            url: ./concept-user-personas.md
-          - text: Data pipeline
-            url: ./concept-data-pipeline.md
-          - text: License service
-            url: ./concept-license-service.md
-          - text: Storage
-            url: ./concept-storage.md
-          - text: Disaster recovery
+          - text: Troubleshoot
+            url: ./resources-troubleshoot.md
+          - text: Known issues
+            url: ./troubleshoot-known-issues.md
+          - text: Limits and quotas
+            url: ./limits-quotas.md
+          - text: Business continuity
             url: ./disaster-recovery.md
+          - text: Get support
+            url: ./resources-get-support.md
+  # Card: Concepts
+  # - title: Concepts
+  #   linkLists:
+  #     - linkListType: concept
+  #       links:
+  #         - text: Workbench
+  #           url: ./concept-workbench.md
+  #         - text: Chamber
+  #           url: ./concept-chamber.md
+  #         - text: Connector
+  #           url: ./concept-connector.md
+  #         - text: User personas
+  #           url: ./concept-user-personas.md
+  #         - text: Data pipeline
+  #           url: ./concept-data-pipeline.md
+  #         - text: License service
+  #           url: ./concept-license-service.md
+  #         - text: Storage
+  #           url: ./concept-storage.md
+  #         - text: Disaster recovery
+  #           url: ./disaster-recovery.md
   # Card: Reference
 #  - title: Reference
 #    linkLists:

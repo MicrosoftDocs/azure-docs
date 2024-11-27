@@ -14,6 +14,8 @@ ms.custom: references_regions
 
 # Azure Content Delivery Network Coverage by Metro
 
+[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
+
 > [!div class="op_single_selector"]
 > - [POP locations by region](cdn-pop-locations.md)
 > - [Edgio POP locations by abbreviation](cdn-pop-abbreviations.md)

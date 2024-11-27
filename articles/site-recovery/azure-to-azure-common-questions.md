@@ -3,9 +3,8 @@ title: Common questions about Azure virtual machine disaster recovery with Azure
 description: This article answers common questions about Azure virtual machine disaster recovery when you use Azure Site Recovery.
 ms.author: ankitadutta
 author: ankitaduttaMSFT
-manager: rochakm
-ms.date: 09/16/2024
-ms.topic: conceptual
+ms.date: 11/25/2024
+ms.topic: faq
 ms.service: azure-site-recovery
 
 ---
@@ -86,6 +85,10 @@ This isn't supported.
 ### Can I replicate zoned virtual machines to a different zone in the same region?
 
 Support for this is limited to a few regions. [Learn more](azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md).
+
+### Can we replicate from one Zone to non-zone with Azure Site Recovery?
+
+Yes, this is supported.
 
 ### Can I exclude disks from replication?
 
@@ -234,7 +237,7 @@ Multi-VM consistency is CPU intensive, and enabling it can affect workload perfo
 
 ### Can I add a replicating virtual machine to a replication group?
 
-When you enable replication for a virtual machine, you can add it to a new replication group, or to an existing group. You can't add a virtual machine that's already replicating to a group.
+You cannot add a protected VM to an existing replication group.
 
 ### What conditions must be met to create a recovery plan for multi-VM consistency?
 

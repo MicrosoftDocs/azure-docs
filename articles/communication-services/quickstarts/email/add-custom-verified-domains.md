@@ -42,6 +42,10 @@ Before provisioning a custom email domain, review the following table to decide 
 |**Pros:** | - Setup is quick & easy<br/>- No domain verification required<br /> | - Emails are sent from your own domain |
 |**Cons:** | - Sender domain isn't personalized and can't be changed<br/>- Sender usernames can't be personalized<br/>- Limited sending volume<br />- User Engagement Tracking can't be enabled<br /> | - Requires verification of domain records<br /> - Longer setup for verification |
 
+### Service limits
+
+Both Azure managed domains and Custom domains are subject to service limits. Service limits include failure, rate, and size limits. For more informations, see [Service limits for Azure Communication Services > Email](../../concepts/service-limits.md#email).
+
 ## Change MailFrom and FROM display names for custom domains
 
 You can optionally configure your `MailFrom` address to be something other than the default `DoNotReply` and add more than one sender username to your domain. For more information about how to configure your sender address, see [Quickstart: How to add multiple sender addresses](add-multiple-senders.md).
@@ -96,3 +100,5 @@ The following links provide more information about how to add a CNAME record usi
 ## Related articles
 
 * Familiarize yourself with the [Email client library](../../concepts/email/sdk-features.md)
+* Review email failure limits, rate limits, and size limits in [Service limits for Azure Communication Services > Email](../../concepts/service-limits.md#email).
+* Learn how to send emails with Azure Managed Domains in [Quickstart: How to add Azure Managed Domains to Email Communication Service](../../quickstarts/email/add-azure-managed-domains.md).

@@ -109,11 +109,12 @@ Configure this setting manually as follows:
 
 Azure Migrate completes these actions automatically for these versions
 
+
 - Red Hat Enterprise Linux  9.x, 8.x, 7.9 with Extended Lifecycle Support (ELS)
 - SUSE Linux Enterprise Server 15
 - Ubuntu 24.04, 22.04 and these versions with Expanded Security Maintenance (ESM) 20.04, 18.04 and 16.04
 - Debian LTS 12 and 11
-- Oracle Linux 9.x, 7.9
+- Oracle Linux 9.x, 8, 7.9
 
 For other versions, prepare machines as summarized in the table. 
 > [!Note]

@@ -2,7 +2,7 @@
 title: Manage resources through private link
 description: Restrict management access for resource to private link
 ms.topic: conceptual
-ms.date: 03/19/2024
+ms.date: 09/26/2024
 ---
 
 # Use APIs to create a private link for managing Azure resources
@@ -14,22 +14,29 @@ This article explains how you can use [Azure Private Link](../../private-link/in
 ## Create resource management private link
 
 To create resource management private link, send the following request:
+
 # [Azure CLI](#tab/azure-cli)
+
   ### Example
+
   ```azurecli
   # Login first with az login if not using Cloud Shell
   az resourcemanagement private-link create --location WestUS --resource-group PrivateLinkTestRG --name NewRMPL
   ```
-   
+
 # [PowerShell](#tab/azure-powershell)
+
   ### Example
+
   ```azurepowershell-interactive
   # Login first with Connect-AzAccount if not using Cloud Shell
   New-AzResourceManagementPrivateLink -ResourceGroupName PrivateLinkTestRG -Name NewRMPL
   ```
-   
+
 # [REST](#tab/REST)
+
   REST call
+
   ```http
   PUT
   https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Authorization/resourceManagementPrivateLinks/{rmplName}?api-version=2020-05-01
@@ -63,24 +70,31 @@ To create resource management private link, send the following request:
 Note the ID that is returned for the new resource management private link. You'll use it for creating the private link association.
 
 ## Create private link association
+
 The resource name of a private link association resource must be a GUID, and it isn't yet supported to disable the publicNetworkAccess field. 
 
 To create the private link association, use:
+
 # [Azure CLI](#tab/azure-cli)
+
   ### Example
+
   ```azurecli
   # Login first with az login if not using Cloud Shell
-  az private-link association create --management-group-id fc096d27-0434-4460-a3ea-110df0422a2d --name 1d7942d1-288b-48de-8d0f-2d2aa8e03ad4 --privatelink "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/PrivateLinkTestRG/providers/Microsoft.Authorization/resourceManagementPrivateLinks/newRMPL"
+  az private-link association create --management-group-id fc096d27-0434-4460-a3ea-110df0422a2d --name 1d7942d1-288b-48de-8d0f-2d2aa8e03ad4 --privatelink "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/PrivateLinkTestRG/providers/Microsoft.Authorization/resourceManagementPrivateLinks/newRMPL"
   ```
-   
+
 # [PowerShell](#tab/azure-powershell)
+
   ### Example
+
   ```azurepowershell-interactive
   # Login first with Connect-AzAccount if not using Cloud Shell
-  New-AzPrivateLinkAssociation -ManagementGroupId fc096d27-0434-4460-a3ea-110df0422a2d -Name 1d7942d1-288b-48de-8d0f-2d2aa8e03ad4 -PrivateLink "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/PrivateLinkTestRG/providers/Microsoft.Authorization/resourceManagementPrivateLinks/newRMPL" -PublicNetworkAccess enabled | fl
+  New-AzPrivateLinkAssociation -ManagementGroupId fc096d27-0434-4460-a3ea-110df0422a2d -Name 1d7942d1-288b-48de-8d0f-2d2aa8e03ad4 -PrivateLink "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/PrivateLinkTestRG/providers/Microsoft.Authorization/resourceManagementPrivateLinks/newRMPL" -PublicNetworkAccess enabled | fl
   ```
-   
+
 # [REST](#tab/REST)
+
   REST call
 
   ```http
@@ -114,6 +128,7 @@ To create the private link association, use:
     "type": "Microsoft.Authorization/privateLinkAssociations"
   }
   ```
+
 ---
 
 ## Add private endpoint

@@ -14,7 +14,7 @@ For more information, see [Devices monitored by Defender for IoT](architecture.m
 
 >[!Note]
 >
->Currently, devices discovered in the Azure portal aren't synchronized with Defender XDR, and therefore the list of devices discovered could be different in each portal.
+>Currently, devices discovered in the Azure portal aren't synchronized with the Defender portal, and therefore the list of devices discovered could be different in each portal.
 >
 
 ## View the device inventory

@@ -4,8 +4,7 @@ description: Describes alerts that occur on Azure Stack Edge devices.
 services: databox
 author: v-dalc
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.custom: devx-track-arm-template
 ms.topic: how-to
 ms.date: 10/14/2021

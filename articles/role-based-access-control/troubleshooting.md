@@ -610,7 +610,7 @@ If you're a Microsoft Entra Global Administrator and you don't have access to a 
 ## Classic subscription administrators
 
 > [!IMPORTANT]
-> As of **August 31, 2024**, Azure classic administrator roles (along with Azure classic resources and Azure Service Manager) are retired and no longer supported.
+> As of **August 31, 2024**, Azure classic administrator roles (along with Azure classic resources and Azure Service Manager) are retired and no longer supported. If you still have active Co-Administrator or Service Administrator role assignments, convert these role assignments to Azure RBAC immediately.
 >
 > For more information, see [Azure classic subscription administrators](classic-administrators.md).
 
