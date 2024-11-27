@@ -313,7 +313,7 @@
       href: data-connectors/azure-cognitive-search.md
     - name: Azure DDoS Protection
       href: data-connectors/azure-ddos-protection.md
-    - name: Azure Event Hub
+    - name: Azure Event Hubs
       href: data-connectors/azure-event-hub.md
     - name: Azure Firewall
       href: data-connectors/azure-firewall.md
@@ -703,8 +703,6 @@
       href: connect-dns-ama.md
     - name: Logstash plugin with Data Collection Rules
       href: connect-logstash-data-connection-rules.md
-    - name: Microsoft Sentinel Data Collector API
-      href: connect-rest-api-template.md      
   - name: Connection instructions for service
     items:
     - name: Amazon Web Services logs
@@ -1065,8 +1063,8 @@
       href: enroll-simplified-pricing-tier.md
     - name: Optimize costs with pre-purchase plan
       href: billing-pre-purchase-plan.md
-    - name: Tutorial - Configure data retention policy
-      href: configure-data-retention.md
+    - name: Manage data retention
+      href: /azure/azure-monitor/logs/data-retention-configure?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
     - name: Auxiliary logs use cases
       href: basic-logs-use-cases.md
   - name: Connect Microsoft Sentinel to Microsoft Defender XDR

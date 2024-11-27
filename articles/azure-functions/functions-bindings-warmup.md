@@ -89,7 +89,7 @@ public void warmup( @WarmupTrigger Object warmupContext, ExecutionContext contex
 
 The following example shows a [JavaScript function](functions-reference-node.md) with a warmup trigger that runs on each new instance when added to your app:
 
-:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/warmupTrigger1.js" :::
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/warmupTrigger.js" :::
 
 # [Model v3](#tab/nodejs-v3)
 
