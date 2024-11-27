@@ -86,8 +86,8 @@ await answerCallResult.callConnection.getCallMedia().startMediaStreaming(startMe
 
 ## Stop audio streaming
 To stop receiving audio streams during a call, you can use the **Stop streaming API**. This allows you to stop the audio streaming at any point in the call. There are two ways that audio streaming can be stopped;
-1. **Triggering the Stop streaming API:** Use the API to stop receiving audio streaming data while the call is still active.
-2. **Automatic stop on call disconnect:** Audio streaming automatically stops when the call is disconnected.
+- **Triggering the Stop streaming API:** Use the API to stop receiving audio streaming data while the call is still active.
+- **Automatic stop on call disconnect:** Audio streaming automatically stops when the call is disconnected.
 
 ``` JS
 const stopMediaStreamingOptions: StopMediaStreamingOptions = {
