@@ -52,7 +52,9 @@ items:
     - name: VMware/Physical agent-based migration architecture
       href: agent-based-migration-architecture.md
     - name: Migrate VMware vSphere VMs with agent-based migration
-      href: tutorial-migrate-vmware-agent.md    
+      href: tutorial-migrate-vmware-agent.md   
+    - name: Migrate VMware VMs using private link 
+      href: migrate-vmware-servers-to-azure-using-private-link-agent-based.md
   - name: Agentless migration
     items:
     - name: VMware agentless migration architecture
@@ -69,6 +71,8 @@ items:
       href: how-to-automate-migration.md
     - name: Migrate to SSE CMK encrypted Azure VMs
       href: how-to-migrate-vmware-vms-with-cmk-disks.md
+    - name: Migrate VMware VMs using private link
+      href: migrate-vmware-servers-to-azure-using-private-link.md
     - name: Troubleshoot
       items:
       - name: Troubleshoot replication issues in agentless VMware migration
