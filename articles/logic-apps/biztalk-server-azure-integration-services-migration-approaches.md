@@ -164,7 +164,7 @@ During a wave, your team completes the activities to migrate, test, and release 
 
 #### Migrate
 
-The Migration effort during each wave should focus on the agreed User Stories. For the first wave, it will be the Initial Backlog. The technology decisions need to leverage the information in the BizTalk Server features mapping as indicated in the "Feature matchup" section of the article [Why migrate from BizTalk Server to Azure Logic Apps?](URL).
+During each wave, migration focuses on the agreed User Stories. For the first wave, your team focuses on the initial backlog. Technology decisions must use the information in the BizTalk Server features mapping, described by [Feature matchup - Why migrate from BizTalk Server to Azure Logic Apps](/azure/logic-apps/biztalk-server-to-azure-integration-services-overview#feature-matchup)?
 
 The following illustration depicts what should occur in the migration waves.
 
