@@ -117,7 +117,8 @@ We recommend that your MVP include the following in-scope processes, which are e
   - Proposed features for coexistence: When you deliver each wave, you have a certain degree of coexistence. You must align this hybrid architecture with existing Service Level Indicators (SLIs) and Service Level Objectives (SLOs).
   - Non-functional considerations: Business processes might have different non-functional requirements. Not everything must happen in real time. Conversely, not everything is a batch process.
   - Business metrics: An optional opportunity to show progress for the migration work.
-1. Out-of-Scope for the MVP: Scope of work is shaped by diferent variables. Availability of resources, documentation, risks or time to market. Ideally this has to be listed here. 
+
+- MVP out-of-scope: Different variables shape the scope of work, for example, resource availability, risks, documentation, or time to market. Ideally, you want to identify and list these items.
 
 #### Initial Backlog
 
