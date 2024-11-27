@@ -109,7 +109,7 @@ callComposite.launch(context, locator, localOptions)
 ```java
 CallCompositeCallScreenControlBarOptions controlBarOptions = new CallCompositeCallScreenControlBarOptions();
 
-List<CallCompositeCustomButtonOptions> customButtons = new ArrayList<>();
+List<CallCompositeCustomButtonViewData> customButtons = new ArrayList<>();
 customButtons.add(
         new CallCompositeCustomButtonViewData(
                 "customButtonId",
