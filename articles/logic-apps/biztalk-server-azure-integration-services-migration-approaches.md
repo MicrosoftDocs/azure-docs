@@ -83,7 +83,9 @@ While Azure Logic Apps provides capabilities that let you reuse BizTalk Server a
 
 Under this framework, BizTalk migrations are [mission-critical workloads](/azure/well-architected/mission-critical/mission-critical-overview). This term describes collections of application resources that require high availability on the platform, meaning that they must always be available, operational, and resilient to failures.
 
-Follow the [Design methodology for mission-critical workloads on Azure](well-architected/mission-critical/mission-critical-design-methodology.md) to complete the Architecture Design of your BizTalk Migration. Use the [Basic enterprise integration on Azure](https://learn.microsoft.com/en-us/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration.md) reference Architecture available in the [Azure Architecture Center](/azure/architecture/browse/), to provide an initial Architecture and topology. Also, leverage the [Azure Integration Services Landing Zone](https://aka.ms/EnterpriseScale-Integration-Services) to setup your initial environment.
+To complete the architecture design for your BizTalk migration, follow [Design methodology for mission-critical workloads on Azure](/azure/well-architected/mission-critical/mission-critical-design-methodology). For an initial architecture and topology, review and use the reference architecture described in [Basic enterprise integration on Azure](/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration) in the [Azure Architecture Center](/azure/architecture/browse/).
+
+To set up your initial environment, use the [Azure Integration Services Landing Zone Accelerator](https://github.com/[Azure/Integration-Services-Landing-Zone-Accelerator), which is targeted for building and deploying an integration platform using a typical enterprise landing zone design.
 
 #### MVP Definition
 
