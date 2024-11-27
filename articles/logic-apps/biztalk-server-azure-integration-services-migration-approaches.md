@@ -113,7 +113,7 @@ We recommend that your MVP include the following in-scope processes, which are e
   - Business rules: These data-centric rules open an opportunity for you to rethink their approach or reuse them by employing Azure Logic Apps capabilities.
   - Regulatory considerations: This aspect is more relevant if your customers don't have cloud-based workloads.
   - Data privacy considerations: You must make privacy a top priority. Unless your customer chooses the hybrid deployment model in Azure Logic Apps (Standard), you must address this area in each wave due to potential deployment environment changes,
-    1. Secure by Design: Each feature has to be secure by design.
+  - Secure by design: You must design each feature with security in mind.
     1. Proposed features for Coexistence: When delivering each wave, there will be a certain degree of coexistence. This hybrid architecture has to be aligned with existing Service Level Indicators (SLIs) and Service Level Objectives (SLOs).
     1. Non-Functional Considerations: Business processes may have different non-functional requirements. Not everything needs to be real time. Conversely, not everything is a batch process.
     1. Business Metrics (Optional): Opportunity to show progress for the migration work.
