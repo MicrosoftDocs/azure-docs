@@ -177,7 +177,8 @@
           href: howto-update-access-control-list-for-network-to-network-interconnects.md
         - name: Delete ACLs associated with Network-to-Network Interconnects (NNI)
           href: howto-delete-access-control-list-network-to-network-interconnect.md
-        - name: How to Configure Diagnostic Settings and Monitor Configuration Differences
+        - name:
+            How to Configure Diagnostic Settings and Monitor Configuration Differences
             in Nexus Network Fabric
           href: howto-configure-diagnostic-settings-monitor-configuration-differences.md
         - name: How to Delete L3 Isolation Domains in Azure Nexus Network Fabric
@@ -254,6 +255,8 @@
           href: howto-use-vm-console-service.md
         - name: Virtual machine placement hints
           href: howto-virtual-machine-placement-hints.md
+        - name: Gather VM Console Data
+          href: howto-gather-vm-console-data.md
     - name: Observability
       expanded: false
       items:
@@ -330,7 +333,8 @@
           href: troubleshoot-internet-host-virtual-machine.md
         - name: Troubleshoot VM errors after BMM restart
           href: troubleshoot-vm-error-after-reboot.md
-        - name: Troubleshooting dual-stack configuration issues for Nexus Kubernetes
+        - name:
+            Troubleshooting dual-stack configuration issues for Nexus Kubernetes
             cluster
           href: troubleshoot-kubernetes-cluster-dual-stack-configuration.md
 - name: FAQ
