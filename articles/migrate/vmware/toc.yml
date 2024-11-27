@@ -1,7 +1,7 @@
 items:
 - name: Start here to migrate VMware to Azure
   href: start-here-vmware.md
-- name: Support matrix for Azure Migrate
+- name: Support matrix for VMware discovery
   href: migrate-support-matrix-vmware.md
 - name: Discover
   items:
