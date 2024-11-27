@@ -17,7 +17,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What is About Neon Serverless Postgres?
+          - text: What is Neon Serverless Postgres?
             url: overview.md
       - linkListType: how-to-guide
         links:

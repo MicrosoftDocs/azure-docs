@@ -8,13 +8,15 @@ ms.custom:
 ms.date: 11/22/2024
 ---
 
-# Manage your Neon  integration through the portal
+# Manage your Neon integration through the portal
+
+This article describes how to access the Neon Console and how to and delete the Neon resource using the Azure portal.
 
 ## Single sign-on
 
 Single sign-on (SSO) is already enabled when you created your Neon  resource. To access Neon through SSO, follow these steps:
 
-1. Navigate to the Overview for your instance of the Neon resource. 
+1. Navigate to the **Overview** for your instance of the Neon resource. 
 
 1. Select the portal SSO URL.
 
@@ -29,11 +31,11 @@ Once the Neon resource is deleted, all billing stops for that resource through A
 
 1. From the Resource menu, select the Neon resource you would like to delete.
 
-1. On the working pane of the **Overview**, select **Delete**.
+1. On the working pane of the **Overview** menu, select **Delete**.
 
-1. Confirm that you want to delete the Neon resource by entering the name of the resource.
+1. Confirm deletion.
 
-1. Choose the reason why would you like to delete the resource.
+1. Select a reason fo deleting the resource.
 
 1. Select **Delete**.
 
