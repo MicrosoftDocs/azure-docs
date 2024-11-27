@@ -24,5 +24,5 @@ In this sample, we cover off what this sample does and what you need as prerequi
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript" 
-[!INCLUDE ACS Call Automation Azure OpenAI javascript sample](./includes/call-automation-azureopenai-js.md)
+[!INCLUDE [ACS Call Automation Azure OpenAI javascript sample](./includes/call-automation-azureopenai-js.md)
 ::: zone-end
