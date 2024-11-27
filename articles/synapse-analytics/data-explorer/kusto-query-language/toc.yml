@@ -139,73 +139,73 @@ items:
       href: /kusto/functions-library/mann-whitney-u-test-fl?view=azure-data-explorer&preserve-view=true
     - name: pair_probabilities_fl()
       displayName: functions library, jaccard, lift
-      href: /kusto/query/pair-probabilities-fl?view=azure-data-explorer&preserve-view=true
+      href: /kusto/functions-library/pair-probabilities-fl?view=azure-data-explorer&preserve-view=true
     - name: pairwise_dist_fl()
       displayName: functions library, multivariate, distance, anomaly, pairwise
-      href: /kusto/query/pairwise-dist-fl?view=azure-data-explorer&preserve-view=true
+      href: /kusto/functions-library/pairwise-dist-fl?view=azure-data-explorer&preserve-view=true
     - name: percentiles_linear_fl()
       displayName: functions library, percentile, rank, statistics
-      href: /kusto/query/percentiles-linear-fl?view=azure-data-explorer&preserve-view=true
+      href: /kusto/functions-library/percentiles-linear-fl?view=azure-data-explorer&preserve-view=true
     - name: perm_fl()
       displayName: functions library, statistics
-      href: /kusto/query/perm-fl?view=azure-data-explorer&preserve-view=true
+      href: /kusto/functions-library/perm-fl?view=azure-data-explorer&preserve-view=true
     - name: plotly_anomaly_fl()
       displayName: functions library, Plotly, anomaly, chart, render
-      href: /kusto/query/plotly-anomaly-fl?view=azure-data-explorer&preserve-view=true
+      href: /kusto/functions-library/plotly-anomaly-fl?view=azure-data-explorer&preserve-view=true
     - name: plotly_scatter3d_fl()
       displayName: functions library, Plotly, scatter, chart, render
-      href: /kusto/query/plotly-scatter3d-fl?view=azure-data-explorer&preserve-view=true
+      href: /kusto/functions-library/plotly-scatter3d-fl?view=azure-data-explorer&preserve-view=true
     - name: predict_fl()
       displayName: functions library, score, classify
-      href: /kusto/query/predict-fl?view=azure-data-explorer&preserve-view=true
+      href: /kusto/functions-library/predict-fl?view=azure-data-explorer&preserve-view=true
     - name: predict_onnx_fl()
       displayName: functions library, score, classify
-      href: /kusto/query/predict-onnx-fl?view=azure-data-explorer&preserve-view=true
+      href: /kusto/functions-library/predict-onnx-fl?view=azure-data-explorer&preserve-view=true
     - name: quantize_fl()
       displayName: functions library, binning
-      href: /kusto/query/quantize-fl?view=azure-data-explorer&preserve-view=true
+      href: /kusto/functions-library/quantize-fl?view=azure-data-explorer&preserve-view=true
     - name: series_clean_anomalies_fl()
       displayName: functions library, anomalies, outliers
-      href: /kusto/query/series-clean-anomalies-fl?view=azure-data-explorer&preserve-view=true
+      href: /kusto/functions-library/series-clean-anomalies-fl?view=azure-data-explorer&preserve-view=true
     - name: series_cosine_similarity_fl()
       displayName: functions library, embedding, vector, cosine, similarity
-      href: /kusto/query/series-cosine-similarity-fl?view=azure-data-explorer&preserve-view=true
+      href: /kusto/functions-library/series-cosine-similarity-fl?view=azure-data-explorer&preserve-view=true
     - name: series_dbl_exp_smoothing_fl()
       displayName: functions library, exponential, filter, low-pass
-      href: /kusto/query/series-dbl-exp-smoothing-fl?view=azure-data-explorer&preserve-view=true
+      href: /kusto/functions-library/series-dbl-exp-smoothing-fl?view=azure-data-explorer&preserve-view=true
     - name: series_dot_product_fl()
       displayName: functions library, inner product, scalar product
-      href: /kusto/query/series-dot-product-fl?view=azure-data-explorer&preserve-view=true
+      href: /kusto/functions-library/series-dot-product-fl?view=azure-data-explorer&preserve-view=true
     - name: series_downsample_fl()
       displayName: functions library, subsampling, sub-sampling
-      href: /kusto/query/series-downsample-fl?view=azure-data-explorer&preserve-view=true
+      href: /kusto/functions-library/series-downsample-fl?view=azure-data-explorer&preserve-view=true
     - name: series_exp_smoothing_fl()
       displayName: functions library, exponential, filter, low-pass
-      href: /kusto/query/series-exp-smoothing-fl?view=azure-data-explorer&preserve-view=true
+      href: /kusto/functions-library/series-exp-smoothing-fl?view=azure-data-explorer&preserve-view=true
     - name: series_fit_lowess_fl()
       displayName: functions library, filter, low-pass, smoothing, regression
-      href: /kusto/query/series-fit-lowess-fl?view=azure-data-explorer&preserve-view=true
+      href: /kusto/functions-library/series-fit-lowess-fl?view=azure-data-explorer&preserve-view=true
     - name: series_fit_poly_fl()
       displayName: functions library, filter, low-pass, smoothing, regression
-      href: /kusto/query/series-fit-poly-fl?view=azure-data-explorer&preserve-view=true
+      href: /kusto/query/series-fit-poly-function?view=azure-data-explorer&preserve-view=true
     - name: series_fbprophet_forecast_fl()
       displayName: functions library
-      href: /kusto/query/series-fbprophet-forecast-fl?view=azure-data-explorer&preserve-view=true
+      href: /kusto/functions-library/series-fbprophet-forecast-fl?view=azure-data-explorer&preserve-view=true
     - name: series_metric_fl()
       displayName: functions library, PromQL, Prometheus
-      href: /kusto/query/series-metric-fl?view=azure-data-explorer&preserve-view=true
+      href: /kusto/functions-library/series-metric-fl?view=azure-data-explorer&preserve-view=true
     - name: series_lag_fl()
       displayName: functions library, filter, time shift, delay
-      href: /kusto/query/series-lag-fl?view=azure-data-explorer&preserve-view=true
+      href: /kusto/functions-library/series-lag-fl?view=azure-data-explorer&preserve-view=true
     - name: series_monthly_decompose_anomalies_fl()
       displayName: functions library, anomaly detection, monthly
-      href: /kusto/query/series-monthly-decompose-anomalies-fl?view=azure-data-explorer&preserve-view=true
+      href: /kusto/functions-library/series-monthly-decompose-anomalies-fl?view=azure-data-explorer&preserve-view=true
     - name: series_moving_avg_fl()
       displayName: functions library, filter, low-pass, smoothing
-      href: /kusto/query/series-moving-avg-fl?view=azure-data-explorer&preserve-view=true
+      href: /kusto/functions-library/series-moving-avg-fl?view=azure-data-explorer&preserve-view=true
     - name: series_moving_var_fl()
       displayName: functions library, filter, rolling, variance, standard deviation, std
-      href: /kusto/query/series-moving-var-fl?view=azure-data-explorer&preserve-view=true
+      href: /kusto/functions-library/series-moving-var-fl?view=azure-data-explorer&preserve-view=true
     - name: series_mv_ee_anomalies_fl()
       displayName: functions library, anomaly detection, multivariate, elliptical envelope
       href: /kusto/functions-library/series-mv-ee-anomalies-fl?view=azure-data-explorer&preserve-view=true
