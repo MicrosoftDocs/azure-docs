@@ -94,5 +94,5 @@ The following code is an example of added results from a `summarize` call:
 
 - See the [initiative definition structure](./initiative-definition-structure.md)
 - Review examples at [Azure Policy samples](../samples/index.md).
-- Review [Understanding policy effects](./effects.md).
+- Review [Understanding policy effects](./effect-basics.md).
 - Learn how to [remediate non-compliant resources](../how-to/remediate-resources.md).

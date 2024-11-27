@@ -617,7 +617,7 @@ For useful examples, see [Field count examples](../concepts/definition-structure
 
 ## Modifying arrays
 
-The [append](../concepts/effects.md#append) and [modify](../concepts/effects.md#modify) alter properties on a resource during creation or update. When you work with array properties, the behavior of these effects depends on whether the operation is trying to modify the `[*]` alias or not:
+The [append](../concepts/effect-append.md) and [modify](../concepts/effect-modify.md) alter properties on a resource during creation or update. When you work with array properties, the behavior of these effects depends on whether the operation is trying to modify the `[*]` alias or not:
 
 > [!NOTE]
 > Using the `modify` effect with aliases is currently in **preview**.
@@ -634,7 +634,7 @@ The [append](../concepts/effects.md#append) and [modify](../concepts/effects.md#
 | `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].action` | `modify` with `add` operation | Azure Policy appends a value to the `action` property of each array member. |
 | `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].action` | `modify` with `addOrReplace` operation | Azure Policy appends or replaces the existing `action` property of each array member. |
 
-For more information, see the [append examples](../concepts/effects.md#append-examples).
+For more information, see the [append examples](../concepts/effect-append.md#append-examples).
 
 ## More alias examples
 

@@ -81,7 +81,7 @@ how an organization wants the platform to respond to a non-compliant resource in
 - Block actions on resources
 
 Azure Policy makes each of these business responses possible through the application of
-[effects](./concepts/effects.md). Effects are set in the **policy rule** portion of the
+[effects](./concepts/effect-basics.md). Effects are set in the **policy rule** portion of the
 [policy definition](./concepts/definition-structure.md).
 
 ### Remediate non-compliant resources

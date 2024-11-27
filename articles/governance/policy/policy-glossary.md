@@ -35,7 +35,7 @@ A JSON-defined object that describes a policy, including resource compliance req
 ## Definition location
 The scope to which an initiative definition or policy definition can be assigned. It can be either a management group or a subscription, and assignments can be made at or below that scope in the hierarchy.
 ## Effect
-The action taken on a resource when the conditions of an applicable policy's rule are met. Learn more about [effects](./concepts/effects.md).
+The action taken on a resource when the conditions of an applicable policy's rule are met. Learn more about [effects](./concepts/effect-basics.md).
 ## Enforcement
 Describes the preventative behavior that certain types of policy effects can have.
 ## Enforcement mode

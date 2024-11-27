@@ -54,8 +54,8 @@ To view the compliance details, follow these steps:
 
    For an `auditIfNotExists` or `deployIfNotExists` policy definition, the details include the
    **details.type** property and any optional properties. For a list, see [auditIfNotExists
-   properties](../concepts/effects.md#auditifnotexists-properties) and [deployIfNotExists
-   properties](../concepts/effects.md#deployifnotexists-properties). **Last evaluated resource** is
+   properties](../concepts/effect-audit-if-not-exists.md#auditifnotexists-properties) and [deployIfNotExists
+   properties](../concepts/effect-deploy-if-not-exists.md#deployifnotexists-properties). **Last evaluated resource** is
    a related resource from the **details** section of the definition.
 
    Example partial `deployIfNotExists` definition:
@@ -253,7 +253,7 @@ query this information outside of the Azure portal, see [Get resource changes](.
 
 - Review examples at [Azure Policy samples](../samples/index.md).
 - Review the [Azure Policy definition structure](../concepts/definition-structure.md).
-- Review [Understanding policy effects](../concepts/effects.md).
+- Review [Understanding policy effects](../concepts/effect-basics.md).
 - Understand how to [programmatically create policies](programmatically-create.md).
 - Learn how to [get compliance data](get-compliance-data.md).
 - Learn how to [remediate non-compliant resources](remediate-resources.md).

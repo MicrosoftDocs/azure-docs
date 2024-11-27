@@ -275,7 +275,7 @@ One override can be used to replace the effect of many policies by specifying mu
 
 The `enforcementMode` property provides customers the ability to test the outcome of a policy on existing resources without initiating the policy effect or triggering entries in the [Azure Activity log](/azure/azure-monitor/essentials/platform-logs-overview).
 
-This scenario is commonly referred to as _What If_ and aligns to safe deployment practices. `enforcementMode` is different from the [Disabled](./effects.md#disabled) effect, as that effect prevents resource evaluation from happening at all.
+This scenario is commonly referred to as _What If_ and aligns to safe deployment practices. `enforcementMode` is different from the [Disabled](./effect-disabled.md) effect, as that effect prevents resource evaluation from happening at all.
 
 This property has the following values:
 
@@ -284,7 +284,7 @@ This property has the following values:
 |Enabled |Default |string |Yes |Yes |The policy effect is enforced during resource creation or update. |
 |Disabled |DoNotEnforce |string |Yes |No | The policy effect isn't enforced during resource creation or update. |
 
-If `enforcementMode` isn't specified in a policy or initiative definition, the value _Default_ is used. [Remediation tasks](../how-to/remediate-resources.md) can be started for [deployIfNotExists](./effects.md#deployifnotexists) policies, even when `enforcementMode` is set to _DoNotEnforce_.
+If `enforcementMode` isn't specified in a policy or initiative definition, the value _Default_ is used. [Remediation tasks](../how-to/remediate-resources.md) can be started for [deployIfNotExists](./effect-deploy-if-not-exists.md) policies, even when `enforcementMode` is set to _DoNotEnforce_.
 
 ## Excluded scopes
 

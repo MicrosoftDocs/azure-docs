@@ -65,7 +65,7 @@ resources missing the tag.
 
    :::image type="content" source="../media/create-and-manage/select-available-definition.png" alt-text="Screenshot of the search filter while selecting a policy definition.":::
 
-1. The **Version** is automatically populated to the latest major version of the definition and set to autoinjest any non-breaking changes. You may change the version to others, if available or adjust your ingesting settings, but no change is required. **Overrides** are optional, so leave it blank for now. 
+1. The **Version** is automatically populated to the latest major version of the definition and set to autoinjest any non-breaking changes. You may change the version to others, if available or adjust your ingesting settings, but no change is required. **Overrides** are optional, so leave it blank for now.
 
 1. The **Assignment name** is automatically populated with the policy name you selected, but you can
    change it. For this example, leave _Inherit a tag from the resource group if missing_. You can
@@ -570,8 +570,8 @@ New-AzPolicySetDefinition -Name 'VMPolicySetDefinition' -Metadata '{"category":"
 
 1. Select the **Remediation** tab at the top of the wizard. Leave **Create a Managed Identity**
    unchecked. This box _must_ be checked when the policy or initiative being assigned includes a
-   policy with the [deployIfNotExists](../concepts/effects.md#deployifnotexists) or
-   [modify](../concepts/effects.md#modify) effects. As the policy used for this tutorial doesn't,
+   policy with the [deployIfNotExists](../concepts/effect-deploy-if-not-exists.md) or
+   [modify](../concepts/effect-modify.md) effects. As the policy used for this tutorial doesn't,
    leave it blank. For more information, see
    [managed identities](../../../active-directory/managed-identities-azure-resources/overview.md)
    and

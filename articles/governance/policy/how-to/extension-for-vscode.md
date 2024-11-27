@@ -222,8 +222,8 @@ policy assignment.
    Studio Code opens with the resulting evaluation details in JSON form.
 
 > [!NOTE]
-> For [AuditIfNotExists](../concepts/effects.md#auditifnotexists) or
-> [DeployIfNotExists](../concepts/effects.md#deployifnotexists) policy definitions, use the plus
+> For [AuditIfNotExists](../concepts/effect-audit-if-not-exists.md) or
+> [DeployIfNotExists](../concepts/effect-deploy-if-not-exists.md) policy definitions, use the plus
 > icon in the **Evaluation** pane or **Azure Policy: Select a resource for existence check (only
 > used for if-not-exists policies)** from the Command Palette to select a _related_ resource for the
 > existence check.
@@ -284,7 +284,7 @@ From the menu bar, go to **View** > **Command Palette**, and then enter **Azure:
 
 - Review examples at [Azure Policy samples](../samples/index.md).
 - Study the [Azure Policy definition structure](../concepts/definition-structure.md).
-- Read [Understanding policy effects](../concepts/effects.md).
+- Read [Understanding policy effects](../concepts/effect-basics.md).
 - Understand how to [programmatically create policy definitions](programmatically-create.md).
 - Learn how to [remediate non-compliant resources](remediate-resources.md).
 - Grasp what a management group is with [Organize your resources with Azure management groups](../../management-groups/overview.md).
