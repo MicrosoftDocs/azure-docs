@@ -1,69 +1,76 @@
 ---
-title: Device Update for IoT Hub tutorial using the Raspberry Pi 3 B+ reference Yocto image | Microsoft Docs
-description: Get started with Device Update for Azure IoT Hub by using the Raspberry Pi 3 B+ reference Yocto image.
+title: Azure Device Update for IoT Hub using a Raspberry Pi 3 Yocto image | Microsoft Docs
+description: Get started with Device Update for Azure IoT Hub by using the Raspberry Pi 3 B+ Yocto image.
 author: eshashah
 ms.author: eshashah
-ms.date: 3/8/2023
+ms.date: 11/25/2024
 ms.topic: tutorial
 ms.service: azure-iot-hub
 ms.subservice: device-update
 ---
 
-# Tutorial: Device Update for Azure IoT Hub using the Raspberry Pi 3 B+ reference image
+# Tutorial: Azure Device Update for IoT Hub using a Raspberry Pi 3 image
 
-Device Update for Azure IoT Hub supports image-based, package-based, and script-based updates.
+Device Update for Azure IoT Hub supports image-based, package-based, and script-based updates. This tutorial demonstrates an end-to-end Device Update for IoT Hub image-based update for a Raspberry Pi 3 B+ board.
 
-Image updates provide a higher level of confidence in the end state of the device. It's typically easier to replicate the results of an image update between a preproduction environment and a production environment because it doesn't pose the same challenges as packages and their dependencies. Because of their atomic nature, you can also adopt an A/B failover model easily.
+Image updates provide a high level of confidence in the end state of the device, and don't pose the same package and dependency management challenges as package or script based updates. It's easier to replicate the results of an image update between a preproduction and production environment, or easily adopt an A/B failover model.
 
-This tutorial walks you through the steps to complete an end-to-end image-based update by using Device Update for IoT Hub on a Raspberry Pi 3 B+ board.
-
-In this tutorial, you'll learn how to:
+In this tutorial, you:
 > [!div class="checklist"]
 >
-> * Download an image.
-> * Add a tag to your IoT device.
-> * Import an update.
-> * Deploy an image update.
-> * Monitor the update deployment.
+> - Download an image.
+> - Assign a tag to your IoT device.
+> - Import an update.
+> - Deploy the image update.
+> - Monitor the update deployment.
 
 > [!NOTE]
 > Image updates in this tutorial were validated on the Raspberry Pi B3 board.
 
-
 ## Prerequisites
 
-If you haven't already done so, create a [Device Update account and instance](create-device-update-account.md) and configure an IoT hub. This tutorial needs the device to be connected via ethernet connection.
+- A [Device Update account and instance configured with an IoT hub](create-device-update-account.md)
+- An IoT device connected via Ethernet
 
-Download files in **Assets** on the [Device Update GitHub releases page](https://github.com/Azure/iot-hub-device-update/releases). The Tutorial_RaspberryPi.zip has all the required files for the tutorial.
+## Get the update files
+
+1. The *Tutorial_RaspberryPi.zip* file has all the required files for the tutorial. Download the file from the **Assets** section of the latest release on the [GitHub Device Update Releases page](https://github.com/Azure/iot-hub-device-update/releases).
+
+1. Unzip the file.
+
+## Register the device and get the connection string
+
+Add your device to the device registry in your IoT hub and get the connection string IoT Hub generates for the device.
+
+1. In the [Azure portal](https://portal.azure.com), open the IoT hub page associated with your Device Update instance.
+1. In the navigation pane, select **Device management** > **Devices**.
+1. On the **Devices** page, select **Add Device**.
+1. Under **Device ID**, enter a name for the device. Ensure that **Autogenerate keys** checkbox is selected.
+1. Select **Save**. The device appears in the list on the **Devices** page.
+1. Get the device connection string by navigating to the device view, select the **Copy** icon next to **Primary Connection String**.
+1. Paste the copied characters somewhere for later use in the following steps:
 
 ## Create a device in IoT Hub and get a connection string
 
-Now, add the device to IoT Hub. From within IoT Hub, a connection string is generated for the device.
+Now, add the device to IoT Hub. From within 
 
 1. From the [Azure portal](https://portal.azure.com), navigate to your IoT hub.
 1. On the left pane, select **Devices**. Then select **New**.
 1. Under **Device ID**, enter a name for the device. Ensure that the **Autogenerate keys** checkbox is selected.
-1. Select **Save**. On the **Devices** page, the device you created should be in the list.
-1. Get the device connection string by navigating to the device view, select the **Copy** icon next to **Primary Connection String**.
-1. Paste the copied characters somewhere for later use in the following steps:
+1. Select **Save**. 
 
    **This copied string is your device connection string**.
    
 > [!NOTE]
-> This tutorial uses a device connection string to authenticate and connect with the IoT Hub for ease of set-up. For production scenarios, we recommend using module identity and leveraging AIS([IoT Identity Service](https://azure.github.io/iot-identity-service/)) to provision devices. [Learn more ](device-update-agent-provisioning.md) 
+> For ease of setup, this tutorial uses a device connection string to authenticate and connect with the IoT hub. For production scenarios, it's better to use module identity and [IoT Identity Service](https://azure.github.io/iot-identity-service/) to provision devices. For more information, see [Learn more ](device-update-agent-provisioning.md).
    
 ## Set up Raspberry Pi
 
-We provide base image and update files in **Assets** on the [Device Update GitHub releases page](https://github.com/Azure/iot-hub-device-update/releases). The Tutorial_RaspberryPi.zip has all the required files for the tutorial. 
-The .wic file is the base image that you can flash on to a Raspberry Pi 3 B+ board. The swUpdate(.swu) file, custom swupdate script and manifest are the update files you would import through Device Update for IoT Hub.
+In the *Tutorial_RaspberryPi* folder, the *.wic* file is the base image that you can flash on to a Raspberry Pi 3 B+ board. The swUpdate(.swu) file, custom swupdate script and manifest are the update files you would import through Device Update for IoT Hub.
 
-This base image uses a Yocto build(based on 3.4.4 release) with: 
-* SWUpdate which enables the dual partition update with DU
-* Device Update agent
+This base image uses a Yocto build based on the 3.4.4 release. The image has the Device Update agent and SWUpdate, which enables the dual partition update with Device Update. For more information about the Yocto layers used, see [Device Update Yocto GitHub.](https://github.com/Azure/iot-hub-device-update-yocto).
 
-To learn more about the Yocto layers used, refer to [Device Update Yocto GitHub.](https://github.com/Azure/iot-hub-device-update-yocto).
-
-You can use your favorite OS flashing tool to install the Device Update base image (adu-base-image) on the SD card that will be used in the Raspberry Pi 3 B+ device. Below are the instructions for using bmaptool to flash to the SD card.
+You can use your favorite OS flashing tool to install the Device Update base image (adu-base-image) on the SD card you use in the Raspberry Pi 3 B+ device. The following instructions use bmaptool to flash to the SD card.
 
 ### Use bmaptool to flash the SD card
 
@@ -100,7 +107,7 @@ Device Update for Azure IoT Hub software is subject to the following license ter
 
 Read the license terms prior to using the agent. Your installation and use constitutes your acceptance of these terms. If you don't agree with the license terms, don't use the Device Update for IoT Hub agent.
 
-## Configure the Device Update agent on Raspberry Pi
+### Configure the Device Update agent on Raspberry Pi
 
 1. Make sure that Raspberry Pi 3 is connected to the network.
 1. SSH into the Raspberry Pi 3 by using the following command in the PowerShell window:
