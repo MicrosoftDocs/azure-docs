@@ -105,7 +105,7 @@ We recommend that your MVP include the following in-scope processes, which are e
 
 - **In-scope processes (Features)**
 
-    1. High Level System Functionality: This can be extracted from the Discovery tools outcome and expressed in terms of features.
+  - High-level system functionality: You can extract this information using the discovery tools and express the descriptions in terms of features.
     1. Actors / Personas: This will be used to determine the individuals affected by the scenarios included in the MVP.
     1. Orchestrations: This can be extracted from the Discovery tools.
     1. Data Entities and Messages: This gives an opportunity to understand if further improvements can be included in the data exchanged by the BizTalk Server environment.
