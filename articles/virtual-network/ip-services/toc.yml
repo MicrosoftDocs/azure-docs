@@ -98,12 +98,8 @@ items:
       items:
       - name: Upgrade guidance for Basic SKU public IP addresses
         href: public-ip-basic-upgrade-guidance.md
-      - name: Upgrade a public IP address - Portal
-        href: public-ip-upgrade-portal.md
-      - name: Upgrade a public IP address - PowerShell
-        href: public-ip-upgrade-powershell.md
-      - name: Upgrade a public IP address - Azure CLI
-        href: public-ip-upgrade-cli.md
+      - name: Upgrade a public IP address
+        href: public-ip-upgrade.md
       - name: Migrate a classic reserved IP
         href: public-ip-upgrade-classic.md
     - name: Virtual machines

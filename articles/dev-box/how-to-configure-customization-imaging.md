@@ -105,6 +105,7 @@ You can make adjustments to the customization file and create a new dev box to t
 ### Build a reusable image
 
 To optimize customizations and create a reusable image for your team, you can use the following steps to build an image from the customization file. This image applies to all dev boxes created from the pool.
+The DevCenter service creates a Dev Box behind the scenes to create an image, and exports the image to an Azure Compute Gallery in a managed-by resource group. In order to generate an image, you need to assign the DevCenter service the requisite roles to publish an image. Go to the Azure Portal, and select Resource Groups. Search for the managed by resource group with the name DevCenter(yourProjectName)(a random ID). Under that resource group, navigate to Access Control, and give the “Windows 365” and “Project Fidalgo” applications the roles “Storage Account Contributor”, “Storage Blob Data Contributor” and “Reader”.
 
 1. On the **Image definitions** pane, select the image that you want to build.
 

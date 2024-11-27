@@ -9,7 +9,7 @@ ms.service: azure-migrate
 ms.date: 10/18/2023
 ms.custom: vmware-scenario-422, engagement-fy24
 ---
-# Azure Migrate agentless migration of VMware virtual machines
+# Agentless migration architecture
 
 This article describes the replication concepts when migrating VMware VMs using the Migration and modernization tool's agentless migration method.
 

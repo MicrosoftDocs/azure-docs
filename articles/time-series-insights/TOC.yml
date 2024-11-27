@@ -206,7 +206,7 @@
     - name: JavaScript Client SDK
       href: https://github.com/Microsoft/tsiclient
     - name: Hosted client samples
-      href: https://tsiclientsample.azurewebsites.net/
+      href: https://github.com/microsoft/tsiclient
     - name: Azure IoT code samples
       href: /samples/browse/?term=iot
   - name: Pricing and availability
