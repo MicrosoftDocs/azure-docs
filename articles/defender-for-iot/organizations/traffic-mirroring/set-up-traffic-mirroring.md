@@ -9,14 +9,6 @@ ms.date: 10/30/2024
 
 This article provides a step-by-step guide to deploying your network sensor, ensuring the correct traffic mirroring options are chosen to achieve accurate and reliable network data collection.
 
-The five deployment steps are as follows:
-
-1. [Review the network architecture](#review-the-network-architecture)
-1. [Select the sensor locations and traffic mirroring method](#select-the-sensor-locations-and-traffic-mirroring-method)
-1. [Validate the sensor location](#validate-the-sensor-location)
-1. [Deploy your sensors](#deploy-your-sensor)
-1. [Validate after deployment](#validate-after-deployment)
-
 ## Review the network architecture
 
 Before you deploy the sensor to the network, it's crucial to review the network architecture. These steps include:
