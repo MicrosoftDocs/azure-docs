@@ -41,13 +41,13 @@ devtunnel host
 
 ##### 2. Add the required API Keys and endpoints
 Open the appsettings.json file to configure the following settings:
-
+```code
     - DevTunnelUri: your dev tunnel endpoint
     - AcsConnectionString: Azure Communication Service resource's connection string.
     - AzureOpenAIServiceKey: Open AI's Service Key
     - AzureOpenAIServiceEndpoint: Open AI's Service Endpoint
     - AzureOpenAIDeploymentModelName: Open AI's Model name
-
+```
 ## Running the application
 
 1. Azure DevTunnel: Ensure your AzureDevTunnel URI is active and points to the correct port of your localhost application
