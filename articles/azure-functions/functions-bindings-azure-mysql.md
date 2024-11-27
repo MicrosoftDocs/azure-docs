@@ -166,7 +166,7 @@ Azure Database for MySQL bindings for Azure Functions have a required property f
 
 ## Samples
 
-In addition to the samples for C#, Java, JavaScript, PowerShell, and Python available in the [Azure SQL bindings GitHub repository](https://github.com/Azure/azure-functions-mysql-extension/tree/main/samples), more are available in Azure Samples.
+In addition to the samples for C#, Java, JavaScript, PowerShell, and Python available in the [Azure MySQL bindings GitHub repository](https://github.com/Azure/azure-functions-mysql-extension/tree/main/samples), more are available in Azure Samples.
 
 
 ## Next steps
