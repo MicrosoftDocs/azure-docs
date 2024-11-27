@@ -26,6 +26,9 @@ This article describes the third step in deploying the Microsoft Sentinel soluti
 
 Content in this article is relevant for your **security**, **infrastructure**, and  **SAP BASIS** teams.
 
+> [!IMPORTANT]
+> Microsoft Sentinel's support for an agentless data connector is in limited preview as a prereleased product, which may be substantially modified before it’s commercially released. Microsoft makes no warranties expressed or implied, with respect to the information provided here.
+
 ## Prerequisites
 
 Before you deploy the data connector agent:

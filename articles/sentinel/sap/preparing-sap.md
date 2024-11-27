@@ -25,6 +25,9 @@ This article is part of the second step in deploying the Microsoft Sentinel solu
 
 The procedures in this article are typically performed by your **SAP BASIS** team. If you're using the agentless solution, you might also need to involve your **security** team.
 
+> [!IMPORTANT]
+> Microsoft Sentinel's support for an agentless data connector is in limited preview as a prereleased product, which may be substantially modified before it’s commercially released. Microsoft makes no warranties expressed or implied, with respect to the information provided here.
+
 ## Prerequisites
 
 - Before you start, make sure to review the [prerequisites for deploying the Microsoft Sentinel solution for SAP applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md).
@@ -158,7 +161,6 @@ When configuring SNC:
 
     - Cloud Foundry Runtime, and then also create a Cloud Foundry space.
     - SAP Integration Suite
-    - SAP Destination Service
 
 1. Add your user account to the **Integration_Provisioner** role.
 
@@ -173,8 +175,6 @@ When configuring SNC:
     These roles are available only after you activate the cloud integration capability.
 
 1. Create an instance of the SAP Process Integration Runtime.
-
-1. Create a service key for the Destination Service and save the JSON contents to a secure location.
 
 1. Create a service key for the SAP Process Integration Runtime and save the JSON contents to a secure location.
 
@@ -222,16 +222,6 @@ For more information, see the SAP documentation. <!--we need links to docs-->
     - **Scope**: `https://monitor.azure.com//.default`
     - **Content Type**: `application/x-www-form-urlencoded`
 
-1. Create a new OAuth2 client credential to store the connection details for the Destination Service client key connection details, which are stored in the [client key JSON file you'd created earlier](#configure-sap-btp-settings).
-
-    When creating the credential, enter the following details:
-
-    - **Name**: `DestinationServiceAPI`
-    - **Token Service Url**: `<url from the json file>/oauth/token`. For example: `https://trial.authentication.ap21.hana.ondemand.com/oauth/token`
-    - **Client ID**: `<clientid from the json file>`
-    - **Client Authentication**: Send as request header
-    - **Content Type**: `application/json`
-
 ## Import and deploy the Microsoft Sentinel solution for SAP package
 
 1. Download the Microsoft Sentinel solution for SAP package from [https://aka.ms/SAPAgentlessPackage](https://aka.ms/SAPAgentlessPackage).
@@ -240,7 +230,6 @@ For more information, see the SAP documentation. <!--we need links to docs-->
 1. Select **Send security logs to Microsoft - application layer** artifact.
 1. Select **Configure** and then enter your DCR details. You'll need to switch the *Receiver* value between `Dest_SRF` and `Sentinel` to configure the following parameters:
     
-    - **DestinationServiceHost**: the `URI` value from the [Destination Service service key json file](#configure-sap-btp-settings)
     - **LogsIngestionURL** the Ingestion URL from the DCR's DCE, as saved [earlier](deploy-sap-security-content.md#install-the-solution-from-the-content-hub).
     - **DCRImmutableId**: The DCR's immutable ID, as saved [earlier](deploy-sap-security-content.md#install-the-solution-from-the-content-hub).
 

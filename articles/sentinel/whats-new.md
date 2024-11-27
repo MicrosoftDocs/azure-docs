@@ -4,7 +4,7 @@ description: Learn about the latest new features and announcement in Microsoft S
 author: yelevin
 ms.author: yelevin
 ms.topic: concept-article
-ms.date: 09/09/2024
+ms.date: 11/27/2024
 
 
 #Customer intent: As a security team member, I want to stay updated on the latest features and enhancements in Microsoft Sentinel so that I can effectively manage and optimize my organization's security posture.
@@ -24,16 +24,19 @@ The listed features were released in the last three months. For information abou
 
 ## November 2024
 
-- [Agentless deployment for SAP applications (Preview)](#agentless-deployment-for-sap-applications-preview)
+- [Agentless deployment for SAP applications (Limited preview)](#agentless-deployment-for-sap-applications-limited-preview)
 - [Microsoft Sentinel availability in Microsoft Defender portal](#microsoft-sentinel-availability-in-microsoft-defender-portal)
 
-### Agentless deployment for SAP applications (Preview)
+### Agentless deployment for SAP applications (Limited preview)
 
 The Microsoft Sentinel solution for SAP applications now supports an agentless deployment, using SAP's own cloud platform features supported by the SAP Cloud Connector to provide simplified, agentless connectivity.
 
 Instead of deploying a virtual machine and containerized agent, use the SAP Cloud Connector and its existing connections to backend ABAP systems to connect your SAP system to Microsoft Sentinel.
 
-For more information, see [Install the solution from the content hub](sap/deploy-sap-security-content.md#install-the-solution-from-the-content-hub).
+For more information, see:
+
+- [Install the solution from the content hub](sap/deploy-sap-security-content.md#install-the-solution-from-the-content-hub)
+- [Microsoft Sentinel solution for SAP applications: Deployment overview](sap/deployment-overview.md)
 
 ### Microsoft Sentinel availability in Microsoft Defender portal
 

@@ -34,9 +34,9 @@ For example, the following image shows a sample environment where the Microsoft 
 
 :::image type="content" source="media/deployment-overview/sap-sentinel-multi-sid-overview.png" alt-text="Diagram of a multi-SID SAP landscape with Microsoft Sentinel." lightbox="media/deployment-overview/sap-sentinel-multi-sid-overview.png" border="false":::
 
-Microsoft Sentinel also offers solutions for the following SAP environment configuraitons:
+Microsoft Sentinel also offers solutions for the following SAP environment configurations:
 
-- (Preview) The Microsoft Sentinel SAP Agentless solution offers threat monitoring and detection for the SAP Audit Log only, with an agentless data connector for simpler deployment.
+- (Limited preview) The [Microsoft Sentinel SAP Agentless solution](deployment-overview.md#data-connector) offers threat monitoring and detection for the SAP Audit Log only, with an agentless data connector for simpler deployment.
 - The [Microsoft Sentinel solution for SAP BTP](sap-btp-solution-overview.md) offers threat monitoring and detection for SAP Business Technology Platform (BTP).
 
 ## Threat detection coverage

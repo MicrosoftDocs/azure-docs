@@ -59,13 +59,16 @@ Earlier versions of the deployment script, released before June 2023, generated 
 
 <!--is this relevant for agentless?-->
 
-### [Agentless data connector (Preview)](#tab/agentless)
+### [Agentless data connector (limited preview)](#tab/agentless)
 
 The Microsoft Sentinel agentless data connector for SAP uses the SAP BTP Cloud Connector to connect to your SAP system and pull logs from it, as shown in the following image:
 
 :::image type="content" source="media/deployment-overview/agentless-connector.png" alt-text="Diagram that shows the Microsoft Sentinel agentless data connector in a SAP environment.":::
 
 <!--needs more description here-->
+
+> [!IMPORTANT]
+> Microsoft Sentinel's support for an agentless data connector is in limited preview as a prereleased product, which may be substantially modified before it’s commercially released. Microsoft makes no warranties expressed or implied, with respect to the information provided here.
 
 ---
 
@@ -102,7 +105,7 @@ We recommend that you involve all relevant teams when planning your deployment t
 1. [Connect your SAP system](deploy-data-connector-agent-container.md) using one of the following methods, depending on the Microsoft Sentinel solution you deployed:
 
     - Deploy a containerized data connector agent
-    - Use an agentless data connector with the SAP Cloud Connetor (Preview)
+    - Use an agentless data connector with the SAP Cloud Connetor (limited preview)
 
     This step requires coordination between your security, infrastructure, and SAP BASIS teams.
 

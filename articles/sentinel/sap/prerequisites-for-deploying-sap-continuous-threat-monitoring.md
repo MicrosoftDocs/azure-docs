@@ -25,6 +25,9 @@ Reviewing and ensuring that you have or understand all the prerequisites is the 
 
 Content in this article is relevant for your **security**, **infrastructure**, and **SAP BASIS** teams. Select a connection type to list the prerequisites for your environment.
 
+> [!IMPORTANT]
+> Microsoft Sentinel's support for an agentless data connector is in limited preview as a prereleased product, which may be substantially modified before it’s commercially released. Microsoft makes no warranties expressed or implied, with respect to the information provided here.
+
 :::zone pivot="connection-agent"
 
 ## Azure prerequisites
@@ -75,8 +78,8 @@ Typically, Azure prerequisites are managed by your **security** teams.
 
 | Prerequisite | Description |Required/optional |
 | ---- | ----------- |----------- |
+| **Permissions to create Azure resources** | You must have: <br><br>- The necessary permissions to deploy solutions from the Microsoft Sentinel content hub. For more information, see [Prerequisites for deploying Microsoft Sentinel solutions](../sentinel-solutions-deploy.md#prerequisites) and [Microsoft Entra built-in roles](/entra/identity/role-based-access-control/permissions-reference#application-administrator). <br>- Be an Application Administrator, with the ability to create an app registration. <br><br> |Required |
 | **Access to Microsoft Sentinel** | Make a note of your Microsoft Sentinel *workspace ID* and *primary key*.<br>You can find these details in Microsoft Sentinel: from the navigation menu, select **Settings** > **Workspace settings** > **Agents management**. Copy the *Workspace ID* and *Primary key* and paste them aside for use during the deployment process. |Required |
-| **Permissions to create Azure resources** | You must have the necessary permissions to deploy solutions from the Microsoft Sentinel content hub, and be an Application Administrator, with the ability to create an app registration. <br><br>For more information, see [Prerequisites for deploying Microsoft Sentinel solutions](../sentinel-solutions-deploy.md#prerequisites) and [Microsoft Entra built-in roles](/entra/identity/role-based-access-control/permissions-reference#application-administrator). |Required |
 
 <!--do we need workspace id and primary key?-->
 
@@ -86,8 +89,8 @@ We recommend that your **SAP BASIS** team verify and ensure SAP system prerequis
 
 | Prerequisite | Description |
 | ---- | ----------- |
-| **SAP system** | Your SAP system must have: <br>A SAP BTP Subaccount with following services enabled:  <br>    - SAP Integration Suite <br>- SAP Process Integration Runtime <br>- SAP Destination Service <br>- Cloud Foundry Runtime<br>    For more information, see the [SAP documentation](https://help.sap.com/docs/sap-hana-spatial-services/onboarding/creating-subaccount-on-sap-business-technology-platform-sap-btp ). [Trial accounts](https://developers.sap.com/tutorials/hcp-create-trial-account.html) are supported.<br><br>The [SAP Cloud Connector](https://help.sap.com/docs/connectivity/sap-btp-connectivity-cf/installation?locale=en-US) deployed <br><br>SAP NetWeaver version 7.5 or higher|
-| **SAP roles and permissions** | You must have the following roles in your SAP systems: <br>SAP Netweaver Administrator <br>In SAP BTP, one of the following: <br>- Subaccount administrator <br>- Integration Provisioner <br>- PI_Administrator <br>- PI_Integration_Developer <br>- PI_Business_Expert| 
+| **SAP system** | Your SAP system must have: <br><br>A SAP BTP Subaccount with following services enabled:  <br>    - SAP Integration Suite <br>- SAP Process Integration Runtime <br>- Cloud Foundry Runtime<br>    For more information, see the [SAP documentation](https://help.sap.com/docs/sap-hana-spatial-services/onboarding/creating-subaccount-on-sap-business-technology-platform-sap-btp ). [Trial accounts](https://developers.sap.com/tutorials/hcp-create-trial-account.html) are supported.<br><br>The [SAP Cloud Connector](https://help.sap.com/docs/connectivity/sap-btp-connectivity-cf/installation?locale=en-US) deployed <br><br>SAP NetWeaver version 7.5 or higher|
+| **SAP roles and permissions** | You must have the following roles in your SAP systems: <br><br>**In SAP NetWeaver 7.5+**: SAP Netweaver Administrator <br><br>**In SAP BTP**:<br>- Subaccount administrator <br>- Integration Provisioner <br>- PI_Administrator <br>- PI_Integration_Developer <br>- PI_Business_Expert| 
 
 
 <!--should this be cloud foundry? for BTP - one of the following or all of the following?-->

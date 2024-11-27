@@ -1770,4 +1770,4 @@ groups:
   - id: connection-agent
     title: Data connector agent
   - id: connection-agentless
-    title: Agentless data connector (Preview)
+    title: Agentless data connector (limited preview)

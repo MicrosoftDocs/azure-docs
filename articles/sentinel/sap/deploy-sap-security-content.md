@@ -26,6 +26,9 @@ Microsoft Sentinel supports both a containerized data collector agent and an age
 
 Content in this article is relevant for your **security** team.
 
+> [!IMPORTANT]
+> Microsoft Sentinel's support for an agentless data connector is in limited preview as a prereleased product, which may be substantially modified before it’s commercially released. Microsoft makes no warranties expressed or implied, with respect to the information provided here.
+
 ## Prerequisites
 
 To deploy a Microsoft Sentinel solution for SAP applications from the content hub, you need:
