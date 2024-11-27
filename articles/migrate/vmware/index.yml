@@ -63,7 +63,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Scale VMware assessment
-            url: scale-vmware-assessment.md
+            url: ../scale-vmware-assessment.md
   
   - title: Migrate
     linkLists:
