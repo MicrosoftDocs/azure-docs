@@ -8,7 +8,7 @@ ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp, mode-other
 ms.topic: quickstart
-ms.date: 02/20/2024
+ms.date: 11/27/2024
 ms.author: zhenlwa
 #Customer intent: As an ASP.NET Core developer, I want to use feature flags to control feature availability quickly and confidently.
 ---
@@ -41,23 +41,46 @@ Add a feature flag called *Beta* to the App Configuration store (created in the 
     dotnet add package Microsoft.FeatureManagement.AspNetCore
     ```
 
-1. Open *Program.cs*, and add a call to the `UseFeatureFlags` method inside the `AddAzureAppConfiguration` call.
+1. Open *Program.cs*, and add a call to the `UseFeatureFlags` method inside the `AddAzureAppConfiguration` call. Connect to App Configuration using Microsoft Entra ID (recommended), or a connection string. 
+
+    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
 
     ```csharp
     // Load configuration from Azure App Configuration
     builder.Configuration.AddAzureAppConfiguration(options =>
     {
-        options.Connect(connectionString)
-               // Load all keys that start with `TestApp:` and have no label
-               .Select("TestApp:*", LabelFilter.Null)
-               // Configure to reload configuration if the registered sentinel key is modified
-               .ConfigureRefresh(refreshOptions =>
+        string endpoint = builder.Configuration.Get("Endpoints:AppConfiguration");
+        options.Connect(new Uri(endpoint), new DefaultAzureCredential());
+
+                // Load all keys that start with `TestApp:` and have no label
+                .Select("TestApp:*", LabelFilter.Null)
+                // Configure to reload configuration if the registered sentinel key is modified
+                .ConfigureRefresh(refreshOptions =>
                     refreshOptions.Register("TestApp:Settings:Sentinel", refreshAll: true));
         
         // Load all feature flags with no label
         options.UseFeatureFlags();
     });
     ```
+
+    ### [Connection string](#tab/connection-string)
+    
+    ```csharp
+    // Load configuration from Azure App Configuration
+    builder.Configuration.AddAzureAppConfiguration(options =>
+    {
+        options.Connect(connectionString)
+                // Load all keys that start with `TestApp:` and have no label
+                .Select("TestApp:*", LabelFilter.Null)
+                // Configure to reload configuration if the registered sentinel key is modified
+                .ConfigureRefresh(refreshOptions =>
+                    refreshOptions.Register("TestApp:Settings:Sentinel", refreshAll: true));
+        
+        // Load all feature flags with no label
+        options.UseFeatureFlags();
+    });
+    ```
+    ---
 
     > [!TIP]
     > When no parameter is passed to the `UseFeatureFlags` method, it loads *all* feature flags with *no label* in your App Configuration store. The default refresh interval of feature flags is 30 seconds. You can customize this behavior via the `FeatureFlagOptions` parameter. For example, the following code snippet loads only feature flags that start with *TestApp:* in their *key name* and have the label *dev*. The code also changes the refresh interval time to 5 minutes. Note that this refresh interval time is separate from that for regular key-values.

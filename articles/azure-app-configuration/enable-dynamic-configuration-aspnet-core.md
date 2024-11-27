@@ -6,7 +6,7 @@ author: zhenlan
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 02/20/2024
+ms.date: 11/27/2024
 ms.author: zhenlwa
 ms.custom: devx-track-csharp
 ---
@@ -35,8 +35,28 @@ A *sentinel key* is a key that you update after you complete the change of all o
 
 ## Reload data from App Configuration
 
-1. Open *Program.cs*, and update the `AddAzureAppConfiguration` method you added previously during the quickstart.
+1. Open *Program.cs*, and update the `AddAzureAppConfiguration` method you added previously during the quickstart. Connect to App Configuration using Microsoft Entra ID (recommended), or a connection string. 
 
+    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
+
+    You use the `DefaultAzureCredential` to authenticate to your App Configuration store. While completing the quickstart listed in the prerequisites, you already [assigned your credential the **App Configuration Data Reader role**](./concept-enable-rbac.md#authentication-with-token-credentials).
+
+    ```csharp
+    // Load configuration from Azure App Configuration
+    builder.Configuration.AddAzureAppConfiguration(options =>
+    {
+        string endpoint = builder.Configuration.Get("Endpoints:AppConfiguration");
+        options.Connect(new Uri(endpoint), new DefaultAzureCredential());
+               // Load all keys that start with `TestApp:` and have no label
+               .Select("TestApp:*", LabelFilter.Null)
+               // Configure to reload configuration if the registered sentinel key is modified
+               .ConfigureRefresh(refreshOptions =>
+                    refreshOptions.Register("TestApp:Settings:Sentinel", refreshAll: true));
+    });
+    ```
+
+    ### [Connection string](#tab/connection-string)
+    
     ```csharp
     // Load configuration from Azure App Configuration
     builder.Configuration.AddAzureAppConfiguration(options =>
@@ -49,6 +69,7 @@ A *sentinel key* is a key that you update after you complete the change of all o
                     refreshOptions.Register("TestApp:Settings:Sentinel", refreshAll: true));
     });
     ```
+    ---
 
     The `Select` method is used to load all key-values whose key name starts with *TestApp:* and that have *no label*. You can call the `Select` method more than once to load configurations with different prefixes or labels. If you share one App Configuration store with multiple apps, this approach helps load configuration only relevant to your current app instead of loading everything from your store.
 
