@@ -29,6 +29,8 @@ CycleCloud 8.6 is the sixth GA release of the CycleCloud 8.x platform and contin
 ## Release Notes
 
 Comprehensive release notes for the individual 8.x releases are listed below:
+
+* [**8.6.5 Release Notes**](release-notes/8-6-5.md) - released on 10/24/24
 * [**8.6.4 Release Notes**](release-notes/8-6-4.md) - released on 08/30/24
 * [**8.6.3 Release Notes**](release-notes/8-6-3.md) - released on 07/18/24
 * [**8.6.2 Release Notes**](release-notes/8-6-2.md) - released on 05/31/24
