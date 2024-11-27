@@ -19,27 +19,21 @@ In this quickstart, you create an Azure Windows virtual machine (VM) and associa
 [!INCLUDE [About Terraform](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
 
 > [!div class="checklist"]
-> * Specify the required version of Terraform and the required providers.
-> * Configure the Azure provider with Backup recovery services features.
-> * Declare variables for the resource group location, resource group name prefix, and an enabled soft delete status.
-> * Generate a random pet name for the resource group.
-> * Create an Azure resource group with the generated pet name.
-> * Generate a random string of 12 lowercase characters.
+
+> * Create an Azure resource group with a unique name.
 > * Create a virtual network with a unique name and a specified address space.
 > * Create a subnet within the virtual network with a unique name and a specified address prefix.
 > * Create a public IP address with a unique name.
 > * Create a network security group with two security rules for remote desk protocol and web traffic.
 > * Create a network interface with a unique name, and attach it to the subnet and public IP address.
 > * Associate the network security group with the network interface.
-> * Create a storage account for boot diagnostics.
-> * Create a Windows VM with a unique name, is a specified size, and is attached to the network interface.
 > * Generate a random ID for a unique storage account name.
+> * Create a storage account for boot diagnostics.
+> * Create a Windows VM with a unique name.
 > * Generate a random password for the VM.
 > * Create a Backup recovery services vault with a unique name.
 > * Create a Backup policy for the VM with daily frequency and a retention period of seven days.
 > * Protect the VM with the created Backup policy.
-> * Output the names of the resource group, Backup recovery services vault, Backup policy, and VM.
-> * Output the public IP address and admin password of the VM.
 
 ## Prerequisites
 
@@ -86,39 +80,39 @@ In this quickstart, you create an Azure Windows virtual machine (VM) and associa
 
 1. Get the Azure resource group name.
 
-```console
-resource_group_name = $(terraform outout -raw azurerm_resource_group_name)
-```
+    ```console
+    resource_group_name = $(terraform outout -raw azurerm_resource_group_name)
+    ```
 
 1. Get the Backup recovery services vault name.
 
-```console
-recovery_services_vault_name = $(terraform output -raw azurerm_recovery_services_vault_name)
-```
+    ```console
+    recovery_services_vault_name = $(terraform output -raw azurerm_recovery_services_vault_name)
+    ```
 
 1. Get the Windows VM name.
 
-```console
-windows_virtual_machine_name = $(terraform output -raw azurerm_windows_virtual_machine_name)
-```
+    ```console
+    windows_virtual_machine_name = $(terraform output -raw azurerm_windows_virtual_machine_name)
+    ```
 
 1. Run [az backup protection backup-now]( /cli/azure/backup/protection #az-backup-protection-backup-now) to start a backup job.
 
-```azcli
-az backup protection backup-now --resource-group $resource_group_name \
-                                --vault-name $recovery_services_vault_name \
-                                --container-name $windows_virtual_machine_name \
-                                --item-name $windows_virtual_machine_name \
-                                --backup-management-type AzureIaaSVM
-```
+    ```azcli
+    az backup protection backup-now --resource-group $resource_group_name \
+                                    --vault-name $recovery_services_vault_name \
+                                    --container-name $windows_virtual_machine_name \
+                                    --item-name $windows_virtual_machine_name \
+                                    --backup-management-type AzureIaaSVM
+    ```
 
 1. Run [az backup job list]( /cli/azure/backup/job #az-backup-job-list) to monitor the backup job.
 
-```azcli
-az backup job list --resource-group $resource_group_name \
-                   --vault-name $recovery_services_vault_name \
-                   --output table
-```
+    ```azcli
+    az backup job list --resource-group $resource_group_name \
+                       --vault-name $recovery_services_vault_name \
+                       --output table
+    ```
 
 The output is similar to the following example, which shows the backup job is *InProgress*:
 
