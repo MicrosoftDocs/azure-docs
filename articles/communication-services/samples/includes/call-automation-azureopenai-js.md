@@ -11,7 +11,7 @@ ms.author: kpunjabi
 ---
 
 ## Download code 
-Find the project for this sample on [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/CallAutomation_AzOpenAI_Voice). You can download this code and run it locally to try it for yourself. 
+Find the project for this sample on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/callautomation-az-openai-voice). You can download this code and run it locally to try it for yourself. 
 
 ## Overview 
 
