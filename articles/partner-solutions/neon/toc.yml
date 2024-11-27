@@ -1,4 +1,6 @@
 items:
+- name: Neon Serverless Postgres
+  href: index.yml
 - name: Overview
   items:
   - name: What is Neon Serverless Postgres
