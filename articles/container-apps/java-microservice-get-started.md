@@ -7,7 +7,7 @@ ms.service: azure-container-apps
 ms.custom: devx-track-extended-java
 ms.topic: quickstart
 ms.date: 11/25/2024
-ms.author: cshoe
+ms.author: yiliu6
 
 ---
 
