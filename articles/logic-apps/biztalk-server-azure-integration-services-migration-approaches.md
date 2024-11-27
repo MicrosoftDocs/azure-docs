@@ -97,7 +97,7 @@ We recommend that your MVP definition include the following business outcomes, w
   - What is the primary goal that we want to achieve? 
   - What capabilities or features must we address for this MVP?
   - What are the business process flows? This question provides the opportunity to optimize existing processes supported by BizTalk Server.
-    1. Business Decisions for the MVP: What business outcomes will impact the MVP? Availability of resources?
+  - MVP business decisions: What business outcomes impact the MVP? Resource availability?
 
 We recommend that your MVP include the following in-scope processes, which are expressed as [*Features*](/azure/devops/boards/backlogs/define-features-epics?view=azure-devops&tabs=agile-process#what-makes-a-feature-or-epic) in Scrum terminology:
 
