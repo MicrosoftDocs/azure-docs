@@ -32,22 +32,8 @@ The procedures in this article are typically performed by your **SAP BASIS** tea
 
 - Before you start, make sure to review the [prerequisites for deploying the Microsoft Sentinel solution for SAP applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md).
 
-:::zone pivot="connection-agentless"
-## Create a Microsoft Entra app registration and assign permissions
-
-1. In Microsoft Entra, create a new app registration. 
-1. Create a secret for the app registration.
-1. Save the values of the **app ID** (client ID), **client secret**, and **tenant ID** in a secure location for use later on in this procedure.
-1. In the Azure portal, go to the **Data collection rules** page and locate the **Microsoft-Sentinel-SCCCL-DCR** DCR you created early, after installing the [**SAP Agentless** solution](deploy-sap-security-content.md#install-the-solution-from-the-content-hub).
-1. Select **IAM** on the left and assign the **Monitoring Metrics Publisher** role to the app registration (service principal). <!--we don't call it this anywhere else, should we?-->
-
-For more information, see [Register an application with the Microsoft identity platform](/entra/identity-platform/quickstart-register-app?tabs=certificate).
-
-:::zone-end
-
 ## Configure the Microsoft Sentinel role
 
-<!--agentless - the order of creating a role and creating a user is switched. does it matter?-->
 To allow the SAP data connector to connect to your SAP system, you must create an SAP system role specifically for this purpose. <!--does agentless support attack disrupt? if not, we need to go directly to the connector role only.-->
 
 :::zone pivot="connection-agent"
@@ -157,50 +143,61 @@ When configuring SNC:
 
 ## Configure SAP BTP settings
 
-1. In your SAP BTP system create instances of the following service entitlements:
+1. In your SAP BTP subaccount, add entitlements for the following services:
 
-    - Cloud Foundry Runtime, and then also create a Cloud Foundry space.
     - SAP Integration Suite
+    - SAP Process Integration Runtime
+    - Cloud Foundry Runtime
 
-1. Add your user account to the **Integration_Provisioner** role.
+1. Create an instance of Cloud Foundry Runtime, and then also create a Cloud Foundry space.
+
+1. Create an instance of SAP Integration Suite.
+
+1. Assign the SAP BTP **Integration_Provisioner** role to your your SAP BTP subaccount user account.
 
 1. In the SAP Integration Suite, add the cloud integration capability.
 
 1. Assign the following process integration roles to your user account:
 
-    - PI_Administrator
-    - PI_Integration_Developer
-    - PI_Business_Expert
+    - **PI_Administrator**
+    - **PI_Integration_Developer**
+    - **PI_Business_Expert**
 
     These roles are available only after you activate the cloud integration capability.
 
-1. Create an instance of the SAP Process Integration Runtime.
+1. Create an instance of the SAP Process Integration Runtime in your subaccount.
 
-1. Create a service key for the SAP Process Integration Runtime and save the JSON contents to a secure location.
+1. Create a service key for the SAP Process Integration Runtime and save the JSON contents to a secure location. You must activate the cloud integration capability before creating a service key for SAP Process Integration Runtime.
 
 For more information, see the SAP documentation. <!--we need links to docs-->
 
 ## Configure SAP Cloud Connector settings
 
-1. Sign in to the SAP Cloud Connector, and add your BTP subaccount using the relevant credentials. For more information, see the [SAP documentation](https://help.sap.com/docs/connectivity/sap-btp-connectivity-cf/managing-subaccounts?locale=en-US ).
+1. Install the SAP Cloud Connector. For more information, see the [SAP documentation](https://help.sap.com/docs/connectivity/sap-btp-connectivity-cf/installation).
 
-1. Add a new system mapping to the backend system to map the ABAP system to the RFC protocol.
+1. Sign in at the cloud connector interface, and add the subaccount using the relevant credentials. For more information, see the [SAP documentation](https://help.sap.com/docs/connectivity/sap-btp-connectivity-cf/managing-subaccounts).
 
-1. Define load balancing options and enter your backend ABAP server details. In this step, copy the name of the virutal host to a secure location to use later in the deployment process.
+1. In your cloud connector subaccount, add a new system mapping to the backend system to map the ABAP system to the RFC protocol.
 
-1. Add a new resource to the system mapping. The allowed function name is **RSAU_API_GET_LOG_DATA**. <!--what does this mean?-->
+1. Define load balancing options and enter your backend ABAP server details. In this step, copy the name of the virtual host to a secure location to use later in the deployment process.
+
+1. Add new resources to the system mapping for each of the following function names:
+
+    - **RSAU_API_GET_LOG_DATA** <!--what does this mean?-->
+    - **BAPI_USER_GET_DETAIL**
+    - **RFC_READ_TABLE**
  
 1. Add a new destination in SAP BTP that points the virtual host you'd created earlier. Use the following details to populate the new destination:
 
     - **Name:** Enter the name you want to use for the Microsoft Sentinel connection
 
-    - **Type** RFC
+    - **Type** `RFC`
 
-    - **Proxy Type:** On-Premise
+    - **Proxy Type:** `On-Premise`
 
     - **User**: Enter the [ABAP user account](#create-a-user) you created earlier for Microsoft Sentinel
 
-    - **Authorization Type:** CONFIGURED USER
+    - **Authorization Type:** `CONFIGURED USER`
 
     - **Additional properties:**
 
@@ -211,12 +208,12 @@ For more information, see the SAP documentation. <!--we need links to docs-->
 
 ## Configure SAP Integration Suite settings
 
-1. Create a new OAuth2 client credential to store the connection details for the [Microsoft Entra ID app registration](#create-a-microsoft-entra-app-registration-and-assign-permissions) that you'd created earlier.
+1. Create a new OAuth2 client credential to store the connection details for the Microsoft Entra ID app registration that you'd created [earlier](deploy-sap-security-content.md#deployment).
 
     When creating the credential, enter the following details:
 
     - **Name:** `LogIngestionAPI`
-    - **Token Service URL:** `https://login.microsoftonline.com/<your Entra tenant ID>/oauth2/v2.0/token`
+    - **Token Service URL:** `https://login.microsoftonline.com/<your Microsoft Entra ID tenant ID>/oauth2/v2.0/token`
     - **Client ID**: `<your app registration client ID>`
     - **Client Authentication**: Send as body parameter
     - **Scope**: `https://monitor.azure.com//.default`

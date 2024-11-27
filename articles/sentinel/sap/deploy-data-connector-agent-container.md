@@ -398,13 +398,15 @@ The deployment procedure generates a **systemconfig.json** file that contains th
 ## Connect your agentless data connector
 
 1. In Microsoft Sentinel, go to the **Configuration > Data connectors** page and locate the **SAP Agentless (Preview)** data connector.
+
 1. In the **Configuration** area, under **Connect events from SAP to Microsoft Sentinel**, select **Add connection**.
+
 1. In the **Agentless connection** side pane, enter the following details:
 
-    - **RFC destination name (e.g. RFC-PRD-400)**: THe name of the RFC destination, taken from your BTP destination.
-    - **SAP Agentless Client ID**: The *clientid* value taken from the Proccess Integration Runtime service key JSON file.
+    - **RFC destination name**: THe name of the RFC destination, taken from your BTP destination.
+    - **SAP Agentless Client ID**: The *clientid* value taken from the Process Integration Runtime service key JSON file.
     - **SAP Agentless Client Secret**: The *clientsecret* value taken from the Process Integration Runtime service key JSON file.
-    - **Authorization server URL (UAA server)**: The *tokenurlurl* value taken from the Process Integration Runtime service key JSON file, without the `/oauth/token` suffix. Use the following syntax: `https://<azure-private>.authentication.<myEndpoint>.hana.ondeman.com`. For example: `https://trial2-a1b2c3d4.authentication.a1b2.hana.ondemand.com` <!--not sure what this syntax means - azure private?-->
+    - **Authorization server URL**: The *tokenurlurl* value taken from the Process Integration Runtime service key JSON file, without the `/oauth/token` suffix. Use the following syntax: `https://<azure-private>.authentication.<myEndpoint>.hana.ondeman.com`. For example: `https://trial2-a1b2c3d4.authentication.a1b2.hana.ondemand.com` <!--not sure what this syntax means - azure private?-->
     - **Integration Suite Endpoint**: The *url* value taken from the Process Integration Runtime service key JSON file. Use the following syntax: `https://azure-private.<myIntegrationSuiteEndpoint>.hana.ondemand.com`. <!--do we have an example?-->
 :::zone-end
 

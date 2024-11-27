@@ -88,14 +88,17 @@ also requires registration and is only available to approved customers and partn
 
     The deployment process can take a few minutes. After the deployment is finished, you can view the deployed content in Microsoft Sentinel.
 
-1. In the Microsoft Sentinel **Configuration > Data connectors** page, locate the **SAP ABAP and S/4 via cloud** data connector.
+1. In the Microsoft Sentinel **Configuration > Data connectors** page, locate and select the **SAP ABAP and S/4 via cloud** data connector.
 
-1. In Azure, navigate to the **Data collection rules** page and locate the new DCR. The DCR's naming convention uses the following syntax: *Microsoft-Sentinel-SCCCL-DCR-**
+1. On the data connector details page, select to deploy the DCR and Entra ID app registration.
 
-1. On the DCR's **Overview** page, locate the following elements and copy them for use later in the deployment:
+1. <a name="deployment"></a>Once deployed, note the following values for later use:
 
-    - The **Immutable ID**. Copy this value to a safe location.
-    - The **Data collection Endpoint**. Select the link and then copy the **Logs Ingestion** value to a safe location.
+    - **Immutable ID**
+    - **Logs Ingestion URL**
+    - **Tenant ID**
+    - **Entra Application ID**
+    - **Entra Application Secret**
 
 :::zone-end
 
