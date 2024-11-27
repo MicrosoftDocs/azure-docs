@@ -27,7 +27,7 @@ No, if your scenario doesn't require South Korea data, you don't need to enable 
 
 Giving consent to process data in a different region will not affect where your metadata and logs are stored. Those are still contained within the region specified when creating your Azure Maps Account.
 
-## Next Steps
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Configure global data processing]

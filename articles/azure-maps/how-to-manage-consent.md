@@ -47,7 +47,7 @@ Once your updates are saved, one or more new selections appear in the list of re
 
 Consent can be managed using [Azure Maps Account Management REST APIs]. To Configure global data processing, send an [Accounts - Update]  `PATCH` request and pass in the `properties.locations` parameter in the body of the request.
 
-Be sure to include the appropriate [subscription key], respurce group and Azure Maps account name.
+Be sure to include the appropriate [subscription key], resource group and Azure Maps account name.
 
 ```html
 https://management.azure.com/subscriptions/<subscription-key>/resourceGroups/<resource-group-name>/providers/Microsoft.Maps/accounts/<account-name>?api-version=2024-07-01-preview

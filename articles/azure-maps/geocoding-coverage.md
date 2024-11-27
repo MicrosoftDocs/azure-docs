@@ -146,7 +146,7 @@ The ability to geocode in a country/region is dependent upon the road data cover
 | Vietnam                                             |        ✓        |                |       ✓     |      ✓     |       ✓        |
 | Wallis & Futuna                                     |                 |                |              |      ✓     |       ✓        |
 
-<sup>1</sup> Coverage is dependent on enabling data processing in South Korea. For more information, see [Enable South Korea addresses in Azure Maps](how-to-manage-consent.md)
+<sup>1</sup> Coverage is dependent on enabling data processing in South Korea. For more information, see [Enable South Korea addresses in Azure Maps](how-to-manage-consent.md).
 
 ## Europe
 
