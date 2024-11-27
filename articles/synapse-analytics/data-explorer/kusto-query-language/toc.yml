@@ -79,64 +79,64 @@ items:
     items:
     - name: List of functions
       displayName: functions library
-      href: /kusto/query/functions-library?view=azure-data-explorer&preserve-view=true
+      href: /azure/data-explorer/data-explorer-overview?view=azure-data-explorer&preserve-view=true
     - name: bartlett_test_fl()
       displayName: functions library, statistical test
-      href: /kusto/query/bartlett-test-fl?view=azure-data-explorer&preserve-view=true
+      href: /kusto/functions-library/bartlett-test-fl?view=azure-data-explorer&preserve-view=true
     - name: binomial_test_fl()
       displayName: functions library, statistical test
-      href: /kusto/query/binomial-test-fl?view=azure-data-explorer&preserve-view=true
+      href: /kusto/functions-library/binomial-test-fl?view=azure-data-explorer&preserve-view=true
     - name: comb_fl()
       displayName: functions library, statistics
-      href: /kusto/query/comb-fl?view=azure-data-explorer&preserve-view=true
+      href: /kusto/functions-library/comb-fl?view=azure-data-explorer&preserve-view=true
     - name: dbscan_fl()
       displayName: functions library, clustering, DBSCAN
-      href: /kusto/query/dbscan-fl?view=azure-data-explorer&preserve-view=true
+      href: /kusto/functions-library/dbscan-fl?view=azure-data-explorer&preserve-view=true
     - name: dbscan_dynamic_fl()
       displayName: functions library, clustering, DBSCAN
-      href: /kusto/query/dbscan-dynamic-fl?view=azure-data-explorer&preserve-view=true
+      href: /kusto/functions-library/dbscan-dynamic-fl?view=azure-data-explorer&preserve-view=true
     - name: factorial_fl()
       displayName: functions library, statistics
-      href: /kusto/query/factorial-fl?view=azure-data-explorer&preserve-view=true
+      href: /kusto/functions-library/factorial-fl?view=azure-data-explorer&preserve-view=true
     - name: geoip_fl()
       displayName: functions library, geographic, ip, country, state, city, longitude, latitude
-      href: /kusto/query/geoip-fl?view=azure-data-explorer&preserve-view=true
+      href: /kusto/functions-library/geoip-fl?view=azure-data-explorer&preserve-view=true
     - name: get_packages_version_fl()
       displayName: functions library, python, version, package
-      href: /kusto/query/get-packages-version-fl?view=azure-data-explorer&preserve-view=true
+      href: /kusto/functions-library/get-packages-version-fl?view=azure-data-explorer&preserve-view=true
     - name: kmeans_fl()
       displayName: functions library, clustering, K-Means
-      href: /kusto/query/kmeans-fl?view=azure-data-explorer&preserve-view=true
+      href: /kusto/functions-library/kmeans-fl?view=azure-data-explorer&preserve-view=true
     - name: kmeans_dynamic_fl()
       displayName: functions library, clustering, K-Means
-      href: /kusto/query/kmeans-dynamic-fl?view=azure-data-explorer&preserve-view=true
+      href: /kusto/functions-library/kmeans-dynamic-fl?view=azure-data-explorer&preserve-view=true
     - name: ks_test_fl()
       displayName: functions library, statistical test
-      href: /kusto/query/ks-test-fl?view=azure-data-explorer&preserve-view=true
+      href: /kusto/functions-library/ks-test-fl?view=azure-data-explorer&preserve-view=true
     - name: normality_test_fl()
       displayName: functions library, statistical test
-      href: /kusto/query/normality-test-fl?view=azure-data-explorer&preserve-view=true
+      href: /kusto/functions-library/normality-test-fl?view=azure-data-explorer&preserve-view=true
     - name: levene_test_fl()
       displayName: functions library, statistical test
-      href: /kusto/query/levene-test-fl?view=azure-data-explorer&preserve-view=true
+      href: /kusto/functions-library/levene-test-fl?view=azure-data-explorer&preserve-view=true
     - name: log_reduce_fl()
       displayName: functions library, log reduce, log parse, clustering, text analytics
-      href: /kusto/query/log-reduce-fl?view=azure-data-explorer&preserve-view=true
+      href: /kusto/functions-library/log-reduce-fl?view=microsoft-fabric
     - name: log_reduce_full_fl()
       displayName: functions library, log reduce, log parse, clustering, text analytics
-      href: /kusto/query/log-reduce-full-fl?view=azure-data-explorer&preserve-view=true
+      href: /kusto/functions-library/log-reduce-full-fl?view=azure-data-explorer&preserve-view=true
     - name: log_reduce_predict_fl()
       displayName: functions library, log reduce, log parse, clustering, text analytics
-      href: /kusto/query/log-reduce-predict-fl?view=azure-data-explorer&preserve-view=true
+      href: /kusto/functions-library/log-reduce-predict-fl?view=azure-data-explorer&preserve-view=true
     - name: log_reduce_predict_full_fl()
       displayName: functions library, log reduce, log parse, clustering, text analytics
-      href: /kusto/query/log-reduce-predict-full-fl?view=azure-data-explorer&preserve-view=true
+      href: /kusto/functions-library/log-reduce-predict-full-fl?view=azure-data-explorer&preserve-view=true
     - name: log_reduce_train_fl()
       displayName: functions library, log reduce, log parse, clustering, text analytics
-      href: /kusto/query/log-reduce-train-fl?view=azure-data-explorer&preserve-view=true
+      href: /kusto/functions-library/log-reduce-train-fl?view=azure-data-explorer&preserve-view=true
     - name: mann-whitney-u-test-fl()
       displayName: functions library, statistical test
-      href: /kusto/query/mann-whitney-u-test-fl?view=azure-data-explorer&preserve-view=true
+      href: /kusto/functions-library/mann-whitney-u-test-fl?view=azure-data-explorer&preserve-view=true
     - name: pair_probabilities_fl()
       displayName: functions library, jaccard, lift
       href: /kusto/query/pair-probabilities-fl?view=azure-data-explorer&preserve-view=true
