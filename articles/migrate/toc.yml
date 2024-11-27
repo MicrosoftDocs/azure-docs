@@ -271,7 +271,7 @@ items:
     - name: Scale assessment
       items:
       - name: Assess large number of servers in VMware environment
-        href: ../scale-vmware-assessment.md
+        href: scale-vmware-assessment.md
       - name: Assess large number of servers in Hyper-V environment
         href: scale-hyper-v-assessment.md
       - name: Assess large numbers of physical servers
