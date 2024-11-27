@@ -31,7 +31,7 @@ the _add_ **operation** and the parameters are used to set the tag and its value
 
 This policy definition audits each virtual machine for when an extension, defined in parameters
 **publisher** and **type**, doesn't exist. It uses
-[auditIfNotExists](../concepts/effect-audit.mdifnotexists) to check a resource related to the
+[auditIfNotExists](../concepts/effect-audit-if-not-exists.md) to check a resource related to the
 virtual machine to see whether an instance exists that matches the defined parameters. This example
 checks the **extensions** type.
 
