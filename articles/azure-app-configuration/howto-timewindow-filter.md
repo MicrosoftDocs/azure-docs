@@ -39,9 +39,9 @@ In this article, you learn how to add and configure a time window filter for you
 
 1. Optionally set a time window recurrence. This option allows you to define a repeating time window, ensuring that the feature flag is automatically activated and deactivated according to your specified schedule, such as during periods of low or high traffic. 
 
-   A recurring time window filter always has a start time and an end time, defining a base time window that recurs according to the recurrence pattern you specify. Enter a **Start time** and an **End time**, then select the **Enable recurrence** checkbox, and select the recurrence details, including a recurrence pattern and an expiration time.
+   A recurring time window filter always has a start time and an end time, defining a base time window that recurs according to the recurrence pattern you specify. Enter a **Start time** and an **End time**, then select the **Enable recurrence** checkbox, and select the recurrence details, including a recurrence pattern and an **expiration time**.
 
-   In this example, you activate the *Beta* feature between 5:00 PM and 6:00 PM, starting from November 25. You can alternatively select a weekly frequency and select one or more days of the week for the recurrence. We set an **expiration time** a few weeks later.
+   In this example, you activate the *Beta* feature daily from 5:00 PM to 6:00 PM, starting November 25 and continuing until December 31. You can alternatively select a weekly frequency and select one or more days of the week for the recurrence.
 
     :::image type="content" source="media/time-window-filters/add-timewindow-filter-recurrence.png" alt-text="Screenshot of the Azure portal showing feature filter recurrence.":::
 
