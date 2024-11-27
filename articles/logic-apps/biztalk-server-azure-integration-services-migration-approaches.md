@@ -109,7 +109,7 @@ We recommend that your MVP include the following in-scope processes, which are e
   - Actors or personas: Use this information to determine the individuals affected by the MVP's supported scenarios.
   - Orchestrations: You can extract this information using the discovery tools.
   - Data entities and messages: These elements give you an opportunity to learn whether you can include further improvements in the data exchanged by the BizTalk Server environment.
-    1. Data Mappings: Today's world relies on JSON. BizTalk Server on XML. This is a great moment to decide the data format and conversion needs for the new platform.
+ - Data mappings: Today's world relies on JSON. However, BizTalk Server uses XML. This moment is a great opportunity to decide the data format and conversion needs for the new platform.
     1. Business Rules: Business Rules are data centric and open an opportunity to re-think the approach for them or reuse them using Logic Apps capabilities.
     1. Regulatory Considerations: This is more relevant if customers don't have workloads running in the cloud.
     1. Data Privacy Considerations: Privacy has to be a top priority. As there is a potential environment change, unless the customer is chosing the Hybrid deployment model, this has to be addressed in each wave.
