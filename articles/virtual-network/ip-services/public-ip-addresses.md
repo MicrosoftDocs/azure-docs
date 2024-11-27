@@ -8,7 +8,7 @@ ms.subservice: ip-services
 ms.topic: conceptual
 author: mbender-ms
 ms.author: mbender
-ms.date: 08/15/2024
+ms.date: 09/27/2024
 ---
 
 # Public IP addresses
@@ -66,7 +66,7 @@ Full details are listed in the table below:
 | Allocation method| Static | For IPv4: Dynamic or Static; For IPv6: Dynamic.| 
 | Idle Timeout | Have an adjustable inbound originated flow idle timeout of 4-30 minutes, with a default of 4 minutes, and fixed outbound originated flow idle timeout of 4 minutes.|Have an adjustable inbound originated flow idle timeout of 4-30 minutes, with a default of 4 minutes, and fixed outbound originated flow idle timeout of 4 minutes.|
 | Security | Secure by default model and be closed to inbound traffic when used as a frontend.  Allow traffic with [network security group (NSG)](../../virtual-network/network-security-groups-overview.md#network-security-groups) is required (for example, on the NIC of a virtual machine with a Standard SKU Public IP attached).| Open by default.  Network security groups are recommended but optional for restricting inbound or outbound traffic.| 
-| [Availability zones](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) | Supported. Standard IPs can be nonzonal, zonal, or zone-redundant. **Zone redundant IPs can only be created in [regions where 3 availability zones](../../availability-zones/az-region.md) are live.** IPs created before availability zones aren't zone redundant. | Not supported. | 
+| [Availability zones](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) | Supported. Standard IPs can be nonzonal, zonal, or zone-redundant. **Zone redundant IPs can only be created in [regions where 3 availability zones](../../reliability/availability-zones-region-support.md) are live.** IPs created before availability zones aren't zone redundant. | Not supported. | 
 | [Routing preference](routing-preference-overview.md)| Supported to enable more granular control of how traffic is routed between Azure and the Internet. | Not supported.| 
 | Global tier | Supported via [cross-region load balancers](../../load-balancer/cross-region-overview.md).| Not supported. |
 
@@ -94,8 +94,12 @@ Static public IP addresses are commonly used in the following scenarios:
 | Basic public IPv6 | x | :white_check_mark: |
 
 ## Availability Zone
+> [!IMPORTANT]
+> We are updating Standard non-zonal IPs to be zone-redundant by default on a region by region basis. This means that in the following regions, all IPs created (except zonal) are zone-redundant.
+> Region availability: Central Canada, Central Poland, Central Israel, Central France, Central Qatar, East Asia, East US 2, East Norway, Italy North, Sweden Central, South Africa North, South Brazil, West Central Germany, West US 2, Central Spain
+> 
 
-Standard SKU Public IPs can be created as non-zonal, zonal, or zone-redundant in [regions that support availability zones](../../availability-zones/az-region.md). Basic SKU Public IPs do not have any zones and are created as non-zonal.
+Standard SKU Public IPs can be created as non-zonal, zonal, or zone-redundant in [regions that support availability zones](../../reliability/availability-zones-region-support.md). Basic SKU Public IPs do not have any zones and are created as non-zonal.
 A public IP's availability zone can't be changed after the public IP's creation.
 
 | Value | Behavior |
@@ -105,10 +109,6 @@ A public IP's availability zone can't be changed after the public IP's creation.
 | Zone-redundant	| A zone-redundant IP is created in all zones for a region and can survive any single zone failure. |
 
 In regions without availability zones, all public IP addresses are created as nonzonal. Public IP addresses created in a region that is later upgraded to have availability zones remain non-zonal.  
-
-> [!IMPORTANT]
-> We are updating Standard non-zonal IPs to be zone-redundant by default on a region by region basis. This means that in the following regions, all IPs created (except zonal) are zone-redundant.
-> Region availability: Central Canada, Central Poland, Central Israel, Central France, Central Qatar, East Asia, East US 2, East Norway, Italy North, Sweden Central, South Africa North, South Brazil, West Central Germany, West US 2.
 
 ## Domain Name Label
 

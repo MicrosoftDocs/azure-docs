@@ -2,7 +2,7 @@
 title: Find resource providers by Azure services
 description: Lists all resource provider namespaces for Azure Resource Manager and shows the Azure service for that namespace.
 ms.topic: conceptual
-ms.date: 11/07/2023
+ms.date: 09/26/2024
 ms.custom: devx-track-arm-template
 content_well_notification: 
   - AI-contribution
@@ -23,7 +23,6 @@ The resource providers for AI and machine learning services are:
 | Microsoft.BotService | [Azure Bot Service](/azure/bot-service/) |
 | Microsoft.CognitiveServices | [Cognitive Services](/azure/ai-services/) |
 | Microsoft.EnterpriseKnowledgeGraph | Enterprise Knowledge Graph |
-| Microsoft.MachineLearning | [Machine Learning Studio](/azure/machine-learning/classic/) |
 | Microsoft.MachineLearningServices | [Azure Machine Learning](/azure/machine-learning/) |
 | Microsoft.Search | [Azure AI Search](/azure/search/) |
 

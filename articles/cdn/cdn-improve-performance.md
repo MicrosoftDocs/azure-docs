@@ -13,6 +13,8 @@ ms.author: duau
 
 # Improve performance by compressing files in Azure CDN
 
+[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
+
 File compression is a simple and effective method to improve file transfer speed and increase page-load performance by reducing a file's size before it's sent from the server. File compression can reduce bandwidth costs and provide a more responsive experience for your users.
 
 There are two ways to enable file compression:

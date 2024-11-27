@@ -29,6 +29,10 @@ There are two types of inbound NAT rule available for Azure Load Balancer, versi
 
 Inbound NAT rule V1 is defined for a single target virtual machine. Inbound NAT pools are feature of Inbound NAT rules V1 and automatically creates Inbound NAT rules per VMSS intance. The load balancer's frontend IP address and the selected frontend port are used for connections to the virtual machine.
 
+>[!Important]
+> On September 30, 2027, Inbound NAT rules v1 will be retired. If you are currently using Inbound NAT rules v1, make sure to upgrade to  Inbound NAT rules v2 prior to the retirement date.
+
+
 :::image type="content" source="./media/inbound-nat-rules/inbound-nat-rule.png" alt-text="Diagram of a single virtual machine inbound NAT rule.":::
 
 ### Inbound NAT rule V2

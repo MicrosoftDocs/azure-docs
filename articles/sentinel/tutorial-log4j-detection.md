@@ -5,6 +5,10 @@ author: yelevin
 ms.author: yelevin
 ms.topic: tutorial
 ms.date: 06/21/2023
+
+
+#Customer intent: As a security analyst, I want to create and customize analytics rules to detect and respond to security threats, so that I can protect my organization from vulnerabilities like the Apache Log4j exploit.
+
 ---
 
 # Tutorial: Detect threats by using analytics rules in Microsoft Sentinel

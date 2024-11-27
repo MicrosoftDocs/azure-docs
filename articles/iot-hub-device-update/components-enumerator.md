@@ -5,7 +5,8 @@ author: kgremban
 ms.author: kgremban
 ms.date: 08/25/2022
 ms.topic: how-to
-ms.service: iot-hub-device-update
+ms.service: azure-iot-hub
+ms.subservice: device-update
 ---
 
 # Register components with Device Update

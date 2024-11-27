@@ -4,8 +4,7 @@ description: Describes how to install GPU extensions on GPU virtual machines (VM
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 06/28/2024
 ms.author: alkohli
@@ -13,10 +12,6 @@ ms.author: alkohli
 ---
 
 # Install GPU extension on VMs for your Azure Stack Edge Pro GPU device
-
-
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 [!INCLUDE [applies-to-gpu-pro-pro2-and-pro-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-pro-2-pro-r-sku.md)]
 
@@ -338,7 +333,7 @@ Etag                    : null
 Publisher               : Microsoft.HpcCompute
 ExtensionType           : NvidiaGpuDriverWindows
 TypeHandlerVersion      : 1.3
-Id                      : /subscriptions/947b3cfd-7a1b-4a90-7cc5-e52caf221332/resourceGroups/myasegpuvm1/providers/Microsoft.Compute/virtualMachines/VM2/extensions/windowsgpuext
+Id                      : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myasegpuvm1/providers/Microsoft.Compute/virtualMachines/VM2/extensions/windowsgpuext
 PublicSettings          : {
                             "DriverURL": "http://us.download.nvidia.com/tesla/442.50/442.50-tesla-desktop-winserver-2019-2016-international.exe",
                             "DriverCertificateUrl": "https://go.microsoft.com/fwlink/?linkid=871664",
@@ -393,7 +388,7 @@ Etag                    : null
 Publisher               : Microsoft.HpcCompute
 ExtensionType           : NvidiaGpuDriverLinux
 TypeHandlerVersion      : 1.3
-Id                      : /subscriptions/947b3cfd-7a1b-4a90-7cc5-e52caf221332/resourceGroups/rg2/providers/Microsoft.Compute/virtualMachines/VM1/extensions/gpuLinux
+Id                      : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/rg2/providers/Microsoft.Compute/virtualMachines/VM1/extensions/gpuLinux
 PublicSettings          : {
                             "DRIVER_URL": "https://go.microsoft.com/fwlink/?linkid=874271",
                             "PUBKEY_URL": "http://download.microsoft.com/download/F/F/A/FFAC979D-AD9C-4684-A6CE-C92BB9372A3B/7fa2af80.pub",

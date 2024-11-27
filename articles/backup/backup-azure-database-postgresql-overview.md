@@ -2,13 +2,14 @@
 title: About Azure Database for PostgreSQL backup
 description: An overview on Azure Database for PostgreSQL backup
 ms.topic: overview
-ms.date: 09/09/2024
+ms.date: 11/20/2024
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
 # About Azure Database for PostgreSQL backup
+
 
 Azure Backup and Azure Database Services have come together to build an enterprise-class backup solution for Azure Database for PostgreSQL servers that retains backups for up to 10 years. Besides long-term retention, the solution offers the following capabilities:
 
@@ -19,6 +20,13 @@ Azure Backup and Azure Database Services have come together to build an enterpri
 - Use of **pg_dump** allows a greater flexibility in restores. This helps you restore across database versions 
 
 You can use this solution independently or in addition to the [native backup solution offered by Azure PostgreSQL](/azure/postgresql/concepts-backup) that offers retention up to 35 days. The native solution is suited for operational recoveries, such as when you want to recover from the latest backups. The Azure Backup solution helps you with your compliance needs and more granular and flexible backup/restore.
+
+>[!Note]
+>Azure Database for PostgreSQL - Single Server is on the retirement path and is scheduled for retirement by March 28, 2025. 
+>
+>If you currently have an Azure Database for PostgreSQL - Single Server service hosting production servers, we're glad to inform you that you can migrate your Azure Database for PostgreSQL - Single Server to the Azure Database for PostgreSQL - Flexible Server. 
+>
+>Azure Database for PostgreSQL - Flexible Server is a fully managed production-ready> database service designed for more granular control and flexibility over database management functions and configuration settings with the enterprise grade [backup solution by Azure Backup](backup-azure-database-postgresql-flex-overview.md). For more information about Azure Database for PostgreSQL - Flexible Server, visit Azure Database for PostgreSQL - Flexible Server.
 
 ## Backup process
 
@@ -89,7 +97,7 @@ To grant all the access permissions needed by Azure Backup, refer to the followi
 
 1. Network line of sight access on the Azure PostgreSQL server: Set ‘Allow access to Azure services’ flag to ‘Yes’.
 
-   :::image type="content" source="./media/backup-azure-database-postgresql-overview/network-line-of-sight-access-on-azure-postgresql-server-inline.png" alt-text="Screenshot showing the option to set network line of sight access on the Azure PostgreSQL server." lightbox="./media/backup-azure-database-postgresql-overview/network-line-of-sight-access-on-azure-postgresql-server-expanded.png":::
+   :::image type="content" source="./media/backup-azure-database-postgresql-overview/network-line-of-sight-access-on-azure-postgresql-server.png" alt-text="Screenshot showing the option to set network line of sight access on the Azure PostgreSQL server." lightbox="./media/backup-azure-database-postgresql-overview/network-line-of-sight-access-on-azure-postgresql-server.png":::
 
 ### Access permissions on the Azure Key vault (associated with the PostgreSQL server)
 
@@ -137,7 +145,6 @@ END LOOP;
 END;
 $do$
 ```
- )
 
  > [!NOTE]  
   > If a database for which backup was already configured is failing with **UserErrorMissingDBPermissions** Please refer to this [troubleshooting guide](backup-azure-database-postgresql-troubleshoot.md) for assistance in resolving the issue.
@@ -156,7 +163,7 @@ Create new server with a name of your choice. Enter the Host name/address name s
 
 Ensure that you add the _current client ID address_ to the Firewall rules for the connection to go through.
 
-:::image type="content" source="./media/backup-azure-database-postgresql-overview/add-current-client-id-address-to-firewall-rules-inline.png" alt-text="Screenshot showing the process to add the current client I D address to the Firewall rules." lightbox="./media/backup-azure-database-postgresql-overview/add-current-client-id-address-to-firewall-rules-expanded.png":::
+:::image type="content" source="./media/backup-azure-database-postgresql-overview/add-current-client-id-address-to-firewall-rules.png" alt-text="Screenshot showing the process to add the current client ID address to the Firewall rules." lightbox="./media/backup-azure-database-postgresql-overview/add-current-client-id-address-to-firewall-rules.png":::
 
 You can add new databases and database users to the server. For database users, add a new **Login/Group Roles**’. Ensure **Can login?** is set to **Yes**.
 

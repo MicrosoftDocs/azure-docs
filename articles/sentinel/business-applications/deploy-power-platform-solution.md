@@ -79,13 +79,11 @@ To collect Power Apps and Power Automate inventory data, deploy the Azure Resour
 Connect each of the remaining data connectors by completing the following steps.
 
 1. In Microsoft Sentinel, under **Configuration**, select **Data connectors**.
-1. Search for and select the data connectors in the solution that you need to connect like **Microsoft Power Apps**.
+1. Search for and select the data connectors in the solution that you need to connect, like **Microsoft Power Platform Admin Activity**.
 1. Select **Open connector page** > **Connect**.
 1. Repeat these steps for each of the following data connectors that are a part of the Power Platform solution.
-   - **Microsoft Power Automate**
-   - **Microsoft Power Platform Connectors**
-   - **Microsoft Power Platform DLP**
    - **Microsoft Power Platform Admin Activity**
+   - **Microsoft Power Automate**
    - **Microsoft Dataverse**
 
 ## Enable auditing in your Microsoft Dataverse environment
@@ -148,7 +146,7 @@ After you wait for Microsoft Sentinel to ingest the data, complete the following
 1. Run KQL queries against the tables that collect the activity logs from the data connectors. For example, run the following query to return 50 rows from the table with the Power Apps activity logs.
 
    ```kusto
-    PowerAppsActivity
+    PowerPlatformAdminActivity
     | take 50
     ```
 
@@ -156,11 +154,8 @@ After you wait for Microsoft Sentinel to ingest the data, complete the following
 
    |Log Analytics tables |Data collected |
    |---------|---------|
-   |PowerAppsActivity |Power Apps activity logs |  
-   |PowerAutomateActivity |Power Automate activity logs  |
-   |PowerPlatformConnectorActivity |Power Platform connector activity logs |
-   |PowerPlatformDlpActivity |Data loss prevention activity logs   |
    |PowerPlatformAdminActivity|Power Platform administrative logs|
+   |PowerAutomateActivity |Power Automate activity logs  |
    |DataverseActivity |Dataverse and model-driven apps activity logging  |  
 
    Use the following parsers to return inventory and watchlist data.

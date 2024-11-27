@@ -52,6 +52,8 @@ Calculate ports per instance as follows:
 
 If you have Virtual Machine Scale Sets in the backend, it's recommended to allocate ports by "maximum number of backend instances". If more VMs are added to the backend than remaining SNAT ports allowed, scale out of Virtual Machine Scale Sets could be blocked, or the new VMs won't receive sufficient SNAT ports. 
 
+When multiple frontend IPs are configured using outbound rules, outbound connections may come from any of the frontend IPs configured to the backend instance. We do not recommend building any dependencies on which frontend IP may be selected for connections.
+
 For more information about outbound rules, see [Outbound rules](outbound-rules.md).
 
 ## 2. Associate a NAT gateway to the subnet
@@ -182,7 +184,7 @@ In the example in the following table, a backend instance with private IP 10.0.0
 
 *	Fragmented packets are dropped unless outbound is through an instance level public IP on the VM's NIC.
 
-*	Secondary IP configurations of a network interface don't provide outbound communication (unless a public IP is associated to it) via a load balancer.
+*	Secondary IPv4 configurations of a network interface are not supported with outbound rules. For outbound connectivity on secondary IPv4 configurations, attach instance level public IPs or leverage NAT Gateway instead.
 
 ## Next steps
 

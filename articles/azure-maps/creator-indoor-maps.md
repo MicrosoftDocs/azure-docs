@@ -270,7 +270,7 @@ The Indoor Maps module also supports dynamic map styling for more information, s
 
 ### Azure Maps integration
 
-As you begin to develop solutions for indoor maps, you can discover ways to integrate existing Azure Maps capabilities. For example, you can implement asset tracking or safety scenarios by using the [Geofence service] with Creator indoor maps. For example, you can use the Geofence API to determine whether a worker enters or leaves specific indoor areas. For more information about how to connect Azure Maps with IoT telemetry, see [Tutorial: Implement IoT spatial analytics by using Azure Maps].
+As you begin to develop solutions for indoor maps, you can discover ways to integrate existing Azure Maps capabilities. For example, you can implement asset tracking or safety scenarios by using the [Geofence service] with Creator indoor maps. For example, you can use the Geofence API to determine whether a worker enters or leaves specific indoor areas.
 
 ### Data maintenance
 
@@ -334,7 +334,6 @@ The following example shows how to update a dataset, create a new tileset, and d
 [Manage Azure Maps Creator]: how-to-manage-creator.md
 [structure]: creator-facility-ontology.md?pivots=facility-ontology-v2#structure
 [style picker control]: choose-map-style.md#add-the-style-picker-control
-[Tutorial: Implement IoT spatial analytics by using Azure Maps]: tutorial-iot-hub-maps.md
 [verticalPenetration]: creator-facility-ontology.md?pivots=facility-ontology-v2#verticalpenetration
 
 <!--- HTTP Links ------------>

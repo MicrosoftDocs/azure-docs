@@ -12,6 +12,8 @@ ms.author: duau
 
 # Match conditions in the Standard rules engine for Azure Content Delivery Network
 
+[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
+
 In the [Standard rules engine](cdn-standard-rules-engine.md) for Azure Content Delivery Network, a rule consists of one or more match conditions and an action. This article provides detailed descriptions of the match conditions you can use in the Standard rules engine for Azure Content Delivery Network.
 
 The first part of a rule is a match condition or set of match conditions. In the Standard rules engine for Azure Content Delivery Network, each rule can have up to four match conditions. A match condition identifies specific types of requests for which defined actions are performed. If you use multiple match conditions, the match conditions are grouped together by using AND logic.

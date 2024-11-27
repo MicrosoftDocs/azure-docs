@@ -6,6 +6,10 @@ ms.author: yelevin
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
 ms.date: 03/26/2024
+
+
+#Customer intent: As a security operations manager, I want to troubleshoot and resolve issues with scheduled analytics rules in Microsoft Sentinel so that I can ensure continuous and accurate monitoring of security events.
+
 ---
 
 # Troubleshooting analytics rules in Microsoft Sentinel

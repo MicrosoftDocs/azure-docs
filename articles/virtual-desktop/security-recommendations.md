@@ -116,10 +116,6 @@ Enabling audit log collection lets you view user and admin activity related to A
 -   [Session hosts](/azure/azure-monitor/agents/agent-windows)
 -   [Key Vault logs](/azure/key-vault/general/logging)
 
-### Use RemoteApp
-
-When choosing a deployment model, you can either provide remote users access to entire desktops, or only select applications when published as a RemoteApp. RemoteApp provides a seamless experience as the user works with apps from their virtual desktop. RemoteApp reduces risk by only letting the user work with a subset of the remote machine exposed by the application.
-
 ### Monitor usage with Azure Monitor
 
 Monitor your Azure Virtual Desktop service's usage and availability with [Azure Monitor](https://azure.microsoft.com/services/monitor/). Consider creating [service health alerts](/azure/service-health/alerts-activity-log-service-notifications-portal) for the Azure Virtual Desktop service to receive notifications whenever there's a service impacting event.

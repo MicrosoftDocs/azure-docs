@@ -2,7 +2,7 @@
 title: OSDU Services Available on Azure Data Manager for Energy
 description: This article provides an overview of the OSDU services available on Azure Data Manager for Energy and the OSDU services that are exclusively available in the community version.
 author: bananibrahim
-ms.service: energy-data-services
+ms.service: azure-data-manager-energy
 ms.author: bananibrahim
 ms.topic: conceptual
 ms.date: 08/30/2024

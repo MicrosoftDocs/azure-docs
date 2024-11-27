@@ -40,7 +40,7 @@ Azure Communication Services supports three levels of user access control, using
 ### Chat Data 
 Azure Communication Services stores chat threads according to the [data retention policy](/purview/create-retention-policies) in effect when the thread is created. You can update the retention policy if needed during the retention time period you set. After you delete a chat thread (by policy or by a Delete API request), it can't be retrieved.
 
-[!INCLUDE [public-preview-notice.md](../../includes/public-preview-include-document.md)]
+[!INCLUDE [chat-retention-policy.md](../../includes/chat-retention-policy.md)]
 
 You can choose between indefinite thread retention, automatic deletion between 30 and 90 days via the retention policy on the [Create Chat Thread API](/rest/api/communication/chat/chat/create-chat-thread), or immediate deletion using the APIs [Delete Chat Message](/rest/api/communication/chat/chat-thread/delete-chat-message) or [Delete Chat Thread](/rest/api/communication/chat/chat/delete-chat-thread). 
 
@@ -56,8 +56,10 @@ For customers that use Virtual appointments, refer to our Teams Interoperability
 - For chat threads with more than 20 participants, read receipts and typing indicator features aren't supported.
 - For Teams Interop scenarios, it's the number of Azure Communication Services users, not Teams users, that must be below 20 for the typing indicator feature to be supported.
 - When creating a chat thread, you can set the retention policy between 30 and 90 days.
-- For Teams Interop scenarios, the typing indicator event might contain a blank display name when sent from Teams user.
-- For Teams Interop scenarios, read receipts aren't supported for Teams users.
+- Moreover, in Teams Interop scenarios, there are the following limitations:
+    - The Teams user's display name in typing indicator event is blank.
+    - Read receipt isn't supported.
+    - Certain identities are not supported (i.e. [Bot users](/microsoftteams/platform/bots/what-are-bots), [Skype users](https://support.microsoft.com/en-us/office/use-skype-in-microsoft-teams-4382ea15-f963-413d-8982-491c1b9ae3bf), [non-enterprise users](https://support.microsoft.com/en-us/office/learn-more-about-subscriptions-for-microsoft-teams-free-1061bbd0-6d97-46a6-8ca0-21059be3eee3), etc.)
   
 ## Chat architecture
 

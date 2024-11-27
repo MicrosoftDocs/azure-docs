@@ -5,6 +5,10 @@ author: oshezaf
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: ofshezaf
+
+
+#Customer intent: As a security analyst, I want to use ASIM schemas so that I can normalize and query security data consistently across different sources.
+
 --- 
 
 # Advanced Security Information Model (ASIM) schemas
@@ -69,7 +73,7 @@ Each schema field has a type. Some have built-in, Log Analytics types, such as `
 |<a name="usertype"></a>**UserType** | Enumerated | The type of a user. For more information and list of allowed values, see [The User entity](#the-user-entity).  |
 |<a name="apptype"></a>**AppType** | Enumerated | The type of an application. Supported values include: `Process`<br>, `Service`,  `Resource`, `URL`, `SaaS application`, `CSP`, and `Other`. |
 |**Country**     |   String      |    A string using [ISO 3166-1](https://www.iso.org/iso-3166-country-codes.html), according to the following priority: <br><br> - Alpha-2 codes, such as `US` for the United States. <br> - Alpha-3 codes, such as `USA` for the United States. <br>- Short name.<br><br>The list of codes can be found on the [International Standards Organization (ISO) website](https://www.iso.org/obp/ui/#search).|
-|**Region**     | String        |   The country subdivision name, using ISO 3166-2.<br><br>The list of codes can be found on the [International Standards Organization (ISO) website](https://www.iso.org/obp/ui/#search).|
+|**Region**     | String        |   The country/region subdivision name, using ISO 3166-2.<br><br>The list of codes can be found on the [International Standards Organization (ISO) website](https://www.iso.org/obp/ui/#search).|
 |**City**     |  String       |         |
 |**Longitude**     | Double        |  ISO 6709 coordinate representation (signed decimal).       |
 |**Latitude**     | Double        |    ISO 6709 coordinate representation (signed decimal).     |

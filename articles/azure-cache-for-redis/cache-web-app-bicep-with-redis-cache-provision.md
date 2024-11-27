@@ -1,12 +1,9 @@
 ---
 title: Provision Web App that uses Azure Cache for Redis using Bicep
 description: Use Bicep to deploy web app with Azure Cache for Redis.
-
-
-ms.custom: devx-track-bicep
+ms.custom: devx-track-bicep, ignite-2024
 ms.topic: conceptual
 ms.date: 05/24/2022
- 
 ---
 
 # Create a Web App plus Azure Cache for Redis using Bicep
@@ -20,6 +17,7 @@ You can use this Bicep file for your own deployments. The Bicep file provides un
 For more information about creating Bicep files, see [Quickstart: Create Bicep files with Visual Studio Code](../azure-resource-manager/bicep/quickstart-create-bicep-use-visual-studio-code.md). To learn about Bicep syntax, see [Understand the structure and syntax of Bicep files](../azure-resource-manager/bicep/file.md).
 
 ## Review the Bicep file
+<!-- this bicep file needs to be updated to point to AMR  -->
 
 The Bicep file used in this quickstart is from [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.web/web-app-with-redis-cache/).
 
@@ -28,6 +26,128 @@ The Bicep file used in this quickstart is from [Azure Quickstart Templates](http
 With this Bicep file, you deploy:
 
 * [**Microsoft.Cache/Redis**](/azure/templates/microsoft.cache/redis)
+* [**Microsoft.Web/sites**](/azure/templates/microsoft.web/sites)
+* [**Microsoft.Web/serverfarms**](/azure/templates/microsoft.web/serverfarms)
+
+### Azure Managed Redis (Preview)
+
+```bicep
+@description('Describes plan\'s pricing tier and instance size. Check details at https://azure.microsoft.com/en-us/pricing/details/app-service/')
+@allowed([
+  'F1'
+  'D1'
+  'B1'
+  'B2'
+  'B3'
+  'S1'
+  'S2'
+  'S3'
+  'P1'
+  'P2'
+  'P3'
+  'P4'
+])
+param skuName string = 'F1'
+
+@description('Describes plan\'s instance count')
+@minValue(1)
+@maxValue(7)
+param skuCapacity int = 1
+
+@description('Location for all resources.')
+param location string = resourceGroup().location
+
+var hostingPlanName = 'hostingplan${uniqueString(resourceGroup().id)}'
+var webSiteName = 'webSite${uniqueString(resourceGroup().id)}'
+var redisCacheName = 'cache${uniqueString(resourceGroup().id)}'
+var redisAccessPolicyAssignment = 'redisWebAppAssignment'
+
+resource hostingPlan 'Microsoft.Web/serverfarms@2021-03-01' = {
+  name: hostingPlanName
+  location: location
+  tags: {
+    displayName: 'HostingPlan'
+  }
+  sku: {
+    name: skuName
+    capacity: skuCapacity
+  }
+  properties: {
+  }
+}
+
+resource webSite 'Microsoft.Web/sites@2021-03-01' = {
+  name: webSiteName
+  location: location
+  tags: {
+    'hidden-related:${hostingPlan.id}': 'empty'
+    displayName: 'Website'
+  }
+  identity: {
+    type: 'SystemAssigned'
+  }
+  properties: {
+    serverFarmId: hostingPlan.id
+    httpsOnly: true
+  }
+  dependsOn: [
+    redisEnterprise
+  ]
+}
+
+resource appsettings 'Microsoft.Web/sites/config@2021-03-01' = {
+  parent: webSite
+  name: 'appsettings'
+  properties: {
+    RedisHost: redisEnterprise.properties.hostName
+    minTlsVersion: '1.2'
+    ftpsState: 'FtpsOnly'
+  }
+}
+
+resource redisEnterprise 'Microsoft.Cache/redisEnterprise@2024-05-01-preview' = {
+  name: redisCacheName
+  location: location
+  sku: {
+    name: 'Balanced_B5'
+  }
+  identity: {
+    type: 'None'
+  }
+  properties: {
+    minimumTlsVersion: '1.2'    
+  }
+}
+
+resource redisEnterpriseDatabase 'Microsoft.Cache/redisEnterprise/databases@2024-05-01-preview' = {
+  name: 'default'
+  parent: redisEnterprise
+  properties:{
+    clientProtocol: 'Encrypted'
+    port: 10000
+    clusteringPolicy: 'OSSCluster'
+    evictionPolicy: 'NoEviction'
+    persistence:{
+      aofEnabled: false 
+      rdbEnabled: false
+    }
+  }
+}
+
+resource redisAccessPolicyAssignmentName 'Microsoft.Cache/redisEnterprise/accessPolicyAssignments@2024-03-01' = {
+  name: redisAccessPolicyAssignment
+  parent: redisEnterprise
+  properties: {
+    accessPolicyName: 'Data Owner'
+    objectId: webSite.identity.principalId
+    objectIdAlias: 'webapp'
+  }
+}
+```
+With this Bicep file, you deploy:
+
+* [**Microsoft.Cache/redisEnterprise**](/azure/templates/microsoft.cache/redisEnterprise)
+* [**Microsoft.Cache/redisEnterprise/databases**](/azure/templates/microsoft.cache/redisEnterprise/databases)
 * [**Microsoft.Web/sites**](/azure/templates/microsoft.web/sites)
 * [**Microsoft.Web/serverfarms**](/azure/templates/microsoft.web/serverfarms)
 

@@ -10,7 +10,10 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
-#customer intent: As an SOC admin, I want to use a threat intelligence platform solution to ingest threat intelligence so that I can generate alerts incidents.
+
+
+#Customer intent: As a security admin, I want to integrate my threat intelligence platform with Microsoft Sentinel to ingest threat intelligence, generating alerts and incidents so that I can centralize and enhance threat detection and response.
+
 ---
 
 # Connect your threat intelligence platform to Microsoft Sentinel
