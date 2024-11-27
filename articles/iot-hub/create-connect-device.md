@@ -31,7 +31,10 @@ Devices use two different types of certificates to connect to IoT Hub. When prep
 
 ### Required public root certificates
 
-Azure IoT devices use TLS to verify the authenticity of the IoT hub or DPS endpoint they're connecting to. The device SDKs include the DigiCert Global Root G2 TLS certificate they currently need to establish a secure connection to the IoT hub.
+Azure IoT devices use TLS to verify the authenticity of the IoT hub or DPS endpoint they're connecting to. Each device needs a copy of the root certificate that IoT Hub and DPS use. We recommend that all devices include the following root CAs in their trusted certificate store:
+
+* DigiCert Global G2 root CA
+* Microsoft RSA root CA 2017
 
 For more information about IoT Hub's recommended certificate practices, see [TLS support](./iot-hub-tls-support.md).
 
