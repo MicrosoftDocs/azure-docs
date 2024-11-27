@@ -111,10 +111,6 @@
   items:  
   - name: Overview
     href: sentinel-solutions.md
-  - name: Tutorial - Monitor Zero Trust security architectures
-    href: sentinel-solution.md   
-  - name: OOTB content centralization changes
-    href: sentinel-content-centralize.md
   - name: Deploy out-of-the-box content
     href: sentinel-solutions-deploy.md
   - name: Delete out-of-the-box content
@@ -127,6 +123,8 @@
       href: sentinel-solutions-catalog.md
     - name: ASIM-based domain solutions
       href: domain-based-essential-solutions.md
+    - name: Monitor Zero Trust 
+      href: sentinel-solution.md   
   - name: Manage custom content from repositories
     items:
     - name: Overview
@@ -259,8 +257,6 @@
     href: forward-syslog-monitor-agent.md
   - name: Connect data sources
     href: configure-data-connector.md
-  - name: Classifying data with entities
-    href: entities.md
   - name: Ingestion-time data transformation
     href: data-transformation.md
   - name: AMA migration for Microsoft Sentinel
@@ -317,7 +313,7 @@
       href: data-connectors/azure-cognitive-search.md
     - name: Azure DDoS Protection
       href: data-connectors/azure-ddos-protection.md
-    - name: Azure Event Hub
+    - name: Azure Event Hubs
       href: data-connectors/azure-event-hub.md
     - name: Azure Firewall
       href: data-connectors/azure-firewall.md
@@ -679,11 +675,11 @@
       items: 
       - name: Connect Microsoft Sentinel to Microsoft connectors
         href: connect-azure-windows-microsoft-services.md
-      - name: API-based connection
+      - name: Connect via API-based connectors
         href: connect-services-api-based.md
-      - name: Diagnostic settings-based connection
+      - name: Connect via diagnostic settings-based connectors
         href: connect-services-diagnostic-setting-based.md
-      - name: Windows agent-based connection
+      - name: Connect via Windows agent-based connectors
         href: connect-services-windows-based.md
     - name: Azure Functions API connection
       href: connect-azure-functions-template.md    
@@ -707,8 +703,6 @@
       href: connect-dns-ama.md
     - name: Logstash plugin with Data Collection Rules
       href: connect-logstash-data-connection-rules.md
-    - name: Microsoft Sentinel Data Collector API
-      href: connect-rest-api-template.md      
   - name: Connection instructions for service
     items:
     - name: Amazon Web Services logs
@@ -849,8 +843,17 @@
     href: tutorial-log4j-detection.md
   - name: MITRE ATT&CK coverage
     href: mitre-coverage.md
-  - name: User and entity behavior analytics (UEBA)
-    href: identify-threats-with-entity-behavior-analytics.md
+  - name: Data classification with entities
+    items:
+    - name: Overview
+      displayName: data classification, entities
+      href: entities.md
+    - name: Entity pages
+      href: entity-pages.md
+    - name: User and entity behavior analytics (UEBA)
+      href: identify-threats-with-entity-behavior-analytics.md
+    - name: Create custom entity activities
+      href: customize-entity-activities.md
   - name: Watchlists
     items:
     - name: Overview
@@ -871,27 +874,41 @@
     href: hunting.md
   - name: Conduct end-to-end hunts
     href: hunts.md
-  - name: Hunt with Kusto Query Language
+  - name: Advanced hunting in the Defender portal
+    items:
+    - name: Overview
+      href: /defender-xdr/advanced-hunting-microsoft-defender?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+    - name: Generate queries with Security Copilot
+      href: /defender-xdr/advanced-hunting-security-copilot?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+    - name: Use functions, saved queries, custom rules
+      href: /defender-xdr/advanced-hunting-defender-use-custom-rules?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+    - name: Use shared queries
+      href: /defender-xdr/advanced-hunting-shared-queries?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+    - name: Work with query results
+      href: /defender-xdr/advanced-hunting-query-results?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+    - name: Explore results containing Microsoft Sentinel data
+      href: /defender-xdr/advanced-hunting-defender-results?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+  - name: Kusto Query Language
     items:
     - name: Overview
       href: kusto-overview.md
     - name: Query best practices
-      href: /azure/data-explorer/kusto/query/best-practices?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+      href: /kusto/query/best-practices?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
     - name: SQL to KQL cheat sheet
-      href: /azure/data-explorer/kusto/query/sqlcheatsheet?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+      href: /kusto/query/sqlcheatsheet?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
     - name: Splunk to KQL cheat sheet
-      href: /azure/data-explorer/kusto/query/splunk-cheat-sheet?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+      href: /kusto/query/splunk-cheat-sheet?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
     - name: KQL quick reference
-      href: /azure/data-explorer/kql-quick-reference?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+      href: /kusto/query/kql-quick-reference?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
     - name: Other KQL resources
       href: kusto-resources.md 
   - name: Create custom query
     href: hunts-custom-queries.md
-  - name: Hunt with bookmarks
+  - name: Bookmarks
     href: bookmarks.md
-  - name: Hunt with livestream
+  - name: Livestream
     href: livestream.md
-  - name: Hunt with notebooks
+  - name: Notebooks
     items:
     - name: Overview
       href: notebooks.md
@@ -905,39 +922,71 @@
     href: bring-your-own-ml.md
 - name: Investigate incidents
   items:
-  - name: Overview
-    href: incident-investigation.md 
-  - name: Investigate incidents (New)
-    href: investigate-incidents.md
-  - name: Investigate incidents (Legacy)
-    href: investigate-cases.md
-  - name: Investigate incidents in Copilot for Security
-    href: sentinel-security-copilot.md
-  - name: Tutorial - Investigate with UEBA
-    href: investigate-with-ueba.md
-  - name: Relate alerts to incidents
-    href: relate-alerts-to-incidents.md
-  - name: Create incidents manually
-    href: create-incident-manually.md
-  - name: Delete incidents
-    href: delete-incident.md
-  - name: Remediate threats while investigating
-    href: respond-threats-during-investigation.md 
-  - name: Manage incident workflow with tasks
-    items:
+  - name: Azure portal
+    items: 
     - name: Overview
-      href: incident-tasks.md
-    - name: Use tasks to handle incident workflow
-      href: work-with-tasks.md
-    - name: Audit and track changes to incident tasks
-      href: audit-track-tasks.md
-  - name: Investigate entities
+      href: incident-investigation.md
+    - name: Investigate incidents
+      href: investigate-incidents.md
+    - name: Tutorial - Investigate with UEBA
+      href: investigate-with-ueba.md
+    - name: Relate alerts to incidents
+      href: relate-alerts-to-incidents.md
+    - name: Create incidents manually
+      href: create-incident-manually.md
+    - name: Delete incidents
+      href: delete-incident.md
+    - name: Remediate threats while investigating
+      href: respond-threats-during-investigation.md 
+    - name: Manage incident workflow with tasks
+      items:
+      - name: Overview
+        href: incident-tasks.md
+      - name: Use tasks to handle incident workflow
+        href: work-with-tasks.md
+      - name: Audit and track changes to incident tasks
+        href: audit-track-tasks.md
+    - name: Collaborate in Microsoft Teams
+      href: collaborate-in-microsoft-teams.md
+  - name: Defender portal
+    items:
+    - name: Overview 
+      href: /defender-xdr/incidents-overview?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+    - name: Alerts, incidents, and correlation
+      href: /defender-xdr/alerts-incidents-correlation?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+    - name: Manage incidents
+      href: /defender-xdr/manage-incidents?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+  - name: Entities
     items:
     - name: Overview
       href: entity-pages.md
     - name: Create custom entity activities
       href: customize-entity-activities.md
-  - name: Investigate large datasets
+    - name: Entity pages in the Defender portal
+      items: 
+      - name: User
+        href: /defender-xdr/investigate-users?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+      - name: Device
+        href: /defender-xdr/entity-page-device?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+      - name: IP
+        href: /defender-xdr/entity-page-ip?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+  - name: Security Copilot
+    items: 
+    - name: Overview
+      href: sentinel-security-copilot.md
+    - name: Microsoft Copilot in Microsoft Defender
+      items:
+      - name: Overview
+        href: /defender-xdr/security-copilot-in-microsoft-365-defender?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+      - name: Summarize incidents
+        href: /defender-xdr/security-copilot-m365d-incident-summary?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+      - name: Run script analysis
+        href: /defender-xdr/security-copilot-m365d-script-analysis?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+      - name: Analyze files
+        href: /defender-xdr/copilot-in-defender-file-analysis?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+      - name: Create incident reports
+        href: /defender-xdr/security-copilot-m365d-create-incident-report?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+  - name: Large datasets
     items:
     - name: Overview
       href: investigate-large-datasets.md
@@ -945,8 +994,6 @@
       href: search-jobs.md
     - name: Restore historical data
       href: restore.md
-  - name: Collaborate in Microsoft Teams
-    href: collaborate-in-microsoft-teams.md
 - name: Automate responses
   items:
   - name: Overview
@@ -1016,8 +1063,8 @@
       href: enroll-simplified-pricing-tier.md
     - name: Optimize costs with pre-purchase plan
       href: billing-pre-purchase-plan.md
-    - name: Tutorial - Configure data retention policy
-      href: configure-data-retention.md
+    - name: Manage data retention
+      href: /azure/azure-monitor/logs/data-retention-configure?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
     - name: Auxiliary logs use cases
       href: basic-logs-use-cases.md
   - name: Connect Microsoft Sentinel to Microsoft Defender XDR
@@ -1070,6 +1117,8 @@
     href: sentinel-service-limits.md
   - name: Microsoft Sentinel REST-API
     href: /rest/api/securityinsights/
+  - name: OOTB content centralization changes
+    href: sentinel-content-centralize.md
   - name: Build and publish Microsoft Sentinel solutions
     items:
     - name: Publish solutions
@@ -1108,6 +1157,8 @@
         href: normalization-known-issues.md
       - name: ASIM schemas
         items:
+        - name: ASIM alert event schema
+          href: normalization-schema-alert.md
         - name: ASIM audit event schema
           href: normalization-schema-audit.md
         - name: ASIM authentication schema

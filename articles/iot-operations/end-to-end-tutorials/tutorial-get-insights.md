@@ -6,18 +6,16 @@ ms.author: baanders
 ms.topic: tutorial
 ms.custom:
   - ignite-2023
-ms.date: 10/01/2024
+ms.date: 11/04/2024
 
 #CustomerIntent: As an OT user, I want to create a visual report for my processed OPC UA data that I can use to analyze and derive insights from it.
 ---
 
 # Tutorial: Get insights from your processed data
 
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
-
 In this tutorial, you populate a [Real-Time Dashboard](/fabric/real-time-intelligence/dashboard-real-time-create) to capture insights from the OPC UA data that you sent to Event Hubs in the previous tutorial. Using Microsoft Fabric Real-Time Intelligence, you bring your data from Event Hubs into Microsoft Fabric, and map it into a KQL database that can be a source for Real-Time Dashboards. Then, you build a dashboard to display that data in visual tiles that capture insights and show the values over time.
 
-These operations are the last steps in the sample end-to-end tutorial experience, which goes from deploying Azure IoT Operations Preview at the edge through getting insights from that device data in the cloud.
+These operations are the last steps in the sample end-to-end tutorial experience, which goes from deploying Azure IoT Operations at the edge through getting insights from that device data in the cloud.
 
 ## Prerequisites
 
@@ -71,13 +69,13 @@ Follow these steps to check your work so far, and make sure data is flowing into
     :::image type="content" source="media/tutorial-get-insights/source-added-data.png" alt-text="Screenshot of the eventstream with data from the AzureEventHub source.":::
 
 >[!TIP]
->If data has not arrived in your eventstream, you may want to check your event hub activity to verify that it's receiving messages. This will help you isolate which section of the flow to debug.
+>If data has not arrived in your eventstream, you may want to check your event hub activity to [verify that it's receiving messages](tutorial-upload-telemetry-to-cloud.md#verify-data-is-flowing). This will help you isolate which section of the flow to debug.
 
 ### Prepare KQL resources
 
 In this section, you create a KQL database in your Microsoft Fabric workspace to use as a destination for your data.
 
-1. Follow the steps in [Create an eventhouse](/fabric/real-time-intelligence/create-eventhouse#create-an-eventhouse-1) to create a Real-Time Intelligence eventhouse with a child KQL database. You only need to complete the section entitled **Create an eventhouse**.
+1. Follow the steps in [Create an Eventhouse](/fabric/real-time-intelligence/create-eventhouse#create-an-eventhouse-1) to create a Real-Time Intelligence eventhouse with a child KQL database. You only need to complete the section entitled **Create an Eventhouse**.
 
 1. Next, create a table in your database. Call it *OPCUA* and use the following columns.
 
@@ -88,7 +86,7 @@ In this section, you create a KQL database in your Microsoft Fabric workspace to
     | Humidity | decimal |
     | Timestamp | datetime |
 
-1. After the *OPCUA* table has been created, select it and use the **Explore your data** button to open a query window for the table.
+1. After the *OPCUA* table has been created, select your database and use the **Explore your data** button to open a query window.
 
     :::image type="content" source="media/tutorial-get-insights/explore-your-data.png" alt-text="Screenshot showing the Explore your data button.":::
 
@@ -286,4 +284,4 @@ If you're continuing on to the next tutorial, keep all of your resources.
 > [!NOTE]
 > The resource group contains the Event Hubs namespace you created in this tutorial.
 
-You can also delete your Microsoft Fabric workspace and/or all the resources within it associated with this tutorial, including the eventstream, Eventhouse, and Real-Time Dashboard.
+You can also delete your Microsoft Fabric workspace and/or all the resources within it associated with this tutorial, including the eventstream, eventhouse, and Real-Time Dashboard.

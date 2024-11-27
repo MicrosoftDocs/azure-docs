@@ -16,12 +16,12 @@ ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 
 This article explains how to expose applications to the internet using Application Gateway.
 
-When an Azure Spring Apps service instance is deployed in your virtual network (VNET), applications on the service instance are only accessible in the private network. To make the applications accessible on the Internet, you need to integrate with Azure Application Gateway. The incoming encrypted traffic can be decrypted at the application gateway or it can be passed to Azure Spring Apps encrypted to achieve end-to-end TLS/SSL. For dev and test purposes, you can start with SSL termination at the application gateway, which is covered in this guide. For production, we recommend end-to-end TLS/SSL with private certificate, as described in [Expose applications with end-to-end TLS in a virtual network](expose-apps-gateway-end-to-end-tls.md).
+When an Azure Spring Apps service instance is deployed in your virtual network (VNET), applications on the service instance are only accessible in the private network. To make the applications accessible on the Internet, you need to integrate with Azure Application Gateway. The incoming encrypted traffic can be decrypted at the application gateway or it can be passed to Azure Spring Apps encrypted to achieve end-to-end TLS/SSL. For dev and test purposes, you can start with SSL termination at the application gateway, which is covered in this guide. For production, we recommend end-to-end TLS/SSL with private certificate, as described in [Expose applications with end-to-end TLS in a virtual network](../basic-standard/expose-apps-gateway-end-to-end-tls.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json).
 
 ## Prerequisites
 
 - [Azure CLI version 2.0.4 or later](/cli/azure/install-azure-cli).
-- An Azure Spring Apps service instance deployed in a virtual network with an application accessible over the private network using the default `.private.azuremicroservices.io` domain suffix. For more information, see [Deploy Azure Spring Apps in a virtual network](how-to-deploy-in-azure-virtual-network.md)
+- An Azure Spring Apps service instance deployed in a virtual network with an application accessible over the private network using the default `.private.azuremicroservices.io` domain suffix. For more information, see [Deploy Azure Spring Apps in a virtual network](../basic-standard/how-to-deploy-in-azure-virtual-network.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json)
 - A custom domain to be used to access the application.
 - A certificate, stored in Key Vault, which matches the custom domain to be used to establish the HTTPS listener. For more information, see [Tutorial: Import a certificate in Azure Key Vault](/azure/key-vault/certificates/tutorial-import-certificate).
 
@@ -31,10 +31,10 @@ We recommend that the domain name, as seen by the browser, is the same as the ho
 
 To configure Application Gateway in front of Azure Spring Apps in a private VNET, use the following steps.
 
-1. Follow the instructions in [Deploy Azure Spring Apps in a virtual network](how-to-deploy-in-azure-virtual-network.md).
-1. Follow the instructions in [Access your application in a private network](access-app-virtual-network.md).
+1. Follow the instructions in [Deploy Azure Spring Apps in a virtual network](../basic-standard/how-to-deploy-in-azure-virtual-network.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json).
+1. Follow the instructions in [Access your application in a private network](../basic-standard/access-app-virtual-network.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json).
 1. Acquire a certificate for your domain of choice and store that in Key Vault. For more information, see [Tutorial: Import a certificate in Azure Key Vault](/azure/key-vault/certificates/tutorial-import-certificate).
-1. Configure a custom domain and corresponding certificate from Key Vault on an app deployed onto Azure Spring Apps. For more information, see [Tutorial: Map an existing custom domain to Azure Spring Apps](how-to-custom-domain.md).
+1. Configure a custom domain and corresponding certificate from Key Vault on an app deployed onto Azure Spring Apps. For more information, see [Tutorial: Map an existing custom domain to Azure Spring Apps](../basic-standard/how-to-custom-domain.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json).
 1. Deploy Application Gateway in a virtual network configured according to the following list:
    - Use Azure Spring Apps in the backend pool, referenced by the domain suffixed with `private.azuremicroservices.io`.
    - Include an HTTPS listener using the same certificate from Key Vault.
@@ -43,7 +43,7 @@ To configure Application Gateway in front of Azure Spring Apps in a private VNET
 
 ## Define variables
 
-Next, use the following commands to define variables for the resource group and virtual network you created as directed in [Deploy Azure Spring Apps in a virtual network](how-to-deploy-in-azure-virtual-network.md). Replace the *\<...>* placeholders with real values based on your actual environment. When you define `SPRING_APP_PRIVATE_FQDN`, remove `https://` from the URI.
+Next, use the following commands to define variables for the resource group and virtual network you created as directed in [Deploy Azure Spring Apps in a virtual network](../basic-standard/how-to-deploy-in-azure-virtual-network.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json). Replace the *\<...>* placeholders with real values based on your actual environment. When you define `SPRING_APP_PRIVATE_FQDN`, remove `https://` from the URI.
 
 ```bash
 export SUBSCRIPTION='<subscription-id>'
@@ -282,6 +282,6 @@ az group delete --name $RESOURCE_GROUP
 
 ## Next steps
 
-- [Exposing applications with end-to-end TLS in a virtual network](./expose-apps-gateway-end-to-end-tls.md)
-- [Troubleshooting Azure Spring Apps in VNET](./troubleshooting-vnet.md)
-- [Customer Responsibilities for Running Azure Spring Apps in VNET](./vnet-customer-responsibilities.md)
+- [Exposing applications with end-to-end TLS in a virtual network](../basic-standard/expose-apps-gateway-end-to-end-tls.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json)
+- [Troubleshooting Azure Spring Apps in VNET](../basic-standard/troubleshooting-vnet.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json)
+- [Customer Responsibilities for Running Azure Spring Apps in VNET](../basic-standard/vnet-customer-responsibilities.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json)

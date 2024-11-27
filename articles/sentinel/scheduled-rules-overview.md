@@ -4,7 +4,7 @@ description: Understand how scheduled analytics rules work in Microsoft Sentinel
 author: yelevin
 ms.author: yelevin
 ms.topic: conceptual
-ms.date: 07/02/2024
+ms.date: 10/16/2024
 appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
@@ -133,7 +133,7 @@ This setting allows you to customize otherwise-standard alert properties accordi
 To learn more about customizing alert details, and to get complete instructions, see [Customize alert details in Microsoft Sentinel](customize-alert-details.md).
 
 > [!NOTE]
-> In the unified security operations platform, the Defender XDR correlation engine is solely in charge of naming incidents, so any alert names you customized may be overridden when incidents are created from these alerts.
+> In the Microsoft Defender portal, the Defender XDR correlation engine is solely in charge of naming incidents, so any alert names you customized may be overridden when incidents are created from these alerts.
 
 ### Query scheduling
 
@@ -212,9 +212,9 @@ Incident creation is enabled by default. Microsoft Sentinel creates a single, se
 If you don’t want this rule to result in the creation of any incidents (for example, if this rule is just to collect information for subsequent analysis), set this to **Disabled**.
 
 > [!IMPORTANT]
-> If you onboarded Microsoft Sentinel to the **unified security operations platform**, Microsoft Defender XDR is responsible for creating incidents. Nevertheless, if you want Defender XDR to create incidents for this alert, you must leave this setting **Enabled**. Defender XDR takes the instruction defined here.
+> If you onboarded Microsoft Sentinel to the **Defender portal**, Microsoft Defender is responsible for creating incidents. Nevertheless, if you want Defender XDR to create incidents for this alert, you must leave this setting **Enabled**. Defender XDR takes the instruction defined here.
 >
-> This is not to be confused with the [**Microsoft security** type of analytics rule](threat-detection.md#microsoft-security-rules) that creates incidents for alerts generated in Microsoft Defender services. Those rules are automatically disabled when you onboard Microsoft Sentinel to the unified security operations platform.
+> This is not to be confused with the [**Microsoft security** type of analytics rule](threat-detection.md#microsoft-security-rules) that creates incidents for alerts generated in Microsoft Defender services. Those rules are automatically disabled when you onboard Microsoft Sentinel to the Defender portal.
 
 If you want a single incident to be created from a group of alerts, instead of one for every single alert, see the next section.
 
@@ -244,7 +244,7 @@ There are a few options to consider when grouping alerts:
 
 - **Reopening incidents**: If an incident has been resolved and closed, and later on another alert is generated that should belong to that incident, set this setting to **Enabled** if you want the closed incident re-opened, and leave as **Disabled** if you want the new alert to create a new incident.
 
-    The option to reopen closed incidents is **not available** if you onboarded Microsoft Sentinel to the unified security operations platform.
+    The option to reopen closed incidents is **not available** if you onboarded Microsoft Sentinel to the Defender portal.
 
 ### Automated response
 

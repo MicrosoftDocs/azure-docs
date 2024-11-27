@@ -230,7 +230,6 @@ Some resources have a limit on the number instances per region. This limit is di
 ## Microsoft.Web
 
 * apiManagementAccounts/apis
-* certificates
 * sites
 
 ## Next steps

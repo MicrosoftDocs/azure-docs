@@ -131,5 +131,5 @@ For the following instructions, Haventec is a new OIDC identity provider in the 
 
 ## Next steps
 
-* Go to docs.haventec.com for [Haventec Documentation](https://docs.haventec.com/)
+* Go to docs.haventec.com for [Haventec Documentation](https://www.haventec.com/)
 * [Azure AD B2C custom policy overview](custom-policy-overview.md)
