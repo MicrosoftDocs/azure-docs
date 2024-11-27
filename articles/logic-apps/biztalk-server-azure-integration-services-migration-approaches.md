@@ -122,7 +122,7 @@ We recommend that your MVP include the following in-scope processes, which are e
 
 #### Initial backlog
 
-The Initial Backlog is the set of User Stories, grouped in features that are used to build the MVP Processes in-Scope. In other words is the MVP expressed in Epics, Features and User Stories. Each Epic should ideally encompass a group of BizTalk Applications or BizTalk Projects. A simple rule, is to associate one BizTalk Application or BizTalk Project with a feature.
+The [*initial backlog*](/azure/devops/boards/backlogs/backlogs-overview?view=azure-devops) is a set of User Stories, which you group into Features to build the [in-scope processes](#in-scope-processes) for your MVP. In other words, an MVP is represented by Scrum items known as Epics, Features, and User Stories. Ideally, each Epic encompasses a group of BizTalk applications or BizTalk projects. You can use the simple rule that associates one BizTalk application or BizTalk project with a feature.
 
 > [!NOTE]
 >
