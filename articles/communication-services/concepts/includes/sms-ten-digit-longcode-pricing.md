@@ -16,7 +16,7 @@ ms.author: prakulka
 
 This page provides an overview of the pricing for 10DLC (10-Digit Long Code) SMS services available through Azure Communication Services (ACS). The 10DLC SMS service requires registering a brand, registering a campaign, and provisioning a 10DLC number through the Azure portal. Pay-as-you-go pricing applies to these different services: brand registration, campaign registration, phone number leasing, and message usage.
 
-### 1. **Registration Fees**
+### **Registration Fees**
 Registration fees are required for brands and campaigns to comply with U.S. 10DLC regulations. 
 
 - **Brand**: A brand represents your business or organization. It's a unique identity used to register campaigns with mobile carriers.
@@ -35,7 +35,7 @@ The following fees apply to the registration of brands and campaigns.
 | **Campaign**       | Standard               | Per campaign                   | Monthly     | Standard campaign registration fee   | $10    |
 
 
-### 3. **Phone Number Leasing**
+### **Phone Number Leasing**
 Monthly leasing fees for phone numbers.
 
 | Category           | Fee Type               | Frequency   | Description                            | Fee    |
@@ -54,8 +54,8 @@ The following prices are exclusive of the required communications taxes and fees
 |United States| $0.0075 | $0.0075|
   
 
-### 5. **Carrier Surcharges**
-Additional carrier charges apply for outbound and inbound messages, depending on the carrier.
+### **Carrier Surcharges**
+A carrier surcharge applies to messages exchanged using 10DLC numbers. This surcharge is a per-message segment fee that may vary over time. For outbound messages, the surcharge is determined by the carrier of the recipient's number. For inbound messages, it is determined by the carrier of the sender's number.
 
 | Carrier            | Frequency      | Fee    |
 |--------------------|---------------------------------------|--------|
