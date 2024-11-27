@@ -40,6 +40,8 @@ You can unsubscribe from the event with the following code:
 callTranscriptionFeature.off('isTranscriptionActiveChanged', isTranscriptionActiveChangedHandler);
 ```
 
+[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
+
 ## Explicit Consent
 If your Teams meeting or call is configured to require explicit consent for recording or transcription, you are required to gather explicit consent from your users to be transcribed or Recorded.
  
