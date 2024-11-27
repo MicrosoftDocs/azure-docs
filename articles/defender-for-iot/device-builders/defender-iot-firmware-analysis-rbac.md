@@ -1,6 +1,8 @@
 ---
 title: Azure role-based access control for Defender for IoT Firmware analysis
 description: Learn about how to use Azure Role-Based Access Control for Defender for IoT Firmware Analysis.
+ms.author: lwainstein
+author: limwainstein
 ms.topic: conceptual
 ms.date: 01/10/2024
 ---
