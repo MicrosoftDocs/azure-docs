@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 10/26/2022
+ms.date: 11/27/2024
 ms.author: danlep
 ms.custom: engagement-fy23, devx-track-azurepowershell, devx-track-azurecli
 ---
@@ -14,7 +14,7 @@ ms.custom: engagement-fy23, devx-track-azurepowershell, devx-track-azurecli
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-This article shows how to import an "OpenAPI specification" backend API residing at `https://conferenceapi.azurewebsites.net?format=json`. This backend API is provided by Microsoft and hosted on Azure. The article also shows how to test the APIM API. 
+This article shows how to import an "OpenAPI specification" backend API to Azure API Management using a variety of tools. The article also shows how to test the API in API Management. 
 
 In this article, you learn how to:
 > [!div class="checklist"]
@@ -37,6 +37,9 @@ In this article, you learn how to:
 
 ## <a name="create-api"> </a>Import a backend API
 
+For this example, you import the [specification](https://petstore3.swagger.io/api/v3/openapi.json) for the open source [Petstore API](https://petstore3.swagger.io/), but you can substitute an OpenAPI specification of your choice.
+	
+
 #### [Portal](#tab/portal)
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
@@ -57,10 +60,10 @@ APIMServiceName="apim-hello-world"
 ResourceGroupName="myResourceGroup"
 
 # API-specific details
-APIId="demo-conference-api"
-APIPath="conference"
+APIId="swagger-petstore"
+APIPath="store"
 SpecificationFormat="OpenAPI"
-SpecificationURL="https://conferenceapi.azurewebsites.net/?format=json"
+SpecificationURL="https://petstore3.swagger.io/api/v3/openapi.json"
 
 # Import API
 az apim api import --path $APIPath --resource-group $ResourceGroupName \
@@ -80,10 +83,10 @@ $apimServiceName = "apim-hello-world"
 $resourceGroupName = "myResourceGroup"
 
 # API-specific details
-$apiId = "demo-conference-api"
-$apiPath = "conference"
+$apiId = "swagger-petstore"
+$apiPath = "store"
 $specificationFormat = "OpenAPI"
-$specificationUrl = "https://conferenceapi.azurewebsites.net/?format=json"
+$specificationUrl = "https://petstore3.swagger.io/api/v3/openapi.json"
 
 # Get context of the API Management instance. 
 $context = New-AzApiManagementContext -ResourceGroupName $resourceGroupName -ServiceName $apimServiceName
@@ -102,7 +105,7 @@ After importing the API, if needed, you can update the settings by using the [Se
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
 
-## Validate against an OpenAPI specification
+## Validate against an OpenAPI specification schema
 
 You can configure API Management [validation policies](api-management-policies.md#content-validation) to validate requests and responses (or elements of them) against the schema in an OpenAPI specification. For example, use the [validate-content](validate-content-policy.md) policy to validate the size or content of a request or response body.
 
