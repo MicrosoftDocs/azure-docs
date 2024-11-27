@@ -160,7 +160,7 @@ After your team completes Sprint 0, you should have a clear view of the MVP to b
 :::image type="content" source="./media/biztalk-server-to-azure-integration-services-overview/biztalk-gradual-waves.png" alt-text="Diagram showing migration waves.":::
 
 
-During a wave, you **migrate**, **test** and **Release to production**. Let's drill down on what happens on each **wave**.
+During a wave, your team completes the activities to migrate, test, and release to production. Let's more closely examine what happens in each wave.
 
 #### Migrate
 
