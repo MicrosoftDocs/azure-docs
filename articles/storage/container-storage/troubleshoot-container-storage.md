@@ -50,8 +50,46 @@ To add the `acstor` namespace to the exclusion list, follow these steps:
 1. Create a policy that you suspect is blocking the installation of Azure Container Storage.
 1. Attempt to install Azure Container Storage in the AKS cluster.
 1. Check the logs for the gatekeeper-controller pod to confirm any policy violations.
-1. Add the `acstor` namespace to the exclusion list of the policy.
+1. Add the `acstor` namespace and `azure-extensions-usage-system` namespace to the exclusion list of the policy.
 1. Attempt to install Azure Container Storage in the AKS cluster again.
+
+### Can't install and enable Azure Container Storage in node pools with taints
+
+You may have configured [node taints](https://learn.microsoft.com/en-us/azure/aks/use-node-taints) on the node pools to retrict pods from being scheduled on these node pools. When you try to install and enable Azure Container Storage on these noode pools, it will be blocked because the required pods can't be created in these node pools. This applies to both the system node pool when installing and the user node pools when enabling.
+
+You can check the node taints with the following example:
+
+```bash
+$ az aks nodepool list -g $resourceGroup --cluster-name $clusterName --query "[].{PoolName:name, nodeTaints:nodeTaints}"
+[
+...
+  {
+    "PoolName": "nodepoolx",
+    "nodeTaints": [
+      "sku=gpu:NoSchedule"
+    ]
+  }
+]
+
+```
+
+You can remove these taints temporarily to unblock and configure them back after you install and enable successfully. You can go to Azure Portal > AKS cluster > Node pools, click your node pool, remove the taints in "Taints and labels
+" section. Or you can use the following command to remove taints and confirm the change.
+
+```bash
+$ az aks nodepool update -g $resourceGroup --cluster-name $clusterName --name $nodePoolName --node-taints ""
+$ az aks nodepool list -g $resourceGroup --cluster-name $clusterName --query "[].{PoolName:name, nodeTaints:nodeTaints}"
+[
+...
+  {
+    "PoolName": "nodepoolx",
+    "nodeTaints": null
+  }
+]
+
+```
+
+Retry the installing or enabling after you remove node taints successfully. After it's commpleted successfully, you can configure these node taints back to resume the pod scheduling restaints.
 
 ### Can't set storage pool type to NVMe
 
