@@ -51,6 +51,65 @@ When naming your storage account, keep these rules in mind:
 - Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only.
 - Your storage account name must be unique within Azure. No two storage accounts can have the same name.
 
+## Storage workloads and environments 
+
+Azure Object Storage customers use a variety of workloads to store data, access it and derive insights to meet their business objectives. Each workload uses specific protocols for data operations based on its requirements as well as industry standards.
+Storage accounts created through the Azure Portal can leverage preset values for the account configuration when a primary workload and environment is selected. Choosing a workload preset is more efficient and simplifies the process of configuring your storage account.
+
+### Storage workloads
+
+Below is a high-level categorization of different primary workloads for your storage accounts available in the Azure Portal.
+
+#### Cloud native
+
+Cloud native apps are large scale distributed applications that are built on a foundation of cloud paradigms and technologies. This modern approach focuses on cloud scale and performance capabilities. Cloud native apps are based on microservices architecture, use managed services, and employ continuous delivery to achieve reliability. These applications are typically categorized into web apps, mobile apps, containerized apps, and serverless/FaaS. 
+
+
+#### Big data analytics
+
+Analytics is the systematic, computational analysis of data and statistics. This science involves discovering, interpreting, and communication of meaningful insights/patterns found in data. The data discovered can be manipulated and interpreted in ways to further a business’s objectives and to help it meet its goals. These workloads typically consist of a pipeline ingesting large volumes of data that are prepped, curated, and aggregated for downstream consumption via Power BI, data warehouses or applications. The workloads require high ingress and egress with the larger driver of bandwidth. Some different types of analytics include (but are not limited to) real-time analytics, advanced analytics, predictive analytics, emotional analytics, and sentiment analysis. For analytics, we guarantee that our customers have high throughput access to large amounts of data in distributed storage architectures. 
+
+#### High-performance computing (HPC)
+
+High-performance computing is the aggregation of multiple computing nodes acting on the same set of tasks to achieve more than that of a single node in a given time frame. It involves using powerful processors that work in parallel to process massive, multi-dimensional data sets. HPC workloads require very high throughput read and write operations for workloads like gene sequencing and reservoir simulation. HPC workloads also include applications with high IOPS and low latency access to a large number of small files for workloads like seismic interpretation, autonomous driving and risk workloads. The primary goal is to solve complex problems at ultra-fast speeds. Other examples of high-performance computing include fluid dynamics and other physical simulation or analysis which require scalability and high throughput. To enable our customers to perform HPC, we ensure that large amounts of data are accessible with large amounts of concurrency.  
+
+#### Backup and archive
+
+Business continuity and disaster recovery, also known as BCDR, is a business’s ability to remain operational after an adverse event. In terms of storage, this objective equates to maintaining business continuity across outages to storage systems.  With the introduction of Backup-as-a-Service offerings throughout the industry, BCDR data is increasingly migrating to the public cloud. The backup and archive workload functions as the last line of defense against rising ransomware and malicious attacks. When there is a service interruption, accidental deletion or corruption of data, recovering the data in an efficient and orchestrated manner is the highest priority. To accomplish this, Azure Storage makes it possible to store and retrieve large amounts of data in the most cost-effective fashion. 
+
+#### Machine learning and artificial intelligence
+
+Artificial intelligence (AI) is technology that simulates human intelligence and problem-solving capabilities in machines. Machine Learning (ML) is a sub-discipline of AI that uses algorithms to create models that enable machines to perform tasks. Both represent the newest workload on Azure which is growing at a rapid pace. This type of workload can be applied across every industry to improve metrics and meet performance goals. These types of technologies can lead to discoveries of life-saving drugs and practices in the field of medicine/health while also providing health assessments. Other everyday uses of ML and AI include fraud detection, image recognition, and the flagging of misinformation. These workloads typically need highly specialized compute (large numbers of GPU). They also require high throughput and IOPS with low latency access to storage and POSIX file system access. Azure Storage supports these types of workloads by storing checkpoints and providing storage for large-scale datasets and models. These datasets and models read and write at a pace to keep GPUs utilized. 
+
+#### Other
+
+For workloads that do not fit into one of the categories above, you can set your primary workload to Other.
+
+### Environments
+
+When creating your storage accounts, you can also select the environment associated with the workload. The environment selections are:
+- Production – The workload your storage account supports is used in a production capacity.
+- Dev/Test – The workload your storage account supports is used for development or testing purposes.
+
+### Preset configuration summary
+Selection of a primary workload and environment affect the preset values that are recommended. The table below illustrates these values for each Workload/Environment pair.
+
+
+|Workload |Environment |Account kind |Performance |Redundancy |Hierarchical namespace enabled |Default access tier |Soft delete enabled |
+|---|---|---|---|---|---|---|---|
+|Cloud native |Production |General purpose v2 |Standard |ZRS, RA-GRS |No |Hot |Yes |
+|Cloud native |Dev/Test |General purpose v2 |Standard |LRS |No |Hot |Yes |
+|Big data analytics |Production |General purpose v2 |Standard |ZRS, RA-GRS |Yes |Hot |Yes |
+|Big data analytics |Dev/Test |General purpose v2 |Standard |LRS |Yes |Hot |No |
+|High performance computing (HPC) |Production |General purpose v2 |Standard |ZRS, RA-GRS |Yes |Hot |Yes |
+|High performance computing (HPC) |Dev/Test |General purpose v2 |Standard |LRS |Yes |Hot |No |
+|Backup and archive |Production |General purpose v2 |Standard |ZRS, RA-GRS |No |Cool |Yes |
+|Backup and archive |Dev/Test |General purpose v2 |Standard |LRS |No |Cool |No |
+|Machine learning and artificial intelligence |Production |General purpose v2 |Standard |ZRS, RA-GRS |Yes |Hot |No |
+|Machine learning and artificial intelligence |Dev/Test |General purpose v2 |Standard |LRS |Yes |Hot |No |
+|Other |Production |General purpose v2 |Standard |ZRS, RA-GRS |No |Hot |Yes |
+|Other |Dev/Test |General purpose v2 |Standard |LRS |No |Hot |No |
+
 ## Storage account endpoints
 
 A storage account provides a unique namespace in Azure for your data. Every object that you store in Azure Storage has a URL address that includes your unique account name. The combination of the account name and the service endpoint forms the endpoints for your storage account.
