@@ -120,7 +120,7 @@ We recommend that your MVP include the following in-scope processes, which are e
 
 - MVP out-of-scope: Different variables shape the scope of work, for example, resource availability, risks, documentation, or time to market. Ideally, you want to identify and list these items.
 
-#### Initial Backlog
+#### Initial backlog
 
 The Initial Backlog is the set of User Stories, grouped in features that are used to build the MVP Processes in-Scope. In other words is the MVP expressed in Epics, Features and User Stories. Each Epic should ideally encompass a group of BizTalk Applications or BizTalk Projects. A simple rule, is to associate one BizTalk Application or BizTalk Project with a feature.
 
