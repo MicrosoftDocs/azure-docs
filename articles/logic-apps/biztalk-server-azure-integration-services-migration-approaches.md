@@ -75,7 +75,7 @@ During this sprint, we recommend that you execute BizTalk Server Environments Di
 
 To help you with migration discovery, you can use the Azure Integration Migrator command-line tool, also called the [BizTalk Migration tool](https://github.com/Azure/aimbiztalk), which is a Microsoft open-source project. This tool uses a phased approach to help you uncover useful insights and strategies for migrating your solutions to the cloud. We recommend using the migrator tool only for discovery and report generation. You might also want to consider using other products for discovery from partners who provide solutions in this space.
 
-The BizTalk Documenter, a tool developed by Mark Brimble, provides another way to generate an inventory of BizTalk Server elements. It is available here [The BizTalk Documenter](https://github.com/mbrimble/biztalkdocumenter). While it states it only supports BizTalk Server 2016, it also works with BizTalk Server 2020.
+For another way to generate an inventory with BizTalk Server elements, you can use [The BizTalk Documenter](https://github.com/mbrimble/biztalkdocumenter), which is developed by Mark Brimble. This tool works with BizTalk Server 2020, despite stating that only BizTalk Server 2016 is supported.
 
 #### Architecture design
 
