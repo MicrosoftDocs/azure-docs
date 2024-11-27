@@ -168,10 +168,6 @@ The sender's `dataType` will cause one of the following messages to be sent:
 
 The Web PubSub service can also send system-related responses to the client.
 
-### Pong response
-
-The Web PubSub service sends a `PongMessage` to the client when it receives a `PingMessage` from the client.
-
 #### Connected
 
 When the client connects to the service, you receive a `DownstreamMessage.SystemMessage.ConnectedMessage` message.
@@ -179,6 +175,10 @@ When the client connects to the service, you receive a `DownstreamMessage.System
 #### Disconnected
 
 When the server closes the connection or the service declines the client, you receive a `DownstreamMessage.SystemMessage.DisconnectedMessage` message.
+
+### Pong response
+
+The Web PubSub service sends a `PongMessage` to the client when it receives a `PingMessage` from the client.
 
 ## Next steps
 
