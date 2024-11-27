@@ -96,7 +96,7 @@ We recommend that your MVP definition include the following business outcomes, w
 - **Business outcomes (Epics)**
   - What is the primary goal that we want to achieve? 
   - What capabilities or features must we address for this MVP?
-    1. Business Process Flow: This brings an opportunity to optimize existing processes supported by BizTalk Server. 
+  - What are the business process flows? This question provides the opportunity to optimize existing processes supported by BizTalk Server.
     1. Business Decisions for the MVP: What business outcomes will impact the MVP? Availability of resources?
 1. Processes in-Scope (expressed in Features)
     1. High Level System Functionality: This can be extracted from the Discovery tools outcome and expressed in terms of features.
