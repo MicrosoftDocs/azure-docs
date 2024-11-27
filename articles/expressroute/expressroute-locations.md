@@ -90,7 +90,7 @@ The following table shows locations by service provider. If you want to view ava
 | --- | --- | --- | --- |
 | **DCI Indonesia** |&check; |&check; | Jakarta |
 | **[DE-CIX](https://www.de-cix.net/en/services/directcloud/microsoft-azure)** | &check; |&check; | Amsterdam2<br/>Chennai<br/>Chicago2<br/>Copenhagen<br/>Dallas<br/>Dubai2<br/>Frankfurt<br/>Frankfurt2<br/>Jakarta<br/>Kuala Lumpur<br/>Madrid<br/>Marseille<br/>Mumbai<br/>Munich<br/>New York<br/>Osaka<br/>Oslo<br/>Phoenix<br/>Seattle<br/>Singapore2<br/>Tokyo2 |
-| **[Devoli](https://devoli.com/expressroute)** | &check; |&check; | Auckland<br/>Melbourne<br/>Sydney |
+| **[Devoli](https://devoli.com/)** | &check; |&check; | Auckland<br/>Melbourne<br/>Sydney |
 | **[Deutsche Telekom AG IntraSelect](https://geschaeftskunden.telekom.de/vernetzung-digitalisierung/produkt/intraselect)** | &check; |&check; | Frankfurt |
 | **[Deutsche Telekom AG](https://www.t-systems.com/de/en/cloud-services/solutions/public-cloud/azure-managed-cloud-services/cloud-connect-for-azure)** | &check; |&check; | Amsterdam<br/>Frankfurt2<br/>Hong Kong2 |
 | **[Digital Realty](https://www.digitalrealty.com/partners/microsoft-azure)** | &check; | &check; | Dallas2<br/>Seattle<br/>Silicon Valley<br/>Singapore2<br/>Tokyo2<br/>Washington DC |
@@ -325,7 +325,7 @@ If you're remote and don't have fiber connectivity, or you want to explore other
 | **[Data Foundry](https://www.datafoundry.com/services/cloud-connect)** | Megaport | Dallas |
 | **[Epsilon Telecommunications Limited](https://www.epsilontel.com/solutions/cloud-connect/)** | Equinix | London<br/>Singapore<br/>Washington DC |
 | **[Eurofiber](https://eurofiber.nl/microsoft-azure/)** | Equinix | Amsterdam |
-| **[Exponential E](https://www.exponential-e.com/services/connectivity-services/)** | Equinix | London |
+| **[Exponential E](https://www.exponential-e.com/services/connectivity-services/private-5g-network)** | Equinix | London |
 | **[Fastweb S.p.A](https://www.fastweb.it/grandi-aziende/dati-voce/scheda-prodotto/fast-company/)** | Equinix | Amsterdam |
 | **[Fibrenoire](https://www.fibrenoire.ca/en/cloudextn)** | Megaport | Quebec City |
 | **[FPT Telecom International](https://cloudconnect.vn/en)** |Equinix |Singapore|
