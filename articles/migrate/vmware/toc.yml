@@ -1,4 +1,6 @@
 items:
+- name: Migration of VMware virtual machines to Azure
+  href: index.yml
 - name: Start here to migrate VMware to Azure
   href: start-here-vmware.md
 - name: Support matrix for VMware discovery
@@ -34,6 +36,10 @@ items:
     href: tutorial-assess-vmware-azure-vmware-solution.md
   - name: Assess SQL instances for migration to Azure SQL
     href: tutorial-assess-sql-vmware.md
+  - name: Assess web apps for migration to Azure App Service
+    href: tutorial-assess-webapps-vmware.md
+  - name: Assess large number of servers in VMware environment
+    href: scale-vmware-assessment.md 
 - name: Migrate
   items:
   - name: Overview
@@ -54,7 +60,7 @@ items:
     - name: Prepare for VMware agentless migration
       href: prepare-for-agentless-migration.md
     - name: Test the migration
-      href: how-to-test-replicating-virtual-machines.md
+      href: how-to-test-replicating-virtual-machines.md 
     - name: Portal
       href: tutorial-migrate-vmware.md
     - name: PowerShell

@@ -10,7 +10,7 @@ ms.custom: engagement-fy24
 ---
 
 
-# Tutorial: Assess SQL instances in VMware VMs for migration to Azure SQL
+# Assess SQL instances in VMware VMs for migration to Azure SQL
 
 [!INCLUDE [scenario-banner.md](../includes/scenario-banner.md)]
 

@@ -10,7 +10,7 @@ ms.custom: vmware-scenario-422
 #Customer intent: As an VMware admin, I want to import my on-premises servers running in a VMware environment.
 ---
 
-# Tutorial: Import servers running in a VMware environment with RVTools XLSX (preview)
+# Import servers running in a VMware environment with RVTools XLSX (preview)
 
 [!INCLUDE [scenario-banner.md](../includes/scenario-banner.md)]
 

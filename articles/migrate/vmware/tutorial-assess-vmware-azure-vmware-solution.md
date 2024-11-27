@@ -10,7 +10,7 @@ ms.custom: vmware-scenario-422, MVC, engagement-fy23
 #Customer intent: As a VMware VM admin, I want to assess my VMware VMs in preparation for migration to Azure VMware Solution (AVS)
 ---
 
-# Tutorial: Assess VMware servers for migration to AVS
+# Assess VMware servers for migration to AVS
 
 [!INCLUDE [scenario-banner.md](../includes/scenario-banner.md)]
 

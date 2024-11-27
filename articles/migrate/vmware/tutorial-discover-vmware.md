@@ -11,7 +11,7 @@ ms.custom: vmware-scenario-422, mvc, subject-rbac-steps, engagement-fy24
 #Customer intent: As an VMware admin, I want to discover my on-premises servers running in a VMware environment.
 ---
 
-# Tutorial: Discover servers running in a VMware environment with Azure Migrate
+# Discover servers running in a VMware environment with Azure Migrate
 
 [!INCLUDE [scenario-banner.md](../includes/scenario-banner.md)]
 

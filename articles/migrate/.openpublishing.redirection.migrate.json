@@ -251,6 +251,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/migrate/scale-vmware-assessment.md",
+            "redirect_url": "/azure/migrate/vmware/scale-vmware-assessment",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/migrate/troubleshooting-general.md",
             "redirect_url": "troubleshoot-general",
             "redirect_document_id": false
