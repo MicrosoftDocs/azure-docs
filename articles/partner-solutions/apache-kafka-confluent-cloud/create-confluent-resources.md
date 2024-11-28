@@ -14,26 +14,26 @@ The next step after creating a Confluent Organization is to create other Conflue
 
 Creating multiple environments within a Confluent organization is a good practice. It allows for clear separation of resources among teams or projects, ensuring there's no interference between them.
 
-> [!TIP]
-> In your Confluent organization, open **Confluent entity management** > **Environments (Preview)** > **Manage environment in Confluent portal** to access advanced environment configuration in the Confluent UI.
-
-> [!NOTE]
-> As of the time of writing this document, Azure doesn't support Confluent schema registry configuration. Access this option directly from Confluent. For more information, go to [Manage Schemas in Confluent Cloud.](https://docs.confluent.io/cloud/current/sr/schemas-manage.html)
-
 ### Create an environment 
 
 Create a new Confluent environment following the guidelines below:
 
 1. Open your Confluent organization in the Azure portal and open **Confluent entity management** > **Environments (preview)** from the left menu.
-1. Select **Create Environment** at the top. This action opens a new blade on the right hand side.
+1. Select **Create Environment** at the top. This action opens a new pane on the right hand side.
 1. Enter a name for the new **Environment**.
 
-   :::image type="content" source="./media/create-confluent-resources/create-environment.png" alt-text="Screenshot from the Azure portal showing the Create environment blade.":::
+   :::image type="content" source="./media/create-confluent-resources/create-environment.png" alt-text="Screenshot from the Azure portal showing the Create environment pane.":::
 
 1. Select [an essentials or advanced stream governance configuration](https://docs.confluent.io/cloud/current/stream-governance/packages.html#governance-package-types).
    - Essentials: containing the essentials, supporting up to 100 free schemas
    - Advanced: additional support for enterprise level, supporting up to 20,000 free schemas. This comes at an additional cost during Schema configuration.
 1. Select **Create**. Your new environment is up and running. 
+
+> [!TIP]
+> In your Confluent organization, open **Confluent entity management** > **Environments (Preview)** > **Manage environment in Confluent portal** to access advanced environment configuration in the Confluent UI.
+
+> [!NOTE]
+> As of the time of writing this document, Azure doesn't support Confluent schema registry configuration. Access this option directly from Confluent. For more information, go to [Manage Schemas in Confluent Cloud.](https://docs.confluent.io/cloud/current/sr/schemas-manage.html)
 
 ### View existing environments 
 
@@ -52,7 +52,7 @@ If you no longer need to use an environment and the clusters operating within it
 > [!NOTE]
 > Azure only supports deleting environments created in Azure. To delete an environment created in Confluent, use the Confluent UI.
 
-From the list of environments, select the ellipsis action (**…**) next to the name of the environment you want to delete and select **Delete Environment**. Alternatively, click on the name of the environment you want to delete and then select **Delete Environment** at the top. A right blade opens up, listing the environment's nested clusters, connectors, and their status. Confirm deletion by entering the environment name in the text box at the bottom and selecting **Delete**. Confirm again. Your environment is now deleted. 
+From the list of environments, select the ellipsis action (**…**) next to the name of the environment you want to delete and select **Delete Environment**. Alternatively, click on the name of the environment you want to delete and then select **Delete Environment** at the top. A right pane opens up, listing the environment's nested clusters, connectors, and their status. Confirm deletion by entering the environment name in the text box at the bottom and selecting **Delete**. Confirm again. Your environment is now deleted. 
 
 
 ## Clusters
@@ -70,7 +70,7 @@ Select **Create Cluster** in the top ribbon of your environment page. A new wind
      - Cluster type: Select between **Basic**, **Standard**, and **Enterprise**. Select the hyperlink to view a detailed comparison of each plan.
      - Region and availability: Keep the default values or select another region and availability option. Review pricing and select **Next**.  
 1. In the **Tags** tab, optionally enter tags or select **Review + create** to skip this step.
-1. In the **Review + Create** tab, carefully review the new cluster. When ready, select **Create**. Your cluster will take approximately 2-3 minutes to spin up. Once done, a notification is displayed on the top right showing the cluster is up and running.
+1. In the **Review + Create** tab, carefully review the new cluster. When ready, select **Create**. Your cluster takes approximately 2-3 minutes to spin up. Once done, a notification is displayed on the top right showing the cluster is up and running.
 
 ### View existing clusters
 
