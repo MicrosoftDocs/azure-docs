@@ -25,11 +25,11 @@ This server-side application helps create a virtual assistant that can handle ph
 - Azure Dev Tunnels CLI. For details, see  [Enable dev tunnel](https://docs.tunnels.api.visualstudio.com/cli)
 - An Azure OpenAI Resource and Deployed Model. See [instructions](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal).
 
-## Setup Instructions
+## Set up instructions
 
 Before running this sample, you need to set up the resources with the following configuration updates:
 
-##### 1. Setup and host your Azure DevTunnel
+##### 1. Set up and host your Azure DevTunnel
 
 [Azure DevTunnels](/azure/developer/dev-tunnels/overview) is an Azure service that enables you to share local web services hosted on the internet. Use the commands to connect your local development environment to the public internet. This creates a tunnel with a persistent endpoint URL and which allows anonymous access. We use this endpoint to notify your application of calling events from the ACS Call Automation service.
 
