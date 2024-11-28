@@ -17,7 +17,7 @@ Feature flags can use feature filters to enable features conditionally. To learn
 
 The example used in this guide is based on the ASP.NET Core application introduced in the feature management [quickstart](./quickstart-feature-flag-aspnet-core.md). Before proceeding further, complete the quickstart to create an ASP.NET Core application with a *Beta* feature flag. Once completed, you must [add a custom feature filter](./howto-feature-filters.md) to the *Beta* feature flag in your App Configuration store. 
 
-In this tutorial, you'll learn how to implement a custom feature filter and use the feature filter to enable features conditionally.
+In this guide, you'll learn how to implement a custom feature filter and use the feature filter to enable features conditionally.
 
 ## Prerequisites
 
