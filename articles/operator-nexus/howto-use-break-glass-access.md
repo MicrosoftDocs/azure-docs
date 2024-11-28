@@ -11,11 +11,11 @@ ms.custom: template-how-to, devx-track-azurecli
 
 # Use Method D v2.0 Breakglass Access
 
-Breakglass access using Method D v2.0 is a streamlined approach for administrators to grant secure, emergency access to critical network fabric devices. This guide will walk you through setting up and using Breakglass access, including generating SSH keys, granting permissions, and accessing network fabric devices.
+Breakglass access using Method D v2.0 is a streamlined approach for administrators to grant secure, emergency access to critical network fabric devices. This guide walks you through setting up and using Breakglass access, including generating SSH keys, granting permissions, and accessing network fabric devices.
 
 ## Generating SSH Keys using the Nexusidentity Azure CLI
 
-To start with Breakglass IAM configuration, you will need to set up SSH keys using the Nexusidentity extension. Make sure you have the following prerequisites installed and updated.
+To start with Breakglass IAM configuration, you need to set up SSH keys using the Nexusidentity extension. Make sure you have the following prerequisites installed and updated.
 
 ### Prerequisites
 
@@ -97,7 +97,7 @@ To enable Breakglass access administrator can assign below roles to Entra users 
 
 - **Nexus Network Fabric Service Writer**:
 
-  - Allows show commands as well as commands to modify the running configuration.
+  - Allows show commands and commands to modify the running configuration.
 
 Once these roles are assigned, the corresponding username and public SSH key will be automatically provisioned across all devices within the designated fabric instance.
 
@@ -109,7 +109,7 @@ Once these roles are assigned, the corresponding username and public SSH key wil
 
 ## 3. Break-glass access to Network Fabric device
 
-Once permissions are granted, users can access network fabric devices with their FIDO-2 hardware token (e.g., YubiKey). Follow the steps below to use Breakglass access.
+Once permissions are granted, users can access network fabric devices with their FIDO-2 hardware token (for example, YubiKey). Follow the steps below to use Breakglass access.
 
 1. **Prepare for access**:
 
