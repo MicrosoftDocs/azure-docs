@@ -123,7 +123,7 @@ In this quickstart, you create an Azure Windows virtual machine (VM) and associa
     fe5d0414  ConfigureBackup  Completed   myvm         2017-09-19T03:03:57  0:00:31.191807
     ```
 
-When the *Status* of the backup job reports *Completed*, your VM is protected with Backup recovery services and has a full recovery point stored.
+    When the *Status* of the backup job reports *Completed*, your VM is protected with Backup recovery services and has a full recovery point stored.
 
 ---
 
