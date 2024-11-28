@@ -21,7 +21,7 @@ Azure Files and Azure File Sync are updated regularly to offer new features and 
 The Azure File Sync v19 release improves performance, security, and adds support for Windows Server 2025: 
 - Faster server provisioning and improved disaster recovery for Azure File Sync server endpoints
 - Sync performance improvements
-- Preview: Managed Identity support for Azure File Sync service and servers
+- Preview: Managed Identities support for Azure File Sync service and servers
 - Azure File Sync agent support for Windows Server 2025
 
 To learn more, see the [Azure File Sync release notes](../file-sync/file-sync-release-notes.md#version-19100). 
