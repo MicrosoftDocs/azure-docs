@@ -1,6 +1,6 @@
 ---
 title: What is Neon Serverless Postgres (Preview)?
-description: Learn about using the Neon Serverless Postgres (Preview) in the Azure Marketplace.
+description: Learn about using the Neon Serverless Postgres (Preview) in Azure Marketplace.
 author: ProfessorKendrick
 ms.topic: overview
 ms.custom:
@@ -38,7 +38,7 @@ Here are the key capabilities provided by the Neon integration:
 
 ## Find Neon Serverless Postgres
 
-From the [Azure Marketplace](https://azuremarketplace.microsoft.com/), search for _Neon Serverless Postgres_. Once you subscribe, you'll be directed to the [Create a Neon Serverless Postgres resource](create.md#create-a-neon-serverless-postgres-resource) pane.
+From [Azure Marketplace](https://azuremarketplace.microsoft.com/), search for _Neon Serverless Postgres_. Once you subscribe, you're directed to the [Create a Neon Serverless Postgres resource](create.md#create-a-neon-serverless-postgres-resource) pane.
 
 You can also find Neon Serverless Postgres in the [Azure portal](https://portal.azure.com/).
 
