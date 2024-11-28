@@ -42,7 +42,7 @@ callTranscriptionFeature.off('isTranscriptionActiveChanged', isTranscriptionActi
 [!INCLUDE [Public Preview Disclaimer](../../../../includes/public-preview-include-document.md)]
 
 ## Explicit Consent
-If your Teams meeting or call is configured to require explicit consent for recording or transcription, you are required to gather explicit consent from your users to be transcribed or Recorded.
+If your Teams meeting or call is configured to require explicit consent for recording or transcription, you are required to gather explicit consent from your users to allow users to be transcribed or recorded. You can provide consent proactively when joining the meeting or reactively when the recording or transcription starts.
 
 ### Support
 The following tables show support of explicit consent for specific call type and identity.
@@ -58,7 +58,7 @@ You can check if the meeting transcription requires explicit consent by property
 const isTranscriptionConsentRequired = callTranscriptionFeature.isConsentRequired;
 ```
 
-If the transcription is active and explicit consent is required, user will not be able to unmute, turn video on and share screen until they provide the consent. You can provide the consent for the user by using the api `consentToBeingRecordedAndTranscribed`.
+If the transcription is active and explicit consent is required, user will not be able to unmute, turn video on and share screen until they provide the consent. You can provide the consent for the user by calling the method `consentToBeingRecordedAndTranscribed()`.
 
 ```js
 callTranscriptionFeature.consentToBeingRecordedAndTranscribed();
