@@ -84,7 +84,7 @@ You can check if the meeting recording requires explicit consent by property `is
 const isConsentRequired = callRecordingApi.isConsentRequired;
 ```
  
-If the recording is active and explicit consent is required, user will not be able to unmute, turn video on and share screen until they provide the consent. You can provide the consent for the user by calling method `consentToBeingRecordedAndTranscribed`.
+If the recording is active and explicit consent is required, user will not be able to unmute, turn video on and share screen until they provide the consent. You can provide the consent for the user by calling method `consentToBeingRecordedAndTranscribed()`.
  
 ```js
 callRecordingApi.consentToBeingRecordedAndTranscribed();
