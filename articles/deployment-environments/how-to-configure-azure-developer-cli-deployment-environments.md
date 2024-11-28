@@ -5,13 +5,13 @@ author: RoseHJM
 ms.author: rosemalcolm
 ms.service: azure-deployment-environments
 ms.topic: how-to
-ms.date: 10/11/2024
+ms.date: 11/27/2024
 
 # Customer intent: As a developer, I want to use ADE and `azd` together to provision application infrastructure and deploy application code to the new infrastructure.
 
 ---
 
-# Configure Azure Developer CLI with Azure Deployment Environments
+# Create an environment from an Azure Developer CLI template
 
 In this article, you create a new environment from an existing Azure Developer CLI (`azd`) compatible template by using `azd`. You learn how to configure Azure Deployment Environments (ADE) and `azd` to work together to provision application infrastructure and deploy application code to the new infrastructure.
 
