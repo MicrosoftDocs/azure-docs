@@ -61,7 +61,7 @@ In this article, you learn how to add and configure a time window filter for you
 
 ## Next steps
 
-To learn more about the feature filters, continue to the following docs:
+To learn more about the feature filters, continue to the following documents:
 
 > [!div class="nextstepaction"]
 > [Enable conditional features with feature filters](./howto-feature-filters.md)

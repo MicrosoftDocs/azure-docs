@@ -53,7 +53,7 @@ If recurrence is enabled when you set up the time window filter, the **Beta** me
 
 ## Next steps
 
-To learn more about the feature filters, continue to the following docs.
+To learn more about the feature filters, continue to the following documents.
 
 > [!div class="nextstepaction"]
 > [Enable conditional features with feature filters](./howto-feature-filters.md)

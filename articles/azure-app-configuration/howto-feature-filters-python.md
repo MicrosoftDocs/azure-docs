@@ -91,7 +91,7 @@ Beta is True
 
 ## Next steps
 
-To learn more about the built-in feature filters, continue to the following docs.
+To learn more about the built-in feature filters, continue to the following documents.
 
 > [!div class="nextstepaction"]
 > [Enable features on a schedule](./howto-timewindow-filter.md)

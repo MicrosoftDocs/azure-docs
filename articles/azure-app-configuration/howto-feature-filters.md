@@ -31,7 +31,7 @@ You can create custom feature filters that enable features based on your specifi
 
 ## Add a custom feature filter
 
-1. Create a feature flag named *Beta* in your App Configuration store and edit it. For more information about how to add and edit a feature flag, see [Manage feature flags](./manage-feature-flags.md#edit-feature-flags).
+1. Create a feature flag named *Beta* in your App Configuration store and open to edit it. For more information about how to add and edit a feature flag, see [Manage feature flags](./manage-feature-flags.md).
 
 1. In the **Edit feature flag** pane that opens, check the **Enable feature flag** checkbox if it isn't already enabled. Then check the **Use feature filter** checkbox and select **Create**.
 
@@ -65,7 +65,7 @@ You can create custom feature filters that enable features based on your specifi
 
 ## Next steps
 
-To learn more about the built-in feature filters, continue to the following docs:
+To learn more about the built-in feature filters, continue to the following documents:
 
 > [!div class="nextstepaction"]
 > [Enable features on a schedule](./howto-timewindow-filter.md)
