@@ -2,7 +2,7 @@
 title: Create and delete Backup vaults
 description: Learn how to create and delete the Backup vaults.
 ms.topic: how-to
-ms.date: 10/10/2024
+ms.date: 11/23/2024
 ms.custom: references_regions
 ms.service: azure-backup
 author: AbhishekMallick-MS

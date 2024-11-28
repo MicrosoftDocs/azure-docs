@@ -56,7 +56,7 @@ The following App Service Environment configurations can be migrated using the s
 |[External (ELB/internet facing with public IP)](create-external-ase.md) App Service Environment v2 |ELB App Service Environment v3                             |
 |ILB App Service Environment v2 with a custom domain suffix                                         |ILB App Service Environment v3 with a custom domain suffix |
 
-App Service Environment v3 can be deployed as [zone redundant](../../availability-zones/migrate-app-service-environment.md). Zone redundancy can be enabled as long as your App Service Environment v3 is [in a region that supports zone redundancy](./overview.md#regions).
+App Service Environment v3 can be deployed as [zone redundant](../../reliability/migrate-app-service-environment.md). Zone redundancy can be enabled as long as your App Service Environment v3 is [in a region that supports zone redundancy](./overview.md#regions).
 
 If you want your new App Service Environment v3 to use a custom domain suffix and you aren't using one currently, custom domain suffix can be configured at any time once migration is complete. For more information, see [Configure custom domain suffix for App Service Environment](./how-to-custom-domain-suffix.md). If your existing environment has a custom domain suffix and you no longer want to use it, you must configure a custom domain suffix for the migration. You can remove the custom domain suffix after migration is complete.
 
@@ -372,7 +372,7 @@ If you're using a user assigned managed identity for your custom domain suffix c
         "customDnsSuffixConfiguration": {
             "dnsSuffix": "internal.contoso.com",
             "certificateUrl": "https://contoso.vault.azure.net/secrets/myCertificate",
-            "keyVaultReferenceIdentity": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/asev3-migration/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ase-managed-identity"
+            "keyVaultReferenceIdentity": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/asev3-migration/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ase-managed-identity"
         }
     }
 }

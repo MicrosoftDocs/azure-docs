@@ -7,7 +7,7 @@ ms.service: azure-data-factory
 ms.subservice: data-movement
 ms.topic: concept-article
 ms.custom: references_regions
-ms.date: 11/06/2024
+ms.date: 11/18/2024
 ---
 
 # Upgrade plan for Azure Data Factory connectors
@@ -29,17 +29,18 @@ This article describes future upgrades for some connectors of Azure Data Factory
 | [PostgreSQL (legacy)](connector-postgresql-legacy.md)   | [Link](connector-postgresql.md#upgrade-the-postgresql-linked-service)| End of support announced and new version available |October 31, 2024 | /  | 
 | [ServiceNow (legacy)](connector-servicenow-legacy.md)   | [Link](connector-servicenow.md#upgrade-your-servicenow-linked-service) | End of support announced and new version available | To be determined | / | 
 | [Snowflake (legacy)](connector-snowflake-legacy.md)   | [Link](connector-snowflake.md#upgrade-the-snowflake-linked-service) | End of support announced and new version available | To be determined | /  | 
+| [Vertica (version 1.0)](connector-vertica.md)| [Link](connector-vertica.md#upgrade-the-vertica-version) | End of support announced and new version available | To be determined | /  | 
 | [Azure Database for MariaDB](connector-azure-database-for-mariadb.md) |/ | End of support announced |December 31, 2024 | December 31, 2024 | 
 | [Concur (Preview)](connector-concur.md) |/ | End of support announced | December 31, 2024 | December 31, 2024 | 
 | [Couchbase (Preview)](connector-couchbase.md) |/ | End of support announced | December 31, 2024 | December 31, 2024 | 
 | [Drill](connector-drill.md) |/ | End of support announced  | December 31, 2024 | December 31, 2024 | 
-| [Hbase](connector-hbase.md) |/ | End of support announced  | December 31, 2024 | December 31, 2024 | 
+| [HBase](connector-hbase.md) |/ | End of support announced  | December 31, 2024 | December 31, 2024 | 
 | [Magento (Preview)](connector-magento.md) |/ | End of support announced  | December 31, 2024 | December 31, 2024 | 
 | [Marketo (Preview)](connector-marketo.md) |/ | End of support announced  | December 31, 2024| December 31, 2024 | 
 | [Oracle Eloqua (Preview)](connector-oracle-eloqua.md) |/ | End of support announced  | December 31, 2024 | December 31, 2024 | 
 | [Oracle Responsys (Preview)](connector-oracle-responsys.md) |/ | End of support announced  | December 31, 2024 | December 31, 2024 | 
 | [Oracle Service Cloud (Preview)](connector-oracle-service-cloud.md) |/ | End of support announced  | December 31, 2024 | December 31, 2024 | 
-| [Paypal (Preview)](connector-paypal.md) |/ | End of support announced  |December 31, 2024 | December 31, 2024| 
+| [PayPal (Preview)](connector-paypal.md) |/ | End of support announced  |December 31, 2024 | December 31, 2024| 
 | [Phoenix](connector-phoenix.md) |/ | End of support announced  | December 31, 2024 | December 31, 2024 | 
 | [Salesforce Marketing Cloud](connector-salesforce-marketing-cloud.md) |/ | End of support announced  | December 31, 2024 | December 31, 2024 | 
 | [Zoho (Preview)](connector-zoho.md) |/ | End of support announced  | December 31, 2024 | December 31, 2024 | 
@@ -68,6 +69,7 @@ The following legacy connectors or legacy driver versions will be deprecated, bu
 - [Salesforce Service Cloud](connector-salesforce-service-cloud.md#upgrade-the-salesforce-service-cloud-linked-service)
 - [ServiceNow](connector-servicenow.md#upgrade-your-servicenow-linked-service)
 - [Snowflake](connector-snowflake.md#upgrade-the-snowflake-linked-service)
+- [Vertica](connector-vertica.md#upgrade-the-vertica-version)
 
 ## Connectors to be deprecated on December 31, 2024
 
@@ -77,13 +79,13 @@ The following connectors are scheduled for deprecation on December 31, 2024. You
 - [Concur (Preview)](connector-concur.md)
 - [Couchbase (Preview)](connector-couchbase.md)
 - [Drill](connector-drill.md)
-- [Hbase](connector-hbase.md)
+- [HBase](connector-hbase.md)
 - [Magento (Preview)](connector-magento.md)
 - [Marketo (Preview)](connector-marketo.md)
 - [Oracle Eloqua (Preview)](connector-oracle-eloqua.md)
 - [Oracle Responsys (Preview)](connector-oracle-responsys.md)
 - [Oracle Service Cloud (Preview)](connector-oracle-service-cloud.md)
-- [Paypal (Preview)](connector-paypal.md)
+- [PayPal (Preview)](connector-paypal.md)
 - [Phoenix](connector-phoenix.md)
 - [Salesforce Marketing Cloud](connector-salesforce-marketing-cloud.md)
 - [Zoho (Preview)](connector-zoho.md)

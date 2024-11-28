@@ -1,11 +1,11 @@
 ---
 title: Using Redis Output bindings with Azure Functions for Azure Cache for Redis
-description: Learn how to use Redis output binding on an Azure Functions. 
+description: Learn how to use Redis output binding on an Azure Functions.
 author: flang-msft
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ms.author: franlanglois
 ms.service: azure-functions
-ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python, ignite-2024
 ms.topic: reference
 ms.date: 07/12/2024
 ---
@@ -15,6 +15,16 @@ ms.date: 07/12/2024
 The Azure Cache for Redis output bindings lets you change the keys in a cache based on a set of available trigger on the cache.
 
 For information on setup and configuration details, see the [overview](functions-bindings-cache.md).
+
+## Scope of availability for functions bindings
+
+| Binding Type    | Azure Managed Redis | Azure Cache for Redis |
+|---------|:-----:|:-----------------:|
+| Output | Yes   | Yes               |
+
+> [!IMPORTANT]
+> When using Azure Managed Redis or the Enterprise tiers of Azure Cache for Redis, use port 10000 rather than port 6380 or 6379.
+>
 
 ::: zone pivot="programming-language-javascript"  
 <!--- Replace with the following when Node.js v4 is supported:
@@ -126,7 +136,7 @@ This example shows a pub/sub trigger on the set event with an output binding to 
 
 ### [Model v3](#tab/nodejs-v3)
 
-The bindings are defined in this `function.json`` file:
+The bindings are defined in the `function.json`` file:
 
 ```json
 {
