@@ -1,5 +1,5 @@
 ---  
-title: Troubleshoot Dev Box Remote Desktop issues    
+title: Troubleshoot known Dev Box Remote Desktop issues    
 description: Learn how to resolve common Remote Desktop connection issues with dev doxes to maintain a stable workflow.
 author: RoseHJM    
 ms.author: rosemalcolm  
@@ -10,7 +10,7 @@ ms.date: 10/22/2024
 #customer intent: As a developer, I want to troubleshoot my Remote Desktop connection issues with dev boxes so that I can maintain a stable and efficient workflow.    
 ---  
   
-# Troubleshoot Remote Desktop connectivity issues with dev boxes  
+# Troubleshoot known Remote Desktop connectivity issues with dev boxes  
   
 If you're experiencing problems with your Remote Desktop connection to your dev box, this guide can help you find and fix the issues quickly. Whether it's frequent disconnections, latency, or sign-in problems, we've got solutions that can get you back on track.  
   
