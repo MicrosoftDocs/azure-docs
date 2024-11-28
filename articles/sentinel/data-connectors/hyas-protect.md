@@ -89,13 +89,13 @@ If you're already signed in, go to the next step.
 
 	c. Select **Create new Function App in Azure** (Don't choose the Advanced option)
 
-	d. **Enter a globally unique name for the function app:** Type a name that is valid in a URL path. The name you type is validated to make sure that it's unique in Azure Functions. (e.g. HyasProtectLogsXXX).
+	d. **Enter a globally unique name for the function app:** Type a name that is valid in a URL path. The name you type is validated to make sure that it's unique in Azure Functions. (for example, HyasProtectLogsXXX).
 
 	e. **Select a runtime:** Choose Python 3.8.
 
-	f. Select a location for new resources. For better performance and lower costs choose the same [region](https://azure.microsoft.com/regions/) where Microsoft sentinel is located.
+	f. Select a location for new resources. For better performance and lower costs, choose the same [region](https://azure.microsoft.com/regions/) where Microsoft sentinel is located.
 
-6. Deployment will begin. A notification is displayed after your function app is created and the deployment package is applied.
+6. Deployment begins. A notification is displayed after your function app is created and the deployment package is applied.
 7. Go to Azure Portal for the Function App configuration.
 
 
