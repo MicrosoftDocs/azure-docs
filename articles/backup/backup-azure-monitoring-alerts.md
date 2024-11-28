@@ -2,7 +2,7 @@
 title: Monitor Azure Monitor based alerts for Azure Backup
 description: Learn about the new and improved alerting capabilities via Azure Monitor and the process to configure Azure Monitor.
 ms.topic: how-to
-ms.date: 10/10/2024
+ms.date: 11/30/2024
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -39,7 +39,7 @@ The following table lists some of these solutions:
 
 | Alert | Utility | Description |
 | --- | --- | --- |
-| **Built-in Azure Monitor alerts** | Default alerts enabled for critical scenarios. | Azure Backup automatically generates built-in alerts for certain default scenarios, such as deletion of backup data, disabling of soft-delete, backup failures, restore failures, and [so on](backup-azure-monitoring-built-in-monitor.md?tabs=recovery-services-vaults#azure-monitor-alerts-for-azure-backup). You can view these alerts out of the box via Backup center. To configure notifications for these alerts (for example, emails), you can use Azure Monitor's *Alert Processing Rules* and Action groups to route alerts to a wide range of notification channels. |
+| **Built-in Azure Monitor alerts** | Default alerts enabled for critical scenarios. | Azure Backup automatically generates built-in alerts for certain default scenarios, such as deletion of backup data, disabling of soft-delete, backup failures, restore failures, and [so on](monitoring-and-alerts-overview.md#azure-monitor-alerts-for-azure-backup). You can view these alerts out of the box via Backup center. To configure notifications for these alerts (for example, emails), you can use Azure Monitor's *Alert Processing Rules* and Action groups to route alerts to a wide range of notification channels. |
 | **Log/ARG based Alerts** | To write custom alerts. <br><br> - **Azure Resource Graph (ARG)**: On real time data. <br> - **LA**: On Log Analytics data (when some delay is acceptable). | If you've scenarios where an alert needs to be generated based on custom logic, you can use Log Analytics based alerts for such scenarios, provided you've configured your vaults to send diagnostics data to a Log Analytics (LA) workspace. |
 | **Metric alerts**  | To write alerts for job success and cases where the health is not as expected. | You can write custom alert rules using Azure Monitor metrics to monitor the health of your backup items across different KPIs. |
 
@@ -123,7 +123,7 @@ Follow these steps:
    - **Alert Processing Rule**: A rule that specifies alert types to be routed to each notification channel. This template deploys alert processing rules that span all Azure Monitor based alerts on all Recovery Services vaults in the subscription that the rule is created in.
    - **Action Group**: The notification channel to which alerts should be sent. This template deploys an email action group so that alerts are routed to the email ID(s) specified while deploying the template.
 
-   To modify any of these parameters, for example, scope of alert processing rule, or choice of notification channels, you can edit these resources after creation, or you can [create the alert processing rule and action group from scratch](backup-azure-monitoring-built-in-monitor.md?tabs=recovery-services-vaults#configuring-notifications-for-alerts) via the Azure portal.
+   To modify any of these parameters, for example, scope of alert processing rule, or choice of notification channels, you can edit these resources after creation, or you can [create the alert processing rule and action group from scratch](backup-azure-monitoring-alerts.md#configure-notifications-for-alerts) via the Azure portal.
 
 1. Enter the subscription, resource group, and region in which the alert processing rule and action group should be created. Also specify the email ID(s) to which notifications should be sent. Other parameters populate with default values and only need to be edited, if you want to customize the names and descriptions that the resources are created in.
 
@@ -172,7 +172,7 @@ To create a suppression alert processing rule, follow these steps:
 
    You can also select more granular filters if you want to suppress notifications only for a particular backup item. For example, if you want to suppress notifications for *testdb1* database in the Virtual Machine *VM1*, you can specify filters "where Alert Context (payload) contains `/subscriptions/00000000-0000-0000-0000-0000000000000/resourceGroups/testRG/providers/Microsoft.Compute/virtualMachines/VM1/providers/Microsoft.RecoveryServices/backupProtectedItem/SQLDataBase;MSSQLSERVER;testdb1`".
    
-   To get the required format of your required backup item, see the *SourceId field* from the [Alert details page](backup-azure-monitoring-built-in-monitor.md?tabs=recovery-services-vaults#viewing-fired-alerts-in-the-azure-portal).
+   To get the required format of your required backup item, see the *SourceId field* from the [Alert details page](backup-azure-monitoring-alerts.md#view-fired-alerts-in-the-azure-portal).
 
    :::image type="content" source="./media/move-to-azure-monitor-alerts/alert-processing-rule-scope.png" alt-text="Screenshot showing specified scope of alert processing rule.":::
 

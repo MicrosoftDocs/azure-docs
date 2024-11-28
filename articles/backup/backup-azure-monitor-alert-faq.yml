@@ -5,7 +5,7 @@ metadata:
   ms.reviewer: srinathv
   ms.topic: faq
   ms.service: azure-backup
-  ms.date: 09/30/2024
+  ms.date: 11/30/2024
   author: AbhishekMallick-MS
   ms.author: v-abhmallick
 title: Azure Backup Monitoring Alert - FAQ
@@ -23,7 +23,7 @@ sections:
       - question: |
           Are there any costs to use built-in Azure Monitor alerts for Azure Backup?
         answer: |
-          With [built-in Azure Monitor alerts](backup-azure-monitoring-built-in-monitor.md#azure-monitor-alerts-for-azure-backup), *alerts* for critical operations/failures generate by default (that you can view in the portal or via non-portal interfaces) at no additional cost. However, to route these alerts to a notification channel (such as email), it incurs a minor cost for notifications beyond the free tier (of 1000 emails per month). [Learn more about Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
+          With [built-in Azure Monitor alerts](monitoring-and-alerts-overview.md#azure-monitor-alerts-for-azure-backup), *alerts* for critical operations/failures generate by default (that you can view in the portal or via non-portal interfaces) at no additional cost. However, to route these alerts to a notification channel (such as email), it incurs a minor cost for notifications beyond the free tier (of 1000 emails per month). [Learn more about Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
       - question: |
           Are there any costs for using custom alerts (log analytics/ ARG/ activity logs/metrics) for Azure Backup?
@@ -44,7 +44,7 @@ sections:
           - **Alert processing rule (earlier called Action rule)**: Refers to a user-created rule that specifies the notification channels a particular fired alert should be routed to. You can also use alert processing rules to suppress notifications for a period of time. [Learn more](/azure/azure-monitor/alerts/alerts-action-rules?tabs=portal)
           - **Action group**: Refers to the notification channel (such as email, ITSM endpoint, logic app, webhook, and so on) that a fired alert can be routed to. [Learn more](/azure/azure-monitor/alerts/action-groups)
 
-          In case of built-in Azure Monitor alerts, as alerts already generate by default, you don't need to create an alert rule. To route these alerts to a notification channel, you should create an alert processing rule and an action group for these alerts. [See example](backup-azure-monitoring-built-in-monitor.md#configuring-notifications-for-alerts)
+          In case of built-in Azure Monitor alerts, as alerts already generate by default, you don't need to create an alert rule. To route these alerts to a notification channel, you should create an alert processing rule and an action group for these alerts. [See example](backup-azure-monitoring-alerts.md#configure-notifications-for-alerts)
 
           In case of metric alerts, as alerts don't generate by default, you need to first create an alert rule to specify the condition for which an alert should be fired. To route these alerts to a notification channel, you can directly link the alert rule to an action group, or use an alert processing rule. [See example](metrics-overview.md#configure-alerts-and-notifications-on-your-metrics)
 

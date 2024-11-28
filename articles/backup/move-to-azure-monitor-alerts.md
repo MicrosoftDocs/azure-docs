@@ -2,7 +2,7 @@
 title: Switch to Azure Monitor based alerts for Azure Backup
 description: This article describes the new and improved alerting capabilities via Azure Monitor and the process to configure Azure Monitor.
 ms.topic: how-to
-ms.date: 03/27/2024
+ms.date: 11/30/2024
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -62,7 +62,7 @@ There are a few exceptions when an alert isn't raised on a failure. They are:
 - The VM backup job fails because the backed-up Azure VM no longer exists.
 - [Consolidated Alerts](#consolidated-alerts)
 
-The exceptions above are designed from the understanding that the result of these operations (primarily user triggered) shows up immediately on portal/PS/CLI clients. So, you're immediately aware and doesn't need a notification.
+The exceptions above are designed from the understanding that the result of these operations (primarily user triggered) shows up immediately on portal/PowerShell/the CLI clients. So, you're immediately aware and doesn't need a notification.
 
 ### Alert types
 
@@ -115,7 +115,7 @@ To create a suppression alert processing rule, follow these steps:
 
    You can also select more granular filters if you want to suppress notifications only for a particular backup item. For example, if you want to suppress notifications for *testdb1* database in the Virtual Machine *VM1*, you can specify filters "where Alert Context (payload) contains `/subscriptions/00000000-0000-0000-0000-0000000000000/resourceGroups/testRG/providers/Microsoft.Compute/virtualMachines/VM1/providers/Microsoft.RecoveryServices/backupProtectedItem/SQLDataBase;MSSQLSERVER;testdb1`".
    
-   To get the required format of your required backup item, see the *SourceId field* from the [Alert details page](backup-azure-monitoring-built-in-monitor.md?tabs=recovery-services-vaults#viewing-fired-alerts-in-the-azure-portal).
+   To get the required format of your required backup item, see the *SourceId field* from the [Alert details page](backup-azure-monitoring-alerts.md#view-fired-alerts-in-the-azure-portal).
 
    :::image type="content" source="./media/move-to-azure-monitor-alerts/alert-processing-rule-scope.png" alt-text="Screenshot showing specified scope of alert processing rule.":::
 
