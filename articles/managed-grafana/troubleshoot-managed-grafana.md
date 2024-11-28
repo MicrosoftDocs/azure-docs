@@ -1,5 +1,5 @@
 ---
-title: 'Troubleshoot Azure Managed Grafana'
+title: 'Troubleshoot Azure Managed Grafana Test'
 description: Troubleshoot Azure Managed Grafana issues related to fetching data, managing Managed Grafana dashboards, speed and more.
 author: maud-lv
 ms.author: malev
