@@ -1,6 +1,6 @@
 ---
 title: Azure Operator Nexus troubleshooting hardware validation failure
-description: Troubleshoot Hardware Validation Failure for Azure Operator Nexus.
+description: Troubleshoot hardware validation failure for Azure Operator Nexus.
 ms.service: azure-operator-nexus
 ms.custom: troubleshooting
 ms.topic: troubleshooting
@@ -9,9 +9,9 @@ author: vnikolin
 ms.author: vanjanikolin
 ---
 
-# Troubleshoot hardware validation failure in Nexus Cluster
+# Troubleshoot hardware validation failure in a Nexus cluster
 
-This article describes how to troubleshoot a failed server hardware validation. Hardware validation (HWV) is run as part of cluster deploy action and a bare metal replace action. HWV validates a bare metal machine (BMM) by executing test cases against the baseboard management controller (BMC). The Azure Operator Nexus platform is deployed on Dell servers. Dell servers use the integrated Dell remote access controller (iDRAC) which is the equivalent of a BMC.
+This article describes how to troubleshoot a failed server hardware validation (HWV). HWV is run as part of a cluster deploy action and a bare metal `replace` action. HWV validates a bare metal machine (BMM) by executing test cases against the baseboard management controller (BMC). The Azure Operator Nexus platform is deployed on Dell servers. Dell servers use the integrated Dell remote access controller (iDRAC), which is the equivalent of a BMC.
 
 ## Prerequisites
 
@@ -19,36 +19,38 @@ This article describes how to troubleshoot a failed server hardware validation. 
    - Subscription ID
    - Cluster name
    - Resource group
-2. Request access to the Cluster's Log Analytics Workspace (LAW).
-3. Access to BMC webui and/or jumpbox that allows running of racadm utility.
+1. Request access to the cluster's Log Analytics workspace (LAW).
+1. Access to the BMC web UI or a jumpbox that allows the `racadm` utility to run.
 
-## Locating hardware validation results
+## Locate hardware validation results
 
-1. Navigate to cluster resource group in the subscription
-2. Expand the cluster Log Analytics Workspace (LAW) resource for the cluster
-3. Navigate to the Logs tab
-4. Hardware validation results can be fetched with a query against the `HWVal_CL` table as per the following example
+1. Go to the cluster resource group in the subscription.
+1. Expand the cluster LAW resource for the cluster.
+1. Go to the **Logs** tab.
+1. Fetch hardware validation results with a query against the `HWVal_CL` table, according to the following example:
 
-:::image type="content" source="media\hardware-validation-cluster-law.png" alt-text="Screenshot of cluster LAW custom table query." lightbox="media\hardware-validation-cluster-law.png":::
+:::image type="content" source="media\hardware-validation-cluster-law.png" alt-text="Screenshot that shows the cluster LAW custom table query." lightbox="media\hardware-validation-cluster-law.png":::
 
-## Examining hardware validation results
+## Examine hardware validation results
 
-The Hardware Validation result for a given server includes the following categories.
+The HWV result for a specific server includes the following categories:
 
-- system_info
-- drive_info
-- network_info
-- health_info
-- boot_info
+- `system_info`
+- `drive_info`
+- `network_info`
+- `health_info`
+- `boot_info`
 
-Expanding `result_detail` for a given category shows detailed results.
+Expand `result_detail` for a specific category to see detailed results.
 
-## Troubleshooting specific failures
+## Troubleshoot specific failures
+
+This section discusses troubleshooting for problems you might encounter.
 
 ### System info category
 
-* Memory/RAM Related Failure (memory_capacity_GB) (measured in GiB)
-    * Memory specs are defined in the SKU. Memory below threshold value indicates missing or failed Dual In-Line Memory Module (DIMM). A failed DIMM would also be reflected in the `health_info` category. The following example shows a failed memory check.
+* Memory/RAM-related failure (`memory_capacity_GB`) (measured in GiB)
+    * Memory specs are defined in the version. Memory below the threshold value indicates a missing or failed dual inline memory module (DIMM). A failed DIMM is also reflected in the `health_info` category. The following example shows a failed memory check.
 
     ```yaml
         {
@@ -59,20 +61,20 @@ Expanding `result_detail` for a given category shows detailed results.
         }
     ```
 
-    * To check memory information in BMC webui:
+    * To check memory information in the BMC web UI:
 
         `BMC` -> `System` -> `Memory`
 
-    * To check memory information with racadm:
+    * To check memory information with `racadm`:
 
     ```bash
         racadm --nocertwarn -r $IP -u $BMC_USR -p $BMC_PWD hwinventory | grep SysMemTotalSize
     ```
 
-    * To troubleshoot a memory problem engage vendor.
+    * To troubleshoot a memory problem, contact the vendor.
 
-* CPU Related Failure (cpu_sockets)
-    * CPU specs are defined in the SKU. Failed `cpu_sockets` check indicates a failed CPU or CPU count mismatch. The following example shows a failed CPU check.
+* CPU-related failure (`cpu_sockets`)
+    * CPU specs are defined in the SKU. A failed `cpu_sockets` check indicates a failed CPU or CPU count mismatch. The following example shows a failed CPU check.
 
     ```yaml
         {
@@ -83,20 +85,20 @@ Expanding `result_detail` for a given category shows detailed results.
         }
     ```
 
-    * To check CPU information in BMC webui:
+    * To check CPU information in the BMC web UI:
 
         `BMC` -> `System` -> `CPU`
 
-    * To check CPU information with racadm:
+    * To check CPU information with `racadm`:
 
     ```bash
         racadm --nocertwarn -r $IP -u $BMC_USR -p $BMC_PWD hwinventory | grep PopulatedCPUSockets
     ```
 
-    * To troubleshoot a CPU problem engage vendor.
+    * To troubleshoot a CPU problem, contact the vendor.
 
-* Model Check Failure (Model)
-    * Failed `Model` check indicates that wrong server is racked in the slot or there's a cabling mismatch. The following example shows a failed model check.
+* Model check failure (`Model`)
+    * A failed `Model` check indicates that the wrong server is racked in the slot or that there's a cabling mismatch. The following example shows a failed model check.
 
     ```yaml
         {
@@ -107,20 +109,20 @@ Expanding `result_detail` for a given category shows detailed results.
         }
     ```
 
-    * To check model information in BMC webui:
+    * To check model information in the BMC web UI:
 
         `BMC` -> `Dashboard` - Shows Model
 
-    * To check model information with racadm:
+    * To check model information with `racadm`:
 
     ```bash
         racadm --nocertwarn -r $IP -u $BMC_USR -p $BMC_PWD getsysinfo | grep Model
     ```
 
-    * To troubleshoot this problem, ensure that server is racked in the correct location, cabled accordingly, and that the correct IP is assigned.
+    * To troubleshoot this problem, ensure that the server is racked in the correct location and cabled accordingly, and that the correct IP is assigned.
 
-* Serial Number Check Failure (Serial_Number)
-    * The server's serial number, also referred as the service tag, is defined in the cluster. Failed `Serial_Number` check indicates a mismatch between the serial number in the cluster and the actual serial number of the machine. The following example shows a failed serial number check.
+* Serial number check failure (`Serial_Number`)
+    * The server's serial number, also referred to as the service tag, is defined in the cluster. A failed `Serial_Number` check indicates a mismatch between the serial number in the cluster and the actual serial number of the machine. The following example shows a failed serial number check.
 
     ```yaml
         {
@@ -131,20 +133,20 @@ Expanding `result_detail` for a given category shows detailed results.
         }
     ```
 
-    * To check serial number information in BMC webui:
+    * To check serial number information in the BMC web UI:
 
         `BMC` -> `Dashboard` - Shows Service Tag
 
-    * To check serial number information with racadm:
+    * To check serial number information with `racadm`:
 
     ```bash
         racadm --nocertwarn -r $IP -u $BMC_USR -p $BMC_PWD getsysinfo | grep "Service Tag"
     ```
 
-    * To troubleshoot this problem, ensure that server is racked in the correct location, cabled accordingly, and that the correct IP is assigned.
+    * To troubleshoot this problem, ensure that the server is racked in the correct location and cabled accordingly, and that the correct IP is assigned.
 
-* iDRAC License Check Failure
-    * All iDRACs require a perpetual/production iDRAC datacenter or enterprise license. Trial licenses are valid for only 30 days. A failed `iDRAC License Check` indicates that the required iDRAC license is missing. The following examples show a failed iDRAC license check for a trial license and missing license respectively.
+* iDRAC license check failure
+    * All iDRACs require a perpetual/production iDRAC datacenter or enterprise license. Trial licenses are valid for only 30 days. A failed `iDRAC License Check` indicates that the required iDRAC license is missing. The following examples show a failed iDRAC license check for a trial license and missing license, respectively.
 
     ```yaml
         {
@@ -164,12 +166,12 @@ Expanding `result_detail` for a given category shows detailed results.
         }
     ```
 
-    * To troubleshoot this problem engage vendor to obtain the correct license. Apply the license using the iDRAC webui in the following location:
+    * To troubleshoot this problem, contact the vendor to obtain the correct license. Apply the license by using the iDRAC web UI in the following location:
 
         `BMC` -> `Configuration` -> `Licenses`
 
-* Firmware Version Checks
-    * Firmware version checks were introduced in release 3.9. The following example shows the expected log for release versions before 3.9.
+* Firmware version checks
+    * Firmware version checks were introduced in release 3.9. The following example shows the expected log for release versions earlier than 3.9.
 
   ```yaml
       {
@@ -182,7 +184,7 @@ Expanding `result_detail` for a given category shows detailed results.
       }
   ```
 
-    * Firmware versions are determined based on the `cluster version` value in the cluster object. The following example shows a failed check due to indeterminate cluster version. If this problem is encountered, verify the version in the cluster object.
+    * Firmware versions are determined based on the `cluster version` value in the cluster object. The following example shows a failed check because of an indeterminate cluster version. If this problem is encountered, verify the version in the cluster object.
 
   ```yaml
       {
@@ -195,14 +197,14 @@ Expanding `result_detail` for a given category shows detailed results.
       }
   ```
 
-    * Firmware versions are logged as informational. The following component firmware versions are typically logged (depending on hardware model):
+    * Firmware versions are logged as informational. The following component firmware versions are typically logged (depending on the hardware model):
         * BIOS
         * iDRAC
         * Complex Programmable Logic Device (CPLD)
-        * RAID Controller
+        * Redundant Array of Independent Disks (RAID) controller
         * Backplane
 
-    * The HWV framework identifies problematic firmware versions and attempts to auto fix. The following example shows a successful iDRAC firmware fix (versions and task ID are illustrational only).
+    * The HWV framework identifies problematic firmware versions and attempts to fix them automatically. The following example shows a successful iDRAC firmware fix (versions and task ID are for illustration only).
 
   ```yaml
       {
@@ -225,8 +227,8 @@ Expanding `result_detail` for a given category shows detailed results.
 
 ### Drive info category
 
-* Disk Checks Failure
-    * Drive specs are defined in the SKU. Mismatched capacity values indicate incorrect drives or drives inserted in to incorrect slots. Missing capacity and type fetched values indicate drives that are failed, missing, or inserted in to incorrect slots.
+* Disk checks failure
+    * Drive specs are defined in the version. Mismatched capacity values indicate incorrect drives or drives inserted into incorrect slots. Missing capacity and type fetched values indicate drives that failed, are missing, or were inserted into incorrect slots.
 
     ```yaml
         {
@@ -255,22 +257,22 @@ Expanding `result_detail` for a given category shows detailed results.
         }
     ```
 
-    * To check disk information in BMC webui:
+    * To check disk information in the BMC web UI:
 
         `BMC` -> `Storage` -> `Physical Disks`
 
-    * To check disk information with racadm:
+    * To check disk information with `racadm`:
 
     ```bash
         racadm --nocertwarn -r $IP -u $BMC_USR -p $BMC_PWD raid get pdisks -o -p State,Size
     ```
 
-    * To troubleshoot, ensure that disks are inserted in the correct slots. If the problem persists engage vendor.
+    * To troubleshoot, ensure that disks are inserted in the correct slots. If the problem persists, contact the vendor.
 
 ### Network info category
 
-* Network Interface Cards (NIC) Check Failure
-    * Dell server NIC specs are defined in the SKU. A mismatched link status indicates loose or faulty cabling or crossed cables. A mismatched model indicates incorrect NIC card is inserted in to slot. Missing link/model fetched values indicate NICs that are failed, missing, or inserted in to incorrect slots.
+* Network interface cards (NICs) check failure
+    * Dell server NIC specs are defined in the version. A mismatched link status indicates loose or faulty cabling or crossed cables. A mismatched model indicates that an incorrect NIC card is inserted into a slot. Missing link or model fetched values indicate NICs that failed, are missing, or were inserted into incorrect slots.
 
     ```yaml
         {
@@ -317,26 +319,26 @@ Expanding `result_detail` for a given category shows detailed results.
         }
     ```
 
-    * To check NIC information in BMC webui:
+    * To check NIC information in the BMC web UI:
 
         `BMC` -> `System` -> `Network Devices`
 
-    * To check all NIC information with racadm:
+    * To check all NIC information with `racadm`:
 
     ```bash
         racadm --nocertwarn -r $IP -u $BMC_USR -p $BMC_PWD hwinventory NIC
     ```
 
-    * To check a specific NIC with racadm provide the Fully Qualified Device Descriptor (FQDD):
+    * To check a specific NIC with `racadm`, provide the fully qualified device descriptor:
 
      ```bash
         racadm --nocertwarn -r $IP -u $BMC_USR -p $BMC_PWD hwinventory NIC.Embedded.1-1-1
     ```
 
-    * To troubleshoot, ensure that servers are cabled correctly and that ports are linked up. Bounce port on the fabric. Perform flea drain. If the problem persists engage vendor.
+    * To troubleshoot, ensure that servers are cabled correctly and that ports are linked up. Bounce the port on the fabric. Perform a flea drain. If the problem persists, contact the vendor.
 
-* NIC Check L2 Switch Information
-    * HWV reports L2 switch information for each of the server interfaces. The switch connection ID (switch interface MAC) and switch port connection ID (switch interface label) are informational.
+* NIC check Layer 2 switch information
+    * HWV reports Layer 2 switch information for each of the server interfaces. The switch connection ID (switch interface MAC) and switch port connection ID (switch interface label) are informational.
 
     ```yaml
         {
@@ -356,8 +358,8 @@ Expanding `result_detail` for a given category shows detailed results.
         }
     ```
 
-* Cabling Checks for Bonded Interfaces
-    * Mismatched cabling is reported in the result_log. Cable check validates that that bonded NICs connect to switch ports with same Port ID. In the following example Peripheral Component Interconnect (PCI) 3/1 and 3/2 connect to "Ethernet1/1" and "Ethernet1/3" respectively on TOR, triggering a failure for HWV.
+* Cabling checks for bonded interfaces
+    * Mismatched cabling is reported in `result_log`. A cable check validates that bonded NICs connect to switch ports with the same port ID. In the following example, peripheral component interconnect (PCI) 3/1 and 3/2 connect to `Ethernet1/1` and `Ethernet1/3`, respectively, on TOR, which triggers a failure for HWV.
 
   ```yaml
       {
@@ -380,9 +382,9 @@ Expanding `result_detail` for a given category shows detailed results.
       }
   ```
 
-    * To fix the issue insert cables in to the correct interfaces.
+    * To fix the problem, insert cables into the correct interfaces.
 
-* iDRAC (BMC) MAC Address Check Failure
+* iDRAC (BMC) MAC address check failure
     * The iDRAC MAC address is defined in the cluster for each BMM. A failed `iDRAC_MAC` check indicates a mismatch between the iDRAC/BMC MAC in the cluster and the actual MAC address retrieved from the machine.
 
     ```yaml
@@ -394,9 +396,9 @@ Expanding `result_detail` for a given category shows detailed results.
         }
     ```
 
-    * To troubleshoot this problem, ensure that correct MAC address is defined in the cluster. If MAC is correct in the cluster object, attempt a flea drain. If problem persists ensure that server is racked in the correct location, cabled accordingly, and that the correct IP is assigned.
+    * To troubleshoot this problem, ensure that the correct MAC address is defined in the cluster. If the MAC is correct in the cluster object, attempt a flea drain. If the problem persists, ensure that the server is racked in the correct location, cabled accordingly, and that the correct IP is assigned.
 
-* Preboot execution environment (PXE) MAC Address Check Failure
+* Preboot eXecution Environment (PXE) MAC address check failure
     * The PXE MAC address is defined in the cluster for each BMM. A failed `PXE_MAC` check indicates a mismatch between the PXE MAC in the cluster and the actual MAC address retrieved from the machine.
 
     ```yaml
@@ -408,12 +410,12 @@ Expanding `result_detail` for a given category shows detailed results.
         }
     ```
 
-    * To troubleshoot this problem, ensure that correct MAC address is defined in the cluster. If MAC is correct in the cluster object, attempt a flea drain. If problem persists ensure that server is racked in the correct location, cabled accordingly, and that the correct IP is assigned.
+    * To troubleshoot this problem, ensure that the correct MAC address is defined in the cluster. If the MAC is correct in the cluster object, attempt a flea drain. If the problem persists, ensure that the server is racked in the correct location, cabled accordingly, and that the correct IP is assigned.
 
 ### Health info category
 
-* Health Check Sensor Failure
-    * Server health checks cover various hardware component sensors. A failed health sensor indicates a problem with the corresponding hardware component. The following examples indicate fan, drive, and CPU failures respectively.
+* Health check sensor failure
+    * Server health checks cover various hardware component sensors. A failed health sensor indicates a problem with the corresponding hardware component. The following examples indicate fan, drive, and CPU failures, respectively.
 
     ```yaml
         {
@@ -442,20 +444,20 @@ Expanding `result_detail` for a given category shows detailed results.
         }
     ```
 
-     * To check health information in BMC webui:
+     * To check health information in the BMC web UI:
 
         `BMC` -> `Dashboard` - Shows Health Information
 
-    * To check health information with racadm:
+    * To check health information with `racadm`:
 
     ```bash
         racadm --nocertwarn -r $IP -u $BMC_USR -p $BMC_PWD getsensorinfo
     ```
 
-    * To troubleshoot a server health failure engage vendor.
+    * To troubleshoot a server health failure, contact the vendor.
 
-* Health Check LifeCycle (LC) Log Failures
-    * Dell server health checks fail for recent Critical LC Log Alarms. The hardware validation plugin logs the alarm ID, name, and timestamp. Recent critical alarms indicate need for further investigation. The following example shows a failure for a critical backplane voltage alarm.
+* Health check lifecycle (LC) log failures
+    * Dell server health checks fail for recent LC Log Critical Alarms. The hardware validation plugin logs the alarm ID, name, and time stamp. Recent critical alarms indicate the need for further investigation. The following example shows a failure for a critical backplane voltage alarm.
 
     ```yaml
         {
@@ -466,8 +468,8 @@ Expanding `result_detail` for a given category shows detailed results.
         }
     ```
 
-    * Virtual disk errors typically indicate a RAID cleanup false positive condition and are logged due to the timing of raid cleanup and system power off pre HWV. The following example shows an LC log critical error on virtual disk 238. If multiple errors are encountered blocking deployment, delete cluster, wait two hours, then reattempt cluster deployment. If the failures aren't deployment blocking, wait two hours then run BMM replace.
-    * Virtual disk errors are allowlisted starting with release 3.13 and don't trigger a health check failure.
+    * Virtual disk errors typically indicate a RAID cleanup false positive condition. They're logged because of the timing of the RAID cleanup and system power off before HWV. The following example shows an LC log critical error on virtual disk 238. If you encounter multiple errors that block deployment, delete the cluster, wait two hours, and then reattempt cluster deployment. If the failures aren't blocking deployment, wait two hours, and then run BMM `replace`.
+    * Virtual disk errors are allow-listed starting with release 3.13 and don't trigger a health check failure.
 
     ```yaml
         {
@@ -478,7 +480,7 @@ Expanding `result_detail` for a given category shows detailed results.
         }
     ```
 
-    * Allow listed critical alarms and warning alarms are logged as informational starting with Nexus release 3.14.
+    * Allow-listed critical alarms and warning alarms are logged as informational starting with Nexus release 3.14.
 
     ```yaml
         {
@@ -489,19 +491,19 @@ Expanding `result_detail` for a given category shows detailed results.
         }
     ```
 
-    * To check LC logs in BMC webui:
+    * To check LC logs in the BMC web UI:
 
         `BMC` -> `Maintenance` -> `Lifecycle Log`
 
-    * To check LC log critical alarms with racadm:
+    * To check LC Log Critical Alarms with `racadm`:
 
     ```bash
         racadm --nocertwarn -r $IP -u $BMC_USR -p $BMC_PWD lclog view -s critical
     ```
 
-    * If `Backplane Comm` critical errors are logged, perform flea drain. Engage vendor to troubleshoot any other LC log critical failures.
+    * If `Backplane Comm` critical errors are logged, perform a flea drain. Contact the vendor to troubleshoot any other LC log critical failures.
 
-* Health Check Server Power Control Action Failures
+* Health check server power control action failures
     * Dell server health checks fail for failed server power-up or failed iDRAC reset. A failed server control action indicates an underlying hardware issue. The following example shows failed power on attempt.
 
     ```yaml
@@ -519,20 +521,20 @@ Expanding `result_detail` for a given category shows detailed results.
         ]
     ```
 
-    * To power server on in BMC webui:
+    * To power a server on in the BMC web UI:
 
         `BMC` -> `Dashboard` -> `Power On System`
 
-    * To power server on with racadm:
+    * To power a server on with `racadm`:
 
     ```bash
         racadm --nocertwarn -r $IP -u $BMC_USR -p $BMC_PWD serveraction powerup
     ```
 
-    * To troubleshoot server power-on failure attempt a flea drain. If problem persists engage vendor.
+    * To troubleshoot server power-on failure, attempt a flea drain. If the problem persists, contact the vendor.
 
-* Virtual Flea Drain
-    * HWV attempts a virtual flea drain for most failing checks. Flea drain attempts are logged under `health_info` -> `result_log`.
+* Virtual flea drain
+    * HWV attempts a virtual flea drain for most failing checks. Flea drain attempts are logged under `health_info` > `result_log`.
 
     ```yaml
         "result_log": [
@@ -543,7 +545,7 @@ Expanding `result_detail` for a given category shows detailed results.
     * If the virtual flea drain fails, perform a physical flea drain as a first troubleshooting step.
 
 * RAID cleanup failures
-    * As part of RAID cleanup, the RAID controller configuration is reset. Dell server health check fails for RAID controller reset failure. A failed RAID cleanup action indicates an underlying hardware issue. The following example shows a failed RAID controller reset.
+    * As part of a RAID cleanup, the RAID controller configuration is reset. The Dell server health check fails for a RAID controller reset failure. A failed RAID cleanup action indicates an underlying hardware issue. The following example shows a failed RAID controller reset.
 
     ```yaml
         {
@@ -560,11 +562,11 @@ Expanding `result_detail` for a given category shows detailed results.
         ]
     ```
 
-    * To clear RAID in BMC webui:
+    * To clear a RAID in the BMC web UI:
 
-        `BMC` -> `Dashboard` -> `Storage` -> `Controllers` -> `Actions` -> `Reset Configuration`
+        Select **BMC** > **Dashboard** > **Storage** > **Controllers** > **Actions** > **Reset Configuration**.
 
-    * To clear RAID with racadm check for RAID controllers then clear config:
+    * To clear a RAID with `racadm`, check for RAID controllers and then clear config:
 
     ```bash
         racadm --nocertwarn -r $IP -u $BMC_USR -p $BMC_PWD storage get controllers | grep "RAID"
@@ -572,11 +574,11 @@ Expanding `result_detail` for a given category shows detailed results.
         racadm --nocertwarn -r $IP -u $BMC_USR -p $BC_PWD jobqueue create RAID.SL.3-1 --realtime  #substitute with RAID controller from get command
     ```
 
-    * To troubleshoot RAID cleanup failure check for any errors logged. For Dell R650/660, ensure that only slots 0 and 1 contain physical drives. For Dell R750/760, ensure that only slots 0 through 3 contain physical drives. For any other models, confirm there are no extra drives inserted based on SKU definition. All extra drives should be removed to align with the SKU. If the problem persists engage vendor.
-    * BMC virtual disk critical alerts triggered during HWV can be ignored.
+    * To troubleshoot RAID cleanup failure, check for any logged errors. For Dell R650/660, ensure that only slots 0 and 1 contain physical drives. For Dell R750/760, ensure that only slots 0 through 3 contain physical drives. For any other models, confirm that no extra drives are inserted based on the version definition. All extra drives should be removed to align with the version. If the problem persists, contact the vendor.
+    * You can ignore BMC virtual disk critical alerts triggered during the HWV.
 
-* Health Check Power Supply Failure and Redundancy Considerations
-    * Dell server health checks warn when one power supply is missing or failed. Power supply "field_name" might be displayed as 0/PS0/Power Supply 0 and 1/PS1/Power Supply 1 for the first and second power supplies respectively. A failure of one power supply doesn't trigger an HWV device failure.
+* Health check power supply failure and redundancy considerations
+    * Dell server health checks warn when one power supply is missing or failed. Power supply `field_name` might appear as 0/PS0/Power Supply 0 and 1/PS1/Power Supply 1 for the first and second power supplies, respectively. A failure of one power supply doesn't trigger an HWV device failure.
 
     ```yaml
         {
@@ -596,23 +598,23 @@ Expanding `result_detail` for a given category shows detailed results.
         }
     ```
 
-    * To check power supplies in BMC webui:
+    * To check power supplies in the BMC web UI:
 
-        `BMC` -> `System` -> `Power`
+        Select **BMC** > **System** > **Power**.
 
-    * To check power supplies with racadm:
+    * To check power supplies with `racadm`:
 
     ```bash
         racadm --nocertwarn -r $IP -u $BMC_USR -p $BMC_PWD getsensorinfo | grep PS
     ```
 
-    * Reseating the power supply might fix the problem. If alarms persist engage vendor.
+    * Reseating the power supply might fix the problem. If alarms persist, contact the vendor.
 
 ### Boot info category
 
-* Boot Device Name Check Considerations
+* Boot device name check considerations
     * The `boot_device_name` check is currently informational.
-    * Mismatched boot device name shouldn't trigger a device failure.
+    * A mismatched boot device name shouldn't trigger a device failure.
 
     ```yaml
         {
@@ -623,11 +625,11 @@ Expanding `result_detail` for a given category shows detailed results.
         }
     ```
 
-* PXE Device Checks Considerations
+* PXE device checks considerations
     * This check validates the PXE device settings.
-    * Starting with the 2024-07-01 GA API version, HWV attempts to auto fix the BIOS boot configuration.
+    * Starting with the 2024-07-01 GA API version, HWV attempts to automatically fix the BIOS boot configuration.
     * Failed `pxe_device_1_name` or `pxe_device_1_state` checks indicate a problem with the PXE configuration.
-    * Failed settings need to be fixed to enable system boot during deployment.
+    * Failed settings must be fixed to enable system boot during deployment.
 
     ```yaml
         {
@@ -647,12 +649,12 @@ Expanding `result_detail` for a given category shows detailed results.
         }
     ```
 
-    * To update the PXE device state and name in BMC webui, set the value then select `Apply` followed by `Apply And Reboot`:
+    * To update the PXE device state and name in the BMC web UI, set the value and then select **Apply** > **Apply and reboot**:
 
         `BMC` -> `Configuration` -> `BIOS Settings` -> `Network Settings` -> `PXE Device1` -> `Enabled`  
         `BMC` -> `Configuration` -> `BIOS Settings` -> `Network Settings` -> `PXE Device1 Settings` -> `Interface` -> `Embedded NIC 1 Port 1 Partition 1`  
     
-    * To update the PXE device state and name with racadm run the following commands:
+    * To update the PXE device state and name with `racadm`, run the following commands:
 
     ```bash
         racadm --nocertwarn -r $IP -u $BMC_USR -p $BMC_PWD set bios.NetworkSettings.PxeDev1EnDis Enabled
@@ -663,8 +665,8 @@ Expanding `result_detail` for a given category shows detailed results.
 
 ### Device login check
 
-* Device Login Check Considerations
-    * The `device_login` check fails if the iDRAC isn't reachable or if the hardware validation plugin isn't able to sign-in.
+* Device login check considerations
+    * The `device_login` check fails if the iDRAC isn't reachable or if the hardware validation plugin can't sign in.
 
     ```yaml
         {
@@ -678,21 +680,21 @@ Expanding `result_detail` for a given category shows detailed results.
         }
     ```
 
-    * To set password in BMC webui:
+    * To set a password in the BMC web UI:
 
         `BMC` -> `iDRAC Settings` -> `Users` -> `Local Users` -> `Edit`
 
-    * To set password with racadm:
+    * To set a password with `racadm`:
 
     ```bash
         racadm -r $BMC_IP -u $BMC_USER -p $CURRENT_PASSWORD  set iDRAC.Users.2.Password $BMC_PWD
     ```
 
-    * To troubleshoot, ping the iDRAC from a jumpbox with access to the BMC network. If iDRAC pings check that passwords match.
+    * To troubleshoot, ping the iDRAC from a jumpbox with access to the BMC network. If the iDRAC pings, check that the passwords match.
 
-## Adding servers back into the Cluster after a repair
+## Add servers back into the cluster after a repair
 
-After Hardware is fixed, run BMM Replace following instructions from the following page [BMM actions](howto-baremetal-functions.md).
+After the hardware is fixed, run the BMM `replace` action by following the instructions in [Manage the lifecycle of bare metal machines](howto-baremetal-functions.md).
 
-If you still have questions, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
-For more information about Support plans, see [Azure Support plans](https://azure.microsoft.com/support/plans/response/).
+If you still have questions, [contact Support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+For more information about support plans, see [Azure Support plans](https://azure.microsoft.com/support/plans/response/).
