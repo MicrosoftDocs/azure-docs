@@ -664,7 +664,7 @@ items:
   - name: Call Automation
     items:
     - name: Call Automation Azure Open AI sample
-      href: samples/call-automation-azureopenai-sample.md
+      href: samples/call-automation-azure-openai-sample.md
     - name: Call Automation AI sample
       href: samples/call-automation-ai.md
 - name: Concepts
