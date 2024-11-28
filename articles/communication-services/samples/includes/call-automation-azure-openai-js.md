@@ -35,7 +35,7 @@ This server-side application helps create a virtual assistant that can handle ph
 3. cd into the `callautomation-az-openai-voice` folder.
 4. From the root of the folder, and with node installed, run `npm install`
 
-##### 1. Setup and host your Azure DevTunnel
+##### 1. Set up and host your Azure DevTunnel
 
 [Azure DevTunnels](/azure/developer/dev-tunnels/overview) is an Azure service that enables you to share local web services hosted on the internet. Use the commands to connect your local development environment to the public internet. This creates a tunnel with a persistent endpoint URL and which allows anonymous access. We use this endpoint to notify your application of calling events from the ACS Call Automation service.
 
