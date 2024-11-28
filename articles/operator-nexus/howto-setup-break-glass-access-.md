@@ -83,7 +83,7 @@ As part of the **Secure Future Initiative (SFI)**, **On-Behalf-Of (OBO) tokens**
 
 3. In the **Conditions** tab, select "Allow users to only assign selected roles to selected principals (fewer privileges).
 
-   :::image type="content" source="media/breakglass-conditions-roles-assignment.png" alt-text="Screenshot of adding member to role assignment":::
+   :::image type="content" source="media/breakglass-conditions-roles-assignment.png" alt-text="Screenshot of adding conditions to role assignment":::
 
    -  Select Constrain roles and principals and click Configure, 
 
