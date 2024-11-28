@@ -2,7 +2,7 @@
 title: Encrypt backup data in a Backup vault by using customer-managed keys
 description: Learn how to use Azure Backup to encrypt your backup data by using customer-managed keys (CMKs) in a Backup vault.
 ms.topic: how-to
-ms.date: 11/20/2024
+ms.date: 11/28/2024
 ms.custom: references_regions, devx-track-azurepowershell-azurecli
 ms.service: azure-backup
 author: AbhishekMallick-MS
@@ -258,7 +258,7 @@ To assign a user-assigned managed identity for your Backup vault, follow these s
 
 6. Select **Add** to finish assigning the identity.
 
-:::image type="content" source="./media/encryption-at-rest-with-cmk-for-backup-vault/assign-user-assigned-managed-identity-to-vault.png" alt-text="Screenshot that shows selections for assigning a user-assigned managed identity to a vault." lightbox="./media/encryption-at-rest-with-cmk-for-backup-vault/assign-user-assigned-managed-identity-to-vault.png":::
+  :::image type="content" source="./media/encryption-at-rest-with-cmk-for-backup-vault/add-user-assigned-managed-identity.png" alt-text="Screenshot that shows selections for assigning a user-assigned managed identity to a vault." lightbox="./media/encryption-at-rest-with-cmk-for-backup-vault/add-user-assigned-managed-identity.png":::
 
 > [!NOTE]
 > Key vaults that limit access to specific networks aren't yet supported for use with user-assigned managed identities for CMK encryption.
@@ -444,6 +444,10 @@ To assign the key, follow these steps:
 
       When you try to update encryption settings but the update operation fails because of an internal error, the encryption setting is updated to **Inconsistent** and requires your attention. In such cases, check your encryption settings details, ensure that they are correct. For example, the **Update Encryption Settings** operation runs again with the existing Managed Identity attached to the vault. If the encryption settings details are same, the update operation is not affected.
 
+      Also if you disable or detach the managed identity being used in Encryption Settings, the Encryption Settings would change to ‘Inconsistent’ state unless you re-enable system assign identity(if it was used), grant the required Key Vault permissions and perform Encryption Settings update operation again. For User Assigned Identity, when you re-attach the identity, Encryption Settings state will be automatically be restored if the Key Vault permissions are there.
+ 
+
+
       :::image type="content" source="./media/encryption-at-rest-with-cmk-for-backup-vault/key-uri.png" alt-text="Screenshot that shows the status warning for a failed update." lightbox="./media/encryption-at-rest-with-cmk-for-backup-vault/key-uri.png":::
 
       When you're specifying the encryption key by using the full key URI with the version component, the key won't be autorotated. You need to update keys manually by specifying the new key or version when required. Alternatively, remove the version component of the key URI to get automatic key version rotation.
@@ -454,7 +458,7 @@ To assign the key, follow these steps:
 
       :::image type="content" source="./media/encryption-at-rest-with-cmk-for-backup-vault/key-vault-encryption.png" alt-text="Screenshot that shows the option for selecting a key from a key vault." lightbox="./media/encryption-at-rest-with-cmk-for-backup-vault/key-vault-encryption.png":::
 
-      When you specify the encryption key by using the **Key picker** pane, the key will be autorotated whenever a new version for the key is enabled. [Learn more about enabling autorotation of encryption keys](encryption-at-rest-with-cmk.md#enable-autorotation-of-encryption-keys).
+      When you specify the encryption key by using the **Key picker** pane, the key version will be autorotated whenever a new version for the key is enabled. [Learn more about enabling autorotation of encryption keys](encryption-at-rest-with-cmk.md#enable-autorotation-of-encryption-keys).
 
 4. Select **Update**.
 

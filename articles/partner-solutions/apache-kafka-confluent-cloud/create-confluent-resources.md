@@ -18,7 +18,7 @@ Creating multiple environments within a Confluent organization is a good practic
 > In your Confluent organization, open **Confluent entity management** > **Environments (Preview)** > **Manage environment in Confluent portal** to access advanced environment configuration in the Confluent UI.
 
 > [!NOTE]
-> As of the time of writing this document, Azure doesn't support Confluent schema registry configuration. Access this option directly in the Confluent UI by selecting **Manage Schema Registry** on the top ribbon in your environment.
+> As of the time of writing this document, Azure doesn't support Confluent schema registry configuration. Access this option directly from Confluent. For more information, go to [Manage Schemas in Confluent Cloud.](https://docs.confluent.io/cloud/current/sr/schemas-manage.html)
 
 ### Create an environment 
 
@@ -39,9 +39,8 @@ Create a new Confluent environment following the guidelines below:
 
 To view the environments in your Confluent organization:
 
-1. Open your Confluent organization in the Azure portal and open **Confluent entity management** > **Environments (Preview)** from the left menu. This blade lists all the environments nested under the Confluent organization.
-1. Select **>** to expand an environment, showing the clusters nested within the environment. 
-1. Use the search bar at the top to look for a specific environment. 
+1. Open your Confluent organization in the Azure portal and open **Confluent entity management** > **Environments (Preview)** from the left menu. This pane lists all the environments nested under the Confluent organization.
+1. Select **>** to expand an environment, showing the clusters nested within the environment. Optionally use the search bar at the top to search for a specific environment. 
 
 ### Delete an environment 
 
@@ -50,8 +49,11 @@ If you no longer need to use an environment and the clusters operating within it
 > [!NOTE]
 > To delete an environment, ensure that none of the connectors nested within your environment are running. If needed, delete running connectors before you delete the environment.
 
-* From the list of environments, select the ellipsis action (**…**) next to the name of the environment you want to delete and select **Delete Environment**.
-* Alternatively, click on the name of the environment you want to delete and then select **Delete Environment** at the top. A right blade opens up, listing the environment's nested clusters, connectors, and their status. Confirm deletion by entering the environment name in the text box at the bottom and selecting **Delete**. Confirm again. Your environment is now deleted. 
+> [!NOTE]
+> Azure only supports deleting environments created in Azure. To delete an environment created in Confluent, use the Confluent UI.
+
+From the list of environments, select the ellipsis action (**…**) next to the name of the environment you want to delete and select **Delete Environment**. Alternatively, click on the name of the environment you want to delete and then select **Delete Environment** at the top. A right blade opens up, listing the environment's nested clusters, connectors, and their status. Confirm deletion by entering the environment name in the text box at the bottom and selecting **Delete**. Confirm again. Your environment is now deleted. 
+
 
 ## Clusters
 
@@ -65,7 +67,7 @@ Select **Create Cluster** in the top ribbon of your environment page. A new wind
    - Confluent resource details: Use the pre-populated default values of the organization and environment, or optionally modify the environment name to create the new cluster in another environment.
    - Cluster:
      - Cluster name: Enter a name for the new cluster.
-     - Cluster type: Select between **Basic**, **Standard**, **Enterprise** and **Dedicated**. Select the hyperlink to view a detailed comparison of each plan.
+     - Cluster type: Select between **Basic**, **Standard**, and **Enterprise**. Select the hyperlink to view a detailed comparison of each plan.
      - Region and availability: Keep the default values or select another region and availability option. Review pricing and select **Next**.  
 1. In the **Tags** tab, optionally enter tags or select **Review + create** to skip this step.
 1. In the **Review + Create** tab, carefully review the new cluster. When ready, select **Create**. Your cluster will take approximately 2-3 minutes to spin up. Once done, a notification is displayed on the top right showing the cluster is up and running.
@@ -74,12 +76,8 @@ Select **Create Cluster** in the top ribbon of your environment page. A new wind
 
 To view the clusters in your Confluent organization:
 
-1. Go to **Environments (Preview)** to view a list of all the environments nested under your organization. Select **>** to show the clusters nested within the environment. 
-1. Select the cluster you want to access. If you don't see your cluster, select the **See all Clusters** link in your environment to open up a list of clusters nested within your environment.
-
-   Alternatively, select the environment where your cluster is nested. This opens a list of clusters nested within the environment. You can monitor the type, status, and region of these clusters.  
-
-1. Use the search bar on top to quickly look for your cluster. 
+1. Go to **Environments (Preview)** to view a list of all the environments nested under your organization. 
+1. Select **>** to show the clusters nested within the environment, and select the cluster you want to access. Alternatively, select the environment where your cluster is nested to view all of its clusters. You can monitor the type, status, and region of these clusters. Optionally use the search bar on top to quickly look for your cluster. 
 
 ### Manage connectors 
 
@@ -93,6 +91,9 @@ Follow the instructions below to delete a cluster, once you no longer need it.
 
 > [!NOTE]
 > To delete a cluster, ensure that none of the connectors within your cluster are running. If needed, delete running connectors before you delete the cluster.
+
+> [!NOTE]
+> Azure only supports deleting clusters created in Azure. To delete a cluster created in Confluent, use the Confluent UI.
 
 From the **Environments (Preview)** menu, select the name of the cluster you want to delete and then select **Delete Cluster** at the top. A right pane opens up, listing the cluster's connectors and their status. Confirm deletion by entering the cluster name in the text box at the bottom and selecting **Delete**. Confirm again. Your cluster is now deleted. 
 
@@ -110,14 +111,16 @@ Topics in Confluent Cloud are fundamental units of organization for your data st
 ### View existing topics
 
 1. Go to **Environments (Preview)** to view a list of all the environments nested under your organization. Select **>** to show the clusters nested within the environment. 
-1. Select the cluster that contains your topics to see the list of topics along with their properties.
-1. Use the search bar on top to quickly look for your topic name. 
+1. Select the cluster that contains your topics to view a list of your topics and their properties. Optionally use the search bar on top to quickly look for your topic name. 
 
 ### Delete a topic 
 
 Follow the instructions below to delete a topic, once you no longer need it.
 
-In the **Environments (Preview)** menu, open a cluster, then the topic you want to delete, and **Delete Topic** in the top ribbon. Enter the topic name to confirm the operation. Your topic is now deleted. 
+In the **Environments (Preview)** menu, open a cluster, then the topic you want to delete, and select **Delete Topic** in the top ribbon. Enter the topic name to confirm the operation. Your topic is now deleted. 
+
+> [!NOTE]
+> Azure only supports deleting topics created in Azure. To delete a topics created in Confluent, use the Confluent UI.
 
 ## Next steps
 
