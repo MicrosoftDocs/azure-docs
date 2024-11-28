@@ -8,7 +8,7 @@ ms.service: azure-managed-grafana
 ms.date: 04/12/2024
 ---
 
-# Troubleshoot issues for Azure Managed Grafana
+# Troubleshoot issues for Azure Managed Grafana Test
 
 This article guides you to troubleshoot errors with Azure Managed Grafana, and suggests solutions to resolve them.
 
