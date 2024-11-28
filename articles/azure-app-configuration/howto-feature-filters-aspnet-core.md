@@ -87,7 +87,7 @@ Relaunch the application and refresh the browser a few times. Without manually t
 
 ## Next steps
 
-To learn more about the built-in feature filters, continue to the following docs.
+To learn more about the built-in feature filters, continue to the following documents.
 
 > [!div class="nextstepaction"]
 > [Enable features on a schedule](./howto-timewindow-filter.md)
