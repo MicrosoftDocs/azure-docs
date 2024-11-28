@@ -180,7 +180,7 @@ The following diagram shows the events that should happen during migration waves
 
 #### Test
 
-Each **wave** have their own testing activities, embedded in each User Story. To shift left, it is important that you:
+Each *wave* has its own testing activities, which are embedded in each User Story. If you want to use [shift-left testing](/devops/develop/shift-left-make-testing-fast-reliable), make sure that you complete the following tasks:
 
 - Automate your tests.
 
