@@ -1,15 +1,15 @@
 ---
-title: "Quickstart: Create a  Neon Serverless Postgres (preview) resource"
-description: Learn how to create a resource for  Neon Serverless Postgres (preview) using the Azure portal.
+title: "Quickstart: Create a  Neon Serverless Postgres (Preview) resource"
+description: Learn how to create a resource for  Neon Serverless Postgres (Preview) using the Azure portal.
 author: ProfessorKendrick
 ms.author: kkendrick
 ms.topic: quickstart
 ms.date: 11/22/2024
 
 ---
-# Quickstart: Create a Neon Serverless Postgres (preview) resource
+# Quickstart: Create a Neon Serverless Postgres (Preview) resource
 
-This quickstart shows you how to create a Neon Serverless Postgres (preview) resource using the Azure portal.
+This quickstart shows you how to create a Neon Serverless Postgres (Preview) resource using the Azure portal.
 
 ## Prerequisites
 

@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot Neon Serverless Postgres 
-description: his article provides information about getting support and troubleshooting Neon Serverless Postgres.
+title: Troubleshoot Neon Serverless Postgres (Preview) 
+description: his article provides information about getting support and troubleshooting Neon Serverless Postgres (Preview).
 author: ProfessorKendrick
 ms.topic: overview
 ms.custom:
@@ -8,9 +8,9 @@ ms.custom:
 ms.date: 11/22/2024
 ---
 
-# Troubleshoot Neon Serverless Postgres
+# Troubleshoot Neon Serverless Postgres (Preview)
 
-You can get support for your Neon deployment through a New Support request. For further assistance, visit [Neon Support]. In addition, this article includes troubleshooting for problems you might experience in creating and using a Neon resource. 
+You can get support for your Neon Serverless Postgres (Preview) deployment through a New Support request. For further assistance, visit [Neon Support]. In addition, this article includes troubleshooting for problems you might experience in creating and using a Neon resource. 
 
 ## Getting support 
 

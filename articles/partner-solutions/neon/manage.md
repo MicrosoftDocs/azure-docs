@@ -1,5 +1,5 @@
 ---
-title: Manage a Neon resource through the Azure portal
+title: Manage a Neon resource through the Azure portal (Preview)
 description: This article describes management functions for Neon on the Azure portal.
 author: ProfessorKendrick
 ms.topic: how-to
@@ -8,13 +8,13 @@ ms.custom:
 ms.date: 11/22/2024
 ---
 
-# Manage your Neon integration through the portal
+# Manage your Neon integration through the portal (Preview)
 
-This article describes how to access the Neon Console and how to and delete the Neon resource using the Azure portal.
+This article describes how to access the Neon Console and how to and delete the Neon Serverless Postgres (Preview) resource using the Azure portal.
 
 ## Single sign-on
 
-Single sign-on (SSO) is already enabled when you created your Neon  resource. To access Neon through SSO, follow these steps:
+Single sign-on (SSO) is already enabled when you created your Neon resource. To access Neon through SSO, follow these steps:
 
 1. Navigate to the **Overview** for your instance of the Neon resource. 
 

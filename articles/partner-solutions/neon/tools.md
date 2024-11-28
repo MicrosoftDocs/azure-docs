@@ -1,6 +1,6 @@
 ---
-title: Neon Serverless Postgres developer resources and tools
-description: Learn about resources and developer tools available with Neon Serverless Postgres.
+title: Neon Serverless Postgres (Preview) developer resources and tools
+description: Learn about resources and developer tools available with Neon Serverless Postgres (Preview).
 author: ProfessorKendrick
 ms.topic: overview
 ms.date: 11/22/2024
@@ -9,9 +9,9 @@ ms.date: 11/22/2024
 
 ---
 
-# What are some resources and tools you can use with Neon Serverless Postgres on Azure? 
+# What are some resources and tools you can use with Neon Serverless Postgres (Preview) on Azure? 
 
-In this article, you learn about resources and tools for use with Neon Serverless Postgres 
+In this article, you learn about resources and tools for use with Neon Serverless Postgres (Preview). 
 
 - Articles that you can use to understand Neon Serverless Postgres 
 - Tools for developers to work with Neon Serverless Postgres 

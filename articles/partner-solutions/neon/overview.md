@@ -1,6 +1,6 @@
 ---
-title: What is Neon Serverless Postgres?
-description: Learn about using the Neon Serverless Postgres in the Azure Marketplace.
+title: What is Neon Serverless Postgres (Preview)?
+description: Learn about using the Neon Serverless Postgres (Preview) in the Azure Marketplace.
 author: ProfessorKendrick
 ms.topic: overview
 ms.custom:
@@ -8,13 +8,13 @@ ms.custom:
 ms.date: 11/22/2024
 ---
 
-# What is Neon Serverless Postgres?
+# What is Neon Serverless Postgres (Preview)?
 
 Easily provision, manage, and tightly integrate independent software vendor (ISV) software and services on Azure with Azure Native integrations. 
 
 Microsoft and [Neon](https://neon.tech/) developed this service and manage it together.
 
-You can find Neon Serverless Postgres  in the [Azure portal](https://portal.azure.com/) or get it on [Azure Marketplace](https://azuremarketplace.microsoft.com/).
+You can find Neon Serverless Postgres (Preview) in the [Azure portal](https://portal.azure.com/) or get it on [Azure Marketplace](https://azuremarketplace.microsoft.com/).
 
 Neon is a cloud-native Postgres solution designed for modern applications. It offers a serverless, fully managed, and scalable Postgres database. 
 Neon's advanced features include autoscaling, scale-to-zero, database branching, instant point-in-time restore, and time travel queries. 
@@ -34,7 +34,7 @@ Here are the key capabilities provided by the Neon integration:
 ## Prerequisites for Neon Serverless Postgres
 
 - An Azure account. If you don't have an active Azure subscription, [create a free account](https://azure.microsoft.com/free/).
-- Only users with  _Owner_ or _Contributor_ access on the Azure subscription can set up the Azure integration. Ensure you have the appropriate access before starting to set up this integration.
+- Only users with _Owner_ or _Contributor_ access on the Azure subscription can set up the Azure integration. Ensure you have the appropriate access before starting to set up this integration.
 
 ## Find Neon Serverless Postgres
 
@@ -47,7 +47,7 @@ You can also find Neon Serverless Postgres in the [Azure portal](https://portal.
 > [QuickStart: Get started with Neon](create.md)
 
 > [!div class="nextstepaction"]
-> [Manage your Neon  integration through the portal](manage.md)
+> [Manage your Neon integration through the portal](manage.md)
 
 > [!div class="nextstepaction"]
 > [Neon Serverless Postgres developer resources and tools](tools.md)
