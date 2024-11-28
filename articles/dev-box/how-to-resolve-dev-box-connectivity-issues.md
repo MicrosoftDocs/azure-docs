@@ -1,6 +1,6 @@
 ---  
 title: Resolve Dev Box connectivity issues    
-description: Learn how to resolve common Remote Desktop connection issues with dev doxes to maintain a stable workflow.
+description: Learn how to resolve connection issues with dev boxes, including disconnections and sign-in problems, to maintain a stable workflow.
 author: RoseHJM    
 ms.author: rosemalcolm  
 ms.service: dev-box    
