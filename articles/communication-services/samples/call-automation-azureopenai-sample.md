@@ -20,9 +20,9 @@ This sample application was demonstrated during Microsoft Ignite 2024. It highli
 In this sample, we cover off what this sample does and what you need as prerequisites before we run this sample locally on your machine. 
 
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [Azure Communication Services Call Automation Azure OpenAI C# sample](./includes/call-automation-azureopenai-csharp.md)]
+[!INCLUDE [Azure Communication Services Call Automation Azure OpenAI C# sample](./includes/call-automation-azure-openai-csharp.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript" 
-[!INCLUDE [ACS Call Automation Azure OpenAI javascript sample](./includes/call-automation-azureopenai-js.md)]
+[!INCLUDE [ACS Call Automation Azure OpenAI javascript sample](./includes/call-automation-azure-openai-js.md)]
 ::: zone-end
