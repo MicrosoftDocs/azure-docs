@@ -55,7 +55,7 @@ To add the `acstor` namespace to the exclusion list, follow these steps:
 
 ### Can't install and enable Azure Container Storage in node pools with taints
 
-You may have configured [node taints](https://learn.microsoft.com/en-us/azure/aks/use-node-taints) on the node pools to retrict pods from being scheduled on these node pools. When you try to install and enable Azure Container Storage on these noode pools, it will be blocked because the required pods can't be created in these node pools. This applies to both the system node pool when installing and the user node pools when enabling.
+You may have configured [node taints](/azure/aks/use-node-taints) on the node pools to retrict pods from being scheduled on these node pools. When you try to install and enable Azure Container Storage on these noode pools, it will be blocked because the required pods can't be created in these node pools. This applies to both the system node pool when installing and the user node pools when enabling.
 
 You can check the node taints with the following example:
 
