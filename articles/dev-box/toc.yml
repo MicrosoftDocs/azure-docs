@@ -116,10 +116,13 @@ items:
 - name: Troubleshooting
   items: 
   - name: Automatically repair connectivity issues
+    displayName: Troubleshoot & repair, troubleshooter, fix, wizard  
     href: how-to-troubleshoot-repair-dev-box.md
   - name: Troubleshoot dev box connectivity issues
+    displayName: Troubleshoot & repair, troubleshooter, fix
     href: how-to-troubleshoot-remote-desktop-connectivity.md
   - name: Resolve dev box connectivity issues
+    displayName: Troubleshoot & repair, troubleshooter, fix
     href: how-to-resolve-dev-box-connectivity-issues.md
   - name: Troubleshoot Task view issues
     href: how-to-troubleshoot-dev-box-task-view.md    
