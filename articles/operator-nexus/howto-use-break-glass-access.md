@@ -1,6 +1,6 @@
 ---
 title:  How to use Method D v2.0 secure break-glass access
-description: Process of using Method D v2.0 Breakglass access
+description: Process of using Method D v2.0 break glass access
 author: sushantjrao 
 ms.author: sushrao
 ms.service: azure-operator-nexus
@@ -9,13 +9,13 @@ ms.date: 11/04/2024
 ms.custom: template-how-to, devx-track-azurecli
 ---
 
-# Use Method D v2.0 Breakglass Access
+# Use Method D v2.0 break glass access
 
-Breakglass access using Method D v2.0 is a streamlined approach for administrators to grant secure, emergency access to critical network fabric devices. This guide walks you through setting up and using Breakglass access, including generating SSH keys, granting permissions, and accessing network fabric devices.
+Break glass access using Method D v2.0 is a streamlined approach for administrators to grant secure, emergency access to critical network fabric devices. This guide walks you through setting up and using break glass access, including generating SSH keys, granting permissions, and accessing network fabric devices.
 
 ## Generating SSH Keys using the Nexusidentity Azure CLI
 
-To start with Breakglass IAM configuration, you need to set up SSH keys using the Nexusidentity extension. Make sure you have the following prerequisites installed and updated.
+To start with break glass IAM configuration, you need to set up SSH keys using the Nexusidentity extension. Make sure you have the following prerequisites installed and updated.
 
 ### Prerequisites
 
@@ -87,13 +87,13 @@ To start with Breakglass IAM configuration, you need to set up SSH keys using th
 
 ## Granting break-glass permissions to an Entra user on a Network Fabric
 
-To enable Breakglass access administrator can assign below roles to Entra users on a Network Fabric device.
+To enable break glass access, administrator can assign below roles to Entra users on a Network Fabric device.
 
 - **Nexus Network Fabric Service Reader**:
 
   - Allows the user to execute show commands on fabric devices.
 
-  - Does not permit access to configuration mode.
+  - Doesn't permit access to configuration mode.
 
 - **Nexus Network Fabric Service Writer**:
 
@@ -105,11 +105,11 @@ Once these roles are assigned, the corresponding username and public SSH key wil
 > If a subscription owner assigns an user,  the Network Fabric Service Reader or Writer role at the subscription scope, this role assignment will be inherited by all Network Fabric instances. Consequently, the user will be granted the privileges associated with the built-in role across all Network Fabric instances.
 
 > [!Note]
-> Breakglass user accounts are reconciled every 4 hours. For immediate reconciliation, open a support ticket with the network fabric support team.
+> break glass user accounts are reconciled every 4 hours. For immediate reconciliation, open a support ticket with the network fabric support team.
 
 ## 3. Break-glass access to Network Fabric device
 
-Once permissions are granted, users can access network fabric devices with their FIDO-2 hardware token (for example, YubiKey). Follow the steps below to use Breakglass access.
+Once permissions are granted, users can access network fabric devices with their FIDO-2 hardware token (for example, YubiKey). Follow the steps below to use break glass access.
 
 1. **Prepare for access**:
 
