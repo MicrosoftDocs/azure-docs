@@ -13,7 +13,7 @@ ms.custom: template-how-to, devx-track-azurecli
 
 Breakglass access using Method D v2.0 is a streamlined approach for administrators to grant secure, emergency access to critical network fabric devices. This guide will walk you through setting up and using Breakglass access, including generating SSH keys, granting permissions, and accessing network fabric devices.
 
-## Generating SSH Keys Using the Nexusidentity Azure CLI
+## Generating SSH Keys using the Nexusidentity Azure CLI
 
 To start with Breakglass IAM configuration, you will need to set up SSH keys using the Nexusidentity extension. Make sure you have the following prerequisites installed and updated.
 
@@ -100,6 +100,9 @@ To enable Breakglass access administrator can assign below roles to Entra users 
   - Allows show commands as well as commands to modify the running configuration.
 
 Once these roles are assigned, the corresponding username and public SSH key will be automatically provisioned across all devices within the designated fabric instance.
+
+> [!Note]
+> If a subscription owner assigns an user,  the Network Fabric Service Reader or Writer role at the subscription scope, this role assignment will be inherited by all Network Fabric instances. Consequently, the user will be granted the privileges associated with the built-in role across all Network Fabric instances.
 
 > [!Note]
 > Breakglass user accounts are reconciled every 4 hours. For immediate reconciliation, open a support ticket with the network fabric support team.
