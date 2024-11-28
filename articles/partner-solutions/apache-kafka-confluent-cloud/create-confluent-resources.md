@@ -41,7 +41,7 @@ To view the environments in your Confluent organization:
 
 1. Open your Confluent organization in the Azure portal and open **Confluent entity management** > **Environments (Preview)** from the left menu. This blade lists all the environments nested under the Confluent organization.
 1. Select **>** to expand an environment, showing the clusters nested within the environment. 
-1. Use the search bar or the filter at the top to look for a specific environment. 
+1. Use the search bar at the top to look for a specific environment. 
 
 ### Delete an environment 
 
@@ -59,7 +59,7 @@ Similar to environments, you can have multiple clusters within a single environm
 
 ### Create a cluster 
 
-Select **Create a cluster** in the top ribbon of your environment page. A new window opens up. 
+Select **Create Cluster** in the top ribbon of your environment page. A new window opens up. 
 
 1. Select or enter the following information in the **Basics** tab:
    - Confluent resource details: Use the pre-populated default values of the organization and environment, or optionally modify the environment name to create the new cluster in another environment.
@@ -75,17 +75,17 @@ Select **Create a cluster** in the top ribbon of your environment page. A new wi
 To view the clusters in your Confluent organization:
 
 1. Go to **Environments (Preview)** to view a list of all the environments nested under your organization. Select **>** to show the clusters nested within the environment. 
-1. Select the cluster name you want to access. If you don't see your cluster, select the **See all Clusters** link in your environment to open up a list of clusters nested within your environment.
+1. Select the cluster you want to access. If you don't see your cluster, select the **See all Clusters** link in your environment to open up a list of clusters nested within your environment.
 
    Alternatively, select the environment where your cluster is nested. This opens a list of clusters nested within the environment. You can monitor the type, status, and region of these clusters.  
 
-1. Use the search bar and filter on top to quickly look for your cluster name. 
+1. Use the search bar on top to quickly look for your cluster. 
 
 ### Manage connectors 
 
-Connectors are nested within the clusters. To manage these connectors and monitor their health and status, click on your cluster name and select **Manage Connectors** in the top ribbon within the cluster. You'll get redirected to the **Confluent Connectors** blade that displays all existing connectors. 
+Connectors are nested within the clusters. To manage these connectors and monitor their health and status, click on your cluster name and select **Manage Connector** in the top ribbon within the cluster. This action opens the **Confluent Connectors** blade that displays all existing connectors. 
 
-To further manage your cluster for advanced configurations, select **Manage cluster in Confluent portal** at the top, which opens the Confluent UI.  
+Back in the cluster pane, to further manage your cluster for advanced configurations, select **Manage cluster in Confluent portal** at the top, which opens the Confluent UI.  
 
 ### Delete a cluster 
 
@@ -94,8 +94,7 @@ Follow the instructions below to delete a cluster, once you no longer need it.
 > [!NOTE]
 > To delete a cluster, ensure that none of the connectors within your cluster are running. If needed, delete running connectors before you delete the cluster.
 
-* From the list of clusters, select the ellipsis action (**…**) next to the name of the cluster you want to delete and select **Delete cluster**.  <!-- is there another step here? -->
-* Alternatively, click on the name of the cluster you want to delete and then select **Delete cluster** at the top. A right blade opens up, listing the cluster's connectors and their status. Confirm deletion by entering the cluster name in the text box at the bottom and selecting **Delete**. Confirm again. Your cluster is now deleted. 
+From the **Environments (Preview)** menu, select the name of the cluster you want to delete and then select **Delete Cluster** at the top. A right pane opens up, listing the cluster's connectors and their status. Confirm deletion by entering the cluster name in the text box at the bottom and selecting **Delete**. Confirm again. Your cluster is now deleted. 
 
 ## Topics
 
@@ -103,26 +102,22 @@ Topics in Confluent Cloud are fundamental units of organization for your data st
 
 ### Create a topic
 
-1. Select **Create topic** in the top ribbon on your cluster page. A new window opens up. 
+1. Select **Create Topic** in the top ribbon on your cluster page. A new pane opens up. 
 1. Fill in the topic name, number of partitions, and optionally select the checkbox to enable infinite retention.
 2. Optionally toggle on **Enable advanced settings** and select a cleanup policy, retention time, retention size, and maximum message size.
 1. Select **Create**.
 
 ### View existing topics
 
-1. Go to **Environments** to view a list of all the environments nested under your organization. Select **>** to show the clusters nested within the environment. 
-1. Select the cluster name that holds your topics you want to access. If you don't see your cluster, select the **See all Clusters** link to open up a list of clusters nested within your environment. Topics are nested within the clusters. Click on topic name to view the topic properties.
-
-   Alternatively, select the cluster that contains your topics to see the list of topics along with their properties.
-
-1. Use the search bar and filter on top to quickly look for your topic name. 
+1. Go to **Environments (Preview)** to view a list of all the environments nested under your organization. Select **>** to show the clusters nested within the environment. 
+1. Select the cluster that contains your topics to see the list of topics along with their properties.
+1. Use the search bar on top to quickly look for your topic name. 
 
 ### Delete a topic 
 
 Follow the instructions below to delete a topic, once you no longer need it.
 
-* From the list of topics, select the ellipsis action (**…**) next to the name of the topic you want to delete and select **Delete topic**.
-* Alternatively, click on the name of the topic you want to delete and then select **Delete cluster** in the top ribbon. A blade opens up, listing the topic details. Select **Delete topic** at the top and confirm the operation. Your topic is now deleted. 
+In the **Environments (Preview)** menu, open a cluster, then the topic you want to delete, and **Delete Topic** in the top ribbon. Enter the topic name to confirm the operation. Your topic is now deleted. 
 
 ## Next steps
 
