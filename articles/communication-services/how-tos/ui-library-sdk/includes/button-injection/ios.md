@@ -42,7 +42,7 @@ cameraButton.visible = true
 :::image type="content" source="../../media/add-button-experience.png" alt-text="Screenshot that shows the experienc when you add a new button the UI Library.":::
 
 ```swift
-let customButton = CustomButtonOptions(image: UIImage(named: "...")!,
+let customButton = CustomButtonViewData(image: UIImage(named: "...")!,
                                        title: "My button") {_ in
     // Process my button onClick
 }

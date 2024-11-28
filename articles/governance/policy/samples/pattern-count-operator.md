@@ -6,11 +6,11 @@ ms.topic: sample
 ---
 # Azure Policy pattern: the count operator
 
-The [count](../concepts/definition-structure.md#count) operator evaluates members of a \[\*\] alias.
+The [count](../concepts/definition-structure-policy-rule.md#count) operator evaluates members of a \[\*\] alias.
 
 ## Sample policy definition
 
-This policy definition [audits](../concepts/effects.md#audit) Network Security Groups configured to
+This policy definition [audits](../concepts/effect-audit.md) Network Security Groups configured to
 allow inbound Remote Desktop Protocol (RDP) traffic.
 
 :::code language="json" source="~/policy-templates/patterns/pattern-count-operator.json":::
@@ -20,7 +20,7 @@ allow inbound Remote Desktop Protocol (RDP) traffic.
 The core components of the **count** operator are _field_, _where_, and the condition. Each is
 highlighted in the following snippet.
 
-- _field_ tells count which [alias](../concepts/definition-structure.md#aliases) to evaluate members
+- _field_ tells count which [alias](../concepts/definition-structure-alias.md) to evaluate members
   of. Here, we're looking at the **securityRules\[\*\]** alias _array_ of the network security
   group.
 - _where_ uses the policy language to define which _array_ members meet the criteria. In this
@@ -34,5 +34,5 @@ highlighted in the following snippet.
 ## Next steps
 
 - Review other [patterns and built-in definitions](./index.md).
-- Review the [Azure Policy definition structure](../concepts/definition-structure.md).
-- Review [Understanding policy effects](../concepts/effects.md).
+- Review the [Azure Policy definition structure](../concepts/definition-structure-basics.md).
+- Review [Understanding policy effects](../concepts/effect-basics.md).
