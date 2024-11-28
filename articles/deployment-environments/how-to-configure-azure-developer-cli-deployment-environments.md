@@ -73,7 +73,7 @@ When you install `azd`, the `azd` tools are installed within an `azd` scope rath
 
 # [Visual Studio Code](#tab/visual-studio-code)
 
-To enable Azure Developer CLI features in Visual Studio Code, install the Azure Developer CLI extension, version v0.8.0-alpha.1-beta.3173884. Select the **Extensions** icon in the Activity bar, search for **Azure Developer CLI**, and then select **Install**.
+To enable Azure Developer CLI features in Visual Studio Code, install the Azure Developer CLI extension. Select the **Extensions** icon in the Activity bar, search for **Azure Developer CLI**, and then select **Install**.
 
 :::image type="content" source="media/how-to-create-environment-with-azure-developer/install-azure-developer-cli-small.png" alt-text="Screenshot of Visual Studio Code, showing the Sign in command in the command palette." lightbox="media/how-to-create-environment-with-azure-developer/install-azure-developer-cli-large.png":::
 
@@ -224,5 +224,4 @@ To how common `azd` commands work with ADE, see [Work with Azure Deployment Envi
 
 ## Related content
 
-- [Add and configure an environment definition](./configure-environment-definition.md)
-- [Create an environment by using the Azure Developer CLI](./how-to-create-environment-with-azure-developer.md)
+- [Azure Developer CLI and Azure Deployment Environments](concept-azure-developer-cli-with-deployment-environments.md)

@@ -44,7 +44,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Create an environment with Azure Developer CLI
-            url: how-to-create-environment-with-azure-developer.md  
+            url: how-to-configure-azure-developer-cli-deployment-environments.md   
   
   # Card
   - title: Configure the Deployment Environments service
@@ -106,4 +106,4 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Create environments with Azure Developer CLI (azd)
-            url: how-to-create-environment-with-azure-developer.md
+            url: how-to-configure-azure-developer-cli-deployment-environments.md 
