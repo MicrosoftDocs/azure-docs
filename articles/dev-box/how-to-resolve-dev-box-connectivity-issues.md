@@ -24,26 +24,26 @@ Before you begin troubleshooting, ensure you have:
 
 ## Steps for troubleshooting 
   
-Remote Desktop connections are essential for accessing your Dev Box. However, connectivity issues cansometimes arise due to various factors. This guide provides a comprehensive step-by-step approach to troubleshooting common Remote Desktop connection problems, ensuring that your workflow remains uninterrupted.
+Remote Desktop connections are essential for accessing your Dev Box. However, connectivity issues can sometimes arise due to various factors. This guide provides a comprehensive step-by-step approach to troubleshooting common Remote Desktop connection problems, ensuring that your workflow remains uninterrupted.
  
-Before proceeding with troubleshooting, ensure that your Remote Desktop app is updated and both your client computer and Dev Box have the latest updates installed. 
+Before proceeding with troubleshooting, ensure that your Remote Desktop app is updated and both your client computer, and Dev Box have the latest updates installed. 
 
-Be aware that any improper network configurations on your Dev Box can disrupt Remote Desktop connections. 
+Any improper network configurations on your Dev Box can disrupt Remote Desktop connections. 
 
-Additionally, if you haven't accessed your Dev Box in the past three months, check if you might have been removed from Azure Active Directory (AAD) due to inactivity. In such cases, contact the Cloud PC Service support team for assistance in regaining access.
+Additionally, if you haven't accessed your Dev Box in the past three months, check if you might have been removed from Microsoft Entra ID due to inactivity. In such cases, contact the Cloud PC Service support team for assistance in regaining access.
 
 ### Step 0: Preliminary Checks
 - **Internet Connection:** Verify that your local machine has an active internet connection.
 - **Dev Box Status:** Confirm that your Dev Box is running through the Dev Box portal.
-- **Proxy Settings:** Incorrect internet proxy settings can interfere with the Remote Desktop experience, so ensure these are correctly configured.
+- **Proxy Settings:** Incorrect internet proxy settings can interfere with the Remote Desktop experience, so ensure these settings are correctly configured.
 
 ### Step 1: Windows Update and App Restart
-- **Pending Updates:** If a Windows update is in progress, it may take up to 30 minutes, during which your Dev Box won't connect.
+- **Pending Updates:** If a Windows update is in progress, it might take up to 30 minutes, during which your Dev Box won't connect.
 - **Restart Remote Desktop:** Close all instances of the Remote Desktop app, terminate any 'msrdc.exe' and 'msrdcw.exe' processes via Task Manager, and then reopen the app to attempt reconnection.
 
-### Step 2: Addressing App Hang and Authentication Issues
+### Step 2: Address App Hang and Authentication Issues
 - **App Hang:** If the Remote Desktop app hangs, capture a process dump of MSRDC.exe and create a support request. Restart your computer and try connecting again.
-- **Authentication Errors:** If denied sign-in despite correct credentials, check the AAD join status using dsregcmd.exe /status. Resolve any errors with the helpdesk and restart your computer. If authentication errors persist, unsubscribe and resubscribe to your Dev Box pool in the app. Ensure that your client machine connects to the MSFT VPN if using PIN authentication with a Hybrid-AD joined Dev Box.
+- **Authentication Errors:** If denied sign-in despite correct credentials, check the join status using `dsregcmd.exe /status`. Resolve any errors with the helpdesk and restart your computer. If authentication errors persist, unsubscribe and resubscribe to your Dev Box pool in the app. Ensure that your client machine connects to the MSFT VPN if using PIN authentication with a Hybrid-AD joined Dev Box.
 
 ### Step 3: Browser Client Connection
 - **Browser Access:** Attempt to connect via the browser client by visiting https://DevBox.microsoft.com and selecting "Open in browser".
@@ -70,7 +70,7 @@ If you experience frequent connection drops with the Remote Desktop app despite 
 
 You can configure this setting through a registry edit, or through Group Policy. 
 
-**Use TCP instead of UDP - Registry edit:** 
+#### Use TCP instead of UDP - Registry edit:
 Close the Remote Desktop app, apply the following registry setting on your client computer, and try reconnecting.
 
 ```
@@ -85,7 +85,7 @@ You can set the above using this command in an elevated shell:
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services\Client" /v fClientDisableUDP /d 1 /t REG_DWORD
 ```
 
-**Use TCP instead of UDP - Group policy** 
+#### Use TCP instead of UDP - Group policy
 Alternatively, use Group Policy Editor on your Dev Box to set RDP transport protocols to "Use only TCP".
 
 1. Open the Group Policy Editor on your Dev Box.
@@ -94,7 +94,7 @@ Alternatively, use Group Policy Editor on your Dev Box to set RDP transport prot
 4. Set it to **Enabled**.
 5. For **Select Transport Type**, select **Use only TCP**.
 
-If the preceeding steps don't resolve your issue, please contact the Dev Box team support by creating an incident [here]. For urgent or widespread issues, raise the priority of the incident or email the Dev Box team directly at DevBoxdisc@microsoft.com. 
+If the preceding steps don't resolve your issue, contact the Dev Box team support by creating an incident [here]. For urgent or widespread issues, raise the priority of the incident or email the Dev Box team directly at DevBoxdisc@microsoft.com. 
 
 Include the following details in your incident report:
 
@@ -109,7 +109,7 @@ Include the following details in your incident report:
  
    :::image type="content" source="media/how-to-resolve-dev-box-connectivity-issues/troubleshooting-connection-information-dialog.png" alt-text="alt text":::
 
-In macOS clients use the terminal to change connections to TCP instead of UDP:
+In macOS clients, use the terminal to change connections to TCP instead of UDP:
 
 In the app:
 ```
