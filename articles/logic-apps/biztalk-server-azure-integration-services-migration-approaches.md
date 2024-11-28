@@ -172,7 +172,7 @@ The following diagram shows the events that should happen during migration waves
 
    | Step | Description | 
    |------|--------------|
-   | **1** | These are the discovery activities. While we introduced them during Sprint Zero, they should occur at the beginning of each wave. There is a chance that customers will continue making changes in the BizTalk environment. |
+   | 1 | Discovery activities. Although introduced in Sprint 0, they should happen at the start of each wave. Customers might still make changes in your BizTalk environment. |
    | **2** | The Azure Integration Services landing zone accelerator is intended for an application team that's building and deploying an integration platform in a typical enterprise landing zone design. As the workload owner, use the architectural guidance to achieve your target technical state with confidence. |
    | **3** | These are the steps to develop and test integration workflows that runs in single-tenant Azure Logic Apps by using Visual Studio Code with the Azure Logic Apps (Standard) extension.|
    | **4** | For Standard logic app workflows that run in single-tenant Azure Logic Apps, you can use Visual Studio Code with the Azure Logic Apps (Standard) extension to locally develop, test, and store your logic app project using any source control system. However, to get the full benefits of easily and consistently deploying your workflows across different environments and platforms, you must also automate your build and deployment process.<BR> The Azure Logic Apps (Standard) extension provides tools for you to create and maintain automated build and deployment processes using Azure DevOps. | 
