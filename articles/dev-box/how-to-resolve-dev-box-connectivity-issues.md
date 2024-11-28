@@ -30,7 +30,7 @@ Before proceeding with troubleshooting, ensure that your Remote Desktop app is u
 
 Any improper network configurations on your Dev Box can disrupt Remote Desktop connections. 
 
-Additionally, if you haven't accessed your Dev Box in the past three months, check if you might have been removed from Microsoft Entra ID due to inactivity. In such cases, contact the Cloud PC Service support team for assistance in regaining access.
+Additionally, if you haven't accessed your Dev Box in the past three months, check if Microsoft Entra ID removed you due to inactivity. To regain access, contact the Cloud PC Service support team.
 
 ### Step 0: Preliminary Checks
 - **Internet Connection:** Verify that your local machine has an active internet connection.
@@ -38,12 +38,12 @@ Additionally, if you haven't accessed your Dev Box in the past three months, che
 - **Proxy Settings:** Incorrect internet proxy settings can interfere with the Remote Desktop experience, so ensure these settings are correctly configured.
 
 ### Step 1: Windows Update and App Restart
-- **Pending Updates:** If a Windows update is in progress, it might take up to 30 minutes, during which your Dev Box won't connect.
+- **Pending Updates:** If Windows is updating, it can take up to 30 minutes, during which your Dev Box won't connect.
 - **Restart Remote Desktop:** Close all instances of the Remote Desktop app, terminate any 'msrdc.exe' and 'msrdcw.exe' processes via Task Manager, and then reopen the app to attempt reconnection.
 
 ### Step 2: Address App Hang and Authentication Issues
 - **App Hang:** If the Remote Desktop app hangs, capture a process dump of MSRDC.exe and create a support request. Restart your computer and try connecting again.
-- **Authentication Errors:** If denied sign-in despite correct credentials, check the join status using `dsregcmd.exe /status`. Resolve any errors with the helpdesk and restart your computer. If authentication errors persist, unsubscribe and resubscribe to your Dev Box pool in the app. Ensure that your client machine connects to the MSFT VPN if using PIN authentication with a Hybrid-AD joined Dev Box.
+- **Authentication Errors:** If denied sign-in despite correct credentials, check the join status using `dsregcmd.exe /status`. Resolve any errors with the helpdesk and restart your computer. If authentication errors persist, unsubscribe and resubscribe to your Dev Box pool in the app. 
 
 ### Step 3: Browser Client Connection
 - **Browser Access:** Attempt to connect via the browser client by visiting https://DevBox.microsoft.com and selecting "Open in browser".
@@ -79,7 +79,7 @@ value name: fClientDisableUDP
 value: DWORD 1
 ```
 
-You can set the above using this command in an elevated shell:
+You can set the `fClientDisableUDP` registry value by using this command in an elevated shell:
 
 ```
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services\Client" /v fClientDisableUDP /d 1 /t REG_DWORD

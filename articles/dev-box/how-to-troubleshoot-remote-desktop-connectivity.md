@@ -1,6 +1,6 @@
 ---  
 title: Troubleshoot known Dev Box Remote Desktop issues    
-description: Learn how to troubleshoiot known Remote Desktop connection issues with dev doxes to maintain a stable workflow.
+description: Learn how to troubleshoot known Remote Desktop connection issues with dev doxes to maintain a stable workflow.
 author: RoseHJM    
 ms.author: rosemalcolm  
 ms.service: dev-box    
