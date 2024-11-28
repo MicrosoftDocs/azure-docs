@@ -64,6 +64,8 @@ Beta is enabled: true
 Beta is enabled: true
 ```
 
+If recurrence is enabled when you set up the time window filter, the console outputs will change to `Beta is enabled: false` once your current time passes the end time you set in the time window filter. However, it will change to `Beta is enabled: true` again according to your recurrence settings and continue this pattern until the recurrence expiration time, if set.
+
 ## Next steps
 
 To learn more about the feature filters, continue to the following docs.

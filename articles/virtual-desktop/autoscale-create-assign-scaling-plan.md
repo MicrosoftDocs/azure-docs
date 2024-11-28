@@ -234,7 +234,7 @@ Here's how to create a scaling plan using the Az.DesktopVirtualization PowerShel
         FriendlyName = '<Scaling plan friendly name>'
         HostPoolType = '<Pooled or personal>'
         TimeZone = '<Time zone, such as Pacific Standard Time>'
-        HostPoolReference = @(@{'hostPoolArmPath' = '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/<resourceGroup/providers/Microsoft.DesktopVirtualization/hostPools/<hostPoolName>'; 'scalingPlanEnabled' = $true;})
+        HostPoolReference = @(@{'hostPoolArmPath' = '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/<resourceGroup/providers/Microsoft.DesktopVirtualization/hostPools/<hostPoolName>'; 'scalingPlanEnabled' = $true;})
     }
 
     $scalingPlan = New-AzWvdScalingPlan @scalingPlanParams
@@ -484,7 +484,7 @@ To configure a time limit policy using Intune:
 
 To configure a time limit policy using Group Policy:
 
-1. Open the **Group Policy Management** console on device you use to manage the Active Directory domain.
+1. Open the **Group Policy Management** console on a device you use to manage the Active Directory domain.
 
 1. Create or edit a policy that targets the computers providing a remote session you want to configure.
 
@@ -580,11 +580,11 @@ Here's how to update a scaling plan using the Az.DesktopVirtualization PowerShel
         Name = 'scalingPlanPersonal'
         HostPoolReference = @(
             @{
-               'hostPoolArmPath' = '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup/providers/Microsoft.DesktopVirtualization/hostPools/scalingPlanPersonal';
+               'hostPoolArmPath' = '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/resourceGroup/providers/Microsoft.DesktopVirtualization/hostPools/scalingPlanPersonal';
                 'scalingPlanEnabled' = $true;
             },
             @{
-               'hostPoolArmPath' = '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup/providers/Microsoft.DesktopVirtualization/hostPools/scalingPlanPersonal2';
+               'hostPoolArmPath' = '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/resourceGroup/providers/Microsoft.DesktopVirtualization/hostPools/scalingPlanPersonal2';
                 'scalingPlanEnabled' = $true;
             }
         )

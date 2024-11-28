@@ -49,6 +49,8 @@ Once the start time has passed, refresh your browser a few times. You'll notice 
 > [!div class="mx-imgBorder"]
 > ![Screenshot of browser with Beta menu.](./media/quickstarts/aspnet-core-feature-flag-local-after.png)
 
+If recurrence is enabled when you set up the time window filter, the **Beta** menu will disappear once your current time passes the end time you set in the time window filter. However, the **Beta** menu will reappear according to your recurrence settings and continue this pattern until the recurrence expiration time, if set.
+
 ## Next steps
 
 To learn more about the feature filters, continue to the following docs.
