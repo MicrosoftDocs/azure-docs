@@ -39,3 +39,27 @@ You can unsubscribe from the event with the following code:
 ```js
 callTranscriptionFeature.off('isTranscriptionActiveChanged', isTranscriptionActiveChangedHandler);
 ```
+[!INCLUDE [Public Preview Disclaimer](../../../../includes/public-preview-include-document.md)]
+
+## Explicit Consent
+If your Teams meeting or call is configured to require explicit consent for recording or transcription, you are required to gather explicit consent from your users to be transcribed or Recorded.
+
+### Support
+The following tables show support of explicit consent for specific call type and identity.
+
+|Identities                   | Teams meeting | Room | 1:1 call | Group call | 1:1 Teams interop call | Group Teams interop call |
+|-----------------------------|---------------|------|----------|------------|------------------------|--------------------------|
+|Communication Services user  |✔️|      |          |            |                       |      ✔️|
+|Microsoft 365 user           |✔️|      |          |            |                       |      ✔️|
+
+You can check if the meeting transcription requires explicit consent by property `isConsentRequired`. If the value is set to `true`, then explicit consent is required for the call.
+
+```js
+const isTranscriptionConsentRequired = callTranscriptionFeature.isConsentRequired;
+```
+
+If the transcription is active and explicit consent is required, user will not be able to unmute, turn video on and share screen until they provide the consent. You can provide the consent for the user by using the api `consentToBeingRecordedAndTranscribed`.
+
+```js
+callTranscriptionFeature.consentToBeingRecordedAndTranscribed();
+```
