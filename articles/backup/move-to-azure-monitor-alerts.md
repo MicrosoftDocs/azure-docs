@@ -62,7 +62,7 @@ There are a few exceptions when an alert isn't raised on a failure. They are:
 - The VM backup job fails because the backed-up Azure VM no longer exists.
 - [Consolidated Alerts](#consolidated-alerts)
 
-The exceptions above are designed from the understanding that the result of these operations (primarily user triggered) shows up immediately on portal/PS/CLI clients. So, you're immediately aware and doesn't need a notification.
+The exceptions above are designed from the understanding that the result of these operations (primarily user triggered) shows up immediately on portal/PowerShell/the CLI clients. So, you're immediately aware and doesn't need a notification.
 
 ### Alert types
 

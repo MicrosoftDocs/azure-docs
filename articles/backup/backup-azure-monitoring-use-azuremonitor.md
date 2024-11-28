@@ -16,7 +16,7 @@ Azure Backup provides [built-in monitoring and alerting capabilities](backup-azu
 - Monitoring data from multiple Recovery Services vaults across Subscriptions
 - Visibility into custom scenarios
 - Configuring alerts for custom scenarios
-- Viewing information from an on-premises component such as System Center Data Protection Manager in Azure, which the portal doesn't show in [**Backup Jobs**](backup-azure-monitoring-built-in-monitor.md#backup-jobs-in-azure-business-continuity-center) or [**Backup Alerts**](move-to-azure-monitor-alerts.md#backup-alerts-in-recovery-services-vault)
+- Viewing information from an on-premises component.  For example, System Center Data Protection Manager information  in Azure, which the portal doesn't show in [**Backup Jobs**](backup-azure-monitoring-built-in-monitor.md#backup-jobs-in-azure-business-continuity-center) or [**Backup Alerts**](move-to-azure-monitor-alerts.md#backup-alerts-in-recovery-services-vault)
 
 ## Using Log Analytics workspace
 
@@ -27,7 +27,7 @@ Before you use Log Analytics for monitoring, consider the following prerequisite
 - Ensure that you have a Log Analytics workspace set up. If not available, [create one](/azure/azure-monitor/logs/quick-create-workspace?tabs=azure-portal).
 - [Configure Diagnostic Settings](backup-azure-diagnostic-events.md?tabs=recovery-services-vaults) to push data to Log Analytics.
 - [Configure the retention](/azure/azure-monitor/logs/data-retention-configure?tabs=portal-3%2Cportal-1%2Cportal-2) of the tables or the Log Analytics workspace based on the desired historical retention.
-- [Add data model link under the Sample kusto queries](backup-azure-reports-data-model.md).
+- [Add the data model link under the Sample Kusto queries](backup-azure-reports-data-model.md).
 
 ### Create alerts by using Log Analytics
 

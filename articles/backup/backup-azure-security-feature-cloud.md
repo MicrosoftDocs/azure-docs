@@ -85,13 +85,13 @@ SoftDeleteFeatureState : Disabled
 
 # [REST API](#tab/rest-api)
 
-To disable the soft-delete functionality using REST API, see [these steps](use-restapi-update-vault-properties.md#update-soft-delete-state-using-rest-api).
+To disable the soft delete functionality using REST API, see [these steps](use-restapi-update-vault-properties.md#update-soft-delete-state-using-rest-api).
 
 ---
 
 ## Delete soft deleted backup items permanently
 
-The backup data in soft deleted state prior disabling this feature remains in soft-deleted state. To permanently delete these immediately, undelete and delete them again. Use one of the following clients to permanently delete soft deleted data.
+The backup data in the soft delete state prior to disabling this feature remains in the soft deleted state. To permanently delete these immediately, undelete and delete them again. Use one of the following clients to permanently delete soft deleted data.
 
 **Choose a client**:
 
@@ -164,7 +164,7 @@ Follow these steps:
 Follow these steps:
 
 1. [Undo the delete operations](backup-azure-arm-userestapi-backupazurevms.md#undo-the-deletion).
-2. [Disable the soft-delete functionality using REST API](use-restapi-update-vault-properties.md#update-soft-delete-state-using-rest-api).
+2. [Disable the soft delete functionality using REST API](use-restapi-update-vault-properties.md#update-soft-delete-state-using-rest-api).
 3. [Delete the backups using REST API](backup-azure-arm-userestapi-backupazurevms.md#stop-protection-and-delete-data).
 
 ---
