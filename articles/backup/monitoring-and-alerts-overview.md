@@ -14,7 +14,7 @@ This article provides an overview of different monitoring and reporting solution
 
 Azure Backup offers integration with various Azure services, such as Azure Resource Graph, Azure Monitor Alerts, Azure Monitor Logs (Log Analytics), and Azure Resource Health. Azure Backup also offers interfaces to various Azure clients, such as Azure portal, Azure PowerShell, Azure CLI, and Azure REST API. Depending on your monitoring and reporting requirements, you can use a combination of these integrations.
 >[!Important]
->Classic alerts for Azure Backup is planned for deprecation on 31 March 2026. We recommend you to [migrate to Azure Monitor Alerts](backup-azure-monitoring-alerts.md#migrate-from-classic-alerts-to-built-in-azure-monitor-alerts) for a seamless experience.
+>Classic alerts for Azure Backup will be deprecated on 31 March 2026. We recommend you to [migrate to Azure Monitor Alerts](backup-azure-monitoring-alerts.md#migrate-from-classic-alerts-to-built-in-azure-monitor-alerts) for a seamless experience.
 
 ## Monitoring and Reporting scenarios
 
@@ -54,6 +54,21 @@ The following table summarizes the different backup alerts currently available v
  
 > [!NOTE]
 >- For Azure VM backup, backup failure alerts are not sent in scenarios where the underlying VM is deleted, or another backup job is already in progress (leading to failure of the other backup job). This is because these are scenarios where backup is expected to fail by design and hence alerts are not generated in these 2 cases.
+
+### Key benefits of Azure Monitor alerts
+
+Azure Monitor for Azure Backup provides the following key benefits:
+
+- **Configure notifications to a wide range of notification channels**: Azure Monitor supports a wide range of notification channels, such as email, ITSM, webhooks, logic apps, and so on. You can configure notifications for backup alerts to any of these channels without investing much time in creating custom integrations.
+
+- **Enable notifications for selective scenarios**: With Azure Monitor alerts, you can choose the scenarios to be notified about. Also, you can enable notifications for test subscriptions.
+
+- **Monitor alerts at-scale via Backup center**: In addition to enabling you to manage the alerts from Azure Monitor dashboard, Azure Backup also provides an alert management experience tailored to backups via Backup center. This allows you to filter alerts by backup specific properties, such as workload type, vault location, and so on, and a way to get quick visibility into the active backup security alerts that need attention.
+
+- **Manage alerts and notifications programmatically**: You can use Azure Monitor’s REST APIs to manage alerts and notifications via non-portal clients as well.
+
+- **Consistent alert management for multiple Azure services, including backup**: Azure Monitor is the native service for monitoring resources across Azure. With the integration of Azure Backup with Azure Monitor, you can manage backup alerts in the same way as alerts for other Azure services, without requiring a separate learning curve.
+
 
 
 ## Next steps

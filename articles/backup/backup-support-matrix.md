@@ -203,6 +203,13 @@ The following table lists the workload specific operations supported even if zon
 | **Disk** | - Backups are successful, if the protected disk is in an active zone. <br><br> - Restore to an active zone is successful. |
 | **MARS** | Backups and restores are successful. |
 
+## Monitoring and Reporting support
+
+Azure Backup provides the following monitoring and reporting capabilities on backup operations:
+
+- Backup Alerts are available for all workloads in both Recovery Services vault and Backup vault.
+- Backup Alerts view and manage capabilities are available on Azure Monitor, Business Continuity Center, Recovery Services vault, Backup vault.
+
 ## Next steps
 
 - [Review support matrix](backup-support-matrix-iaas.md) for Azure VM backup.
