@@ -3,7 +3,7 @@ title: Set up staging environments
 description: Learn how to deploy apps to a nonproduction slot and autoswap into production. Increase the reliability and eliminate app downtime from deployments.
 ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
-ms.date: 07/30/2023
+ms.date: 07/30/2024
 author: cephalin
 ms.author: cephalin
 ms.custom: fasttrack-edit, devx-track-azurepowershell, devx-track-azurecli, ai-video-demo
