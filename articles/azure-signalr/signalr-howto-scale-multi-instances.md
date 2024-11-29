@@ -122,6 +122,22 @@ services.AddSignalR()
             });
 ```
 
+`ServiceOptions.Endpoints` also supports hot-reload. You could configure `ServiceOptions` using [options pattern](/aspnet/core/fundamentals/configuration/options?#ioptionsmonitor) to hot-reload the endpoints from your configurations and customize how they are loaded. The below sample code shows how to load connection strings from one configuration section and public URL exposed by [reverse proxies](./signalr-howto-reverse-proxy-overview.md) from another:
+```cs
+services.Configure<ServiceOptions>(o =>
+{
+        o.Endpoints = [
+            new ServiceEndpoint(Configuration["ConnectionStrings:AzureSignalR:East"], name: "east")
+            {
+                ClientEndpoint = new Uri(Configuration.GetValue<string>("PublicClientEndpoints:East"))
+            },
+            new ServiceEndpoint(Configuration["ConnectionStrings:AzureSignalR:West"], name: "west")
+            {
+                ClientEndpoint = new Uri(Configuration.GetValue<string>("PublicClientEndpoints:West"))
+            },
+        ];
+});
+```
 ## For ASP.NET
 
 ### Add multiple endpoints from config
