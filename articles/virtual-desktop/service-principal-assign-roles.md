@@ -116,7 +116,7 @@ Here's how to assign an Azure RBAC role to an Azure Virtual Desktop service prin
    SignInName         : 
    RoleDefinitionName : Desktop Virtualization Power On Off Contributor
    RoleDefinitionId   : 40c5ff49-9181-41f8-ae61-143b0e78555e
-   ObjectId           : 00000000-0000-0000-0000-000000000000
+   ObjectId           : aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
    ObjectType         : ServicePrincipal
    CanDelegate        : False
    Description        : 

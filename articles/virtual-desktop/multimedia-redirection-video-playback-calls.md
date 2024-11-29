@@ -131,9 +131,12 @@ After you install the multimedia redirection service and browser extension, next
 >
 > The browser extension updates automatically when a new version is available.
 
-## Enable the browser extension
+## Enable and manage the browser extension centrally
 
-By default, users are automatically prompted to enable the extension when they open their browser. You can also enable and manage the browser extension from Microsoft Edge Add-ons or the Chrome Web Store for all users by using Microsoft Intune or Group Policy, or the Microsoft Edge management service (for Microsoft Edge only).
+> [!TIP]
+> By default, users are automatically prompted to enable the extension when they open their browser. This section is optional if you want to enable and manage the browser extension centrally.
+
+You can enable and manage the browser extension centrally from Microsoft Edge Add-ons or the Chrome Web Store for all users by using Microsoft Intune or Group Policy, or the Microsoft Edge management service (for Microsoft Edge only).
 
 Managing the browser extension has the following benefits:
 
@@ -259,7 +262,7 @@ To enable the multimedia redirection browser extension using Group Policy:
 
 1. Download and install the Microsoft Edge administrative template by following the directions in [Configure Microsoft Edge policy settings on Windows devices](/deployedge/configure-microsoft-edge#1-download-and-install-the-microsoft-edge-administrative-template).
 
-1. Open the **Group Policy Management** console on device you use to manage the Active Directory domain.
+1. Open the **Group Policy Management** console on a device you use to manage the Active Directory domain.
 
 1. Create or edit a policy that targets the computers providing a remote session you want to configure.
 
@@ -308,7 +311,7 @@ To enable the multimedia redirection browser extension using Group Policy:
        - **Local location**: `C:\Windows\PolicyDefinitions\en-US\`
        - **Central Store**: `\\contoso.com\SYSVOL\contoso.com\Policies\PolicyDefinitions\en-US`
 
-1. Open the **Group Policy Management** console on device you use to manage the Active Directory domain.
+1. Open the **Group Policy Management** console on a device you use to manage the Active Directory domain.
 
 1. Create or edit a policy that targets the computers providing a remote session you want to configure.
 
@@ -368,7 +371,7 @@ To enable the multimedia redirection browser extension using the Microsoft Edge 
 
 ## Common policy configuration parameters
 
-The following sections show some examples of policy configuration parameters for the browser you can use to manage the multimedia redirection browser extension that are common for both video playback and call redirection. You can use these examples as part of the steps in [Enable the browser extension](#enable-the-browser-extension). Combine these examples with the parameters you require for your users.
+The following sections show some examples of policy configuration parameters for the browser you can use to manage the multimedia redirection browser extension that are common for both video playback and call redirection. You can use these examples as part of the steps in [Enable and manage the browser extension centrally](#enable-and-manage-the-browser-extension-centrally). Combine these examples with the parameters you require for your users.
 
 > [!NOTE]
 > The following examples are for Microsoft Edge. For Google Chrome:
@@ -521,7 +524,7 @@ If you configure multimedia redirection using Microsoft Intune or Group Policy, 
 > - Change `joeclbldhdmoijbaagobkhlpfjglcihd` to `lfmemoeeciijgkjkgbgikoonlkabmlno`.
 > - Change the `update_url` to `https://clients2.google.com/service/update2/crx`.
 
-This example installs the extension and allows **learn.microsoft.com** and **youtube.com**, but blocks all other domains. You can use this example as part of the steps in [Enable the browser extension](#enable-the-browser-extension).
+This example installs the extension and allows **learn.microsoft.com** and **youtube.com**, but blocks all other domains. You can use this example as part of the steps in [Enable and manage the browser extension centrally](#enable-and-manage-the-browser-extension-centrally).
 
 ```json
 {

@@ -3,7 +3,7 @@ title: Basic Load balancer deprecation - Guidelines for Azure HDInsight
 description: Guidelines to transition to standard load balancer for Azure HDInsight.
 ms.service: azure-hdinsight
 ms.topic: how-to
-ms.date: 10/18/2024
+ms.date: 11/26/2024
 ---
 
 # Basic Load balancer deprecation: Guidelines for Azure HDInsight
@@ -26,6 +26,8 @@ This transition is done in line with the announcement of retirement of Azure bas
 
 ### New cluster creation
 
+There are several ways provided in the document [Source Network Address Translation (SNAT) for outbound connections](/azure/load-balancer/load-balancer-outbound-connections) that could provide outbound connectivity for a cluster. The only compatible way with HDInsight is to associate a NAT gateway to the subnet, which supports auto-scaling features of HDInsight clusters. 
+
 * **Scenario 1:** HDInsight clusters without custom virtual network (Creating cluster without any virtual network).
 
    * In this case, no impact. You can recreate the cluster directly.
@@ -35,12 +37,8 @@ This transition is done in line with the announcement of retirement of Azure bas
    * In this case, there are two options to create a cluster
 
       **Approach 1:** Create the cluster with a new subnet
-
-      1. Choose the outbound connectivity for your cluster
-
-         Follow this document [Use Source Network Address Translation (SNAT) for outbound connections](/azure/load-balancer/load-balancer-outbound-connections), and choose one method to provide outbound connectivity for the new cluster. The most recommended way is to attach a NAT gateway and a Network Security Group (NSG) to the subnet.
-           
-      1. Create a new NAT gateway and a new Network Security Group(NSG) or use the existing ones.
+       
+      1. Create a new NAT gateway and a new Network Security Group (NSG) or use the existing ones.
    
          > [!NOTE]
          > You can use an existing NAT gateway and NSG.
@@ -61,9 +59,7 @@ This transition is done in line with the announcement of retirement of Azure bas
 
      **Approach 2:** Create the cluster using the existing subnet
 
-      Your existing virtual network may be incompatible with Azure Standard Load Balancer, to upgrade your existing custom virtual network to integrate with Azure standard load balancer (which HDInsight clusters use by default now), see, [Use Source Network Address Translation (SNAT) for outbound connections](/azure/load-balancer/load-balancer-outbound-connections) to provide outbound connectivity for the cluster. 
-
-      The most recommended way is to attach a network security group and a NAT gateway to the subnet. Since the existing subnet which has HDInsight clusters with Azure basic load balancers can't be associated with an NAT gateway due to incompatibility with basic load balancer, there are two scenarios:
+      Your existing virtual network may be incompatible with Azure Standard Load Balancer, to upgrade your existing custom virtual network to integrate with Azure standard load balancer. You need to attach a network security group and a NAT gateway to your existing subnet. Since the existing subnet which has HDInsight clusters with Azure basic load balancers can't be associated with an NAT gateway due to incompatibility with basic load balancer, there are two scenarios:
 
       * **Case 1:** Existing subnet has no HDInsight clusters with Azure Basic Load Balancers
 
@@ -93,7 +89,7 @@ This transition is done in line with the announcement of retirement of Azure bas
             
         Consider one of these methods:
 
-         * **Method 1:** The most recommended way is to associate a NAT gateway to the subnet along with network security group.
+         * **Method 1:** Associate the subnet with a NAT gateway and network security group.
 
            According to [Azure NAT Gateway frequently asked questions](/azure/nat-gateway/faq#are-basic-sku-resources--basic-load-balancer-and-basic-public-ip-addresses--compatible-with-a-nat-gateway), NAT gateway is incompatible with Azure basic load balancer.
 
@@ -121,10 +117,8 @@ This transition is done in line with the announcement of retirement of Azure bas
               
                :::image type="content" source="./media/load-balancer-migration-guidelines/virtual-network.png" alt-text="Screenshot showing virtual network." border="true" lightbox="./media/load-balancer-migration-guidelines/virtual-network.png":::
 
-   
-       * **Method 2:** Select option other than **Associate a NAT gateway to the subnet** provided in [Use Source Network Address Translation (SNAT) for outbound connections](/azure/load-balancer/load-balancer-outbound-connections), and follow the instruction for the selected option.
-  
-       * **Method 3:** Create a new subnet and then create the cluster with the new subnet.
+         
+       * **Method 2:** Create a new subnet and then create the cluster with the new subnet.
  
 > [!NOTE]
 > If you are using an ESP cluster with MFA disabled, ensure to check the MFA status once cluster is recreated using a NAT gateway.
