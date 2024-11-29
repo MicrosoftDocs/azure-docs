@@ -181,7 +181,7 @@ You can also select the state of CSR  during the creation of Backup vault.
 
 ## Manage Alerts
 
-Learn [how to manage alerts for Backup vaults](backup-azure-monitoring-alerts.md).
+You can configure and manage azure monitor based alerts from the **Alerts** pane in the **Backup vault**. [Learn more](backup-azure-monitoring-alerts.md).
 
 
 ## Next steps
