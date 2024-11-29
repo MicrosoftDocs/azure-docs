@@ -115,7 +115,6 @@ Learn how to deploy Geospatial Consumption Zone (GCZ) on Azure Kubernetes Servic
                type: LoadBalancer
            configuration:
                privateNetwork: "$PRIVATE_NETWORK"
-           configLoaderJs: "../../../../gcz-provider/gcz-provider-core/config/configLoader.js"
        transformer:
            namespace: $NAMESPACE
            image:
@@ -174,7 +173,6 @@ Learn how to deploy Geospatial Consumption Zone (GCZ) on Azure Kubernetes Servic
                type: LoadBalancer
            configuration:
                privateNetwork: "$PRIVATE_NETWORK"
-           configLoaderJs: "../../../../gcz-provider/gcz-provider-core/config/configLoader.js"
        transformer:
            namespace: $NAMESPACE
            image:
@@ -318,7 +316,7 @@ Learn how to deploy Geospatial Consumption Zone (GCZ) on Azure Kubernetes Servic
 1. Deploy the GCZ HELM chart:
 
    ```bash
-   helm upgrade -i $CHART . -n $NAMESPACE -f osdu_gcz_custom_values.yaml
+   helm upgrade -i $CHART . -n $NAMESPACE -f osdu_gcz_custom_values.yaml --set-file global.provider.configLoaderJs="gcz-provider/gcz-provider-core/config/configLoader.js"
    ```
 
 1. Verify the deployment:
