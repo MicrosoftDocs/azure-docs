@@ -96,17 +96,15 @@ The following example overrides the default negotiate behavior and selects the e
 private class CustomRouter : EndpointRouterDecorator
 {    public override ServiceEndpoint GetNegotiateEndpoint(HttpContext context, IEnumerable<ServiceEndpoint> endpoints)
     {
-        // Override the negotiate behavior to get the endpoint from query string
-        var endpointName = context.Request.Query["endpoint"];
-        if (endpointName.Count == 0)
-        {
-            context.Response.StatusCode = 400;
-            var response = Encoding.UTF8.GetBytes("Invalid request");
-            context.Response.Body.Write(response, 0, response.Length);
-            return null;
-        }
-
-        return endpoints.FirstOrDefault(s => s.Name == endpointName && s.Online) // Get the endpoint with name matching the incoming request
+          // Sample code showing how to choose endpoints based on the incoming request endpoint query
+          var endpointName = context.Request.Query["endpoint"];
+          if (endpointName.Count == 0)
+          {
+              throw new BadHttpRequestException("Invalid request.", 400);
+          }
+        
+          // Select from the available endpoints, don't construct a new ServiceEndpoint object here
+          return endpoints.FirstOrDefault(s => s.Name == endpointName && s.Online) // Get the endpoint with name matching the incoming request
                ?? base.GetNegotiateEndpoint(context, endpoints); // Or fallback to the default behavior to randomly select one from primary endpoints, or fallback to secondary when no primary ones are online
     }
 }
