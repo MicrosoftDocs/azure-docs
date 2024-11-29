@@ -19,8 +19,7 @@ This new feature allows you to switch the hosting plan of the Azure function tha
 The Dedicated hosting plan has a significant improvement in cost and scaling efficiency when used on AMS
 
 ## Prerequisites
-
-1.	Ensure there are no locks on monitor subnet's Resource Group
+Ensure there are no locks on monitor subnet's Resource Group
 
 ## Steps to enable dedicated hosting plan
 1.	Navigate to Overview Section of the AMS monitor. Verify the hosting option is Elastic Premium. Then click on Edit Option.
@@ -34,7 +33,7 @@ The Dedicated hosting plan has a significant improvement in cost and scaling eff
 ## Steps to revert to Elastic Plan on unhealthy AMS
 If the deployment fails with code FunctionAppRestoreFailed or if restoration to Elastic Premium Plan is needed after multiple failure, then follow the below steps to revert to Elastic Premium Plan.
 ### Prerequisite
-1.	Ensure the storage account has public network access:
+Ensure the storage account has public network access:
     1. Go to the storage account in the AMS managed resource group.
     2. Click on the security and networking tab, then click on the networking tab.
     3. Under public network access, ensure the 'enabled from all networks' option is selected."
