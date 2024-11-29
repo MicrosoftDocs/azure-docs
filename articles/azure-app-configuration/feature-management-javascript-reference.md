@@ -30,7 +30,7 @@ Here are some of the benefits of using JavaScript feature management library:
   * Supports usage in both Node.js and browser environments
 * Feature flag lifetime management with Azure App Configuration
   * Configuration values can change in real-time
-* Simple to Complex Scenarios Covered
+* Simple to complex scenarios covered
   * Toggle on/off features through declarative configuration file
   * Dynamically evaluate state of feature based on call to server
 
@@ -53,7 +53,7 @@ As an example, a Microsoft Edge browser feature filter could be designed. This f
 
 In JavaScript, developers commonly use objects or maps as the primary data structures to represent configurations. The JavaScript feature management library supports both of the configuration approaches, providing developers with the flexibility to choose the option that best fits their needs. The `FeatureManager` can read feature flags from different types of configuration using the built-in `ConfigurationObjectFeatureFlagProvider` and `ConfigurationMapFeatureFlagProvider`.
 
-### [Use Map Configuration](#tab/map-configuration)
+### [Use map configuration](#tab/map-configuration)
 
 ``` javascript
 const config = new Map([
@@ -77,7 +77,7 @@ const featureProvider = new ConfigurationMapFeatureFlagProvider(config);
 const featureManager = new FeatureManager(featureProvider);
 ```
 
-### [Use Object Configuration](#tab/object-configuration)
+### [Use object configuration](#tab/object-configuration)
 
 ``` javascript
 const config = {
@@ -93,7 +93,7 @@ const config = {
             }
         ]
     },
-    "some pther configuration": " some value"
+    "some other configuration": " some value"
 }
 
 import { ConfigurationObjectFeatureFlagProvider, FeatureManager } from "@microsoft/feature-management";
@@ -115,9 +115,9 @@ const featureManager = new FeatureManager(featureProvider);
 
 Rather than hard coding your feature flags into your application, we recommend that you keep feature flags outside the application and manage them separately. Doing so allows you to modify flag states at any time and have those changes take effect in the application right away. The Azure App Configuration service provides a dedicated portal UI for managing all of your feature flags. See the [tutorial](./manage-feature-flags.md).
 
-The Azure App Configuration service also delivers the feature flags to your application directly through its JavaSript client library [@azure/app-configuration-provider](https://www.npmjs.com/package/@azure/app-configuration-provider). The following example shows how to use the library.
+The Azure App Configuration service also delivers the feature flags to your application directly through its JavaScript client library [@azure/app-configuration-provider](https://www.npmjs.com/package/@azure/app-configuration-provider). The following example shows how to use the library.
 
-The App Configuration JavaScript provider provides feature flags in as a `Map` object. The built-in `ConfigurationMapFeatureFlagProvider` helps to load feature flags in this case.
+The App Configuration JavaScript provider provides feature flags in a `Map` object. The built-in `ConfigurationMapFeatureFlagProvider` helps to load feature flags in this case.
 
 ``` javascript
 import { DefaultAzureCredential } from "@azure/identity";
@@ -221,7 +221,7 @@ In the above example, `FeatureW` specifies a `requirement_type` of `All`, meanin
 
 The basic form of feature management is checking if a feature flag is enabled and then performing actions based on the result. Checking the state of a feature flag is done through `FeatureManager`'s `isEnabled` method.
 
-### [Use Map Configuration](#tab/map-configuration)
+### [Use map configuration](#tab/map-configuration)
 
 ``` javascript
 import { ConfigurationMapFeatureFlagProvider, FeatureManager } from "@microsoft/feature-management";
@@ -234,7 +234,7 @@ if (isBetaEnabled) {
 }
 ```
 
-### [Use object Configuration](#tab/object-configuration)
+### [Use object configuration](#tab/object-configuration)
 
 ``` javascript
 import { ConfigurationObjectFeatureFlagProvider, FeatureManager } from "@microsoft/feature-management";
@@ -295,7 +295,7 @@ interface IFeatureFilterEvaluationContext {
 
 `IFeatureFilterEvaluationContext` has a property named `parameters`. These parameters represent a raw configuration that the feature filter can use to decide how to evaluate whether the feature should be enabled or not. To use the browser feature filter as an example once again, the filter could use `parameters` to extract a set of allowed browsers that would be specified for the feature and then check if the request is being sent from one of those browsers.
 
-### Use application context For feature evaluation
+### Use application context for feature evaluation
 
 A feature filter may need runtime application context to evaluate a feature flag. You can pass in the context as a parameter when calling `isEnabled`.
 
@@ -307,7 +307,7 @@ The feature filter can take advantage of the context that is passed in when `isE
 
 ## Built-in feature filters
 
-There are a two feature filters that come with the `FeatureManagement` package: `TimeWindowFilter`, and `TargetingFilter`.
+There are two feature filters that come with the `FeatureManagement` package: `TimeWindowFilter`, and `TargetingFilter`.
 
 Each of the built-in feature filters has its own parameters. Here's the list of feature filters along with examples.
 
@@ -372,18 +372,18 @@ Targeting is a feature management strategy that enables developers to progressiv
 
 The following steps demonstrate an example of a progressive rollout for a new 'Beta' feature:
 
-1. Individual users Jeff and Alicia are granted access to the Beta
-2. Another user, Mark, asks to opt in and is included.
-3. Twenty percent of a group known as "Ring1" users are included in the Beta.
-5. The number of "Ring1" users included in the beta is bumped up to 100 percent.
-5. Five percent of the user base is included in the beta.
-6. The rollout percentage is bumped up to 100 percent and the feature is completely rolled out.
+1. Individual users Jeff and Alicia are granted access to the Beta.
+1. Another user, Mark, asks to opt in and is included.
+1. Twenty percent of a group known as "Ring1" users are included in the Beta.
+1. The number of "Ring1" users included in the Beta is bumped up to 100 percent.
+1. Five percent of the user base is included in the Beta.
+1. The rollout percentage is bumped up to 100 percent and the feature is completely rolled out.
 
-This strategy for rolling out a feature is built in to the library through the included [Microsoft.Targeting](#microsofttargeting) feature filter.
+This strategy for rolling out a feature is built into the library through the included [Microsoft.Targeting](#microsofttargeting) feature filter.
 
 ### Targeting a user with targeting context
 
-The targeting filter relies on a targeting context to evaluate whether a feature should be turned on. This targeting context contains information such as what user is currently being evaluated, and what groups the user in. The targeting context must be passed directly when `isEnabled` is called.
+The targeting filter relies on a targeting context to evaluate whether a feature should be turned on. This targeting context contains information such as what user is currently being evaluated, and what groups the user is in. The targeting context must be passed directly when `isEnabled` is called.
 
 ``` javascript
 featureManager.isEnabled("Beta", { userId: "Aiden", groups: ["Ring1"] })
@@ -683,7 +683,7 @@ import { ApplicationInsights } from "@microsoft/applicationinsights-web"
 import { createTelemetryPublisher, trackEvent } from "@microsoft/feature-management-applicationinsights-browser"
 
 const appInsights = new ApplicationInsights({ config: {
-  connectionString: "<your-connection-string>"
+  connectionString: "InstrumentationKey=YOUR_INSTRUMENTATION_KEY_GOES_HERE",
 }});
 appInsights.loadAppInsights();
 
@@ -701,13 +701,10 @@ trackEvent(appInsights, TARGETING_ID, {name: "TestEvent"}, {"Tag": "Some Value"}
 If your application runs in the Node.js, install the [`"@microsoft/feature-management-applicationinsights-node"`](https://www.npmjs.com/package/@microsoft/feature-management-applicationinsights-node) package. The following example shows how you can create a built-in Application Insights telemetry publisher and register it to the feature manager.
 
 ``` javascript
-import ApplicationInsights from "applicationinsights"
+import appInsights from "applicationinsights"
 import { createTelemetryPublisher, trackEvent } from "@microsoft/feature-management-applicationinsights-node"
 
-const appInsights = new ApplicationInsights({ config: {
-  connectionString: "<your-connection-string>"
-}});
-appInsights.loadAppInsights();
+appInsights.setup().start(); // for more information: https://learn.microsoft.com/azure/azure-monitor/app/nodejs#basic-usage
 
 ...
 const telemetryPublisher = createTelemetryPublisher(appInsights.defaultClient);

@@ -266,14 +266,14 @@ Targeting is a feature management strategy that enables developers to progressiv
 
 The following steps demonstrate an example of a progressive rollout for a new 'Beta' feature:
 
-1. Individual users Jeff and Alicia are granted access to the Beta
-2. Another user, Mark, asks to opt in and is included.
-3. Twenty percent of a group known as "Ring1" users are included in the Beta.
-5. The number of "Ring1" users included in the beta is bumped up to 100 percent.
-5. Five percent of the user base is included in the beta.
-6. The rollout percentage is bumped up to 100 percent and the feature is completely rolled out.
+1. Individual users Jeff and Alicia are granted access to the Beta.
+1. Another user, Mark, asks to opt in and is included.
+1. Twenty percent of a group known as "Ring1" users are included in the Beta.
+1. The number of "Ring1" users included in the Beta is bumped up to 100 percent.
+1. Five percent of the user base is included in the Beta.
+1. The rollout percentage is bumped up to 100 percent and the feature is completely rolled out.
 
-This strategy for rolling out a feature is built in to the library through the included [Microsoft.Targeting](#microsofttargeting) feature filter.
+This strategy for rolling out a feature is built into the library through the included [Microsoft.Targeting](#microsofttargeting) feature filter.
 
 ### Targeting a user
 
