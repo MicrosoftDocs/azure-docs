@@ -22,7 +22,7 @@ This quickstart enables you to register an existing SAP system with *Azure Cente
 ## Prerequisites for registering a system
 - Check that you're trying to register a [supported SAP system configuration](/azure/sap/center-sap-solutions/register-existing-system#supported-systems)
 - Grant access to Azure Storage accounts from the virtual network where the SAP system exists. Use one of these options:
-    - Allow outbound internet connectivity for the VMs.
+    - Allow outbound internet connectivity for the Virtual Machines.
     - Use a [**Storage** service tag](../../virtual-network/service-tags-overview.md) to allow connectivity to any Azure storage account from the VMs.
     - Use a [**Storage** service tag with regional scope](../../virtual-network/service-tags-overview.md) to allow storage account connectivity to the Azure storage accounts in the same region as the VMs.
     - Allowlist the region-specific IP addresses for Azure Storage.
@@ -35,13 +35,13 @@ This quickstart enables you to register an existing SAP system with *Azure Cente
 - A **User-assigned managed identity** which has **Azure Center for SAP solutions service role** access on the Compute resource group and **Reader** role access on the Virtual Network resource group of the SAP system. Azure Center for SAP solutions service uses this identity to discover your SAP system resources and register the system as a VIS resource.
 - Make sure ASCS, Application Server and Database virtual machines of the SAP system are in **Running** state.
 - sapcontrol and saphostctrl exe files must exist on ASCS, App server and Database.
-    - File path on Linux VMs: /usr/sap/hostctrl/exe
-    - File path on Windows VMs: C:\Program Files\SAP\hostctrl\exe\
+    - File path on Linux Virtual Machines: /usr/sap/hostctrl/exe
+    - File path on Windows Virtual Machines: C:\Program Files\SAP\hostctrl\exe\
 - Make sure the **sapstartsrv** process is running on all **SAP instances** and for **SAP hostctrl agent** on all the VMs in the SAP system.
-    - To start hostctrl sapstartsrv use this command for Linux VMs: 'hostexecstart -start'
+    - To start hostctrl sapstartsrv use this command for Linux Virtual Machines: 'hostexecstart -start'
     - To start instance sapstartsrv use the command: 'sapcontrol -nr 'instanceNr' -function StartService S0S'
-    - To check status of hostctrl sapstartsrv use this command for Windows VMs: C:\Program Files\SAP\hostctrl\exe\saphostexec –status
-- For successful discovery and registration of the SAP system, ensure there is network connectivity between ASCS, App and DB VMs. 'ping' command for App instance hostname must be successful from ASCS VM. 'ping' for Database hostname must be successful from App server VM.
+    - To check status of hostctrl sapstartsrv use this command for Windows Virtual Machines: C:\Program Files\SAP\hostctrl\exe\saphostexec –status
+- For successful discovery and registration of the SAP system, ensure there is network connectivity between ASCS, App and DB VMs. 'ping' command for App instance hostname must be successful from ASCS Virtual Machine. 'ping' for Database hostname must be successful from App server Virtual Machine.
 - On App server profile, SAPDBHOST, DBTYPE, DBID parameters must have the right values configured for the discovery and registration of Database instance details.
 
 ## Register SAP system
