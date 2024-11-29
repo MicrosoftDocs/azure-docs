@@ -15,7 +15,7 @@ This article describes some common issues that you might encounter when you up
 
 ## Cannot attach the OS setup disk as VM reached maximum disk allowed
 
-The Test Migration and Migration will fail in the prerequisite stage if the VM already has the maximum number of data disks based on its SKU. Since the workflow creates an additional data disk temporarily, it's mandatory to have n-1 (n represents maximum number of disks supported for the respective SKU of the VM) disks to complete the upgrade successfully.    
+The Test Migration and Migration fails in the prerequisite stage if the VM already has the maximum number of data disks based on its SKU. Since the workflow creates an additional data disk temporarily, it's mandatory to have n-1 (n represents maximum number of disks supported for the respective SKU of the VM) disks to complete the upgrade successfully.    
 
 ### Recommended action
 
@@ -36,17 +36,17 @@ Select a different target Azure VM SKU that can attach more data disks and retry
 
 ## Migration fails for Private endpoint enabled Azure Migrate projects  
 
-The migration fails if the storage account that you select for replicating VMs doesn't have the Firewall settings of the target VNET. 
+The migration fails if the storage account that you select for replicating VMs doesn't have the Firewall settings of the target virtual network. 
 
 ### Recommended action
 
-Add the target VNET into the firewall in the storage account that you select in the above step for replicating VMs:  
+Add the target virtual network into the firewall in the storage account that you select in the above step for replicating VMs:  
 
-1. Go to **Networking** > **Firewall and Virtual Networks** > **Public Network Access – Enabled from selected Virtual Network and IP address** > **Virtual Network** > Add existing Virtual Network and add your target VNET. Then proceed with the Test Migration/Migration.    
+1. Go to **Networking** > **Firewall and Virtual Networks** > **Public Network Access – Enabled from selected Virtual Network and IP address** > **Virtual Network** > Add existing Virtual Network and add your target virtual network. Then proceed with the Test Migration/Migration.    
 
 2. Perform the initial replication by following [these](migrate-servers-to-azure-using-private-link.md?pivots=agentlessvmware#replicate-vms) steps.  
 
-## Server is migrated without OS upgrade with status “Completed with errors”  
+## Server is migrated without OS upgrade with status "Completed with errors"  
 
 If the source OS version and the OS version to be upgraded are the same, the server migrates without an OS upgrade with the status **Completed with errors**. For example, if the source OS version is Windows 2019 and the upgrade option selected is Windows 2019, then the server is migrated without an OS upgrade with the status **Completed with errors**. 
 
