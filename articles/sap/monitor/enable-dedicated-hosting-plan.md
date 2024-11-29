@@ -23,10 +23,10 @@ Ensure there are no locks on monitor subnet's Resource Group
 
 ## Steps to enable dedicated hosting plan
 1.	Navigate to Overview Section of the AMS monitor. Verify the hosting option is Elastic Premium. Then click on Edit Option.
- ![Screenshot of Changing Azure Function Hosting Plan in AMS from Overview Section.](https://github.com/user-attachments/assets/3d7ddd86-86ce-4b62-a45f-8daf22b817f1)
+ ![Screenshot of Changing Azure Function Hosting Plan in AMS from Overview Section.](articles/sap/monitor/media/enable-dedicated-hosting-plan/change-hosting-plan.png)
 
 2.	In the popup that opens click on Update and then Confirm.
- ![Screenshot of successful migration.](https://github.com/user-attachments/assets/3d304fe4-d13d-45a5-8b3d-1fa8d80c72ea)
+ ![Screenshot of successful migration.](articles/sap/monitor/media/enable-dedicated-hosting-plan/Successful.png)
 
 3.	When deployment succeeds. Hosting plan is updated in overview section.
 
