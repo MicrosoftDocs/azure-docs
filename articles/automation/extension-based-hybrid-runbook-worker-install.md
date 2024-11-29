@@ -4,7 +4,7 @@ description: This article provides information about deploying the extension-bas
 services: automation
 ms.subservice: process-automation
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-bicep, linux-related-content
-ms.date: 06/29/2024
+ms.date: 11/29/2024
 ms.topic: how-to
 #Customer intent: As a developer, I want to learn about extension so that I can efficiently deploy Hybrid Runbook Workers.
 ms.service: azure-automation
