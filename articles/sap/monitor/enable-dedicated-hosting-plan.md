@@ -35,12 +35,12 @@ If the deployment fails with code FunctionAppRestoreFailed or if restoration to 
 ### Prerequisite
 Ensure the storage account has public network access:
 1. Go to the storage account in the AMS managed resource group.
-2. Click on the security and networking tab, then click on the networking tab.
-3. Under public network access, ensure the 'enabled from all networks' option is selected.
+2. Go to the security and networking tab, then click on the networking tab.
+3. Go to the public network access, ensure the 'enabled from all networks' option is selected.
 ### Steps to follow:
-1.	Install Azure CLI, refer [Install Azure CLI](https://go.microsoft.com/fwlink/?linkid=2297461).
-2.	Run `az account set --subscription "<Subscription Name>"` to set subscription.
-3.	Run `az extension add --name workloads` to install Workloads CLI extension.
+1.	[Install Azure CLI](https://go.microsoft.com/fwlink/?linkid=2297461).
+2.	Set the subscription by running `az account set --subscription "<Subscription Name>"` 
+3.	To install Workloads CLI extension, run `az extension add --name workloads` 
 5.	Execute az monitor create with required properties as per your AMS.\
 `az workloads monitor create -g <rg-name> -n <ams_name> -l <location> --app-location <app-location> --managed-rg-name <managed_rg_name> --monitor-subnet <subnet_arm_id> --routing-preference <routing_preference> --identity type=None`
 6.	Monitor is restored once operation completes.
