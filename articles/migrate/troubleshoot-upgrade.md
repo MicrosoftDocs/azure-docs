@@ -5,8 +5,8 @@ author: AnuragMehrotra
 ms.author: anuragm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/11/2023
-ms.custom: engagement-fy24
+ms.date: 09/07/2023
+ms.custom: engagement-fy25
 ---
 
 # Troubleshoot Windows OS upgrade issues  

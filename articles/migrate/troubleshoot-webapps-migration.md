@@ -4,9 +4,9 @@ description: Troubleshoot web apps migration issues
 author: v-sreedevank
 ms.author: v-sreedevank
 ms.service: azure-migrate
-ms.date: 02/28/2023
+ms.date: 10/11/2023
 ms.topic: troubleshooting
-ms.custom: engagement-fy23
+ms.custom: engagement-fy25
 ---
 
 # Troubleshooting web apps migration issues
