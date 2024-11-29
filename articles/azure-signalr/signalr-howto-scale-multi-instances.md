@@ -97,12 +97,7 @@ private class CustomRouter : EndpointRouterDecorator
 {    public override ServiceEndpoint GetNegotiateEndpoint(HttpContext context, IEnumerable<ServiceEndpoint> endpoints)
     {
           // Sample code showing how to choose endpoints based on the incoming request endpoint query
-          var endpointName = context.Request.Query["endpoint"];
-          if (endpointName.Count == 0)
-          {
-              throw new BadHttpRequestException("Invalid request.", 400);
-          }
-        
+          var endpointName = context.Request.Query["endpoint"].FirstOrDefault() ?? "";
           // Select from the available endpoints, don't construct a new ServiceEndpoint object here
           return endpoints.FirstOrDefault(s => s.Name == endpointName && s.Online) // Get the endpoint with name matching the incoming request
                ?? base.GetNegotiateEndpoint(context, endpoints); // Or fallback to the default behavior to randomly select one from primary endpoints, or fallback to secondary when no primary ones are online
@@ -182,15 +177,9 @@ private class CustomRouter : EndpointRouterDecorator
 {
     public override ServiceEndpoint GetNegotiateEndpoint(IOwinContext context, IEnumerable<ServiceEndpoint> endpoints)
     {
-        // Override the negotiate behavior to get the endpoint from query string
-        var endpointName = context.Request.Query["endpoint"];
-        if (string.IsNullOrEmpty(endpointName))
-        {
-            context.Response.StatusCode = 400;
-            context.Response.Write("Invalid request.");
-            return null;
-        }
-
+        // Sample code showing how to choose endpoints based on the incoming request endpoint query
+        var endpointName = context.Request.Query["endpoint"] ?? "";
+        // Select from the available endpoints, don't construct a new ServiceEndpoint object here
         return endpoints.FirstOrDefault(s => s.Name == endpointName && s.Online) // Get the endpoint with name matching the incoming request
                ?? base.GetNegotiateEndpoint(context, endpoints); // Or fallback to the default behavior to randomly select one from primary endpoints, or fallback to secondary when no primary ones are online
     }
