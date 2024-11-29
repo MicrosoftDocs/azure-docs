@@ -6,8 +6,8 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: how-to
-ms.date: 12/12/2022
-ms.custom: engagement-fy23
+ms.date: 06/30/2023
+ms.custom: engagement-fy25
 ---
 
 # Assess large numbers of servers in VMware environment for migration to Azure
