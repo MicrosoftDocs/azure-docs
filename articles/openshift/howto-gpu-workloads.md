@@ -6,7 +6,7 @@ ms.author: johnmarc
 ms.service: azure-redhat-openshift
 keywords: aro, gpu, openshift, red hat
 ms.topic: how-to
-ms.date: 29/11/2024
+ms.date: 11/29/2024
 ms.custom: template-how-to
 ---
 
