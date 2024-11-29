@@ -26,7 +26,7 @@ Ensure there are no locks on monitor subnet's Resource Group
  ![Screenshot of Changing Azure Function Hosting Plan in AMS from Overview Section.](articles/sap/monitor/media/enable-dedicated-hosting-plan/change-hosting-plan.png)
 
 2.	In the popup that opens click on Update and then Confirm.
- ![Screenshot of successful migration.](articles/sap/monitor/media/enable-dedicated-hosting-plan/Successful.png)
+ ![Screenshot of successful migration.](articles/sap/monitor/media/enable-dedicated-hosting-plan/successful.png)
 
 3.	When deployment succeeds. Hosting plan is updated in overview section.
 
