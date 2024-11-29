@@ -5,8 +5,8 @@ author: rashi-ms
 ms.author: rajosh
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 02/26/2024
-ms.custom: engagement-fy23
+ms.date: 09/26/2024
+ms.custom: engagement-fy25
 ---
 
 # Assessment Overview (migrate to Azure SQL)
