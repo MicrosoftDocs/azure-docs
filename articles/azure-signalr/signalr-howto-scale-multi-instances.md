@@ -122,7 +122,7 @@ services.AddSignalR()
             });
 ```
 
-`ServiceOptions.Endpoints` also supports hot-reload. You could configure `ServiceOptions` using [options pattern](/aspnet/core/fundamentals/configuration/options?#ioptionsmonitor) to hot-reload the endpoints from your configurations and customize how they are loaded. The below sample code shows how to load connection strings from one configuration section and public URL exposed by [reverse proxies](./signalr-howto-reverse-proxy-overview.md) from another:
+`ServiceOptions.Endpoints` also supports hot-reload. The below sample code shows how to load connection strings from one configuration section and public URL exposed by [reverse proxies](./signalr-howto-reverse-proxy-overview.md) from another, and as long as configuration supports hot-reload, the endpoints could be updated on the fly.
 ```cs
 services.Configure<ServiceOptions>(o =>
 {
