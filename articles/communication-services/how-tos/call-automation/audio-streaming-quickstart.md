@@ -29,28 +29,12 @@ Functionality described in this quickstart is currently in public preview.
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
-[!INCLUDE [Audio Streaming with JavaScript](./includes/audio-streaming-quickstart-js.md)]
+[!INCLUDE [Audio Streaming with javaScript](./includes/audio-streaming-quickstart-js.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
 [!INCLUDE [Audio Streaming with Python](./includes/audio-streaming-quickstart-python.md)]
 ::: zone-end
-
-
-## Audio streaming schema
-After sending through the metadata packet, Azure Communication Services will start streaming audio media to your WebSocket server. Below is an example of what the media object your server will receive looks like. 
-
-``` code
-{
-    "kind": <string>, // What kind of data this is, e.g. AudioMetadata, AudioData.
-    "audioData":{
-        "data": <string>, // Base64 Encoded audio buffer data
-        "timestamp": <string>, // In ISO 8601 format (yyyy-mm-ddThh:mm:ssZ) 
-        "participantRawID": <string>, 
-        "silent": <boolean> // Indicates if the received audio buffer contains only silence.
-    }
-}
-```
 
 
 ## Clean up resources

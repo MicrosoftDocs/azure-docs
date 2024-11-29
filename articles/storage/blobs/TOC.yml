@@ -1387,8 +1387,6 @@ items:
       href: data-lake-storage-events.md
     - name: Use with other Azure services
       href: data-lake-storage-integrate-with-services-tutorials.md
-    - name: Use with Azure services
-      href: data-lake-storage-integrate-with-services-tutorials.md
 - name: Reference
   items:
   - name: Blob Storage APIs
