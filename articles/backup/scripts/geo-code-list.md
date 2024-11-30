@@ -10,7 +10,7 @@ ms.author: v-abhmallick
 
 # Geo-code mapping
 
-This sample XML provides you an insight about the geo-codes mapped with the respective regions. Use these geo-codes to create and add custom DNS zones for private endpoint for Recovery Services vault.
+This sample XML provides you with an insight about the geo-codes mapped with the respective regions. Use these geo-codes to create and add custom Domain Name Server (DNS) zones for private endpoint for Recovery Services vault.
 
 ## Mapping details
 
