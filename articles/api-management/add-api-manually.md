@@ -22,6 +22,10 @@ If you want to import an existing API, see [related topics](#related-topics) sec
 
 In this article, we create a blank API and specify [httpbin.org](https://httpbin.org) (a public testing service) as a backend API.
 
+> [!NOTE]  
+> Azure API Management instances can be seamlessly integrated with Azure Database services, including [Azure Cosmos DB](https://learn.microsoft.com/azure/api-management/cosmosdb-data-source-policy), facilitating direct CRUD (Create, Read, Update, Delete) operations without intermediary compute resources.
+> 
+
 ## Prerequisites
 
 Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md)
