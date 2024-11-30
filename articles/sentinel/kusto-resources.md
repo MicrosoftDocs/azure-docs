@@ -49,6 +49,7 @@ Microsoft Sentinel uses Azure Monitor's Log Analytics environment and the Kusto 
 - [Rod Trent's Must Learn KQL series](https://github.com/rod-trent/MustLearnKQL)
 - [Pluralsight training: Kusto Query Language from Scratch](https://www.pluralsight.com/courses/kusto-query-language-kql-from-scratch)
 - [Log Analytics demo environment](https://aka.ms/LADemo)
+- [Blu Raven Academy: Introduction to KQL for Security Analysis](https://academy.bluraven.io/course/introduction-to-kql-for-security-analysis)
 
 ## Next steps
 
