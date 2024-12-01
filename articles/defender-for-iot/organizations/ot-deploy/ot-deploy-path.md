@@ -182,7 +182,7 @@ Your OT sensors will remain in *Learning mode* for as long as new traffic is det
 When baseline learning ends, the OT monitoring deployment process is complete, and you'll continue on in operational mode for ongoing monitoring. In operational mode, any activity that differs from your baseline data will trigger an alert.
 
 > [!TIP]
-> [Turn off learning mode manually](../how-to-manage-individual-sensors.md#turn-off-learning-mode-manually) if you feel that the current alerts in Defender for IoT reflect your network traffic accurately, and learning mode hasn't already ended automatically.
+> [Turn off learning mode manually](../how-to-manage-individual-sensors.md#turn-off-learning-mode-manually) when the current alerts in Defender for IoT reflect your network traffic accurately.
 >
 
 ## Connect Defender for IoT data to your SIEM

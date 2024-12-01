@@ -17,7 +17,6 @@ An OT network sensor starts monitoring your network automatically after it's con
 
 Initially, this activity happens in *learning* mode, which instructs your OT sensor to learn your network's usual activity, including the devices and protocols in your network, and the regular file transfers that occur between specific devices. Any regularly detected activity becomes your network's baseline traffic.
 
-
 > [!TIP]
 > Use your time in learning mode to triage your alerts and *Learn* those that you want to mark as authorized, expected activity. Learned traffic doesn't generate new alerts the next time the same traffic is detected.
 >
@@ -27,7 +26,7 @@ For more information, see [Microsoft Defender for IoT alerts](../alerts.md).
 
 ### Learn mode timeline
 
-Creating your baseline of OT alerts can take anywhere from a few days to several weeks, depending on your network size and complexity. Learning mode automatically turns off when the sensor detects a decrease in newly detected traffic, which is typically between 2-6 weeks after deployment.
+Creating your baseline of OT alerts can take anywhere from a few days to several weeks, depending on your network size and complexity. We recommend that after 2-6 weeks, depending on your network size, you manually change the Learning mode to Dynamic mode when the sensor detects a decrease in newly detected traffic.
 
 [Turn off learning mode manually before then](../how-to-manage-individual-sensors.md#turn-off-learning-mode-manually) if you feel that the current alerts accurately reflect your network activity.
 
