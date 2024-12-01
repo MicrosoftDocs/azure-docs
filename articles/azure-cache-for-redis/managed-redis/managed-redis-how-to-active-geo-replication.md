@@ -46,7 +46,7 @@ There are a few restrictions when using active geo replication:
 - On the _Flash Optimized_ tier, only the _No Eviction_ eviction policy can be used. All eviction policies are supported on the other tiers.
 - Data persistence isn't supported because active geo-replication provides a superior experience.
 - All caches within a geo-replication group must have the same configuration. For example, all caches must have the same SKU, capacity, eviction policy, clustering policy, modules, and TLS setting.
-- If one instance in a geo-repliation group is scaled, the other instances in that group must be scaled to the same size before any additional scaling can occur. See [Scaling instances in a geo-replication group](#scaling-instances-in-a-geo-replication-group) for more information.
+- If one instance in a geo-replication group is scaled, the other instances in that group must be scaled to the same size before any additional scaling can occur. See [Scaling instances in a geo-replication group](#scaling-instances-in-a-geo-replication-group) for more information.
 - You can't use the `FLUSHALL` and `FLUSHDB` Redis commands when using active geo-replication. Prohibiting the commands prevents unintended deletion of data. Use the [flush operation](#flush-operation) instead.
 
 ## Create or join an active geo-replication group
