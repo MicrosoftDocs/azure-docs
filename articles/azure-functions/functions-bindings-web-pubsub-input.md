@@ -397,7 +397,7 @@ Limited to the binding parameter types don't support a way to pass list nor arra
 
 ::: zone pivot="programming-language-csharp"
 
-When customer needs to add roles or delay buildinging the access token in the function, we suggest you to work with [server SDK for C#](/dotnet/api/overview/azure/messaging.webpubsub-readme).
+When customer needs to add roles or delay building the access token in the function, we suggest you to work with [server SDK for C#](/dotnet/api/overview/azure/messaging.webpubsub-readme).
 
 # [Isolated worker model](#tab/isolated-process)
 
