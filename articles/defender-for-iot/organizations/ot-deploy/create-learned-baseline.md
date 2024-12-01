@@ -26,7 +26,7 @@ For more information, see [Microsoft Defender for IoT alerts](../alerts.md).
 
 ### Learn mode timeline
 
-Creating your baseline of OT alerts can take anywhere from a few days to several weeks, depending on your network size and complexity. We recommend that after 2-6 weeks, depending on your network size, you manually change the Learning mode to Dynamic mode when the sensor detects a decrease in newly detected traffic.
+Creating your baseline of OT alerts can take anywhere from a few days to several weeks, depending on your network size and complexity. We recommend that after 2-6 weeks, depending on your network size, you manually change the Learning mode to Dynamic mode when the daily number of alerts decreases to a manageable level. In dynamic mode Defender for IoT continues to monitor the network for suspicious traffic and triggers alerts, but also automatically moves individual sensors to operative mode if no new alerts are triggered.
 
 [Turn off learning mode manually before then](../how-to-manage-individual-sensors.md#turn-off-learning-mode-manually) if you feel that the current alerts accurately reflect your network activity.
 
