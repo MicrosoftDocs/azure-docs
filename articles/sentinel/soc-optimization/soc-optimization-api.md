@@ -18,7 +18,7 @@ appliesto:
 
 ---
 
-# Using SOC optimizations programmatically (Preview)
+# Use SOC optimizations programmatically (Preview)
 
 Use the Microsoft Sentinel `recommendations` API to programmatically interact with SOC optimization recommendations, helping you to close coverage gaps against specific threats and tighten ingestion rates. You can get details about all current recommendations across your workspaces or a specific SOC optimization recommendation, or you can reevaluate a recommendation if you've made changes in your environment.
 

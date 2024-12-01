@@ -10,6 +10,9 @@ ms.date: 06/20/2019
 
 # Tutorial: Set hardware passwords
 
+> [!NOTE]
+> **Action Required:** Azure FXT Edge Filer will be retired on December 31, 2026. Please remove all Azure FXT Edge Filer resources by December 31, 2026. Visit https://aka.ms/fxtretirementfaq for more information.
+
 The first time you power up an Azure FXT Edge Filer node, you must set a root password. The hardware nodes are not shipped with a default password.
 
 Network ports are disabled until after the password is set and the root user signs in.

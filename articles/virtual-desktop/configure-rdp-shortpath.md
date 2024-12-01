@@ -119,7 +119,7 @@ To enable the RDP Shortpath listener on your session hosts using Group Policy in
 
 1. Make the administrative template for Azure Virtual Desktop available in your domain by following the steps in [Use the administrative template for Azure Virtual Desktop](administrative-template.md?tabs=group-policy-domain).
 
-1. Open the **Group Policy Management** console on device you use to manage the Active Directory domain.
+1. Open the **Group Policy Management** console on a device you use to manage the Active Directory domain.
 
 1. Create or edit a policy that targets the computers providing a remote session you want to configure.
 
@@ -408,7 +408,7 @@ To limit the port range used with STUN and TURN using Group Policy in an Active 
 
 1. Make the administrative template for Azure Virtual Desktop available in your domain by following the steps in [Use the administrative template for Azure Virtual Desktop](administrative-template.md?tabs=group-policy-domain).
 
-1. Open the **Group Policy Management** console on device you use to manage the Active Directory domain.
+1. Open the **Group Policy Management** console on a device you use to manage the Active Directory domain.
 
 1. Create or edit a policy that targets the computers providing a remote session you want to configure.
 

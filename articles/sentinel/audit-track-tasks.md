@@ -1,5 +1,5 @@
 ---
-title: Audit and track changes to incident tasks in Microsoft Sentinel
+title: Audit and track changes to incident tasks in Microsoft Sentinel in the Azure portal
 description: This article explains how you, as a SOC manager, can audit the history of Microsoft Sentinel incident tasks, and track changes to them, in order to gauge your task assignments and their contribution to your SOC's efficiency and effectiveness.
 author: yelevin
 ms.author: yelevin
@@ -10,7 +10,7 @@ appliesto:
 #Customer intent: As a SOC manager, I want to audit and track changes to incident tasks so that I can evaluate the effectiveness of task assignments and improve SOC efficiency.
 ---
 
-# Audit and track changes to incident tasks in Microsoft Sentinel
+# Audit and track changes to incident tasks in Microsoft Sentinel in the Azure portal
 
 [Incident tasks](incident-tasks.md) ensure comprehensive and uniform treatment of incidents across all SOC personnel. Task lists are typically defined according to determinations made by senior analysts or SOC managers, and put into practice using automation rules or playbooks.
 

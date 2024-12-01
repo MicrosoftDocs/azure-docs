@@ -16,6 +16,16 @@
             "redirect_document_id": false
         },
         {
+           "source_path_from_root": "/articles/sentinel/connect-rest-api-template.md",
+            "redirect_url": "/azure/sentinel/create-custom-connector#connect-with-the-log-ingestion-api",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/configure-data-retention.md",
+            "redirect_url": "https://learn.microsoft.com/en-us/azure/azure-monitor/logs/data-retention-configure",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/sentinel/sap/select-ingestion-profiles.md",
             "redirect_url": "/azure/sentinel/sap/reference-systemconfig-json",
             "redirect_document_id": false

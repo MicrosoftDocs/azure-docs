@@ -51,8 +51,6 @@ items:
       href: how-to-create-configure-dev-center.md
     - name: Create and configure a project from the CLI
       href: how-to-create-configure-projects.md
-    - name: Configure AZD-compatible templates
-      href: how-to-configure-azure-developer-cli-deployment-environments.md
 - name: Create and manage environments
   expanded: false
   items: 
@@ -78,7 +76,7 @@ items:
     - name: Create environments with Azure Developer CLI (azd)
       displayName: AZD, setup AZD, template, AZD compatible, AZD admin
       href: how-to-create-environment-with-azure-developer.md
-    - name: Configure AZD-compatible templates
+    - name: Configure azd-compatible templates
       displayName: AZD, setup AZD, template, AZD compatible, AZD admin
       href: how-to-configure-azure-developer-cli-deployment-environments.md 
 - name: Manage costs
