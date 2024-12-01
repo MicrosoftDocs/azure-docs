@@ -29,7 +29,7 @@ When you create a virtual network link, you can (optionally) enable autoregistra
 > [!NOTE]
 > Other methods are available for resolving DNS records in private DNS zones that don't always require a virtual network link. These methods are beyond the scope of this quickstart article. For more information, see [What is Azure DNS Private Resolver](dns-private-resolver-overview.md).
 
-In this article, a virtual machines is used in a single virtual network. The virtual network is linked to your private DNS zone with autoregistration enabled. The setup is summarized in the following figure.
+In this article, a virtual machine is used in a single virtual network. The virtual network is linked to your private DNS zone, and autoregistration is enabled. The setup is summarized in the following figure.
 
 :::image type="content" source="media/private-dns-portal/private-dns-quickstart-summary.png" alt-text="Summary diagram of the quickstart setup." border="false" lightbox="media/private-dns-portal/private-dns-quickstart-summary.png":::
 
@@ -97,7 +97,7 @@ Next, link the private DNS zone to the virtual network by adding a virtual netwo
 
 ## Create the test virtual machine
 
-Now, create a virtual machine to test autoregistgration in your private DNS zone:
+Now, create a virtual machine to test auto registration in your private DNS zone:
 
 1. On the portal page upper left, select **Create a resource**, and then select **Windows Server 2019 Datacenter**.
 2. Select **MyResourceGroup** for the resource group.
@@ -124,7 +124,7 @@ Now, create a virtual machine to test autoregistgration in your private DNS zone
 
 ## Create another DNS record
 
- You can also add records to the private DNS zone manually. The following example creates a record with the hostname **db** in the DNS Zone **private.contoso.com**. The fully qualified name of the record set is **db.private.contoso.com**. The record type is **A**, with an IP address corresponding to the autoregistered IP address of  **myVM01.private.contoso.com**.
+ You can also manually add records to the private DNS zone. The following example creates a record with the hostname **db** in the DNS Zone **private.contoso.com**. The fully qualified name of the record set is **db.private.contoso.com**. The record type is **A**, with an IP address corresponding to the autoregistered IP address of  **myVM01.private.contoso.com**.
 
 1. Search for or select **Private DNS zones** and then select the **private.contoso.com** zone.
 2. Under **DNS Management**, select **Recordsets**.
