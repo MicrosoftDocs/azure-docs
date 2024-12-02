@@ -11,10 +11,6 @@ ms.date: 08/23/2024
 
 # Create a Standard logic app workflow from a prebuilt template (Preview)
 
-> [!IMPORTANT]
-> This capability is in preview and is subject to the 
-> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
 Azure Logic Apps gives you a faster way to start creating integration applications by providing prebuilt templates to use when you build Standard workflows in the Azure portal. These workflow templates follow commonly used patterns and help you streamline development because they offer a starting point or baseline with predefined business logic and configurations.
