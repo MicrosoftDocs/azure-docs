@@ -25,7 +25,7 @@ In this tutorial, you learn how to:
 > * Add the version to a product
 > * Browse the developer portal to see the version
 
-:::image type="content" source="media/api-management-get-started-publish-versions/azure-portal.png" alt-text="Version shown in Azure portal":::
+:::image type="content" source="media/api-management-get-started-publish-versions/azure-portal.png" alt-text="Screenshot showing API versions in the Azure portal.":::
 
 ## Prerequisites
 
@@ -41,7 +41,7 @@ In this tutorial, you learn how to:
 1. Select the context menu (**...**) next to **Swagger Petstore**.
 1. Select **Add version**.
 
-:::image type="content" source="media/api-management-get-started-publish-versions/add-version-menu.png" alt-text="API context menu - add version":::
+:::image type="content" source="media/api-management-get-started-publish-versions/add-version-menu.png" alt-text="Screenshot showing command to add version in the API context menu in the portal.":::
 
 
 > [!TIP]
@@ -53,7 +53,7 @@ In Azure API Management, you choose how callers specify the API version by selec
 
 Enter the values from the following table. Then select **Create** to create your version.
 
-:::image type="content" source="media/api-management-get-started-publish-versions/add-version.png" alt-text="Add version window":::
+:::image type="content" source="media/api-management-get-started-publish-versions/add-version.png" alt-text="Screenshot showing window to create a new version in the portal.":::
 
 
 
@@ -85,7 +85,7 @@ For example, to add the version to the **Unlimited** product:
 1. Select **Swagger Petstore**, version **v1**.
 1. Click **Select**.
 
-:::image type="content" source="media/api-management-get-started-publish-versions/08-add-multiple-versions-03-add-version-product.png" alt-text="Add version to product":::
+:::image type="content" source="media/api-management-get-started-publish-versions/08-add-multiple-versions-03-add-version-product.png" alt-text="Screenshot of adding version to product in the portal.":::
 
 ## Use version sets
 
