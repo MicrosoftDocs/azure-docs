@@ -3,7 +3,7 @@ title: Create Azure Device Update for IoT Hub resources
 description: Create an Azure Device Update for Iot Hub account and instance by using the Azure portal or Azure CLI.
 author: eshashah-msft
 ms.author: eshashah
-ms.date: 11/19/2024
+ms.date: 11/27/2024
 ms.topic: how-to
 ms.service: azure-iot-hub
 ms.subservice: device-update
@@ -21,14 +21,14 @@ A Device Update instance contains updates and deployments associated with its Io
 
 # [Azure portal](#tab/portal)
 
-- **Owner** or **User Access Administrator** role permissions in an Azure subscription
-- A Standard (S1) or higher instance of Azure IoT Hub
-- An Azure Storage account to store diagnostics logs for your Device Update instance
+- To create the resources in this article, **Owner** or **User Access Administrator** role permissions in an Azure subscription
+- A Standard (S1) or higher instance of [Azure IoT Hub](/azure/iot-hub/create-hub?tabs=portal)
+- If you opt to store diagnostic logs, an Azure Storage account to store diagnostics logs for your Device Update instance
 
 # [Azure CLI](#tab/cli)
 
 - **Owner** or **User Access Administrator** role permissions in an Azure subscription
-- A Standard (S1) or higher instance of Azure IoT Hub
+- A Standard (S1) or higher instance of [Azure IoT Hub](/azure/iot-hub/create-hub?tabs=portal)
 - The Bash environment in [Azure Cloud Shell](/azure/cloud-shell/quickstart) for running Azure CLI commands. Select **Launch Cloud Shell** to open Cloud Shell now, or select the Cloud Shell icon in the top toolbar of the Azure portal.
 
   :::image type="icon" source="~/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png" alt-text="Button to launch the Azure Cloud Shell." border="false" link="https://shell.azure.com":::
@@ -63,11 +63,11 @@ A Device Update instance contains updates and deployments associated with its Io
    
    If you have the required **Owner** or **User Access Administrator** permissions in your Azure subscription, Device Update setup automatically assigns IoT Hub Data Contributor role to the Device Update service principal.
 
-1. Select **Next: Diagnostics**
-
    :::image type="content" source="media/create-device-update-account/account-details.png" alt-text="Screenshot of account details for a new Device Update account.":::
 
-1. On the **Diagnostics** tab, slide the toggle to **Microsoft diagnostics logging Enabled**. Enabling Microsoft diagnostics allows Microsoft to collect, store, and analyze diagnostic log files from your devices if they encounter an update failure.
+1. Optionally, select **Next: Diagnostics** or the **Diagnostics** tab to configure diagnostics logging as part of the instance creation process. Enabling Microsoft diagnostics allows Microsoft to collect, store, and analyze diagnostic log files from your devices if they encounter an update failure. Otherwise, select the **Networking** tab.
+
+1. To enable diagnostics logging, on the **Diagnostics** tab, slide the toggle to **Microsoft diagnostics logging Enabled**.
 
 1. Select **Select Azure Storage Account** and then select an Azure Blob storage account to link to your Device Update instance for remote diagnostic log collection. The Storage account details update automatically.
 
@@ -75,7 +75,7 @@ A Device Update instance contains updates and deployments associated with its Io
 
    :::image type="content" source="media/create-device-update-account/account-diagnostics.png" alt-text="Screenshot of diagnostic details.":::
 
-1. On the **Networking** tab, you choose the endpoints that devices can use to connect to your Device Update instance. For this example, select **Public access**.
+1. On the **Networking** tab, you can choose the endpoints that devices use to connect to your Device Update instance. For this example, you can select **Public access**. Public access is acceptable for development and testing purposes, but for production scenarios, you should choose **Private access** and [configure private endpoint connections](onfigure-private-endpoints.md).
 
 1. Select **Review**.
 
@@ -131,7 +131,7 @@ You can also configure diagnostics logging as part of the instance creation proc
 
 ## Configure access
 
-Device Update setup automatically assigns **IoT Hub Data Contributor** role to the Device Update service principal. This role allows the Device Update instance to connect and write to the linked IoT hub to run deployment, device management, and diagnostic operations. Only this Device Update service principal can access this IoT hub.
+Device Update setup automatically assigns **IoT Hub Data Contributor** role to the Device Update service principal. This role allows only this Device Update instance to connect and write to the linked IoT hub to run update deployment, device management, and diagnostic operations.
 
 If you have the required **Owner** or **User Access Administrator** permissions in your Azure subscription, you can configure access control to your Device Update resources by using a combination of roles to provide users and applications the right level of access. For more information, see [Configure access control roles for Device Update resources](configure-access-control-device-update.md).
 
