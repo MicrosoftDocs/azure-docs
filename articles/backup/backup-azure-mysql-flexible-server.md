@@ -123,7 +123,7 @@ To view the status of all backup jobs, select **All** for **Status**. The ongoin
 
 :::image type="content" source="./media/backup-azure-mysql-flexible-server/review-track-backup-jobs.png" alt-text="Screenshot that shows how to view all jobs." lightbox="./media/backup-azure-mysql-flexible-server/review-track-backup-jobs.png":::
 
-## Related content
+## Next step
 
 > [!div class="nextstepaction"]
 > [Restore an Azure Database for MySQL flexible server (preview)](backup-azure-mysql-flexible-server-restore.md)

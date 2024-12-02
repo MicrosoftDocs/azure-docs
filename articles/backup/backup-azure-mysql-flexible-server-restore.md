@@ -47,7 +47,7 @@ To restore the database, follow these steps:
 
    :::image type="content" source="./media/backup-azure-mysql-flexible-server-restore/review-restore.png" alt-text="Screenshot that shows how to trigger restore operation." lightbox="./media/backup-azure-mysql-flexible-server-restore/review-restore.png":::
 
-## Related content
+## Next step
 
 > [!div class="nextstepaction"]
 > [Back up an Azure Database for MySQL flexible server (preview)](backup-azure-mysql-flexible-server.md)
