@@ -9,7 +9,7 @@ ms.date: 08/23/2024
 # Customer intent: As a developer, I want to use a template as a faster way to build my Standard logic app workflow that runs in single-tenant Azure Logic Apps.
 ---
 
-# Create a Standard logic app workflow from a prebuilt template (Preview)
+# Create a Standard logic app workflow from a prebuilt template 
 
 > [!IMPORTANT]
 > This capability is in preview and is subject to the 
