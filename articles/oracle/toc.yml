@@ -31,26 +31,14 @@ items:
       href: oracle-db/oracle-database-plan-ip.md
     - name: Delegated subnet limits
       href: oracle-db/oracle-database-delegated-subnet-limits.md      
-<<<<<<< HEAD
-    - name: FAQ
-      href: oracle-db/faq-oracle-database-azure.md
-    - name: References
-      items:
-      - name: Well Architected Framework (WAF)
-        href: /azure/well-architected/
-      - name: Cloud Adoption Framework (CAF)
-        href: /azure/cloud-adoption-framework/
-      - name: Azure VMware Solution landing zone accelerator
-        href: /azure/cloud-adoption-framework/scenarios/azure-vmware/enterprise-scale-landing-zone
-=======
-- name: FAQ
-  href: oracle-db/faq-oracle-database-azure.md
-- name: References
-  items:
-  - name: Well Architected Framework (WAF)
-    href: /azure/well-architected/
-  - name: Cloud Adoption Framework (CAF)
-    href: /azure/cloud-adoption-framework/
-  - name: Azure VMware Solution landing zone accelerator
-    href: /azure/cloud-adoption-framework/scenarios/azure-vmware/enterprise-scale-landing-zone
->>>>>>> 58b8d3c99153876560025862ada6e7873a5b1c6a
+  - name: FAQ
+    href: oracle-db/faq-oracle-database-azure.md
+  - name: References
+    items:
+    - name: Well Architected Framework (WAF)
+      href: /azure/well-architected/
+    - name: Cloud Adoption Framework (CAF)
+      href: /azure/cloud-adoption-framework/
+    - name: Azure VMware Solution landing zone accelerator
+      href: /azure/cloud-adoption-framework/scenarios/azure-vmware/enterprise-scale-landing-zone
+
