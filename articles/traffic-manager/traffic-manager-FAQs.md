@@ -5,7 +5,7 @@ services: traffic-manager
 author: greg-lindsay
 ms.service: azure-traffic-manager
 ms.topic: conceptual
-ms.date: 06/03/2024
+ms.date: 12/03/2024
 ms.author: greglin
 ---
 
@@ -89,6 +89,12 @@ One of the metrics provided by Traffic Manager is the number of queries responde
 When you delete a Traffic Manager profile, the associated domain name is reserved for a period of time. Other Traffic Manager profiles in the same tenant can immediately reuse the name. However, a different Azure tenant isn't able to use the same profile name until the reservation expires. This feature enables you to maintain authority over the namespaces that you deploy, eliminating concerns that the name might be taken by another tenant.
 
 For example, if your Traffic Manager profile name is **label1**, then **label1.trafficmanager.net** is reserved for your tenant even if you delete the profile. Child namespaces, such as **xyz.label1** or **123.abc.label1** are also reserved. When the reservation expires, the name is made available to other tenants. The name associated with a disabled profile is reserved indefinitely. For questions about the length of time a name is reserved, contact your account representative. 
+
+### What version of TLS is required by Traffic Manager?
+
+To enhance security and provide best-in-class encryption for your data, Traffic Manger requires interactions with services to be secured using Transport Layer Security (TLS) 1.2 or later before February 28,2025. Traffic Manger support for TLS 1.0 and 1.1 will end on this date, prior to the [Azure-wide TLS 1.0 and TLS 1.1 retirement date](https://azure.microsoft.com/updates?id=update-retirement-tls1-0-tls1-1-versions-azure-services).
+
+For information about migrating from TLS 1.0 and 1.1 to TLS 1.2, see [Solving the TLS 1.0 Problem](/security/engineering/solving-tls1-problem).
 
 ## Traffic Manager Geographic traffic routing method
 
