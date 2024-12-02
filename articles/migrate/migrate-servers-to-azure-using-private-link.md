@@ -6,8 +6,8 @@ ms.author: vijain
 zone_pivot_groups: migrate-agentlessvmware-hyperv-agentbased
 ms.topic: how-to
 ms.service: azure-migrate
-ms.date: 12/14/2022
-ms.custom: engagement-fy23
+ms.date: 11/11/2024
+ms.custom: engagement-fy25
 ---
 
 # Migrate servers to Azure using Private Link
@@ -235,7 +235,7 @@ With discovery completed, you can begin replication of Hyper-V VMs to Azure.
     > You can update replication settings any time before replication starts, **Manage** > **Replicating machines**. Settings can't be changed after replication starts. 
 
     Next, follow the instructions to [perform migrations](tutorial-migrate-hyper-v.md#migrate-vms). 
-]
+
 ### Grant access permissions to the Recovery Services vault
 
 You must grant the permissions to the Recovery Services vault for authenticated access to the cache/replication storage account.

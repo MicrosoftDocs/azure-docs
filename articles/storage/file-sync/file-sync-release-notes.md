@@ -85,7 +85,7 @@ The improvement applies to the following scenarios, when the server endpoint loc
 
 This improvement will be gradually enabled in all regions within the next month. Once the improvement is enabled in your region, you will see a Provisioning steps tab in the portal after server endpoint creation which allows you to easily determine when the server endpoint is ready for use. For more information, see [Create an Azure File Sync server endpoint](file-sync-server-endpoint-create.md#provisioning-steps) documentation.
 
-**Preview: Managed Identity support for Azure File Sync service and servers**  
+**Preview: Managed Identities support for Azure File Sync service and servers**  
 Azure File Sync support for managed identities eliminates the need for shared keys as a method of authentication by utilizing a system-assigned managed identity provided by Microsoft Entra ID.
 
 When you enable this configuration, the system-assigned managed identities will be used for the following scenarios:

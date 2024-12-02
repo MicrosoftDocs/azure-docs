@@ -5,8 +5,8 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 08/21/2024
-ms.custom: mvc, subject-rbac-steps, engagement-fy24, references_regions
+ms.date: 10/23/2024
+ms.custom: mvc, subject-rbac-steps, engagement-fy25, references_regions
 ---
 
 # Tutorial: Discover Spring Boot applications running in your datacenter (preview)

@@ -142,7 +142,7 @@
       - name: P2S gateway configuration
         items:
         - name: Azure portal
-          href: vpn-gateway-howto-point-to-site-resource-manager-portal.md
+          href: point-to-site-certificate-gateway.md
         - name: Azure PowerShell
           href: vpn-gateway-howto-point-to-site-rm-ps.md
       - name: VPN client configuration

@@ -87,10 +87,6 @@ items:
       href: quickstarts/sms/send.md
     - name: Receive and reply to SMS
       href: quickstarts/sms/receive-sms.md
-  - name: Voice, Video and Chat
-    items:
-    - name: Calling with chat
-      href: quickstarts/ui-library/get-started-calling-with-chat.md
   - name: Voice and Video
     items:
     - name:  Connect to a call
@@ -109,6 +105,8 @@ items:
           href: quickstarts/identity/access-tokens.md
         - name: Add Teams meeting calling to your app
           href: quickstarts/voice-video-calling/get-started-teams-interop.md
+        - name: Connect Teams users to Azure calls
+          href: quickstarts/voice-video-calling/get-started-teams-interop-group-calls.md
       - name: Use a Teams identity
         items:
           - name: Generate an access token for a Teams User
@@ -121,8 +119,6 @@ items:
           href: quickstarts/voice-video-calling/get-started-teams-call-queue.md
         - name: Connect to Auto Attendant
           href: quickstarts/voice-video-calling/get-started-teams-auto-attendant.md
-    - name: Connect Teams users to Azure calls
-      href: quickstarts/voice-video-calling/get-started-teams-interop-group-calls.md
     - name: Connect to a Room call
       items:
       - name: Create a room
@@ -335,6 +331,8 @@ items:
         href: how-tos/cte-calling-sdk/manage-calls.md
       - name: Manage Teams meeting Lobby
         href: how-tos/calling-sdk/lobby.md
+      - name: Manage call duration
+        href: tutorials/call-duration.md
       - name: PowerPoint Live
         href: how-tos/calling-sdk/powerpoint-live.md
       - name: Record calls
@@ -439,6 +437,8 @@ items:
         href: how-tos/calling-sdk/push-notifications.md
       - name: Using the mobile UI Library for voice and video
         items:
+        - name: Add chat capabilities
+          href: quickstarts/ui-library/get-started-calling-with-chat.md
         - name: Configure default orientation
           href: how-tos/ui-library-sdk/orientation.md
         - name: Configure closed captions
@@ -657,8 +657,14 @@ items:
       href: samples/chat-hero-sample.md
     - name: Authentication service hero sample
       href: samples/trusted-auth-sample.md
+  - name: Email
+    items:
+    - name: Azure AI to detect sensitive data example
+      href: samples/email-detect-sensitive-content.md
   - name: Call Automation
     items:
+    - name: Call Automation Azure Open AI sample
+      href: samples/call-automation-azure-openai-sample.md
     - name: Call Automation AI sample
       href: samples/call-automation-ai.md
 - name: Concepts
@@ -951,7 +957,7 @@ items:
         href: concepts/numbers/number-lookup-concept.md
       - name: Number Lookup SDK
         href: concepts/numbers/number-lookup-sdk.md
-      - name: Country availability
+      - name: Country/region availability
         href: concepts/numbers/sub-eligibility-number-capability.md
       - name: Emergency calling
         href: concepts/telephony/emergency-calling-concept.md
@@ -1429,7 +1435,7 @@ items:
       href: /java/api/overview/azure/communication-common-readme
     - name: Common (iOS)
       href: https://azure.github.io/azure-sdk-for-ios/AzureCommunicationCommon/index.html
-  - name: Country phone number management
+  - name: Country/region phone number management
     items:
     - name: Phone number management for Argentina
       href: concepts/numbers/phone-number-management-for-argentina.md

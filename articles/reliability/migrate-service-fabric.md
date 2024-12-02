@@ -35,7 +35,7 @@ Sample templates are available at [Service Fabric cross availability zone templa
 Required:
 
 * Standard SKU cluster.
-* Three [availability zones in the region](availability-zones-service-support.md#azure-regions-with-availability-zone-support).
+* Three [availability zones in the region](availability-zones-region-support.md).
 
 
 Recommended:

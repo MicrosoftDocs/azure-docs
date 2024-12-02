@@ -6,13 +6,13 @@ author: chachachachami
 ms.service: azure-health-data-services
 ms.subservice: events
 ms.topic: reference
-ms.date: 01/31/2024
+ms.date: 11/26/2024
 ms.author: chrupa
 ---
 
 # Events FAQ
 
-Events let you subscribe to data changes in the FHIR&reg; or DICOM&reg; service and get notified through Azure Event Grid. You can use events to trigger workflows, automate tasks, send alerts, and more. In this FAQ, you’ll find answers to some common questions about events.
+Events let you subscribe to data changes in the FHIR&reg; or DICOM&reg; service and get notified through Azure Event Grid. You can use events to trigger workflows, automate tasks, send alerts, and more. In this FAQ, you find answers to some common questions about events.
 
 **Can I use events with a non-Microsoft FHIR or DICOM service?**
 
@@ -20,7 +20,7 @@ No. The Events capability only supports the Azure Health Data Services FHIR and 
 
 **What FHIR resource changes are supported by events?**
 
-Events are generated from these FHIR service types:
+Events are generated from the following FHIR service types.
 
 - **FhirResourceCreated**. The event emitted after a FHIR resource is created.
 
@@ -34,11 +34,11 @@ For more information about delete types in the FHIR service, see [REST API capab
 
 Yes. The events capability emits notifications of data changes at the FHIR resource level. 
 
-Events support these [FHIR bundle types](http://hl7.org/fhir/R4/valueset-bundle-type.html):
+Events support the following [FHIR bundle types](http://hl7.org/fhir/R4/valueset-bundle-type.html).
 
-- **Batch**. An event is emitted for each successful data change operation in a bundle. If one of the operations generates an error, no event is emitted for that operation. For example: the batch bundle contains five operations, however, there's an error with one of the operations. Events are emitted for the four successful operations with no event emitted for the operation that generated an error.
+- **Batch**. An event is emitted for each successful data change operation in a bundle. If one of the operations generates an error, no event is emitted for that operation. <br>For example: a batch bundle contains five operations, one of which has an error. Events are emitted for the four successful operations with no event emitted for the operation that generated an error.
 
-- **Transaction**. An event is emitted for each successful bundle operation as long as there are no errors. If there are any errors within a transaction bundle, then no events are emitted. For example: the transaction bundle contains five operations, however, there's an error with one of the operations. No events are emitted for that bundle.
+- **Transaction**. An event is emitted for each successful bundle operation as long as there are no errors. If there are any errors within a transaction bundle, then no events are emitted. <br>For example: a batch bundle contains five operations, one of which has an error. No events are emitted for that bundle.
 
 > [!NOTE]
 > Events aren't sent in the sequence of the data operations in the FHIR bundle.
@@ -55,7 +55,7 @@ Events are generated from the following DICOM service types:
 
 **What is the payload of an events message?**
 
-For a description of the events message structure and required and nonrequired elements, see [Events message structures](events-message-structure.md). 
+For a description of the events message structure, including required and nonrequired elements, see [Events message structures](events-message-structure.md). 
 
 **What is the throughput for events messages?**
 
@@ -67,7 +67,7 @@ There are no extra charges for using [Azure Health Data Services events](https:/
 
 **How do I subscribe separately to multiple FHIR or DICOM services in the same workspace?**
 
-Use the Event Grid filtering feature. There are unique identifiers in the event message payload to differentiate accounts and workspaces. You can find a global unique identifier for workspace in the `source` field, which is the Azure Resource ID. You can locate the unique FHIR account name in that workspace in the `data.resourceFhirAccount` field. You can locate the unique DICOM account name in the workspace in the `data.serviceHostName` field. When you create a subscription, use the filtering operators to select the events you want to include in the subscription.
+Use the Event Grid filtering feature. There are unique identifiers in the event message payload to differentiate accounts and workspaces. You can find a global unique identifier for a workspace in the `source` field, which is the Azure Resource ID. You can locate the unique FHIR account name in that workspace in the `data.resourceFhirAccount` field. You can locate the unique DICOM account name in the workspace in the `data.serviceHostName` field. When you create a subscription, use the filtering operators to select the events you want to include in the subscription.
 
 :::image type="content" source="media\event-grid\event-grid-filters.png" alt-text="Screenshot of the Event Grid filters tab." lightbox="media\event-grid\event-grid-filters.png":::
 
@@ -81,12 +81,12 @@ Yes. Event Grid supports Health Insurance Portability and Accountability Act (HI
 
 **How long does it take to receive an events message?**
 
-On average, you should receive your event message within one second after a successful HTTP request. 99.99% of the event messages should be delivered within five seconds unless the limitation of either the FHIR service, DICOM service, or [Event Grid](../../event-grid/quotas-limits.md) is reached.
+On average, you should receive your events message within one second after a successful HTTP request. 99.99% of the event messages should be delivered within five seconds unless limitation of the FHIR service, DICOM service, or [Event Grid](../../event-grid/quotas-limits.md) is reached.
 
 **Is it possible to receive duplicate events messages?**
 
-Yes. The Event Grid guarantees at least one events message delivery with its push mode. There may be cases when the event delivery request returns with a transient failure status code for random reasons. In this situation, the Event Grid considers it a delivery failure and resends the events message. For more information, see [Azure Event Grid delivery and retry](../../event-grid/delivery-and-retry.md).
+Yes. The Event Grid guarantees at least one event message delivery with its push mode. There may be cases when the event delivery request returns with a transient failure status code. In this situation, the Event Grid considers it a delivery failure and resends the events message. For more information, see [Azure Event Grid delivery and retry](../../event-grid/delivery-and-retry.md).
 
-Generally, we recommend that developers ensure idempotency for the event subscriber. The event ID or the combination of all fields in the `data` property of the message content are unique for each event. You can rely on them to deduplicate. 
-   
+Generally, we recommend developers ensure idempotency for the event subscriber. The event ID or the combination of all fields in the `data` property of the message content are unique for each event. You can rely on them to deduplicate.
+
 [!INCLUDE [FHIR and DICOM trademark statement](../includes/healthcare-apis-fhir-dicom-trademark.md)]

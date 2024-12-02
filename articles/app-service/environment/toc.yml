@@ -28,7 +28,7 @@
   - name: Resiliency
     items:
     - name: Migrate to availability zone support
-      href: ../../availability-zones/migrate-app-service-environment.md
+      href: ../../reliability/migrate-app-service-environment.md
   - name: Certificates
     href: overview-certificates.md
   - name: Diagnostics

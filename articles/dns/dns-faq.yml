@@ -79,7 +79,7 @@ sections:
       - question: |
           Does Azure DNS support Domain Name System Security Extensions (DNSSEC)?
         answer: |
-          Yes. See [DNSSEC overview](dnssec.md).
+          Yes. Azure Public DNS supports DNSSEC. For more information, see [DNSSEC overview](dnssec.md).
           
       - question: |
           Does Azure DNS support zone transfers (AXFR/IXFR)?
