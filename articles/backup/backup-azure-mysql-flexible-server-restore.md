@@ -49,4 +49,5 @@ To restore the database, follow these steps:
 
 ## Related content
 
-- [Back up an Azure Database for MySQL flexible server (preview)](backup-azure-mysql-flexible-server.md)
+> [!div class="nextstepaction"]
+> [Back up an Azure Database for MySQL flexible server (preview)](backup-azure-mysql-flexible-server.md)
