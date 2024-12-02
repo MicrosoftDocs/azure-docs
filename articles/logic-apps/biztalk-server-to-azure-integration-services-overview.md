@@ -408,7 +408,7 @@ Beyond the core XML transformations, BizTalk Server also provides encoding and d
 
   For basic JSON transformations in logic app workflows, you can use built-in data operations, such as the Compose action or Parse JSON action. However, some scenarios might require advanced and complex transformations that include elements such as iterations, control flows, and variables. For transformations between JSON to JSON, JSON to text, XML to JSON, or XML to text, you can create a Liquid template that describes the required mapping or transformation using the Liquid open-source template language.
 
-- XML Operations
+- XML operations
 
   For XML transformations in logic app workflows, you can use built-in XML operations, such as the Compose XML action or Parse XML action.
 
