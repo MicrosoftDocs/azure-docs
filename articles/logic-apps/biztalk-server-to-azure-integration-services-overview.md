@@ -785,11 +785,11 @@ The following section describes hosting options for BizTalk Server and Azure Int
 
 #### BizTalk Server
 
-BizTalk Server 2020 supports the following Microsoft platforms and products:
+BizTalk Server 2020 supports the following Microsoft platforms and products (with the Cummlative update 6):
 
-- Windows Server 2019, Windows Server 2016, and Windows 10
+- Windows Server 2022, Windows Server 2019, and Windows 11
 - Visual Studio 2019 Enterprise and Visual Studio 2019 Professional
-- SQL Server 2019, SQL Server 2017, and SQL Server 2016 SP2
+- SQL Server 2022, SQL Server 2019
 - Office 2019 and Office 2016
 
 You can install and run BizTalk Server on your own hardware, on-premises virtual machine, or Azure virtual machines. Azure virtual machines give you the flexibility of virtualization for a wide range of computing solutions with support for BizTalk Server, Windows Server, SQL Server, and more. All current generation virtual machines include load balancing and auto-scaling at no cost.
