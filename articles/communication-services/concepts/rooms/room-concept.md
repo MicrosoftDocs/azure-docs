@@ -69,16 +69,14 @@ At a high level, to conduct calls in a Virtual Rooms you need to create and mana
 | Get list of users invited to join a Virtual Room | ✔️ | ❌ |  ❌ |
 | A user initiates a Virtual Rooms call or joins an in-progress call | ❌ | ✔️ |  ❌ |
 | Dial-out to a PSTN user  | ❌ | ✔️ | ✔️ |
-| Add/Remove VoIP participants to an in-progress call | ❌ | ✔️ |  ✔️* |
-| Get list of participants who joined the in-progress call | ❌ | ✔️ |  ✔️* |
+| Add/Remove VoIP participants to an in-progress call | ❌ | ✔️ |  ✔️ |
+| Get list of participants who joined the in-progress call | ❌ | ✔️ |  ✔️ |
 | Start/Stop call captions and change captions language | ❌ | ✔️ |  ❌ |
 | Manage call recording | ❌ | ❌ |  ✔️ |
-| Send/Receive DTMF to/from PSTN participants | ❌ | ❌ | ✔️* |
-| Play audio prompts to participants  | ❌ | ❌ | ✔️* |
+| Send/Receive DTMF to/from PSTN participants | ❌ | ❌ | ✔️ |
+| Play audio prompts to participants  | ❌ | ❌ | ✔️ |
 
 [Calling client SDK](../voice-video-calling/calling-sdk-features.md#detailed-capabilities) provides the full list of client-side in-call operations and explains how to use them.
-
-\* Currently in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Managing Virtual Rooms calls from the server-side using Call Automation Server SDK
 
@@ -87,8 +85,8 @@ Call Automation SDK empowers developers to manage Virtual Rooms calls from the s
 | Call Automation capability | Supported in Rooms call | 
 | ------ | :------: |
 | Dial-out to PSTN participant | ✔️ |
-| Send/Read DTMF to/from PSTN participant * | ✔️ |
-| Send announcements to specific call participants * | ✔️ |
+| Send/Read DTMF to/from PSTN participant | ✔️ |
+| Send announcements to specific call participants | ✔️ |
 | Add/Remove a VoIP participant from an ongoing call | ✔️ |
 | End call for all users | ✔️ |
 | Call transcriptions | ❌ |
