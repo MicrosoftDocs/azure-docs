@@ -84,7 +84,7 @@ While this step is optional, we recommend that you enable the SAP data connector
 
     For more information, see the [SAP Community](https://community.sap.com/t5/application-development-blog-posts/analysis-and-recommended-settings-of-the-security-audit-log-sm19-rsau/ba-p/13297094) and the [SAP documentation](https://help.sap.com/docs/ABAP_PLATFORM_NEW/4a368c163b08418890a406d413933ba7/e15d9acae75c11d2b451006094b9ea64.html?locale=en-US&version=LATEST).
 
-1. To support SAP BASIS versions 7.31-75 SP12 in sending client IP address information from the security audit logs, change the relevant logging setting for SAP table USR41. For more information, see the [SAP documentation](https://help.sap.com/doc/saphelp_scm700_ehp02/7.0.2/en-US/73/86ce4dc98d461283f25940367dd9c3/frameset.htm).
+1. To support SAP BASIS versions 7.31-7.5 SP12 in sending client IP address information from the security audit logs, change the relevant logging setting for SAP table USR41. For more information, see the [SAP documentation](https://help.sap.com/doc/saphelp_scm700_ehp02/7.0.2/en-US/73/86ce4dc98d461283f25940367dd9c3/frameset.htm).
 
 ## Verify that the PAHI table is updated at regular intervals
 
