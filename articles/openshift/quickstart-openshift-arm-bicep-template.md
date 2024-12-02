@@ -21,7 +21,7 @@ This article describes how to use either Azure Resource Manager template (ARM te
 Bicep is a domain-specific language (DSL) that uses declarative syntax to deploy Azure resources. In a Bicep file, you define the infrastructure you want to deploy to Azure, and then use that file throughout the development lifecycle to repeatedly deploy your infrastructure. Your resources are deployed in a consistent manner.
 
 > [!NOTE]
-> For information on deploying Azure Red Hat OpenShift clusters using terraform, see [Microsoft.RedHatOpenShift openShiftClusters Terraform](/azure/templates/microsoft.redhatopenshift/openshiftclusters?pivots=deployment-language-terraform).
+> For information on deploying Azure Red Hat OpenShift clusters using Terraform, see [Microsoft.RedHatOpenShift openShiftClusters Terraform](/azure/templates/microsoft.redhatopenshift/openshiftclusters?pivots=deployment-language-terraform).
 > 
 
 ## Prerequisites
