@@ -9,7 +9,7 @@ ms.author: kewear, haroldcampos
 ms.reviewer: estfan, azla
 ms.topic: conceptual
 ms.date: 11/04/2024
-# Customer intent: As a BizTalk Server customer, I want to better understand why I should migrate to Azure Logic Apps (in the Cloud or Hybrid) from BizTalk Server.
+# Customer intent: As a BizTalk Server customer, I want to better understand why I should migrate from BizTalk Server to Azure Logic Apps in the cloud or hybrid deployment.
 ---
 
 # Why migrate from BizTalk Server to Azure Logic Apps?
