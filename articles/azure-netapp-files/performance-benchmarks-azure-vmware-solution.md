@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 02/07/2024
+ms.date: 12/02/2024
 ms.author: anfdocs
 ---
 # Azure NetApp Files datastore performance benchmarks for Azure VMware Solution
@@ -21,7 +21,15 @@ The following `read:write` I/O ratios were tested for each scenario: `100:0, 75:
 
 Benchmarks documented in this article were performed with sufficient volume throughput to prevent soft limits from affecting performance. Benchmarks can be achieved with Azure NetApp Files Premium and Ultra service levels, and in some cases with Standard service level. For more information on volume throughput, see [Performance considerations for Azure NetApp Files](azure-netapp-files-performance-considerations.md).
 
-Refer to the [Azure NetApp Files datastore for Azure VMware Solution TCO Estimator](https://aka.ms/anfavscalc) to understand the sizing and associated cost benefits of Azure NetApp Files datastores.
+Consult the [Azure NetApp Files datastore for Azure VMware Solution TCO Estimator](https://aka.ms/anfavscalc) to understand the sizing and associated cost benefits of Azure NetApp Files datastores.
+
+## Latency
+
+Traffic latency from AVS to Azure NetApp Files datastores varies from submillisecond (for environments under minimal load) up to 2-3 milliseconds (for environments under medium to heavy load). The latency is potentially higher for environments that attempt to push beyond the throughput limits of various components. Latency and throughput may vary depending on several factors, including I/O size, read/write ratios, competing network traffic, and so on.
+
+
+
+<!-- -->
 
 ## Environment details  
 
