@@ -4,7 +4,7 @@ description: How to monitor health and performance of Apache Hadoop clusters in 
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 12/05/2023
+ms.date: 12/02/2024
 ---
 
 # Monitor cluster performance in Azure HDInsight

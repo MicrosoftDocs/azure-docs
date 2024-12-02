@@ -5,7 +5,7 @@ ms.service: azure-hdinsight
 ms.topic: troubleshooting
 author: reachnijel 
 ms.author: nijelsf
-ms.date: 12/08/2023
+ms.date: 12/02/2024
 ---
 
 # Azure HDInsight Interactive Query Cluster (Hive LLAP) sizing guide
