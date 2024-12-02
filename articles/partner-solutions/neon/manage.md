@@ -5,7 +5,7 @@ author: ProfessorKendrick
 ms.topic: how-to
 ms.custom:
 
-ms.date: 11/22/2024
+ms.date: 12/04/2024
 ---
 
 # Manage your Neon integration through the portal (Preview)
