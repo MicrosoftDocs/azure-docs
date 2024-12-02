@@ -569,7 +569,7 @@ BizTalk includes [Enterprise Single Sign-On (SSO)](/biztalk/core/enterprise-sing
 
 - Managed identities
 
-  Azure Logic Apps Standard can authenticate to storage accounts using [managed identity](../active-directory/managed-identities-azure-resources/overview.md). Also, some connectors support using managed identities for authenticating access to resources protected by Microsoft Entra ID. When you use a managed identity to authenticate your connection, you don't have to provide credentials, secrets, or Microsoft Entra tokens.
+  Azure Logic Apps (Standard) can authenticate access to storage accounts by using a [managed identity](../active-directory/managed-identities-azure-resources/overview.md). Also, some connectors support using managed identities for authenticating access to resources protected by Microsoft Entra ID. When you use a managed identity to authenticate your connection, you don't have to provide credentials, secrets, or Microsoft Entra tokens.
 
 ### Application management and access management
 
