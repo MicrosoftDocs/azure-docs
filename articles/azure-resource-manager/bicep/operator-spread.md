@@ -112,7 +112,7 @@ resource mystorage 'Microsoft.Storage/storageAccounts@2023-05-01' = {
   }
   kind: 'StorageV2'
   properties: {
-    ...(tier != '' ? {accesssTier: tier} : {})
+    ...(tier != '' ? {accessTier: tier} : {})
   } 
 }
 ```
