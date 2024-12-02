@@ -54,7 +54,7 @@ If you've already deployed Bastion, use the following steps to enable session re
 1. In the Azure portal, go to your Bastion resource.
 1. On your Bastion page, in the left pane, select **Configuration**.
 1. On the Configuration page, for Tier, select **Premium** if it isn't already selected. This feature requires the Premium SKU.
-1. Select **Session Recording (Preview)** from the listed features.
+1. Select **Session Recording** from the listed features.
 1. Select **Apply**. Bastion immediately begins updating the settings for your bastion host. Updates take about 10 minutes.
 
 ## Configure storage account container
