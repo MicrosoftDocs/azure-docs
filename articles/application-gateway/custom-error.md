@@ -55,6 +55,7 @@ To create a custom error page, you should
 - ensure the error page is publicly accessible and return a 200 response.
 - ensure the error page should be in \*.htm or \*.html extension type.
 - ensure the page size is less than 1 MB.
+- ensure the network access settings are set to "enabled from all networks" when using an Azure Blob storage account.
 
 You may reference internal or external images/CSS for this HTML file. For externally referenced resources, use absolute URLs that are publicly accessible. Be aware of the HTML file size when using base64-encoded inline images, JavaScript, or CSS.
 

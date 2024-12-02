@@ -14,14 +14,13 @@ ai-usage: ai-assisted
 
 # Configure dataflow endpoints for local storage
 
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
+[!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
 
-To send data to local storage in Azure IoT Operations Preview, you can configure a dataflow endpoint. This configuration allows you to specify the endpoint, authentication, table, and other settings.
+To send data to local storage in Azure IoT Operations, you can configure a dataflow endpoint. This configuration allows you to specify the endpoint, authentication, table, and other settings.
 
 ## Prerequisites
 
-- An instance of [Azure IoT Operations Preview](../deploy-iot-ops/howto-deploy-iot-operations.md)
-- A [configured dataflow profile](howto-configure-dataflow-profile.md)
+- An instance of [Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md)
 - A [PersistentVolumeClaim (PVC)](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)
 
 ## Create a local storage dataflow endpoint
@@ -54,13 +53,13 @@ param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 param endpointName string = '<ENDPOINT_NAME>'
 param persistentVCName string = '<PERSISTENT_VC_NAME>'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2024-09-15-preview' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2024-11-01' existing = {
   name: aioInstanceName
 }
 resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
   name: customLocationName
 }
-resource localStorageDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-09-15-preview' = {
+resource localStorageDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-11-01' = {
   parent: aioInstance
   name: endpointName
   extendedLocation: {
@@ -82,18 +81,18 @@ Then, deploy via Azure CLI.
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 Create a Kubernetes manifest `.yaml` file with the following content.
 
 ```yaml
-apiVersion: connectivity.iotoperations.azure.com/v1beta1
+apiVersion: connectivity.iotoperations.azure.com/v1
 kind: DataflowEndpoint
 metadata:
   name: <ENDPOINT_NAME>
   namespace: azure-iot-operations
 spec:
-  endpointType: localStorage
+  endpointType: LocalStorage
   localStorageSettings:
     persistentVolumeClaimRef: <PVC_NAME>
 ```

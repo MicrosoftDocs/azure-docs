@@ -139,7 +139,7 @@ To enable location services using Microsoft Intune:
 
 To enable location services without Intune, you can use Group Policy to configure registry values. You can also configure location redirection using Group Policy. Configuring location services this way doesn't prevent users from changing its settings.
 
-1. Open the **Group Policy Management** console on device you use to manage the Active Directory domain.
+1. Open the **Group Policy Management** console on a device you use to manage the Active Directory domain.
 
 1. Create or edit a policy that targets the computers providing a remote session you want to configure.
 
@@ -264,7 +264,7 @@ To test location redirection:
       }
       ```
       
-      The output is similar to the following output:
+      The output is similar to the following example:
 
       ```output
       Latitude           : 47.64354

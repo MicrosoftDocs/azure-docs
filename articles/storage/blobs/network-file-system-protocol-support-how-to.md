@@ -29,7 +29,7 @@ Currently, the only way to secure the data in your storage account is by using a
 Any other tools used to secure data, including account key authorization, Microsoft Entra security, and access control lists (ACLs) can't be used to authorize an NFS 3.0 request. In fact, if you add an entry for a named user or group to the ACL of a blob or directory, that file becomes inaccessible on the client for non-root users. You would have to remove that entry to restore access to non-root users on the client.
 
 > [!IMPORTANT]
-> The NFS 3.0 protocol uses ports 111 and 2048. If you're connecting from an on-premises network, make sure that your client allows outgoing communication through those ports. If you have granted access to specific VNets, make sure that any network security groups associated with those VNets don't contain security rules that block incoming communication through those ports.
+> The NFS 3.0 protocol uses ports 111 and 2049. If you're connecting from an on-premises network, make sure that your client allows outgoing communication through those ports. If you have granted access to specific VNets, make sure that any network security groups associated with those VNets don't contain security rules that block incoming communication through those ports.
 
 ## Step 3: Create and configure a storage account
 

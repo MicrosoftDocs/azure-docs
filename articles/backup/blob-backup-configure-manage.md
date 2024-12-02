@@ -186,6 +186,24 @@ To stop backup for a storage account, follow these steps:
 
 After stopping backup, you can disable other storage data protection capabilities (enabled for configuring backups) from the data protection blade of the storage account.
 
+## Update the backup instance
+
+After you have configured the backup, you can change the associated policy with a backup instance. For vaulted backups, you can even change the containers selected for backup.
+To update the backup instance, follow these steps:
+ 
+1. Go to the **Backup vault** dashboard.
+1. On the **Backup Items** tile, select **Azure Blobs (Azure Storage)** as the datasource type.
+1. On the **Backup instance** blade, select the backup instance for which you want to change the Backup policy, and then select **Edit backup instance**.
+ 
+   :::image type="content" source="./media/blob-backup-configure-manage/edit-backup-instance.png" alt-text="Screenshot shows  how to edit a backup instance." lightbox="./media/blob-backup-configure-manage/edit-backup-instance.png":::
+
+1. Select the new policy that you want to apply to the storage account blobs.
+ 
+   :::image type="content" source="./media/blob-backup-configure-manage/change-backup-policy.png" alt-text="Screenshot shows  how to change a backup policy." lightbox="./media/blob-backup-configure-manage/change-backup-policy.png":::
+
+1. Select **Save**.
+
+
 
 ## Next steps
 
