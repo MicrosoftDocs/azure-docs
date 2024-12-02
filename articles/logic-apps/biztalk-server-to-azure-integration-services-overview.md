@@ -812,7 +812,7 @@ You can install and run BizTalk Server on your own hardware, on-premises virtual
 
 - Hybrid deployment model (preview)
 
-  Azure Logic Apps offers a hybrid deployment model so that you can deploy and host Standard logic app workflows in on-premises, private cloud, or public cloud scenarios. This model gives you the capabilities to host integration solutions in partially connected environments when you need to use local processing, data storage, and network access. With the hybrid option, you have the freedom and flexibility to choose the best environment for your workflows. For more information, see [Set up your own infrastructure for Standard logic apps using hybrid deployment (Preview)](./set-up-standard-workflows-hybrid-deployment-requirements.md)
+  Azure Logic Apps offers a hybrid deployment model so that you can deploy and host Standard logic app workflows in on-premises, private cloud, or public cloud scenarios. This model gives you the capabilities to host integration solutions in partially connected environments when you need to use local processing, data storage, and network access. With the hybrid option, you have the freedom and flexibility to choose the best environment for your workflows. For more information, see [Set up your own infrastructure for Standard logic apps using hybrid deployment (Preview)](set-up-standard-workflows-hybrid-deployment-requirements.md).
   
 - Availability and redundancy
 
