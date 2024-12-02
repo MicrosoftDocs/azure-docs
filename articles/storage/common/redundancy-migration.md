@@ -164,18 +164,19 @@ There are two ways to initiate a conversion:
 - [Customer-initiated](#customer-initiated-conversion)
 - [Support-initiated](#support-initiated-conversion)
 
+> [!IMPORTANT]
+> There is no SLA for completion of a conversion. If you need more control over when a conversion begins and finishes, consider a [Manual migration](#manual-migration). Generally, the more data you have in your storage account, the longer it takes to replicate that data to other zones or regions.
+
 > [!TIP]
 > Microsoft recommends using a customer-initiated conversion instead of support-initiated conversion whenever possible. A customer-initiated conversion allows you to initiate the conversion and monitor its progress directly from within the Azure portal. Because the conversion is initiated by the customer, there is no need to create and manage a support request.
 
 #### Customer-initiated conversion
 
-Instead of opening a support request, customers in most regions can start a conversion and monitor its progress. This option eliminates potential delays related to creating and managing support requests. For help determining the regions in which customer-initiated conversion is supported, see the [region limitations](#region) article.
+Instead of opening a support request, customers in most regions can start a conversion and monitor its progress. This option eliminates potential delays related to creating and managing support requests. For help determining the regions in which customer-initiated conversion is supported, refer to the [region limitations](#region) article.
 
-Customer-initiated conversion can be completed in supported regions using the Azure portal, PowerShell, or the Azure CLI. After initiation, the conversion could still take up to 72 hours to begin.
+Customer-initiated conversion can be undertaken in supported regions using the [Azure portal](redundancy-migration?tabs=portal#customer-initiated-conversion), [PowerShell](redundancy-migration?tabs=powershell#customer-initiated-conversion), or the [Azure CLI](redundancy-migration?tabs=azure-cli#customer-initiated-conversion). A conversion typically begins within 72 hours after initiation, but can take longer due to resource availability, data volume, and other factors.
 
 > [!IMPORTANT]
-> There is no SLA for completion of a conversion. 
->
 > If you need more control over when a conversion begins and finishes, consider a [Manual migration](#manual-migration). Generally, the more data you have in your account, the longer it takes to replicate that data to other zones or regions.
 >
 > For more information about the timing of a customer-initiated conversion, see [Timing and frequency](#timing-and-frequency).
@@ -227,11 +228,11 @@ As the conversion request is evaluated and processed, the status should progress
 | In Progress<sup>1</sup>                        | The conversion is in progress.                                                |
 | Completed<br>**- or -**</br>Failed<sup>2</sup> | The conversion is completed successfully.<br>**- or -**</br>The conversion failed.                 |
 
-<sup>1</sup> After initiation, a convsersion typically begins within 72 hours but may take longer in some cases. For more information about the timing of a customer-initiated conversion, see [Timing and frequency](#timing-and-frequency).<br />
+<sup>1</sup> A conversion typically begins within 72 hours after initiation, but can take longer due to resource availability, data volume, and other factors. For more information about the timing of a customer-initiated conversion, see [Timing and frequency](#timing-and-frequency).<br />
 <sup>2</sup> If the conversion fails, submit a support request to Microsoft to determine the reason for the failure.<br />
 
 > [!NOTE]
-> While Microsoft handles your request for a conversion promptly, there's no guarantee as to when it will complete. If you need your data converted by a certain date, Microsoft recommends that you perform a manual migration instead.
+> While Microsoft acts upon your request for a conversion promptly, there's no guarantee as to when it will complete. If you need your data converted by a certain date, Microsoft recommends that you perform a manual migration instead.
 >
 > Generally, the more data you have in your account, the longer it takes to replicate that data to other zones in the region.
 
@@ -448,10 +449,12 @@ If you choose to perform a manual migration, downtime is required but you have m
 
 ## Timing and frequency
 
-If you initiate a zone-redundancy [conversion](#customer-initiated-conversion) from the Azure portal, the conversion process could take up to 72 hours to begin. It could take longer to start if you [request a conversion by opening a support request](#support-initiated-conversion). To monitor the progress of a customer-initiated conversion, see [Monitoring customer-initiated conversion progress](#monitoring-customer-initiated-conversion-progress).
+Initiating a zone-redundancy conversion by [opening a support request](#support-initiated-conversion) can take longer to begin.
+
+When you initiate a zone-redundancy [conversion](#customer-initiated-conversion) from the Azure portal, the conversion process typically begins within 72 hours after initiation, but can take longer due to resource availability, data volume, and other factors. To monitor the progress of a customer-initiated conversion, see [Monitoring customer-initiated conversion progress](#monitoring-customer-initiated-conversion-progress).
 
 > [!IMPORTANT]
-> There is no SLA for completion of a conversion. If you need more control over when a conversion begins and finishes, consider a [Manual migration](#manual-migration). Generally, the more data you have in your account, the longer it takes to replicate that data to other zones or regions.
+> There is no SLA for completion of a conversion. If you need more control over when a conversion begins and finishes, consider a [Manual migration](#manual-migration). Generally, the more data you have in your storage account, the longer it takes to replicate that data to other zones or regions.
 
 After a zone-redundancy conversion, you must wait at least 72 hours before changing the redundancy setting of the storage account again. The temporary hold allows background processes to complete before making another change, ensuring the consistency and integrity of the account. For example, going from LRS to GZRS is a 2-step process. You must add zone redundancy in one operation, then add geo-redundancy in a second. After going from LRS to ZRS, you must wait at least 72 hours before going from ZRS to GZRS.
 
