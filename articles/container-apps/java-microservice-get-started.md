@@ -12,16 +12,16 @@ ms.author: yiliu6
 
 # Quickstart: Launch your first Java microservice application with managed Java components in Azure Container Apps
 
-In this quickstart, you learn how to deploy an application in Azure Container Apps that uses Java components to handle configuration management, service discovery, and manage health and metrics. The sample application used in this example is the Java PetClinic, which uses the microservice architecture pattern. The following diagram depicts the architecture of the PetClinic application on Azure Container Apps:
+In this quickstart, you learn how to deploy an application in Azure Container Apps that uses Java components to handle configuration management, service discovery, and health and metrics. The sample application used in this example is the Java PetClinic, which uses the microservice architecture pattern. The following diagram depicts the architecture of the PetClinic application on Azure Container Apps:
 
 :::image type="complex" source="media/java-microservice-get-started/azure-container-apps-petclinic-arch.png" alt-text="Diagram of the relationship between the Git repository containing a versioned YAML config file, a browser and mobile app, and an Azure Resource Group that contains an Azure Container Apps environment." lightbox="media/java-microservice-get-started/azure-container-apps-petclinic-arch.png":::
-   Diagram of an Azure Container Apps (ACA) environment illustrating the architecture of a microservices-based application deployed within an Azure Resource Group. An Azure Resource Group contains the Azure Container Apps environment. The environment includes three ACA managed Java components:  a config server, a service registry, and an admin server. The config server fetches configuration data stored as versioned YAML files in a Git repository external to the Azure Resource Group, the service registry handles service discovery and registration, and the admin server provides a live view of the system. An API Gateway routes requests to three microservices: vets service, customers service, and visits service. Each service is linked to its own database for data persistence. The application supports external interactions through a browser and a mobile app, and integrates with monitoring tools via Azure Log Analytics Workspaces for tracking system performance and health.
+   Diagram of an Azure Container Apps (ACA) environment illustrating the architecture of a microservices-based application deployed within an Azure Resource Group. An Azure Resource Group contains the Azure Container Apps environment. The environment includes three ACA managed Java components:  a config server, a service registry, and an admin server. The config server fetches configuration data stored as versioned YAML files in a Git repository external to the Azure Resource Group. The service registry handles service discovery and registration. The admin server provides a live view of the system. An API Gateway routes requests to three microservices: vets service, customers service, and visits service. Each service is linked to its own database for data persistence. The application supports external interactions through a browser and a mobile app, and integrates with monitoring tools via Azure Log Analytics Workspaces for tracking system performance and health.
 :::image-end:::
 
 The PetClinic application includes the following features:
 
 * The front end is a standalone Node.js web app hosted on the API Gateway app.
-* Requests to the API gateway routes requests to back-end service apps.
+* Requests to the API gateway route request to back-end service apps.
 * Back-end apps are built with Spring Boot.
 * Each back-end app uses a HyperSQL database as the persistent store.
 * The apps use managed Java components on Azure Container Apps, including a service registry, config server, and admin server.
@@ -55,7 +55,7 @@ By the end of this article, you deploy one web application and three back-end ap
     export CONTAINER_APP_ENVIRONMENT=<CONTAINER_APPS_ENVIRONMENT>
     ```
 
-1. Now you create additional environment variables that contain the settings for your microservices app. These values are used to define the names and configurations of the Java components and the Azure Container Apps that will be used to deploy the microservices. Create these environment variables by using the following commands:
+1. Now you create additional environment variables that contain the settings for your microservices app. These values are used to define the names and configurations of the Java components and the Azure Container Apps that you'll use to deploy the microservices. Create these environment variables by using the following commands:
 
     ```bash
     export CONFIG_SERVER_COMPONENT=configserver
@@ -72,7 +72,7 @@ By the end of this article, you deploy one web application and three back-end ap
     export API_GATEWAY_IMAGE=ghcr.io/azure-samples/javaaccelerator/spring-petclinic-api-gateway
     ```
 
-1. Log in to the Azure CLI and choose your active subscription by using the following command:
+1. Sign in to the Azure CLI and choose your active subscription by using the following command:
 
     ```azurecli
     az login
@@ -156,7 +156,7 @@ To create the three Java components, use the following steps:
 
     1. In the **Git repositories** section, select **Add**.
 
-    1. For the **URI** field, enter **https://github.com/spring-petclinic/spring-petclinic-microservices-config.git**. (Do not include the final period.)
+    1. For the **URI** field, enter **https://github.com/spring-petclinic/spring-petclinic-microservices-config.git**. (Don't include the final period.)
 
     1. Select **Add**.
 
