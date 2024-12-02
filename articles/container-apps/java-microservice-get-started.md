@@ -149,10 +149,10 @@ To create the three Java components, use the following steps:
 
     1. Use the following table to add the values in the portal window:
 
-    | Setting | Value | Remarks |
-    |---|---|---|
-    | Java component type | Select **Config Server for Spring**. | |
-    | Java component name | Enter **configserver**. | This value matches what you defined for the `$CONFIG_SERVER_COMPONENT` variable. |
+       | Setting | Value | Remarks |
+       |---|---|---|
+       | Java component type | Select **Config Server for Spring**. | |
+       | Java component name | Enter **configserver**. | This value matches what you defined for the `$CONFIG_SERVER_COMPONENT` variable. |
 
     1. In the **Git repositories** section, select **Add**.
 
@@ -170,10 +170,10 @@ To create the three Java components, use the following steps:
 
     1. Use the following table to add the values in the portal window:
 
-    | Setting | Value | Remarks |
-    |---|---|---|
-    | Java component type | Select **Eureka Server for Spring**. | |
-    | Java component name | Enter **eureka**. | This value matches what you defined for the `$EUREKA_SERVER_COMPONENT` variable. |
+       | Setting | Value | Remarks |
+       |---|---|---|
+       | Java component type | Select **Eureka Server for Spring**. | |
+       | Java component name | Enter **eureka**. | This value matches what you defined for the `$EUREKA_SERVER_COMPONENT` variable. |
 
     1. Select **Next**.
 
@@ -185,20 +185,20 @@ To create the three Java components, use the following steps:
 
     1. Use the following table to add the values in the portal window:
 
-    | Setting | Value | Remarks |
-    |---|---|---|
-    | Java component type | Select **Admin for Spring**. | |
-    | Java component name | Enter **admin**. | This value matches what you defined for the `$ADMIN_SERVER_COMPONENT` variable. |
+       | Setting | Value | Remarks |
+       |---|---|---|
+       | Java component type | Select **Admin for Spring**. | |
+       | Java component name | Enter **admin**. | This value matches what you defined for the `$ADMIN_SERVER_COMPONENT` variable. |
 
-    Select **Next**.
+    1. Select **Next**.
 
-    Select **Configure** to finish the configuration.
+    1. Select **Configure** to finish the configuration.
 
 ---
 
 ## Deploy the microservice apps
 
-To deploy the Java microservice apps to Azure Container Apps using the prebuilt container images, use the following steps.
+To deploy the Java microservice apps to Azure Container Apps using the prebuilt container images, use the steps that follow.
 
 > [!NOTE]
 > In this article, you use a series of [built images](https://github.com/orgs/Azure-Samples/packages?tab=packages&q=spring-petclinic) for the [Spring Petclinic microservice apps](https://github.com/spring-petclinic/spring-petclinic-microservices). You also have the option to customize the sample code and use your own images. For more information on building and deploying your own images, see the [azure-container-apps-java-samples GitHub repository](https://github.com/Azure-Samples/azure-container-apps-java-samples/tree/main/spring-petclinic-microservices/README.md).
@@ -307,7 +307,7 @@ Use the `containerapp update` command to create bindings for each app by using t
 
 1. In the **Bindings** section, add the four apps created in this quickstart.
 
-:::image type="content" source="media/java-microservice-get-started/bind-apps.png" alt-text="Screenshot of the Bindings section, which allows the user to select apps to bind to the Container App. Four apps are listed: customers-service, vets-service, visits-service, and a p i -gateway.":::
+   :::image type="content" source="media/java-microservice-get-started/bind-apps.png" alt-text="Screenshot of the Bindings section, which allows the user to select apps to bind to the Container App. Four apps are listed: customers-service, vets-service, visits-service, and a p i -gateway.":::
 
 ---
 
@@ -317,7 +317,7 @@ Use the following steps to verify the app status:
 
 1. Using the URL returned from the API gateway's `az containerapp update` command, view the front-end application in your browser. The application should resemble the following screenshot:
 
-    :::image type="content" source="media/java-microservice-get-started/azure-container-apps-petclinic-warfile.png" alt-text="Screenshot of the home page of the pet clinic application." lightbox="media/java-microservice-get-started/azure-container-apps-petclinic-warfile.png":::
+   :::image type="content" source="media/java-microservice-get-started/azure-container-apps-petclinic-warfile.png" alt-text="Screenshot of the home page of the pet clinic application." lightbox="media/java-microservice-get-started/azure-container-apps-petclinic-warfile.png":::
 
 1. View the Eureka server dashboard by using the following steps:
 
@@ -352,8 +352,8 @@ Use the following steps to verify the app status:
   
     1. Open the URL in your browser, and you should see an application that resembles the following screenshot.
   
-       :::image type="complex" source="media/java-microservice-get-started/azure-container-apps-petclinic-admin.png" alt-text="Screenshot of the pet clinic admin dashboard showing five services up, along with version information for four of the services." lightbox="media/java-microservice-get-started/azure-container-apps-petclinic-admin.png":::
-    
+       :::image type="content" source="media/java-microservice-get-started/azure-container-apps-petclinic-admin.png" alt-text="Screenshot of the pet clinic admin dashboard showing five services up, along with version information for four of the services." lightbox="media/java-microservice-get-started/azure-container-apps-petclinic-admin.png":::
+
 ## Optional: Configure Java components
 
 The Java components created in this quickstart can be configured through the Azure portal by using the **Configurations** section to add or update configurations for your Java components.
