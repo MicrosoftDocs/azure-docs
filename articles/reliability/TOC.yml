@@ -234,7 +234,7 @@
     items:
     - name: Microsoft Community Training
       href: reliability-community-training.md
-    - name: Sustainability Data Solutions in Fabric
+    - name: Sustainability data solutions in Fabric
       href: reliability-sustainability-data-solutions-fabric.md
   - name: Integration
     items:
