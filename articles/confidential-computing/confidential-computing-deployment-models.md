@@ -13,7 +13,7 @@ ms.author: jushiman
 
 Azure confidential computing supports multiple deployment models. These models support the wide variety of customer security requirements for modern cloud computing.
 
-## IaaS
+## Infrastructure as a service
 
 Under the infrastructure as a service (IaaS) deployment model in cloud computing, you can use:
 
@@ -32,7 +32,7 @@ Scalability is another advantage of the IaaS deployment model in cloud computing
 
 In summary, the IaaS deployment model in combination with Azure confidential computing offers benefits like cost savings, increased efficiency, innovation opportunities, reliability, and high scalability. It takes advantage of a robust and comprehensive security solution that's designed to protect highly sensitive data.
 
-## PaaS
+## Platform as a service
 
 For platform as a service (PaaS), you can use [confidential containers](confidential-containers.md) in confidential computing. This offering includes enclave-aware containers in Azure Kubernetes Service (AKS).
 
