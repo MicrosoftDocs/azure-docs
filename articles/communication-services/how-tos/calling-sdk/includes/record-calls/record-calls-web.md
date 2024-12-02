@@ -66,8 +66,8 @@ const cloudRecordingsUpdatedHandler = (args: { added: SDK.RecordingInfo[], remov
 callRecordingApi.on('recordingsUpdated', cloudRecordingsUpdatedHandler );
 ```
 ## Explicit Consent
- 
-If your Teams meeting or call is configured to require explicit consent for recording and transcription, you are required to gather explicit consent from your users to allow users to be transcribed or recorded. You can provide consent proactively when joining the meeting or reactively when the recording or transcription starts.
+If your Teams meeting or call is configured to require explicit consent for recording and transcription, 
+you need to collect consent from all participants in the call before you can record them. You can provide consent proactively when joining the meeting or reactively when the recording starts. Until users give explicit consent, users have disabled audio, video, and screen sharing.
  
 ### Support
 The following tables show support of explicit consent for specific call type and identity.
@@ -84,8 +84,10 @@ You can check if the meeting recording requires explicit consent by property `is
 const isConsentRequired = callRecordingApi.isConsentRequired;
 ```
  
-If the recording is active and explicit consent is required, user will not be able to unmute, turn video on and share screen until they provide the consent. You can provide the consent for the user by calling method `consentToBeingRecordedAndTranscribed()`.
+If you already collected consent from the user to be recorded, you can call method `consentToBeingRecordedAndTranscribed()` to indicate explicit consent to the service.
  
 ```js
 callRecordingApi.consentToBeingRecordedAndTranscribed();
 ```
+
+Attempts to enable audio, video or screen sharing will fail when transcription is active, explicit consent is required but is not yet given. You can recognize this situation by checking property `reason` of class `ParticipantCapabilities` for [capabilities](../../capabilities.md) `turnVideoOn`, `unmuteMic` and `shareScreen`. You can find those [capabilities](../../capabilities.md) in the feature `call.feature(Features.Capabilities)`. Those [capabilities](../../capabilities.md) would return reason `ExplicitConsentRequired` as users need to provide explicit consent.
