@@ -7,7 +7,7 @@ manager: CelesteDG
 
 ms.service: azure-app-service
 ms.topic: include
-ms.date: 05/16/2024
+ms.date: 11/29/2024
 ms.author: ryanwi
 ms.reviewer: stsoneff
 ms.custom: azureday1
@@ -56,6 +56,8 @@ Now that you have a web app running on App Service, enable authentication and au
 1. For **App registration** > **App registration type**, select **Create new app registration** to create a new app registration in Microsoft Entra.
 
 1. Enter a display **Name** for your application. Users of your application might see the display name when they use the app, for example during sign-in.
+
+1. For **Client secret expiration**, select **Recommended: 180 days**.
 
 1. For **App registration** > **Supported account types**, select **Current tenant-single tenant** so only users in your organization can sign in to the web app.
 

@@ -6,7 +6,7 @@ author: normesta
 
 ms.service: azure-data-lake-storage
 ms.topic: conceptual
-ms.date: 04/24/2023
+ms.date: 11/26/2024
 ms.author: normesta
 ms.custom: engagement-fy23
 ---
@@ -21,7 +21,7 @@ Data Lake Storage supports the following authorization mechanisms:
 - Attribute-based access control (Azure ABAC)
 - Access control lists (ACL)
 
-[Shared Key and SAS authorization](#shared-key-and-shared-access-signature-sas-authorization) grants access to a user (or application) without requiring them to have an identity in Microsoft Entra ID. With these two forms of authentication, Azure RBAC, Azure ABAC, and ACLs have no effect.
+ Shared Key, account SAS, and service SAS authorization grants access to a user (or application) without requiring them to have an identity in Microsoft Entra ID. With these forms of authentication, Azure RBAC, Azure ABAC, and ACLs have no effect. ACLs can be applied to user delegated SAS tokens because those tokens are secured with Microsoft Entra credentials. See [Shared Key and SAS authorization](#shared-key-and-shared-access-signature-sas-authorization).
 
 Azure RBAC and ACL both require the user (or application) to have an identity in Microsoft Entra ID. Azure RBAC lets you grant "coarse-grain" access to storage account data, such as read or write access to **all** of the data in a storage account. Azure ABAC allows you to refine RBAC role assignments by adding conditions. For example, you can grant read or write access to all data objects in a storage account that have a specific tag. ACLs let you grant "fine-grained" access, such as write access to a specific directory or file.
 
@@ -131,11 +131,9 @@ By using groups, you're less likely to exceed the maximum number of role assignm
 
 ## Shared Key and Shared Access Signature (SAS) authorization
 
-Azure Data Lake Storage also supports [Shared Key](/rest/api/storageservices/authorize-with-shared-key) and [SAS](../common/storage-sas-overview.md?toc=/azure/storage/blobs/toc.json) methods for authentication. A characteristic of these authentication methods is that no identity is associated with the caller and therefore security principal permission-based authorization cannot be performed.
+Azure Data Lake Storage also supports [Shared Key](/rest/api/storageservices/authorize-with-shared-key) and [SAS](../common/storage-sas-overview.md?toc=/azure/storage/blobs/toc.json) methods for authentication. 
 
-In the case of Shared Key, the caller effectively gains 'super-user' access, meaning full access to all operations on all resources including data, setting owner, and changing ACLs.
-
-SAS tokens include allowed permissions as part of the token. The permissions included in the SAS token are effectively applied to all authorization decisions, but no additional ACL checks are performed.
+In the case of Shared Key, the caller effectively gains 'super-user' access, meaning full access to all operations on all resources including data, setting owner, and changing ACLs. ACLs don't apply to users who use Shared Key authorization because no identity is associated with the caller and therefore security principal permission-based authorization cannot be performed. The same is true for shared access signature (SAS) tokens except when a user delegated SAS token is used. In that case, Azure Storage performs a POSIX ACL check against the object ID before it authorizes the operation as long as the optional parameter suoid is used. To learn more, see [Construct a user delegation SAS](/rest/api/storageservices/create-user-delegation-sas#construct-a-user-delegation-sas).
 
 ## Next steps
 

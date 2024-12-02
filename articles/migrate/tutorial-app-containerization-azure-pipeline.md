@@ -6,8 +6,8 @@ ms.author: vijain
 ms.manager: kmadnani
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 12/07/2021
-ms.custom: engagement-fy23
+ms.date: 08/09/2024
+ms.custom: engagement-fy25
 ---
 
 # Continuous deployment for containerized applications with Azure DevOps
