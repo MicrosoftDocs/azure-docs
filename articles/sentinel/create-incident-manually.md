@@ -1,5 +1,5 @@
 ---
-title: Create your own incidents manually in Microsoft Sentinel
+title: Create your own incidents manually in Microsoft Sentinel in the Azure portal
 description: Manually create incidents in Microsoft Sentinel based on data or information received by the SOC through alternate means or channels.
 author: yelevin
 ms.author: yelevin
@@ -10,7 +10,7 @@ appliesto:
 #Customer intent: As a security analyst, I want to manually create incidents in Microsoft Sentinel so that I can investigate and respond to threats not automatically detected or ingested from external systems.
 ---
 
-# Create your own incidents manually in Microsoft Sentinel
+# Create your own incidents manually in Microsoft Sentinel in the Azure portal
 
 > [!IMPORTANT]
 >
@@ -28,7 +28,7 @@ With Microsoft Sentinel as your security information and event management (SIEM)
 
 However, threat data can also come from other sources *not ingested into Microsoft Sentinel*, or events not recorded in any log, and yet can justify opening an investigation. For example, an employee might notice an unrecognized person engaging in suspicious activity related to your organization’s information assets. This employee might call or email the security operations center (SOC) to report the activity.
 
-Microsoft Sentinel allows your security analysts to manually create incidents for any type of event, regardless of its source or data, so you don't miss out on investigating these unusual types of threats.
+Microsoft Sentinel in the Azure portal allows your security analysts to manually create incidents for any type of event, regardless of its source or data, so you don't miss out on investigating these unusual types of threats.
 
 ## Common use cases
 

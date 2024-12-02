@@ -5,7 +5,7 @@ author: vijain
 ms.author: vijain
 ms.topic: conceptual
 ms.service: azure-migrate
-ms.date: 06/19/2024
+ms.date: 10/25/2024
 ms.custom: vmware-scenario-422, engagement-fy23, linux-related-content
 ---
 

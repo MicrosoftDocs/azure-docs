@@ -5,8 +5,8 @@ author: v-sreedevank
 ms.author: v-sreedevank
 ms.topic: how-to
 ms.service: azure-migrate
-ms.date: 09/27/2023
-ms.custom: engagement-fy23
+ms.date: 10/14/2024
+ms.custom: engagement-fy25
 ---
 
 # Discover web apps and SQL Server instances in an existing project

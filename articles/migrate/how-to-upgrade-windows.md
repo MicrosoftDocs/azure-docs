@@ -5,8 +5,8 @@ author: AnuragMehrotra
 ms.author: anuragm
 ms.manager: vijain
 ms.topic: how-to
-ms.date: 11/06/2023
-ms.custom: engagement-fy24
+ms.date: 01/13/2024
+ms.custom: engagement-fy25
 ---
 
 # Azure Migrate Windows Server upgrade (Preview)  

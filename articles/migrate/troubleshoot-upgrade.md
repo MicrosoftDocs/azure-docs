@@ -5,8 +5,8 @@ author: AnuragMehrotra
 ms.author: anuragm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/11/2023
-ms.custom: engagement-fy24
+ms.date: 09/07/2023
+ms.custom: engagement-fy25
 ---
 
 # Troubleshoot Windows OS upgrade issues  
@@ -15,7 +15,7 @@ This article describes some common issues that you might encounter when you up
 
 ## Cannot attach the OS setup disk as VM reached maximum disk allowed
 
-The Test Migration and Migration will fail in the prerequisite stage if the VM already has the maximum number of data disks based on its SKU. Since the workflow creates an additional data disk temporarily, it's mandatory to have n-1 (n represents maximum number of disks supported for the respective SKU of the VM) disks to complete the upgrade successfully.    
+The Test Migration and Migration fails in the prerequisite stage if the VM already has the maximum number of data disks based on its SKU. Since the workflow creates an additional data disk temporarily, it's mandatory to have n-1 (n represents maximum number of disks supported for the respective SKU of the VM) disks to complete the upgrade successfully.    
 
 ### Recommended action
 

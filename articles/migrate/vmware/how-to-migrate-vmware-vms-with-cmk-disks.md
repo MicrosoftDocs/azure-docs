@@ -4,8 +4,8 @@ description: Learn how to migrate VMware VMs to Azure with server-side encryptio
 author: v-sreedevank
 ms.author: v-sreedevank
 ms.topic: how-to
-ms.date: 05/31/2023
-ms.custom: vmware-scenario-422, devx-track-azurepowershell, engagement-fy23
+ms.date: 10/20/2024
+ms.custom: vmware-scenario-422, devx-track-azurepowershell, engagement-fy25
 
 ---
 

@@ -6,7 +6,7 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
 ms.service: azure-migrate
-ms.date: 06/20/2024
+ms.date: 09/26/2024
 ms.custom: vmware-scenario-422, engagement-fy23
 ---
 

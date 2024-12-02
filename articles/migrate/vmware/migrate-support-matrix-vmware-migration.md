@@ -6,8 +6,8 @@ ms.author: piyushdhore
 ms.manager: vijain
 ms.topic: conceptual
 ms.service: azure-migrate
-ms.date: 06/11/2024
-ms.custom: vmware-scenario-422, engagement-fy23
+ms.date: 10/16/2024
+ms.custom: vmware-scenario-422, engagement-fy25
 ---
 
 # Support matrix for VMware vSphere migration

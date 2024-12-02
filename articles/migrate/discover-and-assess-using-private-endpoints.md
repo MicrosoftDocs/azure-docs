@@ -5,8 +5,8 @@ author: vijain
 ms.author: vijain
 ms.topic: how-to
 ms.service: azure-migrate
-ms.date: 07/02/2024
-ms.custom: engagement-fy23
+ms.date: 09/26/2024
+ms.custom: engagement-fy25
 ---
  
 # Discover and assess servers for migration using Private Link 
