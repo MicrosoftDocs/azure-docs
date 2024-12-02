@@ -4,7 +4,7 @@ description: Learn how to restore files or folders from a virtual machine disk (
 ms.topic: how-to
 author: b-hchen
 ms.service: azure-vmware
-ms.date: 11/19/2024
+ms.date: 12/02/2024
 ms.custom: engagement-fy24
 ---
 
