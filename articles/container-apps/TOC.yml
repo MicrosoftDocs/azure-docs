@@ -274,6 +274,8 @@
           href: microservices-dapr-azure-resource-manager.md
         - name: Enable Dapr on an existing container app
           href: enable-dapr.md
+        - name: Deploy using the Dapr extension for Azure Functions
+          href: dapr-functions-extension.md
       - name: Dapr components
         items:
         - name: Overview
@@ -298,8 +300,6 @@
           href: microservices-dapr-bindings.md
         - name: Microservices communication using Dapr Service Invocation
           href: microservices-dapr-service-invoke.md
-        - name: Deploy using the Dapr extension for Azure Functions
-          href: dapr-functions-extension.md
 - name: Networking, ingress, and network security
   items:
     - name: Architecture overview
