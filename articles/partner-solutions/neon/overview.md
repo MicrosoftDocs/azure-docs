@@ -1,6 +1,6 @@
 ---
 title: What is Neon Serverless Postgres (Preview)?
-description: Learn about using the Neon Serverless Postgres (Preview) in Azure Marketplace.
+description: Learn about Neon Serverless Postgres (Preview), a cloud-native Postgres solution designed for modern applications, in Azure Marketplace.
 author: ProfessorKendrick
 ms.topic: overview
 ms.custom:
@@ -27,14 +27,14 @@ With its intuitive onboarding process, you can quickly start using Neon's capabi
 Here are the key capabilities provided by the Neon integration:
 
 - **Seamless onboarding** on Neon as an integrated service on Azure.
-- **Unified billing** of Neon through monthly billing through Azure Marketplace.
-- **Single-Sign on to Neon** - No separate sign-up needed from the Neon portal.
+- **Unified billing** of Neon via monthly billing through Azure Marketplace.
+- **Single-Sign on to Neon** with no separate sign-up needed from the Neon portal.
 - **Manage all Neon resources** from the Azure portal, and track them in the **All resources** page with your other Azure resources.
 
 ## Prerequisites for Neon Serverless Postgres
 
 - An Azure account. If you don't have an active Azure subscription, [create a free account](https://azure.microsoft.com/free/).
-- Only users with _Owner_ or _Contributor_ access on the Azure subscription can set up the Azure integration. Ensure you have the appropriate access before starting to set up this integration.
+- Only users with _Owner_ or _Contributor_ access on the Azure subscription can set up the Azure integration. Ensure you have the appropriate access before starting the set up for this integration.
 
 ## Find Neon Serverless Postgres
 
