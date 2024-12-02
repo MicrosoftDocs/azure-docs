@@ -32,8 +32,6 @@ items:
       href: tutorial-load-geojson-file-android.md
   - name: REST API Tutorials
     items:
-    - name: Spatial analytics
-      href: tutorial-iot-hub-maps.md
     - name: EV routing using Azure Notebooks (Python)
       href: tutorial-ev-routing.md
     - name: Analyze weather data using Azure Notebooks (Python)
@@ -259,6 +257,8 @@ items:
         href: clustering-point-data-web-sdk.md
       - name: Use data-driven style expressions
         href: data-driven-style-expressions-web-sdk.md
+      - name: Add custom protocol PMTiles
+        href: add-custom-protocol-pmtiles.md
       - name: How to use image templates
         href: how-to-use-image-templates-web-sdk.md
       - name: Reacting to events
@@ -415,6 +415,8 @@ items:
       href: power-bi-visual-add-reference-layer.md
     - name: Add a tile layer
       href: power-bi-visual-add-tile-layer.md
+    - name: Add a path layer
+      href: power-bi-visual-add-path-layer.md
     - name: Add a filled map
       href: power-bi-visual-filled-map.md
     - name: On-object interaction

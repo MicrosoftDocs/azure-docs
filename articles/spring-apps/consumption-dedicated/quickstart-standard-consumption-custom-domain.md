@@ -11,6 +11,8 @@ ms.custom: devx-track-java
 
 # Quickstart: Map a custom domain to Azure Spring Apps with the Standard consumption and dedicated plan
 
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
+
 **This article applies to:** ✔️ Standard consumption and dedicated (Preview) ❌ Basic/Standard ❌ Enterprise
 
  This article shows you how to map a custom web site domain, such as `https://www.contoso.com`, to your app in Azure Spring Apps. This mapping is accomplished by using a `CNAME` record that the Domain Name Service (DNS) uses to store node names throughout the network.

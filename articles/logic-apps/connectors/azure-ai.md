@@ -7,7 +7,7 @@ ms.suite: integration
 ms.collection: ce-skilling-ai-copilot
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 07/23/2024
+ms.date: 10/14/2024
 ---
 
 # Connect to Azure AI services from Standard workflows in Azure Logic Apps (Preview)
@@ -46,7 +46,7 @@ For more information, see the following resources:
 
 - [Introduction to large language models](/training/modules/introduction-large-language-models/)
 - [Guide to working with large language models](/ai/playbook/technology-guidance/generative-ai/working-with-llms/)
-- [What is a vector database](/semantic-kernel/memories/vector-db)
+- [What is a vector database](/azure/cosmos-db/vector-database#what-is-a-vector-database)
 
 ## Connector technical reference
 

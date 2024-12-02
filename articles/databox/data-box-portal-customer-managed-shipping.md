@@ -4,8 +4,7 @@ description: Describes self-managed shipping workflow for Azure Data Box devices
 services: databox
 author: stevenmatthew
 
-ms.service: databox
-ms.subservice: disk
+ms.service: azure-data-box-disk
 ms.topic: how-to
 ms.custom: references_regions
 ms.date: 06/06/2022

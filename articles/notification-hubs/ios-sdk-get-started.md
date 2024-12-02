@@ -34,7 +34,7 @@ You'll also need the following:
 - An iPhone or iPad running iOS version 10 or later.
 - Your physical device registered in the [Apple Portal](https://developer.apple.com/) and associated with your certificate.
 
-Be sure to read the [Azure Notification Hubs overview](notification-hubs-push-notification-overview.md) if you’re not familiar with the service.
+Be sure to read the [Azure Notification Hubs overview](notification-hubs-push-notification-overview.md) if you're not familiar with the service.
 
 > [!NOTE]
 > The notification hub will be configured to use the Sandbox authentication mode only. You should not use this authentication mode for production workloads.
@@ -48,8 +48,6 @@ Generate the Certificate Signing Request (CSR) file, which Apple uses to generat
 1. On your Mac, run the Keychain Access tool. It can be opened from the **Utilities** folder or the **Other** folder on the Launchpad.
 
 2. Select **Keychain Access**, expand **Certificate Assistant**, and then select **Request a Certificate from a Certificate Authority**.
-
-   :::image type="content" source="media/ios-sdk-get-started/image1.png" alt-text="Screenshot that highlights the Request a Certificate from a Certificate Authority menu option.":::
 
    > [!NOTE]
    > By default, Keychain Access selects the first item in the list. This can be a problem if you're in the **Certificates** category and **Apple Worldwide Developer Relations Certification Authority** is not the first item in the list. Make sure you have a non-key item, or the **Apple Worldwide Developer Relations Certification Authority** key is selected, before generating the CSR (Certificate Signing Request).
@@ -84,8 +82,6 @@ Apple, and also register for push notifications.
    - **Description**: Type a descriptive name for your app.
    - **Bundle ID**: Enter a Bundle ID of the form **Organization Identifier.Product Name** as mentioned in the [App Distribution Guide](https://help.apple.com/xcode/mac/current/#/dev91fe7130a). The **Organization Identifier** and **Product Name** values must match the organization identifier and product name you use when you create your Xcode project. In the following screenshot, the **NotificationHubs** value is used as an organization identifier and the **GetStarted** value is used as the product name. Make sure the **Bundle Identifier** value matches the value in your Xcode project, so that Xcode uses the correct publishing profile.
 
-      :::image type="content" source="media/ios-sdk-get-started/image6.png" alt-text="Register app ID":::
-
    - **Push Notifications**: Check the **Push Notifications** option in the **Capabilities** section.
 
       :::image type="content" source="media/ios-sdk-get-started/image7.png" alt-text="Register new app ID":::
@@ -119,8 +115,6 @@ The second option has a number of benefits compared to using certificates, as do
 
 2. The **Apple Push Notification service SSL Certificates** window appears. Select the **Create Certificate** button in the **Development SSL Certificate** section.
 
-   :::image type="content" source="media/ios-sdk-get-started/image10.png" alt-text="Create certificate":::
-
    The **Create a new Certificate** screen is displayed.
 
    > [!NOTE]
@@ -130,23 +124,15 @@ The second option has a number of benefits compared to using certificates, as do
 
 4. After the portal creates the certificate, select the **Download** button. Save the certificate, and remember the location to which it's saved.
 
-   :::image type="content" source="media/ios-sdk-get-started/image11.png" alt-text="Download certificate":::
-
-   The certificate is downloaded and saved in your **Downloads** folder.
+   The certificate is downloaded and saved in your **Downloads** folder:
 
    :::image type="content" source="media/ios-sdk-get-started/image12.png" alt-text="Locate certificate file":::
 
    By default, the downloaded development certificate is named **aps_development.cer**.
 
-5. Double-click the downloaded push certificate **aps\_development.cer**. This action installs the new certificate in the Keychain, as shown in the following image:
-
-   :::image type="content" source="media/ios-sdk-get-started/image13.png" alt-text="Keychain access":::
-
-   Although the name in your certificate might be different, the name will be prefixed with **Apple Development iOS Push Services**.
+5. Double-click the downloaded push certificate **aps\_development.cer**. This action installs the new certificate in the Keychain.
 
 6. In Keychain Access, right-click the new push certificate that you created in the **Certificates** category. Select **Export**, name the file, select the **.p12** format, and then select **Save**.
-
-   :::image type="content" source="media/ios-sdk-get-started/image14.png" alt-text="Export certificate":::
 
    You can choose to protect the certificate with a password, but this is optional. Click **OK** if you want to bypass password creation. Make a note of the file name and location of the exported .p12 certificate. They are used to enable authentication with APNS.
 
@@ -305,6 +291,6 @@ You've now configured your notification hub with APNS. You also have the connect
 
 ## Next steps
 
-In this tutorial, you created and configured a notification hub in Azure and configured it to allow notifications to be sent to your application through Apple Push Notification Service (APNS). Next, we’ll create a sample iOS application and integrate the Azure Notifications Hubs SDK so that it can receive push notifications sent through the Azure portal. Advance to the following tutorial based on your language of choice:
+In this tutorial, you created and configured a notification hub in Azure and configured it to allow notifications to be sent to your application through Apple Push Notification Service (APNS). Next, we'll create a sample iOS application and integrate the Azure Notifications Hubs SDK so that it can receive push notifications sent through the Azure portal. Advance to the following tutorial based on your language of choice:
 
 - [Tutorial: Send push notifications to iOS apps using Azure Notification Hubs](ios-sdk-current.md)

@@ -4,8 +4,7 @@ description: Describes how to install the password reset extension on virtual ma
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 04/14/2022

@@ -2,7 +2,7 @@
 title: Introduction to the Azure Internet of Things (IoT)
 description: Introduction explaining the fundamentals of Azure IoT and the IoT services, including examples that help illustrate the use of IoT.
 author: dominicbetts
-ms.service: iot
+ms.service: azure-iot
 services: iot
 ms.topic: overview
 ms.date: 02/27/2024

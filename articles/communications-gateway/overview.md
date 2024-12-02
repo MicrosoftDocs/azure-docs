@@ -1,8 +1,8 @@
 ---
 title: What is Azure Communications Gateway?
 description: Azure Communications Gateway allows telecoms operators to interoperate with Operator Connect, Teams Phone Mobile, Microsoft Teams Direct Routing, and Zoom Phone.
-author: rcdun
-ms.author: rdunstan
+author: GemmaWakeford
+ms.author: gwakeford
 ms.service: azure-communications-gateway
 ms.topic: overview
 ms.custom: template-overview

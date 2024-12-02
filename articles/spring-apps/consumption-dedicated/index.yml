@@ -20,15 +20,25 @@ landingContent:
 # Start card title with a verb
 
   # Card (optional)
+  - title: Retirement
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Azure Spring Apps retirement announcement
+            url: ../basic-standard/retirement-announcement.md?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
+          - text: Migrate to Azure Container Apps
+            url: overview-migration.md
+
+  # Card (optional)
   - title: Documentation for other plans
     linkLists:
       - linkListType: overview
         links:
-          - text: Enterprise plan
-            url: ../enterprise/index.yml
           - text: Basic/Standard plan
             url: ../basic-standard/index.yml
-  
+          - text: Enterprise plan
+            url: ../enterprise/index.yml
+
   # Card (optional)
   - title: About Azure Spring Apps
     linkLists:

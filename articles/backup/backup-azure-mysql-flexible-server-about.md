@@ -48,6 +48,15 @@ The following table lists permissions that the vault MSI requires for successful
 | **Backup** | - MySQL Flexible Server Long-term Retention Backup Role <br><br> - Reader Role on the server's resource group. |
 | **Restore** | Storage Blob Data Contributor Role on the target storage account. |
 
+## Understand pricing
+
+You incur charges for:
+
+- **Protected instance fee**: Azure Backup for MySQL - Flexible servers charges a *protected instance fee* as per the size of the database. When you configure backup for am Azure MySQL - Flexible server, a protected instance is created. Each instance is charged on the basis of its size (in GBs) on a per unit (250 GB) basis. 
+
+- **Backup Storage fee**: Azure Backup for MySQL - Flexible servers store backups in Vault Tier. Restore points stored in the vault-standard tier are charged a separate fee called Backup Storage fee as per the total data stored (in GBs) and redundancy type enable on the Backup Vault. 
+
+
 ## Next steps
 
 - [Support matrix for Azure Database for MySQL - Flexible Server retention for long term (preview)](backup-azure-mysql-flexible-server-support-matrix.md).

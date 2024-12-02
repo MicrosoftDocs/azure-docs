@@ -34,7 +34,9 @@ This article describes some common Azure Load Balancer deployment errors and pro
 |LoadBalancerWithoutFrontendIPCantHaveChildResources | A Load Balancer resource that has no frontend IP configurations, can't have associated child resources or components associated to it. In order to mitigate this error, add a frontend IP configuration and then add the resources you're trying to add. |
 | LoadBalancerRuleCountLimitReachedForNic | A backend pool member's network interface (virtual machine, Virtual Machine Scale Set) can't be associated to more than 300 rules. Reduce the number of rules or use another Load Balancer. This limit is documented on the [Load Balancer limits page](../azure-resource-manager/management/azure-subscription-service-limits.md#load-balancer).
 | LoadBalancerInUseByVirtualMachineScaleSet | The Load Balancer resource is in use by a Virtual Machine Scale Set and can't be deleted. Use the Azure Resource Manager ID provided in the error message to search for the Virtual Machine Scale Set in order to delete it. | 
-
+| SpecifiedAllocatedOutboundPortsForOutboundRuleIsNotAMultipleOfEight | The number of specified [SNAT](outbound-rules.md) ports is not a multiply of 8.
+| SpecifiedAllocatedOutboundPortsForOutboundRuleExceedsTotalNumberOfAllowedPortsPerRule | The number of specified [SNAT](outbound-rules.md) ports is greater than 64000.
+| SpecifiedAllocatedOutboundPortsForOutboundRuleExceedsTotalNumberOfAvailablePorts | The number of specified [SNAT](outbound-rules.md) ports is greater than currently avaliable.
 
 ## Next steps
 

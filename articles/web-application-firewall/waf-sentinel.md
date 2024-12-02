@@ -100,4 +100,4 @@ The automation section of these rules can help you automatically respond to the 
 ## Next steps
 
 - [Learn more about Microsoft Sentinel](../sentinel/overview.md)
-- [Learn more about Azure Monitor Workbooks](../azure-monitor/visualize/workbooks-overview.md)
+- [Learn more about Azure Monitor Workbooks](/azure/azure-monitor/visualize/workbooks-overview)

@@ -121,7 +121,7 @@ sections:
       - question: |
           How do I track availability of my storage account?
         answer: |
-          You can configure a resource health alert based on the [Azure Resource Health](../../service-health/resource-health-overview.md) service to track the availability of your storage account. If there are no transactions on the account, then the alert reports based on the health of the Storage cluster where your storage account is located.
+          You can configure a resource health alert based on the [Azure Resource Health](/azure/service-health/resource-health-overview) service to track the availability of your storage account. If there are no transactions on the account, then the alert reports based on the health of the Storage cluster where your storage account is located.
       - question: |
           How often does the blob count and blob capacity metric get updated?
         answer: |
@@ -185,9 +185,9 @@ sections:
   - name: Managing costs
     questions:
       - question: |
-         If I use Azure Storage for only a few days a month, is the cost prorated?
+         If I use Azure Blob Storage for only a few days a month, is the cost prorated?
         answer: |
-         Storage capacity is billed in units of the average daily amount of data stored, in gigabytes (GB), over a monthly period. For example, if you consistently used 10 GB of storage for the first half of the month, and none for the second half of the month, you would be billed for your average usage of 5 GB of storage.
+         Storage capacity for Blob Storage is billed in units of the average daily amount of data stored, in gigabytes (GB), over a monthly period. For example, if you consistently used 10 GB of storage for the first half of the month, and none for the second half of the month, you would be billed for your average usage of 5 GB of storage.
 additionalContent: |
 
   ## Next steps
@@ -195,4 +195,4 @@ additionalContent: |
   You can learn more about Azure Blob Storage by visiting the following links:
 
   - [Introduction to Azure Storage](../common/storage-introduction.md)
-  - [What is Azure Blob storage](storage-blobs-overview.md)
+  - [What is Azure Blob Storage](storage-blobs-overview.md)

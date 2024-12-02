@@ -4,7 +4,7 @@ description: This page provides architectural recommendations for disaster recov
 services: expressroute
 author: duongau
 ms.service: azure-expressroute
-ms.topic: article
+ms.topic: concept-article
 ms.date: 06/15/2023
 ms.author: duau
 ---

@@ -3,7 +3,7 @@ title: Monitor Azure Site Recovery
 description: Start here to learn how to monitor Azure Site Recovery.
 ms.date: 03/21/2024
 ms.custom: horz-monitor
-ms.topic: conceptual
+ms.topic: concept-article
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 ms.service: azure-site-recovery

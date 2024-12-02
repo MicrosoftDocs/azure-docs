@@ -11,7 +11,7 @@ ms.custom: mode-api
 
 # Deploy the FHIR service by using the Azure portal
 
-The Azure portal provides a web interface with guided workflows, making it an efficient tool for deploying the FHIR service and ensuring accurate configuration within Azure Health Data Services.
+The Azure portal provides a web interface with guided workflows, making it an efficient tool for deploying the FHIR&reg; service, and ensuring accurate configuration within Azure Health Data Services.
 
 ## Prerequisites
 

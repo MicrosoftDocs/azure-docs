@@ -4,7 +4,7 @@ description: Overview of Azure IoT Edge for Linux on Windows networking between 
 author: PatAltimore
 
 ms.reviewer: fcabrera
-ms.service: iot-edge
+ms.service: azure-iot-edge
 ms.custom: linux-related-content
 services: iot-edge
 ms.topic: conceptual
@@ -82,8 +82,6 @@ By default, the EFLOW VM DNS configuration file contains the local stub *127.0.0
 It's possible to configure the EFLOW virtual machine to use a specific DNS server, or list of servers. To do so, you can use the `Set-EflowVmDnsServers` PowerShell cmdlet. For more information about DNS configuration, see [PowerShell functions for IoT Edge for Linux on Windows](./reference-iot-edge-for-linux-on-windows-functions.md#set-eflowvmdnsservers).
 
 To check the DNS servers assigned to the EFLOW VM, from inside the EFLOW VM, use the command: `resolvectl status`. The command's output shows a list of the DNS servers configured for each interface. In particular, it's important to check the *eth0* interface status, which is the default interface for the EFLOW VM communication. Also, make sure to check the IP addresses of the **Current DNS Server**s and **DNS Servers** fields of the list. If there's no IP address, or the IP address isn't a valid DNS server IP address, then the DNS service won't work.
-
-![Screenshot of console showing sample output from resolvectl command.](./media/iot-edge-for-linux-on-windows-networking/resolvctl-status.png)
 
 ### Static MAC Address
 Hyper-V allows you to create virtual machines with a **static** or **dynamic** MAC address. During EFLOW virtual machine creation, the MAC address is randomly generated and stored locally to keep the same MAC address across virtual machine or Windows host reboots.  To query the EFLOW virtual machine MAC address, you can use the following command.

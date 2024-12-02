@@ -14,7 +14,7 @@
           "**/_themes/**",
           "**/includes/**",
           "**/obj/**",
-          "**/*.graffle",
+          "**/*.graffle"
         ]
       },
       {
@@ -59,7 +59,7 @@
         "exclude": [
           "iot-edge/**",
           "**/_themes/**",
-          "**/obj/**",
+          "**/obj/**"
         ]
       },
       {
@@ -181,7 +181,8 @@
         "v-stsavell",
         "v-thepet",
         "v-thpra"
-      ]
+      ],
+      "zone_pivot_group_filename": "zone-pivot-groups.json"
     },
     "fileMetadata": {
       "adobe-target": {
@@ -191,7 +192,6 @@
         "articles/azure-functions/*": true,
         "articles/azure-monitor/*": true,
         "articles/container-apps/*": true,
-        "articles/kubernetes-fleet/*": true,
         "articles/messaging-services/*": true,
         "articles/network-watcher/*": true,
         "articles/static-web-apps/*": true
@@ -237,8 +237,8 @@
         "articles/azure-relay/*.md": "spelluru",
         "articles/azure-resource-manager/*.md": "mumian",
         "articles/azure-resource-manager/bicep/**/*.md": "mumian",
-        "articles/azure-resource-manager/custom-providers/**/*.md": "davidsmatlak",
-        "articles/azure-resource-manager/managed-applications/**/*.md": "davidsmatlak",
+        "articles/azure-resource-manager/custom-providers/**/*.md": "MSEvanhi",
+        "articles/azure-resource-manager/managed-applications/**/*.md": "MSEvanhi",
         "articles/azure-resource-manager/management/**/*.md": "mumian",
         "articles/azure-resource-manager/templates/**/*.md": "mumian",
         "articles/azure-resource-manager/troubleshooting/**/*.md": "mumian",
@@ -297,8 +297,8 @@
         "articles/openshift/**/*.yml": "johnmarco",
         "articles/operator-insights/**/*.md": "rcdun",
         "articles/operator-insights/**/*.yml": "rcdun",
-        "articles/partner-solutions/**/*.md": "flang-msft",
-        "articles/partner-solutions/**/*.yml": "flang-msft",
+        "articles/partner-solutions/**/*.md": "ProfessorKendrick",
+        "articles/partner-solutions/**/*.yml": "ProfessorKendrick",
         "articles/partner-solutions/split-experimentation/**/*.md": "maud-lv",
         "articles/partner-solutions/split-experimentation/**/*.yml": "maud-lv",
         "articles/playwright-testing/**/*.md": "vvs11",
@@ -577,7 +577,6 @@
         "articles/iot-operations/**/*": "https://learn.microsoft.com/answers/tags/464/azure-iot-operations/",
         "articles/iot/**/*": "https://learn.microsoft.com/answers/tags/35/azure-iot/",
         "articles/kinect-dk/**/*": "https://learn.microsoft.com/answers/tags/190/azure-kinect-dk/",
-        "articles/kubernetes-fleet/**/*": "https://learn.microsoft.com/answers/tags/200/azure-kubernetes-service/",
         "articles/lab-services/**/*": "https://learn.microsoft.com/answers/tags/186/azure-lab-services/",
         "articles/lighthouse/**/*": "https://learn.microsoft.com/answers/tags/95/azure-lighthouse/",
         "articles/load-balancer/**/*": "https://learn.microsoft.com/answers/tags/230/azure-load-balancer/",
@@ -742,8 +741,8 @@
         "articles/azure-relay/*.md": "spelluru",
         "articles/azure-resource-manager/*.md": "jgao",
         "articles/azure-resource-manager/bicep/**/*.md": "jgao",
-        "articles/azure-resource-manager/custom-providers/**/*.md": "davidsmatlak",
-        "articles/azure-resource-manager/managed-applications/**/*.md": "davidsmatlak",
+        "articles/azure-resource-manager/custom-providers/**/*.md": "evanhi",
+        "articles/azure-resource-manager/managed-applications/**/*.md": "evanhi",
         "articles/azure-resource-manager/management/**/*.md": "jgao",
         "articles/azure-resource-manager/templates/**/*.md": "jgao",
         "articles/azure-resource-manager/troubleshooting/**/*.md": "jgao",
@@ -801,8 +800,8 @@
         "articles/openshift/**/*.yml": "johnmarc",
         "articles/operator-insights/**/*.md": "rdunstan",
         "articles/operator-insights/**/*.yml": "rdunstan",
-        "articles/partner-solutions/**/*.md": "franlanglois",
-        "articles/partner-solutions/**/*.yml": "franlanglois",
+        "articles/partner-solutions/**/*.md": "kkendrick",
+        "articles/partner-solutions/**/*.yml": "kkendrick",
         "articles/partner-solutions/split-experimentation/**/*.md":"malev",
         "articles/partner-solutions/split-experimentation/**/*.yml":"malev",
         "articles/playwright-testing/**/*.md": "vanshsingh",
@@ -906,29 +905,30 @@
         "articles/devtest-labs/**/*.md": "azure-devtest-labs",
         "articles/event-grid/**/*": "azure-event-grid",
         "articles/event-hubs/**/*": "azure-event-hubs",
-        "articles/governance/*.md": "governance",
+        "articles/governance/*.md": "azure-policy",
         "articles/governance/blueprints/**/*.md": "azure-blueprints",
         "articles/governance/machine-configuration/**/*.md": "machine-configuration",
-        "articles/governance/management-groups/**/*.md": "governance",
+        "articles/governance/management-groups/**/*.md": "azure",
         "articles/governance/policy/**/*.md": "azure-policy",
         "articles/governance/resource-graph/**/*.md": "azure-resource-graph",
         "articles/hdinsight-aks/**/*.md": "azure-hdinsight-on-aks",
         "articles/industry/**/*.md": "azure-industry",
         "articles/integration-environments/*.md": "azure-integration-environments",
-        "articles/iot-operations/**/*.md": "iot-operations",
-        "articles/iot-operations/**/*.yml": "iot-operations",
+        "articles/iot-operations/**/*.md": "azure-iot-operations",
+        "articles/iot-operations/**/*.yml": "azure-iot-operations",
         "articles/jenkins/**/*.md": "jenkins",
         "articles/lab-services/**/*.md": "azure-lab-services",
         "articles/lighthouse/**/*.md": "azure-lighthouse",
         "articles/logic-apps/*.md": "azure-logic-apps",
         "articles/logic-apps/**/*.md": "azure-logic-apps",
-        "articles/media-services/*.md": "media-services",
-        "articles/media-services/**/*.md": "media-services",
+        "articles/media-services/*.md": "azure-media-services",
+        "articles/media-services/**/*.md": "azure-media-services",
         "articles/migrate/*.md": "azure-migrate",
         "articles/notebooks/*.md": "azure-notebooks",
         "articles/object-anchors/**/*.md": "azure-object-anchors",
         "articles/openshift/**/*.md": "azure-redhat-openshift",
         "articles/partner-solutions/**/*.md": "partner-services",
+        "articles/partner-solutions/**/*.yml": "partner-services",
         "articles/playwright-testing/**/*.md": "playwright-testing",
         "articles/quotas/**/*.md": "azure-quotas",
         "articles/remote-rendering/**/*.md": "azure-remote-rendering",
@@ -1000,10 +1000,11 @@
         "articles/partner-solutions/qumulo/**/*.md": "qumulo",
         "articles/partner-solutions/qumulo/**/*.yml": "qumulo",
         "articles/partner-solutions/split-experimentation/**/*.md": "split-experimentation",
-        "articles/partner-solutions/split-experimentation/**/*.yml": "split-experimentation"
+        "articles/partner-solutions/split-experimentation/**/*.yml": "split-experimentation",
+        "articles/governance/management-groups/**/*.md": "azure-governance"
       },
       "monikerRange": {
-        "articles/iot-edge/**/*.md": ">=iotedge-1.4",
+        "articles/iot-edge/**/*.md": ">=iotedge-1.4"
       },
       "recommendations": {
       },

@@ -4,67 +4,65 @@ items:
     items:
     - name: Overview
       href: overview-iot-operations.md
-    - name: Get started with an end-to-end sample
+    - name: Quickstart
       expanded: true
       items:
       - name: Run Azure IoT Operations in Codespaces
         href: get-started-end-to-end-sample/quickstart-deploy.md
-      - name: Add OPC UA assets to your cluster
-        href: get-started-end-to-end-sample/quickstart-add-assets.md
-      - name: Upload data to the cloud
-        href: get-started-end-to-end-sample/quickstart-upload-telemetry-to-cloud.md
+      - name: Configure your instance
+        href: get-started-end-to-end-sample/quickstart-configure.md
       - name: Get insights from your data
         href: get-started-end-to-end-sample/quickstart-get-insights.md
     - name: Deploy Azure IoT Operations to your cluster
       items:
+      - name: Deployment overview
+        href: deploy-iot-ops/overview-deploy.md
       - name: Prepare a cluster
         href: deploy-iot-ops/howto-prepare-cluster.md
       - name: Deploy to a cluster
         href: deploy-iot-ops/howto-deploy-iot-operations.md
+      - name: Manage, update, or uninstall
+        href: deploy-iot-ops/howto-manage-update-uninstall.md
+      - name: Enable secure settings
+        href: deploy-iot-ops/howto-enable-secure-settings.md
+    - name: Secure your deployment
+      items:
+      - name: Certificate management
+        href: secure-iot-ops/concept-default-root-ca.md
       - name: Manage secrets
-        href: deploy-iot-ops/howto-manage-secrets.md
+        href: secure-iot-ops/howto-manage-secrets.md
+      - name: Validate images
+        href: secure-iot-ops/howto-validate-images.md
     - name: Discover and manage assets
       items:
       - name: Asset management overview
         href: discover-manage-assets/overview-manage-assets.md
+      - name: Understand assets and asset endpoints
+        href: discover-manage-assets/concept-assets-asset-endpoints.md
       - name: Manage your assets
         href: discover-manage-assets/howto-manage-assets-remotely.md
       - name: Secure access to your assets
         href: discover-manage-assets/howto-secure-assets.md
-      - name: Message format
-        href: discover-manage-assets/concept-opcua-message-format.md
       - name: OPC UA (connect to your assets)
         items:
-        - name: OPC UA broker overview
+        - name: Connector for OPC UA overview
           href: discover-manage-assets/overview-opcua-broker.md
+        - name: Message format
+          href: discover-manage-assets/concept-opcua-message-format.md
         - name: OPC UA application authentication overview
           href: discover-manage-assets/overview-opcua-broker-certificates-management.md
         - name: Configure OPC UA application authentication
           href: discover-manage-assets/howto-configure-opcua-certificates-infrastructure.md
         - name: Configure OPC UA user authentication
           href: discover-manage-assets/howto-configure-opcua-authentication-options.md
-        - name: Configure an OPC PLC simulator
-          href: discover-manage-assets/howto-configure-opc-plc-simulator.md
-      - name: Akri (automatic asset discovery)
-        items:
-        - name: Akri overview
-          href: discover-manage-assets/overview-akri.md
-        - name: Akri architecture
-          href: discover-manage-assets/concept-akri-architecture.md
-        - name: Discover OPC UA data sources with Akri
-          href: discover-manage-assets/howto-autodetect-opcua-assets-using-akri.md
     - name: Manage MQTT broker
       items:
       - name: MQTT broker overview
         href: manage-mqtt-broker/overview-iot-mq.md
       - name: Configure core MQTT broker settings
         href: manage-mqtt-broker/howto-configure-availability-scale.md
-      - name: Secure MQTT communication endpoints
+      - name: Configure MQTT broker listener
         href: manage-mqtt-broker/howto-configure-brokerlistener.md
-      - name: Configure automatic TLS
-        href: manage-mqtt-broker/howto-configure-tls-auto.md
-      - name: Configure manual TLS
-        href: manage-mqtt-broker/howto-configure-tls-manual.md
       - name: Configure authentication
         href: manage-mqtt-broker/howto-configure-authentication.md
       - name: Configure authorization
@@ -73,11 +71,25 @@ items:
         href: manage-mqtt-broker/howto-test-connection.md
     - name: Process and route data
       items:
-      - name: Overview
+      - name: What are dataflows?
         href: connect-to-cloud/overview-dataflow.md
-      - name: Configure endpoints
-        href: connect-to-cloud/howto-configure-dataflow-endpoint.md
-      - name: Create a dataflow
+      - name: Prepare endpoints
+        items:
+        - name: Overview
+          href: connect-to-cloud/howto-configure-dataflow-endpoint.md
+        - name: MQTT and Event Grid
+          href: connect-to-cloud/howto-configure-mqtt-endpoint.md
+        - name: Kafka and Event Hubs
+          href: connect-to-cloud/howto-configure-kafka-endpoint.md
+        - name: ADLSv2 Blob Storage
+          href: connect-to-cloud/howto-configure-adlsv2-endpoint.md
+        - name: Microsoft Fabric OneLake
+          href: connect-to-cloud/howto-configure-fabric-endpoint.md
+        - name: Azure Data Explorer
+          href: connect-to-cloud/howto-configure-adx-endpoint.md
+        - name: Local storage or ACSA
+          href: connect-to-cloud/howto-configure-local-storage-endpoint.md  
+      - name: Create dataflow
         href: connect-to-cloud/howto-create-dataflow.md
       - name: Transform data
         items:
@@ -87,7 +99,9 @@ items:
           href: connect-to-cloud/concept-dataflow-conversions.md
         - name: Enrich data
           href: connect-to-cloud/concept-dataflow-enrich.md
-      - name: Configure a dataflow profile
+      - name: Use message schemas
+        href: connect-to-cloud/concept-schema-registry.md
+      - name: Manage dataflow profile
         href: connect-to-cloud/howto-configure-dataflow-profile.md
     - name: Manage layered network
       items:
@@ -113,16 +127,10 @@ items:
       items:
       - name: Build a real-time dashboard in Microsoft Fabric 
         href: view-analyze-telemetry/tutorial-real-time-dashboard-fabric.md
-      - name: Upload MQTT data to a lakehouse
-        href: view-analyze-telemetry/tutorial-upload-mqtt-lakehouse.md
     - name: Configure observability and monitoring
       items:
-      - name: Deploy observability resources with a script
+      - name: Deploy observability resources
         href: configure-observability-monitoring/howto-configure-observability.md
-      - name: Deploy observability resources manually
-        href: configure-observability-monitoring/howto-configure-observability-manual.md
-      - name: Add a cluster to observability infrastructure
-        href: configure-observability-monitoring/howto-add-cluster.md
       - name: Clean up observability resources
         href: configure-observability-monitoring/howto-clean-up-observability-resources.md
     - name: Create edge apps
@@ -141,6 +149,18 @@ items:
         href: create-edge-apps/concept-about-state-store-protocol.md
       - name: Develop MQTTnet apps
         href: create-edge-apps/howto-develop-mqttnet-apps.md
+    - name: Tutorials
+      items:
+      - name: Get started end-to-end
+        items:
+        - name: Add OPC UA assets to your cluster
+          href: end-to-end-tutorials/tutorial-add-assets.md
+        - name: Upload data to the cloud
+          href: end-to-end-tutorials/tutorial-upload-telemetry-to-cloud.md
+        - name: Get insights from your data
+          href: end-to-end-tutorials/tutorial-get-insights.md
+      - name: Bi-directional messaging with Event Grid
+        href: connect-to-cloud\tutorial-mqtt-bridge.md
     - name: Troubleshoot
       items:
       - name: Troubleshoot
@@ -157,21 +177,15 @@ items:
         href: https://github.com/Azure/azure-iot-operations/releases
       - name: Azure IoT Operations CLI
         href: /cli/azure/iot/ops
-      - name: REST API
-        items:
-        - name: Azure IoT Data Processor
-          href: /rest/api/iotdataprocessor 
-        - name: MQTT broker
-          href: /rest/api/iotmq
+      - name: Azure IoT Operations REST API
+        href: /rest/api/iotoperations
       - name: Available metrics for observability
         items:
         - name: MQTT broker
           href: reference/observability-metrics-mq.md
-        - name: Azure IoT Akri
-          href: reference/observability-metrics-akri.md
-        - name: Azure IoT OPC UA Broker
+        - name: Connector for OPC UA
           href: reference/observability-metrics-opcua-broker.md
-        - name: Azure IoT Layered Network Management
+        - name: Layered Network Management
           href: reference/observability-metrics-layered-network.md
       - name: MQTT support
         href: reference/mqtt-support.md

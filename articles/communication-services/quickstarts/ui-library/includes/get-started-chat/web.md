@@ -24,6 +24,6 @@ ms.service: azure-communication-services
 
 ### You can access the following storybooks
 
-- [UI Components](https://azure.github.io/communication-ui-library/?path=/story/quickstarts-uicomponents--page)
-- [Composites](https://azure.github.io/communication-ui-library/?path=/story/quickstarts-composites--page)
-- [Stateful Client (Chat)](https://azure.github.io/communication-ui-library/?path=/story/composites-chat-basicexample--basic-example)
+- [UI Components](https://azure.github.io/communication-ui-library/?path=/docs/components-get-started--docs)
+- [Composites](https://azure.github.io/communication-ui-library/?path=/docs/composites-get-started--docs)
+- [Stateful Client (Chat)](https://azure.github.io/communication-ui-library/?path=/docs/stateful-client-get-started-chat--docs)

@@ -6,13 +6,41 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: linux-related-content
 ms.topic: overview
-ms.date: 08/20/2024
+ms.date: 10/24/2024
 ms.author: anfdocs
 ---
 
 # What's new in Azure NetApp Files
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
+ 
+## October 2024
+
+* [Edit network features enhancement: no downtime](configure-network-features.md#no-downtime) (Preview)
+
+    Azure NetApp Files now supports the ability to edit network features (that is, upgrade from Basic to Standard network features) with no downtime for Azure NetApp Files volumes. Standard Network Features provide you with an enhanced virtual networking experience for a seamless and consistent experience along with security posture for Azure NetApp Files. 
+
+    This feature is currently in preview in the Australia East, Central India, East Asia, North Central US, and Switzerland North regions. 
+  
+## September 2024 
+
+* [Dynamic service level change enhancement:](dynamic-change-volume-service-level.md) shortened wait time for changing to lower service levels
+
+    To address rapidly changing performance requirements, Azure NetApp Files allows [dynamic service level changes of volumes](dynamic-change-volume-service-level.md). The wait time for moving Azure NetApp Files volumes to a lower service level (after first moving service levels upwards) is now 24 hours (a change from the original seven days) enabling you to more actively benefit from this cost optimization capability. 
+
+* [Reserved capacity](reservations.md) is now generally available (GA)
+
+    Pay-as-you-go pricing is the most convenient way to purchase cloud storage when your workloads are dynamic or changing over time. However, some workloads are more predictable with stable capacity usage over an extended period. These workloads can benefit from savings in exchange for a longer-term commitment. With a one-year or three-year commitment of an Azure NetApp Files reservation, you can save up to 34% on sustained usage of Azure NetApp Files. Reservations are available in stackable increments of 100 TiB and 1 PiB on Standard, Premium and Ultra service levels in a given region. Azure NetApp Files reservations benefits are automatically applied to existing Azure NetApp Files capacity pools in the matching region and service level. Azure NetApp Files reservations provide cost savings and financial predictability and stability, allowing for more effective budgeting. Additional usage is conveniently billed at the regular pay-as-you-go rate.
+
+    For more detail, see the [Azure NetApp Files reserved capacity](reserved-capacity.md) or see reservations in the Azure portal.
+
+* [Access-based enumeration](azure-netapp-files-create-volumes-smb.md#access-based-enumeration) is now generally available (GA)
+
+    In environments with Azure NetApp Files volumes shared among multiple departments, projects, and users, many users can see the existence of other files and folders in directory listings even if they don't have permissions to access those items. Enabling Access-based enumeration (ABE) on Azure NetApp Files volumes ensures users only see those files and folders in directory listings that they have permission to access. If a user doesn't have read or equivalent permissions for a folder, the Windows client hides the folder from the user’s view. This capability provides an additional layer of security by only displaying files and folders a user has access to, and conversely hiding file and folder information a user has no access. You can enable ABE on Azure NetApp Files SMB volume and dual-protocol volume with NTFS security style.
+
+* [Non-browsable shares](azure-netapp-files-create-volumes-smb.md#non-browsable-share) are now generally available (GA)
+
+    By default, Azure NetApp Files SMB and dual-protocol volumes show up in the list of shares in Windows Files Explorer. You might want to exclude specific Azure NetApp Files volumes from being listed. You can configure these volumes as non-browsable in Azure NetApp Files. This feature prevents the Windows client from browsing the share so the share doesn't show up in the Windows File Explorer. This capability provides an additional layer of security by not displaying these shares. This setting doesn't impact permissions. Users who have access to the share maintain their existing access.
 
 ## August 2024
 
@@ -30,9 +58,9 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     Volume encryption with customer-managed keys with managed HSM extends the [customer-managed keys](configure-customer-managed-keys.md), enabling you to store your keys in a more secure FIPS 140-2 Level 3 HSM service instead of the FIPS 140-2 Level 1 or 2 encryption offered with Azure Key Vault. 
 
-* [Volume enhancement: Azure NetApp Files now supports 50 GiB minimum volume sizes](azure-netapp-files-resource-limits.md) (preview)
+* [Volume enhancement: Azure NetApp Files now supports 50 GiB minimum volume sizes](azure-netapp-files-create-volumes.md#50-gib) (preview)
 
-    You can now create an Azure NetApp Files volume as small as 50 GiB--a reduction from the initial minimum size of 100 GiB. 50 GiB volumes save costs for workloads that require volumes smaller than 100 GiB, allowing you to appropriately size storage volumes. 50 GiB volumes are supported for all protocols with Azure NetApp Files: [NFS](azure-netapp-files-create-volumes.md#50-gib), [SMB](azure-netapp-files-create-volumes-smb.md#50-gib), and [dual-protocol](create-volumes-dual-protocol.md#50-gib). You must register for the feature before creating a volume smaller than 100 GiB. 
+    You can now create an Azure NetApp Files volume as small as [50 GiB](azure-netapp-files-resource-limits.md)--a reduction from the initial minimum size of 100 GiB. 50 GiB volumes save costs for workloads that require volumes smaller than 100 GiB, allowing you to appropriately size storage volumes. 50 GiB volumes are supported for all protocols with Azure NetApp Files: [NFS](azure-netapp-files-create-volumes.md#50-gib), [SMB](azure-netapp-files-create-volumes-smb.md#50-gib), and [dual-protocol](create-volumes-dual-protocol.md#50-gib). You must register for the feature before creating a volume smaller than 100 GiB. 
 
 * [Azure NetApp Files double encryption at rest](double-encryption-at-rest.md) is now generally available (GA). 
 

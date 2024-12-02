@@ -4,8 +4,7 @@ description: Describes how to enable Azure Arc on an existing Kubernetes cluster
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 02/17/2022
 ms.author: alkohli
@@ -20,7 +19,7 @@ This article shows you how to enable Azure Arc on an existing Kubernetes cluster
 This procedure assumes that you have read and understood the following articles:
 
 - [Kubernetes workloads on Azure Stack Edge Pro device](azure-stack-edge-gpu-kubernetes-workload-management.md)
-- [What is Azure Arc-enabled Kubernetes (Preview)?](../azure-arc/kubernetes/overview.md)
+- [What is Azure Arc-enabled Kubernetes (Preview)?](/azure/azure-arc/kubernetes/overview)
 
 ## Prerequisites
 
@@ -73,7 +72,7 @@ Before you enable Azure Arc on the Kubernetes cluster, you need to enable and re
 
     ![Register Kubernetes resource providers 3](media/azure-stack-edge-gpu-connect-powershell-interface/register-k8-resource-providers-4.png)
 
-You can also register resource providers via the `az cli`. For more information, see [Register the two providers for Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/quickstart-connect-cluster.md#register-providers-for-azure-arc-enabled-kubernetes).
+You can also register resource providers via the `az cli`. For more information, see [Register the two providers for Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/quickstart-connect-cluster#register-providers-for-azure-arc-enabled-kubernetes).
 
 ## Create service principal, assign role
 
@@ -203,7 +202,7 @@ Follow these steps to configure the Kubernetes cluster for Azure Arc management:
     [10.128.44.240]: PS>
     ```
 
-A conceptual overview of these agents is available [here](../azure-arc/kubernetes/conceptual-agent-overview.md).
+A conceptual overview of these agents is available [here](/azure/azure-arc/kubernetes/conceptual-agent-overview).
 
 ### Remove Arc from the Kubernetes cluster
 
@@ -216,7 +215,7 @@ To remove the Azure Arc management, follow these steps:
 
 
 > [!NOTE]
-> By default, when resource `yamls` are deleted from the Git repository, the corresponding resources are not deleted from the Kubernetes cluster. You need to set `--sync-garbage-collection`  in Arc OperatorParams to allow the deletion of resources when deleted from git repository. For more information, see [Delete a configuration](../azure-arc/kubernetes/tutorial-use-gitops-connected-cluster.md#additional-parameters)
+> By default, when resource `yamls` are deleted from the Git repository, the corresponding resources are not deleted from the Kubernetes cluster. You need to set `--sync-garbage-collection`  in Arc OperatorParams to allow the deletion of resources when deleted from git repository. For more information, see [Delete a configuration](/azure/azure-arc/kubernetes/tutorial-use-gitops-connected-cluster#additional-parameters)
 
 ## Next steps
 

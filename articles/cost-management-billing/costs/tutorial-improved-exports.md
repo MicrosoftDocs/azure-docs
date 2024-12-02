@@ -168,8 +168,8 @@ Agreement types, scopes, and required roles are explained at [Understand and wor
 
 | **Data types** | **Supported agreement** | **Supported scopes** |
 | --- | --- | --- |
-| Cost and usage (actual) | • EA<br> • MCA that you bought through the Azure website <br> • MCA enterprise<br> • MCA that you buy through a Microsoft partner <br> • Microsoft Online Service Program (MOSP), also known as pay-as-you-go  <br> • Azure internal | • EA - Enrollment, department, account, subscription, and resource group <br> • MCA - Billing account, billing profile, Invoice section, subscription, and resource group <br> • Microsoft Partner Agreement (MPA) - Customer, subscription, and resource group |
-| Cost and usage (amortized) | • EA <br> • MCA that you bought through the Azure website <br> • MCA enterprise <br> • MCA that you buy through a Microsoft partner <br> • Microsoft Online Service Program (MOSP), also known as pay-as-you-go  <br> • Azure internal | • EA - Enrollment, department, account, subscription, and resource group <br> • MCA - Billing account, billing profile, Invoice section, subscription, and resource group <br> • MPA - Customer, subscription, and resource group |
+| Cost and usage (actual) | • EA<br> • MCA that you bought through the Azure website <br> • MCA enterprise<br> • MCA that you buy through a Microsoft partner <br> • Azure internal | • EA - Enrollment, department, account, subscription, and resource group <br> • MCA - Billing account, billing profile, Invoice section, subscription, and resource group <br> • Microsoft Partner Agreement (MPA) - Customer, subscription, and resource group |
+| Cost and usage (amortized) | • EA <br> • MCA that you bought through the Azure website <br> • MCA enterprise <br> • MCA that you buy through a Microsoft partner  <br> • Azure internal | • EA - Enrollment, department, account, subscription, and resource group <br> • MCA - Billing account, billing profile, Invoice section, subscription, and resource group <br> • MPA - Customer, subscription, and resource group |
 | Cost and usage (FOCUS) | • EA <br> • MCA that you bought through the Azure website <br> • MCA enterprise <br> • MCA that you buy through a Microsoft partner| • EA - Enrollment, department, account, subscription, and resource group <br> • MCA - Billing account, billing profile, invoice section, subscription, and resource group <br> • MPA - Customer, subscription, resource group. **NOTE**: The management group scope isn't supported for Cost and usage details (FOCUS) exports. |
 | All available prices | • EA <br>  • MCA that you bought through the Azure website <br> • MCA enterprise <br> • MCA that you buy through a Microsoft partner  | • EA - Billing account <br> • All other supported agreements - Billing profile |
 | Reservation recommendations | • EA <br> • MCA that you bought through the Azure website <br> • MCA enterprise <br> • MCA that you buy through a Microsoft partner | • EA - Billing account <br> • All other supported agreements - Billing profile |
@@ -182,8 +182,11 @@ The improved exports experience currently has the following limitations.
 
 - The new exports experience doesn't fully support the management group scope, and it has feature limitations.
 
-- Azure internal and MOSP billing scopes and subscriptions don’t support FOCUS datasets.
+- Azure internal accounts and the Microsoft Online Service Program (MOSP), commonly referred to as pay-as-you-go, support only the 'Cost and Usage Details (Usage Only)' dataset for billing scopes and subscriptions. 
+
 - Shared access service (SAS) key-based cross tenant export is only supported for Microsoft partners at the billing account scope. It isn't supported for other partner scenarios like any other scope, EA indirect contract, or Azure Lighthouse.
+
+- EA price sheet: Reservation prices are only available for the current month price sheet and cannot be retrieved for historical exports. To retain historical reservation prices, set up recurring exports.
 
 ## FAQ
 
@@ -195,6 +198,22 @@ The file partitioning is a feature that is activated by default to facilitate th
 
 In the new export experience, missing attributes such as subscription IDs will be set to null or empty, rather than using a default empty GUID (00000000-0000-0000-0000-000000000000), to more accurately indicate the absence of a value. This affects charges pertaining to unused reservations, unused savings plan and rounding adjustments.
 
+#### How much historical data can I retrieve using Exports?
+
+You can retrieve up to 13 months of historical data through the portal UI for all datasets, except for RI recommendations, which are limited to the current recommendation snapshot. To access data older than 13 months, you can use the REST API.
+
+- Cost and usage (Actual), Cost and usage (Amortized), Cost and usage (FOCUS): Up to 7 years of data.
+
+- Reservation transactions: Up to 7 years of data across all channels.
+
+- Reservation recommendations, Reservation details: Up to 13 months of data.
+
+- All available prices:
+
+  - MCA/MPA: Up to 13 months.
+  
+  - EA: Up to 25 months (starting from December 2022).
+  
 ## Next steps
 
 - Learn more about exports at [Tutorial: Create and manage exported data](tutorial-export-acm-data.md).

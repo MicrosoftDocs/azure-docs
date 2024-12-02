@@ -5,12 +5,12 @@ description: Build web applications using the OpenID Connect authentication prot
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: concept-article
 ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 ms.custom: fasttrack-edit
 
 
@@ -37,7 +37,7 @@ When your web application needs to authenticate the user and run a user flow, it
 
 In this request, the client indicates the permissions that it needs to acquire from the user in the `scope` parameter, and specifies the user flow to run. To get a feel of how the request works, paste the request into your browser and run it. Replace:
 - `{tenant}` with the name of your tenant.
-- `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` with the app ID of an [application you registered in your tenant](tutorial-register-applications.md).  
+- `00001111-aaaa-2222-bbbb-3333cccc4444` with the app ID of an [application you registered in your tenant](tutorial-register-applications.md).  
 - `{application-id-uri}/{scope-name}` with the Application ID URI and scope of an application that you registered in your tenant.
 - `{policy}` with the policy name that you have in your tenant, for example `b2c_1_sign_in`.
 
@@ -45,7 +45,7 @@ In this request, the client indicates the permissions that it needs to acquire f
 GET /{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/authorize?
 Host: {tenant}.b2clogin.com
 
-client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
+client_id=00001111-aaaa-2222-bbbb-3333cccc4444
 &response_type=code+id_token
 &redirect_uri=https%3A%2F%2Fjwt.ms%2F
 &response_mode=fragment
@@ -157,8 +157,8 @@ Host: {tenant}.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 
 grant_type=authorization_code
-&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
-&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access
+&client_id=00001111-aaaa-2222-bbbb-3333cccc4444
+&scope=00001111-aaaa-2222-bbbb-3333cccc4444 offline_access
 &code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...
 &redirect_uri=urn:ietf:wg:oauth:2.0:oob
 ```
@@ -181,7 +181,7 @@ A successful token response looks like:
     "not_before": "1442340812",
     "token_type": "Bearer",
     "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...",
-    "scope": "90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access",
+    "scope": "00001111-aaaa-2222-bbbb-3333cccc4444 offline_access",
     "expires_in": "3600",
     "expires_on": "1644254945",
     "refresh_token": "AAQfQmvuDy8WtUv-sd0TBwWVQs1rC-Lfxa_NDkLqpg50Cxp5Dxj0VPF1mx2Z...",
@@ -234,7 +234,7 @@ Host: {tenant}.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 
 grant_type=refresh_token
-&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
+&client_id=00001111-aaaa-2222-bbbb-3333cccc4444
 &scope=openid offline_access
 &refresh_token=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...
 &redirect_uri=urn:ietf:wg:oauth:2.0:oob
@@ -258,7 +258,7 @@ A successful token response looks like:
     "not_before": "1442340812",
     "token_type": "Bearer",
     "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...",
-    "scope": "90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access",
+    "scope": "00001111-aaaa-2222-bbbb-3333cccc4444 offline_access",
     "expires_in": "3600",
     "refresh_token": "AAQfQmvuDy8WtUv-sd0TBwWVQs1rC-Lfxa_NDkLqpg50Cxp5Dxj0VPF1mx2Z...",
     "refresh_token_expires_in": "1209600"

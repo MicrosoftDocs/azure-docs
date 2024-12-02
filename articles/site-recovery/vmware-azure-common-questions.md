@@ -1,8 +1,8 @@
 ---
 title: Common questions about VMware disaster recovery with Azure Site Recovery
 description: Get answers to common questions about disaster recovery of on-premises VMware VMs to Azure by using Azure Site Recovery.
-ms.date: 04/10/2024
-ms.topic: conceptual
+ms.date: 07/10/2024
+ms.topic: faq
 ms.service: azure-site-recovery
 ms.author: ankitadutta
 author: ankitaduttaMSFT
@@ -94,6 +94,10 @@ Managed disks are charged slightly differently from storage accounts. [Learn mor
 ### Is there any difference in cost when replicating to General Purpose v2 storage account?
 
 You'll typically see an increase in the transactions cost incurred on GPv2 storage accounts since Azure Site Recovery is transactions heavy. [Read more](../storage/common/storage-account-upgrade.md#pricing-and-billing) to estimate the change.
+
+### Does Site Recovery work with reserved instances?
+
+Yes, you can purchase [reserved Azure virtual machines](https://azure.microsoft.com/pricing/reserved-vm-instances/) in the disaster recovery region, and Site Recovery failover operations use them. No additional configuration is needed.
 
 ## Mobility service
 
@@ -391,7 +395,7 @@ No. Azure Site Recovery cannot use On-demand capacity reservation unless it's Az
 
 ### The application license is based on UUID of VMware virtual machine. Is the UUID of a VMware virtual machine changed when it is failed over to Azure?
 
-Yes, the UUID of the Azure virtual machine is different from the on-prem VMware virtual machine. However, most application vendors support transferring the license to a new UUID. If the application supports it, the customer can work with the vendor to transfer the license to the VM with the new UUID.
+Yes, the UUID of the Azure virtual machine is different from the on-premises VMware virtual machine. However, most application vendors support transferring the license to a new UUID. If the application supports it, the customer can work with the vendor to transfer the license to the VM with the new UUID.
 
 ## Automation and scripting
 

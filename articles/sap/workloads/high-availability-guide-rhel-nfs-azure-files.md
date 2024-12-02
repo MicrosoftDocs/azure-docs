@@ -181,7 +181,7 @@ The SAP file systems that don't need to be mounted via NFS can also be deployed 
 
 When you plan your deployment with NFS on Azure Files, consider the following important points:  
 
-* The minimum share size is 100 GiB. You only pay for the [capacity of the provisioned shares](../../storage/files/understanding-billing.md#provisioned-model).
+* The minimum share size is 100 GiB. You only pay for the [capacity of the provisioned shares](../../storage/files/understanding-billing.md#provisioned-v1-model).
 * Size your NFS shares not only based on capacity requirements but also on IOPS and throughput requirements. For more information, see [Azure file share targets](../../storage/files/storage-files-scale-targets.md#azure-file-share-scale-targets).
 * Test the workload to validate your sizing and ensure that it meets your performance targets. To learn how to troubleshoot performance issues with NFS on Azure Files, see [Troubleshoot Azure file share performance](../../storage/files/files-troubleshoot-performance.md).
 * For SAP J2EE systems, it's not supported to place `/usr/sap/<SID>/J<nr>` on NFS on Azure Files.

@@ -5,7 +5,7 @@ services: container-apps
 author: anthonychu
 ms.service: azure-container-apps
 ms.topic: conceptual
-ms.date: 06/26/2024
+ms.date: 10/02/2024
 ms.author: antchu
 ms.collection: ce-skilling-ai-copilot
 ---
@@ -239,6 +239,10 @@ Authorization: Bearer <TOKEN>
 This request is forwarded to the custom container session with the identifier for the user's ID. If the session isn't already running, Azure Container Apps allocates a session from the pool before forwarding the request.
 
 In the example, the session's container receives the request at `http://0.0.0.0:<INGRESS_PORT>/<API_PATH_EXPOSED_BY_CONTAINER>`.
+
+## Billing
+
+Custom container sessions are billed based on the resources consumed by the session pool. For more information, see [Azure Container Apps billing](billing.md#custom-container).
 
 ## Next steps
 

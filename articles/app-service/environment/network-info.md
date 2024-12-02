@@ -9,11 +9,13 @@ ms.author: madsd
 # Networking considerations for App Service Environment
 
 > [!IMPORTANT]
-> This article is about App Service Environment v2, which is used with Isolated App Service plans. [App Service Environment v1 and v2 will be retired on 31 August 2024](https://azure.microsoft.com/updates/v2/App-Service-Environment-v1v2-Retirement-Update). There's a new version of App Service Environment that is easier to use and runs on more powerful infrastructure. To learn more about the new version, start with the [Introduction to the App Service Environment](overview.md). If you're currently using App Service Environment v2, please follow the steps in [this article](upgrade-to-asev3.md) to migrate to the new version.
+> This article is about App Service Environment v2, which is used with Isolated App Service plans. [App Service Environment v1 and v2 are retired as of 31 August 2024](https://aka.ms/postEOL/ASE). There's a new version of App Service Environment that is easier to use and runs on more powerful infrastructure. To learn more about the new version, start with the [Introduction to the App Service Environment](overview.md). If you're currently using App Service Environment v1, please follow the steps in [this article](upgrade-to-asev3.md) to migrate to the new version.
 >
-> After 31 August 2024, decommissioning of the App Service Environment v1 and v2 hardware will begin, and this may affect the availability and performance of your apps and data. Service Level Agreement (SLA) and Service Credits will no longer apply for App Service Environment v1 and v2 workloads that continue to be in production after 31 August 2024.  
+> As of 31 August 2024, [Service Level Agreement (SLA) and Service Credits](https://aka.ms/postEOL/ASE/SLA) no longer apply for App Service Environment v1 and v2 workloads that continue to be in production since they are retired products. Decommissioning of the App Service Environment v1 and v2 hardware has begun, and this may affect the availability and performance of your apps and data.
 >
-> You must complete migration to App Service Environment v3 before 31 August 2024 or your apps and resources may be deleted. We will attempt to auto-migrate any remaining App Service Environment v1 and v2 on a best-effort basis using the [in-place migration feature](migrate.md), but Microsoft makes no claim or guarantees about application availability after auto-migration. You may need to perform manual configuration to complete the migration and to optimize your App Service plan SKU choice to meet your needs. If auto-migration is not feasible, your resources and associated app data will be deleted. We strongly urge you to act now to avoid either of these extreme scenarios.
+> You must complete migration to App Service Environment v3 immediately or your apps and resources may be deleted. We will attempt to auto-migrate any remaining App Service Environment v1 and v2 on a best-effort basis using the [in-place migration feature](migrate.md), but Microsoft makes no claim or guarantees about application availability after auto-migration. You may need to perform manual configuration to complete the migration and to optimize your App Service plan SKU choice to meet your needs. If auto-migration isn't feasible, your resources and associated app data will be deleted. We strongly urge you to act now to avoid either of these extreme scenarios.
+>
+> If you need additional time, we can offer a one-time 30-day grace period for you to complete your migration. For more information and to request this grace period, review the [grace period overview](./auto-migration.md#grace-period), and then go to [Azure portal](https://portal.azure.com) and visit the Migration blade for each of your App Service Environments.
 >
 > For the most up-to-date information on the App Service Environment v1/v2 retirement, see the [App Service Environment v1 and v2 retirement update](https://github.com/Azure/app-service-announcements/issues/469).
 >
@@ -31,14 +33,14 @@ Regardless of the deployment type, all App Service Environments have a public vi
 
 If the apps make calls to resources in your virtual network or across a VPN, the source IP is one of the IPs in the subnet. Because the App Service Environment is within the virtual network, it can also access resources within the virtual network without any additional configuration. If the virtual network is connected to your on-premises network, apps also have access to resources there without additional configuration.
 
-![Diagram that shows the elements of an external deployment.][1] 
+![Diagram that shows the elements of an external deployment.][1]
 
 If you have an App Service Environment with an external deployment, the public VIP is also the endpoint to which your apps resolve for the following:
 
-* HTTP/S 
-* FTP/S
-* Web deployment
-* Remote debugging
+- HTTP/S
+- FTP/S
+- Web deployment
+- Remote debugging
 
 ![Diagram that shows the elements of an internal load balancer deployment.][2]
 
@@ -69,11 +71,11 @@ Just for the App Service Environment to operate, the following ports must be ope
 |  App Service Environment internal communication | App Service Environment subnet: All ports | App Service Environment subnet: All ports
 |  Allow Azure load balancer inbound | Azure load balancer | App Service Environment subnet: 16001
 
-Ports 7564 and 1221 can show as open on a port scan. They reply with an IP address, and nothing more. You can block them if you want to. 
+Ports 7564 and 1221 can show as open on a port scan. They reply with an IP address, and nothing more. You can block them if you want to.
 
-The inbound management traffic provides command and control of the App Service Environment, in addition to system monitoring. The source addresses for this traffic are listed in [App Service Environment management addresses][ASEManagement]. The network security configuration needs to allow access from the App Service Environment management addresses on ports 454 and 455. If you block access from those addresses, your App Service Environment will become unhealthy and then become suspended. The TCP traffic that comes in on ports 454 and 455 must go back out from the same VIP, or you will have an asymmetric routing problem. 
+The inbound management traffic provides command and control of the App Service Environment, in addition to system monitoring. The source addresses for this traffic are listed in [App Service Environment management addresses][ASEManagement]. The network security configuration needs to allow access from the App Service Environment management addresses on ports 454 and 455. If you block access from those addresses, your App Service Environment will become unhealthy and then become suspended. The TCP traffic that comes in on ports 454 and 455 must go back out from the same VIP, or you will have an asymmetric routing problem.
 
-Within the subnet, there are many ports used for internal component communication, and they can change. This requires all of the ports in the subnet to be accessible from the subnet. 
+Within the subnet, there are many ports used for internal component communication, and they can change. This requires all of the ports in the subnet to be accessible from the subnet.
 
 For communication between the Azure load balancer and the App Service Environment subnet, the minimum ports that need to be open are 454, 455, and 16001. If you're using an internal load balancer deployment, then you can lock traffic down to just the 454, 455, 16001 ports. If you're using an external deployment, then you need to take into account the normal app access ports. Specifically, these are:
 
@@ -88,7 +90,7 @@ If you block the application ports, your App Service Environment can still funct
 
 ### Outbound dependencies
 
-For outbound access, an App Service Environment depends on multiple external systems. Many of those system dependencies are defined with DNS names, and don't map to a fixed set of IP addresses. Thus, the App Service Environment requires outbound access from the subnet to all external IPs, across a variety of ports. 
+For outbound access, an App Service Environment depends on multiple external systems. Many of those system dependencies are defined with DNS names, and don't map to a fixed set of IP addresses. Thus, the App Service Environment requires outbound access from the subnet to all external IPs, across a variety of ports.
 
 App Service Environment communicates out to internet accessible addresses on the following ports:
 
@@ -97,10 +99,10 @@ App Service Environment communicates out to internet accessible addresses on the
 | DNS | 53 |
 | NTP | 123 |
 | CRL, Windows updates, Linux dependencies, Azure services | 80/443 |
-| Azure SQL | 1433 | 
+| Azure SQL | 1433 |
 | Monitoring | 12000 |
 
-The outbound dependencies are listed in [Locking down an App Service Environment](./firewall-integration.md). If the App Service Environment loses access to its dependencies, it stops working. When that happens for a long enough period of time, it's suspended. 
+The outbound dependencies are listed in [Locking down an App Service Environment](./firewall-integration.md). If the App Service Environment loses access to its dependencies, it stops working. When that happens for a long enough period of time, it's suspended.
 
 ### Customer DNS
 
@@ -127,9 +129,9 @@ In addition to the dependencies described in the previous sections, there are a 
 - Process Explorer
 - Console
 
-When you use an internal load balancer, the SCM site isn't accessible from outside the virtual network. Some capabilities don't work from the app portal because they require access to the SCM site of an app. You can connect to the SCM site directly, instead of by using the portal. 
+When you use an internal load balancer, the SCM site isn't accessible from outside the virtual network. Some capabilities don't work from the app portal because they require access to the SCM site of an app. You can connect to the SCM site directly, instead of by using the portal.
 
-If your internal load balancer is the domain name `contoso.appserviceenvironment.net`, and your app name is *testapp*, the app is reached at `testapp.contoso.appserviceenvironment.net`. The SCM site that goes with it is reached at `testapp.scm.contoso.appserviceenvironment.net`.
+If your internal load balancer is the domain name `contoso.appserviceenvironment.net`, and your app name is _testapp_, the app is reached at `testapp.contoso.appserviceenvironment.net`. The SCM site that goes with it is reached at `testapp.scm.contoso.appserviceenvironment.net`.
 
 ## IP addresses
 
@@ -143,7 +145,7 @@ An App Service Environment has a few IP addresses to be aware of. They are:
 All these IP addresses are visible in the Azure portal from the App Service Environment UI. If you have an internal deployment, the IP for the internal load balancer is listed.
 
 > [!NOTE]
-> These IP addresses don't change, as long as your App Service Environment is running. If your App Service Environment becomes suspended and is then restored, the addresses used will change. The normal cause for a suspension is if you block inbound management access, or you block access to a dependency. 
+> These IP addresses don't change, as long as your App Service Environment is running. If your App Service Environment becomes suspended and is then restored, the addresses used will change. The normal cause for a suspension is if you block inbound management access, or you block access to a dependency.
 
 ### App-assigned IP addresses
 
@@ -153,7 +155,7 @@ When an app has its own IP-based SSL address, the App Service Environment reserv
 
 ## Network security groups
 
-[NSGs][NSGs] provide the ability to control network access within a virtual network. When you use the portal, there's an implicit *deny rule* at the lowest priority to deny everything. What you build are your *allow rules*.
+[NSGs][NSGs] provide the ability to control network access within a virtual network. When you use the portal, there's an implicit _deny rule_ at the lowest priority to deny everything. What you build are your _allow rules_.
 
 You don't have access to the VMs used to host the App Service Environment itself. They're in a subscription that Microsoft manages. If you want to restrict access to the apps, set NSGs on the subnet. In doing so, pay careful attention to the dependencies. If you block any dependencies, the App Service Environment stops working.
 
@@ -163,18 +165,18 @@ The required entries in an NSG are to allow traffic:
 
 **Inbound**
 
-* TCP from the IP service tag `AppServiceManagement` on ports 454, 455
-* TCP from the load balancer on port 16001
-* From the App Service Environment subnet to the App Service Environment subnet on all ports
+- TCP from the IP service tag `AppServiceManagement` on ports 454, 455
+- TCP from the load balancer on port 16001
+- From the App Service Environment subnet to the App Service Environment subnet on all ports
 
 **Outbound**
 
-* UDP to all IPs on port 53
-* UDP to all IPs on port 123
-* TCP to all IPs on ports 80, 443
-* TCP to the IP service tag `Sql` on port 1433
-* TCP to all IPs on port 12000
-* To the App Service Environment subnet on all ports
+- UDP to all IPs on port 53
+- UDP to all IPs on port 123
+- TCP to all IPs on ports 80, 443
+- TCP to the IP service tag `Sql` on port 1433
+- TCP to all IPs on port 12000
+- To the App Service Environment subnet on all ports
 
 These ports don't include the ports that your apps require for successful use. For example, suppose your app needs to call a MySQL server on port 3306. Network Time Protocol (NTP) on port 123 is the time synchronization protocol used by the operating system. The NTP endpoints aren't specific to App Service, can vary with the operating system, and aren't in a well-defined list of addresses. To prevent time synchronization issues, you then need to allow UDP traffic to all addresses on port 123. The outbound TCP to port 12000 traffic is for system support and analysis. The endpoints are dynamic, and aren't in a well-defined set of addresses.
 
@@ -197,7 +199,7 @@ After your NSGs are defined, assign them to the subnet. If you don't remember th
 
 ## Routes
 
-*Forced tunneling* is when you set routes in your virtual network so the outbound traffic doesn't go directly to the internet. Instead, the traffic goes somewhere else, like an Azure ExpressRoute gateway or a virtual appliance. If you need to configure your App Service Environment in such a manner, see [Configuring your App Service Environment with forced tunneling][forcedtunnel].
+_Forced tunneling_ is when you set routes in your virtual network so the outbound traffic doesn't go directly to the internet. Instead, the traffic goes somewhere else, like an Azure ExpressRoute gateway or a virtual appliance. If you need to configure your App Service Environment in such a manner, see [Configuring your App Service Environment with forced tunneling][forcedtunnel].
 
 When you create an App Service Environment in the portal, you automatically create a set of route tables on the subnet. Those routes simply say to send outbound traffic directly to the internet.  
 
@@ -221,9 +223,9 @@ To create the same routes manually, follow these steps:
 
 ## Service endpoints
 
-Service endpoints enable you to restrict access to multi-tenant services to a set of Azure virtual networks and subnets. For more information, see [Virtual Network service endpoints][serviceendpoints]. 
+Service endpoints enable you to restrict access to multi-tenant services to a set of Azure virtual networks and subnets. For more information, see [Virtual Network service endpoints][serviceendpoints].
 
-When you enable service endpoints on a resource, there are routes created with higher priority than all other routes. If you use service endpoints on any Azure service, with a force-tunneled App Service Environment, the traffic to those services isn't force-tunneled. 
+When you enable service endpoints on a resource, there are routes created with higher priority than all other routes. If you use service endpoints on any Azure service, with a force-tunneled App Service Environment, the traffic to those services isn't force-tunneled.
 
 When service endpoints are enabled on a subnet with an instance of Azure SQL, all Azure SQL instances connected to from that subnet must have service endpoints enabled. If you want to access multiple Azure SQL instances from the same subnet, you can't enable service endpoints on one Azure SQL instance and not on another. No other Azure service behaves like Azure SQL with respect to service endpoints. When you enable service endpoints with Azure Storage, you lock access to that resource from your subnet. You can still access other Azure Storage accounts, however, even if they don't have service endpoints enabled.  
 
@@ -232,8 +234,6 @@ When service endpoints are enabled on a subnet with an instance of Azure SQL, al
 <!--Image references-->
 [1]: ./media/network_considerations_with_an_app_service_environment/networkase-overflow.png
 [2]: ./media/network_considerations_with_an_app_service_environment/networkase-overflow2.png
-[4]: ./media/network_considerations_with_an_app_service_environment/networkase-inboundnsg.png
-[5]: ./media/network_considerations_with_an_app_service_environment/networkase-outboundnsg.png
 [6]: ./media/network_considerations_with_an_app_service_environment/networkase-udr.png
 [7]: ./media/network_considerations_with_an_app_service_environment/networkase-subnet.png
 [8]: ./media/network_considerations_with_an_app_service_environment/serviceendpoint.png
@@ -241,23 +241,8 @@ When service endpoints are enabled on a subnet with an instance of Azure SQL, al
 <!--Links-->
 [Intro]: ./intro.md
 [MakeExternalASE]: ./create-external-ase.md
-[MakeASEfromTemplate]: ./create-from-template.md
 [MakeILBASE]: ./create-ilb-ase.md
-[ASENetwork]: ./network-info.md
-[UsingASE]: ./using-an-ase.md
-[UDRs]: ../../virtual-network/virtual-networks-udr-overview.md
 [NSGs]: ../../virtual-network/network-security-groups-overview.md
-[ConfigureASEv1]: app-service-web-configure-an-app-service-environment.md
-[ASEv1Intro]: app-service-app-service-environment-intro.md
-[mobileapps]: /previous-versions/azure/app-service-mobile/app-service-mobile-value-prop
-[Functions]: ../../azure-functions/index.yml
-[Pricing]: https://azure.microsoft.com/pricing/details/app-service/
-[ARMOverview]: ../../azure-resource-manager/management/overview.md
-[ConfigureSSL]: ../configure-ss-cert.md
-[Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
-[ASEWAF]: ./integrate-with-application-gateway.md
-[AppGW]: ../../web-application-firewall/ag/ag-overview.md
 [ASEManagement]: ./management-addresses.md
 [serviceendpoints]: ../../virtual-network/virtual-network-service-endpoints-overview.md
 [forcedtunnel]: ./forced-tunnel-support.md
-[serviceendpoints]: ../../virtual-network/virtual-network-service-endpoints-overview.md

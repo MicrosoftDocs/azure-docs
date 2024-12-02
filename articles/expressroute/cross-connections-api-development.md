@@ -126,7 +126,7 @@ Once you receive the ExpressRoute service key from the target customer, follow t
       },
       {
         "name": "9ee700ad-50b2-4b98-a63a-4e52f855ac24",
-        "id": "/subscriptions/8030cec9-2c0c-4361-9949-1655c6e4b0fa/resourceGroups/CrossConnection-EUAPTest/providers/Microsoft.Network/expressRouteCrossConnections/<ProviderManagementSubscription>",
+        "id": "/subscriptions/00001111-aaaa-2222-bbbb-3333cccc4444/resourceGroups/CrossConnection-EUAPTest/providers/Microsoft.Network/expressRouteCrossConnections/<ProviderManagementSubscription>",
         "etag": "W/\"f07a267f-4a5c-4538-83e5-de1fcb183801\"",
         "type": "Microsoft.Network/expressRouteCrossConnections",
         "location": "eastus2euap",
@@ -218,7 +218,7 @@ Once you receive the ExpressRoute service key from the target customer, follow t
   Pragma: no-cache
   Retry-After: 10
   x-ms-request-id: 0a8d458b-8fe3-44e6-89c9-1b156b946693
-  Azure-AsyncOperation: https://management.azure.com/subscriptions/8030cec9-2c0c-4361-9949-1655c6e4b0fa/providers/Microsoft.Network/locations/eastus2euap/operations/0a8d458b-8fe3-44e6-89c9-1b156b946693?api-version=2018-02-01
+  Azure-AsyncOperation: https://management.azure.com/subscriptions/00001111-aaaa-2222-bbbb-3333cccc4444/providers/Microsoft.Network/locations/eastus2euap/operations/0a8d458b-8fe3-44e6-89c9-1b156b946693?api-version=2018-02-01
   Strict-Transport-Security: max-age=31536000; includeSubDomains
   Cache-Control: no-cache
   Server: Microsoft-HTTPAPI/2.0; Microsoft-HTTPAPI/2.0
@@ -249,7 +249,7 @@ Once you receive the ExpressRoute service key from the target customer, follow t
     }
   }
 
-  C:\Users\kaanan\Documents\Expressroute\Partner APIs\ARMClient-master\ARMClient-master>armclient get https://management.azure.com/subscriptions/<ProviderManagementSubscription>/providers/Microsoft.Network/locations/eastus2euap/operations/0a8d458b-8fe3-44e6-89c9-1b156b946693?api-version=2018-02-01
+  C:\Users\Admin\Documents\Expressroute\Partner APIs\ARMClient-master\ARMClient-master>armclient get https://management.azure.com/subscriptions/<ProviderManagementSubscription>/providers/Microsoft.Network/locations/eastus2euap/operations/0a8d458b-8fe3-44e6-89c9-1b156b946693?api-version=2018-02-01
   {
     "status": "Succeeded"
   }
@@ -329,12 +329,12 @@ Once you receive the ExpressRoute service key from the target customer, follow t
     "properties": {
       "peeringType": "MicrosoftPeering",
       "peerASN": 900,
-      "primaryPeerAddressPrefix": "123.0.0.0/30",
-      "secondaryPeerAddressPrefix": "123.0.0.4/30",
+      "primaryPeerAddressPrefix": "203.0.113.0/30",
+      "secondaryPeerAddressPrefix": "203.0.113.4/30",
       "vlanId": 300,
       "microsoftPeeringConfig": {
         "advertisedPublicPrefixes": [
-          "123.1.0.0/24"
+          "203.0.113.128/25"
         ],
         "customerASN": 45,
         "routingRegistryName": "ARIN"
@@ -348,7 +348,7 @@ Once you receive the ExpressRoute service key from the target customer, follow t
   Pragma: no-cache
   Retry-After: 10
   x-ms-request-id: e3aa0bbd-4709-4092-a1f1-aa78080929d0
-  Azure-AsyncOperation: https://management.azure.com/subscriptions/8030cec9-2c0c-4361-9949-1655c6e4b0fa/providers/Microsoft.Network/locations/eastus2euap/operations/e3aa0bbd-4709-4092-a1f1-aa78080929d0?api-version=2018-02-01
+  Azure-AsyncOperation: https://management.azure.com/subscriptions/00001111-aaaa-2222-bbbb-3333cccc4444/providers/Microsoft.Network/locations/eastus2euap/operations/e3aa0bbd-4709-4092-a1f1-aa78080929d0?api-version=2018-02-01
   Strict-Transport-Security: max-age=31536000; includeSubDomains
   Cache-Control: no-cache
   Server: Microsoft-HTTPAPI/2.0; Microsoft-HTTPAPI/2.0
@@ -366,14 +366,14 @@ Once you receive the ExpressRoute service key from the target customer, follow t
       "peeringType": "MicrosoftPeering",
       "azureASN": 0,
       "peerASN": 900,
-      "primaryPeerAddressPrefix": "123.0.0.0/30",
-      "secondaryPeerAddressPrefix": "123.0.0.4/30",
+      "primaryPeerAddressPrefix": "203.0.113.0/30",
+      "secondaryPeerAddressPrefix": "203.0.113.4/30",
       "state": "Disabled",
       "vlanId": 300,
       "lastModifiedBy": "",
       "microsoftPeeringConfig": {
         "advertisedPublicPrefixes": [
-          "123.1.0.0/24"
+          "203.0.113.128/25"
         ],
         "advertisedPublicPrefixesState": "NotConfigured",
         "customerASN": 45,
@@ -383,7 +383,7 @@ Once you receive the ExpressRoute service key from the target customer, follow t
     }
   }
 
-  C:\Users\kaanan\Documents\Expressroute\Partner APIs\ARMClient-master\ARMClient-master>armclient get https://management.azure.com/subscriptions/<ProviderManagementSubscription>/providers/Microsoft.Network/locations/eastus2euap/operations/e3aa0bbd-4709-4092-a1f1-aa78080929d0?api-version=2018-02-01
+  C:\Users\Admin\Documents\Expressroute\Partner APIs\ARMClient-master\ARMClient-master>armclient get https://management.azure.com/subscriptions/<ProviderManagementSubscription>/providers/Microsoft.Network/locations/eastus2euap/operations/e3aa0bbd-4709-4092-a1f1-aa78080929d0?api-version=2018-02-01
   {
     "status": "Succeeded"
   }

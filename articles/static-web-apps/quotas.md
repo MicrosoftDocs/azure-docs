@@ -29,7 +29,7 @@ App limits:
 | Total storage (all environments)    | 500 MB      | 2 GB          | 2 GB                     |
 | Storage (single environment)        | 250 MB      | 500 MB        | 500 MB                   |
 | File count                          | 15,000      | 15,000        | 15,000                   |
-| [Custom domains][1]                 | 2           | 5             | 5                        |
+| [Custom domains][1]                 | 2           | 6             | 6                        |
 | [Private endpoint][4]               | Unavailable | 1             | 1                        |
 | Allowed IP range restrictions       | Unavailable | 25            | 25                       |
 | [Authorization (custom roles)][2]   |             |               |                          |

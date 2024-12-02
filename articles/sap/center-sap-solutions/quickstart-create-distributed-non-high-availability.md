@@ -39,7 +39,7 @@ After you deploy infrastructure and [install SAP software](install-software.md) 
 - A **User-assigned managed identity** which has **Azure Center for SAP solutions service role** access on the Subscription or atleast all resource groups (Compute, Network,Storage). If you wish to install SAP Software through the Azure Center for SAP solutions, also provide **Reader and Data Access** role to the identity on SAP bits storage account where you would store the SAP Media.
 - A [network set up for your infrastructure deployment](prepare-network.md).
 - Availability of minimum 4 cores of either Standard_D4ds_v4 or Standard_E4s_v3 SKUS which will be used during Infrastructure deployment and Software Installation
-- [Review the quotas for your Azure subscription](../../quotas/view-quotas.md). If the quotas are low, you might need to create a support request before creating your infrastructure deployment. Otherwise, you might experience deployment failures or an **Insufficient quota** error. 
+- [Review the quotas for your Azure subscription](/azure/quotas/view-quotas). If the quotas are low, you might need to create a support request before creating your infrastructure deployment. Otherwise, you might experience deployment failures or an **Insufficient quota** error. 
 - Note the SAP Application Performance Standard (SAPS) and database memory size that you need to allow Azure Center for SAP solutions to size your SAP system. If you're not sure, you can also select the VMs. There are:
     - A single or cluster of ASCS VMs, which make up a single ASCS instance in the VIS.
     - A single or cluster of Database VMs, which make up a single Database instance in the VIS.

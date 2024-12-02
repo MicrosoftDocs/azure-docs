@@ -4,7 +4,7 @@ metadata:
   description: This article provides answers to common questions about backing up SAP HANA databases using the Azure Backup service.
   ms.topic: faq
   ms.service: azure-backup
-  ms.date: 05/13/2024
+  ms.date: 10/14/2024
   author: AbhishekMallick-MS
   ms.author: v-abhmallick
   ms.custom: engagement-fy24
@@ -138,7 +138,7 @@ sections:
       - question: |
           What’s the backup and restore throughput performance that Azure Backup provides and how to set up my HANA system to use this maximum throughput?
         answer: |
-          Refer to [the backup and restore throughput performance](./tutorial-backup-sap-hana-db.md#understanding-backup-and-restore-throughput-performance) that Azure Backup provides for HANA workloads. <br><br> To set up your HANA system to leverage the improved performance, use the following resources:
+          Refer to [the backup and restore throughput performance](./tutorial-backup-sap-hana-db.md#understanding-the-backup-and-restore-throughput-performance) that Azure Backup provides for HANA workloads. <br><br> To set up your HANA system to leverage the improved performance, use the following resources:
           
            - [Select a disk type for Azure IaaS VMs - managed disks](/azure/virtual-machines/disks-types)
            - [Performance tiers for Azure managed disks](/azure/virtual-machines/disks-change-performance)
@@ -166,6 +166,25 @@ sections:
         answer: |
           You need to run the instance re-detection on the server that is marked "Not Ready" to update its status.
 
+      - question: |
+          Connecting the Azure environment to on-premises network using ExpressRoute and  configured forced tunneling directs all the traffic to the on-premises network. How can I configure the settings so that Azure SAP HANA Server workload backup traffic will not pass through the on-premises network and directly connect to Recovery Services vault?
+        answer: |
+          During the backup operation, the *backup job* connects to three Service Endpoints - `AzureBackup`, `AzureStorage`, and `Microsoft Entra ID. In this scenario, we recommend you to configure the Service Endpoint to `AzureStorage`, which helps to send the traffic from the Virtual Network to the Storage directly. For Azure Backup and Microsoft Entra ID, you can configure UDR over service tags so that the traffic travels to backbone network instead of on-premises.    
+
+      - question: |
+          Why West US region node is showing under East US region Recovery Services vault?
+        answer: |
+           The Recovery Services vault shows all the nodes that are part of the SAP HANA System Replication. All the nodes are listed here as per the `hdbnsutil` output. However as per the expected behavior, only configured node in this vault is registered.  
+
+      - question: |
+          When a file starting with "hdbbackint" under "/var/tmp generated" and how it's used? 
+        answer: |
+          When you trigger the backup job using the `hdbbackint` Backint agent, it writes information to the `/var/tmp` directory. For example, if an error occurs during the backup process, the error message is written to a file in the `/var/tmp` directory. The file name gets created in the format `hdbbackint_<SID>.<random_string>`, where `<SID>` is the System ID of the SAP HANA instance and `<random_string>` is a randomly generated string.
+
+      - question: |
+          What happens if I delete the hdbbackint file in the /var/tmp?
+        answer: |
+          The backup process is not affected if you delete the `hdbbackint` file in the `/var/tmp` directory. However, it might remove any error messages that were written to the file during the backup process.  
 
   - name: Restore
     questions:

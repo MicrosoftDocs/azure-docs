@@ -12,6 +12,8 @@ ms.custom: devx-track-java
 
 # Set up single sign-on using Microsoft Entra ID for Spring Cloud Gateway and API Portal
 
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
+
 **This article applies to:** ❌ Basic/Standard ✔️ Enterprise
 
 This article shows you how to configure single sign-on (SSO) for Spring Cloud Gateway or API Portal using the Microsoft Entra ID as an OpenID identify provider.

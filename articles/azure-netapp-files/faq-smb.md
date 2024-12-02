@@ -5,7 +5,7 @@ ms.service: azure-netapp-files
 ms.topic: conceptual
 author: b-hchen
 ms.author: anfdocs
-ms.date: 07/30/2024
+ms.date: 10/21/2024
 ---
 # SMB FAQs for Azure NetApp Files
 
@@ -33,7 +33,7 @@ You can also map multiple NetApp accounts that are under the same subscription a
 
 ## Does Azure NetApp Files support Microsoft Entra ID? 
 
-Both [Microsoft Entra Domain Services](../active-directory-domain-services/overview.md) and [Active Directory Domain Services (AD DS)](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) are supported. You can use existing Active Directory domain controllers with Azure NetApp Files. Domain controllers can reside in Azure as virtual machines, or on premises via ExpressRoute or S2S VPN. Azure NetApp Files doesn't support AD join for [Microsoft Entra ID](../active-directory/fundamentals/index.yml) at this time. However, you can use Microsoft Entra ID with [hybrid identities](/entra/identity/hybrid/whatis-hybrid-identity) to [Access SMB volumes from Microsoft Entra joined Windows virtual machines](access-smb-volume-from-windows-client.md).
+Both [Microsoft Entra Domain Services](../active-directory-domain-services/overview.md) and [Active Directory Domain Services (AD DS)](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) are supported. You can use existing Active Directory domain controllers with Azure NetApp Files. Domain controllers can reside in Azure as virtual machines, or on premises via ExpressRoute or S2S VPN. Azure NetApp Files doesn't support AD join for [Microsoft Entra ID](../active-directory/fundamentals/index.yml) at this time. 
 
 If you're using Azure NetApp Files with Microsoft Entra Domain Services, the organizational unit path is `OU=AADDC Computers` when you configure Active Directory for your NetApp account.
 
@@ -147,7 +147,7 @@ SMB/CIFS oplocks (opportunistic locks) enable the redirector on a SMB/CIFS clien
 ## Next steps  
 
 - [FAQs about SMB performance for Azure NetApp Files](azure-netapp-files-smb-performance.md)
-- [How to create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md)
+- [How to create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request)
 - [Networking FAQs](faq-networking.md)
 - [Security FAQs](faq-security.md)
 - [Performance FAQs](faq-performance.md)

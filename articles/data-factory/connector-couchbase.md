@@ -6,15 +6,16 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/20/2023
+ms.date: 10/12/2024
 ms.author: jianleishen
 ---
 # Copy data from Couchbase using Azure Data Factory (Preview)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
-This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from Couchbase. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 > [!IMPORTANT]
-> This connector is currently in preview. You can try it out and give us feedback. If you want to take a dependency on preview connectors in your solution, please contact [Azure support](https://azure.microsoft.com/support/).
+> This connector will be deprecated on **December 31, 2024**. You are recommended to migrate to [ODBC connector](connector-odbc.md) by installing a driver before that date. 
+
+This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from Couchbase. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 ## Supported capabilities
 
@@ -30,6 +31,12 @@ This Couchbase connector is supported for the following capabilities:
 For a list of data stores that are supported as sources/sinks, see the [Supported data stores](connector-overview.md#supported-data-stores) table.
 
 The service provides a built-in driver to enable connectivity, therefore you don't need to manually install any driver using this connector.
+
+The connector supports the Couchbase version higher than 6.0. 
+
+The connector now uses the following precision. The previous precision is compatible.
+   - Double values use 17 significant digits (previously 15 significant digits)
+   - Float values use 9 significant digits (previously 7 significant digits)
 
 ## Prerequisites
 

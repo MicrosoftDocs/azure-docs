@@ -2,7 +2,7 @@
 title: Request limits and throttling
 description: Describes how to use throttling with Azure Resource Manager requests when subscription limits are reached.
 ms.topic: conceptual
-ms.date: 06/27/2024
+ms.date: 09/23/2024
 ms.custom: devx-track-arm-template
 ---
 
@@ -96,25 +96,7 @@ The Microsoft.Network resource provider applies the following throttle limits:
 | write / delete (PUT) | 1000 per 5 minutes |
 | read (GET) | 10000 per 5 minutes |
 
-In addition to those general limits, the following limits apply to DNS operations:
-
-| DNS Zone Operation | Limit (per zone) |
-| --------- | ----- |
-| Create or Update | 40 per minute |
-| Delete | 40 per minute |
-| Get | 1000 per minute |
-| List | 60 per minute |
-| List By Resource Group | 60 per minute |
-| Update | 40 per minute |
-
-| DNS Record Set Operation | Limit (per zone) |
-| --------- | ----- |
-| Create or Update | 200 per minute |
-| Delete | 200 per minute |
-| Get | 2000 per minute |
-| List By DNS Zone | 60 per minute |
-| List By Type | 60 per minute |
-| Update | 200 per minute |
+In addition to those general limits, see the [usage limits for Azure DNS](/azure/dns/dns-faq#what-are-the-usage-limits-for-azure-dns-).
 
 ### Compute throttling
 

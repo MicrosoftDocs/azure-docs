@@ -1,7 +1,7 @@
 ---
 title: IoT solution scalability and high availability
 description: An overview of the scalability, high availability, and disaster recovery options for an IoT solution.
-ms.service: iot
+ms.service: azure-iot
 services: iot
 author: dominicbetts
 ms.author: dobett

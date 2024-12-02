@@ -11,6 +11,8 @@ ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 
 # How to configure health probes and graceful termination periods for apps hosted in Azure Spring Apps
 
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
+
 **This article applies to:** ✔️ Java ✔️ C#
 
 **This article applies to:** ✔️ Basic/Standard ✔️ Enterprise

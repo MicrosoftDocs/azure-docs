@@ -4,12 +4,12 @@ description: Learn how to configure session lock behavior for Azure Virtual Desk
 ms.topic: how-to
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 09/02/2024
+ms.date: 09/17/2024
 ---
 
 # Configure the session lock behavior for Azure Virtual Desktop
 
-You can choose whether the session is disconnected or the remote lock screen shown when a remote session is locked, either by the user or by policy. When the session lock behavior is set to disconnect, a dialog is shown to let users know they were disconnected. Users can choose the **Reconnect** option from the dialog when they're ready to connect again.
+You can choose whether the session is disconnected or the remote lock screen is shown when a remote session is locked, either by the user or by policy. When the session lock behavior is set to disconnect, a dialog is shown to let users know they were disconnected. Users can choose the **Reconnect** option from the dialog when they're ready to connect again.
 
 When used with single sign-on using Microsoft Entra ID, disconnecting the session provides the following benefits:
 
@@ -23,7 +23,7 @@ When used with single sign-on using Microsoft Entra ID, disconnecting the sessio
 
 - You can require multifactor authentication to return to the session and prevent users from unlocking with a simple username and password.
 
-For scenarios that rely on legacy authentication, including NTLM, CredSSP, RDSTLS, TLS, and RDP basic authentication protocols, users are prompted to re-enter their credentials.
+For scenarios that rely on legacy authentication, including NTLM, CredSSP, RDSTLS, TLS, and RDP basic authentication protocols, users are prompted to re-enter their credentials when they reconnect or start a new connection.
 
 The default session lock behavior is different depending on whether you're using single sign-on with Microsoft Entra ID or legacy authentication. The following table shows the default configuration for each scenario:
 
@@ -98,9 +98,9 @@ To configure the session lock experience using Intune:
 
       1. Expand the **Administrative templates** category, then toggle the switch for **Disconnect remote session on lock for Microsoft identity platform authentication** to **Enabled** or **Disabled**:
 
-         - To disconnect the remote session when the session locks, toggle the switch to **Enabled**, then select **OK**.
+         - To disconnect the remote session when the session locks, toggle the switch to **Enabled**.
 
-         - To show the remote lock screen when the session locks, toggle the switch to **Disabled**, then select **OK**.
+         - To show the remote lock screen when the session locks, toggle the switch to **Disabled**.
 
    - For legacy authentication protocols:
 
@@ -108,9 +108,9 @@ To configure the session lock experience using Intune:
 
       1. Expand the **Administrative templates** category, then toggle the switch for **Disconnect remote session on lock for legacy authentication** to **Enabled** or **Disabled**:
 
-         - To disconnect the remote session when the session locks, toggle the switch to **Enabled**, then select **OK**.
+         - To disconnect the remote session when the session locks, toggle the switch to **Enabled**.
 
-         - To show the remote lock screen when the session locks, toggle the switch to **Disabled**, then select **OK**.
+         - To show the remote lock screen when the session locks, toggle the switch to **Disabled**.
 
 1. Select **Next**.
 
@@ -128,9 +128,9 @@ To configure the session lock experience using Intune:
 
 To configure the session lock experience using Group Policy, follow these steps.
 
-1. The Group Policy settings are only available the operating systems listed in [Prerequisites](#prerequisites). To make them available on other versions of Windows Server, you need to copy the administrative template files `C:\Windows\PolicyDefinitions\terminalserver.admx` and `C:\Windows\PolicyDefinitions\en-US\terminalserver.adml` from a session host to the same location on your domain controllers or the [Group Policy Central Store](/troubleshoot/windows-client/group-policy/create-and-manage-central-store), depending on your environment. In the file path for `terminalserver.adml` replace `en-US` with the appropriate language code if you're using a different language.
+1. The Group Policy settings are only available on the operating systems listed in [Prerequisites](#prerequisites). To make them available on other versions of Windows Server, you need to copy the administrative template files `C:\Windows\PolicyDefinitions\terminalserver.admx` and `C:\Windows\PolicyDefinitions\en-US\terminalserver.adml` from a session host to the same location on your domain controllers or the [Group Policy Central Store](/troubleshoot/windows-client/group-policy/create-and-manage-central-store), depending on your environment. In the file path for `terminalserver.adml` replace `en-US` with the appropriate language code if you're using a different language.
 
-1. Open the **Group Policy Management** console on device you use to manage the Active Directory domain.
+1. Open the **Group Policy Management** console on the device you use to manage the Active Directory domain.
 
 1. Create or edit a policy that targets the computers providing a remote session you want to configure.
 
@@ -154,9 +154,9 @@ To configure the session lock experience using Group Policy, follow these steps.
 
       1. Double-click **Disconnect remote session on lock for legacy authentication** to open it.
 
-         - To disconnect the remote session when the session locks, select **Enabled** or **Not configured**.
+         - To disconnect the remote session when the session locks, select **Enabled**.
 
-         - To show the remote lock screen when the session locks, select **Disabled**.
+         - To show the remote lock screen when the session locks, select **Disabled** or **Not configured**.
 
       1. Select **OK**.
 
@@ -169,7 +169,3 @@ To configure the session lock experience using Group Policy, follow these steps.
 ## Related content
 
 - Learn how to [Configure single sign-on for Azure Virtual Desktop using Microsoft Entra ID](configure-single-sign-on.md).
-
-- Check out [In-session passwordless authentication](authentication.md#in-session-passwordless-authentication) to learn how to enable passwordless authentication.
-
-- For more information about Microsoft Entra Kerberos, see [Deep dive: How Microsoft Entra Kerberos works](https://techcommunity.microsoft.com/t5/itops-talk-blog/deep-dive-how-azure-ad-kerberos-works/ba-p/3070889)

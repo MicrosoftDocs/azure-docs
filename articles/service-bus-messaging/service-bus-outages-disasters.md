@@ -59,7 +59,11 @@ When you use availability zones, **both metadata and data (messages)** are repli
 When you create a namespace, the support for availability zones (if available in the selected region) is automatically enabled for the namespace. There's no extra cost for using this feature and you can't disable or enable this feature after namespace creation.
 
 > [!NOTE]
-> Previously it was required to set the property `zoneRedundant` to `true` to enable availability zones, however this behavior has changed to enable availability zones by default. Existing namespaces are being migrated to availability zones as well, and the property `zoneRedundant` is being deprecated. The property `zoneRedundant` might still show as `false`, even when availability zones has been enabled.
+> Previously it was required to set the property `zoneRedundant` to `true` to enable availability zones, however this behavior has changed to enable availability zones by default. Existing namespaces are being migrated to availability zones where possible, and the property `zoneRedundant` is being deprecated. The property `zoneRedundant` might still show as `false`, even when availability zones has been enabled.
+> Existing namespaces that are being migrated:
+> - Currently does not have availability zones enabled.
+> - The [region supports availability zones](/azure/reliability/availability-zones-service-support).
+> - The region has sufficient availability zone capacity.
 
 ## Protection against disasters - standard tier
 

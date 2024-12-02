@@ -24,10 +24,10 @@ For more information, review the following documentation:
 
 - [What is Azure Arc-enabled Logic Apps?](azure-arc-enabled-logic-apps-overview.md)
 - [Single-tenant versus multitenant in Azure Logic Apps](../logic-apps/single-tenant-overview-compare.md)
-- [Azure Arc overview](../azure-arc/overview.md)
+- [Azure Arc overview](/azure/azure-arc/overview)
 - [Azure Kubernetes Service overview](/azure/aks/intro-kubernetes)
-- [What is Azure Arc-enabled Kubernetes?](../azure-arc/kubernetes/overview.md)
-- [Custom locations on Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/conceptual-custom-locations.md)
+- [What is Azure Arc-enabled Kubernetes?](/azure/azure-arc/kubernetes/overview)
+- [Custom locations on Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/conceptual-custom-locations)
 - [App Service, Functions, and Logic Apps on Azure Arc (Preview)](../app-service/overview-arc-integration.md)
 - [Set up an Azure Arc-enabled Kubernetes cluster to run App Service, Functions, and Logic Apps (Preview)](../app-service/manage-create-arc-environment.md)
 
@@ -49,7 +49,7 @@ This section describes the common prerequisites across all the approaches and to
   For more information, review the following documentation:
 
   - [App Service, Functions, and Logic Apps on Azure Arc (Preview)](../app-service/overview-arc-integration.md)
-  - [Cluster extensions on Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/conceptual-extensions.md)
+  - [Cluster extensions on Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/conceptual-extensions)
   - [Set up an Azure Arc-enabled Kubernetes cluster to run App Service, Functions, and Logic Apps (Preview)](../app-service/manage-create-arc-environment.md)
   - [Change the default scaling behavior](#change-scaling)
 
@@ -487,7 +487,7 @@ If you prefer to use container tools and deployment processes, you can container
 
 - Set up a Docker registry for hosting your container images.
 
-- To containerize your logic app, add the following Dockerfile to your logic app project's root folder, and follow the steps for building and publishing an image to your Docker registry, for example, review [Tutorial: Build and deploy container images in the cloud with Azure Container Registry Tasks](../container-registry/container-registry-tutorial-quick-task.md).
+- To containerize your logic app, add the following Dockerfile to your logic app project's root folder, and follow the steps for building and publishing an image to your Docker registry, for example, review [Tutorial: Build and deploy container images in the cloud with Azure Container Registry Tasks](/azure/container-registry/container-registry-tutorial-quick-task).
 
   > [!NOTE]
   > If you [use SQL as your storage provider](set-up-sql-db-storage-single-tenant-standard-workflows.md), make sure that you use an Azure Functions image version 3.3.1 or later.

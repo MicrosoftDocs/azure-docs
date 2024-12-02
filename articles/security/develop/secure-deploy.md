@@ -1,10 +1,10 @@
 ---
 title: Deploy secure applications on Microsoft Azure
 description: This article discusses best practices to consider during the release and response phases of your web application project.
-author: TerryLanfear
+author: msmbaldwin
 manager: rkarlin
-ms.author: terrylan
-ms.date: 08/29/2023
+ms.author: mbaldwin
+ms.date: 09/29/2024
 ms.topic: article
 ms.service: security
 ms.subservice: security-develop
@@ -65,7 +65,7 @@ Azure services that assist with application monitoring are:
 
 #### Application Insights
 
-[Application Insights](../../azure-monitor/app/app-insights-overview.md) is an extensible Application Performance Management (APM) service for web developers on multiple platforms. Use it to monitor your live web application. Application Insights automatically detects performance anomalies. It includes powerful analytics tools to help you diagnose issues and understand what users actually do with your app. It's designed to help you continuously improve performance and usability.
+[Application Insights](/azure/azure-monitor/app/app-insights-overview) is an extensible Application Performance Management (APM) service for web developers on multiple platforms. Use it to monitor your live web application. Application Insights automatically detects performance anomalies. It includes powerful analytics tools to help you diagnose issues and understand what users actually do with your app. It's designed to help you continuously improve performance and usability.
 
 #### Microsoft Defender for Cloud
 

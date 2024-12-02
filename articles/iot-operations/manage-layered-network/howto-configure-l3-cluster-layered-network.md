@@ -9,6 +9,7 @@ ms.custom: ignite-2023, devx-track-azurecli
 ms.date: 07/02/2024
 
 #CustomerIntent: As an operator, I want to configure Layered Network Management so that I have secure isolate devices.
+ms.service: azure-iot-operations
 ---
 
 # Configure level 3 cluster in an isolated network with Azure IoT Layered Network Management Preview
@@ -243,9 +244,9 @@ login.microsoftonline.com. 0    IN      A       100.104.0.165
     az provider register -n "Microsoft.ExtendedLocation"
     az provider register -n "Microsoft.Kubernetes"
     az provider register -n "Microsoft.KubernetesConfiguration"
-    az provider register -n "Microsoft.IoTOperationsOrchestrator"
     az provider register -n "Microsoft.IoTOperations"
     az provider register -n "Microsoft.DeviceRegistry"
+    az provider register -n "Microsoft.SecretSyncController"
     ```
 1. Use the [az group create](/cli/azure/group#az-group-create) command to create a resource group in your Azure subscription to store all the resources:
     ```bash
@@ -257,7 +258,7 @@ login.microsoftonline.com. 0    IN      A       100.104.0.165
     ```
     > [!TIP]
     > If the `connectedk8s` commands fail, try using the cmdlets in [Connect your AKS Edge Essentials cluster to Arc](/azure/aks/hybrid/aks-edge-howto-connect-to-arc).
-1. Fetch the `objectId` or `id` of the Microsoft Entra ID application that the Azure Arc service uses. The command you use depends on your version of Azure CLI:
+1. Fetch the `objectId` or `id` of the Microsoft Entra ID application that the Azure Arc service uses.  Run the following command exactly as written, without changing the GUID value. The command you use depends on your version of Azure CLI:
     ```powershell
     # If you're using an Azure CLI version lower than 2.37.0, use the following command:
     az ad sp show --id bc313c14-388c-4e7d-a58e-70017303ee3b --query objectId -o tsv
@@ -277,17 +278,17 @@ login.microsoftonline.com. 0    IN      A       100.104.0.165
 > These steps are for AKS Edge Essentials only.
 
 After you've deployed Azure IoT Operations to your cluster, enable inbound connections to MQTT broker and configure port forwarding:
-1. Enable a firewall rule for port 8883:
+1. Enable a firewall rule for port 18883:
     ```powershell
-    New-NetFirewallRule -DisplayName "MQTT broker" -Direction Inbound -Protocol TCP -LocalPort 8883 -Action Allow
+    New-NetFirewallRule -DisplayName "MQTT broker" -Direction Inbound -Protocol TCP -LocalPort 18883 -Action Allow
     ```
-1. Run the following command and make a note of the IP address for the service called `aio-mq-dmqtt-frontend`:
+1. Run the following command and make a note of the IP address for the service called `aio-broker`:
     ```cmd
-    kubectl get svc aio-mq-dmqtt-frontend -n azure-iot-operations -o jsonpath='{.status.loadBalancer.ingress[0].ip}'
+    kubectl get svc aio-broker -n azure-iot-operations -o jsonpath='{.status.loadBalancer.ingress[0].ip}'
     ```
-1. Enable port forwarding for port 8883. Replace `<aio-mq-dmqtt-frontend IP address>` with the IP address you noted in the previous step:
+1. Enable port forwarding for port 18883. Replace `<aio-broker IP address>` with the IP address you noted in the previous step:
     ```cmd
-    netsh interface portproxy add v4tov4 listenport=8883 listenaddress=0.0.0.0 connectport=8883 connectaddress=<aio-mq-dmqtt-frontend IP address>
+    netsh interface portproxy add v4tov4 listenport=18883 listenaddress=0.0.0.0 connectport=18883 connectaddress=<aio-broker IP address>
     ```
 
 ## Related content

@@ -170,6 +170,8 @@ landingContent:
           url: /dotnet/api/overview/azure/appconfiguration/featuremanagement
         - text: Java Spring feature management API reference
           url: https://azure.github.io/azure-sdk-for-java/springboot.html
+        - text: Python feature management
+          url: feature-management-python-reference.md
         - text: Python feature management API reference
           url: https://microsoft.github.io/FeatureManagement-Python/html/index.html
 

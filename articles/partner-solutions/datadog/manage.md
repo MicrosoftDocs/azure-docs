@@ -1,9 +1,9 @@
 ---
 title: Manage a Datadog resource
 description: This article describes management of a Datadog resource in the Azure portal. How to set up single sign-on, delete a Confluent organization, and get support.
-author: flang-msft
 
-ms.author: franlanglois
+
+
 ms.topic: conceptual
 ms.date: 06/01/2023
 ---
@@ -56,7 +56,7 @@ You can filter the list of resources by resource type, subscription, resource gr
 The column **Logs to Datadog** indicates whether the resource is sending logs to Datadog. If the resource isn't sending logs, this field indicates why logs aren't being sent to Datadog. The reasons could be:
 
 - Resource doesn't support sending logs. Only resources types with monitoring log categories can be configured to send logs to Datadog.
-- Limit of five diagnostic settings reached. Each Azure resource can have a maximum of five diagnostic settings. For more information, see [diagnostic settings](../../azure-monitor/essentials/diagnostic-settings.md).
+- Limit of five diagnostic settings reached. Each Azure resource can have a maximum of five diagnostic settings. For more information, see [diagnostic settings](/azure/azure-monitor/essentials/diagnostic-settings).
 - Error. The resource is configured to send logs to Datadog, but is blocked by an error.
 - Logs not configured. Only Azure resources that have the appropriate resource tags are configured to send logs to Datadog.
 - Region not supported. The Azure resource is in a region that doesn't currently support sending logs to Datadog.

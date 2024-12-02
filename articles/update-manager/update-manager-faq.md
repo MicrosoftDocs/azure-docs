@@ -2,8 +2,8 @@
 title: Azure Update Manager FAQ
 description: This article gives answers to frequently asked questions about Azure Update Manager
 ms.service: azure-update-manager
-ms.topic: conceptual
-ms.date: 07/08/2024
+ms.topic: faq
+ms.date: 10/10/2024
 author: snehasudhirG
 ms.author: sudhirsneha
 #Customer intent: As an implementer, I want answers to various questions.
@@ -21,7 +21,7 @@ Azure Update Manager provides a SaaS solution to manage and govern software upda
 Following are the benefits of using Azure Update Manager:
 - Oversee update compliance for your entire fleet of machines in Azure (Azure VMs), on premises, and multicloud environments (Arc-enabled Servers).
 - View and deploy pending updates to secure your machines [instantly](updates-maintenance-schedules.md#update-nowone-time-update).
-- Manage [extended security updates (ESUs)](../azure-arc/servers/prepare-extended-security-updates.md) for your Azure Arc-enabled Windows Server 2012/2012 R2 machines. Get consistent experience for deployment of ESUs and other updates.
+- Manage [extended security updates (ESUs)](/azure/azure-arc/servers/prepare-extended-security-updates) for your Azure Arc-enabled Windows Server 2012/2012 R2 machines. Get consistent experience for deployment of ESUs and other updates.
 - Define recurring time windows during which your machines receive updates and might undergo reboots using [scheduled patching](scheduled-patching.md). Enforce machines grouped together based on standard Azure constructs (Subscriptions, Location, Resource Group, Tags etc.) to have common patch schedules using [dynamic scoping](dynamic-scope-overview.md). Sync patch schedules for Windows machines in relation to patch Tuesday, the unofficial term for month.
 - Enable incremental rollout of updates to Azure VMs in off-peak hours using [automatic VM guest patching](/azure/virtual-machines/automatic-vm-guest-patching) and reduce reboots by enabling [hotpatching](updates-maintenance-schedules.md#hotpatching).
 - Automatically [assess](assessment-options.md#periodic-assessment) machines for pending updates every 24 hours, and flag machines that are out of compliance. Enforce enabling periodic assessments on multiple machines at scale using [Azure Policy](periodic-assessment-at-scale.md).
@@ -105,7 +105,7 @@ Yes, you can, as Azure Update Manager is available in sovereign clouds.
 
 ### What is the pricing for Azure Update Manager? 
 
-Azure Update Manager is available at no extra charge for managing Azure VMs and Arc-enabled Azure Stack HCI VMs (for which Azure Benefits are enabled). For Arc-enabled Servers, the price is $5 per server per month (assuming 31 days of usage).  
+Azure Update Manager is available at no extra charge for managing Azure VMs and [Arc-enabled Azure Stack HCI VMs](https://learn.microsoft.com/azure-stack/hci/manage/azure-arc-vm-management-overview) (must be created through Arc Resource Bridge on Azure Stack HCI). For all other Arc-enabled Servers, the price is $5 per server per month (assuming 31 days of usage).  
 
 ### How is Azure Update Manager price calculated for Arc-enabled servers? 
 
@@ -132,7 +132,13 @@ Customers will not be charged for already existing Arc-enabled servers which wer
 If you have purchased a Defender for Servers Plan 2, then you won't have to pay to remediate the unhealthy resources for the above two recommendations. But if you're using any other Defender for server plan for your Arc machines, then you would be charged for those machines at the daily prorated $0.16/server by Azure Update Manager.
 
 ### Is Azure Update Manager chargeable on Azure Stack HCI?
-Azure Update Manager is not charged for machines hosted Azure Stack HCI clusters that have been enabled for Azure benefits and Azure Arc VM management. [Learn more](/azure-stack/hci/manage/azure-benefits?tabs=wac#azure-benefits-available-on-azure-stack-hci).
+Azure Update Manager is not charged for:
+ - Management of Azure Stack HCI cluster via **Azure Stack HCI**  and [Azure Update Manager on Azure Stack HCI](https://learn.microsoft.com/azure-stack/hci/update/azure-update-manager-23h2)
+ - [Arc-enabled Azure Stack HCI VMs](https://learn.microsoft.com/azure-stack/hci/manage/azure-arc-vm-management-overview) created via the Arc Resource Bridge. For example *Machine-Azure Arc (Azure Stack HCI)* resource.
+ 
+All other resources including, but not limited to the following will be charged.
+ - Management of individual Azure Stack HCI servers. For example, *Machine - Azure Arc* resource or *Azure Update Manager - Machines*.
+ - All VMs on Azure Stack HCI that are not created by Arc resource bridge - VMs projected as Arc-enabled servers and/or VMs on Azure Stack HCI managed by Azure Arc-enabled SCVMM.
  
 
 ## Update Manager support and integration

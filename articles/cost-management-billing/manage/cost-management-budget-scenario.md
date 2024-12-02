@@ -14,7 +14,7 @@ ms.author: banders
 
 Cost control is a critical component to maximizing the value of your investment in the cloud. There are several scenarios where cost visibility, reporting, and cost-based orchestration are critical to continued business operations. [Cost Management APIs](/rest/api/consumption/) provide a set of APIs to support each of these scenarios. The APIs provide usage details, allowing you to view granular instance level costs.
 
-Budgets are commonly used as part of cost control. Budgets can be scoped in Azure. For instance, you could narrow your budget view based on subscription, resource groups, or a collection of resources. Besides using the budgets API to send email notifications when a budget threshold is reached, you can also use [Azure Monitor action groups](../../azure-monitor/alerts/action-groups.md). Action groups trigger a coordinated set of actions in response to a budget event.
+Budgets are commonly used as part of cost control. Budgets can be scoped in Azure. For instance, you could narrow your budget view based on subscription, resource groups, or a collection of resources. Besides using the budgets API to send email notifications when a budget threshold is reached, you can also use [Azure Monitor action groups](/azure/azure-monitor/alerts/action-groups). Action groups trigger a coordinated set of actions in response to a budget event.
 
 
 A typical budget scenario for a customer running a noncritical workload is to manage spending against a budget and achieve predictable costs when reviewing the monthly invoice. This scenario requires some cost-based orchestration of resources that are part of the Azure environment. In this scenario, a monthly budget of $1,000 for the subscription is set. Also, notification thresholds are set to trigger a few orchestrations. This scenario starts with an 80% cost threshold, which stops all virtual machines (VM) in the resource group **Optional**. Then, at the 100% cost threshold, all VM instances are stopped.
@@ -31,6 +31,9 @@ These actions included in this tutorial allow you to:
 ## Create an Azure Automation Runbook
 
 [Azure Automation](../../automation/automation-intro.md) is a service that enables you to script most of your resource management tasks and run those tasks as either scheduled or on-demand. As part of this scenario, you create an [Azure Automation runbook](../../automation/automation-runbook-types.md) that stops VMs. You use the [Stop Azure V2 VMs](https://github.com/azureautomation/stop-azure-v2-vms) graphical runbook from the [Azure Automation gallery](https://github.com/azureautomation) to build this scenario. By importing this runbook into your Azure account and publishing it, you can stop VMs when a budget threshold is reached.
+
+> [!NOTE]
+> You can create a budget in Azure Cost Management and link it to an Azure Automation runbook to automatically stop resources when a specified threshold is reached.
 
 ### Create an Azure Automation account
 

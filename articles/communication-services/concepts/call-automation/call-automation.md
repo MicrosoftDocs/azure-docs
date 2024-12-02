@@ -11,7 +11,7 @@ ms.author: askaur
 ---
 # Call Automation Overview
 
-Azure Communication Services Call Automation provides developers the ability to build server-based, intelligent call workflows, and call recording for voice and Public Switched Telephone Network(PSTN) channels. The SDKs, available in C#, Java, JavaScript and Python, use an action-event model to help you build personalized customer interactions. Your communication applications can listen to real-time call events and perform control plane actions (like answer, transfer, play audio, start recording, etc.) to steer and control calls based on your business logic.
+Azure Communication Services Call Automation provides developers the ability to build server-based, intelligent call workflows, and call recording for voice and Public Switched Telephone Network (PSTN) channels. The SDKs, available in C#, Java, JavaScript, and Python, use an action-event model to help you build personalized customer interactions. Your communication applications can listen to real-time call events and perform control plane actions (such as answer, transfer, play audio, start recording, and so on) to steer and control calls based on your business logic.
 
 ## Common use cases
 
@@ -50,6 +50,8 @@ The following features are currently available in the Azure Communication Servic
 |                       | Stop continuous DTMF recognition                  | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Send DTMF                                         | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Mute participant                                  | ✔️    | ✔️    |     ✔️         |    ✔️   |
+|                       | Start/Stop audio streaming (public preview)       | ✔️    | ✔️    |     ✔️         |    ✔️   |
+|                       | Start/Stop real-time transcription (public preview)| ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Remove one or more endpoints from an existing call| ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Blind Transfer a 1:1 call to another endpoint    | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Blind Transfer a participant from group call to another endpoint|  ✔️    | ✔️    |     ✔️         |   ✔️ |
@@ -84,11 +86,9 @@ These actions are performed before the destination endpoint listed in the `Incom
 
 **Redirect** – Using the `IncomingCall` event from Event Grid, you can redirect a call to one or more endpoints creating a single or simultaneous ringing (sim-ring) scenario. Redirect action doesn't answer the call. The call is redirected or forwarded to another destination endpoint to be answered.
 
-**Create Call**
-Create Call action can be used to place outbound calls to phone numbers and to other communication users. Use cases include your application placing outbound calls to proactively inform users about an outage or notify about an order update.
+**Create Call** - Use the Create Call action to place outbound calls to phone numbers and to other communication users. Use cases include your application placing outbound calls to proactively inform users about an outage or notify about an order update.
 
-**Connect Call** (in preview)
-Connect Call action can be used to connect to an ongoing call and take call actions on it. You can also use this action to connect and [manage a Rooms call programmatically](./../../quickstarts/rooms/manage-rooms-call.md), like performing PSTN dial outs for Room using your service. 
+**Connect Call** (in preview) - Use the Connect Call action to connect to an ongoing call and take call actions on it. You can also use this action to connect and [manage a Rooms call programmatically](./../../quickstarts/rooms/manage-rooms-call.md), like performing PSTN dial outs for Room using your service. 
 
 ### Mid-call actions
 
@@ -114,7 +114,12 @@ Your application can perform these actions on calls that are answered or placed 
 
 **Terminate** – Whether your application answers a one-to-one or group call, or places an outbound call with one or more participants, this action removes all participants and ends the call. This operation is triggered by setting the `forEveryOne` property to `true` in Hang-Up call action.
 
-**Cancel media operations** – Based on business logic your application may need to cancel ongoing and queued media operations. Depending on the media operation canceled and the ones in queue, your application might receive a webhook event indicating that the action was canceled. 
+**Cancel media operations** – Based on business logic your application might need to cancel ongoing and queued media operations. Depending on the media operation canceled and the ones in queue, your application might receive a webhook event indicating that the action was canceled. 
+
+**Start/Stop audio streaming (public preview)** - Audio streaming allows you to subscribe to real-time audio streams from an ongoing call.  For more detailed guidance on how to get started with audio streaming and information about audio streaming callback events, see our [concept](audio-streaming-concept.md) and our [quickstart](../../how-tos/call-automation/audio-streaming-quickstart.md).
+
+**Start/Stop real-time transcription (public preview)** - Real-time transcription allows you to access live transcriptions for the audio of an ongoing call.  For more detailed guidance on how to get started with real-time transcription and information about real-time transcription callback events, see our [concept](real-time-transcription.md) and our [quickstart](../../how-tos/call-automation/real-time-transcription-tutorial.md).
+
 
 ### Query scenarios
 
@@ -130,12 +135,12 @@ Most of the events sent by Event Grid are platform agnostic. They're sent regard
 
 | Event             | Description |
 | ----------------- | ------------ |
-| `IncomingCall`      | Notification of a call to a communication user or phone number |
-| `CallStarted`       | Established a call (inbound or outbound) |
-| `CallEnded`        | Terminated a call and removed all participants |
-| `ParticipantAdded`  | Added a participant to a call |
-| `ParticipantRemoved` | Removed a participant from a call |
-| `RecordingFileStatusUpdated` | A recording file is available |
+| `IncomingCall`      | Notification of a call to a communication user or phone number. |
+| `CallStarted`       | Established a call (inbound or outbound). |
+| `CallEnded`        | Terminated a call and removed all participants. |
+| `ParticipantAdded`  | Added a participant to a call. |
+| `ParticipantRemoved` | Removed a participant from a call. |
+| `RecordingFileStatusUpdated` | A recording file is available. |
 
 Read more about these events and payload schema in [Azure Communication Services - Voice and video calling events](../../../event-grid/communication-services-voice-video-events.md)
 
@@ -145,30 +150,31 @@ The Call Automation events are sent to the web hook callback URI specified when 
 
 | Event             | Description |
 | ----------------- | ------------ |
-| CallConnected      | The call has successfully started (when using Answer or Create action) or your application has successfully connected to an ongoing call (when using Connect action)|
-| CallDisconnected       | Your application has been disconnected from the call |
-| ConnectFailed       | Your application failed to connect to a call (for connect call action only)|
-| CallTransferAccepted         | Transfer action has successfully completed and the transferee is connected to the target participant |
-| CallTransferFailed  | The transfer action has failed  |
-| AddParticipantSucceeded| Your application has successfully added a participant to the call  |
-| AddParticipantFailed   | Your application was unable to add a participant to the call (due to an error or the participant didn't accept the invite |
-| CancelAddParticipantSucceeded| Your application canceled an AddParticipant request successfully (i.e. the participant was not added to the call) |
-| CancelAddParticipantFailed   | Your application was unable to cancel an AddParticipant request (this could be because the request has already been processed)  |
-| RemoveParticipantSucceeded| Your application has successfully removed a participant from the call  |
-| RemoveParticipantFailed   | Your application was unable to remove a participant from the call  |
-| ParticipantsUpdated    | The status of a participant changed while your application was connected to a call  |
-| PlayCompleted | Your application successfully played the audio file provided |
-| PlayFailed | Your application failed to play audio |
-| PlayCanceled | The requested play action has been canceled |
-| RecognizeCompleted | Recognition of user input was successfully completed |
-| RecognizeCanceled | The requested recognize action has been canceled |
-| RecognizeFailed | Recognition of user input was unsuccessful <br/>*to learn more about recognize action events view our how-to guide for [gathering user input](../../how-tos/call-automation/recognize-action.md)*|
-|RecordingStateChanged | Status of recording action has changed from active to inactive or vice versa |
-| ContinuousDtmfRecognitionToneReceived | StartContinuousDtmfRecognition completed successfully and a DTMF tone was received from the participant |
-| ContinuousDtmfRecognitionToneFailed | StartContinuousDtmfRecognition completed but an error occurred while handling a DTMF tone from the participant |
-| ContinuousDtmfRecognitionStopped | Successfully executed StopContinuousRecognition |
-| SendDtmfCompleted | SendDTMF completed successfully and the DTMF tones were sent to the target participant |
-| SendDtmfFailed | An error occurred while sending the DTMF tones |
+| `CallConnected` | The call successfully started (when using `Answer` or `Create` action) or your application successfully connected to an ongoing call (when using `Connect` action). |
+| `CallDisconnected` | Your application has been disconnected from the call. |
+| `CreateCallFailed` | Your application has failed to create the call. |
+| `ConnectFailed` | Your application failed to connect to a call (for `Connect` call action only). |
+| `CallTransferAccepted` | Transfer action successfully completed and the transferee is connected to the target participant. |
+| `CallTransferFailed` | The transfer action failed. |
+| `AddParticipantSucceeded` | Your application successfully added a participant to the call. |
+| `AddParticipantFailed` | Your application was unable to add a participant to the call (due to an error or the participant didn't accept the invite) |
+| `CancelAddParticipantSucceeded` | Your application canceled an `AddParticipant` request successfully (the participant wasn't added to the call). |
+| `CancelAddParticipantFailed`   | Your application was unable to cancel an AddParticipant request (this could be because the request has already been processed).  |
+| `RemoveParticipantSucceeded` | Your application successfully removed a participant from the call.  |
+| `RemoveParticipantFailed` | Your application was unable to remove a participant from the call. |
+| `ParticipantsUpdated` | The status of a participant changed while your application was connected to a call. |
+| `PlayCompleted` | Your application successfully played the audio file provided. |
+| `PlayFailed` | Your application failed to play audio. |
+| `PlayCanceled` | The requested play action has been canceled. |
+| `RecognizeCompleted` | Recognition of user input successfully completed. |
+| `RecognizeCanceled` | The requested `Recognize` action has been canceled. |
+| `RecognizeFailed` | Recognition of user input was unsuccessful. <br/>*For more information about recognize action events, see the how-to guide for [gathering user input](../../how-tos/call-automation/recognize-action.md).* |
+| `RecordingStateChanged` | Status of recording action has changed from active to inactive or vice versa. |
+| `ContinuousDtmfRecognitionToneReceived` | `StartContinuousDtmfRecognition` completed successfully and a DTMF tone was received from the participant. |
+| `ContinuousDtmfRecognitionToneFailed` | `StartContinuousDtmfRecognition` completed but an error occurred while handling a DTMF tone from the participant. |
+| `ContinuousDtmfRecognitionStopped` | Successfully executed `StopContinuousRecognition`. |
+| `SendDtmfCompleted` | `SendDTMF` completed successfully and sent DTMF tones to the target participant. |
+| `SendDtmfFailed` | An error occurred while sending the DTMF tones. |
 
 To understand which events are published for different actions, see [Actions for call control](../../how-tos/call-automation/actions-for-call-control.md). The article provides code samples and sequence diagrams for various call control flows. 
 
@@ -178,7 +184,7 @@ To learn how to secure the callback event delivery, see [How to secure webhook e
 
 ### Operation Callback URI
 
-Operation Callback URI is an optional parameter in some mid-call APIs that use events as their async responses. By default, all events are sent to the default callback URI set by `CreateCall` / `AnswerCall` API events when the user establishes a call. Using the Operation Callback URI, sends corresponding events of this individual (one-time only) request to the new URI.
+Operation Callback URI is an optional parameter in some mid-call APIs that use events as their async responses. By default, all events are sent to the default callback URI set by `CreateCall` / `AnswerCall` API events when the user establishes a call. Using the Operation Callback URI, the API sends corresponding events for this individual (one-time only) request to the new URI.
 
 | Supported API             | Corresponding event |
 | ----------------- | ------------ |

@@ -3,7 +3,7 @@ title: Use deployment scripts in Bicep
 description: Learn how to create, monitor, and troubleshoot deployment scripts in Bicep.
 ms.custom: devx-track-bicep
 ms.topic: how-to
-ms.date: 06/06/2024
+ms.date: 09/26/2024
 ---
 
 # Use deployment scripts in Bicep
@@ -317,7 +317,7 @@ The output of the list command is similar to this example:
   },
   "environmentVariables": null,
   "forceUpdateTag": null,
-  "id": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/dsDemo/providers/Microsoft.Resources/deploymentScripts/inlineCLI",
+  "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/dsDemo/providers/Microsoft.Resources/deploymentScripts/inlineCLI",
   "identity": null,
   "kind": "AzureCLI",
   "location": "centralus",
@@ -331,12 +331,12 @@ The output of the list command is similar to this example:
   "retentionInterval": "1:00:00",
   "scriptContent": "echo \"The argument is John Dole.\"; jq -n -c --arg st \"Hello John Dole\" '{\"text\": $st}' > $AZ_SCRIPTS_OUTPUT_PATH",
   "status": {
-    "containerInstanceId": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/dsDemo/providers/Microsoft.ContainerInstance/containerGroups/jgczqtxom5oreazscripts",
+    "containerInstanceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/dsDemo/providers/Microsoft.ContainerInstance/containerGroups/jgczqtxom5oreazscripts",
     "endTime": "2023-12-11T20:20:12.149468+00:00",
     "error": null,
     "expirationTime": "2023-12-11T21:20:12.149468+00:00",
     "startTime": "2023-12-11T20:18:26.674492+00:00",
-    "storageAccountId": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/dsDemo/providers/Microsoft.Storage/storageAccounts/jgczqtxom5oreazscripts"
+    "storageAccountId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/dsDemo/providers/Microsoft.Storage/storageAccounts/jgczqtxom5oreazscripts"
   },
   "storageAccountSettings": null,
   "supportingScriptUris": null,
@@ -367,10 +367,10 @@ The `Get-AzDeploymentScript` output is similar to this example:
 
 ```output
 Name                : inlinePS
-Id                  : /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/dsDemo/providers/Microsoft.Resources/deploymentScripts/inlinePS
+Id                  : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/dsDemo/providers/Microsoft.Resources/deploymentScripts/inlinePS
 ResourceGroupName   : dsDemo
 Location            : centralus
-SubscriptionId      : 01234567-89AB-CDEF-0123-456789ABCDEF
+SubscriptionId      : aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e
 ProvisioningState   : Succeeded
 Identity            :
 ScriptKind          : AzurePowerShell
@@ -379,8 +379,8 @@ StartTime           : 12/11/2023 9:45:50 PM
 EndTime             : 12/11/2023 9:46:59 PM
 ExpirationDate      : 12/11/2023 10:46:59 PM
 CleanupPreference   : OnExpiration
-StorageAccountId    : /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/dsDemo/providers/Microsoft.Storage/storageAccounts/ee5o4rmoo6ilmazscripts
-ContainerInstanceId : /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/dsDemo/providers/Microsoft.ContainerInstance/containerGroups/ee5o4rmoo6ilmazscripts
+StorageAccountId    : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/dsDemo/providers/Microsoft.Storage/storageAccounts/ee5o4rmoo6ilmazscripts
+ContainerInstanceId : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/dsDemo/providers/Microsoft.ContainerInstance/containerGroups/ee5o4rmoo6ilmazscripts
 Outputs             :
                       Key                 Value
                       ==================  ==================
@@ -402,11 +402,11 @@ You can use the REST API to get information about the deployment script resource
 /subscriptions/<SubscriptionID>/providers/microsoft.resources/deploymentScripts?api-version=2020-10-01
 ```
 
-The following example uses [ARMClient](https://github.com/projectkudu/ARMClient). ARMClient is not a supported Microsoft tool.
+The following example uses [ARMClient](https://github.com/projectkudu/ARMClient). ARMClient isn't a supported Microsoft tool.
 
 ```azurepowershell
 armclient login
-armclient get /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourcegroups/myrg/providers/microsoft.resources/deploymentScripts/myDeployementScript?api-version=2020-10-01
+armclient get /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/myrg/providers/microsoft.resources/deploymentScripts/myDeployementScript?api-version=2020-10-01
 ```
 
 The output is similar to this example:
@@ -435,19 +435,19 @@ The output is similar to this example:
       "containerGroupName": null
     },
     "status": {
-      "containerInstanceId": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/dsDemo/providers/Microsoft.ContainerInstance/containerGroups/jgczqtxom5oreazscripts",
+      "containerInstanceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/dsDemo/providers/Microsoft.ContainerInstance/containerGroups/jgczqtxom5oreazscripts",
       "endTime": "2023-12-11T20:20:12.149468+00:00",
       "error": null,
       "expirationTime": "2023-12-11T21:20:12.149468+00:00",
       "startTime": "2023-12-11T20:18:26.674492+00:00",
-      "storageAccountId": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/dsDemo/providers/Microsoft.Storage/storageAccounts/jgczqtxom5oreazscripts"
+      "storageAccountId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/dsDemo/providers/Microsoft.Storage/storageAccounts/jgczqtxom5oreazscripts"
     },
     "outputs": {
       "text": "Hello John Dole"
     },
     "cleanupPreference": "OnSuccess"
   },
-  "id": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/dsDemo/providers/Microsoft.Resources/deploymentScripts/inlineCLI",
+  "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/dsDemo/providers/Microsoft.Resources/deploymentScripts/inlineCLI",
   "type": "Microsoft.Resources/deploymentScripts",
   "name": "inlineCLI",
 }
@@ -476,7 +476,7 @@ The following table lists the error codes for the deployment script:
 | `DeploymentScriptStorageAccountAccessKeyNotSpecified` | The access key wasn't specified for the existing storage account.|
 | `DeploymentScriptContainerGroupContainsInvalidContainers` | A container group that the deployment script service created was externally modified, and invalid containers were added. |
 | `DeploymentScriptContainerGroupInNonterminalState` | Two or more deployment script resources use the same Azure container instance name in the same resource group, and one of them hasn't finished its execution yet. |
-| `DeploymentScriptExistingStorageNotInSameSubscriptionAsDeploymentScript` | The existing storage provided in deployment is not found in the subscription where the script is being deployed. |
+| `DeploymentScriptExistingStorageNotInSameSubscriptionAsDeploymentScript` | The existing storage provided in deployment isn't found in the subscription where the script is being deployed. |
 | `DeploymentScriptStorageAccountInvalidKind` | The existing storage account of the `BlobBlobStorage` or `BlobStorage` type doesn't support file shares and can't be used. |
 | `DeploymentScriptStorageAccountInvalidKindAndSku` | The existing storage account doesn't support file shares. For a list of supported types of storage accounts, see [Use an existing storage account](./deployment-script-develop.md#use-an-existing-storage-account). |
 | `DeploymentScriptStorageAccountNotFound` | The storage account doesn't exist, or an external process or tool deleted it. |

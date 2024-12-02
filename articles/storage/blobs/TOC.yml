@@ -135,6 +135,8 @@ items:
         href: ../common/storage-use-azcopy-migrate-on-premises-data.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Troubleshoot AzCopy issues
         href: /troubleshoot/azure/azure-storage/storage-use-azcopy-troubleshoot?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      - name: Map of AzCopy commands to REST operations
+        href: ../common/storage-reference-azcopy-map-commands-to-rest-operations.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: Azure Data Factory
       href: ../../data-factory/connector-azure-blob-storage.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       items:
@@ -460,65 +462,24 @@ items:
         href: ../common/last-sync-time-get.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Failover considerations for storage accounts with private endpoints
         href: ../common/storage-failover-private-endpoints.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-  - name: Performance, scale, and cost
+  - name: Performance and scale
     items:
-    - name: Performance & scale
+    - name: Performance and scalability checklist
+      href: storage-performance-checklist.md
+    - name: Latency in Blob storage
+      href: storage-blobs-latency.md
+    - name: Scalability and performance targets
       items:
-      - name: Performance and scalability checklist
-        href: storage-performance-checklist.md
-      - name: Latency in Blob Storage
-        href: storage-blobs-latency.md
-      - name: Scalability and performance targets
-        items:
-        - name: Blob Storage
-          href: scalability-targets.md
-        - name: Standard storage accounts
-          href: ../common/scalability-targets-standard-account.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-        - name: Premium block blob storage accounts
-          href: scalability-targets-premium-block-blobs.md
-        - name: Premium page blob storage accounts
-          href: scalability-targets-premium-page-blobs.md
-        - name: Storage resource provider
-          href: ../common/scalability-targets-resource-provider.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: 'Tutorial: Optimize performance and scalability'
-        items:
-        - name: 1 - Create a VM and storage account
-          href: storage-blob-scalable-app-create-vm.md
-        - name: 2 - Upload large data to an Azure storage account
-          href: storage-blob-scalable-app-upload-files.md
-        - name: 3- Download large data from an Azure storage account
-          href: storage-blob-scalable-app-download-files.md
-        - name: 4 - Verify throughput and latency metrics
-          href: storage-blob-scalable-app-verify-metrics.md
-    - name: Cost management
-      items:
-      - name: Plan and manage costs
-        href: ../common/storage-plan-manage-costs.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: Azure Storage reserved capacity
-        href: storage-blob-reserved-capacity.md
-      - name: Map each REST operation to a price
-        href: map-rest-apis-transaction-categories.md
-      - name: Estimate the cost of AzCopy transfers
-        href: azcopy-cost-estimation.md
-      - name: Estimate the cost to archive data
-        href: archive-cost-estimation.md
-    - name: Access tiers
-      href: access-tiers-overview.md
-      items:
-      - name: Best practices
-        href: access-tiers-best-practices.md
-      - name: Change a blob's access tier
-        href: access-tiers-online-manage.md
-      - name: Archive and rehydrate
-        items:
-        - name: Blob rehydration overview
-          href: archive-rehydrate-overview.md
-        - name: Archive blobs
-          href: archive-blob.md
-        - name: Rehydrate blobs
-          href: archive-rehydrate-to-online-tier.md
-        - name: Handle an event on blob rehydration
-          href: archive-rehydrate-handle-event.md
+      - name: Blob storage
+        href: scalability-targets.md
+      - name: Standard storage accounts
+        href: ../common/scalability-targets-standard-account.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      - name: Premium block blob storage accounts
+        href: scalability-targets-premium-block-blobs.md
+      - name: Premium page blob storage accounts
+        href: scalability-targets-premium-page-blobs.md
+      - name: Storage resource provider
+        href: ../common/scalability-targets-resource-provider.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: Object replication
       items:
       - name: Object replication
@@ -527,6 +488,47 @@ items:
         href: object-replication-configure.md
       - name: Prevent object replication across tenants
         href: object-replication-prevent-cross-tenant-policies.md
+  - name: Cost management
+    items:
+    - name: Plan and manage costs
+      href: ../common/storage-plan-manage-costs.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+    - name: Find prices
+      items:
+      - name: Azure Blob Storage prices
+        href: https://azure.microsoft.com/pricing/details/storage/blobs/
+      - name: Azure Data Lake Storage prices
+        href: https://azure.microsoft.com/pricing/details/storage/data-lake/
+      - name: Map each REST operation to a price
+        href: map-rest-apis-transaction-categories.md
+    - name: Estimate costs
+      items:
+      - name: Estimate the cost of Azure Blob Storage
+        href: blob-storage-estimate-costs.md
+      - name: Estimate the cost of AzCopy transfers
+        href: azcopy-cost-estimation.md
+      - name: Estimate the cost to archive data
+        href: archive-cost-estimation.md
+    - name: Optimize costs
+      items:
+      - name: Access tiers
+        href: access-tiers-overview.md
+        items:
+        - name: Best practices
+          href: access-tiers-best-practices.md
+        - name: Change a blob's access tier
+          href: access-tiers-online-manage.md
+        - name: Archive and rehydrate
+          items:
+          - name: Blob rehydration overview
+            href: archive-rehydrate-overview.md
+          - name: Archive blobs
+            href: archive-blob.md
+          - name: Rehydrate blobs
+            href: archive-rehydrate-to-online-tier.md
+          - name: Handle an event on blob rehydration
+            href: archive-rehydrate-handle-event.md
+      - name: Azure Storage reserved capacity
+        href: storage-blob-reserved-capacity.md
   - name: Monitoring metrics and logs
     items:
     - name: Monitor Blob Storage
@@ -585,6 +587,14 @@ items:
               href: /dotnet/azure/sdk/authentication-azure-hosted-apps?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
             - name: Auth from on-premises apps
               href: /dotnet/azure/sdk/authentication-on-premises-apps?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+          - name: Shared access signature (SAS)
+            items:
+            - name: Authorize using a user delegation SAS
+              href: storage-blob-user-delegation-sas-create-dotnet.md
+            - name: Authorize using a service SAS
+              href: sas-service-create-dotnet.md
+            - name: Authorize using an account SAS
+              href: ../common/storage-account-sas-create-dotnet.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         - name: Container actions
           items:
           - name: Create a container
@@ -597,14 +607,6 @@ items:
             href: storage-blob-container-lease.md
           - name: Manage properties and metadata
             href: storage-blob-container-properties-metadata.md
-          - name: Generate a shared access signature (SAS)
-            items:
-            - name: Create a user delegation SAS for a container
-              href: storage-blob-container-user-delegation-sas-create-dotnet.md
-            - name: Create a service SAS for a container
-              href: sas-service-create-dotnet-container.md
-            - name: Create an account SAS
-              href: ../common/storage-account-sas-create-dotnet.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         - name: Blob actions
           items:
           - name: Upload blobs
@@ -635,14 +637,6 @@ items:
             href: versions-manage-dotnet.md
           - name: Set or change a blob's access tier
             href: storage-blob-use-access-tier-dotnet.md
-          - name: Generate a shared access signature (SAS)
-            items:
-            - name: Create a user delegation SAS for a blob
-              href: storage-blob-user-delegation-sas-create-dotnet.md
-            - name: Create a service SAS for a blob
-              href: sas-service-create-dotnet.md
-            - name: Create an account SAS
-              href: ../common/storage-account-sas-create-dotnet.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         - name: Append blob actions
           items:
           - name: Append data to an append blob
@@ -679,6 +673,14 @@ items:
               href: /azure/developer/java/sdk/identity-service-principal-auth?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
             - name: Auth in Azure hosted applications
               href: /azure/developer/java/sdk/identity-azure-hosted-auth?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+          - name: Shared access signature (SAS)
+            items:
+            - name: Authorize using a user delegation SAS
+              href: storage-blob-user-delegation-sas-create-java.md
+            - name: Authorize using a service SAS
+              href: sas-service-create-java.md
+            - name: Authorize using an account SAS
+              href: ../common/storage-account-sas-create-java.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         - name: Container actions
           items:
           - name: Create a container
@@ -691,14 +693,6 @@ items:
             href: storage-blob-container-lease-java.md
           - name: Manage properties and metadata
             href: storage-blob-container-properties-metadata-java.md
-          - name: Generate a shared access signature (SAS)
-            items:
-            - name: Create a user delegation SAS for a container
-              href: storage-blob-container-user-delegation-sas-create-java.md
-            - name: Create a service SAS for a container
-              href: sas-service-create-java-container.md
-            - name: Create an account SAS
-              href: ../common/storage-account-sas-create-java.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         - name: Blob actions
           items:
           - name: Upload blobs
@@ -725,14 +719,6 @@ items:
             href: storage-blob-properties-metadata-java.md
           - name: Set or change a blob's access tier
             href: storage-blob-use-access-tier-java.md
-          - name: Generate a shared access signature (SAS)
-            items:
-            - name: Create a user delegation SAS for a blob
-              href: storage-blob-user-delegation-sas-create-java.md
-            - name: Create a service SAS for a blob
-              href: sas-service-create-java.md
-            - name: Create an account SAS
-              href: ../common/storage-account-sas-create-java.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         - name: Client library configuration options
           items:
           - name: Performance tuning for uploads and downloads
@@ -817,78 +803,6 @@ items:
             href: storage-retry-policy-javascript.md
         - name: 'Tutorial: Upload and process image files'
           href: blob-upload-function-trigger-javascript.md
-      - name: TypeScript
-        items:
-        - name: Get started
-          href: storage-blob-typescript-get-started.md
-        - name: Authorize access from your application
-          items:
-          - name: Microsoft Entra ID
-            items:
-            - name: Overview
-              href: /azure/developer/javascript/sdk/authentication/overview?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-            - name: Auth using developer service principals
-              href: /azure/developer/javascript/sdk/authentication/local-development-environment-service-principal?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-            - name: Auth using developer accounts
-              href: /azure/developer/javascript/sdk/authentication/local-development-environment-developer-account?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-            - name: Auth from Azure-hosted apps
-              href: /azure/developer/javascript/sdk/authentication/azure-hosted-apps?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-            - name: Auth from on-premises apps
-              href: /azure/developer/javascript/sdk/authentication/on-premises-apps?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-          - name: Work with SAS tokens
-            items:
-            - name: User delegation SAS
-              href: storage-blob-create-user-delegation-sas-javascript.md
-            - name: Service SAS
-              href: sas-service-create-javascript.md
-            - name: Account SAS
-              href: storage-blob-account-delegation-sas-create-javascript.md
-        - name: Container actions
-          items:
-          - name: Create a container
-            href: storage-blob-container-create-typescript.md
-          - name: Get container URL
-            href: storage-blob-get-url-typescript.md
-          - name: Delete and restore containers
-            href: storage-blob-container-delete-typescript.md
-          - name: List containers
-            href: storage-blob-containers-list-typescript.md
-          - name: Manage container leases
-            href: storage-blob-container-lease-typescript.md
-          - name: Manage properties and metadata
-            href: storage-blob-container-properties-metadata-typescript.md
-        - name: Blob actions
-          items:
-          - name: Upload blobs
-            href: storage-blob-upload-typescript.md
-          - name: Download blobs
-            href: storage-blob-download-typescript.md
-          - name: Copy blobs
-            items:
-            - name: Overview of copy operations
-              href: storage-blob-copy-typescript.md
-            - name: Copy from a source object URL
-              href: storage-blob-copy-url-typescript.md
-            - name: Copy with asynchronous scheduling
-              href: storage-blob-copy-async-typescript.md
-          - name: List blobs
-            href: storage-blobs-list-typescript.md
-          - name: Delete and restore blobs
-            href: storage-blob-delete-typescript.md
-          - name: Find blobs using tags
-            href: storage-blob-tags-typescript.md
-          - name: Manage blob leases
-            href: storage-blob-lease-typescript.md
-          - name: Manage blob properties and metadata
-            href: storage-blob-properties-metadata-typescript.md
-          - name: Get blob URL
-            href: storage-blob-get-url-typescript.md
-          - name: Set or change a blob's access tier
-            href: storage-blob-use-access-tier-typescript.md
-        - name: Client library configuration options
-          items:
-          - name: Implement a retry policy
-            href: storage-retry-policy-javascript.md
       - name: Python
         items:
         - name: Get started
@@ -907,6 +821,14 @@ items:
               href: /azure/developer/python/sdk/authentication-azure-hosted-apps?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
             - name: Auth from on-premises apps
               href: /azure/developer/python/sdk/authentication-on-premises-apps?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+          - name: Shared access signature (SAS)
+            items:
+            - name: Authorize using a user delegation SAS
+              href: storage-blob-user-delegation-sas-create-python.md
+            - name: Authorize using a service SAS
+              href: sas-service-create-python.md
+            - name: Authorize using an account SAS
+              href: ../common/storage-account-sas-create-python.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         - name: Container actions
           items:
           - name: Create a container
@@ -919,14 +841,6 @@ items:
             href: storage-blob-container-lease-python.md
           - name: Manage properties and metadata
             href: storage-blob-container-properties-metadata-python.md
-          - name: Generate a shared access signature (SAS)
-            items:
-            - name: Create a user delegation SAS for a container
-              href: storage-blob-container-user-delegation-sas-create-python.md
-            - name: Create a service SAS for a container
-              href: sas-service-create-python-container.md
-            - name: Create an account SAS
-              href: ../common/storage-account-sas-create-python.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         - name: Blob actions
           items:
           - name: Upload blobs
@@ -953,14 +867,6 @@ items:
             href: storage-blob-properties-metadata-python.md
           - name: Set or change a blob's access tier
             href: storage-blob-use-access-tier-python.md
-          - name: Generate a shared access signature (SAS)
-            items:
-            - name: Create a user delegation SAS for a blob
-              href: storage-blob-user-delegation-sas-create-python.md
-            - name: Create a service SAS for a blob
-              href: sas-service-create-python.md
-            - name: Create an account SAS
-              href: ../common/storage-account-sas-create-python.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         - name: Client library configuration options
           items:
           - name: Performance tuning for uploads and downloads
@@ -1017,6 +923,8 @@ items:
             href: storage-blob-properties-metadata-go.md
         - name: Client library configuration options
           items:
+          - name: Performance tuning for uploads and downloads
+            href: storage-blobs-tune-upload-download-go.md
           - name: Implement a retry policy
             href: storage-retry-policy-go.md
     - name: Test with a storage emulator
@@ -1058,17 +966,9 @@ items:
     - name: Other languages
       href: ../common/storage-samples.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: Azure PowerShell
-      items: 
+      items:
       - name: Overview
         href: storage-samples-blobs-powershell.md
-      - name: Calculate the total billing size of a blob container
-        href: ../scripts/storage-blobs-container-calculate-billing-size-powershell.md
-      - name: Calculate the size of blob containers with PowerShell
-        href: ../scripts/storage-blobs-container-calculate-size-powershell.md
-      - name: Delete containers with a specific prefix
-        href: ../scripts/storage-blobs-container-delete-by-prefix-powershell.md
-      - name: Retrieve and rotate the access keys
-        href: ../scripts/storage-common-rotate-account-keys-powershell.md
     - name: Azure CLI
       items:
       - name: Overview
@@ -1314,7 +1214,7 @@ items:
         - name: Data Movement library
           href: https://github.com/Azure/azure-storage-net-data-movement
         - name: Storage Resource Provider library
-          href: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.Management.Storage
+          href: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage/Azure.ResourceManager.Storage
       - name: Java
         items:
         - name: Azure Storage client library version 12.x
@@ -1486,7 +1386,7 @@ items:
     - name: Use with Databricks Delta and Event Grid
       href: data-lake-storage-events.md
     - name: Use with other Azure services
-      href: data-lake-storage-integrate-with-services-tutorials.md    
+      href: data-lake-storage-integrate-with-services-tutorials.md
     - name: Use with Azure services
       href: data-lake-storage-integrate-with-services-tutorials.md
 - name: Reference
@@ -1722,7 +1622,7 @@ items:
       - name: Data Movement library
         href: https://github.com/Azure/azure-storage-net-data-movement
       - name: Storage Resource Provider library
-        href: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.Management.Storage
+        href: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage/Azure.ResourceManager.Storage
     - name: Java
       items:
       - name: Azure Storage client library version 12.x

@@ -31,6 +31,9 @@
           - name: Command line
             displayName: C#, quickstart, get started
             href: create-first-function-cli-csharp.md
+          - name: Azure Developer CLI
+            displayName: C#, quickstart, get started, Flex Consumption plan
+            href: create-first-function-azure-developer-cli.md?pivots=programming-language-csharp
         - name: Java
           items:
           - name: Eclipse
@@ -54,6 +57,9 @@
           - name: Visual Studio Code
             displayName: Java, quickstart, get started
             href: create-first-function-vs-code-java.md
+          - name: Azure Developer CLI
+            displayName: Java, quickstart, get started, Flex Consumption plan
+            href: create-first-function-azure-developer-cli.md?pivots=programming-language-java
         - name: JavaScript
           items:
           - name: Visual Studio Code
@@ -62,6 +68,9 @@
           - name: Command line
             displayName: JavaScript, quickstart, get started
             href: create-first-function-cli-node.md
+          - name: Azure Developer CLI
+            displayName: JavaScript, quickstart, get started, Flex Consumption plan
+            href: create-first-function-azure-developer-cli.md?pivots=programming-language-javascript
         - name: PowerShell
           items:
           - name: Visual Studio Code
@@ -70,6 +79,9 @@
           - name: Command line
             displayName: PowerShell, quickstart, get started
             href: create-first-function-cli-powershell.md
+          - name: Azure Developer CLI
+            displayName: PowerShell, quickstart, get started, Flex Consumption plan
+            href: create-first-function-azure-developer-cli.md?pivots=programming-language-powershell
         - name: Python
           items:
           - name: Visual Studio Code
@@ -78,6 +90,9 @@
           - name: Command line
             displayName: Python, quickstart, get started
             href: create-first-function-cli-python.md
+          - name: Azure Developer CLI
+            displayName: Python, quickstart, get started, Flex Consumption plan
+            href: create-first-function-azure-developer-cli.md?pivots=programming-language-python
         - name: TypeScript
           items:
           - name: Visual Studio Code
@@ -86,11 +101,12 @@
           - name: Command line
             displayName: TypeScript, quickstart, get started
             href: create-first-function-cli-typescript.md
+          - name: Azure Developer CLI
+            displayName: TypeScript, quickstart, get started, Flex Consumption plan
+            href: create-first-function-azure-developer-cli.md?pivots=programming-language-typescript
         - name: Other (Go/Rust)
-          items:
-          - name: Visual Studio Code
-            displayName: Go, Rust, quickstart, get started
-            href: create-first-function-vs-code-other.md
+          displayName: Go, Rust, quickstart, get started
+          href: create-first-function-vs-code-other.md   
         - name: Resource Manager
           items:
           - name: Bicep
@@ -365,12 +381,8 @@
           displayName: bundles, extension bundles
         - name: Binding expression patterns
           href: functions-bindings-expressions-patterns.md
-        - name: Use binding return values
-          href: functions-bindings-return-value.md
         - name: Handle binding errors
           href: functions-bindings-errors.md
-        - name: Binding definitions for Python v2
-          href: functions-bindings-triggers-python.md
     - name: Frameworks
       items:
         - name: Express.js
@@ -433,6 +445,8 @@
         - name: Programming models
           displayName: python
           href: functions-reference-python.md#programming-model
+        - name: Binding definitions for Python v2
+          href: functions-bindings-triggers-python.md  
         - name: Python worker extensions
           href: develop-python-worker-extensions.md
         - name: Scale and performance recommendations
@@ -579,8 +593,8 @@
           href: disable-function.md
         - name: Networking
           href: configure-networking-how-to.md
-        - name: Move across regions
-          href: functions-move-across-regions.md
+        - name: Relocate to another region
+          href: ../operational-excellence/relocation-functions.md?toc=/azure/azure-functions/toc.json
         - name: Work with legacy Functions Proxies
           href: legacy-proxies.md
     - name: Migrate
@@ -1097,6 +1111,8 @@
             href: errors-diagnostics/diagnostic-events/azfd0011.md
           - name: AZFD0012
             href: errors-diagnostics/diagnostic-events/azfd0012.md
+          - name: AZFD0013
+            href: errors-diagnostics/diagnostic-events/azfd0013.md
     - name: host.json 2.x reference
       href: functions-host-json.md
     - name: host.json 1.x reference

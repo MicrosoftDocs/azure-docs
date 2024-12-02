@@ -88,26 +88,6 @@ User-assigned identity example:
     },
 ```
 
-## Using App IDs for Key Vault Access
-
-> [!IMPORTANT]
-> Use of App IDs for Customer Key Vault access is deprecated and support will be removed in a future version. It is recommended to use managed identity principals.
-
-Instead of managed identities, the following application IDs grant access to the Key Vault.
-
-- Ensure that the *Microsoft.NetworkCloud* resource provider is registered with the customer subscription.
-
-```console
-az provider register --namespace 'Microsoft.NetworkCloud' --subscription <Subscription ID>
-```
-
-- When assigned role access to the key vault, use the following App IDs as principal IDs.
-
-| Environment | App Name              | App ID                               |
-|:------------|:----------------------|:-------------------------------------|
-| Production  | AFOI-NC-RP-PME-PROD   | 05cf5e27-931d-47ad-826d-cb9028d8bd7a |
-| Production  | AFOI-NC-MGMT-PME-PROD | 3365d4ea-bb16-4bc9-86dd-f2c8cf6f1f56 |
-
 ## Writing Credential Updates to a Customer Key Vault on Nexus Cluster
 
 - Assign the *Operator Nexus Key Vault Writer Service Role*. Ensure that *Azure role-based access control* is selected as the permission model for the key vault on the *Access configuration* view. Then from the *Access Control* view, select to add a role assignment.
@@ -139,3 +119,14 @@ For more help:
 ```console
 az networkcloud cluster update --secret-archive ?? --help
 ```
+
+## Add a permission to User-assigned identity
+
+When using a User-assigned identity, add the following role assignment to the UAI resource:
+
+1. Open the Azure Portal and locate the User-assigned identity in question.
+2. Under **Access control (IAM)**, click **Add role assignment**.
+3. Select **Role**: Managed Identity Operator. (See the permissions that the role provides [managed-identity-operator](/azure/role-based-access-control/built-in-roles/identity#managed-identity-operator)).
+4. Assign access to: **User, group, or service principal**.
+5. Select **Member**: AFOI-NC-MGMT-PME-PROD application.
+6. Review and assign.

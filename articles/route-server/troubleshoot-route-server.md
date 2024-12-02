@@ -47,6 +47,10 @@ If you advertise a route from your NVA to Route Server that is an exact prefix m
  
 If you associate a service endpoint policy to the RouteServerSubnet or GatewaySubnet, then communication may break between Azure's underlying management platform and these respective Azure services (Route Server and VPN/ExpressRoute gateway). This can cause these Azure resources to enter an unhealthy state, resulting in connectivity loss between your on-premises and Azure workloads.
 
+### Why do I lose connectivity after using custom DNS instead of the default (Azure-provided DNS) for Route Server's virtual network?
+
+For the virtual network that Route Server is deployed in, if you are not using default (Azure-provided) DNS, then make sure your custom DNS configuration is able to resolve public domain names. This ensures that Azure services (Route Server and VPN/ExpressRoute gateway) are able to communicate with Azure's underlying management plane. Please see the note about wildcard rules in the [Azure DNS Private Resolver documentation](../dns/private-resolver-endpoints-rulesets.md#rules).
+
 ### Why can't I TCP ping from my NVA to the BGP peer IP of the Route Server after I set up the BGP peering between them?
 
 In some NVAs, you need to add a static route to the Route Server subnet to be able to TCP ping the Route Server from the NVA and to avoid BGP peering flapping. For example, if the Route Server is in 10.0.255.0/27 and your NVA is in 10.0.1.0/24, you need to add the following route to the routing table in the NVA:

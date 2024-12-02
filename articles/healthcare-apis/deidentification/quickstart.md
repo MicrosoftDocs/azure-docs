@@ -69,4 +69,5 @@ If you no longer need them, delete the resource group and de-identification serv
 
 ## Related content
 
-[De-identification service overview](overview.md)
+> [!div class="nextstepaction"]
+> [Tutorial: Configure Azure Storage to de-identify documents](configure-storage.md)

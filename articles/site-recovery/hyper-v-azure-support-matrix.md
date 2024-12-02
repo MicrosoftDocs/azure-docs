@@ -2,8 +2,8 @@
 title: Support for disaster recovery of Hyper-V VMs to Azure with Azure Site Recovery
 description: Summarizes the supported components and requirements for Hyper-V VM disaster recovery to Azure with Azure Site Recovery
 ms.service: azure-site-recovery
-ms.topic: conceptual
-ms.date: 12/04/2023
+ms.topic: concept-article
+ms.date: 10/28/2024
 author: ankitaduttaMSFT
 ms.author: ankitadutta
 ---
@@ -67,13 +67,14 @@ Guest VM network: NIC Teaming | No | No
 Guest VM network: IPv4 | Yes | Yes
 Guest VM network: IPv6 | No | Yes
 Guest VM network: Static IP (Windows) | Yes | Yes
-Guest VM network: Static IP (Linux) | No | No
+Guest VM network: Static IP (Linux) | Yes | Yes
 Guest VM network: Multi-NIC | Yes | Yes
 Https Proxy | No | No
 Automatic Private IP Addressing (APIPA) | No | No
 Private link access to Site Recovery service | Yes. [Learn more](hybrid-how-to-enable-replication-private-endpoints.md). | Yes. [Learn more](hybrid-how-to-enable-replication-private-endpoints.md).
 
-
+> [!NOTE]
+> For Guest VM network, static IP (Linux), Static IP from source OS's NIC is not used on Azure. The vNIC on Azure VM is configured with a new Azure IP of selected virtual network. 
 
 
 ## Azure VM network configuration (after failover)

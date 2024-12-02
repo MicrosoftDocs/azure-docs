@@ -56,7 +56,7 @@ sections:
         answer: |
           You can find details about we calculate these metrics in [Messages and connections in Azure SignalR Service](signalr-concept-messages-and-connections.md).
           
-          On the overview pane of Azure SignalR Service resources, we've already chosen the appropriate aggregation type for you. You can use [Supported metrics with Azure Monitor](../azure-monitor/essentials/metrics-supported.md#microsoftsignalrservicesignalr) as a reference.
+          On the overview pane of Azure SignalR Service resources, we've already chosen the appropriate aggregation type for you. You can use [Supported metrics with Azure Monitor](/azure/azure-monitor/essentials/metrics-supported#microsoftsignalrservicesignalr) as a reference.
           
       - question: |
           What is the meaning of the `Default`, `Serverless`, and `Classic` service modes? How can I choose?

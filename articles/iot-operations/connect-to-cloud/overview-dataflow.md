@@ -3,6 +3,7 @@ title: Process and route data with dataflows
 description: Learn about dataflows and how to process and route data in Azure IoT Operations.
 author: PatAltimore
 ms.author: patricka
+ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: conceptual
 ms.date: 08/03/2024
@@ -59,8 +60,16 @@ The configuration is specified by using Kubernetes CRDs. Based on this configura
 
 By using dataflows, you can efficiently manage your data paths. You can ensure that data is accurately sent, transformed, and enriched to meet your operational needs.
 
+## Schema registry
+
+Schema registry, a feature provided by Azure Device Registry Preview, is a synchronized repository in the cloud and at the edge. The schema registry stores the definitions of messages coming from edge assets, and then exposes an API to access those schemas at the edge. Southbound connectors like the OPC UA connector can create message schemas and add them to the schema registry or customers can upload schemas to the operations experience web UI.
+
+Dataflows uses messages schemas at both the source and destination points. For sources, message schemas can work as filters to identify the specific messages that you want to capture for a dataflow. For destinations, message schemas help to transform the message into the format expected by the destination endpoint.
+
+For more information, see [Understand message schemas](./concept-schema-registry.md).
+
 ## Related content
 
-- [Quickstart: Send asset telemetry to the cloud by using a dataflow](../get-started-end-to-end-sample/quickstart-upload-telemetry-to-cloud.md)
+- [Tutorial: Send asset telemetry to the cloud by using a dataflow](../end-to-end-tutorials/tutorial-upload-telemetry-to-cloud.md)
 - [Create a dataflow](howto-create-dataflow.md)
 - [Create a dataflow endpoint](howto-configure-dataflow-endpoint.md)

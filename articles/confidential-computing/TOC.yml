@@ -3,24 +3,28 @@
 - name: What is confidential computing? # WHAT?
   expanded: true
   items:
-     - name: Real-time protection of data whilst in-use # what keys are where+protect what #p1
-       href: overview.md # DONE #p1
-     - name: Use-cases and scenarios
-       href: use-cases-scenarios.md #DONE, link to the learn page  
-     - name: Confidential computing on Azure #DONE, #existing page  - shows the ACC products
-       href: overview-azure-products.md 
-     - name: Trusted Execution Environment (TEE) #p1
-       href: trusted-execution-environment.md # new, an easy to understandding of what a TEE is - explain like the black box example
-     - name: Trusted Compute Base (TCB) #p1 #done
-       href: trusted-compute-base.md #an easy to understandding of what a TCB is - what it means to be in/out of the TCB 
-     - name: Secret & Key Management #p1
-       href: secret-key-management.md # details on AKV and mHSM, and how they're used in the context of Confidential Computing #stubbed
-     - name: Attestation #p1 #done # EXISTING, use updated page - explain what attestation is, and why it's important, and give some practical examples of where its used #done
-       href: attestation-solutions.md 
+    - name: Real-time protection of data whilst in-use # what keys are where+protect what #p1
+      href: overview.md # DONE #p1
+    - name: Use-cases and scenarios
+      href: use-cases-scenarios.md #DONE, link to the learn page  
+    - name: Confidential computing on Azure #DONE, #existing page  - shows the ACC products
+      href: overview-azure-products.md 
+    - name: Trusted Execution Environment (TEE) #p1
+      href: trusted-execution-environment.md # new, an easy to understandding of what a TEE is - explain like the black box example
+    - name: Trusted Compute Base (TCB) #p1 #done
+      href: trusted-compute-base.md #an easy to understandding of what a TCB is - what it means to be in/out of the TCB 
+    - name: Secret & Key Management #p1
+      href: secret-key-management.md # details on AKV and mHSM, and how they're used in the context of Confidential Computing #stubbed
+    - name: Attestation #p1 #done # EXISTING, use updated page - explain what attestation is, and why it's important, and give some practical examples of where its used #done
+      href: attestation-solutions.md 
  #    - name: Hardware attestation vs. software attestation #p1  new, why HW based attestation is better than the rest
  #      href: hardware-attestation-approach.md 
-     - name: Deploying solutions on confidential computing #moved from original #done
-       href: confidential-computing-deployment-models.md
+    - name: Confidential computing solutions
+      items:
+      - name: Building confidential computing solutions
+        href: confidential-computing-solutions.md
+      - name: Deploying solutions on confidential computing #moved from original #done
+        href: confidential-computing-deployment-models.md
 - name: Why might I need it? # WHY?
   expanded: true
   items:
@@ -57,6 +61,14 @@
       href: how-to-leverage-virtual-tpms-in-azure-confidential-vms.md
     - name: Create a custom image for a confidential VM
       href: how-to-create-custom-image-confidential-vm.md
+    - name: Quickly create confidential VMs
+      items:
+      - name: Create VM through the Azure portal
+        href: quick-create-portal.md
+      - name: Create VM through the Azure Marketplace
+        href: quick-create-marketplace.md
+      - name: Create Hardened VMSS via Azure CLI
+        href: vmss-deployment-from-hardened-linux-image.md
     - name: Image hardening techniques for deployment
       items:
       - name: Harden a Linux image to remove sudo users
@@ -135,30 +147,21 @@
         href: https://azure.microsoft.com/pricing/details/virtual-machines/linux/#DC1s-C8s%20v2
       - name: Regions
         href: https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machine
-  - name: SQL Always Encrypted with Secure Enclaves # x-link to SQL docs #done
-    href: /sql/relational-databases/security/encryption/configure-always-encrypted-enclaves
-  - name: SQL on Confidential Virtual Machines #done
-    href: /azure/azure-sql/virtual-machines/windows/sql-vm-create-confidential-vm-how-to
-  - name: Confidential Databricks (PREVIEW) #done
-    href: https://techcommunity.microsoft.com/t5/azure-confidential-computing/confidential-vm-option-for-azure-databricks-preview/ba-p/3827982#:~:text=Azure%20Databricks%20now%20supports%20using%20Confidential%20computing%20VM,Azure%20Databricks%20workload%20securely%20%26%20confidentially%20on%20Azure
-  - name: Confidential Azure Data Explorer (PREVIEW) #done
-    href: https://techcommunity.microsoft.com/t5/azure-data-explorer-blog/confidential-vm-option-for-azure-data-explorer-public-preview/ba-p/3827343
-  - name: Azure Virtual Desktop (AVD) Confidential Desktop #done
-    href: https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/confidential-virtual-machine-support-for-azure-virtual-desktop/ba-p/3686350
-  - name: Azure Confidential Ledger #done
-    href: /azure/confidential-ledger/overview
-  - name: Deploy a virtual machine scale set using hardened image
-    href: vmss-deployment-from-hardened-linux-image.md
-  - name: Secure Key Release (SKR) with Azure Key Vault
+  - name: Confidential services
+    expanded: true
     items:
-    - name: SKR with Azure Confidential Computing Concept
-      href: concept-skr-attestation.md
-    - name: SKR with AMD SEV-SNP based Confidential VMs
-      href: skr-flow-confidential-vm-sev-snp.md
-    - name: SKR with Confidential containers on Azure Container Instance
-      href: skr-flow-confidential-containers-azure-container-instance.md
-    - name: SKR Policy Examples
-      href: skr-policy-examples.md  
+    - name: SQL Always Encrypted with Secure Enclaves # x-link to SQL docs #done
+      href: /sql/relational-databases/security/encryption/configure-always-encrypted-enclaves
+    - name: SQL on Confidential Virtual Machines #done
+      href: /azure/azure-sql/virtual-machines/windows/sql-vm-create-confidential-vm-how-to
+    - name: Confidential Databricks
+      href: https://techcommunity.microsoft.com/t5/azure-confidential-computing/confidential-vm-option-for-azure-databricks-preview/ba-p/3827982#:~:text=Azure%20Databricks%20now%20supports%20using%20Confidential%20computing%20VM,Azure%20Databricks%20workload%20securely%20%26%20confidentially%20on%20Azure
+    - name: Confidential Azure Data Explorer (PREVIEW) #done
+      href: https://techcommunity.microsoft.com/t5/azure-data-explorer-blog/confidential-vm-option-for-azure-data-explorer-public-preview/ba-p/3827343
+    - name: Azure Virtual Desktop (AVD) Confidential Desktop #done #GA
+      href: /azure/virtual-desktop/whats-new#confidential-virtual-machines-and-trusted-launch-virtual-machines-are-now-generally-available-in-azure-virtual-desktop
+    - name: Azure Confidential Ledger #done
+      href: /azure/confidential-ledger/overview
   - name: Partner Solutions
     items:
     - name: Overview

@@ -4,7 +4,7 @@ description: Learn how to configure threat intelligence-based filtering for your
 services: firewall-manager
 author: vhorne
 ms.service: azure-firewall-manager
-ms.topic: article
+ms.topic: concept-article
 ms.date: 10/17/2022
 ms.author: victorh
 ---

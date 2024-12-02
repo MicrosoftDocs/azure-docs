@@ -3,7 +3,7 @@ title: Continuously update function app code using Azure Pipelines
 description: Learn how to use Azure Pipelines to set up a pipeline that builds and deploys apps to Azure Functions.
 author: juliakm
 ms.topic: conceptual
-ms.date: 04/03/2024
+ms.date: 09/27/2024
 ms.author: jukullam
 ms.custom: devx-track-csharp, devx-track-azurecli, devops-pipelines-deploy
 ms.devlang: azurecli
@@ -186,7 +186,7 @@ steps:
 
 You'll deploy with the [Azure Function App Deploy](/azure/devops/pipelines/tasks/deploy/azure-function-app) task. This task requires an [Azure service connection](/azure/devops/pipelines/library/service-endpoints) as an input. An Azure service connection stores the credentials to connect from Azure Pipelines to Azure.
 
-To deploy to Azure Functions, add the following snippet at the end of your `azure-pipelines.yml` file. The default `appType` is Windows. You can specify Linux by setting the `appType` to `functionAppLinux`.
+To deploy to Azure Functions, add the following snippet at the end of your `azure-pipelines.yml` file. The default `appType` is Windows. You can specify Linux by setting the `appType` to `functionAppLinux`. Deploying to a Flex Consumption app is not supported with @v1 of the AzureFunctionApp task.
 
 ```yaml
 trigger:
@@ -435,34 +435,73 @@ You'll deploy with the [Azure Function App Deploy v2](/azure/devops/pipelines/ta
 
 The v2 version of the task includes support for newer applications stacks for .NET, Python, and Node. The task includes networking predeployment checks. When there are predeployment issues, deployment stops. 
 
-To deploy to Azure Functions, add the following snippet at the end of your `azure-pipelines.yml` file. The default `appType` is Windows. You can specify Linux by setting the `appType` to `functionAppLinux`.
+To deploy to Azure Functions, add the following snippet at the end of your `azure-pipelines.yml` file. The default `appType` is Windows. You can specify Linux by setting the `appType` to `functionAppLinux`. Deploying to a Flex Consumption app requires you to set both `appType: functionAppLinux` and `isFlexConsumption: true`.
 
+### [Windows App](#tab/windows)
 ```yaml
 trigger:
 - main
 
 variables:
   # Azure service connection established during pipeline creation
-  azureSubscription: <Name of your Azure subscription>
-  appName: <Name of the function app>
+  azureSubscription: <SUBSCRIPTION_NAME>
+  appName: <APP_NAME>
   # Agent VM image name
-  vmImageName: 'ubuntu-latest'
+  vmImageName: 'windows-latest'
 
 - task: AzureFunctionApp@2 # Add this at the end of your file
   inputs:
-    azureSubscription: <Azure service connection>
-    appType: functionAppLinux # default is functionApp
+    azureSubscription: <AZURE_SERVICE_CONNECTION>
+    appType: functionApp # this specifies a Windows-based function app
     appName: $(appName)
     package: $(System.ArtifactsDirectory)/**/*.zip
     deploymentMethod: 'auto' # 'auto' | 'zipDeploy' | 'runFromPackage'. Required. Deployment method. Default: auto.
     #Uncomment the next lines to deploy to a deployment slot
     #Note that deployment slots is not supported for Linux Dynamic SKU
     #deployToSlotOrASE: true
-    #resourceGroupName: '<Resource Group Name>'
-    #slotName: '<Slot name>'
+    #resourceGroupName: '<RESOURCE_GROUP>'
+    #slotName: '<SLOT_NAME>'
+```
+
+### [Linux App](#tab/linux)
+```yaml
+trigger:
+- main
+
+variables:
+  # Azure service connection established during pipeline creation
+  azureSubscription: <SUBSCRIPTION_NAME>
+  appName: <APP_NAME>
+  # Agent VM image name
+  vmImageName: 'ubuntu-latest'
+
+- task: AzureFunctionApp@2 # Add this at the end of your file
+  inputs:
+    azureSubscription: <AZURE_SERVICE_CONNECTION>
+    appType: functionAppLinux # This specifies a Linux-based function app
+    #isFlexConsumption: true # Uncomment this line if you are deploying to a Flex Consumption app
+    appName: $(appName)
+    package: $(System.ArtifactsDirectory)/**/*.zip
+    deploymentMethod: 'auto' # 'auto' | 'zipDeploy' | 'runFromPackage'. Required. Deployment method. Default: auto.
+    #Uncomment the next lines to deploy to a deployment slot
+    #Note that deployment slots is not supported for Linux Dynamic SKU
+    #deployToSlotOrASE: true
+    #resourceGroupName: '<RESOURCE_GROUP>'
+    #slotName: '<SLOT_NAME>'
 ```
 
 The snippet assumes that the build steps in your YAML file produce the zip archive in the `$(System.ArtifactsDirectory)` folder on your agent.
+
+If you opted to deploy to a [deployment slot](functions-deployment-slots.md), you can add the following step to perform a slot swap. Deployment slots are not yet available for the Flex Consumption SKU.
+```yaml
+- task: AzureAppServiceManage@0
+  inputs:
+    azureSubscription: <AZURE_SERVICE_CONNECTION>
+    WebAppName: <APP_NAME>
+    ResourceGroupName: <RESOURCE_GROUP>
+    SourceSlot: <SLOT_NAME>
+    SwapWithProduction: true
+```
 
 ## Deploy a container
 
@@ -480,9 +519,9 @@ trigger:
 
 variables:
   # Container registry service connection established during pipeline creation
-  dockerRegistryServiceConnection: <Docker registry service connection>
-  imageRepository: <Name of your image repository>
-  containerRegistry: <Name of the Azure container registry>
+  dockerRegistryServiceConnection: <DOCKER_REGISTRY_SERVICE_CONNECTION>
+  imageRepository: <IMAGE_REPOSITORY_NAME>
+  containerRegistry: <AZURE_CONTAINER_REGISTRY_NAME>
   dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
   tag: '$(Build.BuildId)'
   
@@ -491,39 +530,12 @@ variables:
 
 - task: AzureFunctionAppContainer@1 # Add this at the end of your file
   inputs:
-    azureSubscription: '<Azure service connection>'
-    appName: '<Name of the function app>'
+    azureSubscription: '<AZURE_SERVICE_CONNECTION>'
+    appName: '<APP_NAME>'
     imageName: $(containerRegistry)/$(imageRepository):$(tag)
 ```
 
 The snippet pushes the Docker image to your Azure Container Registry. The **Azure Function App on Container Deploy** task pulls the appropriate Docker image corresponding to the `BuildId` from the repository specified, and then deploys the image.
-
-## Deploy to a slot
-
-You can configure your function app to have multiple slots. Slots allow you to safely deploy your app and test it before making it available to your customers.
-
-The following YAML snippet shows how to deploy to a staging slot, and then swap to a production slot:
-
-```yaml
-- task: AzureFunctionApp@2
-  inputs:
-    azureSubscription: <Azure service connection>
-    appType: functionAppLinux
-    appName: <Name of the Function app>
-    package: $(System.ArtifactsDirectory)/**/*.zip
-    deploymentMethod: 'auto'
-    deployToSlotOrASE: true
-    resourceGroupName: <Name of the resource group>
-    slotName: staging
-
-- task: AzureAppServiceManage@0
-  inputs:
-    azureSubscription: <Azure service connection>
-    WebAppName: <name of the Function app>
-    ResourceGroupName: <name of resource group>
-    SourceSlot: staging
-    SwapWithProduction: true
-```
 
 ## Create a pipeline with Azure CLI
 

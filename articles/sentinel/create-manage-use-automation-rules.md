@@ -9,6 +9,10 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
+
+
+#Customer intent: As a SOC analyst, I want to manage automation rules for incident and alert responses so that I can enhance the efficiency and effectiveness of my security operations center.
+
 ---
 
 # Create and use Microsoft Sentinel automation rules to manage response
@@ -17,11 +21,7 @@ This article explains how to create and use automation rules in Microsoft Sentin
 
 In this article you'll learn how to define the triggers and conditions that determine when your automation rule runs, the various actions that you can have the rule perform, and the remaining features and functionalities.
 
-> [!IMPORTANT]
->
-> Noted features of automation rules are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
-> [!INCLUDE [unified-soc-preview-without-alert](includes/unified-soc-preview-without-alert.md)]
+[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
 ## Design your automation rule
 
@@ -151,7 +151,7 @@ Use the options in the **Conditions** area to define conditions for your automat
 
     | Property | Operator set |
     | -------- | -------- |
-    | - **Title**<br>- **Description**<br>- All listed **entity properties** | - Equals/Does not equal<br>- Contains/Does not contain<br>- Starts with/Does not start with<br>- Ends with/Does not end with |
+    | - **Title**<br>- **Description**<br>- All listed **entity properties**<br>&nbsp;&nbsp;(see [supported entity properties](automation-rule-reference.md)) | - Equals/Does not equal<br>- Contains/Does not contain<br>- Starts with/Does not start with<br>- Ends with/Does not end with |
     | - **Tag** (See [individual vs. collection](automate-incident-handling-with-automation-rules.md#tag-property-individual-vs-collection)) | **Any individual tag:**<br>- Equals/Does not equal<br>- Contains/Does not contain<br>- Starts with/Does not start with<br>- Ends with/Does not end with<br><br>**Collection of all tags:**<br>- Contains/Does not contain |
     | - **Severity**<br>- **Status**<br>- **Custom details key** | - Equals/Does not equal |
     | - **Tactics**<br>- **Alert product names**<br>- **Custom details value**<br>- **Analytic rule name** | - Contains/Does not contain |
@@ -160,7 +160,7 @@ Use the options in the **Conditions** area to define conditions for your automat
 
     | Property | Operator set |
     | -------- | -------- |
-    | - **Title**<br>- **Description**<br>- All listed **entity properties** | - Equals/Does not equal<br>- Contains/Does not contain<br>- Starts with/Does not start with<br>- Ends with/Does not end with |
+    | - **Title**<br>- **Description**<br>- All listed **entity properties**<br>&nbsp;&nbsp;(see [supported entity properties](automation-rule-reference.md)) | - Equals/Does not equal<br>- Contains/Does not contain<br>- Starts with/Does not start with<br>- Ends with/Does not end with |
     | - **Tag** (See [individual vs. collection](automate-incident-handling-with-automation-rules.md#tag-property-individual-vs-collection)) | **Any individual tag:**<br>- Equals/Does not equal<br>- Contains/Does not contain<br>- Starts with/Does not start with<br>- Ends with/Does not end with<br><br>**Collection of all tags:**<br>- Contains/Does not contain |
     | - **Tag** (in addition to above)<br>- **Alerts**<br>- **Comments** | - Added |
     | - **Severity**<br>- **Status** | - Equals/Does not equal<br>- Changed<br>- Changed from<br>- Changed to |

@@ -96,6 +96,96 @@ Next, determine if the data source should be available to one application or to 
 
 ### Shared server-level resources
 
+# [Linux](#tab/linux)
+
+Adding a shared, server-level data source requires you to edit Tomcat's server.xml. The most reliable way to do this is as follows:
+
+1. Upload a [startup script](./faq-app-service-linux.yml) and set the path to the script in **Configuration** > **Startup Command**. You can upload the startup script using [FTP](deploy-ftp.md).
+
+Your startup script makes an [xsl transform](https://www.w3schools.com/xml/xsl_intro.asp) to the server.xml file and output the resulting xml file to `/usr/local/tomcat/conf/server.xml`. The startup script should install libxslt via apk. Your xsl file and startup script can be uploaded via FTP. Below is an example startup script.
+
+```sh
+# Install libxslt. Also copy the transform file to /home/tomcat/conf/
+apk add --update libxslt
+
+# Usage: xsltproc --output output.xml style.xsl input.xml
+xsltproc --output /home/tomcat/conf/server.xml /home/tomcat/conf/transform.xsl /usr/local/tomcat/conf/server.xml
+```
+
+The following example XSL file adds a new connector node to the Tomcat server.xml.
+
+```xml
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+  <xsl:output method="xml" indent="yes"/>
+
+  <xsl:template match="@* | node()" name="Copy">
+    <xsl:copy>
+      <xsl:apply-templates select="@* | node()"/>
+    </xsl:copy>
+  </xsl:template>
+
+  <xsl:template match="@* | node()" mode="insertConnector">
+    <xsl:call-template name="Copy" />
+  </xsl:template>
+
+  <xsl:template match="comment()[not(../Connector[@scheme = 'https']) and
+                                 contains(., '&lt;Connector') and
+                                 (contains(., 'scheme=&quot;https&quot;') or
+                                  contains(., &quot;scheme='https'&quot;))]">
+    <xsl:value-of select="." disable-output-escaping="yes" />
+  </xsl:template>
+
+  <xsl:template match="Service[not(Connector[@scheme = 'https'] or
+                                   comment()[contains(., '&lt;Connector') and
+                                             (contains(., 'scheme=&quot;https&quot;') or
+                                              contains(., &quot;scheme='https'&quot;))]
+                                  )]
+                      ">
+    <xsl:copy>
+      <xsl:apply-templates select="@* | node()" mode="insertConnector" />
+    </xsl:copy>
+  </xsl:template>
+
+  <!-- Add the new connector after the last existing Connnector if there's one -->
+  <xsl:template match="Connector[last()]" mode="insertConnector">
+    <xsl:call-template name="Copy" />
+
+    <xsl:call-template name="AddConnector" />
+  </xsl:template>
+
+  <!-- ... or before the first Engine if there's no existing Connector -->
+  <xsl:template match="Engine[1][not(preceding-sibling::Connector)]"
+                mode="insertConnector">
+    <xsl:call-template name="AddConnector" />
+
+    <xsl:call-template name="Copy" />
+  </xsl:template>
+
+  <xsl:template name="AddConnector">
+    <!-- Add new line -->
+    <xsl:text>&#xa;</xsl:text>
+    <!-- This is the new connector -->
+    <Connector port="8443" protocol="HTTP/1.1" SSLEnabled="true" 
+               maxThreads="150" scheme="https" secure="true" 
+               keystoreFile="${{user.home}}/.keystore" keystorePass="changeit"
+               clientAuth="false" sslProtocol="TLS" />
+  </xsl:template>
+  
+</xsl:stylesheet>
+```
+
+#### Finalize configuration
+
+Finally, place the driver JARs in the Tomcat classpath and restart your App Service.
+
+1. Ensure that the JDBC driver files are available to the Tomcat classloader by placing them in the */home/site/lib* directory. In the [Cloud Shell](https://shell.azure.com), run `az webapp deploy --type=lib` for each driver JAR:
+
+```azurecli-interactive
+az webapp deploy --resource-group <group-name> --name <app-name> --src-path <jar-name>.jar --type=lib --path <jar-name>.jar
+```
+
+If you created a server-level data source, restart the App Service Linux application. Tomcat resets `CATALINA_BASE` to `/home/tomcat` and uses the updated configuration.
+
 # [Windows](#tab/windows)
 
 You can't directly modify a Tomcat installation for server-wide configuration because the installation location is read-only. To make server-level configuration changes to your Windows Tomcat installation, the simplest way is to do the following on app start: 
@@ -280,96 +370,6 @@ Finally, you place the driver JARs in the Tomcat classpath and restart your App 
 ```azurecli-interactive
 az webapp deploy --resource-group <group-name> --name <app-name> --src-path <jar-name>.jar --type=lib --target-path <jar-name>.jar
 ```
-
-# [Linux](#tab/linux)
-
-Adding a shared, server-level data source requires you to edit Tomcat's server.xml. The most reliable way to do this is as follows:
-
-1. Upload a [startup script](./faq-app-service-linux.yml) and set the path to the script in **Configuration** > **Startup Command**. You can upload the startup script using [FTP](deploy-ftp.md).
-
-Your startup script makes an [xsl transform](https://www.w3schools.com/xml/xsl_intro.asp) to the server.xml file and output the resulting xml file to `/usr/local/tomcat/conf/server.xml`. The startup script should install libxslt via apk. Your xsl file and startup script can be uploaded via FTP. Below is an example startup script.
-
-```sh
-# Install libxslt. Also copy the transform file to /home/tomcat/conf/
-apk add --update libxslt
-
-# Usage: xsltproc --output output.xml style.xsl input.xml
-xsltproc --output /home/tomcat/conf/server.xml /home/tomcat/conf/transform.xsl /usr/local/tomcat/conf/server.xml
-```
-
-The following example XSL file adds a new connector node to the Tomcat server.xml.
-
-```xml
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-  <xsl:output method="xml" indent="yes"/>
-
-  <xsl:template match="@* | node()" name="Copy">
-    <xsl:copy>
-      <xsl:apply-templates select="@* | node()"/>
-    </xsl:copy>
-  </xsl:template>
-
-  <xsl:template match="@* | node()" mode="insertConnector">
-    <xsl:call-template name="Copy" />
-  </xsl:template>
-
-  <xsl:template match="comment()[not(../Connector[@scheme = 'https']) and
-                                 contains(., '&lt;Connector') and
-                                 (contains(., 'scheme=&quot;https&quot;') or
-                                  contains(., &quot;scheme='https'&quot;))]">
-    <xsl:value-of select="." disable-output-escaping="yes" />
-  </xsl:template>
-
-  <xsl:template match="Service[not(Connector[@scheme = 'https'] or
-                                   comment()[contains(., '&lt;Connector') and
-                                             (contains(., 'scheme=&quot;https&quot;') or
-                                              contains(., &quot;scheme='https'&quot;))]
-                                  )]
-                      ">
-    <xsl:copy>
-      <xsl:apply-templates select="@* | node()" mode="insertConnector" />
-    </xsl:copy>
-  </xsl:template>
-
-  <!-- Add the new connector after the last existing Connnector if there's one -->
-  <xsl:template match="Connector[last()]" mode="insertConnector">
-    <xsl:call-template name="Copy" />
-
-    <xsl:call-template name="AddConnector" />
-  </xsl:template>
-
-  <!-- ... or before the first Engine if there's no existing Connector -->
-  <xsl:template match="Engine[1][not(preceding-sibling::Connector)]"
-                mode="insertConnector">
-    <xsl:call-template name="AddConnector" />
-
-    <xsl:call-template name="Copy" />
-  </xsl:template>
-
-  <xsl:template name="AddConnector">
-    <!-- Add new line -->
-    <xsl:text>&#xa;</xsl:text>
-    <!-- This is the new connector -->
-    <Connector port="8443" protocol="HTTP/1.1" SSLEnabled="true" 
-               maxThreads="150" scheme="https" secure="true" 
-               keystoreFile="${{user.home}}/.keystore" keystorePass="changeit"
-               clientAuth="false" sslProtocol="TLS" />
-  </xsl:template>
-  
-</xsl:stylesheet>
-```
-
-#### Finalize configuration
-
-Finally, place the driver JARs in the Tomcat classpath and restart your App Service.
-
-1. Ensure that the JDBC driver files are available to the Tomcat classloader by placing them in the */home/site/lib* directory. In the [Cloud Shell](https://shell.azure.com), run `az webapp deploy --type=lib` for each driver JAR:
-
-```azurecli-interactive
-az webapp deploy --resource-group <group-name> --name <app-name> --src-path <jar-name>.jar --type=lib --path <jar-name>.jar
-```
-
-If you created a server-level data source, restart the App Service Linux application. Tomcat resets `CATALINA_BASE` to `/home/tomcat` and uses the updated configuration.
 
 ---
 

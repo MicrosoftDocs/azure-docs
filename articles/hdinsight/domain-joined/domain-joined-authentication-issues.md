@@ -3,7 +3,7 @@ title: Authentication issues in Azure HDInsight
 description: Authentication issues in Azure HDInsight
 ms.service: azure-hdinsight
 ms.topic: troubleshooting
-ms.date: 08/22/2024
+ms.date: 09/06/2024
 ---
 
 # Authentication issues in Azure HDInsight
@@ -21,7 +21,7 @@ When the authentication fails, you get prompted for credentials. If you cancel t
 Sign in fails for federated users with error code 50126 (sign in succeeds for cloud users). Error message is similar to:
 
 ```
-Reason: Bad Request, Detailed Response: {"error":"invalid_grant","error_description":"AADSTS70002: Error validating credentials. AADSTS50126: Invalid username or password\r\nTrace ID: 09cc9b95-4354-46b7-91f1-efd92665ae00\r\n Correlation ID: 4209bedf-f195-4486-b486-95a15b70fbe4\r\nTimestamp: 2019-01-28 17:49:58Z","error_codes":[70002,50126], "timestamp":"2019-01-28 17:49:58Z","trace_id":"09cc9b95-4354-46b7-91f1-efd92665ae00","correlation_id":"4209bedf-f195-4486-b486-95a15b70fbe4"}
+Reason: Bad Request, Detailed Response: {"error":"invalid_grant","error_description":"AADSTS70002: Error validating credentials. AADSTS50126: Invalid username or password\r\nTrace ID: 0000aaaa-11bb-cccc-dd22-eeeeee333333\r\n Correlation ID: aaaa0000-bb11-2222-33cc-444444dddddd\r\nTimestamp: 2019-01-28 17:49:58Z","error_codes":[70002,50126], "timestamp":"2019-01-28 17:49:58Z","trace_id":"0000aaaa-11bb-cccc-dd22-eeeeee333333","correlation_id":"aaaa0000-bb11-2222-33cc-444444dddddd"}
 ```
 
 ### Cause
@@ -41,7 +41,7 @@ The Administrator of the Microsoft Entra tenant should enable Microsoft Entra ID
 Sign in fails with error code 50034. Error message is similar to:
 
 ```
-{"error":"invalid_grant","error_description":"AADSTS50034: The user account Microsoft.AzureAD.Telemetry.Diagnostics.PII doesn't exist in the 0c349e3f-1ac3-4610-8599-9db831cbaf62 directory. To sign into this application, the account must be added to the directory.\r\nTrace ID: bbb819b2-4c6f-4745-854d-0b72006d6800\r\nCorrelation ID: b009c737-ee52-43b2-83fd-706061a72b41\r\nTimestamp: 2019-04-29 15:52:16Z", "error_codes":[50034],"timestamp":"2019-04-29 15:52:16Z","trace_id":"bbb819b2-4c6f-4745-854d-0b72006d6800", "correlation_id":"b009c737-ee52-43b2-83fd-706061a72b41"}
+{"error":"invalid_grant","error_description":"AADSTS50034: The user account Microsoft.AzureAD.Telemetry.Diagnostics.PII doesn't exist in the 0c349e3f-1ac3-4610-8599-9db831cbaf62 directory. To sign into this application, the account must be added to the directory.\r\nTrace ID: 2222cccc-33dd-eeee-ff44-aaaaaa555555\r\nCorrelation ID: cccc2222-dd33-4444-55ee-666666ffffff\r\nTimestamp: 2019-04-29 15:52:16Z", "error_codes":[50034],"timestamp":"2019-04-29 15:52:16Z","trace_id":"2222cccc-33dd-eeee-ff44-aaaaaa555555", "correlation_id":"cccc2222-dd33-4444-55ee-666666ffffff"}
 ```
 
 ### Cause
@@ -61,7 +61,7 @@ Use the same user name that works in that portal.
 User account is locked out, error code 50053. Error message is similar to:
 
 ```
-{"error":"unauthorized_client","error_description":"AADSTS50053: You've tried to sign in too many times with an incorrect user ID or password.\r\nTrace ID: 844ac5d8-8160-4dee-90ce-6d8c9443d400\r\nCorrelation ID: 23fe8867-0e8f-4e56-8764-0cdc7c61c325\r\nTimestamp: 2019-06-06 09:47:23Z","error_codes":[50053],"timestamp":"2019-06-06 09:47:23Z","trace_id":"844ac5d8-8160-4dee-90ce-6d8c9443d400","correlation_id":"23fe8867-0e8f-4e56-8764-0cdc7c61c325"}
+{"error":"unauthorized_client","error_description":"AADSTS50053: You've tried to sign in too many times with an incorrect user ID or password.\r\nTrace ID: 00aa00aa-bb11-cc22-dd33-44ee44ee44ee\r\nCorrelation ID: 11bb11bb-cc22-dd33-ee44-55ff55ff55ff\r\nTimestamp: 2019-06-06 09:47:23Z","error_codes":[50053],"timestamp":"2019-06-06 09:47:23Z","trace_id":"aaaa0000-bb11-2222-33cc-444444dddddd","correlation_id":"aaaa0000-bb11-2222-33cc-444444dddddd"}
 ```
 
 ### Cause
@@ -81,7 +81,7 @@ Wait for 30 minutes or so, stop any applications that might be trying to authent
 Password expired, error code 50053. Error message is similar to:
 
 ```
-{"error":"user_password_expired","error_description":"AADSTS50055: Password is expired.\r\nTrace ID: 241a7a47-e59f-42d8-9263-fbb7c1d51e00\r\nCorrelation ID: c7fe4a42-67e4-4acd-9fb6-f4fb6db76d6a\r\nTimestamp: 2019-06-06 17:29:37Z","error_codes":[50055],"timestamp":"2019-06-06 17:29:37Z","trace_id":"241a7a47-e59f-42d8-9263-fbb7c1d51e00","correlation_id":"c7fe4a42-67e4-4acd-9fb6-f4fb6db76d6a","suberror":"user_password_expired","password_change_url":"https://portal.microsoftonline.com/ChangePassword.aspx"}
+{"error":"user_password_expired","error_description":"AADSTS50055: Password is expired.\r\nTrace ID: 6666aaaa-77bb-cccc-dd88-eeeeee999999\r\nCorrelation ID: eeee4444-ff55-6666-77aa-888888bbbbbb\r\nTimestamp: 2019-06-06 17:29:37Z","error_codes":[50055],"timestamp":"2019-06-06 17:29:37Z","trace_id":"6666aaaa-77bb-cccc-dd88-eeeeee999999","correlation_id":"eeee4444-ff55-6666-77aa-888888bbbbbb","suberror":"user_password_expired","password_change_url":"https://portal.microsoftonline.com/ChangePassword.aspx"}
 ```
 
 ### Cause

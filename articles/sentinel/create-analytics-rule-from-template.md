@@ -9,6 +9,10 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
+
+
+#Customer intent: As a security engineer, I want to create scheduled analytics rules from templates so that I can efficiently monitor and detect anomalies in my data.
+
 ---
 # Create scheduled analytics rules from templates
 

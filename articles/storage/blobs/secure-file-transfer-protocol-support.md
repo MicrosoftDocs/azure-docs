@@ -182,6 +182,7 @@ The following clients have compatible algorithm support with SFTP for Azure Blob
 - Cyberduck 7.8.2+
 - edtFTPjPRO 7.0.0+
 - FileZilla 3.53.0+
+- Five9
 - libssh 0.9.5+
 - Maverick Legacy 1.7.15+
 - Moveit 12.7

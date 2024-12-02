@@ -20,6 +20,14 @@ landingContent:
 # Start card title with a verb
 
   # Card (optional)
+  - title: Retirement
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Azure Spring Apps retirement announcement
+            url: retirement-announcement.md
+
+  # Card (optional)
   - title: Documentation for other plans
     linkLists:
       - linkListType: overview
@@ -100,13 +108,3 @@ landingContent:
             url: how-to-elastic-apm-java-agent-monitor.md
           - text: Use Circuit Breaker Dashboard
             url: ../enterprise/tutorial-circuit-breaker.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
-
-  # Card (optional)
-  - title: Migrate apps
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: Migrate Spring Boot to Azure Spring Apps
-            url: /azure/developer/java/migration/migrate-spring-boot-to-azure-spring-apps?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
-          - text: Migrate Spring Cloud to Azure Spring Apps
-            url: /azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-apps?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json

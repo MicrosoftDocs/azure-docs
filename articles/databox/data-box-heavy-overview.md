@@ -4,8 +4,7 @@ description: Describes Azure Data Box, a hybrid solution that enables you to tra
 services: databox
 author: stevenmatthew
 
-ms.service: databox
-ms.subservice: heavy
+ms.service: azure-data-box-heavy
 ms.topic: overview
 ms.date: 05/30/2024
 ms.author: shaas

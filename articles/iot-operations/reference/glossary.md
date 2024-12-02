@@ -3,7 +3,7 @@ title: "Glossary for Azure IoT Operations"
 description: "List of terms with definitions and usage guidance related to Azure IoT Operations - enabled by Azure Arc."
 author: dominicbetts
 ms.author: dobett
-ms.service: iot-operations
+ms.service: azure-iot-operations
 ms.topic: glossary #Don't change
 ms.date: 01/10/2024
 
@@ -27,13 +27,9 @@ A unified data plane for the edge. It's a collection of modular, scalable, and h
 
 On first mention in an article, use _Azure IoT Operations Preview - enabled by Azure Arc_. On subsequent mentions, you can use _Azure IoT Operations_. Never use an acronym.
 
-### Akri services
+### Dataflows
 
-This component helps you discover and connect to devices and assets.
-
-### Data processor
-
-This component lets you aggregate, enrich, normalize, and filter the data from your devices and assets. The data processor is a pipeline-based data processing engine that lets you process data at the edge before you send it to the other services either at the edge or in the cloud
+This component lets you aggregate, enrich, normalize, and filter the data from your devices and assets. Dataflows is a data processing engine that lets you process data at the edge before you send it to the other services either at the edge or in the cloud.
 
 ### Azure IoT Layered Network Management Preview
 
@@ -47,11 +43,11 @@ An MQTT broker that runs on the edge. The component lets you publish and subscri
 
 ### Connector for OPC UA
 
-This component manages the connection to OPC UA servers and other leaf devices. The connector for OPC UA publishes data from the OPC UA servers and the devices discovered by _Akri services_ to MQTT broker topics.
+This component manages the connection to OPC UA servers and other leaf devices. The connector for OPC UA publishes data from the OPC UA servers to MQTT broker topics.
 
 ### Operations experience
 
-This web UI provides a unified experience for operational technologists to manage assets and data processor pipelines in an Azure IoT Operations deployment.
+This web UI provides a unified experience for operational technologists to manage assets and dataflows in an Azure IoT Operations deployment.
 
 ### Azure Device Registry Preview
 
@@ -62,5 +58,5 @@ On first mention in an article, use _Azure Device Registry Preview_. On subseque
 ## Related content
 
 - [What is Azure IoT Operations Preview?](../overview-iot-operations.md)
-- [Connect industrial assets using Azure IoT OPC UA Broker Preview](../discover-manage-assets/overview-opcua-broker.md)
+- [Connect industrial assets using the connector for OPC UA](../discover-manage-assets/overview-opcua-broker.md)
 - [Publish and subscribe MQTT messages using MQTT broker](../manage-mqtt-broker/overview-iot-mq.md)

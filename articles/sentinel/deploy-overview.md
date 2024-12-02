@@ -6,6 +6,10 @@ ms.author: cwatson
 ms.topic: conceptual
 ms.date: 06/28/2024
 ms.service: microsoft-sentinel
+
+
+#Customer intent: As a SOC architect, I want to deploy Microsoft Sentinel so that I can effectively monitor, detect, and respond to security threats across my organization.
+
 ---
 
 # Deployment guide for Microsoft Sentinel
@@ -52,7 +56,7 @@ The fine tune and review phase is typically performed by a SOC engineer or relat
 |&#x2705; **Add data to watchlists** |Check that your watchlists are up to date. If any changes have occurred in your environment, such as new users or use cases, [update your watchlists accordingly](watchlists-manage.md). |
 |&#x2705; **Review commitment tiers** | [Review the commitment tiers](billing.md#analytics-logs) you initially set up, and verify that these tiers reflect your current configuration.  |
 |&#x2705; **Keep track of ingestion costs** |To keep track of ingestion costs, use one of these workbooks:<br>- The [**Workspace Usage Report** workbook](billing-monitor-costs.md#deploy-a-workbook-to-visualize-data-ingestion) provides your workspace's data consumption, cost, and usage statistics. The workbook gives the workspace's data ingestion status and amount of free and billable data. You can use the workbook logic to monitor data ingestion and costs, and to build custom views and rule-based alerts.<br>- The **Microsoft Sentinel Cost** workbook gives a more focused view of Microsoft Sentinel costs, including ingestion and retention data, ingestion data for eligible data sources, Logic Apps billing information, and more. |
-|&#x2705; **Fine-tune Data Collection Rules (DCRs)** |- Check that your [DCRs](../azure-monitor/essentials/data-collection-rule-overview.md) reflect your data ingestion needs and use cases.<br>- If needed, [implement ingestion-time transformation](data-transformation.md#filtering) to filter out irrelevant data even before it's first stored in your workspace. |
+|&#x2705; **Fine-tune Data Collection Rules (DCRs)** |- Check that your [DCRs](/azure/azure-monitor/essentials/data-collection-rule-overview) reflect your data ingestion needs and use cases.<br>- If needed, [implement ingestion-time transformation](data-transformation.md#filtering) to filter out irrelevant data even before it's first stored in your workspace. |
 |&#x2705; **Check analytics rules against MITRE framework** |[Check your MITRE coverage in the Microsoft Sentinel MITRE page](mitre-coverage.md): View the detections already active in your workspace, and those available for you to configure, to understand your organization's security coverage, based on the tactics and techniques from the MITRE ATT&CK® framework. |
 |&#x2705; **Hunt for suspicious activity** |Make sure that your SOC has a process in place for [proactive threat hunting](hunts.md). Hunting is a process where security analysts seek out undetected threats and malicious behaviors. By creating a hypothesis, searching through data, and validating that hypothesis, they determine what to act on. Actions can include creating new detections, new threat intelligence, or spinning up a new incident. |
 

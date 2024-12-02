@@ -3,7 +3,7 @@ title: What is Informatica Intelligent Data Management Cloud?
 description: Learn about using the Informatica Intelligent Data Management Cloud - Azure Native ISV Service.
 
 ms.topic: overview
-ms.date: 04/02/2024
+ms.date: 09/27/2024
 
 ---
 
@@ -11,7 +11,7 @@ ms.date: 04/02/2024
 
 Azure Native ISV Services enable you to easily provision, manage, and tightly integrate independent software vendor (ISV) software and services on Azure. This Azure Native ISV Service is developed and managed by Microsoft and Informatica.
 
-You can find Informatica Intelligent Data Management Cloud - Azure Native ISV Service in the [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Dynatrace.Observability%2Fmonitors) or get it on [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/dynatrace.dynatrace_portal_integration?tab=Overview).
+<!-- You can find Informatica Intelligent Data Management Cloud - Azure Native ISV Service in the [Azure portal](https://portal.azure.com/) or get it on [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/).-->
 
 Use this offering to manage your Informatica organization as an Azure Native ISV Service. You can easily run and manage Informatica Organizations and advanced serverless environments as you need and get started through Azure Clients.
 

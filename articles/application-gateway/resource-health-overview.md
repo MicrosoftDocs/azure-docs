@@ -11,11 +11,11 @@ ms.author: greglin
 
 # Azure Application Gateway Resource Health overview
 
-[Azure Resource Health](../service-health/resource-health-overview.md) helps you diagnose and get support when an Azure service problem affects your resources. It informs you about the current and past health of your resources. And it provides technical support to help you mitigate problems.
+[Azure Resource Health](/azure/service-health/resource-health-overview) helps you diagnose and get support when an Azure service problem affects your resources. It informs you about the current and past health of your resources. And it provides technical support to help you mitigate problems.
 
 For Application Gateway, Resource Health relies on signals emitted by the gateway to assess whether it's healthy or not. If the gateway is unhealthy, Resource Health analyzes additional information to determine the source of the problem. It also identifies actions that Microsoft is taking or what you can do to fix the problem.
 
-For additional details on how health is assessed, review the full list of resource types and health checks in [Azure Resource Health](../service-health/resource-health-checks-resource-types.md#microsoftnetworkapplicationgateways).
+For additional details on how health is assessed, review the full list of resource types and health checks in [Azure Resource Health](/azure/service-health/resource-health-checks-resource-types#microsoftnetworkapplicationgateways).
 
 
 The health status for Application Gateway is displayed as one of the following statuses:

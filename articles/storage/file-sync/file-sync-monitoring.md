@@ -21,7 +21,7 @@ This article describes how to monitor your Azure File Sync deployment by using A
 
 ## Azure Monitor
 
-Use [Azure Monitor](../../azure-monitor/overview.md) to view metrics and to configure alerts for sync, cloud tiering, and server connectivity.  
+Use [Azure Monitor](/azure/azure-monitor/overview) to view metrics and to configure alerts for sync, cloud tiering, and server connectivity.  
 
 ### Metrics
 
@@ -55,7 +55,7 @@ The following metrics for Azure File Sync are available in Azure Monitor:
 
 ### Alerts
 
-Alerts proactively notify you when important conditions are found in your monitoring data. To learn more about configuring alerts in Azure Monitor, see [Overview of alerts in Microsoft Azure](../../azure-monitor/alerts/alerts-overview.md).
+Alerts proactively notify you when important conditions are found in your monitoring data. To learn more about configuring alerts in Azure Monitor, see [Overview of alerts in Microsoft Azure](/azure/azure-monitor/alerts/alerts-overview).
 
 **How to create alerts for Azure File Sync**
 

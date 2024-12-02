@@ -14,7 +14,7 @@ zone_pivot_groups: front-door-tiers
 
 Azure Front Door provides several features to help you monitor your application, track requests, and debug your Front Door configuration.
 
-Logs and metrics get stored and managed by [Azure Monitor](../azure-monitor/overview.md).
+Logs and metrics get stored and managed by [Azure Monitor](/azure/azure-monitor/overview).
 
 ::: zone pivot="front-door-standard-premium"
 
@@ -22,7 +22,7 @@ Logs and metrics get stored and managed by [Azure Monitor](../azure-monitor/over
 
 ## Metrics
 
-Azure Front Door measures and sends its metrics in 60-second intervals. The metrics can take up to 3 minutes to get processed by Azure Monitor, and they might not appear until processing is completed. Metrics can also be displayed in charts or grids, and are accessible through the Azure portal, Azure PowerShell, the Azure CLI, and the Azure Monitor APIs. For more information, see [Azure Monitor metrics](../azure-monitor/essentials/data-platform-metrics.md).  
+Azure Front Door measures and sends its metrics in 60-second intervals. The metrics can take up to 3 minutes to get processed by Azure Monitor, and they might not appear until processing is completed. Metrics can also be displayed in charts or grids, and are accessible through the Azure portal, Azure PowerShell, the Azure CLI, and the Azure Monitor APIs. For more information, see [Azure Monitor metrics](/azure/azure-monitor/essentials/data-platform-metrics).  
 
 The metrics listed in the following table are recorded and stored free of charge for a limited period of time. For an extra cost, you can store for a longer period of time.
 
@@ -128,7 +128,7 @@ The following example JSON snippet shows a health probe log entry for a failed h
   "records": [
     {
       "time": "2021-02-02T07:15:37.3640748Z",
-      "resourceId": "/SUBSCRIPTIONS/27CAFCA8-B9A4-4264-B399-45D0C9CCA1AB/RESOURCEGROUPS/AFDXPRIVATEPREVIEW/PROVIDERS/MICROSOFT.CDN/PROFILES/AFDXPRIVATEPREVIEW-JESSIE",
+      "resourceId": "/SUBSCRIPTIONS/mySubscriptionID/RESOURCEGROUPS/myResourceGroup/PROVIDERS/MICROSOFT.CDN/PROFILES/MyProfile",
       "category": "FrontDoorHealthProbeLog",
       "operationName": "Microsoft.Cdn/Profiles/FrontDoorHealthProbeLog/Write",
       "properties": {
@@ -137,9 +137,9 @@ The following example JSON snippet shows a health probe log entry for a failed h
         "httpVerb": "HEAD",
         "result": "OriginError",
         "httpStatusCode": "400",
-        "probeURL": "http://afdxprivatepreview.blob.core.windows.net:80/",
-        "originName": "afdxprivatepreview.blob.core.windows.net",
-        "originIP": "52.239.224.228:80",
+        "probeURL": "http://www.example.com:80/",
+        "originName": "www.example.com",
+        "originIP": "PublicI:Port",
         "totalLatencyMilliseconds": "141",
         "connectionLatencyMilliseconds": "68",
         "DNSLatencyMicroseconds": "1814"
@@ -217,7 +217,7 @@ Access activity logs in your Front Door or all the logs of your Azure resources 
 
 Diagnostic logs provide rich information about operations and errors that are important for auditing and troubleshooting. Diagnostic logs differ from activity logs.
 
-Activity logs provide insights into the operations done on Azure resources. Diagnostic logs provide insight into operations that your resource has done. For more information, see [Azure Monitor diagnostic logs](../azure-monitor/essentials/platform-logs-overview.md).
+Activity logs provide insights into the operations done on Azure resources. Diagnostic logs provide insight into operations that your resource has done. For more information, see [Azure Monitor diagnostic logs](/azure/azure-monitor/essentials/platform-logs-overview).
 
 :::image type="content" source="./media/front-door-diagnostics/diagnostic-log.png" alt-text="Diagnostic logs":::
 

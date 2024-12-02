@@ -5,9 +5,11 @@ author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-data-flows
 ms.topic: concept-article
-ms.date: 08/03/2024
+ms.date: 10/30/2024
+ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to use the dataflow mapping language to transform data.
+ms.service: azure-iot-operations
 ---
 
 # Map data by using dataflows
@@ -57,9 +59,36 @@ The transformations are achieved through *mapping*, which typically involves:
 
 * **Input definition**: Identifying the fields in the input records that are used.
 * **Output definition**: Specifying where and how the input fields are organized in the output records.
-* **Conversion (optional)**: Modifying the input fields to fit into the output fields. Conversion is required when multiple input fields are combined into a single output field.
+* **Conversion (optional)**: Modifying the input fields to fit into the output fields. `expression` is required when multiple input fields are combined into a single output field.
 
 The following mapping is an example:
+
+# [Bicep](#tab/bicep)
+
+```bicep
+{
+  inputs: [
+    'BirthDate'
+  ]
+  output: 'Employee.DateOfBirth'
+}
+{
+  inputs: [
+    'Position'  // - - - - $1
+    'Office'    // - - - - $2
+  ]
+  output: 'Employment.Position'
+  expression: '$1 + ", " + $2'
+}
+{
+  inputs: [
+    '$context(position).BaseSalary'
+  ]
+  output: 'Employment.BaseSalary'
+}
+```
+
+# [Kubernetes](#tab/kubernetes)
 
 ```yaml
 - inputs:
@@ -77,6 +106,8 @@ The following mapping is an example:
   output: Employment.BaseSalary
 ```
 
+---
+
 The example maps:
 
 * **One-to-one mapping**: `BirthDate` is directly mapped to `Employee.DateOfBirth` without conversion.
@@ -86,6 +117,52 @@ The example maps:
 ## Field references
 
 Field references show how to specify paths in the input and output by using dot notation like `Employee.DateOfBirth` or accessing data from a contextual dataset via `$context(position)`.
+
+### MQTT user properties
+
+When you use MQTT as a source or destination, you can access MQTT user properties in the mapping language. User properties can be mapped in the input or output. 
+
+In the following example, the MQTT `topic` property is mapped to the `origin_topic` field in the output. 
+
+# [Bicep](#tab/bicep)
+
+```bicep
+inputs: [
+  '$metadata.topic'
+]
+output: 'origin_topic'
+```
+
+# [Kubernetes](#tab/kubernetes)
+
+```yaml
+inputs:
+  - $metadata.topic
+output: origin_topic
+```
+
+---
+
+You can also map MQTT properties to an output header. In the following example, the MQTT `topic` is mapped to the `origin_topic` field in the output's user property:
+
+# [Bicep](#tab/bicep)
+
+```bicep
+inputs: [
+  '$metadata.topic'
+]
+output: '$metadata.user_property.origin_topic'
+```
+
+# [Kubernetes](#tab/kubernetes)
+
+```yaml
+inputs:
+  - $metadata.topic
+output: $metadata.user_property.origin_topic
+```
+
+---
 
 ## Contextualization dataset selectors
 
@@ -99,24 +176,60 @@ Record filtering involves setting conditions to select which records should be p
 
 Dot notation is widely used in computer science to reference fields, even recursively. In programming, field names typically consist of letters and numbers. A standard dot-notation sample might look like this example:
 
+# [Bicep](#tab/bicep)
+
+```bicep
+inputs: [
+  'Person.Address.Street.Number'
+]
+```
+
+# [Kubernetes](#tab/kubernetes)
+
 ```yaml
 - inputs:
   - Person.Address.Street.Number
 ```
 
+---
+
 In a dataflow, a path described by dot notation might include strings and some special characters without needing escaping:
+
+# [Bicep](#tab/bicep)
+
+```bicep
+inputs: [
+  'Person.Date of Birth'
+]
+```
+
+# [Kubernetes](#tab/kubernetes)
 
 ```yaml
 - inputs:
   - Person.Date of Birth
 ```
 
+---
+
 In other cases, escaping is necessary:
+
+# [Bicep](#tab/bicep)
+
+```bicep
+inputs: [
+  'Person."Tag.10".Value'
+]
+```
+
+# [Kubernetes](#tab/kubernetes)
 
 ```yaml
 - inputs:
   - nsu=http://opcfoundation.org/UA/Plc/Applications;s=RandomSignedInt32
 ```
+
+---
 
 The previous example, among other special characters, contains dots within the field name. Without escaping, the field name would serve as a separator in the dot notation itself.
 
@@ -127,6 +240,12 @@ While a dataflow parses a path, it treats only two characters as special:
 
 Any other characters are treated as part of the field name. This flexibility is useful in formats like JSON, where field names can be arbitrary strings.
 
+# [Bicep](#tab/bicep)
+
+In Bicep, all strings are enclosed in single quotation marks (`'`). The examples about proper quoting in YAML for Kubernetes use don't apply.
+
+# [Kubernetes](#tab/kubernetes)
+
 The path definition must also adhere to the rules of YAML. When a character with special meaning is included in the path, proper quoting is required in the configuration. Consult the YAML documentation for precise rules. Here are some examples that demonstrate the need for careful formatting:
 
 ```yaml
@@ -135,41 +254,93 @@ The path definition must also adhere to the rules of YAML. When a character with
   - '100 celsius.hot'   # numbers followed by text would not be interpreted as a string without single quotation marks
 ```
 
+---
+
 ## Escaping
 
 The primary function of escaping in a dot-notated path is to accommodate the use of dots that are part of field names rather than separators:
+
+# [Bicep](#tab/bicep)
+
+```bicep
+inputs: [
+  'Payload."Tag.10".Value'
+]
+```
+
+# [Kubernetes](#tab/kubernetes)
 
 ```yaml
 - inputs:
   - 'Payload."Tag.10".Value'
 ```
 
-In the previous example, the path consists of three segments: `Payload`, `Tag.10`, and `Value`. The outer single quotation marks (`'`) are necessary because of YAML syntax rules, which allow the inclusion of double quotation marks within the string.
+The outer single quotation marks (`'`) are necessary because of YAML syntax rules, which allow the inclusion of double quotation marks within the string.
+
+---
+
+In this example, the path consists of three segments: `Payload`, `Tag.10`, and `Value`.
 
 ### Escaping rules in dot notation
 
 * **Escape each segment separately:** If multiple segments contain dots, those segments must be enclosed in double quotation marks. Other segments can also be quoted, but it doesn't affect the path interpretation:
+
+  # [Bicep](#tab/bicep)
+
+  ```bicep
+  inputs: [
+    'Payload."Tag.10".Measurements."Vibration.$12".Value'
+  ]
+  ```
+
+  # [Kubernetes](#tab/kubernetes)
   
-    ```yaml
-    - inputs:
-      - 'Payload."Tag.10".Measurements."Vibration.$12".Value'
-    ```
+  ```yaml
+  - inputs:
+    - 'Payload."Tag.10".Measurements."Vibration.$12".Value'
+  ```
+
+  ---
     
 * **Proper use of double quotation marks:** Double quotation marks must open and close an escaped segment. Any quotation marks in the middle of the segment are considered part of the field name:
-  
-    ```yaml
-    - inputs:
-      - 'Payload.He said: "Hello", and waved'
-    ```
 
-    This example defines two fields in `dataDestination`: `Payload` and `He said: "Hello", and waved`. When a dot appears under these circumstances, it continues to serve as a separator:
-    
-    ```yaml
-    - inputs:
-      - 'Payload.He said: "No. It's done"'
-    ```
-    
-    In this case, the path is split into the segments `Payload`, `He said: "No`, and `It's done"` (starting with a space).
+  # [Bicep](#tab/bicep)
+
+  ```bicep
+  inputs: [
+    'Payload.He said: "Hello", and waved'
+  ]
+  ```
+
+  # [Kubernetes](#tab/kubernetes)
+  
+  ```yaml
+  - inputs:
+    - 'Payload.He said: "Hello", and waved'
+  ```
+
+  ---
+
+  This example defines two fields: `Payload` and `He said: "Hello", and waved`. When a dot appears under these circumstances, it continues to serve as a separator:
+
+  # [Bicep](#tab/bicep)
+
+  ```bicep
+  inputs: [
+    'Payload.He said: "No. It is done"'
+  ]
+  ```
+
+  # [Kubernetes](#tab/kubernetes)
+  
+  ```yaml
+  - inputs:
+    - 'Payload.He said: "No. It is done"'
+  ```
+
+  ---
+  
+  In this case, the path is split into the segments `Payload`, `He said: "No`, and `It is done"` (starting with a space).
     
 ### Segmentation algorithm
 
@@ -182,11 +353,24 @@ In many scenarios, the output record closely resembles the input record, with on
 
 Let's consider a basic scenario to understand the use of asterisks in mappings:
 
+# [Bicep](#tab/bicep)
+
+```bicep
+inputs: [
+  '*'
+]
+output: '*'
+```
+
+# [Kubernetes](#tab/kubernetes)
+
 ```yaml
 - inputs:
-  - *
-  output: *
+  - '*'
+  output: '*'
 ```
+
+---
 
 Here's how the asterisk (`*`) operates in this context:
 
@@ -220,15 +404,36 @@ Original JSON:
 
 Mapping configuration that uses wildcards:
 
+# [Bicep](#tab/bicep)
+
+```bicep
+{
+  inputs: [
+    'ColorProperties.*'
+  ]
+  output: '*'
+}
+{
+  inputs: [
+    'TextureProperties.*'
+  ]
+  output: '*'
+}
+```
+
+# [Kubernetes](#tab/kubernetes)
+
 ```yaml
 - inputs:
-  - ColorProperties.*
-  output: *
+  - 'ColorProperties.*'
+  output: '*'
 
 - inputs:
-  - TextureProperties.*
-  output: *
+  - 'TextureProperties.*'
+  output: '*'
 ```
+
+---
 
 Resulting JSON:
 
@@ -255,6 +460,7 @@ When you place a wildcard, you must follow these rules:
   * **At the beginning:** `*.path2.path3` - Here, the asterisk matches any segment that leads up to `path2.path3`.
   * **In the middle:** `path1.*.path3` - In this configuration, the asterisk matches any segment between `path1` and `path3`.
   * **At the end:** `path1.path2.*` - The asterisk at the end matches any segment that follows after `path1.path2`.
+* The path containing the asterisk must be enclosed in single quotation marks (`'`).
 
 ### Multi-input wildcards
 
@@ -279,13 +485,28 @@ Original JSON:
 
 Mapping configuration that uses wildcards:
 
+# [Bicep](#tab/bicep)
+
+```bicep
+inputs: [
+  '*.Max'  // - $1
+  '*.Min'  // - $2
+]
+output: 'ColorProperties.*'
+expression: '($1 + $2) / 2'
+```
+
+# [Kubernetes](#tab/kubernetes)
+
 ```yaml
 - inputs:
-  - *.Max   # - $1
-  - *.Min   # - $2
-  output: ColorProperties.*
-  conversion: ($1 + $2) / 2
+  - '*.Max'   # - $1
+  - '*.Min'   # - $2
+  output: 'ColorProperties.*'
+  expression: ($1 + $2) / 2
 ```
+
+---
 
 Resulting JSON:
 
@@ -336,15 +557,30 @@ Original JSON:
 
 Initial mapping configuration that uses wildcards:
 
+# [Bicep](#tab/bicep)
+
+```bicep
+inputs: [
+  '*.Max'    // - $1
+  '*.Min'    // - $2
+  '*.Avg'    // - $3
+  '*.Mean'   // - $4
+]
+```
+
+# [Kubernetes](#tab/kubernetes)
+
 ```yaml
 - inputs:
-  - *.Max    # - $1
-  - *.Min    # - $2
-  - *.Avg    # - $3
-  - *.Mean   # - $4
-  output: ColorProperties.*
+  - '*.Max'    # - $1
+  - '*.Min'    # - $2
+  - '*.Avg'    # - $3
+  - '*.Mean'   # - $4
+  output: 'ColorProperties.*'
   expression: ($1, $2, $3, $4)
 ```
+
+---
 
 This initial mapping tries to build an array (for example, for `Opacity`: `[0.88, 0.91, 0.89, 0.89]`). This configuration fails because:
 
@@ -359,15 +595,30 @@ Because `Avg` and `Mean` are nested within `Mid`, the asterisk in the initial ma
 
 Corrected mapping configuration:
 
+# [Bicep](#tab/bicep)
+
+```bicep
+inputs: [
+  '*.Max'        // - $1
+  '*.Min'        // - $2
+  '*.Mid.Avg'    // - $3
+  '*.Mid.Mean'   // - $4
+]
+```
+
+# [Kubernetes](#tab/kubernetes)
+
 ```yaml
 - inputs:
-  - *.Max        # - $1
-  - *.Min        # - $2
-  - *.Mid.Avg    # - $3
-  - *.Mid.Mean   # - $4
-  output: ColorProperties.*
+  - '*.Max'        # - $1
+  - '*.Min'        # - $2
+  - '*.Mid.Avg'    # - $3
+  - '*.Mid.Mean'   # - $4
+  output: 'ColorProperties.*'
   expression: ($1, $2, $3, $4)
 ```
+
+---
 
 This revised mapping accurately captures the necessary fields. It correctly specifies the paths to include the nested `Mid` object, which ensures that the asterisks work effectively across different levels of the JSON structure.
 
@@ -375,19 +626,44 @@ This revised mapping accurately captures the necessary fields. It correctly spec
 
 When you use the previous example from multi-input wildcards, consider the following mappings that generate two derived values for each property:
 
+# [Bicep](#tab/bicep)
+
+```bicep
+{
+  inputs: [
+    '*.Max'   // - $1
+    '*.Min'   // - $2
+  ]
+  output: 'ColorProperties.*.Avg'
+  expression: '($1 + $2) / 2'
+}
+{
+  inputs: [
+    '*.Max'   // - $1
+    '*.Min'   // - $2
+  ]
+  output: 'ColorProperties.*.Diff'
+  expression: 'abs($1 - $2)'
+}
+```
+
+# [Kubernetes](#tab/kubernetes)
+
 ```yaml
 - inputs:
-  - *.Max   # - $1
-  - *.Min   # - $2
-  output: ColorProperties.*.Avg
+  - '*.Max'   # - $1
+  - '*.Min'   # - $2
+  output: 'ColorProperties.*.Avg'
   expression: ($1 + $2) / 2
 
 - inputs:
-  - *.Max   # - $1
-  - *.Min   # - $2
-  output: ColorProperties.*.Diff
+  - '*.Max'   # - $1
+  - '*.Min'   # - $2
+  output: 'ColorProperties.*.Diff'
   expression: abs($1 - $2)
 ```
+
+---
 
 This mapping is intended to create two separate calculations (`Avg` and `Diff`) for each property under `ColorProperties`. This example shows the result:
 
@@ -414,11 +690,34 @@ Here, the second mapping definition on the same inputs acts as a *second rule* f
 
 Now, consider a scenario where a specific field needs a different calculation:
 
+# [Bicep](#tab/bicep)
+
+```bicep
+{
+  inputs: [
+    '*.Max'   // - $1
+    '*.Min'   // - $2
+  ]
+  output: 'ColorProperties.*'
+  expression: '($1 + $2) / 2'
+}
+{
+  inputs: [
+    'Opacity.Max'   // - $1
+    'Opacity.Min'   // - $2
+  ]
+  output: 'ColorProperties.OpacityAdjusted'
+  expression: '($1 + $2 + 1.32) / 2'
+}
+```
+
+# [Kubernetes](#tab/kubernetes)
+
 ```yaml
 - inputs:
-  - *.Max   # - $1
-  - *.Min   # - $2
-  output: ColorProperties.*
+  - '*.Max'   # - $1
+  - '*.Min'   # - $2
+  output: 'ColorProperties.*'
   expression: ($1 + $2) / 2
 
 - inputs:
@@ -428,6 +727,8 @@ Now, consider a scenario where a specific field needs a different calculation:
   expression: ($1 + $2 + 1.32) / 2  
 ```
 
+---
+
 In this case, the `Opacity` field has a unique calculation. Two options to handle this overlapping scenario are:
 
 - Include both mappings for `Opacity`. Because the output fields are different in this example, they wouldn't override each other.
@@ -435,11 +736,32 @@ In this case, the `Opacity` field has a unique calculation. Two options to handl
 
 Consider a special case for the same fields to help decide the right action:
 
+# [Bicep](#tab/bicep)
+
+```bicep
+{
+  inputs: [
+    '*.Max'   // - $1
+    '*.Min'   // - $2
+  ]
+  output: 'ColorProperties.*'
+  expression: '($1 + $2) / 2'
+}
+{
+  inputs: [
+    'Opacity.Max'   // - $1
+    'Opacity.Min'   // - $2
+  ]
+}
+```
+
+# [Kubernetes](#tab/kubernetes)
+
 ```yaml
 - inputs:
-  - *.Max   # - $1
-  - *.Min   # - $2
-  output: ColorProperties.*
+  - '*.Max'   # - $1
+  - '*.Min'   # - $2
+  output: 'ColorProperties.*'
   expression: ($1 + $2) / 2
 
 - inputs:
@@ -447,6 +769,8 @@ Consider a special case for the same fields to help decide the right action:
   - Opacity.Min
   output:   
 ```
+
+---
 
 An empty `output` field in the second definition implies not writing the fields in the output record (effectively removing `Opacity`). This setup is more of a `Specialization` than a `Second Rule`.
 
@@ -474,19 +798,45 @@ Now, let's see how contextualization datasets can be used with wildcards through
 
 In an earlier example, we used a specific field from this dataset:
 
+# [Bicep](#tab/bicep)
+
+```bicep
+inputs: [
+  '$context(position).BaseSalary'
+]
+output: 'Employment.BaseSalary'
+```
+
+# [Kubernetes](#tab/kubernetes)
+
 ```yaml
 - inputs:
   - $context(position).BaseSalary
   output: Employment.BaseSalary
 ```
 
+---
+
 This mapping copies `BaseSalary` from the context dataset directly into the `Employment` section of the output record. If you want to automate the process and include all fields from the `position` dataset into the `Employment` section, you can use wildcards:
+
+# [Bicep](#tab/bicep)
+
+```bicep
+inputs: [
+  '$context(position).*'
+]
+output: 'Employment.*'
+```
+
+# [Kubernetes](#tab/kubernetes)
 
 ```yaml
 - inputs:
-  - $context(position).*
-  output: Employment.*
+  - '$context(position).*'
+  output: 'Employment.*'
 ```
+
+---
 
 This configuration allows for a dynamic mapping where every field within the `position` dataset is copied into the `Employment` section of the output record:
 
@@ -500,3 +850,29 @@ This configuration allows for a dynamic mapping where every field within the `po
 }
 ```
 
+## Last known value
+
+You can track the last known value of a property. Suffix the input field with `? $last` to capture the last known value of the field. When a property is missing a value in a subsequent input payload, the last known value is mapped to the output payload.
+
+For example, consider the following mapping:
+
+# [Bicep](#tab/bicep)
+
+```bicep
+inputs: [
+  'Temperature ? $last'
+]
+output: 'Thermostat.Temperature'
+```
+
+# [Kubernetes](#tab/kubernetes)
+
+```yaml
+- inputs:
+  - Temperature ? $last
+  output: Thermostat.Temperature
+```
+
+---
+
+In this example, the last known value of `Temperature` is tracked. If a subsequent input payload doesn't contain a `Temperature` value, the last known value is used in the output.

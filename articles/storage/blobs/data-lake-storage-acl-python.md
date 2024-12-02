@@ -6,7 +6,7 @@ author: pauljewellmsft
 
 ms.author: pauljewell
 ms.service: azure-data-lake-storage
-ms.date: 02/07/2023
+ms.date: 09/06/2024
 ms.topic: how-to
 ms.reviewer: prishet
 ms.devlang: python
@@ -23,54 +23,49 @@ ACL inheritance is already available for new child items that are created under 
 
 ## Prerequisites
 
-- An Azure subscription. For more information, see [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-
-- A storage account that has hierarchical namespace (HNS) enabled. Follow [these](create-data-lake-storage-account.md) instructions to create one.
-
+- Azure subscription - [create one for free](https://azure.microsoft.com/free/).
+- Azure storage account that has hierarchical namespace (HNS) enabled. Follow [these instructions](create-data-lake-storage-account.md) to create one.
+- [Python](https://www.python.org/downloads/) 3.8+
 - Azure CLI version `2.6.0` or higher.
-
 - One of the following security permissions:
-
   - A provisioned Microsoft Entra ID [security principal](../../role-based-access-control/overview.md#security-principal) that has been assigned the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role, scoped to the target container, storage account, parent resource group, or subscription.
-
   - Owning user of the target container or directory to which you plan to apply ACL settings. To set ACLs recursively, this includes all child items in the target container or directory.
-
   - Storage account key.
 
 ## Set up your project
 
-Install the Azure Data Lake Storage client library for Python by using [pip](https://pypi.org/project/pip/).
+This section walks you through preparing a project to work with the Azure Data Lake Storage client library for Python.
 
-```
-pip install azure-storage-file-datalake
+From your project directory, install packages for the Azure Data Lake Storage and Azure Identity client libraries using the `pip install` command. The **azure-identity** package is needed for passwordless connections to Azure services.
+
+```console
+pip install azure-storage-file-datalake azure-identity
 ```
 
-Add these import statements to the top of your code file.
+Then open your code file and add the necessary import statements. In this example, we add the following to our *.py* file:
 
 ```python
-from azure.storage.filedatalake import DataLakeServiceClient
 from azure.identity import DefaultAzureCredential
+from azure.storage.filedatalake import DataLakeServiceClient
 ```
 
 ## Connect to the account
 
-To use the snippets in this article, you'll need to create a **DataLakeServiceClient** instance that represents the storage account.
+To run the code examples in this article, you need to create a [DataLakeServiceClient](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.datalakeserviceclient) instance that represents the storage account. You can authorize the client object with Microsoft Entra ID credentials or with an account key.
 
-<a name='connect-by-using-azure-active-directory-ad'></a>
+### [Microsoft Entra ID (recommended)](#tab/entra-id)
 
-### Connect by using Microsoft Entra ID
+You can use the [Azure identity client library for Python](https://pypi.org/project/azure-identity/) to authenticate your application with Microsoft Entra ID.
 
 > [!NOTE]
 > If you're using Microsoft Entra ID to authorize access, then make sure that your security principal has been assigned the [Storage Blob Data Owner role](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner). To learn more about how ACL permissions are applied and the effects of changing them, see [Access control model in Azure Data Lake Storage](./data-lake-storage-access-control-model.md).
 
-You can use the [Azure identity client library for Python](https://pypi.org/project/azure-identity/) to authenticate your application with Microsoft Entra ID.
+First, assign one of the following [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) roles to your security principal:
 
-First, you'll have to assign one of the following [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) roles to your security principal:
-
-|Role|ACL setting capability|
-|--|--|
-|[Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner)|All directories and files in the account.|
-|[Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)|Only directories and files owned by the security principal.|
+| Role | ACL setting capability |
+| --- | --- |
+| [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) | All directories and files in the account. |
+| [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) | Only directories and files owned by the security principal. |
 
 Next, create a [DataLakeServiceClient](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.datalakeserviceclient) instance and pass in a new instance of the [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defaultazurecredential) class.
 
@@ -78,13 +73,15 @@ Next, create a [DataLakeServiceClient](/python/api/azure-storage-file-datalake/a
 
 To learn more about using **DefaultAzureCredential** to authorize access to data, see [Overview: Authenticate Python apps to Azure using the Azure SDK](/azure/developer/python/sdk/authentication-overview).
 
-### Connect by using an account key
+### [Account key](#tab/account-key)
 
 You can authorize access to data using your account access keys (Shared Key). This example creates a [DataLakeServiceClient](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.datalakeserviceclient) instance that is authorized with the account key.
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/crud_datalake.py" id="Snippet_AuthorizeWithKey":::
 
 [!INCLUDE [storage-shared-key-caution](../../../includes/storage-shared-key-caution.md)]
+
+---
 
 ## Set ACLs
 
@@ -149,7 +146,7 @@ You can remove one or more ACL entries. To remove ACL entries recursively, creat
 
 Remove ACL entries by calling the **DataLakeDirectoryClient.remove_access_control_recursive** method. If you want to remove a **default** ACL entry, then add the string `default:` to the beginning of the ACL entry string.
 
-This example removes an ACL entry from the ACL of the directory named `my-parent-directory`. This method accepts a boolean parameter named `is_default_scope` that specifies whether to remove the entry from the default ACL. if that parameter is `True`, the updated ACL entry is preceded with the string `default:`.
+This example removes an ACL entry from the ACL of the directory named `my-parent-directory`. This method accepts a boolean parameter named `is_default_scope` that specifies whether to remove the entry from the default ACL. If that parameter is `True`, the updated ACL entry is preceded with the string `default:`.
 
 ```python
 def remove_permission_recursively(is_default_scope):

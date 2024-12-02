@@ -97,8 +97,6 @@ log4j.logger.alerts=DEBUG,alerts
 
 The next step is reviewing the job execution log files for the various services.  Services could include Apache HBase, Apache Spark, and many others. A Hadoop cluster produces a large number of verbose logs, so determining which logs are useful (and which aren't) can be time-consuming.  Understanding the logging system is important for targeted management of log files.  The following image is an example log file.
 
-:::image type="content" source="./media/hdinsight-log-management/hdi-log-file-example.png" alt-text="HDInsight example log file sample output.":::
-
 ### Access the Hadoop log files
 
 HDInsight stores its log files both in the cluster file system and in Azure Storage. You can examine log files in the cluster by opening an [SSH](hdinsight-hadoop-linux-use-ssh-unix.md) connection to the cluster and browsing the file system, or by using the Hadoop YARN Status portal on the remote head node server. You can examine the log files in Azure Storage using any of the tools that can access and download data from Azure Storage. Examples are [AzCopy](../storage/common/storage-use-azcopy-v10.md), [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer), and the Visual Studio Server Explorer. You can also use PowerShell and the Azure Storage Client libraries, or the Azure .NET SDKs, to access data in Azure blob storage.

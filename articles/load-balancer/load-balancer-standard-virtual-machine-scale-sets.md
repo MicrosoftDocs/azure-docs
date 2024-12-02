@@ -32,7 +32,7 @@ When Virtual Machine Scale Sets with [public IPs per instance](/azure/virtual-ma
 
 To create an outbound rule for a backend pool that's already referenced by a load-balancing rule, select **No** under **Create implicit outbound rules** in the Azure portal when the inbound load-balancing rule is created.
 
-  :::image type="content" source="./media/vm-scale-sets/load-balancer-and-vm-scale-sets.png" alt-text="Screenshot that shows load-balancing rule creation." border="true":::
+  :::image type="content" source="./media/load-balancer-standard-virtual-machine-scale-sets/load-balancer-and-vm-scale-sets.png" alt-text="Screenshot that shows load-balancing rule creation." border="true":::
 
 Use the following methods to deploy a Virtual Machine Scale Sets with an existing instance of Load Balancer:
 

@@ -37,7 +37,7 @@ Redis Enterprise, on the other hand, can use multiple vCPUs for the Redis instan
 
 The tables show the number of vCPUs used for the primary shards, not the replica shards. Shards don't map one-to-one to the number of vCPUs. The tables only illustrate vCPUs, not shards. Some configurations use more shards than available vCPUs to boost performance in some usage scenarios.
 
-### E1 (preview)
+### E1
 
 |Capacity|Effective vCPUs|
 |---:|---:|
@@ -195,9 +195,9 @@ The [data persistence](cache-how-to-premium-persistence.md) feature in the Enter
 
 Many customers want to use persistence to take periodic backups of the data on their cache. We don't recommend that you use data persistence in this way. Instead, use the [import/export](cache-how-to-import-export-data.md) feature. You can export copies of cache data in RDB format directly into your chosen storage account and trigger the data export as frequently as you require. Export can be triggered either from the portal or by using the CLI, PowerShell, or SDK tools.
 
-## E1 (preview) SKU Limitations
+## E1 SKU Limitations
 
-The E1 (preview) SKU is intended for dev/test scenarios, primarily. E1 runs on smaller [burstable VMs](/azure/virtual-machines/b-series-cpu-credit-model/b-series-cpu-credit-model). Burstable VMs offer variable performance based on how much CPU is consumed. Unlike other Enterprise SKU offerings, you can't _scale out_ the E1 SKU, although it's still possible to _scale up_ to a larger SKU. The E1 SKU also doesn't support [active geo-replication](cache-how-to-active-geo-replication.md).
+The E1 SKU is intended for dev/test scenarios, primarily. E1 runs on smaller [burstable VMs](/azure/virtual-machines/b-series-cpu-credit-model/b-series-cpu-credit-model). Burstable VMs offer variable performance based on how much CPU is consumed. Unlike other Enterprise SKU offerings, you can't _scale out_ the E1 SKU, although it's still possible to _scale up_ to a larger SKU. The E1 SKU also doesn't support [active geo-replication](cache-how-to-active-geo-replication.md).
 
 ## Related content
 

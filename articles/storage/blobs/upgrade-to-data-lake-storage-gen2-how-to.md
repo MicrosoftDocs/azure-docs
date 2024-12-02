@@ -48,6 +48,10 @@ In some cases, you will have to allow time for clean-up operations after a featu
 > You cannot upgrade a storage account to Data Lake Storage that has **ever** had the change feed feature enabled.
 > Simply disabling change feed will not allow you to perform an upgrade. Instead, you must create an account with the hierarchical namespace feature enabled on it, and move then transfer your data into that account.
 
+### Remove page blobs from the storage account
+
+You cannot upgrade a storage account that contains page blobs. Make sure to remove page blobs from the storage account before you perform the upgrade. 
+
 ### Ensure the segments of each blob path are named
 
 The migration process creates a directory for each path segment of a blob. Data Lake Storage directories must have a name so for migration to succeed, each path segment in a virtual directory must have a name. The same requirement is true for segments that are named only with a space character. If any path segments are either unnamed (`//`) or named only with a space character (`_`), then before you proceed with the migration, you must copy those blobs to a new path that is compatible with these naming requirements.

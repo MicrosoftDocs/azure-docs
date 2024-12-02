@@ -12,6 +12,8 @@ ms.custom: mvc, mode-other
 
 # Quickstart: Integrate an Azure Storage account with Azure Content Delivery Network
 
+[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
+
 In this quickstart, you enable [Azure Content Delivery Network](cdn-overview.md) to cache content from Azure Storage. Azure Content Delivery Network offers developers a global solution for delivering high-bandwidth content. It can cache blobs and static content of compute instances at physical nodes in the United States, Europe, Asia, Australia, and South America.
 
 > [!NOTE]  

@@ -5,8 +5,7 @@ metadata:
   services: databox
   author: v-dalc
     
-  ms.service: databox
-  ms.subservice: pod
+  ms.service: azure-databox
   ms.topic: faq
   ms.date: 06/06/2022
   ms.author: shaas
@@ -44,18 +43,6 @@ sections:
           Data Box is available at a nominal charge for 10 days. When you select the product model while creating an order in the Azure portal, the charges for the device are displayed. Standard shipping charges and charges for Azure storage also apply. Export orders follow a similar pricing model as for import orders, though additional egress charges may apply.
 
           For more information, go to [Azure Data Box pricing](https://azure.microsoft.com/pricing/details/storage/databox/) and [Azure Data Box Heavy pricing]( https://azure.microsoft.com/en-us/pricing/details/databox/heavy/). For egress charges, see [Bandwidth pricing](https://azure.microsoft.com/pricing/details/bandwidth/).
-
-          ### Can I use a Data Box to import or export data from the country/region where I’m located to a different country/region?
-
-          Data Box supports data ingestion or egress only within the same country/region as the destination and won't cross any international borders. The only exception is for orders in the European Union (EU), where Data Boxes can ship to and from any EU country/region.
-
-          For example, working with an import in Data Box, if you wanted to move source data in Canada to an Azure West US storage account, you could do that in the following way:
-
-          1. Order Data Box in Canada by choosing a storage account in Canada. The device is shipped from an Azure datacenter in Canada to the shipping address, also in Canada, that you provided when you created the order.
-
-          2. Once the on-premises data copy to the Data Box is done, return the device to the Azure datacenter in Canada. The data on the Data Box then gets uploaded to the destination storage account in the Canada Azure region that you chose.
-
-          3. You can then use a tool like AzCopy to copy the data from the storage account in Canada to a storage account in West US. This step incurs [standard storage](https://azure.microsoft.com/pricing/details/storage/) and [bandwidth charges](https://azure.microsoft.com/pricing/details/bandwidth/) that aren't included in the Data Box billing.
 
           ### Does Data Box store any customer data outside the service region?
 

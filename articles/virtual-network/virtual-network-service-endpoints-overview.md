@@ -38,7 +38,7 @@ Service endpoints are available for the following Azure services and regions. Th
 
 **Public Preview**
 
-- **[Azure Container Registry](../container-registry/container-registry-vnet.md)** (*Microsoft.ContainerRegistry*): Preview available in limited Azure regions where Azure Container Registry is available.
+- **[Azure Container Registry](/azure/container-registry/container-registry-vnet)** (*Microsoft.ContainerRegistry*): Preview available in limited Azure regions where Azure Container Registry is available.
 
 For the most up-to-date notifications, check the [Azure Virtual Network updates](https://azure.microsoft.com/updates/?product=virtual-network) page.
 
@@ -113,7 +113,7 @@ Once you configure service endpoints to a specific service, validate that the se
   - Indicates that a more direct connection to the service is in effect compared to any forced-tunneling routes
 
 >[!NOTE]
-> Service endpoint routes override any BGP routes for the address prefix match of an Azure service. For more information, see [troubleshooting with effective routes](diagnose-network-routing-problem.md).
+> Service endpoint routes override any BGP or user-defined routes (UDRs) for the address prefix match of an Azure service. For more information, see [troubleshooting with effective routes](diagnose-network-routing-problem.md).
 
 ## Provisioning
 

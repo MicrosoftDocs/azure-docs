@@ -1,9 +1,9 @@
 ---
-author: tfitzmac
+author: mumian
 ms.service: azure-resource-manager
 ms.topic: include
-ms.date: 04/26/2022
-ms.author: tomfitz
+ms.date: 10/25/2024
+ms.author: jgao
 ---
 
 Private links enable you to access Azure services over a private endpoint in your virtual network. When you combine private links with Azure Resource Manager's operations, you block users who aren't at the specific endpoint from managing resources. If a malicious user gets credentials to an account in your subscription, that user can't manage the resources without being at the specific endpoint.

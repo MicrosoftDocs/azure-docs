@@ -10,6 +10,7 @@ ms.custom:
 ms.date: 07/02/2024
 
 #CustomerIntent: As an developer, I want to understand how to use MQTTnet to develop distributed apps that talk with MQTT broker.
+ms.service: azure-iot-operations
 ---
 
 # Use MQTTnet to develop distributed application workloads that connect to MQTT broker
@@ -93,13 +94,13 @@ spec:
       sources:
       - serviceAccountToken:
           path: mqtt-client-token
-          audience: aio-mq
+          audience: aio-internal
           expirationSeconds: 86400
 
   # Certificate chain for the application to validate the MQTT broker              
   - name: aio-ca-trust-bundle
     configMap:
-      name: aio-ca-trust-bundle-test-only
+      name: azure-iot-operations-aio-ca-trust-bundle
 
   containers:
   - name: mqtt-client-dotnet
@@ -108,16 +109,16 @@ spec:
     - name: mqtt-client-token
       mountPath: /var/run/secrets/tokens/
     - name: aio-ca-trust-bundle
-      mountPath: /var/run/certs/aio-mq-ca-cert/
+      mountPath: /var/run/certs/aio-internal-ca-cert/
     env:
     - name: hostname
-      value: "aio-mq-dmqtt-frontend"
+      value: "aio-broker"
     - name: tcpPort
-      value: "8883"
+      value: "18883"
     - name: useTls
       value: "true"
     - name: caFile
-      value: "/var/run/certs/aio-mq-ca-cert/ca.crt"
+      value: "/var/run/certs/aio-internal-ca-cert/ca.crt"
     - name: satAuthFile
       value: "/var/run/secrets/tokens/mqtt-client-token"
 ```

@@ -11,8 +11,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 # Start or stop your Azure Spring Apps service instance
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
 **This article applies to:** ❌ Standard consumption and dedicated (Preview) ✔️ Basic/Standard ✔️ Enterprise
 
@@ -113,4 +112,4 @@ The following list describes some common actions you can take to recover from th
 ## Next steps
 
 - [Monitor app lifecycle events using Azure Activity log and Azure Service Health](./monitor-app-lifecycle-events.md)
-- [Azure Monitor cost and usage](../../azure-monitor/cost-usage.md)
+- [Azure Monitor cost and usage](/azure/azure-monitor/cost-usage)
