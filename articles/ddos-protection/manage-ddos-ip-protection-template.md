@@ -7,7 +7,7 @@ ms.service: azure-ddos-protection
 ms.topic: quickstart
 ms.custom: mode-arm, devx-track-arm-template
 ms.author: abell
-ms.date: 07/17/2024
+ms.date: 012/02/2024
 ---
 
 # QuickStart: Create and configure Azure DDoS IP Protection using ARM template
@@ -127,7 +127,7 @@ ExtendedLocation         : null
   "etag": "W/\"aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e\"",
   "id": "/subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/resourceGroups/MyResourceGroup/providers/Microsoft.Network/publicIPAddresses/myStandardPublicIP",
   "idleTimeoutInMinutes": 4,
-  "ipAddress": "20.25.14.83",
+  "ipAddress": "10.25.14.83",
   "ipTags": [],
   "location": "eastus",
   "name": "myStandardPublicIP",
