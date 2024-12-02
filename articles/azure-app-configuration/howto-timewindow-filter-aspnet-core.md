@@ -1,7 +1,7 @@
 ---
 title: Enable features on a schedule in an ASP.NET Core application
 titleSuffix: Azure App Configuration
-description: Learn how to enable feature flags on a schedule in an ASP.NET Core application.
+description: Learn how to enable feature flags on a schedule in an ASP.NET Core application by using time window filters.
 ms.service: azure-app-configuration
 ms.devlang: csharp
 author: zhiyuanliang-ms
@@ -10,11 +10,11 @@ ms.topic: how-to
 ms.date: 03/26/2024
 ---
 
-# Tutorial: Enable features on a schedule in an ASP.NET Core application
+# Enable features on a schedule in an ASP.NET Core application
 
-In this tutorial, you use the time window filter to enable a feature on a schedule for an ASP.NET Core application. 
+In this guide, you use the time window filter to enable a feature on a schedule for an ASP.NET Core application. 
 
-The example used in this tutorial is based on the ASP.NET Core application introduced in the feature management [quickstart](./quickstart-feature-flag-aspnet-core.md). Before proceeding further, complete the quickstart to create an ASP.NET Core application with a *Beta* feature flag. Once completed, you must [add a time window filter](./howto-timewindow-filter.md) to the *Beta* feature flag in your App Configuration store.
+The example used in this article is based on the ASP.NET Core application introduced in the feature management [quickstart](./quickstart-feature-flag-aspnet-core.md). Before proceeding further, complete the quickstart to create an ASP.NET Core application with a *Beta* feature flag. Once completed, you must [add a time window filter](./howto-timewindow-filter.md) to the *Beta* feature flag in your App Configuration store.
 
 ## Prerequisites
 
@@ -53,7 +53,7 @@ If recurrence is enabled when you set up the time window filter, the **Beta** me
 
 ## Next steps
 
-To learn more about the feature filters, continue to the following tutorials.
+To learn more about the feature filters, continue to the following documents.
 
 > [!div class="nextstepaction"]
 > [Enable conditional features with feature filters](./howto-feature-filters.md)

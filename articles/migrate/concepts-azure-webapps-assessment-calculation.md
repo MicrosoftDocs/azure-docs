@@ -5,7 +5,7 @@ author: rashi-ms
 ms.author: rajosh
 ms.topic: conceptual
 ms.service: azure-migrate
-ms.date: 04/01/2024
+ms.date: 09/26/2024
 ms.custom: engagement-fy23, devx-track-extended-java
 ---
 
