@@ -392,20 +392,26 @@ Traffic manager can't provide any certificate validation, including:
 
 ### Do I use an IP address or a DNS name when adding an endpoint?
 
-Traffic Manager supports adding endpoints using three ways to refer them – as a DNS name, as an IPv4 address and as an IPv6 address. If the endpoint is added as an IPv4 or IPv6 address the query response is of record type A or AAAA, respectively. If the endpoint was added as a DNS name, then the query response is of record type CNAME. Adding endpoints as IPv4 or IPv6 address is permitted only if the endpoint is of type **External**.
+Traffic Manager supports adding endpoints using three ways to refer them: 
+- As a DNS name 
+- As an IPv4 address 
+- As an IPv6 address 
+
+If the endpoint is added as an IPv4 or IPv6 address, the query response is of record type A or AAAA, respectively. If the endpoint was added as a DNS name, then the query response is of record type CNAME. Adding endpoints as IPv4 or IPv6 address is permitted only if the endpoint is of type **External**.
+
 All routing methods and monitoring settings are supported by the three endpoint addressing types.
 
 ### What types of IP addresses can I use when adding an endpoint?
 
 Traffic Manager allows you to use IPv4 or IPv6 addresses to specify endpoints. There are a few restrictions, which are listed below:
 
-- Addresses that correspond to reserved private IP address spaces aren't allowed. These addresses include those called out in RFC 1918, RFC 6890, RFC 5737, RFC 3068, RFC 2544 and RFC 5771
-- The address must not contain any port numbers (you can specify the ports to be used in the profile configuration settings)
-- No two endpoints in the same profile can have the same target IP address
+- Addresses that correspond to reserved private IP address spaces aren't allowed. These addresses include those called out in RFC 1918, RFC 6890, RFC 5737, RFC 3068, RFC 2544, and RFC 5771.
+- The IP address must not contain any port numbers (you can specify the ports to be used in the profile configuration settings).
+- No two endpoints in the same profile can have the same target IP address.
 
 ### Can I use different endpoint addressing types within a single profile?
 
-No, Traffic Manager doesn't allow you to mix endpoint addressing types within a profile, except for the case of a profile with MultiValue routing type where you can mix IPv4 and IPv6 addressing types
+No. Traffic Manager doesn't allow you to mix endpoint addressing types within a profile, except for the case of a profile with MultiValue routing type where you can mix IPv4 and IPv6 addressing types.
 
 ### What happens when an incoming query's record type is different from the record type associated with the addressing type of the endpoints?
 
@@ -535,17 +541,17 @@ The Traffic Manager name servers traverse the profile hierarchy internally when 
 
 ### How does Traffic Manager compute the health of a nested endpoint in a parent profile?
 
-The parent profile doesn't perform health checks on the child directly. Instead, the health of the child profile's endpoints are used to calculate the overall health of the child profile. This information is propagated up the nested profile hierarchy to determine the health of the nested endpoint. The parent profile uses this aggregated health to determine whether the traffic can be directed to the child.
+The parent profile doesn't perform health checks on the child directly. Instead, the health of the child profile's endpoints is used to calculate the overall health of the child profile. This information is propagated up the nested profile hierarchy to determine the health of the nested endpoint. The parent profile uses this aggregated health to determine whether the traffic can be directed to the child.
 
 The following table describes the behavior of Traffic Manager health checks for a nested endpoint.
 
 | Child Profile Monitor status | Parent Endpoint Monitor status | Notes |
 | --- | --- | --- |
-| Disabled. The child profile has been disabled. |Stopped |The parent endpoint state is Stopped, not Disabled. The Disabled state is reserved for indicating that you've disabled the endpoint in the parent profile. |
-| Degraded. At least one child profile endpoint is in a Degraded state. |Online: the number of Online endpoints in the child profile is at least the value of MinChildEndpoints.<BR>CheckingEndpoint: the number of Online plus CheckingEndpoint endpoints in the child profile is at least the value of MinChildEndpoints.<BR>Degraded: otherwise. |Traffic is routed to an endpoint of status CheckingEndpoint. If MinChildEndpoints is set too high, the endpoint is always degraded. |
-| Online. At least one child profile endpoint is an Online state. No endpoint is in the Degraded state. |See above. | |
-| CheckingEndpoints. At least one child profile endpoint is 'CheckingEndpoint'. No endpoints are 'Online' or 'Degraded' |Same as above. | |
-| Inactive. All child profile endpoints are either Disabled or Stopped, or this profile has no endpoints. |Stopped | |
+| **Disabled**. The child profile has been disabled. |Stopped |The parent endpoint state is `Stopped`, not `Disabled`. The `Disabled` state is reserved for indicating that you've disabled the endpoint in the parent profile. |
+| **Degraded**. At least one child profile endpoint is in a `Degraded` state. |**Online**: the number of `Online` endpoints in the child profile is at least the value of `MinChildEndpoints`.<BR>**CheckingEndpoint**: the number of `Online` plus `CheckingEndpoint` endpoints in the child profile is at least the value of `MinChildEndpoints`.<BR>**Degraded**: otherwise. |Traffic is routed to an endpoint of status `CheckingEndpoint`. If `MinChildEndpoints` is set too high, the endpoint is always degraded. |
+| **Online**. At least one child profile endpoint is an `Online` state. No endpoint is in the `Degraded` state. |See above. | |
+| CheckingEndpoints. At least one child profile endpoint is `CheckingEndpoint`. No endpoints are `Online` or `Degraded` |Same as above. | |
+| **Inactive**. All child profile endpoints are either `Disabled` or `Stopped`, or this profile has no endpoints. |Stopped | |
 
 > [!IMPORTANT]
 > When managing child profiles under a parent profile in Azure Traffic Manager, an issue can occur if you simultaneously disable and enable two child profiles. If these actions occur at the same time, there might be a brief period when both endpoints are disabled, leading to the parent profile entering a compromised state.<br><br>
