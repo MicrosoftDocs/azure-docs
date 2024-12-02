@@ -62,9 +62,10 @@ If you have a Microsoft Entra ID P2 or Microsoft Entra ID Governance license, [M
 
     The following shows an example of the Access control (IAM) page for a resource group.
 
+
     :::image type="content" source="./media/check-access/rg-access-control-pim.png" alt-text="Screenshot of resource group access control and Check access tab for PIM integration." lightbox="./media/check-access/rg-access-control-pim.png":::
 
-    If you have Microsoft Entra Privileged Identity Management (PIM), you also see [eligible and time-bound role assignments](pim-integration.md).
+    This page lists any [eligible and time-bound role assignments](pim-integration.md). To activate any eligible role assignments, select **Activate role**. For more information, see [Activate eligible Azure role assignments](./role-assignments-eligible-activate.md).
 
 ---
 
@@ -78,11 +79,13 @@ If you have a Microsoft Entra ID P2 or Microsoft Entra ID Governance license, [M
 
 1. Select **Access control (IAM)**.
 
-1. On the **Check access** tab, select the **Check access** button.
+1. On the **My access** tab, select the **Check access** button.
 
-1. In the **Check access** pane, select **User, group, or service principal**.
+    A **Check access** pane appears.
 
-1. In the search box, enter a string to search the directory for display names, email addresses, or object identifiers.
+1. Select **User, group, or service principal**.
+
+1. In the search box, enter a string to search the directory for name or email addresses.
 
     :::image type="content" source="./media/shared/rg-check-access-select.png" alt-text="Screenshot of Check access select list." lightbox="./media/shared/rg-check-access-select.png":::
 
@@ -118,7 +121,7 @@ If you have a Microsoft Entra ID P2 or Microsoft Entra ID Governance license, [M
     - Deny assignments managed by Azure.
     - Classic Service Administrator or Co-Administrator assignments for classic deployments.
 
-    If you have PIM, you also see a **Eligible assignments** tab with [eligible and time-bound role assignments](pim-integration.md).
+    You also see a **Eligible assignments** tab with [eligible and time-bound role assignments](pim-integration.md).
 
     :::image type="content" source="./media/check-access/rg-check-access-assignments-user-pim.png" alt-text="Screenshot of role and deny assignments pane for a user for PIM integration." lightbox="./media/check-access/rg-check-access-assignments-user-pim.png":::
 
