@@ -785,7 +785,7 @@ The following section describes hosting options for BizTalk Server and Azure Int
 
 #### BizTalk Server
 
-BizTalk Server 2020 supports the following Microsoft platforms and products (with the Cummlative update 6):
+BizTalk Server 2020 supports the following Microsoft platforms and products (with the Cumulative update 6):
 
 - Windows Server 2022, Windows Server 2019, and Windows 11
 - Visual Studio 2019 Enterprise and Visual Studio 2019 Professional
@@ -810,6 +810,10 @@ You can install and run BizTalk Server on your own hardware, on-premises virtual
 
   For the latest information, see [Pricing tiers in the Standard model](./logic-apps-pricing.md#standard-pricing-tiers).
 
+- Hybrid deployment model (preview)
+
+  Azure Logic Apps offers a hybrid deployment model so that you can deploy and host Standard logic app workflows in on-premises, private cloud, or public cloud scenarios. This model gives you the capabilities to host integration solutions in partially connected environments when you need to use local processing, data storage, and network access. With the hybrid option, you have the freedom and flexibility to choose the best environment for your workflows. For more information, see [Set up your own infrastructure for Standard logic apps using hybrid deployment (Preview)](./set-up-standard-workflows-hybrid-deployment-requirements.md)
+  
 - Availability and redundancy
 
   In Azure, [availability zones](../reliability/availability-zones-overview.md#zonal-and-zone-redundant-services) provide resiliency, distributed availability, and active-active-active zone scalability. To increase availability for your logic app workloads, you can [enable availability zone support](./set-up-zone-redundancy-availability-zones.md), but only when you create your logic app. You'll need at least three separate availability zones in any Azure region that supports and enables zone redundancy. The Azure Logic Apps platform distributes these zones and logic app workloads across these zones. This capability is a key requirement for enabling resilient architectures and providing high availability if datacenter failures happen in a region. For more information, see [Build solutions for high availability using availability zones](/azure/architecture/high-availability/building-solutions-for-high-availability).
