@@ -68,7 +68,7 @@ This section describes the developer tools that BizTalk server and Azure Integra
 | Offering | Product or service with supported tools |
 |----------|-----------------------------------------|
 | BizTalk Server | Each BizTalk Server version supports a specific version of Visual Studio. <br><br>For example, BizTalk Server 2020 supports Visual Studio 2019 Enterprise or Professional. However, Visual Studio Community Edition isn't supported. |
-| Azure Integration Services | - Azure Logic Apps (Standard): Azure portal and Visual Studio Code <br><br>- Azure Logic Apps (Consumption): Azure portal, Visual Studio Code, and Visual Studio 2019, 2017, or 2015 <br><br>- Azure Functions: Azure portal, Visual Studio Code, and Visual Studio 2022 <br><br>- Azure API Management: Azure portal and Visual Studio Code <br><br>- Azure Service Bus: Azure portal and Service Bus Explorer <br><br>- Azure Data Factory: Azure portal and Visual Studio 2015 |
+| Azure Integration Services | - Azure Logic Apps (Standard): Azure portal and Visual Studio Code <br><br>- Azure Logic Apps (Consumption): Azure portal and Visual Studio Code <br><br>- Azure Functions: Azure portal, Visual Studio Code, and Visual Studio 2022 <br><br>- Azure API Management: Azure portal and Visual Studio Code <br><br>- Azure Service Bus: Azure portal and Service Bus Explorer <br><br>- Azure Data Factory: Azure portal and Visual Studio 2015 |
 
 ## BizTalk Server versus Azure Logic Apps
 
