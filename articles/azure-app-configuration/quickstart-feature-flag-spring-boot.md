@@ -139,6 +139,7 @@ To create a new Spring Boot project:
               connection-string: ${APP_CONFIGURATION_CONNECTION_STRING}
     ```
 
+---
 1. Set an environment variable named **APP_CONFIGURATION_CONNECTION_STRING**, and set it to the connection string to your App Configuration store. At the command line, run the following command and restart the command prompt to allow the change to take effect:
 
     ### [Windows command prompt](#tab/windowscommandprompt)
