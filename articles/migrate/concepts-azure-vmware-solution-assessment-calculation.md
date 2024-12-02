@@ -52,7 +52,7 @@ There are a couple of ways to run an assessment.
 If you're deploying an Azure Migrate appliance to discover on-premises servers, do the following steps:
 
 1. Set up Azure and your on-premises environment to work with Azure Migrate.
-2. Create an Azure project and add the Discovery and assessment tool to it if you are creating your first assessment.
+2. Create an Azure project and add the Discovery and assessment tool to it if you're creating your first assessment.
 3. Deploy a lightweight Azure Migrate appliance. The appliance continuously discovers on-premises vSphere servers and sends server metadata and performance data to Azure Migrate. Deploy the appliance as a VM. You don't need to install anything on servers that you want to assess.
 
 After the appliance begins server discovery, you can gather servers you want to assess into a group and run an assessment for the group with assessment type **Azure VMware Solution (AVS)**.
@@ -116,7 +116,7 @@ Here's what's included in an Azure VMware Solution assessment:
 **Property** | **Details**
 --- | --- 
 **Target location** | Specifies the Azure VMware Solution private cloud location to which you want to migrate.
-**Storage type** | Specifies the storage engine to be used in Azure VMware Solution. Azure VMware Solution currently only supports vSAN as a default storage type but more storage options will be coming as per roadmap.
+**Storage type** | Specifies the storage engine to be used in Azure VMware Solution. Azure NetApp Files (Standard, Premium, and Ultra tiers) is used by default in the assessment if external storage can optimize the number of AVS nodes required.
 **Reserved Instances (RIs)** | This property helps you specify Reserved Instances in Azure VMware Solution if purchased and the term of the Reserved Instance. Your cost estimates take the option chosen into account.[Learn more](../azure-vmware/reserved-instance.md) <br/><br/> If you select reserved instances, you can't specify "Discount (%)".
 **Node type** | Specifies the [Azure VMware Solution Node type](../azure-vmware/architecture-private-clouds.md) used to be used in Azure. The default node type is AV36. More node types might be available in future. Azure Migrate will recommend a required number of nodes for the VMs to be migrated to Azure VMware Solution.
 **FTT Setting, RAID Level** | Specifies the valid combination of Failures to Tolerate and Raid combinations. The selected FTT option combined with RAID level and the on-premises vSphere VM disk requirement will determine the total vSAN storage required in Azure VMware Solution. Total available storage after calculations also includes (a) space reserved for management objects such as vCenter Server and (b) 25% storage slack required for vSAN operations.
