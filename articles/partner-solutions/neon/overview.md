@@ -34,7 +34,7 @@ Here are the key capabilities provided by the Neon integration:
 ## Prerequisites for Neon Serverless Postgres
 
 - An Azure account. If you don't have an active Azure subscription, [create a free account](https://azure.microsoft.com/free/).
-- Only users with _Owner_ or _Contributor_ access on the Azure subscription can set up the Azure integration. Ensure you have the appropriate access before starting the set up for this integration.
+- Only users with _Owner_ or _Contributor_ access on the Azure subscription can set up the Azure integration. Ensure you have the appropriate access before starting the setup for this integration.
 
 ## Find Neon Serverless Postgres
 
