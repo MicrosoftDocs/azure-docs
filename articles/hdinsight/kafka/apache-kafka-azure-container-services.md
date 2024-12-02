@@ -135,7 +135,8 @@ Use the following steps to configure Kafka to advertise IP addresses instead of 
 
 9. To prevent errors when restarting Kafka, use the __Service Actions__ button and select __Turn On Maintenance Mode__. Select OK to complete this operation.
 
-    :::image type="content" source="./media/apache-kafka-azure-container-services/turn-on-maintenance-mode.png" alt-text="Service actions, with turn-on maintenance highlighted." border="true":::
+    :::image type="content" source="./media/apache-kafka-azure-container-services/turn-on-maintenance-mode.png" alt-text="Screenshot of the service actions, with turn-on maintenance highlighted." border="true":::
+
 
 10. To restart Kafka, use the __Restart__ button and select __Restart All Affected__. Confirm the restart, and then use the __OK__ button after the operation is completed.
 
