@@ -7,7 +7,7 @@ ms.topic: how-to
 
 # Maintain OT network sensors from the sensor console
 
-This article describes extra OT sensor maintenance activities that you might perform outside of a larger deployment process.
+This article describes extra Operational Technology (OT) sensor maintenance activities that you might perform outside of a larger deployment process.
 
 OT sensors can also be maintained from the OT sensor [CLI](cli-ot-sensor.md), the [Azure portal](how-to-manage-sensors-on-the-cloud.md), and an [on-premises management console](legacy-central-management/how-to-manage-sensors-from-the-on-premises-management-console.md).
 
@@ -17,7 +17,7 @@ OT sensors can also be maintained from the OT sensor [CLI](cli-ot-sensor.md), th
 
 Before performing the procedures in this article, make sure that you have:
 
-- An OT network sensor [installed](ot-deploy/install-software-ot-sensor.md), [configured, and activated](ot-deploy/activate-deploy-sensor.md) and [onboarded](onboard-sensors.md) to Defender for IoT in the Azure portal.
+- An OT network sensor [installed](ot-deploy/install-software-ot-sensor.md), [configured, and activated](ot-deploy/activate-deploy-sensor.md) and [onboarded](onboard-sensors.md) to Microsoft Defender for IoT in the Azure portal.
 
 - Access to the OT sensor as an **Admin** user. Selected procedures and CLI access also requires a privileged user. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 
@@ -218,9 +218,11 @@ You'd configured your OT sensor network configuring during [installation](ot-dep
 
 ### Turn off learning mode manually
 
-A Microsoft Defender for IoT OT network sensor starts monitoring your network automatically as soon as it's connected to your network and you've [signed in](ot-deploy/activate-deploy-sensor.md#sign-in-to-the-sensor-console-and-change-the-default-password). Network devices start appearing in your [device inventory](device-inventory.md), and [alerts](alerts.md) are triggered for any security or operational incidents that occur in your network.
+An OT network sensor starts monitoring your network automatically as soon as it's connected to your network and you've [signed in](ot-deploy/activate-deploy-sensor.md#sign-in-to-the-sensor-console-and-change-the-default-password). Network devices start appearing in your [device inventory](device-inventory.md), and [alerts](alerts.md) are triggered for any security or operational incidents that occur in your network.
 
-Initially, this activity happens in *learning* mode, which instructs your OT sensor to learn your network's usual activity, including the devices and protocols in your network, and the regular file transfers that occur between specific devices. Any regularly detected activity becomes your network's [baseline traffic](ot-deploy/create-learned-baseline.md).
+Initially, this activity happens in *learning* mode, which instructs your OT sensor to learn your network's usual activity, including the devices and protocols in your network, and the regular file transfers that occur between specific devices. Any regularly detected activity becomes your network's [baseline traffic](ot-deploy/create-learned-baseline.md). The *Learning* mode monitors all of the network OT sensors with identical global settings to ensure that it tracks and identifies all types of network traffic.
+  
+Between two to six weeks after deploying your sensor the detection levels should accurately reflect your network activity, at this stage we recommend turning off learning mode and switching to dynamic or operational mode. As opposed to learning mode, in dynamic or operational mode, you can assign different settings to each sensor. Once this change is made, policy violation alerts start to appear based on the baseline traffic created during the learning period.
 
 This procedure describes how to turn off learning mode manually if you feel that the current alerts accurately reflect your network activity.
 
@@ -228,15 +230,11 @@ This procedure describes how to turn off learning mode manually if you feel that
 
 1. Sign into your OT network sensor and select **System settings > Network monitoring > Detection engines and network modeling**.
 
-1. Toggle off one or both of the following options:
-
-    - **Learning**. Toggle off this option about two-six weeks after you've deployed your sensor, when you feel that the OT sensor detections accurately reflect your network activity.
-
-    - **Smart IT Learning**. Keep this option toggled on to keep the number of *nondeterministic* alerts and notifications low. 
-  
-    Nondeterministic behavior includes changes that are the result of normal IT activity, such as DNS and HTTP requests. Toggling off the **Smart IT Learning** option can trigger many false positive policy violation alerts.
+1. In **Network modelling** toggle off **Learning**.
 
 1. In the confirmation message, select **OK**, and then select **Close** to save your changes.
+
+dynamic mode settings
 
 ## Update a sensor's monitoring interfaces (configure ERSPAN)
 
