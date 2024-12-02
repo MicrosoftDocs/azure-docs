@@ -13,7 +13,7 @@ ms.author: rogarana
 
 Azure Elastic SAN volume snapshots (preview) are incremental point-in-time backups of your volumes. The first snapshot you take occupies no space, and every subsequent snapshot consists only of the changes to the Elastic SAN volume since the last snapshot. This is different from a managed disk snapshot, wherein the first snapshot you take will be a full copy of the managed disk and each subsequent snapshot will consist of only the changes to the disk since the last snapshot. Snapshots of your volumes don't have any separate billing, but they reside in your elastic SAN and consume the SAN's capacity. Snapshots can't be used to change the state of an existing volume, you can only use them to either deploy a new volume or export the data to a managed disk snapshot.
 
-You can take as many snapshots of your volumes as you like, as long as there's available capacity in your elastic SAN. Snapshots persist until either the volume itself is deleted or the snapshots are deleted. Snapshots don't persist after the volume is deleted. If you need your data to persist after deleting a volume, [export your volume's snapshot to a managed disk snapshot](#export-volume-snapshot).
+You can take up to 200 snapshots of an individual volume, and a maximum of 200,000 snapshots per volume group at a rate of 7 snapshots per 5 minutes. Snapshots persist until either the volume itself is deleted or the snapshots are deleted. Snapshots don't persist after the volume is deleted. If you need your data to persist after deleting a volume, [export your volume's snapshot to a managed disk snapshot](#export-volume-snapshot).
 
 
 ## Limitations
