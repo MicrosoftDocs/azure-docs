@@ -14,7 +14,7 @@ zone_pivot_groups: acs-plat-web-ios-android-windows
 
 # Display call transcription state on the client
 
-You need to collect consent from all participants in the call before you can transcribe them. Microsoft Teams allows users to start transcription in the meetings or calls. You would receive event when transcription has started on you can check the transcription state, if transcription started before you joined the call or meeting.
+You need to collect consent from all participants in the call before you can transcribe them. Microsoft Teams allows users to start transcription in the meetings or calls. You would receive event when transcription has started. You can check the transcription state if transcription started before you joined the call or meeting. You can provide explicit consent to transcription if a meeting or call requires it, and you have not already collected it.
 
 ## Prerequisites
 
@@ -42,9 +42,9 @@ The following tables show support of individual APIs in calling SDK to individua
 |Get event that transcription has started	| ✔️	| ✔️  |  		
 |Get transcription state	                | ✔️	| ✔️  | 
 |Start or stop transcription              | 	|  |
-|Consent for being transcribed | ✔️[1]	| ✔️[1]  |
+|Give explicit consent for being transcribed | ✔️[1]	| ✔️[1]  |
 
-[1] functionality is limited to Teams meetings and Group Teams interop calls.
+[1] This functionality is avialable only in Teams meetings and group Teams interoperability calls.
 
 ## SDKs
 The following tables show support of transcription in individual Azure Communication Services SDKs.
