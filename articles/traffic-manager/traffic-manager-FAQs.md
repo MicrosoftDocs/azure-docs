@@ -92,7 +92,14 @@ For example, if your Traffic Manager profile name is **label1**, then **label1.t
 
 ### What version of TLS is required by Traffic Manager?
 
-To enhance security and provide best-in-class encryption for your data, Traffic Manger requires interactions with services to be secured using Transport Layer Security (TLS) 1.2 or later before February 28,2025. Traffic Manger support for TLS 1.0 and 1.1 will end on this date, prior to the [Azure-wide TLS 1.0 and TLS 1.1 retirement date](https://azure.microsoft.com/updates?id=update-retirement-tls1-0-tls1-1-versions-azure-services).
+The Microsoft implementation of older TLS versions is not known to be vulnerable, however, TLS 1.2 and later offer improved security with features such as perfect forward secrecy and stronger cipher suites. To enhance security and provide best-in-class encryption for your data, Traffic Manger requires interactions with services to be secured using Transport Layer Security (TLS) 1.2 or later before February 28,2025. Traffic Manger support for TLS 1.0 and 1.1 will end on this date. This date might be different than the [Azure-wide TLS 1.0 and TLS 1.1 retirement date](https://azure.microsoft.com/updates?id=update-retirement-tls1-0-tls1-1-versions-azure-services).
+
+**Recommended action** 
+
+To avoid service disruptions, resources that interact with Traffic Manager must use TLS 1.2 or later. 
+
+- If resources are already exclusively using TLS 1.2 or later, you don't need to take further action. 
+- If resources still have a dependency on TLS 1.0 or 1.1, transition them to TLS 1.2 or later by February 28, 2025. 
 
 For information about migrating from TLS 1.0 and 1.1 to TLS 1.2, see [Solving the TLS 1.0 Problem](/security/engineering/solving-tls1-problem).
 
