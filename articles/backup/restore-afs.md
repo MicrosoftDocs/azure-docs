@@ -161,6 +161,7 @@ You can also monitor restore progress from the Recovery Services vault:
  >- Folders will be restored with original permissions if there is atleast one file present in them.
  >- Trailing dots in any directory path can lead to failures in the restore.
 >- Restore of a file or folder with length *>2 KB* or with characters `xFFFF` or `xFFFE` isn't supported from snapshots.
+
 Learn more [about monitoring jobs across your business continuity estate](../business-continuity-center/tutorial-monitor-operate.md)
 
 ## Next steps
