@@ -25,8 +25,11 @@ Consult the [Azure NetApp Files datastore for Azure VMware Solution TCO Estimato
 
 ## Latency
 
-Traffic latency from AVS to Azure NetApp Files datastores varies from submillisecond (for environments under minimal load) up to 2-3 milliseconds (for environments under medium to heavy load). The latency is potentially higher for environments that attempt to push beyond the throughput limits of various components. Latency and throughput may vary depending on several factors, including I/O size, read/write ratios, competing network traffic, and so on.
+Traffic latency from AVS to Azure NetApp Files datastores varies from submillisecond (for environments under minimal load) up to 2-3 milliseconds (for environments under medium to heavy load). The latency is potentially higher for environments that attempt to push beyond the throughput limits of various components. Latency and throughput may vary depending on factors including I/O size, read/write ratios, competing network traffic, and others.
 
+## Performance scaling 
+
+Each AVS Host connects to each Azure NetApp Files datastore with a fixed number of network flows which may limit an individual VM disk's (VMDK) or AVS host’s throughput to each datastore. Multiple datastores might be required depending on a given set of workloads and their performance demands. Overall storage performance for each AVS host can be increased by spreading workloads across multiple datastores. You can also increase performance by spreading workload to each datastore across AVS hosts. The following graph shows the relative performance scaling of additional datastores. 
 
 
 <!-- -->
