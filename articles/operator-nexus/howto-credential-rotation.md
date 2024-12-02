@@ -62,7 +62,7 @@ In the `secretRotationStatus` object, the following fields provide context to th
 - `rotationPeriodDays`: The number in days the Credential Manager service is scheduled to rotate this credential. This value isn't remaining days from the `lastRotatedTime` since rotation can be delayed, but how many days on a schedule the service rotates a particular credential.
 - `secretArchiveReference`: A reference to the Key Vault that the credential is stored. It contains the ID of the key vault, the secret name of the stored credential, and the version of the secret that was previously rotated.
 
->[!NOTE]
+>[!CAUTION]
 > If a credential is changed on a device outside of the automatic credential rotation service, the next rotation will likely fail due to the secret not being known by the software. This prevents further automated rotation and a [baremetal machine replace](./howto-baremetal-functions.md) is required to address manually changed credentials.
 
 Operator Nexus also provides a service for preemptive rotation of the above Platform credentials. This service is available to customers upon request through a support ticket. Credential rotation for Operator Nexus Fabric devices also requires a support ticket. Instructions for generating a support request are described in the next section.
