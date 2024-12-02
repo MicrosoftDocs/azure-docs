@@ -7,7 +7,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 11/05/2024
+ms.date: 12/02/2024
 ---
 
 # Copy data from Google BigQuery using Azure Data Factory or Synapse Analytics (legacy)
@@ -36,6 +36,14 @@ The service provides a built-in driver to enable connectivity. Therefore, you do
 The connector supports the Windows versions in this [article](create-self-hosted-integration-runtime.md#prerequisites).
 
 The connector no longer supports P12 keyfiles. If you rely on service accounts, you are recommended to use JSON keyfiles instead. The P12CustomPwd property used for supporting the P12 keyfile was also deprecated. For more information, see this [article](https://cloud.google.com/sdk/docs/release-notes).
+
+To use this connector, you need the following minimum permissions of Google BigQuery:
+- bigquery.connections.*
+- bigquery.datasets.*
+- bigquery.jobs.*
+- bigquery.readsessions.*
+- bigquery.routines.*
+- bigquery.tables.*
 
 
 >[!NOTE]

@@ -6,7 +6,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 06/28/2024
+ms.date: 12/02/2024
 ms.author: jianleishen
 ---
 # Copy data from Netezza by using Azure Data Factory or Synapse Analytics
@@ -31,6 +31,12 @@ This Netezza connector is supported for the following capabilities:
 For a list of data stores that Copy Activity supports as sources and sinks, see [Supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).
 
 Netezza connector supports parallel copying from source. See the [Parallel copy from Netezza](#parallel-copy-from-netezza) section for details.
+
+The connector supports the Windows versions in this [article](create-self-hosted-integration-runtime.md#prerequisites).
+
+The connector does not support SSLv3 as it is [offcially deprecated by Netezza](https://www.ibm.com/docs/en/netezza?topic=npssac-netezza-performance-server-client-encryption-security-1).
+
+The connector supports Netezza Performance Server version 11.
 
 The service provides a built-in driver to enable connectivity. You don't need to manually install any driver to use this connector.
 
