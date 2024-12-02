@@ -32,11 +32,11 @@ For a list of data stores that Copy Activity supports as sources and sinks, see 
 
 Netezza connector supports parallel copying from source. See the [Parallel copy from Netezza](#parallel-copy-from-netezza) section for details.
 
+The connector supports Netezza Performance Server version 11.
+
 The connector supports the Windows versions in this [article](create-self-hosted-integration-runtime.md#prerequisites).
 
 The connector does not support SSLv3 as it is [offcially deprecated by Netezza](https://www.ibm.com/docs/en/netezza?topic=npssac-netezza-performance-server-client-encryption-security-1).
-
-The connector supports Netezza Performance Server version 11.
 
 The service provides a built-in driver to enable connectivity. You don't need to manually install any driver to use this connector.
 
