@@ -5,20 +5,20 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 11/08/2024
+ms.date: 12/02/2024
 ms.author: anfdocs
 ---
 # Migrate volumes to Azure NetApp Files 
 
-You can peer and migrate volumes from ONTAP or Cloud Volumes ONTAP to Azure NetApp Files. The feature is only available in the REST API. 
+You can peer and migrate volumes from on-premises ONTAP or Cloud Volumes ONTAP to Azure NetApp Files. The feature is only available in the REST API. 
 
 ## Considerations 
 
-* On your on-premises storage cluster, you must be running ONTAP 9.9.0 or later.
-* SnapMirror license entitlement needs to be obtained and applied to the on-premises or Cloud Volumes ONTAP cluster. If you already have the license, still work with your account team so they can get the Azure Technology Specialist involved in applying the license to the cluster. 
+* In ONTAP or Cloud Volumes ONTAP, you must be rqunning ONTAP 9.9.0 or later.
+* SnapMirror license entitlement needs to be obtained and applied to the on-premises ONTAP or Cloud Volumes ONTAP cluster. Work with your account team to involve an Azure Technology Specialist in applying the license to the on-premises storage cluster.
 * Ensure your [network topology](azure-netapp-files-network-topologies.md) is supported for Azure NetApp Files. Ensure you have established connectivity from your on-premises storage to Azure NetApp Files. 
 * The delegated subnet address space for hosting the Azure NetApp Files volumes must have at least seven free IP addresses: six for cluster peering and one for the migration volumes. The delegated subnet address space should be sized appropriately to accommodate more Azure NetApp Files network interfaces. Review [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md) to ensure you meet the requirements for delegated subnet sizing.  
-* After issuing the peering request, the request must be accepted within 60 minutes of making the request. If it's not accepted within 60 minutes, the request expires. 
+* After issuing the peering request, the request must be accepted within 60 minutes of making the request. Peer requests expire after 60 minutes. 
 
 ## Register the feature 
 
@@ -27,7 +27,7 @@ You can peer and migrate volumes from ONTAP or Cloud Volumes ONTAP to Azure NetA
 ## Migrate volumes
 
 1. Establish network connectivity from the ONTAP or Cloud Volumes ONTAP cluster to Azure NetApp Files. Work with the site reliability engineering team to create Express Route resources. 
-    TThe source cluster must have connectivity to the Azure NetApp Files delegated subnet. Connectivity includes: ICMP, TCP 11104, TCP 11105, and HTTPS.
+    The source cluster must have connectivity to the Azure NetApp Files delegated subnet. Connectivity includes: ICMP, TCP 11104, TCP 11105, and HTTPS.
     Network connectivity must be in place for all intercluster logical interfaces (LIFs) on the source cluster.
 1. Create a migration API request to create Azure NetApp Files volumes for each on-premises volume you intend to migrate. 
 1. 
