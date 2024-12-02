@@ -42,7 +42,7 @@ callTranscriptionFeature.off('isTranscriptionActiveChanged', isTranscriptionActi
 [!INCLUDE [Public Preview Disclaimer](../../../../includes/public-preview-include-document.md)]
 
 ## Explicit Consent
-If your Teams meeting or call is configured to require explicit consent for recording or transcription, you are required to gather explicit consent from your users to allow users to be transcribed or recorded. You can provide consent proactively when joining the meeting or reactively when the recording or transcription starts.
+If your Teams meeting or call is configured to require explicit consent for recording or transcription, you are required to gather explicit consent from your users to allow users to be transcribed or recorded. You can provide consent proactively when joining the meeting or reactively when the recording or transcription starts. Until users give explicit consent, users have disabled audio, video, and screen sharing.
 
 You can check if the meeting transcription requires explicit consent by property `isConsentRequired`. If the value is set to `true`, then explicit consent is required for the call.
 
@@ -50,8 +50,9 @@ You can check if the meeting transcription requires explicit consent by property
 const isTranscriptionConsentRequired = callTranscriptionFeature.isConsentRequired;
 ```
 
-If the transcription is active and explicit consent is required, user will not be able to unmute, turn video on and share screen until they provide the consent. You can provide the consent for the user by calling the method `consentToBeingRecordedAndTranscribed()`.
+If you already collected consent from the user to be transcribed, you can call method `consentToBeingRecordedAndTranscribed()` to indicate explicit consent to the service.
 
 ```js
 callTranscriptionFeature.consentToBeingRecordedAndTranscribed();
 ```
+Attempts to enable audio, video or screen sharing will fail when transcription is active, explicit consent is required but is not yet given. You can recognize this situation by checking property `reason` of class `ParticipantCapabilities` for [capabilities](../../capabilities.md) `turnVideoOn`, `unmuteMic` and `shareScreen`. You can find those [capabilities](../../capabilities.md) in the feature `call.feature(Features.Capabilities)`. Those [capabilities](../../capabilities.md) would return reason `ExplicitConsentRequired` as users need to provide explicit consent.
