@@ -25,7 +25,7 @@ Use this procedure to move an external load balancer to another region using the
 
 # [Internal load balancer](#tab/internal-load-balancer)
 
-## Move an external load balancer to another region using the Azure portal
+## Move an Internal load balancer to another region using the Azure portal
 
 Use this procedure to move an internal load balancer to another region using the Azure portal or Azure PowerShell.
 
