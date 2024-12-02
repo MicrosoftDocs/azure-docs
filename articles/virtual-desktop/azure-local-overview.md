@@ -19,7 +19,7 @@ Azure Virtual Desktop service components, such as host pools, workspaces, and ap
 
 ## Benefits
 
-Using Azure Virtual Desktop on , you can:
+Using Azure Virtual Desktop on Azure Local, you can:
 
 - Improve performance for Azure Virtual Desktop users in areas with poor connectivity to the Azure public cloud by giving them session hosts closer to their location.
 
