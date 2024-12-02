@@ -1,49 +1,26 @@
 ---
-title: 'Tutorial:  Use variant feature flags in Azure App Configuration (preview)'
+title: 'Tutorial: Use variant feature flags from Azure App Configuration in a Python application (preview)'
 titleSuffix: Azure App configuration
-description: In this tutorial, you learn how to set up and use variant feature flags in an App Configuration
-#customerintent: As a user of Azure App Configuration, I want to learn how I can use variants and variant feature flags in my application.
+description: In this tutorial, you learn how to use variant feature flags in an Python application
+#customerintent: As a user of Azure App Configuration, I want to learn how I can use variants and variant feature flags in my python application.
 author: mrm9084
 ms.author: mametcal
 ms.service: azure-app-configuration
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 10/28/2024
+ms.date: 12/02/2024
 ---
 
 # Tutorial: Use variant feature flags in Azure App Configuration (preview)
 
-Variant feature flags (preview) enable your application to support multiple variants of a feature. The variants of your feature can be assigned to specific users, groups, or percentile buckets. Variants can be useful for feature rollouts, configuration rollouts, and feature experimentation (also known as A/B testing).
-
-> [!NOTE]
-> A quicker way to start your variant journey is to run the [Quote of the Day AZD sample.](https://github.com/Azure-Samples/quote-of-the-day-python/)- This repository provides a comprehensive example, complete with variants and Azure resource provisioning.
-
-In this tutorial, you:
-
-> [!div class="checklist"]
-> * Create a variant feature flag
-> * Set up an app to consume variant feature flags
+In this tutorial, you use a variant feature flag to manage experiences for different user segments in an example application, *Quote of the Day*. You utilize the variant feature flag created in [Use variant feature flags](./use-variant-feature-flags.md). Before proceeding, ensure you create the variant feature flag named *Greeting* in your App Configuration store.
 
 ## Prerequisites
 
-* An Azure subscription. If you don’t have one, [create one for free](https://azure.microsoft.com/free/).
-* An [App Configuration store](./quickstart-azure-app-configuration-create.md).
+* Python 3.8 or later - for information on setting up Python on Windows, see the [Python on Windows documentation](/windows/python/)
+* Follow the [Use variant feature flags](./use-variant-feature-flags.md) tutorial and create the variant feature flag named *Greeting*.
 
-## Create a variant feature flag (preview)
-
-Create a variant feature flag (preview) called *Greeting* with no label and three variants, *None*, *Simple*, and *Long*. Creating variant flags is described in the [Feature Flag quickstart](./manage-feature-flags.md#create-a-variant-feature-flag-preview).
-
-| Variant Name | Variant Value | Allocation| 
-|---|---|---|
-| None *(Default)* | null | 50% |
-| Simple | "Hello!" | 25% |
-| Long | "I hope this makes your day!" | 25% | 
-
-## Set up an app to use the variants (preview)
-
-In this example, you create a Python Flask web app named _Quote of the Day_. When the app is loaded, it displays a quote. Users can interact with the heart button to like it. To improve user engagement, you want to explore whether a personalized greeting message increases the number of users who like the quote. Users who receive the _None_ variant see no greeting. Users who receive the _Simple_ variant get a simple greeting message. Users who receive the _Long_ variant get a slightly longer greeting. 
-
-### Create an app that uses variants (preview)
+## Create a Python web app
 
 1. Create a new project folder named *QuoteOfTheDay*.
 
@@ -62,7 +39,7 @@ In this example, you create a Python Flask web app named _Quote of the Day_. Whe
 1. Install the required packages. The latest preview versions of `azure-appconfiguration-provider`, and `featuremanagement` are required for variant feature flags (preview).
 
     ```bash
-    pip install flask azure-appconfiguration-provider==2.0.0b2 azure-identity featuremanagement[AzureMonitor]==2.0.0b2 flask-login flask_sqlalchemy flask_bcrypt
+    pip install flask azure-appconfiguration-provider==2.0.0b3 azure-identity featuremanagement[AzureMonitor]==2.0.0b3 flask-login flask_sqlalchemy flask_bcrypt
     ```
 
 1. Create a new file named *app.py* in the *QuoteOfTheDay* folder.
