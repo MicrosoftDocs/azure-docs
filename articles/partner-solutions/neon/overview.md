@@ -5,7 +5,7 @@ author: ProfessorKendrick
 ms.topic: overview
 ms.custom:
 
-ms.date: 11/22/2024
+ms.date: 12/02/2024
 ---
 
 # What is Neon Serverless Postgres (Preview)?
