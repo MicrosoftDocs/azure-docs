@@ -25,4 +25,4 @@ The intent of these releases is no disruption to running workloads and on-premis
 
 ## Duration of on-premises updates
 
-These updates take up to one hour to complete.
+These updates take up to one hour to complete per cluster. 
