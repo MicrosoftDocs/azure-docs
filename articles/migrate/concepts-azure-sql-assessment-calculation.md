@@ -18,7 +18,7 @@ An assessment with the Discovery and assessment tool is a point in time snapshot
 
 ## Types of assessments
 
-There are three types of assessments that you can create using the Azure Migrate: Discovery and assessment tool.
+There are four types of assessments that you can create using the Azure Migrate: Discovery and assessment tool.
 
 **Assessment Type** | **Details**
 --- | --- 
