@@ -6,7 +6,7 @@ ms.author: anraghun
 ms.topic: tutorial
 ms.service: azure-migrate
 ms.custom: devx-track-extended-java
-ms.date: 09/19/2024
+ms.date: 09/26/2024
 ---
 # Java web app containerization and migration to Azure App Service
 
