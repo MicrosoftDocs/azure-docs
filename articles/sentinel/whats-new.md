@@ -13,7 +13,7 @@ ms.date: 09/09/2024
 
 # What's new in Microsoft Sentinel
 
-This article lists recent features added for Microsoft Sentinel, and new features in related services that provide an enhanced user experience in Microsoft Sentinel. For new features in Microsoft's unifed security operations (SecOps) platform, see the [unified SecOps platform documentation](https://learn.microsoft.com/en-us/unified-secops-platform/whats-new).
+This article lists recent features added for Microsoft Sentinel, and new features in related services that provide an enhanced user experience in Microsoft Sentinel. For new features in Microsoft's unifed security operations (SecOps) platform, see the [unified SecOps platform documentation](/unified-secops-platform/whats-new).
 
 The listed features were released in the last three months. For information about earlier features delivered, see our [Tech Community blogs](https://techcommunity.microsoft.com/t5/azure-sentinel/bg-p/AzureSentinelBlog/label-name/What's%20New).
 
