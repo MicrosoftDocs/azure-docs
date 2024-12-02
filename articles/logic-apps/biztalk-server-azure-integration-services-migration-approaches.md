@@ -207,7 +207,7 @@ Each *wave* has its own testing activities, which are embedded in each User Stor
 
 - Run side by side tests.
 
-  Ideally, you already have baseline integration tests for your BizTalk Server environment and established automated tests for Azure Integration Services. You can then run tests side-by-side in a way that helps you check your interfaces by using the same data sets and improve overall test accuracy.
+  Ideally, you already have baseline integration tests for your BizTalk Server environment and established automated tests for Azure Logic Apps. You can then run tests side-by-side in a way that helps you check your interfaces by using the same data sets and improve overall test accuracy.
 
 #### Release to Production
 
