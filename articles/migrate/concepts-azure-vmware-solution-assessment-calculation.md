@@ -21,7 +21,7 @@ Discovery and assessment tool in Azure Migrate assesses on-premises servers for 
 
 ## Types of assessments
 
-Assessments you create with Azure Migrate are a point-in-time snapshot of data. There are two types of assessments you can create using Azure Migrate:
+Assessments you create with Azure Migrate are a point-in-time snapshot of data. There are four types of assessments you can create using Azure Migrate:
 
 **Assessment Type** | **Details**
 --- | --- 
