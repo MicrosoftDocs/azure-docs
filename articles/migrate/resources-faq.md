@@ -4,8 +4,8 @@ description: Get answers to common questions about the Azure Migrate service.
 author: v-sreedevank
 ms.author: v-sreedevank
 ms.topic: faq
-ms.date: 05/22/2024
-ms.custom: engagement-fy23
+ms.date: 06/20/2024
+ms.custom: engagement-fy25
 ---
 
 # Azure Migrate: Common questions

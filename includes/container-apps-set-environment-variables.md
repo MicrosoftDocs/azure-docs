@@ -8,7 +8,7 @@ ms.author: cshoe
 
 ## Set environment variables
 
-Set the following environment variables. Replace \<PLACEHOLDERS\> with your values:
+Set the following environment variables. Replace the `<PLACEHOLDERS>` with your values:
 
 # [Bash](#tab/bash)
 

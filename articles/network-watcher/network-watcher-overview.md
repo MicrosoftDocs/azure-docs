@@ -58,7 +58,7 @@ Network Watcher offers seven network diagnostic tools that help troubleshoot and
 
 ### NSG diagnostics
 
-**NSG diagnostics** allows you to detect traffic filtering issues at a virtual machine, virtual machine scale set, or application gateway level. It checks if a packet is allowed or denied to or from an IP address, IP prefix, or a service tag. It tells you which security rule allowed or denied the traffic. It also allows you to add a new security rule with a higher priority to allow or deny the traffic. For more information, see [NSG diagnostics overview](network-watcher-network-configuration-diagnostics-overview.md) and [Diagnose network security rules](diagnose-network-security-rules.md).
+**NSG diagnostics** allows you to detect traffic filtering issues at a virtual machine, virtual machine scale set, or application gateway level. It checks if a packet is allowed or denied to or from an IP address, IP prefix, or a service tag. It tells you which security rule allowed or denied the traffic. It also allows you to add a new security rule with a higher priority to allow or deny the traffic. For more information, see [NSG diagnostics overview](nsg-diagnostics-overview.md) and [Diagnose network security rules](diagnose-network-security-rules.md).
 
 ### Next hop
 

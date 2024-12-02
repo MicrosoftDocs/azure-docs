@@ -271,19 +271,19 @@ Use the following steps to add Trusona as a claims provider:
         <Item Key="METADATA">https://authcloud.trusona.net/.well-known/openid-configuration</Item>
         <Item Key="scope">openid profile email</Item>
          <!-- Update the Client ID to the Trusona Authentication Cloud Application ID -->
-         <Item Key="client_id">00000000-0000-0000-0000-000000000000</Item>
+         <Item Key="client_id">00001111-aaaa-2222-bbbb-3333cccc4444</Item>
         <Item Key="response_types">code</Item>
         <Item Key="response_mode">form_post</Item>
         <Item Key="HttpBinding">POST</Item>
         <Item Key="UsePolicyInRedirectUri">false</Item>
         <Item Key="IncludeClaimResolvingInClaimsHandling">true</Item>
         <!-- trying to add additional claim-->
-        <!--Insert b2c-extensions-app application ID here, for example: 11111111-1111-1111-1111-111111111111-->
-        <Item Key="11111111-1111-1111-1111-111111111111"></Item>
-        <!--Insert b2c-extensions-app application ObjectId here, for example: 22222222-2222-2222-2222-222222222222-->
-        <Item Key="11111111-1111-1111-1111-111111111111"></Item>
+        <!--Insert b2c-extensions-app application ID here, for example: 00001111-aaaa-2222-bbbb-3333cccc4444-->
+        <Item Key="00001111-aaaa-2222-bbbb-3333cccc4444"></Item>
+        <!--Insert b2c-extensions-app application ObjectId here, for example: aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb-->
+        <Item Key="00001111-aaaa-2222-bbbb-3333cccc4444"></Item>
         <!-- The key allows you to specify each of the Azure AD tenants that can be used to sign in. Update the GUIDs for each tenant. -->
-        <!--<Item Key="ValidTokenIssuerPrefixes">https://login.microsoftonline.com/187f16e9-81ab-4516-8db7-1c8ef94ffeca,https://login.microsoftonline.com/11111111-1111-1111-1111-111111111111</Item>-->
+        <!--<Item Key="ValidTokenIssuerPrefixes">https://login.microsoftonline.com/187f16e9-81ab-4516-8db7-1c8ef94ffeca,https://login.microsoftonline.com/00001111-aaaa-2222-bbbb-3333cccc4444</Item>-->
         <!-- The commented key specifies that users from any tenant can sign-in. Uncomment if you would like anyone with an Azure AD account to be able to sign in. -->
         <Item Key="ValidTokenIssuerPrefixes">https://login.microsoftonline.com/</Item>
         

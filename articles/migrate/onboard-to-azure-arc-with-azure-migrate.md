@@ -4,9 +4,9 @@ description: Onboard on-premises servers in VMware virtual environment to Azure 
 author: vijain
 ms.author: vijain
 ms.topic: how-to
-ms.date: 01/31/2023
+ms.date: 09/18/2024
 ms.service: azure-migrate
-ms.custom: engagement-fy23
+ms.custom: engagement-fy25
 ---
 
 # Onboard on-premises servers in VMware virtual environment to Azure Arc   

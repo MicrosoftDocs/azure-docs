@@ -3,7 +3,7 @@ title: Support matrix for VMware/physical disaster recovery in Azure Site Recove
 description: Summarizes support for disaster recovery of VMware VMs and physical server to Azure using Azure Site Recovery.
 ms.topic: concept-article
 ms.service: azure-site-recovery
-ms.date: 07/15/2024
+ms.date: 11/18/2024
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 ms.custom: engagement-fy23, linux-related-content
@@ -206,7 +206,7 @@ Debian 12 <br> **Note**: Support for Debian 12 is available for Modernized exper
 
 **Release** | **Mobility service version** | **Kernel version** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 12, SP1, SP2, SP3, SP4, SP5 | 9.63 | By default, all [stock SUSE 12 SP1, SP2, SP3, SP4, SP5, SP6 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported.</br> No new kernels in this release. | 
+SUSE Linux Enterprise Server 12, SP1, SP2, SP3, SP4, SP5 | 9.63 | By default, all [stock SUSE 12 SP1, SP2, SP3, SP4, SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported.</br> No new kernels in this release. | 
 SUSE Linux Enterprise Server 12, SP1, SP2, SP3, SP4, SP5 | 9.62 | By default, all [stock SUSE 12 SP1, SP2, SP3, SP4, SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported.</br> **SUSE 12 Azure kernels support added for Modernized experience:** <br> 4.12.14-16.185-azure:5 <br> 4.12.14-16.188-azure:5 <br> 4.12.14-16.191azure:5 <br> 4.12.14-16.194-azure:5  |
 SUSE Linux Enterprise Server 12, SP1, SP2, SP3, SP4, SP5 | [9.61](https://support.microsoft.com/topic/update-rollup-73-for-azure-site-recovery-d3845f1e-2454-4ae8-b058-c1fec6206698) | By default, all [stock SUSE 12 SP1, SP2, SP3, SP4, SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported.</br> **SUSE 12 Azure kernels support added for Modernized experience:** <br> 4.12.14-16.173-azure <br> 4.12.14-16.182-azure:5 <br><br> **SUSE 12 Azure kernels support added for Classic experience:** <br> 4.12.14-16.163-azure:5 <br> 4.12.14-16.168-azure:5  |
 SUSE Linux Enterprise Server 12, SP1, SP2, SP3, SP4 | 9.60 | By default, all [stock SUSE 12 SP1, SP2, SP3, SP4, SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported.</br> 4.12.14-16.163-azure:5 <br> 4.12.14-16.168-azure  |
@@ -265,11 +265,11 @@ Rocky Linux | [9.56](https://support.microsoft.com/topic/update-rollup-69-for-az
 File systems | ext3, ext4, XFS, BTRFS (conditions applicable as per this table)
 Logical volume management (LVM) provisioning| Thick provision - Yes <br></br> Thin provision - Yes, it is supported from [Update Rollup 61](https://support.microsoft.com/topic/update-rollup-61-for-azure-site-recovery-kb5012960-a1cc029b-03ad-446f-9365-a00b41025d39) onwards. It wasn't supported in earlier Mobility service versions.
 Volume manager | - LVM is supported.<br/> - /boot on LVM is supported from [Update Rollup 31](https://support.microsoft.com/help/4478871/) (version 9.20 of the Mobility service) onwards. It wasn't supported in earlier Mobility service versions.<br/> - Multiple OS disks aren't supported.
-Paravirtualized storage devices | Devices exported by paravirtualized drivers aren't supported.
+Paravirtualized storage devices | Devices exported by paravirtualized drivers aren't supported. <br><br> Supported only for VMware and not for AWS(Physical). 
 Multi-queue block IO devices | Not supported.
 Physical servers with the HP CCISS storage controller | Not supported.
 Device/Mount point naming convention | Device name or mount point name should be unique.<br/> Ensure that no two devices/mount points have case-sensitive names. For example, naming devices for the same VM as *device1* and *Device1* isn't supported.
-Directories | If you're running a version of the Mobility service earlier than version 9.20 (released in [Update Rollup 31](https://support.microsoft.com/help/4478871/)), then these restrictions apply:<br/><br/> - These directories (if set up as separate partitions/file-systems) must be on the same OS disk on the source server: /(root), /boot, /usr, /usr/local, /var, /etc.</br> - The /boot directory should be on a disk partition and not be an LVM volume.<br/><br/> From version 9.20 onwards, these restrictions don't apply.
+Directories | If you're running a version of the Mobility service earlier than version 9.20 (released in [Update Rollup 31](https://support.microsoft.com/help/4478871/)), then these restrictions apply:<br/><br/> - These directories (if set up as separate partitions/file-systems) must be on the same OS disk on the source server: /(root), /boot, /usr, /usr/local, /var, /etc.</br> - The /boot directory should be on a disk partition and not be an LVM volume.
 Boot directory | - Boot disks with GPT partition format are supported. GPT disks are also supported as data disks.<br/><br/> Multiple boot disks on a VM aren't supported.<br/><br/> - /boot on an LVM volume across more than one disk isn't supported.<br/> - A machine without a boot disk can't be replicated.
 Free space requirements| 2 GB on the /(root) partition <br/><br/> 600 MB on the installation folder
 XFSv5 | XFSv5 features on XFS file systems, such as metadata checksum, are supported (Mobility service version 9.10 onwards).<br/> Use the xfs_info utility to check the XFS superblock for the partition. If `ftype` is set to 1, then XFSv5 features are in use.
@@ -321,9 +321,10 @@ Azure virtual network service endpoints<br/> | Yes
 Accelerated networking | No
 
 ## Storage
+
 **Component** | **Supported**
 --- | ---
-Dynamic disk | OS disk must be a basic disk. <br/><br/>Data disks can be dynamic disks
+Dynamic disk | OS disk must be a basic disk. <br/><br/>Data disks can be dynamic disks. <br><br> Data disks can be spanned volumes.
 Docker disk configuration | No
 Host NFS | Yes for VMware<br/><br/> No for physical servers
 Host SAN (iSCSI/FC) | Yes

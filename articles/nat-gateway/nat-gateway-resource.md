@@ -153,7 +153,9 @@ The total number of connections that a NAT gateway can support at any given time
 
 - NAT Gateway doesn't support Public IP addresses with routing configuration type **internet**. To see a list of Azure services that do support routing configuration **internet** on public IPs, see [supported services for routing over the public internet](/azure/virtual-network/ip-services/routing-preference-overview#supported-services).
 
-- Public IPs with DDoS protection enabled aren't supported with NAT gateway. For more information, see [DDoS limitations](/azure/ddos-protection/ddos-protection-sku-comparison#limitations). 
+- Public IPs with DDoS protection enabled aren't supported with NAT gateway. For more information, see [DDoS limitations](/azure/ddos-protection/ddos-protection-sku-comparison#limitations).zzzzz
+  
+- Azure NAT Gateway is not supported in a secured virtual hub network (vWAN) architecture.
 
 ## Next steps
 

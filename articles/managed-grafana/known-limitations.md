@@ -62,7 +62,7 @@ Each data source also has its own limits that can be reflected in Azure Managed 
 
 ## Managed identities
 
-Each Azure Managed Grafana instance can only have one user-assigned managed identity, or one user-assigned managed identity assigned.
+Each Azure Managed Grafana instance can only be assigned one managed identity, user-assigned or system-assigned, but not both.
 
 ## Related links
 

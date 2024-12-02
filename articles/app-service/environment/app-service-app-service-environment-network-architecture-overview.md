@@ -61,26 +61,9 @@ If the endpoint being called is **inside** of the virtual network topology, the 
 
 However, since an App Service Environment is always located within a subnet, you're guaranteed that the internal IP address of a compute resource running an app will always lie within the CIDR range of the subnet.  As a result, when fine-grained ACLs or network security groups are used to secure access to other endpoints within the virtual network, the subnet range containing the App Service Environment needs to be granted access.
 
-The following diagram shows these concepts in more detail:
-
-![Outbound Network Addresses][OutboundNetworkAddresses]
-
-In the above diagram:
-
-* Since the public VIP of the App Service Environment is 192.23.1.2, that is the outbound IP address used when making calls to "Internet" endpoints.
-* The CIDR range of the containing subnet for the App Service Environment is 10.0.1.0/26.  Other endpoints within the same virtual network infrastructure will see calls from apps as originating from somewhere within this address range.
-
 ## Calls Between App Service Environments
 
 A more complex scenario can occur if you deploy multiple App Service Environments in the same virtual network, and make outbound calls from one App Service Environment to another App Service Environment.  These types of cross App Service Environment calls will also be treated as "Internet" calls.
-
-The following diagram shows an example of a layered architecture with apps on one App Service Environment (for example "Front door" web apps) calling apps on a second App Service Environment (for example internal back-end API apps not intended to be accessible from the Internet).
-
-![Calls Between App Service Environments][CallsBetweenAppServiceEnvironments]
-
-In the example above the App Service Environment "ASE One" has an outbound IP address of 192.23.1.2.  If an app running on this App Service Environment makes an outbound call to an app running on a second App Service Environment ("ASE Two") located in the same virtual network, the outbound call will be treated as an "Internet" call.  As a result the network traffic arriving on the second App Service Environment will show as originating from 192.23.1.2 (that is, not the subnet address range of the first App Service Environment).
-
-Even though calls between different App Service Environments are treated as "Internet" calls, when both App Service Environments are located in the same Azure region the network traffic will remain on the regional Azure network and won't physically flow over the public Internet.  As a result you can use a network security group on the subnet of the second App Service Environment to only allow inbound calls from the first App Service Environment (whose outbound IP address is 192.23.1.2), thus ensuring secure communication between the App Service Environments.
 
 ## Additional Links and Information
 
@@ -96,5 +79,3 @@ Details on using user-defined routes to grant outbound Internet access to App Se
 <!-- IMAGES -->
 [GeneralNetworkFlows]: ./media/app-service-app-service-environment-network-architecture-overview/NetworkOverview-1.png
 [OutboundIPAddress]: ./media/app-service-app-service-environment-network-architecture-overview/OutboundIPAddress-1.png
-[OutboundNetworkAddresses]: ./media/app-service-app-service-environment-network-architecture-overview/OutboundNetworkAddresses-1.png
-[CallsBetweenAppServiceEnvironments]: ./media/app-service-app-service-environment-network-architecture-overview/CallsBetweenEnvironments-1.png

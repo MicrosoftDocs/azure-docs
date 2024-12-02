@@ -60,7 +60,7 @@ ExpressRoute Traffic Collector supports both Provider-managed circuits and Expre
 | Dot1qVlanId | int | Dot1q VlanId. |
 | DstAsn | int | Destination Autonomous System Number (ASN). |
 | DstMask | int | Mask of destination subnet. |
-| DstSubnet | string | Destination subnet of destination IP. |
+| DstSubnet | string | Destination virtual network of destination IP. |
 | ExRCircuitDirectPortId | string | Azure resource ID of Express Route Circuit's direct port. |
 | ExRCircuitId | string | Azure resource ID of Express Route Circuit. |
 | ExRCircuitServiceKey | string | Service key of Express Route Circuit. |
@@ -85,7 +85,7 @@ ExpressRoute Traffic Collector supports both Provider-managed circuits and Expre
 | SourceSystem | string |  |
 | SrcAsn | int | Source Autonomous System Number (ASN). |
 | SrcMask | int | Mask of source subnet. |
-| SrcSubnet | string | Source subnet of source IP. |
+| SrcSubnet | string | Source virtual network of source IP. |
 | \_SubscriptionId | string | A unique identifier for the subscription that the record is associated with |
 | TcpFlag | int | TCP flag as defined in the TCP header. |
 | TenantId | string |  |
