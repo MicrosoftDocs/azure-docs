@@ -174,7 +174,7 @@ There are two ways to initiate a conversion:
 
 Instead of opening a support request, customers in most regions can start a conversion and monitor its progress. This option eliminates potential delays related to creating and managing support requests. For help determining the regions in which customer-initiated conversion is supported, refer to the [region limitations](#region) article.
 
-Customer-initiated conversion can be undertaken in supported regions using the [Azure portal](redundancy-migration?tabs=portal#customer-initiated-conversion), [PowerShell](redundancy-migration?tabs=powershell#customer-initiated-conversion), or the [Azure CLI](redundancy-migration?tabs=azure-cli#customer-initiated-conversion). A conversion typically begins within 72 hours after initiation, but can take longer due to resource availability, data volume, and other factors.
+Customer-initiated conversion can be undertaken in supported regions using the [Azure portal](redundancy-migration.md?tabs=portal#customer-initiated-conversion), [PowerShell](redundancy-migration.md?tabs=powershell#customer-initiated-conversion), or the [Azure CLI](redundancy-migration.md?tabs=azure-cli#customer-initiated-conversion). A conversion typically begins within 72 hours after initiation, but can take longer due to resource availability, data volume, and other factors.
 
 > [!IMPORTANT]
 > If you need more control over when a conversion begins and finishes, consider a [Manual migration](#manual-migration). Generally, the more data you have in your account, the longer it takes to replicate that data to other zones or regions.
