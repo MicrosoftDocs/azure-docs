@@ -14,7 +14,7 @@ You can peer and migrate volumes from on-premises ONTAP or Cloud Volumes ONTAP t
 
 ## Considerations 
 
-* In ONTAP or Cloud Volumes ONTAP, you must be rqunning ONTAP 9.9.0 or later.
+* In ONTAP or Cloud Volumes ONTAP, you must be running ONTAP 9.9.0 or later.
 * SnapMirror license entitlement needs to be obtained and applied to the on-premises ONTAP or Cloud Volumes ONTAP cluster. Work with your account team to involve an Azure Technology Specialist in applying the license to the on-premises storage cluster.
 * Ensure your [network topology](azure-netapp-files-network-topologies.md) is supported for Azure NetApp Files. Ensure you have established connectivity from your on-premises storage to Azure NetApp Files. 
 * The delegated subnet address space for hosting the Azure NetApp Files volumes must have at least seven free IP addresses: six for cluster peering and one for the migration volumes. The delegated subnet address space should be sized appropriately to accommodate more Azure NetApp Files network interfaces. Review [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md) to ensure you meet the requirements for delegated subnet sizing.  
