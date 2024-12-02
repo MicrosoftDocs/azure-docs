@@ -21,6 +21,8 @@
  #      href: hardware-attestation-approach.md 
     - name: Confidential computing solutions
       items:
+      - name: Azure Confidential Clean Rooms
+        href: confidential-clean-rooms.md
       - name: Building confidential computing solutions
         href: confidential-computing-solutions.md
       - name: Deploying solutions on confidential computing #moved from original #done

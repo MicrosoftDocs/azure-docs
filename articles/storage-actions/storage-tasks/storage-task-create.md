@@ -41,7 +41,7 @@ On the **Basics** tab, provide the essential information for your storage task. 
 | Project details | Subscription | Required | Select the subscription for the new storage task. |
 | Project details | Resource group | Required | Create a new resource group for this storage task, or select an existing one. For more information, see [Resource groups](../../azure-resource-manager/management/overview.md#resource-groups). |
 | Instance details | Storage task name | Required | Choose a unique name for your storage task. Storage task names must be between 3 and 18 characters in length and might contain only lowercase letters and numbers. |
-| Instance details | Region | Required | Select the appropriate region for your storage task. For more information, see [Regions and Availability Zones in Azure](../../availability-zones/az-overview.md). |
+| Instance details | Region | Required | Select the appropriate region for your storage task. For more information, see [Regions and Availability Zones in Azure](../../reliability/availability-zones-overview.md). |
 
 The following image shows an example of the **Basics** tab.
 

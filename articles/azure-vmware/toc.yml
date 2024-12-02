@@ -133,6 +133,8 @@ items:
       href: protect-azure-vmware-solution-with-application-gateway.md
   - name: Configure customer-managed key encryption at rest
     href: configure-customer-managed-keys.md
+  - name: Configure vTPM on a Virtual Machine
+    href: configure-virtual-trusted-platform-module.md
 - name: Networking
   items:
   - name: Connect to on-premises environment
@@ -199,6 +201,8 @@ items:
   items:
   - name: Operating system support for VMs
     href: ecosystem-os-vms.md
+  - name: Configure vTPM on a Virtual Machine
+    href: configure-virtual-trusted-platform-module.md
   - name: Configure Windows Server Failover Cluster
     href: configure-windows-server-failover-cluster.md
   - name: Deploy VMs from the content library

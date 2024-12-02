@@ -4,7 +4,7 @@ description: Learn how to quickly configure backup for a Kubernetes cluster usin
 ms.service: azure-backup
 ms.topic: quickstart
 ms.date: 05/31/2024
-ms.custom: devx-track-terraform, devx-track-extended-azdevcli
+ms.custom: devx-track-terraform, devx-track-extended-azdevcli, ignite-2024
 ms.reviewer: rajats
 ms.author: v-abhmallick
 author: AbhishekMallick-MS
