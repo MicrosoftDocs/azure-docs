@@ -65,7 +65,7 @@ This action is currently not yet supported for the [Consumption logic app resour
 
    This example uses the **Request** trigger.
 
-1. Under the step in your workflow where you want to add the **XML parse with schema** action, [follow these general steps to add the action named **XML parse with schema**](create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
+1. Under the step in your workflow where you want to add the **Parse XML with schema** action, [follow these general steps to add the action named **Parse XML with schema**](create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
 
 1. In the **Content** box, specify the XML content that you want to parse using any XML data that you receive in the HTTP request.
 
