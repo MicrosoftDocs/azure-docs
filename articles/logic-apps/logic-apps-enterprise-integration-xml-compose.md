@@ -90,7 +90,7 @@ This action is currently not yet supported for the [Consumption logic app resour
 
 1. To test your parsing action, trigger and run your workflow. For example, for the **Request** trigger, send a request to the trigger's endpoint URL.
 
-   The **XML compose with schema** action runs after your workflow is triggered and when JSON  content is available for composing XML data.
+   The **Compose XML with schema** action runs after your workflow is triggered and when JSON content is available for composing XML data.
 
 
 ## Advanced parameters
