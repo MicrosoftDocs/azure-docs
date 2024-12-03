@@ -198,7 +198,7 @@ Review the settings on the **Review + create** tab, and then select **Create** t
 
 3. Change the URL to *http://&lt;ip-address&gt;:8080/images/test.htm*, replacing &lt;ip-address&gt; with the public IP address of **myAppGateway**, and you should see something like the following example:
 
-    ![Screenshow of test images URL in application gateway](./media/application-gateway-create-url-route-portal/application-gateway-iistest-images.png)
+    ![Screenshot of test images URL in application gateway](./media/application-gateway-create-url-route-portal/application-gateway-iistest-images.png)
 
    The listener on port 8080 routes this request to the *Images* backend pool.
 

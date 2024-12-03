@@ -53,7 +53,7 @@ az resource update --resource-group <resource-group> --name scm --namespace Micr
 
 -----
 
-To confirm that FTP access is blocked, try [connecting to your app using FTP/S](deploy-ftp.md). You should get a `401 Unauthenticted` message.
+To confirm that FTP access is blocked, try [connecting to your app using FTP/S](deploy-ftp.md). You should get a `401 Unauthenticated` message.
 
 To confirm that Git access is blocked, try [local Git deployment](deploy-local-git.md). You should get an `Authentication failed` message.
 
@@ -80,7 +80,7 @@ The following table shows how various deployment methods behave when basic authe
 
 ## Create a custom role with no permissions for basic authentication
 
-To prevent a lower-priveldged user from enabling basic authentication for any app, you can create a custom role and assign the user to the role.
+To prevent a lower-privileged user from enabling basic authentication for any app, you can create a custom role and assign the user to the role.
 
 ### [Azure portal](#tab/portal)
 

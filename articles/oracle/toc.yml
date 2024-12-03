@@ -31,7 +31,7 @@ items:
       href: oracle-db/oracle-database-plan-ip.md
     - name: Delegated subnet limits
       href: oracle-db/oracle-database-delegated-subnet-limits.md      
-  - name: FAQ
+  - name: FAQs
     href: oracle-db/faq-oracle-database-azure.md
   - name: References
     items:
