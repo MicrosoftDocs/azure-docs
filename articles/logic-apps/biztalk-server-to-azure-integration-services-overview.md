@@ -897,7 +897,7 @@ The following table and diagram roughly show how resources, artifacts, features,
 | Cross-references | xref_ * tables on BizTalk Management database (BizTalkMgmtDb) | - Azure Functions <br>- SQL Server <br>- Custom |
 | Schemas (XSD) | - BizTalk Server schemas <br>- XML, JSON, and flat file schemas | - Azure Logic Apps and Azure Integration Account <br>- Azure Functions and Azure Storage Account <br>- Azure Logic Apps and Azure API App <br>- Azure Logic Apps (Standard) |
 | Maps | - BizTalk Mapper <br>- XSLT maps <br>- Azure API Management (hybrid capabilities) | - Azure Logic Apps and Azure Integration Account (XSLT maps, Liquid) <br>- Azure Functions and Azure Storage Account <br>- Azure Logic Apps and Azure API app <br>- Data Mapper tool (Azure Logic Apps Standard extension). 
-| Business rules | BizTalk Server Business Rules Engine | - Azure Logic Apps Rules Engine |
+| Business rules | BizTalk Server Business Rules Engine | Azure Logic Apps Rules Engine |
 | Business activity monitoring | BizTalk Server Business Activity Monitoring | - Business Process Tracking |
 | EDI | - BizTalk Server out-of-the-box capabilities <br>- Parties, partners, agreements, AS2, X12, EDIFACT | Azure Logic Apps and Azure Integration Account (partners, agreements, AS2, X12, EDIFACT) |
 | HL7, RosettaNet, and SWIFT | BizTalk Server accelerators for HL7, RosettaNet, and SWIFT | - Azure Logic Apps, RosettaNet and SWIFT connectors, and Azure Integration Account <br>- Azure API Management for FHIR (HL7) <br>- Azure Blueprint, which enables SWIFT CSP compliance on Azure |
