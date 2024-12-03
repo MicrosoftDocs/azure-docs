@@ -83,7 +83,7 @@ For example, suppose you receive JSON data from Azure Service Bus and need to se
 
 ## Advanced parameters
 
-The following are the advanced parameters for this action:
+The following table describes the advanced parameters available in this action:
 
    | Parameter | Value | Description |
    |-----------|-------|-------------|
