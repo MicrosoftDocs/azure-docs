@@ -196,7 +196,7 @@ The App Configuration provider loads data into a `Mapping` object, accessible as
 You can use Azure App Configuration in your existing Flask web apps by updating its in-built configuration. You can do this by passing your App Configuration provider object to the `update` function of your Flask app instance in `app.py`:
 
 ```python
-azure_app_config = load(connection_string=os.environ.get("AZURE_APPCONFIG_CONNECTION_STRING"))
+azure_app_config = load(endpoint=os.environ.get("AZURE_APPCONFIG_ENDPOINT"), credential=credential)
 
 # NOTE: This will override all existing configuration settings with the same key name.
 app.config.update(azure_app_config)
@@ -209,7 +209,7 @@ message = app.config.get("message")
 You can use Azure App Configuration in your existing Django web apps by adding the following lines of code into your `settings.py` file
 
 ```python
-AZURE_APPCONFIGURATION = load(connection_string=os.environ.get("AZURE_APPCONFIG_CONNECTION_STRING"))
+AZURE_APPCONFIGURATION = load(endpoint=os.environ.get("AZURE_APPCONFIG_ENDPOINT"), credential=credential)
 ```
 
 To access individual configuration settings in the Django views, you can reference them from the provider object created in Django settings. For example, in `views.py`:
