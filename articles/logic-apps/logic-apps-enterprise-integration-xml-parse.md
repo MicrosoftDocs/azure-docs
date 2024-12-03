@@ -104,3 +104,7 @@ The following are the advanced parameters for this action:
    | **Use Fully Qualified Names?** | No/Yes | Whether to use fully qualified XML names or simpler local XML names.  |
    | **Root Node Qualified Name?** | <*root-node-qualified-name*> | The root node's qualified name in case the schema contains multiple unreferenced element definitions.  |
 
+## Related content
+	
+- [Compose XML with schema](logic-apps-enterprise-integration-xml-compose.md)
+	
