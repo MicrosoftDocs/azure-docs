@@ -57,9 +57,12 @@ You can use rewrite conditions to evaluate the content of HTTP(S) requests and r
 
   An action can have the following value types or their combinations:
   * Text.
-  * Request header's value - To use a captured request header value, specify the syntax as `{http_req_headerName}`.
-  * Response header's value - To use a captured response header value from the preceding Condition, specify the syntax as `{http_resp_headerName}`. You can use `{capt_header_value_matcher}` when the value is captured from Action Set's "Set-Cookie" response header. Know more about [capture under Action set](#syntax-for-capturing).
+  * Request header's value - To use a captured Request header's value, specify the syntax as `{http_req_headerName}`.
+  * Response header's value - To use a captured Response header's value from the preceding Condition, specify the syntax as `{http_resp_headerName}`. The Rewrite Action block also supports the "Header Value Matcher" field for Set-Cookie header. This optional field lets you match as well as capture the value of a specific header when multiple Set-Cookie headers with the same name exist. To manipulate that specific cookie's captured value, you can then use `{capt_header_value_matcher}`. Know more about [capture under Action set](#syntax-for-capturing).
   * Server variable - To use a server variable, specify the syntax as `{var_serverVariable}`. [List of supported Server variables](#server-variables).
+
+> [!Note]
+> The use of Header Value Matcher field {capt_header_value_matcher} is currently not supported through Portal. Therefore, you will need to continue to use a non-portal method for any PUT operations, if you are using this field.  
 
   When using an Action to rewrite a URL, the following operations are supported:
   * URL path: The new value to be set as the path.
@@ -180,7 +183,7 @@ Here are the steps for replacing the hostname:
 
 You can fix several security vulnerabilities by implementing necessary headers in the application response. These security headers include X-XSS-Protection, Strict-Transport-Security, and Content-Security-Policy. You can use Application Gateway to set these headers for all responses.
 
-![A screenshow of a security header.](./media/rewrite-http-headers-url/security-header.png)
+![A screenshot of a security header.](./media/rewrite-http-headers-url/security-header.png)
 
 ### Delete unwanted headers
 
@@ -194,7 +197,7 @@ It isn't possible to create a rewrite rule to delete the host header. If you att
 
 You can evaluate an HTTP request or response header for the presence of a header or server variable. This evaluation is useful when you want to perform a header rewrite only when a certain header is present.
 
-![A screenshow showing the check presence of a header action.](./media/rewrite-http-headers-url/check-presence.png)
+![A screenshot showing the check presence of a header action.](./media/rewrite-http-headers-url/check-presence.png)
 
 ## Common scenarios for URL rewrite
 

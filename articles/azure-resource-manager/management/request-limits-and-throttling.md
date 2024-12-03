@@ -2,7 +2,7 @@
 title: Request limits and throttling
 description: Describes how to use throttling with Azure Resource Manager requests when subscription limits are reached.
 ms.topic: conceptual
-ms.date: 09/23/2024
+ms.date: 11/13/2024
 ms.custom: devx-track-arm-template
 ---
 
@@ -61,6 +61,8 @@ The limits may be smaller for free or trial customers.
 
 For example, suppose you have a bucket size of 250 tokens for read requests and refill rate of 25 tokens per second. If you send 250 read requests in a second, the bucket is empty and your requests are throttled. Each second, 25 tokens become available until the bucket reaches its maximum capacity of 250 tokens. You can use tokens as they become available.
 
+Reading metrics using the `*/providers/microsoft.insights/metrics` API contributes significantly to overall Azure Resource Manager traffic and is a common cause of subscription throttling events. If you use this API heavily, we recommend that you switch to the `getBatch` API. You can query multiple resources in a single REST request, which improves performance and reduces throttling. For more information about converting your operations, see [How to migrate from the metrics API to the getBatch API](/azure/azure-monitor/essentials/migrate-to-batch-api).
+
 ### How do I know if my subscription uses the new throttling experience?
 
 After your subscription is migrated to the new throttling experience, the response header shows the remaining requests per minute instead of per hour. Also, your `Retry-After` value shows one minute or less, instead of five minutes. For more information, see [Error code](#error-code).
@@ -100,8 +102,7 @@ In addition to those general limits, see the [usage limits for Azure DNS](/azure
 
 ### Compute throttling
 
-Microsoft Compute implements throttling to provide an optimal experience for Virtual Machine and Virtual Machine Scale Set users. [Compute Throttling Limits](/azure/virtual-machines/compute-throttling-limits) provides comprehensive information on throttling policies and limits for VM, Virtual Machine Scale Sets and Scale Set VMs.    
-
+Microsoft Compute implements throttling to provide an optimal experience for Virtual Machine and Virtual Machine Scale Set users. [Compute Throttling Limits](/azure/virtual-machines/compute-throttling-limits) provides comprehensive information on throttling policies and limits for VM, Virtual Machine Scale Sets and Scale Set VMs.
 
 ### Azure Resource Graph throttling
 
@@ -143,7 +144,7 @@ The resource provider can also return response headers with information about re
 
 ## Retrieving the header values
 
-Retrieving these header values in your code or script is no different than retrieving any header value. 
+Retrieving these header values in your code or script is no different than retrieving any header value.
 
 For example, in **C#**, you retrieve the header value from an **HttpWebResponse** object named **response** with the following code:
 
@@ -179,7 +180,7 @@ Pragma                        : no-cache
 x-ms-ratelimit-remaining-subscription-reads: 11999
 ```
 
-To get write limits, use a write operation: 
+To get write limits, use a write operation:
 
 ```powershell
 New-AzResourceGroup -Name myresourcegroup -Location westus -Debug
@@ -218,7 +219,7 @@ msrest.http_logger :     'Vary': 'Accept-Encoding'
 msrest.http_logger :     'x-ms-ratelimit-remaining-subscription-reads': '11998'
 ```
 
-To get write limits, use a write operation: 
+To get write limits, use a write operation:
 
 ```azurecli
 az group create -n myresourcegroup --location westus --verbose --debug

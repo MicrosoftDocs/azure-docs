@@ -132,7 +132,7 @@ Azure Front Door Standard is ~68% cheaper than Azure Front Door (classic) for fi
 
 ### Scenario 4: Request heavy scenario with WAF protection
 
-* 150 routing rules are configured to origins in different countries.
+* 150 routing rules are configured to origins in different countries/regions.
 * 20 TB of outbound data transfer.
 * 10 TB of inbound data transfer.
 * 5 billion requests from client to Azure Front Door edge.

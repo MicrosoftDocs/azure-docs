@@ -431,7 +431,7 @@ Azure CLI commands and Bicep template fragments are featured in this tutorial. I
 
     # [azd](#tab/azd)
 
-    use the logs command to view the logs
+    Use the logs command to view the logs.
 
     ```bash
     az containerapp logs show \
@@ -441,8 +441,6 @@ Azure CLI commands and Bicep template fragments are featured in this tutorial. I
     ```
 
     ---
-
-    :::image type="content" source="media/tutorial-dev-services-postgresql/azure-container-apps-postgresql-service-logs.png" alt-text="Screenshot of container app PostgreSQL service logs.":::
 
 ## Create an app to test the service
 

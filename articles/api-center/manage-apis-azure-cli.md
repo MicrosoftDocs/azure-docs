@@ -125,7 +125,7 @@ Use the [az apic api delete](/cli/azure/apic/api#az_apic_api_delete) command to 
 
 ```azurecli-interactive
 az apic api delete \
-    --resource-group myResoureGroup --service-name myAPICenter \
+    --resource-group myResourceGroup --service-name myAPICenter \
     --api-id petstore-api
 ```
 

@@ -4,8 +4,10 @@ description: Learn about the private DNS zone values for Azure services that sup
 author: AbdullahBell
 ms.author: abell
 ms.service: azure-private-link
+ms.custom:
+  - ignite-2024
 ms.topic: concept-article
-ms.date: 07/08/2024
+ms.date: 11/05/2024
 
 #CustomerIntent: As a network administrator, I want to configure the private DNS zone values for Azure services that support private endpoints.
 ---
@@ -94,6 +96,7 @@ For Azure services, use the recommended zone names as described in the following
 >| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
 >|---|---|---|---|
 >| Azure Kubernetes Service - Kubernetes API (Microsoft.ContainerService/managedClusters) | management | privatelink.{regionName}.azmk8s.io </br> {subzone}.privatelink.{regionName}.azmk8s.io | {regionName}.azmk8s.io |
+| Azure Container Apps (Microsoft.App/ManagedEnvironments) | managedEnvironment | privatelink.{regionName}.azurecontainerapps.io | azurecontainerapps.io |
 >| Azure Container Registry (Microsoft.ContainerRegistry/registries) | registry | privatelink.azurecr.io </br> {regionName}.data.privatelink.azurecr.io | azurecr.io </br> {regionName}.data.azurecr.io |
 
 ### Databases
@@ -208,6 +211,7 @@ For Azure services, use the recommended zone names as described in the following
 >| SignalR (Microsoft.SignalRService/SignalR) | signalr | privatelink.service.signalr.net | service.signalr.net |
 >| Azure Static Web Apps (Microsoft.Web/staticSites) | staticSites | privatelink.azurestaticapps.net </br> privatelink.{partitionId}.azurestaticapps.net | azurestaticapps.net </br> {partitionId}.azurestaticapps.net |
 >| Azure Event Hubs (Microsoft.EventHub/namespaces) | namespace | privatelink.servicebus.windows.net | servicebus.windows.net |
+>| Azure Web PubSub service (Microsoft.SignalRService/WebPubSub) | webpubsub | privatelink.webpubsub.azure.com | webpubsub.azure.com |
 
 <sup>1</sup>To use with IoT Hub's built-in Event Hub compatible endpoint. To learn more, see [private link support for IoT Hub's built-in endpoint](../iot-hub/virtual-network-support.md#built-in-event-hubs-compatible-endpoint)
 

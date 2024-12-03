@@ -201,7 +201,7 @@ To allow or disable video capture redirection, which includes cameras and webcam
 
 To allow or disable video capture redirection, which includes cameras and webcams, using Group Policy:
 
-1. Open the **Group Policy Management** console on device you use to manage the Active Directory domain.
+1. Open the **Group Policy Management** console on a device you use to manage the Active Directory domain.
 
 1. Create or edit a policy that targets the computers providing a remote session you want to configure.
 
