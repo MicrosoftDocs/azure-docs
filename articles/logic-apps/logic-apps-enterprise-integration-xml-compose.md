@@ -70,7 +70,7 @@ This action is currently not yet supported for the [Consumption logic app resour
  
 1. From the **Name** list, select your XSD schema.
 
-   After you select the schema, under the **Name** list, the schema's JSON input parameters for the root element dynamically appear,
+   After you select the schema, under the **Name** list, the schema's JSON input parameters for the root element dynamically appear.
 
 1. Enter the values for each element.
 
