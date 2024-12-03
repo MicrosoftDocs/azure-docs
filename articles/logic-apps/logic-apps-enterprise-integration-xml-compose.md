@@ -72,7 +72,7 @@ This action is currently not yet supported for the [Consumption logic app resour
 
    After you select the schema, under the **Name** list, the schema's JSON input parameters for the root element dynamically appear,
 
-1. Enter the values for each Element
+1. Enter the values for each element.
 
    1. To select outputs from previous operations in the workflow, in the **JSON Schema For Element 'Root'** section, select inside an attribute box, and then select the dynamic content list option (lightning icon).
 
