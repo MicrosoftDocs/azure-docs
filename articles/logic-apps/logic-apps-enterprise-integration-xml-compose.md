@@ -23,6 +23,10 @@ In enterprise integration business-to-business (B2B) or BizTalk migration scenar
 
 For example, suppose you receive JSON data from Azure Service Bus and need to send that data in XML format to an FTP server. You can use the JSON data as content for the **Compose XML with schema** action and create a new XML document with the source data. You can then submit this XML data to the FTP server.
 
+## Limitations
+
+This action is currently not yet supported for the [Consumption logic app resource and workflow](logic-apps-overview.md#resource-environment-differences).
+
 ## Prerequisites
 
 * An Azure account and subscription. If you don't have a subscription yet, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
