@@ -56,6 +56,7 @@ This action is currently not yet supported for the [Consumption logic app resour
    <xs:element name="Root">
        <....>
    </xs:element>
+
 ## Add a Parse XML with schema action
 
 
