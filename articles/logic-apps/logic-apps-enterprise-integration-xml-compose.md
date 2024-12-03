@@ -78,7 +78,7 @@ This action is currently not yet supported for the [Consumption logic app resour
 
    1. From the dynamic content list, select the token for the content that you want to compose for each attribute.
 
-      ![Screenshot shows Standard workflow with opened dynamic content list.](./media/logic-apps-enterprise-integration-xml-compose/open-dynamic-content-list-standard.png)
+      :::image type="content" source="./media/logic-apps-enterprise-integration-xml-compose/open-dynamic-content-list-standard.png" alt-text="Screenshot shows Standard workflow with opened dynamic content list.":::
 
 1. For an attribute that accepts an array, you can select **Switch to input entire array**, which appears only for array parameters.
 
