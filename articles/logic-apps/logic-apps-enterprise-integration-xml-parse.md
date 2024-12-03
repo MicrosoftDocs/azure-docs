@@ -91,7 +91,6 @@ This action is currently not yet supported for the [Consumption logic app resour
 
    The **XML parse with schema** action runs after your workflow is triggered and when XML content is available for parsing.
 
-
 ## Advanced parameters
 
 The following are the advanced parameters for this action:
