@@ -388,7 +388,7 @@ When you deploy the Blazor app to Azure App Service, we recommend that you use [
    * **Specific target**: All types of **Azure App Service** are supported.
    * **App Service**: Create or select the App Service instance.
 
-   [ ![The animation shows selection of Azure as target, and then Azure App Serice as specific target.](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-profile.gif) ](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-profile.gif#lightbox)
+   [ ![The animation shows selection of Azure as target, and then Azure App Service as specific target.](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-profile.gif) ](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-profile.gif#lightbox)
 
 1. Add the Azure SignalR Service dependency.
 
