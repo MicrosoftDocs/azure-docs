@@ -22,16 +22,15 @@ The listed features were released in the last three months. For information abou
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
-## November 2024
-
-- [New S3-based data connector for Amazon Web Services WAF logs (Preview)](#new-s3-based-data-connector-for-amazon-web-services-waf-logs-preview)
-- [Microsoft Sentinel availability in Microsoft Defender portal](#microsoft-sentinel-availability-in-microsoft-defender-portal)
+## December 2024
 
 ### New S3-based data connector for Amazon Web Services WAF logs (Preview)
 
 Ingest logs from Amazon Web Services' web application firewall (WAF) with Microsoft Sentinel's new S3-based connector. This connector features, for the first time, a quick and easy automated setup, making use of AWS CloudFormation templates for resource creation. Send your AWS WAF logs to an S3 bucket, where our data connector retrieves and ingests them.
 
 For more details and setup instructions, see [Connect Microsoft Sentinel to Amazon Web Services to ingest AWS WAF logs](connect-aws-s3-waf.md).
+
+## November 2024
 
 ### Microsoft Sentinel availability in Microsoft Defender portal
 
