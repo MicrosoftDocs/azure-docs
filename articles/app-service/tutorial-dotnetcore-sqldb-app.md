@@ -23,7 +23,7 @@ In this tutorial, you learn how to:
 > * Create a secure-by-default App Service, SQL Database, and Redis cache architecture.
 > * Secure connection secrets using a managed identity and Key Vault references.
 > * Deploy a sample ASP.NET Core app to App Service from a GitHub repository.
-> * Acces App Service connection strings and app settings in the application code.
+> * Access App Service connection strings and app settings in the application code.
 > * Make updates and redeploy the application code.
 > * Generate database schema by uploading a migrations bundle.
 > * Stream diagnostic logs from Azure.
