@@ -13,7 +13,11 @@ ms.date: 10/28/2024
 
 # XML parse in workflows with Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
+[!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
+
+> [!IMPORTANT]
+> This capability is in preview and is subject to the 
+> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 In enterprise integration business-to-business (B2B) or BizTalk migration scenarios, you might have to parse XML documents. Your logic app workflow can parse XML by using the **XML parse with schema** action.
 
