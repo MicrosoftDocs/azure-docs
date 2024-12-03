@@ -46,7 +46,6 @@ For example, suppose you regularly receive orders or invoices from a customer th
 
 ## Add a Parse XML with schema action
 
-### [Standard](#tab/standard)
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app and workflow in the designer.
 
