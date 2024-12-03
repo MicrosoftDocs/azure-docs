@@ -8,7 +8,7 @@ ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 11/11/2024
+ms.date: 12/03/2024
 
 #CustomerIntent: As an operator, I want to configure authentication so that I have secure MQTT broker communications.
 ---
@@ -826,6 +826,68 @@ The custom authentication server must present a server certificate, and MQTT bro
 ### Enable custom authentication for a listener
 
 Modify the `authenticationMethods` setting in a *BrokerAuthentication* resource to specify `Custom` as a valid authentication method. Then, specify the parameters required to communicate with a custom authentication server.
+
+# [Portal](#tab/portal)
+
+1. In the Azure portal, navigate to your IoT Operations instance.
+1. Under **Components**, select **MQTT Broker**.
+1. Select the **Authentication** tab.
+1. Choose an existing authentication policy or create a new one.
+1. Add a new method by selecting **Add method**.
+1. Choose the method type **Custom** from the dropdown list then select **Add details** to configure the method.
+
+:::image type="content" source="media/howto-configure-authentication/custom-method.png" alt-text="Screenshot using the Azure portal to set MQTT broker custom authentication method.":::
+
+# [Bicep](#tab/bicep)
+
+```bicep
+param aioInstanceName string = '<AIO_INSTANCE_NAME>'
+param customLocationName string = '<CUSTOM_LOCATION_NAME>'
+param policyName string = '<POLICY_NAME>'
+
+resource aioInstance 'Microsoft.IoTOperations/instances@2024-11-01' existing = {
+  name: aioInstanceName
+}
+
+resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
+  name: customLocationName
+}
+
+resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2024-11-01' existing = {
+  parent: aioInstance
+  name: 'default'
+}
+
+resource myBrokerAuthentication 'Microsoft.IoTOperations/instances/brokers/authentications@2024-11-01' = {
+  parent: defaultBroker
+  name: policyName
+  extendedLocation: {
+    name: customLocation.id
+    type: 'CustomLocation'
+  }
+  properties: {
+    authenticationMethods: [
+      {
+        method: 'Custom'
+        serviceAccountTokenSettings: {
+          audiences: [
+            'aio-internal'
+            'my-audience'
+          ]
+        }
+      }
+    ]
+  }
+}
+```
+
+Deploy the Bicep file using Azure CLI.
+
+```azurecli
+az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
+```
+
+# [Kubernetes (preview)](#tab/kubernetes)
 
 This example shows all possible parameters. The exact parameters required depend on each custom server's requirements.
 
