@@ -37,7 +37,7 @@ This action is currently not yet supported for the [Consumption logic app resour
 
   * Is associated with the same Azure subscription as your logic app resource.
 
-  * Exists in the same location or Azure region as your logic app resource where you plan to use the **XML compose with schema** action.
+  * Exists in the same location or Azure region as your logic app resource where you plan to use the **Compose XML with schema** action.
 
   * Currently this actions are not yet supported in [Consumption logic app resource and workflow](logic-apps-overview.md#resource-environment-differences).
 
