@@ -7,7 +7,7 @@ author: haroldcampos
 ms.author: hcampos
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 10/28/2024
+ms.date: 12/03/2024
 ---
 
 # XML compose with schema in workflows with Azure Logic Apps
