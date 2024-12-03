@@ -26,7 +26,7 @@ You can mount a traditional datastore from a backup if you want to access files 
 
 You can unmount a backup when you no longer need to access the files in the datastore.
 
-If a backup is listed as mounted in the VMware vSphere client GUI, but it's not listed in the unmount backup screen, you need to use the REST API endpoint `/backup/{backup-Id}/cleanup` to clean up the out-of-bound datastores. After clean up, try the unmount procedure again.
+If a backup is listed as mounted in the VMware vSphere client GUI, but it's not listed in the unmount backup screen, you need to use the REST API endpoint `/backup/{backup-Id}/cleanup` to clean up the out-of-bound datastores. After cleanup, try the unmount procedure again.
 
 1.	In the left navigation of the vCenter web client page, select **Storage**.
 2.	Right-click a datastore and then go to **Cloud Backup for Virtual Machines > Unmount**.
@@ -41,7 +41,7 @@ If a backup is listed as mounted in the VMware vSphere client GUI, but it's not 
 You can attach one or more VMDKs from a backup to the parent VM, or to an alternate VM on the same ESXi host, or to an alternate VM on an alternate ESXi host managed by the same vCenter. 
 
 You have the following attach options:
-* You can attach virtual disks from a primary or a Azure NetApp Files backup.
+* You can attach virtual disks from a primary or an Azure NetApp Files backup.
 * You can attach virtual disks to the parent VM (the same VM that the virtual disk was originally associated with) or to an alternate VM on the same ESXi host.
   
 ### Considerations for attaching VMDKs
