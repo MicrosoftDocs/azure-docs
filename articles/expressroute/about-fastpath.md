@@ -91,6 +91,7 @@ FastPath Private endpoint/Private Link connectivity is supported for the followi
 > * FastPath connectivity to Azure Private Link service and Private endpoint deployed to a spoke Virtual Network, peered to the Hub Virtual Network (where the ExpressRoute Virtual Network Gateway is deployed), is supported. 
 > * Azure Private Link pricing won't apply to traffic sent over ExpressRoute FastPath. For more information about pricing, check out the [Private Link pricing page](https://azure.microsoft.com/pricing/details/private-link/).
 > * FastPath supports a max of 100Gbps connectivity to a single Availability Zone.
+> * FastPath is not supported with [Azure VWan ExpressRoute Gateway](https://learn.microsoft.com/en-us/azure/virtual-wan/virtual-wan-expressroute-about).
 
 > [!IMPORTANT]
 > For more information about supported scenarios and to enroll in the limited GA offering, complete this [Microsoft Form](https://aka.ms/FPlimitedga). Once Microsoft has reached out to you, [enable Private Link over FastPath](expressroute-howto-linkvnet-arm.md#fastpath-virtual-network-peering-user-defined-routes-udrs-and-private-link-support-for-expressroute-direct-connections) by running the commands in Step 2.
