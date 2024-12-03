@@ -109,7 +109,7 @@ After installing the WebRTC Redirector Service and the Teams desktop app, follow
 
 1. Quit and restart the Teams application.
 
-1. Select the More options menu (...) in the title bar and select **Settings**. 
+1. Select the More options menu (...) in the title bar, then select **Settings**. 
 
 1. Select **About Teams** to see the version.
 
