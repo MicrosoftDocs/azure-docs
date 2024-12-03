@@ -28,9 +28,9 @@ If there's a problem that needs to further investigation by the VM Console servi
 
 - A detailed description of the problem and its effect to the customer.
 - Screenshots. The Azure portal is obviously a visual component. Try to get as much visual data as possible to describe the problem happening. Screenshots are often the best way to show the problem or how to reproduce the problem.
-- [Private Endpoint IP](#determining-the-private-endpoint-ip-address)
-- [Private Endpoint connectivity](#determining-the-private-endpoint-connectivity)
-- [Collecting Console Data](#collecting-the-console-data)
+- [Private Endpoint IP](#determine-the-private-endpoint-ip-address)
+- [Private Endpoint connectivity](#determine-the-private-endpoint-connectivity)
+- [Collecting Console Data](#collect-the-console-data)
 
 ### Determine the private endpoint connectivity
 
