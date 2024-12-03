@@ -101,6 +101,3 @@ az desktopvirtualization hostpool show --name "MyHostPool" \
     --resource-group "MyResourceGroup" 
 ```
 ---
-
-## Update information
-
