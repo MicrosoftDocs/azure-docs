@@ -70,7 +70,7 @@ This action is currently not yet supported for the [Consumption logic app resour
 
 1. In the **Content** box, specify the XML content that you want to parse using any XML data that you receive in the HTTP request.
 
-   1. To select outputs from previous operations in the workflow, in the **XML parse with schema** action, click inside the **Content** box, and select the dynamic content list option (lightning icon).
+   1. To select outputs from previous operations in the workflow, in the **Parse XML with schema** action, select inside the **Content** box, and select the dynamic content list option (lightning icon).
 
    1. From the dynamic content list, select the token for the content that you want to parse.
 
