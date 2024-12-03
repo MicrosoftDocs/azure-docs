@@ -63,7 +63,7 @@ For example, suppose you receive JSON data from Azure Service Bus and need to se
 
    1. To select outputs from previous operations in the workflow, in the **JSON Schema For Element 'Root'** section, click inside the box for each attribute, and select the dynamic content list option (lightning icon).
 
-   1. From the dynamic content list, select the token for the content that you want to compose for each attribute. You can also **Switch to input entire array** if you want to use an array as input for the 'Root' element.
+   1. From the dynamic content list, select the token for the content that you want to compose for each attribute.
 
       ![Screenshot shows Standard workflow with opened dynamic content list.](./media/logic-apps-enterprise-integration-xml-compose/open-dynamic-content-list-standard.png)
 
