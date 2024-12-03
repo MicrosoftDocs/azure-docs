@@ -52,7 +52,7 @@ With caching policies shown in this example, the first request to a test operati
 1. In the **Inbound processing** section, select the **</>** icon.
     :::image type="content" source="media/api-management-howto-cache/code-editor.png" alt-text="Screenshot of the API Management policy editor in the portal.":::
 
-8. In the **Inbound** element, add the following policy:
+8. In the `inbound` element, add the following policy:
 
    ```xml
    <cache-lookup vary-by-developer="false" vary-by-developer-groups="false">
@@ -62,7 +62,7 @@ With caching policies shown in this example, the first request to a test operati
    </cache-lookup>
    ```
 
-9. In the **Outbound** element, add the following policy:
+9. In the `outbound` element, add the following policy:
 
    ```xml
    <cache-store duration="20" />

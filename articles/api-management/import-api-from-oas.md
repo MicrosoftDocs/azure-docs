@@ -103,7 +103,7 @@ After importing the API, if needed, you can update the settings by using the [Se
 
 In the portal, use the OpenAPI specification editor to view, validate, or edit the specification for the API that you imported. 
 
-TO use the OpenAPI specification editor:
+To use the OpenAPI specification editor:
 
 1. In the Azure portal, navigate to your API Management instance.
 1. In the left menu, under **APIs**, select **APIs** > **\<your API\>** > **All operations**.
