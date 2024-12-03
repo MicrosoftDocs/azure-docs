@@ -64,6 +64,8 @@ Dapr's latest client SDK packages are compatible with Azure Container Apps. You 
 
 [!INCLUDE [component-support](~/reusable-content/ce-skilling/azure/includes/dapr-in-azure/dapr-support-policy.md)]
 
+[Learn more about how to use the supported Dapr components in Azure Container Apps.][dapr-components]
+
 ### Tooling
 
 Azure Container Apps ensures compatibility with Dapr open source tooling, such as SDKs and the CLI. 

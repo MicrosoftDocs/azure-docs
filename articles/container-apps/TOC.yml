@@ -278,9 +278,9 @@
           href: dapr-functions-extension.md
       - name: Dapr components
         items:
-        - name: Overview
+        - name: Dapr components overview
           href: dapr-components.md
-        - name: Connect to external services
+        - name: Connect to Azure or third-party services
           href: dapr-component-connect-services.md
         - name: Connect to Azure services via Azure portal
           href: dapr-component-connection.md

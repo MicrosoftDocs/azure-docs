@@ -6,7 +6,7 @@ author: hhunter-ms
 ms.service: azure-container-apps
 ms.custom: build-2023
 ms.topic: conceptual
-ms.date: 12/02/2024
+ms.date: 12/03/2024
 ---
 
 # Dapr components in Azure Container Apps
@@ -71,7 +71,7 @@ scopes:
 ```
 
 > [!NOTE]
-> Dapr component scopes correspond to the Dapr application ID of a container app, not the container app name.
+> Dapr component scopes provide better security measures and correspond to the Dapr application ID of a container app, not the container app name.
 
 ## Component examples
 
@@ -183,8 +183,8 @@ This resource defines a Dapr component called `dapr-pubsub` via ARM.
 [aca-managed-id]: ./managed-identity.md
 [dapr-resiliency]: ./dapr-component-resiliency.md
 [dapr-components-connect-services]: ./dapr-component-connect-services.md
+[dapr-component]: ./dapr-overview.md#tier-1-versus-tier-2-components
 
 <!-- Links External -->
 
-[dapr-component]: https://docs.dapr.io/concepts/components-concept/
 [dapr-component-spec]: https://docs.dapr.io/reference/resource-specs/
