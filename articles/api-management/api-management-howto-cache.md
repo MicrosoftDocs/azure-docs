@@ -3,7 +3,7 @@ title: Add caching to improve performance in Azure API Management
 description: Learn how to improve the latency, bandwidth consumption, and web service load for API Management service calls.
 author: dlepow
 ms.service: azure-api-management
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/20/2024
 ms.author: danlep
 ---
@@ -40,7 +40,7 @@ To complete this tutorial:
 + [Create an Azure API Management instance](get-started-create-service-instance.md)
 + [Import and publish an API](import-and-publish.md)
 
-## <a name="caching-policies"> </a>Add the caching policies
+## Add the caching policies
 
 With caching policies shown in this example, the first request to a test operation returns a response from the backend service. This response is cached, keyed by the specified headers and query string parameters. Subsequent calls to the operation, with matching parameters, will have the cached response returned, until the cache duration interval has expired.
 
@@ -73,7 +73,7 @@ With caching policies shown in this example, the first request to a test operati
 > [!TIP]
 > If you are using an external cache, as described in [Use an external Azure Cache for Redis in Azure API Management](api-management-howto-cache-external.md), you may want to specify the `caching-type` attribute of the caching policies. See [API Management caching policies](api-management-policies.md#caching) for more details.
 
-## <a name="test-operation"> </a>Call an operation and test the caching
+## Call an operation and test the caching
 To see the caching in action, call an operation from the portal.
 
 1. In the Azure portal, browse to your API Management instance.
@@ -83,7 +83,7 @@ To see the caching in action, call an operation from the portal.
 1. Select the **Test** tab in the top right menu.
 1. Select **Send**.
 
-## <a name="next-steps"> </a>Next steps
+## Related content
 * For more information about caching policies, see [Caching policies][Caching policies] in the [API Management policy reference][API Management policy reference].
 * For information on caching items by key using policy expressions, see [Custom caching in Azure API Management](api-management-sample-cache-by-key.md).
 * For more information about using external Azure Cache for Redis, see [Use an external Azure Cache for Redis in Azure API Management](api-management-howto-cache-external.md).
@@ -112,7 +112,4 @@ To see the caching in action, call an operation from the portal.
 
 [Create an API Management service instance]: get-started-create-service-instance.md
 
-[Configure an operation for caching]: #configure-caching
-[Review the caching policies]: #caching-policies
-[Call an operation and test the caching]: #test-operation
-[Next steps]: #next-steps
+
