@@ -54,7 +54,7 @@ For example, suppose you receive JSON data from Azure Service Bus and need to se
    This example uses the **Request** trigger.
 
 
-1. Under the step in your workflow where you want to add the **XML parse with schema** action, [follow these general steps to add the action named **XML parse with schema**](create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
+1. Under the step in your workflow where you want to add the **Compose XML with schema** action, [follow these general steps to add the action named **Compose XML with schema**](create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
  
 1. From the **Source** list, select the location where you uploaded your XSD schema, either your **LogicApp** resource or your **IntegrationAccount**.
  
