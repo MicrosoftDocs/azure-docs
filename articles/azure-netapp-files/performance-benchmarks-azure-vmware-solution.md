@@ -25,18 +25,18 @@ Consult the [Azure NetApp Files datastore for Azure VMware Solution TCO Estimato
 
 ## Latency
 
-Traffic latency from AVS to Azure NetApp Files datastores varies from submillisecond (for environments under minimal load) up to 2-3 milliseconds (for environments under medium to heavy load). The latency is potentially higher for environments that attempt to push beyond the throughput limits of various components. Latency and throughput may vary depending on factors including I/O size, read/write ratios, competing network traffic, and others.
+Traffic latency from AVS to Azure NetApp Files datastores varies from submillisecond (for environments under minimal load) up to 2-3 milliseconds (for environments under medium to heavy load). The latency is potentially higher for environments that attempt to push beyond the throughput limits of various components. Latency and throughput can vary depending on factors including I/O size, read/write ratios, competing network traffic, and others.
 
 ## Performance scaling 
 
-Each AVS Host connects to each Azure NetApp Files datastore with a fixed number of network flows which may limit an individual VM disk's (VMDK) or AVS host’s throughput to each datastore. Multiple datastores might be required depending on a given set of workloads and their performance demands. Overall storage performance for each AVS host can be increased by spreading workloads across multiple datastores. You can also increase performance by spreading workload to each datastore across AVS hosts. The following graph shows the relative performance scaling of additional datastores. 
+Each AVS Host connects to each Azure NetApp Files datastore with a fixed number of network flows which can limit an individual VM disk's (VMDK) or AVS host’s throughput to each datastore. Multiple datastores might be required depending on a given set of workloads and their performance demands. Overall storage performance for each AVS host can be increased by spreading workloads across multiple datastores. You can also increase performance by spreading workload to each datastore across AVS hosts. The following graph shows the relative performance scaling of additional datastores. 
 
 :::image type="content" source="./media/performance-benchmarks-azure-vmware-solution/performance-gains.png" alt-text="Graph of performance gains." lightbox="./media/performance-benchmarks-azure-vmware-solution/performance-gains.png":::
 
 >[!NOTE]
->Throughput ceiling for external datastores may be limited by other factors including network bandwidth, SKU limits, or service level ceilings for Azure NetApp Files volumes.
+>Throughput ceiling for external datastores can be limited by other factors including network bandwidth, SKU limits, or service level ceilings for Azure NetApp Files volumes.
 
-Throughput for each individual host may be affected by the selected AVS SKU. The AV64 SKU has 100-Gigabit Ethernet (GbE) network interface cards (NICs). The other SKUs have 25 GbE NICs. Individual network flows (such as NFS mounts) may be limited by the 25 GbE NICs. 
+Throughput for each individual host can be affected by the selected AVS SKU. The AV64 SKU has 100-Gigabit Ethernet (GbE) network interface cards (NICs). The other SKUs have 25-GbE NICs. Individual network flows (such as NFS mounts) might be limited by the 25-GbE NICs. 
 
 ## AV64 environment details  
 
@@ -70,7 +70,7 @@ These tests were conducted with an environment configuration using:
 
 - Azure VMware Solution host size: AV36 running VMware ESXi version 7u3
 - Azure VMware Solution private cloud connectivity: UltraPerformance gateway with FastPath
-- Guest virtual machines: Ubuntu 21.04, 16 vCPU, 64 GB Memory
+- Guest virtual machines: Ubuntu 21.04, 16 vCPU, 64-GB Memory
 - Workload generator: `fio`
 
 ### One-to-multiple virtual machines running on a single AV36 host and a single Azure NetApp Files datastore
