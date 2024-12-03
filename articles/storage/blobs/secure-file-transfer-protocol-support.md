@@ -6,7 +6,7 @@ author: normesta
 
 ms.service: azure-blob-storage
 ms.topic: conceptual
-ms.date: 09/03/2024
+ms.date: 11/15/2024
 ms.custom: references_regions
 ms.author: normesta
 
@@ -177,12 +177,17 @@ SFTP is a platform level service, so port 22 will be open even if the account op
 
 The following clients have compatible algorithm support with SFTP for Azure Blob Storage. See [Limitations and known issues with SSH File Transfer Protocol (SFTP) support for Azure Blob Storage](secure-file-transfer-protocol-known-issues.md) if you're having trouble connecting. This list isn't exhaustive and may change over time.
 
+- AIX<sup>1</sup>
 - AsyncSSH 2.1.0+
 - Axway
+- curl 7.85.0+
 - Cyberduck 7.8.2+
 - edtFTPjPRO 7.0.0+
 - FileZilla 3.53.0+
+- Five9
+- JSCH 0.1.54+
 - libssh 0.9.5+
+- MobaXterm v21.3
 - Maverick Legacy 1.7.15+
 - Moveit 12.7
 - Mule 2.1.2+
@@ -192,6 +197,7 @@ The following clients have compatible algorithm support with SFTP for Azure Blob
 - PuTTY 0.74+
 - QualysML 12.3.41.1+
 - RebexSSH 5.0.7119.0+
+- Ruckus 6.1.2+
 - Salesforce
 - ssh2js 0.1.20+
 - sshj 0.27.0+
@@ -199,10 +205,6 @@ The following clients have compatible algorithm support with SFTP for Azure Blob
 - WinSCP 5.10+
 - Workday
 - XFB.Gateway
-- JSCH 0.1.54+
-- curl 7.85.0+
-- AIX<sup>1</sup>
-- MobaXterm v21.3
 
 <sup>1</sup>    Must set `AllowPKCS12KeystoreAutoOpen` option to `no`.
 

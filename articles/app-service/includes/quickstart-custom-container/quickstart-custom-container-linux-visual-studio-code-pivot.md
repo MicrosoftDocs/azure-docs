@@ -8,7 +8,7 @@ ms.date: 06/30/2022
 ms.author: cephalin
 ---
 
-[Azure App Service](../../overview.md) on Linux provides pre-defined application stacks on Linux with support for languages such as .NET, PHP, Node.js and others. You can also use a custom Docker image to run your web app on an application stack that isn't already defined in Azure. This quickstart shows you how to deploy an image from an [Azure Container Registry (ACR)](../../../container-registry/index.yml) to App Service.
+[Azure App Service](../../overview.md) on Linux provides pre-defined application stacks on Linux with support for languages such as .NET, PHP, Node.js and others. You can also use a custom Docker image to run your web app on an application stack that isn't already defined in Azure. This quickstart shows you how to deploy an image from an [Azure Container Registry (ACR)](/azure/container-registry/) to App Service.
 
 > [!NOTE]
 > For information regarding running containerized applications in a serverless environment, please see [Container Apps](../../../container-apps/overview.md).
@@ -26,7 +26,7 @@ To complete this quickstart, you need:
 
 This quickstart uses Azure Container Registry as the registry of choice. You're free to use other registries, but the steps may differ slightly.
 
-Create a container registry by following the instructions in [Quickstart: Create a private container registry using the Azure portal](../../../container-registry/container-registry-get-started-portal.md).
+Create a container registry by following the instructions in [Quickstart: Create a private container registry using the Azure portal](/azure/container-registry/container-registry-get-started-portal).
 
 > [!IMPORTANT]
 > Be sure to set the **Admin User** option to **Enable** when you create the Azure container registry. You can also set it from the **Access keys** section of your registry page in the Azure portal. This setting is required for App Service access. For managed identity, see [Deploy from ACR tutorial](../../tutorial-custom-container.md?pivots=container-linux#vi-configure-the-web-app).
@@ -119,7 +119,7 @@ In this Dockerfile, the parent image is one of the built-in Java containers of A
 
 2. [Open the Command Palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette), and type **Docker Images: Build Image**. Type **Enter** to run the command.
 
-3. In the image tag box, specify the tag you want in the following format: `<acr-name>.azurecr.io/<image-name>/<tag>`, where `<acr-name>` is the name of the container registry you created. Press **Enter**.
+3. In the image tag box, specify the tag you want in the following format: `<acr-name>.azurecr.io/<image-name>:<tag>`, where `<acr-name>` is the name of the container registry you created. Press **Enter**.
 
 4. When the image finishes building, click **Refresh** at the top of the **IMAGES** explorer and verify that the image is built successfully.
 

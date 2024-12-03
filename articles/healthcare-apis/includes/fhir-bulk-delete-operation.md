@@ -7,7 +7,7 @@ ms.date: 04/01/2024
 ms.author: kesheth
 ---
 
-The bulk delete capability allows you to delete resources from FHIR service asynchronously. Bulk delete capability in FHIR service is supported with operations: `$bulk-delete` and `$bulk-delete-soft-deleted`. `$bulk-delete` operation allows you to delete resources in the FHIR service, except soft deleted resources. To delete soft deleted FHIR resources, you need to use `$bulk-delete-soft-deleted` operation.
+The bulk delete capability allows you to delete resources from FHIR&reg; service asynchronously. Bulk delete capability in FHIR service is supported with operations: `$bulk-delete` and `$bulk-delete-soft-deleted`. `$bulk-delete` operation allows you to delete resources in the FHIR service, except soft deleted resources. To delete soft deleted FHIR resources, you need to use `$bulk-delete-soft-deleted` operation.
 
 FHIR service requires specific headers and roles enabled to use bulk delete capability
 

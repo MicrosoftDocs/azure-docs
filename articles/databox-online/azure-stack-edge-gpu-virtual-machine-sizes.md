@@ -4,8 +4,7 @@ description: Describes the supported sizes for virtual machines (VMs) on an Azur
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: conceptual
 ms.date: 01/19/2024
 ms.author: alkohli

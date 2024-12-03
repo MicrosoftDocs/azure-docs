@@ -120,6 +120,9 @@ If bot protection is enabled, incoming requests that match bot rules are blocked
 
 The Bot Manager 1.1 rule set is available on Azure Front Door premium version.
 
+For more information, see [Azure WAF’s Bot Manager 1.1 and JavaScript Challenge: Navigating the Bot Threat Terrain](https://techcommunity.microsoft.com/t5/azure-network-security-blog/azure-waf-s-bot-manager-1-1-and-javascript-challenge-navigating/ba-p/4249652).
+
+
 ## Configuration
 
 You can configure and deploy all WAF policies by using the Azure portal, REST APIs, Azure Resource Manager templates, and Azure PowerShell. You can also configure and manage Azure WAF policies at scale by using Firewall Manager integration. For more information, see [Use Azure Firewall Manager to manage Azure Web Application Firewall policies](../shared/manage-policies.md).

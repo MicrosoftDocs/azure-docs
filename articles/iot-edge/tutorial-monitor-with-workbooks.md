@@ -5,7 +5,7 @@ author: PatAltimore
 ms.author: patricka
 ms.date: 06/10/2024
 ms.topic: tutorial
-ms.service: iot-edge
+ms.service: azure-iot-edge
 services: iot-edge
 ms.custom: mvc
 ---
@@ -34,7 +34,7 @@ Every IoT Edge device relies on two modules, the *runtime modules*, which manage
 
 Both of the runtime modules create metrics that allow you to remotely monitor how an IoT Edge device or its individual modules are performing. The IoT Edge agent reports on the state of individual modules and the host device, so creates metrics like how long a module has been running correctly, or the amount of RAM and percent of CPU being used on the device. The IoT Edge hub reports on communications on the device, so creates metrics like the total number of messages sent and received, or the time it takes to resolve a direct method. For the full list of available metrics, see [Access built-in metrics](how-to-access-built-in-metrics.md).
 
-These metrics are exposed automatically by both modules so that you can create your own solutions to access and report on these metrics. To make this process easier, Microsoft provides the [azureiotedge-metrics-collector module](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft_iot_edge.metrics-collector?tab=overview) that handles this process for those who don't have or want a custom solution. The metrics collector module collects metrics from the two runtime modules and any other modules you may want to monitor, and transports them off-device.
+These metrics are exposed automatically by both modules so that you can create your own solutions to access and report on these metrics. To make this process easier, Microsoft provides the [azureiotedge-metrics-collector module](https://mcr.microsoft.com/artifact/mar/azureiotedge-metrics-collector?tab=overview) that handles this process for those who don't have or want a custom solution. The metrics collector module collects metrics from the two runtime modules and any other modules you may want to monitor, and transports them off-device.
 
 The metrics collector module works one of two ways to send your metrics to the cloud. The first option, which we'll use in this tutorial, is to send the metrics directly to Log Analytics. The second option, which is only recommended if your networking policies require it, is to send the metrics through IoT Hub and then set up a route to pass the metric messages to Log Analytics. Either way, once the metrics are in your Log Analytics workspace, they are available to view through Azure Monitor workbooks.
 
@@ -50,9 +50,9 @@ A Log Analytics workspace is necessary to collect the metrics data and provides 
 
 1. Once your workspace is created, select **Go to resource**.
 
-1. From the main menu under **Settings**, select **Agents management**.
+1. From the main menu under **Settings**, select **Agents**.
 
-1. Copy the values of **Workspace ID** and **Primary key**. You'll use these two values later in the tutorial to configure the metrics collector module to send the metrics to this workspace.
+1. Copy the values of **Workspace ID** and **Primary key**, available under 'Log Analytics agent instructions'. You'll use these two values later in the tutorial to configure the metrics collector module to send the metrics to this workspace.
 
 ## Retrieve your IoT hub resource ID
 

@@ -2,7 +2,7 @@
  author: cherylmc
  ms.service: azure-vpn-gateway
  ms.topic: include
- ms.date: 01/23/2024
+ ms.date: 10/16/2024
  ms.author: cherylmc
 ---
 ### Is NAT supported on all Azure VPN Gateway SKUs?
@@ -57,8 +57,8 @@ In either case, you don't need destination network address translation (DNAT) ru
 
 You need to create one NAT rule for each prefix, because each NAT rule can include only one address prefix for NAT. For example, if the address space for the local network gateway consists of 10.0.1.0/24 and 10.0.2.0/25, you can create two rules:
 
-* **IngressSNAT** rule 1: Map 10.0.1.0/24 to 100.0.1.0/24.
-* **IngressSNAT** rule 2: Map 10.0.2.0/25 to 100.0.2.0/25.
+* **IngressSNAT** rule 1: Map 10.0.1.0/24 to 192.168.1.0/24.
+* **IngressSNAT** rule 2: Map 10.0.2.0/25 to 192.168.2.0/25.
 
 The two rules must match the prefix lengths of the corresponding address prefixes. The same guideline applies to **EgressSNAT** rules for the VNet address space.
 

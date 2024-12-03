@@ -14,7 +14,7 @@ This guide explains how to submit a support request to increase the number of re
 
 If your organization uses Deployment Environments extensively, you might encounter a quota limit during deployment. When you reach the limit for a resource in your subscription, you can request a limit increase (sometimes called a capacity increase or a quota increase) to extend the number of resources available. The request process allows the Azure Deployment Environments team to ensure that your subscription isn't involved in any cases of fraud or unintentional, sudden large-scale deployments. 
 
-To learn more about the general process for creating Azure support requests, see [Create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
+To learn more about the general process for creating Azure support requests, see [Create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request).
 
 ## Prerequisites
 

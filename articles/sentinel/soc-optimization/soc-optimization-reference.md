@@ -11,7 +11,10 @@ ms.date: 06/09/2024
 appliesto:
   - Microsoft Sentinel in the Microsoft Defender portal
   - Microsoft Sentinel in the Azure portal
-#customerIntent: As a SOC admin or SOC engineer, I want to learn about the SOC optimization recommendations available to help me optimize my security operations.
+
+
+#Customer intent: As a SOC manager, I want to implement SOC optimization recommendations so that I can close coverage gaps and improve data usage efficiency without manual analysis.
+
 ---
 
 # SOC optimization reference of recommendations
@@ -57,7 +60,7 @@ The following table lists the available threat-based SOC optimization recommenda
 
 |Observation  |Action  |
 |---------|---------|
-|There are data sources, but detections are missing.     |   Turn on analytics rule templates based on the threat.      |
+|There are data sources, but detections are missing.     |   Turn on analytics rule templates based on the threat: Create a rule using an analytics rule template, and adjust the name, description, and query logic to suit your environment. <br><br>For more information, see [Threat detection in Microsoft Sentinel](../threat-detection.md). |
 |Templates are turned on, but data sources are missing.     |    Connect new data sources.     |
 |There are no existing detections or data sources.     |   Connect detections and data sources or install a solution.      |
 

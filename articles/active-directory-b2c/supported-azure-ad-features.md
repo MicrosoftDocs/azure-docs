@@ -5,12 +5,12 @@ description: Learn about Microsoft Entra ID features, which are still supported 
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: overview
 ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As an Azure AD B2C tenant administrator, I want to understand the differences between Microsoft Entra ID and Azure AD B2C features, so that I can effectively manage user accounts and configure the appropriate features for my tenant.

@@ -87,7 +87,7 @@ az stack group create \
   --name '<deployment-stack-name>' \
   --resource-group '<resource-group-name>' \
   --template-file '<bicep-file-name>' \
-  --action-on-unmanage 'detachAll'
+  --action-on-unmanage 'detachAll' \
   --deny-settings-mode 'none'
 ```
 
@@ -424,8 +424,8 @@ You can obtain a list of the resources from the Azure portal or redeploy the cur
 
 ```output
 ...
-Resources: /subscriptions/9e8db52a-71bc-4871-9007-1117bf304622/resourceGroups/demoRg/providers/Microsoft.Network/virtualNetworks/vnetthmimleef5fwk
-           /subscriptions/9e8db52a-71bc-4871-9007-1117bf304622/resourceGroups/demoRg/providers/Microsoft.Storage/storageAccounts/storethmimleef5fwk
+Resources: /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/demoRg/providers/Microsoft.Network/virtualNetworks/vnetthmimleef5fwk
+           /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/demoRg/providers/Microsoft.Storage/storageAccounts/storethmimleef5fwk
 ```
 
 # [CLI](#tab/azure-cli)
@@ -434,13 +434,13 @@ Resources: /subscriptions/9e8db52a-71bc-4871-9007-1117bf304622/resourceGroups/de
 "resources": [
   {
     "denyStatus": "none",
-    "id": "/subscriptions/9e8db52a-71bc-4871-9007-1117bf304622/resourceGroups/demoRg/providers/Microsoft.Network/virtualNetworks/vnetthmimleef5fwk",
+    "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/demoRg/providers/Microsoft.Network/virtualNetworks/vnetthmimleef5fwk",
     "resourceGroup": "demoRg",
     "status": "managed"
   },
   {
     "denyStatus": "none",
-    "id": "/subscriptions/9e8db52a-71bc-4871-9007-1117bf304622/resourceGroups/demoRg/providers/Microsoft.Storage/storageAccounts/storethmimleef5fwk",
+    "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/demoRg/providers/Microsoft.Storage/storageAccounts/storethmimleef5fwk",
     "resourceGroup": "demoRg",
     "status": "managed"
   }

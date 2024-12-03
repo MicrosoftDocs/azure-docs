@@ -75,7 +75,7 @@ Follow these steps to create a dynamic storage pool for Azure Disks.
        azureDisk:
          skuName: PremiumV2_LRS
          iopsReadWrite: 5000
-         MbpsReadWrite: 200
+         mbpsReadWrite: 200
      resources:
        requests:
          storage: 1Ti

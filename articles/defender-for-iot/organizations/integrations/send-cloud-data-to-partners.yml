@@ -92,7 +92,7 @@ procedureSection:
       - |  
         Configure the **Destination** as **Event Type**, using the event hub namespace and event hub name you'd recorded earlier.
 
-        For more information, see [Log Analytics workspace data export in Azure Monitor](../../../azure-monitor/logs/logs-data-export.md?tabs=portal#create-or-update-a-data-export-rule).
+        For more information, see [Log Analytics workspace data export in Azure Monitor](/azure/azure-monitor/logs/logs-data-export?tabs=portal#create-or-update-a-data-export-rule).
   - title: |
       Configure Splunk to consume Microsoft Sentinel incidents
     summary: |

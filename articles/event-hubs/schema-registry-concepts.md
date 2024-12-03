@@ -22,7 +22,7 @@ Schema group is a logical group of similar schemas based on your business criter
 The security boundary imposed by the grouping mechanism help ensures that trade secrets don't inadvertently leak through metadata in situations where the namespace is shared among multiple partners. It also allows for application owners to manage schemas independent of other applications that share the same namespace.
 
 ### Schemas
-Schemas define the contract between producers and consumers. A schema defined in an Event Hubs schema registry helps manage the contract outside of event data, thus removing the payload overhead. A schema has a name, type (example: record, array, and so on.), compatibility mode (none, forward, backward, full), and serialization type (only Avro for now). You can create multiple versions of a schema and retrieve and use a specific version of a schema. 
+Schemas define the contract between producers and consumers. A schema defined in an Event Hubs schema registry helps manage the contract outside of event data, thus removing the payload overhead. A schema has a name, type (example: record, array, and so on.), compatibility mode (none, forward, backward, full), and serialization type (both Avro and JSON). You can create multiple versions of a schema and retrieve and use a specific version of a schema. 
 
 ### Schema formats 
 Schema formats are used to determine the manner in which a schema is structured and defined, with each format outlining specific guidelines and syntax for defining the structure of the events that will be used for event streaming.
@@ -34,7 +34,7 @@ To learn more about using Avro schema format with Event Hubs Schema Registry, se
 - [How to use schema registry with Kafka and Avro](schema-registry-kafka-java-send-receive-quickstart.md)
 - [How to use Schema registry with Event Hubs .NET SDK (AMQP) and Avro.](schema-registry-dotnet-send-receive-quickstart.md)
 
-#### JSON Schema (Preview)
+#### JSON Schema
 [JSON Schema](https://json-schema.org/) is a standardized way of defining the structure and data types of the events. JSON Schema enables the confident and reliable use of the JSON data format in event streaming. 
 
 To learn more about using JSON schema format with Event Hubs Schema Registry, see:  

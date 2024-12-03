@@ -21,6 +21,10 @@ landingContent:
             url: overview.md
           - text: Compare container options in Azure
             url: compare-options.md
+          - text: Learn to develop with .NET
+            url: dotnet-overview.md
+          - text: Learn to develop with Java
+            url: java-overview.md
   - title: Get started
     linkLists:
       - linkListType: quickstart
@@ -75,5 +79,3 @@ landingContent:
         links:
           - text: Microservices with Dapr
             url: microservices-dapr.md
-          - text: Background processing
-            url: background-processing.md

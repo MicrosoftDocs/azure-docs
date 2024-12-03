@@ -4,8 +4,7 @@ description: Describes how to apply updates using the Azure portal and local web
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 08/14/2024
 ms.author: alkohli

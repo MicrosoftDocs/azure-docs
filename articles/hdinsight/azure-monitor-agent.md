@@ -3,7 +3,7 @@ title: Azure Monitor Agent (AMA) migration guide for Azure HDInsight clusters
 description: Learn how to migrate to Azure Monitor Agent (AMA) in Azure HDInsight clusters.
 ms.service: azure-hdinsight
 ms.topic: how-to
-ms.date: 09/03/2024
+ms.date: 12/03/2024
 ---
 
 # Azure Monitor Agent (AMA) migration guide for Azure HDInsight clusters
@@ -39,7 +39,7 @@ Considering customer feedback, the Azure HDInsight team invested in integration 
 * Automated [DCR](/azure/azure-monitor/essentials/data-collection-rule-overview) resource creation for the existing tables. 
 
 > [!NOTE] 
->  Azure Monitor Agent (AMA) integration (including DCR and System Identity Authentication) is avaiable all regions where HDInsight is available. 
+>  Azure Monitor Agent (AMA) integration (including DCR and System Identity Authentication) is available in all regions, where HDInsight is available. 
 
 ## Benefits of Azure Monitor Agent (AMA) integration
 
@@ -177,7 +177,7 @@ Activate the new integration by going to your cluster's portal page and scrollin
     
     $hdinsightClusterResourceId = "/subscriptions/{subscription}/resourceGroups/{resourceGroup}/providers/Microsoft.HDInsight/clusters/{clusterName}" 
     
-    $dcrAssociationName = "dcrAssociationName {yourDcrAssociation} " 
+    $dcrAssociationName = "{yourDcrAssociation}" 
     
     New-AzDataCollectionRuleAssociation -AssociationName $dcrAssociationName -ResourceUri $hdinsightClusterResourceId -DataCollectionRuleId $dcr.Id 
     ```

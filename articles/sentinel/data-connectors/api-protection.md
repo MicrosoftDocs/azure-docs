@@ -3,7 +3,7 @@ title: "API Protection connector for Microsoft Sentinel"
 description: "Learn how to install the connector API Protection to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 04/26/2024
+ms.date: 10/28/2024
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ms.collection: sentinel-data-connector
@@ -65,14 +65,14 @@ The installation process is documented in great detail in the GitHub repository 
 
 Step 2: Retrieve the workspace access credentials
 
-The first installation step is to retrieve both your **Workspace ID** and **Primary Key** from the Sentinel platform.
+The first installation step is to retrieve both your **Workspace ID** and **Primary Key** from the Microsoft Sentinel platform.
 Copy the values shown below and save them for configuration of the API log forwarder integration.
 
 
 
 Step 3: Install the 42Crunch protection and log forwarder
 
-The next step is to install the 42Crunch protection and log forwarder to protect your API. Both components are availabe as containers from the [42Crunch repository](https://hub.docker.com/u/42crunch). The exact installation will depend on your environment, consult the [42Crunch protection documentation](https://docs.42crunch.com/latest/content/concepts/api_firewall_deployment_architecture.htm) for full details. Two common installation scenarios are described below:
+The next step is to install the 42Crunch protection and log forwarder to protect your API. Both components are availabe as containers from the [42Crunch repository](https://hub.docker.com/u/42crunch). The exact installation depends on your environment, consult the [42Crunch protection documentation](https://docs.42crunch.com/latest/content/concepts/api_firewall_deployment_architecture.htm) for full details. Two common installation scenarios are described below:
 
 
 Installation via Docker Compose
@@ -89,15 +89,15 @@ In order to test the data ingestion the user should deploy the sample *httpbin* 
 
 4.1 Install the sample
 
-The sample application can be installed locally using a [Docker compose file](https://github.com/42Crunch/azure-sentinel-integration/blob/main/sample-deployment/docker-compose.yml) which will install the httpbin API server, the 42Crunch API protection and the Sentinel log forwarder. Set the environment variables as required using the values copied from step 2.
+The sample application can be installed locally using a [Docker compose file](https://github.com/42Crunch/azure-sentinel-integration/blob/main/sample-deployment/docker-compose.yml) which installs the httpbin API server, the 42Crunch API protection, and the Microsoft Sentinel log forwarder. Set the environment variables as required using the values copied from step 2.
 
 4.2 Run the sample
 
-Verfify the API protection is connected to the 42Crunch platform, and then exercise the API locally on the *localhost* at port 8080 using Postman, curl, or similar. You should see a mixture of passing and failing API calls. 
+Verfify the API protection is connected to the 42Crunch platform, and then exercise the API locally on the *localhost* at port 8080 using curl, or similar. You should see a mixture of passing and failing API calls. 
 
 4.3 Verify the data ingestion on Log Analytics
 
-After approximately 20 minutes access the Log Analytics workspace on your Sentinel installation, and locate the *Custom Logs* section verify that a *apifirewall_log_1_CL* table exists. Use the sample queries to examine the data.
+After approximately 20 minutes access the Log Analytics workspace on your Microsoft Sentinel installation, and locate the *Custom Logs* section verify that a *apifirewall_log_1_CL* table exists. Use the sample queries to examine the data.
 
 
 

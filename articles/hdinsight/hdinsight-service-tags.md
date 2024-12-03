@@ -6,7 +6,7 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.author: sairamyeturi
 author: yeturis
-ms.date: 11/23/2023
+ms.date: 11/25/2024
 ---
 
 # NSG service tags for Azure HDInsight

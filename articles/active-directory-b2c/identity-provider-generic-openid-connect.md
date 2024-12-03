@@ -6,12 +6,12 @@ description: Set up sign-up and sign-in with any OpenID Connect identity provide
 author: garrodonnell
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: how-to
 ms.date: 12/28/2022
 ms.author: godonnell
-ms.subservice: B2C
+ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
 
 #Customer Intent: As a developer integrating Azure AD B2C with a custom OpenID Connect identity provider, I want to understand the steps to add the identity provider and configure the necessary settings, so that users can sign in securely using the custom identity provider.
@@ -64,7 +64,7 @@ Define the OpenId Connect identity provider by adding it to the **ClaimsProvider
           <Protocol Name="OpenIdConnect"/>
           <Metadata>
             <Item Key="METADATA">https://your-identity-provider.com/.well-known/openid-configuration</Item>
-            <Item Key="client_id">00000000-0000-0000-0000-000000000000</Item>
+            <Item Key="client_id">00001111-aaaa-2222-bbbb-3333cccc4444</Item>
             <Item Key="response_types">code</Item>
             <Item Key="scope">openid profile</Item>
             <Item Key="response_mode">form_post</Item>

@@ -1,8 +1,8 @@
 ---
 title: About agentless multi-disk crash-consistent backup for Azure Virtual Machines by using Azure Backup
 description: Learn about agentless multi-disk crash-consistent backup for Azure VMs by using Azure Backup via Azure portal.
-ms.topic: conceptual
-ms.date: 03/14/2024
+ms.topic: overview
+ms.date: 09/11/2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---

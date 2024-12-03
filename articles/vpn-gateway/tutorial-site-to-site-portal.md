@@ -6,7 +6,7 @@ author: cherylmc
 ms.author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: tutorial
-ms.date: 08/13/2024
+ms.date: 11/20/2024
 
 #customer intent: As a network engineer, I want to create a site-to-site VPN connection between my on-premises location and my Azure virtual network.
 ---
@@ -145,17 +145,7 @@ You can configure more settings for your connection, if necessary. Otherwise, sk
 
 [!INCLUDE [Verify the connection](../../includes/vpn-gateway-verify-connection-portal-include.md)]
 
-## <a name="connectVM"></a>Connect to a virtual machine
-
-[!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm.md)]
-
 ## Optional steps
-
-### <a name="resize"></a>Resize a gateway SKU
-
-There are specific rules about resizing versus changing a gateway SKU. In this section, you resize the SKU. For more information, see [Resize or change gateway SKUs](about-gateway-skus.md#resizechange).
-
-[!INCLUDE [resize a gateway](../../includes/vpn-gateway-resize-gw-portal-include.md)]
 
 ### <a name="reset"></a>Reset a gateway
 
@@ -174,7 +164,16 @@ A gateway can have multiple connections. If you want to configure connections to
 
 ### Update a connection shared key
 
-You can specify a different shared key for your connection. In the portal, go to the connection. Change the shared key on the **Authentication** page.
+You can specify a different shared key for your connection.
+
+1. In the portal, go to the connection.
+1. Change the shared key on the **Authentication** page.
+1. Save your changes.
+1. Update your VPN device with the new shared key as necessary.
+
+### <a name="resize"></a>Resize or change a gateway SKU
+
+You can resize a gateway SKU, or you can change the gateway SKU. There are specific rules regarding which option is available, depending on the SKU your gateway is currently using. For more information, see [Resize or change gateway SKUs](about-gateway-skus.md#resizechange).
 
 ### <a name="additional"></a>More configuration considerations
 
@@ -199,4 +198,4 @@ If you're not going to continue to use this application or go to the next tutori
 After you configure a site-to-site connection, you can add a point-to-site connection to the same gateway.
 
 > [!div class="nextstepaction"]
-> [Point-to-site VPN connections](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+> [Point-to-site VPN connections](point-to-site-certificate-gateway.md)

@@ -36,8 +36,8 @@ Service Health offers a personalized view of the Azure services and regions you 
 
 To set up a service health alert for planned maintenance, navigate to the Azure Portal and access the **Service Health** section. Select the **Alerts** tab and create a new alert by specifying the service type as **Azure Synapse Analytics or (and) SQL Data Warehouse**, based on your pool type. Choose **Maintenance** as the event type, define the scope and notification settings according to your preferences, and save the alert configuration. For detailed instructions, refer to the following resources:
 
-- [Service Health alerts](https://learn.microsoft.com/azure/service-health/service-health-overview).
-- [How to create a service health alert](https://learn.microsoft.com/azure/service-health/alerts-activity-log-service-notifications-portal#create-a-service-health-alert-using-the-azure-portal).
+- [Service Health alerts](/azure/service-health/service-health-overview).
+- [How to create a service health alert](/azure/service-health/alerts-activity-log-service-notifications-portal#create-a-service-health-alert-using-the-azure-portal).
 
 Remarks:
 As part of the configurations you need to set the condition details to be match the service which you are using.
@@ -146,7 +146,7 @@ There are various factors that could lead to the cancellation of scheduled maint
 
 ## Next steps
 
-- [Learn more](../../azure-monitor/alerts/alerts-metric.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) about creating, viewing, and managing alerts by using Azure Monitor.
-- [Learn more](../..//azure-monitor/alerts/alerts-log-webhook.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) about webhook actions for log alert rules.
-- [Learn more](../..//azure-monitor/alerts/action-groups.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) Creating and managing Action Groups.
-- [Learn more](../../service-health/service-health-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) about Azure Service Health.
+- [Learn more](/azure/azure-monitor/alerts/alerts-metric?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) about creating, viewing, and managing alerts by using Azure Monitor.
+- [Learn more](/azure/azure-monitor/alerts/alerts-log-webhook?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) about webhook actions for log alert rules.
+- [Learn more](/azure/azure-monitor/alerts/action-groups?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) Creating and managing Action Groups.
+- [Learn more](/azure/service-health/service-health-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) about Azure Service Health.

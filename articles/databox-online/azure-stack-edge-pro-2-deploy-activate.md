@@ -4,8 +4,7 @@ description: Tutorial to deploy Azure Stack Edge Pro 2 instructs you to activate
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: tutorial
 ms.date: 10/27/2022
 ms.author: alkohli

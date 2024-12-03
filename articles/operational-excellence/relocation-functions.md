@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.service: azure-functions
 author: anaharris-ms
 ms.author: anaharris
-ms.date: 08/11/2024
+ms.date: 09/13/2024
 ms.custom: subject-relocation
 #Customer intent: As an Azure service administrator, I want to move my Azure Functions resources to another Azure region.
 ---
@@ -16,7 +16,9 @@ This article describes how to move an Azure Functions-hosted function app to ano
 
 [!INCLUDE [relocate-reasons](./includes/service-relocation-reason-include.md)]
 
-The Azure resources that host your function app are region-specific and can't be moved across regions. Instead, you must create a copy of your existing function app resources in the target region, and then redeploy your functions code over to the new app.
+The Azure resources that host your function app are region-specific and can't be moved across regions. Instead, you must create a copy of your existing function app resources in the target region, and then redeploy your functions code over to the new app. 
+
+You can move these same resources to another resource group or subscription, as long as they remain in the same region. For more information, see [Move App Service resources to a new resource group or subscription](/azure/azure-resource-manager/management/move-limitations/app-service-move-limitations).
 
 ## Prerequisites
 

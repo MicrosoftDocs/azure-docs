@@ -70,7 +70,7 @@ This same cross-cluster IPAM capability is used to guarantee that containers con
 
 ## Nexus Relay
 
-Nexus Kubernetes utilizes the [Arc](../azure-arc/overview.md) [Azure Relay](../azure-relay/relay-what-is-it.md) functionality by integrating the Nexus kubernetes Hybrid Relay infrastructure in each region where the Nexus Cluster service operates.
+Nexus Kubernetes utilizes the [Arc](/azure/azure-arc/overview) [Azure Relay](../azure-relay/relay-what-is-it.md) functionality by integrating the Nexus kubernetes Hybrid Relay infrastructure in each region where the Nexus Cluster service operates.
 This setup uses dedicated Nexus relay infrastructure within Nexus owned subscriptions, ensuring that Nexus kubernetes cluster Arc Connectivity doesn't rely on shared public relay networks.
 
 Each Nexus kubernetes cluster and node instance is equipped with its own relay, and customers can manage Network ACL rules through the Nexus Cluster Azure Resource Manager APIs. These rules determine which networks can access both the az connectedk8s proxy and az ssh for their Nexus Arc resources within that specific on-premises Nexus Cluster. This feature enhances operator security by adhering to security protocols established after previous Arc/Relay security incidents, requiring remote Arc connectivity to have customer-defined network filters or ACLs.

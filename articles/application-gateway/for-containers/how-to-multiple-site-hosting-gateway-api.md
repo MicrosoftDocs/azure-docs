@@ -3,10 +3,9 @@ title: Multi-site hosting with Application Gateway for Containers - Gateway API
 description: Learn how to host multiple sites with Application Gateway for Containers using the Gateway API.
 services: application-gateway
 author: greglin
-ms.service: azure-application-gateway
-ms.subservice: appgw-for-containers
+ms.service: azure-appgw-for-containers
 ms.topic: how-to
-ms.date: 02/27/2024
+ms.date: 11/5/2024
 ms.author: greglin
 ---
 
@@ -31,7 +30,7 @@ Application Gateway for Containers enables multi-site hosting by allowing you to
   Apply the following deployment.yaml file on your cluster to create a sample web application to demonstrate path, query, and header based routing.
 
     ```bash
-    kubectl apply -f https://trafficcontrollerdocs.blob.core.windows.net/examples/traffic-split-scenario/deployment.yaml
+    kubectl apply -f https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/refs/heads/main/articles/application-gateway/for-containers/examples/traffic-split-scenario/deployment.yaml
     ```
 
    This command creates the following on your cluster:

@@ -6,12 +6,12 @@ description: Learn how to use roles to control resource access.
 author: garrodonnell
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: concept-article
 ms.date: 02/24/2023
 ms.author: godonnell
-ms.subservice: B2C
+ms.subservice: b2c
 
 #Customer Intent: As an Azure AD B2C administrator, I want to assign users the least privileged role required to access resources, so that I can ensure proper access control and security within my tenant.
 

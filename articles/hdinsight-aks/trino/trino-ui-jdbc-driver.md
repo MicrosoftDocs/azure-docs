@@ -4,12 +4,15 @@ description: Using the Trino JDBC driver.
 ms.service: azure-hdinsight-on-aks
 ms.custom: devx-track-extended-java
 ms.topic: how-to
-ms.date: 10/19/2023
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Trino JDBC driver
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 Trino with HDInsight on AKS provides JDBC driver, which supports Microsoft Entra authentication and adds few parameters for it. 
 

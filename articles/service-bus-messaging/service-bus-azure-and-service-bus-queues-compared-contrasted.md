@@ -98,7 +98,7 @@ This section compares advanced capabilities provided by Storage queues and Servi
 | Storage metrics |Yes<br/><br/>Minute Metrics provides real-time metrics for availability, TPS, API call counts, error counts, and more. They're all in real time, aggregated per minute and reported within a few minutes from what just happened in production. For more information, see [About Storage Analytics Metrics](/rest/api/storageservices/fileservices/About-Storage-Analytics-Metrics). |Yes<br/><br/>For information about metrics supported by Azure Service Bus, see [Message metrics](monitor-service-bus-reference.md#message-metrics). |
 | State management |No |Yes (Active, Disabled, SendDisabled, ReceiveDisabled. For details on these states, see [Queue status](entity-suspend.md#queue-status)) |
 | Message autoforwarding |No |Yes |
-| Purge queue function |Yes |No |
+| Purge queue function |Yes |[Yes](/azure/service-bus-messaging/batch-delete)|
 | Message groups |No |Yes<br/><br/>(by using messaging sessions) |
 | Application state per message group |No |Yes |
 | Duplicate detection |No |Yes<br/><br/>(configurable on the sender side) |
@@ -122,10 +122,10 @@ This section compares Storage queues and Service Bus queues from the perspective
 
 | Comparison Criteria | Storage queues | Service Bus queues |
 | --- | --- | --- |
-| Maximum queue size |500 TB<br/><br/>(limited to a [single storage account capacity](../storage/common/storage-introduction.md#queue-storage)) |1 GB to 80 GB<br/><br/>(defined upon creation of a queue and [enabling partitioning](service-bus-partitioning.md) – see the “Additional Information” section) |
-| Maximum message size |64 KB<br/><br/>(48 KB when using Base 64 encoding)<br/><br/>Azure supports large messages by combining queues and blobs – at which point you can enqueue up to 200 GB for a single item. |256 KB or 100 MB<br/><br/>(including both header and body, maximum header size: 64 KB).<br/><br/>Depends on the [service tier](service-bus-premium-messaging.md). |
+| Maximum queue size |500 TB<br/><br/>(limited to a [single storage account capacity](../storage/common/storage-introduction.md#queue-storage)) |1 GB to 80 GB<br/><br/>(Premium SKU or Standard SKU with partitioning)|
+| Maximum message size |64 KB<br/><br/>(48 KB when using Base 64 encoding)<br/><br/>Azure supports large messages by combining queues and blobs – at which point you can enqueue up to 200 GB for a single item. |256 KB, 1 MB or 100 MB<br/><br/>(including both header and body, maximum header size: 64 KB).<br/><br/>Depends on the [service tier](service-bus-premium-messaging.md). |
 | Maximum message TTL |Infinite (api-version 2017-07-27 or later) |TimeSpan.MaxValue |
-| Maximum number of queues |Unlimited |10,000<br/><br/>(per service namespace) |
+| Maximum number of queues |Unlimited |10,000 (Standard SKU)<br/>1000 / Messaging Unit (Premium SKU)<br/>(per service namespace) |
 | Maximum number of concurrent clients |Unlimited |5,000 |
 
 ### Additional information
@@ -134,7 +134,7 @@ This section compares Storage queues and Service Bus queues from the perspective
 * With Storage queues, if the content of the message isn't XML-safe, then it must be **Base64** encoded. If you **Base64**-encode the message, the user payload can be up to 48 KB, instead of 64 KB.
 * With Service Bus queues, each message stored in a queue is composed of two parts: a header and a body. The total size of the message can't exceed the maximum message size supported by the service tier.
 * When clients communicate with Service Bus queues over the TCP protocol, the maximum number of concurrent connections to a single Service Bus queue is limited to 100. This number is shared between senders and receivers. If this quota is reached, requests for additional connections will be rejected and an exception will be received by the calling code. This limit isn't imposed on clients connecting to the queues using REST-based API.
-* If you require more than 10,000 queues in a single Service Bus namespace, you can contact the Azure support team and request an increase. To scale beyond 10,000 queues with Service Bus, you can also create additional namespaces using the [Azure portal].
+* To scale beyond 10,000 queues with Service Bus Standard SKU or 1000 queues/Messaging Unit with Service Bus Premium SKU, you can also create additional namespaces using the [Azure portal].
 
 ## Management and operations
 This section compares the management features provided by Storage queues and Service Bus queues.

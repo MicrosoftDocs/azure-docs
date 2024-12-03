@@ -4,7 +4,7 @@ description: Learn how to configure macOS client computers to connect to Azure u
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 07/24/2024
+ms.date: 10/15/2024
 ms.author: cherylmc
 ---
 
@@ -36,11 +36,17 @@ This article continues on from the [Configure a P2S VPN gateway for Microsoft En
 
 ## <a name="generate"></a>Extract client profile configuration files
 
-To configure your Azure VPN Client profile, you download a VPN client profile configuration package from the Azure P2S gateway. This package contains the necessary settings to configure the VPN client.
-
 If you used the P2S server configuration steps as mentioned in the [Prerequisites](#prerequisites) section, you've already generated and downloaded the VPN client profile configuration package that contains the VPN profile configuration files. If you need to generate configuration files, see [Download the VPN client profile configuration package](point-to-site-entra-gateway.md#download).
 
-After you obtain the VPN client profile configuration package, extract the files.
+When you generate and download a VPN client profile configuration package, all the necessary configuration settings for VPN clients are contained in a VPN client profile configuration zip file. The VPN client profile configuration files are specific to the P2S VPN gateway configuration for the virtual network. If there are any changes to the P2S VPN configuration after you generate the files, such as changes to the VPN protocol type or authentication type, you need to generate new VPN client profile configuration files and apply the new configuration to all of the VPN clients that you want to connect.
+
+Locate and unzip the VPN client profile configuration package you generated and downloaded (listed in the [Prerequisites](#prerequisites)). Open the **AzureVPN** folder. In this folder, you'll see either the **azurevpnconfig_aad.xml** file or the **azurevpnconfig.xml** file, depending on whether your P2S configuration includes multiple authentication types. The .xml file contains the settings you use to configure the VPN client profile.
+
+## <a name="modify"></a>Modify profile configuration files
+
+If your P2S configuration uses a custom audience with your Microsoft-registered App ID, you might receive popups each time you connect that require you to enter your credentials again and complete authentication. Retrying authentication usually resolves the issue. This happens because the VPN client profile needs both the custom audience ID and the Microsoft application ID. To prevent this, modify your profile configuration .xml file to include both the custom application ID and the Microsoft application ID.
+
+[!INCLUDE [custom audience steps](../../includes/vpn-gateway-entra-vpn-client-custom.md)]
 
 ## Import VPN client profile configuration files
 
@@ -49,7 +55,6 @@ After you obtain the VPN client profile configuration package, extract the files
 
 1. On the Azure VPN Client page, select **Import**.
 
-   :::image type="content" source="media/point-to-site-entra-vpn-client-mac/import.png" alt-text="Screenshot of Azure VPN Client import selection." lightbox="media/point-to-site-entra-vpn-client-mac/import.png":::
 1. Navigate to the folder containing the file that you want to import, select it, then click **Open**.
 
 1. On this screen, notice the connection values are populated using the values in the imported VPN client configuration file.
@@ -61,8 +66,6 @@ After you obtain the VPN client profile configuration package, extract the files
 
 1. Click **Save** to save the connection profile configuration.
 1. In the VPN connections pane, select the connection profile that you saved. Then, click **Connect**.
-
-   :::image type="content" source="media/point-to-site-entra-vpn-client-mac/connect.png" alt-text="Screenshot of Azure VPN Client clicking Connect." lightbox="media/point-to-site-entra-vpn-client-mac/connect.png":::
 1. Once connected, the status changes to **Connected**. To disconnect from the session, click **Disconnect**.
 
 ## Create a connection manually
@@ -99,4 +102,4 @@ You can configure the Azure VPN Client with optional configuration settings such
 
 ## Next steps
 
-For more information, see [Create a Microsoft Entra tenant for P2S Open VPN connections that use Microsoft Entra authentication](openvpn-azure-ad-tenant.md).
+For more information, see [Configure P2S VPN Gateway for Microsoft Entra ID authentication](point-to-site-entra-gateway.md).

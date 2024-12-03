@@ -6,12 +6,12 @@ description: Page layout version history for UI customization in custom policies
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: reference
 ms.date: 04/16/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As a developer using Azure Active Directory B2C, I want to stay up-to-date with the latest page layout versions, so that I can ensure that my page elements reflect the latest security enhancements, accessibility standards, and fixes.

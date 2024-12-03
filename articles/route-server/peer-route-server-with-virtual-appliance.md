@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-route-server
 ms.topic: tutorial
-ms.date: 07/11/2024
+ms.date: 09/24/2024
 ---
 
 # Tutorial: Configure BGP peering between Azure Route Server and network virtual appliance (NVA)
@@ -95,7 +95,9 @@ In this section, you create an Azure Route Server.
 
     :::image type="content" source="./media/peer-route-server-with-virtual-appliance/create-route-server.png" alt-text="Screenshot of creating a Route Server in the Azure portal." lightbox="./media/peer-route-server-with-virtual-appliance/create-route-server.png":::
 
-1. Select **Review + create** and then select **Create** after validation passes. The Route Server takes about 15 minutes to deploy.
+1. Select **Review + create** and then select **Create** after validation passes.
+
+    [!INCLUDE [Deployment note](../../includes/route-server-note-creation-time.md)]
 
 1. Once the deployment is complete, select **Go to resource** to go to the **Overview** page of **myRouteServer**.  
 
@@ -255,6 +257,7 @@ When no longer needed, you can delete all resources created in this tutorial by 
 
 1. Select **Delete** to confirm the deletion of the resource group and all its resources.
 
-## Related content
+## Next step
 
-In this tutorial, you learned how to create and configure an Azure Route Server with a network virtual appliance (NVA). To learn more about Route Servers, see [Azure Route Server frequently asked questions (FAQ)](route-server-faq.md).
+> [!div class="nextstepaction"]
+> [Configure and manage Azure Route Server](configure-route-server.md)

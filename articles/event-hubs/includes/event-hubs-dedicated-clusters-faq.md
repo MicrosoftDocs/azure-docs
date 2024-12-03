@@ -60,7 +60,7 @@ To monitor the CPU usage of the dedicated cluster, follow these steps:
 
     :::image type="content" source="./media/event-hubs-dedicated-clusters-faq/monitoring-dedicated-cluster.png" alt-text="Screenshot that shows the Metrics page with CPU consumption metric and roles." lightbox="./media/event-hubs-dedicated-clusters-faq/monitoring-dedicated-cluster.png":::
 
-    Then you can monitor this metric to determine when you should scale your dedicated cluster. You can also set up [alerts](../../azure-monitor/alerts/alerts-overview.md) against this metric to get notified when CPU usage reaches the thresholds you set.
+    Then you can monitor this metric to determine when you should scale your dedicated cluster. You can also set up [alerts](/azure/azure-monitor/alerts/alerts-overview) against this metric to get notified when CPU usage reaches the thresholds you set.
 
 ### How does geo-disaster recovery work with my cluster?
 

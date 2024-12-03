@@ -5,12 +5,12 @@ description: Use the Microsoft Graph PowerShell cmdlets for programmatic managem
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.custom: has-azure-ad-ps-ref, azure-ad-ref-level-one-done
 ms.topic: how-to
 ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 #Customer intent: As an Azure AD B2C administrator, I want to manage custom policies using Microsoft Graph PowerShell, so that I can review, update, and delete policies in my Azure AD B2C tenant.
 ---
 

@@ -4,10 +4,9 @@ description: Describes safety conventions, guidelines, considerations, and expla
 services: databox
 author:   alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: conceptual
-ms.date: 02/12/2021
+ms.date: 09/30/2024
 ms.author: alkohli
 ---
 
@@ -17,7 +16,7 @@ ms.author: alkohli
 ![Read Safety Notice Icon](./media/azure-stack-edge-mini-r-safety/icon-safety-read-all-instructions.png)
 **READ SAFETY AND HEALTH INFORMATION**
 
-Read all the safety information in this article before you use your Azure Stack Edge Mini R device, a composition of one battery pack, one AC/DC plugged power supply, one module power adapter, and one server module. Failure to follow instructions could result in fire, electric shock, injuries, or damage to your properties. Read all safety information below before using Azure Stack Edge Mini R.
+Read all the safety information in this article before you use your Azure Stack Edge Mini R device. The device includes a one battery pack, one AC/DC plugged power supply, one module power adapter, and one server module. Failure to follow instructions could result in fire, electric shock, injuries, or damage to your properties. Read all of the following safety information before using Azure Stack Edge Mini R.
 
 ## Safety icon conventions
 
@@ -25,7 +24,7 @@ The following signal words for hazard alerting signs are:
 
 | Icon | Description |
 |:--- |:--- |
-| ![Hazard Symbol](./media/azure-stack-edge-mini-r-safety/icon-safety-warning.png)| **DANGER:** Indicates a hazardous situation that, if not avoided, will result in death or serious injury. <br> **WARNING:** Indicates a hazardous situation that, if not avoided, could result in death or serious injury. <br> **CAUTION:** Indicates a hazardous situation that, if not avoided, could result in minor or moderate injury.|
+| ![Hazard Symbol](./media/azure-stack-edge-mini-r-safety/icon-safety-warning.png)| **DANGER:** Indicates a hazardous situation that, if not avoided, may result in death or serious injury. <br> **WARNING:** Indicates a hazardous situation that, if not avoided, could result in death or serious injury. <br> **CAUTION:** Indicates a hazardous situation that, if not avoided, could result in minor or moderate injury.|
 |
 
 The following hazard icons are to be observed when setting up and running your Azure Stack Edge Mini R device:
@@ -37,7 +36,7 @@ The following hazard icons are to be observed when setting up and running your A
 | ![Hazard Symbol](./media/azure-stack-edge-mini-r-safety/icon-safety-warning.png) | Hazard Symbol |
 | ![Electrical Shock Icon](./media/azure-stack-edge-mini-r-safety/icon-safety-electric-shock.png) | Electric Shock Hazard |
 | ![Indoor Use Only](./media/azure-stack-edge-mini-r-safety/icon-safety-indoor-use-only.png) | Indoor Use Only |
-| ![No User Serviceable Parts Icon](./media/azure-stack-edge-mini-r-safety/icon-safety-do-not-access.png) | No User Serviceable Parts. Do not access unless properly trained. |
+| ![No User Serviceable Parts Icon](./media/azure-stack-edge-mini-r-safety/icon-safety-do-not-access.png) | No User Serviceable Parts. Don't access unless properly trained. |
 |
 
 ## Handling precautions and site selection
@@ -48,28 +47,28 @@ The Azure Stack Edge Mini R device has the following handling precautions and si
 ![Electrical Shock Icon](./media/azure-stack-edge-mini-r-safety/icon-safety-electric-shock.png)
 ![No User Serviceable Parts Icon](./media/azure-stack-edge-mini-r-safety/icon-safety-do-not-access.png) **CAUTION:**
 
-* Inspect the *as-received* device for damages. If the device enclosure is damaged, [contact Microsoft Support](azure-stack-edge-placeholder.md) to obtain a replacement. Do not attempt to operate the device.
-* If you suspect the device is malfunctioning, [contact Microsoft Support](azure-stack-edge-placeholder.md) to obtain a replacement. Do not attempt to service the device.
-* The device contains no user-serviceable parts. Hazardous voltage, current, and energy levels are present inside. Do not open. Return the device to Microsoft for servicing.
+* Inspect the *as-received* device for damages. If the device enclosure is damaged, [contact Microsoft Support](azure-stack-edge-placeholder.md) to obtain a replacement. Don't attempt to operate the device.
+* If you suspect the device is malfunctioning, [contact Microsoft Support](azure-stack-edge-placeholder.md) to obtain a replacement. Don't attempt to service the device.
+* The device contains no user-serviceable parts. Hazardous voltage, current, and energy levels are present inside. Don't open. Return the device to Microsoft for servicing.
 
 ![Warning Icon 3](./media/azure-stack-edge-mini-r-safety/icon-safety-warning.png) **CAUTION:**
 
-It is recommended to operate the system:
+It's recommended to operate the system:
 
 * Away from sources of heat including direct sunlight and radiators.
 * In locations not exposed to moisture or rain.
 * Located in a space that minimizes vibration and physical shock.  The system is designed for shock and vibration according to MIL-STD-810G.
 * Isolated from strong electromagnetic fields produced by electrical devices.
-* Do not allow any liquid or any foreign object to enter the System. Do not place beverages or any other liquid containers on or near the system.
+* Don't allow any liquid or any foreign object to enter the System. Don't place beverages or any other liquid containers on or near the system.
 
 ![Warning Icon 4](./media/azure-stack-edge-mini-r-safety/icon-safety-warning.png)
 ![No User Serviceable Parts Icon](./media/azure-stack-edge-mini-r-safety/icon-safety-do-not-access.png) **CAUTION:**
 
-* This equipment contains a lithium battery. Do not attempt to service the battery pack. Batteries in this equipment are not user serviceable. Risk of Explosion if battery is replaced by an incorrect type.
+* This equipment contains a lithium battery. Don't attempt to service the battery pack. Batteries in this equipment aren't user serviceable. Risk of Explosion if battery is replaced by an incorrect type.
 
 ![Warning Icon 5](./media/azure-stack-edge-mini-r-safety/icon-safety-warning.png) **CAUTION:**
 
-Only charge the battery pack when it is a part of the Azure Stack Edge Mini R device, do not charge as a separate device.
+Only charge the battery pack when it's a part of the Azure Stack Edge Mini R device, don't charge as a separate device.
 
 ![Warning Icon 6](./media/azure-stack-edge-mini-r-safety/icon-safety-warning.png) **CAUTION:**
 
@@ -77,11 +76,11 @@ Only charge the battery pack when it is a part of the Azure Stack Edge Mini R de
 
 ![Warning Icon 7](./media/azure-stack-edge-mini-r-safety/icon-safety-warning.png) **CAUTION:**
 
-* Do not burn or short circuit the battery pack. It must be recycled or disposed of properly.
+* Don't burn or short circuit the battery pack. It must be recycled or disposed of properly.
 
 ![Warning Icon 8](./media/azure-stack-edge-mini-r-safety/icon-safety-warning.png) **CAUTION:**
 
-* In lieu of using the provided AC/DC power supply, this system also has the option to use a field provided Type 2590 Battery. In this case, the end user shall verify that it meets all applicable safety, transportation, environmental, and any other national/regional and local regulations.
+* In lieu of using the provided AC/DC power supply, this system also can use a field provided Type 2590 Battery. In this case, the end user shall verify that it meets all applicable safety, transportation, environmental, and any other national/regional and local regulations.
 * When operating the system with Type 2590 Battery, operate the battery within the conditions of use specified by the battery manufacturer.
 
 ![Warning Icon 9](./media/azure-stack-edge-mini-r-safety/icon-safety-warning.png) **CAUTION:**
@@ -96,13 +95,13 @@ The Azure Stack Edge Mini R device has the following electrical precautions:
 
 When used with the power supply adaptor:
 
-* Provide a safe electrical earth connection to the power supply cord. The alternating current (AC) cord has a three-wire grounding plug (a plug that has a grounding pin). This plug fits only a grounded AC outlet. Do not defeat the purpose of the grounding pin.
+* Provide a safe electrical earth connection to the power supply cord. The alternating current (AC) cord has a three-wire grounding plug (a plug that has a grounding pin). This plug fits only a grounded AC outlet. Don't defeat the purpose of the grounding pin.
 * Given that the plug on the power supply cord is the main disconnect device, ensure that the socket outlets are located near the device and are easily accessible.
 * Unplug the power cord(s) (by pulling the plug, not the cord) and disconnect all cables if any of the following conditions exist:
 
   * The power cord or plug becomes frayed or otherwise damaged.
   * The device is exposed to rain, excess moisture, or other liquids.
-  * The device has been dropped and the device casing has been damaged.
+  * The device is dropped and the device casing is damaged.
   * You suspect the device needs service or repair.
 * Permanently unplug the unit before you move it or if you think it has become damaged in any way.
 
@@ -110,12 +109,12 @@ When used with the power supply adaptor:
 
 * Voltage: 100 - 240 Volts AC
 * Current: 1.7 Amperes
-* Frequency: 50 to 60 Hz
+* Frequency: 50 Hz to 60 Hz
 
 ![Warning Icon 11](./media/azure-stack-edge-mini-r-safety/icon-safety-warning.png)
 ![Electrical Shock Icon](./media/azure-stack-edge-mini-r-safety/icon-safety-electric-shock.png) **WARNING:**
 
-* Do not attempt to modify or use AC power cord(s) other than the ones provided with the equipment.
+* Don't attempt to modify or use AC power cord(s) other than the ones provided with the equipment.
 
 ![Warning Icon 12](./media/azure-stack-edge-mini-r-safety/icon-safety-warning.png)
 ![Electrical Shock Icon](./media/azure-stack-edge-mini-r-safety/icon-safety-electric-shock.png)
@@ -125,7 +124,7 @@ When used with the power supply adaptor:
 
 ## Regulatory information
 
-The following contains regulatory information for Azure Stack Edge Mini R device, regulatory model number: TMA01.
+Regulatory information for Azure Stack Edge Mini R device, regulatory model number: TMA01.
 
 The Azure Stack Edge Mini R device is designed for use with NRTL Listed (UL, CSA, ETL, etc.), and IEC/EN 60950-1 or IEC/EN 62368-1 compliant (CE marked) Information Technology equipment.
 
@@ -151,7 +150,7 @@ The Netgear A6150 WiFi USB Adapter complies with ANSI/IEEE C95.1-1999 and was te
 
 Netgear A6150 Specific Absorption Rate (SAR): 1.18 W/kg averaged over 1 g of tissue
 
-The Netgear A6150 WiFi USB Adapter is to be used with approved antennas only. This device and its antenna(s) must not be co-located or operating in conjunction with any other antenna or transmitter except in accordance with FCC multitransmitter product procedures. For products available in the USA market, only channel 1~11 can be operated. Selection of other channels is not possible.
+The Netgear A6150 WiFi USB Adapter is to be used with approved antennas only. This device and its antenna(s) must not be co-located or operating with any other antenna or transmitter except in accordance with FCC multitransmitter product procedures. For products available in the USA market, only channel 1~11 can be operated. Selection of other channels is not possible.
 
 Operation in the band 5150–5250 MHz is only for indoor use to reduce the potential for harmful interference to co-channel mobile satellite systems.
 
@@ -159,7 +158,7 @@ Operation in the band 5150–5250 MHz is only for indoor use to reduce the poten
 
 Users are advised that high-power radars are allocated as primary users (priority users) of the bands 5250–5350 MHz and 5650–5850 MHz, and these radars could cause interference and/or damage to LE-LAN devices.
 
-This equipment generates, uses, and can radiate radio frequency energy and, if not installed and used in accordance with the instructions, may cause harmful interference to radio communications. However, there is no guarantee that interference will not occur in a particular installation.
+This equipment generates, uses, and can radiate radio frequency energy and, if not installed and used in accordance with the instructions, may cause harmful interference to radio communications. However, there's no guarantee that interference won't occur in a particular installation.
 
 If this equipment does cause harmful interference to radio or television reception, which can be determined by turning the equipment off and on, the user is encouraged to try to correct the interference by one or more of the following measures:
 
@@ -172,7 +171,7 @@ For more information about interference issues, go to the FCC website at [fcc.go
 
 Additional information about radiofrequency safety can be found on the FCC website at [https://www.fcc.gov/general/radio-frequency-safety-0](https://www.fcc.gov/general/radio-frequency-safety-0) and the Industry Canada website at [http://www.ic.gc.ca/eic/site/smt-gst.nsf/eng/sf01904.html](http://www.ic.gc.ca/eic/site/smt-gst.nsf/eng/sf01904.html).
 
-This product has demonstrated EMC compliance under conditions that included the use of compliant peripheral devices and shielded cables between system components. It is important that you use compliant peripheral devices and shielded cables between system components to reduce the possibility of causing interference to radios, television sets, and other electronic devices.
+This product demonstrates EMC compliance under conditions that included the use of compliant peripheral devices and shielded cables between system components. It's important that you use compliant peripheral devices and shielded cables between system components to reduce the possibility of causing interference to radios, television sets, and other electronic devices.
 
 This device complies with part 15 of the FCC Rules and Industry Canada license-exempt RSS standard(s). Operation is subject to the following two conditions: (1) this device may not cause harmful interference, and (2) this device must accept any interference received, including interference that may cause undesired operation of the device.
 
@@ -212,13 +211,17 @@ Disposal of waste batteries and electrical and electronic equipment:
 
 ![Warning Icon 14](./media/azure-stack-edge-mini-r-safety/icon-ewaste-disposal.png)
 
-This symbol on the product or its batteries or its packaging means that this product and any batteries it contains must not be disposed of with your household waste. Instead, it is your responsibility to hand this over to an applicable collection point for the recycling of batteries and electrical and electronic equipment. This separate collection and recycling will help to conserve natural resources and prevent potential negative consequences for human health and the environment due to the possible presence of hazardous substances in batteries and electrical and electronic equipment, which could be caused by inappropriate disposal. For more information about where to drop off your batteries and electrical and electronic waste, please contact your local city/municipality office, your household waste disposal service, or the shop where you purchased this product. Contact erecycle@microsoft.com for additional information on WEEE.
+This symbol on the product or its batteries or its packaging means that this product and any batteries it contains must not be disposed of with your household waste. Instead, it is your responsibility to hand it over to an applicable collection point for the recycling of batteries and electrical and electronic equipment. This separate collection and recycling helps to conserve natural resources and prevent potential negative consequences for human health and the environment due to the possible presence of hazardous substances in batteries and electrical and electronic equipment, which could be caused by inappropriate disposal. For more information about where to drop off your batteries and electrical and electronic waste, contact your local city/municipality office, your household waste disposal service, or the shop where you purchased this product. Contact erecycle@microsoft.com for additional information on WEEE.
+
+:::image type="icon" source="media/azure-stack-edge-mini-r-safety/icon-ce-marking.png" alt-text="CE marking.":::
 
 This product contains coin cell battery(ies).
 
-The  Netgear A6150 WiFi USB Adapter provided with this equipment is intended to be operated close to the human body and is tested for body-worn Specific Absorption Rate (SAR) compliance (see below values). When carrying the product or using it while worn on your body, maintain a distance of 10mm from the body to ensure compliance with RF exposure requirements.
+This product might contain Lithium-Ion and/or Lithium Metal battery(ies). The batteries contained in this product comply with regulatory requirements of EU REGULATION (EU) 2023/1542 as applicable.
 
-**Netgear A6150 Specific Absorption Rate (SAR):** 0.54 W/kg averaged over 10g of tissue
+The  Netgear A6150 WiFi USB Adapter provided with this equipment is intended to be operated close to the human body and is tested for body-worn Specific Absorption Rate (SAR) compliance (see below values). When carrying the product or using it while worn on your body, maintain a distance of 10 mm from the body to ensure compliance with RF exposure requirements.
+
+**Netgear A6150 Specific Absorption Rate (SAR):** 0.54 W/kg averaged over 10 g of tissue
 
  
 This device may operate in all member states of the EU. Observe national/regional and local regulations where the device is used. This device is restricted to indoor use only when operating in the 5150-5350 MHz frequency range in the following countries/regions:  

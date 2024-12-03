@@ -20,7 +20,7 @@ First, test the FHIR service against the [Da Vinci Plan-Net capability statement
 
 ## Define search parameters
 
-Next, define six [new search parameters](how-to-do-custom-search.md) for the Healthcare Service, Insurance Plan, Practitioner Role, Organization, and Organization Affiliation resources. All six of these parameters are tested in the capability statement:
+Next, define [new search parameters](how-to-do-custom-search.md) for the Healthcare Service, Insurance Plan, Practitioner Role, Organization, and Organization Affiliation resources. All of these parameters are tested in the capability statement:
 
 - [Healthcare Service Coverage Area](http://hl7.org/fhir/us/davinci-pdex-plan-net/STU1/SearchParameter-healthcareservice-coverage-area.html)
 - [Insurance Plan Coverage Area](http://hl7.org/fhir/us/davinci-pdex-plan-net/STU1/SearchParameter-insuranceplan-coverage-area.html)
@@ -32,7 +32,7 @@ Next, define six [new search parameters](how-to-do-custom-search.md) for the Hea
 > [!NOTE]
 > In the raw JSON for these search parameters, the name is set to `Plannet_sp_<Resource Name>_<SearchParameter Name>`. The Touchstone test expects the name to be only the `SearchParameter Name` (coverage-area, plan-type, or network).
 
-The rest of the search parameters needed for the Da Vinci Plan Net Implementation Guide are defined by the base specification, and are already available in the FHIR service without any other updates.
+The rest of the search parameters needed for the Da Vinci Plan Net Implementation Guide are defined by the base specification, and are already available in the FHIR service without other updates.
 
 ## Store profiles
 
@@ -56,7 +56,7 @@ To assist with creation of the search parameters and profiles, there's a sample 
 
 ## Touchstone error handling test
 
-The second test is of [error handling](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/DaVinci/FHIR4-0-1-Test/PDEX/PlanNet/01-Error-Codes&activeOnly=false&contentEntry=TEST_SCRIPTS). The only step you need to do is delete a `HealthcareService` resource from your database and use the ID of the deleted HealthcareService resource in the test. The sample [DaVinci_PlanNet.http](https://github.com/microsoft/fhir-server/blob/main/docs/rest/DaVinciPlanNet/DaVinci_PlanNet.http) file on the open-source site provides an example `HealthcareService` to post and delete for this step.
+The second test evaluates [error handling](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/DaVinci/FHIR4-0-1-Test/PDEX/PlanNet/01-Error-Codes&activeOnly=false&contentEntry=TEST_SCRIPTS). The only step you need to do is delete a `HealthcareService` resource from your database and use the ID of the deleted HealthcareService resource in the test. The sample [DaVinci_PlanNet.http](https://github.com/microsoft/fhir-server/blob/main/docs/rest/DaVinciPlanNet/DaVinci_PlanNet.http) file on the open-source site provides an example `HealthcareService` to post and delete for this step.
 
 :::image type="content" source="media/davinci-plan-net/davinci-test-script-execution-passed.png" alt-text="Screenshot showing Da Vinci Plan Net touchstone error test execution script passed." lightbox="media/davinci-plan-net/davinci-test-script-execution-passed.png":::
 

@@ -33,7 +33,7 @@ The information mentioned in each of the above steps is explained in detail belo
 
 **What to do**
 
-Migration automation runbook ignores resources that aren't onboarded to Arc. It's therefore a prerequisite to onboard all non-Azure machines on to Azure Arc before running the migration runbook. Follow the steps to [onboard machines on to Azure Arc](../azure-arc/servers/onboard-service-principal.md).
+Migration automation runbook ignores resources that aren't onboarded to Arc. It's therefore a prerequisite to onboard all non-Azure machines on to Azure Arc before running the migration runbook. Follow the steps to [onboard machines on to Azure Arc](/azure/azure-arc/servers/onboard-service-principal).
 
 #### Prerequisite 2: Create User Identity and Role Assignments by running PowerShell script
 

@@ -422,11 +422,21 @@ kubectl delete sp -n acstor <storage-pool-name>
 
 Depending on your workload’s performance requirements, you can choose from three different performance tiers: **Basic**, **Standard**, and **Premium**. These tiers offer a different range of IOPS, and your selection will impact the number of vCPUs that Azure Container Storage components consume in the nodes where it's installed. Standard is the default configuration if you don't update the performance tier.
 
-| **Tier** | **Number of vCPUs** |
-|---------------|--------------------------|
-| `Basic` | 12.5% of total VM cores | 
-| `Standard` (default) | 25% of total 
-| `Premium` | 50% of total VM cores |
+**Single-zone replication**
+
+| **Tier** | **Number of vCPUs** | **100% Read IOPS** | **100% Write IOPS** |
+|---------------|--------------------------|-----------|---------------------|
+| `Basic` | 12.5% of total VM cores | Up to 120,000 | Up to 45,000 |
+| `Standard` (default) | 25% of total VM cores | Up to 220,000 | Up to 90,000 |
+| `Premium` | 50% of total VM cores | Up to 550,000 | Up to 180,000 | 
+
+**Multi-zone replication**
+
+| **Tier** | **Number of vCPUs** | **100% Read IOPS** | **100% Write IOPS** |
+|---------------|--------------------------|-----------|---------------------|
+| `Basic` | 12.5% of total VM cores | Up to 120,000 | Up to 45,000 |
+| `Standard` (default) | 25% of total VM cores | Up to 220,000 | Up to 90,000 |
+| `Premium` | 50% of total VM cores | Up to 550,000 | Up to 180,000 | 
 
 > [!NOTE]
 > RAM and hugepages consumption will stay consistent across all tiers: 1 GiB of RAM and 2 GiB of hugepages.

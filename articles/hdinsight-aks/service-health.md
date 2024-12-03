@@ -3,12 +3,16 @@ title: Manage service health.
 description: Learn how to check the health of the services running in a cluster.
 ms.service: azure-hdinsight-on-aks
 ms.topic: conceptual
-ms.date: 08/29/2023
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Manage service health
 
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
+
 
 This article describes how to check the health of the services running in HDInsight on AKS cluster. It includes the collection of the services and the status of each service running in the cluster. 
 You can drill down on each service to check instance level details.

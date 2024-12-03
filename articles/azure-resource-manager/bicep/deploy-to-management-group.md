@@ -3,7 +3,7 @@ title: Use Bicep to deploy resources to management group
 description: Describes how to create a Bicep file that deploys resources at the management group scope.
 ms.topic: how-to
 ms.custom: devx-track-bicep
-ms.date: 06/23/2023
+ms.date: 09/26/2024
 ---
 
 # Management group deployments with Bicep files
@@ -256,7 +256,7 @@ To deploy a template that moves an existing Azure subscription to a new manageme
 
 Custom policy definitions that are deployed to the management group are extensions of the management group. To get the ID of a custom policy definition, use the [extensionResourceId()](./bicep-functions-resource.md#extensionresourceid) function. Built-in policy definitions are tenant level resources. To get the ID of a built-in policy definition, use the [tenantResourceId()](./bicep-functions-resource.md#tenantresourceid) function.
 
-The following example shows how to [define](../../governance/policy/concepts/definition-structure.md) a policy at the management group level, and assign it.
+The following example shows how to [define](../../governance/policy/concepts/definition-structure.md) a policy at the management group level, and how to assign it.
 
 ```bicep
 targetScope = 'managementGroup'

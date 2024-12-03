@@ -4,11 +4,11 @@ titleSuffix: Azure AD B2C
 description: Learn how to integrate Azure AD B2C authentication with TypingDNA to help with Identity verification and proofing based on user typing pattern, provides ID verification solutions forcing multifactor authentication and helps to comply with SCA requirements for Payment Services Directive 2 (PSD2).
 author: gargi-sinha
 manager: CelesteDG
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.topic: reference
 ms.date: 01/26/2024
 ms.author: gasinh
-ms.subservice: B2C
+ms.subservice: b2c
 
 # Customer intent: I'm an Azure AD B2C administrator, and I want to integrate TypingDNA with Azure AD B2C. I need to comply with Payment Services Directive 2 (PSD2) transaction requirements through keystroke dynamics and strong customer authentication.
 ---
