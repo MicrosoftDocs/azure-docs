@@ -105,7 +105,7 @@ The following table describes the advanced parameters available in this action:
 | **XML Writer Settings New Line Handling** | - **Entitize** <br>- **None** <br>- **Replace** | Specify how to handle line breaks. |
 | **XML Writer Settings New Line Characters** | <*new-line-string*> | The character string to use for line breaks. |
 | **XML Writer Settings Indent Characters** | <*indent-characters*> | The character string to use for indenting. |
-   | **XML Writer Settings Indent** | No/Yes | Whether to indent elements.  |
+| **XML Writer Settings Indent** | **No** or **Yes** | Whether to indent elements. |
 | **XML Writer Settings Encoding** | Various options available. | The type of text encoding to use. |
    | **XML Writer Settings Do Not Escape URI Attributes** | No/Yes | Indicates whether URI attributes should not be escaped.  |
    | **XML Writer Settings Conformance Level** | Auto/Document/fragment | The level of confirmance that the XML writer checks the XML output for.  |
