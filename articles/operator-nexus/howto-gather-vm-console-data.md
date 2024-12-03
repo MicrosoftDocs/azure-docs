@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 11/26/2024
 ---
 
-# Gathering Important Virtual Machine (VM) Console Data
+# Gather important Virtual Machine (VM) console data
 
 The article provides generic guidance on how to collect data necessary for diagnosing VM console-related issues.
 
@@ -16,43 +16,43 @@ The article provides generic guidance on how to collect data necessary for diagn
 
 In order to `ssh` to a virtual machine, you must have:
 
-1. Created a `Private endpoint` connecting to the Cluster Manager's `Private link service`
-1. Virtual machine instance with a given name
-1. Created the corresponding Console with same name used for the virtual machine
+- Created a `Private endpoint` connecting to the Cluster Manager's `Private link service`
+- Virtual machine instance with a given name
+- Created the corresponding Console with same name used for the virtual machine
 
-## Data Collection
+## Data collection
 
 ### Data needed by the VM Console service team for troubleshooting
 
 If there's a problem that needs to further investigation by the VM Console service team, collect the following information to help them get started:
 
-1. A detailed description of the problem and its affect to the customer.
-1. Screenshots. The Azure portal is obviously a visual component. Try to get as much visual data as possible to describe the problem happening. Screenshots are often the best way to show the problem or how to reproduce the problem.
-1. [Private Endpoint IP](#determining-the-private-endpoint-ip-address)
-1. [Private Endpoint connectivity](#determining-the-private-endpoint-connectivity)
-1. [Collecting Console Data](#collecting-the-console-data)
+- A detailed description of the problem and its effect to the customer.
+- Screenshots. The Azure portal is obviously a visual component. Try to get as much visual data as possible to describe the problem happening. Screenshots are often the best way to show the problem or how to reproduce the problem.
+- [Private Endpoint IP](#determining-the-private-endpoint-ip-address)
+- [Private Endpoint connectivity](#determining-the-private-endpoint-connectivity)
+- [Collecting Console Data](#collecting-the-console-data)
 
-### Determining the private endpoint connectivity
-
-1. Navigate to the Azure portal where customer's work environment is located.
-1. Select the Private endpoint resource used for `ssh` to the virtual machine
-   ![Private endpoint resource](./media/vm-console-ple-ip-1.png)
-1. In the Private endpoint screen, select the `Private link resource`
-   ![Private endpoint connectivity](./media/vm-console-ple-connectivity-1.png)
-1. Capture screenshot of `Private link resource` screen. Example of screenshot provided.
-   ![Private endpoint connectivity](./media/vm-console-ple-connectivity-2.png)
-1. Confirm with the customer that `Private endpoint` is referencing the correct `Private Link Service`, as it's possible that customer might be using the wrong PLE when trying to `ssh` to a virtual machine.
-
-### Determining the private endpoint IP address
+### Determine the private endpoint connectivity
 
 1. Navigate to the Azure portal where customer's work environment is located.
-1. Select the Private endpoint resource used for `ssh` to the virtual machine
-   ![Private endpoint resource](./media/vm-console-ple-ip-1.png)
-1. In the Private endpoint screen, select the `Network interface`
-   ![Private endpoint network interface](./media/vm-console-ple-ip-2.png)
-1. In that screen you'll find the `Private IPv4 address`, for example, `10.1.0.5`
-   ![Private endpoint IP address](./media/vm-console-ple-ip-3.png)
-1. Confirm with customer that whit IP address was in the `ssh` command, for example, `ssh -p 2222 <virtual machine access id>@10.1.0.5`
+2. Select the Private endpoint resource used for `ssh` to the virtual machine
+   :::image type="content" source="media/vm-console-ple-ip-1.png" alt-text="Screenshot that shows the Private endpoint in its Resource Group.":::
+3. In the Private endpoint screen, select the `Private link resource`
+   :::image type="content" source="media/vm-console-ple-connectivity-1.png" alt-text="Screenshot that shows the link to the Private link resource.":::
+4. Capture screenshot of `Private link resource` screen. Example of screenshot provided.
+   :::image type="content" source="media/vm-console-ple-connectivity-2.png" alt-text="Screenshot that shows the details of the Private link resource.":::
+5. Confirm with the customer that `Private endpoint` is referencing the correct `Private Link Service`, as it's possible that customer might be using the wrong PLE when trying to `ssh` to a virtual machine.
+
+### Determine the private endpoint IP address
+
+1. Navigate to the Azure portal where customer's work environment is located.
+2. Select the Private endpoint resource used for `ssh` to the virtual machine
+   :::image type="content" source="media/vm-console-ple-connectivity-1.png" alt-text="Screenshot that shows the link to the Private link resource.":::
+3. In the Private endpoint screen, select the `Network interface`
+   :::image type="content" source="media/vm-console-ple-ip-2.png" alt-text="Screenshot that shows the details of the Private link resource.":::
+4. In that screen, you find the `Private IPv4 address`, for example, `10.1.0.5`
+   :::image type="content" source="media/vm-console-ple-ip-3.png" alt-text="Screenshot that shows the details of the Private IPV4 address.":::
+5. Confirm with customer that whit IP address was in the `ssh` command, for example, `ssh -p 2222 <virtual machine access id>@10.1.0.5`
 
 Another way to retrieve the Private endpoint IP addresses is using Azure CLI, as shown here.
 
@@ -68,21 +68,21 @@ done
 
 In case the script option is used, ask the customer which private endpoint ip address was used.
 
-### Collecting the Console data
+### Collect the Console data
 
 1. Navigate to the Azure portal where the cluster manager is located.
-1. Select on `Extended location` to view its extended locations.
-   ![Cluster manager extended locations](./media/vm-console-resource-1.png)
-1. Select the Console resource in question.
-   ![Console to troubleshoot](./media/vm-console-resource-2.png)
-1. Collect the data for the console resource to be investigated.
-   1. Console `Enabled`
-   1. Console `Expiration`
-   1. Console `Ssh public key`
-   1. Console `Virtual machine access ID
-      ![Cluster manager extended locations](./media/vm-console-resource-3.png)
+2. Select on `Extended location` to view its extended locations.
+   :::image type="content" source="media/vm-console-resource-1.png" alt-text="Screenshot that shows the Extended location of the cluster manager.":::
+3. Select the Console resource in question.
+   :::image type="content" source="media/vm-console-resource-2.png" alt-text="Screenshot that shows the link to console resource.":::
+4. Collect the data for the console resource to be investigated.
+   - Console `Enabled`
+   - Console `Expiration`
+   - Console `Ssh public key`
+   - Console `Virtual machine access ID`
+     :::image type="content" source="media/vm-console-resource-3.png" alt-text="Screenshot that shows the console resource.":::
 
-If the access to Azure portal isn't available, you may also to retrieve the Console data with `az networkcloud virtualmachine console show` command.
+If the access to Azure portal isn't available, you're also to retrieve the Console data with `az networkcloud virtualmachine console show` command.
 
 ```bash
 az networkcloud virtualmachine console show \
