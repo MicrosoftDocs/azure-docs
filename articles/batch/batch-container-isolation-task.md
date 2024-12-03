@@ -16,7 +16,7 @@ Azure Batch offers an isolation configuration at the task level, allowing tasks 
 
 ## Why we need isolation feature in container task
 
-In a Windows container task workload, the entire ephemeral disk (D:) is attached to the task's container. For a Linux container task workload, Azure Batch attaches the entire `AZ_BATCH_NODE_ROOT_DIR` to the task's container, both in ReadWrite mode. However, if you want to customize your container volumes, this setup may cause some data to be shared across all containers running on the node. To address this, we support customizing the Azure Batch data paths that you want to attach to the task container.
+In a Windows container task workload, the entire ephemeral disk (D:) is attached to the task's container. For a Linux container task workload, Azure Batch attaches the entire `AZ_BATCH_NODE_ROOT_DIR` to the task's container, both in ReadWrite mode. However, if you want to customize your container volumes, this setup may cause some data to be shared across all containers running on the node. To address the same, we support the ability to customize the Azure Batch data paths that you want to attach to the task container.
 
 - **Security**: Prevents the container task data from leaking into the host machine or altering data on the host machine.
 - **Customize**: You can customize your container task volumes as needed.
@@ -26,8 +26,8 @@ In a Windows container task workload, the entire ephemeral disk (D:) is attached
 
 ## The Roles of Host Data Path Attach to Container
 
-For Linux node, we can just attach the same path into container.
-For Windows node, due to windows container do not have D disk, we have to mount the path according to this table below.
+* For Linux node: We can just attach the same path into container.
+* For Windows node: Since Windows containers don't have a D: disk, we need to mount the path. Refer to the listed paths that you can choose to mount.
 
 | Azure Batch Data Path | Path in Host Machine | Path in Container  |
 |-----------------------------------|--------------------------------------------------------------------------|--------------|
@@ -42,7 +42,7 @@ For Windows node, due to windows container do not have D disk, we have to mount 
 |**AZ_BATCH_TASK_WORKING_DIR** | D:\\batch\\tasks\\workitems\\{workitemname}\\{jobname}\\{taskname}\\wd | C:\\batch\\tasks\\workitems\\{workitemname}\\{jobname}\\{taskname}\\wd |
 
 
-Refer to the listed data paths that you can choose to attach to the container. Any data paths you do not select will have their associated environment variables removed.
+Refer to the listed data paths that you can choose to attach to the container. Any unselected data paths have their associated environment variables removed.
 
 |Data Path Enum|Data Path with be attached to container|
 |:--------:|------------|
@@ -57,9 +57,9 @@ Refer to the listed data paths that you can choose to attach to the container. A
 
 > [!Note]
 > * If you use an empty list, the NodeAgent will not mount any data paths into the task's container. If you use null, the NodeAgent will mount the entire ephemeral disk (in Windows) or `AZ_BATCH_NODE_ROOT_DIR` (in Linux).
-> * If you do not mount the task data path into the container, you must set the task's property [workingDirectory](/rest/api/batchservice/task/add?tabs=HTTP#containerworkingdirectory) to containerImageDefault.
+> * If you don't mount the task data path into the container, you must set the task's property [workingDirectory](/rest/api/batchservice/task/add?tabs=HTTP#containerworkingdirectory) to containerImageDefault.
 
-Before running a container isolation task, you must create a pool with a container. For details on how to create it, see this guide [Docker container workload](batch-docker-container-workloads.md).
+Before running a container isolation task, you must create a pool with a container. For more information on how to create it, see this guide [Docker container workload](batch-docker-container-workloads.md).
 
 # [REST API](#tab/restapi)
 
