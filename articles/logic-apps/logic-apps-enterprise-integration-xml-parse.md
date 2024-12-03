@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.date: 12/03/2024
 ---
 
-# XML parse in workflows with Azure Logic Apps
+# Parse XML using schemas in Standard workflows with Azure Logic Apps (Preview)
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
