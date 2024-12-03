@@ -1,6 +1,6 @@
 ---
 title: XML compose with schema in enterprise integration workflows
-description: Compose XML documents in Azure Logic Apps with the XML Operations connector.
+description: Learn how to compose XML documents in Standard workflows with Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 author: haroldcampos
