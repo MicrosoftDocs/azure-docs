@@ -14,7 +14,7 @@ ms.author: yiliu6
 
 In this quickstart, you learn how to deploy an application in Azure Container Apps that uses Java components to handle configuration management, service discovery, and health and metrics. The sample application used in this example is the Java PetClinic, which uses the microservice architecture pattern. The following diagram depicts the architecture of the PetClinic application on Azure Container Apps:
 
-:::image type="complex" source="media/java-microservice-get-started/azure-container-apps-petclinic-arch.png" alt-text="Diagram of the relationship between the Git repository containing a versioned YAML config file, a browser and mobile app, and an Azure Resource Group that contains an Azure Container Apps environment." lightbox="media/java-microservice-get-started/azure-container-apps-petclinic-arch.png":::
+:::image type="complex" source="media/java-microservice-get-started/azure-container-apps-pet-clinic-architecture.png" alt-text="Diagram of the relationship between the Git repository containing a versioned YAML config file, a browser and mobile app, and an Azure Resource Group that contains an Azure Container Apps environment." lightbox="media/java-microservice-get-started/azure-container-apps-pet-clinic-architecture.png":::
    Diagram of an Azure Container Apps (ACA) environment illustrating the architecture of a microservices-based application deployed within an Azure Resource Group. An Azure Resource Group contains the Azure Container Apps environment. The environment includes three ACA managed Java components:  a config server, a service registry, and an admin server. The config server fetches configuration data stored as versioned YAML files in a Git repository external to the Azure Resource Group. The service registry handles service discovery and registration. The admin server provides a live view of the system. An API Gateway routes requests to three microservices: vets service, customers service, and visits service. Each service is linked to its own database for data persistence. The application supports external interactions through a browser and a mobile app, and integrates with monitoring tools via Azure Log Analytics Workspaces for tracking system performance and health.
 :::image-end:::
 
@@ -307,7 +307,7 @@ Use the `containerapp update` command to create bindings for each app by using t
 
 1. In the **Bindings** section, add the four apps created in this quickstart.
 
-   :::image type="content" source="media/java-microservice-get-started/bind-apps.png" alt-text="Screenshot of the Bindings section, which allows the user to select apps to bind to the Container App. Four apps are listed: customers-service, vets-service, visits-service, and a p i -gateway.":::
+   :::image type="content" source="media/java-microservice-get-started/azure-container-apps-bindings-section.png" alt-text="Screenshot of the Bindings section, which allows the user to select apps to bind to the Container App. Four apps are listed: customers-service, vets-service, visits-service, and a p i -gateway.":::
 
 ---
 
@@ -317,7 +317,7 @@ Use the following steps to verify the app status:
 
 1. Using the URL returned from the API gateway's `az containerapp update` command, view the front-end application in your browser. The application should resemble the following screenshot:
 
-   :::image type="content" source="media/java-microservice-get-started/azure-container-apps-petclinic-warfile.png" alt-text="Screenshot of the home page of the pet clinic application." lightbox="media/java-microservice-get-started/azure-container-apps-petclinic-warfile.png":::
+   :::image type="content" source="media/java-microservice-get-started/azure-container-apps-petclinic-home-page.png" alt-text="Screenshot of the home page of the pet clinic application." lightbox="media/java-microservice-get-started/azure-container-apps-petclinic-home-page.png":::
 
 1. View the Eureka server dashboard by using the following steps:
 
@@ -336,7 +336,7 @@ Use the following steps to verify the app status:
 
     1. Open the URL in your browser, and you should see an application that resembles the following screenshot:
 
-       :::image type="content" source="media/java-microservice-get-started/azure-container-apps-petclinic-eureka.png" alt-text="Screenshot of pet clinic application Eureka Server." lightbox="media/java-microservice-get-started/azure-container-apps-petclinic-eureka.png":::
+       :::image type="content" source="media/java-microservice-get-started/azure-container-apps-petclinic-eureka-server.png" alt-text="Screenshot of pet clinic application Eureka Server." lightbox="media/java-microservice-get-started/azure-container-apps-petclinic-eureka-server.png":::
 
 1. View the admin for the Spring dashboard by using the following steps:
 
@@ -352,13 +352,13 @@ Use the following steps to verify the app status:
   
     1. Open the URL in your browser, and you should see an application that resembles the following screenshot.
   
-       :::image type="content" source="media/java-microservice-get-started/azure-container-apps-petclinic-admin.png" alt-text="Screenshot of the pet clinic admin dashboard showing five services up, along with version information for four of the services." lightbox="media/java-microservice-get-started/azure-container-apps-petclinic-admin.png":::
+       :::image type="content" source="media/java-microservice-get-started/azure-container-apps-pet-clinic-administration.png" alt-text="Screenshot of the pet clinic admin dashboard showing five services up, along with version information for four of the services." lightbox="media/java-microservice-get-started/azure-container-apps-pet-clinic-administration.png":::
 
 ## Optional: Configure Java components
 
 The Java components created in this quickstart can be configured through the Azure portal by using the **Configurations** section to add or update configurations for your Java components.
 
-:::image type="content" source="media/java-microservice-get-started/java-component-configurations.png" alt-text="Screenshot of the Configurations section, showing Property Name and Value textboxes, and the ability to delete a property." lightbox="media/java-microservice-get-started/java-component-configurations.png":::
+:::image type="content" source="media/java-microservice-get-started/azure-portal-java-configurations-sections.png" alt-text="Screenshot of the Configurations section, showing Property Name and Value textboxes, and the ability to delete a property." lightbox="media/java-microservice-get-started/azure-portal-java-configurations-sections.png":::
 
 For more information on configuring the three Java components you created in this quickstart, see the following links:
 
