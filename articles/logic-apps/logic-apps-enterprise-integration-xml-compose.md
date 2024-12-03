@@ -60,7 +60,7 @@ For example, suppose you receive JSON data from Azure Service Bus and need to se
 
 1. Enter the values for each Element
 
-   1. To select outputs from previous operations in the workflow, in the **JSON Schema For Element 'Root'** section, click inside the box for each attribute, and select the dynamic content list option (lightning icon).
+   1. To select outputs from previous operations in the workflow, in the **JSON Schema For Element 'Root'** section, select inside an attribute box, and then select the dynamic content list option (lightning icon).
 
    1. From the dynamic content list, select the token for the content that you want to compose for each attribute.
 
