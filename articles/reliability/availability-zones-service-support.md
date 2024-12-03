@@ -26,7 +26,7 @@ Azure services can provide two types of availability zone support: *zonal* and *
 
 - **Zone-redundant services**: Resources are replicated or distributed across zones automatically. For example, zone-redundant services replicate the data across multiple zones so that a failure in one zone doesn't affect the high availability of the data. 
 
-If you don't configure availability zones on a service, it's called a *non-zonal* or *regional* deployment. Resources configured in this way might be placed in any availabilty zone in the region, and might be moved. If any availability zone in the region experiences an outage, non-zonal resources might be affected.
+Some services don't use availability zones until you configure them to do so. If you don't explicitly configure a service for availability zone support, it's called a *non-zonal* or *regional* deployment. Resources configured in this way might be placed in any availability zone in the region, and might be moved. If any availability zone in the region experiences an outage, non-zonal resources might be in the affected zone and could experience downtime.
 
 >[!IMPORTANT]
 >Some services may have limited support for availability zones. For example, some may only support availability zones for certain tiers, regions, or SKUs. To get more information on service limitations for availability zone support, select that service in the table.
