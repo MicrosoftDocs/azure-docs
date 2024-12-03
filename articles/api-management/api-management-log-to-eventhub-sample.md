@@ -45,7 +45,7 @@ An alternative option was to use the `application/http` media type as described 
 To be able to create this message, we need to take advantage of C# based [Policy expressions](./api-management-policy-expressions.md) in Azure API Management. Here is the policy, which sends an HTTP request message to Azure Event Hubs.
 
 ```xml
-<log-to-eventhub logger-id="conferencelogger" partition-id="0">
+<log-to-eventhub logger-id="myapilogger" partition-id="0">
 @{
    var requestLine = string.Format("{0} {1} HTTP/1.1\r\n",
                                                context.Request.Method,
@@ -97,7 +97,7 @@ The policy to send the response HTTP message looks similar to the request and so
 <policies>
   <inbound>
       <set-variable name="message-id" value="@(Guid.NewGuid())" />
-      <log-to-eventhub logger-id="conferencelogger" partition-id="0">
+      <log-to-eventhub logger-id="myapilogger" partition-id="0">
       @{
           var requestLine = string.Format("{0} {1} HTTP/1.1\r\n",
                                                       context.Request.Method,
@@ -125,7 +125,7 @@ The policy to send the response HTTP message looks similar to the request and so
       <forward-request follow-redirects="true" />
   </backend>
   <outbound>
-      <log-to-eventhub logger-id="conferencelogger" partition-id="1">
+      <log-to-eventhub logger-id="myapilogger" partition-id="1">
       @{
           var statusLine = string.Format("HTTP/1.1 {0} {1}\r\n",
                                               context.Response.StatusCode,
