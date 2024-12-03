@@ -4,7 +4,7 @@ description: Learn about the latest new features and announcement in Microsoft S
 author: yelevin
 ms.author: yelevin
 ms.topic: concept-article
-ms.date: 09/09/2024
+ms.date: 12/02/2024
 
 
 #Customer intent: As a security team member, I want to stay updated on the latest features and enhancements in Microsoft Sentinel so that I can effectively manage and optimize my organization's security posture.
@@ -22,11 +22,11 @@ The listed features were released in the last three months. For information abou
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
-## November 2024
+## December 2024
 
 - [Unified Microsoft Sentinel solution for Microsoft Business Apps](#unified-microsoft-sentinel-solution-for-microsoft-business-apps)
-- [Microsoft Sentinel availability in Microsoft Defender portal](#microsoft-sentinel-availability-in-microsoft-defender-portal)
-
+- [New documentation library for Microsoft's unified security operations platform](#new-documentation-library-for-microsofts-unified-security-operations-platform)
+- [New S3-based data connector for Amazon Web Services WAF logs (Preview)](#new-s3-based-data-connector-for-amazon-web-services-waf-logs-preview)
 
 ### Unified Microsoft Sentinel solution for Microsoft Business Apps
 
@@ -52,9 +52,25 @@ For more information, see:
     - [Security content reference for Dynamics 365 Finance and Operations](dynamics-365/dynamics-365-finance-operations-security-content.md)
 
 
+### New documentation library for Microsoft's unified security operations platform
+
+Find centralized documentation about [Microsoft's unified SecOps platform in the Microsoft Defender portal](/unified-secops-platform/overview-unified-security). Microsoft's unified SecOps platform brings together the full capabilities of Microsoft Sentinel, Microsoft Defender XDR, Microsoft Security Exposure Management, and generative AI into the Defender portal. Learn about the features and functionality available with Microsoft's unified SecOps platform, then start to plan your deployment.
+
+### New S3-based data connector for Amazon Web Services WAF logs (Preview)
+
+Ingest logs from Amazon Web Services' web application firewall (WAF) with Microsoft Sentinel's new S3-based connector. This connector features, for the first time, a quick and easy automated setup, making use of AWS CloudFormation templates for resource creation. Send your AWS WAF logs to an S3 bucket, where our data connector retrieves and ingests them.
+
+For more details and setup instructions, see [Connect Microsoft Sentinel to Amazon Web Services to ingest AWS WAF logs](connect-aws-s3-waf.md).
+
+## November 2024
+
+- [Microsoft Sentinel availability in Microsoft Defender portal](#microsoft-sentinel-availability-in-microsoft-defender-portal)
+
 ### Microsoft Sentinel availability in Microsoft Defender portal
 
-We previously announced Microsoft Sentinel is generally available within Microsoft's unified security operations platform in the Microsoft Defender portal. For preview, Microsoft Sentinel is now available in the Defender portal without Microsoft Defender XDR or an E5 license. For more information, see:
+We previously announced Microsoft Sentinel is generally available within Microsoft's unified security operations platform in the Microsoft Defender portal.
+
+Now, **in preview**, Microsoft Sentinel is available in the Defender portal even without Microsoft Defender XDR or a Microsoft 365 E5 license. For more information, see:
 
  - [Microsoft Sentinel in the Microsoft Defender portal](microsoft-sentinel-defender-portal.md)
  - [Connect Microsoft Sentinel to the Microsoft Defender portal](/defender-xdr/microsoft-sentinel-onboard)
@@ -123,7 +139,7 @@ Learn more about [exporting and importing automation rules](import-export-automa
 
 ### Google Cloud Platform data connectors are now generally available (GA)
 
-Microsoft Sentinel's [Google Cloud Platform (GCP) data connectors](connect-google-cloud-platform.md), based on our [Codeless Connector Platform (CCP)](create-codeless-connector.md), are now **generally available**. WIth these connectors, you can ingest logs from your GCP environment using the GCP [Pub/Sub capability](https://cloud.google.com/pubsub/docs/overview):
+Microsoft Sentinel's [Google Cloud Platform (GCP) data connectors](connect-google-cloud-platform.md), based on our [Codeless Connector Platform (CCP)](create-codeless-connector.md), are now **generally available**. With these connectors, you can ingest logs from your GCP environment using the GCP [Pub/Sub capability](https://cloud.google.com/pubsub/docs/overview):
 
 - The **Google Cloud Platform (GCP) Pub/Sub Audit Logs connector** collects audit trails of access to GCP resources. Analysts can monitor these logs to track resource access attempts and detect potential threats across the GCP environment.
 
