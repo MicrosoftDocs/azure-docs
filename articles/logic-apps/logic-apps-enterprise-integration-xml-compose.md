@@ -39,7 +39,6 @@ This action is currently not yet supported for the [Consumption logic app resour
 
   * Exists in the same location or Azure region as your logic app resource where you plan to use the **Compose XML with schema** action.
 
-
   * If you're working on a [Standard logic app resource and workflow](logic-apps-overview.md#resource-environment-differences), you can link your integration account to your logic app resource, upload XSD schemas directly to your logic app resource, or both, based on the following scenarios: 
 
     * If you already have an integration account with the artifacts that you need or want to use, you can link your integration account to multiple Standard logic app resources where you want to use the artifacts. That way, you don't have to upload XSD schemas to each individual logic app. For more information, review [Link your logic app resource to your integration account](enterprise-integration/create-integration-account.md?tabs=standard#link-account).
