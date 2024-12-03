@@ -37,7 +37,7 @@ This action is currently not yet supported for the [Consumption logic app resour
 
   * Is associated with the same Azure subscription as your logic app resource.
 
-  * Exists in the same location or Azure region as your logic app resource where you plan to use the **XML parse with schema** action.
+  * Exists in the same location or Azure region as your logic app resource where you plan to use the **Parse XML with schema** action.
 
 
   * If you're working on a [Standard logic app resource and workflow](logic-apps-overview.md#resource-environment-differences), you can link your integration account to your logic app resource, upload XSD schemas directly to your logic app resource, or both, based on the following scenarios: 
