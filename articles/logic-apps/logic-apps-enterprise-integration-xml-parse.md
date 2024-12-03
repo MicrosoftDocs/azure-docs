@@ -19,7 +19,7 @@ ms.date: 12/03/2024
 > This capability is in preview and is subject to the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-In enterprise integration business-to-business (B2B) or BizTalk migration scenarios, you might have to parse XML documents. Your logic app workflow can parse XML by using the **XML parse with schema** action.
+In enterprise integration business-to-business (B2B) or BizTalk migration scenarios, you might have to parse XML documents. Your Standard logic app workflow can parse XML by using the action named **Parse XML with schema**, which requires an XSD schema.
 
 For example, suppose you regularly receive customer orders or invoices that use XML as the exchange format and need to access individual XML elements in the workflow designer for Azure Logic Apps.
 
