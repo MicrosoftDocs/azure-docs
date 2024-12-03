@@ -16,7 +16,7 @@ ms.custom: devx-track-azurepowershell
 > * [Classic - PowerShell](expressroute-howto-add-gateway-classic.md)
 > 
 
-This article walks you through the steps to add, resize, and remove a virtual network gateway for a pre-existing virtual network (VNet) using PowerShell. The steps for this configuration apply to VNets that were created using the Resource Manager deployment model for an ExpressRoute configuration. For more information about virtual network gateways and gateway configuration settings for ExpressRoute, see [About virtual network gateways for ExpressRoute](expressroute-about-virtual-network-gateways.md).
+This article walks you through the steps to add, resize, and remove a virtual network gateway for a preexisting virtual network (VNet) using PowerShell. The steps for this configuration apply to VNets that were created using the Resource Manager deployment model for an ExpressRoute configuration. For more information about virtual network gateways and gateway configuration settings for ExpressRoute, see [About virtual network gateways for ExpressRoute](expressroute-about-virtual-network-gateways.md).
 
 :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/gateway-circuit.png" alt-text="Diagram showing an ExpressRoute gateway connected to the ExpressRoute circuit." lightbox="./media/expressroute-howto-add-gateway-portal-resource-manager/gateway-circuit.png":::
 
@@ -24,7 +24,7 @@ This article walks you through the steps to add, resize, and remove a virtual ne
 
 ### Configuration reference list
 
-The steps for this task use a VNet based on the values in the following configuration reference list. Additional settings and names are also outlined in this list. We don't use this list directly in any of the steps, although we do add variables based on the values in this list. You can copy the list to use as a reference, replacing the values with your own.
+The steps for this task use a VNet based on the values in the following configuration reference list. More settings and names are also outlined in this list. We don't use this list directly in any of the steps, although we do add variables based on the values in this list. You can copy the list to use as a reference, replacing the values with your own.
 
 | Setting                   | Value                                              |
 | ---                       | ---                                                |
