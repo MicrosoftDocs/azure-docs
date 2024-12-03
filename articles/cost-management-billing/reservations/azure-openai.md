@@ -22,7 +22,7 @@ When you purchase a reservation, the Azure OpenAI provisioned throughput usage t
 >[!NOTE]
 >Reservations for Global, Data Zone, and Regional deployments aren't interchangeable. You need to purchase a separate reservation for each deployment type. For more information about transitioning provisioned deployments, see [Transition Azure OpenAI provisioned deployments](transition-azure-openai-provisioned-deployments.md).
 
-For pricing information, see the [Azure OpenAI Service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) page.
+<!-- For pricing information, see the [Azure OpenAI Service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) page. -->
 
 ## Reservation application
 
