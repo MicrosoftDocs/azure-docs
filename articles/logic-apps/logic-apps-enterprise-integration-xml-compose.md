@@ -15,6 +15,10 @@ ms.date: 12/03/2024
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
+> [!IMPORTANT]
+> This capability is in preview and is subject to the 
+> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 In enterprise integration business-to-business (B2B) or BizTalk migration scenarios, you might have to create XML documents from JSON data. Your Standard logic app workflow can compose XML documents by using the action named **Compose XML with schema**, which requires an XSD schema.
 
 For example, suppose you receive JSON data from Azure Service Bus and need to send that data in XML format to an FTP server. You can use the JSON data as content for the **Compose XML with schema** action and create a new XML document with the source data. You can then submit this XML data to the FTP server.
