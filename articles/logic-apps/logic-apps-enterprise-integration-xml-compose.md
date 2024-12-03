@@ -108,7 +108,7 @@ The following table describes the advanced parameters available in this action:
 | **XML Writer Settings Indent** | **No** or **Yes** | Whether to indent elements. |
 | **XML Writer Settings Encoding** | Various options available. | The type of text encoding to use. |
 | **XML Writer Settings Do Not Escape URI Attributes** | **No** or **Yes** | Whether to not escape URI attributes. |
-   | **XML Writer Settings Conformance Level** | Auto/Document/fragment | The level of confirmance that the XML writer checks the XML output for.  |
+| **XML Writer Settings Conformance Level** | - **Auto** <br>- **Document** <br>- **Fragment** | The level of conformance to use for the XML writer to check XML output. |
 | **XML Writer Check Characters** | **No** or **Yes** | Whether to make sure that all characters in the document conform to the XML specification. |
 | **JSON Schema For Element 'Root'. Xmlns** | <*json-schema-root*> | The XML namespace to use for declaring a namespace for elements in an XML document. |
 | **JSON Schema For Element 'Root'. UserDetails Xmlns** | <*json-schema-root*> | The XML namespace to use for declaring a namespace for elements in an XML document. |
