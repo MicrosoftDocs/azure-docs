@@ -75,7 +75,9 @@ the following steps to disable public access to the storage account.
    :::image type="content" source="./media/how-to-use-private-endpoint-storage/dynamic-ip-address.png" alt-text="Screenshot of dynamic IP address selection." border="true":::
 
 1. Select **Next: DNS**.
-1. Leave the defaults in **DNS**. Select **Next: Tags**, then **Next: Review + create**.
+1. On the **DNS** tab, ensure that **Integrate with private DNS zone** is set to **Yes**. Keep the
+   default values for the remaining fields.
+1. Select **Next: Tags**, then **Next: Review + create**.
 1. Select **Create**.
 
 <!-- link references -->
