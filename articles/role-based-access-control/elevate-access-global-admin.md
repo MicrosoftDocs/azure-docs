@@ -337,6 +337,34 @@ When you call `elevateAccess`, you create a role assignment for yourself, so to 
 
 ---
 
+## Remove elevated access for users
+
+If you have users with unnecessary elevated access, you should take immediate action and remove that access. To remove these role assignments, you must also have elevated access. This section describes how you can view users that have elevated access and remove that access using the Azure portal.
+
+1. Sign in to the [Azure portal](https://portal.azure.com) as a Global Administrator.
+
+1. Open **Microsoft Entra ID**.
+
+1. Under **Manage**, select **Properties**.
+
+1. Under **Access management for Azure resources**, look for the following banner.
+
+    `You have X users with elevated access. Microsoft Security recommends deleting access for users who have unnecessary elevated access. Manage elevated access users`
+
+    If you don't see this banner, you currently don't have any users with elevated access.
+
+    :::image type="content" source="./media/elevate-access-global-admin/elevated-access-users-banner.png" alt-text="Screenshot of banner that indicates there are users with elevated acccess." lightbox="./media/elevate-access-global-admin/elevated-access-users-banner.png":::
+
+1. If you want to remove elevated access, set the toggle to **Yes** as described earlier in [Step 1: Elevate access for a Global Administrator](#step-1-elevate-access-for-a-global-administrator).
+
+1. Select the **Manage elevated access users** link.
+
+    The **Users with elevated access appears** pane appears with a list of users with elevated access.
+
+    :::image type="content" source="./media/elevate-access-global-admin/elevated-access-users-pane.png" alt-text="Screenshot of Users with elevated access pane that lists users with elevated acccess." lightbox="./media/elevate-access-global-admin/elevated-access-users-pane.png":::
+
+1. To remove elevated access for users, add a check mark next to the user and select **Remove**.
+
 ## View elevate access log entries in the Directory Activity logs
 
 When access is elevated, an entry is added to the logs. As a Global Administrator in Microsoft Entra ID, you might want to check when access was elevated and who did it. Elevate access log entries do not appear in the standard activity logs, but instead appear in the Directory Activity logs. This section describes different ways that you can view the elevate access log entries.
