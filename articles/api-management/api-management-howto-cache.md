@@ -83,8 +83,8 @@ To see the caching in action, call an operation from the portal.
 1. Select the **Test** tab in the top right menu.
 1. Select **Trace** two or three times in quick succession.
 1. Under **HTTP response**, select the **Trace** tab.
-1. Jump to the **Inbound** section and scroll to the `cache-lookup` policy. You should see a message similar to:
-   ` "Cache lookup resulted in a hit! Cached response will be used. Processing will continue from the step in the response pipeline that is after the corresponding `cache-store`."`
+1. Jump to the **Inbound** section and scroll to the `cache-lookup` policy. You should see a message similar to the one in the following screenshot, indicating a cache hit:
+    :::image type="content" source="media/api-management-howto-cache/test-api-cache-lookup.png" alt-text="Screenshot of cache-lookup when testing an API in the portal.":::
 
 ## Related content
 * For more information about caching policies, see [Caching policies][Caching policies] in the [API Management policy reference][API Management policy reference].
