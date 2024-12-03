@@ -149,10 +149,10 @@ To create the three Java components, use the following steps:
 
     1. Use the following table to add the values in the portal window:
 
-       | Setting | Value | Remarks |
-       |---|---|---|
-       | Java component type | Select **Config Server for Spring**. | |
-       | Java component name | Enter **configserver**. | This value matches what you defined for the `$CONFIG_SERVER_COMPONENT` variable. |
+|  | Setting             | Value                                | Remarks                                                                          |
+|--|---------------------|--------------------------------------|----------------------------------------------------------------------------------|
+|  | Java component type | Select **Config Server for Spring**. |                                                                                  |
+|  | Java component name | Enter **configserver**.              | This value matches what you defined for the `$CONFIG_SERVER_COMPONENT` variable. |
 
     1. In the **Git repositories** section, select **Add**.
 
@@ -170,10 +170,10 @@ To create the three Java components, use the following steps:
 
     1. Use the following table to add the values in the portal window:
 
-       | Setting | Value | Remarks |
-       |---|---|---|
-       | Java component type | Select **Eureka Server for Spring**. | |
-       | Java component name | Enter **eureka**. | This value matches what you defined for the `$EUREKA_SERVER_COMPONENT` variable. |
+|  | Setting             | Value                                | Remarks                                                                          |
+|--|---------------------|--------------------------------------|----------------------------------------------------------------------------------|
+|  | Java component type | Select **Eureka Server for Spring**. |                                                                                  |
+|  | Java component name | Enter **eureka**.                    | This value matches what you defined for the `$EUREKA_SERVER_COMPONENT` variable. |
 
     1. Select **Next**.
 
@@ -185,10 +185,10 @@ To create the three Java components, use the following steps:
 
     1. Use the following table to add the values in the portal window:
 
-       | Setting | Value | Remarks |
-       |---|---|---|
-       | Java component type | Select **Admin for Spring**. | |
-       | Java component name | Enter **admin**. | This value matches what you defined for the `$ADMIN_SERVER_COMPONENT` variable. |
+|  | Setting             | Value                        | Remarks                                                                         |
+|--|---------------------|------------------------------|---------------------------------------------------------------------------------|
+|  | Java component type | Select **Admin for Spring**. |                                                                                 |
+|  | Java component name | Enter **admin**.             | This value matches what you defined for the `$ADMIN_SERVER_COMPONENT` variable. |
 
     1. Select **Next**.
 
