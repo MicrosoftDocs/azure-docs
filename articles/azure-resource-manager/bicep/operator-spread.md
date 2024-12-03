@@ -3,7 +3,7 @@ title: Bicep spread operator
 description: Describes Bicep spread operator.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 08/07/2024
+ms.date: 11/20/2024
 ---
 
 # Bicep spread operator
@@ -73,6 +73,24 @@ In this usage, comma isn't used between the two lines.  Output from the example:
 | Name | Type | Value |
 |------|------|-------|
 | `objCombined` | object | { color: 'white', shape: 'circle' } |
+
+The following example shows how to conditionally add an array element:
+
+```bicep
+@allowed(['white', 'black'])
+param color string = 'black'
+
+var colorWhite = { color: 'white' }
+var colorBlack = { color: 'black' }
+
+output objB object = ((color == 'white')? { shape: 'circle', ...colorWhite} : { shape: 'circle', ...colorBlack})
+```
+
+Output from the example:
+
+| Name | Type | Value |
+|------|------|-------|
+| `objB` | object | { shape: 'circle', color: 'black' } |
 
 The spread operation can be used to avoid setting an optional property. In the following example, _accessTier_ is set only if the parameter _tier_ isn't an empty string.
 
