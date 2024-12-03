@@ -38,7 +38,7 @@ Each AVS Host connects to each Azure NetApp Files datastore with a fixed number 
 
 Throughput for each individual host may be affected by the selected AVS SKU. The AV64 SKU has 100-Gigabit Ethernet (GbE) network interface cards (NICs). The other SKUs have 25 GbE NICs. Individual network flows (such as NFS mounts) may be limited by the 25 GbE NICs. 
 
-## Environment details  
+## Av 64 environment details  
 
 The results in this article were achieved using the following environment configuration:
 
