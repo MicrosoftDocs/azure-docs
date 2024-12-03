@@ -29,7 +29,7 @@ Update Manager uses a maintenance control schedule instead of creating its own s
 	> [!NOTE]
 	> If you set the patch mode to **Azure orchestrated** (`AutomaticByPlatform`) but do not enable the **BypassPlatformSafetyChecksOnUserSchedule** flag and do not attach a maintenance configuration to an Azure machine, it's treated as an [automatic guest patching](/azure/virtual-machines/automatic-vm-guest-patching)-enabled machine. The Azure platform automatically installs updates according to its own schedule. [Learn more](prerequisites.md).
 
-## Schedule patching in an availability set
+## Scheduled patching in an availability set
 
 All VMs in a common [availability set](/azure/virtual-machines/availability-set-overview) aren't updated concurrently.
 
