@@ -92,7 +92,6 @@ This action is currently not yet supported for the [Consumption logic app resour
 
    The **Compose XML with schema** action runs after your workflow is triggered and when JSON content is available for composing XML data.
 
-
 ## Advanced parameters
 
 The following table describes the advanced parameters available in this action:
