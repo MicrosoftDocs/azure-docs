@@ -19,6 +19,10 @@ In enterprise integration business-to-business (B2B) or BizTalk migration scenar
 
 For example, suppose you regularly receive orders or invoices from a customer that uses XML as exchange format and need to have access to individual elements in the Logic Apps designer.
 
+## Limitations
+
+This action is currently not yet supported for the [Consumption logic app resource and workflow](logic-apps-overview.md#resource-environment-differences).
+
 ## Prerequisites
 
 * An Azure account and subscription. If you don't have a subscription yet, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
