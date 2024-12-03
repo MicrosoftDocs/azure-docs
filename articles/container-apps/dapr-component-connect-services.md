@@ -44,7 +44,7 @@ To set up a reference:
 
 When creating a secret store component in Azure Container Apps, you can provide sensitive information in the metadata section in either of the following ways:
 
-- [For an **Azure Key Vault secret store**,](#using-managed-identity) use managed identity to establish the connection. 
+- [For an **Azure Key Vault secret store**,](#using-managed-identity-recommended) use managed identity to establish the connection. 
 - [For **non-Azure secret stores**,](#platform-managed-kubernetes-secrets) use platform-managed Kubernetes secrets that are defined directly as part of the component manifest.
 
 #### Azure Key Vault secret stores
