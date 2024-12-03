@@ -2,13 +2,13 @@
 title: Quickstart for using Azure App Configuration with Python apps | Microsoft Learn
 description: In this quickstart, create a Python app with the Azure App Configuration to centralize storage and management of application settings separate from your code.
 services: azure-app-configuration
-author: maud-lv
+author: mrm9084
 ms.service: azure-app-configuration
 ms.devlang: python
 ms.topic: quickstart
 ms.custom: devx-track-python, mode-other, engagement-fy23
-ms.date: 11/20/2023
-ms.author: malev
+ms.date: 12/03/2024
+ms.author: mametcal
 #Customer intent: As a Python developer, I want to manage all my app settings in one place.
 ---
 # Quickstart: Create a Python app with Azure App Configuration
@@ -126,76 +126,52 @@ In this section, you will create a console application and load data from your A
     print("message found: " + str("message" in config))
     print("test.message found: " + str("test.message" in config))
     ```
+    ---
 
 ### Run the application
 
-1. Set an environment variable named **AZURE_APPCONFIG_CONNECTION_STRING**, and set it to the connection string of your App Configuration store. At the command line, run the following command:
+    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
+    Set the environment variable named **AZURE_APPCONFIG_ENDPOINT** to the endpoint of your App Configuration store found under the *Overview* of your store in the Azure portal.
 
-    #### [Windows command prompt](#tab/windowscommandprompt)
+    If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
-    To run the app locally using the Windows command prompt, run the following command and replace `<app-configuration-store-connection-string>` with the connection string of your app configuration store:
+    ```cmd
+    setx AZURE_APPCONFIG_ENDPOINT "endpoint-of-your-app-configuration-store"
+    ```
+
+    If you use PowerShell, run the following command:
+
+    ```powershell
+    $Env:AZURE_APPCONFIG_ENDPOINT = "endpoint-of-your-app-configuration-store"
+    ```
+
+    If you use macOS or Linux, run the following command:
+
+    ```bash
+    export AZURE_APPCONFIG_ENDPOINT='endpoint-of-your-app-configuration-store'
+    ```
+
+    ### [Connection string](#tab/connection-string)
+    Set the environment variable named **AZURE_APPCONFIG_CONNECTION_STRING** to the read-only connection string of your App Configuration store found under *Access keys* of your store in the Azure portal.
+
+    If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
     ```cmd
     setx AZURE_APPCONFIG_CONNECTION_STRING "connection-string-of-your-app-configuration-store"
     ```
 
-    #### [PowerShell](#tab/powershell)
+   If you use PowerShell, run the following command:
 
-    If you use Windows PowerShell, run the following command and replace `<app-configuration-store-connection-string>` with the connection string of your app configuration store:
-
-    ```azurepowershell
-    $Env:AZURE_APPCONFIG_CONNECTION_STRING = "<app-configuration-store-connection-string>"
+    ```powershell
+    $Env:AZURE_APPCONFIG_CONNECTION_STRING = "connection-string-of-your-app-configuration-store"
     ```
 
-    #### [macOS](#tab/unix)
+    If you use macOS or Linux, run the following command:
 
-    If you use macOS, run the following command and replace `<app-configuration-store-connection-string>` with the connection string of your app configuration store:
-
-    ```console
-    export AZURE_APPCONFIG_CONNECTION_STRING='<app-configuration-store-connection-string>'
+    ```bash
+    export AZURE_APPCONFIG_CONNECTION_STRING='connection-string-of-your-app-configuration-store'
     ```
-
-    #### [Linux](#tab/linux)
-
-    If you use Linux, run the following command and replace `<app-configuration-store-connection-string>` with the connection string of your app configuration store:
-
-    ```console
-    export AZURE_APPCONFIG_CONNECTION_STRING='<app-configuration-store-connection-string>'
-    ```
-
-1. Print out the value of the environment variable to validate that it is set properly with the command below.
-
-    #### [Windows command prompt](#tab/windowscommandprompt)
-
-    Using the Windows command prompt, restart the command prompt to allow the change to take effect and run the following command:
-
-    ```cmd
-    echo %AZURE_APPCONFIG_CONNECTION_STRING%
-    ```
-
-    #### [PowerShell](#tab/powershell)
-
-    If you use Windows PowerShell, run the following command:
-
-    ```azurepowershell
-    $Env:AZURE_APPCONFIG_CONNECTION_STRING
-    ```
-
-    #### [macOS](#tab/unix)
-
-    If you use macOS, run the following command:
-
-    ```console
-    echo "$AZURE_APPCONFIG_CONNECTION_STRING"
-    ```
-
-    #### [Linux](#tab/linux)
-
-    If you use Linux, run the following command:
-
-    ```console
-    echo "$AZURE_APPCONFIG_CONNECTION_STRING"
-    ```
+    ---
 
 1. After the environment variable is properly set, run the following command to run the app locally:
 
