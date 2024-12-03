@@ -7,7 +7,7 @@ ms.service: azure-expressroute
 ms.topic: how-to
 ms.date: 12/03/2024
 ms.author: duau
-ms.custom: devx-track-azurepowershell, template-tutorial
+ms.custom: devx-track-azurepowershell
 ---
 # Configure a virtual network gateway for ExpressRoute using PowerShell
 > [!div class="op_single_selector"]
@@ -103,7 +103,7 @@ The steps for this task use a VNet based on the values in the following configur
    ```azurepowershell-interactive
    $pip = New-AzPublicIpAddress -Name $GWIPName  -ResourceGroupName $RG -Location $Location -AllocationMethod Static -SKU Standard
    ```
-    If you want to create the gateway in an Azure Extended Zone, request a public IP address in an Extended Zone using the **-ExtendedLocation** parameter.
+    If you want to create the gateway in an Azure Extended Zone, request a public IP address in the Extended Zone using the **-ExtendedLocation** parameter.
 
    ```azurepowershell-interactive
    $pip = New-AzPublicIpAddress -Name $GWIPName  -ResourceGroupName $RG -Location $Location -AllocationMethod Static -SKU Standard -ExtendedLocation $ExtendedLocation
