@@ -431,7 +431,7 @@
       href: reference-iot-hub-extension.md
     - name: Resource Manager template
       displayName: Microsoft.Devices, IotHubs/certificates, IotHubs/eventHubEndpoints/ConsumerGroups, IotHubs/privateEndpointConnections
-      href: /azure/templates/microsoft.devices/iothub-allversions
+      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
     - name: Azure Policy built-ins
       href: ./policy-reference.md
     - name: X.509 certificates

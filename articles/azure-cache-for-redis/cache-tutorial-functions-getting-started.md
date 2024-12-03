@@ -2,9 +2,6 @@
 title: 'Tutorial: Get started with Azure Functions triggers and bindings in Azure Redis'
 description: In this tutorial, you learn how to use Azure Functions with Azure Cache for Redis or Azure Managed Redis.
 
-
-
-
 ms.topic: tutorial
 ms.custom:
   - ignite-2024
@@ -24,7 +21,7 @@ In this tutorial, you learn how to:
 > - Configure and connect to a cache.
 > - Create an Azure function and deploy code to it.
 > - Confirm the logging of triggers.
-<!-- [umanag] [!div class="checklist"] shows up before list in Preview tab, formatting error? -->
+
 ## Prerequisites
 
 - An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
