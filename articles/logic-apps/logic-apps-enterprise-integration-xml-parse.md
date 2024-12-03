@@ -1,6 +1,6 @@
 ---
 title: Parse XML using schemas
-description: Parse XML documents in Azure Logic Apps with the XML Operations connector.
+description: Learn how to parse XML documents using schemas in Standard workflows with Azure Logic Apps.
 services: logic-apps
 ms.service: azure-logic-apps
 ms.suite: integration
