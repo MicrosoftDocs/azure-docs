@@ -99,7 +99,7 @@ The following table shows you how to combine Azure roles, conditions, and ACL en
 |                          | Storage Blob Data Contributor                    | N/A   | N/A     | N/A       | N/A      |
 |                          | Storage Blob Data Reader                         | `--X` | `--X`   | `-WX`     | N/A      |
 |                          | None                                             | `--X` | `--X`   | `-WX`     | N/A      |
-| Create / update Data.txt | Storage Blob Data Owner                          | N/A   | N/A     | N/A       | N/A      |
+| Create / Update Data.txt | Storage Blob Data Owner                          | N/A   | N/A     | N/A       | N/A      |
 |                          | Storage Blob Data Contributor                    | N/A   | N/A     | N/A       | N/A      |
 |                          | Storage Blob Data Reader                         | `--X` | `--X`   | `-WX`     | N/A      |
 |                          | None                                             | `--X` | `--X`   | `-WX`     | N/A      |

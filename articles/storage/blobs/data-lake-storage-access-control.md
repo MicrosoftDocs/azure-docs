@@ -104,7 +104,7 @@ This table shows a column that represents each level of a fictitious directory h
 | Delete Data.txt          | `--X` | `--X`   | `-WX`     | `---`    |
 | Delete /Oregon/          | `-WX` | `RWX`   | `RWX`     | `---`    |
 | Delete /Oregon/Portland/ | `--X` | `-WX`   | `RWX`     | `---`    |
-| Create / update Data.txt | `--X` | `--X`   | `-WX`     | `---`    |
+| Create / Update Data.txt | `--X` | `--X`   | `-WX`     | `---`    |
 | List /                   | `R-X` | `---`   | `---`     | `---`    |
 | List /Oregon/            | `--X` | `R-X`   | `---`     | `---`    |
 | List /Oregon/Portland/   | `--X` | `--X`   | `R-X`     | `---`    |
