@@ -31,7 +31,6 @@ For example, suppose you regularly receive orders or invoices from a customer th
 
   * Exists in the same location or Azure region as your logic app resource where you plan to use the **XML parse with schema** action.
 
-  * Currently this actions are not yet supported in [Consumption logic app resource and workflow](logic-apps-overview.md#resource-environment-differences).
 
   * If you're working on a [Standard logic app resource and workflow](logic-apps-overview.md#resource-environment-differences), you can link your integration account to your logic app resource, upload XSD schemas directly to your logic app resource, or both, based on the following scenarios: 
 
