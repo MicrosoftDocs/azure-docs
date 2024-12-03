@@ -209,7 +209,7 @@ Each *wave* has its own testing activities, which are embedded in each User Stor
 
   Ideally, you already have baseline integration tests for your BizTalk Server environment and established automated tests for Azure Logic Apps. You can then run tests side-by-side in a way that helps you check your interfaces by using the same data sets and improve overall test accuracy.
 
-#### Release to Production
+#### Release to production
 
 After your team finishes and meets the **Definition of Done** for the User Stories, you should consider the following:
 
