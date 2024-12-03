@@ -6,7 +6,7 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: linux-related-content
 ms.topic: overview
-ms.date: 12/02/2024
+ms.date: 12/03/2024
 ms.author: anfdocs
 ---
 
@@ -16,7 +16,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 ## December 2024
 
-* [Cloud Backup for Virtual Machines on Azure NetApp Files datastores for Azure VMware Solution](../azure-vmware/install-cloud-backup-virtual-machines.md) enhanced backup capabilities (preview)
+* [Cloud Backup for Virtual Machines on Azure NetApp Files datastores for Azure VMware Solution:](../azure-vmware/install-cloud-backup-virtual-machines.md) enhanced backup capabilities (Preview)
 
     Cloud Backup for Virtual Machines now integrates with [Azure NetApp Files backup](backup-introduction.md), significantly enhancing data protection by offering a fully managed backup solution for long-term recovery, archiving, and compliance. This integration allows you to mount a datastore from a snapshot or Azure NetApp Files backup to restore files. You can [mount the backup](../azure-vmware/configure-cloud-backup-virtual-machine.md) to either the Azure VMware Solution host where it was created or to an alternate host.
     
