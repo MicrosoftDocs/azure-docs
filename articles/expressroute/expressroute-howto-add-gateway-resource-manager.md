@@ -106,7 +106,7 @@ The steps for this task use a VNet based on the values in the following configur
     If you want to create the gateway in an Azure Extended Zone, request a public IP address in the Extended Zone using the **-ExtendedLocation** parameter.
 
    ```azurepowershell-interactive
-   $pip = New-AzPublicIpAddress -Name $GWIPName  -ResourceGroupName $RG -Location $Location -AllocationMethod Static -SKU Standard -ExtendedLocation $ExtendedLocation
+   $pip = New-AzPublicIpAddress -Name $GWIPName  -ResourceGroupName $RG -Location $Location -ExtendedLocation $ExtendedLocation -AllocationMethod Static -SKU Standard
    ```
 
    > [!NOTE]
