@@ -75,7 +75,6 @@ This action is currently not yet supported for the [Consumption logic app resour
 
       ![Screenshot shows Standard workflow with opened dynamic content list.](./media/logic-apps-enterprise-integration-xml-parse/open-dynamic-content-list-standard.png)
 
-      This example selects the **Body** token from the trigger.
 
       
 1. From the **Source** list, select the location where you uploaded your XSD schema, either your **LogicApp** resource or your **IntegrationAccount**.
