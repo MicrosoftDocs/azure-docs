@@ -220,9 +220,17 @@ You'd configured your OT sensor network configuring during [installation](ot-dep
 
 An OT network sensor starts monitoring your network automatically as soon as it's connected to your network and you've [signed in](ot-deploy/activate-deploy-sensor.md#sign-in-to-the-sensor-console-and-change-the-default-password). Network devices start appearing in your [device inventory](device-inventory.md), and [alerts](alerts.md) are triggered for any security or operational incidents that occur in your network.
 
-Initially, this activity happens in *learning* mode, which instructs your OT sensor to learn your network's usual activity, including the devices and protocols in your network, and the regular file transfers that occur between specific devices. Any regularly detected activity becomes your network's [baseline traffic](ot-deploy/create-learned-baseline.md). The *Learning* mode monitors all of the network OT sensors with identical global settings to ensure that it tracks and identifies all types of network traffic.
-  
-Between two to six weeks after deploying your sensor the detection levels should accurately reflect your network activity, at this stage we recommend turning off learning mode and switching to dynamic or operational mode. As opposed to learning mode, in dynamic or operational mode, you can assign different settings to each sensor. Once this change is made, policy violation alerts start to appear based on the baseline traffic created during the learning period.
+There are three stages to the development of the monitoring process which are controlled by three monitoring modes:
+
+1. In **Learning mode** the sensor monitors and assesses all network communication and learns which types are normal, safe traffic and which are suspicious, thereby creating a baseline of safe traffic which won't trigger alerts.
+
+1. In **Dynamic mode** the sensor continues the monitoring process, ensuring that the produced baseline is accurate but also starts to produce **Policy violation** alerts which detail important suspicious traffic that needs to be remidated.
+
+1. In **Operational mode** the sensor monitors all network traffic, with a completed baseline, and triggers all alerts.
+
+Initially, this activity happens in *learning* mode, which instructs your OT sensor to learn your network's usual activity, including the devices and protocols in your network, and the regular file transfers that occur between specific devices. Any regularly detected activity becomes your network's [baseline traffic](ot-deploy/create-learned-baseline.md). The *Learning* mode monitors all of the network OT sensors with identical global settings to ensure that it tracks and identifies all types of network traffic. In learning mode you'll see alerts for malware, ..., or .... However, Policy Violation alerts aren't generated in learning mode.<!-- what doesnt happen in learning mode? Are there any policy violation alerts produced?? any other alerts not produced? What alerts are produced? -->
+
+Within two to six weeks after deploying your sensor the detection levels should accurately reflect your network activity.<!-- what should this now look like? How much less than in the original first days? In other places we say that there is a drop off, im still unclear what that will look like? --> At this stage we recommend turning off learning mode. The sensor remains in *dynamic* mode, where it continues to monitor and assess the network traffic as though it was in learning mode, but will slowly start to generate **Policy Violation** alerts as well. Eventually, when the sensor recognises all normal types of network traffic it will automatically change to *Operational* mode.
 
 This procedure describes how to turn off learning mode manually if you feel that the current alerts accurately reflect your network activity.
 
@@ -234,7 +242,15 @@ This procedure describes how to turn off learning mode manually if you feel that
 
 1. In the confirmation message, select **OK**, and then select **Close** to save your changes.
 
-dynamic mode settings
+The updated mode setting for each **Policy Violation** alert can be found by selecting **Support** in the side menu.<!-- OR:  Once learning mode has been turned off, you can check the mode status of a specific **Policy Violation** alert by selecting **Support** in the side menu.--> We recommend leaving the mode settings for each alert to automatically update from dynamic to operational. However, if for testing or other reasons, you could manually change the mode setting. This is not recommended as it can produce a large number of alerts.
+
+**Manually change a Policy Violations setting**:
+
+1. In the main sensor menu, select **Support**. The **Engines** table displays the list all of the Defender for IoT alerts.
+
+1. In the **Learning Mode** column, change the mode for any **Policy Violation** alert by selecting **Learning**, **Dynamic** or **Operational** from the dropdown box.
+
+    When selecting **Learning**, you must enter the length of time, in hours, to maintain this setting. Select **Submit**.
 
 ## Update a sensor's monitoring interfaces (configure ERSPAN)
 
