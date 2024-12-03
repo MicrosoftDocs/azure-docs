@@ -42,5 +42,5 @@ You can also see that the *Approval State* is *Pending*. The owner of the target
 
 ## Related content
 
-You can also [deploy managed private endpoints using the Azure CLI](/cli/azure/synapse/managed-private-endpoints).
-Learn more about [managed private endpoints](./synapse-workspace-managed-private-endpoints.md).
+- You can also [deploy managed private endpoints using the Azure CLI](/cli/azure/synapse/managed-private-endpoints).
+- Learn more about [managed private endpoints](./synapse-workspace-managed-private-endpoints.md).
