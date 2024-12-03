@@ -199,7 +199,7 @@ Each *wave* has its own testing activities, which are embedded in each User Stor
     - Plug into automated testing frameworks that logic app developers might use.
     - Plug into SpecFlow to support behavior-driven-development (BDD) for logic apps.
 
-  Regardless which approaches or resources you use, you're well on your way to having repeatable, consistent automated integration tests.
+  Regardless which approaches or resources you use, you're well on your way to having repeatable, consistent, and automated integration tests.
 
 - Set up mock response testing using static results.
 
