@@ -46,7 +46,7 @@ For more information about Azure Container Apps, see [Azure Container Apps overv
 
 For the Azure Spring Apps Standard consumption and dedicated plan (preview), new customers will no longer be able to sign up for the service after September 30, 2024, while existing customers will remain operational until this plan is retired on March 31, 2025.
 
-(to update) Migration guidance and tooling will be enabled for the Azure Spring Apps Standard consumption and dedicated plan (preview) by mid-October, providing customers with a transition from Azure Spring Apps to Azure Container Apps. For more information, see [Migrate Azure Spring Apps Standard consumption and dedicated plan to Azure Container Apps](../consumption-dedicated/overview-migration.md).
+Migration guidance and tooling will offer customers with a smooth transition from Azure Spring Apps to Azure Container Apps. For more information, see [Migrate Azure Spring Apps Standard consumption and dedicated plan to Azure Container Apps](../consumption-dedicated/overview-migration.md).
 
 ## Migration guidance and tooling for the Azure Spring Apps Basic, Standard, and Enterprise plans
 
@@ -133,7 +133,7 @@ The following table indicates the overall release timeline for whole Azure Sprin
 |------------------------------------------------------------------------------------|-----------------------------------------|--------------------|
 | Official retirement start date                                                     | Standard consumption and dedicated plan | September 30, 2024 |
 | Block new service instance creation for all customers                              | Standard consumption and dedicated plan | September 30, 2024 |
-| Guidance and tooling for migration to Azure Container Apps (need a link)           | Standard consumption and dedicated plan | October 2024       |
+| [Guidance and tooling for migration to Azure Container Apps ](../consumption-dedicated/overview-migration.md)          | Standard consumption and dedicated plan | October 2024       |
 | Guidance for migrating to Azure Container Apps (without migration tooling support) | Basic, Standard, and Enterprise plans   | Jan 2025      |
 | Guidance for migrating to AKS                                                      | Basic, Standard, and Enterprise plans   | Jan 2025      |
 | Official retirement date after a half year retirement period                       | Standard consumption and dedicated plan | March 31, 2025     |
