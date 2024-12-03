@@ -24,7 +24,7 @@ In a Windows container task workload, the entire ephemeral disk (D:) is attached
 > [!Note]
 > To use this feature, please ensure that your node agent version is greater than 1.11.11.
 
-## The Roles of Host Data Path Attach to Container
+## Configuring host data path attachments for containers
 
 * For Linux node: We can just attach the same path into container.
 * For Windows node: Since Windows containers don't have a D: disk, we need to mount the path. Refer to the listed paths that you can choose to mount.
