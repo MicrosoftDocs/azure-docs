@@ -747,7 +747,7 @@
       - name: Logs
         href: backup-azure-monitoring-use-azuremonitor.md
       - name: Configure notifications
-        href: backup-azure-monitoring-alerts-notification.md    
+        href: backup-azure-monitor-alerts-notification.md    
       - name: Classic alerts
         items:  
         - name: Using Azure Monitor alerts
