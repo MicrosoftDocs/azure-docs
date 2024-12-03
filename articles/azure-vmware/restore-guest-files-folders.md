@@ -22,7 +22,7 @@ You can restore files or folders from a virtual machine disk (VMDK) on a Windows
 * Credentials for the target virtual machine (VM) must specify the built-in domain administrator account or the built-in local administrator account. The username must be "Administrator." Before starting the restore operation, you must configure the credentials for the VM to which you want to attach the virtual disk. The credentials are required for both attaching the VM and the subsequent restore operation. Workgroup users can use the built-in local administrator account.
 
   >[!NOTE]
-  > If you need to use an account other than the built-in administrator account, but has administrative privileges within the VM, you must disable user account control (UAC) on the guest VM.
+  > If you need to use an account other than the built-in administrator account and that account has administrative privileges within the VM, you must disable user account control (UAC) on the guest VM.
   
 * You must know the location of the backup snapshot and VMDK to restore from.
 
