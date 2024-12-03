@@ -44,7 +44,7 @@ For example, suppose you regularly receive orders or invoices from a customer th
 
   You still need an integration account to store other artifacts, such as partners, agreements, and certificates, along with using the [AS2](logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md), and [EDIFACT](logic-apps-enterprise-integration-edifact.md) operations.
 
-## Add XML parse with schema action
+## Add a Parse XML with schema action
 
 ### [Standard](#tab/standard)
 
