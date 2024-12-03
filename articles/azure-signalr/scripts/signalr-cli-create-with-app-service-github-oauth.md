@@ -28,7 +28,7 @@ This sample script creates a new Azure SignalR Service resource, which is used t
 
 ### Enable GitHub authentication and Git deployment for web app
 
-1. Update the values in the following script for the desired deployment username and its passwor
+1. Update the values in the following script for the desired deployment username and its password
 
    ```azurecli
    deploymentUser=<Replace with your desired username>
