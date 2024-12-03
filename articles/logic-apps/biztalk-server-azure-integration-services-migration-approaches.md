@@ -213,7 +213,7 @@ Each *wave* has its own testing activities, which are embedded in each User Stor
 
 After your team finishes and meets the "definition of done" for the User Stories, consider the following tasks:
 
-1. Create a communication plan for the Release to Production.
+1. Create a communication plan for your release to production.
 
 1. Make a "cut-over" plan.
 
