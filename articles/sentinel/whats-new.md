@@ -28,7 +28,7 @@ The listed features were released in the last three months. For information abou
 
 ### New documentation library for Microsoft's unified security operations platform
 
-Find centralized documentation about [Microsoft's unified SecOps platform in the Microsoft Defender portal](/unified-secops-platform/overview-unified-security). Microsoft's unified SecOps platform brings together the full capabilities of Microsoft Sentinel, Microsoft Defender XDR, Microsoft Security Exposure Management, and generative AI. Learn about the features and functionality available with the Microsoft's unified SecOps platform, then start to plan your deployment.
+Find centralized documentation about [Microsoft's unified SecOps platform in the Microsoft Defender portal](/unified-secops-platform/overview-unified-security). Microsoft's unified SecOps platform brings together the full capabilities of Microsoft Sentinel, Microsoft Defender XDR, Microsoft Security Exposure Management, and generative AI. Learn about the features and functionality available with Microsoft's unified SecOps platform, then start to plan your deployment.
 
 ## November 2024
 
