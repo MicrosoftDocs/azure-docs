@@ -494,3 +494,4 @@ This section lists error messages and possible resolutions when Azure NetApp Fil
 
 * [Azure NetApp Files API](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/netapp/resource-manager/Microsoft.NetApp/stable/2019-11-01)
 * [Configure customer-managed keys with managed Hardware Security Module](configure-customer-managed-keys-hardware.md)
+* [Configure cross-tenant customer-managed keys for Azure NetApp Files volume encryption](customer-managed-keys-cross-tenant.md) 
