@@ -44,7 +44,6 @@ For example, suppose you receive JSON data from Azure Service Bus and need to se
 
 ## Add XML compose with schema action
 
-### [Standard](#tab/standard)
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app and workflow in the designer.
 
