@@ -55,7 +55,7 @@ By the end of this article, you deploy one web application and three back-end ap
     export CONTAINER_APP_ENVIRONMENT=<CONTAINER_APPS_ENVIRONMENT>
     ```
 
-1. Now you create additional environment variables that contain the settings for your microservices app. These values are used to define the names and configurations of the Java components and the Azure Container Apps that you'll use to deploy the microservices. Create these environment variables by using the following commands:
+1. Now you create more environment variables that contain the settings for your microservices app. These values are used to define the names and configurations of the Java components and the Azure Container Apps that you use to deploy the microservices. Create these environment variables by using the following commands:
 
     ```bash
     export CONFIG_SERVER_COMPONENT=configserver
