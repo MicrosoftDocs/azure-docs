@@ -130,7 +130,7 @@ public class Startup
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddControllersWithViews();
-        // Configure the application to use the protocol and client ip address forwared by the frontend load balancer
+        // Configure the application to use the protocol and client ip address forwarded by the frontend load balancer
         services.Configure<ForwardedHeadersOptions>(options =>
         {
             options.ForwardedHeaders =
@@ -295,7 +295,7 @@ public class Startup
 
                 if (!foundIssuerCN || !foundIssuerO) return false;
 
-                // 4. Check thumprint of certificate
+                // 4. Check thumbprint of certificate
                 if (String.Compare(certificate.Thumbprint.Trim().ToUpper(), "30757A2E831977D8BD9C8496E4C99AB26CB9622B") != 0) return false;
 
                 return true;
