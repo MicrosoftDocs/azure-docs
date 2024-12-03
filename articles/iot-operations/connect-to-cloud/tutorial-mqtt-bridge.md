@@ -366,13 +366,33 @@ resource dataflow_1 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflow
         operationType: 'Source'
         sourceSettings: {
           endpointRef: 'default'
+          serializationFormat: 'Json'
           dataSources: array('tutorial/local')
+        }
+      }
+      {
+        operationType: 'BuiltInTransformation'
+
+        builtInTransformationSettings: {
+        serializationFormat: 'Json'
+        datasets: []
+        filter: []
+        map: [
+          {
+            type: 'PassThrough'
+            inputs: [
+              '*'
+            ]
+            output: '*'
+          }
+        ]
         }
       }
       {
         operationType: 'Destination'
         destinationSettings: {
           endpointRef: 'eventgrid'
+          serializationFormat: 'Json'
           dataDestination: 'telemetry/aio'
         }
       }
@@ -393,7 +413,26 @@ resource dataflow_2 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflow
         operationType: 'Source'
         sourceSettings: {
           endpointRef: 'eventgrid'
+          serializationFormat: 'Json'
           dataSources: array('telemetry/#')
+        }
+      }
+      {
+        operationType: 'BuiltInTransformation'
+
+        builtInTransformationSettings: {
+        serializationFormat: 'Json'
+        datasets: []
+        filter: []
+        map: [
+          {
+            type: 'PassThrough'
+            inputs: [
+              '*'
+            ]
+            output: '*'
+          }
+        ]
         }
       }
       {
