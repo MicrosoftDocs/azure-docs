@@ -79,7 +79,7 @@ We recommend updating the default route that's associated with the API Managemen
 
 ### Test the configuration
 
-Test the Front Door profile configuration by calling an API hosted by API Management, for example, the Demo Conference API. First, call the API directly through the API Management gateway to ensure that the API is reachable. Then, call the API through Front Door.
+Test the Front Door profile configuration by calling an API hosted by API Management, for example, the Swagger Petstore API. First, call the API directly through the API Management gateway to ensure that the API is reachable. Then, call the API through Front Door.
 
 ### Call an API directly through API Management
 
