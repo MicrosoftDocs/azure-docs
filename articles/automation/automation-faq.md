@@ -79,6 +79,10 @@ See [Identify available packages in sandbox](python-3-packages.md#identify-avail
 
 See [Manage Python 3 packages](python-3-packages.md).
 
+## What is the difference between Azure Automation Runbooks and Azure Logic Apps? 
+
+Azure Automation Runbooks provide a lightweight and cost-effective solution for straightforward remediations, such as restarting virtual machines. For custom workflows, complex logic, or multi-service integrations, Azure Logic Apps are recommended.
+
 ## Next steps
 
 If your question isn't answered here, you can refer to the following sources for more questions and answers.
