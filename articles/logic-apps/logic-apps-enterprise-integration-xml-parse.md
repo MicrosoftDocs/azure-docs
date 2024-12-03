@@ -1,5 +1,5 @@
 ---
-title: Parse XML in enterprise integration workflows
+title: Parse XML using schemas
 description: Parse XML documents in Azure Logic Apps with the XML Operations connector.
 services: logic-apps
 ms.suite: integration
