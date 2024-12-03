@@ -73,6 +73,8 @@ This action is currently not yet supported for the [Consumption logic app resour
 
    1. From the dynamic content list, select the token for the content that you want to parse.
 
+      This example selects the **Body** token from the trigger.
+
       ![Screenshot shows Standard workflow with opened dynamic content list.](./media/logic-apps-enterprise-integration-xml-parse/open-dynamic-content-list-standard.png)
 
 
