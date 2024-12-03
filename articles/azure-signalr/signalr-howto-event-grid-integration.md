@@ -146,7 +146,7 @@ cd samples/Management
 
 # Start the negotiation server
 # Negotiation server is responsible for generating access token for clients
-cd NegotitationServer
+cd NegotiationServer
 dotnet user-secrets set Azure:SignalR:ConnectionString "<Connection String>"
 dotnet run
 
