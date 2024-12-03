@@ -111,7 +111,7 @@ Before you continue, ensure that you have all the prerequisites installed and co
 
     In Visual Studio Code, you should see your Azure email address in the Status Bar and your subscription in the **App Service** explorer.
 
-    ![Screensnot of the Sign in to Azure option.](./media/quickstart-nodejs/sign-in.png)
+    ![Screenshot of the Sign in to Azure option.](./media/quickstart-nodejs/sign-in.png)
 
 > [!div class="nextstepaction"]
 > [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azure-app-service&step=getting-started)
