@@ -52,7 +52,7 @@ This action is currently not yet supported for the [Consumption logic app resour
 
 * The XSD schema to use with the **Compose XML with schema** action. Make sure that this schema includes a root element, which looks like the following example:
 
-   ```json
+   ```xml
    <xs:element name="Root">
        <....>
    </xs:element>
