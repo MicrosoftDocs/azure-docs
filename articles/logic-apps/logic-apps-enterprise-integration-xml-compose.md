@@ -82,7 +82,7 @@ This action is currently not yet supported for the [Consumption logic app resour
 
 1. For an attribute that accepts an array, you can select **Switch to input entire array**, which appears only for array parameters.
 
-      ![Screenshot shows Standard workflow with opened dynamic content list and array parameters.](./media/logic-apps-enterprise-integration-xml-compose/open-dynamic-content-list-standard-array.png)
+   :::image type="content" source="./media/logic-apps-enterprise-integration-xml-compose/open-dynamic-content-list-standard-array.png" alt-text="Screenshot shows Standard workflow with opened dynamic content list and array parameters.":::
 
 1. When you're done, save your workflow.
 
