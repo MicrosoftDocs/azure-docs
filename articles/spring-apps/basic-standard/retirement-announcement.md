@@ -146,3 +146,6 @@ The following table indicates the overall release timeline for whole Azure Sprin
 ### How can I get transition help and support during migration?
 
 If you have any questions, you can open a support ticket through the Azure portal for technical help: create an [Azure Support Request](/azure/azure-portal/supportability/how-to-create-azure-support-request).
+
+### What's the impact of retiring Azure Spring Apps on overall Java on Azure investment?
+We want to reassure you that the decision to retire Azure Spring Apps is focused solely on that specific product and will not affect Microsoft's overall commitment to Java on Azure. In fact, we are increasing our investment in Azure Container Apps and enhancing our Java tooling to provide even better support for running Java applications on Azure.
