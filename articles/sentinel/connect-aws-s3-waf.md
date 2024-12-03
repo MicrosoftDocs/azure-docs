@@ -19,7 +19,7 @@ Use the Amazon Web Services (AWS) S3-based Web Application Firewall (WAF) connec
 This connector features the debut of a new *AWS CloudFormation*-based onboarding script, to streamline the creation of the AWS resources used by the connector.
 
 > [!IMPORTANT]
-> - The **Amazon Web Services S3 WAF** data connector is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> - The **Amazon Web Services S3 WAF** data connector is currently in preview. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 > - [!INCLUDE [unified-soc-preview-no-alert](includes/unified-soc-preview-without-alert.md)]
 
@@ -45,7 +45,7 @@ The process of enabling and configuring the connector consists of the following 
 
 - **In your AWS environment:**
 
-    the **Amazon Web Services S3 WAF** connector page in Microsoft Sentinel contains downloadable AWS CloudFormation stack templates that automate the following AWS tasks:
+    The **Amazon Web Services S3 WAF** connector page in Microsoft Sentinel contains downloadable AWS CloudFormation stack templates that automate the following AWS tasks:
 
     - Configure your AWS service(s) to send logs to an **S3 bucket**.
 
