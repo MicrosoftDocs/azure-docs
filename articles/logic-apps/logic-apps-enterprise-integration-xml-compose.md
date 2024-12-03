@@ -57,7 +57,7 @@ For example, suppose you receive JSON data from Azure Service Bus and need to se
  
 1. From the **Name** list, select your XSD schema.
 
-1. Once the schema is selected, the JSON inputs for the root element will appear dynamically as well. 
+   After you select the schema, under the **Name** list, the schema's JSON input parameters for the root element dynamically appear,
 
 1. Enter the values for each Element
 
