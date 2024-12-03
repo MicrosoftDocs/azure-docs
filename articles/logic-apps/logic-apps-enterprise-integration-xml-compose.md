@@ -114,3 +114,7 @@ The following table describes the advanced parameters available in this action:
 | **JSON Schema For Element 'Root'. UserDetails Xmlns** | <*json-schema-root*> | The XML namespace to use for declaring a namespace for elements in an XML document. |
 | **JSON Schema For Element 'Root'. Status Xmlns** | <*json-schema-root*> | The XML namespace to use for declaring a namespace for elements in an XML document. |
 
+## Related content
+
+- [Parse XML with schema](logic-apps-enterprise-integration-xml-parse.md)
+
