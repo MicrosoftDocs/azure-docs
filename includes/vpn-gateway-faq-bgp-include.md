@@ -86,7 +86,7 @@ Azure VPN Gateway supports up to 4,000 prefixes. The BGP session is dropped if t
 
 Yes. Keep in mind that advertising the default route forces all VNet egress traffic toward your on-premises site. It also prevents the virtual network VMs from accepting public communication from the internet directly, such as Remote Desktop Protocol (RDP) or Secure Shell (SSH) from the internet to the VMs.
 
-### In site-to-site tunnel setups, can I advertise the exact prefixes as my virtual network prefixes?
+### <a name="advertise-exact-prefixes"></a>In site-to-site tunnel setups, can I advertise the exact prefixes as my virtual network prefixes?
 
 The ability to advertise exact prefixes depends on whether gateway transit is enabled or not enabled.
 
