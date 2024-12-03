@@ -9,95 +9,49 @@ ms.author: v-abhmallick
 ms.custom: engagement-fy24
 ---
 
-# Configure notifications for Azure Backup
+# Configure alert notifications for Azure Backup
 
 This article describes how to configure and manage Azure Monitor based alert notifications for Azure Backup. You can use these alerts to monitor the health of your backup items and take corrective actions when needed.
 
-> [!VIDEO https://www.youtube.com/embed/3zzWxWJGWPg]
+## Configure notifications for alerts
 
-## Supported alerting solutions
+To configure notifications for Azure Monitor alerts, create an [alert processing rule](/azure/azure-monitor/alerts/alerts-action-rules). To create an alert processing rule (earlier called *action rule*) to send email notifications to a given email address, follow these steps. Also, follow these steps to route these alerts to other notification channels, such as ITSM, webhook, logic app, and so on.
 
-Azure Backup now supports different kinds of Azure Monitor based alerting solutions. You can use a combination of any of these based on your specific requirements. 
+1. Go to **Backup center** in the Azure portal.
 
-The following table lists some of these solutions:
+1. Select **Alerts** from the menu and select **Alert processing rules**.
 
-| Alert | Utility | Description |
-| --- | --- | --- |
-| **Built-in Azure Monitor alerts** | Default alerts enabled for critical scenarios. | Azure Backup automatically generates built-in alerts for certain default scenarios, such as deletion of backup data, disabling of soft-delete, backup failures, restore failures, and [so on](monitoring-and-alerts-overview.md#azure-monitor-alerts-for-azure-backup). You can view these alerts out of the box via Backup center. To configure notifications for these alerts (for example, emails), you can use Azure Monitor's *Alert Processing Rules* and Action groups to route alerts to a wide range of notification channels. |
-| **Log/ARG based Alerts** | To write custom alerts. <br><br> - **Azure Resource Graph (ARG)**: On real time data. <br> - **LA**: On Log Analytics data (when some delay is acceptable). | If you've scenarios where an alert needs to be generated based on custom logic, you can use Log Analytics based alerts for such scenarios, provided you've configured your vaults to send diagnostics data to a Log Analytics (LA) workspace. |
-| **Metric alerts**  | To write alerts for job success and cases where the health is not as expected. | You can write custom alert rules using Azure Monitor metrics to monitor the health of your backup items across different KPIs. |
+   :::image type="content" source="./media/backup-azure-monitoring-laworkspace/backup-center-manage-alert-processing-rules-inline.png" alt-text="Screenshot for Manage Actions in Backup center." lightbox="./media/backup-azure-monitoring-laworkspace/backup-center-manage-alert-processing-rules-expanded.png":::
 
-> [!NOTE]
->There are five types of alert severity levels - **Critical**, **Error**, **Warning**, **Informational**, and **Verbose**. You can configure notifications for alerts based on these severity levels. 
+1. Select **Create**.
 
-### Supported monitoring platform
+   :::image type="content" source="./media/backup-azure-monitoring-laworkspace/backup-center-create-alert-processing-rule.png" alt-text="Screenshot for creating a new action rule.":::
 
-[Azure Business Continuity Center](../business-continuity-center/business-continuity-center-overview.md) enables you to view the list of all [Built-in alerts and custom alerts written on the metrics](metrics-overview.md#supported-built-in-metrics) that Microsoft offers. To view any custom alerts written on ARG, Log Analytics, Activity Logs, go to **Azure Monitor** > **Alerts**, and then select **Monitor Service** as **Log Alerts V2** and select **Signal Type** as **Log search/ Activity**. 
+1. Select the scope for which the alert processing rule should be applied.
 
-## Migrate from classic alerts to built-in Azure Monitor alerts
+   You can apply the rule for all resources within a subscription. Optionally, you can also apply filters on the alerts; for example, to only generate notifications for alerts of a certain severity.
 
-Among the different Azure Monitor based alert solutions, built-in Azure Monitor alerts come closest to classic alerts as per user experience and functionality. So, to quickly switch from classic alerts to Azure Monitor, you can use built-in Azure Monitor alerts.
+   :::image type="content" source="./media/backup-azure-monitoring-laworkspace/alert-processing-rule-scope-inline.png" alt-text="Screenshot for setting the action rule scope." lightbox="./media/backup-azure-monitoring-laworkspace/alert-processing-rule-scope-expanded.png":::
 
-The following table lists the differences between classic backup alerts and built-in Azure Monitor alerts for backup:
+1. Under **Rule Settings**, create an action group (or use an existing one).
 
-| Actions | Classic alerts | Built-in Azure Monitor alerts |
-| --- | --- | --- |
-| **Setting up notifications** | - You must enable the configure notifications feature for each Recovery Services vault, along with the email id(s) to which the notifications should be sent. <br><br> - For certain destructive operations, email notifications are sent to the subscription owner, admin and co-admin irrespective of the notification settings of the vault.| - Notifications are configured by creating an alert processing rule. <br><br> - While *alerts* are generated by default and can't be turned off for destructive operations, the notifications are in the control of the user, allowing you to clearly specify which set of email address (or other notification endpoints) you wish to route alerts to. |
-| **Notification suppression for database backup scenarios** | When there are multiple failures for the same database due to the same error code, a single alert is generated (with the occurrence count updated for each failure type) and a new alert is only generated when the original alert is inactivated. | The behavior is currently different. Here, a separate alert is generated for every backup failure. If there's a window of time when backups will fail for a certain known item (for example, during a maintenance window), you can create a suppression rule to suppress email noise for that backup item during the given period. |
-| **Pricing** | There are no additional charges for this solution. | Alerts for critical operations/failures generate by default (that you can view in the Azure portal or via non-portal interfaces) at no additional charge. However, to route these alerts to a notification channel (such as email), it incurs a minor charge for notifications beyond the *free tier* (of 1000 emails per month). Learn more about [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/). |
+   An action group is the destination to which the notification for an alert should be sent. For example, an email address.
+ 
+   :::image type="content" source="media/backup-azure-monitoring-laworkspace/create-action-group.png" alt-text="Screenshot for creating a new action group.":::
 
-> [!NOTE]
->- If you've existing custom Azure Resource Graph (ARG) queries written on classic alerts data, you'll need to update these queries to fetch information from Azure Monitor-based alerts. You can use the *AlertsManagementResources* table in ARG to query Azure Monitor alerts data.
->- If you send classic alerts to Log Analytics workspace/Storage account/Event Hub via diagnostics settings, you'll also need to update these automation. To send the fired Azure Monitor based alerts to a destination of your choice, you can create an alert processing rule and action group that routes these alerts to a logic app, webhook, or runbook that in turn sends these alerts to the required destination.
+1. On the **Basics** tab, select the name of the action group, the subscription, and resource group under which it should be created.
 
-Azure Backup now provides a guided experience via Backup center that allows you to switch to built-in Azure Monitor alerts and notifications with just a few selects. To perform this action, you need to have access to the *Backup Contributor* and *Monitoring Contributor* Azure role-based access control (Azure RBAC) roles to the subscription.
+    :::image type="content" source="media/backup-azure-monitoring-laworkspace/azure-monitor-action-groups-basic.png" alt-text="Screenshot for basic properties of action group."::: 
 
-Follow these steps:
+1. On the **Notifications** tab, select **Email/SMS message/Push/Voice** and enter the recipient email ID.
 
-1. On the [Azure portal](https://portal.azure.com/), go to **Business Continuity Center** > **Alerts**.
+    :::image type="content" source="media/backup-azure-monitoring-laworkspace/azure-monitor-email.png" alt-text="Screenshot for setting notification properties."::: 
 
-1. On the **Alerts** blade, all the available alerts are listed.
+1. Select **Review+Create** -> **Create** to deploy the action group.
 
-   Select the alert type to take the required action.
+1. Save the action rule.
 
-   On the next screen, there are two recommended actions:
-
-   - **Create rule**: This action creates an alert processing rule attached to an action group to enable you to receive notifications for Azure Monitor alerts. After you select, it leads you to a template deployment experience.
-
-     :::image type="content" source="./media/move-to-azure-monitor-alerts/recommended-action-one.png" alt-text="Screenshot showing recommended alert migration action Create rule for Recovery Services vaults.":::
-
-     You can deploy two resources via this template:
-
-   - **Alert Processing Rule**: A rule that specifies alert types to be routed to each notification channel. This template deploys alert processing rules that span all Azure Monitor based alerts on all Recovery Services vaults in the subscription that the rule is created in.
-   - **Action Group**: The notification channel to which alerts should be sent. This template deploys an email action group so that alerts are routed to the email ID(s) specified while deploying the template.
-
-   To modify any of these parameters, for example, scope of alert processing rule, or choice of notification channels, you can edit these resources after creation, or you can [create the alert processing rule and action group from scratch](backup-azure-monitoring-alerts.md#configure-notifications-for-alerts) via the Azure portal.
-
-1. Enter the subscription, resource group, and region in which the alert processing rule and action group should be created. Also specify the email ID(s) to which notifications should be sent. Other parameters populate with default values and only need to be edited, if you want to customize the names and descriptions that the resources are created in.
-
-   :::image type="content" source="./media/move-to-azure-monitor-alerts/alert-processing-rule-parameters.png" alt-text="Screenshot showing template parameters to set up notification rules for Azure Monitor alerts.":::
-
-1. Select **Review+Create** to initiate deployment.
-
-   Once deployed, notifications for Azure Monitor based alerts are enabled. If you have multiple subscriptions, repeat the above process to create an alert processing rule for each subscription.
-
-   :::image type="content" source="./media/move-to-azure-monitor-alerts/alert-processing-rule-deploy.png" alt-text="Screenshot showing deployment of notification rules for Azure Monitor alerts.":::
-
-1. Next, you need to opt-out of classic alerts to avoid receiving duplicate alerts from two solutions.
-
-   Select **Manage Alerts** to view the vaults for which classic alerts are currently enabled.
-
-   :::image type="content" source="./media/move-to-azure-monitor-alerts/recommended-action-two.png" alt-text="Screenshot showing recommended alert migration action Manage Alerts for Recovery Services vaults.":::
-
-1. Select **Update** -> **Use only Azure Monitor alerts** checkbox.
-
-   By doing so, you agree to receive backup alerts only via Azure Monitor, and you'll stop receiving alerts from the older (classic alerts) solution.
-
-   :::image type="content" source="./media/move-to-azure-monitor-alerts/classic-alerts-vault.png" alt-text="Screenshot showing how to opt out of classic alerts for vault.":::
-
-1. To select multiple vaults on a page and update the settings for these vaults with a single action, select **Update** from the top menu.
-
-   :::image type="content" source="./media/move-to-azure-monitor-alerts/classic-alerts-multiple-vaults.png" alt-text="Screenshot showing how to opt out of classic alerts for multiple vaults.":::
+[Learn more](/azure/azure-monitor/alerts/alerts-action-rules) about Action Rules in Azure Monitor.
 
 ## Suppress notifications during a planned maintenance window
 
@@ -139,226 +93,6 @@ To create a suppression alert processing rule, follow these steps:
 1. Select **Review+Create**.
 
    If your suppression windows are one-off scenarios and not recurring, you can **Disable** the alert processing rule once you don't need it anymore. You can enable it again in future when you have a new maintenance window in the future.
-
-## Programmatic options
-
-You can also use programmatic methods to opt-out of classic alerts and manage Azure Monitor notifications.
-
-### Opt out of classic backup alerts
-
-In the following sections, you'll learn how to opt out of classic backup alert solution using the supported clients. 
-
-#### Using Azure Resource Manager (ARM)/ Bicep/ REST API/ Azure Policy
-
-The **monitoringSettings** vault property helps you specify if you want to disable classic alerts. You can create a custom ARM/Bicep template or Azure Policy to modify this setting for your vaults.
-
-The following example of the vault settings property shows that the classic alerts are disabled and built-in Azure Monitor alerts are enabled for all job failures.
-
-   ```json
-   {
-      "monitoringSettings": {
-         "classicAlertsForCriticalOperations": "Disabled",
-         "azureMonitorAlertSettings": {
-            "alertsForAllJobFailures": "Enabled"
-         }
-      }
-   }
-   ```
-
-#### Using Azure PowerShell
-
-To modify the alert settings of the vault, use the [Update-AzRecoveryServicesVault](/powershell/module/az.recoveryservices/update-azrecoveryservicesvault) command.
-
-The following example helps you to enable built-in Azure Monitor alerts for job failures and disables classic alerts:
-
-```azurepowershell
-Update-AzRecoveryServicesVault -ResourceGroupName testRG -Name testVault -DisableClassicAlerts $true -DisableAzureMonitorAlertsForJobFailure $false
-```
-
-### Using Azure CLI
-
- To modify the alert settings of the vault, use the [az backup vault backup-properties set](/cli/azure/backup/vault/backup-properties?view=azure-cli-latest&preserve-view=true) command.
-
-The following example helps you to enable built-in Azure Monitor alerts for job failures and disables classic alerts.
-
-```azurecli-interactive
-az backup vault backup-properties set \
-	--name testVault \
-	--resource-group testRG \
-    --clasic-alerts  Disable \
-    --alerts-for-job-failures Enable
-```
-
-### Set up notifications for Azure Monitor alerts
-
-You can use the following standard programmatic interfaces supported by Azure Monitor to manage action groups and alert processing rules.
-
-- [Azure Monitor REST API reference](/rest/api/monitor/)
-- [Azure Monitor PowerShell reference](/powershell/module/az.monitor/)
-- [Azure Monitor CLI reference](/cli/azure/monitor?view=azure-cli-latest&preserve-view=true)
-
-#### Using Azure Resource Manager (ARM)/ Bicep/ REST API
-
-You can use [these sample ARM and Bicep templates](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.recoveryservices/recovery-services-create-alert-processing-rule) that create an alert processing rule and action group associated to all Recovery Services vaults in the selected subscription.
-
-#### Using Azure PowerShell
-
-As described in earlier sections, you need an action group (notification channel) and alert processing rule (notification rule) to configure notifications for your vaults.
-
-To configure the notification, run the following cmdlet:
-
-1. Create an action group associated with an email ID using the [New-AzActionGroupReceiver](/powershell/module/az.monitor/new-azactiongroupreceiver) cmdlet and the [Set-AzActionGroup](/powershell/module/az.monitor/set-azactiongroup) cmdlet.
-
-   ```powershell
-   $email1 = New-AzActionGroupReceiver -Name 'user1' -EmailReceiver -EmailAddress 'user1@contoso.com'
-   Set-AzActionGroup -Name "testActionGroup" -ResourceGroupName "testRG" -ShortName "testAG" -Receiver $email1
-   ```
-
-1. Create an alert processing rule that's linked to the above action group using the [Set-AzAlertProcessingRule](/powershell/module/az.alertsmanagement/set-azalertprocessingrule) cmdlet.
-
-   ```powershell
-   Set-AzAlertProcessingRule -ResourceGroupName "testRG" -Name "AddActionGroupToSubscription" -Scope "/subscriptions/xxxx-xxx-xxxx" -FilterTargetResourceType "Equals:Microsoft.RecoveryServices/vaults" -Description "Add ActionGroup1 to alerts on all RS vaults in subscription" -Enabled "True" -AlertProcessingRuleType "AddActionGroups" -ActionGroupId "/subscriptions/xxxx-xxx-xxxx/resourcegroups/testRG/providers/microsoft.insights/actiongroups/testActionGroup"
-   ```
-
-#### Using Azure CLI
-
-As described in earlier sections, you need an action group (notification channel) and alert processing rule (notification rule) to configure notifications for your vaults.
-
-To configure the same, run the following commands:
-
-1. Create an action group associated with an email ID using the [az monitor action-group create](/cli/azure/monitor/action-group?view=azure-cli-latest&preserve-view=true#az-monitor-action-group-create) command.
-
-   ```azurecli-interactive
-   az monitor action-group create --name testag1 --resource-group testRG --short-name testag1 --action email user1 user1@contoso.com --subscription "Backup PM Subscription"
-   ```
-
-1. Create an alert processing rule that is linked to the above action group using the [az monitor alert-processing-rule create](/cli/azure/monitor/alert-processing-rule?view=azure-cli-latest&preserve-view=true#az-monitor-alert-processing-rule-create) command.
-
-   ```azurecli-interactive
-   az monitor alert-processing-rule create \
-   --name 'AddActionGroupToSubscription' \
-   --rule-type AddActionGroups \
-   --scopes "/subscriptions/xxxx-xxx-xxxx" \
-   --filter-resource-type Equals "Microsoft.RecoveryServices/vaults"
-   --action-groups "/subscriptions/xxxx-xxx-xxxx/resourcegroups/testRG/providers/microsoft.insights/actiongroups/testag1" \
-   --enabled true \
-   --resource-group testRG \
-   --description "Add ActionGroup1 to all RS vault alerts in subscription"
-   ```
-
-## Turn on Azure Monitor alerts for job failure scenarios
-
-To opt in to Azure Monitor alerts for backup failure and restore failure scenarios, follow these steps:
-
-**Choose a vault type**:
-
-# [Recovery Services vaults](#tab/recovery-services-vaults)
-
-Built-in Azure Monitor alerts are generated for job failures by default. If you want to turn off alerts for these scenarios, you can edit the monitoring settings property of the vault accordingly.
-
-To manage monitoring settings for a Backup vault, follow these steps:
-
-1. Go to the vault and select **Properties**.
-
-1. Locate the **Monitoring Settings** vault property and select **Update**.
-
-   :::image type="content" source="./media/backup-azure-monitoring-laworkspace/recovery-services-vault-monitoring-settings.png" alt-text="Screenshot showing how to update monitoring settings in Recovery Services vault.":::
-
-1. In the context pane, select the appropriate options to enable/disable built-in Azure Monitor alerts for job failures depending on your requirement.
-
-   :::image type="content" source="./media/backup-azure-monitoring-laworkspace/recovery-services-vault-job-failure-alert-setting.png" alt-text="Screenshot showing options to enable or disable built-in Azure Monitoring alerts.":::
-
-1. We also recommend you to select the checkbox **Use only Azure Monitor alerts**.
-
-   By selecting this option, you're consenting to receive backup alerts only via Azure Monitor and you'll stop receiving alerts from the older classic alerts solution. [Review the key differences between classic alerts and built-in Azure Monitor alerts](./move-to-azure-monitor-alerts.md).
-
-   :::image type="content" source="./media/backup-azure-monitoring-laworkspace/recovery-services-vault-opt-out-classic-alerts.png" alt-text="Screenshot showing the option to enable receiving backup alerts.":::
-
-1. Select **Update** to save the setting for the vault.
-
-# [Backup vaults](#tab/backup-vaults)
-
-For Backup vaults, you no longer need to use a feature flag to opt in to alerts for job failure scenarios. Built-in Azure Monitor alerts are generated for job failures by default. If you want to turn off alerts for these scenarios, you can edit the monitoring settings property of the vault accordingly.
-
-To manage monitoring settings for a Backup vault, follow these steps:
-
-1. Go to the vault and select **Properties**.
-
-1. Locate the **Monitoring Settings** vault property and select **Update**.
-
-   :::image type="content" source="media/backup-azure-monitoring-laworkspace/monitoring-settings-backup-vault.png" alt-text="Screenshot for monitoring settings in backup vault.":::
-
-1. In the context pane, select the appropriate options to enable/disable built-in Azure Monitor alerts for job failures depending on your requirement.
-
-1. Select **Update** to save the setting for the vault.
-
-    :::image type="content" source="media/backup-azure-monitoring-laworkspace/job-failure-alert-setting-inline.png" alt-text="Screenshot for updating Azure Monitor alert settings in backup vault." lightbox="media/backup-azure-monitoring-laworkspace/job-failure-alert-setting-expanded.png":::
-
----
-
-## View fired alerts in the Azure portal 
-
-Once an alert is fired for a vault, you can go to **Backup center** to view the alert in the Azure portal. On the **Overview** tab, you can see a summary of active alerts split by severity. There are two types of alerts displayed:
-
-* **Datasource Alerts**: Alerts that are tied to a specific datasource being backed-up (for example, back up or restore failure for a VM, deleting backup data for a database, and so on) appear under the **Datasource Alerts** section.
-* **Global Alerts**: Alerts that aren't tied to a specific datasource (for example, disabling soft-delete functionality for a vault) appear under the **Global Alerts** section.
-
-Each of the above types of alerts is further split into **Security** and **Configured** alerts. Currently, Security alerts include the scenarios of deleting backup data, or disabling soft-delete for vault (for the applicable workloads as detailed in the above section). Configured alerts include backup failure and restore failure, because these alerts are fired only when alerts aren't disabled for these scenarios.
-
-:::image type="content" source="media/backup-azure-monitoring-laworkspace/backup-center-azure-monitor-alerts.png" alt-text="Screenshot for viewing alerts in Backup center.":::
-
-Selecting any number (or the **Alerts** menu item) opens a list of all active alerts fired with the relevant filters applied. You can filter on a range of properties, such as subscription, resource group, vault, severity, state, and so on. You can select any alert to view more details about the alert, such as the affected datasource, alert description and recommended action, and so on.
-
-:::image type="content" source="media/backup-azure-monitoring-laworkspace/backup-center-alert-details.png" alt-text="Screenshot for viewing details of the alert.":::
-
-You can change the state of an alert to **Acknowledged** or **Closed** by selecting on **Change Alert State**.
-
-:::image type="content" source="media/backup-azure-monitoring-laworkspace/backup-center-change-alert-state.png" alt-text="Screenshot for changing state of the alert."::: 
-
-> [!NOTE]
-> - In Backup center, only alerts for Azure-based workloads currently appear. To view alerts for on-premises resources, go to the Recovery Services vault and select the **Alerts** menu item.
-> - Only Azure Monitor alerts appear in Backup center. Alerts raised by the older alerting solution (accessed via the [Backup Alerts](move-to-azure-monitor-alerts.md#backup-alerts-in-recovery-services-vault) tab in Recovery Services vault) don't appear in Backup center. For more information about Azure Monitor alerts, see [Overview of alerts in Azure](/azure/azure-monitor/alerts/alerts-overview).
-> - Currently, for blob restore alerts, alerts appear under datasource alerts only if you select both the dimensions - *datasourceId* and *datasourceType* while creating the alert rule. If any dimensions aren't selected, the alerts appear under global alerts.
-
-## Configure notifications for alerts
-
-To configure notifications for Azure Monitor alerts, create an [alert processing rule](/azure/azure-monitor/alerts/alerts-action-rules). To create an alert processing rule (earlier called *action rule*) to send email notifications to a given email address, follow these steps. Also, follow these steps to route these alerts to other notification channels, such as ITSM, webhook, logic app, and so on.
-
-1. Go to **Backup center** in the Azure portal.
-
-1. Select **Alerts** from the menu and select **Alert processing rules**.
-
-   :::image type="content" source="./media/backup-azure-monitoring-laworkspace/backup-center-manage-alert-processing-rules-inline.png" alt-text="Screenshot for Manage Actions in Backup center." lightbox="./media/backup-azure-monitoring-laworkspace/backup-center-manage-alert-processing-rules-expanded.png":::
-
-1. Select **Create**.
-
-   :::image type="content" source="./media/backup-azure-monitoring-laworkspace/backup-center-create-alert-processing-rule.png" alt-text="Screenshot for creating a new action rule.":::
-
-1. Select the scope for which the alert processing rule should be applied.
-
-   You can apply the rule for all resources within a subscription. Optionally, you can also apply filters on the alerts; for example, to only generate notifications for alerts of a certain severity.
-
-   :::image type="content" source="./media/backup-azure-monitoring-laworkspace/alert-processing-rule-scope-inline.png" alt-text="Screenshot for setting the action rule scope." lightbox="./media/backup-azure-monitoring-laworkspace/alert-processing-rule-scope-expanded.png":::
-
-1. Under **Rule Settings**, create an action group (or use an existing one).
-
-   An action group is the destination to which the notification for an alert should be sent. For example, an email address.
- 
-   :::image type="content" source="media/backup-azure-monitoring-laworkspace/create-action-group.png" alt-text="Screenshot for creating a new action group.":::
-
-1. On the **Basics** tab, select the name of the action group, the subscription, and resource group under which it should be created.
-
-    :::image type="content" source="media/backup-azure-monitoring-laworkspace/azure-monitor-action-groups-basic.png" alt-text="Screenshot for basic properties of action group."::: 
-
-1. On the **Notifications** tab, select **Email/SMS message/Push/Voice** and enter the recipient email ID.
-
-    :::image type="content" source="media/backup-azure-monitoring-laworkspace/azure-monitor-email.png" alt-text="Screenshot for setting notification properties."::: 
-
-1. Select **Review+Create** -> **Create** to deploy the action group.
-
-1. Save the action rule.
-
-[Learn more](/azure/azure-monitor/alerts/alerts-action-rules) about Action Rules in Azure Monitor.
 
 ## Next steps
 Learn more about [Azure Backup monitoring and reporting](monitoring-and-alerts-overview.md).
