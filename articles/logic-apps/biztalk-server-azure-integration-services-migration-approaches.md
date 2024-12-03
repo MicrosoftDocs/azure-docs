@@ -211,7 +211,7 @@ Each *wave* has its own testing activities, which are embedded in each User Stor
 
 #### Release to production
 
-After your team finishes and meets the **Definition of Done** for the User Stories, you should consider the following:
+After your team finishes and meets the "definition of done" for the User Stories, consider the following tasks:
 
 1. Create a communication plan for the Release to Production.
 
