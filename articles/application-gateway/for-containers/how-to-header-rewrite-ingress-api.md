@@ -173,7 +173,7 @@ In this example, we set a static user-agent with a value of `rewritten-user-agen
 This example also demonstrates addition of a new header called `AGC-Header-Add` with a value of `AGC-value` and removes a request header called `client-custom-header`.
 
 > [!TIP]
-> For this example, while we can use the HTTPHeaderMatch of "Exact" for a string match, a demonstration is used in regular expression for illistration of further capabilities.
+> For this example, while we can use the HTTPHeaderMatch of "Exact" for a string match, a demonstration is used in regular expression for illustration of further capabilities.
 
 ```bash
 kubectl apply -f - <<EOF
