@@ -33,7 +33,7 @@ import com.microsoft.azure.sdk.iot.device.*;
 
 ### Connect to a device
 
-The [DeviceClient](/java/api/com.microsoft.azure.sdk.iot.device.deviceclient) class exposes all the methods you require to interact with direct methods from the device.
+The [DeviceClient](/java/api/com.microsoft.azure.sdk.iot.device.deviceclient) class exposes all the methods you require to interact with direct methods on the device.
 
 To connect to a device:
 
@@ -106,7 +106,7 @@ As a parameter to the `DeviceMethod` constructor, supply the **service** shared 
 For example:
 
 ```java
-public static final String iotHubConnectionString = "HostName=xxxxx.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey=xxxxxxxxxxxxxxxxxxxxxxxx";
+String iotHubConnectionString = "HostName=xxxxx.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey=xxxxxxxxxxxxxxxxxxxxxxxx";
 DeviceMethod methodClient = new DeviceMethod(iotHubConnectionString);
 ```
 
@@ -116,21 +116,32 @@ DeviceMethod methodClient = new DeviceMethod(iotHubConnectionString);
 
 ### Invoke a method on a device
 
-Call [invoke](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicemethod?#method-details) to invoke a method on a device and return its result.
+Call [invoke](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicemethod?#method-details) to invoke a method on a device and return the result status.
 
-This example calls the "reboot" method to initiate a reboot on the device. The "reboot" method is mapped to a listener on the device as described in the **Create a direct method callback** section of this article.
+This example calls the "reboot" method to initiate a reboot on the device. The "reboot" method is mapped to a listener on the device as described in the **Create a direct method callback listener** section of this article.
+
+The payload parameter is optional. Use `null` if there is no payload supplied. The payload parameter can take different data forms including string, byte array, and HashMap. For examples, see [Direct Method Tests](https://github.com/Azure/azure-iot-sdk-java/blob/main/iot-e2e-tests/common/src/test/java/tests/integration/com/microsoft/azure/sdk/iot/iothub/methods/DirectMethodsTests.java).
+
+For example:
 
 ```java
-public static final String deviceId = "myFirstDevice";
-private static final String methodName = "reboot";
-private static final Long responseTimeout = TimeUnit.SECONDS.toSeconds(30);
-private static final Long connectTimeout = TimeUnit.SECONDS.toSeconds(5);
-MethodResult result = methodClient.invoke(deviceId, methodName, responseTimeout, connectTimeout, null);
+String deviceId = "myFirstDevice";
+String methodName = "reboot";
+String payload = "Test payload";
+Long responseTimeout = TimeUnit.SECONDS.toSeconds(30);
+Long connectTimeout = TimeUnit.SECONDS.toSeconds(5);
+
+MethodResult result = methodClient.invoke(deviceId, methodName, responseTimeout, connectTimeout, payload);
+if (result == null)
+{
+    throw new IOException("Method invoke returns null");
+}
+System.out.println("Status=" + result.getStatus());
 ```
 
 ### SDK service samples
 
 The Azure IoT SDK for Java provides a working sample of service apps that handle direct method tasks. For more information, see:
 
-* [Direct Method Sample](https://github.com/Azure/azure-iot-service-sdk-java/tree/main/service/iot-service-samples/direct-method-sample).
-* [Thermostat service sample](https://github.com/Azure/azure-iot-service-sdk-java/blob/aeea7806be7e894d8a977c16b7e6618728267a94/service/iot-service-samples/pnp-service-sample/thermostat-service-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/service/Thermostat.java#L69)
+* [Direct method sample](https://github.com/Azure/azure-iot-service-sdk-java/tree/main/service/iot-service-samples/direct-method-sample)
+* [Thermostat service sample](https://github.com/Azure/azure-iot-service-sdk-java/blob/aeea7806be7e894d8a977c16b7e6618728267a94/service/iot-service-samples/pnp-service-sample/thermostat-service-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/service/Thermostat.java)

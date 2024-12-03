@@ -101,7 +101,9 @@ client.open(function(err) {
 
 ### Create a direct method callback
 
-Call [onDeviceMethod](/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient?#azure-iot-device-iothubdeviceclient-on-method-request-received) to create a handler function or coroutine that is called when a direct method is received. The listener is associated with a method name keyword, such as "reboot". The method name can be used in an IoT Hub or backend application to trigger the callback method on the device.
+Call [onDeviceMethod](/javascript/api/azure-iot-device/client?view=azure-node-latest#azure-iot-device-client-ondevicemethod) to create a handler function or coroutine that is called when a direct method is received. The listener is associated with a method name keyword, such as "reboot". The method name can be used in an IoT Hub or backend application to trigger the callback method on the device.
+
+The callback handler function should call `send` to send a response acknowledgement message to the calling application.
 
 This example sets up a direct method handler named `onReboot`.
 
@@ -109,7 +111,7 @@ This example sets up a direct method handler named `onReboot`.
 client.onDeviceMethod('reboot', onReboot);
 ```
 
-In this example, the `onReboot` callback method implements the direct method on the device. The code is executed when the "rebootDevice" direct method is called from a service application. This code updates reported properties related to a simulated device reboot. The reported properties can be read and verified by an IoT Hub or backend application, as demonstrated in the **Create a backend application** section of this article.
+In this example, the `onReboot` callback method implements the direct method on the device. The code is executed when the "reboot" direct method is called from a service application.
 
 ```javascript
 var onReboot = function(request, response) {
@@ -123,29 +125,6 @@ var onReboot = function(request, response) {
         }
     });
 
-    // Report the reboot before the physical restart
-    var date = new Date();
-    var patch = {
-        iothubDM : {
-            reboot : {
-                lastReboot : date.toISOString(),
-            }
-        }
-    };
-
-    // Get device Twin
-    client.getTwin(function(err, twin) {
-        if (err) {
-            console.error('could not get twin');
-        } else {
-            console.log('twin acquired');
-            twin.properties.reported.update(patch, function(err) {
-                if (err) throw err;
-                console.log('Device reboot twin state reported')
-            });  
-        }
-    });
-
     // Add your device's reboot API for physical restart.
     console.log('Rebooting!');
 };
@@ -153,7 +132,7 @@ var onReboot = function(request, response) {
 
 ### SDK device samples
 
-The Azure IoT SDK for Node.js provides working samples of device apps that handle device management tasks. For more information, see [The device management pattern samples](https://github.com/Azure/azure-iot-sdk-node/blob/a85e280350a12954f46672761b0b516d08d374b5/doc/dmpatterns.md).
+The Azure IoT SDK for Node.js provides working samples of device apps that handle device management tasks. For more information, see [Device management pattern samples](https://github.com/Azure/azure-iot-sdk-node/blob/a85e280350a12954f46672761b0b516d08d374b5/doc/dmpatterns.md).
 
 ## Create a backend application
 
@@ -167,10 +146,6 @@ Run this command to install **azure-iothub** on your development machine:
 npm install azure-iothub --save
 ```
 
-### Create a Registry object
-
-The [Registry](/javascript/api/azure-iothub/registry) class exposes all methods required to interact with direct methods from a backend application.
-
 ### Connect to IoT hub
 
 You can connect a backend service to IoT Hub using the following methods:
@@ -182,18 +157,16 @@ You can connect a backend service to IoT Hub using the following methods:
 
 #### Connect using a shared access policy
 
-Use [fromConnectionString](/javascript/api/azure-iothub/registry?#azure-iothub-registry-fromconnectionstring) to connect to IoT hub.
+Use [fromConnectionString](/javascript/api/azure-iothub/client?#azure-iothub-client-fromconnectionstring) to connect to IoT hub.
 
 To invoke a direct method on a device through IoT Hub, your service needs the **service connect** permission. By default, every IoT Hub is created with a shared access policy named **service** that grants this permission.
 
 As a parameter to `CreateFromConnectionString`, supply the **service** shared access policy connection string. For more information about shared access policies, see [Control access to IoT Hub with shared access signatures](/azure/iot-hub/authenticate-authorize-sas).
 
 ```javascript
-var Registry = require('azure-iothub').Registry;
 var Client = require('azure-iothub').Client;
 var connectionString = '{IoT hub shared access policy connection string}';
 var client = Client.fromConnectionString(connectionString);
-var registry = Registry.fromConnectionString(serviceConnectionString);
 ```
 
 #### Connect using Microsoft Entra
@@ -205,7 +178,7 @@ var registry = Registry.fromConnectionString(serviceConnectionString);
 Use [invokeDeviceMethod](/javascript/api/azure-iothub/client?#azure-iothub-client-invokedevicemethod) to invoke a direct method by name on a device. The method name parameter identifies the direct method. The method name is "reboot" in the examples within this article.
 
 ```javascript
-var startRebootDevice = function(twin) {
+var startRebootDevice = function(deviceToReboot) {
 
     var methodName = "reboot";
 
@@ -221,27 +194,6 @@ var startRebootDevice = function(twin) {
         } else {
             console.log("Successfully invoked the device to reboot.");  
         }
-    });
-};
-```
-
-This example function uses device twin queries to discover the last reboot time for the device that was updated as described in the **Create a direct method callback** section of this article.
-
-```javascript
-var queryTwinLastReboot = function() {
-
-    registry.getTwin(deviceToReboot, function(err, twin){
-
-        if (twin.properties.reported.iothubDM != null)
-        {
-            if (err) {
-                console.error('Could not query twins: ' + err.constructor.name + ': ' + err.message);
-            } else {
-                var lastRebootTime = twin.properties.reported.iothubDM.reboot.lastReboot;
-                console.log('Last reboot time: ' + JSON.stringify(lastRebootTime, null, 2));
-            }
-        } else 
-            console.log('Waiting for device to report last reboot time.');
     });
 };
 ```

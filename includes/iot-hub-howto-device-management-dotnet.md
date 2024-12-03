@@ -86,7 +86,9 @@ catch (Exception ex)
 }
 ```
 
-In this example, the `onReboot` callback method implements the direct method on the device. This code updates reported properties related to a device reboot. The reported properties can be read and verified by a IoT Hub or backend application, as demonstrated in the [Create a backend application](#create-a-backend-application) section of this article.
+Continuing the example, the `onReboot` callback method implements the direct method on the device.
+
+The handler function calls [MethodResponse](/dotnet/api/microsoft.azure.devices.client.methodresponse) to send a response acknowledgement to the calling application.
 
 ```csharp
 static Task<MethodResponse> onReboot(MethodRequest methodRequest, object userContext)
@@ -159,9 +161,9 @@ As a parameter to `CreateFromConnectionString`, supply the **service** shared ac
 [!INCLUDE [iot-authentication-service-connection-string.md](iot-authentication-service-connection-string.md)]
 
 ```csharp
-static ServiceClient client;
-static string connectionString = "{IoT hub service shared access policy connection string}";
-client = ServiceClient.CreateFromConnectionString(connectionString);
+ServiceClient serviceClient;
+string connectionString = "{IoT hub service shared access policy connection string}";
+serviceClient = ServiceClient.CreateFromConnectionString(connectionString);
 ```
 
 #### Connect using Microsoft Entra
@@ -178,13 +180,11 @@ To invoke a method on a device:
 This example calls the "reboot" method to initiate a reboot on the device. The "reboot" method is mapped to a listener on the device as described in the [Create a direct method callback](#create-a-direct-method-callback) section of this article.
 
 ```csharp
+static string targetDevice = "myDeviceId";
 CloudToDeviceMethod method = new CloudToDeviceMethod("reboot");
 method.ResponseTimeout = TimeSpan.FromSeconds(30);
 
-CloudToDeviceMethodResult result = await 
-
-static string targetDevice = "myDeviceId";
-client.InvokeDeviceMethodAsync(targetDevice, method);
+CloudToDeviceMethodResult response = await serviceClient.InvokeDeviceMethodAsync(targetDevice, method);
 
 Console.WriteLine("Invoked firmware update on device.");
 ```

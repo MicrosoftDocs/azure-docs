@@ -33,17 +33,13 @@ pip install azure-iot-hub
 
 ## Create a device application
 
-This section describes how to use device application code to:
-
-* Respond to a direct method called by the cloud
-* Trigger a simulated device reboot
-* Use the reported properties to enable device twin queries to identify devices and when they were last rebooted
+This section describes how to use device application code to create a direct method callback listener.
 
 [!INCLUDE [iot-authentication-device-connection-string.md](iot-authentication-device-connection-string.md)]
 
 ### Device import statements
 
-Add this import to access `IoTHubDeviceClient` and `MethodResponse`.
+Add this import statement to access `IoTHubDeviceClient` and `MethodResponse`.
 
 ```python
 # import the device client library
@@ -67,6 +63,8 @@ device_client = IoTHubDeviceClient.create_from_connection_string(conn_str)
 
 Call [on_method_request_received](/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient?#azure-iot-device-iothubdeviceclient-on-method-request-received) to create a handler function or coroutine that is called when a direct method is received. The listener is associated with a method name keyword, such as "reboot". The method name can be used in an IoT Hub or backend application to trigger the callback method on the device.
 
+The handler function should call [MethodResponse](/python/api/azure-iot-device/azure.iot.device.methodresponse) to send a response acknowledgement to the calling application.
+
 This example sets up a direct method handler named `method_request_handler`.
 
 For example:
@@ -80,7 +78,7 @@ except:
     client.shutdown()
 ```
 
-In this example, the `method_request_handler` callback method implements the direct method on the device. The code is executed when the "rebootDevice" direct method is called from a service application. This code updates reported properties related to a simulated device reboot. The reported properties can be read and verified by an IoT Hub or backend application, as demonstrated in the **Create a backend application** section of this article.
+In this example, the `method_request_handler` callback method implements the direct method on the device. The code is executed when the "rebootDevice" direct method is called from a service application. The method calls `MethodResponse` to send a response acknowledgement to the calling application.
 
 ```python
 # Define the handler for method requests
@@ -90,18 +88,10 @@ def method_request_handler(method_request):
         print("Rebooting device")
         time.sleep(20)
         print("Device rebooted")
-
-        # ...and patching the reported properties
-        current_time = str(datetime.datetime.now())
-        reported_props = {"rebootTime": current_time}
-        client.patch_twin_reported_properties(reported_props)
-        print( "Device twins updated with latest rebootTime")
-
         # Create a method response indicating the method request was resolved
         resp_status = 200
         resp_payload = {"Response": "This is the response from the device"}
         method_response = MethodResponse(method_request.request_id, resp_status, resp_payload)
-
     else:
         # Create a method response indicating the method request was for an unknown method
         resp_status = 404
@@ -118,17 +108,17 @@ The Azure IoT SDK for Python provides a working sample of a device app that hand
 
 ## Create a backend application
 
-This section describes how to initiate a remote reboot on a device using a direct method call from a backend service application.
+This section describes how to use a backend service application to call a direct method on a device.
 
 The [IoTHubRegistryManager](/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager) class exposes all methods required to create a backend application to send messages to a device.
 
 ### Service import statements
 
-Add these import statements to connect to Iot Hub, receive cloud-to-device methods, and call device twin methods.
+Add these import statements to connect to Iot Hub, send cloud-to-device direct methods, and receive device direct method responses.
 
 ```python
 from azure.iot.hub import IoTHubRegistryManager
-from azure.iot.hub.models import CloudToDeviceMethod, CloudToDeviceMethodResult, Twin
+from azure.iot.hub.models import CloudToDeviceMethod, CloudToDeviceMethodResult
 ```
 
 ### Connect to IoT hub
@@ -142,11 +132,11 @@ You can connect a backend service to IoT Hub using the following methods:
 
 #### Connect using a shared access policy
 
-Connect to IoT hub using [from_connection_string](/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager?#azure-iot-hub-iothubregistrymanager-from-connection-string). As a parameter, supply the **IoT Hub service connection string** that you created in the prerequisites section.
+Connect to IoT hub using [from_connection_string](/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager?#azure-iot-hub-iothubregistrymanager-from-connection-string).
 
 To invoke a direct method on a device through IoT Hub, your service needs the **service connect** permission. By default, every IoT Hub is created with a shared access policy named **service** that grants this permission.
 
-As a parameter to `CreateFromConnectionString`, supply the **service** shared access policy connection string. For more information about shared access policies, see [Control access to IoT Hub with shared access signatures](/azure/iot-hub/authenticate-authorize-sas).
+As a parameter to `from_connection_string`, supply the **service** shared access policy. For more information about shared access policies, see [Control access to IoT Hub with shared access signatures](/azure/iot-hub/authenticate-authorize-sas).
 
 For example:
 
@@ -162,14 +152,14 @@ iothub_registry_manager = IoTHubRegistryManager.from_connection_string(IOTHUB_CO
 
 ### Invoke a method on a device
 
-You can invoke a direct method by name on a device. The method name identifies the method. The method name is "rebootTime" in the examples within this article.
+You can invoke a direct method by name on a device. The method name identifies the method. In the following and previous device example shown in **Create a direct method callback**, the direct method name is "rebootDevice".
 
 To invoke a direct method on a device:
 
 1. Create a [CloudToDeviceMethod](/python/api/azure-iot-hub/azure.iot.hub.protocol.models.cloudtodevicemethod) object. Supply the method name and payload as parameters.
 1. Call [invoke_device_method](/python/api/azure-iot-hub/azure.iot.hub.iothub_registry_manager.iothubregistrymanager?#azure-iot-hub-iothub-registry-manager-iothubregistrymanager-invoke-device-method) to invoke a direct method on a device. Supply the device ID and `CloudToDeviceMethod` payload object as parameters.
 
-This example invokes a direct method named "rebootDevice" on a device. The example then uses device twin queries to discover the last reboot time for the device that was updated as described in the **Create a direct method callback** section of this article.
+This example calls `CloudToDeviceMethod` to invoke a direct method named "rebootDevice" on a device. After the direct method has been successfully invoked, the direct method response payload is displayed.
 
 ```python
 CONNECTION_STRING = "{IoTHubConnectionString}"
@@ -188,40 +178,15 @@ try:
     deviceMethod = CloudToDeviceMethod(method_name=METHOD_NAME, payload=METHOD_PAYLOAD)
     response = registry_manager.invoke_device_method(DEVICE_ID, deviceMethod)
 
-    print ( "" )
     print ( "Successfully invoked the device to reboot." )
 
-    print ( "" )
+    print ( "The device has returned this payload:" )
     print ( response.payload )
-
-    while True:
-        print ( "" )
-        print ( "IoTHubClient waiting for commands, press Ctrl-C to exit" )
-
-        status_counter = 0
-        while status_counter <= WAIT_COUNT:
-            twin_info = registry_manager.get_twin(DEVICE_ID)
-
-            if twin_info.properties.reported.get("rebootTime") != None :
-                print ("Last reboot time: " + twin_info.properties.reported.get("rebootTime"))
-            else:
-                print ("Waiting for device to report last reboot time...")
-
-            time.sleep(5)
-            status_counter += 1
 
 except Exception as ex:
     print ( "" )
     print ( "Unexpected error {0}".format(ex) )
     return
-except KeyboardInterrupt:
-    print ( "" )
-    print ( "IoTHubDeviceMethod sample stopped" )
-
-if __name__ == '__main__':
-print ( "Starting the IoT Hub Service Client DeviceManagement Python sample..." )
-print ( "    Connection string = {0}".format(CONNECTION_STRING) )
-print ( "    Device ID         = {0}".format(DEVICE_ID) )
 ```
 
 ### SDK service samples
