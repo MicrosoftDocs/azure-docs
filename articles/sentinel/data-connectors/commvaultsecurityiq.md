@@ -103,7 +103,7 @@ Use this method for automated deployment of the Commvault Security IQ data conne
 2. Select **Timer Trigger**.
 3. Enter a unique Function **Name** in the New Function field and leave the default cron schedule of every 5 minutes, then click **Create Function**.
 4. Click on the function name and click **Code + Test** from the left pane.
-5. Copy the [Function App Code](<Add GitHub link to Function App code>) and paste into the Function App `run.ps1` editor.
+5. Copy the **Function App Code** and paste into the Function App `run.ps1` editor.
 6. Click **Save**.
 
 3. Configure the Function App
@@ -121,7 +121,7 @@ Use this method for automated deployment of the Commvault Security IQ data conne
 (add any other settings required by the Function App)
 Set the `uri` value to: `<add uri value>` 
 >Note: If using Azure Key Vault secrets for any of the values above, use the`@Microsoft.KeyVault(SecretUri={Security Identifier})`schema in place of the string values. Refer to [Azure Key Vault references documentation](/azure/app-service/app-service-key-vault-references) for further details.
- - Use logAnalyticsUri to override the log analytics API endpoint for dedicated cloud. For example, for public cloud, leave the value empty; for Azure GovUS cloud environment, specify the value in the following format: https://<CustomerId>.ods.opinsights.azure.us. 
+ - Use logAnalyticsUri to override the log analytics API endpoint for dedicated cloud. For example, for public cloud, leave the value empty; for Azure GovUS cloud environment, specify the value in the following format: `https://<CustomerId>.ods.opinsights.azure.us`. 
 4. Once all application settings have been entered, click **Save**.
 
 
