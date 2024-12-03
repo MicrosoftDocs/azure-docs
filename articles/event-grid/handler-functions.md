@@ -7,7 +7,7 @@ ms.date: 08/31/2023
 
 # Use a function as an event handler for Event Grid events
 
-An event handler is the place where the event is sent. The handler takes an action to process the event. Several Azure services are automatically configured to handle events and **Azure Functions** is one of them. Azure Event Grid can utilize Azure Functions as an [anti-corruption layer](https://learn.microsoft.com/azure/architecture/patterns/anti-corruption-layer), transforming or validating events before forwarding them to downstream systems.
+An event handler is the place where the event is sent. The handler takes an action to process the event. Several Azure services are automatically configured to handle events and **Azure Functions** is one of them. For instance, Azure Event Grid can utilize Azure Functions as an [anti-corruption layer](https://learn.microsoft.com/azure/architecture/patterns/anti-corruption-layer) to transform or validate events before forwarding them to downstream systems.
 
 
 To use a function in Azure as a handler for events, follow one of these approaches: 
