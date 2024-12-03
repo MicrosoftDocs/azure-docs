@@ -55,11 +55,10 @@ A Device Update instance contains updates and deployments associated with its Io
    - **Name**: Provide a name for your Device Update account.
    - **Location**: Select the Azure region for your account. For more information, see [Products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/).
    - **SKU**: Select **Standard**.
-   - Under **Grant Access to Account**, select the checkbox for **Assign Device Update Administrator role** to assign yourself the Device Update administrator role. For more information, see [Configure access control roles](configure-access-control-device-update.md).
+   - **Grant Access to Account**: If you have **Owner** or **User Access Administrator** permissions in your Azure subscription, you can select the **Assign Device Update Administrator role** checkbox to assign yourself the **Device Update Administrator** role for this account. If you don't have these permissions, contact your administrator after resource creation to get the necessary permissions to do device updates, management, and diagnostics.
    - **Instance Name**: Provide a name for your Device Update instance.
    - **IoT Hub Name**: Select the IoT Hub you want to link to your Device Update instance.
-   
-   If you have **Owner** or **User Access Administrator** permissions in your Azure subscription, Device Update setup automatically assigns IoT Hub Data Contributor role to the Device Update service principal.
+   - **Grant Access to IoT Hub**: Device Update setup automatically assigns IoT Hub Data Contributor role to the Device Update service principal.
 
    :::image type="content" source="media/create-device-update-account/account-details.png" alt-text="Screenshot of account details for a new Device Update account.":::
 
@@ -133,7 +132,7 @@ You can also configure diagnostics logging as part of the instance creation proc
 
 Device Update setup automatically assigns **IoT Hub Data Contributor** role to the Device Update service principal. This role allows only this Device Update instance to connect and write to the linked IoT hub to run update deployment, device management, and diagnostic operations.
 
-If you have **Owner** or **User Access Administrator** permissions in your Azure subscription, you can configure access control to your Device Update resources by using a combination of roles to provide users and applications the right level of access. For more information, see [Configure access control roles for Device Update resources](configure-access-control-device-update.md).
+If you have **Owner** or **User Access Administrator** permissions in your Azure subscription, you can configure access control to the Device Update resources you created by using a combination of roles to provide users and applications the right level of access. If you don't have **Owner** or **User Access Administrator** permissions, ask your Device Update administrator to grant you the access and permissions you need to do Device Update operations. For more information, see [Configure access control roles for Device Update resources](configure-access-control-device-update.md).
 
 ## Related content
 
