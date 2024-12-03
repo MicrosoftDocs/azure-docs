@@ -86,7 +86,7 @@ For example, suppose you receive JSON data from Azure Service Bus and need to se
 The following table describes the advanced parameters available in this action:
 
    | Parameter | Value | Description |
-   |-----------|-------|-------------|
+|-----------|-------|-------------|
    | **Root Node Qualified Name** | <*root-node-qualified-name*> | The root node's qualified name in case the schema contains multiple unreferenced element definitions. |
    | **Date and Time Format** | <*date-time-format*> | The date and time format specifier, e.g. 'dddd, MMM dd yyyy HH:mm:ss: zzz'. |
    | **XML Writer Settings Omit XML Declaration** | No/Yes | Whether to omit an XML declaration.  |
