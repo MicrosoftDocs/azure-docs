@@ -51,46 +51,15 @@ The following table lists the differences between classic backup alerts and buil
 >- If you've existing custom Azure Resource Graph (ARG) queries written on classic alerts data, you'll need to update these queries to fetch information from Azure Monitor-based alerts. You can use the *AlertsManagementResources* table in ARG to query Azure Monitor alerts data.
 >- If you send classic alerts to Log Analytics workspace/Storage account/Event Hub via diagnostics settings, you'll also need to update these automation. To send the fired Azure Monitor based alerts to a destination of your choice, you can create an alert processing rule and action group that routes these alerts to a logic app, webhook, or runbook that in turn sends these alerts to the required destination.
 
-Azure Backup now provides a guided experience via Backup center that allows you to switch to built-in Azure Monitor alerts and notifications with just a few selects. To perform this action, you need to have access to the *Backup Contributor* and *Monitoring Contributor* Azure role-based access control (Azure RBAC) roles to the subscription.
+Azure Backup now provides a guided experience via [Azure Business Continuity Center](../business-continuity-center/business-continuity-center-overview.md) that allows you to switch to built-in Azure Monitor alerts and notifications with just a few selects. To perform this action, you need to have access to the *Backup Contributor* and *Monitoring Contributor* Azure role-based access control (Azure RBAC) roles to the subscription.
 
-Follow these steps:
+To migrate from classic alerts to built-in Azure Monitor alerts, follow these steps:
 
-1. On the [Azure portal](https://portal.azure.com/), go to **Business Continuity Center** > **Alerts**.
+1. On the [Azure portal](https://portal.azure.com/), go to **Business Continuity Center** > **Monitoring + Reporting** > **Alerts**.
 
-1. On the **Alerts** blade, all the available alerts are listed.
+1. Opt-out of classic alerts to avoid receiving duplicate alerts from two solutions. Select **Manage alerts** to view the vaults for which classic alerts are currently enabled.
 
-   Select the alert type to take the required action.
-
-   On the next screen, there are two recommended actions:
-
-   - **Create rule**: This action creates an alert processing rule attached to an action group to enable you to receive notifications for Azure Monitor alerts. After you select, it leads you to a template deployment experience.
-
-     :::image type="content" source="./media/move-to-azure-monitor-alerts/recommended-action-one.png" alt-text="Screenshot showing recommended alert migration action Create rule for Recovery Services vaults.":::
-
-     You can deploy two resources via this template:
-
-   - **Alert Processing Rule**: A rule that specifies alert types to be routed to each notification channel. This template deploys alert processing rules that span all Azure Monitor based alerts on all Recovery Services vaults in the subscription that the rule is created in.
-   - **Action Group**: The notification channel to which alerts should be sent. This template deploys an email action group so that alerts are routed to the email ID(s) specified while deploying the template.
-
-   To modify any of these parameters, for example, scope of alert processing rule, or choice of notification channels, you can edit these resources after creation, or you can [create the alert processing rule and action group from scratch](backup-azure-monitor-alerts-notification.md#configure-notifications-for-alerts) via the Azure portal.
-
-1. Enter the subscription, resource group, and region in which the alert processing rule and action group should be created. Also specify the email ID(s) to which notifications should be sent. Other parameters populate with default values and only need to be edited, if you want to customize the names and descriptions that the resources are created in.
-
-   :::image type="content" source="./media/move-to-azure-monitor-alerts/alert-processing-rule-parameters.png" alt-text="Screenshot showing template parameters to set up notification rules for Azure Monitor alerts.":::
-
-1. Select **Review+Create** to initiate deployment.
-
-   Once deployed, notifications for Azure Monitor based alerts are enabled. If you have multiple subscriptions, repeat the above process to create an alert processing rule for each subscription.
-
-   :::image type="content" source="./media/move-to-azure-monitor-alerts/alert-processing-rule-deploy.png" alt-text="Screenshot showing deployment of notification rules for Azure Monitor alerts.":::
-
-1. Next, you need to opt-out of classic alerts to avoid receiving duplicate alerts from two solutions.
-
-   Select **Manage Alerts** to view the vaults for which classic alerts are currently enabled.
-
-   :::image type="content" source="./media/move-to-azure-monitor-alerts/recommended-action-two.png" alt-text="Screenshot showing recommended alert migration action Manage Alerts for Recovery Services vaults.":::
-
-1. Select **Update** -> **Use only Azure Monitor alerts** checkbox.
+1. Select **Update** > **Use only Azure Monitor alerts** checkbox.
 
    By doing so, you agree to receive backup alerts only via Azure Monitor, and you'll stop receiving alerts from the older (classic alerts) solution.
 
@@ -99,6 +68,85 @@ Follow these steps:
 1. To select multiple vaults on a page and update the settings for these vaults with a single action, select **Update** from the top menu.
 
    :::image type="content" source="./media/move-to-azure-monitor-alerts/classic-alerts-multiple-vaults.png" alt-text="Screenshot showing how to opt out of classic alerts for multiple vaults.":::
+
+1. To opt-out of alerts from the Recovery Services vault or Backup vault, go to the specific **vault** > **Properties** > **Monitoring Settings**, and then select **Update**.
+
+     :::image type="content" source="./media/backup-azure-monitoring-alerts/opt-out-from-vault-alerts.png" alt-text="Screenshot shows how to opt out of vault alerts." lightbox="./media/backup-azure-monitoring-alerts/opt-out-from-vault-alerts.png":::
+
+## Turn on Azure Monitor alerts for job failure scenarios
+
+To opt in to Azure Monitor alerts for backup failure and restore failure scenarios, follow these steps:
+
+**Choose a vault type**:
+
+# [Recovery Services vaults](#tab/recovery-services-vaults)
+
+Built-in Azure Monitor alerts are generated for job failures by default. If you want to turn off alerts for these scenarios, you can edit the monitoring settings property of the vault accordingly.
+
+To manage monitoring settings for a Backup vault, follow these steps:
+
+1. Go to the vault and select **Properties**.
+
+1. Locate the **Monitoring Settings** vault property and select **Update**.
+
+   :::image type="content" source="./media/backup-azure-monitoring-laworkspace/recovery-services-vault-monitoring-settings.png" alt-text="Screenshot showing how to update monitoring settings in Recovery Services vault.":::
+
+1. In the context pane, select the appropriate options to enable/disable built-in Azure Monitor alerts for job failures depending on your requirement.
+
+   :::image type="content" source="./media/backup-azure-monitoring-laworkspace/recovery-services-vault-job-failure-alert-setting.png" alt-text="Screenshot showing options to enable or disable built-in Azure Monitoring alerts.":::
+
+1. We also recommend you to select the checkbox **Use only Azure Monitor alerts**.
+
+   By selecting this option, you're consenting to receive backup alerts only via Azure Monitor and you'll stop receiving alerts from the older classic alerts solution. [Review the key differences between classic alerts and built-in Azure Monitor alerts](./move-to-azure-monitor-alerts.md).
+
+   :::image type="content" source="./media/backup-azure-monitoring-laworkspace/recovery-services-vault-opt-out-classic-alerts.png" alt-text="Screenshot showing the option to enable receiving backup alerts.":::
+
+1. Select **Update** to save the setting for the vault.
+
+# [Backup vaults](#tab/backup-vaults)
+
+For Backup vaults, you no longer need to use a feature flag to opt in to alerts for job failure scenarios. Built-in Azure Monitor alerts are generated for job failures by default. If you want to turn off alerts for these scenarios, you can edit the monitoring settings property of the vault accordingly.
+
+To manage monitoring settings for a Backup vault, follow these steps:
+
+1. Go to the vault and select **Properties**.
+
+1. Locate the **Monitoring Settings** vault property and select **Update**.
+
+   :::image type="content" source="media/backup-azure-monitoring-laworkspace/monitoring-settings-backup-vault.png" alt-text="Screenshot for monitoring settings in backup vault.":::
+
+1. In the context pane, select the appropriate options to enable/disable built-in Azure Monitor alerts for job failures depending on your requirement.
+
+1. Select **Update** to save the setting for the vault.
+
+    :::image type="content" source="media/backup-azure-monitoring-laworkspace/job-failure-alert-setting-inline.png" alt-text="Screenshot for updating Azure Monitor alert settings in backup vault." lightbox="media/backup-azure-monitoring-laworkspace/job-failure-alert-setting-expanded.png":::
+
+---
+
+## View fired alerts in the Azure portal 
+
+Once an alert is fired for a vault, you can go to **Backup center** to view the alert in the Azure portal. On the **Overview** tab, you can see a summary of active alerts split by severity. There are two types of alerts displayed:
+
+* **Datasource Alerts**: Alerts that are tied to a specific datasource being backed-up (for example, back up or restore failure for a VM, deleting backup data for a database, and so on) appear under the **Datasource Alerts** section.
+* **Global Alerts**: Alerts that aren't tied to a specific datasource (for example, disabling soft-delete functionality for a vault) appear under the **Global Alerts** section.
+
+Each of the above types of alerts is further split into **Security** and **Configured** alerts. Currently, Security alerts include the scenarios of deleting backup data, or disabling soft-delete for vault (for the applicable workloads as detailed in the above section). Configured alerts include backup failure and restore failure, because these alerts are fired only when alerts aren't disabled for these scenarios.
+
+:::image type="content" source="media/backup-azure-monitoring-laworkspace/backup-center-azure-monitor-alerts.png" alt-text="Screenshot for viewing alerts in Backup center.":::
+
+Selecting any number (or the **Alerts** menu item) opens a list of all active alerts fired with the relevant filters applied. You can filter on a range of properties, such as subscription, resource group, vault, severity, state, and so on. You can select any alert to view more details about the alert, such as the affected datasource, alert description and recommended action, and so on.
+
+:::image type="content" source="media/backup-azure-monitoring-laworkspace/backup-center-alert-details.png" alt-text="Screenshot for viewing details of the alert.":::
+
+You can change the state of an alert to **Acknowledged** or **Closed** by selecting on **Change Alert State**.
+
+:::image type="content" source="media/backup-azure-monitoring-laworkspace/backup-center-change-alert-state.png" alt-text="Screenshot for changing state of the alert."::: 
+
+> [!NOTE]
+> - In Backup center, only alerts for Azure-based workloads currently appear. To view alerts for on-premises resources, go to the Recovery Services vault and select the **Alerts** menu item.
+> - Only Azure Monitor alerts appear in Backup center. Alerts raised by the older alerting solution (accessed via the [Backup Alerts](move-to-azure-monitor-alerts.md#backup-alerts-in-recovery-services-vault) tab in Recovery Services vault) don't appear in Backup center. For more information about Azure Monitor alerts, see [Overview of alerts in Azure](/azure/azure-monitor/alerts/alerts-overview).
+> - Currently, for blob restore alerts, alerts appear under datasource alerts only if you select both the dimensions - *datasourceId* and *datasourceType* while creating the alert rule. If any dimensions aren't selected, the alerts appear under global alerts.
+
 
 ## Programmatic options
 
@@ -205,80 +253,6 @@ To configure the same, run the following commands:
    --resource-group testRG \
    --description "Add ActionGroup1 to all RS vault alerts in subscription"
    ```
-
-## Turn on Azure Monitor alerts for job failure scenarios
-
-To opt in to Azure Monitor alerts for backup failure and restore failure scenarios, follow these steps:
-
-**Choose a vault type**:
-
-# [Recovery Services vaults](#tab/recovery-services-vaults)
-
-Built-in Azure Monitor alerts are generated for job failures by default. If you want to turn off alerts for these scenarios, you can edit the monitoring settings property of the vault accordingly.
-
-To manage monitoring settings for a Backup vault, follow these steps:
-
-1. Go to the vault and select **Properties**.
-
-1. Locate the **Monitoring Settings** vault property and select **Update**.
-
-   :::image type="content" source="./media/backup-azure-monitoring-laworkspace/recovery-services-vault-monitoring-settings.png" alt-text="Screenshot showing how to update monitoring settings in Recovery Services vault.":::
-
-1. In the context pane, select the appropriate options to enable/disable built-in Azure Monitor alerts for job failures depending on your requirement.
-
-   :::image type="content" source="./media/backup-azure-monitoring-laworkspace/recovery-services-vault-job-failure-alert-setting.png" alt-text="Screenshot showing options to enable or disable built-in Azure Monitoring alerts.":::
-
-1. We also recommend you to select the checkbox **Use only Azure Monitor alerts**.
-
-   By selecting this option, you're consenting to receive backup alerts only via Azure Monitor and you'll stop receiving alerts from the older classic alerts solution. [Review the key differences between classic alerts and built-in Azure Monitor alerts](./move-to-azure-monitor-alerts.md).
-
-   :::image type="content" source="./media/backup-azure-monitoring-laworkspace/recovery-services-vault-opt-out-classic-alerts.png" alt-text="Screenshot showing the option to enable receiving backup alerts.":::
-
-1. Select **Update** to save the setting for the vault.
-
-# [Backup vaults](#tab/backup-vaults)
-
-For Backup vaults, you no longer need to use a feature flag to opt in to alerts for job failure scenarios. Built-in Azure Monitor alerts are generated for job failures by default. If you want to turn off alerts for these scenarios, you can edit the monitoring settings property of the vault accordingly.
-
-To manage monitoring settings for a Backup vault, follow these steps:
-
-1. Go to the vault and select **Properties**.
-
-1. Locate the **Monitoring Settings** vault property and select **Update**.
-
-   :::image type="content" source="media/backup-azure-monitoring-laworkspace/monitoring-settings-backup-vault.png" alt-text="Screenshot for monitoring settings in backup vault.":::
-
-1. In the context pane, select the appropriate options to enable/disable built-in Azure Monitor alerts for job failures depending on your requirement.
-
-1. Select **Update** to save the setting for the vault.
-
-    :::image type="content" source="media/backup-azure-monitoring-laworkspace/job-failure-alert-setting-inline.png" alt-text="Screenshot for updating Azure Monitor alert settings in backup vault." lightbox="media/backup-azure-monitoring-laworkspace/job-failure-alert-setting-expanded.png":::
-
----
-
-## View fired alerts in the Azure portal 
-
-Once an alert is fired for a vault, you can go to **Backup center** to view the alert in the Azure portal. On the **Overview** tab, you can see a summary of active alerts split by severity. There are two types of alerts displayed:
-
-* **Datasource Alerts**: Alerts that are tied to a specific datasource being backed-up (for example, back up or restore failure for a VM, deleting backup data for a database, and so on) appear under the **Datasource Alerts** section.
-* **Global Alerts**: Alerts that aren't tied to a specific datasource (for example, disabling soft-delete functionality for a vault) appear under the **Global Alerts** section.
-
-Each of the above types of alerts is further split into **Security** and **Configured** alerts. Currently, Security alerts include the scenarios of deleting backup data, or disabling soft-delete for vault (for the applicable workloads as detailed in the above section). Configured alerts include backup failure and restore failure, because these alerts are fired only when alerts aren't disabled for these scenarios.
-
-:::image type="content" source="media/backup-azure-monitoring-laworkspace/backup-center-azure-monitor-alerts.png" alt-text="Screenshot for viewing alerts in Backup center.":::
-
-Selecting any number (or the **Alerts** menu item) opens a list of all active alerts fired with the relevant filters applied. You can filter on a range of properties, such as subscription, resource group, vault, severity, state, and so on. You can select any alert to view more details about the alert, such as the affected datasource, alert description and recommended action, and so on.
-
-:::image type="content" source="media/backup-azure-monitoring-laworkspace/backup-center-alert-details.png" alt-text="Screenshot for viewing details of the alert.":::
-
-You can change the state of an alert to **Acknowledged** or **Closed** by selecting on **Change Alert State**.
-
-:::image type="content" source="media/backup-azure-monitoring-laworkspace/backup-center-change-alert-state.png" alt-text="Screenshot for changing state of the alert."::: 
-
-> [!NOTE]
-> - In Backup center, only alerts for Azure-based workloads currently appear. To view alerts for on-premises resources, go to the Recovery Services vault and select the **Alerts** menu item.
-> - Only Azure Monitor alerts appear in Backup center. Alerts raised by the older alerting solution (accessed via the [Backup Alerts](move-to-azure-monitor-alerts.md#backup-alerts-in-recovery-services-vault) tab in Recovery Services vault) don't appear in Backup center. For more information about Azure Monitor alerts, see [Overview of alerts in Azure](/azure/azure-monitor/alerts/alerts-overview).
-> - Currently, for blob restore alerts, alerts appear under datasource alerts only if you select both the dimensions - *datasourceId* and *datasourceType* while creating the alert rule. If any dimensions aren't selected, the alerts appear under global alerts.
 
 ## Next steps
 Learn more about [Azure Backup monitoring and reporting](monitoring-and-alerts-overview.md).
