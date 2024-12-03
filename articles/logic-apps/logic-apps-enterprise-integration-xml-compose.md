@@ -44,7 +44,6 @@ For example, suppose you receive JSON data from Azure Service Bus and need to se
 
 ## Add XML compose with schema action
 
-
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app and workflow in the designer.
 
 1. If you have a blank workflow that doesn't have a trigger, [follow these general steps to add any trigger you want](create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger). Otherwise, continue to the next step.
