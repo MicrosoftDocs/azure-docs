@@ -98,7 +98,7 @@ The following table describes the advanced parameters available in this action:
 
 | Parameter | Value | Description |
 |-----------|-------|-------------|
-   | **Root Node Qualified Name** | <*root-node-qualified-name*> | The root node's qualified name in case the schema contains multiple unreferenced element definitions. |
+| **Root Node Qualified Name** | <*root-node-qualified-name*> | The root node's qualified name in case the schema contains multiple unreferenced element definitions. |
    | **Date and Time Format** | <*date-time-format*> | The date and time format specifier, e.g. 'dddd, MMM dd yyyy HH:mm:ss: zzz'. |
    | **XML Writer Settings Omit XML Declaration** | No/Yes | Whether to omit an XML declaration.  |
    | **XML Writer Settings New Line On Attributes** | No/Yes | Whether to write attributes on a new line.  |   
