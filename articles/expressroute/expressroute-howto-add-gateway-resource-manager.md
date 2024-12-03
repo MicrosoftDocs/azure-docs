@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: how-to
-ms.date: 09/11/2023
+ms.date: 12/03/2024
 ms.author: duau
 ms.custom: devx-track-azurepowershell, template-tutorial
 ---
@@ -36,7 +36,7 @@ The steps for this task use a VNet based on the values in the following configur
 | Subnet1 Name | *FrontEnd* |
 | Gateway Subnet name | *GatewaySubnet* |    
 | Gateway Subnet address space | *192.168.200.0/26* |
-| Region | *East US* |
+| Region | *West US* |
 | Gateway Name | *GW* |   
 | Gateway IP Name | *GWIP* |
 | Gateway IP configuration Name | *gwipconf* |
@@ -55,7 +55,19 @@ The steps for this task use a VNet based on the values in the following configur
 
    ```azurepowershell-interactive 
    $RG = "TestRG"
-   $Location = "East US"
+   $Location = "West US"
+   $GWName = "GW"
+   $GWIPName = "GWIP"
+   $GWIPconfName = "gwipconf"
+   $VNetName = "TestVNet"
+   ```
+
+    If you want to create the gateway in an Azure Extended Zone, declare the following variables.
+
+   ```azurepowershell-interactive 
+   $RG = "TestRG"
+   $Location = "West US"
+   $ExtendedLocation = “losangeles”
    $GWName = "GW"
    $GWIPName = "GWIP"
    $GWIPconfName = "gwipconf"
@@ -91,6 +103,11 @@ The steps for this task use a VNet based on the values in the following configur
    ```azurepowershell-interactive
    $pip = New-AzPublicIpAddress -Name $GWIPName  -ResourceGroupName $RG -Location $Location -AllocationMethod Static -SKU Standard
    ```
+    If you want to create the gateway in an Azure Extended Zone, request a public IP address in an Extended Zone using the **-ExtendedLocation** parameter.
+
+   ```azurepowershell-interactive
+   $pip = New-AzPublicIpAddress -Name $GWIPName  -ResourceGroupName $RG -Location $Location -AllocationMethod Static -SKU Standard -ExtendedLocation $ExtendedLocation
+   ```
 
    > [!NOTE]
    > Basic SKU public IP isn't supported with new ExpressRoute virtual network gateway.
@@ -104,6 +121,11 @@ The steps for this task use a VNet based on the values in the following configur
 
    ```azurepowershell-interactive
    New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG -Location $Location -IpConfigurations $ipconf -GatewayType Expressroute -GatewaySku Standard
+   ```
+    If you want to create the gateway in an Azure Extended Zone, add the **-ExtendedLocation** parameter.
+
+   ```azurepowershell-interactive
+   New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG -Location $Location -ExtendedLocation $ExtendedLocation -IpConfigurations $ipconf -GatewayType Expressroute -GatewaySku Standard
    ```
 
 ## Verify the gateway was created
