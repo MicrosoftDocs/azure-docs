@@ -54,7 +54,7 @@ For Azure OpenAI, use the following settings:
 
 | Setting name| Value |
 |-|-|-|
-| `DEPOYMENT_NAME` | @Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/) |
+| `DEPLOYMENT_NAME` | @Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/) |
 | `ENDPOINT` | @Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/) |
 | `API_KEY` | @Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/) |
 
@@ -78,7 +78,7 @@ For Azure OpenAI:
       Map<String, String> envVariables = System.getenv();
       String apiKey = envVariables.get("API_KEY");
       String endpoint = envVariables.get("ENDPOINT");
-      String depoymentName = envVariables.get("DEPLOYMENT_NAME");
+      String deploymentName = envVariables.get("DEPLOYMENT_NAME");
   }  
 ```
 
