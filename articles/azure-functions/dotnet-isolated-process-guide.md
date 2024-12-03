@@ -811,7 +811,7 @@ public class MyFunction {
 > Loggers obtained through dependency injection are associated with a log category set to the fully qualified name of the class.
 > This usually consists in a category name with one or more `.` (period) characters.
 > When hosting your function app on Linux App Service plans, please be aware of
-> [limitations with category names that contain a dot](https://learn.microsoft.com/en-us/dotnet/core/extensions/logging?tabs=bash#set-log-level-by-command-line-environment-variables-and-other-configuration). You will not be able to override
+> [limitations with category names that contain a dot](/dotnet/core/extensions/logging?tabs=bash#set-log-level-by-command-line-environment-variables-and-other-configuration). You will not be able to override
 > log levels for those categories using environment variables.
 
 The logger can also be obtained from a [FunctionContext] object passed to your function. Call the [GetLogger&lt;T&gt;] or [GetLogger] method, passing a string value that is the name for the category in which the logs are written. The category is usually the name of the specific function from which the logs are written. To learn more about categories, see the [monitoring article](functions-monitoring.md#log-levels-and-categories).
