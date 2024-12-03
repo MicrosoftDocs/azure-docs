@@ -32,7 +32,6 @@ Here's information about the SxS Network Stack.
 | Release | Latest version |
 |--|--|
 | Production | 1.0.2407.05700  |
-| Validation | 1.0.2407.05700  |
 
 ## Version 1.0.2407.05700
 

@@ -6,13 +6,23 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: linux-related-content
 ms.topic: overview
-ms.date: 11/12/2024
+ms.date: 12/03/2024
 ms.author: anfdocs
 ---
 
 # What's new in Azure NetApp Files
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
+
+## December 2024
+
+* [Cloud Backup for Virtual Machines on Azure NetApp Files datastores for Azure VMware Solution:](../azure-vmware/install-cloud-backup-virtual-machines.md) enhanced backup capabilities (Preview)
+
+    Cloud Backup for Virtual Machines now integrates with [Azure NetApp Files backup](backup-introduction.md), significantly enhancing data protection by offering a fully managed backup solution for long-term recovery, archiving, and compliance. This integration allows you to mount a datastore from a snapshot or Azure NetApp Files backup to restore files. You can [mount the backup](../azure-vmware/configure-cloud-backup-virtual-machine.md) to either the Azure VMware Solution host where it was created or to an alternate host.
+    
+    Cloud Backup for Virtual Machines now also includes the capability to [attach one or more VMDKs](../azure-vmware/configure-cloud-backup-virtual-machine.md) from a backup to the parent VM, to an alternate VM on the same Azure VMware Solution host, or to an alternate VM on an alternate host managed by the same vCenter instance.
+    
+    Cloud Backup for Virtual Machines also enables you [to restore a virtual machine](../azure-vmware/restore-azure-netapp-files-vms.md) to an alternate location on the same Azure VMware Solution host or a different host managed by the same vCenter instance. Additionally, it supports [restoring guest files and folders from a snapshot or an Azure NetApp Files backup](../azure-vmware/restore-guest-files-folders.md).
 
 ## November 2024
 
@@ -417,7 +427,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     The public preview of the feature is currently available in the following regions: Australia East, Brazil South, Canada Central, Central US, East Asia, East US, East US 2, France Central, Germany West Central, Japan East, North Europe, Norway East, Southeast Asia, South Central US, UK South, West Europe, West US 2, and West US 3.
 
-    In the future, cross-zone replication is planned for all [AZ-enabled regions](../availability-zones/az-overview.md#azure-regions-with-availability-zones) with [Azure NetApp Files presence](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=netapp&regions=all&rar=true).
+    In the future, cross-zone replication is planned for all [AZ-enabled regions](../reliability/availability-zones-region-support.md) with [Azure NetApp Files presence](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=netapp&regions=all&rar=true).
 
 * [Azure Virtual WAN](configure-virtual-wan.md) (Preview)
 
@@ -435,7 +445,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [Availability zone volume placement](manage-availability-zone-volume-placement.md) (Preview)
 
-    Azure availability zones are highly available, fault tolerant, and more scalable than traditional single or multiple data center infrastructures. Using Azure availability zones lets you design and operate applications and databases that automatically transition between zones without interruption. Azure NetApp Files lets you deploy new volumes in the logical availability zone of your choice to support enterprise, mission-critical HA deployments across multiple AZs. Azure’s push towards the use of [availability zones (AZs)](../availability-zones/az-overview.md#availability-zones) has increased, and the use of high availability (HA) deployments with availability zones are now a default and best practice recommendation in Azure’s [Well-Architected Framework](/azure/architecture/framework/resiliency/design-best-practices#use-zone-aware-services).
+    Azure availability zones are highly available, fault tolerant, and more scalable than traditional single or multiple data center infrastructures. Using Azure availability zones lets you design and operate applications and databases that automatically transition between zones without interruption. Azure NetApp Files lets you deploy new volumes in the logical availability zone of your choice to support enterprise, mission-critical HA deployments across multiple AZs. Azure’s push towards the use of [availability zones (AZs)](../reliability/availability-zones-overview.md) has increased, and the use of high availability (HA) deployments with availability zones are now a default and best practice recommendation in Azure’s [Well-Architected Framework](/azure/architecture/framework/resiliency/design-best-practices#use-zone-aware-services).
 
 * [Application volume group for SAP HANA](application-volume-group-introduction.md) now generally available (GA)
 

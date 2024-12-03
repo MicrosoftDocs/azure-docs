@@ -150,7 +150,7 @@
         href: howto-timewindow-filter.md
       - name: ASP.NET Core
         href: howto-timewindow-filter-aspnet-core.md
-      - name: JavaScipt
+      - name: JavaScript
         href: howto-timewindow-filter-javascript.md
     - name: Roll out features to targeted audience
       items:
@@ -158,10 +158,12 @@
         href: howto-targetingfilter.md
       - name: ASP.NET Core
         href: howto-targetingfilter-aspnet-core.md
-    - name: Run experiments with variant feature flags
+    - name: Use variant feature flags
       items:
+      - name: Overview
+        href: use-variant-feature-flags.md
       - name: ASP.NET Core
-        href: run-experiments-aspnet-core.md
+        href: use-variant-feature-flags-aspnet-core.md
   - name: Enable Azure monitoring
     items:
     - name: Monitor App Configuration

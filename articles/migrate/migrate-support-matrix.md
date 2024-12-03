@@ -5,8 +5,8 @@ author: v-sreedevank
 ms.author: v-sreedevank
 ms.manager: abhemraj
 ms.topic: conceptual
-ms.date: 05/22/2024
-ms.custom: engagement-fy24
+ms.date: 08/08/2024
+ms.custom: engagement-fy25
 ---
 
 # Azure Migrate support matrix
