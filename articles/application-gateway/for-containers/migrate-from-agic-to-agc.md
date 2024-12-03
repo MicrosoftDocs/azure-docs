@@ -329,7 +329,7 @@ Application Gateway for Containers implementation
 
 #### [Header rewrite in Gateway API](how-to-header-rewrite-ingress-api.md)
 
-In Gateway API, you define a RequestHeaderModifer match and filter to rewrite the request.
+In Gateway API, you define a RequestHeaderModifier match and filter to rewrite the request.
 
 #### [Header rewrite in Ingress API](how-to-header-rewrite-ingress-api.md)
 

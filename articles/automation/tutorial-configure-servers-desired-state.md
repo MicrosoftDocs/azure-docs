@@ -93,7 +93,7 @@ $importAzAutomationDscConfigurationSplat = @{
     SourcePath = 'C:\DscConfigs\TestConfig.ps1'
     ResourceGroupName = 'MyResourceGroup'
     AutomationAccountName = 'myAutomationAccount'
-    Published = $ture
+    Published = $true
 }
 Import-AzAutomationDscConfiguration @importAzAutomationDscConfigurationSplat
 ```
