@@ -28,7 +28,7 @@ If you are a Global Administrator, there might be times when you want to do the 
 
 Microsoft Entra ID and Azure resources are secured independently from one another. That is, Microsoft Entra role assignments do not grant access to Azure resources, and Azure role assignments do not grant access to Microsoft Entra ID. However, if you are a [Global Administrator](/entra/identity/role-based-access-control/permissions-reference#global-administrator) in Microsoft Entra ID, you can assign yourself access to all Azure subscriptions and management groups in your tenant. Use this capability if you don't have access to Azure subscription resources, such as virtual machines or storage accounts, and you want to use your Global Administrator privilege to gain access to those resources.
 
-When you elevate your access, you will be assigned the [User Access Administrator](built-in-roles.md#user-access-administrator) role in Azure at root scope (`/`). This allows you to view all resources and assign access in any subscription or management group in the tenant. User Access Administrator role assignments can be removed using Azure PowerShell, Azure CLI, or the REST API.
+When you elevate your access, you are assigned the [User Access Administrator](built-in-roles.md#user-access-administrator) role in Azure at root scope (`/`). This allows you to view all resources and assign access in any subscription or management group in the tenant. User Access Administrator role assignments can be removed using Azure PowerShell, Azure CLI, or the REST API.
 
 You should remove this elevated access once you have made the changes you need to make at root scope.
 
@@ -46,9 +46,7 @@ Follow these steps to elevate access for a Global Administrator using the Azure 
 
     If you are using Microsoft Entra Privileged Identity Management, [activate your Global Administrator role assignment](/entra/id-governance/privileged-identity-management/pim-how-to-activate-role).
 
-1. Open **Microsoft Entra ID**.
-
-1. Under **Manage**, select **Properties**.
+1. Browse to **Microsoft Entra ID** > **Manage** > **Properties**.
 
    ![Select Properties for Microsoft Entra properties - screenshot](./media/elevate-access-global-admin/azure-active-directory-properties.png)
 
@@ -63,13 +61,13 @@ Follow these steps to elevate access for a Global Administrator using the Azure 
     > [!NOTE]
     > If you're using [Privileged Identity Management](/entra/id-governance/privileged-identity-management/pim-configure), deactivating your role assignment does not change the **Access management for Azure resources** toggle to **No**. To maintain least privileged access, we recommend that you set this toggle to **No** before you deactivate your role assignment.
 
-1. Click **Save** to save your setting.
+1. Select **Save** to save your setting.
 
    This setting is not a global property and applies only to the currently signed in user. You can't elevate access for all members of the Global Administrator role.
 
 1. Sign out and sign back in to refresh your access.
 
-    You should now have access to all subscriptions and management groups in your tenant. When you view the Access control (IAM) pane, you'll notice that you have been assigned the User Access Administrator role at root scope.
+    You should now have access to all subscriptions and management groups in your tenant. When you view the Access control (IAM) page, you'll notice that you have been assigned the User Access Administrator role at root scope.
 
    ![Subscription role assignments with root scope - screenshot](./media/elevate-access-global-admin/iam-root.png)
 
@@ -85,11 +83,11 @@ To remove the User Access Administrator role assignment at root scope (`/`), fol
 
 1. Sign in as the same user that was used to elevate access.
 
-1. In the navigation list, click **Microsoft Entra ID** and then click **Properties**.
+1. Browse to **Microsoft Entra ID** > **Manage** > **Properties**.
 
 1. Set the **Access management for Azure resources** toggle back to **No**. Since this is a per-user setting, you must be signed in as the same user as was used to elevate access.
 
-    If you try to remove the User Access Administrator role assignment on the Access control (IAM) pane, you'll see the following message. To remove the role assignment, you must set the toggle back to **No** or use Azure PowerShell, Azure CLI, or the REST API.
+    If you try to remove the User Access Administrator role assignment on the Access control (IAM) page, you'll see the following message. To remove the role assignment, you must set the toggle back to **No** or use Azure PowerShell, Azure CLI, or the REST API.
 
     ![Remove role assignments with root scope](./media/elevate-access-global-admin/iam-root-remove.png)
 
@@ -343,15 +341,13 @@ If you have users with unnecessary elevated access, you should take immediate ac
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as a Global Administrator.
 
-1. Open **Microsoft Entra ID**.
-
-1. Under **Manage**, select **Properties**.
+1. Browse to **Microsoft Entra ID** > **Manage** > **Properties**.
 
 1. Under **Access management for Azure resources**, look for the following banner.
 
     `You have X users with elevated access. Microsoft Security recommends deleting access for users who have unnecessary elevated access. Manage elevated access users`
 
-    :::image type="content" source="./media/elevate-access-global-admin/elevated-access-users-banner.png" alt-text="Screenshot of banner that indicates there are users with elevated acccess." lightbox="./media/elevate-access-global-admin/elevated-access-users-banner.png":::
+    :::image type="content" source="./media/elevate-access-global-admin/elevated-access-users-banner.png" alt-text="Screenshot of banner that indicates there are users with elevated access." lightbox="./media/elevate-access-global-admin/elevated-access-users-banner.png":::
 
     If you don't see this banner, you currently don't have any users in your tenant with elevated access.
 
@@ -361,7 +357,7 @@ If you have users with unnecessary elevated access, you should take immediate ac
 
     The **Users with elevated access appears** pane appears with a list of users with elevated access in your tenant.
 
-    :::image type="content" source="./media/elevate-access-global-admin/elevated-access-users-pane.png" alt-text="Screenshot of Users with elevated access pane that lists users with elevated acccess." lightbox="./media/elevate-access-global-admin/elevated-access-users-pane.png":::
+    :::image type="content" source="./media/elevate-access-global-admin/elevated-access-users-pane.png" alt-text="Screenshot of Users with elevated access pane that lists users with elevated access." lightbox="./media/elevate-access-global-admin/elevated-access-users-pane.png":::
 
 1. To remove elevated access for users, add a check mark next to the user and select **Remove**.
 
@@ -373,7 +369,7 @@ When access is elevated, an entry is added to the logs. As a Global Administrato
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as a Global Administrator.
 
-1. Open **Monitor** > **Activity log**.
+1. Browse to **Monitor** > **Activity log**.
 
 1. Change the **Activity** list to **Directory Activity**.
 
@@ -420,7 +416,7 @@ When access is elevated, an entry is added to the logs. As a Global Administrato
 
 If you want to be able to periodically get the elevate access log entries, you can delegate access to a group and then use Azure CLI.
 
-1. Open **Microsoft Entra ID** > **Groups**.
+1. Browse to **Microsoft Entra ID** > **Groups**.
 
 1. Create a new security group and note the group object ID.
 
