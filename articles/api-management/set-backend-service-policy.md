@@ -35,7 +35,7 @@ Referencing a backend entity allows you to manage the backend service base URL a
 
 | Attribute         | Description                                            | Required | Default |
 | ----------------- | ------------------------------------------------------ | -------- | ------- |
-|base-url|New backend service base URL. Policy expressions are allowed.|One of `base-url` or `backend-id` must be present.|N/A|
+|base-url|New backend service base URL. Usually, the format is `https://backend.com/api`. Avoid adding a slash at the end to prevent misconfigurations. Typically, the `base-url` and HTTP(S) endpoint value in the backend should match to enable seamless integration between frontend and backend. Note that API Management instances append the backend service name to the `base-url`. Policy expressions are allowed.|One of `base-url` or `backend-id` must be present.|N/A|
 |backend-id|Identifier (name) of the [backend](backends.md) to route primary or secondary replica of a partition. Policy expressions are allowed. |One of `base-url` or `backend-id` must be present.|N/A|
 |sf-resolve-condition|Only applicable when the backend is a Service Fabric service. Condition identifying if the call to Service Fabric backend has to be repeated with new resolution. Policy expressions are allowed.|No|N/A|
 |sf-service-instance-name|Only applicable when the backend is a Service Fabric service. Allows changing service instances at runtime. Policy expressions are allowed. |No|N/A|
