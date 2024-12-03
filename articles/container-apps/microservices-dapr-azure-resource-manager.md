@@ -5,7 +5,7 @@ services: container-apps
 author: hhunter-ms
 ms.service: azure-container-apps
 ms.topic: quickstart
-ms.date: 06/29/2022
+ms.date: 12/03/2024
 ms.author: cshoe
 ms.custom: devx-track-bicep, devx-track-arm-template, devx-track-azurepowershell
 zone_pivot_groups: container-apps
@@ -13,11 +13,11 @@ zone_pivot_groups: container-apps
 
 # Quickstart: Deploy a Dapr application to Azure Container Apps with an Azure Resource Manager or Bicep template
 
-[Dapr](./dapr-overview.md) (Distributed Application Runtime) helps developers build resilient, reliable microservices. In this quickstart, you learn how to enable Dapr sidecars to run alongside your microservices container apps using either Azure Resource Manager or Bicep templates. You'll:
+[Dapr](./dapr-overview.md) (Distributed Application Runtime) helps developers build resilient, reliable microservices. In this quickstart, you learn how to enable Dapr sidecars to run alongside microservices container apps that produce and consume messages and store them in an Azure Blob Storage state store. Using either Azure Resource Manager or Bicep templates,  you'll:
 
 > [!div class="checklist"]
 >
-> - Deploy a template that launches everything you need to run microservices that produce and consume messages and store them in an Azure Blob Storage state store.
+> - Pass Azure CLI commands to [deploy a template](https://github.com/Azure-Samples/Tutorial-Deploy-Dapr-Microservices-ACA) that launches everything you need to run microservices.  
 > - Verify the interaction between the two microservices in the Azure portal.
 
 :::image type="content" source="media/microservices-dapr/azure-container-apps-microservices-dapr.png" alt-text="Architecture diagram for Dapr Hello World microservices on Azure Container Apps":::
