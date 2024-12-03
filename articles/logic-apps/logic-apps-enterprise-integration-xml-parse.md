@@ -96,7 +96,7 @@ This action is currently not yet supported for the [Consumption logic app resour
 
 The following are the advanced parameters for this action:
 
-   | Parameter | Value | Description |
+| Parameter | Value | Description |
    |-----------|-------|-------------|
    | **DTD Processing** | Ignore/Parse/Prohibit | How to handle XML DTD. |
    | **Normalize XML** | No/Yes | Whether to normalize XML content. |
