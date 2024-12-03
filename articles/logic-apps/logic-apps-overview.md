@@ -98,6 +98,10 @@ To learn how other companies improved their agility and increased focus on their
 
 All these services help you connect and bring together disparate systems. Each service has their advantages and benefits, so combining their capabilities is the best way to quickly build a scalable, full-featured integration system. For more information, see [Choose between Azure Logic Apps, Azure Functions, Azure WebJobs, and Microsoft Power Automate](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md).
 
+## How does Azure Logic Apps differ from Azure Automation Runbooks?
+
+Azure [Automation Runbooks](https://learn.microsoft.com/azure/automation/automation-runbook-types) provide a lightweight and cost-effective solution for straightforward remediations, such as restarting virtual machines. In contrast, Azure Logic Apps are ideal for custom workflows, complex logic, and multi-service integrations.
+
 ## How quickly can I ramp up my solutions with Azure Logic Apps?
 
 You can start small with your current systems and services, and then grow incrementally at your own pace. When you're ready, Azure Logic Apps helps you implement and scale up to more mature integration scenarios by providing the following capabilities and benefits.
