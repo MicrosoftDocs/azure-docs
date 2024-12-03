@@ -22,7 +22,7 @@ For example, suppose you receive JSON data from Azure Service Bus and need to se
 
 * An Azure account and subscription. If you don't have a subscription yet, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* A logic app workflow that already starts with a trigger so that you can add the **XML compose with schema** action where necessary in your workflow.
+* A Standard logic app workflow that already starts with a trigger so that you can add the **Compose XML with schema** action to your workflow.
 
 * An [integration account resource](logic-apps-enterprise-integration-create-integration-account.md) where you define and store artifacts, such as trading partners, agreements, certificates, and so on, for use in your enterprise integration and B2B workflows. This resource has to meet the following requirements:
 
