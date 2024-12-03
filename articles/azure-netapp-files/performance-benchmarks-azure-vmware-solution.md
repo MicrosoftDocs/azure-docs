@@ -48,7 +48,7 @@ The results in this article were achieved using the following environment config
 * Workload generator: `fio` 3.35
 
 >[!NOTE]
-> The AV64 tests focus only on the evaluation of a single ESXi host. Scaling out the number of ESXi hosts is discussed in the [AV36 section](#av-36-environment-details).
+> The AV64 tests focus only on the evaluation of a single ESXi host. Scaling out the number of ESXi hosts is discussed in the [AV36 section](#av36-environment-details).
 
 ### One-to-multiple Azure NetApp Files datastores with a single AV64 host
 
