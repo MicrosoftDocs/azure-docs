@@ -69,7 +69,7 @@ For example, suppose you receive JSON data from Azure Service Bus and need to se
 
 1. For an attribute that accepts an array, you can select **Switch to input entire array**, which appears only for array parameters.
 
-      ![Screenshot shows Standard workflow with opened dynamic content lis in array.](./media/logic-apps-enterprise-integration-xml-compose/open-dynamic-content-list-standard-array.png)
+      ![Screenshot shows Standard workflow with opened dynamic content list and array parameters.](./media/logic-apps-enterprise-integration-xml-compose/open-dynamic-content-list-standard-array.png)
  
 
 1. When you're done, save your workflow.
