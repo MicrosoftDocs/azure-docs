@@ -34,6 +34,7 @@ From your project directory, install packages for the Azure Storage Data Movemen
 
 ```dotnetcli
 dotnet add package Azure.Storage.DataMovement
+dotnet add package Azure.Storage.DataMovement.Blobs
 dotnet add package Azure.Identity
 ```
 
