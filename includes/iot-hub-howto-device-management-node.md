@@ -101,7 +101,7 @@ client.open(function(err) {
 
 ### Create a direct method callback
 
-Call [onDeviceMethod](/javascript/api/azure-iot-device/client?view=azure-node-latest#azure-iot-device-client-ondevicemethod) to create a handler function or coroutine that is called when a direct method is received. The listener is associated with a method name keyword, such as "reboot". The method name can be used in an IoT Hub or backend application to trigger the callback method on the device.
+Call [onDeviceMethod](/javascript/api/azure-iot-device/client?#azure-iot-device-client-ondevicemethod) to create a handler function or coroutine that is called when a direct method is received. The listener is associated with a method name keyword, such as "reboot". The method name can be used in an IoT Hub or backend application to trigger the callback method on the device.
 
 The callback handler function should call `send` to send a response acknowledgement message to the calling application.
 
