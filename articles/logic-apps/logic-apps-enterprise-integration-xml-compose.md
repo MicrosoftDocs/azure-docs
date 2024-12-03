@@ -97,7 +97,7 @@ This action is currently not yet supported for the [Consumption logic app resour
 
 The following table describes the advanced parameters available in this action:
 
-   | Parameter | Value | Description |
+| Parameter | Value | Description |
 |-----------|-------|-------------|
    | **Root Node Qualified Name** | <*root-node-qualified-name*> | The root node's qualified name in case the schema contains multiple unreferenced element definitions. |
    | **Date and Time Format** | <*date-time-format*> | The date and time format specifier, e.g. 'dddd, MMM dd yyyy HH:mm:ss: zzz'. |
