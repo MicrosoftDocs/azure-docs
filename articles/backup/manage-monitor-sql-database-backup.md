@@ -49,7 +49,7 @@ To monitor database backup alerts, follow these steps:
 
 1. To configure notifications for these alerts, you must create an alert processing rule.
 
-   Learn about [Configure notifications for alerts](backup-azure-monitoring-alerts.md#configure-notifications-for-alerts).
+   Learn about [Configure notifications for alerts](backup-azure-monitor-alerts-notification.md#configure-notifications-for-alerts).
 
 ## Stop protection for a SQL Server database
 

@@ -742,10 +742,12 @@
       items:
       - name: Azure Monitor alerts
         href: backup-azure-monitoring-alerts.md 
-      - name: Using Azure Monitor metrics
+      - name: Metrics (preview)
         href: metrics-overview.md   
-      - name: Using Azure Monitor Logs
-        href: backup-azure-monitoring-use-azuremonitor.md  
+      - name: Logs
+        href: backup-azure-monitoring-use-azuremonitor.md
+      - name: Configure notifications
+        href: backup-azure-monitor-alerts-notification.md    
       - name: Classic alerts
         items:  
         - name: Using Azure Monitor alerts
@@ -756,7 +758,7 @@
       items:
       - name: Configure Report
         href: configure-reports.md
-      - name: Vire  Report
+      - name: View Report
         href: view-reports.md  
       - name: Email Report
         href: backup-reports-email.md
