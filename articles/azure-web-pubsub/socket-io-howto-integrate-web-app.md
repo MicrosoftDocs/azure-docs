@@ -90,7 +90,7 @@ Run the following command to get a copy of the application code.
     # bash
     zip -r app.zip *
 
-    # Poweshell
+    # Powershell
     ```
 
 1. Compress into a zip

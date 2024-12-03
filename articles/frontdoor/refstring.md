@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot Azure Front Door with RefString 
-description: This article provides information about what a RefString is and how to gather them.
+title: Troubleshooting 4xx and 5xx erorrs using RefString 
+description: This article provides information about what a RefString is, how to collect them, and use the Azure portal diagnostic tool for troubleshooting 4xx and 5xx errors.
 author: Alej-b23 
 ms.author: pagonzalez 
 ms.service: azure-frontdoor 
@@ -10,7 +10,7 @@ ms.date: 09/06/2024
 #CustomerIntent: As a web developer, I want troubleshoot my web application using a RefString.
 ---
 
-# Troubleshoot Azure Front Door with RefString
+# Troubleshooting 4xx and 5xx errors using RefString
 
 A guide to understand and use RefStrings for diagnosing and resolving issues with Azure Front Door.
 
@@ -20,7 +20,7 @@ A guide to understand and use RefStrings for diagnosing and resolving issues wit
 
 ## What is a RefString?
 
-A RefString is a short string appended by Azure Front Door to the HTTP response headers of each request. It provides details on how the request was processed, including the point of presence (POP) and backend status.
+A RefString, also known as a Reference string, is a short string appended by Azure Front Door to the HTTP response headers of each request. It provides details on how the request was processed, including the point of presence (POP) and backend status.
 
 RefStrings can help you troubleshoot and resolve issues with Azure Front Door, such as cache misses, routing errors, backend failures, and latency problems. You can identify the root cause and take appropriate actions to fix it by analyzing the RefStrings of the requests.
 
@@ -29,7 +29,7 @@ RefStrings can help you troubleshoot and resolve issues with Azure Front Door, s
 
 ## How to gather a RefString
 
-To gather a RefString, you need to capture the HTTP response headers of the requests and look for the header named **X-Azure-Ref**. This header contains the RefString, encoded in Base64. You can use different methods to capture the HTTP response headers, depending on your preference and situation. Here are a few examples of how to obtain a RefString from various browsers and applications:
+To gather a RefString, you need to capture the HTTP response headers of the requests and look for the header named **X-Azure-Ref**. This header contains the RefString, encoded in Base64. You can use different methods to capture the HTTP response headers, depending on your preference and situation. Here is an example of how to obtain a RefString from the Microsoft Edge Browser:
 
 #### [Microsoft Edge Browser](#tab/edge)
 
@@ -48,24 +48,6 @@ For more information, see [Inspect network activity - Microsoft Edge Developer d
 Example of how to obtain a RefString from Microsoft Edge Browser:
 
 :::image type="content" source="media/refstring/refstring-edge-browser-step.png" alt-text="Screenshot of RefString example in Microsoft Edge Browser." lightbox="media/refstring/refstring-edge-browser-step-expanded.png":::
-
-#### [Google Chrome](#tab/chrome)
-
-For Google Chrome browsers, see [Inspect network activity - Google Chrome Developer documentation](https://developer.chrome.com/docs/devtools/network).
-
-#### [cURL](#tab/curl)
-
-To obtain headers with cURL, use the **-I** or **—include** option to include the HTTP response headers in the output. Look for the **X-Azure-Ref** header in the output, and copy the value of the header.
-
-#### [Fiddler](#tab/fiddler)
-
-1. Launch Fiddler and start capturing HTTP traffic. Refresh the page or perform the action that generates the request.
-
-1. Choose the request from the list and navigate to the Inspectors tab.
-
-1. Switch to the Raw view, locate the **X-Azure-Ref** header in the response headers, copy its value, and decode it using a Base64 decoder.
-
-To learn more about viewing and capturing network traffic with Fiddler, see [Web Debugging - Capture Network Traffic](https://www.telerik.com/fiddler/usecases/web-debugging). 
 
 ---
 
@@ -101,25 +83,9 @@ Azure Front Door uses a RefString to manage 4xx and 5xx errors. The following ar
 
 ### Alternative option
 
-If you choose not to use the diagnostic tool, you can include a RefString when submitting a support ticket. Additionally, you can enable the **Access Logs** feature to receive updates on RefString data directly in the Azure portal. For more information on tracking references and access log parameters, see [Monitor metrics and logs in Azure Front Door](front-door-diagnostics.md#access-log). 
+If you choose not to use the diagnostic tool, you can include a RefString when submitting a support ticket. Additionally, you can enable the **Access Logs** feature to receive updates on RefString data directly in the Azure portal. 
 
-This article highlights specific fields in access logs that help identify various types of errors:
-
-* **Cache misses:** RefString indicate whether a request was served from the cache and provide reasons if it wasn't.
-
-    Example: **NOCACHE** means the request wasn't eligible for caching, **MISS** means no valid cache entry existed, and **STALE** means the cache entry was expired.
-
-* **Routing errors:** RefString can reveal if a request was routed correctly to the backend and the reason.
-        
-    Example: **FALLBACK** means rerouted due to primary backend issues, and **OVERRIDE** means sent to an alternative backend against routing rules.
-
-* **Backend failures:** RefString indicate if delivery to the backend succeeded and explain any issues.
-    
-    Example: **TIMEOUT** means the response took too long, **CONNFAIL** means connection failed, and **ERROR** indicates an error response from the backend.
-
-* **Latency problems:** RefString detail Azure Front Door's processing time and stage durations.
-
-    Example: **DURATION** shows total handling time, **RTT** shows round-trip time, and **TTFB** shows the time taken to receive the first byte from the backend.
+For more information on tracking references and access log parameters, see [Monitor metrics and logs in Azure Front Door](front-door-diagnostics.md#access-log), which highlights specific fields in access logs that help identify various types of errors.
 
 ## Next steps
 
