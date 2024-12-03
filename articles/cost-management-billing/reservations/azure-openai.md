@@ -6,7 +6,7 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 11/26/2024
+ms.date: 12/02/2024
 ms.author: banders
 # customer intent: As a billing administrator, I want to learn about saving costs with Microsoft Azure OpenAI Service Provisioned Reservations and buy one.
 ---
@@ -15,12 +15,12 @@ ms.author: banders
 
 You can save money on Azure OpenAI provisioned throughput by committing to a reservation for your provisioned throughput units (PTUs) usage for a duration of one month or one year. This article explains how you can save money with Azure OpenAI Service Provisioned Reservations. For more information about Azure OpenAI PTUs, see [Provisioned throughput units onboarding](/azure/ai-services/openai/how-to/provisioned-throughput-onboarding).
 
-To purchase an Azure OpenAI reservation, you choose an Azure region, quantity, and the deployment type that you want covered. Then add the Azure OpenAI SKU (Global, Managed Area (Data Zone), or Regional) to your cart. Then verify the quantity of provisioned throughput units that you want to purchase and complete your order.
+To purchase an Azure OpenAI reservation, you choose an Azure region, quantity, and the deployment type that you want covered. Then add the Azure OpenAI SKU (Global, Data Zone, or Regional) to your cart. Then verify the quantity of provisioned throughput units that you want to purchase and complete your order.
 
 When you purchase a reservation, the Azure OpenAI provisioned throughput usage that matches the reservation attributes is no longer charged at the hourly rates. 
 
 >[!NOTE]
->Reservations for Global, Managed Area (Data Zone), and Regional deployments aren't interchangeable. You need to purchase a separate reservation for each deployment type. For more information about transitioning provisioned deployments, see [Transition Azure OpenAI provisioned deployments](transition-azure-openai-provisioned-deployments.md).
+>Reservations for Global, Data Zone, and Regional deployments aren't interchangeable. You need to purchase a separate reservation for each deployment type. For more information about transitioning provisioned deployments, see [Transition Azure OpenAI provisioned deployments](transition-azure-openai-provisioned-deployments.md).
 
 For pricing information, see the [Azure OpenAI Service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) page.
 
@@ -75,7 +75,7 @@ To buy an Azure OpenAI reservation, follow these steps:
         - For pay-as-you-go customers, the shared scope is all pay-as-you-go subscriptions created by the account administrator.
     - **Management group** - Applies the reservation discount to the matching resource in the list of subscriptions that are a part of both the management group and billing scope. The management group scope applies to all subscriptions throughout the entire management group hierarchy. To buy a reservation for a management group, you must have at least read permission on the management group and be a reservation owner or reservation purchaser on the billing subscription.
 5. Select a region to choose an Azure region that gets covered by the reservation.
-6. Select the products to cover your deployment type (Global, Managed Area (Data Zone), or Regional) and select **Add to cart**.  
+6. Select the products to cover your deployment type (Global, Data Zone, or Regional) and select **Add to cart**.  
     :::image type="content" source="./media/azure-openai/select-provisioned-throughput.png" border="true" alt-text="Screenshot showing the Select product to purchase page." lightbox="./media/azure-openai/select-provisioned-throughput.png" :::
 7. In the cart, choose the quantity of provisioned throughput units that you want to purchase. For example, a quantity of 64 would cover up to 64 deployed provisioned throughput units every hour.
 8. Select **Next: Review + Buy** and review your purchase choices and their prices.
@@ -107,7 +107,7 @@ The sum total of all canceled reservation commitment in your billing scope (such
 After you buy a reservation for Azure OpenAI, the discount associated with the reservation automatically gets applied to any units that are deployed in the specified region, as long as they fall within the scope of the reservation. The reservation discount applies to the usage emitted by the provisioned throughput pay-as-you-go meters.
 
 >[!NOTE]
->Reservations for Global, Managed Area (Data Zone), and Regional deployments aren't interchangeable. You must purchase a separate reservation for each deployment type.
+>Reservations for Global, Data Zone, and Regional deployments aren't interchangeable. You must purchase a separate reservation for each deployment type.
 
 ### Reservation discount application
 
