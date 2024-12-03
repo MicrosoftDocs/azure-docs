@@ -103,7 +103,7 @@ The following table describes the advanced parameters available in this action:
    | **XML Writer Settings Omit XML Declaration** | No/Yes | Whether to omit an XML declaration.  |
    | **XML Writer Settings New Line On Attributes** | No/Yes | Whether to write attributes on a new line.  |   
 | **XML Writer Settings New Line Handling** | - **Entitize** <br>- **None** <br>- **Replace** | Specify how to handle line breaks. |
-   | **XML Writer Settings New Line Characters** | <*writer-new-line*> | The character string to use for line breaks.  |
+| **XML Writer Settings New Line Characters** | <*new-line-string*> | The character string to use for line breaks. |
    | **XML Writer Settings Indent Characters** | <*writer-indent-characters*> | The character string to use when indenting.  |
    | **XML Writer Settings Indent** | No/Yes | Whether to indent elements.  |
 | **XML Writer Settings Encoding** | Various options available. | The type of text encoding to use. |
