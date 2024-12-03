@@ -25,7 +25,7 @@ The listed features were released in the last three months. For information abou
 ## December 2024
 
 - [New documentation library for Microsoft's unified security operations platform](#new-documentation-library-for-microsofts-unified-security-operations-platform)
-- [New S3-based data connector for Amazon Web Services WAF logs (Preview)](new-s3-based-data-connector-for-amazon-web-services-waf-logs-preview)
+- [New S3-based data connector for Amazon Web Services WAF logs (Preview)](#new-s3-based-data-connector-for-amazon-web-services-waf-logs-preview)
 
 ### New documentation library for Microsoft's unified security operations platform
 
