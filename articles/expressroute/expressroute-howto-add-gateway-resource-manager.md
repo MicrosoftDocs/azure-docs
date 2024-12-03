@@ -62,12 +62,12 @@ The steps for this task use a VNet based on the values in the following configur
    $VNetName = "TestVNet"
    ```
 
-    If you want to create the gateway in an Azure Extended Zone, declare the following variables.
+    If you want to create the gateway in an Azure Extended Zone, add the **$ExtendedLocation** variable.
 
    ```azurepowershell-interactive 
    $RG = "TestRG"
    $Location = "West US"
-   $ExtendedLocation = “losangeles”
+   $ExtendedLocation = "losangeles"
    $GWName = "GW"
    $GWIPName = "GWIP"
    $GWIPconfName = "gwipconf"
