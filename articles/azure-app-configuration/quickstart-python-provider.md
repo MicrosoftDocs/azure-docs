@@ -57,6 +57,44 @@ In this section, you will create a console application and load data from your A
 
 1. Create a new file called *app-configuration-quickstart.py* in the *app-configuration-quickstart* directory and add the following code:
 
+    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
+    You use the `DefaultAzureCredential` to authenticate to your App Configuration store. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader** role. Be sure to allow sufficient time for the permission to propagate before running your application.
+
+    ```python
+    from azure.appconfiguration.provider import (
+        load,
+        SettingSelector
+    )
+    from azure.identity import DefaultAzureCredential
+    import os
+
+    endpoint = os.environ.get("AZURE_APPCONFIG_ENDPOINT")
+
+    # Connect to Azure App Configuration using a connection string.
+    config = load(endpoint=endpoint, credential=credential)
+    credential = DefaultAzureCredential()
+
+    # Find the key "message" and print its value.
+    print(config["message"])
+    # Find the key "my_json" and print the value for "key" from the dictionary.
+    print(config["my_json"]["key"])
+
+    # Connect to Azure App Configuration using a connection string and trimmed key prefixes.
+    trimmed = {"test."}
+    config = load(endpoint=endpoint, credential=credential, trim_prefixes=trimmed)
+    # From the keys with trimmed prefixes, find a key with "message" and print its value.
+    print(config["message"])
+
+    # Connect to Azure App Configuration using SettingSelector.
+    selects = {SettingSelector(key_filter="message*", label_filter="\0")}
+    config = load(endpoint=endpoint, credential=credential, selects=selects)
+
+    # Print True or False to indicate if "message" is found in Azure App Configuration.
+    print("message found: " + str("message" in config))
+    print("test.message found: " + str("test.message" in config))
+    ```
+
+    ### [Connection string](#tab/connection-string)
     ```python
     from azure.appconfiguration.provider import (
         load,
