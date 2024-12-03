@@ -1,10 +1,10 @@
 ---
-title: Restore guest files and folders using Cloud Backup for Virtual Machines
+title: Restore guest files and folders using Cloud Backup for Virtual Machines 
 description: Learn how to restore files or folders from a virtual machine disk (VMDK) on a Windows guest OS. 
 ms.topic: how-to
-author: b-hchen
+ms.author: anfdocs
 ms.service: azure-vmware
-ms.date: 12/02/2024
+ms.date: 12/03/2024
 ms.custom: engagement-fy24
 ---
 

@@ -2,8 +2,9 @@
 title: Restore VMs using Cloud Backup for Virtual Machines
 description: Learn how to restore virtual machines from a cloud backup to the vCenter. 
 ms.topic: how-to
+ms.author: anfdocs
 ms.service: azure-vmware
-ms.date: 12/02/2024
+ms.date: 12/03/2024
 ms.custom: engagement-fy23
 ---
 

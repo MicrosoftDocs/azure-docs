@@ -3,7 +3,8 @@ title: Back up Azure NetApp Files datastores and VMs using Cloud Backup
 description: Learn how to back up datastores and Virtual Machines to the cloud.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 12/02/2024
+ms.date: 12/03/2024
+ms.author: anfdocs
 ms.custom: engagement-fy23
 ---
 
