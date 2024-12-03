@@ -120,7 +120,7 @@ The following table summarizes which SDK versions support the trusted certificat
 
 ### Certificate pinning
 
-[Certificate pinning](https://www.digicert.com/blog/certificate-pinning-what-is-certificate-pinning) and filtering of the TLS server certificates (also known as leaf certificates) and intermediate certificates associated with DPS endpoints is discouraged as Microsoft frequently rolls these certificates with little or no notice. If you must, only pin the root certificates as described in this [Azure IoT blog post](https://techcommunity.microsoft.com/t5/internet-of-things-blog/azure-iot-tls-critical-changes-are-almost-here-and-why-you/ba-p/2393169).
+[Certificate pinning](https://www.digicert.com/blog/certificate-pinning-what-is-certificate-pinning) and filtering of the TLS server certificates (also known as leaf certificates) and intermediate certificates associated with DPS endpoints is discouraged as Microsoft frequently rolls these certificates with little or no notice. If you must, only pin the root certificates.
 
 ## Use TLS 1.2 in the IoT SDKs
 
