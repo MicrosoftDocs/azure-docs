@@ -97,6 +97,6 @@ The following table describes the advanced parameters available in this action:
 | **XML Writer Settings Encoding** | Various options available. | The type of text encoding to use. |
    | **XML Writer Settings Do Not Escape URI Attributes** | No/Yes | Indicates whether URI attributes should not be escaped.  |
    | **XML Writer Settings Conformance Level** | Auto/Document/fragment | The level of confirmance that the XML writer checks the XML output for.  |
-   | **XML Writer Check Characters** | No/Yes | Whether to ensure all characters in the document conform to the XML specification.  |
+| **XML Writer Check Characters** | **No** or **Yes** | Whether to make sure that all characters in the document conform to the XML specification. |
    | **JSON Schema for Element 'Root'.Xmlns** | <*json-schema-root*> | XML Namespace. Used to declare a namespace for elements in an XML document.  |
 
