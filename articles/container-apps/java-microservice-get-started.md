@@ -111,10 +111,10 @@ To create these server components, use the following steps:
 
     ```azurecli
     az containerapp env java-component config-server-for-spring create \
-      --environment $CONTAINER_APP_ENVIRONMENT \
-      --resource-group $RESOURCE_GROUP \
-      --name $CONFIG_SERVER_COMPONENT \
-      --configuration spring.cloud.config.server.git.uri=$CONFIG_SERVER_URI
+        --resource-group $RESOURCE_GROUP \
+        --name $CONFIG_SERVER_COMPONENT \
+        --environment $CONTAINER_APP_ENVIRONMENT \
+        --configuration spring.cloud.config.server.git.uri=$CONFIG_SERVER_URI
     ```
 
 1. Create the Eureka server for your Java components by using the following command:
@@ -328,10 +328,10 @@ Use the following steps to verify the app status:
 
        ```azurecli
        az containerapp env java-component eureka-server-for-spring show \
-          --resource-group $RESOURCE_GROUP \
-          --name $EUREKA_SERVER_COMPONENT \
-          --environment $CONTAINER_APP_ENVIRONMENT \
-          --query properties.ingress.fqdn
+           --resource-group $RESOURCE_GROUP \
+           --name $EUREKA_SERVER_COMPONENT \
+           --environment $CONTAINER_APP_ENVIRONMENT \
+           --query properties.ingress.fqdn
        ```
 
     1. Open the URL in your browser, and you should see an application that resembles the following screenshot:
