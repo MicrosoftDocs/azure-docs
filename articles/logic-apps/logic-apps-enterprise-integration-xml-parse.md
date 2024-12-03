@@ -43,6 +43,12 @@ For example, suppose you regularly receive orders or invoices from a customer th
 
   You still need an integration account to store other artifacts, such as partners, agreements, and certificates, along with using the [AS2](logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md), and [EDIFACT](logic-apps-enterprise-integration-edifact.md) operations.
 
+* The XSD schema to use with the **Compose XML with schema** action. Make sure that this schema includes a root element, which looks like the following example:
+
+   ```json
+   <xs:element name="Root">
+       <....>
+   </xs:element>
 ## Add a Parse XML with schema action
 
 
