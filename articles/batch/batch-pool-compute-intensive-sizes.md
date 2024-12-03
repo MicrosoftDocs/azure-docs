@@ -85,7 +85,7 @@ To configure a specialized VM size for your Batch pool, you have several options
 
 ## Example: NVIDIA GPU drivers on Windows NC VM pool
 
-To run CUDA applications on a pool of Windows NC nodes, you need to install NVDIA GPU drivers. The following sample steps use an application package to install the NVIDIA GPU drivers. You might choose this option if your workload depends on a specific GPU driver version.
+To run CUDA applications on a pool of Windows NC nodes, you need to install NVIDIA GPU drivers. The following sample steps use an application package to install the NVIDIA GPU drivers. You might choose this option if your workload depends on a specific GPU driver version.
 
 1. Download a setup package for the GPU drivers on Windows Server 2016 from the [NVIDIA website](https://www.nvidia.com/Download/index.aspx) - for example, [version 411.82](https://us.download.nvidia.com/Windows/Quadro_Certified/411.82/411.82-tesla-desktop-winserver2016-international.exe). Save the file locally using a short name like *GPUDriverSetup.exe*.
 2. Create a zip file of the package.

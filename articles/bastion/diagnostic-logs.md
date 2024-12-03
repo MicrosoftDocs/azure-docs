@@ -51,7 +51,7 @@ To access your diagnostics logs, you can directly use the storage account that y
    ```json
    { 
    "time":"2019-10-03T16:03:34.776Z",
-   "resourceId":"/SUBSCRIPTIONS/<subscripionID>/RESOURCEGROUPS/MYBASTION/PROVIDERS/MICROSOFT.NETWORK/BASTIONHOSTS/MYBASTION-BASTION",
+   "resourceId":"/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/MYBASTION/PROVIDERS/MICROSOFT.NETWORK/BASTIONHOSTS/MYBASTION-BASTION",
    "operationName":"Microsoft.Network/BastionHost/connect",
    "category":"BastionAuditLogs",
    "level":"Informational",
@@ -62,8 +62,8 @@ To access your diagnostics logs, you can directly use the storage account that y
       "clientIpAddress":"131.107.159.86",
       "clientPort":24039,
       "protocol":"ssh",
-      "targetResourceId":"/SUBSCRIPTIONS/<subscripionID>/RESOURCEGROUPS/MYBASTION/PROVIDERS/MICROSOFT.COMPUTE/VIRTUALMACHINES/LINUX-KEY",
-      "subscriptionId":"<subscripionID>",
+      "targetResourceId":"/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/MYBASTION/PROVIDERS/MICROSOFT.COMPUTE/VIRTUALMACHINES/LINUX-KEY",
+      "subscriptionId":"<subscriptionID>",
       "message":"Successfully Connected.",
       "resourceType":"VM",
       "targetVMIPAddress":"172.16.1.5",
@@ -72,7 +72,7 @@ To access your diagnostics logs, you can directly use the storage account that y
    },
    "FluentdIngestTimestamp":"2019-10-03T16:03:34.0000000Z",
    "Region":"eastus",
-   "CustomerSubscriptionId":"<subscripionID>"
+   "CustomerSubscriptionId":"<subscriptionID>"
    }
    ```
    
@@ -81,7 +81,7 @@ To access your diagnostics logs, you can directly use the storage account that y
    ```json
    { 
    "time":"2019-10-03T16:03:34.776Z",
-   "resourceId":"/SUBSCRIPTIONS/<subscripionID>/RESOURCEGROUPS/MYBASTION/PROVIDERS/MICROSOFT.NETWORK/BASTIONHOSTS/MYBASTION-BASTION",
+   "resourceId":"/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/MYBASTION/PROVIDERS/MICROSOFT.NETWORK/BASTIONHOSTS/MYBASTION-BASTION",
    "operationName":"Microsoft.Network/BastionHost/connect",
    "category":"BastionAuditLogs",
    "level":"Informational",
@@ -92,8 +92,8 @@ To access your diagnostics logs, you can directly use the storage account that y
       "clientIpAddress":"131.107.159.86",
       "clientPort":24039,
       "protocol":"ssh",
-      "targetResourceId":"/SUBSCRIPTIONS/<subscripionID>/RESOURCEGROUPS/MYBASTION/PROVIDERS/MICROSOFT.COMPUTE/VIRTUALMACHINES/LINUX-KEY",
-      "subscriptionId":"<subscripionID>",
+      "targetResourceId":"/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/MYBASTION/PROVIDERS/MICROSOFT.COMPUTE/VIRTUALMACHINES/LINUX-KEY",
+      "subscriptionId":"<subscriptionID>",
       "message":"Login Failed",
       "resourceType":"VM",
       "targetVMIPAddress":"172.16.1.5",
@@ -102,7 +102,7 @@ To access your diagnostics logs, you can directly use the storage account that y
    },
    "FluentdIngestTimestamp":"2019-10-03T16:03:34.0000000Z",
    "Region":"eastus",
-   "CustomerSubscriptionId":"<subscripionID>"
+   "CustomerSubscriptionId":"<subscriptionID>"
    }
    ```
    
