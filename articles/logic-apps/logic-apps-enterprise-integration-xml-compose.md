@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 12/03/2024
 ---
 
-# XML compose with schema in workflows with Azure Logic Apps
+# Compose XML using schemas in Standard workflows with Azure Logic Apps (Preview)
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
