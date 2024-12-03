@@ -217,7 +217,7 @@ After your team finishes and meets the "definition of done" for the User Stories
 
 1. Make a "cut-over" plan.
 
-   A cut-over plan covers the details about the tasks and activities necessary to switch from the current platform to the new platform, including the steps that your team plan to execute. Include the following considerations in your cut-over plan:
+   A cut-over plan covers the details about the tasks and activities necessary to switch from the current platform to the new platform, including the steps that your team plans to execute. Include the following considerations in your cut-over plan:
 
    - Prerequisite steps
    - Dress rehearsal
