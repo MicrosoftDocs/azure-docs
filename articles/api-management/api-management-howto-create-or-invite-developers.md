@@ -11,7 +11,7 @@ ms.author: danlep
 ---
 # How to manage user accounts in Azure API Management
 
-[!INCLUDE [api-management-availability-premium-dev-standard-basic-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-standardv2-basicv2.md)]
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2.md)]
 
 In API Management, developers are the users of the APIs that you expose using API Management. This guide shows how to create and invite developers to use the APIs and products that you make available to them with your API Management instance. For information on managing user accounts programmatically, see the [User entity](/rest/api/apimanagement/current-ga/user) documentation in the [API Management REST](/rest/api/apimanagement/) reference.
 

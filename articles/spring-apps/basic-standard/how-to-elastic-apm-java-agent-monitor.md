@@ -13,7 +13,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ✔️ Basic/Standard ❌ Enterprise
+**This article applies to:** ✅ Basic/Standard ❎ Enterprise
 
 This article explains how to use Elastic APM Agent to monitor Spring Boot applications running in Azure Spring Apps.
 

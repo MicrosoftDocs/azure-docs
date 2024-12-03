@@ -111,10 +111,6 @@
   items:  
   - name: Overview
     href: sentinel-solutions.md
-  - name: Tutorial - Monitor Zero Trust security architectures
-    href: sentinel-solution.md   
-  - name: OOTB content centralization changes
-    href: sentinel-content-centralize.md
   - name: Deploy out-of-the-box content
     href: sentinel-solutions-deploy.md
   - name: Delete out-of-the-box content
@@ -127,6 +123,8 @@
       href: sentinel-solutions-catalog.md
     - name: ASIM-based domain solutions
       href: domain-based-essential-solutions.md
+    - name: Monitor Zero Trust 
+      href: sentinel-solution.md   
   - name: Manage custom content from repositories
     items:
     - name: Overview
@@ -315,7 +313,7 @@
       href: data-connectors/azure-cognitive-search.md
     - name: Azure DDoS Protection
       href: data-connectors/azure-ddos-protection.md
-    - name: Azure Event Hub
+    - name: Azure Event Hubs
       href: data-connectors/azure-event-hub.md
     - name: Azure Firewall
       href: data-connectors/azure-firewall.md
@@ -705,12 +703,12 @@
       href: connect-dns-ama.md
     - name: Logstash plugin with Data Collection Rules
       href: connect-logstash-data-connection-rules.md
-    - name: Microsoft Sentinel Data Collector API
-      href: connect-rest-api-template.md      
   - name: Connection instructions for service
     items:
     - name: Amazon Web Services logs
       href: connect-aws.md
+    - name: AWS S3 WAF logs
+      href: connect-aws-s3-waf.md
     - name: CloudWatch events via Lambda function
       href: cloudwatch-lambda-function.yml
     - name: Google Cloud Platform connectors 
@@ -1067,8 +1065,8 @@
       href: enroll-simplified-pricing-tier.md
     - name: Optimize costs with pre-purchase plan
       href: billing-pre-purchase-plan.md
-    - name: Tutorial - Configure data retention policy
-      href: configure-data-retention.md
+    - name: Manage data retention
+      href: /azure/azure-monitor/logs/data-retention-configure?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
     - name: Auxiliary logs use cases
       href: basic-logs-use-cases.md
   - name: Connect Microsoft Sentinel to Microsoft Defender XDR
@@ -1121,6 +1119,8 @@
     href: sentinel-service-limits.md
   - name: Microsoft Sentinel REST-API
     href: /rest/api/securityinsights/
+  - name: OOTB content centralization changes
+    href: sentinel-content-centralize.md
   - name: Build and publish Microsoft Sentinel solutions
     items:
     - name: Publish solutions
@@ -1159,6 +1159,8 @@
         href: normalization-known-issues.md
       - name: ASIM schemas
         items:
+        - name: ASIM alert event schema
+          href: normalization-schema-alert.md
         - name: ASIM audit event schema
           href: normalization-schema-audit.md
         - name: ASIM authentication schema

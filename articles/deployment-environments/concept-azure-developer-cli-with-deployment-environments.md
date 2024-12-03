@@ -103,5 +103,5 @@ When the dev center feature is enabled, the default behavior of some common `azd
 ## Related content
 
 - [Add and configure an environment definition](./configure-environment-definition.md)
-- [Create an environment by using the Azure Developer CLI](./how-to-create-environment-with-azure-developer.md)
+- [Create an environment from an Azure Developer CLI template](./how-to-configure-azure-developer-cli-deployment-environments.md )
 - [Make your project compatible with Azure Developer CLI](/azure/developer/azure-developer-cli/make-azd-compatible?pivots=azd-create)

@@ -7,7 +7,7 @@ metadata:
   
   ms.topic: faq
   ms.devlang: csharp
-  ms.custom: devx-track-csharp
+  ms.custom: devx-track-csharp, ignite-2024
   ms.date: 04/18/2024
 title: Azure Cache for Redis development FAQs
 summary: This article provides answers to common questions about how to develop for Azure Cache for Redis.

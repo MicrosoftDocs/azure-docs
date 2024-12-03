@@ -18,7 +18,7 @@ ms.author: normesta
 Azure Storage Actions is a serverless framework that you can use to perform common data operations on millions of objects across multiple storage accounts. 
 
 > [!IMPORTANT]
-> Azure Storage Actions is currently in PREVIEW and is available these [regions](#supported-regions).
+> Azure Storage Actions is currently in PREVIEW and is available in these [regions](#supported-regions).
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 The preview release of Azure Storage Actions enables you to create _storage tasks_ that can perform operations on blobs in Azure Storage accounts based on a set of conditions that you define. Storage tasks can process millions of objects in a storage account without provisioning additional compute capacity and without requiring you to write code.

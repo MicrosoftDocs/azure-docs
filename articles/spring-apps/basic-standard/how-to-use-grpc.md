@@ -13,7 +13,7 @@ ms.custom: devx-track-java
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
+**This article applies to:** ✅ Basic/Standard ✅ Enterprise
 
 This article shows you how to use gRPC in Azure Spring Apps.
 
@@ -265,6 +265,8 @@ The modification of `customers-service` is now complete, and it's now a gRPC ser
 You can now configure the server and deploy the application.
 
 Use the following command to deploy the newly built JAR file to your Azure Spring Apps instance.
+
+[!INCLUDE [security-note](../includes/security-note.md)]
 
 ```azurecli
 az spring app deploy \

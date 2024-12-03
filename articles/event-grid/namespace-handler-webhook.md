@@ -2,6 +2,8 @@
 title: Webhook event handler for namespace topics' push delivery
 description: Describes how you can use webhooks as event handlers for Azure Event Grid namespace topics' push delivery.
 ms.topic: concept-article
+ms.custom:
+  - ignite-2024
 ms.date: 11/18/2024
 ms.author: robece
 # Customer intent: As a developer, I want to whether I can push events from a namespace topic to a Webhook.

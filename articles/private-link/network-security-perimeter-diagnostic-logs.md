@@ -6,7 +6,7 @@ ms.author: mbender
 ms.service: azure-private-link
 ms.topic: conceptual
 ms.date: 11/04/2024
-ms.custom: references_regions
+ms.custom: references_regions, ignite-2024
 #CustomerIntent: As a network administrator, I want to enable diagnostic logging for Network Security Perimeter, so that I can monitor and analyze the network traffic to and from my resources.
 ---
 
@@ -50,4 +50,4 @@ You can enable diagnostic logging for a network security perimeter by using the 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create a network security perimeter in the Azure portal](./network-security-perimeter-diagnostic-logs.md)
+> [Create a network security perimeter in the Azure portal](./create-network-security-perimeter-portal.md)

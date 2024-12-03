@@ -166,7 +166,7 @@ If a private endpoint connection is in pending status, an owner of the API Manag
 
 If you have sufficient permissions, approve a private endpoint connection on the API Management instance's **Private endpoint connections** page in the portal. In the connection's context (...) menu, select **Approve**.
 
-You can also use the API Management [Private Endpoint Connection - Create Or Update](/rest/api/apimanagement/private-endpoint-connection/create-or-update) REST API to approve pending private endpoint connectionis.
+You can also use the API Management [Private Endpoint Connection - Create Or Update](/rest/api/apimanagement/private-endpoint-connection/create-or-update) REST API to approve pending private endpoint connections.
 
 ### Optionally disable public network access
 
