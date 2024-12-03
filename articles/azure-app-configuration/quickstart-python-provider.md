@@ -130,6 +130,8 @@ In this section, you will create a console application and load data from your A
 
 ### Run the application
 
+1. Set an environment variable.
+
     ### [Microsoft Entra ID (recommended)](#tab/entra-id)
     Set the environment variable named **AZURE_APPCONFIG_ENDPOINT** to the endpoint of your App Configuration store found under the *Overview* of your store in the Azure portal.
 
