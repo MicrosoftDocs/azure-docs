@@ -60,7 +60,7 @@ Activate your on-premises management console using a downloaded file from the Az
 
 1. In the **Plans** grid, select your subscription.
 
-    If you don't see the subscription that you're looking for, make sure that you're viewing the Azure portal with the correct subscriptions selected. For more information, see [Manage Azure portal settings](../../../azure-portal/set-preferences.md).
+    If you don't see the subscription that you're looking for, make sure that you're viewing the Azure portal with the correct subscriptions selected. For more information, see [Manage Azure portal settings](/azure/azure-portal/set-preferences).
 
 1. In the toolbar, select **Download on-premises management console activation file**. The activation file downloads.
 

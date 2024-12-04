@@ -1,7 +1,7 @@
 ---
 title: 'Support for long data type in Azure Time Series Insights Gen2 | Microsoft Docs'
 description: Support for long data type in Azure Time Series Insights Gen2.
-ms.service: time-series-insights
+ms.service: azure-time-series-insights
 author: msrsrinivasan
 ms.author: radhsrin
 manager: cnovak

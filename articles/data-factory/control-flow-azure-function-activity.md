@@ -8,7 +8,7 @@ ms.reviewer: jburchel
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/20/2023
+ms.date: 09/25/2024
 
 ---
 

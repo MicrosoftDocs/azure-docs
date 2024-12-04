@@ -1,17 +1,17 @@
 ---
-title: 'Tutorial: Migrate a web app from Bing Maps | Microsoft Azure Maps'
-description: Tutorial on how to migrate a web app from Bing Maps to Microsoft Azure Maps.
+title: 'Migrate a web app from Bing Maps | Microsoft Azure Maps'
+description: How to migrate a web app from Bing Maps to Microsoft Azure Maps.
 author: sinnypan
 ms.author: sipa
-ms.date: 10/28/2021
-ms.topic: tutorial
+ms.date: 09/09/2024
+ms.topic: how-to
 ms.service: azure-maps
 ms.subservice: web-sdk
 ---
 
-# Tutorial: Migrate a web app from Bing Maps
+# Migrate a web app from Bing Maps
 
-Web apps that use Bing Maps often use the Bing Maps V8 JavaScript SDK. The Azure Maps Web SDK is the suitable Azure-based SDK to migrate to. The Azure Maps Web SDK lets you customize interactive maps with your own content and imagery for display in your web or mobile applications. This control makes use of WebGL, allowing you to render large data sets with high performance. Develop with this SDK using JavaScript or TypeScript. This tutorial demonstrates how to:
+Web apps that use Bing Maps often use the Bing Maps V8 JavaScript SDK. The Azure Maps Web SDK is the suitable Azure-based SDK to migrate to. The Azure Maps Web SDK lets you customize interactive maps with your own content and imagery for display in your web or mobile applications. This control makes use of WebGL, allowing you to render large data sets with high performance. Develop with this SDK using JavaScript or TypeScript. This article demonstrates how to:
 
 > [!div class="checklist"]
 >
@@ -965,7 +965,7 @@ GeoJSON data can be directly imported in Azure Maps using the `importDataFromUrl
                 map.layers.add([
                     //Create a bubble layer for rendering clustered data points.
                     new atlas.layer.BubbleLayer(datasource, null, {
-                        //Scale the size of the clustered bubble based on the number of points inthe cluster.
+                        //Scale the size of the clustered bubble based on the number of points in the cluster.
                         radius: [
                             'step',
                             ['get', 'point_count'],
@@ -1465,7 +1465,7 @@ In Azure Maps, GeoJSON is the main data format used in the web SDK, more spatial
 
                         //Check to see if there are any icons in the data set that need to be loaded into the map resources.
                         if (r.icons) {
-                            //For each icon image, create a promise to add it to the map, then run the promises in parrallel.
+                            //For each icon image, create a promise to add it to the map, then run the promises in parallel.
                             var imagePromises = [];
 
                             //The keys are the names of each icon image.
@@ -1544,7 +1544,7 @@ In Bing Maps the `DrawingTools` module is loaded using the `Microsoft.Maps.loadM
             //Create an instance of the DrawingTools class and bind it to the map.
             var tools = new Microsoft.Maps.DrawingTools(map);
 
-            //Show the drawing toolbar and enable editting on the map.
+            //Show the drawing toolbar and enable editing on the map.
             tools.showDrawingManager(function (manager) {
                 //Store a reference to the drawing manager as it will be useful later.
                 drawingManager = manager;
@@ -1618,7 +1618,7 @@ In Azure Maps, the drawing tools module needs to be loaded by loading the JavaSc
 </html>
 ```
 
-:::image type="content" source="./media/migrate-bing-maps-web-app/azure-maps-drawing-tools.jpg" lightbox="./media/migrate-bing-maps-web-app/azure-maps-drawing-tools-l.jpg" alt-text="Screenshot showing the Azure Maps drawing tools.":::
+:::image type="content" source="./media/migrate-bing-maps-web-app/azure-maps-drawing-tools.jpg" lightbox="./media/migrate-bing-maps-web-app/azure-maps-drawing-tools.jpg" alt-text="Screenshot showing the Azure Maps drawing tools.":::
 
 > [!TIP]
 > In Azure Maps layers the drawing tools provide multiple ways that users can draw shapes. For example, when drawing a polygon the user can click to add each point, or hold the left mouse button down and drag the mouse to draw a path. This can be modified using the `interactionType` option of the `DrawingManager`.

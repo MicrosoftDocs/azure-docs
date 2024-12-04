@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 08/30/2024
 ms.topic: conceptual
-ms.service: iot
+ms.service: azure-iot
 
 #Customer intent: As a device builder, I want to understand how to design and author a DTDL model for an IoT Plug and Play device.
 
@@ -675,7 +675,7 @@ IoT Central implements more versioning rules for device models. If you version a
 
 ### Publish
 
-As of February 2024, the Azure Certified Device program is retired. Therefore, Microsoft is no longer accepting submissions of DTDL models to the[Azure IoT plug and play models](https://github.com/Azure/iot-plugandplay-models) repository.
+As of February 2024, the Azure Certified Device program is retired. Therefore, Microsoft is no longer accepting submissions of DTDL models to the [Azure IoT plug and play models](https://github.com/Azure/iot-plugandplay-models) repository.
 
 If you want to set up your own model repository, you can use the [Azure IoT plug and play models tools](https://github.com/Azure/iot-plugandplay-models-tools) repository. This repository includes the code for the `dmr-client` CLI tool that  can validate, import, and expand DTDL models. This tool also lets you index model repositories that follow the device model repository conventions.
 

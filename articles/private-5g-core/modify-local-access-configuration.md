@@ -2,8 +2,8 @@
 title: Modify a packet core instance's local access configuration
 titleSuffix: Azure Private 5G Core
 description: In this how-to guide, you'll learn how to modify a packet core instance's local access configuration using the Azure portal. 
-author: robswain
-ms.author: robswain
+author: anzaman
+ms.author: alzam
 ms.service: azure-private-5g-core
 ms.topic: how-to
 ms.date: 11/24/2022
@@ -78,7 +78,7 @@ If you switched from local usernames and passwords to Microsoft Entra ID, follow
 
 If you switched from Microsoft Entra ID to local usernames and passwords:
 
-1. Sign in to [Azure Cloud Shell](../cloud-shell/overview.md) and select **PowerShell**. If this is your first time accessing your cluster via Azure Cloud Shell, follow [Access your cluster](../azure-arc/kubernetes/cluster-connect.md?tabs=azure-cli) to configure kubectl access.
+1. Sign in to [Azure Cloud Shell](../cloud-shell/overview.md) and select **PowerShell**. If this is your first time accessing your cluster via Azure Cloud Shell, follow [Access your cluster](/azure/azure-arc/kubernetes/cluster-connect?tabs=azure-cli) to configure kubectl access.
 1. Delete the Kubernetes Secret Objects:
 
     `kubectl delete secrets sas-auth-secrets grafana-auth-secrets --kubeconfig=<core kubeconfig> -n core`

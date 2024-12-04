@@ -28,8 +28,8 @@ When users enable the customer-managed key capability on their Azure App Configu
 
 The following components are required to successfully enable the customer-managed key capability for Azure App Configuration:
 
-- Standard tier Azure App Configuration instance.
-- Azure Key Vault with soft-delete and purge-protection features enabled.
+- A Standard or Premium tier Azure App Configuration instance.
+- An Azure Key Vault with soft-delete and purge-protection features enabled.
 - An RSA or RSA-HSM key within the Key Vault.
   - The key must not be expired, it must be enabled, and it must have both wrap and unwrap capabilities enabled.
 
@@ -42,7 +42,7 @@ After these resources are configured, use the following steps so that the Azure 
 
 ## Enable customer-managed key encryption for your App Configuration store
 
-1. [Create an App Configuration store](./quickstart-azure-app-configuration-create.md) in the Standard tier if you don't have one.
+1. [Create an App Configuration store](./quickstart-azure-app-configuration-create.md) in the Standard or Premium tier if you don't have one.
 
 1. Using the Azure CLI, create an Azure Key Vault with purge protection enabled. Soft delete is enabled by default. Both `vault-name` and `resource-group-name` are user-provided and must be unique. We use `contoso-vault` and `contoso-resource-group` in these examples. 
 
@@ -67,7 +67,7 @@ After these resources are configured, use the following steps so that the Azure 
     az appconfig identity assign --name contoso-app-config --resource-group contoso-resource-group --identities [system]
     ```
 
-    The output of this command includes the principal ID (`"principalId"`) and tenant ID (`"tenandId"`) of the system-assigned identity.  These IDs will be used to grant the identity access to the managed key.
+    The output of this command includes the principal ID (`"principalId"`) and tenant ID (`"tenantId"`) of the system-assigned identity.  These IDs will be used to grant the identity access to the managed key.
 
     ```json
     {

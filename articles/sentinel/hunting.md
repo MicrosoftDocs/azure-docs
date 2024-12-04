@@ -9,6 +9,10 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
+
+
+#Customer intent: As a security analyst, I want to use advanced threat hunting tools and queries so that I can proactively identify and mitigate security threats across my organization's data sources.
+
 ---
 
 # Threat hunting in Microsoft Sentinel
@@ -73,7 +77,7 @@ Use queries before, during, and after a compromise to take the following actions
 
     View the query's results, and select **New alert rule** > **Create Microsoft Sentinel alert**. Use the **Analytics rule wizard** to create a new rule based on your query. For more information, see [Create custom analytics rules to detect threats](detect-threats-custom.md).
 
-You can also create hunting and livestream queries over data stored in Azure Data Explorer. For more information, see details of [constructing cross-resource queries](../azure-monitor/logs/azure-monitor-data-explorer-proxy.md) in the Azure Monitor documentation.
+You can also create hunting and livestream queries over data stored in Azure Data Explorer. For more information, see details of [constructing cross-resource queries](/azure/azure-monitor/logs/azure-monitor-data-explorer-proxy) in the Azure Monitor documentation.
 
 To find more queries and data sources, go to the **Content hub** in Microsoft Sentinel or refer to community resources like [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Hunting%20Queries). 
 
@@ -198,7 +202,7 @@ For more information, see:
 
 Hunting queries are built in [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/), a powerful query language with IntelliSense language that gives you the power and flexibility you need to take hunting to the next level.
 
-It's the same language used by the queries in your analytics rules and elsewhere in Microsoft Sentinel. For more information, see [Query Language Reference](../azure-monitor/logs/get-started-queries.md).
+It's the same language used by the queries in your analytics rules and elsewhere in Microsoft Sentinel. For more information, see [Query Language Reference](/azure/azure-monitor/logs/get-started-queries).
 
 The following operators are especially helpful in Microsoft Sentinel hunting queries:
 
@@ -222,7 +226,7 @@ The following operators are especially helpful in Microsoft Sentinel hunting que
 
 - **find** - Find rows that match a predicate across a set of tables.
 
-- **adx()** - This function performs cross-resource queries of Azure Data Explorer data sources from the Microsoft Sentinel hunting experience and Log Analytics. For more information, see [Cross-resource query Azure Data Explorer by using Azure Monitor](../azure-monitor/logs/azure-monitor-data-explorer-proxy.md).
+- **adx()** - This function performs cross-resource queries of Azure Data Explorer data sources from the Microsoft Sentinel hunting experience and Log Analytics. For more information, see [Cross-resource query Azure Data Explorer by using Azure Monitor](/azure/azure-monitor/logs/azure-monitor-data-explorer-proxy).
 
 ## Related articles
 

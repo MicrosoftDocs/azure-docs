@@ -53,7 +53,7 @@ When planning your Azure VMware Solution design, use the following table to unde
 >[!IMPORTANT]
 > This mapping is important for placing your private clouds in close proximity to your Azure native workloads, including integrated services such as Azure NetApp Files and Pure Cloud Block Store (CBS). 
 
-The Multi-AZ capability for Azure VMware Solution Stretched Clusters is also tagged in the following table. Customer quota for Azure VMware Solution is assigned by Azure region, and you are not able to specify the Availability Zone during private cloud provisioning. An auto selection algorithm is used to balance deployments across the Azure region. If you have a particular Availability Zone you want to deploy to, open a [Service Request](https://rc.portal.azure.com/#create/Microsoft.Support) with Microsoft requesting a "special placement policy" for your subscription, Azure region, Availability Zone, and SKU type. This policy remains in place until you request it be removed or changed.
+The Multi-AZ capability for Azure VMware Solution Stretched Clusters is also tagged in the following table. Customer quota for Azure VMware Solution is assigned by Azure region, and you aren't able to specify the Availability Zone during private cloud provisioning. An auto selection algorithm is used to balance deployments across the Azure region. If you have a particular Availability Zone you want to deploy to, open a [Service Request](https://rc.portal.azure.com/#create/Microsoft.Support) with Microsoft requesting a "special placement policy" for your subscription, Azure region, Availability Zone, and SKU type. This policy remains in place until you request it be removed or changed.
 
 **SKUs** marked in **bold** are of limited availability due to customer consumption and quota may not be available upon request. The AV64 SKU should be used instead when AV36, AV36P, or AV52 SKUs are limited.
 
@@ -62,40 +62,40 @@ AV64 SKUs are available per Availability Zone, the table below lists the Azure r
 | Azure region | Availability Zone | SKU   | Multi-AZ SDDC | AV64 FDs Supported |
 | :---         | :---:             | :---: | :---:         | :---:           |
 | Australia East | AZ01 | AV36P, AV64 | Yes |7|
-| Australia East | AZ02 | AV36, (AV64 Planned H2 2024)| No |N/A (7 Planned H2 2024) |
+| Australia East | AZ02 | AV36, AV64| Yes |7|
 | Australia East | AZ03 | AV36P, AV64 | Yes |7|
-| Australia South East | AZ01 | AV36 | No | N/A |
+| Australia Southeast | AZ01 | AV36 | No | N/A |
 | Brazil South | AZ02 | **AV36** | No | N/A |
-| Canada Central | AZ02 | AV36, **AV36P,** (AV64 Planned H2 2024)| No |N/A (7 Planned H2 2024)|
+| Canada Central | AZ02 | AV36 **AV36P,** AV64| No |7|
 | Canada East | N/A | AV36| No | N/A |
-| Central India | AZ03 | AV36P, (AV64 Planned H2 2024) | No |N/A (7 Planned H2 2024) |
-| Central US | AZ01 | AV36P, (AV64 Planned H2 2024) | No |N/A (7 Planned H2 2024) |
-| Central US | AZ02 | **AV36**, (AV64 Planned H2 2024)| No |N/A (7 Planned H2 2024) |
-| Central US | AZ03 | AV36P, (AV64 Planned H2 2024) | No |N/A (7 Planned H2 2024) |
-| East Asia | AZ01 | AV36, (AV64 Planned H2 2024)| No |N/A (7 Planned H2 2024) |
-| East US | AZ01 | **AV36P****,** (AV64 Planned H2 2024)| Yes |N/A (7 Planned H2 2024) |
+| Central India | AZ03 | AV36P (AV64 Planned H2 2024) | No |7|
+| Central US | AZ01 | AV36P (AV64 Planned H2 2024) | Yes |7|
+| Central US | AZ02 | **AV36** (AV64 Planned H2 2024)| Yes |7|
+| Central US | AZ03 | AV36P, AV64| Yes |7|
+| East Asia | AZ01 | AV36 (AV64 Planned H2 2024)| No |N/A (7 Planned H2 2024) |
+| East US | AZ01 | **AV36P**, AV64| Yes |7|
 | East US | AZ02 | **AV36P**, AV64 | Yes | 7 |
 | East US | AZ03 | **AV36**, **AV36P**, AV64 | Yes | 7 |
-| East US 2 | AZ01 | **AV36**, AV64 | No |7|
-| East US 2 | AZ02 | AV36P, **AV52**, AV64 | No | 7|
-| France Central | AZ01 | **AV36**, (AV64 Planned H2 2024)| No |N/A (7 Planned H2 2024) |
-| Germany West Central | AZ01 | AV36P, (AV64 Planned H2 2024)| Yes |N/A (7 Planned H2 2024) |
-| Germany West Central | AZ02 | **AV36**, (AV64 Planned H2 2024)| Yes |N/A (7 Planned H2 2024) |
+| East US 2 | AZ01 | **AV36**, AV64 | Yes |7|
+| East US 2 | AZ02 | AV36P, **AV52**, AV64 | Yes | 7|
+| France Central | AZ01 | **AV36** (AV64 Planned H2 2024)| No |N/A (7 Planned H2 2024) |
+| Germany West Central | AZ01 | AV36P (AV64 Planned H2 2024)| Yes |7|
+| Germany West Central | AZ02 | **AV36** (AV64 Planned H2 2024)| Yes |7|
 | Germany West Central | AZ03 | AV36, **AV36P**, AV64 | Yes |7|
-| Italy North | AZ03 | AV36P, (AV64 Planned H2 2024)| No |N/A (7 Planned H2 2024) |
-| Japan East | AZ02 | **AV36**, (AV64 Planned H2 2024)| No |N/A (7 Planned H2 2024) |
-| Japan West | AZ01 | **AV36**, (AV64 Planned H2 2024) | No |N/A (7 Planned H2 2024) |
-| North Central US | AZ01 | **AV36**, AV64 | No |7|
-| North Central US | AZ02 | AV36P, AV64 | No |7|
-| North Europe | AZ02 | AV36, AV64 | No | 5 (7 Planned H2 2024) |
-| Qatar Central | AZ03 | AV36P, (AV64 Planned H2 2024)| No |N/A (7 Planned H2 2024) |
-| South Africa North | AZ03 | AV36, (AV64 Planned H2 2024) | No |N/A (7 Planned H2 2024) |
-| South Central US | AZ01 | AV36, AV64 | No | 7 |
-| South Central US | AZ02 | **AV36P**, AV52, AV64 | No | 7 |
-| South East Asia | AZ02 | **AV36** | No | N/A |
-| Sweden Central | AZ01 | AV36 | No | N/A |
+| Italy North | AZ03 | AV36P (AV64 Planned H2 2024)| No |7|
+| Japan East | AZ02 | **AV36** (AV64 Planned H2 2024)| No |7|
+| Japan West | AZ01 | **AV36** (AV64 Planned H2 2024) | No |7|
+| North Central US | AZ01 | **AV36**, AV64 | Yes |7|
+| North Central US | AZ02 | AV36P, AV64 | Yes |7|
+| North Europe | AZ02 | AV36, AV64 | No |7|
+| Qatar Central | AZ03 | AV36P (AV64 Planned H2 2024)| No |N/A (7 Planned H2 2024) |
+| South Africa North | AZ03 | AV36 (AV64 Planned H2 2024) | No |7|
+| South Central US | AZ01 | AV36, AV64 | Yes | 7 |
+| South Central US | AZ02 | **AV36P**, AV52, AV64 | Yes | 7 |
+| Southeast Asia | AZ02 | **AV36** | No | N/A |
+| Sweden Central | AZ01 | AV36 (AV64 Planned H2 2024)| No | N/A (7 Planned H2 2024)|
 | Switzerland North | AZ01 | **AV36**, AV64 | No | 7 |
-| Switzerland North | AZ03 | AV36P, (AV64 Planned H2 2024)| No |N/A (7 Planned H2 2024) |
+| Switzerland North | AZ03 | AV36P (AV64 Planned H2 2024)| No |N/A (7 Planned H2 2024) |
 | Switzerland West | AZ01 | **AV36**, AV64 | No | 7 |
 | UAE North | AZ03 | AV36P | No | N/A |
 | UK South | AZ01 | AV36, AV36P, AV52, AV64 | Yes | 7 |
@@ -104,8 +104,8 @@ AV64 SKUs are available per Availability Zone, the table below lists the Azure r
 | UK West | AZ01 | AV36 | No | N/A |
 | West Europe | AZ01 | **AV36**, AV36P, AV52, AV64 | Yes | 7 |
 | West Europe | AZ02 | **AV36**, AV64 | Yes | 7 |
-| West Europe | AZ03 | AV36P, AV64 | Yes |N/A (7 Planned H2 2024|
-| West US | AZ01 | AV36, AV36P | No | N/A |
+| West Europe | AZ03 | AV36P, AV64 | Yes |7|
+| West US | AZ01 | AV36, AV36P | No |7|
 | West US 2 | AZ01 | AV36 | No | N/A |
 | West US 2 | AZ02 | AV36P | No | N/A |
 | West US 3 | AZ01 | **AV36P** | No | N/A |
@@ -153,6 +153,14 @@ Azure VMware Solution monitors the following conditions on the host:
 - Hardware power status
 - Storage status
 - Connection failure
+  
+## Alert Codes and Remediation Table
+|  Error Code         |        Error Details              |  Recommended Action     |
+|--------------------|---------------------------------|---------------------|
+|  EPC_SCSIDEVICE_SHARINGMODE  | This error is encountered when a Virtual Machine is configured to use a device that prevents a maintenance operation: A device that is a SCSI controller which is engaged in bus-sharing   | Follow the KB article for the removal of any SCSI controller engaged in bus-sharing attached to VMs  https://knowledge.broadcom.com/external/article?legacyId=79910   |
+|  EPC_CDROM_EMULATEMODE |  This error is encountered when CD-ROM on the Virtual Machine uses emulate mode, whose ISO image is not accessible  | Follow the KB article for the removal of any CDROM mounted on customer's workload Virtual Machines in emulate mode or detach ISO. It is recommended to use Passthrough mode for mounting any CD-ROM. https://knowledge.broadcom.com/external/article?legacyId=79306   |
+|  EPC_DATASTORE_INACCESSIBLE  |  This error is encountered when any external Datastore attached to AVS Private Cloud becomes inaccessible  | Follow the KB article for the removal of any stale Datastore attached to cluster /azure/azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts?tabs=azure-portal#performance-best-practices  |
+|  EPC_NWADAPTER_STALE | This error is encountered when connected Network interface on the Vitual Machine uses network adapter which becomes inaccessible | Follow the KB article for the removal of any stale N/W adapters attached to Virtual Machines https://knowledge.broadcom.com/external/article/318738/troubleshooting-the-migration-compatibil.html  |
 
 > [!NOTE]
 > Azure VMware Solution tenant admins must not edit or delete the previously defined VMware vCenter Server alarms because they are managed by the Azure VMware Solution control plane on vCenter Server. These alarms are used by Azure VMware Solution monitoring to trigger the Azure VMware Solution host remediation process.

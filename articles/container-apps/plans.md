@@ -5,9 +5,9 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom:
-  - ignite-2023
+  - ignite-2024
 ms.topic: conceptual
-ms.date: 08/29/2023
+ms.date: 11/05/2024
 ms.author: cshoe
 ---
 
@@ -31,14 +31,9 @@ You can select from general purpose or specialized compute
 
 Use the Dedicated plan when you need any of the following in a single environment:
 
-- **Secure outbound traffic**: You can assign single outbound network path to systems protected by firewalls or other network appliances.
-
-- **Environment isolation**: Dedicated workload profiles provide access to dedicated hardware with a single tenant guarantee.
+- **Compute isolation**: Dedicated workload profiles provide access to dedicated hardware with a single tenant guarantee.
 
 - **Customized compute**: Select from many types and sizes of workload profiles based on your apps requirements. You can deploy many apps to each workload profile. Each workload profile can scale independently as more apps are added or removed or as apps scale their replicas up or down.
-
-
-- **Cost control**: Traditional serverless compute options optimize for scale in response to events and may not provide cost control options. Dedicated workload profiles let you set minimum and maximum scaling to help you better control costs.
 
     The Dedicated plan can be more cost effective when you're running higher scale deployments with steady throughput.
 
@@ -49,7 +44,7 @@ Use the Dedicated plan when you need any of the following in a single environmen
 
 The Consumption plan features a serverless architecture that allows your applications to scale in and out on demand. Applications can scale to zero, and you only pay for running apps.
 
-Use the Consumption plan when you don't have specific hardware requirements for your container app.
+When you need on-demand specialized compute resources, you can use [serverless GPUs (preview)](gpu-serverless-overview.md).
 
 ## Next steps
 

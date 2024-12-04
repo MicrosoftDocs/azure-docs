@@ -214,6 +214,10 @@ sections:
         answer: |
           Yes. For more information about NAT gateway integration with Azure Kubernetes Service, see [Managed NAT Gateway](/azure/aks/nat-gateway).
 
+      - question: When is NAT gateway used to connect from my AKS cluster to the AKS API server?
+        answer: |
+          To manage an AKS cluster, the cluster interacts with its API server. In non-private clusters, API server cluster traffic is routed and processed through the cluster's [outbound type](/azure/aks/egress-outboundtype#outbound-types-in-aks). When the cluster outbound type is set to NAT Gateway, the API server traffic is processed as public traffic through the NAT gateway. To prevent API server traffic from being processed as public traffic, consider using a [private cluster](/azure/aks/private-clusters) or use the [API Server VNet Integration](/azure/aks/api-server-vnet-integration) feature (in preview).
+      
       - question: Can I use a NAT gateway with Azure Firewall?
         answer: |
           Yes, a NAT gateway can be used with Azure Firewall. When Azure Firewall is used with a NAT gateway, it should be in a zonal configuration. A NAT gateway works with a zone-redundant firewall, but we don't recommend the deployment at this time. For more information about NAT gateway integration with Azure Firewall, see [Scale SNAT ports with a NAT gateway](../firewall/integrate-with-nat-gateway.md).

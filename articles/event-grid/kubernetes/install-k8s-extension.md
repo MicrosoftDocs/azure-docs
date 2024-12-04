@@ -10,7 +10,7 @@ ms.topic: how-to
 ---
 
 # Install Event Grid extension on Azure Arc-enabled Kubernetes cluster
-This article guides you through the steps to install Event Grid on an [Azure Arc-enabled Kubernetes](../../azure-arc/kubernetes/overview.md) cluster.
+This article guides you through the steps to install Event Grid on an [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/overview) cluster.
 
 For brevity, this article refers to "Event Grid on Kubernetes extension" as "Event Grid on Kubernetes" or just "Event Grid".
 
@@ -25,10 +25,10 @@ Following are the supported Kubernetes distributions to which Event Grid can be 
 
 
 ## Event Grid Extension
-The operation that installs an Event Grid service instance on a Kubernetes cluster is the creation of an Azure Arc cluster extension, which deploys both an **Event Grid broker** and an **Event Grid operator**. For more information on the function of the broker and operator, see [Event Grid on Kubernetes components](concepts.md#event-grid-on-kubernetes-components). [Azure Arc cluster extension](../../azure-arc/kubernetes/conceptual-extensions.md) feature provides lifecycle management using Azure Resource Manager (ARM) control plane operations to Event Grid deployed to Azure Arc-enabled Kubernetes clusters.
+The operation that installs an Event Grid service instance on a Kubernetes cluster is the creation of an Azure Arc cluster extension, which deploys both an **Event Grid broker** and an **Event Grid operator**. For more information on the function of the broker and operator, see [Event Grid on Kubernetes components](concepts.md#event-grid-on-kubernetes-components). [Azure Arc cluster extension](/azure/azure-arc/kubernetes/conceptual-extensions) feature provides lifecycle management using Azure Resource Manager (ARM) control plane operations to Event Grid deployed to Azure Arc-enabled Kubernetes clusters.
 
 > [!NOTE]
-> The preview version of the service only supports a single instance of the Event Grid extension on a Kubernetes cluster as the Event Grid extension is currently defined as a cluster-scoped extension. There is no support for namespace-scoped deployments for Event Grid yet that would allow for multiple instances to be deployed to a cluster.  For more information, see [Extension scope](../../azure-arc/kubernetes/conceptual-extensions.md#extension-scope).
+> The preview version of the service only supports a single instance of the Event Grid extension on a Kubernetes cluster as the Event Grid extension is currently defined as a cluster-scoped extension. There is no support for namespace-scoped deployments for Event Grid yet that would allow for multiple instances to be deployed to a cluster.  For more information, see [Extension scope](/azure/azure-arc/kubernetes/conceptual-extensions#extension-scope).
 
 ## Prerequisites
 Before proceeding with the installation of Event Grid, make sure the following prerequisites are met. 
@@ -36,7 +36,7 @@ Before proceeding with the installation of Event Grid, make sure the following p
 1. A cluster running on one of the [supported Kubernetes distributions](#supported-kubernetes-distributions).
 1. [An Azure subscription](https://azure.microsoft.com/free/).
 1. [PKI Certificates](#pki-certificate-requirements) to be used for establishing an HTTPS connection with the Event Grid broker.
-1. [Connect your cluster to Azure Arc](../../azure-arc/kubernetes/quickstart-connect-cluster.md).
+1. [Connect your cluster to Azure Arc](/azure/azure-arc/kubernetes/quickstart-connect-cluster).
 
 ## Getting support
 If you run into an issue, see the [Troubleshooting](#troubleshooting) section for help with common conditions. If you still have problems, [create an Azure support request](get-support.md#how-to-create-a-support-request).
@@ -136,7 +136,7 @@ To establish a secure HTTPS communication with the Event Grid broker and Event G
     ```
 
     > [!IMPORTANT]
-    > A Custom Location needs to be created before attempting to deploy Event Grid topics. To create a custom location, you can select the **Context** page at the bottom 5 minutes after the "Your deployment is complete" notification is shown. Alternatively, you can create a custom location using the [Azure portal](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.ExtendedLocation%2FCustomLocations). For more information, see the [Custom Location documentation](../../azure-arc/kubernetes/custom-locations.md).
+    > A Custom Location needs to be created before attempting to deploy Event Grid topics. To create a custom location, you can select the **Context** page at the bottom 5 minutes after the "Your deployment is complete" notification is shown. Alternatively, you can create a custom location using the [Azure portal](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.ExtendedLocation%2FCustomLocations). For more information, see the [Custom Location documentation](/azure/azure-arc/kubernetes/custom-locations).
 1. After the deployment succeeds, you'll be able to see an entry on the **Extensions** page with the name you provided to your Event Grid extension. If you see **Pending** for the **Install status**, wait for a few minutes, and then select **Refresh** on the toolbar. 
 
     :::image type="content" source="./media/install-k8s-extension/extension-installed.png" alt-text="Event Grid extension - installed":::   
@@ -187,12 +187,12 @@ To establish a secure HTTPS communication with the Event Grid broker and Event G
     
 1. Create a Kubernetes extension that installs Event Grid components on your cluster. 
 
-   For parameters ``cluster-name`` and ``resource-group``, you must use the same names provided when you [connected your cluster to Azure Arc](../../azure-arc/kubernetes/quickstart-connect-cluster.md).
+   For parameters ``cluster-name`` and ``resource-group``, you must use the same names provided when you [connected your cluster to Azure Arc](/azure/azure-arc/kubernetes/quickstart-connect-cluster).
 
    ``release-namespace`` is the namespace where Event Grid components will be deployed into. The default is **eventgrid-system**. You might want to provide a value to override the default. For example, you might want to have a single namespace for all Azure Arc-enabled services deployed to your cluster. If the namespace provided doesn't exist, it's created for you.
 
     > [!IMPORTANT]
-    > During the preview version, ``cluster`` is the only scope supported when creating or updating an Event Grid extension. That means the service only supports a single instance of the Event Grid extension on a Kubernetes cluster.There is no support for namespace-scoped deployments yet. For more information, see [Extension scope](../../azure-arc/kubernetes/conceptual-extensions.md#extension-scope).
+    > During the preview version, ``cluster`` is the only scope supported when creating or updating an Event Grid extension. That means the service only supports a single instance of the Event Grid extension on a Kubernetes cluster.There is no support for namespace-scoped deployments yet. For more information, see [Extension scope](/azure/azure-arc/kubernetes/conceptual-extensions#extension-scope).
 
     ```azurecli-interactive
     az k8s-extension create \
@@ -237,7 +237,7 @@ To establish a secure HTTPS communication with the Event Grid broker and Event G
 ### Custom location
 
 > [!IMPORTANT]
-> A Custom Location needs to be created before attempting to deploy Event Grid topics. You can create a custom location using the [Azure portal](../../azure-arc/kubernetes/custom-locations.md#create-custom-location).
+> A Custom Location needs to be created before attempting to deploy Event Grid topics. You can create a custom location using the [Azure portal](/azure/azure-arc/kubernetes/custom-locations#create-custom-location).
 
 ## Troubleshooting
 
@@ -245,7 +245,7 @@ To establish a secure HTTPS communication with the Event Grid broker and Event G
 
 **Problem**: When you navigate to **Azure Arc** and select **Kubernetes cluster** on the left-hand side menu, the page displayed doesn't show the Kubernetes cluster where I intent to install Event Grid.
 
-**Resolution**: Your Kubernetes cluster isn't registered with Azure. Follow the steps in article [Connect an existing Kubernetes cluster to Azure Arc](../../azure-arc/kubernetes/quickstart-connect-cluster.md). If you have a problem during this step, file a [support request](#getting-support) with the Azure Arc-enabled Kubernetes team.
+**Resolution**: Your Kubernetes cluster isn't registered with Azure. Follow the steps in article [Connect an existing Kubernetes cluster to Azure Arc](/azure/azure-arc/kubernetes/quickstart-connect-cluster). If you have a problem during this step, file a [support request](#getting-support) with the Azure Arc-enabled Kubernetes team.
 
 ### Event Grid extension issues
 
@@ -256,4 +256,4 @@ To establish a secure HTTPS communication with the Event Grid broker and Event G
 
 
 ## Next steps
-[Create a custom location](../../azure-arc/kubernetes/custom-locations.md) and then follow instructions in the quick start [Route cloud events to Webhooks with Azure Event Grid on Kubernetes](create-topic-subscription.md).
+[Create a custom location](/azure/azure-arc/kubernetes/custom-locations) and then follow instructions in the quick start [Route cloud events to Webhooks with Azure Event Grid on Kubernetes](create-topic-subscription.md).

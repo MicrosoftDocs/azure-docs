@@ -121,7 +121,7 @@ An HTTP 499 response is presented if a client request that is sent to applicatio
 
 #### 500 – Internal Server Error
 
-Azure Application Gateway shouldn't exhibit 500 response codes. Open a support request if you see this code, because this issue is an internal error to the service. For information on how to open a support case, see [Create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
+Azure Application Gateway shouldn't exhibit 500 response codes. Open a support request if you see this code, because this issue is an internal error to the service. For information on how to open a support case, see [Create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request).
 
 #### 502 – Bad Gateway
 

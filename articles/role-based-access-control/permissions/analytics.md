@@ -6,7 +6,7 @@ ms.topic: reference
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 04/25/2024
+ms.date: 09/20/2024
 ms.custom: generated
 ---
 
@@ -58,7 +58,6 @@ Azure service: [Azure Databricks](/azure/databricks/)
 > | Microsoft.Databricks/locations/getNetworkPolicies/action | Get Network Intent Polices for a subnet based on the location used by NRP |
 > | Microsoft.Databricks/locations/operationstatuses/read | Reads the operation status for the resource. |
 > | Microsoft.Databricks/operations/read | Gets the list of operations. |
-> | Microsoft.Databricks/workspaces/assignWorkspaceAdmin/action | Makes the user a workspace Admin within Databricks. |
 > | Microsoft.Databricks/workspaces/read | Retrieves a list of Databricks workspaces. |
 > | Microsoft.Databricks/workspaces/write | Creates a Databricks workspace. |
 > | Microsoft.Databricks/workspaces/delete | Removes a Databricks workspace. |
@@ -67,6 +66,7 @@ Azure service: [Azure Databricks](/azure/databricks/)
 > | Microsoft.Databricks/workspaces/updateDenyAssignment/action | Update deny assignment not actions for a managed resource group of a workspace |
 > | Microsoft.Databricks/workspaces/refreshWorkspaces/action | Refresh a workspace with new details like URL |
 > | Microsoft.Databricks/workspaces/privateEndpointConnectionsApproval/action | Approve or reject a connection to a Private Endpoint resource. |
+> | Microsoft.Databricks/workspaces/assignWorkspaceAdmin/action | Makes the user a Workspace Admin within Databricks |
 > | Microsoft.Databricks/workspaces/dbWorkspaces/write | Initializes the Databricks workspace (internal only) |
 > | Microsoft.Databricks/workspaces/outboundNetworkDependenciesEndpoints/read | Gets a list of egress endpoints (network endpoints of all outbound dependencies) for an Azure Databricks Workspace. The operation returns properties of each egress endpoint |
 > | Microsoft.Databricks/workspaces/privateEndpointConnectionProxies/read | Get Private Endpoint Connection Proxy |
@@ -83,23 +83,6 @@ Azure service: [Azure Databricks](/azure/databricks/)
 > | Microsoft.Databricks/workspaces/virtualNetworkPeerings/read | Gets the virtual network peering. |
 > | Microsoft.Databricks/workspaces/virtualNetworkPeerings/write | Add or modify virtual network peering |
 > | Microsoft.Databricks/workspaces/virtualNetworkPeerings/delete | Deletes a virtual network peering |
-
-## Microsoft.DataCatalog
-
-Get more value from your enterprise data assets.
-
-Azure service: [Data Catalog](/azure/data-catalog/)
-
-> [!div class="mx-tableFixed"]
-> | Action | Description |
-> | --- | --- |
-> | Microsoft.DataCatalog/checkNameAvailability/action | Checks catalog name availability for tenant. |
-> | Microsoft.DataCatalog/register/action | Registers subscription with Microsoft.DataCatalog resource provider. |
-> | Microsoft.DataCatalog/unregister/action | Unregisters subscription from Microsoft.DataCatalog resource provider. |
-> | Microsoft.DataCatalog/catalogs/read | Get properties for catalog or catalogs under subscription or resource group. |
-> | Microsoft.DataCatalog/catalogs/write | Creates catalog or updates the tags and properties for the catalog. |
-> | Microsoft.DataCatalog/catalogs/delete | Deletes the catalog. |
-> | Microsoft.DataCatalog/operations/read | Lists operations available on Microsoft.DataCatalog resource provider. |
 
 ## Microsoft.DataFactory
 
@@ -395,10 +378,15 @@ Azure service: [HDInsight](/azure/hdinsight/)
 > | Microsoft.HDInsight/clusterPools/clusters/resize/action | Resize a HDInsight on AKS Cluster |
 > | Microsoft.HDInsight/clusterPools/clusters/runjob/action | Run HDInsight on AKS Cluster Job |
 > | Microsoft.HDInsight/clusterPools/clusters/upgrade/action | Upgrade HDInsight on AKS Cluster |
+> | Microsoft.HDInsight/clusterPools/clusters/rollback/action | Rollback HDInsight on AKS Cluster Upgrade |
+> | Microsoft.HDInsight/clusterPools/clusters/managelibraries/action | Manage HDInsight on AKS Cluster Libaries |
 > | Microsoft.HDInsight/clusterPools/clusters/availableupgrades/read | Get Avaliable Upgrades for HDInsight on AKS Cluster |
 > | Microsoft.HDInsight/clusterPools/clusters/instanceviews/read | Get details about HDInsight on AKS Cluster Instance View |
 > | Microsoft.HDInsight/clusterPools/clusters/jobs/read | List HDInsight on AKS Cluster Jobs |
+> | Microsoft.HDInsight/clusterPools/clusters/libraries/read | Read HDInsight on AKS Cluster Libaries |
 > | Microsoft.HDInsight/clusterPools/clusters/serviceconfigs/read | Get details about HDInsight on AKS Cluster Service Configurations |
+> | Microsoft.HDInsight/clusterPools/clusters/upgradehistories/read | Read HDInsight on AKS Cluster Upgrade Histories |
+> | Microsoft.HDInsight/clusterPools/upgradehistories/read | Read HDInsight on AKS Cluster Pool Upgrade Histories |
 > | Microsoft.HDInsight/clusters/write | Create or Update HDInsight Cluster |
 > | Microsoft.HDInsight/clusters/read | Get details about HDInsight Cluster |
 > | Microsoft.HDInsight/clusters/delete | Delete a HDInsight Cluster |
@@ -408,15 +396,20 @@ Azure service: [HDInsight](/azure/hdinsight/)
 > | Microsoft.HDInsight/clusters/executeScriptActions/action | Execute Script Actions for HDInsight Cluster |
 > | Microsoft.HDInsight/clusters/resolvePrivateLinkServiceId/action | Resolve Private Link Service ID for HDInsight Cluster |
 > | Microsoft.HDInsight/clusters/privateEndpointConnectionsApproval/action | Auto Approve Private Endpoint Connections for HDInsight Cluster |
+> | MICROSOFT.HDINSIGHT/CLUSTERS/LISTHOSTS/ACTION | List hosts |
+> | MICROSOFT.HDINSIGHT/CLUSTERS/RESTARTHOSTS/ACTION | Restart Hosts |
 > | Microsoft.HDInsight/clusters/applications/read | Get Application for HDInsight Cluster |
 > | Microsoft.HDInsight/clusters/applications/write | Create or Update Application for HDInsight Cluster |
 > | Microsoft.HDInsight/clusters/applications/delete | Delete Application for HDInsight Cluster |
+> | MICROSOFT.HDINSIGHT/CLUSTERS/AVAILABLEUPGRADES/READ | Read Available Upgrades |
+> | Microsoft.HDInsight/clusters/azureasyncoperations/read | Read Async Operations for HDInsight Cluster |
 > | Microsoft.HDInsight/clusters/configurations/read | Get HDInsight Cluster Configurations |
 > | Microsoft.HDInsight/clusters/executeScriptActions/azureasyncoperations/read | Get Script Action status for HDInsight Cluster |
 > | Microsoft.HDInsight/clusters/executeScriptActions/operationresults/read | Get Script Action status for HDInsight Cluster |
 > | Microsoft.HDInsight/clusters/extensions/write | Create Cluster Extension for HDInsight Cluster |
 > | Microsoft.HDInsight/clusters/extensions/read | Get Cluster Extension for HDInsight Cluster |
 > | Microsoft.HDInsight/clusters/extensions/delete | Delete Cluster Extension for HDInsight Cluster |
+> | MICROSOFT.HDINSIGHT/CLUSTERS/OPERATIONRESULTS/READ | Read Operation Results |
 > | Microsoft.HDInsight/clusters/outboundNetworkDependenciesEndpoints/read | List Outbound Network Dependencies Endpoints for HDInsight Cluster |
 > | Microsoft.HDInsight/clusters/privateEndpointConnections/read | Get Private Endpoint Connections for HDInsight Cluster |
 > | Microsoft.HDInsight/clusters/privateEndpointConnections/write | Update Private Endpoint Connections for HDInsight Cluster |
@@ -426,12 +419,26 @@ Azure service: [HDInsight](/azure/hdinsight/)
 > | Microsoft.HDInsight/clusters/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for the resource HDInsight Cluster |
 > | Microsoft.HDInsight/clusters/providers/Microsoft.Insights/metricDefinitions/read | Gets the available metrics for HDInsight Cluster |
 > | Microsoft.HDInsight/clusters/roles/resize/action | Resize a HDInsight Cluster |
+> | MICROSOFT.HDINSIGHT/CLUSTERS/ROLES/AUTOSCALE/ACTION | Update Autoscale Configurations |
 > | Microsoft.HDInsight/clusters/scriptActions/read | Get persisted Script Actions for HDInsight Cluster |
 > | Microsoft.HDInsight/clusters/scriptActions/delete | Delete persisted Script Actions for HDInsight Cluster |
 > | Microsoft.HDInsight/clusters/scriptExecutionHistory/read | Get Script Actions history for HDInsight Cluster |
 > | Microsoft.HDInsight/clusters/scriptExecutionHistory/promote/action | Promote Script Action for HDInsight Cluster |
+> | MICROSOFT.HDINSIGHT/CLUSTERS/UPGRADES/READ | Read Upgrades |
+> | MICROSOFT.HDINSIGHT/LOCATIONS/CHECKNAMEAVAILABILITY/ACTION | Check Name Availability |
+> | MICROSOFT.HDINSIGHT/LOCATIONS/VALIDATECREATEREQUEST/ACTION | Validate Create Requests |
+> | MICROSOFT.HDINSIGHT/LOCATIONS/AVAILABLECLUSTERPOOLVERSIONS/READ | Get Avaliable versions for HDInsight on AKS Cluster Pool |
+> | MICROSOFT.HDINSIGHT/LOCATIONS/AVAILABLECLUSTERVERSIONS/READ | Get Avaliable versions for HDInsight on AKS Cluster |
+> | Microsoft.HDInsight/locations/azureasyncoperations/read | Read Async Operations |
+> | MICROSOFT.HDINSIGHT/LOCATIONS/BILLINGSPECS/READ | Get Billing Specs |
 > | Microsoft.HDInsight/locations/capabilities/read | Get Subscription Capabilities |
 > | Microsoft.HDInsight/locations/checkNameAvailability/read | Check Name Availability |
+> | MICROSOFT.HDINSIGHT/LOCATIONS/OPERATIONRESULTS/READ | Read Operation Results |
+> | MICROSOFT.HDINSIGHT/LOCATIONS/OPERATIONSTATUSES/READ | Read Operation Status |
+> | MICROSOFT.HDINSIGHT/LOCATIONS/OPERATIONSTATUSES/WRITE | Write Operation Status |
+> | MICROSOFT.HDINSIGHT/LOCATIONS/USAGES/READ | Read Usage |
+> | MICROSOFT.HDINSIGHT/OPERATIONS/READ | Read Operations |
+> | MICROSOFT.HDINSIGHT/RESOURCETYPES/READ | Read Resource Types |
 
 ## Microsoft.Kusto
 
@@ -456,6 +463,9 @@ Azure service: [Azure Data Explorer](/azure/data-explorer/)
 > | Microsoft.Kusto/Clusters/Migrate/action | Migrates the cluster data to another cluster. |
 > | Microsoft.Kusto/Clusters/DetachFollowerDatabases/action | Detaches follower's databases. |
 > | Microsoft.Kusto/Clusters/ListFollowerDatabases/action | Lists the follower's databases. |
+> | Microsoft.Kusto/Clusters/AddCalloutPolicy/action | Add callout policies. |
+> | Microsoft.Kusto/Clusters/RemovePrincipals/action | Remove callout policy. |
+> | Microsoft.Kusto/Clusters/ListCalloutPolicies/action | Lists the service callout policies. |
 > | Microsoft.Kusto/Clusters/DiagnoseVirtualNetwork/action | Diagnoses network connectivity status for external resources on which the service is dependent. |
 > | Microsoft.Kusto/Clusters/ListLanguageExtensions/action | Lists language extensions. |
 > | Microsoft.Kusto/Clusters/AddLanguageExtensions/action | Add language extensions. |
@@ -498,6 +508,7 @@ Azure service: [Azure Data Explorer](/azure/data-explorer/)
 > | Microsoft.Kusto/Clusters/PrivateEndpointConnectionProxies/read | Reads a private endpoint connection proxy |
 > | Microsoft.Kusto/Clusters/PrivateEndpointConnectionProxies/write | Writes a private endpoint connection proxy |
 > | Microsoft.Kusto/Clusters/PrivateEndpointConnectionProxies/delete | Deletes a private endpoint connection proxy |
+> | Microsoft.Kusto/Clusters/PrivateEndpointConnectionProxies/Validate/action | Validates a private endpoint connection proxy |
 > | Microsoft.Kusto/Clusters/PrivateEndpointConnections/read | Reads a private endpoint connection |
 > | Microsoft.Kusto/Clusters/PrivateEndpointConnections/write | Writes a private endpoint connection |
 > | Microsoft.Kusto/Clusters/PrivateEndpointConnections/delete | Deletes a private endpoint connection |
@@ -600,7 +611,6 @@ Azure service: [Microsoft Purview](/purview/)
 > | Microsoft.Purview/getDefaultAccount/read | Gets the default account for the scope. |
 > | Microsoft.Purview/locations/operationResults/read | Monitor async operations. |
 > | Microsoft.Purview/operations/read | Reads all available operations for Microsoft Purview provider. |
-> | Microsoft.Purview/policies/read | Read Policy Resource. |
 > | **DataAction** | **Description** |
 > | Microsoft.Purview/accounts/data/read | Permission is deprecated. |
 > | Microsoft.Purview/accounts/data/write | Permission is deprecated. |

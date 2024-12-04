@@ -1,7 +1,7 @@
 ---
 title: Details of the policy remediation task structure
 description: Describes the policy remediation task definition used by Azure Policy to bring resources into compliance.
-ms.date: 08/30/2024
+ms.date: 09/30/2024
 ms.topic: conceptual
 ms.author: kenieva
 author: kenieva
@@ -18,8 +18,6 @@ Remediation tasks remediate existing resources that aren't compliant. Resources 
 
 You use JavaScript Object Notation (JSON) to create a policy remediation task. The policy remediation task contains elements for:
 
-- [display name](#display-name-and-description)
-- [description](#display-name-and-description)
 - [policy assignment](#policy-assignment-id)
 - [policy definitions within an initiative](#policy-definition-id)
 - [resource count and parallel deployments](#resource-count-and-parallel-deployments)
@@ -28,17 +26,16 @@ You use JavaScript Object Notation (JSON) to create a policy remediation task. T
 - [resource discovery mode](#resource-discovery-mode)
 - [provisioning state and deployment summary](#provisioning-state-and-deployment-summary)
 
-
 For example, the following JSON shows a policy remediation task for policy definition named `requiredTags` a part of an initiative assignment named `resourceShouldBeCompliantInit` with all default settings.
 
 ```json
 {
-  "id": "/subscriptions/{subId}/resourceGroups/ExemptRG/providers/Microsoft.PolicyInsights/remediations/remediateNotCompliant",
+  "id": "/subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.PolicyInsights/remediations/remediateNotCompliant",
   "apiVersion": "2021-10-01",
   "name": "remediateNotCompliant",
   "type": "Microsoft.PolicyInsights/remediations",
   "properties": {
-    "policyAssignmentId": "/subscriptions/{mySubscriptionID}/providers/Microsoft.Authorization/policyAssignments/resourceShouldBeCompliantInit",
+    "policyAssignmentId": "/subscriptions/{subID}/providers/Microsoft.Authorization/policyAssignments/resourceShouldBeCompliantInit",
     "policyDefinitionReferenceId": "requiredTags",
     "resourceCount": 42,
     "parallelDeployments": 6,
@@ -50,10 +47,6 @@ For example, the following JSON shows a policy remediation task for policy defin
 ```
 
 Steps on how to trigger a remediation task at [how to remediate non-compliant resources guide](../how-to/remediate-resources.md). These settings can't be changed after the remediation task begins.
-
-## Display name and description
-
-You use `displayName` and `description` to identify the policy remediation task and provide context for its use. `displayName` has a maximum length of _128_ characters and `description` a maximum length of _512_ characters.
 
 ## Policy assignment ID
 

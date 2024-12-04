@@ -34,7 +34,7 @@ There are several options when training machine learning models using Azure Spar
 Learn more about the machine learning capabilities by viewing the article on how to [train models in Azure Synapse Analytics](../spark/apache-spark-machine-learning-training.md).
 
 ### SparkML and MLlib
-Spark's in-memory distributed computation capabilities make it a good choice for the iterative algorithms used in machine learning and graph computations. ```spark.ml``` provides a uniform set of high-level APIs that help users create and tune  machine learning pipelines.To learn more about ```spark.ml```, you can visit the [Apache Spark ML programming guide](https://spark.apache.org/docs/1.2.2/ml-guide.html).
+Spark's in-memory distributed computation capabilities make it a good choice for the iterative algorithms used in machine learning and graph computations. ```spark.ml``` provides a uniform set of high-level APIs that help users create and tune  machine learning pipelines.To learn more about ```spark.ml```, you can visit the [Apache Spark ML programming guide](https://archive.apache.org/dist/spark/docs/1.2.2/ml-guide.html).
 
 ### Azure Machine Learning automated ML (deprecated)
 [Azure Machine Learning automated ML](/azure/machine-learning/concept-automated-ml) (automated machine learning) helps automate the process of developing machine learning models. It allows data scientists, analysts, and developers to build ML models with high scale, efficiency, and productivity all while sustaining model quality. The components to run the Azure Machine Learning automated ML SDK is built directly into the Synapse Runtime.

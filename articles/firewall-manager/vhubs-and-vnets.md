@@ -4,7 +4,7 @@ description: Compare and contrast using hub virtual network or secured virtual h
 author: vhorne
 ms.service: azure-firewall-manager
 services: firewall-manager
-ms.topic: article
+ms.topic: concept-article
 ms.date: 03/08/2024
 ms.author: victorh
 ---

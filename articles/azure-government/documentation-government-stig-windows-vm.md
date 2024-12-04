@@ -136,7 +136,7 @@ Select the resource group for the virtual machine, then select **Delete**. Confi
 
 ## Support
 
-Contact Azure support to get assistance with issues related to STIG solution templates. You can create and manage support requests in the Azure portal. For more information see, [Create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md). Use the following support paths when creating a ticket:
+Contact Azure support to get assistance with issues related to STIG solution templates. You can create and manage support requests in the Azure portal. For more information see, [Create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request). Use the following support paths when creating a ticket:
 
 Azure -> Virtual Machine running Windows -> Cannot create a VM -> Troubleshoot my ARM template error
 

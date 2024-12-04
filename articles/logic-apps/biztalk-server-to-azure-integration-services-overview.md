@@ -57,7 +57,7 @@ Beyond the previously described services, Microsoft also offers the following co
 | Azure Event Hubs | Build dynamic data pipelines and immediately respond to business challenges by streaming millions of events per second from any source with this fully managed, real-time data ingestion service that's simple, trusted, and scalable. <br><br>API Management performs custom logging using Event Hubs, which is one of the best solutions when implementing a decoupled tracking solution in Azure. For more information, see [Azure Event Hubs](../event-hubs/event-hubs-about.md). |
 | Azure SQL Database | At some point, you might need to create custom logging strategies or custom configurations to support your integration solutions. While SQL Server is commonly used on premises for this purpose, Azure SQL Database might offer a viable solution when migrating on-premises SQL Server databases to the cloud. For more information, see [Azure SQL Database](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview). |
 | Azure App Configuration | Centrally manage application settings and feature flags. Modern programs, especially those running in a cloud, generally have many distributed components by nature. Spreading configuration settings across these components can lead to hard-to-troubleshoot errors during application deployment. With App Configuration, you can store all the settings for your application and secure their accesses in one place. For more information, see [Azure App Configuration](../azure-app-configuration/overview.md). |
-| Azure Monitor | Application Insights, which is part of Azure Monitor, provides application performance management and monitoring for live apps. Store application telemetry and monitor the overall health of your integration platform. You also have the capability to set thresholds and get alerts when performance exceeds configured thresholds. For more information, see [Application Insights](../azure-monitor/app/app-insights-overview.md). |
+| Azure Monitor | Application Insights, which is part of Azure Monitor, provides application performance management and monitoring for live apps. Store application telemetry and monitor the overall health of your integration platform. You also have the capability to set thresholds and get alerts when performance exceeds configured thresholds. For more information, see [Application Insights](/azure/azure-monitor/app/app-insights-overview). |
 | Azure Automation | Automate your Azure management tasks and orchestrate actions across external systems within Azure. Built on PowerShell workflow so you can use this language's many capabilities. For more information, see [Azure Automation](../automation/overview.md). |
 
 ## Supported developer experiences
@@ -578,7 +578,7 @@ Administrators use the [BizTalk Server Administrator Console](/biztalk/core/usin
 
 #### Azure Integration Services
 
-The [Azure portal](../azure-portal/azure-portal-overview.md) is a common tool that administrators and support personnel use to view and monitor the health of interfaces. For Azure Logic Apps, this experience includes rich transaction traces that are available through run history.
+The [Azure portal](/azure/azure-portal/azure-portal-overview) is a common tool that administrators and support personnel use to view and monitor the health of interfaces. For Azure Logic Apps, this experience includes rich transaction traces that are available through run history.
 
 Granular [role-based access controls (RBAC)](../role-based-access-control/overview.md) are also available so you can manage and restrict access to Azure resources at various levels.
 
@@ -720,15 +720,15 @@ In on-premises architectures, SSIS was a popular option for managing the loading
 
 #### Azure Integration Services
 
-- [Azure Monitor](../azure-monitor/overview.md)
+- [Azure Monitor](/azure/azure-monitor/overview)
 
-  To monitor Azure resources, you can use this service and the [Log Analytics](../azure-monitor/logs/log-analytics-workspace-overview.md) capability as a comprehensive solution for collecting, analyzing, and acting on telemetry data from your cloud and on-premises environments.
+  To monitor Azure resources, you can use this service and the [Log Analytics](/azure/azure-monitor/logs/log-analytics-workspace-overview) capability as a comprehensive solution for collecting, analyzing, and acting on telemetry data from your cloud and on-premises environments.
 
 - In [Azure Logic Apps](./logic-apps-overview.md), the following options are available:
 
   - For Consumption logic app workflows, you can install the Logic Apps Management Solution (Preview) in the Azure portal and set up Azure Monitor logs to collect diagnostic data. After you set up your logic app to send that data to an Azure Log Analytics workspace, telemetry flows to where the Logic Apps Management Solution can provide health visualizations. For more information, see [Set up Azure Monitor logs and collect diagnostics data for Azure Logic Apps](./monitor-workflows-collect-diagnostic-data.md). With diagnostics enabled, you can also use Azure Monitor to send alerts based on different signal types such as when a trigger or a run fails. For more information, see [Monitor run status, review trigger history, and set up alerts for Azure Logic Apps](./monitor-logic-apps.md?tabs=consumption#set-up-monitoring-alerts).
 
-  - For Standard logic app workflows, you can enable Application Insights at logic app resource creation to send diagnostic logging and traces from your logic app's workflows. In Application Insights, you can view an [application map](../azure-monitor/app/app-map.md) to better understand the performance and health characteristics of your interfaces. Application Insights also includes [availability capabilities](../azure-monitor/app/availability-overview.md) for you to configure synthetic tests that proactively call endpoints and then evaluate the response for specific HTTP status codes or payload. Based upon your configured criteria, you can send notifications to stakeholders or call a webhook for additional orchestration capabilities.
+  - For Standard logic app workflows, you can enable Application Insights at logic app resource creation to send diagnostic logging and traces from your logic app's workflows. In Application Insights, you can view an [application map](/azure/azure-monitor/app/app-map) to better understand the performance and health characteristics of your interfaces. Application Insights also includes [availability capabilities](/azure/azure-monitor/app/availability-overview) for you to configure synthetic tests that proactively call endpoints and then evaluate the response for specific HTTP status codes or payload. Based upon your configured criteria, you can send notifications to stakeholders or call a webhook for additional orchestration capabilities.
 
 - [Serverless 360](https://www.serverless360.com/) is an external solution from [Kovai](https://www.kovai.co/) that provides monitoring and management through mapping Azure services, such as Azure Logic Apps, Azure Service Bus, Azure API Management, and Azure Functions. You can reprocess messages by using dead letter queues in Azure Service Bus, enable self-healing to address intermittent service disruptions, and set up proactive monitoring through synthetic transactions.
 

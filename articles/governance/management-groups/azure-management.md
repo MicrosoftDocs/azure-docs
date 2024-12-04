@@ -39,7 +39,7 @@ content on the main Azure services intended to address them.
 Monitoring is the act of collecting and analyzing data to audit the performance, health, and
 availability of your resources. An effective monitoring strategy helps you understand the operation
 of components and to increase your uptime with notifications. Read an overview of Monitoring that
-covers the different services used at [Monitoring Azure applications and resources](../../azure-monitor/overview.md).
+covers the different services used at [Monitoring Azure applications and resources](/azure/azure-monitor/overview).
 
 ## Configure
 

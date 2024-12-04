@@ -17,8 +17,9 @@ This article describes which capabilities Azure Communication Services SDKs supp
 
 | Group of features | Capability                                                                                                          | Supported |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------- | ---------- | 
-| Core capabilities | Join Teams meeting via URL                                                                                          | ✔️ |
-|                   | Join Teams meeting via meeting ID & passcode                                                                        | ✔️ |
+| Core capabilities | Join Teams for Work meeting [7] via URL                                                                             | ✔️ |
+|                   | Join Teams for Work meeting [7] via meeting ID & passcode                                                           | ✔️ |
+|                   | Join Teams for Home meeting [7]                                                                                     | ❌ |
 |                   | Join [end-to-end encrypted Teams meeting](/microsoftteams/teams-end-to-end-encryption)                              | ❌ |
 |                   | Join channel Teams meeting                                                                                          | ✔️ [1]|
 |                   | Join Teams [webinars](/microsoftteams/plan-webinars)                                                                 | ❌ |
@@ -206,6 +207,7 @@ This article describes which capabilities Azure Communication Services SDKs supp
 1. The Communication Services calling SDK doesn't receive a signal that a user is admitted and waiting for the meeting to start. The UI library doesn't support chat while waiting for the meeting to start.
 1. The Communication Services chat SDK shows the real identity of attendees.
 1. Functionality isn't available for users who aren't part of the organization.
+1. If you are using Microsoft 365 work and school account then you use Teams for Work. If you schedule a meeting with this identity, the meeting's URL ends with `teams.microsoft.com`. If you are using personal account then you use Teams for Home. If you schedule a meeting with this identity, the meeting's URL ends with `teams.live.com`. Learn more about those accounts in our [documentation](https://support.microsoft.com/account-billing/what-s-the-difference-between-a-microsoft-account-and-a-work-or-school-account-72f10e1e-cab8-4950-a8da-7c45339575b0).
 
 ## Server capabilities
 

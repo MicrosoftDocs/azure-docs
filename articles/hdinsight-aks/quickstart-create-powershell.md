@@ -4,12 +4,16 @@ description: Learn how to use Azure PowerShell to create an HDInsight on AKS clu
 ms.service: azure-hdinsight-on-aks
 ms.custom: devx-track-azurepowershell
 ms.topic: quickstart
-ms.date: 06/19/2024
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Quickstart: Create an HDInsight on AKS cluster pool using Azure PowerShell
 
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
+
 
 HDInsight on AKS introduces the concept of cluster pools and clusters, which allow you to realize the complete value of data lakehouse.
 
@@ -53,7 +57,7 @@ The following example output resembles successful creation of the resource group
     Location          : westus3
     ProvisioningState : Succeeded
     Tags              :
-    ResourceId        : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/HDIonAKSPowershell
+    ResourceId        : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/HDIonAKSPowershell
 ```
 
 
@@ -107,17 +111,17 @@ It takes a few minutes to create the HDInsight on AKS cluster pool. The followin
 ```output
 AkClusterProfileAkClusterAgentPoolIdentityProfileMsiClientId   : 00000000-0000-0000-0000-XXXXXXXX1
 AkClusterProfileAkClusterAgentPoolIdentityProfileMsiObjectId   : 00000000-0000-0000-0000-XXXXXXX11
-AkClusterProfileAkClusterAgentPoolIdentityProfileMsiResourceId : /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/MC_hdi-00000000
+AkClusterProfileAkClusterAgentPoolIdentityProfileMsiResourceId : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/MC_hdi-00000000
                                                                  00000000000XXXX_contosopool_westus3/providers/Microsoft.ManagedIdentity/userAssignedIdent
                                                                  ities/contosopool-agentpool
-AkClusterProfileAksClusterResourceId                           : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/hdi-0000000000000000000
+AkClusterProfileAksClusterResourceId                           : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/hdi-0000000000000000000
                                                                  0XXXX/providers/Microsoft.ContainerService/managedClusters/contosopool
 AkClusterProfileAksVersion                                     : 1.27.9
 AksManagedResourceGroupName                                    : MC_hdi-00000000000000000000XXXX_contosopool_westus3
 ComputeProfileCount                                            : 3
 ComputeProfileVMSize                                           : Standard_E4s_v3
 DeploymentId                                                   : 00000000000000000000XXXX
-Id                                                             : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/HDIonAKSPowershell/prov
+Id                                                             : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/HDIonAKSPowershell/prov
                                                                  iders/Microsoft.HDInsight/clusterpools/contosopool
 Location                                                       : West US 3
 LogAnalyticProfileEnabled                                      : False

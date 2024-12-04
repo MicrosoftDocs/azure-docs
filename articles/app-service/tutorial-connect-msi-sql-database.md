@@ -209,7 +209,7 @@ The steps you follow for your project depends on whether you're using [Entity Fr
 Next, you configure your App Service app to connect to SQL Database with a system-assigned managed identity.
 
 > [!NOTE]
-> While the instructions in this section are for a system-assigned identity, a user-assigned identity can just as easily be used. To do this. you would need the change the `az webapp identity assign command` to assign the desired user-assigned identity. Then, when creating the SQL user, make sure to use the name of the user-assigned identity resource rather than the site name.
+> The instructions in this section are for a system-assigned identity, To use a user-assigned identity, see [Tutorial: Connect to Azure databases from App Service without secrets using a managed identity](tutorial-connect-msi-azure-database.md).
 
 ### Enable managed identity on app
 

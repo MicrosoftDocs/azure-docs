@@ -6,12 +6,12 @@ description: StringCollection claims transformation examples for the Identity Ex
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: reference
 ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As a developer using Azure Active Directory B2C, I want to understand how to use string collection claims transformations, so that I can add, parameterize, extract, and check values in string collections for claims.

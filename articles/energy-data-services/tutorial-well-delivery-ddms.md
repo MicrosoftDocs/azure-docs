@@ -3,7 +3,7 @@ title: "Tutorial: Work with well data records by using Well Delivery DDMS APIs"
 description: Learn how to work with well data records in your Azure Data Manager for Energy instance by using Well Delivery Domain Data Management Services (DDMS) APIs in Postman.
 author: dprakash-sivakumar
 ms.author: disivakumar
-ms.service: energy-data-services
+ms.service: azure-data-manager-energy
 ms.topic: tutorial
 ms.date: 07/28/2022
 ms.custom: template-tutorial
@@ -64,7 +64,7 @@ You'll use this information later in the tutorial.
 
    1. In **Import Entities** in Postman, select **Import**.
 
-      :::image type="content" source="media/tutorial-well-delivery/postman-import-files.png" alt-text="Screenshot that shows importing collection and environment files in Postman."  lightbox="media/tutorial-well-delivery/postman-import-files.png":::
+      :::image type="content" source="media/tutorial-well-delivery/import-files.png" alt-text="Screenshot that shows importing collection and environment files."  lightbox="media/tutorial-well-delivery/import-files.png":::
   
 1. In the Postman environment, update **CURRENT VALUE** with the information from your Azure Data Manager for Energy instance:
 

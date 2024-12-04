@@ -1,16 +1,14 @@
 ---
-
-
-
-ms.topic: include
 ms.date: 08/16/2024
 
 ms.topic: include
+ms.custom:
+  - ignite-2024
 ---
 
 ### Enable Microsoft Entra ID authentication on your cache
 
-If you have a cache already, you first want to check to see if Microsoft Entra Authentication has been enabled. If not, then enable it. We recommend using Microsoft Entra ID for your applications.
+If you have a cache, check to see if Microsoft Entra Authentication has been enabled. If not, then enable it. We recommend using Microsoft Entra ID for your apps.
 
 1. In the Azure portal, select the Azure Cache for Redis instance where you'd like to use Microsoft Entra token-based authentication.
 

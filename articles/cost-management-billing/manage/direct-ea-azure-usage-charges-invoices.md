@@ -3,7 +3,7 @@ title: View your Azure usage summary details and download reports for EA enrollm
 description: This article explains how enterprise administrators of direct and indirect Enterprise Agreement (EA) enrollments can view a summary of their usage data, Azure Prepayment consumed, and charges associated with other usage in the Azure portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/24/2024
+ms.date: 10/29/2024
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -117,7 +117,8 @@ In the current refund process, totals in the purchase month overage, total charg
 
 
 >[!IMPORTANT]
-> When there are adjustment charges, back-dated credits, or discounts for the account that result in an invoice getting rebilled, it resets the refund behavior. Refunds are shown in the rebilled invoice for the rebilled period.
+> - When there are adjustment charges, back-dated credits, or discounts for the account that result in an invoice getting rebilled, it resets the refund behavior. Refunds are shown in the rebilled invoice for the rebilled period.
+> - If a purchase and refund occur in the same month before they get billed, both the positive and negative adjustments get shown on the next invoice.
 
 #### Common refunded overage credits questions
 

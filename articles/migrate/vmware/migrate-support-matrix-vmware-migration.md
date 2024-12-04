@@ -6,16 +6,16 @@ ms.author: piyushdhore
 ms.manager: vijain
 ms.topic: conceptual
 ms.service: azure-migrate
-ms.date: 06/11/2024
-ms.custom: vmware-scenario-422, engagement-fy23
+ms.date: 10/16/2024
+ms.custom: vmware-scenario-422, engagement-fy25
 ---
 
 # Support matrix for VMware vSphere migration
 
-This article summarizes support settings and limitations for migrating VMware vSphere VMs with [Migration and modernization](../migrate-services-overview.md#migration-and-modernization-tool) . If you're looking for information about assessing VMware vSphere VMs for migration to Azure, review the [assessment support matrix](migrate-support-matrix-vmware.md).
-
 > [!CAUTION]
 > This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
+
+This article summarizes support settings and limitations for migrating VMware vSphere VMs with [Migration and modernization](../migrate-services-overview.md) . If you're looking for information about assessing VMware vSphere VMs for migration to Azure, review the [assessment support matrix](migrate-support-matrix-vmware.md).
 
 ## Migration options
 

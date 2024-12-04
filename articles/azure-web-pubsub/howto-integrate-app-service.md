@@ -120,7 +120,7 @@ git clone https://github.com/Azure/awps-webapp-sample.git
 ## Configure upstream server to handle events coming from Web PubSub
 Whenever a client sends a message to Web PubSub service, the service sends an HTTP request to an endpoint you specify. This mechanism is what your backend server uses to further process messages, for example, if you can persist messages in a database of choice. 
 
-As is with HTTP requests, Web PubSub service needs to know where to locate your application server. Since the backend application is now deployed to App Service, we get a publically accessible domain name for it. 
+As is with HTTP requests, Web PubSub service needs to know where to locate your application server. Since the backend application is now deployed to App Service, we get a publicly accessible domain name for it. 
 1. Show and store the value of `name` somewhere.
     ```azurecli-interactive
     az webapp config hostname list \

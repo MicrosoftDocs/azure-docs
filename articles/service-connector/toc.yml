@@ -100,7 +100,7 @@ items:
         href: tutorial-python-aks-openai-connection-string.md
       - name: Connect to Azure OpenAI using workload identity
         href: tutorial-python-aks-openai-workload-identity.md  
-      - name:  Connect to Azure SQL Database using a connection string
+      - name:  Connect to Azure SQL Database
         href: tutorial-python-aks-sql-database-connection-string.md
 - name: Concepts
   expanded: false

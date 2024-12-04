@@ -1,12 +1,12 @@
 ---
 title: Geospatial reference architecture - Azure Orbital
-description: Show how to architect end-to-end geospatial data on Azure.
+description: A high-level approach to using cloud-native capabilities, open-source and commercial software options to architect end-to-end geospatial data on Azure.
 author: TaylorCorbett
-ms.service: orbital
+ms.service: azure-orbital
 ms.topic: conceptual
 ms.custom: ga
 ms.date: 06/13/2022
-ms.author: gecorbet
+ms.author: mosagie
 #Customer intent: As a geospatial architect, I'd like to understand how to architecture a solution on Azure.
 ---
 # End-to-end geospatial storage, analysis, and visualization
@@ -95,10 +95,10 @@ When Analysis Ready Datasets are made available through APIs that enable search 
 
 Although not shown in the diagrams above, Azure Monitor, Log Analytics and Key Vault would also be part of a broader solution.
 
-- [Azure Monitor](../azure-monitor/overview.md) collects data on environments and Azure resources. This diagnostic information is helpful for maintaining availability and performance. Two data platforms make up Monitor:
-  - [Azure Monitor Logs](../azure-monitor/logs/log-analytics-overview.md) records and stores log and performance data.
-  - [Azure Monitor Metrics](../azure-monitor/essentials/metrics-getting-started.md) collects numerical values at regular intervals.
-- [Azure Log Analytics](../azure-monitor/logs/log-analytics-overview.md) is an Azure portal tool that runs queries on Monitor log data. Log Analytics also provides features for charting and statistically analyzing query results.
+- [Azure Monitor](/azure/azure-monitor/overview) collects data on environments and Azure resources. This diagnostic information is helpful for maintaining availability and performance. Two data platforms make up Monitor:
+  - [Azure Monitor Logs](/azure/azure-monitor/logs/log-analytics-overview) records and stores log and performance data.
+  - [Azure Monitor Metrics](/azure/azure-monitor/essentials/metrics-getting-started) collects numerical values at regular intervals.
+- [Azure Log Analytics](/azure/azure-monitor/logs/log-analytics-overview) is an Azure portal tool that runs queries on Monitor log data. Log Analytics also provides features for charting and statistically analyzing query results.
 - [Key Vault](/azure/key-vault/general/basic-concepts) stores and controls access to secrets such as tokens, passwords, and API keys. Key Vault also creates and controls encryption keys and manages security certificates.
 
 ## Alternatives

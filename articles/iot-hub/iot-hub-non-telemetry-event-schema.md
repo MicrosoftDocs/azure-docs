@@ -5,7 +5,7 @@ author: kgremban
 ms.author: kgremban  
 ms.topic: conceptual
 ms.date: 04/10/2024
-ms.service: iot-hub
+ms.service: azure-iot-hub
 services: iot-hub
 ---
 
@@ -72,6 +72,8 @@ Connection state events are emitted whenever a device or module connects or disc
 | ---- | ----------- |
 | iothub-message-schema | deviceConnectionStateNotification |
 | opType | deviceConnected or deviceDisconnected |
+
+Both modules and devices use the `deviceConnected` and `deviceDisconnected` application properties to report connection state events. If the event came from a module, then the event also includes a `moduleId` property. If there is no `moduleId` property, then the event came from a device.
 
 **System properties**: The following table shows how system properties are set for connection state events:
 

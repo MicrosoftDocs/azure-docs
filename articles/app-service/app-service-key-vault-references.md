@@ -4,7 +4,7 @@ description: Learn how to set up Azure App Service and Azure Functions to use Az
 author: cephalin
 
 ms.topic: article
-ms.date: 07/31/2023
+ms.date: 09/30/2024
 ms.author: cephalin
 ms.custom: AppServiceConnectivity
 ---
@@ -102,13 +102,13 @@ A key vault reference is of the form `@Microsoft.KeyVault({referenceString})`, w
 > [!div class="mx-tdBreakAll"]
 > | Reference string                                                            | Description                                                                                                                                                                                 |
 > |-----------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-> | SecretUri=_secretUri_                                                       | The **SecretUri** should be the full data-plane URI of a secret in the vault, optionally including a version, e.g., `https://myvault.vault.azure.net/secrets/mysecret/` or `https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931`  |
+> | SecretUri=_secretUri_                                                       | The **SecretUri** should be the full data-plane URI of a secret in the vault, for example `https://myvault.vault.azure.net/secrets/mysecret`. Optionally, include a version, such as `https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931`.  |
 > | VaultName=_vaultName_;SecretName=_secretName_;SecretVersion=_secretVersion_ | The **VaultName** is required and is the vault name. The **SecretName** is required and is the secret name. The **SecretVersion** is optional but if present indicates the version of the secret to use. |
 
-For example, a complete reference would look like the following string:
+For example, a complete reference without a specific version would look like the following string:
 
 ```
-@Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/)
+@Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret)
 ```
 
 Alternatively:
@@ -130,7 +130,7 @@ As part of creating the app, attempted mounting of the content share could fail 
 
 ### Considerations for Application Insights instrumentation
 
-Apps can use the `APPINSIGHTS_INSTRUMENTATIONKEY` or `APPLICATIONINSIGHTS_CONNECTION_STRING` application settings to integrate with [Application Insights](../azure-monitor/app/app-insights-overview.md). The portal experiences for App Service and Azure Functions also use these settings to surface telemetry data from the resource. If these values are referenced from Key Vault, these experiences aren't available, and you instead need to work directly with the Application Insights resource to view the telemetry. However, these values are [not considered secrets](../azure-monitor/app/sdk-connection-string.md#is-the-connection-string-a-secret), so you might alternatively consider configuring them directly instead of using key vault references.
+Apps can use the `APPINSIGHTS_INSTRUMENTATIONKEY` or `APPLICATIONINSIGHTS_CONNECTION_STRING` application settings to integrate with [Application Insights](/azure/azure-monitor/app/app-insights-overview). The portal experiences for App Service and Azure Functions also use these settings to surface telemetry data from the resource. If these values are referenced from Key Vault, these experiences aren't available, and you instead need to work directly with the Application Insights resource to view the telemetry. However, these values are [not considered secrets](/azure/azure-monitor/app/sdk-connection-string#is-the-connection-string-a-secret), so you might alternatively consider configuring them directly instead of using key vault references.
 
 ### Azure Resource Manager deployment
 

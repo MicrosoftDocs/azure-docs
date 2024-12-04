@@ -12,9 +12,9 @@ ms.date: 09/27/2023
 
 # Client application registration for Azure API for FHIR
 
-[!INCLUDE [retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
+[!INCLUDE[retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
 
-In the previous tutorial, you deployed and set up your Azure API for FHIR. Now that you have your Azure API for FHIR setup, we’ll register a public client application. You can read through the full [register a public client app](register-public-azure-ad-client-app.md) how-to guide for more details or troubleshooting, but we’ve called out the major steps for this tutorial in this article.
+In the previous tutorial, you deployed and set up your Azure API for FHIR&reg;. Now that you have your Azure API for FHIR setup, we register a public client application. You can read through the full [register a public client app](register-public-azure-ad-client-app.md) how-to guide for more details or troubleshooting. We call out the major steps in this tutorial.
 
 1. Navigate to Microsoft Entra ID
 1. Select **App Registration** --> **New Registration**
@@ -37,7 +37,7 @@ If you’ve [written your web app](tutorial-web-app-write-web-app.md) to connect
 
 1. To add a new platform configuration, select **Web**.
 
-1. Set up the redirect URI in preparation for when you create your web application in the fourth part of this tutorial. To do this, add `https://\<WEB-APP-NAME>.azurewebsites.net` to the redirect URI list. If you choose a different name during the step where you [write your web app](tutorial-web-app-write-web-app.md), you’ll need to come back and update this.
+1. Set up the redirect URI in preparation for when you create your web application. To do this, add `https://\<WEB-APP-NAME>.azurewebsites.net` to the redirect URI list. If you choose a different name during the step where you [write your web app](tutorial-web-app-write-web-app.md), you’ll need to come back and update this.
 
 1. Select the **Access Token** and **ID token** check boxes.
 
@@ -45,7 +45,7 @@ If you’ve [written your web app](tutorial-web-app-write-web-app.md) to connect
 
 ## Add API permissions
 
-Now that you have set up the correct authentication, set the API permissions:
+Now that you have set up the correct authentication, set the API permissions.
 
 1. Select **API permissions** and select **Add a permission**.
 1. Under **APIs my organization uses**, search for Azure Health Data Services.
@@ -60,4 +60,4 @@ You now have a public client application. In the next tutorial, we’ll walk thr
 >[!div class="nextstepaction"]
 >[Test client application in Postman](tutorial-web-app-test-postman.md)
 
-FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
+[!INCLUDE[FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]

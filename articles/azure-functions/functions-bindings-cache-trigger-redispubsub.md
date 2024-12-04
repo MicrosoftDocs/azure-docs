@@ -6,7 +6,7 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 ms.author: franlanglois
 ms.service: azure-functions
-ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python
+ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python, ignite-2024
 ms.topic: reference
 ms.date: 07/12/2024
 ---
@@ -19,9 +19,13 @@ For more information about Azure Cache for Redis triggers and bindings, [Redis E
 
 ## Scope of availability for functions triggers
 
-|Tier     | Basic | Standard, Premium  | Enterprise, Enterprise Flash  |
-|---------|:---------:|:---------:|:---------:|
-|Pub/Sub Trigger  | Yes  | Yes  |  Yes  |
+| Trigger Type    | Azure Managed Redis | Azure Cache for Redis |
+|---------|:-----:|:-----------------:|
+| Pub/Sub Trigger | Yes   | Yes               |
+
+> [!IMPORTANT]
+> When using Azure Managed Redis or the Enterprise tiers of Azure Cache for Redis, use port 10000 rather than port 6380 or 6379.
+>
 
 > [!WARNING]
 > This trigger isn't supported on a [consumption plan](/azure/azure-functions/consumption-plan) because Redis PubSub requires clients to always be actively listening to receive all messages. For consumption plans, your function might miss certain messages published to the channel.
@@ -540,7 +544,7 @@ Here's binding data to listen to `keyevent` notifications for the delete command
 | `type`                 | Trigger type. For the pub sub trigger, the type is `redisPubSubTrigger`.                                                                                                                                       |    Yes   |         |
 | `connection`           | The name of the [application setting](functions-how-to-use-azure-function-app-settings.md#settings) that contains the cache connection string, such as: `<cacheName>.redis.cache.windows.net:6380,password...` |    Yes   |         |
 | `channel`              | Name of the pub sub channel that is being subscribed to.                                                                                                                                                        |    Yes   |         |
-| `pattern`              | A boolean to indicate the given channel uses pattern mathching. If `pattern` is true, then the channel is treated like a _glob-style_ pattern instead of as a literal.                                     |  Yes        |         |
+| `pattern`              | A boolean to indicate the given channel uses pattern matching. If `pattern` is true, then the channel is treated like a _glob-style_ pattern instead of as a literal.                                     |  Yes        |         |
 | `name`                 | Name of the variable holding the value returned by the function.                                                                                                                                               |    Yes   |         |
 | `direction`            | Must be set to `in`.                                                                                                                                                                                           |    Yes   |         |
 
