@@ -32,7 +32,7 @@ highlightedContent:
       itemType: architecture
       url: /azure/architecture/
     # Card
-    - title: Meet organizational goals with the Cloud Adoption Framework
+    - title: Achieve organizational goals with the Cloud Adoption Framework
       itemType: overview
       url: /azure/cloud-adoption-framework/
 
