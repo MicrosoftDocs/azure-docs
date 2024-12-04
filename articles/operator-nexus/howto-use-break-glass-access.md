@@ -19,7 +19,7 @@ To start with break glass IAM configuration, you need to set up SSH keys using t
 
 ### Prerequisites
 
-- **Setup Method D v2.0** using as referred in [article](howto-setup-break-glass-access-.md)
+- **Setup Method D v2.0** using as referred in [article](howto-set-up-break-glass-access.md)
 - **Windows Computer** with PowerShell
 - **OpenSSH**: Version 9.4 or higher
 - **Python**: Version 3.11 or higher (64-bit)
