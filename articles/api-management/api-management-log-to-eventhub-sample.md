@@ -19,7 +19,7 @@ ms.author: danlep
 
 The [API Management service](api-management-key-concepts.md) provides many capabilities to enhance the processing of HTTP requests sent to your HTTP API. However, the existence of the requests and responses is transient. The request is made and it flows through the API Management service to your backend API. Your API processes the request and a response flows back through to the API consumer. The API Management service keeps some important statistics about the APIs for display in the Azure portal dashboard, but beyond that, the details are gone.
 
-By using the log-to-eventhub policy in the API Management service, you can send any details from the request and response to an [Azure Event Hubs](../event-hubs/event-hubs-about.md). There are several reasons why you may want to generate events from HTTP messages being sent to your APIs. Some examples include audit trail of updates, usage analytics, exception alerting, and third-party integrations.
+By using the `log-to-eventhub` policy in the API Management service, you can send any details from the request and response to an [Azure Event Hubs](../event-hubs/event-hubs-about.md). There are several reasons why you may want to generate events from HTTP messages being sent to your APIs. Some examples include audit trail of updates, usage analytics, exception alerting, and third-party integrations.
 
 This article demonstrates how to capture the entire HTTP request and response message, send it to an event hub, and then relay that message to a third-party service that provides HTTP logging and monitoring services.
 
