@@ -25,7 +25,8 @@ You can list all the preview features and their registration states for an Azure
 
 # [Portal](#tab/azure-portal)
 
-The portal only shows a preview feature when the service that owns the feature has explicitly opted in to the preview features management experience.
+> [!NOTE]
+> The portal **only shows a preview feature when the service that owns the feature has explicitly opted in to the preview features management experience**. In case the feature you are looking for doesn't appear on the list available, we recommend you to use [PowerShell](#tab/azure-powershell) or [Azure CLI](#tab/azure-cli).
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. In the search box, enter _subscriptions_ and select **Subscriptions**.
