@@ -24,7 +24,7 @@ highlightedContent:
       itemType: get-started
       url: /azure/developer/
     # Card
-    - title: Build your skills with Microsoft Learn for Azure
+    - title: Build skills with Microsoft Learn for Azure
       itemType: learn
       url: /training/azure    
     # Card
@@ -32,7 +32,7 @@ highlightedContent:
       itemType: architecture
       url: /azure/architecture/
     # Card
-    - title: Prepare your org with the Cloud Adoption Framework
+    - title: Meet organizational goals with the Cloud Adoption Framework
       itemType: overview
       url: /azure/cloud-adoption-framework/
 
@@ -64,7 +64,7 @@ productDirectory:
       url: /azure/ai-studio/
     # Card
     - title: Speech
-      summary: Speech to text, text to speech, translation and speaker recognition
+      summary: Speech to text, text to speech, translation, and speaker recognition
       imageSrc: ./media/index/speech.svg
       azureCategories:
         - ai-machine-learning
@@ -196,7 +196,7 @@ productDirectory:
       url: communications-gateway/index.yml
     # Card
     - title: Data Science Virtual Machines
-      summary: Rich pre-configured environment for AI development
+      summary: Rich preconfigured environment for AI development
       imageSrc: ./media/index/virtual-machine.svg
       azureCategories:
         - ai-machine-learning
@@ -768,7 +768,7 @@ productDirectory:
       url: managed-grafana/index.yml
     # Card
     - title: GitHub Actions for Azure
-      summary: Build, test and deploy any app from GitHub to Azure
+      summary: Build, test, and deploy any app from GitHub to Azure
       imageSrc: ./media/index/github-actions-icon.svg
       azureCategories:
         - devops
@@ -833,7 +833,7 @@ productDirectory:
       url: /azure/azure-local/
     # Card
     - title: Azure Stack Hub
-      summary: Azure Stack Hub is sold as an integrated hardware system, with software pre-installed on validated hardware
+      summary: Azure Stack Hub is sold as an integrated hardware system, with software preinstalled on validated hardware
       imageSrc: ./media/index/stack-hub.svg
       azureCategories:
         - hybrid
@@ -918,7 +918,7 @@ productDirectory:
       url: iot-central/index.yml
     # Card
     - title: Azure IoT Hub
-      summary: Connect, monitor and manage billions of IoT assets
+      summary: Connect, monitor, and manage billions of IoT assets
       imageSrc: ./media/index/iot-hub.svg
       azureCategories:
         - iot
