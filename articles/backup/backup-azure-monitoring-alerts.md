@@ -1,5 +1,5 @@
 ---
-title: Monitor Azure Monitor based alerts for Azure Backup
+title: Manage Azure Monitor based alerts for Azure Backup
 description: Learn about the new and improved alerting capabilities via Azure Monitor and the process to configure Azure Monitor.
 ms.topic: how-to
 ms.date: 11/30/2024
@@ -9,7 +9,7 @@ ms.author: v-abhmallick
 ms.custom: engagement-fy24
 ---
 
-# Monitor Azure Monitor based alerts for Azure Backup
+# Manage Azure Monitor based alerts for Azure Backup
 
 This article describes how to switch to Azure Monitor based alerts for Azure Backup and monitor them.
 
@@ -24,7 +24,7 @@ The following table lists some of these solutions:
 
 | Alert | Utility | Description |
 | --- | --- | --- |
-| **Built-in Azure Monitor alerts** | Default alerts enabled for critical scenarios. | Azure Backup automatically generates built-in alerts for certain default scenarios, such as deletion of backup data, disabling of soft-delete, backup failures, restore failures, and [so on](monitoring-and-alerts-overview.md#azure-monitor-alerts-for-azure-backup). You can view these alerts out of the box via Backup center. To configure notifications for these alerts (for example, emails), you can use Azure Monitor's *Alert Processing Rules* and Action groups to route alerts to a wide range of notification channels. |
+| **Built-in Azure Monitor alerts** | Default alerts enabled for critical scenarios. | Azure Backup automatically generates built-in alerts for certain default scenarios, such as deletion of backup data, disabling of soft-delete, backup failures, restore failures, and [so on](monitoring-and-alerts-overview.md#azure-monitor-alerts-for-azure-backup). You can view these alerts out of the box via Azure Business Continuity Center. To configure notifications for these alerts (for example, emails), you can use Azure Monitor's *Alert Processing Rules* and Action groups to route alerts to a wide range of notification channels. |
 | **Log/ARG based Alerts** | To write custom alerts. <br><br> - **Azure Resource Graph (ARG)**: On real time data. <br> - **LA**: On Log Analytics data (when some delay is acceptable). | If you've scenarios where an alert needs to be generated based on custom logic, you can use Log Analytics based alerts for such scenarios, provided you've configured your vaults to send diagnostics data to a Log Analytics (LA) workspace. |
 | **Metric alerts**  | To write alerts for job success and cases where the health is not as expected. | You can write custom alert rules using Azure Monitor metrics to monitor the health of your backup items across different KPIs. |
 
@@ -127,7 +127,30 @@ To manage monitoring settings for a Backup vault, follow these steps:
 
 After an alert is fired for a vault, you can view the alert in the Azure portal in Azure Business Continuity Center or Recovery Services vault console.
 
-### view alerts in Azure Business Continuity Center
+### View alerts in Recovery Services vault
+
+To view fired alerts in the Azure Recovery Services vault, follow these steps:
+
+1. In the [Azure portal](https://portal.azure.com/), go to **Recovery Services vault** > **Alerts**.
+
+2.	On the **Alerts** pane, filter for the **Monitor Service =Azure Backup** to see Azure Backup specific alerts.
+ 
+   A list a summary of active alerts are split by severity. The following types of alerts are displayed:
+
+   - **Datasource Alerts**: You can see these alerts in the alerts basic view. Alerts that are tied to a specific datasource being backed-up (for example, back up or restore failure for a VM, deleting backup data for a database, and so on) appear under the **Datasource Alerts** section.
+
+   - **Global Alerts**: You can see these alerts in the alerts full view. Alerts that aren't tied to a specific datasource(for example, disabling soft-delete functionality for a vault) appear under the **Global Alerts** section.
+
+   Each of the above types of alerts is further split into Security and Configured alerts. Currently, Security alerts include the scenarios of deleting backup data, or disabling soft-delete for vault (for the applicable workloads as detailed in the above section). Configured alerts include backup failure and restore failure, because these alerts are fired only when alerts aren't disabled for these scenarios.
+
+3. Select the **Alerts** menu item to open a list of all active alerts fired with the relevant filters applied.
+
+   You can select any alert to view more details about the alert, such as the affected datasource, alert description and recommended action, and so on.
+
+4.	After the event is mitigated, change the state of an alert to **Acknowledged** or **Closed** by selecting **Change Alert State**.
+
+
+### View alerts in Azure Business Continuity Center
 
 [!INCLUDE [View fired alerts in Azure Business Continuity Center.](../../includes/business-continuity-center-view-fired-alerts.md)]
 
