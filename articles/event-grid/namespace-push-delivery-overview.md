@@ -4,16 +4,15 @@ description: Learn about push delivery supported by Azure Event Grid namespaces.
 ms.topic: conceptual
 ms.custom:
   - ignite-2023
+  - build-2024
 ms.date: 11/15/2023
 author: robece
 ms.author: robece
 ---
 
-# Azure Event Grid namespaces - Push delivery (Preview)
+# Azure Event Grid namespaces - Push delivery
 
 This article builds on [push delivery with HTTP for Event Grid basic](push-delivery-overview.md) and provides essential information before you start using push delivery on Event Grid namespaces over HTTP protocol. This article is suitable for users who need to build applications to react to discrete events using Event Grid namespaces. If you're interested to know more about the difference between the Event Grid basic tier and the standard tier with namespaces, see [choose the right Event Grid tier for your solution](choose-right-tier.md).
-
-[!INCLUDE [simple-preview-note](./includes/simple-preview-note.md)]
 
 ## Namespace topics and subscriptions
 

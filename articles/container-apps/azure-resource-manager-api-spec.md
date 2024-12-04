@@ -3,9 +3,9 @@ title: Azure Container Apps ARM and YAML template specifications
 description: Explore the available properties in the Azure Container Apps ARM and YAML templates.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: reference
-ms.date: 10/24/2023
+ms.date: 09/11/2024
 ms.author: cshoe
 ms.custom: build-2023
 ---
@@ -14,7 +14,7 @@ ms.custom: build-2023
 
 Azure Container Apps deployments are powered by an Azure Resource Manager (ARM) template. Some Container Apps CLI commands also support using a YAML template to specify a resource.
 
-This article describes the ARM and YAML configurations for frequently used Container Apps resources. For a complete list of Container Apps resources see [Azure Resource Manager templates for Container Apps](/azure/templates/microsoft.app/containerapps?pivots=deployment-language-arm-template).
+This article includes examples of the ARM and YAML configurations for frequently used Container Apps resources. For a complete list of Container Apps resources see [Azure Resource Manager templates for Container Apps](/azure/templates/microsoft.app/containerapps?pivots=deployment-language-arm-template). The code listed in this article is for example purposes only. For full schema and type information, see the JSON definitions for your required API version.
 
 ## API versions
 
@@ -71,7 +71,6 @@ The following example ARM template snippet deploys a Container Apps environment.
 {
   "location": "East US",
   "properties": {
-    "daprAIConnectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://northcentralus-0.in.applicationinsights.azure.com/",
     "appLogsConfiguration": {
       "logAnalyticsConfiguration": {
         "customerId": "string",

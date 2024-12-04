@@ -20,7 +20,7 @@ In this tutorial, you learn how to:
 > * Generate the full URL to establish the WebSocket connection
 > * Publish messages between WebSocket clients using subprotocol
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
@@ -217,7 +217,7 @@ Now let's create a web application using the `json.webpubsub.azure.v1` subprotoc
     
     service = WebPubSubServiceClient.from_connection_string(sys.argv[1], hub='stream')
     
-    class Resquest(SimpleHTTPRequestHandler):
+    class Request(SimpleHTTPRequestHandler):
         def do_GET(self):
             if self.path == '/':
                 self.path = 'public/index.html'
@@ -238,7 +238,7 @@ Now let's create a web application using the `json.webpubsub.azure.v1` subprotoc
             print('Usage: python server.py <connection-string>')
             exit(1)
     
-        server = HTTPServer(('localhost', 8080), Resquest)
+        server = HTTPServer(('localhost', 8080), Request)
         print('server started')
         server.serve_forever()
     

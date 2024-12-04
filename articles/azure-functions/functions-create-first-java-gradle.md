@@ -14,7 +14,7 @@ ms.date: 04/08/2020
 This article shows you how to build and publish a Java function project to Azure Functions with the Gradle command-line tool. When you're done, your function code runs in Azure in a [serverless hosting plan](consumption-plan.md) and is triggered by an HTTP request. 
 
 > [!NOTE]
-> If Gradle is not your prefered development tool, check out our similar tutorials for Java developers using [Maven](./create-first-function-cli-java.md), [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions) and [VS Code](./create-first-function-vs-code-java.md).
+> If Gradle is not your preferred development tool, check out our similar tutorials for Java developers using [Maven](./create-first-function-cli-java.md), [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions) and [VS Code](./create-first-function-vs-code-java.md).
 
 ## Prerequisites
 
@@ -25,7 +25,7 @@ To develop functions using Java, you must have the following installed:
 - [Azure Functions Core Tools](./functions-run-local.md#v2) version 2.6.666 or above
 - [Gradle](https://gradle.org/), version 6.8 and above
 
-You also need an active Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+You also need an active Azure subscription. [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 > [!IMPORTANT]
 > The JAVA_HOME environment variable must be set to the install location of the JDK to complete this quickstart.
@@ -94,7 +94,7 @@ Hello, AzureFunctions
 </pre>
 
 > [!NOTE]
-> If you set authLevel to `FUNCTION` or `ADMIN`, the [function key](functions-bindings-http-webhook-trigger.md#authorization-keys) isn't required when running locally.  
+> If you set authLevel to `FUNCTION` or `ADMIN`, the [access key](function-keys-how-to.md) isn't required when running locally.  
 
 Use `Ctrl+C` in the terminal to stop the function code.
 

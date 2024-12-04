@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article provides an overview about migrating from Azure Enterprise Reporting to Microsoft Cost Management APIs.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/23/2024
+ms.date: 05/15/2024
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -13,14 +13,14 @@ ms.reviewer: jojoh
 
 # Migrate from Azure Enterprise Reporting to Microsoft Cost Management APIs overview
 
-This article informs developers that have built custom solutions using the [Azure Enterprise Reporting APIs](../manage/enterprise-api.md) about important changes. The newer Microsoft Cost Management APIs now offer enhanced capabilities and support for service principals, making them a more robust choice for your projects.
+This article informs developers that have built custom solutions using the Azure Enterprise Reporting APIs about important changes. The newer Microsoft Cost Management APIs now offer enhanced capabilities and support for service principals, making them a more robust choice for your projects.
 
 **Key points**:
 - Migration recommended - We strongly recommend that you consider migrating your custom solutions to the Microsoft Cost Management APIs. They're actively being developed and offer improved functionality.
 - Retirement date - All Azure Enterprise Reporting APIs are **retired**.
 
 **This article provides**:
-- An overview of the differences between [Azure Enterprise Reporting APIs](../manage/enterprise-api.md) and Cost Management APIs.
+- An overview of the differences between Azure Enterprise Reporting APIs and Cost Management APIs.
 - Guidance about what to expect when migrating to the Cost Management APIs.
 - Insight into the new capabilities available with the Cost Management APIs.
 
@@ -33,10 +33,10 @@ The following information describes the differences between the older Azure Ente
 
 | Use | Azure Enterprise Reporting APIs | Microsoft Cost Management APIs |
 | --- | --- | --- |
-| Authentication | API key provisioned in the [Azure portal](../manage/enterprise-rest-apis.md#api-key-generation) | Microsoft Entra authentication using user tokens or service principals. Service principals take the place of API keys. |
+| Authentication | API key provisioned in the Azure portal | Microsoft Entra authentication using user tokens or service principals. Service principals take the place of API keys. |
 | Scopes and permissions | All requests are at the enrollment scope. API Key permission assignments will determine whether data for the entire enrollment, a department, or a specific account is returned. No user authentication. | Users or service principals are assigned access to the enrollment, department, or account scope. |
 | URI Endpoint | `https://consumption.azure.com` | `https://management.azure.com` |
-| Development status | In maintenance mode. On the path to deprecation. | In active development |
+| Development status | None, the APIs are retired.| In active development |
 | Available APIs | Limited to what's currently available | Equivalent APIs are available to replace each EA API. Additional [Cost Management APIs](/rest/api/cost-management/) are also available, including: <br>- Budgets<br>- Alerts<br>- Exports |
 
 ## Migration checklist
@@ -56,13 +56,13 @@ Use the following information to identify the Enterprise Reporting APIs that you
 
 | Scenario | Enterprise Reporting APIs | Cost Management APIs |
 | --- | --- | --- |
-| [Migrate from EA Usage Details APIs](migrate-ea-usage-details-api.md)  | [/usagedetails/download](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail)<br>[/usagedetails/submit](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail)<br>[/usagedetails](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail)<br>[/usagedetailsbycustomdate](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail) | Use [Microsoft.CostManagement/Exports](/rest/api/cost-management/exports/create-or-update) for all recurring data ingestion workloads. <br>Use the [Cost Details](/rest/api/cost-management/generate-cost-details-report) report for small on-demand datasets. |
-| [Migrate from EA Balance Summary APIs](migrate-ea-balance-summary-api.md) | [/balancesummary](/rest/api/billing/enterprise/billing-enterprise-api-balance-summary) | [Microsoft.Consumption/balances](/rest/api/consumption/balances/getbybillingaccount) |
-| [Migrate from EA Price Sheet APIs](migrate-ea-price-sheet-api.md) | [/pricesheet](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet) | For negotiated prices, use [Microsoft.Consumption/pricesheets/default](/rest/api/consumption/pricesheet) <br> For retail prices, use [Retail Prices API](/rest/api/cost-management/retail-prices/azure-retail-prices) |
-| [Migrate from EA Reserved Instance Usage Details API](migrate-ea-reserved-instance-usage-details-api.md) | [/reservationdetails](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) | [Microsoft.CostManagement/generateReservationDetailsReport](/rest/api/cost-management/generatereservationdetailsreport) |
-| [Migrate from EA Reserved Instance Usage Summary APIs](migrate-ea-reserved-instance-usage-summary-api.md) | [/reservationsummaries](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) | [Microsoft.Consumption/reservationSummaries](/rest/api/consumption/reservationssummaries/list#reservationsummariesdailywithbillingaccountid) |
-| [Migrate from EA Reserved Instance Recommendations APIs](migrate-ea-reserved-instance-recommendations-api.md) | [/SharedReservationRecommendations](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation)<br>[/SingleReservationRecommendations](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation) | [Microsoft.Consumption/reservationRecommendations](/rest/api/consumption/reservationrecommendations/list) |
-| [Migrate from EA Reserved Instance Charges APIs](migrate-ea-reserved-instance-charges-api.md) | [/reservationcharges](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-charges) | [Microsoft.Consumption/reservationTransactions](/rest/api/consumption/reservationtransactions/list) |
+| [Migrate from EA Usage Details APIs](migrate-ea-usage-details-api.md)  | /usagedetails/download<br>/usagedetails/submit<br>/usagedetails<br>/usagedetailsbycustomdate | Use [Microsoft.CostManagement/Exports](/rest/api/cost-management/exports/create-or-update) for all recurring data ingestion workloads. <br>Use the [Cost Details](/rest/api/cost-management/generate-cost-details-report) report for small on-demand datasets. |
+| [Migrate from EA Balance Summary APIs](migrate-ea-balance-summary-api.md) | /balancesummary | [Microsoft.Consumption/balances](/rest/api/consumption/balances/getbybillingaccount) |
+| [Migrate from EA Price Sheet APIs](migrate-ea-price-sheet-api.md) | /pricesheet | For negotiated prices, use [Microsoft.Consumption/pricesheets/default](/rest/api/consumption/pricesheet) <br> For retail prices, use [Retail Prices API](/rest/api/cost-management/retail-prices/azure-retail-prices) |
+| [Migrate from EA Reserved Instance Usage Details API](migrate-ea-reserved-instance-usage-details-api.md) | /reservationdetails | [Microsoft.CostManagement/generateReservationDetailsReport](/rest/api/cost-management/generatereservationdetailsreport) |
+| [Migrate from EA Reserved Instance Usage Summary APIs](migrate-ea-reserved-instance-usage-summary-api.md) | /reservationsummaries | [Microsoft.Consumption/reservationSummaries](/rest/api/consumption/reservationssummaries/list#reservationsummariesdailywithbillingaccountid) |
+| [Migrate from EA Reserved Instance Recommendations APIs](migrate-ea-reserved-instance-recommendations-api.md) | /SharedReservationRecommendations<br>/SingleReservationRecommendations | [Microsoft.Consumption/reservationRecommendations](/rest/api/consumption/reservationrecommendations/list) |
+| [Migrate from EA Reserved Instance Charges APIs](migrate-ea-reserved-instance-charges-api.md) | /reservationcharges | [Microsoft.Consumption/reservationTransactions](/rest/api/consumption/reservationtransactions/list) |
 
 ## Use additional Cost Management APIs
 

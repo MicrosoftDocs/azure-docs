@@ -3,7 +3,7 @@ title: How to mask sensitive data on Azure Web Application Firewall
 description: Learn how to mask sensitive data on Azure Web Application Firewall
 author: vhorne
 ms.author: victorh
-ms.service: web-application-firewall
+ms.service: azure-web-application-firewall
 ms.topic: how-to
 ms.date: 09/05/2023
 ---

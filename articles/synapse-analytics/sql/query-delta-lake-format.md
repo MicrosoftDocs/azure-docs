@@ -1,21 +1,24 @@
 ---
-title: Query Delta Lake format using serverless SQL pool
+title: Query Delta Lake v1 format using serverless SQL pool
 description: In this article, you'll learn how to query files stored in Delta Lake format using serverless SQL pool.
 services: synapse analytics
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: how-to
 ms.subservice: sql
 ms.date: 02/15/2023
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: sngun, wiassaf
+ms.reviewer: whhender, wiassaf
 ---
 
-# Query Delta Lake files using serverless SQL pool in Azure Synapse Analytics
+# Query Delta Lake (v1) files using serverless SQL pool in Azure Synapse Analytics
 
 In this article, you'll learn how to write a query using serverless Synapse SQL pool to read Delta Lake files.
 Delta Lake is an open-source storage layer that brings ACID (atomicity, consistency, isolation, and durability) transactions to Apache Spark and big data workloads.
 You can learn more from the [how to query delta lake tables video](https://www.youtube.com/watch?v=LSIVX0XxVfc).
+
+> [!IMPORTANT]
+> The serverless SQL pools can query [Delta Lake version 1.0](https://github.com/delta-io/delta/releases/tag/v1.0.1). The changes that are introduced since the [Delta Lake 1.2](https://github.com/delta-io/delta/releases/tag/v1.2.0) version like renaming columns are not supported in serverless. If you are using the higher versions of Delta with delete vectors, v2 checkpoints, and others, you should consider using other query engine like [Microsoft Fabric SQL endpoint for Lakehouses](/fabric/data-engineering/lakehouse-sql-analytics-endpoint).
 
 The serverless SQL pool in Synapse workspace enables you to read the data stored in Delta Lake format, and serve it to reporting tools. 
 A serverless SQL pool can read Delta Lake files that are created using Apache Spark, Azure Databricks, or any other producer of the Delta Lake format.

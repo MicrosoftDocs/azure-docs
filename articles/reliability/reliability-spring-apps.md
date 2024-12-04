@@ -5,7 +5,7 @@ author: anaharris-ms
 ms.author: anaharris
 ms.topic: overview
 ms.custom: subject-reliability, references.regions
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.date: 10/17/2023
 ---
 

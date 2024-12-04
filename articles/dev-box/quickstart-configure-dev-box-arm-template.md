@@ -15,7 +15,7 @@ ms.date: 11/28/2023
 
 This quickstart describes how to use an Azure Resource Manager (ARM) template to set up the Microsoft Dev Box Service in Azure. 
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 This [Dev Box with customized image](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.devcenter/devbox-with-customized-image) template deploys a simple Dev Box environment that you can use for testing and exploring the service.
 
@@ -63,7 +63,7 @@ Multiple Azure resources are defined in the template:
    if($userPrincipalId){
        Write-Host "Start provisioning..."
        az group create -l $location -n $resourceGroupName
-       az group deployment create -g $resourceGroupName --template-uri $templateUri  --parameters userPrincipalId=$userPrincipalId
+       az deployment group create -g $resourceGroupName --template-uri $templateUri  --parameters userPrincipalId=$userPrincipalId
    }else {
        Write-Host "User Principal Name cannot be found."
    }

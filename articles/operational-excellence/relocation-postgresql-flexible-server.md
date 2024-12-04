@@ -5,19 +5,24 @@ author: anaharris-ms
 ms.author: anaharris
 ms.reviewer: maghan
 ms.date: 02/14/2024
-ms.service: postgresql
-ms.topic: concept
+ms.service: azure-database-postgresql
+ms.topic: concept-article
 ms.custom:
   - subject-relocation
 ---
 
 # Relocate Azure Database for PostgreSQL to another region
 
+
+
 This article covers relocation guidance for Azure Database for PostgreSQL, Single Server, and Flexible Servers across geographies where region pairs aren't available for replication and geo-restore.
+
+[!INCLUDE [relocate-reasons](./includes/service-relocation-reason-include.md)]
+
 
 To learn how to relocate Azure Cosmos DB for PostgreSQL (formerly called Azure Database for PostgreSQL - Hyperscale (Citus)), see [Read replicas in Azure Cosmos DB for PostgreSQL](/azure/cosmos-db/postgresql/concepts-read-replicas).
 
-For an overview of the region pairs supported by native replication, see [cross-region replication](../postgresql/concepts-read-replicas.md#cross-region-replication).
+For an overview of the region pairs supported by native replication, see [cross-region replication](/azure/postgresql/concepts-read-replicas#cross-region-replication).
 
 ## Prerequisites
 

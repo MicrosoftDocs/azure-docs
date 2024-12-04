@@ -3,14 +3,14 @@ title: Develop a deployment script in Bicep
 description: Learn how to develop a deployment script within a Bicep file or store one externally as a separate file.
 ms.custom: devx-track-bicep
 ms.topic: conceptual
-ms.date: 12/13/2023
+ms.date: 09/26/2024
 ---
 
 # Develop a deployment script in Bicep
 
 This article provides examples to show you how to develop a [deployment script](./deployment-script-bicep.md) in Bicep.
 
-Deployment script resources might have a deployment duration. For efficient development and testing of these scripts, consider establishing a dedicated development environment, such as an Azure container instance or a Docker instance. For more information, see [Create a development environment](./deployment-script-bicep-configure-dev.md).
+Deployment script resources might have a deployment duration. For efficient development and testing of these scripts, consider establishing a dedicated development environment, such as an Azure container instance(ACI) or a Docker instance. For more information, see [Create a development environment](./deployment-script-bicep-configure-dev.md).
 
 ## Syntax
 
@@ -105,7 +105,7 @@ In your deployment script, specify these property values:
 
   When you specify the `identity` property, the script service calls `Connect-AzAccount -Identity` before invoking the user script. Currently, only a user-assigned managed identity is supported. To log in with a different identity in the deployment script, you can call [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). For more information, see [Configure the minimum permissions](./deployment-script-bicep.md#configure-the-minimum-permissions).
 - `kind`: Specify the type of script, either `AzurePowerShell` or `AzureCLI`. In addition to `kind`, you need to specify the `azPowerShellVersion` or `azCliVersion` property.
-- `storageAccountSettings`: Specify the settings to use an existing storage account. If `storageAccountName` is not specified, a storage account is automatically created. For more information, see [Use an existing storage account](#use-an-existing-storage-account).
+- `storageAccountSettings`: Specify the settings to use an existing storage account. If `storageAccountName` isn't specified, a storage account is automatically created. For more information, see [Use an existing storage account](#use-an-existing-storage-account).
 - `containerSettings`: Customize the name of the Azure container instance. For information about configuring the container's group name, see [Configure a container instance](#configure-a-container-instance) later in this article. For information about configuring `subnetIds` to run the deployment script in a private network, see [Access a private virtual network](./deployment-script-vnet.md).
 - `environmentVariables`: Specify the [environment variables](#use-environment-variables) to pass over to the script.
 - `azPowerShellVersion`/`azCliVersion`: Specify the module version to use.
@@ -544,7 +544,7 @@ resource deploymentScript2 'Microsoft.Resources/deploymentScripts@2023-08-01' = 
 
 ### Pass secured strings to a deployment script
 
-You can set environment variables (`EnvironmentVariable`) in your container instances to provide dynamic configuration of the application or script that the container runs. A deployment script handles nonsecured and secured environment variables in the same way as Azure Container Instances. For more information, see [Set environment variables in container instances](../../container-instances/container-instances-environment-variables.md#secure-values).
+You can set environment variables (`EnvironmentVariable`) in your container instances to provide dynamic configuration of the application or script that the container runs. A deployment script handles nonsecured and secured environment variables in the same way as Azure Container Instances. For more information, see [Set environment variables in container instances](/azure/container-instances/container-instances-environment-variables#secure-values).
 
 The maximum allowed size for environment variables is 64 KB.
 
@@ -700,6 +700,7 @@ Here are the requirements for using an existing storage account:
 
 - Firewall rules for storage accounts aren't supported yet. For more information, see [Configure Azure Storage firewalls and virtual networks](../../storage/common/storage-network-security.md).
 - The deployment principal must have permissions to manage the storage account, which includes reading, creating, and deleting file shares. For more information, see [Configure the minimum permissions](./deployment-script-bicep.md#configure-the-minimum-permissions).
+- The `allowSharedKeyAccess` property of the storage account must be set to `true`. The only way to mount a storage account in Azure Container Instance(ACI) is via an access key.
 
 To specify an existing storage account, add the following Bicep code to the property element of `Microsoft.Resources/deploymentScripts`:
 
@@ -730,7 +731,7 @@ You can also specify `subnetId` values for running the deployment script in a pr
 
 ```bicep
 param containerGroupName string = 'mycustomaci'
-param subnetId string = '/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet'
+param subnetId string = '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet'
 
 resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
   ...
@@ -785,7 +786,7 @@ The two automatically created supporting resources can never outlive the `deploy
   - `Always`: Delete the two supporting resources after script execution gets in a terminal state. If you use an existing storage account, the script service deletes the file share that the service created. Because the `deploymentScripts` resource might still be present after the supporting resources are cleaned up, the script service persists the script execution results (for example, `stdout`), outputs, and return value before the resources are deleted.
   - `OnSuccess`: Delete the two supporting resources only when the script execution is successful. If you use an existing storage account, the script service removes the file share only when the script execution is successful.
 
-    If the script execution is not successful, the script service waits until the `retentionInterval` value expires before it cleans up the supporting resources and then the deployment script resource.
+    If the script execution isn't successful, the script service waits until the `retentionInterval` value expires before it cleans up the supporting resources and then the deployment script resource.
   - `OnExpiration`: Delete the two supporting resources only when the `retentionInterval` setting is expired. If you use an existing storage account, the script service removes the file share but retains the storage account.
 
   The container instance and storage account are deleted according to the `cleanupPreference` value. However, if the script fails and `cleanupPreference` isn't set to `Always`, the deployment process automatically keeps the container running for one hour or until the container is cleaned up. You can use the time to troubleshoot the script.

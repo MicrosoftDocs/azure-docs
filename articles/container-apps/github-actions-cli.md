@@ -3,10 +3,10 @@ title: Generate GitHub Actions workflow with Azure CLI in Azure Container Apps
 description: Learn to automatically create GitHub Actions workflow in Azure Container Apps
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 11/09/2022
+ms.date: 11/18/2024
 ms.author: cshoe
 ---
 
@@ -16,7 +16,7 @@ Azure Container Apps allows you to use GitHub Actions to publish [revisions](rev
 
 :::image type="content" source="media/github-actions/azure-container-apps-github-actions.png" alt-text="Changes to a GitHub repo trigger an action to create a new revision.":::
 
-The GitHub Actions workflow is triggered by commits to a specific branch in your repository. When creating the workflow, you decide which branch triggers the action.
+The GitHub Actions workflow runs when there are commits to a specific branch in your repository. You choose which branch triggers the action when setting up the workflow.
 
 This article shows you how to generate a starter GitHub Actions workflow with Azure CLI. To create your own workflow that you can fully customize, see [Deploy to Azure Container Apps with GitHub Actions](github-actions.md).
 
@@ -35,7 +35,7 @@ When adding or removing a GitHub Actions integration, you can authenticate by ei
 The `containerapp github-action add` command creates a GitHub Actions integration with your container app.
 
 > [!Note]
-> Before you proceed with the example below, you must have your first container app already deployed.
+> Before you proceed with the given example, you must have your first container app already deployed.
 
 The first time you attach GitHub Actions to your container app, you need to provide a service principal context. The following command shows you how to create a service principal.
 

@@ -2,12 +2,12 @@
 title: Migrate Bing Maps Find Time Zone API to Azure Maps Get Timezone By Coordinates API
 titleSuffix: Microsoft Azure Maps
 description: Learn how to Migrate the Bing Maps Find Time Zone API to the Azure Maps Get Time Zone By Coordinates API.
-author: eriklindeman
-ms.author: eriklind
+author: faterceros
+ms.author: aterceros
 ms.date: 04/15/2024
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: timezone
 ---
 
 
@@ -30,13 +30,13 @@ This article explains how to migrate from the Bing Maps [Find Time Zone] API to 
 
 ## Security and authentication
 
-Bing Maps for Enterprise only supports API key authentication. Azure Maps supports multiple ways to authenticate your API calls, such as a [subscription key](azure-maps-authentication.md#shared-key-authentication), [Microsoft Entra ID], or [Shared Access Signature (SAS) Token]. For more information on security and authentication in Azure Maps, See [Authentication with Microsoft Azure Maps] and the [Security section] in the Azure Maps Get Time Zone By Coordinates documentation.
+Bing Maps for Enterprise only supports API key authentication. Azure Maps supports multiple ways to authenticate your API calls, such as a [subscription key](azure-maps-authentication.md#shared-key-authentication), [Microsoft Entra ID], or [Shared Access Signature (SAS) Token]. For more information on security and authentication in Azure Maps, See [Authentication with Azure Maps] and the [Security section] in the Azure Maps Get Time Zone By Coordinates documentation.
 
 ## Request parameters
 
 The following table lists the Bing Maps *Find Time Zone* request parameters and the Azure Maps equivalent:
 
-| Bing Maps Parameter | Bing Maps Parameter Alias | Azure Maps Parameter | Required in Azure Maps  | Azure Maps Data Type  | Description  |
+| Bing Maps Parameter | Bing Maps Parameter Alias | Azure Maps Parameter | Required in Azure Maps  | Azure Maps data type  | Description  |
 |---------------------|---------------------------|----------------------|-------------------------|-----------------------|--------------|
 | dateTime  | dt | timeStamp | False | string date-time | Alternatively, use alias "stamp", or "s". Reference time, if omitted, the API uses the machine time serving the request. |
 | IncludeDstRules  | None  | transitionsFrom | False | string date-time | The start date from which daylight savings time (DST) transitions are requested, only applies when "options" = all or "options" = transitions. See options (Timezone Options) parameter for more info.  |
@@ -58,14 +58,14 @@ https://dev.virtualearth.net/REST/v1/timezone/37.7800,-122.4201?key=%7bBingMapsK
 Azure Maps *Get Time Zone by Coordinates* API request:
 
 ```HTTP
-https://atlas.microsoft.com/timezone/byCoordinates/json?api-version=1.0&query=37.7800,-122.4201
+https://atlas.microsoft.com/timezone/byCoordinates/json?api-version=1.0&query=37.7800,-122.4201&subscription-key={Your-Azure-Maps-Subscription-key}
 ```
 
 ## Response fields
 
 The following table lists the fields that can appear in the HTTP response when running the Bing Maps Find Time Zone API and the Azure Maps equivalent:
 
-| Bing Maps Response Field                       | Azure Maps Response Field           |
+| Bing Maps response field                       | Azure Maps response field           |
 |------------------------------------------------|-------------------------------------|
 | abbreviation (JSON) <br> Abbreviation (XML)    | ReferenceTime (Tag)                 |
 | convertedTime (JSON) <br>ConvertedTime (XML)   |ReferenceTime (WallTime)             |
@@ -200,7 +200,7 @@ Support
 - [Microsoft Q&A Forum]
 
 [Authentication with Azure Maps]: azure-maps-authentication.md
-[Authentication with Microsoft Azure Maps]: azure-maps-authentication.md
+[Authentication with Azure Maps]: azure-maps-authentication.md
 [Azure Account]: https://azure.microsoft.com/
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [Azure Maps service geographic scope]: geographic-scope.md

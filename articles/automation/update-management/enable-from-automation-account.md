@@ -3,23 +3,27 @@ title: Enable Azure Automation Update Management from Automation account
 description: This article tells how to enable Update Management from an Automation account.
 services: automation
 ms.subservice: update-management
-ms.date: 11/09/2020
-ms.topic: conceptual
+ms.date: 11/18/2024
+ms.topic: how-to
 ms.custom: mvc
+ms.service: azure-automation
 ---
 
 # Enable Update Management from an Automation account
 
-This article describes how you can use your Automation account to enable the [Update Management](overview.md) feature for VMs in your environment, including machines or servers registered with [Azure Arc-enabled servers](../../azure-arc/servers/overview.md). To enable Azure VMs at scale, you must enable an existing Azure VM using Update Management.
+[!INCLUDE [./automation-update-management-retirement-announcement.md](../includes/automation-update-management-retirement-announcement.md)]
+
+This article describes how you can use your Automation account to enable the [Update Management](overview.md) feature for VMs in your environment, including machines or servers registered with [Azure Arc-enabled servers](/azure/azure-arc/servers/overview). To enable Azure VMs at scale, you must enable an existing Azure VM using Update Management.
 
 > [!NOTE]
-> When enabling Update Management, only certain regions are supported for linking a Log Analytics workspace and an Automation account. For a list of the supported mapping pairs, see [Region mapping for Automation account and Log Analytics workspace](../how-to/region-mappings.md).
+> - Azure Update Management onboarding via the portal is no longer available, as the service was retired on **August 31, 2024**. Existing virtual machines (VMs) utilizing Azure Update Management with the legacy agent will remain operational until **February 1, 2025**. We recommend that you configure [periodic assessment](../../update-manager/tutorial-assessment-deployment-using-policy.md) or [patch schedules](../../update-manager/scheduled-patching.md) using [Azure Update Manager](../../update-manager/overview.md).
+>- When enabling Update Management, only certain regions are supported for linking a Log Analytics workspace and an Automation account. For a list of the supported mapping pairs, see [Region mapping for Automation account and Log Analytics workspace](../how-to/region-mappings.md).
 
 ## Prerequisites
 
 * Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Automation account](../automation-security-overview.md) to manage machines.
-* An [Azure virtual machine](../../virtual-machines/windows/quick-create-portal.md), or VM or server registered with Azure Arc-enabled servers. Non-Azure VMs or servers need to have the [Log Analytics agent](../../azure-monitor/agents/log-analytics-agent.md) for Windows or Linux installed and reporting to the workspace linked to the Automation account where Update Management is enabled. We recommend installing the Log Analytics agent for Windows or Linux by first connecting your machine to [Azure Arc-enabled servers](../../azure-arc/servers/overview.md), and then use Azure Policy to assign the [Deploy Log Analytics agent to *Linux* or *Windows* Azure Arc machines](../../governance/policy/samples/built-in-policies.md#monitoring) built-in policy. Alternatively, if you plan to monitor the machines with Azure Monitor for VMs, instead use the [Enable Azure Monitor for VMs](../../governance/policy/samples/built-in-initiatives.md#monitoring) initiative.
+* An [Azure virtual machine](/azure/virtual-machines/windows/quick-create-portal), or VM or server registered with Azure Arc-enabled servers. Non-Azure VMs or servers need to have the [Log Analytics agent](/azure/azure-monitor/agents/log-analytics-agent) for Windows or Linux installed and reporting to the workspace linked to the Automation account where Update Management is enabled. We recommend installing the Log Analytics agent for Windows or Linux by first connecting your machine to [Azure Arc-enabled servers](/azure/azure-arc/servers/overview), and then use Azure Policy to assign the [Deploy Log Analytics agent to *Linux* or *Windows* Azure Arc machines](../../governance/policy/samples/built-in-policies.md#monitoring) built-in policy. Alternatively, if you plan to monitor the machines with Azure Monitor for VMs, instead use the [Enable Azure Monitor for VMs](../../governance/policy/samples/built-in-initiatives.md#monitoring) initiative.
 
 
 ## Sign in to Azure
@@ -50,7 +54,7 @@ For machines or servers hosted outside of Azure, including the ones registered w
 
 1. From your Automation account, select **Update management** under **Update management**.
 
-2. Select **Add non-Azure machine**. This action opens a new browser window with [instructions to install and configure the Log Analytics agent for Windows](../../azure-monitor/agents/log-analytics-agent.md) so that the machine can begin reporting to Update Management. If you're enabling a machine that's currently managed by Operations Manager, a new agent isn't required. The workspace information is added to the agents configuration.
+2. Select **Add non-Azure machine**. This action opens a new browser window with [instructions to install and configure the Log Analytics agent for Windows](/azure/azure-monitor/agents/log-analytics-agent) so that the machine can begin reporting to Update Management. If you're enabling a machine that's currently managed by Operations Manager, a new agent isn't required. The workspace information is added to the agents configuration.
 
 ## Enable machines in the workspace
 

@@ -3,7 +3,7 @@ title: $convert-data FAQ for the FHIR service in Azure Health Data Services
 description: Get answers to frequently asked questions about the $convert-data operation.
 services: healthcare-apis
 author: msjasteppe
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.topic: faq
 ms.date: 05/13/2024
 ms.author: jasteppe
@@ -13,7 +13,7 @@ ms.author: jasteppe
 
 ## What's the difference between $convert-data and the FHIR converter?
 
-The FHIR&reg; converter (preview) is a stand-alone API decoupled from the FHIR service and packaged as a container (Docker) image. In addition to enabling you to convert data from the source of record to FHIR R4 bundles, the FHIR converter offers many net new capabilities, such as:
+The [FHIR&reg; converter (preview)](https://mcr.microsoft.com/product/healthcareapis/fhir-converter/about) is a stand-alone API decoupled from the FHIR service and packaged as a container (Docker) image. In addition to enabling you to convert data from the source of record to FHIR R4 bundles, the FHIR converter offers many net new capabilities, such as:
 
 - Bidirectional data conversion from source of record to FHIR R4 bundles and back. For example, the FHIR converter can convert data from FHIR R4 format back to HL7v2 format.
 - Improved experience for customization of default [Liquid](https://shopify.github.io/liquid/) templates. 
@@ -44,7 +44,7 @@ For more information, see [Access the FHIR service in Azure Health Data Services
 
 ## What's the difference between the $convert-data endpoint in Azure API for FHIR versus the FHIR service in Azure Health Data Services?
 
-The experience and core `$convert-data` operation functionality is similar for both Azure API for FHIR and the FHIR service in Azure Health Data Services(../../healthcare-apis/fhir/overview.md). The only difference exists in the setup for the Azure API for FHIR version of the `$convert-data` operation, which requires assigning permissions to the right resources. 
+The experience and core `$convert-data` operation functionality is similar for both Azure API for FHIR and the FHIR service in [Azure Health Data Services](../../healthcare-apis/fhir/overview.md). The only difference exists in the setup for the Azure API for FHIR version of the `$convert-data` operation, which requires assigning permissions to the right resources. 
 
 Learn more:
 
@@ -70,13 +70,19 @@ Yes. You can use the [FHIR Converter Visual Studio Code extension](https://mar
 
 Yes. It’s possible to store and reference custom templates. For more information, see [Configure settings for $convert-data by using the Azure portal](convert-data-configuration.md).
 
+## Why are my dates being converted when transforming JSON data?
+ 
+It's possible for dates supplied within JSON data to be returned in a different format than what was supplied. During deserialization of the JSON payload, strings that are identified as dates get converted into .NET DateTime objects. These objects then get converted back to strings before going through the Liquid template engine. This conversion can cause the date value to be reformatted and represented in the local timezone of the FHIR service.
+
+The coercion of strings to .NET DateTime objects can be disabled using the boolean parameter `jsonDeserializationTreatDatesAsStrings`. When set to `true`, the supplied data is treated as a string and won't be modified before being supplied to the Liquid engine.
+
 ## If I need support with troubleshooting, where can I go?
 
 Depending on the version of `$convert-data` you’re using, you can:
 
 * Use the [troubleshooting guide](convert-data-troubleshoot.md) for the FHIR service in Azure Health Data Services version of the `$convert-data` operation.
 
-* Open a [support request](../../azure-portal/supportability/how-to-create-azure-support-request.md) for the FHIR service in Azure Health Data Service FHIR Services version of the `$convert-data` operation.
+* Open a [support request](/azure/azure-portal/supportability/how-to-create-azure-support-request) for the FHIR service in Azure Health Data Service FHIR Services version of the `$convert-data` operation.
 
 * Leave a comment on the [GitHub repository](https://github.com/microsoft/FHIR-Converter/issues) for the open source version of the FHIR converter.
 

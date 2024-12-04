@@ -3,7 +3,7 @@ title: Send Azure Notification Hubs notifications to Android and iOS application
 description: Learn about the cross-platform capabilities of Azure Notification Hubs. 
 author: sethmanheim
 ms.author: sethm
-ms.service: notification-hubs
+ms.service: azure-notification-hubs
 ms.topic: conceptual
 ms.date: 06/14/2021
 ms.custom: template-concept
@@ -379,15 +379,7 @@ Create a notification hub in the Azure portal as follows:
 
 ### Configure backend
 
-To configure the app backend, locate the **/NotificationHub.Sample.API/appsettings.json** file and configure the SQL Server connection string:
-
-```json
-"ConnectionStrings": {
-    "SQLServerConnectionString": "Server=tcp:<SERVER_NAME>,1433;Initial Catalog=<DB_NAME>;Persist Security Info=False;User ID=<DB_USER_NAME>;Password=<PASSWORD>;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
-  },
-```
-
-Replace `<SERVER_NAME>` with the name of your SQL server, `<DB_NAME>` with your deployed database URL, `<DB_USER_NAME>` with configured username, and `<PASSWORD>` with the configured password.
+To configure the app backend, locate the **/NotificationHub.Sample.API/appsettings.json** file and configure the SQL Server connection string.
 
 You can run the API solution locally or on any IIS server, or deploy it as an Azure Web App Service. Keep the URL of the API handy.
 

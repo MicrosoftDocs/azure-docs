@@ -9,9 +9,9 @@ metadata:
   description: Expertise and custom technical guidance you can trust, directly from Azure engineers to help accelerate your Azure deployments securely.
   ms.service: azure 
   ms.topic: hub-page
-  author: alricha
-  ms.author: kimberlm, nwiddup, alricha
-  ms.date: 10/31/2023
+  author: ARMSGit
+  ms.author: alricha
+  ms.date: 08/27/2024
 
 # productDirectory section
 productDirectory:
@@ -57,6 +57,9 @@ conceptualContent:
             - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-1-ep09-microsoft-identity-platform
               itemType: video
               text: Introduction to Microsoft Identity Platform
+            - url: https://aka.ms/ftalive-202400827-zpr
+              itemType: video
+              text: Zone Preferred Regions - NEW!
         # Card
         - title: Infrastructure
           links:
@@ -72,6 +75,9 @@ conceptualContent:
             - url: https://learn-video.azurefd.net/vod/player?id=179b612f-e2cb-42e8-89d7-97f2b4632daa
               itemType: video
               text: 'Azure Routing: Ultimate Guide for Beginners (Spanish)'
+            - url: https://aka.ms/ftalive-20240523-cloudserviceclassictocloudserviceextendedsupportmigration
+              itemType: video
+              text: Classic Cloud Services to Cloud Services Extended Support Migration
             # Possible addition - Azure Networking Fundamentals (replace AVD)
             # Possible removal - AVD FastStart
         # Card
@@ -89,12 +95,15 @@ conceptualContent:
             - url: https://learn-video.azurefd.net/vod/player?id=0e082046-7a52-48b6-8818-6997eb422992
               itemType: video
               text: Azure API Management (APIM) STV Migration
-            - url: https://learn.microsoft.com/_themes/docs.theme/master/en-us/_themes/global/video-embed.html?id=799a7ef2-d0c8-4dab-bb15-19181554aea1
+            - url: https://learn-video.azurefd.net/vod/player?id=799a7ef2-d0c8-4dab-bb15-19181554aea1
               itemType: video
-              text: ISE to Logic App Migration - NEW!
+              text: ISE to Logic App Migration
             - url: https://aka.ms/ftalive-202404-asev2v3migration
               itemType: video
               text: ASE v2 to ASE v3 Migration - NEW!
+            - url: https://aka.ms/ftalive-20240520-appgwv1v2migration
+              itemType: video
+              text: App Gateway v1 to v2 Migration
         # Card
         - title: Data
           links:
@@ -148,8 +157,34 @@ conceptualContent:
               text: Introduction to Kusto Query Language (KQL)
             - url: https://aka.ms/ftalive-202311-mdfc
               itemType: video
-              text: Microsoft Defender for Cloud (multi-cloud environments)
+              text: Microsoft Defender for Cloud (multicloud environments)
             # Possible additions - MDfC & MDfE
+    - title: "New Series'"
+      items:
+        # Card
+        - title: "Java Series"
+          links:
+            - url: https://aka.ms/ftalive-20241004-JavaAppTypes
+              itemType: video
+              text: Azure Java App Types
+            - url: https://aka.ms/ftalive-20241004-JavaAppsOnAKS
+              itemType: video
+              text: Azure Java Apps on AKS
+            - url: https://aka.ms/ftalive-20241004-JavaAppsOnContainers
+              itemType: video
+              text: Azure Java Apps on Containers
+            - url: https://aka.ms/ftalive-20241004-JavaAppsSpringApps
+              itemType: video
+              text: Azure Java Apps Spring Apps
+            - url: https://aka.ms/ftalive-20241004-JavaAppsWebApps
+              itemType: video
+              text: Azure Java Apps Web Apps
+            - url: https://aka.ms/ftalive-20241004-JavaAppsCodeAssessment
+              itemType: video
+              text: Azure Java Apps Code Assessment
+            - url: https://aka.ms/ftalive-20241004-JavaAppMigrations
+              itemType: video
+              text: Azure Java App Migrations
             
 # additionalContent section
 # Card with summary style

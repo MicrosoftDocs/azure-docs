@@ -3,7 +3,7 @@ title: 'Azure ExpressRoute: Configure ExpressRoute Direct'
 description: Learn how to use Azure PowerShell to configure Azure ExpressRoute Direct to connect directly to the Microsoft global network.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.custom:
   - devx-track-azurepowershell
   - ignite-2023
@@ -359,7 +359,7 @@ ExpressRoute Direct and ExpressRoute circuit(s) in different subscriptions or Mi
    Sample output:
     ```powershell
         Name                   : ERDirectAuthorization_1
-        Id                     : /subscriptions/72882272-d67e-4aec-af0b-4ab6e110ee46/resourceGroups/erdirect-   rg/providers/Microsoft.Network/expressRoutePorts/erdirect/authorizations/ERDirectAuthorization_1
+        Id                     : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/erdirect-   rg/providers/Microsoft.Network/expressRoutePorts/erdirect/authorizations/ERDirectAuthorization_1
         Etag                   : W/"24cac874-dfb4-4931-9447-28e67edd5155"
         AuthorizationKey       : 6e1fc16a-0777-4cdc-a206-108f2f0f67e8
         AuthorizationUseStatus : Available
@@ -377,7 +377,7 @@ ExpressRoute Direct and ExpressRoute circuit(s) in different subscriptions or Mi
     Sample output:
       ```powershell
         Name                   : ERDirectAuthorization_1
-        Id                     : /subscriptions/72882272-d67e-4aec-af0b-4ab6e110ee46/resourceGroups/erdirect-                       rg/providers/Microsoft.Network/expressRoutePorts/erdirect/authorizations/ERDirectAuthorization_1
+        Id                     : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/erdirect-                       rg/providers/Microsoft.Network/expressRoutePorts/erdirect/authorizations/ERDirectAuthorization_1
         Etag                   : W/"24cac874-dfb4-4931-9447-28e67edd5155"
         AuthorizationKey       : 6e1fc16a-0777-4cdc-a206-108f2f0f67e8
         AuthorizationUseStatus : Available

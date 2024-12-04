@@ -2,12 +2,12 @@
 title: Migrate Bing Maps Get Traffic Incidents API to Azure Maps Get Traffic Incident Detail API
 titleSuffix: Microsoft Azure Maps
 description: Learn how to Migrate the Bing Maps Get Traffic Incidents API to the Azure Maps Get Traffic Incident Detail API.
-author: FarazGIS
-ms.author: eriklind
+author: farazgis
+ms.author: fsiddiqui
 ms.date: 04/15/2024
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: traffic
 ---
 
 
@@ -39,7 +39,7 @@ Bing Maps for Enterprise only supports API key authentication. Azure Maps suppor
 
 The following table lists the Bing Maps _Get Traffic Incidents_ request parameters and the Azure Maps equivalent:
 
-| Bing Maps Request Parameter  | Bing Maps Request Parameter Alias  | Azure Maps Request Parameter | Required in Azure Maps  | Azure Maps Data Type  | Description|
+| Bing Maps request parameter  | Bing Maps request parameter alias  | Azure Maps request parameter | Required in Azure Maps  | Azure Maps data type  | Description|
 |------------------------------|------------------------------------|------------------------------|-------------------------|-----------------------|------------|
 | mapArea  |   | boundingbox  | True  | number[]  | The projection used to specify the `boundingbox` coordinates in the request and response is EPSG900913 (default) or EPSG4326. Use projection=EPSG4326 for compatibility with the coordinates projection used in the Bing Maps Get Traffic Incidents API.  |
 | culture  | `c`  | language  | False  | string  | ISO 639-1 code for the output language. For more information, see [Azure Maps Supported Languages].|
@@ -67,7 +67,7 @@ http://atlas.microsoft.com/traffic/incident/detail/json?api-version=1.0&style=s3
 
 The following table lists the fields that can appear in the HTTP response when running the Bing Maps _Get Traffic Incidents_ API and the Azure Maps equivalent:
 
-| Bing Maps Response Field | Azure Maps Response Field | Description |
+| Bing Maps response field | Azure Maps response field | Description |
 |--------------------------|---------------------------|-------------|
 | Description (Json)<br>Description (XML)  | `d`  | This output is in the [tm] response element of Azure Maps.  |
 | End (Json)<br>EndTimeUTC (XML)  | `ed`  | This output is in the [tm] response element of Azure Maps. The date is described in the ISO8601 format and includes time in UTC.  |

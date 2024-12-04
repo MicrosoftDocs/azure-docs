@@ -22,7 +22,7 @@ This article includes sample bash scripts built for Azure CLI for Azure DevTest 
 
 [!INCLUDE [sample-cli-install](../../includes/sample-cli-install.md)]
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 All of these scripts have the following prerequisite:
 

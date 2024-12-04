@@ -1,12 +1,12 @@
 ---
 title: Cache ASP.NET Session State Provider
-description: Learn how to store ASP.NET Session State in-memory using Azure Cache for Redis. 
-author: flang-msft
-ms.author: franlanglois
-ms.service: cache
+description: Learn how to store ASP.NET Session State in-memory using Azure Cache for Redis.
+
+
+
 ms.topic: conceptual
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, ignite-2024
 ms.date: 05/06/2022
 ---
 # ASP.NET Session State Provider for Azure Cache for Redis
@@ -24,7 +24,7 @@ Run the following command from the `Package Manager Console` window.
 ```powershell
 Install-Package Microsoft.Web.RedisSessionStateProvider
 ```
-
+<!-- cawa - this note needs to be removed -->
 > [!IMPORTANT]
 > If you are using the clustering feature from the premium tier, you must use [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.1 or higher or an exception is thrown. Moving to 2.0.1 or higher is a breaking change.
 >

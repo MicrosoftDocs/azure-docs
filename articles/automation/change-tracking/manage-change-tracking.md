@@ -3,11 +3,17 @@ title: Manage Change Tracking and Inventory in Azure Automation
 description: This article tells how to use Change Tracking and Inventory to track software and Microsoft service changes in your environment.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 12/10/2020
-ms.topic: conceptual
+ms.date: 11/14/2024
+ms.topic: how-to
+ms.service: azure-automation
 ---
 
 # Manage Change Tracking and Inventory
+
+[!INCLUDE [./log-analytics-retirement-announcement.md](../includes/log-analytics-retirement-announcement.md)]
+
+> [!NOTE]
+> Change Tracking & Inventory with Log Analytics onboarding via Azure portal will not be allowed since the service has retired on **31st August 2024**. We recommend that you configure new version of Change Tracking & Inventory with AMA. Your existing VMs on Change Tracking & Inventory with legacy agent will continue to work till **1st February, 2025**. For more information, see [Enable Change Tracking and Inventory using Azure Monitoring Agent](enable-vms-monitoring-agent.md).
 
 When you add a new file or registry key to track, Azure Automation enables it for [Change Tracking and Inventory](overview.md). This article describes how to configure tracking, review tracking results, and handle alerts when changes are detected.
 
@@ -165,7 +171,7 @@ You can do various searches against the Azure Monitor logs for change records. W
 ## Next steps
 
 * For information about scope configurations, see [Limit Change Tracking and Inventory deployment scope](manage-scope-configurations.md).
-* If you need to search logs stored in Azure Monitor Logs, see [Log searches in Azure Monitor Logs](../../azure-monitor/logs/log-query-overview.md).
+* If you need to search logs stored in Azure Monitor Logs, see [Log searches in Azure Monitor Logs](/azure/azure-monitor/logs/log-query-overview).
 * If finished with deployments, see [Remove Change Tracking and Inventory](remove-feature.md).
 * To delete your VMs from Change Tracking and Inventory, see [Remove VMs from Change Tracking and Inventory](remove-vms-from-change-tracking.md).
 * To troubleshoot feature errors, see [Troubleshoot Change Tracking and Inventory issues](../troubleshoot/change-tracking.md).

@@ -1,12 +1,12 @@
 ---
-title: Export data to Webhook IoT Central
+title: Export data to Webhook
 description: Learn how to use the IoT Central data export capability to continuously export your IoT data to Webhook
 services: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 05/22/2023
+ms.date: 10/14/2024
 ms.topic: how-to
-ms.service: iot-central
+ms.service: azure-iot-central
 ---
 
 # Export IoT data to Webhook

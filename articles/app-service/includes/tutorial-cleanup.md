@@ -2,7 +2,7 @@
 services: storage, app-service-web
 author: rwike77
 manager: CelesteDG
-ms.service: app-service
+ms.service: azure-app-service
 ms.topic: include
 ms.date: 03/14/2023
 ms.author: ryanwi

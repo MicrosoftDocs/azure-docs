@@ -214,7 +214,3 @@ To understand the Azure virtual machine sizes that are required for the Horizon 
 
 ## References
 [System Requirements For Horizon Agent for Linux](https://docs.vmware.com/en/VMware-Horizon/2012/linux-desktops-setup/GUID-E268BDBF-1D89-492B-8563-88936FD6607A.html)
-
-
-## Next steps
-To learn more about VMware Horizon on Azure VMware Solution, read the [VMware Horizon FAQ](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/products/horizon/vmw-horizon-on-microsoft-azure-vmware-solution-faq.pdf).

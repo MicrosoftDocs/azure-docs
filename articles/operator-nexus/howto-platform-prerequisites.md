@@ -16,7 +16,7 @@ Operator Nexus platform software. Some of these steps may take
 extended amounts of time, thus, a review of these prerequisites may prove beneficial.
 
 In subsequent deployments of Operator Nexus instances, you can skip to creating the on-premises
-[Network Fabric](./howto-configure-network-fabric.md) and the [Cluster](./howto-configure-cluster.md). 
+[Network Fabric](./howto-configure-network-fabric.md) and the [Cluster](./howto-configure-cluster.md).
 
 ## Azure prerequisites
 
@@ -203,9 +203,9 @@ sudo ogcli create conn << 'END'
 To clear the net3 interface, follow these steps:
 
 1. Check for any interface configured on the physical interface net3 and "Default IPv4 Static Address" using the following command:
-   
+
 ```bash
-ogcli get conns 
+ogcli get conns
 **description="Default IPv4 Static Address"**
 **name="$TS_NET3_CONN_NAME"**
 **physif="net3"**
@@ -218,7 +218,7 @@ ogcli get conns
 | TS_NET3_CONN_NAME | Terminal server NET3 Connection name     |
 
 2. Remove the interface if it exists:
-   
+
 ```bash
 ogcli delete conn "$TS_NET3_CONN_NAME"
 ```
@@ -231,7 +231,7 @@ ogcli delete conn "$TS_NET3_CONN_NAME"
 To set up the support admin user, follow these steps:
 
 1. For each user, execute the following command in the CLI:
-   
+
 ```bash
 ogcli create user << 'END'
 description="Support Admin User"
@@ -378,13 +378,23 @@ ogcli update port "port-<PORT_#>"  label=\"<NEW_NAME>\"	<PORT_#>
 | NEW_NAME        | Port label name             |
 | PORT_#          | Terminal Server port number |
 
+
 ### Step 9: Settings required for PURE Array serial connections
 
-For configuring PURE Array serial connections, use the following commands:
+Pure Storage arrays purchased prior to 2024 have revision R3 controllers which use rollover console cables and require the custom serial port connection commands below:
 
+**Pure Stoarge R3 Controllers:**
 ```bash
 ogcli update port ports-<PORT_#> 'baudrate="115200"' <PORT_#> Pure Storage Controller console
 ogcli update port ports-<PORT_#> 'pinout="X1"' <PORT_#>	Pure Storage Controller console
+```
+
+Newer Pure Storage appliances, and systems upgraded from R3 to R4 Pure Storage controllers, will use straight-through console cables with the updated settings below:
+
+**Pure Storage R4 Controllers:**
+```bash
+ogcli update port ports-<PORT_#> 'baudrate="115200"' <PORT_#> Pure Storage Controller console
+ogcli update port ports-<PORT_#> 'pinout="X2"' <PORT_#>	Pure Storage Controller console
 ```
 
 **Parameters:**
@@ -393,7 +403,10 @@ ogcli update port ports-<PORT_#> 'pinout="X1"' <PORT_#>	Pure Storage Controller 
 | ----------------| --------------------------- |
 | PORT_#          | Terminal Server port number |
 
-These commands set the baudrate and pinout for connecting to the Pure Storage Controller console.
+These commands set the baud rate and pinout for connecting to the Pure Storage Controller console.
+
+>[!NOTE]
+>All other Terminal Server port configurations settings should remain the same and work by default with a straight-through RJ45 console cable.
 
 ### Step 10: Verifying settings
 
@@ -424,23 +437,23 @@ Example LLDP neighbors output:
 LLDP neighbors:
 -------------------------------------------------------------------------------
 Interface:    net2, via: LLDP, RID: 2, Time: 0 day, 20:28:36
-  Chassis:     
+  Chassis:
     ChassisID:    mac 12:00:00:00:00:85
     SysName:      austx502xh1.els-an.att.net
     SysDescr:     7.7.2, S9700-53DX-R8
     Capability:   Router, on
-  Port:         
+  Port:
     PortID:       ifname TenGigE0/0/0/0/3
     PortDescr:    GE10_Bundle-Ether83_austx4511ts1_net2_net2_CircuitID__austxm1-AUSTX45_[CBB][MCGW][AODS]
     TTL:          120
 -------------------------------------------------------------------------------
 Interface:    net1, via: LLDP, RID: 1, Time: 0 day, 20:28:36
-  Chassis:     
+  Chassis:
     ChassisID:    mac 12:00:00:00:00:05
     SysName:      austx501xh1.els-an.att.net
     SysDescr:     7.7.2, S9700-53DX-R8
     Capability:   Router, on
-  Port:         
+  Port:
     PortID:       ifname TenGigE0/0/0/0/3
     PortDescr:    GE10_Bundle-Ether83_austx4511ts1_net1_net1_CircuitID__austxm1-AUSTX45_[CBB][MCGW][AODS]
     TTL:          120
@@ -452,8 +465,10 @@ Interface:    net1, via: LLDP, RID: 1, Time: 0 day, 20:28:36
 
 ## Set up storage array
 
-1. Operator needs to install the storage array hardware as specified by the BOM and rack elevation within the Aggregation Rack.
-2. Operator needs to provide the storage array Technician with information, in order for the storage array Technician to arrive on-site to configure the appliance.
+1. Operator needs to install the storage array hardware as specified by the BOM and rack elevation
+   within the Aggregation Rack.
+2. Operator needs to provide the storage array Technician with information, in order for the storage
+   array Technician to arrive on-site to configure the appliance.
 3. Required location-specific data that is shared with storage array technician:
    - Customer Name:
    - Physical Inspection Date:
@@ -462,15 +477,17 @@ Interface:    net1, via: LLDP, RID: 1, Time: 0 day, 20:28:36
    - CLLI code (Common Language location identifier):
    - Installation Address:
    - FIC/Rack/Grid Location:
-4. Data provided to the operator and shared with storage array technician, which will be common to all installations:
-   - Purity Code Level: 6.5.1
+4. Data provided to the operator and shared with storage array technician, which will be common to
+   all installations:
+   - Purity Code Level: Refer to
+     [supported Purity versions](./reference-near-edge-storage-supported-versions.md)
    - Safe Mode: Disabled
-   - Array Time zone: UTC
-   - DNS (Domain Name System) Server IP Address: 172.27.255.201
+   - Array Timezone: UTC
+   - DNS (Domain Name System) Server IP Address: not set by operator during setup
    - DNS Domain Suffix: not set by operator during setup
-   - NTP (Network Time Protocol) Server IP Address or FQDN: 172.27.255.212
-   - Syslog Primary: 172.27.255.210
-   - Syslog Secondary: 172.27.255.211
+   - NTP (Network Time Protocol) Server IP Address or FQDN: not set by operator during setup
+   - Syslog Primary: 172.27.255.213
+   - Syslog Secondary: not set by operator during setup
    - SMTP Gateway IP address or FQDN: not set by operator during setup
    - Email Sender Domain Name: domain name of the sender of the email (example.com)
    - Email Addresses to be alerted: not set by operator during setup
@@ -571,7 +588,7 @@ An example design of three on-premises instances from the same NFC/CM pair, usin
    |------------|-------------------------|--------------|
    | Instance 1 | 10.1.0.0-10.1.31.255    | 10.1.3.0/24  |
    | Instance 2 | 10.1.32.0-10.1.63.255   | 10.1.35.0/24 |
-   | Instance 3 | 10.1.64.0-10.1.95.255   | 10.1.67.0/24 | 
+   | Instance 3 | 10.1.64.0-10.1.95.255   | 10.1.67.0/24 |
 
 ### Default setup for other devices installed
 

@@ -1,15 +1,15 @@
 ---
  title: include file
  description: include file
- services: event-grid
  author: robece
- ms.service: event-grid
+ ms.service: azure-event-grid
  ms.topic: include
- ms.date: 11/15/2023
+ ms.date: 11/18/2024
  ms.author: robece
 ms.custom:
   - include file
-  - ignite-2023
+  - ignite-2024
 ---
 
 - [Event Hubs](../namespace-handler-event-hubs.md)
+- [Webhooks](../namespace-handler-webhook.md)

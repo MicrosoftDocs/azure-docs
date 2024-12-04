@@ -1,7 +1,7 @@
 ---
 title: HBase cluster replication in virtual networks - Azure HDInsight
 description: Learn how to set up HBase replication from one HDInsight version to another for load balancing, high availability, zero-downtime migration and updates, and disaster recovery.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 04/29/2024
@@ -93,7 +93,7 @@ Some of the hard-coded values in the template:
 Alternatively, follow below steps to setup two different vnets and VMs manually
 1. [Create Two VNET (Virtual Network)](../../virtual-network/quick-create-portal.md) in different Region
 2. Enable [Peering in both the VNET](../../virtual-network/virtual-network-peering-overview.md). Go to **Virtual network** created in above steps then click on **peering** and add peering link of another region. Do it for both the virtual network. 
-3. [Create the latest version of the UBUNTU](../../virtual-machines/linux/quick-create-portal.md#create-virtual-machine) in each VNET. 
+3. [Create the latest version of the UBUNTU](/azure/virtual-machines/linux/quick-create-portal#create-virtual-machine) in each VNET. 
 
 ## Setup DNS
 

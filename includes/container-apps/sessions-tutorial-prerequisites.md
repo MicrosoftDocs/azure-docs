@@ -1,6 +1,6 @@
 ---
 author: anthonychu
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic:  include
 ms.date: 05/08/2024
 ms.author: antchu
@@ -29,7 +29,7 @@ The sample app in this quickstart uses an LLM from Azure OpenAI. It also uses Az
     ```bash
     az extension remove --name containerapp
     az extension add \
-        --source https://acacli.blob.core.windows.net/sessionspreview/containerapp-0.3.50-py2.py3-none-any.whl \
+        --name containerapp \
         --allow-preview true -y
     ```
 

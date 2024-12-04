@@ -3,9 +3,9 @@ title: Azure Virtual Network FAQ
 titlesuffix: Azure Virtual Network
 description: Answers to the most frequently asked questions about Microsoft Azure virtual networks.
 author: asudbring
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: conceptual
-ms.date: 06/26/2020
+ms.date: 07/22/2024
 ms.author: allensu
 ---
 
@@ -130,10 +130,10 @@ Unicast is supported in virtual networks. Multicast, broadcast, IP-in-IP encapsu
 
 Azure virtual networks provide DHCP service and DNS to Azure Virtual Machines. However, you can also deploy a DHCP Server in an Azure VM to serve the on-prem clients via a DHCP Relay Agent.
 
-DHCP Server in Azure was previously marked as unsupported since the traffic to port UDP/67 was rate limited in Azure. However, recent platform updates have removed the rate limitation, enabling this capability. 
+DHCP servers in Azure were previously considered not feasible since the traffic to port UDP/67 was rate limited in Azure. However, recent platform updates have removed the rate limitation, enabling this capability. 
 
 > [!NOTE]
-> The on-premises client to DHCP Server (source port UDP/68, destination port UDP/67) is still not supported in Azure, since this traffic is intercepted and handled differently. So, this will result in some timeout messages at the time of DHCP RENEW at T1 when the client directly attempts to reach the DHCP Server in Azure, but this should succeed when the DHCP RENEW attempt is made at T2 via DHCP Relay Agent. For more details on the T1 and T2 DHCP RENEW timers, see [RFC 2131](https://www.ietf.org/rfc/rfc2131.txt).
+> The on-premises client to DHCP Server (source port UDP/68, destination port UDP/67) is still not supported in Azure, since this traffic is intercepted and handled differently. This will result in timeout messages at the time of DHCP RENEW at T1 when the client directly attempts to reach the DHCP Server in Azure. The DHCP RENEW will succeed when the DHCP RENEW attempt is made at T2 via DHCP Relay Agent. For more details on the T1 and T2 DHCP RENEW timers, see [RFC 2131](https://www.ietf.org/rfc/rfc2131.txt).
 
 ### Can I ping a default gateway in a virtual network?
 
@@ -280,10 +280,6 @@ Previously, the MAC address was released if you stopped (deallocated) the VM. Bu
 * Delete the network adapter.
 * Change the private IP address that's assigned to the primary IP configuration of the primary network adapter.
 
-### Can I connect to the internet from a VM in a virtual network?
-
-Yes. All VMs and Cloud Services role instances deployed within a virtual network can connect to the internet.
-
 ## Azure services that connect to virtual networks
 
 ### Can I use Web Apps with a virtual network?
@@ -406,7 +402,7 @@ You can connect to these resources via Azure ExpressRoute or network-to-network 
 
 ### Can I enable virtual network peering if my virtual networks belong to subscriptions within different Microsoft Entra tenants?
 
-Yes. It's possible to establish virtual network peering (whether local or global) if your subscriptions belong to different Microsoft Entra tenants. You can do this via the Azure portal, PowerShell, or the Azure CLI.
+Yes. It's possible to establish virtual network peering (whether local or global) if your subscriptions belong to different Microsoft Entra tenants. You can do this via the [Azure portal](/azure/virtual-network/create-peering-different-subscriptions?tabs=create-peering-portal), [PowerShell](/azure/virtual-network/create-peering-different-subscriptions?tabs=create-peering-powershell), or the [Azure CLI](/azure/virtual-network/create-peering-different-subscriptions?tabs=create-peering-cli).
 
 ### My virtual network peering connection is in an Initiated state. Why can't I connect?
 
@@ -429,6 +425,10 @@ No. You can't enable virtual network peering if address spaces overlap.
 ### Can I peer a virtual network to two virtual networks with the Use Remote Gateway option enabled on both peerings?
 
 No. You can enable the **Use Remote Gateway** option on only one peering to one of the virtual networks.
+
+### Can I move a virtual network that has a peering connection to another virtual network?
+
+No. You can't move a virtual network that has a peering connection to another virtual network. You must delete the peering connection before moving the virtual network.
 
 ### How much do virtual network peering links cost?
 
@@ -478,7 +478,7 @@ The virtual network TAP resource and the destination load balancer or destinatio
 
 Virtual network TAP is in preview. During preview, there is no service-level agreement. You shouldn't use the capability for production workloads.
 
-When you enable a virtual machine network adapter with a TAP configuration, the same resources on the Azure host allocated to the virtual machine to send the production traffic are used to perform the mirroring function and send the mirrored packets. Select the correct [Linux](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Windows](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtual machine size to ensure that sufficient resources are available for the virtual machine to send the production traffic and the mirrored traffic.
+When you enable a virtual machine network adapter with a TAP configuration, the same resources on the Azure host allocated to the virtual machine to send the production traffic are used to perform the mirroring function and send the mirrored packets. Select the correct [Linux](/azure/virtual-machines/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Windows](/azure/virtual-machines/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json) virtual machine size to ensure that sufficient resources are available for the virtual machine to send the production traffic and the mirrored traffic.
 
 ### Is accelerated networking for Linux or Windows supported with virtual network TAP?
 
@@ -505,13 +505,13 @@ Certain services (such as Azure SQL and Azure Cosmos DB) allow exceptions to the
 Turning on the service endpoints on the network side can lead to a connectivity drop, because the source IP changes from a public IPv4 address to a private address. Setting up virtual network ACLs on the Azure service side before turning on service endpoints on the network side can help avoid a connectivity drop.
 
 >[!NOTE]
-> If you enable Service Endpoint on certain services likes "Microsoft.AzureActiveDirectory" you can see IPV6 address connections on Sign-In Logs. Microsoft use an internal IPV6 private range for this type of connections.
+> If you enable Service Endpoint on certain services like "Microsoft.AzureActiveDirectory" you can see IPV6 address connections on Sign-In Logs. Microsoft use an internal IPV6 private range for this type of connection.
 
 ### Do all Azure services reside in the Azure virtual network that the customer provides? How does a virtual network service endpoint work with Azure services?
 
 Not all Azure services reside in the customer's virtual network. Most Azure data services (such as Azure Storage, Azure SQL, and Azure Cosmos DB) are multitenant services that can be accessed over public IP addresses. For more information, see [Deploy dedicated Azure services into virtual networks](virtual-network-for-azure-services.md).
 
-When you turn on virtual network service endpoints on the network side and set up appropriate virtual network ACLs on the Azure service side, access to an Azure service is restricted from an allowed virtual network and subnet.
+When you turn on virtual network service endpoints on the network side, and set up appropriate virtual network ACLs on the Azure service side, access to an Azure service is restricted to an allowed virtual network and subnet.
 
 ### How do virtual network service endpoints provide security?
 
@@ -539,6 +539,8 @@ Yes, it's possible when you're using service endpoints for Azure Storage and Azu
 
 By default, Azure service resources secured to virtual networks are not reachable from on-premises networks. If you want to allow traffic from on-premises, you must also allow public (typically, NAT) IP addresses from on-premises or ExpressRoute. You can add these IP addresses through the IP firewall configuration for the Azure service resources.
 
+Alternatively, you can implement [private endpoints](/azure/private-link/private-endpoint-overview) for supported services.
+
 ### Can I use virtual network service endpoints to secure Azure services to multiple subnets within a virtual network or across multiple virtual networks?
 
 To secure Azure services to multiple subnets within a virtual network or across multiple virtual networks, enable service endpoints on the network side on each of the subnets independently. Then, secure Azure service resources to all of the subnets by setting up appropriate virtual network ACLs on the Azure service side.
@@ -557,7 +559,7 @@ The service returns an HTTP 403 or HTTP 404 error.
 
 Yes. For most of the Azure services, virtual networks created in different regions can access Azure services in another region through the virtual network service endpoints. For example, if an Azure Cosmos DB account is in the West US or East US region, and virtual networks are in multiple regions, the virtual networks can access Azure Cosmos DB.
 
-Azure Storage and Azure SQL are exceptions and are regional in nature. Both the virtual network and the Azure service need to be in the same region.
+Azure SQL is an exception and is regional in nature. Both the virtual network and the Azure service need to be in the same region.
   
 ### Can an Azure service have both a virtual network ACL and an IP firewall?
 
@@ -694,7 +696,7 @@ Scenarios that aren't supported include:
 
 ### Where can I find more information about migration from classic to Resource Manager?
 
-See [Frequently asked questions about classic to Azure Resource Manager migration](../virtual-machines/migration-classic-resource-manager-faq.yml).
+See [Frequently asked questions about classic to Azure Resource Manager migration](/azure/virtual-machines/migration-classic-resource-manager-faq).
 
 ### How can I report a problem?
 

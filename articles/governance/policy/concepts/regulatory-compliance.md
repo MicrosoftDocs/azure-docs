@@ -11,7 +11,7 @@ Regulatory Compliance in Azure Policy provides built-in initiative definitions t
 **controls** and **compliance domains** based on responsibility (_Customer_, _Microsoft_, _Shared_).
 For Microsoft-responsible controls, we provide additional details of our audit results based on
 third-party attestation and our implementation details to achieve that compliance.
-Microsoft-responsible controls are of `policyType` [static](./definition-structure.md#policy-type).
+Microsoft-responsible controls are of `policyType` [static](./definition-structure-basics.md#policy-type).
 
 > [!NOTE]
 > Regulatory Compliance is a Preview feature. For updated built-ins, the initiatives
@@ -37,7 +37,7 @@ definitions in the
 [Azure Policy GitHub repo](https://github.com/Azure/azure-policy/tree/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance).
 
 To link a custom Regulatory Compliance initiative to your Microsoft Defender for Cloud dashboard, see
-[Create custom security initiatives and policies](../../../defender-for-cloud/custom-security-policies.md).
+[Create custom security initiatives and policies](/azure/defender-for-cloud/custom-security-policies).
 
 ## Regulatory Compliance in portal
 
@@ -60,7 +60,7 @@ compliance** tab provides a granular view of each resource that's evaluated by a
 the currently viewed **control**.
 
 > [!NOTE]
-> An evaluation type of **Microsoft managed** is for a [static](./definition-structure.md#policy-type) policy definition `policyType`.
+> An evaluation type of **Microsoft managed** is for a [static](./definition-structure-basics.md#policy-type) policy definition `policyType`.
 
 :::image type="content" source="../media/regulatory-compliance/regulatory-compliance-policies.png" alt-text="Screenshot of the Regulatory Compliance details for the Boundary Protection control of the NIST SP 800-53 R4 built-in definition.":::
 
@@ -94,5 +94,5 @@ The following code is an example of added results from a `summarize` call:
 
 - See the [initiative definition structure](./initiative-definition-structure.md)
 - Review examples at [Azure Policy samples](../samples/index.md).
-- Review [Understanding policy effects](./effects.md).
+- Review [Understanding policy effects](./effect-basics.md).
 - Learn how to [remediate non-compliant resources](../how-to/remediate-resources.md).

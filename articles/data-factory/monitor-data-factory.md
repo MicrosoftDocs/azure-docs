@@ -1,12 +1,12 @@
 ---
 title: Monitor Azure Data Factory
 description: Start here to learn how to monitor Azure Data Factory.
-ms.date: 03/19/2024
+ms.date: 10/03/2024
+ms.subservice: monitoring
 ms.custom: horz-monitor
 ms.topic: conceptual
 author: jonburchel
 ms.author: jburchel
-ms.service: data-factory
 ---
 
 # Monitor Azure Data Factory

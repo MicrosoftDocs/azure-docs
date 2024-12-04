@@ -5,6 +5,8 @@ items:
         href: overview.md
       - name: Features & tools
         href: features.md
+      - name: Release notes
+        href: release-notes.md
   - name: Get started with Cloud Shell
     items:
       - name: Get started (Classic)
@@ -35,6 +37,8 @@ items:
         href: vnet/overview.md
       - name: Deploy using quickstart templates
         href: vnet/deployment.md
+      - name: Connect to storage using a private endpoint
+        href: vnet/how-to-use-private-endpoint-storage.md
       - name: Troubleshoot Azure Cloud Shell in a virtual network
         href: vnet/troubleshooting.md
   - name: Pricing

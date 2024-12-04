@@ -1,24 +1,23 @@
 ---
-title: Optimize security operations (preview)
-description: Use SOC optimization recommendations to optimize your security operations center (SOC) team activities.
-ms.service: defender-xdr
-ms.pagetype: security
+title: Optimize security operations
+description: Use Microsoft Sentinel SOC optimization recommendations to optimize your security operations center (SOC) team activities.
 ms.author: bagol
 author: batamig
 manager: raynew
 ms.collection:
-  - m365-security
-  - tier1
   - usx-security
 ms.topic: how-to
-ms.date: 05/05/2024
+ms.date: 10/16/2024
 appliesto:
   - Microsoft Sentinel in the Microsoft Defender portal
   - Microsoft Sentinel in the Azure portal
-#customerIntent: As a SOC admin or SOC engineer, I want to learn about about how to optimize my security operations center with SOC optimization recommendations.
+
+
+#Customer intent: As a SOC analyst, I want to optimize security controls and data ingestion so that I can enhance threat detection and reduce costs without compromising coverage.
+
 ---
 
-# Optimize your security operations (preview)
+# Optimize your security operations
 
 Security operations center (SOC) teams actively look for opportunities to optimize both processes and outcomes. You want to ensure that you have all the data you need to take action against risks in your environment, while also ensuring that you're not paying to ingest *more* data than you need. At the same time, your teams must regularly adjust security controls as threat landscapes and business priorities change, adjusting quickly and efficiently to keep your return on investments high.
 
@@ -30,7 +29,7 @@ Use SOC optimization recommendations to help you close coverage gaps against spe
 
 [!INCLUDE [unified-soc-preview](../includes/unified-soc-preview.md)]
 
-Watch the following video for an overview and demo of SOC optimization in the Defender portal. If you just want a demo, jump to minute 8:14. <br>
+Watch the following video for an overview and demo of SOC optimization in the Microsoft Defender portal. If you just want a demo, jump to minute 8:14. <br><br>
 
 > [!VIDEO https://www.youtube.com/embed/b0rbPZwBuc0?si=DuYJQewK8IZz8T0Y]
 
@@ -38,11 +37,11 @@ Watch the following video for an overview and demo of SOC optimization in the De
 
 - SOC optimization uses standard Microsoft Sentinel roles and permissions. For more information, see [Roles and permissions in Microsoft Sentinel](../roles.md).
 
-- To use SOC optimization in the Microsoft Defender portal, you must have Microsoft Sentinel integrated with Microsoft Defender XDR. For more information, see [Connect Microsoft Sentinel to Microsoft Defender XDR](/microsoft-365/security/defender/microsoft-sentinel-onboard).
+- To use SOC optimization in the Defender portal, onboard Microsoft Sentinel to the Defender portal. For more information, see [Connect Microsoft Sentinel to the Microsoft Defender portal](/microsoft-365/security/defender/microsoft-sentinel-onboard).
 
 ## Access the SOC optimization page
 
-Use one of the following tabs, depending on whether you're working in the unified SOC operations platform or in the Azure portal:
+Use one of the following tabs, depending on whether you're working in the Azure portal or Defender portal:
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -52,9 +51,9 @@ In Microsoft Sentinel in the Azure portal, under **Threat management**, select *
 
 ### [Defender portal](#tab/defender-portal)
 
-In the unified SOC operations platform in the Microsoft Defender portal, select **SOC optimization**.
+In the Defender portal, select **SOC optimization**.
 
-:::image type="content" source="media/soc-optimization-access/soc-optimization-xdr.png" alt-text="Screenshot of the SOC optimization page in Microsoft Defender XDR." lightbox="media/soc-optimization-access/soc-optimization-xdr.png":::
+:::image type="content" source="media/soc-optimization-access/soc-optimization-xdr.png" alt-text="Screenshot of the SOC optimization page in the Defender portal." lightbox="media/soc-optimization-access/soc-optimization-xdr.png":::
 
 ---
 
@@ -105,6 +104,9 @@ In the Defender portal, SOC optimization recommendations are listed in the **You
 
 Each optimization card includes the status, title, the date it was created, a high-level description, and the workspace it applies to.
 
+> [!NOTE]
+> SOC optimization recommendations are calculated every 24 hours.
+
 ### Filter optimizations
 
 Filter the optimizations based on optimization type, or search for a specific optimization title using the search box on the side. Optimization types include:
@@ -149,12 +151,6 @@ From here, either select the options menu or select **View full details** to tak
 
 - **Provide further feedback** to the Microsoft team. When sharing your feedback, be careful not to share any confidential data. For more information, see  [Microsoft Privacy Statement](https://privacy.microsoft.com/privacystatement).
 
-## Use optimizations via API
-
-The `Recommendations` operation group provides access to SOC optimizations via the Azure REST API. For example, use the API to get details about a specific recommendations, or all current recommendations across your workspaces, or to reevaluate a recommendation if you've made changes.
-
-While SOC optimizations are in preview, API documentation is available only in the Swagger specification, and not in the REST API reference. For more information, see [API versions of Microsoft Sentinel REST APIs](/rest/api/securityinsights/api-versions).
-
 ## SOC optimization usage flow
 
 This section provides a sample flow for using SOC optimizations, from either the Defender or Azure portal:
@@ -186,4 +182,6 @@ This section provides a sample flow for using SOC optimizations, from either the
 
 ## Related content
 
-- [SOC optimization reference of recommendations (preview)](soc-optimization-reference.md)
+- [SOC optimization reference of recommendations](soc-optimization-reference.md)
+- [Use SOC optimizations programmatically](soc-optimization-api.md)
+- [Blog: SOC optimization: unlock the power of precision-driven security management](https://aka.ms/SOC_Optimization)

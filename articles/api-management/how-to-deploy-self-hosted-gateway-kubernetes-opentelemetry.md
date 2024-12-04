@@ -3,7 +3,7 @@ title: Deploy self-hosted gateway to Kubernetes with OpenTelemetry integration
 description: Learn how to deploy a self-hosted gateway component of Azure API Management on Kubernetes with OpenTelemetry
 author: tomkerkhove
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
 ms.author: tomkerkhove
 ms.date: 12/17/2021
@@ -28,7 +28,7 @@ You learn how to:
 ## Prerequisites
 
 - [Create an Azure API Management instance](get-started-create-service-instance.md)
-- Create an Azure Kubernetes cluster [using the Azure CLI](../aks/learn/quick-kubernetes-deploy-cli.md), [using Azure PowerShell](../aks/learn/quick-kubernetes-deploy-powershell.md), or [using the Azure portal](../aks/learn/quick-kubernetes-deploy-portal.md).
+- Create an Azure Kubernetes cluster [using the Azure CLI](/azure/aks/learn/quick-kubernetes-deploy-cli), [using Azure PowerShell](/azure/aks/learn/quick-kubernetes-deploy-powershell), or [using the Azure portal](/azure/aks/learn/quick-kubernetes-deploy-portal).
 - [Provision a self-hosted gateway resource in your API Management instance](api-management-howto-provision-self-hosted-gateway.md).
 
 ## Introduction to OpenTelemetry
@@ -213,7 +213,7 @@ Now that both our OpenTelemetry Collector and the self-hosted gateway are deploy
     X-Forwarded-For: 10.244.1.1
     traceparent: 00-3192030c89fd7a60ef4c9749d6bdef0c-f4eeeee46f770061-01
     Request-Id: |3192030c89fd7a60ef4c9749d6bdef0c.f4eeeee46f770061.
-    Request-Context: appId=cid-v1:c24f5e00-aa25-47f2-bbb5-035847e7f52a
+    Request-Context: appId=cid-v1:00001111-aaaa-2222-bbbb-3333cccc4444
     X-Powered-By: Azure API Management - http://api.azure.com/,ASP.NET
     X-AspNet-Version: 4.0.30319
     ```

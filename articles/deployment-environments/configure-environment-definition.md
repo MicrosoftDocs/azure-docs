@@ -5,7 +5,7 @@ description: Learn how to add and configure an environment definition to use in 
 services: Azure Deployment Environments
 author: RoseHJM
 ms.author: rosemalcolm
-ms.service: deployment-environments
+ms.service: azure-deployment-environments
 ms.topic: how-to
 ms.date: 05/03/2024
 ms.custom: devdivchpfy22, build-2023

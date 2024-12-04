@@ -35,7 +35,7 @@ There are two ways to adjust the authentication domain on both sides: Azure NetA
 
 In this section we’ll focus on how to configure the Linux client and how to change the Azure NetApp Files authentication domain for all non-LDAP enabled volumes. 
 
-## Configure NFSv4.1 ID domain on Azure NetApp Files
+## Configure NFSv4.1 ID domain on Azure NetApp Files 
 
 You can specify a desired NFSv4.1 ID domain for all non-LDAP volumes using the Azure portal. This setting applies to all non-LDAP volumes across all NetApp accounts in the same subscription and region. It does not affect LDAP-enabled volumes in the same NetApp subscription and region. 
 

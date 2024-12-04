@@ -4,7 +4,7 @@ description: Learn how to create an Azure ExpressRoute circuit by deploying an A
 services: expressroute
 author: duongau
 
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: duau 

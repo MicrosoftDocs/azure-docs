@@ -4,12 +4,16 @@ titleSuffix: Microsoft Sentinel
 description: Learn how watchlists allow you to correlate data with events and when to use them in Microsoft Sentinel.
 author: cwatson-cat
 ms.author: cwatson
-ms.topic: concept
+ms.topic: concept-article
 ms.date: 3/14/2024
 appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
+
+
+#Customer intent: As a security analyst, I want to understand how to use watchlists in Microsoft Sentinel so that I can efficiently correlate and enrich event data, reduce alert fatigue, and quickly respond to threats.
+
 ---
 
 # Watchlists in Microsoft Sentinel
@@ -42,7 +46,7 @@ Before you create a watchlist, be aware of the following limitations:
 
 - When you create a watchlist, the watchlist name and alias must each be between 3 and 64 characters. The first and last characters must be alphanumeric. But you can include whitespaces, hyphens, and underscores in between the first and last characters.
 - The use of watchlists should be limited to reference data, as they aren't designed for large data volumes.
-- The **total number of active watchlist items** across all watchlists in a single workspace is currently limited to **10 million**. Deleted watchlist items don't count against this total. If you require the ability to reference large data volumes, consider ingesting them using [custom logs](../azure-monitor/agents/data-sources-custom-logs.md) instead.
+- The **total number of active watchlist items** across all watchlists in a single workspace is currently limited to **10 million**. Deleted watchlist items don't count against this total. If you require the ability to reference large data volumes, consider ingesting them using [custom logs](/azure/azure-monitor/agents/data-sources-custom-logs) instead.
 - Watchlists are refreshed in your workspace every 12 days, updating the `TimeGenerated` field.
 - Using Lighthouse to manage watchlists across different workspaces is not supported at this time.
 - Local file uploads are currently limited to files of up to 3.8 MB in size.
@@ -65,7 +69,7 @@ For more information, see the following articles:
 
 ## Watchlists in queries for searches and detection rules
 
-Query data in any table against data from a watchlist by treating the watchlist as a table for joins and lookups. When you create a watchlist, you define the *SearchKey*. The search key is the name of a column in your watchlist that you expect to use as a join with other data or as a frequent object of searches. For example, suppose you have a server watchlist that contains country names and their respective two-letter country codes. You expect to use the country codes often for searches or joins. So you use the country code column as the search key.
+Query data in any table against data from a watchlist by treating the watchlist as a table for joins and lookups. When you create a watchlist, you define the *SearchKey*. The search key is the name of a column in your watchlist that you expect to use as a join with other data or as a frequent object of searches. For example, suppose you have a server watchlist that contains country/region names and their respective two-letter country codes. You expect to use the country codes often for searches or joins. So you use the country code column as the search key.
 
 The following example query joins the `RemoteIPCountry` column in the `Heartbeat` table with the search key defined for the watchlist named `mywatchlist`.
 

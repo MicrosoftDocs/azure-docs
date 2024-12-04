@@ -16,7 +16,7 @@ ms.subservice: data
 
 Azure Communication Services offers logging capabilities that you can use to monitor and debug your Communication Services solution. You configure these capabilities through the Azure portal.
 
-The content in this article refers to logs enabled through [Azure Monitor](../../../../azure-monitor/overview.md) (see also [FAQ](../../../../azure-monitor/overview.md#frequently-asked-questions)). To enable these logs for Communication Services, see [Enable logging in diagnostic settings](../enable-logging.md).
+The content in this article refers to logs enabled through [Azure Monitor](/azure/azure-monitor/overview) (see also [FAQ](/azure/azure-monitor/overview#frequently-asked-questions)). To enable these logs for Communication Services, see [Enable logging in diagnostic settings](../enable-logging.md).
 
 ## Resource log categories
 
@@ -32,7 +32,7 @@ Communication Services offers the following types of logs that you can enable:
 
 A recording file is generated at the end of a call or meeting. Either a user or an app (bot) can start and stop the recording. The recording can also end because of a system failure.
 
-Summary logs are published after a recording is ready to be downloaded. The logs are published within the standard latency time for Azure Monitor resource logs. See [Log data ingestion time in Azure Monitor](../../../../azure-monitor/logs/data-ingestion-time.md#azure-metrics-resource-logs-activity-log).
+Summary logs are published after a recording is ready to be downloaded. The logs are published within the standard latency time for Azure Monitor resource logs. See [Log data ingestion time in Azure Monitor](/azure/azure-monitor/logs/data-ingestion-time#azure-metrics-resource-logs-activity-log).
 
 ### Usage log schema
 
@@ -175,7 +175,7 @@ Here's an example:
 "properties"
 {  "TimeGenerated": "2023-05-09T15:58:30.100Z",
     "Level": "Informational",
-    "CorrelationId": "a999f996-b4e1-xxxx-ac04-a59test87d97",
+    "CorrelationId": "aaaa0000-bb11-2222-33cc-444444dddddd",
     "OperationName": "ResumeCallRecording",
     "OperationVersion": "2023-03-06",
     "URI": "https://acsresouce.communication.azure.com/calling/recordings/   eyJQbGF0Zm9ybUVuZHBviI0MjFmMTIwMC04MjhiLTRmZGItOTZjYi0...:resume?api-version=2023-03-06",

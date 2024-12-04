@@ -4,9 +4,9 @@ titleSuffix: Azure Container Apps
 description: Learn how to make your Dapr components resilient in Azure Container Apps.
 services: container-apps
 author: hhunter-ms
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: conceptual
-ms.date: 02/22/2024
+ms.date: 11/19/2024
 ms.author: hannahhunter
 ms.custom: ignite-fall-2023, ignite-2023, devx-track-azurecli
 # Customer Intent: As a developer, I'd like to learn how to make my container apps resilient using Azure Container Apps.
@@ -91,7 +91,7 @@ resource myPolicyDoc 'Microsoft.App/managedEnvironments/daprComponents/resilienc
 
 ### Before you begin
 
-Log-in to the Azure CLI:
+Log in to the Azure CLI:
 
 ```azurecli
 az login
@@ -340,7 +340,11 @@ Click **Run** to run the query and view the result with the log message indicati
 
 :::image type="content" source="media/dapr-component-resiliency/dapr-resiliency-query-results-loading.png" alt-text="Screenshot showing resiliency query results based on provided query example for checking if resiliency policy has loaded.":::
 
-Or, you can find the actual resiliency policy by enabling debugging on your component and using a query similar to the following example:
+Or, you can find the actual resiliency policy by enabling debug logs on your container app and querying to see if a resiliency resource is loaded. 
+
+:::image type="content" source="media/dapr-component-resiliency/dapr-debug-logs.png" alt-text="Screenshot demonstrating how to enable debug logs on your container app via the portal.":::
+
+Once debug logs are enabled, use a query similar to the following:
 
 ```
 ContainerAppConsoleLogs_CL

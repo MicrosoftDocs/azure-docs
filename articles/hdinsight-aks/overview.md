@@ -2,14 +2,18 @@
 title: What is Azure HDInsight on AKS? (Preview)
 description: An introduction to Azure HDInsight on AKS.
 ms.custom: references_regions
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: overview
-ms.date: 02/06/2024
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # What is HDInsight on AKS? (Preview)
 
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
+
  
 HDInsight on AKS is a modern, reliable, secure, and fully managed Platform as a Service (PaaS) that runs on Azure Kubernetes Service (AKS). HDInsight on AKS allows you to deploy popular Open-Source Analytics workloads like Apache Spark™, Apache Flink®️, and Trino without the overhead of managing and monitoring containers.
 
@@ -76,22 +80,34 @@ For more information, see [HDInsight on AKS security](./concept-security.md).
  
 ## Region availability (public preview)
 
-* West Europe
+**Asia Pacific**
+* Australia East
 * Central India
-* UK South
+* East Asia
+* Japan East
 * Korea Central
+* Southeast Asia
+
+**Europe**
+* France Central
+* North Europe
+* Norway East
+* Switzerland North
+* UK South
+* West Europe
+
+**Americas**
+* Brazil South
+* Canada Central
+* Central US
+* East US
 * East US 2
+* East US 2 EUAP
+* South Central US 
+* West US
 * West US 2
 * West US 3
-* East US
-* East Asia
-* East US 2 EUAP
-* West US
-* Japan East
-* Australia East
-* Canada Central
-* North Europe
-* Brazil South
+
 
 > [!Note]
 > - The Trino brand and trademarks are owned and managed by the [Trino Software Foundation](https://trino.io/foundation.html). No endorsement by The Trino Software Foundation is implied by the use of these marks.

@@ -2,8 +2,8 @@
 title: Tutorial - Back up SAP HANA databases in Azure VMs 
 description: In this tutorial, learn how to back up SAP HANA databases running on Azure VM to an Azure Backup Recovery Services vault. 
 ms.topic: tutorial
-ms.date: 01/24/2024
-ms.service: backup
+ms.date: 10/14/2024
+ms.service: azure-backup
 ms.custom: engagement-fy24
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -30,23 +30,23 @@ Make sure you do the following before configuring backups:
 * Ensure that the combined length of the SAP HANA Server VM name and the Resource Group name doesn't exceed 84 characters for Azure Resource Manager (ARM_ VMs (and 77 characters for classic VMs). This limitation is because some characters are reserved by the service.
 * A key should exist in the **hdbuserstore** that fulfills the following criteria:
   * It should be present in the default **hdbuserstore**. The default is the `<sid>adm` account under which SAP HANA is installed.
-  * For MDC, the key should point to the SQL port of **NAMESERVER**. In the case of SDC, it should point to the SQL port of **INDEXSERVER**
+  * For MDC, the key should point to the SQL port of **NAMESERVER**. For SDC, it should point to the SQL port of **INDEXSERVER**
   * It should have credentials to add and delete users
   * Note that this key can be deleted after running the pre-registration script successfully
 * You could also choose to create a key for the existing HANA SYSTSEM user in **hdbuserstore** instead of creating a custom key as listed in the step above.
-* Run the SAP HANA backup configuration script (pre-registration script) in the virtual machine where HANA is installed, as the root user. [This script](https://go.microsoft.com/fwlink/?linkid=2173610) gets the HANA system ready for backup and requires the key you have created in the above steps to be passed as input. To understand how this input is to be passed as a parameter to the script, refer to the [What the pre-registration script does](#what-the-pre-registration-script-does) section. It also details about what the pre-registration script does.
-* If your HANA setup uses Private Endpoints, run the [pre-registration script](https://go.microsoft.com/fwlink/?linkid=2173610) with the *-sn* or *--skip-network-checks* parameter.
+* Run the SAP HANA backup configuration script (pre-registration script) in the virtual machine where HANA is installed, as the root user. [This script](https://aka.ms/ScriptForPermsOnHANA) gets the HANA system ready for backup and requires the key you have created in the above steps to be passed as input. To understand how this input is to be passed as a parameter to the script, refer to the [What the pre-registration script does](#what-the-pre-registration-script-does) section. It also details about what the pre-registration script does.
+* If your HANA setup uses Private Endpoints, run the [pre-registration script](https://aka.ms/ScriptForPermsOnHANA) with the *-sn* or *--skip-network-checks* parameter.
 
 >[!NOTE]
 >The preregistration script installs the **compat-unixODBC234** for SAP HANA workloads running on RHEL (7.4, 7.6 and 7.7) and **unixODBC** for RHEL 8.1. [This package is located in the RHEL for SAP HANA (for RHEL 7 Server) Update Services for SAP Solutions (RPMs) repo](https://access.redhat.com/solutions/5094721).  For an Azure Marketplace RHEL image the repo would be **rhui-rhel-sap-hana-for-rhel-7-server-rhui-e4s-rpms**.
 
-## Understanding backup and restore throughput performance
+## Understanding the backup and restore throughput performance
 
 The backups (log and non-log) in SAP HANA Azure VMs provided via Backint are streams to Azure Recovery Services vaults (which internally use Azure Storage Blob) and so it's important to understand this streaming methodology.
 
 The Backint component of HANA provides the 'pipes' (a pipe to read from and a pipe to write into), connected to underlying disks where database files reside, which are then read by the Azure Backup service and transported to Azure Recovery Services vault, which is a remote Azure Storage Account. The Azure Backup service also performs a checksum to validate the streams, in addition to the Backint native validation checks. These validations will make sure that the data present in Azure Recovery Services vault is indeed reliable and recoverable.
 
-Since the streams primarily deal with disks, you need to understand the disk performance for read and network performance to transfer backup data  to gauge the backup and restore performance. Refer to [this article](../virtual-machines/disks-performance.md) for an in-depth understanding of disk/network throughput and performance in Azure VMs. These are also applicable to backup and restore performance.
+Since the streams primarily deal with disks, you need to understand the disk performance for read and network performance to transfer backup data  to gauge the backup and restore performance. Refer to [this article](/azure/virtual-machines/disks-performance) for an in-depth understanding of disk/network throughput and performance in Azure VMs. These are also applicable to the backup and restore performance.
 
 **The Azure Backup service attempts to achieve upto ~420 MBps for non-log backups (such as full, differential and incremental) and upto 100 MBps for log backups for HANA**. As mentioned above, these aren't guaranteed speeds and depend on following factors:
 
@@ -103,7 +103,7 @@ Running the pre-registration script performs the following functions:
   * For MDC: DATABASE ADMIN and BACKUP ADMIN (from HANA 2.0 SPS05 onwards): to create new databases during restore.
   * For SDC: BACKUP ADMIN: to create new databases during restore.
   * CATALOG READ: to read the backup catalog.
-  * SAP_INTERNAL_HANA_SUPPORT: to access a few private tables. Only required for SDC and MDC versions below HANA 2.0 SPS04 Rev 46. This isn't required for HANA 2.0 SPS04 Rev 46 and above as we are getting the required information from public tables now with the fix from HANA team.
+  * SAP_INTERNAL_HANA_SUPPORT: to access a few private tables. Only required for SDC and MDC versions below HANA 2.0 SPS04 Rev 46. This isn't required for HANA 2.0 SPS04 Rev 46 and above as we're getting the required information from public tables now with the fix from HANA team.
 * Then add a key to hdbuserstore for your custom Backup user for the HANA backup plug-in to handle all operations (database queries, restore operations, configuring, and running backup). Pass this custom Backup user key to the script as a parameter: `-bk CUSTOM_BACKUP_KEY_NAME` or `-backup-key CUSTOM_BACKUP_KEY_NAME`.  _Note that the password expiry of this custom backup key could lead to backup and restore failures._
 * If your HANA `<sid>adm` user is an Active Directory (AD) user, create a *msawb* group in your AD and add the `<sid>adm` user to this group. You must now specify that `<sid>adm` is an AD user in the pre-registration script using the parameters: `-ad <SID>_ADM_USER or --ad-user <SID>_ADM_USER`.
 

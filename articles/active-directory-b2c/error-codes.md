@@ -6,12 +6,12 @@ description: A list of the error codes that can be returned by the Azure Active 
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: reference
 ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As a developer integrating Azure Active Directory B2C into my application, I want to understand the possible error codes and their meanings, so that I can handle them appropriately and provide a better user experience.
@@ -156,5 +156,5 @@ The following errors can be returned by the Azure Active Directory B2C service.
 | `AADB2C99013` | The supplied grant_type [{0}] and token_type [{1}] combination is not supported. |
 | `AADB2C99015` | Profile '{0}' in policy '{1}' in tenant '{2}' is missing all InputClaims required for resource owner password credential flow. | [Create a resource owner policy](add-ropc-policy.md#create-a-resource-owner-policy) |
 |`AADB2C99002`| User doesn't exist. Please sign up before you can sign in. |
-| `AADB2C99027` | Policy '{0}' does not contain a AuthorizationTechnicalProfile with a corresponding ClientAssertionType. | [Client credentials flow](client-credentials-grant-flow.md) |
+| `AADB2C99027` | Policy '{0}' does not contain an AuthorizationTechnicalProfile with a corresponding ClientAssertionType. | [Client credentials flow](client-credentials-grant-flow.md) |
 |`AADB2C90229`|Azure AD B2C throttled traffic if too many requests are sent from the same source in a short period of time| [Best practices for Azure Active Directory B2C](best-practices.md#testing) |

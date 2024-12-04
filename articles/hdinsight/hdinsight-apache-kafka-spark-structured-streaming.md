@@ -1,10 +1,10 @@
 ---
 title: 'Tutorial: Apache Spark Streaming & Apache Kafka - Azure HDInsight'
 description: Learn how to use Apache Spark streaming to get data into or out of Apache Kafka. In this tutorial, you stream data using a Jupyter Notebook from Spark on HDInsight.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive
-ms.date: 12/05/2023
+ms.date: 12/02/2024
 #Customer intent: As a developer, I want to learn how to use Spark Structured Streaming with Kafka on HDInsight.
 ---
 

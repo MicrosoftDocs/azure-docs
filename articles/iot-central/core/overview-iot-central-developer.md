@@ -3,9 +3,9 @@ title: Device connectivity guide
 description: This guide describes how IoT devices connect to and communicate with your IoT Central application. The article describes telemetry, properties, and commands.
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/01/2024
+ms.date: 10/21/2024
 ms.topic: conceptual
-ms.service: iot-central
+ms.service: azure-iot-central
 services: iot-central
 ms.custom: [mvc, device-developer, iot-central-frontdoor]
 
@@ -56,7 +56,7 @@ As you connect a device to IoT Central, it goes through the following stages: _r
 
 ### Register a device
 
-When you register a device with IoT Central, you tell IoT Central the ID of a device that you want to connect to the application. Optionally at this stage, you can assign the device to a [device template](concepts-device-templates.md) that declares the capabilities of the device to your application.
+When you register a device with IoT Central, you tell IoT Central the unique ID of the device that you want to connect to the application. Optionally at this stage, you can assign the device to a [device template](concepts-device-templates.md) that declares the capabilities of the device to your application.
 
 > [!TIP]
 > A device ID can contain letters, numbers, and the `-` character.
@@ -139,7 +139,7 @@ The following options support ephemeral device connections:
 
 - Connect devices and send telemetry by using HTTP:
 
-  IoT Central supports device clients that use the HTTP API to send telemetry. To learn more, see the [Send Device Event](/rest/api/iothub/device/send-device-event) API documentation.
+  IoT Central supports device clients that use the HTTP API to send telemetry. To learn more, see the [Send Device Event](/rest/api/iothub/device/device/send-device-event) API documentation.
 
   > [!NOTE]
   > Use DPS to provision and register your device with IoT Central before you use the HTTP API to send telemetry.

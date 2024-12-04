@@ -1,6 +1,6 @@
 ---
 author: dlepow
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: include
 ms.date: 02/02/2023
 ms.author: danlep

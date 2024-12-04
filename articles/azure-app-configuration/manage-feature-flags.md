@@ -1,5 +1,5 @@
 ---
-title: "Use Azure App Configuration to manage feature flags"
+title: Use Azure App Configuration to manage feature flags
 titleSuffix: Azure App Configuration
 description: In this quickstart, you learn how to manage feature flags separately from your application by using Azure App Configuration.
 services: azure-app-configuration
@@ -15,7 +15,7 @@ ms.custom: "devx-track-csharp, mvc"
 
 # Quickstart: Manage feature flags in Azure App Configuration
 
-Azure App Configuration includes feature flags, which you can use to enable or disable a functionality, and variant feature flags (preview), which allow multiple variations of a feature flag.
+Azure App Configuration includes feature flags, which you can use to enable or disable a functionality, and variant feature flags, which allow multiple variations of a feature flag.
 
 The Feature manager in the Azure portal provides a UI for creating and managing the feature flags and the variant feature flags that you use in your applications.
 
@@ -59,9 +59,9 @@ az appconfig feature set --name <name> --feature Beta
 
 ---
 
-## Create a variant feature flag (preview)
+## Create a variant feature flag
 
-Add a new variant feature flag (preview) by opening your Azure App Configuration store in the Azure portal and from the **Operations** menu, select **Feature manager** > **Create**. Then select **Variant feature flag (Preview)**.
+Add a new variant feature flag by opening your Azure App Configuration store in the Azure portal and from the **Operations** menu, select **Feature manager** > **Create**. Then select **Variant feature flag**.
 
 :::image type="content" source="media\manage-feature-flags\variant-feature-flags-menu.png" alt-text="Screenshot of the Azure platform. Create a variant feature flag.":::
 
@@ -143,5 +143,25 @@ Feature flags created with the Feature manager are stored as regular key-values.
 
 ## Next steps
 
+To start using feature flags with Azure App Configuration, continue to the following quickstarts specific to your application’s language or platform.
+
 > [!div class="nextstepaction"]
-> [Enable staged rollout of features for targeted audiences](./howto-targetingfilter-aspnet-core.md)
+> [ASP.NET Core](./quickstart-feature-flag-aspnet-core.md)
+
+> [!div class="nextstepaction"]
+> [.NET/.NET Framework](./quickstart-feature-flag-dotnet.md)
+
+> [!div class="nextstepaction"]
+> [.NET background service](./quickstart-feature-flag-dotnet-background-service.md)
+
+> [!div class="nextstepaction"]
+> [Java Spring](./quickstart-feature-flag-spring-boot.md)
+
+> [!div class="nextstepaction"]
+> [Python](./quickstart-feature-flag-python.md)
+
+> [!div class="nextstepaction"]
+> [Azure Kubernetes Service](./quickstart-feature-flag-azure-kubernetes-service.md)
+
+> [!div class="nextstepaction"]
+> [Azure Functions](./quickstart-feature-flag-azure-functions-csharp.md)

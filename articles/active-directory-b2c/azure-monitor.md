@@ -6,12 +6,12 @@ description: Learn how to log Azure AD B2C events with Azure Monitor by using de
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: how-to
 ms.author: kengaderdus
-ms.subservice: B2C
-ms.date: 01/11/2024
+ms.subservice: b2c
+ms.date: 09/11/2024
 ms.custom: "b2c-support"
 
 
@@ -26,7 +26,7 @@ Use Azure Monitor to route Azure Active Directory B2C (Azure AD B2C) sign in and
 You can route log events to:
 
 - An Azure [storage account](../storage/blobs/storage-blobs-introduction.md).
-- A [Log Analytics workspace](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace) (to analyze data, create dashboards, and alert on specific events).
+- A [Log Analytics workspace](/azure/azure-monitor/essentials/resource-logs#send-to-log-analytics-workspace) (to analyze data, create dashboards, and alert on specific events).
 - An Azure [event hub](../event-hubs/event-hubs-about.md) (and integrate with your Splunk and Sumo Logic instances).
 
 ![Azure Monitor](./media/azure-monitor/azure-monitor-flow.png)
@@ -43,12 +43,12 @@ Watch this video to learn how to configure monitoring for Azure AD B2C using Azu
 ## Deployment overview
 
 Azure AD B2C uses [Microsoft Entra monitoring](../active-directory/reports-monitoring/overview-monitoring-health.md). Unlike Microsoft Entra tenants, an Azure AD B2C tenant can't have a subscription associated with it. So, we need to take extra steps to enable the integration between Azure AD B2C and Log Analytics, which is where we send the logs.
-To enable _Diagnostic settings_ in Microsoft Entra ID within your Azure AD B2C tenant, you use [Azure Lighthouse](../lighthouse/overview.md) to [delegate a resource](../lighthouse/concepts/architecture.md), which allows your Azure AD B2C (the **Service Provider**) to manage a Microsoft Entra ID (the **Customer**) resource.
+To enable _Diagnostic settings_ in Microsoft Entra ID within your Azure AD B2C tenant, you use [Azure Lighthouse](/azure/lighthouse/overview) to [delegate a resource](/azure/lighthouse/concepts/architecture), which allows your Azure AD B2C (the **Service Provider**) to manage a Microsoft Entra ID (the **Customer**) resource.
 
 > [!TIP]
 > Azure Lighthouse is typically used to manage resources for multiple customers. However, it can also be used to manage resources **within an enterprise that has multiple Microsoft Entra tenants of its own**, which is what we are doing here, except that we are only delegating the management of single resource group.
 
-After you complete the steps in this article, you'll have created a new resource group (here called _azure-ad-b2c-monitor_) and have access to that same resource group that contains the [Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md) in your **Azure AD B2C** portal. You'll also be able to transfer the logs from Azure AD B2C to your Log Analytics workspace.
+After you complete the steps in this article, you'll have created a new resource group (here called _azure-ad-b2c-monitor_) and have access to that same resource group that contains the [Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace) in your **Azure AD B2C** portal. You'll also be able to transfer the logs from Azure AD B2C to your Log Analytics workspace.
 
 During this deployment, you'll authorize a user or group in your Azure AD B2C directory to configure the Log Analytics workspace instance within the tenant that contains your Azure subscription. To create the authorization, you deploy an [Azure Resource Manager](../azure-resource-manager/index.yml) template to the subscription that contains the Log Analytics workspace.
 
@@ -56,13 +56,13 @@ The following diagram depicts the components you'll configure in your Microsoft 
 
 ![Resource group projection](./media/azure-monitor/resource-group-projection.png)
 
-During this deployment, you'll configure your Azure AD B2C tenant where logs are generated. You'll also configure Microsoft Entra tenant where the Log Analytics workspace will be hosted. The Azure AD B2C accounts used (such as your admin account) should be assigned the [Global Administrator](../active-directory/roles/permissions-reference.md#global-administrator) role on the Azure AD B2C tenant. The Microsoft Entra account you'll use to run the deployment must be assigned the [Owner](../role-based-access-control/built-in-roles.md#owner) role in the Microsoft Entra subscription. It's also important to make sure you're signed in to the correct directory as you complete each step as described.
+During this deployment, you'll configure your Azure AD B2C tenant where logs are generated. You'll also configure Microsoft Entra tenant where the Log Analytics workspace will be hosted. The Azure AD B2C accounts used (such as your admin account) should be assigned the [Global Administrator](/entra/identity/role-based-access-control/permissions-reference#global-administrator) role on the Azure AD B2C tenant. The Microsoft Entra account you'll use to run the deployment must be assigned the [Owner](../role-based-access-control/built-in-roles.md#owner) role in the Microsoft Entra subscription. It's also important to make sure you're signed in to the correct directory as you complete each step as described.
 
 In summary, you'll use Azure Lighthouse to allow a user or group in your Azure AD B2C tenant to manage a resource group in a subscription associated with a different tenant (the Microsoft Entra tenant). After this authorization is completed, the subscription and log analytics workspace can be selected as a target in the Diagnostic settings in Azure AD B2C.
 
 ## Prerequisites 
 
-- An Azure AD B2C account with [Global Administrator](../active-directory/roles/permissions-reference.md#global-administrator) role on the Azure AD B2C tenant.
+- An Azure AD B2C account with [Global Administrator](/entra/identity/role-based-access-control/permissions-reference#global-administrator) role on the Azure AD B2C tenant.
 
 -  A Microsoft Entra account with the [Owner](../role-based-access-control/built-in-roles.md#owner) role in the Microsoft Entra subscription. See how to [Assign a user as an administrator of an Azure subscription](../role-based-access-control/role-assignments-portal-subscription-admin.yml). 
 
@@ -80,7 +80,7 @@ A **Log Analytics workspace** is a unique environment for Azure Monitor log data
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Microsoft Entra ID tenant from the **Directories + subscriptions** menu.
-1. [Create a Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md). This example uses a Log Analytics workspace named _AzureAdB2C_, in a resource group named _azure-ad-b2c-monitor_.
+1. [Create a Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace). This example uses a Log Analytics workspace named _AzureAdB2C_, in a resource group named _azure-ad-b2c-monitor_.
 
 ## 3. Delegate resource management
 
@@ -113,7 +113,7 @@ To create the custom authorization and delegation in Azure Lighthouse, we use an
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Microsoft Entra ID tenant from the **Directories + subscriptions** menu.
-1. Use the **Deploy to Azure** button to open the Azure portal and deploy the template directly in the portal. For more information, see [create an Azure Resource Manager template](../lighthouse/how-to/onboard-customer.md#create-an-azure-resource-manager-template).
+1. Use the **Deploy to Azure** button to open the Azure portal and deploy the template directly in the portal. For more information, see [create an Azure Resource Manager template](/azure/lighthouse/how-to/onboard-customer#create-an-azure-resource-manager-template).
 
    [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure-ad-b2c%2Fsiem%2Fmaster%2Ftemplates%2FrgDelegatedResourceManagement.json)
 
@@ -141,7 +141,7 @@ To create the custom authorization and delegation in Azure Lighthouse, we use an
    ]
    ```
 
-After you deploy the template, it can take a few minutes (typically no more than five) for the resource projection to complete. You can verify the deployment in your Microsoft Entra tenant and get the details of the resource projection. For more information, see [View and manage service providers](../lighthouse/how-to/view-manage-service-providers.md).
+After you deploy the template, it can take a few minutes (typically no more than five) for the resource projection to complete. You can verify the deployment in your Microsoft Entra tenant and get the details of the resource projection. For more information, see [View and manage service providers](/azure/lighthouse/how-to/view-manage-service-providers).
 
 ## 4. Select your subscription
 
@@ -161,9 +161,9 @@ After you've deployed the template and waited a few minutes for the resource pro
 
 Diagnostic settings define where logs and metrics for a resource should be sent. Possible destinations are:
 
-- [Azure storage account](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)
-- [Event hubs](../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs) solutions
-- [Log Analytics workspace](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace)
+- [Azure storage account](/azure/azure-monitor/essentials/resource-logs#send-to-azure-storage)
+- [Event hubs](/azure/azure-monitor/essentials/resource-logs#send-to-azure-event-hubs) solutions
+- [Log Analytics workspace](/azure/azure-monitor/essentials/resource-logs#send-to-log-analytics-workspace)
 
 In this example, we use the Log Analytics workspace to create a dashboard.
 
@@ -194,7 +194,7 @@ To configure monitoring settings for Azure AD B2C activity logs:
 1. Select **Save**.
 
 > [!NOTE]
-> It can take up to 15 minutes after an event is emitted for it to [appear in a Log Analytics workspace](../azure-monitor/logs/data-ingestion-time.md). Also, learn more about [Active Directory reporting latencies](../active-directory/reports-monitoring/reference-azure-ad-sla-performance.md), which can impact the staleness of data and play an important role in reporting.
+> It can take up to 15 minutes after an event is emitted for it to [appear in a Log Analytics workspace](/azure/azure-monitor/logs/data-ingestion-time). Also, learn more about [Active Directory reporting latencies](../active-directory/reports-monitoring/reference-azure-ad-sla-performance.md), which can impact the staleness of data and play an important role in reporting.
 
 If you see the error message, _To set up Diagnostic settings to use Azure Monitor for your Azure AD B2C directory, you need to set up delegated resource management_, make sure you sign in with a user who is a member of the [security group](#32-select-a-security-group) and [select your subscription](#4-select-your-subscription).
 
@@ -204,7 +204,7 @@ Now you can configure your Log Analytics workspace to visualize your data and co
 
 ### 6.1 Create a Query
 
-Log queries help you to fully use the value of the data collected in Azure Monitor Logs. A powerful query language allows you to join data from multiple tables, aggregate large sets of data, and perform complex operations with minimal code. Virtually any question can be answered and analysis performed as long as the supporting data has been collected, and you understand how to construct the right query. For more information, see [Get started with log queries in Azure Monitor](../azure-monitor/logs/get-started-queries.md).
+Log queries help you to fully use the value of the data collected in Azure Monitor Logs. A powerful query language allows you to join data from multiple tables, aggregate large sets of data, and perform complex operations with minimal code. Virtually any question can be answered and analysis performed as long as the supporting data has been collected, and you understand how to construct the right query. For more information, see [Get started with log queries in Azure Monitor](/azure/azure-monitor/logs/get-started-queries).
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Microsoft Entra ID tenant from the **Directories + subscriptions** menu.
@@ -253,7 +253,7 @@ For more samples, see the Azure AD B2C [SIEM GitHub repo](https://aka.ms/b2csiem
 
 ### 6.2 Create a Workbook
 
-Workbooks provide a flexible canvas for data analysis and the creation of rich visual reports within the Azure portal. They allow you to tap into multiple data sources from across Azure, and combine them into unified interactive experiences. For more information, see [Azure Monitor Workbooks](../azure-monitor/visualize/workbooks-overview.md).
+Workbooks provide a flexible canvas for data analysis and the creation of rich visual reports within the Azure portal. They allow you to tap into multiple data sources from across Azure, and combine them into unified interactive experiences. For more information, see [Azure Monitor Workbooks](/azure/azure-monitor/visualize/workbooks-overview).
 
 Follow the instructions below to create a new workbook using a JSON Gallery Template. This workbook provides a **User Insights** and **Authentication** dashboard for Azure AD B2C tenant.
 
@@ -285,9 +285,9 @@ The workbook will display reports in the form of a dashboard.
 
 ## Create alerts
 
-Alerts are created by alert rules in Azure Monitor and can automatically run saved queries or custom log searches at regular intervals. You can create alerts based on specific performance metrics or when certain events occur. You can also create alerts on absence of an event, or when a number of events occur within a particular time window. For example, alerts can be used to notify you when average number of sign-ins exceeds a certain threshold. For more information, see [Create alerts](../azure-monitor/alerts/alerts-create-new-alert-rule.md).
+Alerts are created by alert rules in Azure Monitor and can automatically run saved queries or custom log searches at regular intervals. You can create alerts based on specific performance metrics or when certain events occur. You can also create alerts on absence of an event, or when a number of events occur within a particular time window. For example, alerts can be used to notify you when average number of sign-ins exceeds a certain threshold. For more information, see [Create alerts](/azure/azure-monitor/alerts/alerts-create-new-alert-rule).
 
-Use the following instructions to create a new Azure Alert, which will send an [email notification](../azure-monitor/alerts/action-groups.md) whenever there's a 25% drop in the **Total Requests** compared to previous period. Alert will run every 5 minutes and look for the drop in the last hour compared to the hour before it. The alerts are created using Kusto query language.
+Use the following instructions to create a new Azure Alert, which will send an [email notification](/azure/azure-monitor/alerts/action-groups) whenever there's a 25% drop in the **Total Requests** compared to previous period. Alert will run every 5 minutes and look for the drop in the last hour compared to the hour before it. The alerts are created using Kusto query language.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Microsoft Entra ID tenant from the **Directories + subscriptions** menu.
@@ -316,13 +316,13 @@ Use the following instructions to create a new Azure Alert, which will send an [
    - Alert logic: Set **Number of results** **Greater than** **0**.
    - Evaluation based on: Select **120** for Period (in minutes) and **5** for Frequency (in minutes)
 
-   ![Create a alert rule condition](./media/azure-monitor/alert-create-rule-condition.png)
+   ![Create an alert rule condition](./media/azure-monitor/alert-create-rule-condition.png)
 
 After the alert is created, go to **Log Analytics workspace** and select **Alerts**. This page displays all the alerts that have been triggered in the duration set by **Time range** option.
 
 ### Configure action groups
 
-Azure Monitor and Service Health alerts use action groups to notify users that an alert has been triggered. You can include sending a voice call, SMS, email; or triggering various types of automated actions. Follow the guidance [Create and manage action groups in the Azure portal](../azure-monitor/alerts/action-groups.md)
+Azure Monitor and Service Health alerts use action groups to notify users that an alert has been triggered. You can include sending a voice call, SMS, email; or triggering various types of automated actions. Follow the guidance [Create and manage action groups in the Azure portal](/azure/azure-monitor/alerts/action-groups)
 
 Here's an example of an alert notification email.
 
@@ -332,7 +332,7 @@ Here's an example of an alert notification email.
 
 To onboard multiple Azure AD B2C tenant logs to the same Log Analytics Workspace (or Azure storage account, or event hub), you'll need separate deployments with different **Msp Offer Name** values. Make sure your Log Analytics workspace is in the same resource group as the one you configured in [Create or choose resource group](#1-create-or-choose-resource-group).
 
-When working with multiple Log Analytics workspaces, use [Cross Workspace Query](../azure-monitor/logs/cross-workspace-query.md) to create queries that work across multiple workspaces. For example, the following query performs a join of two Audit logs from different tenants based on the same Category (for example, Authentication):
+When working with multiple Log Analytics workspaces, use [Cross Workspace Query](/azure/azure-monitor/logs/cross-workspace-query) to create queries that work across multiple workspaces. For example, the following query performs a join of two Audit logs from different tenants based on the same Category (for example, Authentication):
 
 ```kusto
 workspace("AD-B2C-TENANT1").AuditLogs
@@ -342,7 +342,7 @@ workspace("AD-B2C-TENANT1").AuditLogs
 
 ## Change the data retention period
 
-Azure Monitor Logs are designed to scale and support collecting, indexing, and storing massive amounts of data per day from any source in your enterprise or deployed in Azure. By default, logs are retained for 30 days, but retention duration can be increased to up to two years. Learn how to [manage usage and costs with Azure Monitor Logs](../azure-monitor/logs/cost-logs.md). After you select the pricing tier, you can [Change the data retention period](../azure-monitor/logs/data-retention-archive.md).
+Azure Monitor Logs are designed to scale and support collecting, indexing, and storing massive amounts of data per day from any source in your enterprise or deployed in Azure. By default, logs are retained for 30 days, but retention duration can be increased to up to two years. Learn how to [manage usage and costs with Azure Monitor Logs](/azure/azure-monitor/logs/cost-logs). After you select the pricing tier, you can [Change the data retention period](/azure/azure-monitor/logs/data-retention-configure).
 
 ## Disable monitoring data collection
 
@@ -353,12 +353,12 @@ To stop collecting logs to your Log Analytics workspace, delete the diagnostic s
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Microsoft Entra ID tenant from the **Directories + subscriptions** menu.
 1. Choose the resource group that contains the Log Analytics workspace. This example uses a resource group named _azure-ad-b2c-monitor_ and a Log Analytics workspace named `AzureAdB2C`.
-1. [Delete the Logs Analytics workspace](../azure-monitor/logs/delete-workspace.md).
+1. [Delete the Logs Analytics workspace](/azure/azure-monitor/logs/delete-workspace).
 1. Select the **Delete** button to delete the resource group.
 ## Next steps
 
 - Find more samples in the Azure AD B2C [SIEM gallery](https://aka.ms/b2csiem).
 
-- For more information about adding and configuring diagnostic settings in Azure Monitor, see [Tutorial: Collect and analyze resource logs from an Azure resource](../azure-monitor/essentials/monitor-azure-resource.md).
+- For more information about adding and configuring diagnostic settings in Azure Monitor, see [Tutorial: Collect and analyze resource logs from an Azure resource](/azure/azure-monitor/essentials/monitor-azure-resource).
 
 - For information about streaming Microsoft Entra logs to an event hub, see [Tutorial: Stream Microsoft Entra logs to an Azure event hub](../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md).

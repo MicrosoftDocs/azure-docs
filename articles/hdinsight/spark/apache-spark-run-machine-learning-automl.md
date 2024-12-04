@@ -1,19 +1,19 @@
 ---
 title: Run Azure Machine Learning workloads on Apache Spark in HDInsight
 description: Learn how to run Azure Machine Learning workloads with automated machine learning (AutoML) on Apache Spark in Azure HDInsight.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
-ms.date: 10/16/2023
+ms.date: 10/17/2024
 ---
 
 # Run Azure Machine Learning workloads with automated machine learning on Apache Spark in HDInsight
 
-Azure Machine Learning simplifies and accelerates the building, training, and deployment of machine learning models. In automated machine learning (AutoML), you start with training data that has a defined target feature. Iterate through combinations of algorithms and feature selections automatically select the best model for your data based on the training scores. HDInsight allows customers to provision clusters with hundreds of nodes. AutoML running on Spark in an HDInsight cluster allows users to use compute capacity across these nodes to run training jobs in a scale-out fashion, and to run multiple training jobs in parallel. It allows users to run AutoML experiments while sharing the compute with their other big data workloads.
+Azure Machine Learning simplifies and accelerates the building, training, and deployment of machine learning models. In automated machine learning (AutoML), you start with training data that has a defined target feature. Iterate through combinations of algorithms and feature selections automatically select the best model for your data based on the training scores. HDInsight allows customers to provision clusters with hundreds of nodes. AutoML running on Spark in a HDInsight cluster allows users to use compute capacity across these nodes to run training jobs in a scale-out fashion, and to run multiple training jobs in parallel. It allows users to run AutoML experiments while sharing the compute with their other big data workloads.
 
-## Install Azure Machine Learning on an HDInsight cluster
+## Install Azure Machine Learning on a HDInsight cluster
 
-For general tutorials of automated machine learning, see [Tutorial: Use automated machine learning to build your regression model](../../machine-learning/tutorial-auto-train-models.md).
-All new HDInsight-Spark clusters come pre-installed with AzureML-AutoML SDK.
+For general tutorials of automated machine learning, see [Tutorial: Use automated machine learning to build your regression model](/azure/machine-learning/tutorial-auto-train-models).
+All new HDInsight-Spark clusters come preinstalled with AzureML-AutoML SDK.
 
 > [!Note]
 > Azure Machine Learning packages are installed into Python3 conda environment. The installed Jupyter Notebook should be run using the PySpark3 kernel.
@@ -22,7 +22,7 @@ You can use Zeppelin notebooks to use AutoML as well.
 
 ## Authentication for workspace
 
-Workspace creation and experiment submission require an authentication token. This token can be generated using an [Microsoft Entra application](../../active-directory/develop/app-objects-and-service-principals.md). An [Microsoft Entra user](/azure/developer/python/sdk/authentication-overview) can also be used to generate the required authentication token, if multi-factor authentication isn't enabled on the account.  
+Workspace creation and experiment submission require an authentication token. This token can be generated using an [Microsoft Entra application](../../active-directory/develop/app-objects-and-service-principals.md). An [Microsoft Entra user](/azure/developer/python/sdk/authentication-overview) can also be used to generate the required authentication token, if multifactor authentication isn't enabled on the account.  
 
 The following code snippet creates an authentication token using an **Microsoft Entra application**.
 

@@ -4,7 +4,7 @@ description: Learn how to import, duplicate or create a new Azure Managed Grafan
 #customerintent: As a developer of data analyst, I want to learn how to create and configure an Azure Managed Grafana dashboard so that I can visualize data from several sources in a dashboard.
 author: maud-lv
 ms.author: malev
-ms.service: managed-grafana
+ms.service: azure-managed-grafana
 ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 04/12/2024

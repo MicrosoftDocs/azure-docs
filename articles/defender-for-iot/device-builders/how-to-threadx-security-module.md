@@ -9,6 +9,8 @@ ms.date: 04/17/2024
 
 This article describes how to configure the Defender-IoT-micro-agent for your Eclipse ThreadX device, to meet your network, bandwidth, and memory requirements.
 
+[!INCLUDE [device-agents-note](../includes/device-agents-note.md)]
+
 ## Configuration steps
 
 You must select a target distribution file that has a `*.dist` extension, from the `netxduo/addons/azure_iot/azure_iot_security_module/configs` directory.  

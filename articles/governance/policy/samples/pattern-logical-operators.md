@@ -8,14 +8,14 @@ ms.topic: sample
 
 A policy definition can contain several conditional statements. You might need each statement to be
 true or only need some of them to be true. To support these needs, the language has
-[logical operators](../concepts/definition-structure.md#logical-operators) for **not**, **allOf**,
+[logical operators](../concepts/definition-structure-policy-rule.md#logical-operators) for **not**, **allOf**,
 and **anyOf**. They're optional and can be nested to create complex scenarios.
 
 ## Sample 1: One logical operator
 
-This policy definition evaluates [Azure Cosmos DB](../../../cosmos-db/introduction.md) accounts to
+This policy definition evaluates [Azure Cosmos DB](/azure/cosmos-db/introduction) accounts to
 see whether automatic failovers and multiple write locations are configured. When they aren't, the
-[audit](../concepts/effects.md#audit) triggers and creates a log entry when the non-compliant
+[audit](../concepts/effect-audit.md) triggers and creates a log entry when the non-compliant
 resource is created or updated.
 
 :::code language="json" source="~/policy-templates/patterns/pattern-logical-operators-1.json":::
@@ -30,7 +30,7 @@ Only when all of these conditions evaluate to true does the **audit** effect tri
 ## Sample 2: Multiple logical operators
 
 This policy definition evaluates resources for a naming pattern. If a resource doesn't match, it's
-[denied](../concepts/effects.md#deny).
+[denied](../concepts/effect-deny.md).
 
 :::code language="json" source="~/policy-templates/patterns/pattern-logical-operators-2.json":::
 
@@ -62,5 +62,5 @@ conditions in the **anyOf** are true, the policy effect triggers.
 ## Next steps
 
 - Review other [patterns and built-in definitions](./index.md).
-- Review the [Azure Policy definition structure](../concepts/definition-structure.md).
-- Review [Understanding policy effects](../concepts/effects.md).
+- Review the [Azure Policy definition structure](../concepts/definition-structure-basics.md).
+- Review [Understanding policy effects](../concepts/effect-basics.md).

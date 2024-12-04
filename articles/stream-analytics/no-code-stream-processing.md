@@ -3,7 +3,7 @@ title: No-code stream processing in Azure Stream Analytics
 description: Learn about processing your real-time data streams by using the Azure Stream Analytics no-code editor.
 author: xujxu
 ms.author: xujiang1
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.custom: mvc
 ms.date: 7/5/2023
@@ -19,7 +19,7 @@ With the no-code editor, you can easily:
 - Perform data preparation operations like joins and filters.
 - Approach advanced scenarios like time-window aggregations (tumbling, hopping, and session windows) for group-by operations.
 
-After you create and run your Stream Analytics jobs, you can easily operationalize production workloads. Use the right set of [built-in metrics](stream-analytics-job-metrics.md) for monitoring and troubleshooting purposes. Stream Analytics jobs are billed according to the [pricing model](https://azure.microsoft.com/pricing/details/stream-analytics/) when they're running.
+After you create and run your Stream Analytics jobs, you can easily operationalize production workloads. Use the right set of [built-in metrics](monitor-azure-stream-analytics-reference.md#metrics) for monitoring and troubleshooting purposes. Stream Analytics jobs are billed according to the [pricing model](https://azure.microsoft.com/pricing/details/stream-analytics/) when they're running.
 
 ## Prerequisites
 
@@ -410,7 +410,7 @@ If the job is running, you can monitor the health of your job on the **Metrics**
 
 :::image type="content" source="./media/no-code-stream-processing/metrics-nocode.png" alt-text="Screenshot that shows the metrics for a job created from the no-code editor." lightbox= "./media/no-code-stream-processing/metrics-nocode.png" :::
 
-You can select more metrics from the list. To understand all the metrics in detail, see [Azure Stream Analytics job metrics](stream-analytics-job-metrics.md).
+You can select more metrics from the list. To understand all the metrics in detail, see [Azure Stream Analytics job metrics](monitor-azure-stream-analytics-reference.md#metrics).
 
 ## Start a Stream Analytics job
 
@@ -447,7 +447,7 @@ These are the elements of the **Stream Analytics jobs** tab:
 - **Status**: This area shows the status of the job. Select **Refresh** on top of the list to see the latest status.
 - **Streaming units**: This area shows the number of streaming units that you selected when you started the job.
 - **Output watermark**: This area provides an indicator of liveliness for the data that the job has produced. All events before the time stamp are already computed.
-- **Job monitoring**: Select **Open metrics** to see the metrics related to this Stream Analytics job. For more information about the metrics that you can use to monitor your Stream Analytics job, see [Azure Stream Analytics job metrics](./stream-analytics-job-metrics.md).
+- **Job monitoring**: Select **Open metrics** to see the metrics related to this Stream Analytics job. For more information about the metrics that you can use to monitor your Stream Analytics job, see [Azure Stream Analytics job metrics](monitor-azure-stream-analytics-reference.md#metrics).
 - **Operations**: Start, stop, or delete the job.
 
 ## Next steps

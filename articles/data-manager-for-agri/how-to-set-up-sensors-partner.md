@@ -3,9 +3,9 @@ title: Sensor partner integration in Azure Data Manager for Agriculture
 description: Provides guidance to set up your sensors as a partner
 author: gourdsay
 ms.author: angour
-ms.service: data-manager-for-agri
+ms.service: azure-data-manager-agriculture
 ms.topic: how-to
-ms.date: 06/19/2023
+ms.date: 05/23/2024
 ms.custom: template-how-to
 ---
 
@@ -50,7 +50,7 @@ Follow the steps provided in [Add a client secret](/azure/active-directory/devel
 
 ### Registration
 
-Once the partner has created a multi-tenant Microsoft Entra app successfully, partners manually share the APP ID and Partner ID with Data Manager for Agriculture by emailing madma@microsoft.com alias. Using this information Data Manager for Agriculture validates if it’s an authentic partner and creating a partner identity (sensorPartnerId) using the internal APIs. As part of the registration process, partners are enabled to use their partner ID (sensorPartnerId) while creating the sensor/devices object and also as part of the sensor data that they push.
+Once the partner has created a multi-tenant Microsoft Entra app successfully, partners manually share the APP ID and Partner ID with Data Manager for Agriculture team by creating a [support ticket](how-to-create-azure-support-request.md). Using this information Data Manager for Agriculture validates if it’s an authentic partner and creating a partner identity (sensorPartnerId) using the internal APIs. As part of the registration process, partners are enabled to use their partner ID (sensorPartnerId) while creating the sensor/devices object and also as part of the sensor data that they push.
 
 Getting the partner ID marks the completion of partner-Data Manager for Agriculture integration. Now, the partner waits for input from any of their sensor customers to initiate their data ingestion into Data Manager for Agriculture.
 

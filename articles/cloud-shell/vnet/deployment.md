@@ -2,7 +2,7 @@
 description: This article provides step-by-step instructions to deploy Azure Cloud Shell in a private virtual network.
 ms.contributor: jahelmic
 ms.date: 05/03/2024
-ms.topic: article
+ms.topic: how-to
 ms.custom: devx-track-arm-template
 title: Deploy Azure Cloud Shell in a virtual network with quickstart templates
 ---
@@ -160,9 +160,9 @@ Fill out the form with the following information:
 | **Existing VNET Name**              | Fill in the value from the prerequisite information that you gathered.<br>The example in this article uses `vnet-cloudshell-eastus`.                   |
 | **Relay Namespace Name**            | Create a name that you want to assign to the Relay resource that the template creates.<br>The example in this article uses `arn-cloudshell-eastus`. |
 | **Nsg Name**                        | Enter the name of the NSG. The deployment creates this NSG and assigns an access rule to it.                          |
-| **Azure Container Instance OID**    | Fill in the value from the prerequisite information that you gathered.<br>The example in this article uses `8fe7fd25-33fe-4f89-ade3-0e705fcf4370`.     |
+| **Azure Container Instance OID**    | Fill in the value from the prerequisite information that you gathered.<br>The example in this article uses `aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb`.     |
 | **Container Subnet Name**           | Defaults to `cloudshellsubnet`. Enter the name of the subnet for your container.                                                               |
-| **Container Subnet Address Prefix** | The example in this article uses `10.1.0.0/16`, which provides 65,543 IP addresses for Cloud Shell instances.                                          |
+| **Container Subnet Address Prefix** | The example in this article uses `10.0.1.0/24`, which provides 254 IP addresses for Cloud Shell instances.                                          |
 | **Relay Subnet Name**               | Defaults to `relaysubnet`. Enter the name of the subnet that contains your relay.                                                                 |
 | **Relay Subnet Address Prefix**     | The example in this article uses `10.0.2.0/24`.                                                                                                        |
 | **Storage Subnet Name**             | Defaults to `storagesubnet`. Enter the name of the subnet that contains your storage.                                                             |

@@ -6,10 +6,10 @@ ms.topic: sample
 ---
 # Azure Policy pattern: tags
 
-[Tags](../../../azure-resource-manager/management/tag-resources.md) are an important part of
+[Tags](/azure/azure-resource-manager/management/tag-resources) are an important part of
 managing, organizing, and governing your Azure resources. Azure Policy makes it possible to
 configure tags on your new and existing resources at scale with the
-[modify](../concepts/effects.md#modify) effect and
+[modify](../concepts/effect-modify.md) effect and
 [remediation tasks](../how-to/remediate-resources.md).
 
 ## Sample 1: Parameterize tags
@@ -31,7 +31,7 @@ for any number of tag name and tag value combinations, but only maintain a singl
 
 In this sample, **mode** is set to _All_ since it targets a resource group. In most cases, **mode**
 should be set to _Indexed_ when working with tags. For more information, see
-[modes](../concepts/definition-structure.md#resource-manager-modes).
+[modes](../concepts/definition-structure-basics.md#resource-manager-modes).
 
 :::code language="json" source="~/policy-templates/patterns/pattern-tags-1.json" range="26-36" highlight="7-8":::
 
@@ -58,7 +58,7 @@ the parent resource group.
 
 In this sample, **mode** is set to _Indexed_ since it doesn't target a resource group or
 subscription even though it gets the value from a resource group. For more information, see
-[modes](../concepts/definition-structure.md#resource-manager-modes).
+[modes](../concepts/definition-structure-basics.md#mode).
 
 :::code language="json" source="~/policy-templates/patterns/pattern-tags-2.json" range="19-29" highlight="3-4,7-8":::
 
@@ -78,5 +78,5 @@ update existing resources.
 ## Next steps
 
 - Review other [patterns and built-in definitions](./index.md).
-- Review the [Azure Policy definition structure](../concepts/definition-structure.md).
-- Review [Understanding policy effects](../concepts/effects.md).
+- Review the [Azure Policy definition structure](../concepts/definition-structure-basics.md).
+- Review [Understanding policy effects](../concepts/effect-basics.md).

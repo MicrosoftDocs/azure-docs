@@ -1,9 +1,9 @@
 ---
 title: Bicep CLI commands and overview
 description: Describes the commands that you can use in the Bicep CLI. These commands include building Azure Resource Manager templates from Bicep.
-ms.topic: conceptual
+ms.topic: reference
 ms.custom: devx-track-azurecli, devx-track-bicep, devx-track-arm-template
-ms.date: 01/02/2024
+ms.date: 10/30/2024
 ---
 
 # Bicep CLI commands
@@ -15,6 +15,13 @@ This article shows how to run the commands in Azure CLI. When running through Az
 ## build
 
 The `build` command converts a Bicep file to an Azure Resource Manager template (ARM template). Typically, you don't need to run this command because it runs automatically when you deploy a Bicep file. Run it manually when you want to see the ARM template JSON that is created from your Bicep file.
+
+Using any of following Bicep features automatically enables language version 2.0 code generation:
+
+* [user-defined types](../bicep/user-defined-data-types.md)
+* [user-defined functions](../bicep/user-defined-functions.md)
+* [compile-time imports](../bicep/bicep-import.md)
+* [experimental features](../bicep/bicep-config.md#enable-experimental-features)
 
 The following example converts a Bicep file named _main.bicep_ to an ARM template named _main.json_. The new file is created in the same directory as the Bicep file.
 
@@ -132,6 +139,100 @@ To install a specific version:
 ```azurecli
 az bicep install --version v0.3.255
 ```
+
+## jsonrpc
+
+The `jsonrpc` command enables running the Bicep CLI with a JSON-RPC interface, allowing for programmatic interaction with structured output and avoiding cold-start delays when compiling multiple files. This setup also supports building libraries to interact with Bicep files programmatically in non-.NET languages.
+
+The wire format for sending and receiving input/output is header-delimited, using the following structure, where `\r` and `\n` represent carriage return and line feed characters:
+
+```
+Content-Length: <length>\r\n\r\n<message>\r\n\r\n
+```
+
+* `<length>` is the length of the `<message>` string, including the trailing `\r\n\r\n`.
+* `<message>` is the raw JSON message.
+
+For example:
+
+```
+Content-Length: 72\r\n\r\n{"jsonrpc": "2.0", "id": 0, "method": "bicep/version", "params": {}}\r\n\r\n
+```
+
+The following message shows an example for Bicep version.
+
+* The input:
+
+  ```json
+  {
+    "jsonrpc": "2.0",
+    "id": 0,
+    "method": "bicep/version",
+    "params": {}
+  }
+  ```
+  
+* The output:
+
+  ```json
+  {
+    "jsonrpc": "2.0",
+    "id": 0,
+    "result": {
+      "version": "0.24.211"
+    }
+  }
+  ```
+
+For the available methods & request/response bodies, see [`ICliJsonRpcProtocol.cs`](https://github.com/Azure/bicep/blob/main/src/Bicep.Cli/Rpc/ICliJsonRpcProtocol.cs).
+For an example establishing a JSONRPC connection and interacting with Bicep files programmatically using Node, see [`jsonrpc.test.ts`](https://github.com/Azure/bicep/blob/main/src/Bicep.Cli.E2eTests/src/jsonrpc.test.ts).
+
+### Usage for named pipe
+
+Use the following syntax to connect to an existing named pipe as a JSONRPC client.
+
+```bicep cli
+bicep jsonrpc --pipe <named_pipe>`
+```
+
+`<named_pipe>` is an existing named pipe to connect the JSONRPC client to.
+
+To connect to a named pipe on OSX/Linux :
+
+```bicep cli
+bicep jsonrpc --pipe /tmp/bicep-81375a8084b474fa2eaedda1702a7aa40e2eaa24b3.sock
+```
+
+To connect to a named pipe on Windows :
+
+```bicep cli
+bicep jsonrpc --pipe \\.\pipe\\bicep-81375a8084b474fa2eaedda1702a7aa40e2eaa24b3.sock`
+```
+
+For more examples, see [C#](https://github.com/Azure/bicep/blob/096c32f9d5c42bfb85dff550f72f3fe16f8142c7/src/Bicep.Cli.IntegrationTests/JsonRpcCommandTests.cs#L24-L50) and [node.js](https://github.com/anthony-c-martin/bicep-node/blob/4769e402f2d2c1da8d27df86cb3d62677e7a7456/src/utils/jsonrpc.ts#L117-L151).
+
+### Usage for TCP socket
+
+Use the following syntax to connect to an existing TCP socket as a JSONRPC client.
+
+```bicep cli
+bicep jsonrpc --socket <tcp_socket>
+```
+
+`<tcp_socket>` is a socket number to connect the JSONRPC client to.
+
+To connect to a TCP socket
+
+`bicep jsonrpc --socket 12345`
+
+### Usage for stdin and stdout
+
+Use the following syntax to run the JSONRPC interface using stdin & stdout for messages.
+
+```bicep cli
+bicep jsonrpc --stdio
+```
+
 ## lint
 
 The `lint` command returns the errors and the [linter rule](./linter.md) violations of a Bicep file.
@@ -171,6 +272,16 @@ The command returns an array of available versions.
 
 ```azurecli
 [
+  "v0.28.1",
+  "v0.27.1",
+  "v0.26.170",
+  "v0.26.54",
+  "v0.25.53",
+  "v0.25.3",
+  "v0.24.24",
+  "v0.23.1",
+  "v0.22.6",
+  "v0.21.1",
   "v0.20.4",
   "v0.19.5",
   "v0.18.4",
@@ -190,17 +301,7 @@ The command returns an array of available versions.
   "v0.9.1",
   "v0.8.9",
   "v0.8.2",
-  "v0.7.4",
-  "v0.6.18",
-  "v0.6.11",
-  "v0.6.1",
-  "v0.5.6",
-  "v0.4.1318",
-  "v0.4.1272",
-  "v0.4.1124",
-  "v0.4.1008",
-  "v0.4.613",
-  "v0.4.451"
+  "v0.7.4"
 ]
 ```
 
@@ -256,19 +357,19 @@ module stgModule 'br:exampleregistry.azurecr.io/bicep/modules/storage:v1' = {
 
 The local cache is found in:
 
-- On Windows
+* On Windows
 
     ```path
     %USERPROFILE%\.bicep\br\<registry-name>.azurecr.io\<module-path\<tag>
     ```
 
-- On Linux
+* On Linux
 
     ```path
     /home/<username>/.bicep
     ```
 
-- On Mac
+* On Mac
 
     ```path
     ~/.bicep
@@ -310,6 +411,6 @@ If the Bicep CLI hasn't been installed, you'll encounter an error message statin
 
 To learn about deploying a Bicep file, see:
 
-- [Azure CLI](deploy-cli.md)
-- [Cloud Shell](deploy-cloud-shell.md)
-- [PowerShell](deploy-powershell.md)
+* [Azure CLI](deploy-cli.md)
+* [Cloud Shell](deploy-cloud-shell.md)
+* [PowerShell](deploy-powershell.md)

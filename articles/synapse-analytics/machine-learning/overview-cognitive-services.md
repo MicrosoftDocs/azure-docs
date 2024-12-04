@@ -1,10 +1,10 @@
 ---
 title: Azure AI services in Azure Synapse Analytics
 description: Enrich your data with artificial intelligence (AI) in Azure Synapse Analytics using pretrained models from Azure AI services.
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: machine-learning
 ms.topic: overview
-ms.reviewer: sngun, garye, negust, ruxu, jessiwang
+ms.reviewer: whhender, garye, negust, ruxu, jessiwang
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.date: 05/13/2024
@@ -479,7 +479,7 @@ display(
 
 ## Get information from arbitrary web APIs
 
-With HTTP on Spark, any web service can be used in your big data pipeline. In this example, we use the [World Bank API](http://api.worldbank.org/v2/country/) to get information about various countries around the world.
+With HTTP on Spark, any web service can be used in your big data pipeline. In this example, we use the [World Bank API](http://api.worldbank.org/v2/country/) to get information about various countries/regions around the world.
 
 ```python
 # Use any requests from the python requests library
@@ -489,7 +489,7 @@ def world_bank_request(country):
         "GET", "http://api.worldbank.org/v2/country/{}?format=json".format(country)
     )
 
-# Create a dataframe with specifies which countries we want data on
+# Create a dataframe with specifies which countries/regions we want data on
 df = spark.createDataFrame([("br",), ("usa",)], ["country"]).withColumn(
     "request", http_udf(world_bank_request)(col("country"))
 )
@@ -504,7 +504,7 @@ client = (
 def get_response_body(resp):
     return resp.entity.content.decode()
 
-# Show the details of the country data returned
+# Show the details of the country/region data returned
 display(
     client.transform(df).select(
         "country", udf(get_response_body)(col("response")).alias("response")

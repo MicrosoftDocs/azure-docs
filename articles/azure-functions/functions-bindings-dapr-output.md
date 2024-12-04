@@ -2,16 +2,14 @@
 title: Dapr Binding output binding for Azure Functions
 description: Learn how to provide Dapr Binding output binding data during a function execution in Azure Functions.
 ms.topic: reference
-ms.date: 10/11/2023
+ms.date: 05/10/2024
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, powershell, python
-ms.custom: devx-track-csharp, devx-track-python, devx-track-dotnet, devx-track-extended-java, devx-track-js
+ms.custom: devx-track-csharp, devx-track-python, devx-track-dotnet, devx-track-extended-java, devx-track-js, build-2024
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
 # Dapr Binding output binding for Azure Functions
-
-[!INCLUDE [preview-support](../../includes/functions-dapr-support-limitations.md)]
 
 The Dapr output binding allows you to send a value to a Dapr output binding during a function execution.
 
@@ -54,7 +52,7 @@ More samples for the Dapr output invoke binding are available in the [GitHub rep
 
 ::: zone pivot="programming-language-java"
 
-The following example creates a `"SendMessagetoKafka"` function using the `DaprBindingOutput` binding with the [`DaprServiceInvocationTrigger`](./functions-bindings-dapr-output.md):
+The following example creates a `"SendMessageToKafka"` function using the `DaprBindingOutput` binding with the [`DaprServiceInvocationTrigger`](./functions-bindings-dapr-output.md):
 
 
 ```java
@@ -90,7 +88,7 @@ app.generic('SendMessageToKafka', {
         type: 'daprServiceInvocationTrigger',
         name: "payload"
     }),
-    return: daprBindingOuput,
+    return: daprBindingOutput,
     handler: async (request, context) => {
         context.log("Node function processed a SendMessageToKafka request from the Dapr Runtime.");
         context.log(context.triggerMetadata.payload)

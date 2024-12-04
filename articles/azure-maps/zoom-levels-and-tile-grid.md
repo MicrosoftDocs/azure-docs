@@ -1,13 +1,12 @@
 ---
 title: Zoom levels and tile grid in Microsoft Azure Maps
 description: Learn how to set zoom levels in Azure Maps. See how to convert geographic coordinates into pixel coordinates, tile coordinates, and quadkeys. View code samples.
-author: eriklindeman
-ms.author: eriklind
+author: faterceros 
+ms.author: aterceros 
 ms.date: 07/14/2020
 ms.topic: conceptual
 ms.service: azure-maps
-services: azure-maps
-
+ms.subservice: render
 ---
 
 # Zoom levels and tile grid
@@ -731,7 +730,7 @@ module AzureMaps {
         /**
          * Converts a quadkey into tile XY coordinates.
          * @param quadKey Quadkey of the tile.
-         * @returns Tile XY cocorindates and zoom level for the specified quadkey.
+         * @returns Tile XY coordinates and zoom level for the specified quadkey.
          */
         public static QuadKeyToTileXY(quadKey: string): { tileX: number, tileY: number, zoom: number } {
             var tileX = 0;
@@ -774,7 +773,7 @@ module AzureMaps {
          * @param position Position coordinate in the format [longitude, latitude].
          * @param zoom Zoom level.
          * @param tileSize The size of the tiles in the tile pyramid.
-         * @returns Tiel XY coordinates.
+         * @returns Tile XY coordinates.
          */
         public static PositionToTileXY(position: number[], zoom: number, tileSize: number): { tileX: number, tileY: number } {
             var latitude = this.Clip(position[1], this.MinLatitude, this.MaxLatitude);

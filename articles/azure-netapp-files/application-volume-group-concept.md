@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 04/16/2024
+ms.date: 12/02/2024
 ms.author: anfdocs
 ---
 
@@ -82,10 +82,6 @@ Application volume group in Azure NetApp Files empowers you to optimize deployme
 ## Best practices
 
 Adhering to best practices improves the efficacy of your application volume group deployment. 
-
-### Define clear grouping criteria
-
-Establish well defined criteria for grouping volumes within an application volume group. Definition ensures that the applied logic aligns with the specific needs and characteristics of the associated application.
 
 ### Prepare for the deployment
 

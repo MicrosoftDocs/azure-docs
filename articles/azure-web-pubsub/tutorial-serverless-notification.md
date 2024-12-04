@@ -75,7 +75,7 @@ In this tutorial, you learn how to:
 
 ---
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [create-instance-portal](includes/create-instance-portal.md)]
 
@@ -658,7 +658,7 @@ In this tutorial, you learn how to:
     And checking the running logs, you can visit your local host static page by visiting: `http://localhost:7071/api/index`.
     
     > [!NOTE]
-    > Some browers automatically redirect to `https` that leads to wrong url. Suggest to use `Edge` and double check the url if rendering is not success.
+    > Some browsers automatically redirect to `https` that leads to wrong url. Suggest to use `Edge` and double check the url if rendering is not success.
 
 ## Deploy Function App to Azure
 

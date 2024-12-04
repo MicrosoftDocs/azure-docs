@@ -57,8 +57,6 @@ https://console-openshift-console.apps.wzy5hg7x.eastus.aroapp.io/
 
 Open a web browser and open the console URL. Log in using `kubeadmin` credentials.
 
-:::image type="content" source="media/login.png" alt-text="A screenshot that shows the Azure Red Hat OpenShift log-in screen":::
-
 ## Install the OpenShift Serverless operator
 
 When you're logged into the OpenShift web console, confirm that you're in *Administrator* view. Open the *Operator Hub* and select the **OpenShift Serverless** operator.
@@ -361,7 +359,7 @@ When you're finished with the application, you can run the following command to 
 oc delete project demoserverless
 ```
 
-You can also delete the cluster by following the instructions in [Tutorial: Delete an Azure Red Hat OpenShift 4 cluster](./tutorial-delete-cluster.md).
+You can also delete the cluster by following the instructions in [Tutorial: Delete an Azure Red Hat OpenShift 4 cluster](./delete-cluster.md).
 
 ## Next steps
 

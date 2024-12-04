@@ -2,12 +2,12 @@
 title: Migrate Bing Maps Geocode Dataflow API to Azure Maps Geocoding Batch and Reverse Geocoding Batch API
 titleSuffix: Microsoft Azure Maps
 description: Learn how to Migrate the Bing Maps Geocode Dataflow API to the Azure Maps Geocoding Batch and Reverse Geocoding Batch API.
-author: eriklindeman
-ms.author: eriklind
+author: farazgis
+ms.author: fsiddiqui
 ms.date: 05/15/2024
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: search
 ---
 
 # Migrate Bing Maps Geocode Dataflow API
@@ -31,7 +31,7 @@ This article explains how to migrate the Bing Maps [Geocode Dataflow] API to Azu
 
 ## Security and authentication
 
-Bing Maps for Enterprise only supports API key authentication. Azure Maps supports multiple ways to authenticate your API calls, such as a [subscription key](azure-maps-authentication.md#shared-key-authentication), [Microsoft Entra ID], or [Shared Access Signature (SAS) Token]. For more information on security and authentication in Azure Maps, See [Authentication with Azure Maps] and the [Security section] in the Azure Maps Geocoding Batch documentation..
+Bing Maps for Enterprise only supports API key authentication. Azure Maps supports multiple ways to authenticate your API calls, such as a [subscription key](azure-maps-authentication.md#shared-key-authentication), [Microsoft Entra ID], or [Shared Access Signature (SAS) Token]. For more information on security and authentication in Azure Maps, See [Authentication with Azure Maps] and the [Security section] in the Azure Maps Geocoding Batch documentation.
 
 ## Request parameters
 
@@ -47,7 +47,7 @@ For more information about the Azure Maps URI parameters and request body, see t
 
 Bing Maps Data Schema 2.0 input and output comparison to Azure Maps *Geocode Batch* and *Reverse Geocode Batch* API:
 
-| Bing Maps Field  | Bing Maps Operation  | Azure Maps Field  | Azure Maps Data Type  | Description                                                             |
+| Bing Maps Field  | Bing Maps Operation  | Azure Maps Field  | Azure Maps data type  | Description                                                             |
 |------------------|----------------------|-------------------|-----------------------|-------------------------------------------------------------------------|
 | Address.AddressLine | Geocode Request<BR>Geocode Response | addressLine | string    ||
 | Address.AdminDistrict | Geocode Request<BR>Geocode Response | adminDistrict | string||

@@ -1,20 +1,20 @@
 ---
 title: How to use Apache Hive replication in Azure HDInsight clusters
 description: Learn how to use Hive replication in HDInsight clusters to replicate the Hive metastore and the Azure Data Lake Storage Gen 2 data lake.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: conceptual
-ms.date: 06/23/2023
+ms.date: 06/14/2024
 ---
 
 # How to use Apache Hive replication in Azure HDInsight clusters
 
 In the context of databases and warehouses, replication is the process of duplicating entities from one warehouse to another. Duplication can apply to an entire database or to a smaller level, such as a table or partition. The objective is to have a replica that changes whenever the base entity changes. Replication on Apache Hive focuses on disaster recovery and offers unidirectional primary-copy replication. In HDInsight clusters, Hive Replication can be used to unidirectionally replicate the Hive metastore and the associated underlying data lake on Azure Data Lake Storage Gen2.  
 
-Hive Replication has evolved over the years with newer versions providing better functionality and being faster and less resource intensive. In this article, we discuss Hive Replication (Replv2) which is supported in both HDInsight 3.6 and HDInsight 4.0 cluster types.
+Hive Replication has evolved over the years with newer versions providing better functionality and being faster and less resource intensive. In this article, we discuss Hive Replication `(Replv2)` which is supported in both HDInsight 3.6 and HDInsight 4.0 cluster types.
 
-## Advantages of replv2
+## Advantages of `replv2`
 
-[Hive ReplicationV2](https://cwiki.apache.org/confluence/display/Hive/HiveReplicationv2Development) (also called Replv2) has the following advantages over the first version of Hive replication that used Hive [IMPORT-EXPORT](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ImportExport):
+[Hive ReplicationV2](https://cwiki.apache.org/confluence/display/Hive/HiveReplicationv2Development) (also called `Replv2`) has the following advantages over the first version of Hive replication that used Hive [IMPORT-EXPORT](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ImportExport):
 
 - Event-based incremental replication
 - Point-in-time replication  
@@ -74,7 +74,7 @@ repl load tpcds_orc from '/tmp/hive/repl/38896729-67d5-41b2-90dc-46eeed4c5dd0';
 
 ### Output the last replicated event ID
 
-The `REPL STATUS [database name]` command is executed on target clusters and outputs the last replicated `event_id`. The command also enables users to know what state their target cluster is been replicated to. You can use the output of this command to construct the next `REPL DUMP` command for incremental replication.
+The `REPL STATUS [database name]` command is executed on target clusters and outputs the last replicated `event_id`. The command also enables users to know what state their target cluster replicated to. You can use the output of this command to construct the next `REPL DUMP` command for incremental replication.
 
 ```sql
 repl status tpcds_orc;

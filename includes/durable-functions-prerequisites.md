@@ -10,7 +10,7 @@ ms.author: glenga
 
 # [C#](#tab/csharp)
 
-* [Complete the quickstart article](../articles/azure-functions/durable/durable-functions-create-first-csharp.md)
+* [Complete the quickstart article](../articles/azure-functions/durable/durable-functions-isolated-create-first-csharp.md)
 * [Clone or download the samples project from GitHub](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/precompiled)
 
 # [JavaScript (PM3)](#tab/javascript-v3)

@@ -1,10 +1,10 @@
 ---
 title: 'Tutorial: Sentiment analysis with Azure AI services'
 description: Learn how to use Azure AI Language for sentiment analysis in Azure Synapse Analytics
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: machine-learning
 ms.topic: tutorial
-ms.reviewer: sngun, garye
+ms.reviewer: whhender, garye
 ms.date: 11/20/2020
 author: nelgson
 ms.author: negust
@@ -12,7 +12,7 @@ ms.author: negust
 
 # Tutorial: Sentiment analysis with Azure AI services
 
-In this tutorial, you'll learn how to easily enrich your data in Azure Synapse Analytics with [Azure AI services](../../ai-services/index.yml). You'll use the [Azure AI Language](../../ai-services/language-service/index.yml) text analytics capabilities to perform sentiment analysis. 
+In this tutorial, you'll learn how to easily enrich your data in Azure Synapse Analytics with [Azure AI services](/azure/ai-services/). You'll use the [Azure AI Language](/azure/ai-services/language-service/) text analytics capabilities to perform sentiment analysis. 
 
 A user in Azure Synapse can simply select a table that contains a text column to enrich with sentiments. These sentiments can be positive, negative, mixed, or neutral. A probability will also be returned.
 
@@ -90,7 +90,7 @@ The notebook that you just opened uses the [SynapseML library](https://github.co
 
  You can now run all cells to enrich your data with sentiments. Select **Run all**. 
 
-The sentiments are returned as **positive**, **negative**, **neutral**, or **mixed**. You also get probabilities per sentiment. [Learn more about sentiment analysis in Azure AI services](../../ai-services/language-service/sentiment-opinion-mining/overview.md).
+The sentiments are returned as **positive**, **negative**, **neutral**, or **mixed**. You also get probabilities per sentiment. [Learn more about sentiment analysis in Azure AI services](/azure/ai-services/language-service/sentiment-opinion-mining/overview).
 
 ![Screenshot that shows sentiment analysis.](media/tutorial-cognitive-services/tutorial-cognitive-services-sentiment-notebook.png)
 

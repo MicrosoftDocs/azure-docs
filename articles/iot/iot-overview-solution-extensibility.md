@@ -1,7 +1,7 @@
 ---
 title: Extend your IoT solution
 description: An overview of the extensibility options in an IoT solution.
-ms.service: iot
+ms.service: azure-iot
 services: iot
 author: dominicbetts
 ms.author: dobett
@@ -74,7 +74,7 @@ IoT Hub and IoT Central both let you [route device telemetry to different endpoi
 
 In addition to device telemetry, both IoT Hub and IoT Central can send property update and device connection status messages to other endpoints. Routing these messages enables you to build integrations with other services that need device status information:
 
-- [IoT Hub routing](../iot-hub/iot-hub-devguide-messages-d2c.md) can send device telemetry, property change events, device connectivity events, and device lifecycle events to destinations such as [Azure Event Hubs](../event-hubs/event-hubs-about.md), [Azure Blob Storage](../storage/blobs/storage-blobs-overview.md), and [Cosmos DB](../cosmos-db/introduction.md).
+- [IoT Hub routing](../iot-hub/iot-hub-devguide-messages-d2c.md) can send device telemetry, property change events, device connectivity events, and device lifecycle events to destinations such as [Azure Event Hubs](../event-hubs/event-hubs-about.md), [Azure Blob Storage](../storage/blobs/storage-blobs-overview.md), and [Cosmos DB](/azure/cosmos-db/introduction).
 - [IoT Hub Event Grid integration](../iot-hub/iot-hub-event-grid.md) uses Azure Event Grid to distribute IoT Hub events such as device connectivity, device lifecycle, and telemetry events to other Azure services.
 - [IoT Central rules](../iot-central/core/howto-configure-rules.md) can send device telemetry and property values to webhooks, [Microsoft Power Automate](/power-automate/getting-started/), and [Azure Logic Apps](/azure/logic-apps/logic-apps-overview/).
 - [IoT Central data export](../iot-central/core/howto-export-data.md) can send device telemetry, property change events, device connectivity events, and device lifecycle events to destinations such [Azure Blob Storage](../storage/blobs/storage-blobs-overview.md), [Azure Data Explorer](/azure/data-explorer/data-explorer-overview/), [Azure Event Hubs](../event-hubs/event-hubs-about.md), and webhooks.
@@ -82,10 +82,3 @@ In addition to device telemetry, both IoT Hub and IoT Central can send property 
 ### IoT Central application templates
 
 The IoT Central application templates provide a starting point for building IoT solutions that include integrations with other services. You can use the templates to create an application that includes resources that are relevant to your solution. To learn more, see [IoT Central application templates](../iot-central/core/howto-create-iot-central-application.md#create-and-use-a-custom-application-template).
-
-## Next steps
-
-Now that you've seen an overview of the extensibility options available to your IoT solution, some suggested next steps include:
-
-- [Analyze and visualize your IoT data](iot-overview-analyze-visualize.md)
-- [IoT solution options](iot-introduction.md#solution-options)

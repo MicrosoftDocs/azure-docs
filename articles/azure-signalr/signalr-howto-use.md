@@ -2,7 +2,7 @@
 title: Use Azure SignalR Service
 description: Learn how to use Azure SignalR Service in your app server
 author: vicancy
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.topic: how-to
 ms.date: 04/18/2024
 ms.author: lianwei 
@@ -153,6 +153,14 @@ You can increase this value to avoid client disconnect.
 - Default value: All transports are enabled.
 - This option defines a function to customize the transports that clients can use to send HTTP requests.
 - Use this options instead of [`HttpConnectionDispatcherOptions.Transports`](/aspnet/core/signalr/configuration?&tabs=dotnet#advanced-http-configuration-options) to configure transports. 
+
+#### `AllowStatefulReconnects`
+
+- Default value is `null`
+- This option enables or disables stateful reconnects for all hubs.
+- If `null`, SDK will read [hub settings](/dotnet/api/microsoft.aspnetcore.http.connections.httpconnectiondispatcheroptions.allowstatefulreconnects).
+- If `true`, Azure SignalR Service will enable stateful reconnects in all of declared hubs. And clients need [enable stateful reconnects in client side](/aspnet/core/signalr/configuration).
+- If `false`, Azure SignalR Service will disable stateful reconnects in all of declared hubs.
 
 ### Sample
 

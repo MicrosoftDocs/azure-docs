@@ -1,12 +1,12 @@
 ---
-title: Azure Orbital Ground Station - Downlink data from public satellites 
+title: Downlink data from public satellites 
 description: Learn how to schedule a contact with public satellites by using the Azure Orbital Ground Station service.
-author: apoorvanori
-ms.service: orbital
+author: hrshelar
+ms.service: azure-orbital
 ms.topic: tutorial
 ms.custom: ga
 ms.date: 07/12/2022
-ms.author: apoorvanori
+ms.author: mosagie
 # Customer intent: As a satellite operator, I want to ingest data from NASA's public satellites into Azure.
 ---
 

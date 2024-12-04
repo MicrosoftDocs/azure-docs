@@ -1,14 +1,17 @@
 ---
 title: 'Tutorial: Add nodes to an Azure FXT Edge Filer cluster'
 description: Learn how to add cluster nodes to the Azure FXT Edge Filer storage cache and enable the High Availability (HA) feature.
-author: femila
-ms.author: femila
-ms.service: fxt-edge-filer
+author: pauljewellmsft
+ms.author: pauljewell
+ms.service: azure-fxt-edge-filer
 ms.topic: tutorial
 ms.date: 05/26/2021
 ---
 
 # Tutorial: Add cluster nodes to an Azure FXT Edge Filer cluster
+
+> [!NOTE]
+> **Action Required:** Azure FXT Edge Filer will be retired on December 31, 2026. Please remove all Azure FXT Edge Filer resources by December 31, 2026. Visit https://aka.ms/fxtretirementfaq for more information.
 
 A new Azure FXT Edge Filer cluster is created with only one node. You should add at least two more nodes and enable high availability before doing other configuration.
 

@@ -3,7 +3,7 @@ title: Deploy and configure Azure Firewall in a hybrid network by using the Azur
 description: In this article, you learn how to deploy and configure Azure Firewall by using the Azure portal.
 services: firewall
 author: vhorne
-ms.service: firewall
+ms.service: azure-firewall
 ms.topic: how-to
 ms.date: 08/31/2023
 ms.author: victorh
@@ -22,7 +22,7 @@ For this article, you create three virtual networks:
 - **VNet-Spoke**: The spoke virtual network represents the workload located on Azure.
 - **VNet-Onprem**: The on-premises virtual network represents an on-premises network. In an actual deployment, you can connect to it by using either a virtual private network (VPN) connection or an Azure ExpressRoute connection. For simplicity, this article uses a VPN gateway connection, and an Azure-located virtual network represents an on-premises network.
 
-![Diagram that shows a firewall in a hybrid network.](media/tutorial-hybrid-ps/hybrid-network-firewall.png)
+:::image type="content" source="media/tutorial-hybrid-ps/hybrid-network-firewall.png" alt-text="Diagram that shows a firewall in a hybrid network." lightbox="media/tutorial-hybrid-ps/hybrid-network-firewall.png":::
 
 If you want to use Azure PowerShell instead to complete the procedures in this article, see [Deploy and configure Azure Firewall in a hybrid network by using Azure PowerShell](tutorial-hybrid-ps.md).
 
@@ -437,7 +437,7 @@ Create a virtual machine that you use to connect via remote access to the public
 1. For **Boot diagnostics**, select **Disable**.
 1. Select **Review+Create**, review the settings on the summary page, and then select **Create**.
 
-[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+[!INCLUDE [ephemeral-ip-note.md](~/reusable-content/ce-skilling/azure/includes/ephemeral-ip-note.md)]
 
 ## Test the firewall
 

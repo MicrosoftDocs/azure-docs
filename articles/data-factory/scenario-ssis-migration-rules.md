@@ -3,10 +3,9 @@ title: On-premises SQL Server Integration Services (SSIS) workloads to SSIS in A
 description: SSIS workloads migration assessment rules.
 author: chugugrace
 ms.author: chugu
-ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 07/20/2023
+ms.date: 05/15/2024
 ---
 
 # SSIS migration assessment rules

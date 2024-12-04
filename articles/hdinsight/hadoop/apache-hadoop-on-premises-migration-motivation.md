@@ -1,9 +1,9 @@
 ---
 title: 'Benefits: Migrate on-premises Apache Hadoop to Azure HDInsight'
 description: Learn the motivation and benefits for migrating on-premises Hadoop clusters to Azure HDInsight.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
-ms.date: 12/08/2023
+ms.date: 12/02/2024
 ---
 
 # Migrate on-premises Apache Hadoop clusters to Azure HDInsight - motivation and benefits

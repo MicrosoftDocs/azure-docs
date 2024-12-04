@@ -1,6 +1,6 @@
 ---
 author: sethmanheim
-ms.service: notification-hubs
+ms.service: azure-notification-hubs
 ms.topic: include
 ms.date: 09/14/2020	
 ms.author: sethm

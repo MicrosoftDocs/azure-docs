@@ -3,7 +3,7 @@ title: include file
 description: include file
 services: virtual-network
 author: KumudD
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: include
 ms.date: 04/21/2020
 ms.author: kumud
@@ -16,6 +16,7 @@ ms.custom: include file
 |Resource |Limit |
 |---------|---------|
 |Number of private endpoints per virtual network     |  1000       |
+|Number of private endpoints across peered virtual networks     |  4000       |
 |Number of private endpoints per subscription       |   64000       |
 |Number of private link services per subscription         |   800      |
 |Number of private link services per Standard Load Balancer         |   8      |

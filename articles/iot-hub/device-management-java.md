@@ -5,7 +5,7 @@ description: How to use Azure IoT Hub direct methods with the Java SDK for devic
 author: kgremban
 
 ms.author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.devlang: java
 ms.topic: how-to
 ms.date: 05/30/2023
@@ -29,9 +29,9 @@ This article shows you how to create:
 
 ## Prerequisites
 
-* An IoT hub. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
+* An IoT hub in your Azure subscription. If you don't have a hub yet, you can follow the steps in [Create an IoT hub](create-hub.md).
 
-* A registered device. Register one in the [Azure portal](iot-hub-create-through-portal.md#register-a-new-device-in-the-iot-hub).
+* A device registered in your IoT hub. If you don't have a device in your IoT hub, follow the steps in [Register a device](create-connect-device.md#register-a-device).
 
 * [Java SE Development Kit 8](/java/azure/jdk/). Make sure you select **Java 8** under **Long-term support** to get to downloads for JDK 8.
 
@@ -42,6 +42,8 @@ This article shows you how to create:
 ## Create a device app with a direct method
 
 In this section, you create a Java console app that simulates a device. The app listens for the reboot direct method call from your IoT hub and immediately responds to that call. The app then sleeps for a while to simulate the reboot process before it uses a reported property to notify the **trigger-reboot** back-end app that the reboot is complete.
+
+[!INCLUDE [iot-authentication-device-connection-string.md](../../includes/iot-authentication-device-connection-string.md)]
 
 1. In the **dm-get-started** folder, create a Maven project called **simulated-device** using the following command at your command prompt:
 
@@ -276,6 +278,8 @@ In this section, you create a Java console app that:
 2. Displays the response.
 
 3. Polls the reported properties sent from the device to determine when the reboot is complete.
+
+[!INCLUDE [iot-authentication-service-connection-string.md](../../includes/iot-authentication-service-connection-string.md)]
 
 This console app connects to your IoT Hub to invoke the direct method and read the reported properties.
 

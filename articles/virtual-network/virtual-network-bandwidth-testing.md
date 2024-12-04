@@ -3,7 +3,7 @@ title: Test VM network throughput by using NTTTCP
 description: Use the NTTTCP tool to test network bandwidth and throughput performance for Windows and Linux VMs on a virtual network.
 services: virtual-network
 author: asudbring
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 11/01/2023
@@ -11,9 +11,6 @@ ms.author: allensu
 ---
 
 # Test VM network throughput by using NTTTCP
-
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 This article describes how to use the free NTTTCP tool from Microsoft to test network bandwidth and throughput performance on Azure Windows or Linux virtual machines (VMs). A tool like NTTTCP targets the network for testing and minimizes the use of other resources that could affect performance.
 
@@ -25,7 +22,7 @@ This article describes how to use the free NTTTCP tool from Microsoft to test ne
     - Note the number of VM cores and the receiver VM IP address to use in the commands. Both the sender and receiver commands use the receiver's IP address.
 
 >[!NOTE]
->Testing by using a virtual IP (VIP) is possible, but is beyond the scope of this article.
+>Testing by using a virtual IP is possible, but is beyond the scope of this article.
 
 **Examples used in this article**
 
@@ -145,14 +142,6 @@ Packets Sent Packets Received Retransmits Errors Avg. CPU %
 To measure throughput from Linux machines, use [NTTTCP-for-Linux](https://github.com/Microsoft/ntttcp-for-linux).
 
 1. Prepare both the sender and receiver VMs for NTTTCP-for-Linux by running the following commands, depending on your distro:
-
-   - For **CentOS**, install `gcc` , `make` and `git`.
-
-     ``` bash
-     sudo yum install gcc -y
-     sudo yum install git -y
-     sudo yum install make -y
-     ```
 
    - For **Ubuntu**, install `build-essential` and `git`.
 

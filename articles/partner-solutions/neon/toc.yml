@@ -1,0 +1,24 @@
+items:
+- name: Neon Serverless Postgres
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Neon Serverless Postgres
+    href: overview.md
+  - name: Neon Postgres resources and developer tools
+    href: tools.md
+- name: Quickstart
+  expanded: true
+  items:
+  - name: Create 
+    href: create.md
+- name: How to
+  items:
+  - name: Manage 
+    href: manage.md
+  - name: Troubleshoot 
+    href: troubleshoot.md
+- name: SDKs and tools
+  items:
+  - name: Azure CLI
+    href: /cli/azure/neon

@@ -4,7 +4,7 @@ titleSuffix: Azure Network Watcher
 description: Learn how to create, change, enable, disable, or delete Azure Network Watcher virtual network flow logs using Azure PowerShell. 
 author: halkazwini
 ms.author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: how-to
 ms.date: 04/24/2024
 ms.custom: devx-track-azurepowershell
@@ -52,7 +52,7 @@ $vnet = Get-AzVirtualNetwork -Name myVNet -ResourceGroupName myResourceGroup
 $storageAccount = Get-AzStorageAccount -Name myStorageAccount -ResourceGroupName myResourceGroup
 
 # Create a VNet flow log.
-New-AzNetworkWatcherFlowLog -Enabled $true -Name myVNetFlowLog -NetworkWatcherName NetworkWatcher_eastus -ResourceGroupName NetworkWatcherRG -StorageId $storageAccount.Id -TargetResourceId $vnet.Id
+New-AzNetworkWatcherFlowLog -Enabled $true -Name myVNetFlowLog -NetworkWatcherName NetworkWatcher_eastus -ResourceGroupName NetworkWatcherRG -StorageId $storageAccount.Id -TargetResourceId $vnet.Id -FormatVersion 2
 ```
 
 ## Enable virtual network flow logs and traffic analytics
@@ -69,7 +69,7 @@ $storageAccount = Get-AzStorageAccount -Name myStorageAccount -ResourceGroupName
 $workspace = New-AzOperationalInsightsWorkspace -Name myWorkspace -ResourceGroupName myResourceGroup -Location EastUS
 
 # Create a VNet flow log.
-New-AzNetworkWatcherFlowLog -Enabled $true -Name myVNetFlowLog -NetworkWatcherName NetworkWatcher_eastus -ResourceGroupName NetworkWatcherRG -StorageId $storageAccount.Id -TargetResourceId $vnet.Id -EnableTrafficAnalytics -TrafficAnalyticsWorkspaceId $workspace.ResourceId -TrafficAnalyticsInterval 10
+New-AzNetworkWatcherFlowLog -Enabled $true -Name myVNetFlowLog -NetworkWatcherName NetworkWatcher_eastus -ResourceGroupName NetworkWatcherRG -StorageId $storageAccount.Id -TargetResourceId $vnet.Id -FormatVersion 2 -EnableTrafficAnalytics -TrafficAnalyticsWorkspaceId $workspace.ResourceId -TrafficAnalyticsInterval 10
 ```
 
 ## List all flow logs in a region 

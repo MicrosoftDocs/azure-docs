@@ -17,7 +17,7 @@ This how-to guide explains the steps for installing the required Azure CLI and e
 ## Prerequisites
 
 1. The [Install Azure CLI][installation-instruction] must be installed.
-2. The `networkcloud` CLI extension is required.  If the `networkcloud` extension isn't installed, it can be installed following the steps listed [here](https://github.com/MicrosoftDocs/azure-docs-pr/blob/main/articles/operator-nexus/howto-install-cli-extensions.md).
+2. The `networkcloud` CLI extension is required. If the `networkcloud` extension isn't installed, it can be installed following the steps listed [here](https://github.com/MicrosoftDocs/azure-docs-pr/blob/main/articles/operator-nexus/howto-install-cli-extensions.md).
 3. Access to the Azure portal for the target cluster to be upgraded.
 4. You must be logged in to the same subscription as your target cluster via `az login`
 5. Target cluster must be in a running state, with all control plane nodes healthy and 80+% of compute nodes in a running and healthy state.
@@ -94,35 +94,51 @@ The output should be the target cluster's information and the cluster's detailed
 For more detailed insights on the upgrade progress, the individual BMM in each Rack can be checked for status. Example of this is provided in the reference section under [BareMetal Machine roles](./reference-near-edge-baremetal-machine-roles.md).
 
 ## Configure compute threshold parameters for runtime upgrade using cluster updateStrategy
+
 The following Azure CLI command is used to configure the compute threshold parameters for a runtime upgrade:
 
 ```azurecli
-az networkcloud cluster update --name "<clusterName>" --resource-group "<resourceGroup>" --update-strategy strategy-type="Rack" threshold-type="PercentSuccess" threshold-value="<thresholdValue>" max-unavailable=<maxNodesOffline> wait-time-minutes=<waitTimeBetweenRacks>
+az networkcloud cluster update /
+--name "<clusterName>" /
+--resource-group "<resourceGroup>" /
+--update-strategy strategy-type="Rack" threshold-type="PercentSuccess" /
+threshold-value="<thresholdValue>" max-unavailable=<maxNodesOffline> /
+wait-time-minutes=<waitTimeBetweenRacks>
 ```
 
-Required arguments:
-- strategy-type: Defines the update strategy. In this case, "Rack" means updates occur rack-by-rack. The default value is "Rack"
+Required parameters:
+- strategy-type: Defines the update strategy. In this case, "Rack" means updates occur rack-by-rack. The default value is "Rack".
 - threshold-type: Determines how the threshold should be evaluated, applied in the units defined by the strategy. The default value is "PercentSuccess".
 - threshold-value: The numeric threshold value used to evaluate an update. The default value is 80.
 
-Optional arguments:
+Optional parameters:
 - max-unavailable: The maximum number of worker nodes that can be offline, that is, upgraded rack at a time. The default value is 32767.
 - wait-time-minutes: The delay or waiting period before updating a rack. The default value is 15.
 
 An example usage of the command is as below:
+
 ```azurecli
 az networkcloud cluster update --name "cluster01" --resource-group "cluster01-rg" --update-strategy strategy-type="Rack" threshold-type="PercentSuccess" threshold-value=70 max-unavailable=16 wait-time-minutes=15
 ```
+
 Upon successful execution of the command, the updateStrategy values specified will be applied to the cluster:
-```
-  "updateStrategy": {
+
+```  
+    "updateStrategy": {
       "maxUnavailable": 16,
       "strategyType": "Rack",
       "thresholdType": "PercentSuccess",
       "thresholdValue": 70,
       "waitTimeMinutes": 15,
-    },
+    }
 ```
+
+> [!NOTE]
+> When a threshold value below 100% is set, it’s possible that any unhealthy nodes might not be upgraded, yet the “Cluster” status could still indicate that upgrade was successful. For troubleshooting issues with bare metal machines, please refer to [Troubleshoot Azure Operator Nexus server problems](troubleshoot-reboot-reimage-replace.md)
+
+## Upgrade with PauseRack strategy
+
+Starting with API version 2024-06-01-preview, runtime upgrades can be triggered using a "PauseRack" strategy. When you execute a Cluster runtime upgrade with the PauseRack" strategy, it will update one rack at a time in the Cluster and then stop, awaiting confirmation before proceeding to the next rack. All existing thresholds will continue to be respected with the "PauseRack" strategy. To carry out a Cluster runtime upgrade using the "PauseRack" strategy follow the steps outlined in [Upgrading cluster runtime with a pause rack strategy](howto-cluster-runtime-upgrade-with-pauserack-strategy.md)
 
 ## Frequently Asked Questions
 
@@ -142,7 +158,4 @@ If the rack's spec wasn't updated to the upgraded runtime version before the har
 
 ### After a runtime upgrade, the cluster shows "Failed" Provisioning State
 
-During a runtime upgrade the cluster will enter a state of `Upgrading`  In the event of a failure of the runtime upgrade, for reasons related to the resources, the cluster will go into a `Failed` provisioning state.  This state could be linked to the lifecycle of the components related to the cluster (e.g StorageAppliance) and might be necessary to diagnose the failure with Microsoft support.
-
-<!-- LINKS - External -->
-[installation-instruction]: https://aka.ms/azcli
+During a runtime upgrade, the cluster enters a state of `Upgrading`. In the event of a failure of the runtime upgrade, the cluster will go into a `Failed` provisioning state. Failures during upgrade may be caused by infrastructure components (e.g the Storage Appliance). In some scenarios, it may be necessary to diagnose the failure with Microsoft support.

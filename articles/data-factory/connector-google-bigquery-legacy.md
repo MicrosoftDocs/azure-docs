@@ -4,11 +4,10 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from Google BigQuery to supported sink data stores by using a copy activity in a legacy Azure Data Factory or Synapse Analytics pipeline.
 ms.author: jianleishen
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 03/12/2024
+ms.date: 11/05/2024
 ---
 
 # Copy data from Google BigQuery using Azure Data Factory or Synapse Analytics (legacy)
@@ -16,8 +15,8 @@ ms.date: 03/12/2024
 
 This article outlines how to use Copy Activity in Azure Data Factory and Synapse Analytics pipelines to copy data from Google BigQuery. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of the copy activity.
 
->[!Important]
->The service has released a new Google BigQuery connector which provides better native Google BigQuery support, refer to [Google BigQuery](connector-google-bigquery.md) article on details.
+>[!IMPORTANT]
+>The new Google BigQuery connector provides improved native Google BigQuery support. If you are using the legacy Google BigQuery connector in your solution, please [upgrade your Google BigQuery connector](connector-google-bigquery.md#upgrade-the-google-bigquery-linked-service) before **October 31, 2024**. Refer to this [section](connector-google-bigquery.md#differences-between-google-bigquery-and-google-bigquery-legacy) for details on the difference between the legacy and latest version. 
 
 ## Supported capabilities
 
@@ -33,6 +32,11 @@ This Google BigQuery connector is supported for the following capabilities:
 For a list of data stores that are supported as sources or sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
 The service provides a built-in driver to enable connectivity. Therefore, you don't need to manually install a driver to use this connector.
+
+The connector supports the Windows versions in this [article](create-self-hosted-integration-runtime.md#prerequisites).
+
+The connector no longer supports P12 keyfiles. If you rely on service accounts, you are recommended to use JSON keyfiles instead. The P12CustomPwd property used for supporting the P12 keyfile was also deprecated. For more information, see this [article](https://cloud.google.com/sdk/docs/release-notes).
+
 
 >[!NOTE]
 >This Google BigQuery connector is built on top of the BigQuery APIs. Be aware that BigQuery limits the maximum rate of incoming requests and enforces appropriate quotas on a per-project basis, refer to [Quotas & Limits - API requests](https://cloud.google.com/bigquery/quotas#api_requests). Make sure you do not trigger too many concurrent requests to the account.

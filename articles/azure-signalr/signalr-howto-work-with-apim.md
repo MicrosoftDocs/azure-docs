@@ -4,7 +4,7 @@ description: This article provides information about using Azure SignalR Service
 author: vicancy
 ms.author: lianwei
 ms.date: 05/16/2023
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.topic: how-to
 ---
 
@@ -123,7 +123,7 @@ Now, the traffic can reach SignalR Service through API Management. Let’s use [
   ```bash
   cd samples/Chatroom
   dotnet restore
-  dotnet user-secrets set Azure:SignalR:ConnectionString "<copied-onnection-string-with-client-endpoint>"
+  dotnet user-secrets set Azure:SignalR:ConnectionString "<copied-connection-string-with-client-endpoint>"
   dotnet run
   ```
 

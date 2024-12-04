@@ -3,18 +3,17 @@ title: "Quickstart - Integrate with Azure Database for MySQL"
 description: Explains how to provision and prepare an Azure Database for MySQL instance, and then configure Pet Clinic on Azure Spring Apps to use it as a persistent database with only one command.
 author: KarlErickson
 ms.author: karler
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: quickstart
-ms.date: 08/28/2022
+ms.date: 06/27/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, mode-other, service-connector
 ---
 
 # Quickstart: Integrate Azure Spring Apps with Azure Database for MySQL
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ✔️ Basic/Standard ❌ Enterprise
+**This article applies to:** ✅ Basic/Standard ❎ Enterprise
 
 Pet Clinic, as deployed in the default configuration [Quickstart: Build and deploy apps to Azure Spring Apps](./quickstart-deploy-apps.md), uses an in-memory database (HSQLDB) that is populated with data at startup. This quickstart explains how to provision and prepare an Azure Database for MySQL instance and then configure Pet Clinic on Azure Spring Apps to use it as a persistent database.
 
@@ -200,5 +199,5 @@ az group delete --name <resource-group>
 
 ## Next steps
 
-* [Bind an Azure Database for MySQL instance to your application in Azure Spring Apps](../enterprise/how-to-bind-mysql.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json)
-* [Use a managed identity to connect Azure SQL Database to an app in Azure Spring Apps](../enterprise/connect-managed-identity-to-azure-sql.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json)
+* [Bind an Azure Database for MySQL instance to your application in Azure Spring Apps](how-to-bind-mysql.md)
+* [Use a managed identity to connect Azure SQL Database to an app in Azure Spring Apps](connect-managed-identity-to-azure-sql.md)

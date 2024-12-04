@@ -1,0 +1,68 @@
+name: "📄 Azure Kubernetes Services - Feedback control template"
+title: "Feedback"
+description: >-
+  🛈 FYI - This issue template is intended for use by the feedback control on the bottom of Azure Kubernetes Services pages on the
+  https://learn.microsoft.com/azure/aks site.
+labels:
+  - "azure-kubernetes-services/svc"
+body:
+  - type: markdown
+    attributes:
+      value: "## Enter your feedback"
+  - type: markdown
+    attributes:
+      value: Select the issue type, and describe the issue in the text box below. Add as much detail as needed to help us resolve the issue.
+  - type: dropdown
+    id: issue-type
+    attributes:
+      label: Type of issue
+      options:
+        - Typo
+        - Code doesn't work
+        - Missing information
+        - Outdated article
+        - Other (describe below)
+    validations:
+      required: true
+  - type: textarea
+    id: userfeedback
+    validations:
+      required: true
+    attributes:
+      label: Feedback
+      description: >-
+        If possible, please provide extended details that will add context and help the team update
+        the documentation. Additional details may not be useful for typos, grammar, formatting, etc.
+        For technical or factual errors, please include code snippets and output to show how the
+        documentation is incorrect.
+  - type: markdown
+    attributes:
+      value: "## 🚧 Article information 🚧"
+  - type: markdown
+    attributes:
+      value: "*Don't modify the following fields*. They are automatically filled in for you. Doing so will disconnect your issue from the affected article. *Don't edit them*."
+  - type: input
+    id: pageUrl
+    validations:
+      required: true
+    attributes:
+      label: Page URL
+  - type: input
+    id: contentSourceUrl
+    validations:
+      required: true
+    attributes:
+      label: Content source URL
+  - type: input
+    id: author
+    validations:
+      required: true
+    attributes:
+      label: Author
+      description: GitHub Id of the author
+  - type: input
+    id: documentVersionIndependentId
+    validations:
+      required: true
+    attributes:
+      label: Document Id

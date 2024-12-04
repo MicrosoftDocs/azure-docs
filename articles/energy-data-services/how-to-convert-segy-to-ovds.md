@@ -3,7 +3,7 @@ title: Microsoft Azure Data Manager for Energy Preview - How to convert a segy t
 description: This article explains how to convert a SGY file to oVDS file format
 author: suzafar
 ms.author: suzafar
-ms.service: energy-data-services
+ms.service: azure-data-manager-energy
 ms.topic: how-to
 ms.date: 09/13/2023
 ms.custom: template-concept
@@ -28,9 +28,9 @@ The first step is to get the following information from your [Azure Data Manager
 
 | Parameter          | Value             | Example                               |
 | ------------------ | ------------------------ |-------------------------------------- |
-| client_id          | Application (client) ID  | 3dbbbcc2-f28f-44b6-a5ab-xxxxxxxxxxxx  |
+| client_id          | Application (client) ID  | 00001111-aaaa-2222-bbbb-3333cccc4444  |
 | client_secret      | Client secrets           |  _fl******************                |
-| tenant_id          | Directory (tenant) ID    | 72f988bf-86f1-41af-91ab-xxxxxxxxxxxx  |
+| tenant_id          | Directory (tenant) ID    | 72f988bf-86f1-41af-91ab-xxxxxxxxxxxx |
 | base_url           | URL                      | `https://<instance>.energy.azure.com` |
 | data-partition-id  | Data Partition(s)        | `<data-partition-name>`               |
 

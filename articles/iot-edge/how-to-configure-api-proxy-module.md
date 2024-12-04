@@ -5,9 +5,9 @@ description: Learn how to customize the API proxy module for IoT Edge gateway hi
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 07/06/2023
+ms.date: 06/12/2024
 ms.topic: conceptual
-ms.service: iot-edge
+ms.service: azure-iot-edge
 services: iot-edge
 ms.custom:  [amqp, mqtt]
 ---
@@ -29,9 +29,7 @@ Without the API proxy, each service module would have to bind to a separate port
 
 ## Deploy the proxy module
 
-The API proxy module is available from the Microsoft Container Registry (MCR): `mcr.microsoft.com/azureiotedge-api-proxy:1.1`.
-
-You can also deploy the API proxy module directly from the Azure Marketplace: [IoT Edge API Proxy](https://azuremarketplace.microsoft.com/marketplace/apps/azure-iot.azureiotedge-api-proxy?tab=Overview).
+The API proxy module is available from the [Microsoft Container Registry (MCR)](https://mcr.microsoft.com/product/azureiotedge-api-proxy/tags) and the image URI is `mcr.microsoft.com/azureiotedge-api-proxy:latest`. You can deploy the module using the [Azure portal](how-to-deploy-modules-portal.md) or [Azure CLI](how-to-deploy-modules-cli.md).
 
 ## Understand the proxy module
 
@@ -190,7 +188,7 @@ Port 8000 is exposed by default from the docker image. If a different nginx prox
 
 Another use case for the API proxy module is to enable IoT Edge devices in lower layers to upload blobs. This use case enables troubleshooting functionality on lower layer devices like uploading module logs or uploading the support bundle.
 
-This scenario uses the [Azure Blob Storage on IoT Edge](https://azuremarketplace.microsoft.com/marketplace/apps/azure-blob-storage.edge-azure-blob-storage) module at the top layer to handle blob creation and upload. In a nested scenario, up to five layers are supported. The *Azure Blob Storage on IoT Edge* module is required on the top layer device and optional for lower layer devices. For a sample multi-layer deployment, see the [Azure IoT Edge for Industrial IoT](https://github.com/Azure-Samples/iot-edge-for-iiot) sample.
+This scenario uses the [Azure Blob Storage on IoT Edge](https://hub.docker.com/r/microsoft/azure-blob-storage) module at the top layer to handle blob creation and upload. In a nested scenario, up to five layers are supported. The *Azure Blob Storage on IoT Edge* module is required on the top layer device and optional for lower layer devices. For a sample multi-layer deployment, see the [Azure IoT Edge for Industrial IoT](https://github.com/Azure-Samples/iot-edge-for-iiot) sample.
 
 Configure the following modules at the **top layer**:
 

@@ -20,7 +20,7 @@ This article shows you how to use Nvidia GPU workloads with Azure Red Hat OpenSh
 * jq, moreutils, and gettext package
 * Azure Red Hat OpenShift 4.10
 
-If you need to install an ARO cluster, see [Tutorial: Create an Azure Red Hat OpenShift 4 cluster](tutorial-create-cluster.md). ARO clusters must be version 4.10.x or higher.
+If you need to install an ARO cluster, see [Tutorial: Create an Azure Red Hat OpenShift 4 cluster](create-cluster.md). ARO clusters must be version 4.10.x or higher.
 
 > [!NOTE] 
 > As of ARO 4.10, it is no longer necessary to set up entitlements to use the Nvidia Operator. This has greatly simplified the setup of the cluster for GPU workloads.

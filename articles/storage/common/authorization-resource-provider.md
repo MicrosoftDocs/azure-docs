@@ -6,7 +6,7 @@ author: pauljewellmsft
 ms.author: pauljewell
 ms.service: azure-storage
 ms.topic: conceptual
-ms.date: 12/12/2019
+ms.date: 06/14/2024
 ms.reviewer: ozgun
 ms.subservice: storage-common-concepts
 ms.custom: devx-track-arm-template
@@ -49,7 +49,7 @@ Built-in roles that grant permissions to call storage management operations incl
 | **User Access Administrator** | Can manage access to the storage account.   | Yes, permits a security principal to assign any permissions to themselves and others. |
 | **Virtual Machine Contributor** | Can manage virtual machines, but not the storage account to which they are connected.   | Yes, provides permissions to view and regenerate the storage account keys. |
 
-The third column in the table indicates whether the built-in role supports the **Microsoft.Storage/storageAccounts/listkeys/action**. This action grants permissions to read and regenerate the storage account keys. Permissions to access Azure Storage management resources do not also include permissions to access data. However, if a user has access to the account keys, then they can use the account keys to access Azure Storage data via Shared Key authorization.
+The third column in the table indicates whether the built-in role supports the **Microsoft.Storage/storageAccounts/listkeys/action**. This action grants permissions to read and regenerate the storage account keys. Permissions to access Azure Storage management resources do not also include permissions to access data. Azure RBAC provides separate [built-in roles](../blobs/authorize-access-azure-active-directory.md#azure-built-in-roles-for-blobs) for authorizing data access. However, if a user has access to the account keys, then they can use the account keys to access Azure Storage data via Shared Key authorization.
 
 ### Custom roles for management operations
 

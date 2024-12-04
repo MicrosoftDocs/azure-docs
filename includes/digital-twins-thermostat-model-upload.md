@@ -1,7 +1,7 @@
 ---
 author: baanders
 description: include file to upload a model to Azure Digital Twins instance
-ms.service: digital-twins
+ms.service: azure-digital-twins
 ms.topic: include
 ms.date: 4/1/2021
 ms.author: baanders

@@ -4,7 +4,7 @@ description: Learn to send Azure Service Bus triggers and bindings in Azure Func
 ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 12/12/2022
-ms.custom: fasttrack-edit, devx-track-extended-java, devx-track-js, devx-track-python
+ms.custom: fasttrack-edit, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -66,6 +66,8 @@ Functions 1.x apps automatically have a reference the [Microsoft.Azure.WebJobs](
 [!INCLUDE [functions-bindings-supports-identity-connections-note](../../includes/functions-bindings-supports-identity-connections-note.md)]
 
 This version allows you to bind to types from [Azure.Messaging.ServiceBus](/dotnet/api/azure.messaging.servicebus).
+
+This version supports configuration of triggers and bindings through [.NET Aspire integration](./dotnet-isolated-process-guide.md#connection-configuration-with-aspire).
 
 Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.ServiceBus), version 5.x.
 

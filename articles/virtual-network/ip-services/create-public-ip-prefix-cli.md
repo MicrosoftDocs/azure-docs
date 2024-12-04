@@ -5,7 +5,7 @@ description: Learn how to create a public IP address prefix using the Azure CLI.
 services: virtual-network
 author: mbender-ms
 ms.author: mbender
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: quickstart
 ms.date: 08/24/2023
@@ -19,7 +19,7 @@ Learn about a public IP address prefix and how to create, change, and delete one
 
 When you create a public IP address resource, you can assign a static public IP address from the prefix and associate the address to virtual machines, load balancers, or other resources. For more information, see [Public IP address prefix overview](public-ip-address-prefix.md).
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
@@ -82,7 +82,7 @@ To create a IPv4 public IP prefix, enter **IPv4** in the **`--version`** paramet
 ```
 
 >[!NOTE]
->The above options for zones are only valid selections in regions with [Availability Zones](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
+>The above options for zones are only valid selections in regions with [Availability Zones](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 # [**Non-zonal IPv4 prefix**](#tab/ipv4-non-zonal)
 
@@ -99,7 +99,7 @@ To create a IPv4 public IP prefix, enter **IPv4** in the **`--version`** paramet
 
 The removal of the **`--zone`** parameter in the command is valid in all regions.  
 
-The removal of the **`--zone`** parameter is the default selection for standard public IP addresses in regions without [Availability Zones](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
+The removal of the **`--zone`** parameter is the default selection for standard public IP addresses in regions without [Availability Zones](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ---
 
@@ -149,7 +149,7 @@ To create a IPv6 public IP prefix, enter **IPv6** in the **`--version`** paramet
 ```
 
 >[!NOTE]
->The above options for zones are only valid selections in regions with [Availability Zones](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
+>The above options for zones are only valid selections in regions with [Availability Zones](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 # [**Non-zonal IPv6 prefix**](#tab/ipv6-non-zonal)
 
@@ -166,7 +166,7 @@ To create a IPv6 public IP prefix, enter **IPv6** in the **`--version`** paramet
 
 The removal of the **`--zone`** parameter in the command is valid in all regions.  
 
-The removal of the **`--zone`** parameter is the default selection for standard public IP addresses in regions without [Availability Zones](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
+The removal of the **`--zone`** parameter is the default selection for standard public IP addresses in regions without [Availability Zones](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ---
 

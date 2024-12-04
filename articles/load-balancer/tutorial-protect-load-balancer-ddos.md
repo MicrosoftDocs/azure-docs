@@ -3,9 +3,9 @@ title: "Tutorial: Protect your public load balancer with Azure DDoS Protection"
 titleSuffix: Azure Load Balancer
 description: Learn how to set up a public load balancer and protect it with Azure DDoS protection.
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: tutorial
-ms.date: 06/06/2023
+ms.date: 09/30/2024
 ms.author: mbender
 ms.custom: template-tutorial
 ---
@@ -59,7 +59,7 @@ In this section, you'll create a virtual network, subnet, Azure Bastion host, an
 
 > [!IMPORTANT]
 
-> [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+> [!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
 
 >
 
@@ -169,7 +169,7 @@ During the creation of the load balancer, you'll configure:
 11. Select **Zone-redundant** in **Availability zone**.
 
     > [!NOTE]
-    > In regions with [Availability Zones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones), you have the option to select no-zone (default option), a specific zone, or zone-redundant. The choice will depend on your specific domain failure requirements. In regions without Availability Zones, this field won't appear. </br> For more information on availability zones, see [Availability zones overview](../availability-zones/az-overview.md).
+    > In regions with [Availability Zones](../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), you have the option to select no-zone (default option), a specific zone, or zone-redundant. The choice will depend on your specific domain failure requirements. In regions without Availability Zones, this field won't appear. </br> For more information on availability zones, see [Availability zones overview](../reliability/availability-zones-overview.md).
 
 12. Leave the default of **Microsoft Network** for **Routing preference**.
 
@@ -326,7 +326,7 @@ These VMs are added to the backend pool of the load balancer that was created ea
     | Availability zone | **Zone 2** |
     | Network security group | Select the existing **myNSG** |
 
-[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+[!INCLUDE [ephemeral-ip-note.md](~/reusable-content/ce-skilling/azure/includes/ephemeral-ip-note.md)]
 
 ## Install IIS
 

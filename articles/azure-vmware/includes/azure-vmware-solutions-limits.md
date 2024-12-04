@@ -3,7 +3,7 @@ title: Azure VMware Solution limits
 description: Azure VMware Solution limits.
 ms.topic: include
 ms.service: azure-vmware
-ms.date: 4/12/2024
+ms.date: 5/25/2024
 author: suzizuber
 ms.author: v-szuber
 ms.custom: engagement-fy23
@@ -24,7 +24,7 @@ The following table describes the maximum limits for Azure VMware Solution.
 | Maximum number of HCX service meshes | 10 (any edition) |
 | Maximum number of Azure VMware Solution ExpressRoute linked private clouds from a single location to a single Virtual Network Gateway | 4<br />The virtual network gateway used determines the actual max linked private clouds.  For more information, see [About ExpressRoute virtual network gateways](../../expressroute/expressroute-about-virtual-network-gateways.md)<br />If you exceed this threshold use [Azure VMware Solution Interconnect](../connect-multiple-private-clouds-same-region.md) to aggregate private cloud connectivity within the Azure region. | 
 | Maximum Azure VMware Solution ExpressRoute port speed | 10 Gbps (use Ultra Performance Gateway SKU with FastPath enabled)<br />The virtual network gateway used determines the actual bandwidth. For more information, see [About ExpressRoute virtual network gateways](../../expressroute/expressroute-about-virtual-network-gateways.md) | 
-| Maximum number of Azure Public IPv4 addresses assigned to NSX-T Data Center | 2,000 |
+| Maximum number of Azure Public IPv4 addresses assigned to NSX | 2,000 |
 | Maximum number of Azure VMware Solution Interconnects per private cloud | 10 |
 | Maximum number of Azure ExpressRoute Global Reach connections per Azure VMware Solution private cloud | 8 |
 | vSAN capacity limits | 75% of total usable (keep 25% available for SLA)  |

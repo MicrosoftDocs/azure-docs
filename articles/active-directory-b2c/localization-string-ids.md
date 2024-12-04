@@ -5,12 +5,12 @@ description: Specify the IDs for a content definition with an ID of api.signupor
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: reference
 ms.date: 02/24/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As a developer implementing user interface localization in Azure AD B2C, I want to access the list of localization string IDs, so that I can use them in my policy to support multiple locales or languages in the user journeys.
@@ -274,6 +274,7 @@ The following example shows the use of some of the user interface elements in th
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidInput">{0} has invalid input.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfMissingRequiredElement">Missing required element: {0}</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfValidationError">Error in validation by: {0}</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="InvalidUserInput"> An Invalid value was presented for a property</LocalizedString>
   </LocalizedStrings>
 </LocalizedResources>
 ```
@@ -318,7 +319,7 @@ The Following are the IDs for a content definition with an ID of `api.phonefacto
 | `error_phone_throttled` | You hit the limit on the number of call attempts. Try again shortly. | `>= 1.2.3` |
 | `error_throttled` | You hit the limit on the number of verification attempts. Try again shortly. | `>= 1.2.3` |
 | `error_incorrect_code` | The verification code you have entered does not match our records. Please try again, or request a new code. | `All` |
-| `countryList` | See [the countries list](#phone-factor-authentication-page-example). | `All` |
+| `countryList` | See [the countries/regions list](#phone-factor-authentication-page-example). | `All` |
 | `error_448` | The phone number you provided is unreachable. | `All` |
 | `error_449` | User has exceeded the number of retry attempts. | `All` |
 | `verification_code_input_placeholder_text` | Verification code | `All` |
@@ -532,7 +533,7 @@ The following IDs are used for an [Microsoft Entra ID multifactor authentication
 | `UserMessageIfMaxAllowedCodeRetryReached` | Wrong code entered too many times, please try again later.|
 | `UserMessageIfServerError` | Cannot use MFA service, please try again later.|
 | `UserMessageIfThrottled` | Your request has been throttled, please try again later.|
-| `UserMessageIfWrongCodeEntered` |Wrong code entered, please try again.|
+| `UserMessageIfIncorrectOTPCodeEntered` |Wrong code entered, please try again.|
 
 <a name='azure-ad-mfa-example'></a>
 

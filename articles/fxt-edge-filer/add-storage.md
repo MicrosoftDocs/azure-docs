@@ -1,14 +1,17 @@
 ---
 title: 'Tutorial: Add storage to an Azure FXT Edge Filer cluster'
 description: How to configure back-end storage and the client-facing pseudonamespace for Azure FXT Edge Filer 
-author: femila
-ms.author: femila
-ms.service: fxt-edge-filer
+author: pauljewellmsft
+ms.author: pauljewell
+ms.service: azure-fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
 ---
 
 # Tutorial: Add back-end storage and configure the virtual namespace
+
+> [!NOTE]
+> **Action Required:** Azure FXT Edge Filer will be retired on December 31, 2026. Please remove all Azure FXT Edge Filer resources by December 31, 2026. Visit https://aka.ms/fxtretirementfaq for more information.
 
 This tutorial explains how to add back-edge storage for your cache and how to set up the client-facing virtual filesystem.
 

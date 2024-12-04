@@ -5,7 +5,7 @@ author: maud-lv
 ms.author: malev
 ms.service: azure-app-configuration
 ms.topic: conceptual
-ms.date: 09/14/2022
+ms.date: 05/13/2024
 ms.custom: devdivchpfy22
 ---
 

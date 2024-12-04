@@ -1,6 +1,6 @@
 ---
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: include
 ms.date: 04/30/2024
 ms.author: cshoe
@@ -8,7 +8,7 @@ ms.author: cshoe
 
 ## Set environment variables
 
-Set the following environment variables. Replace \<PLACEHOLDERS\> with your values:
+Set the following environment variables. Replace the `<PLACEHOLDERS>` with your values:
 
 # [Bash](#tab/bash)
 

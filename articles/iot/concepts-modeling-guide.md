@@ -3,9 +3,9 @@ title: Understand IoT Plug and Play device models | Microsoft Docs
 description: Understand the Digital Twins Definition Language (DTDL) modeling language for IoT Plug and Play devices. The article describes primitive and complex datatypes, reuse patterns that use components and inheritance, and semantic types. The article provides guidance on the choice of device twin model identifier and tooling support for model authoring.
 author: dominicbetts
 ms.author: dobett
-ms.date: 1/23/2024
+ms.date: 08/30/2024
 ms.topic: conceptual
-ms.service: iot
+ms.service: azure-iot
 
 #Customer intent: As a device builder, I want to understand how to design and author a DTDL model for an IoT Plug and Play device.
 
@@ -565,7 +565,7 @@ Because the geospatial types are array-based, they can't currently be used in pr
 
 ## Semantic types
 
-The data type of a property or telemetry definition specifies the format of the data that a device exchanges with a service. The semantic type provides information about telemetry and properties that an application can use to determine how to process or display a value. Each semantic type has one or more associated units. For example, celsius and fahrenheit are units for the temperature semantic type. IoT Central dashboards and analytics can use the semantic type information to determine how to plot telemetry or property values and display units. To learn how you can use the model parser to read the semantic types, see [Understand the digital twins model parser](concepts-model-parser.md).
+The data type of a property or telemetry definition specifies the format of the data that a device exchanges with a service. The semantic type provides information about telemetry and properties that an application can use to determine how to process or display a value. Each semantic type has one or more associated units. For example, celsius and fahrenheit are units for the temperature semantic type. IoT Central dashboards and analytics can use the semantic type information to determine how to plot telemetry or property values and display units. To learn how you can use the model parser to read the semantic types, see [Understand the Digital Twins model parser](#understand-the-digital-twins-model-parser).
 
 The following snippet shows an example telemetry definition that includes semantic type information. The semantic type `Temperature` is added to the `@type` array, and the `unit` value, `degreeCelsius` is one of the valid units for the semantic type:
 
@@ -583,7 +583,7 @@ The following snippet shows an example telemetry definition that includes semant
 
 ## Localization
 
-Applications, such as IoT Central, use information in the model to dynamically build a UI around the data that's exchanged with an IoT Plug and Play device. For example, tiles on a dashboard can display names and descriptions for telemetry, properties, and commands.
+Applications, such as IoT Central, use information in the model to dynamically build a UI around the data exchanged with an IoT Plug and Play device. For example, tiles on a dashboard can display names and descriptions for telemetry, properties, and commands.
 
 The optional `description` and `displayName` fields in the model hold strings intended for use in a UI. These fields can hold localized strings that an application can use to render a localized UI.
 
@@ -640,11 +640,11 @@ DTML device models are JSON documents that you can create in a text editor. Howe
 
 To learn more, see [Define a new IoT device type in your Azure IoT Central application](../iot-central/core/howto-set-up-template.md).
 
-There's a DTDL authoring extension for VS Code.
+There's a DTDL authoring extension for VS Code that supports both DTDL v2 and DTDL v3.
 
 To install the DTDL extension for VS Code, go to [DTDL editor for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl). You can also search for **DTDL** in the **Extensions** view in VS Code.
 
-When you've installed the extension, use it to help you author DTDL model files in VS Code:
+After you install the extension, use it to help you author DTDL model files in VS Code:
 
 - The extension provides syntax validation in DTDL model files, highlighting errors as shown on the following screenshot:
 
@@ -663,7 +663,7 @@ Applications, such as IoT Central, use device models. In IoT Central, a model is
 > [!NOTE]
 > IoT Central defines some extensions to the DTDL language. To learn more, see [IoT Central extension](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.iotcentral.v2.md).
 
-A custom solution can use the [digital twins model parser](concepts-model-parser.md) to understand the capabilities of a device that implements the model. To learn more, see [Use IoT Plug and Play models in an IoT solution](concepts-model-discovery.md).
+A custom solution can use the [Digital Twins model parser](#understand-the-digital-twins-model-parser) to understand the capabilities of a device that implements the model. To learn more, see [Use IoT Plug and Play models in an IoT solution](concepts-model-discovery.md).
 
 ### Version
 
@@ -675,7 +675,7 @@ IoT Central implements more versioning rules for device models. If you version a
 
 ### Publish
 
-As of February 2024, the Azure Certified Device program has been retired. Therefore, Microsoft is no longer accepting submissions of DTDL models to the[Azure IoT plug and play models](https://github.com/Azure/iot-plugandplay-models) repository.
+As of February 2024, the Azure Certified Device program is retired. Therefore, Microsoft is no longer accepting submissions of DTDL models to the [Azure IoT plug and play models](https://github.com/Azure/iot-plugandplay-models) repository.
 
 If you want to set up your own model repository, you can use the [Azure IoT plug and play models tools](https://github.com/Azure/iot-plugandplay-models-tools) repository. This repository includes the code for the `dmr-client` CLI tool that  can validate, import, and expand DTDL models. This tool also lets you index model repositories that follow the device model repository conventions.
 
@@ -689,9 +689,43 @@ The following list summarizes some key constraints and limits on models:
 - An interface can extend at most two other interfaces.
 - A component can't contain another component.
 
+## Understand the Digital Twins model parser
+
+The Digital Twins Definition Language (DTDL) is described in the [DTDL Specification](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/README.md). Users can use the _Digital Twins Model Parser_ NuGet package to validate and query a DTDL v2 or v3 model. The DTDL model can be defined in multiple files.
+
+### Install the DTDL model parser
+
+The parser is available in NuGet.org with the ID: [DTDLParser](https://www.nuget.org/packages/DTDLParser). To install the parser, use any compatible NuGet package manager such as the one in Visual Studio or in the `dotnet` CLI.
+
+```bash
+dotnet add package DTDLParser
+```
+
+> [!NOTE]
+> At the time of writing, the parser version is `1.0.52`.
+
+### Use the parser to validate and inspect a model
+
+The DTDLParser is a library that you can use to:
+
+- Determine whether one or more models are valid according to the language v2 or v3 specifications.
+- Identify specific modeling errors.
+- Inspect model contents.
+
+A model can be composed of one or more interfaces described in JSON files. You can use the parser to load all the files that define a model and then validate all the files as a whole, including any references between the files.
+
+The [DTDLParser for .NET](https://github.com/digitaltwinconsortium/DTDLParser) repository includes the following samples that illustrate the use of the parser:
+
+- [DTDLParserResolveSample](https://github.com/digitaltwinconsortium/DTDLParser/blob/main/samples/DTDLParserResolveSample) shows how to parse an interface with external references, resolve the dependencies using the `Azure.IoT.ModelsRepository` client.
+- [DTDLParserJSInteropSample](https://github.com/digitaltwinconsortium/DTDLParser/blob/main/samples/DTDLParserJSInteropSample) shows how to use the DTDL Parser from JavaScript running in the browser, using .NET JSInterop.
+
+The DTDLParser for .NET repository also includes a [collection of tutorials](https://github.com/digitaltwinconsortium/DTDLParser/blob/main/tutorials/README.md) that show you how to use the parser to validate and inspect models.
+
+The model parser API enables many scenarios to automate or validate tasks that depend on DTDL models. For example, you could dynamically build a UI from the information in the model.
+
 ## Next steps
 
-Now that you've learned about device modeling, here are some more resources:
+Now that you learned about device modeling, here are some more resources:
 
 - [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/README.md)
 - [Model repositories](./concepts-model-discovery.md)

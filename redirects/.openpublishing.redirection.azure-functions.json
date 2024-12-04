@@ -1,0 +1,19 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/azure-functions/functions-bindings-return-value.md",
+            "redirect_url": "/azure/azure-functions/functions-triggers-bindings",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/functions-move-across-regions.md",
+            "redirect_url": "/azure/operational-excellence/relocation-functions?toc=/azure/azure-functions/toc.json",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/durable/durable-functions-configure-durable-functions-with-credentials.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-functions-configure-managed-identity",
+            "redirect_document_id": false
+        }    
+    ]
+}

@@ -4,9 +4,9 @@ titleSuffix: Azure Load Balancer
 description: Use this tutorial to learn how to create a gateway load balancer using the Azure portal.
 author: mbender-ms
 ms.author: mbender
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: tutorial
-ms.date: 06/27/2023
+ms.date: 11/26/2024
 ms.custom: template-tutorial, engagement-fy23
 ---
 
@@ -35,17 +35,17 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 [!INCLUDE [load-balancer-create-no-gateway](../../includes/load-balancer-create-no-gateway.md)]
 
-## Create NSG
+## Create a network security group
 
 Use the following example to create a network security group. You configure the NSG rules needed for network traffic in the virtual network created previously.
 
-1. In the search box at the top of the portal, enter **Network Security**. Select **Network security groups** in the search results.
+1. In the search box at the top of the portal, enter **Network security groups** and Select **Network security groups** in the search results.
 
 1. Select **+ Create**.
 
 1. In the **Basics** tab of **Create network security group**, enter, or select the following information:
 
-    | Setting | Value |
+    | **Setting** | **Value** |
     | ------- | ----- |
     | **Project details** |   |
     | Subscription | Select your subscription. |
@@ -62,13 +62,13 @@ Use the following example to create a network security group. You configure the 
 
 1. Select **lb-nsg-R*.
 
-1. Select **Inbound security rules** in **Settings** in **lb-nsg-R*.
+1. Select **Inbound security rules** under **Settings**.
 
 1. Select **+ Add**.
 
 1. In **Add inbound security rule**, enter or select the following information.
 
-    | Setting | Value |
+    | **Setting** | **Value** |
     | ------- | ----- |
     | Source | Leave the default of **Any**. |
     | Source port ranges | Leave the default of **'*'**. |
@@ -88,7 +88,7 @@ Use the following example to create a network security group. You configure the 
 
 1. In **Add outbound security rule**, enter or select the following information.
 
-    | Setting | Value |
+    | **Setting** | **Value** |
     | ------- | ----- |
     | Source | Leave the default of **Any**. |
     | Source port ranges | Leave the default of **'*'**. |
@@ -110,20 +110,20 @@ In this section, you create the configuration and deploy the gateway load balanc
 
 1. In the search box at the top of the portal, enter **Load balancer**. Select **Load balancers** in the search results.
 
-1. In the **Load balancer** page, select **Create**.
+1. In the **Load Balancer** page, select **Create**.
 
 1. In the **Basics** tab of the **Create load balancer** page, enter, or select the following information: 
 
-    | Setting                 | Value                                              |
-    | ---                     | ---                                                |
+    | **Setting** | **Value** |
+    | ---                     | ---  |
     | **Project details** |   |
-    | Subscription               | Select your subscription.    |    
+    | Subscription               | Select your subscription. |    
     | Resource group         | Select **load-balancer-rg**. |
     | **Instance details** |   |
-    | Name                   | Enter **gateway-load-balancer**                                   |
-    | Region         | Select **(US) East US**.                                        |
-    | Type          | Select **Internal**.                                        |
+    | Name                   | Enter **gateway-load-balancer** |
+    | Region         | Select **(US) East US**. |
     | SKU           | Select **Gateway**. |
+    | Type          | Select **Internal**. |
 
     :::image type="content" source="./media/tutorial-gateway-portal/create-load-balancer.png" alt-text="Screenshot of create standard load balancer basics tab." border="true":::
 
@@ -132,14 +132,14 @@ In this section, you create the configuration and deploy the gateway load balanc
 1. In **Frontend IP configuration**, select **+ Add a frontend IP**.
 1. In **Add frontend IP configuration**, enter or select the following information:
    
-    | Setting | Value |
+    | **Setting** | **Value** |
     | ------- | ----- |
     | Name | Enter **lb-frontend-IP**. |
     | Virtual network | Select **lb-vnet**. |
     | Subnet | Select **backend-subnet**. |
     | Assignment | Select **Dynamic** |
 
-1. Select **Add**.
+1. Select **Save**.
 
 1.  Select **Next: Backend pools** at the bottom of the page.
 
@@ -147,11 +147,10 @@ In this section, you create the configuration and deploy the gateway load balanc
 
 5.  In **Add backend pool**, enter or select the following information.
 
-    | Setting | Value |
+    | **Setting** | **Value** |
     | ------- | ----- |
     | Name | Enter **lb-backend-pool**. |
     | Backend Pool Configuration | Select **NIC**. |
-    | IP Version | Select **IPv4**. |
     | **Gateway load balancer configuration** |   |
     | Type | Select **Internal and External**. |
     | Internal port | Leave the default of **10800**. |
@@ -159,7 +158,7 @@ In this section, you create the configuration and deploy the gateway load balanc
     | External port | Leave the default of **10801**. |
     | External identifier | Leave the default of **801**. |
 
-6.  Select **Add**.
+6.  Select **Save**.
 
 7.  Select the **Next: Inbound rules** button at the bottom of the page.
 
@@ -167,7 +166,7 @@ In this section, you create the configuration and deploy the gateway load balanc
 
 9.  In **Add load balancing rule**, enter or select the following information:
 
-    | Setting | Value |
+    | **Setting** | **Value** |
     | ------- | ----- |
     | Name | Enter **lb-rule** |
     | IP Version | Select **IPv4** or **IPv6** depending on your requirements. |
@@ -175,7 +174,7 @@ In this section, you create the configuration and deploy the gateway load balanc
     | Backend pool | Select **lb-backend-pool**. |
     | Health probe | Select **Create new**. </br> In **Name**, enter **lb-health-probe**. </br> Select **TCP** in **Protocol**. </br> Leave the rest of the defaults, and select **Save**. |
     | Session persistence | Select **None**. |
-    | Enable TCP reset | Leave the default of unchecked. |
+    | Enable TCP reset | Leave default of unchecked. |
     | Enable floating IP | Leave default of unchecked. |
 
     :::image type="content" source="./media/tutorial-gateway-portal/add-load-balancing-rule.png" alt-text="Screenshot of create load-balancing rule." border="true":::
@@ -259,4 +258,4 @@ When creating the NVAs, choose the resources created in this tutorial:
 
 Advance to the next article to learn how to create a cross-region Azure Load Balancer.
 > [!div class="nextstepaction"]
-> [Cross-region load balancer](tutorial-cross-region-powershell.md)
+> [Cross-region load balancer](tutorial-cross-region-portal.md)

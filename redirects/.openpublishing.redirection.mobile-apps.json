@@ -1,0 +1,109 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/mobile-apps/concepts/analytics.md",
+            "redirect_url": "/azure/developer/mobile-apps/analytics",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/mobile-apps/concepts/authentication.md",
+            "redirect_url": "/azure/developer/mobile-apps/authentication",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/mobile-apps/concepts/azure-cdn.md",
+            "redirect_url": "/azure/developer/mobile-apps/azure-content-delivery-network",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/mobile-apps/concepts/azure-maps.md",
+            "redirect_url": "/azure/developer/mobile-apps/azure-maps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/mobile-apps/concepts/azure-search.md",
+            "redirect_url": "/azure/developer/mobile-apps/azure-search",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/mobile-apps/concepts/azure-storage.md",
+            "redirect_url": "/azure/developer/mobile-apps/azure-storage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/mobile-apps/concepts/code-hosting-services.md",
+            "redirect_url": "/azure/developer/mobile-apps/code-hosting-services",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/mobile-apps/concepts/cognitive-services.md",
+            "redirect_url": "/azure/developer/mobile-apps/cognitive-services",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/mobile-apps/concepts/continuous-delivery.md",
+            "redirect_url": "/azure/developer/mobile-apps/continuous-delivery",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/mobile-apps/concepts/continuous-integration.md",
+            "redirect_url": "/azure/developer/mobile-apps/continuous-integration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/mobile-apps/concepts/data-storage.md",
+            "redirect_url": "/azure/developer/mobile-apps/data-storage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/mobile-apps/concepts/devops.md",
+            "redirect_url": "/azure/developer/mobile-apps/devops",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/mobile-apps/concepts/diagnostics.md",
+            "redirect_url": "/azure/developer/mobile-apps/diagnostics",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/mobile-apps/concepts/front-end-development-platform.md",
+            "redirect_url": "/azure/developer/mobile-apps/choose-mobile-framework",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/mobile-apps/concepts/index.md",
+            "redirect_url": "/azure/developer/mobile-apps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/mobile-apps/concepts/push-notifications.md",
+            "redirect_url": "/azure/developer/mobile-apps/push-notifications",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/mobile-apps/concepts/real-time.md",
+            "redirect_url": "/azure/developer/mobile-apps/real-time-communication",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/mobile-apps/concepts/serverless-compute.md",
+            "redirect_url": "/azure/developer/mobile-apps/serverless-compute",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/mobile-apps/concepts/stages-overview.md",
+            "redirect_url": "/azure/developer/mobile-apps/mobile-cloud-development-stages",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/mobile-apps/concepts/test.md",
+            "redirect_url": "/azure/developer/mobile-apps/test-mobile-apps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/mobile-apps/index.yml",
+            "redirect_url": "/azure/developer/mobile-apps",
+            "redirect_document_id": false
+        }
+    ]
+}

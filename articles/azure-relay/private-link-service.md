@@ -197,7 +197,7 @@ There are four provisioning states:
 ## Validate that the private link connection works
 You should validate that resources within the virtual network of the private endpoint are connecting to your Azure Relay namespace over its private IP address.
 
-For this test, create a virtual machine by following the steps in the [Create a Windows virtual machine in the Azure portal](../virtual-machines/windows/quick-create-portal.md)
+For this test, create a virtual machine by following the steps in the [Create a Windows virtual machine in the Azure portal](/azure/virtual-machines/windows/quick-create-portal)
 
 In the **Networking** tab: 
 

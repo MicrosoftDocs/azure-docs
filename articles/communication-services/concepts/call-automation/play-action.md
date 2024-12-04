@@ -17,7 +17,7 @@ The play action provided through the Azure Communication Services Call Automatio
 
 You can use the newly announced integration between [Azure Communication Services and Azure AI services](./azure-communication-services-azure-cognitive-services-integration.md) to play personalized responses using Azure [Text-To-Speech](../../../../articles/cognitive-services/Speech-Service/text-to-speech.md). You can use human like prebuilt neural voices out of the box or create custom neural voices that are unique to your product or brand. For more information on supported voices, languages and locales see [Language and voice support for the Speech service](../../../../articles/cognitive-services/Speech-Service/language-support.md).
 > [!NOTE]
-> Azure Communication Services currently supports two file formats, MP3 files with ID3V2TAG and WAV files formatted as 16-bit PCM mono channel audio recorded at 16KHz. You can create your own audio files using [Speech synthesis with Audio Content Creation tool](../../../ai-services/Speech-Service/how-to-audio-content-creation.md). 
+> Azure Communication Services currently supports two file formats, MP3 files with ID3V2TAG and WAV files formatted as 16-bit PCM mono channel audio recorded at 16KHz. You can create your own audio files using [Speech synthesis with Audio Content Creation tool](/azure/ai-services/speech-service/how-to-audio-content-creation). 
 
 ## Prebuilt Neural Text to Speech voices
 Microsoft uses deep neural networks to overcome the limits of traditional speech synthesis with regard to stress and intonation in spoken language. Prosody prediction and voice synthesis occur simultaneously, resulting in a more fluid and natural sounding output. You can use these neural voices to make interactions with your chatbots and voice assistants more natural and engaging. There are over 100 prebuilt voices to choose from. Learn more about [Azure Text-to-Speech voices](../../../../articles/cognitive-services/Speech-Service/language-support.md).
@@ -49,7 +49,7 @@ As part of compliance requirements in various industries, vendors are expected t
 
 ## Known limitations
 - Text-to-Speech text prompts support a maximum of 400 characters, if your prompt is longer than this we suggest using SSML for Text-to-Speech based play actions.
-- For scenarios where you exceed your Speech service quota limit, you can request to increase this limit by following the steps outlined [here](../../../ai-services/speech-service/speech-services-quotas-and-limits.md).
+- For scenarios where you exceed your Speech service quota limit, you can request to increase this limit by following the steps outlined [here](/azure/ai-services/speech-service/speech-services-quotas-and-limits).
 
 ## Next Steps
 - Check out our how-to guide to learn [how-to play custom voice prompts](../../how-tos/call-automation/play-action.md) to users.

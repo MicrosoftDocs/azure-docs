@@ -5,10 +5,11 @@ author: kgremban
 ms.author: kgremban
 ms.date: 03/12/2024
 ms.topic: overview
-ms.service: iot-dps
+ms.service: azure-iot-hub
 services: iot-dps
 manager: lizross
 ms.custom:  [amqp, mqtt]
+ms.subservice: azure-iot-hub-dps
 ---
 
 # What is Azure IoT Hub Device Provisioning Service?
@@ -116,7 +117,7 @@ For resiliency and reliability, we recommend deploying to one of the regions tha
 
 ### Data residency consideration
 
-Device Provisioning Service stores customer data. By default, customer data is replicated to a secondary region to support disaster recovery scenarios. For deployments in Southeast Asia and Brazil South, customers can choose to keep their data only within that region by [disabling disaster recovery](./iot-dps-ha-dr.md). For more information, see [Cross-region replication in Azure](../availability-zones/cross-region-replication-azure.md).
+Device Provisioning Service stores customer data. By default, customer data is replicated to a secondary region to support disaster recovery scenarios. For deployments in Southeast Asia and Brazil South, customers can choose to keep their data only within that region by [disabling disaster recovery](./iot-dps-ha-dr.md). For more information, see [Cross-region replication in Azure](../reliability/cross-region-replication-azure.md).
 
 DPS uses the same [device provisioning endpoint](concepts-service.md#device-provisioning-endpoint) for all provisioning service instances, and performs traffic load balancing to the nearest available service endpoint. As a result, authentication secrets may be temporarily transferred outside of the region where the DPS instance was initially created. However, once the device is connected, the device data flows directly to the original region of the DPS instance. To ensure that your data doesn't leave the original or secondary region, use a private endpoint. To learn how to set up private endpoints, see [DPS support for virtual networks](virtual-network-support.md#private-endpoint-limitations).
 
@@ -137,7 +138,7 @@ The tables below show the current billable status for each DPS service API opera
 | API | Operation | Billable? |
 | --------------- | -------  | -- |
 |  Device API | [Device Registration Status Lookup](/rest/api/iot-dps/device/runtime-registration/device-registration-status-lookup) | No|
-|  Device API | [Operation Status Lookup](/rest/api/iot-dps/device/runtime-registration/operation-status-lookup)| No |
+|  Device API | [Operation Status Lookup](/rest/api/iot-dps/device/operation-groups)| No |
 |  Device API | [Register Device](/rest/api/iot-dps/device/runtime-registration/register-device) | Yes |
 | DPS Service API (registration state)  | [Delete](/rest/api/iot-dps/service/device-registration-state/delete) | Yes|
 | DPS Service API (registration state)  | [Get](/rest/api/iot-dps/service/device-registration-state/get) | Yes|

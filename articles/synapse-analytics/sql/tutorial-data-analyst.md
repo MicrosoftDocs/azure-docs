@@ -2,31 +2,41 @@
 title: 'Tutorial: Analyze Azure Open Datasets in Synapse Studio'
 description: This tutorial shows you how to perform data analysis combining different Azure Open Datasets using serverless SQL pool and visualize results in Synapse Studio.
 author: azaricstefan
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: tutorial
 ms.subservice: sql
-ms.date: 05/25/2022
+ms.date: 11/08/2024
 ms.custom: kr2b-contr-experiment
 ms.author: stefanazaric
-ms.reviewer: sngun 
+ms.reviewer: whhender 
 ---
 
 # Tutorial: Explore and Analyze data lakes with serverless SQL pool
 
-In this tutorial, you learn how to perform exploratory data analysis. You combine different Azure Open Datasets using serverless SQL pool. You then visualize the results in Synapse Studio for Azure Synapse Analytics.
+In this tutorial, you learn how to perform exploratory data analysis using existing open datasets, with no storage setup required. You combine different Azure Open Datasets using serverless SQL pool. You then visualize the results in Synapse Studio for Azure Synapse Analytics.
 
-The `OPENROWSET(BULK...)` function allows you to access files in Azure Storage. `[OPENROWSET](develop-openrowset.md)` reads content of a remote data source, such as a file, and returns the content as a set of rows.
+In this tutorial, you:
 
-## Automatic schema inference
+> [!div class="checklist"]
+> * Access the built-in serverless SQL pool
+> * Access Azure Open Datasets to use tutorial data
+> * Perform basic data analysis using SQL
 
-Since data is stored in the Parquet file format, automatic schema inference is available. You can query the data without listing the data types of all columns in the files. You also can use the virtual column mechanism and the `filepath` function to filter out a certain subset of files.
+## Access the serverless SQL pool
 
-> [!NOTE]
-> The default collation is `SQL_Latin1_General_CP1_CI_ASIf`. For a non-default collation, take into account case sensitivity.
->
-> If you create a database with case sensitive collation when you specify columns, make sure to use correct name of the column.
->
-> A column name `tpepPickupDateTime` would be correct while `tpeppickupdatetime` wouldn't work in a non-default collation.
+Every workspace comes with a preconfigured serverless SQL pool for you to use called *Built-in*. To access it:
+
+1. Open your workspace and select the **Develop** hub.
+1. Select the **+** *Add new resource* button.'
+1. Select SQL script.
+
+You can use this script to explore your data without having to reserve SQL capacity.
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+## Access the tutorial data
+
+All the data we use in this tutorial is housed in the storage account *azureopendatastorage*, which holds Azure Open Datasets for open use in tutorials like this one. You can run all the scripts as-is directly from your workspace as long as your workspace can access a public network.
 
 This tutorial uses a dataset about [New York City (NYC) Taxi](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/):
 
@@ -38,6 +48,8 @@ This tutorial uses a dataset about [New York City (NYC) Taxi](https://azure.micr
 - Payment types
 - Driver-reported passenger counts
 
+The `OPENROWSET(BULK...)` function allows you to access files in Azure Storage. `[OPENROWSET](develop-openrowset.md)` reads content of a remote data source, such as a file, and returns the content as a set of rows.
+
 To get familiar with the NYC Taxi data, run the following query:
 
 ```sql
@@ -47,6 +59,8 @@ SELECT TOP 100 * FROM
         FORMAT='PARQUET'
     ) AS [nyc]
 ```
+
+### Other accessible datasets
 
 Similarly, you can query the Public Holidays dataset by using the following query:
 
@@ -75,6 +89,17 @@ You can learn more about the meaning of the individual columns in the descriptio
 - [NYC Taxi](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/)
 - [Public Holidays](https://azure.microsoft.com/services/open-datasets/catalog/public-holidays/)
 - [Weather Data](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/)
+
+## Automatic schema inference
+
+Since the data is stored in the Parquet file format, automatic schema inference is available. You can query the data without listing the data types of all columns in the files. You also can use the virtual column mechanism and the `filepath` function to filter out a certain subset of files.
+
+> [!NOTE]
+> The default collation is `SQL_Latin1_General_CP1_CI_ASIf`. For a non-default collation, take into account case sensitivity.
+>
+> If you create a database with case sensitive collation when you specify columns, make sure to use correct name of the column.
+>
+> A column name `tpepPickupDateTime` would be correct while `tpeppickupdatetime` wouldn't work in a non-default collation.
 
 ## Time series, seasonality, and outlier analysis
 
@@ -220,7 +245,7 @@ The results of the query indicate that the drop in the number of taxi rides occu
 
 This tutorial has shown how a data analyst can quickly perform exploratory data analysis. You can combine different datasets by using serverless SQL pool and visualize the results by using Azure Synapse Studio.
 
-## Next steps
+## Related content
 
 To learn how to connect serverless SQL pool to Power BI Desktop and create reports, see [Connect serverless SQL pool to Power BI Desktop and create reports](tutorial-connect-power-bi-desktop.md).
 

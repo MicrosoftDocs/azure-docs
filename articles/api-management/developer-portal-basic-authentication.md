@@ -4,7 +4,7 @@ titleSuffix: Azure API Management
 description: Learn how to set up user accounts with username and password authentication to the developer portal in Azure API Management.
 
 author: dlepow
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
 ms.date: 08/30/2022
 ms.author: danlep
@@ -12,7 +12,7 @@ ms.author: danlep
 
 # Configure users of the developer portal to authenticate using usernames and passwords 
 
-[!INCLUDE [api-management-availability-premium-dev-standard-basic-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-standardv2-basicv2.md)]
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2.md)]
 
 In the developer portal for Azure API Management, the default authentication method for users is to provide a username and password. In this article, learn how to set up users with basic authentication credentials to the developer portal.
 

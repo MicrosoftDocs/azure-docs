@@ -1,10 +1,10 @@
 ---
 title: Use Azure Kubernetes Service with Kafka on HDInsight 
 description: Learn how to use Kafka on HDInsight from container images hosted in Azure Kubernetes Service (AKS).
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 12/05/2023
+ms.date: 12/02/2024
 ---
 
 # Use Azure Kubernetes Service with Apache Kafka on HDInsight
@@ -27,7 +27,7 @@ This document assumes that you are familiar with creating and using the followin
 * Azure Kubernetes Service
 * Azure Virtual Networks
 
-This document also assumes that you completed the [Azure Kubernetes Service tutorial](../../aks/tutorial-kubernetes-prepare-app.md). This article creates a container service, creates a Kubernetes cluster, a container registry, and configures the `kubectl` utility.
+This document also assumes that you completed the [Azure Kubernetes Service tutorial](/azure/aks/tutorial-kubernetes-prepare-app). This article creates a container service, creates a Kubernetes cluster, a container registry, and configures the `kubectl` utility.
 
 ## Architecture
 
@@ -46,9 +46,9 @@ The following diagram illustrates the network topology used in this document:
 
 If you do not already have an AKS cluster, use one of the following documents to learn how to create one:
 
-* [Deploy an Azure Kubernetes Service (AKS) cluster - Portal](../../aks/learn/quick-kubernetes-deploy-portal.md)
-* [Deploy an Azure Kubernetes Service (AKS) cluster - CLI](../../aks/learn/quick-kubernetes-deploy-cli.md)
-* [Deploy an Azure Kubernetes Service (AKS) cluster - PowerShell](../../aks/learn/quick-kubernetes-deploy-powershell.md)
+* [Deploy an Azure Kubernetes Service (AKS) cluster - Portal](/azure/aks/learn/quick-kubernetes-deploy-portal)
+* [Deploy an Azure Kubernetes Service (AKS) cluster - CLI](/azure/aks/learn/quick-kubernetes-deploy-cli)
+* [Deploy an Azure Kubernetes Service (AKS) cluster - PowerShell](/azure/aks/learn/quick-kubernetes-deploy-powershell)
 
 > [!IMPORTANT]  
 > AKS creates a virtual network during installation in an **additional** resource group. The additional resource group follows the naming convention of **MC_resourceGroup_AKSclusterName_location**.  
@@ -135,7 +135,8 @@ Use the following steps to configure Kafka to advertise IP addresses instead of 
 
 9. To prevent errors when restarting Kafka, use the __Service Actions__ button and select __Turn On Maintenance Mode__. Select OK to complete this operation.
 
-    :::image type="content" source="./media/apache-kafka-azure-container-services/turn-on-maintenance-mode.png" alt-text="Service actions, with turn on maintenance highlighted." border="true":::
+    :::image type="content" source="./media/apache-kafka-azure-container-services/turn-on-maintenance-mode.png" alt-text="Screenshot of the service actions, with turn-on maintenance highlighted." border="true":::
+
 
 10. To restart Kafka, use the __Restart__ button and select __Restart All Affected__. Confirm the restart, and then use the __OK__ button after the operation is completed.
 
@@ -175,7 +176,7 @@ At this point, Kafka and Azure Kubernetes Service are in communication through t
     ```
 
     > [!NOTE]  
-    > If you don't know your Azure Container Registry name, or are unfamiliar with using the Azure CLI to work with the Azure Kubernetes Service, see the [AKS tutorials](../../aks/tutorial-kubernetes-prepare-app.md).
+    > If you don't know your Azure Container Registry name, or are unfamiliar with using the Azure CLI to work with the Azure Kubernetes Service, see the [AKS tutorials](/azure/aks/tutorial-kubernetes-prepare-app).
 
 6. Tag the local `kafka-aks-test` image with the loginServer of your ACR. Also add `:v1` to the end to indicate the image version:
 

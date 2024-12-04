@@ -1,0 +1,21 @@
+- name: What is Azure Compute Fleet? (Preview)
+  href: overview.md
+- name: Quickstarts
+  items:
+  - name: Create in the Azure portal
+    href: quickstart-create-portal.md
+  - name: Create with ARM template
+    href: quickstart-create-rest-api.md
+  expand: true 
+- name: Allocation strategies
+  href: allocation-strategies.md
+- name: Spot VM configuration
+  href: spot-vm-configuration.md
+- name: Attribute based VM selection (Preview)
+  href: attribute-based-vm-selection.md
+- name: Modify a Compute Fleet
+  href: modify-fleet.md
+- name: Multi-region Compute Fleet (Preview)
+  href: multi-region-compute-fleet.md
+- name: FAQ
+  href: faq.yml
