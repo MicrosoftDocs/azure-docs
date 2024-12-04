@@ -322,7 +322,7 @@ BizTalk Server doesn't include the concept of blocking specific adapters from di
 
 #### Azure Logic Apps
 
-If your organization doesn't permit connecting to restricted or unapproved resources by using managed connectors in [Azure Logic Apps](./logic-apps-overview.md), you can block the capability to create and use those connections in your logic app workflows. With Azure Policy, you can define and enforce policies that prevent creating or using the connections for connectors that you want to block. For example, for security reasons, you might want to block connections to specific social media platforms or other services and systems.
+If your organization doesn't permit connecting to restricted or unapproved resources by using managed connectors in [Azure Logic Apps](logic-apps-overview.md), you can block the capability to create and use those connections in your logic app workflows. With Azure Policy, you can define and enforce policies that prevent creating or using the connections for connectors that you want to block. For example, for security reasons, you might want to block connections to specific social media platforms or other services and systems.
 
 ### Message durability
 
