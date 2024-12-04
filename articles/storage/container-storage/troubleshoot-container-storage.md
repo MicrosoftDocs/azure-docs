@@ -28,7 +28,7 @@ az aks update -n <cluster-name> -g <resource-group> --enable-azure-container-sto
 
 ### Azure Container Storage fails to install due to Azure Policy restrictions
 
-Azure Container Storage might fail to install if Azure Policy restrictions are in place. Specifically, Azure Container Storage relies on privileged containers. You may have configured Azure Policy to block privileged containers. When they are blocked, the installation of Azure Container Storage might time out or fail, and you might see errors in the `gatekeeper-controller` logs such as:
+Azure Container Storage might fail to install if Azure Policy restrictions are in place. Specifically, Azure Container Storage relies on privileged containers. You may  configure Azure Policy to block privileged containers. When they're blocked, the installation of Azure Container Storage might time out or fail, and you might see errors in the `gatekeeper-controller` logs such as:
 
 ```output
 $ kubectl logs -n gatekeeper-system deployment/gatekeeper-controller
@@ -114,7 +114,7 @@ Run the following steps to enable Azure Container Storage to manage these local 
    NAMESPACE   NAME                 CAPACITY   AVAILABLE   USED   RESERVED   READY   AGE
    acstor      ephemeraldisk-nvme   0          0           0      0          False   82s
    ```
-   This example shows 0 capacity claimed by `ephemeraldisk-nvme` storage pool.
+   This example shows zero capacity claimed by `ephemeraldisk-nvme` storage pool.
 
 1. Run the following command to confirm unclaimed state of these local block devices and check existing file system on the disks:
    ```bash
@@ -129,7 +129,7 @@ Run the following steps to enable Azure Container Storage to manage these local 
        Fs Type:  ext4
    …
    ```
-   This example shows that the block devices are `Unclaimed` status and there is an existing file system on the disk.
+   This example shows that the block devices are `Unclaimed` status and there's an existing file system on the disk.
 
 1. Confirm that you want to use Azure Container Storage to manage the local data disks exclusively before proceeding.
 
@@ -167,7 +167,7 @@ Run the following steps to enable Azure Container Storage to manage these local 
 
 If your existing storage pool is less than 4 TiB (4,096 GiB), you can only expand it up to 4,095 GiB. If you try to expand beyond the limit, the internal PVC shows an error message about disk size or caching type limitations. Stop your VM or detach the disk and retry the operation."
 
-To avoid errors, don't attempt to expand your current storage pool beyond 4,095 GiB if it is initially smaller than 4 TiB (4,096 GiB). Storage pools larger than 4 TiB can be expanded up to the maximum storage capacity available.
+To avoid errors, don't attempt to expand your current storage pool beyond 4,095 GiB if it's initially smaller than 4 TiB (4,096 GiB). Storage pools larger than 4 TiB can be expanded up to the maximum storage capacity available.
 
 This limitation only applies when using `Premium_LRS`, `Standard_LRS`, `StandardSSD_LRS`, `Premium_ZRS`, and `StandardSSD_ZRS` Disk SKUs.
 
