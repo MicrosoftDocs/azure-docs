@@ -205,7 +205,9 @@ When you use an Azure function app, you can work with the function extension. He
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/SignalR/SignalRNegotiationFunctions.cs" id="snippet_negotiate":::
 
 > [!Warning]
-> For the simplicity, we omit the authentication and authorization parts in this sample. As a result, this endpoint is publicly accessible without any restrictions. To ensure the security of your negotiation endpoint, you should implement appropriate authentication and authorization mechanisms based on your specific requirements. For guidance on protecting your HTTP endpoints, see [Secure HTTP endpoints](../azure-functions/security-concepts.md#secure-http-endpoints).
+> For the simplicity, we omit the authentication and authorization parts in this sample. As a result, this endpoint is publicly accessible without any restrictions. To ensure the security of your negotiation endpoint, you should implement appropriate authentication and authorization mechanisms based on your specific requirements. For guidance on protecting your HTTP endpoints, see the following articles: 
+> * [Secure HTTP endpoints](../azure-functions/security-concepts.md#secure-http-endpoints).
+> * [Authentication and authorization in Azure App Service and Azure Functions](../app-service/overview-authentication-authorization.md)
 
 Then your clients can request the function endpoint `https://<Your Function App Name>.azurewebsites.net/api/negotiate` to get the service URL and access token. You can find a full sample on [GitHub](https://github.com/aspnet/AzureSignalR-samples/tree/main/samples/BidirectionChat).
 

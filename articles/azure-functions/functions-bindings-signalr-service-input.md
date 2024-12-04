@@ -135,7 +135,9 @@ public SignalRConnectionInfo negotiate(
 :::zone-end
 
 > [!Warning]
-> For the simplicity, we have omitted the authentication and authorization parts in this example. As a result, this endpoint is publicly accessible without any restrictions. To ensure the security of your negotiation endpoint, you should implement appropriate authentication and authorization mechanisms based on your specific requirements. For guidance on protecting your HTTP endpoints, see [Secure HTTP endpoints](./security-concepts.md#secure-http-endpoints).
+> For the simplicity, we omit the authentication and authorization parts in this sample. As a result, this endpoint is publicly accessible without any restrictions. To ensure the security of your negotiation endpoint, you should implement appropriate authentication and authorization mechanisms based on your specific requirements. For guidance on protecting your HTTP endpoints, see the following articles: 
+> * [Secure HTTP endpoints](../azure-functions/security-concepts.md#secure-http-endpoints).
+> * [Authentication and authorization in Azure App Service and Azure Functions](../app-service/overview-authentication-authorization.md)
 
 ## Usage
 
