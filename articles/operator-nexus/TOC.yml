@@ -155,6 +155,8 @@
                   href: howto-cluster-runtime-upgrade.md
                 - name: Cluster Upgrades With PauseRack Startegy
                   href: howto-cluster-runtime-upgrade-with-pauserack-strategy.md
+                - name: How to upgrade Network Fabric
+                  href: howto-upgrade-nexus-fabric.md  
                 - name: Credential Rotation
                   href: howto-credential-rotation.md
                 - name: Credential Manager Key Vault
@@ -182,9 +184,7 @@
           href: howto-update-access-control-list-for-network-to-network-interconnects.md
         - name: Delete ACLs associated with Network-to-Network Interconnects (NNI)
           href: howto-delete-access-control-list-network-to-network-interconnect.md
-        - name:
-            How to Configure Diagnostic Settings and Monitor Configuration Differences
-            in Nexus Network Fabric
+        - name: How to Configure Diagnostic Settings and Monitor Configuration Differences in Nexus Network Fabric
           href: howto-configure-diagnostic-settings-monitor-configuration-differences.md
         - name: How to Delete L3 Isolation Domains in Azure Nexus Network Fabric
           href: howto-delete-layer-3-isolation-domains.md
@@ -198,8 +198,12 @@
           href: howto-replace-network-devices.md
         - name: How to put a device into maintenance mode
           href: howto-put-device-in-maintenance-mode.md
-        - name: How to upgrade Network Fabric
-          href: howto-upgrade-nexus-fabric.md
+        - name: How to set up break glass access
+          href: howto-set-up-break-glass-access.md
+        - name: How to use-break-glass-access.md
+          href: howto-use-break-glass-access.md
+        - name: How to enable-Micro-BFD on CE and PE devices.md
+          href: howto-enable-micro-bfd.md
     - name: Cluster
       expanded: false
       items:
