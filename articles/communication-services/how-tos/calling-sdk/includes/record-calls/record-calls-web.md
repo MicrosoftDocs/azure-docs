@@ -69,15 +69,6 @@ callRecordingApi.on('recordingsUpdated', cloudRecordingsUpdatedHandler );
 When your Teams meeting or call is configured to require explicit consent for recording and transcription, 
 you are required to collect consent from all participants in the call before you can record them. You can provide consent proactively when joining the meeting or reactively when the recording starts. Until explicit consent is given, participants' audio, video, and screen sharing will be disabled during recording.
  
-### Support
-The following tables show support of explicit consent for specific call type and identity.
- 
-|Identities                   | Teams meeting | Room | 1:1 call | Group call | 1:1 Teams interop call | Group Teams interop call |
-|-----------------------------|---------------|------|----------|------------|------------------------|--------------------------|
-|Communication Services user  | ✔️            |      |          |            |                       |  ✔️                       |
-|Microsoft 365 user           | ✔️            |      |          |            |                       | ✔️                      |
- 
- 
 You can check if the meeting recording requires explicit consent by property `isConsentRequired`. If the value is set to `true`, then explicit consent is required for the `call`.
  
 ```js
