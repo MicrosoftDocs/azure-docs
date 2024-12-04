@@ -8,7 +8,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.custom: devx-track-python, devx-track-azurecli, devx-track-azurepowershell, linux-related-content
-ms.date: 11/05/2024
+ms.date: 12/04/2024
 ms.author: radeltch
 ---
 
@@ -588,14 +588,15 @@ The second virtual IP and the appropriate colocation constraint can be configure
 pcs property set maintenance-mode=true
 
 pcs resource create secvip_HN1_03 ocf:heartbeat:IPaddr2 ip="10.40.0.16"
-
 pcs resource create secnc_HN1_03 ocf:heartbeat:azure-lb port=62603
-
 pcs resource group add g_secip_HN1_03 secnc_HN1_03 secvip_HN1_03
 
 pcs constraint location g_secip_HN1_03 rule score=INFINITY hana_hn1_sync_state eq SOK and hana_hn1_roles eq 4:S:master1:master:worker:master
-
 pcs constraint location g_secip_HN1_03 rule score=4000 hana_hn1_sync_state eq PRIM and hana_hn1_roles eq 4:P:master1:master:worker:master
+
+# Set the priority to primary IPaddr2 and azure-lb resource if priority-fencing-delay is configured
+sudo pcs resource update vip_HN1_03 meta priority=5
+sudo pcs resource update nc_HN1_03 meta priority=5
 
 pcs property set maintenance-mode=false
 ```
