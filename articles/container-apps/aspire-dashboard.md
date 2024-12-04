@@ -36,8 +36,7 @@ The dashboard is secured against unauthorized access and modification. To use th
 ::: zone pivot="portal"
 
 > [!TIP]
-> While you have the portal as an option, the recommended approach to enabling your dashboard is with [azd
-](aspire-dashboard.md?pivots=azd). If you run into an problems using the portal, [create an issue in the Container Apps GitHub repo](https://github.com/microsoft/azure-container-apps/issues).
+> While you have the portal as an option, the recommended approach to enabling your dashboard is with [azd](aspire-dashboard.md?pivots=azd). If you run into an problems using the portal, [create an issue in the Container Apps GitHub repo](https://github.com/microsoft/azure-container-apps/issues).
 
 You can enable the .NET Aspire Dashboard on any existing container app using the following steps.
 
