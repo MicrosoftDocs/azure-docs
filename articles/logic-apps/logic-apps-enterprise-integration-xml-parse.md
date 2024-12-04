@@ -103,7 +103,7 @@ The following table describes the advanced parameters available in this action:
 | **Ignore XML Processing Instructions?** | **No** or **Yes** | Whether to follow or ignore the XML processing instructions. | 
 | **Ignore XML Attributes** | **No** or **Yes** | Whether to write or ignore XML attributes. |
 | **Use Fully Qualified Names?** | **No** or **Yes** | Whether to use simpler local names or fully qualified XML names. |
-   | **Root Node Qualified Name?** | <*root-node-qualified-name*> | The root node's qualified name in case the schema contains multiple unreferenced element definitions.  |
+| **Root Node Qualified Name** | <*root-node-qualified-name*> | The root node's qualified name in case the schema contains multiple unreferenced element definitions. |
 
 ## Related content
 	
