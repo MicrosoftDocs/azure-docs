@@ -5,12 +5,13 @@ services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: how-to
-ms.date: 10/31/2023
+ms.date: 12/05/2024
 ms.author: duau
 ms.custom:
   - reference_regions
   - ignite-2023
 ---
+
 # Configure a virtual network gateway for ExpressRoute using the Azure portal
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure portal](expressroute-howto-add-gateway-portal-resource-manager.md)
@@ -33,7 +34,7 @@ The steps for this tutorial use the values in the following configuration refere
 * Subnet Name = "default" 
 	* Subnet address space = "10.0.0.0/24"
 * Resource Group = "vnetdemo"
-* Location = "West US 2"
+* Location = "West US 3"
 * Gateway Subnet name: "GatewaySubnet" You must always name a gateway subnet *GatewaySubnet*.
 	* Gateway Subnet address space = "10.0.1.0/24"
 * Gateway Name = "myERGwScale"
@@ -41,14 +42,17 @@ The steps for this tutorial use the values in the following configuration refere
 * Gateway type = "ExpressRoute" This type is required for an ExpressRoute configuration.
 
     > [!IMPORTANT]
-    > ExpressRoute Virtual Network Gateways no longer support the Basic Public IP SKU. Please associate a Standard IP to create the Virtual Network Gateway.
-    > 
-    > 
+    > ExpressRoute Virtual Network Gateways no longer support the Basic Public IP SKU. Associate a Standard IP to create the Virtual Network Gateway.
+    >
 
 ## Create the gateway subnet
 
-1. In the [portal](https://portal.azure.com), navigate to the Resource Manager virtual network for which you want to create a virtual network gateway.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. Go to the virtual network for which you want to create a virtual network gateway.
+
 1. In the **Settings** section of your virtual network, select **Subnets** to expand the Subnet settings.
+
 1. Select **+ Gateway subnet** to add a gateway subnet. 
    
     :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/add-gateway-subnet.png" alt-text="Screenshot that shows the button to add the gateway subnet.":::
@@ -76,9 +80,9 @@ The steps for this tutorial use the values in the following configuration refere
     | Resource Group | The resource group gets automatically chosen once you select the virtual network. |
     | **Instance details** |  |
     | Name | Name your gateway. This name isn't the same as naming a gateway subnet. It's the name of the gateway resource you're creating.|
-    | Region | Change the **Region** field to point to the location where your virtual network is located. If the region isn't pointing to the location where your virtual network is, the virtual network doesn't appear in the **Virtual network** dropdown. |
+    | Region | Change the **Region** field to point to the location where your virtual network is located. If the region isn't pointing to the location where your virtual network is, the virtual network doesn't appear in the **Virtual network** dropdown. <br>  If you want to create the gateway in an [Azure Extended Zone](../extended-zones/overview.md), select **Deploy to an Azure Extended Zone**.|
     | Gateway type | Select **ExpressRoute**.|
-    | SKU | Select a gateway SKU from the dropdown. For more information, see [About ExpressRoute gateway](expressroute-about-virtual-network-gateways.md). |
+    | SKU | Select a gateway SKU from the dropdown. For more information, see [About ExpressRoute gateway](expressroute-about-virtual-network-gateways.md#gwsku). |
     | Minimum Scale Units | This option is only available when you select the **ErGwScale (Preview)** SKU. Enter the minimum number of scale units you want to use. For more information, see [ExpressRoute Gateway Scale Units](expressroute-about-virtual-network-gateways.md#expressroute-scalable-gateway-preview). |
     | Maximum Scale Units | This option is only available when you select the **ErGwScale (Preview)** SKU. Enter the maximum number of scale units you want to use. For more information, see [ExpressRoute Gateway Scale Units](expressroute-about-virtual-network-gateways.md#expressroute-scalable-gateway-preview). |
     | Virtual network | Select *vnet-1*. |
@@ -92,6 +96,12 @@ The steps for this tutorial use the values in the following configuration refere
     > [!IMPORTANT]
     > If you plan to use IPv6-based private peering over ExpressRoute, please make sure to create your gateway with a Public IP address of type Standard, Static using the [PowerShell instructions](./expressroute-howto-add-gateway-resource-manager.md#add-a-gateway).
     > 
+
+    > [!NOTE]
+    > To create the gateway in an [Azure Extended Zone](../extended-zones/overview.md), you must [Request access to the Extended Zone](../extended-zones/request-access.md) first. Once you have access, you can create the gateway in an Extended Zone. The following considerations apply when creating a gateway in an Extended Zone:
+    > - Availability Zones aren't supported in Azure Extended Zones.
+    > - The following SKUs are currently supported in Azure Extended Zones: *Standard*, *HighPerformance*, *UltraPerformance*.
+    > - Local SKU circuit isn't supported with gateways in Azure Extended Zone.
 
 1. Select **Review + Create**, and then **Create** to begin creating the gateway. The settings are validated and the gateway deploys. Creating virtual network gateway can take up to 45 minutes to complete.
 
