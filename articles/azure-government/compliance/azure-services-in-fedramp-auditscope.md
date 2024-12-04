@@ -7,7 +7,7 @@ ms.topic: article
 ms.service: azure-government
 ms.custom: references_regions
 recommendations: false
-ms.date: 08/12/2024
+ms.date: 12/4/2024
 ---
 
 # Azure, Dynamics 365, Microsoft 365, and Power Platform services compliance scope
@@ -50,7 +50,7 @@ For current Azure Government regions and available services, see [Products avail
 This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and Power Platform cloud services in scope for FedRAMP High, DoD IL2, DoD IL4, DoD IL5, and DoD IL6 authorizations across Azure, Azure Government, and Azure Government Secret cloud environments. For other authorization details in Azure Government Secret and Azure Government Top Secret, contact your Microsoft account representative.
 
 ## Azure public services by audit scope
-*Last updated: June 2024*
+*Last updated: December 2024*
 
 ### Terminology used
 
@@ -157,6 +157,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Dynamics 365 Fraud Protection](/dynamics365/fraud-protection/)| &#x2705; | &#x2705; |
 | [Dynamics 365 Guides](/dynamics365/mixed-reality/guides/)| &#x2705; | &#x2705; |
 | [Dynamics 365 Sales](/dynamics365/sales/help-hub) | &#x2705; | &#x2705; |
+| [Dynamics 365 Intelligent Order Management](/dynamics365/intelligent-order-management/) | &#x2705; | &#x2705; |
 | [Dynamics 365 Sales Professional](/dynamics365/sales/overview#dynamics-365-sales-professional) | &#x2705; | &#x2705; |
 | [Dynamics 365 Supply Chain Management](/dynamics365/supply-chain/)| &#x2705; | &#x2705; |
 | [Event Grid](../../event-grid/index.yml) | &#x2705; | &#x2705; |
@@ -194,9 +195,13 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | **Service** | **FedRAMP High** | **DoD IL2** |
 | [Microsoft Defender for IoT](../../defender-for-iot/index.yml) (formerly Azure Security for IoT) | &#x2705; | &#x2705; |
 | [Microsoft Defender Vulnerability Management](/microsoft-365/security/defender-vulnerability-management/) | &#x2705; | &#x2705; |
+| [Microsoft Defender Threat Intelligence](/defender/threat-intelligence/what-is-microsoft-defender-threat-intelligence-defender-ti) | &#x2705; | &#x2705; |
+| [Microsoft Entra ID Governance](/entra/id-governance/) | &#x2705; | &#x2705; |
+| [Microsoft Fabric](/fabric/) | &#x2705; | &#x2705; |
 | [Microsoft Graph](/graph/) | &#x2705; | &#x2705; |
 | [Microsoft Intune](/mem/intune/) | &#x2705; | &#x2705; |
 | [Microsoft Purview](../../purview/index.yml) (incl. Data Map, Data Estate Insights, and governance portal) | &#x2705; | &#x2705; |
+| [Microsoft Secure Score](/defender-xdr/microsoft-secure-score/) | &#x2705; | &#x2705; |
 | [Microsoft Sentinel](../../sentinel/index.yml) (formerly Azure Sentinel) | &#x2705; | &#x2705; |
 | [Microsoft Stream](/stream/) | &#x2705; | &#x2705; |
 | [Microsoft Threat Experts](/microsoft-365/security/defender-endpoint/microsoft-threat-experts) | &#x2705; | &#x2705; |
