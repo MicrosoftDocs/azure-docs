@@ -263,7 +263,7 @@ Adapters provide the connectivity capabilities in BizTalk Server and run locally
 
 #### Azure Logic Apps
 
-Connectors provide the connectivity capabilities in [Azure Logic Apps](./logic-apps-overview.md) and offer an abstraction on top of APIs that are usually owned by the underlying SaaS system. For example, services such as SharePoint are built using an API-first approach where APIs provide functionality to the service for end users, but the same functionality is exposed for other systems to call through an API. To simplify calling these APIs, connectors use metadata to describe the messaging contract so that developers know what data is expected in the request and in the response.
+Connectors provide the connectivity capabilities in [Azure Logic Apps](logic-apps-overview.md) and offer an abstraction on top of APIs that are usually owned by the underlying SaaS system. For example, services such as SharePoint are built using an API-first approach where APIs provide functionality to the service for end users, but the same functionality is exposed for other systems to call through an API. To simplify calling these APIs, connectors use metadata to describe the messaging contract so that developers know what data is expected in the request and in the response.
 
 The following screenshot shows the connector search experience for a Standard logic app workflow in single-tenant Azure Logic Apps. When you select the **In-app** option in the Runtime dropdown, you can find built-in connectors such as Azure Functions, Azure Service Bus, IBM DB2, SQL Server, Azure Storage, File System, HTTP, and more. On the **Shared** Runtime option, you can find more than 800 connectors, including other Microsoft SaaS connectors, partner SaaS connectors, and so on.
 
