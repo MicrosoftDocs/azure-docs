@@ -515,7 +515,7 @@ You can also extend workflows by including Azure API apps or web apps created wi
 
 ### Application groups
 
-The following section describes options for organizing your workloads in BizTalk Server and Azure Logic Apps.
+The following sections describe options for organizing your workloads in BizTalk Server and Azure Logic Apps.
 
 #### BizTalk Server
 
