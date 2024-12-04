@@ -158,7 +158,7 @@ During each wave, migration focuses on the agreed User Stories. For the first wa
 
 The following diagram shows the events that should happen during migration waves:
 
-:::image type="content" source="./media/biztalk-server-to-azure-integration-services-overview/biztalk-migration-steps.png" alt-text="Diagram showing migration waves.":::
+:::image type="content" source="./media/biztalk-server-to-azure-integration-services-overview/biztalk-migration-steps.png" alt-text="Diagram shows migration steps." border="false":::
 
    | Step | Description | 
    |------|--------------|
