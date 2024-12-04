@@ -5,7 +5,7 @@ services: storage
 author: normesta
 ms.service: azure-blob-storage
 ms.topic: conceptual
-ms.date: 09/10/2024
+ms.date: 12/02/2024
 ms.author: normesta
 ms.custom: subject-cost-optimization
 ---
@@ -174,25 +174,25 @@ For each blob, AzCopy uses the [Get Blob Properties](/rest/api/storageservices/g
 
 This scenario is identical to the previous one except that you're also billed for data retrieval and for read operation that is based on the source tier. 
 
-| Price factor                                          | Hot          | Cool        | Cold        |
-|-------------------------------------------------------|--------------|-------------|-------------|
-| **Total from previous section**                       | **$0.0064**  | **$0.0109** | **$0.0190** |
-| Price of a single read operation (price / 10,000)     | $0.00000044  | $0.000001   | $0.00001    |
-| **Cost of read operations (1,000 * operation price)** | **$0.00044** | **$0.001**  | **$0.01**   |
-| Price of data retrieval (per GiB)                     | Free         | $0.01       | $0.03       |
-| **Cost of data retrieval (5 * operation price)**      | **$0.00**    | **$.05**    | **$.15**    |
-| **Total cost (previous section + retrieval + read)**  | **$0.0068** | **$0.0619** | **$0.1719**  |
+| Price factor                                            | Hot          | Cool         | Cold          |
+|---------------------------------------------------------|--------------|--------------|---------------|
+| **Total from previous section**                         | **$0.0064**  | **$0.0109**  | **$0.0190**   |
+| Price of a single read operation (price / 10,000)       | $0.00000044  | $0.000001    | $0.00001      |
+| **Cost of read operations (1,000 * operation price)**   | **$0.00044** | **$0.001**   | **$0.01**     |
+| Price of data retrieval (per GiB)                       | Free         | $0.01        | $0.03         |
+| **Cost of data retrieval 1000 * (5 * operation price)** | **$0.00**    | **$50.00**   | **$150.00**   |
+| **Total cost (previous section + retrieval + read)**    | **$0.0068**  | **$50.0119** | **$150.0290** |
 
 ### Cost of copying blobs to an account located in another region
 
 This scenario is identical to the previous one except you're billed for network egress charges. 
 
-| Price factor                                           | Hot         | Cool        | Cold        |
-|--------------------------------------------------------|-------------|-------------|-------------|
-| **Total cost from previous section**                   | **$0.0068** | **$0.0619** | **$0.1719** |
-| Price of network egress (per GiB)                      | $0.02       | $0.02       | $0.02       |
-| **Total cost of network egress (5 * price of egress)** | **$.10**    | **$.10**    | **$.10**    |
-| **Total cost (previous section + egress)**             | **$0.1068** | **$0.1619** | **$0.2790** |
+| Price factor                                                  | Hot           | Cool          | Cold          |
+|---------------------------------------------------------------|---------------|---------------|---------------|
+| **Total cost from previous section**                          | **$0.0068**   | **$0.0619**   | **$0.1719**   |
+| Price of network egress (per GiB)                             | $0.02         | $0.02         | $0.02         |
+| **Total cost of network egress 1000 * (5 * price of egress)** | **$100**      | **$100**      | **$100**      |
+| **Total cost (previous section + egress)**                    | **$100.0068** | **$150.0119** | **$250.0290** |
 
 ## The cost to synchronize changes
 
@@ -218,15 +218,15 @@ The [azcopy sync](../common/storage-use-azcopy-blobs-synchronize.md?toc=/azure/s
 
 The following table contains all of the estimates presented in this article. All estimates are based on transferring **1000** blobs that are each **5 GiB** in size and use the sample prices listed in the next section.
 
-| Scenario                                    | Hot     | Cool    | Cold    | Archive |
-|---------------------------------------------|---------|---------|---------|---------|
-| Upload blobs (Blob Service endpoint)        | $3.53   | $6.41   | $11.54  | $3.53   |
-| Upload blobs (Data Lake Storage endpoint)   | $9.22   | $16.65  | $29.98  | $18.32  |
-| Download blobs (Blob Service endpoint)      | $0.001  | $0.051  | $0.161  | N/A     |
-| Download blobs (Data Lake Storage endpoint) | $0.731  | $1.716  | $16.804 | N/A     |
-| Copy blobs                                  | $0.064  | $0.0109 | $0.0190 | N/A     |
-| Copy blobs to another account               | $0.0068 | $0.0619 | $0.1719 | N/A     |
-| Copy blobs to an account in another region  | $0.1068 | $0.1619 | $0.2790 | N/A     |
+| Scenario                                    | Hot       | Cool      | Cold      | Archive |
+|---------------------------------------------|-----------|-----------|-----------|---------|
+| Upload blobs (Blob Service endpoint)        | $3.53     | $6.41     | $11.54    | $3.53   |
+| Upload blobs (Data Lake Storage endpoint)   | $9.22     | $16.65    | $29.98    | $18.32  |
+| Download blobs (Blob Service endpoint)      | $0.001    | $0.051    | $0.161    | N/A     |
+| Download blobs (Data Lake Storage endpoint) | $0.731    | $1.716    | $16.804   | N/A     |
+| Copy blobs                                  | $0.064    | $0.0109   | $0.0190   | N/A     |
+| Copy blobs to another account               | $0.0068   | $50.0119  | $150.0290 | N/A     |
+| Copy blobs to an account in another region  | $100.0068 | $150.0119 | $250.0290 | N/A     |
 
 ## Sample prices
 

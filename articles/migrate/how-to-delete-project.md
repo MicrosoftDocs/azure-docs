@@ -4,7 +4,7 @@ description: In this article, learn how you can delete an Azure Migrate project 
 author: v-sreedevank
 ms.author: v-sreedevank
 ms.topic: how-to
-ms.date: 04/14/2021
+ms.date: 09/09/2024
 ms.custom: engagement-fy23
 ---
 

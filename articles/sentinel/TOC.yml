@@ -707,6 +707,8 @@
     items:
     - name: Amazon Web Services logs
       href: connect-aws.md
+    - name: AWS S3 WAF logs
+      href: connect-aws-s3-waf.md
     - name: CloudWatch events via Lambda function
       href: cloudwatch-lambda-function.yml
     - name: Google Cloud Platform connectors 
