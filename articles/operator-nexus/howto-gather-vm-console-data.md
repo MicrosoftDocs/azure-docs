@@ -39,8 +39,7 @@ If there's a problem that needs to further investigation by the VM Console servi
    :::image type="content" source="media/vm-console-ple-ip-1.png" alt-text="Screenshot that shows the Private endpoint in its Resource Group.":::
 3. In the Private endpoint screen, select the `Private link resource`
    :::image type="content" source="media/vm-console-ple-connectivity-1.png" alt-text="Screenshot that shows the link to the Private link resource.":::
-4. Capture screenshot of `Private link resource` screen. Example of screenshot provided.
-   :::image type="content" source="media/vm-console-ple-connectivity-2.png" alt-text="Screenshot that shows the details of the Private link resource.":::
+4. Capture screenshot of `Private link resource` screen.
 5. Confirm with the customer that `Private endpoint` is referencing the correct `Private Link Service`, as it's possible that customer might be using the wrong PLE when trying to `ssh` to a virtual machine.
 
 ### Determine the private endpoint IP address
@@ -82,7 +81,7 @@ In case the script option is used, ask the customer which private endpoint ip ad
    - Console `Virtual machine access ID`
      :::image type="content" source="media/vm-console-resource-3.png" alt-text="Screenshot that shows the console resource.":::
 
-If the access to Azure portal isn't available, you're also to retrieve the Console data with `az networkcloud virtualmachine console show` command.
+If the access to Azure portal isn't available, you're also able to retrieve the Console data with `az networkcloud virtualmachine console show` command.
 
 ```bash
 az networkcloud virtualmachine console show \
