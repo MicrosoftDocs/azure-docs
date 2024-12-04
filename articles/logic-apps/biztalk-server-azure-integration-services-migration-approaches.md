@@ -233,7 +233,7 @@ After your team finishes and meets the "definition of done" for the User Stories
 
 1. Plan for operations or production support.
 
-1. Choose "Go or No-go" for releasing to production.
+1. Choose "go or no go" criteria for releasing to production.
 
 1. Celebrate your team's success.
 
