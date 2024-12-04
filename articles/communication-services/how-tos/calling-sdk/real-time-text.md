@@ -2,15 +2,13 @@
 title: Real Time Text
 titleSuffix: An Azure Communication Services how-to document
 description: Provides a how-to guide for the Real Time Text feature, enabling near-real-time text communication during calls.
-author: Adam Hammer
+author: ahammer
+ms.author: adamhammer
 ms.service: azure-communication-services
 ms.subservice: calling
-ms.topic: include
-ms.date: 10/24/2024
-ms.author: adamhammer
-ms.custom: private_preview
-services: azure-communication-services
-zone_pivot_groups: acs-plat-web-ios-android-windows
+ms.topic: how-to
+ms.date: 12/4/2024
+ms.custom: template-how-to
 ---
 
 # Real Time Text

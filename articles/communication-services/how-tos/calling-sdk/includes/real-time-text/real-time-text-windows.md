@@ -1,16 +1,13 @@
 ---
-title: Include File for Real Time Text on Windows
-description: Windows how-to guide for Real Time Text feature.
-author: Adam Hammer
+author: ahammer
 ms.service: azure-communication-services
-ms.subservice: calling
 ms.topic: include
+ms.subservice: calling
 ms.date: 10/24/2024
 ms.author: adam.hammer
 ---
-    
-> [!NOTE]
-> Ensure that the Calling Native SDK is integrated into your Windows application before implementing Real Time Text.
+
+[!INCLUDE [Install SDK](../install-sdk/install-sdk-android.md)]
 
 ## Models
 

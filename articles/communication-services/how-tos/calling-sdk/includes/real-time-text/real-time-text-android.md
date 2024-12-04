@@ -1,16 +1,13 @@
 ---
-title: Include File for Real Time Text on Android
-description: Android how-to guide for Real Time Text feature.
-author: Adam Hammer
+author: ahammer
 ms.service: azure-communication-services
-ms.subservice: calling
 ms.topic: include
+ms.subservice: calling
 ms.date: 10/24/2024
 ms.author: adam.hammer
 ---
-    
-> [!NOTE]
-> Ensure that you have integrated the Calling Native SDK into your Android project before implementing Real Time Text.
+
+[!INCLUDE [Install SDK](../install-sdk/install-sdk-android.md)]
 
 ## Models
 
