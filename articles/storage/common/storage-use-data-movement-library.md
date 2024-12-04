@@ -246,6 +246,8 @@ DataTransfer resumedTransfer = await transferManager.ResumeTransferAsync(transfe
 
 ## Example: Monitor transfer progress
 
+Transfers can be monitored and observed through several mechanisms, depending on the needs of your app. In this section, you learn how to monitor transfer progress using the `DataTransfer` object, and how to monitor a transfer using events.
+
 ## Example: Use extension methods for `BlobContainerClient`
 
 
