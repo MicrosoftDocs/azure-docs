@@ -744,14 +744,12 @@
         href: backup-azure-monitoring-alerts.md 
       - name: Metrics (preview)
         href: metrics-overview.md   
-      - name: Logs
+      - name: Azure Monitor Logs
         href: backup-azure-monitoring-use-azuremonitor.md
       - name: Configure notifications
         href: backup-azure-monitor-alerts-notification.md    
-      - name: Classic alerts
-        items:  
-        - name: Using Azure Monitor alerts
-          href: move-to-azure-monitor-alerts.md    
+      - name: Backup Classic Alerts
+        href: move-to-azure-monitor-alerts.md    
   - name: Reports
     items:
     - name: Configure Azure Backup reports
