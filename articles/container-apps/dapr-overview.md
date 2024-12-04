@@ -80,8 +80,10 @@ Azure Container Apps ensures compatibility with Dapr open source tooling, such a
 
 ## Next steps
 
-- [Enable Dapr in your container app.][dapr-enable]
-- [Learn how Dapr components work in Azure Container Apps.][dapr-components]
+- Deploy Dapr using:
+  - [Azure CLI](./microservices-dapr.md)
+  - [ARM or Bicep templates](./microservices-dapr-azure-resource-manager.md)
+- [Enable Dapr in an existing container app.][dapr-enable]
 
 <!-- Links Internal -->
 

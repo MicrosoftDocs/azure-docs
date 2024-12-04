@@ -101,7 +101,7 @@ You can then check the YAML/Bicep artifact into a repo and recreate it outside o
 
 ## Next steps
 
-[Enable Dapr on your container apps.](./enable-dapr.md)
+[Learn how to set Dapr component resiliency.](./dapr-component-resiliency.md)
 
 ## Related links
 

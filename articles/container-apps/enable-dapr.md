@@ -91,10 +91,7 @@ Enter the component App ID and select the appropriate headings. If applicable, u
 
 ## Next steps
 
-Try working with Dapr and Azure Container Apps using one of the following tutorials:
-- [Microservices communication using Dapr Pub/Sub][dapr-pubsub]
-- [Event-driven work using Dapr Bindings][dapr-bindings]
-- [Microservices communication using Dapr Service Invocation][dapr-invoke]
+[Learn more about Dapr components in Azure Container Apps.](./dapr-components.md)
 
 <!-- Links External -->
 
