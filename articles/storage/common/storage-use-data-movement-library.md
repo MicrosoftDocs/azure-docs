@@ -81,7 +81,7 @@ You can optionally provide an instance of [TransferManagerOptions] to the constr
 
 - [BlobsStorageResourceProvider](/dotnet/api/azure.storage.datamovement.blobs.blobsstorageresourceprovider): Use this class to create `StorageResource` instances for a blob container, block blob, append blob, or page blob. 
 - [ShareFilesStorageResourceProvider](/dotnet/api/azure.storage.datamovement.files.shares.sharefilesstorageresourceprovider): Use this class to create `StorageResource` instances for a file or directory.
-- [LocalFilesStorageResourceProvider](/dotnet/api/azure.storage.datamovement.localfilesstorageresourceprovider): Use this class to create `StorageResource` instances for a local file system resource.
+- [LocalFilesStorageResourceProvider](/dotnet/api/azure.storage.datamovement.localfilesstorageresourceprovider): Use this class to create `StorageResource` instances for a local file system.
 
 ### Create a `StorageResource` object for Blob Storage
 
@@ -129,6 +129,12 @@ StorageResource blockBlobResource = provider.FromClient(blockBlobClient);
 ## Example: Start a new transfer
 
 Transfers are defined by a source and a destination. Both the source and destination are type `StorageResource`, which can be either `StorageResourceContainer` or `StorageResourceItem`. For a given transfer, the source and destination must be of the same kind. For example, if the source is a blob container, the destination must be a blob container.
+
+You can start a new transfer by calling the following method:
+
+- [TransferManager.StartTransferAsync](/dotnet/api/azure.storage.datamovement.transfermanager.starttransferasync)
+
+This method returns a [DataTransfer](/dotnet/api/azure.storage.datamovement.datatransfer) object that represents the transfer. You can use the `DataTransfer` object to monitor the transfer progress or obtain the transfer ID. The transfer ID is a unique identifier for the transfer that's needed to [resume a transfer](#example-resume-an-existing-transfer) or pause a transfer.
 
 ### Upload a local file to a blob
 
@@ -201,7 +207,42 @@ await dataTransfer.WaitForCompletionAsync();
 
 ## Example: Resume an existing transfer
 
+By persisting transfer progress to disk, the Data Movement library allows you to resume a transfer that failed before completion, or was otherwise canceled or paused. To resume a transfer, the `TransferManager` object must be configured with `StorageResourceProvider` instances that are capable of reassembling the transfer from the persisted data. You can use the `ResumeProviders` property of the [TransferManagerOptions](/dotnet/api/azure.storage.datamovement.transfermanageroptions) class to specify the providers.
 
+The following code example shows how to initialize a `TransferManager` object that's capable of resuming a transfer between the local file system and Blob Storage:
+
+```csharp
+// Create a token credential
+TokenCredential tokenCredential = new DefaultAzureCredential();
+
+LocalFilesStorageResourceProvider localFilesProvider = new();
+
+BlobsStorageResourceProvider blobsProvider = new(tokenCredential);
+
+TransferManager transferManager = new(new TransferManagerOptions()
+{
+    ResumeProviders = new List<StorageResourceProvider>()
+    {
+        localFilesProvider,
+        blobsProvider
+    }
+});
+```
+
+To resume a transfer, call the following method:
+
+- [TransferManager.ResumeTransferAsync](/dotnet/api/azure.storage.datamovement.transfermanager.resumetransferasync)
+
+Provide the transfer ID of the transfer that you want to resume. The transfer ID is a unique identifier for the transfer that's returned as part of the `DataTransfer` object when the transfer is started. If you don't know the transfer ID value, you can call [TransferManager.GetTransfersAsync](/dotnet/api/azure.storage.datamovement.transfermanager.gettransfersasync) to find the transfer and it's corresponding ID.
+
+The following code example shows how to resume a transfer:
+
+```csharp
+DataTransfer resumedTransfer = await transferManager.ResumeTransferAsync(transferId: ID);
+```
+
+> [!NOTE]
+> The location of the persisted transfer data is different than the default location if [TransferCheckpointStoreOptions](/dotnet/api/azure.storage.datamovement.transfercheckpointstoreoptions) is set as part of`TransferManagerOptions`. To resume transfers recorded with a custom checkpoint store, you must provide the same checkpoint store options for the `TransferManager` object that resumes the transfer.
 
 ## Example: Monitor transfer progress
 
