@@ -11,7 +11,7 @@ ms.date: 11/25/2024
 ms.custom: mqtt, devx-track-js
 ---
 
-  *  Requires Node.js version 10.0.x or later.
+  *  Requires Node.js version 10.0.x or later
 
 ## Overview
 
@@ -111,7 +111,7 @@ This example sets up a direct method handler named `onReboot` that is called whe
 client.onDeviceMethod('reboot', onReboot);
 ```
 
-In this example, the `onReboot` callback method implements the direct method on the device. The code is executed when the "reboot" direct method is called from a service application.
+In this example, the `onReboot` callback method implements the direct method on the device. The code is executed when the "reboot" direct method is called from a service application. The function calls `send` to send a response acknowledgment message to the calling application.
 
 ```javascript
 var onReboot = function(request, response) {

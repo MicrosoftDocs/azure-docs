@@ -25,10 +25,16 @@ This section describes how to use device application code to create a direct met
 
 ### Device import statement
 
-Use the following device import statement to access the Azure IoT SDK for Java.
+Use the following device import statements to access the Azure IoT SDK for Java.
 
 ```java
 import com.microsoft.azure.sdk.iot.device.*;
+import com.microsoft.azure.sdk.iot.device.exceptions.IotHubClientException;
+import com.microsoft.azure.sdk.iot.device.twin.DirectMethodPayload;
+import com.microsoft.azure.sdk.iot.device.twin.DirectMethodResponse;
+import com.microsoft.azure.sdk.iot.device.twin.MethodCallback;
+import com.microsoft.azure.sdk.iot.device.transport.IotHubConnectionStatus;
+import com.microsoft.azure.sdk.iot.device.twin.SubscriptionAcknowledgedCallback;
 ```
 
 ### Connect to a device
@@ -59,6 +65,8 @@ To connect to a device:
 ### Create a direct method callback listener
 
 Use [subscribeToMethods](https://azure.github.io/azure-iot-sdk-java/master/device/com/microsoft/azure/sdk/iot/device/InternalClient.html#subscribeToMethods-com.microsoft.azure.sdk.iot.device.twin.MethodCallback-java.lang.Object-int-) to initialize a direct method callback listener. `subscribeToMethods` listens for incoming direct methods until the connection is terminated. The method name and payload is received for each direct method call.
+
+The listener should call [DirectMethodResponse](/java/api/com.microsoft.azure.sdk.iot.device.twin.directmethodresponse) to send a method response acknowledgment to the calling application.
 
 For example:
 

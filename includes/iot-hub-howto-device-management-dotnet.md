@@ -158,8 +158,6 @@ To invoke a direct method on a device through IoT Hub, your service needs the **
 
 As a parameter to `CreateFromConnectionString`, supply the **service** shared access policy. For more information about shared access policies, see [Control access to IoT Hub with shared access signatures](/azure/iot-hub/authenticate-authorize-sas).
 
-[!INCLUDE [iot-authentication-service-connection-string.md](iot-authentication-service-connection-string.md)]
-
 ```csharp
 ServiceClient serviceClient;
 string connectionString = "{IoT hub service shared access policy connection string}";
@@ -177,10 +175,10 @@ To invoke a method on a device:
 1. Create a [CloudToDeviceMethod](/dotnet/api/microsoft.azure.devices.cloudtodevicemethod) object. Pass the device direct method name as a parameter.
 1. Call [InvokeDeviceMethodAsync](/dotnet/api/microsoft.azure.devices.serviceclient.invokedevicemethodasync?#microsoft-azure-devices-serviceclient-invokedevicemethodasync(system-string-microsoft-azure-devices-cloudtodevicemethod-system-threading-cancellationtoken)) to invoke the method on the device.
 
-This example calls the "reboot" method to initiate a reboot on the device. The "reboot" method is mapped to a listener on the device as described in the [Create a direct method callback](#create-a-direct-method-callback) section of this article.
+This example calls the "reboot" method to initiate a reboot on the device. The "reboot" method is mapped to a listener on the device as described in the [Create a direct method callback listener](#create-a-direct-method-callback-listener) section of this article.
 
 ```csharp
-static string targetDevice = "myDeviceId";
+string targetDevice = "myDeviceId";
 CloudToDeviceMethod method = new CloudToDeviceMethod("reboot");
 method.ResponseTimeout = TimeSpan.FromSeconds(30);
 
