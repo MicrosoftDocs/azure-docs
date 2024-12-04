@@ -93,7 +93,7 @@ This action is currently not yet supported for the [Consumption logic app resour
 
 ## Advanced parameters
 
-The following are the advanced parameters for this action:
+The following table describes the advanced parameters available in this action:
 
 | Parameter | Value | Description |
 |-----------|-------|-------------|
