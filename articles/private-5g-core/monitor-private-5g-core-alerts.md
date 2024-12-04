@@ -1,8 +1,8 @@
 ---
 title: Monitor Azure Private 5G Core with alerts
 description: Guide to creating alerts for packet cores
-author: robswain
-ms.author: robswain
+author: anzaman
+ms.author: alzam
 ms.service: azure-private-5g-core
 ms.topic: how-to
 ms.date: 09/14/2023

@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Interactive map search with Azure Maps'
-titeSuffix: Microsoft Azure Maps
+titleSuffix: Microsoft Azure Maps
 description: A quickstart that demonstrates how to create interactive, searchable maps.
 author: sinnypan
 ms.author: sipa
