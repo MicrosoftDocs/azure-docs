@@ -386,7 +386,7 @@ BizTalk Server includes a forward-chaining rules engine that lets you construct 
 
 #### Azure Logic Apps
 
-[Azure Logic Apps](./logic-apps-overview.md) includes the [Azure Logic Apps Rules Engine](./rules-engine/rules-engine-overview.md), currently in public preview. The Logic Apps Rules Engine, includes the BizTalk BRE runtime, allowing customers using the BRE, to reuse their existing BizTalk BRE policies. Currently there is only support for XML and .NET Fx facts.
+Azure Logic Apps includes the [Azure Logic Apps Rules Engine](rules-engine/rules-engine-overview.md), currently in public preview. This rules engine includes the BizTalk Business Rules Engine (BRE) runtime so you can use reuse existing BizTalk BRE policies. Currently, support exists only for XML and .NET Framework facts.
 
 ### Data transformation
 
