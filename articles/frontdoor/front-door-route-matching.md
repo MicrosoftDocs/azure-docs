@@ -117,21 +117,21 @@ The following table lists routing rules with their frontend host and path combin
 
 The following table shows which routing rule matches an incoming request at the Azure Front Door edge:
 
-| Incoming Request         | Matched Route |
-|--------------------------|---------------|
-| www.contoso.com/         | A             |
-| www.contoso.com/a        | B             |
-| www.contoso.com/ab       | C             |
-| www.contoso.com/abc      | D             |
-| www.contoso.com/abzzz    | B             |
-| www.contoso.com/abc/     | E             |
-| www.contoso.com/abc/d    | F             |
-| www.contoso.com/abc/def  | G             |
-| www.contoso.com/abc/defzzz| F            |
-| www.contoso.com/abc/def/ghi| F           |
-| www.contoso.com/path     | B             |
-| www.contoso.com/path/    | H             |
-| www.contoso.com/path/zzz | B             |
+| Incoming Request            | Matched Route |
+|-----------------------------|---------------|
+| www.contoso.com/            | A             |
+| www.contoso.com/a           | B             |
+| www.contoso.com/ab          | C             |
+| www.contoso.com/abc         | D             |
+| www.contoso.com/abzzz       | B             |
+| www.contoso.com/abc/        | E             |
+| www.contoso.com/abc/d       | F             |
+| www.contoso.com/abc/def     | G             |
+| www.contoso.com/abc/defzzz  | F             |
+| www.contoso.com/abc/def/ghi | F             |
+| www.contoso.com/path        | B             |
+| www.contoso.com/path/       | H             |
+| www.contoso.com/path/zzz    | B             |
 
 > [!WARNING]
 > If there are no routing rules for an exact-match frontend host without a catch-all route path (/*), no routing rule will be matched.

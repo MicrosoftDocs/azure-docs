@@ -6,14 +6,11 @@ author: chachachachami
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 06/23/2022
+ms.date: 11/26/2024
 ms.author: chrupa
 ---
 
 # How to enable diagnostic settings for events
-
-> [!NOTE]
-> [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
 In this article, learn how to enable the events diagnostic settings for Azure Event Grid system topics. 
 
@@ -37,5 +34,3 @@ To learn how to use events metrics using the Azure portal, see
 
 > [!div class="nextstepaction"]
 > [How to use events metrics](events-use-metrics.md)
-
-FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
