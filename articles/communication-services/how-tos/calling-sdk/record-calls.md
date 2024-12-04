@@ -43,7 +43,44 @@ zone_pivot_groups: acs-plat-web-ios-android-windows
 [!INCLUDE [Record calls client-side Windows](./includes/record-calls/record-calls-windows.md)]
 ::: zone-end
 
-### Compliance recording
+## Support
+The following tables define support of recording in Azure Communication Services.
+ 
+### Identities and call types
+The following tables show support of recording for specific call type and identity.
+
+|Identities                   | Teams meeting | Room | 1:1 call | Group call | 1:1 Teams interop call | Group Teams interop call |
+|-----------------------------|---------------|------|----------|------------|------------------------|--------------------------|
+|Communication Services user	| ✔️[1] |✔️[2]| ✔️[2]|✔️[2]|✔️[1]|✔️[1][2]|
+|Microsoft 365 user	          | ✔️[1] || ✔️[2]||✔️[1]|✔️[1][2]|
+
+[1] These call types support Teams cloud and compliance recording.  
+[2] These call types support Azure Communication Services recording.
+ 
+### Operations
+The following tables show support of individual APIs in calling SDK to individual identity types.
+
+|Operations                   | Communication Services user | Microsoft 365 user |
+|-----------------------------|------------------------------|-------------------|
+|Get notification that recording started or stopped	| ✔️	| ✔️  |  		
+|Get state of recording                | ✔️	| ✔️  | 
+|Get notification that recording is available              | ✔️[1]	| ✔️[1] |
+|Learn whether explicit consent is required | ✔️[2]	| ✔️[2]  |
+|Give explicit consent for being recorded | ✔️[2]	| ✔️[2]  |
+
+[1] The user is not notified that recording is available. You can get Teams cloud recording via Microsoft Graph API. You can subscribe to notification in Azure Communication Services when recording is available.  
+  
+[2] This functionality is available only in Teams meetings and group Teams interoperability calls.
+ 
+### SDKs
+The following tables show support of recording in individual Azure Communication Services SDKs.
+
+|Platforms   | Web | Web UI | iOS | iOS UI | Android | Android UI | Windows |
+|-------------|-----|--------|-----|--------|---------|------------|---------|
+|Is Supported | ✔️  |  ✔️   | ✔️ | ✔️     | ✔️     | ✔️         |  ✔️    |	
+
+
+## Compliance recording
 
 Compliance recording is recording that's based on Microsoft Teams policy. You can enable it by using this tutorial: [Introduction to Teams policy-based recording for callings](/microsoftteams/teams-recording-policy).
 
