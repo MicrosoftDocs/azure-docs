@@ -39,6 +39,7 @@ To use an Enterprise CA to generate a certificate to use with Azure Firewall Pre
 7. Navigate to the **Extensions** tab, select **Key Usage**, and select **Edit**.
    - Ensure that the **Digital signature**, **Certificate signing**, and **CRL signing** checkboxes are selected.
    - Select the **Make this extension critical** checkbox and select **OK**.
+   
    :::image type="content" source="media/premium-deploy-certificates-enterprise-ca/certificate-template-key-usage-extension.png" alt-text="Screenshot of certificate template key usage extensions.":::
 8. Select **OK** to save the new certificate template.
 9. Ensure the new template is enabled so it can be used to issue certificates.
