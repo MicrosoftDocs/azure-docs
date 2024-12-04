@@ -200,21 +200,16 @@ You can find a full sample on how to use the Management SDK to redirect SignalR 
 
 ### Azure SignalR Service function extension
 
-When you use an Azure function app, you can work with the function extension. Here's a sample of using `SignalRConnectionInfo` to help you build the negotiation response:
+When you use an Azure function app, you can work with the function extension. Here's a sample of using `SignalRConnectionInfo` in C# isolated worker model to help you build the negotiation response:
 
-```cs
-[FunctionName("negotiate")]
-public SignalRConnectionInfo Negotiate([HttpTrigger(AuthorizationLevel.Anonymous)]HttpRequest req)
-{
-    var claims = GetClaims(req.Headers["Authorization"]);
-    return Negotiate(
-        claims.First(c => c.Type == ClaimTypes.NameIdentifier).Value,
-        claims
-    );
-}
-```
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/SignalR/SignalRNegotiationFunctions.cs" id="snippet_negotiate":::
+
+> [!Warning]
+> For the simplicity, we omit the authentication and authorization parts in this sample. As a result, this endpoint is publicly accessible without any restrictions. To ensure the security of your negotiation endpoint, you should implement appropriate authentication and authorization mechanisms based on your specific requirements. For guidance on protecting your HTTP endpoints, see [Secure HTTP endpoints](../azure-functions/security-concepts.md#secure-http-endpoints).
 
 Then your clients can request the function endpoint `https://<Your Function App Name>.azurewebsites.net/api/negotiate` to get the service URL and access token. You can find a full sample on [GitHub](https://github.com/aspnet/AzureSignalR-samples/tree/main/samples/BidirectionChat).
+
+For `SignalRConnectionInfo` input binding samples in other languages, see [Azure Functions SignalR Service input binding](../azure-functions/functions-bindings-signalr-service-input.md).
 
 ### Self-exposing `/negotiate` endpoint
 

@@ -134,6 +134,9 @@ public SignalRConnectionInfo negotiate(
 
 :::zone-end
 
+> [!Warning]
+> For the simplicity, we have omitted the authentication and authorization parts in this example. As a result, this endpoint is publicly accessible without any restrictions. To ensure the security of your negotiation endpoint, you should implement appropriate authentication and authorization mechanisms based on your specific requirements. For guidance on protecting your HTTP endpoints, see [Secure HTTP endpoints](./security-concepts.md#secure-http-endpoints).
+
 ## Usage
 
 ### Authenticated tokens
