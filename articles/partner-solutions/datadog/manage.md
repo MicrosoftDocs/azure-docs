@@ -1,6 +1,6 @@
 ---
-title: Manage settings for your Datadog resource
-description: Manage Datadog settings, view resources, reconfigure metrics/logs, monitor subscriptions and virtual machines via Azure portal.
+title: Manage settings for your Datadog resource via Azure portal
+description: Manage settings, view resources, reconfigure metrics/logs, and more for your Datadog resource via Azure portal.
 
 ms.topic: conceptual
 ms.date: 12/09/2024
@@ -11,7 +11,7 @@ ms.custom:
   - ai-gen-title
 ---
 
-# Manage settings for your Datadog resource.
+# Manage settings for your Datadog resource via Azure portal
 
 This article shows how to manage the settings for Datadog.
 
