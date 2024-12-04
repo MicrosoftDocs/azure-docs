@@ -23,7 +23,7 @@ In this guide, you'll use the targeting filter to roll out a feature to a target
 
 ## Create a web application with a feature flag
 
-In this section, you will create a web application that allows users to sign in and use the *Beta* feature flag you created before.
+In this section, you create a web application that allows users to sign in and use the *Beta* feature flag you created before.
 
 1. Create a web application that authenticates against a local database using the following command.
 
@@ -37,11 +37,11 @@ In this section, you will create a web application that allows users to sign in 
    cd TestFeatureFlags
    ```
 
-1. Connect to your App Configuration store using Microsoft Entra ID (recommended), or a connection string.
+1. Add references to the following NuGet packages to connect to your App Configuration store using Microsoft Entra ID (recommended) or a connection string.
 
     ### [Microsoft Entra ID (recommended)](#tab/entra-id)
 
-    Add references to the following NuGet packages.
+     Add references to the following NuGet packages.
 
     ```dotnetcli
     dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore
@@ -59,7 +59,7 @@ In this section, you will create a web application that allows users to sign in 
     ```
     ---
 
-1. Run the following command to restore packages for your project:
+1. Restore packages for your project:
 
      ```dotnetcli
      dotnet restore
@@ -89,40 +89,42 @@ In this section, you will create a web application that allows users to sign in 
 1. Add Azure App Configuration and feature management to your application.
 
     ### [Microsoft Entra ID (recommended)](#tab/entra-id)
+    
+    1. You use the `DefaultAzureCredential` to authenticate to your App Configuration store. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader** role. Be sure to allow sufficient time for the permission to propagate before running your application.
 
-    Update the *Program.cs* file with the following code. 
-
-    ``` C#
-    // Existing code in Program.cs
-    // ... ...
-
-    using Azure.Identity;
-
-    var builder = WebApplication.CreateBuilder(args);
-
-    // Load configuration from Azure App Configuration 
-    builder.Configuration.AddAzureAppConfiguration(options =>
-    {
-        string endpoint = builder.Configuration.Get("Endpoints:AppConfiguration");
-        options.Connect(new Uri(endpoint), new DefaultAzureCredential());
-    });
-
-    // Load feature flag configuration from Azure App Configuration
-    builder.Configuration.AddAzureAppConfiguration(options =>
-    {
-        options.Connect(new Uri(endpoint), new DefaultAzureCredential());
-        options.UseFeatureFlags();
-    });
-
-    // Add Azure App Configuration middleware to the container of services
-    builder.Services.AddAzureAppConfiguration();
-
-    // Add feature management to the container of services
-    builder.Services.AddFeatureManagement();
-
-    // The rest of existing code in Program.cs
-    // ... ...
-    ```
+    1. Update the *Program.cs* file with the following code.
+    
+        ``` C#
+        // Existing code in Program.cs
+        // ... ...
+    
+        using Azure.Identity;
+    
+        var builder = WebApplication.CreateBuilder(args);
+    
+        // Load configuration from Azure App Configuration 
+        builder.Configuration.AddAzureAppConfiguration(options =>
+        {
+            string endpoint = builder.Configuration.Get("Endpoints:AppConfiguration");
+            options.Connect(new Uri(endpoint), new DefaultAzureCredential());
+        });
+    
+        // Load feature flag configuration from Azure App Configuration
+        builder.Configuration.AddAzureAppConfiguration(options =>
+        {
+            options.Connect(new Uri(endpoint), new DefaultAzureCredential());
+            options.UseFeatureFlags();
+        });
+    
+        // Add Azure App Configuration middleware to the container of services
+        builder.Services.AddAzureAppConfiguration();
+    
+        // Add feature management to the container of services
+        builder.Services.AddFeatureManagement();
+    
+        // The rest of existing code in Program.cs
+        // ... ...
+        ```
 
     ### [Connection string](#tab/connection-string)
     
