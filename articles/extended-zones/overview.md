@@ -48,7 +48,7 @@ The following table lists key services that are available in Azure Extended Zone
 
 ## Availability and access
 
-Currently, Los Angeles is the only available Extended Zone. See [Request access to Azure Extended Zones](request-access.md) to request access to Los Angeles Azure Extended Zone.
+Currently, Los Angeles is the only available Extended Zone. See [Request access to Azure Extended Zones](request-access.md) to request access to Los Angeles Extended Zone.
 
 ## Pricing
 
