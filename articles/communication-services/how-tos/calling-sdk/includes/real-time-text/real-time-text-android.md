@@ -3,7 +3,7 @@ author: ahammer
 ms.service: azure-communication-services
 ms.topic: include
 ms.subservice: calling
-ms.date: 10/24/2024
+ms.date: 12/4/2024
 ms.author: adam.hammer
 ---
 
