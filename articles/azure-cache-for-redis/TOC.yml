@@ -444,7 +444,7 @@
         - name: Azure CLI
           href: /cli/azure/redisenterprise
         - name: REST
-          href: /rest/api/redis/redisenterprisecache
+          href: /rest/api/redis/redisenterprisecache/operation-groups
         - name: Resource Manager template
           href: /azure/templates/microsoft.cache/redisenterprise
     - name: Azure Cache for Redis

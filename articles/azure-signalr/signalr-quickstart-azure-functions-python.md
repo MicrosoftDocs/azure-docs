@@ -62,7 +62,7 @@ When you run the `func new` command from the root directory of the project, the 
 
 You can use this sample function as a template for your own functions.  
 
-Open the file `function_app.py`. This file will contain your functions. First, modify the file to include the neccessary import statements, and define global variables that we will be using in the following functions.
+Open the file `function_app.py`. This file will contain your functions. First, modify the file to include the necessary import statements, and define global variables that we will be using in the following functions.
 
 ```python
 import azure.functions as func
