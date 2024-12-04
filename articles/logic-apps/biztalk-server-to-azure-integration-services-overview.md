@@ -390,7 +390,7 @@ Azure Logic Apps includes the [Azure Logic Apps Rules Engine](rules-engine/rules
 
 ### Data transformation
 
-The following section describes data transformation capabilities in BizTalk Server and Azure Logic Apps.
+The following sections describe the data transformation capabilities in BizTalk Server and Azure Logic Apps.
 
 #### BizTalk Server
 
