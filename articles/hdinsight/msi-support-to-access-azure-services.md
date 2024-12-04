@@ -49,7 +49,7 @@ Downloading the JAR in a Maven Build from Maven Central directly.
         </snapshots>
     </repository>
     ```
-There are two types of client JARs are available in the Maven central.  
+    There are two types of client JARs are available in the Maven central.  
     
 1. Following is the sample code snippet of HDInsight OAuth client utility library dependency, add the `dependency` section to your pom.xml.
     1. Simple JAR which contains only the convenient Java utility classes to fetch MSI access token.
