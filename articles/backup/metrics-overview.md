@@ -150,7 +150,7 @@ To view your fired metric alerts, follow these steps:
 
 >[!NOTE]
 >The alert has two fields - **Monitor condition (fired/resolved)** and **Alert State (New/Ack/Closed)**.
->- **Alert state**: Youcan edit this field (as shown in below screenshot).
+>- **Alert state**: You can edit this field (as shown in below screenshot).
 >- **Monitor condition**: You can't edit this field. This field is used more in scenarios where the service itself resolves the alert. For example, auto-resolution behavior in metric alerts uses the **Monitor condition** field to resolve an alert.
 
 
