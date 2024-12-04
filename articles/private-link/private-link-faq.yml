@@ -6,7 +6,7 @@ metadata:
   author: abell
   ms.service: azure-private-link
   ms.topic: faq
-  ms.date: 03/18/2024
+  ms.date: 12/04/2024
   ms.author: abell
 title: Azure Private Link frequently asked questions (FAQ)
 summary: |
@@ -29,7 +29,7 @@ sections:
           What is the difference between Service Endpoints and Private Endpoints?
         answer: |
           - Private Endpoints grant network access to specific resources behind a given service providing granular segmentation. Traffic can reach the service resource from on premises without using public endpoints.
-          - A Service Endpoint remains a publicly routable IP address.  A Private Endpoint is a private IP in the address space of the virtual network where the private endpoint is configured.
+          - A Service Endpoint remains a publicly routable IP address. A Private Endpoint is a private IP in the address space of the virtual network where the private endpoint is configured.
           
       - question: |
           What is the relationship between Private Link Service and Private Endpoint?
@@ -52,19 +52,19 @@ sections:
   - name: Private Endpoint
     questions:
       - question: |
-          Can I create multiple Private Endpoints in same VNet? Can they connect to different services? 
+          Can I create multiple Private Endpoints in same virtual network? Can they connect to different services? 
         answer: |
-          Yes. You can have multiple Private Endpoints in same VNet or subnet. They can connect to different services.  
+          Yes. You can have multiple Private Endpoints in same virtual network or subnet. They can connect to different services.  
 
       - question: |
            Can we link multiple private DNS zones with the same name? 
         answer: |
-           No, creating multiple zones with the same name for a single virtual network is not supported.  
+           No, creating multiple zones with the same name for a single virtual network isn't supported.  
 
       - question: |
           Do I require a dedicated subnet for Private Endpoints? 
         answer: |
-          No. You don't require a dedicated subnet for Private Endpoints. You can choose a Private Endpoint IP from any subnet from the VNet where your service is deployed.  
+          No. You don't require a dedicated subnet for Private Endpoints. You can choose a Private Endpoint IP from any subnet from the virtual network where your service is deployed.  
 
       - question: |
           Can a private endpoint connect to Private Link services across Microsoft Entra tenants? 
@@ -99,7 +99,7 @@ sections:
   - name: Private Link Service
     questions:
       - question: |
-          What are the pre-requisites for creating a Private Link Service? 
+          What are the prerequisites for creating a Private Link Service? 
         answer: |
           Your service backends should be in a Virtual Network and behind a Standard Load Balancer.
 
@@ -114,8 +114,8 @@ sections:
       - question: |
           What is the NAT (Network Address Translation) IP Configuration used in Private Link Service? How can I scale in terms of available ports and connections? 
         answer: |
-          - The NAT IP configuration ensures the source (consumer) and destination (service provider) address space don't have IP conflicts. The configuration provides source NAT for the private link traffic for the destination. The NAT IP address will show up as source IP for all packets received by your service and destination IP for all packets sent by your service.  NAT IP can be chosen from any subnet in a service provider's Virtual Network.
-          - Each NAT IP provides 64k TCP connections (64k ports) per VM behind the Standard Load Balancer. In order to scale and add more connections, you can either add new NAT IPs or add more VMs behind the Standard Load Balancer. Doing so will scale the port availability and allow for more connections. Connections will be distributed across NAT IPs and VMs behind the Standard Load Balancer.
+          - The NAT IP configuration ensures the source (consumer) and destination (service provider) address space don't have IP conflicts. The configuration provides source NAT for the private link traffic for the destination. The NAT IP address shows up as source IP for all packets received by your service and destination IP for all packets sent by your service. NAT IP can be chosen from any subnet in a service provider's Virtual Network.
+          - Each NAT IP provides 64k TCP connections (64k ports) per VM behind the Standard Load Balancer. In order to scale and add more connections, you can either add new NAT IPs or add more VMs behind the Standard Load Balancer. Doing so scales the port availability and allow for more connections. Connections are distributed across NAT IPs and VMs behind the Standard Load Balancer.
           
       - question: |
           Can I connect my service to multiple Private Endpoints?
@@ -139,12 +139,12 @@ sections:
       - question: |
           Is a dedicated subnet required for Private Link Service? 
         answer: |
-          No. A dedicated subnet isn't required for the Private Link Service. You can choose any subnet in your VNet where your service is deployed.   
+          No. A dedicated subnet isn't required for the Private Link Service. You can choose any subnet in your virtual network where your service is deployed.   
 
       - question: |
           I'm a service provider using Azure Private Link. Do I need to make sure all my customers have unique IP space and don’t overlap with my IP space? 
         answer: |
-          No. Azure Private Link provides this functionality for you. You aren't required to have non-overlapping address space with your customer's address space. 
+          No. Azure Private Link provides this functionality for you. You aren't required to have nonoverlapping address space with your customer's address space. 
 
 additionalContent: |
 
