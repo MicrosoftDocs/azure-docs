@@ -42,15 +42,15 @@ callTranscriptionFeature.off('isTranscriptionActiveChanged', isTranscriptionActi
 [!INCLUDE [Public Preview Disclaimer](../../../../includes/public-preview-include-document.md)]
 
 ## Explicit Consent
-If your Teams meeting or call is configured to require explicit consent for recording or transcription, you are required to gather explicit consent from your users to allow users to be transcribed or recorded. You can provide consent proactively when joining the meeting or reactively when the recording or transcription starts. Until users give explicit consent, users have disabled audio, video, and screen sharing.
+When your Teams meeting or call is configured to require explicit consent for recording or transcription, you are required to gather explicit consent from your users to allow users to be transcribed or recorded. You can provide consent proactively when joining the meeting or reactively when the recording or transcription starts. Until explicit consent is given, participants' audio, video, and screen sharing will be disabled during transcription.
 
-You can check if the meeting transcription requires explicit consent by property `isConsentRequired`. If the value is set to `true`, then explicit consent is required for the call.
+You can check if the meeting transcription requires explicit consent by property `isConsentRequired`. If the value is set to `true`, then explicit consent is required for the `call`.
 
 ```js
 const isTranscriptionConsentRequired = callTranscriptionFeature.isConsentRequired;
 ```
 
-If you already collected consent from the user to be transcribed, you can call method `consentToBeingRecordedAndTranscribed()` to indicate explicit consent to the service.
+If you have already obtained the user's consent for transcription, you can call the `consentToBeingRecordedAndTranscribed()` method to indicate explicit consent to the service. Note that this consent is valid for one `call` session only and users will need to provide consent again if they rejoin the meeting.
 
 ```js
 callTranscriptionFeature.consentToBeingRecordedAndTranscribed();
