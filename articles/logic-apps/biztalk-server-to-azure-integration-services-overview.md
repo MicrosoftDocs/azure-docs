@@ -271,7 +271,7 @@ The following screenshot shows the connector operations search experience in the
 
 ### Web services and API connectivity
 
-The following section describes support for web services and API connectivity in BizTalk Server and Azure Logic Apps.
+The following sections describe support for web services and API connectivity in BizTalk Server and Azure Logic Apps.
 
 #### BizTalk Server
 
