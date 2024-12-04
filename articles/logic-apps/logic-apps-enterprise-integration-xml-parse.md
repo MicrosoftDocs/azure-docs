@@ -101,7 +101,7 @@ The following are the advanced parameters for this action:
 | **Normalize XML** | **No** or **Yes** | Whether to normalize XML content. |
 | **Ignore Whitespace?** | **No** or **Yes** | Whether to parse or ignore insignificant whitespace, such as spaces, tabs, and blank lines in XML documents. |
    | **Ignore XML Processing Instructions?** | No/Yes | Whether to ignore or follow the XML processing instructions.  |   
-   | **Ignore XML Attributes** | No/Yes | Whether to write XML attributes or ignore them.  |
+| **Ignore XML Attributes** | **No** or **Yes** | Whether to write or ignore XML attributes. |
    | **Use Fully Qualified Names?** | No/Yes | Whether to use fully qualified XML names or simpler local XML names.  |
    | **Root Node Qualified Name?** | <*root-node-qualified-name*> | The root node's qualified name in case the schema contains multiple unreferenced element definitions.  |
 
