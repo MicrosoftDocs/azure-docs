@@ -33,7 +33,7 @@ Azure Backup offers the following key capabilities:
 
 - Metrics can be viewed for all Recovery Services vaults in each region and subscription at a time. Viewing metrics for a larger scope in the Azure portal is currently not supported. The same limits are also applicable to configure metric alert rules.
 
-## Supported built-in metrics
+## Supported metrics
 
 Currently, Azure Backup supports the following metrics:
 
@@ -93,52 +93,6 @@ To view metrics in the Azure portal, follow the below steps:
    - To view health events only for failed backups, use a filter on HealthStatus, by selecting the values corresponding to unhealthy or degraded health state.
 
    :::image type="content" source="./media/metrics-overview/metrics-filters-inline.png" alt-text="Screenshot showing the process to filter metrics by different dimensions." lightbox="./media/metrics-overview/metrics-filters-expanded.png":::
-
-## Configure alerts and notifications on your metrics
-
-To configure alerts and notifications on your metrics, follow these steps:
-
-1. Click **New Alert Rule** at the top of the metric charts.
-
-1. Select the scope for which you want to create alerts.   <br><br>    The scope limits are the same as the limits described in the [View metrics](#view-metrics-in-the-azure-portal) section.
-
-1. Select the condition on which the alert should be fired.
-
-   - By default, some fields are pre-populated based on the selections in the metric chart. You can edit the parameters as needed.
-   - Choose the threshold type and value to set the trigger condition for the alert. Learn more [about the alert conditions for alert rules](/azure/azure-monitor/alerts/alerts-create-metric-alert-rule).
-   - To generate individual alerts for each datasource in the vault, use the **dimensions** selection in the metric alerts rule. Following are some scenarios:
-
-   - Firing alerts on failed backup jobs for each datasource:
-
-     **Alert Rule: Fire an alert if Backup Health Events > 0 in the last 24 hours for**:
-     - Dimensions["HealthStatus"]= “Persistent Unhealthy / Transient Unhealthy”
-     - Dimensions["DatasourceId"]= “All current and future values”
-
-   - Firing alerts if all backups in the vault were successful for the day:
-
-     **Alert Rule: Fire an alert if Backup Health Events < 1 in the last 24 hours for**:
-     - Dimensions["HealthStatus"]="Persistent Unhealthy / Transient Unhealthy / Persistent Degraded / Transient Degraded"
-
-   :::image type="content" source="./media/metrics-overview/metric-alert-condition-inline.png" alt-text="Screenshot showing the option to select the condition on which the alert should be fired." lightbox="./media/metrics-overview/metric-alert-condition-expanded.png":::
-
-   >[!NOTE]
-   >If you select more dimensions as part of the alert rule condition, the cost increases (that's proportional to the number of unique combinations of dimension values possible). Selection of more dimensions allows you to get more context on a fired alert.
-
-
-1. To configure notifications for these alerts using Action Groups, configure an Action Group as part of the alert rule, or create a separate action rule.
-
-   We support various notification channels, such as email, ITSM, webhook, Logic App, SMS. [Learn more about Action Groups](/azure/azure-monitor/alerts/action-groups).
-
-   :::image type="content" source="./media/metrics-overview/action-group-inline.png" alt-text="Screenshot showing the process to configure notifications for these alerts using Action Groups." lightbox="./media/metrics-overview/action-group-expanded.png":::
-
-1. Configure auto-resolution behavior - You can configure metric alerts as _stateless_ or _stateful_ as required.
-
-   - To generate an alert on every job failure irrespective of the failure is due to the same underlying cause (stateless behavior), deselect the **Automatically resolve alerts** option in the alert rule.
-   - Alternately, to configure the alerts as stateful, select the same checkbox. Therefore, when a metric alert is fired on the scope, another failure won't create a new metric alert. The alert gets auto-resolved if the alert generation condition evaluates to false for three successive evaluation cycles. New alerts are generated if the condition evaluates to true again.
-
-[Learn more about stateful and stateless behavior of Azure Monitor metric alerts](/azure/azure-monitor/alerts/alerts-troubleshoot-metric#the-metric-alert-is-not-triggered-every-time-the-condition-is-met).
-
-:::image type="content" source="./media/metrics-overview/auto-resolve-alert-inline.png" alt-text="Screenshot showing the process to configure auto-resolution behavior." lightbox="./media/metrics-overview/auto-resolve-alert-expanded.png":::
 
 ## Manage Alerts
 
