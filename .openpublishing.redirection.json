@@ -1,5 +1,30 @@
 {
   "redirections": [
+    {
+      "source_path": "articles/partner-solutions/split-experimentation/create.md",
+      "redirect_url": "/previous-versions/azure/partner-solutions/split-experimentation/create",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/partner-solutions/split-experimentation/how-to-set-up-data-access.md",
+      "redirect_url": "/previous-versions/azure/partner-solutions/split-experimentation/how-to-set-up-data-access",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/partner-solutions/split-experimentation/manage.md",
+      "redirect_url": "/previous-versions/azure/partner-solutions/split-experimentation/manage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/partner-solutions/split-experimentation/overview.md",
+      "redirect_url": "/previous-versions/azure/partner-solutions/split-experimentation/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/partner-solutions/split-experimentation/troubleshoot.md",
+      "redirect_url": "/previous-versions/azure/partner-solutions/split-experimentation/troubleshoot",
+      "redirect_document_id": false
+    },
      {
       "source_path": "articles/virtual-desktop/virtual-desktop-fall-2019/classic-retirement.md",
       "redirect_url": "/previous-versions/azure/virtual-desktop-classic/classic-retirement",
