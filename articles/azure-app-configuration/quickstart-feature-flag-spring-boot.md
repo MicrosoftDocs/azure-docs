@@ -41,14 +41,14 @@ To create a new Spring Boot project:
 
    * Generate a **Maven** project with **Java**.
    * Specify a **Spring Boot** version that's equal to or greater than 2.0.
-   * Specify the **Group** and **Artifact** names for your application.  This article uses `com.example` and `demo`.
+   * Specify the **Group** and **Artifact** names for your application. This article uses `com.example` and `demo`.
    * Add the **Spring Web** dependency.
 
 1. After you specify the previous options, select **Generate Project**. When prompted, download the project to your local computer.
 
 ## Add feature management
 
-1. After you extract the files on your local system, your Spring Boot application is ready for editing. Locate  *pom.xml* in the root directory of your app.
+1. After you extract the files on your local system, your Spring Boot application is ready for editing. Locate *pom.xml* in the root directory of your app.
 
 1. Open the *pom.xml* file in a text editor and add the following to the list of `<dependencies>`:
 
@@ -85,7 +85,7 @@ To create a new Spring Boot project:
 ## Connect to an App Configuration store
 
 
-1. Navigate to the `resources` directory of your app and open `bootstrap.properties`.  If the file does not exist, create it. Add the following line to the file.
+1. Navigate to the `resources` directory of your app and open `bootstrap.properties`. If the file does not exist, create it. Add the following line to the file.
 
     ### [Microsoft Entra ID (recommended)](#tab/entra-id)
     You use the `DefaultAzureCredential` to authenticate to your App Configuration store. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader** role. Be sure to allow sufficient time for the permission to propagate before running your application. Create a new file named *AppConfigCredential.java* and add the following lines:
@@ -95,7 +95,7 @@ To create a new Spring Boot project:
     spring.cloud.azure.appconfiguration.stores[0].feature-flags.enabled=true
     ```
 
-    Additionally, you need to add the following code to your project, unless you want to use just Managed Identity:
+    Additionally, you need to add the following code to your project, unless you want to use Managed Identity:
 
     ```java
     import org.springframework.stereotype.Component;

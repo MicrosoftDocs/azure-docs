@@ -22,7 +22,7 @@ The Feature Management libraries also manage feature flag lifecycles behind the 
 
 The [Add feature flags to a Spring Boot app Quickstart](./quickstart-feature-flag-spring-boot.md) shows several ways to add feature flags in a Spring Boot application. This tutorial explains these methods in more detail.
 
-In this tutorial, you will learn how to:
+In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Add feature flags in key parts of your application to control feature availability.
@@ -174,7 +174,7 @@ public String getOldFeature() {
 
 ## Next steps
 
-In this tutorial, you learned how to implement feature flags in your Spring Boot application by using the `spring-cloud-azure-feature-management-web` libraries.  For further questions see the [reference documentation](https://go.microsoft.com/fwlink/?linkid=2180917), it has all of the details on how the Spring Cloud Azure App Configuration library works.For more information about feature management support in Spring Boot and App Configuration, see the following resources:
+In this tutorial, you learned how to implement feature flags in your Spring Boot application by using the `spring-cloud-azure-feature-management-web` libraries. For further questions see the [reference documentation](https://go.microsoft.com/fwlink/?linkid=2180917). The reference documentation has all of the details on how the Spring Cloud Azure App Configuration library works.For more information about feature management support in Spring Boot and App Configuration, see the following resources:
 
 * [Spring Boot feature flag sample code](./quickstart-feature-flag-spring-boot.md)
 * [Manage feature flags](./manage-feature-flags.md)

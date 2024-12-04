@@ -136,7 +136,7 @@ To use the Spring Cloud Azure Config starter to have your application communicat
     ```
     
 
-1. Open the auto-generated unit test and update to disable Azure App Configuration, or it will try to load from the service when running unit tests.
+1. Open the auto-generated unit test and update to disable Azure App Configuration, or it tries to load from the service when running unit tests.
 
    ```java
    import org.junit.jupiter.api.Test;
