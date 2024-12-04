@@ -64,9 +64,9 @@ If you have interest in obtaining or continuing Spring commercial support and us
 
 ### What are the migration destinations?
 
-We recommend Azure Container Apps as the primary service for your migration of workloads running on Azure Spring Apps. Azure Container Apps is a fully managed serverless container service for polyglot apps and offers enhanced Java features to help you manage, monitor, and troubleshoot Java apps at scale.
+We recommend Azure Container Apps as the primary service for your migration of workloads running on Azure Spring Apps. Azure Container Apps is a fully managed serverless container service for polyglot apps and offers enhanced Java features to help you manage, monitor, and troubleshoot Java apps at scale. If you are using the Azure Spring Apps Enterprise plan and wish to continue using Tanzu, we recommend AKS so you can get full control and capability of the Tanzu components; Otherwise, Azure Container Apps is still the most recommended destination for you.
 
-Migration guidance and tooling will be enabled for the Azure Spring Apps Standard consumption and dedicated plan (currently in Public Preview only) by mid-October, providing customers with a transition from Azure Spring Apps to Azure Container Apps. For more information, see [Migrate Azure Spring Apps Standard consumption and dedicated plan to Azure Container Apps](../consumption-dedicated/overview-migration.md).
+Migration guidance and tooling will offer customers a smooth transition from Azure Spring Apps to Azure Container Apps. For more information, see [Migrate Azure Spring Apps Standard consumption and dedicated plan to Azure Container Apps](../consumption-dedicated/overview-migration.md).
 
 We're working on the migration guidance and tooling from the Azure Spring Apps Basic, Standard, and Enterprise plans to Azure Container Apps. This guidance and tooling will be available by March 2025.
 
