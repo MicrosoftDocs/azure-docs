@@ -410,7 +410,7 @@ Beyond the core XML transformations, BizTalk Server also provides encoding and d
 
 - XML operations
 
-  For XML transformations in logic app workflows, you can use built-in XML operations, such as the Compose XML action or Parse XML action.
+  For XML transformations in logic app workflows, you can use built-in XML operations, such as the **Compose XML with schema** action and **Parse XML with schema** action.
 
 - EDI schemas
 
