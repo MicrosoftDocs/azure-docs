@@ -25,7 +25,7 @@ In this article, you:
 > * Review URL and port access for machines you want to migrate.
 > * Review changes you might need to make before you begin migration.
 > * Check Azure VMs requirements for migrated machines.
-> * Prepare machines so you can connect to the Azure VMs after migration.
+> * Prepare machines so you can connect to the Azure VMs after migration. 
 
 
 ## Verify migration limitations
@@ -114,10 +114,10 @@ Azure Migrate completes these actions automatically for these versions
 
 - Red Hat Enterprise Linux  9.x, 8.x, 7.9, 7.8, 7.7, 7.6, 7.5, 7.4, 7.3, 7.2, 7.1, 7.0, 6.x (Azure Linux VM agent is also installed automatically during migration)
 - CentOS Stream (Azure Linux VM agent is also installed automatically during migration)
-- SUSE Linux Enterprise Server 15 SP0, 15 SP1, 12, 11 SP4, 11 SP3
+- SUSE Linux Enterprise Server 15 SP4, 15 SP3, 15 SP2, 15 SP1, 15 SP0, 12, 11 SP4, 11 SP3
 - Ubuntu 22.04, 21.04, 20.04, 19.04, 19.10, 18.04LTS, 16.04LTS, 14.04LTS (Azure Linux VM agent is also installed automatically during migration)
-- Debian 10, 9, 8, 7
-- Oracle Linux 8, 7.7-CI, 7.7, 6
+- Debian 11, 10, 9, 8, 7
+- Oracle Linux 9, 8, 7.7-CI, 7.7, 6
 
 For other versions, prepare machines as summarized in the table. 
 > [!Note]
