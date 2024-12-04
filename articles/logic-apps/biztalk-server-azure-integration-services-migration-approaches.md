@@ -239,7 +239,7 @@ After your team finishes and meets the "definition of done" for the User Stories
 
 1. Hold a retrospective.
 
-### Best practices for a BizTalk Migration
+### Best practices for a BizTalk migration
 
 While best practices might vary across organizations, consider a conscious effort to promote consistency, which helps reduce unnecessary efforts that "reinvent the wheel" and the redundancy of similar common components. When you help enable reusability, your organization can more quickly build interfaces that become easier to support. Time to market is a key enabler for digital transformation, so a top priority is reducing unnecessary friction for developers and support teams.
 
