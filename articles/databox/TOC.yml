@@ -7,7 +7,7 @@
       items:
       - name: What is Data Box?
         href: data-box-overview.md
-      - name: What is Data Box V2?
+      - name: What is next-gen Data Box?
         href: data-box-next-gen-overview.md
     - name: Quickstarts
       expanded: true

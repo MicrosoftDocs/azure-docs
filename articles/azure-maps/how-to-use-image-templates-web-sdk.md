@@ -94,7 +94,7 @@ The [Fill polygon with built-in icon template] sample demonstrates how to render
 
 ## Use an image template with an HTML marker
 
-An image template can be retrieved using the `altas.getImageTemplate` function and used as the content of an HTML marker. The template can be passed into the `htmlContent` option of the marker, and then customized using the `color`, `secondaryColor`, and `text` options.
+An image template can be retrieved using the `atlas.getImageTemplate` function and used as the content of an HTML marker. The template can be passed into the `htmlContent` option of the marker, and then customized using the `color`, `secondaryColor`, and `text` options.
 
 The [HTML Marker with built-in icon template] sample demonstrates this using the `marker-arrow` template with a red primary color, a pink secondary color, and a text value of "00", as shown in the following screenshot. For the source code for this sample, see [HTML Marker with built-in icon template sample code].
 
@@ -107,7 +107,7 @@ The [HTML Marker with built-in icon template] sample demonstrates this using the
 ----------------------------------------------------->
 
 > [!TIP]
-> Image templates can be used outside of the map too. The getImageTemplate funciton returns an SVG string that has placeholders; `{color}`, `{secondaryColor}`, `{scale}`, `{text}`. Replace these placeholder values to create a valid SVG string. You can then either add the SVG string directly to the HTML DOM or convert it into a data URI and insert it into an image tag. For example:
+> Image templates can be used outside of the map too. The getImageTemplate function returns an SVG string that has placeholders; `{color}`, `{secondaryColor}`, `{scale}`, `{text}`. Replace these placeholder values to create a valid SVG string. You can then either add the SVG string directly to the HTML DOM or convert it into a data URI and insert it into an image tag. For example:
 >
 > ```JavaScript
 > //Retrieve an SVG template and replace the placeholder values.
