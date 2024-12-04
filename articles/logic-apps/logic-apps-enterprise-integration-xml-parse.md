@@ -85,7 +85,7 @@ This action is currently not yet supported for the [Consumption logic app resour
 
 1. When you're done, save your workflow.
 
-   You're now finished setting up your **XML parse with schema** action. In a real world app, you might want to store the parsed data in a line-of-business (LOB) app such as SalesForce. To send the parsed output to Salesforce, add a Salesforce action.
+   You're now finished setting up your **Parse XML with schema** action. In a real-world app, you might want to store the parsed data in a line-of-business (LOB) app such as Salesforce. To send the parsed output to Salesforce, add a Salesforce action.
 
 1. To test your parsing action, trigger and run your workflow. For example, for the **Request** trigger, send a request to the trigger's endpoint URL.
 
