@@ -170,7 +170,7 @@ resource exampleStorage 'Microsoft.Storage/storageAccounts@2023-05-01' = {
 
 You're almost done. Just provide values for those properties.
 
-Again, IntelliSense helps you. Set `name` to `storageAccountName`, which is the parameter that contains a name for the storage account. For `location`, set it to `location`, which is a parameter you created earlier. When adding `sku.name` and `kind`, IntelliSense presents the valid options.
+Again, IntelliSense helps you. Set `name` to `storageAccountName`, which is the parameter that contains a name for the storage account. For `location`, set it to `location`, which is a parameter that you created earlier. When adding `sku.name` and `kind`, IntelliSense presents the valid options.
 
 To add optional properties alongside the required properties, place the cursor at the desired location and press <kbd>Ctrl</kbd>+<kbd>Space</kbd>. IntelliSense suggests unused properties as shown in the following screenshot:
 
