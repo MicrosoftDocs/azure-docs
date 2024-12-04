@@ -6,13 +6,17 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: linux-related-content
 ms.topic: overview
-ms.date: 12/03/2024
+ms.date: 12/04/2024
 ms.author: anfdocs
 ---
 
 # What's new in Azure NetApp Files
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
+
+* [Configure NFSv4.1 ID domain for non-LDAP volumes](azure-netapp-files-configure-nfsv41-domain.md#configure-nfsv41-id-domain-for-non-ldap-volumes) is now generally available (GA)
+
+<!-- PLR text -->
 
 ## December 2024
 
