@@ -168,6 +168,12 @@ The following diagram shows the events that should happen during migration waves
    | 4 | To get the full benefits from easily and consistently deploying your Standard logic app workflows across different environments and platforms, you must also automate your build and deployment process. The Azure Logic Apps (Standard) extension for Visual Studio Code provides tools for you to create and maintain automated build and deployment processes using Azure DevOps. <br><br>For more information, see [Automate build and deployment for Standard logic app workflows with Azure DevOps](/azure/logic-apps/automate-build-deployment-standard). | 
    | 5 | To deploy mission-critical Standard logic apps that are always available and responsive, even during updates or maintenance, enable zero downtime deployment by creating and using deployment slots. Zero downtime means that when you deploy new versions of your app, end users shouldn't experience disruption or downtime. <br><br>For more information, see [Set up deployment slots to enable zero downtime deployment in Azure Logic Apps](/azure/logic-apps/set-up-deployment-slots). | 
 
+<a name="initial-migration-environment></a>
+
+The following diagram shows an example initial migration environment with a Standard logic app that orchestrates workflows that communicate with APIs, services, hybrid solutions, and on-premises resources:
+
+:::image type="content" source="./media/biztalk-server-to-azure-integration-services-overview/biztalk-migration-environment.png" alt-text="Diagram shows example initial migration environment." border="false":::
+
 #### Test
 
 Each *wave* has its own testing activities, which are embedded in each User Story. If you want to use [shift-left testing](/devops/develop/shift-left-make-testing-fast-reliable), make sure that you complete the following tasks:
