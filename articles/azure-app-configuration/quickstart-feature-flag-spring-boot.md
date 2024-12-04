@@ -100,9 +100,8 @@ To create a new Spring Boot project:
     ```java
     import org.springframework.stereotype.Component;
     
-    import com.azure.core.credential.TokenCredential;
     import com.azure.data.appconfiguration.ConfigurationClientBuilder;
-    import com.azure.identity.IntelliJCredentialBuilder;
+    import com.azure.identity.DefaultAzureCredentialBuilder;
     import com.azure.spring.cloud.appconfiguration.config.ConfigurationClientCustomizer;
     
     @Component
@@ -113,6 +112,13 @@ To create a new Spring Boot project:
             builder.credential(new DefaultAzureCredentialBuilder().build());
         }
     }
+    ```
+
+    And add configuration Bootstrap Configuration, by creating `spring.factories` file under `resources/META-INF` directory and add the following lines and updating `com.example.MyApplication` with your application name and package:
+
+    ```factories
+    org.springframework.cloud.bootstrap.BootstrapConfiguration=\
+    com.example.MyApplication
     ```
 
     ### [Connection string](#tab/connection-string)

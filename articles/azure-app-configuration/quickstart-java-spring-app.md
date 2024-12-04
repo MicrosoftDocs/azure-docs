@@ -120,9 +120,8 @@ To use the Spring Cloud Azure Config starter to have your application communicat
     ```java
     import org.springframework.stereotype.Component;
     
-    import com.azure.core.credential.TokenCredential;
     import com.azure.data.appconfiguration.ConfigurationClientBuilder;
-    import com.azure.identity.IntelliJCredentialBuilder;
+    import com.azure.identity.DefaultAzureCredentialBuilder;
     import com.azure.spring.cloud.appconfiguration.config.ConfigurationClientCustomizer;
     
     @Component
@@ -134,7 +133,14 @@ To use the Spring Cloud Azure Config starter to have your application communicat
         }
     }
     ```
-    
+
+1. Then create a configuration Bootstrap Configuration, by creating `spring.factories` file under `resources/META-INF` directory and add the following lines and updating `com.example.MyApplication` with your application name and package:
+
+    ```factories
+    org.springframework.cloud.bootstrap.BootstrapConfiguration=\
+    com.example.MyApplication
+    ```
+
 
 1. Open the auto-generated unit test and update to disable Azure App Configuration, or it tries to load from the service when running unit tests.
 
