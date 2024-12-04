@@ -3,7 +3,7 @@ title: "Cohesity (using Azure Functions) connector for Microsoft Sentinel"
 description: "Learn how to install the connector Cohesity (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 11/20/2024
+ms.date: 04/26/2024
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ms.collection: sentinel-data-connector
@@ -50,7 +50,7 @@ To integrate with Cohesity (using Azure Functions) make sure you have:
    >  This connector uses Azure Functions that connect to the Azure Blob Storage and KeyVault. This might result in additional costs. Check the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/), [Azure Blob Storage pricing page](https://azure.microsoft.com/pricing/details/storage/blobs/) and [Azure KeyVault pricing page](https://azure.microsoft.com/pricing/details/key-vault/) for details.
 
 
->**(Optional Step)** Securely store workspace and API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](/azure/app-service/app-service-key-vault-references) to use Azure Key Vault with an Azure Function App.
+>**(Optional Step)** Securely store workspace and API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](/azure/app-service/app-service-key-vault-references) to use Azure Key Vault with an Azure Functions App.
 
 
 **STEP 1 - Get a Cohesity DataHawk API key (see troubleshooting [instruction 1](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/CohesitySecurity/Data%20Connectors/Helios2Sentinel/IncidentProducer))**
