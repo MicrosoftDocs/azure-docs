@@ -22,11 +22,11 @@ With API analysis:
 
 
 > [!IMPORTANT]
-> If you prefer, you can [manually enable](enable-api-analysis-linting.md) linting and analysis using a custom Azure function, overriding the built-in capabilities. **Disable any function used for manual linting before using managed API analysis.**
+> If you prefer, you can enable [self-managed](enable-api-analysis-linting.md) linting and analysis using a custom Azure function, overriding the built-in capabilities. **Disable any function used for self-managed linting before using managed API analysis.**
 
 ## Limitations
 
-* Currently, only OpenAPI specification documents in JSON or YAML format are analyzed.
+* Currently, only OpenAPI and AsyncAPI specification documents in JSON or YAML format are analyzed.
 * Currently, you configure a single ruleset, and it's applied to all OpenAPI definitions in your API center.
 * There are [limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=/azure/api-center/toc.json&bc=/azure/api-center/breadcrumb/toc.json#api-center-limits) for the maximum number of API definitions analyzed. Analysis can take a few minutes to up to 24 hours to complete.
 
