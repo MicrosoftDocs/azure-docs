@@ -11,7 +11,7 @@ ms.author: mathapli
 
 # Azure Confidential Clean Rooms (PREVIEW)
 > [!NOTE]
-> Azure Confidential Clean Rooms is currently in Limited Preview. The Preview is subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/). Customer should not use the Preview to process Personal Data or other data that is subject to legal or regulatory compliance requirements. The Preview is intended for testing, evaluation and feedback and should not be used in production. 
+> Azure Confidential Clean Rooms is currently in Limited Preview. The Preview is subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Customer should not use the Preview to process Personal Data or other data that is subject to legal or regulatory compliance requirements. The Preview is intended for testing, evaluation and feedback and should not be used in production. 
 
 Azure Confidential Clean Rooms, aka ACCR, offers a protected environment that helps organizations overcome security and privacy challenges of using sensitive data for data analytics, AI model development and inferencing scenarios. Built on top of [Confidential containers or C-ACI](../confidential-computing/confidential-containers.md), ACCR helps secure the data and the model from exfiltration outside the clean room boundary. 
 Organizations can safely collaborate and analyze data within the sandbox and  use advanced privacy-enhancing features like protected governance & audit, protected collaboration, verifiable trust, differential privacy, and controlled access.
