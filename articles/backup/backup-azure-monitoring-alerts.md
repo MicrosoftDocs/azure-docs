@@ -125,7 +125,7 @@ To manage monitoring settings for a Backup vault, follow these steps:
 
 ## View fired alerts in the Azure portal 
 
-Once an alert is fired for a vault, you can go to **Backup center** to view the alert in the Azure portal. On the **Overview** tab, you can see a summary of active alerts split by severity. There are two types of alerts displayed:
+After an alert is fired for a vault, you can view the alert in the Azure portal in Azure Business Continuity Center or Recovery Services vault console. On the **Overview** tab, you can see a summary of active alerts split by severity. There are two types of alerts displayed:
 
 * **Datasource Alerts**: Alerts that are tied to a specific datasource being backed-up (for example, back up or restore failure for a VM, deleting backup data for a database, and so on) appear under the **Datasource Alerts** section.
 * **Global Alerts**: Alerts that aren't tied to a specific datasource (for example, disabling soft-delete functionality for a vault) appear under the **Global Alerts** section.
