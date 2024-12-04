@@ -2,7 +2,7 @@
 title: Best practices for scaling for Azure Managed Redis (preview)
 description: Learn how to scale your Azure Managed Redis.
 
-ms.service: azure
+ms.service: azure-managed-redis
 ms.custom:
   - ignite-2024
 ms.topic: conceptual

@@ -4,13 +4,13 @@ description: Learn about VPN Gateway topologies and designs you can use to conne
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: concept-article
-ms.date: 10/15/2024
+ms.date: 12/03/2024
 ms.author: cherylmc
 
 ---
 # VPN Gateway topology and design
 
-There are many different configuration options available for VPN Gateway connections. To help you select the connection topology that meets your requirements, use the diagrams and descriptions in the following sections. The diagrams show the main baseline topologies, but it's possible to build more complex configurations using the diagrams as guidelines.
+There are many different options available for virtual network connections. To help you select a VPN gateway connection topology that meets your requirements, use the diagrams and descriptions in the following sections. The diagrams show the main baseline topologies, but it's possible to build more complex configurations using the diagrams as guidelines.
 
 ## <a name="s2smulti"></a>Site-to-site VPN
 
@@ -89,6 +89,8 @@ For planning and designing highly available connections, including active-active
 * Learn more about [VPN Gateway configuration settings](vpn-gateway-about-vpn-gateway-settings.md).
 
 * For VPN Gateway BGP considerations, see [About BGP](vpn-gateway-bgp-overview.md).
+
+* For information about virtual network peering, see [Virtual network peering](../virtual-network/virtual-network-peering-overview.md).
 
 * View the [Subscription and service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
 

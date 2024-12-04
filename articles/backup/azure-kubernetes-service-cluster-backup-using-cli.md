@@ -254,7 +254,7 @@ The configuration of backup is performed in two steps:
     "snapshot_volumes": true
    }
    ```
-The following namespaces are skipped from backup configuration and not cofigured for backups: kube-system, kube-node-lease, kube-public.
+The following namespaces are skipped from backup configuration and not configured for backups: kube-system, kube-node-lease, kube-public.
 
 2. Prepare the relevant request using the relevant vault, policy, AKS cluster, backup configuration, and snapshot resource group using the `az dataprotection backup-instance initialize` command.
 

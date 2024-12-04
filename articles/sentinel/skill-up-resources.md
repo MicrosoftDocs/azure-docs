@@ -172,7 +172,7 @@ The first piece of information you see for each connector is its *data ingestion
 | ----------- | ----------- |
 | Azure service-to-service integration     | [Connect to Azure, Windows, Microsoft, and Amazon services](connect-azure-windows-microsoft-services.md)     |
 | Common Event Format (CEF) over Syslog	  |[Ingest Syslog and CEF messages to Microsoft Sentinel with the Azure Monitor Agent](connect-cef-syslog-ama.md)|
-| Microsoft Sentinel Data Collector API | [Connect your data source to the Microsoft Sentinel Data Collector API to ingest data](connect-rest-api-template.md) |
+| Microsoft Sentinel Data Collector API | [Connect with the Log Ingestion API](create-custom-connector.md#connect-with-the-log-ingestion-api) |
 | Azure Functions and the REST API | [Use Azure Functions to connect Microsoft Sentinel to your data source](connect-azure-functions-template.md) |
 | Syslog | [Ingest Syslog and CEF messages to Microsoft Sentinel with the Azure Monitor Agent](connect-cef-syslog-ama.md) |
 | Custom logs | [Custom Logs via AMA data connector - Configure data ingestion to Microsoft Sentinel from specific applications](unified-connector-custom-device.md) |

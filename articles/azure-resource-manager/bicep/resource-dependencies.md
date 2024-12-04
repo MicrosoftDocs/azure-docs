@@ -82,7 +82,7 @@ The following example shows a DNS zone named `otherZone` that depends on a DNS z
 
 ```bicep
 resource dnsZone 'Microsoft.Network/dnszones@2023-07-01-preview' = {
-  name: 'demoeZone1'
+  name: 'demoZone1'
   location: 'global'
 }
 

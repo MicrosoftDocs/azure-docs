@@ -317,9 +317,8 @@ For more information about Azure integration with SAP Business Technology Platfo
 - [Monitor multiple SAP Cloud Integration tenants with Azure Monitor](https://blogs.sap.com/2020/11/11/broadcast-cpi-errors-to-azure-monitor-via-scp-alert-notifications/)
 - [Route Multi-Region Traffic to SAP BTP Services Intelligently with Azure Traffic Manager](https://discovery-center.cloud.sap/missiondetail/3603/)
 - [Distributed Resiliency of SAP CAP applications using SAP HANA Cloud with Azure Traffic Manager](https://blogs.sap.com/2022/11/12/distributed-resiliency-of-sap-cap-applications-using-sap-hana-cloud-multi-zone-replication-with-azure-traffic-manager/)
-- [Federate your data from Azure Data Explorer to SAP Data Warehouse Cloud](https://discovery-center.cloud.sap/missiondetail/3433/3473/)
+- [Federate your data from Azure Data Explorer to SAP Datasphere](https://discovery-center.cloud.sap/missiondetail/3433/3473/)
 - [Integrate globally available SAP BTP apps with Azure Cosmos DB via OData](https://blogs.sap.com/2021/06/11/sap-where-can-i-get-toilet-paper-an-implementation-of-the-geodes-pattern-with-s4-btp-and-azure-cosmosdb/)
-- [Explore your Azure data sources with SAP Data Warehouse Cloud](https://discovery-center.cloud.sap/missiondetail/3656/3699/)
 - [Building Applications on SAP BTP with Microsoft Services | OpenSAP course](https://open.sap.com/courses/btpma1)
 
 ## Customer resources

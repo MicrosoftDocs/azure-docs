@@ -2,7 +2,7 @@
 title: Overview of Azure Blobs backup
 description: Learn about Azure Blobs backup.
 ms.topic: overview
-ms.date: 07/24/2024
+ms.date: 11/26/2024
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -104,7 +104,14 @@ You won't incur any management charges or instance fee when using operational ba
 
 # [Vaulted backup](#tab/vaulted-backup)
 
-You will incur backup storage charges or instance fees, and the source side cost ([associated with Object replication](../storage/blobs/object-replication-overview.md#billing)) on the backed-up source account.
+Azure Blobs protected with Azure Backup incur charges as per the [Azure Backup pricing](https://azure.microsoft.com/pricing/details/backup/) that includes:
+
+- **Protected instance fee**: Azure Backup for Blobs charges a protected instance fee per month. The size of data in the protected storage account determines the pricing for each instance. For specific pricing details, go to the [Azure Backup pricing](https://azure.microsoft.com/pricing/details/backup/) and select **Azure Blobs** as the workload type.
+- **Transactions fee**: The transaction fee is calculated based on the **write operations** performed by the Azure Backup service to back up data to the backup storage account. This charge depends on the frequency of writes to the protected storage account.
+- **Backup Storage fee**: This fee is charged based on the restore points stored in the Vault Tier (as per the total data stored in GBs and redundancy type enable on the Backup Vault). Backup storage redundancy is the redundancy you set for the vault used for protecting Azure Blob.
+
+For generating the estimate for your scenario see the [Azure Backup pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=backup).
+
 
 ---
 
