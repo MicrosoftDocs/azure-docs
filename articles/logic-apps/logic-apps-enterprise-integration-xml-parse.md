@@ -98,7 +98,7 @@ The following are the advanced parameters for this action:
 | Parameter | Value | Description |
    |-----------|-------|-------------|
    | **DTD Processing** | Ignore/Parse/Prohibit | How to handle XML DTD. |
-   | **Normalize XML** | No/Yes | Whether to normalize XML content. |
+| **Normalize XML** | **No** or **Yes** | Whether to normalize XML content. |
 | **Ignore Whitespace?** | **No** or **Yes** | Whether to parse or ignore insignificant whitespace, such as spaces, tabs, and blank lines in XML documents. |
    | **Ignore XML Processing Instructions?** | No/Yes | Whether to ignore or follow the XML processing instructions.  |   
    | **Ignore XML Attributes** | No/Yes | Whether to write XML attributes or ignore them.  |
