@@ -52,9 +52,9 @@ Also supports Upper and Title cases
 
 `*{len} => ******(length of entity)`
 
-This will allow you to create a string matching the length of the PHI. 
+This variable allows you to create a string matching the length of the PHI. 
 
-It will duplicate the previous character to match the length of the tagged entity.
+It duplicates the previous character to match the length of the tagged entity.
 
 ```text
     Text = "Hi my name is John Smith"
