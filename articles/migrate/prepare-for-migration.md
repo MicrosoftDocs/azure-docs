@@ -6,7 +6,7 @@ ms.author: sunishvohra
 ms.manager: vijain
 ms.service: azure-migrate
 ms.topic: how-to
-ms.date: 10/25/2024
+ms.date: 12/04/2024
 ms.custom: engagement-fy25
 ---
 
@@ -115,7 +115,7 @@ Azure Migrate completes these actions automatically for these versions
 - Red Hat Enterprise Linux  9.x, 8.x, 7.9, 7.8, 7.7, 7.6, 7.5, 7.4, 7.3, 7.2, 7.1, 7.0, 6.x (Azure Linux VM agent is also installed automatically during migration)
 - CentOS Stream (Azure Linux VM agent is also installed automatically during migration)
 - SUSE Linux Enterprise Server 15 SP0, 15 SP1, 12, 11 SP4, 11 SP3
-- Ubuntu 20.04, 19.04, 19.10, 18.04LTS, 16.04LTS, 14.04LTS (Azure Linux VM agent is also installed automatically during migration)
+- Ubuntu 22.04, 21.04, 20.04, 19.04, 19.10, 18.04LTS, 16.04LTS, 14.04LTS (Azure Linux VM agent is also installed automatically during migration)
 - Debian 10, 9, 8, 7
 - Oracle Linux 8, 7.7-CI, 7.7, 6
 
