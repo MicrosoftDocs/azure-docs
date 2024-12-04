@@ -136,11 +136,11 @@
   - Name: Network security perimeter
     items:
     - name: Azure CLI
-      href: /cli/azure/network/network-security-perimeter
+      href: /azure/private-link/create-network-security-perimeter-cli
     - name: Azure PowerShell
       href: /powershell/module/az.network
     - name: .NET
-      href: /dotnet/api/overview/azure/private-link
+      href: /azure/application-gateway/private-link
     - name: Java
       href: /java/api/
     - name: Node.js

@@ -897,7 +897,7 @@
     - name: Query best practices
       href: /kusto/query/best-practices?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
     - name: SQL to KQL cheat sheet
-      href: /kusto/query/sqlcheatsheet?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+      href: /kusto/query/sql-cheat-sheet?view=microsoft-fabric
     - name: Splunk to KQL cheat sheet
       href: /kusto/query/splunk-cheat-sheet?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
     - name: KQL quick reference
