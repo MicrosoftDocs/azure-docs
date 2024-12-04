@@ -47,7 +47,9 @@ By the end of this article, you deploy one web application and three back-end ap
 
 ## Setup
 
-1. Create environment variables, a resource group, and an Azure Container Apps environment using the steps that follow. The environment variables contain your custom values, so replace the placeholder values surrounded by `<>` with your own values before you run the following commands:
+To create environment variables, a resource group, and an Azure Container Apps environment, use the following steps:
+
+1. The environment variables contain your custom values, so replace the placeholder values surrounded by `<>` with your own values before you run the following commands:
 
     ```bash
     export RESOURCE_GROUP=<RESOURCE_GROUP>
@@ -198,7 +200,7 @@ To create the three Java components, use the following steps:
 
 ## Deploy the microservice apps
 
-To deploy the Java microservice apps to Azure Container Apps using the prebuilt container images, use the steps that follow.
+To deploy the Java microservice apps to Azure Container Apps using the prebuilt container images, use the following steps:
 
 > [!NOTE]
 > In this article, you use a series of [built images](https://github.com/orgs/Azure-Samples/packages?tab=packages&q=spring-petclinic) for the [Spring Petclinic microservice apps](https://github.com/spring-petclinic/spring-petclinic-microservices). You also have the option to customize the sample code and use your own images. For more information on building and deploying your own images, see the [azure-container-apps-java-samples GitHub repository](https://github.com/Azure-Samples/azure-container-apps-java-samples/tree/main/spring-petclinic-microservices/README.md).
@@ -248,7 +250,7 @@ To deploy the Java microservice apps to Azure Container Apps using the prebuilt 
 
 ## Bind container apps to Java components
 
-Next, bind together the Java components to your container apps. Use the steps that follow to create bindings that:
+Next, bind together the Java components to your container apps. Use the following steps to create bindings that:
 
 * Inject configuration data into each app from the managed config server on startup.
 
@@ -287,7 +289,7 @@ Use the `containerapp update` command to create bindings for each app by using t
         --bind $CONFIG_SERVER_COMPONENT $EUREKA_SERVER_COMPONENT $ADMIN_SERVER_COMPONENT
     ```
 
-1. Add bindings to the API gateway. Use the following command to return the URL of the front-end application, and then open this location in your browser.
+1. Add bindings to the API gateway. Use the following command to return the URL of the front-end application, and then open this location in your browser:
 
     ```azurecli
     az containerapp update \
@@ -350,7 +352,7 @@ Use the following steps to verify the app status:
            --query properties.ingress.fqdn
        ```
   
-    1. Open the URL in your browser, and you should see an application that resembles the following screenshot.
+    1. Open the URL in your browser, and you should see an application that resembles the following screenshot:
   
        :::image type="content" source="media/java-microservice-get-started/azure-container-apps-pet-clinic-administration.png" alt-text="Screenshot of the pet clinic admin dashboard showing five services up, along with version information for four of the services." lightbox="media/java-microservice-get-started/azure-container-apps-pet-clinic-administration.png":::
 
