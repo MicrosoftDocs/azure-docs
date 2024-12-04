@@ -90,8 +90,10 @@ Available actions are described in the following table.
     * Fragments
     * Unions
     * Interfaces
-    * The schema element  
-     
+    * The schema element
+ 
+* The GraphQL request that's validated by the policy can contain a maxiumum of 250 GraphQL query fields at all levels.
+  
 ## Error handling
 
 Failure to validate against the GraphQL schema, or a failure for the request's size or depth, is a request error and results in the request being failed with an errors block (but no data block). 
