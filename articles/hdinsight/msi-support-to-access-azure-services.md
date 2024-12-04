@@ -4,7 +4,7 @@ description: Learn how to provide MSI Support to Access Azure services.
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 012/04/2024
+ms.date: 12/04/2024
 ---
 
 # MSI Support to access Azure services
@@ -62,7 +62,7 @@ There are two types of client JARs are available in the Maven central.
         </dependency>
        ```
 
-    1. Shaded utility JAR bundled with transitve dependent JARs. 
+    1. Shaded utility JAR bundled with transitive dependent JARs. 
 
        ```
        <dependency>
