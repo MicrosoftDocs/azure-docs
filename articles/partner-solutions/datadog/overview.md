@@ -1,25 +1,26 @@
 ---
 title: Datadog overview
-description: Learn about using Datadog in the Azure Marketplace.
-
-
+description: Discover Datadog - an Azure Native ISV Service which provides seamless monitoring and analytics of large-scale applications.
 
 ms.topic: conceptual
-ms.date: 01/06/2023
-
+ms.date: 12/09/2024
+ms.custom:
+  - ai-gen-docs-bap
+  - ai-gen-desc
+  - ai-seo-date:12/03/2024
 ---
 
 # What is Datadog - An Azure Native ISV Service?
 
 ## Overview
 
-Azure Native ISV Services enable you to easily provision, manage, and tightly integrate independent software vendor (ISV) software and services on Azure. This Azure Native ISV Service is developed and managed by Microsoft and Datadog.
+Azure Native ISV Services enable you to easily provision, manage, and tightly integrate independent software vendor (ISV) software and services on Azure. Microsoft and Datadog developed and manage this service.
 
-You can find Datadog – An Azure Native ISV Service in the [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Datadog%2Fmonitors) or get it on the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/datadog1591740804488.dd_liftr_v2?tab=Overview).
+You can find Datadog – An Azure Native ISV Service in the [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Datadog%2Fmonitors) or get it on [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/datadog1591740804488.dd_liftr_v2?tab=Overview).
 
 Datadog is a monitoring and analytics platform for large-scale applications. It encompasses infrastructure monitoring, application performance monitoring, log management, and user-experience monitoring. Datadog aggregates data across your entire stack with 400+ integrations for troubleshooting, alerting, and graphing. You can use it as a single source for troubleshooting, optimizing performance, and cross-team collaboration.
 
-Datadog's offering in the Azure Marketplace enables you to manage Datadog in the Azure console as an integrated service. This availability means you can implement Datadog as a monitoring solution for your cloud workloads through a streamlined workflow. The workflow covers everything from procurement to configuration. The onboarding experience simplifies how you start monitoring the health and performance of your applications, whether they're based entirely in Azure or spread across hybrid or multicloud environments.
+Datadog's offering in Azure Marketplace enables you to manage Datadog in the Azure console as an integrated service. This availability means you can implement Datadog as a monitoring solution for your cloud workloads through a streamlined workflow. The workflow covers everything from procurement to configuration. The onboarding experience simplifies how you start monitoring the health and performance of your applications, whether they're based entirely in Azure or spread across hybrid or multicloud environments.
 
 You create the Datadog resources through a resource provider named `Microsoft.Datadog`. You can create and manage Datadog organization resources through the [Azure portal](https://portal.azure.com/). Datadog owns and runs the software as a service (SaaS) application including the organization and API keys.
 
