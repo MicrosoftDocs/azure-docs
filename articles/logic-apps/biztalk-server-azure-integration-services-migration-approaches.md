@@ -25,7 +25,7 @@ This guide covers migration strategies and resources along with planning conside
 
 ## Strategy options
 
-The following section describes various migration strategies along with their benefits and disadvantages:
+The following sections describe various migration strategies along with their benefits and disadvantages:
 
 
 ### Big bang
