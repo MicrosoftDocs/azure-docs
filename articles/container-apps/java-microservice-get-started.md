@@ -375,3 +375,7 @@ The resources created in this quickstart have an effect on your Azure bill. If y
 ```azurecli
 az group delete --resource-group $RESOURCE_GROUP
 ```
+
+## Related content
+
+- [Java components](./java-feature-switch.md#java-components)
