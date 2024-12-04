@@ -7,8 +7,6 @@ ms.date: 12/4/2024
 ms.author: adam.hammer
 ---
 
-[!INCLUDE [Install SDK](../install-sdk/install-sdk-android.md)]
-
 ## Models
 
 | Name               | Description                                      |

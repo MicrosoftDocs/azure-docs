@@ -9,7 +9,10 @@ ms.subservice: calling
 ms.topic: how-to
 ms.date: 12/4/2024
 ms.custom: template-how-to
+zone_pivot_groups: acs-programming-languages-java-swift-csharp
 ---
+
+[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
 
 # Real Time Text
 
@@ -50,15 +53,15 @@ The `RealTimeTextInfo` (or `RealTimeTextDetails` on Windows) class encapsulates 
 | `UpdatedTime`     | Timestamp when the message was last updated.          |
 
 
-::: zone pivot="platform-android"
+::: zone pivot="programming-language-java"
 [!INCLUDE [Real Time Text with Android](./includes/real-time-text/real-time-text-android.md)]
 ::: zone-end
 
-::: zone pivot="platform-ios"
+::: zone pivot="programming-language-swift"
 [!INCLUDE [Real Time Text with iOS](./includes/real-time-text/real-time-text-ios.md)]
 ::: zone-end
 
-::: zone pivot="platform-windows"
+::: zone pivot="programming-language-csharp"
 [!INCLUDE [Real Time Text with Windows](./includes/real-time-text/real-time-text-windows.md)]
 ::: zone-end
 
