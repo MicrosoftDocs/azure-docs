@@ -9,7 +9,7 @@ ms.author: ankitadutta
 
 # Back up an Azure Virtual Machine in Azure Extended Zones
 
-This article describes how to back up an existing Azure VM using the [Azure portal](https://portal.azure.com).
+This article describes how to back up an existing Azure VM using the Azure portal.
 
 Azure Backups can be created through the Azure portal. You can use the browser-based interface to create and configure backups and related resources to protect your data by taking regular backups. [Azure Backup](backup-overview.md) creates and stores recovery points in geo-redundant recovery vaults. 
 
@@ -18,7 +18,6 @@ Azure Backups can be created through the Azure portal. You can use the browser-b
 ## Before you start
 
 Before you start backing up a VM in Extended Zones, review the [supported scenario](./backup-support-matrix-iaas.md).
-
 
 [!INCLUDE [backup-create-rs-vault.md](../../includes/backup-create-rs-vault.md)]
 
@@ -72,7 +71,7 @@ After enabling backup:
 - An initial backup runs in accordance with your backup schedule.
 - When backups run, note that:
   - A VM that's running has the highest chance for capturing an application-consistent recovery point.
-  - However, if the VM is turned off (an offline VM), it is still backed up, resulting in a crash-consistent recovery point. 
+  - However, if the VM is turned off (an offline VM), it's still backed up, resulting in a crash-consistent recovery point. 
 - Explicit outbound connectivity isn't required for back up of Azure VMs.
 
 ### Create a custom policy
