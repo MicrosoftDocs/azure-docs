@@ -193,8 +193,8 @@
           href: howto-replace-network-devices.md
         - name: How to put a device into maintenance mode
           href: howto-put-device-in-maintenance-mode.md
-        - name: How to setup break glass access
-          href: howto-setup-break-glass-access-.md
+        - name: How to set up break glass access
+          href: howto-set-up-break-glass-access.md
         - name: How to use-break-glass-access.md
           href: howto-use-break-glass-access.md
         - name: How to enable-Micro-BFD on CE and PE devices.md

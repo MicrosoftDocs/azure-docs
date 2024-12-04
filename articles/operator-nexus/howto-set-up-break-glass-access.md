@@ -17,30 +17,30 @@ For Network Fabric environments, the current break-glass model, known as Method 
 
 - **Strict access control**: Customer administrators control access through individual assignments instead of shared accounts.
 
-- **Strong authentication**: Break-glass access is managed via Microsoft Entra with Multi-Factor Authentication (MFA) eliminating local account dependencies.
+- **Strong authentication**: Break-glass access is managed via Microsoft Entra with multifactor authentication (MFA) eliminating local account dependencies.
 
 - **Enhanced security**: All access attempts are logged for audit and investigation purposes.
 
 ## FIDO2 token 
 
-In the Method D v2.0 model, break-glass users uses a FIDO2 token to create and upload a public key linked to their Entra identity. This provides secure SSH access to Fabric devices. Entra RBAC manages authorization, allowing administrators to assign appropriate access levels to users.
+In the Method D v2.0 model, break-glass users uses a FIDO2 token to create and upload a public key linked to their Entra identity. This configuration provides secure SSH access to Fabric devices. Entra Role-Based Access Control (RBAC) manages authorization, allowing administrators to assign appropriate access levels to users.
 
 For offline accessibility, usernames, public keys, and permissions are pre-provisioned on all the Network Fabric devices, allowing break-glass SSH login without requiring an active Azure connection.
 
-Each FIDO2 token serves usually as a physical USB device, offering unphishable, multi-factor authentication through user presence and PIN verification.
+Each FIDO2 token serves usually as a physical USB device, offering unphishable, multifactor authentication through user presence and PIN verification.
 
 ## Method D v2.0 setup and operations
 
 This guide is divided into two sections 
 
-1.	**Method D v2.0 infrastructure setup** - Mandatory for both existing and new NF deployments running Runtime Fabric version 4.0.0. 
+1.	**Method D v2.0 infrastructure setup** - Mandatory for both existing and new Network Fabric (NF) deployments running Runtime Fabric version 4.0.0. 
 
-2. [**Using Method D v2.0 breakglass access**](howto-use-break-glass-access.md)
+2. [**Using Method D v2.0 break glass access**](howto-use-break-glass-access.md)
 
 
 ### Method D v2.0 infrastructure setup
 
-This guide provides an overview of the infrastructure setup mandatory for both existng and new deployments which will be using NF Runtime version 4.0.0.
+This guide provides an overview of the infrastructure setup that is mandatory for both existing and new deployments using NF Runtime version 4.0.0.
 
 #### Step 1: Register NexusIdentity Resource Provider
 

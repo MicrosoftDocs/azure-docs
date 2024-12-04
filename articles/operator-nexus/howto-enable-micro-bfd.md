@@ -1,6 +1,6 @@
 ---
 title: How to enable Micro-BFD on CE and PE devices
-description: Process of enabling Micro-BFD On CE and PE devices .
+description: Process of enabling Micro-BFD On CE and PE devices.
 author: sushantjrao 
 ms.author: sushrao
 ms.service: azure-operator-nexus
@@ -15,13 +15,16 @@ Micro-BFD (Bidirectional Forwarding Detection) is a lightweight protocol designe
 
 ## Prerequisites
 
-Before enabling Micro-BFD, ensure the following:
+Before enabling Micro-BFD, perform the following steps:
 
 - Both CE and PE devices are configured with the required Micro-BFD settings.
 
-- The feature flag `MicroBFDEnabled` is turned off by default. To enable it, please contact Microsoft support through a support incident.
+- The feature flag `MicroBFDEnabled` is turned off by default.
 
-- Need to [put the device in maintenance mode](.\howto-put-device-in-maintenance-mode.md) for below configuration changes.
+> [!Note]
+> Contact Microsoft support through a support incident to enable the feature flag.
+
+- It is necessary to [put the device in maintenance mode](.\howto-put-device-in-maintenance-mode.md) to apply below the configuration changes. 
 
 ## Configuration steps
 
