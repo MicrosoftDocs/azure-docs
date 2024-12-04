@@ -7,7 +7,7 @@ ms.service: azure-container-apps
 ms.custom:
   - ignite-2024
 ms.topic: how-to
-ms.date: 11/05/2024
+ms.date: 12/04/2024
 ms.author: cshoe
 ---
 
