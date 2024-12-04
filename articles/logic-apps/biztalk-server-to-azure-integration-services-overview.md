@@ -366,7 +366,7 @@ Publish-subscribe (pub-sub) capabilities exist through the [MessageBox database]
 
 #### Azure Logic Apps
 
-With an architecture completely different from BizTalk Server, most services in Azure Integration Services are event-based. Azure Logic Apps is supported by [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) to implement a publish-subscribe solution. Azure Service Bus is a fully managed enterprise message broker with message queues and publish-subscribe topics in a namespace. You can use Azure Service Bus to decouple applications and services from each other, providing the following benefits:
+With an architecture completely different from BizTalk Server, most services in Azure Integration Services are event-based. Through [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md), Azure Logic Apps supports building publish-subscribe solutions. Azure Service Bus is a fully managed enterprise message broker with message queues and publish-subscribe topics in a namespace. You can use Azure Service Bus to decouple applications and services from each other, which provides the following benefits:
 
 - Load balance work across competing workers.
 - Safely route and transfer data with control across service and application boundaries.
