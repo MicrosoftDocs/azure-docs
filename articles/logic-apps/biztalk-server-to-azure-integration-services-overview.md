@@ -314,7 +314,7 @@ While this section focused on RESTful connectivity through connectors, you can i
 
 ### Block adapter or connector usage
 
-The following section describes options to prevent adapter or connector usage respectively in BizTalk Server and Azure Logic Apps.
+The following sections describe options to prevent adapter or connector usage respectively in BizTalk Server and Azure Logic Apps.
 
 #### BizTalk Server
 
