@@ -147,7 +147,7 @@ The following diagram shows the suggested durations for Epics, Features, User St
 
 After your team completes Sprint 0, you should have a clear view of the MVP to build. A *wave* is a set of sprints. Your initial backlog should include work items that follow the next diagram as much as possible:
 
-:::image type="content" source="./media/biztalk-server-to-azure-integration-services-overview/biztalk-gradual-waves.png" alt-text="Diagram showing migration waves.":::
+:::image type="content" source="./media/biztalk-server-to-azure-integration-services-overview/biztalk-gradual-waves.png" alt-text="Diagram shows gradual migration waves." border="false":::
 
 
 During a wave, your team completes the activities to migrate, test, and release to production. Let's more closely examine what happens in each wave.
