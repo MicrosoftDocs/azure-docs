@@ -1,5 +1,5 @@
 ---
-title: 'Frequently asked questions about WordPress on Azure App Service'
+title: 'Frequently asked questions about WordPress on App Service'
 description: Questions and answers about WordPress on Azure App Service.
 keywords: app service, azure app service, wordpress, preview, app service on linux, plugins, mysql flexible server, wordpress on linux, php
 author: msangapu-msft
@@ -43,14 +43,14 @@ Azure manages security patches for core technologies, while WordPress-specific u
 
 Azure App Service integrates robust security features to safeguard WordPress sites:
 
-1. **App Service Security:** HTTPS, IP restrictions, certificates, authentication, and network isolation.
-2. **Easy Authentication:** Built-in identity provider integration with minimal effort.
-3. **Database Security:** Advanced protections for Azure MySQL servers, including encryption and backup capabilities.
-4. **Virtual Network (VNET):** Secure communication between Azure resources, the internet, and on-premises networks.
-5. **Managed Identities:** Credential-free access to resources using Microsoft Entra tokens.
-6. **Defender for Cloud:** Proactive threat detection with DevSecOps integration.
-7. **Azure Key Vault:** Secure storage for keys, secrets, and certificates.
-8. **Microsoft Entra ID:** Single Sign-On (SSO) for seamless authentication.
+- **App Service Security:** HTTPS, IP restrictions, certificates, authentication, and network isolation.
+- **Easy Authentication:** Built-in identity provider integration with minimal effort.
+- **Database Security:** Advanced protections for Azure MySQL servers, including encryption and backup capabilities.
+- **Virtual Network (VNET):** Secure communication between Azure resources, the internet, and on-premises networks.
+- **Managed Identities:** Credential-free access to resources using Microsoft Entra tokens.
+- **Defender for Cloud:** Proactive threat detection with DevSecOps integration.
+- **Azure Key Vault:** Secure storage for keys, secrets, and certificates.
+- **Microsoft Entra ID:** Single Sign-On (SSO) for seamless authentication.
 
 ## How can I set up WordPress Multisite?
 

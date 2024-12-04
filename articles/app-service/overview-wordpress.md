@@ -1,62 +1,91 @@
 ---
-title: 'An overview of WordPress on Azure App Service'
-description: Learn how WordPress is hosted on Azure App Service.
+title: 'An overview of WordPress'
+description: An overview of WordPress on App Service. You can focus on creating WP content while Azure takes care of the infrastructure, security, and performance needs.
 keywords: app service, azure app service, wordpress, preview, app service on linux, plugins, mysql flexible server, wordpress on linux, php
 author: msangapu-msft
 ms.topic: overview
 ms.date: 11/26/2024
 # ms.devlang: wordpress
 ms.author: msangapu
+ms.service: azure-app-service
 ms.custom: mvc, linux-related-content
+#customer intent: As a new Azure customer, I want to learn more about WordPress on App Service so that I can build an effective WP site.
 ---
 
-# Hosting WordPress on Azure App Service: An Overview
+# What is WordPress on App Service?
 
-Microsoft Azure App Service provides a comprehensive and scalable solution for hosting WordPress websites, offering businesses a robust platform to build, deploy, and manage professional-grade web applications. By leveraging Azure’s infrastructure, WordPress users can take advantage of advanced features, high availability, and enterprise-level security. Here's a detailed look at the offerings.
+With **WordPress on Azure App Service**, you can focus on creating content while Azure takes care of the infrastructure, security, and performance needs. App Service provides a streamlined and scalable platform for hosting WordPress websites. By leveraging Azure's powerful infrastructure, including **Azure App Service**, **Azure Database for MySQL**, **Azure CDN**, and **Azure Blob Storage**, you can quickly deploy and manage a secure, high-performance WordPress site.
 
-## Streamlined Deployment and Customization
+This solution is designed to meet the needs of both small and large-scale deployments, whether you're running a personal blog, a corporate website, or an e-commerce platform. With features like automated updates, advanced security, and global availability, WordPress on Azure App Service simplifies infrastructure management, so you can focus on your content and audience.
 
-Azure App Service simplifies the deployment of WordPress sites, making it accessible for both beginners and seasoned developers. Key configuration options include:
+[**Quickstart Documentation**](quickstart-wordpress.md) | [**Create a WordPress site using the Azure portal**](https://portal.azure.com/#create/WordPress.WordPress)
 
-- **Flexible File Transfers**: Easily transfer website files using FTP.
-- **Custom Server Configurations**: Tailor NGINX server settings through startup scripts.
-- **Built-in Management Tools**: Configure and manage application settings directly from the Azure portal.
+## How Does Azure App Service Simplify WordPress Deployment?
 
-These features allow users to customize their WordPress environment to meet their specific needs, whether it's for a small blog or a high-traffic enterprise website.
+Azure App Service makes deploying WordPress sites straightforward for both beginners and experienced developers:
 
-## Enterprise-Grade Features
+- **Pre-configured Setup:** Automatically updates technologies like Linux, PHP, and NGINX to keep your site secure and up to date.
+- **Flexible File Transfers:** Easily transfer files via FTP for custom content uploads.
+- **Custom Server Configurations:** Adjust NGINX settings using startup scripts.
+- **Staging Slots:** Safely test changes in isolated environments before deploying them to production.
 
-Azure App Service equips WordPress users with enterprise-level capabilities to ensure reliability, performance, and scalability:
+## What Enterprise-Grade Features Are Available?
 
-- **Staging Slots**: Test changes in isolated staging environments before deploying to production.
-- **Custom Domain Integration**: Set up personalized domain names for professional branding.
-- **SSL Certificates**: Secure website traffic with HTTPS and SSL, ensuring user trust and data protection.
-- **CI/CD Pipelines**: Automate deployments with Continuous Integration and Deployment workflows.
-- **Email with Custom Domains**: Add verified email domains to enhance business communications.
-- **Scalability**: Effortlessly scale resources up or down based on traffic demand.
-- **Load Testing**: Simulate real-world traffic conditions to optimize performance.
+Azure App Service provides advanced tools to ensure your WordPress site is reliable, scalable, and performant:
 
-These features help businesses create high-performing websites capable of handling enterprise-level demands.
+- **Custom Domains and SSL Certificates:** Set up personalized domains and secure your site with HTTPS.
+- **Scalability:** Adjust resources automatically or manually to handle traffic spikes.
+- **CI/CD Pipelines:** Automate deployments with Continuous Integration and Continuous Deployment workflows.
+- **Email Integration:** Use custom email domains for professional communication.
+- **Load Testing:** Simulate real-world traffic conditions to optimize your site's performance.
 
-## Security at the Core
+## What Scenarios Are Best Suited for WordPress on Azure App Service?
 
-Security is a top priority when hosting on Azure App Service. The platform offers a suite of advanced security features to protect websites from potential threats:
+WordPress on Azure App Service supports a wide range of use cases, including:
 
-- **HTTPS, Authentication, and VNET Integration**: Secure connections, network isolation, and identity-based access.
-- **Azure MySQL Security**: Comprehensive protection for databases, including encryption and backup capabilities.
-- **Managed Identities**: Securely manage credentials without exposing sensitive data.
-- **Azure Key Vault**: Centralized management of keys, secrets, and certificates for enhanced encryption and access control.
-- **Defender for Cloud**: Monitor and enhance the security posture of your application with proactive threat detection.
-- **Microsoft Entra ID**: Enable seamless single sign-on (SSO) for better user management and security.
+- **Corporate Websites and Intranets:** Scalable and secure solutions for public-facing sites or internal portals.
+- **E-commerce Platforms:** Handle traffic spikes while ensuring secure customer data management.
+- **Content Management Systems (CMS):** Ideal for blogs, portfolios, and headless CMS applications.
+- **Community and Social Networking Sites:** Manage high volumes of user-generated content seamlessly.
+- **Marketing Campaigns:** Deploy high-performance landing pages to support digital marketing initiatives.
 
-These built-in capabilities ensure robust protection for WordPress sites, meeting the highest standards of compliance and security.
+## What Hosting Plans Are Available?
 
-## Transparent Pricing and Cost Management
+Azure offers flexible hosting plans to accommodate different needs, from testing to enterprise-grade production workloads:
 
-Azure’s pricing model for WordPress hosting is transparent and flexible, utilizing a combination of services like App Service, MySQL databases, CDN, Blob Storage, and email services. The **Azure Pricing Calculator** allows users to estimate costs upfront, making it easy to budget for hosting needs.
+| **Plan** | **App Service** | **Database for MySQL** |
+|----------|----------------|---------------|---------------------------|
+| **Free**      | F1 (60 CPU mins/day, 1 GB RAM, 1 GB storage) | Burstable, B1ms (2 GB RAM, 32 GB storage)       | 
+| **Basic**     | B1 (1 core, 1.75 GB RAM, 10 GB storage)   | Burstable, B1ms (2 GB RAM, 32 GB storage)       | 
+| **Standard**  | P0V3 (1 core, 4 GB RAM, 250 GB storage)  | B2s (4 GB RAM, 128 GB storage)                  |
+| **Premium**   | P1V3 (2 cores, 8 GB RAM, 250 GB storage) | D2ds_v4 (8 GB RAM, 128 GB storage)              |
 
-## Why Choose Azure App Service for WordPress?
+> [!NOTE]
+> Use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs for your specific needs.
+>
 
-By hosting WordPress on Azure App Service, users gain access to a scalable, secure, and feature-rich platform designed to support professional-grade websites. Whether you're running a personal blog or managing a global business, Azure App Service delivers the flexibility, reliability, and security needed to succeed in the digital landscape.
+## Why Choose WordPress on Azure App Service?
 
-With enterprise-level features, simplified management, and comprehensive security, Azure App Service is a trusted solution for creating and maintaining powerful WordPress websites. For businesses looking to modernize their online presence, Azure App Service provides the tools and resources to thrive.
+WordPress on Azure App Service combines ease of management, powerful performance features, and enterprise-grade security to provide a reliable platform for hosting WordPress websites. Whether you’re managing a small blog or a high-traffic business site, Azure App Service offers the tools and scalability to meet your needs.
+
+- **Simplified Management**: Easily handle deployments, updates, backups, and configurations through the Azure Portal.
+- **Performance and Scalability**: Meet traffic demands with auto-scaling, CDN integration, and caching solutions.
+- **Enterprise-Level Security**: Secure your site with SSL, VNET, Azure Key Vault, and Azure Defender.
+- **Seamless Integration**: Extend your site's capabilities with services like Azure Front Door, Azure Monitor, and Azure Backup.
+- **Global Availability**: Deploy your site in Azure's global regions for low latency and enhanced performance.
+
+## Learning Resources
+
+Explore more about WordPress on Azure App Service:
+- [WordPress FAQ](troubleshoot-wordpress.md)
+- [Create a WordPress Site](quickstart-wordpress.md)
+- [GitHub Documentation](https://github.com/Azure/wordpress-linux-appservice)
+- [Sidecar Configuration](tutorial-custom-container-sidecar.md)
+
+## Next Steps
+
+To get started with WordPress on Azure App Service:
+
+- [Explore the Quickstart Documentation](https://learn.microsoft.com/azure/app-service/overview).
+- [Deploy Your WordPress Site](https://azure.microsoft.com/get-started/).
+
