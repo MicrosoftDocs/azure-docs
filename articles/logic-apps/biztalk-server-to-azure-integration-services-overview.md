@@ -821,7 +821,7 @@ You can install and run BizTalk Server on your own hardware, on-premises virtual
 
   For Standard logic apps, you have the option to select an App Service Environment (ASE) v3 for your deployment environment. With an ASE v3, you get a fully isolated and dedicated environment to run applications at high scale with predictable pricing. You pay only for the [ASE App Service plan](./single-tenant-overview-compare.md), no matter how many logic apps that you create and run.
 
-You may require additional Azure Integration Services and you can check their updated information at: 
+For scenarios that require additional Azure integration services, see the following documentation:
 
 - [Azure Service Bus Premium and Standard messaging tiers](../service-bus-messaging/service-bus-premium-messaging.md)
 Azure APIM: [Feature-based comparison of the Azure API Management tiers](../api-management/api-management-features.md).
