@@ -74,7 +74,7 @@ This section discusses troubleshooting for problems you might encounter.
     * To troubleshoot a memory problem, contact the vendor.
 
 * CPU-related failure (`cpu_sockets`)
-    * CPU specs are defined in the SKU. A failed `cpu_sockets` check indicates a failed CPU or CPU count mismatch. The following example shows a failed CPU check.
+    * CPU specs are defined in the version. A failed `cpu_sockets` check indicates a failed CPU or CPU count mismatch. The following example shows a failed CPU check.
 
     ```yaml
         {
@@ -521,11 +521,11 @@ This section discusses troubleshooting for problems you might encounter.
         ]
     ```
 
-    * To power a server on in the BMC web UI:
+    * To power on a server in the BMC web UI:
 
         `BMC` -> `Dashboard` -> `Power On System`
 
-    * To power a server on with `racadm`:
+    * To power on a server with `racadm`:
 
     ```bash
         racadm --nocertwarn -r $IP -u $BMC_USR -p $BMC_PWD serveraction powerup
@@ -696,5 +696,5 @@ This section discusses troubleshooting for problems you might encounter.
 
 After the hardware is fixed, run the BMM `replace` action by following the instructions in [Manage the lifecycle of bare metal machines](howto-baremetal-functions.md).
 
-If you still have questions, [contact Support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
-For more information about support plans, see [Azure Support plans](https://azure.microsoft.com/support/plans/response/).
+If you still have questions, [contact Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+For more information about support plans, see [Azure support plans](https://azure.microsoft.com/support/plans/response/).
