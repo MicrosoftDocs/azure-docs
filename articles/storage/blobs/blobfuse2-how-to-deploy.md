@@ -183,8 +183,6 @@ stream:
     buffer-size-mb: The size for each buffer
 ```
 
-To get started quickly with some settings for a basic streaming scenario, see the [sample streaming configuration file](https://github.com/Azure/azure-storage-fuse/blob/main/sampleStreamingConfig.yaml).
-
 #### Configure caching for smaller files
 
 Smaller files are cached to a temporary path that's specified under `file_cache:` in the configuration file:
