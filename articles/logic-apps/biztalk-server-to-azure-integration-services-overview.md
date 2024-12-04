@@ -358,7 +358,7 @@ BizTalk Server provides all these capabilities out-of-the-box. You don't need to
 
 ### Publish-subscribe architecture
 
-The following section describes options to implement the publish-subscribe pattern in BizTalk Server and Azure Logic Apps.
+The following sections describe options to implement the publish-subscribe pattern in BizTalk Server and Azure Logic Apps.
 
 #### BizTalk Server
 
