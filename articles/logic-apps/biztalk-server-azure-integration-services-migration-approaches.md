@@ -140,7 +140,7 @@ For example, suppose you have a BizTalk Server project with an orchestration cal
 
 The following diagram shows the suggested durations for Epics, Features, User Stories, and Tasks, which subdivide User Stories. Although implementation decisions affect these durations, they assume that you are using existing BizTalk artifacts in Azure Logic Apps. Create your Standard workflows by using the [prebuilt workflow templates](/azure/logic-apps/create-single-tenant-workflows-templates) as much as possible.
 
-:::image type="content" source="./media/biztalk-server-to-azure-integration-services-overview/biztalk-triangle-mvp.png" alt-text="Diagram showing MVP waves.":::
+:::image type="content" source="./media/biztalk-server-to-azure-integration-services-overview/biztalk-triangle-mvp.png" alt-text="Diagram shows minimum viable product waves." border="false":::
 
 
 ### Migration waves (Sprints)
