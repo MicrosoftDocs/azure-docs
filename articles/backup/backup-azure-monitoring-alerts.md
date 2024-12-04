@@ -33,7 +33,7 @@ The following table lists some of these solutions:
 
 ### Supported monitoring platform
 
-[Azure Business Continuity Center](../business-continuity-center/business-continuity-center-overview.md) enables you to view the list of all [Built-in alerts and custom alerts written on the metrics](metrics-overview.md#supported-built-in-metrics) that Microsoft offers. To view any custom alerts written on ARG, Log Analytics, Activity Logs, go to **Azure Monitor** > **Alerts**, and then select **Monitor Service** as **Log Alerts V2** and select **Signal Type** as **Log search/ Activity**. 
+[Azure Business Continuity Center](../business-continuity-center/business-continuity-center-overview.md) enables you to view the list of all [Built-in alerts and custom alerts written on the metrics](metrics-overview.md#supported-metrics) that Microsoft offers. To view any custom alerts written on ARG, Log Analytics, Activity Logs, go to **Azure Monitor** > **Alerts**, and then select **Monitor Service** as **Log Alerts V2** and select **Signal Type** as **Log search/ Activity**. 
 
 ## Migrate from classic alerts to built-in Azure Monitor alerts
 

@@ -17,21 +17,20 @@ This article describes how to configure and manage Azure Monitor based alert not
 
 To configure notifications for Azure Monitor alerts, create an [alert processing rule](/azure/azure-monitor/alerts/alerts-action-rules). To create an alert processing rule (earlier called *action rule*) to send email notifications to a given email address, follow these steps. Also, follow these steps to route these alerts to other notification channels, such as ITSM, webhook, logic app, and so on.
 
-1. Go to **Backup center** in the Azure portal.
+1. In the [Azure portal](https://portal.azure.com/), go to **Business Continuity Center** > **Monitoring + Reporting** > **Alerts**.
 
-1. Select **Alerts** from the menu and select **Alert processing rules**.
+1. On the  **Alerts** pane, select **Manage alert processing rules**.
 
-   :::image type="content" source="./media/backup-azure-monitoring-laworkspace/backup-center-manage-alert-processing-rules-inline.png" alt-text="Screenshot for Manage Actions in Backup center." lightbox="./media/backup-azure-monitoring-laworkspace/backup-center-manage-alert-processing-rules-expanded.png":::
 
-1. Select **Create**.
+1. On the **Alert processing rules** pane, select **Create**.
 
-   :::image type="content" source="./media/backup-azure-monitoring-laworkspace/backup-center-create-alert-processing-rule.png" alt-text="Screenshot for creating a new action rule.":::
+   :::image type="content" source="./media/backup-azure-monitoring-laworkspace/backup-center-create-alert-processing-rule.png" alt-text="Screenshot for creating a new action rule." lightbox="./media/backup-azure-monitoring-laworkspace/backup-center-create-alert-processing-rule.png":::
 
 1. Select the scope for which the alert processing rule should be applied.
 
    You can apply the rule for all resources within a subscription. Optionally, you can also apply filters on the alerts; for example, to only generate notifications for alerts of a certain severity.
 
-   :::image type="content" source="./media/backup-azure-monitoring-laworkspace/alert-processing-rule-scope-inline.png" alt-text="Screenshot for setting the action rule scope." lightbox="./media/backup-azure-monitoring-laworkspace/alert-processing-rule-scope-expanded.png":::
+   :::image type="content" source="./media/backup-azure-monitoring-laworkspace/alert-processing-rule-scope.png" alt-text="Screenshot for setting the action rule scope." lightbox="./media/backup-azure-monitoring-laworkspace/alert-processing-rule-scope.png":::
 
 1. Under **Rule Settings**, create an action group (or use an existing one).
 
@@ -93,6 +92,52 @@ To create a suppression alert processing rule, follow these steps:
 1. Select **Review+Create**.
 
    If your suppression windows are one-off scenarios and not recurring, you can **Disable** the alert processing rule once you don't need it anymore. You can enable it again in future when you have a new maintenance window in the future.
+
+## Configure alerts and notifications on your metrics
+
+To configure alerts and notifications on your metrics, follow these steps:
+
+1. Click **New Alert Rule** at the top of the metric charts.
+
+1. Select the scope for which you want to create alerts.   <br><br>    The scope limits are the same as the limits described in the [View metrics](metrics-overview.md#view-metrics-in-the-azure-portal) section.
+
+1. Select the condition on which the alert should be fired.
+
+   - By default, some fields are pre-populated based on the selections in the metric chart. You can edit the parameters as needed.
+   - Choose the threshold type and value to set the trigger condition for the alert. Learn more [about the alert conditions for alert rules](/azure/azure-monitor/alerts/alerts-create-metric-alert-rule).
+   - To generate individual alerts for each datasource in the vault, use the **dimensions** selection in the metric alerts rule. Following are some scenarios:
+
+   - Firing alerts on failed backup jobs for each datasource:
+
+     **Alert Rule: Fire an alert if Backup Health Events > 0 in the last 24 hours for**:
+     - Dimensions["HealthStatus"]= “Persistent Unhealthy / Transient Unhealthy”
+     - Dimensions["DatasourceId"]= “All current and future values”
+
+   - Firing alerts if all backups in the vault were successful for the day:
+
+     **Alert Rule: Fire an alert if Backup Health Events < 1 in the last 24 hours for**:
+     - Dimensions["HealthStatus"]="Persistent Unhealthy / Transient Unhealthy / Persistent Degraded / Transient Degraded"
+
+   :::image type="content" source="./media/metrics-overview/metric-alert-condition-inline.png" alt-text="Screenshot showing the option to select the condition on which the alert should be fired." lightbox="./media/metrics-overview/metric-alert-condition-expanded.png":::
+
+   >[!NOTE]
+   >If you select more dimensions as part of the alert rule condition, the cost increases (that's proportional to the number of unique combinations of dimension values possible). Selection of more dimensions allows you to get more context on a fired alert.
+
+
+1. To configure notifications for these alerts using Action Groups, configure an Action Group as part of the alert rule, or create a separate action rule.
+
+   We support various notification channels, such as email, ITSM, webhook, Logic App, SMS. [Learn more about Action Groups](/azure/azure-monitor/alerts/action-groups).
+
+   :::image type="content" source="./media/metrics-overview/action-group-inline.png" alt-text="Screenshot showing the process to configure notifications for these alerts using Action Groups." lightbox="./media/metrics-overview/action-group-expanded.png":::
+
+1. Configure auto-resolution behavior - You can configure metric alerts as _stateless_ or _stateful_ as required.
+
+   - To generate an alert on every job failure irrespective of the failure is due to the same underlying cause (stateless behavior), deselect the **Automatically resolve alerts** option in the alert rule.
+   - Alternately, to configure the alerts as stateful, select the same checkbox. Therefore, when a metric alert is fired on the scope, another failure won't create a new metric alert. The alert gets auto-resolved if the alert generation condition evaluates to false for three successive evaluation cycles. New alerts are generated if the condition evaluates to true again.
+
+[Learn more about stateful and stateless behavior of Azure Monitor metric alerts](/azure/azure-monitor/alerts/alerts-troubleshoot-metric#the-metric-alert-is-not-triggered-every-time-the-condition-is-met).
+
+:::image type="content" source="./media/metrics-overview/auto-resolve-alert-inline.png" alt-text="Screenshot showing the process to configure auto-resolution behavior." lightbox="./media/metrics-overview/auto-resolve-alert-expanded.png":::
 
 ## Next steps
 Learn more about [Azure Backup monitoring and reporting](monitoring-and-alerts-overview.md).
