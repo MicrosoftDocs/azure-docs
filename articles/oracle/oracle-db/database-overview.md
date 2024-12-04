@@ -6,7 +6,7 @@ ms.service: oracle-on-azure
 ms.collection: linux
 ms.topic: overview
 ms.date: 10/01/2024
-ms.custom: engagement-fy23, references_regions
+ms.custom: engagement-fy23
 ms.author: jacobjaygbay
 ---
 
