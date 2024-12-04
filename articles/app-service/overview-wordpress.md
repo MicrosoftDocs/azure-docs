@@ -14,8 +14,6 @@ ms.custom: mvc, linux-related-content
 
 Microsoft Azure App Service provides a comprehensive and scalable solution for hosting WordPress websites, offering businesses a robust platform to build, deploy, and manage professional-grade web applications. By leveraging Azure’s infrastructure, WordPress users can take advantage of advanced features, high availability, and enterprise-level security. Here's a detailed look at the offerings.
 
----
-
 ## Streamlined Deployment and Customization
 
 Azure App Service simplifies the deployment of WordPress sites, making it accessible for both beginners and seasoned developers. Key configuration options include:
@@ -25,8 +23,6 @@ Azure App Service simplifies the deployment of WordPress sites, making it access
 - **Built-in Management Tools**: Configure and manage application settings directly from the Azure portal.
 
 These features allow users to customize their WordPress environment to meet their specific needs, whether it's for a small blog or a high-traffic enterprise website.
-
----
 
 ## Enterprise-Grade Features
 
@@ -42,8 +38,6 @@ Azure App Service equips WordPress users with enterprise-level capabilities to e
 
 These features help businesses create high-performing websites capable of handling enterprise-level demands.
 
----
-
 ## Security at the Core
 
 Security is a top priority when hosting on Azure App Service. The platform offers a suite of advanced security features to protect websites from potential threats:
@@ -57,13 +51,9 @@ Security is a top priority when hosting on Azure App Service. The platform offer
 
 These built-in capabilities ensure robust protection for WordPress sites, meeting the highest standards of compliance and security.
 
----
-
 ## Transparent Pricing and Cost Management
 
 Azure’s pricing model for WordPress hosting is transparent and flexible, utilizing a combination of services like App Service, MySQL databases, CDN, Blob Storage, and email services. The **Azure Pricing Calculator** allows users to estimate costs upfront, making it easy to budget for hosting needs.
-
----
 
 ## Why Choose Azure App Service for WordPress?
 

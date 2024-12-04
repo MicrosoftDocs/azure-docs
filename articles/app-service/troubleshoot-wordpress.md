@@ -31,8 +31,6 @@ There's no fixed limit on the number of sites you can host, but recommended app 
 
 Bandwidth is unlimited, but charges apply for internet egress.
 
----
-
 ## How are security patches updated?
 
 Azure manages security patches for core technologies, while WordPress-specific updates may require manual or semi-automated steps:
@@ -40,8 +38,6 @@ Azure manages security patches for core technologies, while WordPress-specific u
 - **PHP Major Versions:** Update manually under **App Service > Settings > Configuration**.
 - **WordPress Core:** Minor updates are automatic, while major updates need manual configuration.
 - **Plugins and Themes:** Perform manual updates after backing up your site to avoid issues. WordPress offers auto-update options.
-
----
 
 ## What security features are available to protect my website?
 
@@ -56,8 +52,6 @@ Azure App Service integrates robust security features to safeguard WordPress sit
 7. **Azure Key Vault:** Secure storage for keys, secrets, and certificates.
 8. **Microsoft Entra ID:** Single Sign-On (SSO) for seamless authentication.
 
----
-
 ## How can I set up WordPress Multisite?
 
 WordPress Multisite allows managing multiple sites from a single installation. To enable:
@@ -69,8 +63,6 @@ WordPress Multisite allows managing multiple sites from a single installation. T
 - Conversion to Multisite is permanent; reverting to a single site is unsupported.
 - Switching between subdirectory and subdomain setups is not allowed.
 
----
-
 ## How do I access my WordPress website's database?
 
 The database can be accessed using **phpMyAdmin** at:
@@ -79,8 +71,6 @@ The database can be accessed using **phpMyAdmin** at:
 
 Use the `DATABASE_USERNAME` as the username and a generated token as the password (tokens can be retrieved via **Kudu SSH**).
 
----
-
 ## How do I enable a custom domain for my WordPress website?
 
 Custom domains can be set up with these resources:
@@ -88,31 +78,21 @@ Custom domains can be set up with these resources:
 - [Using custom domains with WordPress on Azure App Service](#)
 - [Configuring custom domains with Azure Front Door](#)
 
----
-
 ## Does WordPress on App Service have email functionality?
 
 Yes, email functionality is supported through **Azure Communication Services**. Custom email domains can be configured using [these guides](#).
-
----
 
 ## How can I update NGINX configurations for my WordPress website?
 
 NGINX configurations can be updated using a **startup script**. Detailed instructions are available in the [startup script guide](#).
 
----
-
 ## How can I access error logs for my WordPress website?
 
 Access error logs for debugging via **App Service logs** or the **Kudu dashboard**. Refer to the [documentation](#) for detailed steps.
 
----
-
 ## How do I estimate pricing for hosting a WordPress site on Azure?
 
 Use the [Azure Pricing Calculator](#) to estimate hosting costs, considering App Service, MySQL, CDN, Blob Storage, and additional components.
-
----
 
 ## How can I debug and monitor my WordPress site?
 
@@ -124,8 +104,6 @@ Key tools for debugging and monitoring WordPress sites include:
 - **phpMyAdmin**
 
 Refer to the [documentation](#) for details.
-
----
 
 ## What features can I use to boost my WordPress site's performance?
 
@@ -139,8 +117,6 @@ Enhance performance with these features:
 - **Scaling Up and Out**
 - **Redis Cache**
 
----
-
 ## What are the options for configuring and setting up my WordPress site?
 
 Options for setting up WordPress include:
@@ -149,13 +125,9 @@ Options for setting up WordPress include:
 - **NGINX Configuration Updates**
 - **App Service Settings Management**
 
----
-
 ## How can I build a headless WordPress site?
 
 Enable **WP REST APIs** and integrate with **Static Web Apps** to create a decoupled front-end experience. Learn more [here](#).
-
----
 
 ## What features are available for creating an enterprise-grade production website?
 
@@ -167,8 +139,6 @@ Key features include:
 - Startup scripts for configuration
 - Custom email domains
 - Scaling and load testing capabilities
-
----
 
 ## What are common errors for WordPress on App Service, and how can I troubleshoot?
 
