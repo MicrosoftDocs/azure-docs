@@ -6,7 +6,7 @@ author: hhunter-ms
 ms.service: azure-container-apps
 ms.custom: build-2023
 ms.topic: conceptual
-ms.date: 10/04/2024
+ms.date: 12/04/2024
 ---
 
 # Microservice APIs powered by Dapr

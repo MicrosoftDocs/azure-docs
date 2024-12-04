@@ -5,7 +5,7 @@ services: container-apps
 author: hhunter-ms
 ms.service: azure-container-apps
 ms.topic: quickstart
-ms.date: 12/03/2024
+ms.date: 12/04/2024
 ms.author: cshoe
 ms.custom: devx-track-bicep, devx-track-arm-template, devx-track-azurepowershell
 zone_pivot_groups: container-apps
@@ -227,4 +227,4 @@ Remove-AzResourceGroup -Name $RESOURCE_GROUP -Force
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Application lifecycle management](application-lifecycle-management.md)
+> [Learn more about Dapr components in Azure Container Apps](dapr-components.md)

@@ -183,7 +183,7 @@ This resource defines a Dapr component called `dapr-pubsub` via ARM.
 [aca-managed-id]: ./managed-identity.md
 [dapr-resiliency]: ./dapr-component-resiliency.md
 [dapr-components-connect-services]: ./dapr-component-connect-services.md
-[dapr-component]: ./dapr-overview.md#tier-1-versus-tier-2-components
+[dapr-component]: ./dapr-overview.md#dapr-components
 
 <!-- Links External -->
 

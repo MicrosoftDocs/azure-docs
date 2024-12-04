@@ -6,12 +6,14 @@ author: hhunter-ms
 ms.service: azure-container-apps
 ms.custom: build-2023
 ms.topic: conceptual
-ms.date: 12/03/2024
+ms.date: 12/04/2024
 ---
 
 # Connect to other Azure or third-party services via Dapr components
 
-Securely establish connections to Azure and third-party services for Dapr components using managed identity or Azure Key Vault secret stores. Before you get started, [learn more about the Tier 1 and Tier 2 levels of support for Dapr components.][dapr-tiers]
+Securely establish connections to Azure and third-party services for Dapr components using managed identity or Azure Key Vault secret stores. 
+
+Before getting started, [learn more about the offered support for Dapr components.][supported-dapr-components]
 
 ## Recommendations
 
@@ -129,9 +131,9 @@ scopes:
 [aca-managed-id]: ./managed-identity.md
 [dapr-resiliency]: ./dapr-component-resiliency.md
 [dapr-components-connect-services]: ./dapr-component-connect-services.md
-[dapr-tiers]: ./dapr-overview.md#tier-1-versus-tier-2-components
+[supported-dapr-components]: ./dapr-overview.md#dapr-components
+[dapr-component]: ./dapr-components.md
 
 <!-- Links External -->
 
-[dapr-component]: https://docs.dapr.io/concepts/components-concept/
 [dapr-component-spec]: https://docs.dapr.io/reference/resource-specs/

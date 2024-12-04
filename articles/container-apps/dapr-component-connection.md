@@ -12,7 +12,7 @@ ms.custom: template-tutorial, service-connector, build-2023, engagement
 
 # Connect to Azure services via Dapr components in the Azure portal
 
-You can easily connect Dapr APIs to backing Azure services using a combination of [Service Connector](../service-connector/overview.md) and [Dapr](https://docs.dapr.io/). This feature creates Dapr components on your behalf with valid metadata and authenticated identity to access the Azure service.  
+You can easily connect Dapr APIs to [backing Azure services](./dapr-overview.md#dapr-components) using a combination of [Service Connector](../service-connector/overview.md) and [Dapr](https://docs.dapr.io/). This feature creates Dapr components on your behalf with valid metadata and authenticated identity to access the Azure service.  
 
 In this guide, you'll connect Dapr Pub/Sub API to an Azure Service Bus by:
 > [!div class="checklist"]
