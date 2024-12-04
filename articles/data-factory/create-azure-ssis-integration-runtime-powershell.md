@@ -121,7 +121,7 @@ if(![string]::IsNullOrEmpty($SSISDBServerEndpoint))
 1. Navigate to [Azure portal](https://portal.azure.com).
 1. In the search bar, type `Microsoft Azure Batch`, and select it from the drop-down list, under **Microsoft Entra ID**. 
 1. On the **Microsoft Azure Batch** page, note down or copy the **Application ID** to the clipboard.
-1. In the following script, set the `$eventGridAppId` variable to this value before running it.  
+1. In the following script, set the `$BatchApplicationId` variable to this value before running it.  
 
 ## Configure a virtual network
 
