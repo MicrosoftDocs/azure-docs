@@ -366,7 +366,26 @@ resource dataflow_1 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflow
         operationType: 'Source'
         sourceSettings: {
           endpointRef: 'default'
+          serializationFormat: 'Json'
           dataSources: array('tutorial/local')
+        }
+      }
+      {
+        operationType: 'BuiltInTransformation'
+
+        builtInTransformationSettings: {
+        serializationFormat: 'Json'
+        datasets: []
+        filter: []
+        map: [
+          {
+            type: 'PassThrough'
+            inputs: [
+              '*'
+            ]
+            output: '*'
+          }
+        ]
         }
       }
       {
@@ -393,7 +412,26 @@ resource dataflow_2 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflow
         operationType: 'Source'
         sourceSettings: {
           endpointRef: 'eventgrid'
+          serializationFormat: 'Json'
           dataSources: array('telemetry/#')
+        }
+      }
+      {
+        operationType: 'BuiltInTransformation'
+
+        builtInTransformationSettings: {
+        serializationFormat: 'Json'
+        datasets: []
+        filter: []
+        map: [
+          {
+            type: 'PassThrough'
+            inputs: [
+              '*'
+            ]
+            output: '*'
+          }
+        ]
         }
       }
       {
@@ -405,7 +443,7 @@ resource dataflow_2 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflow
       }
     ]
   }
-} 
+}
 ```
 
 Like the dataflow endpoint, execute the following command in your terminal:
