@@ -5,7 +5,7 @@ author: whhender
 ms.service: azure-synapse-analytics
 ms.subservice: troubleshooting
 ms.topic: troubleshooting-general
-ms.date: 10/30/2020 
+ms.date: 11/14/2024 
 ms.author: whhender 
 ms.reviewer: whhender
 ---
@@ -24,11 +24,9 @@ Azure Synapse Studio depends on a set of Web API endpoints to work properly. Thi
 
 ## Troubleshooting steps
 
-Right-click on the following link, and select "Save target as":
+Open the link and save the opened script file. Don't save the address of the link, as it could change in the future.
 
 - [Test-AzureSynapse.ps1](https://go.microsoft.com/fwlink/?linkid=2119734)
-
-Alternatively, you can open the link directly, and save the opened script file. Don't save the address of the link, as it could change in the future.
 
 In file explorer, right-click on the downloaded script file, and select "Run with PowerShell".
 
@@ -54,4 +52,5 @@ If you're a network administrator and tuning your firewall configuration for Azu
  For the failed requests, the reason is shown in yellow, such as `NamedResolutionFailure` or `ConnectFailure`. These reasons might help you figure out whether there are misconfigurations with your network environment.
 
 ## Next steps
+
 If the previous steps don't help to resolve your issue, [create a support ticket](../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md).

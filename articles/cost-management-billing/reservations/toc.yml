@@ -34,6 +34,8 @@
       href: /azure/postgresql/single-server/concept-reserved-pricing?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Azure OpenAI
       href: azure-openai.md
+    - name: Azure OpenAI - Transition deployments
+      href: transition-azure-openai-provisioned-deployments.md
     - name: Azure SQL Edge
       href: discount-sql-edge.md
     - name: Database for MySQL
@@ -136,6 +138,8 @@
       href: /azure/sentinel/billing-pre-purchase-plan?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Nutanix on Azure BareMetal
       href: nutanix-bare-metal.md
+    - name: Red Hat OpenShift
+      href: prepay-red-hat-openshift.md
     - name: SAP HANA Large Instances
       href: prepay-hana-large-instances-reserved-capacity.md
     - name: Software plans
