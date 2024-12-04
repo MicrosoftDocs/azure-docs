@@ -91,7 +91,6 @@ The `ServiceClient` [DeviceMethod](/java/api/com.microsoft.azure.sdk.iot.service
 Use the following service import statements to access the Azure IoT SDK for Java.
 
 ```java
-import com.microsoft.azure.sdk.iot.service.jobs.DirectMethodsJobOptions;
 import com.microsoft.azure.sdk.iot.service.methods.DirectMethodRequestOptions;
 import com.microsoft.azure.sdk.iot.service.methods.DirectMethodsClient;
 import com.microsoft.azure.sdk.iot.service.methods.DirectMethodResponse;

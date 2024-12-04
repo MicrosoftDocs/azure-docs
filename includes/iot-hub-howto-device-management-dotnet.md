@@ -88,7 +88,7 @@ catch (Exception ex)
 
 Continuing the example, the `onReboot` callback method implements the direct method on the device.
 
-The handler function calls [MethodResponse](/dotnet/api/microsoft.azure.devices.client.methodresponse) to send a response acknowledgement to the calling application.
+The handler function calls [MethodResponse](/dotnet/api/microsoft.azure.devices.client.methodresponse) to send a response acknowledgment to the calling application.
 
 ```csharp
 static Task<MethodResponse> onReboot(MethodRequest methodRequest, object userContext)
