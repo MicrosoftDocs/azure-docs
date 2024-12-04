@@ -41,19 +41,6 @@ All infrastructure for Oracle Database@Azure is co-located in Azure's physical d
 
 For detailed information on the compliance certifications please visit [Microsoft Services Trust Portal](https://servicetrust.microsoft.com/)  and [Oracle compliance website](https://docs.oracle.com/en-us/iaas/Content/multicloud/compliance.htm). If you have further questions about OracleDB@Azure compliance please reach out to your account team and/or get information through [Oracle and Microsoft support for Oracle Database@Azure](https://docs.oracle.com/en-us/iaas/Content/multicloud/oaahelp.htm).
 
-## Available regions
-
-Oracle Database@Azure is available in the following locations. Oracle Database@Azure infrastructure resources must be provisioned in the Azure regions listed.
-
-|Azure region|Oracle Exadata Database@Azure|Oracle Autonomous Database@Azure|
-|-------------------------|:-------------:|:--------------:|
-|East US |&check; | &check;|
-|Germany West Central | &check;|&check; |
-|France Central |&check; | |
-|UK South |&check; |&check; |
-|Canada Central |&check; |&check; |
-|Australia East |&check; |&check; |
-
 ## Oracle Support scope and contact information 
 
 Oracle Support is your first line of support for all Oracle Database@Azure issues. Oracle Support can help you with the following types of Oracle Database@Azure issues:
