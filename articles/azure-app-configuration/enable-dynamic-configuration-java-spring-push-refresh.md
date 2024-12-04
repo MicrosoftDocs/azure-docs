@@ -9,7 +9,7 @@ ms.service: azure-app-configuration
 ms.devlang: java
 ms.custom: devx-track-extended-java
 ms.topic: tutorial
-ms.date: 03/07/2024
+ms.date: 12/04/2024
 ms.author: mametcal
 #Customer intent: I want to use push refresh to dynamically update my app to use the latest configuration data in App Configuration.
 ---
@@ -46,62 +46,30 @@ In this tutorial, you learn how to:
 
 1. Open *pom.xml* and update the file with the following dependencies.
 
-    ### [Spring Boot 3](#tab/spring-boot-3)
+```xml
+<dependency>
+    <groupId>com.azure.spring</groupId>
+    <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
+</dependency>
 
-    ```xml
-    <dependency>
+<!-- Adds the Ability to Push Refresh -->
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-actuator</artifactId>
+</dependency>
+
+<dependencyManagement>
+    <dependencies>
+        <dependency>
         <groupId>com.azure.spring</groupId>
-        <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
-    </dependency>
-
-    <!-- Adds the Ability to Push Refresh -->
-    <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-actuator</artifactId>
-    </dependency>
-
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-            <groupId>com.azure.spring</groupId>
-            <artifactId>spring-cloud-azure-dependencies</artifactId>
-            <version>5.8.0</version>
-            <type>pom</type>
-            <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-    ```
-
-    ### [Spring Boot 2](#tab/spring-boot-2)
-
-    ```xml
-    <dependency>
-        <groupId>com.azure.spring</groupId>
-        <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
-    </dependency>
-
-    <!-- Adds the Ability to Push Refresh -->
-    <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-actuator</artifactId>
-    </dependency>
-
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-            <groupId>com.azure.spring</groupId>
-            <artifactId>spring-cloud-azure-dependencies</artifactId>
-            <version>4.14.0</version>
-            <type>pom</type>
-            <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-    ```
-
-    ---
-
+        <artifactId>spring-cloud-azure-dependencies</artifactId>
+        <version>5.18.0</version>
+        <type>pom</type>
+        <scope>import</scope>
+        </dependency>
+    </dependencies>
+</dependencyManagement>
+```
 
 1. Set up [Maven App Service Deployment](../app-service/quickstart-java.md?tabs=javase) so the application can be deployed to Azure App Service via Maven.
 
@@ -109,19 +77,54 @@ In this tutorial, you learn how to:
    mvn com.microsoft.azure:azure-webapp-maven-plugin:2.5.0:config
    ```
 
-1. Open bootstrap.properties and configure Azure App Configuration Push Refresh.
+1. Navigate to the `resources` directory of your app and open `bootstrap.properties` and configure Azure App Configuration Push Refresh.  If the file does not exist, create it. Add the following line to the file.
 
-   ```properties
-   # Azure App Configuration Properties
-   spring.cloud.azure.appconfiguration.stores[0].connection-string= ${AppConfigurationConnectionString}
-   spring.cloud.azure.appconfiguration.stores[0].monitoring.enabled= true
-   spring.cloud.azure.appconfiguration.stores[0].monitoring.refresh-interval= 30d
-   spring.cloud.azure.appconfiguration.stores[0].monitoring.triggers[0].key= sentinel
-   spring.cloud.azure.appconfiguration.stores[0].monitoring.push-notification.primary-token.name= myToken
-   spring.cloud.azure.appconfiguration.stores[0].monitoring.push-notification.primary-token.secret= myTokenSecret
+    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
+    You use the `DefaultAzureCredential` to authenticate to your App Configuration store. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader** role. Be sure to allow sufficient time for the permission to propagate before running your application. Create a new file named *AppConfigCredential.java* and add the following lines:
+
+    ```properties
+    spring.cloud.azure.appconfiguration.stores[0].endpoint= ${APP_CONFIGURATION_ENDPOINT}
+    spring.cloud.azure.appconfiguration.stores[0].monitoring.enabled= true
+    spring.cloud.azure.appconfiguration.stores[0].monitoring.refresh-interval= 30d
+    spring.cloud.azure.appconfiguration.stores[0].monitoring.triggers[0].key= sentinel
+    spring.cloud.azure.appconfiguration.stores[0].monitoring.push-notification.primary-token.name= myToken
+    spring.cloud.azure.appconfiguration.stores[0].monitoring.push-notification.primary-token.secret= myTokenSecret
    
-   management.endpoints.web.exposure.include= appconfiguration-refresh
-   ```
+    management.endpoints.web.exposure.include= appconfiguration-refresh
+    ```
+
+    Additionally, you need to add the following code to your project, unless you want to use just Managed Identity:
+
+    ```java
+    import org.springframework.stereotype.Component;
+    
+    import com.azure.core.credential.TokenCredential;
+    import com.azure.data.appconfiguration.ConfigurationClientBuilder;
+    import com.azure.identity.IntelliJCredentialBuilder;
+    import com.azure.spring.cloud.appconfiguration.config.ConfigurationClientCustomizer;
+    
+    @Component
+    public class AppConfigCredential implements ConfigurationClientCustomizer {
+    
+        @Override
+        public void customize(ConfigurationClientBuilder builder, String endpoint) {
+            builder.credential(new DefaultAzureCredentialBuilder().build());
+        }
+    }
+    ```
+
+    ### [Connection string](#tab/connection-string)
+    ```properties
+    spring.cloud.azure.appconfiguration.stores[0].endpoint= ${APP_CONFIGURATION_CONNECTION_STRING}
+    spring.cloud.azure.appconfiguration.stores[0].monitoring.enabled= true
+    spring.cloud.azure.appconfiguration.stores[0].monitoring.refresh-interval= 30d
+    spring.cloud.azure.appconfiguration.stores[0].monitoring.triggers[0].key= sentinel
+    spring.cloud.azure.appconfiguration.stores[0].monitoring.push-notification.primary-token.name= myToken
+    spring.cloud.azure.appconfiguration.stores[0].monitoring.push-notification.primary-token.secret= myTokenSecret
+   
+    management.endpoints.web.exposure.include= appconfiguration-refresh
+    ```
+    ---
 
 A random delay is added before the cached value is marked as dirty to reduce potential throttling. The default maximum delay before the cached value is marked as dirty is 30 seconds.
 
@@ -132,25 +135,54 @@ A random delay is added before the cached value is marked as dirty to reduce pot
 
 Event Grid Web Hooks require validation on creation. You can validate by following this [guide](../event-grid/webhook-event-delivery.md) or by starting your application with Azure App Configuration Spring Web Library already configured, which will register your application for you. To use an event subscription, follow the steps in the next two sections.
 
-1. Set the environment variable to your App Configuration instance's connection string:
+1. Set an environment variable.
 
-    #### [Windows command prompt](#tab/cmd)
+    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
+    Set the environment variable named **APP_CONFIGURATION_ENDPOINT** to the endpoint of your App Configuration store found under the *Overview* of your store in the Azure portal.
+
+    If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
     ```cmd
-    setx AppConfigurationConnectionString <connection-string-of-your-app-configuration-store>
+    setx APP_CONFIGURATION_ENDPOINT "endpoint-of-your-app-configuration-store"
     ```
 
-    #### [PowerShell](#tab/powershell)
+    If you use PowerShell, run the following command:
 
-    ```PowerShell
-    $Env:AppConfigurationConnectionString = <connection-string-of-your-app-configuration-store>
+    ```powershell
+    $Env:APP_CONFIGURATION_ENDPOINT = "endpoint-of-your-app-configuration-store"
     ```
 
-    #### [Bash](#tab/bash)
+    If you use macOS or Linux, run the following command:
 
     ```bash
-    export AppConfigurationConnectionString = <connection-string-of-your-app-configuration-store>
+    export APP_CONFIGURATION_ENDPOINT='endpoint-of-your-app-configuration-store'
     ```
+
+    ### [Connection string](#tab/connection-string)
+    Set the environment variable named **APP_CONFIGURATION_CONNECTION_STRING** to the read-only connection string of your App Configuration store found under *Access keys* of your store in the Azure portal.
+
+    If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
+
+    ```cmd
+    setx APP_CONFIGURATION_CONNECTION_STRING "connection-string-of-your-app-configuration-store"
+    ```
+
+   If you use PowerShell, run the following command:
+
+    ```powershell
+    $Env:APP_CONFIGURATION_CONNECTION_STRING = "connection-string-of-your-app-configuration-store"
+    ```
+
+    If you use macOS or Linux, run the following command:
+
+    ```bash
+    export APP_CONFIGURATION_CONNECTION_STRING='connection-string-of-your-app-configuration-store'
+    ```
+    ---
+
+    Restart the command prompt to allow the change to take effect. Print the value of the environment variable to validate that it is set properly.
+
+    ---
 
 1. Update your `pom.xml` under the `azure-webapp-maven-plugin`'s `configuration` add
 

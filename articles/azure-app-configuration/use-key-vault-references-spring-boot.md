@@ -6,7 +6,7 @@ author: mrm9084
 ms.service: azure-app-configuration
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 05/02/2022
+ms.date: 12/04/2024
 ms.author: mametcal
 ms.custom: mvc, devx-track-java, devx-track-azurecli, devx-track-extended-java
 #Customer intent: I want to update my Spring Boot application to reference values stored in Key Vault through App Configuration.
