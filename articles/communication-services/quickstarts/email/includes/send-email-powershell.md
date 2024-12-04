@@ -132,7 +132,7 @@ $message = @{
     SenderAddress = '<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>'
     Attachment = @($emailAttachment) # Array of attachments
     ContentHtml = "<html><head><title>Enter title</title></head><body><img src='cid:inline-attachment' alt='Company Logo'/><h1>This is the first email from ACS - Azure PowerShell</h1></body></html>"
-    ContentPlainText = "This is the first email from ACS - HTML"
+    ContentPlainText = "This is the first email from ACS - Azure PowerShell"
     Header = $headers  # Importance = high/medium/low or X-Priority = 2/3/4  
     RecipientBcc = @($emailRecipientBcc) # Array of email address objects
     RecipientCc = @($emailRecipientCc) # Array of email address objects
