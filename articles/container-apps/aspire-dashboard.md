@@ -36,7 +36,8 @@ The dashboard is secured against unauthorized access and modification. To use th
 ::: zone pivot="portal"
 
 > [!TIP]
-> While you have the portal as an option, the recommended approach to enabling your dashboard is with [azd](aspire-dashboard.md?pivots=azd). If you run into an problems using the portal, [create an issue in the Container Apps GitHub repo](https://github.com/microsoft/azure-container-apps/issues).
+> While you have the portal as an option, the recommended approach to enabling your dashboard is with [azd
+](aspire-dashboard.md?pivots=azd). If you run into an problems using the portal, [create an issue in the Container Apps GitHub repo](https://github.com/microsoft/azure-container-apps/issues).
 
 You can enable the .NET Aspire Dashboard on any existing container app using the following steps.
 
@@ -96,7 +97,24 @@ Refer to the following items if you have issues enabling your dashboard:
 
 - You might receive an authentication error when accessing the dashboard that reads, "Could not authenticate user with requested resource."
 
-    To solve this problem, make sure you grant the *Microsoft.App/managedEnvironments/write*, *Contributor*, or *Owner* roles on your Container Apps environment.
+    This issue occurs because security group permissions do not propagate to the Container App Environment. To solve this problem, make sure you explicitly give yourself a *Contributor* or *Owner* role on your Container Apps environment. This can be done through the following steps:
+  
+    - **Navigate to the Resource:**
+        - Open the Azure Portal and search for your container app environment.
+    - **Access the Access Control (IAM) Blade:**
+        - Click on _Access Control (IAM)_ for the container app environment.
+    - **Verify Existing Role Assignments:**
+        - Check if you (or your account) are assigned any roles. Note that permissions do not currently propagate through security groups.
+        - If you are not, follow the remaining steps to assign the role. 
+   - **Explicit Role Assignment:**
+        - Click _Add > Add role assignment_.
+        - Choose Role: Either _Contributor_ or _Owner_, as appropriate for your required access level.
+        - Assign the role explicitly to your user account (e.g., youremail@domain.com).
+  - **Save and Confirm:**
+     - Save the changes. Ensure the role is visible under the Role Assignments section.
+  - **Verify Dashboard Access:**
+    - Test by attempting to access the Aspire dashboard. If you continue to get the error, please reach out to our team.
+
 
 ## Related content
 
