@@ -72,7 +72,7 @@ After enabling backup:
 - When backups run, note that:
   - A VM that's running has the highest chance for capturing an application-consistent recovery point.
   - However, if the VM is turned off (an offline VM), it's still backed up, resulting in a crash-consistent recovery point. 
-- Explicit outbound connectivity isn't required for back up of Azure VMs.
+- Explicit outbound connectivity isn't required for backup of Azure VMs.
 
 ### Create a custom policy
 
