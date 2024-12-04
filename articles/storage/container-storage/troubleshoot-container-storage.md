@@ -28,7 +28,7 @@ az aks update -n <cluster-name> -g <resource-group> --enable-azure-container-sto
 
 ### Azure Container Storage fails to install due to Azure Policy restrictions
 
-Azure Container Storage might fail to install if Azure Policy restrictions are in place. Specifically, Azure Container Storage relies on privileged containers, which can be blocked by Azure Policy. When they are blocked, the installation of Azure Container Storage might time out or fail, and you might see errors in the `gatekeeper-controller` logs such as:
+Azure Container Storage might fail to install if Azure Policy restrictions are in place. Specifically, Azure Container Storage relies on privileged containers. You may have configured Azure Policy to block privileged containers. When they are blocked, the installation of Azure Container Storage might time out or fail, and you might see errors in the `gatekeeper-controller` logs such as:
 
 ```output
 $ kubectl logs -n gatekeeper-system deployment/gatekeeper-controller
@@ -55,7 +55,7 @@ To add the `acstor` namespace to the exclusion list, follow these steps:
 
 ### Can't install and enable Azure Container Storage in node pools with taints
 
-You may have configured [node taints](/azure/aks/use-node-taints) on the node pools to restrict pods from being scheduled on these node pools. When you install and enable Azure Container Storage on these noode pools, it will be blocked because the required pods can't be created in these node pools. The behavior applies to both the system node pool when installing and the user node pools when enabling.
+You might configure [node taints](/azure/aks/use-node-taints) on the node pools to restrict pods from being scheduled on these node pools. Installing and enabling Azure Container Storage on these noode pools will be blocked because the required pods can't be created in these node pools. The behavior applies to both the system node pool when installing and the user node pools when enabling.
 
 You can check the node taints with the following example:
 
@@ -89,7 +89,7 @@ $ az aks nodepool list -g $resourceGroup --cluster-name $clusterName --query "[]
 
 ```
 
-Retry the installing or enabling after you remove node taints successfully. After it's completed successfully, you can configure node taints back to resume the pod scheduling restaints.
+Retry the installing or enabling after you remove node taints successfully. After it completes successfully, you can configure node taints back to resume the pod scheduling restaints.
 
 ### Can't set storage pool type to NVMe
 
@@ -103,9 +103,9 @@ To check the status of your storage pools, run `kubectl describe sp <storage-poo
 
 ### Ephemeral storage pool doesn’t claim the capacity when the ephemeral disks are used by other daemonsets
 
-When you enable ephemeral storage pool on a nodepool where the nodes have temp SSD or local NVMe disks, it’s possible that the ephemeral storage pool doesn’t claim the capacity from these disks because they are used by other daemonsets.
+Enabling an ephemeral storage pool on a node pool with temp SSD or local NVMe disks might not claim capacity from these disks if other daemonsets are using them.
 
-You can follow the guidance below to enable Azure Container Storage to manage these local disks exclusively:
+Run the following steps to enable Azure Container Storage to manage these local disks exclusively:
 
 1. Run the following command to see the claimed capacity by ephemeral storage pool:
 
@@ -165,7 +165,7 @@ You can follow the guidance below to enable Azure Container Storage to manage th
 
 ### Error when trying to expand an Azure Disks storage pool
 
-If your existing storage pool is less than 4 TiB (4,096 GiB), you can only expand it up to 4,095 GiB. If you try to expand beyond that, the internal PVC will get an error message like "Only Disk CachingType 'None' is supported for disk with size greater than 4095 GB" or "Disk 'xxx' of size 4096 GB (<=4096 GB) cannot be resized to 16384 GB (>4096 GB) while it is attached to a running VM. Please stop your VM or detach the disk and retry the operation."
+If your existing storage pool is less than 4 TiB (4,096 GiB), you can only expand it up to 4,095 GiB. If you try to expand beyond that, the internal PVC will show an error message about disk size or caching type limitations. Stop your VM or detach the disk and retry the operation."
 
 To avoid errors, don't attempt to expand your current storage pool beyond 4,095 GiB if it is initially smaller than 4 TiB (4,096 GiB). Storage pools larger than 4 TiB can be expanded up to the maximum storage capacity available.
 
@@ -189,7 +189,7 @@ If you try to enable a storage pool type that's already enabled, you get the fol
 
 When disabling a storage pool type via `az aks update --disable-azure-container-storage <storage-pool-type>` or uninstalling Azure Container Storage via `az aks update --disable-azure-container-storage all`, if there's an existing storage pool of that type, you get the following message:
 
-*Disabling Azure Container Storage for storage pool type `<storage-pool-type>` will forcefully delete all the storage pools of the same type and affect the applications using these storage pools. Forceful deletion of storage pools can also lead to leaking of storage resources which are being consumed. Do you want to validate whether any of the storage pools of type `<storage-pool-type>` are being used before disabling Azure Container Storage? (Y/n)*
+*Disabling Azure Container Storage for storage pool type `<storage-pool-type>` forcefully deletes all the storage pools of the same type and affect the applications using these storage pools. Forceful deletion of storage pools can also lead to leaking of storage resources which are being consumed. Do you want to validate whether any of the storage pools of type `<storage-pool-type>` are being used before disabling Azure Container Storage? (Y/n)*
 
 If you select Y, an automatic validation runs to ensure that there are no persistent volumes created from the storage pool. Selecting n bypasses this validation and disables the storage pool type, deleting any existing storage pools and potentially affecting your application.
 
@@ -197,7 +197,7 @@ If you select Y, an automatic validation runs to ensure that there are no persis
 
 ### Pod pending creation due to ephemeral volume size above available capacity
 
-An ephemeral volume is allocated on a single node. When you configure the size of ephemeral volumes for your pods, the size should be less than the available capacity of a single node's ephemeral disk. Otherwise, the pod creation will be in pending status.
+An ephemeral volume is allocated on a single node. When you configure the size of ephemeral volumes for your pods, the size should be less than the available capacity of a single node's ephemeral disk. Otherwise, the pod creation is in pending status.
 
 Use the following command to check if your pod creation is in pending status.
 
@@ -248,7 +248,7 @@ Adjust the volume storage size below available capacity and redeploy your pod. S
 
 ### Volume fails to attach due to metadata store offline
 
-Azure Container Storage uses `etcd`, a distributed, reliable key-value store, to store and manage metadata of volumes to support volume orchestration operations. For high availability and resiliency, `etcd` runs in three pods. When there are less than two `etcd` instances running, Azure Container Storage will halt volume orchestration operations while still allowing data access to the volumes. Azure Container Storage automatically detects when an `etcd` instance is offline and recovers it. However, if you notice volume orchestration errors after restarting an AKS cluster, it's possible that an `etcd` instance failed to autorecover. Follow the instructions in this section to determine the health status of the `etcd` instances.
+Azure Container Storage uses `etcd`, a distributed, reliable key-value store, to store and manage metadata of volumes to support volume orchestration operations. For high availability and resiliency, `etcd` runs in three pods. When there are less than two `etcd` instances running, Azure Container Storage halts volume orchestration operations while still allowing data access to the volumes. Azure Container Storage automatically detects when an `etcd` instance is offline and recovers it. However, if you notice volume orchestration errors after restarting an AKS cluster, it's possible that an `etcd` instance failed to autorecover. Follow the instructions in this section to determine the health status of the `etcd` instances.
 
 Run the following command to get a list of pods.
 
@@ -256,7 +256,7 @@ Run the following command to get a list of pods.
 kubectl get pods
 ```
 
-You'll see output similar to the following.
+You may see output similar to the following.
 
 ```output
 NAME     READY   STATUS              RESTARTS   AGE 
@@ -299,7 +299,7 @@ etcd-azurecontainerstorage-phf92lmqml                            1/1     Running
 etcd-azurecontainerstorage-xznvwcgq4p                            1/1     Running   0               4d19h
 ```
 
-If fewer than two instances are shown in the Running state, you can conclude that the volume is failing to attach due to the metadata store being offline, and the automated recovery wasn't successful. If so, file a support ticket with [Azure Support]( https://azure.microsoft.com/support/).
+If fewer than two instances are running, the volume isn't attaching because the metadata store is offline, and automated recovery failed. If so, file a support ticket with [Azure Support]( https://azure.microsoft.com/support/).
 
 ## See also
 
