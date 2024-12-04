@@ -613,7 +613,7 @@ groups:
     title: Java
   - id: programming-language-python
     title: Python
-- id: acs-azcli-js-csharp-java-python-portal-nocode
+- id: acs-azcli-js-csharp-java-python-portal-nocode-ps
   title: Programming languages
   prompt: Choose a programming language
   pivots:
@@ -630,7 +630,9 @@ groups:
   - id: programming-language-python
     title: Python
   - id: platform-nocode
-    title: Power Platform 
+    title: Power Platform
+  - id: platform-powershell
+    title: Azure PowerShell
 - id: acs-plat-web-ios-android
   title: Platform
   prompt: Choose a platform
