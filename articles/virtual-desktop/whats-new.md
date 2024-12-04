@@ -418,7 +418,7 @@ Here's what changed in September 2023:
 
 Azure Virtual Desktop (classic) now blocks users from creating new tenants. Customers should be deploying the current version of Azure Virtual Desktop for any new workloads. However, while Azure Virtual Desktop (classic) blocks new tenants, you can still access all other ongoing operation and management processes. We will no longer support Azure Virtual Desktop (classic) in September 2026, so we highly recommend you migrate from classic to Azure Virtual Desktop before then.
 
-For more information about the Azure Virtual Desktop (classic) retirement, see [Azure Virtual Desktop (classic) retirement](./virtual-desktop-fall-2019/classic-retirement.md).
+For more information about the Azure Virtual Desktop (classic) retirement, see [Azure Virtual Desktop (classic) retirement](/previous-versions/azure/virtual-desktop-classic/classic-retirement).
 
 ### Updates to Azure Virtual Desktop overview page in the Azure portal 
 
@@ -808,7 +808,7 @@ A new feature for RDP Shortpath is now in preview. With this feature, RDP Shortp
 
 ### The Azure Virtual Desktop web client has a new URL
 
-Starting April 18, 2022, the Azure Virtual Desktop and Azure Virtual Desktop (classic) web clients will redirect to a new URL. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/reminder-the-avd-web-client-will-be-moving-to-a-new-url/m-p/3278231).
+Starting April 18, 2022, the Azure Virtual Desktop and Azure Virtual Desktop (classic) web clients redirect to a new URL. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/reminder-the-avd-web-client-will-be-moving-to-a-new-url/m-p/3278231).
 
 ## March 2022
 
@@ -1393,7 +1393,7 @@ July was when Azure Virtual Desktop with Azure Resource Management integration b
 
 Here's what changed with this new release: 
 
-- The "Fall 2019 release" is now known as "Azure Virtual Desktop (classic)," while the "Spring 2020 release" is now just "Azure Virtual Desktop." For more information, check out [this blog post](https://azure.microsoft.com/blog/new-windows-virtual-desktop-capabilities-now-generally-available/). 
+- The *Fall 2019 release* is now known as *Azure Virtual Desktop (classic)*, while the *Spring 2020 release* is now just *Azure Virtual Desktop*. For more information, check out [this blog post](https://azure.microsoft.com/blog/new-windows-virtual-desktop-capabilities-now-generally-available/). 
 
 To learn more about new features, check out [this blog post](https://techcommunity.microsoft.com/t5/itops-talk-blog/windows-virtual-desktop-spring-update-enters-public-preview/ba-p/1340245). 
 

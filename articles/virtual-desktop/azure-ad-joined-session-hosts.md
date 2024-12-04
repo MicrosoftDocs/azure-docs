@@ -16,9 +16,8 @@ This article will walk you through the process of deploying and accessing Micros
 
 The following known limitations may affect access to your on-premises or Active Directory domain-joined resources and you should consider them when deciding whether Microsoft Entra joined VMs are right for your environment.
 
-- Azure Virtual Desktop (classic) doesn't support Microsoft Entra joined VMs.
 - Microsoft Entra joined VMs don't currently support external identities, such as Microsoft Entra Business-to-Business (B2B) and Microsoft Entra Business-to-Consumer (B2C).
-- Microsoft Entra joined VMs can only access [Azure Files shares](create-profile-container-azure-ad.yml) or [Azure NetApp Files shares](create-fslogix-profile-container.md) for hybrid users using Microsoft Entra Kerberos for FSLogix user profiles.
+- Microsoft Entra joined VMs can only access [Azure Files shares](create-profile-container-azure-ad.yml) for hybrid users using Microsoft Entra Kerberos for FSLogix user profiles.
 - The [Remote Desktop Store app](users/connect-windows.md?pivots=rd-store) for Windows doesn't support Microsoft Entra joined VMs.
 
 <a name='deploy-azure-ad-joined-vms'></a>
