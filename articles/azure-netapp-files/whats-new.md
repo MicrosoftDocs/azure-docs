@@ -14,6 +14,10 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
+* [Support for one Active Directory connection per NetApp account](create-active-directory-connections.md#multi-ad) is now generally available (GA)
+
+    The Azure NetApp Files support for one Active Directory (AD) connection per NetApp account feature now allows each NetApp account to connect to its own AD Forest and Domain, providing the ability to manage more than one AD connections within a single region under a subscription. This feature is now generally available.
+
 ## December 2024
 
 * [Cloud Backup for Virtual Machines on Azure NetApp Files datastores for Azure VMware Solution:](../azure-vmware/install-cloud-backup-virtual-machines.md) enhanced backup capabilities (Preview)
