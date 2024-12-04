@@ -15,7 +15,7 @@ Learn about troubleshooting for container memory limits in this article.
 
 ## Alerts for memory limits
 
-We recommend that you have alerts set up for the Operator Nexus cluster to look for Kubernetes pods that restart from `OOMKill` errors. These alerts let you know if a component on a server is working appropriately.
+We recommend that you have alerts set up for the Azure Operator Nexus cluster to look for Kubernetes pods that restart from `OOMKill` errors. These alerts let you know if a component on a server is working appropriately.
 
 The following table lists the metrics that are exposed to identify memory limits.
 

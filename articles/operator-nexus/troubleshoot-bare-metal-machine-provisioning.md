@@ -250,5 +250,7 @@ racadm -r $BMC_IP -u $BMC_USER -p $CURRENT_PASSWORD  set iDRAC.Users.2.Password 
 
 After the hardware is fixed, run the BMM `replace` action by following the instructions in [Manage the lifecycle of bare metal machines](howto-baremetal-functions.md).
 
-If you still have questions, [contact Support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
-For more information about support plans, see [Azure Support plans](https://azure.microsoft.com/support/plans/response/).
+## Related content
+
+- If you still have questions, contact [Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+- For more information about support plans, see [Azure support plans](https://azure.microsoft.com/support/plans/response/).

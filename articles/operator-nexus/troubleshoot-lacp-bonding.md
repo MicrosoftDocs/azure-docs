@@ -15,7 +15,7 @@ On physical host startup, the two Mellanox cards are bonded to a pair of Arista 
 
 ## Diagnosis
 
-If LACP isn't negotiated correctly, traffic loss can occur. But traffic can pass for some flows too. This behavior can manifest itself as a virtual machine that can't get on the network, or even as oam/storage outages.
+If LACP isn't negotiated correctly, traffic loss can occur. But traffic can pass for some flows too. This behavior can manifest itself as a virtual machine that can't get on the network, or even as object attribute memory (OAM) or storage outages.
 
 ## Check LACP bonding
 
@@ -48,5 +48,5 @@ The most common causes for these LACP issues are host or switch miswiring or mis
 
 ## Related content
 
-- If you still have questions, [contact Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+- If you still have questions, contact [Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 - For more information about support plans, see [Azure support plans](https://azure.microsoft.com/support/plans/response/).

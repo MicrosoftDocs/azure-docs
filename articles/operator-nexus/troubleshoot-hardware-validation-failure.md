@@ -9,7 +9,7 @@ author: vnikolin
 ms.author: vanjanikolin
 ---
 
-# Troubleshoot hardware validation failure in a Nexus cluster
+# Troubleshoot hardware validation failure in an Azure Operator Nexus cluster
 
 This article describes how to troubleshoot a failed server hardware validation (HWV). HWV is run as part of a cluster deploy action and a bare metal `replace` action. HWV validates a bare metal machine (BMM) by executing test cases against the baseboard management controller (BMC). The Azure Operator Nexus platform is deployed on Dell servers. Dell servers use the integrated Dell remote access controller (iDRAC), which is the equivalent of a BMC.
 
@@ -480,7 +480,7 @@ This section discusses troubleshooting for problems you might encounter.
         }
     ```
 
-    * Allow-listed critical alarms and warning alarms are logged as informational starting with Nexus release 3.14.
+    * Allow-listed critical alarms and warning alarms are logged as informational starting with Azure Operator Nexus release 3.14.
 
     ```yaml
         {
@@ -696,5 +696,7 @@ This section discusses troubleshooting for problems you might encounter.
 
 After the hardware is fixed, run the BMM `replace` action by following the instructions in [Manage the lifecycle of bare metal machines](howto-baremetal-functions.md).
 
-If you still have questions, [contact Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
-For more information about support plans, see [Azure support plans](https://azure.microsoft.com/support/plans/response/).
+## Related content
+
+- If you still have questions, contact [Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+- For more information about support plans, see [Azure support plans](https://azure.microsoft.com/support/plans/response/).

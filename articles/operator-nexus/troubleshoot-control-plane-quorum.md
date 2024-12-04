@@ -29,7 +29,7 @@ Follow the steps in this troubleshooting article when multiple control plane nod
 
 ## Procedure
 
-1. Identify the Nexus Management Node:
+1. Identify the Azure Operator Nexus management nodes:
    - To identify the management nodes, run `az networkcloud baremetalmachine list -g <ResourceGroup_Name>`.
    - Sign in to the identified server.
    - Ensure that the ironic-conductor service is present on this node by using `crictl ps -a |grep -i ironic-conductor`. Here's example output:
@@ -39,7 +39,7 @@ Follow the steps in this troubleshooting article when multiple control plane nod
         <id>       <id>       6 hours ago       Running       ironic-conductor       0       <id>
         ~~~
 
-1. Determine the Dell remote access controller (iDRAC) IP of the server:
+1. Determine the integrated Dell remote access controller (iDRAC) IP of the server:
    - Run the command `az networkcloud cluster list -g <RG_Name>`.
    - The output of the command is JSON with the iDRAC IP.
 
@@ -68,5 +68,7 @@ Follow the steps in this troubleshooting article when multiple control plane nod
 
 The servers should now be restored.
 
-If you still have questions, [contact Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
-For more information about support plans, see [Azure support plans](https://azure.microsoft.com/support/plans/response/).
+## Related content
+
+- If you still have questions, contact [Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+- For more information about support plans, see [Azure support plans](https://azure.microsoft.com/support/plans/response/).
