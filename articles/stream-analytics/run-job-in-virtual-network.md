@@ -6,7 +6,7 @@ ms.author: anboisve
 ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.date: 11/18/2024
-ms.custom: references_regions
+ms.custom: references_regions, ignite-2024
 ---
 
 # Run your Azure Stream Analytics job in an Azure Virtual Network

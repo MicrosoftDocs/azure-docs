@@ -24,7 +24,7 @@ In this tutorial, you learn how to:
 > * Secure database connectivity using a passwordless connection string.
 > * Verify JBoss data sources in App Service using JBoss CLI.
 > * Deploy a JBoss sample app to App Service from a GitHub repository.
-> * Acces App Service app settings in the application code.
+> * Access App Service app settings in the application code.
 > * Make updates and redeploy the application code.
 > * Stream diagnostic logs from App Service.
 > * Manage the app in the Azure portal.

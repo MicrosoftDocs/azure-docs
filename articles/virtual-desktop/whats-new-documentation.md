@@ -191,7 +191,7 @@ In September 2023, we made the following changes to the documentation:
 
 - Published a new article to [Uninstall and reinstall Remote Desktop Connection](/windows-server/remote/remote-desktop-services/clients/uninstall-remote-desktop-connection) (MSTSC) on Windows 11 23H2.
 
-- Published a new article for [Azure Virtual Desktop (classic) retirement](virtual-desktop-fall-2019/classic-retirement.md).
+- Published a new article for [Azure Virtual Desktop (classic) retirement](/previous-versions/azure/virtual-desktop-classic/classic-retirement).
 
 - Updated articles for custom images templates general availability:
   - [Custom image templates](custom-image-templates.md).

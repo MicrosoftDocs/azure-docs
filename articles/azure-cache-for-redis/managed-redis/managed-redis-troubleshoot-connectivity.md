@@ -3,11 +3,10 @@ title: Troubleshoot connectivity in Azure Managed Redis (preview)
 description: Learn how to resolve connectivity problems when creating clients with Azure Managed Redis.
 
 
-ms.service: azure
-ms.topic: conceptual 
+ms.service: azure-managed-redis
+ms.topic: conceptual
 ms.date: 11/15/2024
-ms.custom: template-concept
-
+ms.custom: template-concept, ignite-2024
 ---
 
 # Connectivity troubleshooting with Azure Managed Redis (preview)

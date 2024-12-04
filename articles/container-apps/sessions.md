@@ -7,7 +7,7 @@ ms.service: azure-container-apps
 ms.topic: conceptual
 ms.date: 11/04/2024
 ms.author: cshoe
-ms.custom: references_regions
+ms.custom: references_regions, ignite-2024
 ---
 
 # Azure Container Apps dynamic sessions overview
@@ -205,13 +205,17 @@ The following limitations apply to dynamic sessions:
 
     | Region | Code interpreter | Custom container |
     |--------|------------------|------------------|
-    | East Asia | ✔ | ✔ |
+    | Australia East | ✔ | ✔ |
+    | Central US EUAP | ✔ | ✔ |
+    | East US 2 EUAP | ✔ | ✔ |
     | East US | ✔ | ✔ |
+    | East Asia | ✔ | ✔ |
     | Germany West Central | ✔ | ✔ |
     | Italy North | ✔ | ✔ |
-    | Poland Central | ✔ | ✔ |
     | North Central US | ✔ | - |
-    | North Europe | ✔ | ✔ |
+    | Poland Central | ✔ | ✔ |
+    | Switzerland North | ✔ | ✔ |
+    | West Central US | ✔ | ✔ |
     | West US 2 | ✔ | ✔ |
 
 ## Next steps

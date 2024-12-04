@@ -4,7 +4,7 @@ description: Entity pages display information about entities surfaced in your al
 author: yelevin
 ms.author: yelevin
 ms.topic: conceptual
-ms.date: 03/16/2024
+ms.date: 10/16/2024
 appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
@@ -35,7 +35,7 @@ More specifically, entity pages consist of three parts:
 
 If you're investigating an incident using the **[new investigation experience](investigate-incidents.md)**, you'll be able to see a panelized version of the entity page right inside the incident details page. You have a [list of all the entities in a given incident](investigate-incidents.md#explore-the-incidents-entities), and selecting an entity opens a side panel with three "cards"&mdash;**Info**, **Timeline**, and **Insights**&mdash; showing all the same information described above, within the specific time frame corresponding with that of the alerts in the incident.
 
-If you're using the **[unified security operations platform](https://go.microsoft.com/fwlink/p/?linkid=2263690)** in the Microsoft Defender portal, the **timeline** and **insights** panels appear in the **Sentinel events** tab of the Defender entity page.
+If you're using the **[Microsoft Sentinel in the Defender portal](https://go.microsoft.com/fwlink/p/?linkid=2263690)**, the **timeline** and **insights** panels appear in the **Sentinel events** tab of the Defender entity page.
 
 # [Azure portal](#tab/azure-portal)
 
@@ -69,7 +69,7 @@ The following types of items are included in the timeline.
 
 # [Defender portal](#tab/defender-portal)
 
-The timeline on the **Sentinel events** tab adds a major part of the entity page's contribution to behavior analytics in the unified security operations platform in Microsoft Defender. It presents a story about entity-related events, helping you understand the entity's activity within a specific time frame.
+The timeline on the **Sentinel events** tab adds a major part of the entity page's contribution to behavior analytics in the Defender portal. It presents a story about entity-related events, helping you understand the entity's activity within a specific time frame.
 
 In particular, you'll see on the Sentinel events timeline alerts and events from third-party sources collected only by Microsoft Sentinel, such as syslog/CEF and custom logs ingested through the Azure Monitor Agent or custom connectors.
 
@@ -109,7 +109,7 @@ The insights are based on the following data sources:
 Generally speaking, each entity insight displayed on the entity page is accompanied by a link that will take you to a page where the query underlying the insight is displayed, along with the results, so you can examine the results in greater depth.
 
 - In Microsoft Sentinel in the Azure portal, the link takes you to the **Logs** page.
-- In the unified security operations platform in the Microsoft Defender portal, the link takes you to the **Advanced hunting** page.
+- In the Microsoft Defender portal, the link takes you to the **Advanced hunting** page.
 
 ## How to use entity pages
 

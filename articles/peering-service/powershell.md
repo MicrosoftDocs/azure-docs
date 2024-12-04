@@ -47,7 +47,7 @@ Use [Get-AzPeeringServiceCountry](/powershell/module/az.peering/get-azpeeringser
 ```azurepowershell-interactive
 # List the countries/regions available for Peering Service.
 Get-AzPeeringServiceCountry 
-# List metro locations serviced in a country
+# List metro locations serviced in a country/region
 Get-AzPeeringServiceLocation -Country "United States"
 ```
 
