@@ -4,7 +4,7 @@ description: Get an overview about moving from BizTalk Server to Azure Logic App
 services: logic-apps
 ms.service: azure-logic-apps
 ms.suite: integration
-author: kewear, haroldcampos
+author: haroldcampos
 ms.author: kewear, haroldcampos
 ms.reviewer: estfan, azla
 ms.topic: conceptual
