@@ -221,7 +221,6 @@ The following table shows locations by service provider. If you want to view ava
 | **[UIH](https://www.uih.co.th/products-services/managed-services/cloud-direct/)** | &check; | &check; | Bangkok |
 | **[Verizon](https://enterprise.verizon.com/products/network/application-enablement/secure-cloud-interconnect/)** | &check; | &check; | Amsterdam<br/>Chicago<br/>Dallas<br/>Frankfurt<br/>Hong Kong<br/>London<br/>Mumbai<br/>Paris<br/>Silicon Valley<br/>Singapore<br/>Sydney<br/>Tokyo<br/>Toronto<br/>Washington DC |
 | **[Viasat](https://news.viasat.com/newsroom/press-releases/viasat-introduces-direct-cloud-connect-a-new-service-providing-fast-secure-private-connections-to-business-critical-cloud-services)** | &check; | &check; | Washington DC2 |
-| **[Vocus Group NZ](https://www.vocus.co.nz/business/cloud-data-centres)** | &check; | &check; | Auckland<br/>Sydney |
 | **Vodacom** | &check; | &check; | Cape Town<br/>Johannesburg|
 | **[Vodafone](https://www.vodafone.com/business/products/cloud-and-edge)** | &check; | &check; | Amsterdam2<br/>Chicago<br/>Dallas<br/>Hong Kong2<br/>London<br/>London2<br/>Milan<br/>Silicon Valley<br/>Singapore |
 | **[Vi (Vodafone Idea)](https://www.myvi.in/business/enterprise-solutions/connectivity/vpn-extended-connect)** | &check; | &check; | Chennai<br/>Mumbai2 |
