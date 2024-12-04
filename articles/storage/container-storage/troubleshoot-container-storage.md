@@ -101,6 +101,68 @@ To remediate, create a node pool with a VM SKU that has NVMe drives and try agai
 
 To check the status of your storage pools, run `kubectl describe sp <storage-pool-name> -n acstor`. Here are some issues you might encounter.
 
+### Ephemeral storage pool doesn’t claim the capacity when the ephemeral disks are used by other daemonsets
+
+When you enable ephemeral storage pool on a nodepool where the nodes have temp SSD or local NVMe disks, it’s possible that the ephemeral storage pool doesn’t claim the capacity from these disks because they are used by other daemonsets.
+
+You can follow the guidance below to enable Azure Container Storage to manage these local disks exclusively:
+
+1. Run the following command to see the claimed capacity by ephemeral storage pool:
+
+   ```bash
+   $ kubectl get sp -A
+   NAMESPACE   NAME                 CAPACITY   AVAILABLE   USED   RESERVED   READY   AGE
+   acstor      ephemeraldisk-nvme   0          0           0      0          False   82s
+   ```
+   Above example shows 0 capacity claimed by `ephemeraldisk-nvme` storage pool.
+
+1. Run the following command to confirm unclaimed state of these local block devices and check existing file system on the disks:
+   ```bash
+   $ kubectl get bd -A
+   NAMESPACE   NAME                                           NODENAME                               SIZE            CLAIMSTATE   STATUS   AGE
+   acstor      blockdevice-1f7ad8fa32a448eb9768ad8e261312ff   aks-nodepoolnvme-38618677-vmss000001   1920383410176   Unclaimed    Active   22m
+   acstor      blockdevice-9c8096fc47cc2b41a2ed07ec17a83527   aks-nodepoolnvme-38618677-vmss000000   1920383410176   Unclaimed    Active   23m
+   $ kubectl describe bd -n acstor blockdevice-1f7ad8fa32a448eb9768ad8e261312ff
+   Name:         blockdevice-1f7ad8fa32a448eb9768ad8e261312ff
+   …
+     Filesystem:
+       Fs Type:  ext4
+   …
+   ```
+   Above example shows that the block devices are `Unclaimed` status and there is an existing file system on the disk.
+
+1. Confirm that you want to use Azure Container Storage to manage the local data disks exclusively before proceeding.
+
+1. Stop and remove the daemonsets or components that manage local data disks.
+
+1. Login to each node that has local data disks.
+
+1. Remove existing file systems from all local data disks.
+
+1. Restart ndm daemonset to discover unused local data disks.
+   ```bash
+   $ kubectl rollout restart daemonset -l app=ndm -n acstor
+   daemonset.apps/azurecontainerstorage-ndm restarted
+   $ kubectl rollout status daemonset -l app=ndm -n acstor --watch
+   …
+   daemon set "azurecontainerstorage-ndm" successfully rolled out
+   ```
+
+1. Wait a few seconds and check if the capacity from local data disks is claimed by ephemeral storage pool.
+
+   ```bash
+   $ kubectl wait -n acstor sp --all --for condition=ready
+   storagepool.containerstorage.azure.com/ephemeraldisk-nvme condition met
+   $ kubectl get bd -A
+   NAMESPACE   NAME                                           NODENAME                               SIZE            CLAIMSTATE   STATUS   AGE
+   acstor      blockdevice-1f7ad8fa32a448eb9768ad8e261312ff   aks-nodepoolnvme-38618677-vmss000001   1920383410176   Claimed      Active   4d16h
+   acstor      blockdevice-9c8096fc47cc2b41a2ed07ec17a83527   aks-nodepoolnvme-38618677-vmss000000   1920383410176   Claimed      Active   4d16h
+   $ kubectl get sp -A
+   NAMESPACE   NAME                 CAPACITY        AVAILABLE       USED          RESERVED      READY   AGE
+   acstor      ephemeraldisk-nvme   3840766820352   3812058578944   28708241408   26832871424   True    4d16h
+   ```
+   Above example shows `ephemeraldisk-nvme` storage pool successfully claims the capacity from local NVMe disks on the nodes.
+
 ### Error when trying to expand an Azure Disks storage pool
 
 If your existing storage pool is less than 4 TiB (4,096 GiB), you can only expand it up to 4,095 GiB. If you try to expand beyond that, the internal PVC will get an error message like "Only Disk CachingType 'None' is supported for disk with size greater than 4095 GB" or "Disk 'xxx' of size 4096 GB (<=4096 GB) cannot be resized to 16384 GB (>4096 GB) while it is attached to a running VM. Please stop your VM or detach the disk and retry the operation."
