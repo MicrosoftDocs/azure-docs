@@ -310,7 +310,7 @@ Microsoft provides strong layers of protection by [encrypting data during transi
 
 Microsoft gives you the option to use [Transport Layer Security (TLS) protocol](../security/fundamentals/encryption-overview.md#tls-encryption-in-azure) for protecting data that travels between cloud services and customers. Microsoft datacenters negotiate a TLS connection with client systems that connect to Azure services. TLS provides strong authentication, message privacy, and integrity, which enables detection of message tampering, interception, and forgery along with interoperability, algorithm flexibility, and ease of deployment and use.
 
-While this section focused on RESTful connectivity through connectors, you can implement SOAP web service connectivity through the custom connector experience or leveraging the API Management experience. API Management has great SOAP capabilities. More information on the [Increasing business value by integrating SOAP legacy assets with Azure logic Apps and Azure APIM](https://techcommunity.microsoft.com/t5/azure-integration-services-blog/increasing-business-value-by-integrating-soap-legacy-assets-with/ba-p/4238077) article.
+While this section focused on RESTful connectivity through connectors, you can implement SOAP web service connectivity through the custom connector experience or by using the API Management experience, which provides great SOAP capabilities. For more information, see [Increasing business value by integrating SOAP legacy assets with Azure logic Apps and Azure APIM](https://techcommunity.microsoft.com/t5/azure-integration-services-blog/increasing-business-value-by-integrating-soap-legacy-assets-with/ba-p/4238077).
 
 ### Block adapter or connector usage
 
