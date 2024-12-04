@@ -99,7 +99,7 @@ To configure alerts and notifications on your metrics, follow these steps:
 
 1. Click **New Alert Rule** at the top of the metric charts.
 
-1. Select the scope for which you want to create alerts.   <br><br>    The scope limits are the same as the limits described in the [View metrics](#view-metrics-in-the-azure-portal) section.
+1. Select the scope for which you want to create alerts.   <br><br>    The scope limits are the same as the limits described in the [View metrics](metrics-overview.md#view-metrics-in-the-azure-portal) section.
 
 1. Select the condition on which the alert should be fired.
 

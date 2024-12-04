@@ -46,12 +46,12 @@ sections:
 
           In case of built-in Azure Monitor alerts, as alerts already generate by default, you don't need to create an alert rule. To route these alerts to a notification channel, you should create an alert processing rule and an action group for these alerts. [See example](backup-azure-monitor-alerts-notification.md#configure-notifications-for-alerts)
 
-          In case of metric alerts, as alerts don't generate by default, you need to first create an alert rule to specify the condition for which an alert should be fired. To route these alerts to a notification channel, you can directly link the alert rule to an action group, or use an alert processing rule. [See example](metrics-overview.md#configure-alerts-and-notifications-on-your-metrics)
+          In case of metric alerts, as alerts don't generate by default, you need to first create an alert rule to specify the condition for which an alert should be fired. To route these alerts to a notification channel, you can directly link the alert rule to an action group, or use an alert processing rule. [See example](backup-azure-monitor-alerts-notification.md#configure-alerts-and-notifications-on-your-metrics)
 
       - question: |
           Can I configure alerts for successful backup jobs?
         answer: |
-          Yes, you can use metric alerts to configure alerts for successful backups. [Learn more](metrics-overview.md#configure-alerts-and-notifications-on-your-metrics)
+          Yes, you can use metric alerts to configure alerts for successful backups. [Learn more](backup-azure-monitor-alerts-notification.md#configure-alerts-and-notifications-on-your-metrics)
 
       - question: |
           Can I configure notifications programmatically?
