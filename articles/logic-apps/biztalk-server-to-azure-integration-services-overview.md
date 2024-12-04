@@ -489,7 +489,7 @@ The following table shows the network connectivity methods that each Azure Integ
 
 ### Custom code
 
-The following section describes options for authoring and running your own code in BizTalk Server and Azure Logic Apps.
+The following sections describe options for authoring and running your own code in BizTalk Server and Azure Logic Apps.
 
 #### BizTalk Server
 
