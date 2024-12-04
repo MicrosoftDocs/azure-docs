@@ -30,12 +30,12 @@ Follow these steps for mitigation.
 
 1. From the cluster resource page in the Azure portal, add a tag to the cluster resource.
 1. The resource moves out of the `Accepted` state.
-
-```bash
-az login
-az account set --subscription <SUBSCRIPTION>
-az resource tag --tags exampleTag=exampleValue --name <CLUSTER> --resource-group <CLUSTER_RG> --resource-type "Microsoft.ContainerService/managedClusters"
-```
+    
+    ```bash
+    az login
+    az account set --subscription <SUBSCRIPTION>
+    az resource tag --tags exampleTag=exampleValue --name <CLUSTER> --resource-group <CLUSTER_RG> --resource-type "Microsoft.ContainerService/managedClusters"
+    ```
 
 ## Verification
 
