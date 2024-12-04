@@ -10,6 +10,7 @@ ms.author: mathapli
 ---
 
 # Azure Confidential Clean Rooms (PREVIEW)
+# Azure Confidential Clean Rooms (PREVIEW)
 
 > [!NOTE]
 > Azure Confidential Clean Rooms is currently in Limited Preview. The Preview is subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/). Customer should not use the Preview to process Personal Data or other data that is subject to legal or regulatory compliance requirements. The Preview is intended for testing, evaluation and feedback and should not be used in production. 
@@ -17,6 +18,7 @@ ms.author: mathapli
 Azure Confidential Clean Rooms, aka ACCR, offers a protected environment that helps organizations overcome security and privacy challenges of using sensitive data for data analytics, AI model development and inferencing scenarios. Built on top of [Confidential containers or C-ACI](../confidential-computing/confidential-containers.md), ACCR helps secure the data and the model from exfiltration outside the clean room boundary. 
 Organizations can safely collaborate and analyze data within the sandbox and  use advanced privacy-enhancing features like protected governance & audit, protected collaboration, verifiable trust, differential privacy, and controlled access.
 
+## Who could benefit from Azure Confidential Clean Rooms?
 ## Who could benefit from Azure Confidential Clean Rooms?
 Azure Confidential Clean Rooms could be a great choice for you if you have these scenarios: 
 
@@ -44,6 +46,7 @@ ACCR allows collaborators to create tamper-resistant contracts where constraints
 Confidential computing can help meet certain regulatory and privacy concerns by providing a more secure environment for data collaboration. This capability can be beneficial for industries such as financial services, healthcare, and telecom, which deal with sensitive data and personal information
 - Enhanced data security:
 ACCR is built using confidential computing. This environment is sandboxed and helps in allowing authorized workloads to execute, and also helps in preventing unauthorized access to data or code during processing, and helping ensure that sensitive information remains secure.
+ACCR is built using confidential computing. This environment is sandboxed and helps in allowing authorized workloads to execute, and also helps in preventing unauthorized access to data or code during processing, and helping ensure that sensitive information remains secure.
 - Verifiable trust at each step with the help of cryptographic remote attestation forms the cornerstone of Azure Confidential Clean Rooms.
 
 :::image type="content" source="./media/confidential-clean-rooms/accr-illustration.png" alt-text="Diagram of Azure Confidential Clean Rooms benefits, showing all steps of clean room creation.":::
@@ -62,8 +65,14 @@ ACCR is currently in Limited Preview. To express your interest in joining the li
 
 - Question: Is there a sampleclean room application to try out?
   Answer: You can find the clean room sample application [here](https://github.com/Azure-Samples/azure-cleanroom-samples). Please feel free to try out the sample after signing up for the Preview and receiving our response. 
+- Question: What is the location Microsoft published side cars?
+  Answer: The Microsoft published side cars are available at: mcr.microsoft.com/cleanroom. The code repository for the sidecars is present [here](https://github.com/Azure/azure-cleanroom/).
+
+- Question: Is there a sampleclean room application to try out?
+  Answer: You can find the clean room sample application [here](https://github.com/Azure-Samples/azure-cleanroom-samples). Please feel free to try out the sample after signing up for the Preview and receiving our response. 
 
 - Question: Can more than two collaborators participate in a collaboration?
+  Answer: Yes, more than two collaborators can become part of the collaboration. This allows multiple data providers to share data in the clean room.
   Answer: Yes, more than two collaborators can become part of the collaboration. This allows multiple data providers to share data in the clean room.
 
 If you have questions about Azure Confidential Clean Rooms, reach out to <accrsupport@microsoft.com>.
