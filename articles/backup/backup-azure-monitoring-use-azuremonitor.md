@@ -2,7 +2,7 @@
 title: Monitor Azure Backup with Azure Monitor
 description: Monitor Azure Backup workloads and create custom alerts by using Azure Monitor.
 ms.topic: how-to
-ms.date: 11/30/2024
+ms.date: 12/30/2024
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -27,7 +27,6 @@ Before you use Log Analytics for monitoring, consider the following prerequisite
 - Ensure that you have a Log Analytics workspace set up. If not available, [create one](/azure/azure-monitor/logs/quick-create-workspace?tabs=azure-portal).
 - [Configure Diagnostic Settings](backup-azure-diagnostic-events.md?tabs=recovery-services-vaults) to push data to Log Analytics.
 - [Configure the retention](/azure/azure-monitor/logs/data-retention-configure?tabs=portal-3%2Cportal-1%2Cportal-2) of the tables or the Log Analytics workspace based on the desired historical retention.
-- [Add the data model link under the Sample Kusto queries](backup-azure-reports-data-model.md).
 
 ### Create alerts by using Log Analytics
 
