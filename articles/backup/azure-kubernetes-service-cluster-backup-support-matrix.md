@@ -66,7 +66,7 @@ You can use [Azure Backup](./backup-overview.md) to help protect Azure Kubernete
 
 - Backup vault doesn't support Azure Lighthouse. Thus, cross tenant management can't be enabled by Lighthouse for Azure Backup for AKS and you cannot backup/restore AKS Clusters across tenant.
 
-- The following namespaces are skipped from Backup Configuration and not cofigured for backups: `kube-system`, `kube-node-lease`, `kube-public`.
+- The following namespaces are skipped from Backup Configuration and not configured for backups: `kube-system`, `kube-node-lease`, `kube-public`.
 
 - Here are the AKS backup limits:
 

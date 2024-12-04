@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 11/22/2024
+ms.date: 12/04/2024
 ms.author: anfdocs
 ---
 # Create a dual-protocol volume for Azure NetApp Files
@@ -19,7 +19,7 @@ To create NFS volumes, see [Create an NFS volume](azure-netapp-files-create-volu
 [!INCLUDE [Delegated subnet permission](includes/create-volume-permission.md)]
 
 >[!IMPORTANT]
->Windows Server 2025 does **not** work with Azure NetApp Files CIFS. 
+>Windows Server 2025 currently doesn't work with the Azure NetApp Files SMB protocol. 
 
 * You must have already created a capacity pool.  
     See [Create a capacity pool](azure-netapp-files-set-up-capacity-pool.md).   

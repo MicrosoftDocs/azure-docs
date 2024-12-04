@@ -16,6 +16,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/virtual-network/virtual-network-configure-vnet-connections.md",
+            "redirect_url": "/azure/vpn-gateway/design",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/virtual-network/virtual-networks-dmz-nsg-fw-udr-asm.md",
             "redirect_url": "/azure/architecture/vdc/networking-virtual-datacenter",
             "redirect_document_id": false
