@@ -61,7 +61,7 @@ To back up files, folders, and the volume or system state from an on-premises co
 
 The following diagram shows the backup flow:
 
-![Diagra shows the bacup flow of Azure Backup agent.](./media/backup-try-azure-backup-in-10-mins/backup-process.png)
+![Diagram shows the backup flow of Azure Backup agent.](./media/backup-try-azure-backup-in-10-mins/backup-process.png)
 
 ### Additional information
 

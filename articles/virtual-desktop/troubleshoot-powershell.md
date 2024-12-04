@@ -7,10 +7,8 @@ ms.date: 06/05/2020
 ms.author: daknappe
 ms.custom: devx-track-azurepowershell, docs_inherited
 ---
-# Azure Virtual Desktop PowerShell
 
->[!IMPORTANT]
->This content applies to Azure Virtual Desktop with Azure Resource Manager Azure Virtual Desktop objects. If you're using Azure Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/troubleshoot-powershell-2019.md).
+# Troubleshoot Azure Virtual Desktop PowerShell
 
 Use this article to resolve errors and issues when using PowerShell with Azure Virtual Desktop. For more information on Remote Desktop Services PowerShell, see [Azure Virtual Desktop PowerShell](/powershell/windows-virtual-desktop/overview).
 
