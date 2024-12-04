@@ -66,8 +66,8 @@ const cloudRecordingsUpdatedHandler = (args: { added: SDK.RecordingInfo[], remov
 callRecordingApi.on('recordingsUpdated', cloudRecordingsUpdatedHandler );
 ```
 ## Explicit Consent
-If your Teams meeting or call is configured to require explicit consent for recording and transcription, 
-you need to collect consent from all participants in the call before you can record them. You can provide consent proactively when joining the meeting or reactively when the recording starts. Until users give explicit consent, users have disabled audio, video, and screen sharing.
+When your Teams meeting or call is configured to require explicit consent for recording and transcription, 
+you are required to collect consent from all participants in the call before you can record them. You can provide consent proactively when joining the meeting or reactively when the recording starts. Until explicit consent is given, participants' audio, video, and screen sharing will be disabled during recording.
  
 ### Support
 The following tables show support of explicit consent for specific call type and identity.
@@ -78,13 +78,13 @@ The following tables show support of explicit consent for specific call type and
 |Microsoft 365 user           | ✔️            |      |          |            |                       | ✔️                      |
  
  
-You can check if the meeting recording requires explicit consent by property `isConsentRequired`. If the value is set to `true`, then explicit consent is required for the call.
+You can check if the meeting recording requires explicit consent by property `isConsentRequired`. If the value is set to `true`, then explicit consent is required for the `call`.
  
 ```js
 const isConsentRequired = callRecordingApi.isConsentRequired;
 ```
- 
-If you already collected consent from the user to be recorded, you can call method `consentToBeingRecordedAndTranscribed()` to indicate explicit consent to the service.
+
+If you have already obtained the user's consent for recording, you can call `consentToBeingRecordedAndTranscribed()` method to indicate explicit consent to the service. Note that this consent is valid for one `call` session only and users will need to provide consent again if they rejoin the meeting.
  
 ```js
 callRecordingApi.consentToBeingRecordedAndTranscribed();
