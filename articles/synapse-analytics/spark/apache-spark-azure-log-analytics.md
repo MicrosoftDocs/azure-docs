@@ -7,9 +7,10 @@ ms.reviewer: whhender
 ms.service: azure-synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
-ms.date: 03/25/2021
+ms.date: 12/02/2024
 ms.custom: references_regions
 ---
+
 # Monitor Apache Spark applications with Azure Log Analytics
 
 In this tutorial, you learn how to enable the Synapse Studio connector that's built in to Log Analytics. You can then collect and send Apache Spark application metrics and logs to your [Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace). Finally, you can use an Azure Monitor workbook to visualize the metrics and logs.
@@ -95,36 +96,13 @@ To configure a Key Vault linked service in Synapse Studio to store the workspace
 ```properties
 spark.synapse.logAnalytics.enabled true
 spark.synapse.logAnalytics.workspaceId <LOG_ANALYTICS_WORKSPACE_ID>
-spark.synapse.logAnalytics.keyVault.name <AZURE_KEY_VAULT_NAME>
 spark.synapse.logAnalytics.keyVault.key.secret <AZURE_KEY_VAULT_SECRET_KEY_NAME>
 spark.synapse.logAnalytics.keyVault.linkedServiceName <LINKED_SERVICE_NAME>
 ```
 
 For a list of Apache Spark configurations, see [Available Apache Spark configurations](../monitor-synapse-analytics-reference.md#available-apache-spark-configurations)
 
-### Step 3: Upload your Apache Spark configuration to an Apache Spark pool 
-
-> [!NOTE]
->
-> This step will be replaced by step 4.
-
-You can upload the configuration file to your Azure Synapse Analytics Apache Spark pool. In Synapse Studio:
-
-   1. Select **Manage** > **Apache Spark pools**.
-   2. Next to your Apache Spark pool, select the **...** button.
-   3. Select **Apache Spark configuration**. 
-   4. Select **Upload**, and choose the *spark_loganalytics_conf.txt* file.
-   5. Select **Upload**, and then select **Apply**.
-
-      > [!div class="mx-imgBorder"]
-      > ![Screenshot that shows the Spark pool configuration.](./media/apache-spark-azure-log-analytics/spark-pool-configuration.png)
-
-> [!NOTE] 
->
-> All the Apache Spark applications submitted to the Apache Spark pool will use the configuration setting to push the Apache Spark application metrics and logs to your specified workspace.
-
-
-### Step 4: Create an Apache Spark Configuration
+### Step 3: Create an Apache Spark Configuration
 
 You can create an Apache Spark Configuration to your workspace, and when you create Notebook or Apache spark job definition can select the Apache Spark configuration that you want to use with your Apache Spark pool. When you select it, the details of the configuration are displayed.
 
