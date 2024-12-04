@@ -341,7 +341,7 @@ When you build integration solutions, consider creating and using shared service
 
 ## Next steps
 
-You've now learned more about available migration approaches, and best practices for moving BizTalk Server workloads to Azure Integration Services. To provide detailed feedback about this guide, you can use the following form:
+You've now learned more about available migration approaches and best practices for moving BizTalk Server workloads to Azure Logic Apps. To provide detailed feedback about this guide, you can use the following form:
 
 > [!div class="nextstepaction"]
 >
