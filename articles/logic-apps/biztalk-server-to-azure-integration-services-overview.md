@@ -772,7 +772,7 @@ The following section describes options to track artifacts for performance monit
 #### Azure Logic Apps
 
 
-Azure Logic Apps also provides rich run history so that developers and support analysts can review action by action telemetry, including all processed inputs and outputs. To help protect any sensitive data, you can [enable secure inputs and outputs](./logic-apps-securing-a-logic-app.md?tabs=azure-portal#obfuscate) on individual actions in workflows. This capability obfuscates or hides the data in logs and workflow run histories to avoid leaks.
+Azure Logic Apps also provides rich run history so that developers and support analysts can review action by action telemetry, including all processed inputs and outputs. To help protect any sensitive data, you can [enable secure inputs and outputs](logic-apps-securing-a-logic-app.md?tabs=azure-portal#obfuscate) on individual actions in workflows. This capability obfuscates or hides the data in logs and workflow run histories to avoid leaks.
 
 Beyond data obfuscation, you can use [Azure RBAC](../role-based-access-control/overview.md) rules to protect data access. Azure RBAC includes [specific built-in roles for Azure Logic Apps (Standard)](logic-apps-securing-a-logic-app.md?tabs=azure-portal#standard-workflows).
 
