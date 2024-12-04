@@ -16,7 +16,7 @@ ms.topic: how-to
 
 ### Azure Container Storage fails to install due to missing configuration
 
-After running `az aks create`, you might see the message *Azure Container Storage failed to install. AKS cluster is created. Please run `az aks update` along with `--enable-azure-container-storage` to enable Azure Container Storage*.
+After running `az aks create`, you might see the message *Azure Container Storage failed to install. AKS cluster is created. Run `az aks update` along with `--enable-azure-container-storage` to enable Azure Container Storage*.
 
 This message means that Azure Container Storage wasn't installed, but your AKS (Azure Kubernetes Service) cluster was created properly.
 
@@ -55,7 +55,7 @@ To add the `acstor` namespace to the exclusion list, follow these steps:
 
 ### Can't install and enable Azure Container Storage in node pools with taints
 
-You might configure [node taints](/azure/aks/use-node-taints) on the node pools to restrict pods from being scheduled on these node pools. Installing and enabling Azure Container Storage on these noode pools will be blocked because the required pods can't be created in these node pools. The behavior applies to both the system node pool when installing and the user node pools when enabling.
+You might configure [node taints](/azure/aks/use-node-taints) on the node pools to restrict pods from being scheduled on these node pools. Installing and enabling Azure Container Storage on these node pools may be blocked because the required pods can't be created in these node pools. The behavior applies to both the system node pool when installing and the user node pools when enabling.
 
 You can check the node taints with the following example:
 
@@ -89,7 +89,7 @@ $ az aks nodepool list -g $resourceGroup --cluster-name $clusterName --query "[]
 
 ```
 
-Retry the installing or enabling after you remove node taints successfully. After it completes successfully, you can configure node taints back to resume the pod scheduling restaints.
+Retry the installing or enabling after you remove node taints successfully. After it completes successfully, you can configure node taints back to resume the pod scheduling restraints.
 
 ### Can't set storage pool type to NVMe
 
@@ -114,7 +114,7 @@ Run the following steps to enable Azure Container Storage to manage these local 
    NAMESPACE   NAME                 CAPACITY   AVAILABLE   USED   RESERVED   READY   AGE
    acstor      ephemeraldisk-nvme   0          0           0      0          False   82s
    ```
-   Above example shows 0 capacity claimed by `ephemeraldisk-nvme` storage pool.
+   This example shows 0 capacity claimed by `ephemeraldisk-nvme` storage pool.
 
 1. Run the following command to confirm unclaimed state of these local block devices and check existing file system on the disks:
    ```bash
@@ -129,13 +129,13 @@ Run the following steps to enable Azure Container Storage to manage these local 
        Fs Type:  ext4
    …
    ```
-   Above example shows that the block devices are `Unclaimed` status and there is an existing file system on the disk.
+   This example shows that the block devices are `Unclaimed` status and there is an existing file system on the disk.
 
 1. Confirm that you want to use Azure Container Storage to manage the local data disks exclusively before proceeding.
 
 1. Stop and remove the daemonsets or components that manage local data disks.
 
-1. Login to each node that has local data disks.
+1. Log in to each node that has local data disks.
 
 1. Remove existing file systems from all local data disks.
 
@@ -148,7 +148,7 @@ Run the following steps to enable Azure Container Storage to manage these local 
    daemon set "azurecontainerstorage-ndm" successfully rolled out
    ```
 
-1. Wait a few seconds and check if the capacity from local data disks is claimed by ephemeral storage pool.
+1. Wait a few seconds and check if the ephemeral storage pool claims the capacity from local data disks.
 
    ```bash
    $ kubectl wait -n acstor sp --all --for condition=ready
@@ -161,11 +161,11 @@ Run the following steps to enable Azure Container Storage to manage these local 
    NAMESPACE   NAME                 CAPACITY        AVAILABLE       USED          RESERVED      READY   AGE
    acstor      ephemeraldisk-nvme   3840766820352   3812058578944   28708241408   26832871424   True    4d16h
    ```
-   Above example shows `ephemeraldisk-nvme` storage pool successfully claims the capacity from local NVMe disks on the nodes.
+   This example shows `ephemeraldisk-nvme` storage pool successfully claims the capacity from local NVMe disks on the nodes.
 
 ### Error when trying to expand an Azure Disks storage pool
 
-If your existing storage pool is less than 4 TiB (4,096 GiB), you can only expand it up to 4,095 GiB. If you try to expand beyond that, the internal PVC will show an error message about disk size or caching type limitations. Stop your VM or detach the disk and retry the operation."
+If your existing storage pool is less than 4 TiB (4,096 GiB), you can only expand it up to 4,095 GiB. If you try to expand beyond the limit, the internal PVC shows an error message about disk size or caching type limitations. Stop your VM or detach the disk and retry the operation."
 
 To avoid errors, don't attempt to expand your current storage pool beyond 4,095 GiB if it is initially smaller than 4 TiB (4,096 GiB). Storage pools larger than 4 TiB can be expanded up to the maximum storage capacity available.
 
@@ -183,19 +183,19 @@ To remediate, create a node pool with a VM SKU that has NVMe drives and try agai
 
 ### Storage pool type already enabled
 
-If you try to enable a storage pool type that's already enabled, you get the following message: *Invalid `--enable-azure-container-storage` value. Azure Container Storage is already enabled for storage pool type `<storage-pool-type>` in the cluster*. You can check if you have any existing storage pools created by running `kubectl get sp -n acstor`.
+If you try to enable a storage pool type that exists, you get the following message: *Invalid `--enable-azure-container-storage` value. Azure Container Storage is already enabled for storage pool type `<storage-pool-type>` in the cluster*. You can check if you have any existing storage pools created by running `kubectl get sp -n acstor`.
 
 ### Disabling a storage pool type
 
 When disabling a storage pool type via `az aks update --disable-azure-container-storage <storage-pool-type>` or uninstalling Azure Container Storage via `az aks update --disable-azure-container-storage all`, if there's an existing storage pool of that type, you get the following message:
 
-*Disabling Azure Container Storage for storage pool type `<storage-pool-type>` forcefully deletes all the storage pools of the same type and affect the applications using these storage pools. Forceful deletion of storage pools can also lead to leaking of storage resources which are being consumed. Do you want to validate whether any of the storage pools of type `<storage-pool-type>` are being used before disabling Azure Container Storage? (Y/n)*
+*Disabling Azure Container Storage for storage pool type `<storage-pool-type>` forcefully deletes all the storage pools of the same type and it affects the applications using these storage pools. Forceful deletion of storage pools can also lead to leaking of storage resources which are being consumed. Do you want to validate whether any of the storage pools of type `<storage-pool-type>` are being used before disabling Azure Container Storage? (Y/n)*
 
 If you select Y, an automatic validation runs to ensure that there are no persistent volumes created from the storage pool. Selecting n bypasses this validation and disables the storage pool type, deleting any existing storage pools and potentially affecting your application.
 
 ## Troubleshoot volume issues
 
-### Pod pending creation due to ephemeral volume size above available capacity
+### Pod pending creation due to ephemeral volume size beyond available capacity
 
 An ephemeral volume is allocated on a single node. When you configure the size of ephemeral volumes for your pods, the size should be less than the available capacity of a single node's ephemeral disk. Otherwise, the pod creation is in pending status.
 
@@ -244,7 +244,7 @@ ephemeraldisk-temp-diskpool-xbtlj   75660001280   75031990272   628011008   5609
 
 In this example, the available capacity of temp disk for a single node is `75031990272` bytes or 69 GiB.
 
-Adjust the volume storage size below available capacity and redeploy your pod. See [Deploy a pod with a generic ephemeral volume](use-container-storage-with-temp-ssd.md#3-deploy-a-pod-with-a-generic-ephemeral-volume).
+Adjust the volume storage size less than available capacity and redeploy your pod. See [Deploy a pod with a generic ephemeral volume](use-container-storage-with-temp-ssd.md#3-deploy-a-pod-with-a-generic-ephemeral-volume).
 
 ### Volume fails to attach due to metadata store offline
 
