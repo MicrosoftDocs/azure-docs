@@ -392,7 +392,6 @@ resource dataflow_1 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflow
         operationType: 'Destination'
         destinationSettings: {
           endpointRef: 'eventgrid'
-          serializationFormat: 'Json'
           dataDestination: 'telemetry/aio'
         }
       }
@@ -444,7 +443,7 @@ resource dataflow_2 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflow
       }
     ]
   }
-} 
+}
 ```
 
 Like the dataflow endpoint, execute the following command in your terminal:
