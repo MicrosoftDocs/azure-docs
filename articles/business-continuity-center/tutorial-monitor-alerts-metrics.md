@@ -20,7 +20,7 @@ This tutorial describes how Azure Business Continuity Center allows you to view 
 
 Azure Business Continuity Center allows you to monitor alerts that are raised for your critical events in your backup and disaster recovery events. You can view any built-in alerts that were fired by solutions, such as Azure Backup or Azure Site Recovery, and alerts fired based on custom alert rules on metrics.
 
-[! INCLUDE [View fired alerts in Azure Business Continuity Center.](../../includes/business-continuity-center-view-fired-alerts.md)]
+[!INCLUDE [View fired alerts in Azure Business Continuity Center.](../../includes/business-continuity-center-view-fired-alerts.md)]
 
 ## Configure notifications
 
