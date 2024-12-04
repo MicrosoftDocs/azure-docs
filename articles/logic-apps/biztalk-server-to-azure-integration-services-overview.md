@@ -31,7 +31,7 @@ By migrating your integration workloads to Azure Logic Apps, you can reap the fo
 
 ## What is Azure Logic Apps?
 
-Azure Logic Apps is a Cloud-based service for automating workflows, orchestrating business processes, applications and data across hybrid environments in a visual manner. It is part of Azure Integration Services, that is a set of cloud-based, serverless, scalable, and Microsoft-managed building blocks for you to create comprehensive integration solutions and migrate existing BizTalk Server solutions:
+Azure Logic Apps is a cloud-based and hybrid service for automating workflows and orchestrating business processes, applications, and data across hybrid environments by using a visual designer. This service is part of Azure Integration Services, which are a set of cloud-based, serverless, scalable, and Microsoft-managed building blocks for you to create comprehensive integration solutions and migrate existing BizTalk Server solutions:
 
 | Service | Description |
 |---------|-------------|
