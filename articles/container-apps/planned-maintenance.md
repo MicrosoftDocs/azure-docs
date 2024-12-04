@@ -22,7 +22,7 @@ The following table describes the difference between the timing in how *critical
 | Update type | Description | Timing |
 |---|---|---|
 | Critical | Urgent fixes that include updates essential to the security and stability of your app. | Anytime |
-| Noncritical | Routine security patches, bug fixes, and the introduction of new features. | If a planned maintenance window is defined, then updates only happen during that time span.<br><br>If a maintenance window isn't configured, then updates can be applied at any time. |
+| Noncritical | Routine security patches, bug fixes, and the introduction of new features. | If a planned maintenance window is defined, then updates only start during that time span.<br><br>If a maintenance window isn't configured, then updates can be applied at any time. |
 
 ## How maintenance windows work
 
@@ -34,7 +34,7 @@ Keep in mind the following considerations:
 
 * The minimum duration for a maintenance window is 8 hours.
 
-* Planned maintenance is a best-effort feature. When there are critical updates, Container Apps can apply these updates outside of the maintenance window to ensure the security and reliability of the platform and your applications.
+* Planned maintenance is an optional, best-effort feature. When there are critical updates, Container Apps can apply these updates outside of the maintenance window to ensure the security and reliability of the platform and your applications.
 
 * Support for maintenance windows is supported in all container apps and jobs, except when they run on consumption workload profiles.
 
