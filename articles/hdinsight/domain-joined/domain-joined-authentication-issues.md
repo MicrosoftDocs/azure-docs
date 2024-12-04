@@ -41,7 +41,7 @@ The Administrator of the Microsoft Entra tenant should enable Microsoft Entra ID
 Sign in fails with error code 50034. Error message is similar to:
 
 ```
-{"error":"invalid_grant","error_description":"AADSTS50034: The user account Microsoft.AzureAD.Telemetry.Diagnostics.PII doesn't exist in the 0c349e3f-1ac3-4610-8599-9db831cbaf62 directory. To sign into this application, the account must be added to the directory.\r\nTrace ID: 2222cccc-33dd-eeee-ff44-aaaaaa555555\r\nCorrelation ID: cccc2222-dd33-4444-55ee-666666ffffff\r\nTimestamp: 2019-04-29 15:52:16Z", "error_codes":[50034],"timestamp":"2019-04-29 15:52:16Z","trace_id":"2222cccc-33dd-eeee-ff44-aaaaaa555555", "correlation_id":"cccc2222-dd33-4444-55ee-666666ffffff"}
+{"error":"invalid_grant","error_description":"AADSTS50034: The user account Microsoft.AzureAD.Telemetry.Diagnostics.PII doesn't exist in the aaaabbbb-0000-cccc-1111-dddd2222eeee directory. To sign into this application, the account must be added to the directory.\r\nTrace ID: 2222cccc-33dd-eeee-ff44-aaaaaa555555\r\nCorrelation ID: cccc2222-dd33-4444-55ee-666666ffffff\r\nTimestamp: 2019-04-29 15:52:16Z", "error_codes":[50034],"timestamp":"2019-04-29 15:52:16Z","trace_id":"2222cccc-33dd-eeee-ff44-aaaaaa555555", "correlation_id":"cccc2222-dd33-4444-55ee-666666ffffff"}
 ```
 
 ### Cause
