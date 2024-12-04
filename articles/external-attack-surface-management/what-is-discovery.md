@@ -64,7 +64,7 @@ To build a customized inventory, a user can create discovery groups to organize 
 
 If the discovery engine detects a strong connection between a potential asset and the initial seed, the system automatically labels the asset with the state **Confirmed Inventory**. As the connections to this seed are iteratively scanned and third-level or fourth-level connections are discovered, the system’s confidence in the ownership of any newly detected assets lessens. Similarly, the system might detect assets that are relevant to your organization but not directly owned by you.
 
-For these reasons, newly discovered assets are labeled as having one of the following states:
+For these reasons, newly discovered assets are labeled with one of the following states:
 
 | State name | Description |
 |--|--|
