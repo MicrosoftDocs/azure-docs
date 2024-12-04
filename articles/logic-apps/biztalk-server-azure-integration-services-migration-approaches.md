@@ -91,7 +91,7 @@ To set up your initial environment, use the [Azure Integration Services Landing 
 
 An MVP is a product version with just enough features to be customer usable. This version shows the product's possibilities and potential to gather customer feedback and continue the work. For a BizTalk migration, your MVP definition reflects the iterations, waves, or groups of sprints that you need to make progress towards working features and to meet initial integration workloads.
 
-We recommend that your MVP definition include the following business outcomes, which are expressed as [*Epics*](/azure/devops/boards/backlogs/define-features-epics?view=azure-devops&tabs=agile-process#what-makes-a-feature-or-epic) in Scrum terminology:
+We recommend that your MVP definition include the following business outcomes, which are expressed as [*Epics*](/azure/devops/boards/backlogs/define-features-epics?view=azure-devops&preserve-version=true&tabs=agile-process#what-makes-a-feature-or-epic) in Scrum terminology:
 
 - **Business outcomes (Epics)**
   - What is the primary goal that we want to achieve? 
