@@ -44,7 +44,7 @@ The following tables show support of individual APIs in calling SDK to individua
 |Start or stop transcription              | 	|  |
 |Give explicit consent for being transcribed | ✔️[1]	| ✔️[1]  |
 
-[1] This functionality is avialable only in Teams meetings and group Teams interoperability calls.
+[1] This functionality is available only in Teams meetings and group Teams interoperability calls.
 
 ## SDKs
 The following tables show support of transcription in individual Azure Communication Services SDKs.
