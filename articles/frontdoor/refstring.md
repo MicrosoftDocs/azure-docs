@@ -5,7 +5,7 @@ author: Alej-b23
 ms.author: pagonzalez 
 ms.service: azure-frontdoor 
 ms.topic: concept-article 
-ms.date: 09/06/2024
+ms.date: 12/03/2024
 
 #CustomerIntent: As a web developer, I want troubleshoot my web application using a Reference String.
 ---
