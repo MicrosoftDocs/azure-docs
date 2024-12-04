@@ -348,7 +348,7 @@ BizTalk Server provides all these capabilities out-of-the-box. You don't need to
 
 #### Azure Logic Apps
 
-[Azure Logic Apps](./logic-apps-overview.md) provides message durability in the following ways:
+[Azure Logic Apps](logic-apps-overview.md) provides message durability in the following ways:
 
 - Stateful workflows, which are the default in Consumption logic apps and available in Standard logic apps, have checkpoints that track the workflow state and store messages as they pass through workflow actions. This functionality provides access to rich data stored in the trigger and workflow instance run history where you can review detailed input and output values.
 
