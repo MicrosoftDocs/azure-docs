@@ -84,9 +84,9 @@ NetworkTapRule resource provides ability for providing filtering and forwarding 
 | match-configurations/matchconfigurationName|Name of Match configuration block |  | |
 | match-configurations/sequenceNumber|Sequence number of Match configuration |  | |
 | match-configurations/ipAddressType|Ip address family |  | |
-| match-configurations/matchconditions|List of dynamic match conditions based on port, protocol, Vlan & Ip conditions. |  | |
+| match-configurations/matchconditions|List of dynamic match conditions based on port, protocol, VLAN & IP conditions. |  | |
 | match-configurations/action|Provide action details. Actions can be Drop, Count, Log,Goto,Redirect,Mirror|  | |
-| dynamic-match-configurations|List of dynamic match configurations based Port, Vlan & IP |  | |
+| dynamic-match-configurations|List of dynamic match configurations based Port, VLAN & IP |  | |
 > [!NOTE]
 > Network Tap rules and Neighbor Groups must be created prior to refrencing them in Network Tap 
 ### Create Network Tap Rule
