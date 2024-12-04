@@ -132,7 +132,11 @@ var onReboot = function(request, response) {
 
 ### SDK device samples
 
-The Azure IoT SDK for Node.js provides working samples of device apps that handle device management tasks. For more information, see [Device management pattern samples](https://github.com/Azure/azure-iot-sdk-node/blob/a85e280350a12954f46672761b0b516d08d374b5/doc/dmpatterns.md).
+The Azure IoT SDK for Node.js provides working samples of device apps that handle device management tasks. For more information, see:
+
+* [Device method sample](https://github.com/Azure/azure-iot-sdk-node/blob/a85e280350a12954f46672761b0b516d08d374b5/device/samples/javascript/device_methods.js)
+* [Device methods E2E test](https://github.com/Azure/azure-iot-sdk-node/blob/a85e280350a12954f46672761b0b516d08d374b5/e2etests/test/device_method.js)
+* [DM patterns reboot device](https://github.com/Azure/azure-iot-sdk-node/blob/a85e280350a12954f46672761b0b516d08d374b5/device/samples/javascript/dmpatterns_reboot_device.js)
 
 ## Create a backend application
 
@@ -202,4 +206,9 @@ var startRebootDevice = function(deviceToReboot) {
 
 ### SDK service samples
 
-The Azure IoT SDK for Node.js provides working samples of service apps that handle device management tasks. For more information, see [The device management pattern samples](https://github.com/Azure/azure-iot-sdk-node/blob/a85e280350a12954f46672761b0b516d08d374b5/doc/dmpatterns.md).
+The Azure IoT SDK for Node.js provides working samples of service apps that handle device management tasks. For more information, see:
+
+* [Module methods](https://github.com/Azure/azure-iot-sdk-node/blob/a85e280350a12954f46672761b0b516d08d374b5/e2etests/test/module_methods.js)
+* [Device method tests](https://github.com/Azure/azure-iot-sdk-node/blob/a85e280350a12954f46672761b0b516d08d374b5/ts-e2e/src/device_methods.tests.ts)
+* [Device method E2E tests](https://github.com/Azure/azure-iot-sdk-node/blob/a85e280350a12954f46672761b0b516d08d374b5/e2etests/test/device_method.js)
+* [Method disconnect](https://github.com/Azure/azure-iot-sdk-node/blob/a85e280350a12954f46672761b0b516d08d374b5/e2etests/test/method_disconnect.js)
