@@ -12,10 +12,9 @@ ms.custom: engagement-fy25
 
 # Prepare on-premises machines for migration to Azure
 
-This article describes how to prepare on-premises machines before you migrate them to Azure using the [Migration and modernization](migrate-services-overview.md#migration-and-modernization-tool) tool.
+This article describes how to prepare on-premises machines before you migrate them to Azure using the [Migration and modernization](/azure/migrate/common-questions-server-migration.md) tool.
 
 In this article, you:
-> [!div class="checklist"]
 > * Review migration limitations.
 > * Select a method for migrating VMware vSphere VMs.
 > * Check hypervisor and operating system requirements for machines you want to migrate.
@@ -111,8 +110,8 @@ Azure Migrate completes these actions automatically for these versions
 
 
 - Red Hat Enterprise Linux  9.x, 8.x, 7.9 with Extended Lifecycle Support (ELS)
-- SUSE Linux Enterprise Server 15
-- Ubuntu 24.04, 22.04 and these versions with Expanded Security Maintenance (ESM) 20.04, 18.04 and 16.04
+- SUSE Linux 12 (LTSS only), SUSE Linux 15+
+- Ubuntu 24.04, 22.04 , for Ubuntu 16.04, 18.04 and 20.04 (ESM) Expanded Security Maintenance is required.
 - Debian LTS 12 and 11
 - Oracle Linux 9.x, 8, 7.9
 
