@@ -784,7 +784,7 @@ The following section describes hosting options for BizTalk Server and Azure Int
 
 #### BizTalk Server
 
-BizTalk Server 2020 supports the following Microsoft platforms and products (with the Cumulative update 6):
+BizTalk Server 2020 supports the following Microsoft platforms and products, starting with Cumulative Update 6:
 
 - Windows Server 2022, Windows Server 2019, and Windows 11
 - Visual Studio 2019 Enterprise and Visual Studio 2019 Professional
