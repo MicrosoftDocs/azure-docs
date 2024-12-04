@@ -11,7 +11,7 @@ ms.date: 11/25/2024
 ms.custom: mqtt, devx-track-python, py-fresh-zinc
 ---
 
-  * **Python SDK** - [Python version 3.7 or later](https://www.python.org/downloads/) is recommended. Make sure to use the 32-bit or 64-bit installation as required by your setup. When prompted during the installation, make sure to add Python to your platform-specific environment variable.
+  * Python SDK - [Python version 3.7 or later](https://www.python.org/downloads/) is recommended. Make sure to use the 32-bit or 64-bit installation as required by your setup. When prompted during the installation, make sure to add Python to your platform-specific environment variable.
 
 ## Overview
 
@@ -50,7 +50,7 @@ from azure.iot.device import IoTHubDeviceClient, MethodResponse
 
 The [IoTHubDeviceClient](/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient) class contains methods that can be used to work with direct methods.
 
-Call [create_from_connection_string](/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient?#azure-iot-device-iothubdeviceclient-create-from-connection-string) to connect an application to a device using a device connection string.
+Use [create_from_connection_string](/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient?#azure-iot-device-iothubdeviceclient-create-from-connection-string) to connect an application to a device using a device connection string.
 
 ```python
 # substitute the device connection string in conn_str
@@ -61,13 +61,11 @@ device_client = IoTHubDeviceClient.create_from_connection_string(conn_str)
 
 ### Create a direct method callback
 
-Call [on_method_request_received](/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient?#azure-iot-device-iothubdeviceclient-on-method-request-received) to create a handler function or coroutine that is called when a direct method is received. The listener is associated with a method name keyword, such as "reboot". The method name can be used in an IoT Hub or backend application to trigger the callback method on the device.
+Use [on_method_request_received](/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient?#azure-iot-device-iothubdeviceclient-on-method-request-received) to create a handler function or coroutine that is called when a direct method is received. The listener is associated with a method name keyword, such as "reboot". The method name can be used in an IoT Hub or backend application to trigger the callback method on the device.
 
 The handler function should call [MethodResponse](/python/api/azure-iot-device/azure.iot.device.methodresponse) to send a response acknowledgement to the calling application.
 
 This example sets up a direct method handler named `method_request_handler`.
-
-For example:
 
 ```python
 try:

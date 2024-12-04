@@ -58,7 +58,7 @@ To connect to a device:
 
 ### Create a direct method callback listener
 
-Call [subscribeToMethods](https://azure.github.io/azure-iot-sdk-java/master/device/com/microsoft/azure/sdk/iot/device/InternalClient.html#subscribeToMethods-com.microsoft.azure.sdk.iot.device.twin.MethodCallback-java.lang.Object-int-) to initialize a direct method callback listener. `subscribeToMethods` listens for incoming direct methods until the connection is terminated. The method name and payload is received for each direct method call.
+Use [subscribeToMethods](https://azure.github.io/azure-iot-sdk-java/master/device/com/microsoft/azure/sdk/iot/device/InternalClient.html#subscribeToMethods-com.microsoft.azure.sdk.iot.device.twin.MethodCallback-java.lang.Object-int-) to initialize a direct method callback listener. `subscribeToMethods` listens for incoming direct methods until the connection is terminated. The method name and payload is received for each direct method call.
 
 For example:
 
@@ -85,6 +85,17 @@ The Azure IoT SDK for Java includes a working sample to test the device app conc
 This section describes how to initiate a remote reboot on a device using a direct method.
 
 The `ServiceClient` [DeviceMethod](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicemethod) class contains methods that services can use to access device twins.
+
+### Service import statements
+
+Use the following service import statements to access the Azure IoT SDK for Java.
+
+```java
+import com.microsoft.azure.sdk.iot.service.jobs.DirectMethodsJobOptions;
+import com.microsoft.azure.sdk.iot.service.methods.DirectMethodRequestOptions;
+import com.microsoft.azure.sdk.iot.service.methods.DirectMethodsClient;
+import com.microsoft.azure.sdk.iot.service.methods.DirectMethodResponse;
+```
 
 ### Connect to IoT hub
 
@@ -116,11 +127,11 @@ DeviceMethod methodClient = new DeviceMethod(iotHubConnectionString);
 
 ### Invoke a method on a device
 
-Call [invoke](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicemethod?#method-details) to invoke a method on a device and return the result status.
+Call [DeviceMethod.invoke](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicemethod?#method-details) to invoke a method on a device and return the result status.
+
+The `invoke` payload parameter is optional. Use `null` if there is no payload supplied. The payload parameter can take different data forms including string, byte array, and HashMap. For examples, see [Direct Method Tests](https://github.com/Azure/azure-iot-sdk-java/blob/main/iot-e2e-tests/common/src/test/java/tests/integration/com/microsoft/azure/sdk/iot/iothub/methods/DirectMethodsTests.java).
 
 This example calls the "reboot" method to initiate a reboot on the device. The "reboot" method is mapped to a listener on the device as described in the **Create a direct method callback listener** section of this article.
-
-The payload parameter is optional. Use `null` if there is no payload supplied. The payload parameter can take different data forms including string, byte array, and HashMap. For examples, see [Direct Method Tests](https://github.com/Azure/azure-iot-sdk-java/blob/main/iot-e2e-tests/common/src/test/java/tests/integration/com/microsoft/azure/sdk/iot/iothub/methods/DirectMethodsTests.java).
 
 For example:
 

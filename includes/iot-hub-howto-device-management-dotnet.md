@@ -11,7 +11,7 @@ ms.date: 11/25/2024
 ms.custom: mqtt, devx-track-csharp, devx-track-dotnet
 ---
 
-  * Requires Visual Studio.
+  * Requires Visual Studio
 
 ## Overview
 

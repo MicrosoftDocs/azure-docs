@@ -101,11 +101,11 @@ client.open(function(err) {
 
 ### Create a direct method callback
 
-Call [onDeviceMethod](/javascript/api/azure-iot-device/client?#azure-iot-device-client-ondevicemethod) to create a handler function or coroutine that is called when a direct method is received. The listener is associated with a method name keyword, such as "reboot". The method name can be used in an IoT Hub or backend application to trigger the callback method on the device.
+Call [onDeviceMethod](/javascript/api/azure-iot-device/client?#azure-iot-device-client-ondevicemethod) to create a callback handler function or coroutine that is called when a direct method is received. The listener is associated with a method name keyword, such as "reboot". The method name can be used in an IoT Hub or backend application to trigger the callback method on the device.
 
 The callback handler function should call `send` to send a response acknowledgement message to the calling application.
 
-This example sets up a direct method handler named `onReboot`.
+This example sets up a direct method handler named `onReboot` that is called when the "reboot" direct method name is used.
 
 ```javascript
 client.onDeviceMethod('reboot', onReboot);
@@ -175,7 +175,9 @@ var client = Client.fromConnectionString(connectionString);
 
 ### Invoke a method on a device
 
-Use [invokeDeviceMethod](/javascript/api/azure-iothub/client?#azure-iothub-client-invokedevicemethod) to invoke a direct method by name on a device. The method name parameter identifies the direct method. The method name is "reboot" in the examples within this article.
+Use [invokeDeviceMethod](/javascript/api/azure-iothub/client?#azure-iothub-client-invokedevicemethod) to invoke a direct method by name on a device. The method name parameter identifies the direct method.
+
+This example calls the "reboot" method to initiate a reboot on the device. The "reboot" method is mapped to a callback handler function on the device as described in the **Create a direct method callback** section of this article.
 
 ```javascript
 var startRebootDevice = function(deviceToReboot) {
