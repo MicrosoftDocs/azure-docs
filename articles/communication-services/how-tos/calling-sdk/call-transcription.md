@@ -42,6 +42,7 @@ The following tables show support of individual APIs in calling SDK to individua
 |Get event that transcription has started	| ✔️	| ✔️  |  		
 |Get transcription state	                | ✔️	| ✔️  | 
 |Start or stop transcription              | 	|  |
+|Learn whether explicit consent is required | ✔️[1]	| ✔️[1]  |
 |Give explicit consent for being transcribed | ✔️[1]	| ✔️[1]  |
 
 [1] This functionality is available only in Teams meetings and group Teams interoperability calls.
