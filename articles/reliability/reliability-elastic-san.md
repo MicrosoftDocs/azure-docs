@@ -31,19 +31,19 @@ To create an Elastic SAN with an availability zone enabled, see [Deploy an Elast
 
 ### Zone down experience
 
-When deploying an Elastic SAN, if you select ZRS for your SAN's redundancy option, zonal failover is supported by the platform. If you use a Private Endpoint to connect to your Elastic SAN, this failover will happen without manual intervention. A ZRS Elastic SAN using Private Endpoints and is designed to self-heal and rebalance itself to take advantage of healthy zones automatically (you may see availability and performance degradation for a few minutes while the SAN rebalances itself).
+When deploying an Elastic SAN, if you select ZRS for your SAN's redundancy option, zonal failover is supported by the platform. If you use a Private Endpoint to connect to your Elastic SAN, this failover happens without manual intervention. A ZRS Elastic SAN using Private Endpoints and is designed to self-heal and rebalance itself to take advantage of healthy zones automatically. There may be availability and performance degradation for a few minutes after a failover, until the SAN rebalances itself.
 
-If you connect using storage service endpoints, zonal failover is supported but may require manual intervention. A ZRS Elastic SAN using storage service endpoints will not switch to a healthy zone automatically. You may need to restart the iSCSI initiator to initiate a failover to a different, healthy zone.
+If you connect using storage service endpoints, zonal failover is supported but might need manual intervention. A ZRS Elastic SAN using storage service endpoints won't switch to a healthy zone automatically. You might need to restart the iSCSI initiator to initiate a failover to a different, healthy zone.
 
 If you deployed an LRS Elastic SAN, you may need to deploy a new SAN using snapshots exported to managed disks.
 
 ### Low-latency design
 
-Elastic SANs using ZRS are identical to Elastic SANs using LRS (they have the same scale targets), but ZRS does add more write latency. Benchmark your Elastic SANs to simulate the workload of your application and compare the latency between LRS and ZRS to see if it will affect your workload.
+Elastic SAN using ZRS are identical to Elastic SAN using LRS (they have the same scale targets), but ZRS does add more write latency. Benchmark your Elastic SAN to simulate the workload of your application and compare the latency between LRS and ZRS to see if it effects your workload.
 
 ### Availability zone migration
 
-To migrate an Elastic SAN on LRS to ZRS, you must snapshot your Elastic SAN's volumes, export them to managed disk snapshots, deploy an Elastic SAN on ZRS, and then create volumes on the SAN on ZRS using those disk snapshots. To learn how to use snapshots (preview), see [Snapshot Azure Elastic SAN volumes (preview)](../storage/elastic-san/elastic-san-snapshots.md).
+To migrate an Elastic SAN on LRS to ZRS, snapshot your Elastic SAN volumes, export them to managed disk snapshots, deploy an Elastic SAN on ZRS, and then create volumes on the SAN on ZRS using those disk snapshots. To learn how to use snapshots (preview), see [Snapshot Azure Elastic SAN volumes (preview)](../storage/elastic-san/elastic-san-snapshots.md).
 
 ## Disaster recovery and business continuity
 
@@ -59,7 +59,7 @@ You can find outage declarations in [Service Health - Microsoft Azure](https://p
 
 ### Capacity and proactive disaster recovery resiliency
 
-Microsoft and its customers operate under the [Shared Responsibility Model](./availability-zones-overview.md#shared-responsibility-model). Shared responsibility means that for customer-enabled DR (customer-responsible services), you must address DR for any service you deploy and control. You should pre-validate any service you deploy will work with Elastic SAN. To ensure that recovery is proactive, you should always pre-deploy secondaries because there's no guarantee of capacity at time of impact for those who haven't pre-allocated.
+Microsoft and its customers operate under the [Shared Responsibility Model](./availability-zones-overview.md#shared-responsibility-model). Shared responsibility means that for customer-enabled DR (customer-responsible services), you must address DR for any service you deploy and control. Pre-validate any service you deploy works with Elastic SAN. To ensure that recovery is proactive, pre-deploy secondaries to make sure there's no capacity issues if your environments are impacted.
 
 ## Next steps
 
