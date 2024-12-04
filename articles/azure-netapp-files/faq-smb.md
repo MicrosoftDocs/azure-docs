@@ -5,7 +5,7 @@ ms.service: azure-netapp-files
 ms.topic: conceptual
 author: b-hchen
 ms.author: anfdocs
-ms.date: 11/22/2024
+ms.date: 12/04/2024
 ---
 # SMB FAQs for Azure NetApp Files
 
@@ -17,7 +17,7 @@ Azure NetApp Files supports SMB 2.1 and SMB 3.1 (which includes support for SMB 
 
 ## Can I use Windows Server 2025? 
 
-Windows Server 2025 doesn't work with the Azure NetApp Files common internet file system (CIFS) protocol. 
+Windows Server 2025 currently doesn't work with the Azure NetApp Files SMB protocol. 
 
 ## Does Azure NetApp Files support access to ‘offline files’ on SMB volumes?
 
