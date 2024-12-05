@@ -486,7 +486,7 @@ Interface:    net1, via: LLDP, RID: 1, Time: 0 day, 20:28:36
    - DNS (Domain Name System) Server IP Address: not set by operator during setup
    - DNS Domain Suffix: not set by operator during setup
    - NTP (Network Time Protocol) Server IP Address or FQDN: not set by operator during setup
-   - Syslog Primary: 172.27.255.213
+   - Syslog Primary: not set by operator during setup
    - Syslog Secondary: not set by operator during setup
    - SMTP Gateway IP address or FQDN: not set by operator during setup
    - Email Sender Domain Name: domain name of the sender of the email (example.com)
@@ -510,7 +510,6 @@ Interface:    net1, via: LLDP, RID: 1, Time: 0 day, 20:28:36
      - Subnet Mask: 255.255.255.0
      - MTU: 1500
      - Bond: not set by operator during setup
-   - VLAN Number / Prefix: 43
    - ct0.eth10: not set by operator during setup
    - ct0.eth11: not set by operator during setup
    - ct0.eth18: not set by operator during setup
