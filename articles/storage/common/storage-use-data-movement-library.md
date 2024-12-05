@@ -128,7 +128,7 @@ StorageResource blockBlobResource = provider.FromClient(blockBlobClient);
 // Use a similar approach to get a page blob or append blob resource
 ```
 
-## Example: Start a new transfer
+## Start a new transfer
 
 Transfers are defined by a source and a destination. Both the source and destination are type `StorageResource`, which can be either `StorageResourceContainer` or `StorageResourceItem`. For a given transfer, the source and destination must be of the same kind. For example, if the source is a blob container, the destination must be a blob container.
 
@@ -140,7 +140,7 @@ This method returns a [DataTransfer](/dotnet/api/azure.storage.datamovement.data
 
 You can optionally provide an instance of [DataTransferOptions](/dotnet/api/azure.storage.datamovement.datatransferoptions) to `StartTransferAsync`, which applies certain configuration options, including creation preference and transfer size, to a specific transfer.
 
-### Upload a local file to a blob
+### Example: Upload a local file to a blob
 
 The following code example shows how to start a new transfer to upload a local file to a blob:
 
@@ -164,7 +164,7 @@ DataTransfer dataTransfer = await transferManager.StartTransferAsync(
 await dataTransfer.WaitForCompletionAsync();
 ```
 
-### Copy a container or blob
+### Example: Copy a container or blob
 
 You can use the Data Movement library to copy between two `StorageResource` instances. For blob resources, the transfer uses the [Put Blob From URL](/rest/api/storageservices/put-blob-from-url) operation, which performs a server-to-server copy. 
 
@@ -213,7 +213,7 @@ await dataTransfer.WaitForCompletionAsync();
 
 You can set configuration options for a transfer by providing an instance of [DataTransferOptions](/dotnet/api/azure.storage.datamovement.datatransferoptions) to the `StartTransferAsync` method. The `DataTransferOptions` class provides properties that allow you to set the number of parallel operations, the size of the buffer, and more.
 
-## Example: Resume an existing transfer
+## Resume an existing transfer
 
 By persisting transfer progress to disk, the Data Movement library allows you to resume a transfer that failed before completion, or was otherwise canceled or paused. To resume a transfer, the `TransferManager` object must be configured with `StorageResourceProvider` instances that are capable of reassembling the transfer from the persisted data. You can use the `ResumeProviders` property of the [TransferManagerOptions](/dotnet/api/azure.storage.datamovement.transfermanageroptions) class to specify the providers.
 
@@ -252,11 +252,11 @@ DataTransfer resumedTransfer = await transferManager.ResumeTransferAsync(transfe
 > [!NOTE]
 > The location of the persisted transfer data is different than the default location if [TransferCheckpointStoreOptions](/dotnet/api/azure.storage.datamovement.transfercheckpointstoreoptions) is set as part of`TransferManagerOptions`. To resume transfers recorded with a custom checkpoint store, you must provide the same checkpoint store options for the `TransferManager` object that resumes the transfer.
 
-## Example: Monitor transfer progress
+## Monitor transfer progress
 
 Transfers can be monitored and observed through several mechanisms, depending on the needs of your app. In this section, you learn how to monitor transfer progress using the `DataTransfer` object, and how to monitor a transfer using `DataTransferOptions` events.
 
-### Monitor transfer progress using the `DataTransfer` object
+### Example: Monitor transfer progress using the `DataTransfer` object
 
 You can monitor transfer progress using the `DataTransfer` object returned by the `StartTransferAsync` method. You can also call [TransferManager.GetTransfersAsync](/dotnet/api/azure.storage.datamovement.transfermanager.gettransfersasync) to enumerate all transfers for a `TransferManager` object.
 
@@ -282,7 +282,7 @@ The `TransferStatus` property returns a [DataTransferStatus](/dotnet/api/azure.s
 | `HasSkippedItems` | Boolean | Represents if transfer has any skipped items. If set to `true`, the transfer has at least one skipped item. If set to `false`, the transfer currently has no skipped items. It's possible to never have any items skipped if `SkipIfExists` isn't enabled in [DataTransferOptions.CreationPreference](/dotnet/api/azure.storage.datamovement.datatransferoptions.creationpreference). |
 | `State` | [DataTransferState](/dotnet/api/azure.storage.datamovement.datatransferstate) | Defines the types of the state a transfer can have. See [DataTransferState](/dotnet/api/azure.storage.datamovement.datatransferstate) for details. |
 
-### Monitor transfer progress using `DataTransferOptions` events
+### Example: Monitor transfer progress using `DataTransferOptions` events
 
 You can monitor transfer progress by listening for events provided by the [DataTransferOptions](/dotnet/api/azure.storage.datamovement.datatransferoptions) class. The `DataTransferOptions` instance is passed to the `StartTransferAsync` method and provides [events](/dotnet/api/azure.storage.datamovement.datatransferoptions#events) that are triggered when a transfer completes, fails, is skipped, or changes status.
 
@@ -310,7 +310,7 @@ async Task<DataTransfer> ListenToTransfersAsync(
 }
 ```
 
-## Example: Use extension methods for `BlobContainerClient`
+## Use extension methods for `BlobContainerClient`
 
 For applications with existing code that uses the `BlobContainerClient` class from **Azure.Storage.Blobs**, you can use extension methods to start transfers directly from a `BlobContainerClient` object. The extension methods are provided in the [BlobContainerClientExtensions](/dotnet/api/azure.storage.blobs.blobcontainerclientextensions) class (or [ShareDirectoryClientExtensions](/dotnet/api/azure.storage.files.shares.sharedirectoryclientextensions) for Azure Files), and provide some of the benefits of using `TransferManager` with minimal code changes. In this section, you learn how to use the extension methods to perform transfers from a `BlobContainerClient` object.
 
