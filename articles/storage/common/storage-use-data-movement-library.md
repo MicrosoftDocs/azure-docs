@@ -64,7 +64,7 @@ The Azure Storage Data Movement library consists of a common client library, and
 
 ## Create a `TransferManager` object
 
-[TransferManager](/dotnet/api/azure.storage.datamovement.transfermanager) is the main class for starting and controlling all types of transfers, including upload, download, and copy. In this section, you learn how to create a `TransferManager` object to work with local files, Blob Storage, or Azure Files.
+[TransferManager](/dotnet/api/azure.storage.datamovement.transfermanager) is the main class for starting and controlling all types of transfers, including upload, download, and copy. In this section, you learn how to create a `TransferManager` object to work with a local file system, Blob Storage, or Azure Files.
 
 > [!NOTE]
 > A best practice for Azure SDK client management is to treat a client as a singleton, meaning that a class only has one object at a time. There's no need to keep more than one instance of a client for a given set of constructor parameters or client options.
@@ -136,7 +136,7 @@ You can start a new transfer by calling the following method:
 
 - [TransferManager.StartTransferAsync](/dotnet/api/azure.storage.datamovement.transfermanager.starttransferasync)
 
-This method returns a [DataTransfer](/dotnet/api/azure.storage.datamovement.datatransfer) object that represents the transfer. You can use the `DataTransfer` object to monitor the transfer progress or obtain the transfer ID. The transfer ID is a unique identifier for the transfer that's needed to [resume a transfer](#example-resume-an-existing-transfer) or pause a transfer.
+This method returns a [DataTransfer](/dotnet/api/azure.storage.datamovement.datatransfer) object that represents the transfer. You can use the `DataTransfer` object to monitor the transfer progress or obtain the transfer ID. The transfer ID is a unique identifier for the transfer that's needed to [resume a transfer](#resume-an-existing-transfer) or pause a transfer.
 
 You can optionally provide an instance of [DataTransferOptions](/dotnet/api/azure.storage.datamovement.datatransferoptions) to `StartTransferAsync`, which applies certain configuration options, including creation preference and transfer size, to a specific transfer.
 
