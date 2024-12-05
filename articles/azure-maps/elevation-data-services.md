@@ -174,7 +174,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     gxc = min(max(gx * mapSize + 0.5, 0), mapSize - 1);            
     gyc = min(max(gy * mapSize + 0.5, 0), mapSize - 1);            
 
-    # Calclate the tile x and y covering the lng / lat
+    # Calculate the tile x and y covering the lng / lat
     tileX = int(gxc / 256)
     tileY = int(gyc / 256)
 

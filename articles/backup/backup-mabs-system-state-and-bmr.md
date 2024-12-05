@@ -252,7 +252,7 @@ You also can run the system state restore at a command prompt:
 
 1. Start Windows Server Backup on the computer that you want to recover.
 
-1. To get the version identifer, at a command prompt, enter:
+1. To get the version identifier, at a command prompt, enter:
 
    `wbadmin get versions -backuptarget \<servername\sharename\>`
 

@@ -288,7 +288,7 @@ If you have an existing service principal and would like the convenience of only
 
    ```bash
     # The Application ID of your Service Principal for your application
-    appId="00000000-0000-0000-0000-000000000000"
+    appId="00001111-aaaa-2222-bbbb-3333cccc4444"
     # this MUST match the deployment name used above.
     deploymentName="IRTRoleDefinitionDeployment"
 

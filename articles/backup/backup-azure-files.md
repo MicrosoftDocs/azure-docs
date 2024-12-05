@@ -207,7 +207,7 @@ To run an on-demand backup, follow these steps:
 
 # [File share blade](#tab/file-share-pane)
 
-To run an on-demamd backup, follow these steps:
+To run an on-demand backup, follow these steps:
 
 1. Open the file share’s **Overview** blade for which you want to take an on-demand backup.
 

@@ -256,7 +256,7 @@ After you run the first backup and you're using a custom DNS server (without con
 1. Navigate to your Resource Group, and search for the private endpoint you created.
 1. Aside from the three private endpoints discussed earlier, you'll now see a fourth private endpoint with its name starting with `<the name of the private endpoint>_prot` and are suffixed with `_blob`.
 
-    ![Private endpoing with suffix "prot"](./media/private-endpoints/private-endpoint-prot.png)
+    ![Private endpoint with suffix "prot"](./media/private-endpoints/private-endpoint-prot.png)
 
 1. Navigate to this new private endpoint. In the DNS configuration option, you'll see a record with an FQDN and an IP address. Add these to your private DNS server, in addition to the ones described earlier.
 
