@@ -2,7 +2,7 @@
 title: Troubleshoot monitoring issues for Azure Backup
 description: Learn how to troubleshoot monitoring issues for Azure Backup.
 ms.topic: troubleshooting
-ms.date: 10/10/2024
+ms.date: 12/30/2024
 ms.service: azure-backup
 ms.custom: engagement-fy24
 author: AbhishekMallick-MS
@@ -32,6 +32,10 @@ For example:
 ```EXAMPLE
  C:\Program Files\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider0.errlog
 ```
+
+## Best practices for Azure Monitor alerts
+
+Learn [about the best practices for Azure Monitor alerts](/azure/azure-monitor/best-practices-alerts).
 
 ## Next steps
 
