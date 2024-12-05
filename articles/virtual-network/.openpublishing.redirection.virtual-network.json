@@ -1237,17 +1237,17 @@
         },
         {
             "source_path_from_root": "/articles/virtual-network/ip-services/tutorial-routing-preference-virtual-machine-portal.md",
-            "redirect_url": "/azure/virtual-network/ip-services/configure-routing-preferance-virtual-machine",
+            "redirect_url": "/azure/virtual-network/ip-services/configure-routing-preference-virtual-machine",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/virtual-network/ip-services/configure-routing-preference-virtual-machine-powershell.md",
-            "redirect_url": "/azure/virtual-network/ip-services/configure-routing-preferance-virtual-machine",
+            "redirect_url": "/azure/virtual-network/ip-services/configure-routing-preference-virtual-machine",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/virtual-network/ip-services/configure-routing-preference-virtual-machine-cli.md",
-            "redirect_url": "/azure/virtual-network/ip-services/configure-routing-preferance-virtual-machine",
+            "redirect_url": "/azure/virtual-network/ip-services/configure-routing-preference-virtual-machine",
             "redirect_document_id": false
         }
     ]
