@@ -32,7 +32,7 @@ To add a new user, follow the steps in this section:
 
     :::image type="content" source="media/api-management-howto-create-or-invite-developers/api-management-create-developer.png" alt-text="Screenshot of adding a user in the portal.":::
 
-By default, newly created developer accounts are **Active**, and associated with the **Developers** group. Developer accounts that are in an **Active** state can be used to access all of the APIs for which they have subscriptions. To associate the newly created developer with additional groups, see [How to associate groups with developers][How to associate groups with developers].
+By default, newly created developer accounts are **Active**, and associated with the **Developers** group. Developer accounts that are in an **Active** state can be used to access the developer portal and all of the APIs for which they have subscriptions. To associate the newly created developer with additional groups, see [How to associate groups with developers][How to associate groups with developers].
 
 ## Invite a developer
 
@@ -51,7 +51,7 @@ The invitation link is active for 2 days.
 
 ## Deactivate or reactivate a developer account
 
-By default, newly created or invited developer accounts are **Active**. To deactivate a developer account, select **Block**. To reactivate a blocked developer account, select **Activate**. A blocked developer account can't access the developer portal or call any APIs. To delete a user account, select **Delete**.
+To deactivate a developer account in the **Active** state, select **Block**. To reactivate a blocked developer account, select **Activate**. A blocked developer account can't access the developer portal or call any APIs. To delete a user account, select **Delete**.
 
 To block a user, follow the following steps.
 
