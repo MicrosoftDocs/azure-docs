@@ -26,7 +26,7 @@ The following table lists Azure regions and corresponding OCI regions that suppo
 
 | Azure region   | OCI region  | Oracle Exadata Database@Azure | Oracle Autonomous Database@Azure |
 |----------------|--------------------------|-------------------|-------------------|
-| Brazil South | Brazil Southeast (Vinhedo)   | ✓   |     |
+| Brazil South | Brazil Southeast (Vinhedo)   | ✓   |  ✓    |
 
 ## Europe, Middle East, Africa (EMEA)
 
@@ -54,7 +54,8 @@ The following table lists Azure regions and corresponding OCI regions that offer
 
 | Azure region   | OCI region  | Oracle Exadata Database@Azure | Oracle Autonomous Database@Azure |
 |----------------|--------------------------|-------------------|-------------------|
-| West US | US West (Phoenix)  | ✓  |          ✓  |
+| West US | US West (San Jose)  | ✓  |          ✓  |
+| UK West | UK West (Cardiff)   | ✓   | ✓    |
 
 > [!NOTE]
 > To provision Oracle Database@Azure resources in a supported region, your tenancy must be subscribed to the target region. Learn how to [manage regions](https://docs.oracle.com/iaas/Content/Identity/regions/managingregions.htm#Managing_Regions) and [subscribe to an infrastructure region](https://docs.oracle.com/iaas/Content/Identity/regions/To_subscribe_to_an_infrastructure_region.htm#subscribe).
