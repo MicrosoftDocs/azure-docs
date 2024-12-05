@@ -404,18 +404,25 @@
 - name: WordPress
   items:
     - name: WordPress architecture
+      displayName: WordPress on App Service architecture
       href: /azure/architecture/example-scenario/infrastructure/wordpress-app-service.md
     - name: WordPress overview
+      displayName: Overview of WordPress on App Service
       href: overview-wordpress.md
     - name: Deploy WordPress
+      displayName: Create a WordPress site
       href: quickstart-wordpress.md
     - name: Migrate WordPress to App Service
+      displayName: Move your WordPress site to App Service
       href: migrate-wordpress.md
     - name: Configure WordPress
+      displayName: Setup WordPress
       href: reference-app-settings.md#wordpress
     - name: Customize API Management developer portal
+      displayName: API Management and WordPress
       href: /azure/api-management/developer-portal-wordpress-plugin
-    - name: Troubleshoot WordPress
+    - name: WordPress FAQ
+      displayName: WordPress troubleshooting
       href: troubleshoot-wordpress.md      
 - name: WebJobs
   items:
