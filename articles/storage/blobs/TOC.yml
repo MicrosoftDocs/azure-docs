@@ -537,6 +537,8 @@ items:
       href: blob-storage-monitoring-scenarios.md
     - name: Use Storage insights
       href: ../common/storage-insights-overview.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+    - name: Training module
+      href: /training/modules/monitor-diagnose-and-troubleshoot-azure-storage/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: Transition from classic metrics
       href: ../common/storage-metrics-migration.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: Monitoring (classic)
