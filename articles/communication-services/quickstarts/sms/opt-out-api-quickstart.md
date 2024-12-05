@@ -15,7 +15,7 @@ ms.topic: quickstart
 
 This article describes how to enable opt-out management for your Azure Communication Services resource using hash message authentication code (HMAC) based authentication.
 
-## Global Prerequisites
+## Global prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An active Communication Services resource and connection string. See [Create a Communication Services resource](../create-communication-resource.md).
@@ -34,9 +34,9 @@ Sending an Opt-out API request is similar to SMS as described in the [Azure Comm
 
 Here are some examples in different languages.
 
-### Sample Request
+### Sample request
 
-#### Request Headers
+#### Request headers
 
 | Header                | Value                                                           |
 |-----------------------|-----------------------------------------------------------------|
@@ -45,7 +45,7 @@ Here are some examples in different languages.
 | x-ms-content-sha256   | JKUqoPANwVA55u/NOCsS0Awa4cYrKKNtBwUqoaqrob0=                    |
 | Authorization         | HMAC-SHA256 SignedHeaders=x-ms-date;host;x-ms-content-sha256&Signature=IMbd3tE3nOgEkeUQGng6oQew5aEcrZJQqHkyq8qsbLg= |
 
-#### Request Body
+#### Request body
 
 ```json
 {
@@ -61,10 +61,10 @@ Here are some examples in different languages.
 }
 ```
 
-### Sample Response
+### Sample response
 In general, response contents are the same for all actions and contain the success or failure `HttpStatusCode` per recipient. The only difference is that the `Check` action, which also returns the `isOptedOut` flag.
 
-#### Response Status
+#### Response status
 - 200 Ok
 
 #### Add OptOut action response body
@@ -84,7 +84,7 @@ In general, response contents are the same for all actions and contain the succe
 }
 ```
 
-#### Remove OptOut Action Response Body
+#### Remove OptOut action response body
 ```json
 {
     "value": [
@@ -100,7 +100,7 @@ In general, response contents are the same for all actions and contain the succe
 }
 ```
 
-#### Check OptOut Action Response Body
+#### Check OptOut action response body
 ```json
 {
     "value": [
@@ -117,7 +117,7 @@ In general, response contents are the same for all actions and contain the succe
     ]
 }
 ```
-## Sample Code to Use API
+## Sample code to use Opt-Out API
 
 ### C#
 
