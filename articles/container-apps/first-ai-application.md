@@ -12,9 +12,9 @@ ms.custom:
 
 # Launch your first AI application to Azure Container Apps
 
-This article shows you how to deploy a sample AI chat assistant application based on the Spring PetClinic application to run on Azure Container Apps. The application leverages the [Azure OpenAI Service](/azure/ai-services/openai/overview) and demonstrates how to automate deployment using the Azure Developer CLI (azd).
+This article shows you how to deploy a sample AI chat assistant application based on the Spring PetClinic application to run on Azure Container Apps. The application uses the [Azure OpenAI Service](/azure/ai-services/openai/overview) and demonstrates how to automate deployment using the Azure Developer CLI (azd).
 
-By the end of this tutorial, you will deploy an AI-enabled application on Azure Container Apps, explored its general architecture, and learned how to implement your first AI application on Azure Container Apps.
+By the end of this tutorial, you deploy an AI-enabled application on Azure Container Apps, explored its general architecture, and learned how to implement your first AI application on Azure Container Apps.
 
 The following screenshot shows how the AI assistant can help you.
 
@@ -131,13 +131,13 @@ We recommend using region **East US**, **East US 2**, **North Central US**, **So
   - Adding a new pet
   - Querying the vets' information
 
-  Here is a sample to register a new owner with a pet to the petclinic, you can find the new owner and pet info from the owner page after the AI assistant finished the job.
+  Here's a sample to register a new owner with a pet to the petclinic. You can find the new owner and pet info from the owner page after the AI assistant finished the job.
 
   :::image type="content" source="media/first-ai-application/add-new-item.png" alt-text="Screenshot of AI chat assistant adding new item.":::
 
-  Note that the capabilities of the AI assistant depend on the model you deploy in Azure OpenAI and the implementation of the defined functions.
+  The capabilities of the AI assistant depend on the model you deploy in Azure OpenAI and the implementation of the defined functions.
 
-* On code updates
+* Apply your changes
 
   If there are some changes to the code, apply the updates to Azure with these commands:
 
@@ -190,8 +190,8 @@ Some introduction to the code for readers to understand the flows of this first 
    Some key configuration of the chatClient, see function `ChatClientCustomizer`:
 
    - Client to connect to Azure OpenAI. Both api-key and managed identity supported.
-   - ChatModel. Deployment `gpt-4o` and temperature `0.7` is set in configuration file.
-   - VectorStore. The vector database stores mathematical representations of our documents, known as embeddings. These are used by the Chat API to find documents relevant to a user's question.
+   - ChatModel. Deployment `gpt-4o` and temperature `0.7` are set in configuration file.
+   - VectorStore. The vector database stores mathematical representations of our documents, known as embeddings. The vectore data is used by the Chat API to find documents relevant to a user's question.
    - System Prompt. Customize AI behavior and enhance performance.
    - Functions. Customized functions for OpenAI to interact with business system, these functions define the AI capabilities to your business.
    - Advisors. Provides a flexible and powerful way to intercept, modify, and enhance AI-driven interactions in your Spring applications.
@@ -210,7 +210,7 @@ Some introduction to the code for readers to understand the flows of this first 
 
 1. Functions
 
-   The bean names of `java.util.Function`s defined in the application context. The functions are the interface between AI models and your bussiness system. Here are some samples functions in [AIFunctionConfiguration](https://github.com/Azure-Samples/spring-petclinic-ai/blob/main/src/main/java/org/springframework/samples/petclinic/genai/AIFunctionConfiguration.java), to talk to the petclinic application.
+   The bean names of `java.util.Function`s defined in the application context. The functions are the interface between AI models and your business system. Here are some samples functions in [AIFunctionConfiguration](https://github.com/Azure-Samples/spring-petclinic-ai/blob/main/src/main/java/org/springframework/samples/petclinic/genai/AIFunctionConfiguration.java), to talk to the petclinic application.
    - The `@Description` annotations to functions help the AI models to understand the functions in a natural language.
    - The function body varies depending on your business requirements.
 
