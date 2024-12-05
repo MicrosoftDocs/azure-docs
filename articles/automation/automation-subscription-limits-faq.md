@@ -33,7 +33,7 @@ The following limits would be changed:
 
 ### How do I check my current limits?
 
-You will be able to check your current limits while creating a support request under the category *Service and Subscription limits (Quotas) -> Azure Automation*. 
+You'll be able to check your current limits while creating a support request under the category *Service and Subscription limits (Quotas) -> Azure Automation*. 
 
 ### My current usage is more than the revised limits.  What should I do?
 
