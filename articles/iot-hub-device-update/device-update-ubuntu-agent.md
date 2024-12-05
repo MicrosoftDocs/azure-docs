@@ -1,38 +1,38 @@
 ---
-title: Device Update for Azure IoT Hub tutorial using the Ubuntu Server 22.04 x64 package agent | Microsoft Docs
-description: Get started with Device Update for Azure IoT Hub by using the Ubuntu Server 22.04 x64 package agent.
+title: Azure Device Update for IoT Hub using the Ubuntu package agent
+description: Perform an end-to-end package update using the Device Update Ubuntu Server 22.04 x64 package agent to update Azure IoT Edge.
 author: eshashah
 ms.author: eshashah
-ms.date: 10/2/2024
+ms.date: 12/03/2024
 ms.topic: tutorial
 ms.service: azure-iot-hub
 ms.subservice: device-update
 ---
 
-# Tutorial: Device Update for Azure IoT Hub using the package agent on Ubuntu Server 22.04 x64
+# Tutorial: Azure Device Update for IoT Hub using the Ubuntu 22.04 package agent
 
-Device Update for Azure IoT Hub supports image-based, package-based, and script-based updates.
+Device Update for Azure IoT Hub supports image-based, package-based, and script-based updates. This tutorial demonstrates an end-to-end package update using the Device Update Ubuntu Server 22.04 x64 package agent to update Azure IoT Edge.
 
-Package-based updates are targeted updates that alter only a specific component or application on the device. They lead to lower consumption of bandwidth and help reduce the time to download and install the update. Package-based updates also typically allow for less downtime of devices when you apply an update and avoid the overhead of creating images. They use an [APT manifest](device-update-apt-manifest.md), which provides the Device Update agent with the information it needs to download and install the packages specified in the APT manifest file (and their dependencies) from a designated repository.
+Package-based updates are targeted to alter only a specific device component or application. These updates have lower bandwidth consumption and shorter download and install times than image-based updates, incurring less device downtime and avoiding the overhead of creating images. In a package-based update, an [APT manifest](device-update-apt-manifest.md) provides the Device Update agent the information it needs to download and install specified packages and their dependencies from a designated repository.
 
-This tutorial walks you through updating Azure IoT Edge on Ubuntu Server 22.04 x64 by using the Device Update package agent. Although the tutorial demonstrates installing the Microsoft Defender for IoT, by using similar steps you could update other packages, such as the IoT Edge itself or the container engine it uses.
+This tutorial walks you through installing Microsoft Defender for IoT, but you can update other packages by using similar steps, such as IoT Edge itself or the container engine it uses. The tools and concepts in this tutorial apply even if you use a different OS platform configuration.
 
-The tools and concepts in this tutorial still apply even if you plan to use a different OS platform configuration. Finish this introduction to an end-to-end update process. Then choose your preferred form of updating an OS platform to dive into the details.
+<!-- Finish this introduction to an end-to-end update process. Then choose your preferred form of updating an OS platform to dive into the details. -->
 
-In this tutorial, you'll learn how to:
+In this tutorial, you:
 > [!div class="checklist"]
 >
-> * Download and install the Device Update agent and its dependencies.
-> * Add a tag to your device.
-> * Import an update.
-> * Deploy a package update.
-> * Monitor the update deployment.
+> - Download and install the Device Update agent and its dependencies.
+> - Add a tag to your device.
+> - Import the package update.
+> - Deploy the package update.
+> - Monitor the update deployment.
 
 ## Prerequisites
 
-* If you haven't already done so, create a [Device Update account and instance](create-device-update-account.md). Configure an IoT hub.
-* You need the [connection string for an IoT Edge device](../iot-edge/how-to-provision-single-device-linux-symmetric.md?view=iotedge-2020-11&preserve-view=true#view-registered-devices-and-retrieve-provisioning-information).
-* If you used the [Simulator agent tutorial](device-update-simulator.md) for prior testing, run the following command to invoke the APT handler and deploy over-the-air package updates in this tutorial:
+- If you haven't already done so, create a [Device Update account and instance](create-device-update-account.md). Configure an IoT hub.
+- You need the [connection string for an IoT Edge device](../iot-edge/how-to-provision-single-device-linux-symmetric.md?view=iotedge-2020-11&preserve-view=true#view-registered-devices-and-retrieve-provisioning-information).
+- If you used the [Simulator agent tutorial](device-update-simulator.md) for prior testing, run the following command to invoke the APT handler and deploy over-the-air package updates in this tutorial:
 
   ```sh
   sudo /usr/bin/AducIotAgent --register-content-handler /var/lib/adu/extensions/sources/libmicrosoft_apt_1.so --update-type 'microsoft/apt:1'
