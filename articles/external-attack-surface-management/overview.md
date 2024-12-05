@@ -1,5 +1,5 @@
 ---
-title: "What is Microsoft Defender External Attack Surface Management?"
+title: "What Is Defender EASM?"
 description: Learn how Microsoft Defender External Attack Surface Management (Defender EASM) continuously discovers and maps your digital attack surface to give you an external view of your online infrastructure.
 author: danielledennis
 ms.author: dandennis
@@ -41,7 +41,7 @@ Defender EASM uses dashboards to help you quickly understand your online infrast
 
 ## Asset management
 
-You can filter your inventory to surface the insights that are most important to you and your organization. Filtering gives you flexibility and customization to help you access a specific subset of assets. Filtering also puts Defender EASM data to work for your specific use case, whether you are searching for assets that connect to deprecating infrastructure or identifying new cloud resources.
+You can filter your inventory to surface the insights that are most important to you and your organization. Filtering gives you flexibility and customization to help you access a specific subset of assets. Filtering also puts Defender EASM data to work for your specific use case, whether you're searching for assets that connect to deprecating infrastructure or identifying new cloud resources.
 
 :::image type="content" source="media/overview-inventory.png" alt-text="Screenshot of the Inventory pane.":::
 

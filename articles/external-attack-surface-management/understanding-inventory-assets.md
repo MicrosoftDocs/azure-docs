@@ -1,5 +1,5 @@
 ---
-title: Inventory assets
+title: Inventory Assets
 description: Learn how Microsoft Defender External Attack Surface Management (Defender EASM) uses proprietary discovery technology to recursively searches for infrastructure with observed connections to known legitimate assets.
 author: danielledennis
 ms.author: dandennis
@@ -33,9 +33,9 @@ All assets are labeled with one of the following states:
 |--|--|
 | **Approved Inventory** | An item that is part of your owned attack surface. It's an item that you're directly responsible for. |
 | **Dependency** | Infrastructure that is owned by a third party, but it's part of your attack surface because it directly supports the operation of your owned assets. For example, you might depend on an IT provider to host your web content. The domain, host name, and pages would be part of your approved inventory, so you might want to treat the IP address that runs the host as a dependency. |
-| **Monitor Only** | An asset that is relevant to your attack surface, but it's neither directly controlled nor a technical dependency. For example, independent franchisees or assets that belong to related companies might be labeled **Monitor Only** rather than **Approved Inventory** to separate the groups for reporting purposes. |
+| **Monitor Only** | An asset that is relevant to your attack surface, but it's not directly controlled or a technical dependency. For example, independent franchisees or assets that belong to related companies might be labeled **Monitor Only** rather than **Approved Inventory** to separate the groups for reporting purposes. |
 | **Candidate** | An asset that has some relationship to your organization's known seed assets, but which doesn't have a strong enough connection to immediately label it **Approved Inventory**. You must manually review these candidate assets to determine ownership. |
-| **Requires Investigation** | A state similar to the **Candidate** state, but this value is applied to assets that require manual investigation to validate. The state is determined based on our internally generated confidence scores that assess the strength of detected connections between assets. It doesn't indicate the infrastructure's exact relationship to the organization, but it flags the asset for additional review to determine how it should be categorized. |
+| **Requires Investigation** | A state similar to the **Candidate** state, but this value is applied to assets that require manual investigation to validate. The state is determined based on our internally generated confidence scores that assess the strength of detected connections between assets. It doesn't indicate the infrastructure's exact relationship to the organization, but it flags the asset for more review to determine how it should be categorized. |
 
 ## Handle different asset states
 
@@ -43,7 +43,7 @@ These asset states are uniquely processed and monitored to ensure that you have 
 
 ## Track inventory changes
 
-Your attack surface constantly changes. That's why Defender EASM continuously analyzes and updates your inventory to ensure accuracy. Assets are frequently added and removed from inventory, so it's important to track these changes to understand your attack surface and identify key trends. The inventory changes dashboard provides an overview of these changes. You can easily view "added" and "removed" counts for each asset type. You can filter the dashboard by two date ranges: either the last 7 or 30 days. For a more granular view of inventory changes, see the **Changes by date** section of the dashboard.
+Your attack surface constantly changes. Defender EASM continuously analyzes and updates your inventory to ensure accuracy. Assets are frequently added and removed from inventory, so it's important to track these changes to understand your attack surface and identify key trends. The inventory changes dashboard provides an overview of these changes. You can easily view "added" and "removed" counts for each asset type. You can filter the dashboard by two date ranges: either the last 7 days or the last 30 days. For a more granular view of inventory changes, see the **Changes by date** section of the dashboard.
 
 :::image type="content" source="media/inventory-changes-date.png" alt-text="Screenshot of inventory changes grouped by date." lightbox="media/inventory-changes-date.png":::
 

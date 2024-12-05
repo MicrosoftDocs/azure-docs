@@ -1,5 +1,5 @@
 ---
-title: What is discovery in Defender EASM?
+title: What Is Discovery in Defender EASM?
 description: Learn how Microsoft Defender External Attack Surface Management (Defender EASM) uses proprietary discovery technology to continuously define your organization’s unique internet-exposed attack surface. 
 author: danielledennis
 ms.author: dandennis
@@ -16,9 +16,9 @@ Microsoft Defender External Attack Surface Management (Defender EASM) uses Micro
 
 Through the Defender EASM discovery process, your organization can proactively monitor its constantly shifting digital attack surface. You can identify emerging risks and policy violations as they arise.
 
-Many vulnerability programs lack visibility outside the firewall. They are unaware of external risks and threats, which are the primary source of data breaches.
+Many vulnerability programs lack visibility outside the firewall. They're unaware of external risks and threats, which are the primary source of data breaches.
 
-At the same time, digital growth continues to outpace an enterprise security team’s ability to protect it. Digital initiatives and the overly common “shadow IT” lead to an expanding attack surface outside the firewall. At this pace, it's nearly impossible to validate controls, protections, and compliance requirements.
+At the same time, digital growth continues to outpace an enterprise security team’s ability to protect it. Digital initiatives and the overly common "shadow IT" lead to an expanding attack surface outside the firewall. At this pace, it's nearly impossible to validate controls, protections, and compliance requirements.
 
 Without Defender EASM, it's nearly impossible to identify and remove vulnerabilities and scanners can't reach beyond the firewall to assess the full attack surface.
 
@@ -70,9 +70,9 @@ For these reasons, newly discovered assets are labeled with one of the following
 |--|--|
 | **Approved Inventory** | An item that is part of your owned attack surface. It's an item that you're directly responsible for. |
 | **Dependency** | Infrastructure that is owned by a third party, but it's part of your attack surface because it directly supports the operation of your owned assets. For example, you might depend on an IT provider to host your web content. The domain, host name, and pages would be part of your approved inventory, so you might want to treat the IP address that runs the host as a dependency. |
-| **Monitor Only** | An asset that is relevant to your attack surface, but it's neither directly controlled nor a technical dependency. For example, independent franchisees or assets that belong to related companies might be labeled **Monitor Only** rather than **Approved Inventory** to separate the groups for reporting purposes. |
+| **Monitor Only** | An asset that is relevant to your attack surface, but it's not directly controlled or a technical dependency. For example, independent franchisees or assets that belong to related companies might be labeled **Monitor Only** rather than **Approved Inventory** to separate the groups for reporting purposes. |
 | **Candidate** | An asset that has some relationship to your organization's known seed assets, but which doesn't have a strong enough connection to immediately label it **Approved Inventory**. You must manually review these candidate assets to determine ownership. |
-| **Requires Investigation** | A state similar to the **Candidate** state, but this value is applied to assets that require manual investigation to validate. The state is determined based on our internally generated confidence scores that assess the strength of detected connections between assets. It doesn't indicate the infrastructure's exact relationship to the organization, but it flags the asset for additional review to determine how it should be categorized. |
+| **Requires Investigation** | A state similar to the **Candidate** state, but this value is applied to assets that require manual investigation to validate. The state is determined based on our internally generated confidence scores that assess the strength of detected connections between assets. It doesn't indicate the infrastructure's exact relationship to the organization, but it flags the asset for more review to determine how it should be categorized. |
 
 When you review assets, we recommend that you start with assets labeled **Requires Investigation**. Asset details are continuously refreshed and updated over time to maintain an accurate map of asset states and relationships, and to uncover newly created assets as they emerge. The discovery process is managed by placing seeds in discovery groups that you can schedule to run on a recurrent basis. After an inventory is populated, the Defender EASM system continuously scans your assets by using Microsoft virtual user technology to uncover fresh, detailed data about each asset. The process examines the content and behavior of each page in applicable sites to provide robust information that you can use to identify vulnerabilities, compliance issues, and other potential risks to your organization.
 
