@@ -17,46 +17,18 @@ This article describes how to configure and manage Azure Monitor based alert not
 
 To configure notifications for Azure Monitor alerts, create an [alert processing rule](/azure/azure-monitor/alerts/alerts-action-rules). To create an alert processing rule (earlier called *action rule*) to send email notifications to a given email address, follow these steps. Also, follow these steps to route these alerts to other notification channels, such as ITSM, webhook, logic app, and so on.
 
-1. In the [Azure portal](https://portal.azure.com/), go to **Business Continuity Center** > **Monitoring + Reporting** > **Alerts**.
+1. In the [Azure portal](https://portal.azure.com/), go to **Business Continuity Center** > **Monitoring + Reporting** > **Alerts** to create or view alert processing rules. [Learn more](/azure/azure-monitor/alerts/alerts-processing-rules?tabs=portal&branch=main#configure-an-alert-processing-rule).
 
-1. On the  **Alerts** pane, select **Manage alert processing rules**.
-
-
-1. On the **Alert processing rules** pane, select **Create**.
-
-   :::image type="content" source="./media/backup-azure-monitoring-laworkspace/backup-center-create-alert-processing-rule.png" alt-text="Screenshot for creating a new action rule." lightbox="./media/backup-azure-monitoring-laworkspace/backup-center-create-alert-processing-rule.png":::
-
-1. Select the scope for which the alert processing rule should be applied.
-
-   You can apply the rule for all resources within a subscription. Optionally, you can also apply filters on the alerts; for example, to only generate notifications for alerts of a certain severity.
-
-   :::image type="content" source="./media/backup-azure-monitoring-laworkspace/alert-processing-rule-scope.png" alt-text="Screenshot for setting the action rule scope." lightbox="./media/backup-azure-monitoring-laworkspace/alert-processing-rule-scope.png":::
-
-1. Under **Rule Settings**, create an action group (or use an existing one).
-
-   An action group is the destination to which the notification for an alert should be sent. For example, an email address.
- 
-   :::image type="content" source="media/backup-azure-monitoring-laworkspace/create-action-group.png" alt-text="Screenshot for creating a new action group.":::
-
-1. On the **Basics** tab, select the name of the action group, the subscription, and resource group under which it should be created.
-
-    :::image type="content" source="media/backup-azure-monitoring-laworkspace/azure-monitor-action-groups-basic.png" alt-text="Screenshot for basic properties of action group."::: 
-
-1. On the **Notifications** tab, select **Email/SMS message/Push/Voice** and enter the recipient email ID.
-
-    :::image type="content" source="media/backup-azure-monitoring-laworkspace/azure-monitor-email.png" alt-text="Screenshot for setting notification properties."::: 
-
-1. Select **Review+Create** -> **Create** to deploy the action group.
-
-1. Save the action rule.
-
-[Learn more](/azure/azure-monitor/alerts/alerts-action-rules) about Action Rules in Azure Monitor.
+1. Send alerts to the notification channel of your choice using action groups as part of the alert processing rules. Learn [how to create action groups](/azure/azure-monitor/alerts/action-groups#create-an-action-group-in-the-azure-portal).
 
 ## Suppress notifications during a planned maintenance window
 
 For certain scenarios, you might want to suppress notifications for a particular window of time when backups are going to fail. This is especially important for database backups, where log backups could happen as frequently as every 15 minutes, and you don't want to receive a separate notification every 15 minutes for each failure occurrence. In such a scenario, you can create a second alert processing rule that exists alongside the main alert processing rule used for sending notifications. The second alert processing rule won't be linked to an action group, but is used to specify the time for notification types that should be suppressed.
 
 By default, the suppression alert processing rule takes priority over the other alert processing rule. If a single fired alert is affected by different alert processing rules of both types, the action groups of that alert will be suppressed.
+Learn more [about suppression of notifications during planned maintenance
+](/azure/azure-monitor/alerts/alerts-processing-rules?tabs=portal#suppress-notifications-during-planned-maintenance).
+
 
 To create a suppression alert processing rule, follow these steps:
 
