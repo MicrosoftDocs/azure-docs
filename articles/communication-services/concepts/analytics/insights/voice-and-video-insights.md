@@ -1,5 +1,5 @@
 ---
-title: Azure Communication Services Voice and Video Insights Preview
+title: Azure Communication Services Voice and Video Insights
 titleSuffix: An Azure Communication Services concept document
 description: Descriptions of data visualizations available for Voice and Video Communications Services via Workbooks
 author:  mkhribech
@@ -17,13 +17,13 @@ ms.subservice: data
 In this document, we outline the available insights dashboard to monitor Voice and Video logs and metrics.
 
 ## Overview
-Within your Communications Resource, we've provided an **Insights Preview** feature that displays many  data visualizations conveying insights from the Azure Monitor logs and metrics monitored for your Communications Services. The visualizations within Insights are made possible via [Azure Monitor Workbooks](/azure/azure-monitor/visualize/workbooks-overview). In order to take advantage of Workbooks, follow the instructions outlined in [Enable Azure Monitor in Diagnostic Settings](../enable-logging.md). To enable Workbooks, you need to send your logs to a [Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-overview) destination. 
+Within your Communications Resource, we've provided an **Insights** feature that displays many data visualizations conveying insights from the Azure Monitor logs and metrics monitored for your Communications Services. The visualizations within Insights are made possible via [Azure Monitor Workbooks](/azure/azure-monitor/visualize/workbooks-overview). In order to take advantage of Workbooks, follow the instructions outlined in [Enable Azure Monitor in Diagnostic Settings](../enable-logging.md). To enable Workbooks, you need to send your logs to a [Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-overview) destination. 
 
 :::image type="content" source="..\media\workbooks\insights-overview-2.png" alt-text="Screenshot of Communication Services Insights dashboard.":::
 
 ## Prerequisites
 
-- In order to take advantage of Workbooks, follow the instructions outlined in [Enable Azure Monitor in Diagnostic Settings](../enable-logging.md). You need to enable `Operational Authentication Logs`, `Call Summary Logs`, `Call Diagnostic Logs`.
+- In order to take advantage of Workbooks, follow the instructions outlined in [Enable Logging with Azure Monitor](../enable-logging.md). You need to enable `Operational Authentication Logs`, `Call Summary Logs`, `Call Diagnostic Logs`.
 - To use Workbooks, you need to send your logs to a [Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-overview) destination. 
 
 ## Accessing Azure Insights for Communication Services
