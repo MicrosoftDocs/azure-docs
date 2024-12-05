@@ -21,7 +21,7 @@ By default, Durable Functions use Azure Storage as a storage backend to durably 
 
 ### Improved cost efficiency for the Azure Storage backend
 
-In the [Azure Storage backend](./durable-functions-azure-storage-provider.md), the Partition Manager is responsible for distributing [partitions/control queues](./durable-functions-azure-storage-provider.md#control-queues) among workers. In WebJobs.Extensions.DurableTask v3, we default to the new partition manager, called Partition Manager V3, which uses Azure Tables to manage partition assignments instead of Azure Blob leases. By leveraging Azure Tables, the new design can significantly reduce storage costs. Additionally, this new implementation is easier to debug, as [a new Table](./durable-functions-azure-storage-provider.md#partitions-table), named "Partitions", is created in your storage account, allowing you to easily check the partition information.
+In the [Azure Storage backend](./durable-functions-azure-storage-provider.md), the Partition Manager is responsible for distributing [partitions/control queues](./durable-functions-azure-storage-provider.md#control-queues) among workers. The WebJobs.Extensions.DurableTask v3 package uses Partition Manager V3 by default, which is a new design that leverages Azure Tables to manage partition assignments instead of Azure Blob leases. This design can significantly reduce storage costs while making debugging easier. When Partition Manager V3 is used, [a new table](./durable-functions-azure-storage-provider.md#partitions-table), named "Partitions", is created in your storage account, allowing you to easily check the partition information.
 
 ### Removed support for Azure Functions Host v1 
 
