@@ -126,7 +126,6 @@ You can associate the above created public IP address with a [Windows](/azure/vi
 
 
 ## Next steps
-- Learn more about [public IP with routing preference](routing-preference-overview.md).
-- [Configure routing preference for a VM](./tutorial-routing-preference-virtual-machine-portal.md).
-- [Configure routing preference for a VM using the Azure CLI](./configure-routing-preference-virtual-machine-cli.md).
-- [Configure routing preference for a VM using the Azure PowerShell](./configure-routing-preference-virtual-machine-powershell.md).
+
+> [!div class="nextstepaction"]
+> [Configure routing preference for a virtual machine](./configure-routing-preference-virtual-machine.md)
