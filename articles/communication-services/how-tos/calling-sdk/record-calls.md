@@ -27,22 +27,6 @@ zone_pivot_groups: acs-plat-web-ios-android-windows
 - A user access token to enable the calling client. For more information, see [Create and manage access tokens](../../quickstarts/identity/access-tokens.md).
 - Optional: Completion of the [quickstart to add voice calling to your application](../../quickstarts/voice-video-calling/getting-started-with-calling.md).
 
-::: zone pivot="platform-web"
-[!INCLUDE [Record Calls Client-side JavaScript](./includes/record-calls/record-calls-web.md)]
-::: zone-end
-
-::: zone pivot="platform-android"
-[!INCLUDE [Record calls client-side Android](./includes/record-calls/record-calls-android.md)]
-::: zone-end
-
-::: zone pivot="platform-ios"
-[!INCLUDE [Record calls client-side iOS](./includes/record-calls/record-calls-ios.md)]
-::: zone-end
-
-::: zone pivot="platform-windows"
-[!INCLUDE [Record calls client-side Windows](./includes/record-calls/record-calls-windows.md)]
-::: zone-end
-
 ## Support
 The following tables define support of recording in Azure Communication Services.
  
@@ -77,8 +61,25 @@ The following tables show support of recording in individual Azure Communication
 
 |Platforms   | Web | Web UI | iOS | iOS UI | Android | Android UI | Windows |
 |-------------|-----|--------|-----|--------|---------|------------|---------|
-|Is Supported | ✔️  |  ✔️   | ✔️ | ✔️     | ✔️     | ✔️         |  ✔️    |	
+|Is Supported | ✔️  |  ✔️[1]| ✔️[1] | ✔️[1]| ✔️[1]| ✔️[1]|  ✔️[1]    |	
 
+[1] These SDKs don't support explicit consent.
+
+::: zone pivot="platform-web"
+[!INCLUDE [Record Calls Client-side JavaScript](./includes/record-calls/record-calls-web.md)]
+::: zone-end
+
+::: zone pivot="platform-android"
+[!INCLUDE [Record calls client-side Android](./includes/record-calls/record-calls-android.md)]
+::: zone-end
+
+::: zone pivot="platform-ios"
+[!INCLUDE [Record calls client-side iOS](./includes/record-calls/record-calls-ios.md)]
+::: zone-end
+
+::: zone pivot="platform-windows"
+[!INCLUDE [Record calls client-side Windows](./includes/record-calls/record-calls-windows.md)]
+::: zone-end
 
 ## Compliance recording
 
