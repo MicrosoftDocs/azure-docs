@@ -25,7 +25,7 @@ In the [Azure Storage backend](./durable-functions-azure-storage-provider.md), t
 
 ### Removed support for Azure Functions Host v1 
 
-WebJobs.Extensions.DurableTask v3 no longer supports Azure Functions Host v1, as support for Functions v1 is scheduled to end on [September 2026 (https://azure.microsoft.com/updates?id=support-for-the-1x-version-of-azure-functions-ends-14-september-2026). If you must use Azure Functions Host v1, please use a Durable Functions extension version lower than *v2.11.0*.
+WebJobs.Extensions.DurableTask v3 no longer supports Azure Functions Host v1, as support for Functions v1 is scheduled to end on [September 2026](https://azure.microsoft.com/updates?id=support-for-the-1x-version-of-azure-functions-ends-14-september-2026). If you must use Azure Functions Host v1, please use a Durable Functions extension version lower than *v2.11.0*.
 
 ### .NET Framework Update
 
