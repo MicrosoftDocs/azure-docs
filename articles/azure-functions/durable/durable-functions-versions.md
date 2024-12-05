@@ -13,44 +13,44 @@ ms.author: azfuncdf
 
 ## Microsoft.Azure.WebJobs.Extensions.DurableTask v3.x
 
-This section introduces the new Microsoft.Azure.WebJobs.Extensions.DurableTask v3 package (referred to as WebJobs.Extensions.DurableTask in subsequent sections) and provides details on its updates and changes. It’s a breaking-change update only for .NET in-process customers.
+This section introduces the new Microsoft.Azure.WebJobs.Extensions.DurableTask v3 package (referred to as WebJobs.Extensions.DurableTask in subsequent sections) and provides details on its updates and changes. It’s a breaking-change update only for .NET **in-process** customers.
 
 ### New Azure Storage SDK
 
-By default, Durable Functions use Azure Storage as a storage backend to durably save application state. In WebJobs.Extensions.DurableTask v3, the Azure Storage backend was upgraded to use the latest versions of the Azure Storage SDKs: Azure.Data.Tables, Azure.Storage.Blobs, and Azure.Storage.Queues. The new Azure Storage SDK is more secure and offers better performance, more efficient data handling, and enhanced support for Managed Identity and other latest storage features. 
+By default, Durable Functions use Azure Storage as a storage backend to durably save application state. In WebJobs.Extensions.DurableTask v3, the Azure Storage backend was upgraded to use the latest versions of the Azure Storage SDKs: Azure.Data.Tables, Azure.Storage.Blobs, and Azure.Storage.Queues. The new Azure Storage SDKs are more secured and offer enhanced support for Managed Identity. They also offer better performance, more efficient data handling, and other latest storage features. 
 
-### Improved Partition Management for the Azure Storage backend
+### Improved cost efficiency for the Azure Storage backend
 
 In the [Azure Storage backend](./durable-functions-azure-storage-provider.md), the Partition Manager is responsible for distributing [partitions/control queues](./durable-functions-azure-storage-provider.md#control-queues) among workers. In WebJobs.Extensions.DurableTask v3, we default to the new partition manager, called Partition Manager V3, which uses Azure Tables to manage partition assignments instead of Azure Blob leases. By leveraging Azure Tables, the new design can significantly reduce storage costs. Additionally, this new implementation is easier to debug, as [a new Table](./durable-functions-azure-storage-provider.md#partitions-table), named "Partitions", is created in your storage account, allowing you to easily check the partition information.
 
-### Drop Functions Host v1 Support
+### Removed support for Azure Functions Host v1 
 
-WebJobs.Extensions.DurableTask v3 no longer supports Functions Host v1, as Azure Functions v1 is being deprecated with support scheduled to end in [September 2026](https://azure.microsoft.com/en-us/updates?id=support-for-the-1x-version-of-azure-functions-ends-14-september-2026). If you require Azure Functions Host v1, please use a Durable Functions extension version lower than *v2.11.0*.
+WebJobs.Extensions.DurableTask v3 no longer supports Azure Functions Host v1, as support for Functions v1 is scheduled to end on [September 2026 (https://azure.microsoft.com/updates?id=support-for-the-1x-version-of-azure-functions-ends-14-september-2026). If you must use Azure Functions Host v1, please use a Durable Functions extension version lower than *v2.11.0*.
 
 ### .NET Framework Update
 
-WebJobs.Extensions.DurableTask v3 updates the .NET framework from .NET Core 3.1 to .NET 6, offering improved performance and enhanced compatibility with modern .NET features and libraries. This update aligns with the future release of Azure Functions Bundles.
+WebJobs.Extensions.DurableTask v3 updates the .NET framework from .NET Core 3.1 to .NET 6, offering improved performance and enhanced compatibility with modern .NET features and libraries. This update aligns with future releases of the Azure Functions extension bundles.
 
 ### Migration from WebJobs.Extensions.DurableTask v2.x to v3.x
 
-Migrating from WebJobs.Extensions.DurableTask v2.x to v3.x is designed to be straightforward. No code changes are required, making the transition smooth for existing applications. Simply update your dependencies to start taking advantage of the new features and improvements in v3.x.
+Migration from WebJobs.Extensions.DurableTask v2.x to v3.x is designed to be straightforward with no code changes required. Simply update your dependencies to start taking advantage of the new features and improvements in v3.x.
 
 - For .NET in-process users:
   update to [Microsoft.Azure.WebJobs.Extensions.DurableTask version 3.0.0](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask/3.0.0) or later.
-- For .NET out-of-process users:
+- For .NET isolated users:
   update to [Microsoft.Azure.Functions.Worker.Extensions.DurableTask version 1.2.0](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask/1.2.0) or later.
 - For users of other languages with extension bundles:
-  you need to opt out of bundles to manually update to [Microsoft.Azure.WebJobs.Extensions.DurableTask version 3.0.0](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask/3.0.0) or later. Please follow the instructions [here](./durable-functions-extension-upgrade.md#upgrade-the-extension-bundle).
+ follow the instructions [here](./durable-functions-extension-upgrade.md#upgrade-the-extension-bundle) to opt out of bundles and manually install [Microsoft.Azure.WebJobs.Extensions.DurableTask version 3.0.0](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask/3.0.0) or later.
 
 > [!NOTE]
-> With the different versions of the Azure Storage SDK, WebJobs.Extensions.DurableTask v3 uses a different encoding strategy (UTF-8) compared to Durable WebJobs Extension v2, which uses Base64. To avoid breaking applications, if you need to downgrade from WebJobs Extension v3.x to v2.x, use [v2.13.5](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask/2.13.5#versions-body-tab) or later, as these versions include DurableTask.AzureStorage v1.1.74 or higher, which supports backward compatibility with v3.x. 
+> Since WebJobs.Extensions.DurableTask v3 uses the latest version of the Azure Storage SDK, it uses a different encoding strategy when compared to v2. The former uses UTF-8, while the latter uses Base64. If you need to downgrade from v3.x to v2.x, use WebJobs.Extensions.DurableTask [v2.13.5](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask/2.13.5#versions-body-tab) or higher, as these versions support backward compatibility with v3.x.
 
 
 ### Future Support and Maintenance
 
 WebJobs.Extensions.DurableTask v2.x will continue to receive security updates and bug fixes, ensuring that your existing applications remain secure and stable. However, all new features and enhancements will be added exclusively to v3.x. We encourage users to upgrade to WebJobs.Extensions.DurableTask v3 to take advantage of the latest capabilities and ongoing improvements.
 
-## New features in 2.x
+## New features in Microsoft.Azure.WebJobs.Extensions.DurableTask v2.x
 
 This section describes the features of Durable Functions that are added in version 2.x.
 
