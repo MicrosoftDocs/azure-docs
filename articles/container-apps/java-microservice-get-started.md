@@ -250,7 +250,7 @@ To deploy the Java microservice apps to Azure Container Apps using the prebuilt 
 
 ## Bind container apps to Java components
 
-Next, bind together the Java components to your container apps. Use the following steps to create bindings that:
+Next, bind the Java components to your container apps. The bindings that you create in this section provide the following functionality:
 
 * Inject configuration data into each app from the managed config server on startup.
 
