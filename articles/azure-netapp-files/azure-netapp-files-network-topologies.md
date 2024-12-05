@@ -112,6 +112,7 @@ Configuring UDRs on the source VM subnets with the address prefix of delegated s
 
 >[!NOTE]
 > If you want to configure a route table (UDR route) to control the routing of packets through a network virtual alliance or firewall destined to an Azure NetApp Files standard volume from a source in the same VNet or a peered VNet, the UDR prefix must be more specific or equal to the delegated subnet size of the Azure NetApp Files volume. If the UDR prefix is less specific than the delegated subnet size, it isn't be effective. 
+>
 > For example, if your delegated subnet is `x.x.x.x/24`, you must configured your UDR to `x.x.x.x/24` (equal) or `x.x.x.x/32` (more specific). If you configure the UDR route to be `x.x.x.x/16`, undefined behaviors such as asymmetric routing can cause a network drop at the firewall. 
 
 ## Azure native environments
