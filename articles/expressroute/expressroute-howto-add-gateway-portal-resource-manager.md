@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: how-to
-ms.date: 12/05/2024
+ms.date: 12/06/2024
 ms.author: duau
 ms.custom:
   - reference_regions
@@ -82,7 +82,7 @@ The steps for this tutorial use the values in the following configuration refere
     | Name | Name your gateway. This name isn't the same as naming a gateway subnet. It's the name of the gateway resource you're creating.|
     | Region | Change the **Region** field to point to the location where your virtual network is located. If the region isn't pointing to the location where your virtual network is, the virtual network doesn't appear in the **Virtual network** dropdown. <br>  If you want to create the gateway in an [Azure Extended Zone](../extended-zones/overview.md), select **Deploy to an Azure Extended Zone**.|
     | Gateway type | Select **ExpressRoute**.|
-    | SKU | Select a gateway SKU from the dropdown. For more information, see [About ExpressRoute gateway](expressroute-about-virtual-network-gateways.md#gwsku). |
+    | SKU | Select a gateway SKU from the dropdown. For more information, see [ExpressRoute gateway SKUs](expressroute-about-virtual-network-gateways.md#gwsku). |
     | Minimum Scale Units | This option is only available when you select the **ErGwScale (Preview)** SKU. Enter the minimum number of scale units you want to use. For more information, see [ExpressRoute Gateway Scale Units](expressroute-about-virtual-network-gateways.md#expressroute-scalable-gateway-preview). |
     | Maximum Scale Units | This option is only available when you select the **ErGwScale (Preview)** SKU. Enter the maximum number of scale units you want to use. For more information, see [ExpressRoute Gateway Scale Units](expressroute-about-virtual-network-gateways.md#expressroute-scalable-gateway-preview). |
     | Virtual network | Select *vnet-1*. |
@@ -98,7 +98,9 @@ The steps for this tutorial use the values in the following configuration refere
     > 
 
     > [!NOTE]
-    > To create the gateway in an [Azure Extended Zone](../extended-zones/overview.md), you must [Request access to the Extended Zone](../extended-zones/request-access.md) first. Once you have access, you can create the gateway in an Extended Zone. The following considerations apply when creating a gateway in an Extended Zone:
+    > To create the gateway in an [Azure Extended Zone](../extended-zones/overview.md), you must first [request access to the Extended Zone](../extended-zones/request-access.md). Once you have access, you can create the gateway.
+    >
+    > The following considerations apply when creating a gateway in an Extended Zone:
     > - Availability Zones aren't supported in Azure Extended Zones.
     > - The following SKUs are currently supported in Azure Extended Zones: *Standard*, *HighPerformance*, *UltraPerformance*.
     > - Local SKU circuit isn't supported with gateways in Azure Extended Zone.
