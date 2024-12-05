@@ -22,12 +22,7 @@ You can restrict access to your Azure App Service app by enabling different type
 [!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
 
 ## Enable client certificates
-
-To set up your app to require client certificates:
-
-1. From the left navigation of your app's management page, select **Configuration** > **General Settings**.
-
-1. Select **Client certificate mode** of choice. Select **Save** at the top of the page.
+When you enable client certificate for your app, you should select your choice of client certificate mode. Each mode defines how your app will handle incoming client certificates:
 
 |Client certificate modes|Description|
 |-|-|
@@ -35,14 +30,20 @@ To set up your app to require client certificates:
 |Optional|Requests may or may not use a client certificate. Clients will be prompted for a certificate by default. For example, browser clients will show a prompt to select a certificate for authentication.|
 |Optional Interactive User|Requests may or may not use a client certificate. Clients will not be prompted for a certificate by default. For example, browser clients will not show a prompt to select a certificate for authentication.|
 
+### [Azure portal](#tab/azureportal)
+To set up your app to require client certificates in Azure portal:
+1. Navigate to your app's management page.
+1. From the left navigation of your app's management page, select **Configuration** > **General Settings**.
+1. Select **Client certificate mode** of choice. Select **Save** at the top of the page.
+
 ### [Azure CLI](#tab/azurecli)
-To do the same with Azure CLI, run the following command in the [Cloud Shell](https://shell.azure.com):
+With Azure CLI, run the following command in the [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp update --set clientCertEnabled=true --name <app-name> --resource-group <group-name>
 ```
-### [Bicep](#tab/bicep)
 
+### [Bicep](#tab/bicep)
 For Bicep, modify the properties `clientCertEnabled`, `clientCertMode`, and `clientCertExclusionPaths`. A sample Bicep snippet is provided for you:
 
 ```bicep
@@ -63,7 +64,6 @@ resource appService 'Microsoft.Web/sites@2020-06-01' = {
 ```
 
 ### [ARM template](#tab/arm)
-
 For ARM templates, modify the properties `clientCertEnabled`, `clientCertMode`, and `clientCertExclusionPaths`. A sample ARM template snippet is provided for you:
 
 ```ARM
@@ -112,6 +112,26 @@ In App Service, TLS termination of the request happens at the frontend load bala
 For ASP.NET, the client certificate is available through the **HttpRequest.ClientCertificate** property.
 
 For other application stacks (Node.js, PHP, etc.), the client cert is available in your app through a base64 encoded value in the `X-ARR-ClientCert` request header.
+
+## Client certificate limitation
+Certain client certificate configurations cannot support incoming requests with large files greater than 100kb. TLS renegotiation will fail any POST or PUT requests using large files with a 403 error. App Service uses TLS renegotiation to retrieve the client certificates. These configurations below will trigger TLS renegotiation:
+
+1. Using client certificate mode "Optional Interactive User"
+2. Using client certificate exclusion paths regardless of client certificate mode
+
+### Resolving large files limitation
+To resolve the error due to large files greater than 100kb due to TLS renegotiation, here are known alternative solutions to address the limitations:
+
+#### Changing client certificate configurations
+Update your app's client certificate configuration to meet _all_ requirements below:
+1. Set client certificate mode to either "Required" or "Optional"
+2. Remove all client certificate exclusion paths
+
+#### Sending HEAD requests
+Send a HEAD request before the PUT/POST request. The HEAD request will handle the client certificate.
+
+### Adding "Expect:100-Continue" header
+Add the header `Expect: 100-Continue` to your request. This will cause the client to wait until the server responds with a `100 Continue` before sending the request body, which bypasses the buffers.
 
 ## ASP.NET Core sample
 
