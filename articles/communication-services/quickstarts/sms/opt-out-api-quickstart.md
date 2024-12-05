@@ -5,7 +5,7 @@ services: azure-communication-services
 author: besh2014
 product manager: dbasantes
 ms.service: azure-communication-services
-ms.author: besh2014
+ms.author: dbasantes
 ms.subservice: sms
 ms.date: 12/04/2024
 ms.topic: quickstart
