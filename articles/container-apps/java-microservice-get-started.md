@@ -365,9 +365,7 @@ The Java components created in this quickstart can be configured through the Azu
 For more information on configuring the three Java components you created in this quickstart, see the following links:
 
 * [Config server](java-config-server-usage.md#configuration-options)
-
 * [Eureka server](java-eureka-server-usage.md#allowed-configuration-list-for-your-eureka-server-for-spring)
-
 * [Admin server](java-admin-for-spring-usage.md#allowed-configuration-list-for-your-admin-for-spring)
 
 ## Clean up resources
