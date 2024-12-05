@@ -1,6 +1,6 @@
 ---
-title: Choose the best Azure integration services for your scenarios
-description: How to choose the best Azure Integration Services capabilities for your scenarios and requirements.
+title: Choose Azure services for enterprise integration
+description: Learn which Azure services or features work best for your enterprise integration scenarios, requirements, and solutions.
 services: logic-apps
 ms.service: azure-logic-apps
 ms.suite: integration
@@ -8,8 +8,8 @@ author: kewear
 ms.author: kewear
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 01/04/2024
-# As an Azure customer, I want to better understand which Azure Integration Services capabilities work best for my integration scenarios and requirements.
+ms.date: 12/05/2024
+# As an integration solutions developer, I want to better understand which capabiilities from Azure Integration Services and other Azure services work best for my integration scenarios.
 ---
 
 # Choose the best integration services in Azure for enterprise integration scenarios

@@ -27,7 +27,6 @@ This guide covers migration strategies and resources along with planning conside
 
 The following sections describe various migration strategies along with their benefits and disadvantages:
 
-
 ### Big bang
 
 A "big bang" or "direct changeover" is an approach that requires lots of planning and isn't recommended for organizations that are unfamiliar with Azure Logic Apps or that have large systems or solutions to migrate. When an organization implements a new technology stack, new learnings usually often result. By investing too early or too much, you won't have the opportunity to benefit from lessons learned and adjust without risking significant rework.
@@ -58,7 +57,6 @@ To complete such a project, we recommend that you follow the iterative or wave-b
 
 :::image type="content" source="./media/biztalk-server-to-azure-integration-services-overview/biztalk-gradual-migration.png" alt-text="Diagram shows migration waves." border="false":::
 
-
 ### Sprint 0
 
 During this sprint, we recommend that you execute BizTalk Server Environments Discovery with Waves Planning. Understanding the project's breadth and depth is critical for success. The following list includes the specific areas to address during Sprint 0:
@@ -69,7 +67,6 @@ During this sprint, we recommend that you execute BizTalk Server Environments Di
 | Architecture design | Create the high-level architecture to use as the focal point for the migration. This design includes elements that address high-level functional and non-functional needs. |
 | Minimum viable product (MVP) definition | Define the first wave features. In other words, the processes that need support after you complete the first wave. |
 | Initial migration backlog | Define the first wave features and their work items with technical elaboration. |
-
 
 #### Discovery tools
 
@@ -105,20 +102,22 @@ We recommend that your MVP include the following in-scope processes, which are e
 
 - **In-scope processes (Features)**
 
-  - High-level system functionality: You can extract this information using the discovery tools and express the descriptions in terms of features.
-  - Actors or personas: Use this information to determine the individuals affected by the MVP's supported scenarios.
-  - Orchestrations: You can extract this information using the discovery tools.
-  - Data entities and messages: These elements give you an opportunity to learn whether you can include further improvements in the data exchanged by the BizTalk Server environment.
- - Data mappings: Today's world relies on JSON. However, BizTalk Server uses XML. This moment is a great opportunity to decide the data format and conversion needs for the new platform.
-  - Business rules: These data-centric rules open an opportunity for you to rethink their approach or reuse them by employing Azure Logic Apps capabilities.
-  - Regulatory considerations: This aspect is more relevant if your customers don't have cloud-based workloads.
-  - Data privacy considerations: You must make privacy a top priority. Unless your customer chooses the hybrid deployment model in Azure Logic Apps (Standard), you must address this area in each wave due to potential deployment environment changes,
-  - Secure by design: You must design each feature with security in mind.
-  - Proposed features for coexistence: When you deliver each wave, you have a certain degree of coexistence. You must align this hybrid architecture with existing Service Level Indicators (SLIs) and Service Level Objectives (SLOs).
-  - Non-functional considerations: Business processes might have different non-functional requirements. Not everything must happen in real time. Conversely, not everything is a batch process.
-  - Business metrics: An optional opportunity to show progress for the migration work.
+  | Feature | Description |
+  |---------|-------------|
+  | High-level system functionality | You can extract this information using the discovery tools and express the descriptions in terms of features. |
+  | Actors or personas | Use this information to determine the individuals affected by the MVP's supported scenarios. |
+  | Orchestrations | You can extract this information using the discovery tools. |
+  | Data entities and messages | These elements give you an opportunity to learn whether you can include further improvements in the data exchanged by the BizTalk Server environment. |
+  | Data mappings | Today's world relies on JSON. However, BizTalk Server uses XML. This moment is a great opportunity to decide the data format and conversion needs for the new platform. |
+  | Business rules | These data-centric rules open an opportunity for you to rethink their approach or reuse them by employing Azure Logic Apps capabilities. |
+  | Data privacy considerations | You must make privacy a top priority. Unless your customer chooses the hybrid deployment model in Azure Logic Apps (Standard), you must address this area in each wave due to potential deployment environment changes, |
+  | Regulatory considerations | This aspect is more relevant if your customers don't have cloud-based workloads. |
+  | Secure by design | You must design each feature with security in mind. |
+  | Proposed features for coexistence | When you deliver each wave, you have a certain degree of coexistence. You must align this hybrid architecture with existing Service Level Indicators (SLIs) and Service Level Objectives (SLOs). |
+  | Non-functional considerations | Business processes might have different non-functional requirements. Not everything must happen in real time. Conversely, not everything is a batch process. |
+  | Business metrics | An optional opportunity to show progress for the migration work. |
 
-- MVP out-of-scope: Different variables shape the scope of work, for example, resource availability, risks, documentation, or time to market. Ideally, you want to identify and list these items.
+- **MVP out-of-scope**: Different variables shape the scope of work, for example, resource availability, risks, documentation, or time to market. Ideally, you want to identify and list these items.
 
 #### Initial backlog
 
@@ -142,13 +141,11 @@ The following diagram shows the suggested durations for Epics, Features, User St
 
 :::image type="content" source="./media/biztalk-server-to-azure-integration-services-overview/biztalk-triangle-mvp.png" alt-text="Diagram shows minimum viable product waves." border="false":::
 
-
 ### Migration waves (Sprints)
 
 After your team completes Sprint 0, you should have a clear view of the MVP to build. A *wave* is a set of sprints. Your initial backlog should include work items that follow the next diagram as much as possible:
 
 :::image type="content" source="./media/biztalk-server-to-azure-integration-services-overview/biztalk-gradual-waves.png" alt-text="Diagram shows gradual migration waves." border="false":::
-
 
 During a wave, your team completes the activities to migrate, test, and release to production. Let's more closely examine what happens in each wave.
 
@@ -160,13 +157,13 @@ The following diagram shows the events that should happen during migration waves
 
 :::image type="content" source="./media/biztalk-server-to-azure-integration-services-overview/biztalk-migration-steps.png" alt-text="Diagram shows migration steps." border="false":::
 
-   | Step | Description | 
-   |------|--------------|
-   | 1 | Discover existing BizTalk apps and interfaces. Although introduced in Sprint 0, this activity should happen when each wave starts. Customers might continue making changes in your BizTalk environment. <br><br>Resources: -<br>- [BizTalk Migration tool](https://github.com/Azure/aimtool) <br>- [BizTalk Documenter tool](https://github.com/mbrimble/biztalkdocumenter) |
-   | 2 | Set up your initial migration environment. You can use the [Azure Integration Services Landing Zone Accelerator](https://github.com/[Azure/Integration-Services-Landing-Zone-Accelerator), which is a cloud adoption framework for building and deploying an integration platform that has a typical enterprise landing zone design. As the workload owner, you can confidently achieve your target technical state by using the provided [architectural guidance and BizTalk migration resources](https://techcommunity.microsoft.com/blog/integrationsonazureblog/biztalk-server-migration-to-azure-integration-services-resources/3733464). <br><br>For an example architecture, see [Example migration environment](#initial-migration-environment). |
-   | 3 | Create and test Standard logic app workflows that run in single-tenant Azure Logic Apps using either the Azure portal or Visual Studio Code with the Azure Logic Apps (Standard) extension. With Visual Studio Code, you can locally develop, test, and store your logic app project using any source control system. <br><br>For more information, see the following documentation: <br><br>- [Create an example Standard logic app workflow using the Azure portal](/azure/logic-apps/create-single-tenant-workflows-azure-portal) <br>- [Create an example Standard logic app workflow using Visual Studio Code](/azure/logic-apps/create-single-tenant-workflows-visual-studio-code). <br><br>For a diagram that shows an example logic app and connections, see [Example migration environment](#initial-migration-environment). |
-   | 4 | To get the full benefits from easily and consistently deploying your Standard logic app workflows across different environments and platforms, you must also automate your build and deployment process. The Azure Logic Apps (Standard) extension for Visual Studio Code provides tools for you to create and maintain automated build and deployment processes using Azure DevOps. <br><br>For more information, see [Automate build and deployment for Standard logic app workflows with Azure DevOps](/azure/logic-apps/automate-build-deployment-standard). | 
-   | 5 | To deploy mission-critical Standard logic apps that are always available and responsive, even during updates or maintenance, enable zero downtime deployment by creating and using deployment slots. Zero downtime means that when you deploy new versions of your app, end users shouldn't experience disruption or downtime. <br><br>For more information, see [Set up deployment slots to enable zero downtime deployment in Azure Logic Apps](/azure/logic-apps/set-up-deployment-slots). | 
+| Step | Description | 
+|------|--------------|
+| 1 | Discover existing BizTalk apps and interfaces. Although introduced in Sprint 0, this activity should happen when each wave starts. Customers might continue making changes in your BizTalk environment. <br><br>Resources: <br>- [BizTalk Migration tool](https://github.com/Azure/aimtool) <br>- [BizTalk Documenter tool](https://github.com/mbrimble/biztalkdocumenter) |
+| 2 | Set up your initial migration environment. You can use the [Azure Integration Services Landing Zone Accelerator](https://github.com/[Azure/Integration-Services-Landing-Zone-Accelerator), which is a cloud adoption framework for building and deploying an integration platform that has a typical enterprise landing zone design. As the workload owner, you can confidently achieve your target technical state by using the provided [architectural guidance and BizTalk migration resources](https://techcommunity.microsoft.com/blog/integrationsonazureblog/biztalk-server-migration-to-azure-integration-services-resources/3733464). <br><br>For an example architecture, see [Example migration environment](#initial-migration-environment). |
+| 3 | Create and test Standard logic app workflows that run in single-tenant Azure Logic Apps using either the Azure portal or Visual Studio Code with the Azure Logic Apps (Standard) extension. With Visual Studio Code, you can locally develop, test, and store your logic app project using any source control system. <br><br>For more information, see the following documentation: <br><br>- [Create an example Standard logic app workflow using the Azure portal](/azure/logic-apps/create-single-tenant-workflows-azure-portal) <br>- [Create an example Standard logic app workflow using Visual Studio Code](/azure/logic-apps/create-single-tenant-workflows-visual-studio-code). <br><br>For a diagram that shows an example logic app and connections, see [Example migration environment](#initial-migration-environment). |
+| 4 | To get the full benefits from easily and consistently deploying your Standard logic app workflows across different environments and platforms, you must also automate your build and deployment process. The Azure Logic Apps (Standard) extension for Visual Studio Code provides tools for you to create and maintain automated build and deployment processes using Azure DevOps. <br><br>For more information, see [Automate build and deployment for Standard logic app workflows with Azure DevOps](/azure/logic-apps/automate-build-deployment-standard). | 
+| 5 | To deploy mission-critical Standard logic apps that are always available and responsive, even during updates or maintenance, enable zero downtime deployment by creating and using deployment slots. Zero downtime means that when you deploy new versions of your app, end users shouldn't experience disruption or downtime. <br><br>For more information, see [Set up deployment slots to enable zero downtime deployment in Azure Logic Apps](/azure/logic-apps/set-up-deployment-slots). | 
 
 <a name="initial-migration-environment"></a>
 
@@ -205,7 +202,7 @@ Each *wave* has its own testing activities, which are embedded in each User Stor
     - Plug into automated testing frameworks that logic app developers might use.
     - Plug into SpecFlow to support behavior-driven-development (BDD) for logic apps.
 
-  Regardless which approaches or resources you use, you're well on your way to having repeatable, consistent, and automated integration tests.
+  Regardless which automation approaches or resources that you use, you're well on your way to having repeatable, consistent, and automated integration tests.
 
 - Set up mock response testing using static results.
 
