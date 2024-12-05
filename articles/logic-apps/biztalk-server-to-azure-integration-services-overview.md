@@ -885,7 +885,7 @@ The process to get each component ready for deployment usually takes the followi
 
 ## Feature matchup
 
-The following table and diagram roughly show how resources, artifacts, features, and capabilities match up between BizTalk Server compared to Azure Logic Apps and Azure Integration Services. While Azure Logic Apps is a key platform for integration workloads, make sure that you consider all the available and Azure Integration Services and Azure capabilities as a whole.
+The following table and diagram roughly show how resources, artifacts, features, and capabilities compare and match up between BizTalk Server, Azure Logic Apps, and Azure Integration Services. While Azure Logic Apps is a key platform for integration workloads, make sure that you consider all the available capabilities in Azure Integration Services and in Azure as a whole.
 
 | Feature or functionality | BizTalk Server | Azure |
 |--------------------------|----------------|-------|
