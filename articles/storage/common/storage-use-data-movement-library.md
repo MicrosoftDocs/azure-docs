@@ -23,12 +23,12 @@ The Azure Storage Data Movement library is a cross-platform open source library 
 ## Prerequisites
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
-- Azure storage account - [create a storage account](../../articles/storage/common/storage-account-create.md)
+- Azure storage account - [create a storage account](storage-account-create.md)
 - Latest [.NET SDK](https://dotnet.microsoft.com/download/dotnet) for your operating system. Be sure to get the SDK and not the runtime.
 
 ## Set up your environment
 
-If you don't have an existing project, this section shows you how to set up a project to work with the Azure Blob Storage client library for .NET. The steps include package installation, adding `using` directives, and creating an authorized client object. For details, see [Get started with Azure Blob Storage and .NET](../../articles/storage/blobs/storage-blob-dotnet-get-started.md).
+If you don't have an existing project, this section shows you how to set up a project to work with the Azure Blob Storage client library for .NET. The steps include package installation, adding `using` directives, and creating an authorized client object. For details, see [Get started with Azure Blob Storage and .NET](../blobs/storage-blob-dotnet-get-started.md).
 
 #### Install packages
 
