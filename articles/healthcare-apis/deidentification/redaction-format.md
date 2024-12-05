@@ -15,9 +15,20 @@ In this tutorial, you:
 
 > [!div class="checklist"]
 > * Learn how to specify a custom redaction format
-> * Learn how to create your desired redaction format
+> * Learn how to use variables in a custom redaction format
 
 ## Usage
+
+Within the de-identification service, we support an operation called `Redact` that allows you to redact PHI from a text document. You can specify
+what that redaction looks like using a custom format.
+
+For example:
+
+| Text                   | RedactedText       |
+| ---------------------- | ------------------ |
+| My name is John Smith. | My name is [name]. |
+
+### Specify a custom redaction format
 
 1. Must select `Redact` as `Operation`. `RedactionFormat` is only supported for `Redact` operation.
 2. Pass `RedactionFormat` parameter within the `CustomizationOptions` model to the API or Job parameters.
@@ -44,13 +55,12 @@ The following variables are supported:
 Also supports Upper and Title cases
 
 ```text
-    {Type} => {Patient}
-    {TYPE} => {PATIENT}
+    {type} => patient
+    {Type} => Patient
+    {TYPE} => PATIENT
 ```
 
 ### Length
-
-`*{len} => ******(length of entity)`
 
 This variable allows you to create a string matching the length of the PHI. 
 
@@ -66,5 +76,5 @@ It duplicates the previous character to match the length of the tagged entity.
 
 ## Limits
 
-1. RedactionFormat supports up to 16 characters.
+1. The redaction format can be up to 16 characters long.
 2. Each variable type can only be used once in the format.

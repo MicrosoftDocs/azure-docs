@@ -32,7 +32,7 @@ items:
     items:
       - name: Configure Azure Storage to de-identify documents
         href: configure-storage.md
-      - name: Custom redaction format with the de-identification service
+      - name: Customize format of redacted text during de-identification
         href: redaction-format.md
   - name: How-to
     expanded: true
