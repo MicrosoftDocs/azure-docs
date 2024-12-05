@@ -45,7 +45,7 @@ To invite a developer, follow the steps in this section:
 
 When a developer is invited, by default an email is sent to the developer. This email is generated using a template and is customizable. For more information, see [Configure email templates][Configure email templates].
 
-The developer can accept the invitation by following the instructions in the email. Once the invitation is accepted, the account becomes active.
+The developer can accept the invitation by following the instructions in the email. Once the invitation is accepted, the account becomes **Active**.
 
 The invitation link is active for 2 days.
 
@@ -61,7 +61,7 @@ To block a user, follow the following steps.
 
 ## Reset a user password
 
-When you create a developer account or a developer is invited, a password is set. You can send an email to a user to reset the password:.
+When you create a developer account or a developer is invited, a password is set. You can send an email to a user to reset the password:
 
 1. In the left menu, under **Developer portal**, select **Users**.
 1. Select the user whose password you want to reset.
