@@ -16,17 +16,20 @@ Operator Nexus platform software. Some of these steps may take
 extended amounts of time, thus, a review of these prerequisites may prove beneficial.
 
 In subsequent deployments of Operator Nexus instances, you can skip to creating the on-premises
-[Network Fabric](./howto-configure-network-fabric.md) and the [Cluster](./howto-configure-cluster.md).
+[Network Fabric] and the [Cluster].
 
 ## Azure prerequisites
 
 When deploying Operator Nexus for the first time or in a new region,
-you'll first need to create a Network Fabric Controller and then a Cluster Manager as specified [here](./howto-azure-operator-nexus-prerequisites.md). Additionally, the following tasks need to be accomplished:
+you'll first need to create a Network Fabric Controller and then a Cluster Manager as specified in
+the [Azure Operator Nexus Prerequisites] page. Additionally, the following tasks need to be accomplished:
 - Set up users, policies, permissions, and RBAC
 - Set up Resource Groups to place and group resources in a logical manner
   that will be created for Operator Nexus platform.
 - Establish ExpressRoute connectivity from your WAN to an Azure Region
-- To enable Microsoft Defender for Endpoint for on-premises bare metal machines (BMMs), you must have selected a Defender for Servers plan in your Operator Nexus subscription before deployment. Additional information available [here](./howto-set-up-defender-for-cloud-security.md).
+- To enable Microsoft Defender for Endpoint for on-premises bare metal machines (BMMs), you must
+  have selected a Defender for Servers plan in your Operator Nexus subscription before deployment.
+  Additional information available on the [Defender for Cloud Security] page.
 
 ## On your premises prerequisites
 
@@ -110,14 +113,14 @@ If the site preparation is complete and validated to support the ordered SKU,
 the build process occurs in the following steps:
 
 1. Assemble the racks based on the rack elevations of the SKU. Specific rack assembly
-instructions will be provided by the rack manufacturer.
-1. After the racks are assembled, install the fabric devices in the racks per the elevation diagram.
-1. Cable the fabric devices by connecting the network interfaces per the cabling diagram.
-1. Assemble and install the servers per rack elevation diagram.
-1. Assemble and install the storage device per rack elevation diagram.
-1. Cable the server and storage devices by connecting the network interfaces per the cabling diagram.
-1. Cable power from each device.
-1. Review/validate the build through the checklists provided by Operator Nexus and other vendors.
+   instructions will be provided by the rack manufacturer.
+2. After the racks are assembled, install the fabric devices in the racks per the elevation diagram.
+3. Cable the fabric devices by connecting the network interfaces per the cabling diagram.
+4. Assemble and install the servers per rack elevation diagram.
+5. Assemble and install the storage device per rack elevation diagram.
+6. Cable the server and storage devices by connecting the network interfaces per the cabling diagram.
+7. Cable power from each device.
+8. Review/validate the build through the checklists provided by Operator Nexus and other vendors.
 
 #### How to visually inspect the physical hardware installation
 
@@ -153,11 +156,11 @@ sudo ogcli update system/hostname hostname=\"$TS_HOSTNAME\"
 
 **Parameters:**
 
-| Parameter Name | Description               |
-| -------------- | ------------------------- |
-| TS_HOSTNAME    | Terminal server hostname  |
+| Parameter Name | Description              |
+| -------------- | ------------------------ |
+| TS\_HOSTNAME   | Terminal server hostname |
 
-[Refer to CLI Reference](https://opengear.zendesk.com/hc/articles/360044253292-Using-the-configuration-CLI-ogcli-) for more details.
+[Refer to CLI Reference] for more details.
 
 ### Step 2: Setting up network
 
@@ -186,14 +189,14 @@ sudo ogcli create conn << 'END'
 
 **Parameters:**
 
-| Parameter Name  | Description                                     |
-| --------------- | ----------------------------------------------- |
-| TS_NET1_IP      | Terminal server PE1 to TS NET1 IP               |
-| TS_NET1_NETMASK | Terminal server PE1 to TS NET1 netmask          |
-| TS_NET1_GW      | Terminal server PE1 to TS NET1 gateway          |
-| TS_NET2_IP      | Terminal server PE2 to TS NET2 IP               |
-| TS_NET2_NETMASK | Terminal server PE2 to TS NET2 netmask          |
-| TS_NET2_GW      | Terminal server PE2 to TS NET2 gateway          |
+| Parameter Name    | Description                            |
+| ----------------- | -------------------------------------- |
+| TS\_NET1\_IP      | Terminal server PE1 to TS NET1 IP      |
+| TS\_NET1\_NETMASK | Terminal server PE1 to TS NET1 netmask |
+| TS\_NET1\_GW      | Terminal server PE1 to TS NET1 gateway |
+| TS\_NET2\_IP      | Terminal server PE2 to TS NET2 IP      |
+| TS\_NET2\_NETMASK | Terminal server PE2 to TS NET2 netmask |
+| TS\_NET2\_GW      | Terminal server PE2 to TS NET2 gateway |
 
 >[!NOTE]
 >Make sure to replace these parameters with appropriate values.
@@ -206,16 +209,16 @@ To clear the net3 interface, follow these steps:
 
 ```bash
 ogcli get conns
-**description="Default IPv4 Static Address"**
-**name="$TS_NET3_CONN_NAME"**
-**physif="net3"**
+  description="Default IPv4 Static Address"
+  name="$TS_NET3_CONN_NAME"
+  physif="net3"
 ```
 
 **Parameters:**
 
-| Parameter Name    | Description                              |
-| ----------------- | ---------------------------------------- |
-| TS_NET3_CONN_NAME | Terminal server NET3 Connection name     |
+| Parameter Name       | Description                          |
+| -------------------- | ------------------------------------ |
+| TS\_NET3\_CONN\_NAME | Terminal server NET3 Connection name |
 
 2. Remove the interface if it exists:
 
@@ -238,17 +241,17 @@ description="Support Admin User"
 enabled=true
 groups[0]="admin"
 groups[1]="netgrp"
-hashed_password="$HASHED_SUPPORT_PWD"
+password="$SUPPORT_PWD"
 username="$SUPPORT_USER"
 END
 ```
 
 **Parameters:**
 
-| Parameter Name     | Description                            |
-| ------------------ | -------------------------------------- |
-| SUPPORT_USER       | Support admin user                     |
-| HASHED_SUPPORT_PWD | Encoded support admin user password    |
+| Parameter Name | Description                 |
+| -------------- | --------------------------- |
+| SUPPORT\_USER  | Support admin user          |
+| SUPPORT\_PWD   | Support admin user password |
 
 >[!NOTE]
 >Make sure to replace these parameters with appropriate values.
@@ -356,9 +359,9 @@ time="$CURRENT_DATE_TIME"
 
 **Parameters:**
 
-| Parameter Name     | Description                                   |
-| ------------------ | --------------------------------------------- |
-| CURRENT_DATE_TIME  | Current date time in format hh:mm MMM DD, YYYY |
+| Parameter Name      | Description                                    |
+| ------------------- | ---------------------------------------------- |
+| CURRENT\_DATE\_TIME | Current date time in format hh:mm MMM DD, YYYY |
 
 >[!NOTE]
 >Ensure the system date/time is accurate to prevent any issues with applications or services relying on it.
@@ -373,17 +376,17 @@ ogcli update port "port-<PORT_#>"  label=\"<NEW_NAME>\"	<PORT_#>
 
 **Parameters:**
 
-| Parameter Name  | Description                 |
-| ----------------| --------------------------- |
-| NEW_NAME        | Port label name             |
-| PORT_#          | Terminal Server port number |
+| Parameter Name | Description                 |
+| -------------- | --------------------------- |
+| NEW\_NAM       | Port label name             |
+| PORT\_#        | Terminal Server port number |
 
 
 ### Step 9: Settings required for PURE Array serial connections
 
 Pure Storage arrays purchased prior to 2024 have revision R3 controllers which use rollover console cables and require the custom serial port connection commands below:
 
-**Pure Stoarge R3 Controllers:**
+**Pure Storage R3 Controllers:**
 ```bash
 ogcli update port ports-<PORT_#> 'baudrate="115200"' <PORT_#> Pure Storage Controller console
 ogcli update port ports-<PORT_#> 'pinout="X1"' <PORT_#>	Pure Storage Controller console
@@ -399,9 +402,9 @@ ogcli update port ports-<PORT_#> 'pinout="X2"' <PORT_#>	Pure Storage Controller 
 
 **Parameters:**
 
-| Parameter Name  | Description                 |
-| ----------------| --------------------------- |
-| PORT_#          | Terminal Server port number |
+| Parameter Name | Description                 |
+| -------------- | --------------------------- |
+| PORT\_#        | Terminal Server port number |
 
 These commands set the baud rate and pinout for connecting to the Pure Storage Controller console.
 
@@ -479,14 +482,13 @@ Interface:    net1, via: LLDP, RID: 1, Time: 0 day, 20:28:36
    - FIC/Rack/Grid Location:
 4. Data provided to the operator and shared with storage array technician, which will be common to
    all installations:
-   - Purity Code Level: Refer to
-     [supported Purity versions](./reference-near-edge-storage-supported-versions.md)
+   - Purity Code Level: Refer to [supported Purity versions]
    - Safe Mode: Disabled
    - Array Timezone: UTC
    - DNS (Domain Name System) Server IP Address: not set by operator during setup
    - DNS Domain Suffix: not set by operator during setup
    - NTP (Network Time Protocol) Server IP Address or FQDN: not set by operator during setup
-   - Syslog Primary: 172.27.255.213
+   - Syslog Primary: not set by operator during setup
    - Syslog Secondary: not set by operator during setup
    - SMTP Gateway IP address or FQDN: not set by operator during setup
    - Email Sender Domain Name: domain name of the sender of the email (example.com)
@@ -520,11 +522,11 @@ Interface:    net1, via: LLDP, RID: 1, Time: 0 day, 20:28:36
    - ct1.eth18: not set by operator during setup
    - ct1.eth19: not set by operator during setup
    - Pure Tunable to be applied:
-     - puretune -set PS_ENFORCE_IO_ORDERING 1 "PURE-209441";
-     - puretune -set PS_STALE_IO_THRESH_SEC 4 "PURE-209441";
-     - puretune -set PS_LANDLORD_QUORUM_LOSS_TIME_LIMIT_MS 0 "PURE-209441";
-     - puretune -set PS_RDMA_STALE_OP_THRESH_MS 5000 "PURE-209441";
-     - puretune -set PS_BDRV_REQ_MAXBUFS 128 "PURE-209441";
+     - `puretune -set PS_ENFORCE_IO_ORDERING 1 "PURE-209441";`
+     - `puretune -set PS_STALE_IO_THRESH_SEC 4 "PURE-209441";`
+     - `puretune -set PS_LANDLORD_QUORUM_LOSS_TIME_LIMIT_MS 0 "PURE-209441";`
+     - `puretune -set PS_RDMA_STALE_OP_THRESH_MS 5000 "PURE-209441";`
+     - `puretune -set PS_BDRV_REQ_MAXBUFS 128 "PURE-209441";`
 
 ## iDRAC IP Assignment
 
@@ -539,56 +541,56 @@ Before deploying the Nexus Cluster, it’s best for the operator to set the iDRA
 
 Fabric range: 10.1.0.0-10.1.31.255 – iDRAC subnet at fourth /24 is 10.1.3.0/24.
 
-   | Rack   | Server        | iDRAC IP      |
-   |--------|---------------|---------------|
-   | Rack 1 | Worker 1      | 10.1.3.11/24  |
-   | Rack 1 | Worker 2      | 10.1.3.12/24  |
-   | Rack 1 | Worker 3      | 10.1.3.13/24  |
-   | Rack 1 | Worker 4      | 10.1.3.14/24  |
-   | Rack 1 | Worker 5      | 10.1.3.15/24  |
-   | Rack 1 | Worker 6      | 10.1.3.16/24  |
-   | Rack 1 | Worker 7      | 10.1.3.17/24  |
-   | Rack 1 | Worker 8      | 10.1.3.18/24  |
-   | Rack 1 | Controller 1  | 10.1.3.19/24  |
-   | Rack 1 | Controller 2  | 10.1.3.20/24  |
-   | Rack 2 | Worker 1      | 10.1.3.21/24  |
-   | Rack 2 | Worker 2      | 10.1.3.22/24  |
-   | Rack 2 | Worker 3      | 10.1.3.23/24  |
-   | Rack 2 | Worker 4      | 10.1.3.24/24  |
-   | Rack 2 | Worker 5      | 10.1.3.25/24  |
-   | Rack 2 | Worker 6      | 10.1.3.26/24  |
-   | Rack 2 | Worker 7      | 10.1.3.27/24  |
-   | Rack 2 | Worker 8      | 10.1.3.28/24  |
-   | Rack 2 | Controller 1  | 10.1.3.29/24  |
-   | Rack 2 | Controller 2  | 10.1.3.30/24  |
-   | Rack 3 | Worker 1      | 10.1.3.31/24  |
-   | Rack 3 | Worker 2      | 10.1.3.32/24  |
-   | Rack 3 | Worker 3      | 10.1.3.33/24  |
-   | Rack 3 | Worker 4      | 10.1.3.34/24  |
-   | Rack 3 | Worker 5      | 10.1.3.35/24  |
-   | Rack 3 | Worker 6      | 10.1.3.36/24  |
-   | Rack 3 | Worker 7      | 10.1.3.37/24  |
-   | Rack 3 | Worker 8      | 10.1.3.38/24  |
-   | Rack 3 | Controller 1  | 10.1.3.39/24  |
-   | Rack 3 | Controller 2  | 10.1.3.40/24  |
-   | Rack 4 | Worker 1      | 10.1.3.41/24  |
-   | Rack 4 | Worker 2      | 10.1.3.42/24  |
-   | Rack 4 | Worker 3      | 10.1.3.43/24  |
-   | Rack 4 | Worker 4      | 10.1.3.44/24  |
-   | Rack 4 | Worker 5      | 10.1.3.45/24  |
-   | Rack 4 | Worker 6      | 10.1.3.46/24  |
-   | Rack 4 | Worker 7      | 10.1.3.47/24  |
-   | Rack 4 | Worker 8      | 10.1.3.48/24  |
-   | Rack 4 | Controller 1  | 10.1.3.49/24  |
-   | Rack 4 | Controller 2  | 10.1.3.50/24  |
+| Rack   | Server       | iDRAC IP     |
+| ------ | ------------ | ------------ |
+| Rack 1 | Worker 1     | 10.1.3.11/24 |
+| Rack 1 | Worker 2     | 10.1.3.12/24 |
+| Rack 1 | Worker 3     | 10.1.3.13/24 |
+| Rack 1 | Worker 4     | 10.1.3.14/24 |
+| Rack 1 | Worker 5     | 10.1.3.15/24 |
+| Rack 1 | Worker 6     | 10.1.3.16/24 |
+| Rack 1 | Worker 7     | 10.1.3.17/24 |
+| Rack 1 | Worker 8     | 10.1.3.18/24 |
+| Rack 1 | Controller 1 | 10.1.3.19/24 |
+| Rack 1 | Controller 2 | 10.1.3.20/24 |
+| Rack 2 | Worker 1     | 10.1.3.21/24 |
+| Rack 2 | Worker 2     | 10.1.3.22/24 |
+| Rack 2 | Worker 3     | 10.1.3.23/24 |
+| Rack 2 | Worker 4     | 10.1.3.24/24 |
+| Rack 2 | Worker 5     | 10.1.3.25/24 |
+| Rack 2 | Worker 6     | 10.1.3.26/24 |
+| Rack 2 | Worker 7     | 10.1.3.27/24 |
+| Rack 2 | Worker 8     | 10.1.3.28/24 |
+| Rack 2 | Controller 1 | 10.1.3.29/24 |
+| Rack 2 | Controller 2 | 10.1.3.30/24 |
+| Rack 3 | Worker 1     | 10.1.3.31/24 |
+| Rack 3 | Worker 2     | 10.1.3.32/24 |
+| Rack 3 | Worker 3     | 10.1.3.33/24 |
+| Rack 3 | Worker 4     | 10.1.3.34/24 |
+| Rack 3 | Worker 5     | 10.1.3.35/24 |
+| Rack 3 | Worker 6     | 10.1.3.36/24 |
+| Rack 3 | Worker 7     | 10.1.3.37/24 |
+| Rack 3 | Worker 8     | 10.1.3.38/24 |
+| Rack 3 | Controller 1 | 10.1.3.39/24 |
+| Rack 3 | Controller 2 | 10.1.3.40/24 |
+| Rack 4 | Worker 1     | 10.1.3.41/24 |
+| Rack 4 | Worker 2     | 10.1.3.42/24 |
+| Rack 4 | Worker 3     | 10.1.3.43/24 |
+| Rack 4 | Worker 4     | 10.1.3.44/24 |
+| Rack 4 | Worker 5     | 10.1.3.45/24 |
+| Rack 4 | Worker 6     | 10.1.3.46/24 |
+| Rack 4 | Worker 7     | 10.1.3.47/24 |
+| Rack 4 | Worker 8     | 10.1.3.48/24 |
+| Rack 4 | Controller 1 | 10.1.3.49/24 |
+| Rack 4 | Controller 2 | 10.1.3.50/24 |
 
 An example design of three on-premises instances from the same NFC/CM pair, using sequential /19 networks in a /16:
 
-   | Instance   | Fabric Range            | iDRAC subnet |
-   |------------|-------------------------|--------------|
-   | Instance 1 | 10.1.0.0-10.1.31.255    | 10.1.3.0/24  |
-   | Instance 2 | 10.1.32.0-10.1.63.255   | 10.1.35.0/24 |
-   | Instance 3 | 10.1.64.0-10.1.95.255   | 10.1.67.0/24 |
+| Instance   | Fabric Range          | iDRAC subnet |
+| ---------- | --------------------- | ------------ |
+| Instance 1 | 10.1.0.0-10.1.31.255  | 10.1.3.0/24  |
+| Instance 2 | 10.1.32.0-10.1.63.255 | 10.1.35.0/24 |
+| Instance 3 | 10.1.64.0-10.1.95.255 | 10.1.67.0/24 |
 
 ### Default setup for other devices installed
 
@@ -599,25 +601,24 @@ An example design of three on-premises instances from the same NFC/CM pair, usin
 
 To establish firewall rules between Azure and the Nexus Cluster, the operator must open the specified ports. This ensures proper communication and connectivity for required services using TCP (Transmission Control Protocol) and UDP (User Datagram Protocol).
 
-| S.No | Source                 | Destination           | Port (TCP/UDP)  | Bidirectional  | Rule Purpose                                             |
-|------|------------------------|-----------------------|-----------------|----------------|----------------------------------------------------------|
-| 1    | Azure virtual network  | Cluster               | 22 TCP          | No             | For SSH to undercloud servers from the CM subnet.        |
-| 2    | Azure virtual network  | Cluster               | 443 TCP         | No             | To access undercloud nodes iDRAC                         |
-| 3    | Azure virtual network  | Cluster               | 5900 TCP        | No             | Gnmi                                                     |
-| 4    | Azure virtual network  | Cluster               | 6030 TCP        | No             | Gnmi Certs                                               |
-| 5    | Azure virtual network  | Cluster               | 6443 TCP        | No             | To access undercloud K8S cluster                         |
-| 6    | Cluster                | Azure virtual network | 8080 TCP        | Yes            | For mounting ISO image into iDRAC, NNF runtime upgrade   |
-| 7    | Cluster                | Azure virtual network | 3128 TCP        | No             | Proxy to connect to global Azure endpoints               |
-| 8    | Cluster                | Azure virtual network | 53 TCP and UDP  | No             | DNS                                                      |
-| 9    | Cluster                | Azure virtual network | 123 UDP         | No             | NTP                                                      |
-| 10   | Cluster                | Azure virtual network | 8888 TCP        | No             | Connecting to Cluster Manager webservice                 |
-| 11   | Cluster                | Azure virtual network | 514 TCP and UDP | No             | To access undercloud logs from the Cluster Manager       |
+| S.No | Source                | Destination           | Port (TCP/UDP)  | Bidirectional | Rule Purpose                                           |
+| ---- | --------------------- | --------------------- | --------------- | ------------- | ------------------------------------------------------ |
+| 1    | Azure virtual network | Cluster               | 22 TCP          | No            | For SSH to undercloud servers from the CM subnet       |
+| 2    | Azure virtual network | Cluster               | 443 TCP         | No            | To access undercloud nodes iDRAC                       |
+| 3    | Azure virtual network | Cluster               | 5900 TCP        | No            | Gnmi                                                   |
+| 4    | Azure virtual network | Cluster               | 6030 TCP        | No            | Gnmi Certs                                             |
+| 5    | Azure virtual network | Cluster               | 6443 TCP        | No            | To access undercloud K8S cluster                       |
+| 6    | Cluster               | Azure virtual network | 8080 TCP        | Yes           | For mounting ISO image into iDRAC, NNF runtime upgrade |
+| 7    | Cluster               | Azure virtual network | 3128 TCP        | No            | Proxy to connect to global Azure endpoints             |
+| 8    | Cluster               | Azure virtual network | 53 TCP and UDP  | No            | DNS                                                    |
+| 9    | Cluster               | Azure virtual network | 123 UDP         | No            | NTP                                                    |
+| 10   | Cluster               | Azure virtual network | 8888 TCP        | No            | Connecting to Cluster Manager webservice               |
+| 11   | Cluster               | Azure virtual network | 514 TCP and UDP | No            | To access undercloud logs from the Cluster Manager     |
 
 
 ## Install CLI extensions and sign-in to your Azure subscription
 
-Install latest version of the
-[necessary CLI extensions](./howto-install-cli-extensions.md).
+Install latest version of the [necessary CLI extensions].
 
 ### Azure subscription sign-in
 
@@ -629,3 +630,11 @@ Install latest version of the
 
 >[!NOTE]
 >The account must have permissions to read/write/publish in the subscription
+
+[Network Fabric]: ./howto-configure-network-fabric.md
+[Cluster]: ./howto-configure-cluster.md
+[Azure Operator Nexus Prerequisites]: ./howto-azure-operator-nexus-prerequisites.md
+[Defender for Cloud Security]: ./howto-set-up-defender-for-cloud-security.md
+[Refer to CLI Reference]: https://opengear.zendesk.com/hc/articles/360044253292-Using-the-configuration-CLI-ogcli-
+[necessary CLI extensions]: ./howto-install-cli-extensions.md
+[supported Purity versions]: ./reference-near-edge-storage-supported-versions.md
