@@ -92,7 +92,7 @@ Available actions are described in the following table.
     * Interfaces
     * The schema element
  
-* The policy can validate GraphQL requests with up to 250 query fields at all levels.
+* The policy can validate GraphQL requests with up to 250 query fields across all levels.
   
 ## Error handling
 
