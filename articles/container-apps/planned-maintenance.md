@@ -7,7 +7,7 @@ ms.service: azure-container-apps
 ms.custom:
   - ignite-2024
 ms.topic: how-to
-ms.date: 12/04/2024
+ms.date: 12/05/2024
 ms.author: cshoe
 ---
 
@@ -34,7 +34,7 @@ Keep in mind the following considerations:
 
 * The minimum duration for a maintenance window is 8 hours.
 
-* Planned maintenance is an optional, best-effort feature. When there are critical updates, Container Apps can apply these updates outside of the maintenance window to ensure the security and reliability of the platform and your applications.
+* Planned maintenance is an optional, best-effort feature that is ideal for environments with interdependent applications seeking added resiliency. When there are critical updates, Container Apps can apply these updates outside of the maintenance window to ensure the security and reliability of the platform and your applications.
 
 * Support for maintenance windows is supported in all container apps and jobs, except when they run on consumption workload profiles.
 
