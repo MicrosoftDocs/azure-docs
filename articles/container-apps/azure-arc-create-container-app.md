@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: conceptual
-ms.date: 3/20/2023
+ms.date: 12/05/2024
 ms.author: cshoe
 ---
 
@@ -43,8 +43,8 @@ az extension add --name containerapp  --upgrade --yes
 Create a resource group for the services created in this tutorial.
 
 ```azurecli-interactive
-myResourceGroup="my-container-apps-resource-group"
-az group create --name $myResourceGroup --location eastus 
+GROUP_NAME="my-container-apps-resource-group"
+az group create --name $GROUP_NAME --location eastus 
 ```
 
 ## Get custom location information
@@ -52,19 +52,19 @@ az group create --name $myResourceGroup --location eastus
 Get the following location group, name, and ID from your cluster administrator. See [Create a custom location](azure-arc-enable-cluster.md) for details.
 
 ```azurecli-interactive
-customLocationGroup="<RESOURCE_GROUP_CONTAINING_CUSTOM_LOCATION>"
+CUSTOM_LOCATION_GROUP="<RESOURCE_GROUP_CONTAINING_CUSTOM_LOCATION>"
 ```
 
 ```azurecli-interactive
-customLocationName="<NAME_OF_CUSTOM_LOCATION>"
+CUSTOM_LOCATION_NAME="<NAME_OF_CUSTOM_LOCATION>"
 ```
 
 Get the custom location ID.
 
 ```azurecli-interactive
-customLocationId=$(az customlocation show \
-    --resource-group $customLocationGroup \
-    --name $customLocationName \
+CUSTOM_LOCATION_ID=$(az customlocation show \
+    --resource-group $CUSTOM_LOCATION_GROUP \
+    --name $CUSTOM_LOCATION_NAME \
     --query id \
     --output tsv)
 ```
@@ -73,11 +73,11 @@ customLocationId=$(az customlocation show \
 
 Now that you have the custom location ID, you can query for the connected environment.
 
-A connected environment is largely the same as a standard Container Apps environment, but network restrictions are controlled by the underlying Arc-enabled Kubernetes cluster.
+A connected environment is largely the same as a standard Container Apps environment, but the underlying Arc-enabled Kubernetes cluster controls the network restrictions.
 
 ```azure-interactive
-myContainerApp="my-container-app"
-myConnectedEnvironment=$(az containerapp connected-env list --custom-location $customLocationId -o tsv --query '[].id')
+CONTAINER_APP_NAME="my-container-app"
+CONNECTED_ENVIRONMENT_ID=$(az containerapp connected-env list --custom-location $CUSTOM_LOCATION_ID -o tsv --query '[].id')
 ```
 
 ## Create an app
@@ -86,15 +86,15 @@ The following example creates a Node.js app.
 
 ```azurecli-interactive
  az containerapp create \
-    --resource-group $myResourceGroup \
-    --name $myContainerApp \
-    --environment $myConnectedEnvironment \
+    --resource-group $GROUP_NAME \
+    --name $CONTAINER_APP_NAME \
+    --environment $CONNECTED_ENVIRONMENT_ID \
     --environment-type connected \
     --image mcr.microsoft.com/k8se/quickstart:latest \
     --target-port 80 \
     --ingress external
 
-az containerapp browse --resource-group $myResourceGroup --name $myContainerApp
+az containerapp browse --resource-group $GROUP_NAME --name $CONTAINER_APP_NAME
 ```
 
 ## Get diagnostic logs using Log Analytics
@@ -106,7 +106,7 @@ Navigate to the [Log Analytics workspace that's configured with your Container A
 
 Run the following sample query to show logs over the past 72 hours.
 
-If there's an error when running a query, try again in 10-15 minutes. There may be a delay for Log Analytics to start receiving logs from your application.
+If there's an error when running a query, try again in 10-15 minutes. There might be a delay for Log Analytics to start receiving logs from your application.
 
 ```kusto
 let StartTime = ago(72h);
