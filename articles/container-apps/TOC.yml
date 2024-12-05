@@ -363,6 +363,9 @@
       - name: Launch your first Java app
         href: java-get-started.md
         displayName: java
+      - name: Launch your first Java microservice apps with managed Java components
+        href: java-microservice-get-started.md
+        displayName: java
       - name: Get started using IntelliJ
         href: /azure/developer/java/toolkit-for-intellij/create-container-apps-intellij?toc=/azure/container-apps/toc.json&bc=/azure/container-apps/breadcrumb/toc.json
         displayName: java
