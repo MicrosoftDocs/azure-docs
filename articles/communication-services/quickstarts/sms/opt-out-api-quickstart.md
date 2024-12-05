@@ -5,6 +5,7 @@ services: azure-communication-services
 author: besh2014
 product manager: dbasantes
 ms.service: azure-communication-services
+ms.author: besh2014
 ms.subservice: sms
 ms.date: 12/04/2024
 ms.topic: quickstart
@@ -20,8 +21,8 @@ This article describes how to enable opt-out management for your Azure Communica
 - An active Communication Services resource and connection string. See [Create a Communication Services resource](../create-communication-resource.md).
 - To enable Opt-out management on your Azure Communication Services resource, contact [acs_telco_messaging@microsoft.com](mailto:acs_telco_messaging@microsoft.com) to allow-list your `Immutable resource Id` (as listed on the **Properties** page in the Azure portal), and associated SMS-enabled toll-free numbers. 
 
-# Quickstart: Send OptOut API requests with API (HMAC)
-Sending is similar to SMS as described in the [Azure Communication Services Postman Tutorial](https://learn.microsoft.com/en-us/azure/communication-services/tutorials/postman-tutorial) with the difference of endpoints for OptOut Actions (Add, Remove, or Check) and body. The request body has the same structure for all actions, while the response content slightly differs.
+## Quickstart: Send OptOut API requests with API (HMAC)
+Sending is similar to SMS as described in the [Azure Communication Services Postman Tutorial](https://learn.microsoft.com/azure/communication-services/tutorials/postman-tutorial) with the difference of endpoints for OptOut Actions (Add, Remove, or Check) and body. The request body has the same structure for all actions, while the response content slightly differs.
 
 ### Endpoints
 
@@ -123,8 +124,8 @@ In general, response content are the same for all actions and contain the succes
 #### Prerequisites
 
 - The .NET Core SDK version mush be higher than v6 for your operating system.
-- An active Communication Services resource and connection string. [Create a Communication Services resource](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/create-communication-resource).
-- An SMS-enabled telephone number. See [Get a phone number](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/telephony/get-phone-number) and `allowlisted` as described in the beginning of the article.
+- An active Communication Services resource and connection string. [Create a Communication Services resource](https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource).
+- An SMS-enabled telephone number. See [Get a phone number](https://learn.microsoft.com/azure/communication-services/quickstarts/telephony/get-phone-number) and `allowlisted` as described in the beginning of the article.
 
 ```cs
 using System.Globalization;
@@ -206,8 +207,8 @@ await SendOptOutAdd(ConnectionString, payload);
 #### Prerequisites
 
 - Browser or Node.js Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1 are recommended).
-- An active Communication Services resource and connection string. See [Create a Communication Services resource](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/create-communication-resource).
-- An SMS-enabled telephone number. See [Get a phone number](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/telephony/get-phone-number).
+- An active Communication Services resource and connection string. See [Create a Communication Services resource](https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource).
+- An SMS-enabled telephone number. See [Get a phone number](https://learn.microsoft.com/azure/communication-services/quickstarts/telephony/get-phone-number).
 - [CryptoJS](https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/crypto-js/CryptoJS%20v3.1.2.zip) is JavaScript implementations of standard and secure cryptographic algorithms.
 
 
@@ -287,8 +288,8 @@ sendOptOutAdd(ConnectionString, payload);
 #### Prerequisites
 
 - Java Development Kit (JDK) version 8 or above.
-- An active Communication Services resource and connection string. See [Create a Communication Services resource](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/create-communication-resource).
-- An SMS-enabled telephone number. See [Get a phone number](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/telephony/get-phone-number).
+- An active Communication Services resource and connection string. See [Create a Communication Services resource](https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource).
+- An SMS-enabled telephone number. See [Get a phone number](https://learn.microsoft.com/azure/communication-services/quickstarts/telephony/get-phone-number).
 
 
 ```java
