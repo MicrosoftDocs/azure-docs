@@ -3802,12 +3802,12 @@
     }
     {
       "source_path_from_root": "/articles/managed-grafana/how-to-upgrade-grafana-10.md",
-      "redirect_url": "/azure/managed-grafana",
+      "redirect_url": "/azure/managed-grafana/overview",
       "redirect_document_id": false
     }
     {
       "source_path_from_root": "/articles/managed-grafana/how-to-transition-domain.md",
-      "redirect_url": "/azure/managed-grafana",
+      "redirect_url": "/azure/managed-grafana/overview",
       "redirect_document_id": false
     }
   ]
