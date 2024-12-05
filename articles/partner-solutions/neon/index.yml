@@ -43,5 +43,12 @@ landingContent:
           url: tools.md
         - text: Azure CLI
           url: /cli/azure/neon
-
+        - text: Go
+          url: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/neonpostgres/armneonpostgres@v0.1.0
+        - text: Java
+          url: https://central.sonatype.com/artifact/com.azure.resourcemanager/azure-resourcemanager-neonpostgres/1.0.0-beta.1
+        - text: JavaScript
+          url: https://www.npmjs.com/package/@azure/arm-neonpostgres/v/1.0.0-beta.1
+        - text: Python  
+          url: https://pypi.org/project/azure-mgmt-neonpostgres/
   
