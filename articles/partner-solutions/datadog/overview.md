@@ -1,6 +1,6 @@
 ---
 title: Datadog overview
-description: Discover Datadog - an Azure Native ISV Service which provides seamless monitoring and analytics of large-scale applications.
+description: Discover Datadog, a monitoring and analytics platform for large-scale applications integrated with Azure for streamlined management and enhanced performance.
 
 ms.topic: conceptual
 ms.date: 12/09/2024
@@ -10,11 +10,9 @@ ms.custom:
   - ai-seo-date:12/03/2024
 ---
 
-# What is Datadog - An Azure Native ISV Service?
+# What is Datadog?
 
-## Overview
-
-Azure Native ISV Services enable you to easily provision, manage, and tightly integrate independent software vendor (ISV) software and services on Azure. Microsoft and Datadog developed and manage this service.
+Azure Native Integrations enable you to easily create, manage, and tightly integrate independent software vendor (ISV) software and services on Azure. Microsoft and Datadog developed and manage this service.
 
 You can find Datadog in the [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Datadog%2Fmonitors) or get it on [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/datadog1591740804488.dd_liftr_v2?tab=Overview).
 
@@ -26,7 +24,7 @@ You create the Datadog resources through a resource provider named `Microsoft.Da
 
 ## Capabilities
 
-Datadog - An Azure Native ISV Service provides the following capabilities:
+Datadog provides the following capabilities:
 
 - **Integrated onboarding** - Datadog is an integrated service on Azure. You can create a Datadog resource and manage the integration through the Azure portal.
 - **Unified billing** - Datadog costs are reported through Azure monthly bill.
