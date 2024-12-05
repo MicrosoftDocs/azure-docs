@@ -18,7 +18,7 @@ Before creating a support ticket, check out the following resources for answers 
 
 * [Technical documentation for Azure Managed Grafana](./index.yml): find content such as how-to guides, tutorials and the [troubleshooting guide](troubleshoot-managed-grafana.md) for Azure Managed Grafana.
 * [Microsoft Q&A](/answers/tags/249/azure-managed-grafana): browse existing questions and answers, and ask your questions around Azure Managed Grafana.
-* [Microsoft Technical Community](https://techcommunity.microsoft.com/) is the place for IT professionals and customers to collaborate, share, and learn. The website contains [Grafana-related content](https://techcommunity.microsoft.com/t5/forums/searchpage/tab/message?q=grafana).
+* [Microsoft Technical Community](https://techcommunity.microsoft.com/) is the place for IT professionals and customers to collaborate, share, and learn. The website contains [Grafana-related content](https://techcommunity.microsoft.com/search?q=grafana).
 
 ## Open a support ticket
 
