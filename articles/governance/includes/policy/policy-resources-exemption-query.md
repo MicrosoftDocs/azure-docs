@@ -51,7 +51,7 @@ PolicyResources
 | extend expiresOnC = todatetime(properties.expiresOn)
 | where isnotnull(expiresOnC)
 | where expiresOnC >= now() and expiresOnC < now(+90d)
-| project name, expiresOnC
+| project properties.displayName, expiresOnC
 ```
 
 # [Azure CLI](#tab/azure-cli)
