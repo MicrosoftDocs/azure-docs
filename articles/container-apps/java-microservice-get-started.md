@@ -203,7 +203,7 @@ To create the three Java components, use the following steps:
 To deploy the Java microservice apps to Azure Container Apps using the prebuilt container images, use the following steps:
 
 > [!NOTE]
-> In this article, you use a series of [built images](https://github.com/orgs/Azure-Samples/packages?tab=packages&q=spring-petclinic) for the [Spring Petclinic microservice apps](https://github.com/spring-petclinic/spring-petclinic-microservices). You also have the option to customize the sample code and use your own images. For more information on building and deploying your own images, see the [azure-container-apps-java-samples GitHub repository](https://github.com/Azure-Samples/azure-container-apps-java-samples/tree/main/spring-petclinic-microservices/README.md).
+> In this article, you use a series of [built images](https://github.com/orgs/Azure-Samples/packages?tab=packages&q=spring-petclinic) for the [Spring Petclinic microservice apps](https://github.com/spring-petclinic/spring-petclinic-microservices). You also have the option to customize the sample code and use your own images. For more information, see the [azure-container-apps-java-samples GitHub repository](https://github.com/Azure-Samples/azure-container-apps-java-samples/tree/main/spring-petclinic-microservices/README.md).
 
 1. Create the customer data app by using the following command:
 
@@ -253,9 +253,7 @@ To deploy the Java microservice apps to Azure Container Apps using the prebuilt 
 Next, bind the Java components to your container apps. The bindings that you create in this section provide the following functionality:
 
 * Inject configuration data into each app from the managed config server on startup.
-
 * Register the app with the managed Eureka server for service discovery.
-
 * Enable the admin server to monitor the app.
 
 ### [Azure CLI](#tab/azure-cli)
