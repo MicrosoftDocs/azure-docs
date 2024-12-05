@@ -807,7 +807,7 @@ You can install and run BizTalk Server on your own hardware, on-premises virtual
   | WS2 | 2 | 7 |
   | WS3 | 4 | 14 |
 
-  For the latest information, see [Pricing tiers in the Standard model](./logic-apps-pricing.md#standard-pricing-tiers).
+  For more information, see [Pricing tiers in the Standard model](logic-apps-pricing.md#standard-pricing-tiers).
 
 - Hybrid deployment model (preview)
 
