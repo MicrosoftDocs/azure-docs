@@ -53,9 +53,11 @@ This action is currently not yet supported for the [Consumption logic app resour
 
    ```xml
    <xs:element name="Root">
-       <....>
+      <....>
    </xs:element>
-## Add a compose XML with schema action
+   ```
+
+## Add a Compose XML with schema action
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app and workflow in the designer.
 
