@@ -59,7 +59,7 @@
       href: automation-runbook-types.md
     - name: Automation Runtime environment
       href: runtime-environment-overview.md
-    - name: Azure Automation limits and quotas
+    - name: Automation limits and quotas
       href: automation-subscription-limits-faq.md
     - name: PowerShell DSC
       href: /powershell/dsc/overview
