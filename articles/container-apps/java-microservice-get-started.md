@@ -301,6 +301,8 @@ Use the `containerapp update` command to create bindings for each app by using t
 
 ### [Azure portal](#tab/azure-portal)
 
+Use the following steps to create bindings for each app:
+
 1. Open your Container Apps environment in the Azure portal.
 
 1. Go to **Services** and select **Service**.
@@ -309,7 +311,7 @@ Use the `containerapp update` command to create bindings for each app by using t
 
 1. In the **Bindings** section, add the four apps created in this quickstart.
 
-   :::image type="content" source="media/java-microservice-get-started/azure-container-apps-bindings-section.png" alt-text="Screenshot of the Bindings section, which allows the user to select apps to bind to the Container App. Four apps are listed: customers-service, vets-service, visits-service, and a p i -gateway.":::
+   :::image type="content" source="media/java-microservice-get-started/azure-container-apps-bindings-section.png" alt-text="Screenshot of the Bindings section. Four apps are listed: customers-service, vets-service, visits-service, and a p i gateway.":::
 
 ---
 
@@ -324,7 +326,7 @@ Use the following steps to verify the app status:
 1. View the Eureka server dashboard by using the following steps:
 
     > [!IMPORTANT]
-    > To view the Eureka server dashboard and the admin for the Spring dashboard, you need to have at least the `Microsoft.App/managedEnvironments/write` role assigned to your account on the managed environment resource. You can explicitly assign the `Owner` or `Contributor` role on the resource. You can also follow the steps to create a custom role definition and assign it to your account.
+    > To view the Eureka Server dashboard and Admin for Spring dashboard, you need to have at least the `Microsoft.App/managedEnvironments/write` role assigned to your account on the managed environment resource. You can explicitly assign the `Owner` or `Contributor` role on the resource. You can also follow the steps to create a custom role definition and assign it to your account.
 
     1. Run the following command to return the dashboard URL:
 
