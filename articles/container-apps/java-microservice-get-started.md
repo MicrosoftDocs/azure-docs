@@ -342,7 +342,7 @@ Use the following steps to verify the app status:
 
 1. View the admin for the Spring dashboard by using the following steps:
 
-    1. Use the following command to return the dashboard URL.
+    1. Use the following command to return the dashboard URL:
   
        ```azurecli
        az containerapp env java-component admin-for-spring show \
