@@ -52,7 +52,9 @@ The following tables show support of transcription in individual Azure Communica
 
 | Platforms   | Web | Web UI | iOS | iOS UI | Android | Android UI | Windows |
 |-------------|-----|--------|-----|--------|---------|------------|---------|
-|Is Supported | ✔️  |  ✔️   | ✔️ | ✔️     | ✔️     | ✔️         |  ✔️    |		
+|Is Supported | ✔️  |  ✔️[1] | ✔️[1] | ✔️[1]| ✔️[1]| ✔️[1]|  ✔️[1] |
+
+[1] These SDKs don't support explicit consent.
 
 ::: zone pivot="platform-web"
 [!INCLUDE [Call transcription client-side Web](./includes/call-transcription/call-transcription-web.md)]
