@@ -34,7 +34,7 @@ For the bond level (the top part):
 - **MII status**: Up. Is the entire bond up?
 - **LACP active**: On. Is LACP active?
 - **Aggregator ID**: 1. The top-level aggregator ID should match both replicas. See each port for its aggregator ID.
-- **System MAC address**: 42:56:86:9c:81:89. Is there a System MAC defined? If a bond isn't negotiated, it's undefined or all zeros, for example, 00:00:00:00:00:00.
+- **System MAC address**: 42:56:86:9c:81:89. Is there a System MAC defined? If a bond isn't negotiated, it's undefined or all zeros; for example, 00:00:00:00:00:00.
 
 For each port:
 
