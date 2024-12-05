@@ -4,7 +4,7 @@ description: This article describes how to migrate GCP VMs to Azure with Azure M
 author: vijain
 ms.author: vijain
 ms.topic: tutorial
-ms.date: 03/20/2024
+ms.date: 09/18/2024
 ms.service: azure-migrate
 ms.custom: MVC, engagement-fy24
 ---

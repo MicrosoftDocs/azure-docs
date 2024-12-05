@@ -287,7 +287,7 @@ items:
         href: quickstarts/telemetry-application-insights.md
   - name: Voice and Video
     items:
-    - name: Setup for Node.JS app
+    - name: Setup for Node.js app
       href: tutorials/building-app-start.md
     - name: Build an authentication service using Azure Functions
       href: tutorials/trusted-service-tutorial.md
@@ -663,6 +663,8 @@ items:
       href: samples/email-detect-sensitive-content.md
   - name: Call Automation
     items:
+    - name: Call Automation Azure Open AI sample
+      href: samples/call-automation-azure-openai-sample.md
     - name: Call Automation AI sample
       href: samples/call-automation-ai.md
 - name: Concepts

@@ -96,17 +96,10 @@ The following example overrides the default negotiate behavior and selects the e
 private class CustomRouter : EndpointRouterDecorator
 {    public override ServiceEndpoint GetNegotiateEndpoint(HttpContext context, IEnumerable<ServiceEndpoint> endpoints)
     {
-        // Override the negotiate behavior to get the endpoint from query string
-        var endpointName = context.Request.Query["endpoint"];
-        if (endpointName.Count == 0)
-        {
-            context.Response.StatusCode = 400;
-            var response = Encoding.UTF8.GetBytes("Invalid request");
-            context.Response.Body.Write(response, 0, response.Length);
-            return null;
-        }
-
-        return endpoints.FirstOrDefault(s => s.Name == endpointName && s.Online) // Get the endpoint with name matching the incoming request
+          // Sample code showing how to choose endpoints based on the incoming request endpoint query
+          var endpointName = context.Request.Query["endpoint"].FirstOrDefault() ?? "";
+          // Select from the available endpoints, don't construct a new ServiceEndpoint object here
+          return endpoints.FirstOrDefault(s => s.Name == endpointName && s.Online) // Get the endpoint with name matching the incoming request
                ?? base.GetNegotiateEndpoint(context, endpoints); // Or fallback to the default behavior to randomly select one from primary endpoints, or fallback to secondary when no primary ones are online
     }
 }
@@ -129,6 +122,22 @@ services.AddSignalR()
             });
 ```
 
+`ServiceOptions.Endpoints` also supports hot-reload. The below sample code shows how to load connection strings from one configuration section and public URL exposed by [reverse proxies](./signalr-howto-reverse-proxy-overview.md) from another, and as long as configuration supports hot-reload, the endpoints could be updated on the fly.
+```cs
+services.Configure<ServiceOptions>(o =>
+{
+        o.Endpoints = [
+            new ServiceEndpoint(Configuration["ConnectionStrings:AzureSignalR:East"], name: "east")
+            {
+                ClientEndpoint = new Uri(Configuration.GetValue<string>("PublicClientEndpoints:East"))
+            },
+            new ServiceEndpoint(Configuration["ConnectionStrings:AzureSignalR:West"], name: "west")
+            {
+                ClientEndpoint = new Uri(Configuration.GetValue<string>("PublicClientEndpoints:West"))
+            },
+        ];
+});
+```
 ## For ASP.NET
 
 ### Add multiple endpoints from config
@@ -184,15 +193,9 @@ private class CustomRouter : EndpointRouterDecorator
 {
     public override ServiceEndpoint GetNegotiateEndpoint(IOwinContext context, IEnumerable<ServiceEndpoint> endpoints)
     {
-        // Override the negotiate behavior to get the endpoint from query string
-        var endpointName = context.Request.Query["endpoint"];
-        if (string.IsNullOrEmpty(endpointName))
-        {
-            context.Response.StatusCode = 400;
-            context.Response.Write("Invalid request.");
-            return null;
-        }
-
+        // Sample code showing how to choose endpoints based on the incoming request endpoint query
+        var endpointName = context.Request.Query["endpoint"] ?? "";
+        // Select from the available endpoints, don't construct a new ServiceEndpoint object here
         return endpoints.FirstOrDefault(s => s.Name == endpointName && s.Online) // Get the endpoint with name matching the incoming request
                ?? base.GetNegotiateEndpoint(context, endpoints); // Or fallback to the default behavior to randomly select one from primary endpoints, or fallback to secondary when no primary ones are online
     }
