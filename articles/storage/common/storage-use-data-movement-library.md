@@ -18,6 +18,8 @@ ms.custom: devx-track-csharp, devx-track-dotnet
 
 The Azure Storage Data Movement library is a cross-platform open source library that is designed for high performance uploading, downloading, and copying of blobs and files. The Data Movement library provides convenient methods that aren't available in the Azure Storage client library for .NET. These methods allow you to set the number of parallel operations, track transfer progress, resume a canceled transfer, and more.
 
+[API reference docs](/dotnet/api/azure.storage.datamovement) | [Source code](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage/Azure.Storage.DataMovement) | [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.DataMovement) | Samples: [Blobs](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage/Azure.Storage.DataMovement.Blobs/samples) / [Files](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage/Azure.Storage.DataMovement.Files.Shares/samples)
+
 ## Prerequisites
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
@@ -73,7 +75,7 @@ The following code shows how to create a `TransferManager` object:
 TransferManager transferManager = new(new TransferManagerOptions());
 ```
 
-You can optionally provide an instance of [TransferManagerOptions] to the constructor, which applies certain configuration options to all transfers started by the `TransferManager` object.
+You can optionally provide an instance of [TransferManagerOptions](/dotnet/api/azure.storage.datamovement.transfermanageroptions) to the constructor, which applies certain configuration options, including maximum concurrency, to all transfers started by the `TransferManager` object.
 
 ## Create a `StorageResource` object
 
@@ -135,6 +137,8 @@ You can start a new transfer by calling the following method:
 - [TransferManager.StartTransferAsync](/dotnet/api/azure.storage.datamovement.transfermanager.starttransferasync)
 
 This method returns a [DataTransfer](/dotnet/api/azure.storage.datamovement.datatransfer) object that represents the transfer. You can use the `DataTransfer` object to monitor the transfer progress or obtain the transfer ID. The transfer ID is a unique identifier for the transfer that's needed to [resume a transfer](#example-resume-an-existing-transfer) or pause a transfer.
+
+You can optionally provide an instance of [DataTransferOptions](/dotnet/api/azure.storage.datamovement.datatransferoptions) to `StartTransferAsync`, which applies certain configuration options, including creation preference and transfer size, to a specific transfer.
 
 ### Upload a local file to a blob
 
@@ -205,6 +209,10 @@ DataTransfer dataTransfer = await transferManager.StartTransferAsync(
 await dataTransfer.WaitForCompletionAsync();
 ```
 
+### Set configuration options for a transfer
+
+You can set configuration options for a transfer by providing an instance of [DataTransferOptions](/dotnet/api/azure.storage.datamovement.datatransferoptions) to the `StartTransferAsync` method. The `DataTransferOptions` class provides properties that allow you to set the number of parallel operations, the size of the buffer, and more.
+
 ## Example: Resume an existing transfer
 
 By persisting transfer progress to disk, the Data Movement library allows you to resume a transfer that failed before completion, or was otherwise canceled or paused. To resume a transfer, the `TransferManager` object must be configured with `StorageResourceProvider` instances that are capable of reassembling the transfer from the persisted data. You can use the `ResumeProviders` property of the [TransferManagerOptions](/dotnet/api/azure.storage.datamovement.transfermanageroptions) class to specify the providers.
@@ -246,14 +254,97 @@ DataTransfer resumedTransfer = await transferManager.ResumeTransferAsync(transfe
 
 ## Example: Monitor transfer progress
 
-Transfers can be monitored and observed through several mechanisms, depending on the needs of your app. In this section, you learn how to monitor transfer progress using the `DataTransfer` object, and how to monitor a transfer using events.
+Transfers can be monitored and observed through several mechanisms, depending on the needs of your app. In this section, you learn how to monitor transfer progress using the `DataTransfer` object, and how to monitor a transfer using `DataTransferOptions` events.
+
+### Monitor transfer progress using the `DataTransfer` object
+
+You can monitor transfer progress using the `DataTransfer` object returned by the `StartTransferAsync` method. You can also call [TransferManager.GetTransfersAsync](/dotnet/api/azure.storage.datamovement.transfermanager.gettransfersasync) to enumerate all transfers for a `TransferManager` object.
+
+The following code example shows how to iterate over all transfers and write the status of each transfer to a log file:
+
+```csharp
+async Task CheckTransfersAsync(TransferManager transferManager)
+{
+    await foreach (DataTransfer transfer in transferManager.GetTransfersAsync())
+    {
+        using StreamWriter logStream = File.AppendText("path/to/log/file");
+        logStream.WriteLine(Enum.GetName(typeof(DataTransferStatus), transfer.TransferStatus));
+    }
+}
+```
+
+The `TransferStatus` property returns a [DataTransferStatus](/dotnet/api/azure.storage.datamovement.datatransferstatus) value. `DataTransferStatus` includes the following properties:
+
+| Property | Type | Description |
+| --- | --- | --- |
+| `HasCompletedSuccessfully` | Boolean | Represents if the transfer has completed successfully without any failure or skipped items. |
+| `HasFailedItems` | Boolean | Represents if transfer has any failure items. If set to `true`, the transfer has at least one failure item. If set to `false`, the transfer currently has no failures. |
+| `HasSkippedItems` | Boolean | Represents if transfer has any skipped items. If set to `true`, the transfer has at least one skipped item. If set to `false`, the transfer currently has no skipped items. It's possible to never have any items skipped if `SkipIfExists` isn't enabled in [DataTransferOptions.CreationPreference](/dotnet/api/azure.storage.datamovement.datatransferoptions.creationpreference). |
+| `State` | [DataTransferState](/dotnet/api/azure.storage.datamovement.datatransferstate) | Defines the types of the state a transfer can have. See [DataTransferState](/dotnet/api/azure.storage.datamovement.datatransferstate) for details. |
+
+### Monitor transfer progress using `DataTransferOptions` events
+
+You can monitor transfer progress by listening for events provided by the [DataTransferOptions](/dotnet/api/azure.storage.datamovement.datatransferoptions) class. The `DataTransferOptions` instance is passed to the `StartTransferAsync` method and provides [events](/dotnet/api/azure.storage.datamovement.datatransferoptions#events) that are triggered when a transfer completes, fails, is skipped, or changes status.
+
+The following code example shows how to listen for a transfer completion event using `DataTransferOptions`:
+
+```csharp
+async Task<DataTransfer> ListenToTransfersAsync(
+    TransferManager transferManager,
+    StorageResource source,
+    StorageResource destination)
+{
+    DataTransferOptions transferOptions = new();
+    transferOptions.ItemTransferCompleted += (TransferItemCompletedEventArgs args) =>
+    {
+        using (StreamWriter logStream = File.AppendText("path/to/log/file"))
+        {
+            logStream.WriteLine($"File Completed Transfer: {args.SourceResource.Uri.AbsoluteUri}");
+        }
+        return Task.CompletedTask;
+    };
+    return await transferManager.StartTransferAsync(
+        source,
+        destination,
+        transferOptions);
+}
+```
 
 ## Example: Use extension methods for `BlobContainerClient`
 
+For applications with existing code that uses the `BlobContainerClient` class from **Azure.Storage.Blobs**, you can use extension methods to start transfers directly from a `BlobContainerClient` object. The extension methods are provided in the [BlobContainerClientExtensions](/dotnet/api/azure.storage.blobs.blobcontainerclientextensions) class (or [ShareDirectoryClientExtensions](/dotnet/api/azure.storage.files.shares.sharedirectoryclientextensions) for Azure Files), and provide some of the benefits of using `TransferManager` with minimal code changes. In this section, you learn how to use the extension methods to perform transfers from a `BlobContainerClient` object.
 
+The following code example shows how to instantiate a `BlobContainerClient` for a blob container named `sample-container`: 
 
-## Next steps
+```csharp
+// Create a token credential
+TokenCredential tokenCredential = new DefaultAzureCredential();
 
-[Azure Storage Data Movement library reference documentation](https://azure.github.io/azure-storage-net-data-movement).
+BlobServiceClient client = new BlobServiceClient(
+    new Uri("https://<storage-account-name>.blob.core.windows.net"),
+    tokenCredential);
 
-[!INCLUDE [storage-try-azure-tools-blobs](../../../includes/storage-try-azure-tools-blobs.md)]
+BlobContainerClient containerClient = client.GetBlobContainerClient("sample-container");
+```
+
+The following code example shows how to upload local directory contents to `sample-container` using `StartUploadDirectoryAsync`:
+
+```csharp
+DataTransfer transfer = await containerClient.StartUploadDirectoryAsync("local/directory/path");
+
+await transfer.WaitForCompletionAsync();
+```
+
+The following code example shows how to download the contents of `sample-container` to a local directory using `StartDownloadDirectoryAsync`:
+
+```csharp
+DataTransfer transfer = await containerClient.StartDownloadToDirectoryAsync("local/directory/path");
+
+await transfer.WaitForCompletionAsync();
+```
+
+To learn more about the extension methods for `BlobContainerClient`, see [Extensions on BlobContainerClient](/dotnet/api/overview/azure/storage.datamovement.blobs-readme#extensions-on-blobcontainerclient).
+
+## Next step
+
+- Code samples for [Blobs](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage/Azure.Storage.DataMovement.Blobs/samples) and [Files](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage/Azure.Storage.DataMovement.Files.Shares/samples) are available in the Azure SDK for .NET GitHub repository.
