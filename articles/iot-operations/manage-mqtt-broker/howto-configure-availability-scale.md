@@ -19,7 +19,7 @@ The Broker resource is the main resource that defines the overall settings for M
 
 You can horizontally scale the MQTT broker by adding more frontend replicas and backend partitions. The frontend replicas are responsible for accepting MQTT connections from clients and forwarding them to the backend partitions. The backend partitions are responsible for storing and delivering messages to the clients. The frontend pods distribute message traffic across the backend pods, and the backend redundancy factor determines the number of data copies to provide resiliency against node failures in the cluster.
 
-For a list of the available settings, see the [Broker](/rest/api/iotoperationsmq/broker) API reference.
+For a list of the available settings, see the [Broker](/azure/templates/microsoft.iotoperationsmq/change-log/mq/broker) API reference.
 
 ## Configure scaling settings
 

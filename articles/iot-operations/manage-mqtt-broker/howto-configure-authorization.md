@@ -30,7 +30,7 @@ To learn more about *BrokerListener*, see [BrokerListener resource](howto-config
 
 ## Authorization rules
 
-To configure authorization, create a *BrokerAuthorization* resource in your Kubernetes cluster. The following sections provide examples of how to configure authorization for clients that use usernames, attributes, X.509 certificates, and Kubernetes Service Account Tokens (SATs). For a list of the available settings, see the [Broker Authorization](/rest/api/iotoperationsmq/broker-authorization) API reference.
+To configure authorization, create a *BrokerAuthorization* resource in your Kubernetes cluster. The following sections provide examples of how to configure authorization for clients that use usernames, attributes, X.509 certificates, and Kubernetes Service Account Tokens (SATs). For a list of the available settings, see the [Broker Authorization](/azure/templates/microsoft.iotoperationsmq/change-log/mq/broker/authorization) API reference.
 
 The following example shows how to create a *BrokerAuthorization* resource using both usernames and attributes:
 

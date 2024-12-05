@@ -17,7 +17,7 @@ ms.date: 11/11/2024
 
 [!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
 
-MQTT broker supports multiple authentication methods for clients, and you can configure each listener port to have its own authentication settings with a *BrokerAuthentication* resource. For a list of the available settings, see the [Broker Authentication](/rest/api/iotoperationsmq/broker-authentication) API reference.
+MQTT broker supports multiple authentication methods for clients, and you can configure each listener port to have its own authentication settings with a *BrokerAuthentication* resource. For a list of the available settings, see the [Broker Authentication](/azure/templates/microsoft.iotoperationsmq/change-log/mq/broker/authentication) API reference.
 
 ## Link BrokerListener and BrokerAuthentication
 

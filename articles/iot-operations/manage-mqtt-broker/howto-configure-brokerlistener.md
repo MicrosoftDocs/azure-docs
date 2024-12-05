@@ -33,7 +33,7 @@ Broker listeners have the following characteristics:
 - **TLS**: [Manual](#enable-tls-manual-certificate-management-for-a-port) or [automatic](#enable-tls-automatic-certificate-management-for-a-port) TLS configuration is applied per port.
 - **Protocol**: [MQTT over WebSockets](#websockets-support) can be enabled per port.
 
-For a list of all available settings, see the [Broker Listener API reference](/rest/api/iotoperationsmq/broker-listener).
+For a list of all available settings, see the [Broker Listener API reference](/azure/templates/microsoft.iotoperationsmq/change-log/mq/broker/listener).
 
 ## Default BrokerListener
 
@@ -652,7 +652,7 @@ Once the BrokerListener resource is configured, MQTT broker automatically create
 
 The only required parameters are Issuer name and Issuer kind. All other properties of the generated TLS server certificates are automatically chosen. However, MQTT broker allows certain properties to be customized following the same syntax as cert-manager Certificates. For example, you can specify the private key algorithm and rotation policy. These settings are under `tls.certManagerCertificateSpec` or the **TLS configuration** pane in the Azure portal.
 
-For a full list of these settings, see [Broker Listener CertManagerCertificateSpec API reference](/rest/api/iotoperationsmq/broker-listener/create-or-update#certmanagercertificatespec).
+For a full list of these settings, see [Broker Listener CertManagerCertificateSpec API reference](/azure/templates/microsoft.iotoperationsmq/change-log/mq/broker/listener).
 
 #### Verify deployment
 
