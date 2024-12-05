@@ -14,7 +14,7 @@ ms.custom: engagement-fy24
 This article describes how to back up Classic Alerts in the Azure Recovery Services vault.
 
 >[!Important]
->Azure Backup now provides new and improved alerting capabilities via Azure Monitor. If you're using the older [classic alerts solution](#backup-alerts-in-recovery-services-vault) for Recovery Services vaults, we recommend you move to Azure Monitor alerts.
+>Azure Backup now provides new and improved alerting capabilities via Azure Monitor. If you're using the older [classic alerts solution](#backup-alerts-in-recovery-services-vault) for Recovery Services vaults, we recommend you [move to Azure Monitor alerts](backup-azure-monitoring-alerts.md#migrate-from-classic-alerts-to-built-in-azure-monitor-alerts).
 
 ## Backup alerts in Recovery Services vault
 
