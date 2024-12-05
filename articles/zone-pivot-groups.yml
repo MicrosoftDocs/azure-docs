@@ -211,16 +211,16 @@ groups:
   title: Function app hosting options
   prompt: Choose a hosting option for your function app
   pivots:
-  - id: consumption-plan
-    title: Consumption plan
   - id: flex-consumption-plan
-    title: Flex Consumption plan (preview)
+    title: Flex Consumption plan
   - id: premium-plan
     title: Premium plan
   - id: dedicated-plan
     title: Dedicated plan
   - id: container-apps
     title: Container Apps
+  - id: consumption-plan
+    title: Consumption plan
   - id: azure-arc
     title: Azure Arc
 ### end azure-functions
@@ -1015,6 +1015,15 @@ groups:
   - id: container-apps-jobs-self-hosted-ci-cd-github-actions
     title: GitHub Actions runner
 # Owner: cshoe
+- id: static-web-apps-ci-cd
+  title: CI/CD system
+  prompt: Select a CI/CD system
+  pivots:
+  - id: github-actions
+    title: GitHub Actions
+  - id: azure-pipelines
+    title: Azure Pipelines
+# Owner: cshoe
 - id: static-web-apps-api-protocols
   title: API protocol
   prompt: Select an API protocol
@@ -1434,6 +1443,22 @@ groups:
     title: Windows 365
   - id: dev-box
     title: Microsoft Dev Box
+- id: azure-virtual-desktop-host-pool-management-approaches
+  title: Host pool management approaches
+  prompt: "Choose a host pool management approach:"
+  pivots:
+  - id: host-pool-standard
+    title: Standard
+  - id: host-pool-session-host-configuration
+    title: Session host configuration (preview)
+- id: autoscale
+  title: Create and assign an autoscale scaling plan
+  prompt: "Choose an autoscaling method:"
+  pivots:
+  - id: power-management
+    title: Power management autoscaling
+  - id: dynamic
+    title: Dynamic autoscaling (preview)
 # Owner: kevinguo-ed
 - id: azure-web-pubsub-create-resource-methods
   title: Create a resource using any one of the methods
@@ -1562,6 +1587,17 @@ groups:
     title: New Maintenance Configuration
   - id: existing-mc
     title: Existing Maintenance Configuration
+# Owner: sudhirsneha
+- id: enable-change-tracking-inventory-using-monitoring-agent
+  title: Requirements to enable change tracking and inventory using monitoring agent
+  prompt: Choose a deployment environment
+  pivots:
+  - id: single-portal
+    title: Single Azure VM and Azure Arc-enabled VM
+  - id: multiple-portal-cli
+    title: Multiple VMs using Azure portal and Azure CLI
+  - id: at-scale-policy
+    title: At scale using policy
 # Owner: marymichael
 - id: web-apps-assessment-app-service
   title: Assess ASP.NET web apps for migration to Azure App Service
@@ -1629,6 +1665,17 @@ groups:
     title: Python
   - id: programming-language-node
     title: Node
+# Owner: kgremban
+- id: iot-hub-howto-c2d-2
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: .NET/C#
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-node
+    title: Node
 # Owner: craigshoemaker
 - id: swa-web-framework
   title: Web Framework
@@ -1666,6 +1713,15 @@ groups:
     title: Service Connector
   - id: manual
     title: Manual
+# Owner: franlanglois
+- id: redis-type
+  title: Redis version
+  prompt: Choose the version of Azure Redis you are using
+  pivots:
+  - id: azure-managed-redis
+    title: Azure Managed Redis
+  - id: azure-cache-redis
+    title: Azure Cache for Redis
 # Owner: rosemalcolm
 - id: ade-extensibility-iac-framework
   title: IaC frameworks
@@ -1686,3 +1742,23 @@ groups:
     title: Azure CLI
   - id: experience-gui
     title: Grafana UI
+# Owner: danlep
+- id: api-management-howto-add-products
+  title: Interactive or Script
+  prompt: Choose Interactive for Azure CLI and Azure Portal instructions, or Terraform
+  pivots:
+  - id: interactive
+    title: Interactive
+  - id: terraform
+    title: Terraform
+# Owner: jodowns
+- id: app-service-sku
+  title: App Service tier
+  prompt: Choose an App Service tier
+  pivots:
+  - id: free-shared-basic
+    title: Free, Shared, Basic
+  - id: premium
+    title: Premium v2 and Premium v3
+  - id: isolated
+    title: Isolated v2 (App Service Environment)

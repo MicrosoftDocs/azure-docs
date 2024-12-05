@@ -6,7 +6,7 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: how-to
-ms.date: 05/02/2022
+ms.date: 06/30/2023
 ---
 
 # Assess large numbers of physical servers for migration to Azure

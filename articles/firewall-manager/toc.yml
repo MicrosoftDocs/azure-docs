@@ -7,7 +7,7 @@
 - name: Quickstarts
   items:
   - name: Secure virtual hub - Bicep
-    displayName: Resource Manager, ARM, Template
+    displayName: Resource Manager, ARM, Templatehttps://github.com/MicrosoftDocs/azure-docs-pr/pull/290736/
     href: quick-secure-virtual-hub-bicep.md
   - name: Secure virtual hub - Terraform
     displayName: Terraform
@@ -46,8 +46,6 @@
     href: deployment-overview.md
   - name: Security partner providers
     href: trusted-security-partners.md
-  - name: Secure hubs using Check Point Cloudguard Connect
-    href: check-point-overview.md
   - name: IP Groups
     href: ip-groups.md
   - name: Rule processing logic

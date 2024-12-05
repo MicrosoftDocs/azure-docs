@@ -423,9 +423,9 @@ This table cross-references the Google Maps API parameters with the comparable A
 
 | Google Maps API parameter      | Comparable Azure Maps API parameter  |
 |--------------------------------|--------------------------------------|
-| `arrivial_time`                | `arriveAt`                           |
+| `arrival_time`                 | `arriveAt`                           |
 | `avoid`                        | `avoid`                              |
-| `depature_time`                | `departAt`                           |
+| `departure_time`               | `departAt`                           |
 | `destinations`                 | `destination` – specify in the `POST` request body as GeoJSON. |
 | `key`                          | `subscription-key` – For more information, see [Authentication with Azure Maps]. |
 | `language`                     | `language` – For more information, see [Localization support in Azure Maps].  |

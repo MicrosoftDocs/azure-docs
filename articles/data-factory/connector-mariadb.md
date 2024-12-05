@@ -6,7 +6,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/09/2024
+ms.date: 10/24/2024
 ms.author: jianleishen
 ---
 
@@ -82,6 +82,8 @@ If you use the recommended driver version, the following properties are supporte
 | database | Your MariaDB database name. | Yes |
 | username | Your user name. | Yes |
 | password | The password for the user name. Mark this field as SecureString to store it securely. Or, you can [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| sslMode | This option specifies whether the driver uses TLS encryption and verification when connecting to MariaDB. E.g., `SSLMode=<0/1/2/3/4>`.<br/>Options: DISABLED (0) / PREFERRED (1) / REQUIRED (2) / VERIFY_CA (3) / VERIFY_IDENTITY (4) **(Default)** | Yes |
+| useSystemTrustStore | This option specifies whether to use a CA certificate from the system trust store, or from a specified PEM file. E.g. `UseSystemTrustStore=<0/1>`;<br/>Options: Enabled (1) / Disabled (0) **(Default)** | No |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, it uses the default Azure Integration Runtime. |No |
 
 **Example:**
@@ -100,7 +102,9 @@ If you use the recommended driver version, the following properties are supporte
                 "type": "SecureString",
                 "value": "<password>"
             },
-            "driverVersion": "v2"
+            "driverVersion": "v2",
+            "sslMode": <sslmode>,
+            "useSystemTrustStore": <UseSystemTrustStore>
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -130,7 +134,9 @@ If you use the recommended driver version, the following properties are supporte
                 },
                 "secretName": "<secretName>"
             },
-            "driverVersion": "v2"
+            "driverVersion": "v2",
+            "sslMode": <sslmode>,
+            "useSystemTrustStore": <UseSystemTrustStore>
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",

@@ -12,7 +12,7 @@ ms.custom: devx-track-azurecli, linux-related-content
 
 # Tutorial: Create a hierarchy of IoT Edge devices using IoT Edge for Linux on Windows
 
-[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 You can deploy Azure IoT Edge nodes across networks organized in hierarchical layers. Each layer in a hierarchy is a gateway device that handles messages and requests from devices in the layer beneath it. This configuration is also known as *nested edge*.
 
@@ -27,7 +27,7 @@ This tutorial walks you through creating a hierarchy of IoT Edge devices using I
 > * Configure the IoT Edge runtime on the devices in your hierarchy.
 > * Install consistent certificates across your device hierarchy.
 > * Add workloads to the devices in your hierarchy.
-> * Use the [IoT Edge API Proxy module](https://azuremarketplace.microsoft.com/marketplace/apps/azure-iot.azureiotedge-api-proxy?tab=Overview) to securely route HTTP traffic over a single port from your lower layer devices.
+> * Use the [IoT Edge API Proxy module](https://mcr.microsoft.com/en-us/artifact/mar/azureiotedge-api-proxy/) to securely route HTTP traffic over a single port from your lower layer devices.
 
 >[!TIP]
 >This tutorial includes a mixture of manual and automated steps to provide a showcase of nested IoT Edge features.

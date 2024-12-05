@@ -68,4 +68,7 @@ testuser@<servername> [ ~ ]$ sudo crictl ps -a |grep -i ironic-conductor
 
    :::image type="content" source="media\troubleshoot-control-plane-quorum\graceful-power-on.png" alt-text="Screenshot of an iDRAC GUI and the button to perform power on command." lightbox="media\troubleshoot-control-plane-quorum\graceful-power-on.png":::
 
-5. The servers should now be restored. If not, engage Microsoft support.
+5. The servers should now be restored.
+
+If you still have questions, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+For more information about Support plans, see [Azure Support plans](https://azure.microsoft.com/support/plans/response/).

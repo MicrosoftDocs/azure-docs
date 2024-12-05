@@ -2,8 +2,8 @@
 title: Delete Azure Private 5G Core resources
 titleSuffix: Azure Private 5G Core
 description: In this how-to guide, you'll learn how to delete all Azure Private 5G Core resources.
-author: robswain
-ms.author: robswain
+author: anzaman
+ms.author: alzam
 ms.service: azure-private-5g-core
 ms.topic: how-to 
 ms.date: 07/07/2023

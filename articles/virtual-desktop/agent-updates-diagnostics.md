@@ -1,12 +1,13 @@
 ---
 title: Set up diagnostics for monitoring agent updates
 description: How to set up diagnostic reports to monitor agent updates.
-author: Sefriend
+author: dknappettmsft
 ms.topic: how-to
 ms.date: 03/20/2023
-ms.author: sefriend
-manager: rkiran
+ms.author: daknappe
+ms.custom: docs_inherited
 ---
+
 # Set up diagnostics to monitor agent updates
 
 Diagnostic logs can tell you which agent version is installed for an update, when it was installed, and if the update was successful. If an update is unsuccessful, it might be because the session host was turned off during the update. If that happened, you should turn the session host back on.

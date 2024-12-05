@@ -5,7 +5,7 @@ services: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 09/12/2024
+ms.date: 10/26/2024
 ---
 
 # Differences between Standard single-tenant logic apps versus Consumption multitenant logic apps
@@ -318,8 +318,6 @@ For the **Standard** logic app workflow, these capabilities have changed, or the
 * **Terraform templates**: You can't use these templates with a **Standard** logic app resource for complete infrastructure deployment. For more information, see [What is Terraform on Azure](/azure/developer/terraform/overview)?
 
 * **Azure API Management**: You currently can't import a **Standard** logic app resource into Azure API Management. However, you can import a **Consumption** logic app resource.
-
-* **Authentication to backend storage**: Single-tenant Azure Logic Apps relies only on storage access keys to connect with the backend Azure Storage account. Alternative authentication methods, such as Microsoft Entra ID (Enterprise ID) and managed identity, currently aren't supported. So, when you deploy an Azure storage account alongside a **Standard** logic app, make sure that you enable storage access keys.
 
 <a name="firewall-permissions"></a>
 

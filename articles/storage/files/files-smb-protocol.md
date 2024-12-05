@@ -4,7 +4,7 @@ description: Learn about file shares hosted in Azure Files using the Server Mess
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 07/08/2024
+ms.date: 11/04/2024
 ms.author: kendownie
 ms.custom: devx-track-azurepowershell
 ---
@@ -54,7 +54,7 @@ Azure Files offers multiple settings that affect the behavior, performance, and 
 
 ### SMB Multichannel
 
-SMB Multichannel enables an SMB 3.x client to establish multiple network connections to an SMB file share. Azure Files supports SMB Multichannel on premium file shares (file shares in the FileStorage storage account kind). There is no additional cost for enabling SMB Multichannel in Azure Files. In most Azure regions, SMB Multichannel is disabled by default.
+SMB Multichannel enables an SMB 3.x client to establish multiple network connections to an SMB file share. Azure Files supports SMB Multichannel on premium file shares (file shares in the FileStorage storage account kind). There is no additional cost for enabling SMB Multichannel in Azure Files. SMB Multichannel is now enabled by default in all Azure regions.
 
 # [Portal](#tab/azure-portal)
 To view the status of SMB Multichannel, navigate to the storage account containing your premium file shares and select **File shares** under the **Data storage** heading in the storage account table of contents. The status of the SMB Multichannel can be seen under the **File share settings** section.
@@ -153,6 +153,34 @@ az storage account file-service-properties update \
     --enable-smb-multichannel "true"
 ```
 ---
+
+### Enable SMB Multichannel on older operating systems
+
+Support for SMB Multichannel in Azure Files requires ensuring Windows has all the relevant patches applied. Several older Windows versions, including Windows Server 2016, Windows 10 version 1607, and Windows 10 version 1507, require additional registry keys to be set for all relevant SMB Multichannel fixes to be applied on fully patched installations. If you're running a version of Windows that's newer than these three versions, no additional action is required.
+
+#### Windows Server 2016 and Windows 10 version 1607
+
+To enable all SMB Multichannel fixes for Windows Server 2016 and Windows 10 version 1607, run the following PowerShell command:
+
+```PowerShell
+Set-ItemProperty `
+    -Path "HKLM:SYSTEM\CurrentControlSet\Policies\Microsoft\FeatureManagement\Overrides" `
+    -Name "2291605642" `
+    -Value 1 `
+    -Force
+```
+
+#### Windows 10 version 1507
+
+To enable all SMB Multichannel fixes for Windows 10 version 1507, run the following PowerShell command:
+
+```PowerShell
+Set-ItemProperty `
+    -Path "HKLM:\SYSTEM\CurrentControlSet\Services\MRxSmb\KBSwitch" `
+    -Name "{FFC376AE-A5D2-47DC-A36F-FE9A46D53D75}" `
+    -Value 1 `
+    -Force
+```
 
 ### SMB security settings
 

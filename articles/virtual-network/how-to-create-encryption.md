@@ -1,7 +1,7 @@
 ---
-title: Create a virtual network with encryption - Azure portal
+title: Create a virtual network with encryption
 titleSuffix: Azure Virtual Network
-description: Learn how to create an encrypted virtual network by using the Azure portal. A virtual network lets Azure resources communicate with each other and the internet.
+description: Learn how to create an encrypted virtual network. A virtual network lets Azure resources communicate with each other and the internet.
 author: asudbring
 ms.service: azure-virtual-network
 ms.topic: how-to
@@ -10,7 +10,7 @@ ms.author: allensu
 
 ---
 
-# Create a virtual network with encryption by using the Azure portal
+# Create a virtual network with encryption
 
 Azure Virtual Network encryption is a feature of Azure Virtual Network. With Virtual Network encryption, you can seamlessly encrypt and decrypt internal network traffic over the wire, with minimal effect to performance and scale. Virtual Network encryption protects data that traverses your virtual network from virtual machine to virtual machine.
 
@@ -23,8 +23,11 @@ An Azure account with an active subscription. [Create one for free](https://azur
 ### [PowerShell](#tab/powershell)
 
 - Have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
 - Install Azure PowerShell locally or use Azure Cloud Shell.
+
 - Sign in to Azure PowerShell and select the subscription with which you want to use this feature. For more information, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
+
 - Ensure that your `Az.Network` module is 4.3.0 or later. To verify the installed module, use the command `Get-InstalledModule -Name Az.Network`. If the module requires an update, use the command `Update-Module -Name Az.Network`, if necessary.
 
 If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.

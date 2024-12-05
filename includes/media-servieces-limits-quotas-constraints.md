@@ -1,6 +1,6 @@
 ---
 author: IngridAtMicrosoft
-ms.service: media-services
+ms.service: azure-media-services
 ms.topic: include
 ms.date: 10/26/2020
 ms.author: inhenkel

@@ -1,7 +1,7 @@
 ---
-title: Tutorial - Add audio filters to improve the quality in your audio calling experience
+title: 'Tutorial: Add audio filters to improve the quality in your audio calling experience'
 titleSuffix: An Azure Communication Services tutorial on how to enable advanced audio filters
-description: Learn how to add audio effects in your calls using Azure Communication Services.
+description: Learn how to add audio effects in your calls by using Azure Communication Services.
 author: sloanster
 
 ms.author: micahvivion

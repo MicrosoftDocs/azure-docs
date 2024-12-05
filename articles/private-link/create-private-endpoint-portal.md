@@ -5,7 +5,7 @@ description: In this quickstart, learn how to create a private endpoint using th
 author: abell
 ms.service: azure-private-link
 ms.topic: quickstart
-ms.date: 02/26/2024
+ms.date: 12/04/2024
 ms.author: abell
 ms.custom: mode-ui, template-quickstart
 #Customer intent: As someone who has a basic network background but is new to Azure, I want to create a private endpoint on a SQL server so that I can securely connect to it.

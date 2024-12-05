@@ -143,12 +143,11 @@ To see if your Azure VM NICs support RSS, run the command
 
 ![Screenshot that shows RSS output for Azure VM.](./media/azure-netapp-files-smb-performance/azure-netapp-files-formance-rss-support.png)
 
-
 ## Multiple NICs on SMB clients
 
 You shouldn't configure multiple NICs on your client for SMB. The SMB client doesn't match the NIC count returned by the SMB server. Each storage volume is accessible from one and only one storage endpoint, meaning only one NIC is used for any given SMB relationship. 
 
-As the output of `Get-SmbClientNetworkInterace` below shows, the VM has two network interfaces: 15 and 12. As shown under the following command `Get-SmbMultichannelConnection`, even though there are two RSS-capable NICs, only interface 12 is used in connection with the SMB share; interface 15 isn't in use.
+As the output of `Get-SmbClientNetworkInterface` below shows, the VM has two network interfaces: 15 and 12. As shown under the following command `Get-SmbMultichannelConnection`, even though there are two RSS-capable NICs, only interface 12 is used in connection with the SMB share; interface 15 isn't in use.
 
 ![Screenshot that shows output for RSS-capable NICs.](./media/azure-netapp-files-smb-performance/azure-netapp-files-rss-capable-nics.png)
 

@@ -394,7 +394,7 @@ The `purge-history` action supports the following options:
 | **`--connection-string-setting`** | Optional name of the setting containing the storage connection string to use. |
 | **`--created-after`** | Optionally delete the history of instances created after this date/time (UTC). All ISO 8601 formatted datetime values are accepted. |
 | **`--created-before`** | Optionally delete the history of instances created before this date/time (UTC). All ISO 8601 formatted datetime values are accepted.|
-| **`--runtime-status`** | Optionally delete the history of instances whose status match a specific status, including `completd`, `terminated`, `canceled`, and `failed`. You can provide one or more space-separated statues. If you don't include `--runtime-status`, instance history is deleted regardless of status.|
+| **`--runtime-status`** | Optionally delete the history of instances whose status match a specific status, including `completed`, `terminated`, `canceled`, and `failed`. You can provide one or more space-separated statues. If you don't include `--runtime-status`, instance history is deleted regardless of status.|
 | **`--task-hub-name`** | Optional name of the Durable Functions task hub to use. |
 
 To learn more, see the [Durable Functions documentation](./durable/durable-functions-instance-management.md#azure-functions-core-tools-7).
@@ -507,7 +507,7 @@ The following considerations apply when using `func extensions install`:
 
 + For compiled C# projects (both in-process and isolated worker process), instead use standard NuGet package installation methods, such as `dotnet add package`.
 
-+ To manually install extensions using Core Tools, you must have the [.NET 6.0 SDK](https://dotnet.microsoft.com/download) installed.
++ To manually install extensions using Core Tools, you must have the [.NET SDK](https://dotnet.microsoft.com/download) installed.
 
 + When possible, you should instead use [extension bundles](functions-bindings-register.md#extension-bundles). The following are some reasons why you might need to install extensions manually:
 
@@ -570,7 +570,7 @@ The following Kubernetes deployment options are available:
 
 Core Tools uses the local Docker CLI to build and publish the image. Make sure your Docker is already installed locally. Run the `docker login` command to connect to your account.
 
-To learn more, see [Deploying a function app to Kubernetes](functions-kubernetes-keda.md#deploying-a-function-app-to-kubernetes).
+Azure Functions supports hosting your containerized functions either in Azure Container Apps or in Azure Functions. Running your containers directly in a Kubernetes cluster or in Azure Kubernetes Service (AKS) isn't officially supported by Azure Functions. To learn more, see [Linux container support in Azure Functions](container-concepts.md).
 
 ## `func kubernetes install`
 

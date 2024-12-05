@@ -20,10 +20,10 @@ This tutorial shows how to build, configure, and deploy a secure Tomcat applicat
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create a secure-by-default architecture for Azure App Service and Azure Cosmos DB with MongoDB API.
+> * Create a secure-by-default architecture for Azure App Service and Azure Database for MySQL.
 > * Secure connection secrets using a managed identity and Key Vault references.
 > * Deploy a Tomcat sample app to App Service from a GitHub repository.
-> * Acces App Service app settings in the application code.
+> * Access App Service app settings in the application code.
 > * Make updates and redeploy the application code.
 > * Stream diagnostic logs from App Service.
 > * Manage the app in the Azure portal.
