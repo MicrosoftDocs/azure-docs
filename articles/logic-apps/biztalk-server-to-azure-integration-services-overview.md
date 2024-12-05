@@ -890,7 +890,7 @@ The following table and diagram roughly show how resources, artifacts, features,
 | Feature or functionality | BizTalk Server | Azure |
 |--------------------------|----------------|-------|
 | Orchestrations | - BizTalk Server orchestration <br>- C# code | - Azure Logic Apps workflow <br>- Azure Logic Apps workflow templates <br>- Azure Functions function app |
-| Pipelines | - BizTalk Server pipelines <br>- Pipeline components | - Azure Logic Apps workflows (as pipelines) <br>- Azure API Management (as pipelines) <br>- Azure Functions or Azure API app |
+| Pipelines | - BizTalk Server pipelines <br>- Pipeline components | - Azure Logic Apps workflows (as pipelines) <br>- Azure API Management (as pipelines) <br>- Azure Functions function app <br>- Azure API app |
 | Message routing | - MessageBox <br>- Property Promotions <br>- Filters | - Azure Service Bus queues and topics (message headers, message properties, and subscriptions) <br>- Azure Event Grid or Azure API Management <br>- SQL Server or Azure Cache for Redis |
 | Application connectivity | - BizTalk Server out-of-the-box and custom adapters <br>- Internet Information Services (IIS) and Azure API Management (hybrid capabilities) | - Azure Logic Apps connectors <br>- Azure API Management (as connectors) <br>- Azure Functions function app <br>- Azure API app |
 | Cross-references | xref_ * tables on BizTalk Management database (BizTalkMgmtDb) | - Azure Functions <br>- SQL Server <br>- Custom |
