@@ -340,7 +340,7 @@ Use the following steps to verify the app status:
 
        :::image type="content" source="media/java-microservice-get-started/azure-container-apps-petclinic-eureka-server.png" alt-text="Screenshot of pet clinic application Eureka Server." lightbox="media/java-microservice-get-started/azure-container-apps-petclinic-eureka-server.png":::
 
-1. View the admin for the Spring dashboard by using the following steps:
+1. View the Admin for Spring dashboard by using the following steps:
 
     1. Use the following command to return the dashboard URL:
   
