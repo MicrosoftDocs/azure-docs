@@ -116,7 +116,7 @@ After you finish the route setting steps, the virtual network virtual machines a
 
 Use the partner portal to configure firewall rules. Azure Firewall passes the traffic through.
 
-For example, you may observe allowed traffic through the Azure Firewall, even though there's no explicit rule to allow the traffic. This is because Azure Firewall passes the traffic to the next hop security partner provider (ZScalar, CheckPoint, or iBoss). Azure Firewall still has rules to allow outbound traffic, but the rule name isn't logged.
+For example, you may observe allowed traffic through the Azure Firewall, even though there's no explicit rule to allow the traffic. This is because Azure Firewall passes the traffic to the next hop security partner provider (ZScalar). Azure Firewall still has rules to allow outbound traffic, but the rule name isn't logged.
 
 For more information, see the partner documentation.
 
