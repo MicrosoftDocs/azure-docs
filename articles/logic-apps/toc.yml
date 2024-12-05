@@ -170,11 +170,11 @@ items:
     - name: Migrate from BizTalk to Azure
       items:
       - name: Why migrate from BizTalk Server?
-        href: biztalk-server-to-azure-integration-services-overview.md
+        href: biztalk-server-migration-overview.md
       - name: Which integration services to choose
         href: azure-integration-services-choose-capabilities.md
       - name: Migration options and best practices
-        href: biztalk-server-azure-integration-services-migration-approaches.md
+        href: biztalk-server-approaches.md
   - name: Develop
     items:
     - name: Build your workflow with a trigger or action
@@ -299,10 +299,14 @@ items:
       items:
       - name: Create maps in Visual Studio Code
         href: create-maps-data-transformation-visual-studio-code.md
-      - name: Transform XML
-        href: logic-apps-enterprise-integration-transform.md
       - name: Process XML
         href: logic-apps-enterprise-integration-xml.md
+      - name: Parse XML
+        href: logic-apps-enterprise-integration-xml-parse.md
+      - name: Compose XML
+        href: logic-apps-enterprise-integration-xml-compose.md
+      - name: Transform XML
+        href: logic-apps-enterprise-integration-transform.md
       - name: Validate XML
         href: logic-apps-enterprise-integration-xml-validation.md
       - name: Transform JSON
