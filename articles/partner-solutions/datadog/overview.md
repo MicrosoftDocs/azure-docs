@@ -16,7 +16,7 @@ ms.custom:
 
 Azure Native ISV Services enable you to easily provision, manage, and tightly integrate independent software vendor (ISV) software and services on Azure. Microsoft and Datadog developed and manage this service.
 
-You can find Datadog – An Azure Native ISV Service in the [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Datadog%2Fmonitors) or get it on [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/datadog1591740804488.dd_liftr_v2?tab=Overview).
+You can find Datadog in the [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Datadog%2Fmonitors) or get it on [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/datadog1591740804488.dd_liftr_v2?tab=Overview).
 
 Datadog is a monitoring and analytics platform for large-scale applications. It encompasses infrastructure monitoring, application performance monitoring, log management, and user-experience monitoring. Datadog aggregates data across your entire stack with 400+ integrations for troubleshooting, alerting, and graphing. You can use it as a single source for troubleshooting, optimizing performance, and cross-team collaboration.
 
@@ -37,7 +37,7 @@ Datadog - An Azure Native ISV Service provides the following capabilities:
 
 ## Datadog links
 
-For more help using the Datadog - An Azure Native ISV service, see the following links to the [Datadog website](https://www.datadoghq.com/):
+For more help using the Datadog, see the following links to the [Datadog website](https://www.datadoghq.com/):
 
 - [Azure solution guide](https://www.datadoghq.com/solutions/azure/)
 - [Blog announcing the Datadog <> Azure Partnership](https://www.datadoghq.com/blog/azure-datadog-partnership/)
@@ -45,8 +45,8 @@ For more help using the Datadog - An Azure Native ISV service, see the following
 
 ## Next steps
 
-- To create an instance of Datadog, see [QuickStart: Get started with Datadog - An Azure Native ISV Service](create.md).
-- Get started with Datadog – An Azure Native ISV Service on
+- To create an instance of Datadog, see [QuickStart: Get started with Datadog](create.md).
+- Get started with Datadog on
 
     > [!div class="nextstepaction"]
     > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Datadog%2Fmonitors)

@@ -33,12 +33,12 @@ It also provides links to Datadog dashboards, logs, and host maps.
 
 The overview screen provides a summary of the resources sending logs and metrics to Datadog.
 
-<!--TODO: replace unordered list with table-->
-
-- Resource type - Azure resource type.
-- Total resources  - Count of all resources for the resource type.
-- Resources sending logs - Count of resources sending logs to Datadog through the integration.
-- Resources sending metrics - Count of resources sending metrics to Datadog through the integration.
+|Term  |Description  |
+|---------|---------|
+|Resource type    |Azure resource type.         |
+|Total resources    |Count of all resources for the resource type.         |
+|Resources sending logs     |Count of resources sending logs in Datadog through the integration.         |
+|Resources sending metrics    |Count of resources sending metrics to Datadog through the integration.         |
 
 ## Reconfigure rules for metrics and logs
 

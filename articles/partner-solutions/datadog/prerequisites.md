@@ -5,16 +5,16 @@ description: This article describes how to configure your Azure environment to c
 
 
 ms.topic: conceptual
-ms.date: 01/06/2023
+ms.date: 12/05/2024
 ---
 
-# Configure environment before Datadog - An Azure Native ISV Service deployment
+# Configure environment before Datadog deployment
 
-This article describes how to set up your environment before deploying your first instance of Datadog - An Azure Native ISV Service. These conditions are prerequisites for completing the quickstarts.
+This article describes how to set up your environment before deploying your first instance of Datadog. These conditions are prerequisites for completing the quickstarts.
 
 ## Access control
 
-To set up the Datadog - An Azure Native ISV Service, you must have **Owner** access on the Azure subscription. [Confirm that you have the appropriate access](../../role-based-access-control/check-access.md) before starting the setup.
+To set up the Datadog, you must have **Owner** access on the Azure subscription. [Confirm that you have the appropriate access](../../role-based-access-control/check-access.md) before starting the setup.
 
 ## Add enterprise application
 
@@ -27,19 +27,11 @@ Use the following steps to set up the enterprise application:
 1. Select **New Application**.
 1. In **Add from the gallery**, search for *Datadog*. Select the search result then select **Add**.
 
-   :::image type="content" source="media/prerequisites/datadog-azure-ad-app-gallery.png" alt-text="Datadog application in the Microsoft Entra enterprise gallery." border="true":::
-
 1. Once the app is created, go to properties from the side panel. Set **User assignment required?** to **No**, and select **Save**.
-
-   :::image type="content" source="media/prerequisites/user-assignment-required.png" alt-text="Set properties for the Datadog application" border="true":::
 
 1. Go to **Single sign-on** from the side panel. Then select **SAML**.
 
-   :::image type="content" source="media/prerequisites/saml-sso.png" alt-text="SAML authentication." border="true":::
-
 1. Select **Yes** when prompted to **Save single sign-on settings**.
-
-   :::image type="content" source="media/prerequisites/save-sso.png" alt-text="Save single-sign on for the Datadog app" border="true":::
 
 1. The setup of single sign-on is now complete.
 

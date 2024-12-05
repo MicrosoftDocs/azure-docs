@@ -69,10 +69,11 @@ Tag rules for sending **logs** are:
 
 By default, logs are collected for all resources.
 
-- Azure resources with _Include_ tags send logs to Datadog.
-- Azure resources with _Exclude_ tags don't send logs to Datadog.
+Azure resources with _Include_ tags send logs to Datadog. 
+Azure resources with _Exclude_ tags don't send logs to Datadog.
 
-If there's a conflict between inclusion and exclusion rules, exclusion takes priority.
+> [!NOTE]
+> If there's a conflict between inclusion and exclusion rules, exclusion takes priority.
 
 There are three types of logs that can be sent from Azure to Datadog.
 

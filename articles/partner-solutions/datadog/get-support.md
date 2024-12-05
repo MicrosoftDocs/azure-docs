@@ -10,7 +10,7 @@ ms.custom:
   - ai-seo-date:12/03/2024
 ---
 
-# Get support for your Datadog
+# Get support for your Datadog resource
 
 This article describes how to contact support when working with Datadog. Before contacting support, review [common errors](troubleshoot.md) for possible solutions. 
 
