@@ -378,7 +378,7 @@ ogcli update port "port-<PORT_#>"  label=\"<NEW_NAME>\"	<PORT_#>
 
 | Parameter Name | Description                 |
 | -------------- | --------------------------- |
-| NEW\_NAM       | Port label name             |
+| NEW\_NAME      | Port label name             |
 | PORT\_#        | Terminal Server port number |
 
 
