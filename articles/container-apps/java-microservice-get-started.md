@@ -358,7 +358,7 @@ Use the following steps to verify the app status:
 
 ## Optional: Configure Java components
 
-The Java components created in this quickstart can be configured through the Azure portal by using the **Configurations** section to add or update configurations for your Java components.
+You can configure the Java components created in this quickstart through the Azure portal by using the **Configurations** section.
 
 :::image type="content" source="media/java-microservice-get-started/azure-portal-java-configurations-sections.png" alt-text="Screenshot of the Configurations section, showing Property Name and Value textboxes, and the ability to delete a property." lightbox="media/java-microservice-get-started/azure-portal-java-configurations-sections.png":::
 
