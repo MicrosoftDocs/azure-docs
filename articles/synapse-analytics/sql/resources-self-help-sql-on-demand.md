@@ -1109,6 +1109,10 @@ Connect-AzAccount -ServicePrincipal -Credential $cred -Tenant $tenantId
 
 New-AzSynapseRoleAssignment -WorkspaceName "<workspaceName>" -RoleDefinitionName "Synapse Administrator" -ObjectId "<app_id_to_add_as_admin>" [-Debug]
 ```
+> [!NOTE]
+> In this case, the synapse data studio UI will not display the role assignment added by the above method, so it is recommended to add the role assignment to both object ID and application ID at the same time so that it can be displayed on the UI as well.
+> 
+> New-AzSynapseRoleAssignment -WorkspaceName "<workspaceName>" -RoleDefinitionName "Synapse Administrator" -ObjectId "<object_id_to_add_as_admin>" [-Debug]
 
 **Validation**
 
