@@ -33,7 +33,7 @@ The following limits would be changed:
 
 ### How do I check my current limits?
 
-You will be able to check your current limits while creating a support request under the category *Service and Subscription limits (Quotas) -> Azure Automation*. This capability is currently under development.
+You'll be able to check your current limits while creating a support request under the category *Service and Subscription limits (Quotas) -> Azure Automation*. 
 
 ### My current usage is more than the revised limits.  What should I do?
 
@@ -41,7 +41,7 @@ Rest assured that your current usage of both resources - Automation accounts and
 
 ### I need more resources than my current limits. What should I do?
 
-You can request for quota increase by creating a support request under the category *Service and Subscription limits (Quotas) -> Azure Automation*. This capability is currently under development.
+You can request for quota increase by creating a support request under the category *Service and Subscription limits (Quotas) -> Azure Automation*. [Learn more](https://techcommunity.microsoft.com/blog/azuregovernanceandmanagementblog/azure-automation-is-revising-service-and-subscription-limits/4351067).
 
 ### How do quota requests impact my subscription's billing?
 
