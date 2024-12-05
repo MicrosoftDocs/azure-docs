@@ -3,7 +3,7 @@ title: Azure Automation subscription limits and quotas
 description: This article provides automation subscription and service limits and includes answers to frequently asked questions.
 services: automation
 ms.topic: faq
-ms.date: 12/04/2024
+ms.date: 12/05/2024
 #Customer intent: As an implementer, I want answers to various questions.
 ---
 
@@ -16,7 +16,7 @@ Azure Automation will soon revise its service and subscription limits to ensure 
 For more information on the current service and subscription limits, see [Automation limits](https://learn.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#process-automation).
 
 The following limits would be changed:
-- Maximum number of Automation accounts in a subscription in a region. 
+- Maximum number of active Automation accounts in a subscription in a region. 
 - Maximum number of concurrent running jobs at the same instance of time per Automation account. 
  
 **Resource** | **Limit** | **Notes** |
@@ -29,14 +29,10 @@ The following limits would be changed:
 
 ## Frequently asked questions
 
-### When will the new limits come into effect?
 
-For related information on the new limits, see the [blog](https://techcommunity.microsoft.com/blog/azuregovernanceandmanagementblog/azure-automation-is-revising-service-and-subscription-limits/4351067).
+### How do I check my current limits?
 
-
-### How do I check my current resource usage?
-
-You can create a support request under the category *Service and Subscription limits (Quotas)*. [Learn more](https://techcommunity.microsoft.com/blog/azuregovernanceandmanagementblog/azure-automation-is-revising-service-and-subscription-limits/4351067).
+You will be able to check your current limits while creating a support request under the category *Service and Subscription limits (Quotas) -> Azure Automation*. This capability is currently under development.
 
 ### My current usage is more than the revised limits.  What should I do?
 
@@ -44,7 +40,7 @@ Rest assured that your current usage of both resources - Automation accounts and
 
 ### I need more resources than my current limits. What should I do?
 
-You can request for quota increase and decrease based on your changing business requirements. [Learn more](https://techcommunity.microsoft.com/blog/azuregovernanceandmanagementblog/azure-automation-is-revising-service-and-subscription-limits/4351067).
+You can request for quota increase by creating a support request under the category *Service and Subscription limits (Quotas) -> Azure Automation*. This capability is currently under development.
 
 ### How do quota requests impact my subscription's billing?
 
