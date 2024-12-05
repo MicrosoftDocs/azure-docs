@@ -29,7 +29,7 @@ Defender EASM discovery includes the following kinds of assets:
 - Autonomous system numbers (ASNs)
 - Whois organizations
 
-:::image type="content" source="media/overview-discovery.png" alt-text="Screenshot that shows the Discovery pane.":::
+:::image type="content" source="media/overview-discovery.png" alt-text="Screenshot of the Discovery pane.":::
 
 Discovered assets are indexed and classified in your Defender EASM inventory to give you a dynamic record of the entire web infrastructure under your management. Assets are categorized as *recent* (currently active) or *historic*. They can include web applications, third-party dependencies, and other asset connections.
 
@@ -37,13 +37,13 @@ Discovered assets are indexed and classified in your Defender EASM inventory to 
 
 Defender EASM uses dashboards to help you quickly understand your online infrastructure and any key risks to your organization. The dashboards are designed to provide insight on specific areas of risk, including vulnerabilities, compliance, and security hygiene. These insights help you quickly address the components of your attack surface that pose the greatest risk to your organization.
 
-:::image type="content" source="media/overview-dashboard.png" alt-text="Screenshot that shows the dashboard pane.":::
+:::image type="content" source="media/overview-dashboard.png" alt-text="Screenshot of the dashboard and the Security posture pane.":::
 
 ## Asset management
 
 You can filter your inventory to surface the insights that are most important to you and your organization. Filtering gives you flexibility and customization to help you access a specific subset of assets. Filtering also puts Defender EASM data to work for your specific use case, whether you are searching for assets that connect to deprecating infrastructure or identifying new cloud resources.
 
-:::image type="content" source="media/overview-inventory.png" alt-text="Screenshot that shows the inventory pane.":::
+:::image type="content" source="media/overview-inventory.png" alt-text="Screenshot of the Inventory pane.":::
 
 ## User permissions
 

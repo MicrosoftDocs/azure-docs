@@ -12,7 +12,7 @@ ms.topic: conceptual
 
 Microsoft Defender External Attack Surface Management (Defender EASM) uses Microsoft proprietary discovery technology to continuously define your organization’s unique internet-exposed attack surface. The Defender EASM discovery feature scans known assets that are owned by your organization to uncover previously unknown and unmonitored properties. Discovered assets are indexed in your organization's inventory. Defender EASM gives you a dynamic system of record for web applications, third-party dependencies, and web infrastructure under your organization’s management in a single view.
 
-:::image type="content" source="media/discovery-configuration.png" alt-text="Screenshot that shows the Add discovery pane.":::
+:::image type="content" source="media/discovery-configuration.png" alt-text="Screenshot of the Add discovery pane.":::
 
 Through the Defender EASM discovery process, your organization can proactively monitor its constantly shifting digital attack surface. You can identify emerging risks and policy violations as they arise.
 
@@ -58,7 +58,7 @@ When you first use Defender EASM, you can access a prebuilt inventory for your o
 
 To build a customized inventory, a user can create discovery groups to organize and manage the seeds they use when they run discoveries. The user can use separate discovery groups to automate the discovery process, configure the seed list, and set up recurrent run schedules.
 
-:::image type="content" source="media/discovery-add-group.png" alt-text="Screenshot that shows attack surface selection for automated discovery.":::
+:::image type="content" source="media/discovery-add-group.png" alt-text="Screenshot of the Import seeds from an organization pane to set up automated discovery.":::
 
 ## Confirmed inventory vs. candidate assets
 
