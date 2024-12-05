@@ -19,7 +19,7 @@ To learn more about how opt-out is handled at Azure Communication Services, read
 
 ## Opt-Out management API
 We're extending opt-out management by enabling you to manage the Opt-Out database via an API. This API allows adding, removing, or checking opt-out entries, overriding the automatic management.
-Key features included:
+Key features include:
 
 - **Maintaining an Opt-Out List:** The API maintains a centralized list of opt-out requests, enabling businesses to easily add, remove, and check individuals opting out of SMS communications.
 - **Enforcing Opt-Out Preferences:** The API integrates with the opt-out list to ensure that preferences are respected. No SMS messages should be sent to individuals who opt out.
