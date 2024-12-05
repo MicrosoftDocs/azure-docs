@@ -26,7 +26,7 @@ DNS security policy offers the ability to filter and log DNS queries at the virt
 
 With DNS security policy you can:
 - Create rules to protect against DNS-based attacks by blocking name resolution of known or malicious domains. 
-- Save and view detailed DNS logs to gain inside into your DNS traffic.
+- Save and view detailed DNS logs to gain insight into your DNS traffic.
 
 A DNS security policy has the following associated elements and properties:
 - **[Location](#location)**: The Azure region where the security policy is created and deployed.

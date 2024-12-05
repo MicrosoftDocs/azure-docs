@@ -4,9 +4,9 @@ description: Learn how to use diagnostic settings to monitor connected ip addres
 
 
 
-ms.topic: how-to 
+ms.topic: how-to
 ms.date: 12/18/2023
-ms.custom: template-how-to, devx-track-azurecli 
+ms.custom: template-how-to, devx-track-azurecli, ignite-2024
 ms.devlang: azurecli
 ---
 

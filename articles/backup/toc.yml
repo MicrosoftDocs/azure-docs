@@ -310,7 +310,7 @@
         href: backup-during-vm-creation.md
       - name: Back up an Azure VM using Enhanced policy
         href: backup-azure-vms-enhanced-policy.md
-      - name: Back up an Azure VM in Azure extended zones (preview)
+      - name: Back up an Azure VM in Azure extended zones
         href: backup-azure-vms-extended-zones.md
       - name: Back up Azure VM with agentless multi-disk crash-consistent backup
         href: backup-azure-vms-agentless-multi-disk-crash-consistent.md
@@ -887,6 +887,8 @@
       href: backup-azure-sap-hana-database-troubleshoot.md
     - name: SAP HANA database instance backup in Azure VM
       href: sap-hana-database-instance-troubleshoot.md
+    - name: SAP ASE database backup in Azure VMs
+      href: troubleshoot-sap-ase-sybase-database-backup.md
     - name: System State
       href: backup-azure-system-state-troubleshoot.md
     - name: Archive tier

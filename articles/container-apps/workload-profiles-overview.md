@@ -10,6 +10,7 @@ ms.author: cshoe
 ms.custom:
   - references_regions
   - ignite-2023
+  - ignite-2024
 ---
 
 # Workload profiles in Azure Container Apps

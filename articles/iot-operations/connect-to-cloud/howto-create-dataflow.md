@@ -592,9 +592,11 @@ To filter the data on a condition, you can use the `filter` stage. The condition
     | Filter condition   | The condition to filter the data based on a field in the source data.                               |
     | Description        | Provide a description for the filter condition.                                                     |
 
-    In the filter condition field, type `@` or select **Ctrl + Space** to select datapoints from a dropdown. You can also enter $metadata headers using the format `@$metadata.<header>`.
+    In the filter condition field, type `@` or select **Ctrl + Space** to select datapoints from a dropdown.
 
-    The condition can use the fields in the source data. For example, you could use a filter condition like `temperature > 20` to filter data less than or equal to 20 based on the temperature field.
+    You can access MQTT metadata properties using the format `@$metadata.user_properties.<property>` or `@$metadata.topic`. You can also enter $metadata headers using the format `@$metadata.<header>`. For more information, see [field references](concept-dataflow-mapping.md#field-references).
+
+    The condition can use the fields in the source data. For example, you could use a filter condition like `@temperature > 20` to filter data less than or equal to 20 based on the temperature field.
 
 1. Select **Apply**.
 
@@ -660,8 +662,10 @@ You can use the **Compute** transform to apply a formula to the source data. Thi
     | Last known value   | Optionally, use the last known value if the current value isn't available.                       |
 
 
-    You can enter or edit a formula in the **Formula** field. The formula can use the fields in the source data. Type `@` or select **Ctrl + Space** to select datapoints from a dropdown. You can also enter $metadata headers using the format `@$metadata.<header>`.
-    
+    You can enter or edit a formula in the **Formula** field. The formula can use the fields in the source data. Type `@` or select **Ctrl + Space** to select datapoints from a dropdown.
+
+    You can access MQTT metadata properties using the format `@$metadata.user_properties.<property>` or `@$metadata.topic`. You can also enter $metadata headers using the format `@$metadata.<header>`. For more information, see [field references](concept-dataflow-mapping.md#field-references).
+
     The formula can use the fields in the source data. For example, you could use the `temperature` field in the source data to convert the temperature to Celsius and store it in the `temperatureCelsius` output field. 
     
 1. Select **Apply**.
@@ -681,6 +685,8 @@ You can rename a datapoint using the **Rename** transform. This operation is use
     | Datapoint          | Select a datapoint from the dropdown or enter a $metadata header using the format `$metadata.<header>.` |
     | New datapoint name | Enter the new name for the datapoint.                                                                   |
     | Description        | Provide a description for the transformation.                                                           |
+
+    You can access MQTT metadata properties using the format `@$metadata.user_properties.<property>` or `@$metadata.topic`. You can also enter $metadata headers using the format `@$metadata.<header>`. For more information, see [field references](concept-dataflow-mapping.md#field-references).
 
 1. Select **Apply**.
 
@@ -703,6 +709,8 @@ You can add a new property to the source data using the **New property** transfo
 1. Select **Apply**.
 
 # [Bicep](#tab/bicep)
+
+You can access MQTT metadata properties using the format `$metadata.user_properties.<property>` or `$metadata.topic`. You can also enter $metadata headers using the format `$metadata.<header>`. For more information, see [field references](concept-dataflow-mapping.md#field-references).
 
 For example, you could use the `temperature` field in the source data to convert the temperature to Celsius and store it in the `temperatureCelsius` field. You could also enrich the source data with the `location` field from the contextualization dataset:
 
@@ -727,6 +735,8 @@ builtInTransformationSettings: {
 ```
 
 # [Kubernetes (preview)](#tab/kubernetes)
+
+You can access MQTT metadata properties using the format `$metadata.user_properties.<property>` or `$metadata.topic`. You can also enter $metadata headers using the format `$metadata.<header>`. For more information, see [field references](concept-dataflow-mapping.md#field-references).
 
 For example, you could use the `temperature` field in the source data to convert the temperature to Celsius and store it in the `temperatureCelsius` field. You could also enrich the source data with the `location` field from the contextualization dataset:
 
@@ -835,6 +845,10 @@ To send data to a destination other than the local MQTT broker, create a dataflo
 1. Select the dataflow endpoint to use as the destination.
 
     :::image type="content" source="media/howto-create-dataflow/dataflow-destination.png" alt-text="Screenshot using operations experience to select Event Hubs destination endpoint.":::
+
+    Storage endpoints require a [schema for serialization](./concept-schema-registry.md). If you choose a Microsoft Fabric OneLake, Azure Data Lake Storage, Azure Data Explorer, or Local Storage destination endpoint, you must [specify a schema reference](#serialize-data-according-to-a-schema). For example, to serialize the data to a Microsoft Fabric endpoint in Delta format, you need to upload a schema to the schema registry and reference it in the dataflow destination endpoint configuration.
+
+    :::image type="content" source="media/howto-create-dataflow/serialization-schema.png" alt-text="Screenshot using operations experience to choose output schema and serialization format.":::
 
 1. Select **Proceed** to configure the destination.
 1. Enter the required settings for the destination, including the topic or table to send the data to. See [Configure data destination (topic, container, or table)](#configure-data-destination-topic-container-or-table) for more information.

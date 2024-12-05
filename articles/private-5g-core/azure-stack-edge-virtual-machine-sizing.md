@@ -1,8 +1,8 @@
 ---
 title: Service limits and resource usage
 description: Learn about the limits and resource usage of your Azure Private 5G Core deployment when running on an Azure Stack Edge device.
-author: robswain
-ms.author: robswain
+author: anzaman
+ms.author: alzam
 ms.service: azure-private-5g-core
 ms.topic: reference
 ms.date: 04/24/2024

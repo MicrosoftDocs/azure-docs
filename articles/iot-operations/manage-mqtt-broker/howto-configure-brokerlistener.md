@@ -51,7 +51,7 @@ To view or edit the default listener:
 # [Portal](#tab/portal)
 
 1. In the Azure portal, navigate to your IoT Operations instance.
-1. Under **Azure IoT Operations resources**, select **MQTT Broker**.
+1. Under **Components**, select **MQTT Broker**.
 
     :::image type="content" source="media/howto-configure-brokerlistener/configure-broker-listener.png" alt-text="Screenshot using Azure portal to view Azure IoT Operations MQTT configuration.":::
 
@@ -69,7 +69,7 @@ Be careful when modifying the default listener using Bicep. Don't change the exi
 param aioInstanceName string = '<AIO_INSTANCE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2024-09-15-preview' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2024-11-01' existing = {
   name: aioInstanceName
 }
 
@@ -77,12 +77,12 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
   name: customLocationName
 }
 
-resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2024-09-15-preview' existing = {
+resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2024-11-01' existing = {
   parent: aioInstance
   name: 'default'
 }
 
-resource defaultListener 'Microsoft.IoTOperations/instances/brokers/listeners@2024-09-15-preview' = {
+resource defaultListener 'Microsoft.IoTOperations/instances/brokers/listeners@2024-11-01' = {
   parent: defaultBroker
   name: 'default'
   extendedLocation: {
@@ -202,7 +202,7 @@ This example shows how to create a new listener with load balancer service type.
 # [Portal](#tab/portal)
 
 1. In the Azure portal, navigate to your IoT Operations instance.
-1. Under **Azure IoT Operations resources**, select **MQTT Broker**.
+1. Under **Components**, select **MQTT Broker**.
 1. Select **MQTT broker listener for LoadBalancer** > **Create**.
 
     Enter the following settings:
@@ -380,7 +380,7 @@ To enable TLS with automatic certificate management, specify the TLS settings on
 
 ### Verify cert-manager installation
 
-With automatic certificate management, you use cert-manager to manage the TLS server certificate. By default, cert-manager is installed alongside Azure IoT Operations Preview in the `cert-manager` namespace already. Verify the installation before proceeding.
+With automatic certificate management, you use cert-manager to manage the TLS server certificate. By default, cert-manager is installed alongside Azure IoT Operations in the `cert-manager` namespace already. Verify the installation before proceeding.
 
 1. Use `kubectl` to check for the pods matching the cert-manager app labels.
 
@@ -537,7 +537,7 @@ The following is an example of a BrokerListener resource that enables TLS on por
 # [Portal](#tab/portal)
 
 1. In the Azure portal, go to your IoT Operations instance.
-1. Under **Azure IoT Operations resources**, select **MQTT Broker**.
+1. Under **Components**, select **MQTT Broker**.
 1. Select or create a listener. You can only create one listener per service type. If you already have a listener of the same service type, you can add more ports to the existing listener.
 1. You can add TLS settings to the listener by selecting the **TLS** on an existing port or by adding a new port.
 
@@ -751,7 +751,7 @@ The following is an example of a BrokerListener resource that enables TLS on por
 # [Portal](#tab/portal)
 
 1. In the Azure portal, navigate to your IoT Operations instance.
-1. Under **Azure IoT Operations resources**, select **MQTT Broker**.
+1. Under **Components**, select **MQTT Broker**.
 1. Select or create a listener. You can only create one listener per service type. If you already have a listener of the same service type, you can add more ports to the existing listener. To follow the example, specify the listener service name as `mqtts-endpoint`.
 1. You can add TLS settings to the listener by selecting the **TLS** on an existing port or by adding a new port.
 
@@ -921,3 +921,4 @@ From here, follow the same steps as previously to create a server certificate wi
 
 - [Configure MQTT broker authorization](howto-configure-authorization.md)
 - [Configure MQTT broker authentication](howto-configure-authentication.md)
+- [Tutorial: TLS, X.509 client authentication, and attribute-based access control (ABAC) authorization](./tutorial-tls-x509.md)

@@ -16,7 +16,7 @@ ms.author: robiro
 
 This article details integration of Azure identity and security services with an SAP RISE workload. Additionally use of some Azure monitoring services are explained for an SAP RISE landscape.
 
-## Single sign-on for SAP 
+## Single sign-on for SAP RISE
 
 Single sign-On (SSO) is configured for many SAP environments. With SAP workloads running in ECS/RISE, steps to implement do not differ from a natively run SAP system. The integration steps with Microsoft Entra ID based SSO are available for typical ECS/RISE managed workloads:
 - [Tutorial: Microsoft Entra Single sign-on (SSO) integration with SAP NetWeaver](../../active-directory/saas-apps/sap-netweaver-tutorial.md)
@@ -30,6 +30,15 @@ Single sign-On (SSO) is configured for many SAP environments. With SAP workloads
 | SPNEGO     | Active Directory (AD) | Web GUI, SAP Enterprise Portal   | Configuration by customer and SAP |
 
 SSO against Active Directory (AD) of your Windows domain for ECS/RISE managed SAP environment, with SAP SSO Secure Login Client requires AD integration for end user devices. With SAP RISE, any Windows systems are not integrated with the customer's active directory domain. The domain integration isn't necessary for SSO with AD/Kerberos as the domain security token is read on the client device and exchanged securely with SAP system. Contact SAP if you require any changes to integrate AD based SSO or using third party products other than SAP SSO Secure Login Client, as some configuration on RISE managed systems might be required.
+
+## Identity and Access Management for SAP RISE
+
+> [!Note]
+> SAP [announced retirement](https://community.sap.com/t5/technology-blogs-by-sap/preparing-for-sap-identity-management-s-end-of-maintenance-in-2027/ba-p/13596101) of SAP Identity Management (SAP IDM) by 2027. [SAP recommends](https://community.sap.com/t5/technology-blogs-by-sap/preparing-for-sap-identity-management-s-end-of-maintenance-in-2027/ba-p/13596101) to customers to migrate to Microsoft Entra.
+
+[Microsoft Entra ID Governance](/entra/id-governance/identity-governance-overview) and built-in integrations with SAP Cloud Identity Service are an ideal fit to handle SAP user lifecycle and their authorizations across both eco-systems.
+
+Learn more from this [Microsoft Learn article](/entra/id-governance/scenarios/migrate-from-sap-idm) and [this blog post series](https://community.sap.com/t5/technology-blogs-by-members/identity-and-access-management-with-microsoft-entra-part-i-managing-access/ba-p/13873276).
 
 ## Copilot for Security with SAP RISE
 

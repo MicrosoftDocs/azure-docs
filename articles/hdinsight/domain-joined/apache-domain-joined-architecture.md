@@ -4,7 +4,7 @@ description: Learn how to plan Azure HDInsight security with Enterprise Security
 ms.service: azure-hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive, has-azure-ad-ps-ref
-ms.date: 09/06/2024
+ms.date: 11/20/2024
 ---
 
 # Use Enterprise Security Package in HDInsight
@@ -67,7 +67,7 @@ If you use federation and password hashes are synced correctly, but you're getti
    Install-Module AzureAD
    ```
 
-2. Connect using administrator (tenant administrator) credentials.
+2. Connect using [Hybrid Identity Administrator](/entra/identity/role-based-access-control/permissions-reference#hybrid-identity-administrator)credentials.
 
    ```powershell
    Connect-AzureAD

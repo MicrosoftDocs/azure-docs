@@ -20,7 +20,7 @@ Several Azure Virtual Desktop features require you to assign Azure role-based ac
 > [!TIP]
 > You can find which role or roles you need to assign to which service principal in the article for each feature. For a list of all the available Azure RBAC roles created specifically for Azure Virtual Desktop, see [Built-in Azure RBAC roles for Azure Virtual Desktop](rbac.md). To learn more about Azure RBAC, see [Azure RBAC documentation](../role-based-access-control/index.yml) or for Microsoft Entra roles, see [Microsoft Entra roles documentation](/entra/identity/role-based-access-control/).
 
-Depending on when you registered the *Microsoft.DesktopVirtualization* resource provider, the service principal names begin with either *Azure Virtual Desktop* or *Windows Virtual Desktop*. If you used both Azure Virtual Desktop Classic and an Azure Virtual Desktop (Azure Resource Manager), you see apps with the same name. You can make sure you're assigning roles to the correct service principal by checking its application ID. The application ID for each service principal is in the following table:
+Depending on when you registered the *Microsoft.DesktopVirtualization* resource provider, the service principal names begin with either *Azure Virtual Desktop* or *Windows Virtual Desktop*. Also, if you previously used both Azure Virtual Desktop classic and Azure Virtual Desktop (Azure Resource Manager), you see apps with the same name. You can make sure you're assigning roles to the correct service principal by checking its application ID. The application ID for each service principal is in the following table:
 
 | Service principal | Application ID |
 |--|--|
@@ -116,7 +116,7 @@ Here's how to assign an Azure RBAC role to an Azure Virtual Desktop service prin
    SignInName         : 
    RoleDefinitionName : Desktop Virtualization Power On Off Contributor
    RoleDefinitionId   : 40c5ff49-9181-41f8-ae61-143b0e78555e
-   ObjectId           : 00000000-0000-0000-0000-000000000000
+   ObjectId           : aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
    ObjectType         : ServicePrincipal
    CanDelegate        : False
    Description        : 

@@ -12,7 +12,7 @@ ms.custom: references_regions
 #Customer intent: As an IT admin, I need to understand what Data Box is and how it works so I can use it to import on-premises data into Azure or export data from Azure.
 ---
 
-# Safety instructions for your Azure Data Box V2
+# Safety instructions for your Next Gen Azure Data Box
 
 :::image type="icon" source="media/data-box-next-gen-safety/icon-hazard-lrg.png" border="false"::: :::image type="icon" source="media/data-box-next-gen-safety/icon-safety-read-all-instructions-lrg-2.png" border="false":::
 

@@ -145,7 +145,7 @@ Consider the following strategies:
 
     1. Click the copy icon or press <kbd>Ctrl + C</kbd> copy the URL of the webhook. Then save the URL to a secure location.
 
-        :::image type="content" source="media/automation-webhooks/create-new-webhook.png" alt-text="Creaye webhook page with URL highlighted.":::
+        :::image type="content" source="media/automation-webhooks/create-new-webhook.png" alt-text="Create webhook page with URL highlighted.":::
 
         > [!IMPORTANT]
         > Once you create the webhook, you cannot retrieve the URL again. Make sure you copy and record it as above.

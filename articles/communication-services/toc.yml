@@ -287,7 +287,7 @@ items:
         href: quickstarts/telemetry-application-insights.md
   - name: Voice and Video
     items:
-    - name: Setup for Node.JS app
+    - name: Setup for Node.js app
       href: tutorials/building-app-start.md
     - name: Build an authentication service using Azure Functions
       href: tutorials/trusted-service-tutorial.md
@@ -331,6 +331,8 @@ items:
         href: how-tos/cte-calling-sdk/manage-calls.md
       - name: Manage Teams meeting Lobby
         href: how-tos/calling-sdk/lobby.md
+      - name: Manage call duration
+        href: tutorials/call-duration.md
       - name: PowerPoint Live
         href: how-tos/calling-sdk/powerpoint-live.md
       - name: Record calls
@@ -661,6 +663,8 @@ items:
       href: samples/email-detect-sensitive-content.md
   - name: Call Automation
     items:
+    - name: Call Automation Azure Open AI sample
+      href: samples/call-automation-azure-openai-sample.md
     - name: Call Automation AI sample
       href: samples/call-automation-ai.md
 - name: Concepts
@@ -953,7 +957,7 @@ items:
         href: concepts/numbers/number-lookup-concept.md
       - name: Number Lookup SDK
         href: concepts/numbers/number-lookup-sdk.md
-      - name: Country availability
+      - name: Country/region availability
         href: concepts/numbers/sub-eligibility-number-capability.md
       - name: Emergency calling
         href: concepts/telephony/emergency-calling-concept.md
@@ -1431,7 +1435,7 @@ items:
       href: /java/api/overview/azure/communication-common-readme
     - name: Common (iOS)
       href: https://azure.github.io/azure-sdk-for-ios/AzureCommunicationCommon/index.html
-  - name: Country phone number management
+  - name: Country/region phone number management
     items:
     - name: Phone number management for Argentina
       href: concepts/numbers/phone-number-management-for-argentina.md
