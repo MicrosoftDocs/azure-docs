@@ -3799,12 +3799,12 @@
       "source_path_from_root": "/articles/defender-for-iot/device-builders/overview-firmware-analysis.md",
       "redirect_url": "/azure/firmware-analysis/overview-firmware-analysis",
       "redirect_document_id": false
-    }
+    },
     {
       "source_path_from_root": "/articles/managed-grafana/how-to-upgrade-grafana-10.md",
       "redirect_url": "/azure/managed-grafana/overview",
       "redirect_document_id": false
-    }
+    },
     {
       "source_path_from_root": "/articles/managed-grafana/how-to-transition-domain.md",
       "redirect_url": "/azure/managed-grafana/overview",
