@@ -5,16 +5,16 @@ author: ProfessorKendrick
 ms.topic: how-to
 ms.custom:
 
-ms.date: 11/22/2024
+ms.date: 12/04/2024
 ---
 
 # Manage your Neon integration through the portal (Preview)
 
-This article describes how to access the Neon Console and how to and delete the Neon Serverless Postgres (Preview) resource using the Azure portal.
+This article describes how to access the Neon Console and how to delete the Neon Serverless Postgres (Preview) resource using the Azure portal.
 
 ## Single sign-on
 
-Single sign-on (SSO) is already enabled when you created your Neon resource. To access Neon through SSO, follow these steps:
+Single sign-on (SSO) is already enabled when you create your Neon resource. To access Neon through SSO, follow these steps:
 
 1. Navigate to the **Overview** for your instance of the Neon resource. 
 
@@ -29,13 +29,13 @@ Single sign-on (SSO) is already enabled when you created your Neon resource. To 
 
 Once the Neon resource is deleted, all billing stops for that resource through Azure Marketplace. If you're done using your resource and would like to delete it, follow these steps:
 
-1. From the Resource menu, select the Neon resource you would like to delete.
+1. From the **Resource** menu, select the Neon resource you would like to delete.
 
 1. On the working pane of the **Overview** menu, select **Delete**.
 
 1. Confirm deletion.
 
-1. Select a reason fo deleting the resource.
+1. Select a reason for deleting the resource.
 
 1. Select **Delete**.
 

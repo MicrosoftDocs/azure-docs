@@ -4,7 +4,7 @@ description: Learn how to create a resource for  Neon Serverless Postgres (Previ
 author: ProfessorKendrick
 ms.author: kkendrick
 ms.topic: quickstart
-ms.date: 11/22/2024
+ms.date: 12/02/2024
 
 ---
 # Quickstart: Create a Neon Serverless Postgres (Preview) resource

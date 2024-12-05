@@ -519,6 +519,11 @@
             "source_path_from_root": "/articles/virtual-desktop/create-fslogix-profile-container.md",
             "redirect_url": "/fslogix/how-to-configure-profile-container-netapp",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/virtual-desktop-fall-2019/index.yml",
+            "redirect_url": "/previous-versions/azure/virtual-desktop-classic/",
+            "redirect_document_id": false
         }
     ]
 }
