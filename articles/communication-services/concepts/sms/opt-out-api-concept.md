@@ -15,7 +15,7 @@ ms.subservice: sms
 The Opt-Out Management API enables Azure Communication Services customers to manage opt-out requests for SMS messages. It provides a self-service platform for businesses to handle opt-out requests, ensuring compliance with regulations and protecting customer privacy.
 Currently, opt-out handling includes configuring responses to mandatory opt-out keywords, such as STOP/START/HELP. The responses are stored and the list of opted-out numbers is maintained in the Azure Communication Services Opt-Out database. This database management is automatic.
 The Opt-Out database contains entries added when a recipient sends an opt-out keyword. An entry includes the fields: Sender, Recipient, and Country. If a recipient opts back in, the corresponding entry is deleted.
-To learn more about how opt-out is handled at Azure Communication Services, read our [FAQ](https://learn.microsoft.com/en-us/azure/communication-services/concepts/sms/sms-faq#how-does-azure-communication-services-handle-opt-outs-for-short-codes.md) page. 
+To learn more about how opt-out is handled at Azure Communication Services, read our [FAQ](https://learn.microsoft.com/azure/communication-services/concepts/sms/sms-faq#how-does-azure-communication-services-handle-opt-outs-for-short-codes.md) page. 
 
 ## Opt-Out management API
 We are extending opt-out management by enabling ACS customers to manage the Opt-Out database via an API. This API provide the ability to add, remove, or check opt-out entries, effectively overriding the automatic management.
@@ -26,4 +26,4 @@ Key features included:
 
 ## Next steps
 
-Let's get started with the [SMS Opt-out API quickstart](https://github.com/dbasantes/azure-docs-pr/new/main/articles/communication-services/quickstarts/sms/opt-out-api-quickstart.md)
+Let's get started with the [SMS Opt-out API quickstart](../../quickstarts/sms/opt-out-api-quickstart.md)
