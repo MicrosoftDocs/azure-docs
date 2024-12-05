@@ -18,7 +18,7 @@ Azure Red Hat OpenShift is a managed OpenShift service that lets you quickly dep
 
 ## Before you begin
 
-To install and use the CLI locally, run Azure CLI version 2.67.0 or higher. Use `az --version` to find the version of Azure CLI you have installed. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
+To use the Azure CLI locally to deploy an Azure Red Hat OpenShift cluster, run Azure CLI version 2.67.0 or higher. Use `az --version` to find the version of Azure CLI you have installed. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 Azure Red Hat OpenShift requires a minimum of 40 cores to create and run an OpenShift cluster. The default Azure resource quota for a new Azure subscription doesn't meet this requirement. To request an increase in your resource limit, see [Standard quota: Increase limits by VM series](/azure/azure-portal/supportability/per-vm-quota-requests).
 
