@@ -1562,7 +1562,7 @@
     },
     {
       "source_path_from_root": "/articles/iot-hub/device-management-cli.md",
-      "redirect_url": "/azure/iot-hub/quickstart-send-telemetry-cli.md",
+      "redirect_url": "/azure/iot-hub/quickstart-send-telemetry-cli",
       "redirect_document_id": false
     },
     {
