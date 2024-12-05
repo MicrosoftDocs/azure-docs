@@ -6,7 +6,7 @@ author: KarlErickson
 ms.topic: tutorial
 ms.author: edburns
 ms.service: azure-container-apps
-ms.date: 10/10/2024
+ms.date: 05/12/2024
 ms.custom: devx-track-azurecli, devx-track-extended-java, devx-track-java, devx-track-javaee, devx-track-javaee-quarkus, passwordless-java, service-connector, devx-track-javaee-quarkus-aca
 ---
 
@@ -14,9 +14,9 @@ ms.custom: devx-track-azurecli, devx-track-extended-java, devx-track-java, devx-
 
 [Azure Container Apps](overview.md) provides a [managed identity](managed-identity.md) for your app, which is a turn-key solution for securing access to [Azure Database for PostgreSQL](/azure/postgresql/) and other Azure services. Managed identities in Container Apps make your app more secure by eliminating secrets from your app, such as credentials in the environment variables.
 
-This tutorial walks you through the process of building, configuring, deploying, and scaling Java container apps on Azure. At the end of this tutorial, you'll have a [Quarkus](https://quarkus.io) application storing data in a [PostgreSQL](/azure/postgresql/) database with a managed identity running on [Container Apps](overview.md).
+This tutorial walks you through the process of building, configuring, deploying, and scaling Java container apps on Azure. At the end of this tutorial, you have a [Quarkus](https://quarkus.io) application storing data in a [PostgreSQL](/azure/postgresql/) database with a managed identity running on [Container Apps](overview.md).
 
-What you will learn:
+What you learn:
 
 > [!div class="checklist"]
 > * Configure a Quarkus app to authenticate using Microsoft Entra ID with a PostgreSQL Database.
@@ -88,7 +88,7 @@ cd quarkus-quickstarts/hibernate-orm-panache-quickstart
 
 1. Configure the Quarkus app properties.
 
-   The Quarkus configuration is located in the *src/main/resources/application.properties* file. Open this file in your editor, and observe several default properties. The properties prefixed with `%prod` are only used when the application is built and deployed, for example when deployed to Azure App Service. When the application runs locally, `%prod` properties are ignored.  Similarly, `%dev` properties are used in Quarkus' Live Coding / Dev mode, and `%test` properties are used during continuous testing.
+   The Quarkus configuration is located in the *src/main/resources/application.properties* file. Open this file in your editor, and observe several default properties. The properties prefixed with `%prod` are only used when the application is built and deployed, for example when deployed to Azure App Service. When the application runs locally, `%prod` properties are ignored. Similarly, `%dev` properties are used in Quarkus' Live Coding / Dev mode, and `%test` properties are used during continuous testing.
 
    Delete the existing content in *application.properties* and replace with the following to configure the database for dev, test, and production modes:
 
@@ -211,7 +211,7 @@ cd quarkus-quickstarts/hibernate-orm-panache-quickstart
 
 ## 5. Create and connect a PostgreSQL database with identity connectivity
 
-Next, create a PostgreSQL Database and configure your container app to connect to a PostgreSQL Database with a system-assigned managed identity. The Quarkus app will connect to this database and store its data when running, persisting the application state no matter where you run the application.
+Next, create a PostgreSQL Database and configure your container app to connect to a PostgreSQL Database with a system-assigned managed identity. The Quarkus app connects to this database and stores its data when running, persisting the application state no matter where you run the application.
 
 1. Create the database service.
 
@@ -236,7 +236,7 @@ Next, create a PostgreSQL Database and configure your container app to connect t
    * *resource-group* &rarr; Use the same resource group name in which you created the web app - for example, `msdocs-quarkus-postgres-webapp-rg`.
    * *name* &rarr; The PostgreSQL database server name. This name must be **unique across all Azure** (the server endpoint becomes `https://<name>.postgres.database.azure.com`). Allowed characters are `A`-`Z`, `0`-`9`, and `-`. A good pattern is to use a combination of your company name and server identifier. (`msdocs-quarkus-postgres-webapp-db`)
    * *location* &rarr; Use the same location used for the web app. Change to a different location if it doesn't work.
-   * *public-access* &rarr; `None` which sets the server in public access mode with no firewall rules. Rules will be created in a later step.
+   * *public-access* &rarr; `None` which sets the server in public access mode with no firewall rules. Rules are created in a later step.
    * *sku-name* &rarr; The name of the pricing tier and compute configuration - for example, `Standard_B1ms`. For more information, see [Azure Database for PostgreSQL pricing](https://azure.microsoft.com/pricing/details/postgresql/server/).
    * *tier* &rarr; The compute tier of the server. For more information, see [Azure Database for PostgreSQL pricing](https://azure.microsoft.com/pricing/details/postgresql/server/).
    * *active-directory-auth* &rarr; `Enabled` to enable Microsoft Entra authentication.
