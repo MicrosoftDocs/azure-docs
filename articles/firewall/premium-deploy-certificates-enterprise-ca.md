@@ -35,7 +35,7 @@ To use an Enterprise CA to generate a certificate to use with Azure Firewall Pre
 3. Right-click on the **Subordinate Certification Authority** template and select **Duplicate Template**.
 4. In the **Properties of New Template** window, go to the **Compatibility** tab and set the appropriate compatibility settings or leave them as default.
 5. Go to the **General** tab, set the **Template Display Name** (for example: `My Subordinate CA`), and adjust the validity period if necessary. Optionally, select the **Publish certificate in Active Directory** checkbox.
-6. In the **Settings** tab, ensure the required users and groups have read and `enrol` permissions.
+6. In the **Settings** tab, ensure the required users and groups have read and `enroll` permissions.
 7. Navigate to the **Extensions** tab, select **Key Usage**, and select **Edit**.
    - Ensure that the **Digital signature**, **Certificate signing**, and **CRL signing** checkboxes are selected.
    - Select the **Make this extension critical** checkbox and select **OK**.
