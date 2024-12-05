@@ -174,7 +174,7 @@ items:
       - name: Which integration services to choose
         href: azure-integration-services-choose-capabilities.md
       - name: Migration options and best practices
-        href: biztalk-server-approaches.md
+        href: biztalk-server-migration-approaches.md
   - name: Develop
     items:
     - name: Build your workflow with a trigger or action
