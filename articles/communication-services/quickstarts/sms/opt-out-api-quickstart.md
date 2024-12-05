@@ -19,10 +19,10 @@ This article describes how to enable opt-out management for your Azure Communica
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An active Communication Services resource and connection string. See [Create a Communication Services resource](../create-communication-resource.md).
-- To enable Opt-out management on your Azure Communication Services resource, contact [acs_telco_messaging@microsoft.com](mailto:acs_telco_messaging@microsoft.com) to allow-list your `Immutable resource Id` (as listed on the **Properties** page in the Azure portal), and associated SMS-enabled toll-free numbers. 
+- To enable Opt-out management on your Azure Communication Services resource, contact [acs_telco_messaging@microsoft.com](mailto:acs_telco_messaging@microsoft.com) to allowlist your `Immutable resource Id` (as listed on the **Properties** page in the Azure portal), and associated SMS-enabled toll-free numbers. 
 
 ## Quickstart: Send OptOut API requests with API (HMAC)
-Sending is similar to SMS as described in the [Azure Communication Services Postman Tutorial](https://learn.microsoft.com/azure/communication-services/tutorials/postman-tutorial) with the difference of endpoints for OptOut Actions (Add, Remove, or Check) and body. The request body has the same structure for all actions, while the response content slightly differs.
+Sending an Opt-out API request is similar to SMS as described in the [Azure Communication Services Postman Tutorial](https://learn.microsoft.com/azure/communication-services/tutorials/postman-tutorial) with the difference of endpoints for OptOut Actions (Add, Remove, or Check) and body. The request body has the same structure for all actions, while the response content slightly differs.
 
 ### Endpoints
 
@@ -62,7 +62,7 @@ Here are some examples in different languages.
 ```
 
 ### Sample Response
-In general, response content are the same for all actions and contain the success or failure `HttpStatusCode` per recipient. The only difference is that the `Check` action, which also returns the `isOptedOut` flag.
+In general, response contents are the same for all actions and contain the success or failure `HttpStatusCode` per recipient. The only difference is that the `Check` action, which also returns the `isOptedOut` flag.
 
 #### Response Status
 - 200 Ok
