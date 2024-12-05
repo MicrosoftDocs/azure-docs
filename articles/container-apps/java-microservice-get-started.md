@@ -20,8 +20,8 @@ In this quickstart, you learn how to deploy an application in Azure Container Ap
 
 The PetClinic application includes the following features:
 
-* The front end is a standalone Node.js web app hosted on the API Gateway app.
-* Requests to the API gateway route request to back-end service apps.
+* The front end is a standalone Node.js web app hosted on the API gateway app.
+* The API gateway routes requests to back-end service apps.
 * Back-end apps are built with Spring Boot.
 * Each back-end app uses a HyperSQL database as the persistent store.
 * The apps use managed Java components on Azure Container Apps, including a service registry, config server, and admin server.
