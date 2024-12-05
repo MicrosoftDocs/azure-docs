@@ -403,11 +403,13 @@
       href: deploy-intelligent-apps.md
 - name: WordPress
   items:
+    - name: WordPress architecture
+      href: /azure/architecture/example-scenario/infrastructure/wordpress-app-service.md
     - name: WordPress overview
       href: overview-wordpress.md
     - name: Deploy WordPress
       href: quickstart-wordpress.md
-    - name: Migrate WordPress
+    - name: Migrate WordPress to App Service
       href: migrate-wordpress.md
     - name: Configure WordPress
       href: reference-app-settings.md#wordpress
