@@ -1,6 +1,6 @@
 ---
-title: "Use a custom redaction format with the de-identification service"
-description: "Learn how to redact using a custom format with the de-identification service."
+title: "Use a custom redaction format with the Azure Health De-identification service"
+description: "Learn how to redact using a custom format with the Azure Health De-identification service."
 author: GrahamMThomas
 ms.author: gthomas
 ms.service: azure-health-data-services
@@ -52,7 +52,7 @@ The following variables are supported:
     Hi my name is <patient>
 ```
 
-Also supports Upper and Title cases
+Also supports Upper and Title cases.
 
 ```text
     {type} => patient
@@ -76,5 +76,5 @@ It duplicates the previous character to match the length of the tagged entity.
 
 ## Limits
 
-1. The redaction format can be up to 16 characters long.
-2. Each variable type can only be used once in the format.
+- The redaction format can be up to 16 characters long.
+- Each variable type can only be used once in the format.
