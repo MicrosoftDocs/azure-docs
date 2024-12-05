@@ -24,14 +24,8 @@ items:
   expanded: true
 - name: Tutorials
   items:
-  - name: Configure VM with internet routing preference
-    items:
-    - name: Azure portal
-      href: tutorial-routing-preference-virtual-machine-portal.md
-    - name: Azure PowerShell
-      href: configure-routing-preference-virtual-machine-powershell.md
-    - name: Azure CLI
-      href: configure-routing-preference-virtual-machine-cli.md
+  - name: Configure internet routing preference for a virtual machine
+    href: configure-routing-preference-virtual-machine.md
   - name: Configure mixed Routing Preference for a VM
     href: routing-preference-mixed-network-adapter-portal.md
   - name: Configure Routing Preference for an AKS cluster
