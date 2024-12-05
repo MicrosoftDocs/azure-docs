@@ -1,6 +1,6 @@
 ---
 title: Introduction to the Azure Internet of Things (IoT)
-description: Introduction explaining the fundamentals of Azure IoT and the IoT services, including examples that help illustrate the use of IoT.
+description: Introduction explaining the fundamentals of Azure IoT and the IoT services, including examples that help illustrate the use of IoT, and how they relate to adaptive cloud.
 author: dominicbetts
 ms.service: azure-iot
 services: iot
@@ -26,7 +26,7 @@ A **cloud-based solution** is an integrated set of IoT devices, components, and 
 
 :::image type="content" source="media/iot-introduction/iot-architecture.svg" alt-text="Diagram that shows the high-level IoT solution architecture for cloud-based solutions." border="false":::
 
-You can build cloud-based solutions with services such as IoT Hub, Device Provisioning Service, and Azure Digital Twins.
+You can build cloud-based solutions with services such as [IoT Hub](../iot-hub/iot-concepts-and-iot-hub.md), [Device Provisioning Service](../iot-dps/about-iot-dps.md), and [Azure Digital Twins](../digital-twins/overview.md).
 
 An **edge-based solution** is an integrated set of IoT assets, components, and services, that meets a business need and that connects assets to nearby edge services. An example of an edge-based solution is a factory where your industrial IoT assets connect to on-premises services because either:
 
@@ -37,7 +37,7 @@ An edge-based solution can still forward data from your assets to the cloud for 
 
 :::image type="content" source="media/iot-introduction/iot-architecture-aio.svg" alt-text="Diagram that shows the high-level IoT solution architecture for edge-based solutions." border="false":::
 
-You can build edge-based solutions with Azure IoT Edge or Azure IoT Operations.
+You can build edge-based solutions with [Azure IoT Operations](../iot-operations/overview-iot-operations.md) or [Azure IoT Edge](../iot-edge/about-iot-edge.md). Azure IoT Operations is a new offering that follows Microsoft's [adaptive cloud approach](#solution-management) to integrate cloud and edge components.
 
 To evaluate whether to build an edge-based or cloud-based solution, review the comparisons between the two approaches in the following sections. Each section lists details from current offerings for cloud-based and edge-based solutions.
 
@@ -72,10 +72,8 @@ An IoT asset is a broader concept than an IoT device and refers to any item of v
 - Programmable logic controllers.
 - Buildings.
 - Agricultural crops.
-- IoT devices.
 
-> [!NOTE]
-> In Azure IoT Operations, the term *asset* also refers to the virtual representation of a physical asset.
+In Azure IoT Operations, the term *asset* also refers to the virtual representation of a physical asset. In an Azure IoT Operations deployment, you use [Azure Device Registry](../iot-operations/discover-manage-assets/overview-manage-assets.md) to manage your assets across both Azure and your Kubernetes cluster as a part of the adaptive cloud approach. The Azure Device Registry service stores information about your assets, such as their metadata, and their connection information and enables you to use tools such as Azure Resource Manager to manage them.
 
 ### Device connectivity
 
@@ -191,7 +189,7 @@ Any IoT solution must address the following solution-wide concerns:
 
 ### Solution management
 
-The [adaptive cloud approach](https://azure.microsoft.com/blog/advancing-hybrid-cloud-to-adaptive-cloud-with-azure/) unifies siloed teams, distributed sites, and disparate systems into a single operations, security, application, and data model. This approach enables you to use the same cloud and AI technologies to manage and monitor edge-based, cloud-based, and hybrid IoT solutions.
+The [adaptive cloud approach](/collections/5pq5hojn6xzogr) unifies siloed teams, distributed sites, and disparate systems into a single operations, security, application, and data model. This approach enables you to use the same cloud and AI technologies to manage and monitor edge-based, cloud-based, and hybrid IoT solutions.
 
 Solutions based on IoT Hub, IoT Central, and IoT Edge offer limited support for an adaptive cloud approach. Although IoT Hub, IoT Central, and IoT Edge instances are themselves Azure resources, they don't natively expose capabilities, such as device management and data transformation, as resources you can manage as standard Azure resources.
 
@@ -205,7 +203,6 @@ The following table summarizes current security options:
 |-------------------------|----------------------|---------------------|
 | Authentication          | SAS, X.509                                                                         | SAS, X.509, and SAT (security account tokens) for on-cluster authentication |
 | Authorization           | Proprietary within current service offerings like [IoT Hub](../iot-hub/index.yml)  | Azure IoT Operations uses [Microsoft Entra ID](/entra/fundamentals/whatis) identity for role-based access control (RBAC). [IoT Edge](../iot-edge/index.yml) uses a proprietary authorization scheme that communicates with [IoT Hub](../iot-hub/index.yml) but handles authorization locally. |
-
 
 ## Next steps
 

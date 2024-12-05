@@ -1,12 +1,13 @@
 ---
 title: Manage network policies for private endpoints
 titleSuffix: Azure Private Link
-description: Learn how to manage network policies for private endpoints.
+description: Learn how to enable and manage network policies for Azure private endpoints in an Azure virtual network. 
+# Customer intent: Learn how to manage network policies for private endpoints.
 services: private-link
 author: abell
 ms.service: azure-private-link
 ms.topic: how-to
-ms.date: 07/26/2023
+ms.date: 12/04/2024
 ms.author: abell 
 ms.devlang: azurecli
 ms.custom: devx-track-azurepowershell, template-how-to
@@ -34,6 +35,8 @@ The following examples describe how to enable and disable `PrivateEndpointNetwor
 
 ## Enable network policy
 
+Follow these steps to configure Network Security Groups and Route tables for your private endpoints.
+
 # [**Portal**](#tab/network-policy-portal)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
@@ -46,7 +49,7 @@ The following examples describe how to enable and disable `PrivateEndpointNetwor
 
 1. Select the **default** subnet.
 
-1. In the properties for the **default** subnet, select the checkboxes for **Network Security Groups**, **Route tables**, or both in **NETWORK POLICY FOR PRIVATE ENDPOINTS**.
+1. In the **Edit subnet** pane, under **Network Policy for Private Endpoints**, select the boxes for **Network security groups** or **Route tables** as needed.
 
 1. Select **Save**.
 
@@ -129,7 +132,7 @@ This section describes how to enable subnet private endpoint policies by using a
 
 1. Select the **default** subnet.
 
-1. In the properties for the **default** subnet, select **Disabled** in **NETWORK POLICY FOR PRIVATE ENDPOINTS**.
+1. In the **Edit subnet** pane, under **Network Policy for Private Endpoints**, select the box **Disabled**.
 
 1. Select **Save**.
 
@@ -204,4 +207,11 @@ This section describes how to disable subnet private endpoint policies by using 
 
 ## Next steps
 
-- To learn more, see [What is a private endpoint?](private-endpoint-overview.md).
+In this how-to guide, you enabled and disabled network policies for private endpoints in an Azure virtual network. You learned how to use the Azure portal, Azure PowerShell, Azure CLI, and Azure Resource Manager templates to manage network policies for private endpoints.
+
+
+For more information about the services that support private endpoints, see:
+> [!div class="nextstepaction"]
+> [What is a private endpoint?](private-endpoint-overview.md)
+
+

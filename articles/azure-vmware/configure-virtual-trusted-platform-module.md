@@ -3,7 +3,7 @@ title: Configure Virtual Machines - Virtual Trusted Platform Module (vTPM)
 description: Learn how to configure Virtual Machines - Virtual Trusted Platform Module (vTPM).
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 11/25/2024
+ms.date: 12/04/2024
 ms.custom: engagement-fy25
 ---
 
@@ -57,7 +57,7 @@ To configure vTPM on a VM in Azure VMware Solution, follow these steps:
 
 2. In the inventory, right-click the virtual machine you want to modify and select "Edit Settings".  
 
-:::image type="content" source="./media/enable-virtual-trusted-platform-module-on-virtual-machine.png" alt-text="Diagram showing how to enable vTPM on a virtual machine in Azure VMware Solution." border="false" lightbox="./media/enable-virtual-trusted-platform-module-on-virtual-machine.png":::
+:::image type="content" source="./media/enable-virtual-trusted-platform-module-on-virtual-machine-highres.png" alt-text="Diagram showing how to enable vTPM on a virtual machine in Azure VMware Solution." border="false" lightbox="./media/enable-virtual-trusted-platform-module-on-virtual-machine-highres.png":::
 
 3. In the Edit Settings dialog box, click "Add New Device" and choose "Trusted Platform Module".  
 
