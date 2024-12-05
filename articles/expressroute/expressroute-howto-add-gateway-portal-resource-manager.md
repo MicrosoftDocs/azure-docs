@@ -100,7 +100,7 @@ The steps for this tutorial use the values in the following configuration refere
     > [!NOTE]
     > To create the gateway in an [Azure Extended Zone](../extended-zones/overview.md), you must first [request access to the Extended Zone](../extended-zones/request-access.md). Once you have access, you can create the gateway.
     >
-    > The following considerations apply when creating a gateway in an Extended Zone:
+    > The following considerations apply when creating a virtual network gateway in an Extended Zone:
     > - Availability Zones aren't supported in Azure Extended Zones.
     > - The following SKUs are currently supported in Azure Extended Zones: *Standard*, *HighPerformance*, *UltraPerformance*.
     > - Local SKU circuit isn't supported with gateways in Azure Extended Zone.
