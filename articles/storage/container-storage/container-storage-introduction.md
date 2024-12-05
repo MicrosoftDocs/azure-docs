@@ -40,7 +40,7 @@ Azure Container Storage offers persistent volume support with ReadWriteOnce acce
 |------------------|-----------------|---------------|---------------|------------------------|
 | **[Azure Elastic SAN](../elastic-san/elastic-san-introduction.md)** (Preview)| Provision on demand, fully managed resource | General purpose databases, streaming and messaging services, CD/CI environments, and other tier 1/tier 2 workloads. | Azure Elastic SAN | Provisioned on demand per created volume and volume snapshot. Multiple clusters can access a single SAN concurrently, however persistent volumes can only be attached by one consumer at a time. |
 | **[Azure Disks](/azure/virtual-machines/managed-disks-overview)** | Granular control of storage SKUs and configurations​ | Azure Disks are a good fit for tier 1 and general purpose databases such as MySQL, MongoDB, and PostgreSQL. | Premium SSD, Premium SSD v2, Standard SSD, Ultra Disk | Provisioned per target container storage pool size and maximum volume size. |
-| **Ephemeral Disk** | Utilizes local storage resources on AKS nodes (NVMe or temp SSD) | Ephemeral disk is extremely latency sensitive (low sub-ms latency), so it's best for applications with no data durability requirement or with built-in data replication support such as Cassandra. | NVMe is available on [storage optimized VM SKUs](/azure/virtual-machines/sizes-storage) | Deployed as part of the VMs hosting an AKS cluster. AKS discovers the available ephemeral storage on AKS nodes and acquires them for volume deployment. |
+| **Ephemeral Disk** | Utilizes local storage resources on AKS nodes (NVMe or temp SSD) | Ephemeral disk is extremely latency sensitive (low sub-ms latency), so it's best for applications with no data durability requirement or with built-in data replication support such as Cassandra. | NVMe is available on some Azure VM SKUs, for example, [Storage optimized  VM SKUs](/azure/virtual-machines/sizes/overview#storage-optimized) or [GPU accelerated VM SKUs](/azure/virtual-machines/sizes/overview#gpu-accelerated) | Deployed as part of the VMs hosting an AKS cluster. AKS discovers the available ephemeral storage on AKS nodes and acquires them for volume deployment. |
 
 ### Feature support for different storage types
 
@@ -67,7 +67,7 @@ Feature support depends on which backing storage option you select. The followin
 
 Our latest updates enhance the resiliency and performance of stateful containers. We now offer multi-zone storage pools and volume replication for local NVMe storage pools, ensuring availability during single node failures. Snapshot support is available across all storage options for backup and disaster recovery. Additionally, the Ephemeral Disk portfolio now includes temp SSD support, providing cost-efficient solutions for use cases leveraging directly attached local storage: 
 
-- Enhance the resiliency of your persistent volumes hosted on local NVMe storage (L-series ephemeral disks) with replication support.
+- Enhance the resiliency of your persistent volumes hosted on local NVMe storage with replication support.
 - Improved persistent volume recovery after a restart of an Azure Kubernetes Service (AKS) cluster.
 - Customize the performance of your local NVMe storage with new performance tier options.
 
