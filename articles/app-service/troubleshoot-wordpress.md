@@ -37,7 +37,7 @@ Azure manages security patches for core technologies, while WordPress-specific u
 
 - **PHP Major Versions:** Update manually under **App Service > Settings > Configuration**.
 - **WordPress Core:** Minor updates are automatic, while major updates need manual configuration.
-- **Plugins and Themes:** Perform manual updates after backing up your site to avoid issues. WordPress offers auto-update options.
+- **Plugins and Themes:** Perform manual updates after backing up your site to avoid issues. WordPress also offers autoupdate options.
 
 ## What security features are available to protect my website?
 
@@ -50,7 +50,7 @@ Azure App Service integrates robust security features to safeguard WordPress sit
 - **Managed Identities:** Credential-free access to resources using Microsoft Entra tokens.
 - **Defender for Cloud:** Proactive threat detection with DevSecOps integration.
 - **Azure Key Vault:** Secure storage for keys, secrets, and certificates.
-- **Microsoft Entra ID:** Single Sign-On (SSO) for seamless authentication.
+- **Microsoft Entra ID:** Single sign-On (SSO) for seamless authentication.
 
 ## How can I set up WordPress Multisite?
 
@@ -61,7 +61,7 @@ WordPress Multisite allows managing multiple sites from a single installation. T
 
 **Important Notes:**
 - Conversion to Multisite is permanent; reverting to a single site is unsupported.
-- Switching between subdirectory and subdomain setups is not allowed.
+- Switching between subdirectory and subdomain setups isn't allowed.
 
 ## How do I access my WordPress website's database?
 
@@ -92,7 +92,7 @@ Access error logs for debugging via **App Service logs** or the **Kudu dashboard
 
 ## How do I estimate pricing for hosting a WordPress site on Azure?
 
-Use the [Azure Pricing Calculator](#) to estimate hosting costs, considering App Service, MySQL, CDN, Blob Storage, and additional components.
+Use the [Azure Pricing Calculator](#) to estimate hosting costs, considering App Service, MySQL, CDN, Blob Storage, and other components.
 
 ## How can I debug and monitor my WordPress site?
 
@@ -107,7 +107,7 @@ Refer to the [documentation](#) for details.
 
 ## What features can I use to boost my WordPress site's performance?
 
-Enhance performance with these features:
+Enhance performance with these features / plugins:
 
 - **Content Delivery Network (CDN)**
 - **Azure Front Door (AFD)**

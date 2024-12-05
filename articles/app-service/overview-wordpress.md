@@ -14,7 +14,7 @@ ms.custom: mvc, linux-related-content
 
 # What is WordPress on App Service?
 
-With **WordPress on Azure App Service**, you can focus on creating content while Azure takes care of the infrastructure, security, and performance needs. App Service provides a streamlined and scalable platform for hosting WordPress websites. By leveraging Azure's powerful infrastructure, including **Azure App Service**, **Azure Database for MySQL**, **Azure CDN**, and **Azure Blob Storage**, you can quickly deploy and manage a secure, high-performance WordPress site.
+With **WordPress on Azure App Service**, you can focus on creating content while Azure takes care of the infrastructure, security, and performance needs. App Service provides a streamlined and scalable platform for hosting WordPress websites. By using Azure's powerful infrastructure, including **Azure App Service**, **Azure Database for MySQL**, **Azure CDN**, and **Azure Blob Storage**, you can quickly deploy and manage a secure, high-performance WordPress site.
 
 This solution is designed to meet the needs of both small and large-scale deployments, whether you're running a personal blog, a corporate website, or an e-commerce platform. With features like automated updates, advanced security, and global availability, WordPress on Azure App Service simplifies infrastructure management, so you can focus on your content and audience.
 
@@ -55,10 +55,10 @@ Azure offers flexible hosting plans to accommodate different needs, from testing
 
 | **Plan** | **App Service** | **Database for MySQL** |
 |----------|----------------|---------------|---------------------------|
-| **Free**      | F1 (60 CPU mins/day, 1 GB RAM, 1 GB storage) | Burstable, B1ms (2 GB RAM, 32 GB storage)       | 
-| **Basic**     | B1 (1 core, 1.75 GB RAM, 10 GB storage)   | Burstable, B1ms (2 GB RAM, 32 GB storage)       | 
-| **Standard**  | P0V3 (1 core, 4 GB RAM, 250 GB storage)  | B2s (4 GB RAM, 128 GB storage)                  |
-| **Premium**   | P1V3 (2 cores, 8 GB RAM, 250 GB storage) | D2ds_v4 (8 GB RAM, 128 GB storage)              |
+| **Free**      | F1 (60 CPU mins/day, 1-GB RAM, 1-GB storage) | Burstable, B1ms (2-GB RAM, 32-GB storage)       | 
+| **Basic**     | B1 (1 core, 1.75-GB RAM, 10-GB storage)   | Burstable, B1ms (2-GB RAM, 32-GB storage)       | 
+| **Standard**  | P0V3 (1 core, 4-GB RAM, 250-GB storage)  | B2s (4-GB RAM, 128-GB storage)                  |
+| **Premium**   | P1V3 (2 cores, 8-GB RAM, 250-GB storage) | D2ds_v4 (8-GB RAM, 128-GB storage)              |
 
 > [!NOTE]
 > Use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs for your specific needs.
@@ -66,10 +66,10 @@ Azure offers flexible hosting plans to accommodate different needs, from testing
 
 ## Why Choose WordPress on Azure App Service?
 
-WordPress on Azure App Service combines ease of management, powerful performance features, and enterprise-grade security to provide a reliable platform for hosting WordPress websites. Whether you’re managing a small blog or a high-traffic business site, Azure App Service offers the tools and scalability to meet your needs.
+WordPress on Azure App Service combines ease of management, powerful performance features, and enterprise-grade security to provide a reliable platform for hosting WordPress websites. Whether you're managing a small blog or a high-traffic business site, Azure App Service offers the tools and scalability to meet your needs.
 
-- **Simplified Management**: Easily handle deployments, updates, backups, and configurations through the Azure Portal.
-- **Performance and Scalability**: Meet traffic demands with auto-scaling, CDN integration, and caching solutions.
+- **Simplified Management**: Easily handle deployments, updates, backups, and configurations through the Azure portal.
+- **Performance and Scalability**: Meet traffic demands with autoscaling, CDN integration, and caching solutions.
 - **Enterprise-Level Security**: Secure your site with SSL, VNET, Azure Key Vault, and Azure Defender.
 - **Seamless Integration**: Extend your site's capabilities with services like Azure Front Door, Azure Monitor, and Azure Backup.
 - **Global Availability**: Deploy your site in Azure's global regions for low latency and enhanced performance.
@@ -86,6 +86,6 @@ Explore more about WordPress on Azure App Service:
 
 To get started with WordPress on Azure App Service:
 
-- [Explore the Quickstart Documentation](https://learn.microsoft.com/azure/app-service/overview).
+- [Explore the Quickstart Documentation](quickstart-wordpress.md).
 - [Deploy Your WordPress Site](https://azure.microsoft.com/get-started/).
 
