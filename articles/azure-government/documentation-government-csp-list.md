@@ -27,7 +27,7 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[AC4S Consulting, Inc.](https://ac4s.com)|
 |[Accelera Solutions Inc](http://www.accelerasolutions.com/)|
 |[Accenture Federal Services LLC](https://www.accenture.com/us-en/industries/afs-index)|
-|[Access Interactive Inc.](https://www.access-interactive.com/)|
+|[Access Interactive Inc.](https:///www.accessinteractive.com/)|
 |[AccountabilIT](https://accountabilit.com)|
 |[ACP Technologies](https://acp.us.com)|
 |[ActioNet](https://www.actionet.com/)|
@@ -115,7 +115,7 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[CompuNet Inc.](https://compunet.biz/)|
 |[Computer Solutions Inc.](http://cs-inc.co/)|
 |[Communication Square LLC](https://www.communicationsquare.com)|
-|[ConvergeOne](https://www.convergeone.com)|
+|[ConvergeOne](https://www.onec1.com/)|
 |[Copper River Technologies, LLC](http://www.copperrivertech.com/)|
 |[Coretek Services](https://www.coretekservices.com/)|
 |[Cornerstone Technologies](https://www.cornerstonetechnologies.com/)|
@@ -362,7 +362,7 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[Redhorse Corporation](https://www.redhorsecorp.com)|
 |[Regan Technologies Corporation](http://www.regantech.com/)|
 |Remote Support Solutions Corp DBA RemoteWorks|
-|[Revenue Solutions, Inc](https://www.revenuesolutionsinc.com)|
+|[Revenue Solutions, Inc](https://www.rsidelivers.com/)|
 |[Ridge IT](https://www.ridgeit.com/)|
 |[RMON Networks Inc.](https://rmonnetworks.com/)|
 |[rmsource, Inc.](https://www.rmsource.com)|
