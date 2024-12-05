@@ -405,7 +405,7 @@
   items:
     - name: WordPress architecture
       displayName: WordPress on App Service architecture
-      href: /azure/architecture/example-scenario/infrastructure/wordpress-app-service.md
+      href: /azure/architecture/example-scenario/infrastructure/wordpress-app-service
     - name: WordPress overview
       href: overview-wordpress.md
     - name: Deploy WordPress
