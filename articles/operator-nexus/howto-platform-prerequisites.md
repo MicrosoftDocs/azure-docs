@@ -496,19 +496,19 @@ Interface:    net1, via: LLDP, RID: 1, Time: 0 day, 20:28:36
    - Proxy Server and Port: not set by operator during setup
    - Management: Virtual Interface
      - IP Address: 172.27.255.200
-     - Gateway: 172.27.255.1
+     - Gateway: not set by operator during setup
      - Subnet Mask: 255.255.255.0
      - MTU: 1500
      - Bond: not set by operator during setup
    - Management: Controller 0
      - IP Address: 172.27.255.254
-     - Gateway: 172.27.255.1
+     - Gateway: not set by operator during setup
      - Subnet Mask: 255.255.255.0
      - MTU: 1500
      - Bond: not set by operator during setup
    - Management: Controller 1
      - IP Address: 172.27.255.253
-     - Gateway: 172.27.255.1
+     - Gateway: not set by operator during setup
      - Subnet Mask: 255.255.255.0
      - MTU: 1500
      - Bond: not set by operator during setup
