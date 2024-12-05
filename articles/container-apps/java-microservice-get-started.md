@@ -352,7 +352,7 @@ Use the following steps to verify the app status:
            --query properties.ingress.fqdn
        ```
   
-    1. Open the URL in your browser, and you should see an application that resembles the following screenshot:
+    1. Open the URL in your browser. You should see an application that resembles the following screenshot:
   
        :::image type="content" source="media/java-microservice-get-started/azure-container-apps-pet-clinic-administration.png" alt-text="Screenshot of the pet clinic admin dashboard showing five services up, along with version information for four of the services." lightbox="media/java-microservice-get-started/azure-container-apps-pet-clinic-administration.png":::
 
