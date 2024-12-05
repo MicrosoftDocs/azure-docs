@@ -133,9 +133,9 @@ The resource providers for developer tools services are:
 | Resource provider namespace | Azure service |
 | --------------------------- | ------------- |
 | Microsoft.AppConfiguration | [Azure App Configuration](../../azure-app-configuration/index.yml) |
-| Microsoft.LoadTestService | [Azure Load Testing](/azure/load-testing/) |
 | Microsoft.DevCenter | [Microsoft Dev Box](../../dev-box/index.yml) |
 | Microsoft.DevSpaces | [Azure Dev Spaces](/previous-versions/azure/dev-spaces/) |
+| Microsoft.LoadTestService | [Azure Load Testing](/azure/load-testing/) |
 | Microsoft.MixedReality | [Azure Spatial Anchors](../../spatial-anchors/index.yml) |
 | Microsoft.Notebooks | [Azure Notebooks](https://notebooks.azure.com/help/introduction) |
 
