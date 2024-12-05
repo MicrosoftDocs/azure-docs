@@ -100,10 +100,6 @@ items:
       href: how-to-monitor-managed-grafana-workspace.md
   - name: Migrate to Azure Managed Grafana
     href: how-to-migrate.md
-  - name: Transition to grafana.azure.com domain
-    href: how-to-transition-domain.md
-  - name: Upgrade to Grafana 10
-    href: how-to-upgrade-grafana-10.md
   - name: Troubleshoot common issues
     href: troubleshoot-managed-grafana.md
   - name: Known limitations
