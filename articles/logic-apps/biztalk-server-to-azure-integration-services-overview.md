@@ -824,7 +824,7 @@ You can install and run BizTalk Server on your own hardware, on-premises virtual
 For scenarios that require additional Azure integration services, see the following documentation:
 
 - [Azure Service Bus Premium and Standard messaging tiers](../service-bus-messaging/service-bus-premium-messaging.md)
-Azure APIM: [Feature-based comparison of the Azure API Management tiers](../api-management/api-management-features.md).
+- [Azure API Management - Feature-based tier comparison](../api-management/api-management-features.md)
 - [Azure Data Factory - Plan to manage costs](../data-factory/plan-manage-costs.md) and [Understanding Data Factory pricing through examples](../data-factory/pricing-concepts.md)
 
 ### Deployment
