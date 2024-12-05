@@ -2,12 +2,12 @@
     "redirections": [
         {
             "source_path_from_root": "/articles/logic-apps/biztalk-server-azure-integration-services-migration-approaches.md",
-            "redirect_url": "/azure/logic-apps/biztalk-server-azure-logic-apps-migration-approaches",
+            "redirect_url": "/azure/logic-apps/biztalk-server-migration-approaches",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/logic-apps/biztalk-server-to-azure-integration-services-overview.md",
-            "redirect_url": "/azure/logic-apps/biztalk-server-azure-logic-apps-migration-overview",
+            "redirect_url": "/azure/logic-apps/biztalk-server-migration-overview",
             "redirect_document_id": false
         },
         {
