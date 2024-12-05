@@ -37,11 +37,11 @@ All assets are labeled with one of the following states:
 | **Candidate** | An asset that has some relationship to your organization's known seed assets, but which doesn't have a strong enough connection to immediately label it **Approved Inventory**. You must manually review these candidate assets to determine ownership. |
 | **Requires Investigation** | A state similar to the **Candidate** state, but this value is applied to assets that require manual investigation to validate. The state is determined based on our internally generated confidence scores that assess the strength of detected connections between assets. It doesn't indicate the infrastructure's exact relationship to the organization, but it flags the asset for more review to determine how it should be categorized. |
 
-## Handle different asset states
+## Handling different asset states
 
 These asset states are uniquely processed and monitored to ensure that you have clear visibility into your most critical assets by default. For example, assets in the **Approved Inventory** state are always represented in dashboard charts, and they're scanned daily to ensure data recency. All other types of assets aren't included in dashboard charts by default. But you can adjust your inventory filters to view assets in different states as needed. Similarly, **Candidate** state assets are scanned only during the discovery process. If these types of assets are owned by your organization, it’s important to review these assets and change their state to **Approved Inventory**.
 
-## Track inventory changes
+## Tracking inventory changes
 
 Your attack surface constantly changes. Defender EASM continuously analyzes and updates your inventory to ensure accuracy. Assets are frequently added and removed from inventory, so it's important to track these changes to understand your attack surface and identify key trends. The inventory changes dashboard provides an overview of these changes. You can easily view "added" and "removed" counts for each asset type. You can filter the dashboard by two date ranges: either the last 7 days or the last 30 days. For a more granular view of inventory changes, see the **Changes by date** section of the dashboard.
 
@@ -50,5 +50,5 @@ Your attack surface constantly changes. Defender EASM continuously analyzes and 
 ## Related content
 
 - [Modify inventory assets](labeling-inventory-assets.md)
-- [Understand asset details](understanding-asset-details.md)
+- [Asset details](understanding-asset-details.md)
 - [Use and manage discovery](using-and-managing-discovery.md)

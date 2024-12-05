@@ -1,5 +1,5 @@
 ---
-title: What Is Discovery in Defender EASM?
+title: Defender EASM discovery
 description: Learn how Microsoft Defender External Attack Surface Management (Defender EASM) uses proprietary discovery technology to continuously define your organization’s unique internet-exposed attack surface. 
 author: danielledennis
 ms.author: dandennis
@@ -8,7 +8,7 @@ ms.date: 07/14/2022
 ms.topic: conceptual
 ---
 
-# What is discovery in Defender EASM?
+# Defender EASM discovery
 
 Microsoft Defender External Attack Surface Management (Defender EASM) uses Microsoft proprietary discovery technology to continuously define your organization’s unique internet-exposed attack surface. The Defender EASM discovery feature scans known assets that are owned by your organization to uncover previously unknown and unmonitored properties. Discovered assets are indexed in your organization's inventory. Defender EASM gives you a dynamic system of record for web applications, third-party dependencies, and web infrastructure under your organization’s management in a single view.
 
@@ -80,4 +80,4 @@ When you review assets, we recommend that you start with assets labeled **Requir
 
 - [Deploy the Defender EASM Azure resource](deploying-the-defender-easm-azure-resource.md)
 - [Use and manage discovery](using-and-managing-discovery.md)
-- [Understand asset details](understanding-asset-details.md)
+- [Asset details](understanding-asset-details.md)
