@@ -22,7 +22,6 @@ To contact support about the Datadog, select **New Support request** in the left
 
 - [Fix common errors](troubleshoot.md).
 - [Manage your Datadog resource](manage.md).
-- 
 - Get started with Datadog on
 
     > [!div class="nextstepaction"]

@@ -37,8 +37,8 @@ Use the following steps to set up the enterprise application:
 
 ## Next steps
 
-- To create an instance of Datadog, see [QuickStart: Get started with Datadog - An Azure Native ISV Service](create.md).
-- Get started with Datadog – An Azure Native ISV Service on
+- To create an instance of Datadog, see [QuickStart: Get started with Datadog](create.md).
+- Get started with Datadog on
 
    > [!div class="nextstepaction"]
    > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Datadog%2Fmonitors)
