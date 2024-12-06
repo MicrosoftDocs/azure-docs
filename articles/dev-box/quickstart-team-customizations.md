@@ -58,7 +58,7 @@ The sections that follow walk you through these tasks:
 
 ### Fork the example catalog repository
 
-1. Open the [example catalog repository](https://aka.ms/devcenter/preview/imaging/examples).
+1. Open the [example catalog repository](https://aka.ms/devcenter/preview/imaging/examples/repo).
 1. Select **Fork** to fork the repository to your GitHub organization.
 
 ### Install the Microsoft Dev Center app

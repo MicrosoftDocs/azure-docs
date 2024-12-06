@@ -6,7 +6,7 @@ ms.reviewer: shreyabaheti
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 09/17/2024
+ms.date: 12/02/2024
 ms.author: banders
 ms.custom: references_regions
 #customer intent: I want to learn how to save money with reservations and buy one.
@@ -14,7 +14,7 @@ ms.custom: references_regions
 
 # Save on select Linux VMs for a limited time
 
-Save up to 15 percent in addition to the existing one-year [Azure Reserved Virtual Machine (VM) Instances](/azure/virtual-machines/prepay-reserved-vm-instances?toc=%2Fazure%2Fcost-management-billing%2Freservations%2Ftoc.json&source=azlto3) discount for select Linux VMs for a limited period. Customers could potentially see total savings of to up to 56% compared to running an Azure VM on a pay-as-you-go basis. This offer is available between October 1, 2024, and March 31, 2025.
+Save up to 15 percent in addition to the existing one-year [Azure Reserved Virtual Machine (VM) Instances](/azure/virtual-machines/prepay-reserved-vm-instances?toc=%2Fazure%2Fcost-management-billing%2Freservations%2Ftoc.json&source=azlto3) discount for select Linux VMs for a limited period. Customers could potentially see total savings of to up to 56% compared to running an Azure VM on a pay-as-you-go basis. This offer is available between October 1, 2024, and March 31, 2025. The pricing pages and the [Azure Pricing calculator](https://azure.microsoft.com/pricing/calculator) reflect the adjusted price, inclusive of the promotional discounts.
 
 ## Purchase the offer
 

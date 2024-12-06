@@ -1,7 +1,7 @@
 ---
 title: Create Bicep files - Visual Studio Code
 description: Use Visual Studio Code and the Bicep extension to Bicep files for deploy Azure resources.
-ms.date: 09/20/2024
+ms.date: 12/04/2024
 ms.topic: quickstart
 ms.custom: mode-ui, devx-track-bicep
 #Customer intent: As a developer new to Azure deployment, I want to learn how to use Visual Studio Code to create and edit Bicep files so that I can use them to deploy Azure resources.
@@ -170,7 +170,7 @@ resource exampleStorage 'Microsoft.Storage/storageAccounts@2023-05-01' = {
 
 You're almost done. Just provide values for those properties.
 
-Again, IntelliSense helps you. Set `name` to `storageAccountName`, which is the parameter that contains a name for the storage account. For `location`, set it to `location`, which is a parameter you created earlier. When adding `sku.name` and `kind`, IntelliSense presents the valid options.
+Again, IntelliSense helps you. Set `name` to `storageAccountName`, which is the parameter that contains a name for the storage account. For `location`, set it to `location`, which is a parameter that you created earlier. When adding `sku.name` and `kind`, IntelliSense presents the valid options.
 
 To add optional properties alongside the required properties, place the cursor at the desired location and press <kbd>Ctrl</kbd>+<kbd>Space</kbd>. IntelliSense suggests unused properties as shown in the following screenshot:
 
@@ -184,7 +184,7 @@ When finished, you have:
 param storageAccountName string = 'store${uniqueString(resourceGroup().id)}'
 param location string = resourceGroup().location
 
-resource virtualNetwork 'Microsoft.Network/virtualNetworks@2024-01-01' = {
+resource virtualNetwork 'Microsoft.Network/virtualNetworks@2024-03-01' = {
   name: 'exampleVNet'
   location: resourceGroup().location
   properties: {
@@ -228,25 +228,37 @@ You can view a representation of the resources in your file.
 
 From the upper right corner, select the visualizer button to open the Bicep Visualizer.
 
-:::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/bicep-visualizer.png" alt-text="Screenshot of Bicep Visualizer.":::
+:::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/vscode-bicep-visualizer-icon.png" alt-text="Screenshot of the Bicep Visualizer tool.":::
 
 The visualizer shows the resources defined in the Bicep file with the resource dependency information. The two resources defined in this quickstart don't have dependency relationship, so you don't see a connector between the two resources.
 
-:::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/bicep-visualizer-visual.png" alt-text="Screenshot of Bicep Visualizer diagram.":::
+:::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/vscode-bicep-visualizer-diagram.png" alt-text="Screenshot of Bicep Visualizer diagram.":::
 
 ## Deploy the Bicep file
 
 1. Right-click the Bicep file inside the VS Code, and then select **Deploy Bicep file**.
 
-    :::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/vscode-bicep-deploy.png" alt-text="Screenshot of Deploy Bicep file.":::
+    :::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/vscode-bicep-deploy.png" alt-text="Screenshot of the Deploy Bicep File option.":::
 
 1. In the **Please enter name for deployment** text box, type **deployStorageAndVNet**, and then press **[ENTER]**.
+
+    :::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/vscode-bicep-deploy-name.png" alt-text="Screenshot of entering the deployment name.":::
+
 1. From the **Select Resource Group** listbox on the top, select **Create new Resource Group**.
+
+    :::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/vscode-bicep-deploy-resource-group.png" alt-text="Screenshot of the Create new Resource Group option.":::
+
 1. Enter **exampleRG** as the resource group name, and then press **[ENTER]**.
+
+    :::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/vscode-bicep-deploy-resource-group-name.png" alt-text="Screenshot of an example resource group, exampleRG.":::
+
 1. Select a location for the resource group, select **Central US** or a location of your choice, and then press **[ENTER]**.
+
+    :::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/vscode-bicep-deploy-resource-group-locations.png" alt-text="Screenshot of resource group location options.":::
+
 1. From **Select a parameter file**, select **None**.
 
-    :::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/vscode-bicep-select-parameter-file.png" alt-text="Screenshot of Select parameter file.":::
+    :::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/vscode-bicep-deploy-select-parameter-file.png" alt-text="Screenshot of Select parameter file.":::
 
 It takes a few moments to create the resources. For more information, see [Deploy Bicep files with Visual Studio Code](./deploy-vscode.md).
 
@@ -293,4 +305,4 @@ Remove-AzResourceGroup -Name exampleRG
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn modules for Bicep](learn-bicep.md)
+> Explore [Learn modules for Bicep](learn-bicep.md).

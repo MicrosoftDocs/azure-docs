@@ -12,7 +12,7 @@ ms.custom: devx-track-azurecli
 
 # Synchronize APIs from an API Management instance
 
-This article shows how to create a link (preview) to an API Management instance so that the instances's APIs are continuously kept up to date in your [API center](overview.md) inventory. 
+This article shows how to create a link to an API Management instance so that the instances's APIs are continuously kept up to date in your [API center](overview.md) inventory. 
 
 ## About linking an API Management instance
 
