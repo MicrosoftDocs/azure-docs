@@ -5,7 +5,7 @@ author: dlepow
 ms.topic: how-to
 ms.service: azure-api-management
 ms.author: danlep
-ms.date: 11/12/2024
+ms.date: 12/05/2024
 ms.custom:
 ---
 
@@ -19,7 +19,7 @@ Set up a [workspace](workspaces-overview.md) to enable an API team to manage and
 
 Follow the steps in this article to:
 
-* Create an API Management workspace and a workspace gateway using the Azure portal
+* Create an API Management workspace and associate a workspace gateway using the Azure portal
 * Optionally, isolate the workspace gateway in an Azure virtual network
 * Assign permissions to the workspace
 
@@ -43,7 +43,7 @@ Follow the steps in this article to:
 
 1. On the **Gateway** tab, configure settings for the workspace gateway:
 
-    * In **Gateway details**, enter a gateway name and select the number of scale **Units**. The gateway costs are based on the number of units you select. For more information, see [API Management pricing](https://aka.ms/apimpricing).
+    * In **Gateway details**, select an existing gateway, or enter a new gateway name and select the number of scale **Units**. The gateway costs are based on the number of units. For more information, see [API Management pricing](https://aka.ms/apimpricing).
 
     * In **Network**, select a **Network configuration** for your workspace gateway. 
 
@@ -54,7 +54,7 @@ Follow the steps in this article to:
 
 1. Select **Next**. After validation completes, select **Create**.
 
-It can take from several minutes to up to several hours to create the workspace, workspace gateway, and related resources. To track the deployment progress in the Azure portal, go to the gateway's resource group. In the left menu, under **Settings**, select **Deployments**.
+It can take from several minutes to up to several hours to create the workspace, a new workspace gateway (if selected), and related resources. To track the deployment progress in the Azure portal, go to the gateway's resource group. In the left menu, under **Settings**, select **Deployments**.
 
 After the deployment completes, the new workspace appears in the list on the **Workspaces** page. Select the workspace to manage its settings and resources.
 
