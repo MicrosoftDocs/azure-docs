@@ -2,8 +2,8 @@
 title: Security
 titleSuffix: Azure Private 5G Core
 description: An overview of security features provided by Azure Private 5G Core.
-author: robswain
-ms.author: robswain
+author: anzaman
+ms.author: alzam
 ms.service: azure-private-5g-core
 ms.topic: conceptual
 ms.date: 01/25/2022

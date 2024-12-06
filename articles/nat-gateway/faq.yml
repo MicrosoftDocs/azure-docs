@@ -133,7 +133,7 @@ sections:
       
       - question: Can public IP addresses with DDoS protection enabled be used with a NAT gateway? 
         answer: |
-          No, a NAT gateway doesn't support public IP addresses with DDoS protection enabled. For more information, see [DDoS limitations](../ddos-protection/ddos-protection-sku-comparison.md#limitations). 
+          No, a NAT gateway doesn't support public IP addresses with DDoS protection enabled. DDoS protected IPs are generally more critical for inbound traffic, since most DDoS attacks are designed to overwhelm the target's resources by flooding them with a large volume of incoming traffic. For more information on DDoS protected IPs, see [DDoS limitations](../ddos-protection/ddos-protection-sku-comparison.md#limitations).
       
       - question: Can public IPs of an existing NAT gateway be changed? 
         answer: |
@@ -216,7 +216,7 @@ sections:
 
       - question: When is NAT gateway used to connect from my AKS cluster to the AKS API server?
         answer: |
-          To manage an AKS cluster, you interact with its API server. When you create a non-private cluster that resolves to the API server's fully qualified domain name (FQDN), the API server is assigned a public IP address by default. After you attach a NAT Gateway to the subnets of your AKS cluster, NAT Gateway will be used to connect to the public IP of the AKS API server. Refer to [Access an AKS API Server](/azure/architecture/guide/security/access-azure-kubernetes-service-cluster-api-server) for additional information and design guidance.
+          To manage an AKS cluster, the cluster interacts with its API server. In non-private clusters, API server cluster traffic is routed and processed through the cluster's [outbound type](/azure/aks/egress-outboundtype#outbound-types-in-aks). When the cluster outbound type is set to NAT Gateway, the API server traffic is processed as public traffic through the NAT gateway. To prevent API server traffic from being processed as public traffic, consider using a [private cluster](/azure/aks/private-clusters) or use the [API Server VNet Integration](/azure/aks/api-server-vnet-integration) feature (in preview).
       
       - question: Can I use a NAT gateway with Azure Firewall?
         answer: |

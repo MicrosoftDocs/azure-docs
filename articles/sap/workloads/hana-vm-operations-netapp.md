@@ -227,8 +227,7 @@ az netappfiles snapshot create -g mygroup --account-name myaccname --pool-name m
 BACKUP DATA FOR FULL SYSTEM CLOSE SNAPSHOT BACKUP_ID 47110815 SUCCESSFUL SNAPSHOT-2020-08-18:11:00';
 ```
 
-This snapshot backup procedure can be managed in various ways, using various tools. One example is the Python script “ntaphana_azure.py” available on GitHub [https://github.com/netapp/ntaphana](https://github.com/netapp/ntaphana)
-This is sample code, provided “as-is” without any maintenance or support.
+This snapshot backup procedure can be managed in various ways, using various tools. 
 
 
 

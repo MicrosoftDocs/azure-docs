@@ -34,6 +34,8 @@
       href: /azure/postgresql/single-server/concept-reserved-pricing?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Azure OpenAI
       href: azure-openai.md
+    - name: Azure OpenAI - Transition deployments
+      href: transition-azure-openai-provisioned-deployments.md
     - name: Azure SQL Edge
       href: discount-sql-edge.md
     - name: Database for MySQL
@@ -113,7 +115,7 @@
     - name: Azure NetApp Files
       href: /azure/azure-netapp-files/reservations?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Azure OpenAI
-      href: azure-openai.md#buy-a-microsoft-azure-openai-reservation
+      href: azure-openai.md#buy-a-microsoft-azure-openai-service-reservation
     - name: Azure VMware Solution
       href: /azure/azure-vmware/reserved-instance?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Azure Cosmos DB

@@ -3,7 +3,7 @@ title: Update IoT Edge version on devices
 description: How to update IoT Edge devices to run the latest versions of the security subsystem and the IoT Edge runtime
 author: PatAltimore
 ms.author: patricka
-ms.date: 06/10/2024
+ms.date: 12/04/2024
 ms.topic: how-to
 ms.service: azure-iot-edge
 services: iot-edge
@@ -87,12 +87,11 @@ apt list -a aziot-edge
 Update IoT Edge:
 
 ```bash
-sudo apt-get install aziot-edge defender-iot-micro-agent-edge
+sudo apt-get install aziot-edge
 ```
 
 Running `apt-get install aziot-edge` upgrades the security subsystem and installs the [identity service](https://azure.github.io/iot-identity-service/), `aziot-identity-service`, as a required dependency.
 
-It's recommended to install the micro agent with the Edge agent to enable security monitoring and hardening of your Edge devices. To learn more about Microsoft Defender for IoT, see [What is Microsoft Defender for IoT for device builders](../defender-for-iot/device-builders/overview.md).
 
 <!--Repeated Linux content for RHEL-->
 # [Red Hat Enterprise Linux](#tab/rhel)

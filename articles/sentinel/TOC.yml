@@ -304,7 +304,7 @@
       href: data-connectors/azure-cognitive-search.md
     - name: Azure DDoS Protection
       href: data-connectors/azure-ddos-protection.md
-    - name: Azure Event Hub
+    - name: Azure Event Hubs
       href: data-connectors/azure-event-hub.md
     - name: Azure Firewall
       href: data-connectors/azure-firewall.md
@@ -354,6 +354,8 @@
       href: data-connectors/cohesity.md
     - name: Common Event Format (CEF) via AMA
       href: data-connectors/common-event-format-cef-via-ama.md
+    - name: CommvaultSecurityIQ (using Azure Functions)
+      href: data-connectors/commvaultsecurityiq.md
     - name: Corelight Connector Exporter
       href: data-connectors/corelight-connector-exporter.md
     - name: Cortex XDR - Incidents
@@ -480,6 +482,8 @@
       href: data-connectors/microsoft-365-defender.md
     - name: Microsoft 365 Insider Risk Management
       href: data-connectors/microsoft-365-insider-risk-management.md
+    - name: Microsoft Active-Directory Domain Controllers Security Event Logs
+      href: data-connectors/microsoft-active-directory-domain-controllers-security-event-logs.md
     - name: Microsoft Defender for Cloud Apps
       href: data-connectors/microsoft-defender-for-cloud-apps.md
     - name: Microsoft Defender for Endpoint
@@ -498,8 +502,14 @@
       href: data-connectors/microsoft-entra-id.md
     - name: Microsoft Entra ID Protection
       href: data-connectors/microsoft-entra-id-protection.md
+    - name: Microsoft Exchange Admin Audit Logs by Event Logs
+      href: data-connectors/microsoft-exchange-admin-audit-logs-by-event-logs.md
+    - name: Microsoft Exchange HTTP Proxy Logs
+      href: data-connectors/microsoft-exchange-http-proxy-logs.md
     - name: Microsoft Exchange Logs and Events
       href: data-connectors/microsoft-exchange-logs-and-events.md
+    - name: Microsoft Exchange Message Tracking Logs
+      href: data-connectors/microsoft-exchange-message-tracking-logs.md
     - name: Microsoft Power BI
       href: data-connectors/microsoft-powerbi.md
     - name: Microsoft Project
@@ -628,6 +638,8 @@
       href: data-connectors/transmit-security-connector.md
     - name: Trend Vision One (using Azure Functions)
       href: data-connectors/trend-vision-one.md
+    - name: Varonis SaaS
+      href: data-connectors/varonis-saas.md
     - name: Vectra XDR (using Azure Functions)
       href: data-connectors/vectra-xdr.md
     - name: VMware Carbon Black Cloud (using Azure Functions)
@@ -694,12 +706,12 @@
       href: connect-dns-ama.md
     - name: Logstash plugin with Data Collection Rules
       href: connect-logstash-data-connection-rules.md
-    - name: Microsoft Sentinel Data Collector API
-      href: connect-rest-api-template.md      
   - name: Connection instructions for service
     items:
     - name: Amazon Web Services logs
       href: connect-aws.md
+    - name: AWS S3 WAF logs
+      href: connect-aws-s3-waf.md
     - name: CloudWatch events via Lambda function
       href: cloudwatch-lambda-function.yml
     - name: Google Cloud Platform connectors 
@@ -1056,8 +1068,8 @@
       href: enroll-simplified-pricing-tier.md
     - name: Optimize costs with pre-purchase plan
       href: billing-pre-purchase-plan.md
-    - name: Tutorial - Configure data retention policy
-      href: configure-data-retention.md
+    - name: Manage data retention
+      href: /azure/azure-monitor/logs/data-retention-configure?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
     - name: Auxiliary logs use cases
       href: basic-logs-use-cases.md
   - name: Connect Microsoft Sentinel to Microsoft Defender XDR
@@ -1150,6 +1162,8 @@
         href: normalization-known-issues.md
       - name: ASIM schemas
         items:
+        - name: ASIM alert event schema
+          href: normalization-schema-alert.md
         - name: ASIM audit event schema
           href: normalization-schema-audit.md
         - name: ASIM authentication schema
