@@ -5,7 +5,7 @@ author: johndowns
 ms.author: jodowns
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 06/20/2024
+ms.date: 12/06/2024
 ---
 # Manage secrets by using Bicep
 
@@ -190,7 +190,7 @@ param securePassword = az.getSecret('<subscriptionId>', '<resourceGroupName>', '
 
 When you deploy your Azure resources by using a pipeline, you need to take care to handle your secrets appropriately.
 
-- Avoid storing secrets in your code repository. For example, don't add secrets to parameter files, or to your pipeline definition YAML files.
+- Avoid storing secrets in your code repository. For example, don't add secrets to parameters files or to your pipeline definition YAML files.
 - In GitHub Actions, use [encrypted secrets](https://docs.github.com/actions/security-guides/encrypted-secrets) to store secure data. Use [secret scanning](https://docs.github.com/code-security/secret-scanning/about-secret-scanning) to detect any accidental commits of secrets.
 - In Azure Pipelines, use [secret variables](/azure/devops/pipelines/process/variables#secret-variables) to store secure data.
 

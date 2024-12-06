@@ -1,7 +1,7 @@
 ---
 title: Create Bicep files - Visual Studio Code
 description: Use Visual Studio Code and the Bicep extension to Bicep files for deploy Azure resources.
-ms.date: 12/04/2024
+ms.date: 12/06/2024
 ms.topic: quickstart
 ms.custom: mode-ui, devx-track-bicep
 #Customer intent: As a developer new to Azure deployment, I want to learn how to use Visual Studio Code to create and edit Bicep files so that I can use them to deploy Azure resources.
@@ -256,9 +256,9 @@ The visualizer shows the resources defined in the Bicep file with the resource d
 
     :::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/vscode-bicep-deploy-resource-group-locations.png" alt-text="Screenshot of resource group location options.":::
 
-1. From **Select a parameter file**, select **None**.
+1. From **Select a parameters file**, select **None**.
 
-    :::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/vscode-bicep-deploy-select-parameter-file.png" alt-text="Screenshot of Select parameter file.":::
+    :::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/vscode-bicep-deploy-select-parameter-file.png" alt-text="Screenshot of Select parameters file.":::
 
 It takes a few moments to create the resources. For more information, see [Deploy Bicep files with Visual Studio Code](./deploy-vscode.md).
 
