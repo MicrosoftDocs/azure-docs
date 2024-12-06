@@ -231,3 +231,4 @@ networkFabricInfoSkuId": "M8-A400-A100-C16-ab",
 ## Converting cabling validation report to html format
 
 Sample python script to convert cabling validation report JSON output to html: [cable-html.py](media/cable-html.py)
+Requires Modules: json pandas as pd
