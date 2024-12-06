@@ -2,17 +2,17 @@
     "redirections": [
         {
             "source_path_from_root": "/articles/sentinel/business-applications/power-platform-solution-troubleshoot.md",
-            "redirect_url": "/azure/sentinel/sap/business-applications/solution-overview",
+            "redirect_url": "/azure/sentinel/business-applications/solution-overview",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/business-applications/power-platform-solution-overview.md",
-            "redirect_url": "/azure/sentinel/sap/business-applications/solution-overview",
+            "redirect_url": "/azure/sentinel/business-applications/solution-overview",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/dynamics-365/dynamics-365-finance-operations-solution-overview.md",
-            "redirect_url": "/azure/sentinel/sap/business-applications/solution-overview",
+            "redirect_url": "/azure/sentinel/business-applications/solution-overview",
             "redirect_document_id": false
         },
         {
