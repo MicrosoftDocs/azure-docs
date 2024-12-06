@@ -3,7 +3,7 @@ title: Bicep CLI commands and overview
 description: Describes the commands that you can use in the Bicep CLI. These commands include building Azure Resource Manager templates from Bicep.
 ms.topic: reference
 ms.custom: devx-track-azurecli, devx-track-bicep, devx-track-arm-template
-ms.date: 10/30/2024
+ms.date: 12/06/2024
 ---
 
 # Bicep CLI commands
@@ -116,13 +116,13 @@ The `generate-params` command builds a parameters file from the given Bicep file
 az bicep generate-params --file main.bicep --output-format bicepparam --include-params all
 ```
 
-The command creates a Bicep parameters file named _main.bicepparam_. The parameter file contains all parameters in the Bicep file, whether configured with default values or not.
+The command creates a Bicep parameters file named _main.bicepparam_. The parameters file contains all parameters in the Bicep file, whether configured with default values or not.
 
 ```azurecli
 az bicep generate-params --file main.bicep --outfile main.parameters.json
 ```
 
-The command creates a parameter file named _main.parameters.json_. The parameter file only contains the parameters without default values configured in the Bicep file.
+The command creates a parameters file named _main.parameters.json_. The parameters file only contains the parameters without default values configured in the Bicep file.
 
 ## install
 

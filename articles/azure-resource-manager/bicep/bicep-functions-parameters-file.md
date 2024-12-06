@@ -1,9 +1,9 @@
 ---
 title: Bicep functions - parameters file
-description: This article describes the Bicep functions to be used in Bicep parameter files.
+description: This article describes the Bicep functions to be used in Bicep parameters files.
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 08/09/2024
+ms.date: 12/06/2024
 ---
 
 # Parameters file function for Bicep

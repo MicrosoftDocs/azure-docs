@@ -3,7 +3,7 @@ title: Bicep functions
 description: Describes the functions to use in a Bicep file to retrieve values, work with strings and numerics, and retrieve deployment information.
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 05/21/2024
+ms.date: 12/06/2024
 ---
 
 # Bicep functions
@@ -128,7 +128,7 @@ The following functions are available for working with objects. All of these fun
 
 ## Parameters file functions
 
-The following functions are available to be used in Bicep parameter files. All of these functions are in the `sys` namespace.
+The following functions are available to be used in Bicep parameters files. All of these functions are in the `sys` namespace.
 
 * [getSecret](./bicep-functions-parameters-file.md)
 * [readEnvironmentVariable](./bicep-functions-parameters-file.md)
