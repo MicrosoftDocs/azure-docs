@@ -11,7 +11,7 @@ ms.date: 04/15/2024
 ---
 # Validate Cables for Nexus Network Fabric
 
-This article explains the  Fabric cable validation, where the primary function of the diagnostic API is to check all fabric devices for potential cabling issues. The Diagnostic API assesses whether the interconnected devices adhere to the Bill of Materials (BOM), classifying them as compliant or noncompliant. The results are presented in a JSON format, encompassing details such as validation status, errors, identifier type, and neighbor device ID. These results are stored in a customer-provided Storage account. It's vital to the overall deployment that errors identified in this report are resolved before moving onto the Cluster deployment step.
+This article explains the  Fabric cable validation, where the primary function of the diagnostic API is to check all fabric devices for potential cabling issues. The Diagnostic API assesses whether the interconnected devices adhere to the Bill of Materials (BOM) and according to the resource Stock Keeping Unit (SKU), classifying them as compliant or noncompliant. DEvice types include Customer Edge (CE), Top of Rack (TOR), Management (MGMT) and Network Packet Broker (NPB) devices. The results are presented in a JSON format, encompassing details such as validation status, errors, identifier type, and neighbor device ID. These results are stored in a customer-provided Storage account. It's vital to the overall deployment that errors identified in this report are resolved before moving onto the Cluster deployment step.
 
 For BOM details, refer to [Azure Operator Nexus SKUs](./reference-operator-nexus-skus.md)
 
@@ -29,12 +29,12 @@ For BOM details, refer to [Azure Operator Nexus SKUs](./reference-operator-nexus
 
 ## Generate the storage URL
 
-Refer to [Create a container](../storage/blobs/blob-containers-portal.md#create-a-container) to create a container.  
+To create a container in the storage account, refer to [Create a container](../storage/blobs/blob-containers-portal.md#create-a-container)
 
 > [!NOTE]
 > Enter the name of the container using only lowercase letters.
 
-Refer to [Generate a shared access signature](../storage/blobs/blob-containers-portal.md#generate-a-shared-access-signature) to create the SAS URL of the container. Provide Write permission for SAS.
+To generate a SAS URL for the container to provide write access to the Nexus fabric, refer to [Generate a shared access signature](../storage/blobs/blob-containers-portal.md#generate-a-shared-access-signature)
 
 > [!NOTE]
 > SAS URLs are short lived. By default, it is set to expire in eight hours. If the SAS URL expires, then you must open a Microsoft support ticket to add a new URL.
@@ -53,7 +53,7 @@ Refer to [Generate a shared access signature](../storage/blobs/blob-containers-p
     cli.azure.cli.core.sdk.policies:     'Azure-AsyncOperation': '<Azure-AsyncOperation-endpoint url>'
     ```
 
-    If the following error is returned, this typically indicates the Fabric has not been patched with a valid SAS URL:
+    If the following error is returned, this indicates the Fabric isn't patched with a valid SAS URL:
     ```azurecli
     azure.core.exceptions.HttpResponseError: Operation returned an invalid status 'OK'
     ```
@@ -195,27 +195,27 @@ networkFabricInfoSkuId": "M8-A400-A100-C16-ab",
 |---------|---------|
 |Compliant     | When the status is compliant with the BOM specification         |
 |NonCompliant     | When the status isn't compliant with the BOM specification         |
-|Unknown     | When the tool is unable to retrieve interface connection details or lldp data. This can occur when destintation device is powered off, missing or disconnected cables or if validation is not supported for this interface type.         |
+|Unknown     | When the tool is unable to retrieve interface connection details or lldp data such as when the destintation device is powered off, missing, disconnected, or if validation isn't supported for this interface type. |
 
 #### Validation attributes
 
 |Attribute  |Definition  |
 |---------|---------|
-|`deviceConfiguration`      | Configuration that's available on the device.           |
-|`error`      |  Error from the device        |
+|`deviceConfiguration`      | Configuration that's available on the device. |
+|`error`      |  Error from the device. |
 |`reason`      |  This field is populated when the status of the device is unknown.        |
-|`validationType`      | This parameter indicates what type of validation. (cable & cable specification validations)         |
-|`deviceDestinationResourceId`      |  Azure Resource Manager ID of the connected Neighbor (destination device)        |
-|`roleName`      |  The role of the Network Fabric Device (CE or TOR)        |
+|`validationType`      | This parameter indicates what type of validation. (cable & cable specification validations). |
+|`deviceDestinationResourceId`      |  Azure Resource Manager ID of the connected Neighbor (destination device). |
+|`roleName`      |  The role of the Network Fabric Device (CE or TOR). |
 
 ## Known issues and limitations in cable validation
 
-- Cable Validation of connections between TORs and Compute Servers that are powered off or unprovisioned in the Nexus cluster are not supported. These interfaces will show `Unknown` status in the report.
-- Cable Validation of connections between MGMT interfaces and Compute Servers that are powered off or unprovisioned in the Nexus cluster or the Compute Server Controllers are not supported. These interfaces will show `Unknown` status in the report.
-- Cable Validation for NPB isn't supported for `loopback` and `nni-direct` interfaces because there is no vendor support currently for `show lldp neighbors`. These interfaces will show `Unknown` status in the report.
+- Cable Validation of connections between TORs and Compute Servers that are powered off or unprovisioned in the Nexus cluster aren't supported. These interfaces show `Unknown` status in the report.
+- Cable Validation of connections between MGMT interfaces and Compute Servers that are powered off or unprovisioned in the Nexus cluster or the Compute Server Controllers aren't supported. These interfaces show `Unknown` status in the report.
+- Cable Validation for NPB isn't supported for `loopback` and `nni-direct` interfaces because there's no vendor support currently for `show lldp neighbors`. These interfaces show `Unknown` status in the report.
 - The Storage URL must be in a different region from the Network Fabric. For instance, if the Fabric is hosted in East US, the storage URL should be outside of East US.
 - Cable validation supports both four rack wih 16 Computes per rack and eight rack wih 16 Computes per rack BOMs.
-- When destintation device is powered off, cables are missing or disconnected, or if validation is not supported for the interface type, then the inteface will show `Unknown` status. **It is important to evaluate all `Unknown` interfaces that are `Not-Connected` against the BOM to determine if repair action is required.**
+- When destintation device is powered off, cables are missing or disconnected, or if validation isn't supported for the interface type, then the inteface shows `Unknown` status. **It is important to evaluate all `Unknown` interfaces that are `Not-Connected` against the BOM to determine if repair action is required.**
 
 ## Typical cable validation `NonCompliant` and `Unknown` Issues
 
@@ -223,7 +223,7 @@ networkFabricInfoSkuId": "M8-A400-A100-C16-ab",
 |---------------|-------|-------|------------|
 | CableValidation |`NonCompliant`|`Device cable connection is incorrect.` | Verify connections on the source and destination interfaces match the BOM. The `deviceConfiguration` can help identify the destination port date returned on the interface. |
 | CableValidation |`Unknown`     |`Unable to fetch data from the device.` | Verify connections on the source and destination interfaces are connected and match the BOM |
-| CableValidation |`NonCompliant`|`Device cabling in <INTERFACE> incorrect.` | The interface is not connected. Verify connections on the source and destination interfaces are connected  match the BOM. |
+| CableValidation |`NonCompliant`|`Device cabling in <INTERFACE> incorrect.` | The interface isn't connected. Verify connections on the source and destination interfaces are connected  match the BOM. |
 | CableValidation  |`Unknown`     |`Port <INTERFACE> has no connections as per device response.` | Verify connections on the source and destination interfaces are connected and match the BOM. |
 | CableSpecificationValidation  |`Unknown`     |`Unable to fetch Interface Status for <INTERFACE>.` | Verify connections on the source and destination interfaces are connected and match the BOM. |
 | CableSpecificationValidation  |`NonCompliant`     |`Device cable connection is incorrect` | Verify interface card and cables match BOM specification in this interface. |
