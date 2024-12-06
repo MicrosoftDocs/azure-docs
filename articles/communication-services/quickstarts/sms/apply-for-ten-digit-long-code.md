@@ -13,6 +13,8 @@ ms.service: azure-communication-services
 ms.subservice: sms
 ms.custom: mode-other
 ---
+[!INCLUDE [Notice](../../includes/public-preview-include.md)]
+
 # Quickstart: Apply for 10DLC (10 digit long codes)
 This guide walks you through the steps required to register a brand and campaign for 10DLC (10-Digit Long Code) messaging in ACS. This process ensures compliance with carrier requirements and enables reliable, high-quality message delivery.
 
