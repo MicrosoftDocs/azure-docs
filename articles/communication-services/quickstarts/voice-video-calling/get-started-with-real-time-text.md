@@ -71,4 +71,4 @@ The `RealTimeTextInfo` (or `RealTimeTextDetails` on Windows) class encapsulates 
 
 For more information, see the following articles:
 
-- [Azure Communication Services Calling Documentation](../../concepts/calling-overview.md)
+- [Azure Communication Services Calling Documentation](../../concepts/voice-video-calling/calling-sdk-features.md)
