@@ -12,7 +12,7 @@ ms.custom: template-how-to
 zone_pivot_groups: acs-programming-languages-java-swift-csharp
 ---
 
-[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
+
 
 # Real Time Text
 
@@ -20,6 +20,7 @@ Learn how to integrate Real Time Text (RTT) into your calling applications to en
 
 RTT allows users who have difficulty speaking to participate actively by typing their messages, which are then broadcast in near real-time to other meeting participants. This feature operates seamlessly alongside existing captions and ensures that typed messages are promptly delivered without disrupting the flow of conversation.
 
+[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
 
 ## Real Time Text Feature Overview
 
@@ -70,4 +71,4 @@ The `RealTimeTextInfo` (or `RealTimeTextDetails` on Windows) class encapsulates 
 
 For more information, see the following articles:
 
-- [Azure Communication Services Calling Documentation](./calling-overview.md)
+- [Azure Communication Services Calling Documentation](../../concepts/calling-overview.md)
