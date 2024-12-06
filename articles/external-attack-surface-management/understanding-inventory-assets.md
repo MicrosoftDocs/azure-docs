@@ -1,5 +1,5 @@
 ---
-title: Inventory Assets
+title: Understanding Inventory Assets
 description: Learn how Microsoft Defender External Attack Surface Management (Defender EASM) uses proprietary discovery technology to recursively searches for infrastructure with observed connections to known legitimate assets.
 author: danielledennis
 ms.author: dandennis
@@ -8,7 +8,7 @@ ms.date: 07/14/2022
 ms.topic: conceptual
 ---
 
-# Inventory assets
+# Understanding inventory assets
 
 Microsoft Defender External Attack Surface Management (Defender EASM) uses Microsoft proprietary discovery technology to recursively search for infrastructure through observed connections to known legitimate assets (*discovery seeds*). It makes inferences about that infrastructure's relationship to the organization to uncover previously unknown and unmonitored properties.
 
@@ -50,5 +50,5 @@ Your attack surface constantly changes. Defender EASM continuously analyzes and 
 ## Related content
 
 - [Modify inventory assets](labeling-inventory-assets.md)
-- [Asset details](understanding-asset-details.md)
+- [Understanding asset details](understanding-asset-details.md)
 - [Use and manage discovery](using-and-managing-discovery.md)

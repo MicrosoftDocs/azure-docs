@@ -56,7 +56,7 @@ The EASM Security Copilot integration can help you:
 
   Use Security Copilot to curate your attack surface by using labels, external IDs, and state modifications for a set of assets. This process speeds up curation, so you can organize your inventory faster and more efficiently.
 
-## Enable Microsoft Security Copilot integration in Defender EASM
+## Enable Microsoft Security Copilot integration
 
 To set up Microsoft Security Copilot integration in Defender EASM, complete the steps described in the next sections.
 
@@ -67,7 +67,7 @@ To enable integration, you need to have these prerequisites:
 - Access to Microsoft Security Copilot
 - Permissions to activate new connections
 
-### Microsoft Security Copilot connection
+### Connect Microsoft Security Copilot to Defender EASM
 
 1. Access [Microsoft Security Copilot](https://securitycopilot.microsoft.com/) and ensure that you're authenticated.
 1. Select the plugin icon on the upper-right side of the prompt input bar.
