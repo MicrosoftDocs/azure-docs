@@ -22,7 +22,7 @@ In this tutorial, you:
 > - Assign a tag to your IoT device.
 > - Import the image update.
 > - Deploy the image update.
-> - Monitor the update deployment.
+> - View update deployment history.
 
 ## Prerequisites
 
@@ -51,15 +51,15 @@ Add your device to the device registry in your IoT hub and get the connection st
 
 The *Tutorial_RaspberryPi3.zip* file has all the required files for the tutorial. Download the file from the **Assets** section of the latest release on the [GitHub Device Update Releases page](https://github.com/Azure/iot-hub-device-update/releases), and unzip it.
 
-In the extracted *Tutorial_RaspberryPi3* folder, the *adu-base-image-raspberrypi3.wic* file is the base image that you can flash onto the Raspberry Pi board. The *adu-update-image-raspberrypi3-1.2.0.swu* SWUpdate file, *example-a-b-update.sh* custom SWUpdate script, and *EDS-ADUClient.yocto-update.1.2.0.importmanifest.json* manifest are the update files you import through Device Update.
+In the extracted *Tutorial_RaspberryPi3* folder, the *adu-base-image-raspberrypi3.wic* file is the base image that you can flash onto the Raspberry Pi board. The base image uses a Yocto build based on the 3.4.4 release. The image has the Device Update agent and SWUpdate, which enables the Device Update dual partition update. For more information about the Yocto layers, see [Build a custom Linux-based system with Device Update agent using the Yocto Project](https://github.com/Azure/iot-hub-device-update-yocto).
 
-The base image uses a Yocto build based on the 3.4.4 release. The image has the Device Update agent and SWUpdate, which enables the Device Update dual partition update. For more information about the Yocto layers, see [Build a custom Linux-based system with Device Update agent using the Yocto Project](https://github.com/Azure/iot-hub-device-update-yocto).
+The *adu-update-image-raspberrypi3-1.2.0.swu* SWUpdate file, *example-a-b-update.sh* custom SWUpdate script, and *EDS-ADUClient.yocto-update.1.2.0.importmanifest.json* manifest are the update files you import through Device Update.
 
 ### Use bmaptool to flash the SD card
 
 Use an OS flashing tool to install the Device Update base image on the SD card you use in the Raspberry Pi device. The following instructions use `bmaptool` to flash to the SD card. Replace the `<device>` placeholder with your device name and the `<path to image>` placeholder with the path to the downloaded image file.
 
-1. Install the `bmaptool` utility if you don't have it.
+1. Install the `bmap-tools` utility if you don't have it.
 
    ```shell
    sudo apt-get install bmap-tools
@@ -87,7 +87,7 @@ Use an OS flashing tool to install the Device Update base image on the SD card y
    >[!TIP]
    >For faster flashing, you can download the bimap file and the image file and put them in the same directory.
 
-## Configure the Device Update agent on Raspberry Pi
+## Install the Device Update agent on Raspberry Pi
 
 >[!IMPORTANT]
 >Azure Device Update for IoT Hub software is subject to the following license terms:
@@ -105,7 +105,7 @@ Use an OS flashing tool to install the Device Update base image on the SD card y
      ssh raspberrypi3 -l root
    ```
 
-## Create the Device Update configuration files
+### Create the Device Update configuration files
 
 The Device Update *du-config.json* and *du-diagnostics-config.json* configuration files must be on the device. To create the files, run the following commands in the terminal signed in to the Raspberry Pi.
 
@@ -189,7 +189,7 @@ The Device Update *du-config.json* and *du-diagnostics-config.json* configuratio
 
    Status should appear as alive and green.
 
-## Connect the device in IoT Hub
+## Connect to the device in IoT Hub and add a group tag
 
 1. On the [Azure portal](https://portal.azure.com) IoT hub page for your Device Update instance, select **Device management** > **Devices** from the left navigation.
 1. On the **Devices** page, select the link with your device name.
@@ -204,18 +204,17 @@ The Device Update *du-config.json* and *du-diagnostics-config.json* configuratio
 
 Device Update uses groups to organize devices. Device Update automatically sorts devices into groups based on their assigned tags and compatibility properties. Each device can belong to only one group, but groups can have multiple subgroups to sort different device classes. For more information about tags and groups, see [Manage device groups](create-update-group.md).
 
-1. In the device twin, delete any existing Device Update tag values by setting them to null, and then add the following new Device Update group tag:
+1. In the device twin, delete any existing Device Update tag values by setting them to null, and then add the following new Device Update group tag. If you're using a Module Identity with the Device Update agent, add the tag in the **Module Identity Twin** instead of the device twin.
 
    ```json
    "tags": {
        "ADUGroup": "<CustomTagValue>"
    },
    ```
-   The following screenshot shows where to add the tag.
+   The following screenshot shows where in the file to add the tag.
 
    :::image type="content" source="media/import-update/device-twin-ppr.png" alt-text="Screenshot that shows twin with tag information.":::
 
-   If you're using a Module Identity with the Device Update agent, add the tag in the **Module Identity Twin** instead of the device twin.
    
 1. Select **Save**.
 
@@ -230,7 +229,7 @@ Device Update uses groups to organize devices. Device Update automatically sorts
    :::image type="content" source="media/import-update/storage-account-ppr.png" alt-text="Screenshot that shows Storage accounts and Containers.":::
 
    > [!TIP]
-   > Using a new container each time you import an update avoids accidentally importing files from previous updates. If you don't use a new container, be sure to delete any files from the existing container.
+   > Using a new container each time you import an update prevents accidentally importing files from previous updates. If you don't use a new container, be sure to delete any files from the existing container.
 
 1. On the container page, select **Upload**, drag and drop or browse to and select the update files you downloaded, and then select **Upload**. After they upload, the files appear on the container page.
 
@@ -246,48 +245,46 @@ The import process begins, and the screen switches to the **Updates** screen. Af
 
 :::image type="content" source="media/import-update/update-ready-ppr.png" alt-text="Screenshot that shows job status.":::
 
-### View device groups
+## Deploy the update
 
-On the **Groups and Deployments** tab at the top of the **Updates** page, view the list of groups and the update compliance chart. The update compliance chart shows the count of devices in various states of compliance: **On latest update**, **New updates available**, and **Updates in progress**. For more information, see [Device Update compliance](device-update-compliance.md).
+You can use the group tag you applied to your device to deploy the update to the device group. Select the **Groups and Deployments** tab at the top of the **Updates** page and view the list of groups and the update compliance chart. The update compliance chart shows the count of devices in various states of compliance: **On latest update**, **New updates available**, and **Updates in progress**. For more information, see [Device Update compliance](device-update-compliance.md).
+
+You should see the device group that contains the device you set up in this tutorial, along with the available updates for the devices in the group. If there are devices that don't meet the device class requirements of the group, they appear in a corresponding invalid group.
 
 :::image type="content" source="media/create-update-group/updated-view.png" alt-text="Screenshot that shows the update compliance view." lightbox="media/create-update-group/updated-view.png":::
 
-You should see a device group that contains the device you set up in this tutorial, along with any available updates for the devices in the group. If there are devices that don't meet the device class requirements of the group, they appear in a corresponding invalid group.
+To deploy the best available update to the new user-defined group from this view, select **Deploy** next to the group.
 
-## Deploy the update
+To initiate the deployment:
 
-1. After the group is created, you should see a new update available for your device group with a link to the update under **Best update**. You might need to refresh.
-
-1. Select the target group by selecting the group name. On the **Group details** page, you see the group details in the **Group basics** tab.
-
-   :::image type="content" source="media/deploy-update/group-basics.png" alt-text="Screenshot that shows group details." lightbox="media/deploy-update/group-basics.png":::
-
-1. To initiate the deployment, go to the **Current deployment** tab and select **Deploy** next to the desired update in the **Available updates** section. The best available update for a group is denoted with a **Best** highlight.
+1. Select the **Current deployment** tab on the **Group details** page, and then select **Deploy** next to the desired update in the **Available updates** section. The best available update for the group is denoted with a **Best** highlight.
 
    :::image type="content" source="media/deploy-update/select-update.png" alt-text="Screenshot that shows selecting an update." lightbox="media/deploy-update/select-update.png":::
 
-1. Schedule your deployment to start immediately or in the future, and then select **Create**.
-
-   > [!TIP]
-   > By default, the **Start** date and time is 24 hours from your current time. Be sure to select a different date and time if you want the deployment to begin earlier.
+1. On the **Create deployment** page, schedule your deployment to start immediately or in the future, and then select **Create**.
 
    :::image type="content" source="media/deploy-update/create-deployment.png" alt-text="Screenshot that shows creating a deployment." lightbox="media/deploy-update/create-deployment.png":::
 
-1. Under **Deployment details**, **Status** turns to **Active**, and the selected update in **Available updates** is marked with **(deploying)**.
+   > [!TIP]
+   > By default, the **Start** date and time is 24 hours from your current time. Be sure to select a different date and time if you want the deployment to begin sooner.
+
+1. Under **Deployment details**, **Status** turns to **Active**. Under **Available updates**, the selected update is marked with **(deploying)**.
 
    :::image type="content" source="media/deploy-update/deployment-active.png" alt-text="Screenshot that shows the deployment as Active." lightbox="media/deploy-update/deployment-active.png":::
 
-1. View the compliance chart to see that the update is now in progress. After your device successfully updates, your compliance chart and deployment details update to reflect that status.
+1. On the **Updates** page, view the compliance chart to see that the update is now in progress. After your device successfully updates, your compliance chart and deployment details update to reflect that status.
 
    :::image type="content" source="media/deploy-update/update-succeeded.png" alt-text="Screenshot that shows the update succeeded." lightbox="media/deploy-update/update-succeeded.png":::
 
-## Monitor the update deployment
+## View update deployment history
+
+To view deployment history:
 
 1. Select the **Deployment history** tab at the top of the **Group details** page, and select the **details** link next to the deployment you created.
 
    :::image type="content" source="media/deploy-update/deployments-history.png" alt-text="Screenshot that shows Deployment history." lightbox="media/deploy-update/deployments-history.png":::
 
-1. Select **Refresh** On the **Deployment details** page to view the latest status details.
+1. On the **Deployment details** page, select **Refresh** to view the latest status details.
 
    :::image type="content" source="media/deploy-update/deployment-details.png" alt-text="Screenshot that shows deployment details." lightbox="media/deploy-update/deployment-details.png":::
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Device Update for IoT Hub using a simulator agent
-description: Get started with Device Update for Azure IoT Hub using the Ubuntu 18.04 x64 simulator agent.
+description: Get started with Device Update for Azure IoT Hub using the Ubuntu simulator agent.
 author: kgremban
 ms.author: kgremban
 ms.date: 11/25/2024
@@ -22,12 +22,12 @@ In this tutorial, you:
 > - Download and install an image update.
 > - Import the image update.
 > - Deploy the image update.
-> - Monitor the update deployment.
+> - View update deployment history.
 
 ## Prerequisites
 
 - An IoT device
-- An Ubuntu 18.04 x64 physical or virtual machine
+- An Ubuntu 18.04 or higher x64 physical or virtual machine
 - A [Device Update account and instance configured with an IoT hub](create-device-update-account.md)
 
 ## Register and configure a device and module
@@ -38,7 +38,7 @@ Add the device to the device registry in your IoT hub. Every device that connect
 1. In the navigation pane, select **Device management** > **Devices**.
 1. On the **Devices** page, select **Add Device**.
 1. Under **Device ID**, enter a name for the device. Ensure that **Autogenerate keys** checkbox is selected.
-1. Select **Save**.  The device appears in the list on the **Devices** page.
+1. Select **Save**. The device appears in the list on the **Devices** page.
 
 ### Create a module identity
 
@@ -52,7 +52,7 @@ For this tutorial, you create a module identity for the Device Update agent that
 1. Select **Save**. The new module identity appears on the device page under **Module Identities**.
 1. Select the module name, and on the **Module Identity Details** page, select the **Copy** icon next to **Connection string (primary key)**. Save this *module connection string* to use when you configure the Device Update agent.
 
-### Add a tag to your module twin
+### Add a group tag to your module twin
 
 You can assign a tag to any device that's managed by Device Update to assign the device to a Device Update group. The tag can be in the device twin or in the module twin as in this tutorial. Each device can be assigned to only one Device Update group.
 
@@ -224,7 +224,7 @@ On the **Groups and Deployments** tab, you should see the new update available f
 
 1. Select the group name to view its details.
 
-1. On the group details page, you should see that there's one new update available. Select **Deploy** to start the deployment.
+1. On the **Group details** page, you should see that there's one new update available. Select **Deploy** to start the deployment.
 
    :::image type="content" source="media/device-update-simulator/group-details.png" alt-text="Screenshot that shows starting a group update deployment." lightbox="media/deploy-update/select-update.png":::
 
@@ -232,9 +232,11 @@ On the **Groups and Deployments** tab, you should see the new update available f
 
 1. Schedule your deployment to start immediately, and then select **Create**.
 
-On the group details page, navigate to the **Current updates** tab. Under **Deployment details**, **Status** turns to **Active**. After your device successfully updates, return to the **Updates** page. You should see that your compliance chart and deployment details updated to include the installed update.
+1. Navigate to the **Current updates** tab. Under **Deployment details**, **Status** turns to **Active**.
 
-## Monitor the update deployment
+1. After your device successfully updates, return to the **Updates** page. You should see that your compliance chart and deployment details updated to include the installed update.
+
+## View update deployment history
 
 1. Return to the group details page and select the **Deployment history** tab.
 
