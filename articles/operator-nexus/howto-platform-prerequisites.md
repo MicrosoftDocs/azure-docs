@@ -359,7 +359,7 @@ time="<CURRENT_DATE_TIME>"
 
 **Parameters:**
 
-| Parameter Name      | Description                                    |
+| Parameter Name  | Description                                    |
 | ------------------- | ---------------------------------------------- |
 | CURRENT\_DATE\_TIME | Current date time in format hh:mm MMM DD, YYYY |
 
