@@ -416,8 +416,8 @@ These commands set the baud rate and pinout for connecting to the Pure Storage C
 To verify the configuration settings, execute the following commands:
 
 ```bash
-ping $PE1_IP -c 3  # Ping test to PE1 //TS subnet +2
-ping $PE2_IP -c 3  # Ping test to PE2 //TS subnet +2
+ping <PE1_IP> -c 3  # Ping test to PE1 //TS subnet +2
+ping <PE2_IP> -c 3  # Ping test to PE2 //TS subnet +2
 ogcli get conns     # Verify NET1, NET2, NET3 Removed
 ogcli get users     # Verify support admin user
 ogcli get static_routes  # Ensure there are no static routes
@@ -623,7 +623,7 @@ Install latest version of the [necessary CLI extensions].
 
 ```azurecli
   az login
-  az account set --subscription $SUBSCRIPTION_ID
+  az account set --subscription <SUBSCRIPTION_ID>
   az account show
 ```
 
