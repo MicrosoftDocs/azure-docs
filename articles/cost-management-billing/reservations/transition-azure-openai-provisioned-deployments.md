@@ -1,23 +1,23 @@
 ---
-title: Transition to OpenAI provisioned deployment reservations
-description: Learn about how to transition to Azure OpenAI provisioned deployment reservations, including new Global and data zone options.
+title: Transition to OpenAI Service provisioned deployment reservations
+description: Learn about how to transition to Azure OpenAI Service provisioned deployment reservations, including new Global and data zone options.
 author: bandersmsft
 ms.reviewer: kvuyyuru
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 12/03/2024
+ms.date: 12/05/2024
 ms.author: banders
-#customer intent: As a reservation admin, I want to understand how to transition to Azure OpenAI provisioned deployment reservations so that I can manage my resources effectively.
+#customer intent: As a reservation admin, I want to understand how to transition to Azure OpenAI Service provisioned deployment reservations so that I can manage my resources effectively.
 ---
 
-# Transition to Azure OpenAI provisioned deployment reservations
+# Transition to Azure OpenAI Service provisioned deployment reservations
 
-Azure introduced new Global and Data Zone provisioned deployment reservations for Azure OpenAI. These new options provide more flexibility and scalability, allowing you to access the models you need and scale Provisioned Throughput Units (PTUs) to support usage growth. Additionally, Microsoft announced lower hourly prices and smaller deployment minimums for the new deployment types, although the prices for monthly and yearly reservations remain unchanged.
+Azure introduced new Global and Data Zone provisioned deployment reservations for Azure OpenAI Service. These new options provide more flexibility and scalability, allowing you to access the models you need and scale Provisioned Throughput Units (PTUs) to support usage growth. Additionally, Microsoft announced lower hourly prices and smaller deployment minimums for the new deployment types, although the prices for monthly and yearly reservations remain unchanged.
 
 With these changes, Azure expects to better serve your evolving needs. If you're currently using Regional provisioned deployments, you might find that transitioning to Global or Data Zone provisioned deployments offers significant benefits. This guide helps you understand the transition process, including how to migrate your applications and deployments and how to transition any existing reservations that cover the deployments.
 
-## Changes to Azure OpenAI provisioned deployments
+## Changes to Azure OpenAI Service provisioned deployments
 
 - In September 2024, Azure launched Global provisioned deployment reservations.
 - In December 2024, Azure launched Data Zone provisioned deployment reservations.
@@ -32,23 +32,23 @@ With these changes, Azure expects to better serve your evolving needs. If you're
 
 If you want to move from Regional provisioned deployment to Global or Data Zone deployments, you need to migrate your application or deployments on the service side. And you need to transition reservations, if any, that cover those deployments.
 
-### Transition Azure OpenAI deployments from Regional to Global or Data Zone
+### Transition Azure OpenAI Service deployments from Regional to Global or Data Zone
 
-If you use existing Azure OpenAI Regional Provisioned deployments, there are two options to transition to the Data Zone or Global Provisioned deployment types:
+If you use existing Azure OpenAI Service Regional Provisioned deployments, there are two options to transition to the Data Zone or Global Provisioned deployment types:
 
 ### Option 1 - No downtime
 
-1. Create a new deployment using the Azure OpenAI Global Provisioned or Data Zone Provisioned deployment type in the desired Azure OpenAI resource.
-2. Transition traffic from the existing Azure OpenAI Regional Provisioned deployment to the newly created Azure OpenAI Global or Data Zone provisioned deployment until all traffic is offloaded from the Regional Provisioned deployment.
+1. Create a new deployment using the Azure OpenAI Service Global Provisioned or Data Zone Provisioned deployment type in the desired Azure OpenAI Service resource.
+2. Transition traffic from the existing Azure OpenAI Service Regional Provisioned deployment to the newly created Azure OpenAI Service Global or Data Zone provisioned deployment until all traffic is offloaded from the Regional Provisioned deployment.
 3. Delete the existing Regional Provisioned deployment.
 
 ### Option 2 – Has downtime
 
-1. Ensure all Azure OpenAI API requests are stopped on the Azure OpenAI Regional Provisioned deployment.
+1. Ensure all Azure OpenAI Service API requests are stopped on the Azure OpenAI Service Regional Provisioned deployment.
 2. Delete the existing Regional Provisioned deployment.
-3. Create a new deployment using the Azure OpenAI Global Provisioned or Data Zone Provisioned deployment type in the desired Azure OpenAI resource.
+3. Create a new deployment using the Azure OpenAI Service Global Provisioned or Data Zone Provisioned deployment type in the desired Azure OpenAI Service resource.
 
-## Transition Azure OpenAI provisioned reservations from Regional to Global or Data Zone
+## Transition Azure OpenAI Service provisioned reservations from Regional to Global or Data Zone
 
 - First, you must decide how many PTUs you want to retain on the Provisioned Regional deployment. Then decide how many PTUs to move to the provisioned Global or Data Zone deployments.
 - Of these deployments, you need to decide how many need to get covered by reservations to get the discounted price.
