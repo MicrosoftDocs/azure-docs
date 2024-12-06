@@ -16,11 +16,11 @@ zone_pivot_groups: acs-programming-languages-java-swift-csharp
 
 # Real Time Text
 
+[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
+
 Learn how to integrate Real Time Text (RTT) into your calling applications to enhance accessibility and ensure that all participants can communicate effectively during meetings.
 
 RTT allows users who have difficulty speaking to participate actively by typing their messages, which are then broadcast in near real-time to other meeting participants. This feature operates seamlessly alongside existing captions and ensures that typed messages are promptly delivered without disrupting the flow of conversation.
-
-[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
 
 ## Real Time Text Feature Overview
 
