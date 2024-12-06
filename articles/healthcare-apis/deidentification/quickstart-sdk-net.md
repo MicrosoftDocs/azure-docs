@@ -38,11 +38,11 @@ A de-identification service provides you with an endpoint URL. This endpoint url
     ```
 ### Assign RBAC Roles to the de-identification service
 
-We need to assign a role to our deidentification service so we will have permissions to perform the actions in this quickstart.
+We need to assign a role to our deidentification service so we have permissions to perform the actions in this quickstart.
 
-Since we will be using realtime and job endpoints, we will assign the `DeID Data Owner` roles.
+Since we are using realtime and job endpoints, we assign the `DeID Data Owner` roles.
 
-To learn how to assign this role to your deidentification service, please refer to: [Manage access to the de-identification service with Azure role-based access control (RBAC) in Azure Health Data Services](manage-access-rbac.md)
+To learn how to assign this role to your deidentification service, refer to: [Manage access to the de-identification service with Azure role-based access control (RBAC) in Azure Health Data Services](manage-access-rbac.md)
 
 ### Create an Azure Storage account
 
@@ -148,7 +148,7 @@ To create the job, we need the URL to the blob endpoint of the Azure Storage Acc
 az resource show -n $STORAGE_ACCOUNT_NAME -g $RESOURCE_GROUP_NAME  --resource-type Microsoft.Storage/storageAccounts --query properties.primaryEndpoints.blob --output tsv
 ```
 
-Now we can create the job. This example uses `folder1/` as the prefix. The job will de-identify any document that matches this prefix and write the de-identified version with the `output_files/` prefix.
+Now we can create the job. This example uses `folder1/` as the prefix. The job de-identifies any document that matches this prefix and write the de-identified version with the `output_files/` prefix.
 
 ```csharp
 using Azure;
