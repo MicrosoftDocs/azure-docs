@@ -128,6 +128,6 @@ As a secure service, Azure Kubernetes Service (AKS) complies with SOC, ISO, PCI 
 
 *Cluster Manager - Azure Kubernetes*
 
-The Operator Nexus Cluster Manager is an AKS implementation. The following image shows the Kube-Bench exceptions for the Cluster Manager AKS implementation. A full report for CIS Benchmark control evaluaztion of Azure Kubernetes Service (AKS) can be found [here](/azure/aks/cis-kubernetes)
+The Operator Nexus Cluster Manager is an AKS implementation. The following image shows the Kube-Bench exceptions for the Cluster Manager. A full report of CIS Benchmark control evaluation for Azure Kubernetes Service (AKS) can be found [here](/azure/aks/cis-kubernetes)
 
 :::image type="content" source="media/security/cm_kubebench.png" alt-text="Screenshot of Cluster Manager Kube-Bench exceptions" lightbox="media/security/cm_kubebench.png":::
