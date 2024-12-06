@@ -2,7 +2,7 @@
 title: Find and delete lab resources
 description: Learn about finding and deleting Azure Lab Services lab resources.
 ms.topic: how-to
-ms.date: 12/5/2024
+ms.date: 12/05/2024
 
 # customer intent: As an Azure Lab Services customer, I want to understand how to find and delete lab resources, as well as determine which version of Azure Lab Services is deployed whether lab accounts (older version) or lab plans (newer version).
 ---

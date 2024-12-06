@@ -2,7 +2,7 @@
 title: Azure Lab Services retirement guide
 description: Learn about the Azure Lab Services retirement schedule and how to transition to Microsoft or partner services.
 ms.topic: how-to
-ms.date: 07/08/2024
+ms.date: 12/05/2024
 
 # customer intent: As an Azure Lab Services customer, I want to understand the Azure Lab Services retirement schedule and what Microsoft and partners services I can transition to.
 ---
@@ -17,7 +17,7 @@ Azure Lab Services will be retired on June 28, 2027, but we strongly recommend t
 ## Call to action
 * **Start establishing a retirement plan now** to address [cost differences](#are-there-pricing-differences-across-the-microsoft-and-partner-solutions), [secure necessary cores](#can-i-transfer-my-azure-lab-services-core-limits-to-my-preferred-transition-solution), and take advantage of [extra features like in-browser labs](#do-these-lab-solutions-offer-feature-parity-with-azure-lab-services).  
 
-* **Use the latest Azure Lab Services version** ([utilizing lab plans](how-to-migrate-lab-acounts-to-lab-plans.md)) as an interim solution for enhanced performance, wider range of VM sizes, and better student experience, as you develop your long-term retirement plan to move to other Microsoft or Azure partner solutions.  
+* **Use the latest Azure Lab Se`rvices version** ([utilizing lab plans](how-to-migrate-lab-acounts-to-lab-plans.md)) as an interim solution for enhanced performance, wider range of VM sizes, and better student experience, as you develop your long-term retirement plan to move to other Microsoft or Azure partner solutions.  
 
 * **Delete unused resources** to reduce costs and formally offboard by [reviewing labs and cleaning up idle resources](find-delete-lab-resources.md).
 
