@@ -237,8 +237,12 @@ items:
       href: install-cloud-backup-virtual-machines.md
     - name: Backup Azure NetApp Files datastores and VMs
       href: backup-azure-netapp-files-datastores-vms.md
+    - name: Configure Cloud Backup for Virtual Machines
+      href: configure-cloud-backup-virtual-machine.md  
     - name: Restore VMs
       href: restore-azure-netapp-files-vms.md
+    - name: Restore guest files and folders
+      href: restore-guest-files-folders.md  
   - name: External storage solutions
     items:
     - name: Storage solution overview

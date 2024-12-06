@@ -287,7 +287,7 @@ items:
         href: quickstarts/telemetry-application-insights.md
   - name: Voice and Video
     items:
-    - name: Setup for Node.JS app
+    - name: Setup for Node.js app
       href: tutorials/building-app-start.md
     - name: Build an authentication service using Azure Functions
       href: tutorials/trusted-service-tutorial.md
@@ -445,7 +445,7 @@ items:
           href: how-tos/ui-library-sdk/closed-captions.md
         - name: Configure theming
           href: how-tos/ui-library-sdk/theming.md
-        - name: Customize the button bar
+        - name: Customize buttons
           href: how-tos/ui-library-sdk/button-injection.md
         - name: Customize the title and subtitle
           href: how-tos/ui-library-sdk/setup-title-subtitle.md

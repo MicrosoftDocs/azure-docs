@@ -19,7 +19,6 @@ Autoscale lets you scale your session host virtual machines (VMs) in a host pool
 When using autoscale, you can choose from two different scaling methods: power management or dynamic. To learn more about autoscale, see [Autoscale scaling plans and example scenarios in Azure Virtual Desktop](autoscale-scenarios.md).
 
 > [!NOTE]
-> - Azure Virtual Desktop (classic) doesn't support autoscale. 
 > - You can't use autoscale and [scale session hosts using Azure Automation and Azure Logic Apps](scaling-automation-logic-apps.md) on the same host pool. You must use one or the other.
 > - Power management autoscaling is available in Azure and Azure Government.
 > - Dynamic autoscaling is only available in Azure and isn't supported in Azure Government.
