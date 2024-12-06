@@ -5,7 +5,7 @@ author: rolyon
 manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: how-to
-ms.date: 11/11/2024
+ms.date: 12/09/2024
 ms.author: rolyon
 ---
 
@@ -37,7 +37,7 @@ These steps describe how to activate an eligible role assignment using the Azure
 
 1. Click **Access control (IAM)**.
 
-1. Click **Activate role**.
+1. In the **Action** column, click **Activate** for the role you want to activate.
 
     The **assignments** pane appears and lists your eligible role assignments.
 

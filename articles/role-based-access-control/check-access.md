@@ -6,7 +6,7 @@ author: rolyon
 manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: quickstart
-ms.date: 07/18/2023
+ms.date: 12/09/2024
 ms.author: rolyon
 ms.custom: mode-other
 #Customer intent: As a new user, I want to quickly see access for myself, user, group, or application, to make sure they have the appropriate permissions.
@@ -58,7 +58,7 @@ If you have a Microsoft Entra ID P2 or Microsoft Entra ID Governance license, [M
 
 1. Select **Access control (IAM)**.
 
-1. On the **My access** tab, view your role assignments at this scope and inherited to this scope. Assignments at child scopes aren't listed.
+1. On the **Check access** tab, view your role assignments at this scope and inherited to this scope. Assignments at child scopes aren't listed.
 
     The following shows an example of the Access control (IAM) page for a resource group.
 
@@ -79,7 +79,7 @@ If you have a Microsoft Entra ID P2 or Microsoft Entra ID Governance license, [M
 
 1. Select **Access control (IAM)**.
 
-1. On the **My access** tab, select the **Check access** button.
+1. On the **Check access** tab, select the **Check access** button.
 
     A **Check access** pane appears.
 
@@ -103,7 +103,7 @@ If you have a Microsoft Entra ID P2 or Microsoft Entra ID Governance license, [M
 
 1. Select **Access control (IAM)**.
 
-1. On the **My access** tab, select the **Check access** button.
+1. On the **Check access** tab, select the **Check access** button.
 
     A **Check access** pane appears.
 
@@ -121,9 +121,11 @@ If you have a Microsoft Entra ID P2 or Microsoft Entra ID Governance license, [M
     - Deny assignments managed by Azure.
     - Classic Service Administrator or Co-Administrator assignments for classic deployments.
 
-    You also see a **Eligible assignments** tab with [eligible and time-bound role assignments](pim-integration.md).
+    :::image type="content" source="./media/check-access/rg-check-access-assignments-user-pim.png" alt-text="Screenshot of role assignments pane for a user for PIM integration." lightbox="./media/check-access/rg-check-access-assignments-user-pim.png":::
 
-    :::image type="content" source="./media/check-access/rg-check-access-assignments-user-pim.png" alt-text="Screenshot of role and deny assignments pane for a user for PIM integration." lightbox="./media/check-access/rg-check-access-assignments-user-pim.png":::
+    You also see a **Eligible assignments** tab with any eligible and time-bound role assignments. To start the activatation process, you can add a check mark next to a role you want to activate and then select **Activate role**. For more information, see [Eligible and time-bound role assignments](pim-integration.md) and [Activate eligible Azure role assignments](role-assignments-eligible-activate.md).
+
+    :::image type="content" source="./media/check-access/rg-check-access-assignments-user-pim-eligible.png" alt-text="Screenshot of role assignments pane and the Eligible assignments tab for a user for PIM integration." lightbox="./media/check-access/rg-check-access-assignments-user-pim-eligible.png":::
 
 ---
 
