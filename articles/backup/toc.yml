@@ -228,7 +228,7 @@
       href: sap-hana-database-about.md
     - name: Architecture
       href: azure-backup-architecture-for-sap-hana-backup.md
-    - name: Azure Database for MySQL - Flexible Server long-term retention
+  - name: Azure Database for MySQL - Flexible Server long-term retention
     href: backup-azure-mysql-flexible-server-about.md
   - name: Azure Database for PostgreSQL -Flexible server backup
     href: backup-azure-database-postgresql-flex-overview.md

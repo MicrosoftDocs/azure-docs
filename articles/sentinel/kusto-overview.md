@@ -412,7 +412,7 @@ Perf
 Usage
 | where QuantityUnit == 'MBytes'
 | extend KBytes = Quantity * 1024
-| project ResourceUri, MBytes=Quantity, KBytes
+| project DataType, MBytes=Quantity, KBytes
 ```
 
 On the final line in our `project` statement, we renamed the *Quantity* column to *Mbytes*, so we can easily tell which unit of measure is relevant to each column. 
@@ -426,7 +426,7 @@ Usage
 | where QuantityUnit == 'MBytes'
 | extend KBytes = Quantity * 1024
 | extend Bytes = KBytes * 1024
-| project ResourceUri, MBytes=Quantity, KBytes, Bytes
+| project DataType, MBytes=Quantity, KBytes, Bytes
 ```
 
 :::image type="content" source="media/kusto-overview/table-extend-twice.png" alt-text="Screenshot of results of two extend operators.":::
