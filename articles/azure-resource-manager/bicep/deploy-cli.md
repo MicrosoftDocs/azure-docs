@@ -93,7 +93,7 @@ Currently, Azure CLI doesn't support deploying remote Bicep files. You can use [
 
 ## Parameters
 
-To pass parameter values, you can use either inline parameters or a parameters file. The parameters file can be either a [Bicep parameters file](#bicep-parameter-files) or a [JSON parameters file](#json-parameter-files).
+To pass parameter values, you can use either inline parameters or a parameters file. The parameters file can be either a [Bicep parameters file](#bicep-parameters-files) or a [JSON parameters file](#json-parameters-files).
 
 ### Inline parameters
 
@@ -176,7 +176,7 @@ The evaluation of parameters follows a sequential order, meaning that if a value
 
 ### Bicep parameters files
 
-Rather than passing parameters as inline values in your script, you might find it easier to use a parameters file, either a [Bicep parameters file](#bicep-parameter-files) or a [JSON parameters file](#json-parameter-files) that contains the parameter values. The parameters file must be a local file. External parameters files aren't supported with Azure CLI. For more information about the parameters file, see [Create Resource Manager parameters file](./parameter-files.md).
+Rather than passing parameters as inline values in your script, you might find it easier to use a parameters file, either a [Bicep parameters file](#bicep-parameters-files) or a [JSON parameters file](#json-parameters-files) that contains the parameter values. The parameters file must be a local file. External parameters files aren't supported with Azure CLI. For more information about the parameters file, see [Create Resource Manager parameters file](./parameter-files.md).
 
 With Azure CLI version 2.53.0 or later, and [Bicep CLI version 0.22.X or higher](./install.md), you can deploy a Bicep file by utilizing a Bicep parameters file. With the `using` statement within the Bicep parameters file, there's no need to provide the `--template-file` switch when specifying a Bicep parameters file for the `--parameters` switch. Including the `--template-file` switch will result in an "Only a .bicep template is allowed with a .bicepparam file" error.
 

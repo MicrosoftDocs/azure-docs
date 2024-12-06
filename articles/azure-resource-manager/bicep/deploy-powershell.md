@@ -87,7 +87,7 @@ Currently, Azure PowerShell doesn't support deploying remote Bicep files. Use [B
 
 ## Parameters
 
-To pass parameter values, you can use either inline parameters or a parameters file. The parameters file can be either a [Bicep parameters file](#bicep-parameter-files) or a [JSON parameters file](#json-parameters-files).
+To pass parameter values, you can use either inline parameters or a parameters file. The parameters file can be either a [Bicep parameters file](#bicep-parameters-files) or a [JSON parameters file](#json-parameters-files).
 
 ### Inline parameters
 
