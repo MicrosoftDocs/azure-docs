@@ -31,6 +31,9 @@ This tutorial walks you through hosting a test EST server and configuring an IoT
 * Your IoT Edge device requires Azure IoT Edge runtime 1.2 or later for EST support. Azure IoT Edge runtime 1.3 or later required for EST certificate renewal. 
 * IoT Hub Device Provisioning Service (DPS) linked to IoT Hub. For information on configuring DPS, see [Quickstart: Set up the IoT Hub Device Provisioning Service with the Azure portal](../iot-dps/quick-setup-auto-provision.md).
 
+> [!NOTE]
+> To use EST and IoT Edge for automatic device identity certificate issuance and renewal, which is recommended for production, IoT Edge must provision as part of a [DPS CA-based enrollment group](./how-to-provision-devices-at-scale-linux-x509.md?tabs=group-enrollment%2cubuntu). Other methods of provisioning, including manual X.509 provisioning with IoT Hub and DPS with individual enrollment do not support automatic device identity certificate renewal.
+
 ## What is Enrollment over Secure Transport?
 
 Enrollment over Secure Transport (EST) is a cryptographic protocol that automates the issuance of x.509 certificates. It's used for public key infrastructure (PKI) clients, like IoT Edge that need client certificates associated to a Certificate Authority (CA). EST replaces the need for manual certificate management, which can be risky and error-prone.

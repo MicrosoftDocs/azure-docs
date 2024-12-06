@@ -417,7 +417,7 @@ Use the *GET* command to track the _JobId_ present in the [trigger restore respo
     "errorDetails": null,
     "extendedInfo": {
       "backupInstanceState": null,
-      "dataTransferedInBytes": null,
+      "dataTransferredInBytes": null,
       "targetRecoverPoint": null,
       "sourceRecoverPoint": {
         "recoveryPointID": "3a512290ec6b43d6b9a644869f4a3b38",

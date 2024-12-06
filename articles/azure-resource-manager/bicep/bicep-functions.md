@@ -98,7 +98,7 @@ The following functions are available for working with lambda expressions. All o
 * [sort](bicep-functions-lambda.md#sort)
 * [toObject](bicep-functions-lambda.md#toobject)
 
-## Logical functions
+## Logical function
 
 The following function is available for working with logical conditions. This function is in the `sys` namespace.
 

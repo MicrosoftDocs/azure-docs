@@ -6,7 +6,7 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
 ms.service: azure-migrate
-ms.date: 07/02/2024
+ms.date: 07/23/2024
 ms.custom: mvc, subject-rbac-steps, engagement-fy24
 #Customer intent: As a server admin I want to discover my GCP instances.
 ---

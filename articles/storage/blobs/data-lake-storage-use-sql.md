@@ -5,7 +5,7 @@ description: This tutorial shows how to run SQL queries on an Azure Synapse serv
 author: jovanpop-msft
 ms.service: azure-data-lake-storage
 ms.topic: tutorial
-ms.date: 03/07/2022
+ms.date: 11/18/2024
 ms.author: normesta
 ms.custom: devx-track-sql
 ---
