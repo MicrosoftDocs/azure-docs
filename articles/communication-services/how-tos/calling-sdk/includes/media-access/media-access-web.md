@@ -7,6 +7,8 @@ ms.author: fuyan
 ---
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-web.md)]
 
+## Implement Media Access
+
 The media access feature allows organizer or presenters to prevent attendees from unmuting or turn on video themselves during a Microsoft Teams meeting.
 You first need to import calling Features from the Calling SDK:
 
