@@ -39,4 +39,4 @@ The following table describes the maximum limits for Azure VMware Solution.
 
 \** This is the soft and recommended limit but can support higher throughput based on the scenario.
 
-For other VMware-specific limits, use the [VMware configuration maximum tool](https://configmax.vmware.com/).
+For other VMware-specific limits, use the [VMware by Broadcom configuration maximum tool](https://configmax.broadcom.com).
