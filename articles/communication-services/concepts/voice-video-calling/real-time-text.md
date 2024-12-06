@@ -11,12 +11,14 @@ ms.subservice: calling
 ---
 
 
->[!NOTE]
->RTT is an accessibility compliance requirement for voice and video platforms in the EU. You can find more information about this here: [Directive 2019/882](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32019L0882)
+
 
 # Real Time Text (RTT) Overview
 
 Real Time Text (RTT) provides developers with the ability to transmit text in near real-time during a call. This feature is designed to empower individuals who have difficulty speaking, ensuring their text messages are displayed prominently to other meeting participants, similar to spoken communication. RTT enhances accessibility by allowing participants to communicate effectively through typed messages that are broadcast instantly character by character, without having to press a "send" key. 
+
+>[!NOTE]
+>RTT is an accessibility compliance requirement for voice and video platforms in the EU. You can find more information about this here: [Directive 2019/882](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32019L0882)
 
 ## Common Use Cases
 
@@ -60,6 +62,6 @@ Microsoft indicates to you via the Azure Communication Services API that recordi
 
 ## Next Steps
 
-- Get started with a [Quickstart Guide](../../quickstarts/RTTQuickstart.md)
-- Learn more about using Real Time Text in [Accessible Communications](../accessible-communications/RTTIntegration.md)
+- Get started with a Quickstart Guide
+- Learn more about [Closed captions](https://learn.microsoft.com/en-us/azure/communication-services/concepts/voice-video-calling/closed-captions)
 - Explore the [UI Library](../ui-library/ui-library-overview.md)
