@@ -310,9 +310,9 @@
   - name: Configure active-active gateways
     items:
     - name: Azure portal
-      href: active-active-portal.md
+      href: tutorial-create-gateway-portal.md
     - name: PowerShell
-      href: vpn-gateway-activeactive-rm-powershell.md
+      href: create-gateway-powershell.md
   - name: Configure zone redundant gateways
     href: create-zone-redundant-vnet-gateway.md
   - name: Monitoring

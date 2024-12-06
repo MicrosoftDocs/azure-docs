@@ -35,7 +35,7 @@ The following example gets an element in an array.
 var arrayVar = [
   'Coho'
   'Contoso'
-  'Fabrikan'
+  'Fabrikam'
 ]
 
 output accessorResult string = arrayVar[1]
