@@ -40,7 +40,7 @@ A de-identification service provides you with an endpoint URL. This endpoint url
 
 We need to assign a role to our deidentification service so we have permissions to perform the actions in this quickstart.
 
-Since we are using realtime and job endpoints, we assign the `DeID Data Owner` roles.
+Since we're using realtime and job endpoints, we assign the `DeID Data Owner` roles.
 
 To learn how to assign this role to your deidentification service, refer to: [Manage access to the de-identification service with Azure role-based access control (RBAC) in Azure Health Data Services](manage-access-rbac.md)
 
