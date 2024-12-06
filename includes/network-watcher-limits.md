@@ -1,9 +1,9 @@
 ---
 author: halkazwini
-ms.service: network-watcher
+ms.author: halkazwini
+ms.service: azure-network-watcher
 ms.topic: include
 ms.date: 03/30/2023    
-ms.author: halkazwini
 ms.custom: include file
 ---
 | Resource | Limit |

@@ -2,7 +2,7 @@
 title: Manage API inventory in Azure API Center - Azure CLI
 description: Use the Azure CLI to create and update APIs, API versions, and API definitions in your Azure API center.
 author: dlepow
-ms.service: api-center
+ms.service: azure-api-center
 ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 06/28/2024
@@ -125,7 +125,7 @@ Use the [az apic api delete](/cli/azure/apic/api#az_apic_api_delete) command to 
 
 ```azurecli-interactive
 az apic api delete \
-    --resource-group myResoureGroup --service-name myAPICenter \
+    --resource-group myResourceGroup --service-name myAPICenter \
     --api-id petstore-api
 ```
 
@@ -135,5 +135,5 @@ To delete individual API versions and definitions, use [az apic api version dele
 
 * See the [Azure CLI reference for Azure API Center](/cli/azure/apic) for a complete command list, including commands to manage [environments](/cli/azure/apic/environment), [deployments](/cli/azure/apic/api/deployment), [metadata schemas](/cli/azure/apic/metadata), and [services](/cli/azure/apic).
 * [Import APIs to your API center from API Management](import-api-management-apis.md)
-* [Use the Visual Studio extension for API Center](use-vscode-extension.md) to build and register APIs from Visual Studio Code.
+* [Use the Visual Studio extension for API Center](build-register-apis-vscode-extension.md) to build and register APIs from Visual Studio Code.
 * [Register APIs in your API center using GitHub Actions](register-apis-github-actions.md)

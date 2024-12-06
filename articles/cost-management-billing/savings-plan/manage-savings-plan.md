@@ -7,7 +7,7 @@ ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.topic: how-to
-ms.date: 11/17/2023
+ms.date: 08/23/2024
 ms.author: banders
 ---
 
@@ -25,6 +25,9 @@ You can't make the following types of changes after purchase:
 - Hourly commitment
 - Term length
 - Billing frequency
+
+> [!NOTE]
+> A billing administer can fully manage savings plans. However, after purchase, a savings plan’s directory can’t get changed.
 
 To learn more, see [Savings plan permissions](permission-view-manage.md). _Permission needed to manage a savings plan is separate from subscription permission._
 
@@ -49,7 +52,7 @@ If you purchased/were added to a savings plan, or were assigned savings plan RBA
 
 Selectable scopes must be from Enterprise offers (MS-AZR-0017P or MS-AZR-0148P), Microsoft Customer Agreements, and Microsoft Partner Agreements.
 
-If you aren't a billing administrator and you change from shared to single scope, you may only select a subscription where you're the owner. Only subscriptions within the same billing account/profile as the savings plan can be selected.
+If you aren't a billing administrator and you change from shared to single scope, you can only select a subscription where you're the owner. Only subscriptions within the same billing account/profile as the savings plan can be selected.
 
 If all subscriptions are moved out of a management group, the scope of the savings plan is automatically changed to **Shared**.
 
@@ -84,11 +87,11 @@ To delegate the administrator, contributor, or reader roles to a specific saving
 1. Go to **Home** > **Savings plans**.
 1. Select **Role assignment** from the top navigation bar.
 
-## Cancellations, exchanges and trade-ins
+## Cancellations, exchanges, and trade-ins
 Unlike reservations, you can't cancel or exchange savings plans. You can trade-in select compute reservations for a savings plan. To learn more, visit [reservation trade-in](reservation-trade-in.md).
 
 ## Change Billing subscription
-Currently, the billing subscription used for monthly payments of a savings plan cannot be changed.
+Currently, the billing subscription used for monthly payments of a savings plan can't be changed.
 
 ## Transfer a savings plan
 Although you can't cancel, exchange, or refund a savings plan, you can transfer it from one supported agreement to another. For more information about supported transfers, see [Azure product transfer hub](../manage/subscription-transfer.md#product-transfer-support).
@@ -114,7 +117,7 @@ For Microsoft Partner Agreement partners:
 - Notifications are sent to the partner.
 
 ## Need help?
-If you have Azure savings plan for compute questions, contact your account team or [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Temporarily, Microsoft will only provide answers to expert support requests in English for questions about Azure savings plan for compute.
+If you have Azure savings plan for compute questions, contact your account team or [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Temporarily, Microsoft only provides answers to expert support requests in English for questions about Azure savings plan for compute.
 
 ## Next steps
 

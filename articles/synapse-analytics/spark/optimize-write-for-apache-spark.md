@@ -2,7 +2,7 @@
 title: Using optimize write on Apache Spark to produce more efficient tables
 description: Optimize write is an efficient write feature for Apache Spark
 author: DaniBunny 
-ms.service: synapse-analytics 
+ms.service: azure-synapse-analytics
 ms.topic: reference
 ms.subservice: spark
 ms.date: 08/03/2022

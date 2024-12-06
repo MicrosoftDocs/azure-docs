@@ -6,7 +6,7 @@ author: PatAltimore
 ms.author: patricka
 ms.date: 05/31/2024
 ms.topic: how-to
-ms.service: iot-edge
+ms.service: azure-iot-edge
 services: iot-edge
 ---
 

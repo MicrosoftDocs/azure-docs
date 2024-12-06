@@ -38,7 +38,7 @@ There are several methods of dealing with throttled requests:
 
 #### Issue
 
-Customers with access to more than 1,000 subscriptions, including cross-tenant subscriptions with [Azure Lighthouse](../../../lighthouse/overview.md), can't fetch data across all subscriptions in a single call to Azure Resource Graph.
+Customers with access to more than 1,000 subscriptions, including cross-tenant subscriptions with [Azure Lighthouse](/azure/lighthouse/overview), can't fetch data across all subscriptions in a single call to Azure Resource Graph.
 
 #### Cause
 

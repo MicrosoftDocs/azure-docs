@@ -33,6 +33,8 @@
     href: concept-use-cases.md
   - name: limitations
     href: concept-limitations.md
+  - name: IP address management
+    href: concept-ip-address-management.md
   - name: Scope
     href: concept-network-manager-scope.md
   - name: Network groups
@@ -109,6 +111,8 @@
       href: how-to-configure-cross-tenant-portal.md
     - name: Configure cross-tenant connection - CLI
       href: how-to-configure-cross-tenant-cli.md
+  - Name: Manage IP addresses
+    href: how-to-manage-ip-addresses-network-manager.md
   - name: Monitoring
     items:
     - name: Configure Event Logs for Azure Virtual Network Manager
@@ -125,8 +129,10 @@
     items:
       - name: Create user-defined routes (UDRs)
         href: how-to-create-user-defined-route.md
-      - name: deploy hub and spoke topology with Azure Firewall
+      - name: Deploy hub and spoke topology with Azure Firewall
         href: how-to-deploy-hub-spoke-topology-with-azure-firewall.md
+      - name: Manage User-defined Routes (UDRs) across multiple hub-and-spoke topologies
+        href: how-to-manage-user-defined-routes-multiple-hub-spoke-topologies.md 
   - name: Common issues
     href: common-issues.md
 - name: Reference

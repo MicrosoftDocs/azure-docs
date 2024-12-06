@@ -3,7 +3,7 @@ title: 'Quickstart: Create and modify an ExpressRoute circuit: Azure CLI'
 description: This quickstart shows how to create, provision, verify, update, delete, and deprovision an ExpressRoute circuit using Azure CLI.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: quickstart
 ms.date: 06/30/2023
 ms.author: duau
@@ -160,7 +160,7 @@ Your service key is listed in the *ServiceKey* field of the response.
 "circuitProvisioningState": "Enabled",
 "etag": "W/\"1262c492-ffef-4a63-95a8-a6002736b8c4\"",
 "gatewayManagerEtag": null,
-"id": "/subscriptions/81ab786c-56eb-4a4d-bb5f-f60329772466/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/MyCircuit",
+"id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/MyCircuit",
 "location": "westus",
 "name": "MyCircuit",
 "peerings": [],
@@ -230,7 +230,7 @@ The response is similar to the following example:
 "circuitProvisioningState": "Enabled",
 "etag": "W/\"1262c492-ffef-4a63-95a8-a6002736b8c4\"",
 "gatewayManagerEtag": null,
-"id": "/subscriptions/81ab786c-56eb-4a4d-bb5f-f60329772466/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/MyCircuit",
+"id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/MyCircuit",
 "location": "westus",
 "name": "MyCircuit",
 "peerings": [],

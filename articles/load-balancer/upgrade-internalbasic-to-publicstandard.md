@@ -3,7 +3,7 @@ title: Upgrade an internal basic load balancer - Outbound connections required
 titleSuffix: Azure Load Balancer
 description: Learn how to upgrade a basic internal load balancer to a standard public load balancer.
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: how-to
 ms.date: 12/07/2023
 ms.author: mbender

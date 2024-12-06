@@ -2,9 +2,9 @@
 title: Create a site - ARM template
 titleSuffix: Azure Private 5G Core
 description: This how-to guide shows how to create a site in your private mobile network using an Azure Resource Manager (ARM) template. 
-author: robswain
-ms.author: robswain
-ms.service: private-5g-core
+author: anzaman
+ms.author: alzam
+ms.service: azure-private-5g-core
 ms.topic: how-to
 ms.date: 03/16/2022
 ms.custom: template-how-to, devx-track-arm-template

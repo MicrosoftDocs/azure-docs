@@ -6,12 +6,12 @@ author: b-ahibbard
 ms.service: azure-netapp-files
 ms.custom: devx-track-terraform
 ms.topic: how-to
-ms.date: 05/22/2024
+ms.date: 07/30/2024
 ms.author: anfdocs
 ---
 # Manage availability zone volume placement for Azure NetApp Files
 
-You can deploy new volumes in the logical availability zone of your choice. You can also populate existing volumes with availability zone information. To better understand availability zones, see [Use availability zones for high availability](use-availability-zones.md).
+You can deploy new volumes in the logical availability zone of your choice. You can also populate existing volumes with availability zone information. To better understand availability zones, see [Use availability zone volume placement for high availability](use-availability-zones.md).
 
 ## Requirements and considerations 
 
@@ -81,8 +81,8 @@ You can deploy new volumes in the logical availability zone of your choice. You 
 
     :::image type="content" source="./media/manage-availability-zone-volume-placement/availability-zone-volume-overview.png" alt-text="Screenshot of volume properties interface." lightbox="./media/manage-availability-zone-volume-placement/availability-zone-volume-overview.png":::
 
-## <a name="populate-an-existing-volume-with-availability-zone-information"></a> Populate an existing volume with availability zone information (preview)
-
+## Populate an existing volume with availability zone information
+    
 1. Navigate to the volume that you want to populate with availability zone information.
 1. Select **Populate availability zone**.
 1. The Populate Availability Zone window appears and displays the availability zone in which the Azure NetApp Files volume is deployed.
@@ -164,7 +164,7 @@ If you're using a custom RBAC role or the [built-in Contributor role](../role-ba
 
 ## Next steps  
 
-* [Use availability zones zonal placement for application high availability with Azure NetApp Files](use-availability-zones.md)
+* [Use availability zone volume placement for application high availability with Azure NetApp Files](use-availability-zones.md)
 * [Create an NFS volume for Azure NetApp Files](azure-netapp-files-create-volumes.md)   
 * [Create an SMB volume for Azure NetApp Files](azure-netapp-files-create-volumes-smb.md)      
 * [Create a dual-protocol volume for Azure NetApp Files](create-volumes-dual-protocol.md)    

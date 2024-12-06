@@ -1,12 +1,13 @@
 ---
 title: Troubleshoot Azure Virtual Desktop Agent Issues - Azure
 description: How to resolve common Azure Virtual Desktop Agent and connectivity issues.
-author: sefriend
+author: dknappettmsft
 ms.topic: troubleshooting
 ms.date: 04/21/2023
-ms.author: sefriend
-manager: clarkn
+ms.author: daknappe
+ms.custom: docs_inherited
 ---
+
 # Troubleshoot common Azure Virtual Desktop Agent issues
 
 The Azure Virtual Desktop Agent can cause connection issues because of multiple factors:
@@ -46,41 +47,43 @@ To resolve this issue, start the RDAgent boot loader:
 
 ## Error: INVALID_REGISTRATION_TOKEN or EXPIRED_MACHINE_TOKEN
 
-On your session host VM, go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event with ID 3277 with **INVALID_REGISTRATION_TOKEN** or **EXPIRED_MACHINE_TOKEN** in the description, the registration token that has been used isn't recognized as valid.
+On your session host VM, go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event with ID 3277 with the description `INVALID_REGISTRATION_TOKEN` or `EXPIRED_MACHINE_TOKEN`, the registration key that has been used isn't recognized as valid.
 
-To resolve this issue, create a valid registration token:
+To resolve this issue:
 
-1. To create a new registration token, follow the steps in the [Generate a new registration key for the VM](#step-3-generate-a-new-registration-key-for-the-vm) section.
+1. Create a new registration key by following the steps in [Generate a registration key](add-session-hosts-host-pool.md#generate-a-registration-key).
 
-1. Open Registry Editor. 
+1. Open a PowerShell prompt as an administrator and run the following commands to add the new registration key to the registry. Replace `<RegistrationToken>` with the new registration token you generated.
 
-1. Go to **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\RDInfraAgent**.
+   ```powershell
+   $newKey = '<RegistrationToken>'
+   
+   Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\RDInfraAgent" -Name "IsRegistered" -Value 0 -Force
+   Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\RDInfraAgent" -Name "RegistrationToken" -Value $newKey -Force
+   ```
 
-1. Select **IsRegistered**. 
-
-1. In the **Value data:** entry box, type **0** and select **Ok**. 
-
-1. Select **RegistrationToken**. 
-
-1. In the **Value data:** entry box, paste the registration token from step 1. 
-
-   > [!div class="mx-imgBorder"]
-   > ![Screenshot of IsRegistered 0](media/isregistered-token.png)
-
-1. Open a PowerShell prompt as an administrator and run the following command to restart the RDAgentBootLoader service:
+1. Next, run the following command to restart the `RDAgentBootLoader` service:
 
    ```powershell
    Restart-Service RDAgentBootLoader
    ```
 
-1. Go back to Registry Editor.
+1. Run the following commands to verify that **IsRegistered** is set to 1 and **RegistrationToken** is blank.
 
-1. Go to **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\RDInfraAgent**.
+   ```powershell
+   Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\RDInfraAgent" -Name IsRegistered | FL IsRegistered
+   Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\RDInfraAgent" -Name RegistrationToken | FL RegistrationToken
+   ```
 
-1. Verify that **IsRegistered** is set to 1 and there's nothing in the data column for **RegistrationToken**. 
+   The output should be similar to the following output:
 
-    > [!div class="mx-imgBorder"]
-    > ![Screenshot of IsRegistered 1](media/isregistered-registry.png)
+   ```output
+   IsRegistered : 1
+
+   RegistrationToken : 
+   ```
+
+1. Check your session host is no available in the host pool. If it isn't, view the Event Viewer entries and see if there are any errors that are preventing the agent from starting.
 
 ## Error: Agent cannot connect to broker with INVALID_FORM
 
@@ -517,5 +520,5 @@ If the issue continues, create a support case and include detailed information a
 - To troubleshoot issues when using PowerShell with Azure Virtual Desktop, see [Azure Virtual Desktop PowerShell](troubleshoot-powershell.md).
 - To learn more about the service, see [Azure Virtual Desktop environment](environment-setup.md).
 - To go through a troubleshoot tutorial, see [Tutorial: Troubleshoot Resource Manager template deployments](../azure-resource-manager/templates/template-tutorial-troubleshoot.md).
-- To learn about auditing actions, see [Audit operations with Resource Manager](../azure-monitor/essentials/activity-log.md).
+- To learn about auditing actions, see [Audit operations with Resource Manager](/azure/azure-monitor/essentials/activity-log).
 - To learn about actions to determine the errors during deployment, see [View deployment operations](../azure-resource-manager/templates/deployment-history.md).

@@ -219,7 +219,7 @@ Expected output:
   "communityMembers": [
     "65500:12701"
   ],
-  "id": "/subscriptions/9531faa8-8c39-4165-b033-48697fe943db/resourceGroups/ResourceGroupName/providers/Microsoft.ManagedNetworkFabric/ipCommunities/ipcommunity-2701",
+  "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/ResourceGroupName/providers/Microsoft.ManagedNetworkFabric/ipCommunities/ipcommunity-2701",
   "location": "eastus",
   "name": "ipcommunity-2701",
   "provisioningState": "Succeeded",
@@ -260,7 +260,7 @@ Expected output:
   "communityMembers": [
     "65500:12701"
   ],
-  "id": "/subscriptions/9531faa8-8c39-4165-b033-48697fe943db/resourceGroups/ResourceGroupName/providers/Microsoft.ManagedNetworkFabric/ipCommunities/ipcommunity-2701",
+  "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/ResourceGroupName/providers/Microsoft.ManagedNetworkFabric/ipCommunities/ipcommunity-2701",
   "location": "eastus",
   "name": "ipcommunity-2701",
   "provisioningState": "Succeeded",
@@ -316,7 +316,7 @@ Expected output:
 {
   "action": "Permit",
   "annotation": null,
-  "id": "/subscriptions/9531faa8-8c39-4165-b033-48697fe943db/resourceGroups/ResourceGroupName/providers/Microsoft.ManagedNetworkFabric/ipExtendedCommunities/ipextcommunity-2701",
+  "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/ResourceGroupName/providers/Microsoft.ManagedNetworkFabric/ipExtendedCommunities/ipextcommunity-2701",
   "location": "eastus",
   "name": "ipextcommunity-2701",
   "provisioningState": "Succeeded",
@@ -351,7 +351,7 @@ Expected output:
 {
   "action": "Permit",
   "annotation": null,
-  "id": "/subscriptions/9531faa8-8c39-4165-b033-48697fe943db/resourceGroups/ResourceGroupName/providers/Microsoft.ManagedNetworkFabric/ipExtendedCommunities/ipextcommunity-2701",
+  "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/ResourceGroupName/providers/Microsoft.ManagedNetworkFabric/ipExtendedCommunities/ipextcommunity-2701",
   "location": "eastus",
   "name": "ipextcommunity-2701",
   "provisioningState": "Succeeded",
@@ -426,7 +426,7 @@ Expected output:
 ```output
 {
   "annotation": null,
-  "id": "/subscriptions/9531faa8-8c39-4165-b033-48697fe943db/resourceGroups/ResourceGroupName/providers/Microsoft.ManagedNetworkFabric/routePolicies/rcf-Fab3-l3domain-v6-connsubnet-ext-policy",
+  "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/ResourceGroupName/providers/Microsoft.ManagedNetworkFabric/routePolicies/rcf-Fab3-l3domain-v6-connsubnet-ext-policy",
   "location": "eastus",
   "name": "rcf-Fab3-l3domain-v6-connsubnet-ext-policy",
   "provisioningState": "Accepted",
@@ -505,7 +505,7 @@ Expected output:
 ```Output
 {
   "annotation": null,
-  "id": "/subscriptions/9531faa8-8c39-4165-b033-48697fe943db/resourceGroups/ResourceGroupName/providers/Microsoft.ManagedNetworkFabric/routePolicies/rcf-Fab3-l3domain-v6-connsubnet-ext-policy",
+  "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/ResourceGroupName/providers/Microsoft.ManagedNetworkFabric/routePolicies/rcf-Fab3-l3domain-v6-connsubnet-ext-policy",
   "location": "eastus",
   "name": "rcf-Fab3-l3domain-v6-connsubnet-ext-policy",
   "provisioningState": "Succeeded",

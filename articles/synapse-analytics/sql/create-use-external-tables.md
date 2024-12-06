@@ -2,7 +2,7 @@
 title: Create and use external tables in Synapse SQL pool
 description: In this section, you'll learn how to create and use external tables in Synapse SQL pool.
 author: vvasic-msft
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: overview
 ms.subservice: sql
 ms.date: 02/02/2022

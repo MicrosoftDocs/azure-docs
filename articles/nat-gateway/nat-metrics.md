@@ -3,7 +3,7 @@ title: Metrics and alerts for Azure NAT Gateway
 titleSuffix: Azure NAT Gateway
 description: Get started learning about Azure Monitor metrics and alerts available for monitoring Azure NAT Gateway.
 author: asudbring
-ms.service: nat-gateway
+ms.service: azure-nat-gateway
 ms.topic: how-to
 ms.date: 04/29/2024
 ms.author: allensu
@@ -200,7 +200,7 @@ Possible reasons for a drop in data path availability include:
 
 Alerts can be configured in Azure Monitor for all NAT gateway metrics. These alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address potential issues with NAT gateway. 
 
-For more information about how metric alerts work, see [Azure Monitor Metric Alerts](../azure-monitor/alerts/alerts-metric-overview.md). The following guidance describes how to configure some common and recommended types of alerts for your NAT gateway. 
+For more information about how metric alerts work, see [Azure Monitor Metric Alerts](/azure/azure-monitor/alerts/alerts-metric-overview). The following guidance describes how to configure some common and recommended types of alerts for your NAT gateway. 
 
 ### Alerts for datapath availability degradation
 
@@ -338,6 +338,6 @@ Refer to [troubleshooting metrics charts](/azure/azure-monitor/essentials/metric
 
 * Learn about [Azure NAT Gateway](nat-overview.md)
 * Learn about [NAT gateway resource](nat-gateway-resource.md)
-* Learn about [Azure Monitor](../azure-monitor/overview.md)
+* Learn about [Azure Monitor](/azure/azure-monitor/overview)
 * Learn about [troubleshooting NAT gateway resources](troubleshoot-nat.md).
 * Learn about [troubleshooting NAT gateway connectivity](/azure/nat-gateway/troubleshoot-nat-connectivity)

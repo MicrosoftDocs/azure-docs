@@ -3,7 +3,7 @@ title: 'Quickstart: Create a mesh network topology with Azure Virtual Network Ma
 description: Learn to a mesh virtual network topology with Azure Virtual Network Manager by using the Azure portal.
 author: mbender-ms
 ms.author: mbender
-ms.service: virtual-network-manager
+ms.service: azure-virtual-network-manager
 ms.topic: quickstart
 ms.date: 08/24/2023
 ms.custom: template-quickstart, mode-ui, engagement-fy23

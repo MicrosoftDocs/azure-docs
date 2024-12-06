@@ -1,9 +1,9 @@
 ---
 title: Prerequisites for Datadog on Azure
 description: This article describes how to configure your Azure environment to create an instance of Datadog.
-author: flang-msft
 
-ms.author: franlanglois
+
+
 ms.topic: conceptual
 ms.date: 01/06/2023
 ---
@@ -17,8 +17,8 @@ This article describes how to set up your environment before deploying your firs
 To set up the Datadog - An Azure Native ISV Service, you must have **Owner** access on the Azure subscription. [Confirm that you have the appropriate access](../../role-based-access-control/check-access.md) before starting the setup.
 
 ## Add enterprise application
- 
-To use the Security Assertion Markup Language (SAML) single sign-on (SSO) feature within the Datadog resource, you must set up an enterprise application. To add an enterprise application, you need one of these roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
+
+To use the Security Assertion Markup Language (SAML) single sign-on (SSO) feature within the Datadog resource, you must set up an enterprise application. To add an enterprise application, you need one of these roles: Cloud Application Administrator, Application Administrator, or owner of the service principal.
 
 Use the following steps to set up the enterprise application:
 

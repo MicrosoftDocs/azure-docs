@@ -75,11 +75,13 @@ For stores that use HMAC authentication, both the "read snapshot" operation (to 
 
 ## Billing considerations and limits
 
-App Configuration has two tiers, Free and Standard. Check the following details for snapshot quotas in each tier.
+App Configuration has three tiers, Free, Standard and Premium. Check the following details for snapshot quotas in each tier.
 
 * **Free tier**: This tier has a snapshot storage quota of 10 MB.  One can create as many snapshots as possible as long as the total storage size of all active and archived snapshots is less than 10 MB.
 
 * **Standard tier**: This tier has a snapshot storage quota of 1 GB. One can create as many snapshots as possible as long as the total storage size of all active and archived snapshots is less than 1 GB.
+
+* **Premium tier**: This tier has a snapshot storage quota of 4 GB. One can create as many snapshots as possible as long as the total storage size of all active and archived snapshots is less than 4 GB.
 
 The maximum size for a snapshot is 1 MB.
 

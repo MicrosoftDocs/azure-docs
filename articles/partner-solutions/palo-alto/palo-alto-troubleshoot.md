@@ -3,7 +3,7 @@ title: Troubleshooting your Cloud NGFW by Palo Alto Networks
 description: This article provides information about getting support and troubleshooting a Cloud NGFW (Next-Generation Firewall) by Palo Alto Networks.
 
 ms.topic: conceptual
-ms.date: 07/10/2023
+ms.date: 10/18/2024
 
 ---
 
@@ -20,6 +20,15 @@ You can get support for your Palo Alto deployment through a **New Support reques
 1. Select **Raise a support ticket** and fill out the details.
 
 ## Troubleshooting
+
+### Connection errors 
+
+For connection errors, see [known issues for Azure Virtual WAN](../../virtual-wan/whats-new.md#known-issues).
+
+#### See also
+
+- [Azure Virtual Network FAQ](../../virtual-network/virtual-networks-faq.md)
+- [Virtual WAN FAQ](../../virtual-wan/virtual-wan-faq.md)
 
 ### Marketplace purchase errors
 

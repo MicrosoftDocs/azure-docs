@@ -6,12 +6,15 @@ ms.author: yelevin
 ms.topic: concept-article
 ms.custom: linux-related-content
 ms.date: 07/12/2024
-#Customer intent: As a security operator, I want to understand how Microsoft Sentinel collects Syslog and CEF messages with the Azure Monitor Agent so that I can determine if this solution fits my organization's needs.  
+
+
+#Customer intent: As a security engineer, I want to collect Syslog and CEF messages from various devices, either directly or using a centralized log forwarder, so that I can efficiently monitor and respond to security threats.
+
 ---
 
 # Syslog and Common Event Format (CEF) via AMA connectors for Microsoft Sentinel
 
-The Syslog via AMA and Common Event Format (CEF) via AMA data connectors for Microsoft Sentinel filter and ingest Syslog messages, including messages in Common Event Format (CEF), from Linux machines and from network and security devices and appliances. These connectors install the Azure Monitor Agent (AMA) on any Linux machine from which you want to collect Syslog and/or CEF messages. This machine could be the originator of the messages, or it could be a forwarder that collects messages from other machines, such as network or security devices and appliances. The connector sends the agents instructions based on [Data Collection Rules (DCRs)](../azure-monitor/essentials/data-collection-rule-overview.md) that you define. DCRs specify the systems to monitor and the types of logs or messages to collect. They define filters to apply to the messages before they're ingested, for better performance and more efficient querying and analysis.
+The Syslog via AMA and Common Event Format (CEF) via AMA data connectors for Microsoft Sentinel filter and ingest Syslog messages, including messages in Common Event Format (CEF), from Linux machines and from network and security devices and appliances. These connectors install the Azure Monitor Agent (AMA) on any Linux machine from which you want to collect Syslog and/or CEF messages. This machine could be the originator of the messages, or it could be a forwarder that collects messages from other machines, such as network or security devices and appliances. The connector sends the agents instructions based on [Data Collection Rules (DCRs)](/azure/azure-monitor/essentials/data-collection-rule-overview) that you define. DCRs specify the systems to monitor and the types of logs or messages to collect. They define filters to apply to the messages before they're ingested, for better performance and more efficient querying and analysis.
 
 Syslog and CEF are two common formats for logging data from different devices and applications. They help system administrators and security analysts to monitor and troubleshoot the network and identify potential threats or incidents.
 
@@ -99,7 +102,7 @@ To avoid this scenario, use one of these methods:
 
     To see an example of how to arrange a DCR to ingest both Syslog and CEF messages from the same agent, go to [Syslog and CEF streams in the same DCR](connect-cef-syslog-ama.md?tabs=api#syslog-and-cef-streams-in-the-same-dcr).
 
-- **If changing the facility for the source appliance isn't applicable**: After you create the DCR, add ingestion time transformation to filter out CEF messages from the Syslog stream to avoid duplication. See [Tutorial: Edit a data collection rule (DCR)](../azure-monitor/essentials/data-collection-rule-edit.md). Add KQL transformation similar to the following example:
+- **If changing the facility for the source appliance isn't applicable**: After you create the DCR, add ingestion time transformation to filter out CEF messages from the Syslog stream to avoid duplication. See [Tutorial: Edit a data collection rule (DCR)](/azure/azure-monitor/essentials/data-collection-rule-edit). Add KQL transformation similar to the following example:
 
     ```json
     "transformKql": "  source\n    |  where ProcessName !contains \"CEF\"\n"

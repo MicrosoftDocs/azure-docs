@@ -3,7 +3,7 @@ title: Tune Azure Web Application Firewall for Azure Front Door
 description: In this article, you learn how to tune Azure Web Application Firewall for Azure Front Door.
 services: web-application-firewall
 author: mohitkusecurity
-ms.service: web-application-firewall
+ms.service: azure-web-application-firewall
 ms.topic: conceptual
 ms.date: 08/28/2022
 ms.author: mohitku
@@ -440,6 +440,9 @@ If the request contains cookies, select the **Cookies** tab to view them in Fidd
 If you see rule ID 949110 during the process of tuning your WAF, its presence indicates that the request was blocked by the [anomaly scoring](waf-front-door-drs.md#anomaly-scoring-mode) process.
 
 Review the other WAF log entries for the same request by searching for the log entries with the same tracking reference. Look at each of the rules that were triggered. Tune each rule by following the guidance in this article.
+
+   > [!WARNING]
+   > When assigning a new managed ruleset to a WAF policy, all the previous customizations from the existing managed rulesets such as rule state, rule actions and rule level exclusions will be reset to the new managed ruleset's defaults. However, any custom rules and policy settings will remain unaffected during the new ruleset assignment.
 
 ## Next steps
 

@@ -6,7 +6,7 @@ ms.custom: horz-monitor
 ms.topic: reference
 author: spelluru
 ms.author: spelluru
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ---
 
 # Azure Stream Analytics monitoring data reference
@@ -71,7 +71,7 @@ The following table lists the metrics available for the Microsoft.StreamAnalytic
 
 ## Related content
 
-- [Monitor Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md)
+- [Monitor Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource)
 - [Monitor Azure Stream Analytics](monitor-azure-stream-analytics.md)
 - [Dimensions for Azure Stream Analytics metrics](monitor-azure-stream-analytics-reference.md#metric-dimensions)
 - [Understand and adjust streaming units](stream-analytics-streaming-unit-consumption.md)

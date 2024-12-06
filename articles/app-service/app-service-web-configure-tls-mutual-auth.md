@@ -15,8 +15,9 @@ ms.custom: devx-track-csharp, devx-track-extended-java, devx-track-js, devx-trac
 You can restrict access to your Azure App Service app by enabling different types of authentication for it. One way to do it is to request a client certificate when the client request is over TLS/SSL and validate the certificate. This mechanism is called TLS mutual authentication or client certificate authentication. This article shows how to set up your app to use client certificate authentication.
 
 > [!NOTE]
+> Your app code is responsible for validating the client certificate. App Service doesn't do anything with this client certificate other than forwarding it to your app.
+> 
 > If you access your site over HTTP and not HTTPS, you will not receive any client certificate. So if your application requires client certificates, you should not allow requests to your application over HTTP.
->
 
 [!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
 
@@ -26,7 +27,13 @@ To set up your app to require client certificates:
 
 1. From the left navigation of your app's management page, select **Configuration** > **General Settings**.
 
-1. Set **Client certificate mode** to **Require**. Select **Save** at the top of the page.
+1. Select **Client certificate mode** of choice. Select **Save** at the top of the page.
+
+|Client certificate modes|Description|
+|-|-|
+|Required|All requests require a client certificate.|
+|Optional|Requests may or may not use a client certificate. Clients will be prompted for a certificate by default. For example, browser clients will show a prompt to select a certificate for authentication.|
+|Optional Interactive User|Requests may or may not use a client certificate. Clients will not be prompted for a certificate by default. For example, browser clients will not show a prompt to select a certificate for authentication.|
 
 ### [Azure CLI](#tab/azurecli)
 To do the same with Azure CLI, run the following command in the [Cloud Shell](https://shell.azure.com):
@@ -123,7 +130,7 @@ public class Startup
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddControllersWithViews();
-        // Configure the application to use the protocol and client ip address forwared by the frontend load balancer
+        // Configure the application to use the protocol and client ip address forwarded by the frontend load balancer
         services.Configure<ForwardedHeadersOptions>(options =>
         {
             options.ForwardedHeaders =
@@ -288,7 +295,7 @@ public class Startup
 
                 if (!foundIssuerCN || !foundIssuerO) return false;
 
-                // 4. Check thumprint of certificate
+                // 4. Check thumbprint of certificate
                 if (String.Compare(certificate.Thumbprint.Trim().ToUpper(), "30757A2E831977D8BD9C8496E4C99AB26CB9622B") != 0) return false;
 
                 return true;

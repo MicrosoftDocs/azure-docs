@@ -2,7 +2,7 @@
 title: Query Parquet nested types using serverless SQL pool
 description: In this article, you'll learn how to query Parquet nested types by using serverless SQL pool.
 author: azaricstefan 
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: how-to
 ms.subservice: sql
 ms.date: 05/20/2020

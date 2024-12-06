@@ -28,6 +28,8 @@ items:
     href: high-availability.md
   - name: Encryption
     href: encryption.md
+  - name: Grafana settings
+    href: grafana-settings.md
   - name: Azure RBAC  
     href: concept-role-based-access-control.md
 - name: How-to guides
@@ -41,7 +43,7 @@ items:
     - name: Modify access permissions to Azure Monitor
       href: how-to-permissions.md
     - name: Sync teams with Microsoft Entra groups
-      href: how-to-sync-teams-with-azure-ad-groups.md
+      href: how-to-sync-teams-with-entra-groups.md
     - name: Share a workspace
       href: how-to-share-grafana-workspace.md
   - name: Data sources
@@ -98,10 +100,6 @@ items:
       href: how-to-monitor-managed-grafana-workspace.md
   - name: Migrate to Azure Managed Grafana
     href: how-to-migrate.md
-  - name: Transition to grafana.azure.com domain
-    href: how-to-transition-domain.md
-  - name: Upgrade to Grafana 10
-    href: how-to-upgrade-grafana-10.md
   - name: Troubleshoot common issues
     href: troubleshoot-managed-grafana.md
   - name: Known limitations

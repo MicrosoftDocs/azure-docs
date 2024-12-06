@@ -4,7 +4,7 @@ titleSuffix: Azure Virtual Network
 description: Learn about how to deploy a Dynamic Host Configuration Protocol (DHCP) server in Azure on a virtual machine as a target for an on-premises DHCP relay agent.
 author: asudbring
 ms.author: allensu
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: how-to
 ms.date: 02/28/2024
 

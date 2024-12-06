@@ -1,20 +1,20 @@
 ---
-title: Azure Notification Hubs diagnostics logs | Microsoft Docs
-description: Learn about the operational and diagnostics logs that are available for Azure Notification Hubs, and how to enable diagnostic logging.
+title: Azure Notification Hubs resource logs
+description: Learn about the operational and diagnostics logs that are available for Azure Notification Hubs, and how to enable diagnostic settings.
 author: sethmanheim
 ms.author: sethm
-ms.service: notification-hubs
+ms.service: azure-notification-hubs
 ms.topic: article
 ms.date: 03/12/2024
 ---
 
-# Enable diagnostics logs for Notification Hubs
+# Enable resource logs for Notification Hubs
 
 When you start using your Azure Notification Hubs namespace, you might want to monitor how and when your namespace is created, deleted, or accessed. This article provides an overview of all the operational and diagnostics logs that are available.
 
 Azure Notification Hubs currently supports activity and operational logs, which capture *management operations* that are performed on the Azure Notification Hubs namespace.
 
-## Diagnostic logs schema
+## Resource logs schema
 
 All logs are stored in JavaScript Object Notation (JSON) format in the following two locations:
 
@@ -28,12 +28,12 @@ Here's an example of an operational log JSON string:
 ```json
 {
     "operationName": "Microsoft.NotificationHubs/Namespaces/NotificationHubs/authorizationRules/action",
-    "resourceId": "/SUBSCRIPTIONS/2CAC2A14-BA6B-46A6-BCE8-2D9781A41BA2/RESOURCEGROUPS/SAMPLES/PROVIDERS/MICROSOFT.NOTIFICATIONHUBS/NAMESPACES/SAMPLE-NS",
+    "resourceId": "/SUBSCRIPTIONS/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/RESOURCEGROUPS/SAMPLES/PROVIDERS/MICROSOFT.NOTIFICATIONHUBS/NAMESPACES/SAMPLE-NS",
     "time": "1/1/2021 5:16:32 AM +00:00",
     "category": "OperationalLogs",
     "resultType": "Succeeded",
     "resultDescription": "Gets Hub Authorization Rules",
-    "correlationId": "00000000-0000-0000-0000-000000000000",
+    "correlationId": "aaaa0000-bb11-2222-33cc-444444dddddd",
     "callerIdentity": "{ \"identityType\": \"Portal\", \"identity\": \"\" }"
 }
 ```
@@ -105,7 +105,7 @@ The new settings take effect in about 10 minutes. The logs are displayed in the 
 ## Related content
 
 To learn more about configuring diagnostics settings, see:
-* [Overview of Azure diagnostics logs](../azure-monitor/essentials/platform-logs-overview.md).
+* [Overview of Azure diagnostics logs](/azure/azure-monitor/essentials/platform-logs-overview).
 
 To learn more about Azure Notification Hubs, see:
 * [What is Azure Notification Hubs?](notification-hubs-push-notification-overview.md)

@@ -13,7 +13,7 @@ author: msangapu-msft
 > Automatic scaling is available for all app types: Windows and Linux (deploy as code and container). Automatic scaling is not supported for deployment slot traffic.
 >
 
-Automatic scaling is a new scale-out option that automatically handles scaling decisions for your web apps and App Service Plans. It's different from the pre-existing **[Azure autoscale](../azure-monitor/autoscale/autoscale-overview.md)**, which lets you define scaling rules based on schedules and resources. With automatic scaling, you can adjust scaling settings to improve your app's performance and avoid cold start issues. The platform prewarms instances to act as a buffer when scaling out, ensuring smooth performance transitions. You're charged per second for every instance, including prewarmed instances. 
+Automatic scaling is a new scale-out option that automatically handles scaling decisions for your web apps and App Service Plans. It's different from the pre-existing **[Azure autoscale](/azure/azure-monitor/autoscale/autoscale-overview)**, which lets you define scaling rules based on schedules and resources. With automatic scaling, you can adjust scaling settings to improve your app's performance and avoid cold start issues. The platform prewarms instances to act as a buffer when scaling out, ensuring smooth performance transitions. You're charged per second for every instance, including prewarmed instances. 
 
 A comparison of scale-out and scale in options available on App Service:
 
@@ -180,7 +180,7 @@ To disable ARR Affinity cookies: select your App Service app, and under **Settin
 
 ## More resources
 
-* [Get started with autoscale in Azure](../azure-monitor/autoscale/autoscale-get-started.md)
+* [Get started with autoscale in Azure](/azure/azure-monitor/autoscale/autoscale-get-started)
 * [Configure PremiumV3 tier for App Service](app-service-configure-premium-tier.md)
 * [Scale up server capacity](manage-scale-up.md)
 * [High-density hosting](manage-scale-per-app.md)

@@ -4,11 +4,11 @@ titleSuffix: Azure AD B2C
 description: Secure your custom RESTful APIs used for API connectors in Azure AD B2C.
 author: kengaderdus
 manager: CelesteDG
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.topic: how-to
-ms.date: 01/11/2024
+ms.date: 10/14/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
 
 
@@ -135,7 +135,7 @@ Client certificate authentication is a mutual certificate-based authentication, 
 
 #### Option 1: Use Azure Key Vault (recommended)
 
-To create a certificate, you can use [Azure Key Vault](../key-vault/certificates/create-certificate.md), which has options for self-signed certificates and integrations with certificate issuer providers for signed certificates. Recommended settings include:
+To create a certificate, you can use [Azure Key Vault](/azure/key-vault/certificates/create-certificate), which has options for self-signed certificates and integrations with certificate issuer providers for signed certificates. Recommended settings include:
 - **Subject**: `CN=<yourapiname>.<tenantname>.onmicrosoft.com`
 - **Content Type**: `PKCS #12`
 - **Lifetime Acton Type**: `Email all contacts at a given percentage lifetime` or `Email all contacts a given number of days before expiry`
@@ -143,7 +143,7 @@ To create a certificate, you can use [Azure Key Vault](../key-vault/certificates
 - **Key Size**: `2048`
 - **Exportable Private Key**: `Yes` (in order to be able to export `.pfx` file)
 
-You can then [export the certificate](../key-vault/certificates/how-to-export-certificate.md).
+You can then [export the certificate](/azure/key-vault/certificates/how-to-export-certificate).
 
 #### Option 2: prepare a self-signed certificate using PowerShell module
 
@@ -276,7 +276,10 @@ A claim provides temporary storage of data during an Azure AD B2C policy executi
 
 ### Acquiring an access token 
 
-You can obtain an access token in one of several ways, for the [from a federated identity provider](idp-pass-through-user-flow.md), by calling a REST API that returns an access token, by using an [ROPC flow](../active-directory/develop/v2-oauth-ropc.md), or by using the [client credentials flow](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md). The client credentials flow is commonly used for server-to-server interactions that must run in the background, without immediate interaction with a user.
+You can obtain an access token in one of several ways, for the [from a federated identity provider](idp-pass-through-user-flow.md), by calling a REST API that returns an access token, by using an [ROPC flow](/entra/identity-platform/v2-oauth-ropc), or by using the [client credentials flow](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md). The client credentials flow is commonly used for server-to-server interactions that must run in the background, without immediate interaction with a user.
+
+> [!WARNING]
+> Microsoft recommends you do *not* use the ROPC flow. This flow requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows aren't viable.
 
 <a name='acquiring-an-azure-ad-access-token-'></a>
 
@@ -577,7 +580,7 @@ The following XML snippet is an example of a RESTful technical profile configure
 ```
 ::: zone-end
 
-## Next steps
+## Related content
 
 ::: zone pivot="b2c-user-flow"
 - Get started with our [samples](api-connector-samples.md#api-connector-rest-api-samples).

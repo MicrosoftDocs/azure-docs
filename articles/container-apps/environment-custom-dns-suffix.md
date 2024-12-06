@@ -3,7 +3,7 @@ title: Custom environment DNS suffix in Azure Container Apps
 description: Learn to manage custom DNS suffix and TLS certificate in Azure Container Apps environments
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: how-to
 ms.date: 07/18/2024
 ms.author: cshoe

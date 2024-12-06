@@ -52,7 +52,7 @@ App Service authentication and authorization support multiple authentication pro
 
 When authenticating against a back-end service, App Service provides two different mechanisms depending on your need:
 
-- **Service identity** - Sign in to the remote resource using the identity of the app itself. App Service lets you easily create a [managed identity](overview-managed-identity.md), which you can use to authenticate with other services, such as [Azure SQL Database](/azure/sql-database/) or [Azure Key Vault](../key-vault/index.yml). For an end-to-end tutorial of this approach, see [Secure Azure SQL Database connection from App Service using a managed identity](tutorial-connect-msi-sql-database.md).
+- **Service identity** - Sign in to the remote resource using the identity of the app itself. App Service lets you easily create a [managed identity](overview-managed-identity.md), which you can use to authenticate with other services, such as [Azure SQL Database](/azure/sql-database/) or [Azure Key Vault](/azure/key-vault/). For an end-to-end tutorial of this approach, see [Secure Azure SQL Database connection from App Service using a managed identity](tutorial-connect-msi-sql-database.md).
 - **On-behalf-of (OBO)** - Make delegated access to remote resources on behalf of the user. With Microsoft Entra ID as the authentication provider, your App Service app can perform delegated sign-in to a remote service, such as [Microsoft Graph](/graph/overview) or a remote API app in App Service. For an end-to-end tutorial of this approach, see [Authenticate and authorize users end-to-end in Azure App Service](tutorial-auth-aad.md).
 
 ## Connectivity to remote resources
@@ -89,7 +89,7 @@ You can securely access on-premises resources, such as databases, in three ways:
 
 Don't store application secrets, such as database credentials, API tokens, and private keys in your code or configuration files. The commonly accepted approach is to access them as [environment variables](https://wikipedia.org/wiki/Environment_variable) using the standard pattern in your language of choice. In App Service, the way to define environment variables is through [app settings](configure-common.md#configure-app-settings) (and, especially for .NET applications, [connection strings](configure-common.md#configure-connection-strings)). App settings and connection strings are stored encrypted in Azure, and they're decrypted only before being injected into your app's process memory when the app starts. The encryption keys are rotated regularly.
 
-Alternatively, you can integrate your App Service app with [Azure Key Vault](../key-vault/index.yml) for advanced secrets management. By [accessing the Key Vault with a managed identity](../key-vault/general/tutorial-net-create-vault-azure-web-app.md), your App Service app can securely access the secrets you need.
+Alternatively, you can integrate your App Service app with [Azure Key Vault](/azure/key-vault/) for advanced secrets management. By [accessing the Key Vault with a managed identity](/azure/key-vault/general/tutorial-net-create-vault-azure-web-app), your App Service app can securely access the secrets you need.
 
 ## Network isolation
 

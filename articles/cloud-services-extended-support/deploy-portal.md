@@ -2,7 +2,7 @@
 title: Deploy Azure Cloud Services (extended support) - Azure portal
 description: Deploy Azure Cloud Services (extended support) by using the Azure portal.
 ms.topic: quickstart
-ms.service: cloud-services-extended-support
+ms.service: azure-cloud-services-extended-support
 author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt

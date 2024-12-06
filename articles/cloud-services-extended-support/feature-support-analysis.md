@@ -2,14 +2,14 @@
 title: Feature Analysis Cloud Services vs Virtual Machine Scale Sets
 description: Learn about the feature set available in Cloud Services and Virtual Machine Scale Sets
 ms.topic: article
-ms.service: cloud-services-extended-support
+ms.service: azure-cloud-services-extended-support
 author: surbhijain
 ms.author: surbhijain
 ms.reviewer: mimckitt
 ms.date: 07/24/2024
 ---
 # Feature Analysis: Cloud Services (extended support) and Virtual Machine Scale Sets
-This article provides a feature analysis of Cloud Services (extended support) and Virtual Machine Scale Sets. For more information on Virtual Machine Scale Sets, visit the documentation [here](../virtual-machine-scale-sets/overview.md)
+This article provides a feature analysis of Cloud Services (extended support) and Virtual Machine Scale Sets. For more information on Virtual Machine Scale Sets, visit the documentation [here](/azure/virtual-machine-scale-sets/overview)
 
 
 ## Basic setup

@@ -5,7 +5,7 @@ author: tedvilutis
 ms.author: tvilutis
 manager: cnovak
 ms.reviewer: orspodek
-ms.service: time-series-insights
+ms.service: azure-time-series-insights
 ms.topic: how-to
 ms.date: 03/15/2021
 ms.custom: devx-track-azurecli

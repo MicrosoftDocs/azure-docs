@@ -4,7 +4,7 @@ titleSuffix: Azure Container Apps
 description: Learn more about what's new in Azure Container Apps.
 ms.author: hannahhunter
 author: hhunter-ms
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
@@ -15,6 +15,10 @@ ms.date: 08/30/2023
 # What's new in Azure Container Apps
 
 This article lists significant updates and new features available in Azure Container Apps.
+
+## November 2024 and beyond
+
+Azure Container Apps updates can be found in [GitHub](https://aka.ms/aca/updates) now.
 
 ## May 2024 
 

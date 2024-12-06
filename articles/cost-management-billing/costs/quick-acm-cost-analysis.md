@@ -3,11 +3,11 @@ title: Quickstart - Start using Cost analysis
 description: This quickstart helps you use cost analysis to explore and analyze your Azure organizational costs.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/10/2023
+ms.date: 11/01/2024
 ms.topic: quickstart
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: micflan
+ms.reviewer: shasulin
 ms.custom: mode-other
 ---
 
@@ -86,6 +86,14 @@ This view is where you spend most of your time in Cost analysis. To explore furt
 >[!NOTE]
 >If you want to visualize and monitor daily trends within the period, enable the [chart preview feature](enable-preview-features-cost-management-labs.md#chartsfeature) in Cost Management Labs, available from the **Try preview** command.
 
+Data sources for smart views are as follows:
+
+- Reservations – Source data is from amortized usage and charges.
+- Resource groups – Source data is from actual usage and charges.
+- Services – Source data is from actual usage and charges.
+- Subscriptions – Source data is from actual usage and charges.
+- Resources – Source data is from actual usage and charges.
+
 ## Analyze costs with customizable views
 
 While smart views offer a highly curated experience for targeted scenarios, custom views allow you to drill in further and answer more specific questions. Like smart views, custom views include a specific date range, granularity, group by, and one or more filters. Five custom views are provided for you to show how costs change over time. They're separated by resource and product. All aspects of custom views can be changed to help answer simple questions. If you require more advanced reporting, like grouping by multiple attributes or fully customizable reports, use Power BI or export raw cost details.
@@ -124,7 +132,7 @@ Regardless of whether you start on smart or customizable views, if you need more
 
 ## Forecasting costs in Cost Analysis 
 
-Forecast costs are available from both smart and custom views. In either case, the forecast is calculated the same way based on your historical usage patterns for up to a year in the future. 
+Forecast costs are available in both smart and custom views when you select either an area or column stacked chart type. In either case, the forecast is calculated the same way based on your historical usage patterns for up to a year in the future. 
 
 Your forecast is a projection of your estimated costs for the selected period. Your forecast changes depending on what data is available for the period, how long of a period you select, and what filters you apply. If you notice an unexpected spike or drop in your forecast, expand the date range, and use grouping to identify large increases or decreases in historical cost. You can filter them out to normalize the forecast. A few key considerations: 
 

@@ -3,7 +3,7 @@ title: Enable replication for on-premises machines with private endpoints
 description: This article describes how to configure replication for on-premises machines by using private endpoints in Site Recovery. 
 author: ankitaduttaMSFT
 ms.author: ankitadutta
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: how-to
 ms.date: 04/08/2024
 ms.custom: subject-rbac-steps, engagement-fy23

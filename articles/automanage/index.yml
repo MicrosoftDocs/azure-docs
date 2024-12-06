@@ -6,7 +6,7 @@ summary: Azure Automanage Machine Best Practices
 metadata:
   title: Azure Automanage
   description: Learn about Azure Automanage
-  ms.service: automanage
+  ms.service: azure-automanage
   ms.author: rayoflores
   ms.topic: landing-page
   ms.date: 09/07/2022

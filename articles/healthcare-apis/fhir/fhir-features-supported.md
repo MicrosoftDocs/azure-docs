@@ -3,7 +3,7 @@ title: Supported FHIR features in the FHIR service
 description: Learn which features of the FHIR specification are implemented in the FHIR service in Azure Health Data Services
 services: healthcare-apis
 author: expekesheth
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 06/06/2022
@@ -22,27 +22,27 @@ Previous versions also currently supported include: `3.0.2`
 
 ## REST API
 
-Here is a summary of the supported RESTful capabilities. For more information on the implementation of these capabilities, see [FHIR REST API capabilities](rest-api-capabilities.md). 
+Here's a summary of the supported RESTful capabilities. For more information on the implementation of these capabilities, see [FHIR REST API capabilities](rest-api-capabilities.md). 
 
 | API    | Azure API for FHIR | FHIR service in Azure Health Data Services | Comment |
 |--------|--------------------|---------------------------------|---------|
 | read   | Yes                | Yes                             |         |
 | vread  | Yes                | Yes                             |         |
 | update | Yes                | Yes                             |         | 
-| update with optimistic locking | Yes       | Yes       |
-| update (conditional)           | Yes       | Yes       |
+| update with optimistic locking | Yes       | Yes       | |
+| update (conditional)           | Yes       | Yes       | |
 | patch                          | Yes       | Yes       | Support for [JSON Patch and FHIRPath Patch](rest-api-capabilities.md#patch-and-conditional-patch) only. |
 | patch (conditional)            | Yes       | Yes       | Support for [JSON Patch and FHIRPath Patch](rest-api-capabilities.md#patch-and-conditional-patch) only. |
-| history                        | Yes       | Yes       |
+| history                        | Yes       | Yes       | |
 | create                         | Yes       | Yes       | Support both POST/PUT |
 | create (conditional)           | Yes       | Yes       | Issue [#1382](https://github.com/microsoft/fhir-server/issues/1382) |
 | search                         | Partial   | Partial   | See [Overview of FHIR Search](overview-of-search.md). |
 | chained search                 | Yes       | Yes       | |
 | reverse chained search         | Yes       | Yes       | |
-| batch                          | Yes       | Yes       |
-| transaction                    | No        | Yes       |
+| batch                          | Yes       | Yes       | |
+| transaction                    | No        | Yes       | |
 | paging                         | Partial   | Partial   | `self` and `next` are supported                     |
-| intermediaries                 | No        | No        |
+| intermediaries                 | No        | No        | |
 
 ## Extended Operations
 

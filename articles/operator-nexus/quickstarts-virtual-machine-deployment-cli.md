@@ -38,8 +38,8 @@ Before you run the commands, you need to set several variables to define the con
 | ADMIN_USERNAME             | The username for the virtual machine administrator.                                                   |
 | SSH_PUBLIC_KEY             | The SSH public key that is used for secure communication with the virtual machine.                    |
 | CPU_CORES                  | The number of CPU cores for the virtual machine (even number, max 46 vCPUs)                           |
-| MEMORY_SIZE                | The amount of memory (in GB, max 224 GB) for the virtual machine.                                     |
-| VM_DISK_SIZE               | The size (in GB) of the virtual machine disk.                                                         |
+| MEMORY_SIZE                | The amount of memory (in GiB, max 224 GiB) for the virtual machine.                                     |
+| VM_DISK_SIZE               | The size (in GiB) of the virtual machine disk.                                                         |
 | VM_IMAGE                   | The URL of the virtual machine image.                                                                 |
 | ACR_URL                    | The URL of the Azure Container Registry.                                                              |
 | ACR_USERNAME               | The username for the Azure Container Registry.                                                        |

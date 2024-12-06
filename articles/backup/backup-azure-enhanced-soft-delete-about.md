@@ -4,7 +4,7 @@ description: This article gives an overview of enhanced soft delete for Azure Ba
 ms.topic: overview
 ms.custom: references_regions
 ms.date: 07/18/2024
-ms.service: backup
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---

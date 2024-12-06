@@ -2,28 +2,18 @@
 title: Back up Azure Managed Disks using Azure CLI
 description: Learn how to back up Azure Managed Disks using Azure CLI.
 ms.topic: how-to
-ms.custom: devx-track-azurecli
-ms.date: 08/25/2023
+ms.custom: devx-track-azurecli, engagement-fy24
+ms.date: 08/20/2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
 # Back up Azure Managed Disks using Azure CLI
 
-This article describes how to back up [Azure Managed Disk](../virtual-machines/managed-disks-overview.md) using Azure CLI.
+This article describes how to back up [Azure Managed Disk](/azure/virtual-machines/managed-disks-overview) using Azure CLI.
 
 > [!IMPORTANT]
 > Support for Azure Managed Disks backup and restore via CLI is in preview and available as an extension in Az 2.15.0 version and later. The extension is automatically installed when you run the **az dataprotection** commands. [Learn more](/cli/azure/azure-cli-extensions-overview) about extensions.
-
-In this article, you'll learn how to:
-
-- Create a Backup vault
-
-- Create a Backup policy
-
-- Configure Backup of an Azure Disk
-
-- Run an on-demand backup job
 
 For information on the Azure Disk backup region availability, supported scenarios and limitations, see the [support matrix](disk-backup-support-matrix.md).
 
@@ -172,7 +162,7 @@ For example, if you select **Every 4 hours**, then the backups are taken at appr
 >[!IMPORTANT]
 >The time of the day indicates the backup start time and not the time when the backup completes.
 
-The time required for completing the backup operation depends on various factors including size of the disk, and churn rate between consecutive backups. However, Azure Disk Backup is an agentless backup that uses [incremental snapshots](../virtual-machines/disks-incremental-snapshots.md), which doesn't impact the production application performance.
+The time required for completing the backup operation depends on various factors including size of the disk, and churn rate between consecutive backups. However, Azure Disk Backup is an agentless backup that uses [incremental snapshots](/azure/virtual-machines/disks-incremental-snapshots), which doesn't impact the production application performance.
 
    >[!NOTE]
    >Although the selected vault may have the global-redundancy setting, currently, Azure Disk Backup supports snapshot datastore only. All backups are stored in a resource group in your subscription and aren't copied to the Backup vault storage.
@@ -487,7 +477,7 @@ Trigger an on-demand backup using the [az dataprotection backup-instance adhoc-b
 az dataprotection backup-instance adhoc-backup --name "diskrg-CLITestDisk-3df6ac08-9496-4839-8fb5-8b78e594f166" --rule-name "BackupDaily" --resource-group "000pikumar" --vault-name "PratikPrivatePreviewVault1" --retention-tag-override "default"
 ```
 
-## Tracking jobs
+## Track jobs
 
 Track all the jobs using the [az dataprotection job list](/cli/azure/dataprotection/job#az-dataprotection-job-list) command. You can list all jobs and fetch a particular job detail.
 
@@ -497,6 +487,6 @@ You can also use Az.ResourceGraph to track all jobs across all Backup vaults. Us
 az dataprotection job list-from-resourcegraph --datasource-type AzureDisk --status Completed
 ```
 
-## Next steps
+## Next step
 
 [Restore Azure Managed Disks using Azure CLI](restore-managed-disks-cli.md)

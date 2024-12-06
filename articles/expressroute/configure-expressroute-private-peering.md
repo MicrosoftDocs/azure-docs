@@ -4,7 +4,7 @@ description: This tutorial walks you through how to set up a private connection 
 services: expressroute
 author: duongau
 ms.author: duau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: tutorial
 ms.date: 01/02/2024
 # Customer intent: As a network engineer, I want to establish a private connection from my on-premises network to my Azure virtual network using ExpressRoute.

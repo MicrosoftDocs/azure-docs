@@ -2,7 +2,7 @@
 author: dknappettmsft
 ms.author: daknappe
 ms.topic: include
-ms.date: 07/08/2024
+ms.date: 09/09/2024
 ---
 
 ## Latest client versions
@@ -11,9 +11,18 @@ The following table lists the current versions available for the public and beta
 
 | Release | Latest version | Download |
 |---------|----------------|----------|
-| Public  | 10.5.9         | [App Store](https://apps.apple.com/app/microsoft-remote-desktop/id714464092) |
-| Beta    | 10.5.9         | [TestFlight](https://testflight.apple.com/join/vkLIflUJ) |
+| Public  | 10.6.0         | [App Store](https://apps.apple.com/app/microsoft-remote-desktop/id714464092) |
+| Beta    | 10.6.0         | [TestFlight](https://testflight.apple.com/join/vkLIflUJ) |
 
+## Updates for version 10.6.0 
+
+*Published: September 3, 2024*
+
+In this release, we made the following changes: 
+
+- Resolved an issue that prevented audio redirection from working. 
+- Fixed an issue that prevented RDP file launch and MAM policies from working together. 
+- Added a banner notifying users that the Remote Desktop client will have a new name in an upcoming update, Windows App (you can learn more about the Windows App update at https://aka.ms/WindowsAppUpdate).
 
 ## Updates for version 10.5.9
 

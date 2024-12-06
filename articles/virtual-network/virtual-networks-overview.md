@@ -3,7 +3,7 @@ title: What is Azure Virtual Network?
 description: Learn about Azure Virtual Network concepts and features, including address space, subnets, regions, and subscriptions. 
 author: asudbring
 # Customer intent: As someone with a basic network background who is new to Azure, I want to understand the capabilities of Azure Virtual Network so that my Azure resources can securely communicate with each other, the internet, and my on-premises resources.
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: overview
 ms.date: 05/08/2023
 ms.author: allensu
@@ -91,7 +91,7 @@ Integrating Azure services with an Azure virtual network enables private access 
 
 ## Limits
 
-There are limits to the number of Azure resources that you can deploy. Most Azure networking limits are at the maximum values. However, you can [increase certain networking limits](../azure-portal/supportability/networking-quota-requests.md). For more information, see [Networking limits](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
+There are limits to the number of Azure resources that you can deploy. Most Azure networking limits are at the maximum values. However, you can [increase certain networking limits](/azure/azure-portal/supportability/networking-quota-requests). For more information, see [Networking limits](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
 
 ## Virtual networks and availability zones
 

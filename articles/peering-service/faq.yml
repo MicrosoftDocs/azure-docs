@@ -4,9 +4,9 @@ metadata:
   description: Answers to frequently asked questions about Microsoft Azure Peering Service.
   author: halkazwini
   ms.author: halkazwini
-  ms.service: peering-service
+  ms.service: azure-peering-service
   ms.topic: faq
-  ms.date: 09/27/2023
+  ms.date: 10/08/2024
 title: Azure Peering Service frequently asked questions (FAQ)
 summary: |
 
@@ -32,7 +32,7 @@ sections:
       - question: |
           What Microsoft routes will be advertised over Peering Service connections?
         answer: |
-          Microsoft advertises all of Microsoft's public service prefixes over the Peering Service connections. This will ensure not only communications, but other cloud services are accessible from the same connection.
+          Microsoft advertises all of Microsoft's public service prefixes over the Peering Service connections. This ensures not only communications, but other cloud services are accessible from the same connection.
    
       - question: |
           Can customers sign up for Peering Service with multiple providers?

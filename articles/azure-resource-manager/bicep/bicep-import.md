@@ -1,18 +1,18 @@
 ---
 title: Imports in Bicep
-description: Describes how to import shared functionality and namespaces in Bicep.
+description: This article describes how to import shared functionality and namespaces in Bicep.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 06/03/2024
+ms.date: 10/23/2024
 ---
 
 # Imports in Bicep
 
-This article describes the syntax you use to export and import shared functionality, as well as namespaces for Bicep extensions.
+This article describes the syntax you use to export and import shared functionality and namespaces for Bicep extensions. Using compile-time imports automatically enables [language version 2.0](../templates/syntax.md#languageversion-20) code generation.
 
-## Exporting types, variables and functions
+## Export variables, types, and functions
 
-The `@export()` decorator is used to indicate that a given statement can be imported by another file. This decorator is only valid on type, variable and function statements. Variable statements marked with `@export()` must be compile-time constants.
+The `@export()` decorator indicates that another file can import a specific statement. This decorator is only valid on [`type`](./user-defined-data-types.md), [`var`](./variables.md), and [`func`](./user-defined-functions.md) statements. Variable statements marked with `@export()` must be compile-time constants.
 
 The syntax for exporting functionality for use in other Bicep files is:
 
@@ -21,7 +21,7 @@ The syntax for exporting functionality for use in other Bicep files is:
 <statement_to_export>
 ```
 
-## Import types, variables and functions
+## Import variables, types, and functions
 
 The syntax for importing functionality from another Bicep file is:
 
@@ -41,15 +41,15 @@ Using the wildcard import syntax:
 import * as <alias_name> from '<bicep_file_name>'
 ```
 
-You can mix and match the preceding syntaxes. To access imported symbols using the wildcard syntax, you must use the `.` operator: `<alias_name>.<exported_symbol>`.
+You can mix and match the preceding syntaxes. To access imported symbols by using the wildcard syntax, you must use the `.` operator: `<alias_name>.<exported_symbol>`.
 
-Only statements that have been [exported](#exporting-types-variables-and-functions) in the file being referenced are available to be imported.
+Only statements that were [exported](#export-variables-types-and-functions) in the file being referenced are available for import.
 
-Functionality that has been imported from another file can be used without restrictions. For example, imported variables can be used anywhere a variable declared in-file would normally be valid.
+You can use functionality that was imported from another file without restrictions. For example, you can use imported variables anywhere that a variable declared in-file would normally be valid.
 
 ### Example
 
-exports.bicep
+*exports.bicep*
 
 ```bicep
 @export()
@@ -65,7 +65,7 @@ var myConstant = 'This is a constant value'
 func sayHello(name string) string => 'Hello ${name}!'
 ```
 
-main.bicep
+*main.bicep*
 
 ```bicep
 import * as myImports from 'exports.bicep'
@@ -92,7 +92,7 @@ import 'az@1.0.0'
 import 'sys@1.0.0'
 ```
 
-Both `az` and `sys` are Bicep built-in namespaces. They are imported by default. For more information about the data types and the functions defined in `az` and `sys`, see [Data types](./data-types.md) and  [Bicep functions](./bicep-functions.md).
+Both `az` and `sys` are Bicep built-in namespaces. They're imported by default. For more information about the data types and the functions defined in `az` and `sys`, see [Data types](./data-types.md) and  [Bicep functions](./bicep-functions.md).
 
 The syntax for importing Bicep extensions is:
 
@@ -100,7 +100,7 @@ The syntax for importing Bicep extensions is:
 import '<extension-name>@<extension-version>'
 ```
 
-The syntax for importing Bicep extensions which require configuration is:
+The syntax for importing Bicep extensions, which require configuration is:
 
 ```bicep
 import '<extension-name>@<extension-version>' with {
@@ -110,7 +110,7 @@ import '<extension-name>@<extension-version>' with {
 
 For an example, see [Bicep Kubernetes extension](./bicep-kubernetes-extension.md).
 
-## Next steps
+## Related content
 
 - To learn about the Bicep data types, see [Data types](./data-types.md).
 - To learn about the Bicep functions, see [Bicep functions](./bicep-functions.md).

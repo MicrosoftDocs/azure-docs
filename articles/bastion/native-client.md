@@ -3,9 +3,9 @@ title: 'Configure Bastion for native client connections'
 titleSuffix: Azure Bastion
 description: Learn how to configure Bastion for native client connections.
 author: cherylmc
-ms.service: bastion
+ms.service: azure-bastion
 ms.topic: how-to
-ms.date: 12/04/2023
+ms.date: 08/12/2024
 ms.author: cherylmc
 ---
 

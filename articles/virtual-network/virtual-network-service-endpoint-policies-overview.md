@@ -2,7 +2,7 @@
 title: Azure virtual network service endpoint policies
 description: Learn how to filter Virtual Network traffic to Azure service resources using Service Endpoint Policies
 author: asudbring
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: conceptual
 ms.date: 04/16/2024
 ms.author: allensu
@@ -144,7 +144,7 @@ Virtual networks and Azure Storage accounts can be in the same or different subs
 
 - You can only deploy service endpoint policies on virtual networks deployed through the Azure Resource Manager deployment model.
 
-- Virtual networks must be in the same region as the service endpoint policy.
+- Virtual networks must be in the same region and subscription as the service endpoint policy.
 
 - You can only apply service endpoint policy on a subnet if service endpoints are configured for the Azure services listed in the policy.
 

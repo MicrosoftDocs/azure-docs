@@ -2,7 +2,7 @@
 title: "Azure SignalR Service serverless quickstart - C#"
 description: "A quickstart for using Azure SignalR Service and Azure Functions to create an app showing GitHub star count using C#."
 author: vicancy
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: devx-track-csharp, mode-other

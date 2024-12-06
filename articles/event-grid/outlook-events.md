@@ -212,7 +212,7 @@ When an event is triggered, the Event Grid service sends data about that event t
 	"id": "00d8a100-2e92-4bfa-86e1-0056dacd0fce",
 	"type": "Microsoft.Graph.MessageCreated",
 	"source": "/tenants/<tenant-id>/applications/<application-id>",
-	"subject": "Messages/<messaeg-id>",
+	"subject": "Users/<user-id>/Messages/<messaeg-id>",
 	"time": "2024-05-22T22:24:31.3062901Z",
 	"datacontenttype": "application/json",
 	"specversion": "1.0",
@@ -222,12 +222,13 @@ When an event is triggered, the Event Grid service sends data about that event t
 		"SubscriptionExpirationDateTime": "2024-06-22T23:56:30.1307708Z",
 		"ChangeType": "created",
 		"subscriptionId": "MTE1MTVlYTktMjVkZS00MjY3LWI1YzYtMjg0NzliZmRhYWQ2",
-		"resource": "https://outlook.office365.com/api/beta/Users('userId@tenantId')/Messages('<message id>')",
+		"resource": "Users/<user-id>/Messages/<message-id>",
 		"clientState": "<client state>",
+		"tenantId":"<tenant-id>",
 		"resourceData": {
 			"Id": "<message id>",
 			"@odata.etag": "<tag id>",
-			"@odata.id": "https://outlook.office365.com/api/beta/Users('userId@tenantId')/Messages('<message id>')",
+			"@odata.id": "Users/<user-id>/Messages/<message-id>",
 			"@odata.type": "#Microsoft.OutlookServices.Message",
 			"OtherResourceData": "<some other resource data>"
 		}

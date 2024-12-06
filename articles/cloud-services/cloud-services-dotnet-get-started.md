@@ -2,7 +2,7 @@
 title: Get started with Azure Cloud Services (classic) and ASP.NET | Microsoft Docs
 description: Learn how to create a multi-tier app using ASP.NET Model-View-Controller (MVC) and Azure. The app runs in a cloud service, with web role and worker role. It uses Entity Framework, SQL Database, and Azure Storage queues and blobs.
 ms.topic: article
-ms.service: cloud-services
+ms.service: azure-cloud-services-classic
 ms.date: 07/23/2024
 author: hirenshah1
 ms.author: hirshah
@@ -229,7 +229,7 @@ Azure storage account connection strings for both the web role project and the w
 2. Choose the **Settings** tab. In the **Service Configuration** drop-down box, choose **Cloud**.
 
     ![Cloud configuration](./media/cloud-services-dotnet-get-started/sccloud.png)
-3. Select the **StorageConnectionString** entry, and you see an ellipsis (**...**) button at the right end of the line. Choose the ellipsis button to open the **Create Storage Account Connection String** dialog box.
+3. Select the **StorageConnectionString** entry, and you see an ellipsis (**...**) button at the right end of the line. Choose the ellipsis button to open the **Create Storage Connection String** dialog box.
 
     ![Open Connection String Create box](./media/cloud-services-dotnet-get-started/opencscreate.png)
 4. In the **Create Storage Connection String** dialog box, select **Your subscription**, choose the storage account that you created earlier, and then select **OK**. The explorer prompts you for your Azure account credentials if you still need to sign in.

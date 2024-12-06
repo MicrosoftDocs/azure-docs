@@ -2,8 +2,8 @@
 title: Azure confidential computing partners
 description: Learn about how Azure confidential computing partners build on the Azure infrastructure to solve customer problems
 author: ananyagarg
-ms.service: virtual-machines
-ms.subservice: confidential-computing
+ms.service: azure-virtual-machines
+ms.subservice: azure-confidential-computing
 ms.topic: conceptual
 ms.date: 03/29/2023
 ms.author: ananyagarg

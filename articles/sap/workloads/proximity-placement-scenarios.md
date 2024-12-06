@@ -29,11 +29,11 @@ Azure provides different [deployment options for SAP workloads](./sap-high-avail
 
 ## Proximity Placement Groups
 
-[Proximity placement groups](../../virtual-machines/co-location.md) enable the grouping of different VM types under a single network spine, ensuring optimal low network latency between them. When the first VM is deployed in proximity placement group, that VM gets bound to a specific network spine. As all the other VMs that are going to be deployed into the same proximity placement group, those VMs get grouped under the same network spine. As appealing as this prospect sounds, the usage of the construct introduces some restrictions and pitfalls as well:
+[Proximity placement groups](/azure/virtual-machines/co-location) enable the grouping of different VM types under a single network spine, ensuring optimal low network latency between them. When the first VM is deployed in proximity placement group, that VM gets bound to a specific network spine. As all the other VMs that are going to be deployed into the same proximity placement group, those VMs get grouped under the same network spine. As appealing as this prospect sounds, the usage of the construct introduces some restrictions and pitfalls as well:
 
 - You can't assume that all Azure VM types are available in every and all Azure datacenters or under each and every network spine. As a result, the combination of different VM types within one proximity placement group can be severely restricted. These restrictions occur because the host hardware that is needed to run a certain VM type might not be present in the datacenter or under the network spine to which the proximity placement group was assigned
 - As you resize parts of the VMs that are within one proximity placement group, you can't automatically assume that in all cases the new VM type is available in the same datacenter or under the network spine the proximity placement group got assigned to
-- As Azure decommissions hardware it might force certain VMs of a proximity placement group into another Azure datacenter or another network spine. For details covering this case, read the document [Proximity placement groups](../../virtual-machines/co-location.md#planned-maintenance-and-proximity-placement-groups)  
+- As Azure decommissions hardware it might force certain VMs of a proximity placement group into another Azure datacenter or another network spine. For details covering this case, read the document [Proximity placement groups](/azure/virtual-machines/co-location#planned-maintenance-and-proximity-placement-groups)  
 
 > [!IMPORTANT]
 > As a result of the potential restrictions, proximity placement groups should be only used:
@@ -61,11 +61,11 @@ An Azure proximity placement group is a logical construct. When a proximity plac
 > [!NOTE]
 > If there's no host hardware deployed that could run a specific VM type under the network spine where the first VM was placed, the deployment of the requested VM type won’t succeed. You’ll get an allocation failure message that indicates that the VM can't be supported within the perimeter of the proximity placement group.
 
-To reduce risk of the above, it's recommended to use the intent option when creating the proximity placement group. The intent option allows you to list the VM types that you're intending to include into the proximity placement group. This list of VM types will be taken to find the best datacenter that hosts these VM types. If such a datacenter is found, the PPG is going to be created and is scoped for the datacenter that fulfills the VM SKU requirements. If there's no such datacenter found, the creation of the proximity placement group is going to fail. You can find more information in the documentation [PPG - Use intent to specify VM sizes](../../virtual-machines/co-location.md#use-intent-to-specify-vm-sizes). Be aware that actual capacity situations aren't taken into account in the checks triggered by the intent option. As a result, there still could be allocation errors rooted in insufficient capacity available.
+To reduce risk of the above, it's recommended to use the intent option when creating the proximity placement group. The intent option allows you to list the VM types that you're intending to include into the proximity placement group. This list of VM types will be taken to find the best datacenter that hosts these VM types. If such a datacenter is found, the PPG is going to be created and is scoped for the datacenter that fulfills the VM SKU requirements. If there's no such datacenter found, the creation of the proximity placement group is going to fail. You can find more information in the documentation [PPG - Use intent to specify VM sizes](/azure/virtual-machines/co-location#use-intent-to-specify-vm-sizes). Be aware that actual capacity situations aren't taken into account in the checks triggered by the intent option. As a result, there still could be allocation errors rooted in insufficient capacity available.
 
 A single [Azure resource group](../../azure-resource-manager/management/manage-resources-portal.md) can have multiple proximity placement groups assigned to it. But a proximity placement group can be assigned to only one Azure resource group.
 
-For more information and deployment examples of proximity placement groups, see the [available documentation](../../virtual-machines/co-location.md).
+For more information and deployment examples of proximity placement groups, see the [available documentation](/azure/virtual-machines/co-location).
 
 ### Proximity placement groups with zonal deployments
 
@@ -151,8 +151,8 @@ The result of this deployment is:
 
 If you implemented proximity placement groups as of the recommendations given so far, and you want to adjust to the new configuration, you can do so with the methods described in these articles:
 
-- [Deploy VMs to proximity placement groups using Azure CLI](../../virtual-machines/linux/proximity-placement-groups.md).
-- [Deploy VMs to proximity placement groups using PowerShell](../../virtual-machines/windows/proximity-placement-groups.md).
+- [Deploy VMs to proximity placement groups using Azure CLI](/azure/virtual-machines/linux/proximity-placement-groups).
+- [Deploy VMs to proximity placement groups using PowerShell](/azure/virtual-machines/windows/proximity-placement-groups).
 
 You can also use these commands for cases where you're getting allocation errors in cases where you can't move to a new VM type with an existing VM in the proximity placement group.
 
@@ -180,11 +180,11 @@ Based on many improvements deployed by Microsoft into the Azure regions to reduc
 
 ### Proximity placement groups and HANA Large Instances
 
-If some of your SAP systems rely on [HANA Large Instances](../../virtual-machines/workloads/sap/hana-overview-architecture.md) for the database layer, you can experience significant improvements in network latency between the HANA Large Instances unit and Azure VMs when you're using HANA Large Instances units that are deployed in [Revision 4 rows or stamps](../../virtual-machines/workloads/sap/hana-network-architecture.md#networking-architecture-for-hana-large-instance). One improvement is that HANA Large Instances units, as they're deployed, deploy with a proximity placement group. You can use that proximity placement group to deploy your application layer VMs. As a result, those VMs will be deployed in the same datacenter that hosts your HANA Large Instances unit.
+If some of your SAP systems rely on [HANA Large Instances](/azure/virtual-machines/workloads/sap/hana-overview-architecture) for the database layer, you can experience significant improvements in network latency between the HANA Large Instances unit and Azure VMs when you're using HANA Large Instances units that are deployed in [Revision 4 rows or stamps](/azure/virtual-machines/workloads/sap/hana-network-architecture#networking-architecture-for-hana-large-instance). One improvement is that HANA Large Instances units, as they're deployed, deploy with a proximity placement group. You can use that proximity placement group to deploy your application layer VMs. As a result, those VMs will be deployed in the same datacenter that hosts your HANA Large Instances unit.
 
-To determine whether your HANA Large Instances unit is deployed in a Revision 4 stamp or row, check the article [Azure HANA Large Instances control through Azure portal](../../virtual-machines/workloads/sap/hana-li-portal.md#look-at-attributes-of-single-hli-unit). In the attributes overview of your HANA Large Instances unit, you can also determine the name of the proximity placement group because it was created when your HANA Large Instances unit was deployed. The name that appears in the attributes overview is the name of the proximity placement group that you should deploy your application layer VMs into.
+To determine whether your HANA Large Instances unit is deployed in a Revision 4 stamp or row, check the article [Azure HANA Large Instances control through Azure portal](/azure/virtual-machines/workloads/sap/hana-li-portal#look-at-attributes-of-single-hli-unit). In the attributes overview of your HANA Large Instances unit, you can also determine the name of the proximity placement group because it was created when your HANA Large Instances unit was deployed. The name that appears in the attributes overview is the name of the proximity placement group that you should deploy your application layer VMs into.
 
-As compared to SAP systems that use only Azure virtual machines, when you use HANA Large Instances, you have less flexibility in deciding how many [Azure resource groups](../../azure-resource-manager/management/manage-resources-portal.md) to use. All the HANA Large Instances units of a [HANA Large Instances tenant](../../virtual-machines/workloads/sap/hana-know-terms.md) are grouped in a single resource group, as described [this article](../../virtual-machines/workloads/sap/hana-li-portal.md#display-of-hana-large-instance-units-in-the-azure-portal). Unless you deploy into different tenants to separate, for example, production and non-production systems or other systems, all your HANA Large Instances units will be deployed in one HANA Large Instances tenant. This tenant has a one-to-one relationship with a resource group. But a separate proximity placement group will be defined for each of the single units.
+As compared to SAP systems that use only Azure virtual machines, when you use HANA Large Instances, you have less flexibility in deciding how many [Azure resource groups](../../azure-resource-manager/management/manage-resources-portal.md) to use. All the HANA Large Instances units of a [HANA Large Instances tenant](/azure/virtual-machines/workloads/sap/hana-know-terms) are grouped in a single resource group, as described [this article](/azure/virtual-machines/workloads/sap/hana-li-portal#display-of-hana-large-instance-units-in-the-azure-portal). Unless you deploy into different tenants to separate, for example, production and non-production systems or other systems, all your HANA Large Instances units will be deployed in one HANA Large Instances tenant. This tenant has a one-to-one relationship with a resource group. But a separate proximity placement group will be defined for each of the single units.
 
 As a result, the relationships among Azure resource groups and proximity placement groups for a single tenant will be as shown here:
 
@@ -195,6 +195,6 @@ As a result, the relationships among Azure resource groups and proximity placeme
 Check out the documentation:
 
 - [SAP workloads on Azure: planning and deployment checklist](./deployment-checklist.md)
-- [Deploy VMs to proximity placement groups using Azure CLI](../../virtual-machines/linux/proximity-placement-groups.md)
-- [Deploy VMs to proximity placement groups using PowerShell](../../virtual-machines/windows/proximity-placement-groups.md)
+- [Deploy VMs to proximity placement groups using Azure CLI](/azure/virtual-machines/linux/proximity-placement-groups)
+- [Deploy VMs to proximity placement groups using PowerShell](/azure/virtual-machines/windows/proximity-placement-groups)
 - [Considerations for Azure Virtual Machines DBMS deployment for SAP workloads](./dbms-guide-general.md)

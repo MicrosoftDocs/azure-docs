@@ -5,7 +5,7 @@ description: Use Event Grid or the device heartbeat pattern to monitor the conne
 author: kgremban
 ms.author: kgremban
 ms.topic: reference
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.date: 01/05/2024
 ---
 
@@ -82,6 +82,6 @@ For more information, see [Message expiration (time to live)](./iot-hub-devguide
 
 ## Other monitoring options
 
-A more complex implementation could include the information from [Azure Monitor](../azure-monitor/index.yml) and [Azure Resource Health](../service-health/resource-health-overview.md) to identify devices that are trying to connect or communicate but failing. Azure Monitor dashboards are helpful for seeing the aggregate health of your devices, while Event Grid and heartbeat patterns make it easier to respond to individual device outages.
+A more complex implementation could include the information from [Azure Monitor](/azure/azure-monitor/) and [Azure Resource Health](/azure/service-health/resource-health-overview) to identify devices that are trying to connect or communicate but failing. Azure Monitor dashboards are helpful for seeing the aggregate health of your devices, while Event Grid and heartbeat patterns make it easier to respond to individual device outages.
 
 To learn more about using these services with IoT Hub, see [Monitor IoT Hub](monitor-iot-hub.md) and [Check IoT Hub resource health](iot-hub-azure-service-health-integration.md). For more specific information about using Azure Monitor or Event Grid to monitor device connectivity, see [Monitor, diagnose, and troubleshoot device connectivity](iot-hub-troubleshoot-connectivity.md).

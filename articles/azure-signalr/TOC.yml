@@ -31,6 +31,8 @@
     href: signalr-quickstart-rest-api.md
 - name: Tutorials
   items:
+  - name: Build a group chat app with OpenAI
+    href: signalr-tutorial-group-chat-with-openai.md
   - name: Build a serverless real-time app with authentication
     href: signalr-tutorial-authenticate-azure-functions.md
   - name: Build a Blazor Server chat app
@@ -161,7 +163,7 @@
     items:
     - name: Monitor SignalR Service
       href: monitor-signalr.md
-    - name: Use diagnostic logs to monitor SignalR Service
+    - name: Use resource logs to monitor SignalR Service
       href: signalr-howto-diagnostic-logs.md
     - name: Monitoring data reference
       href: monitor-signalr-reference.md

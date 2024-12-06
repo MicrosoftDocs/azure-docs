@@ -8,6 +8,8 @@
   href: edge-secured-core-get-certified.md
 - name: List of certified devices
   href: edge-secured-core-devices.md
+- name: Validate Edge Secured-core device
+  href: validate-device-edge-secured-core.md
 # - name: <<< CUT LINE >>
 #   href: #
 # - name: Overview

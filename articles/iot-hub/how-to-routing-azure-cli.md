@@ -3,7 +3,7 @@ title: Manage routes and endpoints with the Azure CLI
 titleSuffix: Azure IoT Hub
 description: Learn how to create and delete routes and endpoints in Azure IoT Hub by using the message-endpoints and message-routes Azure CLI commands.
 author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.custom: devx-track-azurecli
 services: iot-hub
 ms.topic: how-to
@@ -80,7 +80,7 @@ Create a Service Bus namespace, topic, and subscription. For more information, s
 
 # [Cosmos DB](#tab/cosmosdb)
 
-Create a Cosmos DB account for SQL API and a Cosmos DB container. For more information, see [Create an Azure Cosmos DB for NoSQL](../cosmos-db/scripts/cli/nosql/create.md).
+Create a Cosmos DB account for SQL API and a Cosmos DB container. For more information, see [Create an Azure Cosmos DB for NoSQL](/azure/cosmos-db/scripts/cli/nosql/create).
 
 ---
 

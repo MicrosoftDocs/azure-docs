@@ -3,15 +3,15 @@ title: Bicep Kubernetes extension
 description: Learn how to Bicep Kubernetes extension to deploy .NET applications to Azure Kubernetes Service clusters.
 ms.topic: conceptual
 ms.custom: devx-track-bicep, devx-track-dotnet
-ms.date: 07/11/2024
+ms.date: 08/07/2024
 ---
 
 # Bicep Kubernetes extension (Preview)
 
-The Kubernetes extension allows you to create Kubernetes resources directly with Bicep. Bicep can deploy anything that can be deployed with the [Kubernetes command-line client (kubectl)](https://kubernetes.io/docs/reference/kubectl/kubectl/) and a [Kubernetes manifest file](../../aks/concepts-clusters-workloads.md#deployments-and-yaml-manifests).
+The Kubernetes extension allows you to create Kubernetes resources directly with Bicep. Bicep can deploy anything that can be deployed with the [Kubernetes command-line client (kubectl)](https://kubernetes.io/docs/reference/kubectl/kubectl/) and a [Kubernetes manifest file](/azure/aks/concepts-clusters-workloads#deployments-and-yaml-manifests).
 
 > [!NOTE]
-> Kubernetes extension is not currently supported for private clusters:
+> The Kubernetes extension is not currently supported for private clusters:
 > 
 > ```bicep
 > resource AKS 'Microsoft.ContainerService/managedClusters@2024-02-01' = {
@@ -80,5 +80,5 @@ From Visual Studio Code, you can import Kubernetes manifest files to create Bice
 
 ## Next steps
 
-- To walk through a quickstart, see [Quickstart - Deploy Azure applications to Azure Kubernetes Services by using Bicep Kubernetes extension](../../aks/learn/quick-kubernetes-deploy-bicep-kubernetes-extension.md).
+- To walk through a quickstart, see [Quickstart - Deploy Azure applications to Azure Kubernetes Services by using Bicep Kubernetes extension](/azure/aks/learn/quick-kubernetes-deploy-bicep-kubernetes-extension).
 - To learn about how to use the Microsoft Graph extension, see [Bicep templates for Microsoft Graph](https://aka.ms/graphbicep).

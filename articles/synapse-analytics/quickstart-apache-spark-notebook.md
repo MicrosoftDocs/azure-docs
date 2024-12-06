@@ -4,7 +4,7 @@ description: This quickstart shows how to use the web tools to create a serverle
 author: juluczni
 ms.author: juluczni
 ms.reviewer: whhender
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: spark
 ms.topic: quickstart
 ms.date: 02/15/2022

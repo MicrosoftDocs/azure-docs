@@ -4,9 +4,9 @@ description: Reference for the authentication-managed-identity policy available 
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
-ms.date: 03/18/2024
+ms.date: 07/23/2024
 ms.author: danlep
 ---
 
@@ -39,7 +39,7 @@ Both system-assigned identity and any of the multiple user-assigned identities c
 ## Usage
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
-- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
+- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
 - [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted
 
 ## Examples
@@ -68,6 +68,9 @@ Both system-assigned identity and any of the multiple user-assigned identities c
 ```
 ```xml  
 <authentication-managed-identity resource="https://database.windows.net/"/> <!--Azure SQL-->
+```
+```xml  
+<authentication-managed-identity resource="https://signalr.azure.com"/> <!--Azure SignalR-->
 ```
 
 ```xml

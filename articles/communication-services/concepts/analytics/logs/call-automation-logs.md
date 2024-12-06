@@ -18,7 +18,7 @@ Azure Communication Services offers logging capabilities that you can use to mon
 
 ## Prerequisites
 
-Azure Communication Services provides monitoring and analytics features via [Azure Monitor Logs](../../../../azure-monitor/logs/data-platform-logs.md) and [Azure Monitor Metrics](../../../../azure-monitor/essentials/data-platform-metrics.md). Each Azure resource requires its own diagnostic setting, which defines the following criteria:
+Azure Communication Services provides monitoring and analytics features via [Azure Monitor Logs](/azure/azure-monitor/logs/data-platform-logs) and [Azure Monitor Metrics](/azure/azure-monitor/essentials/data-platform-metrics). Each Azure resource requires its own diagnostic setting, which defines the following criteria:
 
 * Categories of log and metric data sent to the destinations that the setting defines. The available categories vary by resource type.
 * One or more destinations to send the logs. Current destinations include Log Analytics workspace, Azure Event Hubs, and Azure Storage.
@@ -76,7 +76,6 @@ Communication Services offers the following types of logs that you can enable:
 | `ServerCallId` | A unique ID to identify a call. |
 | `SDKVersion` | The SDK version used for the request. |
 | `SDKType` | The SDK type used for the request. |
-| `ParticipantId` | The ID to identify the call participant that made the request. |
 | `SubOperationName` | The name that's used to identify the subtype of media operation (play or recognize). |
 |`operationID`| The ID that's used to correlate asynchronous events.|
 
@@ -87,7 +86,7 @@ Here's an example of a Call Automation operational log:
 {
 "TimeGenerated [UTC]": "5/25/2023, 5:43:25.746 PM",
 "Level": "Informational",
-"CorrelationId": "e2a97d52-0cbb-4adf-8c4b-e10f791fb764",
+"CorrelationId": "aaaa0000-bb11-2222-33cc-444444dddddd",
 "OperationName": "Play",
 "OperationVersion": "3/6/23",
 "URI": "ccts-media-synthetics-prod.communication.azure.com",
@@ -134,7 +133,7 @@ Here's an example of a Call Automation media summary log:
 {
 "TimeGenerated [UTC]": "5/24/2023, 7:57:40.480 PM",
 "Level": "Informational",
-"CorrelationId": "d149d528-a392-404c-8fcd-69087e9d0802",
+"CorrelationId": "bbbb1111-cc22-3333-44dd-555555eeeeee",
 "ResultType": "Completed",
 "OperationName": "Play",
 "OperationId": "7bef24d5-eb95-4ee6-bbab-0b7d45d91288",

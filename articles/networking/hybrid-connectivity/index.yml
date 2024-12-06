@@ -7,7 +7,7 @@ brand: azure ## Used for color theming of icons and hero area
 metadata: 
   title: Azure hybrid connectivity documentation
   description: Azure hybrid connectivity services provide connectivity to your resources in Azure and help secure your network. 
-  ms.service: virtual-network
+  ms.service: azure-virtual-network
   ms.topic: hub-page
   author: duongau
   ms.author: duau
@@ -53,11 +53,6 @@ productDirectory:
       imageSrc: ./media/virtual-wan.svg
       summary: Connect and manage your on-premises network to Azure through a centralized network hub.
       url: ../../virtual-wan/index.yml
-    # Card
-    - title: Peering Service
-      imageSrc: ./media/peering-service.svg
-      summary: Enhance connectivity to Microsoft cloud services over the public internet.
-      url: ../../peering-service/about.md
 
 # conceptualContent section (Optional; Remove if not applicable.)
 conceptualContent:
@@ -91,7 +86,7 @@ conceptualContent:
             - url: ../../vpn-gateway/vpn-gateway-about-point-to-site-routing.md
               itemType: concept
               text: About Point-to-site VPN routing
-            - url: ../../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md
+            - url: ../../vpn-gateway/point-to-site-certificate-gateway.md
               itemType: how-to-guide
               text: Configure point-to-site VPN - Azure certificate authentication
             - url: ../../vpn-gateway/point-to-site-how-to-radius-ps.md

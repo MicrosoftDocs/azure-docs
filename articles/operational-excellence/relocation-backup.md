@@ -2,7 +2,7 @@
 title: Relocate Azure Backup to another region
 description: This article offers guidance on relocating Azure Backup to another region.
 author: anaharris-ms
-ms.service: backup
+ms.service: azure-backup
 ms.topic:  how-to
 ms.date: 06/13/2024
 ms.author:  anaharris
@@ -150,7 +150,8 @@ When you relocate a VM that runs SQL or SAP HANA servers, you will no longer be 
        - If you're using network security group (NSG) rules to control outbound connectivity, create [these service tag rules](../resource-mover/support-matrix-move-region-azure-vm.md#nsg-rules).
     
 1. Relocate your VM to the new region using [Azure Resource Mover](../resource-mover/tutorial-move-region-virtual-machines.md).
-
+1. Create a Recovery Services vault in the new region where the VM is relocated. 
+1. Re-configure backup.
 
 
 ### Back up services for on-premises resources

@@ -1,8 +1,8 @@
 ---
 author: cherylmc
 ms.author: cherylmc
-ms.date: 07/31/2023
-ms.service: virtual-wan
+ms.date: 10/15/2024
+ms.service: azure-virtual-wan
 ms.topic: include
 
 #This article is used for both Virtual WAN and VPN Gateway. Any updates to the article must work for both of these services. Otherwise, update the VWAN or VPNGW article directly.
@@ -34,9 +34,9 @@ Each group is also assigned a numerical priority. Groups with lower priority are
 The following section describes the different parameters that can be used to define which groups members are a part of. The available parameters vary based on selected authentication methods.
 The following table summarizes the available setting types and acceptable values. For more detailed information on each type of Member Value, view the section corresponding to your authentication type.
 
-|Authentication type|Member type |Member values|Example member value|
+|Authentication type|Member type |Member values| Example value |
 |---|---|---|---|
-Microsoft Entra ID|AADGroupID|Microsoft Entra group Object ID	|0cf484f2-238e-440b-8c73-7bf232b248dc|
+Microsoft Entra ID|AADGroupID|Microsoft Entra group Object ID	| {object ID value} |
 |RADIUS|AzureRADIUSGroupID|Vendor-specific Attribute Value (hexadecimal) (must begin with 6ad1bd)|6ad1bd23|
 |Certificate|AzureCertificateID|Certificate Common Name domain name (CN=user@red.com)|red|
 

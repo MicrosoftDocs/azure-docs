@@ -7,8 +7,8 @@ metadata:
   title: Azure Native Dynatrace Service documentation
   description: Azure Native Dynatrace Service offers a monitoring solution for your Azure workloads using a streamlined workflow.
   ms.topic: landing-page
-  author: flang-msft
-  ms.author: franlanglois
+  
+  
   ms.date: 08/24/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
@@ -44,11 +44,14 @@ landingContent:
           - text: Troubleshooting Azure Native Dynatrace Service
             url: dynatrace-troubleshoot.md
 
+
   # Card
   - title: Explore reference content
     linkLists:
       - linkListType: reference
         links:
+          - text: Azure CLI
+            url: /cli/azure/dynatrace
           - text: Python
             url: /python/api/overview/azure/dynatrace
           - text: JavaScript
@@ -59,6 +62,3 @@ landingContent:
             url: /java/api/overview/azure/dynatrace
           - text: REST API
             url: /rest/api/dynatrace
-#          - text: Azure PowerShell
-#            url: 
-          

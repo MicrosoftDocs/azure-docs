@@ -2,7 +2,7 @@
 title: Create web app using SignalR Service and GitHub authentication
 description: Azure CLI Script Sample - Create a web app that uses SignalR Service and GitHub authentication
 author: vicancy
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 03/30/2022
@@ -28,7 +28,7 @@ This sample script creates a new Azure SignalR Service resource, which is used t
 
 ### Enable GitHub authentication and Git deployment for web app
 
-1. Update the values in the following script for the desired deployment username and its passwor
+1. Update the values in the following script for the desired deployment username and its password
 
    ```azurecli
    deploymentUser=<Replace with your desired username>

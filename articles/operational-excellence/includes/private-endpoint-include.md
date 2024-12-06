@@ -1,6 +1,6 @@
 ---
 author: anaharris-ms
-ms.service: container-registry
+ms.service: azure-container-registry
 ms.topic: include
 ms.date: 07/29/2024
 ms.author: anaharris

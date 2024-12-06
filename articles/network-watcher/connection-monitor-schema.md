@@ -4,7 +4,7 @@ titleSuffix: Azure Network Watcher
 description: Learn about the available tests data and path data schemas in Azure Network Watcher connection monitor.
 author: halkazwini
 ms.author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: concept-article
 ms.date: 02/23/2024
 

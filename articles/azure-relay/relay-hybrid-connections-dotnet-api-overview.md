@@ -9,6 +9,9 @@ ms.date: 08/10/2023
 # Azure Relay Hybrid Connections .NET Standard API overview
 
 This article summarizes some of the key Azure Relay Hybrid Connections .NET Standard [client APIs](/dotnet/api/microsoft.azure.relay).
+
+> [!NOTE]
+> The sample code in this article uses a connection string to authenticate to an Azure Relay namespace. We recommend that you use Microsoft Entra ID authentication in production environments, rather than using connection strings or shared access signatures, which can be more easily compromised. For detailed information and sample code for using the Microsoft Entra ID authentication, see [Authenticate and authorize an application with Microsoft Entra ID to access Azure Relay entities](authenticate-application.md) and [Authenticate a managed identity with Microsoft Entra ID to access Azure Relay resources](authenticate-managed-identity.md).  
   
 ## Relay Connection String Builder class
 

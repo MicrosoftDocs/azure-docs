@@ -2,14 +2,15 @@
 title: 'Deploy private-only Bastion'
 description: Learn how to deploy Bastion for a private-only scenario.
 author: cherylmc
-ms.service: bastion
+ms.service: azure-bastion
+ms.custom:
+  - ignite-2024
 ms.topic: how-to
 ms.date: 05/30/2024
 ms.author: cherylmc
-
 ---
 
-# Deploy Bastion as private-only (Preview)
+# Deploy Bastion as private-only
 
 This article helps you deploy Bastion as a private-only deployment. [!INCLUDE [private-only bastion description](../../includes/bastion-private-only-description.md)] 
 

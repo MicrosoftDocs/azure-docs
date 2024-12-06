@@ -38,16 +38,16 @@ Azure Resource Manager for email communication resources is meant for email doma
 
 ## API throttling and timeouts
 
-Your Azure account limits the number of email messages that you can send. For all developers, the limits are 30 mails sent per minute and 100 mails sent per hour.
+The Azure Communication Services email service is designed to support high throughput. The initial rate limits are intended to help customers onboard smoothly and avoid some of the issues that can occur when switching to a new email service.
 
-This sandbox setup helps developers start building the application. Gradually, you can request to increase the sending volume as soon as the application is ready to go live. Submit a support request to increase your sending limit.
+To learn more about these limits and instructions for requesting an increase, see [Service limits for Azure Communication Services > Email](../../concepts/service-limits.md#email).
 
 ## Next steps
 
-* [Create and manage an email communication resource in Azure Communication Services](../../quickstarts/email/create-email-communication-resource.md)
-* [Connect a verified email domain in Azure Communication Services](../../quickstarts/email/connect-email-communication-resource.md)
+* [Create and manage an email communication resource in Azure Communication Services](../../quickstarts/email/create-email-communication-resource.md).
+* [Connect a verified email domain in Azure Communication Services](../../quickstarts/email/connect-email-communication-resource.md).
 
-The following topics might be interesting to you:
+## Related articles:
 
 * Learn how to send emails with [custom verified domains](../../quickstarts/email/add-custom-verified-domains.md).
 * Learn how to send emails with [Azure-managed domains](../../quickstarts/email/add-azure-managed-domains.md).

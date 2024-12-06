@@ -2,8 +2,8 @@
 title: Azure Cloud Services (classic) Def. LoadBalancerProbe Schema | Microsoft Docs
 description: The customer defined LoadBalancerProbe is a health probe of endpoints in role instances. It combines with web or worker roles in a service definition file.
 ms.topic: article
-ms.service: cloud-services
-ms.subservice: deployment-files
+ms.service: azure-cloud-services-classic
+ms.subservice: config-package-files
 ms.date: 07/24/2024
 author: hirenshah1
 ms.author: hirshah

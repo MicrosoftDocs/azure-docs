@@ -39,18 +39,18 @@ Expected Output
 ```azurecli
 {
   "properties": {
-    "networkFabricId": "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkFabrics/example-networkFabric",
+    "networkFabricId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkFabrics/example-networkFabric",
     "networkDeviceIds": [
-      "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkDevices/example-networkDevice"
+      "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkDevices/example-networkDevice"
     ],
     "sourceInterfaceIds": [
-      "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkDevices/example-networkDevice/networkInterfaces/example-networkInterface"
+      "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkDevices/example-networkDevice/networkInterfaces/example-networkInterface"
     ],
     "networkTapIds": [
-      "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkTaps/example-networkTap"
+      "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkTaps/example-networkTap"
     ],
     "neighborGroupIds": [
-      "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/neighborGroups/example-neighborGroup"
+      "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/neighborGroups/example-neighborGroup"
     ],
     "provisioningState": "Succeeded"
   },
@@ -58,7 +58,7 @@ Expected Output
     "key2806": "key"
   },
   "location": "eastuseuap",
-  "id": "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkPacketBrokers/example-networkPacketBroker",
+  "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkPacketBrokers/example-networkPacketBroker",
   "name": "example-networkPacketBroker",
   "type": "microsoft.managednetworkfabric/networkPacketBrokers",
   "systemData": {
@@ -84,9 +84,9 @@ NetworkTapRule resource provides ability for providing filtering and forwarding 
 | match-configurations/matchconfigurationName|Name of Match configuration block |  | |
 | match-configurations/sequenceNumber|Sequence number of Match configuration |  | |
 | match-configurations/ipAddressType|Ip address family |  | |
-| match-configurations/matchconditions|List of dynamic match conditions based on port, protocol, Vlan & Ip conditions. |  | |
+| match-configurations/matchconditions|List of dynamic match conditions based on port, protocol, VLAN & IP conditions. |  | |
 | match-configurations/action|Provide action details. Actions can be Drop, Count, Log,Goto,Redirect,Mirror|  | |
-| dynamic-match-configurations|List of dynamic match configurations based Port, Vlan & IP |  | |
+| dynamic-match-configurations|List of dynamic match configurations based Port, VLAN & IP |  | |
 > [!NOTE]
 > Network Tap rules and Neighbor Groups must be created prior to refrencing them in Network Tap 
 ### Create Network Tap Rule
@@ -102,7 +102,7 @@ Expected output:
 ```output
 {
   "properties": {
-    "networkTapId": "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkTaps/example-taprule",
+    "networkTapId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkTaps/example-taprule",
     "pollingIntervalInSeconds": 30,
     "lastSyncedTime": "2023-06-12T07:11:22.485Z",
     "configurationState": "Succeeded",
@@ -160,7 +160,7 @@ Expected output:
             "type": "Drop",
             "truncate": "100",
             "isTimestampEnabled": "True",
-            "destinationId": "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/neighborGroups/example-neighborGroup",
+            "destinationId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/neighborGroups/example-neighborGroup",
             "matchConfigurationName": "match1"
           }
         ]
@@ -207,7 +207,7 @@ Expected output:
     "keyID": "keyValue"
   },
   "location": "eastuseuap",
-  "id": "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkTapRules/example-tapRule",
+  "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkTapRules/example-tapRule",
   "name": "example-tapRule",
   "type": "microsoft.managednetworkfabric/networkTapRules",
   "systemData": {
@@ -229,7 +229,7 @@ Expected output:
 ```output
 {
   "properties": {
-    "networkTapId": "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkTaps/example-taprule",
+    "networkTapId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkTaps/example-taprule",
     "pollingIntervalInSeconds": 30,
     "lastSyncedTime": "2023-06-12T07:11:22.485Z",
     "configurationState": "Succeeded",
@@ -287,7 +287,7 @@ Expected output:
             "type": "Drop",
             "truncate": "100",
             "isTimestampEnabled": "True",
-            "destinationId": "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/neighborGroups/example-neighborGroup",
+            "destinationId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/neighborGroups/example-neighborGroup",
             "matchConfigurationName": "match1"
           }
         ]
@@ -334,7 +334,7 @@ Expected output:
     "keyID": "keyValue"
   },
   "location": "eastuseuap",
-  "id": "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkTapRules/example-tapRule",
+  "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkTapRules/example-tapRule",
   "name": "example-tapRule",
   "type": "microsoft.managednetworkfabric/networkTapRules",
   "systemData": {

@@ -3,7 +3,7 @@ title: Reservation of Executors as part of Dynamic Allocation in Synapse Spark
 description: In this article, you learn how Dynamic Allocation of Executors works, and the conservative reservation that's applied to the executors to ensure jobs run with greater reliability.
 services: synapse analytics 
 author: santhoshravindran7
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: conceptual 
 ms.subservice: spark
 ms.date: 11/07/2022

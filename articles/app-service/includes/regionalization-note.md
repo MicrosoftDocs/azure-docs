@@ -3,7 +3,7 @@ author: msangapu-msft
 ms.author: msangapu
 ms.topic: include
 ms.date: 06/27/2024
-ms.service: app-service
+ms.service: azure-app-service
 ms.subservice: web-apps
 ---
 

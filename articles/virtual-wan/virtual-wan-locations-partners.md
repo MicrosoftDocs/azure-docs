@@ -3,7 +3,7 @@ title: 'Azure Virtual WAN partners, regions, and available locations'
 description: This article contains a list of Azure Virtual WAN partners and available locations.
 author: cherylmc
 
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: conceptual
 ms.date: 03/05/2024
 ms.author: cherylmc

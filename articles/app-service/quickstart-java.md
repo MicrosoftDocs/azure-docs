@@ -40,7 +40,10 @@ ms.author: cephalin
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Connect to Azure Database for PostgreSQL with Java](../postgresql/connect-java.md)
+> [Tutorial: Build a Tomcat web app with Azure App Service on Linux and MySQL](tutorial-java-tomcat-mysql-app.md)
+
+> [!div class="nextstepaction"]
+> [Tutorial: Build a Java Spring Boot web app with Azure App Service on Linux and Azure Cosmos DB](tutorial-java-spring-cosmosdb.md)
 
 > [!div class="nextstepaction"]
 > [Set up CI/CD](deploy-continuous-deployment.md)

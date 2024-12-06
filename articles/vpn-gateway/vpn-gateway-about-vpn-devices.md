@@ -3,8 +3,8 @@ title: 'About VPN devices for connections'
 titleSuffix: Azure VPN Gateway
 description: Learn about VPN devices and IPsec parameters for Site-to-Site cross-premises connections. Links are provided to configuration instructions and samples.
 author: cherylmc
-ms.service: vpn-gateway
-ms.topic: article
+ms.service: azure-vpn-gateway
+ms.topic: concept-article
 ms.date: 10/06/2023
 ms.author: cherylmc
 

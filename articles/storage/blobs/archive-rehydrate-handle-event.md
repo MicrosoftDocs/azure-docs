@@ -6,7 +6,7 @@ author: normesta
 
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 07/30/2024
+ms.date: 08/07/2024
 ms.author: normesta
 ms.reviewer: fryu
 ms.devlang: csharp
@@ -30,6 +30,8 @@ This article shows you how to use [Visual Studio 2019](https://visualstudio.micr
 [!INCLUDE [api-test-http-request-tools-bullet](../../../includes/api-test-http-request-tools-bullet.md)]
 
 An [Azure subscription](../../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing) is required. If you don't already have an account, [create a free one](https://azure.microsoft.com/free/dotnet/) before you begin.
+
+A provisioned Microsoft Entra ID [security principal](../../role-based-access-control/overview.md#security-principal) that has been assigned the [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) role, scoped to the storage account, parent resource group, or subscription. See [Assign roles to your Microsoft Entra user account](storage-quickstart-blobs-dotnet.md#assign-roles-to-your-microsoft-entra-user-account).
 
 ## Create an Azure Function app
 
@@ -61,7 +63,8 @@ To learn more about configuring your function app, see [Manage your function app
 
 Next, create an Azure Function that will run when a blob is rehydrated in a particular storage account. Follow these steps to create an Azure Function in Visual Studio with C# and .NET Core:
 
-1. Launch Visual Studio 2019, and create a new Azure Functions project. For details, follow the instructions described in [Create a function app project](../../azure-functions/functions-create-your-first-function-visual-studio.md#create-a-function-app-project).
+1. Launch Visual Studio 2019. Then, [Sign in and connect your app code to Azure using DefaultAzureCredential](storage-quickstart-blobs-dotnet.md#sign-in-and-connect-your-app-code-to-azure-using-defaultazurecredential).
+1. Create a new Azure Functions project. For details, follow the instructions described in [Create a function app project](../../azure-functions/functions-create-your-first-function-visual-studio.md#create-a-function-app-project).
 1. On the **Create a new Azure Functions application** step, select the following values:
     - By default, the Azure Functions runtime is set to **Azure Functions v3 (.NET Core)**. Microsoft recommends using this version of the Azure Functions runtime.
     - From the list of possible triggers, select **Event Grid Trigger**. For more information on why an Event Grid trigger is the recommended type of trigger for handling a Blob Storage event with an Azure Function, see [Use a function as an event handler for Event Grid events](../../event-grid/handler-functions.md).
@@ -101,9 +104,6 @@ Next, create an Azure Function that will run when a blob is rehydrated in a part
     // Create a unique name for the log blob.
     string logBlobName = string.Format("function-log-{0}.txt", DateTime.UtcNow.Ticks);
 
-    // Populate connection string with your Shared Key credentials.
-    const string ConnectionString = "DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net";
-
     // Get data from the event.
     dynamic data = eventGridEvent.Data;
     string eventBlobUrl = Convert.ToString(data.url);
@@ -137,10 +137,12 @@ Next, create an Azure Function that will run when a blob is rehydrated in a part
             BlobName = logBlobName
         };
 
-        BlobClient logBlobClient = new BlobClient(ConnectionString,
-                                                  logBlobUriBuilder.BlobContainerName,
-                                                  logBlobName);
+        TokenCredential credential = new DefaultAzureCredential();
 
+        string blobUri = "https://" + accountName + ".blob.core.windows.net/" + logBlobUriBuilder.BlobContainerName + "/" + logBlobName;
+
+        BlobClient logBlobClient = new BlobClient(new Uri(blobUri), credential);
+        
         byte[] byteArray = Encoding.ASCII.GetBytes(eventInfo.ToString());
 
         try

@@ -1,5 +1,5 @@
 ---
-title: Create pre and post events (preview) using Azure Functions.
+title: Create pre and post events using Azure Functions.
 description: In this tutorial, you learn how to create the pre and post events using Azure Functions.
 ms.service: azure-update-manager
 ms.date: 07/24/2024
@@ -9,7 +9,7 @@ ms.author: sudhirsneha
 #Customer intent: As an IT admin, I want  create pre and post events using Azure Functions.
 ---
 
-# Tutorial: Create pre and post events (preview) using Azure Functions
+# Tutorial: Create pre and post events using Azure Functions
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure VMs :heavy_check_mark: Azure Arc-enabled servers.
  
@@ -35,6 +35,7 @@ In this tutorial, you learn how to:
 
     > [!NOTE]
     > You have to load the dependencies only for the first time.
+    > If the PowerShell dependencies are failing to load. Check the latest versions of AZ, and AZ.ResourceGraph.
 
     1. On the **Function App**, select **App files**.
     1. Under the **host.json**, enable **ManagedDependecy** to **True** and select **requirements.psd1**.
@@ -42,8 +43,8 @@ In this tutorial, you learn how to:
     
        ```
         @{
-        'Az'='5.*' 
-        'Az.ResourceGraph'='0.13.0' 
+        'Az'='12.*' 
+        'Az.ResourceGraph'='1.0.0' 
         'Az.Resources'='6.*' 
         'ThreadJob' = '2.*'
         }
@@ -162,7 +163,7 @@ In this tutorial, you learn how to:
     Connect-AzAccount -Identity
                 
     # Install the Resource Graph module from PowerShell Gallery
-    # Install-Module -Name Az.ResourceGraph
+     Install-Module -Name Az.ResourceGraph
                 
     $maintenanceRunId = $eventGridEvent.data.CorrelationId
     $resourceSubscriptionIds = $eventGridEvent.data.ResourceSubscriptionIds
