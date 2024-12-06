@@ -5,8 +5,8 @@ author: vijain
 ms.author: vijain
 ms.topic: how-to
 ms.service: azure-migrate
-ms.date: 11/17/2023
-ms.custom: engagement-fy23
+ms.date: 09/26/2024
+ms.custom: engagement-fy25
 ---
 
 # Replicate data over ExpressRoute for Azure Migrate projects with public endpoint connectivity

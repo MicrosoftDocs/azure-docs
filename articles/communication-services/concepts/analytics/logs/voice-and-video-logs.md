@@ -107,7 +107,7 @@ For each endpoint within a call, a distinct call diagnostic log is created for o
 | `identifier` | The unique ID for the user. The identity can be an Azure Communication Services user, a Microsoft Entra user ID, a Teams object ID, or a Teams bot ID. You can use this ID to correlate user events across logs. |
 | `endpointId` | The unique ID that represents each endpoint connected to the call, where `endpointType` defines the endpoint type. When the value is `null`, the connected entity is the Communication Services server. `EndpointId` can persist for the same user across multiple calls (`correlationId`) for native clients but is unique for every call when the client is a web browser. |
 | `endpointType` | The value that describes the properties of each `endpointId` instance. It can contain  `"Server"`, `"VOIP"`, `"PSTN"`, `"BOT"`, `"Voicemail"`, `"Anonymous"`, or `"Unknown"`. |
-| `mediaType` | The string value that describes the type of media that's being transmitted between endpoints within each stream. Possible values include `"Audio"`, `"Video"`, `"VBSS"` (video-based screen sharing), and `"AppSharing"`. |
+| `mediaType` | The string value that describes the type of media that's being transmitted between endpoints within each stream. Possible values include `"Audio"`, `"Video"`, `"VBSS"` (screen sharing), and `"AppSharing"` (data channel).|
 | `streamId` | A nonunique integer that, together with `mediaType`, you can use to uniquely identify streams of the same `participantId` value. |
 | `transportType` | The string value that describes the network transport protocol for each `participantId` value. It can contain `"UDP"`, `"TCP"`, or `"Unrecognized"`. `"Unrecognized"` indicates that the system couldn't determine if the transport type was TCP or UDP. |
 | `roundTripTimeAvg` | The average time that it takes to get an IP packet from one endpoint to another within a `participantDuration` period. This network propagation delay is related to the physical distance between the two points, the speed of light, and any overhead that the various routers take in between. <br><br>The latency is measured as one-way time or round-trip time (RTT). Its value expressed in milliseconds. An RTT greater than 500 ms is negatively affecting the call quality. |
@@ -265,7 +265,7 @@ Here are shared fields for all logs in a P2P call:
 ```json
 "time":                     "2021-07-19T18:46:50.188Z",
 "resourceId":               "SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/RESOURCEGROUPS/ACS-TEST-RG/PROVIDERS/MICROSOFT.COMMUNICATION/COMMUNICATIONSERVICES/ACS-PROD-CCTS-TESTS",
-"correlationId":            "8d1a8374-344d-4502-b54b-ba2d6daaf0ae",
+"correlationId":            "aaaa0000-bb11-2222-33cc-444444dddddd",
 ```
 
 #### Call summary logs 
@@ -440,7 +440,7 @@ Data for a group call is generated in three call summary logs and six call diagn
 ```json
 "time":                     "2021-07-05T06:30:06.402Z",
 "resourceId":               "SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/RESOURCEGROUPS/ACS-TEST-RG/PROVIDERS/MICROSOFT.COMMUNICATION/COMMUNICATIONSERVICES/ACS-PROD-CCTS-TESTS",
-"correlationId":            "341acde7-8aa5-445b-a3da-2ddadca47d22",
+"correlationId":            "bbbb1111-cc22-3333-44dd-555555eeeeee",
 ```
 
 #### Call summary logs
@@ -653,7 +653,7 @@ Here's a call client operations log for "CreateView" operation:
 
 ```json
 "properties": {
-    "TenantId":               "4e7403f8-515a-4df5-8e13-59f0e2b76e3a",
+    "TenantId":               "aaaabbbb-0000-cccc-1111-dddd2222eeee",
     "TimeGenerated":          "2024-01-09T17:06:50.3Z",
     "CallClientTimeStamp":    "2024-01-09T15:07:56.066Z",
     "OperationName":          "CreateView" ,   
@@ -682,7 +682,7 @@ Here's an example of media statistics time series log. It shows the participant'
 
 ```json
 "properties": {
-    "TenantId":                     "4e7403f8-515a-4df5-8e13-59f0e2b76e3a",
+    "TenantId":                     "aaaabbbb-0000-cccc-1111-dddd2222eeee",
     "TimeGenerated":                "2024-01-10T07:36:51.771Z",
     "OperationName":                "CallClientMediaStatsTimeSeries" ,  
     "CallId":                       "92d800c4-abde-40be-91e9-3814ee786b19", 

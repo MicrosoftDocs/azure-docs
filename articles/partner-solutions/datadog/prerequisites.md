@@ -1,9 +1,9 @@
 ---
 title: Prerequisites for Datadog on Azure
 description: This article describes how to configure your Azure environment to create an instance of Datadog.
-author: flang-msft
 
-ms.author: franlanglois
+
+
 ms.topic: conceptual
 ms.date: 01/06/2023
 ---

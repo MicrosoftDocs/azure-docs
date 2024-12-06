@@ -13,4 +13,4 @@ ms.custom: include file
 ---
 
 > [!IMPORTANT]
-> For correct and optimal deployment of Orace dNFS, follow the patching guidelines outlined [here](../faq-nfs.md#oracle-dnfs).
+> For correct and optimal deployment of Oracle dNFS, follow the patching guidelines outlined [here](../faq-nfs.md#oracle-dnfs).

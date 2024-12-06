@@ -13,9 +13,12 @@ ms.author: greglin
 
 [Kubernetes namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) make it possible for a Kubernetes cluster to be partitioned and allocated to subgroups of a larger team. These subgroups can then deploy and manage infrastructure with finer controls of resources, security, and configuration. Kubernetes allows for one or more ingress resources to be defined independently within each namespace.
 
-As of version 0.7, the [Application Gateway Kubernetes Ingress Controller](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/master/README.md) (AGIC) can ingest events from and observe multiple namespaces. If an Azure Kubernetes Service (AKS) administrator decides to use [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) as an ingress, all namespaces use the same instance of Application Gateway. A single installation of AGIC monitors accessible namespaces and configures the Application Gateway instance that it's associated with.
+As of version 0.7, the [Application Gateway Kubernetes Ingress Controller](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/master/README.md) (AGIC) can ingest events from and observe multiple namespaces. If an Azure Kubernetes Service (AKS) administrator decides to use [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) as an ingress, all namespaces use the same deployment of Application Gateway. A single installation of AGIC monitors accessible namespaces and configures the Application Gateway deployment that it's associated with.
 
 Version 0.7 of AGIC continues to exclusively observe the `default` namespace, unless you explicitly change it to one or more different namespaces in the Helm configuration.
+
+> [!TIP]
+> Consider [Application Gateway for Containers](for-containers/overview.md) for your Kubernetes ingress solution.
 
 ## Enable multiple-namespace support
 
@@ -31,15 +34,15 @@ After you deploy AGIC with the ability to observe multiple namespaces, it perfor
 - Lists ingress resources from all accessible namespaces
 - Filters to ingress resources annotated with `kubernetes.io/ingress.class: azure/application-gateway`
 - Composes a combined [Application Gateway configuration](https://github.com/Azure/azure-sdk-for-go/blob/37f3f4162dfce955ef5225ead57216cf8c1b2c70/services/network/mgmt/2016-06-01/network/models.go#L1710-L1744)
-- Applies the configuration to the associated Application Gateway instance via [Azure Resource Manager](../azure-resource-manager/management/overview.md)
+- Applies the configuration to the associated Application Gateway deployment via [Azure Resource Manager](../azure-resource-manager/management/overview.md)
 
 ## Handle conflicting configurations
 
-Multiple-namespaced [ingress resources](https://kubernetes.io/docs/concepts/services-networking/ingress/#the-ingress-resource) could instruct AGIC to create conflicting configurations for a single Application Gateway instance. That is, two ingresses could claim the same domain for an instance.
+Multiple-namespaced [ingress resources](https://kubernetes.io/docs/concepts/services-networking/ingress/#the-ingress-resource) could instruct AGIC to create conflicting configurations for a single Application Gateway deployment. That is, two ingresses could claim the same domain.
 
-At the top of the hierarchy, AGIC could create *listeners* (IP address, port, and host) and *routing rules* (binding listener, back-end pool, and HTTP settings). Multiple namespaces and ingresses could share them.
+At the top of the hierarchy, AGIC could create *listeners* (IP address, port, and host) and *routing rules* (binding listener, backend pool, and HTTP settings). Multiple namespaces and ingresses could share them.
 
-On the other hand, AGIC could create paths, back-end pools, HTTP settings, and TLS certificates for one namespace only and remove duplicates.
+On the other hand, AGIC could create paths, backend pools, HTTP settings, and TLS certificates for one namespace only and remove duplicates.
 
 For example, consider the following duplicate ingress resources defined in the `staging` and `production` namespaces for `www.contoso.com`:
 
@@ -79,11 +82,11 @@ spec:
               servicePort: 80
 ```
 
-Despite the two ingress resources demanding traffic for `www.contoso.com` to be routed to the respective Kubernetes namespaces, only one back end can service the traffic. AGIC creates a configuration on a "first in, first out" basis for one of the resources. If two ingress resources are created at the same time, the one earlier in the alphabet takes precedence. Based on this property, AGIC creates settings for the `production` ingress. Application Gateway is configured with the following resources:
+Despite the two ingress resources demanding traffic for `www.contoso.com` to be routed to the respective Kubernetes namespaces, only one backend can service the traffic. AGIC creates a configuration on a "first in, first out" basis for one of the resources. If two ingress resources are created at the same time, the one earlier in the alphabet takes precedence. Based on this property, AGIC creates settings for the `production` ingress. Application Gateway is configured with the following resources:
 
 - Listener: `fl-www.contoso.com-80`
 - Routing rule: `rr-www.contoso.com-80`
-- Back-end pool: `pool-production-contoso-web-service-80-bp-80`
+- Backend pool: `pool-production-contoso-web-service-80-bp-80`
 - HTTP settings: `bp-production-contoso-web-service-80-80-websocket-ingress`
 - Health probe: `pb-production-contoso-web-service-80-websocket-ingress`
 
@@ -92,7 +95,7 @@ Despite the two ingress resources demanding traffic for `www.contoso.com` to be 
 
 If the two ingress resources are introduced into the AKS cluster at different points in time, AGIC is likely to end up in a scenario where it reconfigures Application Gateway and reroutes traffic from `namespace-B` to `namespace-A`.
 
-For example, if you add `staging` first, AGIC configures Application Gateway to route traffic to the staging back-end pool. At a later stage, introducing `production` ingress causes AGIC to reprogram Application Gateway, which starts routing traffic to the `production` back-end pool.
+For example, if you add `staging` first, AGIC configures Application Gateway to route traffic to the staging backend pool. At a later stage, introducing `production` ingress causes AGIC to reprogram Application Gateway, which starts routing traffic to the `production` backend pool.
 
 ## Restrict access to namespaces
 
@@ -158,4 +161,4 @@ By default, AGIC configures Application Gateway based on annotated ingress withi
 
 ## Related content
 
-- [What is Application Gateway for Containers?](for-containers/overview.md)
+- [Application Gateway for Containers](for-containers/overview.md)

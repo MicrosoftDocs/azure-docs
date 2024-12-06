@@ -58,10 +58,6 @@ Standalone and without ksqlDB, Kafka Streams has fewer capabilities than many al
 - [Apache Flink](event-hubs-kafka-flink-tutorial.md)
 - [Apache Flink on HDInsight on AKS](../hdinsight-aks/flink/flink-overview.md)
 - [Akka Streams](event-hubs-kafka-akka-streams-tutorial.md)
- 
-The listed services and frameworks can generally acquire event streams and reference data directly from a diverse set of sources through adapters. Kafka Streams can only acquire data from Apache Kafka and your analytics projects are therefore locked into Apache Kafka. To use data from other sources, you're required to first import data into Apache Kafka with the Kafka Connect framework.
- 
-If you must use the Kafka Streams framework on Azure, [Apache Kafka on HDInsight](../hdinsight/kafka/apache-kafka-introduction.md) provides you with that option. Apache Kafka on HDInsight provides full control over all configuration aspects of Apache Kafka, while being fully integrated with various aspects of the Azure platform, from fault/update domain placement to network isolation to monitoring integration.
 
 ### Kafka Transactions
 

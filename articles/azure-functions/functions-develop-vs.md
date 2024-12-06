@@ -48,7 +48,7 @@ The Azure Functions project template in Visual Studio creates a C# class library
     ::: zone pivot="isolated"  
     | Setting      | Value  | Description                      |
     | ------------ |  ------- |----------------------------------------- |
-    | **.NET version** | **.NET 6 Isolated** | This value creates a function project that runs in an [isolated worker process](dotnet-isolated-process-guide.md). Isolated worker process supports other non-LTS version of .NET and also .NET Framework. For more information, see [Azure Functions runtime versions overview](functions-versions.md).   |
+    | **.NET version** | **.NET 8 Isolated** | This value creates a function project that runs in an [isolated worker process](dotnet-isolated-process-guide.md). Isolated worker process supports other non-LTS version of .NET and also .NET Framework. For more information, see [Azure Functions runtime versions overview](functions-versions.md).   |
     | **Function template** | **HTTP trigger** | This value creates a function triggered by an HTTP request. |
     | **Storage account (AzureWebJobsStorage)**  | **Storage emulator** | Because a function app in Azure requires a storage account, one is assigned or created when you publish your project to Azure. An HTTP trigger doesn't use an Azure Storage account connection string; all other trigger types require a valid Azure Storage account connection string.  |
     | **Authorization level** | **Anonymous** | The created function can be triggered by any client without providing a key. This authorization setting makes it easy to test your new function. For more information, see [Authorization level](functions-bindings-http-webhook-trigger.md#http-auth).|
@@ -58,7 +58,7 @@ The Azure Functions project template in Visual Studio creates a C# class library
     ::: zone pivot="in-proc"  
     | Setting      | Value  | Description                      |
     | ------------ |  ------- |----------------------------------------- |
-    | **.NET version** | **.NET 6** | This value creates a function project that runs in-process with version 4.x of the Azure Functions runtime. For more information, see [Azure Functions runtime versions overview](functions-versions.md).   |
+    | **.NET version** | **.NET 8** | This value creates a function project that runs in-process with version 4.x of the Azure Functions runtime. For more information, see [Azure Functions runtime versions overview](functions-versions.md).   |
     | **Function template** | **HTTP trigger** | This value creates a function triggered by an HTTP request. |
     | **Storage account (AzureWebJobsStorage)**  | **Storage emulator** | Because a function app in Azure requires a storage account, one is assigned or created when you publish your project to Azure. An HTTP trigger doesn't use an Azure Storage account connection string; all other trigger types require a valid Azure Storage account connection string.  |
     | **Authorization level** | **Anonymous** | The created function can be triggered by any client without providing a key. This authorization setting makes it easy to test your new function. For more information, see [Authorization level](functions-bindings-http-webhook-trigger.md#http-auth). |
@@ -218,6 +218,13 @@ For a full list of the bindings supported by Functions, see [Supported bindings]
 ## Run functions locally
 
 Azure Functions Core Tools lets you run Azure Functions project on your local development computer. When you press F5 to debug a Functions project, the local Functions host (func.exe) starts to listen on a local port (usually 7071). Any callable function endpoints are written to the output, and you can use these endpoints for testing your functions. For more information, see [Work with Azure Functions Core Tools](functions-run-local.md). You're prompted to install these tools the first time you start a function from Visual Studio.
+
+::: zone pivot="in-proc" 
+
+> [!IMPORTANT]
+> Starting with version 4.0.6517 of the Core Tools, in-process model projects must reference [version 4.5.0 or later of `Microsoft.NET.Sdk.Functions`](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/4.5.0). If an earlier version is used, the `func start` command will error.
+
+::: zone-end  
 
 To start your function in Visual Studio in debug mode:
 

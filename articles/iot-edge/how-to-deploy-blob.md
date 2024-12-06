@@ -5,7 +5,7 @@ author: PatAltimore
 ms.author: patricka
 ms.date: 08/12/2024
 ms.topic: conceptual
-ms.service: iot-edge
+ms.service: azure-iot-edge
 ms.reviewer: arduppal
 ---
 # Deploy the Azure Blob Storage on IoT Edge module to your device

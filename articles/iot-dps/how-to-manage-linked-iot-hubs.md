@@ -5,9 +5,10 @@ author: kgremban
 ms.author: kgremban
 ms.date: 08/23/2024
 ms.topic: how-to
-ms.service: iot-dps
+ms.service: azure-iot-hub
 services: iot-dps
 ms.custom: mvc, devx-track-azurecli
+ms.subservice: azure-iot-hub-dps
 ---
 
 # How to link and manage IoT hubs

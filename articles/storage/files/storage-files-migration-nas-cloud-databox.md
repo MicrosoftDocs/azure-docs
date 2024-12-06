@@ -129,8 +129,7 @@ To save time, you should proceed with this phase while you wait for your DataBox
         This video is a guide and demo for how to securely expose Azure file shares directly to information workers and apps in five simple steps.</br>
         The video references dedicated documentation for the following topics. Note that Azure Active Directory is now Microsoft Entra ID. For more information, see [New name for Azure AD](https://aka.ms/azureadnewname).
 
-* [Identity overview](storage-files-active-directory-overview.md)
-* [How to domain join a storage account](storage-files-identity-auth-active-directory-enable.md)
+* [Identity-based authentication for SMB overview](storage-files-active-directory-overview.md)
 * [Networking overview for Azure file shares](storage-files-networking-overview.md)
 * [How to configure public and private endpoints](storage-files-networking-endpoints.md)
 * [How to configure a S2S VPN](storage-files-configure-s2s-vpn.md)

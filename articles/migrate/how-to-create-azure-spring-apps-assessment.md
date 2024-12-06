@@ -5,7 +5,7 @@ author: yangyizhe90
 ms.author: yangtony
 ms.topic: tutorial
 ms.service: azure-migrate
-ms.date: 09/04/2023
+ms.date: 09/28/2023
 ms.custom: engagement-fy23
 ---
 

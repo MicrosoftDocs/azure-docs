@@ -4,7 +4,7 @@ description: Overview of Azure IoT Edge for Linux on Windows networking between 
 author: PatAltimore
 
 ms.reviewer: fcabrera
-ms.service: iot-edge
+ms.service: azure-iot-edge
 ms.custom: linux-related-content
 services: iot-edge
 ms.topic: conceptual
@@ -14,7 +14,7 @@ ms.author: patricka
 
 # IoT Edge for Linux on Windows networking
 
-[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
  This article provides information about how to configure the networking between the Windows host OS and the IoT Edge for Linux on Windows (EFLOW) virtual machine. EFLOW uses a [CBL-Mariner](https://github.com/microsoft/CBL-Mariner) Linux virtual machine in order to run IoT Edge modules. For more information about EFLOW architecture, see [What is Azure IoT Edge for Linux on Windows](./iot-edge-for-linux-on-windows.md).
 

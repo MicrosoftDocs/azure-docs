@@ -304,8 +304,8 @@ For .NET apps and functions, the simplest way to work with a managed identity is
 See the respective documentation headings of the client library for information:
 
 - [Add Azure Identity client library to your project](/dotnet/api/overview/azure/identity-readme#getting-started)
-- [Access Azure service with a system-assigned identity](/dotnet/api/overview/azure/identity-readme#authenticating-with-defaultazurecredential)
-- [Access Azure service with a user-assigned identity](/dotnet/api/overview/azure/identity-readme#specifying-a-user-assigned-managed-identity-with-the-defaultazurecredential)
+- [Access Azure service with a system-assigned identity](/dotnet/api/overview/azure/identity-readme#authenticate-with-defaultazurecredential)
+- [Access Azure service with a user-assigned identity](/dotnet/api/overview/azure/identity-readme#specify-a-user-assigned-managed-identity-with-defaultazurecredential)
 
 The linked examples use [`DefaultAzureCredential`](/dotnet/api/overview/azure/identity-readme#defaultazurecredential). It's useful for the majority of the scenarios because the same pattern works in Azure (with managed identities) and on your local machine (without managed identities).
 
@@ -316,8 +316,8 @@ For Node.js apps and JavaScript functions, the simplest way to work with a manag
 See the respective documentation headings of the client library for information:
 
 - [Add Azure Identity client library to your project](/javascript/api/overview/azure/identity-readme#install-the-package)
-- [Access Azure service with a system-assigned identity](/javascript/api/overview/azure/identity-readme#authenticating-with-defaultazurecredential)
-- [Access Azure service with a user-assigned identity](/javascript/api/overview/azure/identity-readme#authenticating-a-user-assigned-managed-identity-with-defaultazurecredential)
+- [Access Azure service with a system-assigned identity](/javascript/api/overview/azure/identity-readme#authenticate-with-defaultazurecredential)
+- [Access Azure service with a user-assigned identity](/javascript/api/overview/azure/identity-readme#specify-a-user-assigned-managed-identity-with-defaultazurecredential)
 
 The linked examples use [`DefaultAzureCredential`](/javascript/api/overview/azure/identity-readme#defaultazurecredential). It's useful for the majority of the scenarios because the same pattern works in Azure (with managed identities) and on your local machine (without managed identities).
 
@@ -330,8 +330,8 @@ For Python apps and functions, the simplest way to work with a managed identity 
 See the respective documentation headings of the client library for information:
 
 - [Add Azure Identity client library to your project](/python/api/overview/azure/identity-readme#getting-started)
-- [Access Azure service with a system-assigned identity](/python/api/overview/azure/identity-readme#authenticating-with-defaultazurecredential)
-- [Access Azure service with a user-assigned identity](/python/api/overview/azure/identity-readme#authenticating-a-user-assigned-managed-identity-with-defaultazurecredential)
+- [Access Azure service with a system-assigned identity](/python/api/overview/azure/identity-readme#authenticate-with-defaultazurecredential)
+- [Access Azure service with a user-assigned identity](/python/api/overview/azure/identity-readme#authenticate-with-a-user-assigned-managed-identity)
 
 The linked examples use [`DefaultAzureCredential`](/python/api/overview/azure/identity-readme#defaultazurecredential). It's useful for the majority of the scenarios because the same pattern works in Azure (with managed identities) and on your local machine (without managed identities).
 
@@ -342,8 +342,8 @@ For Java apps and functions, the simplest way to work with a managed identity is
 See the respective documentation headings of the client library for information:
 
 - [Add Azure Identity client library to your project](/java/api/overview/azure/identity-readme#include-the-package)
-- [Access Azure service with a system-assigned identity](/java/api/overview/azure/identity-readme#authenticating-with-defaultazurecredential)
-- [Access Azure service with a user-assigned identity](/java/api/overview/azure/identity-readme#authenticating-a-user-assigned-managed-identity-with-defaultazurecredential)
+- [Access Azure service with a system-assigned identity](/java/api/overview/azure/identity-readme#authenticate-with-defaultazurecredential)
+- [Access Azure service with a user-assigned identity](/java/api/overview/azure/identity-readme#authenticate-a-user-assigned-managed-identity-with-defaultazurecredential)
 
 The linked examples use [`DefaultAzureCredential`](/azure/developer/java/sdk/identity-azure-hosted-auth#default-azure-credential). It's useful for the majority of the scenarios because the same pattern works in Azure (with managed identities) and on your local machine (without managed identities).
 

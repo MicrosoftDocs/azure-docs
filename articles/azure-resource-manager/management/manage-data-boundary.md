@@ -2,22 +2,27 @@
 title: Configure data boundary
 description: Learn how to configure data boundary.
 ms.topic: how-to
-ms.date: 11/20/2024
+ms.date: 12/06/2024
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 # Customer intent: As an Azure user, I want to create a new data boundary.
 ---
 
 # Configure data boundary
 
-This article explains how customers can configure Azure Resource Manager to operate within a data boundary. A global data boundary has no restrictions on the regions a resource can deploy to. However a nonglobal data boundary restricts resource deployments to regions within that boundary. The only nonglobal data boundary currently supported is for the European Union (EU). The EU Data Boundary is a geographically defined boundary within which Microsoft commits to store and process customer data and pseudonymized personal data, and store professional services data for Microsoft enterprise online services, including Azure, Dynamics 365, Power Platform, and Microsoft 365, subject to limited circumstances where personal data continue to be transferred outside the EU Data Boundary. For more information, see [Overview of the EU Data Boundary](/privacy/eudb/eu-data-boundary-learn).
+This documentation provides details on how customers can configure Azure Resource Manager for use in a data boundary. The only data boundary configuration currently supported, aside from the default Global configuration, is for the European Union (EU). The EU Data Boundary is a geographically defined boundary within which Microsoft has committed to store and process Customer Data and pseudonymized personal data, and store Professional Services Data for Microsoft enterprise online services, including Azure, Dynamics 365, Power Platform, and Microsoft 365, subject to limited circumstances where personal data continue to be transferred outside the EU Data Boundary. For more information, see [Overview of the EU Data Boundary](/privacy/eudb/eu-data-boundary-learn).
 
-A global data boundary can only be established in a new tenant that has no existing subscriptions or deployed resources. To opt a new tenant into a data boundary, deploy a `Microsoft.Resources/dataBoundaries` resource at the tenant level. Each tenant is limited to one data boundary. Once a tenant is opted into a data boundary, the data boundary configuration can't be removed or modified. Subscriptions and resources created under a tenant with a data boundary can't be moved out of that tenant.
+> [!IMPORTANT]
+> To store Professional Services Data in the EU Data Boundary for Azure, customers must configure Azure Resource Manager to the EU Data Boundary. This documentation provides details on how customers can configure Azure Resource Manager for use in the EU Data Boundary.  
+
+A data boundary can only be established in new tenants that have no existing subscriptions or deployed resources. Once a tenant is opted into a data boundary, the data boundary configuration cannot be removed or modified. Subscriptions and resources created under a tenant with a data boundary cannot be moved out of that tenant. Existing subscriptions and resources cannot be moved into a tenant with a data boundary. Each tenant is limited to one data boundary, and after the data boundary is configured, Azure Resource Manager will restrict resource deployments to regions within that boundary. A Global data boundary has no restrictions on the regions a resource can deploy to. Customers can opt their tenants into a data boundary by deploying a `Microsoft.Resources/dataBoundarie`s resource at the tenant level.
+
+The `DataBoundaryTenantAdministrator` built-in role is required to configure data boundary. For more information, see Assign Azure roles.
 
 To opt your tenant into an Azure EU Data Boundary:
 
-- Create a new tenant within an EU country or region for configuring a Microsoft Entra EU Data Boundary. For more information, see [Create a new tenant in Microsoft Entra ID](/entra/fundamentals/create-new-tenant).
-- Before creating any new subscriptions or resources under the tenant, deploy a `Microsoft.Resources/dataBoundaries` resource with an EU configuration.
-- Create a subscription and deploy Azure resources.  
+- Create a new tenant within an EU country or region to configure a Microsoft Entra EU Data Boundary. For more information on how to create a new tenant within an EU country or region, see Create a new tenant in Microsoft Entra ID.
+- Before creating any new subscriptions or resources, deploy a Microsoft.Resources/dataBoundaries resource with an EU configuration. 
+- Create a subscription and deploy Azure resources. 
 
 ## Permissions required
 
@@ -202,6 +207,17 @@ Response body:
 For more information, see [Azure REST API Reference](/rest/api/azure/).
 
 ---
+
+## Troubleshooting
+
+The following table lists the data boundary related error messages:
+
+| Error message | Explanation |
+|---------------|-------------|
+| NonEmptyTenantCannotChangeDataBoundary | Customers can only apply an Azure data boundary to a brand new tenant with no management groups, subscriptions, or resources. |
+| AuthorizationFailed when creating data boundary | Ensure you have the Data Boundary Administrator role at the tenant scope. Follow the instructions in the Permissions Required section. |
+| InvalidResourceLocation <br/> InvalidResourceGroupLocation | Once a data boundary applies to a tenant, users can only create resources in regions within the data boundary. For example, users cannot create resources in WestUS if an EU data boundary is applied to the tenant. |
+| Transfer action failed. <br/>Transfer of this subscription is not allowed due to data boundary restrictions on the tenant. | It is not possible to move a subscription if the source or target tenants have a non-global data boundary. Subscription move is blocked even if the source and target tenants have the same data boundary. |
 
 ## Next steps
 

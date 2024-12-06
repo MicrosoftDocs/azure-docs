@@ -3,7 +3,7 @@ title: "Register resource provider: Azure Modeling and Simulation Workbench"
 description: Register the Azure Modeling and Simulation Workbench resource provider.
 author: yousefi-msft
 ms.author: yousefi
-ms.service: modeling-simulation-workbench
+ms.service: azure-modeling-simulation-workbench
 ms.topic: how-to
 ms.date: 08/20/2024
 

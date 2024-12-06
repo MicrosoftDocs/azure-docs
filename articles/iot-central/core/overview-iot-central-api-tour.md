@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 10/14/2024
 ms.topic: overview
-ms.service: iot-central
+ms.service: azure-iot-central
 services: iot-central
 ---
 

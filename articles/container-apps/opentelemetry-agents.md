@@ -4,7 +4,7 @@ description: Learn to record and query data collected using OpenTelemetry in Azu
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
-ms.date: 03/08/2024
+ms.date: 11/01/2024
 ms.author: cshoe
 ms.topic: how-to
 ---
@@ -292,6 +292,7 @@ The following example shows how to use an OTLP endpoint named `customDashboard`.
     }
   }
 }
+```
 
 ## Example OpenTelemetry configuration
 

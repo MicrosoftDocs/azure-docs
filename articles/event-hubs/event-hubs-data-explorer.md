@@ -2,7 +2,7 @@
 title: Overview of the Event Hubs Data Explorer
 description: This article provides an overview of the Event Hubs Data Explorer, which provides an easy way to send data to and receive data from Azure Event Hubs.
 ms.topic: article
-ms.date: 08/22/2024
+ms.date: 11/18/2024
 ---
 
 # Use Event Hubs Data Explorer to run data operations on Event Hubs
@@ -22,7 +22,7 @@ Operations run on an Azure Event Hubs namespace are of two kinds.
 >  * The Event Hubs Data Explorer doesn't support **management operations**. The event hub must be created before the data explorer can send or view events from that event hub.
 >  * While events payloads (known as **values** in Kafka) sent using the **Kafka protocol** will be visible via the data explorer, the **key** for the specific event will not be visible.
 >  * We advise against using the Event Hubs Data Explorer for larger messages, as this may result in timeouts, depending on the message size, network latency between client and Service Bus service etc. Instead, we recommend that you use your own client to work with larger messages, where you can specify your own timeout values.
->
+>  * The operations that a user can perform using Event Hubs Data Exploerer is determined by the [role-based access control (RBAC)](authorize-access-azure-active-directory.md#azure-built-in-roles-for-azure-event-hubs) role that the user is assigned to. 
 
 ## Prerequisites
 

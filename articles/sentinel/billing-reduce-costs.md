@@ -60,13 +60,13 @@ While standard analytics logs are most appropriate for continuous, real-time thr
 
 ## Optimize Log Analytics costs with dedicated clusters
 
-If you ingest at least 500 GB into your Microsoft Sentinel workspace or workspaces in the same region, consider moving to a Log Analytics dedicated cluster to decrease costs. A Log Analytics dedicated cluster Commitment Tier aggregates data volume across workspaces that collectively ingest a total of 500 GB or more. For more information, see [Simplified pricing tier for dedicated cluster](enroll-simplified-pricing-tier.md#simplified-pricing-tiers-for-dedicated-clusters).
+If you ingest at least 100 GB into your Microsoft Sentinel workspace or workspaces in the same region, consider moving to a Log Analytics dedicated cluster to decrease costs. A Log Analytics dedicated cluster Commitment Tier aggregates data volume across workspaces that collectively ingest a total of 100 GB or more. For more information, see [Simplified pricing tier for dedicated cluster](enroll-simplified-pricing-tier.md#simplified-pricing-tiers-for-dedicated-clusters).
 
 You can add multiple Microsoft Sentinel workspaces to a Log Analytics dedicated cluster. There are a couple of advantages to using a Log Analytics dedicated cluster for Microsoft Sentinel:
 
 - Cross-workspace queries run faster if all the workspaces involved in the query are in the dedicated cluster. It's still best to have as few workspaces as possible in your environment, and a dedicated cluster still retains the [100 workspace limit](/azure/azure-monitor/logs/cross-workspace-query) for inclusion in a single cross-workspace query.
 
-- All workspaces in the dedicated cluster can share the Log Analytics Commitment Tier set on the cluster. Not having to commit to separate Log Analytics Commitment Tiers for each workspace can allow for cost savings and efficiencies. By enabling a dedicated cluster, you commit to a minimum Log Analytics Commitment Tier of 500-GB ingestion per day.
+- All workspaces in the dedicated cluster can share the Log Analytics Commitment Tier set on the cluster. Not having to commit to separate Log Analytics Commitment Tiers for each workspace can allow for cost savings and efficiencies. By enabling a dedicated cluster, you commit to a minimum Log Analytics Commitment Tier of 100-GB ingestion per day.
 
 Here are some other considerations for moving to a dedicated cluster for cost optimization:
 

@@ -3,7 +3,7 @@ title: "Quickstart: Inport data"
 description: "Import data into Modeling and Simulation Workbench."
 author: yousefi-msft
 ms.author: yousefi
-ms.service: modeling-simulation-workbench
+ms.service: azure-modeling-simulation-workbench
 ms.topic: quickstart
 ms.date: 09/28/2024
 

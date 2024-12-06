@@ -217,7 +217,7 @@ For example, you deploy a template spec with the following command.
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-$id = "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/templateSpecsRG/providers/Microsoft.Resources/templateSpecs/storageSpec/versions/1.0a"
+$id = "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/templateSpecsRG/providers/Microsoft.Resources/templateSpecs/storageSpec/versions/1.0a"
 
 New-AzResourceGroupDeployment `
   -TemplateSpecId $id `
@@ -227,7 +227,7 @@ New-AzResourceGroupDeployment `
 # [CLI](#tab/azure-cli)
 
 ```azurecli
-id = "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/templateSpecsRG/providers/Microsoft.Resources/templateSpecs/storageSpec/versions/1.0a"
+id = "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/templateSpecsRG/providers/Microsoft.Resources/templateSpecs/storageSpec/versions/1.0a"
 
 az deployment group create \
   --resource-group demoRG \

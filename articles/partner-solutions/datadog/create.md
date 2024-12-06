@@ -1,11 +1,11 @@
 ---
 title: Create Datadog
 description: This article describes how to use the Azure portal to create an instance of Datadog.
-author: flang-msft
+
 
 ms.topic: quickstart
 ms.date: 01/06/2023
-ms.author: franlanglois
+
 ms.custom: references_regions
 
 ---

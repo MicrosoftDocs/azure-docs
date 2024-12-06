@@ -2,7 +2,7 @@
 title: Create and manage Backup vaults
 description: Learn how to create and manage the Backup vaults.
 ms.topic: how-to
-ms.date: 02/01/2024
+ms.date: 11/23/2024
 ms.custom: references_regions
 ms.service: azure-backup
 author: AbhishekMallick-MS
@@ -275,7 +275,7 @@ The Cross Region Restore option allows you to restore data in a secondary Azur
    :::image type="content" source="./media/backup-vault-overview/monitor-postgresql-restore-to-secondary-region.png" alt-text="Screenshot shows how to monitor the postgresql restore to the secondary region." lightbox="./media/backup-vault-overview/monitor-postgresql-restore-to-secondary-region.png":::
 
 > [!NOTE]
-> Cross Region Restore is currently only available for PostGreSQL servers.
+> Cross Region Restore is currently available for PostGreSQL servers and AKS cluster.
 
 ## Cross Subscription Restore using Azure portal
 

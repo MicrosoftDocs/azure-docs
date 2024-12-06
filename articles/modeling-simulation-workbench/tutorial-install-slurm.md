@@ -3,7 +3,7 @@ title: "Tutorial: Install the Slurm Workload Manager on Azure Modeling and Simul
 description: "Learn how to install the Slurm Workload Manager in the Azure Modeling and Simulation Workbench."
 author: yousefi-msft
 ms.author: yousefi
-ms.service: modeling-simulation-workbench
+ms.service: azure-modeling-simulation-workbench
 ms.topic: tutorial
 ms.date: 10/02/2024
 

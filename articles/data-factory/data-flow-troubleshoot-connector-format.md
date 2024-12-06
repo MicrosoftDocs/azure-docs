@@ -215,7 +215,7 @@ The RWX permission or the dataset property isn't set correctly.
 
 When you use the ADLS Gen2 as a sink in the data flow (to preview data, debug/trigger run, etc.) and the partition setting in **Optimize** tab in the **Sink** stage isn't default, you might find the job fails with the following error message:
 
-`Job failed due to reason: Error while reading file abfss:REDACTED_LOCAL_PART@prod.dfs.core.windows.net/import/data/e3342084-930c-4f08-9975-558a3116a1a9/part-00000-tid-7848242374008877624-5df7454e-7b14-4253-a20b-d20b63fe9983-1-1-c000.csv. It is possible the underlying files have been updated. You can explicitly invalidate the cache in Spark by running 'REFRESH TABLE tableName' command in SQL or by recreating the Dataset/DataFrame involved.`
+`Job failed due to reason: Error while reading file abfss:REDACTED_LOCAL_PART@prod.dfs.core.windows.net/import/data/e3342084-930c-4f08-9975-558a3116a1a9/part-00000-tid-7848242374008877624-aaaabbbb-0000-cccc-1111-dddd2222eeee-1-1-c000.csv. It is possible the underlying files have been updated. You can explicitly invalidate the cache in Spark by running 'REFRESH TABLE tableName' command in SQL or by recreating the Dataset/DataFrame involved.`
 
 #### Cause
 

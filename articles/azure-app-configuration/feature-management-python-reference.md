@@ -179,7 +179,7 @@ The `feature_flags` provided to `FeatureManager` can either be the `AzureAppConf
 
 Creating a feature filter provides a way to enable features based on criteria that you define. To implement a feature filter, the `FeatureFilter` interface must be implemented. `FeatureFilter` has a single method named `evaluate`. When a feature specifies that it can be enabled for a feature filter, the `evaluate` method is called. If `evaluate` returns `true`, it means the feature should be enabled.
 
-The following snippet demonstrates how to add a customized feature filter `MyCriteriaFilter`.
+The following snippet demonstrates how to add a customized feature filter `MyCustomFilter`.
 
 ```python
 feature_manager = FeatureManager(feature_flags, feature_filters=[MyCustomFilter()])
@@ -276,14 +276,14 @@ This strategy for rolling out a feature is built in to the library through the i
 
 ### Targeting a user
 
-Either a user can be specified directly in the `is_enabled` call or a `TargetingContxt` can be used to specify the user and optional group.
+Either a user can be specified directly in the `is_enabled` call or a `TargetingContext` can be used to specify the user and optional group.
 
 ```python
 # Directly specifying the user
-feature_manager = FeatureManager(feature_flags, "test_user")
+result = is_enabled(feature_flags, "test_user")
 
 # Using a TargetingContext
-feature_manager = FeatureManager(feature_flags, TargetingContext(user_id="test_user", groups=["Ring1"]))
+result = is_enabled(feature_flags, TargetingContext(user_id="test_user", groups=["Ring1"]))
 ```
 
 ### Targeting exclusion
@@ -621,8 +621,3 @@ To learn how to use feature filters, continue to the following tutorials.
 
 > [!div class="nextstepaction"]
 > [Roll out features to targeted audiences](./howto-targetingfilter.md)
-
-To learn how to run experiments with variant feature flags, continue to the following tutorial.
-
-> [!div class="nextstepaction"]
-> [Run experiments with variant feature flags](./howto-feature-filters.md)

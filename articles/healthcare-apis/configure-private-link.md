@@ -2,12 +2,12 @@
 title: Configure Private Link for Azure Health Data Services
 description: Learn how to set up Private Link for secure access to Azure Health Data Services.
 services: healthcare-apis
-author: msjasteppe
+author: EXPEkesheth
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 05/06/2024
-ms.author: jasteppe
+ms.author: kesheth
 ---
 
 # Configure Private Link for Azure Health Data Services

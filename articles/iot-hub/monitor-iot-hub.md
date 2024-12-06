@@ -6,7 +6,7 @@ ms.custom: horz-monitor, subject-monitoring
 ms.topic: conceptual
 author: kgremban
 ms.author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ---
 
 # Monitor Azure IoT Hub

@@ -6,7 +6,7 @@ author: cherylmc
 ms.author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: tutorial
-ms.date: 08/13/2024
+ms.date: 11/20/2024
 
 #customer intent: As a network engineer, I want to create a site-to-site VPN connection between my on-premises location and my Azure virtual network.
 ---
@@ -145,10 +145,6 @@ You can configure more settings for your connection, if necessary. Otherwise, sk
 
 [!INCLUDE [Verify the connection](../../includes/vpn-gateway-verify-connection-portal-include.md)]
 
-## <a name="connectVM"></a>Connect to a virtual machine
-
-[!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm.md)]
-
 ## Optional steps
 
 ### <a name="reset"></a>Reset a gateway
@@ -202,4 +198,4 @@ If you're not going to continue to use this application or go to the next tutori
 After you configure a site-to-site connection, you can add a point-to-site connection to the same gateway.
 
 > [!div class="nextstepaction"]
-> [Point-to-site VPN connections](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+> [Point-to-site VPN connections](point-to-site-certificate-gateway.md)

@@ -5,7 +5,7 @@ author: troyhopwood
 ms.author: troyhop
 ms.date: 06/12/2023
 ms.topic: how-to
-ms.service: iot-central
+ms.service: azure-iot-central
 ms.custom: devx-track-azurecli
 ---
 

@@ -5,8 +5,9 @@ author: andrewbrownmsft
 ms.author: andbrown
 ms.date: 10/31/2022
 ms.topic: how-to
-ms.service: iot-hub-device-update
+ms.service: azure-iot-hub
 ms.custom: devx-track-azurecli
+ms.subservice: device-update
 ---
 
 # Prepare an update to import into Device Update for IoT Hub

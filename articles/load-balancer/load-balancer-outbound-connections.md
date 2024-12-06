@@ -184,7 +184,7 @@ In the example in the following table, a backend instance with private IP 10.0.0
 
 *	Fragmented packets are dropped unless outbound is through an instance level public IP on the VM's NIC.
 
-*	Secondary IP configurations of a network interface don't provide outbound communication (unless a public IP is associated to it) via a load balancer.
+*	Secondary IPv4 configurations of a network interface are not supported with outbound rules. For outbound connectivity on secondary IPv4 configurations, attach instance level public IPs or leverage NAT Gateway instead.
 
 ## Next steps
 

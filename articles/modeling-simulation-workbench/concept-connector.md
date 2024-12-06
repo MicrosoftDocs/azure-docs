@@ -4,7 +4,7 @@ description: Connector implementation in Azure Modeling and Simulation Workbench
 author: lynnar
 ms.author: lynnar
 ms.reviewer: yochu
-ms.service: modeling-simulation-workbench
+ms.service: azure-modeling-simulation-workbench
 ms.topic: conceptual
 ms.date: 01/01/2023
 

@@ -54,15 +54,15 @@ Call redirection has the following API limitations:
 
 - As some APIs return synchronously under normal conditions but have to be proxies when used with call redirection, it's possible that the state of an object isn't available immediately.
 
-## Detecting call redirection
+## Detect call redirection
 
-To detect whether call redirection is active, you can check the `isRemote` property of the `MediaDevices` object. If this property is `true`, call redirection is active. If this property is `undefined` or `false`, call redirection isn't active.
+To detect whether call redirection is active, you can check the `isCallRedirectionEnabled` property of the `MediaDevices` object. If this property is `true`, call redirection is active. If this property is `undefined` or `false`, call redirection isn't active.
 
 ```javascript
-window.navigator.mediaDevices['isRemote'] = true;
+window.navigator.mediaDevices['isCallRedirectionEnabled'] = true;
 ```
 
-## Detecting disconnection from a remote session
+## Detect disconnection from a remote session
 
 When a user disconnects and reconnects to a remote session when using call redirection on a web page, the local WebRTC instance that supported the objects is no longer available. Typically, if a user refreshes the page, they're able to make calls again.
 

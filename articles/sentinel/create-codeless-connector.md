@@ -218,7 +218,7 @@ Finally, the CCP utilizes the credential objects in the data connector section.
 
 Manually package an Azure Resource Management (ARM) template using the [example template code samples](#example-arm-template) as your guide. These code samples are divided by ARM template sections which you must splice together.
 
-If you're creating a Google Cloud Platform (GCP) CCP data connector, package the deployment template using the [example GCP CCP template](https://github.com/austinmccollum/Azure-Sentinel/blob/patch-5/DataConnectors/Templates/Connector_GCP_CCP_template.json). For information on how to fill out the GCP CCP template, see [GCP data connector connection rules reference](data-connection-rules-reference-gcp.md).
+If you're creating a Google Cloud Platform (GCP) CCP data connector, package the deployment template using the [example GCP CCP template](https://github.com/Azure/Azure-Sentinel/blob/master/DataConnectors/Templates/Connector_GCP_CCP_template.json). For information on how to fill out the GCP CCP template, see [GCP data connector connection rules reference](data-connection-rules-reference-gcp.md).
 
 In addition to the example templates, published solutions available in the Microsoft Sentinel content hub use the CCP for their data connectors. Review the following solutions as more examples of how to stitch the components together into an ARM template.
 

@@ -4,7 +4,7 @@ description: Learn about best practices when choosing a Time Series ID in Azure 
 author: tedvilutis
 ms.author: tvilutis
 manager: cnovak
-ms.service: time-series-insights
+ms.service: azure-time-series-insights
 ms.topic: conceptual
 ms.date: 03/23/2021
 ---

@@ -4,16 +4,57 @@ description: Learn about new and updated articles to the Azure Virtual Desktop d
 ms.topic: release-notes
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 10/08/2024
+ms.date: 12/04/2024
 ---
 
 # What's new in documentation for Azure Virtual Desktop
 
 We update documentation for Azure Virtual Desktop regularly. In this article, we highlight articles for new features and where there are significant updates to existing articles. To learn what's new in the service, see [What's new for Azure Virtual Desktop](whats-new.md).
 
+## November 2024
+
+Here are the highlights of documentation changes in November 2024:
+
+- Updated autoscale content to include the preview of dynamic autoscale:
+   - [Autoscale scaling plans and example scenarios](autoscale-scenarios.md)
+   - [Create and assign an autoscale scaling plan](autoscale-create-assign-scaling-plan.md?pivots=dynamic)
+   - [Autoscale FAQ](autoscale-faq.yml)
+
+- Changed all references of Azure Stack HCI to Azure Local, as part of the product changes. For more information, see [Azure Virtual Desktop on Azure Local](azure-local-overview.md).
+
+- Updated Azure Virtual Desktop on Azure Extended Zones for general availability. For more information, see [Azure Virtual Desktop on Azure Extended Zones](azure-extended-zones.md).
+
+- Updated app attach articles with App-V support. For more information, see [App attach and MSIX app attach in Azure Virtual Desktop](app-attach-overview.md?pivots=app-attach).
+
+- Published a new article to [Deliver applications from partner solutions to Azure Virtual Desktop with app attach](app-attach-partner-solutions.md).
+
+- Added Windows Server 2025 as a supported operating system for session hosts. For more information, see [Operating systems and licenses](prerequisites.md#operating-systems-and-licenses).
+
+## October 2024
+
+Here are the highlights of documentation changes in October 2024:
+
+- Published a new article where you can lean about [Graphics encoding over the Remote Desktop Protocol](graphics-encoding.md).
+
+- Rewrote [Multimedia redirection for video playback and calls](multimedia-redirection-video-playback-calls.md) and added a new article for [Developer integration with multimedia redirection for WebRTC-based calling apps](multimedia-redirection-developer-integration.md).
+
+- Published a set of new articles for host pools using the session host configuration management approach and session host update:
+
+   - [Host pool management approaches](host-pool-management-approaches.md).
+   - [Session host update](session-host-update.md).
+   - [Update session hosts using session host update](session-host-update-configure.md).
+   - [Example diagnostic queries for session host update](session-host-update-diagnostics.md).
+   - [Troubleshoot session host update](troubleshoot-session-host-update.md).
+
+- Updated [Deploy Azure Virtual Desktop](deploy-azure-virtual-desktop.md) and [Add session hosts to a host pool](add-session-hosts-host-pool.md) to include the session host configuration management approach.
+
+- Consolidated Remote Desktop client articles per platform into a [single article with a tab per platform](./users/connect-remote-desktop-client.md) and separated [legacy Windows clients to their own article](./users/connect-legacy-windows.md).
+
+- Reorganized the table of contents into a new structure, changing the way articles are grouped and displayed. The new structure is designed to make it easier to find the information you need in the different stages of your journey with Azure Virtual Desktop.
+
 ## September 2024
 
-In September 2024, we made the following changes to the documentation:
+Here are the highlights of documentation changes in September 2024:
 
 - Updated [Enable GPU acceleration for Azure Virtual Desktop](graphics-enable-gpu-acceleration.md) for the support of the High Efficiency Video Coding (HEVC), also known as H.265, which is in preview.
 
@@ -23,7 +64,7 @@ In September 2024, we made the following changes to the documentation:
 
 ## August 2024
 
-In August 2024, we made the following changes to the documentation:
+Here are the highlights of documentation changes in August 2024:
 
 - Published a new set of documentation to learn about peripheral and resource redirection and how to configure different classes of redirection:
    - [Peripheral and resource redirection over the Remote Desktop Protocol](redirection-remote-desktop-protocol.md)
@@ -57,7 +98,7 @@ In July 2024, there were no significant changes to the documentation.
 
 ## June 2024
 
-In June 2024, we made the following changes to the documentation:
+Here are the highlights of documentation changes in June 2024:
 
 - Published a new article to [Configure the default chroma value](configure-default-chroma-value.md).
 
@@ -79,7 +120,7 @@ In June 2024, we made the following changes to the documentation:
 
 ## May 2024
 
-In May 2024, we made the following changes to the documentation:
+Here are the highlights of documentation changes in May 2024:
 
 - Published a new article to [Configure client device redirection settings for Windows App and the Remote Desktop app using Microsoft Intune](client-device-redirection-intune.md).
 
@@ -89,7 +130,7 @@ In May 2024, we made the following changes to the documentation:
 
 ## April 2024
 
-In April 2024, we made the following changes to the documentation:
+Here are the highlights of documentation changes in April 2024:
 
 - Published a new article to [Monitor Autoscale operations with Insights in Azure Virtual Desktop](autoscale-monitor-operations-insights.md). Integrated with Insights in Azure Virtual Desktop, Autoscale diagnostic data enables you to monitor scaling operations, identify issues that need to be fixed, and recognize opportunities to optimize your scaling plan configuration to save costs. 
 
@@ -99,7 +140,7 @@ In April 2024, we made the following changes to the documentation:
 
 ## March 2024
 
-In March 2024, we made the following changes to the documentation:
+Here are the highlights of documentation changes in March 2024:
 
 - Published a new article to [Configure the clipboard transfer direction and types of data that can be copied](clipboard-transfer-direction-data-types.md) between a local device and a remote session.
 
@@ -109,7 +150,7 @@ In March 2024, we made the following changes to the documentation:
 
 ## February 2024
 
-In February 2024, we made the following changes to the documentation:
+Here are the highlights of documentation changes in February 2024:
 
 - Added guidance for MSIX and Appx package certificates when using MSIX app attach or app attach. For more information, see [MSIX app attach and app attach in Azure Virtual Desktop](app-attach-overview.md#msix-and-appx-package-certificates).
 
@@ -123,7 +164,7 @@ In February 2024, we made the following changes to the documentation:
 
 ## January 2024
 
-In January 2024, we made the following changes to the documentation:
+Here are the highlights of documentation changes in January 2024:
 
 - Consolidated articles to [Create and assign an autoscale scaling plan for Azure Virtual Desktop](autoscale-scaling-plan.md) into a single article.
 
@@ -133,7 +174,7 @@ In January 2024, we made the following changes to the documentation:
 
 ## December 2023
 
-In December 2023, we made the following changes to the documentation:
+Here are the highlights of documentation changes in December 2023:
 
 - Published new content for the preview of *app attach*, which is now available alongside MSIX app attach. App attach brings many benefits over MSIX app attach, including assigning applications per user, using the same application package across multiple host pools, upgrading applications, and being able to run two versions of the same application concurrently on the same session host. For more information, see [MSIX app attach and app attach in Azure Virtual Desktop](app-attach-overview.md?pivots=app-attach).
 
@@ -143,7 +184,7 @@ In December 2023, we made the following changes to the documentation:
 
 ## November 2023
 
-In November 2023, we made the following changes to the documentation:
+Here are the highlights of documentation changes in November 2023:
 
 - Updated articles for the general availability of autoscale for personal host pools. We also added in support for hibernate (preview). For more information, see [Autoscale scaling plans and example scenarios in Azure Virtual Desktop](autoscale-scenarios.md).
 
@@ -155,7 +196,7 @@ In November 2023, we made the following changes to the documentation:
 
 ## October 2023
 
-In October 2023, we made the following changes to the documentation:
+Here are the highlights of documentation changes in October 2023:
 
 - Published a new article about the service architecture for Azure Virtual Desktop and how it provides a resilient, reliable, and secure service for organizations and users. Most components are Microsoft-managed, but some are customer-managed. You can learn more at [Azure Virtual Desktop service architecture and resilience](service-architecture-resilience.md).
 
@@ -163,13 +204,13 @@ In October 2023, we made the following changes to the documentation:
 
 ## September 2023
 
-In September 2023, we made the following changes to the documentation:
+Here are the highlights of documentation changes in September 2023:
 
 - Published a new article to [Use Microsoft OneDrive with a RemoteApp](onedrive-remoteapp.md).
 
 - Published a new article to [Uninstall and reinstall Remote Desktop Connection](/windows-server/remote/remote-desktop-services/clients/uninstall-remote-desktop-connection) (MSTSC) on Windows 11 23H2.
 
-- Published a new article for [Azure Virtual Desktop (classic) retirement](virtual-desktop-fall-2019/classic-retirement.md).
+- Published a new article for [Azure Virtual Desktop (classic) retirement](/previous-versions/azure/virtual-desktop-classic/classic-retirement).
 
 - Updated articles for custom images templates general availability:
   - [Custom image templates](custom-image-templates.md).
@@ -180,7 +221,7 @@ In September 2023, we made the following changes to the documentation:
 
 ## August 2023
 
-In August 2023, we made the following changes to the documentation:
+Here are the highlights of documentation changes in August 2023:
 
 - Updated [Administrative template for Azure Virtual Desktop](administrative-template.md) to include being able to configure settings using the settings catalog in Intune.
 
@@ -188,7 +229,7 @@ In August 2023, we made the following changes to the documentation:
 
 ## July 2023
 
-In July 2023, we made the following changes to the documentation:
+Here are the highlights of documentation changes in July 2023:
 
 - Updated autoscale articles for the preview of autoscale for personal host pools. Learn more at [Autoscale scaling plans and example scenarios](autoscale-scenarios.md) and [Create an autoscale scaling plan](autoscale-scaling-plan.md).
 
@@ -204,13 +245,13 @@ In July 2023, we made the following changes to the documentation:
 
 ## June 2023
 
-In June 2023, we made the following changes to the documentation:
+Here are the highlights of documentation changes in June 2023:
 
 - Updated [Use Azure Virtual Desktop Insights](insights.md) to use the Azure Monitor Agent.
 
 - Updated [Supported features for Microsoft Teams on Azure Virtual Desktop](teams-supported-features.md) to include simulcast, mirror my video, manage breakout rooms, call health panel.
 
-- Published a new article to [Assign RBAC roles to the Azure Virtual Desktop service principal](service-principal-assign-roles.md).
+- Published a new article to [Assign Azure RBAC roles or Microsoft Entra roles to the Azure Virtual Desktop service principals](service-principal-assign-roles.md).
 
 - Added Intune to [Administrative template for Azure Virtual Desktop](administrative-template.md).
 
@@ -218,7 +259,7 @@ In June 2023, we made the following changes to the documentation:
 
 ## May 2023
 
-In May 2023, we made the following changes to the documentation:
+Here are the highlights of documentation changes in May 2023:
 
 - New articles for the custom images templates preview:
   - [Custom image templates](custom-image-templates.md).
@@ -231,7 +272,7 @@ In May 2023, we made the following changes to the documentation:
 
 ## April 2023
 
-In April 2023, we made the following changes to the documentation:
+Here are the highlights of documentation changes in April 2023:
 
 - New articles for the Azure Virtual Desktop Store app preview:
   - [Connect to Azure Virtual Desktop with the Azure Virtual Desktop Store app for Windows](users/connect-windows-azure-virtual-desktop-app.md).
@@ -246,7 +287,7 @@ In April 2023, we made the following changes to the documentation:
 
 ## March 2023
 
-In March 2023, we made the following changes to the documentation:
+Here are the highlights of documentation changes in March 2023:
 
 - Published a new article for the preview of [Uniform Resource Identifier (URI) schemes with the Remote Desktop client](uri-scheme.md).
 
@@ -254,7 +295,7 @@ In March 2023, we made the following changes to the documentation:
 
 ## February 2023
 
-In February 2023, we made the following changes to the documentation:
+Here are the highlights of documentation changes in February 2023:
 
 - Updated [RDP Shortpath](rdp-shortpath.md?tabs=public-networks) and [Configure RDP Shortpath](configure-rdp-shortpath.md?tabs=public-networks) articles with the preview information for an indirect UDP connection using the Traversal Using Relay NAT (TURN) protocol with a relay between a client and session host.
 
@@ -270,7 +311,7 @@ In February 2023, we made the following changes to the documentation:
 
 ## January 2023
 
-In January 2023, we made the following change to the documentation:
+Here are the highlights of documentation changes in January 2023, we made the following change to the documentation:
 
 - Published a new article for the preview of [Watermarking](watermarking.md).
 
