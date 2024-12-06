@@ -231,9 +231,9 @@
       expanded: false
       items:
         - name: Check runtime version
-          href: howto-aon-check-runtime-version.md
+          href: howto-check-runtime-version.md
         - name: Site Teardown checklist
-          href: howto-aon-site-teardown-checklist.md
+          href: howto-site-decommision-checklist.md
       
 - name: Troubleshooting
   items:
