@@ -1,8 +1,8 @@
 ---
 title: "Azure Operator Nexus: Before you start platform deployment prerequisites"
 description: Learn the prerequisite steps for deploying the Operator Nexus platform software.
-author: surajmb
-ms.author: surmb
+author: peterwhiting
+ms.author: pjw711
 ms.service: azure-operator-nexus
 ms.topic: how-to
 ms.date: 03/13/2023
@@ -151,7 +151,7 @@ To set up the hostname for your terminal server, follow these steps:
 Use the following command in the CLI:
 
 ```bash
-sudo ogcli update system/hostname hostname=\"$TS_HOSTNAME\"
+sudo ogcli update system/hostname hostname=\"<TS_HOSTNAME>\"
 ```
 
 **Parameters:**
@@ -172,17 +172,17 @@ Execute the following commands in the CLI:
 sudo ogcli create conn << 'END'
   description="PE1 to TS NET1"
   mode="static"
-  ipv4_static_settings.address="$TS_NET1_IP"
-  ipv4_static_settings.netmask="$TS_NET1_NETMASK"
-  ipv4_static_settings.gateway="$TS_NET1_GW"
+  ipv4_static_settings.address="<TS_NET1_IP>"
+  ipv4_static_settings.netmask="<TS_NET1_NETMASK>"
+  ipv4_static_settings.gateway="<TS_NET1_GW>"
   physif="net1"
   END
 sudo ogcli create conn << 'END'
   description="PE2 to TS NET2"
   mode="static"
-  ipv4_static_settings.address="$TS_NET2_IP"
-  ipv4_static_settings.netmask="$TS_NET2_NETMASK"
-  ipv4_static_settings.gateway="$TS_NET2_GW"
+  ipv4_static_settings.address="<TS_NET2_IP>"
+  ipv4_static_settings.netmask="<TS_NET2_NETMASK>"
+  ipv4_static_settings.gateway="<TS_NET2_GW>"
   physif="net2"
   END
 ```
@@ -210,7 +210,7 @@ To clear the net3 interface, follow these steps:
 ```bash
 ogcli get conns
   description="Default IPv4 Static Address"
-  name="$TS_NET3_CONN_NAME"
+  name="<TS_NET3_CONN_NAME>"
   physif="net3"
 ```
 
@@ -223,7 +223,7 @@ ogcli get conns
 2. Remove the interface if it exists:
 
 ```bash
-ogcli delete conn "$TS_NET3_CONN_NAME"
+ogcli delete conn "<TS_NET3_CONN_NAME>"
 ```
 
 >[!NOTE]
@@ -241,8 +241,8 @@ description="Support Admin User"
 enabled=true
 groups[0]="admin"
 groups[1]="netgrp"
-password="$SUPPORT_PWD"
-username="$SUPPORT_USER"
+password="<SUPPORT_PWD>"
+username="<SUPPORT_USER>"
 END
 ```
 
@@ -354,7 +354,7 @@ If the date/time is incorrect, you can fix it using:
 ```bash
 ogcli replace system/time
 Reading information from stdin. Press Ctrl-D to submit and Ctrl-C to cancel.
-time="$CURRENT_DATE_TIME"
+time="<CURRENT_DATE_TIME>"
 ```
 
 **Parameters:**
@@ -371,7 +371,7 @@ time="$CURRENT_DATE_TIME"
 To label Terminal Server ports, use the following command:
 
 ```bash
-ogcli update port "port-<PORT_#>"  label=\"<NEW_NAME>\"	<PORT_#>
+ogcli update port "port-<PORT_#>"  label=\"<NEW_NAME>\" <PORT_#>
 ```
 
 **Parameters:**
@@ -512,7 +512,6 @@ Interface:    net1, via: LLDP, RID: 1, Time: 0 day, 20:28:36
      - Subnet Mask: 255.255.255.0
      - MTU: 1500
      - Bond: not set by operator during setup
-   - VLAN Number / Prefix: 43
    - ct0.eth10: not set by operator during setup
    - ct0.eth11: not set by operator during setup
    - ct0.eth18: not set by operator during setup
