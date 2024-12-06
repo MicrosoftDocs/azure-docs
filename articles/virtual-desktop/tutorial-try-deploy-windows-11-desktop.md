@@ -213,7 +213,7 @@ Now that you've created and connected to a Windows 11 desktop with Azure Virtual
 
 - Learn about [supported identities and authentication methods](authentication.md)
 
-- [Configure single sign-on for Azure Virtual Desktop using Microsoft Entra authentication](configure-single-sign-on.md), which includes providing consent on behalf od your organization .
+- [Configure single sign-on for Azure Virtual Desktop using Microsoft Entra authentication](configure-single-sign-on.md), which includes providing consent on behalf of your organization.
 
 - Learn about [session host virtual machine sizing guidelines](/windows-server/remote/remote-desktop-services/virtual-machine-recs?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json).
 
