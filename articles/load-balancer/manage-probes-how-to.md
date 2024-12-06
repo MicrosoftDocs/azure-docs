@@ -152,8 +152,6 @@ In this example, you create an HTTPS health probe.
 
 5. Select **+ Add** in **Health probes** to add a probe.
 
-    :::image type="content" source="./media/manage-probes-how-to/add-probe.png" alt-text="Screenshot of the health probes page for Azure Load Balancer":::
-
 6. Enter or select the following information in **Add health probe**.
 
     | Setting | Value |
@@ -181,8 +179,6 @@ In this example, you remove an HTTPS health probe.
 5. Select the three dots next to the rule you want to remove.
 
 6. Select **Delete**.
-
-    :::image type="content" source="./media/manage-probes-how-to/remove-https-probe.png" alt-text="Screenshot of HTTPS probe removal.":::
 
 ## Next steps
 
