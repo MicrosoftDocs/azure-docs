@@ -1,4 +1,4 @@
-code---
+---
 title: Create image for Azure Operator Nexus virtual machine
 description: Create container image for Operator Nexus virtual machine
 author: dramasamy
