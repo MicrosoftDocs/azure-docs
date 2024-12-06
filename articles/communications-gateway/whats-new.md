@@ -20,12 +20,6 @@ From April 2024, you can set up private networking between your on-premises envi
 
 For more information about private networking, see [Connecting to Azure Communications Gateway](./connectivity.md). For deployment instructions, see [Prepare to connect Azure Communications Gateway to your own virtual network](./prepare-for-vnet-injection.md).
 
-### Support for Azure Operator Call Protection Preview
-
-From April 2024, you can use Azure Communications Gateway to provide Azure Operator Call Protection Preview. Azure Operator Call Protection uses AI to perform real-time analysis of consumer phone calls to detect potential phone scams and alert subscribers when they are at risk of being scammed. It's built on Azure Communications Gateway.
-
-For more information about Azure Operator Call Protection, see [What is Azure Operator Call Protection Preview?](../operator-call-protection/overview.md?toc=/azure/communications-gateway/toc.json&bc=/azure/communications-gateway/breadcrumb/toc.json). For deployment instructions, see [Set up Azure Operator Call Protection Preview](../operator-call-protection/set-up-operator-call-protection.md?toc=/azure/communications-gateway/toc.json&bc=/azure/communications-gateway/breadcrumb/toc.json).
-
 ## March 2024
 
 ### Lab deployments
