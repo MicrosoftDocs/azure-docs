@@ -225,7 +225,7 @@ Storage utilization is calculated based on the following sequence:
 5. Apply required 25% slack for vSAN
 6. Result available storage for VMs out of total storage including management overhead.
 
-The available storage on a 3 node cluster will be based on the default storage policy, which is Raid-1 and uses thick provisioning. When calculating for erasure coding or Raid-5 for example, a minimum of 4 nodes is required. Note that in Azure VMware Solution, the storage policy for customer workload can be changed by the administrator or Run Command(Currently in Preview). [Learn more](./azure-vmware/configure-storage-policy.md).
+The available storage on a 3 node cluster will be based on the default storage policy, which is Raid-1 and uses thick provisioning. When calculating for erasure coding or Raid-5 for example, a minimum of 4 nodes is required. Note that in Azure VMware Solution, the storage policy for customer workload can be changed by the administrator or Run Command(Currently in Preview). [Learn more](/azure/azure-vmware/configure-storage-policy).
 
 ### Limiting factor
 
