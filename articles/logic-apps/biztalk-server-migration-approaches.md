@@ -86,38 +86,44 @@ To set up your initial environment, use the [Azure Integration Services Landing 
 
 #### Minimum viable project (MVP) definition
 
-An MVP is a product version with just enough features to be customer usable. This version shows the product's possibilities and potential to gather customer feedback and continue the work. For a BizTalk migration, your MVP definition reflects the iterations, waves, or groups of sprints that you need to make progress towards working features and to meet initial integration workloads.
+An MVP is a product version that has just enough customer-usable features. This version shows the product's possibilities and potential to gather customer feedback and continue the work. For a BizTalk migration, your MVP definition reflects the iterations, waves, or groups of sprints that you need to make progress towards working features and to meet initial integration workloads.
 
 We recommend that your MVP definition include the following business outcomes, which are expressed as [*Epics*](/azure/devops/boards/backlogs/define-features-epics?view=azure-devops&preserve-view=true&tabs=agile-process#what-makes-a-feature-or-epic) in Scrum terminology:
 
-- **Business outcomes (Epics)**
-  - What is the primary goal that we want to achieve? 
-  - What capabilities or features must we address for this MVP?
-  - What are the business process flows? This question provides the opportunity to optimize existing processes supported by BizTalk Server.
-  - MVP business decisions: What business outcomes impact the MVP? Resource availability?
+**Business outcomes (Epics)**
+
+- What is the primary goal that you want to achieve? 
+- What capabilities or features must you address for this MVP?
+- What are the business process flows? This question provides the opportunity to optimize existing processes supported by BizTalk Server.
+- What are the business decisions, for example, business outcomes that affect the MVP, or what is the esource availability?
 
 We recommend that your MVP include the following in-scope processes, which are expressed as [*Features*](/azure/devops/boards/backlogs/define-features-epics?view=azure-devops&preserve-view=true&tabs=agile-process#what-makes-a-feature-or-epic) in Scrum terminology:
 
 <a name="in-scope-processes"></a>
 
-- **In-scope processes (Features)**
+**In-scope processes (Features)**
 
-  | Feature | Description |
-  |---------|-------------|
-  | High-level system functionality | You can extract this information using the discovery tools and express the descriptions in terms of features. |
-  | Actors or personas | Use this information to determine the individuals affected by the MVP's supported scenarios. |
-  | Orchestrations | You can extract this information using the discovery tools. |
-  | Data entities and messages | These elements give you an opportunity to learn whether you can include further improvements in the data exchanged by the BizTalk Server environment. |
-  | Data mappings | Today's world relies on JSON. However, BizTalk Server uses XML. This moment is a great opportunity to decide the data format and conversion needs for the new platform. |
-  | Business rules | These data-centric rules open an opportunity for you to rethink their approach or reuse them by employing Azure Logic Apps capabilities. |
-  | Data privacy considerations | You must make privacy a top priority. Unless your customer chooses the hybrid deployment model in Azure Logic Apps (Standard), you must address this area in each wave due to potential deployment environment changes, |
-  | Regulatory considerations | This aspect is more relevant if your customers don't have cloud-based workloads. |
-  | Secure by design | You must design each feature with security in mind. |
-  | Proposed features for coexistence | When you deliver each wave, you have a certain degree of coexistence. You must align this hybrid architecture with existing Service Level Indicators (SLIs) and Service Level Objectives (SLOs). |
-  | Non-functional considerations | Business processes might have different non-functional requirements. Not everything must happen in real time. Conversely, not everything is a batch process. |
-  | Business metrics | An optional opportunity to show progress for the migration work. |
+| Feature | Description |
+|---------|-------------|
+| High-level system functionality | You can extract this information using the discovery tools and express the descriptions in terms of features. |
+| Actors or personas | Use this information to determine the individuals affected by the MVP's supported scenarios. |
+| Orchestrations | You can extract this information using the discovery tools. |
+| Data entities and messages | These elements give you an opportunity to learn whether you can include further improvements in the data exchanged by the BizTalk Server environment. |
+| Data mappings | Today's world relies on JSON. However, BizTalk Server uses XML. This moment is a great opportunity to decide the data format and conversion needs for the new platform. |
+| Business rules | These data-centric rules open an opportunity for you to rethink their approach or reuse them by employing Azure Logic Apps capabilities. |
+| Data privacy considerations | You must make privacy a top priority. Unless your customer chooses the hybrid deployment model in Azure Logic Apps (Standard), you must address this area in each wave due to potential deployment environment changes. |
+| Regulatory considerations | This aspect is more relevant if your customers don't have cloud-based workloads. |
+| Secure by design | You must design each feature with security in mind. |
+| Proposed features for coexistence | When you deliver each wave, you have a certain degree of coexistence. You must align this hybrid architecture with existing Service Level Indicators (SLIs) and Service Level Objectives (SLOs). |
+| Non-functional considerations | Business processes might have different non-functional requirements. Not everything must happen in real time. Conversely, not everything is a batch process. |
+| Business metrics | An optional opportunity to show progress for the migration work. |
 
-- **MVP out-of-scope**: Different variables shape the scope of work, for example, resource availability, risks, documentation, or time to market. Ideally, you want to identify and list these items.
+You'll also want to identify and list the various out-of-scope variables that shape the scope of your MVP work, for example:
+
+- Resource availability
+- Risks
+- Documentation
+- Time to market
 
 #### Initial backlog
 
@@ -127,9 +133,9 @@ For example, suppose you have a BizTalk Server project with an orchestration cal
 
 - **Feature**: Loan processing
 
-- **User story**: "As a customer, I want to submit a loan application so the bank can add funds to my secure account."
+- **User Story**: "As a customer, I want to submit a loan application so the bank can add funds to my secure account."
 
-   This User Story, which might currently exist as an implementation in BizTalk Server, has the following tasks in Azure Logic Apps and Azure Integration Services:
+   This User Story, which might currently exist as an implementation in BizTalk Server, has the following tasks to implement using Azure Logic Apps and Azure Integration Services:
    
    - Collect BizTalk reusable artifacts.
    - Create a loan request workflow using Azure Logic Apps.
@@ -161,7 +167,7 @@ The following diagram shows the events that should happen during migration waves
 |------|--------------|
 | 1 | Discover existing BizTalk apps and interfaces. Although introduced in Sprint 0, this activity should happen when each wave starts. Customers might continue making changes in your BizTalk environment. <br><br>Resources: <br>- [BizTalk Migration tool](https://github.com/Azure/aimtool) <br>- [BizTalk Documenter tool](https://github.com/mbrimble/biztalkdocumenter) |
 | 2 | Set up your initial migration environment. You can use the [Azure Integration Services Landing Zone Accelerator](https://github.com/[Azure/Integration-Services-Landing-Zone-Accelerator), which is a cloud adoption framework for building and deploying an integration platform that has a typical enterprise landing zone design. As the workload owner, you can confidently achieve your target technical state by using the provided [architectural guidance and BizTalk migration resources](https://techcommunity.microsoft.com/blog/integrationsonazureblog/biztalk-server-migration-to-azure-integration-services-resources/3733464). <br><br>For an example architecture, see [Example migration environment](#initial-migration-environment). |
-| 3 | Create and test Standard logic app workflows that run in single-tenant Azure Logic Apps using either the Azure portal or Visual Studio Code with the Azure Logic Apps (Standard) extension. With Visual Studio Code, you can locally develop, test, and store your logic app project using any source control system. <br><br>For more information, see the following documentation: <br><br>- [Create an example Standard logic app workflow using the Azure portal](/azure/logic-apps/create-single-tenant-workflows-azure-portal) <br>- [Create an example Standard logic app workflow using Visual Studio Code](/azure/logic-apps/create-single-tenant-workflows-visual-studio-code). <br><br>For a diagram that shows an example logic app and connections, see [Example migration environment](#initial-migration-environment). |
+| 3 | Create and test Standard logic app workflows that run in single-tenant Azure Logic Apps using either the Azure portal or Visual Studio Code with the Azure Logic Apps (Standard) extension. With Visual Studio Code, you can locally develop, test, and store your logic app project using any source control system. <br><br>For more information, see the following documentation: <br><br>- [Create an example Standard logic app workflow using the Azure portal](/azure/logic-apps/create-single-tenant-workflows-azure-portal) <br>- [Create an example Standard logic app workflow using Visual Studio Code](/azure/logic-apps/create-single-tenant-workflows-visual-studio-code) <br><br>For a diagram that shows an example logic app and connections, see [Example migration environment](#initial-migration-environment). |
 | 4 | To get the full benefits from easily and consistently deploying your Standard logic app workflows across different environments and platforms, you must also automate your build and deployment process. The Azure Logic Apps (Standard) extension for Visual Studio Code provides tools for you to create and maintain automated build and deployment processes using Azure DevOps. <br><br>For more information, see [Automate build and deployment for Standard logic app workflows with Azure DevOps](/azure/logic-apps/automate-build-deployment-standard). | 
 | 5 | To deploy mission-critical Standard logic apps that are always available and responsive, even during updates or maintenance, enable zero downtime deployment by creating and using deployment slots. Zero downtime means that when you deploy new versions of your app, end users shouldn't experience disruption or downtime. <br><br>For more information, see [Set up deployment slots to enable zero downtime deployment in Azure Logic Apps](/azure/logic-apps/set-up-deployment-slots). | 
 
@@ -206,7 +212,7 @@ Each *wave* has its own testing activities, which are embedded in each User Stor
 
 - Set up mock response testing using static results.
 
-  Regardless whether you set up automated tests, you can use the [static results capability](./test-logic-apps-mock-data-static-results.md) in Azure Logic Apps to temporarily set mock responses at the action level. This functionality lets you emulate the behavior from a specific system that you want to call. You can then perform some initial testing in isolation and reduce the amount of data that you'd create in line of business systems.
+  Regardless whether you set up automated tests, you can use the [static results capability](test-logic-apps-mock-data-static-results.md) in Azure Logic Apps to temporarily set mock responses at the action level. This functionality lets you emulate the behavior from a specific system that you want to call. You can then perform some initial testing in isolation and reduce the amount of data that you'd create in line of business systems.
 
 - Run side by side tests.
 
@@ -255,7 +261,7 @@ Make sure to set up and consistently apply good naming conventions across all Az
 For guidance around this practice, review the following Microsoft recommendations and resources:
 
 - [Abbreviation examples for Azure resources](/azure/cloud-adoption-framework/ready/azure-best-practices/resource-abbreviations) 
--  [Azure Naming Tool](https://github.com/microsoft/CloudAdoptionFramework/tree/master/ready/AzNamingTool), which generates Azure-compliant names, helps you standardize on names, and automates your naming process.
+- [Azure Naming Tool](https://github.com/microsoft/CloudAdoptionFramework/tree/master/ready/AzNamingTool), which generates Azure-compliant names, helps you standardize on names, and automates your naming process.
 
 ### Naming conventions for Azure Logic Apps resources
 
@@ -284,7 +290,7 @@ So, if you had a workflow that implements employee onboarding tasks, such as cre
 
 Here are more considerations for designing your workflow naming convention:
 
-- Follow the Parent-Child pattern for logic apps where you want to highlight some relationship between one or more workflows.
+- Follow the parent-child pattern for workflows where you want to highlight some relationship between one or more workflows.
 - Take into account whether a workflow publishes or consumes a message.
 
 #### Workflow operation names
@@ -298,14 +304,14 @@ To make operation names more meaningful and easier to understand, you can add a 
 > For organizations that extensively use expressions, consider a naming convention that doesn't 
 > promote using whitespace (' '). The expression language in Azure Logic Apps replaces whitespace 
 > with underscores ('_'), which might complicate authoring. By avoiding spaces upfront, you help 
-> reduce friction when authoring expressions. Instead, use a dash or hyphen ('-), which provides 
+> reduce friction when authoring expressions. Instead, use a dash or hyphen ('-'), which provides 
 > readability and doesn't affect expression authoring.
 
 To avoid later possible rework and problems around downstream dependencies, which are created when you use operation outputs, rename your operations immediately when you add them to your workflow. Usually, downstream actions are automatically updated when you rename an operation. However, Azure Logic Apps doesn't automatically rename custom expressions that you created before you perform the rename.
 
 #### Connection names
 
-When you create a connection in your workflow, the underlying connection resource automatically gets a generic name, such as **sql** or **office365**. Like operation names, connection names must also be unique. Subsequent connections with the same type get a sequential numerical suffix, for example, **sql-1**, **sql-2**, and so on. Such names don't have any context, and make differentiating and mapping connections to their logic apps extremely challenging, especially for developers who are unfamiliar with the space and have to take on maintenance for those logic apps.
+When you create a connection in your workflow, the underlying connection resource automatically gets a generic name, such as **sql** or **office365**. Like operation names, connection names must also be unique. Subsequent connections with the same type get a sequential numerical suffix, for example, **sql-1**, **sql-2**, and so on. Such names don't have any context, and make differentiating and mapping connections to their workflows extremely challenging, especially for developers who don't know the solution space and have maintain those workflows.
 
 So, meaningful and consistent connection names are important for the following reasons:
 
@@ -317,13 +323,13 @@ Again, having a naming convention is critical, although the format isn't overly 
 
 `CN-<*connector-name*>-<*logic-app-or-workflow-name*>`
 
-As a concrete example, you might rename a Service Bus connection in an **OrderQueue** logic app or workflow with **CN-ServiceBus-OrderQueue** as the new name. For more information, see the Turbo360 (Formerly Serverless360) blog post [Logic app best practices, tips, and tricks: #11 connectors naming convention](https://www.turbo360.com/blog/logic-app-best-practices-tips-and-tricks-11-connectors-naming-convention).
+As a concrete example, you might rename a Service Bus connection in an **OrderQueue** logic app workflow with **CN-ServiceBus-OrderQueue** as the new name. For more information, see the Turbo360 (Formerly Serverless360) blog post, [Logic app best practices, tips, and tricks: #11 connectors naming convention](https://www.turbo360.com/blog/logic-app-best-practices-tips-and-tricks-11-connectors-naming-convention).
 
 ### Handle exceptions with scopes and "Run after" options
 
-[Scopes](./logic-apps-control-flow-run-steps-group-scopes.md) provide the capability to group multiple actions so that you can implement Try-Catch-Finally behavior. The **Scope** action's functionality is similar to the **Region** concept in Visual Studio. On the designer, you can collapse and expand a scope's contents to improve developer productivity.
+[Scopes](logic-apps-control-flow-run-steps-group-scopes.md) provide the capability to group multiple actions so that you can implement Try-Catch-Finally behavior. The **Scope** action's functionality is similar to the **Region** concept in Visual Studio. On the designer, you can collapse and expand a scope's contents to improve developer productivity.
 
-When you implement this pattern, you can also specify when to run the **Scope** action and the actions inside, based on the preceding action's execution status, which can be **Succeeded**, **Failed**, **Skipped**, or **TimedOut**. To set up this behavior, use the **Scope** action's [**Run after** (`runAfter`) options](./logic-apps-exception-handling.md#manage-the-run-after-behavior):
+When you implement this pattern, you can also specify when to run the **Scope** action and the actions inside, based on the preceding action's execution status, which can be **Succeeded**, **Failed**, **Skipped**, or **TimedOut**. To set up this behavior, use the **Scope** action's [**Run after** (`runAfter`) options](logic-apps-exception-handling.md#manage-the-run-after-behavior):
 
 - **Is successful**
 - **Has failed**
