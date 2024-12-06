@@ -243,9 +243,9 @@ The creation process makes the following changes:
   service?
   Yes, certificates can be purchased through App Service, then exported and uploaded for use with Application Gateway or 
   any other service.
-  Please refer to the following blog article: https://azure.github.io/AppService/2017/02/24/Creating-a-local-PFX-copy-of- 
+  Please refer to the following blog article: [https://azure.github.io/AppService/2017/02/24/Creating-a-local-PFX-copy-of- 
   App-Service-Certificate.html
-  
+  ](https://azure.github.io/AppService/2017/02/24/Creating-a-local-PFX-copy-of-App-Service-Certificate.html)
 ## More resources
 
 * [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](configure-ssl-bindings.md)
