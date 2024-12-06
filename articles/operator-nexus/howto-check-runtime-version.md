@@ -1,7 +1,7 @@
 ---
 title: "Azure Operator Nexus: How to check runtime version for Azure Operator Nexus"
 description: Learn to check the runtime version of the key components in Azure Operator Nexus
-author: Tony Yam
+author: tonyyam23
 ms.author: tonyyam23
 ms.service: azure-operator-nexus
 ms.custom: azure-operator-nexus, devx-track-azurecli
