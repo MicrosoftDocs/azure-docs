@@ -6,7 +6,7 @@ ms.author: johnmarc
 ms.topic: article
 ms.service: azure-redhat-openshift
 ms.custom: devx-track-azurecli
-ms.date: 09/13/2024
+ms.date: 12/06/2024
 #Customer intent: As a developer, I want learn how to create an Azure Red Hat OpenShift cluster, scale it, and then clean up resources so that I am not charged for what I'm not using.
 ---
 
@@ -110,6 +110,9 @@ If you provide a custom domain for your cluster, note the following points:
 ### Create a virtual network containing two empty subnets
 
 Next, you'll create a virtual network containing two empty subnets. If you have existing virtual network that meets your needs, you can skip this step.
+
+For information about networking and requirements, see [Networking for Azure Red Hat Openshift](concepts-networking.md#networking-for-azure-red-hat-openshift).
+
 
 1. **Set the following variables in the shell environment in which you will execute the `az` commands.**
 
