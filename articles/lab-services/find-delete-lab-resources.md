@@ -14,26 +14,26 @@ ms.date: 12/05/2024
 There are two versions of Azure Lab Services. Labs created from lab accounts use the older version, while labs created from lab plans use the newer version. This guide explains how to review lab resources, determine lab version, and delete unused resources.
 
 ## Review labs
-A lab inventory can be found in the Azure Portal under [Labs - Microsoft Azure](https://ms.portal.azure.com/#browse/Microsoft.LabServices%2Flabs). 
+A lab inventory can be found in the Azure portal under [Labs - Microsoft Azure](https://ms.portal.azure.com/#browse/Microsoft.LabServices%2Flabs). 
 * Browse and manage deployed lab resources
 * Review each lab's region, OS, and number of lab VMs in use 
 
 Additional lab configurations or queries across multiple subscriptions can be surfaced with [Azure Resource Graph Explorer](/azure/governance/resource-graph/overview). These attributes help optimize resources, plan for service retirement, and transition to a preferred lab solution.
 
 * **Name** - Identifies lab name
-* **Location** - Indicates the deployed region, which can impact compliance requirements and latency
+* **Location** - Indicates the deployed region, which can affect compliance requirements and latency
 * **State** - Shows the lab template status e.g. published, helping to track lab development stage
 * **labPlanId** - Determine the lab version, with an empty value indicating a lab account-based lab
-* **osType** - Specifies the operating system (Windows or Linux), important for sofware compatibility and licensing
+* **osType** - Specifies the operating system (Windows or Linux), important for software compatibility and licensing
 * **Capacity** - Indicates the number of lab VMs, useful for resource allocation and scaling decisions
 * **SKU** - Shows the compute option associated with the lab VM size, impacting performance and cost
-* **Image** - Identifies whether an Azure Compute Gallery (id) or Azure Marketplace (publisher) image was used, which affects image updates and opportunity for reuse  
+* **Image** - Identifies whether an Azure Compute Gallery (ID) or Azure Marketplace (publisher) image was used, which affects image updates and opportunity for reuse  
 * **Network** - Surfaces a custom network configuration for labs with advanced networking
 * **createdAt** - Provides the resource creation timestamp, useful for tracking the age and lifecycle of the lab
 * **lastModifiedAt** - Shows the most recent modification timestamp, helping to determine recent activity
 * **lastModifiedBy** - Indicates the user or application that most recently modified the resource, important for auditing and accountability
 
-In the Azure Portal at [Labs - Microsoft Azure](https://ms.portal.azure.com/#browse/Microsoft.LabServices%2Flabs), select 'Open query' and replace existing query with:
+In the Azure portal at [Labs - Microsoft Azure](https://ms.portal.azure.com/#browse/Microsoft.LabServices%2Flabs), select 'Open query' and replace existing query with:
 
 ```kusto
 resources
