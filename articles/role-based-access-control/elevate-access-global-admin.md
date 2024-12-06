@@ -335,13 +335,13 @@ When you call `elevateAccess`, you create a role assignment for yourself, so to 
 
 ---
 
-## Remove elevated access for users
+## View users with elevated access
 
-If you have users with unnecessary elevated access, you should take immediate action and remove that access. To remove these role assignments, you must also have elevated access. This section describes how you can view users that have elevated access in your tenant and remove that access using the Azure portal.
+If you have users with elevated access, banners are displayed in a couple locations of the Azure portal. This section describes how to determine if you have users that have elevated access in your tenant.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a Global Administrator.
+### Option 1
 
-1. Browse to **Microsoft Entra ID** > **Manage** > **Properties**.
+1. In the Azure portal, browse to **Microsoft Entra ID** > **Manage** > **Properties**.
 
 1. Under **Access management for Azure resources**, look for the following banner.
 
@@ -349,9 +349,31 @@ If you have users with unnecessary elevated access, you should take immediate ac
 
     :::image type="content" source="./media/elevate-access-global-admin/elevated-access-users-banner.png" alt-text="Screenshot of banner that indicates there are users with elevated access." lightbox="./media/elevate-access-global-admin/elevated-access-users-banner.png":::
 
-    If you don't see this banner, you currently don't have any users in your tenant with elevated access.
+1. Select the **Manage elevated access users** link to view a list of users with elevated access.
 
-1. If you want to remove elevated access, set the toggle to **Yes** as described earlier in [Step 1: Elevate access for a Global Administrator](#step-1-elevate-access-for-a-global-administrator).
+### Option 2
+
+1. In the Azure portal, browse to a subscription.
+
+1. Select **Access control (IAM)**.
+
+1. At the top of the page, look for the following banner.
+
+    `Action required: X users have elevated access in your tenant. You should take immediate action and remove all role assignments with elevated access. View role assignments`
+
+    :::image type="content" source="./media/elevate-access-global-admin/elevated-access-users-iam-banner.png" alt-text="Screenshot of banner on Access control (IAM) page that indicates there are users with elevated access." lightbox="./media/elevate-access-global-admin/elevated-access-users-iam-banner.png":::
+
+1. Select the **View role assignments** link to view a list of users with elevated access.
+
+## Remove elevated access for users
+
+If you have users with elevated access, you should take immediate action and remove that access. To remove these role assignments, you must also have elevated access. This section describes how to remove elevated access for users in your tenant using the Azure portal.
+
+1. Sign in to the [Azure portal](https://portal.azure.com) as a Global Administrator.
+
+1. Browse to **Microsoft Entra ID** > **Manage** > **Properties**.
+
+1. Under **Access management for Azure resources**, set the toggle to **Yes** as described earlier in [Step 1: Elevate access for a Global Administrator](#step-1-elevate-access-for-a-global-administrator).
 
 1. Select the **Manage elevated access users** link.
 
