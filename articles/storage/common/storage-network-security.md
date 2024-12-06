@@ -92,7 +92,7 @@ After you apply network rules, they're enforced for all requests. SAS tokens tha
 
 Currently, network security perimeter is in public preview for Azure Blobs, Azure Files (REST), Azure Tables, and Azure Queues. See [Transition to a network security perimeter](../../private-link/network-security-perimeter-transition.md). 
 
-The list of services that have been onboarded to network security perimeter can be found [here](../../private-link/network-security-perimeter-concepts#onboarded-private-link-resources). 
+The list of services that have been onboarded to network security perimeter can be found [here](../../private-link/network-security-perimeter-concepts.md#onboarded-private-link-resources). 
 
 For services that are not on this list as they have not yet been onboarded to Network Security Perimeter, if you would like to allow access you can use a subscription-based rule on the Network Security Perimeter. All resources within that subscription will then be given access to that Network Security Perimeter. For more information on adding subscription-based access rule, refer [here](/rest/api/networkmanager/nsp-access-rules/create-or-update).
 
