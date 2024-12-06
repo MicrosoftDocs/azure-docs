@@ -124,8 +124,8 @@ The "format" can require different media types. In the .NET SDK, each media type
 
 |  Properties   | Description |  Type |
 |----------|---------------------------|-----------|
-| ADDRESS | Address that will appear after the <NAME> value, below the generic map at the top of the message. | string |
-| LATITUDE| Location latitude.  | double       |
+| ADDRESS | Address that will appear after the 'NAME' value, below the generic map at the top of the message. | string |
+| LATITUDE | Location latitude.  | double       |
 | LONGITUDE| Location longitude. | double      |
 | LOCATIONNAME | Text that will appear immediately below the generic map at the top of the message. |string|
 
