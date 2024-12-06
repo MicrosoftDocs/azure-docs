@@ -1,8 +1,8 @@
 ---
 title: "Azure Operator Nexus: Before you start platform deployment prerequisites"
 description: Learn the prerequisite steps for deploying the Operator Nexus platform software.
-author: peterwhiting
-ms.author: pjw711
+author: pjw711
+ms.author: peterwhiting
 ms.service: azure-operator-nexus
 ms.topic: how-to
 ms.date: 03/13/2023
