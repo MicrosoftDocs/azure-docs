@@ -285,6 +285,8 @@ public static async Task<IActionResult> Run(
 
 + Article: [Create serverless APIs in Visual Studio using Azure Functions and API Management integration](./openapi-apim-integrate-visual-studio.md) 
 + Training: [Expose multiple function apps as a consistent API by using Azure API Management](/training/modules/build-serverless-api-with-functions-api-management/)
++ Sample: [Implement the geode pattern by deploying the API to geodes in distributed Azure regions.](/mspnp/geode-pattern-accelerator)
++ [Azure Functions HTTP trigger](functions-bindings-http-webhook.md?pivots=programming-language-csharp)
 + Sample: [Web application with a C# API and Azure SQL DB on Static Web Apps and Functions](/samples/azure-samples/todo-csharp-sql-swa-func/todo-csharp-sql-swa-func/)
 + [Azure Functions HTTP trigger](functions-bindings-http-webhook.md?pivots=programming-language-csharp)
 ::: zone-end
