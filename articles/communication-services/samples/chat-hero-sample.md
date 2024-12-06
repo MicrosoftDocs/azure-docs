@@ -51,7 +51,7 @@ Complete the following prerequisites and steps to set up the sample.
 ## Prerequisites
 
 - [Visual Studio Code (Stable Build)](https://code.visualstudio.com/download).
-- [Node.js (16.14.2 and above)](https://nodejs.org/en/download/).
+- [Node.js (16.14.2 and above)](https://nodejs.org/en/download/package-manager/).
 - Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Create an Azure Communication Services resource. For details, see [Create an Azure Communication Resource](../quickstarts/create-communication-resource.md). Record your resource **connection string** for this quickstart.
 
