@@ -19,7 +19,7 @@ Azure Lab Services will be retired on June 28, 2027, but we strongly recommend t
 
 * **Use the latest Azure Lab Services version** ([utilizing lab plans](how-to-migrate-lab-acounts-to-lab-plans.md)) as an interim solution for enhanced performance, wider range of VM sizes, and better student experience, as you develop your long-term retirement plan to move to other Microsoft or Azure partner solutions.  
 
-* **Delete unused resources** to reduce your costs and formally offboard. 
+* **Delete unused resources** to reduce costs and formally offboard by [reviewing labs and cleaning up idle resources](find-delete-lab-resources.md).
 
 
 ## Transition guidance overview

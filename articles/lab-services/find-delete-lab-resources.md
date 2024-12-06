@@ -55,7 +55,7 @@ resources
 
 
 ## Find lab version
-There are two versions of Azure Lab Services. Lab accounts are the older version, while lab plans are the newer version with enhanced feature. Use lab plans for improved student experience and supportability. [Review all labs together](find-delete-lab-resources#review-labs) or follow these steps to identify which lab version is currently deployed.
+There are two versions of Azure Lab Services. Lab accounts are the older version, while lab plans are the newer version with enhanced feature. Use lab plans for improved student experience and supportability. [Review all labs together](find-delete-lab-resources.md#review-labs) or follow these steps to identify which lab version is currently deployed.
 
 * [Find lab accounts](how-to-manage-lab-accounts.md#view-lab-accounts): In the [Azure portal](https://portal.azure.com/) search box, enter lab account, and then select Lab accounts.  Labs created from lab accounts use the older version. 
 
