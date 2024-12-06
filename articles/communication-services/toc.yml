@@ -81,12 +81,18 @@ items:
   items:
   - name: SMS
     items:
-    - name: Get a phone number
-      href: quickstarts/telephony/get-phone-number.md
     - name: Send an SMS message
       href: quickstarts/sms/send.md
     - name: Receive and reply to SMS
       href: quickstarts/sms/receive-sms.md
+    - name: Get a phone number
+      href: quickstarts/telephony/get-phone-number.md
+    - name: Apply for a short code
+      href: quickstarts/sms/apply-for-short-code.md
+    - name: Apply for toll-free verification
+      href: quickstarts/sms/apply-for-toll-free-verification.md
+   - name: Enable alphanumeric sender ID
+        href: quickstarts/sms/enable-alphanumeric-sender-id.md
   - name: Voice and Video
     items:
     - name:  Connect to a call
@@ -265,12 +271,6 @@ items:
       items:
       - name: Port a phone number into Azure
         href: quickstarts/telephony/port-phone-number.md
-      - name: Apply for a short code
-        href: quickstarts/sms/apply-for-short-code.md
-      - name: Apply for toll-free verification
-        href: quickstarts/sms/apply-for-toll-free-verification.md
-      - name: Enable alphanumeric sender ID
-        href: quickstarts/sms/enable-alphanumeric-sender-id.md
       - name: Look up a recipient phone number
         href: quickstarts/telephony/number-lookup.md
     - name: Events
@@ -689,6 +689,8 @@ items:
     items:
     - name: Overview
       href: concepts/sms/concepts.md
+    - name: SMS Number Types
+      href: concepts/sms/sms-number-types.md
     - name: SDK features
       href: concepts/sms/sdk-features.md
     - name: Pricing
