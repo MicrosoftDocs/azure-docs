@@ -28,6 +28,8 @@ Before configuring vTPM on a VM in Azure VMware Solution, ensure the following p
 
 Trusted Launch is a comprehensive security solution that encompasses three key components: Secure Boot, Virtual Trusted Platform Module (vTPM), and Virtualization-based security (VBS). Each of these components plays a vital role in fortifying the security posture of VMs.
 
+:::image type="content" source="./media/trusted-launch.png" alt-text="Diagram showing the three pillars of trusted launch, Secure Boot, Virtual Trusted Platform Module, and Virtualization-based Security." border="false" lightbox="./media/trusted-launch.png":::
+
 ## Benefits
 
 •	Securely deploy VMs with verified boot loaders, operating system (OS) kernels, and drivers.
@@ -38,7 +40,7 @@ Trusted Launch is a comprehensive security solution that encompasses three key c
 
 •	Ensure that workloads are trusted and verifiable. 
 
-### Secure Boot
+## Secure Boot
 
 Secure Boot is the first line of defense in Trusted Launch. It establishes a "root of trust" for VMs by ensuring that only signed operating systems and drivers are allowed to boot. This prevents the installation of malware-based rootkits and bootkits, which can compromise the security of the entire system. With Secure Boot enabled, every aspect of the boot process, from the boot loader to the kernel and kernel drivers, must be digitally signed by trusted publishers. This creates a robust shield against unauthorized modifications and ensures that the VM starts in a secure and trusted state.
  
