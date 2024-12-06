@@ -51,8 +51,8 @@ Azure NetApp Files volume encryption with customer-managed keys with the managed
 * Japan East
 * Japan West
 * Korea Central
-* North Central US
 * Korea South
+* North Central US
 * North Europe
 * Norway East
 * Norway West
