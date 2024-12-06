@@ -48,7 +48,8 @@ This command will `power-off` the specified `bareMetalMachineName`.
 ```azurecli
 az networkcloud baremetalmachine power-off \
   --name "bareMetalMachineName"  \
-  --resource-group "cluster_MRG"
+  --resource-group "cluster_MRG" \
+  --subscription "subscription_ID"
 ```
 
 ## Start the BMM
@@ -58,7 +59,8 @@ This command will `start` the specified `bareMetalMachineName`.
 ```azurecli
 az networkcloud baremetalmachine start \
   --name "bareMetalMachineName" \
-  --resource-group "cluster_MRG"
+  --resource-group "cluster_MRG" \
+  --subscription "subscription_ID"
 ```
 
 ## Restart the BMM
@@ -68,24 +70,27 @@ This command will `restart` the specified `bareMetalMachineName`.
 ```azurecli
 az networkcloud baremetalmachine restart \
   --name "bareMetalMachineName" \
-  --resource-group "cluster_MRG"
+  --resource-group "cluster_MRG" \
+  --subscription "subscription_ID"
 ```
 
 ## Make a BMM unschedulable (cordon)
+#***(PLACEHOLDER: We need to explain how a customer can identify if workloads are currently running on a BMM and the az cli command used to get this information. Ask NAKS team to provide.)*** \
 
 You can make a BMM unschedulable by executing the [`cordon`](#make-a-bmm-unschedulable-cordon) command.
 On the execution of the `cordon` command,
 Operator Nexus workloads aren't scheduled on the BMM when cordon is set; any attempt to create a workload on a `cordoned`
 BMM results in the workload being set to `pending` state. Existing workloads continue to run.
 The cordon command supports an `evacuate` parameter with the default `False` value.
-On executing the `cordon` command, with the value `True` for the `evacuate`
+It is a best practice to set this to `True`.  On executing the `cordon` command, with the value `True` for the `evacuate`
 parameter, the workloads that are running on the BMM are `stopped` and the BMM is set to `pending` state.
 
 ```azurecli
 az networkcloud baremetalmachine cordon \
   --evacuate "True" \
   --name "bareMetalMachineName" \
-  --resource-group "cluster_MRG"
+  --resource-group "cluster_MRG" \
+  --subscription "subscription_ID"
 ```
 
 The `evacuate "True"` removes workloads from that node while `evacuate "False"` only prevents the scheduling of new workloads.
@@ -98,7 +103,8 @@ state on the BMM are `restarted` when the BMM is `uncordoned`.
 ```azurecli
 az networkcloud baremetalmachine uncordon \
   --name "bareMetalMachineName" \
-  --resource-group "cluster_MRG"
+  --resource-group "cluster_MRG" \
+  --subscription "subscription_ID"
 ```
 
 ## Reimage a BMM
@@ -115,7 +121,8 @@ command, with `evacuate "True"`, before executing the `reimage` command.
 ```azurecli
 az networkcloud baremetalmachine reimage \
   –-name "bareMetalMachineName"  \
-  --resource-group "cluster_MRG"
+  --resource-group "cluster_MRG" \
+  --subscription "subscription_ID"
 ```
 
 ## Replace BMM
@@ -131,9 +138,10 @@ Use the `replace` command when a server encounters hardware issues requiring a c
 az networkcloud baremetalmachine replace \
   --name "bareMetalMachineName" \
   --resource-group "cluster_MRG" \
-  --bmc-credentials password="{password}" username="{user}" \
-  --bmc-mac-address "00:00:4f:00:57:ad" \
-  --boot-mac-address "00:00:4e:00:58:af" \
+  --bmc-credentials password="$IDRAC_PASSWORD" username="$IDRAC_USER" \
+  --bmc-mac-address "idrac_MAC" \
+  --boot-mac-address "pxe_MAC" \
   --machine-name "OS_hostname" \
-  --serial-number "BM1219XXX"
+  --serial-number "OS_HOSTNAME" \
+  --subscription "subscription_ID"
 ```
