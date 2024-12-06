@@ -18,7 +18,7 @@ A lab inventory can be found in the Azure Portal under [Labs - Microsoft Azure](
 * Browse and manage deployed lab resources
 * Review each lab's region, OS, and number of lab VMs in use 
 
-Additional lab configurations or queries across multiple subscriptions can be surfaced with [Azure Resource Graph Explorer](azure/governance/resource-graph/overview). These attributes help optimize resources, plan for service retirement, and transition to a preferred lab solution.
+Additional lab configurations or queries across multiple subscriptions can be surfaced with [Azure Resource Graph Explorer](/azure/governance/resource-graph/overview). These attributes help optimize resources, plan for service retirement, and transition to a preferred lab solution.
 
 * **Name** - Identifies lab name
 * **Location** - Indicates the deployed region, which can impact compliance requirements and latency
