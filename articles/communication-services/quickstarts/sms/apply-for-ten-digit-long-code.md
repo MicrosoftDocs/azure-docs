@@ -16,11 +16,10 @@ ms.custom: mode-other
 [!INCLUDE [Notice](../../includes/public-preview-include.md)]
 
 # Quickstart: Apply for 10DLC (10 digit long codes)
-This guide walks you through the steps required to register a brand and campaign for 10DLC (10-Digit Long Code) messaging in ACS. This process ensures compliance with carrier requirements and enables reliable, high-quality message delivery.
+This guide walks you through the steps required to register a brand and campaign for 10DLC (10-Digit Long Code) messaging in ACS. This process ensures compliance with carrier requirements and enables reliable, high-quality message delivery. Refer to [10DLC guidelines](../../concepts/sms/ten-digit-longcode-gudelines.md) for instructions on how to fill the registration form.
 
 ## Prerequisites
 - [An active Communication Services resource.](../create-communication-resource.md)
-- Eligible Tier Access: This quickstart assumes access to an eligible Tier, as 10DLC functionality is available only to customers with standard or above tier access.
 - Company Information: Information about your business, such as your company's legal name, tax ID, and other relevant details.
 - Campaign Details: A description of the use case and sample messages you plan to send through 10DLC.
 
@@ -172,3 +171,17 @@ After submitting your brand and campaign registration, you can check the status 
 Using the **Regulatory Documents** blade to monitor the status of your brand and campaign registration allows you to stay informed and quickly address any issues to keep your messaging operations uninterrupted.
 
 :::image type="content" source="./media/apply-for-brand-registration/campaign-registration-status.png" alt-text="Screenshot showing campaign registration status." lightbox="./media/apply-for-brand-registration/campaign-registration-status.png":::
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Get started with sending sms](../../quickstarts/sms/send.md)
+
+See the following articles for more information:
+
+- [Number lookup overview](../../concepts/numbers/number-lookup-concept.md)
+- Check SMS FAQ for questions regarding [SMS](../sms/sms-faq.md)
+- Familiarize yourself with the [SMS SDK](../sms/sdk-features.md)
+- Get an SMS capable [phone number](../../quickstarts/telephony/get-phone-number.md)
+- Learn about [SMS number types](../../concepts/sms/sms-number-types.md)
+- Apply for [Toll-free verification](./sms-faq.md#toll-free-verification)
