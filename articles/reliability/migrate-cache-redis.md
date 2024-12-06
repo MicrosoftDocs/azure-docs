@@ -42,8 +42,8 @@ Running multiple caches simultaneously as you convert your data to the new cache
 
 1. To create a new zone redundant cache that meets your requirements, follow the steps in [Enable zone redundancy for Azure Cache for Redis](../azure-cache-for-redis/cache-how-to-zone-redundancy.md). 
 
->[!TIP]
->To ease the migration process, it's recommended that you create the cache to use the same tier, SKU, and region as your current cache.
+    >[!TIP]
+    >To ease the migration process, it's recommended that you create the cache to use the same tier, SKU, and region as your current cache.
 
 1. Migrate your data from the current cache to the new zone redundant cache. To learn the most common ways to migrate based on your requirements and constraints, see [Cache migration guide - Migration options](../azure-cache-for-redis/cache-migration-guide.md).
 
@@ -57,7 +57,7 @@ Updating an existing Standard or Premium cache to use zone redundancy is support
 
 Users can't disable zone redundancy once it's enabled.
 
-:::image type="content" source="media/migrate-cache-redis/enable-zones-on-existing-cache.png" alt-text="Screenshot showing a red boxes around Advanced settings blade, (PREVIEW) Allocate zones automatically check-box, and Save button":::
+:::image type="content" source="media/migrate-cache-redis/enable-zones-on-existing-cache.png" alt-text="Screenshot showing a red boxes around Advanced settings blade, (PREVIEW) Allocate zones automatically check-box, and Save button.":::
 
 This update can also be done by passing `ZonalAllocationPolicy` as `Automatic` in the request body while updating the cache using REST API. For more information regarding the update process using REST API, see [Update - ZonalAllocationPolicy](/rest/api/redis/redis/update#zonalallocationpolicy).
 
