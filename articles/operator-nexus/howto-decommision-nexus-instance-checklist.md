@@ -2,7 +2,7 @@
 title: "Azure Operator Nexus: How to decommision Azure Operator Nexus instance checklist"
 description: High-level checklist to cover all essential steps required for decommisioning Azure Operator Nexus instance
 author: tonyyam23
-ms.author: tonyyam23
+ms.author: tonyyam
 ms.service: azure-operator-nexus
 ms.custom: azure-operator-nexus, devx-track-azurecli
 ms.topic: how-to
@@ -13,7 +13,7 @@ ms.date: 12/03/2024
 # Check list to decommission Azure Operator Nexus instance
 This how-to guide provide a high-level checklist on the essential steps required to decommission an Azure Operator Nexus instance.
 
-## High-Level site teardown check list
+## High-Level site decommission check list
 Note: Due to the underlying dependencies and references across these resources, please follow the order of this checklist to ensure a smooth and efficient decommissioning of all Azure Operator Instance resources.
 
 1) Perform Tenant cleanup HAKS/NAKS/Networks
