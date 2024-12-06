@@ -20,10 +20,10 @@ Azure Load Balancer rules require a health probe to detect the endpoint status. 
 
 Health probes support multiple protocols. The availability of a specific health probe protocol varies by Load Balancer SKU. Additionally, the behavior of the service varies by Load Balancer SKU as shown in this table:
 
-| | Standard SKU | Basic SKU |
+| SKU | [Probe protocol](#probe-protocol) | [Probe down behavior](#probe-down-behavior) |
 | --- | --- | --- |
-| --[Probe protocol](#probe-protocol)-- | TCP, HTTP, HTTPS | TCP, HTTP |
-| --[Probe down behavior](#probe-down-behavior)-- | All probes down, all TCP flows continue. | All probes down, all TCP flows expire. | 
+| Standard | TCP, HTTP, HTTPS | All probes down, all TCP flows continue. |
+| Basic | TCP, HTTP | All probes down, all TCP flows expire. |
 
 ## Probe properties
 
