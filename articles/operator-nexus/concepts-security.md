@@ -57,7 +57,7 @@ Industry standard security benchmarking tools are used to scan the Azure Operato
 
 Some controls are not technically feasible to implement in the Azure Operator Nexus environment, and these excepoted controls are documented below for the applicable Nexus layers.
 
-Environmental controls such as RBAC and Service Account tests are not evaluated by these tools, as they may be differ based on customer requirements.
+Environmental controls such as RBAC and Service Account tests are not evaluated by these tools, as the outcomes may differ based on customer requirements.
 
 **NTF = Not Technically Feasible**
 
@@ -65,39 +65,71 @@ Environmental controls such as RBAC and Service Account tests are not evaluated 
 
 *Undercloud*
 
-:::image type="content" source="media/security/undercloud-openscap.png" alt-text="Screenshot of OpenSCAP STIG exceptions" lightbox="media/security/media/security/undercloud-openscap.png":::
+:::image type="content" source="media/security/undercloud_openscap.png" alt-text="Screenshot of Undercloud OpenSCAP exceptions" lightbox="media/security/undercloud_openscap.png":::
 
-| STIG ID | Recommendation description|Status|Issue|
+|STIG ID|Recommendation description|Status|Issue|
 |---|---|---|---|
 |V-242386|The Kubernetes API server must have the insecure port flag disabled|NTF|This check is deprecated in v1.24.0 and greater|
 |V-242397|The Kubernetes kubelet staticPodPath must not enable static pods|NTF|Only enabled for control nodes, required for kubeadm|
 |V-242403|Kubernetes API Server must generate audit records that identify what type of event has occurred, identify the source of the event, contain the event results, identify any users, and identify any containers associated with the event|NTF|Certain API requests and responses contain secrets and therefore are not captured in the audit logs|
 |V-242424|Kubernetes Kubelet must enable tlsPrivateKeyFile for client authentication to secure service|NTF|Kubelet SANS contains hostname only|
 |V-242425|Kubernetes Kubelet must enable tlsCertFile for client authentication to secure service.|NTF|Kubelet SANS contains hostname only|
-|V-242434|Kubernetes Kubelet must enable kernel protection.|NTF|Enabling kernel protection is not applicable for kubeadm in Nexus|
+|V-242434|Kubernetes Kubelet must enable kernel protection.|NTF|Enabling kernel protection is not feasible for kubeadm in Nexus|
+
 
 *Nexus Kubernetes/NAKS*
 
+:::image type="content" source="media/security/naks_openscap.png" alt-text="Screenshot of NAKS OpenSCAP exceptions" lightbox="media/security/naks_openscap.png":::
+
+|STIG ID|Recommendation description|Status|Issue|
+|---|---|---|---|
+|V-242386|The Kubernetes API server must have the insecure port flag disabled|NTF|This check is deprecated in v1.24.0 and greater|
+|V-242397|The Kubernetes kubelet staticPodPath must not enable static pods|NTF|Only enabled for control nodes, required for kubeadm|
+|V-242403|Kubernetes API Server must generate audit records that identify what type of event has occurred, identify the source of the event, contain the event results, identify any users, and identify any containers associated with the event|NTF|Certain API requests and responses contain secrets and therefore are not captured in the audit logs|
+|V-242424|Kubernetes Kubelet must enable tlsPrivateKeyFile for client authentication to secure service|NTF|Kubelet SANS contains hostname only|
+|V-242425|Kubernetes Kubelet must enable tlsCertFile for client authentication to secure service.|NTF|Kubelet SANS contains hostname only|
+|V-242434|Kubernetes Kubelet must enable kernel protection.|NTF|Enabling kernel protection is not feasible for kubeadm in Nexus|
+
+
 *Cluster Manager - Azure Kubernetes*
 
-### Aquasec Kube-Bench
+As a secure service, Azure Kubernetes Service (AKS) complies with SOC, ISO, PCI DSS, and HIPAA standards. The following image shows the OpenSCAP file permission exceptions for the Cluster Manager AKS implementation.
+
+:::image type="content" source="media/security/cm_openscap.png" alt-text="Screenshot of Cluster Manager OpenSCAP exceptions" lightbox="media/security/cm_openscap.png":::
+
+
+### Aquasec Kube-Bench - CIS 1.9
 
 *Undercloud*
 
-:::image type="content" source="media/security/undercloud-kubebench.png" alt-text="Screenshot of Kube-Bench exceptions" lightbox="media/security/media/security/undercloud-kubebench.png":::
+:::image type="content" source="media/security/undercloud_kubebench.png" alt-text="Screenshot of Undercloud Kube-Bench exceptions" lightbox="media/security/undercloud_kubebench.png":::
 
-| CIS ID | Recommendation description|Status|Issue|
+|CIS ID|Recommendation description|Status|Issue|
 |---|---|---|---|
 |1|Control Plane Components|||
 |1.1|Control Plane Node Configuration Files|||
 |1.1.12|Ensure that the etcd data directory ownership is set to etcd:etcd|NTF|Nexus is root:root, etcd user is not configured for kubeadm|
-|1.2|API Server||||
+|1.2|API Server|||
 |1.1.12|Ensure that the --kubelet-certificate-authority argument is set as appropriate|NTF|Kubelet SANS includes hostname only|
 
 
 *Nexus Kubernetes/NAKS*
 
-*Cluster Manager*
+:::image type="content" source="media/security/naks_kubebench.png" alt-text="Screenshot of NAKS Kube-Bench exceptions" lightbox="media/security/naks_kubebench.png":::
 
-The Operator Nexus Cluster Manager is an AKS implementation. The CIS benchmark report for AKS can be found [here](https://learn.microsoft.com/en-us/azure/aks/cis-kubernetes) to review the tested controls and results.
+|CIS ID|Recommendation description|Status|Issue|
+|---|---|---|---|
+|1|Control Plane Components|||
+|1.1|Control Plane Node Configuration Files|||
+|1.1.12|Ensure that the etcd data directory ownership is set to etcd:etcd|NTF|Nexus is root:root, etcd user is not configured for kubeadm|
+|1.2|API Server|||
+|1.1.12|Ensure that the --kubelet-certificate-authority argument is set as appropriate|NTF|Kubelet SANS includes hostname only|
+
+
+*Cluster Manager - Azure Kubernetes*
+
+The Operator Nexus Cluster Manager is an AKS implementation. The full CIS benchmark report for AKS can be found [here](https://learn.microsoft.com/azure/aks/cis-kubernetes) to review the tested controls and results.
+
+:::image type="content" source="media/security/cm_kubebench.png" alt-text="Screenshot of Cluster Manager Kube-Bench exceptions" lightbox="media/security/cm_kubebench.png":::
+
 
