@@ -133,7 +133,7 @@ sections:
       
       - question: Can public IP addresses with DDoS protection enabled be used with a NAT gateway? 
         answer: |
-          No, a NAT gateway doesn't support public IP addresses with DDoS protection enabled. For more information, see [DDoS limitations](../ddos-protection/ddos-protection-sku-comparison.md#limitations). 
+          No, a NAT gateway doesn't support public IP addresses with DDoS protection enabled. DDoS protected IPs are generally more critical for inbound traffic, since most DDoS attacks are designed to overwhelm the target's resources by flooding them with a large volume of incoming traffic. For more information on DDoS protected IPs, see [DDoS limitations](../ddos-protection/ddos-protection-sku-comparison.md#limitations).
       
       - question: Can public IPs of an existing NAT gateway be changed? 
         answer: |

@@ -76,7 +76,7 @@ In the next sections, you create a new web API project. Select your programming 
 # [Node.js](#tab/nodejsgeneric)
 
 * [Visual Studio Code](https://code.visualstudio.com/), or another code editor
-* [Node.js runtime](https://nodejs.org/en/download/)
+* [Node.js runtime](https://nodejs.org/en/download/package-manager/)
 
 ---
 

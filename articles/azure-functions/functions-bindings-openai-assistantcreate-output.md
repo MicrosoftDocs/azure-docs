@@ -9,7 +9,8 @@ ms.custom:
   - devx-track-python
   - devx-track-ts
 ms.collection: 
-  - ce-skilling-ai-copilotms.date: 05/20/2024
+  - ce-skilling-ai-copilot
+ms.date: 05/20/2024
 zone_pivot_groups: programming-languages-set-functions
 ---
 

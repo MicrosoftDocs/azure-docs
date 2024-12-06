@@ -22,7 +22,7 @@ This quickstart can be run on macOS, Windows, or Linux.
 | An Azure subscription |If you don't have a subscription, create an [Azure free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)|
 | A code editor | You need a code editor such as [Visual Studio Code](https://code.visualstudio.com/). |
 | [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing)| Requires version 4.0.5611 or higher to run Node.js v4 programming model.|
-|[Node.js LTS](https://nodejs.org/en/download/)| See supported node.js versions in the [Azure Functions JavaScript developer guide](../azure-functions/functions-reference-node.md#node-version).|
+|[Node.js LTS](https://nodejs.org/en/download/package-manager/)| See supported node.js versions in the [Azure Functions JavaScript developer guide](../azure-functions/functions-reference-node.md#node-version).|
 | [Azurite](../storage/common/storage-use-azurite.md)| SignalR binding needs Azure Storage. You can use a local storage emulator when a function is running locally. |
 | [Azure CLI](/cli/azure/install-azure-cli)| Optionally, you can use the Azure CLI to create an Azure SignalR Service instance. 
 
