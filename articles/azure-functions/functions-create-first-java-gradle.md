@@ -36,7 +36,7 @@ Use the following command to clone the sample project:
 
 ```bash
 git clone https://github.com/Azure-Samples/azure-functions-samples-java.git
-cd azure-functions-samples-java/
+cd azure-functions-samples-java/triggers-bindings
 ```
 
 Open `build.gradle` and change the `appName` in the following section to a unique name to avoid domain name conflict when deploying to Azure. 
