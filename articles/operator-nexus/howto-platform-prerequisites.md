@@ -635,6 +635,6 @@ Install latest version of the [necessary CLI extensions].
 [Cluster]: ./howto-configure-cluster.md
 [Azure Operator Nexus Prerequisites]: ./howto-azure-operator-nexus-prerequisites.md
 [Defender for Cloud Security]: ./howto-set-up-defender-for-cloud-security.md
-[Refer to CLI Reference]: https://opengear.zendesk.com/hc/articles/360044253292-Using-the-configuration-CLI-ogcli-
+[Refer to CLI Reference]: https://portal.opengear.com/s/article/UsingtheconfigurationCLIogcli661e950f07071
 [necessary CLI extensions]: ./howto-install-cli-extensions.md
 [supported Purity versions]: ./reference-near-edge-storage-supported-versions.md
