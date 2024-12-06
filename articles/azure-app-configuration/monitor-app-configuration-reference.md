@@ -61,10 +61,11 @@ This section refers to all of the Azure Monitor Logs Kusto tables re
 
 |Resource type | Notes |
 |-------|-----|
-| [AACHttpRequest](/azure/azure-monitor/reference/tables/aachttprequest) | Entries of every Http request sent to a selected app configuration resource. |
-| [AzureActivity](/azure/azure-monitor/reference/tables/azureactivity) | Entries from the Azure Activity log that provide insight into any subscription-level or management group level events that have occurred in Azure. |
+| [AACAudit](/azure/azure-monitor/reference/tables/AACAudit) | Azure App Configuration audit logs. |
+| [AACHttpRequest](/azure/azure-monitor/reference/tables/AACHttpRequest) | Entries of every Http request sent to a selected app configuration resource. |
+| [AzureActivity](/azure/azure-monitor/reference/tables/AzureActivity) | Entries from the Azure Activity log that provide insight into any subscription-level or management group level events that have occurred in Azure. |
 
-For a reference of all Azure Monitor Logs / Log Analytics tables, see the [Azure Monitor Log Table Reference](/azure/azure-monitor/reference/tables/tables-resourcetype).
+For a reference of all Azure Monitor Logs / Log Analytics tables, see the [Azure Monitor Log Table Reference](/azure/azure-monitor/reference/tables/microsoft-appconfiguration_configurationstores).
 
 ### Diagnostics tables
 

@@ -185,6 +185,14 @@ After the lock has been abandoned, the message will be available for receive ope
 
 After a message has been dead-lettered, it will be available from the **Dead-letter** subqueue.
 
+### Purge messages
+
+To Purge messages, select the **Purge messages** button of Service Bus explorer. 
+ 
+ :::image type="content" source="./media/service-bus-explorer/purge-messages.png" alt-text="Screenshot indicating the purge messages button." lightbox="./media/service-bus-explorer/purge-messages.png":::
+
+Once you enter 'purge' to confirm on the operation, messages would be purged from respective service bus entity. 
+
 ## Send a message to a queue or topic
 
 To send a message to a **queue** or a **topic**, select the **Send messages** button of the Service Bus Explorer.

@@ -70,29 +70,28 @@ The following Java logging frameworks are supported:
 
 ### Supported log levels by different logging frameworks
 
-Different logging frameworks support different log levels. In the JVM diagnostics platform, some frameworks are better supported than others. Before changing logging levels, make sure the log levels you're using are supported by both the framework and platform.
+Different logging frameworks support different log levels. In the JVM diagnostics platform, some frameworks are better supported than others. Before changing logging levels, make sure the framework and platform support the log levels you're using.
 
-| Framework     | OFF   | FATAL | ERROR | WARN | INFO | DEBUG | TRACE | ALL |
-|---------------|-------|-------|-------|------|------|-------|-------|-----|
-| Log4j2        | Yes   | Yes   | Yes   | Yes  | Yes  | Yes   | Yes   | Yes |
-| Logback       | Yes   | No    | Yes   | Yes  | Yes  | Yes   | Yes   | Yes |
-| jboss-logging | No    | Yes   | Yes   | Yes  | Yes  | Yes   | Yes   | No  |
-| **Platform**  | Yes   | No    | Yes   | Yes  | Yes  | Yes   | Yes   | No  |
+| Framework     | OFF   | FATAL | ERROR | WARN | INFO | DEBUG | TRACE |
+|---------------|-------|-------|-------|------|------|-------|-------|
+| Log4j2        | Yes   | Yes   | Yes   | Yes  | Yes  | Yes   | Yes   |
+| Logback       | Yes   | No    | Yes   | Yes  | Yes  | Yes   | Yes   |
+| jboss-logging | No    | Yes   | Yes   | Yes  | Yes  | Yes   | Yes   |
+| **Platform**  | Yes   | No    | Yes   | Yes  | Yes  | Yes   | Yes   |
 
 ### General visibility of log levels
 
-| Log Level | FATAL | ERROR | WARN | INFO | DEBUG | TRACE | ALL |
-|-----------|-------|-------|------|------|-------|-------|-----|
-| **OFF**   |       |       |      |      |       |       |     |
-| **FATAL** | Yes   |       |      |      |       |       |     |
-| **ERROR** | Yes   | Yes   |      |      |       |       |     |
-| **WARN**  | Yes   | Yes   | Yes  |      |       |       |     |
-| **INFO**  | Yes   | Yes   | Yes  | Yes  |       |       |     |
-| **DEBUG** | Yes   | Yes   | Yes  | Yes  | Yes   |       |     |
-| **TRACE** | Yes   | Yes   | Yes  | Yes  | Yes   | Yes   |     |
-| **ALL**   | Yes   | Yes   | Yes  | Yes  | Yes   | Yes   | Yes |
+| Log Level | FATAL | ERROR | WARN | INFO | DEBUG | TRACE |
+|-----------|-------|-------|------|------|-------|-------|
+| **OFF**   |       |       |      |      |       |       |
+| **FATAL** | Yes   |       |      |      |       |       |
+| **ERROR** | Yes   | Yes   |      |      |       |       |
+| **WARN**  | Yes   | Yes   | Yes  |      |       |       |
+| **INFO**  | Yes   | Yes   | Yes  | Yes  |       |       |
+| **DEBUG** | Yes   | Yes   | Yes  | Yes  | Yes   |       |
+| **TRACE** | Yes   | Yes   | Yes  | Yes  | Yes   | Yes   |
 
-For example, if you set log level to `DEBUG`, your app will print logs with level `FATAL`, `ERROR`, `WARN`, `INFO`, `DEBUG` and will NOT print logs with level `TRACE` AND `ALL`.
+For example, if you set log level to `INFO`, your app prints logs with level `FATAL`, `ERROR`, `WARN`, `INFO`, and does NOT print logs with level `DEBUG` and `TRACE`.
 
 ## Related content
 

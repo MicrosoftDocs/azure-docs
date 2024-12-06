@@ -33,7 +33,7 @@ To start using Azure Site Recovery reports, follow these steps:
 
 ### Create a Log Analytics workspace or use an existing workspace
 
-Set up one or more Log Analytics workspaces to store your Backup reporting data. The location and subscription of this Log Analytics workspace, can be different from where your vaults are located or subscribed. 
+Set up one or more Log Analytics workspaces to store your Backup reporting data. The location and subscription of this Log Analytics workspace can be different from where your vaults are located or subscribed. 
 
 To set up a Log Analytics workspace, [follow these steps](/azure/azure-monitor/logs/quick-create-workspace). The data in a Log Analytics workspace is kept for 30 days by default. If you want to see data for a longer time span, change the retention period of the Log Analytics workspace. To change the retention period, see [Configure data retention and archive policies in Azure Monitor Logs](/azure/azure-monitor/logs/data-retention-configure). 
 
@@ -48,7 +48,7 @@ You can also configure diagnostics settings for your vaults using the following 
 
 1. Navigate to the chosen the Recovery Services vault, then select **Monitoring** > **Diagnostic settings**.
 1. Specify the target for the Recovery Services Vault's diagnostic data. Learn more about [using diagnostic events](../backup/backup-azure-diagnostic-events.md) for Recovery Services vaults.
-1. Select **Azure Site Recovery Jobs** and **Azure Site Recovery Replicated Item Details** options to populate the reports. 
+1. Select **Azure Site Recovery Jobs** and **Azure Site Recovery Replicated Item Details**, and on the **Destination** table **Resource Specific** options to populate the reports. 
     :::image type="content" source="./media/report-site-recovery/logs.png" alt-text="Screenshot of logs options.":::
 
     > [!NOTE]

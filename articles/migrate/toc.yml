@@ -11,6 +11,8 @@ items:
     items:
     - name: General
       href: resources-faq.md
+    - name: RVTools XLSX import
+      href: common-questions-import.md
     - name: Azure Migrate appliance
       href: common-questions-appliance.md
     - name: Discovery and dependency analysis

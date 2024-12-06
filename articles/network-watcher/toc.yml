@@ -42,7 +42,7 @@
   - name: IP flow verify
     href: ip-flow-verify-overview.md
   - name: NSG diagnostics
-    href: network-watcher-network-configuration-diagnostics-overview.md
+    href: nsg-diagnostics-overview.md
   - name: Next hop
     href: next-hop-overview.md
   - name: Connection troubleshoot

@@ -1,17 +1,18 @@
 ---
-title: 'How to monitor your Azure Managed Grafana instance with logs'
-description: Learn how to monitor your Azure Managed Grafana instance with logs.
+title: Monitor an Azure Managed Grafana instance with logs
+description: Learn how to monitor your instance of Azure Managed Grafana by configuring diagnostic settings and accessing event logs.
 author: maud-lv 
 ms.author: malev 
 ms.service: azure-managed-grafana
 ms.topic: how-to 
 ms.custom: engagement-fy23
-ms.date: 2/28/2023
+ms.date: 10/23/2024
+#customer intent: I want to set up logs in Azure Managed Grafana instance so that I can monitor my Azure Managed Grafana workspace.
 ---
 
 # How to monitor your Azure Managed Grafana instance with logs
 
-In this article, you'll learn how to monitor an Azure Managed Grafana instance by configuring diagnostic settings and accessing event logs.
+In this article, you learn how to monitor an Azure Managed Grafana instance by configuring diagnostic settings and accessing event logs.
 
 ## Prerequisites
 
@@ -24,7 +25,7 @@ Sign in to the Azure portal at [https://portal.azure.com/](https://portal.azure.
 
 ## Add diagnostic settings
 
-To monitor an Azure Managed Grafana instance, the first step to take is to configure diagnostic settings. In this process, you'll configure the streaming export of your instance's logs to a destination of your choice.
+To monitor an Azure Managed Grafana instance, the first step to take is to configure diagnostic settings. In this process, you configure the streaming export of your instance's logs to a destination of your choice.
 
 You can create up to five different diagnostic settings to send different logs to independent destinations.
 
@@ -37,10 +38,10 @@ You can create up to five different diagnostic settings to send different logs t
 1. For **Diagnostic setting name**, enter a unique name.
 
 1. Select **allLogs** from the following options:
-   - **audit** streams all audit logs (Currently not supported. Please see the following link for additional information about the types of logs available for the Microsoft.Dashboard/grafana resource type: [Supported logs for Microsoft.Dashboard/grafana](/azure/azure-monitor/reference/supported-logs/microsoft-dashboard-grafana-logs)).
+   - **audit** streams all audit logs (Currently not supported. See the following link for additional information about the types of logs available for the Microsoft.Dashboard/grafana resource type: [Supported logs for Microsoft.Dashboard/grafana](/azure/azure-monitor/reference/supported-logs/microsoft-dashboard-grafana-logs)).
    - **allLogs** streams all logs
    - **Grafana Login Events** streams all Grafana login events
-   - **AllMetrics** streams all metrics (Currently not supported. Please see the following link for additional information about metrics available for the Microsoft.Dashboard/grafana resource type: [Supported metrics for Microsoft.Dashboard/grafana](/azure/azure-monitor/reference/supported-metrics/microsoft-dashboard-grafana-metrics)).
+   - **AllMetrics** streams all metrics (Currently not supported. See the following link for additional information about metrics available for the Microsoft.Dashboard/grafana resource type: [Supported metrics for Microsoft.Dashboard/grafana](/azure/azure-monitor/reference/supported-metrics/microsoft-dashboard-grafana-metrics)).
 
 1. Under **Destination details**, select one or more destinations, fill out details and select **Save**.
 
@@ -55,7 +56,7 @@ You can create up to five different diagnostic settings to send different logs t
 
 ## Access logs
 
-Now that you've configured your diagnostic settings, Azure will stream all new events to your selected destinations and generate logs. You can now create queries and access logs to monitor your application.
+Now that you've configured your diagnostic settings, Azure streams all new events to your selected destinations and generate logs. You can now create queries and access logs to monitor your application.
 
 1. In your Managed Grafana instance, select **Logs** from the left menu. The Azure platform displays a **Queries** page, with suggestions of queries to choose from.
 
@@ -67,7 +68,7 @@ Now that you've configured your diagnostic settings, Azure will stream all new e
 
    :::image type="content" source="media/monitoring-logs/query.png" alt-text="Screenshot of the Azure platform. Log query editing." lightbox="media/monitoring-logs/query-expanded.png":::
 
-1. Select **Schema and Filter** on the left side of the screen to access tables, queries and functions. You can also filter and group results, as well as find your favorites.
+1. Select **Schema and Filter** on the left side of the screen to access tables, queries, and functions. You can also filter and group results, and find your favorites.
 1. Select **Columns** on the right of **Results** to  edit the columns of the results table, and manage the table like a pivot table.
 
    :::image type="content" source="media/monitoring-logs/filters.png" alt-text="Screenshot of the Azure platform. Log query filters and columns." lightbox="media/monitoring-logs/filters-expanded.png":::

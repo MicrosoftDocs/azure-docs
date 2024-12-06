@@ -17,7 +17,7 @@ ms.author: williamzhao
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md#access-your-connection-strings-and-service-endpoints).
-- The latest versions of [Node.js](https://nodejs.org/en/download/) Active LTS and Maintenance LTS versions.
+- The latest versions of [Node.js](https://nodejs.org/en/download/package-manager/) Active LTS and Maintenance LTS versions.
 
 ## Sample code
 

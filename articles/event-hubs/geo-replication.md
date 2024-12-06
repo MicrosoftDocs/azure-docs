@@ -4,7 +4,7 @@ description: 'This article describes the Azure Event Hubs geo-replication featur
 ms.topic: article
 author: axisc
 ms.author: aschhabria
-ms.date: 06/10/2024
+ms.date: 11/11/2024
 ms.custom: references_regions
 ---
  
@@ -15,17 +15,32 @@ There are two features that provide geo-disaster recovery in Azure Event Hubs.
 - ***Geo-disaster recovery*** (Metadata DR), which just provides replication of **only metadata**. 
 - ***Geo-replication*** (public preview), which provides replication of **both metadata and the data**. 
 
+> [!NOTE]
+> The Geo-replication feature is supported by only the dedicated tier. 
+
 These features shouldn't be confused with Availability Zones. Both geographic recovery features provide resilience between Azure regions such as East US and West US. Availability Zone support provides resilience within a specific geographic region, such as East US. For more information on Availability Zones, see [Event Hubs Availability Zone support](./event-hubs-availability-and-consistency.md).
 
 > [!IMPORTANT]
 > - This feature is currently in public preview, and as such shouldn't be used in production scenarios.
 > - The following regions are currently supported in the public preview.
 >
-> | US               | Europe        | APAC          |
-> |------------------|---------------|---------------| 
-> | Central US EUAP  | Italy North   | Australia Central |
-> | Canada Central   | Spain Central | Australia East |
-> | Canada East      | Norway East   ||
+> | Region              | Region               | Region             |
+> |--------------------|--------------------|------------------|
+> | AustraliaCentral   | GermanyNorth       | NorwayWest       |
+> | AustraliaCentral2  | GermanyWestCentral | PolandCentral    |
+> | AustraliaEast      | IsraelCentral      | SouthAfricaNorth |
+> | AustraliaSoutheast | ItalyNorth         | SouthAfricaWest  |
+> | BrazilSoutheast    | JapanEast          | SoutheastAsia    |
+> | CanadaCentral      | JapanWest          | SouthIndia       |
+> | CanadaEast         | JioIndiaCentral    | SpainCentral     |
+> | CentralIndia       | JioIndiaWest       | SwedenCentral    |
+> | CentralUS          | KoreaCentral       | SwitzerlandNorth |
+> | CentralUSEUAP      | KoreaSouth         | SwitzerlandWest  |
+> | EastAsia           | MexicoCentral      | UAECentral       |
+> | EastUS2            | NorthCentralUS     | UAENorth         |
+> | FranceCentral      | NorthEurope        | UKSouth          |
+> | FranceSouth        | NorwayEast         | UKWest           |
+>
 
 
 ## Metadata disaster recovery vs. Geo-replication of metadata and data

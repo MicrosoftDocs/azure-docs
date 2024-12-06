@@ -125,10 +125,10 @@ In the partner-integration [custom policies](https://github.com/azure-ad-b2c/par
 | --- | --- | --- |
 | {your_tenant_name} | Your tenant short name | "yourtenant" from yourtenant.onmicrosoft.com |
 | {your_trustframeworkbase_policy} | Azure AD B2C name of your TrustFrameworkBase policy| B2C_1A_experian_TrustFrameworkBase|
-| {your_tenant_IdentityExperienceFramework_appid} |App ID of the IdentityExperienceFramework app configured in your Azure AD B2C tenant| 01234567-89ab-cdef-0123-456789abcdef|
-| {your_tenant_ ProxyIdentityExperienceFramework_appid}| App ID of the ProxyIdentityExperienceFramework app configured in your Azure AD B2C tenant | 01234567-89ab-cdef-0123-456789abcdef|
-| {your_tenant_extensions_appid} | App ID of your tenant storage application| 01234567-89ab-cdef-0123-456789abcdef|
-| {your_tenant_extensions_app_objectid}| Object ID of your tenant storage application| 01234567-89ab-cdef-0123-456789abcdef|
+| {your_tenant_IdentityExperienceFramework_appid} |App ID of the IdentityExperienceFramework app configured in your Azure AD B2C tenant| 00001111-aaaa-2222-bbbb-3333cccc4444|
+| {your_tenant_ ProxyIdentityExperienceFramework_appid}| App ID of the ProxyIdentityExperienceFramework app configured in your Azure AD B2C tenant | 00001111-aaaa-2222-bbbb-3333cccc4444|
+| {your_tenant_extensions_appid} | App ID of your tenant storage application| 00001111-aaaa-2222-bbbb-3333cccc4444|
+| {your_tenant_extensions_app_objectid}| Object ID of your tenant storage application| aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb|
 | {your_api_username_key_name}| Username key name, made in **Create API policy keys**| B2C\_1A\_RestApiUsername|
 | {your_api_password_key_name}| Password key name, made in **Create API policy keys**| B2C\_1A\_RestApiPassword|
 | {your_app_service_URL}| App service URL you set up| `https://yourapp.azurewebsites.net`|

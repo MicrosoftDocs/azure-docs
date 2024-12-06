@@ -1,16 +1,17 @@
 ---
 title: 'Tutorial: Python function with Azure Blob Storage as input'
-description: Learn how you can connect a Python function to a storage blob as input using Service Connector
+description: Learn how you can connect a Python function to a storage blob as input using Service Connector in Azure.
 author: houk-ms
 ms.author: honc
 ms.service: service-connector
 ms.custom: devx-track-python
 ms.topic: tutorial
-ms.date: 10/25/2023
+ms.date: 10/22/2024
+#customer intent: As a developer, I want to configure a Python function with Storage Blob as input function binding so that I can process and manage large volumes of data stored in Azure Blob Storage. 
 ---
 # Tutorial: Python function with Azure Blob Storage as input
 
-In this tutorial, you learn how to configure a Python function with Storage Blob as input by completing the following tasks:
+In this tutorial, you learn how to configure a Python function with Azure Blob storage as input by completing the following tasks:
 
 > [!div class="checklist"]
 > * Use Visual Studio Code to create a Python function project.

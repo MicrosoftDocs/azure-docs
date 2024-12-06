@@ -61,10 +61,10 @@ namespace AdvancedMessagingQuickstart
 
             // Send a media message
             Uri uri = new Uri("https://aka.ms/acsicon1");
-            MediaNotificationContent mediaContent =
-                new MediaNotificationContent(channelRegistrationId, recipientList, uri);
+            ImageNotificationContent imageContent =
+                new ImageNotificationContent(channelRegistrationId, recipientList, uri);
             Response<SendMessageResult> sendMediaMessageResult =
-                await notificationMessagesClient.SendAsync(mediaContent);
+                await notificationMessagesClient.SendAsync(imageContent);
 
             PrintResult(sendMediaMessageResult);
             Console.WriteLine("Media message sent.\nPress any key to exit.\n");

@@ -40,7 +40,7 @@ The following prerequisites are for a Windows development environment. For Linux
 
 - [Visual Studio](https://visualstudio.microsoft.com/vs/) 2022 with the ['Desktop development with C++'](/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) workload enabled. Visual Studio 2015 and Visual Studio 2017 are also supported.
 
-- Git installed. For more information, see [Git downloads](https://git-scm.com/download/).
+- Git installed. For more information, see [Git downloads](https://git-scm.com/downloads).
 
 - Azure CLI installed. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli). Or, you can run the commands in this tutorial in the Bash environment in [Azure Cloud Shell](/azure/cloud-shell/overview).
 

@@ -1,12 +1,12 @@
 ---
 title: Visualizing Azure NSG flow logs - Power BI
 titleSuffix: Azure Network Watcher
-description: Learn how to use Power BI to visualize network security group flow logs to allow you to view information about IP traffic in Azure Network Watcher.
+description: Learn how to use Power BI to visualize network security group flow logs to allow you to view information about your IP traffic.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 09/26/2024
+ms.date: 10/23/2024
 ---
 
 # Visualizing network security group flow logs with Power BI
@@ -51,13 +51,11 @@ You must also have the Power BI Desktop client installed on your machine, and en
 
       ![power BI main][2]
 
-1. Enter the Access Key for your storage account. You can find valid access keys by navigating to your storage account in the Azure portal and selecting **Access Keys** from the Settings menu. Click **Connect** then apply changes.
-
-    ![access keys][3]
+1. Enter the access key for your storage account. You can find valid access keys by going to your storage account in the Azure portal and selecting **Access keys** under **Security + networking**. Select **Connect** then apply changes.
 
     ![access key 2][4]
 
-4. Your logs are download and parsed and you can now utilize the pre-created visuals.
+4. Your logs are downloaded and parsed and you can now utilize the pre-created visuals.
 
 ## Understanding the visuals
 
@@ -117,7 +115,6 @@ Learn how to visualize your NSG flow logs with the Elastic Stack by visiting [Vi
 
 [1]: ./media/network-watcher-visualize-nsg-flow-logs-power-bi/figure1.png
 [2]: ./media/network-watcher-visualize-nsg-flow-logs-power-bi/figure2.png
-[3]: ./media/network-watcher-visualize-nsg-flow-logs-power-bi/figure3.png
 [4]: ./media/network-watcher-visualize-nsg-flow-logs-power-bi/figure4.png
 [5]: ./media/network-watcher-visualize-nsg-flow-logs-power-bi/figure5.png
 [6]: ./media/network-watcher-visualize-nsg-flow-logs-power-bi/figure6.png

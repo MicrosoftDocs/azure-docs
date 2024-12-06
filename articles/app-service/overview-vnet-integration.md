@@ -72,15 +72,15 @@ Virtual network integration depends on a dedicated subnet. When you create a sub
 
 When you scale up/down in instance size, the amount of IP addresses used by the App Service plan is temporarily doubled while the scale operation completes. The new instances need to be fully operational before the existing instances are deprovisioned. The scale operation affects the real, available supported instances for a given subnet size. Platform upgrades need free IP addresses to ensure upgrades can happen without interruptions to outbound traffic. Finally, after scale up, down, or in operations complete, there might be a short period of time before IP addresses are released. In rare cases, this operation can be up to 12 hours and if you rapidly scale in/out or up/down, you need more IPs than the maximum scale.
 
-Because subnet size can't be changed after assignment, use a subnet that's large enough to accommodate whatever scale your app might reach. You should also reserve IP addresses for platform upgrades. To avoid any issues with subnet capacity, we recommand allocating double the IPs of your planned maximum scale. A `/26` with 64 addresses cover the maximum scale of a single multitenant App Service plan. When you're creating subnets in Azure portal as part of integrating with the virtual network, a minimum size of `/27` is required. If the subnet already exists before integrating through the portal, you can use a `/28` subnet.
+Because subnet size can't be changed after assignment, use a subnet that's large enough to accommodate whatever scale your app might reach. You should also reserve IP addresses for platform upgrades. To avoid any issues with subnet capacity, we recommend allocating double the IPs of your planned maximum scale. A `/26` with 64 addresses cover the maximum scale of a single multitenant App Service plan. When you're creating subnets in Azure portal as part of integrating with the virtual network, a minimum size of `/27` is required. If the subnet already exists before integrating through the portal, you can use a `/28` subnet.
 
 With multi plan subnet join (MPSJ), you can join multiple App Service plans in to the same subnet. All App Service plans must be in the same subscription but the virtual network/subnet can be in a different subscription. Each instance from each App Service plan requires an IP address from the subnet and to use MPSJ a minimum size of `/26` subnet is required. If you plan to join many and/or large scale plans, you should plan for larger subnet ranges.
 
->[!NOTE]
-> Multi plan subnet join is currently in public preview. During preview the following known limitations should be observed:
-> 
-> * The minimum requirement for subnet size of `/26` is currently not enforced, but will be enforced at GA. If you have joined multiple plans to a smaller subnet during preview they will still work, but you cannot connect additional plans and if you disconnect you will not be able to connect again.
-> * There is currently no validation if the subnet has available IPs, so you might be able to join N+1 plan, but the instances will not get an IP. You can view available IPs in the Virtual network integration page in Azure portal in apps that are already connected to the subnet.
+> [!IMPORTANT]
+> Due to a known bug, MPSJ fails if multiple sites are created and attempt to integrate with the virtual network at the same time. A fix will be deployed soon. In the meantime, you can work around the issue with either of the following methods:
+> * If you create sites manually, create and integrate the sites one by one.
+> * If you create sites programmatically, for example using Terraform or ARM templates, add a [dependsOn](/azure/azure-resource-manager/templates/resource-dependency#dependson) element to each site in your templates to depend on the creation of the previous site for all but the first site in the template. This creates a delay between the site creation and the virtual network integration for each site and therefore isn't blocked by the known bug. For more information see, [Define the order for deploying resources in ARM templates](/azure/azure-resource-manager/templates/resource-dependency).
+>
 
 ### Windows Containers specific limits
 

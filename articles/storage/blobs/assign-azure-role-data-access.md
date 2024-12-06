@@ -73,10 +73,10 @@ The first response returns the security principal, and the second returns the se
 UserPrincipalName : markpdaniels@contoso.com
 ObjectType        : User
 DisplayName       : Mark P. Daniels
-Id                : ab12cd34-ef56-ab12-cd34-ef56ab12cd34
+Id                : aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
 Type              : 
 
-ab12cd34-ef56-ab12-cd34-ef56ab12cd34
+aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
 ```
 
 The `-RoleDefinitionName` parameter value is the name of the RBAC role that needs to be assigned to the principal. To access blob data in the Azure portal with Microsoft Entra credentials, a user must have the following role assignments:
@@ -113,7 +113,7 @@ The following example assigns the **Storage Blob Data Reader** role to a user by
 
 <!-- replaycheck-task id="3361d580" -->
 ```powershell
-New-AzRoleAssignment -ObjectID "ab12cd34-ef56-ab12-cd34-ef56ab12cd34" `
+New-AzRoleAssignment -ObjectID "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb" `
     -RoleDefinitionName "Storage Blob Data Reader" `
     -Scope  "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-account-name>"
 ```
@@ -160,7 +160,7 @@ The following example assigns the **Storage Blob Data Reader** role to a user by
 ```azurecli-interactive
 az role assignment create \
     --role "Storage Blob Data Reader" \
-    --assignee-object-id "ab12cd34-ef56-ab12-cd34-ef56ab12cd34" \
+    --assignee-object-id "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb" \
     --assignee-principal-type "User" \
     --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-account-name>"
 ```

@@ -138,6 +138,8 @@
       href: load-balancer-standard-diagnostics.md
     - name: Load Balancer Health Event Logs
       href: load-balancer-health-event-logs.md
+    - name: Manage Load Balancer health status
+      href: load-balancer-manage-health-status.md
   - name: Inbound connectivity
     items:
     - name: Inbound NAT rules

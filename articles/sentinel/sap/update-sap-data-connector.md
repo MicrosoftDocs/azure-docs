@@ -1,87 +1,86 @@
 ---
-title: Update Microsoft Sentinel's SAP data connector agent
+title: Update the Microsoft Sentinel for SAP applications data connector agent
 description: This article shows you how to update an already existing SAP data connector to its latest version.
 author: batamig
 ms.author: bagol
 ms.topic: how-to
-ms.date: 03/27/2024
+ms.date: 06/26/2024
 appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
-
-
+ms.collection: usx-security
 #Customer intent: As a security operations engineer, I want to update the Microsoft Sentinel for SAP applications data connector agent so that I can ensure my SAP data integration is using the latest features and security updates.
 
 ---
 
-# Update Microsoft Sentinel's SAP data connector agent
+# Update the Microsoft Sentinel for SAP applications data connector agent
 
-This article shows you how to update an already existing Microsoft Sentinel for SAP data connector to its latest version.
+This article shows you how to update an already existing Microsoft Sentinel for SAP data connector to its latest version so that you can use the latest features and improvements.
 
-To get the latest features, you can [enable automatic updates](#automatically-update-the-sap-data-connector-agent-preview) for the SAP data connector agent, or [manually update the agent](#manually-update-sap-data-connector-agent).
+During the data connector agent update process, there might be a brief downtime of approximately 10 seconds. To ensure data integrity, a database entry stores the timestamp of the last fetched log. After the update is complete, the data fetching process resumes from the last log fetched, preventing duplicates and ensuring a seamless data flow.
 
-The automatic or manual updates described in this article are relevant to the SAP connector agent only, and not to the Microsoft Sentinel solution for SAP. To successfully update the solution, your agent needs to be up to date. The solution is updated separately.
+The automatic or manual updates described in this article are relevant to the SAP connector agent only, and not to the Microsoft Sentinel solution for SAP applications. To successfully update the solution, your agent needs to be up to date. The solution is updated separately, as you would any other [Microsoft Sentinel solution](../sentinel-solutions-deploy.md#install-or-update-content).
 
-[!INCLUDE [unified-soc-preview](../includes/unified-soc-preview.md)]
+Content in this article is relevant for your **security**, **infrastructure**, and  **SAP BASIS** teams.
 
 ## Prerequisites
 
-Before you start, make sure that you have all the prerequisites for deploying Microsoft Sentinel solution for SAP applications.
+Before you start:
 
-For more information, see [Prerequisites for deploying Microsoft Sentinel solution for SAP® applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md).
+- Make sure that you have all the prerequisites for deploying Microsoft Sentinel solution for SAP applications. For more information, see [Prerequisites for deploying Microsoft Sentinel solution for SAP applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md).
 
-## Automatically update the SAP data connector agent (Preview)
+- Make sure that you understand your SAP and Microsoft Sentinel environments and architecture, including the machines where your connector agents and collectors are [installed](deploy-data-connector-agent-container.md).
 
-You can choose to enable automatic updates for the connector agent on [all existing containers](#enable-automatic-updates-on-all-existing-containers) or a [specific container](#enable-automatic-updates-on-a-specific-container).
+## Configure automatic updates for the SAP data connector agent (Preview)
+
+Configure automatic updates for the connector agent, either for [all existing containers](#configure-automatic-updates-for-all-existing-containers) or a [specific container](#configure-automatic-updates-on-a-specific-container).
+
+The commands described in this section create a cron job that runs daily, checks for updates, and updates the agent to the latest GA version. Containers running a preview version of the agent that's newer than the latest GA version aren't updated. Log files for automatic updates are located on the collector machine, at */var/log/sapcon-sentinel-register-autoupdate.log*.
+
+After you configure automatic updates for an agent once, it's always configured for automatic updates.
 
 > [!IMPORTANT]
 > Automatically updating the SAP data connector agent is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-### Enable automatic updates on all existing containers
+### Configure automatic updates for all existing containers
 
-To enable automatic updates on all existing containers (all containers with a connected SAP agent), run the following command on the collector machine:
+To turn on automatic updates for all existing containers with a connected SAP agent, run the following command on the collector machine:
 
-```
+```bash
 wget -O sapcon-sentinel-auto-update.sh https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/sapcon-sentinel-auto-update.sh && bash ./sapcon-sentinel-auto-update.sh 
 ```
-    
-The command creates a cron job that runs daily and checks for updates. If the job detects a new version of the agent, it updates the agent on all containers that exist when you run the command above. If a container is running a Preview version that is newer than the latest version (the version that the job installs), the job doesn't update that container. 
 
-If you add containers after you run the cron job, the new containers aren't updated automatically. To update these containers, in the */opt/sapcon/[SID or Agent GUID]/settings.json* file, define the `auto_update` parameter for each of the containers as `true`.
+If you're working with multiple containers, the cron job updates the agent on all containers that existed at the time when you ran the original command. If you add containers after you create the initial cron job, the new containers aren't updated automatically. To update these containers, [run an extra command to add them](#configure-automatic-updates-on-a-specific-container).
 
-The logs for this update are under *var/log/sapcon-sentinel-register-autoupdate.log/*.
+### Configure automatic updates on a specific container
 
-### Enable automatic updates on a specific container
+To configure automatic updates for a specific container or containers, such as if you added containers after running the [original automation command](#configure-automatic-updates-for-all-existing-containers), run the following command on the collector machine:
 
-To enable automatic updates on a specific container or containers, run the following command:
-
-```
+```bash
 wget -O sapcon-sentinel-auto-update.sh https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/sapcon-sentinel-auto-update.sh && bash ./sapcon-sentinel-auto-update.sh --containername <containername> [--containername <containername>]...
 ```
 
-The logs for this update are under */var/log/sapcon-sentinel-register-autoupdate.log*. 
+Alternately, in the */opt/sapcon/[SID or Agent GUID]/settings.json* file, define the `auto_update` parameter for each of the containers as `true`.
 
-### Disable automatic updates
+### Turn off automatic updates
 
-To disable automatic updates for a container or containers, define the `auto_update` parameter for each of the containers as `false`.
+To turn off automatic updates for a container or containers, open the */opt/sapcon/[SID or Agent GUID]/settings.json* file for editing and define the `auto_update` parameter for each of the containers as `false`.
 
 ## Manually update SAP data connector agent
 
-To manually update the connector agent, make sure that you have the most recent versions of the relevant deployment scripts from the Microsoft Sentinel GitHub repository. 
+To manually update the connector agent, make sure that you have the most recent versions of the relevant deployment scripts from the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP).
 
-Run:
+For more information, see [Microsoft Sentinel solution for SAP applications data connector agent update file reference](reference-update.md).
 
-```
+**On the data connector agent machine, run**:
+
+```bash
 wget -O sapcon-instance-update.sh https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/sapcon-instance-update.sh && bash ./sapcon-instance-update.sh
 ```
 
-The SAP data connector Docker container on your machine is updated. 
+The SAP data connector Docker container on your machine is updated.
 
-Be sure to check for any other available updates, such as:
-
-- Relevant SAP change requests, in the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/CR).
-- Microsoft Sentinel solution for SAP® applications security content, in the **Microsoft Sentinel solution for SAP® applications** solution.
-- Relevant watchlists, in the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/Analytics/Watchlists).
+Be sure to check for any other available updates, such as SAP change requests.
 
 ## Update your system for attack disruption
 
@@ -89,11 +88,15 @@ Automatic attack disruption for SAP is supported with the unified security opera
 
 - A workspace [onboarded to the unified security operations platform](../microsoft-sentinel-defender-portal.md).
 
-- A Microsoft Sentinel SAP data connector agent, version 90847355 or higher. [Check your current agent version](#verify-your-current-data-connector-agent-version) and update it if you need to. 
+- A Microsoft Sentinel SAP data connector agent, version 90847355 or higher. [Check your current agent version](#verify-your-current-data-connector-agent-version) and update it if you need to.
 
-- The identity of your data connector agent VM assigned to the **Microsoft Sentinel Business Applications Agent Operator** Azure role. If this role isn't assigned, make sure to [assign these roles manually](#assign-required-azure-roles-manually).
+- The following roles in Azure and SAP:
 
-- The **/MSFTSEN/SENTINEL_RESPONDER** SAP role [applied to your SAP system and assigned to the SAP user account](#apply-and-assign-the-sentinel_responder-sap-role-to-your-sap-system) used by Microsoft Sentinel's SAP data connector agent.
+    - **Azure role requirement**: The identity of your data connector agent VM must be assigned to the **Microsoft Sentinel Business Applications Agent Operator** Azure role. Verify this assignment and [assign this role manually](#assign-required-azure-roles-manually) if you need to.
+
+    - **SAP role requirement**: The **/MSFTSEN/SENTINEL_RESPONDER** SAP role must be applied to your SAP system and assigned to the SAP user account used by the data connector agent. Verify this assignment and [apply and assign the role](#apply-and-assign-the-sentinel_responder-sap-role-to-your-sap-system) if you need to.
+
+The following procedures describe how to fulfill these requirements if they aren't already met.
 
 ### Verify your current data connector agent version
 
@@ -109,9 +112,10 @@ To verify your current agent version, run the following query from the Microsoft
       Connected_SAP_Systems_Ids = set_system_id_s,
       Current_Agent_Version = agent_ver_s
   ```
+
 ### Check for required Azure roles
 
-Attack disruption for SAP requires that you grant your agent's VM identity with specific permissions to the Microsoft Sentinel workspace, using the **Microsoft Sentinel Business Applications Agent Operator** and **Reader** roles.
+Attack disruption for SAP requires that you grant your agent's VM identity with specific permissions to the Log Analytics workspace enabled for Microsoft Sentinel, using the **Microsoft Sentinel Business Applications Agent Operator** and **Reader** roles.
 
 First check to see if your roles are already assigned:
 
@@ -132,22 +136,22 @@ First check to see if your roles are already assigned:
 
 If the **Microsoft Sentinel Business Applications Agent Operator** and **Reader** roles aren't yet assigned to your agent's VM identity, use the following steps to assign them manually. Select the tab for the Azure portal or the command line, depending on how your agent is deployed. Agents deployed from the command line aren't shown in the Azure portal, and you must use the command line to assign the roles.
 
-To perform this procedure, you must be a resource group owner on your Microsoft Sentinel workspace.
+To perform this procedure, you must be a resource group owner on your Log Analytics workspace enabled for Microsoft Sentinel.
 
-#### [Azure portal](#tab/azure)
+#### [Portal](#tab/portal)
 
 1. In Microsoft Sentinel, on the **Configuration > Data connectors** page, go to your **Microsoft Sentinel for SAP** data connector and select **Open the connector page**.
 
 1. In the **Configuration** area, under step **1. Add an API based collector agent**, locate the agent that you're updating and select the **Show commands** button.
 
 1. Copy the **Role assignment commands** displayed. Run them on your agent VM, replacing the `Object_ID` placeholders with your VM identity object ID.
-    
+
     These commands assign the **Microsoft Sentinel Business Applications Agent Operator** and **Reader** Azure roles to your VM's managed identity, including only the scope of the specified agent's data in the workspace.
 
 > [!IMPORTANT]
 > Assigning the **Microsoft Sentinel Business Applications Agent Operator** and **Reader** roles via the CLI assigns the roles only on the scope of the specified agent's data in the workspace. This is the most secure, and therefore recommended option.
 >
-> If you must assign the roles [via the Azure portal](/azure/role-based-access-control/role-assignments-portal?tabs=delegate-condition), we recommend assigning the roles on a small scope, such as only on the Microsoft Sentinel workspace.
+> If you must assign the roles [via the Azure portal](/azure/role-based-access-control/role-assignments-portal?tabs=delegate-condition), we recommend assigning the roles on a small scope, such as only on the Log Analytics workspace enabled for Microsoft Sentinel.
 
 #### [Command line](#tab/cli)
 
@@ -158,7 +162,6 @@ To perform this procedure, you must be a resource group owner on your Microsoft 
     ```
 
     For example, an agent ID returned might be `234fba02-3b34-4c55-8c0e-e6423ceb405b`.
-
 
 1. Assign the **Microsoft Sentinel Business Applications Agent Operator** and **Reader** roles by running the following commands:
 
@@ -173,61 +176,41 @@ To perform this procedure, you must be a resource group owner on your Microsoft 
     |Placeholder  |Value  |
     |---------|---------|
     |`<OBJ_ID>`     | Your VM identity object ID.     |
-    |`<SUB_ID>`     |    Your Microsoft Sentinel workspace subscription ID     |
-    |`<RESOURCE_GROUP_NAME>`     |  Your Microsoft Sentinel workspace resource group name       |
-    |`<WS_NAME>`     |    Your Microsoft Sentinel workspace name     |
+    |`<SUB_ID>`     |    The subscription ID for your Log Analytics workspace enabled for Microsoft Sentinel   |
+    |`<RESOURCE_GROUP_NAME>`     |  The resource group name for your Log Analytics workspace enabled for Microsoft Sentinel      |
+    |`<WS_NAME>`     |    The name of your Log Analytics workspace enabled for Microsoft Sentinel  |
     |`<AGENT_IDENTIFIER>`     |   The agent ID displayed after running the command in the [previous step](#step1).      |
 
 ---
 
 ### Apply and assign the SENTINEL_RESPONDER SAP role to your SAP system
 
-Apply **/MSFTSEN/SENTINEL_RESPONDER** SAP role to your SAP system and assign it to the SAP user account used by Microsoft Sentinel's SAP data connector agent. 
+Apply **/MSFTSEN/SENTINEL_RESPONDER** SAP role to your SAP system and assign it to the SAP user account used by Microsoft Sentinel's SAP data connector agent.
 
 To apply and assign the **/MSFTSEN/SENTINEL_RESPONDER** SAP role:
   
 1. Upload role definitions from the [/MSFTSEN/SENTINEL_RESPONDER](https://aka.ms/SAP_Sentinel_Responder_Role) file in GitHub.
 
-1. Assign the **/MSFTSEN/SENTINEL_RESPONDER** role to the SAP user account used by Microsoft Sentinel's SAP data connector agent. For more information, see [Deploy SAP Change Requests and configure authorization](preparing-sap.md).
+1. Assign the **/MSFTSEN/SENTINEL_RESPONDER** role to the SAP user account used by Microsoft Sentinel's SAP data connector agent. For more information, see [Configure your SAP system for the Microsoft Sentinel solution](preparing-sap.md).
 
-  Alternately, manually assign the following authorizations to the current role already assigned to the SAP user account used by Microsoft Sentinel's SAP data connector. These authorizations are included in the **/MSFTSEN/SENTINEL_RESPONDER** SAP role specifically for attack disruption response actions.
+    Alternately, manually assign the following authorizations to the current role already assigned to the SAP user account used by Microsoft Sentinel's SAP data connector. These authorizations are included in the **/MSFTSEN/SENTINEL_RESPONDER** SAP role specifically for attack disruption response actions.
 
-  | Authorization object | Field | Value |
-  | -------------------- | ----- | ----- |
-  |S_RFC	|RFC_TYPE	|Function Module |
-  |S_RFC	|RFC_NAME	|BAPI_USER_LOCK |
-  |S_RFC	|RFC_NAME	|BAPI_USER_UNLOCK |
-  |S_RFC	|RFC_NAME	|TH_DELETE_USER <br>In contrast to its name, this function doesn't delete users, but ends the active user session. |
-  |S_USER_GRP	|CLASS	|* <br>We recommend replacing S_USER_GRP CLASS with the relevant classes in your organization that represent dialog users. |
-  |S_USER_GRP	|ACTVT	|03 |
-  |S_USER_GRP	|ACTVT	|05 |
+    | Authorization object | Field | Value |
+    | -------------------- | ----- | ----- |
+    |S_RFC |RFC_TYPE |Function Module |
+    |S_RFC |RFC_NAME |BAPI_USER_LOCK |
+    |S_RFC |RFC_NAME |BAPI_USER_UNLOCK |
+    |S_RFC |RFC_NAME |TH_DELETE_USER <br>In contrast to its name, this function doesn't delete users, but ends the active user session. |
+    |S_USER_GRP |CLASS |* <br>We recommend replacing S_USER_GRP CLASS with the relevant classes in your organization that represent dialog users. |
+    |S_USER_GRP |ACTVT |03 |
+    |S_USER_GRP |ACTVT |05 |
 
-  For more information, see [Required ABAP authorizations](preparing-sap.md#required-abap-authorizations).
+  For more information, see [Required ABAP authorizations](required-abap-authorizations.md).
 
-## Next steps
+## Related content
 
-Learn more about the Microsoft Sentinel solution for SAP® applications:
+For more information, see:
 
-- [Deploy Microsoft Sentinel solution for SAP® applications](deployment-overview.md)
-- [Prerequisites for deploying Microsoft Sentinel solution for SAP® applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
-- [Deploy SAP Change Requests (CRs) and configure authorization](preparing-sap.md)
-- [Deploy the solution content from the content hub](deploy-sap-security-content.md)
-- [Deploy and configure the container hosting the SAP data connector agent](deploy-data-connector-agent-container.md)
+- [Deploy Microsoft Sentinel solution for SAP applications](deployment-overview.md)
 - [Monitor the health of your SAP system](../monitor-sap-system-health.md)
-- [Deploy the Microsoft Sentinel for SAP data connector with SNC](configure-snc.md)
-- [Enable and configure SAP auditing](configure-audit.md)
-- [Collect SAP HANA audit logs](collect-sap-hana-audit-logs.md)
-
-Troubleshooting:
-
-- [Troubleshoot your Microsoft Sentinel solution for SAP® applications deployment](sap-deploy-troubleshoot.md)
-
-Reference files:
-
-- [Microsoft Sentinel solution for SAP® applications data reference](sap-solution-log-reference.md)
-- [Microsoft Sentinel solution for SAP® applications: security content reference](sap-solution-security-content.md)
-- [Kickstart script reference](reference-kickstart.md)
-- [Update script reference](reference-update.md)
-- [Systemconfig.ini file reference](reference-systemconfig.md)
-
-For more information, see [Microsoft Sentinel solutions](../sentinel-solutions.md).
+- [Troubleshoot your Microsoft Sentinel solution for SAP applications deployment](sap-deploy-troubleshoot.md)

@@ -31,7 +31,7 @@ The article details the steps to configure a point-to-site VPN on Windows (Windo
 
 - An Azure file share you would like to mount on-premises. Azure file shares are deployed within storage accounts, which are management constructs that represent a shared pool of storage in which you can deploy multiple file shares, as well as other storage resources. Learn more about how to deploy Azure file shares and storage accounts in [Create an Azure file share](storage-how-to-create-file-share.md).
 
-- A [virtual network](../../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md) with a private endpoint for the storage account that contains the Azure file share you want to mount on-premises. To learn how to create a private endpoint, see [Configuring Azure Files network endpoints](storage-files-networking-endpoints.md?tabs=azure-powershell).
+- A [virtual network](../../vpn-gateway/point-to-site-certificate-gateway.md) with a private endpoint for the storage account that contains the Azure file share you want to mount on-premises. To learn how to create a private endpoint, see [Configuring Azure Files network endpoints](storage-files-networking-endpoints.md?tabs=azure-powershell).
 
 - You must create a [gateway subnet](../../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsub) on the virtual network. To create a gateway subnet, sign into the Azure portal, navigate to the virtual network, select **Settings > Subnets**, and then select **+ Gateway subnet**. When you create the gateway subnet, you specify the number of IP addresses that the subnet contains. The number of IP addresses needed depends on the VPN gateway configuration that you want to create. It's best to specify /27 or larger (/26, /25 etc.) to allow enough IP addresses for future changes, such as adding an ExpressRoute gateway.
 
@@ -643,7 +643,7 @@ Add-AzVpnClientRootCertificate @vpnClientRootCertParams
 
 ## See also
 
-- [Configure server settings for P2S VPN Gateway connections](../../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+- [Configure server settings for P2S VPN Gateway connections](../../vpn-gateway/point-to-site-certificate-gateway.md)
 - [Networking considerations for direct Azure file share access](storage-files-networking-overview.md)
 - [Configure a point-to-site (P2S) VPN on Linux for use with Azure Files](storage-files-configure-p2s-vpn-linux.md)
 - [Configure a site-to-site (S2S) VPN for use with Azure Files](storage-files-configure-s2s-vpn.md)

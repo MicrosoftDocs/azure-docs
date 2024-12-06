@@ -38,7 +38,7 @@ sections:
 
       - question: Can a cluster be deployed across multiple availability zones?
         answer: |
-          Yes. A cluster can be deployed across multiple availability zones automatically if your cluster is deployed to an Azure region that supports availability zones. For more information, see [Availability zones](../availability-zones/az-overview.md#availability-zones).
+          Yes. A cluster can be deployed across multiple availability zones automatically if your cluster is deployed to an Azure region that supports availability zones. For more information, see [Availability zones](../reliability/availability-zones-overview.md).
           
       - question: Are control plane nodes abstracted away as they are with Azure Kubernetes Service (AKS)?
         answer: No. All resources, including the cluster control plane nodes, run in your customer subscription. These types of resources are put in a read-only resource group.

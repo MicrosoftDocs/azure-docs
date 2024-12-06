@@ -151,7 +151,7 @@ Required request headers are described below.
 | Authorization | To authenticate with Azure Time Series Insights, a valid OAuth 2.0 Bearer token must be passed in the [Authorization header](/rest/api/apimanagement/current-preview/authorization-server/create-or-update). |
 
 > [!TIP]
-> Read the hosted Azure Time Series Insights [client SDK sample visualization](https://tsiclientsample.azurewebsites.net/) to learn how to authenticate with the Azure Time Series Insights APIs programmatically using the [JavaScript Client SDK](https://github.com/microsoft/tsiclient/blob/master/docs/API.md) along with charts and graphs.
+> Read the hosted Azure Time Series Insights client SDK sample visualization to learn how to authenticate with the Azure Time Series Insights APIs programmatically using the [JavaScript Client SDK](https://github.com/microsoft/tsiclient/blob/master/docs/API.md) along with charts and graphs.
 
 Optional request headers are described below.
 

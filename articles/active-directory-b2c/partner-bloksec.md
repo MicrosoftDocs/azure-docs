@@ -199,7 +199,7 @@ To define BlokSec as a claims provider, add it to the **ClaimsProvider** element
           <Metadata>
             <Item Key="METADATA">https://api.bloksec.io/oidc/.well-known/openid-configuration</Item>
             <!-- Update the Client ID below to the BlokSec Application ID -->
-            <Item Key="client_id">00000000-0000-0000-0000-000000000000</Item>
+            <Item Key="client_id">00001111-aaaa-2222-bbbb-3333cccc4444</Item>
             <Item Key="response_types">code</Item>
             <Item Key="scope">openid profile email</Item>
             <Item Key="response_mode">form_post</Item>

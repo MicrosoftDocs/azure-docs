@@ -16,7 +16,7 @@ This article shows you how to securely and seamlessly create an SSH connection t
 
 Azure Bastion provides secure connectivity to all of the VMs in the virtual network in which it's provisioned. Using Azure Bastion protects your virtual machines from exposing RDP/SSH ports to the outside world, while still providing secure access using RDP/SSH. For more information, see the [What is Azure Bastion?](bastion-overview.md) article.
 
-When connecting to a Linux virtual machine using SSH, you can use both username/password and SSH keys for authentication. The SSH private key must be in a format that begins with  `"-----BEGIN RSA PRIVATE KEY-----"` and ends with `"-----END RSA PRIVATE KEY-----"`.
+When connecting to a Linux virtual machine using SSH, you can use both username/password and SSH keys for authentication.
 
 ## Prerequisites
 

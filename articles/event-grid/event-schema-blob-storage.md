@@ -2,7 +2,7 @@
 title: Azure Blob Storage as Event Grid source
 description: Describes the properties that are provided for blob storage events with Azure Event Grid
 ms.topic: conceptual
-ms.date: 05/31/2024
+ms.date: 10/25/2024
 ---
 
 # Azure Blob Storage as an Event Grid source
@@ -51,6 +51,7 @@ These events are triggered when a client creates, replaces, or deletes a blob by
     "contentType": "text/plain",
     "contentLength": 524288,
     "blobType": "BlockBlob",
+    "accessTier": "Default",
     "url": "https://my-storage-account.blob.core.windows.net/testcontainer/new-file.txt",
     "sequencer": "00000000000004420000000000028963",
     "storageDiagnostics": {
@@ -75,6 +76,7 @@ These events are triggered when a client creates, replaces, or deletes a blob by
     "requestId": "4c2359fe-001e-00ba-0e04-585868000000",
     "contentType": "text/plain",
     "blobType": "BlockBlob",
+    "accessTier": "Default",
     "url": "https://my-storage-account.blob.core.windows.net/testcontainer/file-to-delete.txt",
     "sequencer": "0000000000000281000000000002F5CA",
     "storageDiagnostics": {
@@ -1136,6 +1138,11 @@ When an event is triggered, the Event Grid service sends data about that event t
             "successCount": 0,
             "errorList": ""
         },
+        "tierToColdSummary": {
+            "totalObjectsCount": 0,
+            "successCount": 0,
+            "errorList": ""
+        },
         "tierToArchiveSummary": {
             "totalObjectsCount": 0,
             "successCount": 0,
@@ -1188,6 +1195,11 @@ When an event is triggered, the Event Grid service sends data about that event t
             "errorList": ""
         },
         "tierToCoolSummary": {
+            "totalObjectsCount": 0,
+            "successCount": 0,
+            "errorList": ""
+        },
+        "tierToColdSummary": {
             "totalObjectsCount": 0,
             "successCount": 0,
             "errorList": ""

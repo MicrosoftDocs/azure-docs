@@ -54,7 +54,7 @@ Property | Recommended Values | Permitted Range | Notes
 
 Property | Recommended Values | Permitted Range | Notes
 ---|---:|-----:|---
-`retries` | 2 | | Default is 2147483647. 
+`retries` | > 0 | | Default is 2147483647. 
 `request.timeout.ms` | 30000 .. 60000 | > 20000| Event Hubs will internally default to a minimum of 20,000 ms.  `librdkafka` default value is 5000, which can be problematic. *While requests with lower timeout values are accepted, client behavior isn't guaranteed.*
 `partitioner` | `consistent_random` | See librdkafka documentation | `consistent_random` is default and best.  Empty and null keys are handled ideally for most cases.
 `compression.codec` | `none` || Compression currently not supported.
