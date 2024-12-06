@@ -178,6 +178,7 @@ With an active-active pattern, functions in both regions are actively running an
 
 ![Architecture for Azure Front Door and Function](../azure-functions/media/functions-geo-dr/front-door.png)  
 
+For an example please refer to the sample on how to [implement the geode pattern by deploying the API to geodes in distributed Azure regions.](/mspnp/geode-pattern-accelerator).
 
 >[!IMPORTANT]
 >Although, it's highly recommended that you use the [active-passive pattern](#active-passive-pattern-for-non-https-trigger-functions) for non-HTTPS trigger functions. You can create active-active deployments for non-HTTP triggered functions. However, you need to consider how the two active regions interact or coordinate with one another. When you deploy the same function app to two regions with each triggering on the same Service Bus queue, they would act as competing consumers on de-queueing that queue. While this means each message is only being processed by either one of the instances, it also means there's still a single point of failure on the single Service Bus instance. 

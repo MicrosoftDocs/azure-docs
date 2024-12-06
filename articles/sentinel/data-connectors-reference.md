@@ -174,6 +174,10 @@ For more information about the codeless connector platform, see [Create a codele
 
 - [Cohesity (using Azure Functions)](data-connectors/cohesity.md)
 
+## Commvault
+
+- [CommvaultSecurityIQ (using Azure Functions)](data-connectors/commvaultsecurityiq.md)
+
 ## Corelight Inc.
 
 - [Corelight Connector Exporter](data-connectors/corelight-connector-exporter.md)
@@ -394,7 +398,11 @@ For more information about the codeless connector platform, see [Create a codele
 
 - [Exchange Security Insights Online Collector (using Azure Functions)](data-connectors/exchange-security-insights-online-collector.md)
 - [Exchange Security Insights On-Premises Collector](data-connectors/exchange-security-insights-on-premises-collector.md)
+- [Microsoft Active-Directory Domain Controllers Security Event Logs](data-connectors/microsoft-active-directory-domain-controllers-security-event-logs.md)
+- [Microsoft Exchange Admin Audit Logs by Event Logs](data-connectors/microsoft-exchange-admin-audit-logs-by-event-logs.md)
+- [Microsoft Exchange HTTP Proxy Logs](data-connectors/microsoft-exchange-http-proxy-logs.md)
 - [Microsoft Exchange Logs and Events](data-connectors/microsoft-exchange-logs-and-events.md)
+- [Microsoft Exchange Message Tracking Logs](data-connectors/microsoft-exchange-message-tracking-logs.md)
 - [Forcepoint DLP](data-connectors/forcepoint-dlp.md)
 - [MISP2Sentinel](data-connectors/misp2sentinel.md)
 
@@ -559,6 +567,10 @@ For more information about the codeless connector platform, see [Create a codele
 ## Valence Security Inc.
 
 - [SaaS Security](data-connectors/saas-security.md)
+
+## Varonis
+
+- [Varonis SaaS](data-connectors/varonis-saas.md)
 
 ## Vectra AI, Inc
 
