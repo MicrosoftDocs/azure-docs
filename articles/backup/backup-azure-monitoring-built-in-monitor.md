@@ -19,7 +19,7 @@ You can monitor all your protected and protectable items via Azure Business Cont
 
 ## Backup Items in Recovery Services vault
 
-You can monitor all your backup items via a Recovery Services vault. Navigating to the **Backup Instances** section in **Backup center** opens a view that provides a detailed list of all backup items of the given workload type, with information on the last backup status for each item, latest restore point available, and so on.
+You can monitor all your backup items via a Recovery Services vault. Navigating to the **Backup Instances** section in [Azure Business Continuity Center](../business-continuity-center/business-continuity-center-overview.md) opens a view that provides a detailed list of all backup items of the given workload type, with information on the last backup status for each item, latest restore point available, and so on.
 
 >[!NOTE]
 >For items backed-up to Azure using DPM, the list will show all the data sources protected (both disk and online) using the DPM server. If the protection is stopped for the datasource with backup data retained, the datasource will be still listed in the portal. You can go to the details of the data source to see if the recovery points are present in disk, online or both. Also, datasources for which the online protection is stopped but data is retained,  billing for the online recovery points continue until the data is completely deleted.
