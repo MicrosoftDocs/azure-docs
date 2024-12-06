@@ -108,9 +108,9 @@ As a secure service, Azure Kubernetes Service (AKS) complies with SOC, ISO, PCI 
 |---|---|---|---|
 |1|Control Plane Components|||
 |1.1|Control Plane Node Configuration Files|||
-|1.1.12|Ensure that the etcd data directory ownership is set to etcd:etcd|NTF|Nexus is root:root, etcd user isn't configured for kubeadm|
+|1.1.12|Ensure that the etcd data directory ownership is set to `etcd:etcd`|NTF|Nexus is `root:root`, etcd user isn't configured for kubeadm|
 |1.2|API Server|||
-|1.1.12|Ensure that the --kubelet-certificate-authority argument is set as appropriate|NTF|Kubelet SANS includes hostname only|
+|1.1.12|Ensure that the `--kubelet-certificate-authority` argument is set as appropriate|NTF|Kubelet SANS includes hostname only|
 
 
 *Nexus Kubernetes/NAKS*
@@ -121,9 +121,9 @@ As a secure service, Azure Kubernetes Service (AKS) complies with SOC, ISO, PCI 
 |---|---|---|---|
 |1|Control Plane Components|||
 |1.1|Control Plane Node Configuration Files|||
-|1.1.12|Ensure that the etcd data directory ownership is set to etcd:etcd|NTF|Nexus is root:root, etcd user isn't configured for kubeadm|
+|1.1.12|Ensure that the etcd data directory ownership is set to `etcd:etcd`|NTF|Nexus is `root:root`, etcd user isn't configured for kubeadm|
 |1.2|API Server|||
-|1.1.12|Ensure that the --kubelet-certificate-authority argument is set as appropriate|NTF|Kubelet SANS includes hostname only|
+|1.1.12|Ensure that the `--kubelet-certificate-authority` argument is set as appropriate|NTF|Kubelet SANS includes hostname only|
 
 
 *Cluster Manager - Azure Kubernetes*
