@@ -75,9 +75,8 @@ When working with Microsoft Dataverse, Dataverse activity logging is available o
 
 1. After deploying your data connectors and configuring data collection, run activities like create, update, and delete to generate logs for data that you enabled for monitoring.
 
-1. Wait the following amounts of time for Microsoft Sentinel to ingest the data:
+1. For Power Platform activity logs, wait 60 minutes for Microsoft Sentinel to ingest the data.
 
-   - **Power Platform activity logs**: 60 minutes
 1. To verify that Microsoft Sentinel is getting the data you expect, run KQL queries against the data tables that collect logs from your data connectors.
 
    For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), run KQL queries on the **General** > **Logs** page. In the [Defender portal](https://security.microsoft.com/), run KQL queries in the **Investigation & response** > **Hunting** > **Advanced hunting**.

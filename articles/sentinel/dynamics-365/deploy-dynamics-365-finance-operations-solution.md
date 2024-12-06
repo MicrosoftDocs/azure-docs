@@ -106,7 +106,7 @@ To collect the managed identity application ID from Microsoft Entra ID:
 1. In the Finance and Operations portal, navigate to **System administration > Setup > Microsoft Entra ID** applications.
 
 1. Create a new entry in the table:
-    - For the **Client Id**, type the application ID of the managed identity.
+    - For the **Client Id**, type the application ID of the app registration.
     - For the **Name**, type a name for the application. 
     - For the **User ID**, type the user ID created in the [previous step](#create-a-user-for-data-collection-in-finance-and-operations). 
 

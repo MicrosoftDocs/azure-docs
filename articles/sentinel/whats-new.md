@@ -13,7 +13,7 @@ ms.date: 12/02/2024
 
 # What's new in Microsoft Sentinel
 
-This article lists recent features added for Microsoft Sentinel, and new features in related services that provide an enhanced user experience in Microsoft Sentinel.
+This article lists recent features added for Microsoft Sentinel, and new features in related services that provide an enhanced user experience in Microsoft Sentinel. For new features in Microsoft's unifed security operations (SecOps) platform, see the [unified SecOps platform documentation](/unified-secops-platform/whats-new).
 
 The listed features were released in the last three months. For information about earlier features delivered, see our [Tech Community blogs](https://techcommunity.microsoft.com/t5/azure-sentinel/bg-p/AzureSentinelBlog/label-name/What's%20New).
 
@@ -32,7 +32,9 @@ The listed features were released in the last three months. For information abou
 
 Microsoft Sentinel now provides a unified solution for Microsoft Power Platform, Microsoft Dynamics 365 Customer Engagement, and Microsoft Dynamics 365 Finance and Operations. The solution includes data connectors and security content for all platforms.
 
-The updated solution removes the Power Platform Inventory data connector while we work on stability improvements. While customers who are already using the Power Platform Inventory data connector can continue to use it, it won't be available to install or deploy for new customers.
+The updated solution removes the **Dynamics 365 CE Apps** and the **Dynamics 365 Finance and Operations** solutions from the Microsoft Sentinel **Content hub**. Existing customers will see that these solutions are renamed to the **Microsoft Business Applications** solution.
+
+The updated solution also removes the Power Platform Inventory data connector. While the Power Platform Inventory data connector continues to be supported on workspaces where it's already deployed, it isn't available for new deployments in other workspaces.
 
 For more information, see:
 
@@ -59,6 +61,8 @@ Ingest logs from Amazon Web Services' web application firewall (WAF) with Micros
 For more details and setup instructions, see [Connect Microsoft Sentinel to Amazon Web Services to ingest AWS WAF logs](connect-aws-s3-waf.md).
 
 ## November 2024
+
+- [Microsoft Sentinel availability in Microsoft Defender portal](#microsoft-sentinel-availability-in-microsoft-defender-portal)
 
 ### Microsoft Sentinel availability in Microsoft Defender portal
 
