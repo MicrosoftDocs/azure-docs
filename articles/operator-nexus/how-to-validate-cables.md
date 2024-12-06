@@ -11,7 +11,7 @@ ms.date: 04/15/2024
 ---
 # Validate Cables for Nexus Network Fabric
 
-This article explains the  Fabric cable validation, where the primary function of the diagnostic API is to check all fabric devices for potential cabling issues. The Diagnostic API assesses whether the interconnected devices adhere to the Bill of Materials (BOM) and according to the resource Stock Keeping Unit (SKU), classifying them as compliant or noncompliant. DEvice types include Customer Edge (CE), Top of Rack (TOR), Management (MGMT) and Network Packet Broker (NPB) devices. The results are presented in a JSON format, encompassing details such as validation status, errors, identifier type, and neighbor device ID. These results are stored in a customer-provided Storage account. It's vital to the overall deployment that errors identified in this report are resolved before moving onto the Cluster deployment step.
+This article explains the  Fabric cable validation, where the primary function of the diagnostic API is to check all fabric devices for potential cabling issues. The Diagnostic API assesses whether the interconnected devices adhere to the Bill of Materials (BOM) and according to the resource Stock Keeping Units (SKUs), classifying them as compliant or noncompliant. DEvice types include Customer Edge (CE), Top of Rack (TOR), Management (MGMT) and Network Packet Broker (NPB) devices. The results are presented in a JSON format, encompassing details such as validation status, errors, identifier type, and neighbor device ID. These results are stored in a customer-provided Storage account. It's vital to the overall deployment that errors identified in this report are resolved before moving onto the Cluster deployment step.
 
 For BOM details, refer to [Azure Operator Nexus SKUs](./reference-operator-nexus-skus.md)
 
@@ -195,7 +195,7 @@ networkFabricInfoSkuId": "M8-A400-A100-C16-ab",
 |---------|---------|
 |Compliant     | When the status is compliant with the BOM specification         |
 |NonCompliant     | When the status isn't compliant with the BOM specification         |
-|Unknown     | When the tool is unable to retrieve interface connection details or lldp data such as when the destintation device is powered off, missing, disconnected, or if validation isn't supported for this interface type. |
+|Unknown     | When the tool is unable to retrieve interface connection details or lldp data such as when the destination device is powered off, missing, disconnected, or if validation isn't supported for this interface type. |
 
 #### Validation attributes
 
@@ -210,12 +210,12 @@ networkFabricInfoSkuId": "M8-A400-A100-C16-ab",
 
 ## Known issues and limitations in cable validation
 
-- Cable Validation of connections between TORs and Compute Servers that are powered off or unprovisioned in the Nexus cluster aren't supported. These interfaces show `Unknown` status in the report.
+- Cable Validation of connections between TOR and Compute Servers that are powered off or unprovisioned in the Nexus cluster aren't supported. These interfaces show `Unknown` status in the report.
 - Cable Validation of connections between MGMT interfaces and Compute Servers that are powered off or unprovisioned in the Nexus cluster or the Compute Server Controllers aren't supported. These interfaces show `Unknown` status in the report.
 - Cable Validation for NPB isn't supported for `loopback` and `nni-direct` interfaces because there's no vendor support currently for `show lldp neighbors`. These interfaces show `Unknown` status in the report.
 - The Storage URL must be in a different region from the Network Fabric. For instance, if the Fabric is hosted in East US, the storage URL should be outside of East US.
-- Cable validation supports both four rack wih 16 Computes per rack and eight rack wih 16 Computes per rack BOMs.
-- When destintation device is powered off, cables are missing or disconnected, or if validation isn't supported for the interface type, then the inteface shows `Unknown` status. **It is important to evaluate all `Unknown` interfaces that are `Not-Connected` against the BOM to determine if repair action is required.**
+- Cable validation supports both four rack with 16 Computes per rack and eight rack with 16 Computes per rack BOMs.
+- When destination device is powered off, cables are missing or disconnected, or if validation isn't supported for the interface type, then the interface shows `Unknown` status. **It is important to evaluate all `Unknown` interfaces that are `Not-Connected` against the BOM to determine if repair action is required.**
 
 ## Typical cable validation `NonCompliant` and `Unknown` Issues
 
@@ -231,4 +231,4 @@ networkFabricInfoSkuId": "M8-A400-A100-C16-ab",
 ## Converting cabling validation report to html format
 
 Sample python script to convert cabling validation report JSON output to html: [cable-html.py](media/cable-html.py)
-Requires Modules: json pandas as pd
+Requires Modules: `json pandas as pd`
