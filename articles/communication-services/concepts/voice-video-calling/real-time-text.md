@@ -62,6 +62,6 @@ Microsoft indicates to you via the Azure Communication Services API that recordi
 
 ## Next Steps
 
-- Get started with a Quickstart Guide
+- Get started with a [Quickstart Guide](../../quickstarts/voice-video-calling/get-started-with-real-time-text.md)
 - Learn more about [Closed captions](https://learn.microsoft.com/en-us/azure/communication-services/concepts/voice-video-calling/closed-captions)
 - Explore the [UI Library](../ui-library/ui-library-overview.md)
