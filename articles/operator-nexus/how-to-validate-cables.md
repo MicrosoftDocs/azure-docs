@@ -224,9 +224,9 @@ networkFabricInfoSkuId": "M8-A400-A100-C16-ab",
 | CableValidation |`NonCompliant`|`Device cable connection is incorrect.` | Verify connections on the source and destination interfaces match the BOM. The `deviceConfiguration` can help identify the destination port date returned on the interface. |
 | CableValidation |`Unknown`     |`Unable to fetch data from the device.` | Verify connections on the source and destination interfaces are connected and match the BOM |
 | CableValidation |`NonCompliant`|`Device cabling in <INTERFACE> incorrect.` | The interface is not connected. Verify connections on the source and destination interfaces are connected  match the BOM. |
-| CableValidation  |`Unknown`     |`Port <INTERFACE> has no connections as per device response.` | Verify connections on the source and destination interfaces are connected and match the BOM |
-| CableSpecificationValidation  |`Unknown`     |`Unable to fetch Interface Status for <INTERFACE>.` | Verify connections on the source and destination interfaces are connected and match the BOM |
-| CableSpecificationValidation  |`NonCompliant`     |`Device cable connection is incorrect` | Verify interface card and cables match BOM specification in this <INTERFACE>.|
+| CableValidation  |`Unknown`     |`Port <INTERFACE> has no connections as per device response.` | Verify connections on the source and destination interfaces are connected and match the BOM. |
+| CableSpecificationValidation  |`Unknown`     |`Unable to fetch Interface Status for <INTERFACE>.` | Verify connections on the source and destination interfaces are connected and match the BOM. |
+| CableSpecificationValidation  |`NonCompliant`     |`Device cable connection is incorrect` | Verify interface card and cables match BOM specification in this interface. |
 
 ## Converting cabling validation report to html format
 
