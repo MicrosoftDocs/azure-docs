@@ -227,6 +227,14 @@
           href: howto-configure-acls-for-ssh-management-on-access-vpn.md
     - name: Install CLI Extension
       href: howto-install-cli-extensions.md
+    - name: General
+      expanded: false
+      items:
+        - name: Check runtime version
+          href: howto-aon-check-runtime-version.md
+        - name: Site Teardown checklist
+          href: howto-aon-site-teardown-checklist.md
+      
 - name: Troubleshooting
   items:
     - name: Troubleshoot Bare Metal Machine
