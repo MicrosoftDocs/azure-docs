@@ -39,11 +39,11 @@ If you're using the **[Microsoft Sentinel in the Defender portal](https://go.mic
 
 # [Azure portal](#tab/azure-portal)
 
-:::image type="content" source="./media/entity-pages/entity-page-sentinel.png" alt-text="Screenshot of an example of an entity page in the Azure portal.":::
+:::image type="content" source="./media/entity-pages/entity-page-sentinel.png" alt-text="Screenshot of an example of an entity page in the Azure portal." lightbox="./media/entity-pages/entity-page-sentinel.png":::
 
 # [Defender portal](#tab/defender-portal)
 
-:::image type="content" source="./media/entity-pages/entity-pages-timeline-defender.png" alt-text="Screenshot of an example of an entity page in the Defender portal.":::
+:::image type="content" source="./media/entity-pages/entity-pages-timeline-defender.png" alt-text="Screenshot of an example of an entity page in the Defender portal." lightbox="./media/entity-pages/entity-pages-timeline-defender.png":::
 
 ---
 
