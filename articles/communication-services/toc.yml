@@ -445,7 +445,7 @@ items:
           href: how-tos/ui-library-sdk/closed-captions.md
         - name: Configure theming
           href: how-tos/ui-library-sdk/theming.md
-        - name: Customize the button bar
+        - name: Customize buttons
           href: how-tos/ui-library-sdk/button-injection.md
         - name: Customize the title and subtitle
           href: how-tos/ui-library-sdk/setup-title-subtitle.md

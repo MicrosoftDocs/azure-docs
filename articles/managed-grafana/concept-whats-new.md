@@ -13,7 +13,7 @@ ms.date: 02/22/2024
 
 ## March 2024
 
-* We recommend that users with a workspace on Grafana 9 [upgrade to Grafana 10](how-to-upgrade-grafana-10.md).
+* We recommend that users with a workspace on Grafana 9 upgrade to Grafana 10.
 
 ## October 2023
 
