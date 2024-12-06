@@ -41,14 +41,14 @@ For example, to discover all the items in Contoso’s infrastructure, you might 
 
 | Data source | Items with possible relationships to Contoso |
 |--|--|
-| Whois records | Other domain names registered to the same contact email or registrant organization that was used to register `contoso.com` |
-| Whois records | All domain names registered to any `@contoso.com` email address |
-| Whois records | Other domains associated with the same name server as `contoso.com` |
-| DNS records | All observed hosts on the domains Contoso owns, and any websites that are associated with those hosts |
-| DNS records | Domains that have different hosts, but which resolve to the same IP blocks |
-| DNS records | Mail servers associated with Contoso-owned domain names |
-| SSL certificates | All Secure Sockets Layer (SSL) certificates that are connected to each of the hosts, and any other hosts that use the same SSL certificates |
-| ASN records | Other IP blocks associated with the same ASN as the IP blocks that are connected to hosts on Contoso’s domain names, including all hosts and domains that resolve to them |
+| **Whois records** | Other domain names registered to the same contact email or registrant organization that was used to register `contoso.com` |
+| **Whois records** | All domain names registered to any `@contoso.com` email address |
+| **Whois records** | Other domains associated with the same name server as `contoso.com` |
+| **DNS records** | All observed hosts on the domains Contoso owns, and any websites that are associated with those hosts |
+| **DNS records** | Domains that have different hosts, but which resolve to the same IP blocks |
+| **DNS records** | Mail servers associated with Contoso-owned domain names |
+| **SSL certificates** | All Secure Sockets Layer (SSL) certificates that are connected to each of the hosts, and any other hosts that use the same SSL certificates |
+| **ASN records** | Other IP blocks associated with the same ASN as the IP blocks that are connected to hosts on Contoso’s domain names, including all hosts and domains that resolve to them |
 
 By using this set of first-level connections, we can quickly derive an entirely new set of assets to investigate. Before Defender EASM performs more recursions, it determines whether a connection is strong enough for a discovered entity to be automatically added as **Confirmed Inventory**. For each of these assets, the discovery system runs automated, recursive searches based on all available attributes to find second-level and third-level connections. This repetitive process provides more information on an organization’s online infrastructure and therefore discovers disparate assets that might not otherwise be discovered and then monitored.
 
