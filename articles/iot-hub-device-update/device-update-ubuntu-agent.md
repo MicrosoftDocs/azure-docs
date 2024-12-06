@@ -35,7 +35,7 @@ In this tutorial, you:
 
 ## Prepare the VM and device
 
-For convenience, this tutorial uses a [cloud-init](/azure/virtual-machines/linux/using-cloud-init)-based [Azure Resource Manager (ARM) template](/azure/azure-resource-manager/templates/overview) to quickly set up an Ubuntu 22.04 LTS virtual machine (VM). The template installs both the IoT Edge runtime and the Device Update package agent, and then automatically configures the device with provisioning information by using the IoT Edge device connection string you supply. Using the ARM template also avoids the need to start a secure shell (SSH) session to complete setup.
+For convenience, this tutorial uses a [cloud-init](/azure/virtual-machines/linux/using-cloud-init) based [Azure Resource Manager (ARM) template](/azure/azure-resource-manager/templates/overview) to quickly set up an Ubuntu 22.04 LTS virtual machine (VM). The template installs both the IoT Edge runtime and the Device Update package agent and automatically configures the device with provisioning information by using the IoT Edge device connection string you supply. Using the ARM template also avoids the need to start a secure shell (SSH) session to complete setup.
 
 1. To run the template, select the following **Deploy to Azure** button:
 
@@ -58,9 +58,9 @@ For convenience, this tutorial uses a [cloud-init](/azure/virtual-machines/linux
 
 1. Verify that the deployment completes successfully, and allow a few minutes after deployment completes for the post-installation and configuration to finish installing IoT Edge and the device package update agent.
 
-1. You should see a VM resource in the selected resource group. Note the machine name, which is in the format `vm-0000000000000`. Select the VM name to go to its **Overview** page and note its **DNS name**, which is in the format `<dnsLabelPrefix>`.`<location>.cloudapp.azure.com`.
+1. You should see a VM resource in the selected resource group. Note the machine name, which is in the format `vm-0000000000000`. Select the VM name, and on the VM **Overview** page, note the **DNS name**, which is in the format `<dnsLabelPrefix>`.`<location>.cloudapp.azure.com`.
 
-:::image type="content" source="../iot-edge/media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png" alt-text="Screenshot showing the DNS name of the IoT Edge VM." lightbox="../iot-edge/media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png":::
+   :::image type="content" source="../iot-edge/media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png" alt-text="Screenshot showing the DNS name of the IoT Edge VM." lightbox="../iot-edge/media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png":::
 
 > [!TIP]
 > To SSH into this VM after setup, use the associated **DNS name** with the command `ssh <admin username>@<DNS name>`.
@@ -74,14 +74,6 @@ For convenience, this tutorial uses a [cloud-init](/azure/virtual-machines/linux
 >- [Delivery optimization client license](https://github.com/microsoft/do-client/blob/main/LICENSE)
 >
 >Read the license terms before using the agent. Agent installation and use constitutes acceptance of these terms. If you don't agree with the license terms, don't use the Device Update agent.
-
->[!NOTE]
->If you used the [simulator agent](device-update-simulator.md) on this device previously, run the following command to invoke the APT handler and deploy over-the-air package updates for this tutorial.
->
->```sh
->sudo /usr/bin/AducIotAgent --register-content-handler /var/lib/adu/extensions/sources/libmicrosoft_apt_1.so --update-type 'microsoft/apt:1'
->```
-
 1. To install the Device Update agent on the VM, run the following command.
 
    ```bash
@@ -94,7 +86,7 @@ For convenience, this tutorial uses a [cloud-init](/azure/virtual-machines/linux
    sudo nano /etc/adu/du-config.json
    ```
 
-1. In the file, set all values that have the `Place value here` tag. Set your `connectionType` as `'AIS'` and `connectionData` as empty string. For more information, see [Configuring a Device Update agent](device-update-configuration-file.md#example-du-configjson-file-contents).
+1. In the file, replace all `<placeholder>` values with your own configuration. Set your `connectionType` as `"AIS"` and `connectionData` as an empty string. For an example file, see [Example du-config.json file contents](device-update-configuration-file.md#example-du-configjson-file-contents).
 
 1. Restart the Device Update agent by running the following command.
 
@@ -102,15 +94,23 @@ For convenience, this tutorial uses a [cloud-init](/azure/virtual-machines/linux
    sudo systemctl restart deviceupdate-agent
    ```
 
+>[!NOTE]
+>If you used the [simulator agent](device-update-simulator.md) on this device previously, run the following command to invoke the APT handler and deploy over-the-air package updates for this tutorial.
+>
+>```sh
+>sudo /usr/bin/AducIotAgent --register-content-handler /var/lib/adu/extensions/sources/libmicrosoft_apt_1.so --update-type 'microsoft/apt:1'
+>```
+
+
 ## Add a group tag to your device
 
 Device Update uses groups to organize devices. Device Update automatically sorts devices into groups based on their assigned tags and compatibility properties. Each device can belong to only one group, but groups can have multiple subgroups to sort different device classes. For more information about tags and groups, see [Manage device groups](create-update-group.md).
 
 1. On the [Azure portal](https://portal.azure.com) IoT hub page for your Device Update instance, select **Device management** > **Devices** from the left navigation.
-1. Go to the device twin or module twin for your device.
-1. In the device twin or the **Module Identity Twin** of the Device Update agent module, delete any existing Device Update tag values by setting them to null, and then add the following new Device Update group tag.
+1. Go to the **Device twin** or **Module Identity** twin for your device.
+1. In the device twin or Device Update agent module **Module Identity Twin** file, delete any existing Device Update tag values by setting them to `null`, and then add the following new Device Update group tag.
 
-   If you're using device identity with the Device Update agent, make these changes on the device twin. If you're using a Module Identity with the Device Update agent, add the tag in the **Module Identity Twin**.
+   If you're using device identity with the Device Update agent, make these changes on the device twin. If you're using a Module Identity with the Device Update agent module, add the tag in the **Module Identity Twin**.
 
    ```json
    "tags": {
@@ -125,44 +125,48 @@ Device Update uses groups to organize devices. Device Update automatically sorts
 
 ## Import the update
 
-The *Tutorial_IoTEdge_PackageUpdate.zip* file has the required files for the tutorial. Download the file from the **Assets** section of the latest release on the [GitHub Device Update Releases page](https://github.com/Azure/iot-hub-device-update/releases), and unzip it. The extracted *Tutorial_IoTEdge_PackageUpdate* folder contains the *sample-defender-iot-apt-manifest.json* sample APT manifest and its corresponding *sample-defender-iot--importManifest.json* import manifest.
+The *Tutorial_IoTEdge_PackageUpdate.zip* file has the required files for the tutorial. Download the file from the **Assets** section of the latest release on the [GitHub Device Update Releases page](https://github.com/Azure/iot-hub-device-update/releases), and unzip it.
+
+The extracted *Tutorial_IoTEdge_PackageUpdate* folder contains the *sample-defender-iot-apt-manifest.json* sample APT manifest and its corresponding *sample-defender-iot--importManifest.json* import manifest.
 
 1. On the [Azure portal](https://portal.azure.com) IoT hub page for your Device Update instance, select **Device Management** > **Updates** from the left navigation.
 1. On the **Updates** page, select **Import a new update**.
 1. On the **Import update** page, select **Select from storage container**.
-1. On the **Storage accounts** page, select an existing storage account or create a new account by using **+ Storage account**.
-1. On the **Containers** page, select an existing container or create a new container by using **+ Container** to use for staging the update files for import.
+1. On the **Storage accounts** page, select an existing storage account or create a new account by selecting **+ Storage account**.
+1. On the **Containers** page, select an existing container to use for staging the update files for import, or create a new container by selecting **+ Container** and then select it.
 
    :::image type="content" source="media/import-update/storage-account-ppr.png" alt-text="Screenshot that shows Storage accounts and Containers.":::
 
    > [!TIP]
-   > Using a new container each time you import an update prevents accidentally importing files from previous updates. If you don't use a new container, be sure to delete any files from the existing container.
+   > Creating a new container each time you import an update prevents accidentally importing files from previous updates. If you don't use a new container, be sure to delete any files from the existing container.
 
 1. On the container page, select **Upload**, drag and drop or browse to and select the update files you downloaded, and then select **Upload**. After they upload, the files appear on the container page.
 
 1. Review and select the files to import, and then select **Select**.
 
-   :::image type="content" source="media/import-update/import-select-ppr.png" alt-text="Screenshot that shows selecting uploaded files.":::
+   :::image type="content" source="media/import-update/import-select-package.png" alt-text="Screenshot that shows selecting uploaded files.":::
 
 1. On the **Import update** screen, select **Import update**.
 
-   :::image type="content" source="media/import-update/import-start-2-ppr.png" alt-text="Screenshot that shows Import update.":::
+   :::image type="content" source="media/import-update/import-start-package.png" alt-text="Screenshot that shows Import update.":::
 
 The import process begins, and the screen switches to the **Updates** screen. After the import succeeds, it appears on the **Updates** tab. For more information about the import process, see [Import an update to Device Update](import-update.md).
 
-:::image type="content" source="media/import-update/update-ready-ppr.png" alt-text="Screenshot that shows job status.":::
+:::image type="content" source="media/import-update/update-ready-package.png" alt-text="Screenshot that shows job status.":::
 
 ## Deploy the update
 
-You can use the group tag you applied to your device to deploy the update to the device group. Select the **Groups and Deployments** tab at the top of the **Updates** page and view the list of groups and the update compliance chart. The update compliance chart shows the count of devices in various states of compliance: **On latest update**, **New updates available**, and **Updates in progress**. For more information, see [Device Update compliance](device-update-compliance.md).
+You can use the group tag you applied to your device to deploy the update to the device group. To view the list of groups and the update compliance chart, select the **Groups and Deployments** tab on the **Updates** page.
 
-You should see the device group that contains the device you set up in this tutorial, along with the available updates for the devices in the group. If there are devices that don't meet the device class requirements of the group, they appear in a corresponding invalid group.
+The update compliance chart shows the count of devices in various states of compliance: **On latest update**, **New updates available**, and **Updates in progress**. For more information, see [Device Update compliance](device-update-compliance.md).
+
+Under **Group name**, you should see the device group that contains the device you set up in this tutorial, along with the available updates for the devices in the group. If there are devices that don't meet the device class requirements of the group, they appear in a corresponding invalid group.
+
+To deploy the best available update to your user-defined group from this view, select **Deploy** next to the group.
 
 :::image type="content" source="media/create-update-group/updated-view.png" alt-text="Screenshot that shows the update compliance view." lightbox="media/create-update-group/updated-view.png":::
 
-To deploy the best available update to the new user-defined group from this view, select **Deploy** next to the group.
-
-To initiate the deployment:
+### Initiate the deployment:
 
 1. Select the **Current deployment** tab on the **Group details** page, and then select **Deploy** next to the desired update in the **Available updates** section. The best available update for the group is denoted with a **Best** highlight.
 
@@ -175,17 +179,16 @@ To initiate the deployment:
    > [!TIP]
    > By default, the **Start** date and time is 24 hours from your current time. Be sure to select a different date and time if you want the deployment to begin sooner.
 
-1. Under **Deployment details**, **Status** turns to **Active**. Under **Available updates**, the selected update is marked with **(deploying)**.
+1. On the **Group details** page under **Deployment details**, **Status** turns to **Active**. Under **Available updates**, the selected update is marked with **(deploying)**.
 
    :::image type="content" source="media/deploy-update/deployment-active.png" alt-text="Screenshot that shows the deployment as Active." lightbox="media/deploy-update/deployment-active.png":::
 
-1. On the **Updates** page, view the compliance chart to see that the update is now in progress. After your device successfully updates, your compliance chart and deployment details update to reflect that status.
+1. On the the **Groups and Deployments** tab of the **Updates** page, view the compliance chart to see that the update is now in progress. After your device successfully updates, the compliance chart and deployment details update to reflect that status.
 
    :::image type="content" source="media/deploy-update/update-succeeded.png" alt-text="Screenshot that shows the update succeeded." lightbox="media/deploy-update/update-succeeded.png":::
 
+<a name="monitor-the-update-deployment"></a>
 ## View update deployment history
-
-To view deployment history:
 
 1. Select the **Deployment history** tab at the top of the **Group details** page, and select the **details** link next to the deployment you created.
 
