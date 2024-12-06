@@ -73,7 +73,7 @@ Each schema field has a type. Some have built-in, Log Analytics types, such as `
 |<a name="usertype"></a>**UserType** | Enumerated | The type of a user. For more information and list of allowed values, see [The User entity](#the-user-entity).  |
 |<a name="apptype"></a>**AppType** | Enumerated | The type of an application. Supported values include: `Process`<br>, `Service`,  `Resource`, `URL`, `SaaS application`, `CSP`, and `Other`. |
 |**Country**     |   String      |    A string using [ISO 3166-1](https://www.iso.org/iso-3166-country-codes.html), according to the following priority: <br><br> - Alpha-2 codes, such as `US` for the United States. <br> - Alpha-3 codes, such as `USA` for the United States. <br>- Short name.<br><br>The list of codes can be found on the [International Standards Organization (ISO) website](https://www.iso.org/obp/ui/#search).|
-|**Region**     | String        |   The country subdivision name, using ISO 3166-2.<br><br>The list of codes can be found on the [International Standards Organization (ISO) website](https://www.iso.org/obp/ui/#search).|
+|**Region**     | String        |   The country/region subdivision name, using ISO 3166-2.<br><br>The list of codes can be found on the [International Standards Organization (ISO) website](https://www.iso.org/obp/ui/#search).|
 |**City**     |  String       |         |
 |**Longitude**     | Double        |  ISO 6709 coordinate representation (signed decimal).       |
 |**Latitude**     | Double        |    ISO 6709 coordinate representation (signed decimal).     |
@@ -119,7 +119,7 @@ The allowed values for a user ID type are:
 | ---- | ------- | ------------- |
 | **SID** | A Windows user ID. | `S-1-5-21-1377283216-344919071-3415362939-500` |
 | **UID** | A Linux user ID. | `4578` |
-| **AADID**| A Microsoft Entra user ID.| `9267d02c-5f76-40a9-a9eb-b686f3ca47aa` |
+| **AADID**| A Microsoft Entra user ID.| `00aa00aa-bb11-cc22-dd33-44ee44ee44ee` |
 | **OktaId** | An Okta user ID. |  `00urjk4znu3BcncfY0h7` |
 | **AWSId** | An AWS user ID. | `72643944673` |
 | **PUID** | A Microsoft 365 user ID. | `10032001582F435C` |

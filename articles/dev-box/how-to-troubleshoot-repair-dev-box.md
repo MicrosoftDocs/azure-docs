@@ -25,7 +25,7 @@ When you run the **Troubleshoot & repair** tool, your dev box and its back-end s
 
 ## Run Troubleshoot & repair
 
-If you're unable to connect to your dev box by using an RDP client, use the **Troubleshoot & repair** tool. 
+If you're unable to connect to your dev box by using a Remote Desktop Protocol (RDP) client, use the **Troubleshoot & repair** tool. 
 
 The troubleshoot and repair process completes on average in 20 minutes, but can take up to 40 minutes. During this time, you can't use your dev box. The tool scans a list of critical components that relate to RDP connectivity, including but not limited to:
 - Domain join check
@@ -53,7 +53,7 @@ To run the **Troubleshoot & repair** tool on your dev box, follow these steps:
 
    :::image type="content" source="media/how-to-troubleshoot-repair-dev-box/dev-box-actions-troubleshoot-repair.png" alt-text="Screenshot showing the Troubleshoot and repair option for a dev box on the more actions menu." lightbox="media/how-to-troubleshoot-repair-dev-box/dev-box-actions-troubleshoot-repair.png" :::
 
-1. In the **Troubleshoot & repair** connectivity message box, select **Yes, I want to troubleshoot this dev box**, and then select **Troubleshoot**.
+1. In the **Troubleshoot & repair connectivity** message box, select **Yes, I want to troubleshoot this dev box**, and then select **Troubleshoot**.
 
    :::image type="content" source="media/how-to-troubleshoot-repair-dev-box/dev-box-troubleshoot-confirm.png" alt-text="Screenshot showing the Troubleshoot and repair connectivity confirmation message with the Yes option highlighted." lightbox="media/how-to-troubleshoot-repair-dev-box/dev-box-troubleshoot-confirm.png" ::: 
 
@@ -71,6 +71,18 @@ When the troubleshoot and repair process finishes, the tool lists the results of
 | **No issue detected.** | None of the checks discovered an issue with the dev box. |
 | **An issue was detected but could not be fixed automatically.** | There's an issue with the dev box that the Troubleshoot & repair process couldn't resolve. You can select **View details** for the issue and explore options to fix the issue manually. |
  
+## Get further assistance
+
+If the Troubleshoot & repair tool can't resolve the issue, try these steps:
+
+1. Explore support options: [Get support for Microsoft Dev Box](how-to-get-help.md).
+1. Contact your developer team lead or administrator, who can: 
+    - Troubleshoot issues with the benefit of organizational knowledge.
+    - Help you apply an approved solution, if one exists.
+    - If necessary, open a support request to contact Azure support: **[Contact Microsoft Azure Support - Microsoft Support](https://support.microsoft.com/topic/contact-microsoft-azure-support-2315e669-8b1f-493b-5fb1-d88a8736ffe4).**
+1. Ask the developer community: [Ask the community](https://developercommunity.microsoft.com/devbox).
+
 ## Related content
 
 - [Tutorial: Use a Remote Desktop client to connect to a dev box](tutorial-connect-to-dev-box-with-remote-desktop-app.md)
+- [Get support for Microsoft Dev Box](how-to-get-help.md)

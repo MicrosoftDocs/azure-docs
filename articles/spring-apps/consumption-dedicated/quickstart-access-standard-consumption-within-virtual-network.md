@@ -13,7 +13,7 @@ ms.custom: devx-track-java, devx-track-azurecli
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ✔️ Standard consumption and dedicated (Preview) ❌ Basic/Standard ❌ Enterprise
+**This article applies to:** ✅ Standard consumption and dedicated (Preview) ❎ Basic/Standard ❎ Enterprise
 
 This article describes how to access your application in a virtual network using Azure Spring Apps Standard consumption and dedicated plan.
 

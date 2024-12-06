@@ -61,6 +61,8 @@
       href: how-to-end-to-end-tls-gateway-api.md
     - name: Header rewrite
       href: how-to-header-rewrite-gateway-api.md
+    - name: Managed certificates with cert-manager
+      href: how-to-cert-manager-lets-encrypt-gateway-api.md
     - name: Multi-site hosting
       href: how-to-multiple-site-hosting-gateway-api.md
     - name: Path, header, and query string based routing

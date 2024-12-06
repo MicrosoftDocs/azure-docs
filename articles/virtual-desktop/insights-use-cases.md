@@ -167,6 +167,9 @@ To view a list of users with outdated clients:
 
 You should periodically review the versions of clients in use to ensure your users are getting the best experience.
 
+> [!NOTE]
+> Some clients, such as Windows App on iOS/iPadOS and Android are listed in the report with their build number, not their version number. You can match the build number to the version number in the **About** section of Windows App settings.
+
 ## Cost saving opportunities
 
 Understanding the utilization of session hosts can help illustrate where there's potential to reduce spend by using a scaling plan, resize virtual machines, or reduce the number of session hosts in the pool. Azure Virtual Desktop Insights can provide visibility into usage patterns to help you make the most informed decisions about how best to manage your resources based on real user usage.

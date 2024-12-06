@@ -5,8 +5,8 @@ ms.topic: conceptual
 author: v-sreedevank
 ms.author: v-sreedevank
 ms.service: azure-migrate
-ms.date: 12/07/2023
-ms.custom: engagement-fy24
+ms.date: 09/09/2024
+ms.custom: engagement-fy25
 ---
 
 # Dependency analysis
