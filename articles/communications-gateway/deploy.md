@@ -38,7 +38,7 @@ Use the Azure portal to create an Azure Communications Gateway resource.
 1. Select the communications services that you want to support in the **Communications Services** configuration tab, use the information that you collected in [Collect configuration values for each communications service](prepare-to-deploy.md#collect-configuration-values-for-each-communications-service) to fill out the fields, and then select **Next: Test Lines**.
 1. Use the information that you collected in [Collect values for service verification numbers](prepare-to-deploy.md#collect-values-for-service-verification-numbers) to fill out the fields in the **Test Lines** configuration tab and then select **Next: Tags**.
     - Don't configure numbers for integration testing.
-    - Microsoft Teams Direct Routing and Azure Operator Call Protection Preview don't require service verification numbers.
+    - Microsoft Teams Direct Routing doesn't require service verification numbers.
 1. (Optional) Configure tags for your Azure Communications Gateway resource: enter a **Name** and **Value** for each tag you want to create.
 1. Select **Review + create**.
 
