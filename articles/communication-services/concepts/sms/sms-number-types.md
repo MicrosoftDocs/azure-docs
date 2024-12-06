@@ -34,6 +34,7 @@ Azure Communication Services provides the following phone number types:
 ### Toll-Free Numbers
 
 - **Availability**: United States, Puerto Rico, Canada
+- **Status**: Generally available
 - **Description**: Toll-free numbers allow customers to contact a business without incurring charges.
 - **Format**: 1-800-XXX-XXXX or 1-888-XXX-XXXX.
 - **Use Cases**:
@@ -47,6 +48,7 @@ Azure Communication Services provides the following phone number types:
 ### 10DLC (10-Digit Long Code)
 
 - **Availability**: United States
+- **Status**: Public Preview
 - **Description**: 10DLC refers to 10-digit local numbers regulated for business A2P (Application-to-Person) messaging.
 - **Format**: XXX-XXX-XXXX.
 - **Use Cases**:
@@ -61,6 +63,7 @@ Azure Communication Services provides the following phone number types:
 ### Short Codes
 
 - **Availability**: United States, United Kingdom, and Canada
+- **Status**: Generally available
 - **Description**: Short codes are 5-6 digit numbers ideal for high-volume messaging.
 - **Format**: Short codes are 5-6 digit long. *Example: 12345 or 678910*
 - **Use Cases**:
@@ -77,7 +80,8 @@ Azure Communication Services provides the following phone number types:
 - **Availability**: Austria, Denmark, Estonia, France, Germany, Ireland, Latvia, Lithuania, Netherlands, Poland,
              Portugal, Spain, Sweden, Switzerland, Australia, Czech Republic, Finland, Italy, Norway,
               Slovakia, Slovenia, United Kingdom.
-- **Description**: Allows sending SMS messages using a custom name (business or brand name) as the sender.
+- **Status**: Generally available
+ **Description**: Allows sending SMS messages using a custom name (business or brand name) as the sender.
 - **Format** - Alphanumeric Sender IDs can contain up to 11 characters (letters and/or numbers). *Example: CONTOSO, CONTOSOAlert*
 - **Use Cases**:
    - Brand Recognition: Enhances brand visibility directly in the message sender field.
@@ -100,11 +104,11 @@ Azure Communication Services provides the following phone number types:
 | **Two-Way Communication**    | Supported                          | Supported                           | Supported                      | Not Supported (one-way only)                |
 | **Brand Visibility**         | Low                                | Moderate (localized presence)       | High                               | High (direct brand recognition)             |
 | **Use Case Examples**        | Customer support, notifications    | Local business communications, marketing & promotions | High-volume campaigns, 2FA       | Brand visibility, one-way notifications     |
-| **Subscription Billing Location Eligibility** |                 |  | Supported only in specific EMEA & APAC regions (see Geographic Target) |
 | **Compliance Requirements**  | SMS verification, opt-out support  | Campaign registration, opt-out support | Carrier approval, opt-in proof    | Varies by country (e.g., France restricts marketing messages) |
 | **Format**                   | 1-800-XXX-XXXX                     | XXX-XXX-XXXX                        | 5-6 digits                          | Up to 11 characters (letters/numbers)       |
 | **Example**                  | 1-800-555-1234                     | 212-555-6789                        | 12345                               | MYBRAND123                                  |
 
+To send messages across multiple countries, customers must request different numbers based on the number types supported in each destination.
 
 ## Next steps
 
