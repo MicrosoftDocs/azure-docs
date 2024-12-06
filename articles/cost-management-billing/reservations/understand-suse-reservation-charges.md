@@ -68,6 +68,9 @@ The following tables show the software plans you can buy a reservation for, thei
 
 ### SUSE for SAP Linux Enterprise Server
 
+> [!NOTE]
+> Please note that **SUSE Linux Enterprise for SAP Applications + 24x7 Support** on the pricing calculator is the same as **SUSE for SAP Linux Enterprise Server** on the Reservation portal.
+
 |SUSE VM | MeterId | Ratio|Example VM size|
 | ------- |------------------------| --- | --- |
 |SUSE for SAP Linux Enterprise Server 1-2 vCPUs|797618eb-cecb-59e7-a10e-1ee1e4e62d32|1|D2s_v3|
