@@ -1,5 +1,5 @@
 ---
-title: Monitor Azure Backup with Azure Monitor
+title: Azure Monitor Logs in Azure Backup
 description: Monitor Azure Backup workloads and create custom alerts by using Azure Monitor.
 ms.topic: how-to
 ms.date: 12/30/2024
@@ -9,7 +9,7 @@ ms.author: v-abhmallick
 ms.custom: engagement-fy24
 ---
 
-# Monitor at scale by using Azure Monitor
+# Azure Monitor Logs
 
 Azure Backup provides [built-in monitoring and alerting capabilities](backup-azure-monitoring-built-in-monitor.md) in a Recovery Services vault. These capabilities are available without any additional management infrastructure. The only pre-requisite for this capability is to have Log Analytics workspace configured. This feature is supported in the following scenarios:
 

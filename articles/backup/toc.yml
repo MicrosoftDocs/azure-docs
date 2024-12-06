@@ -744,7 +744,7 @@
         href: backup-azure-monitoring-alerts.md 
       - name: Metrics (preview)
         href: metrics-overview.md   
-      - name: Azure Monitor Logs
+      - name: Logs
         href: backup-azure-monitoring-use-azuremonitor.md
       - name: Configure notifications
         href: backup-azure-monitor-alerts-notification.md    
@@ -760,16 +760,16 @@
         href: view-reports.md  
       - name: Email Report
         href: backup-reports-email.md
-    - name: Configure Diagnostics settings
+    - name: Configure Diagnostics Events
       items:
-      - name: Diagnostics Events for Backup users
+      - name: Use Diagnostic Settings with Log Analytics
         href: backup-azure-diagnostic-events.md
-      - name: System Functions
-        href: backup-reports-system-functions.md
-      - name: Data Model for Resource Specific Diagnostics Events
+      - name: Log Analytics Data Model for Resource Specific Diagnostic Events
         href: backup-azure-reports-data-model.md
-      - name: Data Model for Legacy diagnostic events
+      - name: Log Analytics Data Model for Legacy Diagnostic Events
         href: backup-azure-diagnostics-mode-data-model.md
+      - name: System Functions
+        href: backup-reports-system-functions.md        
     - name: Backup Explorer
       href: monitor-azure-backup-with-backup-explorer.md        
   - name: Automation
