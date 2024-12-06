@@ -10,11 +10,13 @@ ms.service: azure-communication-services
 ms.subservice: calling
 ---
 
+
+>[!NOTE]
+>RTT is an accessibility compliance requirement for voice and video platforms in the EU. You can find more information about this here: [Directive 2019/882](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32019L0882)
+
 # Real Time Text (RTT) Overview
 
-Real Time Text (RTT) provides developers with the ability to transmit text in near real-time during a call. This feature is designed to empower individuals who have difficulty speaking, ensuring their text messages are displayed prominently to other meeting participants, similar to spoken communication. RTT enhances accessibility by allowing participants to communicate effectively through typed messages that are broadcasted instantly.
-
-Here are the main scenarios where Real Time Text (RTT) is useful:
+Real Time Text (RTT) provides developers with the ability to transmit text in near real-time during a call. This feature is designed to empower individuals who have difficulty speaking, ensuring their text messages are displayed prominently to other meeting participants, similar to spoken communication. RTT enhances accessibility by allowing participants to communicate effectively through typed messages that are broadcast instantly character by character, without having to press a "send" key. 
 
 ## Common Use Cases
 
@@ -48,6 +50,13 @@ The `RealTimeTextInfo` (or `RealTimeTextDetails` on certain platforms) class is 
 ### Usage
 
 Developers can subscribe to RTT events through a single event subscription, allowing them to manage their own list and ordering of RTT messages. This approach aligns with the Captions API, facilitating easier integration and maintenance. The UI is responsible for binding the data to the screen, managing the display list, and handling text input interactions based on message finalization.
+
+### Privacy Concerns
+Real-Time Text (RTT) is only available during the call or meeting. Azure Communication Services doesn't store these text exchanges anywhere. Many countries/regions and states have laws and regulations that apply to the storing of data. It is your responsibility to use RTT in compliance with the law should you choose to store any of the data generated through RTT. You must obtain consent from the parties involved in a manner that complies with the laws applicable to each participant.
+
+Interoperability between Azure Communication Services and Microsoft Teams enables your applications and users to participate in Teams calls, meetings, and chats. It is your responsibility to ensure that the users of your application are notified when RTT is enabled in a Teams call or meeting and being stored.
+
+Microsoft indicates to you via the Azure Communication Services API that recording or RTT has commenced, and you must communicate this fact, in real-time, to your users within your application's user interface. You agree to indemnify Microsoft for all costs and damages incurred due to your failure to comply with this obligation.
 
 ## Next Steps
 
