@@ -55,7 +55,7 @@ Azure Operator Nexus workloads run on servers in your datacenters, so you are in
 
 Industry standard security benchmarking tools are used to scan the Azure Operator Nexus platform for security compliance. These tools include [OpenSCAP](https://public.cyber.mil/stigs/scap/), to evaluate compliance with Kubernetes Security Technical Implementation Guide (STIG) controls, and Aqua Security’s [Kube-Bench](https://github.com/aquasecurity/kube-bench/tree/main), to evaluate compliance with the Center for Internet Security (CIS) Kubernetes Benchmarks.
 
-Some controls are not technically feasible to implement in the Azure Operator Nexus environment, and these excepoted controls are documented below for the applicable Nexus layers.
+Some controls are not technically feasible to implement in the Azure Operator Nexus environment, and these excepted controls are documented below for the applicable Nexus layers.
 
 Environmental controls such as RBAC and Service Account tests are not evaluated by these tools, as the outcomes may differ based on customer requirements.
 
@@ -128,7 +128,7 @@ As a secure service, Azure Kubernetes Service (AKS) complies with SOC, ISO, PCI 
 
 *Cluster Manager - Azure Kubernetes*
 
-The Operator Nexus Cluster Manager is an AKS implementation. The full CIS benchmark report for AKS can be found [here](https://learn.microsoft.com/azure/aks/cis-kubernetes) to review the tested controls and results.
+The Operator Nexus Cluster Manager is an AKS implementation. The following image shows the Kube-Bench exceptions for the Cluster Manager AKS implementation.
 
 :::image type="content" source="media/security/cm_kubebench.png" alt-text="Screenshot of Cluster Manager Kube-Bench exceptions" lightbox="media/security/cm_kubebench.png":::
 
