@@ -268,7 +268,7 @@ There are two ways to use the Managed Identities in Hybrid Runbook Worker script
     > [!NOTE]
     > You can find the client Id of the user-assigned managed identity in the Azure portal.
 
-    > :::image type="content" source="./media/automation-hrw-run-runbooks/managed-identities-client-id-inline.png" alt-text="Screenshot of client id in Managed Identites." lightbox="./media/automation-hrw-run-runbooks/managed-identities-client-id-expanded.png":::
+    > :::image type="content" source="./media/automation-hrw-run-runbooks/managed-identities-client-id-inline.png" alt-text="Screenshot of client id in Managed Identities." lightbox="./media/automation-hrw-run-runbooks/managed-identities-client-id-expanded.png":::
 
 ---
 

@@ -197,7 +197,7 @@ The following example helps you to enable built-in Azure Monitor alerts for job 
 az backup vault backup-properties set \
 	--name testVault \
 	--resource-group testRG \
-    --clasic-alerts  Disable \
+    --classic-alerts  Disable \
     --alerts-for-job-failures Enable
 ```
 

@@ -14,7 +14,7 @@ This article provides answers to some of the frequently asked questions about Az
 
 ## Where is customer data stored and processed when deploying to an Azure Extended Zone?
 
-An Azure Extended Zone might be associated with a parent region in the same or a different country. Customer Data will be stored and processed in the Extended Zone location, which may be outside of the associated geography and parent region. For Extended Zones with parent regions in the same country, customer Data will remain within the associated geography.
+An Azure Extended Zone might be associated with a parent region in the same or a different country/region. Customer Data will be stored and processed in the Extended Zone location, which may be outside of the associated geography and parent region. For Extended Zones with parent regions in the same country/region, customer Data will remain within the associated geography.
 
 ## Are all Azure services offered at the Azure Extended Zone?
 

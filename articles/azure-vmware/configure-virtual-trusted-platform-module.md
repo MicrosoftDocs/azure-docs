@@ -3,7 +3,7 @@ title: Configure Virtual Machines - Virtual Trusted Platform Module (vTPM)
 description: Learn how to configure Virtual Machines - Virtual Trusted Platform Module (vTPM).
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 11/25/2024
+ms.date: 12/05/2024
 ms.custom: engagement-fy25
 ---
 
@@ -33,6 +33,7 @@ Trusted Launch is a comprehensive security solution that encompasses three key c
 •	Securely deploy VMs with verified boot loaders, operating system (OS) kernels, and drivers.
 
 •	Securely protect keys, certificates, and secrets in the VMs.
+
 •	Gain insights and confidence of the entire boot chain's integrity.
 
 •	Ensure that workloads are trusted and verifiable. 
@@ -57,7 +58,7 @@ To configure vTPM on a VM in Azure VMware Solution, follow these steps:
 
 2. In the inventory, right-click the virtual machine you want to modify and select "Edit Settings".  
 
-:::image type="content" source="./media/enable-virtual-trusted-platform-module-on-virtual-machine.png" alt-text="Diagram showing how to enable vTPM on a virtual machine in Azure VMware Solution." border="false" lightbox="./media/enable-virtual-trusted-platform-module-on-virtual-machine.png":::
+:::image type="content" source="./media/enable-virtual-trusted-platform-module-on-virtual-machine-highres.png" alt-text="Diagram showing how to enable vTPM on a virtual machine in Azure VMware Solution." border="false" lightbox="./media/enable-virtual-trusted-platform-module-on-virtual-machine-highres.png":::
 
 3. In the Edit Settings dialog box, click "Add New Device" and choose "Trusted Platform Module".  
 
@@ -72,6 +73,7 @@ Migration of VMs with vTPM might not be supported by some tools. Check the docum
 
 ## More information
 [Securing Virtual Machines with Virtual Trusted Platform Module](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.vm_admin.doc/GUID-A43B6914-E5F9-4CB1-9277-448AC9C467FB.html)
+
 [What Is a Virtual Trusted Platform Module](https://docs.vmware.com/en/VMware-vSphere/8.0/vsphere-security/GUID-6F811A7A-D58B-47B4-84B4-73391D55C268.html)
-[vSphere Virtual TPM (vTPM)
- Questions & Answers](https://www.vmware.com/docs/vsphere-virtual-tpm-vtpm-questions-answers)
+
+[vSphere Virtual TPM (vTPM) Questions & Answers](https://www.vmware.com/docs/vsphere-virtual-tpm-vtpm-questions-answers)

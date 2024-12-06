@@ -259,7 +259,7 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[Leslie Digital Imaging LLC.](https://www.myldi.com)|
 |[LiftOff, LLC](https://www.liftoffonline.com)|
 |[Lightstream Managed Services, LLC](https://www.lightstream.tech)|
-|[Liquid Mercury Solutions](https://www.liquid-hg.com/)|
+|[Liquid Mercury Solutions](https://liquidmercury.com/#solutions)|
 |[Logicalis, Inc.](https://www.us.logicalis.com/)|
 |[Lucidius Group LLC](http://www.lucidiusgrp.com)|
 |[Lumen](https://www.lumen.com/)|

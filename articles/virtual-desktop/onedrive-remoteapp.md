@@ -29,7 +29,7 @@ When a user closes or disconnects from the last RemoteApp they're using on the s
 
 Before you can use OneDrive with a RemoteApp in Azure Virtual Desktop:
 
-- Your session hosts must be running Windows 11 Enterprise, version 22H2 or 23H2 with the [2024-07 Cumulative Update for Windows 11 (KB5040442)](https://support.microsoft.com/kb/KB5040442) or later installed.
+- Your session hosts must be running Windows 11 Enterprise, version 24H2, or version 22H2 or 23H2 with the [2024-07 Cumulative Update for Windows 11 (KB5040442)](https://support.microsoft.com/kb/KB5040442) or later installed.
 
 - If you're using FSLogix, install the latest version of FSLogix on your session hosts. For more information, see [Install FSLogix applications](/fslogix/how-to-install-fslogix).
 

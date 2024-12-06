@@ -267,7 +267,7 @@ Replace the values according to the explanation.
         "tenant_id": "<tenant_id>", // Entra ID tenant ID
         "client_id": "<client_id>", // App Registration ID to use for the admin UI, usually the same as the ADME App Registration ID, i.e. "6ee7e0d6-0641-4b29-a283-541c5d00655a"
         "redirect_uri": "<redirect_uri>", // This is the website URL ($REDIRECT_URI), i.e. "https://contoso.z1.web.core.windows.net"
-        "scope": "<client_id>/.default" // Scope of the ADME instance, i.e. "6ee7e0d6-0641-4b29-a283-541c5d00655a/.default"
+        "scope": "<client_id>/.default" // Scope of the ADME instance, i.e. "00001111-aaaa-2222-bbbb-3333cccc4444/.default"
     },
     "api_endpoints": { // Just replace contoso.energy.azure.com with your ADME_URL after removing https or wwww in all the API endpoints below.
         "entitlement_endpoint": "https://contoso.energy.azure.com/api/", 
@@ -284,12 +284,10 @@ Replace the values according to the explanation.
 }
 ```
 
----
-
    > [!NOTE]
    > [OSDU Connector API](https://community.opengroup.org/osdu/ui/admin-ui-group/admin-ui-totalenergies/connector-api-totalenergies) is built as an interface between consumers and OSDU APIs wrapping some API chain calls and objects. Currently, it manages all operations and actions on project and scenario objects.
       
-5. Build the web UI.
+1. Build the web UI.
     ```bash
     ng build
     ```

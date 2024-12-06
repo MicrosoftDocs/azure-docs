@@ -169,13 +169,15 @@ Most of the data sources are raw logs that are noisy and have high volume, but h
 
 1. **Create a summary rule**: 
 
-    1. Extend your query to extract key fields, such as the source address, destination address, and destination port from  CommonSecurityLog_CL, which is the *CommonSecurityLog* table with the Auxilairy plan.
+    1. Extend your query to extract key fields, such as the source address, destination address, and destination port from the **CommonSecurityLog_CL** table, which is the **CommonSecurityLog** with the Auxilairy plan.
+       
+    1. Perform an inner lookup against the active Threat Intelligence Indicators to identify any matches with our source address. This allows you to cross-reference your data with known threats.
+       
+    1. Project relevant information, including the time generated, activity type, and any malicious source IPs, along with the destination details. Set the frequency you want the query to run, and the destination table, such as **MaliciousIPDetection** . The results in this table are in the analytic tier and are charged accordingly.
 
-    1. Perform an inner lookup against your active Threat Intelligence Indicators to identify any matches with the source address. This allows you to cross-reference your data with known threats.
+1. **Create an alert**:
 
-    1. Project relevant information, including the time generated, activity type, and any malicious source IPs, along with the destination details. Set the frequency you want the query to run, and the destination table for the `MaliciousIPDetection’ example. The results in this table are in the analytic tier and charged accordingly.
-
-1. **Create an alert**. Create an analytics rule in Microsoft Sentinel that alerts based on results from the `MaliciousIPDetection` table. This step is crucial for proactive threat detection and incident response.
+    Creating an analytics rule in Microsoft Sentinel that alerts based on results from the **MaliciousIPDetection** table. This step is crucial for proactive threat detection and incident response.
 
 **Sample summary rule**:
 
@@ -185,6 +187,7 @@ CommonSecurityLog_CL​
 | lookup kind=inner (ThreatIntelligenceIndicator | where Active == true ) on $left.sourceAddress == $right.NetworkIP​
 | project TimeGenerated, Activity, Message, DeviceVendor, DeviceProduct, sourceMaliciousIP =sourceAddress, destinationAddress, destinationPort
 ```
+
 ## Use summary rules with auxiliary logs (sample process)
 
 This procedure describes a sample process for using summary rules with [auxiliary logs](basic-logs-use-cases.md), using a custom connection created via an ARM template to ingest CEF data from Logstash.

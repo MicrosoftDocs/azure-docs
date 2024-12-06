@@ -7,10 +7,8 @@ ms.date: 05/11/2020
 ms.author: daknappe
 ms.custom: docs_inherited
 ---
-# Session host virtual machine configuration
 
->[!IMPORTANT]
->This content applies to Azure Virtual Desktop with Azure Resource Manager Azure Virtual Desktop objects. If you're using Azure Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/troubleshoot-vm-configuration-2019.md).
+# Troubleshoot session host virtual machine configuration
 
 Use this article to troubleshoot issues you're having when configuring the Azure Virtual Desktop session host virtual machines (VMs).
 
