@@ -11,9 +11,9 @@ ms.date: 12/03/2024
 ---
 
 # Check list for Azure Operator Nexus instance teardown
-This how-to guide provide an outline of the checklist of all essential steps required for a site teardown in Azure Operator Nexus.
+This how-to guide provide a high-level checklist on the essential steps required for a site teardown in Azure Operator Nexus.
 
-## High-Level cleanup check list
+## High-Level site teardown check list
 Note: Please follow the order of this checklist to properly cleanup all resources of the Azure Operator Instance
 
 1) Perform Tenant cleanup HAKS/NAKS/Networks
@@ -24,13 +24,13 @@ Note: Please follow the order of this checklist to properly cleanup all resource
 6) Delete Cluster resource
 7) Delete Cluster Manager resource
 8) Disable/Delete L2 ISD resources
-9) Reset all IDRAC creds to default  (Optional)
+9) Reset all iDRAC credential to default 
 10) Deprovision Fabric
 11) Delete NNI resources
-12) Delete AON Fabric resource
-13) Put devices into ZTP/Disable DHCP
-14) Reset TS credentials to default (Optional)
-15) Delete Jumpbox/NFC Cluster Vnet/IP (Optional)
+12) Delete Fabric resource
+13) Disable DHCP and put devices into ZTP mode
+14) Reset Terminal Server (TS) credentials to default
+15) Delete Jumpbox/NFC Cluster Vnet/IP
 16) Delete Network Fabric Controller (NFC) resource
 
 
