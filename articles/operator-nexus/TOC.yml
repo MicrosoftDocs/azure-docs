@@ -232,8 +232,8 @@
       items:
         - name: Check runtime version
           href: howto-check-runtime-version.md
-        - name: Site Teardown checklist
-          href: howto-site-decommision-checklist.md
+        - name: Site decommision checklist
+          href: howto-decommision-nexus-instance-checklist.md
       
 - name: Troubleshooting
   items:
