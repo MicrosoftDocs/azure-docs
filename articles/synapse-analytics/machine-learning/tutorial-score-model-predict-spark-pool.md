@@ -28,7 +28,7 @@ If you don't have an Azure subscription, [create a free account before you begin
 
 - [Azure Synapse Analytics workspace](../get-started-create-workspace.md) with an Azure Data Lake Storage Gen2 storage account configured as the default storage. You need to be the *Storage Blob Data Contributor* of the Data Lake Storage Gen2 file system that you work with.
 - Serverless Apache Spark pool in your Azure Synapse Analytics workspace. For details, see [Create a Spark pool in Azure Synapse](../get-started-analyze-spark.md).
-- Azure Machine Learning workspace is needed if you want to train or register model in Azure Machine Learning. For details, see [Manage Azure Machine Learning workspaces in the portal or with the Python SDK](../../machine-learning/how-to-manage-workspace.md).
+- Azure Machine Learning workspace is needed if you want to train or register model in Azure Machine Learning. For details, see [Manage Azure Machine Learning workspaces in the portal or with the Python SDK](/azure/machine-learning/how-to-manage-workspace).
 - If your model is registered in Azure Machine Learning then you need a linked service. In Azure Synapse Analytics, a linked service defines your connection information to the service. In this tutorial, you'll add an Azure Synapse Analytics and Azure Machine Learning linked service. To learn more, see [Create a new Azure Machine Learning linked service in Synapse](quickstart-integrate-azure-machine-learning.md).
 - The PREDICT functionality requires that you already have a trained model which is either registered in Azure Machine Learning or uploaded in Azure Data Lake Storage Gen2.
 
@@ -86,7 +86,15 @@ Make sure all prerequisites are in place before following these steps for using 
    > [!NOTE]
    > Update tenant, client, subscription, resource group, AML workspace and linked service details in this script before running it.
 
-   - **Through service principal:** You can use service principal client ID and secret directly to authenticate to AML workspace. Service principal must have "Contributor" access to the AML workspace.
+   - **(Recommended) Through linked service:** You can use linked service to authenticate to AML workspace. Linked service can use "service principal" or Synapse workspace's "Managed Service Identity (MSI)" for authentication. "Service principal" or "Managed Service Identity (MSI)" must have "Contributor" access to the AML workspace.
+
+      ```python
+      #AML workspace authentication using linked service
+      from notebookutils.mssparkutils import azureML
+      ws = azureML.getWorkspace("<linked_service_name>") #   "<linked_service_name>" is the linked service name, not AML workspace name. Also, linked   service supports MSI and service principal both
+      ```
+
+   - **Through service principal:** Though not recommended, you can use service principal client ID and secret directly to authenticate to AML workspace. Providing the service principal password directly poses some security risk, so we suggest using a linked service where possible. Service principal must have "Contributor" access to the AML workspace.
 
       ```python
       #AML workspace authentication using service principal
@@ -110,14 +118,6 @@ Make sure all prerequisites are in place before following these steps for using 
           resource_group = AML_RESOURCE_GROUP,
           auth=svc_pr
       )
-      ```
-
-   - **Through linked service:** You can use linked service to authenticate to AML workspace. Linked service can use "service principal" or Synapse workspace's "Managed Service Identity (MSI)" for authentication. "Service principal" or "Managed Service Identity (MSI)" must have "Contributor" access to the AML workspace.
-
-      ```python
-      #AML workspace authentication using linked service
-      from notebookutils.mssparkutils import azureML
-      ws = azureML.getWorkspace("<linked_service_name>") #   "<linked_service_name>" is the linked service name, not AML workspace name. Also, linked   service supports MSI and service principal both
       ```
 
 4. **Enable PREDICT in spark session:** Set the spark configuration `spark.synapse.ml.predict.enabled` to `true` to enable the library.
@@ -331,6 +331,7 @@ Make sure all prerequisites are in place before following these steps for using 
 
    from azureml.core import Workspace, Model
    from azureml.core.authentication import ServicePrincipalAuthentication
+   from notebookutils.mssparkutils import azureML
 
    AZURE_TENANT_ID = "xyz"
    AZURE_CLIENT_ID = "xyz"
@@ -340,18 +341,8 @@ Make sure all prerequisites are in place before following these steps for using 
    AML_RESOURCE_GROUP = "xyz"
    AML_WORKSPACE_NAME = "xyz"
 
-   svc_pr = ServicePrincipalAuthentication( 
-       tenant_id=AZURE_TENANT_ID,
-       service_principal_id=AZURE_CLIENT_ID,
-       service_principal_password=AZURE_CLIENT_SECRET
-   )
-
-   ws = Workspace(
-       workspace_name = AML_WORKSPACE_NAME,
-       subscription_id = AML_SUBSCRIPTION_ID,
-       resource_group = AML_RESOURCE_GROUP,
-       auth=svc_pr
-   )
+   #AML workspace authentication using linked service
+   ws = azureML.getWorkspace("<linked_service_name>") #   "<linked_service_name>" is the linked service name, not AML workspace name. Also, linked   service supports MSI and service principal both
 
    model = Model.register(
        model_path="./artifacts/output",

@@ -1,14 +1,12 @@
 ---
 title: 'Quickstart: Create a Redis Enterprise cache'
 description: In this quickstart, learn how to create an instance of Azure Cache for Redis in use the Enterprise tier.
-author: flang-msft
-ms.author: franlanglois
-ms.service: azure-cache-redis
-ms.custom: mvc, mode-other
+ms.custom: mvc, mode-other, ignite-2024
 ms.topic: quickstart
-ms.date: 04/10/2023
-
+ms.date: 04/12/2023
+#Customer intent: As a Redis Enterprise developer who is new to Azure Cache for Redis, I want to create a new cache in the Enterprise tier of Azure Cache for Redis.
 ---
+
 # Quickstart: Create a Redis Enterprise cache
 
 The Azure Cache for Redis Enterprise tiers provide fully integrated and managed [Redis Enterprise](https://redislabs.com/redis-enterprise/) on Azure. These tiers are:
@@ -32,7 +30,7 @@ Azure Cache for Redis is continually expanding into new regions. To check the av
 
 1. On the **New** page, select **Databases** and then select **Azure Cache for Redis**.
 
-   :::image type="content" source="media/cache-create/new-cache-menu.png" alt-text="Select Azure Cache for Redis":::
+   :::image type="content" source="media/cache-create/new-cache-menu.png" alt-text="Screenshot showing how to select Azure Cache for Redis.":::
 
 1. On the **New Redis Cache** page, configure the settings for your new cache.
 
@@ -44,7 +42,7 @@ Azure Cache for Redis is continually expanding into new regions. To check the av
    | **Location** | Drop down and select a location. | Enterprise tiers are available in selected Azure regions. |
    | **Cache type** | Drop down and select an _Enterprise_ or _Enterprise Flash_ tier and a size. |  The tier determines the size, performance, and features that are available for the cache. |
 
-   :::image type="content" source="media/cache-create/enterprise-tier-basics.png" alt-text="Enterprise tier Basics tab":::
+   :::image type="content" source="media/cache-create/enterprise-tier-basics.png" alt-text="Screenshot showing the Enterprise tier Basics tab.":::
 
    > [!IMPORTANT]
    > Be sure to select **Terms** before you proceed.
@@ -56,17 +54,14 @@ Azure Cache for Redis is continually expanding into new regions. To check the av
 
    Enable **Non-TLS access only** if you plan to connect to the new cache without using TLS. Disabling TLS is **not** recommended, however. 
 
-   Set **Clustering policy** to **Enterprise** for a nonclustered cache, or to **OSS** for a clustered cache. For more information on choosing **Clustering policy**, see [Clustering on Enterprise](cache-best-practices-enterprise-tiers.md#clustering-on-enterprise).
+   Set **Clustering policy** to **Enterprise** for a nonclustered cache, or to **OSS** for a clustered cache. For more information on choosing **Clustering policy**, see [Clustering](managed-redis/managed-redis-architecture.md#clustering).
 
-  
-
-   :::image type="content" source="media/cache-create/cache-clustering-policy.png" alt-text="Screenshot that shows the Enterprise tier Advanced tab.":::
+     :::image type="content" source="media/cache-create/cache-clustering-policy.png" alt-text="Screenshot that shows the Enterprise tier Advanced tab.":::
 
    > [!NOTE]
    > Enterprise and Enterprise Flash tiers are inherently clustered, in contrast to the Basic, Standard, and Premium tiers. Redis Enterprise supports two clustering policies.
    >- Use the **Enterprise** policy to access your cache using the Redis API.
-   >- Use **OSS** to use the OSS Cluster API.
-   > For more information, see [Clustering on Enterprise](cache-best-practices-enterprise-tiers.md#clustering-on-enterprise).
+   >- Use **OSS** to use the OSS Cluster API..
    >
 
    > [!IMPORTANT]
@@ -85,16 +80,14 @@ Azure Cache for Redis is continually expanding into new regions. To check the av
 
 1. Select **Next: Review + create**.
 
-   :::image type="content" source="media/cache-create/enterprise-tier-summary.png" alt-text="Enterprise tier Review + Create tab":::
+   :::image type="content" source="media/cache-create/enterprise-tier-summary.png" alt-text="Screenshot showing the Enterprise tier Review + Create tab.":::
 
 1. Review the settings and select **Create**.
 
    It takes some time for the cache to create. You can monitor progress on the Azure Cache for Redis **Overview** page. When **Status** shows as **Running**, the cache is ready to use.
-   
 
 ## Related content
 
 In this quickstart, you learned how to create an Enterprise tier instance of Azure Cache for Redis.
 
 - [Create an ASP.NET web app that uses an Azure Cache for Redis](cache-web-app-aspnet-core-howto.md)
-- [Best practices for the Enterprise tiers](cache-best-practices-enterprise-tiers.md)

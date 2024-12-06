@@ -26,6 +26,8 @@ Use the `azure-openai-semantic-cache-lookup` policy to perform cache lookup of r
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
+[!INCLUDE [api-management-azure-openai-models](../../includes/api-management-azure-openai-models.md)]
+
 ## Policy statement
 
 ```xml

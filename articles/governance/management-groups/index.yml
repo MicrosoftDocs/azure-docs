@@ -6,11 +6,12 @@ summary: Azure management groups help you organize your resources and subscripti
 metadata:
   title: Azure management groups documentation
   description: Azure management groups help you organize your resources and subscriptions.
-  ms.service: governance
+  ms.service: azure
   ms.topic: landing-page
-  author: davidsmatlak
-  ms.author: davidsmatlak
-  ms.date: 07/18/2024
+  author: rthorn17
+  ms.author: rithorn
+  ms.date: 08/30/2024
+  ms.subservice: azure-governance
 
 landingContent:
   - title: About Azure Governance

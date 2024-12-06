@@ -58,13 +58,13 @@ To create and deploy your confidential VM using an ARM template through the Azur
     az group create -n $resourceGroup -l $region
     ```
 
-1. Deploy your VM to Azure using an ARM template with a custom parameter file. For TDX deployments here is an example template: https://aka.ms/TDXtemplate.
+1. Deploy your VM to Azure using an ARM template with a custom parameter file and [template file](https://github.com/Azure/confidential-computing-cvm/tree/main/cvm_deployment/templates).
 
     ```azurecli-interactive
     az deployment group create `
      -g $resourceGroup `
      -n $deployName `
-     -u "https://aka.ms/CVMTemplate" `
+     -u "<json-template-file-path>" `
      -p "<json-parameter-file-path>" `
      -p vmLocation=$region `
         vmName=$vmName
@@ -200,7 +200,7 @@ Use this example to create a custom parameter file for a Linux-based confidentia
 
 1. (Optional) If you don't want to use an Azure key vault, you can create an Azure Key Vault Managed HSM instead.
 
-    1. Follow the [quickstart to create an Azure Key Vault Managed HSM](../key-vault/managed-hsm/quick-create-cli.md) to provision and activate Azure Key Vault Managed HSM.
+    1. Follow the [quickstart to create an Azure Key Vault Managed HSM](/azure/key-vault/managed-hsm/quick-create-cli) to provision and activate Azure Key Vault Managed HSM.
     1. Enable purge protection on the Azure Managed HSM. This step is required to enable key release.
 
         ```azurecli-interactive
@@ -216,7 +216,7 @@ Use this example to create a custom parameter file for a Linux-based confidentia
 
 1. Create a new key using Azure Key Vault. For how to use an Azure Managed HSM instead, see the next step.
 
-    1. Prepare and download the [key release policy](https://cvmprivatepreviewsa.blob.core.windows.net/cvmpublicpreviewcontainer/skr-policy.json) to your local disk.
+    1. Prepare and download the key release policy to your local disk.
     1. Create a new key.
 
         ```azurecli-interactive
@@ -232,7 +232,7 @@ Use this example to create a custom parameter file for a Linux-based confidentia
         $encryptionKeyURL= ((az keyvault key show --vault-name $KeyVault --name $KeyName) | ConvertFrom-Json).key.kid
         ```
 
-    1. Deploy a Disk Encryption Set (DES) using a [DES ARM template](https://cvmprivatepreviewsa.blob.core.windows.net/cvmpublicpreviewcontainer/deploymentTemplate/deployDES.json) (`deployDES.json`).
+    1. Deploy a Disk Encryption Set (DES) using a DES ARM template (`deployDES.json`).
 
         ```azurecli-interactive
         $desName = <name of DES>
@@ -260,7 +260,7 @@ Use this example to create a custom parameter file for a Linux-based confidentia
         ```
 
  1. (Optional) Create a new key from an Azure Managed HSM.
-    1. Prepare and download the [key release policy](https://cvmprivatepreviewsa.blob.core.windows.net/cvmpublicpreviewcontainer/skr-policy.json) to your local disk.
+    1. Prepare and download the key release policy to your local disk.
     1. Create the new key.
 
         ```azurecli-interactive
@@ -302,7 +302,7 @@ Use this example to create a custom parameter file for a Linux-based confidentia
         $desID = (az disk-encryption-set show -n $desName -g $resourceGroup --query [id] -o tsv)
         ```
 
-    1. Deploy your confidential VM using a confidential VM ARM template for [AMD SEV-SNP](https://cvmprivatepreviewsa.blob.core.windows.net/cvmpublicpreviewcontainer/deploymentTemplate/deployCPSCVM_cmk.json) or Intel TDX and a [deployment parameter file](#example-windows-parameter-file) (for example, `azuredeploy.parameters.win2022.json`) with the customer-managed key.
+    1. Deploy your confidential VM using a confidential VM ARM template for Intel TDX and a [deployment parameter file](#example-windows-parameter-file) (for example, `azuredeploy.parameters.win2022.json`) with the customer-managed key.
 
         ```azurecli-interactive
         $deployName = <name of deployment>

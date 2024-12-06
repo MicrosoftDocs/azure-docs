@@ -3,13 +3,15 @@ title: Connect and query Azure SQL Edge
 description: Learn how to connect to and query Azure SQL Edge.
 author: rwestMSFT
 ms.author: randolphwest
-ms.date: 09/14/2023
-ms.service: sql-edge
+ms.date: 09/21/2024
+ms.service: azure-sql-edge
 ms.topic: conceptual
 ---
 # Connect and query Azure SQL Edge
 
-> [!IMPORTANT]  
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
+
+> [!NOTE]  
 > Azure SQL Edge no longer supports the ARM64 platform.
 
 In Azure SQL Edge, after you deploy a container, you can connect to the Database Engine from any of the following locations:
@@ -79,7 +81,7 @@ Because two containers that are running on the same host are on the same Docker 
 import pyodbc
 server = 'MySQLEdgeContainer' # Replace this with the actual name of your SQL Edge Docker container
 username = 'sa' # SQL Server username
-password = 'MyStrongestP@ssword' # Replace this with the actual SA password from your deployment
+password = '<password>' # Replace this with the actual SA password from your deployment
 database = 'MyEdgeDatabase' # Replace this with the actual database name from your deployment. If you do not have a database created, you can use Master database.
 db_connection_string = "Driver={ODBC Driver 17 for SQL Server};Server=" + server + ";Database=" + database + ";UID=" + username + ";PWD=" + password + ";"
 conn = pyodbc.connect(db_connection_string, autocommit=True)
@@ -93,7 +95,7 @@ You might want to connect to the instance of Azure SQL Edge from another machine
 import pyodbc
 server = '192.168.2.121,1600' # Replace this with the actual name or IP address of your SQL Edge Docker container
 username = 'sa' # SQL Server username
-password = 'MyStrongestP@ssword' # Replace this with the actual SA password from your deployment
+password = '<password>' # Replace this with the actual SA password from your deployment
 database = 'MyEdgeDatabase' # Replace this with the actual database name from your deployment. If you do not have a database created, you can use Master database.
 db_connection_string = "Driver={ODBC Driver 17 for SQL Server};Server=" + server + ";Database=" + database + ";UID=" + username + ";PWD=" + password + ";"
 conn = pyodbc.connect(db_connection_string, autocommit=True)
@@ -105,7 +107,7 @@ To connect to an instance of Azure SQL Edge by using Visual Studio Code on a Win
 
 To connect to an instance of Azure SQL Edge by using Azure Data Studio on a Windows, macOS or Linux machine, see [Azure Data Studio](/azure-data-studio/quickstart-sql-server).
 
-## Next steps
+## Related content
 
 - [Connect and query](/sql/linux/sql-server-linux-configure-docker#connect-and-query)
 - [Install SQL Server tools on Linux](/sql/linux/sql-server-linux-setup-tools)

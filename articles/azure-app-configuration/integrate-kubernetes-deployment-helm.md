@@ -50,7 +50,7 @@ Add the following key-values to the App Configuration store and leave **Label** 
 
 ## Add a Key Vault reference to App Configuration
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and add a secret to [Key Vault](../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault) with name **Password** and value **myPassword**.
+1. Sign in to the [Azure portal](https://portal.azure.com) and add a secret to [Key Vault](/azure/key-vault/secrets/quick-create-portal#add-a-secret-to-key-vault) with name **Password** and value **myPassword**.
 
 2. Select the App Configuration store instance that you created in previous section.
 

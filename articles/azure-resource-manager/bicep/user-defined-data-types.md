@@ -1,26 +1,27 @@
 ---
 title: User-defined types in Bicep
-description: Describes how to define and use user-defined data types in Bicep.
+description: This article describes how to define and use user-defined data types in Bicep.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 06/14/2024
+ms.date: 10/23/2024
 ---
 
 # User-defined data types in Bicep
 
-Learn how to use user-defined data types in Bicep. For system-defined data types, see [Data types](./data-types.md).
+Learn how to create user-defined data types in Bicep. For system-defined data types, see [Data types](./data-types.md). Using user-defined data types automatically enables [language version 2.0](../templates/syntax.md#languageversion-20) code generation.
 
 [Bicep CLI version 0.12.X or higher](./install.md) is required to use this feature.
 
-## Syntax
+## Define types
 
-You can use the `type` statement to define user-defined data types. In addition, you can also use type expressions in some places to define custom types.
+You can use the `type` statement to create user-defined data types. You can also use type expressions in some places to define custom types.
 
 ```bicep
+@<decorator>(<argument>)
 type <user-defined-data-type-name> = <type-expression>
 ```
 
-The [`@allowed`](./parameters.md#decorators) decorator is only permitted on [`param` statements](./parameters.md). To declare that a property with a set of predefined values in a `type`, use [union type syntax](./data-types.md#union-types). 
+The [`@allowed`](./parameters.md#use-decorators) decorator is permitted only on [`param` statements](./parameters.md). To declare a type with a set of predefined values in a `type`, use [union type syntax](./data-types.md#union-types).
 
 The valid type expressions include:
 
@@ -34,7 +35,7 @@ The valid type expressions include:
     type myOtherStringType = myStringType
     ```
 
-- Primitive literals, including strings, integers, and booleans, are valid type expressions. For example:
+- Primitive literals, including strings, integers, and Booleans, are valid type expressions. For example:
 
     ```bicep
     // a string type with three allowed values.
@@ -47,7 +48,7 @@ The valid type expressions include:
     type myBoolLiteralType = true
     ```
 
-- Array types can be declared by suffixing `[]` to any valid type expression:
+- You can declare array types by appending `[]` to any valid type expression:
 
     ```bicep
     // A string type array
@@ -70,7 +71,7 @@ The valid type expressions include:
     }
     ```
 
-    Each property in an object consists of key and value. The key and value are separated by a colon `:`. The key may be any string (values that wouldn't be a valid identifier must be enclosed in quotes), and the value may be any type syntax expression.
+    Each property in an object consists of a key and a value separated by a colon `:`. The key can be any string, with nonidentifier values enclosed in quotation marks. The value can be any type of expression.
 
     Properties are required unless they have an optionality marker `?` after the property value. For example, the `sku` property in the following example is optional:
 
@@ -81,7 +82,7 @@ The valid type expressions include:
     }
     ```
 
-  Decorators may be used on properties. `*` may be used to make all values require a constraint. Additional properties may still be defined when using `*`. This example creates an object that requires a key of type int named `id`, and that all other entries in the object must be a string value at least 10 characters long.
+  You can use decorators on properties. You can use an asterisk (`*`) to make all values require a constraint. You can define more properties by using `*`. This example creates an object that requires a key of type `int` named `id`. All other entries in the object must be a string value at least 10 characters long.
 
     ```bicep
     type obj = {
@@ -104,9 +105,7 @@ The valid type expressions include:
     }
     ```
 
-    **Recursion**
-
-    Object types may use direct or indirect recursion so long as at least leg of the path to the recursion point is optional. For example, the `myObjectType` definition in the following example is valid because the directly recursive `recursiveProp` property is optional:
+- Object types can use direct or indirect recursion if at least the leg of the path to the recursion point is optional. For example, the `myObjectType` definition in the following example is valid because the directly recursive `recursiveProp` property is optional:
 
     ```bicep
     type myObjectType = {
@@ -115,7 +114,7 @@ The valid type expressions include:
     }
     ```
 
-    But the following type definition wouldn't be valid because none of `level1`, `level2`, `level3`, `level4`, or `level5` is optional.
+    The following type definition wouldn't be valid because none of `level1`, `level2`, `level3`, `level4`, or `level5` is optional.
 
     ```bicep
     type invalidRecursiveObjectType = {
@@ -131,7 +130,7 @@ The valid type expressions include:
     }
     ```
 
-- [Bicep unary operators](./operators.md) can be used with integer and boolean literals or references to integer or boolean literal-typed symbols:
+- You can use [Bicep unary operators](./operators.md) with integer and Boolean literals or references to integer or Boolean literal-typed symbols:
 
     ```bicep
     type negativeIntLiteral = -10
@@ -141,14 +140,14 @@ The valid type expressions include:
     type negatedBoolReference = !negatedBoolLiteral
     ```
 
-- Unions may include any number of literal-typed expressions. Union types are translated into the [allowed-value constraint](./parameters.md#decorators) in Bicep, so only literals are permitted as members.
+- Unions can include any number of literal-typed expressions. Union types are translated into the [allowed-value constraint](./parameters.md#use-decorators) in Bicep, so only literals are permitted as members.
 
     ```bicep
     type oneOfSeveralObjects = {foo: 'bar'} | {fizz: 'buzz'} | {snap: 'crackle'}
     type mixedTypeArray = ('fizz' | 42 | {an: 'object'} | null)[]
     ```
 
-In addition to be used in the `type` statement, type expressions can also be used in these places for creating user-defined data types:
+You can use type expressions in the `type` statement, and you can also use type expressions to create user-defined data types, as shown in the following places:
 
 - As the type clause of a `param` statement. For example:
 
@@ -203,7 +202,7 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' = {
 }
 ```
 
-By using user-defined data types, it can look like:
+With user-defined data types, it can look like:
 
 ```bicep
 param location string = resourceGroup().location
@@ -227,9 +226,170 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' = {
 }
 ```
 
+## Use decorators
+
+Decorators are written in the format `@expression` and are placed above the declarations of the user-defined data type. The following table shows the available decorators for user-defined data types.
+
+| Decorator | Apply to | Argument | Description |
+| --------- | ----------- | ------- |
+| [description](#description) | all |string | Provide descriptions for the user-defined data type. |
+| [discriminator](#discriminator) | object | string | Use this decorator to ensure the correct subclass is identified and managed. |
+| [export](#export) | all | none | Indicates that the user-defined data type is available for import by another Bicep file. |
+| [maxLength](#length-constraints) | array, string | int | The maximum length for string and array data types. The value is inclusive. |
+| [maxValue](#integer-constraints) | int | int | The maximum value for the integer data types. This value is inclusive. |
+| [metadata](#metadata) | all | object | Custom properties to apply to the data types. Can include a description property that's equivalent to the description decorator. |
+| [minLength](#length-constraints) | array, string | int | The minimum length for string and array data types. The value is inclusive. |
+| [minValue](#integer-constraints) | int | int | The minimum value for the integer data types. This value is inclusive. |
+| [sealed](#sealed) | object | none | Elevate [BCP089](./diagnostics/bcp089.md) from a warning to an error when a property name of a user-defined data type is likely a typo. For more information, see [Elevate error level](#elevate-error-level).|
+| [secure](#secure-types) | string, object | none | Marks the types as secure. The value for a secure type isn't saved to the deployment history and isn't logged. For more information, see [Secure strings and objects](data-types.md#secure-strings-and-objects). |
+
+Decorators are in the [sys namespace](bicep-functions.md#namespaces-for-functions). If you need to differentiate a decorator from another item with the same name, preface the decorator with `sys`. For example, if your Bicep file includes a variable named `description`, you must add the `sys` namespace when you use the `description` decorator.
+
+### Discriminator
+
+See [Tagged union data type](#tagged-union-data-type).
+
+### Description
+
+Add a description to the user-defined data type. You can use decorators on properties. For example:
+
+```bicep
+@description('Define a new object type.')
+type obj = {
+  @description('The object ID')
+  id: int
+
+  @description('Additional properties')
+  @minLength(10)
+  *: string
+}
+```
+
+You can use Markdown-formatted text for the description text.
+
+### Export
+
+Use `@export()` to share the user-defined data type with other Bicep files. For more information, see [Export variables, types, and functions](./bicep-import.md#export-variables-types-and-functions).
+
+### Integer constraints
+
+You can set minimum and maximum values for integer type. You can set one or both constraints.
+
+```bicep
+@minValue(1)
+@maxValue(12)
+type month int
+```
+
+### Length constraints
+
+You can specify minimum and maximum lengths for string and array types. You can set one or both constraints. For strings, the length indicates the number of characters. For arrays, the length indicates the number of items in the array.
+
+The following example declares two types. One type is for a storage account name that must have 3 to 24 characters. The other type is an array that must have from one to five items.
+
+```bicep
+@minLength(3)
+@maxLength(24)
+type storageAccountName string
+
+@minLength(1)
+@maxLength(5)
+type appNames array
+```
+
+### Metadata
+
+If you have custom properties that you want to apply to a user-defined data type, add a metadata decorator. Within the metadata, define an object with the custom names and values. The object you define for the metadata can contain properties of any name and type.
+
+You might use this decorator to track information about the data type that doesn't make sense to add to the [description](#description).
+
+```bicep
+@description('Configuration values that are applied when the application starts.')
+@metadata({
+  source: 'database'
+  contact: 'Web team'
+})
+type settings object
+```
+
+When you provide a `@metadata()` decorator with a property that conflicts with another decorator, that decorator always takes precedence over anything in the `@metadata()` decorator. So, the conflicting property within the `@metadata()` value is redundant and is replaced. For more information, see [No conflicting metadata](./linter-rule-no-conflicting-metadata.md).
+
+### Sealed
+
+See [Elevate error level](#elevate-error-level).
+
+### Secure types
+
+You can mark a string or object user-defined data type as secure. The value of a secure type isn't saved to the deployment history and isn't logged.
+
+```bicep
+@secure()
+type demoPassword string
+
+@secure()
+type demoSecretObject object
+```
+
+## Elevate error level
+
+By default, declaring an object type in Bicep allows it to accept more properties of any type. For example, the following Bicep is valid but raises a warning of [BCP089]: `The property "otionalProperty" is not allowed on objects of type "{ property: string, optionalProperty: null | string }". Did you mean "optionalProperty"?`:
+
+```bicep
+type anObject = {
+  property: string
+  optionalProperty: string?
+}
+ 
+param aParameter anObject = {
+  property: 'value'
+  otionalProperty: 'value'
+}
+```
+
+The warning informs you that the `anObject` type doesn't include a property named `otionalProperty`. Although no errors occur during deployment, the Bicep compiler assumes that `otionalProperty` is a typo and that you intended to use `optionalProperty` but misspelled it. Bicep alerts you to the inconsistency.
+
+To escalate these warnings to errors, apply the `@sealed()` decorator to the object type:
+
+```bicep
+@sealed() 
+type anObject = {
+  property: string
+  optionalProperty?: string
+}
+```
+
+You get the same results by applying the `@sealed()` decorator to the `param` declaration:
+
+```bicep
+type anObject = {
+  property: string
+  optionalProperty: string?
+}
+ 
+@sealed() 
+param aParameter anObject = {
+  property: 'value'
+  otionalProperty: 'value'
+}
+```
+
+The Azure Resource Manager deployment engine also checks sealed types for other properties. Providing any extra properties for sealed parameters results in a validation error, which causes the deployment to fail. For example:
+
+```bicep
+@sealed()
+type anObject = {
+  property: string
+}
+
+param aParameter anObject = {
+  property: 'value'
+  optionalProperty: 'value'
+}
+```
+
 ## Tagged union data type
 
-To declare a custom tagged union data type within a Bicep file, you can place a discriminator decorator above a user-defined type declaration. [Bicep CLI version 0.21.X or higher](./install.md) is required to use this decorator. The following example shows how to declare a tagged union data type:
+To declare a custom tagged union data type within a Bicep file, you can place a `discriminator` decorator above a user-defined type declaration. [Bicep CLI version 0.21.X or higher](./install.md) is required to use this decorator. The following example shows how to declare a tagged union data type:
 
 ```bicep
 type FooConfig = {
@@ -252,24 +412,6 @@ output config object = serviceConfig
 
 For more information, see [Custom tagged union data type](./data-types.md#custom-tagged-union-data-type).
 
-## Import types between Bicep files
+## Related content
 
-[Bicep CLI version 0.21.X or higher](./install.md) is required to use this compile-time import feature. The experimental flag `compileTimeImports` must be enabled from the [Bicep config file](./bicep-config.md#enable-experimental-features).
-
-Only user-defined data types that bear the `@export()` decorator can be imported to other templates. Currently, this decorator can only be used on `type` statements.
-
-The following example enables you to import the two user-defined data types from other templates:
-
-```bicep
-@export()
-type myStringType = string
-
-@export()
-type myOtherStringType = myStringType
-```
-
-For more information, see [Import user-defined data types](./bicep-import-providers.md#import-user-defined-data-types-preview).
-
-## Next steps
-
-- For a list of the Bicep data types, see [Data types](./data-types.md).
+For a list of the Bicep data types, see [Data types](./data-types.md).

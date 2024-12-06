@@ -23,7 +23,7 @@ By using Network Watcher alerts and functions from within the Azure ecosystem, y
 
 - The latest version of [Azure PowerShell](/powershell/azure/install-azure-powershell).
 - An existing instance of Network Watcher. If you don't already have one, [create an instance of Network Watcher](network-watcher-create.md).
-- An existing virtual machine in the same region as Network Watcher with the [Windows extension](../virtual-machines/extensions/network-watcher-windows.md) or [Linux virtual machine extension](../virtual-machines/extensions/network-watcher-linux.md).
+- An existing virtual machine in the same region as Network Watcher with the [Windows extension](network-watcher-agent-windows.md) or [Linux virtual machine extension](network-watcher-agent-linux.md).
 
 ## Scenario
 
@@ -318,7 +318,7 @@ You can configure alerts to notify individuals when a specific metric crosses a 
 
 ### Create the alert rule
 
-Go to an existing virtual machine and [add an alert rule](../azure-monitor/alerts/alerts-classic-portal.md). On the **Create an Alert rule** page, take the following steps:
+Go to an existing virtual machine and [add an alert rule](/azure/azure-monitor/alerts/alerts-classic-portal). On the **Create an Alert rule** page, take the following steps:
 
 1. On the **Select a signal** pane, search for the name of the signal and select it. In this example, **Network Out Total** is the selected signal. It denotes the number of bytes out on all network interfaces by the virtual machine.
 

@@ -10,7 +10,7 @@ ms.topic: include
 
 ## Register an application
 
-There are a couple of different ways to get to the **App registrations** page. One way is through the [Microsoft Entra admin center](https://entra.microsoft.com). You can also use the Azure portal and **Microsoft Entra ID**. Sign in with an account that has the [Cloud Application Administrator](https://learn.microsoft.com/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator) role or higher.
+There are a couple of different ways to get to the **App registrations** page. One way is through the [Microsoft Entra admin center](https://entra.microsoft.com). You can also use the Azure portal and **Microsoft Entra ID**. Sign in with an account that has the [Cloud Application Administrator](/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator) role or higher.
 
 1. If you have access to multiple tenants, use the **Settings** icon in the top menu to switch to the tenant in which you want to register the application from the **Directories + subscriptions** menu.
 1. Go to **App registrations** and select **New registration**.
@@ -69,4 +69,4 @@ In this section, you associate the Microsoft-registered Azure VPN Client applica
 On the **Overview** page for your application, make a note of the following values that you need when you configure your point-to-site VPN gateway for Microsoft Entra ID authentication.
 
 * Application (client) ID: This is the custom Audience ID that you use for the **Audience** field when you configure your P2S VPN gateway.
-* Directory (tenent) ID: This value is part of the value required for the **Tenant** and **Issuer** field for the P2S VPN gateway.
+* Directory (tenant) ID: This value is part of the value required for the **Tenant** and **Issuer** field for the P2S VPN gateway.

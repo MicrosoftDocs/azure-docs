@@ -4,7 +4,8 @@ description: This tutorial provides steps for setting up a self-hosted integrati
 author: lrtoyou1223
 ms.author: lle
 ms.topic: tutorial
-ms.date: 05/15/2024
+ms.date: 10/03/2024
+ms.subservice: data-movement
 ---
 
 # Enable remote access from intranet with TLS/SSL certificate (Advanced)

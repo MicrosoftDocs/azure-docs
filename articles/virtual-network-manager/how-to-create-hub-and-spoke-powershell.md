@@ -76,7 +76,7 @@ This section will guide you through how to create a hub-and-spoke configuration 
     [System.Collections.Generic.List[Microsoft.Azure.Commands.Network.Models.NetworkManager.PSNetworkManagerHub]]$hubList = @()
     
     $hub = @{
-        ResourceId = '/subscriptions/6a5f35e9-6951-499d-a36b-83c6c6eed44a/resourceGroups/myAVNMResourceGroup/providers/Microsoft.Network/virtualNetworks/VNetA'
+        ResourceId = '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myAVNMResourceGroup/providers/Microsoft.Network/virtualNetworks/VNetA'
         ResourceType = 'Microsoft.Network/virtualNetworks'
     } 
     $hubvnet = New-AzNetworkManagerHub @hub

@@ -7,7 +7,7 @@ ms.author: peterbr
 ms.date: 09/14/2023
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: manage-account
 ---
 
 # Manage the pricing tier of your Azure Maps account

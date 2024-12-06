@@ -7,7 +7,7 @@ ms.author: sipa
 ms.date: 06/23/2023
 ms.topic: best-practice
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: web-sdk
 ---
 
 # Azure Maps Web SDK best practices

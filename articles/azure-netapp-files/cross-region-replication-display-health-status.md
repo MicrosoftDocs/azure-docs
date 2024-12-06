@@ -42,7 +42,7 @@ You can view replication status on the source volume or the destination volume. 
 
 ## Set alert rules to monitor replication
 
-Create [alert rules in Azure Monitor](../azure-monitor/alerts/alerts-overview.md) to help you monitor the status of cross-region replication:
+Create [alert rules in Azure Monitor](/azure/azure-monitor/alerts/alerts-overview) to help you monitor the status of cross-region replication:
 
 1. In Azure Monitor, select **Alerts**.
 2. From the **Alerts** window, select the **Create** dropdown then **Alert rule**.

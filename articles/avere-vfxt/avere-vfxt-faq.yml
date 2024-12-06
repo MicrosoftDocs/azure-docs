@@ -165,7 +165,7 @@ sections:
       - question: |
           Does the system encrypt the cache?
         answer: |
-          Data is striped across the disks but is not encrypted. However, the disks themselves can be encrypted. For more information, see [Secure and use policies on virtual machines in Azure](../virtual-machines/security-policy.md#encryption).
+          Data is striped across the disks but is not encrypted. However, the disks themselves can be encrypted. For more information, see [Secure and use policies on virtual machines in Azure](/azure/virtual-machines/security-policy#encryption).
           
   - name: "Technical: Networking"
     questions:

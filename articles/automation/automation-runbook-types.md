@@ -3,8 +3,8 @@ title: Azure Automation runbook types
 description: This article describes the types of runbooks that you can use in Azure Automation and considerations for determining which type to use.
 services: automation
 ms.subservice: process-automation
-ms.date: 07/19/2024
-ms.topic: conceptual
+ms.date: 09/09/2024
+ms.topic: overview
 ms.custom: references_regions, devx-track-python, devx-track-azurepowershell
 ms.service: azure-automation
 ---
@@ -15,14 +15,14 @@ The Azure Automation Process Automation feature supports several types of runboo
 
 | Type | Description |
 |:--- |:--- |
-| [PowerShell](#powershell-runbooks) |Textual runbook based on Windows PowerShell scripting.  The currently supported versions are: PowerShell 7.2 (GA) and PowerShell 5.1 (GA). Since [PowerShell 7.1](/powershell/scripting/install/powershell-support-lifecycle?view=powershell-7.3&preserve-view=true#powershell-end-of-support-dates) is no longer supported by parent product PowerShell, we recommend you to create runbooks in long term supported version PowerShell 7.2 |
+| [PowerShell](#powershell-runbooks) |Textual runbook based on Windows PowerShell scripting.  The currently supported versions are: PowerShell 7.2 (GA) and PowerShell 5.1 (GA). Since [PowerShell 7.1](/powershell/scripting/install/powershell-support-lifecycle?view=powershell-7.3&preserve-view=true#powershell-end-of-support-dates) is no longer supported by parent product PowerShell, we recommend that you to create runbooks in long term supported version PowerShell 7.2 |
 | [PowerShell Workflow](#powershell-workflow-runbooks)|Textual runbook based on Windows PowerShell Workflow scripting. |
-| [Python](#python-runbooks) |Textual runbook based on Python scripting. The currently supported versions are: Python 3.8 (GA) and Python 3.10 (preview). Since [Python 2.7](https://devguide.python.org/versions/) is no longer supported by parent product Python, we recommend you to create runbooks in long term supported versions.  |
+| [Python](#python-runbooks) |Textual runbook based on Python scripting. The currently supported versions are: Python 3.8 (GA) and Python 3.10 (preview). Since [Python 2.7](https://devguide.python.org/versions/) is no longer supported by parent product Python, we recommend that you to create runbooks in long term supported versions.  |
 | [Graphical](#graphical-runbooks)|Graphical runbook based on Windows PowerShell and created and edited completely in the graphical editor in Azure portal. |
 | [Graphical PowerShell Workflow](#graphical-runbooks)|Graphical runbook based on Windows PowerShell Workflow and created and edited completely in the graphical editor in Azure portal. |
 
 > [!NOTE]
-> Azure Automation will follow the support lifecycle of PowerShell and Python language versions in accordance with the timelines published by parent products [PowerShell](/powershell/scripting/install/powershell-support-lifecycle?view=powershell-7.3&preserve-view=true#powershell-end-of-support-dates) and [Python](https://devguide.python.org/versions/) respectively. We recommend you to use runbooks with supported language versions.
+> Azure Automation will follow the support lifecycle of PowerShell and Python language versions in accordance with the timelines published by parent products [PowerShell](/powershell/scripting/install/powershell-support-lifecycle?view=powershell-7.3&preserve-view=true#powershell-end-of-support-dates) and [Python](https://devguide.python.org/versions/) respectively. We recommend that you to use runbooks with supported language versions.
 
 Take into account the following considerations when determining which type to use for a particular runbook.
 

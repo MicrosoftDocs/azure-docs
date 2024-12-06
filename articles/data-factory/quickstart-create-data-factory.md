@@ -3,7 +3,8 @@ title: Create an Azure Data Factory
 description: Learn how to create a data factory using UI from the Azure portal.
 author: jonburchel
 ms.topic: quickstart
-ms.date: 10/20/2023
+ms.subservice: authoring
+ms.date: 09/25/2024
 ms.author: xupzhou
 ---
 
@@ -38,14 +39,14 @@ A quick creation experience provided in the Azure Data Factory Studio to enable 
    
    :::image type="content" source="media/quickstart-create-data-factory/create-with-azure-data-factory-studio.png" alt-text="Shows a screenshot of the Azure Data Factory Studio page to create a new data factory.":::
 
-1. After creation, you can directly enter the homepage of the Azure Data Factory Studio.
+1. After creation, you can directly enter the homepage of the [Azure Data Factory Studio](https://adf.azure.com).
 
    :::image type="content" source="media/quickstart-create-data-factory/azure-data-factory-studio-home-page.png" alt-text="Shows a screenshot of the Azure Data Factory Studio home page.":::
 
 ### Advanced creation in the Azure portal
 
 1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
-1. Go to the [Azure portal data factories page](https://portal.azure.com). 
+1. Go to the [Azure portal data factories page](https://portal.azure.com/#browse/Microsoft.DataFactory%2FdataFactories). 
 1. After landing on the data factories page of the Azure portal, click **Create**.
 
    :::image type="content" source="media/quickstart-create-data-factory/data-factory-create-from-portal.png" alt-text="Shows a screenshot of the Azure portal data factories Create button.":::

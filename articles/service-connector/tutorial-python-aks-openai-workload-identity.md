@@ -31,7 +31,7 @@ In this tutorial, you learn how to create a pod in an Azure Kubernetes (AKS) clu
 * Install [Docker ](https://docs.docker.com/get-docker/)and [kubectl](https://kubernetes.io/docs/tasks/tools/) to manage container image and Kubernetes resources.
 * A basic understanding of container and AKS. Get started from [preparing an application for AKS](/azure/aks/tutorial-kubernetes-prepare-app).
 * A basic understanding of [workload identity](/entra/workload-id/workload-identities-overview).
-* Access permissions to [create Azure OpenAI resources and to deploy models](../ai-services/openai/how-to/role-based-access-control.md).
+* Access permissions to [create Azure OpenAI resources and to deploy models](/azure/ai-services/openai/how-to/role-based-access-control).
 
 ## Create Azure resources
 
@@ -64,7 +64,7 @@ You start this tutorial by creating several Azure resources.
         --name MyAKSCluster
     ```
 
-1. Create an Azure OpenAI Service resource using the [az cognitiveservices account create](/cli/azure/cognitiveservices/account#az-cognitiveservices-account-create) command. Optionally refer to [this tutorial](../ai-services/openai/how-to/create-resource.md) for more instructions. Azure OpenAI Service is the target service that we'll connect to the AKS cluster.
+1. Create an Azure OpenAI Service resource using the [az cognitiveservices account create](/cli/azure/cognitiveservices/account#az-cognitiveservices-account-create) command. Optionally refer to [this tutorial](/azure/ai-services/openai/how-to/create-resource) for more instructions. Azure OpenAI Service is the target service that we'll connect to the AKS cluster.
 
     ```azurecli
     az cognitiveservices account create \
@@ -91,7 +91,7 @@ You start this tutorial by creating several Azure resources.
         --capacity 1
     ```
 
-1. Create an Azure Container Registry (ACR) resource with the [az acr create](/cli/azure/acr#az-acr-create) command, or referring to [this tutorial](../container-registry/container-registry-get-started-portal.md). The registry hosts the container image of the sample application, which the AKS pod definition consumes.
+1. Create an Azure Container Registry (ACR) resource with the [az acr create](/cli/azure/acr#az-acr-create) command, or referring to [this tutorial](/azure/container-registry/container-registry-get-started-portal). The registry hosts the container image of the sample application, which the AKS pod definition consumes.
 
     ```azurecli-interactive
     az acr create \

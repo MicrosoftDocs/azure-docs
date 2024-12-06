@@ -6,7 +6,7 @@ ms.author: jokebeck
 ms.date: 09/23/2020
 ms.topic: tutorial
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: general
 ---
 
 # Tutorial: Migrate from Google Maps to Azure Maps
@@ -31,11 +31,11 @@ If you don't have an Azure subscription, create a [free account] before you begi
 
 ## Azure Maps platform overview
 
-Azure Maps provides developers from all industries powerful geospatial capabilities. The capabilities are packed with regularly updated map data to provide geographic context for web, and mobile applications. Azure Maps has an Azure One API compliant set of REST APIs. The REST APIs offer Maps Rendering, Search, Routing, Traffic, Time Zones, Geolocation, Geofencing, Map Data, Weather, and Spatial Operations. Operations are accompanied by both Web and Android SDKs to make development easy, flexible, and portable across multiple platforms.
+Azure Maps provides developers from all industries powerful geospatial capabilities. The capabilities are packed with regularly updated map data to provide geographic context for web, and mobile applications. Azure Maps has an Azure One API compliant set of REST APIs. The REST APIs offer Maps Rendering, Search, Routing, Traffic, Time Zones, Geolocation, Geofencing, Map Data, and Weather. Operations are accompanied by both Web and Android SDKs to make development easy, flexible, and portable across multiple platforms.
 
 ## High-level platform comparison
 
-The table provides a high-level list of Azure Maps features, which correspond to Google Maps features. This list doesn't show all Azure Maps features. Other Azure Maps features include: accessibility, geofencing, isochrones, spatial operations, direct map tile access, batch services, and data coverage comparisons (that is, imagery coverage).
+The table provides a high-level list of Azure Maps features, which correspond to Google Maps features. This list doesn't show all Azure Maps features. Other Azure Maps features include: accessibility, geofencing, isochrones, direct map tile access, batch services, and data coverage comparisons (that is, imagery coverage).
 
 | Google Maps feature         | Azure Maps support                     |
 |-----------------------------|:--------------------------------------:|

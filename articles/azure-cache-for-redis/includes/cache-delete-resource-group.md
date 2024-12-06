@@ -1,13 +1,9 @@
 ---
-title: "include file"
-description: "include file"
-author: flang-msft
+ms.date: 08/16/2024
 
-ms.service: azure-cache-redis
-ms.topic: "include"
-ms.date: 08/10/2023
-ms.author: franlanglois
-ms.custom: "include file"
+ms.topic: include
+ms.custom:
+  - ignite-2024
 ---
 
 ## Clean up resources

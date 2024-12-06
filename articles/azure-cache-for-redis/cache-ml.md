@@ -1,9 +1,9 @@
 ---
 title: Deploy a machine learning model to Azure Functions with Azure Cache for Redis 
 description: In this article, you deploy a model from Azure Machine Learning as a function app in Azure Functions using an Azure Cache for Redis instance. Azure Cache for Redis is performant and scalable – when paired with an Azure Machine Learning model, you gain low latency and high throughput in your application.  
-author: flang-msft
-ms.author: franlanglois
-ms.service: azure-cache-redis
+
+
+
 ms.custom: devx-track-azurecli
 ms.topic: conceptual
 ms.date: 06/09/2021
@@ -22,9 +22,9 @@ Azure Cache for Redis is performant and scalable. When paired with an Azure Mach
 ## Prerequisites
 
 * Azure subscription - [create one for free](https://azure.microsoft.com/free/).
-* An Azure Machine Learning workspace. For more information, see the [Create a workspace](../machine-learning/how-to-manage-workspace.md) article.
+* An Azure Machine Learning workspace. For more information, see the [Create a workspace](/azure/machine-learning/how-to-manage-workspace) article.
 * [Azure CLI](/cli/azure/install-azure-cli).
-* A trained machine learning model registered in your workspace. If you do not have a model, use the [Image classification tutorial: train model](../machine-learning/tutorial-train-models-with-aml.md) to train and register one.
+* A trained machine learning model registered in your workspace. If you do not have a model, use the [Image classification tutorial: train model](/azure/machine-learning/tutorial-train-models-with-aml) to train and register one.
 
 > [!IMPORTANT]
 > The code snippets in this article assume that you have set the following variables:
@@ -33,7 +33,7 @@ Azure Cache for Redis is performant and scalable. When paired with an Azure Mach
 > * `model` - The registered model that will be deployed.
 > * `inference_config` - The inference configuration for the model.
 >
-> For more information on setting these variables, see [Deploy models with Azure Machine Learning](../machine-learning/how-to-deploy-managed-online-endpoints.md).
+> For more information on setting these variables, see [Deploy models with Azure Machine Learning](/azure/machine-learning/how-to-deploy-managed-online-endpoints).
 
 ## Create an Azure Cache for Redis instance
 
@@ -86,7 +86,7 @@ Before deploying, you must define what is needed to run the model as a web servi
     >
     > If the request data is in a format that is not usable by your model, the script can transform it into an acceptable format. It may also transform the response before returning it to the client.
     >
-    > By default when packaging for functions, the input is treated as text. If you are interested in consuming the raw bytes of the input (for instance for Blob triggers), you should use [AMLRequest to accept raw data](../machine-learning/v1/how-to-deploy-advanced-entry-script.md#binary-data).
+    > By default when packaging for functions, the input is treated as text. If you are interested in consuming the raw bytes of the input (for instance for Blob triggers), you should use [AMLRequest to accept raw data](/azure/machine-learning/how-to-deploy-advanced-entry-script#binary-data).
 
 For the run function, ensure it connects to a Redis endpoint.
 
@@ -119,7 +119,7 @@ def run(data):
         return error
 ```
 
-For more information on entry script, see [Define scoring code.](../machine-learning/how-to-deploy-managed-online-endpoints.md)
+For more information on entry script, see [Define scoring code.](/azure/machine-learning/how-to-deploy-managed-online-endpoints)
 
 * **Dependencies**, such as helper scripts or Python/Conda packages required to run the entry script or model
 
@@ -142,9 +142,9 @@ These entities are encapsulated into an **inference configuration**. The inferen
 > inference_config = InferenceConfig(entry_script="score.py", environment=myenv)
 > ```
 
-For more information on environments, see [Create and manage environments for training and deployment](../machine-learning/how-to-use-environments.md).
+For more information on environments, see [Create and manage environments for training and deployment](/azure/machine-learning/how-to-use-environments).
 
-For more information on inference configuration, see [Deploy models with Azure Machine Learning](../machine-learning/how-to-deploy-managed-online-endpoints.md).
+For more information on inference configuration, see [Deploy models with Azure Machine Learning](/azure/machine-learning/how-to-deploy-managed-online-endpoints).
 
 > [!IMPORTANT]
 > When deploying to Functions, you do not need to create a **deployment configuration**.
@@ -162,7 +162,7 @@ pip install azureml-contrib-functions
 To create the Docker image that is deployed to Azure Functions, use [azureml.contrib.functions.package](/python/api/azureml-contrib-functions/azureml.contrib.functions) or the specific package function for the trigger you want to use. The following code snippet demonstrates how to create a new package with an HTTP trigger from the model and inference configuration:
 
 > [!NOTE]
-> The code snippet assumes that `model` contains a registered model, and that `inference_config` contains the configuration for the inference environment. For more information, see [Deploy models with Azure Machine Learning](../machine-learning/how-to-deploy-managed-online-endpoints.md).
+> The code snippet assumes that `model` contains a registered model, and that `inference_config` contains the configuration for the inference environment. For more information, see [Deploy models with Azure Machine Learning](/azure/machine-learning/how-to-deploy-managed-online-endpoints).
 
 ```python
 from azureml.contrib.functions import package

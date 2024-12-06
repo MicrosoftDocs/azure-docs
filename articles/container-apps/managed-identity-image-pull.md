@@ -2,12 +2,12 @@
 title: Azure Container Apps image pull from Azure Container Registry with managed identity
 description: Set up Azure Container Apps to authenticate Azure Container Registry image pulls with managed identity
 services: container-apps
-author: v-jaswel
+author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-bicep
 ms.topic: how-to
 ms.date: 09/16/2022
-ms.author: v-wellsjason
+ms.author: cshoe
 zone_pivot_groups: container-apps-azure-portal-console-bicep
 ---
 
@@ -157,7 +157,7 @@ The method to configure a system-assigned managed identity in the Azure portal i
 
 - An Azure account with an active subscription.
   - If you don't have one, you [can create one for free](https://azure.microsoft.com/free/).
-- A private Azure Container Registry containing an image you want to pull. See [Create a private Azure Container Registry](../container-registry/container-registry-get-started-portal.md#create-a-container-registry).
+- A private Azure Container Registry containing an image you want to pull. See [Create a private Azure Container Registry](/azure/container-registry/container-registry-get-started-portal#create-a-container-registry).
 
 ### Create a container app
 
@@ -242,7 +242,7 @@ This article describes how to configure your container app to use managed identi
 | Azure account | An Azure account with an active subscription. If you don't have one, you can [create one for free](https://azure.microsoft.com/free/). |
 | Azure CLI | If using Azure CLI, [install the Azure CLI](/cli/azure/install-azure-cli) on your local machine. |
 | Azure PowerShell | If using PowerShell, [install the Azure PowerShell](/powershell/azure/install-azure-powershell) on your local machine. Ensure that the latest version of the Az.App module is installed by running the command `Install-Module -Name Az.App`. |
-|Azure Container Registry | A private Azure Container Registry containing an image you want to pull. [Quickstart: Create a private container registry using the Azure CLI](../container-registry/container-registry-get-started-azure-cli.md) or [Quickstart: Create a private container registry using Azure PowerShell](../container-registry/container-registry-get-started-powershell.md)|
+|Azure Container Registry | A private Azure Container Registry containing an image you want to pull. [Quickstart: Create a private container registry using the Azure CLI](/azure/container-registry/container-registry-get-started-azure-cli) or [Quickstart: Create a private container registry using Azure PowerShell](/azure/container-registry/container-registry-get-started-powershell)|
 
 [!INCLUDE [container-apps-create-cli-steps.md](../../includes/container-apps-create-cli-steps.md)]
 
@@ -384,10 +384,10 @@ New-AzUserAssignedIdentity -Name $IdentityName -ResourceGroupName $ResourceGroup
 Get identity's resource ID.
 
 ```azurecli
-IDENTITY_ID=`az identity show \
+IDENTITY_ID=$(az identity show \
   --name $IDENTITY \
   --resource-group $RESOURCE_GROUP \
-  --query id`
+  --query id)
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)
@@ -432,8 +432,8 @@ az containerapp create \
   --environment $CONTAINERAPPS_ENVIRONMENT \
   --user-assigned <IDENTITY_ID> \
   --registry-identity <IDENTITY_ID> \
-  --registry-server "$REGISTRY_NAME.azurecr.io" \
-  --image "$REGISTRY_NAME.azurecr.io/$IMAGE_NAME:latest"
+  --registry-server "${REGISTRY_NAME}.azurecr.io" \
+  --image "${REGISTRY_NAME}.azurecr.io/${IMAGE_NAME}:latest"
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)
@@ -550,14 +550,14 @@ az containerapp registry set \
   --name $CONTAINERAPP_NAME \
   --resource-group $RESOURCE_GROUP \
   --identity system \
-  --server "$REGISTRY_NAME.azurecr.io"
+  --server "${REGISTRY_NAME}.azurecr.io"
 ```
 
 ```azurecli
 az containerapp update \
   --name $CONTAINERAPP_NAME \
   --resource-group $RESOURCE_GROUP \
-  --image "$REGISTRY_NAME.azurecr.io/$IMAGE_NAME:latest"
+  --image "${REGISTRY_NAME}.azurecr.io/${IMAGE_NAME}:latest"
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)
@@ -619,7 +619,7 @@ This article describes how to use a Bicep template to configure your container a
   - If you don't have one, you can [create one for free](https://azure.microsoft.com/free/).
 - If using Azure CLI, [install the Azure CLI](/cli/azure/install-azure-cli) on your local machine.
 - If using PowerShell, [install the Azure PowerShell](/powershell/azure/install-azure-powershell) on your local machine. Ensure that the latest version of the Az.App module is installed by running the command `Install-Module -Name Az.App`.
-- A private Azure Container Registry containing an image you want to pull. To create a container registry and push an image to it, see [Quickstart: Create a private container registry using the Azure CLI](../container-registry/container-registry-get-started-azure-cli.md) or [Quickstart: Create a private container registry using Azure PowerShell](../container-registry/container-registry-get-started-powershell.md)
+- A private Azure Container Registry containing an image you want to pull. To create a container registry and push an image to it, see [Quickstart: Create a private container registry using the Azure CLI](/azure/container-registry/container-registry-get-started-azure-cli) or [Quickstart: Create a private container registry using Azure PowerShell](/azure/container-registry/container-registry-get-started-powershell)
 
 [!INCLUDE [container-apps-create-cli-steps.md](../../includes/container-apps-create-cli-steps.md)]
 
@@ -815,19 +815,19 @@ Deploy your container app with the following command.
 
 ```azurecli
 az deployment group create \
-  --resource-group "$RESOURCE_GROUP" \
-  --template-file "$BICEP_TEMPLATE" \
-  --parameters environmentName="$CONTAINERAPPS_ENVIRONMENT" \
-  logAnalyticsWorkspaceName="$LOG_ANALYTICS_WORKSPACE_NAME" \
-  appInsightsName="$APP_INSIGHTS_NAME" \
-  containerAppName="$CONTAINERAPP_NAME" \
-  azureContainerRegistry="$REGISTRY_NAME" \
-  azureContainerRegistryImage="$IMAGE_NAME" \
-  azureContainerRegistryImageTag="$IMAGE_TAG" \
-  azureContainerName="$CONTAINER_NAME" \
-  acrPullDefinitionId="$ACR_PULL_DEFINITION_ID" \
-  userAssignedIdentityName="$USER_ASSIGNED_IDENTITY_NAME" \
-  location="$LOCATION"
+  --resource-group $RESOURCE_GROUP \
+  --template-file $BICEP_TEMPLATE \
+  --parameters environmentName="${CONTAINERAPPS_ENVIRONMENT}" \
+  logAnalyticsWorkspaceName="${LOG_ANALYTICS_WORKSPACE_NAME}" \
+  appInsightsName="${APP_INSIGHTS_NAME}" \
+  containerAppName="${CONTAINERAPP_NAME}" \
+  azureContainerRegistry="${REGISTRY_NAME}" \
+  azureContainerRegistryImage="${IMAGE_NAME}" \
+  azureContainerRegistryImageTag="${IMAGE_TAG}" \
+  azureContainerName="${CONTAINER_NAME}" \
+  acrPullDefinitionId="${ACR_PULL_DEFINITION_ID}" \
+  userAssignedIdentityName="${USER_ASSIGNED_IDENTITY_NAME}" \
+  location="${LOCATION}"
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)

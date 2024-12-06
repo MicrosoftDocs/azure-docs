@@ -13,7 +13,7 @@ ms.custom: references_regions
 
 # Save on select VMs in US West for a limited time
 
-Save up to 50 percent compared to pay-as-you-go pricing when you purchase one-year [Azure Reserved Virtual Machine (VM) Instances](../../virtual-machines/prepay-reserved-vm-instances.md?toc=/azure/cost-management-billing/reservations/toc.json&source=azlto3) for `Dv3s` VMs in US West for a limited time. This offer is available between September 1, 2023 – February 29, 2024.
+Save up to 50 percent compared to pay-as-you-go pricing when you purchase one-year [Azure Reserved Virtual Machine (VM) Instances](/azure/virtual-machines/prepay-reserved-vm-instances?toc=/azure/cost-management-billing/reservations/toc.json&source=azlto3) for `Dv3s` VMs in US West for a limited time. This offer is available between September 1, 2023 – February 29, 2024.
 
 > [!NOTE]
 > This limited-time offer expired on March 1, 2024. You can still purchase Azure Reserved VM Instances at regular discounted prices. For more information about reservation discount, see [How the Azure reservation discount is applied to virtual machines](../manage/understand-vm-reservation-charges.md).
@@ -49,7 +49,7 @@ The offer provides them with a discount up to 50% compared to pay-as-you-go pric
 - Cloud solution providers can use the Azure portal or [Partner Center](/partner-center/azure-reservations?source=azlto1) to purchase Azure Reservations. You won't be able to purchase a reservation if you have a custom role that mimics owner role or reservation purchaser role on an Azure subscription. You must use the built-in owner or built-in reservation purchaser role.
 - For more information about who can purchase a reservation visit, see [Buy an Azure reservation](prepare-buy-reservation.md?source=azlto2).
 
-**Offer details** - Upon successful purchase and payment for the one-year Azure Reserved VM Instance in US West for one or more of the qualified VMs during the specified period, the discount applies automatically to the number of running virtual machines in US West that match the reservation scope and attributes. You don't need to assign a reservation to a virtual machine to get the discounts. A reserved instance purchase covers only the compute part of your VM usage. For more information about how to pay and save with an Azure Reserved VM Instance, see [Prepay for Azure virtual machines to save money](../../virtual-machines/prepay-reserved-vm-instances.md?toc=/azure/cost-management-billing/reservations/toc.json&source=azlto3).
+**Offer details** - Upon successful purchase and payment for the one-year Azure Reserved VM Instance in US West for one or more of the qualified VMs during the specified period, the discount applies automatically to the number of running virtual machines in US West that match the reservation scope and attributes. You don't need to assign a reservation to a virtual machine to get the discounts. A reserved instance purchase covers only the compute part of your VM usage. For more information about how to pay and save with an Azure Reserved VM Instance, see [Prepay for Azure virtual machines to save money](/azure/virtual-machines/prepay-reserved-vm-instances?toc=/azure/cost-management-billing/reservations/toc.json&source=azlto3).
 
 - Additional taxes may apply.
 - Payment will be processed using the payment method on file for the selected subscriptions.
@@ -65,7 +65,7 @@ The offer provides them with a discount up to 50% compared to pay-as-you-go pric
 - D48v3
 - D64v3
 
-Instance size flexibility is available for these VMs. For more information about Instance Size Flexibility, see [Virtual machine size flexibility](../../virtual-machines/reserved-vm-instance-size-flexibility.md?source=azlto7).
+Instance size flexibility is available for these VMs. For more information about Instance Size Flexibility, see [Virtual machine size flexibility](/azure/virtual-machines/reserved-vm-instance-size-flexibility?source=azlto7).
 
 **Discount limitations**
 

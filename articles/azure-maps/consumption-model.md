@@ -6,7 +6,7 @@ ms.author: skamma
 ms.date: 05/08/2018
 ms.topic: reference
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: web-sdk
 ---
 
 

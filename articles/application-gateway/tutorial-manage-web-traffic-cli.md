@@ -12,7 +12,7 @@ ms.custom: devx-track-azurecli
 
 # Manage web traffic with an application gateway using the Azure CLI
 
-Application gateway is used to manage and secure web traffic to servers that you maintain. You can use the Azure CLI to create an [application gateway](overview.md) that uses a [Virtual Machine Scale Set](../virtual-machine-scale-sets/overview.md) for backend servers. In this example, the scale set contains two virtual machine instances. The scale set is added to the default backend pool of the application gateway.
+Application gateway is used to manage and secure web traffic to servers that you maintain. You can use the Azure CLI to create an [application gateway](overview.md) that uses a [Virtual Machine Scale Set](/azure/virtual-machine-scale-sets/overview) for backend servers. In this example, the scale set contains two virtual machine instances. The scale set is added to the default backend pool of the application gateway.
 
 In this article, you learn how to:
 

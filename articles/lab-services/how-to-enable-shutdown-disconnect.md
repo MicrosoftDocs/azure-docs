@@ -5,8 +5,8 @@ description: Learn how to enable or disable automatic shutdown of lab VMs in Azu
 services: lab-services
 ms.service: azure-lab-services
 ms.custom: linux-related-content
-author: ntrogh
-ms.author: nicktrog
+author: RoseHJM
+ms.author: rosemalcolm
 ms.topic: how-to
 ms.date: 03/01/2023
 ---
@@ -43,7 +43,7 @@ Azure Lab Services supports automatic shutdown for many Linux distributions and 
 
 If you're using lab account-based labs, Linux labs only support automatic shut down when users disconnect and when VMs are started but users don't connect.
 
-Support varies depending on [specific distributions and versions of Linux](../virtual-machines/extensions/diagnostics-linux.md#supported-linux-distributions). 
+Support varies depending on [specific distributions and versions of Linux](/azure/virtual-machines/extensions/diagnostics-linux#supported-linux-distributions). 
 
 Shutdown settings are not supported by the [Data Science Virtual Machine - Ubuntu](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=Data%20science%20Virtual%20machine&page=1&filters=microsoft%3Blinux) image.
 

@@ -5,6 +5,10 @@ author: yelevin
 ms.topic: conceptual
 ms.date: 01/30/2022
 ms.author: yelevin
+
+
+#Customer intent: As a security engineer, I want to configure multistage attack detection rules so that analysts can more easily identify and respond to complex multistage threats with high accuracy.
+
 ---
 # Configure multistage attack detection (Fusion) rules in Microsoft Sentinel
 

@@ -4,7 +4,7 @@ description: Learn how to configure a web application firewall (WAF) policy that
 services: web-application-firewall
 author: vhorne
 ms.service: azure-web-application-firewall
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/05/2019
 ms.author: victorh 
 ms.custom: devx-track-azurepowershell
@@ -98,6 +98,9 @@ $myWAFPolicy=New-AzFrontDoorWafPolicy -Name $policyName -ResourceGroupName $reso
 
 Link the security policy object to an existing Azure Front Door front-end host and update Azure Front Door properties. First, retrieve the Azure Front Door object by using [Get-AzFrontDoor](/powershell/module/Az.FrontDoor/Get-AzFrontDoor).
 Next, set the front-end `WebApplicationFirewallPolicyLink` property to the `resourceId` of the `$myWAFPolicy$` created in the previous step by using [Set-AzFrontDoor](/powershell/module/Az.FrontDoor/Set-AzFrontDoor).
+
+> [!NOTE]
+> For Azure Front Door Standard and Premium, you should use [Get-AzFrontDoorCdnProfile](/powershell/module/az.cdn/Get-AzFrontDoorCdnProfile).
 
 The following example uses the resource group name `myResourceGroupFD1` with the assumption that you've created the Azure Front Door profile by using instructions provided in [Quickstart: Create an Azure Front Door](../../frontdoor/quickstart-create-front-door.md). Also, in the following example, replace `$frontDoorName` with the name of your Azure Front Door profile.
 

@@ -3,8 +3,8 @@ title: Create a standalone Azure Automation account
 description: This article tells how to create a standalone Azure Automation account.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/25/2024
-ms.topic: conceptual
+ms.date: 08/20/2024
+ms.topic: how-to
 ms.service: azure-automation
 ---
 # Create a standalone Azure Automation account

@@ -6,7 +6,7 @@ ms.topic: reference
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 04/25/2024
+ms.date: 09/20/2024
 ms.custom: generated
 ---
 
@@ -104,6 +104,7 @@ Azure service: [Azure Stack HCI](/azure-stack/hci/)
 > | Microsoft.AzureStackHCI/NetworkSecurityGroups/Delete | Deletes a network security group resource |
 > | Microsoft.AzureStackHCI/NetworkSecurityGroups/Write | Creates/Updates a network security group resource |
 > | Microsoft.AzureStackHCI/NetworkSecurityGroups/Read | Gets/Lists a network security group resource |
+> | Microsoft.AzureStackHCI/NetworkSecurityGroups/join/action | Joins network security group resource |
 > | Microsoft.AzureStackHCI/NetworkSecurityGroups/SecurityRules/Delete | Deletes a security rule resource |
 > | Microsoft.AzureStackHCI/NetworkSecurityGroups/SecurityRules/Write | Creates/Updates security rule resource |
 > | Microsoft.AzureStackHCI/NetworkSecurityGroups/SecurityRules/Read | Gets/Lists security rule resource |
@@ -178,11 +179,15 @@ Azure service: [Azure Arc](/azure/azure-arc/)
 > | Microsoft.HybridCompute/unregister/action | Unregisters the subscription for Microsoft.HybridCompute Resource Provider |
 > | Microsoft.HybridCompute/batch/action | Batch deletes Azure Arc machines |
 > | Microsoft.HybridCompute/validateLicense/action | Validates the provided license data and returns what would be created on a PUT to Microsoft.HybridCompute/licenses |
+> | Microsoft.HybridCompute/gateways/read | Reads any Azure Arc gateways |
+> | Microsoft.HybridCompute/gateways/write | Writes an Azure Arc gateways |
+> | Microsoft.HybridCompute/gateways/delete | Deletes an Azure Arc gateways |
 > | Microsoft.HybridCompute/licenses/read | Reads any Azure Arc licenses |
 > | Microsoft.HybridCompute/licenses/write | Installs or Updates an Azure Arc licenses |
 > | Microsoft.HybridCompute/licenses/delete | Deletes an Azure Arc licenses |
 > | Microsoft.HybridCompute/locations/notifyNetworkSecurityPerimeterUpdatesAvailable/action | Updates Network Security Perimeter Profiles |
 > | Microsoft.HybridCompute/locations/notifyExtension/action | Notifies Microsoft.HybridCompute about extensions updates |
+> | Microsoft.HybridCompute/locations/notifyRunCommand/action | Notifies Microsoft.HybridCompute about runcommands updates |
 > | Microsoft.HybridCompute/locations/operationresults/read | Reads the status of an operation on Microsoft.HybridCompute Resource Provider |
 > | Microsoft.HybridCompute/locations/operationstatus/read | Reads the status of an operation on Microsoft.HybridCompute Resource Provider |
 > | Microsoft.HybridCompute/locations/privateLinkScopes/read | Reads the full details of any Azure Arc privateLinkScopes |
@@ -193,6 +198,7 @@ Azure service: [Azure Arc](/azure/azure-arc/)
 > | Microsoft.HybridCompute/machines/UpgradeExtensions/action | Upgrades Extensions on Azure Arc machines |
 > | Microsoft.HybridCompute/machines/assessPatches/action | Assesses any Azure Arc machines to get missing software patches |
 > | Microsoft.HybridCompute/machines/installPatches/action | Installs patches on any Azure Arc machines |
+> | Microsoft.HybridCompute/machines/listAccessDetails/action | Retreives the access details for a machines resource |
 > | Microsoft.HybridCompute/machines/extensions/read | Reads any Azure Arc extensions |
 > | Microsoft.HybridCompute/machines/extensions/write | Installs or Updates an Azure Arc extensions |
 > | Microsoft.HybridCompute/machines/extensions/delete | Deletes an Azure Arc extensions |
@@ -228,6 +234,8 @@ Azure service: [Azure Arc](/azure/azure-arc/)
 > | Microsoft.HybridCompute/privateLinkScopes/privateEndpointConnections/read | Read any Azure Arc privateEndpointConnections |
 > | Microsoft.HybridCompute/privateLinkScopes/privateEndpointConnections/write | Writes an Azure Arc privateEndpointConnections |
 > | Microsoft.HybridCompute/privateLinkScopes/privateEndpointConnections/delete | Deletes an Azure Arc privateEndpointConnections |
+> | Microsoft.HybridCompute/settings/read | Reads any Azure Arc settings |
+> | Microsoft.HybridCompute/settings/write | Writes an Azure Arc settings |
 > | **DataAction** | **Description** |
 > | Microsoft.HybridCompute/locations/publishers/extensionTypes/versions/read | Returns a list of versions for extensionMetadata based on query parameters. |
 > | Microsoft.HybridCompute/machines/login/action | Log in to an Azure Arc machine as a regular user |
@@ -244,33 +252,30 @@ Azure service: Microsoft.HybridConnectivity
 > | Microsoft.HybridConnectivity/generateAwsTemplate/action | Retrieve AWS Cloud Formation template |
 > | Microsoft.HybridConnectivity/register/action | Register the subscription for Microsoft.HybridConnectivity |
 > | Microsoft.HybridConnectivity/unregister/action | Unregister the subscription for Microsoft.HybridConnectivity |
-> | Microsoft.HybridConnectivity/endpoints/read | List of endpoints to the target resource. |
-> | Microsoft.HybridConnectivity/endpoints/read | Gets the endpoint to the resource. |
+> | Microsoft.HybridConnectivity/endpoints/read | Get or list of endpoints to the target resource. |
 > | Microsoft.HybridConnectivity/endpoints/write | Create or update the endpoint to the target resource. |
 > | Microsoft.HybridConnectivity/endpoints/delete | Deletes the endpoint access to the target resource. |
-> | Microsoft.HybridConnectivity/endpoints/write | Update the endpoint to the target resource. |
-> | Microsoft.HybridConnectivity/endpoints/listCredentials/action | Gets the endpoint access credentials to the resource. |
-> | Microsoft.HybridConnectivity/endpoints/listIngressGatewayCredentials/action | Gets the ingress gateway endpoint credentials  |
-> | Microsoft.HybridConnectivity/endpoints/listManagedProxyDetails/action | Fetches the managed proxy details  |
-> | Microsoft.HybridConnectivity/endpoints/serviceConfigurations/read | API to enumerate registered services in service configurations under a Endpoint Resource |
-> | Microsoft.HybridConnectivity/endpoints/serviceConfigurations/read | Gets the details about the service to the resource. |
-> | Microsoft.HybridConnectivity/endpoints/serviceConfigurations/write | Create or update a service in serviceConfiguration for the endpoint resource. |
-> | Microsoft.HybridConnectivity/endpoints/serviceConfigurations/delete | Deletes the service details to the target resource. |
-> | Microsoft.HybridConnectivity/endpoints/serviceConfigurations/write | Update the service details in the service configurations of the target resource. |
+> | Microsoft.HybridConnectivity/endpoints/listCredentials/action | List the endpoint access credentials to the resource. |
+> | Microsoft.HybridConnectivity/endpoints/listIngressGatewayCredentials/action | List the ingress gateway access credentials to the resource. |
+> | Microsoft.HybridConnectivity/endpoints/listManagedProxyDetails/action | List the managed proxy details to the resource. |
+> | Microsoft.HybridConnectivity/endpoints/serviceConfigurations/read | Get or list of serviceConfigurations to the endpoints resource. |
+> | Microsoft.HybridConnectivity/endpoints/serviceConfigurations/write | Create or update the serviceConfigurations to the endpoints resource. |
+> | Microsoft.HybridConnectivity/endpoints/serviceConfigurations/delete | Deletes the serviceConfigurations access to the endpoints resource. |
 > | Microsoft.HybridConnectivity/Locations/OperationStatuses/read | read OperationStatuses |
-> | Microsoft.HybridConnectivity/Locations/OperationStatuses/write | write OperationStatuses |
-> | Microsoft.HybridConnectivity/Operations/read | read Operations |
+> | Microsoft.HybridConnectivity/operations/read | Get the list of Operations |
 > | Microsoft.HybridConnectivity/publicCloudConnectors/read | Gets the public cloud connectors in the subscription. |
 > | Microsoft.HybridConnectivity/publicCloudConnectors/read | Gets the publicCloudConnector in the resource group. |
 > | Microsoft.HybridConnectivity/publicCloudConnectors/read | Gets the public cloud connectors. |
 > | Microsoft.HybridConnectivity/publicCloudConnectors/write | Creates public cloud connectors resource. |
 > | Microsoft.HybridConnectivity/publicCloudConnectors/delete | Deletes the public cloud connectors resource. |
 > | Microsoft.HybridConnectivity/publicCloudConnectors/write | Update the public cloud connectors resource. |
+> | Microsoft.HybridConnectivity/publicCloudConnectors/testPermissions/action | Tests the permissions of solution configurations under public cloud connector. |
 > | Microsoft.HybridConnectivity/solutionConfigurations/read | Retrieve the List of solution configuration resources. |
 > | Microsoft.HybridConnectivity/solutionConfigurations/read | Retrieve the solution configuration identified by solution name. |
 > | Microsoft.HybridConnectivity/solutionConfigurations/write | Creates solution configuration with provided solution name |
 > | Microsoft.HybridConnectivity/solutionConfigurations/delete | Deletes the solution configuration with provided solution name. |
 > | Microsoft.HybridConnectivity/solutionConfigurations/write | Updates the solution configuration for solution name. |
+> | Microsoft.HybridConnectivity/solutionConfigurations/syncNow/action | Trigger immediate sync with source cloud |
 > | Microsoft.HybridConnectivity/solutionConfigurations/inventory/read | Retrieve the inventory identified by inventory id. |
 > | Microsoft.HybridConnectivity/solutionConfigurations/inventory/read | Retrieve a list of inventory by solution name. |
 > | Microsoft.HybridConnectivity/solutionTypes/read | Retrieve the list of available solution types. |
@@ -358,6 +363,7 @@ Azure service: [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/overvi
 > | Microsoft.Kubernetes/connectedClusters/Delete | Deletes connectedClusters |
 > | Microsoft.Kubernetes/connectedClusters/listClusterUserCredentials/action | List clusterUser credential(preview) |
 > | Microsoft.Kubernetes/connectedClusters/listClusterUserCredential/action | List clusterUser credential |
+> | Microsoft.Kubernetes/connectedClusters/agentryConfigurations/Read | Read agentryConfigurations |
 > | Microsoft.Kubernetes/locations/operationstatuses/read | Read Operation Statuses |
 > | Microsoft.Kubernetes/locations/operationstatuses/write | Write Operation Statuses |
 > | Microsoft.Kubernetes/operations/read | Lists operations available on Microsoft.Kubernetes resource provider |

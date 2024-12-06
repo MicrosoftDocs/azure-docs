@@ -3,7 +3,7 @@ title: Azure API Management workspace gateways - VNet integration - network reso
 description: Learn about requirements for network resources when you integrate your API Management workspace gateway in an Azure virtual network.
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: concept-article
 ms.date: 07/15/2024
 ms.author: danlep
@@ -27,10 +27,14 @@ For information about networking options in API Management, see [Use a virtual n
 
 * The virtual network must be in the same region and Azure subscription as the API Management instance.
 
-## Subnet size
+## Subnet requirements
 
-* The subnet size must be `/24` (256 IP addresses).
 * The subnet can't be shared with another Azure resource, including another workspace gateway.
+
+## Subnet size 
+
+* Minimum: /27 (32 addresses)
+* Maximum: /24 (256 addresses) - recommended
 
 ## Subnet delegation
 

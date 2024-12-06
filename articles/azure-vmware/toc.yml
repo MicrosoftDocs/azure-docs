@@ -51,6 +51,10 @@ items:
     href: enable-sql-azure-hybrid-benefit.md
   - name: Save costs with a reserved instance
     href: reserved-instance.md
+  - name: Azure hybrid benefit for Windows Server, SQL Server, and Linux subscriptions
+    href: sql-server-hybrid-benefit.md
+  - name: VMware Cloud Foundations (VCF) license portability on Azure VMware Solution
+    href: vmware-cloud-foundations-license-portability.md
 - name: Architecture
   items:
   - name: Private clouds and clusters
@@ -129,6 +133,8 @@ items:
       href: protect-azure-vmware-solution-with-application-gateway.md
   - name: Configure customer-managed key encryption at rest
     href: configure-customer-managed-keys.md
+  - name: Configure vTPM on a Virtual Machine
+    href: configure-virtual-trusted-platform-module.md
 - name: Networking
   items:
   - name: Connect to on-premises environment
@@ -195,6 +201,8 @@ items:
   items:
   - name: Operating system support for VMs
     href: ecosystem-os-vms.md
+  - name: Configure vTPM on a Virtual Machine
+    href: configure-virtual-trusted-platform-module.md
   - name: Configure Windows Server Failover Cluster
     href: configure-windows-server-failover-cluster.md
   - name: Deploy VMs from the content library
@@ -229,8 +237,12 @@ items:
       href: install-cloud-backup-virtual-machines.md
     - name: Backup Azure NetApp Files datastores and VMs
       href: backup-azure-netapp-files-datastores-vms.md
+    - name: Configure Cloud Backup for Virtual Machines
+      href: configure-cloud-backup-virtual-machine.md  
     - name: Restore VMs
       href: restore-azure-netapp-files-vms.md
+    - name: Restore guest files and folders
+      href: restore-guest-files-folders.md  
   - name: External storage solutions
     items:
     - name: Storage solution overview
@@ -283,6 +295,8 @@ items:
     href: configure-vmware-syslogs.md
   - name: Configure alerts and work with metrics
     href: configure-alerts-for-azure-vmware-solution.md
+  - name: Configure Newest Metrics for Azure VMware Solution
+    href: configure-azure-vmware-solution-metrics.md
   - name: Arc-enabled Azure VMware Solution private cloud
     items:
     - name: Deploy Arc-enabled VMware vSphere for Azure VMware Solution private cloud
@@ -309,6 +323,8 @@ items:
     href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/vmware_private_cloud
   - name: Configure VMware Cloud Director Service in Azure VMware Solution
     href: configure-vmware-cloud-director-service-azure-vmware-solution.md
+  - name: Self service maintenance orchestration (public preview)
+    href: self-service-maintenance-orchestration.md
   - name: Enable VMware Cloud Director Service with Azure VMware solution
     href: enable-vmware-cds-with-azure.md
   - name: Deploy VMware Cloud Director Availability in Azure VMware Solution

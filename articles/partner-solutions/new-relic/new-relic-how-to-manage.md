@@ -69,7 +69,7 @@ You can filter the list of resources by resource type, resource group name, regi
 
 The column **Logs to New Relic** indicates whether the resource is sending logs to New Relic. If the resource isn't sending logs, the reasons could be:
 
-- **Resource does not support sending logs**: Only resource types with monitoring log categories can be configured to send logs. See [Supported categories](../../azure-monitor/essentials/resource-logs-categories.md).
+- **Resource does not support sending logs**: Only resource types with monitoring log categories can be configured to send logs. See [Supported categories](/azure/azure-monitor/essentials/resource-logs-categories).
 - **Limit of five diagnostic settings reached**: Each Azure resource can have a maximum of five diagnostic settings. For more information, see [Diagnostic settings](/cli/azure/monitor/diagnostic-settings).
 - **Error**: The resource is configured to send logs to New Relic but an error blocked it.
 - **Logs not configured**: Only Azure resources that have the appropriate resource tags are configured to send logs to New Relic.
@@ -138,13 +138,13 @@ You can install New Relic agent on Azure Virtual Machine Scale Sets as an extens
 1. Select **Virtual Machine Scale Sets** under **New Relic account config** in the Resource menu.
 1. In the working pane, you see a list of all virtual machine scale sets in the subscription.
 
-Virtual Machine Scale Sets is an Azure Compute resource that can be used to deploy and manage a set of identical VMs. For more information, see [Virtual Machine Scale Sets](../../virtual-machine-scale-sets/overview.md).
+Virtual Machine Scale Sets is an Azure Compute resource that can be used to deploy and manage a set of identical VMs. For more information, see [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview).
 
-For more information on the orchestration modes available [orchestration modes](../../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md).
+For more information on the orchestration modes available [orchestration modes](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes).
 
 Use  native integration to install an agent on both the uniform and flexible scale-sets. The new instances (VMs) of a scale set, in any mode, receive the agent extension during scale-up. Virtual Machine Scale Sets resources in a uniform orchestration mode support _Automatic_, _Rolling_, and _Manual_ upgrade policy. Resources in Flexible orchestration mode only support manual upgrade.
 
-If a manual upgrade policy is set for a resource, upgrade the instances manually by installing the agent extension for the already scaled up instances. For more information on autoscaling and instance orchestration, see [autoscaling-and-instance-orchestration](../../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md#autoscaling-and-instance-orchestration).
+If a manual upgrade policy is set for a resource, upgrade the instances manually by installing the agent extension for the already scaled up instances. For more information on autoscaling and instance orchestration, see [autoscaling-and-instance-orchestration](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes#autoscaling-and-instance-orchestration).
 
 > [!NOTE]
 > In manual upgrade policy, pre-existing VM instances don't receive the extension automatically. The agent status shows as **Partially Installed**. Upgrade the VM instances by manually installing the extension on them from the VM extensions Resource menu, or go to specific Virtual Machine Scale Sets and select **Instances** from the Resource menu.

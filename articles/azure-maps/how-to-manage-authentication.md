@@ -7,8 +7,7 @@ ms.author: peterbr
 ms.date: 12/3/2021
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
-custom.ms: subject-rbac-steps
+ms.subservice: authentication
 ---
 
 # Manage authentication in Azure Maps

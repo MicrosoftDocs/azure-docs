@@ -99,7 +99,7 @@ If you experience connectivity problems with your private link setup, review the
 
        - You can also review the load balancer metric through Azure Monitor to see if data is flowing through the load balancer.
 
-1. Use [Azure Monitor](../azure-monitor/overview.md) to see if data is flowing.
+1. Use [Azure Monitor](/azure/azure-monitor/overview) to see if data is flowing.
 
     a. On the private link service resource, select **Metrics**.
 

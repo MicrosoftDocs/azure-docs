@@ -17,17 +17,21 @@ ms.custom:
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-The `azure-openai-emit-token-metric` policy sends metrics to Application Insights about consumption of large language model tokens through Azure OpenAI Service APIs. Token count metrics include: Total Tokens, Prompt Tokens, and Completion Tokens. 
+The `azure-openai-emit-token-metric` policy sends custom metrics to Application Insights about consumption of large language model tokens through Azure OpenAI Service APIs. Token count metrics include: Total Tokens, Prompt Tokens, and Completion Tokens. 
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
 [!INCLUDE [api-management-azure-openai-models](../../includes/api-management-azure-openai-models.md)]
 
+## Limits for custom metrics
+
+[!INCLUDE [api-management-custom-metrics-limits](../../includes/api-management-custom-metrics-limits.md)]
+
 
 ## Prerequisites
 
 * One or more Azure OpenAI Service APIs must be added to your API Management instance. For more information, see [Add an Azure OpenAI Service API to Azure API Management](./azure-openai-api-from-specification.md).
-* Your API Management instance must be integrated with Application insights. For more information, see [How to integrate Azure API Management with Azure Application Insights](./api-management-howto-app-insights.md#create-a-connection-using-the-azure-portal).
+* Your API Management instance must be integrated with Application insights. For more information, see [How to integrate Azure API Management with Azure Application Insights](./api-management-howto-app-insights.md).
 * Enable Application Insights logging for your Azure OpenAI APIs. 
 * Enable custom metrics with dimensions in Application Insights. For more information, see [Emit custom metrics](api-management-howto-app-insights.md#emit-custom-metrics).
 
@@ -46,7 +50,6 @@ The `azure-openai-emit-token-metric` policy sends metrics to Application Insight
 | Attribute | Description                | Required                | Default value  |
 | --------- | -------------------------- |  ------------------ | -------------- |
 | namespace | A string. Namespace of metric. Policy expressions aren't allowed. | No        | API Management |
-| value     |  Value of metric expressed as a double. Policy expressions are allowed.   | No           | 1              |
 
 
 ## Elements
@@ -88,15 +91,13 @@ The `azure-openai-emit-token-metric` policy sends metrics to Application Insight
 
 ## Example
 
-The following example sends Azure OpenAI token count metrics to Application Insights along with User ID, Client IP, and API ID as dimensions.
+The following example sends Azure OpenAI token count metrics to Application Insights along with API ID as a custom dimension.
 
 ```xml
 <policies>
   <inbound>
       <azure-openai-emit-token-metric
             namespace="AzureOpenAI">   
-            <dimension name="User ID" />
-            <dimension name="Client IP" value="@(context.Request.IpAddress)" />
             <dimension name="API ID" />
         </azure-openai-emit-token-metric> 
   </inbound>

@@ -7,8 +7,9 @@ author: kgremban
 ms.author: kgremban
 ms.topic: tutorial
 ms.date: 08/24/2022
-ms.service: iot-dps
+ms.service: azure-iot-hub
 ms.custom: devx-track-azurecli, linux-related-content
+ms.subservice: azure-iot-hub-dps
 ---
 
 # Tutorial: Provision for geo latency
@@ -27,7 +28,7 @@ This tutorial uses a simulated device sample from the [Azure IoT C SDK](https://
 > * Simulate the devices and verify that they're provisioned to the IoT hub in the closest region.
 
 >[!IMPORTANT]
-> Some regions may, from time to time, enforce restrictions on the creation of Virtual Machines. At the time of writing this guide, the *westus2* and *eastus* regions permitted the creation of VMs. If you're unable to create in either one of those regions, you can try a different region. To learn more about choosing Azure geographical regions when creating VMs, see [Regions for virtual machines in Azure](../virtual-machines/regions.md)
+> Some regions may, from time to time, enforce restrictions on the creation of Virtual Machines. At the time of writing this guide, the *westus2* and *eastus* regions permitted the creation of VMs. If you're unable to create in either one of those regions, you can try a different region. To learn more about choosing Azure geographical regions when creating VMs, see [Regions for virtual machines in Azure](/azure/virtual-machines/regions)
 
 ## Prerequisites
 

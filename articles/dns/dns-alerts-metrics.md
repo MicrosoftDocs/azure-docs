@@ -5,7 +5,7 @@ services: dns
 author: greg-lindsay
 manager: kumudD
 ms.service: azure-dns
-ms.topic: article
+ms.topic: concept-article
 ms.date: 11/30/2023
 ms.author: greglin
 ---
@@ -16,7 +16,7 @@ Azure DNS is a hosting service for DNS domains that provides name resolution usi
 
 ## Azure DNS metrics
 
-Azure DNS provides metrics for you to monitor specific aspects of your DNS zones. With the metrics in Azure DNS, you can configure alerting based on conditions that are met. The metrics provided use the [Azure Monitor service](../azure-monitor/index.yml) to display the data. For more information on the Metrics Explorer experience and charting, see [Azure Monitor Metrics Explorer](../azure-monitor/essentials/metrics-charts.md). 
+Azure DNS provides metrics for you to monitor specific aspects of your DNS zones. With the metrics in Azure DNS, you can configure alerting based on conditions that are met. The metrics provided use the [Azure Monitor service](/azure/azure-monitor/) to display the data. For more information on the Metrics Explorer experience and charting, see [Azure Monitor Metrics Explorer](/azure/azure-monitor/essentials/metrics-charts). 
  
 Azure DNS provides the following metrics to Azure Monitor for your DNS zones:
 
@@ -24,7 +24,7 @@ Azure DNS provides the following metrics to Azure Monitor for your DNS zones:
 -	RecordSetCount
 -	RecordSetCapacityUtilization
 
-For more information, see [metrics definition](../azure-monitor/essentials/metrics-supported.md#microsoftnetworkdnszones).
+For more information, see [metrics definition](/azure/azure-monitor/essentials/metrics-supported#microsoftnetworkdnszones).
 
 > [!NOTE]
 > At this time, these metrics are only available for Public DNS zones hosted in Azure DNS. If you have Private Zones hosted in Azure DNS, these metrics won't provide data for those zones. In addition, the metrics and alerting feature is only supported in Azure Public cloud. Support for sovereign clouds will follow at a later time. 
@@ -67,7 +67,7 @@ To view this metric, select **Metrics** explorer experience from the **Monitor**
 
 ## Alerts in Azure DNS
 
-Azure Monitor has alerting that you can configure for each available metric value. For more information, see [Azure Monitor alerts](../azure-monitor/alerts/alerts-metric.md).
+Azure Monitor has alerting that you can configure for each available metric value. For more information, see [Azure Monitor alerts](/azure/azure-monitor/alerts/alerts-metric).
 
 1. To configure alerting for Azure DNS zones, select **Alerts** from *Monitor* page in the Azure portal. Then select **+ New alert rule**.
 
@@ -86,13 +86,13 @@ Azure Monitor has alerting that you can configure for each available metric valu
 
     :::image type="content" source="./media/dns-alerts-metrics/configure-signal-logic.png" alt-text="Screenshot of configure signal logic page.":::
 
-1. To send a notification or invoke an action triggered by the alert, click the **Add action groups**. On the *Add action groups* page, select **+ Create action group**. For more information, see [Action Group](../azure-monitor/alerts/action-groups.md).
+1. To send a notification or invoke an action triggered by the alert, click the **Add action groups**. On the *Add action groups* page, select **+ Create action group**. For more information, see [Action Group](/azure/azure-monitor/alerts/action-groups).
 
 1. Enter an *Alert rule name* then select **Create alert rule** to save your configuration.
 
     :::image type="content" source="./media/dns-alerts-metrics/create-alert-rule.png" alt-text="Screenshot of create alert rule page.":::
 
-For more information on how to configure alerting for Azure Monitor metrics, see [Create, view, and manage alerts using Azure Monitor](../azure-monitor/alerts/alerts-metric.md). 
+For more information on how to configure alerting for Azure Monitor metrics, see [Create, view, and manage alerts using Azure Monitor](/azure/azure-monitor/alerts/alerts-metric). 
 
 ## Next steps
 

@@ -1,22 +1,19 @@
 ---
-title: Understand admin roles for Enterprise Agreements (EA) in Azure
-description: Learn about Enterprise administrator roles in Azure. You can assign five distinct administrative roles.
+title: Understand admin roles for Enterprise Agreements in Azure
+description: Learn about the administrative roles available to manage Azure Enterprise Agreements (EA), including permissions and how to assign them.
 author: bandersmsft
 ms.reviewer: sapnakeshari
 ms.service: cost-management-billing
 ms.subservice: enterprise
-ms.topic: conceptual
-ms.date: 02/16/2024
+ms.topic: concept-article
+ms.date: 10/18/2024
 ms.author: banders
+#customer intent: As an enterprise administrator, I want learn about the administrative roles available to manage Azure Enterprise Agreements so that manage my enterprise agreement.
 ---
 
-# Managing Azure Enterprise Agreement roles
+# Manage Azure Enterprise Agreement roles
 
-> [!NOTE]
-> Enterprise administrators have permissions to create new subscriptions under active enrollment accounts. For more information about creating new subscriptions, see [Add a new subscription](direct-ea-administration.md#add-a-subscription).
-
-
-To help manage your organization's usage and spend, Azure customers with an Enterprise Agreement can assign six distinct administrative roles:
+To help manage your organization's usage and spend, Azure customers with an Enterprise Agreement can assign the following six distinct administrative roles.
 
 - Enterprise Administrator
 - Enterprise Administrator (read only)¹
@@ -28,6 +25,9 @@ To help manage your organization's usage and spend, Azure customers with an Ente
 ¹ The Bill-To contact of the EA contract is under this role.
 
 ² The Bill-To contact can't be added or changed in the Azure portal. It gets added to the EA enrollment based on the user who is set up as the Bill-To contact on agreement level. To change the Bill-To contact, a request needs to be made through a partner/software advisor to the Regional Operations Center (ROC).
+
+> [!NOTE]
+> Enterprise administrators have permissions to create new subscriptions under active enrollment accounts. For more information about creating new subscriptions, see [Add a new subscription](direct-ea-administration.md#add-a-subscription).
 
 The first enrollment administrator that is set up during the enrollment provisioning determines the authentication type of the Bill-to contact account. When the bill-to contact gets added to the Azure portal as a read-only administrator, they're given Microsoft account authentication.
 
@@ -49,11 +49,11 @@ The Azure portal hierarchy for Cost Management consists of:
 
 - **Accounts** are organizational units in the Azure portal for Cost Management. You can use accounts to manage subscriptions and access reports.
 
-- **Subscriptions** are the smallest unit in the Azure portal for Cost Management. They're containers for Azure services managed by the Account Owner role, also known as the Subscription's service administrator.
+- **Subscriptions** are the smallest unit in the Azure portal for Cost Management. They're containers for Azure services.
 
 The following diagram illustrates simple Azure EA hierarchies.
 
-:::image type="content" border="false" source="./media/understand-ea-roles/ea-hierarchies.png" alt-text="Diagram of simple Azure EA hierarchies.":::
+:::image type="content" border="false" source="./media/understand-ea-roles/ea-hierarchies.png" alt-text="Diagram showing the hierarchical structure of Azure Enterprise Agreement roles.":::
 
 ## Enterprise user roles
 
@@ -63,7 +63,6 @@ The following administrative user roles are part of your enterprise enrollment:
 - EA purchaser
 - Department administrator
 - Account owner
-- Service administrator
 - Notification contact
 
 Use Cost Management in the [Azure portal](https://portal.azure.com) so you can manage Azure Enterprise Agreement roles.
@@ -127,7 +126,7 @@ You can grant department administrators read-only access when you edit or create
 Users with this role can:
 
 - Create and manage subscriptions.
-- Manage service administrators.
+- Manage subscription role assignments.
 - View usage for subscriptions.
 
 Each account requires a unique work, school, or Microsoft account. For more information about Azure portal administrative roles, see [Understand Azure Enterprise Agreement administrative roles in Azure](understand-ea-roles.md).
@@ -136,10 +135,6 @@ There can be only one account owner per account. However, there can be multiple 
 
 For different Microsoft Entra accounts, it can take more than 30 minutes for permission settings to take effect.
 
-### Service administrator
-
-The service administrator role has permissions to manage services in the Azure portal and assign users to the coadministrator role.
-
 ### Notification contact
 
 The notification contact receives usage notifications related to the enrollment.
@@ -147,6 +142,8 @@ The notification contact receives usage notifications related to the enrollment.
 The following sections describe the limitations and capabilities of each role.
 
 ## User limit for admin roles
+
+The following table outlines the user limits and permissions for each administrative role in an Enterprise Agreement.
 
 |Role| User limit|
 |---|---|
@@ -160,6 +157,8 @@ The following sections describe the limitations and capabilities of each role.
 ³ Each account requires a unique Microsoft account, or work or school account.
 
 ## Organization structure and permissions by role
+
+The following table shows user limits and permissions associated with each administrative role.
 
 |Tasks| Enterprise Administrator|Enterprise Administrator (read only)| EA Purchaser | Department Administrator|Department Administrator (read only)|Account Owner| Partner|
 |---|---|---|---|---|---|---|---|
@@ -177,7 +176,7 @@ The following sections describe the limitations and capabilities of each role.
 
 - ⁴ Notification contacts are sent email communications about the Azure Enterprise Agreement.
 - ⁵ Task is limited to accounts in your department.
-- ⁶ A subscription owner, reservation purchaser or savings plan purchaser can purchase and manage reservations and savings plans within the subscription, and only if permitted by the reservation/savings plan purchase-enabled flags. Enterprise administrators can purchase and manage reservations and savings plans across the billing account. Enterprise administrators (read-only) can view all purchased reservations and savings plans. The reservation/savings plan purchase-enabled flags don't affect the EA administrator roles. The Enterprise Admin (read-only) role holder isn't permitted to make purchases. However, if a user with that role also holds either a subscription owner, reservation purchaser or savings plan purchaser permission, the user can purchase reservations and/or savings plans, regardless of the flags.
+- ⁶ A subscription owner, reservation purchaser, or savings plan purchaser can purchase and manage reservations and savings plans within the subscription, and only if permitted by the reservation/savings plan purchase-enabled flags. Enterprise administrators can purchase and manage reservations and savings plans across the billing account. Enterprise administrators (read-only) can view all purchased reservations and savings plans. The reservation/savings plan purchase-enabled flags don't affect the EA administrator roles. The Enterprise Admin (read-only) role holder isn't permitted to make purchases. However, if a user with that role also holds either a subscription owner, reservation purchaser or savings plan purchaser permission, the user can purchase reservations and/or savings plans, regardless of the flags.
 
 ## Add a new enterprise administrator
 
@@ -191,7 +190,7 @@ When new Account Owners (AO) are added to an Azure EA enrollment for the first t
 > [!NOTE]
 > If the Account Owner is a service account and doesn't have an email, use an In-Private session to sign in to the Azure portal and navigate to Cost Management to be prompted to accept the activation welcome email.
 
-Once they activate their account, the account status is updated from _pending_ to _active_. The account owner needs to read the `Warning` message and select **Continue**. New users might get prompted to enter their first and last name to create a Commerce Account. If so, they must add the required information to continue and then the account is activated.
+Once they activate their account, the account status is updated from **Pending** to **Active**. The account owner needs to read the content and select **Yes, I wish to continue**. New users might get prompted to enter their first and family name to create a Commerce Account. If so, they must add the required information to continue and then the account is activated.
 
 > [!NOTE]
 > A subscription is associated with one and only one account. The warning message includes details that warn the Account Owner that accepting the offer will move the subscriptions associated with the Account to the new Enrollment.
@@ -203,6 +202,8 @@ After an Azure EA admin creates a department, the Azure Enterprise administrator
 Direct EA admins can add department admins in the Azure portal. For more information, see [Create an Azure EA department admin](direct-ea-administration.md#add-a-department-administrator).
 
 ## Usage and costs access by role
+
+The following table shows usage and costs access by administrative role.
 
 |Tasks| Enterprise Administrator|Enterprise Administrator (read only)|EA Purchaser|Department Administrator|Department Administrator (read only) |Account Owner| Partner|
 |---|---|---|---|---|---|---|---|

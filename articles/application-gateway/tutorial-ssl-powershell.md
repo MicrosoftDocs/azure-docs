@@ -13,7 +13,7 @@ ms.custom: mvc, devx-track-azurepowershell
 
 # Create an application gateway with TLS termination using Azure PowerShell
 
-You can use Azure PowerShell to create an [application gateway](overview.md) with a certificate for [TLS/SSL termination](ssl-overview.md) that uses a [virtual machine scale set](../virtual-machine-scale-sets/overview.md) for backend servers. In this example, the scale set contains two virtual machine instances that are added to the default backend pool of the application gateway. 
+You can use Azure PowerShell to create an [application gateway](overview.md) with a certificate for [TLS/SSL termination](ssl-overview.md) that uses a [virtual machine scale set](/azure/virtual-machine-scale-sets/overview) for backend servers. In this example, the scale set contains two virtual machine instances that are added to the default backend pool of the application gateway. 
 
 In this article, you learn how to:
 

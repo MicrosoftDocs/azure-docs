@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.service: time-series-insights
+ms.service: azure-time-series-insights
 author: deepakpalled
 ms.author: dpalled
 manager: diviso

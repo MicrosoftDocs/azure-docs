@@ -500,4 +500,4 @@ To update your queries to remove dependency on V1 schema, follow these steps:
 
 ## Next step
 
-After the data model review is complete, start [creating custom queries](../azure-monitor/visualize/tutorial-logs-dashboards.md) in Azure Monitor logs to build your own dashboard.
+After the data model review is complete, start [creating custom queries](/azure/azure-monitor/visualize/tutorial-logs-dashboards) in Azure Monitor logs to build your own dashboard.

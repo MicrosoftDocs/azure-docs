@@ -84,7 +84,7 @@ The following list of capabilities is allowed when Microsoft 365 users participa
 | Video Rendering   | Render single video in many places (local camera or remote stream)                                                  | ✔️        | ✔️ | ✔️ | ✔️ |
 |                   | Set / update scaling mode                                                                                           | ✔️        | ✔️ | ✔️ | ✔️ |
 |                   | Render remote video stream                                                                                          | ✔️        | ✔️ | ✔️ | ✔️ |
-|                   | See together mode video stream                                                                                      | ❌ | ❌ | ❌ | ❌ |
+|                   | See together mode video stream                                                                                      | ✔️ | ❌ | ❌ | ❌ |
 |                   | See Large gallery view                                                                                              | ❌ | ❌ | ❌ | ❌ |
 |                   | Receive video stream from Teams media bot                                                                           | ❌ | ❌ | ❌ | ❌ |
 |                   | Receive adjusted stream for "content from Camera"                                                                   | ❌ | ❌ | ❌ | ❌ |

@@ -7,7 +7,7 @@ author: PatAltimore
 ms.author: patricka
 ms.date: 07/08/2024
 ms.topic: tutorial
-ms.service: iot-edge
+ms.service: azure-iot-edge
 ms.custom: "mvc, devx-track-csharp"
 #Customer intent: As an IoT developer, I want to use SQL Service to execute logic on edge devices to filter data and communications that is sent to the cloud.
 ---
@@ -40,7 +40,7 @@ Before beginning this tutorial, you should have gone through the previous tutori
 * A free or standard-tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure.
 * An AMD64 device running Azure IoT Edge with Linux containers. You can use the quickstarts to set up a [Linux device](quickstart-linux.md) or [Windows device](quickstart.md).
   * ARM devices, like Raspberry Pis, cannot run SQL Server. If you want to use SQL on an ARM device, you can use [Azure SQL Edge](../azure-sql-edge/overview.md).
-* A container registry, like [Azure Container Registry](../container-registry/index.yml).
+* A container registry, like [Azure Container Registry](/azure/container-registry/).
 * [Visual Studio Code](https://code.visualstudio.com/) configured with the [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) and [Azure IoT Hub](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) extensions. The *Azure IoT Edge tools for Visual Studio Code* extension is in [maintenance mode](https://github.com/microsoft/vscode-azure-iot-edge/issues/639).
 * Download and install a [Docker compatible container management system](support.md#container-engines) on your development machine. Configure it to run Linux containers.
 
@@ -197,10 +197,10 @@ You need to select which architecture you're targeting with each solution, becau
    }
    ```
 
-6. In line 35, replace the string **\<sql connection string\>** with the following string. The **Data Source** property references the SQL Server container, which doesn't exist yet. You will create it with the name **SQL** in the next section.
+6. In line 35, replace the string **\<sql connection string\>** with the following string. The **Data Source** property references the SQL Server container, which doesn't exist yet. You will create it with the name **SQL** in the next section. Choose a strong password for the *Password* keyword.
 
    ```csharp
-   Data Source=tcp:sql,1433;Initial Catalog=MeasurementsDB;User Id=SA;Password=Strong!Passw0rd;TrustServerCertificate=False;Connection Timeout=30;
+   Data Source=tcp:sql,1433;Initial Catalog=MeasurementsDB;User Id=SA;Password=<YOUR-STRONG-PASSWORD>;TrustServerCertificate=False;Connection Timeout=30;
    ```
 
 7. Save the **sqlFunction.cs** file.
@@ -277,7 +277,7 @@ You can set modules on a device through the IoT Hub, but you can also access you
 
 When you apply the deployment manifest to your device, you get three modules running. The SimulatedTemperatureSensor module generates simulated environment data. The sqlFunction module takes the data and formats it for a database. This section guides you through setting up the SQL database to store the temperature data.
 
-Run the following commands on your IoT Edge device. These commands connect to the **sql** module running on your device and create a database and table to hold the temperature data being sent to it.
+Run the following commands on your IoT Edge device. These commands connect to the **sql** module running on your device and create a database and table to hold the temperature data being sent to it. Replace \<YOUR-STRONG-PASSWORD\> with the strong password you chose in your connection string.
 
 1. In a command-line tool on your IoT Edge device, connect to your database.
 
@@ -288,7 +288,7 @@ Run the following commands on your IoT Edge device. These commands connect to th
 2. Open the SQL command tool.
 
       ```bash
-      /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'Strong!Passw0rd'
+      /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P '<YOUR-STRONG-PASSWORD>'
       ```
 
 3. Create your database:

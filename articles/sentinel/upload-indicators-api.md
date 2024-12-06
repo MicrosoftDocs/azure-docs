@@ -6,6 +6,10 @@ author: austinmccollum
 ms.topic: reference
 ms.date: 05/23/2023
 ms.author: austinmc
+
+
+#Customer intent: As a security analyst, I want to use the upload indicators API reference to customize the threat intelligence data from my source into Microsoft Sentinel.
+
 ---
 
 # Reference the upload indicators API (Preview) to import threat intelligence to Microsoft Sentinel

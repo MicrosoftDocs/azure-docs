@@ -79,7 +79,7 @@ Edge Secured-core requires a version of Windows IoT that has at least five years
 |Description|The device identity, along with its platform boot logs and measurements, must be remotely attestable to the Microsoft Azure Attestation (MAA) service.|
 |Purpose|Enables services to establish the trustworthiness of the device. Allows for reliable security posture monitoring and other trust scenarios such as the release of access credentials.|
 |Dependencies|Microsoft Azure Attestation service|
-|Resources| [Microsoft Azure Attestation](../attestation/index.yml)|
+|Resources| [Microsoft Azure Attestation](/azure/attestation/)|
 
 ---
 
@@ -259,7 +259,7 @@ Edge Secured-core requires a version of Windows IoT that has at least five years
 |Description|The device identity, along with its platform boot logs and measurements, must be remotely attestable to the Microsoft Azure Attestation (MAA) service.|
 |Purpose|Enables services to establish the trustworthiness of the device. Allows for reliable security posture monitoring and other trust scenarios such as the release of access credentials.|
 |Dependencies|Trusted Platform Module (TPM) 2.0 </br><sup>or *supported OP-TEE based application chained to a HWRoT (Secure Element or Secure Enclave)</sup>|
-|Resources| [Microsoft Azure Attestation](../attestation/index.yml)|
+|Resources| [Microsoft Azure Attestation](/azure/attestation/)|
 
 ---
 </br>

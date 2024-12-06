@@ -96,7 +96,7 @@ The response contains the authorization key and status:
 "authorizationKey": "0a7f3020-541f-4b4b-844a-5fb43472e3d7",
 "authorizationUseStatus": "Available",
 "etag": "W/\"010353d4-8955-4984-807a-585c21a22ae0\"",
-"id": "/subscriptions/81ab786c-56eb-4a4d-bb5f-f60329772466/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/MyCircuit/authorizations/MyAuthorization1",
+"id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/MyCircuit/authorizations/MyAuthorization1",
 "name": "MyAuthorization1",
 "provisioningState": "Succeeded",
 "resourceGroup": "ExpressRouteResourceGroup"
@@ -110,9 +110,9 @@ The Circuit Owner can review all authorizations that are issued on a particular 
 az network express-route auth list --circuit-name MyCircuit -g ExpressRouteResourceGroup
 ```
 
-**To add authorizations**
+**To create an authorization**
 
-The Circuit Owner can add authorizations by using the following example:
+The Circuit Owner can create an authorization by using the following example:
 
 ```azurecli-interactive
 az network express-route auth create --circuit-name MyCircuit -g ExpressRouteResourceGroup -n MyAuthorization1
@@ -177,16 +177,6 @@ az network vpn-connection update --name ERConnection --resource-group ExpressRou
 > [!NOTE]
 > You can use [Connection Monitor](how-to-configure-connection-monitor.md) to verify that your traffic is reaching the destination using FastPath.
 >
-
-## Enroll in ExpressRoute FastPath features (preview)
-
-FastPath support for virtual network peering is now in Public preview. Enrollment is only available through Azure PowerShell. For instructions on how to enroll, see [FastPath preview features](expressroute-howto-linkvnet-arm.md#fastpath-virtual-network-peering-user-defined-routes-udrs-and-private-link-support-for-expressroute-direct-connections).
-
-> [!NOTE] 
-> Any connections configured for FastPath in the target subscription will be enrolled in this preview. We do not advise enabling this preview in production subscriptions.
-> If you already have FastPath configured and want to enroll in the preview feature, you need to do the following:
-> 1. Enroll in the FastPath preview feature with the Azure PowerShell command above.
-> 1. Disable and then re-enable FastPath on the target connection.
 
 ## Clean up resources
 

@@ -4,7 +4,8 @@ description: Learn how to use a solution template to incrementally copy new or u
 author: dearandyxu
 ms.author: yexu
 ms.topic: conceptual
-ms.date: 05/15/2024
+ms.date: 10/03/2024
+ms.subservice: data-movement
 ---
 
 # Delta copy from a database with a control table

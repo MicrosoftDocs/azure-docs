@@ -24,8 +24,6 @@ Most of the Linux Operating Systems (OS) are covered by both agents. The agents 
 | Ubuntu 20.04 | ✓ | ✓ | ✓ |
 | Ubuntu 22.04 | ✓ |  |  |
 
-The Defender for IoT micro agent also supports Yocto as an open source.
-
 For a more granular view of the micro agent-operating system dependencies, see [Linux dependencies](concept-micro-agent-linux-dependencies.md#linux-dependencies).
 
 ## Eclipse ThreadX micro agent

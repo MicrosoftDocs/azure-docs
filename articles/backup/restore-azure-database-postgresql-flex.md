@@ -1,9 +1,11 @@
 ---
-title: Restore Azure Database for PostgreSQL -Flexible server backups (preview)
+title: Restore Azure Database for PostgreSQL -Flexible server backups
 description: Learn about how to restore Azure Database for PostgreSQL -Flexible backups.
 ms.topic: how-to
 ms.date: 06/14/2024
 ms.service: azure-backup
+ms.custom:
+  - ignite-2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -55,21 +57,28 @@ Follow these steps:
      
    - The Fifth file **_tablespaces**. Has the tablespaces backed up using pg_dumpall
 
-1. Post restoration completion to the target storage account, you can use pg_restore utility to restore an Azure Database for PostgreSQL flexible server database from the target. Use the following command to connect to an existing postgresql flexible server and an existing database
+1. Post restoration completion to the target storage account, you can use pg_restore utility to restore the database and other files to a PostgreSQL Flexible server. Use the following command to connect to an existing postgresql flexible server and an existing database
 
-   `pg_restore -h <hostname> -U <username> -d <db name> -Fd -j <NUM>  -C  <dump directory>`
+   `az storage blob download --container-name <container-name> --name <blob-name> --account-name <storage-account-name> --account-key <storage-account-key> --file - | pg_restore -h <postgres-server-url> -p <port> -U <username> -d <database-name> -v -`
 
+   * `--account-name`: Name of the Target Storage Account.
+   * `--container-name`: Name of the blob container.
+   * `--blob-name`: Name of the blob.
+   * `--account-key`: Storage Account Key.
    * `-Fd`: The directory format.   
    * `-j`: The number of jobs.   
    * `-C`: Begin the output with a command to create the database itself and then reconnect to it.     
 
-   Here's an example of how this syntax might appear:
-
-   `pg_restore -h <hostname>  -U <username> -j <Num of parallel jobs> -Fd -C -d <databasename> sampledb_dir_format`
-
    If you have more than one database to restore, re-run the earlier command for each database.
 
    Also, by using multiple concurrent jobs **-j**, you can reduce the time it takes to restore a large database on a multi-vCore target server. The number of jobs can be equal to or less than the number of vCPUs that are allocated for the target server.
+
+1. To restore the other three files (roles, schema and tablespaces), use the psql utility to restore them to a PostgreSQL Flexible server.
+
+    `az storage blob download --container-name <container-name> --name <blob-name> --account-name <storage-account-name> --account-key <storage-account-key> --file - 
+     | psql -h <hostname> -U <username> -d <db name> -f <dump directory> -v -`
+
+   Re-run the above command for each file.
  
 ## Next steps
 

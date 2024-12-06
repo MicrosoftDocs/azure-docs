@@ -5,6 +5,10 @@ author: oshezaf
 ms.topic: how-to
 ms.date: 11/09/2021
 ms.author: ofshezaf
+
+
+#Customer intent: As a security analyst, I want to manage and customize ASIM parsers so that I can normalize and analyze security data from various sources effectively.
+
 --- 
 
 # Manage Advanced Security Information Model (ASIM) parsers (Public preview)
@@ -57,7 +61,7 @@ Microsoft Sentinel users cannot edit built-in unifying parsers. Instead, use the
 
 To add a custom parser, insert a line to the custom unifying parser to reference the new, custom parser. 
 
-Make sure to add both a filtering custom parser and a parameter-less custom parser. To learn more about how to edit parsers, refer to the document [Functions in Azure Monitor log queries](../azure-monitor/logs/functions.md#edit-a-function).
+Make sure to add both a filtering custom parser and a parameter-less custom parser. To learn more about how to edit parsers, refer to the document [Functions in Azure Monitor log queries](/azure/azure-monitor/logs/functions#edit-a-function).
 
 The syntax of the line to add is different for each schema:
 

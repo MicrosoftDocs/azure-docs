@@ -84,3 +84,5 @@ The Azure SDK for .NET contains libraries that build on top of the Azure REST AP
 - [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata) (REST API)
 
 [!INCLUDE [storage-dev-guide-resources-dotnet](../../../includes/storage-dev-guides/storage-dev-guide-resources-dotnet.md)]
+
+[!INCLUDE [storage-dev-guide-next-steps-dotnet](../../../includes/storage-dev-guides/storage-dev-guide-next-steps-dotnet.md)]

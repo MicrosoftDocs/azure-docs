@@ -2,7 +2,7 @@
  title: include file
  description: include file
  author: timlt
- ms.service: iot-develop
+ ms.service: azure-iot
  ms.topic: include
  ms.date: 10/07/2021
  ms.author: timlt

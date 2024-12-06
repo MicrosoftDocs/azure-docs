@@ -184,7 +184,7 @@ This section lists common error codes and messages reported by mapping data flow
 
 - **Message**: Resource not found.
 - **Cause**: Invalid configuration is provided (for example, the partition key with invalid characters) or the resource doesn't exist.
-- **Recommendation**: To solve this issue, refer to [Diagnose and troubleshoot Azure Cosmos DB not found exceptions](../cosmos-db/troubleshoot-not-found.md).
+- **Recommendation**: To solve this issue, refer to [Diagnose and troubleshoot Azure Cosmos DB not found exceptions](/azure/cosmos-db/troubleshoot-not-found).
 
 ### Error code: DF-Cosmos-ShortTypeNotSupport
 

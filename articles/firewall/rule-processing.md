@@ -4,7 +4,7 @@ description: Azure Firewall has NAT rules, network rules, and applications rules
 services: firewall
 author: vhorne
 ms.service: azure-firewall
-ms.topic: article
+ms.topic: concept-article
 ms.date: 07/02/2024
 ms.author: victorh
 ---
@@ -45,7 +45,7 @@ Here's an example policy:
 Assuming BaseRCG1 is a rule collection group priority (200) that contains the rule collections: DNATRC1, DNATRC3,NetworkRC1.\
 BaseRCG2 is a rule collection group priority (300) that contains the rule collections: AppRC2, NetworkRC2.\
 ChildRCG1 is a rule collection group priority (300) that contains the rule collections: ChNetRC1, ChAppRC1.\
-ChildRCG2 is a rule collection group that contains the rule collections: ChNetRC2, ChAppRC2,ChDNATRC3.
+ChildRCG2 is a rule collection group priority (650) that contains the rule collections: ChNetRC2, ChAppRC2,ChDNATRC3.
 
 As per following table:
 
@@ -66,14 +66,14 @@ As per following table:
 |ChAppRC2      |     Application rule collection    |2000         |7         |-|
 |ChDNATRC3     | DNAT rule collection        | 3000        |  2       |-|
 
-Initial Processing:
+Initial Iteration for DNAT Rules:
 
 The process begins by examining the rule collection group (RCG) with the lowest number, which is BaseRCG1 with a priority of 200. Within this group, it searches for DNAT rule collections and evaluates them according to their priorities. In this case, DNATRC1 (priority 600) and DNATRC3 (priority 610) are found and processed accordingly.\
-Next, it moves to the next RCG, BaseRCG2 (priority 200), but finds no DNAT rule collection.\
+Next, it moves to the next RCG, BaseRCG2 (priority 300), but finds no DNAT rule collection.\
 Following that, it proceeds to ChildRCG1 (priority 300), also without a DNAT rule collection.\
 Finally, it checks ChildRCG2 (priority 650) and finds the ChDNATRC3 rule collection (priority 3000).
 
-Iteration Within Rule Collection Groups:
+Iteration for NETWORK Rules:
 
 Returning to BaseRCG1, the iteration continues, this time for NETWORK rules. Only NetworkRC1 (priority 800) is found.\
 Then, it moves to BaseRCG2, where NetworkRC2 (priority 1300) is located.\
@@ -135,7 +135,7 @@ If still no match is found within application rules, then the packet is evaluate
 
 ### DNAT rules and Network rules
 
-Inbound Internet connectivity can be enabled by configuring Destination Network Address Translation (DNAT) as described in [Filter inbound traffic with Azure Firewall DNAT using the Azure portal](../firewall/tutorial-firewall-dnat.md). NAT rules are applied in priority before network rules. If a match is found, the traffic is translated according to the DNAT rule and allowed by the firewall. So the traffic isn't subject to any further processing by other network rules. For security reasons, the recommended approach is to add a specific Internet source to allow DNAT access to the network and avoid using wildcards.
+Inbound Internet or intranet (preview) connectivity can be enabled by configuring Destination Network Address Translation (DNAT) as described in [Filter inbound Internet or intranet traffic with Azure Firewall DNAT using the Azure portal](../firewall/tutorial-firewall-dnat.md). NAT rules are applied in priority before network rules. If a match is found, the traffic is translated according to the DNAT rule and allowed by the firewall. So the traffic isn't subject to any further processing by other network rules. For security reasons, the recommended approach is to add a specific Internet source to allow DNAT access to the network and avoid using wildcards.
 
 Application rules aren't applied for inbound connections. So, if you want to filter inbound HTTP/S traffic, you should use Web Application Firewall (WAF). For more information, see [What is Azure Web Application Firewall](../web-application-firewall/overview.md)?
 

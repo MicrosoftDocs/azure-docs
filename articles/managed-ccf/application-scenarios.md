@@ -25,7 +25,7 @@ A recommended approach is to deploy the LOB application on an Azure Confidential
 
 Due to several recent breaches in the supply chain industry, organizations are exploring ways to increase visibility and auditability into their manufacturing process. On the other hand, consumer awareness on unfair manufacturing processes and mistreatment of workforce has increased.  In this example, we describe a scenario that tracks the life of coffee beans from the farm to the cup. Fabrikam is a coffee bean roaster and retailer. It hosts an existing LOB web application that is used by different personas like farmers, distributors, Fabrikam's procurement team and the end consumers. To improve security and auditability, Fabrikam deploys the web application to an Azure Confidential VM and uses decentralized RBAC managed in Managed CCF by a consortium of members.
 
-A sample [decentralized RBAC application](https://github.com/microsoft/ccf-app-samples/tree/main/decentralize-rbac-app) is published in GitHub for reference.
+A sample [decentralized RBAC application](https://github.com/microsoft/ccf-app-samples/tree/main/decentralized-rbac-app) is published in GitHub for reference.
 
 ## Data for Purpose
 

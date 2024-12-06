@@ -3,7 +3,7 @@ title: Assessment options in Update Manager.
 description: The article describes the assessment options available in Update Manager.
 ms.service: azure-update-manager
 ms.date: 02/03/2024
-ms.topic: conceptual
+ms.topic: overview
 author: snehasudhirG
 ms.author: sudhirsneha
 ---

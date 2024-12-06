@@ -24,15 +24,15 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 
 1. On the **Products** tab, go to the **Compute** section or search for *Batch* in the search bar. on the **Batch** tile, select **Add to estimate** and scroll down to the **Your Estimate** section.
 
-1. Notice that Azure Batch is a free service and that the costs associated with Azure Batch are for the underlying resources that run your workloads. When adding Azure Batch to your estimate, the pricing calculator automatically creates a selection for **Cloud Services** and **Virtual machines**. You can read more about [Azure Cloud Services](../cloud-services/cloud-services-choose-me.md) and [Azure Virtual Machines (VMs)](../virtual-machines/overview.md) in each product's documentation. What you need to know for estimated the cost of Azure Batch is that virtual machines are the most significant resource.
+1. Notice that Azure Batch is a free service and that the costs associated with Azure Batch are for the underlying resources that run your workloads. When adding Azure Batch to your estimate, the pricing calculator automatically creates a selection for **Cloud Services** and **Virtual machines**. You can read more about [Azure Cloud Services](../cloud-services/cloud-services-choose-me.md) and [Azure Virtual Machines (VMs)](/azure/virtual-machines/overview) in each product's documentation. What you need to know for estimated the cost of Azure Batch is that virtual machines are the most significant resource.
 
-   Select options from the drop-downs. There are various options available to choose from. The options that have the largest impact on your estimate total are your virtual machine's operating system, the operating system license if applicable, the [VM size](../virtual-machines/sizes.md) you select under **INSTANCE**, the number of instances you choose, and the amount of time your month your instances to run.
+   Select options from the drop-downs. There are various options available to choose from. The options that have the largest impact on your estimate total are your virtual machine's operating system, the operating system license if applicable, the [VM size](/azure/virtual-machines/sizes) you select under **INSTANCE**, the number of instances you choose, and the amount of time your month your instances to run.
 
    Notice that the total estimate changes as you select different options. The estimate appears in the upper corner and the bottom of the **Your Estimate** section.
 
    ![Screenshot showing the your estimate section and main options available for Azure Batch.](media/plan-to-manage-costs/batch-pricing-calculator-overview.png)
 
-   You can learn more about the cost of running virtual machines from the [Plan to manage costs for virtual machines documentation](../virtual-machines/cost-optimization-plan-to-manage-costs.md).
+   You can learn more about the cost of running virtual machines from the [Plan to manage costs for virtual machines documentation](/azure/virtual-machines/cost-optimization-plan-to-manage-costs).
 
 ## Understand the full billing model for Azure Batch
 
@@ -47,7 +47,7 @@ Azure Batch is a free service. There are no costs for Batch itself. However, the
 Although Batch itself is a free service, many of the underlying resources that run your workloads aren't. These include:
 
 - [Virtual Machines](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)
-    - To learn more about the costs associated with virtual machines, see the [How you're charged for virtual machines section of Plan to manage costs for virtual machines](../virtual-machines/cost-optimization-plan-to-manage-costs.md#how-youre-charged-for-virtual-machines).
+    - To learn more about the costs associated with virtual machines, see the [How you're charged for virtual machines section of Plan to manage costs for virtual machines](/azure/virtual-machines/cost-optimization-plan-to-manage-costs#how-youre-charged-for-virtual-machines).
     - Each VM in a pool created with [Virtual Machine Configuration](nodes-and-pools.md#virtual-machine-configuration) has an associated OS disk that uses Azure-managed disks. Azure-managed disks have an additional cost, and other disk performance tiers have different costs as well.
 - Storage
     - When applications are deployed to Batch node virtual machines using [application packages](batch-application-packages.md), you're billed for the Azure Storage resources that your application packages consume. You're also billed for the storage of any input or output files, such as resource files and other log data.
@@ -68,7 +68,7 @@ After you delete Azure Batch resources, the following resources might continue t
 
 - Virtual machine
 - Any disks deployed other than the OS and local disks
-    - By default, the OS disk is deleted with the VM, but it can be [set not to during the VM's creation](../virtual-machines/delete.md)
+    - By default, the OS disk is deleted with the VM, but it can be [set not to during the VM's creation](/azure/virtual-machines/delete)
 - Virtual network
     - Your virtual NIC and public IP, if applicable, can be set to delete along with your virtual machine
 - Bandwidth
@@ -177,7 +177,7 @@ By default, pool nodes use managed disks, which incur costs. Virtual Machine Con
 
 ### Purchase reservations for virtual machine instances
 
-If you intend to use Batch for a long period of time, you can reduce the cost of VMs by using [Azure Reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md) for your workloads. A reservation rate is considerably lower than a pay-as-you-go rate. Virtual machine instances used without a reservation are charged at the pay-as-you-go rate. When you purchase a reservation, the reservation discount is applied. When you commit to one-year or three-year plans for [VM instances](../virtual-machines/prepay-reserved-vm-instances.md), significant discounts are applied to VM usage, including [VMs consumed via Batch pools](../virtual-machines/prepay-reserved-vm-instances.md#determine-the-right-vm-size-before-you-buy).
+If you intend to use Batch for a long period of time, you can reduce the cost of VMs by using [Azure Reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md) for your workloads. A reservation rate is considerably lower than a pay-as-you-go rate. Virtual machine instances used without a reservation are charged at the pay-as-you-go rate. When you purchase a reservation, the reservation discount is applied. When you commit to one-year or three-year plans for [VM instances](/azure/virtual-machines/prepay-reserved-vm-instances), significant discounts are applied to VM usage, including [VMs consumed via Batch pools](/azure/virtual-machines/prepay-reserved-vm-instances#determine-the-right-vm-size-before-you-buy).
 
 It is important to note that reservation discount is "use-it-or-lose-it."  If there no matching resources are used for an hour, you'll lose the reservation quantity for that hour. Unused reserved hours can't be carried forward, and are therefore lost if not used. Batch workloads often scale the number of allocated VMs according to load and have varying load, including periods where there is no load. Care therefore needs to be taken determining the reservation amount, given that reserved hours are lost if Batch VMs are scaled down below the reservation quantity.
 

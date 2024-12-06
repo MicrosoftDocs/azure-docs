@@ -12,7 +12,7 @@
 ## Create a namespace topic
 
 1. If you aren't on the Event Grid Namespace page, follow the [create, view, and manage namespaces](../create-view-manage-namespaces.md) steps to view the namespace you want to use to create the topic.
-2. On the **Event Grid Namespace** page, select **Topics** option in the **Eventing** section on the left menu.
+2. On the **Event Grid Namespace** page, select **Topics** option in the **Event broker** section on the left menu.
 3. On the **Topics** page, select **+ Topic** button on the command bar.
 
     :::image type="content" source="../media/create-view-manage-namespace-topics/namespace-topic-creation.png" alt-text="Screenshot showing Event Grid namespace topic creation." lightbox="../media/create-view-manage-namespace-topics/namespace-topic-creation.png":::

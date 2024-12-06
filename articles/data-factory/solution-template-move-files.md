@@ -5,7 +5,8 @@ author: dearandyxu
 ms.author: yexu
 ms.reviewer: jburchel
 ms.topic: conceptual
-ms.date: 05/15/2024
+ms.date: 10/03/2024
+ms.subservice: data-movement
 ---
 
 # Move files with Azure Data Factory

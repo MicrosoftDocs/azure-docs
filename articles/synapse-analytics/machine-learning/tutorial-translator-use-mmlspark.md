@@ -11,7 +11,7 @@ ms.author: ruxu
 
 # Tutorial: Translator with Azure AI services
 
-[Translator](../../ai-services/Translator/index.yml) is an [Azure AI services](../../ai-services/index.yml) that enables you to perform language translation and other language-related operations. In this tutorial, you'll learn how to use [Translator](../../ai-services/Translator/index.yml) to build intelligent, multi-language solutions on Azure Synapse Analytics.
+[Translator](/azure/ai-services/translator/) is an [Azure AI services](/azure/ai-services/) that enables you to perform language translation and other language-related operations. In this tutorial, you'll learn how to use [Translator](/azure/ai-services/translator/) to build intelligent, multi-language solutions on Azure Synapse Analytics.
 
 This tutorial demonstrates using translator with [MMLSpark](https://github.com/Azure/mmlspark) to:
 

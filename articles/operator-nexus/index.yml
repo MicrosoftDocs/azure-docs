@@ -11,8 +11,8 @@ metadata:
    Learn how to deploy, manage, and use Operator Nexus with these concepts and quickstarts.
   ms.service: azure-operator-nexus
   ms.topic: landing-page
-  author: jashobhit
-  ms.author: shobhitjain
+  author: scottsteinbrueck
+  ms.author: ssteinbrueck
   ms.date: 01/23/2023
 # linkListType: architecture | concept | how-to-guide | overview | quickstart | reference | tutorial # | whats-new
 

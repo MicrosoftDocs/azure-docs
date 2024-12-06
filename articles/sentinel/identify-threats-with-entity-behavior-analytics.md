@@ -4,11 +4,15 @@ description: Create behavioral baselines for entities (users, hostnames, IP addr
 author: yelevin
 ms.author: yelevin
 ms.topic: conceptual
-ms.date: 03/19/2024
+ms.date: 10/16/2024
 appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
+
+
+#Customer intent: As a security analyst, I want to leverage User and Entity Behavior Analytics (UEBA) so that I can efficiently detect and prioritize sophisticated threats within my organization.
+
 ---
 
 # Advanced threat detection with User and Entity Behavior Analytics (UEBA) in Microsoft Sentinel
@@ -21,7 +25,7 @@ The UEBA capability in Microsoft Sentinel eliminates the drudgery from your anal
 
 [!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
-All the benefits of UEBA are available in the unified security operations platform in the Microsoft Defender portal.
+All the benefits of UEBA are available in the Microsoft Defender portal.
 
 ## What is User and Entity Behavior Analytics (UEBA)?
 
@@ -53,7 +57,7 @@ Microsoft Sentinel presents artifacts that help your security analysts get a cle
 The user entity information that Microsoft Sentinel uses to build its user profiles comes from your Microsoft Entra ID (and/or your on-premises Active Directory, now in Preview). When you enable UEBA, it synchronizes your Microsoft Entra ID with Microsoft Sentinel, storing the information in an internal database visible through the *IdentityInfo* table.
 
 - In Microsoft Sentinel in the Azure portal, you query the *IdentityInfo* table in Log Analytics on the **Logs** page.
-- In the unified security operations platform in Microsoft Defender, you query this table in **Advanced hunting**.
+- In the Defender portal, you query this table in **Advanced hunting**.
 
 Now in preview, you can also sync your on-premises Active Directory user entity information as well, using Microsoft Defender for Identity.
 
@@ -85,7 +89,7 @@ BehaviorAnalytics
 ```
 
 - In Microsoft Sentinel in the Azure portal, you query the *BehaviorAnalytics* table in Log Analytics on the **Logs** page.
-- In the unified security operations platform in Microsoft Defender, you query this table in **Advanced hunting**.
+- In the Defender portal, you query this table in **Advanced hunting**.
 
 ### User peers metadata - table and notebook
 

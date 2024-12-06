@@ -6,7 +6,8 @@ ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
 ms.custom: synapse
-ms.date: 10/20/2023
+ms.date: 10/03/2024
+ms.subservice: orchestration
 ---
 
 # Transform data by using the Script activity in Azure Data Factory or Synapse Analytics 
@@ -15,7 +16,7 @@ ms.date: 10/20/2023
 
 You use data transformation activities in a Data Factory or Synapse [pipeline](concepts-pipelines-activities.md) to transform and process raw data into predictions and insights. The Script activity is one of the transformation activities that pipelines support. This article builds on the [transform data article](transform-data.md), which presents a general overview of data transformation and the supported transformation activities. 
 
-Using the script activity, you can execute common operations with Data Manipulation Language (DML), and Data Definition Language (DDL). DML statements like INSERT, UPDATE, DELETE and SELECT let users insert, modify, delete and retrieve data in the database. DDL statements like CREATE, ALTER and DROP allow a database manager to create, modify, and remove database objects such as tables, indexes, and users.
+Using the script activity, you can execute common operations with Data Manipulation Language (DML), and Data Definition Language (DDL). DML statements like INSERT, UPDATE, DELETE and SELECT let users insert, modify, delete, and retrieve data in the database. DDL statements like CREATE, ALTER and DROP allow a database manager to create, modify, and remove database objects such as tables, indexes, and users.
 
 You can use the Script activity to invoke a SQL script in one of the following data stores in your enterprise or on an Azure virtual machine (VM): 
 
@@ -25,7 +26,7 @@ You can use the Script activity to invoke a SQL script in one of the following d
 - Oracle
 - Snowflake
 
-The script may contain either a single SQL statement or multiple SQL statements that run sequentially. You can use the Script task for the following purposes:
+The script can contain either a single SQL statement or multiple SQL statements that run sequentially. You can use the Script task for the following purposes:
 
 - Truncate a table in preparation for inserting data. 
 - Create, alter, and drop database objects such as tables and views. 
@@ -87,7 +88,7 @@ The following table describes these JSON properties:
 |Property name  |Description  |Required  |
 |---------|---------|---------|
 |name     |The name of the activity.          |Yes         |
-|type     |The type of the activity, set to “Script”.          |Yes         |
+|type     |The type of the activity, set to "Script".          |Yes         |
 |typeProperties     |Specify properties to configure the Script Activity.          |Yes         |
 |linkedServiceName     |The target database the script runs on. It should be a reference to a linked service.          |Yes         |
 |scripts     |An array of objects to represent the script.          |No         |
@@ -97,14 +98,14 @@ The following table describes these JSON properties:
 |scripts.parameter.name     |The name of the parameter.          |No         |
 |scripts.parameter.value     |The value of the parameter.          |No         |
 |scripts.parameter.type     |The data type of the parameter. The type is logical type and follows type mapping of each connector.         |No         |
-|scripts.parameter.direction     |The direction of the parameter. It can be Input, Output, InputOutput. The value is ignored if the direction is Output. ReturnValue type is not supported. Set the return value of SP to an output parameter to retrieve it.          |No         |
+|scripts.parameter.direction     |The direction of the parameter. It can be Input, Output, InputOutput. The value is ignored if the direction is Output. ReturnValue type isn't supported. Set the return value of SP to an output parameter to retrieve it.          |No         |
 |scripts.parameter.size     |The max size of the parameter. Only applies to Output/InputOutput direction parameter of type string/byte[].          |No         |
 |scriptBlockExecutionTimeout    |The wait time for the script block execution operation to complete before it times out.        |No         |
 |logSettings     |The settings to store the output logs. If not specified, script log is disabled.          |No         |
 |logSettings.logDestination     |The destination of log output. It can be ActivityOutput or ExternalStore. Default: ActivityOutput.          |No         |
 |logSettings.logLocationSettings     |The settings of the target location if logDestination is ExternalStore.          |No         |
 |logSettiongs.logLocationSettings.linkedServiceName     |The linked service of the target location. Only blob storage is supported.          |No         |
-|logSettings.logLocationSettings.path     |The folder path under which logs will be stored.          |No         |
+|logSettings.logLocationSettings.path     |The folder path under which to store logs.          |No         |
 
 ## Activity output
 
@@ -144,9 +145,9 @@ Sample output:
 |resultSets     |The array which contains all the result sets.           |Always          |
 |resultSets.rowCount      |Total rows in the result set.         |Always          |
 |resultSets.rows      |The array of rows in the result set.           |Always         |
-|recordsAffected      |The row count of affected rows by the script.         |If scriptType is NonQuery.          |
+|recordsAffected      |The row count of affected rows by the script.         |If scriptType is NonQuery         |
 |outputParameters     |The output parameters of the script.         |If parameter type is Output or InputOutput.          |
-|outputLogs     |The logs written by the script, for example, print statement.         |If connector supports log statement and enableScriptLogs is true and logLocationSettings is not provided.          |
+|outputLogs     |The logs written by the script, for example, print statement.         |If connector supports log statement and enableScriptLogs is true and logLocationSettings isn't provided.          |
 |outputLogsPath     |The full path of the log file.         |If enableScriptLogs is true and logLocationSettings is provided.          |
 |outputTruncated     |Indicator of whether the output exceeds the limits and get truncated.          |If output exceeds the limits.         |
 
@@ -172,8 +173,8 @@ Inline scripts integrate well with Pipeline CI/CD since the script is stored as 
 Logging options:
 
 - _Disable_ - No execution output is logged.
-- _Activity output_ - The script execution output is appended to the activity output. It can be consumed by downstream activities. The output size is limited to 4MB.  
-- _External storage_ - Persists output to storage.  Use this option if the output size is greater than 2MB or you would like to explicitly persist the output on your storage account.
+- _Activity output_ - The script execution output is appended to the activity output. Downstream activities can then consume it. The output size is limited to 4 MB.  
+- _External storage_ - Persists output to storage.  Use this option if the output size is greater than 2 MB or you would like to explicitly persist the output on your storage account.
  
 > [!NOTE]
 > **Billing** - The Script activity will be [billed](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/) as **Pipeline activities**.

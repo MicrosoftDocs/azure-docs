@@ -10,7 +10,7 @@ ms.custom: devx-track-python, devx-track-azurecli
 
 # Use the Azure Compute Gallery to create a custom image pool
 
-When you create an Azure Batch pool using the Virtual Machine Configuration, you specify a VM image that provides the operating system for each compute node in the pool. You can create a pool of virtual machines either with a supported Azure Marketplace image or create a custom image with an [Azure Compute Gallery image](../virtual-machines/shared-image-galleries.md).
+When you create an Azure Batch pool using the Virtual Machine Configuration, you specify a VM image that provides the operating system for each compute node in the pool. You can create a pool of virtual machines either with a supported Azure Marketplace image or create a custom image with an [Azure Compute Gallery image](/azure/virtual-machines/shared-image-galleries).
 
 ## Benefits of the Azure Compute Gallery
 
@@ -28,7 +28,7 @@ Using a Shared Image configured for your scenario can provide several advantages
 - **Copy large amounts of data once.** Make static data part of the managed Shared Image by copying it to a managed image's data disks. This only needs to be done once and makes data available to each node of the pool.
 - **Grow pools to larger sizes.** With the Azure Compute Gallery, you can create larger pools with your customized images along with more Shared Image replicas.
 - **Better performance than using just a managed image as a custom image.** For a Shared Image custom image pool, the time to reach the steady state is up to 25% faster, and the VM idle latency is up to 30% shorter.
-- **Image versioning and grouping for easier management.** The image grouping definition contains information about why the image was created, what OS it is for, and information about using the image. Grouping images allows for easier image management. For more information, see [Image definitions](../virtual-machines/shared-image-galleries.md#image-definitions).
+- **Image versioning and grouping for easier management.** The image grouping definition contains information about why the image was created, what OS it is for, and information about using the image. Grouping images allows for easier image management. For more information, see [Image definitions](/azure/virtual-machines/shared-image-galleries#image-definitions).
 
 ## Prerequisites
 
@@ -81,24 +81,24 @@ Follow these guidelines when creating VMs:
 - Ensure that the base OS image you provide uses the default temp drive. The Batch node agent currently expects the default temp drive.
 - Ensure that the OS disk isn't encrypted.
 - Once the VM is running, connect to it via RDP (for Windows) or SSH (for Linux). Install any necessary software or copy desired data.
-- For faster pool provisioning, use the [ReadWrite disk cache setting](../virtual-machines/premium-storage-performance.md#disk-caching) for the VM's OS disk.
+- For faster pool provisioning, use the [ReadWrite disk cache setting](/azure/virtual-machines/premium-storage-performance#disk-caching) for the VM's OS disk.
 
 ### Create an Azure Compute Gallery
  
-You need to create an Azure Compute Gallery to make your custom image available. Select this gallery when creating image in the following steps. To learn how to create an Azure Compute Gallery for your images, see [Create an Azure Compute Gallery](../virtual-machines/create-gallery.md).
+You need to create an Azure Compute Gallery to make your custom image available. Select this gallery when creating image in the following steps. To learn how to create an Azure Compute Gallery for your images, see [Create an Azure Compute Gallery](/azure/virtual-machines/create-gallery).
  
 ### Create an image
  
-To create an image from a VM in the portal, see [Capture an image of a VM](../virtual-machines/capture-image-portal.md).
+To create an image from a VM in the portal, see [Capture an image of a VM](/azure/virtual-machines/capture-image-portal).
  
-To create an image using a source other than a VM, see [Create an image](../virtual-machines/image-version.md).
+To create an image using a source other than a VM, see [Create an image](/azure/virtual-machines/image-version).
 
 > [!NOTE]
-> If the base image has purchase plan information, ensure that the gallery image has identical purchase plan information as the base image. For more information on creating image which has purchase plan, refer to [Supply Azure Marketplace purchase plan information when creating images](../virtual-machines/marketplace-images.md).
+> If the base image has purchase plan information, ensure that the gallery image has identical purchase plan information as the base image. For more information on creating image which has purchase plan, refer to [Supply Azure Marketplace purchase plan information when creating images](/azure/virtual-machines/marketplace-images).
 >
 > If the base image does not have purchase plan information, avoid specifying any purchase plan information for the gallery image.
 > 
-> For the purchase plan information about these Marketplace images, see the guidance for [Linux](../virtual-machines/linux/cli-ps-findimage.md#check-the-purchase-plan-information) or [Windows](../virtual-machines/windows/cli-ps-findimage.md#view-purchase-plan-properties) VMs.
+> For the purchase plan information about these Marketplace images, see the guidance for [Linux](/azure/virtual-machines/linux/cli-ps-findimage#check-the-purchase-plan-information) or [Windows](/azure/virtual-machines/windows/cli-ps-findimage#view-purchase-plan-properties) VMs.
 > 
 > Use Azure PowerShell [Get-AzGalleryImageDefinition](/powershell/module/az.compute/get-azgalleryimagedefinition) or Azure CLI  [az sig image-definition show](/cli/azure/sig/image-definition#az-sig-image-definition-show) to check whether the gallery image has correct plan information.
  
@@ -243,4 +243,4 @@ If you plan to create a pool with hundreds or thousands of VMs or more using a S
 ## Next steps
 
 - For an in-depth overview of Batch, see [Batch service workflow and resources](batch-service-workflow-features.md).
-- Learn about the [Azure Compute Gallery](../virtual-machines/shared-image-galleries.md).
+- Learn about the [Azure Compute Gallery](/azure/virtual-machines/shared-image-galleries).

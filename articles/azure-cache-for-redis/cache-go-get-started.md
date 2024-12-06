@@ -1,13 +1,13 @@
 ---
 title: Use Azure Cache for Redis with Go
 description: In this quickstart, you learn how to create a Go app that uses Azure Cache for Redis.
-author: flang-msft
-ms.author: franlanglois
-ms.service: azure-cache-redis
+
+
+
 ms.devlang: golang
 ms.topic: quickstart
 ms.date: 09/09/2021
-ms.custom: mode-api, devx-track-go
+ms.custom: mode-api, devx-track-go, ignite-2024
 ---
 
 # Quickstart: Use Azure Cache for Redis with Go
@@ -185,21 +185,7 @@ The HTTP server will start on port `8080`.
     Content-Length: 0
     ```
 
-## Clean up resources
-
-If you're finished with the Azure resource group and resources you created in this quickstart, you can delete them to avoid charges.
-
-> [!IMPORTANT]
-> Deleting a resource group is irreversible, and the resource group and all the resources in it are permanently deleted. If you created your Azure Cache for Redis instance in an existing resource group that you want to keep, you can delete just the cache by selecting **Delete** from the cache **Overview** page.
-
-To delete the resource group and its Redis Cache for Azure instance:
-
-1. From the [Azure portal](https://portal.azure.com), search for and select **Resource groups**.
-1. In the **Filter by name** text box, enter the name of the resource group that contains your cache instance, and then select it from the search results.
-1. On your resource group page, select **Delete resource group**.
-1. Type the resource group name, and then select **Delete**.
-
-   ![Delete your resource group for Azure Cache for Redis](./media/cache-python-get-started/delete-your-resource-group-for-azure-cache-for-redis.png)
+[!INCLUDE [cache-delete-resource-group](includes/cache-delete-resource-group.md)]
 
 ## Next steps
 

@@ -4,7 +4,7 @@ description: Archived release notes for Azure HDInsight. Get development tips an
 ms.service: azure-hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive, references_regions
-ms.date: 05/27/2024
+ms.date: 10/29/2024
 ---
 
 # Archived release notes
@@ -17,6 +17,159 @@ Subscribe to the [HDInsight Release Notes](./subscribe-to-hdi-release-notes-rep
 To subscribe, click the “watch” button in the banner and watch out for [HDInsight Releases](https://github.com/Azure/HDInsight/releases).
 
 ## Release Information
+
+### Release date: Aug 30, 2024
+
+> [!NOTE]
+> This is a Hotfix / maintenance release for Resource Provider. For more information see, [Resource Provider](.//hdinsight-overview-versioning.md#hdinsight-resource-provider).
+
+Azure HDInsight periodically releases maintenance updates for delivering bug fixes, performance enhancements, and security patches ensuring you stay up to date with these updates guarantees optimal performance and reliability.
+
+This release note applies to 
+
+:::image type="icon" source="./media/hdinsight-release-notes/yes-icon.svg" border="false"::: HDInsight 5.1 version.
+
+:::image type="icon" source="./media/hdinsight-release-notes/yes-icon.svg" border="false"::: HDInsight 5.0 version.
+
+:::image type="icon" source="./media/hdinsight-release-notes/yes-icon.svg" border="false"::: HDInsight 4.0 version. 
+
+
+HDInsight release will be available to all regions over several days. This release note is applicable for image number **2407260448**. [How to check the image number?](./view-hindsight-cluster-image-version.md)
+
+HDInsight uses safe deployment practices, which involve gradual region deployment. It might take up to 10 business days for a new release or a new version to be available in all regions.
+
+**OS versions**
+
+* HDInsight 5.1: Ubuntu 18.04.5 LTS Linux Kernel 5.4
+* HDInsight 5.0: Ubuntu 18.04.5 LTS Linux Kernel 5.4
+* HDInsight 4.0: Ubuntu 18.04.5 LTS Linux Kernel 5.4
+
+> [!NOTE]
+> Ubuntu 18.04 is supported under [Extended Security Maintenance(ESM)](https://techcommunity.microsoft.com/t5/linux-and-open-source-blog/canonical-ubuntu-18-04-lts-reaching-end-of-standard-support/ba-p/3822623) by the Azure Linux team for [Azure HDInsight July 2023](/azure/hdinsight/hdinsight-release-notes-archive#release-date-july-25-2023), release onwards. 
+
+For workload specific versions, see [HDInsight 5.x component versions](./hdinsight-5x-component-versioning.md).
+
+## Issue fixed
+
+* Default DB bug fix.
+
+## :::image type="icon" border="false" source="./media/hdinsight-release-notes/clock.svg"::: Coming soon
+
+* [Basic and Standard A-series VMs Retirement](https://azure.microsoft.com/updates/basic-and-standard-aseries-vms-on-hdinsight-will-retire-on-31-august-2024/).
+   * On August 31, 2024, we'll retire Basic and Standard A-series VMs. Before that date, you need to migrate your workloads to Av2-series VMs, which provide more memory per vCPU and faster storage on solid-state drives (SSDs).
+   * To avoid service disruptions, [migrate your workloads](https://aka.ms/Av1retirement) from Basic and Standard A-series VMs to Av2-series VMs before August 31, 2024.
+* Retirement Notifications for [HDInsight 4.0](https://azure.microsoft.com/updates/azure-hdinsight-40-will-be-retired-on-31-march-2025-migrate-your-hdinsight-clusters-to-51) and  [HDInsight 5.0](https://azure.microsoft.com/updates/hdinsight5retire/).
+ 
+If you have any more questions, contact [Azure Support](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview).
+
+You can always ask us about HDInsight on [Azure HDInsight - Microsoft Q&A](/answers/tags/168/azure-hdinsight).
+
+We're listening: You’re welcome to add more ideas and other topics here and vote for them - [HDInsight Ideas](https://feedback.azure.com/d365community/search/?q=HDInsight) and follow us for more updates on [AzureHDInsight Community](https://www.linkedin.com/groups/14313521/).
+
+> [!NOTE]
+> We advise customers to use to latest versions of HDInsight [Images](./view-hindsight-cluster-image-version.md) as they bring in the best of open source updates,  Azure updates and security fixes. For more information, see [Best practices](./hdinsight-overview-before-you-start.md).
+
+### Release date: Aug 09, 2024
+
+This release note applies to 
+
+:::image type="icon" source="./media/hdinsight-release-notes/yes-icon.svg" border="false"::: HDInsight 5.1 version.
+
+:::image type="icon" source="./media/hdinsight-release-notes/yes-icon.svg" border="false"::: HDInsight 5.0 version.
+
+:::image type="icon" source="./media/hdinsight-release-notes/yes-icon.svg" border="false"::: HDInsight 4.0 version. 
+
+
+HDInsight release will be available to all regions over several days. This release note is applicable for image number **2407260448**. [How to check the image number?](./view-hindsight-cluster-image-version.md)
+
+HDInsight uses safe deployment practices, which involve gradual region deployment. It might take up to 10 business days for a new release or a new version to be available in all regions.
+
+**OS versions**
+
+* HDInsight 5.1: Ubuntu 18.04.5 LTS Linux Kernel 5.4
+* HDInsight 5.0: Ubuntu 18.04.5 LTS Linux Kernel 5.4
+* HDInsight 4.0: Ubuntu 18.04.5 LTS Linux Kernel 5.4
+
+> [!NOTE]
+> Ubuntu 18.04 is supported under [Extended Security Maintenance(ESM)](https://techcommunity.microsoft.com/t5/linux-and-open-source-blog/canonical-ubuntu-18-04-lts-reaching-end-of-standard-support/ba-p/3822623) by the Azure Linux team for [Azure HDInsight July 2023](/azure/hdinsight/hdinsight-release-notes-archive#release-date-july-25-2023), release onwards. 
+
+For workload specific versions, see [HDInsight 5.x component versions](./hdinsight-5x-component-versioning.md).
+
+## Updates
+
+**[Addition of Azure Monitor Agent](./azure-monitor-agent.md) for Log Analytics in HDInsight**
+
+Addition of `SystemMSI` and Automated DCR for Log analytics, given the deprecation of [New Azure Monitor experience (preview)](./hdinsight-hadoop-oms-log-analytics-tutorial.md).
+
+> [!NOTE]
+> Effective Image number 2407260448, customers using portal for log analytics will have default [Azure Monitor Agent](./azure-monitor-agent.md) experience. In case you wish to switch to Azure Monitor experience (preview), you can pin your clusters to old images by creating a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+
+
+### Release date: Jul 05, 2024
+
+> [!NOTE]
+> This is a Hotfix / maintenance release for Resource Provider. For more information see, [Resource Provider](.//hdinsight-overview-versioning.md#hdinsight-resource-provider)
+
+### Fixed issues 
+
+* HOBO tags overwrite user tags. 
+
+   * HOBO tags overwrite user tags on sub-resources in HDInsight cluster creation. 
+
+### Release date: Jun 19, 2024
+
+This release note applies to 
+
+:::image type="icon" source="./media/hdinsight-release-notes/yes-icon.svg" border="false"::: HDInsight 5.1 version.
+
+:::image type="icon" source="./media/hdinsight-release-notes/yes-icon.svg" border="false"::: HDInsight 5.0 version.
+
+:::image type="icon" source="./media/hdinsight-release-notes/yes-icon.svg" border="false"::: HDInsight 4.0 version. 
+
+
+HDInsight release will be available to all regions over several days. This release note is applicable for image number **2406180258**. [How to check the image number?](./view-hindsight-cluster-image-version.md)
+
+HDInsight uses safe deployment practices, which involve gradual region deployment. It might take up to 10 business days for a new release or a new version to be available in all regions.
+
+**OS versions**
+
+* HDInsight 5.1: Ubuntu 18.04.5 LTS Linux Kernel 5.4
+* HDInsight 5.0: Ubuntu 18.04.5 LTS Linux Kernel 5.4
+* HDInsight 4.0: Ubuntu 18.04.5 LTS Linux Kernel 5.4
+
+> [!NOTE]
+> Ubuntu 18.04 is supported under [Extended Security Maintenance(ESM)](https://techcommunity.microsoft.com/t5/linux-and-open-source-blog/canonical-ubuntu-18-04-lts-reaching-end-of-standard-support/ba-p/3822623) by the Azure Linux team for [Azure HDInsight July 2023](/azure/hdinsight/hdinsight-release-notes-archive#release-date-july-25-2023), release onwards. 
+
+For workload specific versions, see [HDInsight 5.x component versions](./hdinsight-5x-component-versioning.md).
+
+## Fixed issues
+* Security enhancements
+    * Improvements on using Tags for clusters in line with the [SFI](https://www.microsoft.com/microsoft-cloud/resources/secure-future-initiative) requirements.
+    * Improvements in probes scripts as per the [SFI](https://www.microsoft.com/microsoft-cloud/resources/secure-future-initiative) requirements.
+* Improvements in the HDInsight Log Analytics with System Managed Identity support for HDInsight Resource Provider.
+* Addition of new activity to upgrade the `mdsd` agent version for old image (created before 2024).
+* Enabling MISE in gateway as part of the continued improvements for [MSAL Migration](/entra/identity-platform/msal-overview).
+* Incorporate Spark Thrift Server `Httpheader hiveConf` to the Jetty HTTP ConnectionFactory.
+* Revert RANGER-3753 and RANGER-3593.
+    
+    The `setOwnerUser` implementation given in Ranger 2.3.0 release has a critical regression issue when being used by Hive. In Ranger 2.3.0, when HiveServer2 tries to evaluate the policies, Ranger Client tries to get the owner of the hive table by calling the Metastore in the setOwnerUser function which essentially makes call to storage to check access for that table. This issue causes the queries to run slow when Hive runs on 2.3.0 Ranger.
+
+**Coming soon**
+
+* [Basic and Standard A-series VMs Retirement](https://azure.microsoft.com/updates/basic-and-standard-aseries-vms-on-hdinsight-will-retire-on-31-august-2024/).
+   * On August 31, 2024, we'll retire Basic and Standard A-series VMs. Before that date, you need to migrate your workloads to Av2-series VMs, which provide more memory per vCPU and faster storage on solid-state drives (SSDs).
+   * To avoid service disruptions, [migrate your workloads](https://aka.ms/Av1retirement) from Basic and Standard A-series VMs to Av2-series VMs before August 31, 2024.
+* Retirement Notifications for [HDInsight 4.0](https://azure.microsoft.com/updates/azure-hdinsight-40-will-be-retired-on-31-march-2025-migrate-your-hdinsight-clusters-to-51) and  [HDInsight 5.0](https://azure.microsoft.com/updates/hdinsight5retire/).
+ 
+If you have any more questions, contact [Azure Support](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview).
+
+You can always ask us about HDInsight on [Azure HDInsight - Microsoft Q&A](/answers/tags/168/azure-hdinsight).
+
+We're listening: You’re welcome to add more ideas and other topics here and vote for them - [HDInsight Ideas](https://feedback.azure.com/d365community/search/?q=HDInsight) and follow us for more updates on [AzureHDInsight Community](https://www.linkedin.com/groups/14313521/).
+
+> [!NOTE]
+> We advise customers to use to latest versions of HDInsight [Images](./view-hindsight-cluster-image-version.md) as they bring in the best of open source updates,  Azure updates and security fixes. For more information, see [Best practices](./hdinsight-overview-before-you-start.md).
+
 
 ### Release date: May 16, 2024
 
@@ -40,7 +193,7 @@ HDInsight uses safe deployment practices, which involve gradual region deploymen
 
 For workload specific versions, see [HDInsight 5.x component versions](./hdinsight-5x-component-versioning.md).
 
-## Fixed issues
+**Fixed issues**
 
 * Added API in gateway to get token for Keyvault, as part of the SFI initiative.
 * In the new Log monitor `HDInsightSparkLogs` table, for log type `SparkDriverLog`, some of the fields were missing. For example, `LogLevel & Message`. This release adds the missing fields to schemas and fixed formatting for `SparkDriverLog`.
@@ -89,7 +242,7 @@ For workload specific versions, see [HDInsight 5.x component versions](./hdinsig
 * CVE Fixes for [HDInsight Resource Provider](./hdinsight-overview-versioning.md#hdinsight-resource-provider).
 
 
-## :::image type="icon" border="false" source="./media/hdinsight-release-notes/clock.svg"::: Coming soon
+**Coming soon**
 
 * [Basic and Standard A-series VMs Retirement](https://azure.microsoft.com/updates/basic-and-standard-aseries-vms-on-hdinsight-will-retire-on-31-august-2024/).
    * On August 31, 2024, we'll retire Basic and Standard A-series VMs. Before that date, you need to migrate your workloads to Av2-series VMs, which provide more memory per vCPU and faster storage on solid-state drives (SSDs).
@@ -124,7 +277,6 @@ HDInsight uses safe deployment practices, which involve gradual region deploymen
 For workload specific versions, see 
 
 * [HDInsight 5.x component versions](./hdinsight-5x-component-versioning.md)
-* [HDInsight 4.x component versions](./hdinsight-40-component-versioning.md)
 
 ## New features
 
@@ -177,7 +329,6 @@ HDInsight uses safe deployment practices, which involve gradual region deploymen
 For workload specific versions, see 
 
 * [HDInsight 5.x component versions](./hdinsight-5x-component-versioning.md)
-* [HDInsight 4.x component versions](./hdinsight-40-component-versioning.md)
 
 ### Fixed issues
 
@@ -215,7 +366,6 @@ HDInsight uses safe deployment practices, which involve gradual region deploymen
 For workload specific versions, see 
 
 * [HDInsight 5.x component versions](./hdinsight-5x-component-versioning.md)
-* [HDInsight 4.x component versions](./hdinsight-40-component-versioning.md)
 
 ## What's new
 
@@ -276,7 +426,6 @@ HDInsight uses safe deployment practices, which involve gradual region deploymen
 For workload specific versions, see 
 
 * [HDInsight 5.x component versions](./hdinsight-5x-component-versioning.md)
-* [HDInsight 4.x component versions](./hdinsight-40-component-versioning.md)
 
 > [!IMPORTANT]
 > This release addresses the following CVEs released by [MSRC](https://msrc.microsoft.com/update-guide/vulnerability) on September 12, 2023. The action is to update to the latest image **2308221128**. Customers are advised to plan accordingly. 
@@ -324,7 +473,6 @@ HDInsight uses safe deployment practices, which involve gradual region deploymen
 For workload specific versions, see 
 
 * [HDInsight 5.x component versions](./hdinsight-5x-component-versioning.md)
-* [HDInsight 4.x component versions](./hdinsight-40-component-versioning.md)
 
 ## :::image type="icon" border="false" source="./media/hdinsight-release-notes/whats-new.svg"::: What's new
 * HDInsight 5.1 is now supported with ESP cluster.  
@@ -382,7 +530,6 @@ HDInsight uses safe deployment practices, which involve gradual region deploymen
 For workload specific versions, see 
 
 * [HDInsight 5.x component versions](./hdinsight-5x-component-versioning.md)
-* [HDInsight 4.x component versions](./hdinsight-40-component-versioning.md)
 
 :::image type="content" border="true" source="media/hdinsight-release-notes/new-icon-for-updated.png" alt-text="Icon showing update with text.":::
 
@@ -451,7 +598,6 @@ HDInsight uses safe deployment practices, which involve gradual region deploymen
 For workload specific versions, see 
 
 * [HDInsight 5.x component versions](./hdinsight-5x-component-versioning.md)
-* [HDInsight 4.x component versions](./hdinsight-40-component-versioning.md)
 
 > [!IMPORTANT] 
 > Microsoft has issued [CVE-2023-23408](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-23408), which is fixed on the current release and customers are advised to upgrade their clusters to latest image. 
@@ -493,7 +639,6 @@ For more information, see [HDInsight 5.1.0 version](./hdinsight-51-component-ver
 
 :::image type="content" border="true" source="media/hdinsight-release-notes/new-icon-for-end-of-support.png" alt-text="Icon showing end of support with text.":::
 
-End of support for Azure HDInsight clusters on Spark 2.4 February 10, 2024. For more information, see [Spark versions supported in Azure HDInsight](./hdinsight-40-component-versioning.md)
 
 ## What's next
 
@@ -522,8 +667,6 @@ HDInsight uses safe deployment practices, which involve gradual region deploymen
 
 * HDInsight 4.0: Ubuntu 18.04.5 LTS Linux Kernel 5.4
 * HDInsight 5.0: Ubuntu 18.04.5 LTS Linux Kernel 5.4
-
-For workload specific versions, see [here.](./hdinsight-40-component-versioning.md) 
 
 :::image type="content" border="true" source="media/hdinsight-release-notes/new-icon-for-new-feature.png" alt-text="Icon showing new features with text."::: 
 
@@ -1135,10 +1278,10 @@ Starting from July  2021, the Interactive Query workload in HDInsight only suppo
 Microsoft recommends that you move to a schedule-based Autoscale for LLAP.  You can analyze your cluster's current usage pattern through the Grafana Hive dashboard. For more information, see [Automatically scale Azure HDInsight clusters](hdinsight-autoscale-clusters.md). 
 
 #### VM host naming will be changed on July 1, 2021
-HDInsight now uses Azure virtual machines to provision the cluster. The service is gradually migrating to [Azure virtual machine scale sets](../virtual-machine-scale-sets/overview.md). This migration will change the cluster host name FQDN name format, and the numbers in the host name won't be guarantee in sequence. If you want to get the FQDN names for each node, refer to [Find the Host names of Cluster Nodes](./find-host-name.md).
+HDInsight now uses Azure virtual machines to provision the cluster. The service is gradually migrating to [Azure virtual machine scale sets](/azure/virtual-machine-scale-sets/overview). This migration will change the cluster host name FQDN name format, and the numbers in the host name won't be guarantee in sequence. If you want to get the FQDN names for each node, refer to [Find the Host names of Cluster Nodes](./find-host-name.md).
 
 #### Move to Azure virtual machine scale sets
-HDInsight now uses Azure virtual machines to provision the cluster. The service will gradually migrate to [Azure virtual machine scale sets](../virtual-machine-scale-sets/overview.md). The entire process might take months. After your regions and subscriptions are migrated, newly created HDInsight clusters will run on virtual machine scale sets without customer actions. No breaking change is expected.
+HDInsight now uses Azure virtual machines to provision the cluster. The service will gradually migrate to [Azure virtual machine scale sets](/azure/virtual-machine-scale-sets/overview). The entire process might take months. After your regions and subscriptions are migrated, newly created HDInsight clusters will run on virtual machine scale sets without customer actions. No breaking change is expected.
 
 ## Release date: 03/24/2021
 
@@ -1153,7 +1296,7 @@ HDInsight added [Kafka 2.4.1](http://kafka.apache.org/24/documentation.html) sup
 HDInsight added `Eav4`-series support in this release. 
 
 #### Moving to Azure virtual machine scale sets
-HDInsight now uses Azure virtual machines to provision the cluster. The service is gradually migrating to [Azure virtual machine scale sets](../virtual-machine-scale-sets/overview.md). The entire process might take months. After your regions and subscriptions are migrated, newly created HDInsight clusters will run on virtual machine scale sets without customer actions. No breaking change is expected.
+HDInsight now uses Azure virtual machines to provision the cluster. The service is gradually migrating to [Azure virtual machine scale sets](/azure/virtual-machine-scale-sets/overview). The entire process might take months. After your regions and subscriptions are migrated, newly created HDInsight clusters will run on virtual machine scale sets without customer actions. No breaking change is expected.
 
 ### Deprecation
 No deprecation in this release.
@@ -1186,7 +1329,7 @@ HDInsight 3.6 will continue to run on Ubuntu 16.04. It will reach the end of sta
 
 You need to drop and recreate your clusters if you’d like to move existing clusters to Ubuntu 18.04. Plan to create or recreate your cluster after Ubuntu 18.04 support becomes available. We’ll send another notification after the new image becomes available in all regions.
 
-It’s highly recommended that you test your script actions and custom applications deployed on edge nodes on an Ubuntu 18.04 virtual machine (VM) in advance. You can [create Ubuntu Linux VM on 18.04-LTS](https://azure.microsoft.com/resources/templates/vm-simple-linux/), then create and use a [secure shell (SSH) key pair](../virtual-machines/linux/mac-create-ssh-keys.md#ssh-into-your-vm) on your VM to run and test your script actions and custom applications deployed on edge nodes.
+It’s highly recommended that you test your script actions and custom applications deployed on edge nodes on an Ubuntu 18.04 virtual machine (VM) in advance. You can [create Ubuntu Linux VM on 18.04-LTS](https://azure.microsoft.com/resources/templates/vm-simple-linux/), then create and use a [secure shell (SSH) key pair](/azure/virtual-machines/linux/mac-create-ssh-keys#ssh-into-your-vm) on your VM to run and test your script actions and custom applications deployed on edge nodes.
 
 #### Disable Stardard_A5 VM size as Head Node for HDInsight 4.0
 HDInsight cluster Head Node is responsible for initializing and managing the cluster. Standard_A5 VM size has reliability issues as Head Node for HDInsight 4.0. Starting from the next release in May 2021, customers won't be able to create new clusters with Standard_A5 VM size as Head Node. You can use other 2-core VMs like E2_v3 or E2s_v3. Existing clusters will run as is. A 4-core VM is highly recommended for Head Node to ensure the high availability and reliability of your production HDInsight clusters.
@@ -1204,13 +1347,13 @@ This release applies for both HDInsight 3.6 and HDInsight 4.0. HDInsight release
 
 ### New features
 #### Dav4-series support
-HDInsight added Dav4-series support in this release. Learn more about [Dav4-series here](../virtual-machines/dav4-dasv4-series.md).
+HDInsight added Dav4-series support in this release. Learn more about [Dav4-series here](/azure/virtual-machines/dav4-dasv4-series).
 
 #### Kafka REST Proxy GA 
 Kafka REST Proxy enables you to interact with your Kafka cluster via a REST API over HTTPS. Kafka REST Proxy is general available starting from this release. Learn more about [Kafka REST Proxy here](./kafka/rest-proxy.md).
 
 #### Moving to Azure virtual machine scale sets
-HDInsight now uses Azure virtual machines to provision the cluster. The service is gradually migrating to [Azure virtual machine scale sets](../virtual-machine-scale-sets/overview.md). The entire process might take months. After your regions and subscriptions are migrated, newly created HDInsight clusters will run on virtual machine scale sets without customer actions. No breaking change is expected.
+HDInsight now uses Azure virtual machines to provision the cluster. The service is gradually migrating to [Azure virtual machine scale sets](/azure/virtual-machine-scale-sets/overview). The entire process might take months. After your regions and subscriptions are migrated, newly created HDInsight clusters will run on virtual machine scale sets without customer actions. No breaking change is expected.
 
 ### Deprecation
 #### Disabled VM sizes
@@ -1250,7 +1393,7 @@ Starting from this release, customers can use Azure KeyValut version-less encryp
 HDInsight previously didn't support customizing Zookeeper node size for Spark, Hadoop, and ML Services cluster types. It defaults to A2_v2/A2 virtual machine sizes, which are provided free of charge. From this release, you can select a Zookeeper virtual machine size that is most appropriate for your scenario. Zookeeper nodes with virtual machine size other than A2_v2/A2 will be charged. A2_v2 and A2 virtual machines are still provided free of charge.
 
 #### Moving to Azure virtual machine scale sets
-HDInsight now uses Azure virtual machines to provision the cluster. Starting from this release, the service will gradually migrate to [Azure virtual machine scale sets](../virtual-machine-scale-sets/overview.md). The entire process might take months. After your regions and subscriptions are migrated, newly created HDInsight clusters will run on virtual machine scale sets without customer actions. No breaking change is expected.
+HDInsight now uses Azure virtual machines to provision the cluster. Starting from this release, the service will gradually migrate to [Azure virtual machine scale sets](/azure/virtual-machine-scale-sets/overview). The entire process might take months. After your regions and subscriptions are migrated, newly created HDInsight clusters will run on virtual machine scale sets without customer actions. No breaking change is expected.
 
 ### Deprecation
 #### Deprecation of HDInsight 3.6 ML Services cluster
@@ -1279,7 +1422,7 @@ HDInsight Identity Broker (HIB) that enables OAuth authentication for ESP cluste
 For more information, see [HIB documentation](./domain-joined/identity-broker.md).
 
 #### Moving to Azure virtual machine scale sets
-HDInsight now uses Azure virtual machines to provision the cluster. Starting from this release, the service will gradually migrate to [Azure virtual machine scale sets](../virtual-machine-scale-sets/overview.md). The entire process might take months. After your regions and subscriptions are migrated, newly created HDInsight clusters will run on virtual machine scale sets without customer actions. No breaking change is expected.
+HDInsight now uses Azure virtual machines to provision the cluster. Starting from this release, the service will gradually migrate to [Azure virtual machine scale sets](/azure/virtual-machine-scale-sets/overview). The entire process might take months. After your regions and subscriptions are migrated, newly created HDInsight clusters will run on virtual machine scale sets without customer actions. No breaking change is expected.
 
 ### Deprecation
 #### Deprecation of HDInsight 3.6 ML Services cluster
@@ -1320,7 +1463,7 @@ This release applies for both HDInsight 3.6 and HDInsight 4.0. HDInsight release
 HDInsight now supports creating clusters with no public IP and private link access to the clusters in preview. Customers can use the new advanced networking settings to create a fully isolated cluster with no public IP and use their own private endpoints to access the cluster. 
 
 #### Moving to Azure virtual machine scale sets
-HDInsight now uses Azure virtual machines to provision the cluster. Starting from this release, the service will gradually migrate to [Azure virtual machine scale sets](../virtual-machine-scale-sets/overview.md). The entire process might take months. After your regions and subscriptions are migrated, newly created HDInsight clusters will run on virtual machine scale sets without customer actions. No breaking change is expected.
+HDInsight now uses Azure virtual machines to provision the cluster. Starting from this release, the service will gradually migrate to [Azure virtual machine scale sets](/azure/virtual-machine-scale-sets/overview). The entire process might take months. After your regions and subscriptions are migrated, newly created HDInsight clusters will run on virtual machine scale sets without customer actions. No breaking change is expected.
 
 ### Deprecation
 #### Deprecation of HDInsight 3.6 ML Services cluster
@@ -1359,10 +1502,10 @@ A fault domain is a logical grouping of underlying hardware in an Azure data cen
 Customers can enable encryption in transit between cluster nodes using IPSec encryption with platform-managed keys. This option can be enabled at the cluster creation time. See more details about [how to enable encryption in transit](./domain-joined/encryption-in-transit.md).
 
 #### Encryption at host
-When you enable encryption at host, data stored on the VM host is encrypted at rest and flows encrypted to the storage service. From this release, you can **Enable encryption at host on temp data disk** when creating the cluster. Encryption at host is only supported on [certain VM SKUs in limited regions](../virtual-machines/disks-enable-host-based-encryption-portal.md). HDInsight supports the [following node configuration and SKUs](./hdinsight-supported-node-configuration.md). See more details about [how to enable encryption at host](./disk-encryption.md#encryption-at-host-using-platform-managed-keys).
+When you enable encryption at host, data stored on the VM host is encrypted at rest and flows encrypted to the storage service. From this release, you can **Enable encryption at host on temp data disk** when creating the cluster. Encryption at host is only supported on [certain VM SKUs in limited regions](/azure/virtual-machines/disks-enable-host-based-encryption-portal). HDInsight supports the [following node configuration and SKUs](./hdinsight-supported-node-configuration.md). See more details about [how to enable encryption at host](./disk-encryption.md#encryption-at-host-using-platform-managed-keys).
 
 #### Moving to Azure virtual machine scale sets
-HDInsight now uses Azure virtual machines to provision the cluster. Starting from this release, the service will gradually migrate to [Azure virtual machine scale sets](../virtual-machine-scale-sets/overview.md). The entire process might take months. After your regions and subscriptions are migrated, newly created HDInsight clusters will run on virtual machine scale sets without customer actions. No breaking change is expected.
+HDInsight now uses Azure virtual machines to provision the cluster. Starting from this release, the service will gradually migrate to [Azure virtual machine scale sets](/azure/virtual-machine-scale-sets/overview). The entire process might take months. After your regions and subscriptions are migrated, newly created HDInsight clusters will run on virtual machine scale sets without customer actions. No breaking change is expected.
 
 ### Deprecation
 No deprecation for this release.
@@ -1483,7 +1626,7 @@ This release applies both for HDInsight 3.6 and 4.0. HDInsight release is made a
 
 ### New features
 #### Moving to Azure virtual machine scale sets
-HDInsight uses Azure virtual machines to provision the cluster now. From this release, new-created HDInsight clusters start using Azure virtual machine scale set. The change is rolling out gradually. You should expect no breaking change. See more about [Azure virtual machine scale sets](../virtual-machine-scale-sets/overview.md).
+HDInsight uses Azure virtual machines to provision the cluster now. From this release, new-created HDInsight clusters start using Azure virtual machine scale set. The change is rolling out gradually. You should expect no breaking change. See more about [Azure virtual machine scale sets](/azure/virtual-machine-scale-sets/overview).
  
 #### Reboot VMs in HDInsight cluster
 In this release, we support rebooting VMs in HDInsight cluster to reboot unresponsive nodes. Currently you can only do it through API, PowerShell and CLI support is on the way. For more information about the API, see [this doc](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/hdinsight/resource-manager/Microsoft.HDInsight/stable/2021-06-01/virtualMachines.json).
@@ -1627,7 +1770,7 @@ Starting from the next release, you will be able to opt in and configure your ne
 Later in the year, starting on 6/30/2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. We recommend that you ensure that all your clients are ready to handle TLS 1.2 or later versions.
 
 #### Moving to Azure virtual machine scale sets
-HDInsight now uses Azure virtual machines to provision the cluster. Starting from February 2020 (exact date will be communicated later), HDInsight will use Azure virtual machine scale sets instead. See more about [Azure virtual machine scale sets](../virtual-machine-scale-sets/overview.md).
+HDInsight now uses Azure virtual machines to provision the cluster. Starting from February 2020 (exact date will be communicated later), HDInsight will use Azure virtual machine scale sets instead. See more about [Azure virtual machine scale sets](/azure/virtual-machine-scale-sets/overview).
 
 #### ESP Spark cluster node size change 
 In the upcoming release:
@@ -1706,7 +1849,7 @@ HDInsight provides managed disk space with the cluster. From this release, the m
 The following changes will happen in the upcoming releases. 
 
 #### Moving to Azure virtual machine scale sets
-HDInsight now uses Azure virtual machines to provision the cluster. Starting from December, HDInsight will use Azure virtual machine scale sets instead. See more about [Azure virtual machine scale sets](../virtual-machine-scale-sets/overview.md).
+HDInsight now uses Azure virtual machines to provision the cluster. Starting from December, HDInsight will use Azure virtual machine scale sets instead. See more about [Azure virtual machine scale sets](/azure/virtual-machine-scale-sets/overview).
 
 #### HBase 2.0 to 2.1
 In the upcoming HDInsight 4.0 release, HBase version will be upgraded from version 2.0 to 2.1.

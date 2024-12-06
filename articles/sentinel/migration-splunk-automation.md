@@ -1,32 +1,29 @@
 ---
 title: Migrate Splunk SOAR automation to Microsoft Sentinel | Microsoft Docs
 description: Learn how to identify SOAR use cases, and how to migrate your Splunk SOAR automation to Microsoft Sentinel.
-author: limwainstein
-ms.author: lwainstein
+author: austinmccollum
+ms.author: austinmc
 ms.topic: how-to
-ms.date: 05/03/2022
+ms.date: 09/11/2024
+#Customer intent: As a security engineer, I want to migrate my Splunk SOAR automation to Microsoft Sentinel so that I can leverage Sentinel's advanced orchestration and automation capabilities for incident response.
 ---
 
 # Migrate Splunk SOAR automation to Microsoft Sentinel
 
-Microsoft Sentinel provides Security Orchestration, Automation, and Response (SOAR) capabilities with [automation rules](automate-incident-handling-with-automation-rules.md) and [playbooks](tutorial-respond-threats-playbook.md). Automation rules automate incident handling and response, and playbooks run predetermined sequences of actions to response and remediate threats. This article discusses how to identify SOAR use cases, and how to migrate your Splunk SOAR automation to Microsoft Sentinel.
+Microsoft Sentinel provides Security Orchestration, Automation, and Response (SOAR) capabilities with automation rules and playbooks. Automation rules facilitate simple incident handling and response, while playbooks run more complex sequences of actions to respond and remediate threats. This article discusses how to identify SOAR use cases, and how to migrate your Splunk SOAR automation to Microsoft Sentinel automation rules and playbooks.
 
-Automation rules simplify complex workflows for your incident orchestration processes, and allow you to centrally manage your incident handling automation. 
-
-With automation rules, you can: 
-- Perform simple automation tasks without necessarily using playbooks. For example, you can assign, tag incidents, change status, and close incidents. 
-- Automate responses for multiple analytics rules at once. 
-- Control the order of actions that are executed. 
-- Run playbooks for those cases where more complex automation tasks are necessary. 
+For more information about the differences between automation rules and playbooks, see the following articles:
+- [Automate threat response with automation rules](automate-incident-handling-with-automation-rules.md)
+- [Automate threat response with playbooks](automation/automate-responses-with-playbooks.md)
 
 ## Identify SOAR use cases
 
-Here’s what you need to think about when migrating SOAR use cases from Splunk.
-- **Use case quality**. Choose good use cases for automation. Use cases should be based on procedures that are clearly defined, with minimal variation, and a low false-positive rate. Automation should work with efficient use cases.
-- **Manual intervention**. Automated response can have wide ranging effects and high impact automations should have human input to confirm high impact actions before they’re taken.
-- **Binary criteria**. To increase response success, decision points within an automated workflow should be as limited as possible, with binary criteria. Binary criteria reduces the need for human intervention, and enhances outcome predictability.
-- **Accurate alerts or data**. Response actions are dependent on the accuracy of signals such as alerts. Alerts and enrichment sources should be reliable. Microsoft Sentinel resources such as watchlists and reliable threat intelligence can enhance reliability.
-- **Analyst role**. While automation where possible is great, reserve more complex tasks for analysts, and provide them with the opportunity for input into workflows that require validation. In short, response automation should augment and extend analyst capabilities. 
+Here's what you need to think about when migrating SOAR use cases from Splunk.
+- **Use case quality**. Choose automation use cases based on procedures that are clearly defined, with minimal variation, and a low false-positive rate.
+- **Manual intervention**. Automated responses can have wide ranging effects. High impact automations should have human input to confirm high impact actions before they're taken.
+- **Binary criteria**. To increase response success, decision points within an automated workflow should be as limited as possible, with binary criteria. When there are only two variables in the automated decision making, the need for human intervention is reduced and outcome predictability is enhanced.
+- **Accurate alerts or data**. Response actions are dependent on the accuracy of signals such as alerts. Alerts and enrichment sources should be reliable. Microsoft Sentinel resources such as watchlists and threat intelligence with high confidence ratings enhance reliability.
+- **Analyst role**. While automation is great, reserve the most complex tasks for analysts. Provide them with the opportunity for input into workflows that require validation. In short, response automation should augment and extend analyst capabilities. 
 
 ## Migrate SOAR workflow
 

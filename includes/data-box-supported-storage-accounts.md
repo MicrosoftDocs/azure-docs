@@ -1,7 +1,6 @@
 ---
 author: stevenmatthew
-ms.service: databox
-ms.subservice: pod   
+ms.service: azure-databox
 ms.topic: include
 ms.date: 10/21/2022
 ms.author: shaas

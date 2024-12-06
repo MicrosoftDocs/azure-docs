@@ -1,7 +1,7 @@
 ---
 title: Develop Azure Functions by using Visual Studio Code
 description: Learn how to develop and test Azure Functions by using the Azure Functions extension for Visual Studio Code.
-ms.topic: conceptual
+ms.topic: how-to
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: devdivchpfy22, vscode-azure-extension-update-complete, devx-track-extended-java, devx-track-js, devx-track-python, ignite-2023, devx-track-ts
@@ -545,6 +545,9 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.<BINDING_TYPE_NAME> --vers
 Replace `<BINDING_TYPE_NAME>` with the name of the package that contains the binding you need. You can find the desired binding reference article in the [list of supported bindings](./functions-triggers-bindings.md#supported-bindings).
 
 Replace `<TARGET_VERSION>` in the example with a specific version of the package, such as `3.0.0-beta5`. Valid versions are listed on the individual package pages at [NuGet.org](https://nuget.org). The major versions that correspond to the current  Functions runtime are specified in the reference article for the binding.
+
+>[!TIP]  
+>You can also use the **NuGet** commands in [the C# Dev Kit](https://code.visualstudio.com/docs/csharp/package-management#_add-a-package) to install binding extension packages.
 
 C# script uses [extension bundles](functions-bindings-register.md#extension-bundles).
 

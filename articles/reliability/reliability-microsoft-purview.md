@@ -28,8 +28,8 @@ Microsoft Purview makes commercially reasonable efforts to support zone-redundan
 
 Microsoft Purview makes commercially reasonable efforts to provide availability zone support in various regions as follows:
 
-| Region | Data Map | Scan | Policy | Insights |
-| ---    | ---      | ---  | ---    | ---      |
+| Region | Data Map  | Scan | Policy | Insights |
+| ---     | ---      | ---  | ---    | ---     |
 |Southeast Asia||:::image type="icon" source="media/yes-icon.svg":::|:::image type="icon" source="media/yes-icon.svg":::|:::image type="icon" source="media/yes-icon.svg":::|
 |East US||:::image type="icon" source="media/yes-icon.svg":::|:::image type="icon" source="media/yes-icon.svg":::|:::image type="icon" source="media/yes-icon.svg":::|
 |Australia East|:::image type="icon" source="media/yes-icon.svg":::|:::image type="icon" source="media/yes-icon.svg":::|:::image type="icon" source="media/yes-icon.svg"::: |:::image type="icon" source="media/yes-icon.svg":::|
@@ -44,7 +44,7 @@ Microsoft Purview makes commercially reasonable efforts to provide availability 
 |West US 3||:::image type="icon" source="media/yes-icon.svg":::|:::image type="icon" source="media/yes-icon.svg":::|:::image type="icon" source="media/yes-icon.svg":::|
 |North Europe||:::image type="icon" source="media/yes-icon.svg":::|:::image type="icon" source="media/yes-icon.svg":::|:::image type="icon" source="media/yes-icon.svg":::|
 |South Africa North||:::image type="icon" source="media/yes-icon.svg":::|:::image type="icon" source="media/yes-icon.svg":::|:::image type="icon" source="media/yes-icon.svg":::|
-|Sweden Central|:::image type="icon" source="media/yes-icon.svg":::|:::image type="icon" source="media/yes-icon.svg":::|:::image type="icon" source="media/yes-icon.svg"::: |:::image type="icon" source="media/yes-icon.svg":::|
+|Sweden Central||:::image type="icon" source="media/yes-icon.svg":::|:::image type="icon" source="media/yes-icon.svg":::|:::image type="icon" source="media/yes-icon.svg"::: |
 |Switzerland North||:::image type="icon" source="media/yes-icon.svg":::|||
 |USGov Virginia|:::image type="icon" source="media/yes-icon.svg":::|:::image type="icon" source="media/yes-icon.svg":::|:::image type="icon" source="media/yes-icon.svg"::: |:::image type="icon" source="media/yes-icon.svg":::|
 |South Central US||:::image type="icon" source="media/yes-icon.svg":::|:::image type="icon" source="media/yes-icon.svg":::|:::image type="icon" source="media/yes-icon.svg":::|
@@ -59,7 +59,7 @@ Microsoft Purview makes commercially reasonable efforts to provide availability 
 [!INCLUDE [next step](includes/reliability-disaster-recovery-description-include.md)]
 
 >[!IMPORTANT]
->Today, Microsoft Purview doesn't support automated disaster recovery. Until that support is added, you're responsible to take care of backup and restore activities. You can manually create a secondary Microsoft Purview account as a warm standby instance in another region.
+>Today, Microsoft Purview doesn't support automated disaster recovery. Until that support is added, you're responsible to take care of backup and restore activities. You can manually create a secondary Microsoft Purview account as a warm standby instance in another region. Note that this standby instance in another region would not support Microsoft Purview Data Governance Solution. Today, it only supports Azure Purview solution. We are working on adding DR support for Microsoft Purview Data Governance Solution.
 
 To implement disaster recovery for Microsoft Purview, see the [Microsoft Purview disaster recovery documentation.](/purview/disaster-recovery)
 

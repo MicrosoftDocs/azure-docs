@@ -6,7 +6,7 @@ author: cherylmc
 ms.service: azure-vpn-gateway
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 11/20/2023
+ms.date: 10/15/2024
 ms.author: cherylmc
 ---
 # Connect a VPN gateway to multiple on-premises policy-based VPN devices
@@ -32,7 +32,7 @@ The following diagrams highlight the two models:
 
 ### Azure support for policy-based VPN
 
-Currently, Azure supports both modes of VPN gateways: route-based VPN gateways and policy-based VPN gateways. They're built on different internal platforms, which result in different specifications. For more information about gateways, throughput,and connections, see [About VPN Gateway settings](vpn-gateway-about-vpn-gateway-settings.md).
+Currently, Azure supports both modes of VPN gateways: route-based VPN gateways and policy-based VPN gateways. They're built on different internal platforms, which result in different specifications. For more information about gateways, throughput, and connections, see [About VPN Gateway settings](vpn-gateway-about-vpn-gateway-settings.md).
 
 [!INCLUDE [vpn table type](../../includes/vpn-gateway-vpn-type-table.md)]
 
@@ -87,7 +87,6 @@ This section shows you how to enable policy-based traffic selectors on a connect
    $FESubPrefix1  = "10.11.0.0/24"
    $BESubPrefix1  = "10.12.0.0/24"
    $GWSubPrefix1  = "10.12.255.0/27"
-   $DNS1          = "8.8.8.8"
    $GWName1       = "VNet1GW"
    $GW1IPName1    = "VNet1GWIP1"
    $GW1IPconf1    = "gw1ipconf1"
@@ -197,6 +196,6 @@ The following line shows whether the policy-based traffic selectors are used for
       ```
 
 ## Next steps
-Once your connection is complete, you can add virtual machines to your virtual networks. See [Create a Virtual Machine](../virtual-machines/windows/quick-create-portal.md) for steps.
+Once your connection is complete, you can add virtual machines to your virtual networks. See [Create a Virtual Machine](/azure/virtual-machines/windows/quick-create-portal) for steps.
 
 Also review [Configure IPsec/IKE policy for S2S VPN or VNet-to-VNet connections](vpn-gateway-ipsecikepolicy-rm-powershell.md) for more details on custom IPsec/IKE policies.

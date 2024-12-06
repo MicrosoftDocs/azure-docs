@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.topic:  how-to
-ms.date: 08/29/2023
+ms.date: 09/05/2024
 ms.author: cshoe
 zone_pivot_groups: azure-cli-or-portal
 ---
@@ -141,6 +141,28 @@ $VnetArgs = @{
     Subnet = $subnet
 }
 $vnet = New-AzVirtualNetwork @VnetArgs
+```
+
+---
+
+When using the Workload profiles environment, you need to update the VNET to delegate the subnet to `Microsoft.App/environments`. This delegation is not applicable to the Consumption-only environment.
+
+# [Bash](#tab/bash)
+
+```azurecli-interactive
+az network vnet subnet update \
+  --resource-group $RESOURCE_GROUP \
+  --vnet-name $VNET_NAME \
+  --name infrastructure-subnet \
+  --delegations Microsoft.App/environments
+```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+$delegation = New-AzDelegation -Name 'containerApp' -ServiceName 'Microsoft.App/environments'
+$vnet = Set-AzVirtualNetworkSubnetConfig -Name $SubnetArgs.Name -VirtualNetwork $vnet -AddressPrefix $SubnetArgs.AddressPrefix -Delegation $delegation
+$vnet | Set-AzVirtualNetwork
 ```
 
 ---

@@ -100,6 +100,31 @@ This guide provides a structured approach for users looking to upgrade their Azu
 1. Recreate Spark Pool 3.3 from the ground up.
 1. Downgrade the current Spark Pool 3.3 to 3.1, remove any packages attached, and then upgrade again to 3.3.
 
+**Question:** Why can't I upgrade to 3.4 without recreating a new Spark pool?
+
+**Answer:** This is not allowed from UX, customer can use Azure PowerShell to update Spark version. Please use "ForceApplySetting", so that any existing clusters (with old version) are decommissioned. 
+
+**Sample query:**
+
+```azurepowershell
+$_target_work_space = @("workspace1", "workspace2")
+
+Get-AzSynapseWorkspace |
+    ForEach-Object {
+        if ($_target_work_space -contains $_.Name) {
+            $_workspace_name = $_.Name
+            Write-Host "Updating workspace: $($_workspace_name)"
+            Get-AzSynapseSparkPool -WorkspaceName $_workspace_name |
+            ForEach-Object {
+                Write-Host "Updating Spark pool: $($_.Name)"
+                Write-Host "Current Spark version: $($_.SparkVersion)"
+        
+                Update-AzSynapseSparkPool -WorkspaceName $_workspace_name -Name $_.Name -SparkVersion 3.4 -ForceApplySetting
+              }
+        }
+    }
+```
+
 ## Related content
 
 - [Manage libraries for Apache Spark in Azure Synapse Analytics](apache-spark-azure-portal-add-libraries.md)

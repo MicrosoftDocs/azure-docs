@@ -3,7 +3,7 @@ title: Troubleshoot backup errors with Azure VMs
 description: In this article, learn how to troubleshoot errors encountered with backup and restore of Azure virtual machines.
 ms.reviewer: srinathv
 ms.topic: troubleshooting
-ms.date: 09/20/2023
+ms.date: 10/21/2024
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -79,12 +79,23 @@ Error message: Failed to freeze one or more mount-points of the VM to take a fil
 
 If you can't un-mount the devices then you can update the VM backup configuration to ignore certain mount points. For example, if '/mnt/resource' mount point can't be un-mounted and causing the VM backup failures, you can update the VM backup configuration files with the `MountsToSkip` property as follows.
 
-```bash
-cat /var/lib/waagent/Microsoft.Azure.RecoveryServices.VMSnapshotLinux-1.0.9170.0/main/tempPlugin/vmbackup.conf[SnapshotThread]
-fsfreeze: True
-MountsToSkip = /mnt/resource
-SafeFreezeWaitInSeconds=600
-```
+
+
+
+
+
+
+1. Check if there is the **vmbackup.conf** file under the `/etc/azure/` directory.
+1. If there's no `/etc/azure/vmbackup.conf`, you can copy file from the `/var/lib/waagent/Microsoft.Azure.RecoveryServices.VMSnapshotLinux-1.0.XXX.0/main/tempPlugin/vmbackup.conf`.
+1. In the `/etc/azure/vmbackup.conf` file, add the following configuration for Azure VM Backup to skip `fsfreeze` and take snapshot for the `/mnt/resource` mount point.
+
+    ```bash
+    cat  /etc/azure/vmbackup.conf[SnapshotThread]
+    fsfreeze: True
+    MountsToSkip = /mnt/resource
+    SafeFreezeWaitInSeconds=600
+
+    ```
 
 **Step 2:**
 
@@ -165,7 +176,7 @@ Solution:
 
 * Check for possibilities to distribute the load across the VM disks. This will reduce the load on single disks. You can [check the IOPs throttling by enabling diagnostic metrics at storage level](/troubleshoot/azure/virtual-machines/performance-diagnostics#install-and-run-performance-diagnostics-on-your-vm).
 * Change the backup policy to perform backups during off peak hours, when the load on the VM is at its lowest.
-* Upgrade the Azure disks to support higher IOPs. [Learn more here](../virtual-machines/disks-types.md)
+* Upgrade the Azure disks to support higher IOPs. [Learn more here](/azure/virtual-machines/disks-types)
 
 ### ExtensionFailedVssServiceInBadState - Snapshot operation failed due to VSS (Volume Shadow Copy) service in bad state
 
@@ -285,7 +296,7 @@ This will ensure the snapshots are taken through host instead of Guest. Retry th
 
 **Step 2:** Try changing the backup schedule to a time when the VM is under less load (like less CPU or IOPS)
 
-**Step 3:** Try [increasing the size of the VM](../virtual-machines/resize-vm.md) and retry the operation
+**Step 3:** Try [increasing the size of the VM](/azure/virtual-machines/resize-vm) and retry the operation
 
 ### 320001, ResourceNotFound - Could not perform the operation as VM no longer exists / 400094, BCMV2VMNotFound - The virtual machine doesn't exist / An Azure virtual machine wasn't found
 
@@ -372,7 +383,7 @@ If after restore, you notice the disks are offline then:
 * Ensure you are not restoring to the same source, [Learn more](./backup-azure-restore-files-from-vm.md#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script).
 
 ### Folder is missing when a Linux VM is recovered as a new VM
-This issue can occur if disks are mounted to a directory using the device name (e.g., /dev/sdc1) instead of UUID. When the VM reboots or when it is recovered as a new VM, the device names are assigned in a random order. To ensure that the right drive is mounted to your directory, always mount drives using UUID obtained from the `blkid` utility. [Learn more](../virtual-machines/linux/attach-disk-portal.yml).
+This issue can occur if disks are mounted to a directory using the device name (e.g., /dev/sdc1) instead of UUID. When the VM reboots or when it is recovered as a new VM, the device names are assigned in a random order. To ensure that the right drive is mounted to your directory, always mount drives using UUID obtained from the `blkid` utility. [Learn more](/azure/virtual-machines/linux/attach-disk-portal).
 
 ### UserErrorInstantRpNotFound - Restore failed because the Snapshot of the VM was not found
 
@@ -525,7 +536,7 @@ Typically, the VM Agent is already present in VMs that are created from the Azur
 
 #### Linux VMs - Update the agent
 
-* To update the Linux VM Agent, follow the instructions in the article [Updating the Linux VM Agent](../virtual-machines/extensions/update-linux-agent.md?toc=/azure/virtual-machines/linux/toc.json).
+* To update the Linux VM Agent, follow the instructions in the article [Updating the Linux VM Agent](/azure/virtual-machines/extensions/update-linux-agent?toc=/azure/virtual-machines/linux/toc.json).
 
     > [!NOTE]
     > Always use the distribution repository to update the agent.

@@ -139,7 +139,7 @@ To use your certificate with Azure Front Door, it must meet the following requir
 
 #### Import a certificate to Azure Key Vault
 
-Custom TLS certificates must be imported into Azure Key Vault before you can use it with Azure Front Door. To learn how to import a certificate to a key vault, see [Tutorial: Import a certificate in Azure Key Vault](../key-vault/certificates/tutorial-import-certificate.md).
+Custom TLS certificates must be imported into Azure Key Vault before you can use it with Azure Front Door. To learn how to import a certificate to a key vault, see [Tutorial: Import a certificate in Azure Key Vault](/azure/key-vault/certificates/tutorial-import-certificate).
 
 The key vault must be in the same Azure subscription as your Azure Front Door profile.
 

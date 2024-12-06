@@ -39,7 +39,7 @@ No. However, costs for any additional public IPs are charged accordingly. See [I
 Azure VPN Gateway supports the following cross-premises gateway connections:
 
 * **Site-to-site**: VPN connection over IPsec (IKEv1 and IKEv2). This type of connection requires a VPN device or Windows Server Routing and Remote Access. For more information, see [Create a site-to-site VPN connection in the Azure portal](./tutorial-site-to-site-portal.md).
-* **Point-to-site**: VPN connection over Secure Socket Tunneling Protocol (SSTP) or IKEv2. This connection doesn't require a VPN device. For more information, see [Configure server settings for point-to-site VPN Gateway certificate authentication](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
+* **Point-to-site**: VPN connection over Secure Socket Tunneling Protocol (SSTP) or IKEv2. This connection doesn't require a VPN device. For more information, see [Configure server settings for point-to-site VPN Gateway certificate authentication](point-to-site-certificate-gateway.md).
 * **VNet-to-VNet**: This type of connection is the same as a site-to-site configuration. VNet-to-VNet is a VPN connection over IPsec (IKEv1 and IKEv2). It doesn't require a VPN device. For more information, see [Configure a VNet-to-VNet VPN gateway connection](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
 * **Azure ExpressRoute**: ExpressRoute is a private connection to Azure from your wide area network (WAN), not a VPN connection over the public internet. For more information, see the [ExpressRoute technical overview](../expressroute/expressroute-introduction.md) and the [ExpressRoute FAQ](../expressroute/expressroute-faqs.md).
 
@@ -148,7 +148,7 @@ For non-zone-redundant and non-zonal gateways that were previously created (gate
 
 ### How does the retirement of Basic SKU public IP addresses affect my VPN gateways?
 
-We're taking action to ensure the continued operation of deployed VPN gateways that use Basic SKU public IP addresses. If you already have VPN gateways with Basic SKU public IP addresses, there's no need for you to take any action.
+We're taking action to ensure the continued operation of deployed VPN gateways that use Basic SKU public IP addresses until the retirement of Basic IP in September 2025. Before this retirement, we will provide customers with a migration path from Basic to Standard IP. 
 
 However, Basic SKU public IP addresses are being phased out. Going forward, when you create a VPN gateway, you must use the Standard SKU public IP address. You can find details on the retirement of Basic SKU public IP addresses in the [Azure Updates announcement](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired).
 

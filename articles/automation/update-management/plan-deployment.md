@@ -4,12 +4,14 @@ description: This article describes the considerations and decisions to be made 
 services: automation
 ms.subservice: update-management
 ms.custom: linux-related-content
-ms.date: 07/15/2024
-ms.topic: conceptual
+ms.date: 09/15/2024
+ms.topic: overview
 ms.service: azure-automation
 ---
 
 # Plan your Update Management deployment
+
+[!INCLUDE [./automation-update-management-retirement-announcement.md](../includes/automation-update-management-retirement-announcement.md)]
 
 ## Step 1: Automation account
 
@@ -19,7 +21,7 @@ Update Management is an Azure Automation feature, and therefore requires an Auto
 
 Update Management depends on a Log Analytics workspace in Azure Monitor to store assessment and update status log data collected from managed machines. Integration with Log Analytics also enables detailed analysis and alerting in Azure Monitor. You can use an existing workspace in your subscription, or create a new one dedicated only for Update Management.
 
-If you are new to Azure Monitor Logs and the Log Analytics workspace, you should review the [Design a Log Analytics workspace](../../azure-monitor/logs/workspace-design.md) deployment guide. 
+If you are new to Azure Monitor Logs and the Log Analytics workspace, you should review the [Design a Log Analytics workspace](/azure/azure-monitor/logs/workspace-design) deployment guide. 
 
 ## Step 3: Supported operating systems
 
@@ -27,11 +29,11 @@ Update Management supports specific versions of the Windows Server and Linux ope
 
 ## Step 4: Log Analytics agent
 
-The [Log Analytics agent](../../azure-monitor/agents/log-analytics-agent.md) for Windows and Linux is required to support Update Management. The agent is used for both data collection, and the Automation system Hybrid Runbook Worker role to support Update Management runbooks used to manage the assessment and update deployments on the machine. 
+The [Log Analytics agent](/azure/azure-monitor/agents/log-analytics-agent) for Windows and Linux is required to support Update Management. The agent is used for both data collection, and the Automation system Hybrid Runbook Worker role to support Update Management runbooks used to manage the assessment and update deployments on the machine. 
 
-On Azure VMs, if the Log Analytics agent isn't already installed, when you enable Update Management for the VM it is automatically installed using the Log Analytics VM extension for [Windows](../../virtual-machines/extensions/oms-windows.md) or [Linux](../../virtual-machines/extensions/oms-linux.md). The agent is configured to report to the Log Analytics workspace linked to the Automation account Update Management is enabled in.
+On Azure VMs, if the Log Analytics agent isn't already installed, when you enable Update Management for the VM it is automatically installed using the Log Analytics VM extension for [Windows](/azure/virtual-machines/extensions/oms-windows) or [Linux](/azure/virtual-machines/extensions/oms-linux). The agent is configured to report to the Log Analytics workspace linked to the Automation account Update Management is enabled in.
 
-Non-Azure VMs or servers need to have the Log Analytics agent for Windows or Linux installed and reporting to the linked workspace. We recommend installing the Log Analytics agent for Windows or Linux by first connecting your machine to [Azure Arc-enabled servers](../../azure-arc/servers/overview.md), and then use Azure Policy to assign the [Deploy Log Analytics agent to Linux or Windows Azure Arc machines](../../governance/policy/samples/built-in-policies.md#monitoring) built-in policy definition. Alternatively, if you plan to monitor the machines with [VM insights](../../azure-monitor/vm/vminsights-overview.md), instead use the [Enable Azure Monitor for VMs](../../governance/policy/samples/built-in-initiatives.md#monitoring) initiative.
+Non-Azure VMs or servers need to have the Log Analytics agent for Windows or Linux installed and reporting to the linked workspace. We recommend installing the Log Analytics agent for Windows or Linux by first connecting your machine to [Azure Arc-enabled servers](/azure/azure-arc/servers/overview), and then use Azure Policy to assign the [Deploy Log Analytics agent to Linux or Windows Azure Arc machines](../../governance/policy/samples/built-in-policies.md#monitoring) built-in policy definition. Alternatively, if you plan to monitor the machines with [VM insights](/azure/azure-monitor/vm/vminsights-overview), instead use the [Enable Azure Monitor for VMs](../../governance/policy/samples/built-in-initiatives.md#monitoring) initiative.
 
 If you're enabling a machine that's currently managed by Operations Manager, a new agent isn't required. The workspace information is added to the agents configuration when you connect the management group to the Log Analytics workspace.
 
@@ -45,9 +47,9 @@ Review [Azure Automation Network Configuration](../automation-network-configurat
 
 For Windows machines, you must also allow traffic to any endpoints required by Windows Update agent. You can find an updated list of required endpoints in [Issues related to HTTP/Proxy](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy). If you have a local [Windows Server Update Services (WSUS)](/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment) deployment, you must also allow traffic to the server specified in your [WSUS key](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry).
 
-For Red Hat Linux machines, see [IPs for the RHUI content delivery servers](../../virtual-machines/workloads/redhat/redhat-rhui.md#the-ips-for-the-rhui-content-delivery-servers) for required endpoints. For other Linux distributions, see your provider documentation.
+For Red Hat Linux machines, see [IPs for the RHUI content delivery servers](/azure/virtual-machines/workloads/redhat/redhat-rhui#the-ips-for-the-rhui-content-delivery-servers) for required endpoints. For other Linux distributions, see your provider documentation.
 
-If your IT security policies do not allow machines on the network to connect to the internet, you can set up a [Log Analytics gateway](../../azure-monitor/agents/gateway.md) and then configure the machine to connect through the gateway to Azure Automation and Azure Monitor.
+If your IT security policies do not allow machines on the network to connect to the internet, you can set up a [Log Analytics gateway](/azure/azure-monitor/agents/gateway) and then configure the machine to connect through the gateway to Azure Automation and Azure Monitor.
 
 ## Step 6: Permissions
 
@@ -72,7 +74,7 @@ Update Management allows you to target updates to a dynamic group representing A
 * Locations
 * Tags 
 
-For non-Azure machines, a dynamic group uses saved searches, also called [computer groups](../../azure-monitor/logs/computer-groups.md). Update deployments scoped to a group of machines is only visible from the Automation account in the Update Management **Deployment schedules** option, not from a specific Azure VM.
+For non-Azure machines, a dynamic group uses saved searches, also called [computer groups](/azure/azure-monitor/logs/computer-groups). Update deployments scoped to a group of machines is only visible from the Automation account in the Update Management **Deployment schedules** option, not from a specific Azure VM.
 
 Alternatively, updates can be managed only for a selected Azure VM. Update deployments scoped to the specific machine are visible from both the machine and from the Automation account in Update Management **Deployment schedules** option. 
 

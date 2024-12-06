@@ -1,17 +1,17 @@
 ---
 title: "Azure Operator Nexus: VM Console Service"
-description: Learn how to use the VM Console service.
+description: Learn how to use the VM Console service to remotely access Nexus Virtual Machine through ssh from your environment.
 author: sshiba
 ms.author: sidneyshiba
 ms.service: azure-operator-nexus
 ms.topic: how-to
-ms.date: 10/11/2023
+ms.date: 10/25/2024
 ms.custom: template-how-to, devx-track-azurecli
 ---
 
 # Introduction to the Virtual Machine console service
 
-The Virtual Machine (VM) console service provides managed access to a VM hosted in an Operator Nexus Instance. It relies on the Azure Private Link Service (PLS) to establish a private network connection between the user's network and the Azure Operator Nexus Cluster Manager's private network.
+The Virtual Machine (VM) console service provides managed access to a VM hosted in an Operator Nexus Instance. It uses Azure Private Link Service (PLS) to provide network connectivity on Azure private network. The VM Console service is a secure and private way to access a VM without exposing it to the public internet.
 
 :::image type="content" source="media/vm-console-service.png" alt-text="Diagram of VM Console service." lightbox="media/vm-console-service.png":::
 
@@ -23,7 +23,7 @@ This guide helps you to:
 
 1. Establish a secure private network connectivity between your network and the Cluster Manager's private network.
 1. Create a Console resource in your workload/tenant resource group using the `az networkcloud virtualmachine console` CLI command.
-1. Initiate an SSH session to connect to the Virtual Machine's Console.
+1. Start an SSH session to connect to the Virtual Machine's Console.
 
 > [!NOTE]
 > In order to avoid passing the `--subscription` parameter to each Azure CLI command, execute the following command:
@@ -44,15 +44,17 @@ To help set up the environment for access to Virtual Machines, define these envi
 > These environment variable values do not reflect a real deployment and users MUST change them to match their environments.
 >
 > It should be noted that the first set of variables in the section below are for the **Cluster Manager** not the Cluster.
+> The CM_EXTENDED_LOCATION value can be found with the command `az networkcloud virtualmachine show --name <virtual machine name> --resource-group <virtual machine's resource group> --query "consoleExtendedLocation" | jq -r '.consoleExtendedLocation.name'`.
 
 ```bash
     # CM_HOSTED_RESOURCES_RESOURCE_GROUP: Cluster Manager resource group name
     export CM_HOSTED_RESOURCES_RESOURCE_GROUP="my-contoso-console-rg"
-    # CM_EXTENDED_LOCATION: Cluster Manager Extended Location, can be retrieved but you will need access rights to execute certain Azure CLI commands
-    export CM_EXTENDED_LOCATION="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterManagerExtendedLocationName"
 
     # VIRTUAL_MACHINE_NAME: Virtual Machine name you want to access through VM Console service
     export VIRTUAL_MACHINE_NAME="my-undercloud-vm"
+    # CM_EXTENDED_LOCATION: Cluster Manager Extended Location, can be retrieved but you will need access rights to execute certain Azure CLI commands
+    export CM_EXTENDED_LOCATION=$(az networkcloud virtualmachine show --name ${VIRTUAL_MACHINE_NAME} --resource-group ${VIRTUAL_MACHINE_RG}  --query "consoleExtendedLocation" | jq -r '.consoleExtendedLocation.name')
+
     # CONSOLE_PUBLIC_KEY: Public Key matching Private Key to be used when establish `ssh` session, e.g., `ssh -i $HOME/.ssh/id-rsa`
     export CONSOLE_PUBLIC_KEY="xxxx-xxxx-xxxxxx-xxxx"
     # CONSOLE_EXPIRATION_TIME: Expiration date and time (RFC3339 format) for any `ssh` session with a virtual machine. 
@@ -74,13 +76,13 @@ To help set up the environment for access to Virtual Machines, define these envi
 
 ## Creating Console Resource
 
-The Console resource provides the information about the VM such as VM name, public SSH key, expiration date for the SSH session, etc.
+The Console resource provides the information about the Nexus VM. It provides the VM name, public SSH key, expiration date for the SSH session, and so on.
 
 This section provides step-by-step guide to help you to create a Console resource using Azure CLI commands.
 
 :::image type="content" source="media/vm-console-resource.png" alt-text="Diagram of VM Console Resource." lightbox="media/vm-console-resource.png":::
 
-1. In order to create a ***Console*** resource in the Cluster Manager, you will need to collect some information, e.g., resource group (CM_HOSTED_RESOURCES_RESOURCE_GROUP) and custom location (CM_EXTENDED_LOCATION). You have to provide the resource group but you can retrieve the custom location if you have access rights to excute the commands listed below.
+1. To create a ***Console*** resource in the Cluster Manager, you'll need to collect some information, for example, resource group (CM_HOSTED_RESOURCES_RESOURCE_GROUP) and custom location (CM_EXTENDED_LOCATION). You have to provide the resource group but you can retrieve the custom location if you have access rights to excute the following commands:
 
     ```bash
     export cluster_manager_resource_id=$(az resource list -g ${CM_HOSTED_RESOURCES_RESOURCE_GROUP} --query "[?type=='Microsoft.NetworkCloud/clusterManagers'].id" --output tsv)
@@ -99,7 +101,7 @@ This section provides step-by-step guide to help you to create a Console resourc
         [--expiration "${CONSOLE_EXPIRATION_TIME}"]
     ```
 
-    If you omit the `--expiration` parameter, the expiration will be defaulted to one day after the creation of the Console resource. Also note that the `expiration` date & time format **must** comply with RFC3339 otherwise the creation of the Console resource fails.
+    If you omit the `--expiration` parameter, the expiration will be defaulted to one day after the creation of the Console resource. Also note that the `expiration` date & time format **must** follow RFC3339 (e.g., 2024-10-04T14:48:00Z) otherwise the creation of the Console resource fails.
 
     > [!NOTE]
     > For a complete synopsis for this command, invoke `az networkcloud console create --help`.
@@ -127,7 +129,7 @@ This section provides step-by-step guide to help you to create a Console resourc
 
 ## Establishing Private Network Connectivity
 
-In order to establish a secure session with a Virtual Machine, you need to establish private network connectivity between your network and the Cluster Manager's private network.
+To establish a secure session with a Virtual Machine, you need to establish private network connectivity between your network and the Cluster Manager's private network.
 
 This private network relies on the Azure Private Link Endpoint (PLE) and the Azure Private Link Service (PLS).
 
@@ -167,7 +169,7 @@ This section provides a step-by-step guide to help you to establish a private ne
 
 At this point, you have the `virtual_machine_access_id` and the `sshmux_ple_ip`. This input is the info needed for establishing a session with the VM.
 
-The VM Console service is a `ssh` server that "relays" the session to the designated VM. The `sshmux_ple_ip` indirectly references the VM Console service and the `virtual_machine_access_id` the identifier for the VM.
+The VM Console service is a `ssh` server that "relays" the session to a Nexus VM. The `sshmux_ple_ip` indirectly references the VM Console service and the `virtual_machine_access_id` the identifier for the VM.
 
 > [!IMPORTANT]
 > The VM Console service listens to port `2222`, therefore you **must** specify this port number in the `ssh` command.
@@ -185,7 +187,7 @@ The VM Console service was designed to allow **only** one session per Virtual Ma
 
 ## Updating Console Resource
 
-You can disable the session to a given VM by updating the expiration date/time and/or updating the public SSH key used when creating the session with a VM.
+You can disable the session to a VM by updating the expiration date/time and the public SSH key used when creating the session with a VM.
 
 ```bash
 az networkcloud virtualmachine console update \
@@ -196,14 +198,14 @@ az networkcloud virtualmachine console update \
     [--expiration "${CONSOLE_EXPIRATION_TIME}"]
 ```
 
-If you want to disable access to a VM, you need to update the Console resource with the parameter `enabled False`. This update closes any existing session and restricts any subsequent sessions.
+If you want to disable access to a VM, you need to update the Console resource with the parameter `enabled False`. This update closes any existing session and restricts any later sessions.
 
 > [!NOTE]
 > Before creating a session to a VM, the corresponding Console resource **must** be set to `--enabled True`.
 
 When a Console `--expiration` time expires, it closes any session corresponding the Console resource. You'll need to update the expiration time with a future value so that you can establish a new session.
 
-When you update the Console's public SSH key, the VM Console service closes any active session referenced by the Console resource. You have to provide a matching private SSH key matching the new public key when you establish a new session.
+When you update the Console's public SSH key, the VM Console service closes all active sessions. You present a new private SSH key to create a new session.
 
 ## Cleaning Up (Optional)
 

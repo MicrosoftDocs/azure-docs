@@ -4,7 +4,7 @@ description: Describes how to retain IP addresses when failing over Azure VMs fo
 ms.service: azure-site-recovery
 ms.date: 07/25/2021
 author: ankitaduttaMSFT
-ms.topic: conceptual
+ms.topic: concept-article
 ms.author: ankitadutta
 
 ---
@@ -14,7 +14,7 @@ ms.author: ankitadutta
 
 During failover, you might want to keep the IP addressing in the target region identical to the source region:
 
-- By default, when you enable disaster recovery for Azure VMs, Site Recovery creates target resources based on source resource settings. For Azure VMs configured with static IP addresses, Site Recovery tries to provision the same IP address for the target VM, if it's not in use. For a full explanation of how Site Recovery handles addressing, [review this article](azure-to-azure-network-mapping.md#set-up-ip-addressing-for-target-vms).
+- By default, when you enable disaster recovery for Azure VMs, Site Recovery creates target resources based on source resource settings. For Azure VMs configured with static IP addresses, Site Recovery tries to provision the same IP address for the target VM, if it's not in use. For a full explanation of how Site Recovery handles addressing, [review this article](azure-to-azure-network-mapping.md#set-up-ip-addressing-for-target-virtual-machines).
 - For simple applications, the default configuration is sufficient. For more complex apps, you might need to provision additional resource to make sure that connectivity works as expected after failover.
 
 

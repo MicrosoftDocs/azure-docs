@@ -227,7 +227,7 @@ As the conversion request is evaluated and processed, the status should progress
 | In Progress<sup>1</sup>                        | The conversion is in progress.                                                |
 | Completed<br>**- or -**</br>Failed<sup>2</sup> | The conversion is completed successfully.<br>**- or -**</br>The conversion failed.                 |
 
-<sup>1</sup> Once initiated, the conversion could take up to 72 hours to begin. If the conversion doesn't enter the "In Progress" status within 96 hours of initiating the request, submit a support request to Microsoft to determine why. For more information about the timing of a customer-initiated conversion, see [Timing and frequency](#timing-and-frequency).<br />
+<sup>1</sup> After initiation, a convsersion typically begins within 72 hours but may take longer in some cases. For more information about the timing of a customer-initiated conversion, see [Timing and frequency](#timing-and-frequency).<br />
 <sup>2</sup> If the conversion fails, submit a support request to Microsoft to determine the reason for the failure.<br />
 
 > [!NOTE]
@@ -342,14 +342,7 @@ Make sure the region where your storage account is located supports all of the d
 > [!IMPORTANT]
 > [Customer-initiated conversion](#customer-initiated-conversion) from LRS to ZRS is available in all public regions that support ZRS except for the following:
 >
-> - (Europe) Italy North
-> - (Europe) UK South
-> - (Europe) Poland Central
 > - (Europe) West Europe
-> - (Middle East) Israel Central
-> - (North America) Canada Central
-> - (North America) East US
-> - (North America) East US 2
 >
 > [Customer-initiated conversion](#customer-initiated-conversion) from existing ZRS accounts to LRS is available in all public regions.
 
@@ -376,8 +369,8 @@ The following table provides an overview of redundancy options available for sto
 | ZRS Classic<sup>4</sup><br /><sub>(available in standard general purpose v1 accounts)</sub> | &#x2705; |  |  |  |                           |
 
 
-<sup>1</sup> Conversion for premium file shares is only available by [opening a support request](#support-initiated-conversion); [Customer-initiated conversion](#customer-initiated-conversion) isn't currently supported.<br />
-<sup>2</sup> Managed disks are available for LRS and ZRS, though ZRS disks have some [limitations](../../virtual-machines/disks-redundancy.md#limitations). If an LRS disk is regional (no zone specified), it can be converted by [changing the SKU](../../virtual-machines/disks-convert-types.md). If an LRS disk is zonal, then it can only be manually migrated by following the process in [Migrate your managed disks](../../reliability/migrate-vm.md#migrate-your-managed-disks). You can store snapshots and images for standard SSD managed disks on standard HDD storage and [choose between LRS and ZRS options](https://azure.microsoft.com/pricing/details/managed-disks/). For information about integration with availability sets, see [Introduction to Azure managed disks](../../virtual-machines/managed-disks-overview.md#integration-with-availability-sets).<br />
+<sup>1</sup> Conversion for premium file shares is available by [opening a support request](#support-initiated-conversion); Customer-initiated conversion can be undertaken using either [PowerShell](redundancy-migration.md?tabs=powershell#customer-initiated-conversion) or the [Azure CLI](redundancy-migration.md?tabs=azure-cli#customer-initiated-conversion).<br />
+<sup>2</sup> Managed disks are available for LRS and ZRS, though ZRS disks have some [limitations](/azure/virtual-machines/disks-redundancy#limitations). If an LRS disk is regional (no zone specified), it can be converted by [changing the SKU](/azure/virtual-machines/disks-convert-types). If an LRS disk is zonal, then it can only be manually migrated by following the process in [Migrate your managed disks](../../reliability/migrate-vm.md#migrate-your-managed-disks). You can store snapshots and images for standard SSD managed disks on standard HDD storage and [choose between LRS and ZRS options](https://azure.microsoft.com/pricing/details/managed-disks/). For information about integration with availability sets, see [Introduction to Azure managed disks](/azure/virtual-machines/managed-disks-overview#integration-with-availability-sets).<br />
 <sup>3</sup> If your storage account is v1, you need to upgrade it to v2 before performing a conversion. To learn how to upgrade your v1 account, see [Upgrade to a general-purpose v2 storage account](storage-account-upgrade.md).<br />
 <sup>4</sup> ZRS Classic storage accounts are deprecated. For information about converting ZRS Classic accounts, see [Converting ZRS Classic accounts](#converting-zrs-classic-accounts).<br />
 
@@ -445,7 +438,7 @@ You can't convert storage accounts to zone-redundancy (ZRS, GZRS or RA-GZRS) if 
 
 After an account failover to the secondary region, it's possible to initiate a failback from the new primary back to the new secondary with PowerShell or Azure CLI (version 2.30.0 or later). [Initiate the failover](storage-initiate-account-failover.md#initiate-the-failover).
 
-If you performed a customer-managed account failover to recover from an outage for your GRS or RA-GRS account, the account becomes locally redundant (LRS) in the new primary region after the failover. Conversion to ZRS or GZRS for an LRS account resulting from a failover isn't supported, even for so-called failback operations. For example, if you perform an account failover from RA-GRS to LRS in the secondary region, and then configure it again as RA-GRS, it remains LRS in the new secondary region (the original primary). If you then perform another account failover to failback to the original primary region, it remains LRS again in the original primary. In this case, you can't perform a conversion to ZRS, GZRS or RA-GZRS in the primary region. Instead, perform a manual migration to add zone-redundancy.
+If you performed a customer-managed account failover to recover from an outage for your GRS or RA-GRS account, the account becomes locally redundant (LRS) in the new primary region after the failover. Conversion to ZRS or GZRS for an LRS account resulting from a failover isn't supported. Instead, perform a manual migration to add zone-redundancy.
 
 ## Downtime requirements
 
@@ -455,7 +448,7 @@ If you choose to perform a manual migration, downtime is required but you have m
 
 ## Timing and frequency
 
-If you initiate a zone-redundancy [conversion](#customer-initiated-conversion) from the Azure portal, the conversion process could take up to 72 hours to begin. It could take longer to start if you [request a conversion by opening a support request](#support-initiated-conversion). If a customer-initiated conversion doesn't enter the "In Progress" status within 96 hours of initiating the request, submit a support request to Microsoft to determine why. To monitor the progress of a customer-initiated conversion, see [Monitoring customer-initiated conversion progress](#monitoring-customer-initiated-conversion-progress).
+If you initiate a zone-redundancy [conversion](#customer-initiated-conversion) from the Azure portal, the conversion process could take up to 72 hours to begin. It could take longer to start if you [request a conversion by opening a support request](#support-initiated-conversion). To monitor the progress of a customer-initiated conversion, see [Monitoring customer-initiated conversion progress](#monitoring-customer-initiated-conversion-progress).
 
 > [!IMPORTANT]
 > There is no SLA for completion of a conversion. If you need more control over when a conversion begins and finishes, consider a [Manual migration](#manual-migration). Generally, the more data you have in your account, the longer it takes to replicate that data to other zones or regions.

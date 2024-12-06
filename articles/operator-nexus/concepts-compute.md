@@ -5,7 +5,7 @@ author: mukeshdua
 ms.author: mukeshdua
 ms.service: azure-operator-nexus
 ms.topic: conceptual
-ms.date: 05/22/2023
+ms.date: 10/25/2024
 ms.custom: template-concept
 ---
 
@@ -41,11 +41,11 @@ Azure Operator Nexus reserves a small set of CPUs for the host operating system 
 
 ### Huge page support
 
-Huge page usage in workloads refers to the utilization of large memory pages, typically 2 MB or 1 GB in size, instead of the standard 4-KB pages. This approach helps reduce memory overhead and improves the overall system performance. It reduces the translation look-aside buffer (TLB) miss rate and improves memory access efficiency.
+Huge page usage in workloads refers to the utilization of large memory pages, typically 2 MiB or 1 GiB in size, instead of the standard 4 KiB pages. This approach helps reduce memory overhead and improves the overall system performance. It reduces the translation look-aside buffer (TLB) miss rate and improves memory access efficiency.
 
-Workloads that involve large data sets or intensive memory operations, such as network packet processing, can benefit from huge page usage because it enhances memory performance and reduces memory-related bottlenecks. As a result, users see improved throughput and reduced latency.
+Workloads that involve large data sets or intensive memory operations such as network packet processing, can benefit from huge page usage because it enhances memory performance and reduces memory-related bottlenecks. As a result, users see improved throughput and reduced latency.
 
-All virtual machines created on Azure Operator Nexus can make use of either 2-MB or 1-GB huge pages, depending on the type of virtual machine.
+All virtual machines created on Azure Operator Nexus are backed by 1GiB(1G) hugepages for the requested memory.  The kernel running inside the VM can manage these available memory anyway it likes, including the allocation of memory to support hugepages (2M or 1G).
 
 ### Dual-stack support
 
@@ -113,3 +113,7 @@ The following properties reflect the operational state of a BMM:
 ## Form-factor-specific information
 
 Azure Operator Nexus offers a group of on-premises cloud solutions that cater to both [near-edge](reference-near-edge-compute.md) and far-edge environments.
+
+### Operator Nexus Network Cloud SKUs
+
+For Stock Keeping Unit (SKU) information please see [Operator Nexus Network Cloud SKUs](./reference-operator-nexus-skus.md).

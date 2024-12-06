@@ -28,7 +28,7 @@ Ensuring that an application is resilient enough to handle a denial of service t
 Scalability is how well a system can handle increased load. Design your applications to [scale horizontally](/azure/architecture/guide/design-principles/scale-out) to meet the demand of an amplified load, specifically in the event of a DDoS attack. If your application depends on a single instance of a service, it creates a single point of failure. Provisioning multiple instances makes your system more resilient and more scalable.
 
 For [Azure App Service](../app-service/overview.md), select an [App Service plan](../app-service/overview-hosting-plans.md) that offers multiple instances. For Azure Cloud Services, configure each of your roles to use [multiple instances](../cloud-services/cloud-services-choose-me.md). 
-For [Azure Virtual Machines](../virtual-machines/index.yml), ensure that your virtual machine (VM) architecture includes more than one VM and that each VM is included in an [availability set](../virtual-machines/windows/tutorial-availability-sets.md). We recommend using [virtual machine scale sets](../virtual-machine-scale-sets/overview.md) for autoscaling capabilities.
+For [Azure Virtual Machines](/azure/virtual-machines/), ensure that your virtual machine (VM) architecture includes more than one VM and that each VM is included in an [availability set](/azure/virtual-machines/windows/tutorial-availability-sets). We recommend using [virtual machine scale sets](/azure/virtual-machine-scale-sets/overview) for autoscaling capabilities.
 
 ## Defense in depth
 

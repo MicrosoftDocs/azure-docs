@@ -272,8 +272,6 @@ Next, create a SAS token for your storage account that the endpoint can use to a
 
 1. Doing so will generate several SAS and connection string values at the bottom of the same page, underneath the setting selections. Scroll down to view the values, and use the **Copy to clipboard** icon to copy the **SAS token** value. Save it to use later.
 
-    :::image type="content" source="media/how-to-create-endpoints/copy-sas-token.png" alt-text="Screenshot of the storage account page in the Azure portal highlighting how to copy the SAS token to use in the dead-letter secret." lightbox="media/how-to-create-endpoints/copy-sas-token.png":::
-
 # [CLI](#tab/cli)
 
 1. Retrieve your storage account keys using the following command and copy the value for either one of your keys:

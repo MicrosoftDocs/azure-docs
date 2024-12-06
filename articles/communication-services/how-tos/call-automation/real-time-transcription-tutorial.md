@@ -22,7 +22,7 @@ This guide helps you better understand the different ways you can use Azure Comm
 - Azure account with an active subscription, for details see [Create an account for free.](https://azure.microsoft.com/free/)
 - Azure Communication Services resource, see [Create an Azure Communication Services resource](../../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp)
 - Create and connect [Azure AI services to your Azure Communication Services resource](../../concepts/call-automation/azure-communication-services-azure-cognitive-services-integration.md).
-- Create a [custom subdomain](../../../ai-services/cognitive-services-custom-subdomains.md) for your Azure AI services resource.
+- Create a [custom subdomain](/azure/ai-services/cognitive-services-custom-subdomains) for your Azure AI services resource.
 - Create a new web service application using the [Call Automation SDK](../../quickstarts/call-automation/quickstart-make-an-outbound-call.md).
 
 ## Setup a WebSocket Server 

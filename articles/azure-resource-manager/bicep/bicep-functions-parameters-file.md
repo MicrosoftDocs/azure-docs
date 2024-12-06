@@ -3,7 +3,7 @@ title: Bicep functions - parameters file
 description: This article describes the Bicep functions to be used in Bicep parameter files.
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 03/20/2024
+ms.date: 08/09/2024
 ---
 
 # Parameters file function for Bicep
@@ -14,7 +14,7 @@ Bicep provides a function called `readEnvironmentVariable()` that allows you to 
 
 `getSecret(subscriptionId, resourceGroupName, keyVaultName, secretName, secretVersion)`
 
-Returns a secret from an [Azure Key Vault](../../key-vault/secrets/about-secrets.md). Use this function to pass a secret to a secure string parameter of a Bicep file.
+Returns a secret from an [Azure Key Vault](/azure/key-vault/secrets/about-secrets). Use this function to pass a secret to a secure string parameter of a Bicep file.
 
 > [!NOTE]
 > You can also use the [keyVaultName.getSecret(secretName)](./bicep-functions-resource.md#getsecret) function from within a `.bicep` file.
@@ -80,6 +80,28 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 ### Return value
 
 The string value of the environment variable or a default value.
+
+### Remarks
+
+The following command sets the environment variable only for the PowerShell process in which it's executed. You get [BCP338](./diagnostics/bcp338.md) from Visual Studio Code.
+
+```PowerShell
+$env:testEnvironmentVariable = "Hello World!"
+```
+
+To set the environment variable at the user level, use the following command:
+
+```powershell
+[System.Environment]::SetEnvironmentVariable('testEnvironmentVariable','Hello World!', 'User')
+```
+
+To set the environment variable at the machine level, use the following command:
+
+```powershell
+[System.Environment]::SetEnvironmentVariable('testEnvironmentVariable','Hello World!', 'Machine')
+```
+
+For more information, see [Environment.SetEnvironmentVariable Method](/dotnet/api/system.environment.setenvironmentvariable).
 
 ### Examples
 

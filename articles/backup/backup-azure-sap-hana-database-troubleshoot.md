@@ -2,11 +2,10 @@
 title: Troubleshoot SAP HANA databases back up errors
 description: Describes how to troubleshoot common errors that might occur when you use Azure Backup to back up SAP HANA databases.
 ms.topic: troubleshooting
-ms.date: 07/30/2024
+ms.date: 10/01/2024
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
-ms.custom: engagement-fy24
 ---
 
 # Troubleshoot backup of SAP HANA databases on Azure
@@ -21,30 +20,30 @@ See the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [What 
 
 ### UserErrorHANAInternalRoleNotPresent
 
-| **Error message**      | `Azure Backup does not have required role  privileges to carry out Backup and Restore operations`    |
+| **Error message**      | `Azure Backup doesn't have required role  privileges to carry out Backup and Restore operations`    |
 | ---------------------- | ------------------------------------------------------------ |
-| **Possible causes**    | All operations fail with this error when the Backup user (AZUREWLBACKUPHANAUSER) doesn't have the **SAP_INTERNAL_HANA_SUPPORT** role assigned or the role might have been overwritten.                          |
+| **Possible causes**    | All operations fail with this error when the Backup user (AZUREWLBACKUPHANAUSER) doesn't have the **SAP_INTERNAL_HANA_SUPPORT** role assigned or the role might be overwritten.                          |
 | **Recommended action** | Download and run the [pre-registration script](https://aka.ms/scriptforpermsonhana) on the SAP HANA instance, or manually assign the **SAP_INTERNAL_HANA_SUPPORT** role to the Backup user (AZUREWLBACKUPHANAUSER).<br><br>**Note**<br><br>If you're using HANA 2.0 SPS04 Rev 46 and later, this error doesn't occur as the use of the **SAP_INTERNAL_HANA_SUPPORT** role is deprecated in these HANA versions. |
 
 ### UserErrorInOpeningHanaOdbcConnection
 
 | **Error message**      | `Failed to connect to HANA system`                        |
 | ------------------ | ------------------------------------------------------------ |
-| **Possible causes**    | <ul><li>Connection to HANA instance failed</li><li>System DB is offline</li><li>Tenant DB is offline</li><li>Backup user (AZUREWLBACKUPHANAUSER) doesn't have enough permissions/privileges.</li></ul> |
+| **Possible causes**    | <ul><li>Connection to HANA instance failed</li><li>System  database (DB) is offline</li><li>Tenant DB is offline</li><li>Backup user (AZUREWLBACKUPHANAUSER) doesn't have enough permissions/privileges.</li></ul> |
 | **Recommended action** | Check if the system is running. If one or more databases is running, ensure that the required permissions are set. To do so, download and run the [pre-registration script](https://aka.ms/scriptforpermsonhana) on the SAP HANA instance. |
 
 ### UserErrorHanaInstanceNameInvalid
 
 | **Error message**      | `The specified SAP HANA instance is either invalid or can't be found`  |
 | ------------------ | ------------------------------------------------------------ |
-| **Possible causes**    | <ul><li>The specified SAP HANA instance is either invalid or can't be found.</li><li>Multiple SAP HANA instances on a single Azure VM can't be backed up.</li></ul> |
+| **Possible causes**    | <ul><li>The specified SAP HANA instance is either invalid or can't be found.</li><li>Multiple SAP HANA instances on a single Azure Virtual Machine (VM) can't be backed up.</li></ul> |
 | **Recommended action** | <ul><li>Ensure that only one HANA instance is running on the Azure VM.</li><li> To resolve the issue, run the script from the _Discover DB_ pane (you can also find the script [here](https://aka.ms/scriptforpermsonhana)) with the correct SAP HANA instance.</li></ul> |
 
 ### UserErrorHANALSNValidationFailure
 
 | **Error message**      | `Backup log chain is broken`                                    |
 | ------------------ | ------------------------------------------------------------ |
-| **Possible causes**    | HANA LSN Log chain break can be triggered for various reasons, including:<ul><li>Azure Storage call failure to commit backup.</li><li>The Tenant DB is offline.</li><li>Extension upgrade terminates an in-progress Backup job.</li><li>Unable to connect to Azure Storage during backup.</li><li>SAP HANA has rolled back a transaction in the backup process.</li><li>A backup is complete, but catalog isn't yet updated with success in HANA system.</li><li>Backup failed from Azure Backup perspective, but success from the perspective of HANA — the log backup/catalog destination might have been updated from Backint-to-file system, or the Backint executable might have been changed.</li></ul> |
+| **Possible causes**    | HANA LSN Log chain break can be triggered for various reasons, including:<ul><li>Azure Storage call failure to commit backup.</li><li>The Tenant DB is offline.</li><li>Extension upgrade is terminated an in-progress Backup job.</li><li>Unable to connect to Azure Storage during backup.</li><li>SAP HANA has rolled back a transaction in the backup process.</li><li>A backup is complete, but catalog isn't yet updated with success in HANA system.</li><li>Backup failed from Azure Backup perspective, but success from the perspective of HANA — the log backup/catalog destination might have been updated from Backint-to-file system, or the Backint executable might have been changed.</li></ul> |
 | **Recommended action** | To resolve this issue, Azure Backup triggers an auto-heal Full backup. While this auto-heal backup is in progress, all log backups are triggered by HANA fail with **OperationCancelledBecauseConflictingAutohealOperationRunningUserError**. Once the auto-heal Full backup is complete, logs and all other backups start working as expected.<br>If you don't see an auto-heal full backup triggered or any successful backup (Full/Differential/ Incremental) in 24 hours, contact Microsoft support.</br> |
 
 ### UserErrorSDCtoMDCUpgradeDetected
@@ -70,7 +69,7 @@ See the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [What 
 
 ### UserErrorHANAPODoesNotExist
 
-**Error message** | `Database configured for backup does not exist.`
+**Error message** | `Database configured for backup doesn't exist.`
 --------- | --------------------------------
 **Possible causes** | If you delete a database that is configured for backup, all scheduled and on-demand backups on this database will fail.
 **Recommended action** | Verify if the database is deleted. Re-create the database or [stop protection](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) (with or without retain data) for the database.
@@ -79,14 +78,14 @@ See the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [What 
 
 **Error message** |    `Azure Backup does not have enough privileges to carry out Backup and Restore operations.`
 ---------- | ---------
-**Possible causes** | Backup user (AZUREWLBACKUPHANAUSER) created by the preregistration script doesn't have one or more of the following roles assigned:<ul><li>For MDC, DATABASE ADMIN and BACKUP ADMIN (for HANA 2.0 SPS05 and later) create new databases during restore.</li><li>For SDC, BACKUP ADMIN creates new databases during restore.</li><li>CATALOG READ to read the backup catalog.</li><li>SAP_INTERNAL_HANA_SUPPORT to access a few private tables. Only required for SDC and MDC versions prior to HANA 2.0 SPS04 Rev 46. It's not required for HANA 2.0 SPS04 Rev 46 and later. This is because we're getting the required information from public tables now with the fix from HANA team.</li></ul>
+**Possible causes** | Backup user (AZUREWLBACKUPHANAUSER) created by the pre-registration script doesn't have one or more of the following roles assigned:<ul><li>For MDC, DATABASE ADMIN and BACKUP ADMIN (for HANA 2.0 SPS05 and later) create new databases during restore.</li><li>For SDC, BACKUP ADMIN creates new databases during restore.</li><li>CATALOG READ to read the backup catalog.</li><li>SAP_INTERNAL_HANA_SUPPORT to access a few private tables. Only required for SDC and MDC versions prior to HANA 2.0 SPS04 Rev 46. It's not required for HANA 2.0 SPS04 Rev 46 and later. This is because we're getting the required information from public tables now with the fix from HANA team.</li></ul>
 **Recommended action** | To resolve the issue, add the required roles and permissions manually to the Backup user (AZUREWLBACKUPHANAUSER). Or, you can download and run the preregistration script on the [SAP HANA instance](https://aka.ms/scriptforpermsonhana).
 
 ### UserErrorDatabaseUserPasswordExpired
 
 **Error message** | `Database/Backup user's password expired.`
 ----------- | -----------
-**Possible causes** | The Database/Backup user created by the preregistration script doesn't set expiry for the password. However, if it was altered, you may see this error.
+**Possible causes** | The Database/Backup user created by the pre-registration script doesn't set expiry for the password. However, if it was altered, you may see this error.
 **Recommended action** | Download and run the [pre-registration script](https://aka.ms/scriptforpermsonhana) on the SAP HANA instance to resolve the issue.
 
 ### UserErrorInconsistentSSFS
@@ -139,7 +138,7 @@ See the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [What 
 
 **Error message** | `Pre-registration script not run.`
 --------- | --------
-**Possible causes** | The SAP HANA preregistration script to set up the environment hasn't been run.
+**Possible causes** | The SAP HANA pre-registration script to set up the environment hasn't been run.
 **Recommended action** | Download and run the [pre-registration script](https://aka.ms/scriptforpermsonhana) on the SAP HANA instance.
 
 
@@ -196,7 +195,7 @@ See the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [What 
 
 **Error message** | `Operation is blocked as the vault has reached its maximum limit for such operations permitted in a span of 24 hours.`
 ------ | -----------
-**Possible causes** | When you've reached the maximum permissible limit for an operation in a span of 24 hours, this error appears. This error usually appears when there are at-scale operations such as modify policy or auto-protection. Unlike the case of CloudDosAbsoluteLimitReached, there isn't much you can do to resolve this state. In fact, Azure Backup service will retry the operations internally for all the items in question.<br><br> For example, if you have a large number of datasources protected with a policy and you try to modify that policy, it'll trigger the configure protection jobs for each of the protected items and sometimes may hit the maximum limit permissible for such operations per day.
+**Possible causes** | When you've reached the maximum permissible limit for an operation in a span of 24 hours, this error appears. This error usually appears when there are at-scale operations such as modify policy or auto-protection. Unlike the case of CloudDosAbsoluteLimitReached, there isn't much you can do to resolve this state. In fact, Azure Backup service will retry the operations internally for all the items in question.<br><br> For example, if you have a large number of datasources protected with a policy and you try to modify that policy, it will trigger the configure protection jobs for each of the protected items and sometimes may hit the maximum limit permissible for such operations per day.
 **Recommended action** | Azure Backup service will automatically retry this operation after 24 hours.
 
 ### UserErrorInvalidBackint
@@ -212,6 +211,20 @@ See the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [What 
 --- | ---
 **Possible causes** | - Disk corruption issue. <br> - Memory allocation issues. <br> - Too many databases in use. <br> - Topology update issue.
 **Recommended action** | Work with the SAP HANA team to fix this issue. However, if the issue persists, you can contact Microsoft support for further assistance.
+
+### UserErrorRestoreTargetDirectoriesAbsent
+
+| **Error Message** | `PreRestoreDataParamsPrep: Target directory` doesn't exist. |
+| --- | --- |
+| **Possible Causes** | Restore as files is failing due to *directory* that is selected for restore doesn't exist on the Target server or isn't accessible.
+| **Recommended action** | Verify the directory that you selected is available on the target server and ensure you have selected the correct target server at the time of restore. |
+
+### JobCancelledOnExtensionUpgrade
+
+| Error message | The Backup job was canceled because the workload backup extension service restarted for an upgrade. |
+| --- | --- |
+| **Possible cause** | The backup and restore job fails due to automatic Extension upgrade when the backup/restore operation is in progress. |
+| **Recommended action** | Wait for the extension upgrade to complete. HANA then re-triggers the failed log backups, if any. <br><br> However, the failed Full/ Differential/ Incremental backups won't be re-triggered by Azure Backup and you need to manually retrigger this operation. |
 
 ## Restore checks
 
@@ -232,7 +245,7 @@ Note the following points:
 
 ### Multiple Container Database (MDC) restore
 
-In multiple container databases for HANA, the standard configuration is SYSTEMDB + 1 or more Tenant DBs. Restore of an entire SAP HANA instance restores both SYSTEMDB and Tenant DBs. One restores SYSTEMDB first and then proceeds for Tenant DB. System DB essentially means to override the system information on the selected target. This restore also overrides the BackInt related information in the target instance. So after the system DB is restored to a target instance, run the preregistration script again. Only then the subsequent tenant DB restores will succeed.
+In multiple container databases for HANA, the standard configuration is SYSTEMDB + 1 or more Tenant DBs. Restore of an entire SAP HANA instance restores both SYSTEMDB and Tenant DBs. One restores SYSTEMDB first and then proceeds for Tenant DB. System DB essentially means to override the system information on the selected target. This restore also overrides the BackInt related information in the target instance. So after the system DB is restored to a target instance, run the pre-registration script again. Only then the subsequent tenant DB restores will succeed.
 
 ## Back up a replicated VM
 
@@ -245,7 +258,7 @@ This scenario could include two possible cases. Learn how to back up the replica
 1. The new VM created has the same name, and is in the same resource group and subscription as the deleted VM.
 
     - The extension is already present on the VM, but isn't visible to any of the services
-    - Run the preregistration script
+    - Run the pre-registration script
     - Re-register the extension for the same machine in the Azure portal (**Backup** -> **View details** -> Select the relevant Azure VM -> Re-register)
     - The already existing backed up databases (from the deleted VM) should then start successfully being backed up
 
@@ -257,7 +270,7 @@ This scenario could include two possible cases. Learn how to back up the replica
     If so, then follow these steps:
 
     - The extension is already present on the VM, but isn't visible to any of the services
-    - Run the preregistration script
+    - Run the pre-registration script
     - If you discover and protect the new databases, you start seeing duplicate active databases in the portal. To avoid this, [Stop protection with retain data](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) for the old databases. Then continue with the remaining steps.
     - Discover the databases
     - Enable backups on these databases
@@ -270,9 +283,9 @@ The original VM was replicated using Azure Site Recovery or Azure VM backup. The
 Follow these steps to enable backups on the new VM:
 
 - The extension is already present on the VM, but not visible to any of the services
-- Run the preregistration script. Based on the SID of the new VM, two scenarios can arise:
-  - The original VM and the new VM have the same SID. The preregistration script runs successfully.
-  - The original VM and the new VM have different SIDs. The preregistration script fails. Contact support to get help in this scenario.
+- Run the pre-registration script. Based on the SID of the new VM, two scenarios can arise:
+  - The original VM and the new VM have the same SID. The pre-registration script runs successfully.
+  - The original VM and the new VM have different SIDs. The pre-registration script fails. Contact Microsoft support to get help in this scenario.
 - Discover the databases that you want to back up
 - Enable backups on these databases
 
@@ -332,6 +345,20 @@ These symptoms might arise for one or more of the following reasons:
 - The VM was deleted. Also, the other VM was created with the same name and in the same resource group as the deleted VM.
 
 In the preceding scenarios, we recommend that you trigger a re-register operation on the VM.
+
+## Back up SAP HANA database logs
+
+### Log backup isn't triggered despite the full backup's success.
+
+**Possible cause**: The values for SAP HANA database are incorrect to trigger log backup.
+
+**Recommended action**: Ensure that the following values for SAP HANA configuration are set correctly:
+
+- `enable_auto_log_backup`： Yes
+- `log_backup_using_backint`： True
+- `catalog_backup_using_backint`： True
+- `log_mode`： normal
+- `log_backup_timeout_s`： Same as Azure portal's log backup policy (frequency is in  seconds).
 
 ## Next step
 

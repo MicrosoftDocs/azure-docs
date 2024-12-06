@@ -7,11 +7,17 @@ ms.author: aterceros
 ms.date: 03/21/2023
 ms.topic: reference
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: creator
 zone_pivot_groups: drawing-package-version
 ---
 
 # Drawing package requirements
+
+> [!NOTE]
+>
+> **Azure Maps Creator retirement**
+>
+> The Azure Maps Creator indoor map service is now deprecated and will be retired on 9/30/25. For more information, see [End of Life Announcement of Azure Maps Creator](https://aka.ms/AzureMapsCreatorDeprecation).
 
 :::zone pivot="drawing-package-v1"
 

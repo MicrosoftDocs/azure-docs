@@ -6,7 +6,7 @@ ms.author: sataneja
 ms.date: 05/17/2018
 ms.topic: reference
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: general
 ---
 
 

@@ -70,7 +70,7 @@ Learn how to create a pod in an AKS cluster, which talks to an Azure storage acc
         --sku Standard_LRS
     ```
 
-1. Create an Azure container registry with the following command, or referring to the [tutorial](../container-registry/container-registry-get-started-portal.md). The registry hosts the container image of the sample application, which will be consumed by the AKS pod definition.
+1. Create an Azure container registry with the following command, or referring to the [tutorial](/azure/container-registry/container-registry-get-started-portal). The registry hosts the container image of the sample application, which will be consumed by the AKS pod definition.
 
     ```azurecli
     az acr create \

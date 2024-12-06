@@ -5,9 +5,9 @@ author: KarlErickson
 ms.author: zhihaoguo
 ms.date: 01/04/2022
 ms.topic: quickstart
-ms.service: azure-cache-redis
+
 ms.devlang: java
-ms.custom: devx-track-java, devx-track-javaee, mode-api, mvc, devx-track-extended-java
+ms.custom: devx-track-java, devx-track-javaee, mode-api, mvc, devx-track-extended-java, ignite-2024
 ---
 
 # Quickstart: Use Azure Cache for Redis in Java

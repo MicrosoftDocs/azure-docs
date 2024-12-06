@@ -72,13 +72,13 @@ landingContent:
             url: push-delivery-overview.md
           - text: Concepts
             url: concepts.md
-          - text: Custom (topics) events 
+          - text: Custom topic events 
             url: custom-topics.md
-          - text: system (topics) events
+          - text: system topic events
             url: system-topics.md
-          - text: Partner (topics) events for customers
+          - text: Partner topic events for customers
             url: partner-events-overview.md
-          - text: Partner (topics) events for publishers
+          - text: Partner topic events for publishers
             url: partner-events-overview-for-partners.md
       - linkListType: quickstart
         links:

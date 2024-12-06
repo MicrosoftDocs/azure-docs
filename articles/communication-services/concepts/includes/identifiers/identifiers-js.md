@@ -124,6 +124,10 @@ switch (communicationIdentifier.kind)
         // narrowed to MicrosoftTeamsUserKind
         console.log(`Teams user: ${communicationIdentifier.microsoftTeamsUserId}`);
         break;
+    case "microsoftTeamsApp":
+        // narrowed to MicrosoftTeamsAppIdentifier
+        console.log(`Teams app: ${communicationIdentifier.teamsAppId}`);
+        break;
     case "phoneNumber":
          // narrowed to PhoneNumberKind
         console.log(`Phone number: ${communicationIdentifier.phoneNumber}`);
@@ -131,10 +135,6 @@ switch (communicationIdentifier.kind)
     case "unknown":
          // narrowed to UnknownIdentifierKind
         console.log(`Unknown: ${communicationIdentifier.id}`);
-        break;
-    case "microsoftBot":
-        // narrowed to MicrosoftBotIdentifier
-        console.log(`Microsoft bot: ${communicationIdentifier.botId}`);
         break;
     default:
         // be careful here whether you want to throw because a new SDK version

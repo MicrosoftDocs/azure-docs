@@ -15,7 +15,7 @@ ms.author: spelluru
 The following sections build on these articles by describing the specific data gathered for Azure Service Bus. These sections also provide examples for configuring data collection and analyzing this data with Azure tools.
 
 > [!TIP]
-> To understand costs associated with Azure Monitor, see [Azure Monitor cost and usage](../azure-monitor/cost-usage.md). To understand the time it takes for your data to appear in Azure Monitor, see [Log data ingestion time](../azure-monitor/logs/data-ingestion-time.md).
+> To understand costs associated with Azure Monitor, see [Azure Monitor cost and usage](/azure/azure-monitor/cost-usage). To understand the time it takes for your data to appear in Azure Monitor, see [Log data ingestion time](/azure/azure-monitor/logs/data-ingestion-time).
 
 [!INCLUDE [horz-monitor-insights](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-insights.md)]
 
@@ -38,7 +38,7 @@ The diagnostic logging information is stored in tables named **AzureDiagnostics*
 
 For a list of available metrics for Service Bus, see [Azure Service Bus monitoring data reference](monitor-service-bus-reference.md#metrics).
 
-You can analyze metrics for Azure Service Bus, along with metrics from other Azure services, by selecting **Metrics** from the **Monitoring** section on the home page for your Service Bus namespace. See [Analyze metrics with Azure Monitor metrics explorer](../azure-monitor/essentials/analyze-metrics.md) for details on using this tool. For a list of the platform metrics collected, see [Monitoring Azure Service Bus data reference metrics](monitor-service-bus-reference.md#metrics).
+You can analyze metrics for Azure Service Bus, along with metrics from other Azure services, by selecting **Metrics** from the **Monitoring** section on the home page for your Service Bus namespace. See [Analyze metrics with Azure Monitor metrics explorer](/azure/azure-monitor/essentials/analyze-metrics) for details on using this tool. For a list of the platform metrics collected, see [Monitoring Azure Service Bus data reference metrics](monitor-service-bus-reference.md#metrics).
 
 :::image type="content" source="./media/monitor-service-bus/metrics.png" alt-text="Screenshot shows Metrics Explorer with Service Bus namespace selected.":::
 

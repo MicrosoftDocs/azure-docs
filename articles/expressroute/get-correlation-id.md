@@ -45,4 +45,4 @@ This guide walks you through the steps to obtain the operation correlation ID fr
 
 ## Next steps
 
-* File a support request with the correlation ID to help troubleshoot your issue. For more information, see [How to create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
+* File a support request with the correlation ID to help troubleshoot your issue. For more information, see [How to create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request).

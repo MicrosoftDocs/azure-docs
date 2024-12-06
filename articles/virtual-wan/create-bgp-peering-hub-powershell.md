@@ -6,7 +6,7 @@ author: cherylmc
 ms.service: azure-virtual-wan
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 11/21/2023
+ms.date: 08/13/2024
 ms.author: cherylmc
 ---
 # Configure BGP peering to an NVA - PowerShell
@@ -75,7 +75,13 @@ Update an existing hub BGP peer connection.
 ```azurepowershell-interactive
 Update-AzVirtualHubBgpConnection -ResourceGroupName "[resource group name]" -VirtualHubName "westushub" -PeerIp 192.168.1.6 -PeerAsn 20000 -Name "testBgpConnection" -VirtualHubVnetConnection $hubVnetConnection
 ```
+## Check BGP learned route
 
+Check BGP learned route in a hub.
+
+```azurepowershell-interactive
+Get-AzRouteServerPeerLearnedRoute -ResourceGroupName "[resource group name]" -RouteServerName "[hub name]" -PeerName "[peer name]"
+```
 ## Delete a BGP peer
 
 Remove an existing hub BGP connection.

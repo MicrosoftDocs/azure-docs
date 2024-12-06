@@ -40,7 +40,7 @@ A server endpoint path is an immutable property. Choosing a different location o
 
 Deleting a server endpoint isn't trivial and can lead to data loss if done in the wrong way. The [delete server endpoint article](file-sync-server-endpoint-delete.md) guides you through the process.
 
-If you're currently using the D drive and plan on migrating to the cloud, see [Make the D: drive of a VM a data disk - Azure Virtual Machines](../../virtual-machines/windows/change-drive-letter.md).
+If you're currently using the D drive and plan on migrating to the cloud, see [Make the D: drive of a VM a data disk - Azure Virtual Machines](/azure/virtual-machines/windows/change-drive-letter).
 
 ## Rename a sync group
 

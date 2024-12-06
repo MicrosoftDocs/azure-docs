@@ -1,6 +1,6 @@
 ---
 author: cephalin
-ms.service: app-service
+ms.service: azure-app-service
 ms.devlang: java
 ms.custom: linux-related-content
 ms.topic: quickstart
@@ -17,7 +17,7 @@ ms.author: cephalin
 To complete this quickstart, you need:
 
 - An [Azure account](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-docker-extension&mktingSource=vscode-tutorial-docker-extension)
-- An [Azure container registry](../../../container-registry/container-registry-get-started-portal.md)
+- An [Azure container registry](/azure/container-registry/container-registry-get-started-portal)
 - [Azure CLI](/cli/azure/install-azure-cli)
 - [Docker](https://www.docker.com/community-edition)
 

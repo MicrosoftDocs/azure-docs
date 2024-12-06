@@ -1,14 +1,13 @@
 ---
 title: Using Redis modules with Azure Cache for Redis
 description: You can use Redis modules with your Azure Cache for Redis instances to extend your caches on the Enterprise tiers.
-author: flang-msft
 
-ms.author: franlanglois
-ms.service: azure-cache-redis
+
+
+
 ms.topic: conceptual
 ms.date: 04/10/2024
-ms.custom: template-concept
-
+ms.custom: template-concept, ignite-2024
 ---
 # Use Redis modules with Azure Cache for Redis
 
@@ -84,7 +83,7 @@ Additionally, **RediSearch** can function as a secondary index, expanding your c
 You can use **RediSearch** is used in a wide variety of use-cases, including real-time inventory, enterprise search, and in indexing external databases. [For more information, see the RediSearch documentation page](https://redis.io/search/).
 
 >[!IMPORTANT]
-> The RediSearch module requires use of the `Enterprise` clustering policy and the `NoEviction` eviction policy. For more information, see [Clustering on Enterprise](cache-best-practices-enterprise-tiers.md#clustering-on-enterprise) and [Memory Policies](cache-configure.md#memory-policies)
+> The RediSearch module requires use of the `Enterprise` clustering policy and the `NoEviction` eviction policy. For more information, see   and [Memory Policies](managed-redis/managed-redis-configure.md#memory-policies).
 >
 
 ### RedisBloom
@@ -100,7 +99,7 @@ RedisBloom adds four probabilistic data structures to a Redis server: **bloom fi
 **Bloom and Cuckoo** filters are similar to each other, but each has a unique set of advantages and disadvantages that are beyond the scope of
 this documentation.
 
-For more information, see [RedisBloom](https://redis.io/bloom/).
+For more information, see [RedisBloom](https://redis.io/probabilistic/).
 
 ### RedisTimeSeries
 

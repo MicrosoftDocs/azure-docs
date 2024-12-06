@@ -4,7 +4,7 @@ description: This article walks you through the issues you might face with asymm
 services: expressroute
 author: duongau
 ms.service: azure-expressroute
-ms.topic: article
+ms.topic: concept-article
 ms.date: 07/11/2024
 ms.author: duau
 ---

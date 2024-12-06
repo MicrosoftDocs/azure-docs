@@ -300,7 +300,7 @@ The following steps show how to prepare the internal load balancer for the move 
             ]
         },
         ```
-        For more about availability zones, see [Regions and availability zones in Azure](../availability-zones/az-overview.md).
+        For more about availability zones, see [Regions and availability zones in Azure](../reliability/availability-zones-overview.md).
 
     * **Load balancing rules** - You can add or remove load balancing rules in the configuration by adding or removing entries to the **loadBalancingRules** section of the **template.json** file:
 

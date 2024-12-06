@@ -38,7 +38,7 @@ To complete this project, you need the following items:
 
 | Requirement | Instructions |
 |--|--|
-| Azure account | If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). You need the *Contributor* or *Owner* permission on the Azure subscription to proceed. <br><br>Refer to [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml?tabs=current) for details. |
+| Azure account | If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). You need the *User Access Administrator* or *Owner* permission on the Azure subscription to proceed. Make sure to use the most restrictive role for your context. <br><br>See [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml?tabs=current) and [Azure roles, Microsoft Entra roles, and classic subscription administrator roles](/azure/role-based-access-control/rbac-and-directory-admin-roles)for details. |
 | GitHub Account | Sign up for [free](https://github.com/join). |
 | git | [Install git](https://git-scm.com/downloads) |
 | Azure CLI | Install the [Azure CLI](/cli/azure/install-azure-cli).|
@@ -169,7 +169,7 @@ $acr = New-AzContainerRegistry -ResourceGroupName $ResourceGroup -Name $ACRName 
 
 ## Build your application
 
-With [ACR tasks](../container-registry/container-registry-tasks-overview.md), you can build and push the docker image for the album API without installing Docker locally.
+With [ACR tasks](/azure/container-registry/container-registry-tasks-overview), you can build and push the docker image for the album API without installing Docker locally.
 
 ### Build the container with ACR
 

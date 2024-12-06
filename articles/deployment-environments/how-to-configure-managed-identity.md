@@ -109,7 +109,7 @@ The identity attached to the dev center should be assigned the Contributor and U
 
 ## Grant the managed identity access to the key vault secret
 
-You can set up your key vault to use either a [key vault access policy](../key-vault/general/assign-access-policy.md) or [Azure role-based access control](../key-vault/general/rbac-guide.md).
+You can set up your key vault to use either a [key vault access policy](/azure/key-vault/general/assign-access-policy) or [Azure role-based access control](/azure/key-vault/general/rbac-guide).
 
 > [!NOTE]
 > Before you can add a repository as a catalog, you must grant the managed identity access to the key vault secret that contains the repository's personal access token.

@@ -1,7 +1,7 @@
 ---
 title: 'Explore data using the Explorer - Azure Time Series Insights | Microsoft Docs'
 description: Learn how to use the Azure Time Series Insights Explorer to view your IoT data.
-ms.service: time-series-insights
+ms.service: azure-time-series-insights
 author: narmeens
 ms.author: narsam
 manager: cnovak
