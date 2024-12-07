@@ -221,7 +221,9 @@
       items:
       - name: P2S gateway configuration
         items:
-        - name: Configure a point-to-site VPN
+        - name: Azure portal
+          href: point-to-site-radius-gateway.md
+        - name: Azure Powershell
           href: point-to-site-how-to-radius-ps.md
         - name: Multifactor authentication - P2S RADIUS and NPS server
           href: vpn-gateway-radius-mfa-nsp.md
