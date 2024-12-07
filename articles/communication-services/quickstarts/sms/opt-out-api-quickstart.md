@@ -111,6 +111,22 @@ In general, response contents are the same for all actions and contain the succe
     ]
 }
 ```
+
+## Sample code
+
+::: zone pivot="programming-language-csharp"
+[!INCLUDE [Send SMS with .NET SDK](./includes/sms-opt-out-api-csharp.md)]
+::: zone-end
+
+::: zone pivot="programming-language-javascript"
+[!INCLUDE [Send SMS with JavaScript SDK](./includes/sms-opt-out-api-javascript.md)]
+::: zone-end
+
+::: zone pivot="programming-language-java"
+[!INCLUDE [Send SMS with Java SDK](./includes/sms-opt-out-api-java.md)]
+::: zone-end
+
+
 ## Next steps
 
 In this quickstart, you learned how to send OPt-out requests.
