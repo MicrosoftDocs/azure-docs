@@ -38,7 +38,7 @@ A common way you can improve this security is by implementing an API KEY mechani
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
-[!INCLUDE [Secure webhook endpoint with JavaSript](./includes/secure-webhook-endpoint-javascript.md)]
+[!INCLUDE [Secure webhook endpoint with JavaScript](./includes/secure-webhook-endpoint-javascript.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"

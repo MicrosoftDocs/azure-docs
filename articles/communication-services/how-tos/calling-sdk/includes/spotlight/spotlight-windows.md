@@ -66,7 +66,7 @@ To get information about all participants with spotlight state changes on the cu
 // event : { added: SpotlightedParticipant[]; removed: SpotlightedParticipant[] }
 // SpotlightedParticipant = { identifier: CommunicationIdentifier }
 // where: 
-//  identifier: ID of participant whos spotlight state is changed
+//  identifier: ID of participant whose spotlight state is changed
 private void OnSpotlightChange(object sender, SpotlightChangedEventArgs args)
 {
     foreach (SpotlightedParticipant rh in args.added)
