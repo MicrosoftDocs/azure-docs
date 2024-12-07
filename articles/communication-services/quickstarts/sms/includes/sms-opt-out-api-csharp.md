@@ -1,5 +1,5 @@
 ---
-title: include file
+title: Include file
 description: include file
 services: azure-communication-services
 author: dbasantes
@@ -8,11 +8,11 @@ ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 12/06/2024
 ms.topic: include
-ms.custom: include file
+ms.custom: Include file
 ms.author: dbasantes
 ---
 
-Get started with Azure Communication Services SMS Opt-out API by leveraging the following C# sample code.
+Get started with Azure Communication Services SMS Opt-out API by applying the following C# sample code.
 
 ## Prerequisites
 
@@ -23,7 +23,7 @@ Get started with Azure Communication Services SMS Opt-out API by leveraging the 
 
 ## Sample code to use Opt-Out API
 
-Below is a sample C# implementation demonstrating how to use the Opt-Out Management API to add, remove, or check opt-out entries programmatically.
+This sample demonstrates how to use the Opt-Out Management API in C# to programmatically add, remove, or check opt-out entries.
 
 ```cs
 using System.Globalization;
