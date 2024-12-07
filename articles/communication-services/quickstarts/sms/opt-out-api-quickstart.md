@@ -122,7 +122,7 @@ In general, response contents are the same for all actions and contain the succe
 
 #### Prerequisites
 
-- The .NET Core SDK version mush be higher than v6 for your operating system.
+- The .NET Core SDK version must be higher than v6 for your operating system.
 - An active Communication Services resource and connection string. See [Create a Communication Services resource](https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource).
 - An SMS-enabled telephone number. See [Get a phone number](https://learn.microsoft.com/azure/communication-services/quickstarts/telephony/get-phone-number) and `allowlisted` as described in the beginning of the article.
 
