@@ -15,8 +15,6 @@ ms.topic: quickstart
 
 This article describes how to enable opt-out management for your Azure Communication Services resource using hash message authentication code (HMAC) based authentication.
 
-## Global prerequisites
-
 ## Quickstart: Send OptOut API requests with API (HMAC)
 Sending an Opt-out API request is similar to SMS as described in the [Azure Communication Services Postman Tutorial](https://learn.microsoft.com/azure/communication-services/tutorials/postman-tutorial) with the difference of endpoints for OptOut Actions (Add, Remove, or Check) and body. The request body has the same structure for all actions, while the response content slightly differs.
 
