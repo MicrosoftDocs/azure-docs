@@ -13,13 +13,13 @@ ms.custom:
 
 # Build and register APIs with the Azure API Center extension for Visual Studio Code
 
-API developers in your organization can build and register APIs in your [API center](overview.md) inventory by using the Azure API Center extension for Visual Studio Code. API developers can:
+API producer developers in your organization can build and register APIs in your [API center](overview.md) inventory by using the Azure API Center extension for Visual Studio Code. API developers can:
 
 * Add an existing API to an API center as a one-time operation, or integrate a development pipeline to register APIs as part of a CI/CD workflow.
 * Use GitHub Copilot to generate new OpenAPI specs from API code.
 * Use natural language prompts with the API Center plugin for GitHub Copilot for Azure to create new OpenAPI specs.
 
-API developers can also take advantage of features in the extension to [discover and consume APIs](discover-apis-vscode-extension.md) in the API center and ensure [API governance](govern-apis-vscode-extension.md).
+API consumer developers can also take advantage of features in the extension to [discover and consume APIs](discover-apis-vscode-extension.md) in the API center and ensure [API governance](govern-apis-vscode-extension.md).
 
 [!INCLUDE [vscode-extension-basic-prerequisites](includes/vscode-extension-basic-prerequisites.md)]  
 
