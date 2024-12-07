@@ -17,9 +17,6 @@ This article describes how to enable opt-out management for your Azure Communica
 
 ## Global prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- An active Communication Services resource and connection string. See [Create a Communication Services resource](../create-communication-resource.md).
-
 ## Quickstart: Send OptOut API requests with API (HMAC)
 Sending an Opt-out API request is similar to SMS as described in the [Azure Communication Services Postman Tutorial](https://learn.microsoft.com/azure/communication-services/tutorials/postman-tutorial) with the difference of endpoints for OptOut Actions (Add, Remove, or Check) and body. The request body has the same structure for all actions, while the response content slightly differs.
 
@@ -122,6 +119,7 @@ In general, response contents are the same for all actions and contain the succe
 
 #### Prerequisites
 
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - The .NET Core SDK version must be higher than v6 for your operating system.
 - An active Communication Services resource and connection string. See [Create a Communication Services resource](https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource).
 - An SMS-enabled telephone number. See [Get a phone number](https://learn.microsoft.com/azure/communication-services/quickstarts/telephony/get-phone-number) and `allowlisted` as described in the beginning of the article.
@@ -205,6 +203,7 @@ await SendOptOutAdd(ConnectionString, payload);
 
 #### Prerequisites
 
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Browser or Node.js Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1 are recommended).
 - An active Communication Services resource and connection string. See [Create a Communication Services resource](https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource).
 - An SMS-enabled telephone number. See [Get a phone number](https://learn.microsoft.com/azure/communication-services/quickstarts/telephony/get-phone-number).
@@ -286,6 +285,7 @@ sendOptOutAdd(ConnectionString, payload);
 
 #### Prerequisites
 
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Java Development Kit (JDK) version 8 or above.
 - An active Communication Services resource and connection string. See [Create a Communication Services resource](https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource).
 - An SMS-enabled telephone number. See [Get a phone number](https://learn.microsoft.com/azure/communication-services/quickstarts/telephony/get-phone-number).
