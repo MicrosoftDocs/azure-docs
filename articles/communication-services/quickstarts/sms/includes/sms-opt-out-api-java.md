@@ -1,6 +1,6 @@
 ---
-title: include file
-description: include file
+title: Include file
+description: Include file
 services: azure-communication-services
 author: dbasantes
 
@@ -12,7 +12,7 @@ ms.custom: include file
 ms.author: dbasantes
 ---
 
-Get started with Azure Communication Services SMS Opt-out API by leveraging the following Java sample code.
+Get started with Azure Communication Services SMS Opt-out API by applying the following Java sample code.
 
 ## Prerequisites
 
@@ -23,7 +23,7 @@ Get started with Azure Communication Services SMS Opt-out API by leveraging the 
 
 ## Sample code to use Opt-Out API
 
-Below is a sample Java implementation demonstrating how to use the Opt-Out Management API to add, remove, or check opt-out entries programmatically.
+This sample demonstrates how to use the Opt-Out Management API in Java to programmatically add, remove, or check opt-out entries.
 
 
 ```java
