@@ -35,13 +35,35 @@ During an active call, you may want to send or receive states from other users. 
 - A user access token to enable the calling client. For more information, see [Create and manage access tokens](../../quickstarts/identity/access-tokens.md).
 - Optional: Complete the quickstart to [add voice calling to your application](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
 
+## Support
+
+The following tables define support of media access in Azure Communication Services.
+
+### Identities and call types
+
+The following table shows support of media access for specific call type and identity. 
+
+|Identities                   | Teams meeting | Room | 1:1 call | Group call | 1:1 Teams interop call | Group Teams interop call |
+|-----------------------------|---------------|------|----------|------------|------------------------|--------------------------|
+|Communication Services user	| ✔️	          |      |          |     ✔️	       |	                      |	                         |
+|Microsoft 365 user	          | ✔️	          |      |          |  ✔️	          |                        |                          |
+
+
+
+### SDKs
+
+The following tables show support for the media access feature in individual Azure Communication Services SDKs.
+
+| Support status | Web | Web UI | iOS | iOS UI | Android | Android UI | Windows |
+|----------------|-----|--------|--------|--------|----------|--------|---------|
+| Is Supported   | ✔️  |        |        |        |          |        |         |		
+
 ::: zone pivot="platform-web"
 [!INCLUDE [Media Access Client-side JavaScript](./includes/media-access/media-access-web.md)]
 ::: zone-end
 
 Additional resources
 For more information about using the Media Access feature in Teams calls and meetings, see the [Microsoft Teams documentation](https://support.microsoft.com/en-us/office/manage-attendee-audio-and-video-permissions-in-microsoft-teams-meetings-f9db15e1-f46f-46da-95c6-34f9f39e671a).
-
 
 ## Next steps
 - [Learn how to manage calls](./manage-calls.md)
