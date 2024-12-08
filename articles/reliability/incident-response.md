@@ -52,7 +52,7 @@ Each Azure subscription sees a different list of availability zones. The *logica
 
 ### Region-wide incidents
 
-Occasionally, issues affect an entire region. Region-wide issues can happen when a region doesn't have availability zones. When a region-wide incident occurs, you may need to consider [initiating your disaster recovery plan](#consider-your-disaster-recovery-plan), that may include failing over to another region.
+Occasionally, issues affect an entire region. Region-wide issues can happen when a region doesn't have availability zones. When a region-wide incident occurs, you may need to consider [initiating your disaster recovery plan](#consider-your-disaster-recovery-plan). You plan might include failing over to another region.
 
 ## Prioritize business continuity
 
