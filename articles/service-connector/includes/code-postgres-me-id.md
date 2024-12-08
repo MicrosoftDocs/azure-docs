@@ -364,4 +364,4 @@ For other languages, use the connection properties that Service Connector sets t
 
 ---
 
-[!INCLUDE [Postgresql grant permission](./postgres-grant-permission.md)]
+[!INCLUDE [PostgreSQL grant permission](./postgres-grant-permission.md)]
