@@ -39,7 +39,6 @@ This action is currently not yet supported for the [Consumption logic app resour
 
   * Exists in the same location or Azure region as your logic app resource where you plan to use the **Parse XML with schema** action.
 
-
   * If you're working on a [Standard logic app resource and workflow](logic-apps-overview.md#resource-environment-differences), you can link your integration account to your logic app resource, upload XSD schemas directly to your logic app resource, or both, based on the following scenarios: 
 
     * If you already have an integration account with the artifacts that you need or want to use, you can link your integration account to multiple Standard logic app resources where you want to use the artifacts. That way, you don't have to upload XSD schemas to each individual logic app. For more information, review [Link your logic app resource to your integration account](enterprise-integration/create-integration-account.md?tabs=standard#link-account).
@@ -54,12 +53,11 @@ This action is currently not yet supported for the [Consumption logic app resour
 
    ```xml
    <xs:element name="Root">
-       <....>
+      <....>
    </xs:element>
    ```
 
 ## Add a Parse XML with schema action
-
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app and workflow in the designer.
 
@@ -77,9 +75,8 @@ This action is currently not yet supported for the [Consumption logic app resour
 
       This example selects the **Body** token from the trigger.
 
-      ![Screenshot shows Standard workflow with opened dynamic content list.](./media/logic-apps-enterprise-integration-xml-parse/open-dynamic-content-list-standard.png)
+      :::image type="content" source="media/logic-apps-enterprise-integration-xml-parse/open-dynamic-content-list-standard.png" alt-text="Screenshot shows Standard workflow with opened dynamic content list.":::
 
-      
 1. From the **Source** list, select the location where you uploaded your XSD schema, either your **LogicApp** resource or your **IntegrationAccount**.
 
 1. From the **Name** list, select your XSD schema.
@@ -109,4 +106,3 @@ The following table describes the advanced parameters available in this action:
 ## Related content
 	
 - [Compose XML with schema](logic-apps-enterprise-integration-xml-compose.md)
-	
