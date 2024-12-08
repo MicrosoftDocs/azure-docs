@@ -361,7 +361,7 @@ If you want to add an outbound rule to your load balancer, go to your load balan
 | Available Frontend ports | Displayed value of total available frontend ports based on selected port allocation. |
 | Maximum number of backend instances | Enter the maximum number of back end instances. This entry is only available when choosing **Maximum number of backend instances** for outbound ports above. </br> You can't scale your backend pool above this number of instances. Increasing the number of instances decreases the number of ports per instance unless you also add more frontend IP addresses. |
 
-:::image type="content" source="./media/manage/outbound-rule.png" alt-text="Screehshot of add outbound rule." border="true":::
+:::image type="content" source="./media/manage/outbound-rule.png" alt-text="Screenshot of add outbound rule." border="true":::
 
 ## Next Steps
 
