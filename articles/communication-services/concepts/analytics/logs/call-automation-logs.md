@@ -86,7 +86,7 @@ Here's an example of a Call Automation operational log:
 {
 "TimeGenerated [UTC]": "5/25/2023, 5:43:25.746 PM",
 "Level": "Informational",
-"CorrelationId": "e2a97d52-0cbb-4adf-8c4b-e10f791fb764",
+"CorrelationId": "aaaa0000-bb11-2222-33cc-444444dddddd",
 "OperationName": "Play",
 "OperationVersion": "3/6/23",
 "URI": "ccts-media-synthetics-prod.communication.azure.com",
@@ -133,7 +133,7 @@ Here's an example of a Call Automation media summary log:
 {
 "TimeGenerated [UTC]": "5/24/2023, 7:57:40.480 PM",
 "Level": "Informational",
-"CorrelationId": "d149d528-a392-404c-8fcd-69087e9d0802",
+"CorrelationId": "bbbb1111-cc22-3333-44dd-555555eeeeee",
 "ResultType": "Completed",
 "OperationName": "Play",
 "OperationId": "7bef24d5-eb95-4ee6-bbab-0b7d45d91288",

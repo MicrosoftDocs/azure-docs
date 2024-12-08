@@ -1,13 +1,28 @@
 - name: Azure
-  tocHref: /azure
+  tocHref: /azure/
   topicHref: /azure/index
   items:
-  - name: Azure Virtual Desktop
-    tocHref: /azure/virtual-desktop
+  - name: Virtual Desktop
+    tocHref: /azure/virtual-desktop/
     topicHref: /azure/virtual-desktop/index
-  - name: Azure Virtual Desktop
+  - name: Virtual Desktop
     tocHref: /fslogix/
     topicHref: /azure/virtual-desktop/index
-  - name: Azure Virtual Desktop
+  - name: Virtual Desktop
+    tocHref: /windows-app/
+    topicHref: /azure/virtual-desktop/index
+  - name: Virtual Desktop
     tocHref: /windows-server/remote/remote-desktop-services
+    topicHref: /azure/virtual-desktop/index
+  - name: Virtual Desktop
+    tocHref: /mem/intune/fundamentals/
+    topicHref: /azure/virtual-desktop/index
+  - name: Virtual Desktop
+    tocHref: /security/zero-trust/
+    topicHref: /azure/virtual-desktop/index
+  - name: Virtual Desktop
+    tocHref: /security/benchmark/azure/baselines/
+    topicHref: /azure/virtual-desktop/index
+  - name: Virtual Desktop
+    tocHref: /universal-print/fundamentals/
     topicHref: /azure/virtual-desktop/index

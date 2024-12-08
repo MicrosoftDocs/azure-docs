@@ -320,7 +320,6 @@ You might also create a more sophisticated watchdog logic app, which after a num
 
 To automatically activate the secondary instance, you can create a logic app that calls the management API such as the [Azure Resource Manager connector](/connectors/arm/) to activate the appropriate logic apps in the secondary location. You can expand your watchdog app to call this activation logic app after a specific number of failures happen.
 
-
 <a name="collect-diagnostic-data"></a>
 
 ## Collect diagnostic data

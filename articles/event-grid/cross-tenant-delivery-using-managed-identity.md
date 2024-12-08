@@ -1,8 +1,8 @@
 ---
 title: Cross-tenant delivery in Azure Event Grid
-description: Describes how to publish and deliver events across tenants using an Azure Event Grid topic with a user-assigned identity. 
+description: Describes how to publish and deliver events across tenants using an Azure Event Grid topic with a user-assigned identity.
 ms.topic: how-to
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, ignite-2024
 ms.date: 11/18/2024
 # Customer intent: As a developer, I want to know how to delivery events using managed identity to a destination in another tenant.
 ---

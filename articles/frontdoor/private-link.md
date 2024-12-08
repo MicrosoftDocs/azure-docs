@@ -7,7 +7,7 @@ ms.service: azure-frontdoor
 ms.topic: conceptual
 ms.date: 08/12/2024
 ms.author: duau
-ms.custom: references_regions
+ms.custom: references_regions, ignite-2024
 ---
 
 # Secure your Origin with Private Link in Azure Front Door Premium

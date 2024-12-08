@@ -4,7 +4,7 @@ description: Learn how to use input bindings to connect to Azure Cache for Redis
 author: flang-msft
 ms.author: franlanglois
 ms.service: azure-functions
-ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python, ignite-2024
 ms.topic: reference
 ms.date: 07/12/2024
 zone_pivot_groups: programming-languages-set-functions-lang-workers

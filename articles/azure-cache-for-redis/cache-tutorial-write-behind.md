@@ -6,9 +6,10 @@ description: In this tutorial, you learn how to use Azure Functions and Azure Re
 
 
 ms.topic: tutorial
+ms.custom:
+  - ignite-2024
 ms.date: 04/12/2024
 #CustomerIntent: As a developer, I want a practical example of using Azure Cache for Redis triggers with Azure Functions so that I can write applications that tie together a Redis cache and a database like Azure SQL.
-
 ---
 
 # Tutorial: Create a write-behind cache by using Azure Functions and Azure Redis

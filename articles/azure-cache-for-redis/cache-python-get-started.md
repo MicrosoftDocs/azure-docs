@@ -8,7 +8,7 @@ ms.date: 07/09/2024
 ms.topic: quickstart
 
 ms.devlang: python
-ms.custom: mvc, devx-track-python, mode-api, py-fresh-zinc
+ms.custom: mvc, devx-track-python, mode-api, py-fresh-zinc, ignite-2024
 zone_pivot_groups: redis-type
 #customer intent: As a cloud developer, I want to quickly see a cache so that understand how to use Python with Azure Redis.
 ---

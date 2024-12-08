@@ -3,7 +3,7 @@ title: Back up Azure Database for PostgreSQL - flexible server using Azure CLI
 description: Learn how to back up Azure Database for PostgreSQL - flexible server using Azure CLI.
 ms.topic: how-to
 ms.date: 10/01/2024
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, ignite-2024
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick

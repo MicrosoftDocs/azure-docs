@@ -37,7 +37,7 @@ The following example shows how to create a *BrokerAuthorization* resource using
 # [Portal](#tab/portal)
 
 1. In the Azure portal, navigate to your IoT Operations instance.
-1. Under **Azure IoT Operations resources**, select **MQTT Broker**.
+1. Under **Components**, select **MQTT Broker**.
 1. Select the **Authorization** tab.
 1. Choose an existing authentication policy or create a new one by selecting **Create authorization policy**.
 
@@ -333,7 +333,7 @@ For example, if a client has a certificate with subject `CN = smart-lock`, its u
 
 ## Authorize clients that use Kubernetes Service Account Tokens
 
-Authorization attributes for SATs are set as part of the Service Account annotations. For example, to add an authorization attribute named `group` with value `authz-sat`, run the command:
+Authorization attributes for SATs are set as part of the [Service Account annotations](./howto-configure-authentication.md#kubernetes-service-account-tokens). For example, to add an authorization attribute named `group` with value `authz-sat`, run the command:
 
 ```bash
 kubectl annotate serviceaccount mqtt-client aio-broker-auth/group=authz-sat
@@ -764,7 +764,7 @@ kubectl edit brokerauthorization my-authz-policies
 # [Portal](#tab/portal)
 
 1. In the Azure portal, navigate to your IoT Operations instance.
-1. Under **Azure IoT Operations resources**, select **MQTT Broker**.
+1. Under **Components**, select **MQTT Broker**.
 1. Select the broker listener you want to edit from the list.
 1. On the port you want to disable authorization, select **None** in the authorization dropdown.
 
@@ -786,3 +786,4 @@ With MQTT 3.1.1, when a publish is denied, the client receives the PUBACK with n
 
 - About [BrokerListener resource](howto-configure-brokerlistener.md)
 - [Configure authentication for a BrokerListener](./howto-configure-authentication.md)
+- [Tutorial: TLS, X.509 client authentication, and attribute-based access control (ABAC) authorization](./tutorial-tls-x509.md)

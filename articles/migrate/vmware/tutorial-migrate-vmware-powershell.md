@@ -5,7 +5,7 @@ author: vijain
 ms.author: vijain
 ms.manager: kmadnani
 ms.topic: tutorial
-ms.date: 01/24/2024
+ms.date: 10/20/2024
 ms.service: azure-migrate
 ms.custom: vmware-scenario-422, devx-track-azurepowershell, engagement-fy23
 ---

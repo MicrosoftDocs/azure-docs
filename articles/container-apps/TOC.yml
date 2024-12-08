@@ -70,7 +70,7 @@
     - name: Planned maintenance
       href: planned-maintenance.md
     - name: Build and deliver apps with Container Apps (video)
-      href: https://www.youtube.com/watch?v=b3dopSTnSRg
+      href: https://youtu.be/OxmVds31qL8
 - name: Develop & deploy
   items:
     - name: Deployment options
@@ -362,6 +362,9 @@
         displayName: java
       - name: Launch your first Java app
         href: java-get-started.md
+        displayName: java
+      - name: Launch your first Java microservice apps with managed Java components
+        href: java-microservice-get-started.md
         displayName: java
       - name: Get started using IntelliJ
         href: /azure/developer/java/toolkit-for-intellij/create-container-apps-intellij?toc=/azure/container-apps/toc.json&bc=/azure/container-apps/breadcrumb/toc.json

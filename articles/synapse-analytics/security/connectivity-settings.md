@@ -4,7 +4,7 @@ description: Learn to configure connectivity settings in Azure Synapse Analytics
 author: danzhang-msft
 ms.author: danzhang
 ms.reviewer: wiassaf
-ms.date: 02/28/2024
+ms.date: 11/25/2024
 ms.service: azure-synapse-analytics
 ms.subservice: security
 ms.topic: conceptual
@@ -60,6 +60,10 @@ The connection policy for Synapse SQL in Azure Synapse Analytics is set to *Defa
 The serverless SQL endpoint and development endpoint only accept TLS 1.2 and above.
 
 Since December 2021, a minimum level of TLS 1.2 is required for workspace-managed dedicated SQL pools in new Synapse workspaces. Sign-in attempts from connections using a TLS version lower than 1.2 fail. Customers can raise or lower this requirement using the [minimal TLS REST API](/rest/api/synapse/sqlserver/workspace-managed-sql-server-dedicated-sql-minimal-tls-settings/update) for both new Synapse workspaces or existing workspaces, so users who cannot use a higher TLS client version in the workspaces can connect. Customers can also raise the minimum TLS version to meet their security needs. 
+
+## Azure Policy
+Azure policy to prevent modifications to the networking settings in Synapse Workspace is not available as of today.
+
 
 ## Related content
 

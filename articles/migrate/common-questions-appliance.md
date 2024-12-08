@@ -7,7 +7,7 @@ ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: conceptual
 ms.custom: engagement-fy25
-ms.date: 08/06/2024
+ms.date: 09/03/2024
 ---
 
 # Azure Migrate appliance: Common questions

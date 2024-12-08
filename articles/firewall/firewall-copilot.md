@@ -8,6 +8,8 @@ ms.date: 11/19/2024
 ms.topic: conceptual
 ms.service: azure-firewall
 ms.localizationpriority: high
+ms.custom:
+  - ignite-2024
 ms.collection: Tier1, ce-skilling-ai-copilot
 ---
 

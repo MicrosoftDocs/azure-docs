@@ -266,6 +266,8 @@ You can now configure the server and deploy the application.
 
 Use the following command to deploy the newly built JAR file to your Azure Spring Apps instance.
 
+[!INCLUDE [security-note](../includes/security-note.md)]
+
 ```azurecli
 az spring app deploy \
     --name ${CUSTOMERS_SERVICE} \

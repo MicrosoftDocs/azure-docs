@@ -5,16 +5,16 @@ services: frontdoor
 author: duongau
 ms.service: azure-frontdoor
 ms.topic: overview
-ms.date: 10/12/2023
+ms.date: 11/12/2024
 ms.author: duau
 # Customer intent: As an IT admin, I want to learn about Front Door and what I can use it for.
 ---
 
 # What is Azure Front Door?
 
-Whether you’re delivering content and files or building global apps and APIs, Azure Front Door can help you deliver higher availability, lower latency, greater scale, and more secure experiences to your users wherever they are.  
+Whether you're delivering content and files or developing global applications and APIs, Azure Front Door enhances your user experience by providing higher availability, reduced latency, increased scalability, and improved security, no matter where your users are located. 
 
-Azure Front Door is Microsoft’s modern cloud Content Delivery Network (CDN) that provides fast, reliable, and secure access between your users and your applications’ static and dynamic web content across the globe. Azure Front Door delivers your content using Microsoft’s global edge network with hundreds of [global and local points of presence (PoPs)](edge-locations-by-region.md) distributed around the world close to both your enterprise and consumer end users.
+Azure Front Door is Microsoft's advanced cloud Content Delivery Network (CDN) designed to provide fast, reliable, and secure access to your applications' static and dynamic web content globally. By using Microsoft's extensive global edge network, Azure Front Door ensures efficient content delivery through numerous [global and local points of presence (PoPs)](edge-locations-by-region.md) strategically positioned close to both enterprise and consumer end users.
 
 :::image type="content" source="./media/overview/front-door-overview.png" alt-text="Diagram of Azure Front Door routing user traffic to endpoints." lightbox="./media/overview/front-door-overview-expanded.png":::
 
@@ -38,7 +38,7 @@ Azure Front Door enables internet-facing application to:
 
 Scale out and improve performance of your applications and content using Microsoft’s global Cloud CDN and WAN.
 
-* Leverage over [118 edge locations](edge-locations-by-region.md) across 100 metro cities connected to Azure using a private enterprise-grade WAN and improve latency for apps by up to 3 times.
+* Uses over [118 edge locations](edge-locations-by-region.md) across 100 metro cities connected to Azure using a private enterprise-grade WAN and improve latency for apps by up to three times.
 
 * Accelerate application performance by using Front Door’s [anycast](front-door-traffic-acceleration.md#select-the-front-door-edge-location-for-the-request-anycast) network and [split TCP](front-door-traffic-acceleration.md#connect-to-the-front-door-edge-location-split-tcp) connections.
 
@@ -50,19 +50,19 @@ Scale out and improve performance of your applications and content using Microso
 
 Modernize your internet first applications on Azure with Cloud Native experiences
 
-* Integrate with DevOps friendly command line tools across SDKs of different languages, Bicep, ARM templates, CLI and PowerShell.
+* Integrate with DevOps friendly command line tools across SDKs of different languages, Bicep, ARM templates, CLI, and PowerShell.
 
 * Define your own [custom domain](standard-premium/how-to-add-custom-domain.md) with flexible domain validation.
 
 * Load balance and route traffic across [origins](origin.md) and use intelligent [health probe](health-probes.md) monitoring across apps or content hosted in Azure or anywhere.
 
-* Integrate with other Azure services such as DNS, Web Apps, Storage and many more for domain and origin management.
+* Integrate with other Azure services such as DNS, Web Apps, Storage, and many more for domain and origin management.
 
 * Move your routing business logic to the edge with [enhanced rules engine](front-door-rules-engine.md) capabilities including regular expressions and server variables.
 
 * Analyze [built-in reports](standard-premium/how-to-reports.md) with an all-in-one dashboard for both Front Door and security patterns.
 
-* [Monitoring your Front Door traffic in real time](standard-premium/how-to-monitor-metrics.md), and configure alerts that integrate with Azure Monitor.
+* [Monitor your Front Door traffic in real time](standard-premium/how-to-monitor-metrics.md), and configure alerts that integrate with Azure Monitor.
 
 * [Log each Front Door request](standard-premium/how-to-logs.md) and failed health probes.
 
@@ -74,7 +74,7 @@ Modernize your internet first applications on Azure with Cloud Native experience
 
 * Low entry fee and a simplified cost model that reduces billing complexity by having fewer meters needed to plan for.
 
-* Azure to Front Door integrated egress pricing that removes the separate egress charge from Azure regions to Azure Front Door. Refer to [Azure Front Door pricing](https://azure.microsoft.com/pricing/details/frontdoor/) for more details.
+* Azure to Front Door integrated egress pricing that removes the separate egress charge from Azure regions to Azure Front Door. For more information, see [Azure Front Door pricing](https://azure.microsoft.com/pricing/details/frontdoor/).
 
 ### Intelligent secure internet perimeter
 
@@ -95,7 +95,7 @@ For a comparison of supported features in Azure Front Door, see [Tier comparison
 
 ## Where is the service available?
 
-Azure Front Door Standard, Premium and Classic tiers are available in Microsoft Azure (Commercial) and Microsoft Azure Government (US).
+Azure Front Door Standard, Premium, and Classic tiers are available in Microsoft Azure (Commercial) and Microsoft Azure Government (US).
 
 ## Pricing
 
