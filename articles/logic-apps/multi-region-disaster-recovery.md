@@ -10,7 +10,7 @@ ms.date: 11/20/2024
 
 # Multi-region deployments for disaster recovery in Azure Logic Apps
 
-This article provides guidance and strategies for how to set up a multi-region deployment for your Azure Logic Apps. A multi-region deployment helps you protect data, recover quickly from disasters and other disruptive events, restore resources required by critical business functions, and maintain business continuity.
+This article provides guidance and strategies for how to set up a multi-region deployment for your logic app workflows in Azure Logic Apps. A multi-region deployment helps you protect data, recover quickly from disasters and other disruptive events, restore resources required by critical business functions, and maintain business continuity.
 
 For more information on the reliability features in Azure Logic Apps, including intra-regional resiliency via availability zones, see [Reliability in Azure Logic Apps](../reliability/reliability-logic-apps.md).
 
@@ -43,7 +43,7 @@ For failover to succeed, your logic apps and locations must meet these requireme
 
 * The secondary logic app instance has access to the same apps, services, and systems as the primary logic app instance.
 
-* Both logic app instances have the same host type. So, both instances are deployed to regions in global multitenant Azure Logic Apps or regions in single-tenant Azure Logic Apps. For best practices and more information about using multiple regions for business continuity and disaster recover (BC/DR), see [Cross-region replication in Azure: Business continuity and disaster recovery](../availability-zones/cross-region-replication-azure.md).
+* Both logic app instances have the same host type. So, both instances are deployed to regions in global multitenant Azure Logic Apps or regions in single-tenant Azure Logic Apps. For best practices and more information about using multiple regions for business continuity and disaster recovery (BC/DR), see [Cross-region replication in Azure: Business continuity and disaster recovery](../availability-zones/cross-region-replication-azure.md).
 
 ### Example: Multitenant Azure
 
@@ -55,7 +55,7 @@ This example shows primary and secondary logic app instances, which are deployed
 
 ## Connections to resources
 
-Azure Logic Apps provides [hundreds of connector operations](../connectors/introduction.md) that your logic app workflow can use to work with other apps, services, systems, and other resources, such as Azure Storage accounts, SQL Server databases, work or school email accounts, and so on. If your logic app needs access to these resources, you create connections that authenticate access to these resources. Each connection is a separate Azure resource that exists in a specific location and can't be used by resources in other locations.
+Azure Logic Apps provides [operations for over 1,000 connectors](../connectors/introduction.md) that your logic app workflow can use to work with other apps, services, systems, and other resources, such as Azure Storage accounts, SQL Server databases, work or school email accounts, and so on. If your logic app needs access to these resources, you create connections that authenticate access to these resources. Each connection is a separate Azure resource that exists in a specific location and can't be used by resources in other locations.
 
 For your multi-region redundancy strategy, consider the locations where dependent resources exist relative to your logic app instances:
 
@@ -162,7 +162,7 @@ To get more information about your logic app's past workflow executions, you can
 
 ## Trigger type guidance
 
-The trigger type that you use in your logic apps determines your options for how you can set up logic apps across locations in a disaster recovery strategy. Here are the available trigger types that you can use in logic apps:
+The trigger type that you use in your logic apps determines your options for how you can set up logic apps across locations in a disaster recovery strategy. Here are the available trigger types that you can use in logic app workflows:
 
 * [Recurrence trigger](#recurrence-trigger)
 * [Polling trigger](#polling-trigger)

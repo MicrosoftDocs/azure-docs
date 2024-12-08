@@ -22,11 +22,11 @@ This guide shows how to enable zone redundancy for your logic apps.
 
 ## Prerequisites
 
-- Make sure that you understand zone-redundancy support and considerations in Logic Apps by reading [Reliability in Azure Logic Apps](../reliability/reliability-logic-apps.md).
+- Make sure that you understand zone redundancy support and considerations in Azure Logic Apps by reading [Reliability in Azure Logic Apps](../reliability/reliability-logic-apps.md).
 
 - You must have an Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account).
 
-- If you have a firewall or restricted environment, you have to allow traffic through all the IP addresses required by Azure Logic Apps, managed connectors, and any custom connectors in the Azure region where you create your logic app workflows. New IP addresses that support availability zone redundancy are already published for Azure Logic Apps, managed connectors, and custom connectors. For more information, review the following documentation:
+- If you have a firewall or restricted environment, you have to allow traffic through all the IP addresses required by Azure Logic Apps, Azure-hosted managed connectors, and any custom connectors in the Azure region where you create your logic app workflows. New IP addresses that support availability zone redundancy are already published for Azure Logic Apps, managed connectors, and custom connectors. For more information, see the following documentation:
 
   - [Firewall configuration: IP addresses and service tags](logic-apps-limits-and-config.md#firewall-ip-configuration)
 
