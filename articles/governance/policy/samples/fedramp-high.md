@@ -665,7 +665,7 @@ initiative definition.
 
 ## Awareness And Training
 
-### Security Awareness And Training Policy Andprocedures
+### Security Awareness And Training Policy And Procedures
 
 **ID**: FedRAMP High AT-1
 **Ownership**: Shared

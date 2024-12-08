@@ -108,7 +108,7 @@ For more information, see [Understand the guest configuration feature of Azure P
 
 Additional articles about Azure Policy and guest configuration:
 
-- [Understand the guest configuration feature of Azure Policy]Understand the guest configuration feature of Azure Polic(../../machine-configuration/overview.md).
+- [Understand the guest configuration feature of Azure Policy]Understand the guest configuration feature of Azure Policy(../../machine-configuration/overview.md).
 - [Regulatory Compliance](../concepts/regulatory-compliance.md) overview.
 - Review other examples at [Azure Policy samples](./index.md).
 - Review [Understanding policy effects](../concepts/effects.md).
