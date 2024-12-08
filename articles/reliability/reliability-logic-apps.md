@@ -48,7 +48,7 @@ For enterprise and secure workflows with isolation or network security requireme
 
 ::: zone pivot="standard-workflow-service-plan,standard-app-service-environment"
 
-For production deployments with Logic Apps Standard, you should [enable zone redundancy](#availability-zone-support) to spreads your logic app resources across multiple availability zones.
+For production deployments with single-tenant Azure Logic Apps, you should [enable zone redundancy](#availability-zone-support) to spread your logic app resources across multiple availability zones.
 
 ::: zone-end
 
@@ -137,7 +137,7 @@ No additional cost applies to use zone redundancy, which is automatically enable
 
 ::: zone pivot="standard-workflow-service-plan"
 
-When you're using Logic Apps Standard with a Workflow Service Plan, there's no additional cost associated with enabling availability zones as long as you have three or more instances of your plan. You'll be charged based on your plan SKU, the capacity you specify, and any instances you scale to based on your autoscale criteria. If you enable availability zones but specify a capacity less than three, the platform enforces a minimum instance count of three and charges you for those three instances.
+When you have Standard workflows with a Workflow Service Plan in single-tenant Azure Logic Apps, no additional cost applies to enabling availability zones as long as you have three or more instances of your plan. You are charged based on your plan SKU, the specified capacity, and any instances that you scale to based on your autoscale criteria. If you enable availability zones but specify a capacity less than three, the platform enforces a minimum instance count of three and charges you for those three instances.
 
 ::: zone-end
 
