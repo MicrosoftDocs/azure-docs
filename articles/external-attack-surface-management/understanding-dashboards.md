@@ -257,7 +257,7 @@ This chart displays live PII sites by their usage of SSL certificates. By refere
 
 A login page is a page on a website where a user has the option to enter a username and password to gain access to services hosted on that site. Login pages have specific requirements under GDPR, so Defender EASM references the DOM of all scanned pages to search for code that correlates to a login. For instance, login pages must be secure to be compliant. This first chart displays Login websites by protocol (HTTP or HTTPS) and the second by certificate posture. 
 
-![Screenshot of Login websites by protcol chart.](media/Dashboards-25.png)
+![Screenshot of Login websites by protocol chart.](media/Dashboards-25.png)
 
 ![Screenshot of Login websites by certificate posture chart.](media/Dashboards-26.png)
 

@@ -56,7 +56,7 @@ The *AZFW Latency Probe* metric measures the overall or average latency of Azure
 **What the AZFW Latency Probe Metric Measures (and Doesn't):**
 
 - What it measures: The latency of the Azure Firewall within the Azure platform
-- What it doesn't meaure: The metric does not capture end-to-end latency for the entire network path. Instead, it reflects the performance within the firewall, rather than how much latency Azure Firewall introduces into the network. 
+- What it doesn't measure: The metric does not capture end-to-end latency for the entire network path. Instead, it reflects the performance within the firewall, rather than how much latency Azure Firewall introduces into the network. 
 - Error reporting: If the latency metric isn't functioning correct, it reports a value of 0 in the metrics dashboard, indicating a probe failure or interruption.
 
 **Factors that impact latency:**
@@ -65,10 +65,10 @@ The *AZFW Latency Probe* metric measures the overall or average latency of Azure
 - Networking issues within the Azure platform
 
 **Latency Probes: From ICMP to TCP**
-The latency probe currently uses Microsoft's Ping Mesh technology, which is based on ICMP (Internet Control Message Protcol). ICMP is suitable for quick health checks, like ping requests, but it may not accurately represent real-world application traffic, which typically relis on TCP.However, ICMP probes prioritize differently across the Azure platform, which can result in variation across SKUs. To reduce these discrepancies, Azure Firewall plans to transition to TCP-based probes. 
+The latency probe currently uses Microsoft's Ping Mesh technology, which is based on ICMP (Internet Control Message Protocol). ICMP is suitable for quick health checks, like ping requests, but it may not accurately represent real-world application traffic, which typically relis on TCP.However, ICMP probes prioritize differently across the Azure platform, which can result in variation across SKUs. To reduce these discrepancies, Azure Firewall plans to transition to TCP-based probes. 
 
 - Latency spikes: With ICMP probes, intermittent spikes are normal and are part of the host network's standard behavior. These should not be misinterpreted as firewall issues unless they are persistent.
-- Average latency: On average, the latency of Azure Firewall is expected to range from 1ms to 10 ms, dpending on the Firewall SKU and deployment size.
+- Average latency: On average, the latency of Azure Firewall is expected to range from 1ms to 10 ms, depending on the Firewall SKU and deployment size.
 
 **Best Practices for Monitoring Latency**
 - Set a baseline: Establish a latency baseline under light traffic conditions for accurate comparisons during normal or peak usage.
