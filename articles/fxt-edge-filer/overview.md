@@ -1,11 +1,11 @@
 ---
 title: Microsoft Azure FXT Edge Filer overview 
 description: Describes Azure FXT Edge Filer hybrid storage cache, an active archive and file access accelerator solution for high performance computing 
-author: femila
+author: pauljewellmsft
+ms.author: pauljewell
 ms.service: azure-fxt-edge-filer
 ms.topic: overview
 ms.date: 07/01/2019
-ms.author: femila 
 ---
 
 # What is Azure FXT Edge Filer hybrid storage cache?

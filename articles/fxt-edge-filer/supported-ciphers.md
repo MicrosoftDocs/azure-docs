@@ -1,8 +1,8 @@
 ---
 title: 'Supported encryption ciphers for Azure FXT Edge Filer'
 description: List of encryption standards used by FXT Edge Filer clusters.
-author: femila
-ms.author: femila
+author: pauljewellmsft
+ms.author: pauljewell
 ms.service: azure-fxt-edge-filer
 ms.topic: conceptual
 ms.date: 05/20/2021
