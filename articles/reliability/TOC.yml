@@ -442,6 +442,8 @@
     href: /azure/well-architected/resiliency/chaos-engineering
   - name: Reliability in Microsoft Azure Well-Architected Framework
     href: /azure/well-architected/reliability
+  - name: Azure service incident response
+    href: ./incident-response.md
   - name:  Azure Service Manager retirement
     items:
     - name: Overview
