@@ -38,17 +38,17 @@ To understand the scope of an incident, follow these steps:
 
 Many issues are limited to a single [availability zone](availability-zones-overview.md). Availability zones represent datacenters, or groups of datacenters, that are isolated from other availability zones in the same region. When an availability zone experiences an issue, the impact you see depends on the way a service is deployed:
 
-- *Zonal services*, which are pinned to the affected availability zone, might be affected.
+- *Zonal services* that are pinned to the affected availability zone might be affected.
 - *Zone-redundant services* are unlikely to be affected. You shouldn't need to take any remediation action for zone-redundant resources.
 - *Regional (non-zonal) services* might be affected because they may use the affected availability zone.
 
-To learn more about availability zone support in Azure services and the differences between zonal, zone-redundant, and regional (non-zonal) services see [Azure services with availability zone support](./availability-zones-service-support.md).
+To learn more about availability zone support in Azure services and the differences between zonal, zone-redundant, and regional (non-zonal) services, see [Azure services with availability zone support](./availability-zones-service-support.md).
+
+If there are any concerns with zonal or regional resources deployed in the affected availability zone, consider initiating your [business continuity](#prioritize-business-continuity) and [disaster recovery](#consider-your-disaster-recovery-plan) (BC/DR) plans.
 
 #### Logical vs. physical availability zones
 
 Each Azure subscription sees a different list of availability zones. The *logical* zones used by each subscription may correspond to different *physical* zones. You can map between your logical zones and the physical zones to confirm which resources run in the affected physical availability zone. For more information, see [physical and logical availability zones](availability-zones-overview.md#physical-and-logical-availability-zones).
-
-If there are any concerns with zonal or regional resources deployed in the affected physical availability zone, consider initiating your [business continuity](#prioritize-business-continuity) and [disaster recovery](#consider-your-disaster-recovery-plan) (BC/DR) plans.
 
 ### Region-wide incidents
 
@@ -66,7 +66,7 @@ The following factors present situations where you don't necessarily need to do 
 
 - *The estimated resolution time*, if it's available. Microsoft strives to provide clear timelines for recovery as soon as we can. If your recovery procedures take a significant period of time to operate, consider whether the issue is expected to be resolved by the time they're completed.
 
-- *The service level objectives (SLOs)* established with your impacted workload's users, if you have them. SLOs are there to guide decision making in this kind of situation. For example, in some situations you may be able to switch to manual operations until your services are healthy, and this decision might be reflected in an SLO for the system. To learn more about SLOs and how to define them, see [Recommendations for defining reliability targets](/azure/well-architected/reliability/metrics) in the Azure Well-Architected Framework.
+- *The service level objectives (SLOs)* established with your impacted workload's users, if you have them. SLOs are there to guide decision making in this kind of situation. For example, in some situations you may be able to switch to manual operations until your services are healthy, and this decision might be reflected in your SLO for the system. To learn more about SLOs and how to define them, see [Recommendations for defining reliability targets](/azure/well-architected/reliability/metrics) in the Azure Well-Architected Framework.
 
 However, if business continuity requires some form of action, and you do have a disaster recovery plan in place, then your next step is to consider whether to initiate that plan. 
 
@@ -105,9 +105,9 @@ When opening a support case, clearly explain the resources that are affected and
 
 ## After an incident
 
-1. To understand what we learned from the incident, read the Post Incident Review (PIR) from the Health history pane of [Azure Service Health](/azure/service-health/overview), or through customer-configured Service Health alerts. Preliminary PIRs are typically published a few days after an incident, and more comprehensive PIRs follow a few weeks later.
+1. To understand what Microsoft learned from the incident, read the Post Incident Review (PIR) from the Health history pane of [Azure Service Health](/azure/service-health/overview), or through customer-configured Service Health alerts. Different incidents might get different types of PIRs. Preliminary PIRs are typically published a few days after an incident, and more comprehensive PIRs follow a few weeks later.
 
-1. For major incidents that met our public [Status page criteria](/azure/service-health/alerts-activity-log-service-notifications-portal), join an Azure Incident Retrospective livestream to get any questions answered, or [watch the recording](https://aka.ms/air/videos).
+1. For major incidents that were listed on our public status page, join an Azure Incident Retrospective livestream to get any questions answered, or [watch the recording](https://aka.ms/air/videos).
 
 1. If you think you may be eligible for an SLA credit, [create a new support request](https://portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview) with a problem type of "Refund Request" – and include the incident Tracking ID.
 
@@ -121,7 +121,7 @@ When opening a support case, clearly explain the resources that are affected and
 
     - Is there a design tradeoff you can make to improve your resiliency in the future for this type of issue? For more information, see the [reliability pillar of the Azure Well-Architected Framework](/azure/well-architected/reliability/).
 
-    - Is the SLO or SLA offered to your users still appropriate now that you've experienced this unplanned outage? Now is a good time to revisit the commitments you're making to your user base to align expectations with learnings from this incident.
+    - Is the SLO or SLA offered to your users still appropriate now that you've experienced this unplanned outage? Now is a good time to revisit the commitments you're making to your user base to align expectations with what you learned from this incident.
     
     - Should you configure [Azure Service Health alerts](/azure/service-health/alerts-activity-log-service-notifications-portal) to be automatically notified of any future incidents?
 
