@@ -181,13 +181,13 @@ During normal operations, workflow invocations can use compute resources in any 
 
 ::: zone pivot="standard-workflow-service-plan,standard-app-service-environment"
 
-During normal operations, workflow invocations are spread among all of your available plan instances across all availability zones.
+During normal operations, workflow invocations are spread among all your available plan instances across all availability zones.
 
 ::: zone-end
 
 ### Zone-down experience
 
-**Detection and response:** The Logic Apps platform is responsible for detecting a failure in an availability zone. You don't need to do anything to initiate a zone failover.
+**Detection and response:** The Azure Logic Apps platform is responsible for detecting a failure in an availability zone. You don't need to do anything to initiate a zone failover.
 
 **Active requests:** When an availability zone is unavailable, any workflow invocations in progress that are running on a VM in the faulty availability zone are terminated. The Azure Logic Apps platform automatically resumes the workflow on another VM in a different availability zone. Because of this behavior, active workflows might experience some [transient faults](#transient-faults) or higher latency as new VMs are added to the remaining availability zones.
 
@@ -197,7 +197,7 @@ When the availability zone recovers, Azure Logic Apps automatically restores ins
 
 ### Testing for zone failures  
 
-The Azure Logic Apps platform manages traffic routing, failover, and failback for zone-redundant Logic Apps resources. You don't need to initiate anything. Because this feature is fully managed, you don't need to validate availability zone failure processes.
+The Azure Logic Apps platform manages traffic routing, failover, and failback for zone-redundant logic app resources. You don't need to initiate anything. This feature is fully managed, so you don't need to validate availability zone failure processes.
 
 ## Multi-region support
 
@@ -205,7 +205,7 @@ Each logic app is deployed into a single Azure region. If the region becomes una
 
 ### Alternative multi-region approaches 
 
-For higher resiliency, you can deploy a standby or backup logic app in another (secondary) region, and fail over to the secondary region if the primary region is unavailable. To do this, you should:
+For higher resiliency, you can deploy a standby or backup logic app in a secondary region and fail over to that other region if the primary region is unavailable. To enable this capability, complete the following tasks:
 
 - Deploy your logic app in both both primary and secondary regions.
 - Reconfigure connections to resources as needed.
