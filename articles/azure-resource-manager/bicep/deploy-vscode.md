@@ -3,7 +3,7 @@ title: Deploy Bicep files with Visual Studio Code
 description: Deploy Bicep files from Visual Studio Code.
 ms.topic: how-to
 ms.custom: devx-track-bicep
-ms.date: 12/03/2024
+ms.date: 12/06/2024
 ---
 
 # Deploy Bicep files from Visual Studio Code
@@ -32,9 +32,9 @@ After you select the command, you follow the wizard to enter the values:
 
 1. Select or create a resource group.
 
-1. Select a parameter file or select **None** to enter the parameter values.
+1. Select a parameters file or select **None** to enter the parameter values.
 
-    :::image type="content" source="./media/deploy-vscode/bicep-deploy-select-parameter-file.png" alt-text="Screenshot of Select parameter file.":::
+    :::image type="content" source="./media/deploy-vscode/bicep-deploy-select-parameter-file.png" alt-text="Screenshot of Select parameters file.":::
 
 1. If you choose **None**, enter the parameter values.
 
@@ -42,9 +42,9 @@ After you select the command, you follow the wizard to enter the values:
 
     After you enter the values, you have the option to create a parameters file from values used in this deployment:
 
-    :::image type="content" source="./media/deploy-vscode/bicep-deploy-create-parameter-file.png" alt-text="Screenshot of Create parameter file.":::
+    :::image type="content" source="./media/deploy-vscode/bicep-deploy-create-parameter-file.png" alt-text="Screenshot of Create parameters file.":::
 
-    If you select **Yes**, a parameter file with the file name **&lt;Bicep-file-name>.parameters.json** is created in the same folder.
+    If you select **Yes**, a parameters file with the file name **&lt;Bicep-file-name>.parameters.json** is created in the same folder.
 
 For more information about VS Code commands, see [Visual Studio Code](./visual-studio-code.md).
 
