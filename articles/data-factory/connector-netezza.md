@@ -30,13 +30,11 @@ This Netezza connector is supported for the following capabilities:
 
 For a list of data stores that Copy Activity supports as sources and sinks, see [Supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).
 
-Netezza connector supports parallel copying from source. See the [Parallel copy from Netezza](#parallel-copy-from-netezza) section for details.
+This Netezza connector supports:
 
-The connector supports Netezza Performance Server version 11.
-
-The connector supports the Windows versions in this [article](create-self-hosted-integration-runtime.md#prerequisites).
-
-The connector doesn't support SSLv3 as it is [officially deprecated by Netezza](https://www.ibm.com/docs/en/netezza?topic=npssac-netezza-performance-server-client-encryption-security-1).
+- Parallel copying from source. See the [Parallel copy from Netezza](#parallel-copy-from-netezza) section for details.
+- Netezza Performance Server version 11.
+- Windows versions in this [article](create-self-hosted-integration-runtime.md#prerequisites).
 
 The service provides a built-in driver to enable connectivity. You don't need to manually install any driver to use this connector.
 
@@ -90,6 +88,9 @@ A typical connection string is `Server=<server>;Port=<port>;Database=<database>;
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | SecurityLevel | The level of security that the driver uses for the connection to the data store. <br>Example: `SecurityLevel=preferredUnSecured`. Supported values are:<br/>- **Only unsecured** (**onlyUnSecured**): The driver doesn't use SSL.<br/>- **Preferred unsecured (preferredUnSecured) (default)**: If the server provides a choice, the driver doesn't use SSL.  | No |
+
+> [!NOTE]
+> The connector doesn't support SSLv3 as it is [officially deprecated by Netezza](https://www.ibm.com/docs/en/netezza?topic=npssac-netezza-performance-server-client-encryption-security-1).
 
 **Example**
 

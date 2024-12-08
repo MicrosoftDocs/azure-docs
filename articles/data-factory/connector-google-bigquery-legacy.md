@@ -35,7 +35,10 @@ The service provides a built-in driver to enable connectivity. Therefore, you do
 
 The connector supports the Windows versions in this [article](create-self-hosted-integration-runtime.md#prerequisites).
 
-The connector no longer supports P12 keyfiles. If you rely on service accounts, you are recommended to use JSON keyfiles instead. The P12CustomPwd property used for supporting the P12 keyfile was also deprecated. For more information, see this [article](https://cloud.google.com/sdk/docs/release-notes).
+>[!NOTE]
+>This Google BigQuery connector is built on top of the BigQuery APIs. Be aware that BigQuery limits the maximum rate of incoming requests and enforces appropriate quotas on a per-project basis, refer to [Quotas & Limits - API requests](https://cloud.google.com/bigquery/quotas#api_requests). Make sure you do not trigger too many concurrent requests to the account.
+
+## Prerequisites
 
 To use this connector, you need the following minimum permissions of Google BigQuery:
 - bigquery.connections.*
@@ -44,10 +47,6 @@ To use this connector, you need the following minimum permissions of Google BigQ
 - bigquery.readsessions.*
 - bigquery.routines.*
 - bigquery.tables.*
-
-
->[!NOTE]
->This Google BigQuery connector is built on top of the BigQuery APIs. Be aware that BigQuery limits the maximum rate of incoming requests and enforces appropriate quotas on a per-project basis, refer to [Quotas & Limits - API requests](https://cloud.google.com/bigquery/quotas#api_requests). Make sure you do not trigger too many concurrent requests to the account.
 
 ## Get started
 
@@ -136,9 +135,12 @@ Set "authenticationType" property to **ServiceAuthentication**, and specify the 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | email | The service account email ID that is used for ServiceAuthentication. It can be used only on Self-hosted Integration Runtime.  | No |
-| keyFilePath | The full path to the `.p12` or `.json` key file that is used to authenticate the service account email address. | Yes |
+| keyFilePath | The full path to the `.json` key file that is used to authenticate the service account email address. | Yes |
 | trustedCertPath | The full path of the .pem file that contains trusted CA certificates used to verify the server when you connect over TLS. This property can be set only when you use TLS on Self-hosted Integration Runtime. The default value is the cacerts.pem file installed with the integration runtime.  | No |
 | useSystemTrustStore | Specifies whether to use a CA certificate from the system trust store or from a specified .pem file. The default value is **false**.  | No |
+
+> [!NOTE]
+> The connector no longer supports P12 key files. If you rely on service accounts, you are recommended to use JSON key files instead. The P12CustomPwd property used for supporting the P12 key file was also deprecated. For more information, see this [article](https://cloud.google.com/sdk/docs/release-notes). 
 
 **Example:**
 
