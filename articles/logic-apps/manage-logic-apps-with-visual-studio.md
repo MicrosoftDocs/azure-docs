@@ -19,7 +19,7 @@ ms.date: 12/10/2024
 > The **Azure Logic Apps Tools for Visual Studio** extension is deprecated and no longer receives updates.
 > To create and manage logic app workflows using a local development environment, see the following documentation:
 >
-> - [Quickstart: Create and manage Consumption logic app workflows in multitenant Azure Logic Apps with Visual Studio Code](/azure/logic-apps/quickstart-create-logic-apps-with-visual-studio-code)
+> - [Quickstart: Create and manage Consumption logic app workflows in multitenant Azure Logic Apps with Visual Studio Code](/azure/logic-apps/quickstart-create-logic-apps-visual-studio-code)
 >
 > - [Create a Standard logic app workflow in single-tenant Azure Logic Apps with Visual Studio Code](/azure/logic-apps/create-single-tenant-workflows-visual-studio-code)
 
@@ -122,7 +122,7 @@ You can [download](../azure-resource-manager/templates/export-template-portal.md
 
 ## Link to integration account
 
-To build logic apps for business-to-business (B2B) enterprise integration scenarios, you can link your logic app to a previously created [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) that exists in the same region as your logic app. An integration account contains B2B artifacts, such as trading partners, agreements, schemas, and maps, and lets your logic app use B2B connectors for XML validation and flat file encoding or decoding. Although you can [create this link by using the Azure portal](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account), you can also use Visual Studio after meeting the [prerequisites](#requirements), and your logic app exists as a JSON (.json) file inside an [Azure Resource Group project](../azure-resource-manager/templates/create-visual-studio-deployment-project.md). Learn about [Azure Resource Group projects for logic apps in Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#create-resource-group-project).
+To build logic apps for business-to-business (B2B) enterprise integration scenarios, you can link your logic app to a previously created [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) that exists in the same region as your logic app. An integration account contains B2B artifacts, such as trading partners, agreements, schemas, and maps, and lets your logic app use B2B connectors for XML validation and flat file encoding or decoding. Although you can [create this link by using the Azure portal](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account), you can also use Visual Studio after meeting the [prerequisites](#requirements), and your logic app exists as a JSON (.json) file inside an [Azure Resource Group project](../azure-resource-manager/templates/create-visual-studio-deployment-project.md).
 
 1. In Visual Studio, open the Azure Resource Group project that contains your logic app.
 

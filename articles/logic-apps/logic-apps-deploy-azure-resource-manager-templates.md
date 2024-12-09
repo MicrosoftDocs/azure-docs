@@ -17,7 +17,6 @@ ms.devlang: azurecli
 After you create an Azure Resource Manager template for your Consumption logic app, you can deploy your template in these ways:
 
 * [Azure portal](#portal)
-* [Visual Studio](#visual-studio)
 * [Azure PowerShell](#powershell)
 * [Azure CLI](#cli)
 * [Azure Resource Manager REST API](../azure-resource-manager/templates/deploy-rest.md)
@@ -44,12 +43,6 @@ For more information, see these topics:
 
 * [Overview: Automate deployment for logic apps with Azure Resource Manager templates](logic-apps-azure-resource-manager-templates-overview.md)
 * [Deploy resources with Azure Resource Manager templates and the Azure portal](../azure-resource-manager/templates/deploy-portal.md)
-
-<a name="visual-studio"></a>
-
-## Deploy with Visual Studio
-
-To deploy a logic app template from an Azure Resource Group project that you created by using Visual Studio, follow these [steps to manually deploy your logic app](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#deploy-logic-app-to-azure) to Azure.
 
 <a name="powershell"></a>
 
@@ -119,7 +112,7 @@ After deployment, your logic app works end-to-end with valid parameters, but to 
 
 Here are a few suggestions to handle authorizing connections:
 
-* Manually authorize OAuth connections by opening your logic app in Logic App Designer, either in the Azure portal or in Visual Studio. When you authorize your connection, a confirmation page might appear for you to allow access.
+* Manually authorize OAuth connections by opening your logic app in the workflow designer, either in the Azure portal or in Visual Studio Code. When you authorize your connection, a confirmation page might appear for you to allow access.
 
 * Preauthorize and share API connection resources across logic apps that are in the same region. API connections exist as Azure resources independently from logic apps. While logic apps have dependencies on API connection resources, API connection resources don't have dependencies on logic apps and remain after you delete the dependent logic apps. Also, logic apps can use API connections that exist in other resource groups. However, the Logic App Designer supports creating API connections only in the same resource group as your logic apps.
 
