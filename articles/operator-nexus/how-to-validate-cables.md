@@ -24,6 +24,20 @@ For BOM details, refer to [Azure Operator Nexus SKUs](./reference-operator-nexus
   - `Storage Blob Data Contributor` role must be assigned to the `Nexus Network Fabric RP` with access assigned to the storage account.
 - Microsoft Support must patch the Nexus Network Fabric with an active storage SAS URL before running cabling validation.
 
+## Creating an Azure Support Request for patching Nexus Network Fabric:
+  - Refer to [Create an Azure support request](https://learn.microsoft.com/en-us/azure/azure-portal/supportability/how-to-create-azure-support-request)
+  - Enter `Nexus Network Fabric` for the issue and click `Go`.
+  - Select `Azure Operator Nexus` as the service you are having issue with.
+  - Select `Subscription` where the resource is located.
+  - Select `General` under the resource field and click `Next`.
+  - Select `Network fabric instance provisioning` under the issue prompt and click `Next`.
+  - Now select `Create a support request` at the top of the support blade.
+  - Click `Next` on the `Problem description` tab.
+  - Wait for the `Recommended solution` and then click the link back to 'Return to support request`
+  - Click `Next` to continue to the `Additional details`
+  - Fill in the request to patch Nexus Network Fabric and include resource details, then click `Next`
+  - Review the information in the `Review + create` tab and then click `Create`.
+
 > [!NOTE]
 > The Storage URL (SAS) is short-lived. By default, it is set to expire in eight hours. If the SAS URL expires, then the fabric must be re-patched.
 
