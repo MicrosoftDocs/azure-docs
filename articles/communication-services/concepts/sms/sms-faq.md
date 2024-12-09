@@ -68,10 +68,13 @@ Yes, there is a fee. Refer to the [pricing page](../sms-pricing.md) for details 
 
 ### Can I use 10DLC numbers in any country?
 
-No, 10DLC is primarily supported in the United States. Availability depends on the subscription billing location and eligibility. Check the ACS eligibility documentation for more details on supported countries.
+No, 10DLC is primarily supported in the United States. Availability depends on the subscription billing location and eligibility. Check the [ACS eligibility documentation](../../concepts/numbers/phone-number-management-for-united-states.md) for more details on supported countries.
 
 ### What is a 10DLC number?
 A 10DLC (10-Digit Long Code) number is a standard 10-digit phone number used for Application-to-Person (A2P) messaging in the United States. It is designed for businesses to send SMS messages to customers at scale, without the restrictions of traditional long codes.
+
+### I already have a local U.S. number. Can I use it for SMS?
+Yes, if you already have a local U.S. number, you can use it for SMS messaging. You will need to submit a brand registration and campaign registration prior to enabling the SMS capability on it. Follow this [quickstart to apply.](../../quickstarts/sms/apply-for-ten-digit-long-code.md) 
 
 ### What are the advantages of using 10DLC numbers over short codes?
 - **Cost-effective**: 10DLC numbers are more affordable than short codes for A2P messaging.
