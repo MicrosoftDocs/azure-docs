@@ -92,7 +92,7 @@ The job uses an Azure Storage queue to receive messages. In this section, you cr
 
 ## Create a user-assigned managed identity
 
-You can pull images from private repositories in Microsoft Azure Container Registry using managed identities for authentication to avoid the use of administrative credentials. When possible, you should use a user-assigned managed identity to pull images.
+To avoid using administrative credentials, pull images from private repositories in Microsoft Azure Container Registry using managed identities for authentication. When possible, use a user-assigned managed identity to pull images.
 
 1. Create a user-assigned managed identity. Before you run the following commands, replace the `\<PLACEHOLDERS\>` with the name of your managed identity. 
 
@@ -139,9 +139,9 @@ To deploy the job, you must first build a container image for the job and push i
         --sku Basic
     ```
 
-1. Your container registry must allow ARM audience tokens for authentication in order to use managed identity to pull images.
+1. Your container registry must allow Azure Resource Manager (ARM) audience tokens for authentication in order to use managed identity to pull images.
 
-    Use the following command to check if ARM tokens are allowed to access your ACR:
+    Use the following command to check if ARM tokens are allowed to access your Azure Container Registry (ACR):
 
     ```azurecli
     az acr config authentication-as-arm show --registry "$CONTAINER_REGISTRY_NAME"
@@ -205,7 +205,7 @@ To deploy the job, you must first build a container image for the job and push i
     | `--secrets` | The secrets to use for the job. |
     | `--registry-server` | The container registry server to use for the job. For an Azure Container Registry, the command automatically configures authentication. |
     | `--mi-user-assigned` | The resource ID of the user-assigned managed identity to assign to the job. |
-    | `--registry-identity` | The resource ID of a managed identity to authenticate with the registry server instead of username/password. If possible, an 'acrpull' role assignemnt will be created for the identity automatically. |
+    | `--registry-identity` | The resource ID of a managed identity to authenticate with the registry server instead of using a username and password. If possible, an 'acrpull' role assignment is created for the identity automatically. |
     | `--env-vars` | The environment variables to use for the job. |
 
     The scale rule configuration defines the event source to monitor. It is evaluated on each polling interval and determines how many job executions to trigger. To learn more, see [Set scaling rules](scale-app.md).
