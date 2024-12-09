@@ -21,6 +21,9 @@ This how-to guide explains the steps for installing the required Azure CLI and e
 3. Access to the Azure portal for the target cluster to be upgraded.
 4. You must be logged in to the same subscription as your target cluster via `az login`
 5. Target cluster must be in a running state, with all control plane nodes healthy and 80+% of compute nodes in a running and healthy state.
+   
+## Checking current runtime version
+[How to check current cluster runtime version](https://learn.microsoft.com/en-us/azure/operator-nexus/howto-check-runtime-version.md#check-current-cluster-runtime-version)
 
 ## Finding available runtime versions
 
