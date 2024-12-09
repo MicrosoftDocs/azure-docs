@@ -100,4 +100,4 @@ landingContent:
       - linkListType: overview
         links:
           - text: Azure Virtual Desktop (classic)
-            url: ./virtual-desktop-fall-2019/index.yml
+            url: /previous-versions/azure/virtual-desktop-classic/

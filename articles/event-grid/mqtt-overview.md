@@ -1,6 +1,6 @@
 ---
 title: 'Overview of MQTT broker feature in Azure Event Grid'
-description: 'Describes the main concepts for the MQTT broker feature in Azure Event Grid.'
+description: Describes how Azure Event Grid enables MQTT clients to communicate with each other and with Azure services, to support your Internet of Things (IoT) solutions.
 ms.topic: conceptual
 ms.custom:
   - ignite-2023

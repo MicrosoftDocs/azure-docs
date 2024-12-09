@@ -171,8 +171,6 @@ Create an Active Directory tenant administrator.
    1. Select **User**.
    1. Select **Administrator**, and then **Select**.
 
-      :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/azure-ad-add-role-member.png" alt-text="The Microsoft Entra role dialog box." border="true":::
-
 1. Select **Create**.
 
 1. Then have the new user sign in to the Azure portal where it will be prompted to change the password. You'll need to do this before configuring Microsoft Entra Connect.

@@ -55,7 +55,7 @@ __App Service Migration Assistant tool and App Service migration assistant for P
 
 |Migration Tools| Description | Documentation |
 |-----------|-------------|---------------|
-|[App Service Migration Assistant](https://appmigration.microsoft.com/api/download/windows/AppServiceMigrationAssistant.msi)|Migrate .NET web apps from Windows OS to App Service.|[App Service Migration Assistant Documentation](https://github.com/Azure/App-Service-Migration-Assistant/wiki)|
+|[App Service Migration Assistant](https://appmigration.microsoft.com/api/download/windowspreview/AppServiceMigrationAssistant.msi)|Migrate .NET web apps from Windows OS to App Service.|[App Service Migration Assistant Documentation](https://github.com/Azure/App-Service-Migration-Assistant/wiki)|
 |[App Service migration assistant for Java on Apache Tomcat (Windows—preview)](https://appmigration.microsoft.com/api/download/windows/AppServiceMigrationAssistant.msi)|Download prerelease software for migrating Java web applications on Tomcat web server running on Windows servers.|[App Service Migration Assistant Documentation](https://github.com/Azure/App-Service-Migration-Assistant/wiki)|
 |[App Service Migration Assistant PowerShell scripts](https://appmigration.microsoft.com/api/download/psscripts/AppServiceMigrationScripts.zip)|Download PowerShell scripts for discovering and assessing all Microsoft Internet Information Services (IIS) web apps on a single server in bulk and migrating .NET web apps from Windows OS to App Service.|[App Service Migration Assistant Powershell Documentation](https://github.com/Azure/App-Service-Migration-Assistant/wiki/PowerShell-Scripts)<br>[SHA256 Identifier](https://github.com/Azure/App-Service-Migration-Assistant/wiki/Release-Notes)|
 

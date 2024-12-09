@@ -19,7 +19,7 @@
 - name: Quickstarts
   items:
   - name: Create Bicep templates - VS Code
-    displayName: vscode
+    displayName: vscode,vs code
     href: quickstart-create-bicep-use-visual-studio-code.md
   - name: Create Bicep templates - Visual Studio
     href: quickstart-create-bicep-use-visual-studio.md
@@ -409,11 +409,13 @@
       href: template-specs.md
     - name: Deployment stacks
       href: deployment-stacks.md
-    - name: Bicep extensibility
+    - name: Bicep extensions
       items:
       - name: Kubernetes extension
+        displayName: provider
         href: ./bicep-kubernetes-extension.md
       - name: Microsoft Graph extension
+        displayName: provider
         href: https://aka.ms/graphbicep
     - name: Patterns
       items:
