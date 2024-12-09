@@ -34,7 +34,7 @@ To create a container in the storage account, refer to [Create a container](../s
 > [!NOTE]
 > Enter the name of the container using only lowercase letters.
 
-To generate a SAS URL for the container to provide write access to the Nexus fabric, refer to [Generate a shared access signature](../storage/blobs/blob-containers-portal.md#generate-a-shared-access-signature)
+To generate a SAS URL for the container to provide write access to the Nexus Fabric, refer to [Generate a shared access signature](../storage/blobs/blob-containers-portal.md#generate-a-shared-access-signature)
 
 > [!NOTE]
 > SAS URLs are short lived. By default, it is set to expire in eight hours. If the SAS URL expires, then you must open a Microsoft support ticket to add a new URL.
