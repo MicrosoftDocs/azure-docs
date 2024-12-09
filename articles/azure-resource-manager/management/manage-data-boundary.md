@@ -2,7 +2,7 @@
 title: Configure data boundary
 description: Learn how to configure data boundary.
 ms.topic: how-to
-ms.date: 12/06/2024
+ms.date: 12/09/2024
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 # Customer intent: As an Azure user, I want to create a new data boundary.
 ---
@@ -14,15 +14,15 @@ This documentation provides details on how customers can configure Azure Resourc
 > [!IMPORTANT]
 > To store Professional Services Data in the EU Data Boundary for Azure, customers must configure Azure Resource Manager to the EU Data Boundary. This documentation provides details on how customers can configure Azure Resource Manager for use in the EU Data Boundary.  
 
-A data boundary can only be established in new tenants that have no existing subscriptions or deployed resources. Once a tenant is opted into a data boundary, the data boundary configuration cannot be removed or modified. Subscriptions and resources created under a tenant with a data boundary cannot be moved out of that tenant. Existing subscriptions and resources cannot be moved into a tenant with a data boundary. Each tenant is limited to one data boundary, and after the data boundary is configured, Azure Resource Manager will restrict resource deployments to regions within that boundary. A Global data boundary has no restrictions on the regions a resource can deploy to. Customers can opt their tenants into a data boundary by deploying a `Microsoft.Resources/dataBoundarie`s resource at the tenant level.
+A data boundary can only be established in new tenants that have no existing subscriptions or deployed resources. Once a tenant is opted into a data boundary, the data boundary configuration cannot be removed or modified. Subscriptions and resources created under a tenant with a data boundary cannot be moved out of that tenant. Existing subscriptions and resources cannot be moved into a tenant with a data boundary. Each tenant is limited to one data boundary, and after the data boundary is configured, Azure Resource Manager will restrict resource deployments to regions within that boundary. A Global data boundary has no restrictions on the regions a resource can deploy to. Customers can opt their tenants into a data boundary by deploying a `Microsoft.Resources/dataBoundaries` resource at the tenant level.
 
-The `DataBoundaryTenantAdministrator` built-in role is required to configure data boundary. For more information, see Assign Azure roles.
+The `DataBoundaryTenantAdministrator` built-in role is required to configure data boundary. For more information, see [Assign Azure roles](../../role-based-access-control/role-assignments-cli.md).
 
 To opt your tenant into an Azure EU Data Boundary:
 
-- Create a new tenant within an EU country or region to configure a Microsoft Entra EU Data Boundary. For more information on how to create a new tenant within an EU country or region, see Create a new tenant in Microsoft Entra ID.
-- Before creating any new subscriptions or resources, deploy a Microsoft.Resources/dataBoundaries resource with an EU configuration. 
-- Create a subscription and deploy Azure resources. 
+- Create a new tenant within an EU country or region to configure a Microsoft Entra EU Data Boundary. For more information on how to create a new tenant within an EU country or region, see [Create a new tenant in Microsoft Entra ID](/entra/fundamentals/create-new-tenant).
+- Before creating any new subscriptions or resources, deploy a Microsoft.Resources/dataBoundaries resource with an EU configuration.
+- Create a subscription and deploy Azure resources.
 
 ## Permissions required
 
@@ -212,12 +212,12 @@ For more information, see [Azure REST API Reference](/rest/api/azure/).
 
 The following table lists the data boundary related error messages:
 
-| Error message | Explanation |
-|---------------|-------------|
-| NonEmptyTenantCannotChangeDataBoundary | Customers can only apply an Azure data boundary to a brand new tenant with no management groups, subscriptions, or resources. |
-| AuthorizationFailed when creating data boundary | Ensure you have the Data Boundary Administrator role at the tenant scope. Follow the instructions in the Permissions Required section. |
-| InvalidResourceLocation <br/> InvalidResourceGroupLocation | Once a data boundary applies to a tenant, users can only create resources in regions within the data boundary. For example, users cannot create resources in WestUS if an EU data boundary is applied to the tenant. |
-| Transfer action failed. <br/>Transfer of this subscription is not allowed due to data boundary restrictions on the tenant. | It is not possible to move a subscription if the source or target tenants have a non-global data boundary. Subscription move is blocked even if the source and target tenants have the same data boundary. |
+| Error code | Error message | Explanation |
+|------------|---------------|-------------|
+| NonEmptyTenantCannotChangeDataBoundary | Tenant \<tenant-name> already contains subscriptions. Data boundary update for non-empty tenants is not supported. | Customers can only apply an Azure data boundary to a brand new tenant with no management groups, subscriptions, or resources. |
+| AuthorizationFailed | The client \<client-name> with object ID \<object-id> does not have authorization to perform action `Microsoft.Resources/dataBoundaries/write` over scope \<scope-name> or the scope is invalid. If access was recently granted, please refresh your credentials. | Ensure you have the Data Boundary Administrator role at the tenant scope. See [Permissions Required](#permissions-required). |
+| InvalidResourceLocation <br/> InvalidResourceGroupLocation | Invalid resource group location \<region-name>. The tenant ID for the given subscription is opted into the \<data-boundary-geo> data boundary. The resource group location is restricted by the data boundary. List of regions in the data boundary is: /<region-list>. | Once a data boundary applies to a tenant, users can only create resources in regions within the data boundary. For example, users cannot create resources in *WestUS* if an EU data boundary is applied to the tenant. To resolve this error, pick a region from the list returned in the error message. |
+| InvalidSubscriptionMoveDataBoundary | Transfer action failed. Transfer of this subscription is not allowed due to data boundary restrictions on the tenant. | It is not possible to move a subscription if the source or target tenants have a non-global data boundary. Subscription move is blocked even if the source and target tenants have the same data boundary. |
 
 ## Next steps
 
