@@ -50,9 +50,9 @@ The Microsoft 365 license lasts for one year.
 
 ### Is it possible to cancel a paid license?
 
-Customers can cancel a paid license within seven days of the start of the license and recieve a prorated refund. After seven days, they should [turn off recurring billing](../microsoft-365/commerce/subscriptions/renew-your-subscription) to prevent automatic renewal.​
+Customers can cancel a paid license within seven days of the start of the license and recieve a prorated refund. After seven days, they should [turn off recurring billing](/microsoft-365/commerce/subscriptions/renew-your-subscription) to prevent automatic renewal.​
 
-A customer can also deactivate license. For more information, see [cancel your subscription in the Microsoft 365 admin center](../../microsoft-365/commerce/subscriptions/cancel-your-subscription).​
+A customer can also deactivate license. For more information, see [cancel your subscription in the Microsoft 365 admin center](microsoft-365/commerce/subscriptions/cancel-your-subscription).​
 
 A customer can cancel the license from **Plans and pricing**. To learn more, see [cancel a Defender for IoT plan for OT networks](how-to-manage-subscriptions.md#cancel-a-defender-for-iot-plan-for-ot-networks).​
 
