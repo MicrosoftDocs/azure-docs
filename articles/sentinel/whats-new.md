@@ -33,7 +33,7 @@ Get notified when this page is updated by copying and pasting the following URL 
 
 SOC optimization now includes new recommendations for adding data sources to your workspace based on the security posture of other customers in similar industries and sectors as you, and with similar data ingestion patterns. Add the recommended data sources to improve security coverage for your organization.
 
-For more information, see [SOC optimization reference](soc-optimization/soc-optimization-reference.md).
+For more information, see [SOC optimization reference of recommendations](soc-optimization/soc-optimization-reference.md).
 
 ### Unified Microsoft Sentinel solution for Microsoft Business Apps
 
