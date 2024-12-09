@@ -26,6 +26,9 @@ Before deploying the virtual machine template, let's review the content to under
 
 :::code language="bicep" source="includes/virtual-machine/virtual-machine-bicep-template.bicep":::
 
+> [!IMPORTANT]
+> Please ensure that any sensitive data, such as secrets, passwords, private keys, and so on, are encrypted before they are submitted in the userData or networkData fields.
+
 Once you have reviewed and saved the template file named ```virtual-machine-bicep-template.bicep```, proceed to the next section to deploy the template.
 
 ## Deploy the template
