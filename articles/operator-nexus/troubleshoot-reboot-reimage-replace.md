@@ -101,7 +101,7 @@ az networkcloud baremetalmachine cordon \
 ***The following Azure CLI command will `reimage` the specified bareMetalMachineName.***
 ```
 az networkcloud baremetalmachine reimage \
-  –-name <bareMetalMachineName>  \
+  --name <bareMetalMachineName>  \
   --resource-group <CLUSTER_MRG> \
   --subscription <SUBSCRIPTION_ID>
 ```
@@ -159,7 +159,7 @@ After physical repairs are completed, perform a replace action.
 ***The following Azure CLI command will `replace` the specified bareMetalMachineName.***
 ```
 az networkcloud baremetalmachine replace \
-  –-name <bareMetalMachineName>  \
+  --name <bareMetalMachineName>  \
   --resource-group <CLUSTER_MRG> \
   --bmc-credentials password=<IDRAC_PASSWORD> username=<IDRAC_USER> \
   --bmc-mac-address <IDRAC_MAC> \
