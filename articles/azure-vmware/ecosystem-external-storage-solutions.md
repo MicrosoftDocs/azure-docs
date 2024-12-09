@@ -9,13 +9,13 @@ ms.date: 12/09/2024
 ms.custom: engagement-fy23
 --- 
 
-# External storage solutions overview 
+# Extend Azure VMware Solution with external storage solutions
 
-Azure VMware Solution is a Hyperconverged Infrastructure (HCI) service that offers VMware vSAN as the primary storage option. However, a significant requirement with on-premises VMware deployments is external storage. VMware vSAN provides high-performance NVMe storage for virtual machines, but has a limited capacity. The exact amount of storage available in vSAN depends on the number of nodes in the cluster and the Azure VMware Solution host type; the RAID and FTT (Failures To Tolerate) settings; and the deduplication and compression performance of a particular workload. Some virtual machine workloads require more storage than is available in vSAN. When you reach the capacity limit of vSAN, you can either add more Azure VMware Solution nodes to increase the capacity of vSAN, or you can use an external storage solution. Adding external storage is a good option when you need to scale storage capacity without adding more CPU and memory to the cluster.
+Azure VMware Solution is a Hyperconverged Infrastructure (HCI) service that offers VMware vSAN as the primary storage option. However, a significant consideration with on-premises VMware deployments is external storage. VMware vSAN provides high-performance NVMe storage for virtual machines, but has a limited capacity. The exact amount of storage available in vSAN depends on several factors, including the number and type of nodes in the cluster type; the RAID and FTT (Failures To Tolerate) settings; and the deduplication and compression performance of a particular workload. Some virtual machine workloads require more storage than is available in vSAN. When you reach the capacity limit of vSAN, you can either add more Azure VMware Solution nodes to increase the capacity of vSAN, or you can use an external storage solution. Adding external storage is a good option when you need to scale storage capacity without adding more CPU and memory to the cluster.
 
 Azure VMware Solution external storage is deployed into an Azure virtual network, and is connected to the Azure VMware Solution private cloud via an ExpressRoute circuit. ExpressRoute is used to establish Layer 3 connectivity between physical ESXi nodes and Azure virtual networks. The storage is mounted on the Azure VMware Solution ESXi hosts using NFS or iSCSI, and used as a datastore for virtual machines.
 
-It's also possible to map storage directly to Azure VMware Solutions virtual machines, which can reduce the amount of datastore capacity required in the cluster, and a wide variety of storage options are available.
+It's also possible to map storage directly to Azure VMware Solutions virtual machines, which can reduce the amount of datastore capacity required in the cluster. A wide range of storage options is available, including Azure Files, Azure blob storage, and Azure NetApp Files.
 
 When you choose an external storage service for Azure VMware Solution, there are different options to consider. Your requirements depend on your workloads and business needs. For example, you should consider:
 
