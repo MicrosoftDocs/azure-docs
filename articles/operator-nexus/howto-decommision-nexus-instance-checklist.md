@@ -13,23 +13,21 @@ ms.date: 12/03/2024
 # Check list to decommission Azure Operator Nexus instance
 This how-to guide provides a high-level checklist on the essential steps required to delete the Azure Nexus resources and associated software running on the devices.
 
-## High-Level site decommission check list
-Note: Due to the underlying dependencies and references across these resources, follow the order of this checklist to ensure a smooth and efficient deletion of resources.
+
 
-1) Perform workload clean up, including but not limited to VMs and Nexus Kubernetes Clusters
-2) Delete all Cluster networks (CSN, DCN, Internal, External, Trunked) resources
-3) Delete all L3 Internal/External networks
-4) Disable/Delete L3 ISD resources
-5) Delete Keysets resources
-6) Delete Cluster resource
-7) Delete Cluster Manager resource
-8) Disable/Delete L2 ISD resources
-9) Reset all iDRAC credential to default 
-10) Deprovision Fabric
-11) Delete NNI resources
-12) Delete Fabric resource
-13) Disable DHCP and put devices into ZTP mode
+Note: Due to the underlying dependencies and references across these resources, follow the order of this checklist to ensure a smooth and efficient deletion of resources.
+Note: Due to the underlying dependencies and references across these resources, follow the order of this checklist to ensure a smooth and efficient deletion of resources.
 14) Reset Terminal Server (TS) credentials to default
+1) Perform tenant network resources and workload clean up, including but not limited to VMs and Nexus Kubernetes Clusters
+2) [Disable/Delete L3 ISD resources](https://learn.microsoft.com/en-us/azure/operator-nexus/howto-delete-layer-3-isolation-domains)
+3) [Delete Keysets resources](https://learn.microsoft.com/en-us/azure/operator-nexus/howto-baremetal-bmc-ssh#deleting-a-bmc-keyset)
+4) [Delete Cluster resource](https://learn.microsoft.com/en-us/azure/operator-nexus/howto-configure-cluster#delete-a-cluster)
+5) [Delete Cluster Manager resource](https://learn.microsoft.com/en-us/azure/operator-nexus/howto-cluster-manager#delete-cluster-manager)
+6) [Deprovision Fabric](https://learn.microsoft.com/en-us/azure/operator-nexus/howto-configure-network-fabric#deleting-fabric)
+7) [Clean up ACL resources](https://learn.microsoft.com/en-us/azure/operator-nexus/howto-delete-access-control-list-network-to-network-interconnect)
+8) [Delete Fabric resource](https://learn.microsoft.com/en-us/azure/operator-nexus/howto-configure-network-fabric#deleting-fabric)
+9) [Disable DHCP and put devices into ZTP mode](https://learn.microsoft.com/en-us/azure/operator-nexus/howto-platform-prerequisites#default-setup-for-other-devices-installed)
+10) [Delete Network Fabric Controller (NFC) resource](https://learn.microsoft.com/en-us/azure/operator-nexus/howto-configure-network-fabric-controller#delete-network-fabric-controller)
 15) Delete Jumpbox/NFC Cluster Vnet/IP
 16) Delete Network Fabric Controller (NFC) resource
 
