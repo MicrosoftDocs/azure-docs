@@ -11,12 +11,12 @@ ms.date: 12/03/2024
 ---
 
 # Check list to decommission Azure Operator Nexus instance
-This how-to guide provides a high-level checklist on the essential steps required to decommission an Azure Operator Nexus instance.
+This how-to guide provides a high-level checklist on the essential steps required to delete the Azure Nexus resources and associated software running on the devices.
 
 ## High-Level site decommission check list
-Note: Due to the underlying dependencies and references across these resources, follow the order of this checklist to ensure a smooth and efficient decommissioning of all Azure Operator Instance resources.
+Note: Due to the underlying dependencies and references across these resources, follow the order of this checklist to ensure a smooth and efficient deletion of resources.
 
-1) Perform Tenant clean up HAKS/NAKS/Networks
+1) Perform workload clean up, including but not limited to VMs and Nexus Kubernetes Clusters
 2) Delete all Cluster networks (CSN, DCN, Internal, External, Trunked) resources
 3) Delete all L3 Internal/External networks
 4) Disable/Delete L3 ISD resources
