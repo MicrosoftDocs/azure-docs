@@ -13,13 +13,15 @@ ms.service: azure-communication-services
 ms.subservice: sms
 ms.custom: mode-other
 ---
-[!INCLUDE [Notice](../../includes/public-preview-include.md)]
 
 # Quickstart: Apply for 10DLC (10 digit long codes)
 This guide walks you through the steps required to register a brand and campaign for 10DLC (10-Digit Long Code) messaging in ACS. This process ensures compliance with carrier requirements and enables reliable, high-quality message delivery. Refer to [10DLC guidelines](../../concepts/sms/ten-digit-longcode-gudelines.md) for instructions on how to fill the registration form.
 
+[!INCLUDE [Notice](../../includes/public-preview-include.md)]
+
 ## Prerequisites
 - [An active Communication Services resource.](../create-communication-resource.md)
+- An eligible subscription: Check eligibility [here](../../concepts/numbers/phone-number-management-for-united-states.md)
 - Company Information: Information about your business, such as your company's legal name, tax ID, and other relevant details.
 - Campaign Details: A description of the use case and sample messages you plan to send through 10DLC.
 
@@ -123,29 +125,6 @@ Once all fields are completed, click **Next** to proceed to the **Review** tab.
 ### Review and Submit
 Review all information on the **Review** tab and submit your campaign application. Campaign approval may take 2–3 business days.
 
-### Linking a Phone Number to an Approved Campaign
-
-Once your campaign is approved, follow these steps to link a phone number to it:
-
-1. **Access the Phone Numbers Blade**:
-   - Go to the **Azure Communication Services** portal.
-   - Select **Phone Numbers** from the left navigation pane.
-
-2. **Select the Phone Number**:
-   - Choose the phone number you want to associate with the approved campaign by clicking on it.
-
-3. **Set SMS Capability and Campaign**:
-   - Under **Features**, select **Send SMS** or **Send and receive SMS** as needed.
-   - In the **Campaign** section, select the appropriate campaign ID from the dropdown list.
-
-4. **Save Changes**:
-   - Click **Save** to apply the settings.
-
-> [Important!]
-> It may take several hours for the number to be fully associated with the campaign. Please check back after some time to confirm that the association is complete.
-
-:::image type="content" source="./media/apply-for-brand-registration/link-number-to-campaign.png" alt-text="Screenshot showing number to campaign linking." lightbox="./media/apply-for-brand-registration/link-number-to-campaign.png":::
-
 ### Checking Status of Brand and Campaign Registration
 
 After submitting your brand and campaign registration, you can check the status in the **Regulatory Documents** blade. Follow these steps:
@@ -172,6 +151,30 @@ Using the **Regulatory Documents** blade to monitor the status of your brand and
 
 :::image type="content" source="./media/apply-for-brand-registration/campaign-registration-status.png" alt-text="Screenshot showing campaign registration status." lightbox="./media/apply-for-brand-registration/campaign-registration-status.png":::
 
+### Linking a Phone Number to an Approved Campaign
+
+Once your campaign is approved, follow these steps to link a phone number to it:
+
+1. **Access the Phone Numbers Blade**:
+   - Go to the **Azure Communication Services** portal.
+   - Select **Phone Numbers** from the left navigation pane.
+
+2. **Select the Phone Number**:
+   - Choose the phone number you want to associate with the approved campaign by clicking on it.
+
+3. **Set SMS Capability and Campaign**:
+   - Under **Features**, select **Send SMS** or **Send and receive SMS** as needed.
+   - In the **Campaign** section, select the appropriate campaign ID from the dropdown list.
+
+4. **Save Changes**:
+   - Click **Save** to apply the settings.
+
+> [Important!]
+> It may take several hours for the number to be fully associated with the campaign. Please check back after some time to confirm that the association is complete.
+
+:::image type="content" source="./media/apply-for-brand-registration/link-number-to-campaign.png" alt-text="Screenshot showing number to campaign linking." lightbox="./media/apply-for-brand-registration/link-number-to-campaign.png":::
+
+
 ## Next steps
 
 > [!div class="nextstepaction"]
@@ -179,9 +182,8 @@ Using the **Regulatory Documents** blade to monitor the status of your brand and
 
 See the following articles for more information:
 
-- [Number lookup overview](../../concepts/numbers/number-lookup-concept.md)
-- Check SMS FAQ for questions regarding [SMS](../sms/sms-faq.md)
-- Familiarize yourself with the [SMS SDK](../sms/sdk-features.md)
+- Check SMS FAQ for questions regarding [SMS](../../concepts/sms/sms-faq.md)
+- Familiarize yourself with the [SMS SDK](../../concepts/sms/sdk-features.md)
 - Get an SMS capable [phone number](../../quickstarts/telephony/get-phone-number.md)
 - Learn about [SMS number types](../../concepts/sms/sms-number-types.md)
-- Apply for [Toll-free verification](./sms-faq.md#toll-free-verification)
+
