@@ -4,7 +4,7 @@ description: Understand the key capabilities of Azure VMware Solution software-d
 ms.topic: conceptual
 ms.service: azure-vmware
 ms.date: 12/9/2024
-ms.custom: engagement-fy23
+ms.custom: engagement-fy23, references_regions
 ---
 
 # Azure VMware Solution private cloud and cluster concepts
@@ -161,7 +161,7 @@ Azure VMware Solution monitors the following conditions on the host:
 |  EPC_SCSIDEVICE_SHARINGMODE  | This error is encountered when a Virtual Machine is configured to use a device that prevents a maintenance operation: A device that is a SCSI controller which is engaged in bus-sharing   | Follow the KB article for the removal of any SCSI controller engaged in bus-sharing attached to VMs  https://knowledge.broadcom.com/external/article?legacyId=79910   |
 |  EPC_CDROM_EMULATEMODE |  This error is encountered when CD-ROM on the Virtual Machine uses emulate mode, whose ISO image is not accessible  | Follow the KB article for the removal of any CDROM mounted on customer's workload Virtual Machines in emulate mode or detach ISO. It is recommended to use Passthrough mode for mounting any CD-ROM. https://knowledge.broadcom.com/external/article?legacyId=79306   |
 |  EPC_DATASTORE_INACCESSIBLE  |  This error is encountered when any external Datastore attached to AVS Private Cloud becomes inaccessible  | Follow the KB article for the removal of any stale Datastore attached to cluster /azure/azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts?tabs=azure-portal#performance-best-practices  |
-|  EPC_NWADAPTER_STALE | This error is encountered when connected Network interface on the Vitual Machine uses network adapter which becomes inaccessible | Follow the KB article for the removal of any stale N/W adapters attached to Virtual Machines https://knowledge.broadcom.com/external/article/318738/troubleshooting-the-migration-compatibil.html  |
+|  EPC_NWADAPTER_STALE | This error is encountered when connected Network interface on the Virtual Machine uses network adapter which becomes inaccessible | Follow the KB article for the removal of any stale N/W adapters attached to Virtual Machines https://knowledge.broadcom.com/external/article/318738/troubleshooting-the-migration-compatibil.html  |
 
 > [!NOTE]
 > Azure VMware Solution tenant admins must not edit or delete the previously defined VMware vCenter Server alarms because they are managed by the Azure VMware Solution control plane on vCenter Server. These alarms are used by Azure VMware Solution monitoring to trigger the Azure VMware Solution host remediation process.
