@@ -187,7 +187,7 @@ Integration platforms offer ways to solve problems in a consistent and unified m
 
 - .NET Framework assemblies
 
-  You can share these assemblies across BizTalk Server projects. These assemblies are easier to manage from a dependency perspective. Provided that no breaking changes exist, an update to a .NET Fx assembly requires updating the DLL in the Global Assembly Cache (GAC), which automatically makes the changes available to other assemblies. If breaking changes exist, you must also update the dependent project to accommodate the changes in the .NET Franework assembly.
+  You can share these assemblies across BizTalk Server projects. These assemblies are easier to manage from a dependency perspective. Provided that no breaking changes exist, an update to a .NET Fx assembly requires updating the DLL in the Global Assembly Cache (GAC), which automatically makes the changes available to other assemblies. If breaking changes exist, you must also update the dependent project to accommodate the changes in the .NET Framework assembly.
 
 - Custom pipelines and pipeline components
 
