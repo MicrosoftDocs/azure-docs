@@ -142,7 +142,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
         1. *Name*: **msdocs-tomcat-mysql-XYZ**, where *XYZ* is any three random characters.
         1. *Runtime stack*: **Java 17**.
         1. *Java web server stack*: **Apache Tomcat 10.1**.
-        1. *Engine*: **MySQL - Flexible Server** is selected for you by default as the database engine. If not, select it. MySQL - Flexible Server runs on Azure Database for MySQL. It's a fully managed MySQL database as a service on Azure, compatible with the latest community editions.
+        1. *Engine*: **MySQL - Flexible Server** is selected for you by default as the database engine. If not, select it. Azure Database for MySQL  Flexible Servier is a fully managed MySQL database as a service on Azure, compatible with the latest community editions.
         1. *Hosting plan*: **Basic**. When you're ready, you can [scale up](manage-scale-up.md) to a production pricing tier.
         1. Select **Review + create**.
         1. After validation completes, select **Create**.
