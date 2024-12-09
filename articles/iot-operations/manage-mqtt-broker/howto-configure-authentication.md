@@ -836,7 +836,7 @@ Modify the `authenticationMethods` setting in a *BrokerAuthentication* resource 
 1. Add a new method by selecting **Add method**.
 1. Choose the method type **Custom** from the dropdown list then select **Add details** to configure the method.
 
-:::image type="content" source="media/howto-configure-authentication/custom-method.png" alt-text="Screenshot using the Azure portal to set MQTT broker custom authentication method.":::
+    :::image type="content" source="media/howto-configure-authentication/custom-method.png" alt-text="Screenshot using the Azure portal to set MQTT broker custom authentication method.":::
 
 # [Bicep](#tab/bicep)
 
