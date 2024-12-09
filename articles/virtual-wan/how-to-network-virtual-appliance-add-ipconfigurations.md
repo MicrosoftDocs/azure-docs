@@ -2,7 +2,7 @@
 title: 'Azure Virtual WAN: Manage IP Configurations for Network Virtual Appliance (NVA) in the hub'
 description: Learn how to manage  IP configurations for Network Virtual Appliance in the Virtual WAN hub.
 author: wtnlee
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 01/04/2023
 ms.author: wellee
@@ -72,7 +72,7 @@ The following section describes known limitations and considerations associated 
 * Reference your NVA provider's documentation for the full list of supported use cases and for instructions on how to properly configure NVA operating systems to use additional allocated IP addresses. Azure allocates and assigns additional IP addresses to your NVA Virtual Machine instances and doesn't modify any NVA operating system internal configurations.
 * Associating an additional IP configuration to your NVA allocates additional IP addresses to all NVA instances.
 * The primary IP configuration associated to each NIC can't be modified or deleted.
-* Azure automatically allocates IP addresses to each Network Virtual Appliance instance. You can't choose the IP addresses allocated to each NVA instance. Private IP addresses are allocated from the Virtual WAN hub address space that is reserved for Integrated NVAs in the hub. Public IP addresses are allocated from the set of available Azure-owned public IPs in the NVAs deployed Azure region.
+* Azure automatically allocates IP addresses to each Network Virtual Appliance instance. You can't choose the IP addresses allocated to each NVA instance. Private IP addresses are allocated from a subnet within the Virtual WAN hub address space that is reserved for Integrated NVAs in the hub. Public IP addresses are allocated from the set of available Azure-owned public IPs in the NVAs deployed Azure region.
 * IP addresses aren't preserved. Once an IP configuration is removed from a NIC, re-creating the IP configuration doesn't guarantee the same public and/or private IP addresses are allocated to the NVA.
 
 ## Creating IP configurations
@@ -94,6 +94,7 @@ The following section describes the steps needed to add additional IP configurat
 :::image type="content" source="./media/network-virtual-appliance-address/add-configuration-button.png"alt-text="Screenshot showing how to find button used to manage NVA IP configurations."lightbox="./media/network-virtual-appliance-address/add-configuration-button.png"::: 
 1. Type in the name of the new IP configuration and select **Save**.
 :::image type="content" source="./media/network-virtual-appliance-address/add-and-save-configuration.png"alt-text="Screenshot showing how to create and save new  NVA IP configurations."lightbox="./media/network-virtual-appliance-address/add-and-save-configuration.png"::: 
+1. After the operation completes, reference your NVA provider's documentation for any configurations needed for the NVA operating system to use the newly allocated IP address(es).  
 
 ## Checking IP addresses assigned to a VM instance
 1. Select **Instances** under settings.
