@@ -75,7 +75,7 @@ az networkcloud baremetalmachine restart \
 ```
 
 ## Make a BMM unschedulable (cordon)
-<!--(PLACEHOLDER: We need to explain how a customer can identify if workloads are currently running on a BMM and the az cli command used to get this information. Ask NAKS team to provide.)--> \
+<!--(PLACEHOLDER: We need to explain how a customer can identify if workloads are currently running on a BMM and the az cli command used to get this information. Ask NAKS team to provide.)-->
 
 You can make a BMM unschedulable by executing the [`cordon`](#make-a-bmm-unschedulable-cordon) command.
 On the execution of the `cordon` command,
