@@ -14,9 +14,9 @@ This article contains information for customers who have a trial license and nee
 
 A trial license can be extended by the customer in the final 15 days of the trial using the [Microsoft 365 Admin Center](https://admin.microsoft.com/Adminportal/Home?#/homepage).
 
-Customers with either MCA or MOSA billing accounts can use these instructions to [request an extention for their trial license](../../../microsoft-365/commerce/try-or-buy-microsoft-365#extend-your-trial). This request must be made by a user with Global or Billing Admin premissions on the customer tenant. For more information, see [admin roles in Microsoft 365 admin center](../microsoft-365/admin/add-users/about-admin-roles.md).
+Customers with either MCA or MOSA billing accounts can use these instructions to [request an extention for their trial license](/microsoft-365/commerce/try-or-buy-microsoft-365#extend-your-trial). This request must be made by a user with Global or Billing Admin premissions on the customer tenant. For more information, see [admin roles in Microsoft 365 admin center](/microsoft-365/admin/add-users/about-admin-roles.md).
 
-instructions to [extend their trial license](../microsoft-365/commerce/try-or-buy-microsoft-365.md#extend-your-trial).
+instructions to [extend their trial license](/microsoft-365/commerce/try-or-buy-microsoft-365.md#extend-your-trial).
 
 ## Contact the Product team
 
