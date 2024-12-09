@@ -1,6 +1,6 @@
 ---
 title: "(Deprecated) Create automated workflows in multitenant Azure Logic Apps with Visual Studio"
-description: Create automated integration workflows that run in multitenant Azure Logic Apps with Visual Studio Code.
+description: Create automated integration workflows that run in multitenant Azure Logic Apps with Visual Studio.
 services: logic-apps
 ms.service: azure-logic-apps
 ms.suite: integration
@@ -8,7 +8,7 @@ ms.reviewer: estfan, azla
 ms.topic: quickstart
 ms.custom: mvc, mode-ui
 ms.date: 12/10/2024
-#Customer intent: As a developer, I want to create my first automated workflow by using Azure Logic Apps while working in Visual Studio
+#Customer intent: As a developer, I want to create my first automated workflow by using Azure Logic Apps while working in Visual Studio.
 ---
 
 # Quickstart: Create automated workflows in multitenant Azure Logic Apps with Visual Studio (Deprecated)
@@ -20,17 +20,13 @@ ms.date: 12/10/2024
 > The **Azure Logic Apps Tools for Visual Studio** extension is deprecated and no longer receives updates.
 > To create and manage logic app workflows using a local development environment, see the following documentation:
 >
-> - [Quickstart: Create and manage a Consumption logic app workflow in multitenant Azure Logic Apps with Visual Studio Code](/azure/logic-apps/quickstart-create-logic-apps-with-visual-studio-code)
+> - [Quickstart: Create and manage a Consumption logic app workflow in multitenant Azure Logic Apps with Visual Studio Code](/azure/logic-apps/quickstart-create-logic-apps-visual-studio-code)
 >
 > - [Create a Standard logic app workflow in single-tenant Azure Logic Apps with Visual Studio Code](/azure/logic-apps/create-single-tenant-workflows-visual-studio-code)
 
-You can create, develop, and deploy automated workflows that integrate services, systems, apps, and data across enterprises and organizations by using [Azure Logic Apps](logic-apps-overview.md). Although you can perform these tasks in the Azure portal, you can also use a local development environment to create logic app projects that you can add to source control, publish different versions, and create Azure Resource Manager templates for different deployment environments. For more information about multitenant versus single-tenant logic app workflows, see [Single-tenant versus multitenant in Azure Logic Apps](single-tenant-overview-compare.md).
+You can create, develop, and deploy automated workflows that integrate services, systems, apps, and data across enterprises and organizations by using [Azure Logic Apps](/azure/logic-apps/logic-apps-overview). Although you can perform these tasks in the Azure portal, you can also use Visual Studio as your local development environment to create logic app projects that you can add to source control, publish different versions, and create Azure Resource Manager templates for different deployment environments. For more information about multitenant versus single-tenant logic app workflows, see [Single-tenant versus multitenant in Azure Logic Apps](/azure/logic-apps/single-tenant-overview-compare).
 
-This quickstart shows how to design, develop, and deploy automated workflows that integrate apps, data, systems, and services across enterprises and organizations by using multitenant [Azure Logic Apps](logic-apps-overview.md) and Visual Studio. Although you can perform these tasks in the Azure portal, Visual Studio lets you add your logic apps to source control, publish different versions, and create Azure Resource Manager templates for different deployment environments. For more information about multitenant versus single-tenant model, review [Single-tenant versus multitenant in Azure Logic Apps](single-tenant-overview-compare.md).
-
-If you're new to Azure Logic Apps and just want the basic concepts, try the [quickstart for creating an example Consumption logic app workflow in the Azure portal](quickstart-create-example-consumption-workflow.md). The workflow designer works similarly in both the Azure portal and Visual Studio.
-
-In this quickstart, you create the same logic app workflow with Visual Studio as the Azure portal quickstart. You can also learn to [create an example logic app workflow in Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md), and [create and manage logic app workflows using the Azure CLI](quickstart-logic-apps-azure-cli.md). This logic app workflow monitors a website's RSS feed and sends email for each new item in that feed. Your finished logic app workflow looks like the following high-level workflow:
+This quickstart shows how to create the same example logic app workflow as the Azure portal quickstart. You can also learn to [create an example logic app workflow in Visual Studio Code](/azure/logic-apps/quickstart-create-logic-apps-visual-studio-code) or [create and manage logic app workflows using the Azure CLI](/azure/logic-apps/quickstart-logic-apps-azure-cli). This logic app workflow monitors a website's RSS feed and sends email for each new item in that feed. Your finished logic app workflow looks like the following high-level workflow:
 
 ![Screenshot shows high-level view for example logic app workflow.](./media/quickstart-create-logic-apps-with-visual-studio/high-level-workflow-overview.png)
 
@@ -42,7 +38,7 @@ In this quickstart, you create the same logic app workflow with Visual Studio as
 
 * Download and install these tools, if you don't have them already:
 
-  * [Visual Studio 2019 - Community edition](https://aka.ms/download-visual-studio), which is free. This quickstart uses Visual Studio Community 2017.
+  * [Visual Studio 2019 - Community edition](https://aka.ms/download-visual-studio), which is free. This quickstart uses Visual Studio Community 2017 for the examples.
 
     > [!IMPORTANT]
     >
