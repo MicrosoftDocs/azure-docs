@@ -8,7 +8,7 @@ ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 12/03/2024
+ms.date: 12/09/2024
 
 #CustomerIntent: As an operator, I want to configure authentication so that I have secure MQTT broker communications.
 ---
@@ -17,7 +17,7 @@ ms.date: 12/03/2024
 
 [!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
 
-MQTT broker supports multiple authentication methods for clients, and you can configure each listener port to have its own authentication settings with a *BrokerAuthentication* resource. For a list of the available settings, see the [Broker Authentication](/rest/api/iotoperationsmq/broker-authentication) API reference.
+MQTT broker supports multiple authentication methods for clients, and you can configure each listener port to have its own authentication settings with a *BrokerAuthentication* resource. For a list of the available settings, see the [Broker Authentication](/rest/api/iotoperations/broker-authentication) API reference.
 
 ## Link BrokerListener and BrokerAuthentication
 
@@ -911,6 +911,8 @@ spec:
         headers:
           header_key: header_value
 ```
+
+---
 
 ## Disable authentication
 
