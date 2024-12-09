@@ -3,7 +3,7 @@ title: Azure Device Update for IoT Hub using the Ubuntu package agent
 description: Perform an end-to-end package update using the Device Update Ubuntu Server 22.04 x64 package agent to update Azure IoT Edge.
 author: eshashah
 ms.author: eshashah
-ms.date: 12/03/2024
+ms.date: 12/09/2024
 ms.topic: tutorial
 ms.service: azure-iot-hub
 ms.subservice: device-update
@@ -35,7 +35,7 @@ In this tutorial, you:
 
 ## Prepare the VM and device
 
-For convenience, this tutorial uses a [cloud-init](/azure/virtual-machines/linux/using-cloud-init) based [Azure Resource Manager (ARM) template](/azure/azure-resource-manager/templates/overview) to quickly set up an Ubuntu 22.04 LTS virtual machine (VM). The template installs both the IoT Edge runtime and the Device Update package agent and automatically configures the device with provisioning information by using the IoT Edge device connection string you supply. Using the ARM template also avoids the need to start a secure shell (SSH) session to complete setup.
+For convenience, this tutorial uses a [cloud-init](/azure/virtual-machines/linux/using-cloud-init) based [Azure Resource Manager (ARM) template](/azure/azure-resource-manager/templates/overview) to quickly set up an Ubuntu 22.04 LTS virtual machine (VM). The template installs both the IoT Edge runtime and the Device Update package agent, and automatically configures the device with provisioning information by using the IoT Edge device connection string you supply. Using the ARM template also avoids the need to start a secure shell (SSH) session to complete setup.
 
 1. To run the template, select the following **Deploy to Azure** button:
 
@@ -133,12 +133,12 @@ The extracted *Tutorial_IoTEdge_PackageUpdate* folder contains the *sample-defen
 1. On the **Updates** page, select **Import a new update**.
 1. On the **Import update** page, select **Select from storage container**.
 1. On the **Storage accounts** page, select an existing storage account or create a new account by selecting **+ Storage account**.
-1. On the **Containers** page, select an existing container to use for staging the update files for import, or create a new container by selecting **+ Container** and then select it.
+1. On the **Containers** page, select an existing container or create a new container by using **+ Container**. You use the container to stage the update files for import.
 
    :::image type="content" source="media/import-update/storage-account-ppr.png" alt-text="Screenshot that shows Storage accounts and Containers.":::
 
    > [!TIP]
-   > Creating a new container each time you import an update prevents accidentally importing files from previous updates. If you don't use a new container, be sure to delete any files from the existing container.
+   > To avoid accidentally importing files from previous updates, use a new container each time you import an update. If you don't use a new container, be sure to delete any files from the existing container.
 
 1. On the container page, select **Upload**, drag and drop or browse to and select the update files you downloaded, and then select **Upload**. After they upload, the files appear on the container page.
 
@@ -156,19 +156,19 @@ The import process begins, and the screen switches to the **Updates** screen. Af
 
 ## Deploy the update
 
-You can use the group tag you applied to your device to deploy the update to the device group. To view the list of groups and the update compliance chart, select the **Groups and Deployments** tab on the **Updates** page.
+You can use the group tag you applied to your device to deploy the update to the device group. Select the **Groups and Deployments** tab at the top of the **Updates** page to view the list of groups and deployments and the update compliance chart.
 
 The update compliance chart shows the count of devices in various states of compliance: **On latest update**, **New updates available**, and **Updates in progress**. For more information, see [Device Update compliance](device-update-compliance.md).
 
-Under **Group name**, you should see the device group that contains the device you set up in this tutorial, along with the available updates for the devices in the group. If there are devices that don't meet the device class requirements of the group, they appear in a corresponding invalid group.
+Under **Group name**, you see a list of all the device groups for devices connected to this IoT hub and their available updates, with links to deploy the updates under **Status**. Any devices that don't meet the device class requirements of a group appear in a corresponding invalid group. For more information about tags and groups, see [Manage device groups](create-update-group.md).
 
-To deploy the best available update to your user-defined group from this view, select **Deploy** next to the group.
+You should see the device group that contains the device you set up in this tutorial, along with the available updates for the devices in the group. You might need to refresh the page. To deploy the best available update to the group from this view, select **Deploy** next to the group.
 
 :::image type="content" source="media/create-update-group/updated-view.png" alt-text="Screenshot that shows the update compliance view." lightbox="media/create-update-group/updated-view.png":::
 
-### Initiate the deployment:
+### Create the deployment
 
-1. Select the **Current deployment** tab on the **Group details** page, and then select **Deploy** next to the desired update in the **Available updates** section. The best available update for the group is denoted with a **Best** highlight.
+1. On the **Group details** page, select the **Current deployment** tab and then select **Deploy** next to the desired update in the **Available updates** section. The best available update for the group is denoted with a **Best** highlight.
 
    :::image type="content" source="media/deploy-update/select-update.png" alt-text="Screenshot that shows selecting an update." lightbox="media/deploy-update/select-update.png":::
 
@@ -183,7 +183,7 @@ To deploy the best available update to your user-defined group from this view, s
 
    :::image type="content" source="media/deploy-update/deployment-active.png" alt-text="Screenshot that shows the deployment as Active." lightbox="media/deploy-update/deployment-active.png":::
 
-1. On the the **Groups and Deployments** tab of the **Updates** page, view the compliance chart to see that the update is now in progress. After your device successfully updates, the compliance chart and deployment details update to reflect that status.
+1. On the **Groups and Deployments** tab of the **Updates** page, view the compliance chart to see that the update is now in progress. After your device successfully updates, the compliance chart and deployment details update to reflect that status.
 
    :::image type="content" source="media/deploy-update/update-succeeded.png" alt-text="Screenshot that shows the update succeeded." lightbox="media/deploy-update/update-succeeded.png":::
 

@@ -3,7 +3,7 @@ title: Azure Device Update for IoT Hub using a simulator agent
 description: Get started with Device Update for Azure IoT Hub using the Ubuntu simulator agent.
 author: kgremban
 ms.author: kgremban
-ms.date: 11/25/2024
+ms.date: 12/09/2024
 ms.topic: tutorial
 ms.service: azure-iot-hub
 ms.subservice: device-update
@@ -11,7 +11,7 @@ ms.subservice: device-update
 
 # Tutorial: Azure Device Update for IoT Hub using a simulator agent
 
-Azure Device Update for IoT Hub supports image-based, package-based, and script-based updates. This tutorial demonstrates an end-to-end image-based Device Update update that uses an Ubuntu 18.04 x64 simulator agent.
+Azure Device Update for IoT Hub supports image-based, package-based, and script-based updates. This tutorial demonstrates an end-to-end image-based Device Update update that uses an Ubuntu simulator agent.
 
 Image updates provide a high level of confidence in the end state of the device, and don't pose the same package and dependency management challenges as package or script based updates. It's easier to replicate the results of an image update between a preproduction and production environment, or easily adopt an A/B failover model.
 
@@ -54,7 +54,9 @@ For this tutorial, you create a module identity for the Device Update agent that
 
 ### Add a group tag to your module twin
 
-You can assign a tag to any device that's managed by Device Update to assign the device to a Device Update group. The tag can be in the device twin or in the module twin as in this tutorial. Each device can be assigned to only one Device Update group.
+Device Update automatically organizes devices into groups based on their assigned tags and compatibility properties. Each device belongs to only one group, but groups can have multiple subgroups to sort different device classes.
+
+You can assign a tag to any device that Device Update manages to assign the device to a Device Update group. The tag can be in the device twin or in the module twin as in this tutorial. Each device can be assigned to only one Device Update group.
 
 1. On the **Module Identity Details** page, select **Module Identity Twin**.
 1. On the **Module Identity Twin** page, add a new `DeviceUpdateGroup` tag to the JSON code at the same level as `modelId` and `version`, as follows:
@@ -208,23 +210,21 @@ The imported update now appears on the **Updates** page.
 
 For more information about the import process, see [Import an update to Device Update for IoT Hub](import-update.md).
 
-### View device groups
+## Deploy the update
 
-Device Update uses groups to organize devices, and automatically sorts devices into groups based on their assigned tags and compatibility properties. Each device belongs to only one group, but groups can have multiple subgroups to sort different device classes.
+You can use the group tag you applied to your device to deploy the update to the device group. Select the **Groups and Deployments** tab at the top of the **Updates** page to view the list of groups and deployments and the update compliance chart.
 
-On the **Updates** page for your IoT hub, select the **Groups and Deployments** tab to view the list of groups and the update compliance chart. The update compliance chart shows the count of devices in various states of compliance: **On latest update**, **New updates available**, and **Updates in progress**. For more information, see [Device Update compliance](device-update-compliance.md).
+The update compliance chart shows the count of devices in various states of compliance: **On latest update**, **New updates available**, and **Updates in progress**. For more information, see [Device Update compliance](device-update-compliance.md).
+
+Under **Group name**, you see a list of all the device groups for devices connected to this IoT hub and their available updates, with links to deploy the updates under **Status**. Any devices that don't meet the device class requirements of a group appear in a corresponding invalid group. For more information about tags and groups, see [Manage device groups](create-update-group.md).
+
+You should see a device group that contains the simulated device you set up in this tutorial. Select the group name to view its details.
 
 :::image type="content" source="media/device-update-simulator/groups-and-deployments.png" alt-text="Screenshot that shows the update compliance view." lightbox="media/create-update-group/updated-view.png":::
 
-You should see a device group that contains the simulated device you set up in this tutorial, along with any available updates for the devices in the group. Any devices that don't meet the group device class requirements appear in a corresponding invalid group. For more information about tags and groups, see [Manage device groups](create-update-group.md).
+### Create the deployment
 
-## Deploy the update
-
-On the **Groups and Deployments** tab, you should see the new update available for your device group, with a link to the update under **Status**. You might need to refresh the page.
-
-1. Select the group name to view its details.
-
-1. On the **Group details** page, you should see that there's one new update available. Select **Deploy** to start the deployment.
+1. On the **Group details** page, you should see that there's one new update available for this group. Select **Deploy** to start the deployment.
 
    :::image type="content" source="media/device-update-simulator/group-details.png" alt-text="Screenshot that shows starting a group update deployment." lightbox="media/deploy-update/select-update.png":::
 

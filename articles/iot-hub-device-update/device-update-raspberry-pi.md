@@ -3,7 +3,7 @@ title: Azure Device Update for IoT Hub using a Raspberry Pi image
 description: Do an end-to-end image-based Azure Device Update for IoT Hub update using a Raspberry Pi 3 B+ Yocto image.
 author: eshashah
 ms.author: eshashah
-ms.date: 12/03/2024
+ms.date: 12/09/2024
 ms.topic: tutorial
 ms.service: azure-iot-hub
 ms.subservice: device-update
@@ -53,7 +53,11 @@ The *Tutorial_RaspberryPi3.zip* file has all the required files for the tutorial
 
 In the extracted *Tutorial_RaspberryPi3* folder, the *adu-base-image-raspberrypi3.wic* file is the base image that you can flash onto the Raspberry Pi board. The base image uses a Yocto build based on the 3.4.4 release. The image has the Device Update agent and SWUpdate, which enables the Device Update dual partition update. For more information about the Yocto layers, see [Build a custom Linux-based system with Device Update agent using the Yocto Project](https://github.com/Azure/iot-hub-device-update-yocto).
 
-The *adu-update-image-raspberrypi3-1.2.0.swu* SWUpdate file, *example-a-b-update.sh* custom SWUpdate script, and *EDS-ADUClient.yocto-update.1.2.0.importmanifest.json* manifest are the update files you import through Device Update.
+The update files you import through Device Update are:
+
+- The *adu-update-image-raspberrypi3-1.2.0.swu* SWUpdate file
+- The *example-a-b-update.sh* custom SWUpdate script
+- The *EDS-ADUClient.yocto-update.1.2.0.importmanifest.json* manifest
 
 ### Use bmaptool to flash the SD card
 
@@ -115,7 +119,7 @@ The Device Update *du-config.json* and *du-diagnostics-config.json* configuratio
      nano /adu/du-config.json
    ```
 
-1. The editor opens the *du-config.json* file. If you're creating the file, it's empty. Copy and paste the following code into the file, replacing the example and placeholder values with the configurations for your device. Replace the example connection string with the device connection string you copied in the device registration step.
+1. The editor opens the *du-config.json* file. If you're creating the file, it's empty. Copy and paste the following code into the file, replacing the example values with any required configurations for your device. Replace the example `connectionData` string with the device connection string you copied in the device registration step.
 
    ```json
    {
@@ -196,13 +200,13 @@ The Device Update *du-config.json* and *du-diagnostics-config.json* configuratio
 1. At the top of the device page, select **Device twin**.
 1. On the **Device twin** page, under the `"reported"` section of the device twin`"properties"` section, look for the Linux kernel version for your device.
 
-   For a new device that hasn't received an update from Device Update, the [DeviceManagement:DeviceInformation:1.swVersion](device-update-plug-and-play.md#device-information-interface) property value represents the firmware version running on the device. After the device has an update applied, the [AzureDeviceUpdateCore:ClientMetadata:4.installedUpdateId`](device-update-plug-and-play.md#agent-metadata) property value represents the firmware version.
+   For a new device that hasn't received an update from Device Update, the [DeviceManagement:DeviceInformation:1.swVersion](device-update-plug-and-play.md#device-information-interface) property value represents the firmware version running on the device. After the device has an update applied, the [AzureDeviceUpdateCore:ClientMetadata:4.installedUpdateId](device-update-plug-and-play.md#agent-metadata) property value represents the firmware version.
 
-   Note the version numbers in the base and update image file names *adu-\<image type>-image-\<machine>-\<version number>.\<extension>* to use when you import the update.
+   The base and update image file names have the format *adu-\<image type>-image-\<machine>-\<version number>.\<extension>*. Note the version numbers to use when you import the update.
 
 ### Add a group tag
 
-Device Update uses groups to organize devices. Device Update automatically sorts devices into groups based on their assigned tags and compatibility properties. Each device can belong to only one group, but groups can have multiple subgroups to sort different device classes. For more information about tags and groups, see [Manage device groups](create-update-group.md).
+Device Update automatically organizes devices into groups based on their assigned tags and compatibility properties. Each device can belong to only one group, but groups can have multiple subgroups to sort different device classes. For more information about tags and groups, see [Manage device groups](create-update-group.md).
 
 1. In the device twin, delete any existing Device Update tag values by setting them to null, and then add the following new Device Update group tag. If you're using a Module Identity with the Device Update agent, add the tag in the **Module Identity Twin** instead of the device twin.
 
@@ -224,16 +228,16 @@ Device Update uses groups to organize devices. Device Update automatically sorts
 1. On the **Updates** page, select **Import a new update**.
 1. On the **Import update** page, select **Select from storage container**.
 1. On the **Storage accounts** page, select an existing storage account or create a new account by using **+ Storage account**.
-1. On the **Containers** page, select an existing container or create a new container by using **+ Container** to use for staging the update files for import.
+1. On the **Containers** page, select an existing container or create a new container by using **+ Container**. You use the container to stage the update files for import.
 
    :::image type="content" source="media/import-update/storage-account-ppr.png" alt-text="Screenshot that shows Storage accounts and Containers.":::
 
    > [!TIP]
-   > Using a new container each time you import an update prevents accidentally importing files from previous updates. If you don't use a new container, be sure to delete any files from the existing container.
+   > To avoid accidentally importing files from previous updates, use a new container each time you import an update. If you don't use a new container, be sure to delete any files from the existing container.
 
-1. On the container page, select **Upload**, drag and drop or browse to and select the update files you downloaded, and then select **Upload**. After they upload, the files appear on the container page.
+1. On the container page, select **Upload**. Drag and drop, or browse to and select, the update files you downloaded, and then select **Upload**. After they upload, the files appear on the container page.
 
-1. Review and select the files to import, and then select **Select**.
+1. On the container page, review and select the files to import, and then select **Select**.
 
    :::image type="content" source="media/import-update/import-select-ppr.png" alt-text="Screenshot that shows selecting uploaded files.":::
 
@@ -247,17 +251,19 @@ The import process begins, and the screen switches to the **Updates** screen. Af
 
 ## Deploy the update
 
-You can use the group tag you applied to your device to deploy the update to the device group. Select the **Groups and Deployments** tab at the top of the **Updates** page and view the list of groups and the update compliance chart. The update compliance chart shows the count of devices in various states of compliance: **On latest update**, **New updates available**, and **Updates in progress**. For more information, see [Device Update compliance](device-update-compliance.md).
+You can use the group tag you applied to your device to deploy the update to the device group. Select the **Groups and Deployments** tab at the top of the **Updates** page to view the list of groups and deployments and the update compliance chart.
 
-You should see the device group that contains the device you set up in this tutorial, along with the available updates for the devices in the group. If there are devices that don't meet the device class requirements of the group, they appear in a corresponding invalid group.
+The update compliance chart shows the count of devices in various states of compliance: **On latest update**, **New updates available**, and **Updates in progress**. For more information, see [Device Update compliance](device-update-compliance.md).
+
+Under **Group name**, you see a list of all the device groups for devices connected to this IoT hub and their available updates, with links to deploy the updates under **Status**. Any devices that don't meet the device class requirements of a group appear in a corresponding invalid group. For more information about tags and groups, see [Manage device groups](create-update-group.md).
+
+You should see the device group that contains the device you set up in this tutorial, along with the available updates for the devices in the group. You might need to refresh the page. To deploy the best available update to the group from this view, select **Deploy** next to the group.
 
 :::image type="content" source="media/create-update-group/updated-view.png" alt-text="Screenshot that shows the update compliance view." lightbox="media/create-update-group/updated-view.png":::
 
-To deploy the best available update to the new user-defined group from this view, select **Deploy** next to the group.
+### Create the deployment
 
-To initiate the deployment:
-
-1. Select the **Current deployment** tab on the **Group details** page, and then select **Deploy** next to the desired update in the **Available updates** section. The best available update for the group is denoted with a **Best** highlight.
+1. On the **Group details** page, select the **Current deployment** tab, and then select **Deploy** next to the desired update in the **Available updates** section. The best available update for the group is denoted with a **Best** highlight.
 
    :::image type="content" source="media/deploy-update/select-update.png" alt-text="Screenshot that shows selecting an update." lightbox="media/deploy-update/select-update.png":::
 
