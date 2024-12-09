@@ -129,7 +129,7 @@ To create a private endpoint, use the [az network private-endpoint create](/cli/
 
 ```azurecli-interactive
 az network private-endpoint create \
-    --resource-group <RESOURECE GROUP NAME> \
+    --resource-group <RESOURCE GROUP NAME> \
     --name <PRIVATE ENDPOINT NAME> \
     --vnet-name <VIRTUAL NETWORK NAME> \
     --subnet <SUBNET NAME> \
@@ -147,7 +147,7 @@ For descriptions of the parameters used in the example, see documentation for [a
 To delete a private endpoint, use the [az network private-endpoint delete](/cli/azure/network/private-endpoint?#az-network-private-endpoint-delete) method as shown in the following example:
 
 ```azurecli-interactive
-az network private-endpoint delete --resource-group <RESOURECE GROUP NAME> --name <PRIVATE ENDPOINT NAME>
+az network private-endpoint delete --resource-group <RESOURCE GROUP NAME> --name <PRIVATE ENDPOINT NAME>
 ```
 
 > [!NOTE]
@@ -173,7 +173,7 @@ To create a private endpoint, use the [az network private-endpoint create](/cli/
 
 ```azurecli-interactive
 az network private-endpoint create \
-    --resource-group <RESOURECE GROUP NAME> \
+    --resource-group <RESOURCE GROUP NAME> \
     --name <PRIVATE ENDPOINT NAME> \
     --vnet-name <VIRTUAL NETWORK NAME> \
     --subnet <SUBNET NAME> \
@@ -191,7 +191,7 @@ For descriptions of the parameters used in the example, see documentation for [a
 To delete a private endpoint, use the [az network private-endpoint delete](/cli/azure/network/private-endpoint?#az-network-private-endpoint-delete) method as shown in the following example:
 
 ```azurecli-interactive
-az network private-endpoint delete --resource-group <RESOURECE GROUP NAME> --name <PRIVATE ENDPOINT NAME>
+az network private-endpoint delete --resource-group <RESOURCE GROUP NAME> --name <PRIVATE ENDPOINT NAME>
 ```
 
 > [!NOTE]

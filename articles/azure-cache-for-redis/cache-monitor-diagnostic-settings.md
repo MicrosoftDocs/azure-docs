@@ -1,13 +1,12 @@
 ---
 title: Monitor Azure Cache for Redis data using diagnostic settings
-titleSuffix: Azure Cache for Redis
 description: Learn how to use diagnostic settings to monitor connected ip addresses to your Azure Cache for Redis.
 
 
 
-ms.topic: how-to 
+ms.topic: how-to
 ms.date: 12/18/2023
-ms.custom: template-how-to, devx-track-azurecli 
+ms.custom: template-how-to, devx-track-azurecli, ignite-2024
 ms.devlang: azurecli
 ---
 
@@ -226,7 +225,7 @@ az monitor diagnostic-settings create
     --event-hub-rule /subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/microsoft.eventhub/namespaces/{eventHubNamespace}/authorizationrule/{ruleName}
     --storage-account /subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}
     --workspace /subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{logAnalyticsWorkspaceName}
-    --marketplace-partner-id/subscriptions/{subscriptionID}/resourceGroups{resourceGroupname}/proviers/Microsoft.Datadog/monitors/mydatadog
+    --marketplace-partner-id/subscriptions/{subscriptionID}/resourceGroups{resourceGroupname}/providers/Microsoft.Datadog/monitors/mydatadog
 ```
 
 ### [Azure CLI with Enterprise and Enterprise Flash tiers](#tab/enterprise-enterprise-flash)
@@ -242,7 +241,7 @@ az monitor diagnostic-settings create
     --event-hub-rule /subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/microsoft.eventhub/namespaces/{eventHubNamespace}/authorizationrule/{ruleName}
     --storage-account /subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}
     --workspace /subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{logAnalyticsWorkspaceName}
-    --marketplace-partner-id/subscriptions/{subscriptionID}/resourceGroups{resourceGroupname}/proviers/Microsoft.Datadog/monitors/mydatadog
+    --marketplace-partner-id/subscriptions/{subscriptionID}/resourceGroups{resourceGroupname}/providers/Microsoft.Datadog/monitors/mydatadog
 ```
 
 ---

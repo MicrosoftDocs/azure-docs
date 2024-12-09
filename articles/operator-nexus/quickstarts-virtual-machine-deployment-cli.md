@@ -45,6 +45,9 @@ Before you run the commands, you need to set several variables to define the con
 | ACR_USERNAME               | The username for the Azure Container Registry.                                                        |
 | ACR_PASSWORD               | The password for the Azure Container Registry.                                                        |
 
+> [!IMPORTANT]
+> Please ensure that any sensitive data, such as secrets, passwords, private keys, and so on, are encrypted before they are submitted in the userData or networkData fields.
+
 Once you've defined these variables, you can run the Azure CLI command to create the virtual machine. Add the ```--debug``` flag at the end to provide more detailed output for troubleshooting purposes.
 
 To define these variables, use the following set commands and replace the example values with your preferred values. You can also use the default values for some of the variables, as shown in the following example:

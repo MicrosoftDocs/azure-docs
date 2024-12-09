@@ -10,11 +10,9 @@ ms.date: 10/23/2024
 #CustomerIntent: As an OT professional, I want to deploy Azure IoT Operations to a Kubernetes cluster.
 ---
 
-# Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster
+# Deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster
 
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
-
-Learn how to deploy Azure IoT Operations Preview to a Kubernetes cluster using the Azure portal.
+Learn how to deploy Azure IoT Operations to a Kubernetes cluster using the Azure portal.
 
 In this article, we discuss Azure IoT Operations *deployments* and *instances*, which are two different concepts:
 
@@ -24,7 +22,7 @@ In this article, we discuss Azure IoT Operations *deployments* and *instances*, 
   * Custom locations
   * Resources that you can configure in your Azure IoT Operations solution, like assets and asset endpoints.
 
-* An Azure IoT Operations *instance* is the parent resource that bundles the suite of services that are defined in [What is Azure IoT Operations Preview?](../overview-iot-operations.md) like MQTT broker, dataflows, and OPC UA connector.
+* An Azure IoT Operations *instance* is the parent resource that bundles the suite of services that are defined in [What is Azure IoT Operations?](../overview-iot-operations.md) like MQTT broker, dataflows, and connector for OPC UA.
 
 When we talk about deploying Azure IoT Operations, we mean the full set of components that make up a *deployment*. Once the deployment exists, you can view, manage, and update the *instance*.
 
@@ -50,9 +48,11 @@ A cluster host:
 
 * Have an Azure Arc-enabled Kubernetes cluster with the custom location and workload identity features enabled. If you don't have one, follow the steps in [Prepare your Azure Arc-enabled Kubernetes cluster](./howto-prepare-cluster.md).
 
-  If you deployed Azure IoT Operations to your cluster previously, uninstall those resources before continuing. For more information, see [Update Azure IoT Operations](./howto-manage-update-uninstall.md#upgrade).
+  If you deployed Azure IoT Operations to your cluster previously, uninstall those resources before continuing. For more information, see [Update Azure IoT Operations](./howto-manage-update-uninstall.md#uninstall).
 
 * (Optional) Prepare your cluster for observability before deploying Azure IoT Operations: [Configure observability](../configure-observability-monitoring/howto-configure-observability.md).
+
+* (Optional) Configure your own certificate authority issuer before deploying Azure IoT Operations: [Bring your own issuer](../secure-iot-ops/concept-default-root-ca.md#bring-your-own-issuer).
 
 ## Deploy
 
@@ -80,7 +80,7 @@ The Azure portal deployment experience is a helper tool that generates a deploym
    | Parameter | Value |
    | --------- | ----- |
    | **Azure IoT Operations name** | *Optional*: Replace the default name for the Azure IoT Operations instance. |
-   | **MQTT broker configuration** | *Optional*: Edit the default settings for the MQTT broker. For more information, see [Configure core MQTT broker settings](../manage-mqtt-broker/howto-configure-availability-scale.md). |
+   | **MQTT broker configuration** | *Optional*: Edit the default settings for the MQTT broker. In Azure portal it's possible to [configure cardinality and memory profile settings](../manage-mqtt-broker/howto-configure-availability-scale.md). To configure other settings including disk-backed message buffer and advanced MQTT client options, see [Azure CLI support for advanced MQTT broker configuration](https://aka.ms/aziotops-broker-config). |
    | **Dataflow profile configuration** | *Optional*: Edit the default settings for dataflows. For more information, see [Configure dataflow profile](../connect-to-cloud/howto-configure-dataflow-profile.md). |
 
    :::image type="content" source="./media/howto-deploy-iot-operations/deploy-configuration.png" alt-text="A screenshot that shows the second tab for deploying Azure IoT Operations from the portal.":::
@@ -178,7 +178,7 @@ Use these steps if you chose the **Secure settings** option on the **Dependency 
    | Parameter | Value |
    | --------- | ----- |
    | **Subscription** | Select the subscription that contains your Azure key vault. |
-   | **Azure Key Vault** | Select an Azure key vault select **Create new**.<br><br>Ensure that your key vault has **Azure role-based access control** as its permission model. To check this setting, select **Manage selected vault** > **Settings** > **Access configuration**. |
+   | **Azure Key Vault** | Select an Azure key vault or select **Create new**.<br><br>Ensure that your key vault has **Azure role-based access control** as its permission model. To check this setting, select **Manage selected vault** > **Settings** > **Access configuration**. <br><br>Ensure to [give your user account permissions to manage secrets](/azure/key-vault/secrets/quick-create-cli#give-your-user-account-permissions-to-manage-secrets-in-key-vault) with the `Key Vault Secrets Officer` role.|
    | **User assigned managed identity for secrets** | Select an identity or select **Create new**. |
    | **User assigned managed identity for AIO components** | Select an identity or select **Create new**. Don't use the same managed identity as the one you selected for secrets. |
 
@@ -256,4 +256,4 @@ You can check the configurations of topic maps, QoS, and message routes by addin
 
 ## Next steps
 
-If your components need to connect to Azure endpoints like SQL or Fabric, learn how to [Manage secrets for your Azure IoT Operations Preview deployment](../secure-iot-ops/howto-manage-secrets.md).
+If your components need to connect to Azure endpoints like SQL or Fabric, learn how to [Manage secrets for your Azure IoT Operations deployment](../deploy-iot-ops/howto-manage-secrets.md).

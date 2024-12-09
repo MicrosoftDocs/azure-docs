@@ -361,6 +361,10 @@ Enabling or disabling the toggle will only affect the following traffic flow: tr
 
 :::image type="content" source="./media/virtual-wan-expressroute-portal/expressroute-bowtie-virtual-network-virtual-wan.png" alt-text="Diagram of a standalone virtual network connecting to a virtual hub via ExpressRoute circuit." lightbox="./media/virtual-wan-expressroute-portal/expressroute-bowtie-virtual-network-virtual-wan.png":::
 
+### Why does connectivity not work when I advertise routes with an ASN of 0 in the AS-Path? 
+
+The Virtual WAN hub drops routes with an ASN of 0 in the AS-Path. To ensure these routes are successfully advertised into Azure, the AS-Path should not include 0. 
+
 ### Can hubs be created in different resource groups in Virtual WAN?
 
 Yes. This option is currently available via PowerShell only. The Virtual WAN portal requires that the hubs are in the same resource group as the Virtual WAN resource itself.

@@ -6,7 +6,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-load-balancer
 ms.topic: tutorial
-ms.date: 10/24/2023
+ms.date: 11/26/2024
 ms.custom: template-tutorial
 ---
 
@@ -36,15 +36,16 @@ In this section, you chain an existing virtual machine’s public IP to a gatewa
 
 1. Navigate to your existing virtual machine. This example uses a virtual machine named **myVM1**. 
 
-1. To verify your virtual machine has a standard SKU public IP associated with it, select **Public IP address > Overview** and confirm that the SKU is **Standard**.
+1. To verify your virtual machine has a standard SKU public IP associated with it, select the listed public IP address in **Overview** of the virtual machine.
+1. Under **Overview** of the public IP address, confirm that the SKU is **Standard**.
 1. Return to your virtual machine.
-1. In **Overview** of the virtual machine, select **Networking** under **Settings**.
+1. In **Overview** of the virtual machine, select **Networking** > **Network settings**.
 1. Select the network interface attached to the virtual machine. This example uses **myvm1185_z1**.
 
     :::image type="content" source="media/tutorial-gateway-outbound-connectivity/select-network-interface.png" alt-text="Screenshot of network interface attached to virtual machine.":::
 
 1. In **Network interface**, select **IP configurations** under **Settings**.
-6. Select **myFrontend** in **Gateway Load balancer**.
+6. Under **IP settings**, select **myFrontend** from the **Gateway Load balancer** dropdown menu.
 
     :::image type="content" source="media/tutorial-gateway-outbound-connectivity/select-gateway-load-balancer.png" alt-text="Screenshot of gateway load balancer selection in IP configuration settings.":::
 

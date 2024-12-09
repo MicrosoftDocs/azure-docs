@@ -10,9 +10,7 @@ ms.date: 10/01/2024
 # Update session hosts using session host update in Azure Virtual Desktop (preview)
 
 > [!IMPORTANT]
-> Session host update for Azure Virtual Desktop is currently in PREVIEW. This limited preview is provided as-is, with all faults and as available, and are excluded from the service-level agreements (SLAs) or any limited warranties Microsoft provides for Azure services in general availability. To register for the limited preview, complete this form: [https://forms.office.com/r/ZziQRGR1Lz](https://forms.office.com/r/ZziQRGR1Lz).
->
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> Session host update for Azure Virtual Desktop is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 When you want to update session hosts in a host pool with a session host configuration, you use session host update. Session host update enables you to update the underlying virtual machine (VM) image, size, disk type, and other configuration properties. During an update, the existing virtual machines are deleted or deallocated, and new ones are created with the updated configuration stored in the session host configuration. The update also uses the values from the session host management policy to determine how session hosts should get updated.
 
@@ -101,7 +99,11 @@ Here's how to schedule a new update for your session hosts using the Azure porta
 >
 > If you edit the session host configuration using the Azure portal, you have to schedule an update.
 
-1. Make sure you've registered for the limited preview using the link at the beginning of this article, then sign in to the Azure portal using the specific link provided to you after registration. From the Azure Virtual Desktop overview, select **Host pools**, then select the host pool with a session host configuration that you want to update.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+
+1. In the search bar, enter *Azure Virtual Desktop* and select the matching service entry.
+
+1. Select **Host pools**, then select the host pool with a session host configuration that you want to update.
 
 1. Select **Session hosts**.
 

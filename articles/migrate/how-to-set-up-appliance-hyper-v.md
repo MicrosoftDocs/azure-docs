@@ -6,8 +6,8 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
 ms.service: azure-migrate
-ms.date: 06/17/2024
-ms.custom: engagement-fy24
+ms.date: 09/26/2024
+ms.custom: engagement-fy25
 ---
 
 # Set up an appliance for servers on Hyper-V

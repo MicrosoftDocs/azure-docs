@@ -9,15 +9,15 @@ ms.date: 11/04/2024
 
 # How to Use Service Principals to Automate Workflows in Firmware analysis
 
-Many users of the firmware analysis service may need to automate their workflow. The command `az login` creates an interactive login experience with two-factor authentication that makes it difficult for users to fully automate their workflow. A service principal [Apps & service principals in Microsoft Entra ID](/entra/identity-platform/app-objects-and-service-principals) is a secure identity with proper permissions that authenticates to Azure in the command line without requiring two-factor authentication or an interactive log-in. This article explains how to create a service principal and use it to interact with the firmware analysis service. For more information on creating service principals, visit [Create Azure service principals using the Azure CLI](/cli/azure/azure-cli-sp-tutorial-1#create-a-service-principal). To authenticate securely, we recommend creating a service principal and authenticating using certificates. To learn more, visit [Create a service principal containing a certificate using Azure CLI](/cli/azure/azure-cli-sp-tutorial-3).
+Many users of the firmware analysis service may need to automate their workflow. The command `az login` creates an interactive login experience with two-factor authentication that makes it difficult for users to fully automate their workflow. A [service principal](/entra/identity-platform/app-objects-and-service-principals) is a secure identity with proper permissions that authenticates to Azure in the command line without requiring two-factor authentication or an interactive log-in. This article explains how to create a service principal and use it to interact with the firmware analysis service. For more information on creating service principals, visit [Create Azure service principals using the Azure CLI](/cli/azure/azure-cli-sp-tutorial-1#create-a-service-principal). To authenticate securely, we recommend creating a service principal and authenticating using certificates. To learn more, visit [Create a service principal containing a certificate using Azure CLI](/cli/azure/azure-cli-sp-tutorial-3).
 
-1. Log in to your Azure account using the portal.
+1. Log in to your Azure account using the Azure portal.
 
 2. Navigate to your subscription and assign yourself `User Access Administrator` or `Role Based Access Control Administrator` permissions, or higher, in your subscription. This gives you permission to create a service principal.
 
 3.	Navigate to your command line
 
-    1. Log in, specifying the tenant ID during login
+    1. Log in, specifying your tenant ID during login
 
         ```azurecli
         az login --tenant <TENANT_ID>
@@ -40,7 +40,7 @@ Many users of the firmware analysis service may need to automate their workflow.
 5.	Log in to your service principal
 
     ```azurecli
-    az login --service-principal --username $clientID --password $secret --tenant $tenantID
+    az login --service-principal --username <CLIENT_ID> --password <SECRET> --tenant <TENANT_ID>
     ```
 
 6.	Once logged in, refer to the following Quickstarts for scripts to interact with the Firmware analysis service via Azure PowerShell, Azure CLI, or Python:

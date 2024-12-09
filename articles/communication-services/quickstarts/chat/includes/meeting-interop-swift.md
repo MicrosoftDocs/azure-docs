@@ -21,7 +21,7 @@ If you'd like to skip ahead to the end, you can download this quickstart as a sa
 - A [User Access Token](../../identity/access-tokens.md) for your Azure Communication Service. You can also use the Azure CLI and run the command with your connection string to create a user and an access token.
 
 ```azurecli-interactive
-az communication identity token issue --scope voip --connection-string "yourConnectionString"
+az communication user-identity token issue --scope voip chat --connection-string "yourConnectionString"
 ```
 For details, see [Use Azure CLI to Create and Manage Access Tokens](../../identity/access-tokens.md?pivots=platform-azcli).
 
