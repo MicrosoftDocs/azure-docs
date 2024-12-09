@@ -25,12 +25,12 @@ This article explains on the latest version of change tracking support using Azu
 
 Azure Change Tracking & Inventory service enhances the auditing and governance for in-guest operations by monitoring changes and providing detailed inventory logs for servers across Azure, on-premises, and other cloud environments.
 
-1. ### Change Tracking
+1. **Change Tracking**
 
     a. Monitors changes, including modifications to files, registry keys, software installations, and Windows services or Linux daemons.</br>
     b. Provides detailed logs of what and when the changes were made, who made them, enabling you to quickly detect configuration drifts or unauthorized changes.
     
-1. ### Inventory
+1. **Inventory**
 
     a. Collects and maintains an updated list of installed software, operating system details, and other server configurations in linked LA workspace </br>
     b. Helps create an overview of system assets, which is useful for compliance, audits, and proactive maintenance.
