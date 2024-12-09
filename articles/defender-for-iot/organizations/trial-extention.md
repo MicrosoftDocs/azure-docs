@@ -14,9 +14,9 @@ This article contains information for customers who have a trial license and nee
 
 A trial license can be extended by the customer in the final 15 days of the trial using the [Microsoft 365 Admin Center](https://admin.microsoft.com/Adminportal/Home?#/homepage).
 
-Customers with either MCA or MOSA billing accounts can use these instructions to [request an extention for their trial license](/microsoft-365/commerce/try-or-buy-microsoft-365#extend-your-trial). This request must be made by a user with Global or Billing Admin premissions on the customer tenant. For more information, see [admin roles in Microsoft 365 admin center](/microsoft-365/admin/add-users/about-admin-roles.md) and with [this absolute link](https://learn.microsoft.com/en-us/microsoft-365/admin/add-users/about-admin-roles?view=o365-worldwide) or [this absolute link](https://learn.microsoft.com/en-us/microsoft-365/admin/add-users/about-admin-roles).
+Customers with either MCA or MOSA billing accounts can use these instructions to [request an extention for their trial license](/microsoft-365/commerce/try-or-buy-microsoft-365#extend-your-trial). This request must be made by a user with Global or Billing Admin premissions on the customer tenant. For more information, see [admin roles in Microsoft 365 admin center](/microsoft-365/admin/add-users/about-admin-roles) and with [this absolute link](https://learn.microsoft.com/microsoft-365/admin/add-users/about-admin-roles).
 
-instructions to [extend their trial license](/microsoft-365/commerce/try-or-buy-microsoft-365.md#extend-your-trial). or [with this](https://learn.microsoft.com/en-us/microsoft-365/commerce/try-or-buy-microsoft-365#extend-your-trial).
+instructions to [extend their trial license](/microsoft-365/commerce/try-or-buy-microsoft-365#extend-your-trial). or [with this](https://learn.microsoft.com/microsoft-365/commerce/try-or-buy-microsoft-365#extend-your-trial).
 
 ## Contact the Product team
 
@@ -50,9 +50,9 @@ The Microsoft 365 license lasts for one year.
 
 ### Is it possible to cancel a paid license?
 
-Customers can cancel a paid license within seven days of the start of the license and recieve a prorated refund. After seven days, they should [turn off recurring billing](/microsoft-365/commerce/subscriptions/renew-your-subscription.md) to prevent automatic renewal.​ or [this link](https://learn.microsoft.com/en-us/microsoft-365/commerce/subscriptions/renew-your-subscription).
+Customers can cancel a paid license within seven days of the start of the license and recieve a prorated refund. After seven days, they should [turn off recurring billing](/microsoft-365/commerce/subscriptions/renew-your-subscription) to prevent automatic renewal.​ or [this link](https://learn.microsoft.com/microsoft-365/commerce/subscriptions/renew-your-subscription).
 
-A customer can also deactivate license. For more information, see [cancel your subscription in the Microsoft 365 admin center](/microsoft-365/commerce/subscriptions/cancel-your-subscription.md).​
+A customer can also deactivate license. For more information, see [cancel your subscription in the Microsoft 365 admin center](/microsoft-365/commerce/subscriptions/cancel-your-subscription).​
 
 A customer can cancel the license from **Plans and pricing**. To learn more, see [cancel a Defender for IoT plan for OT networks](how-to-manage-subscriptions.md#cancel-a-defender-for-iot-plan-for-ot-networks).​
 
@@ -83,4 +83,4 @@ For more information, see:
 - [Manage Defender for IoT plans for OT monitoring](how-to-manage-subscriptions.md)
 - [Manage Defender for IoT plans for Enterprise IoT monitoring](manage-subscriptions-enterprise.md)
 - [Operational Technology (OT) networks frequently asked questions](faqs-ot.md)
-- [Microsoft Defender for IoT Plans and Pricing](https://www.microsoft.com/en-us/security/business/endpoint-security/microsoft-defender-iot-pricing)
+- [Microsoft Defender for IoT Plans and Pricing](https://www.microsoft.com/security/business/endpoint-security/microsoft-defender-iot-pricing)
