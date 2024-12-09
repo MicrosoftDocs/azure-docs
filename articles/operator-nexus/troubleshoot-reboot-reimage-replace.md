@@ -87,7 +87,7 @@ The reimage action can be useful for troubleshooting problems by restoring the O
 A reimage action is the best practice for lowest operational risk to ensure the integrity of the BMM.
 
 As a best practice, make sure the BMM's workloads are drained using the cordon command, with evacuate "True", before executing the reimage command.
-#***(PLACEHOLDER: We need to explain how a customer can identify if workloads are currently running on a BMM and the az cli command used to get this information. Ask NAKS team to provide.)***
+<!--(PLACEHOLDER: We need to explain how a customer can identify if workloads are currently running on a BMM and the az cli command used to get this information. Ask NAKS team to provide.) -->
 
 ***The following Azure CLI command will `cordon` the specified bareMetalMachineName.***
 ```
