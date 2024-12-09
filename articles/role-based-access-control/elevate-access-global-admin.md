@@ -337,7 +337,7 @@ When you call `elevateAccess`, you create a role assignment for yourself, so to 
 
 ## View users with elevated access
 
-If you have users with elevated access, banners are displayed in a couple locations of the Azure portal. This section describes how to determine if you have users that have elevated access in your tenant.
+If you have users with elevated access, banners are displayed in a couple locations of the Azure portal. This section describes how to determine if you have users that have elevated access in your tenant. This capability is being deployed in stages, so it might not be available yet in your tenant.
 
 ### Option 1
 
@@ -367,7 +367,7 @@ If you have users with elevated access, banners are displayed in a couple locati
 
 ## Remove elevated access for users
 
-If you have users with elevated access, you should take immediate action and remove that access. To remove these role assignments, you must also have elevated access. This section describes how to remove elevated access for users in your tenant using the Azure portal.
+If you have users with elevated access, you should take immediate action and remove that access. To remove these role assignments, you must also have elevated access. This section describes how to remove elevated access for users in your tenant using the Azure portal. This capability is being deployed in stages, so it might not be available yet in your tenant.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as a Global Administrator.
 
