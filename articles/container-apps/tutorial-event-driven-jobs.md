@@ -94,8 +94,6 @@ The job uses an Azure Storage queue to receive messages. In this section, you cr
 
 You can pull images from private repositories in Microsoft Azure Container Registry using managed identities for authentication to avoid the use of administrative credentials. When possible, you should use a user-assigned managed identity to pull images.
 
-# [Bash](#tab/bash)
-
 1. Create a user-assigned managed identity. Before you run the following commands, replace the `\<PLACEHOLDERS\>` with the name of your managed identity. 
 
     ```bash
