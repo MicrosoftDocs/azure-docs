@@ -87,7 +87,7 @@ items:
       href: quickstarts/sms/send.md
     - name: Receive and reply to SMS
       href: quickstarts/sms/receive-sms.md
-    - name: Use the Opt-out API
+    - name: Use the Opt-Out API
       href: quickstarts/sms/opt-out-api-quickstart.md
   - name: Voice and Video
     items:
@@ -665,7 +665,7 @@ items:
       href: samples/email-detect-sensitive-content.md
   - name: Call Automation
     items:
-    - name: Call Automation Azure Open AI sample
+    - name: Call Automation Azure OpenAI sample
       href: samples/call-automation-azure-openai-sample.md
     - name: Call Automation AI sample
       href: samples/call-automation-ai.md
@@ -887,7 +887,7 @@ items:
         href: concepts/analytics/rooms-metrics.md
       - name: Closed captions logs
         href: concepts/analytics/logs/closed-captions-logs.md
-    - name: Service events via EventGrid
+    - name: Service events via Event Grid
       items:
       - name: Overview
         href: ../event-grid/event-schema-communication-services.md
