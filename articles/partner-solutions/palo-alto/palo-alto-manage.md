@@ -62,6 +62,10 @@ From the Resource menu, select your Cloud NGFW by Palo Alto Networks deployment.
 
 Search for  the Local rules under the **Search** option.
 
+## Change plan
+
+To change the Cloud NGFW's billing plan, go to **Overview** and select **Change Plan**.
+
 ## Delete a Cloud NGFW by Palo Alto Networks resource
 
 To delete a Cloud NGFW by Palo Alto Networks resource
