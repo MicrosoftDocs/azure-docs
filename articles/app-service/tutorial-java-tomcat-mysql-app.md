@@ -188,7 +188,7 @@ The creation wizard generated the database connectivity string for you already a
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 2:  Create a Key Vault for secure management of secrets.**
+        **Step 2:  Create a Key Vault for secure management of secrets**
         1. In the top search bar, type "*key vault*", then select **Marketplace** > **Key Vault**.
         1. In **Resource Group**, select **msdocs-tomcat-mysql-tutorial**.
         1. In **Key vault name**, type a name that consists of only letters and numbers.
@@ -249,8 +249,8 @@ The creation wizard generated the database connectivity string for you already a
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 6: Finalize the Service Connector configuration** You're back in the edit dialog for **defaultConnector**.
-        1. In the **Authentication** tab, wait for the key vault connector to be created. When it's finished, the **Key Vault Connection** dropdown automatically selects it.
+        **Step 6: Finalize the Service Connector configuration** 
+        1. You're back in the edit dialog for **defaultConnector**. In the **Authentication** tab, wait for the key vault connector to be created. When it's finished, the **Key Vault Connection** dropdown automatically selects it.
         1. Select **Next: Networking**.
         1. Select **Save**. Wait until the **Update succeeded** notification appears.
     :::column-end:::
