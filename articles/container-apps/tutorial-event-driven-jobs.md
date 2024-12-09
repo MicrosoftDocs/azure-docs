@@ -94,7 +94,7 @@ The job uses an Azure Storage queue to receive messages. In this section, you cr
 
 To avoid using administrative credentials, pull images from private repositories in Microsoft Azure Container Registry using managed identities for authentication. When possible, use a user-assigned managed identity to pull images.
 
-1. Create a user-assigned managed identity. Before you run the following commands, replace the `\<PLACEHOLDERS\>` with the name of your managed identity. 
+1. Create a user-assigned managed identity. Before you run the following commands, choose a name for your managed identity and replace the `\<PLACEHOLDER\>` with the name.
 
     ```bash
     IDENTITY="<YOUR_IDENTITY_NAME>"
@@ -141,13 +141,21 @@ To deploy the job, you must first build a container image for the job and push i
 
 1. Your container registry must allow Azure Resource Manager (ARM) audience tokens for authentication in order to use managed identity to pull images.
 
-    Use the following command to check if ARM tokens are allowed to access your Azure Container Registry (ACR):
+    Use the following command to check if ARM tokens are allowed to access your Azure Container Registry (ACR).
 
     ```azurecli
     az acr config authentication-as-arm show --registry "$CONTAINER_REGISTRY_NAME"
     ```
 
-    If ARM tokens aren't allowed, allow them with the following command:
+    If ARM tokens are allowed, the command outputs the following.
+    
+    ```
+    {
+      "status": "enabled"
+    }
+    ```
+
+    If the `status` is `disabled`, allow ARM tokens with the following command.
 
     ```azurecli
     az acr config authentication-as-arm update --registry "$CONTAINER_REGISTRY_NAME" --status enabled
