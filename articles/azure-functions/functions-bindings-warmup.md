@@ -17,16 +17,14 @@ This article explains how to work with the warmup trigger in Azure Functions. A 
 
 The following considerations apply when using a warmup trigger:
 
+* There can be only one warmup trigger function per function app, and it can't be invoked after the instance is already running.
+* The name of the function that is the warmup trigger for your app should be `warmup` (case-insensitive). 
 * The warmup trigger isn't available to apps running on the [Consumption plan](./consumption-plan.md).
 * The warmup trigger isn't supported on version 1.x of the Functions runtime.  
 * Support for the warmup trigger is provided by default in all development environments. You don't have to manually install the package or register the extension.
-* There can be only one warmup trigger function per function app, and it can't be invoked after the instance is already running.
 * The warmup trigger is only called during scale-out operations, not during restarts or other nonscaling startups. Make sure your logic can load all required dependencies without relying on the warmup trigger. Lazy loading is a good pattern to achieve this goal.
 * Dependencies created by warmup trigger should be shared with other functions in your app. To learn more, see [Static clients](manage-connections.md#static-clients).
 * If the [built-in authentication](../app-service/overview-authentication-authorization.md) (also known as Easy Auth) is used, [HTTPS Only](../app-service/configure-ssl-bindings.md#enforce-https) should be enabled for the warmup trigger to get invoked.
-* [Where applicable](https://github.com/Azure/azure-functions-host/blob/bc21cd69782312508f95d85d60863b8881de2c11/src/WebJobs.Script/Host/ScriptJobHostExtensions.cs#L36)
-  * the function must be named `Warmup` (case-insensitive) in order to be picked up by the host.
-  * the function-trigger must be named `WarmupTrigger` (case-insensitive) in order to be picked up by the host.
 
 ## Example
 
@@ -130,7 +128,7 @@ module.exports = async function (warmupContext, context) {
 
 The following example shows a [TypeScript function](functions-reference-node.md) with a warmup trigger that runs on each new instance when added to your app:
 
-:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/warmupTrigger.ts" :::
+:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/warmupTrigger1.ts" :::
 
 # [Model v3](#tab/nodejs-v3)
 TypeScript samples aren't documented for model v3.
