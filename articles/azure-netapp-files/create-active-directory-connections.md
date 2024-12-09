@@ -288,30 +288,8 @@ With this feature, each NetApp account within an Azure subscription can have its
 >[!NOTE]
 >If a subscription has both this and the [Shared Active Directory](#shared_ad) feature enabled, its existing accounts still share the AD configuration. Any new NetApp accounts created on the subscription can use their own AD configurations. You can confirm your configuration in your account overview page in the [AD type](#netapp-accounts-and-active-directory-type) field. 
 
-### Considerations
-
-* The scope of each AD configuration is limited to its parent NetApp account. 
-
-<!-- confirm if in use -->
-### Register the feature
-
-You need to register the feature before using it for the first time. After registration, the feature is enabled and works in the background. 
-
-1. Register the feature: 
-
-    ```azurepowershell-interactive
-    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFMultipleActiveDirectory
-    ```
-
-2. Check the status of the feature registration: 
-
-    > [!NOTE]
-    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is **Registered** before continuing.
-
-    ```azurepowershell-interactive
-    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFMultipleActiveDirectory
-    ```
-You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
+>[!IMPORTANT]
+>The scope of each AD configuration is limited to its parent NetApp account. 
 
 ## <a name="shared_ad"></a>Map multiple NetApp accounts in the same subscription and region to one AD connection (preview)
 
