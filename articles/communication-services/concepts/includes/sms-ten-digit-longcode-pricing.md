@@ -12,9 +12,10 @@ ms.topic: include
 ms.custom: include file
 ms.author: prakulka
 ---
-## SMS Pricing for Azure Communication Services
+## 10 Digit Long Code (10DLC) Pricing
 
-This page provides an overview of the pricing for 10DLC (10-Digit Long Code) SMS services available through Azure Communication Services (ACS). The 10DLC SMS service requires registering a brand, registering a campaign, and provisioning a 10DLC number through the Azure portal. Pay-as-you-go pricing applies to these different services: brand registration, campaign registration, phone number leasing, and message usage.
+This page provides an overview of the pricing for 10DLC (10-Digit Long Code) SMS services available through Azure Communication Services (ACS). 10DLC is primarily supported in the United States. Availability depends on the subscription billing location and eligibility. Check the [ACS eligibility documentation](../../concepts/numbers/phone-number-management-for-united-states.md) for more details on supported countries. The 10DLC SMS service requires registering a brand, registering a campaign, and provisioning a 10DLC number through the Azure portal. Pay-as-you-go pricing applies to these different services: brand registration, campaign registration, phone number leasing, and message usage. 
+
 
 ### **Registration Fees**
 Registration fees are required for brands and campaigns to comply with U.S. 10DLC regulations. 
@@ -22,32 +23,29 @@ Registration fees are required for brands and campaigns to comply with U.S. 10DL
 - **Brand**: A brand represents your business or organization. It's a unique identity used to register campaigns with mobile carriers.
 - **Campaign**: A campaign is a use case associated with a brand, such as promotional messages, customer notifications, or emergency alerts. Campaign registration ensures compliance with messaging regulations and helps carriers distinguish legitimate traffic from spam.
 
-> **Note:** Brand vetting is **required as per The Campaign Registry (TCR)** in the following cases:  
-> - To achieve higher trust scores for better message throughput and delivery rates.    
-> Trust scores and vetting requirements are determined by TCR and participating carriers.
+> **Note:** Trust scores and vetting requirements are determined by TCR and participating carriers. Brand vetting is **required as per The Campaign Registry (TCR)** in the following cases:  
+> To achieve higher trust scores for better message throughput and delivery rates.    
+> Brand vetting for 10DLC (10-Digit Long Code) messaging is typically required for companies outside the Russell 3000 list.
 
 The following fees apply to the registration of brands and campaigns.
 
 | Category           | Fee Type               | Fee Subtype                    | Frequency   | Description                          | Fee    |
 |--------------------|------------------------|--------------------------------|-------------|--------------------------------------|--------|
-| **Brand**          | Registration           | Per Brand                      | One off     | Fee for brand registration           | $4     |
-| **Brand**          | Vetting                | Per Brand                      | One off     | Standard vetting for brand registration | $40     |
+| **Brand**          | Registration           | Per Brand                      | One-time     | Fee for brand registration           | $4     |
+| **Brand**          | Vetting                | Per Brand                      | One-time    | Standard vetting for brand registration. Not required for all brands. | $40     |
 | **Campaign**       | Standard               | Per campaign                   | Monthly     | Standard campaign registration fee   | $10    |
 
 
-### **Phone Number Leasing**
+### **Phone Number Leasing Fee**
 Monthly leasing fees for phone numbers.
 
 | Category           | Fee Type               | Frequency   | Description                            | Fee    |
 |--------------------|------------------------|-------------|----------------------------------------|--------|
-| **Phone Number**   | Leasing                | Monthly     | Monthly fee for leasing a phone number | $1     |
+| **Local (Geographic)**   | Leasing                | Monthly     | Monthly fee for leasing a phone number | $1     |
 
 
 ### Usage Fee
 SMS offers pay-as-you-go pricing. The price is a per-message segment* charge based on the destination of the message. 10DLC phone numbers can send messages to phone numbers located within the United States.
-
-
-The following prices are exclusive of the required communications taxes and fees:
 
 |Country/Region| Send Message | Receive Message|
 |-----------|---------|--------------|
