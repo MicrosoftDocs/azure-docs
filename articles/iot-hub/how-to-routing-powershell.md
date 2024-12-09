@@ -12,9 +12,14 @@ ms.author: kgremban
 
 # Create and delete routes and endpoints by using Azure PowerShell
 
-This article shows you how to create a route and endpoint in your hub in Azure IoT Hub and then delete your route and endpoint. Learn how to use Azure PowerShell to create routes and endpoints for Azure Event Hubs, Azure Service Bus queues and topics, Azure Storage, and Cosmos DB.
+This article shows you how to create a route and endpoint in your hub in Azure IoT Hub and then delete your route and endpoint. Learn how to use Azure PowerShell to create routes and endpoints for Azure Event Hubs, Azure Service Bus queues and topics, and Azure Storage.
 
 To learn more about how routing works in IoT Hub, see [Use IoT Hub message routing to send device-to-cloud messages to different endpoints](./iot-hub-devguide-messages-d2c.md). To walk through setting up a route that sends messages to storage and then testing on a simulated device, see [Tutorial: Send device data to Azure Storage by using IoT Hub message routing](./tutorial-routing.md?tabs=portal).
+
+> [!NOTE]
+> Currently, PowerShell doesn't support managed identity authentication types for creating endpoints. If you can't use SAS authentication in your scenario, use one of the other management tools to create endpoints.
+>
+> Also, PowerShell currently doesn't support creating Cosmos DB endpoints.
 
 ## Prerequisites
 
@@ -68,18 +73,6 @@ Review the prerequisites for this article based on the type of endpoint you want
 
 * (Recommended) A managed identity with role-based access control permissions for the Storage account. For more information, see [Assign an Azure role for access to blob data](../storage/blobs/assign-azure-role-data-access.md).
 
-### [Cosmos DB](#tab/cosmosdb)
-
-* An Azure subscription. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
-
-* An IoT hub. If you don't have a hub, you can follow the steps to [create an IoT hub](create-hub.md).
-
-* Azure PowerShell. To use Azure PowerShell locally, install the [Azure PowerShell module](/powershell/azure/install-azure-powershell) on your computer. Alternatively, to use Azure PowerShell in a web browser, enable [Azure Cloud Shell](../cloud-shell/overview.md).
-
-* An Azure Cosmos DB resource. If you need to create a new Cosmos DB database and container, see [Quickstart: Create an Azure Cosmos DB and a container](/azure/cosmos-db/nosql/quickstart-portal).
-
-* (Recommended) A managed identity with role-based access control permissions for the Cosmos DB account. For more information, see [Use data plane role-based access control with Azure Cosmos DB for NoSQL](/azure/cosmos-db/nosql/security/how-to-grant-data-plane-role-based-access).
-
 ---
 
 ## Create endpoints
@@ -92,7 +85,7 @@ The service that you use to create your endpoint must first exist in your Azure 
 > If you use a local version of Azure PowerShell, [sign in to Azure PowerShell](/powershell/azure/authenticate-azureps) before you begin.
 >
 
-# [Event Hubs](#tab/eventhubs)
+### [Event Hubs](#tab/eventhubs)
 
 The commands in the following procedures use these references:
 
@@ -113,7 +106,7 @@ The commands in the following procedures use these references:
 
    To see all routing endpoint options, see [Add-AzIotHubRoutingEndpoint](/powershell/module/az.iothub/add-aziothubroutingendpoint).
 
-# [Service Bus queue](#tab/servicebusqueue)
+### [Service Bus queue](#tab/servicebusqueue)
 
 The commands in the following procedures use these references:
 
@@ -136,7 +129,7 @@ To create a new Service Bus queue endpoint:
 
    For a list of all routing endpoint options, see [Add-AzIotHubRoutingEndpoint](/powershell/module/az.iothub/add-aziothubroutingendpoint).
 
-# [Service Bus topic](#tab/servicebustopic)
+### [Service Bus topic](#tab/servicebustopic)
 
 The commands in the following procedures use these references:
 
@@ -157,7 +150,7 @@ The commands in the following procedures use these references:
 
    For a list of all routing endpoint options, see [Add-AzIotHubRoutingEndpoint](/powershell/module/az.iothub/add-aziothubroutingendpoint).
 
-# [Azure Storage](#tab/azurestorage)
+### [Azure Storage](#tab/azurestorage)
 
 The commands in the following procedures use these references:
 
