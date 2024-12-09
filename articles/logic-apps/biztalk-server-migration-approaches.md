@@ -311,7 +311,7 @@ To avoid later possible rework and problems around downstream dependencies, whic
 
 #### Connection names
 
-When you create a connection in your workflow, the underlying connection resource automatically gets a generic name, such as **sql** or **office365**. Like operation names, connection names must also be unique. Subsequent connections with the same type get a sequential numerical suffix, for example, **sql-1**, **sql-2**, and so on. Such names don't have any context, and make differentiating and mapping connections to their workflows extremely challenging, especially for developers who don't know the solution space and have maintained those workflows.
+When you create a connection in your workflow, the underlying connection resource automatically gets a generic name, such as **sql** or **office365**. Like operation names, connection names must also be unique. Subsequent connections with the same type get a sequential numerical suffix, for example, **sql-1**, **sql-2**, and so on. Such names don't provide any context, which makes differentiating and mapping connections to their workflows extremely challenging, especially for developers who don't know the solution space and have to maintain these workflows.
 
 So, meaningful and consistent connection names are important for the following reasons:
 
