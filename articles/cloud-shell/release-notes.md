@@ -25,7 +25,7 @@ Deprecated Packages
 The following packages were removed for compliance with our package inclusion policy.
 
 - [packer](https://developer.hashicorp.com/packer/docs/intro)
-- [sfctl](https://learn.microsoft.com/azure/service-fabric/service-fabric-cli)
+- [sfctl](/azure/service-fabric/service-fabric-cli)
 
 Published policy for inclusion of new tools
 
