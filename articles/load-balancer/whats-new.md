@@ -5,7 +5,7 @@ services: load-balancer
 author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: conceptual
-ms.date: 11/26/2023
+ms.date: 12/06/2024
 ms.author: mbender
 ms.custom: template-concept, engagement-fy23
 ---
@@ -19,7 +19,7 @@ Azure Load Balancer is updated regularly. Stay up to date with the latest announ
 - Bug fixes
 - Deprecated functionality (if applicable)
 
-You can also find the latest Azure Load Balancer updates and subscribe to the RSS feed [here](https://azure.microsoft.com/updates/?category=networking&query=load%20balancer).
+You can also find the latest Azure Load Balancer updates and subscribe to the RSS feed [here](https://azure.microsoft.com/updates?filters=%5B%22Load+Balancer%22%5D).
 
 ## Recent releases
 
