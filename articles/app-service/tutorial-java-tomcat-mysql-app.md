@@ -13,7 +13,7 @@ ms.collection: ce-skilling-ai-copilot
 
 # Tutorial: Build a Tomcat web app with Azure App Service on Linux and MySQL
 
-This tutorial shows how to build, configure, and deploy a secure Tomcat application in Azure App Service that connects to a MySQL database (using [Azure Database for MySQL](/azure/mysql/)). Azure App Service is a highly scalable, self-patching, web-hosting service that can easily deploy apps on Windows or Linux. When you're finished, you'll have a Tomcat app running on [Azure App Service on Linux](overview.md).
+This tutorial shows how to build, configure, and deploy a secure Tomcat application in Azure App Service that connects to a MySQL database (using [Azure Database for MySQL](/azure/mysql/)). Azure App Service is a highly scalable, self-patching, web-hosting service that can easily deploy apps on Windows or Linux. When you're finished, you have a Tomcat app running on [Azure App Service on Linux](overview.md).
 
 :::image type="content" source="./media/tutorial-java-tomcat-mysql-app/azure-portal-browse-app-2.png" alt-text="Screenshot of Tomcat application storing data in MySQL.":::
 
@@ -142,7 +142,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
         1. *Name*: **msdocs-tomcat-mysql-XYZ**, where *XYZ* is any three random characters.
         1. *Runtime stack*: **Java 17**.
         1. *Java web server stack*: **Apache Tomcat 10.1**.
-        1. *Engine*: **MySQL - Flexible Server** is selected for you by default as the database engine. If not, select it. Azure Database for MySQL - Flexible Servier is a fully managed MySQL database as a service on Azure, compatible with the latest community editions.
+        1. *Engine*: **MySQL - Flexible Server** is selected for you by default as the database engine. If not, select it. Azure Database for MySQL - Flexible Server is a fully managed MySQL database as a service on Azure, compatible with the latest community editions.
         1. *Hosting plan*: **Basic**. When you're ready, you can [scale up](manage-scale-up.md) to a production pricing tier.
         1. Select **Review + create**.
         1. After validation completes, select **Create**.
@@ -171,7 +171,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 ## 3. Secure connection secrets
 
-The creation wizard generated the database connectivity string for you already as an [app setting](configure-common.md#configure-app-settings). However, the security best practice is to keep secrets out of App Service completely. You'll move your secrets to a key vault and change your app setting to a [Key Vault reference](app-service-key-vault-references.md) with the help of Service Connectors.
+The creation wizard generated the database connectivity string for you already as an [app setting](configure-common.md#configure-app-settings). However, the security best practice is to keep secrets out of App Service completely. You move your secrets to a key vault and change your app setting to a [Key Vault reference](app-service-key-vault-references.md) with the help of Service Connectors.
 
 :::row:::
     :::column span="2":::
@@ -180,7 +180,7 @@ The creation wizard generated the database connectivity string for you already a
         1. Select **AZURE_MYSQL_CONNECTIONSTRING**. It contains a JDBC connection string. If you add an app setting that contains a valid Oracle, SQL Server, PostgreSQL, or MySQL connection string, App Service injects it as a Java Naming and Directory Interface (JNDI) data source in the Tomcat server's *context.xml* file. 
         1. In **Add/Edit application setting**, in the **Value** field, find the *password=* part at the end of the string.
         1. Copy the password string after *Password=* for use later.
-        This app setting lets you connect to the MySQL database secured behind a private endpoint. However, the secret is saved directly in the App Service app, which isn't the best. You'll change this.
+        This app setting lets you connect to the MySQL database secured behind a private endpoint. However, the secret is saved directly in the App Service app, which isn't the best. You change this.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-java-tomcat-mysql-app/azure-portal-secure-connection-secrets-1.png" alt-text="A screenshot showing how to see the value of an app setting." lightbox="./media/tutorial-java-tomcat-mysql-app/azure-portal-secure-connection-secrets-1.png":::
@@ -289,7 +289,7 @@ If you add an app setting that contains a valid JDBC connection string for Oracl
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 2:** In the SSH terminal, run `cat /usr/local/tomcat/conf/context.xml`. You should see that a JNDI resource called `jdbc/AZURE_MYSQL_CONNECTIONSTRING_DS` was added. You'll use this data source later.
+        **Step 2:** In the SSH terminal, run `cat /usr/local/tomcat/conf/context.xml`. You should see that a JNDI resource called `jdbc/AZURE_MYSQL_CONNECTIONSTRING_DS` was added. You use this data source later.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-java-tomcat-mysql-app/azure-portal-check-config-in-ssh-2.png" alt-text="A screenshot showing the commands to run in the SSH shell and their output." lightbox="./media/tutorial-java-tomcat-mysql-app/azure-portal-check-config-in-ssh-2.png":::
@@ -449,7 +449,7 @@ Azure App Service captures all messages output to the console to help you diagno
     :::column-end:::
 :::row-end:::
 
-Learn more about logging in Java apps in the series on [Enable Azure Monitor OpenTelemetry for .NET, Node.js, Python and Java applications](/azure/azure-monitor/app/opentelemetry-enable?tabs=java).
+Learn more about logging in Java apps in the series on [Enable Azure Monitor OpenTelemetry for .NET, Node.js, Python, and Java applications](/azure/azure-monitor/app/opentelemetry-enable?tabs=java).
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
@@ -523,7 +523,7 @@ The dev container already has the [Azure Developer CLI](/azure/developer/azure-d
     azd up
     ```  
 
-    The `azd up` command takes about 15 minutes to complete (the Redis cache takes the most time). It also compiles and deploys your application code, but you'll modify your code later to work with App Service. While it's running, the command provides messages about the provisioning and deployment process, including a link to the deployment in Azure. When it finishes, the command also displays a link to the deploy application.
+    The `azd up` command takes about 15 minutes to complete (the Redis cache takes the most time). It also compiles and deploys your application code, but you modify your code later to work with App Service. While it's running, the command provides messages about the provisioning and deployment process, including a link to the deployment in Azure. When it finishes, the command also displays a link to the deploy application.
 
     This AZD template contains files (*azure.yaml* and the *infra* directory) that generate a secure-by-default architecture with the following Azure resources:
 
@@ -574,7 +574,7 @@ In this step, you use the SSH connection to the app container to verify the JNDI
     Open SSH session to App Service container at: https://&lt;app-name>-&lt;hash>.scm.azurewebsites.net/webssh/host
     </pre>
 
-1. In the SSH terminal, run `cat /usr/local/tomcat/conf/context.xml`. You should see that a JNDI resource called `jdbc/AZURE_MYSQL_CONNECTIONSTRING_DS` was added. You'll use this data source later.
+1. In the SSH terminal, run `cat /usr/local/tomcat/conf/context.xml`. You should see that a JNDI resource called `jdbc/AZURE_MYSQL_CONNECTIONSTRING_DS` was added. You use this data source later.
 
     :::image type="content" source="./media/tutorial-java-tomcat-mysql-app/azure-portal-check-config-in-ssh-2.png" alt-text="A screenshot showing the commands to run in the SSH shell and their output.":::
 
@@ -668,7 +668,7 @@ In the AZD output, find the link to stream App Service logs and navigate to it i
 Stream App Service logs at: https://portal.azure.com/#@/resource/subscriptions/&lt;subscription-guid>/resourceGroups/&lt;group-name>/providers/Microsoft.Web/sites/&lt;app-name>/logStream
 </pre>
 
-Learn more about logging in Java apps in the series on [Enable Azure Monitor OpenTelemetry for .NET, Node.js, Python and Java applications](/azure/azure-monitor/app/opentelemetry-enable?tabs=java).
+Learn more about logging in Java apps in the series on [Enable Azure Monitor OpenTelemetry for .NET, Node.js, Python, and Java applications](/azure/azure-monitor/app/opentelemetry-enable?tabs=java).
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
