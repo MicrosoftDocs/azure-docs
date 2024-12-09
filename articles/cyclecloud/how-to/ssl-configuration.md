@@ -25,7 +25,7 @@ The default SSL port for CycleCloud is port 8443. If you'd like to run encrypted
 
 After editing your _cycle_server.properties_ file, you will need to restart CycleCloud for the encrypted communication channel to activate:
 
-``` CLI
+```bash
 /opt/cycle_server/cycle_server restart
 ```
 
@@ -60,13 +60,13 @@ Using a CA-generated certificate will allow web access to your CycleCloud instal
 
 You will be asked to provide a domain name, which is the "Common Name" field on the signed certificate. This will generate a new self-signed certificate for the specified domain and write a cycle_server.csr file. You must provide the CSR to a certificate authority, and they will provide the final signed certificate (which will be referred to as server.crt below). You will also need the root certificates and any intermediate ones used in the chain between your new certificate and the root certificate. The CA should provide these for you. If they have provided them bundled as a single certificate file, you can import them with the following command:
 
-``` CLI
+```bash
 ./cycle_server keystore import server.crt
 ```
 
 If they provided multiple certificate files, you should import them all at once appending the names to that same command, separated by spaces:
 
-``` CLI
+```bash
 ./cycle_server keystore import server.crt ca_cert_chain.crt
 ```
 
@@ -74,13 +74,13 @@ If they provided multiple certificate files, you should import them all at once 
 
 If you have previously created a CA or self-signed certificate, you can update CycleCloud to use it with the following command:
 
-``` CLI
+```bash
 ./cycle_server keystore update server.crt
 ```
 
 If you want to import a PFX file, you can do it with the following command in CycleCloud 7.9.7 or later:
 
-``` CLI
+```bash
 ./cycle_server keystore import_pfx server.pfx --pass PASSWORD
 ```
 
@@ -88,9 +88,34 @@ Note the PFX file can only contain one entry.
 
 Finally, if you make changes to the keystore outside of these commands, you can reload the keystore immediately in CycleCloud 7.9.7 or later:
 
-``` CLI
+```bash
 ./cycle_server keystore reconfig
 ```
+
+### Keystore Implementation Details
+
+Certificates for CycleCloud are stored in `/opt/cycle_server/config/private/keystore`, in addition to other certificates needed for operation. The following is a non-exhaustive list of the items stored in the keystore:
+
+Alias | Purpose
+---------------|--------
+identity | Holds the certificate chain for the user-facing web interface (port 443 or 8443)
+cluster-identity | Holds the certificate chain for nodes to connect to CycleCloud (port 9443)
+root | Holds the certificate used to sign all local certificates, including cluster-identity
+
+The keystore can be inspected with Java's keystore file. For instance, the following command will list all items in the keystore:
+
+```bash
+keytool -list -keystore /opt/cycle_server/config/private/keystore -storepass changeit
+```
+
+The `cycle_server` commands above update the `identity` alias. Updating other entries, including the `cluster-identity` or `root` certificates, is **NOT** supported.
+
+The keystore can be modified directly, but this is not recommended. In general, changes will require a CycleServer restart to take effect.
+
+> [!WARNING]
+> Changing the keystore's contents may result in clusters failing to work! Always make a backup before modifying it.
+
+The password of the keystore is `changeit` and it cannot be changed at this time. However, the file is readable and writable only by the `cycle_server` user.
 
 ::: moniker range="=cyclecloud-7"
 ## Backwards compatibility for TLS 1.0 and 1.1
