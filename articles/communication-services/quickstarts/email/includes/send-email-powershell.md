@@ -5,7 +5,7 @@ author: v-deepikal
 manager: komivi.agbakpem
 services: azure-communication-services
 ms.author: v-deepikal
-ms.date: 12/04/2023
+ms.date: 12/04/2024
 ms.topic: include
 ms.service: azure-communication-services
 ms.custom: include files
@@ -31,7 +31,7 @@ Completing this quick start incurs a small cost of a few USD cents or less in yo
 Install the Azure Communication Services module for Azure PowerShell by using the `Install-Module -Name Az.Communication` command.
 
 ```azurepowershell-interactive
-Install-Module -Name Az.Communication -Force AllowClobber
+Install-Module -Name Az.Communication
 ```
 After installing Communication module, run the `Get-Command -Module Az.Communication` command to get all the communication modules.
 
@@ -47,7 +47,7 @@ Queues an email message to be sent to one or more recipients with only required 
 $emailRecipientTo = @(
    @{
         Address = "<emailalias@emaildomain.com>"
-        DisplayName = "abc"
+        DisplayName = "Email DisplayName"
     }
 )
 
@@ -73,11 +73,11 @@ Queues an email message to be sent to one or more recipients with all the fields
 $emailRecipientTo = @(
    @{
         Address = "<emailalias@emaildomain.com>"
-        DisplayName = "abc"
+        DisplayName = "Email DisplayName"
     },
    @{
         Address = "<emailalias1@emaildomain.com>"
-        DisplayName = "def"
+        DisplayName = "Email DisplayName"
     }
 )
 
@@ -108,21 +108,21 @@ $headers = @{
 $emailRecipientBcc = @(
    @{
         Address = "<emailbccalias@emaildomain.com>"
-        DisplayName = "abc"
+        DisplayName = "Email DisplayName"
     }
 )
 
 $emailRecipientCc = @(
    @{
         Address = "<emailccalias@emaildomain.com>"
-        DisplayName = "abc"
+        DisplayName = "Email DisplayName"
     }
 )
 
 $emailRecipientReplyTo = @(
    @{
         Address = "<emailreplytoalias@emaildomain.com>"
-        DisplayName = "abc"
+        DisplayName = "Email DisplayName"
     }
 )
 
