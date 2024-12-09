@@ -20,6 +20,8 @@ To send Application-to-Person (A2P) SMS messages using 10-digit long codes (10DL
 
 This document will guide you through filling in the required fields for **Brand Registration** and **Campaign Registration**.
 
+[!INCLUDE [Notice](../../includes/public-preview-include.md)]
+
 ## Brand Registration
 
 A brand represents your business entity and establishes your credibility with carriers. The information provided must match your official business details. Incorrect details will result in rejections for brand submission. Brand registrations are handled through The Campaign Registry (TCR), which is the centralized registry used by carriers to manage 10DLC (10-Digit Long Code) numbers for A2P messaging. TCR verifies and stores the details about your business and the campaigns you run, allowing carriers to assess and approve your messaging for compliance and delivery.
