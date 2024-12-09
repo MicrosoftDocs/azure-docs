@@ -1,6 +1,6 @@
 ---
-title: Cloud NGFW for Azure deployment behind Azure Application Gateway
-description: This article describes how to use Azure Application Gateway with Cloud NGFW for Azure by Palo Alto Networks to help secure web applications.
+title: Cloud Next Generation Firewall (NGFW) for Azure deployment behind Azure Application Gateway
+description: Learn how to secure web applications with Cloud NGFW for Azure by Palo Alto Networks.
 
 ms.topic: conceptual
 ms.date: 12/09/2024
@@ -8,7 +8,7 @@ ms.date: 12/09/2024
 ---
 # Cloud NGFW for Azure deployment behind Azure Application Gateway
 
-This article describes a recommended architecture for deploying Cloud NGFW for Azure by Palo Alto Networks behind Azure Application Gateway. Cloud NGFW for Azure is a next-generation firewall that's delivered as an Azure Native ISV Service. You can find Cloud NGFW for Azure in Azure Marketplace and consume it in your Azure Virtual Network and Azure Virtual WAN instances.
+This article describes a recommended architecture for deploying Cloud NGFW for Azure by Palo Alto Networks behind Azure Application Gateway. Cloud NGFW for Azure is a next-generation firewall delivered as an integrated service for Azure. You can find Cloud NGFW for Azure in Azure Marketplace and consume it in your Azure Virtual Network and Azure Virtual WAN instances.
 
 With Cloud NGFW for Azure, you can access core firewall capabilities from Palo Alto Networks, such as App-ID and Advanced URL Filtering. It provides threat prevention and detection through cloud-delivered security services and threat prevention signatures. The deployment model in this article uses the reverse proxy and web application firewall (WAF) functionality of Application Gateway by using the network security capabilities of Cloud NGFW for Azure.
 
@@ -20,7 +20,7 @@ Cloud NGFW for Azure helps secure inbound, outbound, and lateral traffic that tr
 
 To help secure ingress connections, a Cloud NGFW for Azure resource supports Destination Network Address Translation (DNAT) configurations. Cloud NGFW for Azure accepts client connections on one or more of the configured public IP addresses and performs the address translation and traffic inspection. It also enforces user-configured security policies.
 
-For web applications, you benefit from using Application Gateway as both a reverse proxy and a load balancer. This combination offers the best security when you want to secure both web-based and nonweb workloads in Azure and on-premises ingress connections. Cloud NGFW for Azure allows the use of a single public IP address of Application Gateway to proxy the HTTP and HTTPS connections to many web application back ends. Any non-HTTP connections should be directed through the Cloud NGFW for Azure public IP address for inspection and policy enforcement.
+For web applications, you benefit from using Application Gateway as both a reverse proxy and a load balancer. This combination offers the best security when you want to secure both web-based and nonweb workloads in Azure and on-premises ingress connections. You can use a single public IP address of Application Gateway to proxy the HTTP and HTTPS connections to many web application back ends. Any non-HTTP connections should be directed through the Cloud NGFW for Azure public IP address for inspection and policy enforcement.
 
 Application Gateway also offers WAF capabilities to look for patterns that indicate an attack at the web application layer. For more information about Application Gateway features, see the [service documentation](/azure/application-gateway).
 
@@ -49,7 +49,7 @@ Here's an example user-defined route:
 - Next hop type: virtual appliance
 - Next hop IP address: 172.16.1.132
 
-After you deploy and configure the infrastructure, you must apply a security policy to Cloud NGFW for Azure that allows the connection from the Application Gateway virtual network. Application Gateway proxies the client's TCP connection and creates a new connection to the destination specified in the back-end target. The source IP of this connection is the private IP address from the Application Gateway subnet. Configure the security policy accordingly, by using the Application Gateway virtual network prefix to ensure that it's treated as the inbound flow. The original source IP of the client isn't preserved at layer 3.
+After you deploy and configure the infrastructure, you must apply a security policy to Cloud NGFW for Azure that allows the connection from the Application Gateway virtual network. Application Gateway proxies the client's TCP connection and creates a new connection to the destination specified in the back-end target. The source IP of this connection is the private IP address from the Application Gateway subnet. Ensure the Application Gateway virtual network prefix is treated as the inbound flow. The original source IP of the client isn't preserved at layer 3.
 
 Nonweb traffic can continue using the public IP addresses and DNAT rules in Cloud NGFW for Azure.
 
@@ -86,11 +86,11 @@ When you manage Cloud NGFW for Azure resources by using Panorama, you can use ex
 
 :::image type="content" source="media/palo-alto-app-gateway/palo-alto-app-gateway-zones-1.png" alt-text="Diagram that shows zone placement and traffic flows in Cloud NGFW for Azure.":::
 
-The ingress traffic that comes through Application Gateway is forwarded through the private zone to the Cloud NGFW for Azure resource for inspection and security policy enforcement.
+The Application Gateway's ingress traffic is forwarded through the private zone to the Cloud NGFW for inspection and security policy enforcement.
 
 :::image type="content" source="media/palo-alto-app-gateway/palo-alto-app-gateway-zones-2.png" alt-text="Diagram that shows zone placement in Cloud NGFW for Azure and traffic flow through Application Gateway.":::
 
-You need to apply special considerations to zone-based policies to ensure that the traffic coming from Application Gateway is treated as inbound. These policies include security rules, threat prevention profiles, and inline cloud analysis. The traffic is treated as private-to-private because Application Gateway proxies it, and it's sourced through the private IP address from the Application Gateway subnet.
+You need to apply special considerations to zone-based policies to ensure that the traffic coming from Application Gateway is treated as inbound. These policies include security rules, threat prevention profiles, and inline cloud analysis. The traffic is treated as private-to-private because Application Gateway proxies it, and is sourced through the private IP address from the Application Gateway subnet.
 
 ## Related content
 

@@ -1,6 +1,6 @@
 ---
-title: Create a Cloud NGFW by Palo Alto Networks - an Azure Native ISV Service resource
-description: This article describes how to use the Azure portal to create a Cloud NGFW (Next-Generation Firewall) by Palo Alto Networks - an Azure Native ISV Service resource.
+title: Create a Cloud Next Generation Firewall (NGFW) by Palo Alto Networks
+description: This article describes how to use the Azure portal to create a Cloud NGFW (Next-Generation Firewall) by Palo Alto Networks.
 
 ms.custom: references_regions
 ms.topic: quickstart
@@ -8,9 +8,9 @@ ms.date: 12/09/2024
 
 ---
 
-# QuickStart: Get started with Cloud NGFW by Palo Alto Networks - an Azure Native ISV Service resource
+# QuickStart: Get started with Cloud NGFW by Palo Alto Networks
 
-In this quickstart, you use the Azure Marketplace to find and create an instance of  **Cloud NGFW by Palo Alto Networks - an Azure Native ISV Service resource**.
+In this quickstart, you use Azure Marketplace to find and create an instance of  **Cloud NGFW by Palo Alto Networks - an Azure Native ISV Service resource**.
 
 ## Create a new Cloud NGFW by Palo Alto Networks resource
 
@@ -44,7 +44,7 @@ In this section, you see how create a Palo Alto Networks resource.
 
 ### Security Policy
 
-1. After setting the DNS values, select the **Next: Security Policy** to see the **Security Policies** tab. You can set the policies for the firewall using this tab.
+1. After setting the Domain Name System (DNS) values, select the **Next: Security Policy** to see the **Security Policies** tab. You can set the policies for the firewall using this tab.
 
    :::image type="content" source="media/palo-alto-create/palo-alto-rulestack.png" alt-text="Screenshot of the Rulestack in the Palo Alto Networks create experience.":::
 
@@ -105,7 +105,7 @@ Next, you must accept the Terms of Use for the new Palo Alto Networks resource.
 
 - [Manage the Palo Alto Networks resource](palo-alto-manage.md)
 
-- Get Started with Cloud Next-Generation Firewall by Palo Alto Networks - an Azure Native ISV Service on
+- Get Started with Cloud Next-Generation Firewall by Palo Alto Networks on
 
   > [!div class="nextstepaction"]
   > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/PaloAltoNetworks.Cloudngfw%2Ffirewalls)

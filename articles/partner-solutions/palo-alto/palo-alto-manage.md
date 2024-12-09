@@ -1,10 +1,13 @@
 ---
-title: Manage Cloud NGFW by Palo Alto Networks resource through the Azure portal
-description: This article describes management functions for Cloud NGFW (Next-Generation Firewall) by Palo Alto Networks on the Azure portal. 
+title: Manage Cloud Next Generation Firewall (NGFW) by Palo Alto Networks resource through the Azure portal
+description: Manage your Cloud NGFW by Palo Alto Networks in Azure portal, including networking, NAT, rulestack settings, logging, Domain Name System (DNS) proxy configuration, and billing plan changes.
 
 ms.topic: conceptual
 ms.date: 12/09/2024
-
+ms.custom:
+  - ai-gen-docs-bap
+  - ai-gen-desc
+  - ai-seo-date:12/09/2024
 ---
 
 # Manage your Cloud NGFW by Palo Alto Networks through the portal
@@ -26,7 +29,7 @@ From the Resource menu, select your Cloud NGFW by Palo Alto Networks deployment.
 
 1. Select the **Type** by checking the **Virtual Network** or **Virtual WAN** options.
 
-1. You can see the  **Virtual Network** , **Private Subnet** and **Public Subnet** details.
+1. You can see the  **Virtual Network** , **Private Subnet**, and **Public Subnet** details.
 
 1. From **Source Network Address Translation (SNAT)**, you can select the **Enable Source NAT**.
 
@@ -87,7 +90,7 @@ After the account is deleted, logs are no longer sent to Cloud NGFW by Palo Alto
 
 - For help with troubleshooting, see [Troubleshooting Palo Alto integration with Azure](palo-alto-troubleshoot.md).
 
-- Get Started with Cloud Next-Generation Firewall by Palo Alto Networks - an Azure Native ISV Service on
+- Get Started with Cloud Next-Generation Firewall by Palo Alto Networks on
 
   > [!div class="nextstepaction"]
   > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/PaloAltoNetworks.Cloudngfw%2Ffirewalls)
