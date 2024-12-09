@@ -12,25 +12,29 @@ ms.custom:
 
 # Launch your first AI application to Azure Container Apps
 
-This article shows you how to deploy a sample AI chat assistant application based on the Spring PetClinic application to run on Azure Container Apps. The application uses the [Azure OpenAI Service](/azure/ai-services/openai/overview) and demonstrates how to automate deployment using the Azure Developer CLI (azd).
+This quickstart shows you how to launch your first AI application to Azure Container Apps. The article demonstrates how to deploy a sample AI chat assistant application based on the Spring PetClinic application to run on Azure Container Apps. The application uses the [Azure OpenAI Service](/azure/ai-services/openai/overview) and demonstrates how to automate deployment using the Azure Developer CLI (azd).
 
-By the end of this tutorial, you deploy an AI-enabled application on Azure Container Apps, explored its general architecture, and learned how to implement your first AI application on Azure Container Apps.
+In this quickstart you deploy an AI-enabled application to Azure Container Apps, explore its architecture, and learn how to implement your first AI application in Azure Container Apps.
 
-The following screenshot shows how the AI assistant can help you.
+The following screenshot shows the AI assistant:
 
 :::image type="content" source="media/first-ai-application/home-with-chatbot.png"  alt-text="Screenshot of home." lightbox="media/first-ai-application/home-with-chatbot.png":::
 
 ## Prerequisites
 
-   | Requirement  | Instructions |
-   |--|--|
-   | Azure account | If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). You need the *Contributor* + *User Access Administrator* or *Owner* permission on the Azure subscription to proceed. <br><br>Refer to [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml?tabs=current) for details. |
-   | GitHub Account | Get one for [free](https://github.com/join). |
-   | git | Install [git](https://git-scm.com/downloads) |
-   | Azure CLI | Install the [Azure CLI](/cli/azure/install-azure-cli). |
-   | Java | Install the [JDK](/java/openjdk/install), recommend 17. |
-   | Maven | Install the [Maven](https://maven.apache.org/download.cgi). |
-   | Azd | Install [Azd](/azure/developer/azure-developer-cli/install-azd). |
+- Azure account. If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). To perform this quickstart, you need the **Contributor** and **User Access Administrator** roles, or the **Owner** role. For more information, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml?tabs=current).
+
+- GitHub account. Get one for [free](https://github.com/join).
+
+- [git](https://git-scm.com/downloads).
+
+- [Azure CLI](/cli/azure/install-azure-cli).
+
+- The [Microsoft Build of Open JDK](/java/openjdk/install). We recommend version 17.
+
+- [Maven](https://maven.apache.org/download.cgi).
+
+- [Azure Developer CLI (azd)](/azure/developer/azure-developer-cli/install-azd). |
 
 Install extensions
 
