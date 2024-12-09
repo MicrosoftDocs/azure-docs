@@ -24,7 +24,7 @@ Get started with Azure Communication Services SMS Opt-out API by using the follo
 
 ## Sample code to use Opt-Out API
 
-This sample demonstrates how to use the Opt-Out Management API in JavaScript to programmatically add, remove, or check opt-out entries
+This sample demonstrates how to use the Opt-Out Management API in JavaScript to programmatically add, remove, or check opt-out entries.
 
 ```html
 <script src="Scripts/CryptoJS/sha256-min.js" type="text/javascript"></script>

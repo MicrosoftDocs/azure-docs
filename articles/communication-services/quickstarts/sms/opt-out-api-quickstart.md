@@ -130,7 +130,7 @@ In general, response contents are the same for all actions and contain the succe
 
 ## Next steps
 
-In this quickstart, you learned how to send OPt-out requests.
+In this quickstart, you learned how to send opt-out requests.
 
 > [!div class="nextstepaction"]
 > [Send an SMS message](./send.md)

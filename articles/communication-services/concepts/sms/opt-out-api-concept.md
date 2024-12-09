@@ -26,4 +26,4 @@ Key features include:
 
 ## Next steps
 
-Let's get started with the [SMS Opt-out API quickstart](../../quickstarts/sms/opt-out-api-quickstart.md)
+Let's get started with the [SMS Opt-out API quickstart](../../quickstarts/sms/opt-out-api-quickstart.md).
