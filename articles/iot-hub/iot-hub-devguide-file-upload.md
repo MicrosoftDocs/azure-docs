@@ -94,10 +94,10 @@ The following how-to guides provide complete, step-by-step instructions to uploa
 
 | How-to guide | Device SDK example | Service SDK example |
 |---------|--------|---------|
-| [.NET](how-to-file-upload?pivots=programming-language-csharp) | Yes | Yes |
-| [Java](./how-to-file-upload?pivots=programming-language-java) | Yes | Yes |
-| [Node.js](/how-to-file-upload?pivots=programming-language-node) | Yes | Yes |
-| [Python](./how-to-file-upload?pivots=programming-language-python) | Yes | No (not supported) |
+| [.NET](./how-to-file-upload.md?pivots=programming-language-csharp) | Yes | Yes |
+| [Java](./how-to-file-upload.md?pivots=programming-language-java) | Yes | Yes |
+| [Node.js](./how-to-file-upload.md?pivots=programming-language-node) | Yes | Yes |
+| [Python](./how-to-file-upload.md?pivots=programming-language-python) | Yes | No (not supported) |
 
 > [!NOTE]
 > The C device SDK uses a single call on the device client to perform file uploads. For more information, see [IoTHubDeviceClient_UploadToBlobAsync()](https://github.com/Azure/azure-iot-sdk-c/blob/main/iothub_client/inc/iothub_device_client.h#L328) and [IoTHubDeviceClient_UploadMultipleBlocksToBlobAsync()](https://github.com/Azure/azure-iot-sdk-c/blob/main/iothub_client/inc/iothub_device_client.h#L350). These functions perform all aspects of the file upload in a single call: initiating the upload, uploading the file to Azure storage, and notifying IoT Hub when it completes. This interaction means that, in addition to whatever protocol the device is using to communicate with IoT Hub, the device also needs to be able to communicate over HTTPS with Azure storage as these functions make calls to the Azure storage APIs.
