@@ -13,7 +13,7 @@ ms.custom: devx-track-java, engagement-fy23, references_regions
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ❌ Basic/Standard ✔️ Enterprise
+**This article applies to:** ❎ Basic/Standard ✅ Enterprise
 
 This article describes the Azure Marketplace offer and license requirements for the VMware Taznu components in the Enterprise plan in Azure Spring Apps.
 

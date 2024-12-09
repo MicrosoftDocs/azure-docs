@@ -13,7 +13,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ❌ Basic/Standard ✔️ Enterprise
+**This article applies to:** ❎ Basic/Standard ✅ Enterprise
 
 This article describes how to configure VMware Tanzu Dev Tools. Dev Tools includes a set of developer tools to help make the development experience easier for both the inner and outer loop. Currently, Dev Tools includes Application Live View and Application Accelerator for use with the Azure Spring Apps Enterprise plan.
 

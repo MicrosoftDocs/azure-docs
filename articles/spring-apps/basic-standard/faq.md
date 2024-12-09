@@ -14,7 +14,7 @@ zone_pivot_groups: programming-languages-spring-apps
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
+**This article applies to:** ✅ Basic/Standard ✅ Enterprise
 
 This article answers frequently asked questions about Azure Spring Apps.
 

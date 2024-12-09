@@ -177,7 +177,7 @@
     - name: Failover and patching
       href: managed-redis/managed-redis-failover.md
     - name: Migrate to availability zone support
-      href: ../availability-zones/migrate-cache-redis.md
+      href: ../reliability/migrate-cache-redis.md
 
   - name: Diagnose and troubleshoot
     items:
@@ -357,7 +357,7 @@
     - name: Failover and patching
       href: cache-failover.md
     - name: Migrate to availability zone support
-      href: ../availability-zones/migrate-cache-redis.md
+      href: ../reliability/migrate-cache-redis.md
 
   - name: Diagnose and troubleshoot
     items:
@@ -444,7 +444,7 @@
         - name: Azure CLI
           href: /cli/azure/redisenterprise
         - name: REST
-          href: /rest/api/redis/redisenterprisecache
+          href: /rest/api/redis/redisenterprisecache/operation-groups
         - name: Resource Manager template
           href: /azure/templates/microsoft.cache/redisenterprise
     - name: Azure Cache for Redis

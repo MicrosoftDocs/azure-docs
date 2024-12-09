@@ -14,9 +14,9 @@ ms.custom: devx-track-java
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ✔️ Java ❌ C#
+**This article applies to:** ✅ Java ❎ C#
 
-**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
+**This article applies to:** ✅ Basic/Standard ✅ Enterprise
 
 The IntelliJ plug-in for Azure Spring Apps supports application deployment from IntelliJ IDEA.
 

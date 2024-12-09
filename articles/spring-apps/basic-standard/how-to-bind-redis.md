@@ -13,9 +13,9 @@ ms.custom: devx-track-java, devx-track-extended-java, service-connector
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ✔️ Java ✔️ C#
+**This article applies to:** ✅ Java ✅ C#
 
-**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
+**This article applies to:** ✅ Basic/Standard ✅ Enterprise
 
 Instead of manually configuring your Spring Boot applications, you can automatically connect selected Azure services to your applications by using Azure Spring Apps. This article shows how to connect your application to Azure Cache for Redis.
 

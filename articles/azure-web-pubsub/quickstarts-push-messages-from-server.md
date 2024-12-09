@@ -455,7 +455,7 @@ dotnet run $connection_string "myHub1" "Hello World"
 
 ```text
 # On the command shell used for running the "subscribe" program, you should see the received the messaged logged there. 
-# Try running the same "subscribe" program in multiple command shells, which simluates more than clients. 
+# Try running the same "subscribe" program in multiple command shells, which simulates more than clients. 
 # Try running the "publish" program several times and you see messages being delivered in real-time to all these clients.   
 Message received: Hello World
 ```

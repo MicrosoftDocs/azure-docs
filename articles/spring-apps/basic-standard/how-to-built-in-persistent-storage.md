@@ -13,9 +13,9 @@ ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, engag
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ✔️ Java ✔️ C#
+**This article applies to:** ✅ Java ✅ C#
 
-**This article applies to:** ✔️ Basic/Standard ❌ Enterprise
+**This article applies to:** ✅ Basic/Standard ❎ Enterprise
 
 Azure Spring Apps provides two types of built-in storage for your application: persistent and temporary.
 

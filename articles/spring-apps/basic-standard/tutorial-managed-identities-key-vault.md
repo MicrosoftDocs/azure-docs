@@ -14,7 +14,7 @@ zone_pivot_groups: spring-apps-tier-selection
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ✔️ Java ❌ C#
+**This article applies to:** ✅ Java ❎ C#
 
 This article shows you how to create a system-assigned or user-assigned managed identity for an app deployed to Azure Spring Apps and use it to access Azure Key Vault.
 

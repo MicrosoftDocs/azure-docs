@@ -14,7 +14,7 @@ ms.custom: devx-track-azurepowershell, devx-track-java
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
+**This article applies to:** ✅ Basic/Standard ✅ Enterprise
 
 This article describes how you can create an instance of Azure Spring Apps by using the [Az.SpringCloud](/powershell/module/Az.SpringCloud) PowerShell module.
 

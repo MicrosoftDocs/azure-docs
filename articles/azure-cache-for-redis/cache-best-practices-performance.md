@@ -5,8 +5,9 @@ description: Learn how to test the performance of Azure Cache for Redis.
 
 
 ms.topic: conceptual
+ms.custom:
+  - ignite-2024
 ms.date: 11/08/2024
-
 ---
 
 # Performance testing

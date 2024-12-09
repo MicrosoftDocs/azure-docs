@@ -2,10 +2,11 @@
 title: Tutorial - View protectable resources
 description: In this tutorial, learn how to view your resources that are currently not protected by any solution using Azure Business Continuity Center.
 ms.topic: tutorial
-ms.date: 07/22/2024
+ms.date: 11/19/2024
 ms.service: azure-business-continuity-center
 ms.custom:
   - ignite-2023
+  - ignite-2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---

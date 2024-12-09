@@ -6,7 +6,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/09/2024
+ms.date: 11/27/2024
 ms.author: jianleishen
 ---
 # Copy data from PostgreSQL using Azure Data Factory or Synapse Analytics
@@ -30,7 +30,7 @@ This PostgreSQL connector is supported for the following capabilities:
 
 For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
-Specifically, this PostgreSQL connector supports PostgreSQL **version 7.4 and above**.
+Specifically, this PostgreSQL connector supports PostgreSQL **version 12 and above**.
 
 ## Prerequisites
 

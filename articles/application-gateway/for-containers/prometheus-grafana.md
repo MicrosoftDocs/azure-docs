@@ -132,7 +132,7 @@ In this section, we enter Grafana default dashboards.
 
 4. After entering your user credentials, refer to the Grafana introduction.
 5. Select on the left side bar to access default dashboards under dashboards.
-   ![A screenshot of Dafault Grafana Dashboard.](./media/prometheus-grafana/grafana-default.png)
+   ![A screenshot of Default Grafana Dashboard.](./media/prometheus-grafana/grafana-default.png)
 
 ## Graph Prometheus metrics on Grafana 
 

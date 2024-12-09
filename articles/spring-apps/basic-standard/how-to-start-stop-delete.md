@@ -13,9 +13,9 @@ ms.custom: devx-track-java, devx-track-extended-java, engagement-fy23
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ✔️ Java ✔️ C#
+**This article applies to:** ✅ Java ✅ C#
 
-**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
+**This article applies to:** ✅ Basic/Standard ✅ Enterprise
 
 This guide explains how to change an application's state in Azure Spring Apps by using either the Azure portal or the Azure CLI.
 

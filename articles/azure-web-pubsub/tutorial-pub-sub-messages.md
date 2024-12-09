@@ -77,7 +77,7 @@ Each Web PubSub resource must have a unique name. Replace &lt;your-unique-resour
 az webpubsub create --resource-group myResourceGroup --name <your-unique-resource-name> --location EastUS --sku Free_F1
 ```
 
-The output of this command shows properties of the newly created resource. Take note of the following roperties:
+The output of this command shows properties of the newly created resource. Take note of the following properties:
 
 * **name**: The Web PubSub name you provided in the `--name` parameter above.
 * **hostName**: In the example, the host name is `<your-unique-resource-name>.webpubsub.azure.com/`.

@@ -5,9 +5,7 @@ description: In this quickstart, you learn how to create an ASP.NET web app with
 
 ms.topic: quickstart
 ms.date: 03/25/2022
-
-ms.custom: devx-track-csharp, mvc, mode-other
-
+ms.custom: devx-track-csharp, mvc, mode-other, ignite-2024
 ---
 
 # Quickstart: Use Azure Cache for Redis with an ASP.NET web app

@@ -14,7 +14,7 @@ ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
+**This article applies to:** ✅ Basic/Standard ✅ Enterprise
 
 This article shows you how to migrate an existing application in the Basic or Standard plan to the Enterprise plan. When you migrate from the Basic or Standard plan to the Enterprise plan, VMware Tanzu components replace the open-source software (OSS) Spring Cloud components to provide more feature support.
 

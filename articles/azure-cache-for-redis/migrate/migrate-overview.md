@@ -3,11 +3,12 @@ title: Move from Azure Cache for Redis to Azure Managed Redis (preview)
 description: Why and how to move from Azure Cache for Redis to Azure Managed Redis.
 
 ms.service: azure
-ms.topic: how-to 
+ms.custom:
+  - ignite-2024
+ms.topic: how-to
 ms.date: 11/15/2024
 
 #CustomerIntent: As a developer, I want to see how to move from Azure Cache for Redis to Azure Managed Redis.
-
 ---
 # Move from Azure Cache for Redis to Azure Managed Redis (preview)
 

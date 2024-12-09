@@ -1587,6 +1587,17 @@ groups:
     title: New Maintenance Configuration
   - id: existing-mc
     title: Existing Maintenance Configuration
+# Owner: sudhirsneha
+- id: enable-change-tracking-inventory-using-monitoring-agent
+  title: Requirements to enable change tracking and inventory using monitoring agent
+  prompt: Choose a deployment environment
+  pivots:
+  - id: single-portal
+    title: Single Azure VM and Azure Arc-enabled VM
+  - id: multiple-portal-cli
+    title: Multiple VMs using Azure portal and Azure CLI
+  - id: at-scale-policy
+    title: At scale using policy
 # Owner: marymichael
 - id: web-apps-assessment-app-service
   title: Assess ASP.NET web apps for migration to Azure App Service
@@ -1650,6 +1661,17 @@ groups:
     title: .NET/C#
   - id: programming-language-java
     title: Java
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-node
+    title: Node
+# Owner: kgremban
+- id: iot-hub-howto-c2d-2
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: .NET/C#
   - id: programming-language-python
     title: Python
   - id: programming-language-node

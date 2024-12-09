@@ -4,6 +4,8 @@ description: Learn how to enable Vault Tier protection for AKS clusters and rest
 ms.topic: tutorial
 ms.date: 11/04/2023
 ms.service: azure-backup
+ms.custom:
+  - ignite-2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---

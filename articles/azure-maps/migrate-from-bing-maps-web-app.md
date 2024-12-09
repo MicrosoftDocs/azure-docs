@@ -965,7 +965,7 @@ GeoJSON data can be directly imported in Azure Maps using the `importDataFromUrl
                 map.layers.add([
                     //Create a bubble layer for rendering clustered data points.
                     new atlas.layer.BubbleLayer(datasource, null, {
-                        //Scale the size of the clustered bubble based on the number of points inthe cluster.
+                        //Scale the size of the clustered bubble based on the number of points in the cluster.
                         radius: [
                             'step',
                             ['get', 'point_count'],
@@ -1465,7 +1465,7 @@ In Azure Maps, GeoJSON is the main data format used in the web SDK, more spatial
 
                         //Check to see if there are any icons in the data set that need to be loaded into the map resources.
                         if (r.icons) {
-                            //For each icon image, create a promise to add it to the map, then run the promises in parrallel.
+                            //For each icon image, create a promise to add it to the map, then run the promises in parallel.
                             var imagePromises = [];
 
                             //The keys are the names of each icon image.
@@ -1544,7 +1544,7 @@ In Bing Maps the `DrawingTools` module is loaded using the `Microsoft.Maps.loadM
             //Create an instance of the DrawingTools class and bind it to the map.
             var tools = new Microsoft.Maps.DrawingTools(map);
 
-            //Show the drawing toolbar and enable editting on the map.
+            //Show the drawing toolbar and enable editing on the map.
             tools.showDrawingManager(function (manager) {
                 //Store a reference to the drawing manager as it will be useful later.
                 drawingManager = manager;

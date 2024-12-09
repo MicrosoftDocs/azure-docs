@@ -13,7 +13,7 @@ ms.custom: devx-track-java
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
+**This article applies to:** ✅ Basic/Standard ✅ Enterprise
 
 This article explains how to view static outbound public IP addresses of applications in Azure Spring Apps. Public IPs are used to communicate with external resources, such as databases, storage, and key vaults.
 

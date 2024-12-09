@@ -13,7 +13,7 @@ ms.author: yili7
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ❌ Basic/Standard ✔️ Enterprise
+**This article applies to:** ❎ Basic/Standard ✅ Enterprise
 
 This quickstart shows how to deploy a Spring Boot application to Azure Spring Apps as a Native Image.
 

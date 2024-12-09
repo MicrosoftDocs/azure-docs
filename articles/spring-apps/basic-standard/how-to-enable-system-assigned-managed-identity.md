@@ -15,7 +15,7 @@ zone_pivot_groups: spring-apps-tier-selection
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
+**This article applies to:** ✅ Basic/Standard ✅ Enterprise
 
 This article shows you how to enable and disable system-assigned managed identities for an application in Azure Spring Apps, using the Azure portal and CLI.
 

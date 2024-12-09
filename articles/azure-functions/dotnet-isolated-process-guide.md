@@ -71,7 +71,7 @@ When updating to the 2.x versions, note the following changes:
 
 - Starting with version 2.0.0 of [Microsoft.Azure.Functions.Worker.Sdk]:
     - The SDK includes default configurations for [SDK container builds](/dotnet/core/docker/publish-as-container).
-    - The SDK includes support for [`dotnet run`](/dotnet/core/tools/dotnet-run) when the [Azure Functions Core Tools](./functions-develop-local.md) is installed.
+    - The SDK includes support for [`dotnet run`](/dotnet/core/tools/dotnet-run) when the [Azure Functions Core Tools](./functions-develop-local.md) is installed. On Windows, the Core Tools needs to be installed through a mechanism other than NPM.
 - Starting with version 2.0.0 of [Microsoft.Azure.Functions.Worker]:
     - This version adds support for `IHostApplicationBuilder`. Some examples in this guide include tabs to show alternatives using `IHostApplicationBuilder`. These examples require the 2.x versions.
     - Service provider scope validation is included by default if run in a development environment. This behavior matches ASP.NET Core.
@@ -719,11 +719,16 @@ To enable ASP.NET Core integration for HTTP:
 
 #### JSON serialization with ASP.NET Core integration
 
-ASP.NET Core has its own serialization layer, and it is not affected by [customizing general serialization configuration](#customizing-json-serialization). To customize the serialization behavior used for your HTTP triggers, you need to include an `.AddMvc()` call as part of service registration. The returned `IMvcBuilder` can be used to modify ASP.NET Core's JSON serialization settings. The following example shows how to configure JSON.NET (`Newtonsoft.Json`) for serialization using this approach:
+ASP.NET Core has its own serialization layer, and it is not affected by [customizing general serialization configuration](#customizing-json-serialization). To customize the serialization behavior used for your HTTP triggers, you need to include an `.AddMvc()` call as part of service registration. The returned `IMvcBuilder` can be used to modify ASP.NET Core's JSON serialization settings.
+
+You can continue to use `HttpRequestData` and `HttpResponsedata` while using ASP.NET integration, though for most apps, it's better to instead use `HttpRequest` and `IActionResult`. Using `HttpRequestData`/`HttpResponseData` doesn't invoke the ASP.NET Core serialization layer and instead relies upon the [general worker serialization configuration](#customizing-json-serialization) for the app. However, when ASP.NET Core integration is enabled, you might still need to add configuration. The default behavior from ASP.NET Core is to disallow synchronous IO. To use a custom serializer that does not support asynchronous IO, such as `NewtonsoftJsonObjectSerializer`, you need to enable synchronous IO for your application by configuring the `KestrelServerOptions`.
+
+The following example shows how to configure JSON.NET (`Newtonsoft.Json`) and the [Microsoft.AspNetCore.Mvc.NewtonsoftJson NuGet package](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.NewtonsoftJson) for serialization using this approach:
 
 # [IHostBuilder](#tab/hostbuilder)
 
 ```csharp
+using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -735,6 +740,9 @@ var host = new HostBuilder()
         services.AddApplicationInsightsTelemetryWorkerService();
         services.ConfigureFunctionsApplicationInsights();
         services.AddMvc().AddNewtonsoftJson();
+
+        // Only needed if using HttpRequestData/HttpResponseData and a serializer that doesn't support asynchronous IO
+        // services.Configure<KestrelServerOptions>(options => options.AllowSynchronousIO = true);
     })
     .Build();
 host.Run();
@@ -743,6 +751,7 @@ host.Run();
 # [IHostApplicationBuilder](#tab/ihostapplicationbuilder)
 
 ```csharp
+using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.Functions.Worker.Builder;
 using Microsoft.Extensions.DependencyInjection;
@@ -757,6 +766,9 @@ builder.Services
     .ConfigureFunctionsApplicationInsights();
 
 builder.Services.AddMvc().AddNewtonsoftJson();
+
+// Only needed if using HttpRequestData/HttpResponseData and a serializer that doesn't support asynchronous IO
+// builder.Services.Configure<KestrelServerOptions>(options => options.AllowSynchronousIO = true);
 
 builder.Build().Run();
 ```

@@ -48,15 +48,15 @@ For Windows App:
 
 | Device platform | Managed devices | Unmanaged devices |
 |--|:--:|:--:|
-| iOS and iPadOS | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
-| Android | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
+| iOS and iPadOS | ✅ | ✅ |
+| Android | ✅ | ✅ |
 
 
 For the Remote Desktop app:
 
 | Device platform | Managed devices | Unmanaged devices |
 |--|:--:|:--:|
-| Android | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
+| Android | ✅ | ✅ |
 
 ## Example scenarios
 
