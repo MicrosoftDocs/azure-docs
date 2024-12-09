@@ -18,7 +18,7 @@ By the end of this tutorial, you deploy an AI-enabled application on Azure Conta
 
 The following screenshot shows how the AI assistant can help you.
 
-:::image type="content" source="media/first-ai-application/chat-diag.png" alt-text="Screenshot of AI chat.":::
+:::image type="content" source="media/first-ai-application/home-with-chatbot.png"  alt-text="Screenshot of home." lightbox="media/first-ai-application/home-with-chatbot.png":::
 
 ## Prerequisites
 
@@ -40,11 +40,14 @@ Install extensions
 
 ## General architecture structure
 
-Here's the architecture structure of the first AI application on Azure Container Apps:
+The following diagram shows the architecture of the AI application on Azure Container Apps:
 
-:::image type="content" source="media/first-ai-application/arch-chart.png" alt-text="The architecture structure of first AI application.":::
+:::image type="complex" source="media/first-ai-application/architecture-chart.png" alt-text="Diagram of the architecture of the AI application." lightbox="media/first-ai-application/architecture-chart.png":::
+   Diagram that shows the architecture of the AI application. Users access the system through authentication managed by Entra ID. The Azure Container App environment contains an API gatewway that enables routing for and communication with the application. The API gateway uses managed identities to securely interact with the Azure Container Registry and with Azure Cognitive Services. The API gateway also handles communication with external users. A virtual network between the API gateway and external systems provides secure and isolated network connectivity.
+:::image-end:::
 
-The key component of this sample:
+The key components of this sample:
+
 - [Azure Container Apps Environment](/azure/container-apps/environment), to run the container apps instances.
 - [Azure OpenAI Service](/azure/ai-services/openai/overview).
 - [Azure Container Registry](/azure/container-registry/container-registry-intro), to build and save images for the application.
