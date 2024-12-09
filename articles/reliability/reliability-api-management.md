@@ -6,7 +6,7 @@ ms.author: anaharris
 ms.topic: reliability-article
 ms.custom: subject-reliability, references_regions
 ms.service: azure-api-management
-ms.date: 11/13/2024
+ms.date: 12/09/2024
 zone_pivot_groups: api-management-sku
 #Customer intent: As an engineer responsible for business continuity, I want to understand the details of how Azure API Management works from a reliability perspective and plan disaster recovery strategies in alignment with the exact processes that Azure services follow during different kinds of situations. 
 ---
@@ -19,12 +19,9 @@ Resiliency is a shared responsibility between you and Microsoft and so this arti
 
 Azure API Management helps organizations publish APIs to external, partner, and internal developers to unlock the potential of their data and services. API Management provides the core competencies to ensure a successful API program through developer engagement, business insights, analytics, security, and protection. With API Management, you can create and manage modern API gateways for existing backend services hosted anywhere.
 
-<!-- TODO work out story for Consumption tier -->
-
 ::: zone pivot="basic,standard,developer,premium-classic,premium-v2"
 
 ## Redundancy
-<!-- TODO verify with PG -->
 
 When you deploy an Azure API Management instance, you configure one or more *units*, also called *scale units*. A unit is a logical representation of capacity. The Azure API Management platform provides resiliency even when you have a single unit. To learn more about units, see [Upgrade and scale an Azure API Management instance](../api-management/upgrade-and-scale.md).
 
@@ -32,13 +29,39 @@ When you configure a multi-zone or multi-region Azure API Managment instance, yo
 
 ::: zone-end
 
+::: zone pivot="consumption"
+
+## Consumption tier reliability
+
+The consumption tier of Azure API Management has built-in resiliency capabilities, and it is resilient to a range of faults within a single Azure datacenter. However, it doesn't provide support for availability zones or multi-region deployments. Review the [service level agreement](#service-level-agreement) to understand the expected uptime of a consumption tier Azure API Management instance.
+
+If you need great resiliency than the consumption tier provides, use a tier that supports the resiliency capabilities you require.
+
+::: zone-end
+
 ## Production deployment recommendations
 
 - Use Premium (classic) tier with the `stv2` compute platform for your API Management instance. The Premium tier provides the features you need to ensure high availability and reliability for your production workloads.
 
+<!-- TODO would we recommend using multiple scale units? -->
+
 - [Enable zone redundancy](#availability-zone-support), which requires your API Management service to deploy at least one unit in each availability zone. This configuration ensures that your API Management instance is resilient to datacenter-level failures.
 
 - If you use a multi-region deployment, use availability zones to improve the resilience of the primary region. You can also distribute units across availability zones and regions to enhance regional gateway performance.
+
+::: zone pivot="basic,standard,developer,premium-classic,premium-v2"
+
+## Capacity management
+
+You should also proactively monitor the capacity of your gateway. Azure API Management gateways provide [capacity metrics](/azure/api-management/api-management-capacity) that can indicate when your instance is approaching its maximum capacity. By monitoring the capacity, you can scale your instance before it reaches its maximum capacity, which can cause requests to fail as well as timeouts and latency problems.
+
+::: zone-end
+
+::: zone pivot="premium-classic"
+
+If you use [workspaces](../api-management/workspaces-overview.md) to share a single Azure API Management instance between multiple teams or groups, it's important to avoid one workspace consuming all of the capacity you deploy, which might cause outages or reliability issues for other workspaces. Consider using [workspace gateways](../api-management/workspaces-overview.md#workspace-gateway) to isolate the capacity used by each workspace.
+
+::: zone-end
 
 ## Transient faults 
 
@@ -46,11 +69,7 @@ When you configure a multi-zone or multi-region Azure API Managment instance, yo
 
 All applications should follow Azure's transient fault handling guidance when communicating with any cloud-hosted APIs, databases, and other components. To learn more about handling transient faults, see [Recommendations for handing transient faults](/azure/well-architected/reliability/handle-transient-faults).
 
-::: zone pivot="basic,standard,developer,premium-classic,premium-v2"
-
-You should also proactively monitor the capacity of your gateway. Azure API Management gateways provide [capacity metrics](/azure/api-management/api-management-capacity) that can indicate when your instance is approaching its maximum capacity. By monitoring the capacity, you can scale your instance before it reaches its maximum capacity, which can cause requests to fail as well as timeouts and latency problems. <!-- TODO does th>
-
-::: zone-end
+**Retries and circuit breakers:** When you use Azure API Management in front of an API, you might need to retry requests that fail due to transient requests while also protecting your backend API from being overwhelmed by too many requests. Backends provide you with the ability to create retry and circuit breaker logic to support your API's needs. For more information, see [Backends in API Management](../api-management/backends.md).
 
 ## Availability zone support
 
