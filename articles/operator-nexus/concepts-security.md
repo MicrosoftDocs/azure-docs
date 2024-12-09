@@ -61,11 +61,11 @@ Environmental controls such as RBAC and Service Account tests aren't evaluated b
 
 **NTF = Not Technically Feasible**
 
-### OpenSCAP STIG
+### OpenSCAP STIG - V2R2
 
-*Undercloud*
+*Cluster*
 
-:::image type="content" source="media/security/undercloud_openscap.png" alt-text="Screenshot of Undercloud OpenSCAP exceptions" lightbox="media/security/undercloud_openscap.png":::
+:::image type="content" source="media/security/nexus-cluster-openscap.png" alt-text="Screenshot of Cluster OpenSCAP exceptions" lightbox="media/security/nexus-cluster-openscap.png":::
 
 |STIG ID|Recommendation description|Status|Issue|
 |---|---|---|---|
@@ -77,9 +77,9 @@ Environmental controls such as RBAC and Service Account tests aren't evaluated b
 |V-242434|Kubernetes Kubelet must enable kernel protection.|NTF|Enabling kernel protection isn't feasible for kubeadm in Nexus|
 
 
-*Nexus Kubernetes/NAKS*
+*Nexus Kubernetes Cluster*
 
-:::image type="content" source="media/security/naks_openscap.png" alt-text="Screenshot of NAKS OpenSCAP exceptions" lightbox="media/security/naks_openscap.png":::
+:::image type="content" source="media/security/nexus-kubernetes-cluster-openscap.png" alt-text="Screenshot of Nexus Kubernetes Cluster OpenSCAP exceptions" lightbox="media/security/nexus-kubernetes-cluster-openscap.png":::
 
 |STIG ID|Recommendation description|Status|Issue|
 |---|---|---|---|
@@ -95,14 +95,14 @@ Environmental controls such as RBAC and Service Account tests aren't evaluated b
 
 As a secure service, Azure Kubernetes Service (AKS) complies with SOC, ISO, PCI DSS, and HIPAA standards. The following image shows the OpenSCAP file permission exceptions for the Cluster Manager AKS implementation.
 
-:::image type="content" source="media/security/cm_openscap.png" alt-text="Screenshot of Cluster Manager OpenSCAP exceptions" lightbox="media/security/cm_openscap.png":::
+:::image type="content" source="media/security/nexus-cluster-manager-openscap.png" alt-text="Screenshot of Cluster Manager OpenSCAP exceptions" lightbox="media/security/nexus-cluster-manager-openscap.png":::
 
 
 ### Aquasec Kube-Bench - CIS 1.9
 
-*Undercloud*
+*Cluster*
 
-:::image type="content" source="media/security/undercloud_kubebench.png" alt-text="Screenshot of Undercloud Kube-Bench exceptions" lightbox="media/security/undercloud_kubebench.png":::
+:::image type="content" source="media/security/nexus-cluster-kubebench.png" alt-text="Screenshot of Cluster Kube-Bench exceptions" lightbox="media/security/nexus-cluster-kubebench.png":::
 
 |CIS ID|Recommendation description|Status|Issue|
 |---|---|---|---|
@@ -113,9 +113,9 @@ As a secure service, Azure Kubernetes Service (AKS) complies with SOC, ISO, PCI 
 |1.1.12|Ensure that the `--kubelet-certificate-authority` argument is set as appropriate|NTF|Kubelet SANS includes hostname only|
 
 
-*Nexus Kubernetes/NAKS*
+*Nexus Kubernetes Cluster*
 
-:::image type="content" source="media/security/naks_kubebench.png" alt-text="Screenshot of NAKS Kube-Bench exceptions" lightbox="media/security/naks_kubebench.png":::
+:::image type="content" source="media/security/nexus-kubernetes-cluster-kubebench.png" alt-text="Screenshot of Nexus Kubernetes Cluster Kube-Bench exceptions" lightbox="media/security/nexus-kubernetes-cluster-kubebench.png":::
 
 |CIS ID|Recommendation description|Status|Issue|
 |---|---|---|---|
@@ -130,4 +130,4 @@ As a secure service, Azure Kubernetes Service (AKS) complies with SOC, ISO, PCI 
 
 The Operator Nexus Cluster Manager is an AKS implementation. The following image shows the Kube-Bench exceptions for the Cluster Manager. A full report of CIS Benchmark control evaluation for Azure Kubernetes Service (AKS) can be found [here](/azure/aks/cis-kubernetes)
 
-:::image type="content" source="media/security/cm_kubebench.png" alt-text="Screenshot of Cluster Manager Kube-Bench exceptions" lightbox="media/security/cm_kubebench.png":::
+:::image type="content" source="media/security/nexus-cluster-manager-kubebench.png" alt-text="Screenshot of Cluster Manager Kube-Bench exceptions" lightbox="media/security/nexus-cluster-manager-kubebench.png":::
