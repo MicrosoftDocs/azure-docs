@@ -198,7 +198,7 @@ After the effective utilization value is determined, the storage, network, and c
 
 ### As on-premises sizing
 
-If you use *as on-premises sizing*, Azure VMware Solution assessment doesn't consider the performance history of the VMs and disks. Instead, it allocates Azure VMware Solution nodes based on the size allocated on-premises. The default storage type is vSAN in Azure VMware Solution.
+If you use *as on-premises sizing*, Azure VMware Solution assessment doesn't consider the performance history of the VMs and disks. Instead, it allocates Azure VMware Solution nodes based on the size allocated on-premises. vSAN is part of all AVS SKUs' storage. Azure NetApp Files (Standard, Premium, and Ultra tiers) is used by default in the assessment if external storage can optimize the number of AVS nodes required.
 
 [Learn more](./tutorial-assess-vmware-azure-vmware-solution.md#review-an-assessment) about how to review an Azure VMware Solution assessment.
 
