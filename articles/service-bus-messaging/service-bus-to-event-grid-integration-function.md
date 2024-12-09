@@ -110,6 +110,8 @@ The messages you sent to the Service Bus topic earlier are forwarded to the subs
 
     You can also use the **Logs** tab to see the logging information as the messages are sent. There could be some delay, so give it a few minutes to see the logged messages. 
 
+    :::image type="content" source="./media/service-bus-to-event-grid-integration-example/function-logs.png" alt-text="Screenshot that shows the Logs tab for an Azure function." lightbox="./media/service-bus-to-event-grid-integration-example/function-logs.png":::
+
 ## Troubleshoot
 If you don't see any function invocations after waiting and refreshing for sometime, follow these steps: 
 
