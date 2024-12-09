@@ -4,11 +4,10 @@ description: Learn how to quickly configure backup for a Kubernetes cluster usin
 ms.service: azure-backup
 ms.topic: quickstart
 ms.date: 05/31/2024
-ms.custom: devx-track-terraform, devx-track-extended-azdevcli
+ms.custom: devx-track-terraform, devx-track-extended-azdevcli, ignite-2024
 ms.reviewer: rajats
 ms.author: v-abhmallick
 author: AbhishekMallick-MS
-
 ---
 
 # Quickstart: Configure vaulted backup for an Azure Kubernetes Service (AKS) cluster using PowerShell
@@ -46,6 +45,7 @@ $policyDefn = Get-AzDataProtectionPolicyTemplate -DatasourceType AzureKubernetes
 ```
 
 The policy template consists of a trigger criteria (which decides the factors to trigger the backup job) and a lifecycle (which decides when to delete, copy, or move the backups). In AKS backup, the default value for trigger is a scheduled hourly trigger is *every 4 hours (PT4H)* and retention of each backup is *seven days*. For vaulted backups add retention for vault datastore.
+
 
 ```azurepowershell
 New-AzDataProtectionBackupPolicy -ResourceGroupName "testBkpVaultRG" -VaultName $TestBkpVault.Name -Name aksBkpPolicy -Policy $policyDefn
@@ -93,7 +93,7 @@ With the created Backup vault and backup policy, and the AKS cluster in *ready-t
   Fetch the Azure Resource Manager ID of the AKS cluster to be protected. This serves as the identifier of the cluster. In this example, let's use an AKS cluster named *PSTestAKSCluster*, under a resource group *aksrg*, in a different subscription:
 
   ```azurepowershell
-  $sourceClusterId = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourcegroups/aksrg /providers/Microsoft.ContainerService/managedClusters/ PSTestAKSCluster "
+  $sourceClusterId = "/subscriptions/00001111-aaaa-2222-bbbb-3333cccc4444/resourcegroups/aksrg /providers/Microsoft.ContainerService/managedClusters/ PSTestAKSCluster "
   ```
 
 - **Snapshot resource group**
@@ -101,7 +101,7 @@ With the created Backup vault and backup policy, and the AKS cluster in *ready-t
   The persistent volume snapshots are stored in a resource group in your subscription. We recommend you to create a dedicated resource group as a snapshot datastore to be used by the Azure Backup service. 
 
   ```azurepowershell
-  $snapshotrg = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourcegroups/snapshotrg"
+  $snapshotrg = "/subscriptions/00001111-aaaa-2222-bbbb-3333cccc4444/resourcegroups/snapshotrg"
   ```
 
 ### Prepare the request

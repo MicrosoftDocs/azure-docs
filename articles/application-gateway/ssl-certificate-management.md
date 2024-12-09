@@ -17,7 +17,7 @@ Listener TLS/SSL certificates in Application Gateway are used for terminating cl
 
 The TLS/SSL certificates on application gateway are stored in local certificate objects or containers. This certificate container’s reference is then supplied to listeners to support TLS connections for clients. Refer to this illustration for better understanding.  
 
-![Diagram that shows how certficates are linked to a listener.](media/ssl-certificate-management/cert-reference.png)
+![Diagram that shows how certificates are linked to a listener.](media/ssl-certificate-management/cert-reference.png)
 
 Here is a sample application gateway configuration. The SSLCertificates property includes certificate object “contoso-agw-cert" linked to a key vault. The “listener1” references that certificate object.
 
@@ -27,7 +27,7 @@ Here is a sample application gateway configuration. The SSLCertificates property
 
 This section allows you to list all the SSL certificate objects that are present on your application gateway. This view is equivalent of running PowerShell command `Get-AzApplicationGatewaySslCertificate -ApplicationGateway $AppGW` or CLI command `az network application-gateway ssl-cert list --gateway-name --resource-group`. 
 
-![Diagram illustrates listener certficate management via portal.](media/ssl-certificate-management/listener-cert-list-view.png)
+![Diagram illustrates listener certificate management via portal.](media/ssl-certificate-management/listener-cert-list-view.png)
 
 This page gives you a quick summary of all the certificates, their types and association with listeners. 
 

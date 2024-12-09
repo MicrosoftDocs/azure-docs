@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 09/26/2024
+ms.date: 11/18/2024
 ms.custom: fasttrack-edit
 ---
 
@@ -57,8 +57,9 @@ For your workflow to run properly, some app settings are required.
 | Setting | Required | Value | Description |
 |---------|----------|-------|-------------|
 | `APP_KIND` | Yes | `workflowApp` | Required to set the app type for the Standard logic app resource. The value must be set to **`workflowApp`**. <br><br>**Note**: In some scenarios, this app setting might be missing, for example, due to automation using Azure Resource Manager templates or other scenarios where the setting isn't included. If certain actions don't work, such as the **Execute JavaScript Code** action, or if the workflow stops working, check that the **APP_KIND** app setting exists and is set to to **`workflowApp`**. |
+| `AZURE_AUTHORITY_HOST` | No | None | Sets the Standard logic app's default authority to use for OAuth authentication. |
 | `AzureWebJobsStorage` | Yes | None | Required to set the connection string for an Azure storage account. For more information, see [AzureWebJobsStorage](../azure-functions/functions-app-settings.md#azurewebjobsstorage). |
-| `FUNCTINONS_EXTENSION_VERSION` | Yes | `~4` | Required to set the Azure Functions version. For more information, see [FUNCTIONS_EXTENSION_VERSION](/azure/azure-functions/functions-app-settings#functions_extension_version). |
+| `FUNCTIONS_EXTENSION_VERSION` | Yes | `~4` | Required to set the Azure Functions version. For more information, see [FUNCTIONS_EXTENSION_VERSION](/azure/azure-functions/functions-app-settings#functions_extension_version). |
 | `FUNCTIONS_WORKER_RUNTIME` | Yes | `dotnet` | Required to set the language worker runtime for your logic app resource and workflows. <br><br>**Note**: This setting's value was previously set to **`node`**, but now the required value is **`dotnet`** for all new and existing deployed Standard logic apps. This change shouldn't affect your workflow's runtime, so everything should work the same way as before. <br><br>For more information, see [FUNCTIONS_WORKER_RUNTIME](../azure-functions/functions-app-settings.md#functions_worker_runtime). |
 | `ServiceProviders.Sftp.FileUploadBufferTimeForTrigger` | No | `00:00:20` <br>(20 seconds) | Sets the buffer time to ignore files that have a last modified timestamp that's greater than the current time. This setting is useful when large file writes take a long time and avoids fetching data for a partially written file. |
 | `ServiceProviders.Sftp.OperationTimeout` | No | `00:02:00` <br>(2 min) | Sets the time to wait before timing out on any operation. |

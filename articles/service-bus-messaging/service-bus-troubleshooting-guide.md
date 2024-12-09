@@ -20,7 +20,7 @@ To troubleshoot:
 - Try using the Web Socket transport option, which connects using port 443. For details, see [configure the transport](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/samples/Sample13_AdvancedConfiguration.md#configuring-the-transport).
 - See if your network is blocking specific IP addresses. For details, see [What IP addresses do I need to allow?](/azure/service-bus-messaging/service-bus-faq#what-ip-addresses-do-i-need-to-add-to-allowlist-)
 - If applicable, verify the proxy configuration. For details, see: [Configuring the transport](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/samples/Sample13_AdvancedConfiguration.md#configuring-the-transport)
-- For more information about troubleshooting network connectivity, see: [Connectivity, certificate, or timeout issues][#connectivity-certificate-or-timeout-issues].
+- For more information about troubleshooting network connectivity, see: [Connectivity, certificate, or timeout issues](#connectivity-certificate-or-timeout-issues).
 
 ### Secure socket layer (SSL) handshake failures
 This error can occur when an intercepting proxy is used. To verify, We recommend that you test the application in the host environment with the proxy disabled.
@@ -290,3 +290,11 @@ See the following articles:
 [MaxConcurrentSessions]: /dotnet/api/azure.messaging.servicebus.servicebussessionprocessoroptions.maxconcurrentsessions
 [DebugThreadPoolStarvation]: /dotnet/core/diagnostics/debug-threadpool-starvation
 [DiagnoseThreadPoolExhaustion]: /shows/on-net/diagnosing-thread-pool-exhaustion-issues-in-net-core-apps
+[TryTimeout]: https://learn.microsoft.com/dotnet/api/azure.messaging.servicebus.servicebusretryoptions.trytimeout?view=azure-dotnet
+[SessionIdleTimeout]: https://learn.microsoft.com/dotnet/api/azure.messaging.servicebus.servicebussessionprocessoroptions.sessionidletimeout?view=azure-dotnet
+[BackgroundService]: https://learn.microsoft.com/dotnet/api/microsoft.extensions.hosting.backgroundservice?view=dotnet
+[TransactionTimeout]: https://learn.microsoft.com/azure/service-bus-messaging/service-bus-transactions#timeout
+[CrossEntityTransactions]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/samples/Sample06_Transactions.md#transactions-across-entities
+[Transactions]: https://learn.microsoft.com/azure/service-bus-messaging/service-bus-transactions
+[TransactionOperations]: https://learn.microsoft.com/azure/service-bus-messaging/service-bus-transactions#operations-within-a-transaction-scope
+[ServiceBusQuotas]: https://learn.microsoft.com/azure/service-bus-messaging/service-bus-quotas

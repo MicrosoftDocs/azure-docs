@@ -98,9 +98,9 @@ To configure the clipboard using Group Policy in an Active Directory domain, fol
 
 1. Browse to one of the following policy sections. Use the policy section in **Computer Configuration** to the session host you target, and use the policy section in **User Configuration** applies to specific users you target.
 
-   - Machine: `Computer Configuration\Administrative Templates\Windows Components\Remote Desktop Services\Remote Desktop Session Host\Device and Resource Redirection`
+   - Machine: `Computer Configuration\Policies\Administrative Templates\Windows Components\Remote Desktop Services\Remote Desktop Session Host\Device and Resource Redirection`
    
-   - User: `User Configuration\Administrative Templates\Windows Components\Remote Desktop Services\Remote Desktop Session Host\Device and Resource Redirection`
+   - User: `User Configuration\Policies\Administrative Templates\Windows Components\Remote Desktop Services\Remote Desktop Session Host\Device and Resource Redirection`
 
    :::image type="content" source="media/redirection-remote-desktop-protocol/redirection-configuration-group-policy.png" alt-text="A screenshot showing the device and resource redirection options in the Group Policy editor.":::
 

@@ -7,7 +7,7 @@ author: normesta
 ms.topic: conceptual
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.date: 03/09/2023
+ms.date: 11/15/2024
 ms.service: azure-data-lake-storage
 ---
 

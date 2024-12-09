@@ -13,7 +13,7 @@ services: iot-edge
 
 # PowerShell functions for IoT Edge for Linux on Windows
 
-[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 Understand the PowerShell functions that deploy, provision, and get the status of your IoT Edge for Linux on Windows (EFLOW) virtual machine.
 

@@ -2,6 +2,8 @@
 title: Azure subscription limits and quotas
 description: Provides a list of common Azure subscription and service limits, quotas, and constraints. This article includes information on how to increase limits along with maximum values.
 ms.topic: conceptual
+ms.custom:
+  - ignite-2024
 ms.date: 07/19/2024
 ---
 
@@ -579,6 +581,11 @@ The maximum number of allowed Managed Run Commands is currently limited to 25.
 ## Dev tunnels limits
 
 [!INCLUDE [dev-tunnels-service-limits](../../../includes/dev-tunnels/dev-tunnels-service-limits.md)]
+
+## Network Security Perimeters limits
+
+[!INCLUDE [network-security-perimeter-limits](../../../includes/network-security-perimeter-limits.md)]
+
 
 ## See also
 
