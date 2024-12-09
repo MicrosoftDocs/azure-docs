@@ -15,7 +15,7 @@ ms.date: 12/05/2024
 
 This article provides a step-by-step guide on how to set up and use dev box with physical devices to develop Android applications. By following these instructions, you can ensure a smooth connection and configuration for your development environment.
 
-## Use dev box to develop Android applications
+## Connect Android devices to a dev box
 
 **Prepare the computer you connect from:**
 1. To open Device Manager, from the search box on the taskbar, run `devmgmt.msc`.
