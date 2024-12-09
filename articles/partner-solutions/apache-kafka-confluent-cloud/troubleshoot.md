@@ -64,6 +64,27 @@ If SSO isn't working for the Confluent Cloud SaaS portal, verify you're using th
 
 If the problem persists, contact [Confluent support](https://support.confluent.io).
 
+## Unable to create a service connection to Confluent Kafka using Service Connector
+
+1. Ensure that your Confluent organization is up and running.
+1. If you have opted for the Confluent marketplace resource, please ensure that your Azure Native Confluent organization is still active and not in an unsubscribed status.
+1. If you're using a schema-based data type like AVRO, please ensure you also opt for configuring the schema registry.
+
+## Unable to see the list of connectors using Confluent connectors
+
+If you're not able to see the list of connectors, please make sure you have the Subscription owner or contributor rights. If not, contact your Azure subscription administrator.
+
+## Creating a Confluent connector fails
+
+1. If you're not able to create a connector, please check if you have the right permissions and all the mandatory fields are inputted.
+1. Check that the Azure service you're trying to connect to is configured properly.  
+1. If the issue still persists, contact [Confluent support](https://support.confluent.io).
+
+## Not able to see my Confluent connector in the list
+
+1. If you just created a new connector and are not able to see it in the list of connectors, select **Refresh**.
+2. If you still do not see your connector, contact [Confluent support](https://support.confluent.io).
+
 ## Next steps
 
 - Learn about [managing your instance](manage.md) of Apache Kafka & Apache Flink on Confluent Cloud.

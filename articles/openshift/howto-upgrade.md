@@ -2,8 +2,8 @@
 title: Upgrade an Azure Red Hat OpenShift cluster
 description: Learn how to upgrade an Azure Red Hat OpenShift cluster running OpenShift 4
 ms.service: azure-redhat-openshift
-ms.topic: article
-ms.date: 6/12/2023
+ms.topic: how-to
+ms.date: 12/06/2023
 author: johnmarco
 ms.author: johnmarc
 keywords: aro, openshift, az aro, red hat, cli, azure, MUO, managed, upgrade, operator
@@ -78,5 +78,5 @@ $ oc create -f <file_name>.yaml
 ```
 
 ## Next steps
-- [Learn to upgrade an Azure Red Hat OpenShift cluster using the OC CLI](https://docs.openshift.com/container-platform/4.10/updating/index.html).
+- [Learn to upgrade an Azure Red Hat OpenShift cluster using the OC CLI](https://docs.openshift.com/container-platform/4.17/updating/updating_a_cluster/updating-cluster-cli.html).
 - You can find information about available OpenShift Container Platform advisories and updates in the [errata section](https://access.redhat.com/downloads/content/290/ver=4.10/rhel---8/4.10.13/x86_64/product-software) of the Customer Portal.

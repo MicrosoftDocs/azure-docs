@@ -1,9 +1,8 @@
 ---
  title: include file
  description: include file
- services: service-bus-messaging
  author: spelluru
- ms.service: service-bus-messaging
+ ms.service: azure-service-bus
  ms.topic: include
  ms.date: 11/28/2023
  ms.author: spelluru
@@ -19,7 +18,7 @@ To create a namespace:
 2. Navigate to the [**All services** page](https://portal.azure.com/#allservices/category/All).
 3. On the left navigation bar, select **Integration** from the list of categories, hover the mouse over **Service Bus**, and then select **+** button on the Service Bus tile. 
     
-    :::image type="content" source="./media/service-bus-create-namespace-portal/create-resource-service-bus-menu.png" alt-text="Image showing selection of Create a resource, Integration, and then Service Bus in the menu.":::
+    :::image type="content" source="./media/service-bus-create-namespace-portal/create-resource-service-bus-menu.png" alt-text="Image showing selection of Create a resource, Integration, and then Service Bus in the menu." lightbox="./media/service-bus-create-namespace-portal/create-resource-service-bus-menu.png":::
 4. In the **Basics** tag of the **Create namespace** page, follow these steps: 
     1. For **Subscription**, choose an Azure subscription in which to create the namespace.
     1. For **Resource group**, choose an existing resource group in which the namespace will live, or create a new one.      

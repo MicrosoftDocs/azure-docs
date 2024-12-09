@@ -15,7 +15,7 @@ ms.date: 05/14/2023
 
 This quickstart describes how to use an Azure Resource Manager template (ARM template) to create Azure Nexus Kubernetes cluster.
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 
 ## Prerequisites

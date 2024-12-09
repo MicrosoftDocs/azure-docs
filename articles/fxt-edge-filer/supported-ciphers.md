@@ -1,14 +1,17 @@
 ---
 title: 'Supported encryption ciphers for Azure FXT Edge Filer'
 description: List of encryption standards used by FXT Edge Filer clusters.
-author: femila
-ms.author: femila
-ms.service: fxt-edge-filer
+author: pauljewellmsft
+ms.author: pauljewell
+ms.service: azure-fxt-edge-filer
 ms.topic: conceptual
 ms.date: 05/20/2021
 ---
 
 # Supported encryption standards for Azure FXT Edge Filer
+
+> [!NOTE]
+> **Action Required:** Azure FXT Edge Filer will be retired on December 31, 2026. Please remove all Azure FXT Edge Filer resources by December 31, 2026. Visit https://aka.ms/fxtretirementfaq for more information.
 
 This document describes encryption standards needed for Azure FXT Edge Filer. These standards are implemented as of the operating system version 5.1.1.2.
 

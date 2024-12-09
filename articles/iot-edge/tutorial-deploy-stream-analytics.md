@@ -5,7 +5,7 @@ author: PatAltimore
 ms.author: patricka
 ms.date: 04/08/2024
 ms.topic: tutorial
-ms.service: iot-edge
+ms.service: azure-iot-edge
 ms.custom: mvc
 ---
 
@@ -34,7 +34,7 @@ Azure Stream Analytics provides a richly structured query syntax for data analys
 
 ## Prerequisites
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 * An Azure IoT Edge device.
 

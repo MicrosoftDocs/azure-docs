@@ -1,8 +1,8 @@
 ---
 title: ServicePrincipalSelector UI element
 description: Describes the Microsoft.Common.ServicePrincipalSelector UI element for Azure portal. Provides a control to choose an application and a textbox to input a password or certificate thumbprint.
-ms.topic: conceptual
-ms.date: 11/17/2020
+ms.topic: reference
+ms.date: 06/21/2024
 ---
 
 # Microsoft.Common.ServicePrincipalSelector UI element
@@ -80,7 +80,7 @@ To use an existing application, choose **Select Existing** and then select **Mak
 
 ## Example
 
-The following is an example of the `Microsoft.Common.ServicePrincipalSelector` control. The `defaultValue` property sets `principalId` to `<default guid>` as a placeholder for a default application identifier GUID.
+The following code is an example of the `Microsoft.Common.ServicePrincipalSelector` control. The `defaultValue` property sets `principalId` to `<default guid>` as a placeholder for a default application identifier GUID.
 
 ```json
 {
@@ -139,7 +139,7 @@ The following is an example of the `Microsoft.Common.ServicePrincipalSelector` c
 
 ## Example output
 
-The `appId` is the Id of the application registration that you selected or created. The `objectId` is an array of object Ids for the service principals configured for the selected application registration.
+The `appId` is the ID of the application registration that you selected or created. The `objectId` is an array of object Ids for the service principals configured for the selected application registration.
 
 When no selection is made from the control, the `newOrExisting` property value is **new**:
 

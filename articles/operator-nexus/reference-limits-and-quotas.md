@@ -73,6 +73,7 @@ There are several Azure resources that are required to build up Network Fabric C
 | Resource Type	              | # of vCPUs |
 | --------------------------- | -------------------------|
 | Virtual Machine             |	32 (D4_v2), 120 (DS4_v2), 4 (D2s_v3) |
+| Standard DSv2 Family vCPUs  | quota limit 200; distributed across zones 1, 2, and 3 |
 
 > [!NOTE]
 > The number of vCPUs and the family SKUs required are subject to change.
@@ -94,4 +95,4 @@ The table here briefly mentions other Azure resources that are necessary. Howeve
 | Load Balancers (Standard)	   | [Load Balancer Limits](../azure-resource-manager/management/azure-subscription-service-limits.md#load-balancer) |
 | Public IP Address (Standard) | [Public IP Address Limits](../azure-resource-manager/management/azure-subscription-service-limits.md#publicip-address) |
 | Azure Monitor Metrics	       | [Azure Monitor Limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-monitor-limits) |
-| Log Analytics Workspace	   | [Log Analytics Workspace Limits](../azure-monitor/service-limits.md#log-analytics-workspaces) |
+| Log Analytics Workspace	   | [Log Analytics Workspace Limits](/azure/azure-monitor/service-limits#log-analytics-workspaces) |

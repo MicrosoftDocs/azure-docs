@@ -1,6 +1,6 @@
 ---
 author: maud-lv
-ms.service: managed-grafana
+ms.service: azure-managed-grafana
 ms.topic: include
 ms.date: 04/18/2024
 ms.author: malev
@@ -15,6 +15,6 @@ ms.author: malev
 | Data query timeout                   | Maximum wait duration for the reception of data query response headers, before Grafana times out.                                                                    | 200 seconds            | 200 seconds            |
 | Data source query size               | Maximum number of bytes that are read/accepted from responses of outgoing HTTP requests.                                                                             | 80 MB                  | 80 MB                  |
 | Render image or PDF report wait time | Maximum duration for an image or report PDF rendering request to complete before Grafana times out.                                                                  | Not supported          | 220 seconds            |
-| Instance count                       | Maximum number of instances in a single subscription per Azure region.                                                                                               | 1                      | 20                     |
+| Instance count                       | Maximum number of instances in a single subscription per Azure region.                                                                                               | 1                      | 50                     |
 | Requests per IP                      | Maximum number of requests per IP per second.                                                                                                                        | 90 requests per second | 90 requests per second |
 | Requests per HTTP host               | Maximum number of requests per HTTP host per second. The HTTP host stands for the Host header in incoming HTTP requests, which can describe each unique host client. | 45 requests per second | 45 requests per second |

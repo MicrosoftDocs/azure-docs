@@ -2,7 +2,7 @@
 title: Use VMware Tanzu Application Accelerator with the Azure Spring Apps Enterprise plan
 description: Learn how to use VMware Tanzu App Accelerator with the Azure Spring Apps Enterprise plan.
 author: KarlErickson
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
 ms.date: 01/23/2024
 ms.author: caiqing
@@ -11,10 +11,9 @@ ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 
 # Use VMware Tanzu Application Accelerator with the Azure Spring Apps Enterprise plan
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ❌ Basic/Standard ✔️ Enterprise
+**This article applies to:** ❎ Basic/Standard ✅ Enterprise
 
 This article shows you how to use [Application Accelerator for VMware Tanzu](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.5/tap/application-accelerator-about-application-accelerator.html) (App Accelerator) with the Azure Spring Apps Enterprise plan to bootstrap developing your applications in a discoverable and repeatable way.
 
@@ -78,7 +77,7 @@ Use the following steps to provision an Azure Spring Apps service instance with 
        --plan asa-ent-hr-mtr
    ```
 
-1. Select a location. The location must support the Azure Spring Apps Enterprise plan. For more information, see the [Azure Spring Apps FAQ](faq.md).
+1. Select a location. The location must support the Azure Spring Apps Enterprise plan. For more information, see the [Azure Spring Apps FAQ](../basic-standard/faq.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json).
 
 1. Use the following command to create a resource group:
 
@@ -154,7 +153,7 @@ Managing your accelerators requires the following permissions:
 - Write: Create or Update Microsoft Azure Spring Apps Customized Accelerator
 - Read: Get Azure Spring Apps Customized Accelerator
 
-For more information, see [How to use permissions in Azure Spring Apps](./how-to-permissions.md).
+For more information, see [How to use permissions in Azure Spring Apps](../basic-standard/how-to-permissions.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json).
 
 ### Manage predefined accelerators
 
@@ -200,7 +199,7 @@ az spring application-accelerator predefined-accelerator enable \
 
 ### Manage your own accelerators
 
-In addition to using the predefined accelerators, you can create your own accelerators. You can use any Git repository in Azure Devops, GitHub, GitLab, or BitBucket.
+In addition to using the predefined accelerators, you can create your own accelerators. You can use any Git repository in Azure DevOps, GitHub, GitLab, or BitBucket.
 
 Use the following steps to create and maintain your own accelerators:
 
@@ -372,8 +371,6 @@ Use the following steps to bootstrap a new project using accelerators:
 
 1. Select **EXPLORE FILE** to view the project structure and source code.
 
-   :::image type="content" source="media/how-to-use-accelerator/explore-accelerator-project.png" alt-text="Screenshot of the VMware Tanzu Dev Tools for Azure Spring Apps Explore project pane." lightbox="media/how-to-use-accelerator/explore-accelerator-project.png":::
-
 1. Select **Review and generate** to review the specified parameters, and then select **Generate accelerator**.
 
    :::image type="content" source="media/how-to-use-accelerator/generate-accelerator.png" alt-text="Screenshot of the VMware Tanzu Dev Tools for Azure Spring Apps Generate Accelerators page that shows the Review and generate section." lightbox="media/how-to-use-accelerator/generate-accelerator.png":::
@@ -388,7 +385,7 @@ When you set up a private Git repository and enable HTTPS with a self-signed cer
 
 Use the following steps to configure accelerators with a self-signed certificate:
 
-1. Import the certificates into Azure Spring Apps. For more information, see the [Import a certificate](how-to-use-tls-certificate.md#import-a-certificate) section of [Use TLS/SSL certificates in your application in Azure Spring Apps](how-to-use-tls-certificate.md).
+1. Import the certificates into Azure Spring Apps. For more information, see the [Import a certificate](../basic-standard/how-to-use-tls-certificate.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json#import-a-certificate) section of [Use TLS/SSL certificates in your application in Azure Spring Apps](../basic-standard/how-to-use-tls-certificate.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json).
 1. Configure the certificate for the accelerator by using the Azure portal or the Azure CLI.
 
 #### [Azure portal](#tab/Portal)
@@ -417,7 +414,7 @@ az spring application-accelerator customized-accelerator create \
 As certificates expire, you need to rotate certificates in Spring Cloud Apps by using the following steps:
 
 1. Generate new certificates from a trusted CA.
-1. Import the certificates into Azure Spring Apps. For more information, see the [Import a certificate](how-to-use-tls-certificate.md#import-a-certificate) section of [Use TLS/SSL certificates in your application in Azure Spring Apps](how-to-use-tls-certificate.md).
+1. Import the certificates into Azure Spring Apps. For more information, see the [Import a certificate](../basic-standard/how-to-use-tls-certificate.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json#import-a-certificate) section of [Use TLS/SSL certificates in your application in Azure Spring Apps](../basic-standard/how-to-use-tls-certificate.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json).
 1. Synchronize the certificates using the Azure portal or the Azure CLI.
 
 The accelerators won't automatically use the latest certificate. You should sync one or all certificates by using the Azure portal or the Azure CLI.

@@ -2,9 +2,9 @@
 title: Azure Gateway Load Balancer partners
 description: Learn about partners offering their network appliances for use with Azure Gateway Load Balancer.
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: conceptual
-ms.date: 05/22/2023
+ms.date: 06/26/2024
 ms.author: mbender
 ms.custom: template-concept
 ---

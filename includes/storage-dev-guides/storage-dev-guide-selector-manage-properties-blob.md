@@ -15,5 +15,5 @@ ms.custom: include file
 > - [.NET](../../articles/storage/blobs/storage-blob-properties-metadata.md)
 > - [Java](../../articles/storage/blobs/storage-blob-properties-metadata-java.md)
 > - [JavaScript](../../articles/storage/blobs/storage-blob-properties-metadata-javascript.md)
-> - [TypeScript](../../articles/storage/blobs/storage-blob-properties-metadata-typescript.md)
 > - [Python](../../articles/storage/blobs/storage-blob-properties-metadata-python.md)
+> - [Go](../../articles/storage/blobs/storage-blob-properties-metadata-go.md)

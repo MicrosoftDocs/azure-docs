@@ -1,7 +1,7 @@
 ---
 title: Tutorial - Create and deploy template
 description: Create your first Azure Resource Manager template (ARM template). In the tutorial, you learn about the template file syntax and how to deploy a storage account.
-ms.date: 07/28/2023
+ms.date: 06/20/2024
 ms.topic: tutorial
 ms.custom: devx-track-arm-template
 #Customer intent: As a developer new to Azure deployment, I want to learn how to use Visual Studio Code to create and edit Azure Resource Manager templates, so I can use them to deploy Azure resources.
@@ -120,8 +120,6 @@ When you deploy a template, you can specify a resource group to contain the reso
 > [!NOTE]
 > Samples for the Azure CLI are written for the bash shell. To run this sample in Windows PowerShell or the Command Prompt, you may need to remove the back slashes and write the command as one line such as:
 
-```az group create --name myResourceGroup --location "Central US"```
-
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
@@ -203,7 +201,7 @@ You can verify the deployment by exploring the resource group from the Azure por
 
     :::image type="content" source="./media/template-tutorial-create-first-template/select-from-deployment-history.png" alt-text="Screenshot of Azure portal displaying the deployment history with the blanktemplate deployment selected.":::
 
-1. You see a summary of the deployment. In this case, there's not a lot to see because no resources are deployed. Later in this series you might find it helpful to review the summary in the deployment history. Notice on the left you can see inputs, outputs, and  the template that the deployment used.
+1. You see a summary of the deployment. In this case, there's not a lot to see because no resources are deployed. Later in this series you might find it helpful to review the summary in the deployment history. Notice on the left you can see inputs, outputs, and the template that the deployment used.
 
     :::image type="content" source="./media/template-tutorial-create-first-template/view-deployment-summary.png" alt-text="Screenshot of Azure portal showing the deployment summary for the blanktemplate deployment.":::
 

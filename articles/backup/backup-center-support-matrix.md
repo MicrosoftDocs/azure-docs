@@ -1,15 +1,17 @@
 ---
 title: Support matrix for Backup center for Azure Backup
 description: This article summarizes the scenarios that Backup center supports for each workload type
-ms.topic: references
-ms.date: 03/27/2024
-ms.service: backup
+ms.topic: reference
+ms.date: 09/24/2024
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ms.custom: engagement-fy24
 ---
 
 # Support matrix for Backup center
+
+[!INCLUDE [backup-center-deprecation.md ](../../includes/backup-center-deprecation.md )]
 
 This article summarizes the scenarios that Backup center supports for each workload type.
 

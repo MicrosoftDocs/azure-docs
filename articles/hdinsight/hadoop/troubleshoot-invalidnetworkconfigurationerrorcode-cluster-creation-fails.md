@@ -1,9 +1,9 @@
 ---
 title: InvalidNetworkConfigurationErrorCode error - Azure HDInsight
 description: Various reasons for failed cluster creations with InvalidNetworkConfigurationErrorCode in Azure HDInsight
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: troubleshooting
-ms.date: 09/27/2023
+ms.date: 09/06/2024
 ---
 
 # Cluster creation fails with InvalidNetworkConfigurationErrorCode in Azure HDInsight
@@ -20,7 +20,7 @@ Error description contains "HostName Resolution failed."
 
 ### Cause
 
-This error points to a problem with custom DNS configuration. DNS servers within a virtual network can forward DNS queries to Azure's recursive resolvers to resolve hostnames within that virtual network (see [Name Resolution in Virtual Networks](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) for details). Access to Azure's recursive resolvers is provided via the virtual IP 168.63.129.16. This IP is only accessible from the Azure VMs. It is nonfunctional if you are using an OnPrem DNS server, or your DNS server is an Azure VM, which is not part of the cluster's virtual network.
+This error points to a problem with custom DNS configuration. DNS servers within a virtual network can forward DNS queries to Azure's recursive resolvers to resolve hostnames within that virtual network (see [Name Resolution in Virtual Networks](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) for details). Access to Azure's recursive resolvers is provided via the virtual IP 168.63.129.16. This IP is only accessible from the Azure VMs. It's nonfunctional if you're using an on-premises DNS server, or your DNS server is an Azure VM, which isn't part of the cluster's virtual network.
 
 ### Resolution
 
@@ -50,11 +50,11 @@ Azure Storage and SQL don't have fixed IP Addresses, so we need to allow outboun
 
 ### Resolution
 
-* If your cluster uses a [Network Security Group (NSG)](../../virtual-network/virtual-network-vnet-plan-design-arm.md).
+* If your cluster uses a [Network Security Group (NSG)](../../virtual-network/virtual-network-vnet-plan-design-arm.md)
 
     Go to the Azure portal and identify the NSG that is associated with the subnet where the cluster is being deployed. In the **Outbound security rules** section, allow outbound access to internet without limitation (note that a smaller **priority** number here means higher priority). Also, in the **subnets** section, confirm if this NSG is applied to the cluster subnet.
 
-* If your cluster uses a [User-defined Routes (UDR)](../../virtual-network/virtual-networks-udr-overview.md).
+* If your cluster uses a [User-defined Routes (UDR)](../../virtual-network/virtual-networks-udr-overview.md)
 
     Go to the Azure portal and identify the route table that is associated with the subnet where the cluster is being deployed. Once you find the route table for the subnet, inspect the **routes** section in it.
 
@@ -68,14 +68,14 @@ Error description contains "Failed to establish an outbound connection from the 
 
 ### Cause
 
-When using Private Linked HDInsight clusters, outbound access from the cluster must be configured to allow connections to be made to the HDInsight resource provider.
+When you use Private Linked HDInsight clusters, outbound access from the cluster must be configured to allow connections to be made to the HDInsight resource provider.
 
 ### Resolution
 
 * To resolve this issue, refer to the HDInsight Private Link setup steps at [private link setup](../hdinsight-private-link.md)
 ---
 
-## "Virtual network configuration is not compatible with HDInsight requirement"
+## "Virtual network configuration isn't compatible with HDInsight requirement"
 
 ### Issue
 
@@ -116,7 +116,7 @@ Validate that 168.63.129.16 is in the custom DNS chain. DNS servers within a vir
 
     Based on the result - choose one of the following steps to follow:
 
-#### 168.63.129.16 is not in this list
+#### 168.63.129.16 isn't in this list
 
 **Option 1**  
 Add 168.63.129.16 as the first custom DNS for the virtual network using the steps described in [Plan a virtual network for Azure HDInsight](../hdinsight-plan-virtual-network-deployment.md). These steps are applicable only if your custom DNS server runs on Linux.
@@ -155,6 +155,6 @@ If you didn't see your problem or are unable to solve your issue, visit one of t
 
 * Get answers from Azure experts through [Azure Community Support](https://azure.microsoft.com/support/community/).
 
-* Connect with [@AzureSupport](https://twitter.com/azuresupport) - the official Microsoft Azure account for improving customer experience by connecting the Azure community to the right resources: answers, support, and experts.
+* Connect with [@AzureSupport](https://x.com/azuresupport) - the official Microsoft Azure account for improving customer experience by connecting the Azure community to the right resources: answers, support, and experts.
 
-* If you need more help, you can submit a support request from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Select **Support** from the menu bar or open the **Help + support** hub. For more detailed information, review [How to create an Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md). Access to Subscription Management and billing support is included with your Microsoft Azure subscription, and Technical Support is provided through one of the [Azure Support Plans](https://azure.microsoft.com/support/plans/).
+* If you need more help, you can submit a support request from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Select **Support** from the menu bar or open the **Help + support** hub. For more detailed information, review [How to create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request). Access to Subscription Management and billing support is included with your Microsoft Azure subscription, and Technical Support is provided through one of the [Azure Support Plans](https://azure.microsoft.com/support/plans/).

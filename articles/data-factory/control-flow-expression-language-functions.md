@@ -5,11 +5,10 @@ description: This article provides information about expressions and functions t
 author: kromerm
 ms.author: makromer
 ms.reviewer: jburchel
-ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/20/2023
+ms.date: 05/17/2024
 ---
 
 # Expressions and functions in Azure Data Factory and Azure Synapse Analytics
@@ -190,11 +189,13 @@ Corporation
 
 ### Escaping single quote character
 
-Expression functions use single quote for string value parameters. Use two single quotes to escape a `'` character in string functions. For example, expression `@concat('Baba', '''s ', 'book store')` will return below result.
+Expression functions in pipelines use the single quote (_'_) to surround string value parameters. Use two consecutive single quote characters within a pipeline string expression to include a single quote. Here's an example: expression `@concat('Here is a double quote character: ". ', 'And here is a single quote character all within the same string: ''.')` will return the following result:
 
 ```
-Baba's book store
+Here is a double quote character: ". And here is a single quote character all within the same string: '.
 ```
+
+However, in data flow expressions, this syntax isn't supported. Instead, data flow expressions can be surrounded by either single or double quotes. Enclose text requiring single quotes within double quotes, and text requiring double quotes within single quotes, within string functions. If you require a string containing both single and double quotes, you can use `concat()` to merge two substrings that each contain either single quotes or double quotes. The data flow equivalent of the previous pipeline expression example would be `concat('Here is a double quote character: ". ', "And here is a single quote character all within the same string: '.")`. In a data flow, that expression will return the same result as the previous example for pipeline expressions.
 
 ### Tutorial
 This [tutorial](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-data-factory-passing-parameters/Azure%20data%20Factory-Whitepaper-PassingParameters.pdf) walks you through how to pass parameters between a pipeline and activity as well as between the activities.  The tutorial specifically demonstrates steps for an Azure Data Factory although steps for a Synapse workspace are nearly equivalent but with a slightly different user interface.

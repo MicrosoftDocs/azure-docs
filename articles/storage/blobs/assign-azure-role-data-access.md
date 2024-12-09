@@ -6,7 +6,7 @@ author: pauljewellmsft
 ms.author: pauljewell
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 02/16/2024
+ms.date: 08/28/2024
 ms.reviewer: dineshm
 ms.devlang: powershell
 # ms.devlang: powershell, azurecli
@@ -73,10 +73,10 @@ The first response returns the security principal, and the second returns the se
 UserPrincipalName : markpdaniels@contoso.com
 ObjectType        : User
 DisplayName       : Mark P. Daniels
-Id                : ab12cd34-ef56-ab12-cd34-ef56ab12cd34
+Id                : aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
 Type              : 
 
-ab12cd34-ef56-ab12-cd34-ef56ab12cd34
+aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
 ```
 
 The `-RoleDefinitionName` parameter value is the name of the RBAC role that needs to be assigned to the principal. To access blob data in the Azure portal with Microsoft Entra credentials, a user must have the following role assignments:
@@ -113,7 +113,7 @@ The following example assigns the **Storage Blob Data Reader** role to a user by
 
 <!-- replaycheck-task id="3361d580" -->
 ```powershell
-New-AzRoleAssignment -ObjectID "ab12cd34-ef56-ab12-cd34-ef56ab12cd34" `
+New-AzRoleAssignment -ObjectID "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb" `
     -RoleDefinitionName "Storage Blob Data Reader" `
     -Scope  "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-account-name>"
 ```
@@ -160,7 +160,7 @@ The following example assigns the **Storage Blob Data Reader** role to a user by
 ```azurecli-interactive
 az role assignment create \
     --role "Storage Blob Data Reader" \
-    --assignee-object-id "ab12cd34-ef56-ab12-cd34-ef56ab12cd34" \
+    --assignee-object-id "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb" \
     --assignee-principal-type "User" \
     --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-account-name>"
 ```
@@ -177,6 +177,7 @@ Keep in mind the following points about Azure role assignments in Azure Storage:
 
 - When you create an Azure Storage account, you aren't automatically assigned permissions to access data via Microsoft Entra ID. You must explicitly assign yourself an Azure role for Azure Storage. You can assign it at the level of your subscription, resource group, storage account, or container.
 - When you assign roles or remove role assignments, it can take up to 10 minutes for changes to take effect.
+- Built-in roles with data actions can be assigned at management group [scope](/azure/role-based-access-control/scope-overview#scope-levels). However, in rare scenarios there might be a significant delay (up to 12 hours) before data action permissions are effective for certain resource types. Permissions will eventually be applied. For built-in roles with data actions, adding or removing role assignments at management group scope is not recommended for scenarios where timely permission activation or revocation, such as Microsoft Entra Privileged Identity Management (PIM), is required.
 - If the storage account is locked with an Azure Resource Manager read-only lock, then the lock prevents the assignment of Azure roles that are scoped to the storage account or a container.
 - If you set the appropriate allow permissions to access data via Microsoft Entra ID and are unable to access the data, for example you're getting an "AuthorizationPermissionMismatch" error. Be sure to allow enough time for the permissions changes you made in Microsoft Entra ID to replicate, and be sure that you don't have any deny assignments that block your access, see [Understand Azure deny assignments](../../role-based-access-control/deny-assignments.md).
 

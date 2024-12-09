@@ -4,18 +4,17 @@ titleSuffix: Azure Spring Apps Enterprise plan
 description: Learn how to deploy web static files.
 author: KarlErickson
 ms.author: yili7
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 5/25/2023
+ms.date: 08/29/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
 
 # Deploy web static files
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ❌ Basic/Standard ✔️ Enterprise
+**This article applies to:** ❎ Basic/Standard ✅ Enterprise
 
 This article shows you how to deploy your static files to an Azure Spring Apps Enterprise plan instance using the Tanzu Web Servers buildpack. This approach is useful if you have applications that are purely for holding static files like HTML, CSS, or front-end applications built with the JavaScript framework of your choice. You can directly deploy these applications with an automatically configured web server (HTTPD and NGINX) to serve those assets.
 
@@ -64,7 +63,7 @@ az spring app deploy
 
 #### [User managed container registry](#tab/user-managed-container-registry1)
 
-In this example, build and deploy are separate commands. A user managed container registry supports deployment only with a custom image. For more information, see [Deploy an application with a custom container image](how-to-deploy-with-custom-container-image.md).
+In this example, build and deploy are separate commands. A user managed container registry supports deployment only with a custom image. For more information, see [Deploy an application with a custom container image](../basic-standard/how-to-deploy-with-custom-container-image.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json).
 
 The following command creates a new build:
 
@@ -124,7 +123,7 @@ az spring app deploy \
 
 #### [User managed container registry](#tab/user-managed-container-registry2)
 
-In this example, build and deploy are separate commands. A user managed container registry supports deployment only with a custom image. For more information, see [Deploy an application with a custom container image](how-to-deploy-with-custom-container-image.md).
+In this example, build and deploy are separate commands. A user managed container registry supports deployment only with a custom image. For more information, see [Deploy an application with a custom container image](../basic-standard/how-to-deploy-with-custom-container-image.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json).
 
 The following command creates a new build:
 
@@ -181,7 +180,7 @@ az spring app deploy \
 
 #### [User managed container registry](#tab/user-managed-container-registry3)
 
-In this example, build and deploy are separate commands. A user managed container registry supports deployment only with a custom image. For more information, see [Deploy an application with a custom container image](how-to-deploy-with-custom-container-image.md).
+In this example, build and deploy are separate commands. A user managed container registry supports deployment only with a custom image. For more information, see [Deploy an application with a custom container image](../basic-standard/how-to-deploy-with-custom-container-image.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json).
 
 The following command creates a new build:
 

@@ -3,10 +3,10 @@ title: Use storage mounts in Azure Container Apps
 description: Learn to use temporary and permanent storage mounts in Azure Container Apps
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: conceptual
-ms.date: 04/10/2024
+ms.date: 09/19/2024
 ms.author: cshoe
 zone_pivot_groups: arm-azure-cli-portal
 ---
@@ -17,13 +17,13 @@ A container app has access to different types of storage. A single app can take 
 
 | Storage type | Description | Persistence | Usage example |
 |--|--|--|
-| [Container-scoped storage](#container-scoped-storage) | Ephemeral storage available to a running container | Data is available until container shuts down | Writing a local app cache.  |
-| [Replica-scoped storage](#replica-scoped-storage) | Ephemeral storage for sharing files between containers in the same replica | Data is available until replica shuts down | The main app container writing log files that are processed by a sidecar container. |
+| [Container-scoped storage](#container-scoped-storage) | Ephemeral storage available to a running container | Data is available until container shuts down | Writing a local app cache. |
+| [Replica-scoped storage](#replica-scoped-storage) | Ephemeral storage for sharing files between containers in the same replica | Data is available until replica shuts down | The main app container writing log files that a sidecar container processes. |
 | [Azure Files](#azure-files) | Permanent storage | Data is persisted to Azure Files | Writing files to a file share to make data accessible by other systems. |
 
 ## Ephemeral storage
 
-A container app can read and write temporary data to ephemeral storage. Ephemeral storage can be scoped to a container or a replica. The total amount of container-scoped and replica-scoped storage available to each replica depends on the total amount of vCPUs allocated to the replica.
+A container app can read and write temporary data to ephemeral storage. Ephemeral storage can be scoped to a container or a replica. The total amount of container-scoped and replica-scoped storage available to each replica depends on the total number of vCPUs allocated to the replica.
 
 | vCPUs | Total ephemeral storage |
 |--|--|
@@ -227,7 +227,7 @@ Azure Files storage has the following characteristics:
 * All containers that mount the share can access files written by any other container or method.
 * More than one Azure Files volume can be mounted in a single container.
 
-Azure Files supports both SMB and NFS protocols. You can mount an Azure Files share using either protocol. The file share you define in the environment must be configured with the same protocol used by the file share in the storage account.
+Azure Files supports both SMB (Server Message Block) and NFS (Network File System) protocols. You can mount an Azure Files share using either protocol. The file share you define in the environment must be configured with the same protocol used by the file share in the storage account.
 
 > [!NOTE]
 > Support for mounting NFS shares in Azure Container Apps is in preview.
@@ -235,7 +235,7 @@ Azure Files supports both SMB and NFS protocols. You can mount an Azure Files sh
 To enable Azure Files storage in your container, you need to set up your environment and container app as follows:
 
 * Create a storage definition in the Container Apps environment.
-* If you are using NFS, your environment must be configured with a custom VNet and the storage account must be configured to allow access from the VNet. For more information, see [NFS file shares in Azure Files
+* If you're using NFS, your environment must be configured with a custom VNet and the storage account must be configured to allow access from the VNet. For more information, see [NFS file shares in Azure Files
 ](../storage/files/files-nfs-protocol.md).
 * If your environment is configured with a custom VNet, you must allow ports 445 and 2049 in the network security group (NSG) associated with the subnet.
 * Define a volume of type `AzureFile` (SMB) or `NfsAzureFile` (NFS) in a revision.
@@ -248,7 +248,7 @@ To enable Azure Files storage in your container, you need to set up your environ
 | Requirement | Instructions |
 |--|--|
 | Azure account | If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). |
-| Azure Storage account | [Create a storage account](../storage/common/storage-account-create.md?tabs=azure-cli#create-a-storage-account-1). |
+| Azure Storage account | [Create a storage account](../storage/common/storage-account-create.md?tabs=azure-cli#create-a-storage-account). |
 | Azure Container Apps environment | [Create a container apps environment](environment.md). |
 
 ### Configuration

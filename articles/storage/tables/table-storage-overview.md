@@ -23,7 +23,7 @@ You can use Table storage to store flexible datasets like user data for web appl
 
 * [Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
 
-* [Get started with Azure Table Storage in .NET](../../cosmos-db/tutorial-develop-table-dotnet.md)
+* [Get started with Azure Table Storage in .NET](/azure/cosmos-db/tutorial-develop-table-dotnet)
 
 * View the Table service reference documentation for complete details about available APIs:
 

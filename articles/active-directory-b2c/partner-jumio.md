@@ -5,11 +5,11 @@ description: Configure Azure Active Directory B2C with Jumio for automated ID ve
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.topic: how-to
 ms.date: 01/26/2024
 ms.author: gasinh
-ms.subservice: B2C
+ms.subservice: b2c
 
 # Customer intent: I'm an Azure AD B2C administrator, and I want to integrate Jumio with Azure AD B2C. I need to enable real-time automated ID verification for user accounts and protect customer data.
 ---
@@ -38,7 +38,7 @@ The Jumio integration includes the following components:
 
 The following architecture diagram shows the implementation.
 
-   ![Diagram of the architecture of a Azure AD B2C integration with Jumio](./media/partner-jumio/jumio-architecture-diagram.png)
+   ![Diagram of the architecture of an Azure AD B2C integration with Jumio](./media/partner-jumio/jumio-architecture-diagram.png)
 
 1. The user signs in, or signs up, and creates an account. Azure AD B2C collects user attributes.
 2. Azure AD B2C calls the middle-layer API and passes the user attributes.

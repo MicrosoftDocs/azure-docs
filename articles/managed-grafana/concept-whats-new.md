@@ -3,7 +3,7 @@ title: What's new in Azure Managed Grafana
 description: Recent updates for Azure Managed Grafana
 author: maud-lv
 ms.author: malev
-ms.service: managed-grafana
+ms.service: azure-managed-grafana
 ms.topic: conceptual
 ms.date: 02/22/2024
 
@@ -13,7 +13,7 @@ ms.date: 02/22/2024
 
 ## March 2024
 
-* We recommend that users with a workspace on Grafana 9 [upgrade to Grafana 10](how-to-upgrade-grafana-10.md).
+* We recommend that users with a workspace on Grafana 9 upgrade to Grafana 10.
 
 ## October 2023
 
@@ -21,7 +21,7 @@ ms.date: 02/22/2024
 
 ## September 2023
 
-* [Microsoft Entra groups](how-to-sync-teams-with-azure-ad-groups.md) is available in preview in Azure Managed Grafana.
+* [Microsoft Entra groups](how-to-sync-teams-with-entra-groups.md) is available in preview in Azure Managed Grafana.
 
 * [Plugin management](how-to-manage-plugins.md) is available in preview. This feature lets you manage installed Grafana plugins directly within an Azure Managed Grafana workspace.
 

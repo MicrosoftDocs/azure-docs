@@ -3,7 +3,7 @@ title: Overview of Azure Stream Analytics Clusters
 description: Learn about single tenant dedicated offering of Stream Analytics Cluster.
 author: ahartoon
 ms.author: anboisve
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: overview
 ms.custom: mvc
 ms.date: 05/10/2022

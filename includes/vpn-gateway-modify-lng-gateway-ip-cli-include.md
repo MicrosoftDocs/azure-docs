@@ -1,24 +1,22 @@
 ---
- title: include file
- description: include file
- services: vpn-gateway
- author: cherylmc
- ms.service: vpn-gateway
- ms.topic: include
- ms.date: 03/21/2018
- ms.author: cherylmc
- ms.custom: include file
+ms.author: cherylmc
+author: cherylmc
+ms.date: 12/02/2024
+ms.service: azure-vpn-gateway
+ms.topic: include
 ---
 ### To modify the local network gateway 'gatewayIpAddress'
 
-If the VPN device that you want to connect to has changed its public IP address, you need to modify the local network gateway to reflect that change. The gateway IP address can be changed without removing an existing VPN gateway connection (if you have one). To modify the gateway IP address, replace the values 'Site2' and 'TestRG1' with your own using the [az network local-gateway update](/cli/azure/network/local-gateway) command.
+If you change the public IP address for your VPN device, you need to modify the local network gateway with the updated IP address. When modifying the gateway, be sure to specify the existing name of your local network gateway. If you use a different name, you create a new local network gateway, instead of overwriting the existing gateway information.
 
-```azurecli
+To modify the gateway IP address, replace the values 'Site2' and 'TestRG1' with your own using the [az network local-gateway update](/cli/azure/network/local-gateway) command.
+
+```azurecli-interactive
 az network local-gateway update --gateway-ip-address 23.99.222.170 --name Site2 --resource-group TestRG1
 ```
 
 Verify that the IP address is correct in the output:
 
-```
+```azurecli-interactive
 "gatewayIpAddress": "23.99.222.170",
 ```

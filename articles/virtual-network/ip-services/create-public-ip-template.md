@@ -5,7 +5,7 @@ description: Learn how to create a public IP using a Resource Manager template
 services: virtual-network
 author: mbender-ms
 ms.author: mbender
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: quickstart
 ms.date: 08/24/2023
@@ -63,7 +63,7 @@ Template section to add:
 >
 
 >[!NOTE]
->The above options for zones are only valid selections in regions with [Availability Zones](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
+>The above options for zones are only valid selections in regions with [Availability Zones](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ### Zonal
 
@@ -92,13 +92,13 @@ Template section to add:
 ```
 
 >[!NOTE]
->The above options for zones are only valid selections in regions with [Availability Zones](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
+>The above options for zones are only valid selections in regions with [Availability Zones](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## Create standard public IP without zones
 
 In this section, you create a non-zonal IP address. 
 
-The code in this section creates a standard no-zone public IPv4 address named **myStandardPublicIP**. The code section is valid for all regions with or without [Availability Zones](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
+The code in this section creates a standard no-zone public IPv4 address named **myStandardPublicIP**. The code section is valid for all regions with or without [Availability Zones](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 To create an IPv6 address, modify the **publicIPAddressVersion** parameter to **IPv6**.
 

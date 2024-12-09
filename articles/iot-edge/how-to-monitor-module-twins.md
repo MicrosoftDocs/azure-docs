@@ -4,10 +4,10 @@ description: How to interpret device twins and module twins to determine connect
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 9/22/2022
-ms.topic: conceptual
+ms.date: 06/03/2024
+ms.topic: how-to
 ms.reviewer: veyalla
-ms.service: iot-edge
+ms.service: azure-iot-edge
 services: iot-edge
 ---
 # Monitor module twins

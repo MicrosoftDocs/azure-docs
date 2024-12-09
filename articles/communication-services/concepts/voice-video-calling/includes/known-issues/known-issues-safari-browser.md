@@ -15,6 +15,14 @@ ms.custom: template-how-to
 ## Safari Desktop
 ___
 
+### On macOS Safari 18 and up, the user is unable to share the screen for ~1 minute after canceling the action in a call. During this time, some of the options do not work while screen share recovers
+
+**Browser version:** Safari 18 and up. <br>
+**Azure Communication Service calling SDK version:** All.<br>
+**Description:** After canceling a screen sharing attempt, the user is unable to start sharing the screen again for approximately 1 minute. During this period, some options become unresponsive, such as the ability to turn the camera on/off. After ~1 minute, the user is able to start screen sharing and use all available options in the call again.<br>
+**Known issue reference:** This regression is a known issue introduced on [Safari](https://bugs.webkit.org/show_bug.cgi?id=278915).<br>
+**Recommended workaround:**  It is recommended to avoid using the “Cancel” option during screen sharing to prevent delays in restarting screen sharing. If sharing needs to be stopped, it’s advised to either complete the sharing action or wait for the recovery time before trying again.<br>
+
 ### On macOS Safari 17 and up, audio could become broken if macOS users connects Bluetooth headphones for during a call
 
 **Browser version:** Safari 17 and up. <br>
@@ -28,7 +36,9 @@ ___
 **Browser version:** Safari 17 and up. <br>
 **Azure Communication Service calling SDK version:** All.<br>
 **Description:** A bug was found in one of the updates of the macOS Safari 17 that is causing our background effects implementation frame capture to skip frames and hence might cause video flashing both in the local preview and the remote side.<br>
-**Recommended workaround:** Await a forthcoming update or patch from Apple.<br>
+- A fix is available starting from Safari version 17.5 (macOS Sonoma 14.5).<br>
+
+**Recommended workaround:** Users are advised to update to the latest macOS and Safari version (at least v17.5) where this issue has been resolved.<br>
 
 ### Incoming and outgoing video blinking issue on macOS Sonoma with Safari versions up to 17.1
 
@@ -38,6 +48,14 @@ ___
 - A fix is available starting from Safari version 17.2.<br>
 
 **Recommended workaround:** Users are advised to update to the latest macOS and Safari version (at least v17.2) where this issue has been resolved.
+
+
+### Other call participant unable to start screen share concurrently with macOS Safari user in Azure Communication Services 1:1 video calls
+**Browser version:** All.<br>
+**Azure Communication Service calling SDK version:** All.<br>
+**Description:** In Azure Communication Services 1:1 video calls, when a macOS Safari user shares their screen, another participant using a different browser cannot start screen sharing until the first participant stops their screen share. This limitation is observed across various combinations of browsers and operating systems but is specific to 1:1 calls. The issue does not occur in calls where both participants are using Safari on macOS.<br>
+**Known issue reference:** This regression is a known issue introduced on [Safari](https://bugs.webkit.org/show_bug.cgi?id=262791).<br>
+**Recommended workaround:** A temporary workaround is to ensure that only one participant shares their screen at a time in Azure Communication Services 1:1 video calls, when one of the participants is using macOS Safari.<br>
 
 ### Screen sharing does not work on macOS Ventura with Safari versions up to 16.3
 **Browser version:** Safari v16.1, v16.2, v16.3 (macOS Ventura 13.0).<br>
@@ -72,6 +90,12 @@ ___
 **Azure Communication Service calling SDK version:** All.<br>
 **Description:** Users may experience an issue where the camera preview is shown in an incorrect resolution and appears cropped when iOS user joins a call using iOS Safari mobile  with the camera enabled. The issue is not observed anymore if user re-enables camera during the call. The issue has been fixed with iOS 17.4+.<br>
 **Recommended workaround:** Users are advised to update to the latest iOS and Safari version (at least iOS 17.4) where this issue has been resolved.<br>
+
+### Telemetry data for *audioInputLevel* and *frameRateInput* missing in video calls on iOS 16 to iOS 17.4
+**iOS version:** iOS versions from 16.0 up to 17.4.<br>
+**Azure Communication Service calling SDK version:** All.<br>
+**Description:** `audioInputLevel` and `frameRateInput` telemetry data are not captured during video calls on iOS versions 16 to 17.4, affecting the ability to monitor and optimize audio and video settings in real-time. This issue has been fixed with iOS 17.5+.<br>
+**Recommended workaround:** Users are advised to update to the latest iOS and Safari version (at least iOS 17.5) where this issue has been resolved.<br>
 
 ### Audio and video recovery issue on iOS 16 to 16.3.1 during web calls with incoming Third-party or PSTN calls
 **iOS version:** iOS versions 16 up to 16.3.1.<br>

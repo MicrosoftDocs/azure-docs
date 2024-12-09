@@ -6,7 +6,7 @@ author: baanders
 ms.author: baanders
 ms.date: 6/20/2023
 ms.topic: conceptual
-ms.service: digital-twins
+ms.service: azure-digital-twins
 services: digital-twins
 ms.custom: engagement-fy23
 ---
@@ -17,7 +17,7 @@ To help keep you in control of personal data, this article describes how to iden
 
 Azure Digital Twins is a developer platform for creating secure digital representations of business environments. It can be used to store information about people and places, and works with [Microsoft Entra ID](../active-directory/fundamentals/active-directory-whatis.md) to identify users and administrators with access to the environment. To view, export, and delete personal data that may be referenced in a data subject request, an Azure Digital Twins administrator can use the [Azure portal](https://portal.azure.com/) for users and roles, or the [Azure Digital Twins REST APIs](/rest/api/azure-digitaltwins/) for digital twins. The Azure portal and REST APIs provide different methods for users to service such data subject requests.
 
-[!INCLUDE [gdpr-intro-sentence](../../includes/gdpr-intro-sentence.md)]
+[!INCLUDE [gdpr-intro-sentence](~/reusable-content/ce-skilling/azure/includes/gdpr-intro-sentence.md)]
 
 ## Identify personal data
 
@@ -29,7 +29,7 @@ The digital representations called *digital twins* in Azure Digital Twins repres
 
 ### Regional replication
 
-By default, the customer data stored in Azure Digital Twins is replicated to the corresponding [geo-paired region](../availability-zones/cross-region-replication-azure.md) for disaster recovery capabilities. For regions with built-in data residency requirements, customer data is always kept within the same region.
+By default, the customer data stored in Azure Digital Twins is replicated to the corresponding [geo-paired region](../reliability/cross-region-replication-azure.md) for disaster recovery capabilities. For regions with built-in data residency requirements, customer data is always kept within the same region.
 
 For more information about regional replication and disaster recovery in Azure Digital Twins, see [Cross region DR](concepts-high-availability-disaster-recovery.md).
 

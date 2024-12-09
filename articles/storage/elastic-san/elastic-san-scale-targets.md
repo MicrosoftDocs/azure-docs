@@ -1,10 +1,10 @@
 ---
 title: Elastic SAN scalability and performance targets
-description: Learn about the capacity, IOPS, and throughput rates for Azure Elastic SAN.
+description: Learn about the capacity, IOPS, and throughput rates for Azure Elastic SAN. Learn which regions support higher capacities.
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: conceptual
-ms.date: 02/13/2024
+ms.date: 05/31/2024
 ms.author: rogarana
 ms.custom: references_regions
 ---
@@ -57,7 +57,7 @@ The following regions are regions with higher base storage capacity available, a
 ##### Lower available base storage capacity
 
 
-The following regions are regions with higher base storage capacity available, and the table following the regions outlines their scale targets: East Asia, Korea Central, South Africa North, France Central, Southeast Asia, West US 3, Sweden Central, Switzerland North.
+The following regions are regions with lower base storage capacity available, and the table following the regions outlines their scale targets: East Asia, Korea Central, South Africa North, France Central, Southeast Asia, West US 3, Sweden Central, Switzerland North.
 
 
 |Resource  |Values  |

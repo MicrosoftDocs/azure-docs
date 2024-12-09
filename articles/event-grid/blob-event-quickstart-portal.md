@@ -16,7 +16,7 @@ In this article, you use the Azure portal to do the following tasks:
 1. Trigger an event by uploading a file to the blob storage.
 1. View the result in a handler web app. Typically, you send events to an endpoint that processes the event data and takes actions. To keep it simple, you send events to a web app that collects and displays the messages.
 
-[!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note.md](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 When you're finished, you see that the event data has been sent to the web app.
 

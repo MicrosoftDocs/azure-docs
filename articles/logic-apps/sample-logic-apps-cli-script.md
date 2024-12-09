@@ -11,7 +11,7 @@ ms.date: 01/04/2024
 
 # Azure CLI script sample - create a logic app
 
-[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+[!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
 
 This script creates a sample logic app through the [Azure CLI Logic Apps extension](/cli/azure/logic), (`az logic`). For a detailed guide to creating and managing logic apps through the Azure CLI, see the [Logic Apps quickstart for the Azure CLI](quickstart-logic-apps-azure-cli.md).
 
@@ -115,14 +115,14 @@ Before you run the sample script, you must first create a sample [workflow defin
             "$connections": {
                 "value": {
                     "office365": {
-                        "connectionId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testResourceGroup/providers/Microsoft.Web/connections/office365",
+                        "connectionId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/testResourceGroup/providers/Microsoft.Web/connections/office365",
                         "connectionName": "office365",
-                        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Web/locations/westus/managedApis/office365"
+                        "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/providers/Microsoft.Web/locations/westus/managedApis/office365"
                     },
                     "rss": {
-                        "connectionId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testResourceGroup/providers/Microsoft.Web/connections/rss",
+                        "connectionId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/testResourceGroup/providers/Microsoft.Web/connections/rss",
                         "connectionName": "rss",
-                        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Web/locations/westus/managedApis/rss"
+                        "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/providers/Microsoft.Web/locations/westus/managedApis/rss"
                     }
                 }
             }

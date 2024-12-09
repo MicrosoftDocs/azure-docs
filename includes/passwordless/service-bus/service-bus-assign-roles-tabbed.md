@@ -1,9 +1,9 @@
 ---
-title: "include file"
-description: "include file"
+title: "Assign roles in Azure Service Bus"
+description: "This include contains information and steps about assigning Azure Service Bus roles to a user."
 services: service-bus
 author: alexwolfmsft
-ms.service: service-bus
+ms.service: azure-service-bus
 ms.topic: include
 ms.date: 10/11/2022
 ms.author: alexwolf

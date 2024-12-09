@@ -7,14 +7,14 @@ ms.author: aterceros
 ms.date: 05/16/2024
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: render
 ---
 
 # Migrate Bing Maps Get Imagery Metadata API
 
 This article explains how to migrate the Bing Maps [Get Imagery Metadata] API to the Azure Maps [Get Map Tile] API.
 
-The Azure Maps Get Map Tile API provides map tiles in vector or raster formats to be used in the [Azure Maps Web SDK] or 3rd party map controls. Some example tiles that can be requested are Azure Maps road, satellite/aerial, weather radar or indoor map tiles (generated using [Azure Maps Creator]).  
+The Azure Maps Get Map Tile API provides map tiles in vector or raster formats to be used in the [Azure Maps Web SDK] or 3rd party map controls. Some example tiles that can be requested are Azure Maps road, satellite/aerial, or weather radar.  
 
 ## Prerequisites
 
@@ -42,7 +42,7 @@ Bing Maps for Enterprise only supports API key authentication. Azure Maps suppor
 
 The following table lists the Bing Maps _Get Imagery Metadata_ request parameters and the Azure Maps equivalent:
 
-| Bing Maps Request Parameter  | Bing Maps Request Parameter Alias  | Azure Maps Request Parameter  | Required in Azure Maps  | Azure Maps Data Type  | Description|
+| Bing Maps request parameter  | Bing Maps request parameter alias  | Azure Maps request parameter  | Required in Azure Maps  | Azure Maps data type  | Description|
 |------------------------------|------------------------------------|-------------------------------|-------------------------|-----------------------|------------|
 | imagerySet   | None   | tilesetId  | True   | TilesetID      | Azure Maps has some map styles that Bing Maps Get Imagery Metadata API doesn’t have. Bing Maps Get Imagery Metadata API has some map styles that Azure Maps doesn’t have. For more information on the map styles offered by Azure Maps, see [TilesetID].|
 | centerPoint  | None   | x<br>y    | True   | integer int32  | For more information on X, Y coordinates, see [Zoom levels and tile grid]. |
@@ -73,11 +73,11 @@ https://atlas.microsoft.com/map/tile?api-version=2022-08-01&tilesetId=microsoft.
 
 The following table lists the fields that can appear in the HTTP response when running the Bing Maps *Get Imagery Metadata* API and the Azure Maps equivalent:
 
-| Bing Maps Response Field                | Azure Maps Response Field       | Description |
+| Bing Maps response field                | Azure Maps response field       | Description |
 |-----------------------------------------|---------------------------------|-------------|
 | imageHeight (Json)<BR>ImageWidth (XML)  | Not supported  | Azure Maps Get Map Tile API provides the map tile image directly in the HTML response (binary image string) and offers 256 x 256 and 512 x 512 pixel tile sizes.  |
-| imageUrl (Json)<BR>ImageUrl (XML)       | Not supported  | Azure Maps Get Map Tile API provides the map tile image directly in the HTML response (binary image string), as oppsed to an image URL. |
-| imageUrlSubdomains (Json)<BR>ImageUrlSubdomains (XML)  | Not supported  | Azure Maps Get Map Tile API provides the map tile image directly in the HTML response (binary image string), as oppsed to an image URL. |
+| imageUrl (Json)<BR>ImageUrl (XML)       | Not supported  | Azure Maps Get Map Tile API provides the map tile image directly in the HTML response (binary image string), as opposed to an image URL. |
+| imageUrlSubdomains (Json)<BR>ImageUrlSubdomains (XML)  | Not supported  | Azure Maps Get Map Tile API provides the map tile image directly in the HTML response (binary image string), as opposed to an image URL. |
 | imageWidth (Json)<BR>ImageWidth (XML)   | Not supported  | Azure Maps Get Map Tile API provides the map tile image directly in the HTML response (binary image string) and offers 256 x 256 and 512 x 512 pixel tile sizes.  |
 | vintageEnd (Json)<BR>VintageEnd (XML)    | Not supported  | Azure Maps Get Map Tile API provides map tile vintage information in the response header (Data-Capture-Date-Range<SUP>**1**</SUP>), rather than in the response body. |
 | vintageStart (Json)<BR>VintageStart (XML)| Not supported  | Azure Maps Get Map Tile API provides map tile vintage information in the response header (Data-Capture-Date-Range<SUP>**1**</SUP>), rather than in the response body. |
@@ -155,7 +155,6 @@ For more Azure Maps Render APIs see:
 [Authentication with Azure Maps]: azure-maps-authentication.md
 [Azure Account]: https://azure.microsoft.com/
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
-[Azure Maps Creator]: about-creator.md
 [Azure Maps Product Terms]: https://www.microsoft.com/licensing/terms/productoffering/MicrosoftAzure
 [Azure Maps service geographic scope]: geographic-scope.md
 [Azure Maps Supported Languages]: supported-languages.md

@@ -4,9 +4,9 @@ titleSuffix: Azure Load Balancer
 description: Learn how to deploy Azure Gateway Load Balancer for higher scalability and performance on outbound connections when using network virtual appliances.
 author: mbender-ms
 ms.author: mbender
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: tutorial
-ms.date: 10/24/2023
+ms.date: 11/26/2024
 ms.custom: template-tutorial
 ---
 
@@ -27,7 +27,7 @@ In this tutorial, you learn how to:
     - For the purposes of this tutorial, the standard load balancer is named **myLoadBalancer** and is located in a resource group called **myResourceGroup**.
 - An existing Gateway SKU Azure Load Balancer. For more information on creating a gateway load balancer, see [Create a gateway load balancer using the Azure portal](tutorial-gateway-portal.md).
     - For the purposes of this tutorial, the gateway load balancer in the examples is name **myGatewayLoadBalancer**.
-- A virtual machine or network virtual appliance deployed in the same region and resource group as the load balancers. For more information on deploying a virtual machine, see [Create a Windows VM in the Azure portal](../virtual-machines/windows/quick-create-portal.md).
+- A virtual machine or network virtual appliance deployed in the same region and resource group as the load balancers. For more information on deploying a virtual machine, see [Create a Windows VM in the Azure portal](/azure/virtual-machines/windows/quick-create-portal).
     - For the purposes of this tutorial, the virtual machine is named **myVM1**.
 
 ## Chain a virtual machine to a gateway load balancer
@@ -36,15 +36,16 @@ In this section, you chain an existing virtual machine’s public IP to a gatewa
 
 1. Navigate to your existing virtual machine. This example uses a virtual machine named **myVM1**. 
 
-1. To verify your virtual machine has a standard SKU public IP associated with it, select **Public IP address > Overview** and confirm that the SKU is **Standard**.
+1. To verify your virtual machine has a standard SKU public IP associated with it, select the listed public IP address in **Overview** of the virtual machine.
+1. Under **Overview** of the public IP address, confirm that the SKU is **Standard**.
 1. Return to your virtual machine.
-1. In **Overview** of the virtual machine, select **Networking** under **Settings**.
+1. In **Overview** of the virtual machine, select **Networking** > **Network settings**.
 1. Select the network interface attached to the virtual machine. This example uses **myvm1185_z1**.
 
     :::image type="content" source="media/tutorial-gateway-outbound-connectivity/select-network-interface.png" alt-text="Screenshot of network interface attached to virtual machine.":::
 
 1. In **Network interface**, select **IP configurations** under **Settings**.
-6. Select **myFrontend** in **Gateway Load balancer**.
+6. Under **IP settings**, select **myFrontend** from the **Gateway Load balancer** dropdown menu.
 
     :::image type="content" source="media/tutorial-gateway-outbound-connectivity/select-gateway-load-balancer.png" alt-text="Screenshot of gateway load balancer selection in IP configuration settings.":::
 

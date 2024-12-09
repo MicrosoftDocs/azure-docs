@@ -3,7 +3,7 @@ title: Deprecating TLS 1.0 and 1.1 in IoT Hub | Microsoft Docs
 description: Guidelines regarding deprecation of TLS 1.0 and 1.1 and supported ciphers in IoT Hub.
 author: kgremban
 ms.author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 04/14/2020

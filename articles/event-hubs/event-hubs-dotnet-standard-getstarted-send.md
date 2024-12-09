@@ -2,7 +2,6 @@
 title: 'Quickstart: Send or receive events using .NET'
 description: A quickstart that shows you how to create a .NET Core application that sends events to and receive events from Azure Event Hubs.
 ms.topic: quickstart
-ms.service: event-hubs
 ms.date: 04/05/2024
 ms.devlang: csharp
 ms.custom: devx-track-csharp, mode-api, passwordless-dotnet, devx-track-dotnet
@@ -277,7 +276,7 @@ Replace the contents of **Program.cs** with the following code:
     using System.Text;
     
     // Create a blob container client that the event processor will use
-    // TODO: Replace <STORAGE_ACCOUNT_NAME> and <BLOB_CONTATINAER_NAME> with actual names
+    // TODO: Replace <STORAGE_ACCOUNT_NAME> and <BLOB_CONTAINER_NAME> with actual names
     BlobContainerClient storageClient = new BlobContainerClient(
         new Uri("https://<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/<BLOB_CONTAINER_NAME>"),
         new DefaultAzureCredential());

@@ -213,10 +213,25 @@ This project will use [dependency injection in .NET Azure Functions](../azure-fu
 
 ## Next steps
 
-In this quickstart, you created a feature flag and used it with an Azure Functions app via the [Microsoft.FeatureManagement](https://www.nuget.org/packages/Microsoft.FeatureManagement/) library.
+In this quickstart, you created a feature flag and used it with an Azure Functions.
 
-- Learn more about [feature management](./concept-feature-management.md)
-- [Manage feature flags](./manage-feature-flags.md)
-- [Use conditional feature flags](./howto-feature-filters-aspnet-core.md)
-- [Enable staged rollout of features for targeted audiences](./howto-targetingfilter-aspnet-core.md)
-- [Use dynamic configuration in an Azure Functions app](./enable-dynamic-configuration-azure-functions-csharp.md)
+To enable feature management capability for other types of apps, continue to the following tutorials.
+
+> [!div class="nextstepaction"]
+> [Use feature flags in ASP.NET Core apps](./quickstart-feature-flag-aspnet-core.md)
+
+> [!div class="nextstepaction"]
+> [Use feature flags in .NET/.NET framework console apps](./quickstart-feature-flag-dotnet.md)
+
+> [!div class="nextstepaction"]
+> [Use feature flags in .NET background services](./quickstart-feature-flag-dotnet-background-service.md)
+
+To learn more about managing feature flags in Azure App Configuration, continue to the following tutorial.
+
+> [!div class="nextstepaction"]
+> [Manage feature flags in Azure App Configuration](./manage-feature-flags.md)
+
+For the full feature rundown of the .NET feature management library, continue to the following document.
+
+> [!div class="nextstepaction"]
+> [.NET Feature Management](./feature-management-dotnet-reference.md)

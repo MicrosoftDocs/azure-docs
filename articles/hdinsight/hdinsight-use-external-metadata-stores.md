@@ -1,10 +1,10 @@
 ---
 title: Use external metadata stores - Azure HDInsight 
 description: Use external metadata stores with Azure HDInsight clusters.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 07/12/2023
+ms.date: 07/12/2024
 ---
 
 # Use external metadata stores in Azure HDInsight
@@ -59,13 +59,13 @@ HDInsight also supports custom metastores, which are recommended for production 
 
 Create or have an existing Azure SQL Database before setting up a custom Hive metastore for a HDInsight cluster.  For more information, see [Quickstart: Create a single database in Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart?tabs=azure-portal).
 
-While creating the cluster, HDInsight service needs to connect to the external metastore and verify your credentials. Configure Azure SQL Database firewall rules to allow Azure services and resources to access the server. Enable this option in the Azure portal by selecting **Set server firewall**. Then select **No** underneath **Deny public network access**, and **Yes** underneath **Allow Azure services and resources to access this server** for Azure SQL Database. For more information, see [Create and manage IP firewall rules](/azure/azure-sql/database/firewall-configure#use-the-azure-portal-to-manage-server-level-ip-firewall-rules)
+When you create the cluster, HDInsight service needs to connect to the external metastore and verify your credentials. Configure Azure SQL Database firewall rules to allow Azure services and resources to access the server. Enable this option in the Azure portal by selecting **Set server firewall**. Then select **No** underneath **Deny public network access**, and **Yes** underneath **Allow Azure services and resources to access this server** for Azure SQL Database. For more information, see [Create and manage IP firewall rules](/azure/azure-sql/database/firewall-configure#use-the-azure-portal-to-manage-server-level-ip-firewall-rules)
 
-Private endpoints for SQL stores is only supported on the clusters created with `outbound` ResourceProviderConnection. To learn more, see this [documentation](./hdinsight-private-link.md).
+Private endpoints for SQL stores are only supported on the clusters created with `outbound` ResourceProviderConnection. To learn more, see this [documentation](./hdinsight-private-link.md).
 
 :::image type="content" source="./media/hdinsight-use-external-metadata-stores/configure-azure-sql-database-firewall1.png" alt-text="set server firewall button.":::
 
-:::image type="content" source="./media/hdinsight-use-external-metadata-stores/configure-azure-sql-database-firewall2.png" alt-text="allow azure services access.":::
+:::image type="content" source="./media/hdinsight-use-external-metadata-stores/configure-azure-sql-database-firewall2.png" alt-text="allow Azure services access.":::
 
 ### Select a custom metastore during cluster creation
 

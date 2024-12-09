@@ -1,14 +1,14 @@
 ---
 title: 'Tutorial: Load data & run queries with Apache Spark - Azure HDInsight'
 description: Tutorial - Learn how to load data and run interactive queries on Spark clusters in Azure HDInsight.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive, mvc
-ms.date: 07/12/2023
+ms.date: 07/12/2024
 #Customer intent: As a developer new to Apache Spark and to Apache Spark in Azure HDInsight, I want to learn how to load data into a Spark cluster, so I can run interactive SQL queries against the data.
 ---
 
-# Tutorial: Load data and run queries on an Apache Spark cluster in Azure HDInsight
+# Tutorial: Load data, and run queries on an Apache Spark cluster in Azure HDInsight
 
 In this tutorial, you learn how to create a dataframe from a csv file, and how to run interactive Spark SQL queries against an [Apache Spark](https://spark.apache.org/) cluster in Azure HDInsight. In Spark, a dataframe is a distributed collection of data organized into named columns. Dataframe is conceptually equivalent to a table in a relational database or a data frame in R/Python.
 
@@ -50,7 +50,7 @@ Applications can create dataframes directly from files or folders on the remote 
     from pyspark.sql.types import *
     ```
 
-    When running an interactive query in Jupyter, the web browser window or tab caption shows a **(Busy)** status along with the notebook title. You also see a solid circle next to the **PySpark** text in the top-right corner. After the job is completed, it changes to a hollow circle.
+    When you run an interactive query in Jupyter, the web browser window or tab caption shows a **(Busy)** status along with the notebook title. You also see a solid circle next to the **PySpark** text in the top-right corner. After the job is completed, it changes to a hollow circle.
 
     :::image type="content" source="./media/apache-spark-load-data-run-query/hdinsight-spark-interactive-spark-query-status.png " alt-text="Status of interactive Spark SQL query." border="true":::
 

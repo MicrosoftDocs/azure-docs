@@ -5,7 +5,7 @@ ms.date: 04/25/2024
 ms.topic: quickstart
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, powershell, python, typescript
-ms.custom: devx-track-python, devx-track-js, mode-ui, devdivchpfy22, devx-track-extended-java
+ms.custom: devx-track-python, devx-track-js, mode-ui, devdivchpfy22, devx-track-extended-java, devx-track-ts
 zone_pivot_groups: programming-languages-set-functions
 #Customer intent: As an Azure Functions developer, I want to connect my function to Azure Storage so that I can easily write data to a storage queue.
 ---
@@ -296,7 +296,7 @@ You've updated your HTTP triggered function to write data to a Storage queue. No
 * [Azure Functions Python developer guide](functions-reference-python.md)  
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
-* [Examples of complete Function projects in PowerShell](/samples/browse/?products=azure-functions&languages=azurepowershell).
+* [Examples of complete Function projects in PowerShell](/samples/browse/?products=azure-functions&languages=powershell).
 
 * [Azure Functions PowerShell developer guide](functions-reference-powershell.md)
 ::: zone-end

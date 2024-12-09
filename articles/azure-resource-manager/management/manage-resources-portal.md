@@ -3,14 +3,14 @@ title: Manage resources - Azure portal
 description: Use the Azure portal and Azure Resource Manager to manage your resources. Shows how to deploy and delete resources. 
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
-ms.date: 03/19/2024
+ms.date: 09/26/2024
 ---
 
 # Manage Azure resources by using the Azure portal
 
 Learn how to use the [Azure portal](https://portal.azure.com) with [Azure Resource Manager](overview.md) to manage your Azure resources. For managing resource groups, see [Manage Azure resource groups by using the Azure portal](manage-resource-groups-portal.md).
 
-[!INCLUDE [Handle personal data](../../../includes/gdpr-intro-sentence.md)]
+[!INCLUDE [Handle personal data](~/reusable-content/ce-skilling/azure/includes/gdpr-intro-sentence.md)]
 
 ## Deploy resources to a resource group
 
@@ -39,7 +39,7 @@ To open a resource by resource group:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. In the left pane, select **Resource groups** to list the resource within the group.
-3. Select the resource you want to open. 
+3. Select the resource you want to open.
 
 ## Manage resources
 
@@ -71,7 +71,7 @@ For more information, see [Move resources to new resource group or subscription]
 
 ## Lock resources
 
-Locking prevents other users in your organization from accidentally deleting or modifying critical resources, such as Azure subscription, resource group, or resource. 
+Locking prevents other users in your organization from accidentally deleting or modifying critical resources, such as Azure subscription, resource group, or resource.
 
 1. Open the resource in the portal. For the steps, see [Open resources](#open-resources).
 2. Select **Locks**. The following screenshot shows the management options for a storage account.
@@ -83,7 +83,7 @@ For more information, see [Lock resources with Azure Resource Manager](lock-reso
 
 ## Tag resources
 
-Tagging helps organizing your resource group and resources logically. 
+Tagging helps organizing your resource group and resources logically.
 
 1. Open the resource in the portal. For the steps, see [Open resources](#open-resources).
 2. Select **Tags**. The following screenshot shows the management options for a storage account.
@@ -99,7 +99,7 @@ When you open a resource, the portal presents default graphs and tables for moni
 
 :::image type="content" source="./media/manage-resources-portal/manage-azure-resources-portal-monitor-resource.png" alt-text="Screenshot of the Azure portal showing monitoring graphs for a virtual machine.":::
 
-You can select the pin icon on the upper right corner of the graphs to pin the graph to the dashboard. To learn about working with dashboards, see [Creating and sharing dashboards in the Azure portal](../../azure-portal/azure-portal-dashboards.md).
+You can select the pin icon on the upper right corner of the graphs to pin the graph to the dashboard. To learn about working with dashboards, see [Creating and sharing dashboards in the Azure portal](/azure/azure-portal/azure-portal-dashboards).
 
 ## Manage access to resources
 

@@ -8,6 +8,10 @@ ms.topic: reference
 ms.date: 11/17/2021
 ms.author: ofshezaf
 
+
+
+#Customer intent: As a security analyst, I want to understand the Web Session normalization schema so that I can accurately interpret and analyze HTTP network session data for threat detection and response.
+
 ---
 
 # The Advanced Security Information Model (ASIM) Web Session normalization schema reference (Public preview)

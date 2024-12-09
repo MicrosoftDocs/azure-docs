@@ -6,6 +6,10 @@ ms.author: yelevin
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
 ms.date: 03/26/2024
+
+
+#Customer intent: As a security operations manager, I want to troubleshoot and resolve issues with scheduled analytics rules in Microsoft Sentinel so that I can ensure continuous and accurate monitoring of security events.
+
 ---
 
 # Troubleshooting analytics rules in Microsoft Sentinel
@@ -71,7 +75,7 @@ Another kind of permanent failure occurs due to an **improperly built query** th
 To re-enable the rule, you must address the issues in the query that cause it to use too many resources. See the following articles for best practices to optimize your Kusto queries:
 
 - [Query best practices - Azure Data Explorer](/azure/data-explorer/kusto/query/best-practices)
-- [Optimize log queries in Azure Monitor](../azure-monitor/logs/query-optimization.md)
+- [Optimize log queries in Azure Monitor](/azure/azure-monitor/logs/query-optimization)
 
 Also see [Useful resources for working with Kusto Query Language in Microsoft Sentinel](kusto-resources.md) for further assistance.
 

@@ -4,9 +4,9 @@ description: Learn how to deploy (inject) your Azure API instance to a virtual n
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 03/26/2024
+ms.date: 05/15/2024
 ms.author: danlep
 ---
 # Deploy your Azure API Management instance to a virtual network - external mode
@@ -24,7 +24,7 @@ This article explains how to set up VNet connectivity for your API Management in
 
 For configurations specific to the *internal* mode, where the endpoints are accessible only within the VNet, see [Deploy your Azure API Management instance to a virtual network - internal mode](./api-management-using-with-internal-vnet.md). 
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 [!INCLUDE [api-management-virtual-network-prerequisites](../../includes/api-management-virtual-network-prerequisites.md)]
 
@@ -40,7 +40,7 @@ For configurations specific to the *internal* mode, where the endpoints are acce
 
 1. In the list of locations (regions) where your API Management service is provisioned: 
     1. Choose a **Location**.
-    1. Select **Virtual network**, **Subnet**, and **IP address**. 
+    1. Select **Virtual network**, **Subnet**, and (optionally) **IP address**. 
     * The VNet list is populated with Resource Manager VNets available in your Azure subscriptions, set up in the region you are configuring.
 
         :::image type="content" source="media/api-management-using-with-vnet/api-management-using-vnet-select.png" alt-text="VNet settings in the portal.":::
@@ -49,7 +49,7 @@ For configurations specific to the *internal* mode, where the endpoints are acce
 
 1. Continue configuring VNet settings for the remaining locations of your API Management instance.
 
-7. In the top navigation bar, select **Save**, then select **Apply network configuration**.
+7. In the top navigation bar, select **Save**.
 
 It can take 15 to 45 minutes to update the API Management instance. Instances in the Developer tier have downtime during the process. Instances in the Premium tier don't have downtime during the process. 
 

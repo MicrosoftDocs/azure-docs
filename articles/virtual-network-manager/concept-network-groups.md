@@ -3,7 +3,7 @@ title: "What is a network group in Azure Virtual Network Manager?"
 description: Learn about how Network groups can help you manage your virtual networks.
 author: mbender-ms
 ms.author: mbender
-ms.service: virtual-network-manager
+ms.service: azure-virtual-network-manager
 ms.topic: conceptual
 ms.date: 03/23/2024
 ms.custom: template-concept
@@ -12,8 +12,6 @@ ms.custom: template-concept
 # What is a network group in Azure Virtual Network Manager?
 
 In this article, you learn about *network groups* and how they can help you group virtual networks together for easier management. Also, you learn about *Static group membership* and *Dynamic group membership* and how to use each type of membership.
-
-[!INCLUDE [virtual-network-manager-preview](../../includes/virtual-network-manager-preview.md)]
 
 ## Network group
 

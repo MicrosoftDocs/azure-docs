@@ -15,9 +15,9 @@ ms.subservice: pstn
 
 [!INCLUDE [Emergency Calling Notice](../../includes/emergency-calling-notice-include.md)]
 
-You can use the Azure Communication Services Calling SDK to add Enhanced Emergency dialing and Public Safety Answering Point (PSAP) callback support to your applications in the United States (US), Puerto Rico (PR), the United Kingdom (GB), Canada (CA), and Denmark (DK). The capability to dial 911 (in US, PR, and CA), to dial 112 (in DK), and to dial 999 or 112 (in GB) and receive a callback might be a requirement for your application. Verify the emergency calling requirements with your legal counsel.
+You can use the Azure Communication Services Calling SDK to add Enhanced Emergency dialing and Public Safety Answering Point (PSAP) callback support to your applications in the United States (US), Puerto Rico (PR), the United Kingdom (GB), Canada (CA), Denmark (DK) and Australiua (AU). The capability to dial 911 (in US, PR, and CA), to dial 112 (in DK), to dial 000 (in AU) and to dial 999 or 112 (in GB) and receive a callback might be a requirement for your application. Verify the emergency calling requirements with your legal counsel.
 
-Calls to an emergency number are routed over the Microsoft network. Microsoft assigns a temporary phone number as the Call Line Identity (CLI) when a user places an emergency call from US, PR, GB, CA, or DK. Microsoft temporarily maintains a mapping of the phone number to the caller's identity.
+Calls to an emergency number are routed over the Microsoft network. Microsoft assigns a temporary phone number as the Call Line Identity (CLI) when a user places an emergency call from US, PR, GB, CA, DK or AU. Microsoft temporarily maintains a mapping of the phone number to the caller's identity.
 
 If there's a callback from the PSAP, Microsoft routes the call directly to the originating caller. The caller can accept the incoming PSAP call even if inbound calling is disabled.
 
@@ -25,7 +25,7 @@ The service is available for Microsoft phone numbers. It requires the Azure reso
 
 ## Call flow
 
-1. An Azure Communication Services user identity dials an emergency number by using the Calling SDK from US or PR.
+1. An Azure Communication Services user identity dials an emergency number by using the Calling SDK.
 1. Microsoft validates that the Azure resource has a Microsoft phone number enabled for outbound dialing.
 1. The Microsoft Azure Communication Services emergency service replaces the user's phone number (the `alternateCallerId` value) with a temporary unique phone number. This number allocation remains in place for at least 60 minutes from the time that the emergency number is dialed.
 1. Microsoft maintains a temporary record (for about 60 minutes) that maps the unique phone number to the user identity.
@@ -43,7 +43,7 @@ Emergency calling is automatically enabled for all users of the Azure Communicat
 
     - Microsoft uses the ISO 3166-1 alpha-2 standard for country/region codes.
 
-    - Microsoft supports US, PR, GB, CA, and DK country/region codes for emergency number dialing.
+    - Microsoft supports US, PR, GB, CA, DK or AU country/region codes for emergency number dialing.
 
     - If you don't provide the country/region code to the SDK, Microsoft uses the IP address to determine the country or region of the caller.
 

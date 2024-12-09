@@ -1,6 +1,6 @@
 ---
 author: rothja
-ms.service: cloud-services
+ms.service: azure-cloud-services-classic
 ms.topic: include
 ms.date: 11/09/2018    
 ms.author: jroth

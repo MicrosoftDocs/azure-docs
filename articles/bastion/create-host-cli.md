@@ -3,7 +3,7 @@ title: 'Deploy Bastion: CLI'
 titleSuffix: Azure Bastion
 description: Learn how to deploy Azure Bastion using CLI
 author: cherylmc
-ms.service: bastion
+ms.service: azure-bastion
 ms.topic: how-to
 ms.date: 04/05/2024
 ms.author: cherylmc
@@ -43,7 +43,7 @@ Verify that you have an Azure subscription. If you don't already have an Azure s
 This section helps you deploy Azure Bastion using Azure CLI.
 
 > [!IMPORTANT]
-> [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+> [!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
 >
 
 1. If you don't already have a virtual network, create a resource group and a virtual network using [az group create](/cli/azure/group#az-group-create) and [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create).
@@ -80,7 +80,7 @@ This section helps you deploy Azure Bastion using Azure CLI.
    
 ## <a name="connect"></a>Connect to a VM
 
-If you don't already have VMs in your virtual network, you can create a VM using [Quickstart: Create a Windows VM](../virtual-machines/windows/quick-create-portal.md), or [Quickstart: Create a Linux VM](../virtual-machines/linux/quick-create-portal.md) 
+If you don't already have VMs in your virtual network, you can create a VM using [Quickstart: Create a Windows VM](/azure/virtual-machines/windows/quick-create-portal), or [Quickstart: Create a Linux VM](/azure/virtual-machines/linux/quick-create-portal) 
 
 You can use any of the following articles, or the steps in the following section, to help you connect to a VM. Some connection types require the Bastion [Standard SKU or higher](configuration-settings.md#skus).
 

@@ -4,9 +4,9 @@ description: Reference for the emit-metric policy available for use in Azure API
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
-ms.date: 03/18/2024
+ms.date: 09/25/2024
 ms.author: danlep
 ms.custom: engagement-fy23
 ---
@@ -17,11 +17,17 @@ ms.custom: engagement-fy23
 
 The `emit-metric` policy sends custom metrics in the specified format to Application Insights.
 
-> [!NOTE]
-> * Custom metrics are a [preview feature](../azure-monitor/essentials/metrics-custom-overview.md) of Azure Monitor and subject to [limitations](../azure-monitor/essentials/metrics-custom-overview.md#design-limitations-and-considerations).
-> * For more information about the API Management data added to Application Insights, see [How to integrate Azure API Management with Azure Application Insights](./api-management-howto-app-insights.md#what-data-is-added-to-application-insights).
-
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
+
+## Limits for custom metrics
+
+[!INCLUDE [api-management-custom-metrics-limits](../../includes/api-management-custom-metrics-limits.md)]
+
+## Prerequisites
+
+* Your API Management instance must be integrated with Application insights. For more information, see [How to integrate Azure API Management with Azure Application Insights](./api-management-howto-app-insights.md).
+* Enable Application Insights logging for your APIs. 
+* Enable custom metrics with dimensions in Application Insights. For more information, see [Emit custom metrics](api-management-howto-app-insights.md#emit-custom-metrics).
 
 ## Policy statement
 
@@ -60,31 +66,27 @@ The `emit-metric` policy sends custom metrics in the specified format to Applica
 * Product ID
 * User ID
 * Subscription ID
-* Location ID
+* Location
 * Gateway ID
 
 ## Usage
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound, backend, on-error
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
--  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted
+-  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted, workspace
 
 ### Usage notes
 
 * You can configure at most 10 custom dimensions for this policy.
 
-* Invoking the `emit-metric` policy counts toward the usage limits for custom metrics per region in a subscription. [Learn more](api-management-howto-app-insights.md#limits-for-custom-metrics)
-
 ## Example
 
-The following example sends a custom metric to count the number of API requests along with user ID, client IP, and API ID as custom dimensions.
+The following example sends a custom metric to count the number of API requests along with API ID as a custom dimension.
 
 ```xml
 <policies>
   <inbound>
     <emit-metric name="Request" value="1" namespace="my-metrics"> 
-        <dimension name="User ID" /> 
-        <dimension name="Client IP" value="@(context.Request.IpAddress)" /> 
         <dimension name="API ID" /> 
     </emit-metric> 
   </inbound>

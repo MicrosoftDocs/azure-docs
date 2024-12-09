@@ -3,7 +3,7 @@ title: 'Tutorial: Create and use a PostgreSQL service for development'
 description: Create and use a PostgreSQL service for development
 services: container-apps
 author: ahmelsayed
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: tutorial
 ms.date: 06/06/2023
@@ -431,7 +431,7 @@ Azure CLI commands and Bicep template fragments are featured in this tutorial. I
 
     # [azd](#tab/azd)
 
-    use the logs command to view the logs
+    Use the logs command to view the logs.
 
     ```bash
     az containerapp logs show \
@@ -442,11 +442,9 @@ Azure CLI commands and Bicep template fragments are featured in this tutorial. I
 
     ---
 
-    :::image type="content" source="media/tutorial-dev-services-postgresql/azure-container-apps-postgresql-service-logs.png" alt-text="Screenshot of container app PostgreSQL service logs.":::
-
 ## Create an app to test the service
 
-When you creat the app, you begin by creating a debug app to use the `psql` CLI to connect to the PostgreSQL instance.
+When you create the app, you begin by creating a debug app to use the `psql` CLI to connect to the PostgreSQL instance.
 
 1. Create a `psql` app that binds to the PostgreSQL service.
 

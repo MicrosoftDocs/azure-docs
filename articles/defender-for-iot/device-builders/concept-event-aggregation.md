@@ -9,6 +9,8 @@ ms.topic: conceptual
 
 Defender for IoT security agents collect data and system events from your local device, and send the data to the Azure cloud for processing.
 
+[!INCLUDE [device-agents-note](../includes/device-agents-note.md)]
+
 If you've configured and connected a Log Analytics workspace, you'll see these events in Log Analytics. For more information, see [Tutorial: Investigate security alerts](tutorial-investigate-security-alerts.md).
 
 The Defender for IoT micro agent collects many types of device events including new processes, and all new connection events. Both the new process and new connection events may occur frequently on a device. This capability is important for comprehensive security, however, the number of messages the security agents send may quickly meet, or exceed your IoT Hub quota, and cost limits. These messages and events contain highly valuable security information that is crucial to protecting your device.

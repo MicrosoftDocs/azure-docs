@@ -4,7 +4,7 @@ description: Learn how to add a custom CA certificate in Azure API Management. Y
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 06/01/2021
 ms.author: danlep 
@@ -13,7 +13,7 @@ ms.custom:
 
 # How to add a custom CA certificate in Azure API Management
 
-[!INCLUDE [api-management-availability-premium-dev-standard-basic-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-standardv2-basicv2.md)]
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-no-v2](../../includes/api-management-availability-premium-dev-standard-basic-no-v2.md)]
 
 Azure API Management allows installing CA certificates on the machine inside the trusted root and intermediate certificate stores. This functionality should be used if your services require a custom CA certificate.
 
@@ -21,7 +21,9 @@ The article shows how to manage CA certificates of an Azure API Management servi
 
 CA certificates uploaded to API Management can only be used for certificate validation by the managed API Management gateway. If you use the [self-hosted gateway](self-hosted-gateway-overview.md), learn how to [create a custom CA for self-hosted gateway](#create-custom-ca-for-self-hosted-gateway), later in this article.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [api-management-workspace-availability](../../includes/api-management-workspace-availability.md)]
+
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 
 ## <a name="step1"> </a>Upload a CA certificate

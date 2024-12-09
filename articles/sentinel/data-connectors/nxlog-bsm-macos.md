@@ -77,11 +77,3 @@ BSMmacOS_CL
 
 
 Follow the step-by-step instructions in the *NXLog User Guide* Integration Topic [Microsoft Sentinel](https://docs.nxlog.co/userguide/integrate/microsoft-azure-sentinel.html) to configure this connector.
-
-
-
-
-
-## Next steps
-
-For more information, go to the [related solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/nxlogltd1589381969261.nxlog_bsm_macos_mss?tab=Overview) in the Azure Marketplace.

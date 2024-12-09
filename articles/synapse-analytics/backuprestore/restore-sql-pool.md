@@ -6,7 +6,7 @@ ms.author: stevehow
 manager: joannapea
 ms.reviewer: joanpo, wiassaf
 ms.date: 01/23/2024
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql
 ms.topic: how-to
 ms.custom:
@@ -227,4 +227,4 @@ This timeout can be ignored. Review the dedicated SQL pool page in the Azure por
 
 - [User-defined restore points](sqlpool-create-restore-point.md)
 - [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
-- [What's the difference between Azure Synapse (formerly SQL DW) and Azure Synapse Analytics Workspace](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/what-s-the-difference-between-azure-synapse-formerly-sql-dw-and/ba-p/3597772)
+- [What's the difference between Azure Synapse (formerly SQL DW) and Azure Synapse Analytics Workspace](../sql/overview-difference-between-formerly-sql-dw-workspace.md)

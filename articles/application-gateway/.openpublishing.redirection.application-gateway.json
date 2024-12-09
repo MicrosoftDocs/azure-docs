@@ -80,7 +80,6 @@
             "redirect_url": "/azure/application-gateway/tutorial-protect-application-gateway-ddos",
             "redirect_document_id": false
         },
-        
         {
             "source_path_from_root": "/articles/application-gateway/rewrite-http-headers.md",
             "redirect_url": "/azure/application-gateway/rewrite-http-headers-url",
@@ -305,6 +304,46 @@
             "source_path_from_root": "/articles/application-gateway/application-gateway-web-app-overview.md",
             "redirect_url": "/azure/application-gateway/configure-web-app",
             "redirect_document_id": false
-        }
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/powershell-samples.md",
+            "redirect_url": "/previous-versions/azure/application-gateway/powershell-samples",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/cli-samples.md",
+            "redirect_url": "/previous-versions/azure/application-gateway/cli-samples",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/resource-manager-template-samples.md",
+            "redirect_url": "/previous-versions/azure/application-gateway/resource-manager-template-samples",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/scripts/create-vmss-cli.md",
+            "redirect_url": "/previous-versions/azure/application-gateway/scripts/create-vmss-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/scripts/create-vmss-powershell.md",
+            "redirect_url": "/previous-versions/azure/application-gateway/scripts/create-vmss-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/scripts/create-vmss-waf-cli.md",
+            "redirect_url": "/previous-versions/azure/application-gateway/scripts/create-vmss-waf-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/scripts/create-vmss-waf-powershell.md",
+            "redirect_url": "/previous-versions/azure/application-gateway/scripts/create-vmss-waf-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/application-gateway/scripts/waf-custom-rules-powershell.md",
+            "redirect_url": "/previous-versions/azure/application-gateway/scripts/waf-custom-rules-powershell",
+            "redirect_document_id": false
+        },
     ]
 }

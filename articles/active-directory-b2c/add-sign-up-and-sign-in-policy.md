@@ -4,11 +4,11 @@ titleSuffix: Azure AD B2C
 description: Learn how to set up a sign-up and sign-in flow in Azure Active Directory B2C.
 author: garrodonnell
 manager: CelesteDG
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.topic: how-to
 ms.date: 03/22/2024
 ms.author: godonnell
-ms.subservice: B2C
+ms.subservice: b2c
 ms.custom: "b2c-support"
 zone_pivot_groups: b2c-policy-type
 

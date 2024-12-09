@@ -1,9 +1,11 @@
 ---
 title: Azure Event Grid on Kubernetes - Features
 description: This article compares features of Event Grid on Kubernetes with Event Grid on Azure.
-author: jfggdl
+author: robece
 ms.subservice: kubernetes
-ms.author: jafernan
+ms.custom:
+  - build-2024
+ms.author: robece
 ms.date: 05/25/2021
 ms.topic: conceptual
 ---
@@ -31,7 +33,7 @@ Although Event Grid on Kubernetes and Azure Event Grid share many features and t
 | [System Topics](../system-topics.md) | ✘ | ✔ |
 | [Domain Topics](../event-domains.md) | ✘ | ✔ |
 | [Partner Events](../partner-events-overview.md) | ✘ | ✔ |
-| [Destination endpoint validation](../webhook-event-delivery.md#endpoint-validation-with-event-grid-events) | ✘ | ✔ |
+| [Destination endpoint validation](../end-point-validation-cloud-events-schema.md) | ✘ | ✔ |
 | [Azure Event Grid trigger for Azure Functions](../../azure-functions/functions-bindings-event-grid-trigger.md) | ✘ | ✔ |
 | Azure Relay's Hybrid Connections as a destination | ✘ | ✔ |
 | [Advanced filtering](filter-events.md) | ✔*** | ✔ |

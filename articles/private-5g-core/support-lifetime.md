@@ -2,9 +2,9 @@
 title: Support lifetime 
 titleSuffix: Azure Private 5G Core
 description: Details of support for AP5GC versions.
-author: robswain
-ms.author: robswain
-ms.service: private-5g-core
+author: anzaman
+ms.author: alzam
+ms.service: azure-private-5g-core
 ms.topic: conceptual
 ms.date: 11/07/2023
 ms.custom: template-concept

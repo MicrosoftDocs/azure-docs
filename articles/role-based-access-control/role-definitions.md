@@ -61,7 +61,7 @@ The following table describes what the role properties mean.
 | --- | --- |
 | `Name`</br>`roleName` | Display name of the role. |
 | `Id`</br>`name` | Unique ID of the role. Built-in roles have the same role ID across clouds. |
-| `id` | Fully qualified unique ID of the role. |
+| `id` | Fully qualified unique ID of the role. Even if the role is renamed, the role ID does not change. It's a best practice to use the role ID in your scripts. |
 | `IsCustom`</br>`roleType` | Indicates whether this role is a custom role. Set to `true` or `CustomRole` for custom roles. Set to `false` or `BuiltInRole` for built-in roles. |
 | `type` | Type of object. Set to `Microsoft.Authorization/roleDefinitions`.  |
 | `Description`</br>`description` | Description of the role. |
@@ -179,7 +179,7 @@ Role-based access control for control plane actions is specified in the `Actions
 - Create, update, or delete a blob container
 - Delete a resource group and all of its resources
 
-Control plane access is not inherited to your data plane provided that the container authentication method is set to **Azure AD User Account** and not **Access Key**. This separation prevents roles with wildcards (`*`) from having unrestricted access to your data. For example, if a user has a [Reader](built-in-roles.md#reader) role on a subscription, then they can view the storage account, but by default they can't view the underlying data.
+Control plane access is not inherited to your data plane provided that the container authentication method is set to **Microsoft Entra User Account** and not **Access Key**. This separation prevents roles with wildcards (`*`) from having unrestricted access to your data. For example, if a user has a [Reader](built-in-roles.md#reader) role on a subscription, then they can view the storage account, but by default they can't view the underlying data.
 
 Previously, role-based access control was not used for data actions. Authorization for data actions varied across resource providers. The same role-based access control authorization model used for control plane actions has been extended to data plane actions.
 

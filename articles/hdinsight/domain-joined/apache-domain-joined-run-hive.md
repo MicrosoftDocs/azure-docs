@@ -1,9 +1,9 @@
 ---
 title: Apache Hive policies in Apache Ranger - Azure HDInsight
 description: Learn how to configure Apache Ranger policies for Hive in an Azure HDInsight service with Enterprise Security Package.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: conceptual
-ms.date: 04/11/2023
+ms.date: 05/22/2024
 ---
 
 # Configure Apache Hive policies in HDInsight with Enterprise Security Package
@@ -103,7 +103,7 @@ In the last section, you configured two policies: `hiveuser1` has the select per
 
 1. For the first use, an **ODBC driver** dialog opens. Select **Windows** from the left menu. Then select **Connect** to open the **Navigator** window.
 
-1. Wait for the **Select Database and Table** dialog to open. This step can take a few seconds.
+1. Wait for the `Select Database and Table` dialog to open. This step can take a few seconds.
 
 1. Select **hivesampletable** > **Next**.
 

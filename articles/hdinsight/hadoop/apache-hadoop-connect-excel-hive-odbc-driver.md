@@ -1,10 +1,10 @@
 ---
 title: Excel & Apache Hadoop with Open Database Connectivity (ODBC) Driver - Azure HDInsight
 description: Learn how to set up and use the Microsoft Hive ODBC driver for Excel to query data in HDInsight clusters from Microsoft Excel.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 05/23/2023
+ms.date: 06/15/2024
 ---
 
 # Connect Excel to Apache Hadoop in Azure HDInsight with the Microsoft Hive ODBC driver
@@ -34,7 +34,7 @@ The following steps show you how to create a Hive ODBC Data Source.
 
    :::image type="content" source="./media/apache-hadoop-connect-excel-hive-odbc-driver/simbahiveodbc-datasourceadmin1.png" alt-text="OBDC data source administrator." border="true":::
 
-1. From the **User DSN** tab, select **Add** to open the **Create New Data Source** window.
+1. From the **User DSN** tab, select **Add** to open the **`Create New Data Source`** window.
 
 1. Select **Microsoft Hive ODBC Driver**, and then select **Finish** to open the **Microsoft Hive ODBC Driver DSN Setup** window.
 
@@ -55,7 +55,7 @@ The following steps show you how to create a Hive ODBC Data Source.
    | Parameter | Description |
    | --- | --- |
    |  Use Native Query |When it's selected, the ODBC driver does NOT try to convert TSQL into HiveQL. You shall use it only if you're 100% sure you're submitting pure HiveQL statements. When connecting to SQL Server or Azure SQL Database, you should leave it unchecked. |
-   |  Rows fetched per block |When fetching a large number of records, tuning this parameter may be required to ensure optimal performances. |
+   |  Rows fetched per block |When you fetch a large number of records, tuning this parameter may be required to ensure optimal performances. |
    |  Default string column length, Binary column length, Decimal column scale |The data type lengths and precisions may affect how data is returned. They cause incorrect information to be returned because of loss of precision and, or truncation. |
 
     :::image type="content" source="./media/apache-hadoop-connect-excel-hive-odbc-driver/hiveodbc-datasource-advancedoptions1.png" alt-text="Advanced DSN configuration options." border="true":::
