@@ -56,25 +56,25 @@ The restart typically is the starting point for mitigating a problem.
 ***The following Azure CLI command will `power-off` the specified bareMetalMachineName.***
 ```
 az networkcloud baremetalmachine power-off \
-  --name "bareMetalMachineName"  \
-  --resource-group "cluster_MRG" \
-  --subscription "subscription_ID"
+  --name <bareMetalMachineName>  \
+  --resource-group <CLUSTER_MRG> \
+  --subscription <SUBSCRIPTION_ID>
 ```
 
 ***The following Azure CLI command will `start` the specified bareMetalMachineName.***
 ```
 az networkcloud baremetalmachine start \
-  --name "bareMetalMachineName"  \
-  --resource-group "cluster_MRG" \
-  --subscription "subscription_ID"
+  --name <bareMetalMachineName>  \
+  --resource-group <CLUSTER_MRG> \
+  --subscription <SUBSCRIPTION_ID>
 ```
 
 ***The following Azure CLI command will `restart` the specified bareMetalMachineName.***
 ```
 az networkcloud baremetalmachine restart \
-  --name "bareMetalMachineName"  \
-  --resource-group "cluster_MRG" \
-  --subscription "subscription_ID"
+  --name <bareMetalMachineName>  \
+  --resource-group <CLUSTER_MRG> \
+  --subscription <SUBSCRIPTION_ID>
 ```
 
 
@@ -93,25 +93,25 @@ As a best practice, make sure the BMM's workloads are drained using the cordon c
 ```
 az networkcloud baremetalmachine cordon \
   --evacuate "True" \
-  --name "bareMetalMachineName" \
-  --resource-group "cluster_MRG" \
-  --subscription "subscription_ID"
+  --name <bareMetalMachineName> \
+  --resource-group <CLUSTER_MRG> \
+  --subscription <SUBSCRIPTION_ID>
 ```
 
 ***The following Azure CLI command will `reimage` the specified bareMetalMachineName.***
 ```
 az networkcloud baremetalmachine reimage \
-  –-name "bareMetalMachineName"  \
-  --resource-group "cluster_MRG" \
-  --subscription "subscription_ID"
+  –-name <bareMetalMachineName>  \
+  --resource-group <CLUSTER_MRG> \
+  --subscription <SUBSCRIPTION_ID>
 ```
 
 ***The following Azure CLI command will `uncordon` the specified bareMetalMachineName.***
 ```
 az networkcloud baremetalmachine uncordon \
-  --name "bareMetalMachineName" \
-  --resource-group "cluster_MRG" \
-  --subscription "subscription_ID"
+  --name <bareMetalMachineName> \
+  --resource-group <CLUSTER_MRG> \
+  --subscription <SUBSCRIPTION_ID>
 ```
 
 ## Troubleshoot with a replace action
@@ -129,9 +129,9 @@ As a best practice, first issue a `cordon` command to remove the bare metal mach
 ```
 az networkcloud baremetalmachine cordon \
   --evacuate "True" \
-  --name "bareMetalMachineName" \
-  --resource-group "cluster_MRG" \
-  --subscription "subscription_ID"
+  --name <bareMetalMachineName> \
+  --resource-group <CLUSTER_MRG> \
+  --subscription <SUBSCRIPTION_ID>
 ```
 
 When you're performing a physical hot swappable power supply repair, a replace action is not required because the BMM host will continue to function normally after the repair.
@@ -159,22 +159,22 @@ After physical repairs are completed, perform a replace action.
 ***The following Azure CLI command will `replace` the specified bareMetalMachineName.***
 ```
 az networkcloud baremetalmachine replace \
-  –-name "bareMetalMachineName"  \
-  --resource-group "cluster_MRG" \
-  --bmc-credentials password="$IDRAC_PASSWORD" username="$IDRAC_USER" \
-  --bmc-mac-address "idrac_MAC" \
-  --boot-mac-address "pxe_MAC" \
-  --machine-name "OS_HOSTNAME" \
-  --serial-number "SERIAL_NUM" \
-  --subscription "subscription_ID"
+  –-name <bareMetalMachineName>  \
+  --resource-group <CLUSTER_MRG> \
+  --bmc-credentials password=<IDRAC_PASSWORD> username=<IDRAC_USER> \
+  --bmc-mac-address <IDRAC_MAC> \
+  --boot-mac-address <PXE_MAC> \
+  --machine-name <OS_HOSTNAME> \
+  --serial-number <SERIAL_NUM> \
+  --subscription <SUBSCRIPTION_ID>
 ```
 
 ***The following Azure CLI command will uncordon the specified bareMetalMachineName.***
 ```
 az networkcloud baremetalmachine uncordon \
-  --name "bareMetalMachineName" \
-  --resource-group "cluster_MRG" \
-  --subscription "subscription_ID"
+  --name <bareMetalMachineName> \
+  --resource-group <CLUSTER_MRG> \
+  --subscription <SUBSCRIPTION_ID>
 ```
 
 ## Summary

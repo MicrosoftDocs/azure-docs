@@ -47,9 +47,9 @@ This command will `power-off` the specified `bareMetalMachineName`.
 
 ```azurecli
 az networkcloud baremetalmachine power-off \
-  --name "bareMetalMachineName"  \
-  --resource-group "cluster_MRG" \
-  --subscription "subscription_ID"
+  --name <BareMetalMachineName>  \
+  --resource-group <CLUSTER_MRG> \
+  --subscription <SUBSCRIPTION_ID>
 ```
 
 ## Start the BMM
@@ -58,9 +58,9 @@ This command will `start` the specified `bareMetalMachineName`.
 
 ```azurecli
 az networkcloud baremetalmachine start \
-  --name "bareMetalMachineName" \
-  --resource-group "cluster_MRG" \
-  --subscription "subscription_ID"
+  --name <BareMetalMachineName> \
+  --resource-group <CLUSTER_MRG> \
+  --subscription <SUBSCRIPTION_ID>
 ```
 
 ## Restart the BMM
@@ -69,9 +69,9 @@ This command will `restart` the specified `bareMetalMachineName`.
 
 ```azurecli
 az networkcloud baremetalmachine restart \
-  --name "bareMetalMachineName" \
-  --resource-group "cluster_MRG" \
-  --subscription "subscription_ID"
+  --name <BareMetalMachineName> \
+  --resource-group <CLUSTER_MRG> \
+  --subscription <SUBSCRIPTION_ID>
 ```
 
 ## Make a BMM unschedulable (cordon)
@@ -88,9 +88,9 @@ parameter, the workloads that are running on the BMM are `stopped` and the BMM i
 ```azurecli
 az networkcloud baremetalmachine cordon \
   --evacuate "True" \
-  --name "bareMetalMachineName" \
-  --resource-group "cluster_MRG" \
-  --subscription "subscription_ID"
+  --name <BareMetalMachineName> \
+  --resource-group <CLUSTER_MRG> \
+  --subscription <SUBSCRIPTION_ID>
 ```
 
 The `evacuate "True"` removes workloads from that node while `evacuate "False"` only prevents the scheduling of new workloads.
@@ -102,9 +102,9 @@ state on the BMM are `restarted` when the BMM is `uncordoned`.
 
 ```azurecli
 az networkcloud baremetalmachine uncordon \
-  --name "bareMetalMachineName" \
-  --resource-group "cluster_MRG" \
-  --subscription "subscription_ID"
+  --name <BareMetalMachineName> \
+  --resource-group <CLUSTER_MRG> \
+  --subscription <SUBSCRIPTION_ID>
 ```
 
 ## Reimage a BMM
@@ -120,9 +120,9 @@ command, with `evacuate "True"`, before executing the `reimage` command.
 
 ```azurecli
 az networkcloud baremetalmachine reimage \
-  –-name "bareMetalMachineName"  \
-  --resource-group "cluster_MRG" \
-  --subscription "subscription_ID"
+  --name <BareMetalMachineName>  \
+  --resource-group <CLUSTER_MRG> \
+  --subscription <SUBSCRIPTION_ID>
 ```
 
 ## Replace BMM
@@ -136,12 +136,12 @@ Use the `replace` command when a server encounters hardware issues requiring a c
 
 ```azurecli
 az networkcloud baremetalmachine replace \
-  --name "bareMetalMachineName" \
-  --resource-group "cluster_MRG" \
-  --bmc-credentials password="$IDRAC_PASSWORD" username="$IDRAC_USER" \
-  --bmc-mac-address "idrac_MAC" \
-  --boot-mac-address "pxe_MAC" \
-  --machine-name "OS_hostname" \
-  --serial-number "OS_HOSTNAME" \
-  --subscription "subscription_ID"
+  --name <BareMetalMachineName> \
+  --resource-group <CLUSTER_MRG> \
+  --bmc-credentials password=<IDRAC_PASSWORD> username=<IDRAC_USER> \
+  --bmc-mac-address <IDRAC_MAC> \
+  --boot-mac-address <PXE_MAC> \
+  --machine-name <OS_HOSTNAME> \
+  --serial-number <SERIAL_NUMBER> \
+  --subscription <SUBSCRIPTION_ID>
 ```
