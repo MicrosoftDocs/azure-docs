@@ -3,7 +3,7 @@ title: Architecture - Private clouds and clusters
 description: Understand the key capabilities of Azure VMware Solution software-defined data centers and VMware vSphere clusters. 
 ms.topic: conceptual
 ms.service: azure-vmware
-ms.date: 6/3/2024
+ms.date: 12/9/2024
 ms.custom: engagement-fy23
 ---
 
