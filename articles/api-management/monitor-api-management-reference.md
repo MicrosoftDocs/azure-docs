@@ -23,7 +23,7 @@ The following table lists the metrics available for the Microsoft.ApiManagement/
 
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
 
-[Microsoft.ApiManagement/service](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-apimanagement-service-metrics-include.md)
+[!INCLUDE [Microsoft.ApiManagement/service](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-apimanagement-service-metrics-include.md)]
 
 [!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
 
