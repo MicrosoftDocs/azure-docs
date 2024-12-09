@@ -87,6 +87,8 @@ items:
       href: quickstarts/sms/send.md
     - name: Receive and reply to SMS
       href: quickstarts/sms/receive-sms.md
+    - name: Use the Opt-out API
+      href: quickstarts/sms/opt-out-api-quickstart.md
   - name: Voice and Video
     items:
     - name:  Connect to a call
@@ -693,6 +695,8 @@ items:
       href: concepts/sms/concepts.md
     - name: SDK features
       href: concepts/sms/sdk-features.md
+    - name: Opt-Out API
+      href: concepts/sms/opt-out-api-concept.md
     - name: Pricing
       href: concepts/sms-pricing.md
     - name: Messaging policy
