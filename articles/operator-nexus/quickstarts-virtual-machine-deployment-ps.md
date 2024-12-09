@@ -54,7 +54,7 @@ Before you run the commands, you need to set several variables to define the con
 | NETWORKDATA            | The base64 encoded string of cloud-init network data.      |
 
 > [!IMPORTANT]
-> Please ensure that any sensitive data (e.g. secrets, passwords, private keys, etc.) are encrypted before they are submitted in the userdata or networkdata fields.
+> Please ensure that any sensitive data, such as secrets, passwords, private keys, and so on, are encrypted before they are submitted in the userData or networkData fields.
 
 Once you've defined these variables, you can run the Azure PowerShell command to create the virtual machine. Add the ```-Debug``` flag at the end to provide more detailed output for troubleshooting purposes.
 
