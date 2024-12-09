@@ -161,7 +161,9 @@ Consumption logic app workflows automatically support zone redundancy, so no con
 
   To enable zone redundancy for Standard logic app workflows, see [Enable zone redundancy for your logic app](../logic-apps/set-up-zone-redundancy-availability-zones.md).
 
-**Migration.** It's not possible to enable zone redundancy to on existing plan after it's created. Instead, you need to create a new plan with zone redundancy enabled and delete the old one.
+- **Migration**
+
+  You can't enable zone redundancy after you create a service plan. Instead, you need to create a new plan with zone redundancy enabled and delete the old one.
 
 **Disable zone redundancy.** It's not possible to disable zone redundancy on an existing plan after it's created. Instead, you need to create a new plan with zone redundancy disabled and delete the old one.
 
