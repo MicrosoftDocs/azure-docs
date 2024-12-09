@@ -18,9 +18,7 @@ When you want to automate creating and deploying logic app resources, you can in
 [Azure resources](../azure-resource-manager/management/overview.md) inside [Azure Resource Manager templates](../azure-resource-manager/templates/overview.md).
 To create, manage, and deploy logic apps, you can then use [Azure PowerShell](/powershell/module/az.logicapp), [Azure CLI](../azure-resource-manager/templates/deploy-cli.md), or the [Azure Logic Apps REST APIs](/rest/api/logic/).
 
-To work with workflow definitions in JSON, open the Code View editor when working in the Azure portal or in Visual Studio, or copy the definition into any editor that you want.
-If you're new to Azure Logic Apps, review
-[Create an example Consumption logic app workflow](../logic-apps/quickstart-create-example-consumption-workflow.md).
+To work with workflow definitions in JSON, open the Code View editor when working in the Azure portal or Visual Studio Code, or copy the definition into any editor that you want.
 
 > [!NOTE]
 > Some Azure Logic Apps capabilities, such as defining
