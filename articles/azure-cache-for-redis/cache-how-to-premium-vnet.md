@@ -207,7 +207,7 @@ If you're unable to resolve the DNS name, some client libraries include configur
 
 `10.128.2.84:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False;sslHost=[mycachename].redis.cache.windows.net`
 
-In addition, if the subnet where Azure Cache for Redis is hosted is blocking TCP outbound connections over port 80 for SSL/TLS functionality, clients may experience intermittent TLS certificate validation errors.
+In addition, if the subnet where Azure Cache for Redis is hosted is blocking TCP outbound connections over port 80 for SSL/TLS functionality, clients might experience intermittent TLS certificate validation errors.
 
 ### Can I use virtual networks with a standard or basic cache?
 
