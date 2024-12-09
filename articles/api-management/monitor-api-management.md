@@ -172,8 +172,6 @@ Follow these steps to use the REST API, Bicep, or ARM template to create an Appl
 
 - Logger with connection string with managed identity credentials (recommended)
 
-  See the [prerequisites](#prerequisites) for using an API Management managed identity.
-
   The Application Insights connection string appears in the **Overview** section of your Application Insights resource.
 
 - Connection string with system-assigned managed identity
