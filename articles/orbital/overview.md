@@ -10,6 +10,9 @@ ms.author: mosagie
 # Customer intent: As a satellite operator, I want to ingest data from my satellite into Azure.
 ---
 
+> [!NOTE]
+> [Azure Orbital Ground Station is retiring on December 18th, 2024](https://azure.microsoft.com/en-us/updates?id=Azure-Orbital-Ground-Station-Retirement) and has stopped issuing new authorizations."
+
 # Azure Orbital Ground Station overview
 
 > [!VIDEO https://www.youtube.com/embed/hQbGZi9iwE4]
