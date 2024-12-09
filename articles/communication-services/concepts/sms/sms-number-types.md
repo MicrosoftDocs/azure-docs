@@ -20,7 +20,7 @@ In today’s communication landscape, businesses use different types of phone nu
 
 ---
 
-## Number Types Supported by ACS
+## Number Types with SMS Capabilities Supported by ACS
 
 Azure Communication Services provides the following phone number types:
 
