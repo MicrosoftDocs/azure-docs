@@ -9,6 +9,7 @@ ms.author: dbasantes
 ms.subservice: sms
 ms.date: 12/04/2024
 ms.topic: quickstart
+zone_pivot_groups: acs-js-csharp-java
 ---
 
 # Send OptOut API requests with API (HMAC)
