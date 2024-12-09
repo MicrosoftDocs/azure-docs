@@ -32,77 +32,25 @@ It is still possible to enter the standard set of credentials by simply unchecki
 
 The simplest option (with sufficient access rights) is to assign the Contributor Role for the Subscription to the CycleCloud VM as a System-Assigned Managed Identity.  However, the Contributor Role has a higher privilege level than CycleCloud requires.  A [custom Role](/azure/role-based-access-control/custom-roles) may be created and assigned to the VM.
 
-A sufficient policy for most CycleCloud features is posted below.
+This role covers all CycleCloud features:
 
-```json
-{
-    "assignableScopes": [
-      "/"
-    ],
-    "description": "CycleCloud Orchestrator Role",
-    "permissions": [
-      {
-        "actions": [
-          "Microsoft.Commerce/RateCard/read",
-          "Microsoft.Compute/*/read",
-          "Microsoft.Compute/availabilitySets/*",
-          "Microsoft.Compute/disks/*",
-          "Microsoft.Compute/images/read",
-          "Microsoft.Compute/locations/usages/read",
-          "Microsoft.Compute/register/action",
-          "Microsoft.Compute/skus/read",
-          "Microsoft.Compute/virtualMachines/*",
-          "Microsoft.Compute/virtualMachineScaleSets/*",
-          "Microsoft.Compute/virtualMachineScaleSets/virtualMachines/*",
-          "Microsoft.ManagedIdentity/userAssignedIdentities/*/assign/action",
-          "Microsoft.MarketplaceOrdering/offertypes/publishers/offers/plans/agreements/read",
-          "Microsoft.MarketplaceOrdering/offertypes/publishers/offers/plans/agreements/write",
-          "Microsoft.Network/*/read",
-          "Microsoft.Network/locations/*/read",
-          "Microsoft.Network/networkInterfaces/read",
-          "Microsoft.Network/networkInterfaces/write",
-          "Microsoft.Network/networkInterfaces/delete",
-          "Microsoft.Network/networkInterfaces/join/action",
-          "Microsoft.Network/networkSecurityGroups/read",
-          "Microsoft.Network/networkSecurityGroups/write",
-          "Microsoft.Network/networkSecurityGroups/delete",
-          "Microsoft.Network/networkSecurityGroups/join/action",
-          "Microsoft.Network/publicIPAddresses/read",
-          "Microsoft.Network/publicIPAddresses/write",
-          "Microsoft.Network/publicIPAddresses/delete",
-          "Microsoft.Network/publicIPAddresses/join/action",
-          "Microsoft.Network/register/action",
-          "Microsoft.Network/virtualNetworks/read",
-          "Microsoft.Network/virtualNetworks/subnets/read",
-          "Microsoft.Network/virtualNetworks/subnets/join/action",
-          "Microsoft.Resources/deployments/read",
-          "Microsoft.Resources/subscriptions/resourceGroups/read",
-          "Microsoft.Resources/subscriptions/resourceGroups/resources/read",
-          "Microsoft.Resources/subscriptions/operationresults/read",
-          "Microsoft.Storage/*/read",
-          "Microsoft.Storage/checknameavailability/read",
-          "Microsoft.Storage/register/action",
-          "Microsoft.Storage/storageAccounts/read",
-          "Microsoft.Storage/storageAccounts/listKeys/action",
-          "Microsoft.Storage/storageAccounts/write"
-        ],
-        "dataActions": [],
-        "notActions": [],
-        "notDataActions": []
-      }
-    ],
-    "Name": "CycleCloud",
-    "roleType": "CustomRole",
-    "type": "Microsoft.Authorization/roleDefinitions"
-}
-```
+:::code language="json" source="../includes/custom-role.json":::
+
+Make sure to replace `<SubscriptionId>` with your subscription id. This role is scoped to a subscription, but it can be scoped to a single resource group if preferred. Note also that the name must be unique to the tenant.
 
 > [!IMPORTANT]
-> The use of a custom role requires an Azure AD Premium P1 license. To find the right license for your requirements, see [Comparing generally available features of the Free, Basic, and Premium editions.](https://azure.microsoft.com/pricing/details/active-directory/)
+> The use of a custom role requires an Microsoft Entra ID P1 license. To find the right license for your requirements, see [Microsoft Entra plans and pricing](https://azure.microsoft.com/pricing/details/active-directory/).
 
 #### Optional Permissions
 
-To enable CycleCloud to assign Managed Identities to VMs it creates within clusters, add the following ``"actions"``:
+If you are scoping CycleCloud to use a single resource group per cluster, you can remove the following from `actions`:
+
+```json
+          "Microsoft.Resources/subscriptions/resourceGroups/write",
+          "Microsoft.Resources/subscriptions/resourceGroups/delete",
+```
+
+If you are not using CycleCloud to assign Managed Identities to VMs it creates within clusters, you can remove the following from `actions`:
 
 ```json
           "Microsoft.Authorization/*/read",
@@ -110,12 +58,8 @@ To enable CycleCloud to assign Managed Identities to VMs it creates within clust
           "Microsoft.Authorization/roleDefinitions/*",
 ```
 
-To enable CycleCloud to create and manage Resource Groups per cluster (recommended, if allowed by policy), add the following ``"actions"``:
-```json
-          "Microsoft.Resources/subscriptions/resourceGroups/read",
-          "Microsoft.Resources/subscriptions/resourceGroups/write",
-          "Microsoft.Resources/subscriptions/resourceGroups/delete",
-```
+> [!WARNING]
+> Future versions of CycleCloud will require the ability to assign Managed Identities to VMs, so removing these permissions is not recommended.
 
 #### Creating the Role
 
