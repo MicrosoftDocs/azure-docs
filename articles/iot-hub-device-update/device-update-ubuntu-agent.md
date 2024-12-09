@@ -154,8 +154,7 @@ The import process begins, and the screen switches to the **Updates** screen. Af
 
 :::image type="content" source="media/import-update/update-ready-package.png" alt-text="Screenshot that shows job status.":::
 
-## Deploy the update
-
+## Select the device group
 You can use the group tag you applied to your device to deploy the update to the device group. Select the **Groups and Deployments** tab at the top of the **Updates** page to view the list of groups and deployments and the update compliance chart.
 
 The update compliance chart shows the count of devices in various states of compliance: **On latest update**, **New updates available**, and **Updates in progress**. For more information, see [Device Update compliance](device-update-compliance.md).
@@ -166,7 +165,7 @@ You should see the device group that contains the device you set up in this tuto
 
 :::image type="content" source="media/create-update-group/updated-view.png" alt-text="Screenshot that shows the update compliance view." lightbox="media/create-update-group/updated-view.png":::
 
-### Create the deployment
+## Deploy the update
 
 1. On the **Group details** page, select the **Current deployment** tab and then select **Deploy** next to the desired update in the **Available updates** section. The best available update for the group is denoted with a **Best** highlight.
 

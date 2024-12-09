@@ -210,7 +210,7 @@ The imported update now appears on the **Updates** page.
 
 For more information about the import process, see [Import an update to Device Update for IoT Hub](import-update.md).
 
-## Deploy the update
+## Select the device group
 
 You can use the group tag you applied to your device to deploy the update to the device group. Select the **Groups and Deployments** tab at the top of the **Updates** page to view the list of groups and deployments and the update compliance chart.
 
@@ -218,13 +218,13 @@ The update compliance chart shows the count of devices in various states of comp
 
 Under **Group name**, you see a list of all the device groups for devices connected to this IoT hub and their available updates, with links to deploy the updates under **Status**. Any devices that don't meet the device class requirements of a group appear in a corresponding invalid group. For more information about tags and groups, see [Manage device groups](create-update-group.md).
 
-You should see a device group that contains the simulated device you set up in this tutorial. Select the group name to view its details.
+You should see the device group that contains the simulated device you set up in this tutorial. Select the group name to view its details.
 
 :::image type="content" source="media/device-update-simulator/groups-and-deployments.png" alt-text="Screenshot that shows the update compliance view." lightbox="media/create-update-group/updated-view.png":::
 
-### Create the deployment
+## Deploy the update
 
-1. On the **Group details** page, you should see that there's one new update available for this group. Select **Deploy** to start the deployment.
+1. On the **Group details** page, you should see one new update available for this group. Select **Deploy** to start the deployment.
 
    :::image type="content" source="media/device-update-simulator/group-details.png" alt-text="Screenshot that shows starting a group update deployment." lightbox="media/deploy-update/select-update.png":::
 

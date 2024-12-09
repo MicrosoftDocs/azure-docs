@@ -51,13 +51,13 @@ Add your device to the device registry in your IoT hub and get the connection st
 
 The *Tutorial_RaspberryPi3.zip* file has all the required files for the tutorial. Download the file from the **Assets** section of the latest release on the [GitHub Device Update Releases page](https://github.com/Azure/iot-hub-device-update/releases), and unzip it.
 
-In the extracted *Tutorial_RaspberryPi3* folder, the *adu-base-image-raspberrypi3.wic* file is the base image that you can flash onto the Raspberry Pi board. The base image uses a Yocto build based on the 3.4.4 release. The image has the Device Update agent and SWUpdate, which enables the Device Update dual partition update. For more information about the Yocto layers, see [Build a custom Linux-based system with Device Update agent using the Yocto Project](https://github.com/Azure/iot-hub-device-update-yocto).
+In the extracted *Tutorial_RaspberryPi3* folder, the base image that you can flash onto the Raspberry Pi board is *adu-base-image-raspberrypi3.wic*. The base image uses a Yocto build based on the 3.4.4 release. The image has the Device Update agent and SWUpdate, which enables the Device Update dual partition update. For more information about the Yocto layers, see [Build a custom Linux-based system with Device Update agent using the Yocto Project](https://github.com/Azure/iot-hub-device-update-yocto).
 
 The update files you import through Device Update are:
 
-- The *adu-update-image-raspberrypi3-1.2.0.swu* SWUpdate file
-- The *example-a-b-update.sh* custom SWUpdate script
-- The *EDS-ADUClient.yocto-update.1.2.0.importmanifest.json* manifest
+- SWUpdate file *adu-update-image-raspberrypi3-1.2.0.swu* 
+- Custom SWUpdate script *example-a-b-update.sh* 
+- Manifest *EDS-ADUClient.yocto-update.1.2.0.importmanifest.json*
 
 ### Use bmaptool to flash the SD card
 
@@ -249,7 +249,7 @@ The import process begins, and the screen switches to the **Updates** screen. Af
 
 :::image type="content" source="media/import-update/update-ready-ppr.png" alt-text="Screenshot that shows job status.":::
 
-## Deploy the update
+## Select the device group
 
 You can use the group tag you applied to your device to deploy the update to the device group. Select the **Groups and Deployments** tab at the top of the **Updates** page to view the list of groups and deployments and the update compliance chart.
 
@@ -257,11 +257,11 @@ The update compliance chart shows the count of devices in various states of comp
 
 Under **Group name**, you see a list of all the device groups for devices connected to this IoT hub and their available updates, with links to deploy the updates under **Status**. Any devices that don't meet the device class requirements of a group appear in a corresponding invalid group. For more information about tags and groups, see [Manage device groups](create-update-group.md).
 
-You should see the device group that contains the device you set up in this tutorial, along with the available updates for the devices in the group. You might need to refresh the page. To deploy the best available update to the group from this view, select **Deploy** next to the group.
+You should see the device group that contains the device you set up in this tutorial, along with the available updates for the devices in the group. You might need to refresh the page. To deploy the best available update to a group from this view, select **Deploy** next to the group.
 
 :::image type="content" source="media/create-update-group/updated-view.png" alt-text="Screenshot that shows the update compliance view." lightbox="media/create-update-group/updated-view.png":::
 
-### Create the deployment
+## Deploy the update
 
 1. On the **Group details** page, select the **Current deployment** tab, and then select **Deploy** next to the desired update in the **Available updates** section. The best available update for the group is denoted with a **Best** highlight.
 
