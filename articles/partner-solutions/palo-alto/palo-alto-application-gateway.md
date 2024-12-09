@@ -24,8 +24,6 @@ For web applications, you benefit from using Application Gateway as both a rever
 
 Application Gateway also offers WAF capabilities to look for patterns that indicate an attack at the web application layer. For more information about Application Gateway features, see the [service documentation](/azure/application-gateway).
 
-:::image type="content" source="media/palo-alto-app-gateway/palo-alto-app-gateway.png" alt-text="Diagram that shows a high-level architecture with Application Gateway.":::
-
 Cloud NGFW for Azure supports two deployment architectures:
 
 - Hub-and-spoke virtual network
@@ -40,8 +38,6 @@ This deployment allocates two subnets in the hub virtual network. The Cloud NGFW
 Application Gateway is deployed in a dedicated virtual network with a front end listening on a public IP address. The back-end pool targets the workloads that serve the web application; in this example, a virtual machine in a spoke virtual network with an IP address of 192.168.1.0/24.
 
 Similar to spoke virtual networks, the Application Gateway virtual network must be peered with the hub virtual network to ensure that the traffic can be routed toward the destination spoke virtual network.
-
-:::image type="content" source="media/palo-alto-app-gateway/palo-alto-app-gateway-vnet.png" alt-text="Diagram that shows a Cloud NGFW for Azure architecture with Application Gateway in a hub-and-spoke virtual network deployment.":::
 
 To force incoming web traffic through the Cloud NGFW for Azure resource, you must create a user-defined route and associate it with the Application Gateway subnet. The next hop in this case is the private IP address of Cloud NGFW for Azure. You can find this address by selecting **Overview** from the resource menu in the Azure portal.
 
@@ -63,8 +59,6 @@ Securing a virtual WAN hub by using a Palo Alto Networks software as a service (
 
 You must configure a routing intent and a routing policy to use a Cloud NGFW for Azure resource as a next hop for public or private traffic. Any connected spoke virtual network, VPN gateway, or Azure ExpressRoute gateway then gets the routing information to send the traffic through the Cloud NGFW for Azure resource.
 
-:::image type="content" source="media/palo-alto-app-gateway/palo-alto-app-gateway-vwan.png" alt-text="Diagram that shows a Cloud NGFW for Azure architecture with Application Gateway in a virtual WAN hub deployment.":::
-
 By default, the virtual network connection to the hub has the **Propagate Default Route** option set to **Enabled**. This setting installs a 0.0.0.0/0 route to force all nonmatched traffic sourced from that virtual network to go through the virtual WAN hub. In this topology, this setting would result in asymmetric routing because the return traffic proxied by Application Gateway would go back to the virtual hub instead of the internet. When you're connecting the Application Gateway virtual network to the virtual WAN hub, set this attribute to **Disabled** to allow the Application Gateway-sourced traffic to break out locally.
 
 :::image type="content" source="media/palo-alto-app-gateway/palo-alto-virtual-connection.png" alt-text="Screenshot that shows virtual network connections for a virtual WAN.":::
@@ -75,9 +69,7 @@ In some cases, disabling the default route propagation might not be desirable. A
 
 :::image type="content" source="media/palo-alto-app-gateway/palo-alto-route-table.png" alt-text="Screenshot that shows an Azure route table.":::
 
-You can locate the next hop IP address of Cloud NGFW for Azure by viewing the effective routes of a workload in a spoke virtual network. The following example shows the effective routes for a virtual machine network interface.
-
-:::image type="content" source="media/palo-alto-app-gateway/palo-alto-effective-routes.png" alt-text="Screenshot that shows effective routes for a spoke virtual machine.":::
+You can locate the next hop IP address of Cloud NGFW for Azure by viewing the effective routes of a workload in a spoke virtual network. 
 
 ## Security policy considerations
 

@@ -20,8 +20,6 @@ Once your Cloud NGFW by Palo Alto Networks resource is created in the Azure port
 
 From the Resource menu, select your Cloud NGFW by Palo Alto Networks deployment. Use the Resource menu to move through the settings for your Cloud NGFW by Palo Alto Networks.
 
-:::image type="content" source="media/palo-alto-manage/palo-alto-overview-essentials.png" alt-text="Screenshot shows the Resource menu in a red box for a Palo Alto Networks resource.":::
-
 ## Networking and NAT
 
 1. Select **Networking & NAT** in the Resource menu.
