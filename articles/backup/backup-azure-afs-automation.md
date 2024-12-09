@@ -2,7 +2,7 @@
 title: Back up an Azure file share by using PowerShell
 description: In this article, learn how to back up an Azure Files file share by using the Azure Backup service and PowerShell. 
 ms.topic: how-to
-ms.date: 07/18/2024
+ms.date: 12/09/2024
 ms.custom: devx-track-azurepowershell
 ms.service: azure-backup
 author: AbhishekMallick-MS
@@ -192,6 +192,14 @@ NewAFSPolicy           AzureFiles            AzureStorage              10/24/201
 
 # [Multiple backups policy](#tab/multiple-backups-policy)
 
+
+>[!Important]
+>The following cmdlets are used for the Backup policies:
+>
+>- View the default backup policy retention by using `Get-AzRecoveryServicesBackupRetentionPolicyObject`.
+>- View the default backup policy schedule by using `Get-AzRecoveryServicesBackupSchedulePolicyObject`.
+>- Create a new backup policy by using `New-AzRecoveryServicesBackupProtectionPolicy`. Provide the schedule and retention policy objects as inputs.
+
 To create a backup policy that configures multiple backups a day, follow these steps:
 
 1. Fetch the schedule policy object using below cmdlet:
@@ -230,6 +238,14 @@ To create a backup policy that configures multiple backups a day, follow these s
    $schPol.ScheduleRunTimeZone=$timeZone.Id
    ```
 
+   To reate a policy with daily schedule, run the following cmdlet:
+
+   ```azurepowershell
+   $UtcTime = Get-Date -Date "2019-03-20 01:30:00Z"
+   $UtcTime = $UtcTime.ToUniversalTime()
+   $schpol.ScheduleRunTimes[0] = $UtcTime
+   ```
+   
 1. Fetch the retention policy object using following cmdlet:
 
    ```azurepowershell-interactive
