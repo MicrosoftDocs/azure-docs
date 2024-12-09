@@ -4,6 +4,7 @@ description: This article describes how to use the Azure portal to create a Clou
 
 ms.custom: references_regions
 ms.topic: quickstart
+ms.date: 12/09/2024
 
 ---
 

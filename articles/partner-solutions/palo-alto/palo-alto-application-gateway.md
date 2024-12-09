@@ -3,7 +3,7 @@ title: Cloud NGFW for Azure deployment behind Azure Application Gateway
 description: This article describes how to use Azure Application Gateway with Cloud NGFW for Azure by Palo Alto Networks to help secure web applications.
 
 ms.topic: conceptual
-ms.date: 05/06/2024
+ms.date: 12/09/2024
 
 ---
 # Cloud NGFW for Azure deployment behind Azure Application Gateway
@@ -66,8 +66,6 @@ By default, the virtual network connection to the hub has the **Propagate Defaul
 :::image type="content" source="media/palo-alto-app-gateway/palo-alto-disable-gateway.png" alt-text="Screenshot that shows the toggle for disabling the default route propagation.":::
 
 In some cases, disabling the default route propagation might not be desirable. An example is when other applications or workloads are hosted in the Application Gateway virtual network and require the inspection by Cloud NGFW for Azure. In this case, you can enable the default route propagation but add a 0.0.0.0/0 route to the Application Gateway subnet to override the default route received from the hub. An explicit route to the application virtual network is also required.
-
-:::image type="content" source="media/palo-alto-app-gateway/palo-alto-route-table.png" alt-text="Screenshot that shows an Azure route table.":::
 
 You can locate the next hop IP address of Cloud NGFW for Azure by viewing the effective routes of a workload in a spoke virtual network. 
 
