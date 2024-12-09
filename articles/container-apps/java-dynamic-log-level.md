@@ -19,6 +19,9 @@ Before getting started, you need to upgrade Azure Container Apps extension in yo
 az extension update --name containerapp
 ```
 
+> [!NOTE]
+> This feature is compatible with applications running on Java 8 or newer versions.
+
 ## Enable JVM diagnostics for your Java applications
 
 Before using the Java diagnostics tool, you need to first enable Java Virtual Machine (JVM) diagnostics for your Azure Container Apps. This step enables Java diagnostics functionality by injecting an advanced diagnostics agent into your app. Your app might restart during this process.
