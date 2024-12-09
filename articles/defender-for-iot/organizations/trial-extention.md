@@ -14,9 +14,7 @@ This article contains information for customers who have a trial license and nee
 
 A trial license can be extended by the customer in the final 15 days of the trial using the [Microsoft 365 Admin Center](https://admin.microsoft.com/Adminportal/Home?#/homepage).
 
-Customers with either MCA or MOSA billing accounts can use these instructions to [request an extention for their trial license](/microsoft-365/commerce/try-or-buy-microsoft-365#extend-your-trial). This request must be made by a user with Global or Billing Admin premissions on the customer tenant. For more information, see [admin roles in Microsoft 365 admin center](/microsoft-365/admin/add-users/about-admin-roles) and with [this absolute link](https://learn.microsoft.com/microsoft-365/admin/add-users/about-admin-roles).
-
-instructions to [extend their trial license](/microsoft-365/commerce/try-or-buy-microsoft-365#extend-your-trial). or [with this](https://learn.microsoft.com/microsoft-365/commerce/try-or-buy-microsoft-365#extend-your-trial).
+Customers with either MCA or MOSA billing accounts can use these instructions to [request an extention for their trial license](/microsoft-365/commerce/try-or-buy-microsoft-365#extend-your-trial). This request must be made by a user with Billing Admin permissions on the customer tenant. For more information, see [admin roles in Microsoft 365 admin center](/microsoft-365/admin/add-users/about-admin-roles).
 
 ## Contact the Product team
 
@@ -50,7 +48,7 @@ The Microsoft 365 license lasts for one year.
 
 ### Is it possible to cancel a paid license?
 
-Customers can cancel a paid license within seven days of the start of the license and recieve a prorated refund. After seven days, they should [turn off recurring billing](/microsoft-365/commerce/subscriptions/renew-your-subscription) to prevent automatic renewal.​ or [this link](https://learn.microsoft.com/microsoft-365/commerce/subscriptions/renew-your-subscription).
+Customers can cancel a paid license within seven days of the start of the license and recieve a prorated refund. After seven days, they should [turn off recurring billing](/microsoft-365/commerce/subscriptions/renew-your-subscription) to prevent automatic renewal.​
 
 A customer can also deactivate license. For more information, see [cancel your subscription in the Microsoft 365 admin center](/microsoft-365/commerce/subscriptions/cancel-your-subscription).​
 
@@ -62,7 +60,7 @@ Tenants without an active site license have a 30-day grace period from the last 
 
 ### Are there specific hardware components a customer is required to deploy?
 
-Yes. Microsoft has partnered with Arrow Electronics to provide pre-configured appliances. To purchase a pre-configured appliance, contact Arrow at: hardware.sales@arrow.com. For more details, see [OT pre-configured appliances help guide](ot-pre-configured-appliances.md) or [the OT monitoring appliance catalog](appliance-catalog/index.yml).
+Yes. Microsoft has partnered with Arrow Electronics to provide pre-configured appliances. To purchase a pre-configured appliance, contact Arrow at: hardware.sales@arrow.com. For more details, see [OT pre-configured appliances help guide](ot-pre-configured-appliances.md) or the [OT monitoring appliance catalog](appliance-catalog/index.yml).
 
 ### What is a site? - where is this, can link to the answer
 
