@@ -1,26 +1,29 @@
 ---
-title: Edit and manage logic apps using Visual Studio
+title: (Deprecated) Edit and manage logic apps with Visual Studio
 description: Edit, update, manage, add to source control, and deploy logic apps using Visual Studio with Cloud Explorer.
 services: logic-apps
+ms.service: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.custom: mvc
-ms.date: 01/04/2024
+ms.date: 12/10/2024
 ---
 
-# Manage logic apps with Visual Studio
+# Manage logic apps with Visual Studio (Deprecated)
 
 [!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
 
-Although you can create, edit, manage, and deploy logic apps in the [Azure portal](https://portal.azure.com), you can also use Visual Studio when you want to add your logic apps to source control, publish different versions, and create [Azure Resource Manager](../azure-resource-manager/management/overview.md) templates for various deployment environments. With Visual Studio Cloud Explorer, you can find and manage your logic apps along with other Azure resources. For example, you can open, download, edit, run, view run history, disable, and enable logic apps that are already deployed in the Azure portal. If you're new to working with Azure Logic Apps in Visual Studio, learn [how to create logic apps with Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
-
-You can also [manage your logic apps in the Azure portal](manage-logic-apps-with-azure-portal.md).
-
 > [!IMPORTANT]
-> Deploying or publishing a logic app from Visual Studio overwrites the version of that app in the Azure portal. 
-> So if you make changes in the Azure portal that you want to keep, make sure that you 
-> [refresh the logic app in Visual Studio](#refresh) from the Azure portal before the next time you deploy or publish from Visual Studio.
+>
+> The **Azure Logic Apps Tools for Visual Studio** extension is deprecated and no longer receives updates.
+> To create and manage logic app workflows using a local development environment, see the following documentation:
+>
+> - [Quickstart: Create and manage Consumption logic app workflows in multitenant Azure Logic Apps with Visual Studio Code](/azure/logic-apps/quickstart-create-logic-apps-with-visual-studio-code)
+>
+> - [Create a Standard logic app workflow in single-tenant Azure Logic Apps with Visual Studio Code](/azure/logic-apps/create-single-tenant-workflows-visual-studio-code)
+
+You can create, edit, manage, and deploy automated workflows that integrate services, systems, apps, and data across enterprises and organizations by using [Azure Logic Apps](logic-apps-overview.md). Although you can perform these tasks in the Azure portal, you can also use a local development environment to create logic app projects that you can add to source control, publish different versions, and create Azure Resource Manager templates for different deployment environments.
 
 <a name="requirements"></a>
 
@@ -30,13 +33,12 @@ You can also [manage your logic apps in the Azure portal](manage-logic-apps-with
 
 * Download and install these tools, if you don't have them already:
 
-  * [Visual Studio 2019, 2017, or 2015 - Community edition or greater](https://aka.ms/download-visual-studio). The Azure Logic Apps extension is currently unavailable for Visual Studio 2022. This quickstart uses Visual Studio Community 2017, which is free.
+  * [Visual Studio 2019 or 2017 - Community edition or greater](https://aka.ms/download-visual-studio). The Azure Logic Apps extension is currently unavailable for Visual Studio 2022. This guide uses Visual Studio Community 2017, which is free.
 
     > [!IMPORTANT]
+    >
     > When you install Visual Studio 2019 or 2017, make sure that you select the **Azure development** workload.
     > For more information, see [Manage resources associated with your Azure accounts in Visual Studio Cloud Explorer](/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer).
-
-    To install Cloud Explorer for Visual Studio 2015, [download Cloud Explorer from the Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=MicrosoftCloudExplorer.CloudExplorerforVisualStudio2015). For more information, see [Manage resources associated with your Azure Accounts in Visual Studio Cloud Explorer (2015)](/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2015&preserve-view=true).
 
   * [Azure SDK (2.9.1 or later)](https://azure.microsoft.com/downloads/)
 
@@ -48,8 +50,6 @@ You can also [manage your logic apps in the Azure portal](manage-logic-apps-with
 
     * [Visual Studio 2017](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2017)
 
-    * [Visual Studio 2015](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2015)
-
     You can either download and install Azure Logic Apps Tools directly from the Visual Studio Marketplace, or learn [how to install this extension from inside Visual Studio](/visualstudio/ide/finding-and-using-visual-studio-extensions). Make sure that you restart Visual Studio after you finish installing.
 
   * To use Azure Government subscriptions with Visual Studio, see these topics for additional setup:
@@ -58,7 +58,7 @@ You can also [manage your logic apps in the Azure portal](manage-logic-apps-with
 
     * Visual Studio 2017: [Introducing the Azure Environment Selector Visual Studio extension](https://devblogs.microsoft.com/azuregov/introducing-the-azure-environment-selector-visual-studio-extension/), which you can download and install from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=SteveMichelotti.AzureEnvironmentSelector).
 
-* Access to the web while using the embedded Logic Apps Designer
+* Access to the web while using the embedded workflow designer for Azure Logic Apps
 
   The designer requires an internet connection to create resources in Azure and to read the properties and data from connectors in your logic app.
 
