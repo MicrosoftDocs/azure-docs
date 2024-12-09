@@ -24,9 +24,16 @@ Get notified when this page is updated by copying and pasting the following URL 
 
 ## December 2024
 
+- [New SOC optimization recommendation based on similar organizations](#new-soc-optimization-recommendation-based-on-similar-organizations-preview)
 - [Unified Microsoft Sentinel solution for Microsoft Business Apps](#unified-microsoft-sentinel-solution-for-microsoft-business-apps)
 - [New documentation library for Microsoft's unified security operations platform](#new-documentation-library-for-microsofts-unified-security-operations-platform)
 - [New S3-based data connector for Amazon Web Services WAF logs (Preview)](#new-s3-based-data-connector-for-amazon-web-services-waf-logs-preview)
+
+### New SOC optimization recommendation based on similar organizations (Preview)
+
+SOC optimization now includes new recommendations for adding data sources to your workspace based on the security posture of other customers in similar industries and sectors as you, and with similar data ingestion patterns. Add the recommended data sources to improve security coverage for your organization.
+
+For more information, see [SOC optimization reference](soc-optimization/soc-optimization-reference.md).
 
 ### Unified Microsoft Sentinel solution for Microsoft Business Apps
 
