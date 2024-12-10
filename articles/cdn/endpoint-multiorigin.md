@@ -12,6 +12,8 @@ ms.author: duau
 
 # Azure CDN endpoint multi-origin
 
+[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
+
 Multi-origin support eliminates downtime and establishes global redundancy.
 
 When you choose multiple origins within an Azure CDN endpoint, the redundancy provided spreads the risk by probing the health of each origin and failing over if necessary.

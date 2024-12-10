@@ -3,7 +3,7 @@ title: Configure VMware Spring Cloud Gateway
 description: Learn how to configure VMware Spring Cloud Gateway with the Azure Spring Apps Enterprise plan.
 author: KarlErickson
 ms.author: xiading
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
 ms.date: 12/01/2023
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
@@ -11,10 +11,9 @@ ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 
 # Configure VMware Spring Cloud Gateway
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ❌ Basic/Standard ✔️ Enterprise
+**This article applies to:** ❎ Basic/Standard ✅ Enterprise
 
 This article shows you how to configure VMware Spring Cloud Gateway for VMware Tanzu with the Azure Spring Apps Enterprise plan.
 
@@ -285,7 +284,7 @@ To enhance security and help protect sensitive information from interception by 
 
 Before you configure TLS, you need to have a TLS-enabled application and a TLS certificate. To prepare a TLS certificate, generate a certificate from a trusted certificate authority (CA). The certificate verifies the identity of the server and establishes a secure connection.
 
-After you have a TLS-enabled application running in Azure Spring Apps, upload the certificate to Azure Spring Apps. For more information, see the [Import a certificate](how-to-use-tls-certificate.md#import-a-certificate) section of [Use TLS/SSL certificates in your application in Azure Spring Apps](how-to-use-tls-certificate.md).
+After you have a TLS-enabled application running in Azure Spring Apps, upload the certificate to Azure Spring Apps. For more information, see the [Import a certificate](../basic-standard/how-to-use-tls-certificate.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json#import-a-certificate) section of [Use TLS/SSL certificates in your application in Azure Spring Apps](../basic-standard/how-to-use-tls-certificate.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json).
 
 With the certificate updated to Azure Spring Apps, you can configure the TLS certificate for the gateway and enable certificate verification. You can configure the certificate in the Azure portal or by using the Azure CLI.
 
@@ -353,7 +352,7 @@ You can now test whether the application is TLS enabled with the endpoint of the
 As certificates expire, you need to rotate certificates in VMware Spring Cloud Gateway by using the following steps:
 
 1. Generate new certificates from a trusted CA.
-1. Import the certificates into Azure Spring Apps. For more information, see the [Import a certificate](how-to-use-tls-certificate.md#import-a-certificate) section of [Use TLS/SSL certificates in your application in Azure Spring Apps](how-to-use-tls-certificate.md).
+1. Import the certificates into Azure Spring Apps. For more information, see the [Import a certificate](../basic-standard/how-to-use-tls-certificate.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json#import-a-certificate) section of [Use TLS/SSL certificates in your application in Azure Spring Apps](../basic-standard/how-to-use-tls-certificate.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json).
 1. Synchronize the certificates by using the Azure portal or the Azure CLI.
 
 VMware Spring Cloud Gateway restarts to ensure that the gateway uses the new certificate for all connections.
@@ -419,7 +418,7 @@ az monitor autoscale rule create \
 
 ---
 
-For more information on the available metrics, see the [User metrics options](./concept-metrics.md#user-metrics-options) section of [Metrics for Azure Spring Apps](./concept-metrics.md).
+For more information on the available metrics, see the [User metrics options](../basic-standard/concept-metrics.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json#user-metrics-options) section of [Metrics for Azure Spring Apps](../basic-standard/concept-metrics.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json).
 
 ## Configure the response cache
 
@@ -495,7 +494,7 @@ To enable the response cache for any route, use the `LocalResponseCache` filter.
 }
 ```
 
-For more information, see the [LocalResponseCache](./how-to-configure-enterprise-spring-cloud-gateway-filters.md#localresponsecache) section of [How to use VMware Spring Cloud Gateway route filters with the Azure Spring Apps Enterprise plan](./how-to-configure-enterprise-spring-cloud-gateway-filters.md) and [LocalResponseCache](https://aka.ms/vmware/scg/filters/localresponsecache) in the VMware documentation.
+For more information, see the [LocalResponseCache](./how-to-configure-enterprise-spring-cloud-gateway-filters.md#localresponsecache) section of [How to use VMware Spring Cloud Gateway route filters with the Azure Spring Apps Enterprise plan](./how-to-configure-enterprise-spring-cloud-gateway-filters.md) and [LocalResponseCache](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/2.2/scg-k8s/GUID-guides-filters-traffic-control.html#localresponsecache) in the VMware documentation.
 
 Instead of configuring `size` and `timeToLive` for each `LocalResponseCache` filter individually, you can set these parameters at the Spring Cloud Gateway level. This option enables you to use the `LocalResponseCache` filter without specifying these values initially, while retaining the flexibility to override them later.
 
@@ -617,7 +616,7 @@ To monitor VMware Spring Cloud Gateway, you can configure APM. The following tab
 
 For other supported environment variables, see the following sources:
 
-- [Application Insights overview](../../azure-monitor/app/app-insights-overview.md?tabs=net)
+- [Application Insights overview](/azure/azure-monitor/app/app-insights-overview?tabs=net)
 - [Dynatrace environment variables](https://www.dynatrace.com/support/help/setup-and-configuration/setup-on-cloud-platforms/microsoft-azure-services/azure-integrations/azure-spring#envvar)
 - [New Relic environment variables](https://docs.newrelic.com/docs/apm/agents/java-agent/configuration/java-agent-configuration-config-file/#Environment_Variables)
 - [AppDynamics environment variables](https://docs.appdynamics.com/appd/24.x/24.3/en/application-monitoring/install-app-server-agents/java-agent/monitor-azure-spring-cloud-with-java-agent#id-.MonitorAzureSpringCloudwithJavaAgentv24.3-ConfigureUsingtheEnvironmentVariablesorSystemProperties)
@@ -816,6 +815,44 @@ The following list shows the supported add-on configurations for the add-on key 
         }
     }
     ```
+
+- Pod configuration
+  - Key name: `PodOverrides`, which is used to specify overrides for the default pod configuration.
+  - Value type: Object
+  - Properties
+    - `Containers`: This array contains the configuration for individual containers within the pod. Only the container named `gateway` is supported currently.
+      - `Name`: Specifies the name of the container. The container should be named `gateway`.
+      - `Lifecycle`: `PreStop` is a lifecycle hook that's executed when a container is about to be terminated. This hook enables you to perform any necessary cleanup before the container stops.
+    - `TerminationGracePeriodSeconds`: Specifies the amount of time Kubernetes waits for a pod to terminate gracefully before forcibly killing it.
+  - Example:
+
+    ```json
+    {
+        "PodOverrides": {
+            "Containers": [
+                {
+                    "Name": "gateway",
+                    "Lifecycle": {
+                        "PreStop": {
+                            "Exec": {
+                                "Command": [
+                                    "/bin/sh",
+                                    "-c",
+                                    "sleep 20"
+                                ]
+                            }
+                        }
+                    }
+                }
+            ],
+            "TerminationGracePeriodSeconds": 120
+        }
+    }
+    ```
+    
+    When a pod containing this container is being terminated, the `PreStop` hook executes the command `/bin/sh -c 'sleep 20'`, causing the container to sleep for 20 seconds. This pause gives the container some time to complete any ongoing tasks or cleanup before it actually stops.
+    
+    The `TerminationGracePeriodSeconds` setting provides a total of 120 seconds for the pod to terminate gracefully, including the time taken by any lifecycle hooks, such as `PreStop`.
 
 Use the following steps to update the add-on configuration.
 

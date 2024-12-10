@@ -5,8 +5,8 @@ author: anaharris-ms
 ms.author: anaharris
 ms.reviewer: anaharris
 ms.date: 01/24/2024
-ms.service: event-hubs
-ms.topic: concept
+ms.service: azure-event-hubs
+ms.topic: concept-article
 ms.custom:
   - subject-relocation
 ---
@@ -19,6 +19,7 @@ This article shows you how to export an Azure Resource Manager template for an e
 If you have other resources such as namespaces and event hubs in the Azure resource group that contains the Event Hubs cluster, you may want to export the template at the resource group level so that all related resources can be moved to the new region in one step. The steps in this article show you how to export an **Event Hubs cluster** to the template. The steps for exporting a **resource group** to the template are similar. 
 
 ## Prerequisites
+
 Ensure that the dedicated cluster can be created in the target region. The easiest way to find out is to use the Azure portal to try to [create an Event Hubs dedicated cluster](../event-hubs/event-hubs-dedicated-cluster-create-portal.md). You see the list of regions that are supported at that point of time for creating the cluster. 
 
 

@@ -1,15 +1,15 @@
 ---
 title: Configure development environment for deployment scripts in Bicep | Microsoft Docs
 description: Configure development environment for deployment scripts in Bicep.
-ms.topic: conceptual
-ms.date: 12/13/2023
+ms.topic: how-to
+ms.date: 09/26/2024
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-bicep
 ms.devlang: azurecli
 ---
 
 # Configure development environment for deployment scripts in Bicep files
 
-Learn how to create a development environment for developing and testing deployment scripts with a deployment script image. You can either create an [Azure container instance](../../container-instances/container-instances-overview.md) or use [Docker](https://docs.docker.com/get-docker/). Both options are covered in this article.
+Learn how to create a development environment for developing and testing deployment scripts with a deployment script image. You can either create an [Azure container instance](/azure/container-instances/container-instances-overview) or use [Docker](https://docs.docker.com/get-docker/). Both options are covered in this article.
 
 ## Prerequisites
 
@@ -60,7 +60,7 @@ In an Azure CLI deployment script, an environment variable called `AZ_SCRIPTS_OU
 
 ## Use Azure PowerShell container instance
 
-To author Azure PowerShell scripts on your computer, you need to create a storage account and mount the storage account to the container instance. So that you can upload your script to the storage account and run the script on the container instance. The storage account that you create to test your script is not the same storage account that the deployment script service uses to execute the script. Deployment script service creates a unique name as a file share on every execution.
+To author Azure PowerShell scripts on your computer, you need to create a storage account and mount the storage account to the container instance. So that you can upload your script to the storage account and run the script on the container instance. The storage account that you create to test your script isn't the same storage account that the deployment script service uses to execute the script. Deployment script service creates a unique name as a file share on every execution.
 
 ### Create an Azure PowerShell container instance
 
@@ -237,7 +237,7 @@ var fileShareName = '${projectName}share'
 var containerGroupName = '${projectName}cg'
 var containerName = '${projectName}container'
 
-resource storageAccount 'Microsoft.Storage/storageAccounts@2023-01-01' = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' = {
   name: storageAccountName
   location: location
   sku: {
@@ -249,7 +249,7 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2023-01-01' = {
   }
 }
 
-resource fileshare 'Microsoft.Storage/storageAccounts/fileServices/shares@2023-01-01' = {
+resource fileshare 'Microsoft.Storage/storageAccounts/fileServices/shares@2023-04-01' = {
   name: '${storageAccountName}/default/${fileShareName}'
   dependsOn: [
     storageAccount
@@ -327,7 +327,7 @@ New-AzResourceGroupDeployment -resourceGroupName $resourceGroupName -TemplateFil
 
 ### Upload the deployment script
 
-Upload your deployment script to the storage account. The following is a PowerShell example:
+Upload your deployment script to the storage account. The following script is a PowerShell example:
 
 ```azurepowershell
 $projectName = Read-Host -Prompt "Enter the same project name that you used earlier"

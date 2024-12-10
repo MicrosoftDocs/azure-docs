@@ -5,9 +5,10 @@ author: kgremban
 ms.author: kgremban
 ms.date: 10/27/2022
 ms.topic: how-to
-ms.service: iot-dps
+ms.service: azure-iot-hub
 services: iot-dps
 manager: lizross
+ms.subservice: azure-iot-hub-dps
 ---
 
 # How to use X.509 certificates over HTTPS without an SDK
@@ -26,7 +27,7 @@ There are multiple paths through this article depending on the type of enrollmen
 
 * Make sure you have [Python 3.7](https://www.python.org/downloads/) or later installed on your machine. You can check your version of Python by running `python --version` or `python3 --version`.
 
-* If you're running in Windows, install the latest version of [Git](https://git-scm.com/download/). Make sure that Git is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) for the latest version of `git` tools to install, which includes *Git Bash*, the command-line app that you can use to interact with your local Git repository. On Windows, you'll enter all commands on your local system in a GitBash prompt.
+* If you're running in Windows, install the latest version of [Git](https://git-scm.com/downloads). Make sure that Git is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/downloads) for the latest version of `git` tools to install, which includes *Git Bash*, the command-line app that you can use to interact with your local Git repository. On Windows, you'll enter all commands on your local system in a GitBash prompt.
 
 * Azure CLI. You have two options for running Azure CLI commands in this article:
     * Use the Azure Cloud Shell, an interactive shell that runs CLI commands in your browser. This option is recommended because you don't need to install anything. If you're using Cloud Shell for the first time, sign in to the [Azure portal](https://portal.azure.com). Follow the steps in [Cloud Shell quickstart](../cloud-shell/quickstart.md) to **Start Cloud Shell** and **Select the Bash environment**.
@@ -325,7 +326,7 @@ Strict-Transport-Security: max-age=31536000; includeSubDomains
 {"operationId":"5.506603669bd3e2bf.b3602f8f-76fe-4341-9214-bb6cfb891b8a","status":"assigning"}
 ```
 
-The response contains an operation ID and a status. In this case, the status is set to `assigning`. DPS enrollment is, potentially, a long-running operation, so it's done asynchronously. Typically, you'll poll for status using the [Operation Status Lookup](/rest/api/iot-dps/device/runtime-registration/operation-status-lookup) REST API to determine when your device has been assigned or whether a failure has occurred.
+The response contains an operation ID and a status. In this case, the status is set to `assigning`. DPS enrollment is, potentially, a long-running operation, so it's done asynchronously. Typically, you'll poll for status using the [Operation Status Lookup](/rest/api/iot-dps/device/operation-groups) REST API to determine when your device has been assigned or whether a failure has occurred.
 
 The valid status values for DPS are:
 
@@ -386,7 +387,7 @@ Note down the device ID and the assigned IoT hub. You'll use them to send a tele
 
 ## Send a telemetry message
 
-You call the IoT Hub [Send Device Event](/rest/api/iothub/device/send-device-event) REST API to send telemetry to the device.
+You call the IoT Hub [Send Device Event](/rest/api/iothub/device/device/send-device-event) REST API to send telemetry to the device.
 
 Use the following curl command:
 

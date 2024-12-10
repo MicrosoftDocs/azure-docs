@@ -24,7 +24,7 @@ In this tutorial, you learn how to:
 
 * A code editor, such as [Visual Studio Code](https://code.visualstudio.com/)
 
-* [Node.js](https://nodejs.org/en/download/), version 18.x or above.
+* [Node.js](https://nodejs.org/en/download/package-manager/), version 18.x or above.
    > [!NOTE]
    > For more information about the supported versions of Node.js, see [Azure Functions runtime versions documentation](../azure-functions/functions-versions.md#languages).
 
@@ -32,7 +32,7 @@ In this tutorial, you learn how to:
 
 * The [Azure CLI](/cli/azure) to manage Azure resources.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Create an IoT hub
 

@@ -2,7 +2,7 @@
 title: Self-host the API Center portal
 description: How to self-host the API Center portal, a customer-managed website that enables discovery of the API inventory in your Azure API center.
 author: dlepow
-ms.service: api-center
+ms.service: azure-api-center
 ms.topic: how-to
 ms.date: 04/29/2024
 ms.author: danlep 
@@ -52,7 +52,7 @@ First configure an app registration in your Microsoft Entra ID tenant. The app r
     * Under **Supported account types**, select **Accounts in this organizational directory (Single tenant)**. 
     * In **Redirect URI**, select **Single-page application (SPA)** and set the URI.
 
-        * For local testing, set the URI to `http://localhost:5173`. 
+        * For local testing, set the URI to `https://localhost:5173`. 
         * For production, set the URI to the URI of your API Center portal deployment.
     * Select **Register**.
 1. On the **Overview** page, copy the **Application (client) ID** and the **Directory (tenant) ID**. You set these values when you build the portal.
@@ -85,7 +85,8 @@ Follow these steps to build and test the API Center portal locally.
     ```bash
     git checkout main
     ```  
-1. To configure the service, edit the `public/config.json` file to point to your service. Update the values in the file as follows:
+1. To configure the service, copy or rename the `public/config.example` file to `public/config.json`.
+1. Then edit the `public/config.json` file to point to your service. Update the values in the file as follows:
     * Replace `<service name>` and `<region>` with the name of your API center and the region where it's deployed
     * Replace `<client ID>` and `<tenant ID>` with the **Application (client) ID** and **Directory (tenant) ID** of the app registration you created in the previous section.
     * Update the value of `title` to a name that you want to appear on the portal.

@@ -3,7 +3,7 @@ title: Troubleshoot library installation errors
 description: This tutorial provides an overview on how to troubleshoot library installation errors.
 author: shuaijunye
 ms.author: shuaijunye 
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: spark
 ms.topic: conceptual
 ms.date: 07/07/2022

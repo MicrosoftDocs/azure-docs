@@ -1,12 +1,13 @@
 ---
 title: Migrate to Azure Cache for Redis
 description: Learn how to migrate your existing cache to Azure Cache for Redis
-author: flang-msft
 
-ms.service: cache
+
+
 ms.topic: conceptual
+ms.custom:
+  - ignite-2024
 ms.date: 11/17/2021
-ms.author: franlanglois
 ---
 # Migrate to Azure Cache for Redis
 
@@ -42,6 +43,8 @@ This approach technically isn't a migration. If losing data isn't a concern, the
 General steps to implement this option are:
 
 1. Create a new Azure Cache for Redis instance.
+
+1. Optionally, try out the new [Azure Managed Redis (preview)](./managed-redis/managed-redis-overview.md).
 
 2. Update your application to use the new instance.
 

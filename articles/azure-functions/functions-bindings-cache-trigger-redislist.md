@@ -1,17 +1,17 @@
 ---
-title: RedisListTrigger for Azure Functions (preview)
+title: RedisListTrigger for Azure Functions
 description: Learn how to use the RedisListTrigger Azure Functions for Azure Cache for Redis.
 author: flang-msft
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 ms.author: franlanglois
 ms.service: azure-functions
-ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python, ignite-2024
 ms.topic: reference
-ms.date: 02/27/2024
+ms.date: 07/12/2024
 ---
 
-# RedisListTrigger for Azure Functions (preview)
+# RedisListTrigger for Azure Functions
 
 The `RedisListTrigger` pops new elements from a list and surfaces those entries to the function.
 
@@ -19,9 +19,13 @@ For more information about Azure Cache for Redis triggers and bindings, [Redis E
 
 ## Scope of availability for functions triggers
 
-|Tier     | Basic | Standard, Premium  | Enterprise, Enterprise Flash  |
-|---------|:---------:|:---------:|:---------:|
-| Lists | Yes  | Yes   |  Yes  |
+| Trigger Type    | Azure Managed Redis | Azure Cache for Redis |
+|---------|:-----:|:-----------------:|
+| Lists | Yes   | Yes               |
+
+> [!IMPORTANT]
+> When using Azure Managed Redis or the Enterprise tiers of Azure Cache for Redis, use port 10000 rather than port 6380 or 6379.
+>
 
 > [!IMPORTANT]
 > Redis triggers aren't currently supported for functions running in the [Consumption plan](consumption-plan.md).

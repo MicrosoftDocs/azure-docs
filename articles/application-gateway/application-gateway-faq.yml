@@ -4,14 +4,14 @@ metadata:
   description: Find answers to frequently asked questions about Azure Application Gateway.
   services: application-gateway
   author: greg-lindsay
-  ms.service: application-gateway
+  ms.service: azure-application-gateway
   ms.topic: faq
-  ms.date: 03/15/2024
+  ms.date: 07/15/2024
   ms.author: greglin
   ms.custom: references_regions, devx-track-azurepowershell
 title: Frequently asked questions about Application Gateway
 summary: |
-  [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+  [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
   
   The following common questions are asked about Azure Application Gateway.
   
@@ -67,7 +67,7 @@ sections:
         answer: |
           `Keep-Alive` timeout governs how long the application gateway waits for a client to send another HTTP request on a persistent connection before reusing it or closing it. TCP idle timeout governs how long a TCP connection is kept open if there's no activity. 
           
-          The `Keep-Alive` timeout in the Application Gateway v1 SKU is 120 seconds and in the v2 SKU it's 75 seconds. For private IP addresses, the value is nonconfigurable with a TCP idle timeout of 5 minutes. The TCP idle timeout is a 4-minute default on the frontend virtual IP (VIP) of both v1 and v2 SKU of Application Gateway. You can configure the TCP idle timeout value on v1 and v2 Application Gateway instances to be anywhere between 4 minutes and 30 minutes. For both v1 and v2 Application Gateway instances, you need to go to the public IP of the application gateway and change the TCP idle timeout under the **Configuration** pane of the public IP in the portal. You can set the TCP idle timeout value of the public IP through PowerShell by running the following commands: 
+          For HTTP/1.1 connections, the `Keep-Alive` timeout in the Application Gateway v1 and v2 SKU is 120 seconds. For private IP addresses, the value is nonconfigurable with a TCP idle timeout of 5 minutes. The TCP idle timeout is a 4-minute default on the frontend virtual IP (VIP) of both v1 and v2 SKU of Application Gateway. You can configure the TCP idle timeout value on v1 and v2 Application Gateway instances to be anywhere between 4 minutes and 30 minutes. For both v1 and v2 Application Gateway instances, you need to go to the public IP of the application gateway and change the TCP idle timeout under the **Configuration** pane of the public IP in the portal. You can set the TCP idle timeout value of the public IP through PowerShell by running the following commands: 
           
           ```azurepowershell-interactive
           $publicIP = Get-AzPublicIpAddress -Name MyPublicIP -ResourceGroupName MyResourceGroup
@@ -76,6 +76,8 @@ sections:
           ```
 
           For HTTP/2 connections to the frontend IP address on Application Gateway v2 SKU, the idle timeout is set to 180 seconds and is nonconfigurable.
+          
+          To prevent conflict and unexpected behavior, make sure that the TCP idle timeout is set to be the same as or longer than the keep-alive timeout.
           
       - question: Does Application Gateway reuse the TCP connection that's established with a backend server?
         answer: Yes. Application Gateway reuses the existing TCP connections with a backend server.
@@ -121,7 +123,7 @@ sections:
           
       - question: How does Application Gateway handle routine maintenance?
         answer: |
-          Updates initiated to Application Gateway are applied one [update domain](../../articles/virtual-machines/availability-set-overview.md#how-do-availability-sets-work) at a time. As each update domain's instances are being updated, the remaining instances in other update domains continue to serve traffic<sup>1</sup>. Active connections are gracefully drained from the instances being updated for up to 5 minutes to help establish connectivity to instances in a different update domain before the update begins. During update, Application Gateway temporarily runs at reduced maximum capacity, which is determined by the number of instances configured. The update process proceeds to the next set of instances only if the current set of instances were upgraded successfully.
+          Updates initiated to Application Gateway are applied one [update domain](/azure/virtual-machines/availability-set-overview#how-do-availability-sets-work) at a time. As each update domain's instances are being updated, the remaining instances in other update domains continue to serve traffic<sup>1</sup>. Active connections are gracefully drained from the instances being updated for up to 5 minutes to help establish connectivity to instances in a different update domain before the update begins. During update, Application Gateway temporarily runs at reduced maximum capacity, which is determined by the number of instances configured. The update process proceeds to the next set of instances only if the current set of instances were upgraded successfully.
           
           <sup>1</sup> We recommend a minimum instance count of 2 to be configured for Application Gateway v1 SKU deployments to ensure at least one instance can serve traffic while updates are applied.
           
@@ -280,8 +282,39 @@ sections:
         answer: Application Gateway v2 supports IPv4 and IPv6 frontends. Currently, IPv6 support is available for new application gateways only. To support IPv6, the virtual network should be dual stack. Application Gateway v1 doesn't support dual-stack virtual networks. 
 
       - question: Does Application Gateway support FIPS?
-        answer: Application Gateway v1 SKUs can run in a FIPS 140-2 approved mode of operation, which is commonly referred to as "FIPS mode." FIPS mode calls a FIPS 140-2 validated cryptographic module that ensures FIPS-compliant algorithms for encryption, hashing, and signing when enabled. To ensure FIPS mode is enabled, the `FIPSMode` setting must be configured via PowerShell, Azure Resource Manager template, or REST API after the subscription has been enrolled to enable configuration of `FIPSmode`.
+        answer: |
+          Application Gateway v1 SKUs can run in a FIPS 140-2 approved mode of operation, which is commonly referred to as "FIPS mode." FIPS mode calls a FIPS 140-2 validated cryptographic module that ensures FIPS-compliant algorithms for encryption, hashing, and signing when enabled. To ensure FIPS mode is enabled, the `FIPSMode` setting must be configured via PowerShell, Azure Resource Manager template, or REST API after the subscription has been enrolled to enable configuration of `FIPSmode`.
 
+          **Note:** As part of the FedRAMP compliance, US Government mandates that systems operate in a [FIPS-approved mode](/azure/compliance/offerings/offering-fips-140-2) after August 2024. 
+          
+          **Steps to enable FIPS Mode in V1 SKU**:
+          
+          **Step 1**: Register the **‘AllowApplicationGatewayEnableFIPS’** feature to enroll the subscription for FIPS mode configuration.
+          
+            To register using Azure PowerShell, open a Cloud Shell prompt and enter the following:
+          
+            ```azurepowershell-interactive
+            Register-AzProviderFeature -FeatureName AllowApplicationGatewayEnableFIPS -ProviderNamespace Microsoft.Network
+            ```
+            
+            To register using the **Azure portal**:
+
+           - Sign in to the Azure portal and search for **Preview features**.
+           - Enter **AllowApplicationGatewayEnableFIPS** into the filter box. Select **Application Gateway V1 Allow FIPS Mode**, and then select **Register**.
+
+          **Step 2**: Set the **enableFips** property to **True** using PowerShell, Azure Resource Manager template, or REST API.
+
+            ```azurepowershell-interactive
+            # Get the application gateway
+            $appgw = Get-AzApplicationGateway -Name <ApplicationGatewayName> -ResourceGroupName <ResourceGroupName>
+            # Set the EnableFips property
+            $appgw.EnableFips = $true
+            # Update the application gateway
+            Set-AzApplicationGateway -ApplicationGateway $appgw
+            ```
+          
+          Changing FIPS mode doesn't affect the overall availability of cipher suites on V1 gateways. However, when using [elliptic curve cryptography](/windows/win32/secauthn/tls-elliptic-curves-in-windows-10-1607-and-later) for ciphers, with FIPS mode disabled  you can use curve25519, NistP256, and NistP384 whereas with FIPS mode enabled only NistP256 and NistP384 are allowed and curve25519 is disabled. Since curve25519 becomes unavailable in FIPS mode, make sure your clients support NistP256 or NistP384 for secure communication before enabling FIPS. 
+          
       - question: How do I use Application Gateway v2 with only a private frontend IP address?
         answer: |
           Application Gateway v2 currently supports private IP frontend configuration only (no public IP) via public preview. For more information, see [Private Application Gateway deployment (preview)](application-gateway-private-deployment.md).
@@ -454,7 +487,7 @@ sections:
           If you're referencing certificates from Key Vault in your Application Gateway listener, we recommend the following steps for a quick change:
           
           1. In the [Azure portal](https://portal.azure.com/), go to your Key Vault settings that are associated with the application gateway.
-          1. Add or import the reissued certificate in your store. For more information, see [Quickstart: Create a key vault using the Azure portal](../key-vault/certificates/quick-create-portal.md).
+          1. Add or import the reissued certificate in your store. For more information, see [Quickstart: Create a key vault using the Azure portal](/azure/key-vault/certificates/quick-create-portal).
           1. After the certificate has been imported, go to your Application Gateway listener settings and under **Choose a certificate from Key Vault**, select the **Certificate** dropdown and select the recently added certificate.
           1. Select **Save**.
           For more information on TLS termination on Application Gateway with Key Vault certificates, see [TLS termination with Key Vault certificates](./key-vault-certs.md).
@@ -510,8 +543,8 @@ sections:
       - question: Which IP address does the backend server see when a connection is established with Application Gateway?
         answer: The backend server sees the IP address of the application gateway. Currently, we don't support “Client IP preservation” through which the backend application can be made aware of the original client’s IP address.
 
-      - question: How can I set the SSL policy for TLS listeners?
-        answer: The same SSL policy configuration is applicable for both Layer 7 (HTTPS) as well as Layer 4 (TLS). Currently, we don't support SSL Profile (listener-specific SSL policy or Mutual Authentication) for TLS listeners.
+      - question: How can I set the TLS policy for TLS listeners?
+        answer: The same TLS/SSL policy configuration is applicable for both Layer 7 (HTTPS) as well as Layer 4 (TLS). You can now use SSL Profile (for listener-specific TLS policy and Mutual Authentication) for TLS listeners. However, currently an SSL profile can be associated with a TLS listener through CLI, PowerShell or REST API only. 
 
       - question: Does Application Gateway support session affinity for Layer 4 routing?
         answer: No. Routing a client to the same backend server isn't supported at the moment. The connections will be distributed in a round-robin manner to the servers in a backend pool.
@@ -528,6 +561,9 @@ sections:
       - question: Which ports are supported for TLS/TCP listeners?
         answer: The same list of [allowed port range and exceptions](application-gateway-components.md#ports) apply for the Layer 4 proxy too.
 
+      - question: How can I use the same port number for Public and Private TLS/TCP proxy listeners?
+        answer: The use of a common port for TLS/TCP listeners is currently not supported.
+
   - name: Configuration - ingress controller for AKS
     questions:
       - question: What is an ingress controller?
@@ -536,6 +572,12 @@ sections:
           To satisfy this `Ingress` resource, an ingress controller is required, which listens for any changes to `Ingress` resources and configures the load balancer policies.
           
           The Application Gateway Ingress Controller (AGIC) allows [Application Gateway](https://azure.microsoft.com/services/application-gateway/) to be used as the ingress for an [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/), also known as an AKS cluster.
+
+      - question: Can I configure Application Gateway directly instead of using ingress controller?
+        answer: |
+          Direct configuration of Application Gateway isn't supported.
+          
+          If there is a need to change settings on Application Gateway, make the change by using the exposed configuration on the ingress controller or other Kubernetes objects, such as by using supported annotations. After an Application Gateway is linked to Application Gateway Ingress Controller (AGIC), nearly all configuration of that gateway will be synced and controlled by the ingress controller. If you're trying to directly configure Application Gateway imperatively or through infrastructure as code, those changes will eventually be overwritten by the ingress controller. 
           
       - question: Can a single ingress controller instance manage multiple application gateways?
         answer: Currently, one instance of an ingress controller can only be associated to one application gateway.
@@ -594,7 +636,7 @@ sections:
 
       - question: Can I set alerts with Application Gateway?
         answer: |
-          Yes. In Application Gateway, alerts are configured on metrics. For more information, see [Application Gateway metrics](./application-gateway-metrics.md) and [Receive alert notifications](../azure-monitor/alerts/alerts-overview.md).
+          Yes. In Application Gateway, alerts are configured on metrics. For more information, see [Application Gateway metrics](./application-gateway-metrics.md) and [Receive alert notifications](/azure/azure-monitor/alerts/alerts-overview).
           
       - question: How do I analyze traffic statistics for Application Gateway?
         answer: |

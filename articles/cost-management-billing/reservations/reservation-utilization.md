@@ -6,7 +6,7 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 11/17/2023
+ms.date: 12/06/2024
 ms.author: banders
 ---
 
@@ -34,7 +34,7 @@ An Enterprise Agreement (EA) administrator or a Microsoft Customer Agreement (MC
 
 ## Get reservations and utilization using APIs, PowerShell, and CLI
 
-You can get the [reservation utilization](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) using the Reserved Instance usage API.
+You can get the reservation utilization using the Reserved Instance usage API.
 
 ## See reservations and utilization in Power BI
 

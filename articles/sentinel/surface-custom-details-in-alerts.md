@@ -9,6 +9,10 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
+
+
+#Customer intent: As a security analyst, I want to surface custom event details in alerts so that I can triage, investigate, and respond to incidents more efficiently.
+
 ---
 
 # Surface custom event details in alerts in Microsoft Sentinel 
@@ -60,9 +64,9 @@ The procedure detailed below is part of the analytics rule creation wizard. It's
     > [!NOTE]
     > 
     > **Service limits**
-    > - You can define **up to 20 custom details** in a single analytics rule.
+    > - You can define **up to 20 custom details** in a single analytics rule. Each custom detail can contain **up to 50 values**.
     >
-    > - The combined size limit for all custom details and [alert details](customize-alert-details.md), collectively, is **64 KB**.
+    > - The combined size limit for all custom details and their values in a single alert is **2 KB**. Values in excess of this limit are dropped.
 
 ## Next steps
 

@@ -7,6 +7,8 @@
       items:
       - name: What is Data Box?
         href: data-box-overview.md
+      - name: What is next-gen Data Box?
+        href: data-box-next-gen-overview.md
     - name: Quickstarts
       expanded: true
       items:
@@ -14,8 +16,12 @@
         items:
         - name: For import
           href: data-box-quickstart-portal.md
+        - name: For import - Next Gen
+          href: data-box-next-gen-quickstart-portal.md
         - name: For export
           href: data-box-quickstart-export.md
+        - name: For export - Next Gen
+          href: data-box-next-gen-quickstart-export.md
     - name: Tutorials
       items:
       - name: Import data to Azure
@@ -58,6 +64,8 @@
       items:
       - name: Read safety guidelines
         href: data-box-safety.md
+      - name: Read safety guidelines - Next Gen
+        href: data-box-next-gen-safety.md
       - name: Review tracking and logging
         items:
         - name: For import orders
@@ -82,6 +90,8 @@
           href: ./security-controls-policy.md
         - name: Review security 
           href: data-box-security.md
+        - name: Review security - Next Gen
+          href: data-box-next-gen-security.md
       - name: Transfer ACLs and metadata
         href: data-box-file-acls-preservation.md 
       - name: FAQ
@@ -108,6 +118,8 @@
         href: data-box-disk-contact-microsoft-support.md
       - name: Migrate
         items:
+        - name: Using Storage Mover
+          href: ../storage-mover/service-overview.md#using-azure-storage-mover-and-azure-data-box
         - name: To SharePoint Online
           href: /sharepointmigration/how-to-migrate-file-share-content-to-spo-using-azuredatabox?context=%2fazure%2fdatabox%2fcontext%2fcontext
         - name: To Azure File Sync
@@ -167,6 +179,8 @@
         href: data-box-disk-faq.yml  
     - name: How to
       items:
+      - name: Migrate Using Storage Mover
+        href: ../storage-mover/service-overview.md#using-azure-storage-mover-and-azure-data-box
       - name: Manage via Azure portal
         href: data-box-portal-ui-admin.md
       - name: Use self-managed shipping
@@ -245,6 +259,8 @@
         href: data-box-disk-contact-microsoft-support.md 
       - name: Migrate
         items:
+        - name: Using Storage Mover
+          href: ../storage-mover/service-overview.md#using-azure-storage-mover-and-azure-data-box
         - name: To SharePoint Online
           href: data-box-heavy-migrate-spo.md
         - name: To Azure File Sync
@@ -274,7 +290,5 @@
       href: https://azure.microsoft.com/pricing/details/databox/
     - name: Data Box Disk pricing
       href: https://azure.microsoft.com/pricing/details/databox/disk/
-    - name: Data Box partners
-      href: https://cloudchampions.blob.core.windows.net/db-partners/PartnersTable.pdf
     - name: Data Box hardware additional terms
       href: data-box-hardware-additional-terms.md

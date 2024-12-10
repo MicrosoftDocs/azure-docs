@@ -4,7 +4,7 @@ titleSuffix: Azure Load Balancer
 description: Learn how to create a public basic SKU Azure Load Balancer in this quickstart using the Azure CLI.
 author: mbender-ms
 ms.author: mbender
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: quickstart
 ms.date: 03/12/2024
 ROBOTS: NOINDEX, NOFOLLOW
@@ -15,7 +15,7 @@ ms.custom: template-quickstart, devx-track-azurecli
 
 Get started with Azure Load Balancer by using the Azure portal to create a basic public load balancer and two virtual machines.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
@@ -171,7 +171,7 @@ In this section, you'll create the resources for Azure Bastion. Azure Bastion is
 
 > [!IMPORTANT]
 
-> [!INCLUDE [Pricing](../../../includes/bastion-pricing.md)]
+> [!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
 
 >
 
@@ -278,7 +278,7 @@ Create the virtual machines with [az vm create](/cli/azure/vm#az-vm-create):
 
 It may take a few minutes for the VMs to deploy. You can continue to the next steps while the VMs are creating.
 
-[!INCLUDE [ephemeral-ip-note.md](../../../includes/ephemeral-ip-note.md)]
+[!INCLUDE [ephemeral-ip-note.md](~/reusable-content/ce-skilling/azure/includes/ephemeral-ip-note.md)]
 
 ### Add virtual machines to load balancer backend pool
 

@@ -2,11 +2,12 @@
 title: 'Tutorial: Connect to a storage account using an Azure Private Endpoint'
 titleSuffix: Azure Private Link
 description: Get started with this tutorial using Azure Private endpoint to connect to a storage account privately.
+#customer intent: This tutorial is intended for users who want to securely connect to a storage account using an Azure Private Endpoint, ensuring private and secure communication within Azure resources.
 author: abell
 ms.author: abell
-ms.service: private-link
+ms.service: azure-private-link
 ms.topic: tutorial
-ms.date: 07/18/2023
+ms.date: 12/03/2024
 ms.custom: template-tutorial
 ---
 
@@ -14,7 +15,7 @@ ms.custom: template-tutorial
 
 Azure Private endpoint is the fundamental building block for Private Link in Azure. It enables Azure resources, like virtual machines (VMs), to privately and securely communicate with Private Link resources such as Azure Storage.
 
-:::image type="content" source="./media/tutorial-private-endpoint-storage/storage-tutorial-resources.png" alt-text="Diagram of resources created in tutorial.":::
+:::image type="content" source="./media/tutorial-private-endpoint-storage/storage-tutorial-resources.png" alt-text="Diagram of resources created in tutorial." lightbox="./media/tutorial-private-endpoint-storage/storage-tutorial-resources.png":::
 
 In this tutorial, you learn how to:
 
@@ -33,9 +34,9 @@ In this tutorial, you learn how to:
 
 Sign in to the [Azure portal](https://portal.azure.com).
 
-[!INCLUDE [virtual-network-create-with-bastion.md](../../includes/virtual-network-create-with-bastion.md)]
+[!INCLUDE [virtual-network-create-with-bastion.md](~/reusable-content/ce-skilling/azure/includes/virtual-network-create-with-bastion.md)]
 
-[!INCLUDE [create-storage-account.md](../../includes/create-storage-account.md)]
+[!INCLUDE [create-storage-account.md](~/reusable-content/ce-skilling/azure/includes/create-storage-account.md)]
 
 ## Disable public access to storage account
 
@@ -98,7 +99,7 @@ Before you create the private endpoint, it's recommended to disable public acces
     | ------- | ----- |
     | **Private IP configuration** | Select **Dynamically allocate IP address**. |
 
-    :::image type="content" source="./media/create-private-endpoint-portal/dynamic-ip-address.png" alt-text="Screenshot of dynamic IP address selection." border="true":::
+
 
     # [**Static IP**](#tab/static-ip)
 
@@ -108,7 +109,7 @@ Before you create the private endpoint, it's recommended to disable public acces
     | Name | Enter **ipconfig-1**. |
     | Private IP | Enter **10.0.0.10**. |
 
-    :::image type="content" source="./media/create-private-endpoint-portal/static-ip-address.png" alt-text="Screenshot of static IP address selection." border="true":::
+
 
     ---
 
@@ -118,7 +119,7 @@ Before you create the private endpoint, it's recommended to disable public acces
 
 1. Select **Create**.
 
-[!INCLUDE [create-test-virtual-machine.md](../../includes/create-test-virtual-machine.md)]
+[!INCLUDE [create-test-virtual-machine.md](~/reusable-content/ce-skilling/azure/includes/create-test-virtual-machine.md)]
 
 ## Storage access key
 
@@ -154,7 +155,7 @@ In this section, you use the virtual machine you created in the previous steps t
 
 1. Select **vm-1**.
 
-1. In **Operations**, select **Bastion**.
+1. In **Connect**, select **Bastion**.
 
 1. Enter the username and password that you entered during the virtual machine creation.
 
@@ -201,7 +202,7 @@ In this section, you use the virtual machine you created in the previous steps t
 
 1. Close the connection to **vm-1**.
 
-[!INCLUDE [portal-clean-up.md](../../includes/portal-clean-up.md)]
+[!INCLUDE [portal-clean-up.md](~/reusable-content/ce-skilling/azure/includes/portal-clean-up.md)]
 
 ## Next steps
 

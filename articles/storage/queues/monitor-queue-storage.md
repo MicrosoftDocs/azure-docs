@@ -327,7 +327,7 @@ Requests made by the Queue Storage service itself, such as log creation or delet
 <!-- ### Sample Kusto queries. Required section. If you have sample Kusto queries for your service, add them after the include. -->
 [!INCLUDE [horz-monitor-kusto-queries](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-kusto-queries.md)]
 <!-- Add sample Kusto queries for your service here. -->
-Here are some queries that you can enter in the **Log search** bar to help you monitor your Queue Storage. These queries work with the [new language](../../azure-monitor/logs/log-query-overview.md). For more information, see [Log Analytics tutorial](/azure/azure-monitor/logs/log-analytics-tutorial).
+Here are some queries that you can enter in the **Log search** bar to help you monitor your Queue Storage. These queries work with the [new language](/azure/azure-monitor/logs/log-query-overview). For more information, see [Log Analytics tutorial](/azure/azure-monitor/logs/log-analytics-tutorial).
 
 - To list the 10 most common errors over the last three days.
 

@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description:  This article helps you customize views in cost analysis to understand how you're being charged and to investigate unexpected changes.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/21/2024
+ms.date: 08/20/2024
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -27,7 +27,7 @@ Customizing views in cost analysis includes anything from tweaking display setti
 
 ## Group costs
 
-Use the **Group by** option to group common properties so that you get a break down of costs and to identify top contributors. It should be your first change when drilling into data because it helps you identify the largest changes. To group by resource tags, for example, select the tag key you want to group by. Costs are broken down by each tag value, with an extra segment for resources that don't have that tag applied.
+Use the **Group by** option to group common properties so that you get a breakdown of costs and to identify top contributors. It should be your first change when drilling into data because it helps you identify the largest changes. To group by resource tags, for example, select the tag key you want to group by. Costs are divided by each tag value, with another segment for resources that don't have the tag applied.
 
 Most Azure resources support tagging. However, some tags aren't available in Cost Management and billing. Additionally, resource group tags aren't supported. Support for tags applies to usage reported _after_ the tag was applied to the resource. Tags aren't applied retroactively for cost rollups.
 
@@ -39,7 +39,8 @@ The following image shows resource group names. You can group by tag to view tot
 
 :::image type="content" source="./media/customize-cost-analysis-views/accumulated-costs-resource-group-daily-area.png" alt-text="Screenshot showing resource group names." lightbox="./media/customize-cost-analysis-views/accumulated-costs-resource-group-daily-area.png" :::
 
-When you're grouping costs by a specific attribute, the top 10 cost contributors are shown from highest to lowest. If there are more than 10, the top nine cost contributors are shown with an **Others**  group that represents all remaining groups combined. When you're grouping by tags, an **Untagged** group appears for costs that don't have the tag key applied. **Untagged** is always last, even if untagged costs are higher than tagged costs. Untagged costs will be part of **Others**, if 10 or more tag values exist. To view what's grouped into **Others** , either select that segment to apply a filter or switch to the table view and change granularity to **None** to see all values ranked from highest to lowest cost.
+When you're grouping costs by a specific attribute, the top 10 cost contributors are shown from highest to lowest. If there are more than 10, the top nine cost contributors are shown with an **Others**  group that represents all remaining groups combined. When you're grouping by tags, an **Untagged** group appears for costs that don't have the tag key applied. **Untagged** is always last, even if untagged costs are higher than tagged costs. Untagged costs are part of **Others**, if 10 or more tag values exist. To see the items grouped under **Others**, either select the segment to apply a filter or switch to the table view and set granularity to **None**. It displays all values ranked from highest to lowest cost.
+
 
 Classic virtual machines, networking, and storage resources don't share detailed billing data. They're merged as **Classic services** when grouping costs.
 
@@ -59,15 +60,15 @@ Cost analysis shows data for the current month by default. Use the date selector
 
 ## Filter charges
 
-Add filters to narrow down or drill into your specific charges. It's especially helpful when trying to understand an unexpected change. Start by selecting the **Add filter** pill, then select the desired attribute, and lastly select the options you want to filter down to. Your view will automatically update once you've applied the filter.
+Add filters to narrow down or drill into your specific charges. It's especially helpful when trying to understand an unexpected change. Start by selecting the **Add filter** pill, then select the desired attribute, and lastly select the options you want to filter down to. Your view is automatically updated when you apply the filter.
 
-You can add multiple filters. As you add filters, you'll notice that the available values for each filter include the previously selected filters. For instance, if you apply a resource group filter, then add a resource filter, the resource filter options will only show resources in the selected resource group.
+You can add multiple filters. As you add filters, you notice that the available values for each filter include the previously selected filters. For instance, if you apply a resource group filter, then add a resource filter, the resource filter options only show resources in the selected resource group.
 
 When you view charts, you can also select a chart segment to apply a filter. After selecting a chart segment, you should consider changing the group by attribute to see other details about the attribute you selected.
 
 ## Switch between actual and amortized cost
 
-By default, cost analysis shows all usage and purchase costs as they're accrued and will show on your invoice, also known as **Actual cost**. Viewing actual cost is ideal for reconciling your invoice. However, purchase spikes in cost can be alarming when you're keeping an eye out for spending anomalies and other changes in cost. To flatten out spikes caused by reservation purchase costs, switch to  **Amortized cost**.
+By default, cost analysis shows all usage and purchase costs as they get accrued and appear on your invoice, also known as **Actual cost**. Viewing actual cost is ideal for reconciling your invoice. However, purchase spikes in cost can be alarming when you're keeping an eye out for spending anomalies and other changes in cost. To flatten out spikes caused by reservation purchase costs, switch to  **Amortized cost**.
 
 :::image type="content" source="./media/customize-cost-analysis-views/metric-picker.png" alt-text="Screenshot showing the metric selector." lightbox="./media/customize-cost-analysis-views/metric-picker.png" :::
 
@@ -75,21 +76,21 @@ Amortized cost breaks down reservation purchases into daily chunks and spreads t
 
 If you buy a one-year reservation on May 26 with an upfront payment, the amortized cost is divided by 365 (assuming it's not a leap year) and spread from May 26 through May 25 of the next year. If you pay monthly, the monthly fee is divided by the number of days in that month. The free is spread evenly across May 26 through June 25, with the next month's fee spread across June 26 through July 25.
 
-Because of the change in how costs are represented, it's important to note that actual cost and amortized cost views will show different total numbers. In general, the total cost of months with a reservation purchase will decrease when you view amortized costs, and months following a reservation purchase will increase. Amortization is available only for reservation purchases and doesn't apply to Azure Marketplace purchases at this time.
+Because of the change in how costs are represented, it's important to note that actual cost and amortized cost views show different total numbers. Generally, the total cost for months with a reservation purchase decreases when viewing amortized costs, while the costs for the months following the reservation purchase increase. Amortization is available only for reservation purchases and doesn't apply to Azure Marketplace purchases at this time.
 
 ## Select a currency
 
-Costs are shown in your billing currency by default. If you have charges in multiple currencies, costs will automatically be converted to USD. If you have any non-USD charges, you can switch between currencies in the total KPI menu. You may see options like **GBP only** to view only the charges in that one currency or **All costs in USD** to view the normalized costs in USD. You can't view costs normalized to other currencies today.
+Costs are shown in your billing currency by default. If you have charges in multiple currencies, costs are automatically converted to USD. If you have any non-USD charges, you can switch between currencies in the total KPI menu. You might see options like **GBP only** to view only the charges in that one currency or **All costs in USD** to view the normalized costs in USD. You can't view costs normalized to other currencies today.
 
 :::image type="content" source="./media/customize-cost-analysis-views/currency-costs.png" alt-text="Screenshot showing the currency selector." lightbox="./media/customize-cost-analysis-views/currency-costs.png" :::
 
 ## Select a budget
 
-When you view a chart, it can be helpful to visualize your charges against a budget. It's especially helpful when showing accumulated daily costs with a forecast trending towards your budget. If your costs go over your budget, you'll see a red critical icon next to your budget. If your forecast goes over your budget, you'll see a yellow warning icon.
+When you view a chart, it can be helpful to visualize your charges against a budget. It's especially helpful when showing accumulated daily costs with a forecast trending towards your budget. If your costs go over your budget, you see a red critical icon next to your budget. If your forecast goes over your budget, you see a yellow warning icon.
 
-When you view daily or monthly costs, your budget may be estimated for the period. For instance, a monthly budget of $31 are shown as `$1/day (est)`. Note your budget won't be shown as red when it exceeds this estimated amount on a specific day or month.
+When you view daily or monthly costs, your budget might get estimated for the period. For instance, a monthly budget of $31 are shown as `$1/day (est)`. Note your budget isn't shown as red when it exceeds this estimated amount on a specific day or month.
 
-Budgets that have filters aren't currently supported in cost analysis. You won't see them in the list. Budgets on lower-level scopes are also not shown in cost analysis today. To view a budget for a specific scope, change scope using the scope picker.
+Budgets that have filters aren't currently supported in cost analysis. You don't see them in the list. Budgets on lower-level scopes are also not shown in cost analysis today. To view a budget for a specific scope, change scope using the scope picker.
 
 ## Change granularity
 
@@ -105,6 +106,27 @@ If you'd like to view the total for the entire period (no granularity), select *
 | Daily       | Shows cost per day (UTC). |
 | Monthly     | Shows cost per calendar month (UTC). |
 | Accumulated | Shows the running total for each day including the total of all previous days in the selected date range. |
+
+### Granularity examples
+
+Here's an example illustrating how granularity changes the view for varying costs per month. 
+
+Example actual costs per month:
+
+- August 2023 = 11
+- September 2023 = 11
+- October 2023 = 11
+- November 2023 = 16
+- December 2023  = 11
+- January 2024 = 11
+
+Here's an example screenshot where the **Granularity** is set to show **Monthly** costs for the six-month period:
+
+:::image type="content" source="./media/customize-cost-analysis-views/monthly-costs.png" border="true" alt-text="Screenshot showing monthly costs." lightbox="./media/customize-cost-analysis-views/monthly-costs.png" :::
+
+Here's an example where the **Granularity** is changed to show **Accumulated** costs:
+
+:::image type="content" source="./media/customize-cost-analysis-views/accumulated-costs.png" border="true" alt-text="Screenshot showing accumulated costs." lightbox="./media/customize-cost-analysis-views/accumulated-costs.png" :::
 
 ## Visualize costs in a chart
 

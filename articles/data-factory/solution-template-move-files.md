@@ -4,10 +4,9 @@ description: Learn how to use a solution template to move files between file-bas
 author: dearandyxu
 ms.author: yexu
 ms.reviewer: jburchel
-ms.service: data-factory
-ms.subservice: tutorials
 ms.topic: conceptual
-ms.date: 08/10/2023
+ms.date: 10/03/2024
+ms.subservice: data-movement
 ---
 
 # Move files with Azure Data Factory

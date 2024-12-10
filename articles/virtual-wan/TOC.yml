@@ -42,16 +42,20 @@
       href: work-remotely-support.md
   - name: Virtual WAN FAQ
     href: virtual-wan-faq.md
-  - name: NVA in a Virtual WAN hub
-    href: about-nva-hub.md
-  - name: Locations and Partners
+  - name: Virtual Hub third-party integrations
     items:
-    - name: Hub locations and partners
-      href: virtual-wan-locations-partners.md
-    - name: Automation guidelines for partners
-      href: virtual-wan-configure-automation-providers.md
-    - name: Software-as-a-service (SaaS)
+    - name: Overview of third-party integrations  
+      href: third-party-integrations.md
+    - name: Integrated NVAs in the Virtual Hub
+      href: about-nva-hub.md
+    - name: Software-as-a-service(SaaS)
       href: how-to-palo-alto-cloud-ngfw.md
+    - name: Branch IPSEC connectivity automation 
+      items:
+        - name: About branch IPSEC connectivity automation
+          href: virtual-wan-locations-partners.md
+        - name: Automation guidelines for partners
+          href: virtual-wan-configure-automation-providers.md
   - name: Architecture
     items: 
     - name: Migrate to Virtual WAN
@@ -72,34 +76,34 @@
       href: about-virtual-hub-routing.md
     - name: About Route-maps
       href: route-maps-about.md
-    - name: Scenarios
-      items:
-      - name: Virtual hub routing preference
-        href: about-virtual-hub-routing-preference.md
-      - name: Any-to-any
-        href: scenario-any-to-any.md
-      - name: Isolating VNets
-        href: scenario-isolate-vnets.md
-      - name: Isolating VNets - custom
-        href: scenario-isolate-vnets-custom.md
-      - name: Isolating virtual networks and branches
-        href: scenario-isolate-virtual-networks-branches.md
-      - name: Shared services VNets
-        href: scenario-shared-services-vnet.md
-      - name: Route through an NVA
-        href: scenario-route-through-nva.md
-      - name: Route through an NVA - custom
-        href: scenario-route-through-nvas-custom.md
-      - name: BGP peering with virtual hub
-        href: scenario-bgp-peering-hub.md
-      - name: Azure Firewall - custom
-        href: scenario-route-between-vnets-firewall.md
-      - name: Application Gateway and backend pools
-        href: scenario-secured-hub-app-gateway.md
-      - name: Microsoft 365 - ExpressRoute private peering
-        href: scenario-365-expressroute-private.md
     - name: Virtual WAN routing deep dive
       href: routing-deep-dive.md
+  - name: Scenarios
+    items:
+    - name: Virtual hub routing preference
+      href: about-virtual-hub-routing-preference.md
+    - name: Any-to-any
+      href: scenario-any-to-any.md
+    - name: Isolating VNets
+      href: scenario-isolate-vnets.md
+    - name: Isolating VNets - custom
+      href: scenario-isolate-vnets-custom.md
+    - name: Isolating virtual networks and branches
+      href: scenario-isolate-virtual-networks-branches.md
+    - name: Shared services VNets
+      href: scenario-shared-services-vnet.md
+    - name: Route through an NVA
+      href: scenario-route-through-nva.md
+    - name: Route through an NVA - custom
+      href: scenario-route-through-nvas-custom.md
+    - name: BGP peering with virtual hub
+      href: scenario-bgp-peering-hub.md
+    - name: Azure Firewall - custom
+      href: scenario-route-between-vnets-firewall.md
+    - name: Application Gateway and backend pools
+      href: scenario-secured-hub-app-gateway.md
+    - name: Microsoft 365 - ExpressRoute private peering
+      href: scenario-365-expressroute-private.md
   - name: Site-to-site
     items:
     - name: About S2S IPsec policies
@@ -126,6 +130,8 @@
     href: hub-settings.md
   - name: Gateway settings
     href: gateway-settings.md
+  - name: Apply Zero Trust principles
+    href: /security/zero-trust/azure-virtual-wan?toc=%2fazure%2fvirtual-wan%2ftoc.json&bc=/azure/virtual-wan/breadcrumb/toc.json
   - name: Secured virtual hubs
     href: ../firewall-manager/secured-virtual-hub.md?toc=%2fazure%2fvirtual-wan%2ftoc.json&bc=/azure/virtual-wan/breadcrumb/toc.json
   - name: Security baseline
@@ -140,6 +146,8 @@
     items:
     - name: Create a NVA in a virtual hub 
       href: how-to-nva-hub.md
+    - name: Restart a NVA in a virtual hub
+      href: how-to-network-virtual-appliance-restart.md
     - name: Configure DNAT/Internet inbound
       href: how-to-network-virtual-appliance-inbound.md
   - name: Connect a VNet to a virtual hub
@@ -196,13 +204,13 @@
             href: virtual-wan-point-to-site-powershell.md
         - name: Generate self-signed certificates
           href: certificates-point-to-site.md
-      - name: Microsoft Entra authentication
+      - name: Microsoft Entra ID authentication
         items:
         - name: Configure a P2S VPN
           href: virtual-wan-point-to-site-azure-ad.md
         - name: Configure a tenant
           href: openvpn-azure-ad-tenant.md
-        - name: Configure Multi-Factor Authentication(MFA)
+        - name: Configure multifactor authentication (MFA)
           href: openvpn-azure-ad-mfa.md   
     - name: P2S client configuration
       items:
@@ -294,12 +302,8 @@
       href: manage-secure-access-resources-spoke-p2s.md
   - name: Monitoring
     items:
-    - name: Monitoring Virtual WAN
+    - name: Monitor Virtual WAN
       href: monitor-virtual-wan.md
-    - name: Monitoring - Best practices
-      href: monitoring-best-practices.md
-    - name: Monitoring - Data reference
-      href: monitor-virtual-wan-reference.md
     - name: Azure Monitor Insights
       href: azure-monitor-insights.md
     - name: BGP dashboard
@@ -326,6 +330,8 @@
     href: /cli/azure/network
   - name: Python SDK
     href: https://azuresdkdocs.blob.core.windows.net/$web/python/azure-mgmt-network/10.0.0/azure.mgmt.network.v2019_02_01.operations.html#azure.mgmt.network.v2019_02_01.operations.VirtualWansOperations
+  - name: Monitoring data reference
+    href: monitor-virtual-wan-reference.md
 - name: Resources
   items:
   - name: Pricing

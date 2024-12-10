@@ -25,7 +25,7 @@ On the **Spatial Anchors Account** pane, do the following:
 * Select the subscription that you want to attach the resource to.
 * Create a resource group by selecting **Create new**. Name it **myResourceGroup**, and then select **OK**.
 
-  [!INCLUDE [resource group intro text](resource-group.md)]
+  [!INCLUDE [resource group intro text](~/reusable-content/ce-skilling/azure/includes/resource-group.md)]
 
 * Select a location (region) in which to place the resource.
 * Select **Create** to begin creating the resource.
@@ -68,7 +68,7 @@ Start by preparing your environment for the Azure CLI:
    az group create --name myResourceGroup --location eastus2
    ```
 
-   [!INCLUDE [resource group intro text](resource-group.md)]
+   [!INCLUDE [resource group intro text](~/reusable-content/ce-skilling/azure/includes/resource-group.md)]
 
    You can view your current spatial anchors accounts for a resource group by using the [az spatial-anchors-account list](/cli/azure/spatial-anchors-account#az-spatial-anchors-account-list) command:
 
@@ -121,7 +121,7 @@ az spatial-anchors-account delete --resource-group myResourceGroup --name MySpat
 
 Start by preparing your environment for Azure PowerShell:
 
-[!INCLUDE [azure-powershell-requirements-no-header.md](azure-powershell-requirements-no-header.md)]
+[!INCLUDE [azure-powershell-requirements-no-header.md](~/reusable-content/ce-skilling/azure/includes/azure-powershell-requirements-no-header.md)]
 
 > [!IMPORTANT]
 > While the **Az.MixedReality** PowerShell module is in preview, you must install it separately using
@@ -136,7 +136,7 @@ Install-Module -Name Az.MixedReality
 1. After you sign in, use the [Set-AzContext](/powershell/module/az.accounts/set-azcontext) cmdlet to select the subscription in which to set up the spatial anchors account:
 
    ```azurepowershell-interactive
-   Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
+   Set-AzContext -SubscriptionId aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e
    ```
 
 1. Run the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet to create a resource group, or use an existing resource group:
@@ -145,7 +145,7 @@ Install-Module -Name Az.MixedReality
    New-AzResourceGroup -Name myResourceGroup -Location eastus2
    ```
 
-   [!INCLUDE [resource group intro text](resource-group.md)]
+   [!INCLUDE [resource group intro text](~/reusable-content/ce-skilling/azure/includes/resource-group.md)]
 
    You can view your current spatial anchors accounts for a resource group by using the [Get-AzSpatialAnchorsAccount](/powershell/module/az.mixedreality/get-azmixedrealityspatialanchorsaccount) cmdlet:
 

@@ -3,9 +3,10 @@ title: Add snap grid to the map | Microsoft Azure Maps
 description: How to add a snap grid to a map using Azure Maps Web SDK
 author: sinnypan
 ms.author: sipa
-ms.date: 06/08/2023
+ms.date: 09/03/2024
 ms.topic: how-to
 ms.service: azure-maps
+ms.subservice: web-sdk
 ---
 
 # Add a snap grid to the map
@@ -18,9 +19,9 @@ The resolution of the snapping grid is in pixels. The grid is square and relativ
 
 Create a snap grid using the `atlas.drawing.SnapGridManager` class and pass in a reference to the map you want to connect the manager to. Set the `showGrid` option to `true` if you want to make the grid visible. To snap a shape to the grid, pass it into the snap grid managers `snapShape` function. If you want to snap an array of positions, pass it into the `snapPositions` function.
 
-The [Use a snapping grid] sample snaps an HTML marker to a grid when it's dragged. Drawing tools are used to snap drawn shapes to the grid when the `drawingcomplete` event fires. For the source code for this sample, see [Use a snapping grid source code].
+The [Use a snapping grid] sample snaps an HTML marker to a grid when dragged. Drawing tools are used to snap drawn shapes to the grid when the `drawingcomplete` event fires. For the source code for this sample, see [Use a snapping grid source code].
 
-:::image type="content" source="./media/map-add-snap-grid/use-snapping-grid.png"alt-text="A screenshot that shows the snap grid on map.":::
+:::image type="content" source="./media/map-add-snap-grid/use-snapping-grid.png" lightbox="./media/map-add-snap-grid/use-snapping-grid.png" alt-text="A screenshot that shows the snap grid on map.":::
 
 <!--------------------------------------------------
 > [!VIDEO https://codepen.io/azuremaps/embed/rNmzvXO?default-tab=js%2Cresult]
@@ -30,7 +31,7 @@ The [Use a snapping grid] sample snaps an HTML marker to a grid when it's dragge
 
 The [Snap grid options] sample shows the different customization options available for the snap grid manager. The grid line styles can be customized by retrieving the underlying line layer using the snap grid managers `getGridLayer` function. For the source code for this sample, see [Snap grid options source code].
 
-:::image type="content" source="./media/map-add-snap-grid/snap-grid-options.png"alt-text="A screenshot of map with snap grid enabled and an options panel on the left where you can set various options and see the results in the map.":::
+:::image type="content" source="./media/map-add-snap-grid/snap-grid-options.png" lightbox="./media/map-add-snap-grid/snap-grid-options.png" alt-text="A screenshot of map with snap grid enabled and an options panel on the side for setting various options that are updated in the map.":::
 
 <!--------------------------------------------------
 > [!VIDEO https://codepen.io/azuremaps/embed/RwVZJry?default-tab=result]

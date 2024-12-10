@@ -1,14 +1,18 @@
 ---
 title: Control network traffic from HDInsight on AKS Cluster pools and cluster
 description: A guide to configure and manage inbound and outbound network connections from HDInsight on AKS.
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
-ms.date: 04/12/2024
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Control network traffic from HDInsight on AKS Cluster pools and clusters
 
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
+
 
 HDInsight on AKS is a managed Platform as a Service (PaaS) that runs on Azure Kubernetes Service (AKS). HDInsight on AKS allows you to deploy popular Open-Source Analytics workloads like Apache Spark™, Apache Flink®️, and Trino without the overhead of managing and monitoring containers.  
 
@@ -40,11 +44,11 @@ In the following sections, we describe each method in detail.
 
 ### Outbound with load balancer
 
-The load balancer is used for egress through an HDInsight on AKS assigned public IP. When you configure the outbound type of load balancer on your cluster pool, you can expect egress out of the load balancer created by the HDInsight on AKS.  
+The load balancer is used for egress through a HDInsight on AKS assigned public IP. When you configure the outbound type of load balancer on your cluster pool, you can expect egress out of the load balancer created by the HDInsight on AKS.  
 
 You can configure the outbound with load balancer configuration using the Azure portal.
 
-:::image type="content" source="./media/control-egress traffic-from-hdinsight-on-aks-clusters/cluster-pool-network-setting.png" alt-text="Screenshot showing cluster pool network setting." lightbox="./media/control-egress traffic-from-hdinsight-on-aks-clusters/cluster-pool-network-setting.png":::
+:::image type="content" source="./media/control-egress-traffic-from-hdinsight-on-aks-clusters/cluster-pool-network-setting.png" alt-text="Screenshot showing cluster pool network setting." lightbox="./media/control-egress-traffic-from-hdinsight-on-aks-clusters/cluster-pool-network-setting.png":::
 
 Once you opt for this configuration, HDInsight on AKS automatically completes creating a public IP address provisioned for cluster egress & assigns to the load balancer resource. 
 
@@ -62,7 +66,7 @@ To allow requests to be sent to the cluster, you need to [allowlist the traffic]
 
 If userDefinedRouting is set, HDInsight on AKS won't automatically configure egress paths. The egress setup must be done by the user. 
 
-:::image type="content" source="./media/control-egress traffic-from-hdinsight-on-aks-clusters/user-defined-routing.png" alt-text="Screenshot showing user defined routing." lightbox="./media/control-egress traffic-from-hdinsight-on-aks-clusters/user-defined-routing.png":::
+:::image type="content" source="./media/control-egress-traffic-from-hdinsight-on-aks-clusters/user-defined-routing.png" alt-text="Screenshot showing user defined routing." lightbox="./media/control-egress-traffic-from-hdinsight-on-aks-clusters/user-defined-routing.png":::
 
 You must deploy the HDInsight on AKS cluster into an existing virtual network with a subnet that has been previously configured, and you must establish explicit egress.
 
@@ -80,7 +84,7 @@ When you use HDInsight on AKS cluster pools and choose userDefinedRouting (UDR) 
 > [!IMPORTANT]
 > UDR egress path needs a route for 0.0.0.0/0 and a next hop destination of your Firewall or NVA in the route table. The route table already has a default 0.0.0.0/0 to the Internet. You can't get outbound Internet connectivity by just adding this route, because Azure needs a public IP address for SNAT. AKS checks that you don't create a 0.0.0.0/0 route pointing to the Internet, but to a gateway, NVA, etc. When you use UDR, a load balancer public IP address for inbound requests is only created if you configure a service of type loadbalancer. HDInsight on AKS never creates a public IP address for outbound requests when you use a UDR egress path.
 
-:::image type="content" source="./media/control-egress traffic-from-hdinsight-on-aks-clusters/enable-private-aks.png" alt-text="Screenshot showing enabled private AKS." lightbox="./media/control-egress traffic-from-hdinsight-on-aks-clusters/enable-private-aks.png":::
+:::image type="content" source="./media/control-egress-traffic-from-hdinsight-on-aks-clusters/enable-private-aks.png" alt-text="Screenshot showing enabled private AKS." lightbox="./media/control-egress-traffic-from-hdinsight-on-aks-clusters/enable-private-aks.png":::
 
 With the following steps you will understand how to lock down the outbound traffic from your HDInsight on AKS service to back-end Azure resources or other network resources with Azure Firewall. This configuration helps prevent data exfiltration or the risk of malicious program implantation. 
 
@@ -125,7 +129,7 @@ Here is an example of how to configure firewall rules, and check your outbound c
         |Virtual network |Select the integrated virtual network. |
         |Public IP address |Select an existing address or create one by selecting Add new. |
     
-        :::image type="content" source="./media/control-egress traffic-from-hdinsight-on-aks-clusters/create-firewall-page.png" alt-text="Screenshot showing create a firewall basic tab." lightbox="./media/control-egress traffic-from-hdinsight-on-aks-clusters/create-firewall-page.png":::
+        :::image type="content" source="./media/control-egress-traffic-from-hdinsight-on-aks-clusters/create-firewall-page.png" alt-text="Screenshot showing create a firewall basic tab." lightbox="./media/control-egress-traffic-from-hdinsight-on-aks-clusters/create-firewall-page.png":::
 
     1. Click **Review + create**. 
     
@@ -135,7 +139,7 @@ Here is an example of how to configure firewall rules, and check your outbound c
     
     1. In the firewall's **Overview** page, copy private IP address. **The private IP address will be used as next hop address in the routing rule for the virtual network**.
     
-       :::image type="content" source="./media/control-egress traffic-from-hdinsight-on-aks-clusters/setup-firewall.png" alt-text="Screenshot showing how to set up firewall." lightbox="./media/control-egress traffic-from-hdinsight-on-aks-clusters/setup-firewall.png":::
+       :::image type="content" source="./media/control-egress-traffic-from-hdinsight-on-aks-clusters/set-up-firewall.png" alt-text="Screenshot showing how to set up firewall." lightbox="./media/control-egress-traffic-from-hdinsight-on-aks-clusters/set-up-firewall.png":::
 
 1. Route all traffic to the firewall
 
@@ -149,7 +153,7 @@ Here is an example of how to configure firewall rules, and check your outbound c
     
     1. Configure the route table like the following example: 
     
-       :::image type="content" source="./media/control-egress traffic-from-hdinsight-on-aks-clusters/create-route-table.png" alt-text="Screenshot showing how to create route table." lightbox="./media/control-egress traffic-from-hdinsight-on-aks-clusters/create-route-table.png"::: 
+       :::image type="content" source="./media/control-egress-traffic-from-hdinsight-on-aks-clusters/create-route-table.png" alt-text="Screenshot showing how to create route table." lightbox="./media/control-egress-traffic-from-hdinsight-on-aks-clusters/create-route-table.png"::: 
     
         Make sure you select the same region as the firewall you created. 
 
@@ -174,7 +178,7 @@ Here is an example of how to configure firewall rules, and check your outbound c
     1. In **Virtual network**, select your integrated virtual network.
     1. In **Subnet**, select the HDInsight on AKS subnet you wish to use.
 
-       :::image type="content" source="./media/control-egress traffic-from-hdinsight-on-aks-clusters/associate-subnet.png" alt-text="Screenshot showing how to associate subnet." lightbox="./media/control-egress traffic-from-hdinsight-on-aks-clusters/associate-subnet.png":::
+       :::image type="content" source="./media/control-egress-traffic-from-hdinsight-on-aks-clusters/associate-subnet.png" alt-text="Screenshot showing how to associate subnet." lightbox="./media/control-egress-traffic-from-hdinsight-on-aks-clusters/associate-subnet.png":::
 
     1. Select **OK**. 
 
@@ -197,11 +201,11 @@ Here is an example of how to configure firewall rules, and check your outbound c
 
 With the firewall rules set, you can select the subnet during the cluster pool creation.
 
-:::image type="content" source="./media/control-egress traffic-from-hdinsight-on-aks-clusters/verify-ip-address.png" alt-text="Screenshot showing how to verify IP address." lightbox="./media/control-egress traffic-from-hdinsight-on-aks-clusters/verify-ip-address.png":::
+:::image type="content" source="./media/control-egress-traffic-from-hdinsight-on-aks-clusters/verify-ip-address.png" alt-text="Screenshot showing how to verify IP address." lightbox="./media/control-egress-traffic-from-hdinsight-on-aks-clusters/verify-ip-address.png":::
 
 Once the cluster pool is created, you can observe in the MC Group that there's no public IP created. 
 
-:::image type="content" source="./media/control-egress traffic-from-hdinsight-on-aks-clusters/list-view.png" alt-text="Screenshot showing network list." lightbox="./media/control-egress traffic-from-hdinsight-on-aks-clusters/list-view.png":::
+:::image type="content" source="./media/control-egress-traffic-from-hdinsight-on-aks-clusters/list-view.png" alt-text="Screenshot showing network list." lightbox="./media/control-egress-traffic-from-hdinsight-on-aks-clusters/list-view.png":::
 
 > [!IMPORTANT]
 > Before you create the cluster in the cluster pool setup with `Outbound with userDefinedRouting` egress path, you need to give the AKS cluster - that matches the cluster pool - the `Network Contributor` role on your network resources that are used for defining the routing, such as Virtual Network, Route table, and NSG (if used). Learn more about how to assign the role [here](/azure/role-based-access-control/role-assignments-portal?tabs=delegate-condition#step-1-identify-the-needed-scope)
@@ -214,7 +218,7 @@ Once the cluster pool is created, you can observe in the MC Group that there's n
 
 With private AKS, the control plane or API server has internal IP addresses that are defined in the [RFC1918 - Address Allocation for Private Internet document](https://datatracker.ietf.org/doc/html/rfc1918). By using this option of private AKS, you can ensure network traffic between your API server and your HDInsight on AKS workload clusters remains on the private network only. 
 
-:::image type="content" source="./media/control-egress traffic-from-hdinsight-on-aks-clusters/enable-private-aks.png" alt-text="Screenshot showing the enabled private AKS." lightbox="./media/control-egress traffic-from-hdinsight-on-aks-clusters/enable-private-aks.png":::
+:::image type="content" source="./media/control-egress-traffic-from-hdinsight-on-aks-clusters/enable-private-aks.png" alt-text="Screenshot showing the enabled private AKS." lightbox="./media/control-egress-traffic-from-hdinsight-on-aks-clusters/enable-private-aks.png":::
 
 When you provision a private AKS cluster, AKS by default creates a private FQDN with a private DNS zone and an additional public FQDN with a corresponding A record in Azure public DNS. The agent nodes continue to use the record in the private DNS zone to resolve the private IP address of the private endpoint for communication to the API server. 
 
@@ -224,7 +228,7 @@ As HDInsight on AKS will automatically insert the record to the private DNS zone
 
 When you create a cluster with HDInsight on AKS, it has a public FQDN and IP address that anyone can access. With the private ingress feature, you can make sure that only your private network can send and receive data between the client and the HDInsight on AKS cluster.
 
-:::image type="content" source="./media/control-egress traffic-from-hdinsight-on-aks-clusters/create-cluster-basic-tab.png" alt-text="Screenshot showing create cluster basic tab." lightbox="./media/control-egress traffic-from-hdinsight-on-aks-clusters/create-cluster-basic-tab.png":::
+:::image type="content" source="./media/control-egress-traffic-from-hdinsight-on-aks-clusters/create-cluster-basic-tab.png" alt-text="Screenshot showing create cluster basic tab." lightbox="./media/control-egress-traffic-from-hdinsight-on-aks-clusters/create-cluster-basic-tab.png":::
 
 > [!NOTE]
 > With this feature, HDInsight on AKS will automatically create A-records on the private DNS zone for ingress. 
@@ -247,6 +251,8 @@ Private FQDN： `{clusterName}.privatelink.{clusterPoolName}.{subscriptionId}.{r
 The private FQDN will be assigned to clusters with the private ingress enabled only. It is an A-RECORD in the private DNS zone that resolves to the cluster's private IP.
 
 ### Reference
+
+- [Getting started with Private Clusters on HDInsight on AKS for securing your analytics workloads](https://techcommunity.microsoft.com/t5/analytics-on-azure-blog/getting-started-with-private-clusters-on-hdinsight-on-aks-for/ba-p/4138624).
 
 - [Azure virtual network traffic routing](/azure/virtual-network/virtual-networks-udr-overview).
 

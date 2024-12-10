@@ -1,9 +1,8 @@
 ---
  title: include file
  description: include file
- services: service-bus-messaging, event-hubs
  author: spelluru
- ms.service: service-bus-messaging, event-hubs
+ ms.service: azure-service-bus
  ms.topic: include
  ms.date: 12/12/2020
  ms.author: spelluru
@@ -213,7 +212,7 @@ The following table gives you the correct values for combinations of sources and
 
 ### Retry policy
 
-Refer to the [Azure Functions documentation on retries](../articles/azure-functions/functions-bindings-error-pages.md) to configure the retry policy for Event Hubs. The policy settings chosen throughout the projects in this repository configure an exponential backoff strategy with retry intervals from 5 seconds to 5 minutes with infinite retries to avoid data loss.
+Refer to the [Azure Functions documentation on retries](/azure/azure-functions/functions-bindings-error-pages) to configure the retry policy for Event Hubs. The policy settings chosen throughout the projects in this repository configure an exponential backoff strategy with retry intervals from 5 seconds to 5 minutes with infinite retries to avoid data loss.
 
 The generally available (GA) version of retry policies for Azure Functions only supports Event Hubs and Timer triggers. The preview support for Service Bus trigger has been removed. 
 

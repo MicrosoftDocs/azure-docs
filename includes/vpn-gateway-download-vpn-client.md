@@ -1,8 +1,8 @@
 ---
 author: cherylmc
 ms.author: cherylmc
-ms.date: 08/24/2022
-ms.service: vpn-gateway
+ms.date: 05/08/2024
+ms.service: azure-vpn-gateway
 ms.topic: include
 
 #This include is used in multiple articles, both for Virtual WAN and VPN Gateway. Before modifying, verify that any changes apply to all articles that use this include.

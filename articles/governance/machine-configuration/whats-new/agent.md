@@ -2,7 +2,7 @@
 title: Azure machine configuration agent release notes
 description: Details guest configuration agent release notes, issues, and frequently asked questions.
 ms.date:  02/01/2024
-ms.topic: conceptual
+ms.topic: release-notes
 ---
 # Azure machine configuration agent release notes
 

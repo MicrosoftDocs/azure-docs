@@ -5,8 +5,8 @@ author: rashi-ms
 ms.author: rajosh
 ms.topic: tutorial
 ms.service: azure-migrate
-ms.date: 02/26/2024
-ms.custom: engagement-fy24
+ms.date: 08/13/2024
+ms.custom: engagement-fy25
 ---
 
 # Create an Azure SQL assessment
@@ -205,4 +205,4 @@ The confidence rating helps you estimate the reliability of size recommendations
 ## Next steps
 
 - [Learn more](concepts-azure-sql-assessment-calculation.md) about how Azure SQL assessments are calculated.
-- Start migrating SQL instances and databases using [Azure Database Migration Service](../dms/dms-overview.md).
+- Start migrating SQL instances and databases using [Azure Database Migration Service](/azure/dms/dms-overview).

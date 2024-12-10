@@ -1,22 +1,20 @@
 ---
-title: Metrics for Azure IoT OPC UA Broker
-description: Available observability metrics for Azure IoT OPC UA Broker to monitor the health and performance of your solution.
+title: Metrics for the connector for OPC UA
+description: Available observability metrics for the connector for OPC UA to monitor the health and performance of your solution.
 author: kgremban
 ms.author: kgremban
 ms.topic: reference
 ms.custom:
   - ignite-2023
-ms.date: 11/1/2023
+ms.date: 10/22/2024
 
 # CustomerIntent: As an IT admin or operator, I want to be able to monitor and visualize data
 # on the health of my industrial assets and edge environment.
 ---
 
-# Metrics for Azure IoT OPC UA Broker Preview
+# Metrics for the connector for OPC UA
 
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
-
-Azure IoT OPC UA Broker Preview provides a set of observability metrics that you can use to monitor and analyze the health of your solution. This article lists the available metrics for OPC UA Broker. The following sections group related sets of metrics, and list the name and description for each metric.
+The connector for OPC UA provides a set of observability metrics that you can use to monitor and analyze the health of your solution. This article lists the available metrics for the connector for OPC UA. The following sections group related sets of metrics, and list the name and description for each metric.
 
 ## Crosscutting
 
@@ -58,7 +56,7 @@ Azure IoT OPC UA Broker Preview provides a set of observability metrics that you
 > | aio_opc_MQTT_message_processing_duration     | The duration of the processing of messages received from the MQTT broker (method invocations, writes).                                                                                |
 
 
-## OPC UA Connector
+## Connector for OPC UA
 
 > [!div class="mx-tdBreakAll"]
 > | Name                                       | Definition                                                                                | 
@@ -76,4 +74,4 @@ Azure IoT OPC UA Broker Preview provides a set of observability metrics that you
 
 ## Related content
 
-- [Configure observability](../monitor/howto-configure-observability.md)
+- [Configure observability](../configure-observability-monitoring/howto-configure-observability.md)

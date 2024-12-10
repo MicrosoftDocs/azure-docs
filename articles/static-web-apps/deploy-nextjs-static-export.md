@@ -3,7 +3,7 @@ title: "Tutorial: Deploy static-rendered Next.js websites on Azure Static Web Ap
 description: "Generate and deploy Next.js static-rendered sites with Azure Static Web Apps."
 services: static-web-apps
 author: craigshoemaker
-ms.service: static-web-apps
+ms.service: azure-static-web-apps
 ms.topic:  tutorial
 ms.date: 10/12/2022
 ms.author: aapowell

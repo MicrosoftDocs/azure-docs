@@ -1,14 +1,11 @@
 ---
 title: Rendering capabilities
 description: Standard Azure Batch capabilities are used to run rendering workloads and apps. Batch includes specific features to support rendering workloads.
-ms.date: 02/28/2024
+ms.date: 06/10/2024
 ms.topic: how-to
 ---
 
 # Azure Batch rendering capabilities
-
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 Standard Azure Batch capabilities are used to run rendering workloads and applications. Batch also includes specific features to support rendering workloads.
 
@@ -16,7 +13,7 @@ For an overview of Batch concepts, including pools, jobs, and tasks, see [this a
 
 ## Batch pools using custom VM images and standard application licensing
 
-As with other workloads and types of application, a custom VM image can be created with the required rendering applications and plug-ins. The custom VM image is placed in the [Azure Compute Gallery](../virtual-machines/shared-image-galleries.md) and [can be used to create Batch Pools](batch-sig-images.md).
+As with other workloads and types of application, a custom VM image can be created with the required rendering applications and plug-ins. The custom VM image is placed in the [Azure Compute Gallery](/azure/virtual-machines/shared-image-galleries) and [can be used to create Batch Pools](batch-sig-images.md).
 
 The task command line strings will need to reference the applications and paths used when creating the custom VM image.
 
@@ -35,7 +32,7 @@ Most rendering applications will require licenses obtained from a license server
 
 As with other workloads, rendering application system requirements vary, and performance requirements vary for jobs and projects.  A large variety of VM families are available in Azure depending on your requirements – lowest cost, best price/performance, best performance, and so on.
 Some rendering applications, such as Arnold, are CPU-based; others such as V-Ray and Blender Cycles can use CPUs and/or GPUs.
-For a description of available VM families and VM sizes, [see VM types and sizes](../virtual-machines/sizes.md).
+For a description of available VM families and VM sizes, [see VM types and sizes](/azure/virtual-machines/sizes).
 
 ## Spot VMs
 

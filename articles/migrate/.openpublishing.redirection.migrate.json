@@ -287,12 +287,12 @@
         },
         {
             "source_path_from_root": "/articles/migrate/how-to-prepare-linux-for-migration.md",
-            "redirect_url": "/azure/migrate/vmware/tutorial-prepare-vmware?context=/azure/migrate/context/vmware-context",
+            "redirect_url": "/azure/migrate/",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/migrate/tutorial-assessment-vmware.md",
-            "redirect_url": "/azure/migrate/vmware/tutorial-prepare-vmware?context=/azure/migrate/context/vmware-context",
+            "redirect_url": "/azure/migrate/vmware/tutorial-assess-vmware-azure-vm",
             "redirect_document_id": false
         },
         {

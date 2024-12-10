@@ -2,7 +2,6 @@
 title: Workflow Orchestration Manager pricing
 description: This article describes the pricing for Workflow Orchestration Manager.
 author: nabhishek
-ms.service: data-factory
 ms.subservice: pricing
 ms.topic: conceptual
 ms.date: 10/20/2023
@@ -14,7 +13,7 @@ ms.author: abnarain
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 > [!NOTE]
-> Workflow Orchestration Manager is powered by Apache Airflow.
+> This feature is in public preview. Workflow Orchestration Manager is powered by Apache Airflow.
 
 This article describes the pricing for Workflow Orchestration Manager usage within data factory.
 

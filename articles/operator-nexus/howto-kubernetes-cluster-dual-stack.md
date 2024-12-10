@@ -96,8 +96,15 @@ This parameter file is intended to be used with the [QuickStart guide](./quickst
     "location": {
       "value": "eastus"
     },
-    "sshPublicKey": {
-      "value": "ssh-rsa AAAAB...."
+    "sshPublicKeys": {
+      "value": [
+        {
+          "keyData": "ssh-rsa AAAAB..."
+        },
+        {
+          "keyData": "ssh-rsa AAAAC..."
+        }
+      ]
     },
     "podCidrs": {
       "value": ["10.244.0.0/16", "fd12:3456:789a::/64"]

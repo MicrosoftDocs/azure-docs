@@ -4,7 +4,7 @@ titleSuffix: Azure Private 5G Core
 description: Learn how to deploy a private mobile network and site using Azure Command-Line Interface (Azure CLI).
 author: James-Green-Microsoft
 ms.author: jagre
-ms.service: private-5g-core
+ms.service: azure-private-5g-core
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
 ms.date: 03/15/2023
@@ -44,7 +44,7 @@ Azure Private 5G Core is an Azure cloud service for deploying and managing 5G co
 - [az mobile network sim create](/cli/azure/mobile-network/sim#az-mobile-network-sim-create)
 - [az mobile-network attached-data-network create](/cli/azure/mobile-network/attached-data-network#az-mobile-network-attached-data-network-create)
 
-[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../includes/cli-launch-cloud-shell-sign-in.md)]
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](~/reusable-content/ce-skilling/azure/includes/cli-launch-cloud-shell-sign-in.md)]
 
 ## Deploy a private mobile network, site and SIM
 

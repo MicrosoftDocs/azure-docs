@@ -3,9 +3,9 @@ title: Azure Traffic Manager - FAQ
 description: This article provides answers to frequently asked questions about Traffic Manager.
 services: traffic-manager
 author: greg-lindsay
-ms.service: traffic-manager
+ms.service: azure-traffic-manager
 ms.topic: conceptual
-ms.date: 04/22/2024
+ms.date: 12/03/2024
 ms.author: greglin
 ---
 
@@ -90,6 +90,19 @@ When you delete a Traffic Manager profile, the associated domain name is reserve
 
 For example, if your Traffic Manager profile name is **label1**, then **label1.trafficmanager.net** is reserved for your tenant even if you delete the profile. Child namespaces, such as **xyz.label1** or **123.abc.label1** are also reserved. When the reservation expires, the name is made available to other tenants. The name associated with a disabled profile is reserved indefinitely. For questions about the length of time a name is reserved, contact your account representative. 
 
+### What version of TLS is required by Traffic Manager?
+
+The Microsoft implementation of older TLS versions is not known to be vulnerable, however, TLS 1.2 and later offer improved security with features such as perfect forward secrecy and stronger cipher suites. To enhance security and provide best-in-class encryption for your data, Traffic Manger requires interactions with services to be secured using Transport Layer Security (TLS) 1.2 or later before February 28,2025. Traffic Manger support for TLS 1.0 and 1.1 will end on this date. This date might be different than the [Azure-wide TLS 1.0 and TLS 1.1 retirement date](https://azure.microsoft.com/updates?id=update-retirement-tls1-0-tls1-1-versions-azure-services).
+
+**Recommended action** 
+
+To avoid service disruptions, resources that interact with Traffic Manager must use TLS 1.2 or later. 
+
+- If resources are already exclusively using TLS 1.2 or later, you don't need to take further action. 
+- If resources still have a dependency on TLS 1.0 or 1.1, transition them to TLS 1.2 or later by February 28, 2025. 
+
+For information about migrating from TLS 1.0 and 1.1 to TLS 1.2, see [Solving the TLS 1.0 Problem](/security/engineering/solving-tls1-problem).
+
 ## Traffic Manager Geographic traffic routing method
 
 ### What are some use cases where geographic routing is useful?
@@ -144,7 +157,11 @@ Yes, only API version 2017-03-01 and newer supports the Geographic routing type.
 ### What are some use cases where subnet routing is useful?
 
 Subnet routing allows you to differentiate the experience you deliver for specific sets of users identified by the source IP of their DNS requests IP address. An example would be showing different content if users are connecting to a website from your corporate HQ. Another would be restricting users from certain ISPs to only access endpoints that support only IPv4 connections if those ISPs have subpar performance when IPv6 is used.
+
 Another reason to use Subnet routing method is in conjunction with other profiles in a nested profile set. For example, if you want to use Geographic routing method for geo-fencing your users, but for a specific ISP you want to do a different routing method, you can have a profile withy Subnet routing method as the parent profile and override that ISP to use a specific child profile and have the standard Geographic profile for everyone else.
+
+> [!NOTE]
+> Azure Traffic Manager supports IPv6 addresses in subnet overrides for subnet profiles. This capability enables more granular control over traffic routing based on the source IP address of DNS queries, including both IPv4 and IPv6 addresses. 
 
 ### How does Traffic Manager know the IP address of the end user?
 
@@ -335,6 +352,18 @@ Azure endpoints that are associated with a Traffic Manager profile are tracked u
 
 For more information, see [To move an endpoint](traffic-manager-manage-endpoints.md#to-move-an-endpoint).
 
+### Does Azure Traffic Manager support IPv6 Extension Mechanisms for DNS (ECS)?
+
+Azure Traffic Manager supports IPv6 addresses with Extension Mechanisms for DNS (ECS). This means that when a DNS query includes ECS information, Azure Traffic Manager can use the source IP address within the ECS to make intelligent routing decisions. 
+
+The support for IPv6 ECS brings several advantages: 
+
+- **Improved Localization**: By considering the IPv6 address in the ECS, Traffic Manager can route users to the nearest or most appropriate endpoint, enhancing the user experience with reduced latency. 
+- **Enhanced Traffic Control**: IPv6 ECS allows for more granular traffic routing decisions, enabling better management of global traffic and distribution. 
+
+When using IPv6 ECS, it’s important to ensure that your endpoints are correctly configured to handle IPv6 traffic. Also verify that your DNS infrastructure, including recursive resolvers, is capable of handling ECS information with IPv6 addresses. 
+
+
 ## Traffic Manager endpoint monitoring
 
 ### Is Traffic Manager resilient to Azure region failures?
@@ -356,7 +385,7 @@ Azure Resource Manager requires all resource groups to specify a location, which
 
 The current monitoring status of each endpoint, in addition to the overall profile, is displayed in the Azure portal. This information also is available via the Traffic Monitor [REST API](/rest/api/trafficmanager/), [PowerShell cmdlets](/powershell/module/az.trafficmanager), and [cross-platform Azure CLI](/cli/azure/install-classic-cli).
 
-You can also use Azure Monitor to track the health of your endpoints and see a visual representation of them. For more about using Azure Monitor, see the [Azure Monitoring documentation](../azure-monitor/data-platform.md).
+You can also use Azure Monitor to track the health of your endpoints and see a visual representation of them. For more about using Azure Monitor, see the [Azure Monitoring documentation](/azure/azure-monitor/data-platform).
 
 ### Can I monitor HTTPS endpoints?
 
@@ -370,20 +399,26 @@ Traffic manager can't provide any certificate validation, including:
 
 ### Do I use an IP address or a DNS name when adding an endpoint?
 
-Traffic Manager supports adding endpoints using three ways to refer them – as a DNS name, as an IPv4 address and as an IPv6 address. If the endpoint is added as an IPv4 or IPv6 address the query response is of record type A or AAAA, respectively. If the endpoint was added as a DNS name, then the query response is of record type CNAME. Adding endpoints as IPv4 or IPv6 address is permitted only if the endpoint is of type **External**.
+Traffic Manager supports adding endpoints using three ways to refer them: 
+- As a DNS name 
+- As an IPv4 address 
+- As an IPv6 address 
+
+If the endpoint is added as an IPv4 or IPv6 address, the query response is of record type A or AAAA, respectively. If the endpoint was added as a DNS name, then the query response is of record type CNAME. Adding endpoints as IPv4 or IPv6 address is permitted only if the endpoint is of type **External**.
+
 All routing methods and monitoring settings are supported by the three endpoint addressing types.
 
 ### What types of IP addresses can I use when adding an endpoint?
 
 Traffic Manager allows you to use IPv4 or IPv6 addresses to specify endpoints. There are a few restrictions, which are listed below:
 
-- Addresses that correspond to reserved private IP address spaces aren't allowed. These addresses include those called out in RFC 1918, RFC 6890, RFC 5737, RFC 3068, RFC 2544 and RFC 5771
-- The address must not contain any port numbers (you can specify the ports to be used in the profile configuration settings)
-- No two endpoints in the same profile can have the same target IP address
+- Addresses that correspond to reserved private IP address spaces aren't allowed. These addresses include those called out in RFC 1918, RFC 6890, RFC 5737, RFC 3068, RFC 2544, and RFC 5771.
+- The IP address must not contain any port numbers (you can specify the ports to be used in the profile configuration settings).
+- No two endpoints in the same profile can have the same target IP address.
 
 ### Can I use different endpoint addressing types within a single profile?
 
-No, Traffic Manager doesn't allow you to mix endpoint addressing types within a profile, except for the case of a profile with MultiValue routing type where you can mix IPv4 and IPv6 addressing types
+No. Traffic Manager doesn't allow you to mix endpoint addressing types within a profile, except for the case of a profile with MultiValue routing type where you can mix IPv4 and IPv6 addressing types.
 
 ### What happens when an incoming query's record type is different from the record type associated with the addressing type of the endpoints?
 
@@ -478,7 +513,7 @@ The number of Traffic Manager health checks reaching your endpoint depends on th
 
 ### How can I get notified if one of my endpoints goes down?
 
-One of the metrics provided by Traffic Manager is the health status of endpoints in a profile. You can see this as an aggregate of all endpoints inside a profile (for example, 75% of your endpoints are healthy), or, at a per endpoint level. Traffic Manager metrics are exposed through Azure Monitor and you can use its [alerting capabilities](../azure-monitor/alerts/alerts-metric.md) to get notifications when there's a change in the health status of your endpoint. For more information, see [Traffic Manager metrics and alerts](traffic-manager-metrics-alerts.md).  
+One of the metrics provided by Traffic Manager is the health status of endpoints in a profile. You can see this as an aggregate of all endpoints inside a profile (for example, 75% of your endpoints are healthy), or, at a per endpoint level. Traffic Manager metrics are exposed through Azure Monitor and you can use its [alerting capabilities](/azure/azure-monitor/alerts/alerts-metric) to get notifications when there's a change in the health status of your endpoint. For more information, see [Traffic Manager metrics and alerts](traffic-manager-metrics-alerts.md). 
 
 ## Traffic Manager nested profiles
 
@@ -513,17 +548,17 @@ The Traffic Manager name servers traverse the profile hierarchy internally when 
 
 ### How does Traffic Manager compute the health of a nested endpoint in a parent profile?
 
-The parent profile doesn't perform health checks on the child directly. Instead, the health of the child profile's endpoints are used to calculate the overall health of the child profile. This information is propagated up the nested profile hierarchy to determine the health of the nested endpoint. The parent profile uses this aggregated health to determine whether the traffic can be directed to the child.
+The parent profile doesn't perform health checks on the child directly. Instead, the health of the child profile's endpoints is used to calculate the overall health of the child profile. This information is propagated up the nested profile hierarchy to determine the health of the nested endpoint. The parent profile uses this aggregated health to determine whether the traffic can be directed to the child.
 
 The following table describes the behavior of Traffic Manager health checks for a nested endpoint.
 
 | Child Profile Monitor status | Parent Endpoint Monitor status | Notes |
 | --- | --- | --- |
-| Disabled. The child profile has been disabled. |Stopped |The parent endpoint state is Stopped, not Disabled. The Disabled state is reserved for indicating that you've disabled the endpoint in the parent profile. |
-| Degraded. At least one child profile endpoint is in a Degraded state. |Online: the number of Online endpoints in the child profile is at least the value of MinChildEndpoints.<BR>CheckingEndpoint: the number of Online plus CheckingEndpoint endpoints in the child profile is at least the value of MinChildEndpoints.<BR>Degraded: otherwise. |Traffic is routed to an endpoint of status CheckingEndpoint. If MinChildEndpoints is set too high, the endpoint is always degraded. |
-| Online. At least one child profile endpoint is an Online state. No endpoint is in the Degraded state. |See above. | |
-| CheckingEndpoints. At least one child profile endpoint is 'CheckingEndpoint'. No endpoints are 'Online' or 'Degraded' |Same as above. | |
-| Inactive. All child profile endpoints are either Disabled or Stopped, or this profile has no endpoints. |Stopped | |
+| **Disabled**. The child profile has been disabled. |Stopped |The parent endpoint state is `Stopped`, not `Disabled`. The `Disabled` state is reserved for indicating that you've disabled the endpoint in the parent profile. |
+| **Degraded**. At least one child profile endpoint is in a `Degraded` state. |**Online**: the number of `Online` endpoints in the child profile is at least the value of `MinChildEndpoints`.<BR>**CheckingEndpoint**: the number of `Online` plus `CheckingEndpoint` endpoints in the child profile is at least the value of `MinChildEndpoints`.<BR>**Degraded**: otherwise. |Traffic is routed to an endpoint of status `CheckingEndpoint`. If `MinChildEndpoints` is set too high, the endpoint is always degraded. |
+| **Online**. At least one child profile endpoint is an `Online` state. No endpoint is in the `Degraded` state. |See above. | |
+| CheckingEndpoints. At least one child profile endpoint is `CheckingEndpoint`. No endpoints are `Online` or `Degraded` |Same as above. | |
+| **Inactive**. All child profile endpoints are either `Disabled` or `Stopped`, or this profile has no endpoints. |Stopped | |
 
 > [!IMPORTANT]
 > When managing child profiles under a parent profile in Azure Traffic Manager, an issue can occur if you simultaneously disable and enable two child profiles. If these actions occur at the same time, there might be a brief period when both endpoints are disabled, leading to the parent profile entering a compromised state.<br><br>
@@ -531,7 +566,7 @@ The following table describes the behavior of Traffic Manager health checks for 
 
 ### Why can't I add Azure Cloud Services Extended Support Endpoints to my Traffic Manager profile? 
 
-In order to add Azure Cloud Extended endpoints to a Traffic Manager profile, the resource group must have compatibility with the Azure Service Management (ASM) API. Profiles located in the older resource group must adhere to ASM API standards, which prohibit the inclusion of public IP address endpoints or endpoints from a different subscription than that of the profile. To resolve this, consider moving your Traffic Manager profile and associated resources to a new resource group compatible with the ASM API.  
+In order to add Azure Cloud Extended endpoints to a Traffic Manager profile, the resource group must have compatibility with the Azure Service Management (ASM) API. Profiles located in the older resource group must adhere to ASM API standards, which prohibit the inclusion of public IP address endpoints or endpoints from a different subscription than that of the profile. To resolve this, consider moving your Traffic Manager profile and associated resources to a new resource group compatible with the ASM API.
 
 ## Next steps:
 

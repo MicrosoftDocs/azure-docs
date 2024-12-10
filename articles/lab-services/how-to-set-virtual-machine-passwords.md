@@ -7,6 +7,8 @@ ms.date: 06/26/2020
 
 # Set or reset virtual machine passwords
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 A lab owner (educator) sets the password for VMs at the time of creating the lab or after creating the lab on the **Template** page.
 
 ## Set password at the time of lab creation

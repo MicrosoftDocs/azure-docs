@@ -4,7 +4,7 @@ description: Learn how to troubleshoot the issue in which you cannot delete a vi
 services: virtual-network
 author: asudbring
 manager: dcscontentpm
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: allensu
@@ -15,7 +15,7 @@ ms.custom: fasttrack-edit
 
 You might receive errors when you try to delete a virtual network in Microsoft Azure. This article provides troubleshooting steps to help you resolve this problem.
 
-[!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+[!INCLUDE [support-disclaimer](~/reusable-content/ce-skilling/azure/includes/support-disclaimer.md)]
 
 ## Troubleshooting guidance 
 
@@ -63,7 +63,7 @@ If there is an application gateway, you must remove it before you can delete the
 
 1. Delete the subnet or virtual network again.
 
-If these steps don't resolve the issue, use these [Azure CLI commands](../container-instances/container-instances-vnet.md#clean-up-resources) to clean up resources. 
+If these steps don't resolve the issue, use these [Azure CLI commands](/azure/container-instances/container-instances-vnet#clean-up-resources) to clean up resources. 
 
 <a name='check-whether-azure-active-directory-domain-service-is-enabled-in-the-virtual-network'></a>
 

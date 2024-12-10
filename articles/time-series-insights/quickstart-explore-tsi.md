@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Explore the Gen2 demo environment - Azure Time Series Insights Gen2 | Microsoft Docs'
 description: Explore key features of the Azure Time Series Insights Gen2 demo environment.
-ms.service: time-series-insights
+ms.service: azure-time-series-insights
 author: shreyasharmamsft
 ms.author: shresha
 manager: cnovak
@@ -28,7 +28,7 @@ In this quickstart, you learn how to use Azure Time Series Insights Gen2 to find
 
 The Azure Time Series Insights Gen2 Explorer demonstrates historical data and root cause analysis. To get started:
 
-1. Go to the [Contoso Wind Farm demo](https://insights.timeseries.azure.com/preview/samples) environment.
+1. Go to the Contoso Wind Farm demo environment.
 
 1. If you're prompted, sign in to the Azure Time Series Insights Gen2 Explorer by using your Azure account credentials.
 

@@ -2,7 +2,7 @@
 title: 'Create a shareable link for Azure Bastion'
 description: Learn how to create a shareable link to let a user connect to a target resource via Bastion without using the Azure portal.
 author: cherylmc
-ms.service: bastion
+ms.service: azure-bastion
 ms.topic: how-to
 ms.date: 05/10/2023
 ms.author: cherylmc

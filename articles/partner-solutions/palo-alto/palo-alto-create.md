@@ -4,7 +4,6 @@ description: This article describes how to use the Azure portal to create a Clou
 
 ms.custom: references_regions
 ms.topic: quickstart
-ms.date: 04/26/2023
 
 ---
 
@@ -13,6 +12,8 @@ ms.date: 04/26/2023
 In this quickstart, you use the Azure Marketplace to find and create an instance of  **Cloud NGFW by Palo Alto Networks - an Azure Native ISV Service resource**.
 
 ## Create a new Cloud NGFW by Palo Alto Networks resource
+
+In this section, you see how create a Palo Alto Networks resource.
 
 ### Basics
 
@@ -95,7 +96,7 @@ Next, you must accept the Terms of Use for the new Palo Alto Networks resource.
 
    :::image type="content" source="media/palo-alto-create/palo-alto-review-create.png" alt-text="Screenshot of Review and Create resource tab.":::
 
-1. When you've reviewed all the information, select **Create**. Azure now deploys the Cloud NGFW by Palo Alto Networks.
+1. After reviewing all the information, select **Create**. Azure now deploys the Cloud NGFW by Palo Alto Networks.
 
    :::image type="content" source="media/palo-alto-create/palo-alto-deploying.png" alt-text="Screenshot showing Palo Alto Networks deployment in process.":::
 

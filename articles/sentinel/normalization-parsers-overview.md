@@ -5,6 +5,10 @@ author: oshezaf
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: ofshezaf
+
+
+#Customer intent: As a security analyst, I want to use ASIM parsers to normalize and query security data so that I can efficiently analyze and correlate information from various sources.
+
 --- 
 
 # The Advanced Security Information Model (ASIM) parsers (Public preview)

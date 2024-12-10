@@ -2,7 +2,7 @@
 title: Customer-managed keys for Azure Fluid Relay encryption
 description: Better understand the data encryption with CMK
 ms.date: 10/08/2021
-ms.service: app-service
+ms.service: azure-app-service
 ms.topic: reference
 ---
 
@@ -11,8 +11,8 @@ ms.topic: reference
 You can use your own encryption key to protect the data in your Azure Fluid Relay resource. When you specify a customer-managed key (CMK), that key is used to protect and control access to the key that encrypts your data. CMK offers greater flexibility to manage access controls. 
 
 You must use one of the following Azure key stores to store your CMK: 
-- [Azure Key Vault](../../key-vault/general/overview.md) 
-- [Azure Key Vault Managed Hardware Security Module (HSM)](../../key-vault/managed-hsm/overview.md)
+- [Azure Key Vault](/azure/key-vault/general/overview) 
+- [Azure Key Vault Managed Hardware Security Module (HSM)](/azure/key-vault/managed-hsm/overview)
 
 You must create a new Azure Fluid Relay resource to enable CMK. You cannot change the CMK enablement/disablement on an existing Fluid Relay resource. 
 

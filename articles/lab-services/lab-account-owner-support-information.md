@@ -8,6 +8,8 @@ ms.custom: devdivchpfy22
 
 # Set up support information (lab account owner in Azure Lab Services)
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 This article explains how you (as a lab account owner) can specify the support information. The support information can be used by the lab creators (educators) and lab users (students) to get help if they run into any technical issues while using the lab.
 
 The support information includes:

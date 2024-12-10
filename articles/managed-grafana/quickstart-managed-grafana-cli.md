@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: create an Azure Managed Grafana instance using the Azure CLI'
+title: Create an Azure Managed Grafana instance using the Azure CLI
 description: Learn how to create a Managed Grafana instance using the Azure CLI
-ms.service: managed-grafana
+ms.service: azure-managed-grafana
 ms.topic: quickstart
 author: maud-lv
 ms.author: malev
@@ -12,9 +12,9 @@ ms.custom: engagement-fy23, devx-track-azurecli
 
 # Quickstart: Create an Azure Managed Grafana instance using the Azure CLI
 
-Get started by creating an Azure Managed Grafana workspace using the Azure CLI. Creating a workspace will generate an Azure Managed Grafana instance.
+Get started by creating an Azure Managed Grafana workspace using the Azure CLI. Creating a workspace will generate a Grafana instance.
 
-> [!NOTE]
+>[!NOTE]
 > Azure Managed Grafana now has [two pricing plans](overview.md#service-tiers). This guides takes you through creating a new workspace in the Standard plan. To generate a workspace in the newly released Essential (preview) plan, [use the Azure portal](quickstart-managed-grafana-portal.md). We are working on enabling the creation of a workspace in the Essential (preview) plan using the Azure CLI.
 
 ## Prerequisites
@@ -66,6 +66,9 @@ Run the code below to create an Azure Managed Grafana workspace.
 
 Once the deployment is complete, you'll see a note in the output of the command line stating that the instance was successfully created, alongside with additional information about the deployment.
 
+   > [!NOTE]
+   >Azure Managed Grafana has a system-assigned managed identity enabled by default. You can use a user-assigned managed identity or a service principal instead. To learn more, go to [Set up Azure Managed Grafana authentication and permissions (preview)](how-to-authentication-permissions.md).
+
 ## Access your new Managed Grafana instance
 
 Now let's check if you can access your new Managed Grafana instance.
@@ -76,7 +79,7 @@ Now let's check if you can access your new Managed Grafana instance.
 
    :::image type="content" source="media/quickstart-portal/grafana-ui.png" alt-text="Screenshot of a Managed Grafana instance.":::
 
-You can now start interacting with the Grafana application to configure data sources, create dashboards, reports and alerts. Suggested read: [Monitor Azure services and applications using Grafana](../azure-monitor/visualize/grafana-plugin.md).
+You can now start interacting with the Grafana application to configure data sources, create dashboards, reports and alerts. Suggested read: [Monitor Azure services and applications using Grafana](/azure/azure-monitor/visualize/grafana-plugin).
 
 ## Clean up resources
 

@@ -6,14 +6,14 @@ description: Learn how to create and run your own custom policies in Azure Activ
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: how-to
 ms.custom: b2c-docs-improvements
-ms.date: 01/11/2024
+ms.date: 10/11/2024
 ms.author: kengaderdus
 ms.reviewer: yoelh
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As an identity app developer using Azure Active Directory B2C, I want to learn how to create and run my own custom policies, so that I can create complex user journeys and customize the behavior of the user experience to meet my business specific needs.

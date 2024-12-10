@@ -1,7 +1,0 @@
-- name: Azure
-  tocHref: /azure/
-  topicHref: /azure/index
-  items: 
-  - name: MySQL
-    tocHref: /azure/dms/
-    topicHref: /azure/mysql/index

@@ -6,7 +6,7 @@ author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: tutorial
-ms.date: 09/28/2023
+ms.date: 10/22/2024
 ms.devlang: azurecli
 ms.custom: passwordless-dotnet, passwordless-java, devx-track-azurecli
 zone_pivot_group_filename: service-connector/zone-pivot-groups.json
@@ -28,7 +28,7 @@ In this tutorial, you use the Azure CLI to complete the following tasks:
 
 ## Prerequisites
 
-* [Azure CLI](/cli/azure/install-azure-cli) version 2.48.1 or higher.
+* [Azure CLI](/cli/azure/install-azure-cli) version 2.61.0 or higher.
 * An Azure account with an active subscription. [Create an Azure account for free](https://azure.microsoft.com/free).
 * An app deployed to [Azure App Service](../app-service/overview.md) in a [region supported by Service Connector](./concept-region-support.md).
 
@@ -47,15 +47,16 @@ Finally, deploy your application to an Azure hosting service. That source servic
 
 ### [App Service](#tab/appservice)
 
-For Azure App Service, you can deploy the application code via the `az webapp deploy` command. For more information, see [Quickstart: Deploy an ASP.NET web app](../app-service/quickstart-dotnetcore.md).
+For Azure App Service, you can check the document to choose a way to deploy, see [Quickstart: Deploy an ASP.NET web app](../app-service/quickstart-dotnetcore.md).
 
 ### [Spring Apps](#tab/springapp)
 
-For Azure Spring Apps, you can deploy the application code via the `az spring app deploy` command. For more information, see [Quickstart: Deploy your first application to Azure Spring Apps](../spring-apps/enterprise/quickstart.md).
+For Azure Spring Apps, you can check the document for more details about building app and deployment, see [Build and deploy the app](/azure/developer/java/spring-framework/deploy-passwordless-spring-database-app?#build-and-deploy-the-app).
+
 
 ### [Container Apps](#tab/containerapp)
 
-For Azure Container Apps, you can deploy the application code via the `az containerapp create` command. For more information, see [Quickstart: Deploy your first container app](../container-apps/get-started.md).
+For Azure Container Apps, you can check the document about how to deploy your app, see [Quickstart: Deploy your first container app](../container-apps/get-started.md).
 
 ---
 
@@ -65,7 +66,7 @@ Then you can check the log or call the application to see if it can connect to t
 
 #### Permission
 
-If you encounter any permission-related errors, confirm the Azure CLI signed-in user with the command `az account show`. Make sure you log in with the correct account. Next, confirm that you have the following permissions that might be required to create a passwordless connection with Service Connector.
+If you encounter any permission-related errors, confirm the Azure CLI signed-in user with the command `az account show`. Make sure you sign in with the correct account. Next, confirm that you have the following permissions that might be required to create a passwordless connection with Service Connector.
 
 ::: zone pivot="postgresql"
 

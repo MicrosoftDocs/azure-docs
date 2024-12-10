@@ -3,7 +3,7 @@ title: Power BI output from Azure Stream Analytics
 description: This article describes how to output data from Azure Stream Analytics to Power BI.
 author: AliciaLiMicrosoft 
 ms.author: ali 
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: conceptual
 ms.date: 07/20/2023
 ---
@@ -14,6 +14,10 @@ You can use [Power BI](/power-bi/fundamentals/power-bi-overview) as an output fo
 
 > [!NOTE]
 > Power BI output from Stream Analytics is currently not available in Microsoft Azure operated by 21Vianet and Azure Germany (T-Systems International).
+
+> [!Important]
+> Real-time streaming in Power BI is deprecating. For more information about the retirement of real-time streaming in Power BI, see the [blog](https://powerbi.microsoft.com/en-us/blog/announcing-the-retirement-of-real-time-streaming-in-power-bi/) post.
+> Begining Oct 31,2027 users will not be able to create Stream Analytics jobs with Power BI output connector and the existing jobs running with Power BI connector will be stopped. Microsoft recommends users to explore Real-Time Intelligence in Microsoft Fabric. If you are interested in migrating to Fabric Real-Time Intelligence, you can use the guidance provided in this [blog](https://techcommunity.microsoft.com/blog/analyticsonazure/simplifying-migration-to-fabric-real-time-intelligence-for-power-bi-real-time-re/4283180) post. If you need more migration guidance from Microsoft, such as architecture review, clarification about specific capabilities, please fill out your request [here](https://forms.office.com/r/sQeaA8KLAZ).
 
 ## Output configuration
 
@@ -48,13 +52,13 @@ Azure Stream Analytics updates the data model dynamically at runtime when the ou
 
 This table covers the data type conversions from [Stream Analytics data types](/stream-analytics-query/data-types-azure-stream-analytics) to Power BI [Entity Data Model (EDM) types](/dotnet/framework/data/adonet/entity-data-model), if a Power BI dataset and table don't exist.
 
-From Stream Analytics | To Power BI
------|-----
-bigint | Int64
-nvarchar(max) | String
-datetime | Datetime
-float | Double
-Record array | String type, constant value `IRecord` or `IArray`
+| From Stream Analytics | To Power BI |
+| -----|----- |
+| bigint | Int64 |
+| nvarchar(max) | String |
+| datetime | Datetime |
+| float | Double |
+| Record array | String type, constant value `IRecord` or `IArray` |
 
 ### Update the schema
 
@@ -62,12 +66,12 @@ Stream Analytics infers the data model schema based on the first set of events i
 
 Avoid the `SELECT *` query to prevent dynamic schema update across rows. In addition to potential performance implications, it might result in uncertainty of the time taken for the results. Select the exact fields that need to be shown on the Power BI dashboard. Additionally, the data values should be compliant with the chosen data type.
 
-Previous/current | Int64 | String | Datetime | Double
------------------|-------|--------|----------|-------
-Int64 | Int64 | String | String | Double
-Double | Double | String | String | Double
-String | String | String | String | String 
-Datetime | String | String |  Datetime | String
+| Previous/current | Int64 | String | Datetime | Double |
+| ---|---|---|---|--- |
+| Int64 | Int64 | String | String | Double |
+| Double | Double | String | String | Double |
+| String | String | String | String | String  |
+| Datetime | String | String |  Datetime | String |
 
 ## Limitations and best practices
 Currently, Power BI can be called roughly once per second. Streaming visuals support packets of 15 KB. Beyond that, streaming visuals fail (but push continues to work). Because of these limitations, Power BI lends itself most naturally to cases where Azure Stream Analytics does a significant data load reduction. We recommend using a Tumbling window or Hopping window to ensure that data push is at most one push per second, and that your query lands within the throughput requirements. For more info on output batch size, see [Power BI REST API limits](/power-bi/developer/automation/api-rest-api-limitations).

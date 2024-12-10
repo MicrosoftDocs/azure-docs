@@ -4,7 +4,7 @@ titleSuffix: Azure SignalR Service
 description: How to configure a custom domain for Azure SignalR Service
 services: signalr
 author: ArchangelSDY
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.topic: how-to
 ms.date: 08/15/2022
 ms.author: dayshen
@@ -31,7 +31,7 @@ To configure a custom domain, you need to:
 - An Azure Resource Group.
 - An Azure SignalR Service resource.
 - An Azure Key Vault instance.
-- A custom domain SSL certificate stored in your Key Vault instance.  See [Get started with Key Vault certificates](../key-vault/certificates/certificate-scenarios.md)
+- A custom domain SSL certificate stored in your Key Vault instance.  See [Get started with Key Vault certificates](/azure/key-vault/certificates/certificate-scenarios)
 - An Azure DNS zone. (Optional)
 
 ## Add a custom certificate
@@ -218,7 +218,7 @@ After you create a Shared Private Endpoint, you can add a custom certificate as 
 >[!IMPORTANT]
 >**You don't have to change the domain in your key vault URI**. For example, if your key vault base URI is `https://contoso.vault.azure.net`, you'll use this URI to configure a custom certificate.
 
-You don't have to explicitly allow SignalR Service IP addresses in key vault firewall settings. For more info, see [Key Vault private link diagnostics](../key-vault/general/private-link-diagnostics.md).
+You don't have to explicitly allow SignalR Service IP addresses in key vault firewall settings. For more info, see [Key Vault private link diagnostics](/azure/key-vault/general/private-link-diagnostics).
 
 ## Certificate rotation
 
@@ -238,5 +238,5 @@ If you don't plan to use the resources you've created in this article, you can d
 
 + [How to enable managed identity for Azure SignalR Service](howto-use-managed-identity.md)
 + [Managed identities for Azure SignalR Service](./howto-use-managed-identity.md)
-+ [Get started with Key Vault certificates](../key-vault/certificates/certificate-scenarios.md)
++ [Get started with Key Vault certificates](/azure/key-vault/certificates/certificate-scenarios)
 + [What is Azure DNS](../dns/dns-overview.md)

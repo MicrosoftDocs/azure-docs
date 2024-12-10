@@ -3,7 +3,7 @@ title: 'Define dynamic network group membership in Azure Virtual Network Manager
 description: This article explains how to use Azure Policy to create network groups with dynamic membership in Azure Virtual Network Manager.
 author: mbender-ms
 ms.author: mbender
-ms.service: virtual-network-manager
+ms.service: azure-virtual-network-manager
 ms.topic: how-to
 ms.date: 07/18/2023
 ms.custom: template-concept, engagement-fy23
@@ -14,8 +14,6 @@ ms.custom: template-concept, engagement-fy23
 In this article, you learn how to use Azure Policy conditional statements to create network groups with dynamic membership. You create these conditional statements using the basic editor by selecting parameters and operators from a drop-down menu. Also, you learn how to use the advanced editor to update conditional statements of an existing network group.
 
 [Azure Policy](../governance/policy/overview.md) is a service to enable you to enforce per-resource governance at scale. It can be used to specify conditional expressions that define group membership, as opposed to explicit lists of virtual networks. This condition continues to power your network groups dynamically, allowing virtual networks to join and leave the group automatically as their fulfillment of the condition changes, with no Network Manager operation required.
-
-[!INCLUDE [virtual-network-manager-preview](../../includes/virtual-network-manager-preview.md)]
 
 ## Prerequisites
 

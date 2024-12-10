@@ -1,9 +1,9 @@
 ---
 title: Linter rule - use explicit values for module location parameters
 description: Linter rule - use explicit values for module location parameters.
-ms.topic: conceptual
+ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 03/20/2024
+ms.date: 07/11/2024
 ---
 
 # Linter rule - use explicit values for module location parameters
@@ -35,7 +35,7 @@ module m1 'module1.bicep' = {
  name: 'm1'
 }
 
-resource storageaccount 'Microsoft.Storage/storageAccounts@2022-09-01' = {
+resource storageaccount 'Microsoft.Storage/storageAccounts@2024-03-01' = {
   name: 'storageaccount'
   location: location
   kind: 'StorageV2'
@@ -50,7 +50,7 @@ resource storageaccount 'Microsoft.Storage/storageAccounts@2022-09-01' = {
 ```bicep
 param location string = resourceGroup().location
 
-resource stg 'Microsoft.Storage/storageAccounts@2022-09-01' = {
+resource stg 'Microsoft.Storage/storageAccounts@2024-03-01' = {
   name: 'stg'
   location: location
   kind: 'StorageV2'
@@ -74,7 +74,7 @@ module m1 'module1.bicep' = {
   }
 }
 
-resource storageaccount 'Microsoft.Storage/storageAccounts@2022-09-01' = {
+resource storageaccount 'Microsoft.Storage/storageAccounts@2024-03-01' = {
   name: 'storageaccount'
   location: location
   kind: 'StorageV2'

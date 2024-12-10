@@ -98,12 +98,8 @@ items:
   items:
   - name: Set up user roles
     href: provision-user-roles.md
-  - name: Monitoring
-    items:
-    - name: Overview of monitoring
-      href: monitor-azure-communications-gateway.md
-    - name: Monitoring data reference
-      href: monitoring-azure-communications-gateway-data-reference.md
+  - name: Monitor Communications Gateway
+    href: monitor-azure-communications-gateway.md
   - name: Maintenance notifications
     href: maintenance-notifications.md
   - name: Get support or request changes
@@ -122,3 +118,5 @@ items:
     href: /microsoftteams/direct-routing-sbc-multiple-tenants
   - name: Overview of Zoom Phone Cloud Peering
     href: https://partner.zoom.us/partner-type/cloud-peering/
+  - name: Monitoring data reference
+    href: monitoring-azure-communications-gateway-data-reference.md

@@ -3,7 +3,7 @@ title: Use managed identities to access Azure SQL Database or Azure Synapse Anal
 description: This article describes how to use managed identities to authenticate your Azure Stream Analytics job to Azure SQL Database or Azure Synapse Analytics output.
 author: an-emma
 ms.author: raan
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.date: 11/10/2023
 ---

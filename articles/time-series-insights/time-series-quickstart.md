@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Azure Time Series Insights Explorer - Azure Time Series Insights | Microsoft Docs'
 description: Learn how to get started with the Azure Time Series Insights Explorer. Visualize large volumes of IoT data and tour key features of your environment.
-ms.service: time-series-insights
+ms.service: azure-time-series-insights
 author: narmeens
 ms.author: narsam
 manager: cnovak
@@ -32,7 +32,7 @@ This Azure Time Series Insights Explorer quickstart offers a guided tour of feat
 
 ## Prepare the demo environment
 
-1. In your browser, go to the [Gen1 demo](https://insights.timeseries.azure.com/demo).
+1. In your browser, go to the Gen1 demo.
 
 1. If prompted, sign in to the Azure Time Series Insights Explorer by using your Azure account credentials.
 

@@ -8,9 +8,6 @@ ms.author: daknappe
 ---
 # Troubleshoot RDP Shortpath for public networks
 
-> [!IMPORTANT]
-> Using RDP Shortpath for public networks with TURN for Azure Virtual Desktop is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 If you're having issues when using RDP Shortpath for public networks, use the information in this article to help troubleshoot.
 
 ## Verifying STUN/TURN server connectivity and NAT type
@@ -28,9 +25,6 @@ Checking ACS server 20.202.21.66:3478 ... OK
 You have access to TURN servers and your NAT type appears to be 'cone shaped'.
 Shortpath for public networks is very likely to work on this host.
 ```
-
-> [!IMPORTANT]
-> During the preview, TURN is only available for connections to session hosts in a validation host pool. To configure your host pool as a validation environment, see [Define your host pool as a validation environment](create-validation-host-pool.md#define-your-host-pool-as-a-validation-host-pool).
 
 ## Error information logged in Log Analytics
 

@@ -2,7 +2,7 @@
 author: cherylmc
 ms.author: cherylmc
 ms.date: 05/06/2024
-ms.service: bastion
+ms.service: azure-bastion
 ms.topic: include
 
 ---
@@ -15,4 +15,4 @@ ms.topic: include
 
 * If you want to create end-to-end private connectivity, connect using the native client instead of connecting via the Azure portal.
 
-* If you're using ExpressRoute or VPN, enable **IP-based connection** on the Bastion resource when you deploy your bastion host. 
+* If your client machine is on-premises and non-Azure, you will need to deploy an ExpressRoute or VPN and enable **IP-based connection** on the Bastion resource

@@ -5,7 +5,7 @@ author: joshuawaddell
 ms.author: jowaddel
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 03/03/2023
+ms.date: 06/20/2024
 ---
 
 # Migrate to Bicep

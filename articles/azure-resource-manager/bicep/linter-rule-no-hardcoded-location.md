@@ -1,9 +1,9 @@
 ---
 title: Linter rule - no hardcoded locations
 description: Linter rule - no hardcoded locations
-ms.topic: conceptual
+ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 03/20/2024
+ms.date: 07/11/2024
 ---
 
 # Linter rule - no hardcoded locations
@@ -25,7 +25,7 @@ Rather than using a hardcoded string or variable value, use a parameter, the str
 The following example fails this test because the resource's `location` property uses a string literal:
 
 ```bicep
-  resource stg 'Microsoft.Storage/storageAccounts@2021-02-01' = {
+  resource stg 'Microsoft.Storage/storageAccounts@2023-04-01' = {
       location: 'westus'
   }
 ```
@@ -34,7 +34,7 @@ You can fix it by creating a new `location` string parameter (which may optional
 
 ```bicep
   param location string = resourceGroup().location
-  resource stg 'Microsoft.Storage/storageAccounts@2021-02-01' = {
+  resource stg 'Microsoft.Storage/storageAccounts@2023-04-01' = {
       location: location
   }
 ```
@@ -47,7 +47,7 @@ The following example fails this test because the resource's `location` property
 
 ```bicep
   var location = 'westus'
-  resource stg 'Microsoft.Storage/storageAccounts@2021-02-01' = {
+  resource stg 'Microsoft.Storage/storageAccounts@2023-04-01' = {
       location: location
   }
 ```
@@ -56,7 +56,7 @@ You can fix it by turning the variable into a parameter:
 
 ```bicep
   param location string = 'westus'
-  resource stg 'Microsoft.Storage/storageAccounts@2021-02-01' = {
+  resource stg 'Microsoft.Storage/storageAccounts@2023-04-01' = {
       location: location
   }
 ```
@@ -77,7 +77,7 @@ where module1.bicep is:
 ```bicep
 param location string
 
-resource storageaccount 'Microsoft.Storage/storageAccounts@2021-02-01' = {
+resource storageaccount 'Microsoft.Storage/storageAccounts@2023-04-01' = {
   name: 'storageaccount'
   location: location
   kind: 'StorageV2'

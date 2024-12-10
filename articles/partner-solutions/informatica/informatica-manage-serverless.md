@@ -3,7 +3,7 @@ title: Manage an Informatica serverless runtime environment through the Azure po
 description: This article describes the management functions for Informatica serverless runtime environment on the Azure portal. 
 
 ms.topic: how-to
-ms.date: 04/12/2024
+ms.date: 07/05/2024
 ---
 
 # Manage your Informatica serverless runtime environments from Azure portal
@@ -12,7 +12,9 @@ In this article, you learn various actions available for each of the serverless 
 
 ## Actions
 
-1. Select **Serverless Runtime Environment** from the Resource menu. Use actions from the context menu to manage your serverless runtime environments in **Serverless Runtime Environment** pane.
+1. Within your Informatica organization, select **Serverless Runtime Environment** from the Resource menu in your Informatica organization.
+
+1. Use actions from the context menu to manage your serverless runtime environments in **Serverless Runtime Environment** pane.
 
     :::image type="content" source="media/informatica-manage-serverless/informatica-manage-options.png" alt-text="Screenshot of actions to manage serverless runtime environments.":::
 

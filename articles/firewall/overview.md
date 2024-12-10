@@ -3,7 +3,7 @@ title: What is Azure Firewall?
 description: Azure Firewall is a managed, cloud-based network security service that protects your Azure Virtual Network resources.
 author: vhorne
 ms.author: victorh
-ms.service: firewall
+ms.service: azure-firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc, references_regions

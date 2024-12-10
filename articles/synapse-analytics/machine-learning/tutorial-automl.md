@@ -1,10 +1,10 @@
 ---
 title: 'Tutorial: Train a model by using automated machine learning (deprecated)'
 description: Tutorial on how to train a machine learning model without code in Azure Synapse Analytics (deprecated).
-ms.service: synapse-analytics 
+ms.service: azure-synapse-analytics
 ms.subservice: machine-learning
 ms.topic: tutorial
-ms.reviewer: sngun, garye
+ms.reviewer: whhender, garye
 ms.date: 03/06/2024
 author: midesa
 ms.author: midesa
@@ -12,7 +12,7 @@ ms.author: midesa
 
 # Tutorial: Train a machine learning model without code (deprecated)
 
-You can enrich your data in Spark tables with new machine learning models that you train by using [automated machine learning](../../machine-learning/concept-automated-ml.md). In Azure Synapse Analytics, you can select a Spark table in the workspace to use as a training dataset for building machine learning models, and you can do this in a code-free experience.
+You can enrich your data in Spark tables with new machine learning models that you train by using [automated machine learning](/azure/machine-learning/concept-automated-ml). In Azure Synapse Analytics, you can select a Spark table in the workspace to use as a training dataset for building machine learning models, and you can do this in a code-free experience.
 
 In this tutorial, you learn how to train machine learning models by using a code-free experience in Synapse Studio. Synapse Studio is a feature of Azure Synapse Analytics. 
 

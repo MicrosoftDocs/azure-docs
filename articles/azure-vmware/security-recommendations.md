@@ -20,7 +20,7 @@ Use the following guidelines and links for general security recommendations for 
 | :-- | :-- |
 | Review and follow VMware Security Best Practices. | It's important to stay updated on Azure security practices and [VMware Security Best Practices](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-412EF981-D4F1-430B-9D09-A4679C2D04E7.html). |
 | Keep up to date on VMware Security Advisories. | Subscribe to VMware notifications in `my.vmware.com`. Regularly review and remediate any [VMware Security Advisories](https://www.vmware.com/security/advisories.html). |
-| Enable Microsoft Defender for Cloud. | [Microsoft Defender for Cloud](../defender-for-cloud/index.yml) provides unified security management and advanced threat protection across hybrid cloud workloads. |
+| Enable Microsoft Defender for Cloud. | [Microsoft Defender for Cloud](/azure/defender-for-cloud/) provides unified security management and advanced threat protection across hybrid cloud workloads. |
 | Follow the Microsoft Security Response Center blog. | [Microsoft Security Response Center](https://msrc-blog.microsoft.com/) |
 | Review and implement recommendations within the Azure security baseline for Azure VMware Solution. | [Azure security baseline for VMware Solution](/security/benchmark/azure/baselines/vmware-solution-security-baseline/) |
 

@@ -3,7 +3,7 @@ title: 'Quickstart: Create a mesh network topology with Azure Virtual Network Ma
 description: Use this quickstart to learn how to create a mesh network topology with Virtual Network Manager by using Bicep.
 author: mbender-ms
 ms.author: mbender
-ms.service: virtual-network-manager
+ms.service: azure-virtual-network-manager
 ms.topic: quickstart
 ms.date: 06/13/2023
 ms.custom: template-quickstart, mode-ui, engagement-fy23, devx-track-azurepowershell, devx-track-bicep
@@ -15,9 +15,7 @@ Get started with Azure Virtual Network Manager by using Bicep to manage connecti
 
 In this quickstart, you deploy three virtual networks and use Azure Virtual Network Manager to create a mesh network topology. Then you verify that the connectivity configuration was applied.
 
-:::image type="content" source="media/create-virtual-network-manager-portal/virtual-network-manager-resources-diagram.png" alt-text="Diagram of resources deployed for a mesh virtual network topology with Azure virtual network manager.":::
-
-[!INCLUDE [virtual-network-manager-preview](../../includes/virtual-network-manager-preview.md)]
+:::image type="content" source="media/create-virtual-network-manager-portal/virtual-network-manager-resources-diagram.png" alt-text="Diagram of resources deployed for a mesh virtual network topology with Azure virtual network manager." lightbox="media/create-virtual-network-manager-portal/virtual-network-manager-resources-diagram.png":::
 
 ## Bicep Template Modules
 
@@ -329,59 +327,11 @@ Use the **Network Manager** section for each virtual network to verify that you 
 
 ## Clean up resources
 
-If you no longer need Azure Virtual Network Manager, you can remove it after you remove all configurations, deployments, and network groups:
+If you no longer need Azure Virtual Network Manager and the associated virtual networks, you can remove it by deleting the resource group and its resources.
 
-1. To remove all configurations from a region, start in Virtual Network Manager and select **Deploy configurations**. Select the following settings, and then select **Next**.
-
-    :::image type="content" source="./media/create-virtual-network-manager-portal/none-configuration.png" alt-text="Screenshot of the tab for configuring a goal state for network resources, with the option for removing existing connectivity configurations selected.":::
-
-    | Setting | Value |
-    | ------- | ----- |
-    | **Configurations** | Select **Include connectivity configurations in your goal state**. |
-    | **Connectivity configurations** | Select **None - Remove existing connectivity configurations**. |
-    | **Target regions** | Select **East US** as the deployed region. |
-
-1. Select **Deploy** to complete the deployment removal.
-
-1. To delete a configuration, go to the left pane of Virtual Network Manager. Under **Settings**, select **Configurations**. Select the checkbox next to the configuration that you want to remove, and then select **Delete** at the top of the resource pane.
-
-1. On the **Delete a configuration** pane, select the following options, and then select **Delete**.
-
-    :::image type="content" source="./media/create-virtual-network-manager-portal/configuration-delete-options.png" alt-text="Screenshot of the pane for deleting a configuration.":::
-
-    | Setting | Value |
-    | ------- | ----- |
-    | **Delete option** | Select **Force delete the resource and all dependent resources**. |
-    | **Confirm deletion** | Enter the name of the configuration. In this example, it's **cc-learn-prod-eastus-001**. |
-
-1. To delete a network group, go to the left pane of Virtual Network Manager. Under **Settings**, select **Network groups**. Select the checkbox next to the network group that you want to remove, and then select **Delete** at the top of the resource pane.
-
-1. On the **Delete a network group** pane, select the following options, and then select **Delete**.
-
-    :::image type="content" source="./media/create-virtual-network-manager-portal/network-group-delete-options.png" alt-text="Screenshot of Network group to be deleted option selection." lightbox="./media/create-virtual-network-manager-portal/network-group-delete-options.png":::
-
-    | Setting | Value |
-    | ------- | ----- |
-    | **Delete option** | Select **Force delete the resource and all dependent resources**. |
-    | **Confirm deletion** | Enter the name of the network group. In this example, it's **ng-learn-prod-eastus-001**. |
-
-1. Select **Yes** to confirm the network group deletion.
-
-1. After you remove all network groups, go to the left pane of Virtual Network Manager. Select **Overview**, and then select **Delete**.
-
-1. On the **Delete a network manager** pane, select the following options, and then select **Delete**.
-
-    :::image type="content" source="./media/create-virtual-network-manager-portal/network-manager-delete.png" alt-text="Screenshot of the pane for deleting a network manager.":::
-
-    | Setting | Value |
-    | ------- | ----- |
-    | **Delete option** | Select **Force delete the resource and all dependent resources**. |
-    | **Confirm deletion** | Enter the name of the Virtual Network Manager instance. In this example, it's **vnm-learn-eastus-001**. |
-
-1. Select **Yes** to confirm the deletion.
-
-1. To delete the resource group and virtual networks, locate resource group you created during the deployment and select **Delete resource group**. Confirm that you want to delete by entering the name in the text box, and then select **Delete**.
-
+1. In the **Azure portal**, browse to your resource group - **resource-group**.
+1. Select **resource-group** and select **Delete resource group**.
+1. In the **Delete a resource group** window, confirm that you want to delete by entering **resource-group** in the text box, and then select **Delete**. 
 1. If you used **Dynamic Network Group Membership**, delete the deployed Azure Policy Definition and Assignment by navigating to the Subscription in the Portal and selecting the **Policies**. In Policies, find the **Assignment** named `AVNM quickstart dynamic group membership Policy` and delete it, then do the same for the **Definition** named `AVNM quickstart dynamic group membership Policy`.
 
 ## Next steps
