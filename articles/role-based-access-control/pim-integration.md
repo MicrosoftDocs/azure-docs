@@ -4,7 +4,7 @@ description: Learn about the integration of Azure role-based access control (Azu
 author: rolyon
 ms.service: role-based-access-control
 ms.topic: conceptual
-ms.date: 11/11/2024
+ms.date: 12/12/2024
 ms.author: rolyon
 ---
 
