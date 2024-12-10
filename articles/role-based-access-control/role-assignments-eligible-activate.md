@@ -33,7 +33,7 @@ These steps describe how to activate an eligible role assignment using the Azure
 
 1. Click **All services** and then select the scope. For example, you can select **Management groups**, **Subscriptions**, or **Resource groups**.
 
-    You can activate eligible role assignments at management group, subscription, and resource group scope, but not at resource scope.
+    On the Access control (IAM) page, you can activate eligible role assignments at management group, subscription, and resource group scope, but not at resource scope.
 
 1. Click the specific resource.
 
