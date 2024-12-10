@@ -79,7 +79,7 @@ We recommend updating the default route that's associated with the API Managemen
 
 ### Test the configuration
 
-Test the Front Door profile configuration by calling an API hosted by API Management, for example, the Demo Conference API. First, call the API directly through the API Management gateway to ensure that the API is reachable. Then, call the API through Front Door.
+Test the Front Door profile configuration by calling an API hosted by API Management, for example, the Swagger Petstore API. First, call the API directly through the API Management gateway to ensure that the API is reachable. Then, call the API through Front Door.
 
 ### Call an API directly through API Management
 
@@ -141,7 +141,7 @@ For more information and details about settings, see [How to configure an origin
 > [!NOTE]
 > If you've configured an [Microsoft Entra ID](api-management-howto-aad.md) or [Azure AD B2C](api-management-howto-aad-b2c.md) identity provider for the developer portal, you need to update the corresponding app registration with an additional redirect URL to Front Door. In the app registration, add the URL for the developer portal endpoint configured in your Front Door profile.
 
-## Next steps
+## Related content
 
 * To automate deployments of Front Door with API Management, see the template [Front Door Standard/Premium with API Management origin](https://azure.microsoft.com/resources/templates/front-door-standard-premium-api-management-external/)
 

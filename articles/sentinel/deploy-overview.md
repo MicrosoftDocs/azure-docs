@@ -73,7 +73,7 @@ Depending on which phase you're in, choose the appropriate next steps:
 When you're finished with your deployment of Microsoft Sentinel, continue to explore Microsoft Sentinel capabilities by reviewing tutorials that cover common tasks:  
 
 - [Forward Syslog data to a Log Analytics workspace with Microsoft Sentinel by using Azure Monitor Agent](forward-syslog-monitor-agent.md)
-- [Configure data retention policy](configure-data-retention.md)
+- [Configure table-level retention](/azure/azure-monitor/logs/data-retention-configure?tabs=portal-3%2Cportal-1%2Cportal-2#configure-table-level-retention)
 - [Detect threats using analytics rules](tutorial-log4j-detection.md)
 - [Automatically check and record IP address reputation information in incidents](tutorial-enrich-ip-information.md)
 - [Respond to threats using automation](tutorial-respond-threats-playbook.md)

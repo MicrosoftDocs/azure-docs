@@ -6,8 +6,8 @@ ms.author: ajaypar
 ms.manager: roopesh.nair
 ms.topic: how-to
 ms.service: azure-migrate
-ms.date: 08/02/2023
-ms.custom: engagement-fy23
+ms.date: 11/16/2023
+ms.custom: engagement-fy25
 ---
 
 # Provision custom accounts with least privileges for SQL Discovery and Assessment

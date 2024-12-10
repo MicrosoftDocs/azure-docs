@@ -4,9 +4,9 @@ description: Learn how to assess servers in VMware environment for migration to 
 author: jobingeorge-microsoft
 ms.author: jobingeorge
 ms.topic: tutorial
-ms.date: 07/19/2024
+ms.date: 11/06/2024
 ms.service: azure-migrate
-ms.custom: vmware-scenario-422, MVC, engagement-fy23
+ms.custom: vmware-scenario-422, MVC, engagement-fy25
 #Customer intent: As a VMware VM admin, I want to assess my VMware VMs in preparation for migration to Azure VMware Solution (AVS)
 ---
 

@@ -150,7 +150,7 @@
         href: howto-timewindow-filter.md
       - name: ASP.NET Core
         href: howto-timewindow-filter-aspnet-core.md
-      - name: JavaScipt
+      - name: JavaScript
         href: howto-timewindow-filter-javascript.md
     - name: Roll out features to targeted audience
       items:

@@ -180,6 +180,9 @@ The initial traffic distribution starts by routing a small percentage of traffic
     1. Ensure the Azure Front Door endpoint is enabled, Weight is set to 100, and the health check is set to **Always serve traffic**.
 
     1. Ensure the Azure CDN from Edgio endpoint is disabled.
+  
+> [!NOTE]
+> If you're currently utilizing `azureedge.net` within your codebase, you'll need to update your code to utilize `<YourNewAFDEndpoint.azurefd.net>. If this is a significant concern for you organization, contact support for further assistance.
 
 ### Remove Azure Traffic Manager
 
