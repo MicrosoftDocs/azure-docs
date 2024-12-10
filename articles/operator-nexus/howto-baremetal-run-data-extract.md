@@ -136,8 +136,8 @@ System-assigned identity example:
 
 ```
     "identity": {
-        "principalId": "2cb564c1-b4e5-4c71-bbc1-6ae259aa5f87",
-        "tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+        "principalId": "aaaaaaaa-bbbb-cccc-1111-222222222222",
+        "tenantId": "aaaabbbb-0000-cccc-1111-dddd2222eeee",
         "type": "SystemAssigned"
     },
 ```
@@ -149,14 +149,14 @@ User-assigned identity example:
         "type": "UserAssigned",
         "userAssignedIdentities": {
             "/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<userAssignedIdentityName>": {
-                "clientId": "e67dd610-99cf-4853-9fa0-d236b214e984",
-                "principalId": "8e6d23d6-bb6b-4cf3-a00f-4cd640ab1a24"
+                "clientId": "00001111-aaaa-2222-bbbb-3333cccc4444",
+                "principalId": "bbbbbbbb-cccc-dddd-2222-333333333333"
             }
         }
     },
 ```
 
-## Execute a run command
+## Execute a run-data-extract command
 
 The run data extract command executes one or more predefined scripts to extract data from a bare metal machine.
 
@@ -187,6 +187,14 @@ The current list of supported commands are
 
 - [Generate Cluster CVE Report](#generate-cluster-cve-report)\
   Command Name: `cluster-cve-report`\
+  Arguments: None
+
+- [Collect Helm Releases](#collect-helm-releases)\
+  Command Name: `collect-helm-releases`\
+  Arguments: None
+  
+- [Collect `systemctl status` Output](#collect-systemctl-status-output)\
+  Command Name: `platform-services-status`\
   Arguments: None
 
 The command syntax is:
@@ -661,6 +669,174 @@ https://cmkfjft8twwpst.blob.core.windows.net/bmm-run-command-output/20b217b5-ea3
 **CVE Data Details**
 
 The CVE data is refreshed per container image every 24 hours or when there's a change to the Kubernetes resource referencing the image.
+
+### Collect Helm Releases
+
+Helm release data is collected with the `collect-helm-releases` command and formatted as json to `{year}-{month}-{day}-helm-releases.json`. The JSON file is found in the data extract zip file located in the storage account. The data collected includes all helm release information from the Cluster, which consists of the standard data returned when running the command `helm list`.
+
+This example executes the `collect-helm-releases` command without arguments.
+
+> [!NOTE]
+> The target machine must be a control-plane node or the action will not execute.
+
+```azurecli
+az networkcloud baremetalmachine run-data-extract --name "bareMetalMachineName" \
+  --resource-group "cluster_MRG" \
+  --subscription "subscription" \
+  --commands '[{"command":"collect-helm-releases"}]' \
+  --limit-time-seconds 600
+```
+
+**`collect-helm-releases` Output**
+
+```azurecli
+====Action Command Output====
+Helm releases report saved.
+
+
+================================
+Script execution result can be found in storage account:
+https://cmcr5xp3mbn7st.blob.core.windows.net/bmm-run-command-output/a29dcbdb-5524-4172-8b55-88e0e5ec93ff-action-bmmdataextcmd.tar.gz?se=2024-10-30T02%3A09%3A54Z&sig=v6cjiIDBP9viEijs%2B%2BwJDrHIAbLEmuiVmCEEDHEi%2FEc%3D&sp=r&spr=https&sr=b&st=2024-10-29T22%3A09%3A54Z&sv=2023-11-03
+```
+
+**Helm Release Schema**
+
+```JSON
+{
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object",
+  "properties": {
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "dateRetrieved": {
+          "type": "string"
+        },
+        "platform": {
+          "type": "string"
+        },
+        "resource": {
+          "type": "string"
+        },
+        "clusterId": {
+          "type": "string"
+        },
+        "runtimeVersion": {
+          "type": "string"
+        },
+        "managementVersion": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "clusterId",
+        "dateRetrieved",
+        "managementVersion",
+        "platform",
+        "resource",
+        "runtimeVersion"
+      ]
+    },
+    "helmReleases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "namespace": {
+            "type": "string"
+          },
+          "revision": {
+            "type": "string"
+          },
+          "updated": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "chart": {
+            "type": "string"
+          },
+          "app_version": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "app_version",
+          "chart",
+          "name",
+          "namespace",
+          "revision",
+          "status",
+          "updated"
+        ]
+      }
+    }
+  },
+  "required": [
+    "helmReleases",
+    "metadata"
+  ]
+}
+```
+
+### Collect Systemctl Status Output
+
+Service status is collected with the `platform-services-status` command. The output is in plain text format and
+returns an overview of the status of the services on the host as well as the `systemctl status` for each found service.
+
+This example executes the `platform-services-status` command without arguments.
+
+```azurecli
+az networkcloud baremetalmachine run-data-extract --name "bareMetalMachineName" \
+  --resource-group "clusete_MRG" \
+  --subscription "subscription" \
+  --commands '[{"command":"platform-services-status"}]' \
+  --limit-time-seconds 600
+  --output-directory "/path/to/local/directory"
+```
+
+**`platform-services-status` Output**
+
+```azurecli
+====Action Command Output====
+UNIT                                                                                          LOAD      ACTIVE   SUB     DESCRIPTION
+aods-infra-vf-config.service                                                                  not-found inactive dead    aods-infra-vf-config.service
+aods-pnic-config-infra.service                                                                not-found inactive dead    aods-pnic-config-infra.service
+aods-pnic-config-workload.service                                                             not-found inactive dead    aods-pnic-config-workload.service
+arc-unenroll-file-semaphore.service                                                           loaded    active   exited  Arc-unenrollment upon shutdown service
+atop-rotate.service                                                                           loaded    inactive dead    Restart atop daemon to rotate logs
+atop.service                                                                                  loaded    active   running Atop advanced performance monitor
+atopacct.service                                                                              loaded    active   running Atop process accounting daemon
+audit.service                                                                                 loaded    inactive dead    Audit service
+auditd.service                                                                                loaded    active   running Security Auditing Service
+azurelinux-sysinfo.service                                                                    loaded    inactive dead    Azure Linux Sysinfo Service
+blk-availability.service                                                                      loaded    inactive dead    Availability of block devices
+[..snip..]
+
+
+-------
+● arc-unenroll-file-semaphore.service - Arc-unenrollment upon shutdown service
+     Loaded: loaded (/etc/systemd/system/arc-unenroll-file-semaphore.service; enabled; vendor preset: enabled)
+     Active: active (exited) since Tue 2024-11-12 06:33:40 UTC; 11h ago
+   Main PID: 11663 (code=exited, status=0/SUCCESS)
+        CPU: 5ms
+
+Nov 12 06:33:39 rack1compute01 systemd[1]: Starting Arc-unenrollment upon shutdown service...
+Nov 12 06:33:40 rack1compute01 systemd[1]: Finished Arc-unenrollment upon shutdown service.
+
+
+-------
+○ atop-rotate.service - Restart atop daemon to rotate logs
+     Loaded: loaded (/usr/lib/systemd/system/atop-rotate.service; static)
+     Active: inactive (dead)
+TriggeredBy: ● atop-rotate.timer
+[..snip..]
+
+```
 
 ## Viewing the output
 

@@ -155,7 +155,6 @@ The change takes effect approximately two minutes after you save the file. You d
 1. Enable any events as needed.
 1. Verify whether messages arrive and exist in the SAP **SM20** or **RSAU_READ_LOG**, without any special errors appearing on the connector log.
 
-
 ### Incorrect workspace ID or key in key vault
 
 If you realize that you entered an incorrect workspace ID or key in your deployment script, update the credentials stored in Azure key vault.
@@ -203,6 +202,8 @@ Use the **RSAU_CONFIG_LOG** transaction for this step.
 
 For more information, see the [SAP documentation](https://community.sap.com/t5/application-development-blog-posts/analysis-and-recommended-settings-of-the-security-audit-log-sm19-rsau/ba-p/13297094) and [Collect SAP HANA audit logs in Microsoft Sentinel](collect-sap-hana-audit-logs.md).
 
+We recommend that you configure auditing for *all* messages from the audit log, instead of only specific logs. Ingestion cost differences are generally minimal and the data is useful for Microsoft Sentinel detections and in post-compromise investigations and hunting. For more information, see [Configure SAP auditing](preparing-sap.md#configure-sap-auditing).
+
 ### Missing IP address or transaction code fields in the SAP audit log
 
 In SAP systems with versions for SAP BASIS 7.5 SP12 and above, Microsoft Sentinel can reflect extra fields in the `ABAPAuditLog_CL` and `SAPAuditLog` tables. 
@@ -225,6 +226,8 @@ If no data is showing in the `ABAPTableDataLog_CL` table, verify that the SAP sy
 The data collector agent relies on time zone information to be correct. If you see that there are no records in the SAP audit and change logs, or if records are constantly a few hours behind, check whether the SAP *TZCUSTHELP* report presents any errors. For more information, see [SAP note 481835](<https://me.sap.com/notes/481835/E>).
 
 There might also be issues with the clock on the virtual machine where the data collector agent container is hosted, and any deviation from the clock on the VM from UTC impacts data collection. Even more importantly, the clocks on both the SAP system machines and the data collector agent machines must match.
+
+We recommend that you configure auditing for *all* messages from the audit log, instead of only specific logs. Ingestion cost differences are generally minimal and the data is useful for Microsoft Sentinel detections and in post-compromise investigations and hunting. For more information, see [Configure SAP auditing](preparing-sap.md#configure-sap-auditing).
 
 ### Network connectivity issues
 

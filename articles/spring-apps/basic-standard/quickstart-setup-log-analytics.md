@@ -14,7 +14,7 @@ ms.devlang: azurecli
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ✔️ Basic/Standard ❌ Enterprise
+**This article applies to:** ✅ Basic/Standard ❎ Enterprise
 
 This quickstart explains how to set up a Log Analytics workspace in Azure Spring Apps for application development.
 

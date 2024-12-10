@@ -32,7 +32,7 @@ In order to publish an application to a RemoteApp application group, you need th
 
 - At least one session host is powered on in the host pool the application group is assigned to.
 
-- The applications you want to publish are installed on the session hosts in the host pool the application group is assigned to. If you're using app attach, you must add and assign an MSIX package to your host pool before you start. For more information, see [Add and manage app attach applications](app-attach-setup.md).
+- The applications you want to publish are installed on the session hosts in the host pool the application group is assigned to. If you're using app attach, you must add and assign an MSIX, Appx, or App-V package to your host pool before you start. For more information, see [Add and manage app attach applications](app-attach-setup.md).
 
 - As a minimum, the Azure account you use must have the [Desktop Virtualization Application Group Contributor](rbac.md#desktop-virtualization-application-group-contributor) built-in role-based access control (RBAC) roles on the resource group, or on the subscription to create the resources.
 

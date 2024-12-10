@@ -206,6 +206,7 @@ The following request headers don't get forwarded to the origin when caching is 
 - `Accept`
 - `Accept-Charset`
 - `Accept-Language`
+- `Vary`
 
 > [!NOTE]
 > Requests that include authorization header will not be cached, unless the response contains a Cache-Control directive that allows caching. The following Cache-Control directives have such an effect: must-revalidate, public, and s-maxage.

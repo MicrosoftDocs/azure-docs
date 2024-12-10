@@ -1401,7 +1401,7 @@ builder.Services.AddSingleton<ITelemetryInitializer, TargetingTelemetryInitializ
 > [!NOTE]
 > To ensure that `TargetingTelemetryInitializer` works as expected, the `TargetingHttpContextMiddleware` described below should be used.
 
-To enable persistance of targeting context in the current activity, you can use the [`TargetingHttpContextMiddleware`](https://github.com/microsoft/FeatureManagement-Dotnet/blob/preview/src/Microsoft.FeatureManagement.AspNetCore/TargetingHttpContextMiddleware.cs).
+To enable persistence of targeting context in the current activity, you can use the [`TargetingHttpContextMiddleware`](https://github.com/microsoft/FeatureManagement-Dotnet/blob/preview/src/Microsoft.FeatureManagement.AspNetCore/TargetingHttpContextMiddleware.cs).
 
 ``` C#
 app.UseMiddleware<TargetingHttpContextMiddleware>();
@@ -1470,8 +1470,3 @@ To learn how to use feature filters, continue to the following tutorials.
 
 > [!div class="nextstepaction"]
 > [Roll out features to targeted audiences](./howto-targetingfilter.md)
-
-To learn how to run experiments with variant feature flags, continue to the following tutorial.
-
-> [!div class="nextstepaction"]
-> [Run experiments with variant feature flags](./howto-feature-filters.md)

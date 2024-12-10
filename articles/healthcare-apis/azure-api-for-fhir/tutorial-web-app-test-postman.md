@@ -94,10 +94,15 @@ If you use the GET command to retrieve a patient again, you'll see James Tiberio
 
 ## Troubleshooting access issues
 
+**Receiving a 403 error while trying to access the Patient resource from Postman.**
+
+Check if the FHIR Contributor role is assigned; if it is not, add the FHIR Contributor role to Azure Health Data Services. [Configure Azure RBAC roles for AHDS](configure-azure-rbac.md) 
+
 If you ran into issues during any of these steps, review the documents we have put together on Microsoft Entra ID and the Azure API for FHIR.
 
 * [Microsoft Entra ID and Azure API for FHIR](azure-active-directory-identity-configuration.md) - This document outlines some of the basic principles of Microsoft Entra ID and how it interacts with the Azure API for FHIR.
 * [Access token validation](azure-api-fhir-access-token-validation.md) - This how-to guide gives more specific details on access token validation and steps to take to resolve access issues.
+
 
 ## Next Steps
 
