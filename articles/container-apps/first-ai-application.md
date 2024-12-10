@@ -36,12 +36,6 @@ The following screenshot shows the AI assistant:
 
 - [Azure Developer CLI (azd)](/azure/developer/azure-developer-cli/install-azd). |
 
-Install extensions
-
-   ```bash
-   az extension add -n containerapp --upgrade
-   ```
-
 ## General architecture structure
 
 The following diagram shows the architecture of the AI application on Azure Container Apps:
@@ -59,6 +53,14 @@ The key components of this sample:
 - [Managed Identities](/entra/identity/managed-identities-azure-resources/overview) for security connections.
 
 Read the [bicep scripts](https://github.com/Azure-Samples/spring-petclinic-ai/blob/main/infra/bicep/main.bicep) to learn more about the deployment of the structure.
+
+## Install the extensions
+
+Install the extensions by using the following command:
+
+```bash
+   az extension add -n containerapp --upgrade
+```
 
 ## Prepare the project
 
