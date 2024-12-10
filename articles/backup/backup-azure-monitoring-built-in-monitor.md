@@ -2,7 +2,7 @@
 title: Monitor Azure Backup protected workloads
 description: In this article, learn about the monitoring and notification capabilities for Azure Backup workloads using the Azure portal.
 ms.topic: how-to
-ms.date: 09/11/2024
+ms.date: 12/30/2024
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
 ms.service: azure-backup
 author: AbhishekMallick-MS
@@ -32,7 +32,7 @@ You can monitor all your backup items via a Recovery Services vault. Navigating 
 
 ## Backup Jobs
 
-Learn how to monitor Backup jobs in [Azure Business Continuity Center]](../business-continuity-center/tutorial-monitor-operate.md), [Recovery Services vault](backup-azure-manage-windows-server.md#monitor-backup-jobs), and [Backup vault](manage-backup-vault.md#monitor-backup-jobs).
+Learn how to monitor Backup jobs in [Azure Business Continuity Center]](../business-continuity-center/tutorial-monitor-operate.md), [Recovery Services vault](backup-azure-manage-windows-server.md#manage-backup-jobs), and [Backup vault](manage-backup-vault.md#manage-backup-jobs).
 
 ## Next steps
 
