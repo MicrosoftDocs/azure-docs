@@ -41,7 +41,7 @@ For example, you're prompted for the following information after you sign in to 
 
 For more information, see these topics:
 
-* [Overview: Automate deployment for logic apps with Azure Resource Manager templates](logic-apps-azure-resource-manager-templates-overview)
+* [Overview: Automate deployment for logic apps with Azure Resource Manager templates](/azure/logic-apps-azure-resource-manager-templates-overview)
 * [Deploy resources with Azure Resource Manager templates and the Azure portal](/azure/azure-resource-manager/templates/deploy-portal)
 
 <a name="powershell"></a>
@@ -119,12 +119,12 @@ Here are a few suggestions to handle authorizing connections:
   > [!NOTE]
   >
   > If you're considering sharing API connections, make sure that your solution can 
-  > [handle potential throttling problems](/azure/logic-apps/handle-throttling-problems-429-errors.md#connector-throttling). 
+  > [handle potential throttling problems](/azure/logic-apps/handle-throttling-problems-429-errors#connector-throttling). 
   > Throttling happens at the connection level, so reusing the same connection across multiple logic apps might increase the potential for throttling problems.
 
 * Unless your scenario involves services and systems that require multifactor authentication, you can use a PowerShell script to provide consent for each OAuth connection by running a continuous integration worker as a standard user account on a virtual machine that has active browser sessions with the authorizations and consent already provided. For example, you can repurpose the sample script provided by the [LogicAppConnectionAuth project in the Logic Apps GitHub repo](https://github.com/logicappsio/LogicAppConnectionAuth).
 
-* If you use a Microsoft Entra [service principal](/azure/active-directory/develop/app-objects-and-service-principals) instead to authorize connections, learn how to [specify service principal parameters in your logic app template](/azure/logic-apps/logic-apps-azure-resource-manager-templates-overview.md#authenticate-connections).
+* If you use a Microsoft Entra [service principal](/azure/active-directory/develop/app-objects-and-service-principals) instead to authorize connections, learn how to [specify service principal parameters in your logic app template](/azure/logic-apps/logic-apps-azure-resource-manager-templates-overview#authenticate-connections).
 
 ## Next steps
 
