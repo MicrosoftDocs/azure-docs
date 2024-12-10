@@ -113,7 +113,7 @@ To send messages across multiple countries, customers must request different num
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Get started with sending sms](../../quickstarts/sms/send.md)
+> [Get started with sending SMS](../../quickstarts/sms/send.md)
 
 See the following articles for more information:
 
