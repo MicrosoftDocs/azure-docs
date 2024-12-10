@@ -183,7 +183,7 @@ X-Powered-By                  : ASP.NET
 Body:
 {
   "id": "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e",
-  "name": "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e",
+  "name": "TestOBJ",
   "status": "Succeeded",
   "startTime": "2021-11-26T05:36:36.5262731Z",
   "endTime": "2021-11-26T05:36:36.5262731Z",
@@ -197,15 +197,15 @@ Body:
 Then, track the resulting operation using the location header or Azure-AsyncOperation header with a *GET* command:
 
 ```http
-GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupoperations/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e?api-version=2016-12-01
+GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupoperations/0000aaaa-11bb-cccc-dd22-eeeeee333333?api-version=2016-12-01
 ```
 
 ### Response body
 
 ```json
 {
-  "id": "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e",
-  "name": "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e",
+  "id": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
+  "name": "TestOBJ",
   "status": "Succeeded",
   "startTime": "2021-11-26T05:36:36.5262731Z",
   "endTime": "2021-11-26T05:36:36.5262731Z",
