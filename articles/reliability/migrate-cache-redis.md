@@ -16,6 +16,12 @@ This guide describes how to migrate your Azure Cache for Redis instance from non
 
 Azure Cache for Redis supports zone redundancy in its Standard, Premium, Enterprise, and Enterprise Flash tiers. A zone-redundant cache runs on VMs spread across multiple availability zone to provide high resilience and availability.  
 
+> [!NOTE]
+   > Converting an existing resource from non-availability zone support to availability zone support is in preview for standard & premium tier caches.
+
+ > [!NOTE]
+   > Zone redundancy isn't supported with geo-replication.
+
 ## Enabling Zone Redundancy for Enterprise, and Enterprise Flash tiers
 
 Currently, the only way to convert an enterprise / enterprise flash resource from non-availability zone support to availability zone support is to redeploy your current cache.
