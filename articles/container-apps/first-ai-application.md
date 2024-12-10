@@ -1,6 +1,6 @@
 ---
 title: Launch your first AI application to Azure Container Apps
-description: Use azd automation tool to deploy a sample AI application to Azure Container Apps.
+description: Use the azd automation tool to deploy a sample AI application to Azure Container Apps.
 services: container-apps
 author:
 ms.author: sonwan
