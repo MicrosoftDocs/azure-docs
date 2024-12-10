@@ -64,13 +64,13 @@ Submit the form for verification. Brand verification may take up to 48 hours.
 
 :::image type="content" source="./media/apply-for-brand-registration/brand-registration-3.png" alt-text="Screenshot showing Brand registration form 3." lightbox="./media/apply-for-brand-registration/brand-registration-3.png":::
 
-> [Important!]
+> [!Important]
 > Providing incorrect or incomplete information may result in brand verification failure. Double-check all details before submitting to avoid delays or rejections in the registration process.
 
 ## Campaign Registration
 After your brand is verified, proceed with the campaign registration:
 
-Select **Add ** and begin by filling in the **Application Type** details:
+Select **Add** and begin by filling in the **Application Type** details:
    - **Country or Region**: Select the country or region where you plan to run your campaign.
    - **Phone Number Type**: Choose the type of phone number for your campaign (e.g., Local).
    - **Application Type**: Select the Campaign application type.
@@ -106,20 +106,20 @@ Fill in the campaign and content attributes as follows:
    - **Subscriber Help**: Select **Yes** or **No** to indicate if subscriber help is available.
    - **Subscriber Help Answer**: If **Yes** is selected, provide the message for subscribers seeking assistance.
 
-#### Additional Attributes:
+#### Additional Attributes
    - **Direct Lending or Loan Arrangement**: Indicate if the campaign involves any lending or loan arrangements.
    - **Embedded Link**: Select **Yes** or **No** to specify if the campaign includes an embedded link.
    - **Embedded Phone Number**: Select **Yes** or **No** to specify if a phone number is embedded within the campaign content.
    - **Age-gated Content**: Select **Yes** or **No** to indicate if the content is age-restricted.
 
-#### Terms and Conditions:
+#### Terms and Conditions
    - Affiliate marketing is not permitted on 10DLC numbers. Check the box to confirm that the campaign will not be used for Affiliate Marketing.
 
 :::image type="content" source="./media/apply-for-brand-registration/campaign-registration-4.png" alt-text="Screenshot showing campaign registration form 4." lightbox="./media/apply-for-brand-registration/campaign-registration-4.png":::
 
 Once all fields are completed, click **Next** to proceed to the **Review** tab.
 
-> [Important!]
+> [!Important]
 > Providing accurate information in the attributes section ensures compliance with regulatory requirements and reduces the risk of rejection.
 
 ### Review and Submit
@@ -169,7 +169,7 @@ Once your campaign is approved, follow these steps to link a phone number to it:
 4. **Save Changes**:
    - Click **Save** to apply the settings.
 
-> [Important!]
+> [!Important]
 > It may take several hours for the number to be fully associated with the campaign. Please check back after some time to confirm that the association is complete.
 
 :::image type="content" source="./media/apply-for-brand-registration/link-number-to-campaign.png" alt-text="Screenshot showing number to campaign linking." lightbox="./media/apply-for-brand-registration/link-number-to-campaign.png":::
@@ -178,7 +178,7 @@ Once your campaign is approved, follow these steps to link a phone number to it:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Get started with sending sms](../../quickstarts/sms/send.md)
+> [Get started with sending SMS](../../quickstarts/sms/send.md)
 
 See the following articles for more information:
 
