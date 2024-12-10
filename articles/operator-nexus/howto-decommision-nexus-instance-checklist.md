@@ -1,6 +1,6 @@
 ---
-title: "Azure Operator Nexus: How to decommision Azure Operator Nexus instance checklist"
-description: High-level checklist to cover all essential steps required for decommisioning Azure Operator Nexus instance
+title: "Azure Operator Nexus: How to decommission Azure Operator Nexus instance checklist"
+description: High-level checklist to cover all essential steps required for decommissioning Azure Operator Nexus instance
 author: tonyyam23
 ms.author: tonyyam
 ms.service: azure-operator-nexus
