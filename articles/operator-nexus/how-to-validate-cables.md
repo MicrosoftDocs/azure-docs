@@ -11,7 +11,7 @@ ms.date: 04/15/2024
 ---
 # Validate Cables for Nexus Network Fabric
 
-This article explains the  Fabric cable validation, where the primary function of the diagnostic API is to check all fabric devices for potential cabling issues. The Diagnostic API assesses whether the interconnected devices adhere to the Bill of Materials (BOM) and according to the resource Stock Keeping Units (SKUs), classifying them as compliant or noncompliant. Device types include Customer Edge (CE), Top of Rack (TOR), Management (MGMT) and Network Packet Broker (NPB) devices. The results are presented in a JSON format, encompassing details such as validation status, errors, identifier type, and neighbor device ID. These results are stored in a customer-provided Storage account. It's vital to the overall deployment that errors identified in this report are resolved before moving onto the Cluster deployment step.
+This article explains the  Fabric cable validation, where the primary function of the diagnostic API is to check all fabric devices for potential cabling issues. The Diagnostic API assesses whether the interconnected devices adhere to the Bill of Materials (BOM) and according to the resource Stock Keeping Units (SKUs), classifying them as compliant or noncompliant. Device types include Customer Edge (CE), Top of Rack (TOR), Management (MGMT), and Network Packet Broker (NPB) devices. The results are presented in a JSON format, encompassing details such as validation status, errors, identifier type, and neighbor device ID. These results are stored in a customer-provided Storage account. It's vital to the overall deployment that errors identified in this report are resolved before moving onto the Cluster deployment step.
 
 For BOM details, refer to [Azure Operator Nexus SKUs](./reference-operator-nexus-skus.md)
 
@@ -25,17 +25,17 @@ For BOM details, refer to [Azure Operator Nexus SKUs](./reference-operator-nexus
 - Microsoft Support must patch the Nexus Network Fabric with an active storage SAS URL before running cabling validation.
 
 ## Creating an Azure Support Request for patching Nexus Network Fabric:
-  - Refer to [Create an Azure support request](https://learn.microsoft.com/en-us/azure/azure-portal/supportability/how-to-create-azure-support-request)
+  - Refer to [How to create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request)
   - Enter `Nexus Network Fabric` for the issue and click `Go`.
-  - Select `Azure Operator Nexus` as the service you are having issue with.
+  - Select `Azure Operator Nexus` as the service you're having issue with.
   - Select `Subscription` where the resource is located.
   - Select `General` under the resource field and click `Next`.
   - Select `Network fabric instance provisioning` under the issue prompt and click `Next`.
   - Now select `Create a support request` at the top of the support blade.
   - Click `Next` on the `Problem description` tab.
   - Wait for the `Recommended solution` and then click the link back to 'Return to support request`
-  - Click `Next` to continue to the `Additional details`
-  - Fill in the request to patch Nexus Network Fabric and include resource details, then click `Next`
+  - Click `Next` on the `Problem description` tab again to continue to `Additional details`
+  - Fill in the required request details to patch Nexus Network Fabric and then click `Next`
   - Review the information in the `Review + create` tab and then click `Create`.
 
 > [!NOTE]
@@ -67,7 +67,7 @@ To generate a SAS URL for the container to provide write access to the Nexus Fab
     cli.azure.cli.core.sdk.policies:     'Azure-AsyncOperation': '<Azure-AsyncOperation-endpoint url>'
     ```
 
-    If the following error is returned, this indicates the Fabric isn't patched with a valid SAS URL:
+    The following error indicates the Fabric isn't patched with a valid SAS URL:
     ```azurecli
     azure.core.exceptions.HttpResponseError: Operation returned an invalid status 'OK'
     ```
@@ -207,9 +207,9 @@ networkFabricInfoSkuId": "M8-A400-A100-C16-ab",
 
 |Status Type  |Definition  |
 |---------|---------|
-|Compliant     | When the status is compliant with the BOM specification         |
-|NonCompliant     | When the status isn't compliant with the BOM specification         |
-|Unknown     | When the tool is unable to retrieve interface connection details or lldp data such as when the destination device is powered off, missing, disconnected, or if validation isn't supported for this interface type. |
+|Compliant     | Validation status is compliant with the BOM specification for the interface. |
+|Non-Compliant     | Validation isn't compliant with the BOM specification for the interface.        |
+|Unknown     | Validation is unable to retrieve interface connection details or lldp data isn't retruned. The `Unknown` status is returned if the destination device is powered off, missing, disconnected, or unsupported for this interface type. |
 
 #### Validation attributes
 
@@ -228,7 +228,7 @@ networkFabricInfoSkuId": "M8-A400-A100-C16-ab",
 - Cable Validation of connections between MGMT interfaces and Compute Servers that are powered off or unprovisioned in the Nexus cluster or the Compute Server Controllers aren't supported. These interfaces show `Unknown` status in the report.
 - Cable Validation for NPB isn't supported for `loopback` and `nni-direct` interfaces because there's no vendor support currently for `show lldp neighbors`. These interfaces show `Unknown` status in the report.
 - The Storage URL must be in a different region from the Network Fabric. For instance, if the Fabric is hosted in East US, the storage URL should be outside of East US.
-- Cable validation supports both four rack with 16 Computes per rack and eight rack with 16 Computes per rack BOMs.
+- Cable validation supports four racks with 16 Computes per rack and eight racks with 16 Computes per rack BOMs.
 - When destination device is powered off, cables are missing or disconnected, or if validation isn't supported for the interface type, then the interface shows `Unknown` status. **It is important to evaluate all `Unknown` interfaces that are `Not-Connected` against the BOM to determine if repair action is required.**
 
 ## Typical cable validation `NonCompliant` and `Unknown` Issues
