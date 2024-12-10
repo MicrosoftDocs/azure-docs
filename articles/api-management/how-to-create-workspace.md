@@ -31,7 +31,7 @@ Follow the steps in this article to:
 
 * An API Management instance. If you need to, [create one](get-started-create-service-instance.md) in a supported tier.
 * **Owner** or **Contributor** role on the resource group where the API Management instance is deployed, or equivalent permissions to create resources in the resource group.
-* (Optional) An existing or new Azure virtual network and subnet to isolate the workspace gateway's inbound and outbound traffic. For configuration options and requirements, see [Network resource requirements for workspace gateways](virtual-network-workspaces-resources.md).
+* (Optional) A subnet in a new or existing Azure virtual network to isolate the workspace gateway's inbound and outbound traffic. For configuration options and requirements, see [Network resource requirements for workspace gateways](virtual-network-workspaces-resources.md).
     
 ## Create a workspace - portal
 
