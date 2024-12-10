@@ -224,7 +224,13 @@ items:
         - name: WhatsApp Business Account FAQ
           href: quickstarts/advanced-messaging/whatsapp/whatsapp-business-account-faq.md
         - name: Send WhatsApp Messages
-          href: quickstarts/advanced-messaging/whatsapp/get-started.md
+          items:
+            - name: Text And Media Messages
+              href: quickstarts/advanced-messaging/whatsapp/get-started.md
+            - name: Template Messages
+              href: quickstarts/advanced-messaging/whatsapp/template-messages.md
+            - name: Interactive Messages
+              href: quickstarts/advanced-messaging/whatsapp/get-started-interactive-types.md
         - name: Handle Advanced Messaging Events
           href: quickstarts/advanced-messaging/whatsapp/handle-advanced-messaging-events.md
         - name: Download Media Payload
