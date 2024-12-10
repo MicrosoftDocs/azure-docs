@@ -35,7 +35,7 @@ Review the prerequisites for this article based on the type of endpoint you want
 
 * An Event Hubs resource (with container). If you need to create a new Event Hubs resource, see [Quickstart: Create an event hub](../event-hubs/event-hubs-quickstart-powershell.md).
 
-* (Recommended) A managed identity with role-based access control permissions for the Event Hubs namespace. For more information, see [Authenticate a managed identity with Microsoft Entra ID to access Event Hub resources](../event-hubs/authenticate-managed-identity.md).
+* (Recommended) A managed identity with role-based access control permissions for the Event Hubs namespace. For more information, see [Authenticate a managed identity with Microsoft Entra ID to access Event Hubs resources](../event-hubs/authenticate-managed-identity.md).
 
 ### [Service Bus queue](#tab/servicebusqueue)
 

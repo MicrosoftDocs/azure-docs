@@ -12,7 +12,7 @@ ms.author: kgremban
 
 # Create and delete routes and endpoints by using Azure Resource Manager
 
-This article shows you how to export your Azure IoT Hub template, add a route to your IoT hub, and then redeploy the template to your IoT hub by using the Azure CLI or Azure PowerShell. Use an Azure Resource Manager template to create routes and endpoints.  IoT Hub supports the following Azure services as endpoints:
+This article shows you how to export your Azure IoT Hub template, add a route to your IoT hub, and then redeploy the template to your IoT hub by using the Azure CLI or Azure PowerShell. Use an Azure Resource Manager template to create routes and endpoints. IoT Hub supports the following Azure services as endpoints:
 
   * Storage containers
   * Event Hubs
@@ -43,7 +43,7 @@ Review the prerequisites for this article based on the type of endpoint you want
 
 * An Event Hubs resource (with container). If you need to create a new Event Hubs resource, see [Quickstart: Create an event hub by using a Resource Manager template](../event-hubs/event-hubs-resource-manager-namespace-event-hub.md).
 
-* (Recommended) A managed identity with role-based access control permissions for the Event Hubs namespace. For more information, see [Authenticate a managed identity with Microsoft Entra ID to access Event Hub resources](../event-hubs/authenticate-managed-identity.md).
+* (Recommended) A managed identity with role-based access control permissions for the Event Hubs namespace. For more information, see [Authenticate a managed identity with Microsoft Entra ID to access Event Hubs resources](../event-hubs/authenticate-managed-identity.md).
 
 ### [Service Bus queue](#tab/servicebusqueue)
 
@@ -159,14 +159,14 @@ Add an Event Hubs endpoint to your Resource Manager template. For more informati
    | Property | Value |
    | -------- | ----- |
    | endpointUri | (If authentication type is `identityBased`; otherwise, delete.) The host name of your Event Hubs namespace in the format `sb://<eventhubs_namespace_name>.servicebus.windows.net` |
-   | entityPath | (If authentication type is `identityBased`; otherwise, delete.) The name of your Event Hub. |
+   | entityPath | (If authentication type is `identityBased`; otherwise, delete.) The name of your event hub. |
    | authenticationType | `identityBased` or `keyBased`. Microsoft recommends identity based authentication as the more secure option. |
-   | identity | (If authentication type is `identityBased`.) You can use a user-assigned managed identity or a system-assigned managed identity if your IoT Hub has system-assigned managed identity enabled.<br><br>**For user-assigned**: The external ID of the managed identity with access permissions to your Event Hub in the format `/subscriptions/<subscription_id>/resourceGroups/<resource_group_name>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<identity_name>`.<br><br>**For system-assigned**: Leave the identity parameter as an empty list. For example, `"identity": {},` |
-   | connectionString | (If authentication type is `keyBased`.) The primary connection string from one of your Event Hub's shared access policies in the format `<connection_string>;EntityPath=<event_hub_name>.` You can retrieve the connection string value from the Azure portal, then append the entity path. |
+   | identity | (If authentication type is `identityBased`.) You can use a user-assigned managed identity or a system-assigned managed identity if your IoT Hub has system-assigned managed identity enabled.<br><br>**For user-assigned**: The external ID of the managed identity with access permissions to your event hub in the format `/subscriptions/<subscription_id>/resourceGroups/<resource_group_name>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<identity_name>`.<br><br>**For system-assigned**: Leave the identity parameter as an empty list. For example, `"identity": {},` |
+   | connectionString | (If authentication type is `keyBased`.) The primary connection string from one of your event hub's shared access policies in the format `<connection_string>;EntityPath=<event_hub_name>.` You can retrieve the connection string value from the Azure portal, then append the entity path. |
    | name | Provide a unique value to name your endpoint. |
    | id | Leave as an empty string. The Azure service provides a value when you create the endpoint. |
-   | subscriptionId | The ID of the subscription that contains your Event Hub. |
-   | resourceGroup | The name of the resource group that contains your Event Hub. |
+   | subscriptionId | The ID of the subscription that contains your event hub. |
+   | resourceGroup | The name of the resource group that contains your event hub. |
 
    >[!TIP]
    >For secrets management, you can [Create a parameter file](../azure-resource-manager/templates/parameter-files.md) or [Use Azure Key Vault to pass secure parameter values during deployment](../azure-resource-manager/templates/key-vault-parameter.md).
@@ -310,7 +310,7 @@ Add a Storage container endpoint to your Resource Manager template. For more inf
    | Property | Value |
    | -------- | ----- |
    | containerName | The name of an existing container in your Storage account where the data will be written. |
-   | fileNameFormat | How filenames will be written in the container. You can rearrange the default format, but must keep all the elements. The default file type is `.avro`. Change the file type to `.json` if you select JSON encoding. |
+   | fileNameFormat | How filenames are written in the container. You can rearrange the default format, but must keep all the elements. The default file type is `.avro`. Change the file type to `.json` if you select JSON encoding. |
    | batchFrequencyInSeconds |  |
    | maxChunkSizeInBytes |  |
    | encoding | `Avro` or `JSON` |
@@ -370,8 +370,8 @@ Add a Cosmos DB container endpoint to your Resource Manager template. For more i
    | containerName | The name of an existing container in your Cosmos DB database where the data will be written. |
    | authenticationType | `identityBased` or `keyBased`. Microsoft recommends identity based authentication as the more secure option. |
    | identity | (If authentication type is `identityBased`.) You can use a user-assigned managed identity or a system-assigned managed identity if your IoT Hub has system-assigned managed identity enabled.<br><br>**For user-assigned**: The external ID of the managed identity with access permissions to your Service Bus in the format `/subscriptions/<subscription_id>/resourceGroups/<resource_group_name>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<identity_name>`.<br><br>**For system-assigned**: Leave the identity parameter as an empty list. For example, `"identity": {},` |
-   | primaryKey | (If authentication type is `keyBased`.) The primary key from one of your Cosmos DB account. You can retrieve the key value from the Azure portal. |
-   | secondaryKey | (If authentication type is `keyBased`.) The primary connection string from one of your Cosmos DB account. You can retrieve the key value from the Azure portal. |
+   | primaryKey | (If authentication type is `keyBased`.) The primary key from your Cosmos DB account. You can retrieve the key value from the Azure portal. |
+   | secondaryKey | (If authentication type is `keyBased`.) The primary connection string from your Cosmos DB account. You can retrieve the key value from the Azure portal. |
    | partitionKeyName | A name for the synthetic partition key that will be added to every Cosmos DB document. |
    | partitionKeyTemplate | The partition key template must contain at least one of the following elements: {iothub}, {deviceid}, {YYYY}, {MM}, {DD}. |
    | name | Provide a unique value to name your endpoint. |
