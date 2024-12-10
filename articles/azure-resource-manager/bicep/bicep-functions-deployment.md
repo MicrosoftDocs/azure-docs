@@ -20,7 +20,7 @@ Namespace: [az](bicep-functions.md#namespaces-for-functions).
 
 ### Return value
 
-This function returns the information about the current deployment principal, which include tenant ID and object ID.
+This function returns the information about the current deployment principal, including tenant ID and object ID.
 
 ```json
 {
