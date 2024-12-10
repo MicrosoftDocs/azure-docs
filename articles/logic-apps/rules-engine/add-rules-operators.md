@@ -142,6 +142,6 @@ In the preceding example, the `<CheckQuantityAndDoSomething>` function checks th
 ## Related content
 
 - [Create rules with the Microsoft Rules Composer](create-rules.md)
-- [Add control functions to actions for optimizing rules exection](add-rules-control-functions.md)
+- [Add control functions to actions for optimizing rules execution](add-rules-control-functions.md)
 - [Test your rulesets](test-rulesets.md)
 - [Create an Azure Logic Apps Rules Engine project](create-rules-engine-project.md)

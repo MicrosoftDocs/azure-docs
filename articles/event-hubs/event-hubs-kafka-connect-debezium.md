@@ -220,7 +220,7 @@ You should see the JSON payloads representing the change data events generated i
         "source": {
             "version": "1.2.0.Final",
             "connector": "postgresql",
-            "name": "fullfillment",
+            "name": "fulfillment",
             "ts_ms": 1593018069944,
             "snapshot": "last",
             "db": "postgres",
