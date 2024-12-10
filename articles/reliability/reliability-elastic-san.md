@@ -6,7 +6,7 @@ ms.author: rogarana
 ms.topic: reliability-article
 ms.custom: subject-reliability, references_regions
 ms.service: azure-elastic-san-storage
-ms.date: 02/13/2024
+ms.date: 12/10/2024
 ---
 
 # Reliability in Elastic SAN
@@ -31,13 +31,13 @@ To create an Elastic SAN with an availability zone enabled, see [Deploy an Elast
 
 ### Zone down experience
 
-When deploying an Elastic SAN, if you select ZRS for your SAN's redundancy option, zonal failover is supported by the platform without manual intervention. An elastic SAN using ZRS is designed to self-heal and rebalance itself to take advantage of healthy zones automatically.
+If you connect using storage service endpoints, zonal failover is supported but might need manual intervention. A ZRS Elastic SAN using storage service endpoints won't switch to a healthy zone automatically. You might need to restart the iSCSI initiator to initiate a failover to a different, healthy zone.
 
 If you deployed an LRS elastic SAN, you may need to deploy a new SAN, using snapshots exported to managed disks.
 
 ### Low-latency design
 
-The latency differences between an elastic SAN on LRS and an elastic SAN on ZRS isn't particularly high. However, for workloads sensitive to latency spikes, consider an elastic SAN on LRS since it offers the lowest latency.
+Elastic SAN using ZRS are identical to Elastic SAN using LRS (they have the same scale targets), but ZRS does add more write latency. Benchmark your Elastic SAN to simulate the workload of your application and compare the latency between LRS and ZRS to see if it effects your workload.
 
 ### Availability zone migration
 
