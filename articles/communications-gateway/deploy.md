@@ -74,7 +74,6 @@ When your resource has been provisioned, you can connect Azure Communications Ga
     * Depending on your network, you might need to configure SBCs, softswitches, and access control lists (ACLs).
     > [!IMPORTANT]
     > When configuring SBCs, firewalls, and ACLs, ensure that your network can receive traffic from both of the /28 IP ranges provided to you by your onboarding team because the IP addresses used by Azure Communications Gateway can change as a result of maintenance, scaling or disaster scenarios.
-    * If you are using Azure Operator Call Protection Preview, a component in your network (typically an SBC), must act as a SIPREC Session Recording Client (SRC).
     * Your network needs to send SIP traffic to per-region FQDNs for Azure Communications Gateway. To find these FQDNs:
         1. Sign in to the [Azure portal](https://azure.microsoft.com/).
         1. In the search bar at the top of the page, search for your Communications Gateway resource.
