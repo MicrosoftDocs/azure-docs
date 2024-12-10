@@ -61,6 +61,84 @@ The following table describes the key components in this solution:
 > [!NOTE]
 > In a real-world deployment, something as critical as opening a pressure relief valve would be done on-premises. This is just a simple example of how to achieve the digital feedback loop.
 
+## Production line simulation
+
+The solution uses a production line simulation made up of several stations, using the station OPC UA information model, and a simple manufacturing execution system (MES). Both the stations and the MES are containerized for easy deployment.
+
+The simulation is configured to include two production lines. The default configuration is:
+
+| Production Line | Ideal Cycle Time (in seconds) |
+| --- | --- |
+| Munich | 6 |
+| Seattle | 10 |
+
+| Shift Name | Start | End |
+| --- | --- | --- |
+| Morning | 07:00 | 14:00 |
+| Afternoon | 15:00 | 22:00 |
+| Night | 23:00 | 06:00 |
+
+> [!NOTE]
+> Shift times are in local time, specifically the time zone the Virtual Machine (VM) hosting the production line simulation is set to.
+
+The station OPC UA server uses the following OPC UA node IDs for telemetry to the cloud:
+
+- i=379 - manufactured product serial number
+- i=385 - number of manufactured products
+- i=391 - number of discarded products
+- i=398 - running time
+- i=399 - faulty time
+- i=400 - status (0=station ready to do work, 1=work in progress, 2=work done and good part manufactured, 3=work done and scrap manufactured, 4=station in fault state)
+- i=406 - energy consumption
+- i=412 - ideal cycle time
+- i=418 - actual cycle time
+- i=434 - pressure
+
+### Digital feedback loop with UA Cloud Commander and UA Cloud Action
+
+The solution uses a digital feedback loop to manage the pressure in a simulated station. To implement the feedback loop, the solution triggers a command from the cloud on one of the OPC UA servers in the simulation. The trigger activates when simulated time-series pressure data reaches a certain threshold. You can see the pressure of the assembly machine in the Azure Data Explorer dashboard. The pressure is released at regular intervals for the Seattle production line.
+
+### Install the production line simulation and cloud services
+
+Select the **Deploy** button to deploy all required resources to your Azure subscription:
+
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fdigitaltwinconsortium%2FManufacturingOntologies%2Fmain%2FDeployment%2Farm.json)
+
+The deployment process prompts you to provide a password for the virtual machine (VM) that hosts the production line simulation and the Edge infrastructure. The password should include three of: a lowercase character, an uppercase character, a number, and a special character. The password length must be between 12 and 72 characters.
+
+> [!NOTE]
+> To reduce cost, the deployment creates a single Windows 11 Enterprise VM for both the production line simulation and the Edge infrastructure. In a production scenario, the production line simulation isn't required, and for the base OS you should use Windows IoT Enterprise Long Term Servicing Channel.
+
+When the deployment completes, use RDP to connect to the deployed Windows VM. You can download the RDP file from the **Connect** options on the page for your VM in the Azure portal. Sign in using the credentials you provided during the deployment, open a Windows command prompt, and use the following command to install the Windows Subsystem for Linux (WSL):
+
+```cmd  
+wsl --install
+```
+
+When the command finishes, reboot your VM and sign in again. A command prompt finishes the WSL installation and you're prompted to enter a new username and password for WSL. Then, in WSL, use the following command to install K3S, a lightweight Kubernetes runtime:
+
+```bash
+curl -sfL https://get.k3s.io | sh
+```
+
+Your VM is now ready to run the production line simulation.
+
+### Run the production line simulation
+
+In the VM, open a Windows command prompt, enter *wsl*, and press **Enter**. Navigate to the `/mnt/c/ManufacturingOntologies-main/Tools/FactorySimulation` directory and run the **StartSimulation** shell script:
+
+```bash
+sudo ./StartSimulation.sh "<Your Event Hubs connection string>"
+```
+
+`<Your Event Hubs connection string>` is your Event Hubs namespace connection string. To learn more, see [Get an Event Hubs connection string](/azure/event-hubs/event-hubs-get-connection-string). A connection string looks like: `Endpoint=sb://ontologies.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=abcdefgh=`
+
+> [!NOTE]
+> If the external IP address for a Kubernetes service shows as `<pending>`, use the following command to assign the external IP address of the `traefik` service: `sudo kubectl patch service <theService> -n <the service's namespace> -p '{"spec": {"type": "LoadBalancer", "externalIPs":["<the traefik external IP address>"]}}'`.
+
+> [!TIP]
+> To prevent WSL and K3s from automatically shutting down, keep your WSL command prompt open.
+
 ## UA Cloud Library
 
 To read OPC UA Information Models directly from Azure Data Explorer, you can import the OPC UA nodes defined in an OPC UA Information Model into a table. You can use the imported information for lookup of more metadata within queries.
@@ -118,87 +196,26 @@ edges
 
 :::image type="content" source="media/concepts-iot-industrial-solution-architecture/station-graph.png" alt-text="Graph of the station Info Model." lightbox="media/concepts-iot-industrial-solution-architecture/station-graph.png" border="false" :::
 
-## Production line simulation
-
-The solution uses a production line simulation made up of several stations, using the station OPC UA information model, and a simple manufacturing execution system (MES). Both the stations and the MES are containerized for easy deployment.
-
-The simulation is configured to include two production lines. The default configuration is:
-
-| Production Line | Ideal Cycle Time (in seconds) |
-| --- | --- |
-| Munich | 6 |
-| Seattle | 10 |
-
-| Shift Name | Start | End |
-| --- | --- | --- |
-| Morning | 07:00 | 14:00 |
-| Afternoon | 15:00 | 22:00 |
-| Night | 23:00 | 06:00 |
-
-> [!NOTE]
-> Shift times are in local time, specifically the time zone the Virtual Machine (VM) hosting the production line simulation is set to.
-
-The station OPC UA server uses the following OPC UA node IDs for telemetry to the cloud:
-
-- i=379 - manufactured product serial number
-- i=385 - number of manufactured products
-- i=391 - number of discarded products
-- i=398 - running time
-- i=399 - faulty time
-- i=400 - status (0=station ready to do work, 1=work in progress, 2=work done and good part manufactured, 3=work done and scrap manufactured, 4=station in fault state)
-- i=406 - energy consumption
-- i=412 - ideal cycle time
-- i=418 - actual cycle time
-- i=434 - pressure
-
-## Digital feedback loop with UA Cloud Commander and UA Cloud Action
-
-The solution uses a digital feedback loop to manage the pressure in a simulated station. To implement the feedback loop, the solution triggers a command from the cloud on one of the OPC UA servers in the simulation. The trigger activates when simulated time-series pressure data reaches a certain threshold. You can see the pressure of the assembly machine in the Azure Data Explorer dashboard. The pressure is released at regular intervals for the Seattle production line.
-
-## Install the production line simulation and cloud services
-
-Select the **Deploy** button to deploy all required resources to your Azure subscription:
-
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fdigitaltwinconsortium%2FManufacturingOntologies%2Fmain%2FDeployment%2Farm.json)
-
-The deployment process prompts you to provide a password for the virtual machine (VM) that hosts the production line simulation and the Edge infrastructure. The password should include three of: a lowercase character, an uppercase character, a number, and a special character. The password length must be between 12 and 72 characters.
-
-> [!NOTE]
-> To reduce cost, the deployment creates a single Windows 11 Enterprise VM for both the production line simulation and the Edge infrastructure. In a production scenario, the production line simulation isn't required, and for the base OS you should use Windows IoT Enterprise Long Term Servicing Channel.
-
-When the deployment completes, use RDP to connect to the deployed Windows VM. You can download the RDP file from the **Connect** options on the page for your VM in the Azure portal. Sign in using the credentials you provided during the deployment, open a Windows command prompt, and use the following command to install the Windows Subsystem for Linux (WSL):
-
-```cmd  
-wsl --install
-```
-
-When the command finishes, reboot your VM and sign in again. A command prompt finishes the WSL installation and you're prompted to enter a new username and password for WSL. Then, in WSL, use the following command to install K3S, a lightweight Kubernetes runtime:
-
-```bash
-curl -sfL https://get.k3s.io | sh
-```
-
-Your VM is now ready to run the production line simulation.
-
-## Run the production line simulation
-
-In the VM, open a Windows command prompt, enter *wsl*, and press **Enter**. Navigate to the `/mnt/c/ManufacturingOntologies-main/Tools/FactorySimulation` directory and run the **StartSimulation** shell script:
-
-```bash
-sudo ./StartSimulation.sh "<Your Event Hubs connection string>"
-```
-
-`<Your Event Hubs connection string>` is your Event Hubs namespace connection string. To learn more, see [Get an Event Hubs connection string](/azure/event-hubs/event-hubs-get-connection-string). A connection string looks like: `Endpoint=sb://ontologies.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=abcdefgh=`
-
-> [!NOTE]
-> If the external IP address for a Kubernetes service shows as `<pending>`, use the following command to assign the external IP address of the `traefik` service: `sudo kubectl patch service <theService> -n <the service's namespace> -p '{"spec": {"type": "LoadBalancer", "externalIPs":["<the traefik external IP address>"]}}'`.
-
-> [!TIP]
-> To prevent WSL and K3s from automatically shutting down, keep your WSL command prompt open.
-
 ## Deploy Azure IoT Operations on the edge
 
 Before you deploy, confirm that you started the production line simulation. Then, follow these steps in [Azure IoT Operations deployment details](/azure/iot-operations/deploy-iot-ops/overview-deploy).
+
+You can use VM you deployed earlier to run the production line simulation to deploy Azure IoT Operations.
+
+### Configure your Azure IoT Operations deployment
+
+You can configure your Azure IoT Operations deployment by using the [operations experience](https://iotoperations.azure.com/) web UI. Add the asset endpoints, assets and data flows to route and process the data from the production line simulation.
+
+<!-- TODO: Complete this section with details of require resources including:
+
+opc.tcp://assembly.munich/
+opc.tcp://test.munich/
+opc.tcp://packaging.munich/
+opc.tcp://assembly.seattle/
+opc.tcp://test.seattle/
+opc.tcp://packaging.seattle/
+
+-->
 
 ## Use cases condition monitoring, OEE calculation, anomaly detection, and predictions in Azure Data Explorer
 
@@ -237,7 +254,7 @@ For best results, change the `Layout` option to `Grouped`.
 
 ## Use Azure Managed Grafana service
 
-You can also use Azure Managed Grafana to create a dashboard on Azure for the solution described in this article. Use Grafana within manufacturing to create dashboards that display real-time data. The following steps show you enable Grafana on Azure, and create a dashboard with the simulated production line data from Azure Data Explorer and the Azure Digital Twins service.
+You can also use Azure Managed Grafana to create a dashboard on Azure for the solution described in this article. Use Grafana within manufacturing to create dashboards that display real-time data. The following steps show you enable Grafana on Azure, and create a dashboard with the simulated production line data from Azure Data Explorer.
 
 The following screenshot shows the dashboard:
 
@@ -282,17 +299,11 @@ Now you're ready to import the provided sample dashboard.
 
 1. Select the *samplegrafanadashboard.json* file that you downloaded and select **Save**. You get an error on the page, because two variables aren't set yet. Go to the settings page of the dashboard.
 
-1. Select **Variables** and update the two URLs with the URL of your Azure Digital Twins service.
-
-1. Navigate back to the dashboard and hit the refresh button. You should now see data (don't forget to hit the save button on the dashboard).
-
-    The location variable on the top of the page is automatically filled with data from Azure Digital Twins (the area nodes from ISA95). Here you can select the different locations and see the different datapoints of every factory.
-
 1. If data isn't showing up in your dashboard, navigate to the individual panels and see if the right data source is selected.
 
 ### Configure alerts
 
-Within Grafana, it's also possible to create alerts. In this example, we create a low OEE alert for one of the production lines. 
+Within Grafana, it's also possible to create alerts. In this example, we create a low OEE alert for one of the production lines.
 
 1. Sign in to your Grafana service, and select **Alert rules** in the menu.
 
