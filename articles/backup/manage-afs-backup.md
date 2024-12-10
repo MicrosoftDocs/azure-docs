@@ -32,7 +32,7 @@ To open the **Backup Jobs** blade:
 
 1. On the **Backup Jobs** blade, select **Azure Files (Azure Storage)** as the datasource type and select any row to see details of the particular job.
 
-   :::image type="content" source="./media/manage-afs-backup/backup-center-jobs-inline.png" alt-text="Screenshow showing the list of jobs." lightbox="./media/manage-afs-backup/backup-center-jobs-expanded.png":::
+   :::image type="content" source="./media/manage-afs-backup/backup-center-jobs-inline.png" alt-text="Screenshot showing the list of jobs." lightbox="./media/manage-afs-backup/backup-center-jobs-expanded.png":::
    
     >[!NOTE]
     >In case of *snapshot tier*, the data transferred to the vault is reported as *0*.

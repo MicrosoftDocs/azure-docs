@@ -3,7 +3,7 @@ title: Imports in Bicep
 description: This article describes how to import shared functionality and namespaces in Bicep.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 10/23/2024
+ms.date: 12/06/2024
 ---
 
 # Imports in Bicep
@@ -80,7 +80,7 @@ output greeting string = sayHello('Bicep user')
 output exampleObject myImports.myObjectType = exampleObject
 ```
 
-## Import namespaces and extensions (preview)
+## Import namespaces and extensions (Preview)
 
 > [!NOTE]
 > The experimental feature `extensibility` must be enabled from the [Bicep config file](./bicep-config.md#enable-experimental-features) to use this feature.
@@ -112,7 +112,8 @@ For an example, see [Bicep Kubernetes extension](./bicep-kubernetes-extension.md
 
 ## Related content
 
-- To learn about Bicep data types, see [Data types](./data-types.md).
-- To learn about Bicep functions, see [Bicep functions](./bicep-functions.md).
-- To learn how to use the Bicep Kubernetes extension, see [Bicep Kubernetes extension](./bicep-kubernetes-extension.md).
-- To go through a Kubernetes extension tutorial, see [Quickstart: Deploy Azure applications to Azure Kubernetes Services by using the Bicep Kubernetes extension](/azure/aks/learn/quick-kubernetes-deploy-bicep-kubernetes-extension).
+- To learn about the Bicep data types, see [Data types](./data-types.md).
+- To learn about the Bicep functions, see [Bicep functions](./bicep-functions.md).
+- To learn about how to use the Kubernetes extension, see [Bicep Kubernetes extension](./bicep-kubernetes-extension.md).
+- To go through a Kubernetes extension tutorial, see [Quickstart - Deploy Azure applications to Azure Kubernetes Services by using Bicep Kubernetes extension.](/azure/aks/learn/quick-kubernetes-deploy-bicep-kubernetes-extension).
+- To learn about how to use the Microsoft Graph extension, see [Bicep templates for Microsoft Graph](https://aka.ms/graphbicep).

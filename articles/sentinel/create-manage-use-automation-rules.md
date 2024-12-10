@@ -4,7 +4,7 @@ description: This article explains how to create and use automation rules in Mic
 ms.topic: how-to
 author: batamig
 ms.author: bagol
-ms.date: 04/03/2024
+ms.date: 10/16/2024
 appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
@@ -52,7 +52,7 @@ The following table shows the different possible scenarios that cause an automat
 
 | Trigger type | Events that cause the rule to run |
 | --------- | ------------ |
-| **When incident is created** | **Unified security operations platform in Microsoft Defender:**<li>A new incident is created in the Microsoft Defender portal.<br><br>**Microsoft Sentinel not onboarded to unified platform:**<li>A new incident is created by an analytics rule.<li>An incident is ingested from Microsoft Defender XDR.<li>A new incident is created manually. |
+| **When incident is created** | **Microsoft Defender portal:**<li>A new incident is created in the Microsoft Defender portal.<br><br>**Microsoft Sentinel not onboarded to the Defender portal:**<li>A new incident is created by an analytics rule.<li>An incident is ingested from Microsoft Defender XDR.<li>A new incident is created manually. |
 | **When incident is updated** | <li>An incident's status is changed (closed/reopened/triaged).<li>An incident's owner is assigned or changed.<li>An incident's severity is raised or lowered.<li>Alerts are added to an incident.<li>Comments, tags, or tactics are added to an incident. |
 | **When alert is created** | <li>An alert is created by a Microsoft Sentinel **Scheduled** or **NRT** analytics rule. |
 
@@ -94,11 +94,11 @@ Use the options in the **Conditions** area to define conditions for your automat
 
     Analytic rule name values include only analytics rules, and don't include other types of rules, such as threat intelligence or anomaly rules.
 
-- Rules you create for when an incident is created or updated support a large variety of conditions, depending on your environment. These options start with whether your workspace is onboarded to the unified security operations platform:
+- Rules you create for when an incident is created or updated support a large variety of conditions, depending on your environment. These options start with whether your workspace is onboarded to the Defender portal:
 
     #### [Onboarded workspaces](#tab/onboarded)
 
-    If your workspace is onboarded to the unified security operations platform, start by selecting one of the following operators, in either the Azure or the Defender portal:
+    If your workspace is onboarded to the Defender portal, start by selecting one of the following operators, in either the Azure or the Defender portal:
 
     - **AND**: individual conditions that are evaluated as a group. The rule executes if *all* the conditions of this type are met.
 
@@ -108,11 +108,11 @@ Use the options in the **Conditions** area to define conditions for your automat
 
     For example:
 
-    :::image type="content" source="media/create-manage-use-automation-rules/conditions-onboarded.png" alt-text="Screenshot of automation rule conditions when your workspace is onboarded to the unified security operations platform.":::
+    :::image type="content" source="media/create-manage-use-automation-rules/conditions-onboarded.png" alt-text="Screenshot of automation rule conditions when your workspace is onboarded to the Defender portal.":::
 
     #### [Workspaces not onboarded](#tab/not-onboarded)
 
-    If your workspace isn't onboarded to the unified security operations platform, start by defining the following condition properties:
+    If your workspace isn't onboarded to the Defender portal, start by defining the following condition properties:
     
     - **Incident provider**: Incidents can have two possible sources: they can be created inside Microsoft Sentinel, and they can also be [imported from&mdash;and synchronized with&mdash;Microsoft Defender XDR](microsoft-365-defender-sentinel-integration.md).
 
@@ -130,7 +130,7 @@ Use the options in the **Conditions** area to define conditions for your automat
 
     For example:
 
-    :::image type="content" source="media/create-manage-use-automation-rules/conditions-not-onboarded.png" alt-text="Screenshot of automation rule conditions when the workspace isn't onboarded to the unified security operations platform.":::
+    :::image type="content" source="media/create-manage-use-automation-rules/conditions-not-onboarded.png" alt-text="Screenshot of automation rule conditions when the workspace isn't onboarded to the Defender portal.":::
 
     ---
 

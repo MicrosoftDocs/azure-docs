@@ -36,7 +36,7 @@ Azure Storage maintains multiple copies of your storage account to ensure that a
 
 Locally redundant storage (LRS), the lowest-cost redundancy option, automatically stores and replicates three copies of your storage account within a single datacenter. Although LRS protects your data against server rack and drive failures, it doesn't account for disasters such as fire or flooding within a datacenter. In the face of such disasters, all replicas of a storage account configured to use LRS might be lost or unrecoverable.
 
-By comparison, zone-redundant storage (ZRS) retains a copy of a storage account and replicates it in each of three separate availability zones within the same region. For more information about availability zones, see [Azure availability zones](../../availability-zones/az-overview.md).
+By comparison, zone-redundant storage (ZRS) retains a copy of a storage account and replicates it in each of three separate availability zones within the same region. For more information about availability zones, see [Azure availability zones](../../reliability/availability-zones-overview.md).
 
 <!--Recovery of a single copy of a storage account occurs automatically with both LRS and ZRS.-->
 
