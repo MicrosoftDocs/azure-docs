@@ -55,5 +55,7 @@ For more information, see [Scope levels](../role-based-access-control/scope-over
 
 ## Next steps
 
-[What is Azure Role Based Access](../role-based-access-control/overview.md)
-[Azure Role Based Access Control](../role-based-access-control/role-assignments-list-portal.yml)
+- [What is Azure Role Based Access](../role-based-access-control/overview.md)
+
+- [Azure Role Based Access Control](../role-based-access-control/role-assignments-list-portal.yml)
+

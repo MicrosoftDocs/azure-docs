@@ -216,7 +216,7 @@
     - name: Migrate to Azure
       href: migrate-overview.md
     - name: Migration to availability zones 
-      href: ../availability-zones/migrate-recovery-services-vault.md     
+      href: ../reliability/migrate-recovery-services-vault.md     
   - name: Security
     items:
     - name: Security baseline
@@ -535,8 +535,6 @@
     href: azure-to-azure-powershell.md
   - name: Set up disaster recovery on Public MEC VMs using PowerShell
     href: tutorial-replicate-vms-edge-zone-to-azure-region.md
-  - name: Set up disaster recovery on Public MEC VMs to another Public MEC using PowerShell 
-    href: tutorial-replicate-vms-edge-zone-to-another-zone.md      
   - name: Set up disaster recovery of VMware VMs to Azure using PowerShell
     href: vmware-azure-disaster-recovery-powershell.md
   - name: Set up disaster recovery of Hyper-V VMs to Azure using PowerShell

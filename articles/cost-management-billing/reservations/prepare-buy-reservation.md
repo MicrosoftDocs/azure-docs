@@ -6,7 +6,7 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 10/09/2024
+ms.date: 12/06/2024
 ms.author: banders
 ---
 
@@ -95,6 +95,7 @@ You can purchase reservations from Azure portal, APIs, PowerShell, CLI. Read the
 - [Microsoft Fabric](fabric-capacity.md)
 - [Microsoft Sentinel - Pre-Purchase](../../sentinel/billing-pre-purchase-plan.md?toc=/azure/cost-management-billing/reservations/toc.json)
 - [Nutanix on Azure BareMetal](nutanix-bare-metal.md)
+- [Red Hat OpenShift](prepay-red-hat-openshift.md)
 - [SAP HANA Large Instances](prepay-hana-large-instances-reserved-capacity.md)
 - [Software plans](/azure/virtual-machines/linux/prepay-suse-software-charges?toc=/azure/cost-management-billing/reservations/toc.json)
 - [SQL Database](/azure/azure-sql/database/reserved-capacity-overview?toc=/azure/cost-management-billing/reservations/toc.json)

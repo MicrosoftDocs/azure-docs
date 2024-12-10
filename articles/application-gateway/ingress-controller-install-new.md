@@ -267,7 +267,7 @@ If you use [Cloud Shell](https://shell.azure.com/), you don't need to install He
 
    - `verbosityLevel`: Sets the verbosity level of the AGIC logging infrastructure. For possible values, see [Logging levels](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/463a87213bbc3106af6fce0f4023477216d2ad78/docs/troubleshooting.md#logging-levels).
    - `appgw.environment`: Sets the cloud environment. Possible values: `AZURECHINACLOUD`, `AZUREGERMANCLOUD`, `AZUREPUBLICCLOUD`, `AZUREUSGOVERNMENTCLOUD`.
-   - `appgw.subscriptionId`: The Azure subscription ID in which Application Gateway resides. Example: `aaaa0000-bb11-2222-33cc-444444dddddd`.
+   - `appgw.subscriptionId`: The Azure subscription ID in which Application Gateway resides. Example: `aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e`.
    - `appgw.resourceGroup`: Name of the Azure resource group in which you created the Application Gateway deployment. Example: `app-gw-resource-group`.
    - `appgw.name`: Name of the Application Gateway deployment. Example: `applicationgatewayd0f0`.
    - `appgw.shared`: Boolean flag that defaults to `false`. Set it to `true` if you need a [shared Application Gateway deployment](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/072626cb4e37f7b7a1b0c4578c38d1eadc3e8701/docs/setup/install-existing.md#multi-cluster--shared-app-gateway).

@@ -31,8 +31,8 @@ When installing Debian agent on an IoT Device with a Linux OS, modify the `/etc/
 |-----------|--------------------|
 | SchemaVersion | The schema version that maps the current configuration file format version. |
 | aduShellTrustedUsers | The list of users that can launch the **adu-shell** program. Note, adu-shell is a broker program that does various update actions as 'root'. The Device Update default content update handlers invoke adu-shell to do tasks that require super user privilege. Examples of tasks that require this privilege are `apt-get install` or executing a privileged script. |
-| aduc_manufacturer | Reported by the **AzureDeviceUpdateCore:4.ClientMetadata:4** interface to classify the device for targeting the update deployment. |
-| aduc_model | Reported by the **AzureDeviceUpdateCore:4.ClientMetadata:4** interface to classify the device for targeting the update deployment. |
+| manufacturer | Reported by the **AzureDeviceUpdateCore:4.ClientMetadata:4** interface to classify the device for targeting the update deployment. |
+| model | Reported by the **AzureDeviceUpdateCore:4.ClientMetadata:4** interface to classify the device for targeting the update deployment. |
 | iotHubProtocol| Accepted values are `mqtt` or `mqtt/ws` to change the protocol used to connect with IoT hub. Default value is 'mqtt' |
 | compatPropertyNames | These properties are used to check for compatibility of the device to target the update deployment. For all the properties specified to be used for compatabiity, the values must be in lower case only |
 | additionalProperties | Optional field. Additional device reported properties can be set and used for comaptibility checking . Limited to five device properties. These properties should be in lower case only. |
