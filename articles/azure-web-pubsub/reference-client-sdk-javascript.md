@@ -43,7 +43,7 @@ A client uses `Client Access URL` to connect and authenticate with the service, 
 As shown in the diagram, the client has the permissions to send messages to and join a specific group named **`group1`**. 
 
 ```js
-// Imports the client libray
+// Imports the client library
 const { WebPubSubClient } = require("@azure/web-pubsub-client");
 
 // Instantiates the client object

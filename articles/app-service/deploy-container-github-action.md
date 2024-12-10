@@ -182,7 +182,7 @@ Define secrets to use with the Docker Login action. The example in this document
 
 ## Build the Container image
 
-The following example show part of the workflow that builds a Node.JS Docker image. Use [Docker Login](https://github.com/azure/docker-login) to log into a private container registry. This example uses Azure Container Registry but the same action works for other registries. 
+The following example show part of the workflow that builds a Node.js Docker image. Use [Docker Login](https://github.com/azure/docker-login) to log into a private container registry. This example uses Azure Container Registry but the same action works for other registries. 
 
 
 ```yaml
