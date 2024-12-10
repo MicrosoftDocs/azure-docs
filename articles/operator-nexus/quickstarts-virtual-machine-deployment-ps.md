@@ -53,6 +53,9 @@ Before you run the commands, you need to set several variables to define the con
 | NETWORKATTACHMENTNAME            | The name of the Network to attach for workload.      |
 | NETWORKDATA            | The base64 encoded string of cloud-init network data.      |
 
+> [!WARNING]
+> User data will not be encrypted, and any process on the VM can query this data. You should not store confidential information in user data. For more information, see [Azure data security and encryption best practices](/azure/security/fundamentals/data-encryption-best-practices).
+
 Once you've defined these variables, you can run the Azure PowerShell command to create the virtual machine. Add the ```-Debug``` flag at the end to provide more detailed output for troubleshooting purposes.
 
 To define these variables, use the following set commands and replace the example values with your preferred values. You can also use the default values for some of the variables, as shown in the following example:
