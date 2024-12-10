@@ -17,7 +17,7 @@ Note: Due to the underlying dependencies and references across these resources, 
 
 1) Perform tenant network resources and workload clean up, including but not limited to VMs and Nexus Kubernetes Clusters
 
-2) [Disable/Delete L3 ISD resources](https://learn.microsoft.com/azure/operator-nexus/howto-delete-layer-3-isolation-domains)
+2) [Disable/Delete L3 ISD (Isolation Domain) resources](https://learn.microsoft.com/azure/operator-nexus/howto-delete-layer-3-isolation-domains)
 
 3) [Delete Keysets resources](https://learn.microsoft.com/azure/operator-nexus/howto-baremetal-bmc-ssh#deleting-a-bmc-keyset)
 
@@ -27,11 +27,11 @@ Note: Due to the underlying dependencies and references across these resources, 
 
 6) [Deprovision Fabric](https://learn.microsoft.com/azure/operator-nexus/howto-configure-network-fabric#deleting-fabric)
 
-7) [Clean up ACL resources](https://learn.microsoft.com/azure/operator-nexus/howto-delete-access-control-list-network-to-network-interconnect)
+7) [Clean up ACL (Access Control List) resources](https://learn.microsoft.com/azure/operator-nexus/howto-delete-access-control-list-network-to-network-interconnect)
 
 8) [Delete Fabric resource](https://learn.microsoft.com/azure/operator-nexus/howto-configure-network-fabric#deleting-fabric)
 
-9) [Disable DHCP and put devices into ZTP mode](https://learn.microsoft.com/azure/operator-nexus/howto-platform-prerequisites#default-setup-for-other-devices-installed)
+9) [Disable DHCP (Dynamic Host Configuration Protocol) and put devices into ZTP (Zero Touch Provisioning) mode](https://learn.microsoft.com/azure/operator-nexus/howto-platform-prerequisites#default-setup-for-other-devices-installed)
 
 10) [Delete Network Fabric Controller (NFC) resource](https://learn.microsoft.com/azure/operator-nexus/howto-configure-network-fabric-controller#delete-network-fabric-controller)
 
