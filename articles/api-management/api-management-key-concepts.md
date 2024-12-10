@@ -181,7 +181,7 @@ When developers subscribe to a product, they're granted the primary and secondar
 
 ### Workspaces
 
-Workspaces allow decentralized API development teams to manage and productize their own APIs, while a central API platform team maintains the API Management infrastructure. Each workspace contains APIs, products, subscriptions, and related entities that are accessible only to the workspace collaborators. Access is controlled through Azure role-based access control (RBAC). Each workspace is associated with a workspace gateway that routes API traffic to its backend services.
+Workspaces allow decentralized API development teams to manage and productize their own APIs, while a central API platform team maintains the API Management infrastructure. Each workspace contains APIs, products, subscriptions, and related entities that are accessible only to the workspace collaborators. Access is controlled through Azure role-based access control (RBAC). Each workspace is associated with one or more workspace gateways that route API traffic to its backend services.
 
 **More information**:
 
