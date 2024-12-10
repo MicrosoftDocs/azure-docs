@@ -1,15 +1,15 @@
 ---
 title: Troubleshoot packet loss between NAKS worker nodes for Azure Operator Nexus
-description: Troubleshoot packet loss between NAKS worker node, and learn how to debug failure codes.
+description: Troubleshoot packet loss between NAKS worker nodes, and learn how to debug the issue.
 ms.service: azure-operator-nexus
 ms.custom: troubleshooting
 ms.topic: troubleshooting
-ms.date: 10/31/2024
+ms.date: 12/10/2024
 ms.author: yinongdai    
-author: yinongdai
+author: bearzz23
 ---
 # Troubleshoot packet loss between NAKS worker nodes for Azure Operator Nexus
-This guide provides detailed steps for troubleshooting packet loss between NAKS worker node.
+This guide provides detailed steps for troubleshooting packet loss between NAKS worker nodes.
 
 ## Prerequisites
 
@@ -58,9 +58,9 @@ To assist with the troubleshooting process, please gather and provide the follow
 * Source and Destination IPs: the source and destination IP addresses where packet drops are being observed.
 
 ### Verify Provisioning Status of the Network Fabric
-Verified on Azure Portal that the NF status is in the provisioned state; the Provisioning State should be 'Succeeded' and Configuration State 'Provisioned'.
+Verify on Azure Portal that the NF status is in the provisioned state; the Provisioning State should be 'Succeeded' and Configuration State 'Provisioned'.
 
-### View SOS Pod Logs
+### View iperf-client Pod Events
 Use kubectl to inspect events from the iperf-client pod for more detailed information. This can help identify the root cause of the issue with the iperf-client pod.
 ```console
 kubectl get events --namespace default | grep iperf-client
@@ -73,6 +73,9 @@ default 5m39s Warning BackOff pod/iperf-client-8f7974984-xr67p Back-off restarti
 
 ### Validate L3 ISD Configuration
 Confirm that the L3 ISD (Layer 3 Isolation Domain) configuration on the devices is correct. 
+
+## Potential Solutions
+If the iperf-client pod is constantly being restarted and other resource statuses appear to be healthy, the following remedies can be attempted:
 
 ### Adjust Network Buffer Settings
 Modify the network buffer settings to improve performance by adjusting the following parameters:
