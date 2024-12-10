@@ -34,6 +34,9 @@ To run these connector operations in stateful mode, you must enable this capabil
 
 ## Enable stateful mode in the Azure portal
 
+> [!NOTE]
+> Stateful mode [requires ports 20,000 to 30,000 to be open](../app-service/overview-vnet-integration.md#private-ports) if you are using network security groups in your virtual network.
+
 1. In the [Azure portal](https://portal.azure.com), open the Standard logic app resource where you want to enable stateful mode for these connector operations.
 
 1. To enable virtual network integration for your logic app, and add your logic app to the previously created subnet, follow these steps:
