@@ -32,7 +32,7 @@ You can monitor all your backup items via a Recovery Services vault. Navigating 
 
 ## Backup Jobs
 
-Learn how to monitor Backup jobs in [Azure Business Continuity Center]](../business-continuity-center/tutorial-monitor-operate.md), [Recovery Services vault](backup-azure-manage-windows-server.md#manage-backup-jobs), and [Backup vault](manage-backup-vault.md#manage-backup-jobs).
+Learn how to monitor Backup jobs in [Azure Business Continuity Center](../business-continuity-center/tutorial-monitor-operate.md), [Recovery Services vault](backup-azure-manage-windows-server.md#manage-backup-jobs), and [Backup vault](manage-backup-vault.md#manage-backup-jobs).
 
 ## Next steps
 
