@@ -72,8 +72,8 @@ Environmental controls such as RBAC and Service Account tests aren't evaluated b
 |V-242386|The Kubernetes API server must have the insecure port flag disabled|NTF|This check is deprecated in v1.24.0 and greater|
 |V-242397|The Kubernetes kubelet staticPodPath must not enable static pods|NTF|Only enabled for control nodes, required for kubeadm|
 |V-242403|Kubernetes API Server must generate audit records that identify what type of event has occurred, identify the source of the event, contain the event results, identify any users, and identify any containers associated with the event|NTF|Certain API requests and responses contain secrets and therefore aren't captured in the audit logs|
-|V-242424|Kubernetes Kubelet must enable tlsPrivateKeyFile for client authentication to secure service|NTF|Kubelet SANS contains hostname only|
-|V-242425|Kubernetes Kubelet must enable tlsCertFile for client authentication to secure service.|NTF|Kubelet SANS contains hostname only|
+|V-242424|Kubernetes Kubelet must enable tlsPrivateKeyFile for client authentication to secure service|NTF|Kubelet SANs contains hostname only|
+|V-242425|Kubernetes Kubelet must enable tlsCertFile for client authentication to secure service.|NTF|Kubelet SANs contains hostname only|
 |V-242434|Kubernetes Kubelet must enable kernel protection.|NTF|Enabling kernel protection isn't feasible for kubeadm in Nexus|
 
 
@@ -86,8 +86,8 @@ Environmental controls such as RBAC and Service Account tests aren't evaluated b
 |V-242386|The Kubernetes API server must have the insecure port flag disabled|NTF|This check is deprecated in v1.24.0 and greater|
 |V-242397|The Kubernetes kubelet staticPodPath must not enable static pods|NTF|Only enabled for control nodes, required for kubeadm|
 |V-242403|Kubernetes API Server must generate audit records that identify what type of event has occurred, identify the source of the event, contain the event results, identify any users, and identify any containers associated with the event|NTF|Certain API requests and responses contain secrets and therefore aren't captured in the audit logs|
-|V-242424|Kubernetes Kubelet must enable tlsPrivateKeyFile for client authentication to secure service|NTF|Kubelet SANS contains hostname only|
-|V-242425|Kubernetes Kubelet must enable tlsCertFile for client authentication to secure service.|NTF|Kubelet SANS contains hostname only|
+|V-242424|Kubernetes Kubelet must enable tlsPrivateKeyFile for client authentication to secure service|NTF|Kubelet SANs contains hostname only|
+|V-242425|Kubernetes Kubelet must enable tlsCertFile for client authentication to secure service.|NTF|Kubelet SANs contains hostname only|
 |V-242434|Kubernetes Kubelet must enable kernel protection.|NTF|Enabling kernel protection isn't feasible for kubeadm in Nexus|
 
 
@@ -110,7 +110,7 @@ As a secure service, Azure Kubernetes Service (AKS) complies with SOC, ISO, PCI 
 |1.1|Control Plane Node Configuration Files|||
 |1.1.12|Ensure that the etcd data directory ownership is set to `etcd:etcd`|NTF|Nexus is `root:root`, etcd user isn't configured for kubeadm|
 |1.2|API Server|||
-|1.1.12|Ensure that the `--kubelet-certificate-authority` argument is set as appropriate|NTF|Kubelet SANS includes hostname only|
+|1.1.12|Ensure that the `--kubelet-certificate-authority` argument is set as appropriate|NTF|Kubelet SANs includes hostname only|
 
 
 *Nexus Kubernetes Cluster*
@@ -123,7 +123,7 @@ As a secure service, Azure Kubernetes Service (AKS) complies with SOC, ISO, PCI 
 |1.1|Control Plane Node Configuration Files|||
 |1.1.12|Ensure that the etcd data directory ownership is set to `etcd:etcd`|NTF|Nexus is `root:root`, etcd user isn't configured for kubeadm|
 |1.2|API Server|||
-|1.1.12|Ensure that the `--kubelet-certificate-authority` argument is set as appropriate|NTF|Kubelet SANS includes hostname only|
+|1.1.12|Ensure that the `--kubelet-certificate-authority` argument is set as appropriate|NTF|Kubelet SANs includes hostname only|
 
 
 *Cluster Manager - Azure Kubernetes*
