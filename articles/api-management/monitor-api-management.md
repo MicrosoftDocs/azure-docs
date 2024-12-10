@@ -123,7 +123,7 @@ You can easily integrate Azure Application Insights with Azure API Management. A
 
 The following are high level steps for this scenario.
 
-1. First, create a connection between Application Insights and API Management
+1. First, create a connection between Application Insights and API Management.
 
    You can create a connection between Application Insights and your API Management using the Azure portal, the REST API, or related Azure tools. API Management configures a *logger* resource for the connection.
 
@@ -236,7 +236,8 @@ Include a JSON snippet similar to the following example in your Azure Resource M
 ```
 
 ---
-#### Connection string with user-assigned managed identity
+
+- Connection string with user-assigned managed identity
 
 #### [REST API](#tab/rest)
 
@@ -492,7 +493,7 @@ Addressing the issue of telemetry data flow from API Management to Application I
 
 ### Enable logging of developer portal usage in Azure API Management
 
-This article shows you how to enable Azure Monitor logs for auditing and troubleshooting usage of the API Management [developer portal](developer-portal-overview.md). When enabled through a diagnostic setting, the logs collect information about the requests that are received and processed by the developer portal.
+This section shows you how to enable Azure Monitor logs for auditing and troubleshooting usage of the API Management [developer portal](developer-portal-overview.md). When enabled through a diagnostic setting, the logs collect information about the requests that are received and processed by the developer portal.
 
 Developer portal usage logs include data about activity in the developer portal, including:
 
@@ -531,11 +532,7 @@ If you send logs to a storage account, you can access the data in the Azure port
 
 ### Integrate Application Insights to developer portal
 
-A popular feature of Azure Monitor is Application Insights. It's an extensible Application Performance Management (APM) service for developers and DevOps professionals. Use it to monitor your developer portal and detect performance anomalies. Application Insights includes powerful analytics tools to help you learn what users actually do while visiting your developer portal.
-
-#### Add Application Insights to your portal
-
-Follow these steps to plug Application Insights into your managed or self-hosted developer portal.
+Application Insights includes powerful analytics tools to help you learn what users actually do while visiting your developer portal. Follow these steps to plug Application Insights into your managed or self-hosted developer portal.
 
 > [!IMPORTANT]
 > Steps 1 -3 are not required for managed portals. If you have a managed portal, skip to step 4.
@@ -617,12 +614,6 @@ Follow these steps to plug Application Insights into your managed or self-hosted
 
 1. After you update the configuration, [republish the portal](developer-portal-overview.md#publish-the-portal) for the changes to take effect.
 
-
-
-
-
-
-<!--## Use Azure Monitor tools to analyze the data-->
 [!INCLUDE [azmon-horz-tools](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/azmon-horz-tools.md)]
 
 ### Visualize API Management monitoring data using a Managed Grafana dashboard
@@ -646,8 +637,6 @@ On your Managed Grafana workspace:
 - The Managed Grafana instance must be in the same subscription as the API Management instance.
 - When created, the Grafana workspace is automatically assigned a Microsoft Entra managed identity, which is assigned the Monitor Reader role on the subscription. This approach gives you immediate access to Azure Monitor from the new Grafana workspace without needing to set permissions manually. Learn more about [configuring data sources](../managed-grafana/how-to-data-source-plugins-managed-identity.md) for Managed Grafana.
 
-#### Import API Management dashboard
-
 First import the [API Management dashboard](https://grafana.com/grafana/dashboards/16604-azure-api-management) to your Management Grafana workspace.
 
 To import the dashboard:
@@ -657,7 +646,7 @@ To import the dashboard:
 1. On the **Import** page, under **Import via grafana.com**, enter *16604* and select **Load**. 
 1. Select an **Azure Monitor data source**, review or update the other options, and select **Import**.
 
-#### Use API Management dashboard
+To use the API Management dashboard:
 
 1. In the Managed Grafana workspace, go to **Dashboards** > **Browse** and select your API Management dashboard.
 1. In the dropdowns at the top, make selections for your API Management instance. If configured, select an Application Insights instance and a Log Analytics workspace.  
