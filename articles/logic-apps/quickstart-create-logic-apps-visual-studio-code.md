@@ -233,10 +233,10 @@ To review your logic app in Azure portal, follow these steps:
 
 In Visual Studio Code, you can open and edit the workflow definition for an already deployed logic app in Azure.
 
-> [!IMPORTANT] 
-> Before you edit an actively running logic app in production, 
-> avoid the risk in breaking that logic app and minimize disruption by 
-> [disabling your logic app first](#disable-enable-logic-apps).
+> [!IMPORTANT]
+>
+> Before you edit an actively running logic app in production, avoid the risk in breaking that logic 
+> app and minimize disruption by [disabling your logic app first](#disable-enable-logic-apps).
 
 1. If you haven't signed in to your Azure account and subscription yet from inside Visual Studio Code, follow the [previous steps to sign in now](#access-azure).
 
