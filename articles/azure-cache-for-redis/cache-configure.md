@@ -96,7 +96,7 @@ You can securely issue commands to your Azure Cache for Redis instances using th
 
 > [!NOTE]
 >
-> To access Redis Console, you would need atleast **Contributor** built-in role.
+> To access Redis Console, you would need at least **Contributor** built-in role.
 >
 
 To access the Redis Console, select **Console** tab in the working pane of Resource menu.
