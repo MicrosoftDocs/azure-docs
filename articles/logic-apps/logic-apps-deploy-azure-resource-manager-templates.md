@@ -41,7 +41,7 @@ For example, you're prompted for the following information after you sign in to 
 
 For more information, see these topics:
 
-* [Overview: Automate deployment for logic apps with Azure Resource Manager templates](/azure/logic-apps-azure-resource-manager-templates-overview)
+* [Overview: Automate deployment for logic apps with Azure Resource Manager templates](/azure/logic-apps/logic-apps-azure-resource-manager-templates-overview)
 * [Deploy resources with Azure Resource Manager templates and the Azure portal](/azure/azure-resource-manager/templates/deploy-portal)
 
 <a name="powershell"></a>
