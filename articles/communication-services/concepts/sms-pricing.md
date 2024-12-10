@@ -16,7 +16,7 @@ zone_pivot_groups: acs-tollfree-shortcode-alphanumeric-tendlc
 ::: zone-end
 
 ::: zone pivot="tendlc"
-[!INCLUDE [10DLC](./includes/sms-ten-digit-longcode-pricing.md)]
+[!INCLUDE [10DLC](./includes/sms-ten-digit-long-code-pricing.md)]
 ::: zone-end
 
 ::: zone pivot="shortcode"
