@@ -146,7 +146,7 @@ Location based Message template assembly:
  messageTemplateWithLocation.Bindings = location_bindings;
 ``````
 #### Example
-:::image type="content" source="./../media/template-messages/sample-location-based-template.jpg" lightbox="./../media/template-messages/sample-location-based-template.jpg" alt-text="Screenshot that shows template details for template named sample_location_template.":::
+:::image type="content" source="../../media/template-messages/sample-location-based-template.jpg" lightbox="../../media/template-messages/sample-location-based-template.jpg" alt-text="Screenshot that shows template details for template named sample_location_template.":::
 
 ### Templates with quick reply buttons
 

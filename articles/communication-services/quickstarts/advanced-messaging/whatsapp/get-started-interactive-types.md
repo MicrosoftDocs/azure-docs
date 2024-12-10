@@ -1,7 +1,7 @@
 ---
 title: Send Interactive Messages
 titleSuffix: An Azure Communication Services Messages quickstart
-description: In this quickstart, you learn to set up the basic functionality of Azure Communication Services Messages.
+description: In this quickstart, you learn to set up the interactive messages functionality of Azure Communication Services Messages.
 author: Shamkh
 manager: camilo.ramirez
 services: azure-communication-services
