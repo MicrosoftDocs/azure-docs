@@ -2,6 +2,14 @@
   href: index.yml
 - name: What is reliability?
   href: overview.md
+- name: Concepts
+  items:
+  - name: Business continuity
+    href: concept-business-continuity.md
+  - name: High availability
+    href: concept-high-availability.md
+  - name: Disaster recovery
+    href: concept-disaster-recovery.md
 - name: Availability zone support
   items:
   - name: What are Azure availability zones?
@@ -78,10 +86,6 @@
         href: migrate-workload-aks-mysql.md
 - name: Disaster recovery
   items:
-  - name: What is disaster recovery?
-    href: disaster-recovery-overview.md
-  - name: Business continuity management program
-    href: business-continuity-management-program.md
   - name: Cross-region replication
     items:
     - name: Cross-region replication overview
