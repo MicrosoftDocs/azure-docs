@@ -27,6 +27,7 @@ This table describes how you can collect data to monitor your service, and what 
 
 ## Built in monitoring for API Management
 
+Azure API management has the following built in monitoring features.
 
 ### Get API analytics in Azure API Management
 
@@ -53,7 +54,7 @@ With API analytics, analyze the usage and performance of the APIs in your API Ma
 - Users
 - Requests
 
-API analytics provides data on requests, including failed and unauthorized requests. Geography values are , based on IP address mapping. There can be a delay in the availability of analytics data.
+API analytics provides data on requests, including failed and unauthorized requests. Geography values are based on IP address mapping. There can be a delay in the availability of analytics data.
 
 #### Azure Monitor-based dashboard
 
@@ -491,8 +492,6 @@ Addressing the issue of telemetry data flow from API Management to Application I
 
 ### Enable logging of developer portal usage in Azure API Management
 
-[!INCLUDE [api-management-availability-premium-dev-standard-basic](../../includes/api-management-availability-premium-dev-standard-basic.md)]
-
 This article shows you how to enable Azure Monitor logs for auditing and troubleshooting usage of the API Management [developer portal](developer-portal-overview.md). When enabled through a diagnostic setting, the logs collect information about the requests that are received and processed by the developer portal.
 
 Developer portal usage logs include data about activity in the developer portal, including:
@@ -515,7 +514,7 @@ To configure a diagnostic setting for developer portal usage logs:
     1. **Diagnostic setting name**: Enter a descriptive name.
     1. **Category groups**: Optionally make a selection for your scenario.
     1. Under **Categories**: Select **Logs related to Developer Portal usage**. Optionally select other categories as needed.
-    1. Under **Destination details**, select one or more options and specify details for the destination. For example, archive logs to a storage account or stream them to an event hub. [Learn more](/azure/azure-monitor/essentials/diagnostic-settings).
+    1. Under **Destination details**, select one or more options and specify details for the destination. For example, archive logs to a storage account or stream them to an event hub. For more information, see [Diagnostic settings in Azure Monitor](/azure/azure-monitor/essentials/diagnostic-settings).
     1. Select **Save**.
 
 #### View diagnostic log data
@@ -531,8 +530,6 @@ If you send logs to a storage account, you can access the data in the Azure port
 1. To retrieve the data for further analysis, select **Download**.
 
 ### Integrate Application Insights to developer portal
-
-[!INCLUDE [api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2.md)]
 
 A popular feature of Azure Monitor is Application Insights. It's an extensible Application Performance Management (APM) service for developers and DevOps professionals. Use it to monitor your developer portal and detect performance anomalies. Application Insights includes powerful analytics tools to help you learn what users actually do while visiting your developer portal.
 

@@ -460,6 +460,8 @@
     href: /cli/azure/apim
   - name: Azure PowerShell
     href: /powershell/module/az.apimanagement/
+  - name: Monitoring data reference
+    href: monitor-api-management-reference.md
   - name: REST API
     href: /rest/api/apimanagement/
   - name: REST API SDKs
