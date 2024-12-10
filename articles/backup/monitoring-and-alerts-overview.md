@@ -26,6 +26,20 @@ The following sections provide an overview of the different monitoring and repor
 | **Get alerted to critical backup incidents** | Take quick reactive actions in case of an issue. | - **Built-in alerts using Azure Monitor**: Azure Backup provides an [alerting solution](#azure-monitor-alerts-for-azure-backup) based on Azure Monitor for critical scenarios, such as security and failed jobs: deletion of backup data, disabling of soft-delete, backup failures, and restore failures etc. You can view and manage these alerts via [Azure Business Continuity Center](../business-continuity-center/tutorial-monitor-alerts-metrics.md#view-metrics). To [configure notifications](backup-azure-monitor-alerts-notification.md#configure-notifications-for-alerts) for these alerts (emails), you can use [Action rules of Azure Monitor](/azure/azure-monitor/alerts/alerts-action-rules?tabs=portal) and [Action groups](/azure/azure-monitor/alerts/action-groups) to route alerts to a wide range of notification channels.   <br><br>     - **Custom alerts**: If you've scenarios where an alert needs to be generated based on custom logic, you can use [ARG based](/azure/governance/resource-graph/alerts-query-quickstart?tabs=arg-log-analytics) alerts or [Log Analytics based](backup-azure-monitoring-use-azuremonitor.md#create-alerts-by-using-log-analytics) alerts. ARG based alerts are appropriate for scenarios that need real time alerting however, due to the current [frequency at which data in a Log Analytics workspace](backup-azure-monitoring-use-azuremonitor.md#diagnostic-data-update-frequency) is updated. Log Analytics based alerts must be used for scenarios where it's acceptable to have a short time difference between the occurrence of the actual incident and the generation of the alert. Log Analytics based alerts can be configured provided you've set up your vaults to send diagnostics data to a Log Analytics (LA) workspace. You can also configure alerts on Activity Logs or export these logs to a Log Analytics workspace for long-term retention.     <br><br>   - **Azure Backup Metric Alerts using Azure Monitor (preview)**: You can write custom alert rules using Azure Monitor metrics to monitor the health of your backup items across different KPIs. Metrics based alerts are recommended when you are looking for a status signal like success or failure of jobs and not details. You can use metric alerts to get alerted on job success. [Learn more](metrics-overview.md).    <br><br>    - **Classic Alerts**: This is the older alerting solution, which you can [access using the Backup Alerts](move-to-azure-monitor-alerts.md#backup-alerts-in-recovery-services-vault) tab in the Recovery Services vault blade. These alerts don't appear in Business Continuity Center and are being deprecated. If you're using classic alerts, we recommend you [migrate to using one or more of the Azure Monitor based alert](backup-azure-monitoring-alerts.md#migrate-from-classic-alerts-to-built-in-azure-monitor-alerts) solutions (described above) as it's the forward-looking solution for alerting.  |
 | **Analyze historical trends** | Provides targeted proof for audit and executive reports seamlessly. | - **Built-in reports**: You can use [Backup Reports](configure-reports.md) (based on Azure Monitor Logs) to analyze historical trends related to job success, backup usage and discover optimization opportunities for your backups. You can also [configure periodic emails](backup-reports-email.md) for these reports.  <br><br>   - **Out-of-box reports**: It provides out of box reports on Azure Business Continuity Center that can be consumed for analyzing historical data. These reports also act as sample templates that can be edited to cater to your reporting requirements. You can also query the data in Azure Monitor Logs (LA) using the documented [system functions](backup-reports-system-functions.md) to create your own report (using workbooks) to analyze historical information related to your backups. 
 
+### Key benefits of Azure Monitor alerts
+
+Azure Monitor for Azure Backup provides the following key benefits:
+
+- **Configure notifications to a wide range of notification channels**: Azure Monitor supports a wide range of notification channels, such as email, ITSM, webhooks, logic apps, and so on. You can configure notifications for backup alerts to any of these channels without investing much time in creating custom integrations.
+
+- **Enable notifications for selective scenarios**: With Azure Monitor alerts, you can choose the scenarios to be notified about. Also, you can enable notifications for test subscriptions.
+
+- **Monitor alerts at-scale via Azure Business Continuity Center**: In addition to enabling you to manage the alerts from Azure Monitor dashboard, Azure Backup also provides an alert management experience tailored to backups via Azure Business Continuity Center. This allows you to filter alerts by backup specific properties, such as workload type, vault location, and so on, and a way to get quick visibility into the active backup security alerts that need attention.
+
+- **Manage alerts and notifications programmatically**: You can use Azure Monitor’s REST APIs to manage alerts and notifications via non-portal clients as well.
+
+- **Consistent alert management for multiple Azure services, including backup**: Azure Monitor is the native service for monitoring resources across Azure. With the integration of Azure Backup with Azure Monitor, you can manage backup alerts in the same way as alerts for other Azure services, without requiring a separate learning curve.
+
 ## Azure Monitor alerts for Azure Backup
 
 Azure Backup also provides alerts via Azure Monitor that enables you to have a consistent experience for alert management across different Azure services, including Azure Backup. With Azure Monitor alerts, you can route alerts to any notification channel supported by Azure Monitor, such as email, ITSM, Webhook, Logic App, and so on.
@@ -54,22 +68,6 @@ The following table summarizes the different backup alerts currently available v
  
 > [!NOTE]
 >- For Azure VM backup, backup failure alerts are not sent in scenarios where the underlying VM is deleted, or another backup job is already in progress (leading to failure of the other backup job). This is because these are scenarios where backup is expected to fail by design and hence alerts are not generated in these 2 cases.
-
-### Key benefits of Azure Monitor alerts
-
-Azure Monitor for Azure Backup provides the following key benefits:
-
-- **Configure notifications to a wide range of notification channels**: Azure Monitor supports a wide range of notification channels, such as email, ITSM, webhooks, logic apps, and so on. You can configure notifications for backup alerts to any of these channels without investing much time in creating custom integrations.
-
-- **Enable notifications for selective scenarios**: With Azure Monitor alerts, you can choose the scenarios to be notified about. Also, you can enable notifications for test subscriptions.
-
-- **Monitor alerts at-scale via Azure Business Continuity Center**: In addition to enabling you to manage the alerts from Azure Monitor dashboard, Azure Backup also provides an alert management experience tailored to backups via Azure Business Continuity Center. This allows you to filter alerts by backup specific properties, such as workload type, vault location, and so on, and a way to get quick visibility into the active backup security alerts that need attention.
-
-- **Manage alerts and notifications programmatically**: You can use Azure Monitor’s REST APIs to manage alerts and notifications via non-portal clients as well.
-
-- **Consistent alert management for multiple Azure services, including backup**: Azure Monitor is the native service for monitoring resources across Azure. With the integration of Azure Backup with Azure Monitor, you can manage backup alerts in the same way as alerts for other Azure services, without requiring a separate learning curve.
-
-
 
 ## Next steps
 
