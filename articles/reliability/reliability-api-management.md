@@ -33,9 +33,9 @@ When you configure a multi-zone or multi-region Azure API Managment instance, yo
 
 ## Consumption tier reliability
 
-The consumption tier of Azure API Management has built-in resiliency capabilities, and it is resilient to a range of faults within a single Azure datacenter. However, it doesn't provide support for availability zones or multi-region deployments. Review the [service level agreement](#service-level-agreement) to understand the expected uptime of a consumption tier Azure API Management instance.
+The consumption tier of Azure API Management has built-in resiliency capabilities, and is resilient to a range of faults within a single Azure datacenter. However, the consumption tier doesn't provide support for availability zones or multi-region deployments. To understand the expected uptime of a consumption tier Azure API Management instance, review the [service level agreement](#service-level-agreement).
 
-If you need greater resiliency than the consumption tier provides, use a tier that supports the resiliency capabilities you require.
+If you need more resiliency than the consumption tier provides, use a tier that supports the resiliency capabilities you require.
 
 ::: zone-end
 
@@ -53,13 +53,13 @@ If you need greater resiliency than the consumption tier provides, use a tier th
 
 ## Capacity management
 
-You should also proactively monitor the capacity of your gateway. Azure API Management gateways provide [capacity metrics](/azure/api-management/api-management-capacity) that can indicate when your instance is approaching its maximum capacity. By monitoring the capacity, you can scale your instance before it reaches its maximum capacity, which can cause requests to fail as well as timeouts and latency problems.
+To avoid request failures, timeouts, and latency problems, you should proactively monitor the capacity of your gateway by using Azure API Management gateway [capacity metrics](/azure/api-management/api-management-capacity). With capacity metrics you can make scaling decisions when your instance is approaching its maximum capacity. 
 
 ::: zone-end
 
 ::: zone pivot="premium-classic"
 
-If you use [workspaces](../api-management/workspaces-overview.md) to share a single Azure API Management instance between multiple teams or groups, it's important to avoid one workspace consuming all of the capacity you deploy, which might cause outages or reliability issues for other workspaces. Consider using [workspace gateways](../api-management/workspaces-overview.md#workspace-gateway) to isolate the capacity used by each workspace.
+If you use [workspaces](../api-management/workspaces-overview.md) to share a single Azure API Management instance between multiple teams, you should use [workspace gateways](../api-management/workspaces-overview.md#workspace-gateway) to isolate and limit the capacity allotted to each workspace. If you don't use workspace gateways, there's a high probability that a single workspace could consume all of the deployed capacity, causing outages or reliability issues for the other workspaces.
 
 ::: zone-end
 
@@ -71,7 +71,7 @@ All applications should follow Azure's transient fault handling guidance when co
 
 ### Retries and circuit breakers
 
-When you use Azure API Management in front of an API, you might need to retry requests that fail due to transient requests while also protecting your backend API from being overwhelmed by too many requests. Backends provide you with the ability to create retry and circuit breaker logic to support your API's needs. For more information, see [Backends in API Management](../api-management/backends.md).
+When you use Azure API Management in front of an API, you might need to retry requests that fail due to transient requests. To protect your backend API from being overwhelmed by too many requests, [Backends in API Management](../api-management/backends.md) provides you with the ability to create retry and circuit breaker logic to support your API's needs. 
 
 ## Availability zone support
 
@@ -233,7 +233,10 @@ You can simulate a region failure by disabling routing to a regional gateway. To
 
 ## Backups
 
-Azure API Management doesn't store data. You can back up your Azure API Management service configuration. Backup and restore operations can also be used for replicating API Management service configuration between operational environments, for example, development and staging. Beware that runtime data such as users and subscriptions are copied as well, which might not always be desirable.
+Azure API Management doesn't store data. You can back up your Azure API Management service configuration. Backup and restore operations can also be used for replicating API Management service configuration between operational environments, for example, development and staging. 
+
+>[!IMPORTANT]
+>Runtime data such as users and subscriptions are copied as well, which might not always be desirable.
 
 Backup is supported in Developer, Basic, Standard, and Premium tiers.
 
