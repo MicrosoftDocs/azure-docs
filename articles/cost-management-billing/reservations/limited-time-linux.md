@@ -6,7 +6,7 @@ ms.reviewer: shreyabaheti
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 12/02/2024
+ms.date: 12/06/2024
 ms.author: banders
 ms.custom: references_regions
 #customer intent: I want to learn how to save money with reservations and buy one.
