@@ -86,16 +86,6 @@
             - name: Overview
               href: services.md
               displayName: Connecting to services overview
-            - name: Tutorials
-              items:
-              - name: Apache Kafka
-                href: tutorial-dev-services-kafka.md
-              - name: PostgreSQL
-                href: tutorial-dev-services-postgresql.md
-              - name: Qdrant
-                href: add-ons-qdrant.md
-              - name: Redis
-                href: connect-services.md
         - name: Connect multiple apps
           href: connect-apps.md
         - name: Connect to a cloud service using Service Connector
