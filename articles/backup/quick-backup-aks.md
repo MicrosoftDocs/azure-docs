@@ -4,6 +4,8 @@ description: Learn how to configure backup for an Azure Kubernetes Service (AKS)
 ms.topic: quickstart
 ms.date: 11/14/2024
 ms.service: azure-backup
+ms.custom:
+  - ignite-2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---

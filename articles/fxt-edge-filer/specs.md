@@ -10,6 +10,9 @@ ms.date: 06/20/2019
 
 # Azure FXT Edge Filer specifications
 
+> [!NOTE]
+> **Action Required:** Azure FXT Edge Filer will be retired on December 31, 2026. Please remove all Azure FXT Edge Filer resources by December 31, 2026. Visit https://aka.ms/fxtretirementfaq for more information.
+
 This article explains the hardware specifications for Azure FXT Edge Filer hardware nodes. In practice, three or more nodes are configured together to provide the clustered cache system.
 
 ## Hardware specifications

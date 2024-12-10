@@ -10,7 +10,7 @@ ms.author: dayshen
 
 # Availability zones support in Azure Web PubSub Service
 
-Azure Web PubSub Service uses [Azure availability zones](../availability-zones/az-overview.md#availability-zones) to provide high availability and fault tolerance within an Azure region.
+Azure Web PubSub Service uses [Azure availability zones](../reliability/availability-zones-overview.md) to provide high availability and fault tolerance within an Azure region.
 
 > [!NOTE]
 > Zone redundancy is a Premium tier feature. It is implicitly enabled when you create or upgrade to a Premium tier resource. Standard tier resources can be upgraded to Premium tier without downtime.

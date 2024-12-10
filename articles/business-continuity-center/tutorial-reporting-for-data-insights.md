@@ -2,10 +2,11 @@
 title: Tutorial - Set up and view reports in Azure Business Continuity Center
 description: This tutorial describes how to set up and view reports in Azure Business Continuity Center.
 ms.topic: tutorial
-ms.date: 09/30/2024
+ms.date: 11/19/2024
 ms.service: azure-business-continuity-center
 ms.custom:
   - ignite-2023
+  - ignite-2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---

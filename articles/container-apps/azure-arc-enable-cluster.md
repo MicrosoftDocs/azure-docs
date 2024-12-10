@@ -2,12 +2,12 @@
 title: 'Tutorial: Enable Azure Container Apps on Azure Arc-enabled Kubernetes'
 description: 'Tutorial: learn how to set up Azure Container Apps in your Azure Arc-enabled Kubernetes clusters.'
 services: container-apps
-author: v-jaswel
+author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: tutorial
 ms.date: 9/24/2024
-ms.author: v-wellsjason
+ms.author: cshoe
 ---
 ---
 # Tutorial: Enable Azure Container Apps on Azure Arc-enabled Kubernetes (Preview)

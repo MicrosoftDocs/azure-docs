@@ -33,7 +33,7 @@ Broker listeners have the following characteristics:
 - **TLS**: [Manual](#enable-tls-manual-certificate-management-for-a-port) or [automatic](#enable-tls-automatic-certificate-management-for-a-port) TLS configuration is applied per port.
 - **Protocol**: [MQTT over WebSockets](#websockets-support) can be enabled per port.
 
-For a list of all available settings, see the [Broker Listener API reference](/rest/api/iotoperationsmq/broker-listener).
+For a list of all available settings, see the [Broker Listener API reference](/rest/api/iotoperations/broker-listener).
 
 ## Default BrokerListener
 
@@ -51,7 +51,7 @@ To view or edit the default listener:
 # [Portal](#tab/portal)
 
 1. In the Azure portal, navigate to your IoT Operations instance.
-1. Under **Azure IoT Operations resources**, select **MQTT Broker**.
+1. Under **Components**, select **MQTT Broker**.
 
     :::image type="content" source="media/howto-configure-brokerlistener/configure-broker-listener.png" alt-text="Screenshot using Azure portal to view Azure IoT Operations MQTT configuration.":::
 
@@ -202,7 +202,7 @@ This example shows how to create a new listener with load balancer service type.
 # [Portal](#tab/portal)
 
 1. In the Azure portal, navigate to your IoT Operations instance.
-1. Under **Azure IoT Operations resources**, select **MQTT Broker**.
+1. Under **Components**, select **MQTT Broker**.
 1. Select **MQTT broker listener for LoadBalancer** > **Create**.
 
     Enter the following settings:
@@ -537,7 +537,7 @@ The following is an example of a BrokerListener resource that enables TLS on por
 # [Portal](#tab/portal)
 
 1. In the Azure portal, go to your IoT Operations instance.
-1. Under **Azure IoT Operations resources**, select **MQTT Broker**.
+1. Under **Components**, select **MQTT Broker**.
 1. Select or create a listener. You can only create one listener per service type. If you already have a listener of the same service type, you can add more ports to the existing listener.
 1. You can add TLS settings to the listener by selecting the **TLS** on an existing port or by adding a new port.
 
@@ -652,7 +652,7 @@ Once the BrokerListener resource is configured, MQTT broker automatically create
 
 The only required parameters are Issuer name and Issuer kind. All other properties of the generated TLS server certificates are automatically chosen. However, MQTT broker allows certain properties to be customized following the same syntax as cert-manager Certificates. For example, you can specify the private key algorithm and rotation policy. These settings are under `tls.certManagerCertificateSpec` or the **TLS configuration** pane in the Azure portal.
 
-For a full list of these settings, see [Broker Listener CertManagerCertificateSpec API reference](/rest/api/iotoperationsmq/broker-listener/create-or-update#certmanagercertificatespec).
+For a full list of these settings, see [Broker Listener CertManagerCertificateSpec API reference](/rest/api/iotoperations/broker-listener/create-or-update#certmanagercertificatespec).
 
 #### Verify deployment
 
@@ -751,7 +751,7 @@ The following is an example of a BrokerListener resource that enables TLS on por
 # [Portal](#tab/portal)
 
 1. In the Azure portal, navigate to your IoT Operations instance.
-1. Under **Azure IoT Operations resources**, select **MQTT Broker**.
+1. Under **Components**, select **MQTT Broker**.
 1. Select or create a listener. You can only create one listener per service type. If you already have a listener of the same service type, you can add more ports to the existing listener. To follow the example, specify the listener service name as `mqtts-endpoint`.
 1. You can add TLS settings to the listener by selecting the **TLS** on an existing port or by adding a new port.
 
@@ -921,3 +921,4 @@ From here, follow the same steps as previously to create a server certificate wi
 
 - [Configure MQTT broker authorization](howto-configure-authorization.md)
 - [Configure MQTT broker authentication](howto-configure-authentication.md)
+- [Tutorial: TLS, X.509 client authentication, and attribute-based access control (ABAC) authorization](./tutorial-tls-x509.md)

@@ -2,6 +2,8 @@
 title: Azure Update Manager FAQ
 description: This article gives answers to frequently asked questions about Azure Update Manager
 ms.service: azure-update-manager
+ms.custom:
+  - ignite-2024
 ms.topic: faq
 ms.date: 10/10/2024
 author: snehasudhirG

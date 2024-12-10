@@ -32,7 +32,7 @@ Find full code samples that are used in this tutorial:
 To create a Web PubSub for Socket.IO, you can use the following [Azure CLI](/cli/azure/install-azure-cli) command:
 
 ```azcli
-az webpubsub create -g <resource-group> -n <resource-name>---kind socketio --service-mode serverless --sku Premium_P1
+az webpubsub create -g <resource-group> -n <resource-name>--kind socketio --service-mode serverless --sku Premium_P1
 ```
 
 ## Create an Azure Function project locally

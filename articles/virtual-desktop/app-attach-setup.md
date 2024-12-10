@@ -776,7 +776,7 @@ Here's how to add an MSIX package using the [Az.DesktopVirtualization](/powershe
 
    ```output
    DisplayName                  : My App
-   Id                           : /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/avd/providers/Microsoft.DesktopVirtualization/hostpools/hp01/msixpackages/MyApp_1.0.0.0_neutral__abcdef123ghij
+   Id                           : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/avd/providers/Microsoft.DesktopVirtualization/hostpools/hp01/msixpackages/MyApp_1.0.0.0_neutral__abcdef123ghij
    ImagePath                    : \\fileshare\Apps\MyApp\MyApp.cim
    IsActive                     : True
    IsRegularRegistration        : False
