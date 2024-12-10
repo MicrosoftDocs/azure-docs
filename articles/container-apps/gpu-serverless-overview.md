@@ -68,7 +68,7 @@ Keep in mind the following items as you use serverless GPUs:
 
 ## Request serverless GPU quota
 
-Access to this feature is only available after you have serverless GPU quota. You can submit your GPU quota request via a [customer support case](/azure/azure-portal/supportability/how-to-create-azure-support-request). When openning support case for a GPU quota request, select issue type "Technical."
+Access to this feature is only available after you have serverless GPU quota. You can submit your GPU quota request via a [customer support case](/azure/azure-portal/supportability/how-to-create-azure-support-request). When opening a support case for a GPU quota request, select issue type "Technical."
 
 > [!NOTE]
 > Customers with enterprise agreements have a single T4 GPU quota enabled by default.
