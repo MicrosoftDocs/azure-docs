@@ -47,6 +47,7 @@ Changes are processed in the order that their changes were made, with the oldest
 
 For more information on change tracking and how it's used by applications such as Azure SQL triggers, see [work with change tracking](/sql/relational-databases/track-changes/work-with-change-tracking-sql-server) .
 
+[!INCLUDE [functions-sql-database-authentication-note](../../includes/functions-sql-database-authentication-note.md)]
 
 ::: zone pivot="programming-language-csharp"
 
