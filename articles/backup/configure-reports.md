@@ -2,7 +2,7 @@
 title: Configure Azure Backup reports
 description: Configure and view reports for Azure Backup by using Log Analytics and Azure workbooks
 ms.topic: how-to
-ms.date: 04/25/2024
+ms.date: 12/30/2024
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -30,7 +30,7 @@ The following table lists the supported scenarios to configure Azure Backup repo
 | **Backup Configuration Status** | Backup | Information on whether all of your VMs are configured for backup. | Azure VM | Out-of-Box |
 | **Backup Job History** | Backup | Information on the successful and failed backup jobs over a specified duration of time. | - Azure VM <br> - Backup Agent (MARS) <br> - Backup Server (MABS) <br> - Data Protection Manager (DPM) <br> - Azure Database for PostgreSQL Server <br> - Azure Blobs <br> - Azure Disks | Out-of-Box |
 | ** Backup Schedule and Retention** | Backup | Information on schedule and retention of all the backup items so that you can verify if they meet the business requirements. | - Azure VM <br> - Azure Files | Out-of-Box |
-| **User Triggered Operations** | Backup | Information on user triggered operations on Recovery Services vaults over a specified period of time. | Recovery Services Vault | Out-of-Box | 
+| **User Triggered Operations** | Backup | Information on user triggered operations on Recovery Services vaults over a specified period of time. | Recovery Services vault | Out-of-Box | 
 | **Azure Site Recovery Job History** | Azure Site Recovery | Information on the successful and failed Azure Site Recovery jobs over a specified duration of time. <br><br> Note that only jobs triggered on replicated items and recovery plans currently appear in this report. | - Azure VM <br> - V2A <br> - H2A | Out-of-Box |
 | **Azure Site Recovery Replication History** | Azure Site Recovery | Information on the replicated items over a specified duration of time. | - Azure VM <br> - V2A <br> - H2A | Out-of-Box |
 
