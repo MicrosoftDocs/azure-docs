@@ -59,7 +59,7 @@ To avoid request failures, timeouts, and latency problems, you should proactivel
 
 ::: zone pivot="premium-classic"
 
-If you use [workspaces](../api-management/workspaces-overview.md) to share a single Azure API Management instance between multiple teams, you should use [workspace gateways](../api-management/workspaces-overview.md#workspace-gateway) to isolate and limit the capacity allotted to each workspace. If you don't use workspace gateways, there's a high probability that a single workspace could consume all of the deployed capacity, causing outages or reliability issues for the other workspaces.
+If you use [workspaces](../api-management/workspaces-overview.md) to share a single Azure API Management instance between multiple teams, you should use [workspace gateways](../api-management/workspaces-overview.md#workspace-gateway) to isolate and limit the capacity allotted to each workspace. If you don't use workspace gateways, there's a possibility that a single workspace could consume all of the deployed capacity, causing outages or reliability issues for the other workspaces.
 
 ::: zone-end
 
