@@ -27,7 +27,7 @@ The `ServiceBusProcessor` class of [Azure Messaging Service Bus client for .NET]
 
 ### Tracking with Azure Application Insights
 
-[Microsoft Application Insights](https://azure.microsoft.com/services/application-insights/) provides rich performance monitoring capabilities including automagical request and dependency tracking.
+[Microsoft Application Insights](https://learn.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview) provides rich performance monitoring capabilities including automagical request and dependency tracking.
 
 Depending on your project type, install Application Insights SDK:
 - [ASP.NET](/azure/azure-monitor/app/asp-net) - install version 2.5-beta2 or higher
@@ -142,7 +142,7 @@ All events will have the following properties that conform with the open telemet
 - `component` – `servicebus`
 
 All events also have `Entity` and `Endpoint` properties.
-  * `Entity` -  - Name of the entity (queue, topic, and so on.)
+* `Entity` -  - Name of the entity (queue, topic, and so on.)
   * `Endpoint` - Service Bus endpoint URL
 
 ### Instrumented operations
@@ -319,7 +319,7 @@ Most probably, you're only interested in 'Stop' events. They provide the result 
 Event payload provides a listener with the context of the operation, it replicates API incoming parameters and return value. 'Stop' event payload has all the properties of 'Start' event payload, so you can ignore 'Start' event completely.
 
 All events also have 'Entity' and 'Endpoint' properties.
-  * `string Entity` -  - Name of the entity (queue, topic, etc.)
+* `string Entity` -  - Name of the entity (queue, topic, etc.)
   * `Uri Endpoint` - Service Bus endpoint URL
 
 Each 'Stop' event has `Status` property with `TaskStatus` async operation was completed with, that is also omitted in the following table for simplicity.
