@@ -411,13 +411,13 @@ The [configuration](#configuration) section explains these properties.
 The following example is sample JavaScript code:
 
 ```javascript
-module.exports = async function (context, req, products) {
+module.exports = async function (context, req, product) {
     context.log('JavaScript HTTP trigger and MySQL output binding function processed a request.');
     
     context.res = {
         // status: 200, /* Defaults to 200 */
         mimetype: "application/json",
-        body: products
+        body: product
     };
 }
 ```
@@ -716,7 +716,7 @@ The following table explains the binding configuration properties that you set i
 >
 >It is on different programming language if special character is supported to define members attributes containing special characters. For example, C# have few limitations to define [variables](https://learn.microsoft.com/dotnet/csharp/fundamentals/coding-style/identifier-names)
 >
->Apart from that, the output binding covering all special characters can be done using 'JObject'. The detailed example can be followed in this [Github link](https://github.com/Azure/azure-functions-mysql-extension/blob/main/samples/samples-csharp/OutputBindingSamples/AddProductJObject.cs)
+>Apart from that, the output binding covering all special characters can be done using 'JObject'. The detailed example can be followed in this [GitHub link](https://github.com/Azure/azure-functions-mysql-extension/blob/main/samples/samples-csharp/OutputBindingSamples/AddProductJObject.cs)
 >
 
 ## Usage

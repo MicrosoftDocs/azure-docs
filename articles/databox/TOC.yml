@@ -7,6 +7,8 @@
       items:
       - name: What is Data Box?
         href: data-box-overview.md
+      - name: What is next-gen Data Box?
+        href: data-box-next-gen-overview.md
     - name: Quickstarts
       expanded: true
       items:
@@ -14,8 +16,12 @@
         items:
         - name: For import
           href: data-box-quickstart-portal.md
+        - name: For import - Next Gen
+          href: data-box-next-gen-quickstart-portal.md
         - name: For export
           href: data-box-quickstart-export.md
+        - name: For export - Next Gen
+          href: data-box-next-gen-quickstart-export.md
     - name: Tutorials
       items:
       - name: Import data to Azure
@@ -58,6 +64,8 @@
       items:
       - name: Read safety guidelines
         href: data-box-safety.md
+      - name: Read safety guidelines - Next Gen
+        href: data-box-next-gen-safety.md
       - name: Review tracking and logging
         items:
         - name: For import orders
@@ -82,6 +90,8 @@
           href: ./security-controls-policy.md
         - name: Review security 
           href: data-box-security.md
+        - name: Review security - Next Gen
+          href: data-box-next-gen-security.md
       - name: Transfer ACLs and metadata
         href: data-box-file-acls-preservation.md 
       - name: FAQ

@@ -133,6 +133,8 @@ items:
       href: protect-azure-vmware-solution-with-application-gateway.md
   - name: Configure customer-managed key encryption at rest
     href: configure-customer-managed-keys.md
+  - name: Configure vTPM on a Virtual Machine
+    href: configure-virtual-trusted-platform-module.md
 - name: Networking
   items:
   - name: Connect to on-premises environment
@@ -199,6 +201,8 @@ items:
   items:
   - name: Operating system support for VMs
     href: ecosystem-os-vms.md
+  - name: Configure vTPM on a Virtual Machine
+    href: configure-virtual-trusted-platform-module.md
   - name: Configure Windows Server Failover Cluster
     href: configure-windows-server-failover-cluster.md
   - name: Deploy VMs from the content library
@@ -233,8 +237,12 @@ items:
       href: install-cloud-backup-virtual-machines.md
     - name: Backup Azure NetApp Files datastores and VMs
       href: backup-azure-netapp-files-datastores-vms.md
+    - name: Configure Cloud Backup for Virtual Machines
+      href: configure-cloud-backup-virtual-machine.md  
     - name: Restore VMs
       href: restore-azure-netapp-files-vms.md
+    - name: Restore guest files and folders
+      href: restore-guest-files-folders.md  
   - name: External storage solutions
     items:
     - name: Storage solution overview

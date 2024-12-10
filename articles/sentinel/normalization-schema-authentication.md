@@ -238,7 +238,7 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 |<a name="targetipaddr"></a>**TargetIpAddr** |Optional | IP Address|The IP address of the target device. <br><br>Example: `2.2.2.2` |
 | **TargetDvcOs**| Optional| String| The OS of the target device. <br><br>Example: `Windows 10`|
 | **TargetPortNumber** |Optional |Integer |The port of the target device.|
-| **TargetGeoCountry** | Optional | Country | The country associated with the target IP address.<br><br>Example: `USA` |
+| **TargetGeoCountry** | Optional | Country | The country/region associated with the target IP address.<br><br>Example: `USA` |
 | **TargetGeoRegion** | Optional | Region | The region associated with the target IP address.<br><br>Example: `Vermont` |
 | **TargetGeoCity** | Optional | City | The city associated with the target IP address.<br><br>Example: `Burlington` |
 | **TargetGeoLatitude** | Optional | Latitude | The latitude of the geographical coordinate associated with the target IP address.<br><br>Example: `44.475833` |

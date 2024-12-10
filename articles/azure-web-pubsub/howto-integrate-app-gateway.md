@@ -136,7 +136,7 @@ app.get("/negotiate", async (req, res) => {
     url
   })
 }
-// Every 2 seconds, we ask Web PubSub service to send all connected clients the messsage "hello, world"
+// Every 2 seconds, we ask Web PubSub service to send all connected clients the message "hello, world"
 setInterval(() => {
   webpubsub.sendToAll("hello, world", { contentType: "text/plain" });
 }, 2000);
@@ -230,7 +230,7 @@ app.get("/negotiate", async (req, res) => {
 
 Find the public IP of your Application Gateway resource and set the environment variable. 
 ```bash
-export appGatewayEndpoint="<replace with the public IP of your Applciation Gateway resource>"
+export appGatewayEndpoint="<replace with the public IP of your Application Gateway resource>"
 ```
 
 Three points to note. 

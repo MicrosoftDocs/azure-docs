@@ -4,7 +4,7 @@ description: This article explains how to view and create scheduled analytics ru
 author: yelevin
 ms.author: yelevin
 ms.topic: how-to
-ms.date: 07/02/2024
+ms.date: 10/16/2024
 appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
@@ -20,7 +20,7 @@ You’ve set up [connectors and other means of collecting activity data](connect
 
 Microsoft Sentinel and its many [solutions provided in the Content hub](sentinel-solutions.md) offer templates for the most commonly used types of analytics rules, and you’re strongly encouraged to make use of those templates, customizing them to fit your specific scenarios. But it’s possible you might need something completely different, so in that case you can create a rule from scratch, using the analytics rule wizard.
 
-This article describes the process of creating an analytics rule from scratch, including using the **Analytics rule wizard**. It's accompanied by screenshots and directions to access the wizard in both the Azure portal, for Microsoft Sentinel users who aren't also Microsoft Defender subscribers, and the Defender portal, for users of the Microsoft Defender unified security operations platform.
+This article describes the process of creating an analytics rule from scratch, including using the **Analytics rule wizard**. It's accompanied by screenshots and directions to access the wizard in both the Azure portal and the Defender portal.
 
 [!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
@@ -173,7 +173,7 @@ In the **Incident settings** tab, choose whether Microsoft Sentinel turns alerts
    - If you don’t want this rule to result in the creation of any incidents (for example, if this rule is just to collect information for subsequent analysis), set this to **Disabled**.
 
      > [!IMPORTANT]
-     > If you onboarded Microsoft Sentinel to the unified security operations platform in the Microsoft Defender portal, leave this setting **Enabled**.
+     > If you onboarded Microsoft Sentinel to the Microsoft Defender portal, leave this setting **Enabled**.
 
    - If you want a single incident to be created from a group of alerts, instead of one for every single alert, see the next section.
 

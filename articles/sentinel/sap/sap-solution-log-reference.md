@@ -386,7 +386,7 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 | ArchivingDevice                     | Archiving device                           |
 | AutoRereoute                        | Auto reroute                              |
 | ClientID                            | ABAP client ID (MANDT)                     |
-| CountryKey                          | Country key                                |
+| CountryKey                          | Country/region key                                |
 | DeleteSpoolRequestAuto              | Delete spool request auto                  |
 | DelFlag                             | Deletion flag                              |
 | Department                          | Department                                 |
