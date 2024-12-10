@@ -37,10 +37,7 @@ Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Wi
 
 Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) 
 
-- Fixed an issue for [CVE-2024-49105](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-49105).
-- Added support to optimized Screen and App sharing. Adds extra logging.
-- Resolved an issue with keyboard shortcut <kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>Arrow</kbd> in the RemoteApp scenario. 
- 
+- Fixed an issue for [CVE-2024-49105](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-49105). 
 
 ## Updates for version 1.2.5713
 

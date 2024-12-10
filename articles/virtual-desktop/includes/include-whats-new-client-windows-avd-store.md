@@ -34,8 +34,6 @@ The following table lists the current versions available for the public and Insi
 *Date published: December 10, 2024*
 
 - Fixed an issue for [CVE-2024-49105](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-49105).
-- Added support to optimized Screen and App sharing. Adds extra logging.
-- Resolved an issue with keyboard shortcut <kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>Arrow</kbd> in the RemoteApp scenario. 
 
 ## Updates for version 1.2.5713 
 
