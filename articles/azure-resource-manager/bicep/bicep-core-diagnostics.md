@@ -76,7 +76,7 @@ If you need more information about a particular diagnostic code, select the **Fe
 | <a id='BCP068' />BCP068 | Error | Expected a resource type string. Specify a valid resource type of format "\<types>@\<apiVersion>". |
 | <a id='BCP069' />BCP069 | Error | The function "{function}" isn't supported. Use the "{@operator}" operator instead. |
 | <a id='BCP070' />BCP070 | Error | Argument of type "{argumentType}" isn't assignable to parameter of type "{parameterType}". |
-| <a id='BCP071' />[BCP071](./diagnostics/bcp071.md) | Error | Expected \<arugment-count>, but got \<argument-count>. |
+| <a id='BCP071' />[BCP071](./diagnostics/bcp071.md) | Error | Expected \<argument-count>, but got \<argument-count>. |
 | <a id='BCP072' />[BCP072](./diagnostics/bcp072.md) | Error | This symbol can't be referenced here. Only other parameters can be referenced in parameter default values. |
 | <a id='BCP073' />[BCP073](./diagnostics/bcp073.md) | Error/Warning | The property \<property-name> is read-only. Expressions can't be assigned to read-only properties. |
 | <a id='BCP074' />BCP074 | Error | Indexing over arrays requires an index of type "{LanguageConstants.Int}" but the provided index was of type "{wrongType}". |

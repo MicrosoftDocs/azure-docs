@@ -1,10 +1,10 @@
 ---
 title: List of Microsoft Sentinel Advanced Security Information Model (ASIM) parsers | Microsoft Docs
 description: This article lists Advanced Security Information Model (ASIM) parsers.
-author: oshezaf
+author: vakohl
 ms.topic: reference
 ms.date: 05/02/2022
-ms.author: ofshezaf
+ms.author: vakohl
 
 
 #Customer intent: As a security analyst, I want to deploy and use ASIM parsers so that I can normalize and analyze security event data from various sources effectively.
@@ -18,6 +18,16 @@ This document provides a list of Advanced Security Information Model (ASIM) pars
 > [!IMPORTANT]
 > ASIM is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
+
+## Alert event parsers
+
+To use ASIM alert event parsers, deploy the parsers from the [Microsoft Sentinel GitHub repository](https://aka.ms/ASimAlertEvent). Microsoft Sentinel provides the following parsers in the packages deployed from GitHub:
+
+| **Source** | **Notes** | **Parser**
+| --- | --------------------------- | ---------- |
+| **Defender XDR Alerts** | Microsoft Defender XDR alert events (in the `AlertEvidence` table). | `ASimAlertEventMicrosoftDefenderXDR` |
+| **Exchange 365 administrative events** | SentinelOne Singlularity `Threats.` events (in the `SentinelOne_CL` table). | `ASimAlertEventSentinelOneSingularity` |
+
 ## Audit event parsers
 
 To use ASIM audit event parsers, deploy the parsers from the [Microsoft Sentinel GitHub repository](https://aka.ms/ASimAuditEvent). Microsoft Sentinel provides the following parsers in the packages deployed from GitHub:

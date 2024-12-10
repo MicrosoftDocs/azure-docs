@@ -79,7 +79,7 @@ Azure Front Door is Microsoft's modern cloud Content Delivery Network (CDN) that
     > [!NOTE]
     > Initially, set the weight of the current origin higher than the new origin to ensure most traffic is routed to the current origin. Gradually increase the weight of the new origin and decrease the weight of the current origin as you test. The total weight doesn't need to be 100, but it helps visualize traffic distribution. The example sets the existing origin to receive three times as much traffic as the new origin.
 
-1. Enable session affinity if your application requires it. For more information, see [Session affinity](routing-methods.md#session-affinity).
+1. Enable session affinity if your application requires it. For more information, see [Session affinity](routing-methods.md). 
 
     > [!NOTE]
     > *Session affinity* ensures the end user is routed to the same origin after the first request. Enable this feature based on your application and the type of enhancements being rolled out. For major revisions, enable session affinity to keep users on the new codebase. For minor enhancements, you can leave session affinity disabled. When in doubt, enable session affinity.

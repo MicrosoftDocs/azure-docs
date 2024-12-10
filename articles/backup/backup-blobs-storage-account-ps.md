@@ -3,7 +3,7 @@ title: Back up Azure blobs within a storage account using Azure PowerShell
 description: Learn how to back up all Azure blobs within a storage account using Azure PowerShell.
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.date: 07/24/2024
+ms.date: 11/27/2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -143,6 +143,19 @@ blobrg-PSTestSA-3df6ac08-9496-4839-8fb5-8b78e594f166 Microsoft.DataProtection/ba
 [!INCLUDE [blob-vaulted-backup-prepare-request-ps.md](../../includes/blob-vaulted-backup-prepare-request-ps.md)]
 
 ---
+
+## Update a backup instance
+
+After you have configured the backup, you can change the associated policy with a backup instance. For vaulted backups, you can also change the containers selected for backup. 
+
+To update the backup instance, run the following cmdlets:
+
+1. Validate if the backup instance is ready for configuring backup using the [Test-AzDataProtectionBackupInstanceReadiness](/powershell/module/az.dataprotection/test-azdataprotectionbackupinstancereadiness?view=azps-13.0.0&preserve-view=true) command. The command fails if the   backup instance is not ready.
+
+   You can also use this command to check if the backup vault has all the necessary permissions to configure backup.
+
+1. Change the policy used for backing up the Azure Blobs by using the [Update-AzDataProtectionBackupInstance](/powershell/module/az.dataprotection/update-azdataprotectionbackupinstance?view=azps-13.0.0&preserve-view=true). Specify the relevant backup item and the new backup policy.
+
 
 ## Next steps
 

@@ -25,7 +25,7 @@ For a comprehensive overview of reliability in Azure, see [Azure reliability](/a
 
 ## Availability zones
 
-For more information about availability zones, see [Regions and availability zones](../availability-zones/az-overview.md).
+For more information about availability zones, see [Regions and availability zones](../reliability/availability-zones-overview.md).
 
 ### Prerequisites
 
@@ -56,4 +56,4 @@ Also see the [SLA for Azure DNS](https://azure.microsoft.com/support/legal/sla/d
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Resiliency in Azure](../availability-zones/overview.md)
+> [Resiliency in Azure](../reliability/overview.md)
