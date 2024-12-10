@@ -322,7 +322,7 @@ This quickstart shows you how to deploy a standard internal load balancer and tw
    variable "password" {
      type = string
      default = "Microsoft@123"
-     description = "The passoword for the local account that will be created on the new VM."
+     description = "The password for the local account that will be created on the new VM."
    }
    
    variable "virtual_network_name" {

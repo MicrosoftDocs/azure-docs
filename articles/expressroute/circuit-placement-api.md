@@ -1,5 +1,5 @@
 ---
-title: 'Azure ExpressRoute CrossConnnections circuit placement API'
+title: 'Azure ExpressRoute CrossConnections circuit placement API'
 description: This article provides a detailed overview for ExpressRoute partners about the ExpressRoute CrossConnections circuit placement API.
 services: expressroute
 author: mialdrid
