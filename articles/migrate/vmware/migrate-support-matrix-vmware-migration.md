@@ -39,7 +39,7 @@ The VMware vSphere hypervisor requirements are:
 - **VMware vCenter Server** - Version 5.5, 6.0, 6.5, 6.7, 7.0, 8.0.
 - **VMware vSphere ESXi host** - Version 5.5, 6.0, 6.5, 6.7, 7.0, 8.0.
 - **Multiple vCenter Servers** - A single appliance can connect to up to 10 vCenter Servers.
-- **vCenter Server permissions** - VMware account used to access the vCenter server from the Azure Migrate appliance needs below permissions to replicate virtual machines:
+- **vCenter Server permissions** - The VMware account used to access the vCenter server from the Azure Migrate appliance must have the following permissions assigned at all required levels - datacenter, cluster, host, VM, and datastore. Ensure permissions are applied at each level to avoid replication errors.
 
     **Privilege Name in the vSphere Client** | **The purpose for the privilege** | **Required On** | **Privilege Name in the API**
     --- | --- | --- | --- 
