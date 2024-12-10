@@ -7,6 +7,12 @@ items:
     tocHref: /azure/app-service/
     topicHref: /azure/app-service/index
   - name: App Service
+    tocHref: /azure/architecture/
+    topicHref: /azure/app-service/index
+  - name: App Service
+    tocHref: /azure/api-management/
+    topicHref: /azure/app-service/index
+  - name: App Service
     tocHref: /azure/reliability/
     topicHref: /azure/app-service/index
   - name: App Service
