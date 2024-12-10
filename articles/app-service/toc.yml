@@ -420,9 +420,6 @@
     - name: Customize API Management developer portal
       displayName: API Management and WordPress
       href: /azure/api-management/developer-portal-wordpress-plugin
-    - name: WordPress FAQ
-      displayName: WordPress troubleshooting
-      href: troubleshoot-wordpress.md      
 - name: WebJobs
   items:
     - name: Create WebJobs
