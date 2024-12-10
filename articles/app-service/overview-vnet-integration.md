@@ -180,9 +180,9 @@ Specifically for [Linux continuous deployment](https://github.com/microsoft/Oryx
 
 Azure uses UDP port 30,000 to do network health checks. If you block this traffic, it will not directly impact your app, but it will be more difficult for Azure support to detect and troubleshoot network related issues.
 
-##### Private ports
+#### Private ports
 
-The App Service private ports feature uses ports 20,000 to 30,000 on both TCP and UDP to route traffic between instances through the integrated network.
+The App Service private ports feature uses ports 20,000 to 30,000 on both TCP and UDP to route traffic between instances through the integrated network. The mentioned port range need to be open both inbound and outbound.
 
 #### On-premises traffic
 
