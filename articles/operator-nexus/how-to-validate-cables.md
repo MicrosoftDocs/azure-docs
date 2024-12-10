@@ -209,7 +209,7 @@ networkFabricInfoSkuId": "M8-A400-A100-C16-ab",
 |---------|---------|
 |Compliant     | Validation status is compliant with the BOM specification for the interface. |
 |Non-Compliant     | Validation isn't compliant with the BOM specification for the interface.        |
-|Unknown     | Validation is unable to retrieve interface connection details or lldp data isn't retruned. The `Unknown` status is returned if the destination device is powered off, missing, disconnected, or unsupported for this interface type. |
+|Unknown     | Validation is unable to retrieve interface connection details or lldp data isn't returned. The `Unknown` status is returned if the destination device is powered off, missing, disconnected, or unsupported for this interface type. |
 
 #### Validation attributes
 
@@ -244,5 +244,4 @@ networkFabricInfoSkuId": "M8-A400-A100-C16-ab",
 
 ## Converting cabling validation report to html format
 
-Sample python script to convert cabling validation report JSON output to html: [cable-html.py](media/cable-html.py)
-Requires Modules: `json pandas as pd`
+Refer to [How to convertcable validation report JSON output to html](./howto-convert-cable-validation-html.md).
