@@ -4,7 +4,7 @@ description: Use the SAP connector page and a dedicated alert rule template to k
 author: batamig
 ms.author: bagol
 ms.topic: how-to
-ms.date: 09/16/2024
+ms.date: 12/10/2024
 ms.service: microsoft-sentinel
 zone_pivot_groups: sentinel-sap-connection
 #customerIntent: As a security engineer, I want to learn how to monitor the health and connectivity of our SAP system connection to Microsoft Sentinel.
@@ -15,16 +15,12 @@ zone_pivot_groups: sentinel-sap-connection
 
 After you [deploy the SAP solution](sap/deployment-overview.md), you want to ensure proper functioning and performance of your SAP systems, and keep track of your system health, connectivity, and performance. This article describes how you can check the connectivity health manually on the data connector page and use a dedicated alert rule template to monitor the health of your SAP systems.
 
-:::zone pivot="connection-agent"
-
 > [!IMPORTANT]
 > Monitoring the health of your SAP systems is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 For a video demonstration of the procedures in this article, watch the following video:
 <br><br>
 > [!VIDEO https://www.youtube.com/embed/FasuyBSIaQM?si=apdesRR29Lvq6aQM]
-
-:::zone-end
 
 ## Prerequisites
 
@@ -81,6 +77,17 @@ In Microsoft Sentinel, select **General** > **Logs > Custom logs** to view the l
 :::image type="content" source="sap/media/deploy-sap-security-content/sap-logs-in-sentinel.png" alt-text="Screenshot that shows the SAP ABAP logs in the Custom Logs area in Microsoft Sentinel." lightbox="sap/media/deploy-sap-security-content/sap-logs-in-sentinel.png":::
 
 For more information, see [Microsoft Sentinel solution for SAP applications solution logs reference](sap-solution-log-reference.md).
+
+## Check the SentinelHealth table for health indicators
+
+The **SentinelHealth** table in Microsoft Sentinel contains health indicators for the SAP data connector, among others. You can query this table to get a summary of the health of your SAP systems.
+
+For more information, see:
+
+- [Auditing and health monitoring in Microsoft Sentinel](health-audit.md)
+- [Turn on auditing and health monitoring for Microsoft Sentinel (preview)](enable-monitoring.md)
+- [Monitor the health of your data connectors](monitor-data-connector-health.md)
+- [Microsoft Sentinel health tables reference](health-table-reference.md)
 
 ## Use an alert rule template to monitor the health of your SAP systems
 

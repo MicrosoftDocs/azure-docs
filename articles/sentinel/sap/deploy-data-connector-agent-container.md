@@ -407,14 +407,13 @@ The deployment procedure generates a **systemconfig.json** file that contains th
    - **SAP Agentless Client ID**: The *clientid* value taken from the Process Integration Runtime service key JSON file.
    - **SAP Agentless Client Secret**: The *clientsecret* value taken from the Process Integration Runtime service key JSON file.
    - **Authorization server URL**: The *tokenurlurl* value taken from the Process Integration Runtime service key JSON file. For example: `https://your-tenant.authentication.region.hana.ondemand.com/oauth/token`
-      
    - **Integration Suite Endpoint**: The *url* value taken from the Process Integration Runtime service key JSON file. For example: `https://your-tenant.it-account-rt.cfapps.region.hana.ondemand.com`
       
 :::zone-end
 
 ## Check connectivity and health
 
-After you deploy the SAP data connector, check your agent's health and connectivity. For more information, see [Monitor the health and role of your SAP systems](../monitor-sap-system-health.md). <!--will this procedure be relevant for agentless?  No it is not relevant for agentless, for agentless, check the SentinelHealth table for health indicators.-->
+After you deploy the SAP data connector, check your agent's health and connectivity. For more information, see [Monitor the health and role of your SAP systems](../monitor-sap-system-health.md).
 
 ## Next step
 

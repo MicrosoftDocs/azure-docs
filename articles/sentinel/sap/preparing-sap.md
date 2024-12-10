@@ -186,11 +186,11 @@ For more information, see the [SAP documentation](https://help.sap.com/docs/inte
 
 1. Add new resources to the system mapping for each of the following function names:
 
-   - **RSAU_API_GET_LOG_DATA** - Fetch SAP security audit log data.
+   - **RSAU_API_GET_LOG_DATA**, to fetch SAP security audit log data
       
-   - **BAPI_USER_GET_DETAIL -** Retrieve SAP user details.
+   - **BAPI_USER_GET_DETAIL**, to retrieve SAP user details
       
-   - **RFC_READ_TABLE -** Read data from required tables.
+   - **RFC_READ_TABLE**, to read data from required tables
       
 1. Add a new destination in SAP BTP that points the virtual host you'd created earlier. Use the following details to populate the new destination:
 
@@ -214,7 +214,7 @@ For more information, see the [SAP documentation](https://help.sap.com/docs/inte
             
       - `jco.client.lang = EN`
             
-   - **Location**: <Optional> - only required when you connect multiple Cloud Connectors to the same BTP subaccount.  See the [SAP Documentation](https://help.sap.com/docs/connectivity/sap-btp-connectivity-cf/parameters-influencing-communication-behavior).
+   - **Location**: Only required when you connect multiple Cloud Connectors to the same BTP subaccount.  For more information, see the [SAP Documentation](https://help.sap.com/docs/connectivity/sap-btp-connectivity-cf/parameters-influencing-communication-behavior).
    
 ## Configure SAP Integration Suite settings
 
