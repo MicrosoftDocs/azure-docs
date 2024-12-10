@@ -36,11 +36,11 @@ WebJobs.Extensions.DurableTask v3 updates the .NET framework from .NET Core 3.1 
 Migration from WebJobs.Extensions.DurableTask v2.x to v3.x is designed to be straightforward with no code changes required. Simply update your dependencies to start taking advantage of the new features and improvements in v3.x.
 
 - For .NET in-process users:
-  update to [Microsoft.Azure.WebJobs.Extensions.DurableTask version 3.0.0](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask/3.0.0) or later.
+  Update to [Microsoft.Azure.WebJobs.Extensions.DurableTask version 3.0.0](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask/3.0.0) or later.
 - For .NET isolated users:
-  update to [Microsoft.Azure.Functions.Worker.Extensions.DurableTask version 1.2.0](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask/1.2.0) or later.
+  Update to [Microsoft.Azure.Functions.Worker.Extensions.DurableTask version 1.2.0](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask/1.2.0) or later.
 - For users of other languages with extension bundles:
- follow the instructions [here](./durable-functions-extension-upgrade.md#upgrade-the-extension-bundle) to opt out of bundles and manually install [Microsoft.Azure.WebJobs.Extensions.DurableTask version 3.0.0](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask/3.0.0) or later.
+  Since the v3.x package is not yet part of the extension bundles, follow [instructions](./durable-functions-extension-upgrade.md#upgrade-the-extension-bundle) to opt out of bundles and manually install [Microsoft.Azure.WebJobs.Extensions.DurableTask version 3.0.0](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask/3.0.0) or later. 
 
 > [!NOTE]
 > Since WebJobs.Extensions.DurableTask v3 uses the latest version of the Azure Storage SDK, it uses a different encoding strategy when compared to v2. The former uses UTF-8, while the latter uses Base64. If you need to downgrade from v3.x to v2.x, use WebJobs.Extensions.DurableTask [v2.13.5](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask/2.13.5#versions-body-tab) or higher, as these versions support backward compatibility with v3.x.
