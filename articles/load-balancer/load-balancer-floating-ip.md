@@ -145,7 +145,7 @@ sudo ufw allow 80/tcp
 ```
 </details>
 
-## <a name = "limitations"></a>Limitations
+## <a name = "limitations"></a>Limitations 
 
 -  With Floating IP enabled on a load balancing rule, your application must use the primary IP configuration of the network interface for outbound.
 -  If your application binds to the frontend IP address configured on the loopback interface in the guest OS, Azure's outbound won't rewrite the outbound flow, and the flow fails. Review [outbound scenarios](load-balancer-outbound-connections.md).
