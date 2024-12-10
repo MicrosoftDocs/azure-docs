@@ -10,6 +10,9 @@ ms.date: 05/20/2021
 
 # Supported encryption standards for Azure FXT Edge Filer
 
+> [!NOTE]
+> **Action Required:** Azure FXT Edge Filer will be retired on December 31, 2026. Please remove all Azure FXT Edge Filer resources by December 31, 2026. Visit https://aka.ms/fxtretirementfaq for more information.
+
 This document describes encryption standards needed for Azure FXT Edge Filer. These standards are implemented as of the operating system version 5.1.1.2.
 
 These standards apply to [Avere vFXT for Azure](../avere-vfxt/index.yml) as well as to Azure FXT Edge Filer.

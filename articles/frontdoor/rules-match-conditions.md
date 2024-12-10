@@ -5,7 +5,7 @@ services: frontdoor
 author: duongau
 ms.service: azure-frontdoor
 ms.topic: conceptual
-ms.date: 12/28/2023
+ms.date: 11/12/2024
 ms.author: duau
 zone_pivot_groups: front-door-tiers
 ---
@@ -14,7 +14,7 @@ zone_pivot_groups: front-door-tiers
 
 ::: zone pivot="front-door-standard-premium"
 
-In Azure Front Door [Rule sets](front-door-rules-engine.md), a rule consists of none or some match conditions and an action. This article provides detailed descriptions of match conditions you can use in Azure Front Door rule sets.
+In Azure Front Door [Rule sets](front-door-rules-engine.md), a rule consists of one or more match conditions and an action. This article provides detailed descriptions of the match conditions you can use in Azure Front Door rule sets.
 
 ::: zone-end
 
@@ -22,11 +22,11 @@ In Azure Front Door [Rule sets](front-door-rules-engine.md), a rule consists of 
 
 [!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
 
-In Azure Front Door (classic) [Rules engines](front-door-rules-engine.md), a rule consists of none or some match conditions and an action. This article provides detailed descriptions of match conditions you can use in Azure Front Door (classic) Rules engines.
+In Azure Front Door (classic) [Rules engines](front-door-rules-engine.md), a rule consists of one or more match conditions and an action. This article provides detailed descriptions of the match conditions you can use in Azure Front Door (classic) Rules engines.
 
 ::: zone-end
 
-The first part of a rule is a match condition or set of match conditions. A rule can consist of up to 10 match conditions. A match condition identifies specific types of requests for which defined actions are done. If you use multiple match conditions, the match conditions are grouped together by using AND logic. For all match conditions that support multiple values, OR logic is used.
+A rule starts with a match condition or a set of match conditions. A rule can have up to 10 match conditions. A match condition identifies specific types of requests for which defined actions are performed. If you use multiple match conditions, they're grouped together using AND logic. For match conditions that support multiple values, OR logic is used.
 
 You can use a match condition to:
 
@@ -35,22 +35,18 @@ You can use a match condition to:
 * Filter requests based on a specific IP address, port, or country/region.
 * Filter requests by header information.
 * Filter requests from mobile devices or desktop devices.
-* Filter requests from request file name and file extension.
-* Filter requests by hostname, SSL protocol, request URL, protocol, path, query string, post args, and other values.
+* Filter requests by request file name and file extension.
+* Filter requests by hostname, SSL protocol, request URL, protocol, path, query string, post arguments, and other values.
 
 ::: zone-end
 
 ::: zone pivot="front-door-classic"
 
-* Filter requests based on a specific IP address, or country/region.
+* Filter requests based on a specific IP address or country/region.
 * Filter requests by header information.
 * Filter requests from mobile devices or desktop devices.
-* Filter requests from request file name and file extension.
+* Filter requests by request file name and file extension.
 * Filter requests by request URL, protocol, path, query string, post arguments, and other values.
-
-::: zone-end
-
-::: zone pivot="front-door-standard-premium"
 
 ::: zone-end
 

@@ -214,7 +214,7 @@ To view the settings for the default Broker:
 # [Portal](#tab/portal)
 
 1. In the Azure portal, go to your Azure IoT Operations instance.
-1. Under **Azure IoT Operations resources**, select **MQTT Broker**.
+1. Under **Components**, select **MQTT Broker**.
 1. Under **Broker details**, select **JSON view**.
 
 # [Azure CLI](#tab/azure-cli)

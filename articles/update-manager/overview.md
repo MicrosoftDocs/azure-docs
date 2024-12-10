@@ -12,8 +12,8 @@ ms.topic: overview
 # About Azure Update Manager
 
 > [!Important]
-> Both Azure Automation Update Management and the Log Analytics agent it uses [has been retired on 31st August 2024](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). Therefore, if you are using the Automation Update Management solution, we recommend that you move to Azure Update Manager for your software update needs. Follow the [guidance](guidance-migration-automation-update-management-azure-update-manager.md#migration-scripts) to move your machines and schedules from Automation Update Management to Azure Update Manager.
-> For more information, see the [FAQs on retirement](update-manager-faq.md#impact-of-log-analytics-agent-retirement). You can [sign up](https://developer.microsoft.com/reactor/?search=Azure+Update+Manager&page=1) for monthly live sessions on migration including Q&A sessions.
+> Both Azure Automation Update Management and the Log Analytics agent it uses [have been retired on 31st August 2024](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). Therefore, if you are using the Automation Update Management solution, we recommend that you move to Azure Update Manager for your software update needs. Follow the [guidance](guidance-migration-automation-update-management-azure-update-manager.md#migration-scripts) to move your machines and schedules from Automation Update Management to Azure Update Manager.
+> For more information, see the [FAQs on retirement](update-manager-faq.md#impact-of-log-analytics-agent-retirement).
 
 
 Update Manager is a unified service to help manage and govern updates for all your machines. You can monitor Windows and Linux update compliance across your machines in Azure and on-premises/on other cloud platforms (connected by [Azure Arc](/azure/azure-arc/)) from a single pane of management. You can also use Update Manager to make real-time updates or schedule them within a defined maintenance window. 

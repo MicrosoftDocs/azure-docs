@@ -33,13 +33,13 @@ Azure Storage supports three types of shared access signatures:
 
 ### User delegation SAS
 
-A user delegation SAS is secured with Microsoft Entra credentials and also by the permissions specified for the SAS. A user delegation SAS is supported for Blob Storage and Data Lake Storage. It's not currently supported for Queue Storage, Table Storage, or Azure Files.
+A user delegation SAS is secured with Microsoft Entra credentials and also by the permissions specified for the SAS. A user delegation SAS is supported for Blob Storage and Data Lake Storage, and can be used for calls to `blob` endpoints and `dfs` endpoints. It's not currently supported for Queue Storage, Table Storage, or Azure Files.
 
 For more information about the user delegation SAS, see [Create a user delegation SAS (REST API)](/rest/api/storageservices/create-user-delegation-sas).
 
 ### Service SAS
 
-A service SAS is secured with the storage account key. A service SAS delegates access to a resource in only one of the Azure Storage services: Blob storage, Data Lake Storage, Queue storage, Table storage, or Azure Files.
+A service SAS is secured with the storage account key. A service SAS delegates access to a resource in only one of the Azure Storage services: Blob storage (including Data Lake Storage and `dfs` endpoints), Queue storage, Table storage, or Azure Files.
 
 For more information about the service SAS, see [Create a service SAS (REST API)](/rest/api/storageservices/create-service-sas).
 
@@ -50,7 +50,6 @@ An account SAS is secured with the storage account key. An account SAS delegates
 You can also delegate access to the following:
 
 - Service-level operations (For example, the **Get/Set Service Properties** and **Get Service Stats** operations).
-
 - Read, write, and delete operations that aren't permitted with a service SAS.
 
 For more information about the account SAS, [Create an account SAS (REST API)](/rest/api/storageservices/create-account-sas).
@@ -128,9 +127,7 @@ Many real-world services may use a hybrid of these two approaches. For example, 
 Additionally, a SAS is required to authorize access to the source object in a copy operation in certain scenarios:
 
 - When you copy a blob to another blob that resides in a different storage account. You can optionally use a SAS to authorize access to the destination blob, as well.
-
 - When you copy a file to another file that resides in a different storage account. You can optionally use a SAS to authorize access to the destination file, as well.
-
 - When you copy a blob to a file, or a file to a blob. You must use a SAS even if the source and destination objects reside within the same storage account.
 
 ## Best practices when using SAS

@@ -18,7 +18,7 @@ A dev center is the top-level resource for Azure Deployment Environments that co
 
 A platform engineering team typically sets up the dev center, attaches external catalogs to the dev center, creates projects, and provides access to development teams. Development teams then create [environments](concept-environments-key-concepts.md#environments) by using [environment definitions](concept-environments-key-concepts.md#environment-definitions), connect to individual resources, and deploy applications. 
 
-After you complete this quickstart, developers can use the [developer portal](quickstart-create-access-environments.md), the [Azure CLI](how-to-create-access-environments.md), or the [Azure Developer CLI](how-to-create-environment-with-azure-developer.md) to create environments in the project to deploy their applications.
+After you complete this quickstart, developers can use the [developer portal](quickstart-create-access-environments.md), the [Azure CLI](how-to-create-access-environments.md), or the [Azure Developer CLI](how-to-configure-azure-developer-cli-deployment-environments.md ) to create environments in the project to deploy their applications.
 
 To learn more about the components of Azure Deployment Environments, see [Key concepts for Azure Deployment Environments](concept-environments-key-concepts.md).
 
