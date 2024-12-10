@@ -38,7 +38,7 @@ In addition to the Azure virtual network, this code also creates:
 > * Link the private DNS zone to the virtual network.
 > * Generate random passwords for the virtual machines.
 > * Create two network interfaces.
-> * Create two Windows virtual machines and attach the network interfaces.
+> * Create two Windows virtual machines, and attach the network interfaces.
 > * Create a private DNS A record.
 > * Create a network security group.
 > * Create a network security rule to allow ICMP traffic.
@@ -89,9 +89,9 @@ In addition to the Azure virtual network, this code also creates:
 
 1. Run `az network private-dns zone list` to view all DNS zones and find yours.
 
-  ```azurecli
-  az network private-dns zone list --output table
-  ```
+   ```azurecli
+   az network private-dns zone list --output table
+   ```
 
 1. Run `az network private-dns zone show` to view the resource group associate with your DNS zone.
 
