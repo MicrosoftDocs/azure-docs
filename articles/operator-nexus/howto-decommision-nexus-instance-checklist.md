@@ -19,22 +19,24 @@ Note: Due to the underlying dependencies and references across these resources, 
 
 2) [Disable/Delete L3 ISD (Isolation Domain) resources](https://learn.microsoft.com/azure/operator-nexus/howto-delete-layer-3-isolation-domains)
 
-3) [Delete Keysets resources](https://learn.microsoft.com/azure/operator-nexus/howto-baremetal-bmc-ssh#deleting-a-bmc-keyset)
+3) [Disable/Delete L2 ISD (Isolation Domain) resources](https://learn.microsoft.com/azure/operator-nexus/howto-configure-isolation-domain#delete-l2-isolation-domain)
 
-4) [Delete Cluster resource](https://learn.microsoft.com/azure/operator-nexus/howto-configure-cluster#delete-a-cluster)
+4) [Delete Keysets resources](https://learn.microsoft.com/azure/operator-nexus/howto-baremetal-bmc-ssh#deleting-a-bmc-keyset)
 
-5) [Delete Cluster Manager resource](https://learn.microsoft.com/azure/operator-nexus/howto-cluster-manager#delete-cluster-manager)
+5) [Delete Cluster resource](https://learn.microsoft.com/azure/operator-nexus/howto-configure-cluster#delete-a-cluster)
 
-6) [Deprovision Fabric](https://learn.microsoft.com/azure/operator-nexus/howto-configure-network-fabric#deleting-fabric)
+6) [Delete Cluster Manager resource](https://learn.microsoft.com/azure/operator-nexus/howto-cluster-manager#delete-cluster-manager)
 
-7) [Clean up ACL (Access Control List) resources](https://learn.microsoft.com/azure/operator-nexus/howto-delete-access-control-list-network-to-network-interconnect)
+7) [Deprovision Fabric](https://learn.microsoft.com/azure/operator-nexus/howto-configure-network-fabric#deleting-fabric)
 
-8) [Delete Fabric resource](https://learn.microsoft.com/azure/operator-nexus/howto-configure-network-fabric#deleting-fabric)
+8) [Clean up ACL (Access Control List) resources](https://learn.microsoft.com/azure/operator-nexus/howto-delete-access-control-list-network-to-network-interconnect)
 
-9) [Disable DHCP (Dynamic Host Configuration Protocol) and put devices into ZTP (Zero Touch Provisioning) mode](https://learn.microsoft.com/azure/operator-nexus/howto-platform-prerequisites#default-setup-for-other-devices-installed)
+9) [Delete Fabric resource](https://learn.microsoft.com/azure/operator-nexus/howto-configure-network-fabric#deleting-fabric)
 
-10) [Delete Network Fabric Controller (NFC) resource](https://learn.microsoft.com/azure/operator-nexus/howto-configure-network-fabric-controller#delete-network-fabric-controller)
+10) [Disable DHCP (Dynamic Host Configuration Protocol) and put devices into ZTP (Zero Touch Provisioning) mode](https://learn.microsoft.com/azure/operator-nexus/howto-platform-prerequisites#default-setup-for-other-devices-installed)
 
+11) [Delete Network Fabric Controller (NFC) resource](https://learn.microsoft.com/azure/operator-nexus/howto-configure-network-fabric-controller#delete-network-fabric-controller)
 
+
 ## Support and questions
 For further technical questions or assistance, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). For more information about Support plans, see [Azure Support plans](https://azure.microsoft.com/support/plans/response/).
