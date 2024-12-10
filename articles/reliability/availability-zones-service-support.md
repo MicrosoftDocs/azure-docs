@@ -41,10 +41,6 @@ The following regions currently support availability zones:
 ||Spain Central ||||
 
 
-
-
-
-
 \* To learn more about availability zones and available services support in these regions, contact your Microsoft sales or customer representative. For upcoming regions that support availability zones, see [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/).
 
 ## Azure services with availability zone support
