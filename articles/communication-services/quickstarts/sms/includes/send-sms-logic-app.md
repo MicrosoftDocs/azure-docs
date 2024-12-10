@@ -62,7 +62,7 @@ To add the **Send SMS** action as a new step in your workflow by using the Azure
         
         1. Provide a name for the connection.
         
-        1. Select ConnectionString Authentication from the drop down options.
+        1. Select ConnectionString Authentication from the dropdown options.
         
         1. Enter the connection string of your Communication Services resource.
         
@@ -73,7 +73,7 @@ To add the **Send SMS** action as a new step in your workflow by using the Azure
     1. Using Service Principal ([Refer Services Principal Creation](../../identity/service-principal-from-cli.md)):
         1. Provide a name for the connection.
         
-        1. Select Service principal (Microsoft Entra application) Authentication from the drop down options.
+        1. Select Service principal (Microsoft Entra application) Authentication from the dropdown options.
         
         1. Enter the Tenant ID, Client ID & Client Secret of your Service Principal.
         
