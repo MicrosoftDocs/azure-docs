@@ -229,13 +229,13 @@ Select the `kind` line from the code, and then select the yellow light bulb icon
 
   :::image type="content" source="./media/visual-studio-code/visual-studio-code-azure-variable-parameter-type-extract-parameter-with-allowed-values.png" alt-text="Screenshot of extracting parameter with allowed values.":::
 
-  After the extract, it requires some modification.
+  After the extract, it requires some customization.
 
 - **Extract user-defined type**:
 
-  :::image type="content" source="./media/visual-studio-code/visual-studio-code-azure-variable-parameter-type-extract-parameter-with-allowed-values.png" alt-text="Screenshot of extracting parameter with allowed values.":::
+  :::image type="content" source="./media/visual-studio-code/visual-studio-code-azure-variable-parameter-type-extract-type.png" alt-text="Screenshot of extracting parameter with allowed values.":::
 
-  After the extract, it requires some modification. 
+  After the extract, it requires some customization.
 
 ## View documentation
 
