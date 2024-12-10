@@ -2,7 +2,7 @@
 title: Monitoring and reporting solutions for Azure Backup
 description: Learn about different monitoring and reporting solutions provided by Azure Backup.
 ms.topic: overview
-ms.date: 11/30/2024
+ms.date: 12/30/2024
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -53,7 +53,7 @@ The following table summarizes the different backup alerts currently available v
 
 | **Alert Category** | **Alert Name** | **Supported workload types / vault types** | **Description** | 
 | ------------------ | -------------  | ------------------------------------------ | -------- |
-| Security | Delete Backup Data | - Microsoft Azure Virtual Machine <br><br> - SQL in Azure VM (non-AG scenarios) <br><br> - SAP HANA in Azure VM <br><br> - Azure Backup Agent <br><br> - DPM <br><br> - Azure Backup Server <br><br> - Azure Database for PostgreSQL Server <br><br> - Azure Blobs <br><br> - Azure Managed Disks  | This alert is fired when you stop backup and deletes backup data. <br><br> **Note** <br> If you disable the soft-delete feature for the vault, Delete Backup Data alert isn't received. |
+| Security | Delete Backup Data | - Microsoft Azure Virtual Machine <br><br> - SQL in Azure VM (non-AG scenarios) <br><br> - SAP HANA in Azure VM <br><br> - Azure Backup Agent <br><br> - DPM <br><br> - Azure Backup Server <br><br> - Azure Database for PostgreSQL Server <br><br> - Azure Blobs <br><br> - Azure Managed Disks  | This alert is fired when you stop backup and deletes backup data. <br><br> **Note** <br> If you disable the soft delete feature for the vault, Delete Backup Data alert isn't received. |
 | Security | Upcoming Purge | - Azure Virtual Machine <br><br> - SQL in Azure VM <br><br> - SAP HANA in Azure VM | For all workloads that support soft-delete, this alert is fired when the backup data for an item is 2 days away from being permanently purged by the Azure Backup service. | 
 | Security | Purge Complete | - Azure Virtual Machine <br><br> - SQL in Azure VM <br><br> - SAP HANA in Azure VM | Delete Backup Data |
 | Security | Soft Delete Disabled for Vault | Recovery Services vaults | This alert is fired when the soft-deleted backup data for an item has been permanently deleted by the Azure Backup service. | 
