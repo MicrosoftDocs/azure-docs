@@ -39,7 +39,7 @@ ms.custom: references_regions
     ```azurecli
     az provider register --namespace Microsoft.App
     az provider register --namespace Microsoft.OperationalInsights
-	az provider register --namespace Microsoft.Storage
+    az provider register --namespace Microsoft.Storage
     ```
 
 1. Now that your Azure CLI setup is complete, you can define the environment variables that are used throughout this article.
