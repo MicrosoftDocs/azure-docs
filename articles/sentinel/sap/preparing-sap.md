@@ -57,7 +57,7 @@ When configuring the role, we recommend that you:
 
 :::zone pivot="connection-agentless"
 
-Create a role using the [**MSFTSEN_SENTINEL_CONNECTOR**](https://aka.ms/SAP_Sentinel_Connector_Role) template, which includes all the basic permissions for the data connector to operate.
+Create a role using the [**MSFTSEN_SENTINEL_READER**](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/Sample%20Authorizations%20Role%20File/MSFTSEN_SENTINEL_READER.SAP) template, which includes all the basic permissions for the data connector to operate.
 
 :::zone-end
 
@@ -74,7 +74,7 @@ The Microsoft Sentinel solution for SAP applications requires a user account to 
 
 :::zone pivot="connection-agentless"
 - Make sure to create a system user.
-- Assign the **MSFTSEN_SENTINEL_CONNECTOR** role to the user, which you'd created in the [previous step](#configure-the-microsoft-sentinel-role).
+- Assign the **MSFTSEN_SENTINEL_READER** role to the user, which you'd created in the [previous step](#configure-the-microsoft-sentinel-role).
 :::zone-end
 
 For more information, see the [SAP documentation](https://help.sap.com/docs/ABAP_PLATFORM_NEW/ad77b44570314f6d8c3a8a807273084c/4cb5f7ac9cb33c94e10000000a42189c.html?version=LATEST).
@@ -169,7 +169,7 @@ When configuring SNC:
 
 1. Create a service key for the SAP Process Integration Runtime and save the JSON contents to a secure location. You must activate the cloud integration capability before creating a service key for SAP Process Integration Runtime.
 
-For more information, see the SAP documentation. <!--we need links to docs-->
+For more information, see the [SAP documentation](https://help.sap.com/docs/integration-suite/sap-integration-suite/initial-setup).
 
 ## Configure SAP Cloud Connector settings
 
@@ -183,29 +183,36 @@ For more information, see the SAP documentation. <!--we need links to docs-->
 
 1. Add new resources to the system mapping for each of the following function names:
 
-    - **RSAU_API_GET_LOG_DATA** <!--what does this mean?-->
-    - **BAPI_USER_GET_DETAIL**
-    - **RFC_READ_TABLE**
- 
+   - **RSAU_API_GET_LOG_DATA** - Fetch SAP security audit log data.
+      
+   - **BAPI_USER_GET_DETAIL -** Retrieve SAP user details.
+      
+   - **RFC_READ_TABLE -** Read data from required tables.
+      
 1. Add a new destination in SAP BTP that points the virtual host you'd created earlier. Use the following details to populate the new destination:
 
-    - **Name:** Enter the name you want to use for the Microsoft Sentinel connection
-
-    - **Type** `RFC`
-
-    - **Proxy Type:** `On-Premise`
-
-    - **User**: Enter the [ABAP user account](#create-a-user) you created earlier for Microsoft Sentinel
-
-    - **Authorization Type:** `CONFIGURED USER`
-
-    - **Additional properties:**
-
-        - `jco.client.ashost = <virtual host name>`
-        - `jco.client.client = <client e.g. 001>`
-        - `jco.client.sysnr = <system number = 00>`
-        - `jco.client.lang = EN`
-
+   - **Name:** Enter the name you want to use for the Microsoft Sentinel connection
+      
+   - **Type** `RFC`
+      
+   - **Proxy Type:** `On-Premise`
+      
+   - **User**: Enter the [ABAP user account](#create-a-user) you created earlier for Microsoft Sentinel
+      
+   - **Authorization Type:** `CONFIGURED USER`
+      
+   - **Additional properties:**
+   
+      - `jco.client.ashost = <virtual host name>`
+            
+      - `jco.client.client = <client e.g. 001>`
+            
+      - `jco.client.sysnr = <system number = 00>`
+            
+      - `jco.client.lang = EN`
+            
+   - **Location**: <Optional> - only required when you connect multiple Cloud Connectors to the same BTP subaccount.  See the [SAP Documentation](https://help.sap.com/docs/connectivity/sap-btp-connectivity-cf/parameters-influencing-communication-behavior).
+   
 ## Configure SAP Integration Suite settings
 
 1. Create a new OAuth2 client credential to store the connection details for the Microsoft Entra ID app registration that you'd created [earlier](deploy-sap-security-content.md#deployment).
@@ -225,11 +232,11 @@ For more information, see the SAP documentation. <!--we need links to docs-->
 1. Import the downloaded package to SAP Integration Suite.
 1. Open the Microsoft Sentinel solution for SAP package and browse to the artifacts.
 1. Select **Send security logs to Microsoft - application layer** artifact.
-1. Select **Configure** and then enter your DCR details. You'll need to switch the *Receiver* value between `Dest_SRF` and `Sentinel` to configure the following parameters:
-    
-    - **LogsIngestionURL** the Ingestion URL from the DCR's DCE, as saved [earlier](deploy-sap-security-content.md#install-the-solution-from-the-content-hub).
-    - **DCRImmutableId**: The DCR's immutable ID, as saved [earlier](deploy-sap-security-content.md#install-the-solution-from-the-content-hub).
+1. Select **Configure** and then enter your DCR details:
 
+   - **LogsIngestionURL** the Ingestion URL from the DCR's DCE, as saved [earlier](deploy-sap-security-content.md#install-the-solution-from-the-content-hub).
+   - **DCRImmutableId**: The DCR's immutable ID, as saved [earlier](deploy-sap-security-content.md#install-the-solution-from-the-content-hub).
+      
 1. Select **Deploy** to deploy the i-flow using SAP Cloud Integration as the runtime service.
 
 :::zone-end

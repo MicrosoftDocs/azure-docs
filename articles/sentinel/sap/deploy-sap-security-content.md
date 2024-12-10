@@ -100,6 +100,8 @@ also requires registration and is only available to approved customers and partn
     - **Entra Application ID**
     - **Entra Application Secret**
 
+1. Complete all SAP deployment steps before clicking on 'Add connection' to create the connector. The iflow must be fully configured and deployed as per the steps outlined [here]().
+
 :::zone-end
 
 For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](../sentinel-solutions-deploy.md).
