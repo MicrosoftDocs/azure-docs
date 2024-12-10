@@ -502,7 +502,7 @@ You can now create a job that uses to use the container image. In this section, 
     | `--mi-user-assigned` | The resource ID of the user-assigned managed identity to assign to the job. |
     | `--registry-identity` | The resource ID of a managed identity to authenticate with the registry server instead of using a username and password. If possible, an 'acrpull' role assignment is created for the identity automatically. |
 
-    The scale rule configuration defines the event source to monitor. It's evaluated on each polling interval and determines how many job executions to trigger. To learn more, see [Set scaling rules](scale-app.md).
+    The scale rule configuration defines the event source to monitor. Rules are evaluated on each polling interval to determine how many job executions to trigger. To learn more, see [Set scaling rules](scale-app.md).
 
 The event-driven job is now created in the Container Apps environment. 
 
@@ -912,13 +912,13 @@ The following table describes the scale rule parameters used in the command.
 | `--scale-rule-metadata` | The metadata for the scale rule. |
 | `--scale-rule-auth` | The authentication for the scale rule. |
 
-The scale rule configuration defines the event source to monitor. It's evaluated on each polling interval and determines how many job executions to trigger. To learn more, see [Set scaling rules](scale-app.md).
+The scale rule configuration defines the event source to monitor. Rules are evaluated on each polling interval to determine how many job executions to trigger. To learn more, see [Set scaling rules](scale-app.md).
 
 The event-driven job is now created in the Container Apps environment. 
 
 ## Run a pipeline and verify the job
 
-Now that you've configured a self-hosted agent job, you can run a pipeline and verify it's working correctly.
+Once a self-hosted agent job is configured, you can run a pipeline and verify it's working correctly.
 
 1. In the left-hand navigation of your Azure DevOps project, navigate to **Pipelines**.
 
