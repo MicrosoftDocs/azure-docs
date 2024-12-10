@@ -437,7 +437,7 @@ To make this change, you can use either the Azure portal or the Azure CLI.
 
 1. In the Azure portal, open the [Azure Cloud Shell](../../cloud-shell/overview.md) environment.
 
-   ![Screenshot shows Azure portal toolbar with selected Cloud Shell optiond.](./media/create-integration-account/open-azure-cloud-shell-window.png)
+   ![Screenshot shows Azure portal toolbar with selected Cloud Shell options.](./media/create-integration-account/open-azure-cloud-shell-window.png)
 
 1. At the command prompt, enter the [**az resource** command](/cli/azure/resource#az-resource-update), and set `skuName` to the higher tier that you want.
 
