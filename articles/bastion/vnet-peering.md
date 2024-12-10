@@ -25,7 +25,7 @@ Azure Bastion works with the following types of peering:
 
 When virtual network peering is configured, Azure Bastion can be deployed in hub-and-spoke or full-mesh topologies. Azure Bastion deployment is per virtual network, not per subscription/account or virtual machine.
 
-Once you provision the Azure Bastion service in your virtual network, the RDP/SSH experience is available to all your virtual machines in the same virtual network and peered virtual networks. This means you can consolidate Bastion deployment to single virtual network and still reach virtual machines deployed in a peered virtual network, centralizing the overall deployment.
+Once you provision the Azure Bastion service in your virtual network, the RDP/SSH experience is available to all your virtual machines in the same virtual network and peered virtual networks. This means you can consolidate Bastion deployment to a single virtual network and still reach virtual machines deployed in a peered virtual network, centralizing the overall deployment.
 
 :::image type="content" source="./media/vnet-peering/design.png" alt-text="Design and Architecture diagram":::
 
