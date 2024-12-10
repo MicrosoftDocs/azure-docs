@@ -14,9 +14,7 @@ ms.custom:
 
 This quickstart shows you how to launch your first AI application to Azure Container Apps. The article demonstrates how to deploy a sample AI chat assistant application based on the Spring PetClinic application to run on Azure Container Apps. The application uses the [Azure OpenAI Service](/azure/ai-services/openai/overview) and demonstrates how to automate deployment using the Azure Developer CLI (azd).
 
-In this quickstart you deploy an AI-enabled application to Azure Container Apps, explore its architecture, and learn how to implement your first AI application in Azure Container Apps.
-
-The following screenshot shows the AI assistant:
+In this quickstart you deploy an AI-enabled application to Azure Container Apps, explore its architecture, and learn how to implement your first AI application in Azure Container Apps. The following screenshot shows the AI assistant:
 
 :::image type="content" source="media/first-ai-application/home-with-chatbot.png"  alt-text="Screenshot of home." lightbox="media/first-ai-application/home-with-chatbot.png":::
 
@@ -70,92 +68,93 @@ To prepare the project, clone the [spring-petclinic-ai](https://github.com/Azure
 git clone https://github.com/Azure-Samples/spring-petclinic-ai.git
 ```
 
-## Deploy your first AI application
+## Deploy your application
 
 > [!NOTE]
-> This template uses [Azure OpenAI Service](/azure/ai-services/openai/overview) deployment mododules **gpt-4o** and **text-embedding-ada-002** which may not be available in all Azure regions. Check for [up-to-date region availability](/azure/ai-services/openai/concepts/models#standard-deployment-model-availability) and select a region during deployment accordingly.
+> This template uses [Azure OpenAI Service](/azure/ai-services/openai/overview) deployment modules **gpt-4o** and **text-embedding-ada-002**, which may not be available in all Azure regions. Check for [up-to-date region availability](/azure/ai-services/openai/concepts/models#standard-deployment-model-availability) and select a region during deployment accordingly.
 
-We recommend using region **East US**, **East US 2**, **North Central US**, **South Central US**, **Sweden Central**, **West US**, and **West US 3**.
+We recommend using region **East US**, **East US 2**, **North Central US**, **South Central US**, **Sweden Central**, **West US**, or **West US 3**.
 
-* Log in to azd with command
+To deploy your application, use the following steps:
 
-  ```bash
-  azd auth login
-  ```
+1. Log in to azd by using the following command:
 
-* Run command to auto deploy
+    ```azurecli
+    azd auth login
+    ```
 
-  ```bash
-  azd up
-  ```
+1. Auto deploy by using the following command:
 
-  Fill the variables required:
+   ```azurecli
+   azd up
+   ```
 
-  ```
-  ? Enter a new environment name: first-ai
-  ? Select an Azure Subscription to use: <SUBSCRIPTION>
-  ? Select an Azure location to use: <REGION>
-  ```
+1. When the system prompts you, enter `first-ai` for the environment name. After that, enter values for your Azure Subscription and Azure location, substituting your actual values for the placeholders in the following prompt:
 
-  It takes about 15 minutes to get your first AI application ready. Sample output:
+    ```azurecli
+    ? Enter a new environment name: first-ai
+    ? Select an Azure Subscription to use: <SUBSCRIPTION>
+    ? Select an Azure location to use: <REGION>
+    ```
 
-  ```
-  (✓) Done: Resource group: rg-first-ai (5.977s)
-  (✓) Done: Virtual Network: vnet-first-ai (7.357s)
-  (✓) Done: Container Registry: crb36onby7z5ooc (25.742s)
-  (✓) Done: Azure OpenAI: openai-first-ai (25.324s)
-  (✓) Done: Azure AI Services Model Deployment: openai-first-ai/text-embedding-ada-002 (42.909s)
-  (✓) Done: Azure AI Services Model Deployment: openai-first-ai/gpt-4o (44.21s)
-  (✓) Done: Container Apps Environment: aca-env-first-ai (3m1.361s)
-  (✓) Done: Container App: petclinic-ai (22.701s)
+It takes about 15 minutes to get your first AI application ready. The following is typical output:
 
-  INFO: Deploy finish succeed!
-  INFO: App url: petclinic-ai.<cluster>.<region>.azurecontainerapps.io
+```azurecli
+(✓) Done: Resource group: rg-first-ai (5.977s)
+(✓) Done: Virtual Network: vnet-first-ai (7.357s)
+(✓) Done: Container Registry: crb36onby7z5ooc (25.742s)
+(✓) Done: Azure OpenAI: openai-first-ai (25.324s)
+(✓) Done: Azure AI Services Model Deployment: openai-first-ai/text-embedding-ada-002 (42.909s)
+(✓) Done: Azure AI Services Model Deployment: openai-first-ai/gpt-4o (44.21s)
+(✓) Done: Container Apps Environment: aca-env-first-ai (3m1.361s)
+(✓) Done: Container App: petclinic-ai (22.701s)
 
-  Packaging services (azd package)
+INFO: Deploy finish succeed!
+INFO: App url: petclinic-ai.<cluster>.<region>.azurecontainerapps.io
 
-  (✓) Done: Packaging service petclinic-ai
+Packaging services (azd package)
 
-  Deploying services (azd deploy)
+(✓) Done: Packaging service petclinic-ai
 
-  (✓) Done: Deploying service petclinic-ai
-  - Endpoint: https://petclinic-ai.<cluster>.<region>.azurecontainerapps.io/
+Deploying services (azd deploy)
 
-  SUCCESS: Your up workflow to provision and deploy to Azure completed in 17 minutes 40 seconds.
-  ```
+(✓) Done: Deploying service petclinic-ai
+- Endpoint: https://petclinic-ai.<cluster>.<region>.azurecontainerapps.io/
 
-* Try the AI application
+SUCCESS: Your up workflow to provision and deploy to Azure completed in 17 minutes 40 seconds.
+```
 
-  Open the App url from the deploy output:
+## Try your application
 
-  ```
-  INFO: Deploy finish succeed!
-  INFO: App url: https://petclinic-ai.<cluster>.<region>.azurecontainerapps.io
-  ```
+Now you can start using your application. Open the app by selecting the URL from the deploy output:
 
-  And your can see the pet clinic page and chat with the AI assistant.
+```
+INFO: Deploy finish succeed!
+INFO: App url: https://petclinic-ai.<cluster>.<region>.azurecontainerapps.io
+```
 
-  You can get help by having a natural language chat with the AI assistant. The AI assistant can assist you with the following tasks:
-  - Querying the registered pet owners
-  - Adding a new pet owner
-  - Updating the pet owner's information
-  - Adding a new pet
-  - Querying the vets' information
+The Petclinic page and AI assistant assistant appear. You can get help by having a natural language chat with the AI assistant, which can assist you with the following tasks:
 
-  Here's a sample to register a new owner with a pet to the petclinic. You can find the new owner and pet info from the owner page after the AI assistant finished the job.
+- Querying the registered pet owners
+- Adding a new pet owner
+- Updating the pet owner's information
+- Adding a new pet
+- Querying the vets' information
 
-  :::image type="content" source="media/first-ai-application/add-new-item.png" alt-text="Screenshot of AI chat assistant adding new item.":::
+The following image shows a chat where the user asks the AI assistant to register a new owner with a pet to the PetClinic, and the AI assistant then performs these tasks:
 
-  The capabilities of the AI assistant depend on the model you deploy in Azure OpenAI and the implementation of the defined functions.
+:::image type="content" source="media/first-ai-application/add-new-item.png" alt-text="Screenshot of AI chat assistant adding new item.":::
 
-* Apply your changes
+The capabilities of the AI assistant depend on the model you deploy in Azure OpenAI and the implementation of the defined functions.
 
-  If there are some changes to the code, apply the updates to Azure with these commands:
+## Apply your changes
 
-  ```bash
-  azd package
-  azd deploy
-  ```
+If there are some changes to the code, apply the updates to Azure by using these commands:
+
+```azurecli
+   azd package
+   azd deploy
+```
 
 ## How to implement the first AI application
 
