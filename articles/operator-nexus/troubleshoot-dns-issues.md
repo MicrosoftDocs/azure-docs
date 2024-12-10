@@ -12,14 +12,14 @@ ms.date: 12/10/2024
 
 # Troubleshoot Nexus DNS Issues
 
-Nexus Network Fabric (NNF) provides a bridge between some new name for Nexus Far Edge resources and Azure but a DNS (Domain Name Service) error in NNF can mean that Azure resources cannot be contacted which impacts deployment or managment of some new name for Nexus Far Edge resources.
+Nexus Network Fabric (NNF) provides a bridge between some new name for Nexus Far Edge resources and Azure but a DNS (Domain Name System) error in NNF can mean that Azure resources can't be contacted which impacts deployment or management of some new name for Nexus Far Edge resources.
 
 ## Diagnosis
 
-* Deployment or management of remote Nexus resources fails with "DeploymentFailed", often because of a failure to access an ACR (Azure Container Resource) or similar Azure resource.  Errors observed include but are not limited to:
+* Deployment or management of remote Nexus resources fails with "DeploymentFailed", often because of a failure to access an ACR (Azure Container Registry) or similar Azure resource.  Errors observed include but are not limited to:
   * "...could not login to OCI registry..."
   * "GatewayTimeout".
-* Azure portal shows no errors being generated for the Azure resources that canot be reached; this is because the failing operations are not actually accessing the resources at all.
+* Azure portal shows no errors being generated for the Azure resources that can't be reached; this is because the failing operations are not actually accessing the resources at all.
 
 ## Mitigation steps
 
@@ -35,7 +35,7 @@ Follow these steps for mitigation.
 
 ## Verification
 
-After the DNS cache has been refreshed, create/manage operations are successful.
+After the DNS cache has been refreshed, create or manage operations are successful.
 
 ## Related content
 
