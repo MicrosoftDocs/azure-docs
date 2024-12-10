@@ -94,12 +94,9 @@ By understanding these limitations, users can plan effectively and decide whethe
 
 Explore more about WordPress on Azure App Service:
 
-- [WordPress FAQ](troubleshoot-wordpress.md)
 - [Create a WordPress site](quickstart-wordpress.md)
 - [GitHub documentation](https://github.com/Azure/wordpress-linux-appservice)
 - [Sidecar configuration](tutorial-custom-container-sidecar.md)
-
-
 
 ## Next steps
 
