@@ -3,7 +3,7 @@ title: Create Bicep files by using Visual Studio Code
 description: Learn how to use Visual Studio Code to create Bicep files.
 ms.topic: how-to
 ms.custom: devx-track-bicep
-ms.date: 11/20/2024
+ms.date: 12/06/2024
 ---
 
 # Create Bicep files by using Visual Studio Code
@@ -78,7 +78,7 @@ You can deploy Bicep files directly from Visual Studio Code. Select **Deploy Bic
 
 ### Generate parameters file
 
-This command creates a parameter file in the same folder as the Bicep file. You can choose to create a Bicep parameter file or a JSON parameter file. The new Bicep parameter file name is `<bicep-file-name>.bicepparam`, while the new JSON parameter file name is `<bicep-file-name>.parameters.json`.
+This command creates a parameters file in the same folder as the Bicep file. You can choose to create a Bicep parameters file or a JSON parameters file. The new Bicep parameters file name is `<bicep-file-name>.bicepparam`, while the new JSON parameters file name is `<bicep-file-name>.parameters.json`.
 
 ### Import Kubernetes manifest (Preview)
 

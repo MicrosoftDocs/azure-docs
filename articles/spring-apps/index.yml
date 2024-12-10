@@ -24,7 +24,7 @@ highlightedContent:
       url: basic-standard/retirement-announcement.md
     - title: What is Azure Spring Apps?
       itemType: overview
-      url: enterprise/overview.md
+      url: basic-standard/overview.md
     # Card
     - title: Basic/Standard plan
       itemType: overview

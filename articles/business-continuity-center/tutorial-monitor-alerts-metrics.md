@@ -26,7 +26,7 @@ To monitor the alerts, follow these steps:
 
    The count of all alert rules appears that have at least one or more fired alerts in the selected time range.
 
-   :::image type="content" source="./media/tutorial-monitor-alerts-metrics/view-triggered-alerts-in-selected-time-range.png" alt-text="Screemshot shows the triggered alerts in a selected time range." lightbox="./media/tutorial-monitor-alerts-metrics/view-triggered-alerts-in-selected-time-range.png":::
+   :::image type="content" source="./media/tutorial-monitor-alerts-metrics/view-triggered-alerts-in-selected-time-range.png" alt-text="Screenshot shows the triggered alerts in a selected time range." lightbox="./media/tutorial-monitor-alerts-metrics/view-triggered-alerts-in-selected-time-range.png":::
 
 2. On **Alerts**, filter the list by *severity of alert*, *category of alert*, *time range* (up to last 15 days), and other parameters.
 
