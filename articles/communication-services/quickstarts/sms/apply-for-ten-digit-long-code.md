@@ -15,7 +15,7 @@ ms.custom: mode-other
 ---
 
 # Quickstart: Apply for 10DLC (10 digit long codes)
-This guide walks you through the steps required to register a brand and campaign for 10DLC (10-Digit Long Code) messaging in ACS. This process ensures compliance with carrier requirements and enables reliable, high-quality message delivery. Refer to [10DLC guidelines](../../concepts/sms/ten-digit-longcode-gudelines.md) for instructions on how to fill the registration form.
+This guide walks you through the steps required to register a brand and campaign for 10DLC (10-Digit Long Code) messaging in ACS. This process ensures compliance with carrier requirements and enables reliable, high-quality message delivery. Refer to [10DLC guidelines](../../concepts/sms/ten-digit-long-code-guidelines.md) for instructions on how to fill the registration form.
 
 [!INCLUDE [Notice](../../includes/public-preview-include.md)]
 
