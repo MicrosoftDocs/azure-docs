@@ -276,9 +276,9 @@
           href: enable-dapr.md
         - name: Deploy using the Dapr extension for Azure Functions
           href: dapr-functions-extension.md
-      - name: Dapr components
+      - name: Components
         items:
-        - name: Dapr components overview
+        - name: Components overview
           href: dapr-components.md
         - name: Connect to Azure or third-party services
           href: dapr-component-connect-services.md

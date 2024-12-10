@@ -6,7 +6,7 @@ author: hhunter-ms
 ms.service: azure-container-apps
 ms.custom: build-2023
 ms.topic: conceptual
-ms.date: 12/04/2024
+ms.date: 12/10/2024
 ---
 
 # Connect to other Azure or third-party services via Dapr components
@@ -17,7 +17,7 @@ Before getting started, [learn more about the offered support for Dapr component
 
 ## Recommendations
 
-Whenever possible, we recommend using Azure components that provide managed identity support for the most secure connection. Use Azure Key Vault secret stores *only* when managed identity authentication isn't supported. 
+Whenever possible, it's recommended that you use Azure components that provide managed identity support for the most secure connection. Use Azure Key Vault secret stores *only* when managed identity authentication isn't supported. 
 
 | Service type | Recommendation |
 | ------------ | -------------- |
