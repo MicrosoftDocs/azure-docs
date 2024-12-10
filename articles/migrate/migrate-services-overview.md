@@ -22,7 +22,7 @@ Azure Migrate provides a simplified migration, modernization, and optimization s
 
 - **Decide**: The first step in a migration journey is to identify your workloads. This process of identification is known as discovery. To discover your workloads, you can deploy a light-weight [Azure Migrate appliance](migrate-appliance.md) (recommended approach) or quickly import the inventory data for your workloads. The Azure Migrate appliance is a virtual appliance that can be deployed on a server on your datacenter. The appliance collects the configuration and performance data for your servers and continually sends it over to Azure Migrate Service. Once the inventory of workloads is identified, you can create a business case to make your decision to migrate to Azure.  
 
-  - **Business case** helps you decide if you should migrate your on-premises workloads to Azure, by estimating the costs and savings of moving to Azure. The business case helps you identify- 
+- **Business case** helps you decide if you should migrate your on-premises workloads to Azure, by estimating the costs and savings of moving to Azure. The business case helps you identify- 
     - On-premises vs Azure total cost of ownership
     - YoY comparison of cash flows
     - Resource utilization-based insights on Azure targets. 
@@ -92,7 +92,7 @@ Azure Migrate has a suite of the following tools integrated within the product:
 [Lakeside](https://go.microsoft.com/fwlink/?linkid=2104908) | Assess VDI.
 [RackWare](https://go.microsoft.com/fwlink/?linkid=2102735) | Migrate servers.
 [Turbonomic](https://go.microsoft.com/fwlink/?linkid=2094295) | Assess servers.
-[UnifyCloud](https://www.cloudatlasinc.com/cloudrecon/) | Assess servers and databases.
+[UnifyCloud: CloudRecon](https://www.cloudatlasinc.com/cloudrecon/) | Assess servers and databases.
 [Zerto](https://go.microsoft.com/fwlink/?linkid=2152102) | Migrate servers.
 
 ## Next steps

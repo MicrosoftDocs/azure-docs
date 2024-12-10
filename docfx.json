@@ -942,7 +942,8 @@
         "articles/virtual-desktop/**/*.yml": "azure-virtual-desktop"
       },
       "ms.reviewer": {
-        "articles/advisor/*.md": "ikhapova"
+        "articles/advisor/*.md": "ikhapova",
+        "articles/healthcare-apis/*.md": "leeclontz"
       },
       "search.appverid": {
         "articles/private-5g-core/**/*.md": "ap5gc",
