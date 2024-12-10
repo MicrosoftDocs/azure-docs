@@ -38,7 +38,7 @@ You’ll need to provide:
 
 ### Can I update my brand information after registration?
 
-This feature is currently not available but will be supported in the future releases. 
+This feature is currently not available.
 
 ### Is there a fee for brand registration?
 
@@ -56,9 +56,9 @@ The vetting score is based on the information provided during brand registration
 
 Currently, ACS supports **Standard campaigns** only. These campaigns are used for general business messaging, such as customer service notifications, account updates, and other informational messages that do not fall under special categories (e.g., political or emergency services).
 
-### How often can I update my campaign information?
+### Can I update my campaign information?
 
-This feature is currently not available but will be supported in the future releases. 
+This feature is currently not available.
 
 ### Is there a fee for campaign registration?
 
@@ -131,7 +131,7 @@ In the United States, Azure Communication Services doesn't check for landline nu
 
 Yes, you can make one request with multiple recipients. Follow this [quickstart](../../quickstarts/sms/send.md?pivots=programming-language-csharp) to send messages to multiple recipients.
 
-### I received an HTTP Status 202 from the Send SMS API but the SMS didn't reach my phone, what do I do now?
+### I received an HTTP Status 202 from the Send SMS API but the SMS didn't reach my phone. What do I do now?
 
 The 202 returned by the service means that the message you queued to be sent wasn't delivered. Use this [Quickstart: Handle SMS events](../../quickstarts/sms/handle-sms-events.md) to subscribe to delivery report events and troubleshoot. Once the events are configured, inspect the `deliveryStatus` field of your delivery report to verify delivery success or failure.
 
@@ -339,7 +339,7 @@ Azure Communication Services supports sending and receiving of long messages ove
 
 To ensure that we continue offering the high quality of service consistent with our SLAs, Azure Communication Services applies rate limits (different for each primitive). Developers who call our APIs beyond the limit receive a 429 HTTP Status Code Response. 
 
-#### Rate Limits for SMS:
+#### Rate Limits for SMS
 
 |Operation|Number Type |Scope|Timeframe (s)| Limit (request #) | Message units per minute|
 |---------|---|--|-------------|-------------------|-------------------------|
