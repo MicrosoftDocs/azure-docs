@@ -51,7 +51,7 @@ You'll need to connect your Azure Communication Services resource with the Azure
    [![Screenshot of Enable Managed Identity button.](./media/enabled-identity.png)](./media/enabled-identity.png#lightbox)
 
 4. Enable system assigned identity. This action begins the creation of the identity; A pop-up notification appears notifying you that the request is being processed.
-  [![Screen shot of enable managed identiy.](./media/enable-system-identity.png)](./media/enable-system-identity.png#lightbox)
+  [![Screen shot of enable managed identity.](./media/enable-system-identity.png)](./media/enable-system-identity.png#lightbox)
 
 5. Once the identity is enabled, you should see something similar.
    [![Screenshot of enabled identity.](./media/identity-saved.png)](./media/identity-saved.png#lightbox)

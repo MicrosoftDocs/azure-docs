@@ -339,7 +339,7 @@ Before you can create your logic app, create a local project so that you can man
    > [**FUNCTIONS_WORKER_RUNTIME** app setting](edit-app-settings-host-settings.md#reference-local-settings-json).
    > 
    > The **APP_KIND** app setting is required for your Standard logic app, and the value
-   > must be **workflowApp**. Howeever, in some scenarios, this app setting might be missing,
+   > must be **workflowApp**. However, in some scenarios, this app setting might be missing,
    > for example, due to automation using Azure Resource Manager templates or other scenarios
    > where the setting isn't included. If certain actions don't work, such as the **Execute JavaScript Code**
    > action, or if the workflow stops working, check that the **APP_KIND** app setting exists and is set to to **workflowApp**.

@@ -179,7 +179,7 @@ New limits are as follows:
 
 After submission of the form, we coordinate with our downstream peer to get the application verified by the toll-free messaging aggregator. While we're reviewing your application, we may reach out to you for more information.
 - From Application Submitted to Pending = **1-5 business days** 
-- From Pending to Verdict (Verfied/Rejected/More info needed) = **4-5 weeks**. The toll-free aggregator is currently facing a high volume of applications, so new applications can take around eight weeks to be approved.
+- From Pending to Verdict (Verified/Rejected/More info needed) = **4-5 weeks**. The toll-free aggregator is currently facing a high volume of applications, so new applications can take around eight weeks to be approved.
 
 The whole toll-free verification process takes about **5-6 weeks**. These timelines are subject to change depending on the volume of applications to the toll-free messaging aggregator and the [quality](#what-is-considered-a-high-quality-toll-free-verification-application) of your application. The toll-free aggregator is currently facing a high volume of applications due to which applications can take around eight weeks to get approved.
 
@@ -203,7 +203,7 @@ Pointers to ensure you're submitting a high quality application:
 
 ### What are the ineligible use cases for toll-free verification?
 
-| High-Risk Financial Services    | Get Rich Quick Schemes            | Debt Forgiveness                 | Illegal Substances/Activites | General                  |
+| High-Risk Financial Services    | Get Rich Quick Schemes            | Debt Forgiveness                 | Illegal Substances/Activities | General                  |
 |---------------------------------|-----------------------------------|----------------------------------|------------------------------|--------------------------|
 | Payday loans                    | Debt consolidation                | Work from home programs          | Cannabis                     | Phishing                 |
 | Short-term, high-interest loans | Debt reduction                    | Risk investment opportunities    | Alcohol                      | Fraud or scams           |
