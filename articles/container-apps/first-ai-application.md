@@ -156,33 +156,27 @@ If there are some changes to the code, apply the updates to Azure by using these
    azd deploy
 ```
 
-## How to implement the first AI application
+## Implement the first application
 
-This sample is an AI chat assistant based on Retrieval Augmented Generation(RAG), it uses Spring AI SDKs to connect to Azure OpenAI service.
+This sample is an AI chat assistant based on Retrieval Augmented Generation (RAG). It uses Spring AI SDKs to connect to Azure OpenAI service.
 
 ### Concept
 
-Here we introduce some key concept on how to implement an AI application.
+This quickstart, which implements an AI application, uses the following key concepts:
 
-1. Spring AI
-   [Spring AI](https://spring.io/projects/spring-ai) is an application framework for AI engineering. Its goal is to apply to the AI domain Spring ecosystem design principles to the AI domain.
+- [Spring AI](https://spring.io/projects/spring-ai). This is an application framework for AI engineering. Its goal is to apply Spring ecosystem design principles to the AI domain. [langchain4j](https://docs.langchain4j.dev/intro) is another popular AI framework that has its own PetClinic sample. For more information on the the Spring PetClinic With OpenAI and Langchain4j, see the [spring-petclinic-langchain4j
+](https://github.com/Azure-Samples/spring-petclinic-langchain4j) repo.
 
-   There's another popular AI framework [langchain4j](https://docs.langchain4j.dev/intro), and you may find the samples in [Spring PetClinic With OpenAI and Langchain4j](https://github.com/Azure-Samples/spring-petclinic-langchain4j).
+- RAG with Azure OpenAI. RAG allows developers to use supported AI chat models that can reference specific sources of information to ground the response. Adding this information allows the model to reference both the specific data provided and its pretrained knowledge to provide more effective responses. Azure OpenAI enables RAG by connecting pretrained models to your own data sources. Azure OpenAI uses your data in the following steps:
 
-1. RAG in Azure OpenAI
+- Receive the user prompt.
+- Determine the relevant content and intent of the prompt.
+- Query the search index with that content and intent.
+- Insert a search result chunk into the Azure OpenAI prompt, along with system message and user prompt.
+- Send the entire prompt to Azure OpenAI.
+- Return the response and data reference (if any) to the user.
 
-   RAG with Azure OpenAI allows developers to use supported AI chat models that can reference specific sources of information to ground the response. Adding this information allows the model to reference both the specific data provided and its pretrained knowledge to provide more effective responses.
-
-   Azure OpenAI enables RAG by connecting pretrained models to your own data sources. Azure OpenAI on your data goes through the following steps:
-
-   - Receive user prompt.
-   - Determine relevant content and intent of the prompt.
-   - Query the search index with that content and intent.
-   - Insert search result chunk into the Azure OpenAI prompt, along with system message and user prompt.
-   - Send entire prompt to Azure OpenAI.
-   - Return response and data reference (if any) to the user.
-
-   See more from [Spring AI Chat Client](https://docs.spring.io/spring-ai/reference/api/chatclient.html) and [Implement Retrieval Augmented Generation (RAG) with Azure OpenAI Service](/training/modules/use-own-data-azure-openai).
+For more information, see [Spring AI Chat Client](https://docs.spring.io/spring-ai/reference/api/chatclient.html) and [Implement Retrieval Augmented Generation (RAG) with Azure OpenAI Service](/training/modules/use-own-data-azure-openai).
 
 ### Code implementation
 
