@@ -1,6 +1,6 @@
 ---
 title: 'An overview of WordPress'
-description: An overview of WordPress on App Service. You can focus on creating WP content while Azure takes care of the infrastructure, security, and performance needs.
+description: An overview of WordPress on App Service. You can focus on creating WordPress content while Azure takes care of the infrastructure, security, and performance needs.
 keywords: app service, azure app service, wordpress, preview, app service on linux, plugins, mysql flexible server, wordpress on linux, php
 author: msangapu-msft
 ms.topic: overview
