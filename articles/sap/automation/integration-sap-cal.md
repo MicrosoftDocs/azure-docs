@@ -101,6 +101,8 @@ Here\'s a step-by-step guide for installing SAP S/4 HANA with SAP CAL Installati
 
     -   Set parameter "enable_rbac_authorization_for_keyvault = true" in the Landscape tfvars file.
 
+    -   Assign Key Vault Administrator role to the application for SDAF Workload Zone Key Vault.
+
     -   Set parameter "enable_sap_cal = true" in the System tfvars file.
 
 2.  After the system deployment, update sap-parameters.yaml file with the CAL Key Vault.
