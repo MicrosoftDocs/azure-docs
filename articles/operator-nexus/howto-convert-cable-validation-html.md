@@ -1,3 +1,24 @@
+---
+title: How to Convert Network Fabric Cable Validation Report to HTML
+description: Learn how to convert Nexus Network Fabric Cable Validation Report to HTML.
+author: bpinto
+ms.author: bpinto
+ms.service: azure-operator-nexus
+ms.topic: how-to #Required; leave this attribute/value as-is
+ms.date: 12/10/2024
+
+#CustomerIntent: As a < type of user >, I want < what? > so that < why? >.
+---
+# How to Convert Network Fabric Cable Validation Report to HTML
+
+This article explains how to convert a Nexus Network Fabric Cable Validation Report from JSON output to HTML.
+
+## Prerequisites
+
+- Requires Modules: `json pandas as pd`
+
+## Python Script for Cable Validation JSON to html conversion
+
 ```
 import json
 import pandas as pd
@@ -130,8 +151,7 @@ html = f"""
     </div>
 </body>
 </html>
-"""
-
+```
 # Save the HTML string to a file
 with open("reports/report-{filename}.html".format(filename = date_time), 'w') as f:
     f.write(html)
