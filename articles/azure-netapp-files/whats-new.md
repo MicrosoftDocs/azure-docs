@@ -6,7 +6,7 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: linux-related-content
 ms.topic: overview
-ms.date: 12/03/2024
+ms.date: 12/10/2024
 ms.author: anfdocs
 ---
 
@@ -15,6 +15,8 @@ ms.author: anfdocs
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
 ## December 2024
+
+* [Volume enhancement: Azure NetApp Files 50 GiB minimum volume sizes](azure-netapp-files-create-volumes.md#50-gib) is now generally available (GA)
 
 * [Cloud Backup for Virtual Machines on Azure NetApp Files datastores for Azure VMware Solution:](../azure-vmware/install-cloud-backup-virtual-machines.md) enhanced backup capabilities (Preview)
 
