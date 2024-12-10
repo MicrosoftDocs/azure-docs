@@ -68,7 +68,7 @@ Each workspace is associated with one or more workspace gateways to enable runti
 ### Dedicated versus shared workspace gateway
 
 > [!NOTE]
-> We're introducing the ability to associate multiple workspaces with a workspace gateway, helping organizations manage APIs with workspaces at a lower cost. This feature is being rolled out starting in December 2024 and it may not be available to all eligible services before January. [Learn more](https://aka.ms/apim/workspaces/sharedgateway)
+> We're introducing the ability to associate multiple workspaces with a shared workspace gateway, helping organizations manage APIs with workspaces at a lower cost. This feature is being rolled out starting in December 2024 and it may not be available to all eligible services before January. Shared gateways will only be available in workspaces created after the service update. [Learn more](https://aka.ms/apim/workspaces/sharedgateway)
 
 A workspace gateway can be either *dedicated* to a single workspace or *shared* among multiple workspaces:
 
