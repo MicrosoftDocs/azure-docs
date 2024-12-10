@@ -64,6 +64,8 @@ Install the extensions by using the following command:
 
 ## Prepare the project
 
+To prepare the project, clone the [spring-petclinic-ai](https://github.com/Azure-Samples/spring-petclinic-ai) repository by using the following command:
+
 ```bash
 git clone https://github.com/Azure-Samples/spring-petclinic-ai.git
 ```
