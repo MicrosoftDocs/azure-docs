@@ -2,7 +2,7 @@
 title: 'Quickstart: Use Terraform to create an Azure Automation account'
 description: In this quickstart, you use Terraform to create an Azure resource group, an Azure Automation account with a system-assigned identity, and assign a "Contributor" role to the Automation account.
 ms.topic: quickstart
-ms.date: 12/09/2024
+ms.date: 12/11/2024
 ms.custom: devx-track-terraform
 ms.service: azure-automation
 author: SnehaSudhirG
@@ -14,8 +14,7 @@ content_well_notification:
 
 # Quickstart: Use Terraform to create an Azure Automation account
 
-In this quickstart, you create an Azure Automation account and use Terraform to assign a "Contributor" role to the account. An Automation account is a cloud-based service that provides a secure environment for running runbooks, which are scripts that automate processes. The account can automate frequent, time-consuming, and error-prone tasks that are managed in the cloud.
-This Automation account is created within an Azure resource group, which is a container that holds related resources for an Azure solution. Additionally, a "Contributor" role is assigned to the Automation account, which grants specific permissions within the scope of the subscription.
+In this quickstart, you create an Azure Automation account and use Terraform to assign a "Contributor" role to the account. An Automation account is a cloud-based service that provides a secure environment for running runbooks, which are scripts that automate processes. The account can automate frequent, time-consuming, and error-prone tasks that are managed in the cloud. This Automation account is created within an Azure resource group, which is a container that holds related resources for an Azure solution. Additionally, a "Contributor" role is assigned to the Automation account, which grants specific permissions within the scope of the subscription.
 
 [!INCLUDE [About Terraform](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
 
@@ -75,15 +74,23 @@ This Automation account is created within an Azure resource group, which is a co
 
 ### [Azure CLI](#tab/azure-cli)
 
-Run [`az automation account show`](/cli/azure/automation/account#az-automation-account-show) to view the Automation account.
+1. Get the Azure resource group name.
 
-```azurecli
-az automation account show --name <automation_account_name> --resource-group <resource_group_name>
-```
+    ```console
+    resource_group_name=$(terraform output -raw resource_group_name)
+    ```
 
-Replace `<automation_account_name>` with the name of your Automation account and `<resource_group_name>` with the name of your resource group.
+2. Get the Automation account name.
 
----
+    ```console
+    automation_account_name=$(terraform output -raw resource_group_name)
+    ```
+
+3. Run [`az automation account show`](/cli/azure/automation/account#az-automation-account-show) to view the Automation  account.
+
+    ```azurecli
+    az automation account show --name $automation_account_name --resource-group $resource_group_name>
+    ```
 
 ## Clean up resources
 
