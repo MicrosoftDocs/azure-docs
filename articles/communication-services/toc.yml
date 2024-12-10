@@ -91,6 +91,8 @@ items:
       href: quickstarts/sms/apply-for-short-code.md
     - name: Apply for toll-free verification
       href: quickstarts/sms/apply-for-toll-free-verification.md
+    - name: Apply for 10 digit long codes Registration
+      href: quickstarts/sms/apply-for-ten-digit-long-code.md
     - name: Enable alphanumeric sender ID
       href: quickstarts/sms/enable-alphanumeric-sender-id.md
     - name: Use the Opt-Out API
@@ -711,6 +713,8 @@ items:
         href: concepts/sms/program-brief-guidelines.md
       - name: Toll-free verification guidelines
         href: concepts/sms/toll-free-verification-guidelines.md
+      - name: 10 Digit Long Codes Registration Guidelines
+        href: concepts/sms/ten-digit-long-code-guidelines.md
     - name: Events
       items:
       - name: Overview
