@@ -56,7 +56,7 @@ To allow network access or an individual volume group, you must [enable a servic
 
 To protect the data in your Elastic SAN against data loss or corruption, all SAN store multiple copies of each file as they're written. Depending on the requirements of your workload, you can select additional degrees of redundancy. Two data redundancy options are currently supported.
 
-### Locally-redundant storage
+### Locally redundant storage
 
 With Locally redundant storage (LRS), every SAN is stored three times within an Azure storage cluster. This protects against loss of data due to hardware faults, such as a bad disk drive. However, if a disaster such as fire or flooding occurs within the data center, all replicas of an Elastic SAN using LRS could be lost or unrecoverable.
 
