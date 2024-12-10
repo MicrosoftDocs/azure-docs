@@ -180,7 +180,7 @@ The creation wizard generated the database connectivity string for you already a
         1. Select **AZURE_MYSQL_CONNECTIONSTRING**. It contains a JDBC connection string. If you add an app setting that contains a valid Oracle, SQL Server, PostgreSQL, or MySQL connection string, App Service injects it as a Java Naming and Directory Interface (JNDI) data source in the Tomcat server's *context.xml* file. 
         1. In **Add/Edit application setting**, in the **Value** field, find the *password=* part at the end of the string.
         1. Copy the password string after *Password=* for use later.
-        This app setting lets you connect to the MySQL database secured behind a private endpoint. However, the secret is saved directly in the App Service app, which isn't the best. You change this.
+        This app setting lets you connect to the MySQL database secured behind a private endpoint. However, the secret is saved directly in the App Service app, which isn't the best. You'll change this.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-java-tomcat-mysql-app/azure-portal-secure-connection-secrets-1.png" alt-text="A screenshot showing how to see the value of an app setting." lightbox="./media/tutorial-java-tomcat-mysql-app/azure-portal-secure-connection-secrets-1.png":::
@@ -188,7 +188,7 @@ The creation wizard generated the database connectivity string for you already a
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 2:  Create a Key Vault for secure management of secrets**
+        **Step 2:  Create a key vault for secure management of secrets**
         1. In the top search bar, type "*key vault*", then select **Marketplace** > **Key Vault**.
         1. In **Resource Group**, select **msdocs-tomcat-mysql-tutorial**.
         1. In **Key vault name**, type a name that consists of only letters and numbers.
@@ -200,12 +200,12 @@ The creation wizard generated the database connectivity string for you already a
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 3: Secure the Key Vault with a Private Endpoint**
+        **Step 3: Secure the key vault with a Private Endpoint**
         1. Select the **Networking** tab.
         1. Unselect **Enable public access**.
         1. Select **Create a private endpoint**.
         1. In **Resource Group**, select **msdocs-tomcat-mysql-tutorial**.
-        1. In **Name**, type a name for the Private Endpoint that consists of only letters and numbers.
+        1. In **Name**, type a name for the private endpoint that consists of only letters and numbers.
         1. In **Region**, set it to the same location as the resource group.
         1. In the dialog, in **Location**, select the same location as your App Service app.
         1. In **Resource Group**, select **msdocs-tomcat-mysql-tutorial**.
@@ -261,7 +261,7 @@ The creation wizard generated the database connectivity string for you already a
 :::row:::
     :::column span="2":::
         **Step 7: Verify the Key Vault integration**
-        1. From the left menu, select **Environment variables > Connection strings** again.
+        1. From the left menu, select **Settings > Environment variables** again.
         1. Next to **AZURE_MYSQL_CONNECTIONSTRING**, select **Show value**. The value should be `@Microsoft.KeyVault(...)`, which means that it's a [key vault reference](app-service-key-vault-references.md) because the secret is now managed in the key vault.
     :::column-end:::
     :::column:::
@@ -269,7 +269,7 @@ The creation wizard generated the database connectivity string for you already a
     :::column-end:::
 :::row-end:::
 
-To summarize, the process involved retrieving the MySQL connection string from the App Service's environment variables, creating an Azure Key Vault for secure secret management with private access, and updating the service connector to store the password in the Key Vault. A secure connection between the App Service and Key Vault was established using a system-assigned managed identity, and the setup was verified by confirming the connection string referenced the Key Vault.
+To summarize, the process involved retrieving the MySQL connection string from the App Service's environment variables, creating an Azure Key Vault for secure secret management with private access, and updating the service connector to store the password in the key vault. A secure connection between the App Service app and key vault was established using a system-assigned managed identity, and the setup was verified by confirming the connection string uses a Key Vault reference.
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
