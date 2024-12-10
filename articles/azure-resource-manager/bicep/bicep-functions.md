@@ -74,7 +74,7 @@ The following functions are available for working with dates. All of these funct
 
 The following functions are available for getting values related to the deployment. All of these functions are in the `az` namespace.
 
-* [developer](./bicep-functions-deployment.md#deployer)
+* [deployer](./bicep-functions-deployment.md#deployer)
 * [deployment](./bicep-functions-deployment.md#deployment)
 * [environment](./bicep-functions-deployment.md#environment)
 

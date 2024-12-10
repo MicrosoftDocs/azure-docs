@@ -122,7 +122,7 @@ For Bicep files, use the [date](../bicep/bicep-functions-date.md) functions.
 
 Resource Manager provides the following functions for getting values from sections of the template and values related to the deployment:
 
-* [developer](template-functions-deployment.md#deployer)
+* [deployer](template-functions-deployment.md#deployer)
 * [deployment](template-functions-deployment.md#deployment)
 * [environment](template-functions-deployment.md#environment)
 * [parameters](template-functions-deployment.md#parameters)
