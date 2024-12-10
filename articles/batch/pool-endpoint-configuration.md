@@ -116,7 +116,7 @@ namespace AzureBatch
     {
         pool.NetworkConfiguration = new NetworkConfiguration
         {
-            EndpointConfiguration = new PoolEndpointConfiguratio(new InboundNatPool[]
+            EndpointConfiguration = new PoolEndpointConfiguration(new InboundNatPool[]
             {
               new InboundNatPool("RDP", InboundEndpointProtocol.Tcp, 3389, 60000, 60099, new NetworkSecurityGroupRule[]
                 {
