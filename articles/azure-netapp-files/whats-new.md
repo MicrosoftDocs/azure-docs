@@ -14,6 +14,10 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
+* [Flexible service level](azure-netapp-files-service-levels.md#Flexible)
+
+    Azure NetApp Files now support a Flexible service level for manual QoS capacity pools. 
+
 ## December 2024
 
 * [Cloud Backup for Virtual Machines on Azure NetApp Files datastores for Azure VMware Solution:](../azure-vmware/install-cloud-backup-virtual-machines.md) enhanced backup capabilities (Preview)
@@ -113,10 +117,6 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
     - Total IOPS: a summation of all IOPS (read, write, and other)
     - Other throughput: any operations other than read or write.
     - Total throughput: Total throughput is a summation of all throughput (read, write, and other)
-
-* [Flexible service level](azure-netapp-files-service-levels.md#Flexible)
-
-    Azure NetApp Files now support a Flexible service level for manual QoS capacity pools. 
 
 ## June 2024
 
