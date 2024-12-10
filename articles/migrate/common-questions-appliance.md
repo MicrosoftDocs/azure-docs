@@ -45,7 +45,7 @@ The appliance can be deployed using a couple of methods:
 The appliance can connect to Azure using public or private networks or using Azure ExpressRoute.
 
 - Make sure the appliance can connect to these [Azure URLs](./migrate-appliance.md#url-access). 
-- You can use ExpressRoute with Microsoft peering. Public peering is deprecated, and isn't available for new ExpressRoute circuits.
+- You can use ExpressRoute with Microsoft peering.
 
 ## Does appliance analysis affect performance?
 

@@ -72,6 +72,7 @@ This can result in some tools, like the Azure portal, to show the tag key twice.
 The following limitations apply to tags:
 
 * Not all resource types support tags. To determine if you can apply a tag to a resource type, see [Tag support for Azure resources](tag-support.md).
+* Each resource type might have specific requirements when working with tags. For example, tags on virtual machine (VM) extensions can only be updated when the VM is running. If you receive an error message while trying to update a tag, follow the instructions in the message.
 * Each resource, resource group, and subscription can have a maximum of 50 tag name-value pairs. If you need to apply more tags than the maximum allowed number, use a JSON string for the tag value. The JSON string can contain many of the values that you apply to a single tag name. A resource group or subscription can contain many resources that each have 50 tag name-value pairs.
 * The tag name has a limit of 512 characters and the tag value has a limit of 256 characters. For storage accounts, the tag name has a limit of 128 characters and the tag value has a limit of 256 characters.
 * Classic resources such as Cloud Services don't support tags.
