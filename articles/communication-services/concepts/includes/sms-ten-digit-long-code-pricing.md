@@ -63,8 +63,8 @@ A carrier surcharge applies to messages exchanged using 10DLC numbers. This surc
 | Carrier            | Frequency      | Fee    |
 |--------------------|---------------------------------------|--------|
 | AT&T (Outbound)    | per message segment                   | $0.0020|
-| T-Mobile (incl. Sprint) (Outbound) | per message segment   | $0.0030|
-| Verizon (Outbound) | per message segment                   | $0.0030|
+| T-Mobile (incl. Sprint) (Outbound and Inbound) | per message segment   | $0.0030|
+| Verizon (Outbound and Inbound) | per message segment                   | $0.0030|
 | US Cellular (Outbound) | per message segment               |  $0.0050|
 | TextNow (Outbound) | per message segment                   |  $0.0020|
 | Bluegrass (Outbound)| per message segment                  |  $0     |
