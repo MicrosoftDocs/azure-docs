@@ -122,7 +122,7 @@ Here are a few suggestions to handle authorizing connections:
   > [handle potential throttling problems](/azure/logic-apps/handle-throttling-problems-429-errors.md#connector-throttling). 
   > Throttling happens at the connection level, so reusing the same connection across multiple logic apps might increase the potential for throttling problems.
 
-* Unless your scenario involves services and systems that require multi-factor authentication, you can use a PowerShell script to provide consent for each OAuth connection by running a continuous integration worker as a standard user account on a virtual machine that has active browser sessions with the authorizations and consent already provided. For example, you can repurpose the sample script provided by the [LogicAppConnectionAuth project in the Logic Apps GitHub repo](https://github.com/logicappsio/LogicAppConnectionAuth).
+* Unless your scenario involves services and systems that require multifactor authentication, you can use a PowerShell script to provide consent for each OAuth connection by running a continuous integration worker as a standard user account on a virtual machine that has active browser sessions with the authorizations and consent already provided. For example, you can repurpose the sample script provided by the [LogicAppConnectionAuth project in the Logic Apps GitHub repo](https://github.com/logicappsio/LogicAppConnectionAuth).
 
 * If you use a Microsoft Entra [service principal](/azure/active-directory/develop/app-objects-and-service-principals) instead to authorize connections, learn how to [specify service principal parameters in your logic app template](/azure/logic-apps/logic-apps-azure-resource-manager-templates-overview.md#authenticate-connections).
 

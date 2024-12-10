@@ -22,7 +22,7 @@ You can create, edit, manage, and deploy automated workflows that integrate serv
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
+* An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 * Download and install these tools, if you don't have them already:
 
@@ -65,7 +65,7 @@ In Visual Studio, you can find all the logic apps that are associated with your 
 
 1. In Cloud Explorer, select the **Account Management** icon. Select the Azure subscription associated with your logic apps, and select **Apply**. For example:
 
-   ![Select "Account Management"](./media/manage-logic-apps-with-visual-studio/account-management-select-Azure-subscription.png)
+   ![Screenshot shows Visual Studio, Cloud Explorer, and selected icon for Account Management.](./media/manage-logic-apps-with-visual-studio/account-management-select-Azure-subscription.png)
 
 1. Next to the **Account Management** icon, select **Resource Types**. Under your Azure subscription, expand **Logic Apps** so that you can view all the deployed logic apps that are associated with your subscription.
 
@@ -82,9 +82,10 @@ In Visual Studio, you can open logic apps previously created and deployed either
 1. From the logic app's shortcut menu, select **Open with Logic App Editor**.
 
    > [!TIP]
+   >
    > If you don't have this command in Visual Studio 2019, check that you have the latest updates for Visual Studio.
 
-   ![Open deployed logic app from Azure portal](./media/manage-logic-apps-with-visual-studio/open-logic-app-in-editor.png)
+   ![Screenshot shows Visual Studio and open deployed logic app from Azure portal.](./media/manage-logic-apps-with-visual-studio/open-logic-app-in-editor.png)
 
    After the logic app opens in Logic Apps Designer, at the bottom of the designer, you can select **Code View** so that you can review the underlying logic app definition structure. If you want to create a deployment template for the logic app, learn [how to download an Azure Resource Manager template](#download-logic-app) for that logic app. Learn more about [Resource Manager templates](../azure-resource-manager/templates/overview.md).
 
@@ -99,17 +100,18 @@ You can [download](../azure-resource-manager/templates/export-template-portal.md
 1. From the logic app's shortcut menu, select **Open with Logic App Editor**.
 
    > [!TIP]
+   >
    > If you don't have this command in Visual Studio 2019, check that you have the latest updates for Visual Studio.
 
    The logic app opens in the workflow designer.
 
 1. On the designer toolbar, select **Download**.
 
-   ![Download logic app from Azure portal](./media/manage-logic-apps-with-visual-studio/download-logic-app-from-portal.png)
+   ![Screenshot shows Visual Studio, designer toolbar, and selected option to download logic app from Azure portal.](./media/manage-logic-apps-with-visual-studio/download-logic-app-from-portal.png)
 
 1. When you're prompted for a location, browse to that location and save the Resource Manager template for the logic app definition in JSON (.json) file format.
 
-   Your logic app definition appears in the `resources` subsection inside the Resource Manager template. You can now edit the logic app definition and Resource Manager template with Visual Studio. You can also add the template as an [Azure Resource Group project](../azure-resource-manager/templates/create-visual-studio-deployment-project.md) to a Visual Studio solution. Learn about [Azure Resource Group projects for logic apps in Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
+   Your logic app definition appears in the **`resources`** subsection inside the Resource Manager template. You can now edit the logic app definition and Resource Manager template with Visual Studio. You can also add the template as an [Azure Resource Group project](../azure-resource-manager/templates/create-visual-studio-deployment-project.md) to a Visual Studio solution. Learn about [Azure Resource Group projects for logic apps in Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
 
 <a name="link-integration-account"></a>
 
@@ -121,21 +123,23 @@ To build logic apps for business-to-business (B2B) enterprise integration scenar
 
 1. In Solution Explorer, open the **\<logic-app-name\>.json** file's shortcut menu, and select **Open With Logic App Designer**. (Keyboard: Ctrl + L)
 
-   ![Open logic app's .json file with workflow designer](./media/manage-logic-apps-with-visual-studio/open-logic-app-designer.png)
+   ![Screenshot shows Solution Explorer and option to open logic app JSON file with workflow designer.](./media/manage-logic-apps-with-visual-studio/open-logic-app-designer.png)
 
    > [!TIP]
+   >
    > If you don't have this command in Visual Studio 2019, check that you have the latest updates to Visual Studio and the Azure Logic Apps Tools extension.
 
 1. Make sure that the workflow designer has focus by selecting the designer's tab or surface so that the Properties window shows the **Integration Account** property for your logic app.
 
-   ![Properties window - "Integration Account" property](./media/manage-logic-apps-with-visual-studio/open-logic-app-properties-integration-account.png)
+   ![Screenshot shows the Properties window and the property named Integration Account.](./media/manage-logic-apps-with-visual-studio/open-logic-app-properties-integration-account.png)
 
    > [!TIP]
+   >
    > If the Properties window isn't already open, from the **View** menu, select **Properties Window**. (Keyboard: Press F4)
 
 1. Open the **Integration Account** property list, and select the integration account that you want to link to your logic app, for example:
 
-   ![Open "Integration Account" property list](./media/manage-logic-apps-with-visual-studio/select-integration-account.png)
+   ![Screenshot shows opened list for the Integration Account property.](./media/manage-logic-apps-with-visual-studio/select-integration-account.png)
 
 1. When you're done, remember to save your Visual Studio solution.
 
@@ -153,21 +157,25 @@ To change your logic app's location type or location, you have to open your logi
 
 1. In Solution Explorer, open the `<logic-app-name>.json` file's shortcut menu, and select **Open With Logic App Designer**. (Keyboard: Ctrl + L)
 
-   ![Open logic app's .json file with workflow designer](./media/manage-logic-apps-with-visual-studio/open-logic-app-designer.png)
+   ![Screenshot shows open logic app JSON file with workflow designer.](./media/manage-logic-apps-with-visual-studio/open-logic-app-designer.png)
 
    > [!TIP]
+   >
    > If you don't have this command in Visual Studio 2019, check that you have the latest updates to Visual Studio and the Azure Logic Apps Tools extension.
 
-1. Make sure that the workflow designer has focus by selecting the designer's tab or surface so that the Properties window shows the **Choose Location Type** and **Location** properties for your logic app. The project's location type is set to **Region**.
+1. Make sure that the workflow designer has focus by selecting the designer's tab or surface so that the Properties window shows the **Choose Location Type** and **Location** properties for your logic app. 
 
-   ![Properties window - "Choose Location Type" & "Location" properties](./media/manage-logic-apps-with-visual-studio/open-logic-app-properties-location.png)
+   The project's location type is set to **Region**.
+
+   ![Screenshot shows Properties window and properites named Choose Location Type and Location.](./media/manage-logic-apps-with-visual-studio/open-logic-app-properties-location.png)
 
    > [!TIP]
+   >
    > If the Properties window isn't already open, from the **View** menu, select **Properties Window**. (Keyboard: Press F4)
 
 1. To change the specific location, open the **Location** property list. Based on the location type, select the location that you want, for example:
 
-     ![Open "Location" property list, select another Azure region](./media/manage-logic-apps-with-visual-studio/change-azure-resource-group-region.png)
+     ![Screenshot shows open Location property list and another selected Azure region.](./media/manage-logic-apps-with-visual-studio/change-azure-resource-group-region.png)
 
 1. When you're done, remember to save your Visual Studio solution.
 
@@ -185,19 +193,19 @@ If you edit your logic app in the Azure portal and want to keep those changes, m
 
 * In Visual Studio Cloud Explorer, open your logic app's shortcut menu, and select **Refresh**.
 
-![Refresh logic app with updates](./media/manage-logic-apps-with-visual-studio/refresh-logic-app-with-updates-from-portal.png)
+![Screenshot shows selected Refresh option for updating logic app.](./media/manage-logic-apps-with-visual-studio/refresh-logic-app-with-updates-from-portal.png)
 
 ## Publish logic app updates
 
 When you're ready to deploy your logic app updates from Visual Studio to Azure, on the workflow designer toolbar, select **Publish**.
 
-![Publish updated logic app to Azure portal](./media/manage-logic-apps-with-visual-studio/publish-logic-app-to-azure-portal.png)
+![Screenshot shows Publish option to deploy updated logic app to Azure portal.](./media/manage-logic-apps-with-visual-studio/publish-logic-app-to-azure-portal.png)
 
 ## Manually run your logic app
 
 You can manually trigger a logic app deployed in Azure from Visual Studio. On the workflow designer toolbar, select **Run Trigger**.
 
-![Manually run trigger for your logic app](./media/manage-logic-apps-with-visual-studio/manually-run-logic-app.png)
+![Screenshot shows option to manually run trigger for your logic app workflow.](./media/manage-logic-apps-with-visual-studio/manually-run-logic-app.png)
 
 ## Review run history
 
@@ -205,18 +213,19 @@ To check the status and diagnose problems with logic app runs, you can review th
 
 1. In Cloud Explorer, open your logic app's shortcut menu, and select **Open run history**.
 
-   ![Open run history for your logic app](./media/manage-logic-apps-with-visual-studio/open-run-history-for-logic-app.png)
+   ![Screenshot shows option to open workflow run history.](./media/manage-logic-apps-with-visual-studio/open-run-history-for-logic-app.png)
 
 1. To view the details for a specific run, double-click a run. For example:
 
-   ![View information about specific run](./media/manage-logic-apps-with-visual-studio/view-run-history-details.png)
+   ![Screenshot shows how to view information about specific run.](./media/manage-logic-apps-with-visual-studio/view-run-history-details.png)
   
    > [!TIP]
+   >
    > To sort the table by property, select the column header for that property.
 
 1. Expand the steps whose inputs and outputs you want to review, for example:
 
-   ![View inputs and outputs for each step](./media/manage-logic-apps-with-visual-studio/view-run-history-inputs-outputs.png)
+   ![Screenshot shows how to view inputs and outputs for each step.](./media/manage-logic-apps-with-visual-studio/view-run-history-inputs-outputs.png)
 
 <a name="disable-enable-logic-apps"></a>
 
@@ -235,7 +244,9 @@ To stop the trigger from firing the next time when the trigger condition is met,
   To stop the trigger from firing on unprocessed items since the last run, clear the trigger's state before you reactivate the logic app:
 
   1. In the logic app, edit any part of the workflow's trigger.
+
   1. Save your changes. This step resets your trigger's current state.
+
   1. [Reactivate your logic app](#enable-logic-apps).
 
 * When a workflow is disabled, you can still resubmit runs.
@@ -254,7 +265,7 @@ In Cloud Explorer, open your logic app's shortcut menu, and select **Disable**.
 
 In Cloud Explorer, open your logic app's shortcut menu, and select **Enable**.
 
-![Enable logic app in Cloud Explorer](./media/manage-logic-apps-with-visual-studio/enable-logic-app-cloud-explorer.png)
+![Screenshot shows selected Enable option for logic app in Cloud Explorer.](./media/manage-logic-apps-with-visual-studio/enable-logic-app-cloud-explorer.png)
 
 <a name="delete-logic-apps"></a>
 
@@ -268,11 +279,11 @@ Deleting a logic app affects workflow instances in following ways:
 
 * Azure Logic Apps doesn't create or run new workflow instances.
 
-* If you delete a workflow and then recreate the same workflow, the recreated workflow won't have the same metadata as the deleted workflow. You have to resave any workflow that called the deleted workflow. That way, the caller gets the correct information for the recreated workflow. Otherwise, calls to the recreated workflow fail with an `Unauthorized` error. This behavior also applies to workflows that use artifacts in integration accounts and workflows that call Azure functions.
+* If you delete a workflow and then recreate the same workflow, the recreated workflow won't have the same metadata as the deleted workflow. You have to resave any workflow that called the deleted workflow. That way, the caller gets the correct information for the recreated workflow. Otherwise, calls to the recreated workflow fail with an **`Unauthorized`** error. This behavior also applies to workflows that use artifacts in integration accounts and workflows that call Azure functions.
 
 To delete your logic app from the Azure portal, in Cloud Explorer, open your logic app's shortcut menu, and select **Delete**.
 
-![Delete your logic app from Azure portal](./media/manage-logic-apps-with-visual-studio/delete-logic-app-from-azure-portal.png)
+![Screenshot shows selected option for Delete logic app from Azure portal.](./media/manage-logic-apps-with-visual-studio/delete-logic-app-from-azure-portal.png)
 
 ## Troubleshooting
 
