@@ -27,7 +27,7 @@ The `ServiceBusProcessor` class of [Azure Messaging Service Bus client for .NET]
 
 ### Tracking with Azure Application Insights
 
-[Microsoft Application Insights](https://learn.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview) provides rich performance monitoring capabilities including automagical request and dependency tracking.
+[Microsoft Application Insights](/azure/azure-monitor/app/app-insights-overview) provides rich performance monitoring capabilities including automagical request and dependency tracking.
 
 Depending on your project type, install Application Insights SDK:
 - [ASP.NET](/azure/azure-monitor/app/asp-net) - install version 2.5-beta2 or higher
