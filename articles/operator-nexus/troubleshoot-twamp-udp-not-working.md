@@ -26,7 +26,7 @@ TWAMP (UDP) is configured but doesn't work. Network traffic analysis shows traff
 
 No mitigation is possible. Two-way UDP protocols can't traverse networks where address translation occurs without extra logic elements such as an ALG (Application-level Gateway).
 
-Two-Way TCP protocols can traverse a NAT providing that the TCP connection is established from inside the NAT to outside. This is possible because a long-lived connection is established through the NAT and traffic in the return direction flows long this connection. UDP traffic doesn't establish a long-lived connection so there's no defined path back through the NAT for return traffic to follow.
+Two-Way TCP protocols can traverse a NAT providing that the TCP connection is established from inside the NAT to outside. This traversal is possible because a long-lived connection is established through the NAT and traffic in the return direction flows along this connection. UDP traffic doesn't establish a long-lived connection so there's no defined path back through the NAT for return traffic to follow.
 
 
 
