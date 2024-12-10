@@ -35,7 +35,7 @@ An initial seed might be any of the following kinds of web infrastructure indexe
 - Autonomous system names (ASNs)
 - Whois organizations
 
-Starting with a seed, the system discovers associations to other online infrastructure items to discover other assets that your organization owns. Thehis process ultimately creates your whole attack surface inventory. The discovery process uses discovery seeds as central nodes. Then it branches outward toward the periphery of your attack surface. It identifies all the infrastructure items that are directly connected to the seed, and then identifies all items related to each items in the first set of connections. The process repeats and extends until it reaches the edge of your organization's management responsibility.
+Starting with a seed, the system discovers associations to other online infrastructure items to discover other assets that your organization owns. This process ultimately creates your whole attack surface inventory. The discovery process uses discovery seeds as central nodes. Then it branches outward toward the periphery of your attack surface. It identifies all the infrastructure items that are directly connected to the seed, and then identifies all items related to each item in the first set of connections. The process repeats and extends until it reaches the edge of your organization's management responsibility.
 
 For example, to discover all the items in Contoso’s infrastructure, you might use the domain, `contoso.com`, as the initial keystone seed. Starting with this seed, we can consult the following sources and derive the following relationships:
 
