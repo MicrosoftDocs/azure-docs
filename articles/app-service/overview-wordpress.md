@@ -1,3 +1,4 @@
+---
 title: 'An overview of WordPress'
 description: An overview of WordPress on App Service. You can focus on creating WP content while Azure takes care of the infrastructure, security, and performance needs.
 keywords: app service, azure app service, wordpress, preview, app service on linux, plugins, mysql flexible server, wordpress on linux, php
@@ -25,20 +26,22 @@ This solution is designed to meet the needs of both small and large-scale deploy
 
 Azure App Service makes deploying WordPress sites straightforward for both beginners and experienced developers:
 
-- **Pre-configured setup:** Automatically updates technologies like Linux, PHP, and NGINX to keep your site secure and up to date.
+- **Automatic updates:** Automatically updates technologies like Linux, PHP, and NGINX to keep your site secure and up to date.
+- **Pre-configured setup:** By leveraging powerful Azure services like Azure App Service, Azure Database for MySQL, Azure CDN, and Azure Blob Storage, you get a pre-configured setup optimized for performance and security.
 - **Flexible file transfers:** Easily transfer files via FTP for custom content uploads.
 - **Custom server configurations:** Adjust NGINX settings using startup scripts.
 - **Staging slots:** Safely test changes in isolated environments before deploying them to production.
 
 ## What enterprise-grade features are available?
 
-Azure App Service provides advanced tools to ensure your WordPress site is reliable, scalable, and performant:
+Azure App Service provides advanced tools to ensure your WordPress site is secure, reliable, scalable, and performant:
 
 - **Custom domains and SSL certificates:** Set up personalized domains and secure your site with HTTPS.
 - **Scalability:** Adjust resources automatically or manually to handle traffic spikes.
 - **CI/CD pipelines:** Automate deployments with continuous integration and deployment workflows.
 - **Email integration:** Use custom email domains for professional communication to enhance branding and customer interactions.
 - **Load testing:** Simulate real-world traffic conditions to optimize your site's performance.
+- **Security:** SSL (both free and paid options), VNET, DDoS protection, Web Application Firewall, Active directory integration, IP restriction settings and many more. Additionally, you can integrate with Microsoft  Defender for Cloud to receive security scans and insights, further bolstering your site’s security.  When you deploy your WordPress site, it runs on its own dedicated instance and NOT a shared instance, making it more performant, secure and avoiding noisy neighbors.  
 
 
 ## What are the best scenarios for WordPress on App Service?
