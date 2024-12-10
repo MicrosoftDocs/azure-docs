@@ -74,7 +74,7 @@ default 5m39s Warning BackOff pod/iperf-client-8f7974984-xr67p Back-off restarti
 ### Validate L3 ISD Configuration
 Confirm that the L3 ISD (Layer 3 Isolation Domain) configuration on the devices is correct. 
 
-### Adjust Netowork Bugger Settings
+### Adjust Network Buffer Settings
 Modify the network buffer settings to improve performance by adjusting the following parameters:
 * net.core.rmem_max: Increase the maximum receive buffer size.
 * net.core.wmem_max: Increase the maximum send buffer size.
