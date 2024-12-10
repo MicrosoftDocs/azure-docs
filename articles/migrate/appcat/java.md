@@ -333,16 +333,16 @@ This release contains the following fixes and includes a set of new rules. For m
 **Rules**
  - Azure Message Queue: updated and added new rules for azure-message-queue-rabbitmq and azure-message-queue-amqp.
  - Azure Service Bus: introduced a detection rule for Azure Service Bus.
- -	MySQL & PostgreSQL: refined dependency detection rules.
- -	Azure-AWS Rules: enhanced and improved existing rules.
- -	S3 Spring Starter: added a detection rule for S3 Spring Starter.
- -	RabbitMQ Spring JMS: added a detection rule for RabbitMQ Spring JMS.
- -	Logging Rules: updated and refined logging-related rules.
- -	Local-Storage Rule: updated and refined the local storage rule.
- -	Azure File System Rule: updated and refined the Azure File System rule.
+ - MySQL & PostgreSQL: refined dependency detection rules.
+ - Azure-AWS Rules: enhanced and improved existing rules.
+ - S3 Spring Starter: added a detection rule for S3 Spring Starter.
+ - RabbitMQ Spring JMS: added a detection rule for RabbitMQ Spring JMS.
+ - Logging Rules: updated and refined logging-related rules.
+ - Local-Storage Rule: updated and refined the local storage rule.
+ - Azure File System Rule: updated and refined the Azure File System rule.
 
 **Libraries**
- -	Updated libraries to address security vulnerabilities.
+ - Updated libraries to address security vulnerabilities.
 
 ### 6.3.0.9
 
