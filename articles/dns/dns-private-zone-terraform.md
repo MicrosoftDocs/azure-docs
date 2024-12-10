@@ -4,7 +4,7 @@ description: In this quickstart, you create a virtual network, subnets, private 
 ms.topic: quickstart
 ms.date: 12/09/2024
 ms.custom: devx-track-terraform
-ms.service: virtual-network
+ms.service: azure-virtual-network
 author: greg-lindsay
 ms.author: greglin
 #customer intent: As a Terraform user, I want to see how to create a virtual network with a subnet, a private DNS zone, and Windows virtual machines in Azure.
