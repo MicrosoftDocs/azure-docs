@@ -29,7 +29,7 @@ To learn more about deployments to Azure Container Apps, see [Azure Container Ap
 > [Create your first containerized Azure Functions](functions-deploy-container.md)
 :::zone-end
 :::zone pivot="azure-arc"
-> [Create your first containerized Azure Functions on Azure Arc (preview)](create-first-function-arc-custom-container.md)
+> [Working with containers and Azure Functions](functions-how-to-custom-container.md?pivots=azure-arc)
 ::: zone-end
 
 ## Creating containerized function apps
