@@ -51,46 +51,36 @@ There are required fields in each section that you need to fill out.
 
 1. Enter the values for each required setting under *Project details*.
 
-    |Setting  |Action  |
-    |---------|---------|
-    |Subscription    |Select a subscription from your existing subscriptions.         |
+    |Setting            |Action                                                       |
+    |-------------------|-------------------------------------------------------------|
+    |Subscription       |Select a subscription from your existing subscriptions.      |
     |Resource group     |Use an existing resource group or create a new one.          |
 
 1. Enter the values for each required setting under *Resource details*.
 
-    |Setting  |Action  |
-    |---------|---------|
-    |Resource name     |Specify a unique name for the resource.    |
-    |Location     |Select the [region](https://azure.microsoft.com/explore/global-infrastructure/geographies/) where you want to enable this service and its child resources to be located.         |
+    |Setting            |Action                                                       |
+    |-------------------|-------------------------------------------------------------|
+    |Resource name      |Specify a unique name for the resource.                      |
+    |Location           |Select the [region](https://azure.microsoft.com/explore/global-infrastructure/geographies/) where you want to enable this service and its child resources to be located.                                                |
 
 1. Enter the values for each required setting under *Datadog organization details*.
 
-<!--Metrics and logs-->
-
-## Configure metrics and logs
+### Metrics and logs
 
 Use Azure resource tags to configure which metrics and logs are sent to Datadog. You can include or exclude metrics and logs for specific resources.
 
-Tag rules for sending **metrics** are:
-
-Metrics are collected for all resources, except virtual machines, Virtual Machine Scale Sets, and App Service plans by default.
-
-Virtual machines, Virtual Machine Scale Sets, and App Service plan with _Include_ tags send metrics to Datadog.
-
-Virtual machines, Virtual Machine Scale Sets, and App Service plan with _Exclude_ tags don't send metrics to Datadog.
-
 > [!NOTE]
 > If there's a conflict between inclusion and exclusion rules, exclusion takes priority.
 
-Tag rules for sending **logs** are:
+Metrics are collected for all resources, except virtual machines, Virtual Machine Scale Sets, and App Service plans which can be filtered by tags.
 
-By default, logs are collected for all resources.
+- Virtual machines, Virtual Machine Scale Sets, and App Service plan with _Include_ tags send metrics to Datadog.
+- Virtual machines, Virtual Machine Scale Sets, and App Service plan with _Exclude_ tags don't send metrics to Datadog.
 
-Azure resources with _Include_ tags send logs to Datadog. 
-Azure resources with _Exclude_ tags don't send logs to Datadog.
+Logs for all defined sources will be sent to Datadog based on the tags inclusion/exclusion criteria. By default, logs are collected for all resources.
 
-> [!NOTE]
-> If there's a conflict between inclusion and exclusion rules, exclusion takes priority.
+- Azure resources with _Include_ tags send logs to Datadog. 
+- Azure resources with _Exclude_ tags don't send logs to Datadog.
 
 There are three types of logs that can be sent from Azure to Datadog.
 
@@ -114,31 +104,33 @@ You can request your IT Administrator to route Microsoft Entra logs to Datadog. 
 
 Azure charges for the logs sent to Datadog. For more information, see the [pricing of platform logs](https://azure.microsoft.com/pricing/details/monitor/) sent to Azure Marketplace partners.
 
-Once you complete the configuration for metrics and logs, select **Next: Single sign-on**.
+Once you complete the configuration for metrics and logs, select **Next: Security**.
 
-<!--Security-->
-<!--Single sign-on-->
-<!--Tags-->
+## Security
 
-## Configure single sign-on
+To enable Datadog Cloud Security Posture management, select the checkbox.
 
-If your organization uses Microsoft Entra ID as its identity provider, you can establish single sign-on from the Azure portal to Datadog. If your organization uses a different identity provider or you don't want to establish single sign-on at this time, you can skip this section.
+## Configure single sign-on (optional)
 
-To establish single sign-on through Microsoft Entra ID, select the checkbox for **Enable single sign-on through Microsoft Entra ID**.
+If your organization uses Microsoft Entra ID as its identity provider, you can establish single sign-on from the Azure portal to Datadog. 
 
-The Azure portal retrieves the appropriate Datadog application from Microsoft Entra ID. The app matches the Enterprise app you provided in an earlier step.
+To establish single sign-on through Microsoft Entra ID, select the checkbox.
+
+The Azure portal retrieves the appropriate Datadog application from Microsoft Entra ID, which matches the Enterprise app you provided previously. 
 
 Select the Datadog app name.
 
 Select **Next: Tags**.
 
-## Add custom tags
+## Tags (optional)
 
 You can specify custom tags for the new Datadog resource. Provide name and value pairs for the tags to apply to the Datadog resource.
 
-When you finish adding tags, select **Next: Review+Create**.
+When you finish adding tags, select **Next: Review + Create**.
 
 ## Review + Create Datadog resource
+
+<!--review steps-->
 
 Review your selections and the terms of use. After validation completes, select **Create**.
 
