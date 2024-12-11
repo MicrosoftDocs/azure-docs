@@ -374,7 +374,7 @@ The following table specifies parameters used to create Network-to-Network Inter
 ||
 |*layer2Configuration*| Layer 2 configuration ||
 ||
-|portCount| Number of ports that are part of the port-channel. Maximum value is based on Fabric SKU|3||
+|interfaces| Define multiple CE-PE interfaces. Maximum value is based on Fabric SKU|/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkDevices/FName-aggrack-CEXX/networkInterfaces/EthernetX-X"|
 |mtu| Maximum transmission unit between CE and PE. |1500||
 ||
 |*layer3Configuration*| Layer 3 configuration between CEs and PEs||True
@@ -407,7 +407,18 @@ az networkfabric nni create \
 --fabric "NFFabric" \
 --is-management-type "True" \
 --use-option-b "False" \
---layer2-configuration '{"portCount": 3, "mtu": 1500}' \
+--layer2-configuration '{"interfaces": ["/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkDevices/fab-FName-aggrack-CE1/networkInterfaces/Ethernet1-1",
+"/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkDevices/fab-FName-aggrack-CE2/networkInterfaces/Ethernet1-1",
+"/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkDevices/fab-FName-aggrack-CE1/networkInterfaces/Ethernet2-1",
+"/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkDevices/fab-FName-aggrack-CE2/networkInterfaces/Ethernet2-1",
+"/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkDevices/fab-FName-aggrack-CE1/networkInterfaces/Ethernet3-1",
+"/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkDevices/fab-FName-aggrack-CE2/networkInterfaces/Ethernet3-1",
+"/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkDevices/fab-FName-aggrack-CE1/networkInterfaces/Ethernet4-1",
+"/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkDevices/fab-FName-aggrack-CE2/networkInterfaces/Ethernet4-1",
+"/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkDevices/fab-FName-aggrack-CE1/networkInterfaces/Ethernet5-1",
+"/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkDevices/fab-FName-aggrack-CE2/networkInterfaces/Ethernet5-1",
+"/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkDevices/fab-FName-aggrack-CE1/networkInterfaces/Ethernet6-1",
+"/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkDevices/fab-FName-aggrack-CE2/networkInterfaces/Ethernet6-1"], "mtu": 1500}' \
 --layer3-configuration '{"peerASN": 65048, "vlanId": 501, "primaryIpv4Prefix": "10.2.0.124/30", "secondaryIpv4Prefix": "10.2.0.128/30", "primaryIpv6Prefix": "10:2:0:124::400/127", "secondaryIpv6Prefix": "10:2:0:124::402/127"}'
 
 ```
@@ -433,6 +444,20 @@ Expected output:
     "isManagementType": "True",
     "useOptionB": "False",
     "layer2Configuration": {
+      "interfaces": [
+      "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkDevices/FName-aggrack-CE1/networkInterfaces/Ethernet1-1",
+      "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkDevices/FName-aggrack-CE2/networkInterfaces/Ethernet1-1",
+      "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkDevices/FName-aggrack-CE1/networkInterfaces/Ethernet2-1",
+      "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkDevices/FName-aggrack-CE2/networkInterfaces/Ethernet2-1",
+      "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkDevices/FName-aggrack-CE1/networkInterfaces/Ethernet3-1",
+      "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkDevices/FName-aggrack-CE2/networkInterfaces/Ethernet3-1",
+      "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkDevices/FName-aggrack-CE1/networkInterfaces/Ethernet4-1",
+      "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkDevices/FName-aggrack-CE2/networkInterfaces/Ethernet4-1",
+      "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkDevices/FName-aggrack-CE1/networkInterfaces/Ethernet5-1",
+      "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkDevices/FName-aggrack-CE2/networkInterfaces/Ethernet5-1",
+      "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkDevices/FName-aggrack-CE1/networkInterfaces/Ethernet6-1",
+      "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkDevices/FName-aggrack-CE2/networkInterfaces/Ethernet6-1"
+      ],
       "mtu": 1500
     },
     "optionBLayer3Configuration": {
@@ -467,7 +492,21 @@ Expected output:
   "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/microsoft.managednetworkfabric/networkfabrics/NFName/networkToNetworkInterconnects/NFNNIName",
   "isManagementType": "True",
   "layer2Configuration": {
-    "mtu": 1500
+    "interfaces": [
+      "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkDevices/FName-aggrack-CE1/networkInterfaces/Ethernet1-1",
+      "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkDevices/FName-aggrack-CE2/networkInterfaces/Ethernet1-1",
+      "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkDevices/FName-aggrack-CE1/networkInterfaces/Ethernet2-1",
+      "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkDevices/FName-aggrack-CE2/networkInterfaces/Ethernet2-1",
+      "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkDevices/FName-aggrack-CE1/networkInterfaces/Ethernet3-1",
+      "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkDevices/FName-aggrack-CE2/networkInterfaces/Ethernet3-1",
+      "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkDevices/FName-aggrack-CE1/networkInterfaces/Ethernet4-1",
+      "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkDevices/FName-aggrack-CE2/networkInterfaces/Ethernet4-1",
+      "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkDevices/FName-aggrack-CE1/networkInterfaces/Ethernet5-1",
+      "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkDevices/FName-aggrack-CE2/networkInterfaces/Ethernet5-1",
+      "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkDevices/FName-aggrack-CE1/networkInterfaces/Ethernet6-1",
+      "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkDevices/FName-aggrack-CE2/networkInterfaces/Ethernet6-1"
+      ],
+      "mtu": 1500
   },
   "name": "nffab2lab180723-nni",
   "nniType": "CE",
@@ -512,7 +551,21 @@ Expected output:
   "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/microsoft.managednetworkfabric/networkfabrics/NFName/networkToNetworkInterconnects/NFNNIName",
   "isManagementType": "True",
   "layer2Configuration": {
-    "mtu": 1500
+      "interfaces": [
+      "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkDevices/FName-aggrack-CE1/networkInterfaces/Ethernet1-1",
+      "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkDevices/FName-aggrack-CE2/networkInterfaces/Ethernet1-1",
+      "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkDevices/FName-aggrack-CE1/networkInterfaces/Ethernet2-1",
+      "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkDevices/FName-aggrack-CE2/networkInterfaces/Ethernet2-1",
+      "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkDevices/FName-aggrack-CE1/networkInterfaces/Ethernet3-1",
+      "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkDevices/FName-aggrack-CE2/networkInterfaces/Ethernet3-1",
+      "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkDevices/FName-aggrack-CE1/networkInterfaces/Ethernet4-1",
+      "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkDevices/FName-aggrack-CE2/networkInterfaces/Ethernet4-1",
+      "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkDevices/FName-aggrack-CE1/networkInterfaces/Ethernet5-1",
+      "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkDevices/FName-aggrack-CE2/networkInterfaces/Ethernet5-1",
+      "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkDevices/FName-aggrack-CE1/networkInterfaces/Ethernet6-1",
+      "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkDevices/FName-aggrack-CE2/networkInterfaces/Ethernet6-1"
+      ],
+      "mtu": 1500
   },
   "name": "nffab2lab180723-nni",
   "nniType": "CE",
@@ -593,9 +646,9 @@ Expected output:
   }
 ```
 > [!Note]
-> The The preceding code serves only as an example. You should update all the devices that are part of both `AggrRack` and `computeRacks`     
+> The The preceding code serves only as an example. You should update all the devices that are part of both `FName-aggrack` and `computeRacks`     
 
-For example, `AggrRack` consists of:
+For example, `FName-aggrack` consists of:
 * `CE01`
 * `CE02`
 * `TOR17`
