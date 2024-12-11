@@ -27,7 +27,7 @@ In a region that supports availability zones, Notification Hubs supports a zone-
 
 - Azure Notification Hubs uses [availability zones](availability-zones-overview.md#zonal-and-zone-redundant-services) in regions where they're available. For a list of regions that support availability zones, see [Azure regions with availability zones](availability-zones-region-support.md).
 
-- Availability zones are supported by default only in specific tiers. To learn which tiers support availability zone deployments, see [Notification Hubs pricing](https://azure.microsoft.com/pricing/details/notification-hubs.
+- Availability zones are supported by default only in specific tiers. To learn which tiers support availability zone deployments, see [Notification Hubs pricing](https://azure.microsoft.com/pricing/details/notification-hubs).
 
 ### SLA improvements
 
@@ -105,7 +105,7 @@ To enable or disable disaster recovery for an existing namespace:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. On the left menu, select **All services**.
-1. In the **Internet of Things** section, select **Notification Hub Namespaces**.
+1. In the **Web & Mobile** section, select **Notification Hub Namespaces**.
 1. On the **Notification Hub Namespaces** page, select the namespace for which you want to modify the disaster recovery settings.
 1. On the **Notification Hub Namespace** page for your namespace, you can see the current disaster recovery setting in the **Essentials** section.
 1. In the following example, a flexible recovery region is enabled. Click the current disaster recovery region selection to display the edit pop-up.
