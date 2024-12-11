@@ -79,9 +79,10 @@ If `updateStrategy` is not set, the default are as follows:
 *strategy-type can be "Rack" - Rack by Rack OR "PauseAfterRack" - Wait for customer response to continue*
 *threshold-type can be "PercentSuccess" OR "CountSuccess"
 
+The example below is for a customer using Rack by Rack strategy with a Percent Success of 60% and a 1 minute pause.
 
-```
-az networkcloud cluster update -n <CLUSTER_NAME> -g <CLUSTER_RG> --update-strategy strategy-type="Rack" threshold-type="PercentSuccess" threshold-value=<DEPLOYMENT_THRESHOLD> wait-time-minutes=<DEPLOYMENT_PAUSE_MINS> --subscription <SUBSCRIPTION_ID>
+```azurecli
+az networkcloud cluster update -n <CLUSTER_NAME> -g <CLUSTER_RG> --update-strategy strategy-type="Rack" threshold-type="PercentSuccess" threshold-value=60 wait-time-minutes=1 --subscription <SUBSCRIPTION_ID>
 ```
 
 
@@ -89,9 +90,28 @@ Verify update:
 
 ```
 az networkcloud cluster show -g <CLUSTER_RG> -n <CLUSTER_NAME> --subscription <CUSTOMER_SUB_ID>| grep -a5 updateStrategy
+      "strategyType": "Rack",
+      "thresholdType": "PercentSuccess",
+      "thresholdValue": 60,
+      "waitTimeMinutes": 1
+```
+
+The example below is for a customer using Rack by Rack strategy with a threshold type CountSuccess ..............
+
+```azurecli
+az networkcloud cluster update -n <CLUSTER_NAME> -g <CLUSTER_RG> --update-strategy strategy-type="Rack" threshold-type="CountSuccess" threshold-value=4 max-unavailable=4 wait-time-minutes=1 --subscription <SUBSCRIPTION_ID>
 ```
 
 
+Verify update:
+
+```
+az networkcloud cluster show -g <CLUSTER_RG> -n <CLUSTER_NAME> --subscription <CUSTOMER_SUB_ID>| grep -a5 updateStrategy
+      "strategyType": "Rack",
+      "thresholdType": "CountSuccess",
+      "thresholdValue": 4,
+      "waitTimeMinutes": 1
+```
 
 ## Upgrading cluster runtime using CLI
 
