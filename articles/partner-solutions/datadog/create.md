@@ -19,9 +19,13 @@ In this quickstart, you create a new instance of Datadog. You can either create 
 
 Before creating your first instance of Datadog in Azure, [configure your environment](prerequisites.md). 
 
+## Setup
+
+Begin by signing into the [Azure portal](https://portal.azure.com).
+
 ## Create a Datadog resource
 
-To create your resource, start at the [Azure portal](https://portal.azure.com) home page.
+To create your resource, start at the Azure portal home page.
 
 1. Search for the resource provider by typing it into the header search bar.
 
