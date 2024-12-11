@@ -113,9 +113,6 @@ In this section, you define the security rule to block high-risk network traffic
 In this section, the rules created take effect when you deploy the security admin configuration.
 
 1. Select **Deployments** under *Settings*, then select **Deploy configuration**.
-
-    :::image type="content" source="./media/how-to-block-network-traffic-portal/deploy-configuration.png" alt-text="Screenshot of deploy a configuration button.":::
-
 1. Select the **Include security admin in your goal state** checkbox and choose the security configuration you created in the last section from the dropdown menu. Then choose the region(s) you would like to deploy this configuration to.
 1. Select **Next** and **Deploy** to deploy the security admin configuration.
 
