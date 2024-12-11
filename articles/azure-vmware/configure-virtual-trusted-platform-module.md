@@ -1,27 +1,19 @@
 ---
-title: Configure Virtual Machines - Virtual Trusted Platform Module (vTPM)
-description: Learn how to configure Virtual Machines - Virtual Trusted Platform Module (vTPM).
+title: Trusted Launch for Azure VMware Solution
+description: Trusted Launch overview and Learn how to configure Virtual Trusted Platform Module (vTPM) on Virtual Machines.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 12/06/2024
+ms.date: 12/11/2024
 ms.custom: engagement-fy25
 ---
 
-# Configure Virtual Trusted Platform Module (vTPM) on Virtual Machines with Azure VMware Solution
+# Trusted Launch for Azure VMware Solution
 
-This article demonstrates how to enable the virtual Trusted Platform Module (vTPM) in a VMware vSphere virtual machine (VM) running in the Azure VMware Solution.  
-
-A virtual Trusted Platform Module (vTPM) in VMware vSphere is a virtual counterpart of a physical TPM 2.0 chip, utilizing VM Encryption. It provides the same functionalities as a physical TPM but operates within VMs. Each VM can have its own unique and isolated vTPM, which helps secure sensitive information and maintain system integrity. This setting enables VMs to apply security features like BitLocker disk encryption and authenticate virtual hardware devices, creating a more secure virtual environment. 
-
-## Background
-
-### Trusted Launch for Azure VMware Solution
-
-Trusted Launch is a comprehensive security solution that encompasses three key components: Secure Boot, Virtual Trusted Platform Module (vTPM), and Virtualization-based security (VBS). Each of these components plays a vital role in fortifying the security posture of VMs.
+In this article, you will learn about Trusted Launch and how to configure Virtual Trusted Platform Module (vTPM) on Virtual Machines in Azure VMware Solution. Trusted Launch is a comprehensive security solution that encompasses three key components: Secure Boot, Virtual Trusted Platform Module (vTPM), and Virtualization-based security (VBS). Each of these components plays a vital role in fortifying the security posture of VMs.
 
 :::image type="content" source="./media/trusted-launch.png" alt-text="Diagram showing the three pillars of trusted launch, Secure Boot, Virtual Trusted Platform Module, and Virtualization-based Security." border="false" lightbox="./media/trusted-launch.png":::
 
-### Benefits
+## Benefits
 
 •	Securely deploy VMs with verified boot loaders, operating system (OS) kernels, and drivers.
 
@@ -31,19 +23,26 @@ Trusted Launch is a comprehensive security solution that encompasses three key c
 
 •	Ensure that workloads are trusted and verifiable. 
 
-### Secure Boot
+## Secure Boot
 
 Secure Boot is the first line of defense in Trusted Launch. It establishes a "root of trust" for VMs by ensuring that only signed operating systems and drivers are allowed to boot. This prevents the installation of malware-based rootkits and bootkits, which can compromise the security of the entire system. With Secure Boot enabled, every aspect of the boot process, from the boot loader to the kernel and kernel drivers, must be digitally signed by trusted publishers. This creates a robust shield against unauthorized modifications and ensures that the VM starts in a secure and trusted state.
  
-### Virtual Trusted Platform Module (vTPM) 
+## Virtual Trusted Platform Module (vTPM) 
 
 The vTPM is a virtualized version of a hardware Trusted Platform Module (TPM) 2.0 device. It serves as a dedicated secure vault for storing keys, certificates, and secrets. What sets vTPM apart is its ability to operate in a secure environment outside the reach of any VM, making it tamper-resistant and highly secure. One of the key functions of vTPM is attestation. It measures the entire boot chain of a VM, including UEFI, OS, system components, and drivers, to certify that the VM booted securely. This attestation mechanism is invaluable for verifying the integrity of VMs and ensuring that they haven't been compromised.
  
-### Virtualization-based Security (VBS) 
+## Virtualization-based Security (VBS) 
 
 Virtualization-based Security (VBS) is the final piece of the Trusted Launch puzzle. It leverages the hypervisor to create isolated, secure memory regions within the VM. VBS uses virtualization to enhance system security by creating an isolated, hypervisor-restricted, specialized subsystem. It provides protection against unauthorized access of credential, prevents malware from running on windows system and ensures only trusted code runs from bootloader onwards.
 
-## Prerequisites
+
+## Configure Virtual Trusted Platform Module (vTPM) on Virtual Machines with Azure VMware Solution
+
+This section demonstrates how to enable the virtual Trusted Platform Module (vTPM) in a VMware vSphere virtual machine (VM) running in the Azure VMware Solution.  
+
+A virtual Trusted Platform Module (vTPM) in VMware vSphere is a virtual counterpart of a physical TPM 2.0 chip, utilizing VM Encryption. It provides the same functionalities as a physical TPM but operates within VMs. Each VM can have its own unique and isolated vTPM, which helps secure sensitive information and maintain system integrity. This setting enables VMs to apply security features like BitLocker disk encryption and authenticate virtual hardware devices, creating a more secure virtual environment. 
+
+### Prerequisites
 
 Before configuring vTPM on a VM in Azure VMware Solution, ensure the following prerequisites are met:
 
@@ -54,7 +53,7 @@ Before configuring vTPM on a VM in Azure VMware Solution, ensure the following p
 >[!IMPORTANT]
 >Customers do not need to configure a key provider to use vTPM with Azure VMware Solution. Azure VMware Solution already provides and manages key providers for each environment.
 
-## How to Configure vTPM
+### How to Configure vTPM
 
 To configure vTPM on a VM in Azure VMware Solution, follow these steps:
 
