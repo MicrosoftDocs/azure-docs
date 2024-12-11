@@ -111,17 +111,21 @@ Output should include the `Microsoft.ApiManagement.service` endpoint type:
     | Network Interface Name | Enter a name for the network interface, such as *myInterface* |
     | Region | Select a location for the private endpoint. It must be in the same region as your virtual network. It may differ from the region where your API Management instance is hosted. |
 
-1. Select the **Next: Resource** button at the bottom of the screen. The following information about your API Management instance is already populated:
-    * Subscription
-    * Resource type
-    * Resource name
-    
-1. In **Resource**, in **Target sub-resource**, select **Gateway**.
+1. Select the **Next: Resource** button at the bottom of the screen. 
 
+1. In **Resource**, enter or select this information:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | Subscription | Your subscription is selected. |
+    | Resource type | Select **Microsoft.ApiManagement/service**. |
+    | Resource | Select your API Management Standard v2 instance. |
+    | Target sub-resource | Select **Gateway**. |
+    
     :::image type="content" source="media/private-endpoint/create-private-endpoint.png" alt-text="Screenshot showing settings to create a private endpoint in the Azure portal.":::
 
     > [!IMPORTANT]
-    > Only **Gateway** is supported for API Management. Other sub-resources aren't supported.
+    > Only the **Gateway** sub-resource is supported for API Management. Other sub-resources aren't supported.
 
 1. Select the **Next: Virtual Network** button at the bottom of the screen.
 
