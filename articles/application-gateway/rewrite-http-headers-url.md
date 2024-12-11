@@ -183,7 +183,7 @@ Here are the steps for replacing the hostname:
 
 You can fix several security vulnerabilities by implementing necessary headers in the application response. These security headers include X-XSS-Protection, Strict-Transport-Security, and Content-Security-Policy. You can use Application Gateway to set these headers for all responses.
 
-![A screenshow of a security header.](./media/rewrite-http-headers-url/security-header.png)
+![A screenshot of a security header.](./media/rewrite-http-headers-url/security-header.png)
 
 ### Delete unwanted headers
 
@@ -197,7 +197,7 @@ It isn't possible to create a rewrite rule to delete the host header. If you att
 
 You can evaluate an HTTP request or response header for the presence of a header or server variable. This evaluation is useful when you want to perform a header rewrite only when a certain header is present.
 
-![A screenshow showing the check presence of a header action.](./media/rewrite-http-headers-url/check-presence.png)
+![A screenshot showing the check presence of a header action.](./media/rewrite-http-headers-url/check-presence.png)
 
 ## Common scenarios for URL rewrite
 

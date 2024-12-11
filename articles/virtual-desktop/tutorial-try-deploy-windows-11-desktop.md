@@ -4,21 +4,24 @@ description: This tutorial shows you how to deploy Azure Virtual Desktop with a 
 ms.topic: tutorial
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 10/25/2023
+ms.date: 12/06/2024
 ---
 
 # Tutorial: Deploy a sample Azure Virtual Desktop infrastructure with a Windows 11 desktop
 
-Azure Virtual Desktop enables you to access desktops and applications from virtually anywhere. This tutorial shows you how to deploy a *Windows 11 Enterprise* desktop in Azure Virtual Desktop using the Azure portal and how to connect to it. To learn more about the terminology used for Azure Virtual Desktop, see [Azure Virtual Desktop terminology](environment-setup.md) and [What is Azure Virtual Desktop?](overview.md)
+Azure Virtual Desktop enables you to access desktops and applications from virtually anywhere. This tutorial shows you how to deploy a *Windows 11 Enterprise* desktop in Azure Virtual Desktop using the Azure portal and how to connect to it using [Windows App](/windows-app/overview).
 
-You'll deploy a sample infrastructure by:
+To learn more about the terminology used for Azure Virtual Desktop, see [Azure Virtual Desktop terminology](environment-setup.md) and [What is Azure Virtual Desktop?](overview.md)
+
+In this tutorial, you:
 
 > [!div class="checklist"]
-> * Creating a personal host pool.
-> * Creating a session host virtual machine (VM) joined to your Microsoft Entra tenant with Windows 11 Enterprise and add it to the host pool.
-> * Creating a workspace and an application group that publishes a desktop to the session host VM.
-> * Assigning users to the application group.
-> * Connecting to the desktop.
+> * Create: 
+>    * A personal host pool.
+>    * A session host virtual machine (VM) joined to your Microsoft Entra tenant with Windows 11 Enterprise and add it to the host pool.
+>    * A workspace and an application group that publishes a desktop to the session host VM.
+> * Assign users to the application group.
+> * Connect to the desktop using Windows App.
 
 > [!TIP]
 > This tutorial shows a simple way you can get started with Azure Virtual Desktop. It doesn't provide an in-depth guide of the different options and you can't publish a RemoteApp in addition to the desktop. For a more in-depth and adaptable approach to deploying Azure Virtual Desktop, see [Deploy Azure Virtual Desktop](deploy-azure-virtual-desktop.md), or for suggestions of what else you can configure, see the articles we list in [Next steps](#next-steps).
@@ -38,11 +41,11 @@ You need:
 
    Alternatively if you already have the [Contributor](../role-based-access-control/built-in-roles.md#contributor) or [Owner](../role-based-access-control/built-in-roles.md#owner) RBAC role, you're already able to create all of these resource types.
 
-- A [virtual network](../virtual-network/quick-create-portal.md) in the same Azure region you want to deploy your session hosts to.
+- A [virtual network](../virtual-network/quick-create-portal.md) in the same Azure region you want to deploy your session hosts to. The virtual network needs outbound internet access. For more information, see [Default outbound access in Azure](/azure/virtual-network/ip-services/default-outbound-access).
 
 - A user account in Microsoft Entra ID you can use for connecting to the desktop. This account must be assigned the *Virtual Machine User Login* or *Virtual Machine Administrator Login* RBAC role on the subscription. Alternatively you can assign the role to the account on the session host VM or the resource group containing the VM after deployment.
 
-- A Remote Desktop client installed on your device to connect to the desktop. You can find a list of supported clients in [Remote Desktop clients for Azure Virtual Desktop](users/remote-desktop-clients-overview.md). Alternatively you can use the [Remote Desktop Web client](users/connect-web.md), which you can use through a supported web browser without installing any extra software.
+- [Windows App installed on your device](/windows-app/get-started-connect-devices-desktops-apps?pivots=azure-virtual-desktop) to connect to the desktop. You can also use Windows App in a web browser without installing any extra software.
 
 ## Create a personal host pool, workspace, application group, and session host VM
 
@@ -69,9 +72,9 @@ To create a personal host pool, workspace, application group, and session host V
    | Host pool type | Select **Personal**. This means that end users have a dedicated assigned session host that they always connect to. Selecting **Personal** shows a new option for **Assignment type**. |
    | Assignment type | Select **Automatic**. Automatic assignment means that a user automatically gets assigned the first available session host when they first sign in, which is then dedicated to that user. |
 
-   Once you've completed this tab, select **Next: Virtual Machines**.
+   Once you've completed this tab, select **Next: Session hosts**.
 
-1. On the **Virtual machines** tab, complete the following information:
+1. On the **Session hosts** tab, complete the following information:
 
    | Parameter | Value/Description |
    |--|--|
@@ -80,11 +83,13 @@ To create a personal host pool, workspace, application group, and session host V
    | Name prefix | Enter a name for your session hosts, for example **hp01-sh**.<br /><br />This name prefix is used as the prefix for your session host VMs. Each session host has a suffix of a hyphen and then a sequential number added to the end, for example **hp01-sh-0**.<br /><br />The prefix can be a maximum of 11 characters and is used in the computer name in the operating system. The prefix and the suffix combined can be a maximum of 15 characters. Session host names must be unique. |
    | Virtual machine location | Select the Azure region where you want to deploy your session host VMs. It must be the same region that your virtual network is in. |
    | Availability options | Select **No infrastructure redundancy required**. This means that your session host VMs aren't deployed in an availability set or in availability zones. |
-   | Security type | Select **Trusted launch virtual machines**. Leave the subsequent defaults of **Enable secure boot** and **Enable vTPM** checked, and **Integrity monitoring** unchecked. For more information, see [Trusted launch](security-guide.md#trusted-launch). |
-   | Image | Select **Windows 11 Enterprise, version 23H2**. |
-   | Virtual machine size | Accept the default SKU. If you want to use a different SKU, select **Change size**, then select from the list. |
-   | Number of VMs | Enter **1** as a minimum. You can deploy up to 500 session host VMs at this point if you wish, or you can add more separately.<br /><br />With a personal host pool, each session host can only be assigned to one user, so you need one session host for each user connecting to this host pool. Once you've completed this tutorial, you can create a pooled host pool, where multiple users can connect to the same session host. |
-   | OS disk type | Select **Premium SSD** for best performance. |
+   | Security type | Select **Trusted launch virtual machines**. Leave the subsequent defaults as they are. For more information, see [Trusted launch](security-guide.md#trusted-launch). |
+   | Image | Select a **Windows 11** image from the drop-down list. |
+   | Virtual machine size | Select an Azure VM SKU. You can use the default SKU, or if you want to use a different SKU, select **Change size**, then select from the list. Make sure your Azure subscription has available quota for the SKU you select. For more information, see [Sizes for virtual machines in Azure](/azure/virtual-machines/sizes/overview) and [View quotas](/azure/quotas/view-quotas). |
+   | Hibernate | Leave hibernate unchecked for this tutorial. |
+   | Number of VMs | Enter **1** as a minimum. You can deploy up to 400 session host VMs at this point if you wish, or you can add more separately.<br /><br />With a personal host pool, each session host can only be assigned to one user, so you need one session host for each user connecting to this host pool. Once you've completed this tutorial, you can create a pooled host pool, where multiple users can connect to the same session host. |
+   | OS disk type | Select **Premium SSD** for best performance. If you select a different type, your Windows experience in the remote session might be slow. |
+   | OS disk size | Leave **Default size (128GiB)** selected. |
    | Boot Diagnostics | Select **Enable with managed storage account (recommended)**. |
    | **Network and security** |  |
    | Virtual network | Select your virtual network and subnet to connect session hosts to. |
@@ -93,7 +98,7 @@ To create a personal host pool, workspace, application group, and session host V
    | **Domain to join** |  |
    | Select which directory you would like to join | Select **Microsoft Entra ID**. |
    | Enroll VM with Intune | Select **No.** |
-   | **Virtual Machine Administrator account** |  |
+   | **Virtual machine administrator account** |  |
    | Username | Enter a name to use as the local administrator account for these session host VMs. |
    | Password | Enter a password for the local administrator account. |
    | Confirm password | Reenter the password. |
@@ -131,71 +136,66 @@ Once your host pool, workspace, application group, and session host VM(s) have b
 
 1. Finish by selecting **Select**.
 
-## Enable connections from Remote Desktop clients
+## Enable Microsoft Entra ID authentication to the remote session
 
-> [!TIP]
-> This section is optional if you're going to use a Windows device to connect to Azure Virtual Desktop that is joined to the same Microsoft Entra tenant as your session host VMs and you're using the [Remote Desktop client for Windows](users/connect-windows.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json).
-
-To enable connections from all of the Remote Desktop clients, you need to add an RDP property to your host pool configuration.
+The session host you created is joined to Microsoft Entra ID. To enable connections to a remote session using Microsoft Entra ID authentication, you need to add an RDP property to your host pool configuration:
 
 1. Go back to the host pool overview, then select **RDP Properties**.
 
 1. Select the **Advanced** tab.
 
-1. In the **RDP Properties** box, add `targetisaadjoined:i:1;` to the start of the text in the box.
+1. In the **RDP Properties** box, add `enablerdsaadauth:i:1;` to the start of the text in the box.
 
 1. Select **Save**.
 
-## Connect to the desktop
+## Connect to the desktop with Windows App
 
 You're ready to connect to the desktop. The desktop takes longer to load the first time as the profile is being created, however subsequent connections are quicker.
 
 > [!IMPORTANT]
 > Make sure the user account you're using to connect has been assigned the *Virtual Machine User Login* or *Virtual Machine Administrator Login* RBAC role on the subscription, session host VM, or the resource group containing the VM, as mentioned in the prerequisites, else you won't be able to connect.
 
-Select the relevant tab and follow the steps, depending on which Remote Desktop client you're using. We've only listed the steps here for Windows, Web and macOS, but if you want to connect using one of our other Remote Desktop clients, see [Remote Desktop clients for Azure Virtual Desktop](users/remote-desktop-clients-overview.md).
+Select the relevant tab and follow the steps, depending on which platform you're using. We've only listed the steps here for Windows, macOS, and using a web browser. If you want to connect using Windows App on another platform, see [Get started with Windows App to connect to desktops and apps](/windows-app/get-started-connect-devices-desktops-apps?pivots=azure-virtual-desktop).
 
-# [Windows](#tab/windows-client)
+# [Windows](#tab/windows)
 
-1. Open the **Remote Desktop** app on your device.
+1. Open **Windows App** on your device.
 
-1. Select the three dots in the top right-hand corner, then select **Subscribe with URL**.
+1. Select Sign in and sign in with your user account for Azure Virtual Desktop. If you're signed in to your local Windows device with a work or school account on a managed device, you're signed in automatically.
 
-1. In the **Email or Workspace URL** box, enter `https://rdweb.wvd.microsoft.com`. After a few seconds, the message **We found Workspaces at the following URLs** should be displayed.
+1. If it's your first time using Windows App, navigate through the tour to learn more about Windows App, then select **Done**, or select **Skip**.
 
-1. Select **Next**.
+1. After you sign in, select the **Devices** tab to see the desktop you created, which is called **SessionDesktop**.
 
-1. Sign in with the user account you assigned to the application group. After a few seconds, the workspace should show with an icon named **SessionDesktop**.
+1. Select **Connect** to launch a desktop session. If you see the prompt **Allow remote desktop connection?**, select **Yes**. Your desktop is ready to use.
 
-1. Double-click **SessionDesktop** to launch a desktop session. You need to enter the password for the user account again.
+# [macOS](#tab/macos)
 
-# [Web](#tab/web-client)
+1. Open **Windows App** on your device.
 
-1. Open a [supported web browser](users/connect-web.md#prerequisites) and go to [**https://client.wvd.microsoft.com/arm/webclient**](https://client.wvd.microsoft.com/arm/webclient).
+1. If it's your first time using Windows App, navigate through the tour to learn more about Windows App, then select **Done**, or select **Skip**.
 
-1. Sign in with the user account you assigned to the application group. After a few seconds, the workspace should show with an icon named **SessionDesktop**.
+1. Select **+**, then select **Add Work or School Account** and sign in with your user account for Azure Virtual Desktop.
 
-1. Select **SessionDesktop** to launch a desktop session.
+1. After you sign in, select the **Devices** tab to see the desktop you created, which is called **SessionDesktop**.
 
-1. A prompt shows asking you for permission to **Access local resources**. You can also select whether you want to allow access to your microphone, clipboard, printer, and/or file transfer in the remote session. Once you've made your selections, select **Allow**.  If you allowed access to the microphone and/or clipboard, an extra prompt shows requesting further confirmation. 
+1. Double-click **SessionDesktop** to connect. If you see the prompt **Allow remote desktop connection?**, select **Yes**. Your desktop is ready to use.
 
-1. The **Log in** prompt shows with your username prepopulated. You need to enter the password for the user account again, then select **Submit**.
+# [Web browser](#tab/web)
 
-# [macOS](#tab/macos-client)
+1. Open a web browser and go to [**https://windows.cloud.microsoft/**](https://windows.cloud.microsoft/).
 
-1. Open the **Microsoft Remote Desktop** app on your device.
+1. Sign in with your user account for Azure Virtual Desktop. If you're signed in to your browser with a work or school account on a managed device, you're signed in automatically.
 
-1. Select **Workspaces**.
+1. If it's your first time using Windows App, navigate through the tour to learn more about Windows App, then select **Done**, or select **Skip**.
 
-1. Select **+**, then select **Add Workspace**.
+1. After you sign in, select the **Devices** tab to see the desktop you created, which is called **SessionDesktop**.
 
-1. In the **Email or Workspace URL** box, enter `https://rdweb.wvd.microsoft.com`. After a few seconds, the message **We found Workspaces at the following URLs** should be displayed.
+1. Select **Connect** to launch a desktop session.
 
-1. Select **Add**.
+1. The prompt **In Session Settings** enables you to access some local resources, such as printers and the clipboard in the remote session. Once you've made your selections, select **Connect**.
 
-1. Sign in with the user account you assigned to the application group. After a few seconds, the workspace should show with an icon named **SessionDesktop**.
-
-1. Double-click **SessionDesktop** to launch a desktop session. You need to enter the password for the user account again, then select **Continue**.
+1. If you see the prompt **Allow remote desktop connection?**, select **Yes**. Your desktop is ready to use.
 
 ---
 
@@ -205,17 +205,15 @@ Now that you've created and connected to a Windows 11 desktop with Azure Virtual
 
 - [Add session hosts to a host pool](add-session-hosts-host-pool.md).
 
-- [Publish applications](manage-app-groups.md).
+- [Publish applications with RemoteApp](publish-applications-stream-remoteapp.md).
 
-- [User profile management for Azure Virtual Desktop with FSLogix profile containers](create-profile-container-azure-ad.yml).
+- [User profile management for Azure Virtual Desktop with FSLogix profile containers](fslogix-profile-containers.md).
 
 - [Understand network connectivity](network-connectivity.md).
 
 - Learn about [supported identities and authentication methods](authentication.md)
 
-- [Set up email discovery to subscribe to Azure Virtual Desktop](/windows-server/remote/remote-desktop-services/rds-email-discovery?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json).
-
-- [Configure single sign-on for Azure Virtual Desktop using Microsoft Entra authentication](configure-single-sign-on.md).
+- [Configure single sign-on for Azure Virtual Desktop using Microsoft Entra authentication](configure-single-sign-on.md), which includes providing consent on behalf of your organization.
 
 - Learn about [session host virtual machine sizing guidelines](/windows-server/remote/remote-desktop-services/virtual-machine-recs?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json).
 

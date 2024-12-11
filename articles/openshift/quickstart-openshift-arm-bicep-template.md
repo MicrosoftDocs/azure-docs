@@ -6,7 +6,7 @@ ms.service: azure-redhat-openshift
 ms.topic: quickstart
 ms.custom: mode-arm, devx-track-azurecli, devx-track-azurepowershell, devx-track-arm-template, devx-track-bicep
 ms.author: johnmarc
-ms.date: 08/27/2024
+ms.date: 12/02/2024
 keywords: azure, openshift, aro, red hat, arm, bicep
 zone_pivot_groups: azure-red-hat-openshift
 #Customer intent: I need to use ARM templates or Bicep files to deploy my Azure Red Hat OpenShift cluster.
@@ -19,6 +19,10 @@ This article describes how to use either Azure Resource Manager template (ARM te
 [!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 Bicep is a domain-specific language (DSL) that uses declarative syntax to deploy Azure resources. In a Bicep file, you define the infrastructure you want to deploy to Azure, and then use that file throughout the development lifecycle to repeatedly deploy your infrastructure. Your resources are deployed in a consistent manner.
+
+> [!NOTE]
+> For information on deploying Azure Red Hat OpenShift clusters using Terraform, see [Microsoft.RedHatOpenShift openShiftClusters Terraform](/azure/templates/microsoft.redhatopenshift/openshiftclusters?pivots=deployment-language-terraform).
+> 
 
 ## Prerequisites
 

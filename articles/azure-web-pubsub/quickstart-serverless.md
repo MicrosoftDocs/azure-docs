@@ -29,7 +29,7 @@ In this tutorial, you learn how to:
 
 - A code editor, such as [Visual Studio Code](https://code.visualstudio.com/)
 
-- [Node.js](https://nodejs.org/en/download/), version 18.x or above.
+- [Node.js](https://nodejs.org/en/download/package-manager/), version 18.x or above.
   > [!NOTE]
   > For more information about the supported versions of Node.js, see [Azure Functions runtime versions documentation](../azure-functions/functions-versions.md#languages).
 - [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing) (v4 or higher preferred) to run Azure Function apps locally and deploy to Azure.
@@ -40,7 +40,7 @@ In this tutorial, you learn how to:
 
 - A code editor, such as [Visual Studio Code](https://code.visualstudio.com/)
 
-- [Node.js](https://nodejs.org/en/download/), version 18.x or above.
+- [Node.js](https://nodejs.org/en/download/package-manager/), version 18.x or above.
   > [!NOTE]
   > For more information about the supported versions of Node.js, see [Azure Functions runtime versions documentation](../azure-functions/functions-versions.md#languages).
 - [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing) (v4 or higher preferred) to run Azure Function apps locally and deploy to Azure.
