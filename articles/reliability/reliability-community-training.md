@@ -56,7 +56,7 @@ Community Training uses many dependency Azure services, such as App service and 
 
 #### Create a resource with availability zone enabled
 
-Community Training provides configuration for availability zones only at the time of instance creation. If you wish to change your availability zone configuration after instance creation, you'll need to create a new instance. To learn how to create your Community Training instance, see [Create Community Training](/azure/industry/training-services/microsoft-community-training/content-management/create-content/create-course-category/create-a-new-course). 
+Community Training provides configuration for availability zones only at the time of instance creation. If you wish to change your availability zone configuration after instance creation, you'll need to create a new instance. To learn how to create your Community Training instance, see [Create Community Training](/azure/industry/training-services/microsoft-community-training/ga-version/content-management/create-content/create-course-category/create-a-new-course). 
 
 ### Zone down experience
 

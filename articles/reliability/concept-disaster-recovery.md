@@ -17,7 +17,7 @@ A disaster is a single, major event with a larger and longer-lasting impact than
 Regardless of the cause, the best way to respond to a disaster is a well-defined and tested DR plan and an application design that actively supports DR.
 
 > [!NOTE]
-> Different organizations might define "disaster" in different ways. For example, a complete region loss is usually considered a disaster. But, if you have a multi-region active/active solution design, you might be able to recover automatically from a region outage with no data loss or downtime, and so you might consider a region loss to be part of your high availability strategy instead. To learn more, see [What is business continuity?](./business-continuity-overview.md).
+> Different organizations might define "disaster" in different ways. For example, a complete region loss is usually considered a disaster. But, if you have a multi-region active/active solution design, you might be able to recover automatically from a region outage with no data loss or downtime, and so you might consider a region loss to be part of your high availability strategy instead. To learn more, see [What is business continuity?](./concept-business-continuity.md).
 
 The information in this article provides a high-level overview of disaster recovery. To learn more, see the [Azure Well-Architected Framework guidance on disaster recovery strategies](/azure/well-architected/reliability/disaster-recovery)
 
