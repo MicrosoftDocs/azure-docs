@@ -147,7 +147,7 @@ Microsoft Customer Agreement (MCA) customers can use the following information t
 
 1. Manually calculate the `CostInPricingCurrency` by: `(EffectivePrice)` * `(Quantity)`
 
-1. Convert the calculated `CostInPricingCurrency` to the `CostInBillingCurrency` by: `(CalculatedCostinPricingCurrency)` * `(ExchangeRatePricingToBilling)`
+1. Convert the calculated `CostInPricingCurrency` to the `CostInBillingCurrency` by: `(CalculatedCostInPricingCurrency)` * `(ExchangeRatePricingToBilling)`
 
 1. Summarize the values that you calculated for `CostInBillingCurrency` and compare them to the invoice.
 
