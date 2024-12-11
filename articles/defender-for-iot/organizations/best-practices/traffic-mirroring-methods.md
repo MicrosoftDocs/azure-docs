@@ -99,7 +99,7 @@ The sensor's monitoring interface is a promiscuous interface and doesn't have a 
 Use ERSPAN encapsulation when there's a need to extend monitored traffic across Layer 3 domains. ERSPAN is a Cisco proprietary feature and is available only on specific routers and switches. For more information, see the [Cisco documentation](https://learningnetwork.cisco.com/s/article/span-rspan-erspan).
 
 > [!NOTE]
-> This article provides high-level guidance for configuring traffic mirroring with ERSPAN. Specific implementation details will vary depending on your equiptment vendor.
+> This article provides high-level guidance for configuring traffic mirroring with ERSPAN. Specific implementation details will vary depending on your equipment vendor.
 >
 
 ### ERSPAN architecture

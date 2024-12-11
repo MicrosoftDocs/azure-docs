@@ -6,7 +6,7 @@ ms.reviewer: franciscosa
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 05/03/2024
+ms.date: 12/06/2024
 ms.author: banders
 ms.custom: ignite-2023
 ---

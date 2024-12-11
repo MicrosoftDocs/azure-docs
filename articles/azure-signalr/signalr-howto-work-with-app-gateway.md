@@ -51,8 +51,6 @@ Create from the portal an Application Gateway instance **_AG1_**:
 
   - Accept the default values for the other settings and then select **Next: Frontends**
 
-  :::image type="content" source="./media/signalr-howto-work-with-app-gateway/basics.png" alt-text="Screenshot of creating Application Gateway instance with Basics tab.":::
-
 - On the **Frontends** tab:
 
   - **Frontend IP address type**: **Public**.
@@ -155,7 +153,7 @@ Now, the traffic can reach SignalR Service through the Application Gateway. The 
   ```bash
   cd samples/Chatroom
   dotnet restore
-  dotnet user-secrets set Azure:SignalR:ConnectionString "<copied-onnection-string-with-client-endpoint>"
+  dotnet user-secrets set Azure:SignalR:ConnectionString "<copied-connection-string-with-client-endpoint>"
   dotnet run
   ```
 
@@ -196,9 +194,7 @@ Let's configure SignalR Service to only allow private access. You can find more 
       - Select **Next: DNS**
     - On **DNS** tab
       - **Integration with private DNS zone**: **Yes**
-    - Review and create the private endpoint
-
-  :::image type="content" source="./media/signalr-howto-work-with-app-gateway/application-gateway-setup-private-endpoint.png" alt-text="Screenshot of setting up the private endpoint resource for the SignalR Service.":::  
+    - Review and create the private endpoint  
 
 
 ### Refresh Application Gateway backend pool

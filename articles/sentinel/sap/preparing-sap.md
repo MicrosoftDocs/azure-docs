@@ -5,7 +5,7 @@ description: Learn about extra preparations required in your SAP system to insta
 author: batamig
 ms.author: bagol
 ms.topic: how-to
-ms.date: 09/16/2024
+ms.date: 12/02/2024
 appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
@@ -62,27 +62,29 @@ For more information, see the [SAP documentation](https://help.sap.com/docs/ABAP
 
 Some installations of SAP systems might not have audit logging enabled by default. For best results in evaluating the performance and efficacy of the Microsoft Sentinel solution for SAP applications, enable auditing of your SAP system and configure the audit parameters. If you want to ingest SAP HANA DB logs, make sure to also enable auditing for SAP HANA DB.
 
-We recommend that you configure auditing for all messages from the audit log, as this data is useful for Microsoft Sentinel detections and in post-compromise investigations and hunting.
+We recommend that you configure auditing for *all* messages from the audit log, instead of only specific logs. Ingestion cost differences are generally minimal and the data is useful for Microsoft Sentinel detections and in post-compromise investigations and hunting.
 
 For more information, see the [SAP community](https://community.sap.com/t5/application-development-blog-posts/analysis-and-recommended-settings-of-the-security-audit-log-sm19-rsau/ba-p/13297094) and [Collect SAP HANA audit logs in Microsoft Sentinel](collect-sap-hana-audit-logs.md).
 
 ## Configure support for extra data retrieval (recommended)
 
-While this step is optional, we recommend that you deploy extra CRs from the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/CR) to enable the SAP data connector to retrieve the following content information from your SAP system:
+While this step is optional, we recommend that you enable the SAP data connector to retrieve the following content information from your SAP system:
 
 - **DB Table** and **Spool Output** logs
-- **Client IP address information** from the security audit logs (SAP BASIS version 7.5 SP12 and higher only)
+- **Client IP address information** from the security audit logs
 
-Deploy the relevant CRs according to your SAP version:
+1. Deploy the relevant CRs from the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/CR), according to your SAP version:
 
-| SAP BASIS versions | Recommended CR |
-| --- | --- | --- |
-| **750 and higher** | *NPLK900202*: [K900202.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/K900202.NPL), [R900202.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/R900202.NPL) <br><br>When deploying this CR any of the following SAP versions, also deploy [2641084 - Standardized read access to data of Security Audit Log](https://launchpad.support.sap.com/#/notes/2641084): <br>- 750 SP04 to SP12<br>- 751 SP00 to SP06<br>- 752 SP00 to SP02  | 
-| **740**  | *NPLK900201*: [K900201.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/K900201.NPL), [R900201.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/R900201.NPL) |
+    | SAP BASIS versions | Recommended CR |
+    | --- | --- | --- |
+    | **750 and higher** | *NPLK900202*: [K900202.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/K900202.NPL), [R900202.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/R900202.NPL) <br><br>When deploying this CR any of the following SAP versions, also deploy [2641084 - Standardized read access to data of Security Audit Log](https://launchpad.support.sap.com/#/notes/2641084): <br>- 750 SP04 to SP12<br>- 751 SP00 to SP06<br>- 752 SP00 to SP02  | 
+    | **740**  | *NPLK900201*: [K900201.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/K900201.NPL), [R900201.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/R900201.NPL) |
 
-Deploy the CRs on your SAP system as needed just as you'd deploy other CRs. We strongly recommend that deploying SAP CRs is done by an experienced SAP system administrator. For more information, see the [SAP documentation](https://help.sap.com/docs/ABAP_PLATFORM_NEW/4a368c163b08418890a406d413933ba7/e15d9acae75c11d2b451006094b9ea64.html?locale=en-US&version=LATEST).
+    Deploy the CRs on your SAP system as needed just as you'd deploy other CRs. We strongly recommend that deploying SAP CRs is done by an experienced SAP system administrator. For more information, see the [SAP documentation](https://help.sap.com/docs/ABAP_PLATFORM_NEW/4a368c163b08418890a406d413933ba7/e15d9acae75c11d2b451006094b9ea64.html?locale=en-US&version=LATEST).
 
-For more information, see the [SAP Community](https://community.sap.com/t5/application-development-blog-posts/analysis-and-recommended-settings-of-the-security-audit-log-sm19-rsau/ba-p/13297094) and the [SAP documentation](https://help.sap.com/docs/ABAP_PLATFORM_NEW/4a368c163b08418890a406d413933ba7/e15d9acae75c11d2b451006094b9ea64.html?locale=en-US&version=LATEST).
+    For more information, see the [SAP Community](https://community.sap.com/t5/application-development-blog-posts/analysis-and-recommended-settings-of-the-security-audit-log-sm19-rsau/ba-p/13297094) and the [SAP documentation](https://help.sap.com/docs/ABAP_PLATFORM_NEW/4a368c163b08418890a406d413933ba7/e15d9acae75c11d2b451006094b9ea64.html?locale=en-US&version=LATEST).
+
+1. To support SAP BASIS versions 7.31-7.5 SP12 in sending client IP address information to Microsoft Sentinel, activate logging for SAP table USR41. For more information, see the [SAP documentation](https://help.sap.com/doc/saphelp_scm700_ehp02/7.0.2/en-US/73/86ce4dc98d461283f25940367dd9c3/frameset.htm).
 
 ## Verify that the PAHI table is updated at regular intervals
 
@@ -91,10 +93,9 @@ The SAP PAHI table includes data on the history of the SAP system, the database,
 - [SAP note 12103](https://launchpad.support.sap.com/#/notes/12103)
 - [Monitoring the configuration of static SAP security parameters (Preview)](sap-solution-security-content.md#monitor-the-configuration-of-static-sap-security-parameters-preview)
 
-> [!TIP]
-> For optimal results, in the *systemconfig.json* file on your data connector agent machine, under the `[ABAP Table Selector](reference-systemconfig-json.md#abap-table-selector)` section, enable both the `PAHI_FULL` and the `PAHI_INCREMENTAL` parameters. For more information, see [Systemconfig.json file reference](reference-systemconfig-json.md#abap-table-selector).
+If the PAHI table is updated regularly, the `SAP_COLLECTOR_FOR_PERFMONITOR` job is scheduled and runs hourly. If the `SAP_COLLECTOR_FOR_PERFMONITOR` job doesn't exist, make sure to configure it as needed. 
 
-If the PAHI table is updated regularly, the `SAP_COLLECTOR_FOR_PERFMONITOR` job is scheduled and runs hourly. If the `SAP_COLLECTOR_FOR_PERFMONITOR` job doesn't exist, make sure to configure it as needed. For more information, see the SAP documentation: [Database Collector in Background Processing](https://help.sap.com/doc/saphelp_nw75/7.5.5/en-US/c4/3a735b505211d189550000e829fbbd/frameset.htm) and [Configuring the Data Collector](https://help.sap.com/docs/SAP_NETWEAVER_AS_ABAP_752/3364beced9d145a5ad185c89a1e04658/c43a818c505211d189550000e829fbbd.html)
+For more information, see [Database Collector in Background Processing](https://help.sap.com/doc/saphelp_nw75/7.5.5/c4/3a735b505211d189550000e829fbbd/frameset.htm) and [Configuring the Data Collector](https://help.sap.com/docs/SAP_NETWEAVER_AS_ABAP_752/3364beced9d145a5ad185c89a1e04658/c43a818c505211d189550000e829fbbd.html).
 
 ## Configure your system to use SNC for secure connections
 

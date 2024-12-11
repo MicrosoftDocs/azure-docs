@@ -14,15 +14,19 @@ ms.author: jacobjaygbay
 
 Learn what Azure regions and corresponding Oracle Cloud Infrastructure (OCI) regions support Oracle Database@Azure in standard business regions across the globe.
 
-## Asia-Pacific (APAC)
+## Asia Pacific (APAC)
 
 The following table lists Azure regions and corresponding OCI regions that support Oracle Database@Azure in the APAC business region:
 
 | Azure region   | OCI region  | Oracle Exadata Database@Azure | Oracle Autonomous Database@Azure |
 |----------------|--------------------------|-------------------|-------------------|
 | Australia East | Australia East (Sydney)  | ✓  |          ✓                      |
-| Southeast Asia | Singapore (Singapore)  | ✓  |          ✓                      |
-| Japan East     | Japan East(Tokyo)  | ✓  |                                 |
+
+## Brazil
+
+| Azure region   | OCI region  | Oracle Exadata Database@Azure | Oracle Autonomous Database@Azure |
+|----------------|--------------------------|-------------------|-------------------|
+| Brazil South | Brazil Southeast (Vinhedo)   | ✓   |  ✓    |
 
 ## Europe, Middle East, Africa (EMEA)
 
@@ -50,7 +54,8 @@ The following table lists Azure regions and corresponding OCI regions that offer
 
 | Azure region   | OCI region  | Oracle Exadata Database@Azure | Oracle Autonomous Database@Azure |
 |----------------|--------------------------|-------------------|-------------------|
-| West US | US West (Phoenix)  | ✓  |          ✓  |
+| West US | US West (San Jose)  | ✓  |          ✓  |
+| UK West | UK West (Cardiff)   | ✓   | ✓    |
 
 > [!NOTE]
 > To provision Oracle Database@Azure resources in a supported region, your tenancy must be subscribed to the target region. Learn how to [manage regions](https://docs.oracle.com/iaas/Content/Identity/regions/managingregions.htm#Managing_Regions) and [subscribe to an infrastructure region](https://docs.oracle.com/iaas/Content/Identity/regions/To_subscribe_to_an_infrastructure_region.htm#subscribe).

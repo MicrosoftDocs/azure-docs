@@ -3,7 +3,7 @@ title: VMware solution software versions
 description: Supported VMware solution software versions for Azure VMware Solution.
 ms.topic: include
 ms.service: azure-vmware
-ms.date: 8/20/2024
+ms.date: 11/1/2024
 author: suzizuber
 ms.author: v-suzuber
 ms.custom: engagement-fy23
@@ -15,7 +15,7 @@ The VMware solution software versions used in new deployments of Azure VMware So
 
 | Software                         |    Version   |
 | :---                             |     :---:    |
-| VMware vCenter Server            |    [8.0 U2b](https://docs.vmware.com/en/VMware-vSphere/8.0/rn/vsphere-vcenter-server-80u2b-release-notes/index.html)   |
+| VMware vCenter Server            |    [8.0 U2d](https://docs.vmware.com/en/VMware-vSphere/8.0/rn/vsphere-vcenter-server-80u2d-release-notes/index.html)   |
 | VMware ESXi                      |    [8.0 U2b](https://docs.vmware.com/en/VMware-vSphere/8.0/rn/vsphere-esxi-80u2b-release-notes/index.html)  |
 | VMware vSAN                      |    [8.0 U2](https://docs.vmware.com/en/VMware-vSphere/8.0/rn/vmware-vsan-802-release-notes/index.html)   |
 | VMware vSAN on-disk format       |    [19](https://kb.vmware.com/s/article/2148493)   |

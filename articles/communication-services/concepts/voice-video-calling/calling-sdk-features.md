@@ -7,7 +7,7 @@ manager: chpalm
 services: azure-communication-services
 
 ms.author: micahvivion
-ms.date: 07/25/2024
+ms.date: 10/31/2024
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: calling
@@ -128,7 +128,6 @@ The following table represents the set of supported browsers, which are currentl
 - Firefox support is in public preview.
 - Currently, the calling SDK only supports Android System WebView on Android, iOS WebView(WKWebView) in public preview. Other types of embedded browsers or WebView on other OS platforms aren't officially supported, for example, GeckoView, Chromium Embedded Framework (CEF), Microsoft Edge WebView2. Running JavaScript Calling SDK on these platforms isn't actively tested, it might or might not work.
 - [An iOS app on Safari can't enumerate/select mic and speaker devices](../known-issues.md#enumerating-devices-isnt-possible-in-safari-when-the-application-runs-on-ios-or-ipados) (for example, Bluetooth). This issue is a limitation of iOS, and the operating system controls default device selection.
-- iOS Edge browser support is available in public preview in WebJS SDK version [1.30.1-beta.1](https://github.com/Azure/Communication/blob/master/releasenotes/acs-javascript-calling-library-release-notes.md#1301-beta1-2024-10-01) and higher.
 
 ## Calling client - browser security model
 
@@ -178,13 +177,13 @@ The Azure Communication Services Calling SDK supports the following streaming co
 
 
 \* Starting from Azure Communication Services Web Calling SDK version [1.16.3](https://github.com/Azure/Communication/blob/master/releasenotes/acs-javascript-calling-library-release-notes.md#1163-stable-2023-08-24)
-While the Calling SDK doesn't enforce these limits, your users might experience performance degradation if they're exceeded. Use the API of [Optimal Video Count](../../how-tos/calling-sdk/manage-video.md?pivots=platform-web#remote-video-quality) to determine how many current incoming video streams your web environment can support. To properly support 16 incoming videos the computer should have a mimimum of 16GB RAM and a 4-core or greater CPU that is no older than 3 years old
+While the Calling SDK doesn't enforce these limits, your users might experience performance degradation if they're exceeded. Use the API of [Optimal Video Count](../../how-tos/calling-sdk/manage-video.md?pivots=platform-web#remote-video-quality) to determine how many current incoming video streams your web environment can support. To properly support 16 incoming videos the computer should have a minimum of 16GB RAM and a 4-core or greater CPU that is no older than 3 years old
 
 ## Supported video resolutions
 The Azure Communication Services Calling SDK automatically adjusts resolutions of video and screen share streams during the call.
 
 > [!NOTE]
-> The resolution can vary depending on the number of participants on a call, the amount of bandwidth available to the client, hardware capabilities of local participant who renders remote video streans and other overall call parameters.
+> The resolution can vary depending on the number of participants on a call, the amount of bandwidth available to the client, hardware capabilities of local participant who renders remote video streams and other overall call parameters.
 
 The Azure Communication Services Calling SDK supports sending following video resolutions
 

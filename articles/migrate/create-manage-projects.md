@@ -5,8 +5,8 @@ author: v-sreedevank
 ms.author: v-sreedevank
 ms.service: azure-migrate
 ms.topic: how-to
-ms.date: 05/22/2023
-ms.custom: engagement-fy23
+ms.date: 09/26/2024
+ms.custom: engagement-fy25
 ---
 
 # Create and manage projects

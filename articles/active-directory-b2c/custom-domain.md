@@ -108,7 +108,7 @@ Follow these steps to create an Azure Front Door:
 
 1. To choose the directory that contains the Azure subscription that you’d like to use for Azure Front Door and *not* the directory containing your Azure AD B2C tenant select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
     
-1. Follow the steps in [Create Front Door profile - Quick Create](../frontdoor/create-front-door-portal.md#create-front-door-profile---quick-create) to create a Front Door for your Azure AD B2C tenant using the following settings: 
+1. Follow the steps in [Create Front Door profile - Quick Create](../frontdoor/create-front-door-portal.md#create-an-azure-front-door-profile) to create a Front Door for your Azure AD B2C tenant using the following settings: 
 
     
     |Key  |Value  |
@@ -202,7 +202,7 @@ To create a CNAME record for your custom domain:
 The **default-route** routes the traffic from the client to Azure Front Door. Then, Azure Front Door uses your configuration to send the traffic to Azure AD B2C. Follow these steps to enable the default-route.
 
 1. Select **Front Door manager**.
-1. To add enable the **default-route**, first expand an endpoint from the list of endpoints in the Front Door manager. Then, select the **default-route**. 
+1. To enable the **default-route**, first expand an endpoint from the list of endpoints in the Front Door manager. Then, select the **default-route**. 
 
     The following screenshot shows how to select the default-route.
 
@@ -243,13 +243,13 @@ Configure Azure Blob storage for Cross-Origin Resource Sharing with the followin
     For example, instead of:
 
     ```http
-    https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1_susi&client_id=63ba0d17-c4ba-47fd-89e9-31b3c2734339&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=id_token&prompt=login
+    https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1_susi&client_id=00001111-aaaa-2222-bbbb-3333cccc4444&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=id_token&prompt=login
     ```
 
     use:
 
     ```http
-    https://login.contoso.com/contoso.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1_susi&client_id=63ba0d17-c4ba-47fd-89e9-31b3c2734339&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=id_token&prompt=login    
+    https://login.contoso.com/contoso.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1_susi&client_id=00001111-aaaa-2222-bbbb-3333cccc4444&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=id_token&prompt=login    
     ```
 
 1. Verify that the Azure AD B2C is loaded correctly. Then, sign in with a local account.
@@ -399,5 +399,3 @@ Yes, Azure Front Door can be in a different subscription.
 * Learn about [OAuth authorization requests](protocols-overview.md).
 * Learn about [OpenID Connect authorization requests](openid-connect.md).
 * Learn about [authorization code flow](authorization-code-flow.md).
-
-
