@@ -1,11 +1,11 @@
 ---
 title: Set up inbound private endpoint for Azure API Management - Standard v2
-description: Learn how to restrict inbound access to an Azure API Management instance by using an Azure private endpoint and Azure Private Link.
+description: Restrict inbound access to an Azure API Management Standard v2 instance by using an Azure private endpoint and Azure Private Link.
 ms.service: azure-api-management
 author: dlepow
 ms.author: danlep
 ms.topic: how-to
-ms.date: 09/19/2024
+ms.date: 12/10/2024
 ---
 
 # Set up inbound private endpoint for Azure API Management - Standard v2
@@ -64,8 +64,7 @@ Typically, a network administrator creates a private endpoint. Depending on your
 
 1. [Get available private endpoint types in subscription](#get-available-private-endpoint-types-in-subscription)
 1. [Create private endpoint - portal](#create-private-endpoint---portal)
-1. [List private endpoint connections to the instance](#list-private-endpoint-connections-to-the-instance)
-1. [Approve pending private endpoint connections](#approve-pending-private-endpoint-connections)
+1. [List private endpoint connections to the instance](#list-private-endpoint-connections)
 1. [Optionally disable public network access](#optionally-disable-public-network-access)
 
 ### Get available private endpoint types in subscription
@@ -181,7 +180,7 @@ You can also use the [API Management Service - Update](/rest/api/apimanagement/a
 
 After the private endpoint is created, confirm its DNS settings in the portal:
 
-1. In the **Private Link Center**, select **Private endpoints** <name of your private endpoint>.
+1. In the **Private Link Center**, select **Private endpoints** and then the name of your private endpoint.
 
 1. In the left-hand navigation, under **Settings**, select **DNS configuration**.
 
