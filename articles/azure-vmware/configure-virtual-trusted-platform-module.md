@@ -15,7 +15,7 @@ In this article, you will learn about Trusted Launch and how to configure Virtua
 
 ## Benefits
 
-•	Securely deploy VMs with verified boot loaders, operating system (OS) kernels, and drivers.
+•	Securely deploy VMs with verified boot loaders, operating system kernels, and drivers.
 
 •	Securely protect keys, certificates, and secrets in the VMs.
 
