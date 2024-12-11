@@ -6,7 +6,7 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.service: azure-migrate
-ms.date: 11/04/2024
+ms.date: 11/06/2024
 ms.custom: vmware-scenario-422, engagement-fy24
 ---
 

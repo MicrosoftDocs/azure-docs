@@ -134,7 +134,7 @@ services.AddSignalR().AddAzureSignalR(options =>
             // The token name is not important. You could change it as you like.
             new Claim("uniqueToken", Guid.NewGuid().ToString()),
            
-            // Cutom claim: Used in ThrottleByJwtCustomClaimRule
+            // Custom claim: Used in ThrottleByJwtCustomClaimRule
             new Claim("<Custom Claim Name>", "<Custom Claim Value>"),
             // Custom claim example
             new Claim("freeUser", context.Request.Query["username"]),

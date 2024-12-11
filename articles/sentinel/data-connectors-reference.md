@@ -3,7 +3,7 @@ title: Find your Microsoft Sentinel data connector | Microsoft Docs
 description: Learn about specific configuration steps for Microsoft Sentinel data connectors.
 author: cwatson-cat
 ms.topic: reference
-ms.date: 08/26/2024
+ms.date: 11/18/2024
 ms.custom: linux-related-content
 ms.author: cwatson
 appliesto:
@@ -37,6 +37,8 @@ Data connectors are available as part of the following offerings:
 ## Data connector prerequisites
 
 [!INCLUDE [data-connector-prereq](includes/data-connector-prereq.md)]
+
+Azure Monitor agent (AMA) based data connectors require an internet connection from the system where the agent is installed. Enable port 443 outbound to allow a connection between the system where the agent is installed and Microsoft Sentinel.
 
 ## Syslog and Common Event Format (CEF) connectors
 
@@ -171,6 +173,10 @@ For more information about the codeless connector platform, see [Create a codele
 ## CohesityDev
 
 - [Cohesity (using Azure Functions)](data-connectors/cohesity.md)
+
+## Commvault
+
+- [CommvaultSecurityIQ (using Azure Functions)](data-connectors/commvaultsecurityiq.md)
 
 ## Corelight Inc.
 
@@ -392,7 +398,11 @@ For more information about the codeless connector platform, see [Create a codele
 
 - [Exchange Security Insights Online Collector (using Azure Functions)](data-connectors/exchange-security-insights-online-collector.md)
 - [Exchange Security Insights On-Premises Collector](data-connectors/exchange-security-insights-on-premises-collector.md)
+- [Microsoft Active-Directory Domain Controllers Security Event Logs](data-connectors/microsoft-active-directory-domain-controllers-security-event-logs.md)
+- [Microsoft Exchange Admin Audit Logs by Event Logs](data-connectors/microsoft-exchange-admin-audit-logs-by-event-logs.md)
+- [Microsoft Exchange HTTP Proxy Logs](data-connectors/microsoft-exchange-http-proxy-logs.md)
 - [Microsoft Exchange Logs and Events](data-connectors/microsoft-exchange-logs-and-events.md)
+- [Microsoft Exchange Message Tracking Logs](data-connectors/microsoft-exchange-message-tracking-logs.md)
 - [Forcepoint DLP](data-connectors/forcepoint-dlp.md)
 - [MISP2Sentinel](data-connectors/misp2sentinel.md)
 
@@ -557,6 +567,10 @@ For more information about the codeless connector platform, see [Create a codele
 ## Valence Security Inc.
 
 - [SaaS Security](data-connectors/saas-security.md)
+
+## Varonis
+
+- [Varonis SaaS](data-connectors/varonis-saas.md)
 
 ## Vectra AI, Inc
 

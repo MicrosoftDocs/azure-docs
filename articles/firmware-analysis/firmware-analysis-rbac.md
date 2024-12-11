@@ -22,7 +22,7 @@ In Firmware analysis, the most common roles are Owner, Contributor, Security Adm
 Azure organizes resources into resource hierarchies, which are in a top-down structure, and you can assign roles at each level of the hierarchy. The level at which you assign a role is the "scope," and lower scopes may inherit roles assigned at higher scopes. Learn more about the [levels of hierarchy and how to organize your resources in the hierarchy](/azure/cloud-adoption-framework/ready/azure-setup-guide/organize-resources).
 
 When you onboard your subscription to Firmware analysis and select your resource group, the action automatically creates the **default** resource within your resource group.
- 
+
 Navigate to your resource group and select **Show hidden types** to show the **default** resource. The **default** resource has the **Microsoft.IoTFirmwareDefense.workspaces** type.
 
 :::image type="content" source="media/firmware-analysis-rbac/default-workspace.png" alt-text="Screenshot of the toggle button 'Show hidden types' that reveals a resource named 'default'." lightbox="media/firmware-analysis-rbac/default-workspace.png":::

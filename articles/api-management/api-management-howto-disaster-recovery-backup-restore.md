@@ -7,7 +7,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 01/31/2023
+ms.date: 09/06/2024
 ms.author: danlep 
 ms.custom: devx-track-azurepowershell
 ---
@@ -125,6 +125,38 @@ $storageContext = New-AzStorageContext -StorageAccountName $storageAccountName
 Backup-AzApiManagement -ResourceGroupName $apiManagementResourceGroup -Name $apiManagementName `
     -StorageContext $storageContext -TargetContainerName $containerName `
     -TargetBlobName $blobName -AccessType "UserAssignedManagedIdentity" ` -identityClientId $identityid
+```
+
+Backup is a long-running operation that may take several minutes to complete. During this time the API gateway continues to handle requests, but the state of the service is Updating.
+
+### [CLI](#tab/cli)
+
+[Sign in](/cli/azure/authenticate-azure-cli) with Azure CLI.
+
+In the following examples:
+
+* An API Management instance named *myapim* is in resource group *apimresourcegroup*.
+* A storage account named *backupstorageaccount* is in resource group *storageresourcegroup*. The storage account has a container named *backups*.
+* A backup blob will be created with name *ContosoBackup.apimbackup*.
+
+Set variables in Bash:
+
+```azurecli-interactive
+apiManagementName="myapim";
+apiManagementResourceGroup="apimresourcegroup";
+storageAccountName="backupstorageaccount";
+storageResourceGroup="storageresourcegroup";
+containerName="backups";
+backupName="ContosoBackup.apimbackup";
+```
+
+### Access using storage access key
+
+```azurecli-interactive
+storageKey=$(az storage account keys list --resource-group $storageResourceGroup --account-name $storageAccountName --query [0].value --output tsv)
+
+az apim backup --resource-group $apiManagementResourceGroup --name $apiManagementName \
+    --storage-account-name $storageAccountName --storage-account-key $storageKey --storage-account-container $containerName --backup-name $backupName
 ```
 
 Backup is a long-running operation that may take several minutes to complete. During this time the API gateway continues to handle requests, but the state of the service is Updating.
@@ -257,6 +289,35 @@ $storageContext = New-AzStorageContext -StorageAccountName $storageAccountName
 Restore-AzApiManagement -ResourceGroupName $apiManagementResourceGroup -Name $apiManagementName `
     -StorageContext $storageContext -SourceContainerName $containerName `
     -SourceBlobName $blobName -AccessType "UserAssignedManagedIdentity" ` -identityClientId $identityid
+```
+
+Restore is a long-running operation that may take up to 45 minutes or more to complete. 
+
+### [CLI](#tab/cli)
+
+In the following examples, 
+
+* An API Management instance named *myapim* is restored from the backup blob named *ContosoBackup.apimbackup* in storage account *backupstorageaccount*.
+* The backup blob is in a container named *backups*.
+
+Set variables in Bash:
+
+```azurecli-interactive
+apiManagementName="myapim";
+apiManagementResourceGroup="apimresourcegroup";
+storageAccountName="backupstorageaccount";
+storageResourceGroup="storageresourcegroup";
+containerName="backups";
+backupName="ContosoBackup.apimbackup"
+```
+
+### Access using storage access key
+
+```azurecli-interactive
+storageKey=$(az storage account keys list --resource-group $storageResourceGroup --account-name $storageAccountName --query [0].value --output tsv)
+
+az apim restore --resource-group $apiManagementResourceGroup --name $apiManagementName \
+    --storage-account-name $storageAccountName --storage-account-key $storageKey --storage-account-container $containerName --backup-name $backupName
 ```
 
 Restore is a long-running operation that may take up to 45 minutes or more to complete. 

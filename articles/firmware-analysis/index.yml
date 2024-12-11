@@ -1,0 +1,56 @@
+### YamlMime:Landing
+
+title: Firmware analysis (preview)
+summary: Analyze your firmware images for security vulnerabilities
+
+metadata:
+  title: Firmware analysis (preview)
+  description: Analyze your firmware images for security vulnerabilities
+  ms.topic: landing-page
+  author: karengu0
+  ms.author: karenguo
+  ms.date: 11/11/2024
+
+
+landingContent:
+  - title: Get started
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: What is Firmware analysis (preview)?
+            url: overview-firmware-analysis.md
+          - text: Get started with Firmware analysis in the Azure portal
+            url: tutorial-analyze-firmware.md
+          - text: What file systems are supported by Firmware analysis?
+            url: firmware-analysis-faq.md#what-types-of-firmware-images-does-firmware-analysis-support
+      - linkListType: concept
+        links:
+          - text: What roles and permissions are needed to use Firmware analysis?
+            url: firmware-analysis-rbac.md
+      - linkListType: whats-new
+        links:
+          - text: What's new in Firmware analysis (preview)?
+            url: release-notes.md
+
+  - title: Automate your workflow
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Automate your workflow using service principals
+            url: automate-firmware-analysis-service-principals.md
+          - text: Analyze firmware images using Azure CLI commands
+            url: quickstart-upload-firmware-using-azure-command-line-interface.md
+          - text: Analyze firmware images using Azure PowerShell commands
+            url: quickstart-upload-firmware-using-powershell.md
+          - text: Analyze firmware images using a Python script
+            url: quickstart-upload-firmware-using-python.md
+
+  - title: Understand the Firmware analysis service
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Understand the resource hierarchy of Firmware analysis
+            url: firmware-analysis-rbac.md#understanding-the-representation-of-firmware-images-in-the-azure-resource-hierarchy
+          - text: Understand and interpret the extractor path results
+            url: interpreting-extractor-paths.md
+

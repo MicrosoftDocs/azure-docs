@@ -93,7 +93,6 @@ New-AzStorageAccount -ResourceGroupName $resourceGroupName `
   -EnableHierarchicalNamespace $true 
 ```
 
-
 #### Create an Azure Synapse workspace
 
 ```powershell

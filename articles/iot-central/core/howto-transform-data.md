@@ -417,7 +417,7 @@ To verify the scenario is running, navigate to your **IoT Edge gateway device** 
     The telemetry data in the **Measurements** column looks like:
 
     ```json
-    {"temperature":85.21208,"pressure":59.97321,"humidity":77.718124,"scale":"farenheit"}
+    {"temperature":85.21208,"pressure":59.97321,"humidity":77.718124,"scale":"fahrenheit"}
     ```
 
 The temperature is sent in Fahrenheit. Because the IoT Edge device is transforming the data from the downstream device, the telemetry is associated with the gateway device in IoT Central. To visualize the transformed telemetry, create a view in the **IoT Edge gateway device** template and republish it.
@@ -467,7 +467,7 @@ The device bridge then sends the transformed data to IoT Central in the followin
   "temp": <temperature in degrees F>,
   "humidity": <humidity>,
   "lat": <latitude>,
-  "lon": <logitude>,
+  "lon": <longitude>,
   "weather": {
     "weather_temp": <temperature at lat/lon>,
     "weather_humidity": <humidity at lat/lon>,

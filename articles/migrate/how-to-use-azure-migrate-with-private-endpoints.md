@@ -6,7 +6,7 @@ ms.author: vijain
 ms.custom: subject-rbac-steps, engagement-fy23
 ms.topic: how-to
 ms.service: azure-migrate
-ms.date: 12/14/2022
+ms.date: 09/26/2024
 ---
 
 # Support requirements and considerations for Private endpoint connectivity
