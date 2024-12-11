@@ -433,7 +433,7 @@ The next task is to create a client application and define the service contract 
 
    1. In **Solution Explorer**, right-click the current solution (not the project), and select **Add** > **New Project**.
    1. In **Add a new project**, select **Console App (.NET Framework)** for C#, and select **Next**.
-   1. Name project *EchoClient* and select **Create**.
+   1. Specify *EchoClient* as the name of the proejct and select **Create**.
 
 1. In **Solution Explorer**, in the **EchoClient** project, double-click **Program.cs** to open the file in the editor, if it isn't already open.
 1. Change the namespace name from its default name of `EchoClient` to `Microsoft.ServiceBus.Samples`.
@@ -744,7 +744,7 @@ namespace Microsoft.ServiceBus.Samples
     `Press [Enter] to exit`
 
 1. In the **EchoClient** console window, enter the same information that you entered previously for the service application. Enter the same service namespace and SAS key values for the client application.
-1. After entering these values, the client opens a channel to the service and prompts you to enter some text as seen in the following console output example.
+1. After you enter these values, the client opens a channel to the service and prompts you to enter some text as seen in the following console output example.
 
     `Enter text to echo (or [Enter] to exit):`
 
