@@ -30,7 +30,7 @@ This article provides a high-level summary of business continuity planning, cove
 > Some workloads are *mission-critical*, which means any failures can have severe consequences. If you're designing a mission-critical workload, there are specific things you need to think about when you design your solution and manage your business continuity. For more information, see the [Azure Well-Architected Framework: Mission-critical workloads](/azure/well-architected/mission-critical/mission-critical-overview).
 
 
-## Classification of risks
+## Classify risks
 
 A business continuity plan must address both types of risk classificaiton: *high availability risks* and *disaster recovery risks*.
 
@@ -94,10 +94,6 @@ You should also consider risks beyond the cloud platform and infrastructure, lik
 | Rogue administrators | A user with administrative privileges has intentionally performed a damaging action against the system. | 
 | Unexpected influx of traffic to an application | A spike in traffic has overwhelmed your system resources. | 
 
-<!-- 
-
-It's important that business continuity planning is conducted with a range of stakeholders, with representation from technical and business stakeholders and leadership. Everyone needs to understand that the process involves making explicit decisions about how to respond to different risks, how to categorize them (as HA or DR related) and that each decision has tradeoffs. It also requires looking broadly at your business to understand how a specific workload or application fits into the wider business. By understanding your business well, you can make decisions about how to prioritize your resources, and whether you have opportunities to go beyond technical solutions to manage your risks.
--->
 
 ## Risk severity, likelihood, and tradeoff
 
