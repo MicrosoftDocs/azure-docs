@@ -1,25 +1,25 @@
 ---
-title: Azure Communication Services pre-call diagnostics
+title: Azure Communication Services precall diagnostics
 titleSuffix: An Azure Communication Services concept document
-description: Overview of the pre-call diagnostic API feature.
+description: Overview of the precall diagnostic API feature.
 author: yassirbisteni
 manager: bobgao
 services: azure-communication-services
 ms.author: yassirb
-ms.date: 22/11/2024
+ms.date: 12/12/2024
 ms.topic: conceptual
 ms.service: azure-communication-services
 ---
 
-# Pre-Call diagnostics
+# Precall diagnostics
 
 [!INCLUDE [Public Preview Disclaimer](../../../../includes/public-preview-include.md)]
 
-The pre-call API feature allows developers to programmatically validate a client’s readiness to join an Azure Communication Services call. You can only access pre-call features using the Calling SDK. The pre-call diagnostic feature provides multiple diagnostics including device, connection, and call quality. Provide us with [feedback](../../support.md) about which platforms you want to see pre-call diagnostics enabled.
+The precall API feature allows developers to programmatically validate a client’s readiness to join an Azure Communication Services call. You can only access precall features using the Calling SDK. The precall diagnostic feature provides multiple diagnostics including device, connection, and call quality. Provide us with [feedback](../../support.md) about which platforms you want to see precall diagnostics enabled.
 
-## Pre-Call diagnostics access
+## Precall diagnostics access
 
-To access pre-call diagnostics, you need to initialize a `CallClient`, and provision an Azure Communication Services access token. Then you can access the `PreCallDiagnostics` feature and the `startTest` method.
+To access precall diagnostics, you need to initialize a `CallClient`, and provision an Azure Communication Services access token. Then you can access the `PreCallDiagnostics` feature and the `startTest` method.
 
 ```swift
 let acsToken: String;
@@ -103,7 +103,7 @@ let permissionList = preCallDiagnosticsFeature?.devicePermissions()
 
 ## Pricing
 
-When the pre-call diagnostic test runs behind the scenes, it uses calling minutes to run the diagnostic. The test lasts for roughly 30 seconds, using up 30 seconds of calling time which is charged at the standard rate of $0.004 per participant per minute. For the case of pre-call diagnostics, the charge is for 1 participant x 30 seconds = $0.002. 
+When the precall diagnostic test runs behind the scenes, it uses calling minutes to run the diagnostic. The test lasts for roughly 30 seconds, using up 30 seconds of calling time which is charged at the standard rate of $0.004 per participant per minute. For the case of precall diagnostics, the charge is for 1 participant x 30 seconds = $0.002. 
 
 ## Next steps
 
