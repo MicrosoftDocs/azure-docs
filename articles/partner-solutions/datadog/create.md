@@ -89,7 +89,9 @@ Once you complete the configuration for metrics and logs, select **Next: Securit
 
 To enable Datadog Cloud Security Posture management, select the checkbox.
 
-## Configure single sign-on tab (optional)
+Select **Single sign-on**.
+
+## Single sign-on tab (optional)
 
 If your organization uses Microsoft Entra ID as its identity provider, you can establish single sign-on from the Azure portal to Datadog. 
 
