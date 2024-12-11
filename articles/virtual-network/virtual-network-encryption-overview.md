@@ -59,7 +59,7 @@ Azure Virtual Network encryption has the following limitations:
 
 - Virtual networks configured with the Azure Private Link service don't support Virtual Network encryption, so Virtual Network encryption shouldn't be enabled on these virtual networks. 
 
-- The backend pool of an internal load balancer must not include secondary IPv4 configurations on any of its network interfaces to prevent connection failures to the load balancer.
+- The backend pool of an internal load balancer must not include any network interface secondary IPv4 configurations to prevent connection failures to the load balancer.
 
 - Virtual Network encryption shouldn't be enabled in virtual networks that have Azure confidential computing VM SKUs. If you want to use Azure confidential computing VMs in virtual networks where Virtual Network encryption is enabled, then:
 
