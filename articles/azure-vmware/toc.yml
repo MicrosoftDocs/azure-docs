@@ -133,7 +133,7 @@ items:
       href: protect-azure-vmware-solution-with-application-gateway.md
   - name: Configure customer-managed key encryption at rest
     href: configure-customer-managed-keys.md
-  - name: Configure vTPM on a Virtual Machine
+  - name: Configure Trusted Launch
     href: configure-virtual-trusted-platform-module.md
 - name: Networking
   items:
