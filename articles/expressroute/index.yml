@@ -83,8 +83,8 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Security best practices for ExpressRoute
-            url: expressroute-security-best-practices.md
+          - text: Azure security baseline for ExpressRoute
+            url: /azure/security/benchmark/azure/baselines/expressroute-security-baseline?toc=%2Fazure%2Fexpressroute%2FTOC.json&view=o365-worldwide
           - text: Encryption for ExpressRoute
             url: expressroute-about-encryption.md
           - text: IPsec transport mode for private peering
@@ -150,7 +150,7 @@ landingContent:
           - text: Scalable ExpressRoute gateway
             url: expressroute-about-virtual-network-gateways.md#expressroute-scalable-gateway-preview
           - text: ExpressRoute FastPath
-            url: about-fastpatch.md
+            url: about-fastpath.md
           - text: About ExpressRoute Direct
             url: expressroute-erdirect-about.md
           - text: ExpressRoute limitations
