@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: conceptual
-ms.date: 10/03/2024
+ms.date: 12/10/2024
 ms.author: duau
 ms.custom: references_regions, template-concept, engagement-fy23
 ---
