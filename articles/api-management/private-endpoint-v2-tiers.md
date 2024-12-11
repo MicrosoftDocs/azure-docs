@@ -20,8 +20,6 @@ You can configure an inbound [private endpoint](../private-link/private-endpoint
 
 * Configure custom DNS settings or an Azure DNS private zone to map the API Management hostname to the endpoint's private IP address. 
 
-:::image type="content" source="media/private-endpoint-v2-tiers/private-endpoint.png" alt-text="Diagram that shows a secure inbound connection to API Management using private endpoint.":::
-
 With a private endpoint and Private Link, you can:
 
 - Create multiple Private Link connections to an API Management instance. 
@@ -34,14 +32,16 @@ With a private endpoint and Private Link, you can:
 
 - Combine with outbound [virtual network integration](integrate-vnet-outbound.md) to provide end-to-end network isolation of your API Management clients and backend services.
 
+:::image type="content" source="media/private-endpoint-v2-tiers/private-endpoint.png" alt-text="Diagram that shows a secure inbound connection to API Management using private endpoint.":::
 
 ## Limitations
 
 * Only the API Management instance's Gateway endpoint supports inbound Private Link connections. 
 * Each API Management instance supports at most 100 Private Link connections.
-* The **Network** blade for the API Management Standard v2 instance in the Azure portal currently doesn't support creation or management of private endpoints. 
 
-    As shown in this article, you create or manage private endpoint resources independently from the API Management instance.
+> [!NOTE]
+> * Currently you can't set up a private endpoint when creating a Standard v2 instance or using the instances's **Network** blade in the Azure portal.
+> * As shown in this article, you mush create and manage private endpoint resources separately from the API Management Standard v2 instance.
  
 ## Prerequisites
 
@@ -121,7 +121,7 @@ Output should include the `Microsoft.ApiManagement.service` endpoint type:
     | Resource | Select your API Management Standard v2 instance. |
     | Target sub-resource | Select **Gateway**. |
     
-    :::image type="content" source="media/private-endpoint/create-private-endpoint.png" alt-text="Screenshot showing settings to create a private endpoint in the Azure portal.":::
+    :::image type="content" source="media/private-endpoint-v2-tiers/create-private-endpoint.png" alt-text="Screenshot showing settings to create a private endpoint in the Azure portal.":::
 
     > [!IMPORTANT]
     > Only the **Gateway** sub-resource is supported for API Management. Other sub-resources aren't supported.
