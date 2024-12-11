@@ -18,7 +18,7 @@ This sample script creates a new Azure SignalR Service resource, which is used t
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
-[!INCLUDE [Connection string security](includes/signalr-connection-string-security.md)]
+[!INCLUDE [Connection string security](../includes/signalr-connection-string-security.md)]
 
 ## Sample script
 
@@ -26,7 +26,7 @@ This sample script creates a new Azure SignalR Service resource, which is used t
 
 ### Run the script
 
-[!INCLUDE [Connection string security comment](includes/signalr-connection-string-security-comment.md)]
+[!INCLUDE [Connection string security comment](../includes/signalr-connection-string-security-comment.md)]
 
 :::code language="azurecli" source="~/azure_cli_scripts/azure-signalr/create-signalr-with-app-service/create-signalr-with-app-service.sh" id="FullScript":::
 
