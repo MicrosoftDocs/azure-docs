@@ -26,7 +26,7 @@ For further WhatsApp requirements on templates, refer to the WhatsApp Business P
 - [Sending Template Messages](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-message-templates)
 - Businesses must also adhere to [opt-in requirements](https://developers.facebook.com/docs/whatsapp/overview/getting-opt-in) before sending messages to WhatsApp users
 
-## List WhaysApp templates in Azure Portal
+## List WhatsApp templates in Azure Portal
 
 You can view your templates in the Azure portal by going to your Azure Communication Service resource > Advanced Messaging -> Templates.
 

@@ -199,6 +199,7 @@ For more information on location based templates, see [WhatsApp's documentation 
 #### Example
 
 sample_movie_location template
+
 :::image type="content" source="../../media/template-messages/sample-location-based-template.jpg" lightbox="../../media/template-messages/sample-location-based-template.jpg" alt-text="Screenshot that shows template details for template named sample_location_template.":::
 
 Location based Message template assembly:
@@ -218,10 +219,7 @@ Location based Message template assembly:
 
 ### Templates with quick reply buttons
 
-Use `MessageTemplateQuickAction` to define the payload for quick reply buttons.
-
-`MessageTemplateQuickAction` objects and have the following three attributes.   
-
+Use `MessageTemplateQuickAction` to define the payload for quick reply buttons and `MessageTemplateQuickAction` objects have the following three attributes.   
 |  Properties   | Description |  Type |
 |----------|---------------------------|-----------|
 | Name  | The `name` is used to look up the value in `MessageTemplateWhatsAppBindings`. | string|
@@ -302,10 +300,7 @@ issueResolutionTemplate.Bindings = bindings;
 
 ### Templates with call to action buttons
 
-Use `MessageTemplateQuickAction` to define the url suffix for call to action buttons.   
-
-`MessageTemplateQuickAction` objects and have the following three attributes.   
-
+Use `MessageTemplateQuickAction` to define the url suffix for call to action buttons and `MessageTemplateQuickAction` object have the following three attributes.   
 |  Properties   | Description |  Type |
 |----------|---------------------------|-----------|
 | Name  | The `name` is used to look up the value in `MessageTemplateWhatsAppBindings`. | string|
