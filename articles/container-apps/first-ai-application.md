@@ -245,7 +245,6 @@ To delete the resource group, use following command:
 
 ---
 
-## Next steps
+## Related content
 
-> [!div class="nextstepaction"]
-> [Learn more about developing in Java on Container Apps](java-overview.md)
+- [Java on Azure Container Apps overview](java-overview.md)
