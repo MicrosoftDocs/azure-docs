@@ -151,7 +151,7 @@ After setting up the K3S cluster and moving it to the level 3 isolated layer, co
     Address 1: 20.81.111.118
     pod "busybox" deleted
     
-    # Note: confirm that the resolved ip addresss matches the ip address of the level 4 Layered Network Management instance.
+    # Note: confirm that the resolved ip address matches the ip address of the level 4 Layered Network Management instance.
     ```
 
 1. The previous step sets the DNS configuration to resolve the allowlisted URLs inside the cluster to level 4. To ensure that DNS outside the cluster is doing the same, you need to configure systemd-resolved to forward traffic to CoreDNS inside the K3S cluster. Run the following commands on the K3S host:

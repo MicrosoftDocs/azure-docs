@@ -463,7 +463,7 @@ final class IncomingCallHandler: NSObject, CallAgentDelegate, IncomingCallDelega
 
     private override init() {}
     
-    public func callAgent(_ callAgent: CallAgent, didRecieveIncomingCall incomingCall: IncomingCall) {
+    public func callAgent(_ callAgent: CallAgent, didReceiveIncomingCall incomingCall: IncomingCall) {
         self.incomingCall = incomingCall
         self.incomingCall?.delegate = self
         contentView?.showIncomingCallBanner(self.incomingCall!)

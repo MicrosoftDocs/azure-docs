@@ -17,7 +17,7 @@ Azure Virtual WAN is updated regularly. Stay up to date with the latest announce
 * Known issues
 * Deprecated functionality (if applicable)
 
-You can also find the latest Azure Virtual WAN updates and subscribe to the RSS feed [here](https://azure.microsoft.com/updates/?category=networking&query=Virtual%20WAN).
+You can also find the latest Azure Virtual WAN updates and subscribe to the RSS feed [here](https://azure.microsoft.com/updates?filters=%5B%22Virtual+WAN%22%5D).
 
 ## Recent releases
 
