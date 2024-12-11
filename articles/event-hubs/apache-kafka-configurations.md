@@ -21,15 +21,15 @@ Property | Recommended values | Permitted range | Notes
 ### Producer configurations only
 Producer configs can be found [here](https://kafka.apache.org/documentation/#producerconfigs).
 
-Property | Recommended Values | Permitted Range | Notes
----|---:|---:|---
-`max.request.size` | 1000000 | < 1046528 | The service will close connections if requests larger than 1,046,528 bytes are sent.  *This value **must** be changed and will cause issues in high-throughput produce scenarios.*
-`retries` | > 0 | | May require increasing delivery.timeout.ms value, see documentation.
-`request.timeout.ms` | 30000 .. 60000 | > 20000| Event Hubs will internally default to a minimum of 20,000 ms.  *While requests with lower timeout values are accepted, client behavior isn't guaranteed.*. <p>Make sure that your **request.timeout.ms** is at least the recommended value of 60000 and your **session.timeout.ms** is at least the recommended value of 30000. Having these settings too low could cause consumer timeouts, which then cause rebalances (which then cause more timeouts, which cause more rebalancing, and so on).</p>
-`metadata.max.idle.ms` | 180000 | > 5000 | Controls how long the producer will cache metadata for a topic that's idle. If the elapsed time since a topic was last produced exceeds the metadata idle duration, then the topic's metadata is forgotten and the next access to it will force a metadata fetch request.
-`linger.ms` | > 0 | | For high throughput scenarios, linger value should be equal to the highest tolerable value to take advantage of batching.
-`delivery.timeout.ms` | | | Set according to the formula (`request.timeout.ms` + `linger.ms`) * `retries`.
-`compression.type` | `none` | | Compression currently not supported..
+|Property | Recommended Values | Permitted Range | Notes|
+|---|---:|---:|---|
+|`max.request.size` | 1000000 | < 1046528 | The service will close connections if requests larger than 1,046,528 bytes are sent.  *This value **must** be changed and will cause issues in high-throughput produce scenarios.*|
+|`retries` | > 0 | | May require increasing delivery.timeout.ms value, see documentation.|
+|`request.timeout.ms` | 30000 .. 60000 | > 20000| Event Hubs will internally default to a minimum of 20,000 ms.  *While requests with lower timeout values are accepted, client behavior isn't guaranteed.*. <p>Make sure that your **request.timeout.ms** is at least the recommended value of 60000 and your **session.timeout.ms** is at least the recommended value of 30000. Having these settings too low could cause consumer timeouts, which then cause rebalances (which then cause more timeouts, which cause more rebalancing, and so on).</p>|
+|`metadata.max.idle.ms` | 180000 | > 5000 | Controls how long the producer will cache metadata for a topic that's idle. If the elapsed time since a topic was last produced exceeds the metadata idle duration, then the topic's metadata is forgotten and the next access to it will force a metadata fetch request.|
+|`linger.ms` | > 0 | | For high throughput scenarios, linger value should be equal to the highest tolerable value to take advantage of batching.|
+|`delivery.timeout.ms` | | | Set according to the formula (`request.timeout.ms` + `linger.ms`) * `retries`.|
+|`compression.type` | `uncompressed, gzip` | | Only gzip compression is currently supported.|
 
 ### Consumer configurations only
 Consumer configs can be found [here](https://kafka.apache.org/documentation/#consumerconfigs).
@@ -52,12 +52,12 @@ Property | Recommended Values | Permitted Range | Notes
 
 ### Producer configurations only
 
-Property | Recommended Values | Permitted Range | Notes
----|---:|-----:|---
-`retries` | > 0 | | Default is 2147483647. 
-`request.timeout.ms` | 30000 .. 60000 | > 20000| Event Hubs will internally default to a minimum of 20,000 ms.  `librdkafka` default value is 5000, which can be problematic. *While requests with lower timeout values are accepted, client behavior isn't guaranteed.*
-`partitioner` | `consistent_random` | See librdkafka documentation | `consistent_random` is default and best.  Empty and null keys are handled ideally for most cases.
-`compression.codec` | `none` || Compression currently not supported.
+|Property | Recommended Values | Permitted Range | Notes|
+|---|---:|-----:|---|
+|`retries` | > 0 | | Default is 2147483647.|
+|`request.timeout.ms` | 30000 .. 60000 | > 20000| Event Hubs will internally default to a minimum of 20,000 ms.  `librdkafka` default value is 5000, which can be problematic. *While requests with lower timeout values are accepted, client behavior isn't guaranteed.*|
+|`partitioner` | `consistent_random` | See librdkafka documentation | `consistent_random` is default and best.  Empty and null keys are handled ideally for most cases.|
+|`compression.codec` | `none, gzip` || Only gzip compression is currently supported.|
 
 ### Consumer configurations only
 
