@@ -47,7 +47,7 @@ from azure.storage.blob import BlobClient
 
 ### Connect a device to IoT Hub
 
-A device app can authenticate using the following methods:
+A device app can authenticate with IoT Hub using the following methods:
 
 * X.509 certificate
 * Shared access key

@@ -29,7 +29,7 @@ device_id = "MyDevice"
 # The X.509 certificate file name
 cert_file = "~/certificates/certs/sensor-thl-001-device.cert.pfx"
 key_file = "~/certificates/certs/sensor-thl-001-device.cert.key"
-# The certificate pass phrase is optional
+# The optional certificate pass phrase
 pass_phrase = "1234"
 
 x509 = X509(

@@ -37,7 +37,18 @@ File upload operations always use HTTPS, but [DeviceClient](/java/api/com.micros
 IotHubClientProtocol protocol = IotHubClientProtocol.MQTT;
 ```
 
-### Connect to the device
+### Connect a device to IoT Hub
+
+A device app can authenticate with IoT Hub using the following methods:
+
+* X.509 certificate
+* Shared access key
+
+#### Authenticate using an X.509 certificate
+
+[!INCLUDE [iot-hub-howto-auth-device-cert-java](iot-hub-howto-auth-device-cert-java.md)]
+
+#### Authenticate using a shared access key
 
 Instantiate the `DeviceClient` to connect to the device using the device primary connection string.
 

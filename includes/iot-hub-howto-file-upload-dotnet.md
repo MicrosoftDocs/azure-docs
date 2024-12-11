@@ -31,6 +31,17 @@ Follow this procedure to upload a file from a device to IoT hub:
 
 ### Connect to the device
 
+A device app can authenticate with IoT Hub using the following methods:
+
+* X.509 certificate
+* Shared access key
+
+#### Authenticate using an X.509 certificate
+
+[!INCLUDE [iot-hub-howto-auth-device-cert-dotnet](iot-hub-howto-auth-device-cert-python.md)]
+
+#### Authenticate using a shared access key
+
 Call [CreateFromConnectionString](/dotnet/api/microsoft.azure.devices.client.deviceclient.createfromconnectionstring?#microsoft-azure-devices-client-deviceclient-createfromconnectionstring(system-string)) to connect to the device. Pass the device primary connection string.
 
 `AMQP` is the default transport protocol.
