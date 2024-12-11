@@ -18,7 +18,8 @@ Follow these steps to assign an Azure RBAC role to a user, group, service princi
 
 1. In the Azure portal, navigate to your specific Batch account.
     > [!TIP]
-    > You can also set up Azure RBAC for whole resource groups, subscriptions, or management groups. Do this by selecting the desired scope level and then navigating to the desired item. For example, selecting **Resource groups** and then navigating to a specific resource group. 
+    > You can also set up Azure RBAC for whole resource groups, subscriptions, or management groups. Do this by selecting the desired scope level and then navigating to the desired item. For example, selecting **Resource groups** and then navigating to a specific resource group.
+     
 1. Select **Access control (IAM)** from the left navigation.
 1. On the **Access control (IAM)** page, select **Add role assignment**.
 1. On the **Add role assignment** page, select the **Role** tab, and then select one of [Azure Batch built-in RBAC roles](#azure-batch-built-in-rbac-roles).
@@ -26,6 +27,7 @@ Follow these steps to assign an Azure RBAC role to a user, group, service princi
 1. On the **Select members** screen, search for and select a user, group, service principal, or managed identity, and then select **Select**.
     > [!NOTE]
     > When configuring an application to authenticate Azure Batch services with service principal, search and select your application here to configure its access and permissions to the Azure Batch account.
+    
 1. Select **Review + assign** on the **Add role assignment** page.
 
 The target identity should now appear on the **Role assignments** tab of the Batch account's **Access control (IAM)** page.
