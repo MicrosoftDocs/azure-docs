@@ -218,16 +218,16 @@ For more information, see the [SAP documentation](https://help.sap.com/docs/inte
    
 ## Configure SAP Integration Suite settings
 
-1. Create a new OAuth2 client credential to store the connection details for the Microsoft Entra ID app registration that you'd created [earlier](deploy-sap-security-content.md#deployment).
+Create a new OAuth2 client credential to store the connection details for the Microsoft Entra ID app registration that you'd created [earlier](deploy-sap-security-content.md#deployment).
 
-    When creating the credential, enter the following details:
+When creating the credential, enter the following details:
 
-    - **Name:** `LogIngestionAPI`
-    - **Token Service URL:** `https://login.microsoftonline.com/<your Microsoft Entra ID tenant ID>/oauth2/v2.0/token`
-    - **Client ID**: `<your app registration client ID>`
-    - **Client Authentication**: Send as body parameter
-    - **Scope**: `https://monitor.azure.com//.default`
-    - **Content Type**: `application/x-www-form-urlencoded`
+- **Name:** `LogIngestionAPI`
+- **Token Service URL:** `https://login.microsoftonline.com/<your Microsoft Entra ID tenant ID>/oauth2/v2.0/token`
+- **Client ID**: `<your app registration client ID>`
+- **Client Authentication**: Send as body parameter
+- **Scope**: `https://monitor.azure.com//.default`
+- **Content Type**: `application/x-www-form-urlencoded`
 
 ## Import and deploy the Microsoft Sentinel solution for SAP package
 

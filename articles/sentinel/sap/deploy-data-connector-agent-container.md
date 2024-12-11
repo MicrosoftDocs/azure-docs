@@ -172,76 +172,12 @@ This procedure describes how to create a key vault to store your agent configura
 
 ### Assign key vault access permissions
 
-1. In your key vault, assign the following Azure role-based access control or vault access policy permissions on the secrets scope to the [identity that you created and copied earlier](#create-a-virtual-machine-and-configure-access-to-your-credentials).
+1. In your key vault, assign the Azure **Key Vault Secrets Reader** role to the [identity that you created and copied earlier](#create-a-virtual-machine-and-configure-access-to-your-credentials).
 
-    |Permission model  |Permissions required  |
-    |---------|---------|
-    |**Azure role-based access control**     |  Key Vault Secrets User       |
-    |**Vault access policy**     |  `get`, `list`       |
+1. In the same key vault, assign the following Azure roles to the user configuring the data connector agent:
 
-    Use the options in the portal to assign the permissions, or run one of the following commands to assign key vault secrets permissions to your identity, substituting actual names for the `<placeholder>` values. Select the tab for the type of identity you created.
-
-    The policy specified in the commands allows the VM to list and read secrets from the key vault.
-
-    - **Azure role-based access control permission model**:
-
-        #### [Managed identity](#tab/managed-identity)
-
-        ```Azure CLI
-        az role assignment create --assignee-object-id <ManagedIdentityId> --role "Key Vault Secrets User" --scope /subscriptions/<KeyVaultSubscriptionId>/resourceGroups/<KeyVaultResourceGroupName> /providers/Microsoft.KeyVault/vaults/<KeyVaultName>
-        ```
-
-        #### [Registered application](#tab/registered-application)
-
-        ```Azure CLI
-        az role assignment create --assignee-object-id <ServicePrincipalObjectId> --role "Key Vault Secrets User" --scope /subscriptions/<KeyVaultSubscriptionId>/resourceGroups/<KeyVaultResourceGroupName>/providers/Microsoft.KeyVault/vaults/<KeyVaultName>
-        ```
-
-        To find the object ID of the app registration’s service principal, go to the Microsoft Entra ID portal's **Enterprise applications** page. Search for the name of the app registration there, and copy the **Object ID** value.
-
-        > [!IMPORTANT]
-        > Do not confuse the object ID from the **Enterprise Applications** page with the app registration's object ID found on the **App registrations** page. Only the object ID from the **Enterprise applications** page will work.
-
-        ---
-
-    - **Vault access policy permission model**:
-
-        #### [Managed identity](#tab/managed-identity)
-
-        ```Azure CLI
-        az keyvault set-policy -n <KeyVaultName> -g <KeyVaultResourceGroupName> --object-id <ManagedIdentityId> --secret-permissions get list
-        ```
-
-        #### [Registered application](#tab/registered-application)
-
-        ```Azure CLI
-        az keyvault set-policy -n <KeyVaultName> -g <KeyVaultResourceGroupName> --spn <ApplicationId> --secret-permissions get list
-        ```
-
-        To find the object ID of the app registration, go to the Microsoft Entra ID portal's **App registrations** page. Search for name of the app registration and copy the **Application (client) ID** value.
-
-        ---
-
-1. In the same key vault, assign the following Azure role-based access control or vault access policy permissions on the secrets scope to the user configuring the data connector agent:
-
-    |Permission model  |Permissions required  |
-    |---------|---------|
-    |**Azure role-based access control**     |  Key Vault Secrets Officer    |
-    |**Vault access policy**     |  `get`, `list`, `set`, `delete`     |
-
-    Use the options in the portal to assign the permissions, or run one of the following commands to assign key vault secrets permissions to the user, substituting actual names for the `<placeholder>` values:
-
-    - **Azure role-based access control permission model**:
-
-        ```Azure CLI
-        az role assignment create --role "Key Vault Secrets Officer" --assignee <UserPrincipalName> --scope /subscriptions/<KeyVaultSubscriptionId>/resourceGroups/<KeyVaultResourceGroupName>/providers/Microsoft.KeyVault/vaults/<KeyVaultName>
-        ```
-
-    - **Vault access policy permission model**:
-
-        ```Azure CLI
-        az keyvault set-policy -n <KeyVaultName> -g <KeyVaultResourceGroupName> --upn <UserPrincipalName>--secret-permissions get list set delete
-        ```
+    - **Key Vault Contributor**, to deploy the agent
+    - **Key Vault Secrets Officer**, to add new systems
 
 ## Deploy the data connector agent from the portal (Preview)
 
