@@ -17,7 +17,7 @@ This article describes reliability support in Azure Elastic SAN and covers both 
 
 [!INCLUDE [Availability zone description](includes/reliability-availability-zone-description-include.md)]
 
-Azure Elastic SAN supports availability zone deployment with locally redundant storage (LRS) and regional deployment with zone-redundant storage (ZRS).
+Azure Elastic SAN supports availability zone deployment with [locally redundant storage](../storage/elastic-san/elastic-san-planning.md#locally-redundant-storage) (LRS) and regional deployment with [zone-redundant storage](../storage/elastic-san/elastic-san-planning.md#zone-redundant-storage) (ZRS).
 
 ### Prerequisites
 
@@ -31,13 +31,13 @@ To create an Elastic SAN with an availability zone enabled, see [Deploy an Elast
 
 ### Zone down experience
 
-If you connect using storage service endpoints, zonal failover is supported but might need manual intervention. A ZRS Elastic SAN using storage service endpoints won't switch to a healthy zone automatically. You might need to restart the iSCSI initiator to initiate a failover to a different, healthy zone.
+If you connect using [storage service endpoints](../storage/elastic-san/elastic-san-networking-concepts.md#storage-service-endpoints), zonal failover is supported but may need manual intervention. A ZRS Elastic SAN using storage service endpoints won't switch to a healthy zone automatically. You might need to restart the iSCSI initiator to initiate a failover to a different, healthy zone.
 
 If you deployed an LRS elastic SAN, you may need to deploy a new SAN, using snapshots exported to managed disks.
 
 ### Low-latency design
 
-Elastic SAN using ZRS are identical to Elastic SAN using LRS (they have the same scale targets), but ZRS does add more write latency. Benchmark your Elastic SAN to simulate the workload of your application and compare the latency between LRS and ZRS to see if it effects your workload.
+Deploying a ZRS Elastic SAN provides more reliability than an LRS Elastic SAN, but adds more write latency. Benchmark your Elastic SAN and simulate the workload of your application to compare the latency between LRS and ZRS, to see if it effects your workload.
 
 ### Availability zone migration
 
