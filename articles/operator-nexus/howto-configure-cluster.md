@@ -168,6 +168,26 @@ Cluster create Logs can be viewed in the following locations:
 1. Azure portal Resource/ResourceGroup Activity logs.
 2. Azure CLI with `--debug` flag passed on command-line.
 
+## Set Deployment Threshold
+
+Update deployment threshold to customer requested value from default of 80%.
+
+Below example is for a customer using grouping="PerCluster" and "PercentSuccess" of 97.
+
+```azurecli
+az networkcloud cluster update  --subscription "<SUBSCRIPTION_ID> --name "<CLUSTER_NAME>" --resource-group "<CLUSTER_RG>" --compute-deployment-threshold type="PercentSuccess" grouping="PerCluster" value=97
+
+# Validate update:
+az networkcloud cluster show -g <CLUSTER_RG> -n <CLUSTER_NAME> | grep -a3 computeDeploymentThreshold
+
+  "clusterType": "MultiRack",
+  "clusterVersion": "<CLUSER_VERSION>",
+  "computeDeploymentThreshold": {
+    "grouping": "PerCluster",
+    "type": "PercentSuccess",
+    "value": 97
+```
+
 ## Deploy Cluster
 
 The deploy Cluster action can be triggered after creating the Cluster.
