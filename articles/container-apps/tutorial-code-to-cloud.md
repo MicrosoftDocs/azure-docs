@@ -156,7 +156,7 @@ cd code-to-cloud/src
         --sku Basic
     ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+    # [Azure PowerShell](#tab/azure-powershell)
 
     ```azurepowershell
     $acr = New-AzContainerRegistry `
@@ -172,12 +172,14 @@ cd code-to-cloud/src
     Use the following command to check if ARM tokens are allowed to access your Azure Container Registry (ACR).
 
     # [Bash](#tab/bash)
+    
     ```azurecli
     az acr config authentication-as-arm show --registry "$ACR_NAME"
     ```
 
 TODO1 Verify
     # [Azure PowerShell](#tab/azure-powershell)
+    
     ```powershell
     $acr.Config.AuthenticationAsArm
     ```
@@ -195,12 +197,14 @@ TODO1 Verify
     If the `status` is `disabled`, allow ARM tokens with the following command.
 
     # [Bash](#tab/bash)
+    
     ```azurecli
     az acr config authentication-as-arm update --registry "$ACR_NAME" --status enabled
     ```
 
 TODO1 Verify
     # [Azure PowerShell](#tab/azure-powershell)
+    
     ```powershell
     $acr.Config.AuthenticationAsArm.Enabled = $true
     Set-AzContainerRegistry -ResourceGroupName $acr.ResourceGroupName -Name $acr.Name -Registry $acr
