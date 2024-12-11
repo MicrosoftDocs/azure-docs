@@ -208,7 +208,7 @@ networkFabricInfoSkuId": "M8-A400-A100-C16-ab",
 |Status Type  |Definition  |
 |---------|---------|
 |Compliant     | Validation status is compliant with the BOM specification for the interface. |
-|Non-Compliant     | Validation isn't compliant with the BOM specification for the interface.        |
+|NonCompliant     | Validation isn't compliant with the BOM specification for the interface.        |
 |Unknown     | Validation is unable to retrieve interface connection details or lldp data isn't returned. The `Unknown` status is returned if the destination device is powered off, missing, disconnected, or unsupported for this interface type. |
 
 #### Validation attributes
