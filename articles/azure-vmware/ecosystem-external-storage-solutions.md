@@ -47,7 +47,7 @@ When you combine Azure VMware Solution with an external storage service, remembe
 
 Azure NetApp Files is an Azure native, first-party, enterprise-class, high-performance file storage service. It provides _Volumes as a service_, which you can create within a NetApp account and a capacity pool, and share to Azure VMware Solution hosts using NFS. Azure NetApp Files is built on NetApp bare-metal hardware, with fast and reliable all-flash performance for sub-millisecond latency. Azure NetApp Files volumes are mounted to Azure VMware Solution hosts using NFS. Azure NetApp Files has three performance tiers to choose from, each with different performance characteristics. You can also use Azure NetApp Files for data protection, such as backup, snapshots, and replication. 
 
-#### Elastic SAN
+#### Azure Elastic SAN
 
 Elastic SAN allows you to deploy, scale, manage, and configure a virtual SAN, while also offering built-in cloud capabilities like high availability. Elastic SAN is interoperable with Azure VMware Solution. Create Elastic SAN volumes and mount them on Azure VMware Solution hosts using iSCSI. Elastic SAN can achieve high performance, and you can scale the provisioned capacity and throughput independently. Elastic SAN is designed for high availability, with built-in redundancy and failover capabilities.
 
