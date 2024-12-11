@@ -51,4 +51,4 @@ In this quickstart, you tried out the Advanced Messaging for WhatsApp SDK. Next 
 
 - [Send WhatsApp Messages using Advanced Messages](../../../quickstarts/advanced-messaging/whatsapp/get-started.md)
 - [Handle Advanced Messaging Events](./handle-advanced-messaging-events.md)
-- [Send WhatsApp Template Messages](../../../concepts/advanced-messaging/whatsapp/template-messages.md)
+- [Send WhatsApp Template Messages](../../../quickstarts/advanced-messaging/whatsapp/template-messages.md)
