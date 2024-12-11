@@ -60,10 +60,10 @@ The connection policy for Synapse SQL in Azure Synapse Analytics is set to *Defa
 
 The serverless SQL endpoint and development endpoint only accept TLS 1.2 and above.
 
-Since December 2021, a minimum level of TLS 1.2 is required for workspace-managed dedicated SQL pools in new Synapse workspaces. Sign-in attempts from connections using a TLS version lower than 1.2 fail. Customers can raise or lower this requirement using the [minimal TLS REST API](/rest/api/synapse/sqlserver/workspace-managed-sql-server-dedicated-sql-minimal-tls-settings/update) for both new Synapse workspaces or existing workspaces, so users who cannot use a higher TLS client version in the workspaces can connect. Customers can also raise the minimum TLS version to meet their security needs. 
+Since December 2021, a minimum level of TLS 1.2 is required for workspace-managed dedicated SQL pools in new Synapse workspaces. You can raise or lower this requirement using the [minimal TLS REST API](/rest/api/synapse/sqlserver/workspace-managed-sql-server-dedicated-sql-minimal-tls-settings/update) for both new Synapse workspaces or existing workspaces, so users who cannot use a higher TLS client version in the workspaces can connect. Customers can also raise the minimum TLS version to meet their security needs. 
 
 > [!IMPORTANT]
-> Azure will retire older TLS versions (TLS 1.0 and 1.1) starting in November 2024. Sign-in attempts from connections using a TLS version lower than 1.2 fail. Use TLS 1.2 or higher. Starting after March 31, 2025, you will no longer be able to set the minimal TLS version for Azure Synapse Analytics client connections below TLS 1.2. For more information, see [Announcement: Azure support for TLS 1.0 and TLS 1.1 will end](https://azure.microsoft.com/updates/azure-support-tls-will-end-by-31-october-2024-2/).
+> Azure will begin to retire older TLS versions (TLS 1.0 and 1.1) starting in November 2024. Use TLS 1.2 or higher. After March 31, 2025, you will no longer be able to set the minimal TLS version for Azure Synapse Analytics client connections below TLS 1.2.  After this date, sign-in attempts from connections using a TLS version lower than 1.2 will fail. For more information, see [Announcement: Azure support for TLS 1.0 and TLS 1.1 will end](https://azure.microsoft.com/updates/azure-support-tls-will-end-by-31-october-2024-2/).
 
 ## Azure Policy
 
