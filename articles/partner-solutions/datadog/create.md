@@ -39,8 +39,6 @@ The portal displays a selection asking whether you would like to create a Datado
 
 If you're creating a new Datadog organization, select **Create** under the **Create a new Datadog organization**
 
-## Create an Azure Native Datadog resource
-
 The Create a Datadog resource pane opens to the *Basics* tab by default.
 
 :::image type="content" source="media/create-new-datadog-resource.png" alt-text="A screenshot of the Azure portal with the Create a a new Datadog resource options displayed. The menu has multiple tabs: Basics, Metrics and logs, Security, Single sign-on, Tags, and Review + Create.":::
