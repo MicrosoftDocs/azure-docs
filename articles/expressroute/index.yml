@@ -84,7 +84,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Azure security baseline for ExpressRoute
-            url: /azure/security/benchmark/azure/baselines/expressroute-security-baseline?toc=%2Fazure%2Fexpressroute%2FTOC.json&view=o365-worldwide
+            url: /azure/security/benchmark/azure/baselines/expressroute-security-baseline
           - text: Encryption for ExpressRoute
             url: expressroute-about-encryption.md
           - text: IPsec transport mode for private peering
