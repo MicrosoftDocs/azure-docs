@@ -232,7 +232,7 @@ You can also visit the [Azure Data Explorer documentation](/azure/synapse-analyt
 
 ## Render the built-in Unified NameSpace (UNS) and ISA-95 model graph in Kusto Explorer
 
-This reference solution implements a Unified NameSapce (UNS), based on the OPC UA metadata sent to the time-series database in the cloud (Azure Data Explorer). This OPC UA metadata also includes the ISA-95 asset hierarchy. The resulting graph can be easily visualized in the Kusto Explorer tool available for download [here](/azure/data-explorer/kusto/tools/kusto-explorer).
+This reference solution implements a Unified NameSpace (UNS), based on the OPC UA metadata sent to the time-series database in the cloud (Azure Data Explorer). This OPC UA metadata also includes the ISA-95 asset hierarchy. The resulting graph can be easily visualized in the Kusto Explorer tool available for download [here](/azure/data-explorer/kusto/tools/kusto-explorer).
 
 Add a new connection to your Azure Data Explorer instance deployed in this reference solution and then run the following query in Kusto Explorer:
 
@@ -394,7 +394,7 @@ This integration showcases the following scenarios:
 - Uploading assets from the Manufacturing Ontologies reference solution to Dynamics 365 Field Service.
 - Create alerts in Dynamics 365 Field Service when a certain threshold on Manufacturing Ontologies reference solution telemetry data is reached.
 
-The integration uses Azure Logics Apps. With Logic Apps bussiness-critcal apps and services can be connected via no-code workflows. We fetch information from Azure Data Explorer and trigger actions in Dynamics 365 Field Service.
+The integration uses Azure Logics Apps. With Logic Apps business-critical apps and services can be connected via no-code workflows. We fetch information from Azure Data Explorer and trigger actions in Dynamics 365 Field Service.
 
 First, if you're not already a Dynamics 365 Field Service customer, activate a 30 day trial [here](https://dynamics.microsoft.com/field-service/field-service-management-software/free-trial). Remember to use the same Microsoft Entra ID (formerly Azure Active Directory) used while deploying the Manufacturing Ontologies reference solution. Otherwise, you would need to configure cross tenant authentication that isn't part of these instructions.
 

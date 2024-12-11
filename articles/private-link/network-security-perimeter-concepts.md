@@ -5,14 +5,14 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-private-link
 ms.topic: overview
-ms.date: 11/04/2024
+ms.date: 12/3/2024
 ms.custom: references_regions, ignite-2024
 #CustomerIntent: As a network security administrator, I want to understand how to use Network Security Perimeter to control network access to Azure PaaS resources.
 ---
 
 # What is Network Security Perimeter?
 
-Network Security Perimeter allows organizations to define a logical network isolation boundary for PaaS resources (for example, Azure Storage account and SQL Database server) that are deployed outside your organization’s virtual networks. It restricts public network access to PaaS resources outside of the perimeter; access can be exempted by using explicit access rules for public inbound and outbound.
+Network Security Perimeter allows organizations to define a logical network isolation boundary for PaaS resources (for example, Azure Storage account and SQL Database server) that are deployed outside your organization’s virtual networks. It restricts public network access to PaaS resources within the perimeter; access can be exempted by using explicit access rules for public inbound and outbound.
 
 For access patterns involving traffic from virtual networks to PaaS resources, see [What is Azure Private Link?](private-link-overview.md).
 
@@ -115,4 +115,4 @@ Network security perimeter is currently available in all Azure public cloud regi
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create a network security perimeter in the Azure portal](./network-security-perimeter-diagnostic-logs.md)
+> [Create a network security perimeter in the Azure portal](./create-network-security-perimeter-portal.md)

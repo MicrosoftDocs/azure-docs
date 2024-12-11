@@ -310,7 +310,7 @@
             - name: Use Microsoft Teams
               displayName: applications, apps, webrtc
               href: teams-on-avd.md
-            - name: Use OneDrive with RemoteApp
+            - name: Launch OneDrive with RemoteApp
               displayName: applications, apps
               href: onedrive-remoteapp.md
     - name: Migrate from classic
@@ -754,4 +754,4 @@
     - name: Azure compliance offerings
       href: https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/
     - name: Azure Virtual Desktop (classic) documentation
-      href: ./virtual-desktop-fall-2019/index.yml
+      href: /previous-versions/azure/virtual-desktop-classic

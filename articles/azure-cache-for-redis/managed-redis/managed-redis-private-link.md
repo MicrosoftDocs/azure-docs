@@ -4,7 +4,7 @@ description: Learn how to create an Azure Cache, an Azure Virtual Network, and a
 
 
 
-ms.service: azure
+ms.service: azure-managed-redis
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, ignite-2024
 ms.topic: conceptual
 ms.date: 11/15/2024
@@ -43,7 +43,7 @@ You can restrict public access to the private endpoint of your cache by disablin
 >
 
 > [!IMPORTANT]
-> When using private link, you cannot export or import data to a to a storage account that has firewall enabled unless you're using a Premium tier cache with [managed identity to autenticate to the storage account](../cache-managed-identity.md).
+> When using private link, you cannot export or import data to a to a storage account that has firewall enabled unless you're using a Premium tier cache with [managed identity to authenticate to the storage account](../cache-managed-identity.md).
 > For more information, see [What if I have firewall enabled on my storage account?](managed-redis-how-to-import-export-data.md#what-if-i-have-firewall-enabled-on-my-storage-account)
 >
 

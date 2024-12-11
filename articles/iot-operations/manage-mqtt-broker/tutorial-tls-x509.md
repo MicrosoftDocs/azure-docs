@@ -27,21 +27,48 @@ The tutorial simulates an environment where Azure IoT Operations is installed in
 
 To follow this tutorial, you need:
 
+- A Kubernetes cluster with port forwarding enabled for port 8883.
 - Azure IoT Operations deployed without an existing load balancer listener.
-- A Kubernetes cluster with port forwarding enabled for port 8883, allowing localhost access to the broker listener.
 - Kubectl access to the cluster to create Kubernetes secrets and config maps.
+- [Mosquitto client](https://mosquitto.org/download/) to publish and subscribe to MQTT messages running on the same machine as the Kubernetes cluster for `localhost` access. To not use `localhost`, see [Optional: Use a real hostname or IP address instead of `localhost`](#optional-use-a-real-hostname-or-ip-address-instead-of-localhost) section.
 - [Step CLI](https://smallstep.com/docs/step-cli/) to create certificates.
-- [Mosquitto client](https://mosquitto.org/download/) to publish and subscribe to MQTT messages.
 
-We recommend using the [quickstart codespace](../get-started-end-to-end-sample/quickstart-deploy.md), which already meets all these requirements. The quickstart codespace simplifies the setup process by providing these components out of the box.
+> [!TIP]
+> To meet these requirements, use the [quickstart codespace](../get-started-end-to-end-sample/quickstart-deploy.md). The quickstart codespace simplifies the setup process by providing these components out of the box.
 
 Additionally, familiarity with public key cryptography and terms like root CA, private key, and intermediate certificates is useful.
+
+### Optional: Use a real hostname or IP address instead of `localhost`
+
+To keep this tutorial simple, we use `localhost` to access the MQTT broker. This approach ensures that the broker's server certificate has a Subject Alternative Name (SAN) that matches the hostname used to access the broker. Using `localhost` simplifies the setup since the SAN is already set correctly.
+
+In a real-world scenario, you'd use the hostname or external IP of the broker instead of `localhost` and connect to it from another device on the network. In this case, you need to determine the correct hostname or IP address and use it as the SAN when creating the server certificate:
+
+- If the hostname or IP address is already known (for example, through a DNS record or static IP), use it as the SAN when creating the server certificate. Then, connect to the broker using that hostname or IP instead of `localhost`.
+- If the hostname or IP address isn't already known, you can use a placeholder service to determine the external IP address:
+  1. Create the LoadBalancer service on a port that's not being used (like 8080):
+     ```sh
+     kubectl create service loadbalancer placeholder-service --tcp=8080:8080
+     ```
+  1. Retrieve the external IP:
+     ```sh
+     kubectl get svc placeholder-service
+     ```
+  1. If the external IP:
+       - Shows a value like `192.168.X.X` - use that IP as the SAN when creating the server certificate and secret. Then, connect to the broker using that IP instead of `localhost`.
+       - Shows `<pending>` - the Kubernetes distribution you use might not support automatically assigning an external IP. To find the external IP, follow the steps in the Kubernetes documentation for your distribution and host environment. You might also need to configure [port forwarding](./howto-test-connection.md#use-port-forwarding) or a VPN depending on the network setup.
+  1. After determining the external IP, delete the placeholder service: 
+     ```sh
+     kubectl delete svc placeholder-service
+     ```
+
+This method ensures that the server certificate matches the external IP address, allowing secure access to the MQTT broker.
 
 ## Prepare server-side certificates and full chain
 
 First, create a server-side root CA. This CA is separate from the client-side root CA which is created later. To keep the separation clear, we name everything server side "Contoso". To make later steps easier, we skip the password for encrypting the private key. This practice is only acceptable in a tutorial setting.
 
-```bash
+```sh
 step certificate create "Contoso Root CA" \
 contoso_root_ca.crt contoso_root_ca.key \
 --profile root-ca \
@@ -50,7 +77,7 @@ contoso_root_ca.crt contoso_root_ca.key \
 
 Then, create an intermediate CA signed by this root CA.
 
-```bash
+```sh
 step certificate create "Contoso Intermediate CA 1" \
 contoso_intermediate_ca.crt contoso_intermediate_ca.key \
 --profile intermediate-ca \
@@ -60,7 +87,7 @@ contoso_intermediate_ca.crt contoso_intermediate_ca.key \
 
 Lastly, use this intermediate CA to sign a server certificate for MQTT broker's broker frontend. Here, `localhost` is the Subject Alternative Name (SAN) used for the tutorial.
 
-```bash
+```sh
 step certificate create mqtts-endpoint \
 mqtts-endpoint.crt mqtts-endpoint.key \
 --profile leaf \
@@ -72,22 +99,17 @@ mqtts-endpoint.crt mqtts-endpoint.key \
 
 With the `--bundle` flag, the server certificate is bundled with the signing intermediate certificate. TLS handshake requires the bundle to verify the full chain.
 
-> [!TIP]
-> To simplify the tutorial, we use `localhost` as the Subject Alternative Name (SAN). 
-> 
-> If you don't have localhost port forwarding set up, [create the listener](#listener) first. Then, retrieve the external IP using `kubectl get service mqtts-endpoint -n azure-iot-operations`, and use that IP as the SAN when creating the server certificate and the secret. The broker waits for the secret to be created before fully starting the listener, so the order of operations is flexible.
-
 ## Prepare client-side certificates and full chain
 
 Similarly, create the root CA for Fabrikam and the intermediate CA.
 
-```bash
+```sh
 step certificate create --profile root-ca "Fabrikam Root CA" \
 fabrikam_root_ca.crt fabrikam_root_ca.key \
 --no-password --insecure
 ```
 
-```bash
+```sh
 step certificate create "Fabrikam Intermediate CA 1" \
 fabrikam_intermediate_ca.crt fabrikam_intermediate_ca.key \
 --profile intermediate-ca \
@@ -97,7 +119,7 @@ fabrikam_intermediate_ca.crt fabrikam_intermediate_ca.key \
 
 Then, generate client certificates for a thermostat, hygrometer, heater, and lightbulb.
 
-```bash
+```sh
 # Create a client certificate for the thermostat
 step certificate create thermostat thermostat.crt thermostat.key \
 --ca ./fabrikam_intermediate_ca.crt --ca-key ./fabrikam_intermediate_ca.key --bundle \
@@ -123,7 +145,7 @@ step certificate create lightbulb lightbulb.crt lightbulb.key \
 
 Import the newly generated server certificate and private key into a Kubernetes secret. This secret is used to configure a TLS listener for MQTT broker later.
 
-```bash
+```sh
 kubectl create secret tls broker-server-cert -n azure-iot-operations \
 --cert mqtts-endpoint.crt \
 --key mqtts-endpoint.key
@@ -131,7 +153,7 @@ kubectl create secret tls broker-server-cert -n azure-iot-operations \
 
 Also, create a config map to contain the Fabrikam (client-side) root CA. This config map is required for MQTT broker to trust it for X.509 authentication.
 
-```bash
+```sh
 kubectl create configmap fabrikam-ca -n azure-iot-operations \
 --from-file=client_ca.pem=fabrikam_root_ca.crt
 ```
@@ -229,17 +251,13 @@ mqtts-endpoint   LoadBalancer   10.43.28.140   XXX.XX.X.X    8883:30988/TCP   10
 Instead of using the external IP, we use `localhost` for the tutorial. 
 
 > [!TIP]
-> The codespace configuration automatically sets up port forwarding for 8883. To setup other environments, use `kubectl port-forward` to forward the port.
-> 
-> ```bash
-> kubectl port-forward svc/mqtts-endpoint 8883:8883 -n azure-iot-operations
-> ```
+> The codespace configuration automatically sets up port forwarding for 8883. To setup other environments, see [Use port forwarding](./howto-test-connection.md#use-port-forwarding).
 
 ## Use a single Mosquito client to publish messages over TLS
 
 From the same folder as the certificate files: `contoso_root_ca.crt`, `thermostat.crt`, and `thermostat.key`, use Mosquito client to publish a message. The `--cafile contoso_root_ca.crt` flag is for Mosquito to perform server certificate verification.
 
-```bash
+```sh
 mosquitto_pub -t "example/topic" -m "example temperature measurement" -i thermostat \
 -q 1 -V mqttv5 -d \
 -h localhost \
@@ -372,7 +390,7 @@ In this section, we test out the newly applied authorization policies.
 
 First, connect with `thermostat` and try to publish on topic `telemetry/humidity`:
 
-```bash
+```sh
 mosquitto_pub -t "telemetry/humidity" -m "example temperature measurement" -i thermostat \
 -q 1 -V mqttv5 -d \
 -h localhost \
@@ -393,7 +411,7 @@ Warning: Publish 1 failed: Not authorized.
 
 Change to publish to `telemetry/temperature`, which is allowed and the publish succeeds. Leave the command running.
 
-```bash
+```sh
 mosquitto_pub -t "telemetry/temperature" -m "example temperature measurement" -i thermostat \
 -q 1 -V mqttv5 -d \
 -h localhost \
@@ -408,7 +426,7 @@ mosquitto_pub -t "telemetry/temperature" -m "example temperature measurement" -i
 
 In a separate terminal session, connect with `heater` to subscribe to `health/heartbeat`.
 
-```bash
+```sh
 mosquitto_sub -q 1 -t "health/heartbeat" -d -V mqttv5 \
 -i heater \
 -h localhost \
@@ -429,7 +447,7 @@ Subscribed (mid: 1): 135
 
 Switch the subscription topic to `telemetry/temperature`, which `thermostat` is still sending messages to.
 
-```bash
+```sh
 mosquitto_sub -q 1 -t "telemetry/temperature" -d -V mqttv5 \
 -i heater \
 -h localhost \
@@ -442,7 +460,7 @@ Now `heater` starts to receive messages because it's authorized with its [userna
 
 In *another* separate terminal session, publish messages to `health/heartbeat` with `lightbulb`:
 
-```bash
+```sh
 mosquitto_pub -q 1 -t "health/heartbeat" -m "example heartbeat" -d -V mqttv5 \
 -i lightbulb \
 -h localhost \
@@ -476,14 +494,14 @@ To clean up the resources created in this tutorial, delete the listener and the 
 
 Also, delete the Kubernetes secret and config map.
 
-```bash
+```sh
 kubectl delete secret broker-server-cert -n azure-iot-operations
 kubectl delete configmap fabrikam-ca -n azure-iot-operations
 ```
 
 Finally, delete the certificates and keys generated earlier.
 
-```bash
+```sh
 rm contoso_root_ca.crt contoso_root_ca.key contoso_intermediate_ca.crt contoso_intermediate_ca.key mqtts-endpoint.crt mqtts-endpoint.key
 rm fabrikam_root_ca.crt fabrikam_root_ca.key fabrikam_intermediate_ca.crt fabrikam_intermediate_ca.key thermostat.crt thermostat.key hygrometer.crt hygrometer.key heater.crt heater.key lightbulb.crt lightbulb.key
 ````

@@ -535,8 +535,6 @@
     href: azure-to-azure-powershell.md
   - name: Set up disaster recovery on Public MEC VMs using PowerShell
     href: tutorial-replicate-vms-edge-zone-to-azure-region.md
-  - name: Set up disaster recovery on Public MEC VMs to another Public MEC using PowerShell 
-    href: tutorial-replicate-vms-edge-zone-to-another-zone.md      
   - name: Set up disaster recovery of VMware VMs to Azure using PowerShell
     href: vmware-azure-disaster-recovery-powershell.md
   - name: Set up disaster recovery of Hyper-V VMs to Azure using PowerShell

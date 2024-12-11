@@ -121,7 +121,6 @@ Here's some information on what you need when deploying ANQ for video editing.
 - To deploy Azure Native Qumulo Scalable File Service, visit [our website](https://qumulo.com/product/azure/).
 - For more information regarding inbound and outbound networking, [Required Networking Ports for Qumulo Core](https://docs.qumulo.com/administrator-guide/networking/required-networking-ports.html)
 - For more information regarding Adobe Premiere Pro, see [Best practices for Creative Cloud deployment on VDI](https://helpx.adobe.com/enterprise/using/creative-cloud-deployment-on-vdi.html)
-- For more information regarding HPE Anyware, see [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/teradici.hp_anyware?tab=Overview).
 
 ## Next steps
 

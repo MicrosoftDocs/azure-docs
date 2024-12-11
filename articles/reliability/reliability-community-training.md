@@ -15,7 +15,7 @@ ms.subservice: azure-reliability
 
 Microsoft Community Training is an Azure-powered cloud-based solution that can deliver large-scale, far-spread training programs with high quality and efficiency. With Community Training, organizations of all sizes and types can run large scale training programs for their internal and external communities. Communities can include frontline workers, extended workforces, a partner ecosystem, a volunteer network, and program beneficiaries. 
 
-This article describes reliability support in Community Training, and covers  both regional resiliency with [availability zones](/azure/reliability/availability-zones-overview?tabs=azure-clit) and [disaster recovery and business continuity](/azure/reliability/disaster-recovery-overview). For a more detailed overview of a reliability principle in Azure, see [Azure reliability](/azure/reliability/overview).
+This article describes reliability support in Community Training, and covers  both regional resiliency with [availability zones](/azure/reliability/availability-zones-overview?tabs=azure-cli) and [disaster recovery and business continuity](/azure/reliability/disaster-recovery-overview). For a more detailed overview of a reliability principle in Azure, see [Azure reliability](/azure/reliability/overview).
 
 ## Availability zone support
 

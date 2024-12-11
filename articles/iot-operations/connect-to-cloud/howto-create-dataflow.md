@@ -520,7 +520,7 @@ builtInTransformationSettings:
 
 To enrich the data, first add reference dataset in the Azure IoT Operations [state store](../create-edge-apps/overview-state-store.md). The dataset is used to add extra data to the source data based on a condition. The condition is specified as a field in the source data that matches a field in the dataset.
 
-You can load sample data into the state store by using the [state store CLI](https://github.com/Azure-Samples/explore-iot-operations/tree/main/tools/state-store-cli). Key names in the state store correspond to a dataset in the dataflow configuration.
+You can load sample data into the state store by using the [state store CLI](https://github.com/Azure-Samples/explore-iot-operations/tree/main/tools/statestore-cli). Key names in the state store correspond to a dataset in the dataflow configuration.
 
 # [Portal](#tab/portal)
 
@@ -845,6 +845,10 @@ To send data to a destination other than the local MQTT broker, create a dataflo
 1. Select the dataflow endpoint to use as the destination.
 
     :::image type="content" source="media/howto-create-dataflow/dataflow-destination.png" alt-text="Screenshot using operations experience to select Event Hubs destination endpoint.":::
+
+    Storage endpoints require a [schema for serialization](./concept-schema-registry.md). If you choose a Microsoft Fabric OneLake, Azure Data Lake Storage, Azure Data Explorer, or Local Storage destination endpoint, you must [specify a schema reference](#serialize-data-according-to-a-schema). For example, to serialize the data to a Microsoft Fabric endpoint in Delta format, you need to upload a schema to the schema registry and reference it in the dataflow destination endpoint configuration.
+
+    :::image type="content" source="media/howto-create-dataflow/serialization-schema.png" alt-text="Screenshot using operations experience to choose output schema and serialization format.":::
 
 1. Select **Proceed** to configure the destination.
 1. Enter the required settings for the destination, including the topic or table to send the data to. See [Configure data destination (topic, container, or table)](#configure-data-destination-topic-container-or-table) for more information.

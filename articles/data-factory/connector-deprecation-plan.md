@@ -29,6 +29,7 @@ This article describes future upgrades for some connectors of Azure Data Factory
 | [PostgreSQL (legacy)](connector-postgresql-legacy.md)   | [Link](connector-postgresql.md#upgrade-the-postgresql-linked-service)| End of support announced and new version available |October 31, 2024 | /  | 
 | [ServiceNow (legacy)](connector-servicenow-legacy.md)   | [Link](connector-servicenow.md#upgrade-your-servicenow-linked-service) | End of support announced and new version available | To be determined | / | 
 | [Snowflake (legacy)](connector-snowflake-legacy.md)   | [Link](connector-snowflake.md#upgrade-the-snowflake-linked-service) | End of support announced and new version available | To be determined | /  | 
+| [Vertica (version 1.0)](connector-vertica.md)| [Link](connector-vertica.md#upgrade-the-vertica-version) | End of support announced and new version available | To be determined | /  | 
 | [Azure Database for MariaDB](connector-azure-database-for-mariadb.md) |/ | End of support announced |December 31, 2024 | December 31, 2024 | 
 | [Concur (Preview)](connector-concur.md) |/ | End of support announced | December 31, 2024 | December 31, 2024 | 
 | [Couchbase (Preview)](connector-couchbase.md) |/ | End of support announced | December 31, 2024 | December 31, 2024 | 
@@ -68,6 +69,7 @@ The following legacy connectors or legacy driver versions will be deprecated, bu
 - [Salesforce Service Cloud](connector-salesforce-service-cloud.md#upgrade-the-salesforce-service-cloud-linked-service)
 - [ServiceNow](connector-servicenow.md#upgrade-your-servicenow-linked-service)
 - [Snowflake](connector-snowflake.md#upgrade-the-snowflake-linked-service)
+- [Vertica](connector-vertica.md#upgrade-the-vertica-version)
 
 ## Connectors to be deprecated on December 31, 2024
 

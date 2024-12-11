@@ -152,7 +152,7 @@ To enable Plug and Play redirection using Microsoft Intune:
 
 To allow or disable video capture redirection, which includes cameras and webcams, using Group Policy:
 
-1. Open the **Group Policy Management** console on device you use to manage the Active Directory domain.
+1. Open the **Group Policy Management** console on a device you use to manage the Active Directory domain.
 
 1. Create or edit a policy that targets the computers providing a remote session you want to configure.
 
@@ -182,7 +182,7 @@ The default configuration is:
 
 To allow RDP redirection of other supported USB peripherals using Group Policy:
 
-1. Open the **Group Policy Management** console on device you use to manage the Active Directory domain.
+1. Open the **Group Policy Management** console on a device you use to manage the Active Directory domain.
 
 1. Create or edit a policy that targets the computers providing a remote session you want to configure.
 
@@ -290,7 +290,7 @@ Microsoft Dev Box redirects all supported peripherals for opaque low-level redir
    }
    ```
 
-   The output is similar to the following output:
+   The output is similar to the following example:
 
    ```output
    -------------------
@@ -360,7 +360,7 @@ For Azure Virtual Desktop, you can enter a device class GUID in the host pool pr
    Get-PnpDevice | Where-Object {$_.ClassGuid -like "*$deviceClassGuid*" -and $_.InstanceId -like "USB\*" -and $_.Present -like "True"} | FT -AutoSize
    ```
 
-   For example, using the device class GUID `4d36e96c-e325-11ce-bfc1-08002be10318` for multimedia devices, the output is similar to the following output:
+   For example, using the device class GUID `4d36e96c-e325-11ce-bfc1-08002be10318` for multimedia devices, The output is similar to the following example:
 
    ```output
    Status Class FriendlyName              InstanceId
@@ -460,7 +460,7 @@ To test USB redirection:
       Get-PnPDevice | Where-Object {$_.InstanceId -like "*TSUSB*" -and $_.Present -eq "true"} | FT -AutoSize
       ```
       
-      The output is similar to the following output. Check the status column for any entries that show **Error**. If there are any entries with an error, troubleshoot the device according to the manufacturer's instructions.
+      The output is similar to the following example. Check the status column for any entries that show **Error**. If there are any entries with an error, troubleshoot the device according to the manufacturer's instructions.
 
       ```output
       Status Class FriendlyName                   InstanceId

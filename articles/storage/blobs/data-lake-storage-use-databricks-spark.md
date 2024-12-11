@@ -6,7 +6,7 @@ author: normesta
 
 ms.service: azure-data-lake-storage
 ms.topic: tutorial
-ms.date: 10/17/2023
+ms.date: 11/18/2024
 ms.author: normesta
 ms.reviewer: dineshm
 ms.custom: py-fresh-zinc
