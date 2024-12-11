@@ -49,4 +49,4 @@ For more information about certificate authentication, see:
 
 ##### Code samples
 
-For a working sample of device X.509 certificate authentication, see [x509 device certificate with chain sample](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/device/samples/how%20to%20guides/X509DeviceCertWithChainSample).
+For a working sample of device X.509 certificate authentication, see [Connect with X.509 certificate](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/device/samples/how%20to%20guides/X509DeviceCertWithChainSample).

@@ -38,7 +38,7 @@ A device app can authenticate with IoT Hub using the following methods:
 
 #### Authenticate using an X.509 certificate
 
-[!INCLUDE [iot-hub-howto-auth-device-cert-dotnet](iot-hub-howto-auth-device-cert-python.md)]
+[!INCLUDE [iot-hub-howto-auth-device-cert-dotnet](iot-hub-howto-auth-device-cert-dotnet.md)]
 
 #### Authenticate using a shared access key
 
