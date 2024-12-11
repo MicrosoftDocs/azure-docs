@@ -48,7 +48,7 @@ The following sample imports the Kubernetes extension:
 @secure()
 param kubeConfig string
 
-extension 'kubernetes' with {
+extension kubernetes with {
   namespace: 'default'
   kubeConfig: kubeConfig
 } as k8s

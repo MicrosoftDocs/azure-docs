@@ -16,13 +16,13 @@ This article describes how to use Bicep extensions.
 The syntax for importing Bicep extensions is:
 
 ```bicep
-extionsion '<extension-name>'
+extionsion <extension-name>
 ```
 
 The syntax for importing Bicep extensions, which require configuration is:
 
 ```bicep
-extension '<extension-name>' with {
+extension <extension-name> with {
   <extension-properties>
 }
 ```
