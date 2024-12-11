@@ -19,7 +19,7 @@ can't be contacted which impacts deployment or management of Nexus resources.
 
 ## Diagnosis
 
-* Deployment or management of remote Nexus resources fails with "DeploymentFailed".
+* Deployment or management of remote Nexus resources fails with "DeploymentFailed."
 * Geneva logging shows 500 and/or 503 HTTP errors and failure to access Azure resources such as VM images hosted in ACRs (Azure Container Registry).
 * Azure portal shows no errors being generated for the Azure resources that are unreachable; there are no errors because the failing operations aren't reaching the Azure resources at all.
 
