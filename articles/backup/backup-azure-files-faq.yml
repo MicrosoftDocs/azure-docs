@@ -2,7 +2,7 @@
 metadata:
   title: Back up Azure Files FAQ
   description: In this article, discover answers to common questions about how to protect your Azure file shares with the Azure Backup service.
-  ms.date: 11/28/2024
+  ms.date: 12/11/2024
   ms.topic: faq
   ms.service: azure-backup
   author: AbhishekMallick-MS
@@ -276,6 +276,16 @@ sections:
 
             - If daily retention is extended, the expiration date of the existing daily recovery points is updated according to the daily retention value configured in the new policy.
             - If daily retention is reduced, the existing daily recovery points and snapshots are marked for deletion in the next cleanup run job according to the daily retention value configured in the new policy, and then deleted.
+
+      - question: |
+          Why the expiry time for latest recovery points doesn't appear in the Azure portal?
+        answer: |
+          Expiry Time of recovery points are updated when Garbage Collector (GC) runs, which is every 24 hours. After you update the backup policy, it can take up to 24 hours to show the updates in the Expiry Time, if there're no delays in GC jobs.
+
+      - question: |
+          How is the expiry date shown when both snapshot and vaulted backups are configured?
+        answer: |
+          When both snapshot and vaulted backups are configured, the expiry date initially reflects the retention period of the snapshot backup. After the snapshot backup expires, the expiry date will update to reflect the retention period of the vaulted backup.
 
   - name: Lease snapshots
     questions:
