@@ -15,9 +15,10 @@ This article explains how to convert a Nexus Network Fabric Cable Validation Rep
 
 ## Prerequisites
 
-- Requires Modules: `json pandas as pd datetime`
+- Requires Python 3.11 or later
+- Requires Python 3.11 Modules: `json pandas as pd datetime`
 
-## Python Script for Cable Validation JSON to html conversion
+## Python Script for Cable Validation JSON to HTML Conversion
 
 ```
 import json
@@ -135,7 +136,7 @@ The report output has filename `CableValidationAndSpecification-<DATE>.html`.
 
 ## Cable Validation Report HTML results
 
-The report will be sparated into 6 sections:
+The report is separated into 6 sections:
 - Cable Validation - Compliant
 - Cable Validation - NonCompliant
 - Cable Validation - Unknown
