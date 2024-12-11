@@ -1,11 +1,12 @@
 ---
-title: Expose an on-premises WCF REST service to clients using Azure Relay
+title: Expose on-premises WCF REST service to clients
 description: This tutorial describes how to expose an on-premises WCF REST service to an external client by using Azure WCF Relay.
 ms.topic: tutorial
-ms.date: 08/11/2023
+ms.date: 12/11/2024
+# Customer intent: I want to know how to expose an on-premises WCF REST service to external clients using WCF Relay.
 ---
 
-# Tutorial: Expose an on-premises WCF REST service to external client by using Azure WCF Relay
+# Tutorial: Expose an on-premises Windows Communication Foundation (WCF) REST service to external client by using Azure WCF Relay
 
 This tutorial describes how to build a WCF Relay client application and a service using Azure Relay. Like their original WCF counterparts, a service is a construct that exposes one or more endpoints. Each **endpoint** exposes one or more service operations. The endpoint of a service specifies an **address** where the service can be found, a **binding** that contains the information that a client must communicate with the service, and a **contract** that defines the functionality provided by the service to its clients. The main difference between WCF and WCF Relay is that the endpoint is exposed in the cloud instead of locally on your computer.
 
@@ -758,7 +759,7 @@ namespace Microsoft.ServiceBus.Samples
 
 1. You can continue sending text messages from the client to the service in this manner. When you're finished, select Enter in the client and service console windows to end both applications.
 
-## Next steps
+## Next step
 
 Advance to the following tutorial:
 

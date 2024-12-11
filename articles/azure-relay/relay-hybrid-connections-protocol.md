@@ -2,7 +2,7 @@
 title: Azure Relay Hybrid Connections protocol guide | Microsoft Docs
 description: This article describes the client-side interactions with the Hybrid Connections relay for connecting clients in listener and sender roles.
 ms.topic: article
-ms.date: 08/10/2023
+ms.date: 12/11/2024
 ---
 
 # Azure Relay Hybrid Connections protocol
@@ -43,7 +43,7 @@ to be accepted for establishing a bi-directional communication path. "Connect,"
 
 Any relayed communication model has either party making outbound connections
 towards a service endpoint. This makes the "listener" also a "client" in
-colloquial use, and may also cause other terminology overloads. The precise
+colloquial use, and might also cause other terminology overloads. The precise
 terminology therefore used for Hybrid Connections is as follows:
 
 The programs on both sides of a connection are called "clients," since they're
@@ -115,8 +115,8 @@ The listener can respond to HTTP requests using an equivalent response gesture.
 The request/response flow uses the control channel by default, but can be
 "upgraded" to a distinct rendezvous WebSocket whenever required. Distinct
 WebSocket connections improve throughput for each client conversation, but they
-burden the listener with more connections that need to be handled, which may
-not be desire able for lightweight clients.
+burden the listener with more connections that need to be handled, which might
+not be desirable for lightweight clients.
 
 On the control channel, request and response bodies are limited to at most 64 kB
 in size. HTTP header metadata is limited to a total of 32 kB. If either the
@@ -125,7 +125,7 @@ to a rendezvous WebSocket using a gesture equivalent to handling the
 [Accept](#accept-message).
 
 For requests, the service decides whether to route requests over the control
-channel. This includes, but may not be limited to cases where a request exceeds
+channel. This includes, but might not be limited to cases where a request exceeds
 64 kB (headers plus body) outright, or if the request is sent with ["chunked"
 transfer-encoding](https://tools.ietf.org/html/rfc7230#section-4.1) and the
 service has reason to expect for the request to exceed 64 kB or reading the
@@ -155,7 +155,7 @@ in progress.
 #### Renew operation
 
 The security token that must be used to register the listener and maintain the
-control channel may expire while the listener is active. The token expiry doesn't affect ongoing connections, but it does cause the control channel to be
+control channel might expire while the listener is active. The token expiry doesn't affect ongoing connections, but it does cause the control channel to be
 dropped by the service at or soon after the moment of expiry. The "renew"
 operation is a JSON message that the listener can send to replace the token
 associated with the control channel, so that the control channel can be

@@ -3,7 +3,7 @@ title: Azure Relay Hybrid Connections - HTTP requests in .NET
 description: Write a C# console application for Azure Relay Hybrid Connections HTTP requests in .NET.
 ms.topic: tutorial
 ms.custom: devx-track-csharp, mode-ui, mode-api, devx-track-dotnet
-ms.date: 08/10/2023
+ms.date: 12/11/2024
 ---
 
 # Get started with Relay Hybrid Connections HTTP requests in .NET
@@ -52,7 +52,6 @@ In Visual Studio, write a C# console application to send messages to the relay.
 1. Run the client application. You see `hello!` in the client window. The client sent an HTTP request to the server, and server responded with a `hello!`. 
 3. Now, to close the console windows, press **ENTER** in both the console windows. 
 
-Congratulations, you've created a complete Hybrid Connections application!
 
 ## Next steps
 
