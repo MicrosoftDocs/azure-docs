@@ -260,7 +260,7 @@ In this section, you learn how to update an existing admin state from existing b
 # [Azure PowerShell](#tab/azurepowershell)
 
 1. Connect to your Azure subscription with Azure PowerShell.
-2. Update an existing backend pool instance with the admin state value configured to UP or DOWN with [New-AzLoadBalancerBackendAddressConfig](/powershell/module/az.network/new-azloadbalancerbackendaddressconfig).. Replace the values in brackets with the names of the resources in your configuration.
+2. Update an existing backend pool instance with the admin state value configured to UP or DOWN with [New-AzLoadBalancerBackendAddressConfig](/powershell/module/az.network/new-azloadbalancerbackendaddressconfig). Replace the values in brackets with the names of the resources in your configuration.
 
     ```azurepowershell
     
