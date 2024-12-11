@@ -233,7 +233,7 @@ Select the `kind` line from the code, and then select the yellow light bulb icon
 
 - **Extract user-defined type**:
 
-  :::image type="content" source="./media/visual-studio-code/visual-studio-code-azure-variable-parameter-type-extract-type.png" alt-text="Screenshot of extracting parameter with allowed values.":::
+  :::image type="content" source="./media/visual-studio-code/visual-studio-code-azure-variable-parameter-type-extract-type.png" alt-text="Screenshot of extracting user-defined data types.":::
 
   After the extract, it requires some customization.
 
