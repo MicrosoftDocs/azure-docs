@@ -193,7 +193,7 @@ Connect to a virtual machine you set up in the virtual network.
 Run a utility such as `nslookup` or `dig` to look up the IP address of your default Gateway endpoint over Private Link. For example:
 
 ```
-nslookup my-apim-service.azure-api.net
+nslookup my-apim-service.privatelink.azure-api.net
 ```
 
 Output should include the private IP address associated with the private endpoint.
