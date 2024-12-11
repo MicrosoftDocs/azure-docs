@@ -59,6 +59,27 @@ In the output, you can find the `availableUpgradeVersions` property and look at 
 
 If there are no available cluster upgrades, the list will be empty.
 
+## Set customer requested thresholds on the Cluster:
+
+```
+az networkcloud cluster update -n <CLUSTER_NAME> -g <CLUSTER_RG> --update-strategy strategy-type="Rack" threshold-type="PercentSuccess" threshold-value=<DEPLOYMENT_THRESHOLD> wait-time-minutes=<DEPLOYMENT_PAUSE_MINS> --subscription <SUBSCRIPTION_ID>
+```
+*Note, update-strategies can be "Rack" - Rack by Rack, "PauseAfterRack" - Wait for customer response to continue*
+
+Verify update:
+
+```
+az networkcloud cluster show -g <CLUSTER_RG> -n <CLUSTER_NAME> --subscription <CUSTOMER_SUB_ID>| grep -a5 updateStrategy
+```
+
+If `updateStrategy` is not set, the default are as follows:
+```
+      "strategyType": "Rack",
+      "thresholdType": "PercentSuccess",
+      "thresholdValue": 80,
+      "waitTimeMinutes": 1
+```
+
 ## Upgrading cluster runtime using CLI
 
 To perform an upgrade of the runtime, use the following Azure CLI command:
