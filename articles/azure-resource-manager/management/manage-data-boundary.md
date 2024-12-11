@@ -2,7 +2,7 @@
 title: Configure data boundary
 description: Learn how to configure data boundary.
 ms.topic: how-to
-ms.date: 12/09/2024
+ms.date: 12/11/2024
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 # Customer intent: As an Azure user, I want to create a new data boundary.
 ---
@@ -16,7 +16,7 @@ This documentation provides details on how customers can configure Azure Resourc
 
 A data boundary can only be established in new tenants that have no existing subscriptions or deployed resources. Once a tenant is opted into a data boundary, the data boundary configuration cannot be removed or modified. Subscriptions and resources created under a tenant with a data boundary cannot be moved out of that tenant. Existing subscriptions and resources cannot be moved into a tenant with a data boundary. Each tenant is limited to one data boundary, and after the data boundary is configured, Azure Resource Manager will restrict resource deployments to regions within that boundary. A Global data boundary has no restrictions on the regions a resource can deploy to. Customers can opt their tenants into a data boundary by deploying a `Microsoft.Resources/dataBoundaries` resource at the tenant level.
 
-The `DataBoundaryTenantAdministrator` built-in role is required to configure data boundary. For more information, see [Assign Azure roles](../../role-based-access-control/role-assignments-cli.md).
+The `DataBoundaryTenantAdministrator` built-in role is required to configure data boundary. For more information, see [Permissions required](#permissions-required).
 
 To opt your tenant into an Azure EU Data Boundary:
 
