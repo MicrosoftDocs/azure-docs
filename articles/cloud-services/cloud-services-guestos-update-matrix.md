@@ -8,7 +8,7 @@ ms.assetid: 6306cafe-1153-44c7-8554-623b03d59a34
 ms.service: azure-cloud-services-classic
 ms.topic: article
 ms.date: 12/11/2024
-ms.author: jejackson
+ms.author: jejackson-ms
 ms.custom: compute-evergreen
 ---
 # Azure Guest OS releases and SDK compatibility matrix
