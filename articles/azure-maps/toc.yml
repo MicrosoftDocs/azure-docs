@@ -32,10 +32,12 @@ items:
       href: tutorial-load-geojson-file-android.md
   - name: REST API Tutorials
     items:
-    - name: EV routing using Azure Notebooks (Python)
+    - name: EV routing using Jupyter Notebooks
       href: tutorial-ev-routing.md
-    - name: Analyze weather data using Azure Notebooks (Python)
+    - name: Analyze weather data using Jupyter Notebooks
       href: weather-service-tutorial.md
+    - name: Analyze trip data using Snap to Roads
+      href: tutorial-snap-to-Road.md
 - name: Concepts
   items:
   - name: Authentication with Azure Maps
@@ -48,6 +50,8 @@ items:
     href: choose-pricing-tier.md
   - name: Azure Maps geographic scope
     href: geographic-scope.md
+  - name: Consent management
+    href: consent-management.md
   - name: Creator for Indoor maps
     items:
     - name: Indoor map concepts
@@ -141,7 +145,7 @@ items:
     - name: Migrate an Android app
       href: migrate-from-google-maps-android-app.md
     - name: Migrate a web service
-      href: migrate-from-google-maps-web-services.md          
+      href: migrate-from-google-maps-web-services.md
   - name: Manage Maps accounts
     items:
     - name: Create account with ARM template
@@ -435,6 +439,8 @@ items:
     href: how-to-use-feedback-tool.md
   - name: Show right attribution
     href: how-to-show-attribution.md
+  - name: Manage consent
+    href: how-to-manage-consent.md
 - name: Reference
   items:
   - name: Creator Indoor Maps

@@ -174,7 +174,7 @@ Class Chat : Hub
     public void JoinAndSendGroup(string name, string groupName)
     {
         Groups.AddToGroupAsync(Context.ConnectionId, groupName); // join group
-        Clients.Group(groupName).SendAsync("ReveiceGroupMessage", name, "I'm in group"); // send group message
+        Clients.Group(groupName).SendAsync("ReceiveGroupMessage", name, "I'm in group"); // send group message
     }
 }
 ```

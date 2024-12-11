@@ -14,7 +14,7 @@ zone_pivot_groups: iotedge-dev
 
 # Tutorial: Develop IoT Edge modules with Linux containers by using IoT Edge for Linux on Windows
 
-[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 This tutorial walks you through developing, debugging, and deploying your own code to an Azure IoT Edge device by using IoT Edge for Linux on Windows and Visual Studio 2022. You'll learn the most common developer scenario for IoT Edge solutions by deploying a C# module to a Linux device. You'll deploy and debug a custom IoT Edge module running in a Linux container on Windows. Even if you plan to use a different language or deploy an Azure service, this tutorial is still useful for learning about the development tools and concepts.
 

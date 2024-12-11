@@ -53,7 +53,7 @@ Make sure that your certificates include the following CRT parameter details:
 | **Subject (O)rganization** | The organization's name, such as *Contoso Inc.* |
 
 > [!IMPORTANT]
-> While certificates with other parameters might work, they aren't supported by Defender for IoT. Additionally, wildcard SSL certificates, which are public key certificates that can beused on multiple subdomains such as *.contoso.com*, are insecure and aren't supported.
+> While certificates with other parameters might work, they aren't supported by Defender for IoT. Additionally, wildcard SSL certificates, which are public key certificates that can be used on multiple subdomains such as *.contoso.com*, are insecure and aren't supported.
 > Each appliance must use a unique CN.
 
 ## Key file requirements

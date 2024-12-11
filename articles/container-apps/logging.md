@@ -2,11 +2,11 @@
 title: Application logging in Azure Container Apps
 description: Description of logging in Azure Container Apps
 services: container-apps
-author: v-jaswel
+author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: conceptual
 ms.date: 05/24/2024
-ms.author: v-wellsjason
+ms.author: cshoe
 ---
 
 # Application Logging in Azure Container Apps
