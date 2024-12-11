@@ -52,7 +52,7 @@ To fully secure your public access, it is essential to move to enforced mode in 
 
 ## Moving new resources into network security perimeter  
 
-Network security perimeter supports secure by default behavior by introducing a new property under `publicNetworkAccess` called `SecuredbyPerimeter`. When set, it locks down public access and prevents PaaS resources from being exposed to public networks.
+Network security perimeter supports secure by default behavior by introducing a new value for the `publicNetworkAccess` property called `SecuredByPerimeter`. When set, it locks down public access and prevents PaaS resources from being exposed to public networks.
 
 On resource creation, if `publicNetworkAccess` is set to `SecuredByPerimeter`, the resource is created in the lockdown mode even when not associated with a perimeter. Only private link traffic will be allowed if configured. Once associated to a perimeter, network security perimeter governs the resource access behavior. The following table summarizes access behavior in various modes and public network access configuration: 
 
