@@ -1,6 +1,6 @@
 ---
 title: Find help or open a ticket for Azure Managed Grafana
-description: Learn how to find help, get tehcnical information or open a support ticket for Azure Managed Grafana
+description: Learn how to find help, get technical information or open a support ticket for Azure Managed Grafana
 author: maud-lv
 ms.service: azure-managed-grafana
 ms.topic: troubleshooting
