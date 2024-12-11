@@ -15,7 +15,7 @@ To connect a device to IoT Hub using an X.509 certificate:
 
 1. Build the [SSLContext](https://docs.oracle.com/javase/8/docs/api/javax/net/ssl/SSLContext.html) object using [buildSSLContext](https://hc.apache.org/httpcomponents-core-4.4.x/current/httpcore/apidocs/org/apache/http/ssl/SSLContextBuilder.html)
 1. Add the `SSLContext` information to a [ClientOptions](/java/api/com.microsoft.azure.sdk.iot.device.clientoptions) object.
-1. Call [DeviceClient](/java/api/com.microsoft.azure.sdk.iot.device.deviceclient?view=azure-java-stable#com-microsoft-azure-sdk-iot-device-deviceclient-deviceclient(java-lang-string-com-microsoft-azure-sdk-iot-device-iothubclientprotocol-com-microsoft-azure-sdk-iot-device-clientoptions)) using the `ClientOptions` information to create the device-to-IoT Hub connection.
+1. Call [DeviceClient](/java/api/com.microsoft.azure.sdk.iot.device.deviceclient?#com-microsoft-azure-sdk-iot-device-deviceclient-deviceclient(java-lang-string-com-microsoft-azure-sdk-iot-device-iothubclientprotocol-com-microsoft-azure-sdk-iot-device-clientoptions)) using the `ClientOptions` information to create the device-to-IoT Hub connection.
 
 This example shows certificate input parameter values as local variables for clarity. In a production system, store sensitive input parameters in environment variables or another more secure storage location. For example, use `Environment.GetEnvironmentVariable("PUBLICKEY")` to read a public key certificate string environment variable.
 

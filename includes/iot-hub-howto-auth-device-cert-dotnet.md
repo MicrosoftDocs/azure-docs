@@ -12,9 +12,11 @@ ms.date: 11/19/2024
 ms.custom: mqtt, devx-track-csharp, devx-track-dotnet
 ---
 
-1. Use [DeviceAuthenticationWithX509Certificate](/dotnet/api/microsoft.azure.devices.client.deviceauthenticationwithx509certificate) to create an object that contains certificate information that will be passed to `Create` (step 2).
+To connect a device to IoT Hub using an X.509 certificate:
 
-2. Use [Create](https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.devices.client.deviceclient.create?#microsoft-azure-devices-client-deviceclient-create(system-string-microsoft-azure-devices-client-iauthenticationmethod)) to connect the device to IoT Hub using a X.509 certificate.
+1. Use [DeviceAuthenticationWithX509Certificate](/dotnet/api/microsoft.azure.devices.client.deviceauthenticationwithx509certificate) to create an object that contains certificate information that is passed to `Create` (step 2).
+
+2. Use [Create](https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.devices.client.deviceclient.create?#microsoft-azure-devices-client-deviceclient-create(system-string-microsoft-azure-devices-client-iauthenticationmethod)) to connect the device to IoT Hub using an X.509 certificate.
 
 This example shows certificate input parameter values as local variables for clarity. In a production system, store sensitive input parameters in environment variables or another more secure storage location. For example, use `Environment.GetEnvironmentVariable("HOSTNAME")` to read the host name environment variable.
 

@@ -11,14 +11,14 @@ ms.manager: lizross
 ms.date: 12/06/2024
 ---
 
-Using the Node.js SDK, the X.509 certificate is attached to the device-to-IoT Hub connection transport.
+The X.509 certificate is attached to the device-to-IoT Hub connection transport.
 
 To configure a device-to-IoT Hub connection using an X.509 certificate:
 
-1. Call [fromConnectionString](/javascript/api/azure-iothub/client?view=azure-node-latest#azure-iothub-client-fromconnectionstring) to add the device connection string and transport type.
+1. Call [fromConnectionString](/javascript/api/azure-iothub/client?#azure-iothub-client-fromconnectionstring) to add the device connection string and transport type.
 1. Configure a JSON variable with certificate details and pass it to [DeviceClientOptions](/javascript/api/azure-iot-device/deviceclientoptions).
 1. Call [setOptions](/javascript/api/azure-iot-device/client?#azure-iot-device-client-setoptions-1) to add an X.509 certificate and key (and optionally, passphrase) to the client transport.
-1. Call [open](/javascript/api/azure-iothub/client?view=azure-node-latest#azure-iothub-client-open) to open the connection from the device to IoT Hub.
+1. Call [open](/javascript/api/azure-iothub/client?#azure-iothub-client-open) to open the connection from the device to IoT Hub.
 
 This example shows certificate configuration information within a JSON variable. The certification configuration `options` are passed to `setOptions` and the connection is opened using `open`.
 
