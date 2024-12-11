@@ -5,7 +5,7 @@ description: Overview of the pre-call diagnostic API feature.
 author: yassirbisteni
 manager: bobgao
 services: azure-communication-services
-ms.author: ybisteni
+ms.author: yassirb
 ms.date: 22/11/2024
 ms.topic: conceptual
 ms.service: azure-communication-services
@@ -15,9 +15,9 @@ ms.service: azure-communication-services
 
 [!INCLUDE [Public Preview Disclaimer](../../../../includes/public-preview-include.md)]
 
-The pre-call API feature enables developers to programmatically validate a client’s readiness to join an Azure Communication Services call. You can only access pre-call features using the Calling SDK. The pre-call diagnostic feature provides multiple diagnostics including device, connection, and call quality. The pre-call diagnotic feature is available only for Web (JavaScript). We plan to enable these capabilities across platforms in the future. Provide us with [feedback](../../support.md) about which platforms you want to see pre-call diagnostics enabled.
+The pre-call API feature allows developers to programmatically validate a client’s readiness to join an Azure Communication Services call. You can only access pre-call features using the Calling SDK. The pre-call diagnostic feature provides multiple diagnostics including device, connection, and call quality. Provide us with [feedback](../../support.md) about which platforms you want to see pre-call diagnostics enabled.
 
-## Pre-Call diagnostics accesss
+## Pre-Call diagnostics access
 
 To access pre-call diagnostics, you need to initialize a `CallClient`, and provision an Azure Communication Services access token. Then you can access the `PreCallDiagnostics` feature and the `startTest` method.
 
@@ -40,7 +40,7 @@ Once it finishes running, developers can access the result object.
 
 ## Diagnostic results
 
-Pre-call diagnostics returns a full diagnostic of the device including details like availability and compatibility, call quality statistics, and in-call diagnostics. The results are returned as a `PreCallDiagnosticsReadyEvent` object.
+Pre-call diagnostics return a full diagnostic of the device including details like availability and compatibility, call quality statistics, and in-call diagnostics. The results are returned as a `PreCallDiagnosticsReadyEvent` object.
 
 ```java
 public void OnPreCallDiagnosticsReady(PreCallDiagnosticsReadyEvent args)
@@ -66,7 +66,7 @@ public void OnPreCallDiagnosticsReady(PreCallDiagnosticsReadyEvent args)
 }
 ```
 
-You can access individual result objects using the `PreCallDiagnosticsReadyEvent` type. Results for individual tests are returned as they're completed with many of the test results being available immediately. The results might take up to 1 minute as the test validates the quality of the video and audio.
+You can access individual result objects using the `PreCallDiagnosticsReadyEvent` type. Results for individual tests are returned as they are completed with many of the test results being available immediately. The results might take up to 1 minute as the test validates the quality of the video and audio.
 
 ### Device permissions
 
