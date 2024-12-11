@@ -25,7 +25,7 @@ To set up the Azure Datadog integration, you must have **Owner** access on the A
 - **Unable to save Single sign-on settings** 
    - This error happens where there's another Enterprise app that is using the Datadog SAML identifier. To find which app is using it, select **Edit** on the Basic SAML Configuration section.
 
-   To resolve this issue, either disable the other app or use the other app as the Enterprise app to set up SAML SSO with Datadog. If you decide to use the other app, ensure the app has the [required settings](create.md#configure-single-sign-on-tab-optional)
+   To resolve this issue, either disable the other app or use the other app as the Enterprise app to set up SAML SSO with Datadog. If you decide to use the other app, ensure the app has the [required settings](create.md#single-sign-on-tab-optional).
 
 - **App not showing in Single sign-on setting page** 
    - First, search for the application ID. If no result is shown, check the SAML settings of the app. The grid only shows apps with correct SAML settings. 
