@@ -1,5 +1,5 @@
 ---
-title: Back up Classic Alerts using Azure Backup
+title: Backup Classic Alerts using Azure Backup
 description: Learn how to back up Classic Alerts in the Azure Recovery Services vault.
 ms.topic: how-to
 ms.date: 12/30/2024
@@ -9,7 +9,7 @@ ms.author: v-abhmallick
 ms.custom: engagement-fy24
 ---
 
-# Back up Classic Alerts using Azure Backup
+# Backup Classic Alerts
 
 This article describes how to back up Classic Alerts in the Azure Recovery Services vault.
 
