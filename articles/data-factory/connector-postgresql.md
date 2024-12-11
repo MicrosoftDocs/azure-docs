@@ -299,7 +299,7 @@ When copying data from PostgreSQL, the following mappings are used from PostgreS
 |`XML`|`String`|`String`|
 |`IntArray`|`String`|`String`|
 |`TextArray`|`String`|`String`|
-|`NumbericArray`|`String`|`String`|
+|`NumericArray`|`String`|`String`|
 |`DateArray`|`String`|`String`|
 |`Range`|`String`|`String`|
 |`Bpchar`|`String`|`String`|

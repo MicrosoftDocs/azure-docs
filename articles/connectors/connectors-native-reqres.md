@@ -146,7 +146,7 @@ The **Request** trigger creates a manually callable endpoint that handles *only*
 
 1. To check that the inbound call has a request body that matches your specified schema, follow these steps:
 
-   1. To enforce the inbound message to have the same exact fields that your schema describes, in your schema, add the **`required`** property and specify the required fields. Add the **`addtionalProperties`** property, and set the value to **`false`**.
+   1. To enforce the inbound message to have the same exact fields that your schema describes, in your schema, add the **`required`** property and specify the required fields. Add the **`additionalProperties`** property, and set the value to **`false`**.
 
       For example, the following schema specifies that the inbound message must have the **`msg`** field and not any other fields:
 
@@ -301,7 +301,7 @@ The **Request** trigger creates a manually callable endpoint that handles *only*
 
 1. To check that the inbound call has a request body that matches your specified schema, follow these steps:
 
-   1. To enforce the inbound message to have the same exact fields that your schema describes, in your schema, add the **`required`** property and specify the required fields. Add the **`addtionalProperties`** property, and set the value to **`false`**.
+   1. To enforce the inbound message to have the same exact fields that your schema describes, in your schema, add the **`required`** property and specify the required fields. Add the **`additionalProperties`** property, and set the value to **`false`**.
 
       For example, the following schema specifies that the inbound message must have the **`msg`** field and not any other fields:
 
