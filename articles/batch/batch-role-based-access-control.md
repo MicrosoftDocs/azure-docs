@@ -302,7 +302,7 @@ The following example shows an Azure Batch custom role definition:
     "type":"CustomRole",
     "description":"Allows a user to submit autopool jobs to Azure Batch",
     "assignableScopes":[
-      "/subscriptions/88888888-8888-8888-8888-888888888888"
+      "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e"
     ],
     "permissions":[
       {
