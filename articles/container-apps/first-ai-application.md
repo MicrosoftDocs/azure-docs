@@ -169,12 +169,12 @@ This quickstart, which implements an AI application, uses the following key conc
 
 - RAG with Azure OpenAI. RAG allows developers to use supported AI chat models that can reference specific sources of information to ground the response. Adding this information allows the model to reference both the specific data provided and its pretrained knowledge to provide more effective responses. Azure OpenAI enables RAG by connecting pretrained models to your own data sources. Azure OpenAI uses your data in the following steps:
 
-- Receive the user prompt.
-- Determine the relevant content and intent of the prompt.
-- Query the search index with that content and intent.
-- Insert a search result chunk into the Azure OpenAI prompt, along with system message and user prompt.
-- Send the entire prompt to Azure OpenAI.
-- Return the response and data reference (if any) to the user.
+    1. Receive the user prompt.
+    1. Determine the relevant content and intent of the prompt.
+    1. Query the search index with that content and intent.
+    1. Insert a search result chunk into the Azure OpenAI prompt, along with system message and user prompt.
+    1. Send the entire prompt to Azure OpenAI.
+    1. Return the response and data reference (if any) to the user.
 
 For more information, see [Spring AI Chat Client](https://docs.spring.io/spring-ai/reference/api/chatclient.html) and [Implement Retrieval Augmented Generation (RAG) with Azure OpenAI Service](/training/modules/use-own-data-azure-openai).
 
