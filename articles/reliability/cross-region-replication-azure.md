@@ -5,7 +5,7 @@ author: anaharris-ms
 ms.service: azure
 ms.subservice: azure-availability-zones
 ms.topic: conceptual
-ms.date: 12/12/2022
+ms.date: 11/08/2024
 ms.author: anaharris
 ms.custom: references_regions, subject-reliability
 ---
@@ -111,7 +111,7 @@ The table below lists Azure regions without a region pair:
 | Israel | Israel Central|
 | Italy | Italy North|
 | Mexico | Mexico Central |
-| New Zealand | New Zealand North (coming soon) |
+| New Zealand | New Zealand North |
 | Poland | Poland Central |
 | Qatar | Qatar Central |
 | Spain | Spain Central|
