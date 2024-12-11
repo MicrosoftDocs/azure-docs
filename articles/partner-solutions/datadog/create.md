@@ -105,6 +105,8 @@ Select **Next: Tags**.
 
 If you wish, you can optionally create tags resource, then select the **Next: Review + create** button at the bottom of the page. 
 
+Select **Next: Review + create**.
+
 ## Review + create tab
 
 If the review identifies errors, a red dot appears next each section where errors exist. Fields with errors are highlighted in red. 
