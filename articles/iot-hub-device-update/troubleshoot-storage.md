@@ -12,7 +12,7 @@ ms.topic: error-reference
 ms.date:     12/11/2024
 ---
 
-# Troubleshoot storage-related errors when importing updates
+# Troubleshoot storage-related errors when importing updates in Device Update for IoT Hub
 
 When importing an update to Device Update for IoT Hub, you may see this error:
 
