@@ -229,17 +229,21 @@ Please refer to the source code for more details.
 
 ## Clean up resources
 
-If you plan to continue working with subsequent tutorials, you might want to leave these resources in place. When no longer needed, delete the resource group, which deletes the resources in the resource group. 
+If you plan to continue working with subsequent tutorials, you might want to leave these resources in place. When no longer needed, delete the resource group, which deletes the resources in the resource group.
 
-Two simple options to clean up the resources:
+### [Azure portal](#tab/azure-portal)
 
-1. Use the [Azure portal](https://portal.azure.com?azure-portal=true). Find the resource group of this sample, and delete the resource group directly.
+To delete the resources, use the [Azure portal](https://portal.azure.com?azure-portal=true) to find the resource group of this sample, and delete the resource group directly.
 
-1. Delete the resource group by using Azure CLI with the following commands:
+### [Azure CLI](#tab/azure-cli)
 
-   ```azurecli
+To delete the resource group, use following command:
+
+```azurecli
    az group delete --name rg-first-ai
-   ```
+```
+
+---
 
 ## Next steps
 
