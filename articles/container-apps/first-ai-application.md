@@ -229,7 +229,7 @@ Please refer to the source code for more details.
 
 ## Clean up resources
 
-If you plan to continue working with subsequent tutorials, you might want to leave these resources in place. When no longer needed, delete the resource group, which deletes the resources in the resource group.
+If you plan to continue working with subsequent tutorials, you might want to retain these resources. When you no longer need the resources, delete the resource group, which also deletes its resources.
 
 ### [Azure portal](#tab/azure-portal)
 
