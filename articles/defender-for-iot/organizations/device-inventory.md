@@ -94,7 +94,7 @@ Mark OT devices as *important* to highlight them for extra tracking. On an OT se
 
 ## Device inventory column data
 
-The following table lists the columns available in the Defender for IoT device inventory on the Azure portal and the OT sensor, a description of each column and whether and in which platform it is editible. Starred items **(*)** are also available from the OT sensor.
+The following table lists the columns available in the Defender for IoT device inventory on the Azure portal and the OT sensor, a description of each column and whether and in which platform it is editable. Starred items **(*)** are also available from the OT sensor.
 
 > [!NOTE]
 > Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -140,7 +140,7 @@ The following table lists the columns available in the Defender for IoT device i
 | **VLAN**  * | The device's VLAN.  |Not editable|
 |**Zone** | The device's zone.  |Not editable|
 
-The following columns are available in the OT sensors only, and aren't editible.
+The following columns are available in the OT sensors only, and aren't editable.
 
 - The device's **DHCP Address**.
 - The device's **FQDN** address and **FQDN Last Lookup Time**.

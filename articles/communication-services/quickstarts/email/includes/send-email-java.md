@@ -260,7 +260,7 @@ catch (Exception exception)
 
 ## [Async Client](#tab/async-client)
 
-Calling `beginSend` on the async client returns a `PollerFlux` object to which you can subscribe. The callbacks defined in the subscribe method will be triggered once the email sending opertion is complete. **Note that the initial request to send an email will not be sent until a subscriber is set up.**
+Calling `beginSend` on the async client returns a `PollerFlux` object to which you can subscribe. The callbacks defined in the subscribe method will be triggered once the email sending operation is complete. **Note that the initial request to send an email will not be sent until a subscriber is set up.**
 
 ```java
 Duration MAIN_THREAD_WAIT_TIME = Duration.ofSeconds(30);
@@ -278,7 +278,7 @@ executorService.submit(() -> {
                 System.out.printf("Successfully sent the email (operation id: %s)\n", response.getValue().getId());
             }
             else {
-                // The operation ID can be retrieved as soon as the first response is recieved from the PollerFlux.
+                // The operation ID can be retrieved as soon as the first response is received from the PollerFlux.
                 System.out.println("Email send status: " + response.getStatus() + ", operation id: " + response.getValue().getId());
             }
         },
@@ -289,7 +289,7 @@ executorService.submit(() -> {
 });
 
 // In a real application, you might have a mechanism to keep the main thread alive.
-// For this sample we will keep the main thread alive for 30 seconds to make sure the child thread has time to recieve the SUCCESSFULLY_COMPLETED status.
+// For this sample we will keep the main thread alive for 30 seconds to make sure the child thread has time to receive the SUCCESSFULLY_COMPLETED status.
 try {
     Thread.sleep(MAIN_THREAD_WAIT_TIME.toMillis());
 } catch (InterruptedException e) {
