@@ -108,7 +108,7 @@ For Azure OpenAI, use the following:
 
 | Setting name| Value |
 |-|-|-|
-| `DEPOYMENT_NAME` | @Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/) |
+| `DEPLOYMENT_NAME` | @Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/) |
 | `ENDPOINT` | @Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/) |
 | `API_KEY` | @Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/) |
 | `MODEL_ID` | @Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/) |
@@ -297,7 +297,7 @@ Your web app is now added as a cognitive service OpenAI user and can communicate
 
 ### Deploy to App Service
 
-Before deploying to App Service, you need to edit the *requirments.txt* file and add an environment variable to your web app so it recognizes the LangChain library and build properly.
+Before deploying to App Service, you need to edit the *requirements.txt* file and add an environment variable to your web app so it recognizes the LangChain library and build properly.
 
 First, add the following package to your *requirements.txt* file:
 

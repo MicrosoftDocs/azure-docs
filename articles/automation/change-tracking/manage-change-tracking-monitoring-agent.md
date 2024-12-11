@@ -162,7 +162,7 @@ To remove change tracking with Azure Monitoring Agent from a virtual machine, fo
 1. In the Virtual Machines page, under **Settings**, select **Extensions + applications**.
 1. In the **VM |Extensions + applications** page, under **Extensions** tab, select **MicrosoftAzureChangeTrackingAndInventoryChangeTracking-Windows/Linux**.
 
-   :::image type="content" source="media/manage-change-tracking-monitoring-agent/uninstall-extensions-inline.png" alt-text="Screenshort of selecting the extension for a VM that is already disassociated from the DCR." lightbox="media/manage-change-tracking-monitoring-agent/uninstall-extensions-expanded.png":::
+   :::image type="content" source="media/manage-change-tracking-monitoring-agent/uninstall-extensions-inline.png" alt-text="Screenshot of selecting the extension for a VM that is already disassociated from the DCR." lightbox="media/manage-change-tracking-monitoring-agent/uninstall-extensions-expanded.png":::
 
 1. Select **Uninstall**.
 

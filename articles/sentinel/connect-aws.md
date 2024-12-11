@@ -351,4 +351,3 @@ In this document, you learned how to connect to AWS resources to ingest their lo
 - Learn how to [get visibility into your data, and potential threats](get-visibility.md).
 - Get started [detecting threats with Microsoft Sentinel](detect-threats-built-in.md).
 - [Use workbooks](monitor-your-data.md) to monitor your data.
-

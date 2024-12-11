@@ -54,7 +54,7 @@ When the workspace creation finishes, you're redirected to the setup guide.
 To use the service, install the Microsoft Playwright Testing package. 
 
 ```npm
-npm init @azure/microsoft-playwright-testing
+npm init @azure/microsoft-playwright-testing@latest
 ```
 > [!NOTE]
 > Make sure your project uses `@playwright/test` version 1.47 or above.

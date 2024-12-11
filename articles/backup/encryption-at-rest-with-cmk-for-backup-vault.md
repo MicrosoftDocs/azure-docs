@@ -20,14 +20,11 @@ To allow encryption, you must grant the Backup vault’s managed identity that y
 >[!Note]
 >**Encryption Settings** and **CMK** are used interchangeably.
 
-## Support matrix
-This section provides the supported scenarios for data encryption in a Backup vault.
-
-### Supported regions
+## Supported regions
 
 CMKs for Backup vaults are currently available in all Azure public regions.
 
-### Key Vault and managed HSM key requirements
+## Key Vault and managed HSM key requirements
 
 Before you enable encryption on a Backup vault, review the following requirements:
 
@@ -44,14 +41,6 @@ Before you enable encryption on a Backup vault, review the following requirement
 - Key Vault must have soft delete and purge protection enabled.
 
 - Encryption settings support Azure Key Vault RSA and RSA-HSM keys only of sizes 2,048, 3,072, and 4,096. [Learn more about keys](/azure/key-vault/keys/about-keys). Before you consider Key Vault regions for encryption settings, see [Key Vault disaster recovery scenarios](/azure/key-vault/general/disaster-recovery-guidance) for regional failover support.
-
-### Known limitation
-
-If you delete the key vault/MHSM key used for encryption settings, the delete Backup Vault operation might fail. 
-
->[!Note]
->- Before performing the delete vault operation on a vault with encryption settings enabled, ensure that the encryption settings details, such as the managed identity, is attached to the vault and have the necessary permissions to access the key vault/MHSM key.
->- Also, ensure that the key vault/MHSM key exists. If the key is deleted, you can recover it from the soft deleted state. Learn about the [troubleshooting steps](#troubleshoot-operation-errors-for-encryption-settings).
 
 ## Considerations
 

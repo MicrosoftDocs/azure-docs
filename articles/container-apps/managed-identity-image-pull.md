@@ -381,13 +381,14 @@ New-AzUserAssignedIdentity -Name $IdentityName -ResourceGroupName $ResourceGroup
 
 # [Bash](#tab/bash)
 
-Get identity's resource ID.
+Get the identity's resource ID.
 
 ```azurecli
 IDENTITY_ID=$(az identity show \
   --name $IDENTITY \
   --resource-group $RESOURCE_GROUP \
-  --query id)
+  --query id \
+  --output tsv)
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)
