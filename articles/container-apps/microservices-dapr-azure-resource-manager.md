@@ -5,7 +5,7 @@ services: container-apps
 author: hhunter-ms
 ms.service: azure-container-apps
 ms.topic: quickstart
-ms.date: 12/04/2024
+ms.date: 12/11/2024
 ms.author: cshoe
 ms.custom: devx-track-bicep, devx-track-arm-template, devx-track-azurepowershell
 zone_pivot_groups: container-apps
@@ -13,7 +13,7 @@ zone_pivot_groups: container-apps
 
 # Quickstart: Deploy a Dapr application to Azure Container Apps with an Azure Resource Manager or Bicep template
 
-[Dapr](./dapr-overview.md) (Distributed Application Runtime) helps developers build resilient, reliable microservices. In this quickstart, you learn how to enable Dapr sidecars to run alongside microservices container apps that produce and consume messages and store them in an Azure Blob Storage state store. Using either Azure Resource Manager or Bicep templates,  you'll:
+[Dapr](./dapr-overview.md) (Distributed Application Runtime) helps developers build resilient, reliable microservices. In this quickstart, you enable Dapr sidecars to run alongside two container apps that produce and consume messages, stored in an Azure Blob Storage state store. Using either Azure Resource Manager or Bicep templates,  you'll:
 
 > [!div class="checklist"]
 >
@@ -132,7 +132,7 @@ This command deploys:
    - A user-assigned identity with access to the Azure Blob storage via a Storage Data Contributor role assignment
 - A Dapr component of `"type": "state.azure.blobstorage"` scoped for use by the `nodeapp` for storing state.
 - The Dapr-enabled, headless `pythonapp` that invokes the `nodeapp` service using Dapr service invocation.
-- A Microsot Entra ID role assignment for the Node.js app used by the Dapr component to establish a connection to Blob storage.
+- A Microsoft Entra ID role assignment for the Node.js app used by the Dapr component to establish a connection to Blob storage.
 
 ## Verify the result
 
@@ -202,7 +202,7 @@ nodeapp               Got a new order! Order ID: 63    PrimaryResult  2021-10-22
 
 ## Clean up resources
 
-Since `pythonapp` continuously makes calls to `nodeapp` with messages that get persisted into your configured state store, it is important to complete these cleanup steps to avoid ongoing billable operations.
+Since `pythonapp` continuously makes calls to `nodeapp` with messages that get persisted into your configured state store, it's important to complete these cleanup steps to avoid ongoing billable operations.
 
 If you'd like to delete the resources created as a part of this walkthrough, run the following command.
 
