@@ -9,7 +9,7 @@ ms.custom:
   - devx-track-azurepowershell
   - ignite-2023
 ms.topic: tutorial
-ms.date: 05/11/2022
+ms.date: 12/10/2024
 ms.author: cshoe
 zone_pivot_groups: container-apps-image-build-type
 ---
@@ -145,25 +145,118 @@ cd code-to-cloud/src
 
 ## Create an Azure Container Registry
 
-After the album API container image is built, create an Azure Container Registry (ACR) instance in your resource group to store it.
+1. After the album API container image is built, create an Azure Container Registry (ACR) instance in your resource group to store it.
 
-# [Bash](#tab/bash)
+    # [Bash](#tab/bash)
 
-```azurecli
-az acr create \
-  --resource-group $RESOURCE_GROUP \
-  --name $ACR_NAME \
-  --sku Basic \
-  --admin-enabled true
-```
+    ```azurecli
+    az acr create \
+        --resource-group $RESOURCE_GROUP \
+        --name $ACR_NAME \
+        --sku Basic
+    ```
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-```azurepowershell
-$acr = New-AzContainerRegistry -ResourceGroupName $ResourceGroup -Name $ACRName -Sku Basic -EnableAdminUser
-```
+    ```azurepowershell
+    $acr = New-AzContainerRegistry `
+        -ResourceGroupName $ResourceGroup `
+        -Name $ACRName `
+        -Sku Basic
+    ```
 
----
+    ---
+
+1. Your container registry must allow Azure Resource Manager (ARM) audience tokens for authentication in order to use managed identity to pull images.
+
+    Use the following command to check if ARM tokens are allowed to access your Azure Container Registry (ACR).
+
+    # [Bash](#tab/bash)
+    ```azurecli
+    az acr config authentication-as-arm show --registry "$ACR_NAME"
+    ```
+
+TODO1 Use PS command
+    # [Azure PowerShell](#tab/azure-powershell)
+    ```powershell
+    $acr = Get-AzContainerRegistry -Name $ACRName
+    $acr.Config.AuthenticationAsArm
+    ```
+
+    ---
+
+    If ARM tokens are allowed, the command outputs the following.
+
+    ```
+    {
+      "status": "enabled"
+    }
+    ```
+
+    If the `status` is `disabled`, allow ARM tokens with the following command.
+
+    # [Bash](#tab/bash)
+    ```azurecli
+    az acr config authentication-as-arm update --registry "$ACR_NAME" --status enabled
+    ```
+
+TODO1 Use PS command
+    # [Azure PowerShell](#tab/azure-powershell)
+    ```powershell
+    $acr.Config.AuthenticationAsArm.Enabled = $true
+    Set-AzContainerRegistry -ResourceGroupName $acr.ResourceGroupName -Name $acr.Name -Registry $acr
+    ```
+
+    ---
+
+## Create a user-assigned managed identity
+
+To avoid using administrative credentials, pull images from private repositories in Microsoft Azure Container Registry using managed identities for authentication. When possible, use a user-assigned managed identity to pull images.
+
+1. Create a user-assigned managed identity. Before you run the following commands, choose a name for your managed identity and replace the `\<PLACEHOLDER\>` with the name.
+
+    # [Bash](#tab/bash)
+    
+    ```bash
+    IDENTITY="<YOUR_IDENTITY_NAME>"
+    ```
+
+    ```azurecli
+    az identity create \
+        --name $IDENTITY \
+        --resource-group $RESOURCE_GROUP
+    ```
+
+    # [Azure PowerShell](#tab/azure-powershell)
+
+TODO1 Use PS command
+    ```powershell
+    $IdentityName="<YOUR_IDENTITY_NAME>"
+    $Identity = New-AzUserAssignedIdentity -ResourceGroupName $ResourceGroup -Name $IdentityName
+    ```
+
+    ---
+
+1. Get the identity's resource ID.
+
+    # [Bash](#tab/bash)
+
+    ```azurecli
+    IDENTITY_ID=$(az identity show \
+        --name $IDENTITY \
+        --resource-group $RESOURCE_GROUP \
+        --query id \
+        --output tsv)
+    ```
+
+    # [Azure PowerShell](#tab/azure-powershell)
+
+TODO1 Use PS command
+    ```powershell
+    $IdentityId = $identity.Id
+    ```
+
+    ---
 
 ::: zone pivot="acr-remote"
 
@@ -183,8 +276,10 @@ az acr build --registry $ACR_NAME --image $API_NAME .
 
 # [Azure PowerShell](#tab/azure-powershell)
 
+TODO1 Was this already in here? We think there is no PS equivalent for az acr build. If so, verify that. We think we say so elsewhere. Or maybe it's that there is no PS equivalent for az containerapp up.
 ```azurepowershell
-az acr build --registry $ACRName --image $APIName .
+New-AzAcrBuildTask -RegistryName $ACRName -ImageName $APIName -ContextPath "."
+
 ```
 
 ---
@@ -229,12 +324,14 @@ az acr login --name $ACR_NAME
 
 # [Azure PowerShell](#tab/azure-powershell)
 
+TODO1 Use PS command
 ```powershell
-az acr login --name $ACRName
+Connect-AzContainerRegistry -Name $ACRName
 ```
 
 ---
 
+TODO1 Shouldn't az acr build take care of this? Try skipping this.
 Now, push the image to your registry.
 
 # [Bash](#tab/bash)
@@ -319,6 +416,8 @@ az containerapp create \
   --target-port 8080 \
   --ingress external \
   --registry-server $ACR_NAME.azurecr.io \
+  --user-assigned "$IDENTITY_ID" \
+  --registry-identity "$IDENTITY_ID" \
   --query properties.configuration.ingress.fqdn
 ```
 
@@ -342,6 +441,7 @@ $ImageParams = @{
 $TemplateObj = New-AzContainerAppTemplateObject @ImageParams
 ```
 
+TODO1 Remove?
 Run the following command to get your registry credentials.
 
 ```azurepowershell
@@ -353,11 +453,11 @@ Create a registry credential object to define your registry information, and a s
 ```azurepowershell
 $RegistryArgs = @{
     Server = $ACRName + '.azurecr.io'
-    PasswordSecretRef = 'registrysecret'
-    Username = $RegistryCredentials.Username
+    Identity = $IdentityId
 }
 $RegistryObj = New-AzContainerAppRegistryCredentialObject @RegistryArgs
 
+TODO1 Remove.
 $SecretObj = New-AzContainerAppSecretObject -Name 'registrysecret' -Value $RegistryCredentials.Password
 ```
 
@@ -377,7 +477,6 @@ $AppArgs = @{
     ManagedEnvironmentId = $EnvId
     TemplateContainer = $TemplateObj
     ConfigurationRegistry = $RegistryObj
-    ConfigurationSecret = $SecretObj
     IngressTargetPort = 8080
     IngressExternal = $true
 }
