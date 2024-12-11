@@ -3,7 +3,7 @@ title: Manage settings for your Datadog resource via Azure portal
 description: Manage settings, view resources, reconfigure metrics/logs, and more for your Datadog resource via Azure portal.
 
 ms.topic: conceptual
-ms.date: 12/09/2024
+ms.date: 12/11/2024
 ms.custom:
   - ai-gen-docs-bap
   - ai-gen-desc
@@ -146,7 +146,9 @@ The portal retrieves the appropriate Datadog application from Microsoft Entra ID
 
 To change the Datadog billing plan, go to **Overview** and select **Change Plan**.
 
-The portal retrieves all the available Datadog plans for your tenant. Select the appropriate plan and select on **Change Plan**.
+The portal retrieves all the available Datadog plans for your tenant. 
+
+Choose the appropriate plan and select **Change Plan**.
   
 ## Disable or enable integration
 
@@ -156,13 +158,23 @@ To disable the Azure integration with Datadog, go to **Overview**. Select **Disa
 
 To enable the Azure integration with Datadog, go to **Overview**. Select **Enable** and **OK**. Selecting **Enable** retrieves any previous configuration for metrics and logs. The configuration determines which Azure resources emit metrics and logs to Datadog. After you complete this step, metrics and logs are sent to Datadog.
 
-## Delete Datadog resource
-
-Go to **Overview** in left pane and select **Delete**. Confirm that you want to delete Datadog resource. Select **Delete**.
+## Delete a Datadog resource
 
 If only one Datadog resource is mapped to a Datadog organization, logs and metrics are no longer sent to Datadog. All billing stops for Datadog through Azure Marketplace.
 
 If more than one Datadog resource is mapped to the Datadog organization, deleting the Datadog resource only stops sending logs and metrics for that Datadog resource. Because the Datadog organization is linked to other Azure resources, billing continues through Azure Marketplace.
+
+If you're done using your resource and would like to delete it, follow these steps:
+
+1. From the **Resource** menu, select the resource you would like to delete.
+
+1. On the working pane of the **Overview** menu, select **Delete**.
+
+1. Confirm deletion.
+
+1. Select a reason for deleting the resource.
+
+1. Select **Delete**.
 
 ## Next steps
 

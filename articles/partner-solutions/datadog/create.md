@@ -158,6 +158,8 @@ If the review identifies errors, a red dot appears next each section where error
 
 Once the resource is created, select **Go to Resource** to navigate to the Datadog resource. 
 
+:::image type="content" source="media/go-to-resource.png" alt-text="A screenshot of the Overview for a newly-created Datadog resource with the Go to Resource button emphasized.":::
+
 ## Next steps
 
 - [Manage the Datadog resource](manage.md)
