@@ -1,11 +1,11 @@
 ---
-title: Azure Resource Graph fields that update at a slower cadence
+title: Azure Resource Graph fields that have slower update times
 description: Learn about ARG fields that are uploaded at a slower cadence than others. 
 ms.date: 12/11/2024
 ms.topic: conceptual
 ---
 
-# Understanding properties that are updated at a slower cadence
+# Understanding Azure Resource Graph fields that have slower update times
 
 There are specific fields, when using Azure Resource Graph, that are updated at a slower cadence. These fields will converge to true values over time, provided there are no updates in between. 
 
