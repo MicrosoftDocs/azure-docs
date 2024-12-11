@@ -180,7 +180,7 @@ To enable the multimedia redirection browser extension using Microsoft Intune, e
    {
      "joeclbldhdmoijbaagobkhlpfjglcihd": {
        "installation_mode": "force_installed",
-       "update_url": "https://edge.microsoft.com/extensionwebstorebase/v1/crx",
+       "update_url": "https://edge.microsoft.com/extensionwebstorebase/v1/crx"
      }
    }
    ```
@@ -229,7 +229,7 @@ To enable the multimedia redirection browser extension using Microsoft Intune, e
    {
      "lfmemoeeciijgkjkgbgikoonlkabmlno": {
        "installation_mode": "force_installed",
-       "update_url": "https://clients2.google.com/service/update2/crx",
+       "update_url": "https://clients2.google.com/service/update2/crx"
      }
    }
    ```
@@ -280,7 +280,7 @@ To enable the multimedia redirection browser extension using Group Policy:
    {
      "joeclbldhdmoijbaagobkhlpfjglcihd": {
        "installation_mode": "force_installed",
-       "update_url": "https://edge.microsoft.com/extensionwebstorebase/v1/crx",
+       "update_url": "https://edge.microsoft.com/extensionwebstorebase/v1/crx"
      }
    }
    ```
@@ -329,7 +329,7 @@ To enable the multimedia redirection browser extension using Group Policy:
    {
      "lfmemoeeciijgkjkgbgikoonlkabmlno": {
        "installation_mode": "force_installed",
-       "update_url": "https://clients2.google.com/service/update2/crx",
+       "update_url": "https://clients2.google.com/service/update2/crx"
      }
    }
    ```
@@ -609,8 +609,6 @@ To add extra sites for call redirection, you need to set the following registry 
    - **Name**: `AllowedCallRedirectionSites`
    - **Type**: `REG_SZ`
    - **Data**: `<URLs>`
-
-If you set **Data** to `0`, the advanced settings button is shown.
 
 You can configure the registry using an enterprise deployment tool such as Intune, Configuration Manager, or Group Policy. Alternatively, to set this registry value using PowerShell, open PowerShell as an administrator and run the following commands. This example uses the registry key for Microsoft Edge. Replace `<URLs>` with the sites you want to enable.
 
