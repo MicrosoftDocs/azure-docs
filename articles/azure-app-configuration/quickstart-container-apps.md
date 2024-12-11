@@ -6,14 +6,14 @@ author: maud-lv
 ms.service: azure-app-configuration
 ms.custom: service-connector
 ms.topic: quickstart
-ms.date: 03/02/2023
+ms.date: 12/11/2024
 ms.author: malev
 
 ---
 
 # Quickstart: Use Azure App Configuration in Azure Container Apps
 
-In this quickstart, you will use Azure App Configuration in an app running in Azure Container Apps. This way, you can centralize the storage and management of the configuration of your apps in Container Apps. This quickstart leverages the ASP.NET Core app created in [Quickstart: Create an ASP.NET Core app with App Configuration](./quickstart-aspnet-core-app.md). You will containerize the app and deploy it to Azure Container Apps. Complete the quickstart before you continue.
+In this quickstart, you use Azure App Configuration in an app running in Azure Container Apps. This way, you can centralize the storage and management of the configuration of your apps in Container Apps. This quickstart leverages the ASP.NET Core app created in [Quickstart: Create an ASP.NET Core app with App Configuration](./quickstart-aspnet-core-app.md). You containerize the app and deploy it to Azure Container Apps. Complete the quickstart before you continue.
 
 > [!TIP]
 > While following this quickstart, preferably register all new resources within a single resource group, so that you can regroup them all in a single place and delete them faster later on if you don't need them anymore.
@@ -28,20 +28,26 @@ In this quickstart, you will use Azure App Configuration in an app running in Az
 
 ## Connect Azure App Configuration to the container app
 
-In the Azure portal, navigate to your Container App instance. Follow the [Service Connector quickstart for Azure Container Apps](../service-connector/quickstart-portal-container-apps.md) to create a service connection with your App Configuration store using the settings below.
+1. In the Azure portal, navigate to your Container App instance.
 
-- In the **Basics** tab:
-  - select **App Configuration** for **Service type**
-  - pick your App Configuration store for "**App Configuration**"
+1. Follow the [Service Connector quickstart for Azure Container Apps](../service-connector/quickstart-portal-container-apps.md) to create a service connection for your App Configuration store, using the settings below.
 
-    :::image type="content" border="true" source="media\connect-container-app\use-service-connector.png" alt-text="Screenshot the Azure platform showing a form in the Service Connector menu in a Container App." lightbox="media\connect-container-app\use-service-connector.png":::
+    1. In the **Basics** tab:
+       
+      - Under **Service type**, select **App Configuration**
+      - Select your App Configuration store
 
-- In the **Authentication** tab:
-  - pick **Connection string** authentication type and **Read-Only** for "**Permissions for the connection string**
-  - expand the **Advanced** menu. In the Configuration information, there should be an environment variable already created called "AZURE_APPCONFIGURATION_CONNECTIONSTRING". Edit the environment variable by selecting the icon on the right and change the name to *ConnectionStrings__AppConfig*. We need to make this change as *ConnectionStrings__AppConfig* is the name of the environment variable the application built in the [ASP.NET Core quickstart](./quickstart-aspnet-core-app.md) will look for. This is the environment variable which contains the connection string for App Configuration. If you have used another application to follow this quickstart, please use the corresponding environment variable name. Then select **Done**.
-- Use default values for everything else.
+        :::image type="content" border="true" source="media\connect-container-app\use-service-connector.png" alt-text="Screenshot the Azure platform showing a form in the Service Connector menu in a Container App." lightbox="media\connect-container-app\use-service-connector.png":::
 
-Once done, an environment variable named **ConnectionStrings__AppConfig** will be added to the container of your Container App. Its value is a reference of the Container App secret, the connection string of your App Configuration store.
+   1. In the **Authentication** tab:
+
+      - Select the **System-assigned managed identity** authentication type
+      - Expand the **Advanced** menu
+      - Assign your identity the **App Configuration Data Reader** role
+      - Under **Configuration information**, you find an environment variable named `AZURE_APPCONFIGURATION_ENDPOINT`. Select the pencil icon on the right and edit the environment variable name to match the variable name in your application that contains your App Configuration endpoint. If you built your application following the [ASP.NET Core quickstart](./quickstart-aspnet-core-app.md), your variable name is `Endpoints:AppConfiguration`. If you're working with another application, enter the corresponding environment variable name, then select **Done**.
+      - Use default values for everything else.
+
+    When the connection is created, an environment variable named `Endpoints:AppConfiguration` is added to the container of your Container App resource. Its value is a reference to your App Configuration store endpoint.
 
 ## Build a container
 
