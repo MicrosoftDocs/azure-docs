@@ -108,7 +108,7 @@ By tracking these logs, you can ensure full visibility into your email delivery 
 | `Category` | The log category of the event. The category is the granularity at which you can enable or disable logs on a particular resource. The properties that appear within the properties blob of an event are the same within a particular log category and resource type. |
 | `CorrelationID` | The ID for correlated events. Can be used to identify correlated events between multiple tables. For all Email operational logs, the CorrelationId is mapped to the MessageId, which is returned from a successful SendMail request. |
 | `RecipientId` | The email address for the targeted recipient. It is only present for recipient-level events. If this is a message-level event, the property will be empty. |
-| `DeliveryStatus` | The terminal status of the message. Possible valuse for message-level event are: `Dropped`, `OutForDelivery`, `Queued`. Possible valuse for a recipient-level event are: `Delivered`, `Expanded`, `Failed`, `Quarantined`, `FilteredSpam`, `Suppressed`, `Bounced`. |
+| `DeliveryStatus` | The terminal status of the message. Possible values for message-level event are: `Dropped`, `OutForDelivery`, `Queued`. Possible values for a recipient-level event are: `Delivered`, `Expanded`, `Failed`, `Quarantined`, `FilteredSpam`, `Suppressed`, `Bounced`. |
 | `SmtpStatusCode` | SMTP status code returned from the recipient email server in response to a send mail request.
 | `EnhancedSmtpStatusCode` | Enhanced SMTP status code returned from the recipient email server.
 | `SenderDomain` | The domain portion of the SenderAddress used in sending emails.

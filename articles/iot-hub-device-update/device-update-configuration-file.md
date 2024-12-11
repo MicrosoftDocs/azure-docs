@@ -34,8 +34,8 @@ When installing Debian agent on an IoT Device with a Linux OS, modify the `/etc/
 | manufacturer | Reported by the **AzureDeviceUpdateCore:4.ClientMetadata:4** interface to classify the device for targeting the update deployment. |
 | model | Reported by the **AzureDeviceUpdateCore:4.ClientMetadata:4** interface to classify the device for targeting the update deployment. |
 | iotHubProtocol| Accepted values are `mqtt` or `mqtt/ws` to change the protocol used to connect with IoT hub. Default value is 'mqtt' |
-| compatPropertyNames | These properties are used to check for compatibility of the device to target the update deployment. For all the properties specified to be used for compatabiity, the values must be in lower case only |
-| additionalProperties | Optional field. Additional device reported properties can be set and used for comaptibility checking . Limited to five device properties. These properties should be in lower case only. |
+| compatPropertyNames | These properties are used to check for compatibility of the device to target the update deployment. For all the properties specified to be used for compatibility, the values must be in lower case only |
+| additionalProperties | Optional field. Additional device reported properties can be set and used for compatibility checking . Limited to five device properties. These properties should be in lower case only. |
 | connectionType | Accepted values are `string` or `AIS`. Use `string` when connecting the device to IoT Hub manually for testing purposes. For production scenarios, use `AIS` when using the IoT Identity Service to connect the device to IoT Hub. For more information, see [understand IoT Identity Service configurations](https://azure.github.io/iot-identity-service/configuration.html). |
 | connectionData  |If connectionType = "string", add your IoT device's device or module connection string here. If connectionType = "AIS", set the connectionData to empty string (`"connectionData": ""`). |
 | manufacturer | Reported by the Device Update agent as part of the **DeviceInformation** interface. |

@@ -94,6 +94,14 @@ sections:
       - question: What does it mean when I see an IP being used to connect outbound that's different from my NAT gateway public IP?
         answer: |
           There are a few possible reasons for why you could be seeing a different IP being used to connect outbound than the one associated to your NAT gateway. To help troubleshoot, refer to the [Azure NAT Gateway connectivity troubleshooting guide](/azure/nat-gateway/troubleshoot-nat-connectivity#nat-gateway-public-ip-isnt-used-to-connect-outbound).
+
+      - question: Does NAT Gateway work with active FTP mode?
+        answer: |
+         No, NAT Gateway isn't compatible with active FTP mode. When NAT gateway is configured, the client channel and data channel for active FTP mode will use different IPs, so the FTP server will see the connection as invalid. For more information, see the NAT Gateway connectivity troubleshooting guide on [connection failures for FTP active or passive mode](/azure/nat-gateway/troubleshoot-nat-connectivity#connection-failures-at-ftp-server-for-active-or-passive-mode). 
+
+      - question: Does NAT Gateway work with Passive FTP mode?
+        answer: |
+          NAT Gateway can be used with passive FTP mode, but only when one public IP address is configured to the NAT gateway. FTP passive mode doesn't work with a NAT Gateway configured with either a public IP prefix or multiple public IP addresses. When a NAT gateway with multiple public IP addresses sends traffic outbound, it randomly selects one of its public IP addresses for the source IP address. FTP passive mode fails when data and control channels use different source IP addresses. For more information, see the NAT Gateway connectivity troubleshooting guide on [connection failures for FTP active or passive mode](/azure/nat-gateway/troubleshoot-nat-connectivity#connection-failures-at-ftp-server-for-active-or-passive-mode).
           
   - name: Traffic routes
     questions:

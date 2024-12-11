@@ -12,6 +12,9 @@ ms.author: mosagie
 
 # Create and authorize a spacecraft resource
 
+> [!NOTE]
+> [Azure Orbital Ground Station is retiring on December 18th, 2024](https://azure.microsoft.com/updates?id=Azure-Orbital-Ground-Station-Retirement) and has stopped issuing new authorizations.
+
 To contact a satellite, it must be registered and authorized as a spacecraft resource with Azure Orbital Ground Station.
 
 ## Prerequisites

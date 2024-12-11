@@ -187,7 +187,7 @@ Integration platforms offer ways to solve problems in a consistent and unified m
 
 - .NET Framework assemblies
 
-  You can share these assemblies across BizTalk Server projects. These assemblies are easier to manage from a dependency perspective. Provided that no breaking changes exist, an update to a .NET Fx assembly requires updating the DLL in the Global Assembly Cache (GAC), which automatically makes the changes available to other assemblies. If breaking changes exist, you must also update the dependent project to accommodate the changes in the .NET Franework assembly.
+  You can share these assemblies across BizTalk Server projects. These assemblies are easier to manage from a dependency perspective. Provided that no breaking changes exist, an update to a .NET Fx assembly requires updating the DLL in the Global Assembly Cache (GAC), which automatically makes the changes available to other assemblies. If breaking changes exist, you must also update the dependent project to accommodate the changes in the .NET Framework assembly.
 
 - Custom pipelines and pipeline components
 
@@ -281,7 +281,7 @@ Web services support is a popular capability in BizTalk Server and is available 
 
 WCF adapters support [Single Sign On (SSO)](/biztalk/core/single-sign-on-support-for-the-wcf-adapters) through impersonation and acquire the Enterprise SSO ticket for using SSO with WCF adapters. This capability enables the user context to flow across systems. From an authentication perspective, [Service Authentication](/biztalk/core/what-are-the-wcf-adapters#service-authentication-types) supports the following types: None, Windows, and Certificate. [Client Authentication](/biztalk/core/what-are-the-wcf-adapters#client-authentication-types) supports the following types: Anonymous, UserName, Windows, and Certificate. Supported [security modes](/biztalk/core/what-are-the-wcf-adapters#security-modes) include the following types: Transport, Message, and Mixed.
 
-WCF supports transactions using the [WS-AutomicTransaction protocol](/biztalk/core/what-are-the-wcf-adapters#ws-atomictransaction), which you can find in WCF adapters such as WCF-WsHttp, WCF-NetTcp, and WCF-NetMsmq. This capability is supported in the following scenarios:
+WCF supports transactions using the [WS-AtomicTransaction protocol](/biztalk/core/what-are-the-wcf-adapters#ws-atomictransaction), which you can find in WCF adapters such as WCF-WsHttp, WCF-NetTcp, and WCF-NetMsmq. This capability is supported in the following scenarios:
 
 - Transactional submission of messages to the MessageBox database
 - Transactional transmission of messages from the MessageBox to a transactional destination
@@ -422,7 +422,7 @@ Beyond the core XML transformations, BizTalk Server also provides encoding and d
 
 - Azure Functions
 
-  You can execute XSLT or Liquid template transformations by using C# or any other programing language to create an Azure function that you can call with Azure API Management or Azure Logic Apps.
+  You can execute XSLT or Liquid template transformations by using C# or any other programming language to create an Azure function that you can call with Azure API Management or Azure Logic Apps.
 
 ### Network connectivity
 

@@ -124,8 +124,10 @@ This article describes which capabilities Azure Communication Services SDKs supp
 |                   | Apply [Watermark](/microsoftteams/watermark-meeting-content-video) over received video and screen sharing           | ❌ |
 | Recording & transcription | Manage Teams cloud recording                                                                                | ❌[6] |
 |                   | Receive information of call being cloud recorded                                                                    | ✔️ |
+|                   | Give explicit consent to Teams cloud recording                                                                      | ✔️ |
 |                   | Manage Teams transcription                                                                                          | ❌[6] |
 |                   | Receive information of call being transcribed                                                                       |   ✔️      |
+|                   | Give explicit consent to Teams transcription                                                                        | ✔️ |
 |                   | Manage Teams closed captions                                                                                        | ✔️ |
 |                   | Support for compliance recording                                                                                    |   ✔️      |
 |                   | [Azure Communication Services recording](../../voice-video-calling/call-recording.md)                               |   ❌      |
