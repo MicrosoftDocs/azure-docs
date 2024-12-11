@@ -41,7 +41,6 @@ Microsoft Sentinel also offers solutions for the following SAP environment confi
 
 ## Threat detection coverage
 
-<!--is this true for agentless?-->
 The Microsoft Sentinel solution for SAP applications supports threat detections such as the following, and more:
 
 - **Suspicious privileges operations**, such as privileged user creation or usage of break-glass users
@@ -61,9 +60,7 @@ Investigate SAP incidents just as you would any other incidents in Microsoft Sen
 
 ## Certification
 
-<!--is this true for agentless?-->
-
-Microsoft Sentinel solution for SAP applications is certified for SAP S/4HANA Cloud, Private Edition RISE with SAP, and SAP S/4 on-premises.
+The Microsoft Sentinel **SAP applications** solution is certified for SAP S/4HANA Cloud, Private Edition RISE with SAP, and SAP S/4 on-premises.
 
 - The integration scenarios include S/4-BC-XAL 1.0/S/4 EXTERNAL ALERT AND MONITORING 1.0 (for S/4).
 - Our certification includes S/4 and SAP Rise S/4 HANA Cloud Private Edition running in any cloud and on-premises.
@@ -73,8 +70,7 @@ For more information, see the certification on the [SAP Certified Solutions Dire
 
 ## Solution pricing
 
-<!--is this true for agentless?-->
-While the Microsoft Sentinel for SAP solutions are free to install, there's an extra hourly charge for activating and using the solution on production systems.
+While the Microsoft Sentinel **SAP applications** solution is free to install, there's an extra hourly charge for activating and using the solution on production systems.
 
 - The extra hourly charge applies to connected, active  production systems only. Inactive systems aren't subject to charges. If a system's status is unknown to Microsoft Sentinel, such as because of permission issues, it's counted as a production system.
 - Microsoft Sentinel identifies a production system by looking at the configuration on the SAP system. 

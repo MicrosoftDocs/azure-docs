@@ -26,7 +26,7 @@ Reviewing and ensuring that you have or understand all the prerequisites is the 
 Content in this article is relevant for your **security**, **infrastructure**, and **SAP BASIS** teams. Select a connection type to list the prerequisites for your environment.
 
 > [!IMPORTANT]
-> Microsoft Sentinel's **Agentless solution** is in limited preview as a prereleased product, which may be substantially modified before it’s commercially released. Microsoft makes no warranties expressed or implied, with respect to the information provided here. Access to the **Agentless solution** also requires registration and is only available to approved customers and partners during the preview period. For more information, see <!--xref to blog / sign up form-->.
+> Microsoft Sentinel's **Agentless solution** is in limited preview as a prereleased product, which may be substantially modified before it’s commercially released. Microsoft makes no warranties expressed or implied, with respect to the information provided here. Access to the **Agentless solution** also requires registration and is only available to approved customers and partners during the preview period. For more information, see [Microsoft Sentinel for SAP Goes Agentless](https://community.sap.com/t5/enterprise-resource-planning-blogs-by-members/microsoft-sentinel-for-sap-goes-agentless/ba-p/13960238) (SAP blog).
 
 :::zone pivot="connection-agent"
 
@@ -78,11 +78,9 @@ Typically, Azure prerequisites are managed by your **security** teams.
 
 | Prerequisite | Description |Required/optional |
 | ---- | ----------- |----------- |
-| **Access to the limited preview** | The **Agentless solution** requires you to register, and is only available to approved customers and partners during the preview period. For more information, see <!--xref to blog / sign up form-->. ||
+| **Access to the limited preview** | The **Agentless solution** requires you to register, and is only available to approved customers and partners during the limited preview period. For more information, see [Microsoft Sentinel for SAP Goes Agentless](https://community.sap.com/t5/enterprise-resource-planning-blogs-by-members/microsoft-sentinel-for-sap-goes-agentless/ba-p/13960238) (SAP blog). |Required |
 | **Permissions to create Azure resources** | You must have: <br><br>- The necessary permissions to deploy solutions from the Microsoft Sentinel content hub. For more information, see [Prerequisites for deploying Microsoft Sentinel solutions](../sentinel-solutions-deploy.md#prerequisites) and [Microsoft Entra built-in roles](/entra/identity/role-based-access-control/permissions-reference#application-administrator). <br>Owner on the Sentinle resource group , required for:<br><br>- Creation of data collection rule and data collection endpoint.<br><br>- Monitoring Metrics Publisher role assignment on data collection rule. |Required |
 | **Permissions in** **Microsoft Entra**|You must have permissions in Microsoft Entra ID required to create app registrations. This permission can be obtained through membership of built-in Microsoft Entra ID role:<br><br>- Application Developer.|Required |
-
-<!--do we need workspace id and primary key?-->
 
 ## SAP prerequisites for the agentless data connector
 
@@ -91,10 +89,7 @@ We recommend that your **SAP BASIS** team verify and ensure SAP system prerequis
 | Prerequisite | Description |
 | ---- | ----------- |
 | **SAP system** | Your SAP system must have: <br><br>A SAP BTP Subaccount with following services enabled:  <br>    - SAP Integration Suite <br>- SAP Process Integration Runtime <br>- Cloud Foundry Runtime<br>    For more information, see the [SAP documentation](https://help.sap.com/docs/sap-hana-spatial-services/onboarding/creating-subaccount-on-sap-business-technology-platform-sap-btp ). [Trial accounts](https://developers.sap.com/tutorials/hcp-create-trial-account.html) are supported.<br><br>The [SAP Cloud Connector](https://help.sap.com/docs/connectivity/sap-btp-connectivity-cf/installation?locale=en-US) deployed <br><br>SAP NetWeaver version 7.5 or higher|
-| **SAP roles and permissions** | You must have the following roles in your SAP systems: <br><br>**In SAP NetWeaver 7.5+**: SAP Netweaver Administrator <br><br>**In SAP BTP**:<br>- Subaccount administrator <br>- Integration Provisioner <br>- PI_Administrator <br>- PI_Integration_Developer <br>- PI_Business_Expert| 
-
-
-<!--should this be cloud foundry? for BTP - one of the following or all of the following?-->
+| **SAP roles and permissions** | You must have the following roles in your SAP systems: <br><br>**In SAP NetWeaver 7.5+**: SAP Netweaver Administrator <br><br>**In SAP BTP, all of the following roles**:<br>- Subaccount administrator <br>- Integration Provisioner <br>- PI_Administrator <br>- PI_Integration_Developer <br>- PI_Business_Expert| 
 
 :::zone-end
 

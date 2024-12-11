@@ -26,7 +26,7 @@ This article is part of the second step in deploying the Microsoft Sentinel solu
 The procedures in this article are typically performed by your **SAP BASIS** team. If you're using the agentless solution, you might also need to involve your **security** team.
 
 > [!IMPORTANT]
-> Microsoft Sentinel's **Agentless solution** is in limited preview as a prereleased product, which may be substantially modified before it’s commercially released. Microsoft makes no warranties expressed or implied, with respect to the information provided here. Access to the **Agentless solution** also requires registration and is only available to approved customers and partners during the preview period. For more information, see <!--xref to blog / sign up form-->.
+> Microsoft Sentinel's **Agentless solution** is in limited preview as a prereleased product, which may be substantially modified before it’s commercially released. Microsoft makes no warranties expressed or implied, with respect to the information provided here. Access to the **Agentless solution** also requires registration and is only available to approved customers and partners during the preview period. For more information, see [Microsoft Sentinel for SAP Goes Agentless](https://community.sap.com/t5/enterprise-resource-planning-blogs-by-members/microsoft-sentinel-for-sap-goes-agentless/ba-p/13960238) (SAP blog).
 
 ## Prerequisites
 
@@ -34,7 +34,7 @@ The procedures in this article are typically performed by your **SAP BASIS** tea
 
 ## Configure the Microsoft Sentinel role
 
-To allow the SAP data connector to connect to your SAP system, you must create an SAP system role specifically for this purpose. <!--does agentless support attack disrupt? if not, we need to go directly to the connector role only.-->
+To allow the SAP data connector to connect to your SAP system, you must create an SAP system role specifically for this purpose.
 
 :::zone pivot="connection-agent"
 
@@ -87,11 +87,23 @@ We recommend that you configure auditing for *all* messages from the audit log, 
 
 For more information, see the [SAP community](https://community.sap.com/t5/application-development-blog-posts/analysis-and-recommended-settings-of-the-security-audit-log-sm19-rsau/ba-p/13297094) and [Collect SAP HANA audit logs in Microsoft Sentinel](collect-sap-hana-audit-logs.md).
 
+## Configure your system to use SNC for secure connections
+
+
+By default, the SAP data connector agent connects to an SAP server using a remote function call (RFC) connection and a username and password for authentication.
+
+However, you might need to make the connection on an encrypted channel or use client certificates for authentication. In these cases, use Smart Network Communications (SNC) from SAP to secure your data connections, as described in this section.
+
+In a production environment, we strongly recommend that your consult with SAP administrators to create a deployment plan for configuring SNC. For more information, see the [SAP documentation](https://help.sap.com/docs/ABAP_PLATFORM_NEW/e73bba71770e4c0ca5fb2a3c17e8e229/e656f466e99a11d1a5b00000e835363f.html). 
+
+When configuring SNC:
+
+- If the client certificate was issued by an enterprise certification authority, transfer the issuing CA and root CA certificates to the system where you plan to create the data connector agent.
+- If you're using the data connector agent, make sure to also enter the relevant values and use the relevant procedures when [configuring the SAP data connector agent container](deploy-data-connector-agent-container.md). If you're using the agentless solution, the SNC configuration is done in the SAP Cloud Connector.
+
 :::zone pivot="connection-agent"
 
 ## Configure support for extra data retrieval (recommended)
-
-<!--is this relevant for agentless?-->
 
 While this step is optional, we recommend that you enable the SAP data connector to retrieve the following content information from your SAP system:
 
@@ -114,8 +126,6 @@ While this step is optional, we recommend that you enable the SAP data connector
 
 ## Verify that the PAHI table is updated at regular intervals
 
-<!--is this relevant for agentless?-->
-
 The SAP PAHI table includes data on the history of the SAP system, the database, and SAP parameters. In some cases, the Microsoft Sentinel solution for SAP applications can't monitor the SAP PAHI table at regular intervals, due to missing or faulty configuration. It's important to update the PAHI table and to monitor it frequently, so that the Microsoft Sentinel solution for SAP applications can alert on suspicious actions that might happen at any time throughout the day. For more information, see:
 
 - [SAP note 12103](https://launchpad.support.sap.com/#/notes/12103)
@@ -124,21 +134,6 @@ The SAP PAHI table includes data on the history of the SAP system, the database,
 If the PAHI table is updated regularly, the `SAP_COLLECTOR_FOR_PERFMONITOR` job is scheduled and runs hourly. If the `SAP_COLLECTOR_FOR_PERFMONITOR` job doesn't exist, make sure to configure it as needed. 
 
 For more information, see [Database Collector in Background Processing](https://help.sap.com/doc/saphelp_nw75/7.5.5/c4/3a735b505211d189550000e829fbbd/frameset.htm) and [Configuring the Data Collector](https://help.sap.com/docs/SAP_NETWEAVER_AS_ABAP_752/3364beced9d145a5ad185c89a1e04658/c43a818c505211d189550000e829fbbd.html).
-
-## Configure your system to use SNC for secure connections
-
-<!--is this relevant for agentless?-->
-
-By default, the SAP data connector agent connects to an SAP server using a remote function call (RFC) connection and a username and password for authentication.
-
-However, you might need to make the connection on an encrypted channel or use client certificates for authentication. In these cases, use Smart Network Communications (SNC) from SAP to secure your data connections, as described in this section.
-
-In a production environment, we strongly recommend that your consult with SAP administrators to create a deployment plan for configuring SNC. For more information, see the [SAP documentation](https://help.sap.com/docs/ABAP_PLATFORM_NEW/e73bba71770e4c0ca5fb2a3c17e8e229/e656f466e99a11d1a5b00000e835363f.html). 
-
-When configuring SNC:
-
-- If the client certificate was issued by an enterprise certification authority, transfer the issuing CA and root CA certificates to the system where you plan to create the data connector agent.
-- Make sure to also enter the relevant values and use the relevant procedures when [configuring the SAP data connector agent container](deploy-data-connector-agent-container.md).
 
 :::zone-end
 

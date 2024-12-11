@@ -27,7 +27,7 @@ Microsoft Sentinel supports both a containerized data collector agent and an age
 Content in this article is relevant for your **security** team.
 
 > [!IMPORTANT]
-> Microsoft Sentinel's **Agentless solution** is in limited preview as a prereleased product, which may be substantially modified before it’s commercially released. Microsoft makes no warranties expressed or implied, with respect to the information provided here. Access to the **Agentless solution** also requires registration and is only available to approved customers and partners during the preview period. For more information, see <!--xref to blog / sign up form-->.
+> Microsoft Sentinel's **Agentless solution** is in limited preview as a prereleased product, which may be substantially modified before it’s commercially released. Microsoft makes no warranties expressed or implied, with respect to the information provided here. Access to the **Agentless solution** also requires registration and is only available to approved customers and partners during the preview period. For more information, see [Microsoft Sentinel for SAP Goes Agentless](https://community.sap.com/t5/enterprise-resource-planning-blogs-by-members/microsoft-sentinel-for-sap-goes-agentless/ba-p/13960238) (SAP blog).
 
 ## Prerequisites
 
@@ -72,9 +72,7 @@ Installing the Microsoft Sentinel **SAP applications** solution makes the **Micr
 
 Installing the Microsoft Sentinel **SAP Agentless** solution makes the agentless **Microsoft Sentinel for SAP** available for you in as a Microsoft Sentinel data connector. The solution also deploys security content, such as the **SAP -Audit Controls** workbook and SAP-related analytics rules, a data collection endpoint, and a data collection rule (DCR).
 
-Access to the **SAP Agentless** solution is provided together with your acceptance to the limited preview program. For more information, see <!--xref to blog--> and [Azure prerequisites (1)](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#azure-prerequisites-1).
-
-also requires registration and is only available to approved customers and partners during the preview period. For more information, see <!--xref to blog / sign up form-->.
+Access to the **SAP Agentless** solution is provided together with your acceptance to the limited preview program. For more information, see [Microsoft Sentinel for SAP Goes Agentless](https://community.sap.com/t5/enterprise-resource-planning-blogs-by-members/microsoft-sentinel-for-sap-goes-agentless/ba-p/13960238) (SAP blog) and [Azure prerequisites](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#azure-prerequisites).
 
 1. In the Microsoft Sentinel **Content hub**, search for **SAP Agentless (Preview)** to install the solution with the agentless data connector on your Log Analytics workspace enabled for Microsoft Sentinel.
 
@@ -90,7 +88,7 @@ also requires registration and is only available to approved customers and partn
 
 1. In the Microsoft Sentinel **Configuration > Data connectors** page, locate and select the **SAP ABAP and S/4 via cloud connector (Preview)** data connector.
 
-1. On the **SAP ABAP and S/4 via cloud connector (Preview)** page,  in the **Configuration** area, select **Deploy push connector resources** to deploy a data collection rule (DCR) and Microsoft Entra ID app registration to your subscription. <!--the UI here doesn't mention an Entra ID app registration. Should it?-->
+1. On the **SAP ABAP and S/4 via cloud connector (Preview)** page,  in the **Configuration** area, select **Deploy push connector resources** to deploy a data collection rule (DCR) and Microsoft Entra ID app registration to your subscription.
 
 1. <a name="deployment"></a>Once deployed, note the following values for later use:
 
@@ -100,7 +98,9 @@ also requires registration and is only available to approved customers and partn
     - **Entra Application ID**
     - **Entra Application Secret**
 
-1. Complete all SAP deployment steps before clicking on 'Add connection' to create the connector. The iflow must be fully configured and deployed as per the steps outlined [here](). <!--not sure what this means?-->
+> [!IMPORTANT]
+> Make sure to complete all SAP deployment steps in [Configure your SAP system for the Microsoft Sentinel solution](preparing-sap.md) before selecting [**Add connection** to create the connector](deploy-data-connector-agent-container.md). The SAP iflow must be fully configured and deployed before you can connect your SAP system to Microsoft Sentinel.
+>
 
 :::zone-end
 
