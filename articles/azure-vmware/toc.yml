@@ -389,7 +389,7 @@ items:
     href: https://aka.ms/avssla
   - name: Azure VMware Solution roadmap
     href: https://aka.ms/avsroadmap
-  - name: Troubleshooting
+  - name: Troubleshoot
     items:
     - name: Open a support request for deployment failures
       href: fix-deployment-failures.md
