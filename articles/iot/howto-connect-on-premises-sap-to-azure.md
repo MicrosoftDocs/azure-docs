@@ -7,7 +7,7 @@ ms.service: azure-iot
 ms.topic: how-to #Don't change.
 ms.date: 4/14/2024
 
-#customer intent: As an ower of on-prem SAP systems, I want connect them to Azure so that I can add data from these SAP systems to my cloud analytics.
+#customer intent: As an owner of on-prem SAP systems, I want connect them to Azure so that I can add data from these SAP systems to my cloud analytics.
 
 ---
 
