@@ -244,7 +244,7 @@ Make sure the virtual network gateway has been successfully deployed before depl
 
     :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/vm-security-rules.png" alt-text="Screenshot of test VM's network security rules.":::
 
-1. Select the network interface name and select **Effective routes** under **Help** to verify the routes for the virtual network peerings.The `10.2.0.0/16` route with the **Next Hop Type** of `VNet peering` is the route to the hub virtual network.
+1. Select the network interface name and select **Effective routes** under **Help** to verify the routes for the virtual network peerings. The `10.2.0.0/16` route with the **Next Hop Type** of `VNet peering` is the route to the hub virtual network.
 
 ## Clean up resources
 
