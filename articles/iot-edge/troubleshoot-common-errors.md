@@ -380,7 +380,7 @@ To configure the *MessageCleanupIntervalSecs* value, set the environment variabl
 
 #### Symptoms
 
-When routing messages from an IoT Edge device to an IoT Hub using the AMQP protocol, the IoT Edge Hub reports a `System.FormatException` error. The error message is similar to the following:
+When routing messages from an IoT Edge device to an IoT Hub using the AMQP protocol and you set the [`iothub-creation-time-utc` property on outgoing device messages](../iot-hub/iot-hub-devguide-messages-construct.md#application-properties-of-device-to-cloud-messages), the IoT Edge Hub reports a `System.FormatException` error. The error message is similar to the following:
 
 ```log
 System.FormatException: String '2024-12-01T00:00:0.000Z' was not recognized as a valid DateTime.
@@ -388,7 +388,7 @@ System.FormatException: String '2024-12-01T00:00:0.000Z' was not recognized as a
 
 #### Cause
 
-The data format isn't handled correctly for AMQP messages.
+The `iot-hub-creation-time-utc` value doesn't meet strict format criteria. The format Edge Hub requires is a subset of ISO 8601.
 
 #### Solution
 
