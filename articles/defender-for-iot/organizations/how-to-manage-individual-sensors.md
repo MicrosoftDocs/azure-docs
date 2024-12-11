@@ -218,7 +218,7 @@ You'd configured your OT sensor network configuring during [installation](ot-dep
 
 ### Turn off learning mode manually
 <!-- Limor should most of this intro be moved to create-learned-baseline.md? that is a 'concept' page about learning mode-->
-An OT network sensor starts monitoring your network automatically as soon as it's connected to your network and you've [signed in](ot-deploy/activate-deploy-sensor.md#sign-in-to-the-sensor-console-and-change-the-default-password). Network devices start appearing in your [device inventory](device-inventory.md), and [alerts](alerts.md) are triggered for any security or operational incidents that occur in your network.
+An OT network sensor starts monitoring your network automatically as soon as it connects to your network and you [sign in](ot-deploy/activate-deploy-sensor.md#sign-in-to-the-sensor-console-and-change-the-default-password). Network devices start appearing in your [device inventory](device-inventory.md), and [alerts](alerts.md) are triggered for any security or operational incidents that occur in your network.
 
 There are three stages to the monitoring process. For more information, see [overview of the multi stage monitoring process](ot-deploy/create-learned-baseline.md).
 
@@ -234,11 +234,11 @@ Two to six weeks after deploying your sensor the detection levels should accurat
 
 1. Sign into your OT network sensor and select **System settings > Network monitoring > Detection engines and network modeling**.
 
-1. In **Network modelling**, toggle off **Learning**.
+1. In **Network modeling**, toggle off **Learning**.
 
 1. Select **OK** in the confirmation message, and then select **Close** to save your changes.
 
-Once learning mode has been turned off, the sensor starts to generate **Policy Violation** alerts and this setting is now available by selecting **Support** in the side menu. We recommend leaving the mode settings for each alert to automatically update from dynamic to operational. However, for testing or other reasons, you could manually change the mode setting. This is not recommended as it can produce a large number of alerts.<!-- keep or remove last sentence?-->
+Once learning mode is turned off, the sensor starts to generate **Policy Violation** alerts and this setting is now available by selecting **Support** in the side menu. We recommend leaving the mode settings for each alert to automatically update from dynamic to operational. For testing or other reasons, you could manually change the mode setting, however, this isn't recommended as it can produce a large number of alerts.
 
 **Manually change a Policy Violations setting**:
 
@@ -250,7 +250,7 @@ Once learning mode has been turned off, the sensor starts to generate **Policy V
 
 ## Update a sensor's monitoring interfaces (configure ERSPAN)
 
-You may want to change the interfaces used by your sensor to monitor traffic. You originally configured these details as part of your [initial sensor setup](ot-deploy/activate-deploy-sensor.md#define-the-interfaces-you-want-to-monitor), but may need to modify the settings as part of system maintenance, such as configuring ERSPAN monitoring.
+You might want to change the interfaces used by your sensor to monitor traffic. You originally configured these details as part of your [initial sensor setup](ot-deploy/activate-deploy-sensor.md#define-the-interfaces-you-want-to-monitor), but might need to modify the settings as part of system maintenance, such as configuring ERSPAN monitoring.
 
 For more information, see [ERSPAN ports](best-practices/traffic-mirroring-methods.md#erspan-ports).
 
@@ -265,7 +265,7 @@ For more information, see [ERSPAN ports](best-practices/traffic-mirroring-method
 
     - Select the **Enable/Disable** toggle for any interfaces you want the sensor to monitor. You must have at least one interface enabled for each sensor.
 
-        If you're not sure about which interface to use, select the :::image type="icon" source="media/install-software-ot-sensor/blink-interface.png" border="false"::: **Blink physical interface LED** button to have the selected port blink on your machine. 
+        If you're not sure about which interface to use, select the :::image type="icon" source="media/install-software-ot-sensor/blink-interface.png" border="false"::: **Blink physical interface LED** button to have the selected port blink on your machine.
 
         > [!TIP]
         > We recommend that you optimize performance on your sensor by configuring your settings to monitor only the interfaces that are actively in use. 
@@ -283,7 +283,6 @@ For more information, see [ERSPAN ports](best-practices/traffic-mirroring-method
     :::image type="content" source="media/how-to-manage-individual-sensors/configure-erspan.png" alt-text="Screenshot of how to configure ERSPAN on the Interface configurations page.":::
 
 1. Select **Save** to save your changes. Your sensor software restarts to implement your changes.
-
 
 ## Synchronize time zones on an OT sensor
 
