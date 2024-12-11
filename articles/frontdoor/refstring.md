@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting 4xx and 5xx erorrs using RefString 
+title: Troubleshooting 4xx and 5xx errors using RefString 
 description: This article provides information about what a RefString is, how to collect them, and use the Azure portal diagnostic tool for troubleshooting 4xx and 5xx errors.
 author: Alej-b23 
 ms.author: pagonzalez 
