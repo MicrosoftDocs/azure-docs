@@ -41,7 +41,7 @@ With a private endpoint and Private Link, you can:
 
 > [!NOTE]
 > * Currently you can't set up a private endpoint when creating a Standard v2 instance or using the instances's **Network** blade in the Azure portal.
-> * As shown in this article, you mush create and manage private endpoint resources separately from the API Management Standard v2 instance.
+> * As shown in this article, you must create and manage private endpoint resources separately from an API Management Standard v2 instance.
  
 ## Prerequisites
 
