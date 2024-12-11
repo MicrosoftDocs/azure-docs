@@ -20,6 +20,8 @@ This quickstart guide demonstrates how to
 > * **subscribe** to messages from an application server
 > * **push data** from an application server to **all** connected clients
 
+[!INCLUDE [Connection string security](includes/web-pubsub-connection-string-security.md)]
+
 ## Prerequisites
 
 - A Web PubSub resource. If you haven't created one, you can follow the guidance: [Create a Web PubSub resource](./howto-develop-create-instance.md)
@@ -387,6 +389,8 @@ For this quickstart guide, we'll get it from Azure portal as shown below.
 
 #### Run the server program
 Run the following commands in a ***new*** command shell.
+
+[!INCLUDE [Connection string security comment](includes/web-pubsub-connection-string-security-comment.md)]
 
 ```bash
 # Set the environment variable for your connection string.
