@@ -35,13 +35,13 @@ To create your resource, start at the Azure portal home page.
 
 The portal displays a selection asking whether you would like to create a Datadog organization or link Azure subscription to an existing Datadog organization.
 
-:::image type="content" source="media/create-datadog-resource.png" alt-text="A screenshot of Azure portal with the Create a Datadog resource in Azure options displayed. Two tiles are available: Link Azure subscription to an existing Datadog org and Create a new Datadog org. Each of these options has a create button and a link to learn more.":::
+:::image type="content" source="media/create-datadog-resource.png" alt-text="A screenshot of Azure portal with the Create a Datadog resource in Azure options displayed.":::
 
 If you're creating a new Datadog organization, select **Create** under the **Create a new Datadog organization**
 
 The Create a Datadog resource pane opens to the *Basics* tab by default.
 
-:::image type="content" source="media/create-new-datadog-resource.png" alt-text="A screenshot of the Azure portal with the Create a new Datadog resource options displayed. The menu has multiple tabs: Basics, Metrics and logs, Security, Single sign-on, Tags, and Review + Create.":::
+:::image type="content" source="media/create-new-datadog-resource.png" alt-text="A screenshot of the Azure portal with the Create a new Datadog resource options displayed.":::
 
 ### Basics tab
 

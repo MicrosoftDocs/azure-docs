@@ -33,7 +33,7 @@ Use the following steps to set up the enterprise application:
 
 1. Select **Yes** when prompted to **Save single sign-on settings**.
 
-1. The setup of single sign-on is now complete.
+The setup of single sign-on is now complete.
 
 ## Next steps
 

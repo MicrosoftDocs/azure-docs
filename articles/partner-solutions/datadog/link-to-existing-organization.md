@@ -42,7 +42,7 @@ The portal displays the Create a Datadog resource pane.
 
 The Create a Datadog resource pane opens to the *Basics* tab by default.
 
-:::image type="content" source="media/create-new-datadog-resource.png" alt-text="A screenshot of the Azure portal with the Create a a new Datadog resource options displayed. The menu has multiple tabs: Basics, Metrics and logs, Security, Single sign-on, Tags, and Review + Create.":::
+:::image type="content" source="media/create-new-datadog-resource.png" alt-text="A screenshot of the Azure portal with the Create a new Datadog resource options displayed.":::
 
 ### Basics tab
 
@@ -131,7 +131,7 @@ If the review identifies errors, a red dot appears next each section where error
 
 Once the resource is created, select **Go to Resource** to navigate to the Datadog resource. 
 
-:::image type="content" source="media/go-to-resource.png" alt-text="A screenshot of the Overview for a newly-created Datadog resource with the Go to Resource button emphasized.":::
+:::image type="content" source="media/go-to-resource.png" alt-text="A screenshot of the Overview for a newly created Datadog resource with the Go to Resource button emphasized.":::
 
 ## Next steps
 

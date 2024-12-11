@@ -64,11 +64,11 @@ Logs for all defined sources are sent to Datadog based on the tags inclusion/exc
 
 There are three types of logs that you can send from Azure to Datadog.
 
-1. **Subscription level logs** - Provide insight into the operations on your resources at the [control plane](../../azure-resource-manager/management/control-plane-and-data-plane.md). Updates on service health events are also included. Use the activity log to determine the what, who, and when for any write operations (PUT, POST, DELETE). There's a single activity log for each Azure subscription.
+- **Subscription level logs** - Provide insight into the operations on your resources at the [control plane](../../azure-resource-manager/management/control-plane-and-data-plane.md). Updates on service health events are also included. Use the activity log to determine the what, who, and when for any write operations (PUT, POST, DELETE). There's a single activity log for each Azure subscription.
 
-1. **Azure resource logs** - Provide insight into operations that were taken on an Azure resource at the [data plane](../../azure-resource-manager/management/control-plane-and-data-plane.md). For example, getting a secret from a Key Vault is a data plane operation. Or, making a request to a database is also a data plane operation. The content of resource logs varies by the Azure service and resource type.
+- **Azure resource logs** - Provide insight into operations that were taken on an Azure resource at the [data plane](../../azure-resource-manager/management/control-plane-and-data-plane.md). For example, getting a secret from a Key Vault is a data plane operation. Or, making a request to a database is also a data plane operation. The content of resource logs varies by the Azure service and resource type.
 
-1. **Microsoft Entra logs** - As an IT administrator, you want to monitor your IT environment. The information about your system's health enables you to assess potential issues and decide how to respond.
+- **Microsoft Entra logs** - As an IT administrator, you want to monitor your IT environment. The information about your system's health enables you to assess potential issues and decide how to respond.
 
 The Microsoft Entra admin center gives you access to three activity logs:
 
