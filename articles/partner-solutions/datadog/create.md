@@ -35,13 +35,13 @@ To create your resource, start at the Azure portal home page.
 
 The portal displays a selection asking whether you would like to create a Datadog organization or link Azure subscription to an existing Datadog organization.
 
-:::image type="content" source="media/create-datadog-resource.png" alt-text="A screenshot of Azure portal with the Create a Datadog resource in Azure options displayed.  Two tiles are available: Link Azure subscription to an existing Datadog org and Create a new Datadog org. Each of these options has a create button and a link to learn more.":::
+:::image type="content" source="media/create-datadog-resource.png" alt-text="A screenshot of Azure portal with the Create a Datadog resource in Azure options displayed. Two tiles are available: Link Azure subscription to an existing Datadog org and Create a new Datadog org. Each of these options has a create button and a link to learn more.":::
 
 If you're creating a new Datadog organization, select **Create** under the **Create a new Datadog organization**
 
 The Create a Datadog resource pane opens to the *Basics* tab by default.
 
-:::image type="content" source="media/create-new-datadog-resource.png" alt-text="A screenshot of the Azure portal with the Create a a new Datadog resource options displayed. The menu has multiple tabs: Basics, Metrics and logs, Security, Single sign-on, Tags, and Review + Create.":::
+:::image type="content" source="media/create-new-datadog-resource.png" alt-text="A screenshot of the Azure portal with the Create a new Datadog resource options displayed. The menu has multiple tabs: Basics, Metrics and logs, Security, Single sign-on, Tags, and Review + Create.":::
 
 ### Basics tab
 
@@ -90,17 +90,17 @@ Learn more-->
 > [!NOTE]
 > If there's a conflict between inclusion and exclusion rules, exclusion takes priority.
 
-Metrics are collected for all resources, except virtual machines, Virtual Machine Scale Sets, and App Service plans which can be filtered by tags.
+Metrics are collected for all resources, except virtual machines. You can filter Virtual Machine Scale Sets, and App Service plans by tags.
 
 - Virtual machines, Virtual Machine Scale Sets, and App Service plan with _Include_ tags send metrics to Datadog.
 - Virtual machines, Virtual Machine Scale Sets, and App Service plan with _Exclude_ tags don't send metrics to Datadog.
 
-Logs for all defined sources will be sent to Datadog based on the tags inclusion/exclusion criteria. By default, logs are collected for all resources.
+Logs for all defined sources are sent to Datadog based on the tags inclusion/exclusion criteria. By default, logs are collected for all resources.
 
 - Azure resources with _Include_ tags send logs to Datadog. 
 - Azure resources with _Exclude_ tags don't send logs to Datadog.
 
-There are three types of logs that can be sent from Azure to Datadog.
+There are three types of logs that you can send from Azure to Datadog.
 
 1. **Subscription level logs** - Provide insight into the operations on your resources at the [control plane](../../azure-resource-manager/management/control-plane-and-data-plane.md). Updates on service health events are also included. Use the activity log to determine the what, who, and when for any write operations (PUT, POST, DELETE). There's a single activity log for each Azure subscription.
 
@@ -158,7 +158,7 @@ If the review identifies errors, a red dot appears next each section where error
 
 Once the resource is created, select **Go to Resource** to navigate to the Datadog resource. 
 
-:::image type="content" source="media/go-to-resource.png" alt-text="A screenshot of the Overview for a newly-created Datadog resource with the Go to Resource button emphasized.":::
+:::image type="content" source="media/go-to-resource.png" alt-text="A screenshot of the Overview for a newly created Datadog resource with the Go to Resource button emphasized.":::
 
 ## Next steps
 
