@@ -28,7 +28,7 @@ Azure Cosmos DB offers:
 
 **Individual node outage resiliency.** Azure Cosmos DB automatically mitigates [replica](/azure/cosmos-db/distribute-data-globally) outages by guaranteeing at least three replicas of your data in each Azure region for your account within a four-replica quorum. This guarantee results in an RTO of 0 and an RPO of 0 for individual node outages, without requiring application changes or configurations. 
 
-**Zone outage resiliency.** When you deploy an Azure Cosmos DB account by using [availability zones](availability-zones-overview.md), Azure Cosmos DB provides an RTO of 0 and an RPO of 0, even in a zone outage. For information on RTO, see [Recovery objectives](./disaster-recovery-overview.md#recovery-objectives). 
+**Zone outage resiliency.** When you deploy an Azure Cosmos DB account by using [availability zones](availability-zones-overview.md), Azure Cosmos DB provides an RTO of 0 and an RPO of 0, even in a zone outage. For information on RTO, see [Recovery objectives](./concept-disaster-recovery.md#recovery-objectives). 
 
 With availability zones enabled, Azure Cosmos DB for NoSQL supports a *zone-redundant* configuration.
 

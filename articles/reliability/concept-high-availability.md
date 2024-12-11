@@ -16,7 +16,7 @@ High availability (HA) is defined by your entire workload's ability to maintain 
 
 Because HA can vary with each workload, it's important to understand the requirements and customer expectations when determining high availability. For example, a web application might require 99.7000% uptime, while a critical financial application might require 99.9999% uptime. It is also important to understand that HA is not measured by the uptime of a single node, but by the overall availability of the entire workload. 
 
-When defining high availability, a workload architect typically defines a service level objective (SLO) that describes the percentage of time the workload should be available to users. The SLO is typically defined in terms of the number of nines, such as 99.9% availability (three nines) or 99.999% availability (five nines). For more detailed information on how to define and measure high availability, see [Recommendations for defining reliability targets](azure/well-architected/reliability/metrics).
+When defining high availability, a workload architect typically defines a service level objective (SLO) that describes the percentage of time the workload should be available to users. The SLO is typically defined in terms of the number of nines, such as 99.9% availability (three nines) or 99.999% availability (five nines). For more detailed information on how to define and measure high availability, see [Recommendations for defining reliability targets](/azure/well-architected/reliability/metrics).
 
 To achieve high availability, a workload may use include the following design elements:
 

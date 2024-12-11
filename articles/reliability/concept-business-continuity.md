@@ -108,7 +108,7 @@ There are multiple ways you can group controls, including:
 
 - **Automated or manual.** Controls might be fully automated, such as self-healing or automated failover. Other controls might require manual intervention, such as restoring from backup or making an explicit decision to fail over to another instance of the solution.
 
-When you're considering which controls to apply, understand whether they require or assume downtime or data loss. For example, reactive manual controls typically require a human to be notified and then to respond, which takes time. If your solution requires high uptime, you need to control many of the risks by using automated technical controls. To learn more, see [What is high availability?](./high-availability-overview.md).
+When you're considering which controls to apply, understand whether they require or assume downtime or data loss. For example, reactive manual controls typically require a human to be notified and then to respond, which takes time. If your solution requires high uptime, you need to control many of the risks by using automated technical controls. To learn more, see [What is high availability?](./concept-high-availability.md).
 
 For some risks, you might decide to continue to operate your solution in a *degraded state*. When your solution operates in a degraded state, some components might be disabled or non-functional, but core business operations can continue to be performed. To learn more, see [Recommendations for self-healing and self-preservation](/azure/well-architected/reliability/self-preservation).
 
@@ -117,4 +117,4 @@ For some risks, you might decide to continue to operate your solution in a *degr
 
 ## Next steps
 
-For more information about how to control different levels of risk, see [What is high availability?](./high-availability-overview.md) and [What is disaster recovery?](./disaster-recovery-overview.md).
+For more information about how to control different levels of risk, see [What is high availability?](./concept-high-availability.md) and [What is disaster recovery?](./concept-disaster-recovery.md).

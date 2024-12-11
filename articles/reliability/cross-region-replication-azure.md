@@ -22,7 +22,7 @@ Some Azure services support cross-region replication to ensure business continui
 
 ## Shared responsibility
 
-Not all Azure services automatically replicate data or automatically fall back from a failed region to cross-replicate to another enabled region. In these scenarios, you are responsible for recovery and replication. These examples are illustrations of the *shared responsibility model*. It's a fundamental pillar in your disaster recovery strategy. For more information about the shared responsibility model and to learn about business continuity and disaster recovery in Azure, see [Business continuity management in Azure](business-continuity-management-program.md).
+Not all Azure services automatically replicate data or automatically fall back from a failed region to cross-replicate to another enabled region. In these scenarios, you are responsible for recovery and replication. These examples are illustrations of the *shared responsibility model*. It's a fundamental pillar in your disaster recovery strategy. For more information about the shared responsibility model and to learn about business continuity and disaster recovery in Azure, see [Business continuity management in Azure](concept-business-continuity.md).
 
 Shared responsibility becomes the crux of your strategic decision-making when it comes to disaster recovery. Azure doesn't require you to use cross-region replication, and you can use services to build resiliency without cross-replicating to another enabled region. But we strongly recommend that you configure your essential services across regions to benefit from [isolation](../security/fundamentals/isolation-choices.md) and improve [availability](availability-zones-overview.md). 
 
@@ -123,5 +123,4 @@ The table below lists Azure regions without a region pair:
 - [Azure regions with availability zones](availability-zones-region-support.md)
 - [Disaster recovery guidance by service](disaster-recovery-guidance-overview.md)
 - [Reliability guidance](./reliability-guidance-overview.md)
-- [Business continuity management program in Azure](./business-continuity-management-program.md)
 

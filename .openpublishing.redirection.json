@@ -4049,6 +4049,16 @@
       "source_path_from_root": "/articles/load-balancer/move-across-regions-internal-load-balancer-powershell.md",
       "redirect_url": "/azure/load-balancer/move-across-regions-azure-load-balancer",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/reliability/business-continuity-management-program.md",
+      "redirect_url": "/azure/reliability/concept-business-continuity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/reliability/disaster-recovery-overview.md",
+      "redirect_url": "/azure/reliability/concept-disaster-recovery",
+      "redirect_document_id": false
     }
   ]
 }

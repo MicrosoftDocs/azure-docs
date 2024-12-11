@@ -45,10 +45,12 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: What is disaster recovery?
-            url: disaster-recovery-overview.md
-          - text: Business continuity management program
-            url: business-continuity-management-program.md
+          - text: Business continuity
+            url: concept-business-continuity.md
+          - text: High availability
+            url: concept-high-availability.md
+          - text: Disaster recovery
+            url: concept-disaster-recovery.md
           - text: Cross-region replication
             url: cross-region-replication-azure.md
           - text: Cross-region replication for non-paired regions
