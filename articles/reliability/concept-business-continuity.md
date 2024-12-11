@@ -12,74 +12,137 @@ ms.subservice: azure-reliability
 
 # What is business continuity?
 
-Business continuity, as its name implies, is about how your business can continue to remain operational - even in the face of problems or disasters. Business continuity planning involves identifying and managing risks that might impede your operations, ensuring that you can continue operating during adverse events. It's also about a lot more than just the cloud platform you run on: it involves a combination of people, process, and technology working together.
+*Business continuity* is the state in which your business is able to continue to remain operational, even during a disaster or outage. 
 
-This article provides a high-level summary of business continuity planing and risk management as it pertains to reliability in the cloud. For more detailed guidance, refer to the [Azure Well-Architected Framework](/azure/well-architected/).
+Planning for business continuity is fundamentally about identifying, understanding, classifying, and managing risks. For successful *business continuity planning* you must:
+
+- **Identify the possible risks to business continuity** such as network issue, hardware failures, or a region outage. When identifying risks, its important to determine whether the risk is a day-to-day risk (High Availability) or a catastrophic risk (Disaster Recovery).
+
+- **Create strategies to manage the identified risks** such as using redundancy, backups, or failover.
+
+Business continuity planning doesn't only take into consideration the resiliency features of the cloud platform itself, or even the features of your application. Business continuity is achieved by incorporating all aspects of support in your business such as people, business-related manual or automated processes.
+
+
+This article provides a high-level summary of business continuity planing and risk management as it pertains to reliability in the cloud, covering both high availability and disaster recovery risks. For detailed guidance on how to architect for business continuity , go to [Azure Well-Architected Framework](/azure/well-architected/).
 
 > [!NOTE]
 > Some workloads are *mission-critical*, which means any failures can have severe consequences. If you're designing a mission-critical workload, there are specific things you need to think about when you design your solution and manage your business continuity. For more information, see the [Azure Well-Architected Framework: Mission-critical workloads](/azure/well-architected/mission-critical/mission-critical-overview).
 
-## Risk management
 
-Planning for business continuity is fundamentally about identifying, understanding, classifying, and managing risks.
+## High availability 
 
-Some risks are commonplace, planned, and expected. They should be well controlled. Typically these risks fall into the realm of *high availability* (HA), which is about how you maintain operations on a day-to-day basis even with intermittent failures or *blips*. For example, in a cloud environment it's common for there to be server crashes, brief network outages, equipment restarts due to patches, and so forth. Because these events happen regularly, you need to be resilient to them. There are a range of approaches you can use to achieve that resiliency.
+High availability (HA) is the state in which a specific workload can maintain uptime on a day-to-day basis, even during transient faults and intermittent failures. For example, in a cloud environment it's common for there to be server crashes, brief network outages, equipment restarts due to patches, and so on. Because these events happen regularly, it's important that each workload is designed and configured for high availability in accordance with the requirements of the specific application and customer expectations.  The HA of each workload contributes to your business continuity plan.
 
-In contrast, other risks are unusual and might happen as a result of catastrophic and unforeseeable events. These events are often called *disasters*, and your ability to manage these events and their associated risks and effects is called *disaster recovery* (DR). It's common to have different processes in place for dealing with disasters compared to day-to-day events, and to have different expectations for how long it takes to recover and what effects you might experience.
+Because HA can vary with each workload, it's important to understand the requirements and customer expectations when determining high availability. For example, an application that's used within your organization might require a relatively low level uptime, while a critical financial application might require a much higher uptime. The higher the uptime, the more work you have to do to reach that level of availability. 
 
-HA and DR are tightly interrelated, and you should consider and plan strategies for both of them together. It's also common to have some risks that might not fit neatly into either category, and that might require negotiation or discussion.
+When defining high availability, a workload architect defines:
 
-It's important that business continuity planning is conducted with a range of stakeholders, with representation from technical and business stakeholders and leadership. Everyone needs to understand that the process involves making explicit decisions about how to respond to different risks, and that each decision has tradeoffs. It also requires looking broadly at your business to understand how a specific workload or application fits into the wider business. By understanding your business well, you can make decisions about how to prioritize your resources, and whether you have opportunities to go beyond technical solutions to manage your risks.
+- A service level objective (SLO) that describes the percentage of time the workload should be available to users. 
+- Service level indicators (SLI), which are specific metrics that are used to measure whether the workload is meeting an SLO. 
 
-## Identify the risks
+It is also important to understand that HA is not measured by the uptime of a single node, but by the overall availability of the entire workload. For more detailed information on how to define and measure high availability, see [Recommendations for defining reliability targets](/azure/well-architected/reliability/metrics).
 
-When you run a solution in the cloud, there are a range of events that can happen. These events can affect the resources that your workload uses. The following table is a non-exhaustive list of example events, ordered by severity:
+### High availability risks
+
+HA risks are commonplace, planned, and expected, and so should easily be controlled.  For example, in a cloud environment it's common for there to be server crashes, brief network outages, equipment restarts due to patches, and so forth. Because these events happen regularly, workloads need to be resilient to them. 
+
+To achieve high availability, a workload may use include the following design elements:
+
+ - **Use services and tiers that support high availability**. For example, Azure offers a variety of services that are designed to be highly available, such as Azure Virtual Machines, Azure App Service, and Azure SQL Database. These services are designed to provide high availability by default, and can be used to build highly available workloads. You might need to select specific tiers of services to achieve high levels of availability.
+ - **Redundancy** is the practice of duplicating instances or data to increase the reliability of the workload. For example, a web application might use multiple instances of a web server to ensure that the application remains available even if one instance fails. A database may have a multiple replicas to ensure that the data remains available even if one replica fails. You can choose distribute those replicas or redundant instances around a data center, between availability zones within a region, or even across regions.
+ - **Fault tolerance** is the ability of a system to continue operating in the event of a failure. For example, a web application might be designed to continue operating even if a single web server fails. Fault tolerance can be achieved through redundancy, failover, and other techniques.
+ - **Scalability and elasticity** are the abilities of a system to handle increased load by adding resources. For example, a web application might be designed to automatically add additional web servers as traffic increases. Scalability and elasticity can help a system maintain availability during peak loads. For more information on how to design a scalable and elastic system, see [Scalability and elasticity](/azure/well-architected/reliability/scaling).
+ - **Monitoring and alerting** lets you know the health of your system, even when automated mitigations take place. Use Azure Service Health, Azure Resource Health, and Azure Monitor, as well as Scheduled Events for virtual machines. For more information on how to design a reliability monitoring and alerting strategy, see [Monitoring and alerting](/azure/well-architected/reliability/monitoring-alerting-strategy).
+
+## Disaster recovery
+
+A *disaster* is a single, generally uncommon, major event that has a larger and longer-lasting impact than an application can mitigate through the high availability aspect of its design. 
+
+A disaster could be any one of the following events:
+
+- A natural disaster such as a hurricane, earthquake, flood, or fire.
+- Human error such as accidentally deleting production data, or a misconfigured firewall that exposes sensitive data.
+- Randomware attacks that lead to data corruption, data loss, or service outages.
+
+*Disaster recovery (DR)* is not an automatic feature of Azure, although many services do provide features that you can use to support your DR. DR is about understanding what your services support, and planning for and responding to these possible disasters so as to minimize downtime and data loss. Regardless of the cause the disaster, it is important that you create a well-defined and tested DR plan, and an application design that actively supports it.
+
+> [!NOTE]
+> Different organizations might define *disaster* in different ways. For example, a complete region loss is usually considered a disaster. But, if you have a multi-region active/active solution design, you might be able to recover automatically from a region outage with no data loss or downtime, and so you might consider a region loss to be part of your high availability strategy instead. To learn more, see [What is business continuity?](./concept-business-continuity.md).
+
+### Disaster recovery risks
+
+Disaster recovery risks are unusual, as they are are the result of a catastrophic and unforeseeable event, such as natural disasters or network attacks. DR processes for dealing with rare disaster risks are different from the day-to-day risks of [high availability](#high-availability-risks). Due to the rarity and severity of disaster events, DR planning has different expectations for how long it takes to recover.
+
+
+## Identify risks
+
+Before you determine which risks are high availability risks and which are disaster recovery risks, you need to identify all the risks that could affect your solution. 
+
+When you run a solution in the cloud, there are a range of events that can happen. These events can affect the resources that your workload uses. The following table is a non-exhaustive list of example events, ordered by severity.  Use the risks listed as a starting point to identify the risks that apply to your solution.
 
 | Example risk | Description | Regularity (likelihood) |
 |---|---|---|
-| Transient network issue | A temporary failure in a component of the networking stack, which is recoverable after a short time (usually a few seconds or less). | Regular |
-| Virtual machine reboot | A virtual machine that you use, or that a dependent service uses, reboots unexpectedly because it crashes or needs to apply a patch. | Regular |
-| Hardware failure | A failure of a hardware node, rack, or cluster within a datacenter. | Occasional |
-| Datacenter outage | An outage that affects most or all of a datacenter, such as a power failure, network connectivity problem, or issues with the heating and cooling. | Unusual |
-| Region outage | An outage that affects an entire metropolitan area or wider area, such as a major natural disaster. | Very unusual |
+| Transient network issue | A temporary failure in a component of the networking stack, which is recoverable after a short time (usually a few seconds or less). | Regular | 
+| Virtual machine reboot | A virtual machine that you use, or that a dependent service uses, reboots unexpectedly because it crashes or needs to apply a patch. | Regular | 
+| Hardware failure | A failure of a hardware node, rack, or cluster within a datacenter. | Occasional | HA |
+| Datacenter outage | An outage that affects most or all of a datacenter, such as a power failure, network connectivity problem, or issues with the heating and cooling. | Unusual | 
+| Region outage | An outage that affects an entire metropolitan area or wider area, such as a major natural disaster. | Very unusual | 
 
 You should also consider risks beyond the cloud platform and infrastructure, like the following examples:
 
 | Example risk | Description |
 |---|---|
 | Data loss or corruption | Data has been deleted, overwritten, or otherwise corrupted by an accident, or from a security breach like a ransomware attack. |
-| Failed deployments | A deployment of a new component or version has failed, leaving your solution in an inconsistent state. |
-| Denial of service attacks | Your system has been attacked in an attempt to prevent legitimate use of the solution. |
-| Rogue administrators | A user with administrative privileges has intentionally performed a damaging action against the system. |
-| Unexpected influx of traffic to an application | A spike in traffic has overwhelmed your system resources. |
+| Failed deployments | A deployment of a new component or version has failed, leaving your solution in an inconsistent state. | 
+| Denial of service attacks | Your system has been attacked in an attempt to prevent legitimate use of the solution. | 
+| Rogue administrators | A user with administrative privileges has intentionally performed a damaging action against the system. | 
+| Unexpected influx of traffic to an application | A spike in traffic has overwhelmed your system resources. | 
 
-Use the risks listed as a starting point to identify the risks that apply to your solution.
+<!-- 
 
-> [!NOTE]
-> The tables includes security, operational, and performance risks because they directly affect your solution's reliability. Business continuity planning should encompass all activities and risks that could impact the availability and usability of your solution, ensuring a comprehensive approach to maintaining operations under any circumstances.
->
-> For example, a denial of service attack is a security issue that causes problems with your solution's reliability. You might mitigate this kind of risk by using a combination of security controls and resiliency controls.
->
-> The [Azure Well-Architected Framework](/azure/well-architected/) describes how these different elements of your solution are interrelated, and provides guidance on making tradeoffs between them.
+It's important that business continuity planning is conducted with a range of stakeholders, with representation from technical and business stakeholders and leadership. Everyone needs to understand that the process involves making explicit decisions about how to respond to different risks, how to categorize them (as HA or DR related) and that each decision has tradeoffs. It also requires looking broadly at your business to understand how a specific workload or application fits into the wider business. By understanding your business well, you can make decisions about how to prioritize your resources, and whether you have opportunities to go beyond technical solutions to manage your risks.
+-->
 
-## Understand each risk
+## Risk severity, likelihood, and tradeoff
 
-After you've identified each risk, strive to understand the risk sufficiently that you can make an informed decision about whether and how to control it.
+After you've identified each risk, you'll need to classify each as HA or DR. To classify the risk, you need to first determine:
 
-Determine the severity of the risk based on its business impact. Consider the following issues:
+- **Risk severity**, which is the severity of the risk based on business impact.
+- **Risk likelihood**, which is the likelihood of that risk occurring.
+- **Risk tradeoff**, which is the tradeoff between the cost of mitigating the risk and the cost of the risk occurring.
 
-- Could this risk cause downtime? If yes, is that downtime unacceptable?
-- Could this risk cause data loss? If yes, is that data loss unacceptable?
+The severity, likelihood, and tradeoff of each risk might be unique to your business, or even to the specific workload you're considering. These factors must be informed by your business requirements. For more information on business requirements and how they affect your resiliency, see [Recommendations for defining reliability targets](/azure/well-architected/reliability/metrics).
 
-You should also determine the likelihood of the risk occuring. Consider the following issues:
 
-- What's the base level of risk for this issue? For cloud platform risks, use the table in the preceding section as a starting point. For other risks, determine the likelihood based on your own historical data if it's available.
-- Is the solution design already robust to this risk? For example, is the system designed to use [data partitioning](/azure/well-architected/reliability/partition-data), or it is using an approach like the [Bulkhead pattern](/azure/architecture/patterns/bulkhead)?
-- What mitigations have you already applied? For example, have you protected against rogue administrators by using approaches like just-in-time authorization controls?
+### Risk severity
 
-The likelihood and severity of each risk might be unique to your business, or even to the specific workload you're considering. These factors must be informed by your business requirements. For more information on business requirements and how they affect your resiliency, see [Recommendations for defining reliability targets](/azure/well-architected/reliability/metrics).
+To determine risk severity, consider the following issues:
 
-## Classify each risk
+- *Could this risk cause downtime?* If yes, is that downtime unacceptable or, if acceptable, how much downtime is acceptable?
+
+- *Could this risk cause data loss?* If yes, is that data loss unacceptable or, if acceptable, how much data loss is acceptable?
+
+
+### Risk likelihood
+
+To determine risk likelihood, consider the following issues:
+
+- *What's the base level likelihood of risk for this issue?* For cloud platform risks, use the [table in the preceding section](#identify-risks) as a starting point. For other risks, determine the likelihood based on your own historical data if it's available.
+
+- *Is the solution design already robust to this risk?* For example, is the system designed to use [data partitioning](/azure/well-architected/reliability/partition-data), or it is using an approach like the [Bulkhead pattern](/azure/architecture/patterns/bulkhead)?
+
+- *What mitigations have you already applied?* For example, have you protected against rogue administrators by using approaches like just-in-time authorization controls?
+
+
+### Risk tradeoffs
+
+The risk tables in the previous section include security, operational, and performance risks because they directly affect your solution's reliability. Business continuity planning should encompass all activities and risks that could impact the availability and usability of your solution, ensuring a comprehensive approach to maintaining operations under any circumstances.
+
+For example, a denial of service attack is a security issue that causes problems with your solution's reliability. You might mitigate this kind of risk by using a combination of security controls and resiliency controls.
+
+The [Azure Well-Architected Framework](/azure/well-architected/) describes how these different elements of your solution are interrelated, and provides guidance on making tradeoffs between them.
+
+## Classify HA and DR risks
 
 The goal of classifying each risk is to determine whether you need to account for the risk in everyday operations (high availability), or if it's associated with an exceptional or catastrophic scenario (disaster).
 
@@ -90,7 +153,9 @@ To make an informed decision about how to classify each risk, you must understan
 - The expected uptime for the solution, how that's defined, and [which flows it applies to](/azure/well-architected/reliability/identify-flows).
 - How much downtime and data loss is acceptable in a disaster scenario.
 
-The same risk might be classified as HA for one workload and DR for another workload, depending on the business needs and the way the solution is designed.
+It's important to remember that high availability and disaster recovery are tightly interrelated, and so its important to plan strategies for both of them together.  There are some risks that may not fit neatly into either category, and so may require require further negotiation or discussion.
+
+Also, the same risk might be classified as HA for one workload and DR for another workload, depending on the business needs and the way the solution is designed.
 
 For example, for most solutions an outage of a full Azure region would be considered a disaster. But, if you have a fully active-active multi-region solution design, you might be more resilient to a regional outage and can fail over to use other regions instead.
 

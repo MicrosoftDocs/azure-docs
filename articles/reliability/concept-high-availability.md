@@ -1,6 +1,6 @@
 ---
-title: High availability on the Azure cloud platform
-description: Learn about how Azure provides high availability for your applications and services.
+title: What is high availability?
+description: Understand high availability for your Microsoft Azure-based solutions.
 author: anaharris-ms
 ms.service: azure
 ms.subservice: azure-availability-zones

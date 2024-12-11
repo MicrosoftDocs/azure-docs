@@ -1,25 +1,32 @@
 ---
-title: Disaster recovery overview for Microsoft Azure products and services
-description: Disaster recovery overview for Microsoft Azure products and services
+title: What is disaster recovery?
+description: Understand disaster recovery for your Microsoft Azure-based solutions.
 author: anaharris-ms
 ms.service: azure
+ms.subservice: azure-availability-zones
 ms.topic: conceptual
-ms.date: 11/30/2024
+ms.date: 12/11/2024
 ms.author: anaharris
 ms.custom: subject-reliability
-ms.subservice: azure-reliability
 ---
+
 
 # What is disaster recovery?
 
-A disaster is a single, major event with a larger and longer-lasting impact than an application can mitigate through the high availability part of its design. Disaster recovery (DR) is about recovering from high-impact events, such as natural disasters. They can also be unrelated to the cloud platform, such as somebody accidentally deleting production data or data corruption due to a ransomware attack. Disasters can result in downtime and data loss.
+A *disaster* is a single, generally uncommon, major event that has a larger and longer-lasting impact than an application can mitigate through the high availability aspect of its design. 
 
-Regardless of the cause, the best way to respond to a disaster is a well-defined and tested DR plan and an application design that actively supports DR.
+A disaster could be any one of the following events:
+
+- A natural disaster such as a hurricane, earthquake, flood, or fire.
+- Human error such as accidentally deleting production data, or a misconfigured firewall that exposes sensitive data.
+- Randomware attacks that lead to data corruption, data loss, or service outages.
+
+*Disaster recovery (DR)* is not an automatic feature of Azure, although many services do provide features that you can use to support your DR. DR is about understanding what your services support, and planning for and responding to these possible disasters so as to minimize downtime and data loss. Regardless of the cause the disaster, it is important that you create a well-defined and tested DR plan, and an application design that actively supports it.
 
 > [!NOTE]
-> Different organizations might define "disaster" in different ways. For example, a complete region loss is usually considered a disaster. But, if you have a multi-region active/active solution design, you might be able to recover automatically from a region outage with no data loss or downtime, and so you might consider a region loss to be part of your high availability strategy instead. To learn more, see [What is business continuity?](./concept-business-continuity.md).
+> Different organizations might define *disaster* in different ways. For example, a complete region loss is usually considered a disaster. But, if you have a multi-region active/active solution design, you might be able to recover automatically from a region outage with no data loss or downtime, and so you might consider a region loss to be part of your high availability strategy instead. To learn more, see [What is business continuity?](./concept-business-continuity.md).
 
-The information in this article provides a high-level overview of disaster recovery. To learn more, see the [Azure Well-Architected Framework guidance on disaster recovery strategies](/azure/well-architected/reliability/disaster-recovery)
+The information in this article provides a high-level overview of disaster recovery. To learn more how to create and architect your workflow DR plan in detail, see the [Azure Well-Architected Framework guidance on disaster recovery strategies](/azure/well-architected/reliability/disaster-recovery)
 
 ## Recovery objectives
 
@@ -31,19 +38,19 @@ A complete DR plan must specify the following critical business requirements for
 
 :::image type="content" source="media/disaster-recovery-rpo-rto.png" alt-text="Screenshot of RTO and RPO durations in hours." border="false":::
 
-While it's tempting to am for an RTO and RPO of zero (no downtime and no data loss in the event of a disaster), in practice it's difficult and costly to implement. It's important for technical and business stakeholders to discuss these requirements together and make a decision about what realistic requirements should be. For more information, see [Recommendations for defining reliability targets](/azure/well-architected/reliability/metrics).
+While it's tempting to aim for an RTO and RPO of zero (no downtime and no data loss in the event of a disaster), in practice it's difficult and costly to implement. It's important for technical and business stakeholders to discuss these requirements together and make a decision about what realistic requirements should be. For more information, see [Recommendations for defining reliability targets](/azure/well-architected/reliability/metrics).
 
 Each workload should have individual RPO and RTO values by examining disaster-scenario risks and potential recovery strategies. The process of specifying an RPO and RTO effectively creates DR requirements for your application as a result of your unique business concerns (costs, impact, data loss, etc.).
 
 ## Design for disaster recovery
 
-Disaster recovery isn't an automatic feature, but must be designed, built, and tested. To support a solid DR strategy, you must design your workload with DR in mind from the ground up. Azure offers services, features, and guidance to help you support your DR needs.
+Disaster recovery isn't an automatic feature, but must be designed, built, and tested. To support a solid DR strategy, you must design your workload with DR in mind from the ground up. Azure offers services, features, and guidance to help support your DR needs.
 
-Some Azure services automatically fail over to alternate regions during incidents. Microsoft manages the failover process for those services. However, Microsoft-initiated failover is usually performed as a last resort and after significant time has been spent on recovery attempts. In general, Microsoft's policy is to minimize data loss even if that means a longer recovery time. You shouldn't rely exclusively on Microsoft-initiated failover for your own solutions, especially if you need to minimize your recovery time. If you can, use [customer-initiated failover for services like Azure Storage](/azure/storage/common/storage-initiate-account-failover).
+In the Azure public cloud platform, resiliency in general is a [shared responsibility](concept-shared-responsibility.md) between Microsoft and you. Because there are different levels of resiliency in each workload that you design and deploy, it's important that you understand who has primary responsibility for each one of those levels from a resiliency perspective. In the case of DR, some Azure services automatically fail over to alternate regions during incidents. Microsoft manages the failover process for those services. However, Microsoft-initiated failover is usually performed as a last resort and after significant time has been spent on recovery attempts. In general, Microsoft's policy is to minimize data loss even if that means a longer recovery time. You shouldn't rely exclusively on Microsoft-initiated failover for your own solutions, especially if you need to minimize your recovery time. If you can, use [customer-initiated failover for services like Azure Storage](/azure/storage/common/storage-initiate-account-failover).
 
 ## Build resilient applications  
 
-Disaster scenarios also commonly result in downtime, whether due to large-scale network connectivity problems, datacenter outages, damaged virtual machines (VMs), or corrupted software deployments. In most cases, application recovery involves failover to a separate, working deployment. As a result, it may be necessary to recover processes in another Azure region in the event of a large-scale disaster. Additional considerations may include: recovery locations, number of replicated environments, and how to maintain these environments.
+Disaster scenarios commonly result in downtime, whether due to large-scale network connectivity problems, datacenter outages, damaged virtual machines (VMs), or corrupted software deployments. In most cases, application recovery involves failover to a separate, working deployment. As a result, it may be necessary to recover processes in another Azure region in the event of a large-scale disaster. Additional considerations may include: recovery locations, number of replicated environments, and how to maintain these environments.
 
 Depending on your application design, you can use several different strategies and Azure features, such as [Azure Site Recovery](/azure/site-recovery/site-recovery-overview), to improve your application's support for process recovery after a disaster. 
 
