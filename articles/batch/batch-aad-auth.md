@@ -8,7 +8,7 @@ ms.custom: has-adal-ref, subject-rbac-steps
 
 # Authenticate Azure Batch services with Microsoft Entra ID
 
-Azure Batch supports authentication with [Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis), Microsoft's multi-tenant cloud based directory and identity management service. Azure uses Microsoft Entra ID to authenticate its own customers, service administrators, and organizational users.
+Azure Batch supports authentication with [Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis), Microsoft's multitenant cloud based directory and identity management service. Azure uses Microsoft Entra ID to authenticate its own customers, service administrators, and organizational users.
 
 This article describes two ways to use Microsoft Entra authentication with Azure Batch:
 
