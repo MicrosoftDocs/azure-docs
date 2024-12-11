@@ -38,7 +38,7 @@ When you combine Azure VMware Solution with an external storage service, remembe
 |Service|Description|Service type|Storage type|Protocol|More information|
 |-|-|-|-|-|-|
 |[Azure NetApp Files](./attach-azure-netapp-files-to-azure-vmware-solution-hosts.md)|NetApp bare-metal hardware with all-flash performance|Azure native|File|NFS|[What is Azure NetApp Files?](../azure-netapp-files/azure-netapp-files-introduction.md)|
-|[Elastic SAN](./configure-azure-elastic-san.md)|Provides a familiar SAN resource hierarchy and industry-standard iSCSI block interface|Azure native|Block|iSCSI|[Introduction to Elastic SAN](../storage/elastic-san/elastic-san-introduction.md)|
+|[Azure Elastic SAN](./configure-azure-elastic-san.md)|Provides a familiar SAN resource hierarchy and industry-standard iSCSI block interface|Azure native|Block|iSCSI|[Introduction to Azure Elastic SAN](../storage/elastic-san/elastic-san-introduction.md)|
 |[Pure Cloud Block Store](./configure-pure-cloud-block-store.md)|Enterprise-grade performance and reliability using Pure Storage technology in Azure|Partner|Block|iSCSI|[Pure Cloud Block Store on Azure](https://support.purestorage.com/bundle/m_cbs_for_azure/page/Pure_Cloud_Block_Store/topics/concept/c_introduction_121.html)|
 
 ### Azure storage solutions
