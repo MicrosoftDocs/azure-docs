@@ -7,7 +7,7 @@ ms.reviewer: whhender
 ms.service: azure-synapse-analytics
 ms.subservice: pipeline
 ms.topic: tutorial
-ms.date: 11/20/2024
+ms.date: 12/11/2024
 ---
 
 # Tutorial: Integrate with pipelines

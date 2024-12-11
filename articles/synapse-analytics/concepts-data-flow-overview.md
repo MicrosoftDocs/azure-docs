@@ -8,7 +8,7 @@ ms.service: azure-synapse-analytics
 ms.subservice: pipeline
 ms.topic: concept-article
 ms.custom: references_regions
-ms.date: 12/16/2020
+ms.date: 12/11/2024
 ---
 
 # What are data flows in Azure Synapse Analytics?
