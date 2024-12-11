@@ -185,6 +185,9 @@ This section shows you how to create a .NET Core console application to send eve
     ```csharp
     A batch of 3 events has been published.
     ```
+    > [!NOTE]
+    > If you get an error "InvalidIssuer: Token issuer is invalid" when using Microsoft Entra authentication, it may be because the wrong Entra Tenant Id is being used. In you code replace'new DefaultAzureCredential()' with 'new DefaultAzureCredential(new DefaultAzureCredentialOptions {TenantId = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"})' to explictly specify Entra Tenant Id.
+
 
     > [!IMPORTANT]
     > If you are using the Passwordless (Azure Active Directory's Role-based Access Control) authentication, select **Tools**, then select **Options**. In the **Options** window, expand **Azure Service Authentication**, and select **Account Selection**. Confirm that you are using the account that was added to the **Azure Event Hubs Data Owner** role on the Event Hubs namespace. 
