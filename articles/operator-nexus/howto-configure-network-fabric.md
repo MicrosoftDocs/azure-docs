@@ -646,9 +646,9 @@ Expected output:
   }
 ```
 > [!Note]
-> The The preceding code serves only as an example. You should update all the devices that are part of both `FName-aggrack` and `computeRacks`     
+> The The preceding code serves only as an example. You should update all the devices that are part of both `AggrRack` and `computeRacks`     
 
-For example, `FName-aggrack` consists of:
+For example, `AggrRack` consists of:
 * `CE01`
 * `CE02`
 * `TOR17`
