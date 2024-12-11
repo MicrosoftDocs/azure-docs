@@ -14,6 +14,8 @@
 | --- | --- |
 | ExpressRoute circuits per subscription | 50 (Submit a support request to increase limit) |
 | ExpressRoute circuits per region per subscription, with Azure Resource Manager | 10 |
+| Virtual networks linked to a standard ExpressRoute circuit | 10 |
+| ExpressRoute circuits linked to a single virtual network | 16 |
 | Maximum number of circuits in the same peering location linked to the same virtual network | 4 |
 | Maximum number of circuits in different peering locations linked to the same virtual network |Standard / ERGw1Az - 4 </br> High Perf / ERGw2Az - 8 </br> Ultra Performance / ErGw3Az - 16 |
 | Maximum number of IPs for ExpressRoute provider circuit with Fastpath | 25,000 |
