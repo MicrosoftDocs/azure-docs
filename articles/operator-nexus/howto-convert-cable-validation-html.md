@@ -125,7 +125,7 @@ with open('CableValidationAndSpecification-{filename}.html'.format(filename = da
 ```
 
 ## Usage
-To run the conversion tool execute the following:
+To run the conversion tool, execute the following command:
 ```
 python cable-html.py
 ..
@@ -136,7 +136,7 @@ The report output has filename `CableValidationAndSpecification-<DATE>.html`.
 
 ## Cable Validation Report HTML results
 
-The report is separated into 6 sections:
+The report is separated into the following sections:
 - Cable Validation - Compliant
 - Cable Validation - NonCompliant
 - Cable Validation - Unknown
