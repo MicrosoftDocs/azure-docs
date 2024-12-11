@@ -342,7 +342,7 @@ When your results are ready, you have two sets of them for the primary and secon
 
 * **One MSEE shows no matches, but the other shows good matches**: This result indicates that one MSEE isn't receiving or passing any traffic. It might be offline (for example, BGP/ARP is down).
   * You can run additional testing to confirm the unhealthy path by advertising a unique /32 on-premises route over the BGP session on this path. 
-  * Run "Test your private peering connectivity" using the unique /32 advertised as the on-premise destination address and reveiw the results to confirm the path health. 
+  * Run "Test your private peering connectivity" using the unique /32 advertised as the on-premise destination address and review the results to confirm the path health. 
 
 Your test results for each MSEE device look like the following example:
 

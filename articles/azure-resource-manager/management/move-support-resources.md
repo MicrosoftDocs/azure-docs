@@ -700,7 +700,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ---------- |
-> | backupvaults | [**Yes**](../../backup/create-manage-backup-vault.md#use-azure-portal-to-move-backup-vault-to-a-different-resource-group) | [**Yes**](../../backup/create-manage-backup-vault.md#use-azure-portal-to-move-backup-vault-to-a-different-subscription) | No |
+> | backupvaults | [**Yes**](../../backup/manage-backup-vault.md#use-azure-portal-to-move-backup-vault-to-a-different-resource-group) | [**Yes**](../../backup/manage-backup-vault.md#use-azure-portal-to-move-backup-vault-to-a-different-subscription) | No |
 
 ## Microsoft.DataShare
 
@@ -999,7 +999,7 @@ Moves between Resource groups and subscriptions are supported for APIs that use 
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
 > | accounts | **Yes** | **Yes** | No. [Learn more](/azure/azure-monitor/app/create-workspace-resource#how-do-i-move-an-application-insights-resource-to-a-new-region). |
-> | actiongroups | **Yes** | **Yes** | No |
+> | actiongroups | No | No | No |
 > | activitylogalerts | No | No | No |
 > | alertrules | **Yes** | **Yes** | No |
 > | autoscalesettings | **Yes** | **Yes** | No |

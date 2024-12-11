@@ -5,7 +5,7 @@ author: kromerm
 ms.service: azure-synapse-analytics
 ms.subservice: pipeline 
 ms.topic: concept-article
-ms.date: 12/10/2024
+ms.date: 12/11/2024
 ms.author: makromer
 ms.reviewer: whhender
 ---
