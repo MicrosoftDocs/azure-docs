@@ -50,7 +50,7 @@ For accepting HTTPS traffic on your wildcard domain, you must enable HTTPS on th
 
 ## Define a subdomain explicitly
 
-You can add as many single-level subdomains of the wildcard as you would like. For example, for the wildcard domain `*.contoso.com`, you can also add subdomains to your Azure Front Door profile for `image.contosto.com`, `cart.contoso.com`, and so forth. The configuration that you explicitly specify for the subdomain takes precedence over the configuration of the wildcard domain.
+You can add as many single-level subdomains of the wildcard as you would like. For example, for the wildcard domain `*.contoso.com`, you can also add subdomains to your Azure Front Door profile for `image.contoso.com`, `cart.contoso.com`, and so forth. The configuration that you explicitly specify for the subdomain takes precedence over the configuration of the wildcard domain.
 
 You might need to explicitly add subdomains in these situations:
 

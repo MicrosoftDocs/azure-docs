@@ -87,7 +87,7 @@ You should complete this step in an *internet facing environment outside of the 
     ```
     
     > [!IMPORTANT]
-    > Be sure to use the `--disable=traefik` parameter to disable treafik. Otherwise, you might have an issue when you try to allocate public IP for the Layered Network Management service in later steps.
+    > Be sure to use the `--disable=traefik` parameter to disable traefik. Otherwise, you might have an issue when you try to allocate public IP for the Layered Network Management service in later steps.
 
     As an alternative, you can configure the K3S offline using the steps in the [Air-Gap Install](https://docs.k3s.io/installation/airgap) documentation *after* you move the device to the isolated network environment.
 1. Copy the K3s configuration yaml file to `.kube/config`.

@@ -54,7 +54,7 @@ az account show
 If you need to change subscription, you can do that by running the following command.
 
 ```azurecli-interactive
-az account set --subscription "<yourSubcriptionId>"
+az account set --subscription "<yourSubscriptionId>"
 ```
 
 You need to replace `<yourSubscriptionId>` with your actual subscription ID, which you can find in the Subscriptions section in Azure portal.
