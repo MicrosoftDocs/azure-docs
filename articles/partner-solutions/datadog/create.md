@@ -39,6 +39,8 @@ If you're creating a new Datadog organization, select **Create** under the **Cre
 
 The Create a Datadog resource pane opens to the *Basics* tab by default.
 
+:::image type="content" source="media/create-new-datadog-resource.png" alt-text="A screenshot of the Azure portal with the Create a a new Datadog resource options displayed. The menu has multiple tabs: Basics, Metrics and logs, Security, Single sign-on, Tags, and Review + Create.":::
+
 ### Basics tab
 
 The *Basics* tab has three sections:
@@ -65,9 +67,23 @@ There are required fields in each section that you need to fill out.
 
 1. Enter the values for each required setting under *Datadog organization details*.
 
-### Metrics and logs
+### Metrics and logs tab
 
 Use Azure resource tags to configure which metrics and logs are sent to Datadog. You can include or exclude metrics and logs for specific resources.
+
+Enter the names and values for each *Action* listed under Metrics and Logs.
+
+<!--Metrics-->
+<!--Silence monitoring for expected Azure VM Shutdowns-->
+<!--Collect custom metrics from App Insights-->
+
+<!--Logs-->
+<!--Send subscription activity logs-->
+<!--Send Azure resource logs for all defined sources.-->
+
+
+<!--This information should not be in this quickstart. Move to conceptual article.  Also, review the information UI: To send Microsoft Entra ID logs to Datadog – enable Datadog as a destination in Microsoft Entra ID diagnostic settings.
+Learn more-->
 
 > [!NOTE]
 > If there's a conflict between inclusion and exclusion rules, exclusion takes priority.
@@ -104,13 +120,15 @@ You can request your IT Administrator to route Microsoft Entra logs to Datadog. 
 
 Azure charges for the logs sent to Datadog. For more information, see the [pricing of platform logs](https://azure.microsoft.com/pricing/details/monitor/) sent to Azure Marketplace partners.
 
+<!--end-->
+
 Once you complete the configuration for metrics and logs, select **Next: Security**.
 
-## Security
+## Security tab
 
 To enable Datadog Cloud Security Posture management, select the checkbox.
 
-## Configure single sign-on (optional)
+## Configure single sign-on tab (optional)
 
 If your organization uses Microsoft Entra ID as its identity provider, you can establish single sign-on from the Azure portal to Datadog. 
 
@@ -122,21 +140,21 @@ Select the Datadog app name.
 
 Select **Next: Tags**.
 
-## Tags (optional)
+## Tags tab (optional)
 
-You can specify custom tags for the new Datadog resource. Provide name and value pairs for the tags to apply to the Datadog resource.
+If you wish, you can optionally create tags resource, then select the **Next: Review + create** button at the bottom of the page. 
 
-When you finish adding tags, select **Next: Review + Create**.
+## Review + create tab
 
-## Review + Create Datadog resource
+If the review identifies errors, a red dot appears next each section where errors exist. Fields with errors are highlighted in red. 
 
-<!--review steps-->
+1. Open each section with errors and fix the errors.
 
-Review your selections and the terms of use. After validation completes, select **Create**.
+1. Select the **Review + create** button again.
 
-Azure deploys the Datadog resource.
+1. Select the **Create** button.
 
-When the process completes, select **Go to Resource** to see the Datadog resource.
+Once the resource is created, select **Go to Resource** to navigate to the Datadog resource. 
 
 ## Next steps
 
