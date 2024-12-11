@@ -24,7 +24,7 @@ For BOM details, refer to [Azure Operator Nexus SKUs](./reference-operator-nexus
   - `Storage Blob Data Contributor` role must be assigned to the `Nexus Network Fabric RP` with access assigned to the storage account.
 - Microsoft Support must patch the Nexus Network Fabric with an active storage SAS URL before running cabling validation.
 
-## Creating an Azure Support Request for patching Nexus Network Fabric:
+## Creating an Azure Support Request for Patching Nexus Network Fabric:
   - Refer to [How to create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request)
   - Enter `Nexus Network Fabric` for the issue and click `Go`.
   - Select `Azure Operator Nexus` as the service you're having issue with.
@@ -53,7 +53,7 @@ To generate a SAS URL for the container to provide write access to the Nexus Fab
 > [!NOTE]
 > SAS URLs are short lived. By default, it is set to expire in eight hours. If the SAS URL expires, then you must open a Microsoft support ticket to add a new URL.
 
-## Validate cabling
+## Validate Cabling
 
 1. Execute the following Azure CLI command:
 
@@ -159,7 +159,7 @@ networkFabricInfoSkuId": "M8-A400-A100-C16-ab",
                 },
 ```
 
-### Customer Edge to Top of the Rack switch validation
+### Customer Edge to Top Of Rack (TOR) switch validation
 
 ```azurecli
 { 
@@ -222,7 +222,7 @@ networkFabricInfoSkuId": "M8-A400-A100-C16-ab",
 |`deviceDestinationResourceId`      |  Azure Resource Manager ID of the connected Neighbor (destination device). |
 |`roleName`      |  The role of the Network Fabric Device (CE or TOR). |
 
-## Known issues and limitations in cable validation
+### Known issues and limitations in cable validation
 
 - Cable Validation of connections between TOR and Compute Servers that are powered off or unprovisioned in the Nexus cluster aren't supported. These interfaces show `Unknown` status in the report.
 - Cable Validation of connections between MGMT interfaces and Compute Servers that are powered off or unprovisioned in the Nexus cluster or the Compute Server Controllers aren't supported. These interfaces show `Unknown` status in the report.
@@ -231,7 +231,7 @@ networkFabricInfoSkuId": "M8-A400-A100-C16-ab",
 - Cable validation supports four racks with 16 Computes per rack and eight racks with 16 Computes per rack BOMs.
 - When destination device is powered off, cables are missing or disconnected, or if validation isn't supported for the interface type, then the interface shows `Unknown` status. **It is important to evaluate all `Unknown` interfaces that are `Not-Connected` against the BOM to determine if repair action is required.**
 
-## Typical cable validation `NonCompliant` and `Unknown` Issues
+### Typical cable validation `NonCompliant` and `Unknown` Issues
 
 |validationType |Status |Error  |Resolution  |
 |---------------|-------|-------|------------|
@@ -242,6 +242,6 @@ networkFabricInfoSkuId": "M8-A400-A100-C16-ab",
 | CableSpecificationValidation  |`Unknown`     |`Unable to fetch Interface Status for <INTERFACE>.` | Verify connections on the source and destination interfaces are connected and match the BOM. |
 | CableSpecificationValidation  |`NonCompliant`     |`Device cable connection is incorrect` | Verify interface card and cables match BOM specification in this interface. |
 
-## Converting cabling validation report to html format
+## Converting Cable Validation Report to HTML Format
 
-Refer to [How to convertcable validation report JSON output to html](./howto-convert-cable-validation-html.md).
+Refer to [How to Convert Cable Validation report JSON output to HTML](./howto-convert-cable-validation-html.md).
