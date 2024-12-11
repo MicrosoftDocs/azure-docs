@@ -1,9 +1,9 @@
 ---
-title: Create a Datadog instance
-description: Get started with Datadog on Azure by creating a new instance, configuring metrics and logs, and setting up single sign-on through Microsoft Entra ID.
+title: Create a Datadog resource
+description: Get started with Datadog on Azure by creating a new resource, configuring metrics and logs, and setting up single sign-on through Microsoft Entra ID.
 
 ms.topic: quickstart
-ms.date: 12/09/2024
+ms.date: 12/11/2024
 ms.custom:
   - references_regions
   - ai-gen-docs-bap
@@ -17,38 +17,55 @@ In this quickstart, you create a new instance of Datadog. You can either create 
 
 ## Prerequisites
 
-Before creating your first instance of Datadog in Azure, [configure your environment](prerequisites.md). These steps must be completed before continuing with the next steps in this quickstart.
+Before creating your first instance of Datadog in Azure, [configure your environment](prerequisites.md). 
 
-## Find offer
+## Create a Datadog resource
 
-Use the Azure portal to find Datadog.
+To create your resource, start at the [Azure portal](https://portal.azure.com) home page.
 
-1. Go to the [Azure portal](https://portal.azure.com/) and sign in.
+1. Search for the resource provider by typing it into the header search bar.
 
-1. If you visited the **Marketplace** in a recent session, select the icon from the available options. Otherwise, search for _Marketplace_.
+1. Choose the service you want from the *Services* search results.
 
-1. In the Marketplace, search for **Datadog**.
-
-1. In the plan overview screen, select **Subscribe**.
-
-## Create a Datadog resource in Azure
+1. Select the **+ Create** option.
 
 The portal displays a selection asking whether you would like to create a Datadog organization or link Azure subscription to an existing Datadog organization.
 
+:::image type="content" source="media/create-datadog-resource.png" alt-text="A screenshot of Azure portal with the Create a Datadog resource in Azure options displayed.  Two tiles are available: Link Azure subscription to an existing Datadog org and Create a new Datadog org. Each of these options has a create button and a link to learn more.":::
+
 If you're creating a new Datadog organization, select **Create** under the **Create a new Datadog organization**
 
-The portal displays a form for creating the Datadog resource.
+## Create an Azure Native Datadog resource
 
-Provide the following values.
+The Create a Datadog resource pane opens to the *Basics* tab by default.
 
-|Property | Description
-|:-----------|:-------- |
-| Subscription | Select the Azure subscription you want to use for creating the Datadog resource. You must have owner access. |
-| Resource group | Specify whether you want to create a new resource group or use an existing one. A [resource group](../../azure-resource-manager/management/overview.md#resource-groups) is a container that holds related resources for an Azure solution. |
-| Resource name | Specify a name for the Datadog resource. This name is the name of the new Datadog organization, when creating a new Datadog organization. |
-| Location | Select West US 2. Currently, West US 2 is the only supported region. |
-| Pricing plan | When creating a new organization, select from the list of available Datadog plans. |
-| Billing Term | Monthly. |
+### Basics tab
+
+The *Basics* tab has three sections:
+
+- Project details
+- Azure resource details
+- Datadog organization details
+
+There are required fields in each section that you need to fill out.
+
+1. Enter the values for each required setting under *Project details*.
+
+    |Setting  |Action  |
+    |---------|---------|
+    |Subscription    |Select a subscription from your existing subscriptions.         |
+    |Resource group     |Use an existing resource group or create a new one.          |
+
+1. Enter the values for each required setting under *Resource details*.
+
+    |Setting  |Action  |
+    |---------|---------|
+    |Resource name     |Specify a unique name for the resource.    |
+    |Location     |Select the [region](https://azure.microsoft.com/explore/global-infrastructure/geographies/) where you want to enable this service and its child resources to be located.         |
+
+1. Enter the values for each required setting under *Datadog organization details*.
+
+<!--Metrics and logs-->
 
 ## Configure metrics and logs
 
@@ -98,6 +115,10 @@ You can request your IT Administrator to route Microsoft Entra logs to Datadog. 
 Azure charges for the logs sent to Datadog. For more information, see the [pricing of platform logs](https://azure.microsoft.com/pricing/details/monitor/) sent to Azure Marketplace partners.
 
 Once you complete the configuration for metrics and logs, select **Next: Single sign-on**.
+
+<!--Security-->
+<!--Single sign-on-->
+<!--Tags-->
 
 ## Configure single sign-on
 
