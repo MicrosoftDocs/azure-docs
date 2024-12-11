@@ -83,47 +83,6 @@ Enter the names and values for each *Action* listed under Metrics and Logs.
 <!--Send subscription activity logs-->
 <!--Send Azure resource logs for all defined sources.-->
 
-
-<!--This information should not be in this quickstart. Move to conceptual article.  Also, review the information UI: To send Microsoft Entra ID logs to Datadog – enable Datadog as a destination in Microsoft Entra ID diagnostic settings.
-Learn more-->
-
-> [!NOTE]
-> If there's a conflict between inclusion and exclusion rules, exclusion takes priority.
-
-Metrics are collected for all resources, except virtual machines. You can filter Virtual Machine Scale Sets, and App Service plans by tags.
-
-- Virtual machines, Virtual Machine Scale Sets, and App Service plan with _Include_ tags send metrics to Datadog.
-- Virtual machines, Virtual Machine Scale Sets, and App Service plan with _Exclude_ tags don't send metrics to Datadog.
-
-Logs for all defined sources are sent to Datadog based on the tags inclusion/exclusion criteria. By default, logs are collected for all resources.
-
-- Azure resources with _Include_ tags send logs to Datadog. 
-- Azure resources with _Exclude_ tags don't send logs to Datadog.
-
-There are three types of logs that you can send from Azure to Datadog.
-
-1. **Subscription level logs** - Provide insight into the operations on your resources at the [control plane](../../azure-resource-manager/management/control-plane-and-data-plane.md). Updates on service health events are also included. Use the activity log to determine the what, who, and when for any write operations (PUT, POST, DELETE). There's a single activity log for each Azure subscription.
-
-1. **Azure resource logs** - Provide insight into operations that were taken on an Azure resource at the [data plane](../../azure-resource-manager/management/control-plane-and-data-plane.md). For example, getting a secret from a Key Vault is a data plane operation. Or, making a request to a database is also a data plane operation. The content of resource logs varies by the Azure service and resource type.
-
-1. **Microsoft Entra logs** - As an IT administrator, you want to monitor your IT environment. The information about your system's health enables you to assess potential issues and decide how to respond.
-
-The Microsoft Entra admin center gives you access to three activity logs:
-
-- [Sign-in](../../active-directory/reports-monitoring/concept-sign-ins.md) – Information about sign-ins and how your resources are used by your users.
-- [Audit](../../active-directory/reports-monitoring/concept-audit-logs.md) – Information about changes applied to your tenant such as users and group management or updates applied to your tenant's resources.
-- [Provisioning](../../active-directory/reports-monitoring/concept-provisioning-logs.md) – Activities performed by the provisioning service, such as the creation of a group in ServiceNow or a user imported from Workday.
-
-To send subscription level logs to Datadog, select **Send subscription activity logs**. If this option is left unchecked, none of the subscription level logs are sent to Datadog.
-
-To send Azure resource logs to Datadog, select **Send Azure resource logs for all defined resources**. The types of Azure resource logs are listed in [Azure Monitor Resource Log categories](/azure/azure-monitor/essentials/resource-logs-categories). To filter the set of Azure resources sending logs to Datadog, use Azure resource tags.
-
-You can request your IT Administrator to route Microsoft Entra logs to Datadog. For more information, see [Microsoft Entra activity logs in Azure Monitor](../../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md).
-
-Azure charges for the logs sent to Datadog. For more information, see the [pricing of platform logs](https://azure.microsoft.com/pricing/details/monitor/) sent to Azure Marketplace partners.
-
-<!--end-->
-
 Once you complete the configuration for metrics and logs, select **Next: Security**.
 
 ## Security tab
