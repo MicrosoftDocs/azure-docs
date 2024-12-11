@@ -67,7 +67,7 @@ Same thing can be achieved via ARM request if that is how you want to create HDI
 
     } 
     ```
-1. For Exapmple, 
+1. For Example, 
 
     ```
     { 
