@@ -1,4 +1,3 @@
-
 ---
 title: 'Frequently asked questions about WordPress on App Service'
 description: Questions and answers about WordPress on Azure App Service.
