@@ -59,17 +59,12 @@ In the output, you can find the `availableUpgradeVersions` property and look at 
 
 If there are no available cluster upgrades, the list will be empty.
 
-## Set customer requested thresholds on the Cluster:
+## Set Deployment Threshold
 
-```
+If the customer requests a threshold that it is different from the default values, you can run the following cluster update command.
+
+```azurecli
 az networkcloud cluster update -n <CLUSTER_NAME> -g <CLUSTER_RG> --update-strategy strategy-type="Rack" threshold-type="PercentSuccess" threshold-value=<DEPLOYMENT_THRESHOLD> wait-time-minutes=<DEPLOYMENT_PAUSE_MINS> --subscription <SUBSCRIPTION_ID>
-```
-*Note, update-strategies can be "Rack" - Rack by Rack, "PauseAfterRack" - Wait for customer response to continue*
-
-Verify update:
-
-```
-az networkcloud cluster show -g <CLUSTER_RG> -n <CLUSTER_NAME> --subscription <CUSTOMER_SUB_ID>| grep -a5 updateStrategy
 ```
 
 If `updateStrategy` is not set, the default are as follows:
@@ -79,6 +74,24 @@ If `updateStrategy` is not set, the default are as follows:
       "thresholdValue": 80,
       "waitTimeMinutes": 1
 ```
+
+*Note:
+*strategy-type can be "Rack" - Rack by Rack OR "PauseAfterRack" - Wait for customer response to continue*
+*threshold-type can be "PercentSuccess" OR "CountSuccess"
+
+
+```
+az networkcloud cluster update -n <CLUSTER_NAME> -g <CLUSTER_RG> --update-strategy strategy-type="Rack" threshold-type="PercentSuccess" threshold-value=<DEPLOYMENT_THRESHOLD> wait-time-minutes=<DEPLOYMENT_PAUSE_MINS> --subscription <SUBSCRIPTION_ID>
+```
+
+
+Verify update:
+
+```
+az networkcloud cluster show -g <CLUSTER_RG> -n <CLUSTER_NAME> --subscription <CUSTOMER_SUB_ID>| grep -a5 updateStrategy
+```
+
+
 
 ## Upgrading cluster runtime using CLI
 
