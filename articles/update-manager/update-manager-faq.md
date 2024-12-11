@@ -107,7 +107,7 @@ Yes, you can, as Azure Update Manager is available in sovereign clouds.
 
 ### What is the pricing for Azure Update Manager? 
 
-Azure Update Manager is available at no extra charge for managing Azure VMs and [Arc-enabled Azure Local VMs](https://learn.microsoft.com/azure-stack/hci/manage/azure-arc-vm-management-overview) (must be created through Arc Resource Bridge on Azure Local). For all other Arc-enabled Servers, the price is $5 per server per month (assuming 31 days of usage).  
+Azure Update Manager is available at no extra charge for managing Azure VMs and [Arc-enabled Azure Local VMs](https://learn.microsoft.com/azure-stack/hci/manage/azure-arc-vm-management-overview) (must be created through Arc Resource Bridge on Azure Local). For all other Arc-enabled Servers, the price is $5 per server per month (assuming 31 days of usage).  Additionally, there is no extra charge for Azure Update Manager when you enable Windows Server Management enabled by Azure Arc with Windows Server licenses that have active Software Assurance (SA) or Windows Server licenses that are active subscription licenses. For additional benefits and information review [Windows Server Management enabled by Azure Arc](https://learn.microsoft.com/en-us/azure/azure-arc/servers/windows-server-management-overview?tabs=portal).
 
 ### How is Azure Update Manager price calculated for Arc-enabled servers? 
 
