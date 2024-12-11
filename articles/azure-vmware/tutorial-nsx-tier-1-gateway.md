@@ -7,7 +7,7 @@ ms.date: 12/11/2024
 ms.custom: engagement-fy25
 ---
 
-#Tutorial: Create an NSX Tier-1 Gateway 
+# Tutorial: Create an NSX Tier-1 Gateway 
 
 After deploying the Azure VMware Solution, you can create additional Tier-1 Gateways from the NSX Manager. Once configured, the additional Tier-1 Gateway will be visible in the NSX Manager. NSX comes pre-provisioned by default with an NSX Tier-0 Gateway in **Active/Active** mode and a default Tier-1 Gateway in **Active/Standby** mode. 
 
