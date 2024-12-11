@@ -76,10 +76,7 @@ In this section, you change the public IP address associated with the firewall. 
 
 4. In **Public IP configuration**, select **myStandardPublicIP-1**.
 
-5. Select the **Public IP address** dropdown, and then select **myStandardPublicIP-2**.
-
-    :::image type="content" source="./media/create-public-ip-firewall/edit-public-ip-configuration.png" alt-text="Screenshot that shows the Edd public IP configuration pane and highlights the Public IP address field.":::
-
+5. In the **Edit public IP configuration** window, select the **Public IP address** dropdown, and then select **myStandardPublicIP-2**.
 6. Select **Save**.
 
 ## Add a public IP configuration to a firewall
@@ -94,13 +91,14 @@ In this section, you add a public IP configuration to Azure Firewall. For more i
 
 4. Select **Add a public IP configuration**.
 
-5. In **Name**, enter **myNewPublicIPconfig**.
+5. In the **Add a public IP configuration** window, enter the following information:
 
-6. In **Public IP address**, select **myStandardPublicIP-3**.
+    | Setting | Value |
+    | ------- | ----- |
+    | **Name** | Enter **myNewPublicIPconfig**. |
+    | **Public IP address** | Select **myStandardPublicIP-3**. |
 
-    :::image type="content" source="./media/create-public-ip-firewall/add-public-ip-configuration.png" alt-text="Screenshot that shows the Add public IP configuration pane and highlights the Name and Public IP address fields.":::
-
-7. Select **Add**.
+6. Select **Add**.
 
 ## Advanced configuration
 
