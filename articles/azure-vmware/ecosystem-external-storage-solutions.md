@@ -49,7 +49,7 @@ Azure NetApp Files is an Azure native, first-party, enterprise-class, high-perfo
 
 #### Azure Elastic SAN
 
-Elastic SAN allows you to deploy, scale, manage, and configure a virtual SAN, while also offering built-in cloud capabilities like high availability. Elastic SAN is interoperable with Azure VMware Solution. Create Elastic SAN volumes and mount them on Azure VMware Solution hosts using iSCSI. Elastic SAN can achieve high performance, and you can scale the provisioned capacity and throughput independently. Elastic SAN is designed for high availability, with built-in redundancy and failover capabilities.
+Azure Elastic SAN a fully integrated solution that simplifies deploying, scaling, managing, and configuring a virtual storage area network (SAN), while also offering built-in cloud capabilities like high availability. Elastic SAN is interoperable with Azure VMware Solution. You can create Elastic SAN volumes and mount them on Azure VMware Solution hosts using [iSCSI](https://wikipedia.org/wiki/ISCSI). Elastic SAN volumes can provide high performance, in the tens of thousands of IOPS. For details on Elastic SAN performance, see [Storage and performance](../storage/elastic-san/elastic-san-planning.md#storage-and-performance) in Elastic SAN's planning article.
 
 ### Partner storage solutions
 
