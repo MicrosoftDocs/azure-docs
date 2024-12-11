@@ -99,6 +99,7 @@ ms.author: greglin
 | Resource | Limit |
 | --- | --- |
 | DNS private resolvers per subscription |15|
+| DNS private resolvers per virtual network |1|
 | Inbound endpoints per DNS private resolver |5|
 | Outbound endpoints per DNS private resolver |5|
 | Forwarding rules per DNS forwarding ruleset |1000|
