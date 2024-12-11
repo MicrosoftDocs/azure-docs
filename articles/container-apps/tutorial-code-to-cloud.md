@@ -176,10 +176,9 @@ cd code-to-cloud/src
     az acr config authentication-as-arm show --registry "$ACR_NAME"
     ```
 
-TODO1 Use PS command
+TODO1 Verify
     # [Azure PowerShell](#tab/azure-powershell)
     ```powershell
-    $acr = Get-AzContainerRegistry -Name $ACRName
     $acr.Config.AuthenticationAsArm
     ```
 
@@ -200,7 +199,7 @@ TODO1 Use PS command
     az acr config authentication-as-arm update --registry "$ACR_NAME" --status enabled
     ```
 
-TODO1 Use PS command
+TODO1 Verify
     # [Azure PowerShell](#tab/azure-powershell)
     ```powershell
     $acr.Config.AuthenticationAsArm.Enabled = $true
@@ -229,7 +228,7 @@ To avoid using administrative credentials, pull images from private repositories
 
     # [Azure PowerShell](#tab/azure-powershell)
 
-TODO1 Use PS command
+TODO1 Verify
     ```powershell
     $IdentityName="<YOUR_IDENTITY_NAME>"
     $Identity = New-AzUserAssignedIdentity -ResourceGroupName $ResourceGroup -Name $IdentityName
@@ -251,7 +250,7 @@ TODO1 Use PS command
 
     # [Azure PowerShell](#tab/azure-powershell)
 
-TODO1 Use PS command
+TODO1 Verify
     ```powershell
     $IdentityId = $identity.Id
     ```
@@ -276,7 +275,7 @@ az acr build --registry $ACR_NAME --image $API_NAME .
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-TODO1 Was this already in here? We think there is no PS equivalent for az acr build. If so, verify that. We think we say so elsewhere. Or maybe it's that there is no PS equivalent for az containerapp up.
+TODO1 Verify
 ```azurepowershell
 New-AzAcrBuildTask -RegistryName $ACRName -ImageName $APIName -ContextPath "."
 
@@ -324,14 +323,20 @@ az acr login --name $ACR_NAME
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-TODO1 Use PS command
+TODO1 Verify
 ```powershell
 Connect-AzContainerRegistry -Name $ACRName
 ```
 
 ---
 
-TODO1 Shouldn't az acr build take care of this? Try skipping this.
+TODO1 Shouldn't az acr build take care of this? Try skipping this. What az acr build command did we use in the other tutorial?
+az acr build \
+    --registry "$CONTAINER_REGISTRY_NAME" \
+    --image "$CONTAINER_IMAGE_NAME" \
+    "https://github.com/Azure-Samples/container-apps-event-driven-jobs-tutorial.git"
+Okay, but in our case, we specify . instead of a URL. Which should push the dockerfile in . to the registry.
+
 Now, push the image to your registry.
 
 # [Bash](#tab/bash)
