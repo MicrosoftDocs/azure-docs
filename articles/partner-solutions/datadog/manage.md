@@ -13,6 +13,8 @@ ms.custom:
 
 # Manage settings for your Datadog resource via Azure portal
 
+<!--conceptual content isn't listed as an option for this service. Should this move to the partner's site?-->
+
 This article shows how to manage the settings for Datadog.
 
 ## Resource overview
