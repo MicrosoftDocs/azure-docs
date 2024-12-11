@@ -20,13 +20,24 @@ var messageTemplate = new MessageTemplate(templateName, templateLanguage);
 ``````
 
 #### Example
-- [Use sample template sample_template](#use-sample-template-sample_template)
+Here is the sample template named `sample_template` takes no parameters.
+
+:::image type="content" source="../../media/template-messages/sample-template-details-azure-portal.png" lightbox="../../media/template-messages/sample-template-details-azure-portal.png" alt-text="Screenshot that shows template details for template named sample_template.":::
+
+Assemble the `MessageTemplate` by referencing the target template's name and language.
+
+```csharp
+string templateName = "sample_template"; 
+string templateLanguage = "en_us"; 
+
+var sampleTemplate = new MessageTemplate(templateName, templateLanguage); 
+``````
 
 ### Templates with text parameters in the body
 
-Use `MessageTemplateText` to define parameters in the body denoted with double brackets surrounding a number, such as `{{1}}`. The number, indexed started at 1, indicates the order in which the binding values must be supplied to create the message template.
+Use `MessageTemplateText` to define parameters in the body denoted with double brackets surrounding a number, such as `{{1}}`. The number, indexed started at 1, indicates the order in which the binding values must be supplied to create the message template. Including parameters not in the template is invalid.
 
-Template definition body:
+Template definition with two parameter:
 ```
 {
   "type": "BODY",
@@ -34,34 +45,40 @@ Template definition body:
 },
 ```
 
-Message template assembly:
+#### Examples
+sample_shipping_confirmation template
+:::image type="content" source="../../media/template-messages/sample-shipping-confirmation-details-azure-portal.png" lightbox="../../media/template-messages/sample-shipping-confirmation-details-azure-portal.png" alt-text="Screenshot that shows template details for template named sample_shipping_confirmation.":::
+
+In this sample, the body of the template has one parameter:
+```
+{
+  "type": "BODY",
+  "text": "Your package has been shipped. It will be delivered in {{1}} business days."
+},
+```
+
+Parameters are defined with the `MessageTemplateValue` values and `MessageTemplateWhatsAppBindings` bindings. Use the values and bindings to assemble the `MessageTemplate`.
+
 ```csharp
-var param1 = new MessageTemplateText(name: "first", text: "First Parameter");
-var param2 = new MessageTemplateText(name: "second", text: "Second Parameter");
+string templateName = "sample_shipping_confirmation"; 
+string templateLanguage = "en_us"; 
+
+var threeDays = new MessageTemplateText("threeDays", "3");
 
 WhatsAppMessageTemplateBindings bindings = new();
-bindings.Body.Add(new(param1.Name));
-bindings.Body.Add(new(param2.Name));
+bindings.Body.Add(new(threeDays.Name));
 
-var messageTemplate = new MessageTemplate(templateName, templateLanguage);
-messageTemplate.Bindings = bindings;
-messageTemplate.Values.Add(param1);
-messageTemplate.Values.Add(param2);
+MessageTemplate shippingConfirmationTemplate  = new(templateName, templateLanguage);
+shippingConfirmationTemplate.Bindings = bindings;
+shippingConfirmationTemplate.Values.Add(threeDays);
 ``````
 
-#### Examples
-- [Use sample template sample_shipping_confirmation](#use-sample-template-sample_shipping_confirmation)
-- [Use sample template sample_movie_ticket_confirmation](#use-sample-template-sample_movie_ticket_confirmation)
-- [Use sample template sample_happy_hour_announcement](#use-sample-template-sample_happy_hour_announcement)
-- [Use sample template sample_flight_confirmation](#use-sample-template-sample_flight_confirmation)
-- [Use sample template sample_issue_resolution](#use-sample-template-sample_issue_resolution)
-- [Use sample template sample_purchase_feedback](#use-sample-template-sample_purchase_feedback)
 
-### Templates with media in the header
+### Templates with media parameter in the header
 
 Use `MessageTemplateImage`, `MessageTemplateVideo`, or `MessageTemplateDocument` to define the media parameter in a header.
 
-Template definition header requiring image media:
+Template definition with image media parameter in header:
 ```
 {
   "type": "HEADER",
@@ -69,7 +86,7 @@ Template definition header requiring image media:
 },
 ```
 
-The "format" can require different media types. In the .NET SDK, each media type uses a corresponding MessageTemplateValue type.
+The "format" can have different media types supported by WhatsApp. In the .NET SDK, each media type uses a corresponding MessageTemplateValue type.
 
 | Format   | MessageTemplateValue Type | File Type |
 |----------|---------------------------|-----------|
@@ -93,8 +110,56 @@ template.Values.Add(media);
 ``````
 
 #### Examples
-- IMAGE: [Use sample template sample_movie_ticket_confirmation](#use-sample-template-sample_movie_ticket_confirmation)
-- IMAGE: [Use sample template sample_purchase_feedback](#use-sample-template-sample_purchase_feedback)
+
+sample_movie_ticket_confirmation template
+:::image type="content" source="../../media/template-messages/sample-movie-ticket-confirmation-details-azure-portal.png" lightbox="../../media/template-messages/sample-movie-ticket-confirmation-details-azure-portal.png" alt-text="Screenshot that shows template details for template named sample_movie_ticket_confirmation.":::
+
+In this sample, the header of the template requires an image:
+```
+{
+  "type": "HEADER",
+  "format": "IMAGE"
+},
+```
+
+And the body of the template requires four text parameters:
+```
+{
+  "type": "BODY",
+  "text": "Your ticket for *{{1}}*\n*Time* - {{2}}\n*Venue* - {{3}}\n*Seats* - {{4}}"
+},
+```
+
+Create one `MessageTemplateImage` and four `MessageTemplateText` variables. Then, assemble your list of `MessageTemplateValue` and your `MessageTemplateWhatsAppBindings` by providing the parameters in the order that the parameters appear in the template content.
+
+```csharp
+string templateName = "sample_movie_ticket_confirmation"; 
+string templateLanguage = "en_us"; 
+var imageUrl = new Uri("https://aka.ms/acsicon1");
+
+var image = new MessageTemplateImage("image", imageUrl);
+var title = new MessageTemplateText("title", "Contoso");
+var time = new MessageTemplateText("time", "July 1st, 2023 12:30PM");
+var venue = new MessageTemplateText("venue", "Southridge Video");
+var seats = new MessageTemplateText("seats", "Seat 1A");
+
+WhatsAppMessageTemplateBindings bindings = new();
+bindings.Header.Add(new(image.Name));
+bindings.Body.Add(new(title.Name));
+bindings.Body.Add(new(time.Name));
+bindings.Body.Add(new(venue.Name));
+bindings.Body.Add(new(seats.Name));
+
+MessageTemplate movieTicketConfirmationTemplate = new(templateName, templateLanguage);
+movieTicketConfirmationTemplate.Values.Add(image);
+movieTicketConfirmationTemplate.Values.Add(title);
+movieTicketConfirmationTemplate.Values.Add(time);
+movieTicketConfirmationTemplate.Values.Add(venue);
+movieTicketConfirmationTemplate.Values.Add(seats);
+movieTicketConfirmationTemplate.Bindings = bindings;
+``````
+
+#### More Examples
 - VIDEO: [Use sample template sample_happy_hour_announcement](#use-sample-template-sample_happy_hour_announcement)
 - DOCUMENT: [Use sample template sample_flight_confirmation](#use-sample-template-sample_flight_confirmation)
 
@@ -131,6 +196,11 @@ The "format" can require different media types. In the .NET SDK, each media type
 
 For more information on location based templates, see [WhatsApp's documentation for message media](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-message-templates#location). 
 
+#### Example
+
+sample_movie_location template
+:::image type="content" source="../../media/template-messages/sample-location-based-template.jpg" lightbox="../../media/template-messages/sample-location-based-template.jpg" alt-text="Screenshot that shows template details for template named sample_location_template.":::
+
 Location based Message template assembly:
 ```csharp
  var location = new MessageTemplateLocation("location");
@@ -145,23 +215,20 @@ Location based Message template assembly:
  messageTemplateWithLocation.Values.Add(location);
  messageTemplateWithLocation.Bindings = location_bindings;
 ``````
-#### Example
-:::image type="content" source="../../media/template-messages/sample-location-based-template.jpg" lightbox="../../media/template-messages/sample-location-based-template.jpg" alt-text="Screenshot that shows template details for template named sample_location_template.":::
 
 ### Templates with quick reply buttons
 
 Use `MessageTemplateQuickAction` to define the payload for quick reply buttons.
 
 `MessageTemplateQuickAction` objects and have the following three attributes.   
- **Specifically for quick reply buttons**, follow these guidelines to create your `MessageTemplateQuickAction` object.
-- `name`   
-The `name` is used to look up the value in `MessageTemplateWhatsAppBindings`.
-- `text`   
-The `text` attribute isn't used.
-- `payload`   
-The `payload` assigned to a button is available in a message reply if the user selects the button.
 
-Template definition buttons:
+|  Properties   | Description |  Type |
+|----------|---------------------------|-----------|
+| Name  | The `name` is used to look up the value in `MessageTemplateWhatsAppBindings`. | string|
+| Text  | The option quick action 'text'. | string|
+| Payload| The `payload` assigned to a button is available in a message reply if the user selects the button.| string |
+ 
+Template definition wth quick reply buttons:
 ```
 {
   "type": "BUTTONS",
@@ -180,41 +247,69 @@ Template definition buttons:
 
 The order that the buttons appear in the template definition should match the order in which the buttons are defined when creating the bindings with `MessageTemplateWhatsAppBindings`.
 
-Message template assembly:
-```csharp
-var yes = new MessageTemplateQuickAction(name: "Yes", payload: "User said yes");
-var no = new MessageTemplateQuickAction(name: "No", payload: "User said no");
-
-var yesButton = new WhatsAppMessageTemplateBindingsButton(WhatsAppMessageButtonSubType.QuickReply.ToString(), yes.Name);
-var noButton = new WhatsAppMessageTemplateBindingsButton(WhatsAppMessageButtonSubType.QuickReply.ToString(), no.Name);
-
-WhatsAppMessageTemplateBindings bindings = new();
-bindings.Buttons.Add(yesButton);
-bindings.Buttons.Add(noButton);
-
-var messageTemplate = new MessageTemplate(templateName, templateLanguage);
-messageTemplate.Bindings = bindings;
-template.Values.Add(yes);
-template.Values.Add(no);
-``````
-
 For more information on the payload in quick reply responses from the user, see WhatsApp's documentation for [Received Callback from a Quick Reply Button](https://developers.facebook.com/docs/whatsapp/cloud-api/webhooks/payload-examples#received-callback-from-a-quick-reply-button).
 
 #### Example
-- [Use sample template sample_issue_resolution](#use-sample-template-sample_issue_resolution)
+
+sample_issue_resolution template
+:::image type="content" source="../../media/template-messages/sample-issue-resolution-details-azure-portal.png" lightbox="../../media/template-messages/sample-issue-resolution-details-azure-portal.png" alt-text="Screenshot that shows template details for template named sample_issue_resolution.":::
+
+Here, the body of the template requires one text parameter:
+```
+{
+  "type": "BODY",
+  "text": "Hi {{1}}, were we able to solve the issue that you were facing?"
+},
+```
+
+And the template includes two prefilled reply buttons, `Yes` and `No`.
+```
+{
+  "type": "BUTTONS",
+  "buttons": [
+    {
+      "type": "QUICK_REPLY",
+      "text": "Yes"
+    },
+    {
+      "type": "QUICK_REPLY",
+      "text": "No"
+    }
+  ]
+}
+```
+
+Create one `MessageTemplateText` and two `MessageTemplateQuickAction` variables. Then, assemble your list of `MessageTemplateValue` and your `MessageTemplateWhatsAppBindings` by providing the parameters in the order that the parameters appear in the template content. The order also matters when defining your binding's buttons.
+```csharp
+string templateName = "sample_issue_resolution";
+string templateLanguage = "en_us";
+
+var name = new MessageTemplateText(name: "name", text: "Kat");
+var yes = new MessageTemplateQuickAction(name: "Yes"){ Payload =  "Kat said yes" };
+var no = new MessageTemplateQuickAction(name: "No") { Payload = "Kat said no" };
+
+WhatsAppMessageTemplateBindings bindings = new();
+bindings.Body.Add(new(name.Name));
+bindings.Buttons.Add(new(WhatsAppMessageButtonSubType.QuickReply.ToString(), yes.Name));
+bindings.Buttons.Add(new(WhatsAppMessageButtonSubType.QuickReply.ToString(), no.Name));
+
+MessageTemplate issueResolutionTemplate = new(templateName, templateLanguage);
+issueResolutionTemplate.Values.Add(name);
+issueResolutionTemplate.Values.Add(yes);
+issueResolutionTemplate.Values.Add(no);
+issueResolutionTemplate.Bindings = bindings;
+``````
 
 ### Templates with call to action buttons
 
 Use `MessageTemplateQuickAction` to define the url suffix for call to action buttons.   
 
 `MessageTemplateQuickAction` objects and have the following three attributes.   
- **Specifically for call to action buttons**, follow these guidelines to create your `MessageTemplateQuickAction` object.
-- `name`   
-The `name` is used to look up the value in `MessageTemplateWhatsAppBindings`.
-- `text`   
-The `text` attribute defines the text that is appended to the URL.   
-- `payload`   
-The `payload` attribute isn't required.
+
+|  Properties   | Description |  Type |
+|----------|---------------------------|-----------|
+| Name  | The `name` is used to look up the value in `MessageTemplateWhatsAppBindings`. | string|
+| Text  | The  'text' that is appended to the URL.  | string|
 
 Template definition buttons:
 ```
@@ -232,19 +327,60 @@ Template definition buttons:
 
 The order that the buttons appear in the template definition should match the order in which the buttons are defined when creating the bindings with `MessageTemplateWhatsAppBindings`.
 
-Message template assembly:
-```csharp
-var urlSuffix = new MessageTemplateQuickAction(name: "text", text: "url-suffix-text");
+#### Example
 
-var urlButton = new WhatsAppMessageTemplateBindingsButton(WhatsAppMessageButtonSubType.Url.ToString(), urlSuffix.Name);
+sample_purchase_feedback template
+This sample template adds a button with a dynamic URL link to the message. It also uses an image in the header and a text parameter in the body.
+:::image type="content" source="../../media/template-messages/edit-sample-purchase-feedback-whatsapp-manager.png" lightbox="../../media/template-messages/edit-sample-purchase-feedback-whatsapp-manager.png" alt-text="Screenshot that shows editing URL Type in the WhatsApp manager.":::
+
+In this sample, the header of the template requires an image:
+```
+{
+  "type": "HEADER",
+  "format": "IMAGE"
+},
+```
+
+Here, the body of the template requires one text parameter:
+```
+{
+  "type": "BODY",
+  "text": "Thank you for purchasing {{1}}! We value your feedback and would like to learn more about your experience."
+},
+```
+
+And the template includes a dynamic URL button with one parameter:
+```
+{
+  "type": "BUTTONS",
+  "buttons": [
+    {
+      "type": "URL",
+      "text": "Take Survey",
+      "url": "https://www.example.com/{{1}}"
+    }
+  ]
+}
+```
+
+Create one `MessageTemplateImage`, one `MessageTemplateText`, and one `MessageTemplateQuickAction` variable. Then, assemble your list of `MessageTemplateValue` and your `MessageTemplateWhatsAppBindings` by providing the parameters in the order that the parameters appear in the template content. The order also matters when defining your binding's buttons.
+```csharp
+string templateName = "sample_purchase_feedback";
+string templateLanguage = "en_us";
+var imageUrl = new Uri("https://aka.ms/acsicon1");
+
+var image = new MessageTemplateImage(name: "image", uri: imageUrl);
+var product = new MessageTemplateText(name: "product", text: "coffee");
+var urlSuffix = new MessageTemplateQuickAction(name: "text") { Text = "survey-code" };
 
 WhatsAppMessageTemplateBindings bindings = new();
-bindings.Buttons.Add(urlButton);
+bindings.Header.Add(new(image.Name));
+bindings.Body.Add(new(product.Name));
+bindings.Buttons.Add(new(WhatsAppMessageButtonSubType.Url.ToString(), urlSuffix.Name));
 
-var messageTemplate = new MessageTemplate(templateName, templateLanguage);
-messageTemplate.Bindings = bindings;
-messageTemplate.Values.Add(urlSuffix);
+MessageTemplate purchaseFeedbackTemplate = new("sample_purchase_feedback", "en_us");
+purchaseFeedbackTemplate.Values.Add(image);
+purchaseFeedbackTemplate.Values.Add(product);
+purchaseFeedbackTemplate.Values.Add(urlSuffix);
+purchaseFeedbackTemplate.Bindings = bindings;
 ``````
-
-#### Example
-- [Use sample template sample_purchase_feedback](#use-sample-template-sample_purchase_feedback)
