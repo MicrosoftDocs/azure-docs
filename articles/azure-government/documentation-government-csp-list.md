@@ -27,7 +27,6 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[AC4S Consulting, Inc.](https://ac4s.com)|
 |[Accelera Solutions Inc](http://www.accelerasolutions.com/)|
 |[Accenture Federal Services LLC](https://www.accenture.com/us-en/industries/afs-index)|
-|[Access Interactive Inc.](https:///www.accessinteractive.com/)|
 |[AccountabilIT](https://accountabilit.com)|
 |[ACP Technologies](https://acp.us.com)|
 |[ActioNet](https://www.actionet.com/)|
@@ -452,10 +451,8 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[Unisys Corp / Blue Bell](https://www.unisys.com)|
 |[United Data Technologies, Inc.](https://udtonline.com)|
 |[VALCOM COMPUTER CENTER](https://www.vlcmtech.com/)|
-|[Vana Solutions LLC](https://vanasolutions.com)|
 |[Vazata - Horizon Data Center Solutions LLC](https://www.vazata.com/)|
 |[VC3 INC](https://www.vc3.com/)|
-|[VerisVisalign](http://www.verisvisalign.com)|
 |[Vertosoft](https://vertosoft.com)|
 |[Vespa Group LLC](https://www.vespa-group.com)|
 |[Vidizmo LLC](https://www.vidizmo.com)|
