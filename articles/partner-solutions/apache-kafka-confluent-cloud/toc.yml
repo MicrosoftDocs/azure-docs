@@ -20,13 +20,7 @@ items:
 - name: How to
   items:
   - name: Create Confluent resources
-    items:
-    - name: Environments
-      href: create-confluent-resources.md#environments
-    - name: Clusters
-      href: create-confluent-resources.md#clusters
-    - name: Topics
-      href: create-confluent-resources.md#topics
+    href: create-confluent-resources.md
   - name: Use Confluent connectors
     href: add-confluent-connectors.md
   - name: Manage
