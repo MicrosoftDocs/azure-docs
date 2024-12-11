@@ -89,7 +89,7 @@ In this step, you view the results of the analysis you started in the previous s
 
 5. Select the **JSON output** tab to view the full JSON output of the analysis result. The beginning of the JSON object details the outcome of the result, which indicates whether all packets reached, some packets reached, or no packets reached. Explanations are provided for each outcome and each reachability step.
     
-    :::image type="content" source="media/how-to-verify-reachability-with-virtual-network-verifier/view-json-results.png" alt-text="Screenshot of JSON output for reachability analysis results.":::""
+    :::image type="content" source="media/how-to-verify-reachability-with-virtual-network-verifier/view-json-results.png" alt-text="Screenshot of JSON output for reachability analysis results.":::
 
 6. Select **Close** to close the analysis results.
 
