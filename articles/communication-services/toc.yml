@@ -769,8 +769,10 @@ items:
         items:
           - name: Overview
             href: concepts/interop/guest/overview.md
+          - name: Calling capabilities
+            href: concepts/interop/guest/calling-capabilities.md
           - name: Meeting capabilities
-            href: concepts/interop/guest/capabilities.md
+            href: concepts/interop/guest/meeting-capabilities.md
           - name: Teams client experience
             href: concepts/interop/guest/teams-client-experience.md
           - name: Teams controls
@@ -809,8 +811,6 @@ items:
             href: concepts/interop/custom-teams-endpoint-firewall-configuration.md
           - name: Government clouds
             href: concepts/interop/teams-user/government-cloud.md
-          - name: Teams users in Azure Communication Services calls
-            href: concepts/interop/teams-interop-group-calls.md
       - name: Virtual visits
         items:
           - name: Overview
