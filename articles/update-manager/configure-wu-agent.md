@@ -24,7 +24,7 @@ For additional recommendations on setting up WSUS in your Azure subscription and
 
 ## Pre-download updates
 
-Pre-download of updates is not supported in Azure Update Manager. Do not use pre-download functionality through AUOptions while using Azure Update Manager default/advanced patching mechanisms which sets NoAutoUpdate=1. 
+Pre-download of updates isn't supported in Azure Update Manager. Don't use pre-download functionality through AUOptions while using Azure Update Manager default/advanced patching mechanisms which sets NoAutoUpdate=1. 
 
 ## Configure reboot settings
 
@@ -45,7 +45,7 @@ Use one of the following options to perform the settings change at scale:
     $ServiceManager.AddService2($ServiceId,7,"")
     ```
 
-- For servers running Server 2016 or later which are not using Update Manager scheduled patching (that has the VM PatchSettings set to AutomaticByOS = Azure-Orchestrated) you can use Group Policy to control this by downloading and using the latest Group Policy [Administrative template files](/troubleshoot/windows-client/group-policy/create-and-manage-central-store).
+- For servers running Server 2016 or later which aren't using Update Manager scheduled patching (that has the VM PatchSettings set to AutomaticByOS = Azure-Orchestrated) you can use Group Policy to control this by downloading and using the latest Group Policy [Administrative template files](/troubleshoot/windows-client/group-policy/create-and-manage-central-store).
 
 
 ## Configure a Windows server for Microsoft updates
