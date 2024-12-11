@@ -189,7 +189,7 @@ In level 3, you create a K3S Kubernetes cluster on a Linux virtual machine. To s
     ```
 1. Configure network isolation for level 3. Use the following steps to configure the level 3 cluster to only send traffic to Layered Network Management in level 4.
     - Browse to the **network security group** of the VM's network interface.
-    - Add an additional outbound security rule to **deny all outbound traffic** from the level 3 virtual machine.
+    - Add an extra outbound security rule to **deny all outbound traffic** from the level 3 virtual machine.
     - Add another outbound rule with the highest priority to **allow outbound to the IP of level 4 AKS cluster on ports 443 and 8084**.
 
     :::image type="content" source="./media/howto-deploy-aks-layered-network/outbound-rules.png" alt-text="Screenshot of network security group outbound rules." lightbox="./media/howto-deploy-aks-layered-network/outbound-rules.png":::
@@ -208,7 +208,7 @@ With the following steps, you Arc-enable the level 3 cluster using the Layered N
 
    On your jumpbox, set up kubectl access to the level 3 k3s cluster by copying the `config.level3` file into the `~/.kube` directory and rename it to `config`. The server entry in the config file should be set to the IP address or domain name of the level 3 VM.
 
-1. Refer to [Configure CoreDNS](howto-configure-layered-network.md#configure-coredns) to use extension mechanisms provided by CoreDNS (the default DNS server for K3S clusters) to add the allowlisted URLs to be resolved by CoreDNS.
+1. Refer to [Configure CoreDNS](howto-configure-layered-network.md#configure-coredns) to use extension mechanisms provided by CoreDNS (the default DNS server for K3S clusters) to add the allowlisted URLs.
 
 1. Run the following commands on your jumpbox to connect the cluster to Arc. This step requires Azure CLI. Install the [Az CLI](/cli/azure/install-azure-cli-linux) if needed.
 

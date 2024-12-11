@@ -15,7 +15,7 @@ ms.service: azure-iot-operations
 
 # Configure Layered Network Management (preview) to use Azure IoT Operations in an isolated network
 
-This walkthrough is an example of deploying Azure IoT Operations to a special environment that's different than the default [Azure IoT Operations scenario](../get-started-end-to-end-sample/quickstart-deploy.md). By default, Azure IoT Operations is deployed to an Arc-enabled cluster that has direct internet access. In this scenario, you deploy Azure IoT Operations to an isolated network environment. The hardware and cluster must meet the prerequisites of Azure IoT Operations and there are additional configurations for the network, host OS, and cluster. As a result, the Azure IoT Operations components run and connect to Arc through the Azure IoT Layered Network Management (preview) service.
+This walkthrough is an example of deploying Azure IoT Operations to a special environment that's different than the default [Azure IoT Operations scenario](../get-started-end-to-end-sample/quickstart-deploy.md). By default, Azure IoT Operations is deployed to an Arc-enabled cluster that has direct internet access. In this scenario, you deploy Azure IoT Operations to an isolated network environment. The hardware and cluster must meet the prerequisites of Azure IoT Operations and there are extra configurations for the network, host OS, and cluster. As a result, the Azure IoT Operations components run and connect to Arc through the Azure IoT Layered Network Management (preview) service.
 
 >[!IMPORTANT]
 > This is an advanced scenario for Azure IoT Operations. You should complete the following steps to get familiar with the basic concepts before you start this advanced scenario.
@@ -66,7 +66,7 @@ The next step is to set up an Arc-enabled cluster in level 3 that's compatible f
   1. It is recommanded to install the kubectl client with [these steps](/azure/azure-arc/kubernetes/troubleshooting#azure-cli) to ensure kubectl client is installed properly for Arc-enablement.
   1. Proceed to Arc-enable the cluster.
   1. Before you disable internet access of your cluster, you also need to complete the [Prerequisites for deploying Azure IoT Operations](/azure/iot-operations/deploy-iot-ops/howto-deploy-iot-operations#prerequisites).
-  1. After install the required software components and set up the K3s cluster, you can restrict the internet access for this cluster and configure the [CoreDNS](howto-configure-layered-network.md#configure-custom-dns) to redirect network traffic to your Layered Network Management service at level 4.
+  1. After installing the required software components and set up the K3s cluster, you can restrict the internet access for this cluster and configure the [CoreDNS](howto-configure-layered-network.md#configure-custom-dns) to redirect network traffic to your Layered Network Management service at level 4.
   
 
 # [AKS Edge Essentials](#tab/aksee)
