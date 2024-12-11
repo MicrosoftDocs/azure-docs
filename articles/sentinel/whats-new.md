@@ -24,7 +24,7 @@ Get notified when this page is updated by copying and pasting the following URL 
 
 ## December 2024
 
-- [Microsoft Sentinel workbooks now available to view directly in the Microsoft Defender portal](microsoft-sentinel-workbooks-now-available-to-view-directly-in-the-microsoft-defender-portal)
+- [Microsoft Sentinel workbooks now available to view directly in the Microsoft Defender portal](#microsoft-sentinel-workbooks-now-available-to-view-directly-in-the-microsoft-defender-portal)
 - [Unified Microsoft Sentinel solution for Microsoft Business Apps](#unified-microsoft-sentinel-solution-for-microsoft-business-apps)
 - [New documentation library for Microsoft's unified security operations platform](#new-documentation-library-for-microsofts-unified-security-operations-platform)
 - [New S3-based data connector for Amazon Web Services WAF logs (Preview)](#new-s3-based-data-connector-for-amazon-web-services-waf-logs-preview)
