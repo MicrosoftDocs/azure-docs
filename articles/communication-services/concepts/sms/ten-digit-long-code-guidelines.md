@@ -62,7 +62,7 @@ Campaign registration with TCR typically takes 3-5 business days for approval. H
 | **Campaign Name**        | Name identifying your campaign.                                          | Contoso Marketing Campaign                              |
 | **Campaign Description** | A detailed description of the campaign’s purpose.                        | Send promotional offers and updates to customers who opt in to Contoso's SMS notifications. |
 | **Use Case**             | The primary purpose of the campaign (e.g., marketing, customer care).    | Marketing                                               |
-| **Message Samples**      | Provide examples of the messages your campaign will send.                | - “Hello! Thank you for subscribing to Contoso updates. Reply STOP to opt-out.” |
+| **Message Samples**      | Provide examples of the messages your campaign will send.                | - “Hello! Thank you for subscribing to Contoso updates. Reply STOP to opt out.” |
 | **Subscriber Opt-in**     | Confirms that recipients have explicitly consented to receive messages.  | “Thank you for subscribing to Contoso Alerts. Reply HELP for help, STOP to unsubscribe.” |
 | **Subscriber Opt-out**    | Allows recipients to stop receiving messages at any time.                | “You have unsubscribed from Contoso Alerts. Reply START to re-subscribe.” |
 | **Subscriber Help**       | Provides instructions or assistance to users.                            | “For assistance, visit [www.contoso.com](https://www.contoso.com) or call 1-800-CONTOSO.” |
