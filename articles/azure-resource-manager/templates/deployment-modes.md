@@ -3,12 +3,15 @@ title: Deployment modes
 description: Describes how to specify whether to use a complete or incremental deployment mode with Azure Resource Manager.
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
-ms.date: 03/20/2024
+ms.date: 12/11/2024
 ---
 
 # Azure Resource Manager deployment modes
 
 When deploying your resources, you specify that the deployment is either an incremental update or a complete update. The difference between these two modes is how Resource Manager handles existing resources in the resource group that aren't in the template.
+
+> [!IMPORTANT]
+> Use [deployment stacks](../bicep/deployment-stacks.md) to perform resource deletions when using ARM templates or Bicep files, as the [complete mode](#complete-mode) will be gradually deprecated.
 
 For both modes, Resource Manager tries to create all resources specified in the template. If the resource already exists in the resource group and its settings are unchanged, no operation is taken for that resource. If you change the property values for a resource, the resource is updated with those new values. If you try to update the location or type of an existing resource, the deployment fails with an error. Instead, deploy a new resource with the location or type that you need.
 
