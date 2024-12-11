@@ -25,11 +25,11 @@ An Azure VMware Solution private cloud with access to the NSX manager interface.
 
 A Tier-1 Gateway is typically added to a Tier-0 Gateway in the northbound direction and to segments in the southbound direction. 
 
-1. With the CloudAdmin account, log in to the NSX Manager.
+1. With the CloudAdmin account, sign in to the NSX Manager.
 
 2. In NSX Manager, select **Networking** > **Tier-1 Gateways**.
 
-3. Click **Add Tier-1 Gateway**. 
+3. Select **Add Tier-1 Gateway**. 
 
 4. Enter a name for the gateway. 
 
@@ -51,12 +51,12 @@ A Tier-1 Gateway is typically added to a Tier-0 Gateway in the northbound direct
 
      | Option | Description | 
      | :----- | :---------- |
-     | Preemptive | If the preferred NSX Edge node fails and recovers, it will preemept its peer and become the active node. The peer changes its state to standby. |
+     | Preemptive | If the preferred NSX Edge node fails and recovers, it preempts its peer and becomes the active node. The peer changes its state to standby. |
      | Non-preemptive  | If the preferred NSX Edge node fails and recovers, it checks if its peer is the active node. If so, the preferred node will not preempt its peer and will be the standby node. This is the default option. |
 
 :::image type="content" source="media/nsxt/nsx-create-tier-1.png" alt-text="Diagram showing the creation of a new Tier-1 Gateway in NSX Manager." border="false" lightbox="media/nsxt/nsx-create-tier-1.png":::
 
-10. Click **Save**. 
+10. Select **Save**. 
 
 ## Next Steps
 
