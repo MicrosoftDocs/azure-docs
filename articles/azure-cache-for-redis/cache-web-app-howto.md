@@ -44,6 +44,10 @@ Clone the repo [https://github.com/Azure-Samples/azure-cache-redis-samples/tree/
 
 ## [Access Key Authentication](#tab/accesskey)
 
+[!INCLUDE [redis-access-key-alert](includes/redis-access-key-alert.md)]
+
+[!INCLUDE [redis-cache-passwordless](includes/redis-cache-passwordless.md)]
+
 ### To edit the *CacheSecrets.config* file
 
 1. Create a file on your computer named *CacheSecrets.config*. Put it in a location where it won't be checked in with the source code of your sample application. For this quickstart, the *CacheSecrets.config* file is located at *C:\AppSecrets\CacheSecrets.config*.

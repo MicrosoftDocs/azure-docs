@@ -70,6 +70,8 @@ Deployment instructions are in the README.md.
 
 ### Add a local secret for the host name
 
+[!INCLUDE [redis-access-key-alert](includes/redis-access-key-alert.md)]
+
 In your command window, execute the following command to store a new secret named *RedisHostName*, after replacing the placeholders, including angle brackets, for your cache name and primary access key:
 
 ```dos
@@ -81,6 +83,7 @@ For using Azure Managed Redis (preview) instance, store a new secret named Redis
 ```dos
 dotnet user-secrets set RedisHostName "<cache-name>.<region>.redis.azure.net"
 ```
+
 ---
 
 ## Connect to the cache with RedisConnection
