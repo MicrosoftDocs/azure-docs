@@ -191,7 +191,7 @@ Initiate a conversation by sending a template message.
 
 First, create a MessageTemplate using the values for a template. 
 > [!NOTE]
-> To check which templates you have available, see the instructions at [List templates](../../template-messages.md#list-templates).
+> To check which templates you have available, see the instructions at [List templates](../../template-messages.md#list-whatsapp-templates-in-azure-portal).
 > If you don't have a template to use, proceed to [Option 2](#option-2-initiate-conversation-from-user).
 
 Here's MessageTemplate creation using a default template, `sample_template`.   
