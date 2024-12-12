@@ -21,6 +21,8 @@ Once the trial license and OT plan are set up, you'll be able to onboard OT sens
 
 For more information, see [Free trial](billing.md#free-trial).
 
+A trial license can be extended up to 15 days before the trail expires. For more information, see [extend your trial license](trial-extention.md#extend-a-trial-license-in-the-admin-center).
+
 ## Prerequisites
 
 Before you start, you need:
