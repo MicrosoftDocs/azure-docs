@@ -8,7 +8,7 @@ ms.service: iot-hub
 ms.devlang: python
 ms.topic: include
 ms.manager: lizross
-ms.date: 12/06/2024
+ms.date: 12/12/2024
 ---
 
 The X.509 certificate is attached to the device-to-IoT Hub connection transport.

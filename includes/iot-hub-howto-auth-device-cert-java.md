@@ -8,7 +8,7 @@ ms.service: iot-hub
 ms.devlang: java
 ms.topic: include
 ms.manager: lizross
-ms.date: 11/19/2024
+ms.date: 12/12/2024
 ---
 
 To connect a device to IoT Hub using an X.509 certificate:

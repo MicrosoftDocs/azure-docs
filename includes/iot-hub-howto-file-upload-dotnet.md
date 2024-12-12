@@ -7,7 +7,7 @@ ms.author: kgremban
 ms.service: azure-iot-hub
 ms.devlang: csharp
 ms.topic: include
-ms.date: 07/01/2024
+ms.date: 12/12/2024
 ms.custom: mqtt, devx-track-csharp, devx-track-dotnet
 ---
 
