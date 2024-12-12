@@ -249,8 +249,8 @@ For more information, see [Work with Defender for IoT CLI commands](../reference
     session_expiration_admin_seconds = 1800
     session_expiration_security_analyst_seconds = 1800
     session_expiration_read_only_users_seconds = 1800
-    certifcate_validation = true
-    CRL_timeout_secounds = 3
+    certificate_validation = true
+    CRL_timeout_seconds = 3
     CRL_retries = 1
 
     ```

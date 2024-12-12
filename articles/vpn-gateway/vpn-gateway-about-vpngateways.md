@@ -94,7 +94,7 @@ Azure VPN Gateway is updated regularly. To stay current with the latest announce
 * Known issues
 * Deprecated functionality (if applicable)
 
-You can also subscribe to the RSS feed and view the latest VPN Gateway feature updates on the [Azure Updates](https://azure.microsoft.com/updates/?category=networking&query=VPN%20Gateway) page.
+You can also subscribe to the RSS feed and view the latest VPN Gateway feature updates on the [Azure Updates](https://azure.microsoft.com/updates?filters=%5B%22VPN+Gateway%22%5D) page.
 
 ## <a name="faq"></a>FAQ
 
