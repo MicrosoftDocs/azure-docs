@@ -177,6 +177,7 @@ The example below is for a customer using grouping="PerCluster" and "PercentSucc
 ```azurecli
 az networkcloud cluster update --name <CLUSTER_NAME> --resource-group <CLUSTER_RG> --compute-deployment-threshold type="PercentSuccess" grouping="PerCluster" value=97 --subscription <SUBSCRIPTION_ID>
 ```
+
 If `compute-deployment-threshold` is not set, the default are as follows:
 ```
       "strategyType": "Rack",
