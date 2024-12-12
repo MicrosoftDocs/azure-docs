@@ -61,13 +61,20 @@ If there are no available cluster upgrades, the list will be empty.
 
 ### Set Deployment Threshold
 
-If the customer requests an update strategy threshold that it is different from the default values, you can run the following cluster update command.
+***--update-strategy - The strategy for updating the cluster indicating the allowable compute node failures during bootstrap provisioning.***
+
+If the customer requests an `update-strategy` threshold that it is different from the default of 80%, you can run the following cluster update command.
 
 ```azurecli
 az networkcloud cluster update -n <CLUSTER_NAME> -g <CLUSTER_RG> --update-strategy strategy-type="Rack" threshold-type="PercentSuccess" threshold-value=<DEPLOYMENT_THRESHOLD> wait-time-minutes=<DEPLOYMENT_PAUSE_MINS> --subscription <SUBSCRIPTION_ID>
 ```
 
-If `update-strategy` is not set, the default are as follows:
+strategy-type can be "Rack" (Rack by Rack) OR "PauseAfterRack" (Wait for customer response to continue)
+
+threshold-type can be "PercentSuccess" OR "CountSuccess"
+
+If updateStrategy is not set, the default are as follows:
+
 ```
       "strategyType": "Rack",
       "thresholdType": "PercentSuccess",
@@ -75,11 +82,7 @@ If `update-strategy` is not set, the default are as follows:
       "waitTimeMinutes": 1
 ```
 
-**Note:**
 
-strategy-type can be "Rack" (Rack by Rack) OR "PauseAfterRack" (Wait for customer response to continue)
-
-threshold-type can be "PercentSuccess" OR "CountSuccess"
 
 The example below is for a customer using Rack by Rack strategy with a Percent Success of 60% and a 1 minute pause.
 
@@ -98,6 +101,8 @@ az networkcloud cluster show -g <CLUSTER_RG> -n <CLUSTER_NAME> --subscription <S
       "waitTimeMinutes": 1
 ```
 
+In this example, if less than 60% of the compute nodes being provisioned in a rack fail to provision (on a rack by rack basis), the cluster deployment will fail.  If 60% or more of the compute nodes are successfully provisioned, cluster deployment moves on to the next rack of compute nodes.
+
 The example below is for a customer using Rack by Rack strategy with a threshold type CountSuccess of 10 nodes per rack and a 1 minute pause.
 
 ```azurecli
@@ -111,9 +116,11 @@ Verify update:
 az networkcloud cluster show -g <CLUSTER_RG> -n <CLUSTER_NAME> --subscription <SUBSCRIPTION_ID>| grep -a5 updateStrategy
       "strategyType": "Rack",
       "thresholdType": "CountSuccess",
-      "thresholdValue": 4,
+      "thresholdValue": 10,
       "waitTimeMinutes": 1
 ```
+
+In this example, if less than 10 compute nodes being provisioned in a rack fail to provision (on a rack by rack basis), the cluster deployment will fail.  If 10 or more of the compute nodes are successfully provisioned, cluster deployment moves on to the next rack of compute nodes.
 
 ## Upgrading cluster runtime using CLI
 
