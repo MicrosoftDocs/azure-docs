@@ -4044,10 +4044,10 @@
       "source_path_from_root": "/articles/load-balancer/move-across-regions-internal-load-balancer-portal.md",
       "redirect_url": "/azure/load-balancer/move-across-regions-azure-load-balancer",
       "redirect_document_id": false
-    },    
+    },
     {
-      "source_path_from_root": "/articles/load-balancer/move-across-regions-internal-load-balancer-powershell.md",
-      "redirect_url": "/azure/load-balancer/move-across-regions-azure-load-balancer",
+      "source_path_from_root": "/articles/fasttrack/index.yml",
+      "redirect_url": "/azure",
       "redirect_document_id": false
     }
   ]
