@@ -170,7 +170,7 @@ Cluster create Logs can be viewed in the following locations:
 
 ## Set Deployment Threshold
 
-If the customer requests a deployment threshold value that it is different from the default of 80%, you can run the following cluster update command.
+If the customer requests a compute deployment threshold that it is different from the default of 80%, you can run the following cluster update command.
 
 The example below is for a customer using grouping="PerCluster" and "PercentSuccess" of 97.
 
@@ -186,7 +186,7 @@ If `compute-deployment-threshold` is not set, the default are as follows:
 ```
 
 # Validate update:
-az networkcloud cluster show -g <CLUSTER_RG> -n <CLUSTER_NAME> | grep -a3 computeDeploymentThreshold
+az networkcloud cluster show -g <CLUSTER_RG> -n <CLUSTER_NAME> --subscription <SUBSCRIPTION_ID> | grep -a3 computeDeploymentThreshold
 
   "clusterType": "MultiRack",
   "clusterVersion": "<CLUSTER_VERSION>",
