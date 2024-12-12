@@ -124,7 +124,7 @@ If an attribute is padded with nulls, the attribute is indexed when searchable a
 | `500 (Internal Server Error)`  | The server encountered an unknown internal error. Try again later.                                                                                                                                                 |
 | `503 (Service Unavailable)`    | The service is unavailable or busy. Try again later.                                                                                                                                                               |
 
-### Store response paylo
+### Store response payload
 
 The response payload populates a DICOM dataset with the following elements:
 

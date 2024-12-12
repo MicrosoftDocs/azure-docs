@@ -204,7 +204,7 @@ Next, you'll read the csv file into a pandas DataFrame.
    ```
 
    > [!Important]
-   > Refer to [Azure OpenAI Service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) to caculate the cost of generating embeddings based on the number of tokens required.
+   > Refer to [Azure OpenAI Service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) to calculate the cost of generating embeddings based on the number of tokens required.
 
 ## Load DataFrame into LangChain
 

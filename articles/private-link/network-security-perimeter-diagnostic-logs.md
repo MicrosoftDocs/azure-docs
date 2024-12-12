@@ -50,4 +50,4 @@ You can enable diagnostic logging for a network security perimeter by using the 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create a network security perimeter in the Azure portal](./network-security-perimeter-diagnostic-logs.md)
+> [Create a network security perimeter in the Azure portal](./create-network-security-perimeter-portal.md)

@@ -19,7 +19,7 @@ The [Azure Migrate appliance](migrate-appliance.md) is a lightweight appliance u
 > [!Note]
 > Currently, the discovery of ASP.NET web apps is only available in the appliance used for discovery and assessment of servers running in a VMware environment.
 
-If you want to use these features, you can provide server credentials by performing the following steps. For servers running on vCenter Server(s) and Hyper-V host(s)/cluster(s), the appliance will attempt to automatically map the credentials to the servers to perform the discovery features.
+If you want to use these features, you can provide server credentials by performing the following steps. For servers running on vCenter Servers and Hyper-V hosts/clusters, the appliance will attempt to automatically map the credentials to the servers to perform the discovery features.
 
 ## Add server credentials
 
