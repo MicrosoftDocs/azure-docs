@@ -1,6 +1,16 @@
 {
   "redirections": [
     {
+      "source_path": "articles/private-multi-access-edge-compute-mec/overview.md",
+      "redirect_url": "/previous-versions/azure/private-multi-access-edge-compute-mec/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-multi-access-edge-compute-mec/partner-programs.md",
+      "redirect_url": "/previous-versions/azure/private-multi-access-edge-compute-mec/partner-programs",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/partner-solutions/split-experimentation/create.md",
       "redirect_url": "/previous-versions/azure/partner-solutions/split-experimentation/create",
       "redirect_document_id": false
