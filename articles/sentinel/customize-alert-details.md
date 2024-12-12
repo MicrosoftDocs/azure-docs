@@ -3,7 +3,7 @@ title: Customize alert details in Microsoft Sentinel | Microsoft Docs
 description: Customize how alerts are named and described, along with their severity and assigned tactics, based on the alerts' content.
 author: yelevin
 ms.topic: how-to
-ms.date: 03/05/2024
+ms.date: 10/16/2024
 ms.author: yelevin
 appliesto:
     - Microsoft Sentinel in the Azure portal
@@ -88,19 +88,18 @@ Follow the procedure detailed below to use the alert details feature. These step
     
        > [!NOTE]
        > 
-       > If you onboarded Microsoft Sentinel to the unified security operations platform, **do not customize** the *ProductName* field for alerts from Microsoft sources. Doing so will result in these alerts being dropped from Microsoft Defender XDR and no incident being created.
+       > If you onboarded Microsoft Sentinel to the Microsoft Defender portal, **do not customize** the *ProductName* field for alerts from Microsoft sources. Doing so will result in these alerts being dropped from Microsoft Defender XDR and no incident being created.
 
     If you change your mind, or if you made a mistake, you can remove an alert detail by clicking the trash can icon next to the **Alert property/Value** pair, or delete the free text from the **Alert Name/Description Format** fields.
 
 1. When you have finished customizing your alert details, if you're now creating the rule, continue to the next tab in the wizard. If you're editing an existing rule, select the **Review and create** tab. Once the rule validation is successful, select **Save**.
 
-   > [!NOTE]
-   > 
-   > **Service limits**
-   > - You can override a field with **up to 50 values**. Values past the 50th are dropped.
-   > - The size limit for the AlertName field, and any other non-collection properties, is **256 bytes**.
-   > - The size limit for the Description field, and any other collection properties, is **5 KB**.
-   > - Values exceeding the size limits are dropped.
+## Service limits
+
+- You can override a field with **up to 50 values** in a single query. When your query exceeds 50 customized values, **all** customized values are dropped, and in all query results the field reverts to its default value. Tune your query to yield no more than 50 values to ensure no customized values are dropped.
+- The size limit for the `AlertName` field, and any other non-collection properties, is **256 bytes**.
+- The size limit for the `Description` field, and any other collection properties, is **5 KB**.
+- Values exceeding the size limits are dropped.
 
 ## Next steps
 

@@ -4,7 +4,7 @@ description: Overview of Azure Modeling and Simulation Workbench user personas.
 author: lynnar
 ms.author: lynnar
 ms.reviewer: yochu
-ms.service: modeling-simulation-workbench
+ms.service: azure-modeling-simulation-workbench
 ms.topic: conceptual
 ms.date: 01/01/2023
 # Customer intent: As a Modeling and Simulation Workbench user, I want to understand the user personas.

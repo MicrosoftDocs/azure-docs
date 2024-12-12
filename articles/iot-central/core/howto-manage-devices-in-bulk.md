@@ -5,7 +5,7 @@ ms.service: azure-iot-central
 services: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 07/24/2023
+ms.date: 10/22/2024
 ms.topic: how-to
 ms.custom: engagement-fy23
 ---
@@ -88,7 +88,7 @@ The following example shows you how to create and run a job to set the light thr
 
 ## Manage jobs
 
-To stop a running job, open it and select **Stop**. The job status changes to reflect that the job is stopped. The **Summary** section shows which devices have completed, have failed, or are still pending.
+To stop a running job, open it and select **Stop**. The job status changes to reflect that the job is stopped. The **Summary** section shows which devices completed, failed, or are still pending.
 
 When a job is in a stopped state, you can select **Continue** to resume running the job. The job status changes to reflect that the job is now running again. The **Summary** section continues to update with the latest progress.
 
@@ -106,7 +106,7 @@ After a job is created, the **Status** column updates with the latest job status
 | Failed               | This job failed and didn't fully run on devices.  |
 | Pending              | This job hasn't yet begun running on devices.         |
 | Running              | This job is currently running on devices.             |
-| Stopped              | A user has manually stopped this job.           |
+| Stopped              | A user manually stopped this job.           |
 | Canceled             | This job was canceled because the threshold set on the **Delivery options** page was exceeded. |
 
 The status message is followed by an overview of the devices in the job. The following table lists the possible *device status* values:
@@ -114,7 +114,7 @@ The status message is followed by an overview of the devices in the job. The fol
 | Status message       | Status meaning                                                     |
 | -------------------- | ------------------------------------------------------------------ |
 | Succeeded            | The number of devices that the job successfully ran on.       |
-| Failed               | The number of devices that the job has failed to run on.       |
+| Failed               | The number of devices that the job failed to run on.       |
 
 To view the status of the job and all the affected devices, open the job. Next to each device name, you see one of the following status messages:
 
@@ -159,8 +159,8 @@ To register a large number of devices to your application, you can bulk import d
 
 | Column | Description |
 | - | - |
-| IOTC_DEVICEID | The device ID is a unique identified this device will use to connect. The device ID can contain letters, numbers, and the `-` character without any spaces. The maximum length is 128 characters. |
-| IOTC_DEVICENAME | Optional. The device name is a friendly name that will be displayed throughout the application. If not specified, the device name is the same as the device ID. The maximum length is 148 characters. |
+| IOTC_DEVICEID | The device ID is a unique identified this device uses to connect. The device ID can contain letters, numbers, and the `-` character without any spaces. The maximum length is 128 characters. |
+| IOTC_DEVICENAME | Optional. The device name is a friendly name that's displayed throughout the application. If not specified, the device name is the same as the device ID. The maximum length is 148 characters. |
 
 To bulk-register devices in your application:
 
@@ -177,7 +177,7 @@ To bulk-register devices in your application:
 
 1. Select the CSV file that has the list of device IDs to be imported.
 
-1. Device import starts once the file has been uploaded. You can track the import status in the **Device Operations** panel. This panel appears automatically after the import starts or you can access it through the bell icon in the top right-hand corner.
+1. Device import starts after the file uploads. You can track the import status in the **Device Operations** panel. This panel appears automatically after the import starts or you can access it through the bell icon in the top right-hand corner.
 
 1. Once the import completes, a success message is shown in the **Device Operations** panel.
 

@@ -6,7 +6,7 @@ ms.author: malev
 ms.service: service-connector
 ms.custom: engagement-fy23
 ms.topic: conceptual
-ms.date: 01/17/2023
+ms.date: 10/22/2024
 ---
 # Service Connector internals
 

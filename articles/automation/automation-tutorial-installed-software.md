@@ -3,13 +3,15 @@ title: Discover what software is installed on your VMs with Azure Automation | M
 description: This article describes the software installed on VMs across your environment.
 services: automation
 keywords: inventory, automation, change tracking
-ms.date: 04/11/2018
+ms.date: 10/24/2024
 ms.topic: tutorial
 ms.subservice: change-inventory-management
 ms.custom: mvc
 ms.service: azure-automation
 ---
 # Discover what software is installed on your VMs
+
+[!INCLUDE [./log-analytics-retirement-announcement.md](./includes/log-analytics-retirement-announcement.md)]
 
 In this tutorial, you learn how to use the Azure Automation Change Tracking and Inventory feature to find out what software is installed in your environment. You can collect and view inventory for software, files, Linux daemons, Windows services, and Windows Registry keys on your computers. Tracking the configurations of your machines can help you pinpoint operational issues across your environment and better understand the state of your machines.
 

@@ -27,7 +27,6 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[AC4S Consulting, Inc.](https://ac4s.com)|
 |[Accelera Solutions Inc](http://www.accelerasolutions.com/)|
 |[Accenture Federal Services LLC](https://www.accenture.com/us-en/industries/afs-index)|
-|[Access Interactive Inc.](https://www.access-interactive.com/)|
 |[AccountabilIT](https://accountabilit.com)|
 |[ACP Technologies](https://acp.us.com)|
 |[ActioNet](https://www.actionet.com/)|
@@ -115,7 +114,7 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[CompuNet Inc.](https://compunet.biz/)|
 |[Computer Solutions Inc.](http://cs-inc.co/)|
 |[Communication Square LLC](https://www.communicationsquare.com)|
-|[ConvergeOne](https://www.convergeone.com)|
+|[ConvergeOne](https://www.onec1.com/)|
 |[Copper River Technologies, LLC](http://www.copperrivertech.com/)|
 |[Coretek Services](https://www.coretekservices.com/)|
 |[Cornerstone Technologies](https://www.cornerstonetechnologies.com/)|
@@ -151,7 +150,7 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[Diffeo, Inc.](https://diffeo.com)|
 |[DirectApps, Inc. D.B.A. Direct Technology](https://directtechnology.com)|
 |[DominionTech Inc.](https://www.dominiontech.com)|
-|[DOT Personable Inc](http://solutions.personable.com/)|
+|[DOT Personable Inc](https://cloud.personable.com/1/login.htm)|
 |Doublehorn, LLC|
 |[DXC Technology Services LLC](https://www.dxc.technology/services)|
 |[DXL Enterprises, Inc.](https://mahwahnjcoc.wliinc31.com/Supply-Chain-Management/DXL-Enterprises,-Inc-1349)|
@@ -188,7 +187,6 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[General Dynamics Information Technology](https://gdit.com/)|
 |[Giga-Green Technologies](https://giga-green.com)|
 |[Gimmal](https://www.gimmal.com/)|
-|[Global Justice Solutions, LLC](https://www.globaljusticesolutions.us/)|
 |[Global Tech Inc.](https://www.eglobaltech.com)|
 |[Globalscape, Inc.](https://www.globalscape.com)|
 |[Go Full Cloud](https://www.gofullcloud.com/)|
@@ -215,7 +213,7 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |I10 Inc|
 |[I2, Inc. (IBM)](https://www.ibm.com/security/intelligence-analysis/i2)|
 |[i3 Business Solutions, LLC](https://www.i3businesssolutions.com/)|
-|[i3 LLC](http://i3llc.net/)|
+|[i3 LLC](https://i3llc.us/)|
 |[IBM Corporation](https://www.ibm.com/industries/federal)|
 |[Illuminative Strategies Inc](https://illum-strat.com)|
 |[ImageSource](https://imagesourceinc.com/)|
@@ -256,12 +254,11 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[Kosh Solutions, LLC](https://www.koshsolutions.com)|
 |[KTL Solutions, Inc.](https://www.ktlsolutions.com)|
 |[Ladlas Prince LLC](https://www.ladlasprince.com)|
-|[Lear360.com](https://www.lear360.com)|
 |[Leidos](https://www.leidos.com)|
 |[Leslie Digital Imaging LLC.](https://www.myldi.com)|
 |[LiftOff, LLC](https://www.liftoffonline.com)|
 |[Lightstream Managed Services, LLC](https://www.lightstream.tech)|
-|[Liquid Mercury Solutions](https://www.liquid-hg.com/)|
+|[Liquid Mercury Solutions](https://liquidmercury.com/#solutions)|
 |[Logicalis, Inc.](https://www.us.logicalis.com/)|
 |[Lucidius Group LLC](http://www.lucidiusgrp.com)|
 |[Lumen](https://www.lumen.com/)|
@@ -364,7 +361,7 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[Redhorse Corporation](https://www.redhorsecorp.com)|
 |[Regan Technologies Corporation](http://www.regantech.com/)|
 |Remote Support Solutions Corp DBA RemoteWorks|
-|[Revenue Solutions, Inc](https://www.revenuesolutionsinc.com)|
+|[Revenue Solutions, Inc](https://www.rsidelivers.com/)|
 |[Ridge IT](https://www.ridgeit.com/)|
 |[RMON Networks Inc.](https://rmonnetworks.com/)|
 |[rmsource, Inc.](https://www.rmsource.com)|
@@ -454,10 +451,8 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[Unisys Corp / Blue Bell](https://www.unisys.com)|
 |[United Data Technologies, Inc.](https://udtonline.com)|
 |[VALCOM COMPUTER CENTER](https://www.vlcmtech.com/)|
-|[Vana Solutions LLC](https://vanasolutions.com)|
 |[Vazata - Horizon Data Center Solutions LLC](https://www.vazata.com/)|
 |[VC3 INC](https://www.vc3.com/)|
-|[VerisVisalign](http://www.verisvisalign.com)|
 |[Vertosoft](https://vertosoft.com)|
 |[Vespa Group LLC](https://www.vespa-group.com)|
 |[Vidizmo LLC](https://www.vidizmo.com)|

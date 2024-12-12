@@ -2,7 +2,7 @@
 title: Initiate ground station licensing
 description: How to initiate ground station licensing. Satellites and ground stations require authorizations from federal regulators and other government agencies.
 author: kellydevens
-ms.service: orbital
+ms.service: azure-orbital
 ms.topic: how-to
 ms.custom: ga
 ms.date: 10/12/2023
@@ -11,6 +11,9 @@ ms.author: mosagie
 ---
 
 # Initiate ground station licensing
+
+> [!NOTE]
+> [Azure Orbital Ground Station is retiring on December 18th, 2024](https://azure.microsoft.com/updates?id=Azure-Orbital-Ground-Station-Retirement) and has stopped issuing new authorizations.
 
 ## About satellite and ground station licensing
 

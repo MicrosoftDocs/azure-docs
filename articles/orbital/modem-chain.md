@@ -2,7 +2,7 @@
 title: Configure the RF chain - Azure Orbital
 description: Learn more about how to configure modems, either managed modems or virtual RF functionality using the Azure Orbital Ground Station service.
 author: hrshelar
-ms.service: orbital
+ms.service: azure-orbital
 ms.topic: how-to
 ms.custom: ga
 ms.date: 08/30/2022
@@ -84,14 +84,14 @@ Enter the named modem string into the demodulationConfiguration parameter when u
 {
     "location": "westus2",
     "tags": null,
-    "id": "/subscriptions/c098d0b9-106a-472d-83d7-eb2421cfcfc2/resourcegroups/Demo/providers/Microsoft.Orbital/contactProfiles/Aqua-directbroadcast",
+    "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/Demo/providers/Microsoft.Orbital/contactProfiles/Aqua-directbroadcast",
     "name": "Aqua-directbroadcast",
     "type": "Microsoft.Orbital/contactProfiles",
     "properties": {
         "minimumViableContactDuration": "PT1M",
         "minimumElevationDegrees": 5,
         "autoTrackingConfiguration": "disabled",
-        "eventHubUri": "/subscriptions/c098d0b9-106a-472d-83d7-eb2421cfcfc2/resourceGroups/Demo/providers/Microsoft.EventHub/namespaces/demo-orbital-eventhub/eventhubs/antenna-metrics-stream",
+        "eventHubUri": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/Demo/providers/Microsoft.EventHub/namespaces/demo-orbital-eventhub/eventhubs/antenna-metrics-stream",
         "links": [
             {
                 "polarization": "RHCP",

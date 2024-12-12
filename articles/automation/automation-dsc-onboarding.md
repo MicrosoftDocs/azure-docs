@@ -13,6 +13,8 @@ ms.custom:
 
 [!INCLUDE [azure-automation-dsc-end-of-life](~/includes/dsc-automation/azure-automation-dsc-end-of-life.md)]
 
+[!INCLUDE [automation-dsc-linux-retirement-announcement](./includes/automation-dsc-linux-retirement-announcement.md)]
+
 This article describes how you can set up your machines for management with Azure Automation State
 Configuration. For details of this service, see
 [Azure Automation State Configuration overview][17].

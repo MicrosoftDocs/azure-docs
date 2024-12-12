@@ -5,10 +5,9 @@ description: Use Azure Blob Storage lifecycle management policies to create auto
 author: normesta
 
 ms.author: normesta
-ms.date: 09/30/2024
+ms.date: 11/25/2024
 ms.service: azure-blob-storage
 ms.topic: conceptual
-ms.reviewer: yzheng
 ms.custom: references_regions, engagement-fy23
 ---
 
@@ -18,8 +17,8 @@ Azure Blob Storage lifecycle management offers a rule-based policy that you can 
 
 With the lifecycle management policy, you can:
 
-- Transition blobs from cool to hot immediately when they're accessed, to optimize for performance.
-- Transition current versions of a blob, previous versions of a blob, or blob snapshots to a cooler storage tier if these objects haven't been accessed or modified for a period of time, to optimize for cost.
+- Transition current versions of a blob, previous versions of a blob, or blob snapshots to a cooler storage tier if these objects haven't been accessed or modified for a period of time, to optimize for cost.- 
+- Transition blobs back from cool to hot immediately when they're accessed.
 - Delete current versions of a blob, previous versions of a blob, or blob snapshots at the end of their lifecycles.
 - Apply rules to an entire storage account, to select containers, or to a subset of blobs using name prefixes or [blob index tags](storage-manage-find-blobs.md) as filters.
 
@@ -186,13 +185,21 @@ The run conditions are based on age. Current versions use the last modified time
 
 ## Lifecycle policy runs
 
-When you configure or edit a lifecycle policy, it can take up to 24 hours for changes to go into effect and for the first execution to start. The time taken for policy actions to complete depends on the number of blobs evaluated and operated on.
+When you add or edit the rules of a lifecycle policy, it can take up to 24 hours for changes to go into effect and for the first execution to start. 
 
-If you disable a policy, then no new policy runs will be scheduled, but if a run is already in progress, that run will continue until it completes and you're billed for any actions that are required to complete the run. See [Regional availability and pricing](#regional-availability-and-pricing).  
+An active policy processes objects continuously, and is interrupted if changes are made to the policy. If you edit, delete, or disable a rule, then the execution of that policy terminates within 15 minutes, and is restarted again within 24 hours with updated rules. If you disable or delete all of the rules in a policy, then the policy becomes inactive, and no new runs will be scheduled. 
+
+The time required for a run to complete depends on the number of blobs evaluated and operated on. The latency with which a blob is evaluated and operated on may be longer if the request rate for the storage account approaches the storage account limit. All requests made to storage account, including requests made by policy runs, accrue to the same limit on requests per second, and as that limit approaches, priority is given to requests made by workloads. To request an increase in account limits, contact [Azure Support](https://azure.microsoft.com/support/faq/).
+
+To view default scale limits, see the following articles:
+
+- [Scalability and performance targets for Blob storage](scalability-targets.md)
+- [Scalability and performance targets for standard storage accounts](../common/scalability-targets-standard-account.md) 
+- [Scalability targets for premium block blob storage accounts](scalability-targets-premium-block-blobs.md)
 
 ### Lifecycle policy completed event
+The `LifecyclePolicyCompleted` event is generated when the actions defined by a lifecycle management policy are performed. A summary section appears for each action that is included in the policy definition. The following json shows an example `LifecyclePolicyCompleted` event for a policy. Because the policy definition includes the `delete`, `tierToCool`, `tierToCold`, and `tierToArchive` actions, a summary section appears for each one. 
 
-The `LifecyclePolicyCompleted` event is generated when the actions defined by a lifecycle management policy are performed. The following json shows an example `LifecyclePolicyCompleted` event.
 
 ```json
 {
@@ -209,6 +216,11 @@ The `LifecyclePolicyCompleted` event is generated when the actions defined by a 
             "errorList": ""
         },
         "tierToCoolSummary": {
+            "totalObjectsCount": 0,
+            "successCount": 0,
+            "errorList": ""
+        },
+        "tierToColdSummary": {
             "totalObjectsCount": 0,
             "successCount": 0,
             "errorList": ""
@@ -231,6 +243,7 @@ The following table describes the schema of the `LifecyclePolicyCompleted` event
 |scheduleTime|string|The time that the lifecycle policy was scheduled|
 |deleteSummary|vector\<byte\>|The results summary of blobs scheduled for delete operation|
 |tierToCoolSummary|vector\<byte\>|The results summary of blobs scheduled for tier-to-cool operation|
+|tierToColdSummary|vector\<byte\>|The results summary of blobs scheduled for tier-to-cold operation|
 |tierToArchiveSummary|vector\<byte\>|The results summary of blobs scheduled for tier-to-archive operation|
 
 ## Examples of lifecycle policies

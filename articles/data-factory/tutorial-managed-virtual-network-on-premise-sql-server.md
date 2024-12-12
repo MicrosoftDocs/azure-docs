@@ -258,6 +258,9 @@ data factory from the resources list.
    > [!NOTE]
    > When deploying your SQL Server on a virtual machine within a virtual network, it is essential to enhance your FQDN by appending **privatelink**. Otherwise, it will be conflicted with other records in the DNS setting. For example, you can simply modify the SQL Server's FQDN from **sqlserver.westus.cloudapp.azure.net** to **sqlserver.privatelink.westus.cloudapp.azure.net**.
 
+   > [!NOTE]
+   > Currently ApplicationIntent and MultiSubnetFailover are not supported in SQL connection properties.
+
 8. Create private endpoint.
 
 ## Create a linked service and test the connection

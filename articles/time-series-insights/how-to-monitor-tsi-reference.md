@@ -5,7 +5,7 @@ author: esung22
 ms.author: elsung
 manager: cnovak
 ms.reviewer: orspodek
-ms.service: time-series-insights
+ms.service: azure-time-series-insights
 ms.topic: conceptual
 ms.date: 12/10/2020
 ---

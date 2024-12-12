@@ -89,7 +89,7 @@ A public IP assigned to a VM is a 1:1 relationship (rather than 1: many) and imp
 In Azure, virtual machines created in a virtual network without explicit outbound connectivity defined are assigned a default outbound public IP address. This IP address enables outbound connectivity from the resources to the Internet. This access is referred to as [default outbound access](../virtual-network/ip-services/default-outbound-access.md).  This method of access is **not recommended** as it's insecure and the IP addresses are subject to change.
 
 >[!Important]
->On September 30, 2025, default outbound access for new deployments will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired/).  It is recommended to use one the explict forms of connectivity as shown in options 1-3 above.
+>On September 30, 2025, default outbound access for new deployments will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired/).  It is recommended to use one the explicit forms of connectivity as shown in options 1-3 above.
 
 ### What are SNAT ports?
 
@@ -184,7 +184,7 @@ In the example in the following table, a backend instance with private IP 10.0.0
 
 *	Fragmented packets are dropped unless outbound is through an instance level public IP on the VM's NIC.
 
-*	Secondary IP configurations of a network interface don't provide outbound communication (unless a public IP is associated to it) via a load balancer.
+*	Secondary IPv4 configurations of a network interface are not supported with outbound rules. For outbound connectivity on secondary IPv4 configurations, attach instance level public IPs or leverage NAT Gateway instead.
 
 ## Next steps
 

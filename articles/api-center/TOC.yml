@@ -38,6 +38,8 @@
         href: manage-apis-azure-cli.md
       - name: Import APIs from API Management
         href: import-api-management-apis.md
+      - name: Synchronize APIs from API Management
+        href: synchronize-api-management-apis.md
       - name: Build and register APIs - VS Code extension
         href: build-register-apis-vscode-extension.md
       - name: Register APIs - GitHub Actions
@@ -56,6 +58,8 @@
         href: discover-shadow-apis-dev-proxy.md
       - name: Find nonproduction API requests with Dev Proxy
         href: find-nonproduction-api-requests-dev-proxy.md
+      - name: Workflow automation to set API status
+        href: set-up-notification-workflow.md
 - name: API discovery and consumption
   items:
       - name: Discover and consume APIs - VS Code extension

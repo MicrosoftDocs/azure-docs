@@ -5,8 +5,8 @@ author: anaharris-ms
 ms.topic: overview
 ms.date: 08/21/2023
 ms.author: anaharris
-ms.service: reliability
-ms.subservice: availability-zones
+ms.service: azure
+ms.subservice: azure-availability-zones
 ms.custom: subject-reliability, ai-video-concept
 ---
 

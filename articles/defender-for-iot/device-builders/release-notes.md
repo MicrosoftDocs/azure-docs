@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 04/17/2024
 ---
 
-# What's new
+# What's new in Microsoft Defender for IoT 
 
 [!INCLUDE [Banner for top of topics](../includes/banner.md)]
 
@@ -14,6 +14,10 @@ This article lists new features and feature enhancements in Microsoft Defender f
 Noted features are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 For more information, see [Upgrade the Microsoft Defender for IoT micro agent](upgrade-micro-agent.md).
+
+## November 2024
+
+The firmware analysis documentation is now located and maintained as part of the Azure documentation. See the full [firmware analysis documentation](/azure/firmware-analysis/overview-firmware-analysis).
 
 ## August 2024
 

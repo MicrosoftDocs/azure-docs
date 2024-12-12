@@ -23,7 +23,6 @@ The resource providers for AI and machine learning services are:
 | Microsoft.BotService | [Azure Bot Service](/azure/bot-service/) |
 | Microsoft.CognitiveServices | [Cognitive Services](/azure/ai-services/) |
 | Microsoft.EnterpriseKnowledgeGraph | Enterprise Knowledge Graph |
-| Microsoft.MachineLearning | [Machine Learning Studio](/azure/machine-learning/classic/) |
 | Microsoft.MachineLearningServices | [Azure Machine Learning](/azure/machine-learning/) |
 | Microsoft.Search | [Azure AI Search](/azure/search/) |
 
@@ -64,7 +63,7 @@ The resource providers for compute services are:
 
 | Resource provider namespace | Azure service |
 | --------------------------- | ------------- |
-| Microsoft.AppPlatform | [Azure Spring Apps](../../spring-apps/enterprise/overview.md) |
+| Microsoft.AppPlatform | [Azure Spring Apps](../../spring-apps/basic-standard/overview.md) |
 | Microsoft.AVS | [Azure VMware Solution](../../azure-vmware/index.yml) |
 | Microsoft.Batch | [Batch](../../batch/index.yml) |
 | Microsoft.ClassicCompute | Classic deployment model virtual machine |
@@ -74,7 +73,7 @@ The resource providers for compute services are:
 | Microsoft.HanaOnAzure | [SAP HANA on Azure Large Instances](/azure/virtual-machines/workloads/sap/hana-overview-architecture) |
 | Microsoft.LabServices | [Azure Lab Services](../../lab-services/index.yml) |
 | Microsoft.Maintenance | [Azure Maintenance](/azure/virtual-machines/maintenance-configurations) |
-| Microsoft.Microservices4Spring | [Azure Spring Apps](../../spring-apps/enterprise/overview.md) |
+| Microsoft.Microservices4Spring | [Azure Spring Apps](../../spring-apps/basic-standard/overview.md) |
 | Microsoft.Quantum | [Azure Quantum](https://azure.microsoft.com/services/quantum/) |
 | Microsoft.SerialConsole - [registered by default](#registration) | [Azure Serial Console for Windows](/troubleshoot/azure/virtual-machines/serial-console-windows) |
 | Microsoft.ServiceFabric | [Service Fabric](/azure/service-fabric/) |
@@ -136,6 +135,7 @@ The resource providers for developer tools services are:
 | Microsoft.AppConfiguration | [Azure App Configuration](../../azure-app-configuration/index.yml) |
 | Microsoft.DevCenter | [Microsoft Dev Box](../../dev-box/index.yml) |
 | Microsoft.DevSpaces | [Azure Dev Spaces](/previous-versions/azure/dev-spaces/) |
+| Microsoft.LoadTestService | [Azure Load Testing](/azure/load-testing/) |
 | Microsoft.MixedReality | [Azure Spatial Anchors](../../spatial-anchors/index.yml) |
 | Microsoft.Notebooks | [Azure Notebooks](https://notebooks.azure.com/help/introduction) |
 

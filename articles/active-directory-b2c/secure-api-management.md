@@ -76,7 +76,7 @@ You should now have two URLs recorded for use in the next section: the OpenID Co
 
 ```
 https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_signupsignin1/v2.0/.well-known/openid-configuration
-https://<tenant-name>.b2clogin.com/99999999-0000-0000-0000-999999999999/v2.0/
+https://<tenant-name>.b2clogin.com/aaaabbbb-0000-cccc-1111-dddd2222eeee/v2.0/
 ```
 
 ## Configure the inbound policy in Azure API Management
@@ -100,10 +100,10 @@ You're now ready to add the inbound policy in Azure API Management that validate
             <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
                 <openid-config url="https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_signupsignin1/v2.0/.well-known/openid-configuration" />
                 <audiences>
-                    <audience>44444444-0000-0000-0000-444444444444</audience>
+                    <audience>00001111-aaaa-2222-bbbb-3333cccc4444</audience>
                 </audiences>
                 <issuers>
-                    <issuer>https://<tenant-name>.b2clogin.com/99999999-0000-0000-0000-999999999999/v2.0/</issuer>
+                    <issuer>https://<tenant-name>.b2clogin.com/aaaabbbb-0000-cccc-1111-dddd2222eeee/v2.0/</issuer>
                 </issuers>
             </validate-jwt>
             <base />
@@ -120,8 +120,8 @@ Several applications typically interact with a single REST API. To enable your A
 ```xml
 <!-- Accept tokens intended for these recipient applications -->
 <audiences>
-    <audience>44444444-0000-0000-0000-444444444444</audience>
-    <audience>66666666-0000-0000-0000-666666666666</audience>
+    <audience>00001111-aaaa-2222-bbbb-3333cccc4444</audience>
+    <audience>11112222-bbbb-3333-cccc-4444dddd5555</audience>
 </audiences>
 ```
 
@@ -130,8 +130,8 @@ Similarly, to support multiple token issuers, add their endpoint URIs to the `<i
 ```xml
 <!-- Accept tokens from multiple issuers -->
 <issuers>
-    <issuer>https://<tenant-name>.b2clogin.com/99999999-0000-0000-0000-999999999999/v2.0/</issuer>
-    <issuer>https://login.microsoftonline.com/99999999-0000-0000-0000-999999999999/v2.0/</issuer>
+    <issuer>https://<tenant-name>.b2clogin.com/aaaabbbb-0000-cccc-1111-dddd2222eeee/v2.0/</issuer>
+    <issuer>https://login.microsoftonline.com/aaaabbbb-0000-cccc-1111-dddd2222eeee/v2.0/</issuer>
 </issuers>
 ```
 
@@ -153,12 +153,12 @@ The following example Azure API Management inbound policy illustrates how to acc
         <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
             <openid-config url="https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_signupsignin1/v2.0/.well-known/openid-configuration" />
             <audiences>
-                <audience>44444444-0000-0000-0000-444444444444</audience>
-                <audience>66666666-0000-0000-0000-666666666666</audience>
+                <audience>00001111-aaaa-2222-bbbb-3333cccc4444</audience>
+                <audience>11112222-bbbb-3333-cccc-4444dddd5555</audience>
             </audiences>
             <issuers>
-                <issuer>https://login.microsoftonline.com/99999999-0000-0000-0000-999999999999/v2.0/</issuer>
-                <issuer>https://<tenant-name>.b2clogin.com/99999999-0000-0000-0000-999999999999/v2.0/</issuer>
+                <issuer>https://login.microsoftonline.com/aaaabbbb-0000-cccc-1111-dddd2222eeee/v2.0/</issuer>
+                <issuer>https://<tenant-name>.b2clogin.com/aaaabbbb-0000-cccc-1111-dddd2222eeee/v2.0/</issuer>
             </issuers>
         </validate-jwt>
         <base />

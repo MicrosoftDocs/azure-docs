@@ -181,15 +181,15 @@ $PolicyConfig3      = @{
   Platform                  = 'Windows'
   PolicyVersion             = 1.0.0
   Mode                      = 'ApplyAndAutoCorrect'
-  ContentLocalPath          = "C:\Local\Path\To\Package"      # Required parameter for managed identity
-  ManagedIdentityResourceId = "YourManagedIdentityResourceId" # Required parameter for managed identity
+  LocalContentPath          = "C:\Local\Path\To\Package"      # Required parameter for managed identity
+  ManagedIdentityResourceId = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}" # Required parameter for managed identity
 }
 
 New-GuestConfigurationPolicy @PolicyConfig3 -ExcludeArcMachines
 ```
 
 > [!NOTE]
-> You can retrieve the resorceId of a nmanaged identity using the `Get-AzUserAssignedIdentity`
+> You can retrieve the resorceId of a managed identity using the `Get-AzUserAssignedIdentity`
 > PowerShell cmdlet.
 
 The cmdlet output returns an object containing the definition display name and path of the policy

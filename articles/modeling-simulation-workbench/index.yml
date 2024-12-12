@@ -7,7 +7,7 @@ metadata:
   title: Azure Modeling and Simulation Workbench (preview) documentation
   description: Documentation for creating and managing Azure Modeling and Simulation Workbench (preview).
   ms.author: yousefi
-  ms.service: modeling-simulation-workbench
+  ms.service: azure-modeling-simulation-workbench
   ms.topic: index
   ms.date: 08/21/2024
 
