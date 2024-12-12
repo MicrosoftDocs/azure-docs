@@ -19,24 +19,24 @@ zone_pivot_groups: acs-js-csharp-java-python
 Azure Communication Services enables you to send and receive WhatsApp messages. In this quickstart, get started integrating your app with Azure Communication Advanced Messages SDK and start sending/receiving WhatsApp Interactive messages. Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [Send WhatsApp Messages with .NET](./includes/get-started/messages-get-started-net.md)]
+[!INCLUDE [Send WhatsApp Messages with .NET](./includes/get-started/messages-quickstart-intercative-messages-net.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-[!INCLUDE [Send WhatsApp Messages with Java](./includes/get-started/messages-get-started-java.md)]
+[!INCLUDE [Send WhatsApp Messages with Java](./includes/get-started/messages-quickstart-intercative-messages-java.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
-[!INCLUDE [Send WhatsApp Messages JavaScript SDK](./includes/get-started/messages-get-started-js.md)]
+[!INCLUDE [Send WhatsApp Messages JavaScript SDK](./includes/get-started/messages-quickstart-intercative-messages-js.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-[!INCLUDE [Send WhatsApp Messages Python SDK](./includes/get-started/messages-quickstart-python.md)]
+[!INCLUDE [Send WhatsApp Messages Python SDK](./includes/get-started/messages-quickstart-intercative-messages-python.md)]
 ::: zone-end
 
 ## Next steps
 
-In this quickstart, you tried out the Advanced Messaging for WhatsApp SDK. Next you might also want to see the following articles:
+ Next you might also want to see the following articles:
 
 - [Handle Advanced Messaging events](./handle-advanced-messaging-events.md)
-- [Send WhatsApp template messages](../../../quickstarts/advanced-messaging/whatsapp/template-messages.md)
+- [Send WhatsApp template messages](../whatsapp/template-messages.md)
