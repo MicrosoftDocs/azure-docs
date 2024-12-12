@@ -2,12 +2,12 @@
 title: Create an ASP.NET Core web app with Azure Cache for Redis
 description: In this quickstart, you learn how to create an ASP.NET Core web app with Azure Cache for Redis.
 
-
-
 ms.devlang: csharp
 ms.custom: devx-track-csharp, mvc, mode-other, ignite-2024
 ms.topic: quickstart
-ms.date: 04/24/2024
+ms.date: 12/12/2024
+zone_pivot_groups: redis-type
+#Customer intent: As an ASP.NET developer, new to Azure Redis, I want to create a new Node.js app that uses Azure Managed Redis or Azure Cache for Redis.
 ---
 
 # Quickstart: Use Azure Cache for Redis with an ASP.NET Core web app
@@ -46,15 +46,29 @@ Deployment instructions are in the README.md.
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 - [.NET Core SDK](https://dotnet.microsoft.com/download)
 
-## Create a cache
+::: zone pivot="azure-managed-redis"
 
-[!INCLUDE [redis-cache-create](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/redis-cache-create-entra-id.md)]
+## Create an Azure Managed Redis (preview) instance
+
+[!INCLUDE [managed-redis-create](includes/managed-redis-create.md)]
+
+::: zone-end
+
+::: zone pivot="azure-cache-redis"
+
+## Create an Azure Cache for Redis instance
+
+[!INCLUDE [redis-cache-create](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/redis-cache-create.md)]
+
+::: zone-end
+
+## [Microsoft Entra ID Authentication (recommended)](#tab/entraid)
 
 [!INCLUDE [cache-entra-access](includes/cache-entra-access.md)]
 
-[!INCLUDE [redis-access-policy](includes/redis-access-policy.md)]
+## [Access Key Authentication](#tab/accesskey)
 
-## Add a local secret for the host name
+### Add a local secret for the host name
 
 In your command window, execute the following command to store a new secret named *RedisHostName*, after replacing the placeholders, including angle brackets, for your cache name and primary access key:
 
@@ -67,6 +81,7 @@ For using Azure Managed Redis (preview) instance, store a new secret named Redis
 ```dos
 dotnet user-secrets set RedisHostName "<cache-name>.<region>.redis.azure.net"
 ```
+---
 
 ## Connect to the cache with RedisConnection
 

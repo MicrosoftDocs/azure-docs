@@ -2,10 +2,11 @@
 title: Create an ASP.NET web app with Azure Cache for Redis
 description: In this quickstart, you learn how to create an ASP.NET web app with Azure Cache for Redis
 
-
 ms.topic: quickstart
-ms.date: 03/25/2022
+ms.date: 12/12/2024
 ms.custom: devx-track-csharp, mvc, mode-other, ignite-2024
+zone_pivot_groups: redis-type
+#Customer intent: As an ASP.NET developer, new to Azure Redis, I want to create a new Node.js app that uses Azure Managed Redis or Azure Cache for Redis.
 ---
 
 # Quickstart: Use Azure Cache for Redis with an ASP.NET web app
@@ -21,13 +22,27 @@ Clone the repo [https://github.com/Azure-Samples/azure-cache-redis-samples/tree/
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/dotnet)
 - [Visual Studio 2019](https://www.visualstudio.com/downloads/) with the **ASP.NET and web development** and **Azure development** workloads.
 
-## Create a cache
+::: zone pivot="azure-managed-redis"
 
-Next, you create the cache for the app.
+## Create an Azure Managed Redis (preview) instance
+
+[!INCLUDE [managed-redis-create](includes/managed-redis-create.md)]
+
+::: zone-end
+
+::: zone pivot="azure-cache-redis"
+
+## Create an Azure Cache for Redis instance
 
 [!INCLUDE [redis-cache-create](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/redis-cache-create.md)]
 
+::: zone-end
+
+## [Microsoft Entra ID Authentication (recommended)](#tab/entraid)
+
 [!INCLUDE [cache-entra-access](includes/cache-entra-access.md)]
+
+## [Access Key Authentication](#tab/accesskey)
 
 ### To edit the *CacheSecrets.config* file
 
@@ -47,10 +62,11 @@ Next, you create the cache for the app.
 
 1. Save the file.
 
+---
+
 ## Update the MVC application
 
 In this section, you can see an MVC application that presents a view that displays a simple test against Azure Cache for Redis. The MVC application can connect to your Azure Managed Redis (preview) instance when the "RedisHostName" configuration points to your Azure Managed Redis instance.
-
 
 ## Install StackExchange.Redis
 
@@ -65,13 +81,6 @@ Your solution needs the `StackExchange.Redis` package to run. Install it, with t
     ```
 
 1. The NuGet package downloads and adds the required assembly references for your client application to access Azure Cache for Redis with the `Microsoft.Azure.StackExchangeRedis` client.
-
-<!--
-
-Philo - Isn't this superfluous now? 
-
-1. If you prefer to use a strong-named version of the `StackExchange.Redis` client library, install the `StackExchange.Redis` package.
- -->
 
 ## Connect to the cache with RedisConnection
 
