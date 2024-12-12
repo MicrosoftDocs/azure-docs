@@ -254,7 +254,7 @@ $IdentityId = $Identity.Id
 $PrincipalId = (Get-AzUserAssignedIdentity -Name $IdentityName -ResourceGroupName $ResourceGroup).PrincipalId
 ```
 
-Get the registry's resource ID. Before you run the following command, replace the *\<placeholders\>* with the resource group name for your registry.
+1. Get the registry's resource ID. Before you run the following command, replace the *\<placeholders\>* with the resource group name for your registry.
 
 ```azurepowershell
 $RegistryId = (Get-AzContainerRegistry -ResourceGroupName $ResourceGroup -Name $ACRName).Id
