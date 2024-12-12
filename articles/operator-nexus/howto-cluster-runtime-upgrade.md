@@ -91,7 +91,7 @@ az networkcloud cluster update -n <CLUSTER_NAME> -g <CLUSTER_RG> --update-strate
 Verify update:
 
 ```
-az networkcloud cluster show -g <CLUSTER_RG> -n <CLUSTER_NAME> --subscription <CUSTOMER_SUB_ID>| grep -a5 updateStrategy
+az networkcloud cluster show -g <CLUSTER_RG> -n <CLUSTER_NAME>  --subscription <SUBSCRIPTION_ID>| grep -a5 updateStrategy
       "strategyType": "Rack",
       "thresholdType": "PercentSuccess",
       "thresholdValue": 60,
@@ -108,7 +108,7 @@ az networkcloud cluster update -n <CLUSTER_NAME> -g <CLUSTER_RG> --update-strate
 Verify update:
 
 ```
-az networkcloud cluster show -g <CLUSTER_RG> -n <CLUSTER_NAME> --subscription <CUSTOMER_SUB_ID>| grep -a5 updateStrategy
+az networkcloud cluster show -g <CLUSTER_RG> -n <CLUSTER_NAME>  --subscription <SUBSCRIPTION_ID>| grep -a5 updateStrategy
       "strategyType": "Rack",
       "thresholdType": "CountSuccess",
       "thresholdValue": 4,
