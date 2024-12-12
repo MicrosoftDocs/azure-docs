@@ -19,9 +19,11 @@ Connection monitor provides unified and continuous network connectivity monitori
 
 Connection monitor tests measure aggregated packet loss and network latency metrics across TCP, ICMP, and HTTP pings. A unified topology visualizes the end-to-end network path, highlighting network path hops with hop performance metrics. Connection monitor provides actionable insights and detailed logs to efficiently analyze and troubleshoot the root cause of an issue.
 
+:::image type="content" source="./media/connection-monitor-overview/connection-monitor-diagram.png" alt-text="Diagram showing how Connection monitor interacts with Azure VMs, non-Azure hosts, endpoints, and data storage locations.":::
+
 ## Connection monitor use cases
 
-Here are some use cases of connection monitor:
+Here are some use cases of Connection monitor:
 
 - Your front-end web server virtual machine (VM) communicates with a database server VM in a multi-tier application. You want to check network connectivity between the two VMs.
 - You want to check the connectivity from single or multiple instances of an Azure Virtual Machine Scale Set to your Azure or non-Azure multi-tier application. 
@@ -32,7 +34,7 @@ Here are some use cases of connection monitor:
 
 ## Connection monitor benefits
 
-Here are some of the benefits of using connection monitor:
+Here are some of the benefits of using Connection monitor:
 
 - Cross-subscription, cross-workspace monitoring experience for Azure and Hybrid cloud environments.
 
@@ -49,18 +51,6 @@ Here are some of the benefits of using connection monitor:
 - Support for connectivity checks that are based on HTTP, TCP, and ICMP.
 
 - Metrics with Azure Monitor and logs with Azure Log Analytics.
-
-:::image type="content" source="./media/connection-monitor-2-preview/hero-graphic-new.png" alt-text="Diagram showing how Connection monitor interacts with Azure VMs, non-Azure hosts, endpoints, and data storage locations.":::
-
-To start using Connection monitor for monitoring, follow these steps: 
-
-1. [Install monitoring agents](#install-monitoring-agents).
-1. [Enable Network Watcher on your subscription](#enable-network-watcher-on-your-subscription).
-1. [Create a connection monitor](#create-a-connection-monitor).
-1. [Analyze monitoring data and set alerts](#analyze-monitoring-data-and-set-alerts).
-1. [Diagnose issues in your network](#diagnose-issues-in-your-network).
-
-The following sections provide details for these steps.
 
 ## Install monitoring agents
 
