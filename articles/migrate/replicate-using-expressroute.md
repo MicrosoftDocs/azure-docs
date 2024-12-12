@@ -5,8 +5,8 @@ author: vijain
 ms.author: vijain
 ms.topic: how-to
 ms.service: azure-migrate
-ms.date: 11/17/2023
-ms.custom: engagement-fy23
+ms.date: 09/26/2024
+ms.custom: engagement-fy25
 ---
 
 # Replicate data over ExpressRoute for Azure Migrate projects with public endpoint connectivity
@@ -175,7 +175,7 @@ For proxy bypass, you can add a proxy bypass rule for the cache storage account 
 
 ## Replicate data by using an ExpressRoute circuit with Microsoft peering
 
-You can use Microsoft peering or an existing public peering domain (deprecated for new ExpressRoute connections) to route your replication traffic through an ExpressRoute circuit.
+You can use Microsoft peering to route your replication traffic through an ExpressRoute circuit.
 
 ![Diagram that shows replication with Microsoft peering.](./media/replicate-using-expressroute/replication-with-microsoft-peering.png)
 

@@ -5,7 +5,7 @@ author: abell
 ms.author: abell
 ms.service: azure-private-link
 ms.topic: conceptual
-ms.date: 5/25/2021
+ms.date: 12/04/2024
 ms.custom: template-concept
 ---
 

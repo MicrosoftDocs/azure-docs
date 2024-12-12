@@ -1,15 +1,15 @@
 ---
 title: Enable secure settings
-description: Enable secure settings on your Azure IoT Operations deployment by configuring an Azure Key Vault and enabling workload identities.
+description: Enable secure settings in your Azure IoT Operations instance for developing a production-ready scenario.
 author: asergaz
 ms.author: sergaz
 ms.topic: how-to
-ms.date: 11/04/2024
+ms.date: 11/19/2024
 
-#CustomerIntent: I deployed Azure IoT Operations with test settings for the quickstart scenario, and now I want to enable secure settings to use the full feature set.
+#CustomerIntent: I deployed Azure IoT Operations with test settings, and now I want to enable secure settings to use the full feature set.
 ---
 
-# Enable secure settings in Azure IoT Operations deployment
+# Enable secure settings in Azure IoT Operations
 
 The secure settings for Azure IoT Operations include the setup of secrets management and a user-assigned managed identity for cloud connections; for example, an OPC UA server or dataflow endpoints.
 
@@ -17,82 +17,15 @@ This article provides instructions for enabling secure settings if you didn't do
 
 ## Prerequisites
 
-* An Azure IoT Operations instance deployed with test settings. For example, follow the instructions in [Quickstart: Run Azure IoT Operations Preview in GitHub Codespaces](../get-started-end-to-end-sample/quickstart-deploy.md).
+* An Azure IoT Operations instance deployed with test settings. For example, you chose **Test Settings** when following the instructions in [Deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster](howto-deploy-iot-operations.md).
 
-* Azure CLI installed on your development machine. This scenario requires Azure CLI version 2.64.0 or later. Use `az --version` to check your version and `az upgrade` to update, if necessary. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
+* Azure CLI installed on your development machine. This scenario requires Azure CLI version 2.64.0 or higher. Use `az --version` to check your version and `az upgrade` to update if necessary. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
-* The latest versions of the following extensions for the Azure CLI:
+* The Azure IoT Operations extension for Azure CLI. Use the following command to add the extension or update it to the latest version:
 
   ```azurecli
   az extension add --upgrade --name azure-iot-ops
-  az extension add --upgrade --name connectedk8s
   ```
-
-## Configure a cluster for a workload identity
-
-A *workload identity* is an identity that you assign to a software workload (such as an application, service, script, or container) to authenticate and access other services and resources. The workload identity feature needs to be enabled on your cluster, so that the [Azure Key Vault Secret Store extension for Kubernetes](/azure/azure-arc/kubernetes/secret-store-extension) and Azure IoT Operations can access Microsoft Entra ID protected resources. To learn more, see [What are workload identities?](/entra/workload-id/workload-identities-overview).
-
-> [!NOTE]
-> This step applies only to Ubuntu + K3s clusters. The quickstart script for Azure Kubernetes Service (AKS) Edge Essentials used in [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md) enables a workload identity by default. If you have an AKS Edge Essentials cluster, continue to the next section.
-
-If you aren't sure whether or not your K3s cluster already has workload identity enabled, run the [az connectedk8s show](/cli/azure/connectedk8s#az-connectedk8s-show) command to check:
-
-```azurecli
-az connectedk8s show --name <CLUSTER_NAME> --resource-group <RESOURCE_GROUP> --query "{oidcIssuerEnabled:oidcIssuerProfile.enabled, workloadIdentityEnabled: securityProfile.workloadIdentity.enabled}"
-```
-
-To enable a workload identity on an existing connected K3s cluster:
-
-1. Use the [az connectedk8s update](/cli/azure/connectedk8s#az-connectedk8s-update) command to enable the workload identity feature on the cluster:
-
-   ```azurecli
-   #!/bin/bash   
-
-   # Variable block
-   RESOURCE_GROUP="<RESOURCE_GROUP>"
-   CLUSTER_NAME="<CLUSTER_NAME>"
-
-   # Enable a workload identity
-   az connectedk8s update --resource-group $RESOURCE_GROUP \
-                          --name $CLUSTER_NAME \
-                          --enable-oidc-issuer --enable-workload-identity 
-   ```
-
-1. Use the [az connectedk8s show](/cli/azure/connectedk8s#az-connectedk8s-show) command to get the cluster's issuer URL. You'll add the URL later in the K3s configuration file.
-
-   ```azurecli
-   #!/bin/bash
-
-   # Variable block
-   RESOURCE_GROUP="<RESOURCE_GROUP>"
-   CLUSTER_NAME="<CLUSTER_NAME>"
-   
-   # Get the cluster's issuer URL
-   SERVICE_ACCOUNT_ISSUER=$(az connectedk8s show --resource-group $RESOURCE_GROUP --name $CLUSTER_NAME --query oidcIssuerProfile.issuerUrl --output tsv)
-   echo "SERVICE_ACCOUNT_ISSUER = $SERVICE_ACCOUNT_ISSUER"
-   ```
-
-1. Create a K3s configuration file:
-
-   ```bash
-   sudo nano /etc/rancher/k3s/config.yaml
-   ```
-
-1. Add the following content to the config.yaml file:
-
-   ```yml
-   kube-apiserver-arg:
-    - service-account-issuer=<SERVICE_ACCOUNT_ISSUER>
-    - service-account-max-token-expiration=24h 
-   ```
-
-1. Save and close the file editor.
-
-1. Restart k3s:
-
-   ```bash
-   systemctl restart k3s 
-   ```
 
 ## Set up secrets management
 
@@ -154,7 +87,7 @@ To set up secrets management:
 
     ---
 
-Now that secret synchronization setup is complete, you can refer to [Manage secrets for your Azure IoT Operations Preview deployment](./howto-manage-secrets.md) to learn how to use secrets with Azure IoT Operations.
+Now that secret synchronization setup is complete, you can refer to [Manage secrets for your Azure IoT Operations deployment](./howto-manage-secrets.md) to learn how to use secrets with Azure IoT Operations.
 
 ## Set up a user-assigned managed identity for cloud connections
 

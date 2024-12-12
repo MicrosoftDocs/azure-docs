@@ -1,12 +1,9 @@
 ---
-title: Best practices for hosting a Kubernetes client application 
+title: Best practices for hosting a Kubernetes client application
 description: Learn how to host a Kubernetes client application.
-
-
-ms.custom: linux-related-content
+ms.custom: linux-related-content, ignite-2024
 ms.topic: conceptual
 ms.date: 11/10/2023
-
 ---
 
 # Kubernetes-hosted client application

@@ -3,11 +3,12 @@ title: Azure role-based access control
 titleSuffix: Microsoft Dev Box
 description: Learn how Microsoft Dev Box provides protection with Azure role-based access control (Azure RBAC) integration.
 ms.service: dev-box
+ms.custom:
+  - ignite-2024
 author: RoseHJM
 ms.author: rosemalcolm
 ms.topic: concept-article
 ms.date: 07/31/2024
-
 #Customer intent: As a platform engineer, I want to understand how to assign permissions in Dev Box so that I can give dev managers and developers only the permissions they need.
 ---
 # Azure role-based access control in Microsoft Dev Box

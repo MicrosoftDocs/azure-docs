@@ -114,7 +114,7 @@ call_connection_client = call_automation_client.get_call_connection(
 )
 result = call_connection_client.add_participant(
     target,
-    opration_context="Your context",
+    operation_context="Your context",
     operationCallbackUrl="<url_endpoint>"
 )
 ```
@@ -163,7 +163,7 @@ remove_this_user = PhoneNumberIdentifier("+16044561234")
 call_connection_client = call_automation_client.get_call_connection(
     "call_connection_id"
 )
-result = call_connection_client.remove_participant(remove_this_user, opration_context="Your context", operationCallbackUrl="<url_endpoint>")
+result = call_connection_client.remove_participant(remove_this_user, operation_context="Your context", operationCallbackUrl="<url_endpoint>")
 ```
 -----
 

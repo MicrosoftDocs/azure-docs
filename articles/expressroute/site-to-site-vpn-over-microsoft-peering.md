@@ -156,7 +156,7 @@ In this example, the variable declarations correspond to the example network. Wh
   "vpnType": "RouteBased",                // type of VPN gateway
   "sharedKey": "string",                  // shared secret needs to match with on-premises configuration
   "asnVpnGateway": 65000,                 // BGP Autonomous System number assigned to the VPN Gateway 
-  "asnRemote": 65010,                     // BGP Autonmous Syste number assigned to the on-premises device
+  "asnRemote": 65010,                     // BGP Autonomous System number assigned to the on-premises device
   "bgpPeeringAddress": "172.16.0.3",      // IP address of the remote BGP peer on-premises
   "connectionName": "vpn2local1",
   "vnetID": "[resourceId('Microsoft.Network/virtualNetworks', variables('virtualNetworkName'))]",

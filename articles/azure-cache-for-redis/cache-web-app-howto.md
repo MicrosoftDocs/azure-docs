@@ -5,9 +5,7 @@ description: In this quickstart, you learn how to create an ASP.NET web app with
 
 ms.topic: quickstart
 ms.date: 03/25/2022
-
-ms.custom: devx-track-csharp, mvc, mode-other
-
+ms.custom: devx-track-csharp, mvc, mode-other, ignite-2024
 ---
 
 # Quickstart: Use Azure Cache for Redis with an ASP.NET web app
@@ -216,8 +214,6 @@ After the new app has been published, add a new app setting. This setting is use
    :::image type="content" source="media/cache-web-app-howto/cache-find-app-service.png" alt-text="Screenshot showing how to find the app on the Azure portal.":::
 
 2. Add a new app setting named **CacheConnection** for the app to use to connect to the cache. Use the same value you configured for `RedisHostName` in your *web.config* file.
-
-   :::image type="content" source="media/cache-web-app-howto/cache-add-app-setting.png" alt-text="Screenshot showing how to add app setting.":::
 
 ### Run the app in Azure
 

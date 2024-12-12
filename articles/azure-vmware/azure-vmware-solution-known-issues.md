@@ -4,7 +4,7 @@ description: This article provides details about the known issues of Azure VMwar
 ms.topic: reference
 ms.custom: "engagement-fy23"
 ms.service: azure-vmware
-ms.date: 9/18/2024
+ms.date: 11/20/2024
 ---
 
 # Known issues: Azure VMware Solution
@@ -36,6 +36,7 @@ Refer to the table to find details about resolution dates or possible workaround
 [VMSA-2024-0020](https://support.broadcom.com/web/ecx/support-content-notification/-/external/content/SecurityAdvisories/0/25047) VMware NSX command injection, local privilege escalation & content spoofing vulnerability| October 2024 | The vulnerability mentioned in the Broadcom document is not applicable to Azure VMware Solution, as attack vector mentioned does not apply. | N/A |
 | New Stretched Clusters private cloud deploys with vSphere 7, not vSphere 8. | September 2024 | Stretched Clusters is waiting for a Hotfix to be deployed, which will resolve this issue. | Planned November 2024 |
 | New Standard private cloud deploys with vSphere 7, not vSphere 8 in Australia East region (Pods 4 and 5). | October 2024 |  Pods 4 and 5 in Australia East are waiting for a Hotfix to be deployed, which will resolve this issue. | Planned November 2024 |
+| vCenter Server vpxd crashes when using special characters in network names with VMware HCX. For more information, see [vpxd crashes with duplicate key value in "vpx_nw_assignment" when using HCX-IX for migrations (323283)](https://knowledge.broadcom.com/external/article?articleNumber=323283). | November 2024 | Avoid using special characters in your Azure VMware Solution network names. | November 2024 |
 
 In this article, you learned about the current known issues with the Azure VMware Solution.
 

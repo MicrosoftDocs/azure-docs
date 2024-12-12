@@ -50,7 +50,7 @@ First you create the resources that the tutorial uses. They're used for this par
     Open resource group in the portal: <b>https://portal.azure.com/#@/resource/subscriptions/&lt;subscription-id&gt;/resourceGroups/&lt;group-name&gt;</b>
     </pre>
 
-1. Open the resource group link in a browser tab. You'll need these output values later.
+1. Copy these output values for later. You can also find them in the portal, in the management pages of the respective resources. 
 
     > [!NOTE]
     > `azd provision` uses the included templates to create the following Azure resources:
@@ -103,7 +103,7 @@ In this section, you add a sidecar container to your Linux app. The portal exper
 
 ### [Use ARM template](#tab/template) 
 
-1. In the Cloud Shell, run the following command to add to the web app the user-assigned managed identity that `azd provision` created. Use the value of `<managed-identity-resource-id>` in the `azd provision` output.
+1. In the Cloud Shell, run the following command to add to the web app the user-assigned managed identity that `azd provision` created. Use the value of `<managed-identity-resource-id>` (a very long string) in the `azd provision` output.
 
     ```azurecli-interactive
     az webapp identity assign --identities <managed-identity-resource-id>
@@ -231,7 +231,7 @@ In this step, you create the instrumentation for your app according to the steps
 The otel-collector sidecar should export data to Application Insights now.
 
 1. Back in the browser tab for `https://<app-name>.azurewebsites.net`, refresh the page a few times to generate some web requests.
-1. Go back to the resource group overview page, then select the Application Insights resource. You should now see some data in the default charts.
+1. Go back to the resource group overview page, then select the Application Insights resource that `azd up` created. You should now see some data in the default charts.
 
     :::image type="content" source="media/tutorial-sidecar/app-insights-view.png" alt-text="Screenshot of the Application Insights page showing data in the default charts.":::
 

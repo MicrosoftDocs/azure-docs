@@ -12,7 +12,7 @@ ms.date: 08/28/2024
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-This article applies to ❌ Basic/Standard ✔️ Enterprise
+This article applies to ❎ Basic/Standard ✅ Enterprise
 
 This article guides you on deploying up to 1000 application instances in Azure Spring Apps Enterprise. The feature supporting deployment of more than 500 instances is currently in Preview. This article outlines the limitations during the Preview stage. The Enterprise plan, crafted for handling substantial production workloads, supports a maximum of 1000 application instances per service. However, we recommend using a maximum of 500 instances in your production environment.
 

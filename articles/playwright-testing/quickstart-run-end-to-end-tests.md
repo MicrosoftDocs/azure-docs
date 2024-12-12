@@ -3,7 +3,7 @@ title: 'Quickstart: Run Playwright tests at scale'
 description: 'This quickstart shows how to run your Playwright tests with highly parallel cloud browsers using Microsoft Playwright Testing Preview. The cloud-hosted browsers support multiple operating systems and all modern browsers.'
 ms.topic: quickstart
 ms.date: 10/04/2023
-ms.custom: playwright-testing-preview, build-2024
+ms.custom: playwright-testing-preview, build-2024, ignite-2024
 zone_pivot_group_filename: playwright-testing/zone-pivots-groups.json
 zone_pivot_groups: microsoft-playwright-testing
 ---
@@ -40,7 +40,7 @@ When the workspace creation finishes, you're redirected to the setup guide.
 To use the service, install Microsoft Playwright Testing package. 
 
 ```npm
-npm init @azure/microsoft-playwright-testing
+npm init @azure/microsoft-playwright-testing@latest
 ```
 
 This generates `playwright.service.config.ts` file which serves to:

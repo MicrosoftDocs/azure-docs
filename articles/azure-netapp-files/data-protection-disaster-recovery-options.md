@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 11/20/2024
+ms.date: 12/04/2024
 ms.author: anfdocs
 ---
 # Understand data protection and disaster recovery options in Azure NetApp Files
@@ -49,7 +49,7 @@ Cross-region replication can be used in conjunction with cross-zone replication.
 - Data availability and redundancy for remote data processing and user access 
 - Efficient storage-based data replication without load on compute infrastructure 
 
-To learn more, see [How volumes and snapshots are replicated cross-region for DR](snapshots-introduction.md#how-volumes-and-snapshots-are-replicated-cross-region-for-disaster-recovery). To get started with cross-region replication, see [Create cross-region replication for Azure NetApp Files](cross-region-replication-create-peering.md). 
+To learn more, see [How volumes and snapshots are replicated cross-region for DR](snapshots-introduction.md#how-volumes-and-snapshots-are-replicated-for-disaster-recovery-and-business-continuity). To get started with cross-region replication, see [Create cross-region replication for Azure NetApp Files](cross-region-replication-create-peering.md). 
 
 ## Cross-zone replication 
 

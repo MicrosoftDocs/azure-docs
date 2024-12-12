@@ -4,7 +4,7 @@ description: Learn how to use a private endpoint with an Azure Container Apps en
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, ignite-2024
 ms.topic:  how-to
 ms.date: 11/6/2024
 ms.author: cshoe
@@ -16,6 +16,8 @@ zone_pivot_groups: azure-cli-or-portal
 In this article, you learn how to use a private endpoint to securely access your Azure Container App without exposing it to the public Internet.
 
 A private endpoint uses a private IP address from your virtual network (VNet). This endpoint connects you privately and securely to a service powered by [Azure Private Link](/azure/private-link/private-link-overview).
+
+Private endpoints on Azure Container Apps only support inbound HTTP traffic. TCP traffic is not supported.
 
 ::: zone pivot="azure-portal"
 

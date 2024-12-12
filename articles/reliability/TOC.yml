@@ -6,8 +6,10 @@
   items:
   - name: What are Azure availability zones?
     href: availability-zones-overview.md
-  - name: Services and regions with availability zone support
+  - name: Services with availability zone support
     href: availability-zones-service-support.md
+  - name: Regions with availability zone support
+    href: availability-zones-region-support.md
   - name: Migrate to availability zone support
     items:
     - name: Overview
@@ -232,6 +234,8 @@
     items:
     - name: Microsoft Community Training
       href: reliability-community-training.md
+    - name: Sustainability data solutions in Fabric
+      href: reliability-sustainability-data-solutions-fabric.md
   - name: Integration
     items:
     - name: Azure Service Bus
@@ -440,6 +444,8 @@
     href: /azure/well-architected/resiliency/chaos-engineering
   - name: Reliability in Microsoft Azure Well-Architected Framework
     href: /azure/well-architected/reliability
+  - name: Azure service incident response
+    href: ./incident-response.md
   - name:  Azure Service Manager retirement
     items:
     - name: Overview

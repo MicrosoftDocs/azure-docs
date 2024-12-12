@@ -17,7 +17,7 @@ ms.service: azure-iot-operations
 
 [!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
 
-Azure IoT Operations features an enterprise-grade, standards-compliant MQTT broker that is scalable, highly available, and Kubernetes-native. It provides the messaging plane for Azure IoT Operations Preview, enables bi-directional edge/cloud communication and powers [event-driven applications](/azure/architecture/guide/architecture-styles/event-driven) at the edge.
+Azure IoT Operations features an enterprise-grade, standards-compliant MQTT broker that is scalable, highly available, and Kubernetes-native. It provides the messaging plane for Azure IoT Operations, enables bi-directional edge/cloud communication and powers [event-driven applications](/azure/architecture/guide/architecture-styles/event-driven) at the edge.
 
 ## MQTT compliance
 
@@ -214,7 +214,7 @@ To view the settings for the default Broker:
 # [Portal](#tab/portal)
 
 1. In the Azure portal, go to your Azure IoT Operations instance.
-1. Under **Azure IoT Operations resources**, select **MQTT Broker**.
+1. Under **Components**, select **MQTT Broker**.
 1. Under **Broker details**, select **JSON view**.
 
 # [Azure CLI](#tab/azure-cli)

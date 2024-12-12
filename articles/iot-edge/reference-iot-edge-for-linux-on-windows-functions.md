@@ -79,7 +79,7 @@ The **Add-EflowVmEndpoint** command adds a new network endpoint to the EFLOW vir
 | --------- | --------------- | -------- |
 | vswitchName | Name of the virtual switch |  Name of the virtual switch assigned to the EFLOW VM. |
 | vendpointName | Name of the virtual endpoint | Name of the virtual endpoint assigned to the EFLOW VM. |
-| ip4Address | IPv4 Address in the range of the DCHP Server Scope | Static Ipv4 address of the EFLOW VM. |
+| ip4Address | IPv4 Address in the range of the DHCP Server Scope | Static Ipv4 address of the EFLOW VM. |
 | ip4PrefixLength | IPv4 Prefix Length of the subnet | Ipv4 subnet prefix length, only valid when static Ipv4 address is specified. |
 | ip4GatewayAddress | IPv4 Address of the subnet gateway | Gateway Ipv4 address, only valid when static Ipv4 address is specified. |
 
@@ -159,7 +159,7 @@ The **Deploy-Eflow** command is the main deployment method. The deployment comma
 | vmLogSize | **Small** or **Large** | Specify the log partition size. Small = 1GB, Large = 6GB.<br><br>**Default value**: Small.  |
 | vswitchName | Name of the virtual switch |  Name of the virtual switch assigned to the EFLOW VM. |
 | vswitchType | **Internal** or **External** | Type of the virtual switch assigned to the EFLOW VM. |
-| ip4Address | IPv4 Address in the range of the DCHP Server Scope | Static Ipv4 address of the EFLOW VM. |
+| ip4Address | IPv4 Address in the range of the DHCP Server Scope | Static Ipv4 address of the EFLOW VM. |
 | ip4PrefixLength | IPv4 Prefix Length of the subnet | Ipv4 subnet prefix length, only valid when static Ipv4 address is specified. |
 | ip4GatewayAddress | IPv4 Address of the subnet gateway | Gateway Ipv4 address, only valid when static Ipv4 address is specified. |
 | gpuName | GPU Device name |  Name of GPU device to be used for passthrough. |

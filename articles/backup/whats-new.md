@@ -112,7 +112,7 @@ For more information, see [Secure by Default with Azure Backup (Preview)](secure
 
 Azure Backup now provides immutable WORM storage for your backups when immutability is enabled and locked on a Recovery Services vault. When immutability is enabled, Azure Backup ensures that a Recovery Point, once created, can't be deleted or have  its retention period reduced before its intended expiry. 
 
-When immutability is locked, Azure Backup also uses WORM-enabled immutable storage to meet any compliance requirements. This feature is applicable to both existing and new vaults with locked immutability.WORM immutability is available in [these regions](backup-azure-immutable-vault-concept.md#supported-scenarios-for-worm-storage). 
+When immutability is locked, Azure Backup also uses WORM-enabled immutable storage to meet any compliance requirements. This feature is applicable to both existing and new vaults with locked immutability. WORM immutability is available in [these regions](backup-azure-immutable-vault-concept.md#supported-scenarios-for-worm-storage). 
 
 For more information, see [About Immutable vault for Azure Backup](backup-azure-immutable-vault-concept.md).
 
@@ -198,6 +198,8 @@ If you're currently using snapshot-based backups, we recommend that you try vaul
 For more information, see [Azure Files backup overview](azure-file-share-backup-overview.md?tabs=vault-standard).
 
 ## Support for long-term Retention for Azure Database for MySQL - Flexible Server (preview)
+
+[!INCLUDE [Azure Database for MySQL - Flexible Server backup advisory](../../includes/backup-mysql-flexible-server-advisory.md)]
 
 Azure Backup and Azure Database Services provide a new backup solution for the MySQL - Flexible Servers that support retaining backups for up to **10 years**. This feature provides you with access to:
 
@@ -429,7 +431,7 @@ Azure Backup now offers a new and improved alerting solution via Azure Monitor. 
 - Ability to manage alerts and notifications programmatically.
 - Ability to have a consistent alert management experience for multiple Azure services, including Azure Backup.
 
-If you're currently using the [classic alerts solution](backup-azure-monitoring-built-in-monitor.md?tabs=recovery-services-vaults#backup-alerts-in-recovery-services-vault), we recommend you to switch to Azure Monitor alerts. Now, Azure Backup provides a guided experience via Backup center that allows you to switch to built-in Azure Monitor alerts and notifications with a few clicks.
+If you're currently using the [classic alerts solution](move-to-azure-monitor-alerts.md?tabs=recovery-services-vaults#backup-alerts-in-recovery-services-vault), we recommend you to switch to Azure Monitor alerts. Now, Azure Backup provides a guided experience via Backup center that allows you to switch to built-in Azure Monitor alerts and notifications with a few clicks.
 
 For more information, see [Switch to Azure Monitor based alerts for Azure Backup](move-to-azure-monitor-alerts.md).
 

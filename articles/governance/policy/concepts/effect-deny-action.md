@@ -38,7 +38,7 @@ The `details` property of the `denyAction` effect has all the subproperties that
   - Supported action names are: `delete`.
 - `cascadeBehaviors` (optional)
   - An _object_ that defines which behavior is followed when a resource is implicitly deleted when a resource group is removed.
-  - Only supported in policy definitions with [mode](./definition-structure.md#resource-manager-modes) set to `indexed`.
+  - Only supported in policy definitions with [mode](./definition-structure-basics.md#resource-manager-modes) set to `indexed`.
   - Allowed values are `allow` or `deny`.
   - Default value is `deny`.
 

@@ -3,11 +3,10 @@ title: High availability for Azure Managed Redis (preview)
 description: Learn about Azure Managed Redis high availability features and options for Azure Managed Redis
 
 
-ms.service: azure
+ms.service: azure-managed-redis
 ms.topic: conceptual
 ms.date: 11/15/2024
-
-ms.custom: references_regions
+ms.custom: references_regions, ignite-2024
 ---
 # High availability and disaster recovery with Azure Managed Redis (preview)
 

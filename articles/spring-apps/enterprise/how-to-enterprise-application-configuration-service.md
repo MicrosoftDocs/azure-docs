@@ -14,7 +14,7 @@ ms.custom: devx-track-java, devx-track-extended-java, engagement-fy23, devx-trac
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ❌ Basic/Standard ✔️ Enterprise
+**This article applies to:** ❎ Basic/Standard ✅ Enterprise
 
 This article shows you how to use Application Configuration Service for VMware Tanzu with the Azure Spring Apps Enterprise plan.
 

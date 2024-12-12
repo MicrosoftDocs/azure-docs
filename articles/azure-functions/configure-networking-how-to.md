@@ -4,10 +4,8 @@ description: Learn how to use a secured storage account in a virtual network as 
 ms-service: azure-functions
 ms.topic: how-to
 ms.date: 06/27/2024
-ms.custom: template-how-to, build-2024
-
+ms.custom: template-how-to, build-2024, ignite-2024
 # Customer intent: As a developer, I want to understand how to use a secured storage account in a virtual network as the default storage account for my function app, so that my function app can be secure.
-
 ---
 
 # How to use a secured storage account with Azure Functions

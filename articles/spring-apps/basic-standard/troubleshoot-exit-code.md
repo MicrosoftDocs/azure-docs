@@ -13,7 +13,7 @@ ms.custom: devx-track-java
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ✔️ Enterprise ✔️ Basic/Standard
+**This article applies to:** ✅ Enterprise ✅ Basic/Standard
 
 This article describes troubleshooting actions you can take when your application in Azure Spring Apps exits with an error code. You may receive an error code if your application deployment is unsuccessful, or if the application exits when it's running.
 

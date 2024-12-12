@@ -63,7 +63,7 @@ Once the Azure Event Hubs namespace and event hub is configured, you can create 
     | Setting              | Description                                                                                       |
     | -------------------- | ------------------------------------------------------------------------------------------------- |
     | Name                 | The name of the dataflow endpoint.                                     |
-    | Host                 | The hostname of the Kafka broker in the format `<NAMEPSACE>.servicebus.windows.net:9093`. Include port number `9093` in the host setting for Event Hubs. |
+    | Host                 | The hostname of the Kafka broker in the format `<NAMESPACE>.servicebus.windows.net:9093`. Include port number `9093` in the host setting for Event Hubs. |
     | Authentication method| The method used for authentication. We recommend that you choose [*System assigned managed identity*](#system-assigned-managed-identity) or [*User assigned managed identity*](#user-assigned-managed-identity). |
 
 1. Select **Apply** to provision the endpoint.
@@ -172,7 +172,7 @@ After you select **Add reference**, if you select **Create new**, enter the foll
 | Set activation date | If turned on, the date when the secret becomes active. |
 | Set expiration date | If turned on, the date when the secret expires. |
 
-To learn more about secrets, see [Create and manage secrets in Azure IoT Operations Preview](../secure-iot-ops/howto-manage-secrets.md).
+To learn more about secrets, see [Create and manage secrets in Azure IoT Operations](../secure-iot-ops/howto-manage-secrets.md).
 
 # [Bicep](#tab/bicep)
 
@@ -238,7 +238,7 @@ To configure a dataflow endpoint for non-Event-Hub Kafka brokers, set the host, 
     | Setting              | Description                                                                                       |
     | -------------------- | ------------------------------------------------------------------------------------------------- |
     | Name                 | The name of the dataflow endpoint.                                     |
-    | Host                 | The hostname of the Kafka broker in the format `<Kafa-broker-host>:xxxx`. Include port number in the host setting. |
+    | Host                 | The hostname of the Kafka broker in the format `<Kafka-broker-host>:xxxx`. Include port number in the host setting. |
     | Authentication method| The method used for authentication. Choose [*SASL*](#sasl). |
     | SASL type            | The type of SASL authentication. Choose *Plain*, *ScramSha256*, or *ScramSha512*. Required if using *SASL*. |
     | Synced secret name   | The name of the secret. Required if using *SASL*. |

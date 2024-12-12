@@ -5,10 +5,9 @@ description: In this quickstart, you learn how to create an ASP.NET Core web app
 
 
 ms.devlang: csharp
-ms.custom: devx-track-csharp, mvc, mode-other
+ms.custom: devx-track-csharp, mvc, mode-other, ignite-2024
 ms.topic: quickstart
 ms.date: 04/24/2024
-
 ---
 
 # Quickstart: Use Azure Cache for Redis with an ASP.NET Core web app
@@ -62,10 +61,12 @@ In your command window, execute the following command to store a new secret name
 ```dos
 dotnet user-secrets set RedisHostName "<cache-name>.redis.cache.windows.net"
 ```
+
 For using Azure Managed Redis (preview) instance, store a new secret named RedisHostName as below:
 
 ```dos
 dotnet user-secrets set RedisHostName "<cache-name>.<region>.redis.azure.net"
+```
 
 ## Connect to the cache with RedisConnection
 

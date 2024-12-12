@@ -3,7 +3,7 @@ title: Back up Azure Database for PostgreSQL - flexible server using Azure Power
 description: Learn how to back up Azure Database for PostgreSQL - flexible server using Azure PowerShell.
 ms.topic: how-to
 ms.date: 10/01/2024
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, ignite-2024
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick

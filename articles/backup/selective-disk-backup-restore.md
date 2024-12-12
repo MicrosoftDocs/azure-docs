@@ -21,7 +21,7 @@ This is supported both for Enhanced Policy as well as Standard Policy.          
 >[!Note]
 >- This is supported for both backup policies - [Enhanced policy](backup-azure-vms-enhanced-policy.md) and [Standard policy](backup-during-vm-creation.md#create-a-vm-with-backup-configured).
 >- The *Selective disk backup and restore in Enhanced policy* is available in all Azure regions including Public, Government, and Air-Gapped regions.
->- If you use selective disk backup with *Enhanced policy* on a Linux VM, ensure that *lsblk* and *lssci* are available in your distribution so that the disks are [excluded](selective-disk-backup-restore.md#enhanced-policy). 
+>- If you use selective disk backup with *Enhanced policy* on a Linux VM, ensure that *lsblk* and *lsscsi* are available in your distribution so that the disks are [excluded](selective-disk-backup-restore.md#enhanced-policy). 
 
 ## Scenarios
 
