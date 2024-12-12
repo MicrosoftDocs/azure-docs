@@ -7,7 +7,7 @@ ms.author: patricka
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 10/18/2024
+ms.date: 12/12/2024
 
 #CustomerIntent: As an operator, I want to configure Layered Network Management so that I have secure isolate devices.
 ms.service: azure-iot-operations
@@ -193,6 +193,7 @@ A custom DNS is only needed for levels 3 and below. This example uses a [dnsmasq
     > ```bash
     > systemctl disable --now systemd-resolved
     > ```
+
 1. Modify the `/etc/dnsmasq.conf` file as shown to route these domains to the upper level.
     - Change the IPv4 address from 10.104.0.10 to respective destination address for that level. In this case, the IP address of the Layered Network Management service in the parent level.
 
