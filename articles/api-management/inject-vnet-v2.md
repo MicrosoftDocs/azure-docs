@@ -88,7 +88,7 @@ When you [create](get-started-create-service-instance.md) a Premium v2 instance 
 
 1. In the **Create API Management service** wizard, select the **Networking** tab.
 1. In **Connectivity type**, select **Virtual network**.
-1. In **Type**, select **Injection**. 
+1. In **Type**, select **Virtual Network injection**. 
 1. In **Configure virtual networks**, select the virtual network and the delegated subnet that you want to inject. 
 1. Complete the wizard to create the API Management instance.
 

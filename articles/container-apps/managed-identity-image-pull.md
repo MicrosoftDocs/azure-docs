@@ -387,7 +387,8 @@ Get the identity's resource ID.
 IDENTITY_ID=$(az identity show \
   --name $IDENTITY \
   --resource-group $RESOURCE_GROUP \
-  --query id)
+  --query id \
+  --output tsv)
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)

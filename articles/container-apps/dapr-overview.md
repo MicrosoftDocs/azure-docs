@@ -6,7 +6,7 @@ author: hhunter-ms
 ms.service: azure-container-apps
 ms.custom: build-2023
 ms.topic: conceptual
-ms.date: 10/04/2024
+ms.date: 12/11/2024
 ---
 
 # Microservice APIs powered by Dapr
@@ -29,22 +29,31 @@ Configure microservices APIs for your container apps environment with a [Dapr-en
 
 ### Managed APIs
 
-Azure Container Apps offers managed generally available Dapr APIs (building blocks). These APIs are fully managed and supported for use in production environments.
+Azure Container Apps offers managed generally available Dapr APIs (building block APIs and operational APIs). These APIs are fully managed and supported for use in production environments.
 
 To learn more about using _alpha_ Dapr APIs and features, [see the Dapr FAQ][dapr-faq].
 
 :::image type="content" source="media/dapr-overview/azure-container-apps-dapr-building-blocks.png" lightbox="media/dapr-overview/azure-container-apps-dapr-building-blocks.png" alt-text="Diagram that shows Dapr APIs.":::
 
-| API                                              | Status | Description                                                                                                                                                     |
+#### Building block APIs
+
+| Building block API                                              | Status | Description                                                                                                                                                     |
 | ----------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [**Service-to-service invocation**][dapr-serviceinvo] | GA | Discover services and perform reliable, direct service-to-service calls with automatic mTLS authentication and encryption. [See known limitations for Dapr service invocation in Azure Container Apps.](#limitations)                                     |
 | [**State management**][dapr-statemgmt]                | GA | Provides state management capabilities for transactions and CRUD operations.                                                                                    |
 | [**Pub/sub**][dapr-pubsub]                            | GA | Allows publisher and subscriber container apps to intercommunicate via an intermediary message broker. You can also create declarative subscriptions to a topic using an external component JSON file. [Learn more about the declarative pub/sub API.][declarative-pubsub]                                                         |
 | [**Bindings**][dapr-bindings]                         | GA | Trigger your applications based on events                                                                                                                       |
 | [**Actors**][dapr-actors]                             | GA | Dapr actors are message-driven, single-threaded, units of work designed to quickly scale. For example, in burst-heavy workload situations. |
-| [**Observability**](./observability.md)               | GA | Send tracing information to an Application Insights backend.                                                                                                    |
 | [**Secrets**][dapr-secrets]                           | GA | Access secrets from your application code or reference secure values in your Dapr components.                                                                   |
 | [**Configuration**][dapr-config]                           | GA | Retrieve and subscribe to application configuration items for supported configuration stores.                                                                   |
+
+#### Operational APIs
+
+| Operational API                                              | Status | Description                                                                                                                                                     |
+| ----------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [**Health**][dapr-health] | GA | Health check probes that monitor readiness or liveness of Dapr and initialization readiness of SDKs. The health API is only available for HTTP.                                     |
+| [**Metadata**][dapr-metadata]                | GA | Returns information about the sidecar, allowing runtime discoverability.                                                                                    |
+
 
 ### Compatible SDKs
 
@@ -64,6 +73,8 @@ Dapr's latest client SDK packages are compatible with Azure Container Apps. You 
 
 [!INCLUDE [component-support](~/reusable-content/ce-skilling/azure/includes/dapr-in-azure/dapr-support-policy.md)]
 
+[Learn more about how to use the supported Dapr components in Azure Container Apps.][dapr-components]
+
 ### Tooling
 
 Azure Container Apps ensures compatibility with Dapr open source tooling, such as SDKs and the CLI. 
@@ -78,8 +89,10 @@ Azure Container Apps ensures compatibility with Dapr open source tooling, such a
 
 ## Next steps
 
-- [Enable Dapr in your container app.][dapr-enable]
-- [Learn how Dapr components work in Azure Container Apps.][dapr-components]
+- Deploy Dapr using:
+  - [Azure CLI](./microservices-dapr.md)
+  - [ARM or Bicep templates](./microservices-dapr-azure-resource-manager.md)
+- [Enable Dapr in an existing container app.][dapr-enable]
 
 <!-- Links Internal -->
 
@@ -99,3 +112,5 @@ Azure Container Apps ensures compatibility with Dapr open source tooling, such a
 [dapr-config]: https://docs.dapr.io/developing-applications/building-blocks/configuration/
 [dapr-subscriptions]: https://docs.dapr.io/developing-applications/building-blocks/pubsub/subscription-methods/#declarative-subscriptions
 [declarative-pubsub]: https://docs.dapr.io/developing-applications/building-blocks/pubsub/pubsub-overview/#pubsub-api
+[dapr-health]: https://docs.dapr.io/reference/api/health_api/
+[dapr-metadata]: https://docs.dapr.io/reference/api/metadata_api/
