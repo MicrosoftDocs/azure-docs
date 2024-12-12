@@ -161,7 +161,7 @@ With the created Backup vault and backup policy, and the AKS cluster in *ready-t
 
 The configuration of backup is performed in two steps:
 
-1. Prepare backup configuration to define which cluster resources are to be backed up using the `New-AzDataProtectionBackupConfigurationClientObject` cmdlet. In the following example, the configuration is defined as all cluster resources under current, and future namespaces will be backed up  with the label as `key-value pair x=y`. Also, all the cluster scoped resources and persistent volumes are backed up. The following namespaces are skipped from backup configuration and not cofigured for backups: kube-system, kube-node-lease, kube-public.
+1. Prepare backup configuration to define which cluster resources are to be backed up using the `New-AzDataProtectionBackupConfigurationClientObject` cmdlet. In the following example, the configuration is defined as all cluster resources under current, and future namespaces will be backed up  with the label as `key-value pair x=y`. Also, all the cluster scoped resources and persistent volumes are backed up. The following namespaces are skipped from backup configuration and not configured for backups: kube-system, kube-node-lease, kube-public.
 
    ```azurepowershell
    $backupConfig = New-AzDataProtectionBackupConfigurationClientObject -SnapshotVolume $true -IncludeClusterScopeResource $true -DatasourceType AzureKubernetesService -LabelSelector "env=prod"

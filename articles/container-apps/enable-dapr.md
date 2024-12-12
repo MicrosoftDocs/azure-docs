@@ -61,7 +61,7 @@ When using an IaC template, specify the following arguments in the `properties.c
   "dapr": {
     "enabled": true,
     "appId": "nodeapp",
-    "appProcotol": "http",
+    "appProtocol": "http",
     "appPort": 3000
   }
 ```

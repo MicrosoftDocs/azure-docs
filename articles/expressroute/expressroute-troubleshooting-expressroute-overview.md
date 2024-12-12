@@ -335,7 +335,15 @@ Review the results for the primary and secondary MSEE devices:
 * **Sent matches but no received matches**: Traffic is reaching on-premises but not returning to Azure. Work with your provider to resolve.
 * **One MSEE shows no matches, the other shows good matches**: Indicates one MSEE isn't receiving or passing traffic. It might be offline.
 
-Example test results:
+* **If you're testing PsPing from on-premises to Azure, received results show matches, but sent results show no matches**: This result indicates that traffic is coming in to Azure but isn't returning to on-premises. Check for return-path routing issues. For example, are you advertising the appropriate prefixes to Azure? Is a user-defined route (UDR) overriding prefixes?
+
+* **If you're testing PsPing from Azure to on-premises, sent results show matches, but received results show no matches**: This result indicates that traffic is coming in to on-premises but isn't returning to Azure. Work with your provider to find out why traffic isn't being routed to Azure via your ExpressRoute circuit.
+
+* **One MSEE shows no matches, but the other shows good matches**: This result indicates that one MSEE isn't receiving or passing any traffic. It might be offline (for example, BGP/ARP is down).
+  * You can run additional testing to confirm the unhealthy path by advertising a unique /32 on-premises route over the BGP session on this path. 
+  * Run "Test your private peering connectivity" using the unique /32 advertised as the on-premise destination address and review the results to confirm the path health. 
+
+Your test results for each MSEE device look like the following example:
 
 ```
 src 10.0.0.0 dst 20.0.0.0 dstport 3389 (received): 120 matches

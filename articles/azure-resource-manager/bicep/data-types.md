@@ -3,7 +3,7 @@ title: Data types in Bicep
 description: This article describes the data types that are available in Bicep.
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 11/12/2024
+ms.date: 12/06/2024
 ---
 
 # Data types in Bicep
@@ -111,7 +111,7 @@ When you specify integer values, don't use quotation marks.
 param exampleInt int = 1
 ```
 
-Bicep integers are 64-bit integers. When they're passed as inline parameters, the SDK or command-line tool you use for deployment can limit the range of values. For example, when you use PowerShell to deploy Bicep, integer types can range from -2147483648 to 2147483647. To avoid this limitation, specify large integer values in a [parameter file](parameter-files.md). Resource types apply their own limits for integer properties.
+Bicep integers are 64-bit integers. When they're passed as inline parameters, the SDK or command-line tool you use for deployment can limit the range of values. For example, when you use PowerShell to deploy Bicep, integer types can range from -2147483648 to 2147483647. To avoid this limitation, specify large integer values in a [parameters file](parameter-files.md). Resource types apply their own limits for integer properties.
 
 Bicep supports an integer literal type that refers to a specific value that's an exact integer. In the following example, `1` is an integer literal type, and `foo` can only be assigned the value `1` and no other value.
 

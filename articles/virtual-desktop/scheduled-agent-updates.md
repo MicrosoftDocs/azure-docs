@@ -14,9 +14,6 @@ The Scheduled Agent Updates feature lets you create up to two maintenance window
 
 This article describes how the Scheduled Agent Updates feature works and how to set it up.
 
->[!NOTE]
-> Azure Virtual Desktop (classic) doesn't support the Scheduled Agent Updates feature.
-
 ## Configure the Scheduled Agent Updates feature using the Azure portal
 
 To use the Azure portal to configure Scheduled Agent Updates:
