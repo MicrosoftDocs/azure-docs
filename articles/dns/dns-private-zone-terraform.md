@@ -2,7 +2,7 @@
 title: 'Quickstart: Use Terraform to configure a virtual network in Azure'
 description: In this quickstart, you create a virtual network, subnets, private DNS zones, network interfaces, Windows virtual machines, a private DNS A record, network security groups, and a network security rule in Azure.
 ms.topic: quickstart
-ms.date: 12/09/2024
+ms.date: 12/13/2024
 ms.custom: devx-track-terraform
 ms.service: azure-virtual-network
 author: greg-lindsay
@@ -15,7 +15,9 @@ content_well_notification:
 # Quickstart: Use Terraform to configure a virtual network in Azure
 
 In this quickstart, you use Terraform to create a virtual network, subnets, private DNS zones, network interfaces, Windows virtual machines, a private DNS A record, network security groups, and a network security rule in Azure.
-An Azure virtual network is a fundamental component of the Azure networking model, providing isolation and protection for your virtual machines. It's used to control and manage traffic between resources such as virtual machines within a network.
+
+An Azure virtual network is a fundamental component of the Azure networking model, providing isolation and protection for your virtual machines. It's used to control and manage traffic between resources such as virtual machines within a network. 
+
 In addition to the Azure virtual network, this code also creates:
 
 * Subnets within the network.
@@ -96,10 +98,8 @@ In addition to the Azure virtual network, this code also creates:
 1. Run `az network private-dns zone show` to view the resource group associate with your DNS zone.
 
    ```azurecli
-   az network private-dns zone show --name <dnsZoneName> --resource-group <resourceGroupName>
+   az network private-dns zone show --name $dnsZoneName --resource-group $resourceGroupName
    ```
-
-   Replace `<dnsZoneName>` with the name of your DNS zone and `<resourceGroupName>` with the name of your resource group.
 
 ---
 
