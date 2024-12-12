@@ -76,7 +76,7 @@ cd quarkus-quickstarts/hibernate-orm-panache-quickstart
 
 ### Modify your project
 
-1. Add the required dependencies to your project's BOM file.
+1. Add the required dependencies to your project's POM file.
 
    ```xml
    <dependency>
