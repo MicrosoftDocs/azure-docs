@@ -11,7 +11,7 @@ ms.author: cshoe
 zone_pivot_groups: azure-cli-or-portal
 ---
 
-# Use a private endpoint with an Azure Container Apps environment
+# Use a private endpoint with an Azure Container Apps environment (preview)
 
 In this article, you learn how to use a private endpoint to securely access your Azure Container App without exposing it to the public Internet.
 
