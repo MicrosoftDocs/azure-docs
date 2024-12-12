@@ -109,7 +109,7 @@ The following parameters configure the schedule and threshold for the garbage co
 ## High availability and resiliency considerations 
 The AOSM NF extension relies uses a mutating webhook and edge registry to support key features. 
 * Onboarding helm charts without requiring customization of image path.
-* A local cluster registry to accelerate pod operations and enable disconnected-moded support.
+* A local cluster registry to accelerate pod operations and enable disconnected-mode support.
 These essential components need to be highly available and resilient.
 
 ### Summary of changes for HA

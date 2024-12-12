@@ -270,7 +270,7 @@ The following table provides the source device/point, possible values, and defin
 | antennaType	| Respective Microsoft / partner telemetry builders set this value | MICROSOFT, KSAT, VIASAT | Antenna network used for the contact. |
 | antennaId | Contact resource | | Human-readable name of antenna ID |
 | spacecraftName | Parsed from Contact Platform Identifier | | Name of spacecraft |
-| gpsTime |	Coversion of utcTime | | Time in GPS time that the customer telemetry message was generated. |
+| gpsTime |	Conversion of utcTime | | Time in GPS time that the customer telemetry message was generated. |
 | utcTime	| Current time | | Time in UTC time that the customer telemetry message was generated. |
 | azimuthDecimalDegrees |	ACU: AntennaAzimuth |	|	Antenna's azimuth in decimal degrees. |
 | elevationDecimalDegrees	| ACU: AntennaElevation	| |	Antenna's elevation in decimal degrees. |
@@ -287,7 +287,7 @@ The following table provides the source device/point, possible values, and defin
 | inputEbN0InDb |	Modem: measuredEbN0	| • NULL (Modem model other than QRadio or QRx) <br> • Double: Input EbN0 | Input energy per bit to noise power spectral density in dB. |
 | inputEsN0InDb	| Modem: measuredEsN0 | • NULL (Modem model other than QRx) <br> • Double: Input EsN0 | Input energy per symbol to noise power spectral density in dB. |
 | inputRfPowerDbm |	Digitizer: inputRfPower	| • NULL (Uplink or Digitizer driver other than SNNB or SNWB) <br> • Double: Input Rf Power | Input RF power in dBm. |
-| outputRfPowerDbm | Digitizer: outputRfPower | • NULL (Downlink or Digitizer driver other than SNNB or SNWB) <br> • Double: Output Rf Power | Ouput RF power in dBm. |
+| outputRfPowerDbm | Digitizer: outputRfPower | • NULL (Downlink or Digitizer driver other than SNNB or SNWB) <br> • Double: Output Rf Power | Output RF power in dBm. |
 | outputPacketRate | Digitizer: rfOutputStream[0].measuredPacketRate | • NULL (Downlink or Digitizer driver other than SNNB or SNWB) <br> • Double: Output Packet Rate | Measured packet rate for Uplink |
 | gapCount | Digitizer: rfOutputStream[0].gapCount | • NULL (Downlink or Digitizer driver other than SNNB or SNWB) <br> • Double: Gap count | Packet gap count for Uplink |
 | modemLockStatus	| Modem: carrierLockState	| • NULL (Modem model other than QRadio or QRx; couldn’t parse lock status Enum) <br> • Empty string (if metric reading was null) <br> • String: Lock status | Confirmation that the modem was locked. |

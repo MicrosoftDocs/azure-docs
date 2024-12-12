@@ -157,7 +157,7 @@ The referenced matchCondition implies that the pods getting accepted in kube-sys
 * Default value: "0 0 * * *" -- Runs the job once everyday.
 
 `--config global.networkfunctionextension.clusterRegistry.clusterRegistryGCThreshold=`
-* This configuration specifies the precent threshold value to trigger the cluster registry garbage collection process.
+* This configuration specifies the percent threshold value to trigger the cluster registry garbage collection process.
 * This configuration triggers garbage collection process when cluster registry usage exceeds this value.
 * Default value: 0.
 

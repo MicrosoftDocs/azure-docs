@@ -155,7 +155,7 @@ The NFDV is used by publisher to set default values for applicationEnablement.
 ```
 
 #### Sample configuration group schema (CGS) resource
-The CGS is used by publisher to require the roleOverrideValues variable(s) to be provided by Operator at runt-time. These roleOverrideValues can include non-dedfault settings for applicationEnablement.
+The CGS is used by publisher to require the roleOverrideValues variable(s) to be provided by Operator at runt-time. These roleOverrideValues can include non-default settings for applicationEnablement.
 
 ```json
 {
@@ -212,10 +212,10 @@ The CGS is used by publisher to require the roleOverrideValues variable(s) to be
 ```
 
 ### Operator changes
-Operators inherity default applicationEnablement values as defined by the NFDV. If applicationEnablement is parameterized in CGS, then it must be passed through the deploymentValues property at runtime. 
+Operators inherits default applicationEnablement values as defined by the NFDV. If applicationEnablement is parameterized in CGS, then it must be passed through the deploymentValues property at runtime. 
  
 #### Sample configuration group value (CGV) resource
-The CGV is used by operator to set the roleOverrideValues variable(s) at runt-time. The roleOverrideValues includes a non-dedfault settings for applicationEnablement.
+The CGV is used by operator to set the roleOverrideValues variable(s) at runt-time. The roleOverrideValues includes a non-default settings for applicationEnablement.
 
 ```json
 {
