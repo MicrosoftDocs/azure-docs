@@ -59,7 +59,7 @@ In the output, you can find the `availableUpgradeVersions` property and look at 
 
 If there are no available cluster upgrades, the list will be empty.
 
-## Set Deployment Threshold
+### Set Deployment Threshold
 
 If the customer requests an update strategy threshold that it is different from the default values, you can run the following cluster update command.
 
