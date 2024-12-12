@@ -3,7 +3,7 @@ title: Discover your Microsoft cloud footprint FAQ
 description: This article helps to answer frequently asked questions that customers have about their Microsoft cloud footprint.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/17/2024
+ms.date: 12/11/2024
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -103,7 +103,63 @@ Administrators can manage trials and purchases that they made, and self-service 
 
 ## How can I get a list of subscriptions and tenants for a billing account?
 
-You can view the tenants associated with a subscription in the Azure portal on the **Subscriptions** page under **Cost Management + Billing**.
+In the Azure portal, you can view the tenants associated with a subscription on the **Subscriptions** page under **Cost Management + Billing**.
+
+Programmatically, tyou can use the publicly available API to get billing accounts that returns all associated billing subscriptions. The API also supports an optional header that returns all tenant IDs associated with the billing account. For more information, see [Billing Subscriptions - List By Billing Account](/rest/api/billing/billing-subscriptions/list-by-billing-account).
+
+CLI snippet:
+
+```azurecli
+# login 
+az login 
+# Get BillingAccounts 
+az rest --method get --url 	https://management.azure.com/providers/Microsoft.Billing/billingAccounts?api-version=2024-04-01
+ 
+ 
+# Get BillingSubscriptions with provisioning tenant 
+az rest --method get --url 	https://management.azure.com/providers/Microsoft.Billing/billingAccounts/<BillingAccountId>/billingSubscriptions?api-version=2024-04-01 --headers x-ms-service-tenant-info=true 
+```
+
+Sample call:
+
+```azurecli
+az rest --method get --url 'https://management.azure.com/providers/Microsoft.Billing/billingAccounts/aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb:bbbbbbbb-1111-2222-3333-cccccccccccc_2019-05-31/billingSubscriptions?api-version=2024-04-01' --headers x-ms-service-tenant-info=true
+```
+
+Sample response:
+
+```json
+{  
+  "value": [
+    {
+      "id": "/providers/Microsoft.Billing/billingAccounts/aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb:bbbbbbbb-1111-2222-3333-cccccccccccc_2019-05-31/billingSubscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e",
+      "name": "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e",
+      "properties": {
+        "autoRenew": "Off",
+        "billingFrequency": "P1M",
+        "billingProfileDisplayName": "Contoso Partner & Field Experiences",
+        "billingProfileId": "/providers/Microsoft.Billing/billingAccounts/aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb:bbbbbbbb-1111-2222-3333-cccccccccccc_2019-05-31/billingProfiles/CustomerLedAccount_BG3",
+        "billingProfileName": "ContosoAccount_BG3",
+        "displayName": "Test sub for Ingestion",
+        "invoiceSectionDisplayName": "Contoso Ingestion Publishing Service",
+        "invoiceSectionId": "/providers/Microsoft.Billing/billingAccounts/aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb:bbbbbbbb-1111-2222-3333-cccccccccccc_2019-05-31/billingProfiles/CustomerLedAccount_BG3/invoiceSections/AAAA-BBBB-CCC-DDD",
+        "invoiceSectionName": "AAAA-BBBB-CCC-DDD",
+        "operationStatus": "None",
+        "productCategory": "UsageBased",
+        "productType": "Usage based",
+        "productTypeId": "DZH318Z0BPS6",
+        "provisioningTenantId": "aaaabbbb-0000-cccc-1111-dddd2222eeee",
+        "purchaseDate": "2020-10-26T16:55:39.4792007Z",
+        "quantity": 1,
+        "skuDescription": "Microsoft Azure Plan",
+        "skuId": "0001",
+        "status": "Active",
+        "subscriptionId": "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e"
+      },
+      "type": "Microsoft.Billing/billingAccounts/billingSubscriptions"
+    }
+}
+```
 
 ## How can I view the Azure tenant that I am currently signed in to?
 
