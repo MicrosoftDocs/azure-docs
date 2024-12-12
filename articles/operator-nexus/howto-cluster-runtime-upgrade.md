@@ -61,7 +61,7 @@ If there are no available cluster upgrades, the list will be empty.
 
 ## Set Deployment Threshold
 
-If the customer requests a threshold that it is different from the default values, you can run the following cluster update command.
+If the customer requests an update strategy threshold that it is different from the default values, you can run the following cluster update command.
 
 ```azurecli
 az networkcloud cluster update -n <CLUSTER_NAME> -g <CLUSTER_RG> --update-strategy strategy-type="Rack" threshold-type="PercentSuccess" threshold-value=<DEPLOYMENT_THRESHOLD> wait-time-minutes=<DEPLOYMENT_PAUSE_MINS> --subscription <SUBSCRIPTION_ID>
@@ -91,7 +91,7 @@ az networkcloud cluster update -n <CLUSTER_NAME> -g <CLUSTER_RG> --update-strate
 Verify update:
 
 ```
-az networkcloud cluster show -g <CLUSTER_RG> -n <CLUSTER_NAME>  --subscription <SUBSCRIPTION_ID>| grep -a5 updateStrategy
+az networkcloud cluster show -g <CLUSTER_RG> -n <CLUSTER_NAME> --subscription <SUBSCRIPTION_ID>| grep -a5 updateStrategy
       "strategyType": "Rack",
       "thresholdType": "PercentSuccess",
       "thresholdValue": 60,
@@ -108,7 +108,7 @@ az networkcloud cluster update -n <CLUSTER_NAME> -g <CLUSTER_RG> --update-strate
 Verify update:
 
 ```
-az networkcloud cluster show -g <CLUSTER_RG> -n <CLUSTER_NAME>  --subscription <SUBSCRIPTION_ID>| grep -a5 updateStrategy
+az networkcloud cluster show -g <CLUSTER_RG> -n <CLUSTER_NAME> --subscription <SUBSCRIPTION_ID>| grep -a5 updateStrategy
       "strategyType": "Rack",
       "thresholdType": "CountSuccess",
       "thresholdValue": 4,
