@@ -13,7 +13,7 @@ ms.date: 12/12/2024
 
 To connect a device to IoT Hub using an X.509 certificate:
 
-1. Build the [SSLContext](https://docs.oracle.com/javase/8/docs/api/javax/net/ssl/SSLContext.html) object using [buildSSLContext](https://hc.apache.org/httpcomponents-core-4.4.x/current/httpcore/apidocs/org/apache/http/ssl/SSLContextBuilder.html)
+1. Build the [SSLContext](https://docs.oracle.com/javase/8/docs/api/javax/net/ssl/SSLContext.html) object using [buildSSLContext](https://hc.apache.org/httpcomponents-core-4.4.x/current/httpcore/apidocs/org/apache/http/ssl/SSLContextBuilder.html).
 1. Add the `SSLContext` information to a [ClientOptions](/java/api/com.microsoft.azure.sdk.iot.device.clientoptions) object.
 1. Call [DeviceClient](/java/api/com.microsoft.azure.sdk.iot.device.deviceclient?#com-microsoft-azure-sdk-iot-device-deviceclient-deviceclient(java-lang-string-com-microsoft-azure-sdk-iot-device-iothubclientprotocol-com-microsoft-azure-sdk-iot-device-clientoptions)) using the `ClientOptions` information to create the device-to-IoT Hub connection.
 
@@ -41,7 +41,9 @@ DeviceClient client = new DeviceClient(connString, protocol, clientOptions);
 For more information about certificate authentication, see:
 
 * [Authenticate identities with X.509 certificates](/azure/iot-hub/authenticate-authorize-x509)
-* [Create and upload certificates for testing](/azure/iot-hub/tutorial-x509-test-certs)
+* [Tutorial: Create and upload certificates for testing](/azure/iot-hub/tutorial-x509-test-certs)
+* [Tutorial: Provision multiple X.509 devices using enrollment groups](/azure/iot-dps/tutorial-custom-hsm-enrollment-group-x509?pivots=programming-language-java)
+* [OpenSSL CA](https://openssl-ca.readthedocs.io/)
 
 ##### Code samples
 

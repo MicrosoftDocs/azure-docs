@@ -11,7 +11,7 @@ ms.manager: lizross
 ms.date: 12/06/2024
 ---
 
-To connect a device to IoT Hub:
+To connect a device to IoT Hub using an X.509 certificate:
 
 1. Use [create_from_x509_certificate](/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient?#azure-iot-device-iothubdeviceclient-create-from-x509-certificate) to add the X.509 certificate parameters
 
@@ -50,8 +50,10 @@ await device_client.connect()
 For more information about certificate authentication, see:
 
 * [Authenticate identities with X.509 certificates](/azure/iot-hub/authenticate-authorize-x509)
-* [Create and upload certificates for testing](/azure/iot-hub/tutorial-x509-test-certs)
+* [Tutorial: Create and upload certificates for testing](/azure/iot-hub/tutorial-x509-test-certs)
+* [Tutorial: Provision multiple X.509 devices using enrollment groups](/azure/iot-dps/tutorial-custom-hsm-enrollment-group-x509?pivots=programming-language-python)
+* [OpenSSL CA](https://openssl-ca.readthedocs.io/)
 
 ##### Code samples
 
-For working samples of device X.509 certificate authentication, see the examples whose file names end in X.509 at [Async hub scenarios](https://github.com/Azure/azure-iot-sdk-python/tree/main/samples/async-hub-scenarios).
+For working samples of device X.509 certificate authentication, see the examples whose file names end in x509 at [Async hub scenarios](https://github.com/Azure/azure-iot-sdk-python/tree/main/samples/async-hub-scenarios).
