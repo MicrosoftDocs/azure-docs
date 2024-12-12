@@ -66,8 +66,7 @@ const cloudRecordingsUpdatedHandler = (args: { added: SDK.RecordingInfo[], remov
 callRecordingApi.on('recordingsUpdated', cloudRecordingsUpdatedHandler );
 ```
 ## Explicit Consent
-When your Teams meeting or call is configured to require explicit consent for recording and transcription, 
-you are required to collect consent from all participants in the call before you can record them. You can provide consent proactively when joining the meeting or reactively when the recording starts. Until explicit consent is given, participants' audio, video, and screen sharing will be disabled during recording.
+When your Teams meeting or call is configured to require explicit consent for recording and transcription, you're required to collect consent from all participants in the call before you can record them. You can provide consent proactively when joining the meeting or reactively when the recording starts. Until explicit consent is given, participants' audio, video, and screen sharing will be disabled during recording.
  
 You can check if the meeting recording requires explicit consent by property `isTeamsConsentRequired`. If the value is set to `true`, then explicit consent is required for the `call`.
  
@@ -75,10 +74,10 @@ You can check if the meeting recording requires explicit consent by property `is
 const isConsentRequired = callRecordingApi.isTeamsConsentRequired;
 ```
 
-If you have already obtained the user's consent for recording, you can call `grantTeamsConsent()` method to indicate explicit consent to the service. Note that this consent is valid for one `call` session only and users will need to provide consent again if they rejoin the meeting.
+If you have already obtained the user's consent for recording, you can call `grantTeamsConsent()` method to indicate explicit consent to the service. This consent is valid for one `call` session only and users need to provide consent again if they rejoin the meeting.
  
 ```js
 callRecordingApi.grantTeamsConsent();
 ```
 
-Attempts to enable audio, video or screen sharing will fail when recording is active, explicit consent is required but is not yet given. You can recognize this situation by checking property `reason` of class `ParticipantCapabilities` for [capabilities](../../capabilities.md) `turnVideoOn`, `unmuteMic` and `shareScreen`. You can find those [capabilities](../../capabilities.md) in the feature `call.feature(Features.Capabilities)`. Those [capabilities](../../capabilities.md) would return reason `ExplicitConsentRequired` as users need to provide explicit consent.
+Attempts to enable audio, video, or screen sharing fail when recording is active, explicit consent is required but isn't yet given. You can recognize this situation by checking property `reason` of class `ParticipantCapabilities` for [capabilities](../../capabilities.md) `turnVideoOn`, `unmuteMic` and `shareScreen`. You can find those [capabilities](../../capabilities.md) in the feature `call.feature(Features.Capabilities)`. Those [capabilities](../../capabilities.md) would return reason `ExplicitConsentRequired` as users need to provide explicit consent.
