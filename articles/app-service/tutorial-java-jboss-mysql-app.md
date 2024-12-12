@@ -472,7 +472,7 @@ The dev container already has the [Azure Developer CLI](/azure/developer/azure-d
     
     |Question  |Answer  |
     |---------|---------|
-    |Continue initializing an app in '\<your-directory>'?     | **Y**        |
+    |Continue initializing an app in '`<your-directory>`'?     | **Y**        |
     |What would you like to do with these files?     | **Keep my existing files unchanged**        |
     |Enter a new environment name     | Type a unique name. The AZD template uses this name as part of the DNS name of your web app in Azure (`<app-name>-<hash>.azurewebsites.net`). Alphanumeric characters and hyphens are allowed.          |
 
