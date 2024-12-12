@@ -267,7 +267,7 @@ az networkcloud cluster show -g <CLUSTER_RG> -n <CLUSTER_NAME> --subscription <S
 
 In this example, if less than 10 compute nodes being provisioned in a rack fail to provision (on a rack by rack basis), the cluster deployment will fail.  If 10 or more of the compute nodes are successfully provisioned, cluster deployment moves on to the next rack of compute nodes.
 
-
+***NOTE:  Deployment thresholds cannot be changed after cluster deployment has started.***
 
 
 ## Deploy Cluster
