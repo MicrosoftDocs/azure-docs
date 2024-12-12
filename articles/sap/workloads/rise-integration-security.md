@@ -50,9 +50,10 @@ It can be used with any data source that Defender XDR and Sentinel support, incl
    This image shows an example of the Microsoft Copilot for Security experience using a prompt to investigate an SAP incident.
 :::image-end:::
 
-In addition to that the Copilot for Security experience is embedded on the Defender XDR portal. Next to an AI-generated summary, recommendations and remediation like password reset for SAP are provided out-of-the-box. Learn more about automatic SAP attack disruption [here](../../sentinel/sap/deployment-attack-disrupt.md).
+In addition to that the Copilot for Security experience is embedded on the Microsoft Defender portal, with an AI-generated summary, recommendations, and remediation like password reset for SAP are provided out-of-the-box.
 
 :::image type="complex" source="./media/sap-rise-integration/sap-rise-security-copilot-defender-portal.png" alt-text="Screenshot of embedded Copilot for Security experience in Defender with SAP RISE/ECS incidents." lightbox="./media/sap-rise-integration/sap-rise-security-copilot-defender-portal.png":::
+
    This image shows an example of Microsoft Copilot for Security analyzing an incident detected on SAP RISE through Defender XDR. Data ingestion is done through the Microsoft Sentinel solution for SAP applications.
 :::image-end:::
 
