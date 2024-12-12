@@ -34,12 +34,21 @@ Here are some use cases of connection monitor:
 
 Here are some of the benefits of using connection monitor:
 
-* Unified, intuitive experience for Azure and hybrid monitoring needs
-* Cross-region, cross-workspace connectivity monitoring
-* Higher probing frequencies and better visibility into network performance
-* Faster alerting for your hybrid deployments
-* Support for connectivity checks that are based on HTTP, Transmission Control Protocol (TCP), and Internet Control Message Protocol (ICMP) 
-* Metrics and Log Analytics support for both Azure and non-Azure test setups
+- Cross-subscription, cross-workspace monitoring experience for Azure and Hybrid cloud environments.
+
+- Supported source endpoints enabled with Network Watcher extension: Azure VMs, Azure virtual machine scale sets, and Arc enabled on-premises hosts.
+
+- Supported destination endpoints: Azure VMs, Azure virtual machine scale sets, Arc enabled on-premises hosts, URLs, FQDNs, and IP addresses. Destination endpoints don't require the Network Watcher extension.
+
+- High probing frequencies and visibility into network performance  
+
+- End-to-end network path visibility with the Topology.
+
+- Quick alerting for Azure and hybrid deployments.
+
+- Support for connectivity checks that are based on HTTP, TCP, and ICMP.
+
+- Metrics with Azure Monitor and logs with Azure Log Analytics.
 
 :::image type="content" source="./media/connection-monitor-2-preview/hero-graphic-new.png" alt-text="Diagram showing how Connection monitor interacts with Azure VMs, non-Azure hosts, endpoints, and data storage locations.":::
 
@@ -250,7 +259,7 @@ On the dashboard, you can expand each connection monitor to view its test groups
 
 You can filter a list based on:
 
-* **Top-level filters**: Search the list by text, entity type (Connection monitor, test group, or test) timestamp, and scope. Scope includes subscriptions, regions,  sources, and destination types. See box 1 in the following image.
+* **Top-level filters**: SeArch the list by text, entity type (Connection monitor, test group, or test) timestamp, and scope. Scope includes subscriptions, regions,  sources, and destination types. See box 1 in the following image.
 * **State-based filters**: Filter by the state of the connection monitor, test group, or test. See box 2 in the following image.
 * **Alert-based filter**: Filter by alerts that are fired on the connection monitor resource. See box 3 in the following image.
 
@@ -259,19 +268,19 @@ You can filter a list based on:
 For example, to view all tests in Connection monitor, where the source IP is 10.192.64.56, follow these steps:
 
 1. Change the view to **Test**.
-1. In the **Search** box, enter **10.192.64.56**.
+1. In the **SeArch** box, enter **10.192.64.56**.
 1. Under **Scope**, in the top-level filter, select **Sources**.
 
 To show only failed tests in Connection monitor, where the source IP is 10.192.64.56, follow these steps:
 1. Change the view to **Test**.
 1. For the state-based filter, select **Fail**.
-1. In the **Search** box, enter **10.192.64.56**.
+1. In the **SeArch** box, enter **10.192.64.56**.
 1. Under **Scope**, in the top-level filter, select **Sources**.
 
 To show only failed tests in Connection monitor, where the destination is outlook.office365.com, follow these steps:
 1. Change the view to **Test**.
 1. For the state-based filter, select **Fail**.
-1. In the **Search** box, enter **office.live.com**.
+1. In the **SeArch** box, enter **office.live.com**.
 1. Under **Scope**, in the top-level filter, select **Destinations**.
   
   :::image type="content" source="./media/connection-monitor-2-preview/tests-view.png" alt-text="Screenshot showing a view that's filtered to show only failed tests for the outlook.office365.com destination." lightbox="./media/connection-monitor-2-preview/tests-view.png":::
