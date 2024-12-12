@@ -75,9 +75,11 @@ If `updateStrategy` is not set, the default are as follows:
       "waitTimeMinutes": 1
 ```
 
-*Note:
-*strategy-type can be "Rack" - Rack by Rack OR "PauseAfterRack" - Wait for customer response to continue*
-*threshold-type can be "PercentSuccess" OR "CountSuccess"
+**Note:**
+
+strategy-type can be "Rack" (Rack by Rack) OR "PauseAfterRack" (Wait for customer response to continue)
+
+threshold-type can be "PercentSuccess" OR "CountSuccess"
 
 The example below is for a customer using Rack by Rack strategy with a Percent Success of 60% and a 1 minute pause.
 
@@ -96,10 +98,10 @@ az networkcloud cluster show -g <CLUSTER_RG> -n <CLUSTER_NAME> --subscription <C
       "waitTimeMinutes": 1
 ```
 
-The example below is for a customer using Rack by Rack strategy with a threshold type CountSuccess ..............
+The example below is for a customer using Rack by Rack strategy with a threshold type CountSuccess of 10 nodes per rack and a 1 minute pause.
 
 ```azurecli
-az networkcloud cluster update -n <CLUSTER_NAME> -g <CLUSTER_RG> --update-strategy strategy-type="Rack" threshold-type="CountSuccess" threshold-value=4 max-unavailable=4 wait-time-minutes=1 --subscription <SUBSCRIPTION_ID>
+az networkcloud cluster update -n <CLUSTER_NAME> -g <CLUSTER_RG> --update-strategy strategy-type="Rack" threshold-type="CountSuccess" threshold-value=10 wait-time-minutes=1 --subscription <SUBSCRIPTION_ID>
 ```
 
 
