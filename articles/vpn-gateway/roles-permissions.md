@@ -1,7 +1,7 @@
 ---
-title: About VPN and ExpressRoute gateway roles and permissions
+title: About VPN roles and permissions
 titleSuffix: VPN Gateway
-description: Learn about roles and permissions for VPN and ExpressRoute gateways.
+description: Learn about roles and permissions for VPN 
 author: aybatra
 ms.service: azure-vpn-gateway
 ms.topic: conceptual
@@ -9,9 +9,9 @@ ms.date: 12/4/2024
 ms.author: cherylmc
 
 ---
-# About roles and permissions for VPN and ExpressRoute gateways
+# About roles and permissions for VPN 
 
-The VPN and ExpressRoute gateways utilize multiple resources, such as virtual networks and IP addresses, during both creation and management operations.
+The VPN utilize multiple resources, such as virtual networks and IP addresses, during both creation and management operations.
 Because of this, it's essential to verify permissions on all involved resources during these operations.
 
 ## Azure built-in roles
