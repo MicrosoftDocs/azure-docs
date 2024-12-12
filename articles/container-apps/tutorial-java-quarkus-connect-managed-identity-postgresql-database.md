@@ -171,7 +171,7 @@ cd quarkus-quickstarts/hibernate-orm-panache-quickstart
 
 1. Push the image to the registry.
 
-   Use [docker push][docker-push] to push the image to the registry instance. This example creates the `quarkus-postgres-passwordless-app` repository, containing the `quarkus-postgres-passwordless-app:v1` image.
+   Use `docker push` to push the image to the registry instance. This example creates the `quarkus-postgres-passwordless-app` repository, containing the `quarkus-postgres-passwordless-app:v1` image.
 
    ```bash
    docker push $CONTAINER_IMAGE
