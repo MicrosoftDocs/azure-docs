@@ -14,7 +14,7 @@ ms.date: 12/05/2024
 
 This article provides guidance on how to set up and use dev box with virtual switches. Virtual switches are used to connect dev boxes and other virtual machines (VMs) to both virtual networks and physical networks. They provide a way for dev boxes to communicate with each other and with external networks. 
 
-Dev box supports nested virtualization. You can create virtual machines inside a dev box and connect them to the default virtual switch *Default Switch*"*. If you want to create another virtual switch with internet access, set up a NAT network with an internal virtual switch. Use an IP address range that suits your required configuration.
+Dev box supports nested virtualization. You can create virtual machines inside a dev box and connect them to the default virtual switch *Default Switch*. If you want to create another virtual switch with internet access, set up a NAT network with an internal virtual switch. Use an IP address range that suits your required configuration.
 
 > [!WARNING]
 > Incorrect configuration of virtual switch will cause you to lose the connection to dev box immediately and this is NOT reversable. Please setup with extreme care.
