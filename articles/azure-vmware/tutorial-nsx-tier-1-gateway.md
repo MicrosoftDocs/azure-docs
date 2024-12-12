@@ -1,5 +1,5 @@
 ---
-title:  Tutorial - nsx-tier-1-gateway
+title:  Tutorial - NSX-Tier-1-Gateway
 description: Learn how to create a Tier-1 Gateway
 ms.topic: tutorial
 ms.service: azure-vmware
@@ -58,7 +58,7 @@ A Tier-1 Gateway is typically added to a Tier-0 Gateway in the northbound direct
 
 10. Select **Save**. 
 
-## Next Steps
+## Next steps
 
 In this tutorial, you created an additional Tier-1 Gateway to use in your Azure VMware Solution private cloud. 
 
