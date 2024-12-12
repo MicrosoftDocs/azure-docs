@@ -53,7 +53,7 @@ If you choose to install and use PowerShell locally, this article requires the A
 2. Select **Create a resource**.
 3. In the search box, type *Public IP address*.
 3. In the search results, select **Public IP address**. Next, in the **Public IP address** page, select **Create**.
-1. In the **Create public IP address** page, enter or slect this information:
+1. In the **Create public IP address** page, enter or select this information:
 
     | Setting | Value |
     | ------- | ----- |
