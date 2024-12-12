@@ -14,7 +14,7 @@ metadata:
   author: padmalathas
   ms.author: padmalathas
   ms.reviewer: mattmcinnes
-  ms.date: 09/20/2023
+  ms.date: 12/11/2024
 
 # Main Items (Icons)
 # Maximum of 8 items
@@ -85,7 +85,10 @@ conceptualContent:
               text: Azure NetApp Files
             - url: /azure/azure-managed-lustre/blob-integration
               itemType: concept
-              text: Azure Blob Storage               
+              text: Azure Blob Storage
+            - url: /azure/azure-managed-lustre/amlfs-overview
+              itemType: concept
+              text: Azure Managed Lustre             
         # Card
         - title: Azure HPC Workload Orchestration
           links:
@@ -266,13 +269,6 @@ additionalContent:
           links:
             - text: Supercomputing 24 Website
               url:  https://sc24.supercomputing.org/
-        # Card
-        - title: NVIDIA GTC (GPU Technology Conference)
-          links:
-            - text: Microsoft at GTC
-              url: https://techcommunity.microsoft.com/t5/azure-high-performance-computing/we-ll-see-you-at-nvidia-s-spring-gtc-conference/ba-p/3194882
-            - text: GTC Website
-              url: https://www.nvidia.com/gtc/
         # Card
         - title: ISC23 (ISC High Performance Event) 
           links:
