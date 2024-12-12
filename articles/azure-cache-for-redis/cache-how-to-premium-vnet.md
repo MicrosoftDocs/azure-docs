@@ -4,7 +4,7 @@ description: Learn how to create and manage virtual network support for your Pre
 
 
 ms.topic: conceptual
-ms.date: 08/29/2023
+ms.date: 12/12/2024
 
 ---
 
@@ -124,7 +124,10 @@ There are nine outbound port requirements. Outbound requests in these ranges are
 | --- | --- | --- | --- | --- | --- |
 | 80, 443 |Outbound |TCP |Redis dependencies on Azure Storage/PKI (internet) | (Redis subnet) |* <sup>4</sup> |
 | 443 | Outbound | TCP | Redis dependency on Azure Key Vault and Azure Monitor | (Redis subnet) | AzureKeyVault, AzureMonitor <sup>1</sup> |
-| 53 |Outbound |TCP/UDP |Redis dependencies on DNS (internet/virtual network) | (Redis subnet) | 168.63.129.16 and 169.254.169.254 <sup>2</sup> and any custom DNS server for the subnet <sup>3</sup> |
+| 12000 | Outbound | TCP | Redis dependency on Azure Monitor | (Redis subnet) |  AzureMonitor <sup>1</sup> |
+| 53 |Outbound |TCP/UDP | Redis dependencies on DNS (internet/virtual network) | (Redis subnet) | 168.63.129.16 and 169.254.169.254 <sup>2</sup> and any custom DNS server for the subnet <sup>3</sup> |
+| 123 | Outbound | UDP | Operating system dependency on NTP | (Redis subnet) | * |
+| 1688 | Outbound | TCP | Operating system dependency for activation | (Redis subnet) | * |
 | 8443 |Outbound |TCP |Internal communications for Redis | (Redis subnet) | (Redis subnet) |
 | 10221-10231 |Outbound |TCP |Internal communications for Redis | (Redis subnet) | (Redis subnet) |
 | 20226 |Outbound |TCP |Internal communications for Redis | (Redis subnet) |(Redis subnet) |
@@ -165,11 +168,14 @@ There are eight inbound port range requirements. Inbound requests in these range
 
 There are network connectivity requirements for Azure Cache for Redis that might not be initially met in a virtual network. Azure Cache for Redis requires all the following items to function properly when used within a virtual network:
 
-- Outbound network connectivity to Azure Key Vault endpoints worldwide. Azure Key Vault endpoints resolve under the DNS domain `vault.azure.net`.
-- Outbound network connectivity to Azure Storage endpoints worldwide. Endpoints located in the same region as the Azure Cache for Redis instance and storage endpoints located in _other_ Azure regions are included. Azure Storage endpoints resolve under the following DNS domains: `table.core.windows.net`, `blob.core.windows.net`, `queue.core.windows.net`, and `file.core.windows.net`.
+- Outbound network connectivity to Azure Key Vault endpoints worldwide. Azure Key Vault endpoints resolve under the DNS domain `*.vault.azure.net`.
+- Outbound network connectivity to Azure Storage endpoints worldwide. Endpoints located in the same region as the Azure Cache for Redis instance and storage endpoints located in _other_ Azure regions are included. Azure Storage endpoints resolve under the following DNS domains: `*.table.core.windows.net`, `*.blob.core.windows.net`, `*.queue.core.windows.net`, and `*.file.core.windows.net`.
 - Outbound network connectivity to `ocsp.digicert.com`, `crl4.digicert.com`, `ocsp.msocsp.com`, `mscrl.microsoft.com`, `crl3.digicert.com`, `cacerts.digicert.com`, `oneocsp.microsoft.com`, and `crl.microsoft.com`, `cacerts.geotrust.com`, `www.microsoft.com`, `cdp.geotrust.com`, `status.geotrust.com`. This connectivity is needed to support TLS/SSL functionality.
+- Outbound network connectivity to the following Azure Monitor endpoints, which resolve under the following DNS domains: `shoebox3.prod.microsoftmetrics.com`, `shoebox3-red.prod.microsoftmetrics.com`, `shoebox3-black.prod.microsoftmetrics.com`, `azredis.prod.microsoftmetrics.com`, `azredis-red.prod.microsoftmetrics.com`, `azredis-black.prod.microsoftmetrics.com`, `global.prod.microsoftmetrics.com`, `gcs.prod.monitoring.core.windows.net`, and `*.prod.warm.ingest.monitor.core.windows.net`.
+- Outbound network connectivity to the following endpoints for internal diagnostics, which resolve under the following DNS domains: `azurewatsonanalysis-prod.core.windows.net`, `*.data.microsoft.com`,  `shavamanifestazurecdnprod1.azureedge.net`, and `shavamanifestcdnprod1.azureedge.net`.
+- Outbound network connectivity to the following endpoints for the operating system update service, which resolve under the following DNS domains: `*.update.microsoft.com`, `*.ctldl.windowsupdate.com`, and `ctldl.windowsupdate.com`, `*.delivery.mp.microsoft.com`, and `download.windowsupdate.com`.
+- Outbound network connectivity to the following endpoints for the antivirus, which resolve under the following DNS domains: `go.microsoft.com`, `wdcp.microsoft.com`, `wdcpalt.microsoft.com`, and `definitionupdates.microsoft.com`.
 - The DNS configuration for the virtual network must be able to resolve all of the endpoints and domains mentioned in the earlier points. These DNS requirements can be met by ensuring a valid DNS infrastructure is configured and maintained for the virtual network.
-- Outbound network connectivity to the following Azure Monitor endpoints, which resolve under the following DNS domains: `shoebox3.prod.microsoftmetrics.com`, `shoebox3-red.prod.microsoftmetrics.com`, `shoebox3-black.prod.microsoftmetrics.com`, `azredis.prod.microsoftmetrics.com`, `azredis-red.prod.microsoftmetrics.com`, and `azredis-black.prod.microsoftmetrics.com`.
 
 ### How can I verify that my cache is working in a virtual network?
 
