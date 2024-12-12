@@ -70,9 +70,6 @@ Assign the Virtual Machine Contributor role to the account, so that you have per
 
 If you are following the least privilege principle, assign the **Application Developer** Microsoft Entra role to the user registering the Replication Appliance. Follow the [Assign administrator and non-administrator roles to users with Microsoft Entra ID](../../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md) guide to do so.
 
-> [!IMPORTANT]
-> If the user registering the Replication Appliance is a Microsoft Entra Global Administrator, that user already has the required permissions.
-
 ### Set up an Azure network
 
 [Set up an Azure network](/azure/virtual-network/manage-virtual-network). On-premises machines are replicated to Azure managed disks. When you fail over to Azure for migration, Azure VMs are created from these managed disks, and joined to the Azure network you set up.
