@@ -195,13 +195,13 @@ cd code-to-cloud/src
 
     # [Azure PowerShell](#tab/azure-powershell)
     
-    ```powershell
-    Write-Output $acr.AzureAdAuthenticationAsArmPolicyStatus
+    ```azurepowershell
+    $acr.AzureAdAuthenticationAsArmPolicyStatus
     ```
 
     If the command returns `disabled`, allow ARM tokens with the following command.
 
-    ```powershell
+    ```azurepowershell
     Update-AzContainerRegistry `
         -ResourceGroupName $acr.ResourceGroupName `
         -Name $acr.Name `
@@ -242,7 +242,7 @@ IDENTITY_ID=$(az identity show \
 
 1. Create a user-assigned managed identity. Before you run the following commands, choose a name for your managed identity and replace the `\<PLACEHOLDER\>` with the name.
 
-```powershell
+```azurepowershell
 $IdentityName="<YOUR_IDENTITY_NAME>"
 $Identity = New-AzUserAssignedIdentity -ResourceGroupName $ResourceGroup -Name $IdentityName
 ```
@@ -288,7 +288,7 @@ az acr build --registry $ACR_NAME --image $API_NAME .
 
 The `az acr build` command does not have a PowerShell equivalent, but can be run in PowerShell.
 
-```azurepowershell
+```powershell
 az acr build --registry $AcrName --image $APIName .
 ```
 
@@ -334,7 +334,7 @@ az acr login --name $ACR_NAME
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-```powershell
+```azurepowershell
 Connect-AzContainerRegistry -Name $ACRName
 ```
 
