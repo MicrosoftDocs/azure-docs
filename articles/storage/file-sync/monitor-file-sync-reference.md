@@ -9,28 +9,6 @@ ms.author: kendownie
 ms.service: azure-file-storage
 ---
 
-<!-- 
-IMPORTANT 
-According to the Content Pattern guidelines all comments must be removed before publication!!!
-To make this template easier to use, first:
-1. Search and replace [TODO-replace-with-service-name] with the official name of your service.
-2. Search and replace [TODO-replace-with-service-filename] with the service name to use in GitHub filenames.-->
-
-<!-- VERSION 3.0 2024_01_01
-For background about this template, see https://review.learn.microsoft.com/en-us/help/contribute/contribute-monitoring?branch=main -->
-
-<!-- All sections are required unless otherwise noted. Add service-specific information after the includes.
-Your service should have the following two articles:
-1. The primary monitoring article (based on the template monitor-service-template.md)
-   - Title: "Monitor [TODO-replace-with-service-name]"
-   - TOC title: "Monitor [TODO-replace-with-service-name]"
-   - Filename: "monitor-[TODO-replace-with-service-filename].md"
-2. A reference article that lists all the metrics and logs for your service (based on this template).
-   - Title: "[TODO-replace-with-service-name] monitoring data reference"
-   - TOC title: "Monitoring data reference"
-   - Filename: "monitor-[TODO-replace-with-service-filename]-reference.md".
--->
-
 # Azure File Sync monitoring data reference
 
 [!INCLUDE [horz-monitor-ref-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-intro.md)]
@@ -72,12 +50,12 @@ To view Azure File Sync metrics in Azure Monitor:
 
 ### Azure File Sync Microsoft.StorageSync/storageSyncServices
 
-- [AzureActivity](./tables/azureactivity#columns)
-- [AzureMetrics](./tables/azuremetrics#columns)
-- [StorageTableLogs](./tables/storagetablelogs#columns)
-- [StorageQueueLogs](./tables/storagequeuelogs#columns)
-- [StorageFileLogs](./tables/storagefilelogs#columns)
-- [StorageBlobLogs](./tables/storagebloblogs#columns)
+- [AzureActivity](/azure/azure-monitor/reference/tables/azureactivity#columns)
+- [AzureMetrics](/azure/azure-monitor/reference/tables/azuremetrics#columns)
+- [StorageTableLogs](/azure/azure-monitor/reference/tables/storagetablelogs#columns)
+- [StorageQueueLogs](/azure/azure-monitor/reference/tables/storagequeuelogs#columns)
+- [StorageFileLogs](/azure/azure-monitor/reference/tables/storagefilelogs#columns)
+- [StorageBlobLogs](/azure/azure-monitor/reference/tables/storagebloblogs#columns)
 
 [!INCLUDE [horz-monitor-ref-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-activity-log.md)]
 
