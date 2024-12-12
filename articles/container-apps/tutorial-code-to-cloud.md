@@ -230,8 +230,6 @@ az identity create \
 
 1. Get the identity's resource ID.
 
-# [Bash](#tab/bash)
-
 ```azurecli
 IDENTITY_ID=$(az identity show \
     --name $IDENTITY \
@@ -346,13 +344,13 @@ Now, push the image to your registry.
 
 # [Bash](#tab/bash)
 
-```azurecli
+```bash
 docker push $ACR_NAME.azurecr.io/$API_NAME
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-```powershell
+```bash
 docker push "$ACRName.azurecr.io/$APIName"
 ```
 
@@ -443,60 +441,59 @@ az containerapp create \
 
 To create the container app, create template objects that you pass in as arguments to the `New-AzContainerApp` command.
 
-Create a template object to define your container image parameters.
+1. Create a template object to define your container image parameters.
 
-```azurepowershell
-$ImageParams = @{
-    Name = $APIName
-    Image = $ACRName + '.azurecr.io/' + $APIName + ':latest'
-}
-$TemplateObj = New-AzContainerAppTemplateObject @ImageParams
-```
+    ```azurepowershell
+    $ImageParams = @{
+        Name = $APIName
+        Image = $ACRName + '.azurecr.io/' + $APIName + ':latest'
+    }
+    $TemplateObj = New-AzContainerAppTemplateObject @ImageParams
+    ```
 
-Create a registry credential object to define your registry information.
+1. Create a registry credential object to define your registry information.
 
-```azurepowershell
-$RegistryArgs = @{
-    Server = $ACRName + '.azurecr.io'
-    Identity = $IdentityId
-}
-$RegistryObj = New-AzContainerAppRegistryCredentialObject @RegistryArgs
+    ```azurepowershell
+    $RegistryArgs = @{
+        Server = $ACRName + '.azurecr.io'
+        Identity = $IdentityId
+    }
+    $RegistryObj = New-AzContainerAppRegistryCredentialObject @RegistryArgs
+    ```
 
-```
+1. Get your environment ID.
 
-Get your environment ID.
+    ```azurepowershell
+    $EnvId = (Get-AzContainerAppManagedEnv -EnvName $Environment -ResourceGroup $ResourceGroup).Id
+    ```
 
-```azurepowershell
-$EnvId = (Get-AzContainerAppManagedEnv -EnvName $Environment -ResourceGroup $ResourceGroup).Id
-```
+1. Create the container app.
 
-Create the container app.
+    ```azurepowershell
+    $AppConfig = @{
+        IngressTargetPort = 8080
+        IngressExternal = $true
+        Registry = $RegistryObj
+    }
+    $AppConfigObj = New-AzContainerAppConfigurationObject @AppConfig
 
-```azurepowershell
-$AppConfig = @{
-    IngressTargetPort = 8080
-    IngressExternal = $true
-    Registry = $RegistryObj
-}
-$AppConfigObj = New-AzContainerAppConfigurationObject @AppConfig
+    $AppArgs = @{
+        Name = $APIName
+        Location = $Location
+        ResourceGroupName = $ResourceGroup
+        ManagedEnvironmentId = $EnvId
+        TemplateContainer = $TemplateObj
+        Configuration = $AppConfigObj
+        UserAssignedIdentity = @($IdentityId)
+    }
+    $MyApp = New-AzContainerApp @AppArgs
 
-$AppArgs = @{
-    Name = $APIName
-    Location = $Location
-    ResourceGroupName = $ResourceGroup
-    ManagedEnvironmentId = $EnvId
-    TemplateContainer = $TemplateObj
-    Configuration = $AppConfigObj
-    UserAssignedIdentity = @($IdentityId)
-}
-$MyApp = New-AzContainerApp @AppArgs
+    # Show the app's fully qualified domain name (FQDN).
+    $MyApp.LatestRevisionFqdn
+    ```
 
-# Show the app's fully qualified domain name (FQDN).
-$MyApp.LatestRevisionFqdn
-```
-
-* By setting `IngressExternal` to `$true`, your container app is accessible from the public internet.
-* The `IngressTargetPort` parameter is set to `8080` to match the port that the container is listening to for requests.
+    * By setting `IngressExternal` to `$true`, your container app is accessible from the public internet.
+    * The `IngressTargetPort` parameter is set to `8080` to match the port that the container is listening to for requests.
 
 ---
 
