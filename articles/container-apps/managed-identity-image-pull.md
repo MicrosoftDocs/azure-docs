@@ -381,7 +381,7 @@ New-AzUserAssignedIdentity -Name $IdentityName -ResourceGroupName $ResourceGroup
 
 # [Bash](#tab/bash)
 
-Get identity's resource ID.
+Get the identity's resource ID.
 
 ```azurecli
 IDENTITY_ID=$(az identity show \
@@ -457,8 +457,7 @@ $AppArgs = @{
     ResourceGroupName = $ResourceGroupName
     ManagedEnvironmentId = $EnvId
     ConfigurationRegistry = $CredentialObject
-    IdentityType = 'UserAssigned'
-    IdentityUserAssignedIdentity = @{ $IdentityId = @{ } }
+    UserAssignedIdentity = @($IdentityId)
     TemplateContainer = $TemplateObj
     IngressTargetPort = 80
     IngressExternal = $true

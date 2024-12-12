@@ -9,7 +9,7 @@ ms.custom:
   - devx-track-azurepowershell
   - ignite-2023
 ms.topic: tutorial
-ms.date: 12/10/2024
+ms.date: 12/12/2024
 ms.author: cshoe
 zone_pivot_groups: container-apps-image-build-type
 ---
@@ -24,7 +24,7 @@ This is the first tutorial in the series of articles that walk you through how t
 > [!NOTE]
 > You can also build and deploy this app using the [az containerapp up](/cli/azure/containerapp#az_containerapp_up) by following the instructions in the [Quickstart: Build and deploy an app to Azure Container Apps from a repository](quickstart-code-to-cloud.md) article.  The `az containerapp up` command is a fast and convenient way to build and deploy your app to Azure Container Apps using a single command. However, it doesn't provide the same level of customization for your container app.
 
- The next tutorial in the series will build and deploy the front end web application to Azure Container Apps.
+The next tutorial in the series will build and deploy the front end web application to Azure Container Apps.
 
 The following screenshot shows the output from the album API deployed in this tutorial.
 
@@ -152,6 +152,7 @@ cd code-to-cloud/src
     ```azurecli
     az acr create \
         --resource-group $RESOURCE_GROUP \
+        --location $LOCATION \
         --name $ACR_NAME \
         --sku Basic
     ```
@@ -161,6 +162,7 @@ cd code-to-cloud/src
     ```azurepowershell
     $acr = New-AzContainerRegistry `
         -ResourceGroupName $ResourceGroup `
+        -Location $Location `
         -Name $ACRName `
         -Sku Basic
     ```
@@ -177,15 +179,6 @@ cd code-to-cloud/src
     az acr config authentication-as-arm show --registry "$ACR_NAME"
     ```
 
-TODO1 Verify
-    # [Azure PowerShell](#tab/azure-powershell)
-    
-    ```powershell
-    $acr.Config.AuthenticationAsArm
-    ```
-
-    ---
-
     If ARM tokens are allowed, the command outputs the following.
 
     ```
@@ -196,18 +189,23 @@ TODO1 Verify
 
     If the `status` is `disabled`, allow ARM tokens with the following command.
 
-    # [Bash](#tab/bash)
-    
     ```azurecli
     az acr config authentication-as-arm update --registry "$ACR_NAME" --status enabled
     ```
 
-TODO1 Verify
     # [Azure PowerShell](#tab/azure-powershell)
     
     ```powershell
-    $acr.Config.AuthenticationAsArm.Enabled = $true
-    Set-AzContainerRegistry -ResourceGroupName $acr.ResourceGroupName -Name $acr.Name -Registry $acr
+    Write-Output $acr.AzureAdAuthenticationAsArmPolicyStatus
+    ```
+
+    If the command returns `disabled`, allow ARM tokens with the following command.
+
+    ```powershell
+    Update-AzContainerRegistry `
+        -ResourceGroupName $acr.ResourceGroupName `
+        -Name $acr.Name `
+        -AzureAdAuthenticationAsArmPolicyStatus enabled
     ```
 
     ---
@@ -216,50 +214,61 @@ TODO1 Verify
 
 To avoid using administrative credentials, pull images from private repositories in Microsoft Azure Container Registry using managed identities for authentication. When possible, use a user-assigned managed identity to pull images.
 
+# [Bash](#tab/bash)
+
 1. Create a user-assigned managed identity. Before you run the following commands, choose a name for your managed identity and replace the `\<PLACEHOLDER\>` with the name.
-
-    # [Bash](#tab/bash)
     
-    ```bash
-    IDENTITY="<YOUR_IDENTITY_NAME>"
-    ```
+```bash
+IDENTITY="<YOUR_IDENTITY_NAME>"
+```
 
-    ```azurecli
-    az identity create \
-        --name $IDENTITY \
-        --resource-group $RESOURCE_GROUP
-    ```
-
-    # [Azure PowerShell](#tab/azure-powershell)
-
-TODO1 Verify
-    ```powershell
-    $IdentityName="<YOUR_IDENTITY_NAME>"
-    $Identity = New-AzUserAssignedIdentity -ResourceGroupName $ResourceGroup -Name $IdentityName
-    ```
-
-    ---
+```azurecli
+az identity create \
+    --name $IDENTITY \
+    --resource-group $RESOURCE_GROUP
+```
 
 1. Get the identity's resource ID.
 
-    # [Bash](#tab/bash)
+# [Bash](#tab/bash)
 
-    ```azurecli
-    IDENTITY_ID=$(az identity show \
-        --name $IDENTITY \
-        --resource-group $RESOURCE_GROUP \
-        --query id \
-        --output tsv)
-    ```
+```azurecli
+IDENTITY_ID=$(az identity show \
+    --name $IDENTITY \
+    --resource-group $RESOURCE_GROUP \
+    --query id \
+    --output tsv)
+```
 
-    # [Azure PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-TODO1 Verify
-    ```powershell
-    $IdentityId = $identity.Id
-    ```
+1. Create a user-assigned managed identity. Before you run the following commands, choose a name for your managed identity and replace the `\<PLACEHOLDER\>` with the name.
 
-    ---
+```powershell
+$IdentityName="<YOUR_IDENTITY_NAME>"
+$Identity = New-AzUserAssignedIdentity -ResourceGroupName $ResourceGroup -Name $IdentityName
+```
+
+1. Get the identity's resource and principal ID. 
+
+```azurepowershell
+$IdentityId = $Identity.Id
+$PrincipalId = (Get-AzUserAssignedIdentity -Name $IdentityName -ResourceGroupName $ResourceGroup).PrincipalId
+```
+
+Get the registry's resource ID. Before you run the following command, replace the *\<placeholders\>* with the resource group name for your registry.
+
+```azurepowershell
+$RegistryId = (Get-AzContainerRegistry -ResourceGroupName $ResourceGroup -Name $ACRName).Id
+```
+
+1. Create the `acrpull` role assignment for the identity.
+
+```azurepowershell
+New-AzRoleAssignment -ObjectId $PrincipalId -Scope $RegistryId -RoleDefinitionName acrpull
+```
+
+---
 
 ::: zone pivot="acr-remote"
 
@@ -279,10 +288,10 @@ az acr build --registry $ACR_NAME --image $API_NAME .
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-TODO1 Verify
-```azurepowershell
-New-AzAcrBuildTask -RegistryName $ACRName -ImageName $APIName -ContextPath "."
+The `az acr build` command does not have a PowerShell equivalent, but can be run in PowerShell.
 
+```azurepowershell
+az acr build --registry $AcrName --image $APIName .
 ```
 
 ---
@@ -295,7 +304,7 @@ Output from the `az acr build` command shows the upload progress of the source c
 
 ## Build your application
 
-The following steps, demonstrate how to build your container image locally using Docker and push the image to the new container registry.
+The following steps show how to build your container image locally using Docker and push the image to the new container registry.
 
 ### Build the container with Docker
 
@@ -327,19 +336,11 @@ az acr login --name $ACR_NAME
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-TODO1 Verify
 ```powershell
 Connect-AzContainerRegistry -Name $ACRName
 ```
 
 ---
-
-TODO1 Shouldn't az acr build take care of this? Try skipping this. What az acr build command did we use in the other tutorial?
-az acr build \
-    --registry "$CONTAINER_REGISTRY_NAME" \
-    --image "$CONTAINER_IMAGE_NAME" \
-    "https://github.com/Azure-Samples/container-apps-event-driven-jobs-tutorial.git"
-Okay, but in our case, we specify . instead of a URL. Which should push the dockerfile in . to the registry.
 
 Now, push the image to your registry.
 
@@ -436,6 +437,8 @@ az containerapp create \
 
 * Without a `query` property, the call to `az containerapp create` returns a JSON response that includes a rich set of details about the application. Adding a query parameter filters the output to just the app's fully qualified domain name (FQDN).
 
+* This command adds the `acrPull` role to your user-assigned managed identity, so it can pull images from your container registry.
+
 # [Azure PowerShell](#tab/azure-powershell)
 
 To create the container app, create template objects that you pass in as arguments to the `New-AzContainerApp` command.
@@ -450,14 +453,7 @@ $ImageParams = @{
 $TemplateObj = New-AzContainerAppTemplateObject @ImageParams
 ```
 
-TODO1 Remove?
-Run the following command to get your registry credentials.
-
-```azurepowershell
-$RegistryCredentials = Get-AzContainerRegistryCredential -Name $ACRName -ResourceGroupName $ResourceGroup
-```
-
-Create a registry credential object to define your registry information, and a secret object to define your registry password. The `PasswordSecretRef` refers to the `Name` in the secret object.
+Create a registry credential object to define your registry information.
 
 ```azurepowershell
 $RegistryArgs = @{
@@ -466,8 +462,6 @@ $RegistryArgs = @{
 }
 $RegistryObj = New-AzContainerAppRegistryCredentialObject @RegistryArgs
 
-TODO1 Remove.
-$SecretObj = New-AzContainerAppSecretObject -Name 'registrysecret' -Value $RegistryCredentials.Password
 ```
 
 Get your environment ID.
@@ -479,23 +473,29 @@ $EnvId = (Get-AzContainerAppManagedEnv -EnvName $Environment -ResourceGroup $Res
 Create the container app.
 
 ```azurepowershell
+$AppConfig = @{
+    IngressTargetPort = 8080
+    IngressExternal = $true
+    Registry = $RegistryObj
+}
+$AppConfigObj = New-AzContainerAppConfigurationObject @AppConfig
+
 $AppArgs = @{
     Name = $APIName
     Location = $Location
     ResourceGroupName = $ResourceGroup
     ManagedEnvironmentId = $EnvId
     TemplateContainer = $TemplateObj
-    ConfigurationRegistry = $RegistryObj
-    IngressTargetPort = 8080
-    IngressExternal = $true
+    Configuration = $AppConfigObj
+    UserAssignedIdentity = @($IdentityId)
 }
 $MyApp = New-AzContainerApp @AppArgs
 
-# show the app's fully qualified domain name (FQDN).
-$MyApp.IngressFqdn
+# Show the app's fully qualified domain name (FQDN).
+$MyApp.LatestRevisionFqdn
 ```
 
-* By setting `IngressExternal` to `external`, your container app is accessible from the public internet.
+* By setting `IngressExternal` to `$true`, your container app is accessible from the public internet.
 * The `IngressTargetPort` parameter is set to `8080` to match the port that the container is listening to for requests.
 
 ---
