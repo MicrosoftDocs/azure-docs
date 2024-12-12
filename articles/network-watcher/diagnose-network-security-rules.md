@@ -398,7 +398,7 @@ ResultsText : [
                     "SecurityRuleAccessResult": "Deny",
                     "EvaluatedNetworkSecurityGroups": [
                       {
-                        "NetworkSecurityGroupId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/NetworkAdmin/providers/Microsoft.Network/networkManagers/GlobalRules",
+                        "NetworkSecurityGroupId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/NetworkAdmin/providers/Microsoft.Network/networkManagers/GlobalRules",
                         "MatchedRule": {
                           "RuleName": "VirtualNetwork",
                           "Action": "Allow"
@@ -415,7 +415,7 @@ ResultsText : [
                         ]
                       },
                       {
-                        "NetworkSecurityGroupId": "/subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/mySubnet-nsg",
+                        "NetworkSecurityGroupId": "/subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/mySubnet-nsg",
                         "MatchedRule": {
                           "RuleName": "DefaultRule_AllowVnetInBound",
                           "Action": "Allow"
@@ -432,7 +432,7 @@ ResultsText : [
                         ]
                       },
                       {
-                        "NetworkSecurityGroupId": "/subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myVM-nsg",
+                        "NetworkSecurityGroupId": "/subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myVM-nsg",
                         "MatchedRule": {
                           "RuleName": "UserRule_DenyVnetInBound",
                           "Action": "Deny"
@@ -479,12 +479,12 @@ Output similar to the following example output is returned:
       "networkSecurityGroupResult": {
         "evaluatedNetworkSecurityGroups": [
           {
-            "appliedTo": "/subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVNet",
+            "appliedTo": "/subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVNet",
             "matchedRule": {
               "action": "Allow",
               "ruleName": "VirtualNetwork"
             },
-            "networkSecurityGroupId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/NetworkAdmin/providers/Microsoft.Network/networkManagers/GlobalRules",
+            "networkSecurityGroupId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/NetworkAdmin/providers/Microsoft.Network/networkManagers/GlobalRules",
             "rulesEvaluationResult": [
               {
                 "destinationMatched": true,
@@ -497,12 +497,12 @@ Output similar to the following example output is returned:
             ]
           },
           {
-            "appliedTo": "/subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVNet/subnets/mySubnet",
+            "appliedTo": "/subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVNet/subnets/mySubnet",
             "matchedRule": {
               "action": "Allow",
               "ruleName": "DefaultRule_AllowVnetInBound"
             },
-            "networkSecurityGroupId": "/subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/mySubnet-nsg",
+            "networkSecurityGroupId": "/subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/mySubnet-nsg",
             "rulesEvaluationResult": [
               {
                 "destinationMatched": true,
@@ -515,12 +515,12 @@ Output similar to the following example output is returned:
             ]
           },
           {
-            "appliedTo": "/subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myvm36",
+            "appliedTo": "/subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myvm36",
             "matchedRule": {
               "action": "Deny",
               "ruleName": "UserRule_DenyVnetInBound"
             },
-            "networkSecurityGroupId": "/subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myVM-nsg",
+            "networkSecurityGroupId": "/subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myVM-nsg",
             "rulesEvaluationResult": [
               {
                 "destinationMatched": true,
@@ -629,7 +629,7 @@ You can add the security rule to the network security group from the Network Wat
                         "SecurityRuleAccessResult": "Allow",
                         "EvaluatedNetworkSecurityGroups": [
                           {
-                            "NetworkSecurityGroupId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/NetworkAdmin/providers/Microsoft.Network/networkManagers/GlobalRules",
+                            "NetworkSecurityGroupId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/NetworkAdmin/providers/Microsoft.Network/networkManagers/GlobalRules",
                             "MatchedRule": {
                               "RuleName": "VirtualNetwork",
                               "Action": "Allow"
@@ -646,7 +646,7 @@ You can add the security rule to the network security group from the Network Wat
                             ]
                           },
                           {
-                            "NetworkSecurityGroupId": "/subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/mySubnet-nsg",
+                            "NetworkSecurityGroupId": "/subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/mySubnet-nsg",
                             "MatchedRule": {
                               "RuleName": "DefaultRule_AllowVnetInBound",
                               "Action": "Allow"
@@ -663,7 +663,7 @@ You can add the security rule to the network security group from the Network Wat
                             ]
                           },
                           {
-                            "NetworkSecurityGroupId": "/subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myVM-nsg",
+                            "NetworkSecurityGroupId": "/subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myVM-nsg",
                             "MatchedRule": {
                               "RuleName": "UserRule_AllowBastionConnections",
                               "Action": "Allow"
@@ -714,12 +714,12 @@ You can add the security rule to the network security group from the Network Wat
           "networkSecurityGroupResult": {
             "evaluatedNetworkSecurityGroups": [
               {
-                "appliedTo": "/subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVNet",
+                "appliedTo": "/subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVNet",
                 "matchedRule": {
                   "action": "Allow",
                   "ruleName": "VirtualNetwork"
                 },
-                "networkSecurityGroupId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/NetworkAdmin/providers/Microsoft.Network/networkManagers/GlobalRules",
+                "networkSecurityGroupId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/NetworkAdmin/providers/Microsoft.Network/networkManagers/GlobalRules",
                 "rulesEvaluationResult": [
                   {
                     "destinationMatched": true,
@@ -732,12 +732,12 @@ You can add the security rule to the network security group from the Network Wat
                 ]
               },
               {
-                "appliedTo": "/subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVNet/subnets/mySubnet",
+                "appliedTo": "/subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVNet/subnets/mySubnet",
                 "matchedRule": {
                   "action": "Allow",
                   "ruleName": "DefaultRule_AllowVnetInBound"
                 },
-                "networkSecurityGroupId": "/subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/mySubnet-nsg",
+                "networkSecurityGroupId": "/subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/mySubnet-nsg",
                 "rulesEvaluationResult": [
                   {
                     "destinationMatched": true,
@@ -750,12 +750,12 @@ You can add the security rule to the network security group from the Network Wat
                 ]
               },
               {
-                "appliedTo": "/subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myvm36",
+                "appliedTo": "/subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myvm36",
                 "matchedRule": {
                   "action": "Allow",
                   "ruleName": "UserRule_AllowBastionConnections"
                 },
-                "networkSecurityGroupId": "/subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myVM-nsg",
+                "networkSecurityGroupId": "/subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myVM-nsg",
                 "rulesEvaluationResult": [
                   {
                     "destinationMatched": true,

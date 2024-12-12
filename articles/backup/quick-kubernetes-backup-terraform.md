@@ -1,9 +1,9 @@
 ---
-title: Quickstart - Configure backup for an Azure Kubernetes Service (AKS) cluster using Azure Backup via Terraform
+title: Quickstart - Configure vaulted backup for an Azure Kubernetes Service (AKS) cluster using Azure Backup via Terraform
 description: Learn how to quickly configure backup for a Kubernetes cluster using Terraform.
 ms.service: azure-backup
 ms.topic: quickstart
-ms.date: 05/31/2024
+ms.date: 11/04/2024
 ms.custom: devx-track-terraform, devx-track-extended-azdevcli
 ms.reviewer: rajats
 ms.author: v-abhmallick
@@ -13,9 +13,9 @@ content_well_notification:
 #Customer intent: As a developer or backup operator, I want to quickly configure backup for an Azure Kubernetes Cluster using Azure Backup for AKS.
 ---
 
-# Quickstart: Configure backup for an Azure Kubernetes Service (AKS) cluster using Terraform
+# Quickstart: Configure vaulted backup for an Azure Kubernetes Service (AKS) cluster using Terraform
 
-This quickstart describes how to configure backup for an Azure Kubernetes Service (AKS) cluster using Terraform.
+This quickstart describes how to configure vaulted backup for an Azure Kubernetes Service (AKS) cluster using Terraform.
 
 Azure Backup for AKS is a cloud-native, enterprise-ready, application-centric backup service that lets you quickly configure backup for AKS clusters.
 

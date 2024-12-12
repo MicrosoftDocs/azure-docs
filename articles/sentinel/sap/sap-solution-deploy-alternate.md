@@ -16,7 +16,7 @@ ms.collection: usx-security
 
 # Deploy the Microsoft Sentinel for SAP data connector agent container with expert options
 
-This article provides procedures for deploying and configuring the Microsoft Sentinel for SAP data connector agent container using expert, custom, or manual configuration options. For typical deployments we recommend that you use the [portal](deploy-data-connector-agent-container.md#deploy-the-data-connector-agent-from-the-portal-preview) instead.
+This article provides procedures for deploying and configuring the Microsoft Sentinel for SAP data connector agent container with expert, custom, or manual configuration options. For typical deployments we recommend that you use the [portal](deploy-data-connector-agent-container.md#deploy-the-data-connector-agent-from-the-portal-preview) instead.
 
 Content in this article is intended for your **SAP BASIS** teams. For more information, see [Deploy a SAP data connector agent from the command line](deploy-command-line.md).
 
@@ -82,7 +82,7 @@ For more information, see the [Quickstart: Create a key vault using the Azure CL
 
 ## Perform an expert / custom installation
 
-This procedure describes how to deploy the Microsoft Sentinel for SAP data connector using an expert or custom installation, such as when installing on-premises.
+This procedure describes how to deploy the Microsoft Sentinel for SAP data connector via the CLI using an expert or custom installation, such as when installing on-premises.
 
 **Prerequisites:** Azure Key Vault is the recommended method to store your authentication credentials and configuration data. We recommend that you perform this procedure only after you have a key vault ready with your SAP credentials.
 
@@ -179,15 +179,15 @@ This procedure describes how to deploy the Microsoft Sentinel for SAP data conne
 
 ## Manually configure the Microsoft Sentinel for SAP data connector
 
-The Microsoft Sentinel for SAP data connector is configured in the **systemconfig.json** file, which you cloned to your SAP data connector machine as part of the [deployment procedure](#perform-an-expert--custom-installation). Use the content in this section to manually configure data connector settings.
+When deployed via the CLI, the Microsoft Sentinel for SAP data connector is configured in the **systemconfig.json** file, which you cloned to your SAP data connector machine as part of the [deployment procedure](#perform-an-expert--custom-installation). Use the content in this section to manually configure data connector settings.
 
 For more information, see [Systemconfig.json file reference](reference-systemconfig-json.md), or [Systemconfig.ini file reference](reference-systemconfig.md) for legacy systems.
 
 ### Define the SAP logs that are sent to Microsoft Sentinel
 
-The default **systemconfig** file is configured to cover built-in analytics, the SAP user authorization master data tables, with users and privilege information, and the ability to track changes and activities on the SAP landscape. The default configuration provides more logging information to allow for post-breach investigations and extended hunting abilities.
+The default **systemconfig.json** file is configured to cover built-in analytics, the SAP user authorization master data tables, with users and privilege information, and the ability to track changes and activities on the SAP landscape. 
 
-However you might want to customize your configuration over time, especially as business processes tend to be seasonal.
+The default configuration provides more logging information to allow for post-breach investigations and extended hunting abilities. However you might want to customize your configuration over time, especially as business processes tend to be seasonal.
 
 Use the following sets of code to configure the **systemconfig.json** file to define the logs that are sent to Microsoft Sentinel.
 
@@ -197,133 +197,127 @@ For more information, see [Microsoft Sentinel solution for SAP applications solu
 
 The following code configures a default configuration:
 
-```python
-##############################################################
-# Enter True OR False for each log to send those logs to Microsoft Sentinel
-[Logs Activation Status]
-ABAPAuditLog = True
-ABAPJobLog = True
-ABAPSpoolLog = True
-ABAPSpoolOutputLog = True
-ABAPChangeDocsLog = True
-ABAPAppLog = True
-ABAPWorkflowLog = True
-ABAPCRLog = True
-ABAPTableDataLog = False
-# ABAP SAP Control Logs - Retrieved by using SAP Conntrol interface and OS Login
-ABAPFilesLogs = False
-SysLog = False
-ICM = False
-WP = False
-GW = False
-# Java SAP Control Logs - Retrieved by using SAP Conntrol interface and OS Login
-JAVAFilesLogs = False
-##############################################################
+```json
+"logs_activation_status": {
+      "abapauditlog": "True",
+      "abapjoblog": "True",
+      "abapspoollog": "True",
+      "abapspooloutputlog": "True",
+      "abapchangedocslog": "True",
+      "abapapplog": "True",
+      "abapworkflowlog": "True",
+      "abapcrlog": "True",
+      "abaptabledatalog": "False",
+      "abapfileslogs": "False",
+      "syslog": "False",
+      "icm": "False",
+      "wp": "False",
+      "gw": "False",
+      "javafileslogs": "False"
 ```
 
 #### Configure a detection-focused profile
 
 Use the following code to configure a detection-focused profile, which includes the core security logs of the SAP landscape required for the most of the analytics rules to perform well. Post-breach investigations and hunting capabilities are limited.
 
-```python
-##############################################################
-[Logs Activation Status]
-# ABAP RFC Logs - Retrieved by using RFC interface
-ABAPAuditLog = True
-ABAPJobLog = False
-ABAPSpoolLog = False
-ABAPSpoolOutputLog = False
-ABAPChangeDocsLog = True
-ABAPAppLog = False
-ABAPWorkflowLog = False
-ABAPCRLog = True
-ABAPTableDataLog = False
-# ABAP SAP Control Logs - Retrieved by using SAP Conntrol interface and OS Login
-ABAPFilesLogs = False
-SysLog = False
-ICM = False
-WP = False
-GW = False
-# Java SAP Control Logs - Retrieved by using SAP Conntrol interface and OS Login
-JAVAFilesLogs = False
-[ABAP Table Selector]
-AGR_TCODES_FULL = True
-USR01_FULL = True
-USR02_FULL = True
-USR02_INCREMENTAL = True
-AGR_1251_FULL = True
-AGR_USERS_FULL = True
-AGR_USERS_INCREMENTAL = True
-AGR_PROF_FULL = True
-UST04_FULL = True
-USR21_FULL = True
-ADR6_FULL = True
-ADCP_FULL = True
-USR05_FULL = True
-USGRP_USER_FULL = True
-USER_ADDR_FULL = True
-DEVACCESS_FULL = True
-AGR_DEFINE_FULL = True
-AGR_DEFINE_INCREMENTAL = True
-PAHI_FULL = False
-AGR_AGRS_FULL = True
-USRSTAMP_FULL = True
-USRSTAMP_INCREMENTAL = True
-AGR_FLAGS_FULL = True
-AGR_FLAGS_INCREMENTAL = True
-SNCSYSACL_FULL = False
-USRACL_FULL = False
+```json
+"logs_activation_status": {
+      "abapauditlog": "True",
+      "abapjoblog": "False",
+      "abapspoollog": "False",
+      "abapspooloutputlog": "False",
+      "abapchangedocslog": "True",
+      "abapapplog": "False",
+      "abapworkflowlog": "False",
+      "abapcrlog": "True",
+      "abaptabledatalog": "False",
+      "abapfileslogs": "False",
+      "syslog": "False",
+      "icm": "False",
+      "wp": "False",
+      "gw": "False",
+      "javafileslogs": "False"
+    },
+....
+  "abap_table_selector": {
+      "agr_tcodes_full": "True",
+      "usr01_full": "True",
+      "usr02_full": "True",
+      "usr02_incremental": "True",
+      "agr_1251_full": "True",
+      "agr_users_full": "True",
+      "agr_users_incremental": "True",
+      "agr_prof_full": "True",
+      "ust04_full": "True",
+      "usr21_full": "True",
+      "adr6_full": "True",
+      "adcp_full": "True",
+      "usr05_full": "True",
+      "usgrp_user_full": "True",
+      "user_addr_full": "True",
+      "devaccess_full": "True",
+      "agr_define_full": "True",
+      "agr_define_incremental": "True",
+      "pahi_full": "True",
+      "pahi_incremental": "True",
+      "agr_agrs_full": "True",
+      "usrstamp_full": "True",
+      "usrstamp_incremental": "True",
+      "agr_flags_full": "True",
+      "agr_flags_incremental": "True",
+      "sncsysacl_full": "False",
+      "usracl_full": "False",
 ```
 
 Use the following code to configure a minimal profile, which includes the SAP Security Audit Log, which is the most important source of data that the Microsoft Sentinel solution for SAP applications uses to analyze activities on the SAP landscape. Enabling this log is the minimal requirement to provide any security coverage.
 
-```python
-[Logs Activation Status]
-# ABAP RFC Logs - Retrieved by using RFC interface
-ABAPAuditLog = True
-ABAPJobLog = False
-ABAPSpoolLog = False
-ABAPSpoolOutputLog = False
-ABAPChangeDocsLog = False
-ABAPAppLog = False
-ABAPWorkflowLog = False
-ABAPCRLog = False
-ABAPTableDataLog = False
-# ABAP SAP Control Logs - Retrieved by using SAP Conntrol interface and OS Login
-ABAPFilesLogs = False
-SysLog = False
-ICM = False
-WP = False
-GW = False
-# Java SAP Control Logs - Retrieved by using SAP Conntrol interface and OS Login
-JAVAFilesLogs = False
-[ABAP Table Selector]
-AGR_TCODES_FULL = False
-USR01_FULL = False
-USR02_FULL = False
-USR02_INCREMENTAL = False
-AGR_1251_FULL = False
-AGR_USERS_FULL = False
-AGR_USERS_INCREMENTAL = False
-AGR_PROF_FULL = False
-UST04_FULL = False
-USR21_FULL = False
-ADR6_FULL = False
-ADCP_FULL = False
-USR05_FULL = False
-USGRP_USER_FULL = False
-USER_ADDR_FULL = False
-DEVACCESS_FULL = False
-AGR_DEFINE_FULL = False
-AGR_DEFINE_INCREMENTAL = False
-PAHI_FULL = False
-AGR_AGRS_FULL = False
-USRSTAMP_FULL = False
-USRSTAMP_INCREMENTAL = False
-AGR_FLAGS_FULL = False
-AGR_FLAGS_INCREMENTAL = False
-SNCSYSACL_FULL = False
-USRACL_FULL = False
+```json
+"logs_activation_status": {
+      "abapauditlog": "True",
+      "abapjoblog": "False",
+      "abapspoollog": "False",
+      "abapspooloutputlog": "False",
+      "abapchangedocslog": "True",
+      "abapapplog": "False",
+      "abapworkflowlog": "False",
+      "abapcrlog": "True",
+      "abaptabledatalog": "False",
+      "abapfileslogs": "False",
+      "syslog": "False",
+      "icm": "False",
+      "wp": "False",
+      "gw": "False",
+      "javafileslogs": "False"
+    },
+....
+  "abap_table_selector": {
+      "agr_tcodes_full": "False",
+      "usr01_full": "False",
+      "usr02_full": "False",
+      "usr02_incremental": "False",
+      "agr_1251_full": "False",
+      "agr_users_full": "False",
+      "agr_users_incremental": "False",
+      "agr_prof_full": "False",
+      "ust04_full": "False",
+      "usr21_full": "False",
+      "adr6_full": "False",
+      "adcp_full": "False",
+      "usr05_full": "False",
+      "usgrp_user_full": "False",
+      "user_addr_full": "False",
+      "devaccess_full": "False",
+      "agr_define_full": "False",
+      "agr_define_incremental": "False",
+      "pahi_full": "False",
+      "pahi_incremental": "False",
+      "agr_agrs_full": "False",
+      "usrstamp_full": "False",
+      "usrstamp_incremental": "False",
+      "agr_flags_full": "False",
+      "agr_flags_incremental": "False",
+      "sncsysacl_full": "False",
+      "usracl_full": "False",
 ```
 
 ### SAL logs connector settings
@@ -332,15 +326,13 @@ Add the following code to the Microsoft Sentinel for SAP data connector **system
 
 For more information, see [Perform an expert / custom SAP data connector installation](#perform-an-expert--custom-installation).
 
-```python
-##############################################################
-[Connector Configuration]
-extractuseremail = True
-apiretry = True
-auditlogforcexal = False
-auditlogforcelegacyfiles = False
-timechunk = 60
-##############################################################
+```json
+    "connector_configuration": {
+      "extractuseremail": "True",
+      "apiretry": "True",
+      "auditlogforcexal": "False",
+      "auditlogforcelegacyfiles": "False",
+      "timechunk": "60"
 ```
 
 This section enables you to configure the following parameters:
@@ -381,23 +373,35 @@ To ingest tables directly from your SAP system with details about your users and
 
 For example:
 
-```python
-[ABAP Table Selector] 
-USR01_FULL = True
-USR02_FULL = True
-USR02_INCREMENTAL = True
-UST04_FULL = True
-AGR_USERS_FULL = True
-AGR_USERS_INCREMENTAL = True
-USR21_FULL = True
-AGR_1251_FULL = True
-ADR6_FULL = True
-AGR_TCODES_FULL = True 
-DEVACCESS_FULL = True
-AGR_DEFINE_FULL = True
-AGR_DEFINE_INCREMENTAL = True
-AGR_PROF_FULL = True
-PAHI_FULL = True
+```json
+    "abap_table_selector": {
+      "agr_tcodes_full": "True",
+      "usr01_full": "True",
+      "usr02_full": "True",
+      "usr02_incremental": "True",
+      "agr_1251_full": "True",
+      "agr_users_full": "True",
+      "agr_users_incremental": "True",
+      "agr_prof_full": "True",
+      "ust04_full": "True",
+      "usr21_full": "True",
+      "adr6_full": "True",
+      "adcp_full": "True",
+      "usr05_full": "True",
+      "usgrp_user_full": "True",
+      "user_addr_full": "True",
+      "devaccess_full": "True",
+      "agr_define_full": "True",
+      "agr_define_incremental": "True",
+      "pahi_full": "True",
+      "pahi_incremental": "True",
+      "agr_agrs_full": "True",
+      "usrstamp_full": "True",
+      "usrstamp_incremental": "True",
+      "agr_flags_full": "True",
+      "agr_flags_incremental": "True",
+      "sncsysacl_full": "False",
+      "usracl_full": "False",
 ```
 
 For more information, see [Reference of tables retrieved directly from SAP systems](sap-solution-log-reference.md#reference-of-tables-retrieved-directly-from-sap-systems).

@@ -6,7 +6,7 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 09/04/2024
+ms.date: 12/06/2024
 ms.author: banders
 # customer intent: As a reservation purchaser, I want learn how to exchange or refund Azure reservations.
 ---
@@ -39,6 +39,8 @@ Not all reservations are eligible for exchange. For example, you can't exchange 
 - Synapse Analytics Pre-purchase plan
 - Red Hat plans
 - SUSE Linux plans
+- Microsoft Defender for Cloud Pre-Purchase Plan
+- Microsoft Sentinel Pre-Purchase Plan
 
 You can also refund reservations, but the sum total of all canceled reservation commitment in your billing scope (such as EA, Microsoft Customer Agreement, and Microsoft Partner Agreement) can't exceed USD 50,000 in a 12 month rolling window.
 
@@ -51,6 +53,8 @@ The following reservations aren't eligible for refunds:
 - Azure VMware solution by CloudSimple
 - Red Hat plans
 - SUSE Linux plans
+- Microsoft Defender for Cloud Pre-Purchase Plan
+- Microsoft Sentinel Pre-Purchase Plan
 
 ## Prerequisites
 
@@ -87,9 +91,9 @@ When you exchange reservations, the new purchase currency amount must be greater
 1. When done, select **Next: Review**.
 1. Review your reservations to return and new reservations to purchase and then select **Confirm exchange**.
 
-## Exchange nonpremium storage for premium storage
+## Exchange nonpremium storage for premium storage or vice versa
 
-You can exchange a reservation purchased for a VM size that doesn't support premium storage to a corresponding VM size that does. For example, an _F1_ for an _F1s_. To make the exchange, go to Reservation Details and select **Exchange**. The exchange doesn't reset the term of the reserved instance or create a new transaction.
+You can exchange a reservation purchased for a VM size that doesn't support premium storage to a corresponding VM size that does and vice-versa. For example, an _F1_ for an _F1s_ or an _F1s_ for an _F1_. To make the exchange, go to Reservation Details and select **Exchange**. The exchange doesn't reset the term of the reserved instance or create a new transaction. Also, the new reservation will be for the same region, and there are no charges for this exchange.
 If you're exchanging for a different size, series, region, or payment frequency, the term is reset for the new reservation. 
 
 ## How transactions are processed

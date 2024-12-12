@@ -30,7 +30,7 @@ Here is a sample **SubscriptionValidationEvent** JSON you can send using a tool 
     "topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "subject": "",
     "data": {
-      "validationCode": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6",
+      "validationCode": "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e",
     },
     "eventType": "Microsoft.EventGrid.SubscriptionValidationEvent",
     "eventTime": "2018-01-25T22:12:19.4556811Z",
@@ -44,7 +44,7 @@ Here is the sample successful response:
 
 ```json
 {
-  "validationResponse": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6"
+  "validationResponse": "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e"
 }
 ```
 
@@ -53,7 +53,7 @@ Here is the sample successful response:
 Here's the sample Curl command for validating a webhook subscription of an Event Grid event: 
 
 ```bash
-curl -X POST -d '[{"id": "2d1781af-3a4c-4d7c-bd0c-e34b19da4e66","topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","subject": "","data": {"validationCode": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6"},"eventType": "Microsoft.EventGrid.SubscriptionValidationEvent","eventTime": "2018-01-25T22:12:19.4556811Z", "metadataVersion": "1","dataVersion": "1"}]' -H 'Content-Type: application/json' https://{your-webhook-url.com}
+curl -X POST -d '[{"id": "2d1781af-3a4c-4d7c-bd0c-e34b19da4e66","topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","subject": "","data": {"validationCode": "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e"},"eventType": "Microsoft.EventGrid.SubscriptionValidationEvent","eventTime": "2018-01-25T22:12:19.4556811Z", "metadataVersion": "1","dataVersion": "1"}]' -H 'Content-Type: application/json' https://{your-webhook-url.com}
 ```
 
 

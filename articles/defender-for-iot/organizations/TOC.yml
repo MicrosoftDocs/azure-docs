@@ -92,15 +92,17 @@
     items:
     - name: Configure traffic mirroring
       items:
-      - name: Overview
+      - name: Traffic mirroring overview
         href: traffic-mirroring/traffic-mirroring-overview.md
+      - name: Set up traffic mirroring
+        href: traffic-mirroring/set-up-traffic-mirroring.md 
       - name: Configure a switch SPAN port
         href: traffic-mirroring/configure-mirror-span.md
       - name: Configure a remote SPAN (RSPAN)
         href: traffic-mirroring/configure-mirror-rspan.md
       - name: Configure active or passive aggregation (TAP)
         href: best-practices/traffic-mirroring-methods.md#active-or-passive-aggregation-tap
-      - name: Configure ERSPAN mirroring
+      - name: Configure ERSPAN mirroring (legacy)
         href: traffic-mirroring/configure-mirror-erspan.md
       - name: Configure mirroring with an ESXi vSwitch
         href: traffic-mirroring/configure-mirror-esxi.md
@@ -359,6 +361,8 @@
         href: /legal/defender-for-iot/hardware-support-policy?toc=/azure/defender-for-iot/organizations/toc.json&bc=/azure/defender-for-iot/breadcrumb/toc.json
       - name: Corporate environments
         items:
+        - name: HPE ProLiant DL360 Gen11
+          href: appliance-catalog/hpe-proliant-dl360-gen11.md
         - name: HPE ProLiant DL360
           href: appliance-catalog/hpe-proliant-dl360.md
         - name: Dell PowerEdge R660

@@ -5,7 +5,7 @@ description: Learn how to deploy Azure Bastion with default settings from the Az
 author: cherylmc
 ms.service: azure-bastion
 ms.topic: quickstart
-ms.date: 04/25/2024
+ms.date: 12/09/2024
 ms.author: cherylmc
 
 ---
@@ -98,8 +98,8 @@ When the Bastion deployment is complete, the screen changes to the **Connect** p
 
     :::image type="content" source="./media/quickstart-host-portal/connected.png" alt-text="Screenshot that shows an RDP connection to a virtual machine." lightbox="./media/quickstart-host-portal/connected.png":::
 
-    > [!NOTE]
-    > When you connect, the desktop of the VM might look different from the example screenshot.
+   > [!NOTE]
+   > When you connect, the desktop of the VM might look different from the example screenshot.
 
 Using keyboard shortcut keys while you're connected to a VM might not result in the same behavior as shortcut keys on a local computer. For example, when you're connected to a Windows VM from a Windows client, Ctrl+Alt+End is the keyboard shortcut for Ctrl+Alt+Delete on a local computer. To do this from a Mac while you're connected to a Windows VM, the keyboard shortcut is Fn+Ctrl+Alt+Backspace.
 

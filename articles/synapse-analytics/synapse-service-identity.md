@@ -1,17 +1,17 @@
 ---
-title: Managed identity
+title: Managed service identity for Azure Synapse Analytics
 titleSuffix: Azure Synapse
-description: Learn about using managed identities in Azure Synapse. 
+description: Learn about using and deploying managed identities for Azure Synapse Analytics. 
 author: meenalsri
 ms.service: azure-synapse-analytics
 ms.subservice: security
-ms.topic: conceptual
-ms.date: 01/27/2022
+ms.topic: how-to
+ms.date: 11/11/2024
 ms.author: mesrivas 
 ms.custom: devx-track-azurepowershell, synapse, subject-rbac-steps
 ---
 
-# Managed identity for Azure Synapse 
+# Managed identities for Azure Synapse Analytics
 
 This article helps you understand managed identity (formerly known as Managed Service Identity/MSI) and how it works in Azure Synapse.
 
@@ -21,10 +21,10 @@ This article helps you understand managed identity (formerly known as Managed Se
 
 Managed identities eliminate the need to manage credentials. Managed identities provide an identity for the service instance when connecting to resources that support Microsoft Entra authentication. For example, the service can use a managed identity to access resources like [Azure Key Vault](/azure/key-vault/general/overview), where data admins can securely store credentials or access storage accounts. The service uses the managed identity to obtain Microsoft Entra tokens.
 
-There are two types of supported managed identities: 
+There are two types of supported managed identities:
 
 - **System-assigned:** You can enable a managed identity directly on a service instance. When you allow a system-assigned managed identity during the creation of the service, an identity is created in Microsoft Entra tied to that service instance's lifecycle. By design, only that Azure resource can use this identity to request tokens from Microsoft Entra ID. So when the resource is deleted, Azure automatically deletes the identity for you. Azure Synapse Analytics requires that a system-assigned managed identity must be created along with the Synapse workspace.
-- **User-assigned:** You may also create a managed identity as a standalone Azure resource. You can [create a user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) and assign it to one or more instances of a Synapse workspace. In user-assigned managed identities, the identity is managed separately from the resources that use it.
+- **User-assigned:** You can also create a managed identity as a standalone Azure resource. You can [create a user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) and assign it to one or more instances of a Synapse workspace. In user-assigned managed identities, the identity is managed separately from the resources that use it.
 
 Managed identity provides the below benefits:
 
@@ -35,7 +35,125 @@ Managed identity provides the below benefits:
 ## System-assigned managed identity 
 
 >[!NOTE]
-> System-assigned managed identity is also referred to as 'Managed identity' elsewhere in the documentation and in the Synapse Studio UI for backward compatibility purpose. We will explicitly mention 'User-assigned managed identity' when referring to it. 
+> System-assigned managed identity is also referred to as 'Managed identity' elsewhere in the documentation and in the Synapse Studio UI for backward compatibility purpose. We will explicitly mention 'User-assigned managed identity' when referring to it.
+
+### Retrieve system-assigned managed identity using Azure portal
+
+You can find the managed identity information from Azure portal -> your Synapse workspace -> Properties.
+
+:::image type="content" source="../data-factory/media/data-factory-service-identity/system-managed-identity-in-portal-synapse.png" alt-text="Screenshot of the Azure portal with the system-managed identity object ID for a Synapse workspace." lightbox="../data-factory/media/data-factory-service-identity/system-managed-identity-in-portal-synapse.png":::
+
+The managed identity information will also show up when you create linked service, which supports managed identity authentication, like Azure Blob, Azure Data Lake Storage, Azure Key Vault, etc.
+
+To grant permissions, follow these steps. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
+
+1. Select **Access control (IAM)**.
+
+1. Select **Add** > **Add role assignment**.
+
+    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-menu-generic.png" alt-text="Screenshot that shows Access control (IAM) page with Add role assignment menu open.":::
+
+1. On the **Members** tab, select **Managed identity**, and then select **Select members**.
+
+1. Select your Azure subscription.
+
+1. Under **System-assigned managed identity**, select **Synapse workspace**, and then select a workspace. You can also use the object ID or workspace name (as the managed-identity name) to find this identity. To get the managed identity's application ID, use PowerShell.
+
+1. On the **Review + assign** tab, select **Review + assign** to assign the role.
+
+### Retrieve system-assigned managed identity using PowerShell
+
+The managed identity principal ID and tenant ID will be returned when you get a specific service instance as follows. Use the **PrincipalId** to grant access:
+
+```powershell
+PS C:\> (Get-AzSynapseWorkspace -ResourceGroupName <resourceGroupName> -Name <workspaceName>).Identity
+
+IdentityType   PrincipalId                          TenantId                            
+------------   -----------                          --------                            
+SystemAssigned aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb aaaabbbb-0000-cccc-1111-dddd2222eeee
+```
+
+You can get the application ID by copying above principal ID, then running below Microsoft Entra ID command with principal ID as parameter.
+
+```powershell
+PS C:\> Get-AzADServicePrincipal -ObjectId aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
+
+ServicePrincipalNames : {00001111-aaaa-2222-bbbb-3333cccc4444, https://identity.azure.net/P86P8g6nt1QxfPJx22om8MOooMf/Ag0Qf/nnREppHkU=}
+ApplicationId         : 00001111-aaaa-2222-bbbb-3333cccc4444
+DisplayName           : <workspaceName>
+Id                    : aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
+Type                  : ServicePrincipal
+```
+
+### Retrieve managed identity using REST API
+
+The managed identity principal ID and tenant ID will be returned when you get a specific service instance as follows.
+
+Call below API in the request:
+
+```
+GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Synapse/workspaces/{workspaceName}?api-version=2018-06-01
+```
+
+**Response**: You'll get response like shown in below example. The "identity" section is populated accordingly.
+
+```json
+{
+  "properties": {
+    "defaultDataLakeStorage": {
+      "accountUrl": "https://exampledatalakeaccount.dfs.core.windows.net",
+      "filesystem": "examplefilesystem"
+    },
+    "encryption": {
+      "doubleEncryptionEnabled": false
+    },
+    "provisioningState": "Succeeded",
+    "connectivityEndpoints": {
+      "web": "https://web.azuresynapse.net?workspace=%2fsubscriptions%2{subscriptionId}%2fresourceGroups%2f{resourceGroupName}%2fproviders%2fMicrosoft.Synapse%2fworkspaces%2f{workspaceName}",
+      "dev": "https://{workspaceName}.dev.azuresynapse.net",
+      "sqlOnDemand": "{workspaceName}-ondemand.sql.azuresynapse.net",
+      "sql": "{workspaceName}.sql.azuresynapse.net"
+    },
+    "managedResourceGroupName": "synapseworkspace-managedrg-f77f7cf2-XXXX-XXXX-XXXX-c4cb7ac3cf4f",
+    "sqlAdministratorLogin": "sqladminuser",
+    "privateEndpointConnections": [],
+    "workspaceUID": "e56f5773-XXXX-XXXX-XXXX-a0dc107af9ea",
+    "extraProperties": {
+      "WorkspaceType": "Normal",
+      "IsScopeEnabled": false
+    },
+    "publicNetworkAccess": "Enabled",
+    "cspWorkspaceAdminProperties": {
+      "initialWorkspaceAdminObjectId": "3746a407-XXXX-XXXX-XXXX-842b6cf1fbcc"
+    },
+    "trustedServiceBypassEnabled": false
+  },
+  "type": "Microsoft.Synapse/workspaces",
+  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Synapse/workspaces/{workspaceName}",
+  "location": "eastus",
+  "name": "{workspaceName}",
+  "identity": {
+    "type": "SystemAssigned",
+    "tenantId": "aaaabbbb-0000-cccc-1111-dddd2222eeee",
+    "principalId": "aaaaaaaa-bbbb-cccc-1111-222222222222"
+  },
+  "tags": {}
+}
+```
+
+> [!TIP] 
+> To retrieve the managed identity from an ARM template, add an **outputs** section in the ARM JSON:
+
+```json
+{
+    "outputs":{
+        "managedIdentityObjectId":{
+            "type":"string",
+            "value":"[reference(resourceId('Microsoft.Synapse/workspaces', parameters('<workspaceName>')), '2018-06-01', 'Full').identity.principalId]"
+        }
+    }
+}
+```
 
 ### <a name="generate-managed-identity"></a> Generate system-assigned managed identity
 
@@ -63,6 +181,7 @@ If you find your service instance doesn't have a managed identity associated fol
 Call **New-AzSynapseWorkspace** command, then you see "Identity" fields being newly generated:
 
 ```powershell
+PS C:\> $password = ConvertTo-SecureString -String "****" -AsPlainText -Force
 PS C:\> $creds = New-Object System.Management.Automation.PSCredential ("ContosoUser", $password)
 PS C:\> New-AzSynapseWorkspace -ResourceGroupName <resourceGroupName> -Name <workspaceName> -Location <region> -DefaultDataLakeStorageAccountName <storageAccountName> -DefaultDataLakeStorageFileSystem <fileSystemName> -SqlAdministratorLoginCredential $creds
 
@@ -182,127 +301,7 @@ You can retrieve the managed identity from Azure portal or programmatically. The
 >[!TIP]
 > If you don't see the managed identity, [generate managed identity](#generate-managed-identity) by updating your service instance.
 
-#### Retrieve system-assigned managed identity using Azure portal
-
-You can find the managed identity information from Azure portal -> your Synapse workspace -> Properties.
-
-:::image type="content" source="../data-factory/media/data-factory-service-identity/system-managed-identity-in-portal-synapse.png" alt-text="Shows the Azure portal with the system-managed identity object ID for a Synapse workspace."  lightbox="../data-factory/media/data-factory-service-identity/system-managed-identity-in-portal-synapse.png":::
-
-- Managed Identity Object ID
-
-The managed identity information will also show up when you create linked service, which supports managed identity authentication, like Azure Blob, Azure Data Lake Storage, Azure Key Vault, etc.
-
-To grant permissions, follow these steps. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
-
-1. Select **Access control (IAM)**.
-
-1. Select **Add** > **Add role assignment**.
-
-    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-menu-generic.png" alt-text="Screenshot that shows Access control (IAM) page with Add role assignment menu open.":::
-
-1. On the **Members** tab, select **Managed identity**, and then select **Select members**.
-
-1. Select your Azure subscription.
-
-1. Under **System-assigned managed identity**, select **Synapse workspace**, and then select a workspace. You can also use the object ID or workspace name (as the managed-identity name) to find this identity. To get the managed identity's application ID, use PowerShell.
-
-1. On the **Review + assign** tab, select **Review + assign** to assign the role.
-
-#### Retrieve system-assigned managed identity using PowerShell
-
-The managed identity principal ID and tenant ID will be returned when you get a specific service instance as follows. Use the **PrincipalId** to grant access:
-
-```powershell
-PS C:\> (Get-AzSynapseWorkspace -ResourceGroupName <resourceGroupName> -Name <workspaceName>).Identity
-
-IdentityType   PrincipalId                          TenantId                            
-------------   -----------                          --------                            
-SystemAssigned aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb aaaabbbb-0000-cccc-1111-dddd2222eeee
-```
-
-You can get the application ID by copying above principal ID, then running below Microsoft Entra ID command with principal ID as parameter.
-
-```powershell
-PS C:\> Get-AzADServicePrincipal -ObjectId aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
-
-ServicePrincipalNames : {00001111-aaaa-2222-bbbb-3333cccc4444, https://identity.azure.net/P86P8g6nt1QxfPJx22om8MOooMf/Ag0Qf/nnREppHkU=}
-ApplicationId         : 00001111-aaaa-2222-bbbb-3333cccc4444
-DisplayName           : <workspaceName>
-Id                    : aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
-Type                  : ServicePrincipal
-```
-
-#### Retrieve managed identity using REST API
-
-The managed identity principal ID and tenant ID will be returned when you get a specific service instance as follows.
-
-Call below API in the request:
-
-```
-GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Synapse/workspaces/{workspaceName}?api-version=2018-06-01
-```
-
-**Response**: You will get response like shown in below example. The "identity" section is populated accordingly.
-
-```json
-{
-  "properties": {
-    "defaultDataLakeStorage": {
-      "accountUrl": "https://exampledatalakeaccount.dfs.core.windows.net",
-      "filesystem": "examplefilesystem"
-    },
-    "encryption": {
-      "doubleEncryptionEnabled": false
-    },
-    "provisioningState": "Succeeded",
-    "connectivityEndpoints": {
-      "web": "https://web.azuresynapse.net?workspace=%2fsubscriptions%2{subscriptionId}%2fresourceGroups%2f{resourceGroupName}%2fproviders%2fMicrosoft.Synapse%2fworkspaces%2f{workspaceName}",
-      "dev": "https://{workspaceName}.dev.azuresynapse.net",
-      "sqlOnDemand": "{workspaceName}-ondemand.sql.azuresynapse.net",
-      "sql": "{workspaceName}.sql.azuresynapse.net"
-    },
-    "managedResourceGroupName": "synapseworkspace-managedrg-f77f7cf2-XXXX-XXXX-XXXX-c4cb7ac3cf4f",
-    "sqlAdministratorLogin": "sqladminuser",
-    "privateEndpointConnections": [],
-    "workspaceUID": "e56f5773-XXXX-XXXX-XXXX-a0dc107af9ea",
-    "extraProperties": {
-      "WorkspaceType": "Normal",
-      "IsScopeEnabled": false
-    },
-    "publicNetworkAccess": "Enabled",
-    "cspWorkspaceAdminProperties": {
-      "initialWorkspaceAdminObjectId": "3746a407-XXXX-XXXX-XXXX-842b6cf1fbcc"
-    },
-    "trustedServiceBypassEnabled": false
-  },
-  "type": "Microsoft.Synapse/workspaces",
-  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Synapse/workspaces/{workspaceName}",
-  "location": "eastus",
-  "name": "{workspaceName}",
-  "identity": {
-    "type": "SystemAssigned",
-    "tenantId": "aaaabbbb-0000-cccc-1111-dddd2222eeee",
-    "principalId": "aaaaaaaa-bbbb-cccc-1111-222222222222"
-  },
-  "tags": {}
-}
-```
-
-> [!TIP] 
-> To retrieve the managed identity from an ARM template, add an **outputs** section in the ARM JSON:
-
-```json
-{
-    "outputs":{
-        "managedIdentityObjectId":{
-            "type":"string",
-            "value":"[reference(resourceId('Microsoft.Synapse/workspaces', parameters('<workspaceName>')), '2018-06-01', 'Full').identity.principalId]"
-        }
-    }
-}
-```
-
-### Execute Azure Synapse Spark Notebooks with system assigned managed identity
+## Execute Azure Synapse Spark Notebooks with system assigned managed identity
 
 You can easily execute Synapse Spark Notebooks with the system assigned managed identity (or workspace managed identity) by enabling *Run as managed identity* from the *Configure session* menu. To execute Spark Notebooks with workspace managed identity, users need to have following RBAC roles: 
 - Synapse Compute Operator on the workspace or selected Spark pool 
@@ -319,7 +318,7 @@ You can easily execute Synapse Spark Notebooks with the system assigned managed 
 
 ## User-assigned managed identity
 
-You can create, delete, manage user-assigned managed identities in Microsoft Entra ID. For more details refer to [Create, list, delete, or assign a role to a user-assigned managed identity using the Azure portal](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md). 
+You can create, delete, manage user-assigned managed identities in Microsoft Entra ID. For more information, see [Create, list, delete, or assign a role to a user-assigned managed identity using the Azure portal](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md). 
 
 In order to use a user-assigned managed identity, you must first [create credentials](../data-factory/credentials.md) in your service instance for the UAMI.
 
@@ -329,7 +328,7 @@ In order to use a user-assigned managed identity, you must first [create credent
 ## Next steps
 - [Create credentials](../data-factory/credentials.md).
 
-See the following topics that introduce when and how to use managed identity:
+See the following articles that introduce when and how to use managed identity:
 
 - [Store credential in Azure Key Vault](../data-factory/store-credentials-in-key-vault.md).
 - [Copy data from/to Azure Data Lake Store using managed identities for Azure resources authentication](../data-factory/connector-azure-data-lake-store.md).

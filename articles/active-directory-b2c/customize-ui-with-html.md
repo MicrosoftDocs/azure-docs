@@ -382,7 +382,7 @@ In your content definition, change the value of `LoadUri` to `https://<app_name>
 When Azure AD B2C loads the page, it makes a call to your web server endpoint:
 
 ```http
-https://<app_name>.azurewebsites.net/home/unified?campaignId=123&lang=fr&appId=f893d6d3-3b6d-480d-a330-1707bf80ebea
+https://<app_name>.azurewebsites.net/home/unified?campaignId=123&lang=fr&appId=00001111-aaaa-2222-bbbb-3333cccc4444
 ```
 
 ### Dynamic page content URI

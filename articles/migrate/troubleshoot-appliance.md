@@ -6,7 +6,7 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: troubleshooting
 ms.service: azure-migrate
-ms.date: 08/08/2024
+ms.date: 10/16/2024
 ms.custom: engagement-fy25
 ---
 
@@ -253,8 +253,8 @@ if ($Session -eq $null -or $Session.TestConnection() -eq $false)
 Write-Host "Connection established with $Hostname"
 #Get-WmiObject -Query "select uuid from Win32_ComputerSystemProduct" 
 
-$HostIntance = $Session.QueryInstances($HostNS, "WQL", "Select UUID from Win32_ComputerSystemProduct")
-$HostIntance | fl *
+$HostInstance = $Session.QueryInstances($HostNS, "WQL", "Select UUID from Win32_ComputerSystemProduct")
+$HostInstance | fl *
 ````
 
 When you run the preceding code, you need to provide the hostname of the target server. It can be IP address/FQDN/hostname. After that, you're prompted to provide the credentials to connect to the server.
