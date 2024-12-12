@@ -16,7 +16,11 @@ In this tutorial, you explore the architecture of AI applications in Azure Conta
 
 ## Prerequisites
 
-## General architecture structure
+- Prerequisites should be in a flat, bulleted list.
+- Prerequisites should be in a flat, bulleted list.
+- Prerequisites should be in a flat, bulleted list.
+
+## Architecture of the AI app in Azure Container Apps
 
 The following diagram shows the architecture of the AI application on Azure Container Apps:
 
