@@ -15,17 +15,17 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create an additional NSX Tier-1 Gateway in the NSX Manager
-> * Configure the HA mode on a Tier-1 Gateway 
+> * Configure the High Availability (HA) mode on a Tier-1 Gateway 
 
 ## Prerequisites
 
-An Azure VMware Solution private cloud with access to the NSX manager interface. For more information, see the [Configure networking](tutorial-configure-networking.md) tutorial. 
+An Azure VMware Solution private cloud with access to the NSX Manager interface. For more information, see the [Configure networking](tutorial-configure-networking.md) tutorial. 
 
 ## Use NSX Manager to create a Tier-1 Gateway
 
 A Tier-1 Gateway is typically added to a Tier-0 Gateway in the northbound direction and to segments in the southbound direction. 
 
-1. With the CloudAdmin account, sign in to the NSX Manager.
+1. With the CloudAdmin account, sign-in to the NSX Manager.
 
 2. In NSX Manager, select **Networking** > **Tier-1 Gateways**.
 
