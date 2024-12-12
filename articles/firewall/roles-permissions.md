@@ -30,7 +30,7 @@ To add any missing permissions listed here, see [Update a custom role](../role-b
 
 ## Permissions
 
-Depending on whether you're creating new resources or using existing ones, add the appropriate permissions from the following list:
+Depending on whether you're creating new resources or using existing ones, add the appropriate permissions from the following list for Azure Firewall in a Hub VNET:
 
 |Resource | Resource status | Required Azure permissions |
 |---|---|---|
