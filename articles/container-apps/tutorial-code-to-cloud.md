@@ -288,6 +288,14 @@ az acr build --registry $ACR_NAME --image $API_NAME .
 
 The `az acr build` command does not have a PowerShell equivalent, but can be run in PowerShell.
 
+To sign into Azure with the Azure CLI, run the following command and follow the prompts to complete the authentication process.
+
+```powershell
+az login
+```
+
+Then build the container.
+
 ```powershell
 az acr build --registry $AcrName --image $APIName .
 ```
