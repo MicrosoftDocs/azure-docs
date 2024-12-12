@@ -299,6 +299,49 @@ This is the role for publishing gallery artifacts.
 }
 ```
 
+## Compute Gallery Image Reader
+
+This is the role for reading gallery images.
+
+[Learn more](/partner-center/marketplace-offers/azure-vm-use-own-image)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/galleries/images/read | Gets the properties of Gallery Image |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/galleries/images/versions/read | Gets the properties of Gallery Image Version |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "This is the role for reading gallery images.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/cf7c76d2-98a3-4358-a134-615aa78bf44d",
+  "name": "cf7c76d2-98a3-4358-a134-615aa78bf44d",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Compute/galleries/images/read",
+        "Microsoft.Compute/galleries/images/versions/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Compute Gallery Image Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ## Compute Gallery Sharing Admin
 
 This role allows user to share gallery to another subscription/tenant or share it to the public.
