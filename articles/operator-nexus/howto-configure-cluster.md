@@ -170,12 +170,20 @@ Cluster create Logs can be viewed in the following locations:
 
 ## Set Deployment Threshold
 
-If the customer requests a deployment threshold value that it is different from the default of 80% :
+If the customer requests a deployment threshold value that it is different from the default of 80%, you can run the following cluster update command.
 
 The example below is for a customer using grouping="PerCluster" and "PercentSuccess" of 97.
 
 ```azurecli
-az networkcloud cluster update  --subscription "<SUBSCRIPTION_ID>" --name "<CLUSTER_NAME>" --resource-group "<CLUSTER_RG>" --compute-deployment-threshold type="PercentSuccess" grouping="PerCluster" value=97
+az networkcloud cluster update --name <CLUSTER_NAME> --resource-group <CLUSTER_RG> --compute-deployment-threshold type="PercentSuccess" grouping="PerCluster" value=97 --subscription <SUBSCRIPTION_ID>
+```
+If `compute-deployment-threshold` is not set, the default are as follows:
+```
+      "strategyType": "Rack",
+      "thresholdType": "PercentSuccess",
+      "thresholdValue": 80,
+      "waitTimeMinutes": 1
+```
 
 # Validate update:
 az networkcloud cluster show -g <CLUSTER_RG> -n <CLUSTER_NAME> | grep -a3 computeDeploymentThreshold
