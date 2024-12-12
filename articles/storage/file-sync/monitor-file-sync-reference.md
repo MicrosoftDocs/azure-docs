@@ -46,17 +46,6 @@ To view Azure File Sync metrics in Azure Monitor:
 - SyncGroupName
 - TieringReason
 
-[!INCLUDE [horz-monitor-ref-logs-tables](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
-
-### Azure File Sync Microsoft.StorageSync/storageSyncServices
-
-- [AzureActivity](/azure/azure-monitor/reference/tables/azureactivity#columns)
-- [AzureMetrics](/azure/azure-monitor/reference/tables/azuremetrics#columns)
-- [StorageTableLogs](/azure/azure-monitor/reference/tables/storagetablelogs#columns)
-- [StorageQueueLogs](/azure/azure-monitor/reference/tables/storagequeuelogs#columns)
-- [StorageFileLogs](/azure/azure-monitor/reference/tables/storagefilelogs#columns)
-- [StorageBlobLogs](/azure/azure-monitor/reference/tables/storagebloblogs#columns)
-
 [!INCLUDE [horz-monitor-ref-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-activity-log.md)]
 
 - [Microsoft.StorageSync resource provider operations](/azure/role-based-access-control/resource-provider-operations#microsoftstorage)
