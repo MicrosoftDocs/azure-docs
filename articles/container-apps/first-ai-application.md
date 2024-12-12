@@ -147,4 +147,4 @@ To delete the resource group, use following command:
 
 ## Related content
 
-- [Java on Azure Container Apps overview](java-overview.md)
+- [Java on Azure Container Apps overview](./ai-in-container-apps-conceptual-overview.md)
