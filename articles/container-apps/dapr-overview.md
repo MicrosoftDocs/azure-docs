@@ -29,7 +29,7 @@ Configure microservices APIs for your container apps environment with a [Dapr-en
 
 ### Managed APIs
 
-Azure Container Apps offers managed generally available Dapr APIs (building block APIs and HTTP APIs). These APIs are fully managed and supported for use in production environments.
+Azure Container Apps offers managed generally available Dapr APIs (building block APIs and operational APIs). These APIs are fully managed and supported for use in production environments.
 
 To learn more about using _alpha_ Dapr APIs and features, [see the Dapr FAQ][dapr-faq].
 
@@ -47,11 +47,11 @@ To learn more about using _alpha_ Dapr APIs and features, [see the Dapr FAQ][dap
 | [**Secrets**][dapr-secrets]                           | GA | Access secrets from your application code or reference secure values in your Dapr components.                                                                   |
 | [**Configuration**][dapr-config]                           | GA | Retrieve and subscribe to application configuration items for supported configuration stores.                                                                   |
 
-#### HTTP APIs
+#### Operational APIs
 
-| HTTP API                                              | Status | Description                                                                                                                                                     |
+| Operational API                                              | Status | Description                                                                                                                                                     |
 | ----------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [**Health**][dapr-health] | GA | Health check probes that monitor readiness or liveness of Dapr and initialization readiness of SDKs.                                      |
+| [**Health**][dapr-health] | GA | Health check probes that monitor readiness or liveness of Dapr and initialization readiness of SDKs. The health API is only available for HTTP.                                     |
 | [**Metadata**][dapr-metadata]                | GA | Returns information about the sidecar, allowing runtime discoverability.                                                                                    |
 
 
