@@ -11,6 +11,10 @@ ms.date: 12/12/2024
 
 Microsoft regularly applies important updates to the Azure VMware Solution for new features and software lifecycle management. You should receive a notification through Azure Service Health that includes the timeline of the maintenance. For more information, see [Host maintenance and lifecycle management](architecture-private-clouds.md#host-maintenance-and-lifecycle-management).
 
+## December 2024
+
+Resource Health for Azure VMware Solution is now available in Public Preview. Resource Health, an Azure native feature, now monitors the health of Azure VMware Solution Private Cloud resources, provides recommended actions for current issues, and allows reporting on past and present resource health. [Learn more](ecosystem-app-monitoring-solutions.md#azure-resource-health-for-azure-vmware-solution-private-cloud-public-preview) 
+
 ## November 2024
 
 Azure VMware Solution is now ready to update all existing Azure Commercial customers from vSphere 7 to vSphere 8 (Stretched Clusters & Azure Government still pending). Over the coming months, all customers will receive a scheduling notice for this upgrade. If you want to prioritize your vSphere 8 upgrade, open a [Service Request](https://rc.portal.azure.com/#create/Microsoft.Support) with Microsoft requesting a "Priority vSphere 8 upgrade" for your private cloud. [Learn more](architecture-private-clouds.md#vmware-software-versions)
