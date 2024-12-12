@@ -48,7 +48,7 @@ The key benefits of enhanced soft delete are:
 ## Supported scenarios
 
 - Enhanced soft delete is supported for Recovery Services vaults and Backup vaults. Also, it's supported for new and existing vaults.
-- Enhanced soft delete applies to all vaulted workloads alike and is supported for Recovery Services vaults and Backup vaults.However, for Operational tier workloads, such as operational backup of [Azure Files](azure-file-share-backup-overview.md?tabs=snapshot#architecture-for-azure-file-share-backup), [Azure Blobs](blob-backup-overview.md?tabs=operational-backup#how-the-azure-blobs-backup-works), [Azure Disks](disk-backup-overview.md), soft delete won't be completely applicable as you can delete the underlying storage account that is part of your own subscription.
+- Enhanced soft delete applies to all vaulted workloads alike and is supported for Recovery Services vaults and Backup vaults. However, for Operational tier workloads, such as operational backup of [Azure Files](azure-file-share-backup-overview.md?tabs=snapshot#architecture-for-azure-file-share-backup), [Azure Blobs](blob-backup-overview.md?tabs=operational-backup#how-the-azure-blobs-backup-works), [Azure Disks](disk-backup-overview.md), soft delete won't be completely applicable as you can delete the underlying storage account that is part of your own subscription.
 - Always-on feature for soft delete is currently not supported for SQL database backups.
 
 ## States of soft delete settings
