@@ -1,17 +1,17 @@
 ---
-title: About virtual hub roles and permissions
-titleSuffix: Virtual Hub
-description: Learn about roles and permissions for a Virtual WAN Hub.
+title: About route server roles and permissions
+description: Learn about roles and permissions for Azure Route Server
 author: siddomala
-ms.service: azure-virtual-wan
+ms.author: halkazwini
+ms.service: azure-route-server
 ms.topic: conceptual
-ms.date: 12/13/2024
-ms.author: cherylmc
+ms.date: cherylmc
+---
 
 ---
 # About roles and permissions for the Virtual WAN Hub
 
-The Virtual WAN hub utilizes multiple underlying resources during both creation and management operations.
+Azure Route Server utilizes multiple underlying resources during both creation and management operations.
 Because of this, it's essential to verify permissions on all involved resources during these operations.
 
 ## Azure built-in roles
