@@ -12,9 +12,7 @@ ms.custom:
 
 # Launch your first AI application to Azure Container Apps
 
-This quickstart shows you how to launch your first AI application to Azure Container Apps. The article demonstrates how to deploy a sample AI chat assistant application based on the Spring PetClinic application to run on Azure Container Apps. The application uses the [Azure OpenAI Service](/azure/ai-services/openai/overview) and demonstrates how to automate deployment using the Azure Developer CLI (azd).
-
-In this quickstart you deploy an AI-enabled application to Azure Container Apps, explore its architecture, and learn how to implement your first AI application in Azure Container Apps. The following screenshot shows the AI assistant:
+In this quickstart, you explore the architecture of an AI application in Azure Container Apps, and then you deploy the application. The article demonstrates how to deploy a sample AI chat assistant application based on the Spring PetClinic application to run on Azure Container Apps. The application uses the [Azure OpenAI Service](/azure/ai-services/openai/overview) and demonstrates how to automate deployment using the Azure Developer CLI (azd). The following screenshot shows the AI assistant:
 
 :::image type="content" source="media/first-ai-application/home-with-chatbot.png"  alt-text="Screenshot of home." lightbox="media/first-ai-application/home-with-chatbot.png":::
 
@@ -42,7 +40,7 @@ The following diagram shows the architecture of the AI application on Azure Cont
    Diagram that shows the architecture of the AI application. Users access the system through authentication managed by Entra ID. The Azure Container App environment contains an API gatewway that enables routing for and communication with the application. The API gateway uses managed identities to securely interact with the Azure Container Registry and with Azure Cognitive Services. The API gateway also handles communication with external users. A virtual network between the API gateway and external systems provides secure and isolated network connectivity.
 :::image-end:::
 
-The key components of this sample:
+The following are the key components of this sample:
 
 - [Azure Container Apps Environment](/azure/container-apps/environment), to run the container apps instances.
 - [Azure OpenAI Service](/azure/ai-services/openai/overview).
