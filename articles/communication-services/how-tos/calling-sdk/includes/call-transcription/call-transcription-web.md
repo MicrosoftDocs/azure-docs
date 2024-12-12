@@ -49,9 +49,9 @@ You can check if the meeting transcription requires explicit consent by property
 const isTranscriptionConsentRequired = callTranscriptionFeature.isTeamsConsentRequired;
 ```
 
-If you have already obtained the user's consent for transcription, you can call the `grantTeamsConsent()` method to indicate explicit consent to the service. Note that this consent is valid for one `call` session only and users will need to provide consent again if they rejoin the meeting.
+If you have already obtained the user's consent for transcription, you can call the `grantTeamsConsent()` method to indicate explicit consent to the service. This consent is valid for one `call` session only and users need to provide consent again if they rejoin the meeting.
 
 ```js
 callTranscriptionFeature.grantTeamsConsent();
 ```
-Attempts to enable audio, video or screen sharing will fail when transcription is active, explicit consent is required but is not yet given. You can recognize this situation by checking property `reason` of class `ParticipantCapabilities` for [capabilities](../../capabilities.md) `turnVideoOn`, `unmuteMic` and `shareScreen`. You can find those [capabilities](../../capabilities.md) in the feature `call.feature(Features.Capabilities)`. Those [capabilities](../../capabilities.md) would return reason `ExplicitConsentRequired` as users need to provide explicit consent.
+Attempts to enable audio, video, or screen sharing fail when transcription is active, explicit consent is required but is not yet given. You can recognize this situation by checking property `reason` of class `ParticipantCapabilities` for [capabilities](../../capabilities.md) `turnVideoOn`, `unmuteMic` and `shareScreen`. You can find those [capabilities](../../capabilities.md) in the feature `call.feature(Features.Capabilities)`. Those [capabilities](../../capabilities.md) would return reason `ExplicitConsentRequired` as users need to provide explicit consent.
