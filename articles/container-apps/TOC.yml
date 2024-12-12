@@ -362,7 +362,14 @@
         displayName: java
       - name: Launch your first Java app
         href: java-get-started.md
-        displayName: java
+      - name: Artificial Intelligence
+        items:
+        - name: Concept
+          href: ai-in-container-apps-conceptual-overview.md
+          displayName: java
+        - name: Launch your first AI application
+          href: first-ai-application.md
+          displayName: java
       - name: Launch your first AI application
         href: first-ai-application.md
         displayName: java
