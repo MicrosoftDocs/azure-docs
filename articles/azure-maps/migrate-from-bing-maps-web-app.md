@@ -1380,8 +1380,8 @@ Running this code in a browser displays a map that looks like the following imag
         function initMap() {
             map = new Microsoft.Maps.Map('#myMap', {
                 credentials: '<Your Bing Maps Key>',
-                center: new Microsoft.Maps.Location(40.747, -73.985),
-                zoom: 12
+                center: new Microsoft.Maps.Location(41.875825, -87.627515),
+                zoom: 10
             });
                 
             Microsoft.Maps.loadModule('Microsoft.Maps.GeoXml', function () {
