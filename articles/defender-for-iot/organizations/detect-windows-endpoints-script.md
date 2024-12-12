@@ -43,7 +43,8 @@ The script described in this article is supported for the following Windows oper
 - Windows XP
 - Windows 7
 - Windows 10
-- Windows Server 2003/2008/2012
+- Windows 11
+- Windows Server 2003/2008/2012/2016/2019/2022
 
 ## Download and run the script
 

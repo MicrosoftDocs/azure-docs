@@ -969,7 +969,7 @@ To try the **Select** action, follow these steps by using the workflow designer.
 > [!TIP]
 >
 > For an example that creates create an array with strings or integers built from the values in a JSON object array, 
-> see the **Select** and **Initliaze variable** action definitions in 
+> see the **Select** and **Initialize variable** action definitions in 
 > [Data operation code examples - Select](logic-apps-data-operations-code-samples.md#select-action-example).
 
 ### [Consumption](#tab/consumption)

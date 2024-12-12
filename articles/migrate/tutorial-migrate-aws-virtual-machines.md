@@ -5,7 +5,7 @@ author: vijain
 ms.author: vijain
 ms.topic: tutorial
 ms.service: azure-migrate
-ms.date: 07/05/2024
+ms.date: 12/10/2024
 ms.custom: MVC, engagement-fy24
 ---
 
@@ -31,6 +31,11 @@ In this tutorial, you learn how to:
 > * Run a full migration to Azure.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
+
+> [!IMPORTANT]
+> While lengthy, this tutorial represents the recommended process for migrating AWS VMs to Azure VMs using Azure Migrate. While alternative methods like using Azure Image Builder may work in theory, there are numerous compatibility issues that can arise.
+>
+>This tutorial provides a comprehensive overview of the process and addresses compatability, supported configurations, testing to ensure your VM boots properly, and frequently asked questions.
 
 ## Discover and assess
 

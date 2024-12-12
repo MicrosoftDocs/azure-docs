@@ -41,19 +41,19 @@ Selecting the **Backup Reports** menu item in Backup center opens up the reports
 
 Following are the views available:
 
-1. **Summary** - Use this tab to get a high-level overview of your backup estate. [Learn more](./configure-reports.md#summary)
+1. **Summary** - Use this tab to get a high-level overview of your backup estate. [Learn more](view-reports.md#summary)
 
-2. **Backup Items** - Use this tab to see information and trends on cloud storage consumed at a Backup-item level. [Learn more](./configure-reports.md#backup-items)
+2. **Backup Items** - Use this tab to see information and trends on cloud storage consumed at a Backup-item level. [Learn more](view-reports.md#backup-items)
 
-3. **Usage** - Use this tab to view key billing parameters for your backups. [Learn more](./configure-reports.md#usage)
+3. **Usage** - Use this tab to view key billing parameters for your backups. [Learn more](view-reports.md#usage)
 
-4. **Jobs** - Use this tab to view long-running trends on jobs, such as the number of failed jobs per day and the top causes of job failure. [Learn more](./configure-reports.md#jobs)
+4. **Jobs** - Use this tab to view long-running trends on jobs, such as the number of failed jobs per day and the top causes of job failure. [Learn more](view-reports.md#jobs)
 
-5. **Policies** - Use this tab to view information on all of your active policies, such as the number of associated items and the total cloud storage consumed by items backed up under a given policy. [Learn more](./configure-reports.md#policies)
+5. **Policies** - Use this tab to view information on all of your active policies, such as the number of associated items and the total cloud storage consumed by items backed up under a given policy. [Learn more](view-reports.md#policies)
 
-6. **Optimize** - Use this tab to gain visibility into potential cost-optimization opportunities for your backups. [Learn more](./configure-reports.md#optimize)
+6. **Optimize** - Use this tab to gain visibility into potential cost-optimization opportunities for your backups. [Learn more](view-reports.md#optimize)
 
-7. **Policy adherence** - Use this tab to gain visibility into whether every backup instance has had at least one successful backup per day. [Learn more](./configure-reports.md#policy-adherence)
+7. **Policy adherence** - Use this tab to gain visibility into whether every backup instance has had at least one successful backup per day. [Learn more](view-reports.md#policies)
 
 You can also configure emails for these reports using the [Email Report](backup-reports-email.md) feature.
 

@@ -141,7 +141,7 @@ Your IoT Hub's IP filters can be retrieved and set through [Azure PowerShell](/p
 
 ```powershell
 # Get your IoT Hub resource using its name and its resource group name
-$iothubResource = Get-AzResource -ResourceGroupName <resourceGroupNmae> -ResourceName <iotHubName> -ExpandProperties
+$iothubResource = Get-AzResource -ResourceGroupName <resourceGroupName> -ResourceName <iotHubName> -ExpandProperties
 
 # Access existing IP filter rules
 $iothubResource.Properties.networkRuleSets.ipRules |% { Write-host $_ }

@@ -2,7 +2,7 @@
 title: "Tutorial: Configure item-level backup for an Azure Kubernetes Service cluster"
 description: Learn how to configure backup for an Azure Kubernetes Service (AKS) cluster, and use Azure Backup to back up specific items from the cluster.
 ms.topic: tutorial
-ms.date: 11/14/2023
+ms.date: 10/01/2024
 ms.service: azure-backup
 ms.custom:
   - ignite-2023

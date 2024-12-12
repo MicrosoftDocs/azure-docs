@@ -12,6 +12,9 @@ ms.author: mosagie
 
 # Initiate ground station licensing
 
+> [!NOTE]
+> [Azure Orbital Ground Station is retiring on December 18th, 2024](https://azure.microsoft.com/updates?id=Azure-Orbital-Ground-Station-Retirement) and has stopped issuing new authorizations.
+
 ## About satellite and ground station licensing
 
 Both satellites and ground stations require authorizations from federal regulators and other government agencies to operate.
