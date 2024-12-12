@@ -32,24 +32,6 @@ In this quickstart, you explore the architecture of an AI application in Azure C
 
 - [Azure Developer CLI (azd)](/azure/developer/azure-developer-cli/install-azd).
 
-## General architecture structure
-
-The following diagram shows the architecture of the AI application on Azure Container Apps:
-
-:::image type="complex" source="media/first-ai-application/architecture-chart.png" alt-text="Diagram of the architecture of the AI application." lightbox="media/first-ai-application/architecture-chart.png":::
-   Diagram that shows the architecture of the AI application. Users access the system through authentication managed by Entra ID. The Azure Container App environment contains an API gatewway that enables routing for and communication with the application. The API gateway uses managed identities to securely interact with the Azure Container Registry and with Azure Cognitive Services. The API gateway also handles communication with external users. A virtual network between the API gateway and external systems provides secure and isolated network connectivity.
-:::image-end:::
-
-The following are the key components of this sample application:
-
-- [Azure Container Apps Environment](/azure/container-apps/environment), to run the container apps instances.
-- [Azure OpenAI Service](/azure/ai-services/openai/overview).
-- [Azure Container Registry](/azure/container-registry/container-registry-intro), to build and save images for the application.
-- [Azure Container Apps](/azure/container-apps/overview) instance for this application.
-- [Managed Identities](/entra/identity/managed-identities-azure-resources/overview) for security connections.
-
-Read the [bicep scripts](https://github.com/Azure-Samples/spring-petclinic-ai/blob/main/infra/bicep/main.bicep) to learn more about the deployment of the structure.
-
 ## Install the extensions
 
 Install the extensions by using the following command:
