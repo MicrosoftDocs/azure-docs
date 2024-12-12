@@ -22,7 +22,7 @@ Any application that runs on Azure compute services and requires a backing servi
 
 * **Database:** Use Service Connector to connect databases, such as PostgreSQL, MySQL, or Azure Cosmos DB, to your apps.
 * **Storage:** Use Service Connector to use your preferred storage products, such as Azure Storage for any of your apps.
-* **Messaging Service:** User Service Connector to connect your cloud apps to messaging services, such as Service Bus, Event Hubs, and Apache Kafka on Confluent Cloud.
+* **Messaging Service:** Use Service Connector to connect your cloud apps to messaging services, such as Service Bus, Event Hubs, and Apache Kafka on Confluent Cloud.
 
 See [what services are supported in Service Connector](#what-services-are-supported-by-service-connector) to see more supported services and application patterns.
 
