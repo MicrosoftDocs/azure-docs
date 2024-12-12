@@ -51,6 +51,7 @@ These events are triggered when a client creates, replaces, or deletes a blob by
     "contentType": "text/plain",
     "contentLength": 524288,
     "blobType": "BlockBlob",
+    "accessTier": "Default",
     "url": "https://my-storage-account.blob.core.windows.net/testcontainer/new-file.txt",
     "sequencer": "00000000000004420000000000028963",
     "storageDiagnostics": {
@@ -75,6 +76,7 @@ These events are triggered when a client creates, replaces, or deletes a blob by
     "requestId": "4c2359fe-001e-00ba-0e04-585868000000",
     "contentType": "text/plain",
     "blobType": "BlockBlob",
+    "accessTier": "Default",
     "url": "https://my-storage-account.blob.core.windows.net/testcontainer/file-to-delete.txt",
     "sequencer": "0000000000000281000000000002F5CA",
     "storageDiagnostics": {

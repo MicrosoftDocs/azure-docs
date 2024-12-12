@@ -191,7 +191,7 @@ If there's an error during the extension installation, and the error message in 
 `Operation returned an invalid status code: Conflict`.
 
 **Reason:**
-This error usually occurs when attempting to create a service connection while the AKS (Azure Kubernetes Service) cluster is in an updating state. The service connection update conflicts with the ongoing update. It could also happen when your subscription is not resgitered for the `Microsoft.KubernetesConfiguration` resource provider.
+This error usually occurs when attempting to create a service connection while the AKS (Azure Kubernetes Service) cluster is in an updating state. The service connection update conflicts with the ongoing update. It could also happen when your subscription is not registered for the `Microsoft.KubernetesConfiguration` resource provider.
 
 **Mitigation:**
 - Run the following command to make sure your subscription is registered for `Microsoft.KubernetesConfiguration` resource provider.

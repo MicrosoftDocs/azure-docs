@@ -69,7 +69,7 @@ For more information, see the following articles:
 
 ## Watchlists in queries for searches and detection rules
 
-Query data in any table against data from a watchlist by treating the watchlist as a table for joins and lookups. When you create a watchlist, you define the *SearchKey*. The search key is the name of a column in your watchlist that you expect to use as a join with other data or as a frequent object of searches. For example, suppose you have a server watchlist that contains country names and their respective two-letter country codes. You expect to use the country codes often for searches or joins. So you use the country code column as the search key.
+Query data in any table against data from a watchlist by treating the watchlist as a table for joins and lookups. When you create a watchlist, you define the *SearchKey*. The search key is the name of a column in your watchlist that you expect to use as a join with other data or as a frequent object of searches. For example, suppose you have a server watchlist that contains country/region names and their respective two-letter country codes. You expect to use the country codes often for searches or joins. So you use the country code column as the search key.
 
 The following example query joins the `RemoteIPCountry` column in the `Heartbeat` table with the search key defined for the watchlist named `mywatchlist`.
 

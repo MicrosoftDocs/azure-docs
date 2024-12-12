@@ -27,7 +27,6 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[AC4S Consulting, Inc.](https://ac4s.com)|
 |[Accelera Solutions Inc](http://www.accelerasolutions.com/)|
 |[Accenture Federal Services LLC](https://www.accenture.com/us-en/industries/afs-index)|
-|[Access Interactive Inc.](https://www.access-interactive.com/)|
 |[AccountabilIT](https://accountabilit.com)|
 |[ACP Technologies](https://acp.us.com)|
 |[ActioNet](https://www.actionet.com/)|
@@ -115,7 +114,7 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[CompuNet Inc.](https://compunet.biz/)|
 |[Computer Solutions Inc.](http://cs-inc.co/)|
 |[Communication Square LLC](https://www.communicationsquare.com)|
-|[ConvergeOne](https://www.convergeone.com)|
+|[ConvergeOne](https://www.onec1.com/)|
 |[Copper River Technologies, LLC](http://www.copperrivertech.com/)|
 |[Coretek Services](https://www.coretekservices.com/)|
 |[Cornerstone Technologies](https://www.cornerstonetechnologies.com/)|
@@ -259,7 +258,7 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[Leslie Digital Imaging LLC.](https://www.myldi.com)|
 |[LiftOff, LLC](https://www.liftoffonline.com)|
 |[Lightstream Managed Services, LLC](https://www.lightstream.tech)|
-|[Liquid Mercury Solutions](https://www.liquid-hg.com/)|
+|[Liquid Mercury Solutions](https://liquidmercury.com/#solutions)|
 |[Logicalis, Inc.](https://www.us.logicalis.com/)|
 |[Lucidius Group LLC](http://www.lucidiusgrp.com)|
 |[Lumen](https://www.lumen.com/)|
@@ -362,7 +361,7 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[Redhorse Corporation](https://www.redhorsecorp.com)|
 |[Regan Technologies Corporation](http://www.regantech.com/)|
 |Remote Support Solutions Corp DBA RemoteWorks|
-|[Revenue Solutions, Inc](https://www.revenuesolutionsinc.com)|
+|[Revenue Solutions, Inc](https://www.rsidelivers.com/)|
 |[Ridge IT](https://www.ridgeit.com/)|
 |[RMON Networks Inc.](https://rmonnetworks.com/)|
 |[rmsource, Inc.](https://www.rmsource.com)|
@@ -452,10 +451,8 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[Unisys Corp / Blue Bell](https://www.unisys.com)|
 |[United Data Technologies, Inc.](https://udtonline.com)|
 |[VALCOM COMPUTER CENTER](https://www.vlcmtech.com/)|
-|[Vana Solutions LLC](https://vanasolutions.com)|
 |[Vazata - Horizon Data Center Solutions LLC](https://www.vazata.com/)|
 |[VC3 INC](https://www.vc3.com/)|
-|[VerisVisalign](http://www.verisvisalign.com)|
 |[Vertosoft](https://vertosoft.com)|
 |[Vespa Group LLC](https://www.vespa-group.com)|
 |[Vidizmo LLC](https://www.vidizmo.com)|

@@ -6,7 +6,7 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 11/17/2023
+ms.date: 12/06/2024
 ms.author: banders
 ---
 
@@ -67,6 +67,9 @@ The following tables show the software plans you can buy a reservation for, thei
 |SUSE Linux Enterprise Server for HPC 5+ vCPUs |907a85de-024f-4dd6-969c-347d47a1bdff|2.92308|D8s_v3|
 
 ### SUSE for SAP Linux Enterprise Server
+
+> [!NOTE]
+> Please note that **SUSE Linux Enterprise for SAP Applications + 24x7 Support** on the pricing calculator is the same as **SUSE for SAP Linux Enterprise Server** on the Reservation portal.
 
 |SUSE VM | MeterId | Ratio|Example VM size|
 | ------- |------------------------| --- | --- |
