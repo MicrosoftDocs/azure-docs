@@ -364,12 +364,12 @@
         href: java-get-started.md
       - name: Artificial Intelligence
         items:
-        - name: Concept
+        - name: Introduction to the PetClinic AI sample
           href: ai-in-container-apps-conceptual-overview.md
-          displayName: java
+          displayName: java, ai
         - name: Launch your first AI application
           href: first-ai-application.md
-          displayName: java
+          displayName: java, ai
         displayName: java
       - name: Launch your first Java microservice apps with managed Java components
         href: java-microservice-get-started.md
