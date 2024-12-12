@@ -219,7 +219,8 @@ Location based Message template assembly:
 
 ### Templates with quick reply buttons
 
-Use `MessageTemplateQuickAction` to define the payload for quick reply buttons and `MessageTemplateQuickAction` objects have the following three attributes.   
+Use `MessageTemplateQuickAction` to define the payload for quick reply buttons and `MessageTemplateQuickAction` objects have the following three attributes. 
+
 |  Properties   | Description |  Type |
 |----------|---------------------------|-----------|
 | Name  | The `name` is used to look up the value in `MessageTemplateWhatsAppBindings`. | string|
@@ -300,7 +301,8 @@ issueResolutionTemplate.Bindings = bindings;
 
 ### Templates with call to action buttons
 
-Use `MessageTemplateQuickAction` to define the url suffix for call to action buttons and `MessageTemplateQuickAction` object have the following three attributes.   
+Use `MessageTemplateQuickAction` to define the url suffix for call to action buttons and `MessageTemplateQuickAction` object have the following three attributes.
+
 |  Properties   | Description |  Type |
 |----------|---------------------------|-----------|
 | Name  | The `name` is used to look up the value in `MessageTemplateWhatsAppBindings`. | string|
