@@ -217,54 +217,54 @@ To avoid using administrative credentials, pull images from private repositories
 # [Bash](#tab/bash)
 
 1. Create a user-assigned managed identity. Before you run the following commands, choose a name for your managed identity and replace the `\<PLACEHOLDER\>` with the name.
-    
-```bash
-IDENTITY="<YOUR_IDENTITY_NAME>"
-```
 
-```azurecli
-az identity create \
-    --name $IDENTITY \
-    --resource-group $RESOURCE_GROUP
-```
+    ```bash
+    IDENTITY="<YOUR_IDENTITY_NAME>"
+    ```
+
+    ```azurecli
+    az identity create \
+        --name $IDENTITY \
+        --resource-group $RESOURCE_GROUP
+    ```
 
 1. Get the identity's resource ID.
 
-```azurecli
-IDENTITY_ID=$(az identity show \
-    --name $IDENTITY \
-    --resource-group $RESOURCE_GROUP \
-    --query id \
-    --output tsv)
-```
+    ```azurecli
+    IDENTITY_ID=$(az identity show \
+        --name $IDENTITY \
+        --resource-group $RESOURCE_GROUP \
+        --query id \
+        --output tsv)
+    ```
 
 # [Azure PowerShell](#tab/azure-powershell)
 
 1. Create a user-assigned managed identity. Before you run the following commands, choose a name for your managed identity and replace the `\<PLACEHOLDER\>` with the name.
 
-```azurepowershell
-$IdentityName="<YOUR_IDENTITY_NAME>"
-$Identity = New-AzUserAssignedIdentity -ResourceGroupName $ResourceGroup -Name $IdentityName
-```
+    ```azurepowershell
+    $IdentityName="<YOUR_IDENTITY_NAME>"
+    $Identity = New-AzUserAssignedIdentity -ResourceGroupName $ResourceGroup -Name $IdentityName
+    ```
 
 1. Get the identity's resource and principal ID. 
 
-```azurepowershell
-$IdentityId = $Identity.Id
-$PrincipalId = (Get-AzUserAssignedIdentity -Name $IdentityName -ResourceGroupName $ResourceGroup).PrincipalId
-```
+    ```azurepowershell
+    $IdentityId = $Identity.Id
+    $PrincipalId = (Get-AzUserAssignedIdentity -Name $IdentityName -ResourceGroupName $ResourceGroup).PrincipalId
+    ```
 
 1. Get the registry's resource ID. Before you run the following command, replace the *\<placeholders\>* with the resource group name for your registry.
 
-```azurepowershell
-$RegistryId = (Get-AzContainerRegistry -ResourceGroupName $ResourceGroup -Name $ACRName).Id
-```
+    ```azurepowershell
+    $RegistryId = (Get-AzContainerRegistry -ResourceGroupName $ResourceGroup -Name $ACRName).Id
+    ```
 
 1. Create the `acrpull` role assignment for the identity.
 
-```azurepowershell
-New-AzRoleAssignment -ObjectId $PrincipalId -Scope $RegistryId -RoleDefinitionName acrpull
-```
+    ```azurepowershell
+    New-AzRoleAssignment -ObjectId $PrincipalId -Scope $RegistryId -RoleDefinitionName acrpull
+    ```
 
 ---
 
