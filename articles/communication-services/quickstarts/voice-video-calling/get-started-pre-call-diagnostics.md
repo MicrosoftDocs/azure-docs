@@ -1,7 +1,7 @@
 ---
-title: Quickstart - Add pre call diagnostics to your app
+title: Quickstart - Add precall diagnostics to your app
 titleSuffix: An Azure Communication Services quickstart
-description: In this quickstart, you'll learn how to add pre call diagnostics capabilities to your app by using Azure Communication Services.
+description: In this quickstart, you will learn how to add pre call diagnostics capabilities to your app by using Azure Communication Services.
 author: yassirbisteni
 
 ms.author: ybisteni
@@ -30,9 +30,18 @@ ms.custom: mode-other, devx-track-js
 [!INCLUDE [Precall diagnostics with iOS](./includes/pre-call-diagnostics/pre-call-diagnostics-ios.md)]
 ::: zone-end
 
+## Pricing
+
+When the pre-call diagnostic test runs behind the scenes, it uses calling minutes to run the diagnostic. The test lasts for roughly 30 seconds, using up 30 seconds of calling time which is charged at the standard rate of $0.004 per participant per minute. For the case of pre-call diagnostics, the charge is for 1 participant x 30 seconds = $0.002.
+
 ## Next steps
 
-For more information, see the following articles:
+- [Check your network condition with the diagnostics tool](../../concepts/developer-tools/network-diagnostic.md)
+- [Explore User-Facing Diagnostic APIs](../../concepts/voice-video-calling/user-facing-diagnostics.md)
+- [Enable Media Quality Statistics in your application](../../concepts/voice-video-calling/media-quality-sdk.md)
+- [Consume call logs with Azure Monitor](../../concepts/analytics/logs/voice-and-video-logs.md)
+
+## Related articles
 
 - Check out the [calling hero sample](../../samples/calling-hero-sample.md).
 - Get started with the [UI Library](../../concepts/ui-library/ui-library-overview.md).

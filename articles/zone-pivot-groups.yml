@@ -1723,3 +1723,16 @@ groups:
     title: Premium v2 and Premium v3
   - id: isolated
     title: Isolated v2 (App Service Environment)
+#Owner: yassirbisteni
+- id: acs-plat-web-windows-android-ios
+  title: Platforms
+  prompt: Choose a platform
+  pivots:
+  - id: platform-web
+    title: JavaScript
+  - id: platform-windows
+    title: Windows
+  - id: platform-android
+    title: Android
+  - id: platform-ios
+    title: iOS

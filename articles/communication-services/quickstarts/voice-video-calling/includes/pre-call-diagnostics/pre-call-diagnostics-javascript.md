@@ -145,14 +145,3 @@ At this step, there are multiple possible failure points. The values provided by
 
 - If a connection fails, prompt users to recheck their network connectivity. Connection failures can also be attributed to network conditions like DNS, proxies, or firewalls. For more information on recommended network setting, see [Network recommendations](network-requirements.md).
 - If bandwidth is `Bad`, prompt users to try a different network or verify the bandwidth availability on their current network. Ensure no other high bandwidth activities are taking place.
-
-## Pricing
-
-When the precall diagnostic test runs behind the scenes, it uses calling minutes to run the diagnostic. The test lasts for roughly 30 seconds, using up 30 seconds of calling time which is charged at the standard rate of $0.004 per participant per minute. For the case of precall diagnostics, the charge is for 1 participant x 30 seconds = $0.002. 
-
-## Next steps
-
-- [Check your network condition with the diagnostics tool](../developer-tools/network-diagnostic.md)
-- [Explore User-Facing Diagnostic APIs](../voice-video-calling/user-facing-diagnostics.md)
-- [Enable Media Quality Statistics in your application](../voice-video-calling/media-quality-sdk.md)
-- [Consume call logs with Azure Monitor](../analytics/logs/voice-and-video-logs.md)

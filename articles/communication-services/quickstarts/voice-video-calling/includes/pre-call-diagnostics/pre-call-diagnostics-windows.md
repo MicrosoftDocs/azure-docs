@@ -76,14 +76,3 @@ The permission check determines whether video and audio devices are available fr
 ```c#
 var permissionList = preCallDiagnosticsFeature.DevicePermissions;
 ```
-
-## Pricing
-
-When the precall diagnostic test runs behind the scenes, it uses calling minutes to run the diagnostic. The test lasts for roughly 30 seconds, using up 30 seconds of calling time which is charged at the standard rate of $0.004 per participant per minute. For the case of precall diagnostics, the charge is for 1 participant x 30 seconds = $0.002. 
-
-## Next steps
-
-- [Check your network condition with the diagnostics tool](../developer-tools/network-diagnostic.md)
-- [Explore User-Facing Diagnostic APIs](../voice-video-calling/user-facing-diagnostics.md)
-- [Enable Media Quality Statistics in your application](../voice-video-calling/media-quality-sdk.md)
-- [Consume call logs with Azure Monitor](../analytics/logs/voice-and-video-logs.md)
