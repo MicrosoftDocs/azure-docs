@@ -168,15 +168,11 @@ Cluster create Logs can be viewed in the following locations:
 1. Azure portal Resource/ResourceGroup Activity logs.
 2. Azure CLI with `--debug` flag passed on command-line.
 
-## Set Deployment Threshold
+### Set Deployment Thresholds
 
-If the customer requests a compute deployment threshold that it is different from the default of 80%, you can run the following cluster update command.
+There are two types of deployment thresholds that can be set on a cluster prior to cluster deployment.  They are `compute-deployment-threshold` and `update-strategy`.
 
-The example below is for a customer using grouping="PerCluster" and "PercentSuccess" of 97.
-
-```azurecli
-az networkcloud cluster update --name <CLUSTER_NAME> --resource-group <CLUSTER_RG> --compute-deployment-threshold type="PercentSuccess" grouping="PerCluster" value=97 --subscription <SUBSCRIPTION_ID>
-```
+***--compute-deployment-threshold - The validation threshold indicating the allowable failures of compute nodes during environment hardware validation.***
 
 If `compute-deployment-threshold` is not set, the default are as follows:
 ```
@@ -186,17 +182,93 @@ If `compute-deployment-threshold` is not set, the default are as follows:
       "waitTimeMinutes": 1
 ```
 
-# Validate update:
+If the customer requests a `compute-deployment-threshold` that it is different from the default of 80%, you can run the following cluster update command.
+
+The example below is for a customer requesting type "PercentSuccess" with a success rate of 97%.
+
+```azurecli
+az networkcloud cluster update --name <CLUSTER_NAME> --resource-group <CLUSTER_RG> --compute-deployment-threshold type="PercentSuccess" grouping="PerCluster" value=97 --subscription <SUBSCRIPTION_ID>
 ```
-az networkcloud cluster show -g <CLUSTER_RG> -n <CLUSTER_NAME> --subscription <SUBSCRIPTION_ID> | grep -a3 computeDeploymentThreshold
+
+### Validate update:
+
+```
+az networkcloud cluster show -g <CLUSTER_RG> -n <CLUSTER_NAME> | grep -a3 computeDeploymentThreshold
 
   "clusterType": "MultiRack",
-  "clusterVersion": "<CLUSTER_VERSION>",
+  "clusterVersion": "<CLUSER_VERSION>",
   "computeDeploymentThreshold": {
     "grouping": "PerCluster",
     "type": "PercentSuccess",
     "value": 97
 ```
+    
+In this example, if less than 97% of the compute nodes being deployed pass hardware validation, the cluster deployment will fail.  ***NOTE:  All kubernetes control plane (KCP) and nexus management plane (NMP) must pass hardware validation.***  If 97% or more of the compute nodes being deployed pass hardware validation, the cluster deployment will continue to the bootstrap provisioning phase.  During compute bootstrap provisioning, the `update-strategy` (below) is used for compute nodes.
+
+
+***--update-strategy - The strategy for updating the cluster indicating the allowable compute node failures during bootstrap provisioning.***
+
+If the customer requests an `update-strategy` threshold that it is different from the default of 80%, you can run the following cluster update command.
+
+```azurecli
+az networkcloud cluster update -n <CLUSTER_NAME> -g <CLUSTER_RG> --update-strategy strategy-type="Rack" threshold-type="PercentSuccess" threshold-value=<DEPLOYMENT_THRESHOLD> wait-time-minutes=<DEPLOYMENT_PAUSE_MINS> --subscription <SUBSCRIPTION_ID>
+```
+
+strategy-type can be "Rack" (Rack by Rack) OR "PauseAfterRack" (Wait for customer response to continue)
+
+threshold-type can be "PercentSuccess" OR "CountSuccess"
+
+If updateStrategy is not set, the default are as follows:
+
+```
+      "strategyType": "Rack",
+      "thresholdType": "PercentSuccess",
+      "thresholdValue": 80,
+      "waitTimeMinutes": 1
+```
+
+
+
+The example below is for a customer using Rack by Rack strategy with a Percent Success of 60% and a 1 minute pause.
+
+```azurecli
+az networkcloud cluster update -n <CLUSTER_NAME> -g <CLUSTER_RG> --update-strategy strategy-type="Rack" threshold-type="PercentSuccess" threshold-value=60 wait-time-minutes=1 --subscription <SUBSCRIPTION_ID>
+```
+
+
+Verify update:
+
+```
+az networkcloud cluster show -g <CLUSTER_RG> -n <CLUSTER_NAME> --subscription <SUBSCRIPTION_ID>| grep -a5 updateStrategy
+      "strategyType": "Rack",
+      "thresholdType": "PercentSuccess",
+      "thresholdValue": 60,
+      "waitTimeMinutes": 1
+```
+
+In this example, if less than 60% of the compute nodes being provisioned in a rack fail to provision (on a rack by rack basis), the cluster deployment will fail.  If 60% or more of the compute nodes are successfully provisioned, cluster deployment moves on to the next rack of compute nodes.
+
+The example below is for a customer using Rack by Rack strategy with a threshold type CountSuccess of 10 nodes per rack and a 1 minute pause.
+
+```azurecli
+az networkcloud cluster update -n <CLUSTER_NAME> -g <CLUSTER_RG> --update-strategy strategy-type="Rack" threshold-type="CountSuccess" threshold-value=10 wait-time-minutes=1 --subscription <SUBSCRIPTION_ID>
+```
+
+
+Verify update:
+
+```
+az networkcloud cluster show -g <CLUSTER_RG> -n <CLUSTER_NAME> --subscription <SUBSCRIPTION_ID>| grep -a5 updateStrategy
+      "strategyType": "Rack",
+      "thresholdType": "CountSuccess",
+      "thresholdValue": 10,
+      "waitTimeMinutes": 1
+```
+
+In this example, if less than 10 compute nodes being provisioned in a rack fail to provision (on a rack by rack basis), the cluster deployment will fail.  If 10 or more of the compute nodes are successfully provisioned, cluster deployment moves on to the next rack of compute nodes.
+
+
+
 
 ## Deploy Cluster
 
