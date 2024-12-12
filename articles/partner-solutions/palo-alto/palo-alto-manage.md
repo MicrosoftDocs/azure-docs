@@ -29,7 +29,7 @@ From the Resource menu, select your Cloud NGFW by Palo Alto Networks deployment.
 
 1. Select the **Type** by checking the **Virtual Network** or **Virtual WAN** options.
 
-1. You can see the  **Virtual Network** , **Private Subnet**, and **Public Subnet** details.
+1. You can see the  **Virtual Network**, **Private Subnet**, and **Public Subnet** details.
 
 1. From **Source Network Address Translation (SNAT)**, you can select the **Enable Source NAT**.
 
