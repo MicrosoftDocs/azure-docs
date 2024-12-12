@@ -3,8 +3,8 @@ title: Quickstart - Add precall diagnostics to your app
 titleSuffix: An Azure Communication Services quickstart
 description: In this quickstart, you will learn how to add pre call diagnostics capabilities to your app by using Azure Communication Services.
 author: yassirbisteni
-
-ms.author: ybisteni
+manager: bobgao
+ms.author: yassirb
 ms.date: 12/12/2024
 ms.topic: quickstart
 ms.service: azure-communication-services

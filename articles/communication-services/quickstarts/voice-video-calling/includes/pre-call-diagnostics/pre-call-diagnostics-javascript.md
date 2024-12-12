@@ -15,20 +15,20 @@ ms.service: azure-communication-services
 
 [!INCLUDE [Public Preview Disclaimer](../../../../includes/public-preview-include.md)]
 
-The precall API feature enables developers to programmatically validate a client’s readiness to join an Azure Communication Services call. You can only access precall features using the Calling SDK. The precall diagnostic feature provides multiple diagnostics including device, connection, and call quality. Provide us with [feedback](../../support.md) about which platforms you want to see precall diagnostics enabled.
+The precall API feature enables developers to programmatically validate a client’s readiness to join an Azure Communication Services call. You can only access precall features using the Calling SDK. The precall diagnostic feature provides multiple diagnostics including device, connection, and call quality. Provide us with [feedback](../../../../support.md) about which platforms you want to see precall diagnostics enabled.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Node.js](https://nodejs.org/) active Long Term Support(LTS) versions are recommended.
-- An active Communication Services resource. [Create a Communication Services resource](../../quickstarts/create-communication-resource.md).
-- A User Access Token to instantiate the call client. Learn how to [create and manage user access tokens](../../quickstarts/identity/access-tokens.md). You can also use the Azure CLI and run the next command with your connection string to create a user and an access token. Remember to copy the connection string from the resource through Azure portal.
+- An active Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md).
+- A User Access Token to instantiate the call client. Learn how to [create and manage user access tokens](../../../identity/access-tokens.md). You can also use the Azure CLI and run the next command with your connection string to create a user and an access token. Remember to copy the connection string from the resource through Azure portal.
 
   ```azurecli-interactive
   az communication identity token issue --scope voip --connection-string "yourConnectionString"
   ```
 
-  For more information, see [Use Azure CLI to Create and Manage Access Tokens](../../quickstarts/identity/access-tokens.md?pivots=platform-azcli).
+  For more information, see [Use Azure CLI to Create and Manage Access Tokens](../../../identity/access-tokens.md?pivots=platform-azcli).
 
 ## Accessing precall diagnostics
 
@@ -82,7 +82,7 @@ const browserSupport =  await preCallDiagnosticsResult.browserSupport;
 
 ```
 
-If the test fails and the browser being used by the user is `NotSupported`, the easiest way to fix that is by asking the user to switch to a supported browser. Refer to the supported browsers in [Calling SDK overview > JavaScript Calling SDK support by OS and browser](./calling-sdk-features.md#javascript-calling-sdk-support-by-os-and-browser).
+If the test fails and the browser being used by the user is `NotSupported`, the easiest way to fix that is by asking the user to switch to a supported browser. Refer to the supported browsers in [Calling SDK overview > JavaScript Calling SDK support by OS and browser](../../../../concepts/voice-video-calling/calling-sdk-features.md#javascript-calling-sdk-support-by-os-and-browser).
 
 >[!NOTE]
 >Known issue: `browser support` test returning `Unknown` in cases where it should be returning a correct value.
@@ -118,19 +118,18 @@ Device availability. Checks whether microphone, camera, and speaker devices are 
 
 ```
 
-If devices aren't available, the user shouldn't continue into joining a call. Rather, prompt the user to check device connections to ensure any headsets, cameras, or speakers are properly connected. For more information about device management, see [Manage video during calls](../../how-tos/calling-sdk/manage-video.md?pivots=platform-web#device-management).
+If devices aren't available, the user shouldn't continue into joining a call. Rather, prompt the user to check device connections to ensure any headsets, cameras, or speakers are properly connected. For more information about device management, see [Manage video during calls](../../../../how-tos/calling-sdk/manage-video.md?pivots=platform-web#device-management).
 
 ### InCall diagnostics
 
 Performs a quick call to check in-call metrics for audio and video and provides results back. Includes connectivity (`connected`, boolean), bandwidth quality (`bandWidth`, `'Bad' | 'Average' | 'Good'`) and call diagnostics for audio and video (`diagnostics`). Provided diagnostic categories include `jitter`, `packetLoss`, and `rtt` and results are generated using a simple quality grade (`'Bad' | 'Average' | 'Good'`).
 
-InCall diagnostics uses [Media quality statistics](./media-quality-sdk.md) to calculate quality scores and diagnose issues. During the precall diagnostic, the full set of media quality statistics are available for consumption. These statistics include raw values across video and audio metrics that you can use programatically.
+InCall diagnostics uses [Media quality statistics](../../../../concepts/voice-video-calling/media-quality-sdk.md) to calculate quality scores and diagnose issues. During the precall diagnostic, the full set of media quality statistics are available for consumption. These statistics include raw values across video and audio metrics that you can use programatically.
 
-The InCall diagnostic provides a convenience layer on top of media quality statistics to consume the results without the need to process all the raw data. For more information including instructions to access, see [Media quality statistics for an ongoing call](./media-quality-sdk.md#media-quality-statistics-for-an-ongoing-call).
+The InCall diagnostic provides a convenience layer on top of media quality statistics to consume the results without the need to process all the raw data. For more information including instructions to access, see [Media quality statistics for an ongoing call](../../../../concepts/voice-video-calling/media-quality-sdk.md#media-quality-statistics-for-an-ongoing-call).
 
 
 ```javascript
-
   const inCallDiagnostics =  await preCallDiagnosticsResult.inCallDiagnostics;
   if(inCallDiagnostics) {    
     console.log(inCallDiagnostics.connected)
@@ -138,10 +137,9 @@ The InCall diagnostic provides a convenience layer on top of media quality stati
     console.log(inCallDiagnostics.diagnostics.audio)
     console.log(inCallDiagnostics.diagnostics.video)
   }
-
 ```
 
-At this step, there are multiple possible failure points. The values provided by the API are based on the threshold values required by the service. The raw thresholds can be found in [Media quality statistics](./media-quality-sdk.md#best-practices).
+At this step, there are multiple possible failure points. The values provided by the API are based on the threshold values required by the service. The raw thresholds can be found in [Media quality statistics](../../../../concepts/voice-video-calling/media-quality-sdk.md#best-practices).
 
-- If a connection fails, prompt users to recheck their network connectivity. Connection failures can also be attributed to network conditions like DNS, proxies, or firewalls. For more information on recommended network setting, see [Network recommendations](network-requirements.md).
+- If a connection fails, prompt users to recheck their network connectivity. Connection failures can also be attributed to network conditions like DNS, proxies, or firewalls. For more information on recommended network setting, see [Network recommendations](../../../../concepts/voice-video-calling/network-requirements.md).
 - If bandwidth is `Bad`, prompt users to try a different network or verify the bandwidth availability on their current network. Ensure no other high bandwidth activities are taking place.
