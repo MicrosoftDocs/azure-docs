@@ -68,6 +68,8 @@ Configure following Local Group Policy settings to allow USB redirection on your
 
 If the Android device isn't accessible to ADB, check the latest device drivers are installed and the device displays in Device Manager. 
 
+Perform the following steps on your dev box:
+
 1. To open Device Manager, from the search box on the taskbar, run `devmgmt.msc`.
 1. Ensure the Google USB driver is installed and the device appears as [**Android Device \ Android Composite ADB Interface**](https://developer.android.com/studio/run/win-usb). 
     - Devices from other manufacturers might not display in Device manager. 
