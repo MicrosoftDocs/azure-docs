@@ -1008,7 +1008,7 @@ Operator of the Desktop Virtualization User Session.
   "assignableScopes": [
     "/"
   ],
-  "description": "Operator of the Desktop Virtualization Uesr Session.",
+  "description": "Operator of the Desktop Virtualization User Session.",
   "id": "/providers/Microsoft.Authorization/roleDefinitions/ea4bfff8-7fb4-485a-aadd-d4129a0ffaa6",
   "name": "ea4bfff8-7fb4-485a-aadd-d4129a0ffaa6",
   "permissions": [

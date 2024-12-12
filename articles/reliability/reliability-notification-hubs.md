@@ -43,7 +43,7 @@ During a zone-wide outage, no action is required during zone recovery. Notificat
 You can only enable availability zones on new namespaces. Because Notification Hubs doesn't support the migration of existing namespaces, you can't disable zone redundancy after enabling it on your namespace.
 
 
-:::image type="content" source="./media/reliability-notification-hubs/enable-availability-zones.png" alt-text="Screenshow showing availability zones enabled." :::
+:::image type="content" source="./media/reliability-notification-hubs/enable-availability-zones.png" alt-text="Screenshot showing availability zones enabled." :::
 
 
 To learn how to set up a new namespace with availability zones, see [Create an Azure notification hub in the Azure portal](/azure/notification-hubs/create-notification-hub-portal).
