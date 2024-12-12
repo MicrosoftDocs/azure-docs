@@ -3,7 +3,7 @@
         {
             "source_path_from_root": "/articles/sentinel/deployment-attack-disrupt.md",
             "redirect_url": "/defender-xdr/automatic-attack-disruption",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path_from_root": "/articles/sentinel/business-applications/power-platform-solution-troubleshoot.md",
