@@ -30,7 +30,7 @@ In this quickstart, you explore the architecture of an AI application in Azure C
 
 - [Maven](https://maven.apache.org/download.cgi).
 
-- [Azure Developer CLI (azd)](/azure/developer/azure-developer-cli/install-azd). |
+- [Azure Developer CLI (azd)](/azure/developer/azure-developer-cli/install-azd).
 
 ## General architecture structure
 
