@@ -40,7 +40,7 @@ The following diagram shows the architecture of the AI application on Azure Cont
    Diagram that shows the architecture of the AI application. Users access the system through authentication managed by Entra ID. The Azure Container App environment contains an API gatewway that enables routing for and communication with the application. The API gateway uses managed identities to securely interact with the Azure Container Registry and with Azure Cognitive Services. The API gateway also handles communication with external users. A virtual network between the API gateway and external systems provides secure and isolated network connectivity.
 :::image-end:::
 
-The following are the key components of this sample:
+The following are the key components of this sample application:
 
 - [Azure Container Apps Environment](/azure/container-apps/environment), to run the container apps instances.
 - [Azure OpenAI Service](/azure/ai-services/openai/overview).
