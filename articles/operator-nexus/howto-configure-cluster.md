@@ -187,6 +187,7 @@ If `compute-deployment-threshold` is not set, the default are as follows:
 ```
 
 # Validate update:
+```
 az networkcloud cluster show -g <CLUSTER_RG> -n <CLUSTER_NAME> --subscription <SUBSCRIPTION_ID> | grep -a3 computeDeploymentThreshold
 
   "clusterType": "MultiRack",
