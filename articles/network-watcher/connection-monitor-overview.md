@@ -21,7 +21,7 @@ Connection monitor tests measure aggregated packet loss and network latency metr
 
 ## Connection monitor use cases
 
-Here are some use cases for connection monitor:
+Here are some use cases of connection monitor:
 
 - Your front-end web server virtual machine (VM) communicates with a database server VM in a multi-tier application. You want to check network connectivity between the two VMs.
 - You want to check the connectivity from single or multiple instances of an Azure Virtual Machine Scale Set to your Azure or non-Azure multi-tier application. 
