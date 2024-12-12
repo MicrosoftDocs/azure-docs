@@ -1,6 +1,6 @@
 ---
 title: About Azure Firewall roles and permissions
-titleSuffix: Azure Firewall Gateway
+titleSuffix: Azure Firewall
 description: Learn about roles and permissions for Azure Firewall.
 author: raboilla
 ms.service: azure-firewall
