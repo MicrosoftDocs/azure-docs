@@ -39,11 +39,11 @@ Depending on whether you're creating new resources or using existing ones, add t
 | IP addresses| Create new| Microsoft.Network/publicIPAddresses/write<br>Microsoft.Network/publicIPAddresses/join/action |
 | IP addresses  | Use existing| Microsoft.Network/publicIPAddresses/read<br>Microsoft.Network/publicIPAddresses/join/action |
 
-If you are creating an Azure Firewall in Azure Virtual WAN, add the following persmission:
+If you are creating an Azure Firewall in Azure Virtual WAN, add the following permission:
 
 |Resource | Resource status | Required Azure permissions |
 |---|---|---|
-| virtualHubs | Create new | Microsoft.Network/virtualHubs/read<br>Microsoft.Network/vvirtualHubs/join/action
+| virtualHubs | Create new | Microsoft.Network/virtualHubs/read
 
 For more information, see [Azure permissions for Networking](../role-based-access-control/permissions/networking.md) and [Virtual network permissions](../virtual-network/virtual-network-manage-subnet.md#permissions).
 
