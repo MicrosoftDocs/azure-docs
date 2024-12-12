@@ -18,7 +18,7 @@ ExpressRoute circuits connect your on-premises infrastructure to Microsoft throu
 > [!NOTE]
 > In the context of ExpressRoute, the Microsoft Edge refers to the edge routers on the Microsoft side of the ExpressRoute circuit. This is the entry point of the ExpressRoute circuit into Microsoft's network.
 
-## ExpressRoute circuits
+## <a name="circuits"></a>ExpressRoute circuits
 
 An ExpressRoute circuit is a logical connection between your on-premises infrastructure and Microsoft cloud services through a connectivity provider. You can have multiple ExpressRoute circuits, each in the same, or different regions, connected to your premises through different connectivity providers.
 
@@ -28,7 +28,7 @@ New ExpressRoute circuits can include two independent peerings: Private peering 
 
 Each circuit has a fixed bandwidth (50 Mbps, 100 Mbps, 200 Mbps, 500 Mbps, 1 Gbps, 2 Gbps, 5 Gbps, 10 Gbps) shared across all circuit peerings and is mapped to a connectivity provider and a peering location.
 
-### Quotas, limits, and limitations
+### <a name="quotas"></a>Quotas, limits, and limitations
 
 Default quotas and limits apply to every ExpressRoute circuit. Refer to the [Azure Subscription and Service Limits, Quotas, and Constraints](../azure-resource-manager/management/azure-subscription-service-limits.md) page for up-to-date information.
 
@@ -45,19 +45,19 @@ Default quotas and limits apply to every ExpressRoute circuit. Refer to the [Azu
 
 * Change from *UnlimitedData* to *MeteredData*.
 
-## ExpressRoute peering
+## <a name="routingdomains"></a>ExpressRoute peering
 
 An ExpressRoute circuit has two routing domains/peerings: Azure Private and Microsoft. Each peering is configured identically on a pair of routers for high availability. Azure services are categorized as *Azure public* and *Azure private* to represent the IP addressing schemes.
 
 ![Diagram showing how Azure Private and Microsoft peerings are configured in an ExpressRoute circuit.](./media/expressroute-circuit-peerings/expressroute-peerings.png)
 
-### Azure private peering
+### <a name="privatepeering"></a>Azure private peering
 
 Azure compute services, such as virtual machines (IaaS) and cloud services (PaaS), deployed within a virtual network can be connected through the private peering domain. This domain is considered a trusted extension of your core network into Microsoft Azure. You can set up bi-directional connectivity between your core network and Azure virtual networks (VNets), allowing you to connect to virtual machines and cloud services directly on their private IP addresses.
 
 You can connect multiple virtual networks to the private peering domain. Review the [FAQ page](expressroute-faqs.md) for information on limits and limitations. Visit the [Azure Subscription and Service Limits, Quotas, and Constraints](../azure-resource-manager/management/azure-subscription-service-limits.md) page for up-to-date information. Refer to the [Routing](expressroute-routing.md) page for detailed routing configuration information.
 
-### Microsoft peering
+### <a name="microsoftpeering"></a>Microsoft peering
 
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
@@ -68,7 +68,7 @@ For more information on supported services, costs, and configuration details, se
 > [!IMPORTANT]
 > If you're connecting to a service using Microsoft Peering with unlimited data, only egress data won't be charged by ExpressRoute. Egress data will still be charged for services such as compute, storage, or any other services accessed over Microsoft peering, even if the destination is a Microsoft peering public IP address.
 
-## Peering comparison
+## <a name="peeringcompare"></a>Peering comparison
 
 The following table compares the two peerings:
 
@@ -78,7 +78,7 @@ You may enable one or more routing domains as part of your ExpressRoute circuit.
 
 Each peering requires separate BGP sessions (one pair for each peering type). The BGP session pairs provide a highly available link. If you're connecting through layer 2 connectivity providers, you're responsible for configuring and managing routing. Learn more by reviewing the [workflows](expressroute-workflows.md) for setting up ExpressRoute.
 
-## ExpressRoute health
+## <a name="health"></a>ExpressRoute health
 
 ExpressRoute circuits can be monitored for availability, connectivity to VNets, and bandwidth utilization using [ExpressRoute Network Insights](expressroute-network-insights.md).
 
