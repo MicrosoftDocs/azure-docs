@@ -20,7 +20,7 @@ To connect a device to IoT Hub using an X.509 certificate:
 
 This example shows certificate input parameter values as local variables for clarity. In a production system, store sensitive input parameters in environment variables or another more secure storage location. For example, use `Environment.GetEnvironmentVariable("HOSTNAME")` to read the host name environment variable.
 
-In this example, the `auth` `DeviceAuthenticationWithX509Certificate` object has been populated with device and certificate information and is passed as to `DeviceClient.Create`. An example of `DeviceAuthenticationWithX509Certificate` information population has been omitted because of the flexible nature of how the certificate information can be added.
+In this example, the device and certificate information populated `auth` `DeviceAuthenticationWithX509Certificate` object is passed as to `DeviceClient.Create`. An example of `DeviceAuthenticationWithX509Certificate` information population is omitted because of the flexible nature of how the certificate information can be added.
 
 ```csharp
 HostName = "xxxxx.azure-devices.net";
@@ -44,4 +44,4 @@ For working samples of device X.509 certificate authentication, see:
 
 * [Connect with X.509 certificate](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/device/samples/how%20to%20guides/X509DeviceCertWithChainSample)
 * [DeviceClientX509AuthenticationE2ETests](https://github.com/Azure/azure-iot-sdk-csharp/blob/main/e2e/test/iothub/DeviceClientX509AuthenticationE2ETests.cs)
-* [Guided project - Provision IoT devices securely and at scale with IoT Hub Device Provisioning Service](https://learn.microsoft.com/en-us/training/modules/provision-iot-devices-secure-scale-with-iot-hub-dps/)
+* [Guided project - Provision IoT devices securely and at scale with IoT Hub Device Provisioning Service](/training/modules/provision-iot-devices-secure-scale-with-iot-hub-dps/)
