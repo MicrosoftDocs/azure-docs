@@ -1,6 +1,31 @@
 {
   "redirections": [
     {
+      "source_path": "articles/operator-call-protection/deployment-overview.md",
+      "redirect_url": "/previous-versions/azure/operator-call-protection/deployment-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/operator-call-protection/onboarding.md",
+      "redirect_url": "/previous-versions/azure/operator-call-protection/onboarding",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/operator-call-protection/overview.md",
+      "redirect_url": "/previous-versions/azure/operator-call-protection/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/operator-call-protection/responsible-ai-faq.md",
+      "redirect_url": "/previous-versions/azure/operator-call-protection/responsible-ai-faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/operator-call-protection/set-up-operator-call-protection.md",
+      "redirect_url": "/previous-versions/azure/operator-call-protection/set-up-operator-call-protection",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/partner-solutions/split-experimentation/create.md",
       "redirect_url": "/previous-versions/azure/partner-solutions/split-experimentation/create",
       "redirect_document_id": false
