@@ -21,12 +21,12 @@ This article describes future upgrades for some connectors of Azure Data Factory
 
 | Connector|Upgrade Guidance|Release stage |End of Support Date  |Disabled Date  | 
 |:-- |:-- |:-- |:-- | :-- | 
-| [Google BigQuery (legacy)](connector-google-bigquery-legacy.md)  | [Link](connector-google-bigquery.md#upgrade-the-google-bigquery-linked-service) |End of support announced and GA version available | October 31, 2024 | / | 
-| [MariaDB (legacy driver version)](connector-mariadb.md)  | [Link](connector-mariadb.md#upgrade-the-mariadb-driver-version) | End of support announced and GA version available | October 31, 2024 | /| 
-| [MySQL (legacy driver version)](connector-mysql.md)  | [Link](connector-mysql.md#upgrade-the-mysql-driver-version) |End of support announced and GA version available | October 31, 2024| /| 
+| [Google BigQuery (legacy)](connector-google-bigquery-legacy.md)  | [Link](connector-google-bigquery.md#upgrade-the-google-bigquery-linked-service) |End of support and GA version available | October 31, 2024 | / | 
+| [MariaDB (legacy driver version)](connector-mariadb.md)  | [Link](connector-mariadb.md#upgrade-the-mariadb-driver-version) | End of support and GA version available | October 31, 2024 | /| 
+| [MySQL (legacy driver version)](connector-mysql.md)  | [Link](connector-mysql.md#upgrade-the-mysql-driver-version) |End of support and GA version available | October 31, 2024| /| 
 | [Salesforce (legacy)](connector-salesforce-legacy.md)   | [Link](connector-salesforce.md#upgrade-the-salesforce-linked-service) | GA version available | To be determined | /| 
 | [Salesforce Service Cloud (legacy)](connector-salesforce-service-cloud-legacy.md)   | [Link](connector-salesforce-service-cloud.md#upgrade-the-salesforce-service-cloud-linked-service) | GA version available | To be determined |/ | 
-| [PostgreSQL (legacy)](connector-postgresql-legacy.md)   | [Link](connector-postgresql.md#upgrade-the-postgresql-linked-service)| End of support announced and GA version available |October 31, 2024 | /  | 
+| [PostgreSQL (legacy)](connector-postgresql-legacy.md)   | [Link](connector-postgresql.md#upgrade-the-postgresql-linked-service)| End of support and GA version available |October 31, 2024 | /  | 
 | [ServiceNow (legacy)](connector-servicenow-legacy.md)   | [Link](connector-servicenow.md#upgrade-your-servicenow-linked-service) | GA version available | To be determined | / | 
 | [Snowflake (legacy)](connector-snowflake-legacy.md)   | [Link](connector-snowflake.md#upgrade-the-snowflake-linked-service) | GA version available | To be determined | /  | 
 | [Vertica (version 1.0)](connector-vertica.md)| [Link](connector-vertica.md#upgrade-the-vertica-version) | Preview version available | To be determined | /  | 
