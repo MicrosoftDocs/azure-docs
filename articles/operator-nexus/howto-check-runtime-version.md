@@ -15,7 +15,7 @@ This how-to guide explains the steps to determine the runtime version of the key
 
 ## Prerequisites
 
-1. The [Install Azure CLI](/cli/azure/install-azure-cli.md) must be installed.
+1. The [Install Azure CLI](/cli/azure/install-azure-cli) must be installed.
 2. The `networkcloud` CLI extension is required. If the `networkcloud` extension isn't installed, it can be installed following the steps listed [here](./howto-install-cli-extensions.md)
 3. Access to the Azure portal for the target cluster to be upgraded.
 4. You must be logged in to the same subscription as your target cluster via `az login`
