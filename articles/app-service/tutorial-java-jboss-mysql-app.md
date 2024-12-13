@@ -750,7 +750,7 @@ az mysql flexible-server connect -n <server-name-only> -u <user> -d <database> -
 For more information, see:
 - [How to use managed identities for App Service and Azure Functions](overview-managed-identity.md)
 - [Authenticate to Azure using Azure CLI](/cli/azure/authenticate-azure-cli)
-- [Connect to Azure Database for MySQL Flexible Server using Microsoft Entra ID](../mysql/flexible-server/how-to-azure-ad.md#connect-to-azure-database-for-mysql-flexible-server-using-microsoft-entra-id)
+- [Connect to Azure Database for MySQL Flexible Server using Microsoft Entra ID](/azure/mysql/flexible-server/how-to-azure-ad#connect-to-azure-database-for-mysql-flexible-server-using-microsoft-entra-id)
 
 #### How does local app development work with GitHub Actions?
 
