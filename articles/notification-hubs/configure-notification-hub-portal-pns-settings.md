@@ -41,7 +41,7 @@ To set up Apple Push Notification Service (APNS):
      
      
      
-             b. If you select **Token**:
+     b. If you select **Token**:
 
    * Enter the values for **Key ID**, **Bundle ID**, **Team ID**, and **Token**.
    * Select **Sandbox** mode. Or, to send push notifications to users who purchased your app from the store, select **Production** mode.
