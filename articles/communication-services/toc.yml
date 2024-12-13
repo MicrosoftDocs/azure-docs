@@ -899,6 +899,10 @@ items:
         href: ../event-grid/event-schema-communication-services.md
       - name: Voice and Video events
         href: ../event-grid/communication-services-voice-video-events.md
+    - name: Real Time Text
+      items:
+      - name: Real Time Text overview
+        href: concepts/voice-video-calling/real-time-text.md
     - name: Closed captions
       items:
       - name: Closed captions overview
