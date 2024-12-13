@@ -4,12 +4,8 @@
   href: overview.md
 - name: Concepts
   items:
-  - name: Business continuity
-    href: concept-business-continuity.md
-  - name: High availability
-    href: concept-high-availability.md
-  - name: Disaster recovery
-    href: concept-disaster-recovery.md
+  - name: Business continuity, high availability, and disaster recovery
+    href: concept-business-continuity-high-availability-disaster-recovery.md
 - name: Availability zone support
   items:
   - name: What are Azure availability zones?

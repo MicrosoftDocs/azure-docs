@@ -46,11 +46,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Business continuity
-            url: concept-business-continuity.md
-          - text: High availability
-            url: concept-high-availability.md
-          - text: Disaster recovery
-            url: concept-disaster-recovery.md
+            url: concept-business-continuity-high-availability-disaster-recovery
           - text: Cross-region replication
             url: cross-region-replication-azure.md
           - text: Cross-region replication for non-paired regions
