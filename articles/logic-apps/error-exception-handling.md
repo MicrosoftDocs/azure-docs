@@ -210,19 +210,19 @@ For example, to run the Office 365 Outlook **Send an email** action after the Ex
 
    ![Screenshot showing the designer, current action, and default "run after" set to "is successful".](./media/error-exception-handling/change-run-after-status.png)
 
-1. Change the "run after" behavior to the status that you want. Make sure that you first select an option before you clear the default option. You have to always have at least one option selected.
+1. To change the "run after" behavior to the statuses that you want, select those statuses. Make sure that you first select an option before you clear the default option. You have to always have at least one option selected.
 
-   The following example selects **has failed**.
+   The following example selects **Has failed**.
 
-   ![Screenshot showing the designer, current action, and "run after" set to "has failed".](./media/error-exception-handling/failed-run-after-status.png)
+   ![Screenshot shows current action with run after behavior set to Has failed.](./media/error-exception-handling/failed-run-after-status.png)
 
-1. To specify that the current action runs whether the predecessor action is marked as **Failed**, **Skipped**, or **TimedOut**, select the other statuses.
+1. To specify that the current action runs when the predecessor action completes with **Failed**, **Skipped**, or **TimedOut** status, select these statuses.
 
-   ![Screenshot showing the designer, current action, and multiple "run after" statuses selected.](./media/error-exception-handling/run-after-multiple-statuses.png)
+   ![Screenshot shows current action and multiple selected run after statuses.](./media/error-exception-handling/run-after-multiple-statuses.png)
 
 1. To require that more than one predecessor action runs, each with their own "run after" statuses, expand the **Select actions** list. Select the predecessor actions that you want, and specify their required "run after" statuses.
 
-   ![Screenshot showing the designer, current action, and multiple predecessor actions available.](./media/error-exception-handling/multiple-predecessor-actions.png)
+   ![Screenshot shows current action and available multiple predecessor actions.](./media/error-exception-handling/multiple-predecessor-actions.png)
 
 1. When you're ready, select **Done**.
 
