@@ -204,11 +204,11 @@ For example, to run the Office 365 Outlook **Send an email** action after the Ex
    ![Screenshot shows workflow designer and current action details pane with selected Settings tab.](./media/error-exception-handling/configure-run-after.png)
 
 
-1. Expand the predecessor action node to view all the "run after" statuses.
+1. Expand the predecessor action to view all the possible predecessor statuses.
 
-   By default, the "run after" status is set to **is successful**. So, the predecessor action must run successfully before the currently selected action can run.
+   By default, the "run after" status is set to **Is successful**. So, the predecessor action must successfully finish before the currently selected action can run.
 
-   ![Screenshot showing the designer, current action, and default "run after" set to "is successful".](./media/error-exception-handling/change-run-after-status.png)
+   ![Screenshot shows current action and its default run after status set to Is successful.](./media/error-exception-handling/change-run-after-status.png)
 
 1. To change the "run after" behavior to the statuses that you want, select those statuses. Make sure that you first select an option before you clear the default option. You have to always have at least one option selected.
 
