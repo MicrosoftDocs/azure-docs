@@ -68,9 +68,11 @@ Deployment instructions are in the README.md.
 
 ## [Access Key Authentication](#tab/accesskey)
 
-### Add a local secret for the host name
-
 [!INCLUDE [redis-access-key-alert](includes/redis-access-key-alert.md)]
+
+[!INCLUDE [redis-cache-passwordless](includes/redis-cache-passwordless.md)]
+
+### Add a local secret for the host name
 
 In your command window, execute the following command to store a new secret named *RedisHostName*, after replacing the placeholders, including angle brackets, for your cache name and primary access key:
 
