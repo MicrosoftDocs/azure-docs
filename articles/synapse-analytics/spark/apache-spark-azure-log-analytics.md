@@ -7,7 +7,7 @@ ms.reviewer: whhender
 ms.service: azure-synapse-analytics
 ms.topic: how-to
 ms.subservice: spark
-ms.date: 12/02/2024
+ms.date: 12/13/2024
 ms.custom: references_regions
 ---
 
@@ -111,14 +111,14 @@ You can create an Apache Spark Configuration to your workspace, and when you cre
    1. Select **New** button to create a new Apache Spark configuration.
    1. **New Apache Spark configuration** page will be opened after you select **New** button.
 
-      ![Screenshot that create spark configuration.](./media/apache-spark-azure-log-analytics/create-spark-configuration.png)
+      :::image type="content" source="./media/apache-spark-azure-log-analytics/create-spark-configuration.png" alt-text="Screenshot that create spark configuration.":::
 
    1. For **Name**, you can enter your preferred and valid name.
    1. For **Description**, you can input some description in it.
    1. For **Annotations**, you can add annotations by clicking the **New** button, and also you can delete existing annotations by selecting and clicking **Delete** button.
    1. For **Configuration properties**, add all the properties from the configuration option you chose by selecting the **Add** button. For **Property** add the property name as listed, and for **Value** use the value you gathered during step 2. If you don't add a property, Azure Synapse will use the default value when applicable.
 
-      ![Screenshot with an example for updating configuration properties.](./media/apache-spark-azure-log-analytics/spark-configuration.png)
+      :::image type="content" source="./media/apache-spark-azure-log-analytics/spark-configuration.png" alt-text="Screenshot with an example for updating configuration properties.":::
 
 ## Submit an Apache Spark application and view the logs and metrics
 
@@ -226,23 +226,23 @@ Users can query to evaluate metrics and logs at a set frequency, and fire an ale
 
 After the Synapse workspace is created with [data exfiltration protection](../security/workspace-data-exfiltration-protection.md) enabled.
 
-When you want to enable this feature, you need to create managed private endpoint connection requests to [Azure Monitor private link scopes (A M P L S)](/azure/azure-monitor/logs/private-link-security) in the workspace’s approved Microsoft Entra tenants.
+When you want to enable this feature, you need to create managed private endpoint connection requests to [Azure Monitor private link scopes (AMPLS)](/azure/azure-monitor/logs/private-link-security) in the workspace’s approved Microsoft Entra tenants.
 
-You can follow below steps to create a managed private endpoint connection to Azure Monitor private link scopes (A M P L S):
+You can follow below steps to create a managed private endpoint connection to Azure Monitor private link scopes (AMPLS):
 
-1. If there's no existing A M P L S, you can follow [Azure Monitor Private Link connection setup](/azure/azure-monitor/logs/private-link-security) to create one.
-1. Navigate to your A M P L S in Azure portal, on the **Azure Monitor Resources** page, select **Add** to add connection to your Azure Log Analytics workspace.
+1. If there's no existing AMPLS, you can follow [Azure Monitor Private Link connection setup](/azure/azure-monitor/logs/private-link-security) to create one.
+1. Navigate to your AMPLS in Azure portal, on the **Azure Monitor Resources** page, select **Add** to add connection to your Azure Log Analytics workspace.
 1. Navigate to **Synapse Studio > Manage > Managed private endpoints**, select **New** button, select **Azure Monitor Private Link Scopes**, and **continue**.
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of create A M P L S managed private endpoint 1.](./media/apache-spark-azure-log-analytics/create-ampls-private-endpoint-1.png)
+   > ![Screenshot of create AMPLS managed private endpoint 1.](./media/apache-spark-azure-log-analytics/create-ampls-private-endpoint-1.png)
 1. Choose your Azure Monitor Private Link Scope you created, and select **Create** button.
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of create A M P L S managed private endpoint 2.](./media/apache-spark-azure-log-analytics/create-ampls-private-endpoint-2.png)
+   > ![Screenshot of create AMPLS managed private endpoint 2.](./media/apache-spark-azure-log-analytics/create-ampls-private-endpoint-2.png)
 1. Wait a few minutes for private endpoint provisioning.
-1. Navigate to your A M P L S in Azure portal again, on the **Private Endpoint connections** page, select the connection provisioned and **Approve**.
+1. Navigate to your AMPLS in Azure portal again, on the **Private Endpoint connections** page, select the connection provisioned and **Approve**.
 
 > [!NOTE]
->  - The A M P L S object has a number of limits you should consider when planning your Private Link setup. See [A M P L S limits](/azure/azure-monitor/logs/private-link-security) for a deeper review of these limits. 
+>  - The AMPLS object has a number of limits you should consider when planning your Private Link setup. See [AMPLS limits](/azure/azure-monitor/logs/private-link-security) for a deeper review of these limits. 
 >  - Check if you have [right permission](../security/synapse-workspace-access-control-overview.md) to create managed private endpoint.
 
 ## Related content
