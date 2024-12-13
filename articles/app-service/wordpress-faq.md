@@ -10,6 +10,7 @@ ms.date: 12/13/2024
 ms.author: areddys
 ms.custom: mvc, linux-related-content
 ---
+# WordPress on App Service: Frequently Asked Questions
 
 ## Are there limits on the number of sites, visits, storage, or bandwidth?
 
