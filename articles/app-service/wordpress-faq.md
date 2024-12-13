@@ -48,7 +48,7 @@ Azure App Service integrates robust security features to safeguard WordPress sit
 - **[Managed Identities](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities):** Credential-free access to resources using Microsoft Entra tokens.
 - **[Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction):** Proactive threat detection with DevSecOps integration.
 - **[Azure Key Vault](/azure/key-vault/):** Secure storage for keys, secrets, and certificates.
-- **[Microsoft Entra ID]/entra/identity/):** Single sign-On (SSO) for seamless authentication.
+- **[Microsoft Entra ID](/entra/identity/):** Single sign-On (SSO) for seamless authentication.
 
 
 
