@@ -25,9 +25,9 @@ Key:
 |--------|--------------|---------------|---------------|-----------------|---------------------------|--------|
 | East US | &check; |         | &check; | &check; | &check; | &check; |
 | East US2 | &check; |         | &check; | &check; | &check; | &check; |
-| South Central US |         | &check; | - | - | - | - |
-| North Central US |         | &check; | - | - | - | - |
-| West Central US |         | &check; | - | - | - | - |
+| South Central US | &check; |         | - | - | - | - |
+| North Central US | &check; |         | - | - | - | - |
+| West Central US | &check; |         | - | - | - | - |
 | West US2 | &check; |         | - | - | - | - |
 | West US3 | &check; |         | - | - | - | - |
 | West US3 | &check; |         | - | - | - | - |
