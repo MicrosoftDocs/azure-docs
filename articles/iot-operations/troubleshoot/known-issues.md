@@ -23,7 +23,7 @@ This article lists the known issues for Azure IoT Operations.
 
 - During and after deploying Azure IoT Operations, you might see warnings about `Unable to retrieve some image pull secrets (regcred)` in the logs and Kubernetes events. These warnings are expected and don't affect the deployment and use of Azure IoT Operations.
 
-- If your deployment fails with the message `Error occurred while creating custom resources needed by system extensions`, you have encountered a known sporadic failure that will be fixed in a future release. As a work around, please delete Azure IoT Operations from your cluster using the [az iot ops delete](/cli/azure/iot/ops#az-iot-ops-delete) command and pass the `--include-deps` flag. Once Azure IoT Operations and its dependencies have been deleted from your cluster, the deployment can be retried.
+- If your deployment fails with the message `Error occurred while creating custom resources needed by system extensions`, you have encountered a known sporadic failure that will be fixed in a future release. As a work around, use the [az iot ops delete](/cli/azure/iot/ops#az-iot-ops-delete) command with the `--include-deps` flag to delete Azure IoT Operations from your cluster. When Azure IoT Operations and its dependencies are deleted from your cluster, retry the deployment.
 
 ## MQTT broker
 
