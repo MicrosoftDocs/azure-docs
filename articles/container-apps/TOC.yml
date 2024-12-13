@@ -354,52 +354,77 @@
       - name: Turn on Java features
         href: java-feature-switch.md
         displayName: java
-      - name: Launch your first Java app
-        href: java-get-started.md
-        displayName: java
-      - name: Launch your first Java microservice apps with managed Java components
-        href: java-microservice-get-started.md
-        displayName: java
-      - name: Get started using IntelliJ
-        href: /azure/developer/java/toolkit-for-intellij/create-container-apps-intellij?toc=/azure/container-apps/toc.json&bc=/azure/container-apps/breadcrumb/toc.json
-        displayName: java
       - name: Automatic memory fitting (preview)
         href: java-memory-fit.md
         displayName: java
       - name: Build environment variables (preview)
         href: java-build-environment-variables.md
-        displayName: java
-      - name: Metrics
-        href: java-metrics.md
-        displayName: java
-      - name: Connect to Eureka Server for Spring
-        href: java-eureka-server.md
-        displayName: java
-      - name: Connect to Admin for Spring
-        href: java-admin.md
-        displayName: java
-      - name: Connect to Config Server for Spring
-        href: java-config-server.md
-        displayName: java
-      - name: Connect to Gateway for Spring
-        href: java-gateway-for-spring.md
-        displayName: java
+        displayName: java    
+      - name: Launch your first Java app
+        items:
+        - name: Artifacts(Preview)
+          href: java-get-started.md
+          displayName: java
+        - name: IntelliJ
+          href: /azure/developer/java/toolkit-for-intellij/create-container-apps-intellij?toc=/azure/container-apps/toc.json&bc=/azure/container-apps/breadcrumb/toc.json
+          displayName: java
+      # - name: Artificial Intelligence
+      #   items:
+      #   - name: Introduction to the PetClinic AI sample
+      #     href: ai-in-container-apps-conceptual-overview.md
+      #     displayName: java
+      #   - name: Launch your first AI application
+      #     href: first-ai-application.md
+      #     displayName: java
+      - name: Java Components
+        items:
+        - name: Launch your first Java microservice apps with managed Java components
+          href: java-microservice-get-started.md
+          displayName: java
+        - name: Connect to Eureka Server for Spring
+          href: java-eureka-server.md
+          displayName: java
+        - name: Integrate Eureka Server with Admin for Spring
+          href: java-admin-eureka-integration.md
+          displayName: java
+        - name: Create a highly available Eureka server component cluster
+          href: java-eureka-server-highly-available.md
+          displayName: java
+        - name: Connect to Admin for Spring
+          href: java-admin.md
+          displayName: java
+        - name: Connect to Config Server for Spring
+          href: java-config-server.md
+          displayName: java
+        - name: Connect to Gateway for Spring
+          href: java-gateway-for-spring.md
+          displayName: java
+      - name: Monitoring
+        items:
+        - name: Metrics
+          href: java-metrics.md
+          displayName: java
+        - name: Query managed component logs
+          href: java-component-logs.md
+          displayName: java
+        - name: Configure Application Performance Management (APM) Java agent with init-container
+          href: java-application-performance-management-config.md
+          displayName: java
+      - name: Diagnostic
+        items:
       - name: Set dynamic logger level
         href: java-dynamic-log-level.md
         displayName: java
-      - name: Tutorials
-        items:
-          - name: Integrate Eureka Server with Admin for Spring
-            href: java-admin-eureka-integration.md
-            displayName: java
-          - name: Query managed component logs
-            href: java-component-logs.md
-            displayName: java
-          - name: Configure Application Performance Management (APM) Java agent with init-container
-            href: java-application-performance-management-config.md
-          - name: Create a highly available Eureka server component cluster
-            href: java-eureka-server-highly-available.md
-            displayName: java
+      # - name: Reliability
+      #   items:
+      #   - name: Reliable Web App pattern for Java
+      #     href: 
+      #     displayName: java
+      # - name: Security
+      #   items:
+      #   - name: (m)TLS Cert for Java on Azure Container Apps
+      #     href: 
+      #     displayName: java
 - name: Billing & quotas
   items:
     - name: Billing
