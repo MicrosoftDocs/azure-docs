@@ -57,24 +57,24 @@ The restart typically is the starting point for mitigating a problem.
 ```
 az networkcloud baremetalmachine power-off \
   --name <bareMetalMachineName>  \
-  --resource-group <CLUSTER_MRG> \
-  --subscription <SUBSCRIPTION_ID>
+  --resource-group "<resourceGroup>" \
+  --subscription <subscriptionID>
 ```
 
 ***The following Azure CLI command will `start` the specified bareMetalMachineName.***
 ```
 az networkcloud baremetalmachine start \
   --name <bareMetalMachineName>  \
-  --resource-group <CLUSTER_MRG> \
-  --subscription <SUBSCRIPTION_ID>
+  --resource-group "<resourceGroup>" \
+  --subscription <subscriptionID>
 ```
 
 ***The following Azure CLI command will `restart` the specified bareMetalMachineName.***
 ```
 az networkcloud baremetalmachine restart \
   --name <bareMetalMachineName>  \
-  --resource-group <CLUSTER_MRG> \
-  --subscription <SUBSCRIPTION_ID>
+  --resource-group "<resourceGroup>" \
+  --subscription <subscriptionID>
 ```
 
 
@@ -87,31 +87,45 @@ The reimage action can be useful for troubleshooting problems by restoring the O
 A reimage action is the best practice for lowest operational risk to ensure the integrity of the BMM.
 
 As a best practice, make sure the BMM's workloads are drained using the cordon command, with evacuate "True", before executing the reimage command.
-<!--(PLACEHOLDER: We need to explain how a customer can identify if workloads are currently running on a BMM and the az cli command used to get this information. Ask NAKS team to provide.) -->
+
+***To identify if any workloads are currently running on a BMM, run the following command:***
+
+***For Virtual Machines:***
+```azurecli
+az networkcloud baremetalmachine show -n <nodeName> /
+--resource-group <resourceGroup> /
+--subscription <subscriptionID> | jq '.virtualMachinesAssociatedIds'
+```
+
+***For NAKS nodes: (requires logging into the NAKS cluster)***
+
+```
+kubectl get nodes <resourceName> -ojson |jq '.metadata.labels."topology.kubernetes.io/baremetalmachine"'
+```
 
 ***The following Azure CLI command will `cordon` the specified bareMetalMachineName.***
 ```
 az networkcloud baremetalmachine cordon \
   --evacuate "True" \
   --name <bareMetalMachineName> \
-  --resource-group <CLUSTER_MRG> \
-  --subscription <SUBSCRIPTION_ID>
+  --resource-group "<resourceGroup>" \
+  --subscription <subscriptionID>
 ```
 
 ***The following Azure CLI command will `reimage` the specified bareMetalMachineName.***
 ```
 az networkcloud baremetalmachine reimage \
   --name <bareMetalMachineName>  \
-  --resource-group <CLUSTER_MRG> \
-  --subscription <SUBSCRIPTION_ID>
+  --resource-group "<resourceGroup>" \
+  --subscription <subscriptionID>
 ```
 
 ***The following Azure CLI command will `uncordon` the specified bareMetalMachineName.***
 ```
 az networkcloud baremetalmachine uncordon \
   --name <bareMetalMachineName> \
-  --resource-group <CLUSTER_MRG> \
-  --subscription <SUBSCRIPTION_ID>
+  --resource-group "<resourceGroup>" \
+  --subscription <subscriptionID>
 ```
 
 ## Troubleshoot with a replace action
@@ -130,8 +144,8 @@ As a best practice, first issue a `cordon` command to remove the bare metal mach
 az networkcloud baremetalmachine cordon \
   --evacuate "True" \
   --name <bareMetalMachineName> \
-  --resource-group <CLUSTER_MRG> \
-  --subscription <SUBSCRIPTION_ID>
+  --resource-group "<resourceGroup>" \
+  --subscription <subscriptionID>
 ```
 
 When you're performing a physical hot swappable power supply repair, a replace action is not required because the BMM host will continue to function normally after the repair.
@@ -160,21 +174,21 @@ After physical repairs are completed, perform a replace action.
 ```
 az networkcloud baremetalmachine replace \
   --name <bareMetalMachineName>  \
-  --resource-group <CLUSTER_MRG> \
+  --resource-group "<resourceGroup>" \
   --bmc-credentials password=<IDRAC_PASSWORD> username=<IDRAC_USER> \
   --bmc-mac-address <IDRAC_MAC> \
   --boot-mac-address <PXE_MAC> \
   --machine-name <OS_HOSTNAME> \
   --serial-number <SERIAL_NUM> \
-  --subscription <SUBSCRIPTION_ID>
+  --subscription <subscriptionID>
 ```
 
 ***The following Azure CLI command will uncordon the specified bareMetalMachineName.***
 ```
 az networkcloud baremetalmachine uncordon \
   --name <bareMetalMachineName> \
-  --resource-group <CLUSTER_MRG> \
-  --subscription <SUBSCRIPTION_ID>
+  --resource-group "<resourceGroup>" \
+  --subscription <subscriptionID>
 ```
 
 ## Summary
