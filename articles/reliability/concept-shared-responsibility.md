@@ -75,4 +75,4 @@ It's your responsibility to make sure that your applications are designed to be 
 
 ## Next steps
 
-The shared responsibility model applies to other parts of your solution beyond resiliency. For more information on the shared responsibility model for security, see [Microsoft Trust Center](../security/fundamentals/concept-shared-responsibility.md).
+The shared responsibility model applies to other parts of your solution beyond resiliency. For more information on the shared responsibility model for security, see [Microsoft Trust Center](../security/fundamentals/shared-responsibility.md).
