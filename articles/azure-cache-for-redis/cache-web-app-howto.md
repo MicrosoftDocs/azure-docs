@@ -1,6 +1,6 @@
 ---
-title: Create an ASP.NET web app with Azure Cache for Redis
-description: In this quickstart, you learn how to create an ASP.NET web app with Azure Cache for Redis
+title: Create an ASP.NET web app with an Azure Redis cache
+description: In this quickstart, you learn how to create an ASP.NET web app with an Azure Redis cache
 
 ms.topic: quickstart
 ms.date: 12/12/2024
@@ -9,7 +9,7 @@ zone_pivot_groups: redis-type
 #Customer intent: As an ASP.NET developer, new to Azure Redis, I want to create a new Node.js app that uses Azure Managed Redis or Azure Cache for Redis.
 ---
 
-# Quickstart: Use Azure Cache for Redis with an ASP.NET web app
+# Quickstart: Use Azure Redis with an ASP.NET web app
 
 In this quickstart, you use Visual Studio 2019 to create an ASP.NET web application that connects to Azure Cache for Redis to store and retrieve data from the cache. You then deploy the app to Azure App Service.
 
@@ -131,7 +131,7 @@ The home page layout for this sample is stored in the *_Layout.cshtml* file. Fro
 
 From the home page, you select **Azure Cache for Redis Test** to see the sample output.
 
-1. In **Solution Explorer**, expand the **Views** folder, and then right-click the **Home** folder. 
+1. In **Solution Explorer**, expand the **Views** folder, and then right-click the **Home** folder.
 
 1. You should see this code in the *RedisCache.cshtml* file.
 
@@ -236,7 +236,7 @@ After the new app has been published, add a new app setting. This setting is use
 
 [!INCLUDE [cache-delete-resource-group](includes/cache-delete-resource-group.md)]
 
-## Next steps
+## Related content
 
 - [Connection resilience](cache-best-practices-connection.md)
 - [Best Practices Development](cache-best-practices-development.md)

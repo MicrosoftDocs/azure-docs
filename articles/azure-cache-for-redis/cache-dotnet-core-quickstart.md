@@ -2,14 +2,15 @@
 title: 'Quickstart: Use Azure Cache for Redis in .NET Core'
 description: In this quickstart, learn how to access Azure Cache for Redis in your .NET Core apps
 
-
-
 ms.devlang: csharp
 ms.custom: devx-track-csharp, mvc, mode-other, devx-track-dotnet, ignite-2024
 ms.topic: quickstart
-ms.date: 03/25/2022
+ms.date: 12/13/2024
+zone_pivot_groups: redis-type
+#Customer intent: As a .NET developer, new to Azure Redis, I want to create a new Node.js app that uses Azure Managed Redis or Azure Cache for Redis.
 ---
-# Quickstart: Use Azure Cache for Redis in .NET Core
+
+# Quickstart: Use Azure Redis in .NET Core
 
 In this quickstart, you incorporate Azure Cache for Redis into a .NET Core app to have access to a secure, dedicated cache that is accessible from any application within Azure. You specifically use the [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) client with C# code in a .NET Core console app.
 
@@ -22,17 +23,33 @@ Clone the repo [https://github.com/Azure-Samples/azure-cache-redis-samples/tree/
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 - [.NET Core SDK](https://dotnet.microsoft.com/download)
 
-## Create a cache
+## Create an Azure Managed Redis (preview) instance
+
+[!INCLUDE [managed-redis-create](includes/managed-redis-create.md)]
+
+::: zone-end
+
+::: zone pivot="azure-cache-redis"
+
+## Create an Azure Cache for Redis instance
 
 [!INCLUDE [redis-cache-create](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/redis-cache-create.md)]
 
+::: zone-end
+
+## [Microsoft Entra ID Authentication (recommended)](#tab/entraid)
+
 [!INCLUDE [cache-entra-access](includes/cache-entra-access.md)]
 
-Make a note of the **HOST NAME**. You'll use these values later to for *appsettings.json*.
+## [Access Key Authentication](#tab/accesskey)
+
+[!INCLUDE [redis-access-key-alert](includes/redis-access-key-alert.md)]
+
+[!INCLUDE [redis-cache-passwordless](includes/redis-cache-passwordless.md)]
 
 ## Add a local secret for the connection string
 
-In your *appsettings.json* file, add the following:
+In your _appsettings.json_ file, add the following:
 
 ```json
 {
@@ -40,9 +57,11 @@ In your *appsettings.json* file, add the following:
 }
 ```
 
-1. Replace "your_Azure_Redis_hostname" with your Azure Redis host name and port numbers. For example: `cache-name.region.redis.azure.net:10000` for Azure Managed Redis (preview), and `cache-name.redis.cache.windows.net:6380` for Azure Cache for Redis services.
+1. Replace `"your_Azure_Redis_hostname"` with your Azure Redis host name and port numbers. For example: `cache-name.region.redis.azure.net:10000` for Azure Managed Redis (preview), and `cache-name.redis.cache.windows.net:6380` for Azure Cache for Redis services.
 
 1. Save the file.
+
+---
 
 ## Connect to the cache with RedisConnection
 
@@ -52,7 +71,7 @@ In `RedisConnection.cs`, you see the `StackExchange.Redis` namespace has been ad
 using StackExchange.Redis;
 
 ```
-<!-- Is this right Philo -->
+
 The `RedisConnection` code ensures that there is always a healthy connection to the cache by managing the `ConnectionMultiplexer` instance from `StackExchange.Redis`. The `RedisConnection` class recreates the connection when a connection is lost and unable to reconnect automatically.
 
 For more information, see [StackExchange.Redis](https://stackexchange.github.io/StackExchange.Redis/) and the code in a [GitHub repo](https://github.com/StackExchange/StackExchange.Redis).
@@ -62,7 +81,7 @@ For more information, see [StackExchange.Redis](https://stackexchange.github.io/
 ## Executing cache commands
 
 In `program.cs`, you can see the following code for the `RunRedisCommandsAsync` method in the `Program` class for the console application:
-<!-- Replaced this code with lines 57-81 from dotnet-core/Program.cs -->
+
 ```csharp
 private static async Task RunRedisCommandsAsync(string prefix)
     {
@@ -115,7 +134,7 @@ Azure Cache for Redis can cache both .NET objects and primitive data types, but 
 
 This .NET object serialization is the responsibility of the application developer, and gives the developer flexibility in the choice of the serializer.
 
-The following `Employee` class was defined in *Program.cs*  so that the sample could also show how to get and set a serialized object:
+The following `Employee` class was defined in _Program.cs_  so that the sample could also show how to get and set a serialized object:
 
 ```csharp
 class Employee
@@ -151,7 +170,7 @@ dotnet run
 
 [!INCLUDE [cache-delete-resource-group](includes/cache-delete-resource-group.md)]
 
-## Next steps
+## Related content
 
 - [Connection resilience](cache-best-practices-connection.md)
 - [Best Practices Development](cache-best-practices-development.md)

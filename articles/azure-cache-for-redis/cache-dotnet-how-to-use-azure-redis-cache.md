@@ -1,15 +1,16 @@
 ---
-title: 'Quickstart: Use Azure Cache for Redis in .NET Framework'
-description: In this quickstart, learn how to access Azure Cache for Redis from your .NET apps
-
-
+title: 'Quickstart: Use an Azure Redis cache in .NET Framework'
+description: In this quickstart, learn how to access an Azure Redis cache from your .NET apps
 
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: devx-track-csharp, mvc, mode-other, devx-track-dotnet, ignite-2024
-ms.date: 03/25/2022
+ms.date: 12/13/2024
+zone_pivot_groups: redis-type
+#Customer intent: As a .NET developer, new to Azure Redis, I want to create a new Node.js app that uses Azure Managed Redis or Azure Cache for Redis.
 ---
-# Quickstart: Use Azure Cache for Redis in .NET Framework
+
+# Quickstart: Use an Azure Redis caches in .NET Framework
 
 In this quickstart, you incorporate Azure Cache for Redis into a .NET Framework app to have access to a secure, dedicated cache that is accessible from any application within Azure. You specifically use the [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) client with C# code in a .NET console app.
 
@@ -23,28 +24,49 @@ Clone the repo from [Azure-Samples/azure-cache-redis-samples](https://github.com
 - [Visual Studio 2019](https://www.visualstudio.com/downloads/)
 - [.NET Framework 4 or higher](https://dotnet.microsoft.com/download/dotnet-framework), which is required by the StackExchange.Redis client.
 
-## Create a cache
+::: zone pivot="azure-managed-redis"
+
+## Create an Azure Managed Redis (preview) instance
+
+[!INCLUDE [managed-redis-create](includes/managed-redis-create.md)]
+
+::: zone-end
+
+::: zone pivot="azure-cache-redis"
+
+## Create an Azure Cache for Redis instance
 
 [!INCLUDE [redis-cache-create](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/redis-cache-create.md)]
 
+::: zone-end
+
+## [Microsoft Entra ID Authentication (recommended)](#tab/entraid)
+
 [!INCLUDE [cache-entra-access](includes/cache-entra-access.md)]
+
+## [Access Key Authentication](#tab/accesskey)
+
+[!INCLUDE [redis-access-key-alert](includes/redis-access-key-alert.md)]
+
+[!INCLUDE [redis-cache-passwordless](includes/redis-cache-passwordless.md)]
 
 1. Edit the *App.config* file and add the following contents:
 
     ```xml
     <appSettings>
+       <add key="RedisHostName" value="your_redis_cache_hostname"/>
+    </appSettings>
 
-   <add key="RedisHostName" value="your_redis_cache_hostname"/>
-  </appSettings>
     ```
 
-1. Replace "your_Azure_Redis_hostname" with your Azure Redis host name and port numbers. For example: `cache-name.eastus.redis.azure.net:10000` for Azure Cache for Redis Enterprise, and `cache-name.redis.cache.windows.net:6380` for Azure Cache for Redis services.
+1. Replace `"your_Azure_Redis_hostname"` with your Azure Redis host name and port numbers. For example: `cache-name.eastus.redis.azure.net:10000` for Azure Cache for Redis Enterprise, and `cache-name.redis.cache.windows.net:6380` for Azure Cache for Redis services.
 
 1. Save the file.
 
+----
+
 ## Configure the cache client
 
-<!-- this section was removed from the core sample -->
 In this section, you prepare the console application to use the [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) client for .NET.
 
 1. In Visual Studio, select **Tools** > **NuGet Package Manager** > **Package Manager Console**, and run the following command from the Package Manager Console window.
@@ -52,7 +74,7 @@ In this section, you prepare the console application to use the [StackExchange.R
     ```powershell
     Install-Package Microsoft.Azure.StackExchangeRedis
     ```
-    
+
 1. Once the installation is completed, the *StackExchange.Redis* cache client is available to use with your project.
 
 ## Connect to the cache with RedisConnection
@@ -71,7 +93,6 @@ In `RedisConnection.cs`, you see the `StackExchange.Redis` namespace with the `u
 using StackExchange.Redis;
 ```
 
-<!-- Is this right Philo -->
 The `RedisConnection` code ensures that there is always a healthy connection to the cache by managing the `ConnectionMultiplexer` instance from `StackExchange.Redis`. The `RedisConnection` class recreates the connection when a connection is lost and unable to reconnect automatically.
 
 For more information, see [StackExchange.Redis](https://stackexchange.github.io/StackExchange.Redis/) and the code in a [GitHub repo](https://github.com/StackExchange/StackExchange.Redis).
@@ -142,10 +163,11 @@ Add the `System.text.Json` namespace to Visual Studio:
 1. Select **Tools** > **NuGet Package Manager** > **Package Manager Console**.
 
 1. Then, run the following command from the Package Manager Console window.
+
     ```powershell
     Install-Package system.text.json
     ```
-    
+
 <!-- :::image type="content" source="media/cache-dotnet-how-to-use-azure-redis-cache/cache-console-app-partial.png" alt-text="Screenshot that shows console app."::: -->
 
 The following `Employee` class was defined in *Program.cs*  so that the sample could also show how to get and set a serialized object:
@@ -174,7 +196,7 @@ Press **Ctrl+F5** to build and run the console app to test serialization of .NET
 
 [!INCLUDE [cache-delete-resource-group](includes/cache-delete-resource-group.md)]
 
-## Next steps
+## Related content
 
 - [Connection resilience](cache-best-practices-connection.md)
 - [Best Practices Development](cache-best-practices-development.md)

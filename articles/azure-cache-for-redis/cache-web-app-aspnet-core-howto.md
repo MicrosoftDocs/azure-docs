@@ -1,6 +1,6 @@
 ---
-title: Create an ASP.NET Core web app with Azure Cache for Redis
-description: In this quickstart, you learn how to create an ASP.NET Core web app with Azure Cache for Redis.
+title: Create an ASP.NET Core web app with an Azure Redis cache
+description: In this quickstart, you learn how to create an ASP.NET Core web app with an Azure Redis cache.
 
 ms.devlang: csharp
 ms.custom: devx-track-csharp, mvc, mode-other, ignite-2024
@@ -10,7 +10,7 @@ zone_pivot_groups: redis-type
 #Customer intent: As an ASP.NET developer, new to Azure Redis, I want to create a new Node.js app that uses Azure Managed Redis or Azure Cache for Redis.
 ---
 
-# Quickstart: Use Azure Cache for Redis with an ASP.NET Core web app
+# Quickstart: Use Azure Redis with an ASP.NET Core web app
 
 In this quickstart, you incorporate Azure Cache for Redis into an ASP.NET Core web application that connects to Azure Cache for Redis to store and retrieve data from the cache.
 
