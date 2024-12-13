@@ -96,7 +96,7 @@ To configure an on-premises SAP system to send data to your Logic Apps workflow,
 
 1. Enter *LOGICAPP* in **Description 1**.
 
-1. Select the **Technical Settings** tab and enter the first part of **HTTP GET URL** from your Logic app workflow in the **Host** field. For example: *https://example-18.westeurope.logic.azure.com*. Enter *41. as the **Port**. In **Path Prefix** enter the rest of the **HTTP GET URL** starting with */workflows/...*:
+1. Select the **Technical Settings** tab and enter the first part of **HTTP GET URL** from your Logic app workflow in the **Host** field. For example: `https://example-18.westeurope.logic.azure.com`. Enter *41* as the **Port**. In **Path Prefix** enter the rest of the **HTTP GET URL** starting with */workflows/...*:
 
     :::image type="content" source="media/howto-connect-on-premises-sap-to-azure/add-get-url.png" alt-text="Screenshot that shows how to add a get url." lightbox="media/howto-connect-on-premises-sap-to-azure/add-get-url.png" border="false" :::
 
