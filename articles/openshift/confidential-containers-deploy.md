@@ -1010,7 +1010,7 @@ You must create the KbsConfig custom resource to launch Trustee.
         #   kbsAttestationPolicyConfigMapName: attestation-policy
         #   kbsServiceType: <service_type>
     ```
-    - Specify the `type` value of the container image signature verification secret if you created the secret, for example, `img-sig`. 
+    - Optional: Specify the `type` value of the container image signature verification secret if you created the secret, for example, `img-sig`. If you didn't create the secret, set the `kbsSecretResources` value to `["kbsres1", "security-policy"]`.
     - Uncomment `tdxConfigSpec.kbsTdxConfigMapName: tdx-config` for Intel Trust Domain Extensions. 
     - Uncomment `kbsAttestationPolicyConfigMapName: attestation-policy` if you create a customized attestation policy. 
     - Uncomment `kbsServiceType: <service_type>` if you create a service type, other than the default ClusterIP service, to expose applications within the cluster external traffic. You can specify `NodePort`, `LoadBalancer`, or `ExternalName`. 

@@ -7,6 +7,7 @@ ms.date: 08/30/2021
 ms.devlang: csharp
 ms.custom:
   - build-2024
+  - ignite-2024
 # ms.devlang: csharp, java, javascript, powershell, python
 # Customer intent: As a developer, I want to understand how to correctly design, deploy, and maintain my functions so I can run them in the most safe and efficient way possible.
 ---

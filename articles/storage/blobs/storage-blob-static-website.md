@@ -6,7 +6,7 @@ ms.service: azure-blob-storage
 ms.topic: how-to
 ms.author: shaas
 ms.reviewer: dineshm
-ms.date: 07/24/2023
+ms.date: 11/21/2024
 ms.custom:
 ---
 
@@ -26,7 +26,7 @@ To enable static website hosting, select the name of your default file, and then
 
 For step-by-step guidance, see [Host a static website in Azure Storage](storage-blob-static-website-how-to.md).
 
-![Azure Storage static websites metrics metric](./media/storage-blob-static-website/storage-blob-static-website-blob-container.png)
+![Screenshot showing how to enable static website hosting on a storage account using a blob storage container](./media/storage-blob-static-website/storage-blob-static-website-blob-container.png)
 
 Files in the **$web** container are case-sensitive, served through anonymous access requests and are available only through read operations.
 

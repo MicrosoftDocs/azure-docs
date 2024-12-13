@@ -1,19 +1,19 @@
 ---
-title: Azure Communication Services - Telephony and SMS events
-description: This article describes how to use Azure Communication Services as an Event Grid event source for telephony and SMS Events.
+title: Azure Communication Services - SMS events
+description: This article describes how to use Azure Communication Services as an Event Grid event source for SMS Events.
 ms.topic: conceptual
 ms.date: 12/02/2022
 author: VikramDhumal
 ms.author: vikramdh
 ---
 
-# Azure Communication Services - Telephony and SMS events
+# Azure Communication Services - SMS events
 
-This article provides the properties and schema for communication services telephony and SMS events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md).
+This article provides the properties and schema for communication services SMS events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md).
 
 ## Events types
 
-Azure Communication Services emits the following telephony and SMS event types:
+Azure Communication Services emits the following SMS event types:
 
 | Event type                                                  | Description                                                                                    |
 | ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |

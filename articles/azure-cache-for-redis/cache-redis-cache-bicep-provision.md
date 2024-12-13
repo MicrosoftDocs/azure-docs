@@ -5,7 +5,7 @@ description: Learn how to use Bicep to deploy an Azure Cache for Redis resource.
  
 
 ms.topic: conceptual
-ms.custom: subject-armqs, devx-track-bicep
+ms.custom: subject-armqs, devx-track-bicep, ignite-2024
 ms.date: 04/10/2024
 ---
 

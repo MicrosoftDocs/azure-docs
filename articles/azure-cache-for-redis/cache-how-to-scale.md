@@ -7,8 +7,7 @@ description: Learn how to scale your Azure Cache for Redis instances using the A
 ms.topic: conceptual
 ms.date: 07/01/2024
 ms.devlang: csharp
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
-
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, ignite-2024
 ---
 
 # Scale an Azure Cache for Redis instance
@@ -121,7 +120,7 @@ For more information on scaling with PowerShell, see [To scale an Azure Cache fo
 
 #### Scale up and down using Azure CLI
 
-To scale your Azure Cache for Redis instances using Azure CLI, call the [az redis update](/cli/azure/redis#az-redis-update) command. Use the `sku.capcity` property to scale within a tier, for example from a Standard C0 to Standard C1 cache:
+To scale your Azure Cache for Redis instances using Azure CLI, call the [az redis update](/cli/azure/redis#az-redis-update) command. Use the `sku.capacity` property to scale within a tier, for example from a Standard C0 to Standard C1 cache:
 
 ```azurecli
 az redis update --cluster-name myCache --resource-group myGroup --set "sku.capacity"="2"

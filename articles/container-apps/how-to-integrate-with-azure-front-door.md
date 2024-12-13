@@ -4,7 +4,7 @@ description: Learn how to access an Azure container app using an Azure Front Doo
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, ignite-2024
 ms.topic:  how-to
 ms.date: 11/6/2024
 ms.author: cshoe
@@ -216,7 +216,7 @@ az network private-endpoint-connection approve --id <PRIVATE_ENDPOINT_CONNECTION
 
 ## Add a route
 
-Run the following command to map the endpoint you created earlier to the origin group.
+Run the following command to map the endpoint you created earlier to the origin group. Private endpoints on Azure Container Apps only support inbound HTTP traffic. TCP traffic is not supported.
 
 ```azurecli
 az afd route create \

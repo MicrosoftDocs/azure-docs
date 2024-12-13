@@ -4,7 +4,7 @@ metadata:
   description: Learn the answers to common questions that help you develop for Azure Managed Redis.
   ms.date: 11/15/2024
   ms.topic: faq
-  ms.custom: devx-track-csharp
+  ms.custom: devx-track-csharp, ignite-2024
   ms.devlang: csharp
 title: Azure Managed Redis (preview) development FAQs
 summary: This article provides answers to common questions about how to develop for Azure Managed Redis (preview).
