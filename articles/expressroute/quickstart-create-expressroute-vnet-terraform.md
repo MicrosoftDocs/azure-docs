@@ -109,8 +109,6 @@ In this article, you learn how to:
    az network vnet-gateway show --name $gateway_name --resource-group $resource_group_name
    ```
 
----
-
 ### [PowerShell](#tab/PowerShell)
 
 1. Get the Azure resource group name.
