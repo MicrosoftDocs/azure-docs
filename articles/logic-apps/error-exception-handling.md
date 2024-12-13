@@ -302,7 +302,8 @@ For limits on scopes, see [Limits and config](logic-apps-limits-and-config.md).
 ### Set up a scope with "run after" for exception handling
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
-    Your workflow must already have a trigger that starts the workflow.
+
+Your workflow must already have a trigger that starts the workflow.
 
 1. On the designer, [follow these generic steps to add a **Control** action named **Scope** to your workflow](/azure/logic-apps/create-workflow-with-trigger-or-action#add-action).
 
