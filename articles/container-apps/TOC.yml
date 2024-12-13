@@ -401,7 +401,7 @@
           displayName: java
       - name: Monitoring
         items:
-        - name: Metrics
+        - name: Java Metrics
           href: java-metrics.md
           displayName: java
         - name: Query managed component logs
@@ -412,9 +412,9 @@
           displayName: java
       - name: Diagnostic
         items:
-      - name: Set dynamic logger level
-        href: java-dynamic-log-level.md
-        displayName: java
+        - name: Set dynamic logger level
+          href: java-dynamic-log-level.md
+          displayName: java
       # - name: Reliability
       #   items:
       #   - name: Reliable Web App pattern for Java
