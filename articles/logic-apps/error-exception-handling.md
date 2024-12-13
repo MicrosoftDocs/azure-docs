@@ -199,7 +199,7 @@ For example, to run the Office 365 Outlook **Send an email** action after the Ex
 
 1. On the designer, select the action shape. On the details pane, select **Settings**.
 
-1. The **Run After** section in the **Settings** pane shows the predecessor action for the currently selected action.
+   The **Run After** section in the **Settings** pane shows the predecessor action for the currently selected action.
 
    ![Screenshot showing the designer and current action details pane with "Settings" selected.](./media/error-exception-handling/configure-run-after.png)
 
