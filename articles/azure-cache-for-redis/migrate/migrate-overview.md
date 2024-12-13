@@ -57,9 +57,28 @@ Here are some other differences that aren't covered by the previous mapping. Con
 | Individual node non-TLS port | 150XX | Not supported |
 | Clustering support | OSS clustering mode | OSS and Enterprise cluster modes |
 | Unsupported commands | Unsupported commands | Multi-key commands|
-| Regional availability | All Azure regions | Only regions with three AZ </br> For more information, see [Product availability](https://azure.microsoft.com/explore/global-infrastructure/products-by-region).|
+| Regional availability | All Azure regions | * See the list of regions after this section.|
 | Redis version | 6 | 7.4 |
 | Supported TLS versions | 1.2 and 1.3 | 1.2 and 1.3 |
+
+## Regional availablility for AMR
+AMR is current supported in the following regions. This list will be actively updated, and eventually we aim to support all regions in Azure. Please work with your sales contact to raise requests on regions you need to help us prioritize. 
+
+| Americas | Europe | Middle East | Africa | Asia Pacific |
+|---|---|---|---|---|
+|Brazil South |Germany West Central | | |East Asia |
+|West Central US | UK South  |   |   | Australia East |
+|North Central US | West Europe |   |   | Japan East |
+|West US 3 |Sweden Central | | |South East Asia |
+|East US 2 | | | |Central India |
+|South Central US | | | | |
+|West US 2 | | | | |
+|East US | | | | |
+|West US | | | | |
+|Central US | | | | |
+|Canada Central | | | | |
+
+
 
 ## Migrate your Azure Cache for Redis instance to Azure Managed Redis
 
