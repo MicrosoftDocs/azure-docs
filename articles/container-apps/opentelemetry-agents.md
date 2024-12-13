@@ -31,7 +31,7 @@ Enabling the managed OpenTelemetry agent to your environment doesn't automatical
 
 ### Configure source code
 
-Prepare your application to collect data by installing the [OpenTelemetry SDK](https://opentelemetry.io/ecosystem/integrations/) and follow the OpenTelemetry guidelines to instrument [metrics](https://opentelemetry.io/docs/concepts/signals/logs/), [logs](https://opentelemetry.io/docs/concepts/signals/metrics), or [traces](https://opentelemetry.io/docs/concepts/signals/traces/).
+Prepare your application to collect data by installing the [OpenTelemetry SDK](https://opentelemetry.io/ecosystem/integrations/) and follow the OpenTelemetry guidelines to instrument [metrics](https://opentelemetry.io/docs/concepts/signals/metrics), [logs](https://opentelemetry.io/docs/concepts/signals/logs/), or [traces](https://opentelemetry.io/docs/concepts/signals/traces/).
 
 ### Initialize endpoints
 
