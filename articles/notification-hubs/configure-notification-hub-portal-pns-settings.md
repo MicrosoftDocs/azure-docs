@@ -56,12 +56,12 @@ For more information, see [Send push notifications to iOS apps using Azure Notif
 
 To set up push notifications for Google FCMv1:
 
-1. In the Azure portal, on the **Notification Hub** page, select **Google (FCM v1)** from the left menu.
+1. In the Azure portal, on the **Notification Hub** page, select **Google (FCMv1)** from the left menu.
 2. Update the **Private Key**, **Project ID**, and **Client Email** values from the service account JSON file obtained from the Firebase Console.
 1. Select **Save**.
 
 
-![Screenshot that shows how to configure Notification Hubs for Google FCMv1.](media/configure-notification-hub-portal-pns-settings/fcmv1-key.png)
+![Screenshot that shows how to configure Notification Hubs for Google FCMv1.](media/configure-notification-hub-portal-pns-settings/fcm-v1-key.png)
 
 When you complete these steps, an alert indicates that the notification hub has been successfully updated. The **Save** button is disabled.
 
@@ -152,7 +152,7 @@ To set up push notifications for Baidu:
 3. Enter the **Secret Key** that you obtained from the Baidu console in the Baidu cloud push project.
 1. Select **Save**.
 
-   ![Screenshot of Notification Hubs that shows the Baidu (Android China) configuration for push notifications.](media/configure-notification-hub-portal-pns-settings/azurenotificationservicesbaidu.png)
+   ![Screenshot of Notification Hubs that shows the Baidu (Android China) configuration for push notifications.](media/configure-notification-hub-portal-pns-settings/azure-notification-services-baidu.png)
    
     
    
