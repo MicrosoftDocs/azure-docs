@@ -16,36 +16,13 @@ In this article, you learn how to create a virtual network and an Azure Managed 
 
 Azure Private Endpoint is a network interface that connects you privately and securely to Azure Managed Redis powered by Azure Private Link.
 
-<!-- cawa - PublicNetworkAccess flag does not exist in AMR -->
-You can restrict public access to the private endpoint of your cache by disabling the `PublicNetworkAccess` flag.
-
 >[!Important]
-> There is a `publicNetworkAccess` flag which is `Disabled` by default.
-> You can set the value to `Disabled` or `Enabled`. When set to enabled, this flag allows both public and private endpoint access to the cache. When set to `Disabled`, it allows only private endpoint access. Neither the Enterprise nor Enterprise Flash tier supports the `publicNetworkAccess` flag. For more information on how to change the value, see the [FAQ](#how-can-i-change-my-private-endpoint-to-be-disabled-or-enabled-from-public-network-access).
-
->[!Important]
-> Private endpoint is supported on cache tiers Basic, Standard, Premium, Enterprise, and Azure Managed Redis (Preview). We recommend using private endpoint instead of VNet Injection method. Private endpoints are easy to set up or remove, are supported on all tiers, and can connect your cache to multiple different VNets at once.
->
-> When using the Basic tier, you might experience data loss when you delete and recreate a private endpoint.
-
-## Scope of availability
-
-|Tier      | Basic, Standard, Premium |Enterprise, Enterprise Flash  | Azure Managed Redis (Preview)
-|--------- |:------------------:|:---------:|:-------------:|
-|Available | Yes          |  Yes  | Yes
+> Using private endpoint to connect to a Virtual Network is the recommended solution for securing your Azure Managed Redis (Preview) resource at the networking layer.
 
 ## Prerequisites
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 
-> [!IMPORTANT]
-> Currently, the [portal-based redis console](managed-redis-configure.md#redis-console) is not supported with private link.
->
-
-> [!IMPORTANT]
-> When using private link, you cannot export or import data to a to a storage account that has firewall enabled unless you're using a Premium tier cache with [managed identity to authenticate to the storage account](../cache-managed-identity.md).
-> For more information, see [What if I have firewall enabled on my storage account?](managed-redis-how-to-import-export-data.md#what-if-i-have-firewall-enabled-on-my-storage-account)
->
 
 ## Create a private endpoint with a new Azure Managed Redis instance
 
@@ -98,7 +75,7 @@ To create a cache instance, follow these steps:
 
    | Setting      | Suggested value  | Description |
    | ------------ |  ------- | -------------------------------------------------- |
-   | **DNS name** | Enter a globally unique name. | The cache name must be a string between 1 and 63 characters. The string must contain only numbers, letters, or hyphens. The name must start and end with a number or letter, and can't contain consecutive hyphens. Your cache instance's *host name* is *\<DNS name>.redis.cache.windows.net*. |
+   | **DNS name** | Enter a globally unique name. | The cache name must be a string between 1 and 63 characters. The string must contain only numbers, letters, or hyphens. The name must start and end with a number or letter, and can't contain consecutive hyphens. Your cache instance's *host name* is *\<DNS name>.\<region>.redis.azure.net*. |
    | **Subscription** | Drop down and select your subscription. | The subscription under which to create this new Azure Managed Redis instance. |
    | **Resource group** | Drop down and select a resource group, or select **Create new** and enter a new resource group name. | Name for the resource group in which to create your cache and other resources. By putting all your app resources in one resource group, you can easily manage or delete them together. |
    | **Location** | Drop down and select a location. | Select a [region](https://azure.microsoft.com/regions/) near other services that use your cache. |
@@ -130,11 +107,6 @@ To create a cache instance, follow these steps:
 
 It takes a while for the cache to create. You can monitor progress on the Azure Managed Redis **Overview** page. When **Status** shows as **Running**, the cache is ready to use.
 
-> [!IMPORTANT]
-> There is a `publicNetworkAccess` flag which is `Disabled` by default.
-> You can set the value to `Disabled` or `Enabled`. When set to `Enabled`, this flag allows both public and private endpoint access to the cache. When set to `Disabled`, it allows only private endpoint access. For more information on how to change the value, see the [FAQ](#how-can-i-change-my-private-endpoint-to-be-disabled-or-enabled-from-public-network-access).
->
->
 
 ## Create a private endpoint with an existing Azure Managed Redis instance
 
@@ -200,7 +172,7 @@ To create a private endpoint, follow these steps:
 
 1. Select the **Next: Resource** button at the bottom of the page.
 
-1. In the **Resource** tab, select your subscription, choose the resource type as `Microsoft.Cache/Redis`, and then select the cache you want to connect the private endpoint to.
+1. In the **Resource** tab, select your subscription, choose the resource type as `Microsoft.Cache/redisEnterprise`, and then select the cache you want to connect the private endpoint to.
 
 1. Select the **Next: Configuration** button at the bottom of the page.
 
@@ -313,8 +285,8 @@ az network private-endpoint create \
     --resource-group $ResourceGroupName \
     --vnet-name $VNetName  \
     --subnet $SubnetName \
-    --private-connection-resource-id "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Cache/Redis/$redisCacheName" \
-    --group-ids "redisCache" \
+    --private-connection-resource-id "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Cache/redisEnterprise/$redisCacheName" \
+    --group-ids "redisEnterprise" \
     --connection-name $PrivateConnectionName
 ```
 
@@ -349,9 +321,7 @@ az network private-endpoint delete --name MyPrivateEndpoint --resource-group MyR
 
 ### How do I connect to my cache with private endpoint?
 
-For **Basic, Standard, and Premium tier** caches, your application should connect to `<cachename>.redis.cache.windows.net` on port `6380`. A private DNS zone, named `*.privatelink.redis.cache.windows.net`, is automatically created in your subscription. The private DNS zone is vital for establishing the TLS connection with the private endpoint.  We recommend avoiding the use of `<cachename>.privatelink.redis.cache.windows.net` in configuration or connection string.
-
-For **Enterprise and Enterprise Flash** tier caches, your application should connect to `<cachename>.<region>.redisenterprise.cache.azure.net` on port `10000`.
+Your application should connect to `<cachename>.<region>.redis.azure.net` on port `10000`. A private DNS zone, named `*.privatelink.redis.azure.net`, is automatically created in your subscription. The private DNS zone is vital for establishing the TLS connection with the private endpoint.  We recommend avoiding the use of `<cachename>.privatelink.redis.azure.net` in configuration for client connection.
 
 For more information, see [Azure services DNS zone configuration](/azure/private-link/private-endpoint-dns).
 
@@ -359,21 +329,11 @@ For more information, see [Azure services DNS zone configuration](/azure/private
 
 - Private endpoints can't be used with your cache instance if your cache is already a VNet injected cache.
   
-- For Basic, Standard, and Premium tier caches, you are limited to 100 private links. 
-
-- On Premium tier caches using clustering, you are limited to one private link.
-  
-- Enterprise and Enterprise Flash tier caches are limited to 84 private links.
+- Azure Managed Redis caches are limited to 84 private links.
 
 - You try to [persist data to storage account](managed-redis-how-to-persistence.md) where firewall rules are applied might prevent you from creating the Private Link.
 
 - You might not connect to your private endpoint if your cache instance is using an [unsupported feature](#what-features-arent-supported-with-private-endpoints).
-
-### What features aren't supported with private endpoints?
-
-- Trying to connect from the Azure portal console is an unsupported scenario where you see a connection failure.
-
-- Private links can't be added to caches that are already using [passive geo-replication](../cache-how-to-geo-replication.md) in the Premium tier. To add a private link to a geo-replicated cache: 1. Unlink the geo-replication. 2. Add a Private Link. 3. Last, relink the geo-replication. (Enterprise tier caches using [active geo-replication](managed-redis-how-to-active-geo-replication.md) do not have this restriction.)
 
 ### How do I verify if my private endpoint is configured correctly?
 
@@ -381,45 +341,9 @@ Go to **Overview** in the Resource menu on the portal. You see the **Host name**
 
    :::image type="content" source="media/managed-redis-private-link/managed-redis-private-ip-address.png" alt-text="In the Azure portal, private endpoint D N S settings.":::
 
-### How can I change my private endpoint to be disabled or enabled from public network access?
-
-There's a `publicNetworkAccess` flag that is `Disabled` by default.
-When set to `Enabled`, this flag is allows both public and private endpoint access to the cache. When set to `Disabled`, it allows only private endpoint access. You can set the value to `Disabled` or `Enabled` in the Azure portal or with a RESTful API PATCH request.
-
-To change the value in the Azure portal, follow these steps:
-
-  1. In the Azure portal, search for **Azure Managed Redis**.  Then, press enter or select it from the search suggestions.
-
-  1. Select the cache instance you want to change the public network access value.
-
-  1. On the left side of the screen, select **Private Endpoint**.
-
-  1. Select the **Enable public network access** button.
-
-You can also change the value through a RESTful API PATCH request. For example, use the following code for a Basic, Standard, or Premium tier cache and edit the value to reflect the flag you want for your cache.
-  
-  ```http
-  PATCH  https://management.azure.com/subscriptions/{subscription}/resourceGroups/{resourcegroup}/providers/Microsoft.Cache/Redis/{cache}?api-version=2020-06-01
-  {    "properties": {
-         "publicNetworkAccess":"Disabled"
-     }
-  }
-  
-  ```
-
-  For more information, see [Redis - Update](/rest/api/redis/Redis/Update?tabs=HTTP).
-
-### How can I migrate my VNet injected cache to a Private Link cache?
-
-Refer to our [migration guide](../cache-vnet-migration.md) for different approaches on how to migrate your VNet injected caches to Private Link caches.
-
 ### How can I have multiple endpoints in different virtual networks?
 
 To have multiple private endpoints in different virtual networks, the private DNS zone must be manually configured to the multiple virtual networks *before* creating the private endpoint. For more information, see [Azure Private Endpoint DNS configuration](/azure/private-link/private-endpoint-dns).
-
-### What happens if I delete all the private endpoints on my cache?
-
-Once you delete the private endpoints on your cache, your cache instance can become unreachable until: you explicitly enable public network access, or you add another private endpoint. You can change the `publicNetworkAccess` flag on either the Azure portal or through a RESTful API PATCH request. For more information on how to change the value, see the [FAQ](#how-can-i-change-my-private-endpoint-to-be-disabled-or-enabled-from-public-network-access)
 
 ### Are network security groups (NSG) enabled for private endpoints?
 
