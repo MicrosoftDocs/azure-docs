@@ -38,13 +38,13 @@ This article describes how to create a Network Fabric by using the Azure Command
 
 The following table specifies parameters used to create Network Fabric,
 
-**$prefix:** /subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkFabricControllers
+**$prefix:** /subscriptions/<subscription_id>/resourceGroups/\<NFResourceGroup\>/providers/Microsoft.ManagedNetworkFabric/networkFabricControllers
 
 | Parameter | Description | Example | Required | Type|
 |-----------|-------------|---------|----------|----------|
-| resource-group | Name of the resource group |  <NFResourceGroup> |True |
+| resource-group | Name of the resource group |  \<NFResourceGroup\> |True |
 | location | Operator-Nexus Azure region | "eastus" |True | 
-| resource-name | Name of the FabricResource | NF-ResourceName |True |
+| resource-name | Name of the FabricResource | \<NFName\>|True |
 |  nf-sku  |Fabric SKU ID is the SKU of the ordered BoM version. See [Network Fabric SKUs](./reference-operator-nexus-fabric-skus.md). | M4-A400-A100-C16-ab |True | String|
 |nfc-id|Network Fabric Controller "ARM resource ID"|**$prefix**/NFCName|True | |
 |rackcount|Number of compute racks per fabric. Possible values are 2-8|8|True | 
@@ -373,7 +373,7 @@ The following table specifies parameters used to create Network-to-Network Inter
 |isMangementType| Configuration to make NNI to be used for management of Fabric. Default value is true. Possible values are True/False |True|True
 |useOptionB| Configuration to enable optionB. Possible values are True/False |True|True
 |*layer2Configuration*| Layer 2 configuration ||
-|interfaces| Define multiple CE-PE interfaces. Maximum value is based on Fabric SKU|/subscriptions/subscription_id/resourceGroups/<NFResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkDevices/NFName-aggrack-CEXX/networkInterfaces/EthernetX-X"||
+|interfaces| Define multiple CE-PE interfaces. Maximum value is based on Fabric SKU|/subscriptions/subscription_id/resourceGroups/\<NFResourceGroup\>/providers/Microsoft.ManagedNetworkFabric/networkDevices/NFName-aggrack-CEXX/networkInterfaces/EthernetX-X"||
 |mtu| Maximum transmission unit between CE and PE. |1500||
 |*layer3Configuration*| Layer 3 configuration between CEs and PEs||True
 |primaryIpv4Prefix|IPv4 Prefix for connectivity between CE1 and PE1. CE1 port-channel interface is assigned the first usable IP from the prefix and the corresponding interface on PE1 should be assigned the second usable address|10.246.0.124/31, CE1 port-channel interface is assigned 10.246.0.125 and PE1 port-channel interface should be assigned 10.246.0.126||String|
