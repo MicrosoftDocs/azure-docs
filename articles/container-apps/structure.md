@@ -5,15 +5,13 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: conceptual
-ms.date: 09/04/2024
+ms.date: 12/13/2024
 ms.author: cshoe
 ---
 
 # Compute and billing structures in Azure Container Apps
 
-In Azure Container Apps, the environment and plan type you use determines the functionality and billing methods associated with your application. The default environment type, **Workload profiles (v2)** environment allows you to use different compute profiles, known as *workload profiles*. Each profile features different amounts of available compute resources, and is tailored specifically to meet your app's needs.
-
-This article explains the relationship between plans, workload profiles, and why to consider selecting one over another.
+In Azure Container Apps, the environment and plan type you use determines the available functionality and billing methods associated with your application. This article explains the relationship between plans, workload profiles, and why to consider selecting one over another.
 
 ## Environment types
 
@@ -24,30 +22,30 @@ Azure Container Apps features two different environment types.
 | Workload profiles | v2 | Yes | This article explains the details surrounding the default *Workload profiles (v2)* environment type. |
 | Consumption-only | v1 | No | For more detail on the *Consumption-only (v1)* environment type, see [Consumption-only environment type](environment-type-consumption-only.md). |
 
-## Overview
+The default environment type, **Workload profiles (v2)** environment allows you to use different compute profiles, known as *workload profiles*. Each profile features different amounts of compute resources, and is tailored specifically to meet your app's needs.
 
 A *Workload profiles (v2)* environment allows you to select the type of compute profiles used in your environment, and different profiles run on different plans.
 
-The following diagram shows how you can have different workload profiles used in an environment, and how each profile is supported by either the dedicated or consumption plan.
+The following diagram shows how you can have different workload profiles in an environment, and how each profile is supported by either the dedicated or consumption plan.
 
 :::image type="content" source="media/structure/azure-container-apps-structure.png" alt-text="Diagram of Azure Container Apps architecture structure.":::
 
-Plans dictate usage costs and influence the features available to your container apps. Workload profiles determine what type of compute resources are available in your environment, and each profile works either on the dedicated or the consumption plan.
+Plans are related to your environment type and dictate usage costs and influence the features available to your container apps. Workload profiles determine the specific compute resources available to your environment, and each profile works either on the dedicated or the consumption plan.
 
-To better understand these relationships, start by considering the differences between workload profiles.
+To better understand these relationships, start by considering the differences between different workload profiles.
 
 ## Workload profiles
 
-Each *Workload profiles (v2)* environment automatically comes with a consumption profile. The consumption profile is where you run applications that you want to allow to scale to zero, and where you only want to pay for usage. You can choose whether or not to use the consumption profile since you only incur costs as you use the profile.
+Each *Workload profiles (v2)* environment automatically comes with a consumption profile. The consumption profile is where you run applications that you want to allow to scale to zero, and where you only want to pay for usage. Ultimately you decide whether or not to use the consumption profile since you only incur costs as you use apps running in the profile.
 
-By default apps run on the consumption workload profile, but you can choose to select a profile that is best tailored for your application's needs. The consumption profile is well suited if you need:
+By default, apps run on the consumption workload profile, but you can choose to select a profile that is best tailored for your application's needs. The consumption profile is well suited if you need:
 
 - Need up to 4 vCPUs with 8 GB of memory
 - Don't need access to a GPU
 
 If your application requires any capability outside these parameters, then run your apps on dedicated workload profile.
 
-When you choose to use a dedicated workload profile, you can select the amount of memory and compute resources that are allocated to your apps. You can add as many dedicated workload profiles to your environment as necessary.
+When you choose to use a dedicated workload profile, you can select the allocated amount of memory and compute resources available to your apps. Further, you can add as many dedicated workload profiles to your environment as necessary.
 
 As you add a dedicated workload profile to your environment, you select the memory and vCPU size you want assigned to the profile. Resource availability is categorized into different series of compute capacities.
 
@@ -98,7 +96,7 @@ No. Every workload profiles environment comes with a single consumption profile 
 
 ### Can I remove the consumption profile from workload profiles environment?
 
-No. If you don't need the consumption profile, just don't use it. As typical with pay-as-you-go, you aren't charged for the consumption profile if you don't use it.
+No. If you don't need the consumption profile, just don't use it. As typical with pay-as-you-go scenarios, you aren't charged for the consumption profile if you don't use it.
 
 ### Does the consumption plan work the same way in a Workload profiles (v2) environment vs. a Consumption-only (v1) environment?
 
@@ -106,7 +104,7 @@ No. There are some distinctions between how the consumption plan operates among 
 
 ### I need consumption pricing. Should I use a Consumption-only (v1) environment, or a Workload profiles (v2) environment with the consumption profile?
 
-If you need the features of a consumption model, and you're creating a new Azure Container Apps environment, use the Workload profiles (v2) environment with the consumption profile. Using this approach gives you the flexibility to add dedicated resources to your environment should you need them in the future.
+If you need the features of a consumption model, and you're creating a new Azure Container Apps environment, use the Workload profiles (v2) environment with the consumption profile. This approach gives you the flexibility to add dedicated resources to your environment should you need them in the future.
 
 ## Related content
 
