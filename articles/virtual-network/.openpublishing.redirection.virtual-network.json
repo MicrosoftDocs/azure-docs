@@ -757,12 +757,12 @@
         },
         {
             "source_path_from_root": "/articles/virtual-network/virtual-network-deploy-static-pip-arm-portal.md",
-            "redirect_url": "/azure/virtual-network/ip-services/virtual-network-deploy-static-public-ip",
+            "redirect_url": "/azure/virtual-network/ip-services/virtual-network-static-public-ip",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/virtual-network/virtual-network-deploy-static-pip-arm-ps.md",
-            "redirect_url": "/azure/virtual-network/ip-services/virtual-network-deploy-static-public-ip",
+            "redirect_url": "/azure/virtual-network/ip-services/virtual-network-static-public-ip",
             "redirect_document_id": false
         },
         {
@@ -1222,17 +1222,17 @@
         },
         {
           "source_path_from_root": "/articles/virtual-network/ip-services/virtual-network-deploy-static-pip-arm-ps.md",
-          "redirect_url": "/azure/virtual-network/ip-services/virtual-network-deploy-static-public-ip",
+          "redirect_url": "/azure/virtual-network/ip-services/virtual-network-static-public-ip",
           "redirect_document_id": false
         },
         {
           "source_path_from_root": "/articles/virtual-network/ip-services/virtual-network-deploy-static-pip-arm-cli.md",
-          "redirect_url": "/azure/virtual-network/ip-services/virtual-network-deploy-static-public-ip",
+          "redirect_url": "/azure/virtual-network/ip-services/virtual-network-static-public-ip",
           "redirect_document_id": false
         },
         {
           "source_path_from_root": "/articles/virtual-network/ip-services/virtual-network-deploy-static-pip-arm-portal.md",
-          "redirect_url": "/azure/virtual-network/ip-services/virtual-network-deploy-static-public-ip",
+          "redirect_url": "/azure/virtual-network/ip-services/virtual-network-static-public-ip",
           "redirect_document_id": false
         },
         {
