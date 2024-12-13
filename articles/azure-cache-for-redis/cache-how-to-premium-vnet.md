@@ -28,6 +28,8 @@ ms.date: 12/12/2024
   - potential data loss
   - failure of management operations like scaling
   - intermittent or complete SSL/TLS failures
+  - updates may not be applied, leading to instances missing out on latest security and performance features
+    
   - in the most severe scenarios, loss of availability
 - VNet injected caches are only available for Premium-tier Azure Cache for Redis, not other tiers.
 - When using a VNet injected cache, you must change your VNet to cache dependencies such as Certificate Revocation Lists/Public Key Instructure, Azure Key Vault, Azure Storage, Azure Monitor, and more.
