@@ -3,7 +3,7 @@ title: Attach Azure NetApp Files datastores to Azure VMware Solution hosts
 description: Learn how to create Azure NetApp Files-based NFS datastores for Azure VMware Solution hosts.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 10/15/2024
+ms.date: 12/13/2024
 ms.custom: "references_regions, engagement-fy23"
 ---
 
@@ -22,7 +22,7 @@ The following diagram demonstrates a typical architecture of Azure NetApp Files 
 :::image type="content" source="media/attach-netapp-files-to-cloud/architecture-netapp-files-nfs-datastores.png" alt-text="Diagram shows the architecture of Azure NetApp Files backed NFS datastores attached to an Azure VMware Solution private cloud." lightbox="media/attach-netapp-files-to-cloud/architecture-netapp-files-nfs-datastores.png"::: 
 
 >[!Note]
-> NFS traffic from the ESXi hosts does not traverse any NSX components. Traffic traverses the ESXi vmkernel port directly to the NFS mount. 
+> NFS traffic from the ESXi hosts does not traverse any NSX components. Traffic traverses the ESXi VMkernel port directly to the NFS mount via the Azure network. 
 
 ## Prerequisites
 
@@ -249,4 +249,4 @@ Now that you attached a datastore on Azure NetApp Files-based NFS volume to your
 
 - **Does NFS Traffic traverse NSX components?**
 
-    No, NFS traffic from the ESXi hosts does not traverse any NSX components. Traffic traverses the ESXi vmkernel port directly to the NFS mount. 
+    No, NFS traffic from the ESXi hosts does not traverse any NSX components. Traffic traverses the ESXi VMkernel port directly to the NFS mount via the Azure network. 
