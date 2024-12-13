@@ -62,7 +62,7 @@ items:
       - name: Assess SQL instances for migration to Azure SQL
         href: tutorial-assess-sql.md
       - name: Assess servers for migration to AVS
-        href: ./vmware/tutorial-assess-vmware-azure-vmware-solution.md
+        href: tutorial-assess-vmware-azure-vmware-solution.md
     - name: Assess servers in Hyper-V environment 
       items:
       - name: Assess servers for migration to Azure VMs
