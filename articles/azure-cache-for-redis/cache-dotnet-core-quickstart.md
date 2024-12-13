@@ -23,6 +23,8 @@ Clone the repo [https://github.com/Azure-Samples/azure-cache-redis-samples/tree/
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 - [.NET Core SDK](https://dotnet.microsoft.com/download)
 
+::: zone pivot="azure-managed-redis"
+
 ## Create an Azure Managed Redis (preview) instance
 
 [!INCLUDE [managed-redis-create](includes/managed-redis-create.md)]
