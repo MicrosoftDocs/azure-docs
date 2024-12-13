@@ -233,6 +233,14 @@ This error occurs when you've provided a domain credential with the wrong domain
 - Go to the appliance configuration manager to add a server credential or edit an existing one as explained in the cause.
 - After you take the remediation steps, verify if the error was resolved by following the steps on [this website](troubleshoot-dependencies.md#mitigation-verification).
 
+
+## Error 9014: HTTPGetRequestToRetrieveFileFailed/ 975: MaxLimitExceededForDepMap /976: AutoenableDisabledForDepMap
+
+### Remediation
+1. On the server running the appliance, open the Registry Editor.
+1. Navigate to HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance (Use the folder without space).
+1. Add a registry key `DepMapAutoEnable` with a type of "String" and value as "false".
+
 ## Mitigation verification
 
 After you use the mitigation steps for the preceding errors, verify if the mitigation worked by running a few PowerCLI commands from the appliance server. If the commands succeed, it means that the issue is resolved. Otherwise, check and follow the remediation steps again.
