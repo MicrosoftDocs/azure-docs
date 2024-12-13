@@ -154,8 +154,9 @@ deployment state are returned as a result of a successful `cluster create`.
 View the status of the Cluster:
 
 ```azurecli
-az networkcloud cluster show --resource-group "$CLUSTER_RG" \
-  --cluster-name "$CLUSTER_RESOURCE_NAME"
+az networkcloud cluster show --cluster-name "<clusterName>" /
+--resource-group "<resourceGroupName>" /
+--subscription <SUBSCRIPTION_ID>
 ```
 
 The Cluster creation is complete when the `provisioningState` of the resource
@@ -187,13 +188,16 @@ If the customer requests a `compute-deployment-threshold` that it is different f
 The example below is for a customer requesting type "PercentSuccess" with a success rate of 97%.
 
 ```azurecli
-az networkcloud cluster update --name <CLUSTER_NAME> --resource-group <CLUSTER_RG> --compute-deployment-threshold type="PercentSuccess" grouping="PerCluster" value=97 --subscription <SUBSCRIPTION_ID>
+az networkcloud cluster update --name "<clusterName>" /
+--resource-group "<resourceGroup>" /
+--compute-deployment-threshold type="PercentSuccess" grouping="PerCluster" value=97 /
+--subscription <SUBSCRIPTION_ID>
 ```
 
 ### Validate update:
 
 ```
-az networkcloud cluster show -g <CLUSTER_RG> -n <CLUSTER_NAME> | grep -a3 computeDeploymentThreshold
+az networkcloud cluster show --resource-group "<resourceGroup>" --name "<clusterName>" | grep -a3 computeDeploymentThreshold
 
   "clusterType": "MultiRack",
   "clusterVersion": "<CLUSER_VERSION>",
@@ -211,7 +215,11 @@ In this example, if less than 97% of the compute nodes being deployed pass hardw
 If the customer requests an `update-strategy` threshold that it is different from the default of 80%, you can run the following cluster update command.
 
 ```azurecli
-az networkcloud cluster update -n <CLUSTER_NAME> -g <CLUSTER_RG> --update-strategy strategy-type="Rack" threshold-type="PercentSuccess" threshold-value=<DEPLOYMENT_THRESHOLD> wait-time-minutes=<DEPLOYMENT_PAUSE_MINS> --subscription <SUBSCRIPTION_ID>
+az networkcloud cluster update --name "<clusterName>" /
+--resource-group "<resourceGroup>" /
+--update-strategy strategy-type="Rack" threshold-type="PercentSuccess" /
+threshold-value="<thresholdValue>" wait-time-minutes=<waitTimeBetweenRacks> /
+--subscription <SUBSCRIPTION_ID>
 ```
 
 strategy-type can be "Rack" (Rack by Rack) OR "PauseAfterRack" (Wait for customer response to continue)
@@ -227,19 +235,23 @@ If updateStrategy is not set, the default are as follows:
       "waitTimeMinutes": 1
 ```
 
-
-
 The example below is for a customer using Rack by Rack strategy with a Percent Success of 60% and a 1 minute pause.
 
 ```azurecli
-az networkcloud cluster update -n <CLUSTER_NAME> -g <CLUSTER_RG> --update-strategy strategy-type="Rack" threshold-type="PercentSuccess" threshold-value=60 wait-time-minutes=1 --subscription <SUBSCRIPTION_ID>
+az networkcloud cluster update --name "<clusterName>" /
+--resource-group "<resourceGroup>" /
+--update-strategy strategy-type="Rack" threshold-type="PercentSuccess" /
+threshold-value=60 wait-time-minutes=1 /
+--subscription <SUBSCRIPTION_ID>
 ```
-
 
 Verify update:
 
 ```
-az networkcloud cluster show -g <CLUSTER_RG> -n <CLUSTER_NAME> --subscription <SUBSCRIPTION_ID>| grep -a5 updateStrategy
+az networkcloud cluster show --resource-group "<resourceGroup>" /
+--name "<clusterName>" /
+--subscription <SUBSCRIPTION_ID>| grep -a5 updateStrategy
+
       "strategyType": "Rack",
       "thresholdType": "PercentSuccess",
       "thresholdValue": 60,
@@ -251,14 +263,20 @@ In this example, if less than 60% of the compute nodes being provisioned in a ra
 The example below is for a customer using Rack by Rack strategy with a threshold type CountSuccess of 10 nodes per rack and a 1 minute pause.
 
 ```azurecli
-az networkcloud cluster update -n <CLUSTER_NAME> -g <CLUSTER_RG> --update-strategy strategy-type="Rack" threshold-type="CountSuccess" threshold-value=10 wait-time-minutes=1 --subscription <SUBSCRIPTION_ID>
+az networkcloud cluster update --name "<clusterName>" /
+--resource-group "<resourceGroup>" /
+--update-strategy strategy-type="Rack" threshold-type="CountSuccess" /
+threshold-value=10 wait-time-minutes=1 /
+--subscription <SUBSCRIPTION_ID>
 ```
-
 
 Verify update:
 
 ```
-az networkcloud cluster show -g <CLUSTER_RG> -n <CLUSTER_NAME> --subscription <SUBSCRIPTION_ID>| grep -a5 updateStrategy
+az networkcloud cluster show --resource-group "<resourceGroup>" /
+--name "<clusterName>" /
+--subscription <SUBSCRIPTION_ID>| grep -a5 updateStrategy
+
       "strategyType": "Rack",
       "thresholdType": "CountSuccess",
       "thresholdValue": 10,
