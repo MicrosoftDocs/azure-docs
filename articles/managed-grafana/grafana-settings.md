@@ -24,7 +24,7 @@ This article provides step-by-step instructions on how to configure Grafana sett
 
 1. Open the Azure portal and navigate to your Azure Managed Grafana instance.
 1. In the left menu, select **Settings** > **Configuration**.
-1. Open the **Grafana Settings (Preview)** tab.
+1. Open the **Grafana Settings** tab.
 
 :::image type="content" source="media/grafana-settings/grafana-settings-tab.png" alt-text="Screenshot of the Azure platform showing the Grafana settings tab." lightbox="media/grafana-settings/grafana-settings-tab.png":::
 
@@ -36,7 +36,7 @@ With this setting enabled, Grafana Viewers can:
 - Edit dashboards temporarily, without saving.
 - Access the **Explore** menu to perform interactive queries and analyze data.
 
-1. In the **Grafana Settings (Preview)** tab, locate the **Viewers can edit** option.
+1. In the **Grafana Settings** tab, locate the **Viewers can edit** option.
 1. This option is disabled by default. Toggle the switch to enable this setting.
 
 ## External Enabled
@@ -45,14 +45,14 @@ The **External Enabled** setting controls the public sharing of snapshots.
 
 With this setting enabled, users can publish snapshots of dashboards to an external URL by opening a dashboard, selecting **Share** > **Snapshot** > **Publish to snapshots.raintanks.io**.
 
-1. In the **Grafana Settings (Preview)** tab, locate the **External Enabled** option.
+1. In the **Grafana Settings** tab, locate the **External Enabled** option.
 1. This option is enabled by default, allowing users to publicly share snapshots of their dashboards. To restrict the public sharing of snapshots, toggle off the switch to disable this setting.
 
 ## CSRF Always Check
 
 The **CSRF Always Check** setting enhances security by rejecting requests that have an origin header that does not match the origin of the Grafana instance. This setting helps to prevent Cross-Site Request Forgery (CSRF) attacks. This option is disabled by default.
 
-1. In the **Grafana Settings (Preview)** tab, locate the **CSRF Always Check** option.
+1. In the **Grafana Settings** tab, locate the **CSRF Always Check** option.
 1. Toggle the switch to enable or disable this setting based on your security requirements.
 
 ## Related Content
