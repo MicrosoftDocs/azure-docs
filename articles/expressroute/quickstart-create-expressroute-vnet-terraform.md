@@ -141,7 +141,7 @@ In this article, you learn how to:
    $service_key=$(terraform output -raw service_key)
    ```
 
-1. Run [`Get-AzVirtualNetworkGateway`](/powershell/module/az.network/get-azvirtualnetworkgateway##:~:text=Example%202:%20Get%20a%20Virtual%20Network%20Gateway) to view the Azure virtual network gateway.
+1. Run [`Get-AzVirtualNetworkGateway`](/powershell/module/az.network/get-azvirtualnetworkgateway#:~:text=Example%202:%20Get%20a%20Virtual%20Network%20Gateway) to view the Azure virtual network gateway.
 
    ```azurepowershell
    Get-AzVirtualNetworkGateway -Name myGateway* -ResourceGroupName myRG
@@ -160,4 +160,9 @@ In this article, you learn how to:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [See more articles about Azure virtual network gateway](/search/?terms=Azure%20virtual%20network%20gateway%20and%20terraform).
+[See more articles about Azure virtual network gateway.](/search/?terms=Azure%20virtual%20network%20gateway%20and%20terraform)
+
+To learn how to link a virtual network to a circuit, continue to the ExpressRoute tutorials.
+
+> [!div class="nextstepaction"]
+> [ExpressRoute tutorials](expressroute-howto-linkvnet-portal-resource-manager.md)
