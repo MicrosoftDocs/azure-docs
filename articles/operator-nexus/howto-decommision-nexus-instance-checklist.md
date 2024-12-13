@@ -16,61 +16,30 @@ This how-to guide provides a high-level checklist on the essential steps require
 Note: Due to the underlying dependencies and references across these resources, follow the order of this checklist to ensure a smooth and efficient deletion of resources.
 
 1) Perform tenant network resources and workload clean up, including but not limited to VMs and Nexus Kubernetes Clusters
-
 2) [Disable/Delete L3 ISD (Isolation Domain) resources](./howto-delete-layer-3-isolation-domains.md)
-
-3) [Disable/Delete L2 ISD (Isolation Domain) resources](./howto-configure-isolation-domain#delete-l2-isolation-domain)
 3) [Disable/Delete L2 ISD (Isolation Domain) resources](./howto-configure-isolation-domain#delete-l2-isolation-domain.md)
-
-
-
 4) [Delete Keysets resources](./howto-baremetal-bmc-ssh#deleting-a-bmc-keyset.md)
-4) [Delete Keysets resources](https://learn.microsoft.com/azure/operator-nexus/howto-baremetal-bmc-ssh#deleting-a-bmc-keyset)
-4) [Delete Keysets resources](./howto-baremetal-bmc-ssh#deleting-a-bmc-keyset)
-
 5) [Delete Cluster resource](./howto-configure-cluster#delete-a-cluster.md)
-
-
-
 6) [Delete Cluster Manager resource](./howto-cluster-manager#delete-cluster-manager.md)
-
-
-6) [Delete Cluster Manager resource](https://learn.microsoft.com/azure/operator-nexus/howto-cluster-manager#delete-cluster-manager)
 7) [Deprovision Fabric](./howto-configure-network-fabric#deleting-fabric.md)
-6) [Delete Cluster Manager resource](./howto-cluster-manager#delete-cluster-manager)
-
-
-
 8) [Clean up ACL (Access Control List) resources](./howto-delete-access-control-list-network-to-network-interconnect.md)
-
-
-
-
-
 9) [Delete Fabric resource](./howto-configure-network-fabric#deleting-fabric.md)
-
-
-
-
-
-10) [Disable DHCP (Dynamic Host Configuration Protocol) and put devices into ZTP (Zero Touch Provisioning) mode](./howto-platform-prerequisites#default-setup-for-other-devices-installed)
-
-
-
-
-
-11) [Delete Network Fabric Controller (NFC) resource](./howto-configure-network-fabric-controller#delete-network-fabric-controller)
-
-
-
-
-
-
-
-
-
-
-
+10) [Disable DHCP (Dynamic Host Configuration Protocol) and put devices into ZTP (Zero Touch Provisioning) mode](./howto-platform-prerequisites#default-setup-for-other-devices-installed.md)
+11) [Delete Network Fabric Controller (NFC) resource](./howto-configure-network-fabric-controller#delete-network-fabric-controller.md)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
