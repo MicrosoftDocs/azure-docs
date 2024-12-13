@@ -1,274 +1,203 @@
 ---
-title: Mock test workflows
-description: Set up mock data to test workflows in Azure Logic Apps without affecting production environments.
+title: Test workflows with mock outputs
+description: Set up static results to test workflows with mock outputs in Azure Logic Apps without affecting production environments.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 01/04/2024
+ms.date: 07/24/2024
 ---
 
-# Test workflows with mock data in Azure Logic Apps
+# Test workflows with mock outputs in Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-To test your workflows without actually calling or accessing live apps, data, services, or systems, you can set up and return mock values from actions. For example, you might want to test different action paths based on various conditions, force errors, provide specific message response bodies, or even try skipping some steps. Setting up mock data testing on an action doesn't run the action, but returns the mock data instead.
+To test your workflow without affecting your production environments, you can set up and return mock outputs, or *static results*, from your workflow operations. That way, you don't have to call or access your live apps, data, services, or systems. For example, you might want to test different action paths based on various conditions, force errors, provide specific message response bodies, or even try skipping some steps. Setting up mock results from an action doesn't run the operation, but returns the test output instead.
 
-For example, if you set up mock data for the Outlook 365 send mail action, Azure Logic Apps just returns the mock data that you provided, rather than call Outlook and send an email.
+For example, if you set up mock outputs for the Outlook 365 send mail action, Azure Logic Apps just returns the mock outputs that you provided, rather than call Outlook and send an email.
 
-This article shows how to set up mock data on an action in a workflow for the [**Logic App (Consumption)** and the **Logic App (Standard)** resource type](logic-apps-overview.md#resource-environment-differences). You can find previous workflow runs that use these mock data and reuse existing action outputs as mock data.
+This guide shows how to set up mock outputs for an action in a Consumption or Standard logic app workflow.
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have a subscription, <a href="https://azure.microsoft.com/free/?WT.mc_id=A261C142F" target="_blank">sign up for a free Azure account</a>.
+* An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* The logic app resource and workflow where you want to set up mock data. This article uses a **Recurrence** trigger and **HTTP** action as an example workflow.
+* The logic app resource and workflow where you want to set up mock outputs. This article uses a **Recurrence** trigger and **HTTP** action as an example workflow.
 
-  If you're new to logic apps, see [What is Azure Logic Apps](logic-apps-overview.md) and the following documentation:
+  If you're new to logic apps, see the following documentation:
 
-  * [Create an example Consumption logic app workflow in multi-tenant Azure Logic Apps](quickstart-create-example-consumption-workflow.md)
+  * [Create an example Consumption logic app workflow in multitenant Azure Logic Apps](quickstart-create-example-consumption-workflow.md)
 
   * [Create an example Standard logic app workflow in single-tenant Azure Logic Apps](create-single-tenant-workflows-azure-portal.md)
 
-<a name="enable-mock-data"></a>
+## Limitations
 
-## Enable mock data output
+- This capability is available only for actions, not triggers.
+
+- No option currently exists to dynamically or programmatically enable and disable this capability.
+
+- No indications exist at the logic app level that this capability is enabled. The following list describes where you can find indications that this capability is enabled:
+
+  - On the action shape, the lower-right corner shows the test beaker icon (![Icon for static result](./media/test-logic-apps-mock-data-static-results/static-result-test-beaker-icon.png)).
+
+  - On the action's details pane, on **Testing** tab, the **Static Result** option is enabled.
+
+  - In code view, the action's JSON definition includes the following properties in the **`runtimeConfiguration`** JSON object:
+
+    ```json
+    "runtimeConfiguration": {
+        "staticResult": {
+            "name": "{action-name-ordinal}",
+            "staticResultOptions": "Enabled"
+        }
+    }
+    ```
+
+  - In the workflow's run history, the **Static Results** column appears with the word **Enabled** next to any run where at least one action has this capability enabled.
+
+<a name="set-up-mock-outputs"></a>
+
+## Set up mock outputs on an action
 
 ### [Consumption](#tab/consumption)
 
-1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app workflow in the designer.
 
-1. On the action where you want to return mock data, follow these steps:
+1. On the designer, select the action where you want to return mock outputs.
 
-   1. In the action's upper-right corner, select the ellipses (*...*) button, and then select **Testing**, for example:
+1. On the action information pane, select **Testing**, for example:
 
-      ![Screenshot showing the Azure portal, workflow designer, action shortcut menu, and "Testing" selected.](./media/test-logic-apps-mock-data-static-results/select-testing.png)
+   :::image type="content" source="media/test-logic-apps-mock-data-static-results/select-testing.png" alt-text="Screenshot shows the Azure portal, Consumption workflow designer, HTTP action information pane, and Testing selected." lightbox="media/test-logic-apps-mock-data-static-results/select-testing.png":::
 
-   1. On the **Testing** pane, select **Enable Static Result (Preview)**. When the action's required (*) properties appear, specify the mock output values that you want to return as the action's response.
+1. On the **Testing** tab, select **Enable Static Result**.
 
-      The properties differ based on the selected action type. For example, the HTTP action has the following required properties:
+1. From the **Select Fields** list, select the properties where you want to specify mock outputs to return in the action's response.
 
-      | Property | Description |
-      |----------|-------------|
-      | **Status** | The action's status to return |
-      | **Status Code** | The specific status code to return as output |
-      | **Headers** | The header content to return |
-      |||
+   The available properties differ based on the selected action type. For example, the HTTP action has the following sections and properties:
 
-      ![Screenshot showing the "Testing" pane after selecting "Enable Static Result".](./media/test-logic-apps-mock-data-static-results/enable-static-result.png)
+   | Section or property | Required | Description |
+   |---------------------|----------|-------------|
+   | **Status** | Yes | The action status to return. <br><br>- If you select **Succeeded**, you must also select **Outputs** from the **Select Fields** list. <br><br>- If you select **Failed**, you must also select **Error** from the **Select Fields** list. |
+   | **Code** | No | The specific code to return for the action |
+   | **Error** | Yes, when the **Status** is **Failed** | The error message and an optional error code to return |
+   | **Output** | Yes, when the **Status** is **Succeeded** | The status code, header content, and an optional body to return |
 
-      > [!TIP]
-      > To enter the values in JavaScript Object Notation (JSON) format, 
-      > select **Switch to JSON Mode** (![Icon for "Switch to JSON Mode"](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button.png)).
+   The following example shows when **Status** is set to **Failed**, which requires that you select the **Error** field and provide values for the **Error Message** and **Error Code** properties:
 
-   1. For optional properties, open the **Select optional fields** list, and select the properties that you want to mock.
+   :::image type="content" source="media/test-logic-apps-mock-data-static-results/enable-static-result.png" alt-text="Screenshot shows Consumption workflow and Testing pane after selecting Enable Static Result with the Status and Error fields also selected." lightbox="media/test-logic-apps-mock-data-static-results/enable-static-result.png":::
 
-      ![Screenshot showing the "Testing" pane with "Select optional fields" list opened.](./media/test-logic-apps-mock-data-static-results/optional-properties.png)
+1. When you're ready, select **Save**.
 
-1. When you're ready, select **Done**.
+   The action's lower-right corner now shows a test beaker icon (![Icon for static result](./media/test-logic-apps-mock-data-static-results/static-result-test-beaker-icon.png)), which indicates that you enabled static results.
 
-   In the action's upper-right corner, the title bar now shows a test beaker icon (![Icon for static result](./media/test-logic-apps-mock-data-static-results/static-result-test-beaker-icon.png)), which indicates that you've enabled static results.
+   :::image type="content" source="media/test-logic-apps-mock-data-static-results/static-result-enabled.png" alt-text="Screenshot shows Consumption workflow with HTTP action and static result icon." lightbox="media/test-logic-apps-mock-data-static-results/static-result-enabled.png"::: 
 
-   ![Screenshot showing an action with the static result icon.](./media/test-logic-apps-mock-data-static-results/static-result-enabled.png)
-
-   To find workflow runs that use mock data, review [Find runs that use static results](#find-runs-mock-data) later in this topic.
+   To find workflow runs that use mock outputs, see [Find runs that use static results](#find-runs-mock-data) later in this guide.
 
 ### [Standard](#tab/standard)
 
-1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app workflow in the designer.
 
-1. On the designer, select the action where you want to return mock data so that the action details pane appears.
+1. On the designer, select the action where you want to return mock outputs.
 
-1. After the action details pane opens to the right side, select **Testing**.
+1. On the action information pane, select **Testing**, for example:
 
-   ![Screenshot showing the Azure portal, workflow designer, action details pane, and "Testing" selected.](./media/test-logic-apps-mock-data-static-results/select-testing-standard.png)
+   :::image type="content" source="media/test-logic-apps-mock-data-static-results/select-testing-standard.png" alt-text="Screenshot shows Standard workflow with HTTP action details pane, and Testing selected." lightbox="media/test-logic-apps-mock-data-static-results/select-testing-standard.png":::
 
-1. On the **Testing** tab, select **Enable Static Result (Preview)**. When the action's required (*) properties appear, specify the mock output values that you want to return as the action's response.
+1. On the **Testing** tab, select **Enable Static Result**.
 
-   The properties differ based on the selected action type. For example, the HTTP action has the following required properties:
+1. From the **Select Fields** list, select the properties where you want to specify mock outputs to return in the action's response.
 
-   | Property | Description |
-   |----------|-------------|
-   | **Status** | The action's status to return |
-   | **Status Code** | The specific status code to return as output |
-   | **Headers** | The header content to return |
-   |||
+   The available properties differ based on the selected action type. For example, the HTTP action has the following sections and properties:
 
-   ![Screenshot showing the "Testing" tab after selecting "Enable Static Result".](./media/test-logic-apps-mock-data-static-results/enable-static-result-standard.png)
+   | Section or property | Required | Description |
+   |---------------------|----------|-------------|
+   | **Status** | Yes | The action status to return. <br><br>- If you select **Succeeded**, you must also select **Outputs** from the **Select Fields** list. <br><br>- If you select **Failed**, you must also select **Error** from the **Select Fields** list. |
+   | **Code** | No | The specific code to return for the action |
+   | **Error** | Yes, when the **Status** is **Failed** | The error message and an optional error code to return |
+   | **Output** | Yes, when the **Status** is **Succeeded** | The status code, header content, and an optional body to return |
 
-   > [!TIP]
-   > To enter the values in JavaScript Object Notation (JSON) format, 
-   > select **Switch to JSON Mode** (![Icon for "Switch to JSON Mode"](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button.png)).
+   The following example shows when **Status** is set to **Failed**, which requires that you select the **Error** field and provide values for the **Error Message** and **Error Code** properties:
 
-1. For optional properties, open the **Select optional fields** list, and select the properties that you want to mock.
+   :::image type="content" source="media/test-logic-apps-mock-data-static-results/enable-static-result-standard.png" alt-text="Screenshot shows Standard workflow and Testing pane after selecting Enable Static Result with the Status and Error fields also selected." lightbox="media/test-logic-apps-mock-data-static-results/enable-static-result-standard.png":::
 
-   ![Screenshot showing the "Testing" pane with "Select optional fields" list opened.](./media/test-logic-apps-mock-data-static-results/optional-properties-standard.png)
-
-1. When you're ready, select **Done**.
+1. When you're ready, select **Save**.
 
    The action's lower-right corner now shows a test beaker icon (![Icon for static result](./media/test-logic-apps-mock-data-static-results/static-result-test-beaker-icon.png)), which indicates that you've enabled static results.
 
-   ![Screenshot showing an action with the static result icon on designer.](./media/test-logic-apps-mock-data-static-results/static-result-enabled-standard.png)
+   :::image type="content" source="media/test-logic-apps-mock-data-static-results/static-result-enabled.png" alt-text="Screenshot shows Standard workflow with HTTP action and static result icon." lightbox="media/test-logic-apps-mock-data-static-results/static-result-enabled.png":::
 
-   To find workflow runs that use mock data, review [Find runs that use static results](#find-runs-mock-data) later in this topic.
+   To find workflow runs that use mock outputs, see [Find runs that use static results](#find-runs-mock-data) later in this guide.
 
 ---
 
 <a name="find-runs-mock-data"></a>
 
-## Find runs that use mock data
+## Find runs that use mock outputs
 
 ### [Consumption](#tab/consumption)
 
-To find earlier workflow runs where the actions use mock data, review that workflow's run history.
+To find earlier workflow runs where the actions use mock outputs, review that workflow's run history.
 
-1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app workflow in the designer.
 
 1. On your logic app resource menu, select **Overview**.
 
-1. Under the **Essentials** section, select **Runs history**, if not already selected.
+1. Under the **Essentials** section, select **Runs history**, if not selected.
 
 1. In the **Runs history** table, find the **Static Results** column.
 
-   Any run that includes actions with mock data output has the **Static Results** column set to **Enabled**, for example:
+   Any run that includes actions with mock outputs has the **Static Results** column set to **Enabled**, for example:
 
-   ![Screenshot showing the workflow run history with the "Static Results" column.](./media/test-logic-apps-mock-data-static-results/run-history.png)
+   :::image type="content" source="media/test-logic-apps-mock-data-static-results/run-history.png" alt-text="Screenshot shows Consumption workflow run history with the Static Results column." lightbox="media/test-logic-apps-mock-data-static-results/run-history.png":::
 
-1. To view that actions in a run that uses mock data, select the run that you want where the **Static Results** column is set to **Enabled**.
+1. To view the actions in a run that uses mock outputs, select the run where the **Static Results** column is set to **Enabled**.
 
-   Actions that use static results show the test beaker (![Icon for static result](./media/test-logic-apps-mock-data-static-results/static-result-test-beaker-icon.png)) icon, for example:
+   In the workflow run details pane, actions that use static results show the test beaker icon (![Icon for static result](./media/test-logic-apps-mock-data-static-results/static-result-test-beaker-icon.png)), for example:
 
-   ![Screenshot showing workflow run history with actions that use static result.](./media/test-logic-apps-mock-data-static-results/static-result-enabled-run-details.png)
+   :::image type="content" source="media/test-logic-apps-mock-data-static-results/run-history-static-result.png" alt-text="Screenshot shows Consumption workflow run history with actions that use static results." lightbox="media/test-logic-apps-mock-data-static-results/run-history-static-result.png":::
 
 ### [Standard](#tab/standard)
 
-To find other workflow runs where the actions use mock data, you have to check each run.
+To find earlier or other workflow runs where the actions use mock outputs, review each workflow's run history.
 
-1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app workflow in the designer.
 
 1. On the workflow menu, select **Overview**.
 
-1. Under the **Essentials** section, select **Run History**, if not already selected.
+1. Under the **Essentials** section, select **Run History**, if not selected.
 
-1. In the **Run History** table, select the run that you want to review.
+1. In the **Run History** table, find the **Static Results** column.
 
-   ![Screenshot showing the workflow run history.](./media/test-logic-apps-mock-data-static-results/select-run-standard.png)
+   Any run that includes actions with mock outputs has the **Static Results** column set to **Enabled**, for example:
 
-1. On the run details pane, check whether any actions show the test beaker (![Icon for static result](./media/test-logic-apps-mock-data-static-results/static-result-test-beaker-icon.png)) icon, for example:
+   :::image type="content" source="media/test-logic-apps-mock-data-static-results/select-run-standard.png" alt-text="Screenshot shows Standard workflow run history with the Static Results column." lightbox="media/test-logic-apps-mock-data-static-results/select-run-standard.png":::
 
-   ![Screenshot showing workflow run history with actions that use static result.](./media/test-logic-apps-mock-data-static-results/run-history-static-result-standard.png)
+1. To view the actions in a run that uses mock outputs, select the run where the **Static Results** column is set to **Enabled**.
 
----
+   On the run details pane, any actions that use static results show the test beaker icon (![Icon for static result](./media/test-logic-apps-mock-data-static-results/static-result-test-beaker-icon.png)), for example:
 
-<a name="reuse-sample-outputs"></a>
-
-## Reuse previous outputs as mock data
-
-If you have a previous workflow run with outputs, you can reuse these outputs as mock data by copying and pasting those outputs from that run.
-
-### [Consumption](#tab/consumption)
-
-1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
-
-1. On your logic app resource menu, select **Overview**.
-
-1. Under the **Essentials** section, select **Runs history**, if not already selected. From the list that appears, select the workflow run that you want.
-
-   ![Screenshot showing workflow run history.](./media/test-logic-apps-mock-data-static-results/select-run.png)
-
-1. After the run details pane opens, expand the action that has the outputs that you want.
-
-1. In the **Outputs** section, select **Show raw outputs**.
-
-1. On the **Outputs** pane, copy either the complete JavaScript Object Notation (JSON) object or the specific subsection you want to use, for example, the outputs section, or even just the headers section.
-
-1. Review the earlier section about how to [set up mock data](#enable-mock-data) for an action, and follow the steps to open the action's **Testing** pane.
-
-1. After the **Testing** pane opens, choose either step:
-
-   * To paste a complete JSON object, next to the **Testing** label, select **Switch to JSON Mode** (![Icon for "Switch to JSON Mode"](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button.png)):
-
-     ![Screenshot showing "Switch to JSON Mode" icon selected to paste complete JSON object.](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button-complete.png)
-
-   * To paste just a JSON section, next to that section's label, such as **Output** or **Headers**, select **Switch to JSON Mode**, for example:
-
-     ![Screenshot showing "Switch to JSON Mode" icon selected to paste a section from a JSON object.](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button-output.png)
-
-1. In the JSON editor, paste your previously copied JSON.
-
-   ![Screenshot showing the pasted JSON in the editor.](./media/test-logic-apps-mock-data-static-results/json-editing-mode.png)
-
-1. When you're finished, select **Done**. Or, to return to the designer, select **Switch Editor Mode** (![Icon for "Switch Editor Mode"](./media/test-logic-apps-mock-data-static-results/switch-editor-mode-button.png)).
-
-### [Standard](#tab/standard)
-
-1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
-
-1. On the workflow menu, select **Overview**.
-
-1. Under the **Essentials** section, select **Run History**, if not already selected.
-
-1. In the **Run History** table, select the run that you want to review.
-
-   ![Screenshot showing the workflow run history.](./media/test-logic-apps-mock-data-static-results/select-run-standard.png)
-
-1. After the run details pane opens, select the action that has the outputs that you want.
-
-1. In the **Outputs** section, select **Show raw outputs**.
-
-1. On the **Outputs** pane, copy either the complete JavaScript Object Notation (JSON) object or the specific subsection you want to use, for example, the outputs section, or even just the headers section.
-
-1. Review the earlier section about how to [set up mock data](#enable-mock-data) for an action, and follow the steps to open the action's **Testing** tab.
-
-1. After the **Testing** tab opens, choose either step:
-
-   * To paste a complete JSON object, next to the **Testing** label, select **Switch to JSON Mode** (![Icon for "Switch to JSON Mode"](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button.png)):
-
-     ![Screenshot showing "Switch to JSON Mode" icon selected to paste complete JSON object.](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button-complete-standard.png)
-
-   * To paste just a JSON section, next to that section's label, such as **Output** or **Headers**, select **Switch to JSON Mode**, for example:
-
-     ![Screenshot showing "Switch to JSON Mode" icon selected to paste a section from a JSON object.](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button-output-standard.png)
-
-1. In the JSON editor, paste your previously copied JSON.
-
-   ![Screenshot showing the pasted JSON in the editor.](./media/test-logic-apps-mock-data-static-results/json-editing-mode-standard.png)
-
-1. When you're finished, select **Done**. Or, to return to the designer, select **Switch Editor Mode** (![Icon for "Switch Editor Mode"](./media/test-logic-apps-mock-data-static-results/switch-editor-mode-button.png)).
+   :::image type="content" source="media/test-logic-apps-mock-data-static-results/run-history-static-result.png" alt-text="Screenshot shows Standard workflow run history with actions that use static results." lightbox="media/test-logic-apps-mock-data-static-results/run-history-static-result.png":::
 
 ---
 
-## Disable mock data
+## Disable mock outputs
 
-Turning off static results on an action doesn't remove the values from your last setup. So, if you turn on static result again on the same action, you can continue using your previous values.
+Turning off static results on an action doesn't remove the values from your last setup. So, if you turn on static results again on the same action, you can continue using your previous values.
 
-### [Consumption](#tab/consumption)
+1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
 
-1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer. Find the action where you want to disable mock data.
-
-1. In the action's upper-right corner, select the test beaker icon (![Icon for static result](./media/test-logic-apps-mock-data-static-results/static-result-test-beaker-icon.png)).
-
-   ![Screenshot showing the action and the test beaker icon selected.](./media/test-logic-apps-mock-data-static-results/disable-static-result.png)
-
-1. Select **Disable Static Result** > **Done**.
-
-   ![Screenshot showing the "Disable Static Result" selected.](./media/test-logic-apps-mock-data-static-results/disable-static-result-button.png)
-
-### [Standard](#tab/standard)
-
-1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer. Select the action where you want to disable mock data.
+1. Find and select the action where you want to disable mock outputs.
 
 1. In the action details pane, select the **Testing** tab.
 
-1. Select **Disable Static Result** > **Done**.
+1. Select **Disable Static Result** > **Save**.
 
-   ![Screenshot showing the "Disable Static Result" selected for Standard.](./media/test-logic-apps-mock-data-static-results/disable-static-result-button-standard.png)
-
----
+   :::image type="content" source="media/test-logic-apps-mock-data-static-results/disable-static-result.png" alt-text="Screenshot shows logic app workflow, HTTP action, and Testing tab with Disable Static Result selected." lightbox="media/test-logic-apps-mock-data-static-results/disable-static-result.png":::
 
 ## Reference
 
-For more information about this setting in your underlying workflow definitions, see [Static results - Schema reference for Workflow Definition Language](logic-apps-workflow-definition-language.md#static-results) and [runtimeConfiguration.staticResult - Runtime configuration settings](logic-apps-workflow-actions-triggers.md#runtime-configuration-settings)
+For more information about this setting in your underlying workflow definitions, see [Static results - Schema reference for Workflow Definition Language](logic-apps-workflow-definition-language.md#static-results) and [runtimeConfiguration.staticResult - Runtime configuration settings](logic-apps-workflow-actions-triggers.md#runtime-configuration-settings).
 
 ## Next steps
 

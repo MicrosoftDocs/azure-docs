@@ -39,7 +39,7 @@ Once these downloads are completed, then [Install Azure Application Consistent S
 Follow the guidelines to set up and run the snapshots and disaster-recovery commands. We recommend that you complete the following steps as root before you install and use the snapshot tools:
 
 1. Patch the operating system
-   1. For SUSE on Azure Large Instances, set up SUSE Subscription Management Tool (SMT). For more information, see [Install and configure SAP HANA (Large Instances) on Azure](../virtual-machines/workloads/sap/hana-installation.md#operating-system).
+   1. For SUSE on Azure Large Instances, set up SUSE Subscription Management Tool (SMT). For more information, see [Install and configure SAP HANA (Large Instances) on Azure](/azure/virtual-machines/workloads/sap/hana-installation#operating-system).
 1. Set up time synchronization. Provide a time server that's compatible with the Network Time Protocol (NTP), and configure the operating system accordingly.
 1. Install the database. Follow the instructions for the supported database that you're using.
 1. Select the storage back end that you're using for your deployment. For more information, see [Enable communication with storage](azacsnap-configure-storage.md#enable-communication-with-storage) later in this article.

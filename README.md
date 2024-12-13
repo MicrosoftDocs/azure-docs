@@ -12,7 +12,7 @@ You've decided to contribute. That's great! To contribute to the documentation, 
 
 #### GitHub
 
-Contributing to the documentation requires a GitHub account. If you don't have an account, follow the instructions for [GitHub account setup](https://learn.microsoft.com/contribute/get-started-setup-github) from our contributor guide.
+Contributing to the documentation requires a [GitHub account](https://github.com/). If you don't have an account, follow the instructions for [GitHub account setup](https://learn.microsoft.com/contribute/get-started-setup-github) from our contributor guide.
 
 #### Tools
 

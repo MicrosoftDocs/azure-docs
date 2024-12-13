@@ -3,7 +3,7 @@
  description: Learn how to turn on preview mode for IoT Hub, why you would want to, and some warnings
  services: iot-hub
  author: kgremban
- ms.service: iot-hub
+ ms.service: azure-iot-hub
  ms.topic: conceptual
  ms.date: 11/24/2020
  ms.author: kgremban
@@ -39,7 +39,7 @@ These features are improvements at the IoT Hub protocol and authentication layer
 
 1. Select **IoT Hub** from the search results, and then select **Create**.
 
-1. On the **Basics** tab, complete the fields [as you normally would](iot-hub-create-through-portal.md) except for **Region**. Select one of these regions:
+1. On the **Basics** tab, complete the fields [as you normally would](create-hub.md) except for **Region**. Select one of these regions:
     
     - Central US
     - West Europe

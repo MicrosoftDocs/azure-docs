@@ -4,9 +4,8 @@ description: Learn about the software and networking requirements for your Azure
 services: databox
 author: stevenmatthew
 
-ms.service: databox
-ms.subservice: gateway
-ms.topic: article
+ms.service: azure-data-box-gateway
+ms.topic: conceptual
 ms.date: 03/24/2022
 ms.author: shaas
 ---

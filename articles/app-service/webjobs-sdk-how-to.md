@@ -50,7 +50,35 @@ For example, the `connection` property for an Azure Blob trigger definition migh
 
 #### Identity-based connections
 
-To use identity-based connections in the WebJobs SDK, make sure you are using the latest versions of WebJobs packages in your project. You should also ensure you have a reference to [Microsoft.Azure.WebJobs.Host.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Host.Storage). When setting up WebJobs within your HostBuilder, make sure to include a call to `AddAzureStorageCoreServices`, as this is what allows `AzureWebJobsStorage` and other Storage triggers and bindings to use identity:
+To use identity-based connections in the WebJobs SDK, make sure you are using the latest versions of WebJobs packages in your project. You should also ensure you have a reference to [Microsoft.Azure.WebJobs.Host.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Host.Storage). The following is an example of what your project file might look like after making these updates:
+
+```xml
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net48</TargetFramework>
+    <IsWebJobProject>true</IsWebJobProject>
+    <WebJobName>$(AssemblyName)</WebJobName>
+    <WebJobType>Continuous</WebJobType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Azure.WebJobs" Version="3.0.41" />
+    <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.Storage.Queues" Version="5.3.1" />
+    <PackageReference Include="Microsoft.Azure.WebJobs.Host.Storage" Version="5.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="2.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+</Project>
+```
+
+When setting up WebJobs within your HostBuilder, make sure to include a call to `AddAzureStorageCoreServices`, as this is what allows `AzureWebJobsStorage` and other Storage triggers and bindings to use identity:
 
 ```csharp
     builder.ConfigureWebJobs(b =>
@@ -80,7 +108,7 @@ If you provide your configuration through any means other than environment varia
 
 You may omit the `queueServiceUri` property if you do not plan to use blob triggers.
 
-When your code is run locally, this will default to using your developer identity per the behavior described for DefaultAzureCredential.
+When your code is run locally, this will default to using your developer identity per the behavior described for [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential).
 
 When your code is hosted in Azure App Service, the configuration shown above will default to the [system-assigned managed identity](./overview-managed-identity.md#add-a-system-assigned-identity) for the resource. To instead use a [user-assigned identity](./overview-managed-identity.md#add-a-user-assigned-identity) which has been assigned to the app, you need to add additional properties for your connection that specify which identity should be used. The `credential` property (`AzureWebJobsStorage__credential` as an environment variable) should be set to the string "managedidentity". The `clientId` property (`AzureWebJobsStorage__clientId` as an environment variable) should be set to the client ID of the user-assigned managed identity to be used. As structured configuration, the complete object would be:
 
@@ -991,7 +1019,7 @@ config.LoggerFactory = new LoggerFactory()
 
 ### Custom telemetry for Application Insights
 
-The process for implementing custom telemetry for [Application Insights](../azure-monitor/app/app-insights-overview.md) depends on the SDK version. To learn how to configure Application Insights, see [Add Application Insights logging](webjobs-sdk-get-started.md#enable-application-insights-logging).
+The process for implementing custom telemetry for [Application Insights](/azure/azure-monitor/app/app-insights-overview) depends on the SDK version. To learn how to configure Application Insights, see [Add Application Insights logging](webjobs-sdk-get-started.md#enable-application-insights-logging).
 
 #### Version 3.*x*
 
@@ -1049,7 +1077,7 @@ static async Task Main()
 }
 ```
 
-When the [`TelemetryConfiguration`] is constructed, all registered types of [`ITelemetryInitializer`] are included. To learn more, see [Application Insights API for custom events and metrics](../azure-monitor/app/api-custom-events-metrics.md).
+When the [`TelemetryConfiguration`] is constructed, all registered types of [`ITelemetryInitializer`] are included. To learn more, see [Application Insights API for custom events and metrics](/azure/azure-monitor/app/api-custom-events-metrics).
 
 In version 3.*x*, you no longer have to flush the [`TelemetryClient`] when the host stops. The .NET Core dependency injection system automatically disposes of the registered `ApplicationInsightsLoggerProvider`, which flushes the [`TelemetryClient`].
 
@@ -1081,7 +1109,7 @@ private class CustomTelemetryClientFactory : DefaultTelemetryClientFactory
 }
 ```
 
-The `SamplingPercentageEstimatorSettings` object configures [adaptive sampling](../azure-monitor/app/sampling.md). This means that in certain high-volume scenarios, Applications Insights sends a selected subset of telemetry data to the server.
+The `SamplingPercentageEstimatorSettings` object configures [adaptive sampling](/azure/azure-monitor/app/sampling). This means that in certain high-volume scenarios, Applications Insights sends a selected subset of telemetry data to the server.
 
 After you create the telemetry factory, you pass it in to the Application Insights logging provider:
 

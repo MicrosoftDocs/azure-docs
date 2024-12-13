@@ -1,7 +1,7 @@
 ---
 title: Disaster recovery for Azure VMs using Azure PowerShell and Azure Site Recovery
 description: Learn how to set up disaster recovery for Azure virtual machines with Azure Site Recovery using Azure PowerShell.
-ms.service: site-recovery
+ms.service: azure-site-recovery
 author: ankitaduttaMSFT
 manager: rochakm
 ms.topic: how-to
@@ -251,7 +251,7 @@ When enabling zone to zone replication, only one fabric will be created. But the
 
 ```azurepowershell
 $primaryProtectionContainer = Get-AzRecoveryServicesAsrProtectionContainer -Fabric $fabric -Name "asr-a2a-default-westeurope-container"
-$recoveryPprotectionContainer = Get-AzRecoveryServicesAsrProtectionContainer -Fabric $fabric -Name "asr-a2a-default-westeurope-t-container"
+$recoveryProtectionContainer = Get-AzRecoveryServicesAsrProtectionContainer -Fabric $fabric -Name "asr-a2a-default-westeurope-t-container"
 ```
 
 ### Create a replication policy

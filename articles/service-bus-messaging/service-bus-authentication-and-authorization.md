@@ -1,6 +1,6 @@
 ---
-title: Azure Service Bus authentication and authorization | Microsoft Docs
-description: Authenticate apps to Service Bus with Shared Access Signature (SAS) authentication.
+title: Azure Service Bus authentication and authorization
+description: Learn how to securely authenticate and authorize access to Azure Service Bus, including best practices for managing access keys and using Microsoft Entra ID.
 ms.topic: article
 ms.date: 02/23/2024
 ---
@@ -44,8 +44,6 @@ You can configure shared access policies on a Service Bus namespace. The key app
 Authorization rules configured at the namespace level can grant access to all entities in a namespace for clients with tokens signed using the corresponding key. You can configure up to 12 such authorization rules on a Service Bus namespace, queue, or topic. By default, a shared access authorization rule with all rights is configured for every namespace when it's first provisioned.
 
 To access an entity, the client requires a SAS token generated using a specific shared access authorization rule. The SAS token is generated using the HMAC-SHA256 of a resource string that consists of the resource URI to which access is claimed, and an expiry with a cryptographic key associated with the authorization rule.
-
-SAS authentication support for Service Bus is included in the Azure .NET SDK versions 2.0 and later. SAS includes support for a shared access authorization rule. All APIs that accept a connection string as a parameter include support for SAS connection strings. 
 
 For detailed information on using SAS for authentication, see [Authentication with Shared Access Signatures](service-bus-sas.md).
 

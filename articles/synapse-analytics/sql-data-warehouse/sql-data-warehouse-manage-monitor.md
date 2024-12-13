@@ -5,7 +5,7 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: kecona
 ms.date: 11/09/2022
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
 ms.custom: synapse-analytics
@@ -99,7 +99,7 @@ To investigate further details about a single step, inspect the `operation_type`
 
 ### Step 3: Investigate SQL on the distributed databases
 
-Use the Request ID and the Step Index to retrieve details from [sys.dm_pdw_sql_requests](/sql/t-sql/database-console-commands/dbcc-pdw-showexecutionplan-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), which contains execution information of the query step on all of the distributed databases.
+Use the Request ID and the Step Index to retrieve details from [sys.dm_pdw_sql_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-sql-requests-transact-sql?view=azure-sqldw-latest&preserve-view=true), which contains execution information of the query step on all of the distributed databases.
 
 ```sql
 -- Find the distribution run times for a SQL step.
@@ -340,11 +340,13 @@ The following query provides the query text and identifier for the waiting and b
 SELECT waiting.session_id AS WaitingSessionId,
        waiting.request_id AS WaitingRequestId,
        COALESCE(waiting_exec_request.command,waiting_exec_request.command2) AS WaitingExecRequestText,
+       waiting.object_name AS Waiting_Object_Name,
+       waiting.object_type AS Waiting_Object_Type,
        blocking.session_id AS BlockingSessionId,
        blocking.request_id AS BlockingRequestId,
        COALESCE(blocking_exec_request.command,blocking_exec_request.command2) AS BlockingExecRequestText,
-       waiting.object_name AS Blocking_Object_Name,
-       waiting.object_type AS Blocking_Object_Type,
+       blocking.object_name AS Blocking_Object_Name,
+       blocking.object_type AS Blocking_Object_Type,
        waiting.type AS Lock_Type,
        waiting.request_time AS Lock_Request_Time,
        datediff(ms, waiting.request_time, getdate())/1000.0 AS Blocking_Time_sec

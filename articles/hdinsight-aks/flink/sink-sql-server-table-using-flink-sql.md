@@ -1,14 +1,17 @@
 ---
 title: Change Data Capture (CDC) of SQL Server using Apache Flink®
 description: Learn how to perform CDC of SQL Server using Apache Flink®
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
-ms.date: 10/27/2023
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Change Data Capture (CDC) of SQL Server using Apache Flink®
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 Change Data Capture (CDC) is a technique you can use to track row-level changes in database tables in response to create, update, and delete operations. In this article, we use [CDC Connectors for Apache Flink®](https://github.com/ververica/flink-cdc-connectors), which offer a set of source connectors for Apache Flink. The connectors integrate [Debezium®](https://nightlies.apache.org/flink/flink-docs-master/docs/connectors/table/formats/debezium/#debezium-format) as the engine to capture the data changes.  
 
@@ -91,7 +94,7 @@ VALUES ('hammer','16oz carpenter''s hammer',1.0);
 INSERT INTO products(name,description,weight)
 VALUES ('rocks','box of assorted rocks',5.3);
 INSERT INTO products(name,description,weight)
-VALUES ('jacket','water resistent black wind breaker',0.1);
+VALUES ('jacket','water resistant black wind breaker',0.1);
 INSERT INTO products(name,description,weight)
 VALUES ('spare tire','24 inch spare tire',22.2);
 

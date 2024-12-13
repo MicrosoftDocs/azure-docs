@@ -1,8 +1,8 @@
 ---
 title: Troubleshooting backup failures in Azure Disk Backup
 description: Learn how to troubleshoot backup failures in Azure Disk Backup
-ms.topic: conceptual
-ms.date: 06/08/2021
+ms.topic: troubleshooting
+ms.date: 07/30/2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -180,6 +180,15 @@ Recommended Action: Wait until the previous running backup completes.
 Error Message: The subscription isn't registered to use namespace Microsoft.Compute
 
 Recommended Action: The required resource provider is not registered for your subscription. Register both the resource providers' namespace (_Microsoft.Compute_ and _Microsoft.Storage_) using the steps in [Solution 3](../azure-resource-manager/templates/error-register-resource-provider.md#solution-3---azure-portal).
+
+
+
+
+### Error code: LinkedAuthorizationFailed
+
+Error Message: To perform a restore operation, user needs to have a **read** permission over the backed up Managed Disk. 
+
+Recommended Action:  Assign Reader role over the source Disk and then proceed to perform the restore operation. 
 
 ## Next steps
 

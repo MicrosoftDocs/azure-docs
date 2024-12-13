@@ -6,7 +6,7 @@ ms.topic: reference
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 04/25/2024
+ms.date: 09/20/2024
 ms.custom: generated
 ---
 
@@ -189,10 +189,13 @@ Azure service: core
 > | Microsoft.Subscription/aliases/write | Create subscription alias |
 > | Microsoft.Subscription/aliases/read | Get subscription alias |
 > | Microsoft.Subscription/aliases/delete | Delete subscription alias |
+> | Microsoft.Subscription/changeTenantRequest/write | Change tenant request of the Subscription |
 > | Microsoft.Subscription/Policies/write | Create tenant policy |
 > | Microsoft.Subscription/Policies/default/read | Get tenant policy |
 > | Microsoft.Subscription/subscriptions/acceptOwnership/action | Accept ownership of Subscription |
+> | Microsoft.Subscription/subscriptions/acceptChangeTenant/action | Accept Change tenant request of the Subscription |
 > | Microsoft.Subscription/subscriptions/acceptOwnershipStatus/read | Get the status of accepting ownership of Subscription |
+> | Microsoft.Subscription/subscriptions/changeTenantStatus/read | Change tenant status of the Subscription |
 
 ## Microsoft.Support
 

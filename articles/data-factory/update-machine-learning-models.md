@@ -5,18 +5,17 @@ titleSuffix: Azure Data Factory & Azure Synapse
 author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
-ms.service: data-factory
-ms.subservice: tutorials
 ms.custom: synapse, devx-track-arm-template
 ms.topic: conceptual
 ms.date: 05/15/2024
+ms.subservice: authoring
 ---
 
 # Update Machine Learning Studio (classic) models by using Update Resource activity
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-[!INCLUDE[ML Studio (classic) retirement](../../includes/machine-learning-studio-classic-deprecation.md)] 
+[!INCLUDE[ML Studio (classic) retirement](~/reusable-content/ce-skilling/azure/includes/machine-learning-studio-classic-deprecation.md)] 
 
 > [!NOTE] 
 > Since Machine Learning Studio (classic) resources can no longer be created after 1 Dec, 2021, users are encouraged to use [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) with the [Machine Learning Execute Pipeline activity](transform-data-machine-learning-service.md) rather than using the Update Resource activity to update Machine Learning Studio (classic) models.
@@ -93,7 +92,7 @@ If the web service is the new type of web service that exposes an Azure Resource
 https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearning/webServices/{web-service-name}?api-version=2016-05-01-preview
 ```
 
-You can get values for place holders in the URL when querying the web service on the [Machine Learning Studio (classic) Web Services Portal](https://services.azureml.net/).
+You can get values for place holders in the URL when querying the web service on the [Azure Machine Learning Studio](https://ml.azure.com/).
 
 The new type of update resource endpoint requires service principal authentication. To use service principal authentication, register an application entity in Microsoft Entra ID and grant it the **Contributor** or **Owner** role of the subscription or the resource group where the web service belongs to. The See [how to create service principal and assign permissions to manage Azure resource](../active-directory/develop/howto-create-service-principal-portal.md). Make note of the following values, which you use to define the linked service:
 
@@ -189,7 +188,7 @@ The following JSON snippet defines an Azure Machine Learning Studio (classic) li
         "typeProperties": {
             "mlEndpoint": "https://ussouthcentral.services.azureml.net/workspaces/00000000eb0abe4d6bbb1d7886062747d7/services/00000000026734a5889e02fbb1f65cefd/jobs?api-version=2.0",
             "apiKey": "sooooooooooh3WvG1hBfKS2BNNcfwSO7hhY6dY98noLfOdqQydYDIXyf2KoIaN3JpALu/AKtflHWMOCuicm/Q==",
-            "updateResourceEndpoint": "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Default-MachineLearning-SouthCentralUS/providers/Microsoft.MachineLearning/webServices/myWebService?api-version=2016-05-01-preview",
+            "updateResourceEndpoint": "https://management.azure.com/subscriptions/ffffffff-eeee-dddd-cccc-bbbbbbbbbbb0/resourceGroups/Default-MachineLearning-SouthCentralUS/providers/Microsoft.MachineLearning/webServices/myWebService?api-version=2016-05-01-preview",
             "servicePrincipalId": "fe200044-c008-4008-a005-94000000731",
             "servicePrincipalKey": "zWa0000000000Tp6FjtZOspK/WMA2tQ08c8U+gZRBlw=",
             "tenant": "mycompany.com"

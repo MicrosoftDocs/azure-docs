@@ -1,13 +1,13 @@
 ---
-title: 'Configure monitoring and metrics using Azure Monitor'
+title: Configure monitoring and metrics using Azure Monitor
 titleSuffix: Azure Bastion
 description: Learn about Azure Bastion monitoring and metrics using Azure Monitor.
 services: bastion
 author: cherylmc
 
-ms.service: bastion
+ms.service: azure-bastion
 ms.topic: how-to
-ms.date: 04/05/2024
+ms.date: 12/09/2024
 ms.author: cherylmc
 
 ---
@@ -15,8 +15,8 @@ ms.author: cherylmc
 
 This article helps you work with monitoring and metrics for Azure Bastion using Azure Monitor.
 
->[!NOTE]
->Using **Classic Metrics** is not recommended.
+> [!NOTE]
+> Using **Classic Metrics** is not recommended.
 >
 
 ## About metrics
@@ -88,7 +88,7 @@ The recommended values for this metric's configuration are:
    * **Metric Namespace:** Standard Metrics.
    * **Metric:** Select the metric that you want to view.
 
-1. Once a metric is selected, the default aggregation will be applied. Optionally, you can apply splitting, which will show the metric with different dimensions.
+1. Once a metric is selected, the default aggregation is applied. Optionally, you can apply splitting, which shows the metric with different dimensions.
 
 ## Next steps
 

@@ -70,7 +70,7 @@
       href: analysis-services-vnet-gateway.md
     - name: Manage a server
       href: analysis-services-manage.md
-    - name: Monitor
+    - name: Monitor Analysis Services
       href: monitor-analysis-services.md
     - name: Set up diagnostic logging
       href: analysis-services-logging.md

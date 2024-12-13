@@ -2,9 +2,9 @@
 title: Event Hubs partitions
 description: Describes partitions in Azure Event Hubs. 
 author: spelluru
-ms.service: event-hubs
+ms.service: azure-event-hubs
 ms.topic: include
-ms.date: 02/15/2024
+ms.date: 12/12/2024
 ms.author: spelluru
 ms.custom: "include file"
 

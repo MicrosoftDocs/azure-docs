@@ -4,7 +4,7 @@ description: How to choose the correct IoT hub tier and size to support your ant
 author: kgremban
 
 ms.author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.topic: concept-article
 ms.date: 04/08/2024
 ms.custom: [amqp, mqtt, 'Role: Cloud Development', 'Role: Operations']
@@ -97,7 +97,7 @@ Once you've chosen the tier that provides the best features for your solution, d
 
 Each IoT Hub tier is available in three sizes, based around how much data throughput they can handle in any given day. These sizes are numerically identified as 1, 2, and 3.
 
-A tier-size pair is represented as an *edition*. A basic tier IoT hub of size 2 is represented by the edition **B2**. Similarly, a standard tier IoT hub of size 3 is represented by the edition **S3**. For more information, includig pricing details, see [IoT Hub edition](https://azure.microsoft.com/pricing/details/iot-hub/)
+A tier-size pair is represented as an *edition*. A basic tier IoT hub of size 2 is represented by the edition **B2**. Similarly, a standard tier IoT hub of size 3 is represented by the edition **S3**. For more information, including pricing details, see [IoT Hub edition](https://azure.microsoft.com/pricing/details/iot-hub/)
 
 Once you choose an edition for your IoT hub, you can multiple its messaging capacity by increasing the number of *units*.
 

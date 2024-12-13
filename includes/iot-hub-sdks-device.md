@@ -3,14 +3,14 @@
  description: include file
  services: iot-hub
  author: dominicbetts
- ms.service: iot-hub
+ ms.service: azure-iot-hub
  ms.topic: include
  ms.date: 02/20/2023
  ms.author: dobett
  ms.custom: include file
 ---
 
-The Microsoft Azure IoT device SDKs contain code that facilitates building applications that connect to and are managed by Azure IoT Hub services. These SDKs can run on a general MPU-based computing device such as a PC, tablet, smartphone, or Raspberry Pi. The SDKs support development in C and in modern managed languages including in C#, Node.JS, Python, and Java.
+The Microsoft Azure IoT device SDKs contain code that facilitates building applications that connect to and are managed by Azure IoT Hub services. These SDKs can run on a general MPU-based computing device such as a PC, tablet, smartphone, or Raspberry Pi. The SDKs support development in C and in modern managed languages including in C#, Node.js, Python, and Java.
 
 The SDKs are available in **multiple languages** providing the flexibility to choose which best suits your team and scenario.
 

@@ -6,13 +6,13 @@ description: Learn how to enable a .NET web API to support tokens issued by mult
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.custom: devx-track-dotnet
 ms.topic: how-to
 ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As a developer migrating an OWIN-based web API to a new domain, I want to enable support for multiple token issuers, so that I can migrate my web applications in a staged manner and remove support for the old token issuer from the API.

@@ -3,7 +3,7 @@ title: Browse an ADLS Gen2 folder with ACLs in Azure Synapse Analytics
 description: Learn how to browse an ADLS Gen2 folder with ACLs in Azure Synapse Analytics.
 author: meenalsri
 ms.author: mesrivas
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: overview
 ms.topic: how-to
 ms.date: 10/28/2021

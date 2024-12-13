@@ -6,7 +6,7 @@ summary: Learn how to use Azure Managed Grafana. Access quickstarts, how-to guid
 metadata:
   title: Azure Managed Grafana
   description: Learn about Azure Managed Grafana
-  ms.service: managed-grafana
+  ms.service: azure-managed-grafana
   ms.topic: landing-page
   author: maud-lv
   ms.author: malev
@@ -19,8 +19,6 @@ landingContent:
         links:
           - text: What is Azure Managed Grafana?
             url: overview.md
-          - text: What's new?
-            url: concept-whats-new.md
   
   - title: Get started
     linkLists:
@@ -55,7 +53,7 @@ landingContent:
           - text: Share an instance
             url: how-to-share-grafana-workspace.md
           - text: Use Microsoft Entra groups
-            url: how-to-sync-teams-with-azure-ad-groups.md
+            url: how-to-sync-teams-with-entra-groups.md
           - text: Set up authentication and permissions
             url: how-to-authentication-permissions.md
           - text: Modify access to Azure Monitor
@@ -68,6 +66,8 @@ landingContent:
             url: tutorial-mpe-oss-prometheus.md
           - text: Call Grafana APIs programmatically
             url: how-to-api-calls.md
+          - text: Grafana settings
+            url: grafana-settings.md
 
   - title: Set up Grafana monitoring
     linkLists:

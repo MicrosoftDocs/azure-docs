@@ -3,8 +3,8 @@ metadata:
   title: Microsoft Azure Recovery Services (MARS) Agent – FAQ
   description: Addresses common questions about backing up files and folders with Azure Backup.
   ms.topic: faq
-  ms.service: backup
-  ms.date: 08/14/2023
+  ms.service: azure-backup
+  ms.date: 10/25/2024
   author: AbhishekMallick-MS
   ms.author: v-abhmallick
 title: Frequently asked questions - Microsoft Azure Recovery Services (MARS) agent
@@ -28,9 +28,9 @@ sections:
           - If you want to register your MARS agent or restore data from the primary region, select **Primary Region**, *confirm* that you're using the latest Recovery Services Agent, and then select **Download**.
           - If you're doing an alternate server restore from the backup data in the secondary region using Cross Region Restore, then select **Secondary Region** to download the vault credentials.
           
-          :::image type="content" source="./media/backup-azure-file-folder-backup-faq/download-vault-credentials.png" alt-text="Screenshot shows how to initiate downloading vault credential file.":::
+          :::image type="content" source="./media/backup-azure-file-folder-backup-faq/download-vault-credentials.png" alt-text="Screenshot shows how to initiate downloading vault credential file." lightbox="./media/backup-azure-file-folder-backup-faq/download-vault-credentials.png":::
 
-          :::image type="content" source="./media/backup-azure-file-folder-backup-faq/download-vault-credential-file.png" alt-text="Screenshot shows the Download option for vault credential files in secondary region.":::
+          :::image type="content" source="./media/backup-azure-file-folder-backup-faq/download-vault-credential-file.png" alt-text="Screenshot shows the Download option for vault credential files in secondary region." lightbox="./media/backup-azure-file-folder-backup-faq/download-vault-credential-file.png":::
             >[!Note]
             >You can't use this secondary region vault credential for registration of the MARS agent.
           

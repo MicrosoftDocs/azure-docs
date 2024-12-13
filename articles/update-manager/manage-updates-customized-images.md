@@ -4,8 +4,8 @@ description: This article describes customized image support, how to register an
 ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 11/20/2023
-ms.topic: conceptual
+ms.date: 08/22/2024
+ms.topic: overview
 ---
 
 # Manage updates for customized images

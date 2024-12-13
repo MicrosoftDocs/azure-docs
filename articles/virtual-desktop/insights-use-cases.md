@@ -143,7 +143,7 @@ To view session host performance:
 
    :::image type="content" source="media/insights-use-cases/insights-session-host-performance-3.png" alt-text="A screenshot showing values from the performance counters of session hosts." lightbox="media/insights-use-cases/insights-session-host-performance-3.png":::
 
-In cases where a session host has extended periods of high resource utilization, it’s worth considering increasing the [Azure VM size](../virtual-machines/sizes.md) of the session host to better accommodate user workloads.
+In cases where a session host has extended periods of high resource utilization, it’s worth considering increasing the [Azure VM size](/azure/virtual-machines/sizes) of the session host to better accommodate user workloads.
 
 ## Client version usage
 
@@ -166,6 +166,9 @@ To view a list of users with outdated clients:
    :::image type="content" source="media/insights-use-cases/insights-client-version-usage-2.png" alt-text="A screenshot showing a table of users with outdated clients." lightbox="media/insights-use-cases/insights-client-version-usage-2.png":::
 
 You should periodically review the versions of clients in use to ensure your users are getting the best experience.
+
+> [!NOTE]
+> Some clients, such as Windows App on iOS/iPadOS and Android are listed in the report with their build number, not their version number. You can match the build number to the version number in the **About** section of Windows App settings.
 
 ## Cost saving opportunities
 

@@ -3,7 +3,6 @@ title: Troubleshoot self-hosted integration runtime
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to troubleshoot self-hosted integration runtime issues in Azure Data Factory and Azure Synapse Analytics pipelines. 
 author: lrtoyou1223
-ms.service: data-factory
 ms.subservice: integration-runtime
 ms.custom: synapse
 ms.topic: troubleshooting
@@ -315,9 +314,7 @@ To generate the error report ID for Microsoft Support, follow these instructions
     * You've imported a PFX file to the certificate store.
     * When you selected the certificate through the IR Configuration Manager UI, you received the following error message:
     
-       "Failed to change intranet communication encryption mode. It is likely that certificate '\<*certificate name*>' may not have a private key that is capable of key exchange or the process may not have access rights for the private key. Please see inner exception for detail."
-    
-        :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/private-key-missing.png" alt-text="Screenshot of the Integration Runtime Configuration Manager Settings pane, displaying a &quot;private key missing&quot; error message.":::
+      "Failed to change intranet communication encryption mode. It is likely that certificate '\<*certificate name*>' may not have a private key that is capable of key exchange or the process may not have access rights for the private key. Please see inner exception for detail.""
 
 - **Cause**  
 
@@ -587,10 +584,8 @@ To generate the error report ID for Microsoft Support, follow these instructions
 - **Symptoms**  
 
     When you install a self-hosted IR via Microsoft Integration Runtime Configuration Manager, a certificate with a trusted certificate authority (CA) is generated. The certificate couldn't be applied to encrypt communication between two nodes, and the following error message is displayed: 
-    
+
     "Failed to change Intranet communication encryption mode: Failed to grant Integration Runtime service account the access of to the certificate '\<*certificate name*>'. Error code 103"
-    
-    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/integration-runtime-service-account-certificate-error.png" alt-text="Screenshot displaying the error message &quot;... Failed to grant Integration Runtime service account certificate access&quot;.":::
 
 - **Cause**  
 
@@ -777,9 +772,7 @@ how to collect the network trace, understand how to use it, and [analyze the Mic
     
             :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/find-conversation.png" alt-text="Screenshot of the TCP conversation.":::
     
-        1. Get the conversation between the client and the Data Factory server below by removing the filter.
-    
-            :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/get-conversation.png" alt-text="Screenshot of conversation details.":::
+        1. Get the conversation between the client and the Data Factory server by removing the filter.
     
     - An analysis of the Netmon trace you've collected shows that the Time to Live (TTL)) total is 64. According to the values mentioned in the [IP Time to Live (TTL) and Hop Limit Basics](https://packetpushers.net/ip-time-to-live-and-hop-limit-basics/) article, extracted in the following list, you can see that it's the Linux System that resets the package and causes the disconnection.
     
@@ -850,12 +843,6 @@ Successful scenarios are shown in the following examples:
     :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/tcp-4-handshake.png" alt-text="Screenshot of TCP 4 handshake details.":::
 
     :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/tcp-4-handshake-workflow.png" alt-text="Diagram of a TCP 4 handshake workflow."::: 
-
-### Microsoft email notification about updating your network configuration
-
-You might receive the following email notification, which recommends that you update your network configuration to allow communication with new IP addresses for Azure Data Factory by 8 November 2020:
-
-   :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/email-notification.png" alt-text="Screenshot of Microsoft email notification requesting update of network configuration.":::
 
 #### Determine whether this notification affects you
 
@@ -944,5 +931,5 @@ For more help with troubleshooting, try the following resources:
 *  [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [Microsoft Q&A page](/answers/topics/azure-data-factory.html)
 *  [Stack overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
-*  [Twitter information about Data Factory](https://twitter.com/hashtag/DataFactory)
+*  [X information about Data Factory](https://x.com/hashtag/DataFactory)
 *  [Mapping data flows performance guide](concepts-data-flow-performance.md)

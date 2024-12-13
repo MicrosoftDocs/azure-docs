@@ -1,16 +1,16 @@
 ---
-title: Use C\# ingestion to ingest data from Event Hub into Azure Synapse Data Explorer (Preview)
-description: Learn how to use C\# to ingest (load) data into Azure Synapse Data Explorer from Event Hub.
+title: Use C\# ingestion to ingest data from Event Hubs into Azure Synapse Data Explorer (Preview)
+description: Learn how to use C\# to ingest (load) data into Azure Synapse Data Explorer from Event Hubs.
 ms.topic: how-to
 ms.date: 11/02/2021
 author: shsagir
 ms.author: shsagir
 ms.reviewer: tzgitlin
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: data-explorer
 ---
 
-# Create an Event Hub data connection for Azure Synapse Data Explorer by using C# (Preview)
+# Create an Event Hubs data connection for Azure Synapse Data Explorer by using C# (Preview)
 
 > [!div class="op_single_selector"]
 > * [Portal](data-explorer-ingest-event-hub-portal.md)
@@ -21,13 +21,13 @@ ms.subservice: data-explorer
 
 [!INCLUDE [data-connector-intro](../includes/data-explorer-ingest-data-intro.md)]
 
-In this article, you create an Event Hub data connection for Azure Synapse Data Explorer by using C\#.
+In this article, you create an Event Hubs data connection for Azure Synapse Data Explorer by using C\#.
 
 ## Prerequisites
 
 [!INCLUDE [data-explorer-ingest-prerequisites](../includes/data-explorer-ingest-prerequisites.md)]
 
-- [Event Hub with data for ingestion](data-explorer-ingest-event-hub-portal.md#create-an-event-hub).
+- [Event hub with data for ingestion](data-explorer-ingest-event-hub-portal.md#create-an-event-hub).
 
 > [!NOTE]
 > Ingesting data from an Event Hub into Data Explorer pools will not work if your Synapse workspace uses a managed virtual network with data exfiltration protection enabled.
@@ -42,9 +42,9 @@ In this article, you create an Event Hub data connection for Azure Synapse Data 
 
 [!INCLUDE [data-explorer-authentication](../includes/data-explorer-authentication.md)]
 
-## Add an Event Hub data connection
+## Add an Event Hubs data connection
 
-The following example shows you how to add an Event Hub data connection programmatically. See [connect to the Event Hub](data-explorer-ingest-event-hub-portal.md#connect-to-the-event-hub) for information about adding an Event Hub data connection using the Azure portal.
+The following example shows you how to add an Event Hubs data connection programmatically. See [connect to the Event Hubs](data-explorer-ingest-event-hub-portal.md#connect-to-the-event-hubs) for information about adding an Event Hubs data connection using the Azure portal.
 
 ```csharp
 var tenantId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Directory (tenant) ID
@@ -93,14 +93,14 @@ await kustoManagementClient.DataConnections.CreateOrUpdateAsync(resourceGroupNam
 | tableName | *StormEvents* | The name of the target table in the target database.|
 | mappingRuleName | *StormEvents_CSV_Mapping* | The name of your column mapping related to the target table.|
 | dataFormat | *csv* | The data format of the message.|
-| eventHubResourceId | *Resource ID* | The resource ID of your Event Hub that holds the data for ingestion. |
-| consumerGroup | *$Default* | The consumer group of your Event Hub.|
+| eventHubResourceId | *Resource ID* | The resource ID of your event hub that holds the data for ingestion. |
+| consumerGroup | *$Default* | The consumer group of your event hub.|
 | location | *Central US* | The location of the data connection resource.|
 | compression | *Gzip* or *None* | The type of data compression. |
 
 ## Generate data
 
-See the [sample app](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) that generates data and sends it to an Event Hub.
+See the [sample app](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) that generates data and sends it to an event hub.
 
 An event can contain one or more records, up to its size limit. In the following sample we send two events, each has five records appended:
 

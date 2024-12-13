@@ -4,9 +4,9 @@ titleSuffix: Azure Network Watcher
 description: Learn about schema and data aggregation in Azure Network Watcher traffic analytics to analyze flow logs.
 author: halkazwini
 ms.author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: concept-article
-ms.date: 06/07/2024
+ms.date: 07/11/2024
 
 #CustomerIntent: As a administrator, I want learn about traffic analytics schema so I can easily use the queries and understand their output.
 ---
@@ -190,8 +190,8 @@ The following table lists the fields in the schema and what they signify for vir
 > | **FlowStartTime** | Date and time in UTC | First occurrence of the flow (which gets aggregated) in the flow log processing interval between `FlowIntervalStartTime` and `FlowIntervalEndTime`. This flow gets aggregated based on aggregation logic. |
 > | **FlowEndTime** | Date and time in UTC | Last occurrence of the flow (which gets aggregated) in the flow log processing interval between `FlowIntervalStartTime` and `FlowIntervalEndTime`. |
 > | **FlowType**  | - IntraVNet <br> - InterVNet <br> - S2S <br> - P2S  <br> - AzurePublic <br> - ExternalPublic <br> - MaliciousFlow  <br> - Unknown Private <br> - Unknown | See [Notes](#notes) for definitions. |
-> | **SrcIP** | Source IP address | Blank in AzurePublic and ExternalPublic flows. |
-> | **DestIP** | Destination IP address | Blank in AzurePublic and ExternalPublic flows. |
+> | **SrcIp** | Source IP address | Blank in AzurePublic and ExternalPublic flows. |
+> | **DestIp** | Destination IP address | Blank in AzurePublic and ExternalPublic flows. |
 > | **TargetResourceId** | ResourceGroupName/ResourceName | The ID of the resource at which flow logging and traffic analytics is enabled. |
 > | **TargetResourceType**  | VirtualNetwork/Subnet/NetworkInterface | Type of resource at which flow logging and traffic analytics is enabled (virtual network, subnet, NIC or network security group).|
 > | **FlowLogResourceId**  | ResourceGroupName/NetworkWatcherName/FlowLogName | The resource ID of the flow log. |
@@ -201,17 +201,17 @@ The following table lists the fields in the schema and what they signify for vir
 > | **FlowDirection**  | - **I** = Inbound <br> - **O** = Outbound | Direction of the flow: in or out of the target resource per flow log. |
 > | **FlowStatus** | - **A** = Allowed <br> - **D** = Denied | Status of flow: allowed or denied by target resource per flow log. |
 > | **NSGList** | \<SUBSCRIPTIONID\>/\<RESOURCEGROUP_NAME\>/\<NSG_NAME\> | Network security group associated with the flow. |
-> | **NSGRule** | NSG_RULENAME  | Network security group rule that allowed or denied the flow. |
-> | **NSGRuleType** | - User Defined <br> - Default | The type of network security group rule used by the flow. |
+> | **NsgRule** | NSG_RULENAME  | Network security group rule that allowed or denied the flow. |
+> | **NsgRuleType** | - User Defined <br> - Default | The type of network security group rule used by the flow. |
 > | **MACAddress** | MAC Address | MAC address of the NIC at which the flow was captured. |
 > | **SrcSubscription** | Subscription ID | Subscription ID of virtual network / network interface / virtual machine that the source IP in the flow belongs to. |
 > | **DestSubscription** | Subscription ID | Subscription ID of virtual network / network interface / virtual machine that the destination IP in the flow belongs to. |
 > | **SrcRegion** | Azure Region | Azure region of virtual network / network interface / virtual machine to which the source IP in the flow belongs to. |
 > | **DestRegion** | Azure Region | Azure region of virtual network to which the destination IP in the flow belongs to. |
-> | **SrcNIC** | \<resourcegroup_Name\>/\<NetworkInterfaceName\> | NIC associated with the source IP in the flow. |
-> | **DestNIC** | \<resourcegroup_Name\>/\<NetworkInterfaceName\> | NIC associated with the destination IP in the flow. |
-> | **SrcVM** | \<resourcegroup_Name\>/\<VirtualMachineName\> | Virtual machine associated with the source IP in the flow.  |
-> | **DestVM** | \<resourcegroup_Name\>/\<VirtualMachineName\> | Virtual machine associated with the destination IP in the flow. |
+> | **SrcNic** | \<resourcegroup_Name\>/\<NetworkInterfaceName\> | NIC associated with the source IP in the flow. |
+> | **DestNic** | \<resourcegroup_Name\>/\<NetworkInterfaceName\> | NIC associated with the destination IP in the flow. |
+> | **SrcVm** | \<resourcegroup_Name\>/\<VirtualMachineName\> | Virtual machine associated with the source IP in the flow.  |
+> | **DestVm** | \<resourcegroup_Name\>/\<VirtualMachineName\> | Virtual machine associated with the destination IP in the flow. |
 > | **SrcSubnet**  | \<ResourceGroup_Name\>/\<VirtualNetwork_Name\>/\<SubnetName\> | Subnet associated with the source IP in the flow. |
 > | **DestSubnet** | \<ResourceGroup_Name\>/\<VirtualNetwork_Name\>/\<SubnetName\> | Subnet associated with the destination IP in the flow.  |
 > | **SrcApplicationGateway** | \<SubscriptionID\>/\<ResourceGroupName\>/\<ApplicationGatewayName\> | Application gateway associated with the source IP in the flow. |
@@ -317,7 +317,7 @@ List of threat types:
 
 ## Notes
 
-- In case of `AzurePublic` and `ExternalPublic` flows, customer owned Azure virtual machine IP is populated in `VMIP_s` field, while the Public IP addresses are populated in the `PublicIPs_s` field. For these two flow types, you should use `VMIP_s` and `PublicIPs_s` instead of `SrcIP_s` and `DestIP_s` fields. For AzurePublic and ExternalPublic IP addresses, we aggregate further, so that the number of records ingested to Log Analytics workspace is minimal. (This field will be deprecated. Use SrcIP_ and DestIP_s depending on whether the virtual machine was the source or the destination in the flow).
+- In case of `AzurePublic` and `ExternalPublic` flows, customer owned Azure virtual machine IP is populated in `VMIP_s` field, while the Public IP addresses are populated in the `PublicIPs_s` field. For these two flow types, you should use `VMIP_s` and `PublicIPs_s` instead of `SrcIP_s` and `DestIP_s` fields. For AzurePublic and ExternalPublic IP addresses, we aggregate further, so that the number of records ingested to Log Analytics workspace is minimal. (This field will be deprecated. Use SrcIP_s and DestIP_s depending on whether the virtual machine was the source or the destination in the flow).
 - Some field names are appended with `_s` or `_d`, which don't signify source and destination but indicate the data types *string* and *decimal* respectively.
 - Based on the IP addresses involved in the flow, we categorize the flows into the following flow types:
     - `IntraVNet`: Both IP addresses in the flow reside in the same Azure virtual network.

@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 04/25/2024
+ms.date: 09/20/2024
 ms.custom: generated
 ---
 
@@ -207,6 +207,7 @@ Can read the attestation provider properties
 > | Actions | Description |
 > | --- | --- |
 > | Microsoft.Attestation/attestationProviders/attestation/read | Gets the attestation service status. |
+> | Microsoft.Attestation/attestationProviders/read | Gets the attestation service status. |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -225,7 +226,8 @@ Can read the attestation provider properties
   "permissions": [
     {
       "actions": [
-        "Microsoft.Attestation/attestationProviders/attestation/read"
+        "Microsoft.Attestation/attestationProviders/attestation/read",
+        "Microsoft.Attestation/attestationProviders/read"
       ],
       "notActions": [],
       "dataActions": [],
@@ -416,6 +418,8 @@ Perform any action on the certificates of a key vault, except manage permissions
 Manage key vaults, but does not allow you to assign roles in Azure RBAC, and does not allow you to access secrets, keys, or certificates.
 
 [Learn more](/azure/key-vault/general/security-features)
+
+[!INCLUDE [contributor-role-warning.md](~/reusable-content/ce-skilling/azure/includes/key-vault/includes/key-vault-contributor-role-warning.md)]
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -1343,7 +1347,7 @@ View and update permissions for Microsoft Defender for Cloud. Same permissions a
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | [Microsoft.Security](../permissions/security.md#microsoftsecurity)/* | Create and manage security components and policies |
 > | [Microsoft.IoTSecurity](../permissions/internet-of-things.md#microsoftiotsecurity)/* |  |
-> | Microsoft.IoTFirmwareDefense/* |  |
+> | [Microsoft.IoTFirmwareDefense](../permissions/internet-of-things.md#microsoftiotfirmwaredefense)/* |  |
 > | [Microsoft.Support](../permissions/general.md#microsoftsupport)/* | Create and update a support ticket |
 > | **NotActions** |  |
 > | *none* |  |

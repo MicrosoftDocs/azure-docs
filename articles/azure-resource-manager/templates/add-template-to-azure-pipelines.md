@@ -161,7 +161,7 @@ The following YAML shows the [Azure Resource Manager template deployment task](h
   inputs:
     deploymentScope: 'Resource Group'
     azureResourceManagerConnection: 'copy-connection'
-    subscriptionId: '00000000-0000-0000-0000-000000000000'
+    subscriptionId: 'aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e'
     action: 'Create Or Update Resource Group'
     resourceGroupName: 'demogroup'
     location: 'West US'
@@ -215,7 +215,7 @@ steps:
   inputs:
     deploymentScope: 'Resource Group'
     azureResourceManagerConnection: 'copy-connection'
-    subscriptionId: '00000000-0000-0000-0000-000000000000'
+    subscriptionId: 'aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e'
     action: 'Create Or Update Resource Group'
     resourceGroupName: 'demogroup'
     location: 'West US'

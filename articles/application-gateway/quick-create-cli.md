@@ -4,7 +4,7 @@ titleSuffix: Azure Application Gateway
 description: In this quickstart, you learn how to use the Azure CLI to create an Azure Application Gateway that directs web traffic to virtual machines in a backend pool.
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: quickstart
 ms.date: 05/30/2024
 ms.author: greglin
@@ -78,7 +78,7 @@ A backend can have NICs, virtual machine scale sets, public IP addresses, intern
 #### Create two virtual machines
 
 Install the NGINX web server on the virtual machines to verify the application gateway was successfully created. You can use a cloud-init configuration file to install NGINX and run a "Hello World" Node.js app on a Linux virtual machine. For more information about cloud-init, see
-[Cloud-init support for virtual machines in Azure](../virtual-machines/linux/using-cloud-init.md).
+[Cloud-init support for virtual machines in Azure](/azure/virtual-machines/linux/using-cloud-init).
 
 In your Azure Cloud Shell, copy and paste the following configuration into a file named *cloud-init.txt*. Enter *editor cloud-init.txt* to create the file.
 

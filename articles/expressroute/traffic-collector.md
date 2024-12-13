@@ -4,7 +4,7 @@ titleSuffix: Azure ExpressRoute
 description: Learn about ExpressRoute Traffic Collector and the different use cases where this feature is helpful.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: conceptual
 ms.date: 10/09/2023
 ms.author: duau
@@ -13,7 +13,7 @@ ms.custom: references_regions
 
 # Azure ExpressRoute Traffic Collector
 
-ExpressRoute Traffic Collector enables sampling of network flows sent over your ExpressRoute circuits. Flow logs get sent to a [Log Analytics workspace](../azure-monitor/logs/log-analytics-overview.md) where you can create your own log queries for further analysis. You can also export the data to any visualization tool or SIEM (Security Information and Event Management) of your choice. Flow logs can be enabled for both private peering and Microsoft peering with ExpressRoute Traffic Collector.
+ExpressRoute Traffic Collector enables sampling of network flows sent over your ExpressRoute circuits. Flow logs get sent to a [Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-overview) where you can create your own log queries for further analysis. You can also export the data to any visualization tool or SIEM (Security Information and Event Management) of your choice. Flow logs can be enabled for both private peering and Microsoft peering with ExpressRoute Traffic Collector.
 
 :::image type="content" source="./media/traffic-collector/main-diagram.png" alt-text="Diagram of ExpressRoute traffic collector in an Azure environment.":::
 
@@ -43,6 +43,10 @@ Flow logs can help you look into various traffic insights. Some common use cases
 
 Flow logs are collected at an interval of every 1 minute. All packets collected for a given flow get aggregated and imported into a Log Analytics workspace for further analysis. During flow collection, not every packet is captured into its own flow record. ExpressRoute Traffic Collector uses a sampling rate of 1:4096, meaning 1 out of every 4096 packets gets captured. Therefore, sampling rate short flows (in total bytes) might not get collected. This sampling size doesn't affect network traffic analysis when sampled data is aggregated over a longer period of time. Flow collection time and sampling rate are fixed and can't be changed.
 
+## Supported ExpressRoute Circuits
+
+ExpressRoute Traffic Collector supports both Provider-managed circuits and ExpressRoute Direct circuits. At this time, ExpressRoute Traffic Collector only supports circuits with a bandwidth of 1Gbps or greater.
+
 ## Flow log schema
 
 | Column | Type | Description |
@@ -56,7 +60,7 @@ Flow logs are collected at an interval of every 1 minute. All packets collected 
 | Dot1qVlanId | int | Dot1q VlanId. |
 | DstAsn | int | Destination Autonomous System Number (ASN). |
 | DstMask | int | Mask of destination subnet. |
-| DstSubnet | string | Destination subnet of destination IP. |
+| DstSubnet | string | Destination virtual network of destination IP. |
 | ExRCircuitDirectPortId | string | Azure resource ID of Express Route Circuit's direct port. |
 | ExRCircuitId | string | Azure resource ID of Express Route Circuit. |
 | ExRCircuitServiceKey | string | Service key of Express Route Circuit. |
@@ -81,7 +85,7 @@ Flow logs are collected at an interval of every 1 minute. All packets collected 
 | SourceSystem | string |  |
 | SrcAsn | int | Source Autonomous System Number (ASN). |
 | SrcMask | int | Mask of source subnet. |
-| SrcSubnet | string | Source subnet of source IP. |
+| SrcSubnet | string | Source virtual network of source IP. |
 | \_SubscriptionId | string | A unique identifier for the subscription that the record is associated with |
 | TcpFlag | int | TCP flag as defined in the TCP header. |
 | TenantId | string |  |
@@ -92,18 +96,20 @@ Flow logs are collected at an interval of every 1 minute. All packets collected 
 
 ExpressRoute Traffic Collector is supported in the following regions:
 
+Note: If your desired region is not yet supported, you can deploy ExpressRoute Traffic Collector to another region in the same geo-political region as your ExpressRoute Circuit. 
+
 | Region | Region Name |
 | ------ | ----------- |
 | North American | <ul><li>Canada East</li><li>Canada Central</li><li>Central US</li><li>Central US EUAP</li><li>North Central US</li><li>South Central US</li><li>West Central US</li><li>East US</li><li>East US 2</li><li>West US</li><li>West US 2</li><li>West US 3</li></ul> |
 | South America | <ul><li>Brazil South</li><li>Brazil Southeast</li></ul> |
-| Europe | <ul><li>West Europe</li><li>North Europe</li><li>UK South</li><li>UK West</li><li>France Central</li><li>France South</li><li>Germany North</li><li>Germany West Central</li><li>Sweden Central</li><li>Sweden South</li><li>Switzerland North</li><li>Switzerland West</li><li>Norway East</li><li>Norway West</li></ul> |
-| Asia | <ul><li>East Asia</li><li>Southeast Asia</li><li>Central India</li><li>South India</li><li>Japan West</li><li>Korea South</li><li>UAE North</li></ul> |
+| Europe | <ul><li>West Europe</li><li>North Europe</li><li>UK South</li><li>UK West</li><li>France Central</li><li>France South</li><li>Germany North</li><li>Germany West Central</li><li>Sweden Central</li><li>Sweden South</li><li>Switzerland North</li><li>Switzerland West</li><li>Norway East</li><li>Norway West</li><li>Italy North</li><li>Poland Central</li></ul> |
+| Asia | <ul><li>East Asia</li><li>Southeast Asia</li><li>Central India</li><li>South India</li><li>Japan West</li><li>Korea South</li><li>UAE North</li><li>UAE Central</li></ul> |
 | Africa | <ul><li>South Africa North</li><li>South Africa West</li></ul> |
 | Pacific | <ul><li>Australia Central</li><li>Australia Central 2</li><li>Australia East</li><li>Australia Southeast</li></ul> |
 
 ## Pricing
 
-| Zone | Gateway per hour | Data processed per GB |
+| Zone | Collector Instance Uptime | Data processed per GB |
 | ---- | ---------------- | --------------------- |
 | Zone 1 | $0.60/hour | $0.10/GB |
 | Zone 2 | $0.80/hour | $0.20/GB |

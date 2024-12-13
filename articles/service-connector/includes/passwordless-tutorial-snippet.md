@@ -71,7 +71,7 @@ az webapp connection create postgres-flexible \
 
 ::: zone pivot="mysql"
 
-Azure Database for MySQL - Flexible Server requires a user-assigned managed identity to enable Microsoft Entra authentication. For more information, see [Set up Microsoft Entra authentication for Azure Database for MySQL - Flexible Server](../../mysql/flexible-server/how-to-azure-ad.md). You can use the following command to create a user-assigned managed identity:
+Azure Database for MySQL - Flexible Server requires a user-assigned managed identity to enable Microsoft Entra authentication. For more information, see [Set up Microsoft Entra authentication for Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/how-to-azure-ad). You can use the following command to create a user-assigned managed identity:
 
 ```azurecli-interactive
 USER_IDENTITY_NAME=<YOUR_USER_ASSIGNED_MANAGEMED_IDENTITY_NAME>
@@ -89,7 +89,7 @@ IDENTITY_RESOURCE_ID=$(az identity create \
 * `GroupMember.Read.All`
 * `Application.Read.All`
 
-For more information, see the [Permissions](../../mysql/flexible-server/concepts-azure-ad-authentication.md#permissions) section of [Active Directory authentication](../../mysql/flexible-server/concepts-azure-ad-authentication.md).
+For more information, see the [Permissions](/azure/mysql/flexible-server/concepts-azure-ad-authentication#permissions) section of [Active Directory authentication](/azure/mysql/flexible-server/concepts-azure-ad-authentication).
 
 Then, connect your app to a MySQL database with a system-assigned managed identity using Service Connector.
 

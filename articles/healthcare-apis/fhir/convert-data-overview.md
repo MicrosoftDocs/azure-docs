@@ -3,7 +3,7 @@ title: Overview of $convert-data for the FHIR service in Azure Health Data Servi
 description: Learn about the $convert-data operation in the FHIR service, a tool for transforming healthcare data across various formats into standardized FHIR R4 data. 
 services: healthcare-apis
 author: msjasteppe
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: overview
 ms.date: 05/13/2024
@@ -35,7 +35,7 @@ The health data for conversion is delivered to the FHIR service in the body of t
 
 ##  Parameters
 
-A `$convert-data` operation call packages the health data for conversion inside a JSON-formatted [parameters](http://hl7.org/fhir/parameters.html) in the body of the request. The parameters are described in the following table: 
+A `$convert-data` operation call packages the health data for conversion inside JSON-formatted [parameters](http://hl7.org/fhir/parameters.html) in the body of the request. The parameters are described in the following table.
 
 | Parameter name | Description&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Accepted values |
 | -------------- | ----------------------------------------------------------------------- | --------------- |
@@ -48,7 +48,7 @@ A `$convert-data` operation call packages the health data for conversion inside 
 
 - **FHIR STU3 to FHIR R4 templates are Liquid templates** that provide mappings of field differences only between a FHIR STU3 resource and its equivalent resource in the FHIR R4 specification. Some of the FHIR STU3 resources are renamed or removed from FHIR R4. For more information about the resource differences and constraints for FHIR STU3 to FHIR R4 conversion, see [Resource differences and constraints for FHIR STU3 to FHIR R4 conversion](https://github.com/microsoft/FHIR-Converter/blob/main/docs/Stu3R4-resources-differences.md).
 
-- **JSON templates are sample templates for use in building your own conversion mappings.** They aren't default templates that adhere to any predefined health data message types. JSON itself isn't specified as a health data format, unlike HL7v2 or C-CDA. Therefore, instead of providing default JSON templates, we provide some sample JSON templates as a starting point for your own customized mappings.
+- **JSON templates are sample templates for use in building your own conversion mappings.** They aren't default templates that adhere to any predefined health data message types. JSON itself isn't specified as a health data format, unlike HL7v2 or C-CDA. As a result, instead of providing default JSON templates, we provide some sample JSON templates as a starting point for your own customized mappings.
 
 > [!WARNING]
 > Default templates are released under the MIT License and aren't supported by Microsoft.

@@ -4,7 +4,7 @@ titleSuffix: Azure Web Application Firewall
 description: Learn how to configure per-site Web Application Firewall policies on an application gateway using Azure PowerShell.
 services: web-application-firewall
 author: winthrop28
-ms.service: web-application-firewall
+ms.service: azure-web-application-firewall
 ms.date: 12/09/2020
 ms.author: victorh
 ms.topic: how-to 
@@ -257,7 +257,7 @@ $policySettingURI = New-AzApplicationGatewayFirewallPolicySetting `
   -MaxFileUploadInMb 5
 
 $wafPolicyURI = New-AzApplicationGatewayFirewallPolicy `
-  -Name wafpolicySite `
+  -Name wafPolicyURI `
   -ResourceGroup myResourceGroupAG `
   -Location eastus `
   -PolicySetting $PolicySettingURI `

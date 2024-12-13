@@ -4,7 +4,7 @@ description: Learn how to enable soft delete on Azure file shares for data recov
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 06/07/2024
+ms.date: 07/09/2024
 ms.author: kendownie
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 services: storage
@@ -20,7 +20,7 @@ Azure Files offers soft delete for file shares so that you can easily recover yo
 |-|:-:|:-:|
 | Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 | Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) (preview) |
+| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 
 ## Prerequisites
 

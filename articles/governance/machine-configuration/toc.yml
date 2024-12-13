@@ -24,8 +24,6 @@ items:
       href: ./whats-new/docs.md
     - name: Migrating from Azure Automation DSC
       href: ./whats-new/migrating-from-azure-automation.md
-    - name: Migrating from DSC extension for Linux
-      href: ./whats-new/migrating-from-dsc-extension.md
     - name: Behavioral changes for PowerShell DSC
       href: ./whats-new/psdsc-in-machine-configuration.md
 
@@ -43,11 +41,15 @@ items:
           href: ./how-to/develop-custom-package/3-test-package.md
         - name: 4. Publish a custom package
           href: ./how-to/develop-custom-package/4-publish-package.md
-        - name: 5. Sign a custom package
-          href: ./how-to/develop-custom-package/5-sign-package.md
+        - name: 5. Access a custom package
+          href: ./how-to/develop-custom-package/5-access-package.md
+        - name: 6. Sign a custom package
+          href: ./how-to/develop-custom-package/6-sign-package.md
     # Planned, not written
     # - name: Update a custom configuration
     #   href: ./how-to/update-configuration.md
+    - name: Create a custom policy definition
+      href: ./how-to/create-policy-definition.md
     - name: Assign a configuration
       items:
         - name: Overview
@@ -58,8 +60,6 @@ items:
           href: ./how-to/assign-configuration/bicep.md
         - name: Using Terraform
           href: ./how-to/assign-configuration/terraform.md
-    - name: Create a custom policy definition
-      href: ./how-to/create-policy-definition.md
 
 - name: Concepts
   items:

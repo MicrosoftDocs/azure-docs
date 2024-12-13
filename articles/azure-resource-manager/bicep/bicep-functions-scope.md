@@ -3,7 +3,7 @@ title: Bicep functions - scopes
 description: Describes the functions to use in a Bicep file to retrieve values about deployment scopes.
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 03/20/2024
+ms.date: 07/11/2024
 ---
 
 # Scope functions for Bicep
@@ -81,7 +81,7 @@ It returns:
         "version": "1"
       },
       "displayName": "Example MG 1",
-      "tenantId": "00000000-0000-0000-0000-000000000000"
+      "tenantId": "aaaabbbb-0000-cccc-1111-dddd2222eeee"
     },
     "type": "/providers/Microsoft.Management/managementGroups"
   }
@@ -95,7 +95,7 @@ targetScope = 'managementGroup'
 
 param mgName string = 'mg-${uniqueString(newGuid())}'
 
-resource newMG 'Microsoft.Management/managementGroups@2020-05-01' = {
+resource newMG 'Microsoft.Management/managementGroups@2023-04-01' = {
   scope: tenant()
   name: mgName
   properties: {
@@ -311,7 +311,7 @@ It returns:
     "countryCode": "US",
     "displayName": "Contoso",
     "id": "/tenants/00000000-0000-0000-0000-000000000000",
-    "tenantId": "00000000-0000-0000-0000-000000000000"
+    "tenantId": "aaaabbbb-0000-cccc-1111-dddd2222eeee"
   }
 }
 ```
@@ -319,7 +319,7 @@ It returns:
 Some resources require setting the tenant ID for a property. Rather than passing the tenant ID as a parameter, you can retrieve it with the tenant function.
 
 ```bicep
-resource kv 'Microsoft.KeyVault/vaults@2021-06-01-preview' = {
+resource kv 'Microsoft.KeyVault/vaults@2023-07-01' = {
   name: 'examplekeyvault'
   location: 'westus'
   properties: {

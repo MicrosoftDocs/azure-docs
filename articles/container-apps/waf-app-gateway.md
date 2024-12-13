@@ -3,7 +3,7 @@ title: Protect Azure Container Apps with Application Gateway and Web Application
 description: Learn how to protect Azure Container Apps with Application Gateway Web Application Firewall (WAF)
 services: container-apps
 author: cachai2
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic:  how-to
 ms.date: 03/31/2023
 ms.author: cachai
@@ -266,7 +266,7 @@ On the *Configuration* tab, you connect the frontend and backend pool you create
 
 ## Add private link to your Application Gateway
 
-You can establish a secured connection to internal-only container app environments by levaraging private link, as it allows your Application Gateway to communicate with your Container App on the backend through the virtual network.
+You can establish a secured connection to internal-only container app environments by leveraging private link, as it allows your Application Gateway to communicate with your Container App on the backend through the virtual network.
 
 1. Once the Application Gateway is created, select **Go to resource**.
 

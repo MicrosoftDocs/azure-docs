@@ -4,9 +4,9 @@ description: Ready your Azure IoT Edge solution for production. Learn how to set
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 06/13/2024
+ms.date: 08/07/2024
 ms.topic: concept-article
-ms.service: iot-edge
+ms.service: azure-iot-edge
 services: iot-edge
 ms.custom:  [amqp, mqtt]
 ---
@@ -33,9 +33,9 @@ IoT Edge devices can be anything from a Raspberry Pi to a laptop to a virtual ma
 
 ### Install production certificates
 
-Every IoT Edge device in production needs a device certificate authority (CA) certificate installed on it. That CA certificate is then declared to the IoT Edge runtime in the config file. For development and testing scenarios, the IoT Edge runtime creates temporary certificates if no certificates are declared in the config file. However, these temporary certificates expire after three months and aren't secure for production scenarios. For production scenarios, you should provide your own device CA certificate, either from a self-signed certificate authority or purchased from a commercial certificate authority.
+Every IoT Edge device in production needs a device certificate authority (CA) certificate installed on it. That CA certificate is then declared to the IoT Edge runtime in the config file. For development and testing scenarios, the IoT Edge runtime creates temporary certificates if no certificates are declared in the config file. However, these temporary certificates expire after three months and aren't secure for production scenarios. For production scenarios, you should provide your own Edge CA certificate, either from a self-signed certificate authority or purchased from a commercial certificate authority.
 
-To understand the role of the device CA certificate, see [How Azure IoT Edge uses certificates](iot-edge-certs.md).
+To understand the role of the Edge CA certificate, see [How Azure IoT Edge uses certificates](iot-edge-certs.md).
 
 For more information about how to install certificates on an IoT Edge device and reference them from the config file, see [Manage certificate on an IoT Edge device](how-to-manage-device-certificates.md).
 
@@ -340,9 +340,9 @@ This checklist is a starting point for firewall rules:
 
 Since the IP address of an IoT hub can change without notice, always use the FQDN to allowlist configuration. To learn more, see [Understanding the IP address of your IoT Hub](../iot-hub/iot-hub-understand-ip-address.md).
 
-Some of these firewall rules are inherited from Azure Container Registry. For more information, see [Configure rules to access an Azure container registry behind a firewall](../container-registry/container-registry-firewall-access-rules.md).
+Some of these firewall rules are inherited from Azure Container Registry. For more information, see [Configure rules to access an Azure container registry behind a firewall](/azure/container-registry/container-registry-firewall-access-rules).
 
-You can enable dedicated data endpoints in your Azure Container registry to avoid wildcard allowlisting of the *\*.blob.core.windows.net* FQDN. For more information, see [Enable dedicated data endpoints](../container-registry/container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints).
+You can enable dedicated data endpoints in your Azure Container registry to avoid wildcard allowlisting of the *\*.blob.core.windows.net* FQDN. For more information, see [Enable dedicated data endpoints](/azure/container-registry/container-registry-firewall-access-rules#enable-dedicated-data-endpoints).
 
 > [!NOTE]
 > To provide a consistent FQDN between the REST and data endpoints, beginning **June 15, 2020** the Microsoft Container Registry data endpoint will change from `*.cdn.mscr.io` to `*.data.mcr.microsoft.com`  
@@ -486,13 +486,13 @@ Before you deploy modules to production IoT Edge devices, ensure that you contro
 
 In the tutorials and other documentation, we instruct you to use the same container registry credentials on your IoT Edge device as you use on your development machine. These instructions are only intended to help you set up testing and development environments more easily, and should not be followed in a production scenario.
 
-For a more secured access to your registry, you have a choice of [authentication options](../container-registry/container-registry-authentication.md). A popular and recommended authentication is to use an Active Directory service principal that's well suited for applications or services to pull container images in an automated or otherwise unattended (headless) manner, as IoT Edge devices do. Another option is to use repository-scoped tokens, which allow you to create long or short-live identities that exist only in the Azure Container Registry they were created in and scope access to the repository level.
+For a more secured access to your registry, you have a choice of [authentication options](/azure/container-registry/container-registry-authentication). A popular and recommended authentication is to use an Active Directory service principal that's well suited for applications or services to pull container images in an automated or otherwise unattended (headless) manner, as IoT Edge devices do. Another option is to use repository-scoped tokens, which allow you to create long or short-live identities that exist only in the Azure Container Registry they were created in and scope access to the repository level.
 
-To create a service principal, run the two scripts as described in [create a service principal](../container-registry/container-registry-auth-service-principal.md#create-a-service-principal). These scripts do the following tasks:
+To create a service principal, run the two scripts as described in [create a service principal](/azure/container-registry/container-registry-auth-service-principal#create-a-service-principal). These scripts do the following tasks:
 
 * The first script creates the service principal. It outputs the Service principal ID and the Service principal password. Store these values securely in your records.
 
-* The second script creates role assignments to grant to the service principal, which can be run subsequently if needed. We recommend applying the **acrPull** user role for the `role` parameter. For a list of roles, see [Azure Container Registry roles and permissions](../container-registry/container-registry-roles.md).
+* The second script creates role assignments to grant to the service principal, which can be run subsequently if needed. We recommend applying the **acrPull** user role for the `role` parameter. For a list of roles, see [Azure Container Registry roles and permissions](/azure/container-registry/container-registry-roles).
 
 To authenticate using a service principal, provide the service principal ID and password that you obtained from the first script. Specify these credentials in the deployment manifest.
 
@@ -500,7 +500,7 @@ To authenticate using a service principal, provide the service principal ID and 
 
 * For the password or client secret, specify the service principal password.
 
-To create repository-scoped tokens, follow [create a repository-scoped token](../container-registry/container-registry-repository-scoped-permissions.md).
+To create repository-scoped tokens, follow [create a repository-scoped token](/azure/container-registry/container-registry-repository-scoped-permissions).
 
 To authenticate using repository-scoped tokens, provide the token name and password that you obtained after creating your repository-scoped token. Specify these credentials in the deployment manifest.
 

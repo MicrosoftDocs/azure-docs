@@ -5,7 +5,7 @@ services: cdn
 author: duongau
 manager: kumudd
 ms.service: azure-cdn
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/20/2024
 ms.author: duau
 ---

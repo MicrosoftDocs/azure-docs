@@ -1,14 +1,18 @@
 ---
 title: Metrics and monitoring in HDInsight on AKS
 description: Learn about how HDInsight on AKS interacts with Azure Monitoring. 
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: conceptual
-ms.date: 08/29/2023
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Azure Monitor integration
 
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
+
 
 HDInsight on AKS offers an integration with Azure Monitor that can be used to monitor cluster pools and their clusters.
 

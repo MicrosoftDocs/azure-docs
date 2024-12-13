@@ -15,7 +15,7 @@ zone_pivot_groups: acs-azcli-js-csharp-java-python-portal-nocode
 
 # Quickstart: How to send an email using Azure Communication Services
 
-[!INCLUDE [Survey Request](../../includes/survey-request.md)]
+<!-- [!INCLUDE [Survey Request](./includes/survey-request.md)] -->
 
 This quickstart describes how to send email using our Email SDKs.
 
@@ -28,7 +28,7 @@ This quickstart describes how to send email using our Email SDKs.
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [Send email with .NET SDK](./includes/send-email-net.md)]
+[!INCLUDE [Send email with .NET SDK](./includes/send-email-async-sync-net.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"

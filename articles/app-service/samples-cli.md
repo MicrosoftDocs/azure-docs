@@ -42,4 +42,3 @@ The following table includes links to bash scripts built using the Azure CLI.
 | [Backup and restore app](./scripts/cli-backup-schedule-restore.md) | Creates an App Service app and creates a one-time backup for it, creates a backup schedule for it, and then restores an App Service app from a backup. |
 |**Monitor app**||
 | [Monitor an app with web server logs](./scripts/cli-monitor.md) | Creates an App Service app, enables logging for it, and downloads the logs to your local machine. |
-| | |

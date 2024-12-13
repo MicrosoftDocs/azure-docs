@@ -3,14 +3,16 @@ title: Connect to a peer network
 titleSuffix: Azure Lab Services
 description: Learn how to connect your lab network with another network as a peer for lab accounts in Azure Lab Services. For example, connect your on-premises organization/university network with Lab's virtual network in Azure. 
 services: lab-services
-ms.service: lab-services
-author: ntrogh
-ms.author: nicktrog
+ms.service: azure-lab-services
+author: RoseHJM
+ms.author: rosemalcolm
 ms.topic: how-to
 ms.date: 03/28/2023
 ---
 
 # Connect your lab's network with a peer virtual network in Azure Lab Services
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 [!INCLUDE [preview note](./includes/lab-services-labaccount-focused-article.md)]
 

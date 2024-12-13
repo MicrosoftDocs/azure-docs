@@ -5,7 +5,7 @@ description: Use the device SDK for Java to schedule a job that invokes a direct
 author: kgremban
 
 ms.author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.devlang: java
 ms.topic: how-to
 ms.date: 08/16/2019
@@ -43,7 +43,7 @@ This article shows you how to create two Java apps:
 
 ## Prerequisites
 
-* An IoT hub. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
+* An IoT hub in your Azure subscription. If you don't have a hub yet, you can follow the steps in [Create an IoT hub](create-hub.md).
 
 * A device registered in your IoT hub. If you don't have a device in your IoT hub, follow the steps in [Register a device](create-connect-device.md#register-a-device).
 
@@ -61,6 +61,8 @@ This article shows you how to create two Java apps:
 [!INCLUDE [iot-hub-howto-schedule-jobs-shared-access-policy-text](../../includes/iot-hub-howto-schedule-jobs-shared-access-policy-text.md)]
 
 [!INCLUDE [iot-hub-include-find-registryrw-connection-string](../../includes/iot-hub-include-find-registryrw-connection-string.md)]
+
+[!INCLUDE [iot-authentication-service-connection-string.md](../../includes/iot-authentication-service-connection-string.md)]
 
 ## Create the service app
 
@@ -289,6 +291,8 @@ To create the app:
 ## Create a device app
 
 In this section, you create a Java console app that handles the desired properties sent from IoT Hub and implements the direct method call.
+
+[!INCLUDE [iot-authentication-device-connection-string.md](../../includes/iot-authentication-device-connection-string.md)]
 
 1. In the **iot-java-schedule-jobs** folder, create a Maven project called **simulated-device** using the following command at your command prompt. Note this is a single, long command:
 

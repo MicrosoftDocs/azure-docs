@@ -3,7 +3,7 @@ title: Understanding the IP address of your IoT hub | Microsoft Docs
 description: Understand how to query your IoT hub IP address and its properties. The IP address of your IoT hub can change during certain scenarios such as disaster recovery or regional failover.
 author: kgremban
 ms.author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/28/2022

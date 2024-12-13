@@ -2,13 +2,11 @@
 title: Automate NSG auditing with security group view
 titleSuffix: Azure Network Watcher
 description: This page provides instructions on how to configure auditing of a Network Security Group
-services: network-watcher
 author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: how-to
 ms.date: 03/28/2023
 ms.author: halkazwini
-ms.custom: template-how-to, engagement-fy23
 ---
 
 # Automate NSG auditing with Azure Network Watcher security group view
@@ -56,7 +54,7 @@ The first step in this example is to work with an existing baseline. The followi
         "ProvisioningState":  "Succeeded",
         "Name":  "default-allow-rdp",
         "Etag":  "W/\"d8859256-1c4c-4b93-ba7d-73d9bf67c4f1\"",
-        "Id":  "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/Microsoft.Network/networkSecurityGroups/testvm1-nsg/securityRules/default-allow-rdp"
+        "Id":  "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/testrg/providers/Microsoft.Network/networkSecurityGroups/testvm1-nsg/securityRules/default-allow-rdp"
     },
     {
         "Description":  null,
@@ -71,7 +69,7 @@ The first step in this example is to work with an existing baseline. The followi
         "ProvisioningState":  "Succeeded",
         "Name":  "MyRuleDoNotDelete",
         "Etag":  "W/\"d8859256-1c4c-4b93-ba7d-73d9bf67c4f1\"",
-        "Id":  "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/Microsoft.Network/networkSecurityGroups/testvm1-nsg/securityRules/MyRuleDoNotDelete"
+        "Id":  "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/testrg/providers/Microsoft.Network/networkSecurityGroups/testvm1-nsg/securityRules/MyRuleDoNotDelete"
     },
     {
         "Description":  null,
@@ -86,7 +84,7 @@ The first step in this example is to work with an existing baseline. The followi
         "ProvisioningState":  "Succeeded",
         "Name":  "My2ndRuleDoNotDelete",
         "Etag":  "W/\"d8859256-1c4c-4b93-ba7d-73d9bf67c4f1\"",
-        "Id":  "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/Microsoft.Network/networkSecurityGroups/testvm1-nsg/securityRules/My2ndRuleDoNotDelete"
+        "Id":  "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/testrg/providers/Microsoft.Network/networkSecurityGroups/testvm1-nsg/securityRules/My2ndRuleDoNotDelete"
     },
     {
         "Description":  null,
@@ -101,7 +99,7 @@ The first step in this example is to work with an existing baseline. The followi
         "ProvisioningState":  "Succeeded",
         "Name":  "ThisRuleNeedsToStay",
         "Etag":  "W/\"d8859256-1c4c-4b93-ba7d-73d9bf67c4f1\"",
-        "Id":  "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/Microsoft.Network/networkSecurityGroups/testvm1-nsg/securityRules/ThisRuleNeedsToStay"
+        "Id":  "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/testrg/providers/Microsoft.Network/networkSecurityGroups/testvm1-nsg/securityRules/ThisRuleNeedsToStay"
     }
 ]
 ```

@@ -4,11 +4,10 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy and transform data in Azure Database for PostgreSQL using Azure Data Factory and Synapse Analytics.
 ms.author: jianleishen
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 01/05/2024
+ms.date: 11/19/2024
 ---
 
 # Copy and transform data in Azure Database for PostgreSQL using Azure Data Factory or Synapse Analytics
@@ -17,7 +16,7 @@ ms.date: 01/05/2024
 
 This article outlines how to use Copy Activity in Azure Data Factory and Synapse Analytics pipelines to copy data from and to Azure Database for PostgreSQL, and use Data Flow to transform data in Azure Database for PostgreSQL. To learn more, read the introductory articles for [Azure Data Factory](introduction.md) and [Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
-This connector is specialized for the [Azure Database for PostgreSQL service](../postgresql/overview.md). To copy data from a generic PostgreSQL database located on-premises or in the cloud, use the [PostgreSQL connector](connector-postgresql.md).
+This connector is specialized for the [Azure Database for PostgreSQL service](/azure/postgresql/overview). To copy data from a generic PostgreSQL database located on-premises or in the cloud, use the [PostgreSQL connector](connector-postgresql.md).
 
 ## Supported capabilities
 
@@ -33,9 +32,9 @@ This Azure Database for PostgreSQL connector is supported for the following capa
 
 The three activities work on all Azure Database for PostgreSQL deployment options:
 
-* [Single Server](../postgresql/single-server/index.yml)
-* [Flexible Server](../postgresql/flexible-server/index.yml)
-* [Hyperscale (Citus)](../postgresql/hyperscale/index.yml)
+* [Single Server](/azure/postgresql/single-server/)
+* [Flexible Server](/azure/postgresql/flexible-server/)
+* [Hyperscale (Citus)](/azure/postgresql/hyperscale/)
 
 ## Getting started
 
@@ -161,6 +160,7 @@ To copy data from Azure Database for PostgreSQL, set the source type in the copy
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to **AzurePostgreSqlSource** | Yes |
 | query | Use the custom SQL query to read data. For example: `SELECT * FROM mytable` or `SELECT * FROM "MyTable"`. Note in PostgreSQL, the entity name is treated as case-insensitive if not quoted. | No (if the tableName property in the dataset is specified) |
+| queryTimeout | The wait time before terminating the attempt to execute a command and generating an error, default is 120 minutes. If parameter is set for this property, allowed values are timespan, such as "02:00:00" (120 minutes). For more information, see [CommandTimeout](https://www.npgsql.org/doc/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_CommandTimeout). | No |
 | partitionOptions | Specifies the data partitioning options used to load data from Azure SQL Database. <br>Allowed values are: **None** (default), **PhysicalPartitionsOfTable**, and **DynamicRange**.<br>When a partition option is enabled (that is, not `None`), the degree of parallelism to concurrently load data from an Azure SQL Database is controlled by the [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) setting on the copy activity. | No |
 | partitionSettings | Specify the group of the settings for data partitioning. <br>Apply when the partition option isn't `None`. | No |
 | ***Under `partitionSettings`:*** | | |
@@ -191,7 +191,8 @@ To copy data from Azure Database for PostgreSQL, set the source type in the copy
         "typeProperties": {
             "source": {
                 "type": "AzurePostgreSqlSource",
-                "query": "<custom query e.g. SELECT * FROM mytable>"
+                "query": "<custom query e.g. SELECT * FROM mytable>",
+                "queryTimeout": "00:10:00"
             },
             "sink": {
                 "type": "<sink type>"
