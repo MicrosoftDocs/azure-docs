@@ -28,4 +28,4 @@ Note: Due to the underlying dependencies and references across these resources, 
 11) [Delete Network Fabric Controller (NFC) resource](./howto-configure-network-fabric-controller.md#delete-network-fabric-controller)
 
 ## Support and questions
-For further technical questions or assistance, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). For more information about Support plans, see [Azure Support plans](https://azure.microsoft.com/support/plans/response/).
+For further technical questions or assistance, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). For more information about Support plans, see [Azure Support plans](https://azure.microsoft.com/support/plans/response/).
