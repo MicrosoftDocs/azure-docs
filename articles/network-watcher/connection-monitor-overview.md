@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: concept-article
-ms.date: 12/12/2024
+ms.date: 12/13/2024
 
 #CustomerIntent: As an Azure administrator, I need to monitor communication between one VM and another. If the communication fails, I need to know why so that I can resolve the problem. 
 ---
@@ -249,7 +249,7 @@ On the dashboard, you can expand each connection monitor to view its test groups
 
 You can filter a list based on:
 
-* **Top-level filters**: SeArch the list by text, entity type (Connection monitor, test group, or test) timestamp, and scope. Scope includes subscriptions, regions,  sources, and destination types. See box 1 in the following image.
+* **Top-level filters**: Search  the list by text, entity type (Connection monitor, test group, or test), timestamp, and scope. Scope includes subscriptions, regions,  sources, and destination types. See box 1 in the following image.
 * **State-based filters**: Filter by the state of the connection monitor, test group, or test. See box 2 in the following image.
 * **Alert-based filter**: Filter by alerts that are fired on the connection monitor resource. See box 3 in the following image.
 
@@ -258,19 +258,19 @@ You can filter a list based on:
 For example, to view all tests in Connection monitor, where the source IP is 10.192.64.56, follow these steps:
 
 1. Change the view to **Test**.
-1. In the **SeArch** box, enter **10.192.64.56**.
+1. In the **Search ** box, enter **10.192.64.56**.
 1. Under **Scope**, in the top-level filter, select **Sources**.
 
 To show only failed tests in Connection monitor, where the source IP is 10.192.64.56, follow these steps:
 1. Change the view to **Test**.
 1. For the state-based filter, select **Fail**.
-1. In the **SeArch** box, enter **10.192.64.56**.
+1. In the **Search ** box, enter **10.192.64.56**.
 1. Under **Scope**, in the top-level filter, select **Sources**.
 
 To show only failed tests in Connection monitor, where the destination is outlook.office365.com, follow these steps:
 1. Change the view to **Test**.
 1. For the state-based filter, select **Fail**.
-1. In the **SeArch** box, enter **office.live.com**.
+1. In the **Search ** box, enter **office.live.com**.
 1. Under **Scope**, in the top-level filter, select **Destinations**.
   
   :::image type="content" source="./media/connection-monitor-2-preview/tests-view.png" alt-text="Screenshot showing a view that's filtered to show only failed tests for the outlook.office365.com destination." lightbox="./media/connection-monitor-2-preview/tests-view.png":::
