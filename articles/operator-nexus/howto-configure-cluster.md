@@ -156,7 +156,7 @@ View the status of the Cluster:
 ```azurecli
 az networkcloud cluster show --cluster-name "<clusterName>" /
 --resource-group "<resourceGroupName>" /
---subscription <SUBSCRIPTION_ID>
+--subscription <subscriptionID>
 ```
 
 The Cluster creation is complete when the `provisioningState` of the resource
@@ -191,7 +191,7 @@ The example below is for a customer requesting type "PercentSuccess" with a succ
 az networkcloud cluster update --name "<clusterName>" /
 --resource-group "<resourceGroup>" /
 --compute-deployment-threshold type="PercentSuccess" grouping="PerCluster" value=97 /
---subscription <SUBSCRIPTION_ID>
+--subscription <subscriptionID>
 ```
 
 ### Validate update:
@@ -219,7 +219,7 @@ az networkcloud cluster update --name "<clusterName>" /
 --resource-group "<resourceGroup>" /
 --update-strategy strategy-type="Rack" threshold-type="PercentSuccess" /
 threshold-value="<thresholdValue>" wait-time-minutes=<waitTimeBetweenRacks> /
---subscription <SUBSCRIPTION_ID>
+--subscription <subscriptionID>
 ```
 
 strategy-type can be "Rack" (Rack by Rack) OR "PauseAfterRack" (Wait for customer response to continue)
@@ -242,7 +242,7 @@ az networkcloud cluster update --name "<clusterName>" /
 --resource-group "<resourceGroup>" /
 --update-strategy strategy-type="Rack" threshold-type="PercentSuccess" /
 threshold-value=60 wait-time-minutes=1 /
---subscription <SUBSCRIPTION_ID>
+--subscription <subscriptionID>
 ```
 
 Verify update:
@@ -250,7 +250,7 @@ Verify update:
 ```
 az networkcloud cluster show --resource-group "<resourceGroup>" /
 --name "<clusterName>" /
---subscription <SUBSCRIPTION_ID>| grep -a5 updateStrategy
+--subscription <subscriptionID>| grep -a5 updateStrategy
 
       "strategyType": "Rack",
       "thresholdType": "PercentSuccess",
@@ -267,7 +267,7 @@ az networkcloud cluster update --name "<clusterName>" /
 --resource-group "<resourceGroup>" /
 --update-strategy strategy-type="Rack" threshold-type="CountSuccess" /
 threshold-value=10 wait-time-minutes=1 /
---subscription <SUBSCRIPTION_ID>
+--subscription <subscriptionID>
 ```
 
 Verify update:
@@ -275,7 +275,7 @@ Verify update:
 ```
 az networkcloud cluster show --resource-group "<resourceGroup>" /
 --name "<clusterName>" /
---subscription <SUBSCRIPTION_ID>| grep -a5 updateStrategy
+--subscription <subscriptionID>| grep -a5 updateStrategy
 
       "strategyType": "Rack",
       "thresholdType": "CountSuccess",
