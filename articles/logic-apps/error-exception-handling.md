@@ -299,6 +299,37 @@ To catch exceptions in a **Failed** scope and run actions that handle those erro
 
 For limits on scopes, see [Limits and config](logic-apps-limits-and-config.md).
 
+### Set up a scope with "run after" for exception handling
+
+1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
+    Your workflow must already have a trigger that starts the workflow.
+
+1. On the designer, [follow these generic steps to add a **Control** action named **Scope** to your workflow](/azure/logic-apps/create-workflow-with-trigger-or-action#add-action).
+
+1. In the **Scope** action, [follow these generic steps to the add actions to run](/azure/logic-apps/logic-apps-control-flow-run-steps-group-scopes#add-steps-to-scope), for example:
+
+   ![Screenshot shows workflow designer with actions grouped inside the scope.](./media/error-exception-handling/add-actions-into-scope.png)
+
+   The following list shows some example actions that you might include inside a **Scope** action:
+   
+   - Get data from an API.
+   - Process the data.
+   - Save the data to a database.
+
+1. Now define the "run after" rules for running the actions in the scope.
+   
+   1. On the designer, select the **Scope** title. When the scope's information pane opens, select **Settings**.
+
+   1. If you have more than one preceding action in the workflow, from the **Select actions** list, select the action after which you want to run the scoped actions.
+
+   1. For the selected action, select all the action statuses that can run the scoped actions.
+      
+      In other words, any of the chosen statuses that result from the selected action cause the actions in the scope to run.
+
+      In the following example, the scoped actions run after the **HTTP** action completes with any of the selected statuses:
+
+      ![Screenshot shows scope action's Settings tab, run after section, and selected action statuses that run the scoped actions.](./media/error-exception-handling/set-run-after-in-scope.png)
+
 <a name="get-results-from-failures"></a>
 
 ### Get context and results for failures
