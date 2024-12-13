@@ -4,7 +4,7 @@ description: In this quickstart, you create a resource group, a virtual network,
 ms.topic: quickstart
 ms.date: 12/13/2024
 ms.custom: devx-track-terraform
-ms.service: virtual-network
+ms.service: azure-virtual-network
 author: duongau
 ms.author: duau
 #customer intent: As a Terraform user, I want to see how to create a resource group, a virtual network, a subnet for the gateway, a public IP for the gateway, an Azure ExpressRoute gateway, an ExpressRoute circuit, and an ExpressRoute circuit peering in Azure.
@@ -14,31 +14,19 @@ content_well_notification:
 
 # Quickstart: Configure an Azure virtual network gateway with Terraform
 
-This quickstart describes how to use Terraform to create an Azure virtual network gateway and several other resources.
+In this quickstart, you use Terraform to create an Azure ExpressRoute circuit with Equinix as the service provider. The circuit uses a Standard SKU with a bandwidth of 50 MB/s and the peering location of Washington, D.C. Private peering is enabled with a primary and secondary subnet of 192.168.10.16/30 and 192.168.10.20/30, respectively. The script also creates a virtual network and a HighPerformance ExpressRoute gateway.
 
-An Azure virtual network gateway is a specific type of virtual network gateway that's used to send encrypted traffic between an Azure virtual network and an on-premises location over the public Internet. It can also be used to send encrypted traffic between Azure virtual networks. In addition to the Azure virtual network gateway, this code also creates a resource group, a virtual network, a subnet for the gateway, a public IP for the gateway, an Azure ExpressRoute gateway, an ExpressRoute circuit, and an ExpressRoute circuit peering. These resources work together to establish and manage the secure connection.
-
-:::image type="content" source="media/expressroute-howto-circuit-portal-resource-manager/environment-diagram.png" alt-text="Diagram of ExpressRoute circuit deployment environment using bicep." lightbox="media/expressroute-howto-circuit-portal-resource-manager/environment-diagram.png":::
+:::image type="content" source="media/expressroute-howto-circuit-portal-resource-manager/environment-diagram.png" alt-text="Diagram of an Azure ExpressRoute circuit deployment environment using Bicep." lightbox="media/expressroute-howto-circuit-portal-resource-manager/environment-diagram.png":::
 
 [!INCLUDE [About Terraform](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
 
 > [!div class="checklist"]
-> * Specify the required providers for Terraform.
-> * Define the Azure provider.
-> * Define the location of the resource group.
-> * Define the prefix of the resource group name.
 > * Create a resource group with a unique name.
-> * Generate a random string for unique naming.
-> * Create a virtual network with a unique name.
-> * Create a subnet for the gateway.
+> * Generate a random string for unique naming of the Azure resources.
+> * Create a virtual network with a subnet for the gateway.
 > * Create a public IP for the gateway.
-> * Create an ExpressRoute gateway.
-> * Create an ExpressRoute circuit.
-> * Create an ExpressRoute circuit peering.
-> * Output the resource group name.
-> * Output the ExpressRoute circuit ID.
-> * Output the gateway IP.
-> * Output the service key.
+> * Create an ExpressRoute circuit and configure private peering.
+> * Output the resource group name, ExpressRoute circuit ID, gateway IP, and the service key.
 
 ## Prerequisites
 
