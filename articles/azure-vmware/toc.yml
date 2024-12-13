@@ -33,13 +33,15 @@ items:
     href: tutorial-configure-networking.md
   - name: 4 - Access a private cloud
     href: tutorial-access-private-cloud.md
-  - name: 5 - Create an NSX network segment
+  - name: 5 - Create an NSX Tier-1 Gateway
+    href: tutorial-nsx-tier-1-gateway.md
+  - name: 6 - Create an NSX network segment
     href: tutorial-nsx-t-network-segment.md
-  - name: 6 - Peer on-premises to private cloud
+  - name: 7 - Peer on-premises to private cloud
     href: tutorial-expressroute-global-reach-private-cloud.md
-  - name: 7 - Scale a private cloud
+  - name: 8 - Scale a private cloud
     href: tutorial-scale-private-cloud.md
-  - name: 8 - Delete a private cloud
+  - name: 9 - Delete a private cloud
     href: tutorial-delete-private-cloud.md
 - name: Cost optimization
   items:
@@ -133,6 +135,8 @@ items:
       href: protect-azure-vmware-solution-with-application-gateway.md
   - name: Configure customer-managed key encryption at rest
     href: configure-customer-managed-keys.md
+  - name: Configure Trusted Launch
+    href: configure-virtual-trusted-platform-module.md
 - name: Networking
   items:
   - name: Connect to on-premises environment
@@ -199,6 +203,8 @@ items:
   items:
   - name: Operating system support for VMs
     href: ecosystem-os-vms.md
+  - name: Configure vTPM on a Virtual Machine
+    href: configure-virtual-trusted-platform-module.md
   - name: Configure Windows Server Failover Cluster
     href: configure-windows-server-failover-cluster.md
   - name: Deploy VMs from the content library
@@ -233,8 +239,12 @@ items:
       href: install-cloud-backup-virtual-machines.md
     - name: Backup Azure NetApp Files datastores and VMs
       href: backup-azure-netapp-files-datastores-vms.md
+    - name: Configure Cloud Backup for Virtual Machines
+      href: configure-cloud-backup-virtual-machine.md  
     - name: Restore VMs
       href: restore-azure-netapp-files-vms.md
+    - name: Restore guest files and folders
+      href: restore-guest-files-folders.md  
   - name: External storage solutions
     items:
     - name: Storage solution overview
@@ -287,6 +297,8 @@ items:
     href: configure-vmware-syslogs.md
   - name: Configure alerts and work with metrics
     href: configure-alerts-for-azure-vmware-solution.md
+  - name: Configure Newest Metrics for Azure VMware Solution
+    href: configure-azure-vmware-solution-metrics.md
   - name: Arc-enabled Azure VMware Solution private cloud
     items:
     - name: Deploy Arc-enabled VMware vSphere for Azure VMware Solution private cloud
@@ -379,7 +391,7 @@ items:
     href: https://aka.ms/avssla
   - name: Azure VMware Solution roadmap
     href: https://aka.ms/avsroadmap
-  - name: Troubleshooting
+  - name: Troubleshoot
     items:
     - name: Open a support request for deployment failures
       href: fix-deployment-failures.md

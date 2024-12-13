@@ -4,12 +4,16 @@ description: This article displays the Microsoft Sentinel entity types and their
 author: yelevin
 ms.author: yelevin
 ms.topic: reference
-ms.date: 06/09/2024
+ms.date: 10/16/2024
+
+
+#Customer intent: As a security analyst, I want to understand the entity types and identifiers in Microsoft Sentinel so that I can effectively track and investigate alerts and incidents.
+
 ---
 
 # Microsoft Sentinel entity types reference
 
-This document contains two sets of information regarding entities and entity types in Microsoft Sentinel and the [Microsoft unified security operations platform](microsoft-sentinel-defender-portal.md).
+This document contains two sets of information regarding entities and entity types in Microsoft Sentinel in the Azure portal and [Microsoft Sentinel in the Defender portal](microsoft-sentinel-defender-portal.md).
 - The [**Entity types and identifiers**](#entity-types-and-identifiers) table shows the different types of [entities](entities.md) that can be identified in alerts and incidents, allowing you to [track and investigate them](entity-pages.md). The table also shows, for each entity type, the different identifiers that can be used to identify an entity.
 - The [**Entity schema**](#entity-type-schemas) section shows the data structure and schema for entities in general and for each entity type in particular.
 

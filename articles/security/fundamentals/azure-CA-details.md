@@ -46,7 +46,6 @@ Any entity trying to access Microsoft Entra identity services via the TLS/SSL pr
 |---- |---- |
 | [DigiCert Basic RSA CN CA G2](https://crt.sh/?d=2545289014) | 0x02f7e1f982bad009aff47dc95741b2f6<br>4D1FA5D1FB1AC3917C08E43F65015E6AEA571179 |
 | [DigiCert Cloud Services CA-1](https://crt.sh/?d=12624881) | 0x019ec1c6bd3f597bb20c3338e551d877<br>81B68D6CD2F221F8F534E677523BB236BBA1DC56 |
-| [DigiCert Cloud Services CA-1](https://crt.sh/?d=3439320284) | 0f171a48c6f223809218cd2ed6ddc0e8<br>B3F6B64A07BB9611F47174407841F564FB991F29 |
 | [DigiCert SHA2 Secure Server CA](https://crt.sh/?d=3422153451) | 0x02742eaa17ca8e21c717bb1ffcfd0ca0<br>626D44E704D1CEABE3BF0D53397464AC8080142C |
 | [DigiCert TLS Hybrid ECC SHA384 2020 CA1](https://crt.sh/?d=3422153452) | 0x0a275fe704d6eecb23d5cd5b4b1a4e04<br>51E39A8BDB08878C52D6186588A0FA266A69CF28 |
 | [DigiCert TLS RSA SHA256 2020 CA1](https://crt.sh/?d=4385364571) | 0x06d8d904d5584346f68a2fa754227ec4<br>1C58A3A8518E8759BF075B76B750D4F2DF264FCD |
@@ -88,7 +87,6 @@ Any entity trying to access Microsoft Entra identity services via the TLS/SSL pr
 | [**DigiCert Global Root CA**](https://cacerts.digicert.com/DigiCertGlobalRootCA.crt) | 0x083be056904246b1a1756ac95991c74a<br>A8985D3A65E5E5C4B2D7D66D40C6DD2FB19C5436 |
 | └ [DigiCert Basic RSA CN CA G2](https://crt.sh/?d=2545289014) | 0x02f7e1f982bad009aff47dc95741b2f6<br>4D1FA5D1FB1AC3917C08E43F65015E6AEA571179 |
 | └ [DigiCert Cloud Services CA-1](https://crt.sh/?d=12624881) | 0x019ec1c6bd3f597bb20c3338e551d877<br>81B68D6CD2F221F8F534E677523BB236BBA1DC56 |
-| └ [DigiCert Cloud Services CA-1](https://crt.sh/?d=3439320284) | 0f171a48c6f223809218cd2ed6ddc0e8<br>B3F6B64A07BB9611F47174407841F564FB991F29 |
 | └ [DigiCert SHA2 Secure Server CA](https://crt.sh/?d=3422153451) | 0x02742eaa17ca8e21c717bb1ffcfd0ca0<br>626D44E704D1CEABE3BF0D53397464AC8080142C |
 | └ [DigiCert TLS Hybrid ECC SHA384 2020 CA1](https://crt.sh/?d=3422153452) | 0x0a275fe704d6eecb23d5cd5b4b1a4e04<br>51E39A8BDB08878C52D6186588A0FA266A69CF28 |
 | └ [DigiCert TLS RSA SHA256 2020 CA1](https://crt.sh/?d=4385364571) | 0x06d8d904d5584346f68a2fa754227ec4<br>1C58A3A8518E8759BF075B76B750D4F2DF264FCD |
@@ -181,16 +179,13 @@ AIA:
 - `www.microsoft.com`
 
 CRL:
-- `crl.microsoft.com`
 - `crl3.digicert.com`
 - `crl4.digicert.com`
 - `crl.digicert.cn`
 - `cdp.geotrust.com`
-- `mscrl.microsoft.com`
 - `www.microsoft.com`
 
 OCSP:
-- `ocsp.msocsp.com`
 - `ocsp.digicert.com`
 - `ocsp.digicert.cn`
 - `oneocsp.microsoft.com`
@@ -216,9 +211,11 @@ To determine if the **Microsoft ECC Root Certificate Authority 2017** and **Micr
 
 1. Open a terminal window on your system.
 1. Run the following command:
+
     ```bash
     keytool -list -keystore $JAVA_HOME/jre/lib/security/cacerts
     ```
+
     - `$JAVA_HOME` refers to the path to the Java home directory.
     - If you're unsure of the path, you can find it by running the following command:
     
@@ -238,12 +235,13 @@ To determine if the **Microsoft ECC Root Certificate Authority 2017** and **Micr
         ...
     ```
 
-
 1. To add a root certificate to the trusted root certificate store in Java, you can use the `keytool` utility. The following example adds the **Microsoft RSA Root Certificate Authority 2017** root certificate:
+
     ```bash
-    keytool -import -file microsoft-ecc-root-ca.crt -alias microsoft-rsa-root-ca -keystore $JAVA_HOME/jre/lib/security/cacerts
+    keytool -import -file microsoft-ecc-root-ca.crt -alias microsoft-ecc-root-ca -keystore $JAVA_HOME/jre/lib/security/cacerts
     keytool -import -file microsoft-rsa-root-ca.crt -alias microsoft-rsa-root-ca -keystore $JAVA_HOME/jre/lib/security/cacerts
     ```
+
     > [!NOTE]
     > In this example, `microsoft-ecc-root-ca.crt` and `microsoft-rsa-root-ca.crt` are the names of the files that contain the **Microsoft ECC Root Certificate Authority 2017** and **Microsoft RSA Root Certificate Authority 2017** root certificates, respectively.
 
@@ -251,16 +249,18 @@ To determine if the **Microsoft ECC Root Certificate Authority 2017** and **Micr
 
 The CA/Browser Forum updated the Baseline Requirements to require all publicly trusted Public Key Infrastructures (PKIs) to end usage of the SHA-1 hash algorithms for Online Certificate Standard Protocol (OCSP) on May 31, 2022. Microsoft updated all remaining OCSP Responders that used the SHA-1 hash algorithm to use the SHA-256 hash algorithm. View the [Sunset for SHA-1 OCSP signing article](../fundamentals/ocsp-sha-1-sunset.md) for additional information.
 
-Microsoft updated Azure services to use TLS certificates from a different set of Root Certificate Authorities (CAs) on February 15, 2021, to comply with changes set forth by the CA/Browser Forum Baseline Requirements. Some services finalized these updates in 2022. View the [Azure TLS certificate changes article](../fundamentals/tls-certificate-changes.md) for additional information. 
+Microsoft updated Azure services to use TLS certificates from a different set of Root Certificate Authorities (CAs) on February 15, 2021, to comply with changes set forth by the CA/Browser Forum Baseline Requirements. Some services finalized these updates in 2022. View the [Azure TLS certificate changes article](../fundamentals/tls-certificate-changes.md) for additional information.
 
 ### Article change log
 
-- October 8, 2024: Removed the following CAs.
+- October 8, 2024: Removed the following CAs and CDP endpoints: crl.microsoft.com, mscrl.microsoft.com, and ocsp.msocsp.com.
+
     | Certificate Authority | Serial Number<br>Thumbprint |
     |---- |---- |
     |[Baltimore CyberTrust Root](https://cacerts.digicert.com/BaltimoreCyberTrustRoot.crt) | 0x20000b9<br>D4DE20D05E66FC53FE1A50882C78DB2852CAE474 |
     |[Microsoft RSA TLS CA 01](https://crt.sh/?d=3124375355) | 0x0f14965f202069994fd5c7ac788941e2<br>703D7A8F0EBF55AAA59F98EAF4A206004EB2516A |
     |[Microsoft RSA TLS CA 02](https://crt.sh/?d=3124375356) | 0x0fa74722c53d88c80f589efb1f9d4a3a<br>B0C2D2D13CDD56CDAA6AB6E2C04440BE4A429C75 |
+    |[DigiCert Cloud Services CA-1](https://crt.sh/?d=3439320284) | 0f171a48c6f223809218cd2ed6ddc0e8<br>B3F6B64A07BB9611F47174407841F564FB991F29 |
 
 - July 22, 2024: Added Entrust CAs from a parallel Microsoft 365 article to provide a comprehensive list.
 - June 27, 2024: Removed the following CAs, which were superseded by both versions of Microsoft Azure ECC TLS Issuing CAs 03, 04, 07, 08.
@@ -284,8 +284,8 @@ Microsoft updated Azure services to use TLS certificates from a different set of
     |[Microsoft Azure TLS Issuing CA 06](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20TLS%20Issuing%20CA%2006.cer)| 0x02e79171fb8021e93fe2d983834c50c0<br>30E01761AB97E59A06B41EF20AF6F2DE7EF4F7B0|
     |[Microsoft Azure TLS Issuing CA 06](https://crt.sh/?d=2616330106)|0x3300000020a2f1491a37fbd31f000000000020<br>8F1FD57F27C828D7BE29743B4D02CD7E6E5F43E6|
 
-- July 17, 2023: Added 16 new subordinate Certificate Authorities
-- February 7, 2023: Added eight new subordinate Certificate Authorities
+- July 17, 2023: Added 16 new subordinate Certificate Authorities.
+- February 7, 2023: Added eight new subordinate Certificate Authorities.
 
 ## Next steps
 

@@ -13,7 +13,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ✔️ Standard consumption and dedicated (Preview) ❌ Basic/Standard ❌ Enterprise
+**This article applies to:** ✅ Standard consumption and dedicated (Preview) ❎ Basic/Standard ❎ Enterprise
 
 This article describes how to enable and disable Spring Cloud Config Server for service registration and discovery in Azure Spring Apps.
 Spring Cloud Config Server is a centralized configuration service for distributed systems. Config Server uses a pluggable repository layer that currently supports local storage, Git, and Subversion. In this quickstart, you set up the Config Server to get data from a Git repository.
@@ -37,7 +37,7 @@ az spring config-server git set \
 ```
 
 > [!TIP]
-> For information on using a private repository for Config Server, see [Configure a managed Spring Cloud Config Server in Azure Spring Apps](../enterprise/how-to-config-server.md?pivots=sc-standard&toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json).
+> For information on using a private repository for Config Server, see [Configure a managed Spring Cloud Config Server in Azure Spring Apps](../basic-standard/how-to-config-server.md?pivots=sc-standard&toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json).
 
 ## Enable Config Server
 

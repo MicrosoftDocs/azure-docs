@@ -10,6 +10,9 @@ appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
 #Customer intent: As a security analyst, I want to deploy and launch a Jupyter notebook to hunt for security threats.
+
+
+
 ---
 
 # Hunt for security threats with Jupyter notebooks
@@ -145,7 +148,7 @@ If you have multiple notebooks, make sure to select a default AML workspace to u
 
 ## Launch a notebook in your Azure Machine Learning workspace
 
-After you create an Azure Machine Learning workspace, launch your notebook in that workspace from Microsoft Sentinel. Be aware that if you have private endpoints enabled in your Azure storage account, you can't launch notebooks in the Azure Machine Learning workspace from Microsoft Sentinel. You must copy the notebook template from Microsoft Sentinel and upload the notebook to the Azure Machine Learning studio.
+After you create an Azure Machine Learning workspace, launch your notebook in that workspace from Microsoft Sentinel. Be aware that if you have private endpoints or restrictions on the public network access enabled in your Azure storage account, you can't launch notebooks in the Azure Machine Learning workspace from Microsoft Sentinel. You must copy the notebook template from Microsoft Sentinel and upload the notebook to the Azure Machine Learning studio.
 
 To launch your Microsoft Sentinel notebook in your Azure Machine Learning workspace, complete the following steps. 
 

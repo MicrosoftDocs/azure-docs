@@ -7,16 +7,12 @@ ms.suite: integration
 ms.collection: ce-skilling-ai-copilot
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 07/23/2024
+ms.date: 11/11/2024
 ---
 
-# Connect to Azure AI services from Standard workflows in Azure Logic Apps (Preview)
+# Connect to Azure AI services from Standard workflows in Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-standard](../../../includes/logic-apps-sku-standard.md)]
-
-> [!NOTE]
-> This capability is in preview and is subject to the 
-> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 To integrate enterprise data and services with AI technologies, you can use the **Azure OpenAI** and **Azure AI Search** built-in connectors in Standard logic app workflows. These connectors support multiple authentication types, such as API keys, Microsoft Entra ID, and managed identities. They also can connect to Azure OpenAI Service and Azure AI Search endpoints behind firewalls so that your workflows securely connect to your AI resources in Azure.
 
@@ -46,7 +42,7 @@ For more information, see the following resources:
 
 - [Introduction to large language models](/training/modules/introduction-large-language-models/)
 - [Guide to working with large language models](/ai/playbook/technology-guidance/generative-ai/working-with-llms/)
-- [What is a vector database](/semantic-kernel/memories/vector-db)
+- [What is a vector database](/azure/cosmos-db/vector-database#what-is-a-vector-database)
 
 ## Connector technical reference
 
@@ -196,4 +192,5 @@ The following pattern is only one example that shows how a chat workflow might l
 
 ## See also
 
+[Azure OpenAI and Azure AI Search connectors are now generally available](https://techcommunity.microsoft.com/blog/integrationsonazureblog/%F0%9F%93%A2-announcement-azure-openai-and-azure-ai-search-connectors-are-now-generally-av/4163682)
 [Azure OpenAI and AI Search connectors for Azure Logic Apps (Standard)](https://techcommunity.microsoft.com/t5/azure-integration-services-blog/public-preview-of-azure-openai-and-ai-search-in-app-connectors/ba-p/4049584)

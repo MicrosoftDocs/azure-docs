@@ -1,12 +1,13 @@
 ---
 title: Troubleshoot Azure Virtual Desktop Agent Issues - Azure
 description: How to resolve common Azure Virtual Desktop Agent and connectivity issues.
-author: sefriend
+author: dknappettmsft
 ms.topic: troubleshooting
 ms.date: 04/21/2023
-ms.author: sefriend
-manager: clarkn
+ms.author: daknappe
+ms.custom: docs_inherited
 ---
+
 # Troubleshoot common Azure Virtual Desktop Agent issues
 
 The Azure Virtual Desktop Agent can cause connection issues because of multiple factors:

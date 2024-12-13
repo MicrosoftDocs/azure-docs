@@ -7,7 +7,10 @@ ms.service: microsoft-sentinel
 ms.topic: tutorial
 ms.date: 05/16/2024
 ms.custom: template-tutorial, linux-related-content
-#Customer intent: As a security engineer, I want to get Syslog data into Microsoft Sentinel so that I can do attack detection, threat visibility, proactive hunting, and threat response. As an IT administrator, I want to get Syslog data into my Log Analytics workspace to monitor my Linux-based devices.
+
+
+#Customer intent: As a security engineer or system administrator, I want to forward Syslog data from Linux-based devices to a Log Analytics workspace so that I can detect attacks, view, hunt, and respond to threats, or monitor my Linux-based devices.
+
 ---
 
 # Tutorial: Forward Syslog data to a Log Analytics workspace with Microsoft Sentinel by using Azure Monitor Agent
@@ -112,7 +115,7 @@ sudo wget -O Forwarder_AMA_installer.py https://raw.githubusercontent.com/Azure/
 This script can make changes for both rsyslog.d and syslog-ng.
 
 > [!NOTE]
-> To avoid [Full Disk scenarios](/azure/azure-monitor/agents/azure-monitor-agent-troubleshoot-linux-vm-rsyslog) where the agent can't function, we recommend that you set the `syslog-ng` or `rsyslog` configuration not to store unneeded logs. A Full Disk scenario disrupts the function of the installed Azure Monitor Agent.
+> To avoid [Full Disk scenarios](/azure/azure-monitor/agents/azure-monitor-agent-troubleshoot-linux-vm-rsyslog) where the agent can't function, you must set the `syslog-ng` or `rsyslog` configuration to not store logs, which are not needed by the agent. A Full Disk scenario disrupts the function of the installed Azure Monitor Agent.
 > Read more about [rsyslog](https://www.rsyslog.com/doc/master/configuration/actions.html) or [syslog-ng](https://www.syslog-ng.com/technical-documents).
 
 ## Verify Syslog data is forwarded to your Log Analytics workspace

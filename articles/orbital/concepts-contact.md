@@ -2,7 +2,7 @@
 title: Contact resource - Azure Orbital Ground Station
 description: Learn more about a contacting your spacecraft and resource and how to schedule and execute a contact on a ground station.
 author: hrshelar
-ms.service: orbital
+ms.service: azure-orbital
 ms.topic: conceptual
 ms.custom: ga
 ms.date: 07/13/2022

@@ -4,7 +4,7 @@ titleSuffix: Azure IoT Hub
 description: How to use the Azure IoT SDK for Python to create device and backend service application code for device twins.
 author: kgremban
 ms.author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.devlang: python
 ms.topic: include
 ms.date: 07/12/2024
@@ -25,6 +25,8 @@ This section describes how to create device application code that:
 
 * Retrieves a device twin and examine reported properties
 * Patch reported device twin properties
+
+[!INCLUDE [iot-authentication-device-connection-string.md](iot-authentication-device-connection-string.md)]
 
 ### Connect to a device
 
@@ -134,7 +136,16 @@ The [IoTHubRegistryManager](/python/api/azure-iot-hub/azure.iot.hub.iothubregist
 
 ### Connect to IoT hub
 
-Connect to IoT hub using [from_connection_string](/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager?#azure-iot-hub-iothubregistrymanager-from-connection-string). As a parameter, supply the **IoT Hub service connection string** that you created in the prerequisites section.
+You can connect a backend service to IoT Hub using the following methods:
+
+* Shared access policy
+* Microsoft Entra
+
+[!INCLUDE [iot-authentication-service-connection-string.md](iot-authentication-service-connection-string.md)]
+
+#### Connect using a shared access policy
+
+Connect to IoT hub using [from_connection_string](/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager?#azure-iot-hub-iothubregistrymanager-from-connection-string). Your application needs the **service connect** permission to modify desired properties of a device twin, and it needs **registry read** permission to query the identity registry. There is no default shared access policy that contains only these two permissions, so you need to create one if a one does not already exist. Supply this shared access policy connection string as a parameter to `fromConnectionString`. For more information about shared access policies, see [Control access to IoT Hub with shared access signatures](/azure/iot-hub/authenticate-authorize-sas).
 
 For example:
 
@@ -148,6 +159,10 @@ from azure.iot.hub.models import Twin, TwinProperties, QuerySpecification, Query
 IOTHUB_CONNECTION_STRING = "{IoT hub service connection string}"
 iothub_registry_manager = IoTHubRegistryManager.from_connection_string(IOTHUB_CONNECTION_STRING)
 ```
+
+#### Connect using Microsoft Entra
+
+[!INCLUDE [iot-hub-howto-connect-service-iothub-entra-python](iot-hub-howto-connect-service-iothub-entra-python.md)]
 
 ### Update twin tags and desired properties
 

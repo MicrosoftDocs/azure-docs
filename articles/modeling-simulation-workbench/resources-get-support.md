@@ -4,7 +4,7 @@ description: Learn how to get support for Modeling and Simulation Workbench depl
 author: lynnar
 ms.author: lynnar
 ms.reviewer: yochu
-ms.service: modeling-simulation-workbench
+ms.service: azure-modeling-simulation-workbench
 ms.topic: conceptual
 ms.date: 06/06/2023
 # Customer intent: As a user of the Modeling and Simulation Workbench, I want to troubleshoot issues I may have encountered.

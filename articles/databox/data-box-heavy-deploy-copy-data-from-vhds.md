@@ -4,8 +4,7 @@ titleSuffix: Azure Data Box Heavy
 description: Learn how to copy data from VHDs from on-premises VM workloads to your Azure Data Box Heavy
 services: databox
 author: stevenmatthew
-ms.service: databox
-ms.subservice: heavy
+ms.service: azure-data-box-heavy
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: shaas

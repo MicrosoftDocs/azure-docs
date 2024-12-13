@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 06/10/2024
+ms.date: 12/09/2024
 ---
 
 # Check workflow status, view run history, and set up alerts in Azure Logic Apps
@@ -322,15 +322,9 @@ Completing this task creates and adds a new workflow run to your workflow's run 
 
 1. To review the inputs and outputs for the resubmitted workflow run, on the **Runs history** tab, select that run.
 
-### Rerun from a specific action (preview)
+### Rerun from a specific action
 
-> [!NOTE]
->
-> This capability is in preview. For legal terms that apply to Azure features that 
-> are in beta, preview, or otherwise not yet released into general availability, see 
-> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this capability might change before general availability (GA).
-
-The resubmit capability is available for all actions except for non-sequential and complex concurrency scenarios and per the following limitations:
+The rerun capability is available for all actions except for non-sequential and complex concurrency scenarios and per the following limitations:
 
 | Actions | Resubmit availability and limitations |
 |---------|---------------------------------------|
@@ -378,15 +372,9 @@ You can rerun only stateful workflows, not stateless workflows. To enable run hi
 
 1. To review the inputs and outputs from the resubmitted workflow run, on the **Run History** tab, select that run.
 
-### Rerun from a specific action (preview)
+### Rerun from a specific action
 
-> [!NOTE]
->
-> This capability is in preview. For legal terms that apply to Azure features that 
-> are in beta, preview, or otherwise not yet released into general availability, see 
-> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this capability might change before general availability (GA).
-
-The resubmit capability is available for all actions except for non-sequential and complex concurrency scenarios and per the following limitations:
+The rerun capability is available for all actions except for non-sequential and complex concurrency scenarios and per the following limitations:
 
 | Actions | Resubmit availability and limitations |
 |---------|---------------------------------------|

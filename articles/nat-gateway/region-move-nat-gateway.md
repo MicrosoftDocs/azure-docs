@@ -4,7 +4,7 @@ titleSuffix: Azure NAT gateway
 description: Get started learning how to deploy and configure a new Azure NAT Gateway for resources moved to another region.
 author: asudbring
 ms.author: allensu
-ms.service: nat-gateway
+ms.service: azure-nat-gateway
 ms.topic: how-to
 ms.date: 08/12/2024
 ms.custom: template-how-to

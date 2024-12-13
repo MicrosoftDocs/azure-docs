@@ -5,8 +5,8 @@ author: v-sreedevank
 ms.author: v-sreedevank
 ms.service: azure-migrate
 ms.topic: troubleshooting
-ms.date: 07/01/2021
-ms.custom: engagement-fy23
+ms.date: 06/20/2024
+ms.custom: engagement-fy24
 ---
 
 # Troubleshoot Azure Migrate

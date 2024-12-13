@@ -202,7 +202,7 @@ Below are example JSON bodies for these types of logs.
 ```json
 {
   "time": "2020-03-14T21:11:14.9918922Z",
-  "resourceId": "/SUBSCRIPTIONS/BBED119E-28B8-454D-B25E-C990C9430C8F/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.DIGITALTWINS/DIGITALTWINSINSTANCES/MYINSTANCENAME",
+  "resourceId": "/SUBSCRIPTIONS/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.DIGITALTWINS/DIGITALTWINSINSTANCES/MYINSTANCENAME",
   "operationName": "Microsoft.DigitalTwins/digitaltwins/write",
   "operationVersion": "2020-10-31",
   "category": "DigitalTwinOperation",
@@ -211,10 +211,10 @@ Below are example JSON bodies for these types of logs.
   "resultDescription": "",
   "durationMs": 8,
   "callerIpAddress": "13.68.244.*",
-  "correlationId": "2f6a8e64-94aa-492a-bc31-16b9f0b16ab3",
+  "correlationId": "aaaa0000-bb11-2222-33cc-444444dddddd",
   "identity": {
     "claims": {
-      "appId": "872cd9fa-d31f-45e0-9eab-6e460a02d1f1"
+      "appId": "00001111-aaaa-2222-bbbb-3333cccc4444"
     }
   },
   "level": "4",
@@ -236,7 +236,7 @@ Below are example JSON bodies for these types of logs.
 ```json
 {
   "time": "2020-10-29T21:12:24.2337302Z",
-  "resourceId": "/SUBSCRIPTIONS/BBED119E-28B8-454D-B25E-C990C9430C8F/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.DIGITALTWINS/DIGITALTWINSINSTANCES/MYINSTANCENAME",
+  "resourceId": "/SUBSCRIPTIONS/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.DIGITALTWINS/DIGITALTWINSINSTANCES/MYINSTANCENAME",
   "operationName": "Microsoft.DigitalTwins/models/write",
   "operationVersion": "2020-10-31",
   "category": "ModelsOperation",
@@ -245,10 +245,10 @@ Below are example JSON bodies for these types of logs.
   "resultDescription": "",
   "durationMs": "80",
   "callerIpAddress": "13.68.244.*",
-  "correlationId": "9dcb71ea-bb6f-46f2-ab70-78b80db76882",
+  "correlationId": "bbbb1111-cc22-3333-44dd-555555eeeeee",
   "identity": {
     "claims": {
-      "appId": "872cd9fa-d31f-45e0-9eab-6e460a02d1f1"
+      "appId": "00001111-aaaa-2222-bbbb-3333cccc4444"
     }
   },
   "level": "4",
@@ -270,7 +270,7 @@ Below are example JSON bodies for these types of logs.
 ```json
 {
   "time": "2020-12-04T21:11:44.1690031Z",
-  "resourceId": "/SUBSCRIPTIONS/BBED119E-28B8-454D-B25E-C990C9430C8F/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.DIGITALTWINS/DIGITALTWINSINSTANCES/MYINSTANCENAME",
+  "resourceId": "/SUBSCRIPTIONS/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.DIGITALTWINS/DIGITALTWINSINSTANCES/MYINSTANCENAME",
   "operationName": "Microsoft.DigitalTwins/query/action",
   "operationVersion": "2020-10-31",
   "category": "QueryOperation",
@@ -279,10 +279,10 @@ Below are example JSON bodies for these types of logs.
   "resultDescription": "",
   "durationMs": "314",
   "callerIpAddress": "13.68.244.*",
-  "correlationId": "1ee2b6e9-3af4-4873-8c7c-1a698b9ac334",
+  "correlationId": "cccc2222-dd33-4444-55ee-666666ffffff",
   "identity": {
     "claims": {
-      "appId": "872cd9fa-d31f-45e0-9eab-6e460a02d1f1"
+      "appId": "00001111-aaaa-2222-bbbb-3333cccc4444"
     }
   },
   "level": "4",
@@ -306,7 +306,7 @@ Here's an example JSON body for an `ADTEventRoutesOperation` that isn't of `Micr
 ```json
   {
     "time": "2020-10-30T22:18:38.0708705Z",
-    "resourceId": "/SUBSCRIPTIONS/BBED119E-28B8-454D-B25E-C990C9430C8F/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.DIGITALTWINS/DIGITALTWINSINSTANCES/MYINSTANCENAME",
+    "resourceId": "/SUBSCRIPTIONS/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.DIGITALTWINS/DIGITALTWINSINSTANCES/MYINSTANCENAME",
     "operationName": "Microsoft.DigitalTwins/eventroutes/write",
     "operationVersion": "2020-10-31",
     "category": "EventRoutesOperation",
@@ -315,10 +315,10 @@ Here's an example JSON body for an `ADTEventRoutesOperation` that isn't of `Micr
     "resultDescription": "",
     "durationMs": 42,
     "callerIpAddress": "212.100.32.*",
-    "correlationId": "7f73ab45-14c0-491f-a834-0827dbbf7f8e",
+    "correlationId": "dddd3333-ee44-5555-66ff-777777aaaaaa",
     "identity": {
       "claims": {
-        "appId": "872cd9fa-d31f-45e0-9eab-6e460a02d1f1"
+        "appId": "00001111-aaaa-2222-bbbb-3333cccc4444"
       }
     },
     "level": "4",
@@ -362,7 +362,7 @@ Here's an example JSON body for an `ADTEventRoutesOperation` that of `Microsoft.
 ```json
 {
   "time": "2020-11-05T22:18:38.0708705Z",
-  "resourceId": "/SUBSCRIPTIONS/BBED119E-28B8-454D-B25E-C990C9430C8F/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.DIGITALTWINS/DIGITALTWINSINSTANCES/MYINSTANCENAME",
+  "resourceId": "/SUBSCRIPTIONS/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.DIGITALTWINS/DIGITALTWINSINSTANCES/MYINSTANCENAME",
   "operationName": "Microsoft.DigitalTwins/eventroutes/action",
   "operationVersion": "",
   "category": "EventRoutesOperation",
@@ -371,10 +371,10 @@ Here's an example JSON body for an `ADTEventRoutesOperation` that of `Microsoft.
   "resultDescription": "Unable to send EventHub message to [myPath] for event Id [f6f45831-55d0-408b-8366-058e81ca6089].",
   "durationMs": -1,
   "callerIpAddress": "",
-  "correlationId": "7f73ab45-14c0-491f-a834-0827dbbf7f8e",
+  "correlationId": "dddd3333-ee44-5555-66ff-777777aaaaaa",
   "identity": {
     "claims": {
-      "appId": "872cd9fa-d31f-45e0-9eab-6e460a02d1f1"
+      "appId": "00001111-aaaa-2222-bbbb-3333cccc4444"
     }
   },
   "level": "4",

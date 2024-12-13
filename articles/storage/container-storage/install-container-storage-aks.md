@@ -121,7 +121,7 @@ To use Azure Container Storage, you'll need a node pool of at least three Linux 
 Follow these guidelines when choosing a VM type for the cluster nodes. You must choose a VM type that supports [Azure premium storage](/azure/virtual-machines/premium-storage-performance).
 
 - If you intend to use Azure Elastic SAN or Azure Disks as backing storage, choose a [general purpose VM type](/azure/virtual-machines/sizes-general) such as **standard_d4s_v5**.
-- If you intend to use Ephemeral Disk with local NVMe, choose a [storage optimized VM type](/azure/virtual-machines/sizes-storage) such as **standard_l8s_v3**.
+- If you intend to use Ephemeral Disk with local NVMe, choose a VM SKU that supports local NVMe disks, for example, [Storage optimized VM SKUs](/azure/virtual-machines/sizes/overview#storage-optimized) or [GPU accelerated VM SKUs](/azure/virtual-machines/sizes/overview#gpu-accelerated).
 - If you intend to use Ephemeral Disk with temp SSD, choose a VM that has a temp SSD disk such as [Ev3 and Esv3-series](/azure/virtual-machines/ev3-esv3-series).
 
 ## Create a new AKS cluster and install Azure Container Storage
@@ -137,7 +137,7 @@ By default, the system node pool is named `nodepool1`. If you want to enable Azu
 \*If there are any existing node pools with the `acstor.azure.com/io-engine:acstor` label, Azure Container Storage will install the data plane components by default. Otherwise, users have the option to pass the preferred node pool to `acstor` through Azure CLI. If the cluster only has the system node pool, it will be labeled and used for Azure Container Storage by default. It's important to note that only data plane components will be restricted to the labeled node pool. The control plane components of Azure Container Storage aren't limited to the labeled nodes and may be installed on the system node pool as well. 
 
 ```azurecli-interactive
-az aks create -n <cluster-name> -g <resource-group> --node-vm-size Standard_D4s_v3 --node-count 3 --enable-azure-container-storage <storage-pool-type>
+az aks create -n <cluster-name> -g <resource-group> --node-vm-size Standard_D4s_v3 --node-count 3 --enable-azure-container-storage <storage-pool-type> --generate-ssh-keys
 ```
 
 The deployment will take 10-15 minutes. When it completes, you'll have an AKS cluster with Azure Container Storage installed, the components for your chosen storage pool type enabled, and a default storage pool. If you want to enable additional storage pool types to create additional storage pools, see [Enable additional storage pool types](container-storage-aks-quickstart.md#enable-additional-storage-pool-types).

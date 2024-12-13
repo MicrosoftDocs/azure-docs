@@ -3,11 +3,11 @@ title: Quickstart - Start using Cost analysis
 description: This quickstart helps you use cost analysis to explore and analyze your Azure organizational costs.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/24/2024
+ms.date: 11/01/2024
 ms.topic: quickstart
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: micflan
+ms.reviewer: shasulin
 ms.custom: mode-other
 ---
 
@@ -132,7 +132,7 @@ Regardless of whether you start on smart or customizable views, if you need more
 
 ## Forecasting costs in Cost Analysis 
 
-Forecast costs are available from both smart and custom views. In either case, the forecast is calculated the same way based on your historical usage patterns for up to a year in the future. 
+Forecast costs are available in both smart and custom views when you select either an area or column stacked chart type. In either case, the forecast is calculated the same way based on your historical usage patterns for up to a year in the future. 
 
 Your forecast is a projection of your estimated costs for the selected period. Your forecast changes depending on what data is available for the period, how long of a period you select, and what filters you apply. If you notice an unexpected spike or drop in your forecast, expand the date range, and use grouping to identify large increases or decreases in historical cost. You can filter them out to normalize the forecast. A few key considerations: 
 

@@ -31,10 +31,10 @@ Each number in the version indicates general compatibility with the previous ver
 * **Patch version numbers** change when backwards-compatible bug fixes are made. Patch releases are made available frequently and are intended for critical bug fixes within a minor version. The type of issues fixed under patch release includes fixes for security vulnerabilities or major bugs.
 
 ## Version support guidelines
-- All changes to version support and any version specific upgrade instructions will be communicated in release notes.
+- All changes to version support and any version specific upgrade instructions are communicated in release notes.
 - Nexus will only support Long Term Support (LTS) storage versions. Purity LTS versions contain an odd number minor version, such as 6.1.x, 6.5.x etc.
 - Nexus will support up to two LTS versions at any time.
-- Support shall be provided for all patch releases documented in Nexus public documentation. Which means that Nexus will handle and resolve issue tickets where storage appliance is running a supported release version. These tickets may require a fix to Nexus software or be referred to the storage vendor support team depending on the specific details. If a fix requires inclusion of new Pure patch release, it will be appropriately tested and documented.
+- Support shall be provided for all patch releases documented in Nexus public documentation. Which means that Nexus will handle and resolve issue tickets where storage appliance is running a supported release version. These tickets may require a fix to Nexus software or be referred to the storage vendor support team depending on the specific details. If a fix requires inclusion of new Pure patch release, it is appropriately tested and documented.
 - Each Pure LTS release listed as supported is tested equally with each new Nexus release to ensure comprehensive compatibility.
 
 
@@ -47,7 +47,7 @@ Each number in the version indicates general compatibility with the previous ver
     - Introduction of a new LTS release may, in rare cases, require a specific upgrade ordering and a timeline.
     - Depending on severity of Common Vulnerabilities & Exposures (CVE) fixes or blocker issues, a Purity version may be verified and introduced outside of a runtime release.
 
-## Supported Storage Software Versions (Purity)
+## Supported Purity Software Versions
 
 |  PurityOS version | Support added in | End of support | Remarks |
 |-------------------|------------------|----------------|---------|
@@ -64,8 +64,25 @@ Each number in the version indicates general compatibility with the previous ver
 
 | Pure HW Controller version | Support added in |
 |----------|-------------|
-| R3	| Year 2021 |
-| R4	| Nexus 2404.x |
+| R3  | Year 2021 |
+| R4  | Nexus 2404.x |
+
+## Upgrade process
+
+> [!NOTE]
+> Make sure you are upgrading to one of the Purity versions listed in [Supported Purity Software Versions](#supported-purity-software-versions).
+
+Azure Operator Nexus software doesn't trigger or manage Purity upgrades. Purity upgrades are supported by Pure Storage and can be triggered either through a Pure engineer assisted process or through a self-service process in the Pure1 management portal.
+
+The self-service process requires that you work with your Pure support representative to install and enable the edge agent on the storage appliance. The self-service enablement and upgrade processes, and the Pure engineer assisted upgrade process, are both documented in [Pure's documentation](https://support.purestorage.com/) (sign in required).
+
+Contact your Pure support representative for further questions about Purity upgrades.
+
+## Upgrade requirements
+
+The following Purity configuration settings must be set over upgrade.
+
+* Safe Mode: Disabled
 
 ## Supported Pure FlashArray Expansion Shelf firmware versions
 

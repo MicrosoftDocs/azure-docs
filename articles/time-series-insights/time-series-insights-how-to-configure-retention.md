@@ -1,7 +1,7 @@
 ---
 title: 'How to configure retention in your environment - Azure Time Series Insights | Microsoft Docs'
 description: Learn how to configure retention in your Azure Time Series Insights environment.
-ms.service: time-series-insights
+ms.service: azure-time-series-insights
 author: esung22
 ms.author: elsung
 manager: cnovak

@@ -4,8 +4,7 @@ description: Use this tutorial to learn how to migrate file share content to Sha
 services: databox
 author: stevenmatthew
 
-ms.service: databox
-ms.subservice: heavy
+ms.service: azure-data-box-heavy
 ms.topic: how-to
 ms.date: 07/18/2019
 ms.author: shaas

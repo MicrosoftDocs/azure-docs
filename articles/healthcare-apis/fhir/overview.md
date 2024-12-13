@@ -76,6 +76,6 @@ For use cases that require customizing a FHIR server with admin access to the un
 
 ## Next steps
 
-[Deploy the FHIR service](fhir-portal-quickstart.md)
+[Deploy the FHIR service](deploy-azure-portal.md)
 
 [!INCLUDE [FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]

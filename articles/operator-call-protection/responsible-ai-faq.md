@@ -1,8 +1,8 @@
 ---
 title: Responsible AI FAQ for Azure Operator Call Protection Preview
 description: Learn the answers to common questions around the use of AI in Azure Operator Call Protection Preview.
-author: msft-andrew
-ms.author: andrewwright
+author: GemmaWakeford
+ms.author: gwakeford
 ms.service: azure-operator-call-protection
 ms.topic: conceptual
 ms.date: 04/03/2024

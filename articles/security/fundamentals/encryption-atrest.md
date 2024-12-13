@@ -85,7 +85,7 @@ Software as a Service (SaaS) customers typically have encryption at rest enabled
 
 ### Encryption at rest for PaaS customers
 
-Platform as a Service (PaaS) customer's data typically resides in a storage service such as Blob Storage but may also be cached or stored in the application execution environment, such as a virtual machine. To see the encryption at rest options available to you, examine the [Data encryption models: supporting services table](encryption-models.md#supporting-services) for the storage and application platforms that you use.
+Platform as a Service (PaaS) customer's data typically resides in a storage service such as Blob Storage but may also be cached or stored in the application execution environment, such as a virtual machine. To see the encryption at rest options available to you, examine the [Data encryption models](encryption-models.md) for the storage and application platforms that you use.
 
 ### Encryption at rest for IaaS customers
 
@@ -93,7 +93,7 @@ Infrastructure as a Service (IaaS) customers can have a variety of services and 
 
 #### Encrypted storage
 
-Like PaaS, IaaS solutions can leverage other Azure services that store data encrypted at rest. In these cases, you can enable the Encryption at Rest support as provided by each consumed Azure service. The [Data encryption models: supporting services table](encryption-models.md#supporting-services) enumerates the major storage, services, and application platforms and the model of Encryption at Rest supported.
+Like PaaS, IaaS solutions can leverage other Azure services that store data encrypted at rest. In these cases, you can enable the Encryption at Rest support as provided by each consumed Azure service. The [Data encryption models](encryption-models.md) enumerates the major storage, services, and application platforms and the model of Encryption at Rest supported.
 
 #### Encrypted compute
 

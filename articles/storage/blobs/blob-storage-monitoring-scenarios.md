@@ -109,7 +109,7 @@ You can find the friendly name of that security principal by taking the value of
 
 ### Auditing data plane operations
 
-Data plane operations are captured in [Azure resource logs for Storage](monitor-blob-storage.md#analyzing-logs). You can [configure Diagnostic setting](/azure/azure-monitor/platform/diagnostic-settings) to export logs to Log Analytics workspace for a native query experience.
+Data plane operations are captured in [Azure resource logs for Storage](monitor-blob-storage.md#azure-monitor-resource-logs). You can [configure Diagnostic settings](/azure/azure-monitor/platform/diagnostic-settings) to export logs to Log Analytics workspace for a native query experience.
 
 Here's a Log Analytics query that retrieves the "when", "who", "what", and "how" information in a list of log entries.
 

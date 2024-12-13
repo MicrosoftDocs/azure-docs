@@ -30,12 +30,10 @@ The `WfsClient` class supports the following features:
 
 The `atlas.io.ogc.WfsClient` class in the spatial IO module makes it easy to query a WFS service and convert the responses into GeoJSON objects. This GeoJSON object can then be used for other mapping purposes.
 
+<!--------------------------------------------------
 The [Simple WFS example] sample shows how to easily query a Web Feature Service (WFS) and renders the returned features on the map. For the source code for this sample, see [Simple WFS example source code].
 
 :::image type="content" source="./media/spatial-io-connect-wfs-service/simple-wfs-example.png"alt-text="A screenshot that shows the results of a WFS overlay on a map.":::
-
-<!--------------------------------------------------
-> [!VIDEO //codepen.io/azuremaps/embed/MWwvVYY/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
 ---------------------------------------------------->
 
 ## Supported filters

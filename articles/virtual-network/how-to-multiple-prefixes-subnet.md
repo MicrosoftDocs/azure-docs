@@ -33,6 +33,9 @@ The following limitations apply during the public preview:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
+> [!CAUTION]
+> Subnet properties "addressPrefixes" and "addressPrefix" are not to be used interchangeably. For best results, use only "addressPrefixes" for both a single address prefix and for multiple address prefixes. If you are already using "addressPrefix" in your workflows, continue to use this property.
+
 # [PowerShell](#tab/powershell)
 
 - Azure PowerShell installed locally or Azure Cloud Shell.

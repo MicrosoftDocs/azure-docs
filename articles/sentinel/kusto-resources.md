@@ -5,6 +5,10 @@ author: yelevin
 ms.topic: conceptual
 ms.date: 01/10/2022
 ms.author: yelevin
+
+
+#Customer intent: As a security engineer or analyst, I want to access resources for learning Kusto Query Language (KQL) so that I can effectively use Microsoft Sentinel for analytics, workbooks, and hunting.
+
 ---
 
 # Useful resources for working with Kusto Query Language in Microsoft Sentinel

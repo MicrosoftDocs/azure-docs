@@ -6,7 +6,7 @@ ms.topic: reference
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 09/20/2024
+ms.date: 10/28/2024
 ms.custom: generated
 ---
 
@@ -63,8 +63,14 @@ Azure service: [Azure Container Apps](/azure/container-apps/)
 > | microsoft.app/containerapps/authconfigs/read | Get auth config of a container app |
 > | microsoft.app/containerapps/authconfigs/write | Create or update auth config of a container app |
 > | microsoft.app/containerapps/authconfigs/delete | Delete auth config of a container app |
+> | microsoft.app/containerapps/builds/read | Get a ContainerApp's Build by Build name |
+> | microsoft.app/containerapps/builds/delete | Delete a Container App's Build |
 > | microsoft.app/containerapps/detectors/read | Get detector of a container app |
 > | microsoft.app/containerapps/labelhistory/read | Get a Container App's label history |
+> | microsoft.app/containerapps/patches/read | Get a ContainerApp's Patch |
+> | microsoft.app/containerapps/patches/delete | Delete a ContainerApp's Patch |
+> | microsoft.app/containerapps/patches/skip/action | Skip a ContainerApp's Patch |
+> | microsoft.app/containerapps/patches/apply/action | Apply a ContainerApp's Patch |
 > | microsoft.app/containerapps/privateendpointconnectionproxies/validate/action | Validate Container App Private Endpoint Connection Proxy |
 > | microsoft.app/containerapps/privateendpointconnectionproxies/write | Create or Update Container App Private Endpoint Connection Proxy |
 > | microsoft.app/containerapps/privateendpointconnectionproxies/read | Get Container App Private Endpoint Connection Proxy |
@@ -87,6 +93,8 @@ Azure service: [Azure Container Apps](/azure/container-apps/)
 > | microsoft.app/jobs/delete | Delete a Container Apps Job |
 > | microsoft.app/jobs/start/action | Start a Container Apps Job |
 > | microsoft.app/jobs/stop/action | Stop multiple Container Apps Job executions |
+> | microsoft.app/jobs/suspend/action | Suspend Container Apps Job |
+> | microsoft.app/jobs/resume/action | Resume Container Apps Job |
 > | microsoft.app/jobs/read | Get a Container Apps Job |
 > | microsoft.app/jobs/listsecrets/action | List secrets of a container apps job |
 > | microsoft.app/jobs/authtoken/action | Get Auth Token for Container App Dev APIs to get log stream, exec or port forward from a container. This operation will be deprecated. |
@@ -100,6 +108,8 @@ Azure service: [Azure Container Apps](/azure/container-apps/)
 > | microsoft.app/locations/billingmeters/read | Get Billing Meters in a Region |
 > | microsoft.app/locations/connectedenvironmentoperationresults/read | Get a Connected Environment Long Running Operation Result |
 > | microsoft.app/locations/connectedenvironmentoperationstatuses/read | Get a Connected Environment Long Running Operation Status |
+> | microsoft.app/locations/connectedoperationresults/read | Get a Long Running Operation Result |
+> | microsoft.app/locations/connectedoperationstatuses/read | Get a Long Running Operation Status |
 > | microsoft.app/locations/containerappoperationresults/read | Get a Container App Long Running Operation Result |
 > | microsoft.app/locations/containerappoperationstatuses/read | Get a Container App Long Running Operation Status |
 > | microsoft.app/locations/containerappsjoboperationresults/read | Get a Container Apps Job Long Running Operation Result |
@@ -139,6 +149,9 @@ Azure service: [Azure Container Apps](/azure/container-apps/)
 > | microsoft.app/managedenvironments/javacomponents/read | Read Managed Environment Java Component |
 > | microsoft.app/managedenvironments/javacomponents/write | Create or update Managed Environment Java Component |
 > | microsoft.app/managedenvironments/javacomponents/delete | Delete Managed Environment Java Component |
+> | microsoft.app/managedenvironments/maintenanceconfigurations/read | Get maintenance configuration for a Managed Environment. |
+> | microsoft.app/managedenvironments/maintenanceconfigurations/write | Create or Update a maintenance configuration of Managed Environment. |
+> | microsoft.app/managedenvironments/maintenanceconfigurations/delete | Delete a maintenance configuration of Managed Environment. |
 > | microsoft.app/managedenvironments/managedcertificates/write | Create or update a Managed Certificate in Managed Environment |
 > | microsoft.app/managedenvironments/managedcertificates/read | Get a Managed Certificate in Managed Environment |
 > | microsoft.app/managedenvironments/managedcertificates/delete | Delete a Managed Certificate in Managed Environment |
@@ -155,12 +168,6 @@ Azure service: [Azure Container Apps](/azure/container-apps/)
 > | microsoft.app/managedenvironments/storages/delete | Delete a storage of Managed Environment. |
 > | microsoft.app/managedenvironments/usages/read | Get Quota Usages in a Managed Environment |
 > | microsoft.app/managedenvironments/workloadprofilestates/read | Get Current Workload Profile States |
-> | microsoft.app/microsoft.app/containerapps/builds/read | Get a ContainerApp's Build by Build name |
-> | microsoft.app/microsoft.app/containerapps/builds/delete | Delete a Container App's Build |
-> | microsoft.app/microsoft.app/containerapps/patches/read | Get a ContainerApp's Patch |
-> | microsoft.app/microsoft.app/containerapps/patches/delete | Delete a ContainerApp's Patch |
-> | microsoft.app/microsoft.app/containerapps/patches/skip/action | Skip a ContainerApp's Patch |
-> | microsoft.app/microsoft.app/containerapps/patches/apply/action | Apply a ContainerApp's Patch |
 > | microsoft.app/operations/read | Get a list of supported container app operations |
 > | microsoft.app/sessionpools/write | Create or Update a Session Pool |
 > | microsoft.app/sessionpools/read | Get a Session Pool |

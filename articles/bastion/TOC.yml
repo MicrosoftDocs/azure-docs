@@ -19,6 +19,8 @@
     href: tutorial-create-host-portal.md
 - name: Concepts
   items:
+  - name: What's new in Bastion?
+    href: whats-new.md
   - name: Work remotely
     items:
     - name: Support for working remotely

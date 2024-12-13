@@ -1,10 +1,14 @@
 ---
 title: "Microsoft Sentinel migration: Select a data ingestion tool | Microsoft Docs"
 description: Select a tool to transfer your historical data to the selected target platform.
-author: limwainstein
-ms.author: lwainstein
+author: cwatson-cat
+ms.author: cwatson
 ms.topic: how-to
 ms.date: 05/03/2022
+
+
+#Customer intent: As a data engineer, I want to select the appropriate data ingestion tool so that I can efficiently transfer historical data to my target platform.
+
 ---
 
 # Select a data ingestion tool

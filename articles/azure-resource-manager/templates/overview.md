@@ -3,7 +3,7 @@ title: Templates overview
 description: Describes the benefits using Azure Resource Manager templates (ARM templates) for deployment of resources.
 ms.topic: overview
 ms.custom: devx-track-arm-template
-ms.date: 07/05/2024
+ms.date: 10/10/2024
 ---
 
 # What are ARM templates?
@@ -16,10 +16,6 @@ To implement infrastructure as code for your Azure solutions, use Azure Resource
 
 > [!TIP]
 > We've introduced a new language named [Bicep](../bicep/overview.md) that offers the same capabilities as ARM templates but with a syntax that's easier to use. Each Bicep file is automatically converted to an ARM template during deployment. If you're considering infrastructure as code options, we recommend looking at Bicep. For more information, see [What is Bicep?](../bicep/overview.md).
-
-To learn about how you can get started with ARM templates, see the following video.
-
-> [!VIDEO https://learn.microsoft.com/Shows/Azure-Enablement/How-and-why-to-learn-about-ARM-templates/player]
 
 ## Why choose ARM templates?
 
