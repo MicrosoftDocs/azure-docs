@@ -17,7 +17,7 @@ This how-to guide explains the steps for installing the required Azure CLI and e
 ## Prerequisites
 
 1. The [Install Azure CLI](/cli/azure/install-azure-cli) must be installed.
-2. The `networkcloud` CLI extension is required. If the `networkcloud` extension isn't installed, it can be installed following the steps listed [here](./howto-install-cli-extensions.md)
+2. The `networkcloud` CLI extension is required. If the `networkcloud` extension isn't installed, it can be installed following the steps listed [here](./howto-install-cli-extensions.md).
 3. Access to the Azure portal for the target cluster to be upgraded.
 4. You must be logged in to the same subscription as your target cluster via `az login`
 5. Target cluster must be in a running state, with all control plane nodes healthy and 80+% of compute nodes in a running and healthy state.
@@ -59,42 +59,46 @@ In the output, you can find the `availableUpgradeVersions` property and look at 
 
 If there are no available cluster upgrades, the list is empty.
 
-### Set Deployment Threshold
+## Configure compute threshold parameters for runtime upgrade using cluster updateStrategy
 
-***--update-strategy - The strategy for updating the cluster indicating the allowable compute node failures during bootstrap provisioning.***
-
-If the customer requests an `update-strategy` threshold that is different from the default of 80%, you can run the following cluster update command.
+The following Azure CLI command is used to configure the compute threshold parameters for a runtime upgrade:
 
 ```azurecli
-az networkcloud cluster update -n <CLUSTER_NAME> -g <CLUSTER_RG> --update-strategy strategy-type="Rack" threshold-type="PercentSuccess" threshold-value=<DEPLOYMENT_THRESHOLD> wait-time-minutes=<DEPLOYMENT_PAUSE_MINS> --subscription <SUBSCRIPTION_ID>
+az networkcloud cluster update /
+--name "<clusterName>" /
+--resource-group "<resourceGroup>" /
+--update-strategy strategy-type="Rack" threshold-type="PercentSuccess" /
+threshold-value="<thresholdValue>" max-unavailable=<maxNodesOffline> /
+wait-time-minutes=<waitTimeBetweenRacks> /
+--subscription <SUBSCRIPTION_ID>
 ```
 
-strategy-type can be "Rack" (Rack by Rack) OR "PauseAfterRack" (Wait for customer response to continue)
+Required parameters:
+- strategy-type: Defines the update strategy. This can be `"Rack"` (Rack by Rack) OR `"PauseAfterRack"` (Upgrade one rack at a time and then wait for confirmation before proceeding to the next rack. The default value is `Rack`. To carry out a Cluster runtime upgrade using the "PauseRack" strategy follow the steps outlined in [Upgrading cluster runtime with a pause rack strategy](howto-cluster-runtime-upgrade-with-pauserack-strategy.md)
+- threshold-type: Determines how the threshold should be evaluated, applied in the units defined by the strategy. This can be `"PercentSuccess"` OR `"CountSuccess"`. The default value is `PercentSuccess`.
+- threshold-value: The numeric threshold value used to evaluate an update. The default value is `80`.
 
-threshold-type can be "PercentSuccess" OR "CountSuccess"
-
-If updateStrategy isn't set, the defaults are as follows:
-
-```
-      "strategyType": "Rack",
-      "thresholdType": "PercentSuccess",
-      "thresholdValue": 80,
-      "waitTimeMinutes": 1
-```
-
-
+Optional parameters:
+- max-unavailable: The maximum number of worker nodes that can be offline, that is, upgraded rack at a time. The default value is `32767`.
+- wait-time-minutes: The delay or waiting period before updating a rack. The default value is `15`.
 
 The following example is for a customer using Rack by Rack strategy with a Percent Success of 60% and a 1-minute pause.
 
 ```azurecli
-az networkcloud cluster update -n <CLUSTER_NAME> -g <CLUSTER_RG> --update-strategy strategy-type="Rack" threshold-type="PercentSuccess" threshold-value=60 wait-time-minutes=1 --subscription <SUBSCRIPTION_ID>
+az networkcloud cluster update --name "<clusterName>" /
+--resource-group "<resourceGroup>" /
+--update-strategy strategy-type="Rack" threshold-type="PercentSuccess" /
+threshold-value=60 wait-time-minutes=1 /
+--subscription <SUBSCRIPTION_ID>
 ```
-
 
 Verify update:
 
 ```
-az networkcloud cluster show -g <CLUSTER_RG> -n <CLUSTER_NAME> --subscription <SUBSCRIPTION_ID>| grep -a5 updateStrategy
+az networkcloud cluster show --resource-group "<resourceGroup>" /
+--name "<clusterName>" /
+--subscription <SUBSCRIPTION_ID>| grep -a5 updateStrategy
+
       "strategyType": "Rack",
       "thresholdType": "PercentSuccess",
       "thresholdValue": 60,
@@ -106,14 +110,20 @@ In this example, if less than 60% of the compute nodes being provisioned in a ra
 The following example is for a customer using Rack by Rack strategy with a threshold type CountSuccess of 10 nodes per rack and a 1-minute pause.
 
 ```azurecli
-az networkcloud cluster update -n <CLUSTER_NAME> -g <CLUSTER_RG> --update-strategy strategy-type="Rack" threshold-type="CountSuccess" threshold-value=10 wait-time-minutes=1 --subscription <SUBSCRIPTION_ID>
+az networkcloud cluster update --name "<clusterName>" /
+--resource-group "<resourceGroup>" /
+--update-strategy strategy-type="Rack" threshold-type="CountSuccess" /
+threshold-value=10 wait-time-minutes=1 /
+--subscription <SUBSCRIPTION_ID>
 ```
-
 
 Verify update:
 
 ```
-az networkcloud cluster show -g <CLUSTER_RG> -n <CLUSTER_NAME> --subscription <SUBSCRIPTION_ID>| grep -a5 updateStrategy
+az networkcloud cluster show --resource-group "<resourceGroup>" /
+--name "<clusterName>" /
+--subscription <SUBSCRIPTION_ID>| grep -a5 updateStrategy
+
       "strategyType": "Rack",
       "thresholdType": "CountSuccess",
       "thresholdValue": 10,
@@ -122,7 +132,9 @@ az networkcloud cluster show -g <CLUSTER_RG> -n <CLUSTER_NAME> --subscription <S
 
 In this example, if less than 10 compute nodes being provisioned in a rack fail to provision (on a rack by rack basis), the cluster deployment fails. If 10 or more of the compute nodes are successfully provisioned, cluster deployment moves on to the next rack of compute nodes.
 
-***NOTE:  `update-strategy` cannot be changed after the cluster runtime upgrade has started.***
+> [!NOTE]
+> ***`update-strategy` cannot be changed after the cluster runtime upgrade has started.***
+> When a threshold value below 100% is set, it’s possible that any unhealthy nodes might not be upgraded, yet the “Cluster” status could still indicate that upgrade was successful. For troubleshooting issues with bare metal machines, please refer to [Troubleshoot Azure Operator Nexus server problems](troubleshoot-reboot-reimage-replace.md)
 
 ## Upgrading cluster runtime using CLI
 
@@ -158,52 +170,7 @@ az networkcloud cluster show --cluster-name "clusterName" --resource-group "reso
 The output should be the target cluster's information and the cluster's detailed status and detail status message should be present.
 For more detailed insights on the upgrade progress, the individual node in each Rack can be checked for status. An example of checking the status is provided in the reference section under [BareMetal Machine roles](./reference-near-edge-baremetal-machine-roles.md).
 
-## Configure compute threshold parameters for runtime upgrade using cluster updateStrategy
 
-The following Azure CLI command is used to configure the compute threshold parameters for a runtime upgrade:
-
-```azurecli
-az networkcloud cluster update /
---name "<clusterName>" /
---resource-group "<resourceGroup>" /
---update-strategy strategy-type="Rack" threshold-type="PercentSuccess" /
-threshold-value="<thresholdValue>" max-unavailable=<maxNodesOffline> /
-wait-time-minutes=<waitTimeBetweenRacks>
-```
-
-Required parameters:
-- strategy-type: Defines the update strategy. In this case, "Rack" means updates occur rack-by-rack. The default value is `Rack`.
-- threshold-type: Determines how the threshold should be evaluated, applied in the units defined by the strategy. The default value is `PercentSuccess`.
-- threshold-value: The numeric threshold value used to evaluate an update. The default value is 80.
-
-Optional parameters:
-- max-unavailable: The maximum number of worker nodes that can be offline, that is, upgraded rack at a time. The default value is 32767.
-- wait-time-minutes: The delay or waiting period before updating a rack. The default value is 15.
-
-The following example shows usage of the command:
-
-```azurecli
-az networkcloud cluster update --name "cluster01" --resource-group "cluster01-rg" --update-strategy strategy-type="Rack" threshold-type="PercentSuccess" threshold-value=70 max-unavailable=16 wait-time-minutes=15
-```
-
-Upon successful execution of the command, the updateStrategy values specified are applied to the cluster:
-
-```  
-    "updateStrategy": {
-      "maxUnavailable": 16,
-      "strategyType": "Rack",
-      "thresholdType": "PercentSuccess",
-      "thresholdValue": 70,
-      "waitTimeMinutes": 15,
-    }
-```
-
-> [!NOTE]
-> When a threshold value below 100% is set, it’s possible that any unhealthy nodes might not be upgraded, yet the “Cluster” status could still indicate that upgrade was successful. For troubleshooting issues with bare metal machines, please refer to [Troubleshoot Azure Operator Nexus server problems](troubleshoot-reboot-reimage-replace.md)
-
-## Upgrade with PauseRack strategy
-
-Starting with API version 2024-06-01-preview, you can trigger runtime upgrades using a "PauseRack" strategy. When you execute a Cluster runtime upgrade with the PauseRack" strategy, it will update one rack at a time in the Cluster and then stop, awaiting confirmation before proceeding to the next rack. All existing thresholds continue to be respected with the "PauseRack" strategy. To carry out a Cluster runtime upgrade using the "PauseRack" strategy follow the steps outlined in [Upgrading cluster runtime with a pause rack strategy](howto-cluster-runtime-upgrade-with-pauserack-strategy.md)
 
 ## Frequently Asked Questions
 
