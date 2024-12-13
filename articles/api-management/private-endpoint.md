@@ -177,7 +177,7 @@ If you have sufficient permissions, approve a private endpoint connection on the
 
 You can also use the API Management [Private Endpoint Connection - Create Or Update](/rest/api/apimanagement/private-endpoint-connection/create-or-update) REST API to approve pending private endpoint connections.
 
-#### [](#tab/v2)
+#### [Standard v2](#tab/v2)
 
 > [!NOTE]
 > * Currently you can't set up a private endpoint when creating a Standard v2 instance or using the instances's **Network** blade in the Azure portal.
