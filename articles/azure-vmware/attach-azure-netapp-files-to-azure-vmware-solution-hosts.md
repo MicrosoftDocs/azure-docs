@@ -21,6 +21,9 @@ The following diagram demonstrates a typical architecture of Azure NetApp Files 
 
 :::image type="content" source="media/attach-netapp-files-to-cloud/architecture-netapp-files-nfs-datastores.png" alt-text="Diagram shows the architecture of Azure NetApp Files backed NFS datastores attached to an Azure VMware Solution private cloud." lightbox="media/attach-netapp-files-to-cloud/architecture-netapp-files-nfs-datastores.png"::: 
 
+>[!Note]
+> NFS traffic from the ESXi hosts does not traverse any NSX components. Traffic traverses the ESXi vmkernel port directly to the NFS mount. 
+
 ## Prerequisites
 
 Before you begin the prerequisites, review the [Performance best practices](#performance-best-practices) section to learn about optimal performance of NFS datastores on Azure NetApp Files volumes.
@@ -243,3 +246,7 @@ Now that you attached a datastore on Azure NetApp Files-based NFS volume to your
 - **Can a single Azure NetApp Files datastore be added to multiple clusters within different Azure VMware Solution private clouds?**
 
     Yes, you can connect an Azure NetApp Files volume as a datastore to multiple clusters in different private clouds. Each private cloud needs connectivity via the ExpressRoute gateway in the Azure NetApp Files virtual network. Latency considerations apply.
+
+- **Does NFS Traffic traverse NSX components?**
+
+    No, NFS traffic from the ESXi hosts does not traverse any NSX components. Traffic traverses the ESXi vmkernel port directly to the NFS mount. 
