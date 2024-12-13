@@ -156,11 +156,12 @@ The Azure Container Apps environment acts as a secure boundary around container 
     ```
 
     # [Azure PowerShell](#tab/azure-powershell)
+   
     ```powershell
-    az containerapp env create `
-        --name "$ENVIRONMENT" `
-        --resource-group "$RESOURCE_GROUP" `
-        --location "$LOCATION"
+    New-AzContainerAppManagedEnvironment `
+      -Name $ENVIRONMENT `
+      -ResourceGroupName $RESOURCE_GROUP `
+      -Location $LOCATION
     ```
 
     ---
