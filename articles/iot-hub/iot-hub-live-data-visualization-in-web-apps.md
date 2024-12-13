@@ -5,7 +5,7 @@ description: This tutorial uses a web application to visualize temperature and h
 author: kgremban
 
 ms.author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.topic: tutorial
 ms.date: 05/23/2023
 ms.custom: ['Role: Cloud Development', 'Role: Data Analytics', devx-track-azurecli]

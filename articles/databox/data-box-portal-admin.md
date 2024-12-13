@@ -4,8 +4,7 @@ description: Describes how to use the Azure portal to administer your Azure Data
 services: databox
 author: stevenmatthew
 
-ms.service: databox
-ms.subservice: pod
+ms.service: azure-databox
 ms.topic: how-to
 ms.date: 02/22/2023
 ms.author: shaas

@@ -25,7 +25,7 @@ In a region that supports availability zones, Notification Hubs supports a zone-
 
 ### Prerequisites
 
-- Azure Notification Hubs uses [availability zones](availability-zones-overview.md#zonal-and-zone-redundant-services) in regions where they're available. For a list of regions that support availability zones, see [Availability zone service and regional support](availability-zones-service-support.md).
+- Azure Notification Hubs uses [availability zones](availability-zones-overview.md#zonal-and-zone-redundant-services) in regions where they're available. For a list of regions that support availability zones, see [Azure regions with availability zones](availability-zones-region-support.md).
 
 - Availability zones are supported by default only in specific tiers. To learn which tiers support availability zone deployments, see [Notification Hubs pricing](https://azure.microsoft.com/pricing/details/notification-hubs.
 
@@ -43,7 +43,7 @@ During a zone-wide outage, no action is required during zone recovery. Notificat
 You can only enable availability zones on new namespaces. Because Notification Hubs doesn't support the migration of existing namespaces, you can't disable zone redundancy after enabling it on your namespace.
 
 
-:::image type="content" source="./media/reliability-notification-hubs/enable-availability-zones.png" alt-text="Screenshow showing availability zones enabled." :::
+:::image type="content" source="./media/reliability-notification-hubs/enable-availability-zones.png" alt-text="Screenshot showing availability zones enabled." :::
 
 
 To learn how to set up a new namespace with availability zones, see [Create an Azure notification hub in the Azure portal](/azure/notification-hubs/create-notification-hub-portal).

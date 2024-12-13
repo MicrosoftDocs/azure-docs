@@ -10,7 +10,10 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
-#Customer intent: As a security operator, I want to ingest and filter syslog and CEF messages from Linux machines and from network and security devices and appliances to my Microsoft Sentinel workspace, so that security analysts can monitor activity on these systems and detect security threats.
+
+
+#Customer intent: As a security engineer, I want to ingest and filter syslog and CEF messages from Linux machines and from network and security devices and appliances to my workspace, so that I can enhance threat detection and incident response capabilities.
+
 ---
 
 # Ingest syslog and CEF messages to Microsoft Sentinel with the Azure Monitor Agent

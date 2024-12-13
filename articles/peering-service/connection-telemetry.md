@@ -6,9 +6,9 @@ services: peering-service
 author: halkazwini
 ms.service: azure-peering-service
 ms.topic: how-to
-ms.date: 06/06/2023
+ms.date: 10/07/2024
 ms.author: halkazwini
-ms.custom: template-how-to, engagement-fy23
+
 # Customer intent: Customer wants to access their connection telemetry per prefix to Microsoft services with Azure Peering Service.
 ---
 

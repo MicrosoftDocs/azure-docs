@@ -4,7 +4,7 @@ description: Overview of Azure Modeling and Simulation Workbench chamber compone
 author: becha8
 ms.author: becha
 ms.reviewer: becha
-ms.service: modeling-simulation-workbench
+ms.service: azure-modeling-simulation-workbench
 ms.topic: conceptual
 ms.date: 01/01/2023
 # Customer intent: As a Modeling and Simulation Workbench user, I want to understand the chamber component.

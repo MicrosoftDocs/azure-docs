@@ -24,11 +24,11 @@
   - name: Filter network traffic
     href: tutorial-filter-network-traffic.md
   - name: Route network traffic
-    href: tutorial-create-route-table-portal.md
+    href: tutorial-create-route-table.md
   - name: Restrict network access to resources
     href: tutorial-restrict-network-access-to-resources.md
   - name: Connect virtual networks
-    href: tutorial-connect-virtual-networks-portal.md
+    href: tutorial-connect-virtual-networks.md
   - name: Service endpoint policies
     href: virtual-network-service-endpoint-policies.md
 - name: Concepts
@@ -128,12 +128,6 @@
     items:
     - name: Route network traffic
       items:
-      - name: Azure portal
-        href: tutorial-create-route-table-portal.md
-      - name: Azure PowerShell
-        href: tutorial-create-route-table-powershell.md
-      - name: Azure CLI
-        href: tutorial-create-route-table-cli.md
       - name: Ansible
         href: /azure/developer/ansible/route-table-configure
       - name: Manage route tables
@@ -150,12 +144,6 @@
       href: manage-subnet-delegation.md
     - name: Create VNet peering
       items:
-      - name: Same deployment model - same subscription
-        items:
-        - name: Azure PowerShell
-          href: tutorial-connect-virtual-networks-powershell.md
-        - name: Azure CLI
-          href: tutorial-connect-virtual-networks-cli.md
       - name: Same deployment model - different subscriptions
         href: create-peering-different-subscriptions.md
       - name: Same deployment model - different subscriptions - SPN
@@ -271,8 +259,6 @@
     items:
     - name: Troubleshoot virtual network peering issues
       href: virtual-network-troubleshoot-peering-issues.md
-    - name: Configure and validate VNet or VPN connections
-      href: virtual-network-configure-vnet-connections.md
     - name: Network security groups
       href: diagnose-network-traffic-filter-problem.md
     - name: Routes

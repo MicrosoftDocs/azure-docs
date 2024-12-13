@@ -1,7 +1,7 @@
 ---
 title: 'Manage reference data in GA environments using C# - Azure Time Series Insights'
 description: Learn how to manage reference data for your GA environment by creating a custom application written in C#.
-ms.service: time-series-insights
+ms.service: azure-time-series-insights
 author: esung22
 ms.author: elsung
 manager: cnovak

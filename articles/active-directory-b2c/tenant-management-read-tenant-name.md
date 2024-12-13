@@ -6,14 +6,14 @@ description: Learn how to find tenant name and tenant ID
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: tutorial
 ms.date: 01/11/2024
 ms.custom: b2c-docs-improvements
 ms.author: kengaderdus
 ms.reviewer: yoelh
-ms.subservice: B2C
+ms.subservice: b2c
 
 #Customer intent: As a developer or IT administrator, I want to find my Azure AD B2C tenant details
 

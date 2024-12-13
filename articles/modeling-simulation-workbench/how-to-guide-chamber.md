@@ -3,7 +3,7 @@ title: "Create and manage chambers: Azure Modeling and Simulation Workbench"
 description: How to create and manage a chamber in the Azure Modeling and Simulation Workbench.
 author: yousefi-msft
 ms.author: yousefi
-ms.service: modeling-simulation-workbench
+ms.service: azure-modeling-simulation-workbench
 ms.topic: how-to
 ms.date: 08/16/2024
 

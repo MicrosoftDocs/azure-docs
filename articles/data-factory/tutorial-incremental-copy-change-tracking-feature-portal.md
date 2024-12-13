@@ -4,7 +4,8 @@ description: Learn how to create a data factory with a pipeline that loads delta
 ms.author: yexu
 author: dearandyxu
 ms.topic: tutorial
-ms.date: 09/26/2024
+ms.date: 10/03/2024
+ms.subservice: data-movement
 ---
 
 # Incrementally copy data from Azure SQL Database to Blob Storage by using change tracking in the Azure portal

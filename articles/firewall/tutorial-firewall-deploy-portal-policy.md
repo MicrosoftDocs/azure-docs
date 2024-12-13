@@ -154,6 +154,7 @@ Deploy the firewall into the VNet.
    | Choose a virtual network | Select **Use existing**, and then select **Test-FW-VN**. |
    | Public IP address     | Select **Add new**, and enter **fw-pip** for the **Name**. |
 
+1. Clear the **Enable Firewall Management NIC** check box.
 5. Accept the other default values, then select **Next: Tags**.
 1. Select **Next : Review + create**.
 1. Review the summary, and then select **Create** to create the firewall.

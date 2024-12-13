@@ -53,7 +53,7 @@ Management groups are a level above subscriptions and have the broadest (least s
 /providers
     /Microsoft.Management
         /managementGroups
-            /{managmentGroupName}
+            /{managementGroupName}
 ```
 
 ## Scope examples

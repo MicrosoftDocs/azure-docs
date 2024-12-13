@@ -12,58 +12,15 @@ ms.date: 08/22/2023
 
 # Reliability in Azure Image Builder (AIB)
 
-This article contains [specific reliability recommendations for Image Builder](#reliability-recommendations) and [cross-region disaster recovery and business continuity](#cross-region-disaster-recovery-and-business-continuity). 
+This article contains [cross-region disaster recovery and business continuity](#cross-region-disaster-recovery-and-business-continuity). 
 
 
 Azure Image Builder (AIB) is a regional service with a cluster that serves single regions. The AIB regional setup keeps data and resources within the regional boundary. AIB as a service doesn't do fail over for cluster and SQL database in region down scenarios.
 
 
-For an architectural overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
-
-
 >[!NOTE]
 > Azure Image Builder doesn't support [availability zones](./availability-zones-overview.md).
 
-## Reliability recommendations
-
-[!INCLUDE [Reliability recommendations](includes/reliability-recommendations-include.md)]
- 
-### Reliability recommendations summary
-
-
-| Category | Priority |Recommendation |  
-|---------------|--------|---|
-| [**High Availability**](#high-availability) |:::image type="icon" source="media/icon-recommendation-low.svg":::| [Use generation 2 virtual machine source images](#-use-generation-2-virtual-machine-vm-source-images) |
-|[**Disaster Recovery**](#disaster-recovery)|:::image type="icon" source="media/icon-recommendation-low.svg"::: |[Replicate image templates to a secondary region](#-replicate-image-templates-to-a-secondary-region) | 
-
-
-### High availability
- 
-#### :::image type="icon" source="media/icon-recommendation-low.svg"::: **Use generation 2 virtual machine (VM) source images** 
-
-When building your image templates, use source images that support generation 2 VMs. Generation 2 VMs support key features that aren’t supported in generation 1 VMs such as:
-
-- Increased memory
-- Support for disks greater than 2TB
-- New UEFI-based boot architecture instead, which can improve boot and installation times
-- Intel Software Guard Extensions (Intel SGX)
-- Virtualized persistent memory (vPMEM)
-
-
-For more information on generation 2 VM features and capabilities, see [Generation 2 VMs: Features and capabilities](/azure/virtual-machines/generation-2#features-and-capabilities).
-
-### Disaster recovery
-
-#### :::image type="icon" source="media/icon-recommendation-low.svg"::: **Replicate image templates to a secondary region** 
-
-The Azure Image Builder service that's used to deploy Image Templates doesn’t currently support availability zones. Therefore, when building your image templates, you should replicate them to a secondary region, preferably to your primary region’s [paired region](./availability-zones-overview.md#paired-and-unpaired-regions). With a secondary region, you can quickly recover from a region failure and continue to deploy virtual machines from your image templates. For more information, see [Cross-region disaster recovery and business continuity](#cross-region-disaster-recovery-and-business-continuity).
-
-
-# [Azure Resource Graph](#tab/graph)
-
-:::code language="kusto" source="~/azure-proactive-resiliency-library/docs/content/services/compute/image-templates/code/it-2/it-2.kql":::
-
-----
 
 ## Cross-region disaster recovery and business continuity
 

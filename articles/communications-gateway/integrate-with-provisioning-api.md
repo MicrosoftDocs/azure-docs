@@ -1,8 +1,8 @@
 ---
 title: Get ready to use Azure Communications Gateway's Provisioning API
 description: Learn how to integrate with the Provisioning API for Azure Communications Gateway. The Provisioning API allows you to configure customers and associated numbers.
-author: rcdun
-ms.author: rdunstan
+author: GemmaWakeford
+ms.author: gwakeford
 ms.service: azure-communications-gateway
 ms.topic: how-to
 ms.date: 03/29/2024
@@ -24,7 +24,6 @@ Whether you integrate with the Provisioning API depends on your chosen communica
 |Operator Connect|Recommended|- (Recommended) Flow-through provisioning of Operator Connect customers through interoperation with Operator Connect APIs  (using backend service sync). <br>- (Optional) Configuring a custom header for messages to your network. |
 |Teams Phone Mobile|Recommended|- (Recommended) Flow-through provisioning of Teams Phone Mobile customers through interoperation with Operator Connect APIs (using backend service sync). |
 |Zoom Phone Cloud Peering |Supported (as alternative to the Number Management Portal) |- Indicating that numbers are enabled for Zoom. <br>- (Optional) Configuring a custom header for messages to your network.|
-| Azure Operator Call Protection Preview |Supported (as alternative to the Number Management Portal) |-  Indicating that numbers are enabled for Azure Operator Call Protection.<br> - Automatic provisioning of Azure Operator Call Protection. |
 
 > [!TIP]
 > Azure Communications Gateway's Number Management Portal provides equivalent function for manual provisioning. However, you can't use the Number Management Portal for flow-thorough provisioning of Operator Connect and Teams Phone Mobile after you launch your service.

@@ -6,12 +6,12 @@ description: Learn how to integrate with our ISV partners to tailor your end-use
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: how-to
 ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As an Azure AD B2C user, I want to integrate with ISV partners for multifactor authentication, role-based access control, identity verification and proofing, fraud protection, and compliance with PSD2 SCA requirements, so that I can enhance the security and user experience of my applications.

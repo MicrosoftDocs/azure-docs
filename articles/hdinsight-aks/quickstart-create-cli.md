@@ -69,7 +69,7 @@ Output:
 <!-- expected_similarity=0.3 -->
 ```json
 {
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/HDIonAKSCLI",
+  "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/HDIonAKSCLI",
   "location": "eastus",
   "managedBy": null,
   "name": "HDIonAKSCLI",
@@ -115,9 +115,9 @@ Output:
     "aksClusterAgentPoolIdentityProfile": {
       "msiClientId": "00000000-0000-0000-0000-XXXXXXXX1",
       "msiObjectId": "00000000-0000-0000-0000-XXXXXXX11",
-      "msiResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/MC_hdi-00000000000000000000XXXX_contosopool_eastus/providers/Microsoft.ManagedIdentity/userAssignedIdentities/contosopool-agentpool"
+      "msiResourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/MC_hdi-00000000000000000000XXXX_contosopool_eastus/providers/Microsoft.ManagedIdentity/userAssignedIdentities/contosopool-agentpool"
     },
-    "aksClusterResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/hdi-00000000000000000000XXXX/providers/Microsoft.ContainerService/managedClusters/contosopool",
+    "aksClusterResourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/hdi-00000000000000000000XXXX/providers/Microsoft.ContainerService/managedClusters/contosopool",
     "aksVersion": "1.27.9"
   },
   "aksManagedResourceGroupName": "MC_hdi-00000000000000000000XXXX_contosopool_eastus",
@@ -129,7 +129,7 @@ Output:
     "vmSize": "Standard_E4s_v3"
   },
   "deploymentId": "00000000000000000000XXXX",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/HDIonAKSCLI/providers/Microsoft.HDInsight/clusterpools/contosopool",
+  "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/HDIonAKSCLI/providers/Microsoft.HDInsight/clusterpools/contosopool",
   "location": "EastUS",
   "managedResourceGroupName": "hdi-00000000000000000000XXXX",
   "name": "contosopool",

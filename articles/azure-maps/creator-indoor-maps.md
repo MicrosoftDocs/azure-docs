@@ -165,7 +165,7 @@ Example layer in the style.json file:
 
 The map configuration is an array of configurations. Each configuration consists of a [basemap] and one or more layers, each layer consisting of a [style] + [tileset] tuple.
 
-The map configuration is used when you [Instantiate the Indoor Manager] of a Map object when developing applications in Azure Maps. It's referenced using the `mapConfigurationId` or `alias`. Map configurations are immutable. When making changes to an existing map configuration, a new map configuration is created, resulting in a different `mapConfingurationId`. Anytime you create a map configuration using an alias already used by an existing map configuration, it points to the new map configuration.
+The map configuration is used when you [Instantiate the Indoor Manager] of a Map object when developing applications in Azure Maps. It's referenced using the `mapConfigurationId` or `alias`. Map configurations are immutable. When making changes to an existing map configuration, a new map configuration is created, resulting in a different `mapConfigurationId`. Anytime you create a map configuration using an alias already used by an existing map configuration, it points to the new map configuration.
 
 The following JSON is an example of a default map configuration. See the following table for a description of each element of the file:
 
@@ -270,7 +270,7 @@ The Indoor Maps module also supports dynamic map styling for more information, s
 
 ### Azure Maps integration
 
-As you begin to develop solutions for indoor maps, you can discover ways to integrate existing Azure Maps capabilities. For example, you can implement asset tracking or safety scenarios by using the [Geofence service] with Creator indoor maps. For example, you can use the Geofence API to determine whether a worker enters or leaves specific indoor areas. For more information about how to connect Azure Maps with IoT telemetry, see [Tutorial: Implement IoT spatial analytics by using Azure Maps].
+As you begin to develop solutions for indoor maps, you can discover ways to integrate existing Azure Maps capabilities. For example, you can implement asset tracking or safety scenarios by using the [Geofence service] with Creator indoor maps. For example, you can use the Geofence API to determine whether a worker enters or leaves specific indoor areas.
 
 ### Data maintenance
 
@@ -334,7 +334,6 @@ The following example shows how to update a dataset, create a new tileset, and d
 [Manage Azure Maps Creator]: how-to-manage-creator.md
 [structure]: creator-facility-ontology.md?pivots=facility-ontology-v2#structure
 [style picker control]: choose-map-style.md#add-the-style-picker-control
-[Tutorial: Implement IoT spatial analytics by using Azure Maps]: tutorial-iot-hub-maps.md
 [verticalPenetration]: creator-facility-ontology.md?pivots=facility-ontology-v2#verticalpenetration
 
 <!--- HTTP Links ------------>

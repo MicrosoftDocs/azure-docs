@@ -5,6 +5,10 @@ author: oshezaf
 ms.topic: conceptual
 ms.date: 12/28/2022
 ms.author: ofshezaf
+
+
+#Customer intent: As a security analyst, I want to understand the differences between query time and ingest time normalization so that I can optimize data processing and query performance in my security information and event management (SIEM) system.
+
 ---
 
 # Ingest time normalization

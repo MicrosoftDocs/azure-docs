@@ -5,7 +5,7 @@ description: Learn how to parameterize linked services in Azure Data Factory and
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/06/2024
+ms.date: 11/18/2024
 author: kromerm
 ms.author: makromer
 ---
@@ -83,6 +83,7 @@ All the linked service types are supported for parameterization.
 - SharePoint Online List
 - Snowflake
 - SQL Server
+- Vertica
 
 **Advanced authoring:** For other linked service types that are not in above list, you can parameterize the linked service by editing the JSON on UI:
 

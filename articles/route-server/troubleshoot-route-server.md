@@ -47,6 +47,10 @@ If you advertise a route from your NVA to Route Server that is an exact prefix m
  
 If you associate a service endpoint policy to the RouteServerSubnet or GatewaySubnet, then communication may break between Azure's underlying management platform and these respective Azure services (Route Server and VPN/ExpressRoute gateway). This can cause these Azure resources to enter an unhealthy state, resulting in connectivity loss between your on-premises and Azure workloads.
 
+### Why do I lose connectivity after using custom DNS instead of the default (Azure-provided DNS) for Route Server's virtual network?
+
+For the virtual network that Route Server is deployed in, if you are not using default (Azure-provided) DNS, then make sure your custom DNS configuration is able to resolve public domain names. This ensures that Azure services (Route Server and VPN/ExpressRoute gateway) are able to communicate with Azure's underlying management plane. Please see the note about wildcard rules in the [Azure DNS Private Resolver documentation](../dns/private-resolver-endpoints-rulesets.md#rules).
+
 ### Why can't I TCP ping from my NVA to the BGP peer IP of the Route Server after I set up the BGP peering between them?
 
 In some NVAs, you need to add a static route to the Route Server subnet to be able to TCP ping the Route Server from the NVA and to avoid BGP peering flapping. For example, if the Route Server is in 10.0.255.0/27 and your NVA is in 10.0.1.0/24, you need to add the following route to the routing table in the NVA:
@@ -71,11 +75,15 @@ Although Azure VPN gateway can receive the default route from its BGP peers incl
 
 The ASN that the Route Server uses is 65515. Make sure you configure a different ASN for your NVA so that an *eBGP* session can be established between your NVA and Route Server so route propagation can happen automatically. Make sure you enable "multi-hop" in your BGP configuration because your NVA and the Route Server are in different subnets in the virtual network.
 
+### Why does connectivity not work when I advertise routes with an ASN of 0 in the AS-Path? 
+
+Azure Route Server drops routes with an ASN of 0 in the AS-Path. To ensure these routes are successfully advertised into Azure, the AS-Path should not include 0. 
+
 ### The BGP peering between my NVA and Route Server is up. I can see routes exchanged correctly between them. Why aren't the NVA routes in the effective routing table of my VM? 
 
 * If your VM is in the same virtual network as your NVA and Route Server:
 
-    Route Server exposes two BGP peer IPs, which are hosted on two VMs that share the responsibility of sending the routes to all other VMs running in your virtual network. Each NVA must set up two identical BGP sessions (for example, use the same AS number, the same AS path and advertise the same set of routes) to the two VMs so that your VMs in the virtual network can get consistent routing info from Azure Route Server.
+    Route Server exposes two BGP peer IPs, which share the responsibility of sending the routes to all other VMs running in your virtual network. Each NVA must set up two identical BGP sessions (for example, use the same AS number, the same AS path and advertise the same set of routes) to the two BGP peer IPs so that your VMs in the virtual network can get consistent routing info from Azure Route Server.
 
     :::image type="content" source="./media/troubleshoot-route-server/network-virtual-appliances.png" alt-text="Diagram showing a network virtual appliance (NVA) with Azure Route Server.":::
 

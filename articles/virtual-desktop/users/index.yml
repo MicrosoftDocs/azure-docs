@@ -51,16 +51,8 @@ landingContent:
     linkLists:
       - linkListType: get-started
         links:
-          - text: Connect from Windows
-            url: connect-windows.md
-          - text: Connect from a web browser
-            url: connect-web.md
-          - text: Connect from macOS
-            url: connect-macos.md
-          - text: Connect from iOS/iPadOS
-            url: connect-ios-ipados.md
-          - text: Connect from Android/Chrome OS
-            url: connect-android-chrome-os.md
+          - text: Connect from the Remote Desktop client
+            url: connect-remote-desktop-client.md
       - linkListType: how-to-guide
         links:
           - text: Windows client features

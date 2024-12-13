@@ -4,7 +4,7 @@ titleSuffix: Azure IoT Hub
 description: How to use the Azure IoT SDK for Node.js to create device and backend service application code for device twins.
 author: kgremban
 ms.author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.devlang: nodejs
 ms.topic: include
 ms.date: 07/20/2024
@@ -24,6 +24,8 @@ This section describes how to use the [azure-iot-device](/javascript/api/azure-i
 * Retrieve a device twin and examine reported properties
 * Update reported device twin properties
 * Receive notice of desired property changes
+
+[!INCLUDE [iot-authentication-device-connection-string.md](iot-authentication-device-connection-string.md)]
 
 ### Install SDK packages
 
@@ -255,14 +257,27 @@ The [Registry](/javascript/api/azure-iothub/registry) class exposes all methods 
 
 ### Connect to IoT hub
 
-Use [fromConnectionString](/javascript/api/azure-iothub/registry?#azure-iothub-registry-fromconnectionstring) to connect to IoT hub. As a parameter, supply the **IoT hub service connection string** that you created in the prerequisites section.
+You can connect a backend service to IoT Hub using the following methods:
+
+* Shared access policy
+* Microsoft Entra
+
+[!INCLUDE [iot-authentication-service-connection-string.md](iot-authentication-service-connection-string.md)]
+
+#### Connect using a shared access policy
+
+Use [fromConnectionString](/javascript/api/azure-iothub/registry?#azure-iothub-registry-fromconnectionstring) to connect to IoT hub. Your application needs the **service connect** permission to modify desired properties of a device twin, and it needs **registry read** permission to query the identity registry. There is no default shared access policy that contains only these two permissions, so you need to create one if a one does not already exist. Supply this shared access policy connection string as a parameter to `fromConnectionString`. For more information about shared access policies, see [Control access to IoT Hub with shared access signatures](/azure/iot-hub/authenticate-authorize-sas).
 
 ```javascript
 'use strict';
 var iothub = require('azure-iothub');
-var connectionString = '{Iot Hub service connection string}';
+var connectionString = '{Shared access policy connection string}';
 var registry = iothub.Registry.fromConnectionString(connectionString);
 ```
+
+#### Connect using Microsoft Entra
+
+[!INCLUDE [iot-hub-howto-connect-service-iothub-entra-node](iot-hub-howto-connect-service-iothub-entra-node.md)]
 
 ### Retrieve and update a device twin
 

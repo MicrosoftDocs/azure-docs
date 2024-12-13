@@ -5,6 +5,7 @@ author: dcstwh
 ms.author: weetok
 ms.date: 09/26/2024
 ms.topic: tutorial
+ms.subservice: data-flows
 ---
 
 # Data integration using Azure Data Factory and Azure Data Share

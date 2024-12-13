@@ -4,11 +4,11 @@ description: This article describes WebHook event delivery and endpoint validati
 ms.topic: concept-article
 ms.date: 09/25/2024
 ms.custom: FY25Q1-Linter
-#customer intent: As a developer, I want to know hw to validate a Webhook endpoint using the Event Grid event schema.
+#customer intent: As a developer, I want to know how to validate a Webhook endpoint using the Event Grid event schema.
 ---
 
 
-# # Endpoint validation with Event Grid event schema
+# Endpoint validation with Event Grid event schema
 Webhooks are one of the many ways to receive events from Azure Event Grid. When a new event is ready, Event Grid service POSTs an HTTP request to the configured endpoint with the event information in the request body.
 
 Like many other services that support webhooks, Event Grid requires you to prove ownership of your Webhook endpoint before it starts delivering events to that endpoint. This requirement prevents a malicious user from flooding your endpoint with events. 

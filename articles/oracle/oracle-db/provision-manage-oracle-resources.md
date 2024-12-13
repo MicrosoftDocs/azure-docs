@@ -4,7 +4,7 @@ description: Manage resources for Oracle Database@Azure
 author: jjaygbay1
 ms.service: oracle-on-azure
 ms.collection: linux
-ms.topic: article
+ms.topic: how-to
 ms.date: 6/07/2024
 ms.custom: engagement-fy23
 ms.author: jacobjaygbay
@@ -34,7 +34,6 @@ The following management functions are available for all resources from the Micr
    1. Select the **Refresh** icon at the top of the blade.
    1. Wait for the blade to reload.
 * **Remove the resource.**
-
   1. Follow the steps to access the resource blade.
   1. You can remove a single or multiple resources from the blade by selecting the checkbox on the left side of the table. Once you have selected the resource(s) to remove, you can then select the **Delete** icon at the top of the blade.
   1. You can also remove a single resource by selecting the link to the resource from the **Name** field in the table. From the resource's detail page, select the **Delete** icon at the top of the blade.
@@ -58,5 +57,5 @@ Follow the following steps to access the Oracle Autonomous Database@Azure blade.
    1. Follow the steps to access the resource blade.
    1. Select the link to the resource from the **Name** field in the table.
    1. From the resource's detail page, select the **Go to OCI** link on the **OCI Database URL** field.
-  1. Log in to OCI.
+   1. Log in to OCI.
    1. Manage the resource from within the OCI console.

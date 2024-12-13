@@ -493,6 +493,15 @@ In the following tables, the term alphanumeric refers to:
 > | metricAlerts | resource group | 1-260 | Can't use:<br>`*#&+:<>?@%{}\/|` or control characters <br><br>Can't end with space or period.  |
 > | activityLogAlerts | resource group | 1-260 | Can't use:<br>`<>*%{}&:\\?+/#|` or control characters <br><br>Can't end with space or period.  |
 
+## Microsoft.AlertsManagement 
+
+> [!div class="mx-tableFixed"]
+> | Entity | Scope | Length | Valid Characters |
+> | --- | --- | --- | --- |
+> | prometheusRuleGroups  | resource group | 1-260 | Can't use:<br>`<>*%{}&:\\?+/#|` or control characters <br><br>Can't end with space or period.  |
+
+
+
 ## Microsoft.IoTCentral
 
 > [!div class="mx-tableFixed"]
