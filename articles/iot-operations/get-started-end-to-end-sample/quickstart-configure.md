@@ -13,9 +13,7 @@ ms.date: 10/17/2024
 
 # Quickstart: Configure your cluster
 
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
-
-In this quickstart, you configure the following resources in your Azure IoT Operations Preview cluster:
+In this quickstart, you configure the following resources in your Azure IoT Operations cluster:
 
 - An *asset endpoint* that defines a connection to a simulated OPC PLC server that simulates an oven in a bakery.
 - An *asset* that represents the oven and defines the data points that the oven exposes.
@@ -29,7 +27,7 @@ In this quickstart, you use a Bicep file to configure your Azure IoT Operations 
 
 ## Prerequisites
 
-Have an instance of Azure IoT Operations Preview deployed in a Kubernetes cluster. The [Quickstart: Run Azure IoT Operations Preview in GitHub Codespaces with K3s](quickstart-deploy.md) provides simple instructions to deploy an Azure IoT Operations instance that you can use for the quickstarts.
+Have an instance of Azure IoT Operations deployed in a Kubernetes cluster. The [Quickstart: Run Azure IoT Operations in GitHub Codespaces with K3s](quickstart-deploy.md) provides simple instructions to deploy an Azure IoT Operations instance that you can use for the quickstarts.
 
 Unless otherwise noted, you can run the console commands in this quickstart in either a Bash or PowerShell environment.
 
@@ -44,10 +42,6 @@ This quickstart uses the OPC PLC simulator to generate sample data. To deploy th
 ```console
 kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/quickstarts/opc-plc-deployment.yaml
 ```
-
-The following snippet shows the YAML file that you applied:
-
-:::code language="yaml" source="~/azure-iot-operations-samples/samples/quickstarts/opc-plc-deployment.yaml":::
 
 > [!CAUTION]
 > This configuration uses a self-signed application instance certificate. Don't use this configuration in a production environment. To learn more, see [Configure OPC UA certificates infrastructure for the connector for OPC UA](../discover-manage-assets/howto-configure-opcua-certificates-infrastructure.md).
@@ -95,8 +89,6 @@ Run the following commands to download and run the Bicep file that configures yo
 - Adds a dataflow that manipulates the messages from the simulated oven.
 - Creates an Azure Event Hubs instance to receive the data.
 
-<!-- TODO: Fix download link -->
-
 # [Bash](#tab/bash)
 
 ```bash
@@ -132,7 +124,7 @@ The Bicep file configured the following resources:
 - Two dataflows that process the messages from the simulated oven.
 - An Azure Event Hubs namespace that contains a destination hub for the dataflows.
 
-To view the asset endpoint, asset, and dataflows, navigate to the [operations experience](https://iotoperations.azure.com) UI in your browser and sign in with your Microsoft Entra ID credentials. Because you're working with a new deployment, there are no sites yet. You can find the cluster you created in the previous quickstart by selecting **Unassigned instances**. In the operations experience, an instance represents a cluster where you deployed Azure IoT Operations.
+To view the asset endpoint, asset, and dataflows, navigate to the [operations experience](https://iotoperations.azure.com) UI in your browser and sign in with your Microsoft Entra ID credentials. Because you're working with a new deployment, there are no sites yet. You can find the cluster you created in the previous quickstart by selecting **View unassigned instances**. In the operations experience, an instance represents a cluster where you deployed Azure IoT Operations.
 
 :::image type="content" source="media/quickstart-configure/instance-list.png" alt-text="Screenshot in the operations experience showing unassigned instances.":::
 
@@ -151,56 +143,6 @@ The dataflows define how the messages from the simulated oven are processed and 
 The following screenshot shows how the temperature conversion dataflow is configured:
 
 :::image type="content" source="media/quickstart-configure/dataflow-compute.png" alt-text="Screenshot in the operations experience that shows the temperature conversion calculation.":::
-
-## Verify data is flowing to MQTT broker
-
-[!INCLUDE [deploy-mqttui](../includes/deploy-mqttui.md)]
-
-To verify that the oven asset you added is publishing data, view the telemetry in the `azure-iot-operations/data` topic:
-
-```output
-Client $server-generated/05a22b94-c5a2-4666-9c62-837431ca6f7e received PUBLISH (d0, q0, r0, m0, 'azure-iot-operations/data/oven', ... (152 bytes))
-{"temperature":{"SourceTimestamp":"2024-07-29T15:02:17.1858435Z","Value":4558},"Tag 10":{"SourceTimestamp":"2024-07-29T15:02:17.1858869Z","Value":4558}}
-Client $server-generated/05a22b94-c5a2-4666-9c62-837431ca6f7e received PUBLISH (d0, q0, r0, m0, 'azure-iot-operations/data/oven', ... (152 bytes))
-{"temperature":{"SourceTimestamp":"2024-07-29T15:02:18.1838125Z","Value":4559},"Tag 10":{"SourceTimestamp":"2024-07-29T15:02:18.1838523Z","Value":4559}}
-Client $server-generated/05a22b94-c5a2-4666-9c62-837431ca6f7e received PUBLISH (d0, q0, r0, m0, 'azure-iot-operations/data/oven', ... (152 bytes))
-{"temperature":{"SourceTimestamp":"2024-07-29T15:02:19.1834363Z","Value":4560},"Tag 10":{"SourceTimestamp":"2024-07-29T15:02:19.1834879Z","Value":4560}}
-Client $server-generated/05a22b94-c5a2-4666-9c62-837431ca6f7e received PUBLISH (d0, q0, r0, m0, 'azure-iot-operations/data/oven', ... (152 bytes))
-{"temperature":{"SourceTimestamp":"2024-07-29T15:02:20.1861251Z","Value":4561},"Tag 10":{"SourceTimestamp":"2024-07-29T15:02:20.1861709Z","Value":4561}}
-Client $server-generated/05a22b94-c5a2-4666-9c62-837431ca6f7e received PUBLISH (d0, q0, r0, m0, 'azure-iot-operations/data/oven', ... (152 bytes))
-{"temperature":{"SourceTimestamp":"2024-07-29T15:02:21.1856798Z","Value":4562},"Tag 10":{"SourceTimestamp":"2024-07-29T15:02:21.1857211Z","Value":4562}}
-```
-
-If there's no data flowing, restart the `aio-opc-opc.tcp-1` pod:
-
-1. Find the name of your `aio-opc-opc.tcp-1` pod by using the following command:
-
-    ```console
-    kubectl get pods -n azure-iot-operations
-    ```
-
-    The name of your pod looks like `aio-opc-opc.tcp-1-849dd78866-vhmz6`.
-
-1. Restart the `aio-opc-opc.tcp-1` pod by using a command that looks like the following example. Use the `aio-opc-opc.tcp-1` pod name from the previous step:
-
-    ```console
-    kubectl delete pod aio-opc-opc.tcp-1-849dd78866-vhmz6 -n azure-iot-operations
-    ```
-
-The sample tags you added in the previous quickstart generate messages from your asset that look like the following example:
-
-```json
-{
-    "temperature": {
-        "SourceTimestamp": "2024-08-02T13:52:15.1969959Z",
-        "Value": 2696
-    },
-    "Tag 10": {
-        "SourceTimestamp": "2024-08-02T13:52:15.1970198Z",
-        "Value": 2696
-    }
-}
-```
 
 ## Verify data is flowing to Event Hubs
 

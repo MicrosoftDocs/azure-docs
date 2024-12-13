@@ -13,7 +13,7 @@ ms.custom: engagement-fy23, devx-track-azurecli
 
 # Authorize developer accounts by using Microsoft Entra ID in Azure API Management
 
-[!INCLUDE [premium-dev-standard-standardv2-basicv2.md](../../includes/api-management-availability-premium-dev-standard-standardv2-basicv2.md)]
+[!INCLUDE [premium-dev-standard-premiumv2-standardv2-basicv2.md](../../includes/api-management-availability-premium-dev-standard-premiumv2-standardv2-basicv2.md)]
 
 
 In this article, you'll learn how to:

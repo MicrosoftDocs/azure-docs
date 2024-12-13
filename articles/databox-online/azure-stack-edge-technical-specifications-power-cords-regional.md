@@ -22,7 +22,7 @@ Your Azure Stack Edge device will need a power cord that will vary depending on 
 
 Use the following table to find the correct cord specifications for your region:
 
-| Country    | Rated Voltage (V)| Rated Current (A)| Cord Standard |Input Connector|Output Connector| Length mm |  
+| Country/Region    | Rated Voltage (V)| Rated Current (A)| Cord Standard |Input Connector|Output Connector| Length mm |  
 |------------|---------------|------------|----|--|----|--|--|--|
 |Albania|250|10|H05Z1Z1 3x0.75|CEE 7|C13|1830|
 |Algeria|250|10|H05Z1Z1 3x0.75|CEE 7|C13|1830|

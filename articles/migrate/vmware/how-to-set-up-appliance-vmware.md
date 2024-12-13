@@ -6,7 +6,7 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
 ms.service: azure-migrate
-ms.date: 06/20/2024
+ms.date: 09/26/2024
 ms.custom: vmware-scenario-422, engagement-fy23
 ---
 
@@ -65,7 +65,7 @@ Before you deploy the OVA file, verify that the file is secure:
 1. Run the following command to generate the hash for the OVA file:
 
     ```
-    C:\>CertUtil -HashFile <file_location> <hashing_agorithm>
+    C:\>CertUtil -HashFile <file_location> <hashing_algorithm>
     ```
 
     For example:

@@ -7,7 +7,7 @@ ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 11/04/2024
 ---
-# Confidential Containers with Azure Red Hat OpenShift
+# Confidential Containers with Azure Red Hat OpenShift (Preview)
 
 Confidential Containers offer a robust solution to protect sensitive data within cloud environments. By using hardware-based trusted execution environments (TEEs), Confidential Containers provide a secure enclave within the host system, isolating applications and their data from potential threats. This isolation ensures that even if the host system is compromised, the confidential data remains protected.
 

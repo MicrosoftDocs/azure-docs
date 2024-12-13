@@ -103,6 +103,8 @@ items:
       href: ip-groups.md
     - name: Forced tunneling
       href: forced-tunneling.md
+    - name: Management NIC
+      href: management-nic.md
     - name: Certifications
       href: compliance-certifications.md
     - name: Central management

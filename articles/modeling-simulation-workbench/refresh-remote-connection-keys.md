@@ -1,8 +1,8 @@
 ---
 title: Refresh remote connection keys in Azure Modeling and Simulation Workbench
 description: Learn how to refresh remote connection keys in Azure Modeling and Simulation Workbench.
-author: meaghanlewis
-ms.author: mosagie
+author: yousefi-msft
+ms.author: yousefi
 ms.service: azure-modeling-simulation-workbench
 ms.topic: how-to
 ms.date: 09/05/2024

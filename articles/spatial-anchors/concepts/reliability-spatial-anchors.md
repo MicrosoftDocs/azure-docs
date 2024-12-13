@@ -35,7 +35,7 @@ SouthEastAsia region doesn't rely on Azure Paired Regions in order to be complia
 
 ### Prerequisites
 
-For a list of regions that support availability zones, see [Azure regions with availability zones](../../reliability/availability-zones-service-support.md#azure-regions-with-availability-zone-support). If your Azure Spatial Anchors account is located in one of the regions listed, you don't need to take any other action beyond provisioning the service.
+For a list of regions that support availability zones, see [Azure regions with availability zones](../../reliability/availability-zones-region-support.md#azure-regions-with-availability-zone-support). If your Azure Spatial Anchors account is located in one of the regions listed, you don't need to take any other action beyond provisioning the service.
 
 #### Create a resource with availability zone enabled
 

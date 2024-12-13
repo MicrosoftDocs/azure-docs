@@ -6,11 +6,11 @@ ms.author: johnmarc
 ms.service: azure-redhat-openshift
 keywords: confidential containers, aro, deploy, openshift, red hat
 ms.topic: how-to
-ms.date: 11/04/2024
+ms.date: 11/21/2024
 ms.custom: template-how-to
 ---
 
-# Deploy Confidential Containers in an Azure Red Hat OpenShift (ARO) cluster
+# Deploy Confidential Containers in an Azure Red Hat OpenShift (ARO) cluster (Preview)
 
 This article describes the steps required to deploy Confidential Containers for an ARO cluster. This process involves two main parts and multiple steps:
 
@@ -40,7 +40,7 @@ After deploying OpenShift Sandboxed Containers, deploy Confidential Containers. 
     
 1.	Create the Trustee config map. 
 
-1.	Configure attestation policies (optional).
+1.	Configure Trustee.
 
 1.	Create the KbsConfig custom resource.
 
@@ -619,34 +619,150 @@ Create a secure route with edge TLS termination for Trustee. External ingress tr
     `$ oc apply -f kbs-config-cm.yaml`
 
 
+### Configure Trustee
 
-### Configure attestation policies
+Configure the following Trustee settings:
 
-You can configure the following attestation policy settings:
-
-**Reference values**
+**Configure reference values**
 
 You can configure reference values for the Reference Value Provider Service (RVPS) by specifying the trusted digests of your hardware platform.
 
 The client collects measurements from the running software, the Trusted Execution Environment (TEE) hardware and firmware and it submits a quote with the claims to the Attestation Server. These measurements must match the trusted digests registered to the Trustee. This process ensures that the confidential VM (CVM) is running the expected software stack and hasn't been tampered with.
 
-**Secrets for clients**
+1.	Create an `rvps-configmap.yaml` manifest file:
 
-You must create one or more secrets to share with attested clients.
+    ```
+    apiVersion: v1
+    kind: ConfigMap
+    metadata:
+      name: rvps-reference-values
+      namespace: trustee-operator-system
+    data:
+      reference-values.json: |
+        [ 
+        ]
+    ```
+    
+    For `reference-values.json` specify the trusted digests for your hardware platform if required. Otherwise, leave it empty.
 
-**Resource access policy**
+1.	Create the RVPS config map by running the following command:
+
+    `$ oc apply -f rvps-configmap.yaml`
+
+
+
+
+<!--
+
+**Secret with custom keys for clients** (Optional)
+
+You can create a secret that contains one or more custom keys for Trustee clients.
+
+**Resource access policy** (Optional)
 
 You must configure a policy for the Trustee policy engine to determine which resources to access.
 
 Don't confuse the Trustee policy engine with the Attestation Service policy engine, which determines the validity of TEE evidence.
 
-**Attestation policy**
+-->
 
-Optional: You can overwrite the default attestation policy by creating your own attestation policy.
+**Create your own attestation policy**
+
+You can overwrite the default attestation policy by creating your own attestation policy.
+
+1.	Create an attestation-policy.yaml manifest file according to the following example:
+    
+    ```
+    apiVersion: v1
+    kind: ConfigMap
+    metadata:
+      name: attestation-policy
+      namespace: trustee-operator-system
+    data:
+      default.rego: |
+         package policy
+         import future.keywords.every
+    
+         default allow = false
+    
+         allow {
+            every k, v in input {
+                judge_field(k, v)
+            }
+         }
+    
+         judge_field(input_key, input_value) {
+            has_key(data.reference, input_key)
+            reference_value := data.reference[input_key]
+            match_value(reference_value, input_value)
+         }
+    
+         judge_field(input_key, input_value) {
+            not has_key(data.reference, input_key)
+         }
+    
+         match_value(reference_value, input_value) {
+            not is_array(reference_value)
+            input_value == reference_value
+         }
+    
+         match_value(reference_value, input_value) {
+            is_array(reference_value)
+            array_include(reference_value, input_value)
+         }
+    
+         array_include(reference_value_array, input_value) {
+            reference_value_array == []
+         }
+    
+         array_include(reference_value_array, input_value) {
+            reference_value_array != []
+            some i
+            reference_value_array[i] == input_value
+         }
+    
+         has_key(m, k) {
+            _ = m[k]
+         }
+    ```
+
+    For the `package policy`, the attestation policy follows the Open Policy Agent specification. In this example, the attestation policy compares the claims provided in the attestation report to the reference values registered in the RVPS database. The attestation process is successful only if all the values match.
+
+1.	Create the attestation policy config map by running the following command:
+
+    `$ oc apply -f attestation-policy.yaml`
+
 
 **Provisioning Certificate Caching Service for TDX**
 
 If your TEE is Intel Trust Domain Extensions (TDX), you must configure the Provisioning Certificate Caching Service (PCCS). The PCCS retrieves Provisioning Certification Key (PCK) certificates and caches them in a local database.
+
+1.	Create a tdx-config.yaml manifest file:
+
+    ```
+    apiVersion: v1
+    kind: ConfigMap
+    metadata:
+      name: tdx-config
+      namespace: trustee-operator-system
+    data:
+      sgx_default_qcnl.conf: | \
+          {
+            "collateral_service": "https://api.trustedservices.intel.com/sgx/certification/v4/",
+            "pccs_url": "<pccs_url>"
+          }
+    ```
+
+    For `pccs_url`, specify the PCCS URL, for example, https://localhost:8081/sgx/certification/v4/.
+
+1.	Create the TDX config map by running the following command:
+
+    `$ oc apply -f tdx-config.yaml`
+
+
+
+<!--
+
 
 1.	Create an `rvps-configmap.yaml` manifest file:
 
@@ -701,7 +817,7 @@ If your TEE is Intel Trust Domain Extensions (TDX), you must configure the Provi
 
     `$ oc apply -f resourcepolicy-configmap.yaml`
 
-1.	Optional: Create an attestation-policy.yaml manifest file according to the following example:
+1.	Create an attestation-policy.yaml manifest file according to the following example:
     
     ```
     apiVersion: v1
@@ -785,10 +901,88 @@ If your TEE is Intel Trust Domain Extensions (TDX), you must configure the Provi
 
     `$ oc apply -f tdx-config.yaml`
 
+-->
+
+**Create a secret for container image signature verification**
+
+If you use container image signature verification, you must create a secret that contains the public container image signing key. The Trustee Operator uses the secret to verify the signature, ensuring that only trusted and authenticated container images are deployed in your environment.
+
+1. Create a secret for container image signature verification by running the following command:
+
+    ```
+    $ oc apply secret generic <type> \
+        --from-file=<tag>=./<public_key_file> \
+        -n trustee-operator-system
+     ```
+    
+    - Specify the KBS secret type, for example, `img-sig`.
+    - Specify the secret tag, for example, `pub-key`, and the public container image signing key.
+    
+1. Record the `<type>` value. You must add this value to the spec.kbsSecretResources key when you create the KbsConfig custom resource.
+
+**Create the container image signature verification policy**
+
+You must create the container image signature verification policy because signature verification is always enabled. 
+
+> [!IMPORTANT]
+> If this policy is missing, the pods will not start. If you are not using container image signature verification, you create the policy without signature verification.
+> 
+1. Create a security-policy-config.json file according to the following examples:
+
+    Without signature verification:
+    
+    ```
+    {
+            "default": [
+            {
+            "type": "insecureAcceptAnything"
+            }],
+            "transports": {}
+        }
+    ```
+        
+    With signature verification:
+    
+    ```
+    {
+            "default": [
+            {
+            "type": "insecureAcceptAnything"
+            ],
+            "transports": {
+            "<transport>": {
+            "<registry>/<image>":
+            [
+            {
+            "type": "sigstoreSigned",
+            "keyPath": "kbs:///default/<type>/<tag>"
+            }
+            ]
+            }
+            }
+        }
+    ```
+        
+    - Specify the image repository for transport, for example, "docker".
+    - Specify the container registry and image, for example, "quay.io/my-image".
+    - Specify the type and tag of the container image signature verification secret that you created, for example, "img-sig/pub-key".
+    
+1. Create the security policy by running the following command:
+
+    ```
+    $ oc apply secret generic security-policy \
+        --from-file=osc=./<security-policy-config.json> \
+        -n trustee-operator-system
+    ```
+    
+    Do not alter the secret type, security-policy, or the key, osc.
+    
+    The security-policy secret is specified in the `spec.kbsSecretResources` key of the KbsConfig custom resource.
+    
 
 ### Create the KbsConfig custom resource
 
-You must create the KbsConfig custom resource to launch Trustee. Then, you check the Trustee pods and pod logs to verify the configuration.
+You must create the KbsConfig custom resource to launch Trustee.
 
 1.	Create a `kbsconfig-cr.yaml` manifest file:
 
@@ -809,15 +1003,25 @@ You must create the KbsConfig custom resource to launch Trustee. Then, you check
       kbsAuthSecretName: kbs-auth-public-key
       kbsDeploymentType: AllInOneDeployment
       kbsRvpsRefValuesConfigMapName: rvps-reference-values
-      kbsSecretResources: ["kbsres1"]
+      kbsSecretResources: ["kbsres1", "security-policy", "<type>"]
       kbsResourcePolicyConfigMapName: resource-policy
+        # tdxConfigSpec:
+        #   kbsTdxConfigMapName: tdx-config
+        #   kbsAttestationPolicyConfigMapName: attestation-policy
+        #   kbsServiceType: <service_type>
     ```
-    
+    - Optional: Specify the `type` value of the container image signature verification secret if you created the secret, for example, `img-sig`. If you didn't create the secret, set the `kbsSecretResources` value to `["kbsres1", "security-policy"]`.
+    - Uncomment `tdxConfigSpec.kbsTdxConfigMapName: tdx-config` for Intel Trust Domain Extensions. 
+    - Uncomment `kbsAttestationPolicyConfigMapName: attestation-policy` if you create a customized attestation policy. 
+    - Uncomment `kbsServiceType: <service_type>` if you create a service type, other than the default ClusterIP service, to expose applications within the cluster external traffic. You can specify `NodePort`, `LoadBalancer`, or `ExternalName`. 
+
 1.	Create the KbsConfig custom resource by running the following command:
 
     `$ oc apply -f kbsconfig-cr.yaml`
 
-#### Verification
+#### Verify the Trustee configuration
+
+Verify the Trustee configuration by checking the Trustee pods and logs.
 
 1.	Set the default project by running the following command:
 

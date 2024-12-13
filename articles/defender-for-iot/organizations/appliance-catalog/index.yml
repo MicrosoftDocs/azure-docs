@@ -24,6 +24,8 @@ landingContent:
           url: dell-poweredge-r660.md
         - text: HPE ProLiant DL360
           url: hpe-proliant-dl360.md
+        - text: HPE ProLiant DL360 Gen11
+          url: hpe-proliant-dl360-gen11.md
 
   # Card
   - title: Large enterprises

@@ -6,7 +6,7 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: troubleshooting
-ms.date: 03/08/2023
+ms.date: 09/09/2024
 ms.custom: engagement-fy23
 ---
 
@@ -232,6 +232,16 @@ This error occurs when you've provided a domain credential with the wrong domain
 ### Remediation
 - Go to the appliance configuration manager to add a server credential or edit an existing one as explained in the cause.
 - After you take the remediation steps, verify if the error was resolved by following the steps on [this website](troubleshoot-dependencies.md#mitigation-verification).
+
+
+## Error 9014: HTTPGetRequestToRetrieveFileFailed/ 975: MaxLimitExceededForDepMap /976: AutoenableDisabledForDepMap
+
+### Remediation
+1. On the server running the appliance, open the Registry Editor.
+1. Navigate to HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance (Use the folder without space).
+1. Add a registry key `DepMapAutoEnable` with a type of "String" and value as "false".
+1. Ensure that you have manually enabled dependency analysis for one or more discovered servers in your project. 
+5.	Restart the appliance server. Wait for an hour and check if the issues have been resolved.
 
 ## Mitigation verification
 

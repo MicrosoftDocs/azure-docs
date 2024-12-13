@@ -4,8 +4,8 @@ description: Learn how to rewrite headers in Gateway API for Application Gateway
 services: application gateway
 author: greg-lindsay
 ms.service: azure-appgw-for-containers
-ms.topic: conceptual
-ms.date: 5/9/2024
+ms.topic: how-to
+ms.date: 11/5/2024
 ms.author: greglin
 ---
 
@@ -33,7 +33,7 @@ The following figure illustrates a request with a specific user agent being rewr
   Apply the following deployment.yaml file on your cluster to create a sample web application to demonstrate the header rewrite.
 
    ```bash
-   kubectl apply -f https://trafficcontrollerdocs.blob.core.windows.net/examples/traffic-split-scenario/deployment.yaml
+   kubectl apply -f https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/refs/heads/main/articles/application-gateway/for-containers/examples/traffic-split-scenario/deployment.yaml
    ```
   
    This command creates the following on your cluster:
@@ -172,7 +172,7 @@ In this example, we look for the user agent used by the Bing search engine and s
 This example also demonstrates addition of a new header called `AGC-Header-Add` with a value of `AGC-value` and removes a request header called `client-custom-header`.
 
 > [!TIP]
-> For this example, while we can use the HTTPHeaderMatch of "Exact" for a string match, a demonstration is used in regular expression for illistration of further capabilities.
+> For this example, while we can use the HTTPHeaderMatch of "Exact" for a string match, a demonstration is used in regular expression for illustration of further capabilities.
 
 ```bash
 kubectl apply -f - <<EOF

@@ -147,7 +147,7 @@ This procedure describes how to create a new agent and connect it to your SAP sy
     docker update --restart unless-stopped <container-name>
     ```
 
-The deployment procedure generates a **systemconfig.json** file that contains the configuration details for the SAP data connector agent. For more information, see [SAP data connector agent configuration file](deployment-overview.md#sap-data-connector-agent-configuration-file).
+The deployment procedure generates a [**systemconfig.json**](reference-systemconfig-json.md) file that contains the configuration details for the SAP data connector agent. The file is located in the `/sapcon-app/sapcon/config/system` directory on your VM.
 
 ## Deploy the data connector using a configuration file
 
@@ -230,7 +230,7 @@ Azure Key Vault is the recommended method to store your authentication credentia
     docker update --restart unless-stopped <container-name>
     ```
 
-The deployment procedure generates a **systemconfig.json** file that contains the configuration details for the SAP data connector agent. For more information, see [SAP data connector agent configuration file](deployment-overview.md#sap-data-connector-agent-configuration-file).
+The deployment procedure generates a [**systemconfig.json**](reference-systemconfig-json.md) file that contains the configuration details for the SAP data connector agent. The file is located in the `/sapcon-app/sapcon/config/system` directory on your VM.
 
 ## Prepare the kickstart script for secure communication with SNC
 

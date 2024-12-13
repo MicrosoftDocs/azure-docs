@@ -54,7 +54,7 @@ The following diagram shows the highlights from example workflow:
 
   * Consumption workflow
 
-    * [Node.js version 8.11.10](https://nodejs.org/en/download/releases/)
+    * [Node.js version 8.11.10](https://nodejs.org/en/about/previous-releases)
 
     * [Link to an integration account](logic-apps-enterprise-integration-create-integration-account.md), empty or otherwise, from your logic app resource.
 
@@ -73,7 +73,7 @@ The following diagram shows the highlights from example workflow:
 
   * Standard workflow
 
-    * [Node.js versions 16.x.x](https://nodejs.org/en/download/releases/)
+    * [Node.js versions 16.x.x](https://nodejs.org/en/about/previous-releases)
 
     * No integration account required.
 
