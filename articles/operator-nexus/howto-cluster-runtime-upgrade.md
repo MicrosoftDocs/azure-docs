@@ -23,7 +23,7 @@ This how-to guide explains the steps for installing the required Azure CLI and e
 5. Target cluster must be in a running state, with all control plane nodes healthy and 80+% of compute nodes in a running and healthy state.
    
 ## Checking current runtime version
-[How to check current cluster runtime version](https://learn.microsoft.com/azure/operator-nexus/howto-check-runtime-version.md#check-current-cluster-runtime-version)
+[How to check current cluster runtime version](./howto-check-runtime-version.md#check-current-cluster-runtime-version.md)
 
 ## Finding available runtime versions
 
