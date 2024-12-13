@@ -68,7 +68,7 @@ Import the downloaded file, and create an appliance.
 1. Extract the zipped VHD file to a folder on the Hyper-V host that will host the appliance. Three folders are extracted.
 2. Open Hyper-V Manager. In **Actions**, select **Import Virtual Machine**.
 
-    ![Screenshot of preocedure to Deploy VHD.](./media/how-to-set-up-appliance-hyper-v/deploy-vhd.png)
+    ![Screenshot of procedure to Deploy VHD.](./media/how-to-set-up-appliance-hyper-v/deploy-vhd.png)
 
 2. In the Import Virtual Machine Wizard > **Before you begin**, select **Next**.
 3. In **Locate Folder**, specify the folder containing the extracted VHD. Select **Next**.
