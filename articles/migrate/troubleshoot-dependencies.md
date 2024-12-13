@@ -240,6 +240,9 @@ This error occurs when you've provided a domain credential with the wrong domain
 1. On the server running the appliance, open the Registry Editor.
 1. Navigate to HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance (Use the folder without space).
 1. Add a registry key `DepMapAutoEnable` with a type of "String" and value as "false".
+
+    ![Screenshot that shows registry key.](./media/troubleshoot-dependencies/registry-key.png)
+
 1. Ensure that you have manually enabled dependency analysis for one or more discovered servers in your project. 
 5.	Restart the appliance server. Wait for an hour and check if the issues have been resolved.
 
