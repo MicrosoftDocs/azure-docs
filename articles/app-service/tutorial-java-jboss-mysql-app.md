@@ -692,6 +692,7 @@ You can ignore this Hibernate error because it indicates that the application co
 
 - [How much does this setup cost?](#how-much-does-this-setup-cost)
 - [How do I connect to the MySQL server behind the virtual network with other tools?](#how-do-i-connect-to-the-mysql-server-behind-the-virtual-network-with-other-tools)
+- [How do I get a valid access token for the MySQL connection using Microsoft Entra authentication?](#how-do-i-get-a-valid-access-token-for-the-mysql-connection-using-microsoft-entra-authentication)
 - [How does local app development work with GitHub Actions?](#how-does-local-app-development-work-with-github-actions)
 - [I don't have permissions to create a user-assigned identity](#i-dont-have-permissions-to-create-a-user-assigned-identity)
 - [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace)
@@ -702,15 +703,54 @@ Pricing for the created resources is as follows:
 
 - The App Service plan is created in **P0v3** tier and can be scaled up or down. See [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/linux/).
 - The MySQL flexible server is created in **D2ds** tier and can be scaled up or down. See [Azure Database for MySQL pricing](https://azure.microsoft.com/pricing/details/mysql/flexible-server/).
-<!-- - The Azure Cache for Redis is created in **Basic** tier with the minimum cache size. There's a small cost associated with this tier. You can scale it up to higher performance tiers for higher availability, clustering, and other features. See [Azure Cache for Redis pricing](https://azure.microsoft.com/pricing/details/cache/). -->
+- The Azure Cache for Redis is created in **Basic** tier with the minimum cache size. There's a small cost associated with this tier. You can scale it up to higher performance tiers for higher availability, clustering, and other features. See [Azure Cache for Redis pricing](https://azure.microsoft.com/pricing/details/cache/).
 - The virtual network doesn't incur a charge unless you configure extra functionality, such as peering. See [Azure Virtual Network pricing](https://azure.microsoft.com/pricing/details/virtual-network/).
 - The private DNS zone incurs a small charge. See [Azure DNS pricing](https://azure.microsoft.com/pricing/details/dns/). 
 
 #### How do I connect to the MySQL server behind the virtual network with other tools?
 
-- The JBoss container currently doesn't have the `mysql-client` terminal too. If you want, you must manually install it. Remember that anything you install doesn't persist across app restarts.
-- To connect from a desktop tool like MySQL Workbench, your machine must be within the virtual network. For example, it could be an Azure VM in one of the subnets, or a machine in an on-premises network that has a [site-to-site VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) connection with the Azure virtual network.
-- You can also [integrate Azure Cloud Shell](../cloud-shell/private-vnet.md) with the virtual network.
+In this tutorial, the App Service app is already has network connectivity to the MySQL server and can authenticate with Microsoft Entra by using its system-assigned managed identity. You can connect to MySQL directly from within the app container by running the following commands in the SSH session (get your `<server>`, `<user>`, and `<database>` values from the `AZURE_MYSQL_CONNECTIONSTRING` app setting):
+
+```bash
+apt-get update
+apt-get install curl less mysql-client jq -y
+mysql -h <server> --user <user> --database <database> --enable-cleartext-plugin --password=`curl "${IDENTITY_ENDPOINT}?resource=https://ossrdbms-aad.database.windows.net&api-version=2019-08-01" -H "X-IDENTITY-HEADER: $IDENTITY_HEADER" -s | jq -r '.access_token'`
+```
+
+A few considerations:
+
+- The tools you install in the SSH session don't persist across app restarts.
+- If you followed the portal steps and configured MySQL using your Microsoft Entra user as the administrator, you can connect to MySQL using the Microsoft Entra user.
+- To connect from a desktop tool like MySQL Workbench, your machine must be within the virtual network, such as an Azure VM deployed into the same virtual network. You must also configure authentication separately, either with a managed identity or with a Microsoft Entra user.
+- To connect from a machine in an on-premises network that has a [site-to-site VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) connection with the Azure virtual network, you can't configure authentication with a managed identity, but you can configure authentication by using a Microsoft Entra user.
+- You can also [integrate Azure Cloud Shell](../cloud-shell/private-vnet.md) and connect using Azure CLI or the MySQL CLI. To authenticate, you can configure a Microsoft Entra user.
+
+#### How do I get a valid access token for the MySQL connection using Microsoft Entra authentication?
+
+For a Microsoft Entra user, a system-assigned managed identity, or a user-asssigned managed identity that's authorizaed to access the MySQL database, Azure CLI can help you generate an access token. In case of a managed identity, the identity must be configured on the App Service app or VM where you run Azure CLI. 
+
+```azurecli-interactive
+# Sign in as a Microsoft Entra user
+az login
+# Sign in as the system-assigned managed identity
+az login --identity
+# Sign in as a user-assigned managed identity
+az login --identity --username <client-id-of-user-assigned-identity>
+
+# Get an access token
+az account get-access-token --resource-type oss-rdbms
+```
+
+If you want, you can also use the [az mysql flexible-server connect](/cli/azure/mysql/flexible-server#az-mysql-flexible-server-connect) Azure CLI command to connect to MySQL. When prompted, use the access token as the password.
+
+```azurecli-interactive
+az mysql flexible-server connect -n <server-name-only> -u <user> -d <database> --interactive
+```
+
+For more information, see:
+- [How to use managed identities for App Service and Azure Functions](overview-managed-identity.md)
+- [Authenticate to Azure using Azure CLI](/cli/azure/authenticate-azure-cli)
+- [Connect to Azure Database for MySQL Flexible Server using Microsoft Entra ID](../mysql/flexible-server/how-to-azure-ad.md#connect-to-azure-database-for-mysql-flexible-server-using-microsoft-entra-id)
 
 #### How does local app development work with GitHub Actions?
 
