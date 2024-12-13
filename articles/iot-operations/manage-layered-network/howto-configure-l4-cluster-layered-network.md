@@ -60,7 +60,7 @@ The following steps for setting up [AKS Edge Essentials](/azure/aks/hybrid/aks-e
     Refer to the [K3s quick-start guide](https://docs.k3s.io/quick-start) for more detail.
 
     > [!IMPORTANT]
-    > Be sure to use the `--disable=traefik` parameter to disable treafik. Otherwise, you might have an issue when you try to allocate public IP for the Layered Network Management service in later steps.
+    > Be sure to use the `--disable=traefik` parameter to disable traefik. Otherwise, you might have an issue when you try to allocate public IP for the Layered Network Management service in later steps.
 
 1. Copy the K3s configuration yaml file to `.kube/config`.
 
