@@ -54,11 +54,10 @@ When naming your storage account, keep these rules in mind:
 ## Storage workloads and environments 
 
 Azure Object Storage customers use a variety of workloads to store data, access it and derive insights to meet their business objectives. Each workload uses specific protocols for data operations based on its requirements as well as industry standards.
-Storage accounts created through the Azure Portal can leverage preset values for the account configuration when a primary workload and environment is selected. Choosing a workload preset is more efficient and simplifies the process of configuring your storage account.
 
 ### Storage workloads
 
-Below is a high-level categorization of different primary workloads for your storage accounts available in the Azure Portal.
+Below is a high-level categorization of different primary workloads for storage accounts.
 
 #### Cloud native
 
@@ -80,35 +79,6 @@ Business continuity and disaster recovery, also known as BCDR, is a business’s
 #### Machine learning and artificial intelligence
 
 Artificial intelligence (AI) is technology that simulates human intelligence and problem-solving capabilities in machines. Machine Learning (ML) is a sub-discipline of AI that uses algorithms to create models that enable machines to perform tasks. Both represent the newest workload on Azure which is growing at a rapid pace. This type of workload can be applied across every industry to improve metrics and meet performance goals. These types of technologies can lead to discoveries of life-saving drugs and practices in the field of medicine/health while also providing health assessments. Other everyday uses of ML and AI include fraud detection, image recognition, and the flagging of misinformation. These workloads typically need highly specialized compute (large numbers of GPU). They also require high throughput and IOPS with low latency access to storage and POSIX file system access. Azure Storage supports these types of workloads by storing checkpoints and providing storage for large-scale datasets and models. These datasets and models read and write at a pace to keep GPUs utilized. 
-
-#### Other
-
-For workloads that do not fit into one of the categories above, you can set your primary workload to Other.
-
-### Environments
-
-When creating your storage accounts, you can also select the environment associated with the workload. The environment selections are:
-- Production – The workload your storage account supports is used in a production capacity.
-- Dev/Test – The workload your storage account supports is used for development or testing purposes.
-
-### Preset configuration summary
-Selection of a primary workload and environment affect the preset values that are recommended. The table below illustrates these values for each Workload/Environment pair.
-
-
-|Workload |Environment |Account kind |Performance |Redundancy |Hierarchical namespace enabled |Default access tier |Soft delete enabled |
-|---|---|---|---|---|---|---|---|
-|Cloud native |Production |General purpose v2 |Standard |ZRS, RA-GRS |No |Hot |Yes |
-|Cloud native |Dev/Test |General purpose v2 |Standard |LRS |No |Hot |Yes |
-|Big data analytics |Production |General purpose v2 |Standard |ZRS, RA-GRS |Yes |Hot |Yes |
-|Big data analytics |Dev/Test |General purpose v2 |Standard |LRS |Yes |Hot |No |
-|High performance computing (HPC) |Production |General purpose v2 |Standard |ZRS, RA-GRS |Yes |Hot |Yes |
-|High performance computing (HPC) |Dev/Test |General purpose v2 |Standard |LRS |Yes |Hot |No |
-|Backup and archive |Production |General purpose v2 |Standard |ZRS, RA-GRS |No |Cool |Yes |
-|Backup and archive |Dev/Test |General purpose v2 |Standard |LRS |No |Cool |No |
-|Machine learning and artificial intelligence |Production |General purpose v2 |Standard |ZRS, RA-GRS |Yes |Hot |No |
-|Machine learning and artificial intelligence |Dev/Test |General purpose v2 |Standard |LRS |Yes |Hot |No |
-|Other |Production |General purpose v2 |Standard |ZRS, RA-GRS |No |Hot |Yes |
-|Other |Dev/Test |General purpose v2 |Standard |LRS |No |Hot |No |
 
 ## Storage account endpoints
 
