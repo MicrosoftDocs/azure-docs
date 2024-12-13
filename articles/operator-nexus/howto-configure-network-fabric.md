@@ -369,7 +369,7 @@ The following table specifies parameters used to create Network-to-Network Inter
 
 | Parameter | Description | Example | Required | Type|
 |-----------|-------------|---------|----------|-----------|
-|isMangementType| Configuration to make NNI to be used for management of Fabric. Default value is true. Possible values are True/False |True|True
+|isManagementType| Configuration to make NNI to be used for management of Fabric. Default value is true. Possible values are True/False |True|True
 |useOptionB| Configuration to enable optionB. Possible values are True/False |True|True
 ||
 |*layer2Configuration*| Layer 2 configuration ||
