@@ -140,7 +140,7 @@ To add Windows Server Active Directory over LDAP with SSL as an external identit
 1. To monitor progress and confirm successful completion, check **Notifications** or the **Run Execution Status** pane.
 
 > [!IMPORTANT]
-> If the Run command **New-LDAPSIdenitySource** fails, utilize the **Debug-LDAPSIdentitySources** Run command to troubleshoot the issue.
+> If the Run command **New-LDAPSIdenitySource** fails, utilize the Run command **Debug-LDAPSIdentitySources** to troubleshoot the issue.
 
 ## Add Windows Server Active Directory by using LDAP
 
