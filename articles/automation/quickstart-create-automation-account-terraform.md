@@ -104,7 +104,7 @@ In this article, you learn how to:
     $automation_account_name=$(terraform output -raw resource_group_name)
     ```
 
-1. Run [`Get-AzAutomationAccount`](powershell/module/az.automation/get-azautomationaccount#example-2-get-an-account) to view the Automation account.
+1. Run [`Get-AzAutomationAccount`](/powershell/module/az.automation/get-azautomationaccount#example-2-get-an-account) to view the Automation account.
 
     ```azurepowershell
     Get-AzAutomationAccount -ResourceGroupName "MyResourceGroup" -Name "MyAutomationAccount"
