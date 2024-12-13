@@ -193,72 +193,6 @@ For example, to run the Office 365 Outlook **Send an email** action after the Ex
 
 <a name="change-run-after-designer"></a>
 
-### Change "run after" behavior in the designer
-
-### [Standard](#tab/standard)
-
-1. In the [Azure portal](https://portal.azure.com), open the logic app workflow in the designer.
-
-1. On the designer, select the action shape. On the details pane, select **Run After**.
-
-   ![Screenshot showing Standard workflow designer and current action details pane with "Run After" selected.](./media/error-exception-handling/configure-run-after-standard.png)
-
-   The **Run After** pane shows the predecessor action for the currently selected action.
-
-   ![Screenshot showing Standard designer, current action, and "run after" status for predecessor action.](./media/error-exception-handling/predecessor-action-standard.png)
-
-1. Expand the predecessor action node to view all the "run after" statuses.
-
-   By default, the "run after" status is set to **is successful**. So, the predecessor action must run successfully before the currently selected action can run.
-
-   ![Screenshot showing Standard designer, current action, and default "run after" set to "is successful".](./media/error-exception-handling/change-run-after-status-standard.png)
-
-1. Change the "run after" behavior to the status that you want. Make sure that you first select an option before you clear the default option. You have to always have at least one option selected.
-
-   The following example selects **has failed**.
-
-   ![Screenshot showing Standard designer, current action, and "run after" set to "has failed".](./media/error-exception-handling/failed-run-after-status-standard.png)
-
-1. To specify that the current action runs whether the predecessor action is marked as **Failed**, **Skipped**, or **TimedOut**, select the other statuses.
-
-   ![Screenshot showing Standard designer, current action, and multiple "run after" statuses selected.](./media/error-exception-handling/run-after-multiple-statuses-standard.png)
-
-1. To require that more than one predecessor action runs, each with their own "run after" statuses, expand the **Select actions** list. Select the predecessor actions that you want, and specify their required "run after" statuses.
-
-   ![Screenshot showing Standard designer, current action, and multiple predecessor actions available.](./media/error-exception-handling/multiple-predecessor-actions-standard.png)
-
-1. When you're ready, select **Done**.
-
-### [Consumption](#tab/consumption)
-
-1. In the [Azure portal](https://portal.azure.com), open the logic app workflow in the designer.
-
-1. On the action shape, open the ellipses menu (**...**), and select **Configure run after**.
-
-   ![Screenshot showing Consumption workflow designer and current action with ellipses and "Configure run after" selected.](./media/error-exception-handling/configure-run-after-consumption.png)
-
-   The action shape expands and shows the predecessor action for the currently selected action.
-
-   ![Screenshot showing Consumption workflow designer, current action, and "run after" status for predecessor action.](./media/error-exception-handling/predecessor-action-consumption.png)
-
-1. Expand the predecessor action node to view all the "run after" statuses.
-
-   By default, the "run after" status is set to **is successful**. So, the predecessor action must run successfully before the currently selected action can run.
-
-   ![Screenshot showing Consumption designer, current action, and default "run after" set to "is successful".](./media/error-exception-handling/default-run-after-status-consumption.png)
-
-1. Change the "run after" behavior to the status that you want. Make sure that you first select an option before you clear the default option. You have to always have at least one option selected.
-
-   The following example selects **has failed**.
-
-   ![Screenshot showing Consumption designer, current action, and "run after" set to "has failed".](./media/error-exception-handling/failed-run-after-status-consumption.png)
-
-1. To specify that the current action runs whether the predecessor action is marked as **Failed**, **Skipped**, or **TimedOut**, select the other statuses.
-
-   ![Screenshot showing Consumption designer, current action, and multiple "run after" statuses selected.](./media/error-exception-handling/run-after-multiple-statuses-consumption.png)
-
-1. When you're ready, select **Done**.
-
 ---
 
 ### Change "run after" behavior in the code view editor
@@ -333,6 +267,37 @@ To catch exceptions in a **Failed** scope and run actions that handle those erro
 For limits on scopes, see [Limits and config](logic-apps-limits-and-config.md).
 
 <a name="get-results-from-failures"></a>
+
+### Use "scope" in the designer
+
+#### Step 1: Open the Logic App Designer
+* Navigate to your Logic App in the Azure portal.
+* Click on Edit to open the Logic App Designer.
+
+#### Step 2: Add a Scope Action
+* In the Logic App Designer, click + New Step where you want to add the Scope.
+* In the search bar, type Scope and select the Scope action.
+* A container will appear where you can add multiple actions.
+
+![Screenshot showing designer, searching scope in the 'Add an action menu'".](./media/error-exception-handling/search-scope.png)
+
+
+#### Step 3: Add Actions to the Scope
+* Inside the Scope container, click Add an action.
+* Add the actions you want to group. For example:
+   * Retrieve data from an API.
+   * Process the data.
+   * Save the data to a database.
+* Repeat the process to include all related actions.
+
+![Screenshot showing designer, adding different steps into the scope".](./media/error-exception-handling/add-actions-into-scope.png)
+
+#### Step 4: Define "Run After" Conditions
+* Switch the "Settings" tab of the "Scope"
+* Configure the "Run after" section for your cases  
+* Scope will be triggered after the selected actions
+
+![Screenshot showing designer, adding run after rules.](./media/error-exception-handling/set-run-after-in-scope.png)
 
 ### Get context and results for failures
 
