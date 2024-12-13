@@ -138,7 +138,7 @@ The Azure Container Apps environment acts as a secure boundary around container 
 
     # [Azure PowerShell](#tab/azure-powershell)
     ```powershell
-    az group create `
+    New-AzResourceGroup `
         --name "$RESOURCE_GROUP" `
         --location "$LOCATION"
     ```
