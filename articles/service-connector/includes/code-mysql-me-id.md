@@ -76,15 +76,15 @@ await connection.OpenAsync();
 
     // for user-assigned managed identity
     // String clientId = System.getenv('AZURE_MYSQL_CLIENTID')
-    // properties.put("azure.clientId","${YOUR_CLIENT_ID}");
+    // properties.put("azure.clientId", clientId);
 
     // For service principal
     // String tenantId = System.getenv('AZURE_MYSQL_TENANTID')
     // String clientId = System.getenv('AZURE_MYSQL_CLIENTID')
     // String clientSecret = System.getenv('AZURE_MYSQL_CLIENTSECRET')
-    // properties.put("azure.clientId","${YOUR_CLIENT_ID}");
-    // properties.put("azure.clientSecret","${YOUR_CLIENT_SECRET}");
-    // properties.put("azure.tenantId","${YOUR_TENANT_ID}");
+    // properties.put("azure.clientId", clientId);
+    // properties.put("azure.clientSecret", clientSecret);
+    // properties.put("azure.tenantId", tenantId);
 
     Connection connection = DriverManager.getConnection(url, properties);
     ```
