@@ -2,7 +2,7 @@
 title: 'Quickstart: Use Terraform to create an Azure Automation account'
 description: In this quickstart, you use Terraform to create an Azure resource group, an Azure Automation account with a system-assigned identity, and assign a "Contributor" role to the Automation account.
 ms.topic: quickstart
-ms.date: 12/13/2024
+ms.date: 12/16/2024
 ms.custom: devx-track-terraform
 ms.service: azure-automation
 author: SnehaSudhirG
@@ -18,14 +18,12 @@ In this quickstart, you create an Azure Automation account and use Terraform to 
 
 [!INCLUDE [About Terraform](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
 
+In this article, you learn how to:
+
 > [!div class="checklist"]
-> * Specify the required version and providers for Terraform.
-> * Define variables for the resource group name prefix, location, and Automation account name.
-> * Generate a random pet name for the resource group.
-> * Create an Azure resource group with the generated name at a specified location.
-> * Generate a random string for the Automation account name.
-> * Create an Automation account with the generated name or a specified name in the created resource group.
-> * Enable public network access for the Automation account.
+> * Create an Azure resource group with a unique name.
+> * Generate a random string for unique naming of the Azure resources.
+> * Create an Automation account and enable public network access.
 > * Retrieve the current Azure subscription.
 > * Retrieve the role definition for "Contributor".
 > * Assign the "Contributor" role to the Automation account.
@@ -91,6 +89,28 @@ In this quickstart, you create an Azure Automation account and use Terraform to 
     ```azurecli
     az automation account show --name $automation_account_name --resource-group $resource_group_name
     ```
+
+### [PowerShell](#tab/PowerShell)
+
+1. Get the Azure resource group name.
+
+    ```console
+    $resource_group_name=$(terraform output -raw resource_group_name)
+    ```
+
+2. Get the Automation account name.
+
+    ```console
+    $automation_account_name=$(terraform output -raw resource_group_name)
+    ```
+
+3. Run [`Get-AzAutomationAccount`](/powershell/module/az.automation/account#example-2-get-an-account) to view the Automation account.
+
+    ```azurepowershell
+    Get-AzAutomationAccount -ResourceGroupName "MyResourceGroup" -Name "MyAutomationAccount"
+    ```
+
+---
 
 ## Clean up resources
 
