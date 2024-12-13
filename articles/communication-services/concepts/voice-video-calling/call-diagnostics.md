@@ -118,6 +118,29 @@ Your organization manages access to [Microsoft Copilot in Azure (preview)](/azur
 
 Use Copilot in Azure for Call Diagnostics to improve call quality by detailing problems faced during Azure Communication Services calls. Giving Copilot in Azure detailed information from Call Diagnostics will help it enhance analysis, identify problems, and identify fixes. Be aware that Copilot in Azure currently lacks programmatic access to your call details.
 
+### How do I use `DiagnosticOptions` to view my tagged calls in Call Diagnostics?
+
+Your tags used in `DiagnosticOptions` could be used in 3 places in the Call Diagnostics interface:
+* Calls search
+  ![image](https://github.com/user-attachments/assets/2245f537-1f71-4f4b-98a0-69859350d88d)
+* Participants table in Call Overview section
+  ![image](https://github.com/user-attachments/assets/6c122d7a-4672-4b77-b415-29fab0a9c741)
+* Timeline section in Participants information Sidepanel
+  ![image](https://github.com/user-attachments/assets/279eb1da-6a92-4e9b-bc31-5cc4e777e10b)
+
+### I cannot see the `DiagnosticOptions` information column in the tables. How can I enable them?
+
+For viewing the `DiagnosticOptions` columns in Call Diagnostics you have to enable them by using `Edit Columns` button:
+![image](https://github.com/user-attachments/assets/86e5cc23-91b7-4019-b5ed-e023f1830ba4)
+After clicking this button choose the `DiagnosticOptions` option and click on the `Done` button:
+![image](https://github.com/user-attachments/assets/cc16a6cc-e8ae-41e6-95a3-9b9926b13791)
+You will be able to see the `DiagnosticOptions`column now.
+
+### Where can I find more information about adding tags for my Calls in Call Diagnostics?
+
+You can find more information for adding `DiagnosticOptions` tags in: 
+https://learn.microsoft.com/en-us/azure/communication-services/tutorials/voice-video-calling/diagnostic-options-tag
+
 ## Related content
 
 - Learn how to manage call quality: [Improve and manage call quality](manage-call-quality.md).
