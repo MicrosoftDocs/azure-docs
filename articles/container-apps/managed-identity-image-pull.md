@@ -458,8 +458,7 @@ $AppArgs = @{
     ResourceGroupName = $ResourceGroupName
     ManagedEnvironmentId = $EnvId
     ConfigurationRegistry = $CredentialObject
-    IdentityType = 'UserAssigned'
-    IdentityUserAssignedIdentity = @{ $IdentityId = @{ } }
+    UserAssignedIdentity = @($IdentityId)
     TemplateContainer = $TemplateObj
     IngressTargetPort = 80
     IngressExternal = $true
