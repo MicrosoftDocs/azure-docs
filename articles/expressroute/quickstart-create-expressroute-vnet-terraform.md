@@ -2,7 +2,7 @@
 title: 'Quickstart: Configure an Azure virtual network gateway with Terraform'
 description: In this quickstart, you create a resource group, a virtual network, a subnet for the gateway, a public IP for the gateway, an Azure ExpressRoute gateway, an ExpressRoute circuit, and an ExpressRoute circuit peering in Azure.
 ms.topic: quickstart
-ms.date: 12/13/2024
+ms.date: 12/16/2024
 ms.custom: devx-track-terraform
 ms.service: azure-virtual-network
 author: duongau
@@ -20,13 +20,15 @@ In this quickstart, you use Terraform to create an Azure ExpressRoute circuit wi
 
 [!INCLUDE [About Terraform](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
 
+In this article, you learn how to:
+
 > [!div class="checklist"]
 > * Create a resource group with a unique name.
 > * Generate a random string for unique naming of the Azure resources.
 > * Create a virtual network with a subnet for the gateway.
 > * Create a public IP for the gateway.
 > * Create an ExpressRoute circuit and configure private peering.
-> * Output the resource group name, ExpressRoute circuit ID, gateway IP, and the service key.
+> * Output the resource group name, ExpressRoute circuit ID, gateway name, gateway IP, and the service key.
 
 ## Prerequisites
 
@@ -77,19 +79,25 @@ In this quickstart, you use Terraform to create an Azure ExpressRoute circuit wi
    resource_group_name=$(terraform output -raw resource_group_name)
    ```
 
-1. Confirm the ExpressRoute circuit ID.
+1. Get the ExpressRoute circuit ID.
 
    ```console
    express_route_circuit_id=$(terraform output -raw express_route_circuit_id)
    ```
 
-1. Confirm the gateway IP.
+1. Get the gateway name.
+
+   ```console
+   gateway_name=$(terraform output -raw gateway_name)
+   ```
+
+1. Get the gateway IP.
 
    ```console
    gateway_ip=$(terraform output -raw gateway_ip)
    ```
 
-1. Confirm the service key.
+1. Get the service key.
 
     ```console
    service_key=$(terraform output -raw service_key)
@@ -99,6 +107,46 @@ In this quickstart, you use Terraform to create an Azure ExpressRoute circuit wi
 
    ```azurecli
    az network vnet-gateway show --name $gateway_name --resource-group $resource_group_name
+   ```
+
+---
+
+### [PowerShell](#tab/PowerShell)
+
+1. Get the Azure resource group name.
+
+   ```console
+   $resource_group_name=$(terraform output -raw resource_group_name)
+   ```
+
+1. Get the ExpressRoute circuit ID.
+
+   ```console
+   $expressRouteCircuitId=$(terraform output -raw express_route_circuit_id)
+   ```
+
+1. Get the gateway name.
+
+   ```console
+   $gateway_name=$(terraform output -raw gateway_name)
+   ```
+
+1. Get the gateway IP.
+
+   ```console
+   $gateway_ip=$(terraform output -raw gateway_ip)
+   ```
+
+1. Get the service key.
+
+    ```console
+   $service_key=$(terraform output -raw service_key)
+   ```
+
+1. Run [`Get-AzVirtualNetworkGateway`](/powershell/azure/network/vnet-gateway#az-network-vnet-gateway-show) to view the Azure virtual network gateway.
+
+   ```azurepowershell
+   Get-AzVirtualNetworkGateway -Name myGateway* -ResourceGroupName myRG
    ```
 
 ---
