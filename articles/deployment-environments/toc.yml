@@ -61,9 +61,12 @@ items:
 - name: Configure the ADE extensibility model
   expanded: false
   items:
+    - name: Configure ARM or Bicep container image
+      href: /azure/deployment-environments/how-to-configure-extensibility-model-custom-image?tabs=sample%2Cprivate-registry&pivots=arm-bicep
+      displayName: custom image, container, custom runner, extensibility, ARM, Bicep
     - name: Configure container image to execute deployments
       href: how-to-configure-extensibility-model-custom-image.md
-      displayName: custom image, container, custom runner, extensibility, ARM, Bicep, Terraform, Pulumi 
+      displayName: custom image, container, custom runner, extensibility, ARM, Bicep, Terraform, Pulumi     
     - name: Troubleshoot custom image errors and warnings
       displayName: custom image, container, custom runner, extensibility, ARM, Bicep, Terraform, Pulumi
       href: troubleshoot-custom-image-logs-errors.md 
