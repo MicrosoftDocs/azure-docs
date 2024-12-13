@@ -10,7 +10,6 @@ ms.date: 12/13/2024
 ms.author: areddys
 ms.custom: mvc, linux-related-content
 ---
-# WordPress on Azure App Service: Frequently Asked Questions (FAQ)
 
 ## Are there limits on the number of sites, visits, storage, or bandwidth?
 
@@ -44,7 +43,7 @@ Azure App Service integrates robust security features to safeguard WordPress sit
 - **[App Service Security](overview-security.md):** HTTPS, IP restrictions, certificates, authentication, and network isolation.
 - **[Easy Authentication](overview-authentication-authorization.md):** Built-in identity provider integration with minimal effort.
 - **[Azure Database for MySQL](/security/benchmark/azure/baselines/azure-database-for-mysql-flexible-server-security-baseline):** Advanced protections for Azure MySQL servers, including encryption and backup capabilities.
-- **[Virtual Network (VNET)](/azure/virtual-network/virtual-networks-overview.md):** Secure communication between Azure resources, the internet, and on-premises networks.
+- **[Virtual Network (VNET)](/azure/virtual-network/virtual-networks-overview):** Secure communication between Azure resources, the internet, and on-premises networks.
 - **[Managed Identities](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities):** Credential-free access to resources using Microsoft Entra tokens.
 - **[Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction):** Proactive threat detection with DevSecOps integration.
 - **[Azure Key Vault](/azure/key-vault/):** Secure storage for keys, secrets, and certificates.
@@ -68,10 +67,10 @@ Use the `DATABASE_USERNAME` as the username and a generated token as the passwor
 ## How do I enable a custom domain for my WordPress website?
 Custom domains can be set up with these resources:
 - [Using custom domains with WordPress on Azure App Service](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/how-to-use-custom-domains-with-wordpress-on-app-service/ba-p/3886247)
-- [Configuring custom domains with Azure Front Door](https://learn.microsoft.com/azure/frontdoor/front-door-custom-domain)
+- [Configuring custom domains with Azure Front Door](/azure/frontdoor/front-door-custom-domain)
 
 ## Does WordPress on App Service have email functionality?
-Yes, email functionality is supported through **[Azure Communication Services](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/wordpress-on-azure-appservice-email-integration/ba-p/3890486)**. [Custom email domains can be also be configured](https://learn.microsoft.com/azure/communication-services/quickstarts/email/add-custom-verified-domains).
+Yes, email functionality is supported through **[Azure Communication Services](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/wordpress-on-azure-appservice-email-integration/ba-p/3890486)**. [Custom email domains can be also be configured](/azure/communication-services/quickstarts/email/add-custom-verified-domains).
 
 ## How can I update NGINX configurations for my WordPress website?
 NGINX configurations can be updated using a **startup script**. Detailed instructions are available in the [startup script guide](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/updating-nginx-default-configurations-on-azure-app-services/ba-p/3710146).
@@ -89,7 +88,7 @@ Key tools for debugging and monitoring WordPress sites include:
 - **[SSH Access](configure-linux-open-ssh-session.md?pivots=container-linux)**
 
 ### PhpMyAdmin
-WordPress on App Service utilizes an Azure Database for MySQL flexible server, which is integrated into a VNET. This setup restricts database access to within the VNET. WordPress on App Service includes phpMyAdmin by default. You can access it at: https://<your-site-link>/phpmyadmin. 
+WordPress on App Service utilizes an Azure Database for MySQL flexible server, which is integrated into a VNET. This setup restricts database access to within the VNET. WordPress on App Service includes phpMyAdmin by default. You can access it at: https://`<your-site-link>`/phpmyadmin. 
  
 If you are using Managed Identities, you can log in to phpMyAdmin by using the value from DATABASE_USERNAME environment variable as the username and the token as the password. To find the token use your Kudu SSH to run the following command: 
  
