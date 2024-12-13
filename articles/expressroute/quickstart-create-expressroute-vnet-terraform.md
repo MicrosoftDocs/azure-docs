@@ -141,7 +141,7 @@ In this article, you learn how to:
    $service_key=$(terraform output -raw service_key)
    ```
 
-1. Run [`Get-AzVirtualNetworkGateway`](/powershell/module/az.network/get-azvirtualnetworkgateway#az-network-vnet-gateway-show) to view the Azure virtual network gateway.
+1. Run [`Get-AzVirtualNetworkGateway`](/powershell/module/az.network/get-azvirtualnetworkgateway##:~:text=Example%202:%20Get%20a%20Virtual%20Network%20Gateway) to view the Azure virtual network gateway.
 
    ```azurepowershell
    Get-AzVirtualNetworkGateway -Name myGateway* -ResourceGroupName myRG
