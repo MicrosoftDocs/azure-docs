@@ -67,7 +67,7 @@ Follow the [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops
 1. It's recommended to install the kubectl client with [these steps](/azure/azure-arc/kubernetes/troubleshooting#azure-cli) to ensure kubectl client is installed properly for Arc-enablement.
 1. Proceed to Arc-enable the cluster.
 1. Before you disable internet access of your cluster, you also need to complete the [Prerequisites for deploying Azure IoT Operations](/azure/iot-operations/deploy-iot-ops/howto-deploy-iot-operations#prerequisites).
-1. After installing the required software components and set up the K3s cluster, you can restrict the internet access for this cluster and configure the [CoreDNS](howto-configure-layered-network.md#configure-custom-dns) to redirect network traffic to your Layered Network Management service at level 4.
+1. After installing the required software components and setting up the K3s cluster, you can restrict the internet access for this cluster and configure the [CoreDNS](howto-configure-layered-network.md#configure-custom-dns) to redirect network traffic to your Layered Network Management service at level 4.
 
 # [AKS Edge Essentials](#tab/aksee)
 
