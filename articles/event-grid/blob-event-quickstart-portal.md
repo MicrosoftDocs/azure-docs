@@ -10,13 +10,6 @@ ms.custom: mode-ui
 # Quickstart: Use Azure Event Grid to route Blob storage events to web endpoint (Azure portal)
 Event Grid is a fully managed service that enables you to easily manage events across many different Azure services and applications. It simplifies building event-driven and serverless applications. For an overview of the service, see [Event Grid overview](overview.md).
 
-In this article, you use the Azure portal to do the following tasks:
-
-1. Create a Blob storage account.
-1. Subscribe to events for that blob storage.
-1. Trigger an event by uploading a file to the blob storage.
-1. View the result in a handler web app. Typically, you send events to an endpoint that processes the event data and takes actions. To keep it simple, you send events to a web app that collects and displays the messages.
-
 [!INCLUDE [quickstarts-free-trial-note.md](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 When you're finished, you see that the event data is sent to the web app.
