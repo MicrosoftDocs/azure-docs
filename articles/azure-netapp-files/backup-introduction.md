@@ -85,11 +85,11 @@ As a pricing example, assume the following situations:
 * Your source volume is from the Azure NetApp Files Premium service level. It has a volume quota size of 1000 GiB and a volume consumed size of 500 GiB at the beginning of the first day of a month. The volume is in the US South Central region.
 * For simplicity, assume your source volume has a constant 1% data change every day, but the total volume consumed size doesn't grow (remains at 500 GiB).
 
-When the backup policy is assigned to the volume, the baseline backup to service-managed Azure storage is initiated. When the backup is complete, the baseline backup of 500 GiB will be added to the backup list of the volume. After the baseline transfer, daily backups only back up changed blocks. Assume 5-GiB daily incremental backups added, the total backup storage consumed would be `500GiB + 30*5GiB = 650GiB`.
+When the backup policy is assigned to the volume, the baseline backup to service-managed Azure storage is initiated. When the backup is complete, the baseline backup of 500 GiB is added to the backup list of the volume. After the baseline transfer, daily backups only back up changed blocks. Assume 5-GiB daily incremental backups added, the total backup storage consumed is `500GiB + 30*5GiB = 650GiB`.
 
-You'll be billed at the end of month for backup at the rate of $0.05 per month for the total amount of storage consumed by the backup.  That is, 650 GiB with a total monthly backup charge of `650*$0.05=$32.5`. Regular Azure NetApp Files storage capacity applies to local snapshots. For more information, see the [Azure NetApp Files Pricing](https://azure.microsoft.com/pricing/details/netapp/) page.
+You're billed at the end of month for backup at the rate of $0.05 per month for the total amount of storage consumed by the backup. That is, 650 GiB with a total monthly backup charge of `650*$0.05=$32.5`. Regular Azure NetApp Files storage capacity applies to local snapshots. For more information, see the [Azure NetApp Files Pricing](https://azure.microsoft.com/pricing/details/netapp/) page.
 
-If you choose to restore a backup of, for example, 600 GiB to a new volume, you'll be charged at the rate of $0.02 per GiB of backup capacity restores. In this case, it will be `600*$0.02 = $12` for the restore operation. 
+If you choose to restore a backup of, for example, 600 GiB to a new volume, you're charged at the rate of $0.02 per GiB of backup capacity restores. In this case, it's `600*$0.02 = $12` for the restore operation. 
 
 ## Next steps
 

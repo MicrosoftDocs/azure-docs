@@ -6,13 +6,17 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: linux-related-content
 ms.topic: overview
-ms.date: 12/11/2024
+ms.date: 12/12/2024
 ms.author: anfdocs
 ---
 
 # What's new in Azure NetApp Files
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
+
+* [Backup support for large volumes](large-volumes-requirements-considerations.md#back-up-large-volumes) (preview)
+
+<-- PLR text -->
 
 ## December 2024
 

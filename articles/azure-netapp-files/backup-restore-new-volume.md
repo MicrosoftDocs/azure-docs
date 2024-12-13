@@ -44,9 +44,6 @@ See [Requirements and considerations for Azure NetApp Files backup](backup-requi
 >All backups must be migrated to backup vaults. You are unable to perform any operation on or with a backup until you have migrated the backup to a backup vault. For more information about this procedure, see [Manage backup vaults](backup-vault-manage.md).
 
 1. Select **Backup Vault**. Navigate to **Backups**.
-<!-- 
-    > [!NOTE]
-    > If a volume is deleted but the backup policy wasn’t disabled before the volume deletion, all the backups related to the volume are retained in the Azure storage, and you can find them under the associated NetApp account. -->
 
 2. From the backup list, select the backup to restore. Select the three dots (`…`) to the right of the backup, then select **Restore to new volume** from the Action menu.   
 

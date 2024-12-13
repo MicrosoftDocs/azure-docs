@@ -6,7 +6,7 @@ author: b-ahibbard
 ms.service: azure-netapp-files
 ms.custom: references_regions
 ms.topic: conceptual
-ms.date: 10/07/2024
+ms.date: 12/12/2024
 ms.author: anfdocs
 ---
 # Requirements and considerations for large volumes
@@ -21,7 +21,6 @@ The following requirements and considerations apply to large volumes. For perfor
 * You must create a large volume at a size of 50 TiB or larger. A single volume can't exceed 1 PiB.  
 * You can't resize a large volume to less than 50 TiB.
     A large volume cannot be resized to more than 30% of its lowest provisioned size. This limit is adjustable via [a support request](azure-netapp-files-resource-limits.md#resource-limits).
-* Large volumes are currently not supported with Azure NetApp Files backup.
 * You can't create a large volume with application volume groups.
 * Currently, large volumes aren't suited for database (HANA, Oracle, SQL Server, etc.) data and log volumes. For database workloads requiring more than a single volume’s throughput limit, consider deploying multiple regular volumes. To optimize multiple volume deployments for databases, use [application volume groups](application-volume-group-concept.md).
 * Throughput ceilings for the three performance tiers (Standard, Premium, and Ultra) of large volumes are based on the existing 100-TiB maximum capacity targets. You're able to grow to 1 PiB with the throughput ceiling per the following table:  
@@ -123,6 +122,27 @@ Check the status of the feature registration:
   ```
     
 You can also use [Azure CLI command](/cli/azure/feature) `az feature show` to register the feature and display the registration status. 
+
+## <a name="back-up-large-volumes"></a>Back up large volumes (preview)
+
+[Azure NetApp Files backup](backup-introduction.md) for large volumes is currently in preview. You must register for the preview before you can create a backup of a large volume. Feature registration may take up to 60 minutes to complete.
+
+1. Register the feature
+
+    ```azurepowershell-interactive
+    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFBackupLargeVolumes
+    ```
+
+2. Check the status of the feature registration: 
+
+    > [!NOTE]
+    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is `Registered` before continuing.
+
+    ```azurepowershell-interactive
+    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFBackupLargeVolumes
+    ```
+You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
+
 
 ## Next steps
 
