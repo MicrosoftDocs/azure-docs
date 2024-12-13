@@ -25,15 +25,6 @@ The following table lists the metrics available for the Microsoft.StorageSync/st
 
 [!INCLUDE [Microsoft.StorageSync/storageSyncServices](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-storagesync-storagesyncservices-metrics-include.md)]
 
-Metrics for Azure File Sync are enabled by default and are sent to Azure Monitor every 15 minutes.
-
-To view Azure File Sync metrics in Azure Monitor:
-
-1. Go to your **Storage Sync Service** in the **Azure portal** and select **Metrics**.
-1. Select the **Metric** drop-down and select the metric you want to view.
-
-:::image type="content" source="media/storage-sync-files-troubleshoot/file-sync-metrics.png" alt-text="Screenshot of Azure File Sync metrics in the Azure portal.":::
-
 [!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
 
 [!INCLUDE [horz-monitor-ref-metrics-dimensions](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions.md)]

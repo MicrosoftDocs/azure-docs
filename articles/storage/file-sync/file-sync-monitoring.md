@@ -11,7 +11,7 @@ ms.service: azure-file-storage
 
 # Monitor Azure File Sync
 
-[!INCLUDE [azmon-horz-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/azmon-horz-intro.md)]
+Use Azure File Sync to centralize your organization's file shares in Azure Files, while keeping the flexibility, performance, and compatibility of an on-premises file server. Azure File Sync transforms Windows Server into a quick cache of your Azure file share. You can use any protocol that's available on Windows Server to access your data locally, including SMB, NFS, and FTPS. You can have as many caches as you need across the world.
 
 ## Collect data with Azure Monitor
 
@@ -19,13 +19,51 @@ This table describes how you can collect data to monitor your service, and what 
 
 |Data to collect|Description|How to collect and route the data|Where to view the data|Supported data|
 |---------|---------|---------|---------|---------|
-|Metric data|Metrics are numerical values that describe an aspect of a system at a particular point in time. Metrics can be aggregated using algorithms, compared to other metrics, and analyzed for trends over time.|- Collected automatically at regular intervals.</br> - You can route some platform metrics to a Log Analytics workspace to query with other data. Check the **DS export** setting for each metric to see if you can use a diagnostic setting to route the metric data.|[Metrics explorer](/azure/azure-monitor/essentials/metrics-getting-started)| [Azure File Sync metrics supported by Azure Monitor](monitor-file-sync-reference.md#metrics)|
-|Resource log data|Logs are recorded system events with a timestamp. Logs can contain different types of data, and be structured or free-form text. You can route resource log data to Log Analytics workspaces for querying and analysis.|[Create a diagnostic setting](/azure/azure-monitor/essentials/create-diagnostic-settings) to collect and route resource log data.| [Log Analytics](/azure/azure-monitor/learn/quick-create-workspace)| |
-|Activity log data|The Azure Monitor activity log provides insight into subscription-level events. The activity log includes information like when a resource is modified or a virtual machine is started.|- Collected automatically.</br> - [Create a diagnostic setting](/azure/azure-monitor/essentials/create-diagnostic-settings) to a Log Analytics workspace at no charge.|[Activity log](/azure/azure-monitor/essentials/activity-log)|  |
+|Metric data|Metrics are numerical values that describe an aspect of a system at a particular point in time. Metrics can be aggregated using algorithms, compared to other metrics, and analyzed for trends over time.|Collected automatically at regular intervals. |[Metrics explorer](/azure/azure-monitor/essentials/metrics-getting-started)| [Azure File Sync metrics supported by Azure Monitor](monitor-file-sync-reference.md#metrics)|
+|Activity log data|The Azure Monitor activity log provides insight into subscription-level events. The activity log includes information like when a resource is modified or a virtual machine is started.|Collected automatically.|[Activity log](/azure/azure-monitor/essentials/activity-log)|  |
 
-[!INCLUDE [azmon-horz-supported-data](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/azmon-horz-supported-data.md)]
+For the list of all of the metrics data supported by Azure Monitor, see [Azure Monitor supported metrics](/azure/azure-monitor/platform/metrics-supported).
 
 ## Built in monitoring for Azure File Sync
+
+This article describes how to monitor your Azure File Sync deployment by using Azure Monitor, Storage Sync Service, and Windows Server. It covers the following scenarios:
+
+- View Azure File Sync metrics in Azure Monitor.
+- Create alerts in Azure Monitor to proactively notify you of critical conditions.
+- View health of your Azure File Sync deployment using the Azure portal.
+- Use the event logs and performance counters on Windows Server to monitor the health of your Azure File Sync deployment.
+
+### View Azure File Sync metrics
+
+Metrics for Azure File Sync are enabled by default and are sent to Azure Monitor every 15 minutes.
+
+To view Azure File Sync metrics in Azure Monitor:
+
+1. Go to your **Storage Sync Service** in the **Azure portal** and select **Metrics**.
+1. Select the **Metric** drop-down and select the metric you want to view.
+
+:::image type="content" source="media/storage-sync-files-troubleshoot/file-sync-metrics.png" alt-text="Screenshot of Azure File Sync metrics in the Azure portal.":::
+
+Alerts proactively notify you when important conditions are found in your monitoring data. To learn more about configuring alerts in Azure Monitor, see [Overview of alerts in Microsoft Azure](/azure/azure-monitor/alerts/alerts-overview).
+
+### Alerts
+
+To create alerts for Azure File Sync:
+
+1. Go to your **Storage Sync Service** in the **Azure portal**. 
+2. Select **Alerts** in the Monitoring section and then select **+ New alert rule**.
+3. Select **Select condition** and provide the following information for the alert: 
+    - **Metric**
+    - **Dimension name**
+    - **Alert logic**
+4. Select **Select action group** and add an action group (email, SMS, etc.) to the alert either by selecting an existing action group or creating a new action group.
+5. Fill in the **Alert details** like **Alert rule name**, **Description**, and **Severity**.
+6. Select **Create alert rule** to create the alert.  
+
+  > [!NOTE]
+  > If you configure an alert using the Server Name dimension and the server is renamed, the alert will need to be updated to monitor the new server name.
+
+### Storage Sync Service
 
 To view the health of your Azure File Sync deployment in the **Azure portal**, navigate to the **Storage Sync Service**. The following information is available:
 
@@ -41,7 +79,7 @@ To view the health of your Azure File Sync deployment in the **Azure portal**, n
 
 - Metrics
 
-### Registered server health
+#### Registered server health
 
 To view the **registered server health** in the portal, navigate to the **Registered servers** section of the **Storage Sync Service**.
 
@@ -50,7 +88,7 @@ To view the **registered server health** in the portal, navigate to the **Regist
 - If the **Registered server** state is **Online**, the server is successfully communicating with the service.
 - If the **Registered server** state is **Appears Offline**, the Storage Sync Monitor process (AzureStorageSyncMonitor.exe) isn't running or the server is unable to access the Azure File Sync service. For more information, see the [troubleshooting documentation](/troubleshoot/azure/azure-storage/file-sync-troubleshoot-sync-group-management?toc=/azure/storage/file-sync/toc.json#server-endpoint-noactivity).
 
-### Server endpoint health
+#### Server endpoint health
 
 To view the health of a **server endpoint** in the portal, navigate to the **Sync groups** section of the **Storage Sync Service** and select a **sync group**.
 
@@ -61,7 +99,7 @@ To view the health of a **server endpoint** in the portal, navigate to the **Syn
 - The **Cloud tiering space savings** provides the amount of disk space saved by cloud tiering. The data provided for **Cloud tiering space savings** is based on Event ID 9071 that is logged in the Telemetry event log at the server. To view other cloud tiering information and metrics, go to the **Server Endpoint Properties** and navigate to the **Cloud tiering status** section. To learn more, see [Monitor cloud tiering](file-sync-monitor-cloud-tiering.md).
 - To view **Tiering errors** and **Recall errors** in the portal, go to the **Server Endpoint Properties** and navigate to the **Errors + troubleshooting** section. **Tiering errors** is based on Event ID 9003 that is logged in the Telemetry event log at the server and **Recall errors** is based on Event ID 9006. For more information about files that fail to tier or recall, see [How to troubleshoot files that fail to tier](/troubleshoot/azure/azure-storage/file-sync-troubleshoot-cloud-tiering?toc=/azure/storage/file-sync/toc.json#how-to-troubleshoot-files-that-fail-to-tier) and [How to troubleshoot files that fail to be recalled](/troubleshoot/azure/azure-storage/file-sync-troubleshoot-cloud-tiering?toc=/azure/storage/file-sync/toc.json#how-to-troubleshoot-files-that-fail-to-be-recalled).
 
-### Metric charts
+#### Metric charts
 
 The following metric charts are viewable in the Storage Sync Service portal:
 
@@ -97,7 +135,7 @@ To monitor registered server, sync, and cloud tiering health, use the Telemetry 
 
   - Event ID 9121 is logged for each per-item error once the sync session completes. Use this event to determine the number of files that are failing to sync with this error (**PersistentCount** and **TransientCount**). You should investigate persistent per-item errors. For more information, see [How do I see if there are specific files or folders that aren't syncing?](/troubleshoot/azure/azure-storage/file-sync-troubleshoot-sync-errors?toc=/azure/storage/file-sync/toc.json#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing).
 
-  - Event ID 9302 is logged every 5 to 10 minutes if there's an active sync session. Use this event to determine how many items are to be synced (**TotalItemCount**), number of items that synced so far (**AppliedItemCount**) and number of items that failed to sync due to a per-item error (**PerItemErrorCount**). If sync isn't making progress (**AppliedItemCount=0**), the sync session eventually fails and an Event ID 9102 will be logged with the error. For more information, see the [sync progress documentation](/troubleshoot/azure/azure-storage/file-sync-troubleshoot-sync-errors?toc=/azure/storage/file-sync/toc.json#how-do-i-monitor-the-progress-of-a-current-sync-session).
+  - Event ID 9302 is logged every 5 to 10 minutes if there's an active sync session. Use this event to determine how many items are to be synced (**TotalItemCount**), number of items that synced so far (**AppliedItemCount**) and number of items that failed to sync due to a per-item error (**PerItemErrorCount**). If sync isn't making progress (**AppliedItemCount=0**), the sync session eventually fails and an Event ID 9102 is logged with the error. For more information, see the [sync progress documentation](/troubleshoot/azure/azure-storage/file-sync-troubleshoot-sync-errors?toc=/azure/storage/file-sync/toc.json#how-do-i-monitor-the-progress-of-a-current-sync-session).
 
 - Registered server health
 
@@ -139,8 +177,6 @@ The following performance counters for Azure File Sync are available in Performa
 [!INCLUDE [azmon-horz-tools](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/azmon-horz-tools.md)]
 
 [!INCLUDE [azmon-horz-export-data](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/azmon-horz-export-data.md)]
-
-[!INCLUDE [azmon-horz-kusto](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/azmon-horz-kusto.md)]
 
 [!INCLUDE [azmon-horz-alerts-part-one](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/azmon-horz-alerts-part-one.md)]
 
@@ -252,8 +288,6 @@ To create an alert if the cloud tiering recall size excedes 500 GiB in a day:
 1. Select **Select action group** to add an action group (email, SMS, etc.) to the alert either by selecting an existing action group or creating a new action group.
 1. Fill in the **Alert details** like **Alert rule name**, **Description**, and **Severity**.
 1. Select **Create alert rule**.
-
-[!INCLUDE [azmon-horz-advisor](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/azmon-horz-advisor.md)]
 
 ## Related content
 
