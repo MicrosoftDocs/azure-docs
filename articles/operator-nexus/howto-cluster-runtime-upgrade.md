@@ -39,7 +39,9 @@ From the **available upgrade versions** tab, we're able to see the different clu
 Available upgrades are retrievable via the Azure CLI:
 
 ```azurecli
-az networkcloud cluster show --name "clusterName" --resource-group "resourceGroup"
+az networkcloud cluster show --name "<clusterName>" /
+--resource-group "<resourceGroup>" /
+--subscription <SUBSCRIPTION_ID>
 ```
 
 In the output, you can find the `availableUpgradeVersions` property and look at the `targetClusterVersion` field:
@@ -141,8 +143,10 @@ In this example, if less than 10 compute nodes being provisioned in a rack fail 
 To perform an upgrade of the runtime, use the following Azure CLI command:
 
 ```azurecli
-az networkcloud cluster update-version --cluster-name "clusterName" --target-cluster-version
-  "versionNumber" --resource-group "resourceGroupName"
+az networkcloud cluster update-version --cluster-name "<clusterName>" /
+--target-cluster-version "<versionNumber>" /
+--resource-group "<resourceGroupName>" /
+--subscription <SUBSCRIPTION_ID>
 ```
 
 The runtime upgrade is a long process. The upgrade first upgrades the management nodes and then sequentially rack by rack for the worker nodes.
@@ -164,7 +168,9 @@ The Cluster upgrade is complete when detailedStatus is set to `Running` and deta
 To view the upgrade status through the Azure CLI, use `az networkcloud cluster show`.
 
 ```azurecli
-az networkcloud cluster show --cluster-name "clusterName" --resource-group "resourceGroupName"
+az networkcloud cluster show --cluster-name "<clusterName>" /
+--resource-group "<resourceGroupName>" /
+--subscription <SUBSCRIPTION_ID>
 ```
 
 The output should be the target cluster's information and the cluster's detailed status and detail status message should be present.
