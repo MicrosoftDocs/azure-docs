@@ -299,7 +299,7 @@ items:
     - name: Deploy appliance in Azure Government
       href: deploy-appliance-script-government.md
     - name: Limit discovery scope for servers in VMware environment
-      href: set-discovery-scope.md
+      href: ./vmware/set-discovery-scope.md?context=/azure/migrate/context/migrate-context
     - name: Create least privilege credentials for SQL Server discovery
       href: least-privilege-credentials.md  
     - name: Enable Arc on discovered items
@@ -344,7 +344,7 @@ items:
     - name: Migrate VMware VMs to encrypted Azure VMs
       href: how-to-migrate-vmware-vms-with-cmk-disks.md
     - name: Test migration
-      href: how-to-test-replicating-virtual-machines.md
+      href: ./vmware/how-to-test-replicating-virtual-machines.md?context=/azure/migrate/context/migrate-context
     - name: Upgrade Windows OS
       href: how-to-upgrade-windows.md
     - name: Scale migration
@@ -354,7 +354,7 @@ items:
       - name: Automate migration of large number of VMs
         href: how-to-migrate-at-scale.md
       - name: How to automate VMware migration
-        href: how-to-automate-migration.md
+        href: ./vmware/how-to-automate-migration.md?context=/azure/migrate/context/migrate-context
   - name: Manage
     items:
     - name: Delete an Azure Migrate project

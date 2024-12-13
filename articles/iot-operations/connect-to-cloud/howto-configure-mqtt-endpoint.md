@@ -509,7 +509,7 @@ mqttSettings: {
   authentication: {
     method: 'UserAssignedManagedIdentity'
     userAssignedManagedIdentitySettings: {
-      cliendId: '<ID>'
+      clientId: '<ID>'
       tenantId: '<ID>'
       // Optional, defaults to 'https://eventgrid.azure.net/.default'
       // scope: 'https://<SCOPE_URL>' 

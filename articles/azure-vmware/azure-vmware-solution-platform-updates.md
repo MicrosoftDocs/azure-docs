@@ -4,7 +4,7 @@ description: Learn about the platform updates to Azure VMware Solution.
 ms.topic: reference
 ms.custom: "references_regions, engagement-fy23"
 ms.service: azure-vmware
-ms.date: 11/22/2024
+ms.date: 12/12/2024
 ---
 
 # What's new in Azure VMware Solution
@@ -17,7 +17,7 @@ Azure VMware Solution is now ready to update all existing Azure Commercial custo
 
 All new Azure VMware Solution private clouds are being deployed with VMware vSphere 8.0 version in [Microsoft Azure Government](https://azure.microsoft.com/explore/global-infrastructure/government/#why-azure). [Learn more](architecture-private-clouds.md#vmware-software-versions)
 
-Trusted Launch is now available in all Azure VMware Solution regions. This enables Virtual Trusted Platform Module (vTPM) on virtual machines, ensuring compliance with the latest security standards and unlocking the potential to run modern operating systems like Microsoft Windows 11. [Learn more](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.vm_admin.doc/GUID-A43B6914-E5F9-4CB1-9277-448AC9C467FB.html)
+Trusted Launch is now available in all Azure VMware Solution regions. This enables Virtual Trusted Platform Module (vTPM) on virtual machines, ensuring compliance with the latest security standards and unlocking the potential to run modern operating systems like Microsoft Windows 11. [Learn more](configure-virtual-trusted-platform-module.md#configure-virtual-trusted-platform-module-vtpm-on-virtual-machines-with-azure-vmware-solution)
 
 ## October 2024
 
