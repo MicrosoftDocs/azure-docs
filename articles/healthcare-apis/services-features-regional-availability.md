@@ -11,67 +11,65 @@ ms.author: jasteppe
 
 # Regional availability of services and features 
 
-This article provides an overview of Azure Health Data Services regional availability of services and features. The availability of Azure Health Data Services services and features can vary by region. For example, the Fast Healthcare Interoperability Resources (FHIR&#174;) service is available in all regions, but the Digital Imaging and Communications in Medicine (DICOM&reg;) service, MedTech services, De-identification service, and Events feature are only available in some regions.
+This article provides an overview of Azure Health Data Services regional availability of services and features. The availability of Azure Health Data Services services and features can vary by region, including Azure API for FHIR. For example, the Fast Healthcare Interoperability Resources (FHIR&#174;) may be available in a region, but the Digital Imaging and Communications in Medicine (DICOM&reg;) service may not.</br>
+For information about general Microsoft product availability, refer to [Products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?msockid=103ee06b480d6d021ebff08749be6c9f).
 
+Key:
 &check; General Availability &nbsp; &nbsp; &nbsp; - Not Available &nbsp; &nbsp; &nbsp;  &rarr; Future Availability &nbsp; &nbsp; &nbsp; &copysr; In Preview
 
 ## Services and features available by region
 
 ### United States
 
-| Region | FHIR service | DICOM service | MedTech service | De-Identification service | Events |
-|--------|--------------|---------------|-----------------|---------------------------|--------|
-| East US | &check; | &check; | &check; | &check; | &check; |
-| East US2 | &check; | &check; | &check; | &check; | &check; |
-| South Central US | &check; | - | - | - | - |
-| North Central US | &check; | - | - | - | - |
-| West Central US | &check; | - | - | - | - |
-| West US2 | &check; | - | - | - | - |
-| West US3 | &check; | - | - | - | - |
-| West US3 | &check; | - | - | - | - |
+| Region | FHIR service | Azure API for FHIR | DICOM service | MedTech service | De-Identification service | Events |
+|--------|--------------|---------------|---------------|-----------------|---------------------------|--------|
+| East US | &check; |         | &check; | &check; | &check; | &check; |
+| East US2 | &check; |         | &check; | &check; | &check; | &check; |
+| South Central US |         | &check; | - | - | - | - |
+| North Central US |         | &check; | - | - | - | - |
+| West Central US |         | &check; | - | - | - | - |
+| West US2 | &check; |         | - | - | - | - |
+| West US3 | &check; |         | - | - | - | - |
+| West US3 | &check; |         | - | - | - | - |
 
 ### Canada
 
-| Region | FHIR service | DICOM service | MedTech service | De-Identification service | Events |
-|--------|--------------|---------------|-----------------|---------------------------|--------|
-| Canada Central | &check; | &check; | &check; | &check; | &check; |
+| Region | FHIR service | Azure API for FHIR | DICOM service | MedTech service | De-Identification service | Events |
+|--------|--------------|---------------|---------------|-----------------|---------------------------|--------|
+| Canada Central | &check; |         | &check; | &check; | &check; | &check; |
 
 ### Europe
 
-| Region | FHIR service | DICOM service | MedTech service | De-Identification service | Events |
-|--------|--------------|---------------|-----------------|---------------------------|--------|
-| France Central | &check; | - | - | - | - |
-| Germany West Central | &check; | - | - | - | - |
-| North Europe | &check; | - | - | - | - |
-| Sweden Central | &check; | - | - | - | - |
-| Switzerland North | &check; | - | - | - | - |
-| UK South | &check; | - | - | - | - |
-| West Europe | &check; | - | - | - | - |
+| Region | FHIR service | Azure API for FHIR | DICOM service | MedTech service | De-Identification service | Events |
+|--------|--------------|---------------|---------------|-----------------|---------------------------|--------|
+| France Central | &check; |          | - | - | - | - |
+| Germany West Central | &check; |          | - | - | - | - |
+| North Europe | &check; |          | - | - | - | - |
+| Sweden Central | &check; |          | - | - | - | - |
+| Switzerland North | &check; |          | - | - | - | - |
+| UK South | &check; |          | - | - | - | - |
+| West Europe | &check; |          | - | - | - | - |
 
 ### Qatar
 
-| Region | FHIR service | DICOM service | MedTech service | De-Identification service | Events |
-|--------|--------------|---------------|-----------------|---------------------------|--------|
-| Qatar Central | &check; | - | - | - | - |
-
-> [!NOTE]
-> Azure Health Data Services in the Qatar Central region will be retired on 31 October 2025.
-> Please ensure that you migrate to another available Azure Health Data Services region by that date.
+| Region | FHIR service | Azure API for FHIR | DICOM service | MedTech service | De-Identification service | Events |
+|--------|--------------|---------------|---------------|-----------------|---------------------------|--------|
+| Qatar Central | &check; |          | - | - | - | - |
 
 ### Asia
 
-| Region | FHIR service | DICOM service | MedTech service | De-Identification service | Events |
-|--------|--------------|---------------|-----------------|---------------------------|--------|
-| Central India | &check; | - | - | - | - |
-| Japan East | &check; | - | - | - | - |
-| Korea Central | &check; | - | - | - | - |
-| Southeast Asia | &check; | - | - | - | - |
+| Region | FHIR service | Azure API for FHIR | DICOM service | MedTech service | De-Identification service | Events |
+|--------|--------------|---------------|---------------|-----------------|---------------------------|--------|
+| Central India | &check; |          | - | - | - | - |
+| Japan East | &check; |          | - | - | - | - |
+| Korea Central | &check; |          | - | - | - | - |
+| Southeast Asia | &check; |          | - | - | - | - |
 
 ### Australia
 
-| Region | FHIR service | DICOM service | MedTech service | De-Identification service | Events |
-|--------|--------------|---------------|-----------------|---------------------------|--------|
-| Australia East | &check; | - | - | - | - |
+| Region | FHIR service | Azure API for FHIR | DICOM service | MedTech service | De-Identification service | Events |
+|--------|--------------|---------------|---------------|-----------------|---------------------------|--------|
+| Australia East | &check; |          | - | - | - | - |
 
 ## Next steps
 
