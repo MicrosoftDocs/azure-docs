@@ -118,7 +118,7 @@ You can create an Apache Spark Configuration to your workspace, and when you cre
    1. For **Annotations**, you can add annotations by clicking the **New** button, and also you can delete existing annotations by selecting and clicking **Delete** button.
    1. For **Configuration properties**, add all the properties from the configuration option you chose by selecting the **Add** button. For **Property** add the property name as listed, and for **Value** use the value you gathered during step 2. If you don't add a property, Azure Synapse will use the default value when applicable.
 
-      ![Screenshot that create spark configuration.](./media/apache-spark-azure-log-analytics/spark-configuration.png)
+      ![Screenshot with an example for updating configuration properties.](./media/apache-spark-azure-log-analytics/spark-configuration.png)
 
 ## Submit an Apache Spark application and view the logs and metrics
 
