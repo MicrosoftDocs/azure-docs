@@ -50,13 +50,25 @@ The Azure Logic Apps workflow moves data from your on-premises SAP system to Azu
 
 1. On the next page, for **Folder path** enter *sap*, for **File name** enter *IDoc.xml*, and for **File content** select **Body** from the dynamic content.
 
-1. Select the **+** button between the trigger and the create file action and then select **Add a parallel branch**. Select **Azure Data Explorer** and add the action **Run KQL query**. Select **Sign in**, enter the cluster URL of your Azure Data Explorer instance and the database name in your Azure Data Explorer service instance. In the query field, enter `.create table SAP (name:string, label:string)`.
-
 1. Save your workflow.
 
-1. Select **Run** and wait for the run to complete. Verify that there are green check marks on all three components of your workflow. If you see any red exclamation marks, select the component for more information about the error.
+1. Select **Run** and wait for the run to complete. Verify that there are green check marks on both components of your workflow. If you see any red exclamation marks, select the component for more information about the error.
 
 Copy the **HTTP URL** from the HTTP trigger in your workflow. You need it when you configure your SAP system in the next step.
+
+### Create a table in Azure Data Explorer
+
+To store the data from your SAP system, create a table in your Azure Data Explorer database. To create the table, follow these steps:
+
+1. In the Azure portal, navigate to your Azure Data Explorer database. You can use the **ontologies** database that's part of the Azure Industrial IoT reference solution.
+
+1. Run the following Azure Data Explorer query:
+
+    ```kusto
+    .create table SAP (name:string, label:string)
+    ```
+
+    This query creates a table named **SAP** with two columns: **name** and **label**.
 
 ### Configure an on-premises SAP system
 
