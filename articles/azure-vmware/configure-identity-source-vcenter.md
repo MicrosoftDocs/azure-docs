@@ -18,7 +18,6 @@ You can set up vCenter Server to use an external Lightweight Directory Access Pr
 In this article, you learn how to:
 
 > [!div class="checklist"]
->
 > - Export a certificate for LDAPS authentication. (Optional)
 > - Upload the LDAPS certificate to blob storage and generate a shared access signature (SAS) URL. (Optional)
 > - Configure NSX DNS for resolution to your Windows Server Active Directory domain.
