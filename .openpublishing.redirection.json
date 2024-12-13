@@ -6,11 +6,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/migrate/context/vmware-context.yml",
-      "redirect_url": "articles/migrate/context/vmware-context.yml",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/partner-solutions/split-experimentation/how-to-set-up-data-access.md",
       "redirect_url": "/previous-versions/azure/partner-solutions/split-experimentation/how-to-set-up-data-access",
       "redirect_document_id": false
