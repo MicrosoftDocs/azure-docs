@@ -73,23 +73,23 @@ You can also enable collection of all metrics for the topic.
    1. Select the **system topic** for which you want to configure diagnostic settings.
    ![Select system topic](./media/enable-diagnostic-logs-topic/select-system-topic.png)
 1. Select **Diagnostic settings** under **Monitoring** on the left menu, and then select **Add diagnostic setting**.
-![Add diagnostic settings - button](./media/enable-diagnostic-logs-topic/search-custom-topics.png)
+![Add diagnostic settings - button](./media/enable-diagnostic-logs-topic/system-topic-add-diagnostic-settings-button.png)
 4. Specify a **name** for the diagnostic setting.
 1. Select the **allLogs** option in the **Logs** section.
-![Select delivery failures](./media/enable-diagnostic-logs-topic/search-custom-topics.png)
+![Select delivery failures](./media/enable-diagnostic-logs-topic/system-topic-select-delivery-failures.png)
 1. Enable one or more of the capture destinations for the logs, and then configure them by selecting a previous created capture resource.
     - If you select **Send to Log Analytics**, select the Log Analytics workspace.
         ![Send to Log Analytics](./media/enable-diagnostic-logs-topic/system-topic-select-log-workspace.png)
    - If you select **Archive to a storage account**, select **Storage account - Configure**, and then select the storage account in your Azure subscription.
-   ![Archive to an Azure storage account](./media/enable-diagnostic-logs-topic/search-custom-topics.png)
+   ![Archive to an Azure storage account](./media/enable-diagnostic-logs-topic/system-topic-select-storage-account.png)
     - If you select **Stream to an Event Hub**, select **Event Hub - Configure**, and then select the Event Hubs namespace, event hub, and the access policy.
         ![Stream to an event hub](./media/enable-diagnostic-logs-topic/system-topic-select-event-hub.png)
 7. Select **Save**. Then, select **X** in the right-corner to close the page.
 1. Now, back on the **Diagnostic settings** page, confirm that you see a new entry in the **Diagnostics Settings** table.
-![Diagnostic setting in the list](./media/enable-diagnostic-logs-topic/search-custom-topics.png)
+![Diagnostic setting in the list](./media/enable-diagnostic-logs-topic/system-topic-diagnostic-settings-targets.png)
 
 You can also enable collection of all **metrics** for the system topic.
-![System topic - enable all metrics](./media/enable-diagnostic-logs-topic/search-custom-topics.png)
+![System topic - enable all metrics](./media/enable-diagnostic-logs-topic/system-topics-metrics.png)
 
 ## View diagnostic logs in Azure Storage
 
@@ -218,4 +218,4 @@ The audit trace can be used to ensure that data access is allowed only for autho
 
 ## Next steps
 
-For the log schema and other conceptual information about diagnostic logs for topics or domains, see [Diagnostic logs](monitor-push-reference#schema-for-data-plane-operations-logs).
+For the log schema and other conceptual information about diagnostic logs for topics or domains, see [Diagnostic logs](monitor-push-reference.md#schema-for-data-plane-operations-logs).
