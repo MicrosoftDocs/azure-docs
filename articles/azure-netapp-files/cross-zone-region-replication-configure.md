@@ -1,5 +1,5 @@
 ---
-title: Configure cross-zone region replication for Azure NetApp Files
+title: Manage cross-zone region replication for Azure NetApp Files
 description: Describes how to manage disaster recovery by using Azure NetApp Files cross-region replication.
 services: azure-netapp-files
 author: b-ahibbard
@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 11/20/2024
 ms.author: anfdocs 
 ---
-# Configure cross-zone region replication for Azure NetApp Files (preview)
+# Manage cross-zone region replication for Azure NetApp Files (preview)
 
 Azure NetApp Files supports volume cross-zone and cross-region replication on the same source volume. 
 
@@ -40,7 +40,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 ## Configure replication
 
 1. On the source volume: 
-    - **If you're using an existing volume:** [populate it with an availability zone](manage-availability-zone-volume-placement.md#populate-an-existing-volume-with-availability-zone-information).
+    - **If you're using an existing volume without an availability zone:** [populate it with an availability zone](manage-availability-zone-volume-placement.md#populate-an-existing-volume-with-availability-zone-information).
     - **If you're creating a new volume:** [create it with an availability zone](manage-availability-zone-volume-placement.md#create-a-volume-with-an-availability-zone). 
 
 1. Under Properties, take note of the source volume’s resource ID. The source volume's resource ID is required to complete the next two steps. 
@@ -48,6 +48,9 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 1. [Create the cross-region replication destination volume](cross-region-replication-create-peering.md#create-the-data-replication-volume-the-destination-volume).   
 1. [Authorize data replication from the source volume](cross-region-replication-create-peering.md#authorize-replication-from-the-source-volume).  
 1. In the source volume’s menu, select **Replication**. Confirm there are two volumes listed under **Destination volumes**. 
+
+<!-- replace image -->
+:::image type="content" source="./media/cross-zone-region-replication-configure/complete-configuration.png" alt-text="Screenshot of successful configuration." lightbox="./media/cross-zone-region-replication-configure/complete-configuration.png" ":::
 
 
 ## Next steps 
