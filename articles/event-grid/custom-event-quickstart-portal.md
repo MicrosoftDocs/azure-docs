@@ -15,7 +15,9 @@ In this quickstart, you create a topic, create a subscription to that topic usin
 - If you don't have an Azure subscription, create an [Azure free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?icid=azurefreeaccount) before you begin.
 - If you're new Azure Event Grid, see [Event Grid overview](overview.md).
 
-## Create a topic
+[!INCLUDE [register-provider.md](./includes/register-provider.md)]
+
+## Create a custom topic
 An Event Grid topic provides a user-defined endpoint that you post your events to. 
 
 1. Sign in to [Azure portal](https://portal.azure.com/).
