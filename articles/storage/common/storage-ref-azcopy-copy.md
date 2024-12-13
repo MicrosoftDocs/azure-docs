@@ -331,7 +331,7 @@ Copy a subset of files modified on or before the given date and time (in ISO8601
 
 `--put-md5`    Create an MD5 hash of each file, and save the hash as the Content-MD5 property of the destination blob or file. (By default the hash is NOT created.) Only available when uploading.
 
-`--recursive`    Look into subdirectories recursively when uploading from local file system.
+`--recursive`    Look into subdirectories recursively when uploading from local file system. # This needs to be looked at
 
 `--s2s-detect-source-changed`    Detect if the source file/blob changes while it's being read. (This parameter only applies to service-to-service copies, because the corresponding check is permanently enabled for uploads and downloads.)
 
