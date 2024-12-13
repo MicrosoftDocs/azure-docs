@@ -16,9 +16,9 @@ With a private endpoint and Private Link, you can:
 
 - Limit incoming traffic only to private endpoints, preventing data exfiltration.
 
-- Combine inbound private endpoints to Standard v2 instances with outbound [virtual network integration](integrate-vnet-outbound.md) to provide end-to-end network isolation of your API Management clients and backend services.
+- Combine inbound private endpoints to Standard v2 instances with outbound [virtual network integration](../articles/api-management/integrate-vnet-outbound.md) to provide end-to-end network isolation of your API Management clients and backend services.
 
-    :::image type="content" source="../articles/api-management/media/private-endpoint-v2-tiers/private-endpoint.png" alt-text="Diagram that shows a secure inbound connection to API Management Standard v2 using private endpoint.":::
+    :::image type="content" source="../articles/api-management/media/private-endpoint/private-endpoint.png" alt-text="Diagram that shows a secure inbound connection to API Management Standard v2 using private endpoint.":::
 
 
 > [!IMPORTANT]

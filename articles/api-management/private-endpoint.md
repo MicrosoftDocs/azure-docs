@@ -32,13 +32,13 @@ You can configure an inbound [private endpoint](../private-link/private-endpoint
 * Only the API Management instance's Gateway endpoint supports inbound Private Link connections. 
 * Each API Management instance supports at most 100 Private Link connections.
 * Connections aren't supported on the [self-hosted gateway](self-hosted-gateway-overview.md) or on a [workspace gateway](workspaces-overview.md#workspace-gateway). 
-* In the classic API Management tiers, private endpoints are not supported in instances injected in an internal or external virtual network.
+* In the classic API Management tiers, private endpoints aren't supported in instances injected in an internal or external virtual network.
 
 
 ## Prerequisites
 
 - An existing API Management instance. [Create one if you haven't already](get-started-create-service-instance.md). 
-    - When using an instance in the classic Developer or Premium tier, do not deploy (inject) the instance into an [external](api-management-using-with-vnet.md) or [internal](api-management-using-with-internal-vnet.md) virtual network.
+    - When using an instance in the classic Developer or Premium tier, don't deploy (inject) the instance into an [external](api-management-using-with-vnet.md) or [internal](api-management-using-with-internal-vnet.md) virtual network.
 - A virtual network containing a subnet to host the private endpoint. The subnet may contain other Azure resources.
 - (Recommended) A virtual machine in the same or a different subnet in the virtual network, to test the private endpoint.
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
@@ -210,7 +210,7 @@ You can also use the API Management [Private Endpoint Connection - Create Or Upd
     | Resource | Select your API Management Standard v2 instance. |
     | Target sub-resource | Select **Gateway**. |
     
-    :::image type="content" source="media/private-endpoint-v2-tiers/create-private-endpoint.png" alt-text="Screenshot showing settings to create a private endpoint in the Azure portal.":::
+    :::image type="content" source="media/private-endpoint/create-private-endpoint.png" alt-text="Screenshot showing settings to create a private endpoint in the Azure portal.":::
 
     > [!IMPORTANT]
     > Only the **Gateway** sub-resource is supported for API Management. Other sub-resources aren't supported.
@@ -309,7 +309,7 @@ API calls initiated within the virtual network to the default Gateway endpoint s
 From outside the private endpoint path, attempt to call the API Management instance's default Gateway endpoint. If public access is disabled, output includes an error with status code `403` and a message similar to:
 
 ```
-Request originated from client public IP address xxx.xxx.xxx.xxx, public network access on this 'Microsoft.ApiManagement/service/my-apim-service' is disabled.
+Request originated from client public IP address 192.0.2.12, public network access on this 'Microsoft.ApiManagement/service/my-apim-service' is disabled.
        
 To connect to 'Microsoft.ApiManagement/service/my-apim-service', please use the Private Endpoint from inside your virtual network. 
 ```
