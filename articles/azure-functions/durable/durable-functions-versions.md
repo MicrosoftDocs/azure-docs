@@ -33,7 +33,7 @@ WebJobs.Extensions.DurableTask v3 updates the .NET framework from .NET Core 3.1 
 
 ### Migration from WebJobs.Extensions.DurableTask v2.x to v3.x
 
-Migration from WebJobs.Extensions.DurableTask v2.x to v3.x is designed to be straightforward with no code changes required. Simply update your dependencies to start taking advantage of the new features and improvements in v3.x.
+Migration from WebJobs.Extensions.DurableTask v2.x to v3.x is designed to be straightforward with no code changes required, as the changes are in the background. Simply update your dependencies to start taking advantage of the new features and improvements in v3.x.
 
 - For .NET in-process users:
   Update to [Microsoft.Azure.WebJobs.Extensions.DurableTask version 3.0.0](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask/3.0.0) or later.
