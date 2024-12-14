@@ -201,28 +201,28 @@ For example, to run the Office 365 Outlook **Send an email** action after the Ex
 
    The **Run After** section in the **Settings** pane shows the predecessor action for the currently selected action.
 
-   ![Screenshot shows workflow designer and current action details pane with selected Settings tab.](./media/error-exception-handling/configure-run-after.png)
+   :::image type="content" source="media/error-exception-handling/configure-run-after.png" alt-text="Screenshot shows workflow designer and current action details pane with selected Settings tab.":::
 
 
 1. Expand the predecessor action to view all the possible predecessor statuses.
 
    By default, the "run after" status is set to **Is successful**. So, the predecessor action must successfully finish before the currently selected action can run.
 
-   ![Screenshot shows current action and its default run after status set to Is successful.](./media/error-exception-handling/change-run-after-status.png)
+   :::image type="content" source="media/error-exception-handling/change-run-after-status.png" alt-text="Screenshot shows current action and its default run after status set to Is successful.":::
 
 1. To change the "run after" behavior to the statuses that you want, select those statuses. Make sure that you first select an option before you clear the default option. You have to always have at least one option selected.
 
    The following example selects **Has failed**.
 
-   ![Screenshot shows current action with run after behavior set to Has failed.](./media/error-exception-handling/failed-run-after-status.png)
+   :::image type="content" source="media/error-exception-handling/failed-run-after-status.png" alt-text="Screenshot shows current action with run after behavior set to Has failed.":::
 
 1. To specify that the current action runs when the predecessor action completes with **Failed**, **Skipped**, or **TimedOut** status, select these statuses.
 
-   ![Screenshot shows current action and multiple selected run after statuses.](./media/error-exception-handling/run-after-multiple-statuses.png)
+   :::image type="content" source="media/error-exception-handling/run-after-multiple-statuses.png" alt-text="Screenshot shows current action and multiple selected run after statuses.":::
 
 1. To require that more than one predecessor action runs, each with their own "run after" statuses, expand the **Select actions** list. Select the predecessor actions that you want, and specify their required "run after" statuses.
 
-   ![Screenshot shows current action and available multiple predecessor actions.](./media/error-exception-handling/multiple-predecessor-actions.png)
+   :::image type="content" source="media/error-exception-handling/multiple-predecessor-actions.png" alt-text="Screenshot shows current action and available multiple predecessor actions.":::
 
 1. When you're ready, select **Done**.
 
@@ -309,7 +309,7 @@ For limits on scopes, see [Limits and config](logic-apps-limits-and-config.md).
 
 1. In the **Scope** action, [follow these generic steps to the add actions to run](/azure/logic-apps/logic-apps-control-flow-run-steps-group-scopes#add-steps-to-scope), for example:
 
-   ![Screenshot shows workflow designer with actions grouped inside the scope.](./media/error-exception-handling/add-actions-into-scope.png)
+    :::image type="content" source="media/error-exception-handling/add-actions-into-scope.png" alt-text="Screenshot shows workflow designer with actions grouped inside the scope.":::
 
    The following list shows some example actions that you might include inside a **Scope** action:
    
@@ -329,7 +329,7 @@ For limits on scopes, see [Limits and config](logic-apps-limits-and-config.md).
 
       In the following example, the scoped actions run after the **HTTP** action completes with any of the selected statuses:
 
-      ![Screenshot shows scope action's Settings tab, run after section, and selected action statuses that run the scoped actions.](./media/error-exception-handling/set-run-after-in-scope.png)
+      :::image type="content" source="media/error-exception-handling/set-run-after-in-scope.png" alt-text="Screenshot shows scope action's Settings tab, run after section, and selected action statuses that run the scoped actions.":::
 
 <a name="get-results-from-failures"></a>
 
