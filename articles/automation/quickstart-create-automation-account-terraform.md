@@ -81,7 +81,7 @@ In this article, you learn how to:
 1. Get the Automation account name.
 
     ```console
-    automation_account_name=$(terraform output -raw resource_group_name)
+    automation_account_name=$(terraform output -raw automation_account_name)
     ```
 
 1. Run [`az automation account show`](/cli/azure/automation/account#az-automation-account-show) to view the Automation account.
@@ -101,13 +101,13 @@ In this article, you learn how to:
 1. Get the Automation account name.
 
     ```console
-    $automation_account_name=$(terraform output -raw resource_group_name)
+    $automation_account_name=$(terraform output -raw automation_account_name)
     ```
 
 1. Run [`Get-AzAutomationAccount`](/powershell/module/az.automation/get-azautomationaccount#example-2-get-an-account) to view the Automation account.
 
     ```azurepowershell
-    Get-AzAutomationAccount -ResourceGroupName "MyResourceGroup" -Name "MyAutomationAccount"
+    Get-AzAutomationAccount -ResourceGroupName "resource_group_name" -Name "automation_account_name"
     ```
 
 ---
