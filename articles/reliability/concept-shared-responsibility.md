@@ -4,7 +4,7 @@ description: Learn about the shared responsibility model for resiliency in the A
 ms.service: azure
 ms.subservice: azure-availability-zones
 ms.topic: conceptual
-ms.date: 12/13/2024
+ms.date: 12/14/2024
 ms.author: anaharris
 author: anaharris-ms
 ms.custom: subject-reliability
@@ -24,7 +24,7 @@ The shared responsibility model for resiliency is comprised of three levels:
 - [Resilience-enhancing capabilities](#resilience-enhancing-capabilities) Azure offers a suite of built-in features and services that enhance resiliency, such as using availability zones, deploying across multiple regions, and implementing backup strategies. While Azure provides these capabilities, it's your responsibility to evaluate and configure them to align with your specific requirements. Requirements can include reliability, cost, performance, and compliance with regulatory standards.
 - [Applications](#applications). To make effective use of the other levels, your application and workload must be designed for resiliency.
 
-:::image type="content" source="media/shared-responsibility/shared-responsibility-model.jpg" alt-text="Diagram showing shared responsibility model for resiliency: Core platform reliability, resilience-enhancing capabilities, and applications" border="false":::
+:::image type="content" source="media/shared-responsibility/shared-responsibility-model.jpg" alt-text="Diagram showing shared responsibility model for resiliency: Core platform reliability, resilience-enhancing capabilities, and applications." border="false":::
 
 Microsoft is solely responsible for core platform reliability. Microsoft is also responsible for providing resilience-enhancing capabilities that you can use. You're responsible for selecting and using the appropriate components.
 
@@ -45,7 +45,7 @@ The Microsoft cloud platform consists of a large amount of infrastructure, hardw
 - Within each region, datacenters are connected through a low-latency network, which enables a variety of data replication approaches.
 - Datacenter facilities have redundant power, cooling, and network connections. They're operated by onsite teams who secure, monitor, and manage them.
 - Hardware, including clusters and racks, have redundancy at multiple layers.
-- Updates to compute clusters, racks, and hosts follow a controlled process. We use techniques like hot patching to reduce or eliminate impact to hosts.
+- Updates to compute clusters, racks, and hosts follow a controlled process. We use techniques like hotpatching to reduce or eliminate impact to hosts.
 - Software platform updates and configuration changes are applied by following our safe deployment practices.
 - Microsoft audits critical external suppliers to ensure that a third-party outage doesn't disrupt Azure services.
 - Each Azure service must have a detailed disaster recovery plan. We conduct full-region down drills in regions that match production environments.
