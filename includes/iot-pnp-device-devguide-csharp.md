@@ -271,7 +271,7 @@ A default component receives the command name as it was invoked by the service.
 A nested component receives the command name prefixed with the component name and the `*` separator.
 
 ```csharp
-await client.SetMethodHandlerAsync("themostat*reboot", (MethodRequest req, object ctx) =>
+await client.SetMethodHandlerAsync("thermostat*reboot", (MethodRequest req, object ctx) =>
 {
   Console.WriteLine("REBOOT");
   return Task.FromResult(new MethodResponse(200));
@@ -306,7 +306,7 @@ The following example shows how to implement a command with complex types define
     }
   },
   "response": {
-    "name": "startReponse",
+    "name": "startResponse",
     "schema": {
       "@type": "Object",
       "fields": [
