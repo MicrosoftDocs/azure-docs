@@ -138,7 +138,7 @@ For tenant-scoped Customer Lockbox requests, log entries are written to the [Ent
 - **Request approved**
 - **Request denied**
 
-You can fiiter for ```Service = Access Reviews``` and ```Activity = one of the above activities```. 
+You can filter for ```Service = Access Reviews``` and ```Activity = one of the above activities```. 
 
 As an example:
 

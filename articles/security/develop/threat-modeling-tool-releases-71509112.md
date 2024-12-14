@@ -51,7 +51,7 @@ In the Analysis View of the tool, if the user has a high-resolution screen that 
 
 #### Workaround
 
-The user can click on the mitigation text and use the standard Windows zoom control (Crtl-Mouse Wheel Up) to increase the magnification of that section.
+The user can click on the mitigation text and use the standard Windows zoom control (Ctrl-Mouse Wheel Up) to increase the magnification of that section.
 
 ### Files in the “Recently Opened Models” section of the main window may fail to open
 

@@ -144,7 +144,7 @@ You can replicate any app or workload running a Hyper-V VM that complies with [r
 
 ### Can I replicate to Azure with a site-to-site VPN?
 
-Azure Site Recovery replicates data to an Azure storage account or managed disks, over a public endpoint. However, replication can be performed over Site-to-Site VPN as well. Site-to-Site VPN connectivity allows organizations to connect existing networks to Azure, or Azure networks to each other. Site-to-Site VPN occurs over IPSec tunneling over the internet, leveraging existing on-premises edge network equipment and network appliances in Azure, either native features like Azure Virtual Private Network (VPN) Gateway or 3rd party options such as Check Point CloudGaurd, Palo Alto NextGen Firewall. Replicating to Azure with site-to-site VPN is only supported when using [private endpoints](../private-link/private-endpoint-overview.md).
+Azure Site Recovery replicates data to an Azure storage account or managed disks, over a public endpoint. However, replication can be performed over Site-to-Site VPN as well. Site-to-Site VPN connectivity allows organizations to connect existing networks to Azure, or Azure networks to each other. Site-to-Site VPN occurs over IPSec tunneling over the internet, leveraging existing on-premises edge network equipment and network appliances in Azure, either native features like Azure Virtual Private Network (VPN) Gateway or 3rd party options such as Check Point CloudGuard, Palo Alto NextGen Firewall. Replicating to Azure with site-to-site VPN is only supported when using [private endpoints](../private-link/private-endpoint-overview.md).
 
 ### Why can't I replicate over VPN?
 
@@ -180,7 +180,7 @@ Dynamic disks can be replicated. The operating system disk must be a basic disk.
 
 ### Can I enable Site Recovery along with other backup or disaster recovery tools?
 
-No, enabling Site Recovery along with other backup or disaster recovery resources on the same host machine is not supported. The other tools may create a lock on the resources required for Site Recovery to funtion smoothly. This may cause ongoing replication to break. 
+No, enabling Site Recovery along with other backup or disaster recovery resources on the same host machine is not supported. The other tools may create a lock on the resources required for Site Recovery to function smoothly. This may cause ongoing replication to break. 
 
 ## Security
 

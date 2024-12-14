@@ -104,7 +104,7 @@ dependencies {
 }
 ```
 
-Open your `app\res\layout\activity_main.xml`, and replace the existing Hello Wolrd `<TextView ... />` element with the following ArFragment. This code will cause the camera feed to be displayed on your screen enabling ARCore to track your device position as it moves.
+Open your `app\res\layout\activity_main.xml`, and replace the existing Hello World `<TextView ... />` element with the following ArFragment. This code will cause the camera feed to be displayed on your screen enabling ARCore to track your device position as it moves.
 
 
 ```xml
