@@ -163,7 +163,7 @@ There are two types of cancellations:
 
 To confirm if the cancellation is by user or system, you can view the status of the maintenance run ID from the ARG query mentioned above in **See details**. The **error message** displays whether the schedule run has been canceled by the user or system and the **status** field confirms the status of the maintenance run.
 
- :::image type="content" source="./media/manage-pre-post-events/cancelation-api-user-inline.png" alt-text="Screenshot that shows how to view the cancellation status." lightbox="./media/manage-pre-post-events/cancellation-api-user-expanded.png":::
+ :::image type="content" source="./media/manage-pre-post-events/cancelation-api-user-inline.png" alt-text="Screenshot that shows how to view the cancellation status." lightbox="./media/manage-pre-post-events/cancelation-api-user-expanded.png":::
 
 The above image shows an example of cancellation by the user, where the error message would be **Maintenance cancelled using cancellation API at YYYY-MM-DD**. If the maintenance run is canceled by the system due to any reason, the error message in the JSON would be **Maintenance cancelled due to internal platform failure at YYYY-MM-DD**.
 
