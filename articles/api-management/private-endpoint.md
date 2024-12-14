@@ -135,7 +135,7 @@ In the classic API Management tiers, you can create a private endpoint when you 
 
 1. Select the **Next: Virtual Network** button at the bottom of the screen.
 
-1. In **Networking**, enter or select this information:
+1. In **Virtual Network**, enter or select this information:
 
     | Setting | Value |
     | ------- | ----- |
@@ -217,7 +217,7 @@ You can also use the API Management [Private Endpoint Connection - Create Or Upd
 
 1. Select the **Next: Virtual Network** button at the bottom of the screen.
 
-1. In **Networking**, enter or select this information:
+1. In **Virtual Network**, enter or select this information:
 
     | Setting | Value |
     | ------- | ----- |
