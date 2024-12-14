@@ -513,7 +513,7 @@ To submit the event samples, use the following steps:
 
 - Export the results using the **Export to CSV** option to a file named `<TableName>_schema.csv`, where `TableName` is the name of source table the parser uses.
 
-- Include both files in your PR in the folder `/Sample Data/ASIM`. If the file already exists, add your GitHub handle to the name, for example: `<EventVendor>_<EventProduct>_<EventSchema>_SchemaTest_<GitHubHanlde>.csv`
+- Include both files in your PR in the folder `/Sample Data/ASIM`. If the file already exists, add your GitHub handle to the name, for example: `<EventVendor>_<EventProduct>_<EventSchema>_SchemaTest_<GitHubHandle>.csv`
 
 ### Test results submission guidelines
 
