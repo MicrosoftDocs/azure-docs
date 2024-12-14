@@ -1,6 +1,7 @@
 ---
-title: How to manage user accounts in Azure API Management
-description: Learn how to create or invite users and manage developer accounts in Azure API Management. View additional resources to use after creating a developer account.
+title: How can PRODUCERS manage CONSUMER accounts in Azure API Management
+description: Learn how a PRODUCER create or invite users and manage developer(consumer) accounts in Azure API Management. View additional resources to use after creating a developer account.
+persona:  api-producer or publisher
 services: api-management
 author: dlepow
 ms.service: azure-api-management
@@ -12,7 +13,7 @@ ms.author: danlep
 
 [!INCLUDE [api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2.md)]
 
-In API Management, developers are the users of the APIs that you expose using API Management. This guide shows how to create and invite developers to use the APIs and products that you make available to them with your API Management instance. For information on managing user accounts programmatically, see the [User entity](/rest/api/apimanagement/user) documentation in the [API Management REST API](/rest/api/apimanagement/) reference.
+In API Management, consumers are the users of the APIs that a producer exposes, using API Management. This guide shows how to create and invite developers to use the APIs and products that you (who is this you?  we need to be crystal clear which persona or personas this is addressing to) make available to them with your API Management instance. For information on managing user accounts programmatically, see the [User entity](/rest/api/apimanagement/user) documentation in the [API Management REST API](/rest/api/apimanagement/) reference.
 
 ## Prerequisites
 
@@ -21,9 +22,9 @@ In API Management, developers are the users of the APIs that you expose using AP
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-## Create a new developer
+## Create a new consumer
 
-To add a new user, follow the steps in this section:
+To add a new consuming user, follow the steps in this section:
 
 1. In the left menu, under **Developer portal**, select **Users**.
 1. Select **+ Add**.
