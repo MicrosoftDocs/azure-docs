@@ -14,7 +14,7 @@ content_well_notification:
 
 # Quickstart: Configure an Azure virtual network gateway with Terraform
 
-In this quickstart, you use Terraform to create an Azure ExpressRoute circuit with Equinix as the service provider. The circuit uses a Standard SKU with a bandwidth of 50 MB/s and the peering location of Washington, D.C. Private peering is enabled with a primary and secondary subnet of 192.168.10.16/30 and 192.168.10.20/30, respectively. The script also creates a virtual network and a HighPerformance ExpressRoute gateway.
+In this quickstart, you use Terraform to create an Azure ExpressRoute circuit with *Equinix* as the service provider. The circuit uses a *Standard SKU* with a bandwidth of *50 MB/s* and the peering location of *Washington, D.C.* Private peering is enabled with a primary and secondary subnet of *192.168.10.16/30* and *192.168.10.20/30*, respectively. The script also creates a virtual network and a *HighPerformance ExpressRoute gateway*.
 
 :::image type="content" source="media/expressroute-howto-circuit-portal-resource-manager/environment-diagram.png" alt-text="Diagram of an Azure ExpressRoute circuit deployment environment using Bicep." lightbox="media/expressroute-howto-circuit-portal-resource-manager/environment-diagram.png":::
 
@@ -91,18 +91,6 @@ In this article, you learn how to:
    gateway_name=$(terraform output -raw gateway_name)
    ```
 
-1. Get the gateway IP.
-
-   ```console
-   gateway_ip=$(terraform output -raw gateway_ip)
-   ```
-
-1. Get the service key.
-
-    ```console
-   service_key=$(terraform output -raw service_key)
-   ```
-
 1. Run [`az network vnet-gateway show`](/cli/azure/network/vnet-gateway#az-network-vnet-gateway-show) to view the Azure virtual network gateway.
 
    ```azurecli
@@ -127,18 +115,6 @@ In this article, you learn how to:
 
    ```console
    $gateway_name=$(terraform output -raw gateway_name)
-   ```
-
-1. Get the gateway IP.
-
-   ```console
-   $gateway_ip=$(terraform output -raw gateway_ip)
-   ```
-
-1. Get the service key.
-
-    ```console
-   $service_key=$(terraform output -raw service_key)
    ```
 
 1. Run [`Get-AzVirtualNetworkGateway`](/powershell/module/az.network/get-azvirtualnetworkgateway#:~:text=Example%202:%20Get%20a%20Virtual%20Network%20Gateway) to view the Azure virtual network gateway.
