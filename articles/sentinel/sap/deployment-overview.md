@@ -59,14 +59,18 @@ Earlier versions of the deployment script, released before June 2023, generated 
 
 ### [Agentless data connector (limited preview)](#tab/agentless)
 
-The Microsoft Sentinel agentless data connector for SAP uses the SAP BTP Cloud Connector to connect to your SAP system and pull logs from it, as shown in the following image:
+The Microsoft Sentinel agentless data connector for SAP uses the SAP Cloud Connector and SAP Integration Suite to connect to your SAP system and pull logs from it, as shown in the following image:
 
 :::image type="content" source="media/deployment-overview/agentless-connector.png" alt-text="Diagram that shows the Microsoft Sentinel agentless data connector in a SAP environment.":::
+
+By using the SAP Cloud Connector, the **Agentless solution** profits from already existing setups and established integration processes. This means you don't have to tackle network challenges again, as the people running your SAP Cloud Connector have already gone through that process.
+
+The **Agentless solution** is compatible with SAP S/4HANA Cloud, Private Edition RISE with SAP, and SAP S/4HANA on-premises, ensuring continued functionality of existing security content, including detections, workbooks, and playbooks.
 
 The agentless solution currently supports only the audit log. As Microsoft Sentinel progresses the preview program, we're prioritizing additional support for logs that generate the most security value for our customers.
 
 > [!IMPORTANT]
-> Microsoft Sentinel's **Agentless solution** is in limited preview as a prereleased product, which may be substantially modified before it’s commercially released. Microsoft makes no warranties expressed or implied, with respect to the information provided here. Access to the **Agentless solution** also requires registration and is only available to approved customers and partners during the preview period. For more information, see [Microsoft Sentinel for SAP Goes Agentless](https://community.sap.com/t5/enterprise-resource-planning-blogs-by-members/microsoft-sentinel-for-sap-goes-agentless/ba-p/13960238) (SAP blog).
+> Microsoft Sentinel's **Agentless solution** is in limited preview as a prereleased product, which may be substantially modified before it’s commercially released. Microsoft makes no warranties expressed or implied, with respect to the information provided here. Access to the **Agentless solution** also [requires registration](https://aka.ms/SentinelSAPAgentlessSignUp) and is only available to approved customers and partners during the preview period. For more information, see [Microsoft Sentinel for SAP goes agentless ](https://community.sap.com/t5/enterprise-resource-planning-blogs-by-members/microsoft-sentinel-for-sap-goes-agentless/ba-p/13960238).
 
 ---
 

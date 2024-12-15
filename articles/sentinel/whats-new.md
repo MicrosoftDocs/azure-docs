@@ -4,11 +4,7 @@ description: Learn about the latest new features and announcement in Microsoft S
 author: yelevin
 ms.author: yelevin
 ms.topic: concept-article
-<<<<<<< HEAD
-ms.date: 12/10/2024
-=======
-ms.date: 12/11/2024
->>>>>>> afbd05c7c76b09c8c3803b2003082537746dbd56
+ms.date: 12/15/2024
 
 
 #Customer intent: As a security team member, I want to stay updated on the latest features and enhancements in Microsoft Sentinel so that I can effectively manage and optimize my organization's security posture.
@@ -36,17 +32,21 @@ Get notified when this page is updated by copying and pasting the following URL 
 
 ### Agentless deployment for SAP applications (Limited preview)
 
-The Microsoft Sentinel solution for SAP applications now supports an agentless deployment, using SAP's own cloud platform features supported by the SAP Cloud Connector to provide simplified, agentless connectivity.
+The Microsoft Sentinel solution for SAP applications now supports an agentless deployment, using SAP's own cloud platform features to provide simplified, agentless deployment and connectivity. Instead of deploying a virtual machine and containerized agent, use the SAP Cloud Connector and its existing connections to back-end ABAP systems to connect your SAP system to Microsoft Sentinel.
 
-Instead of deploying a virtual machine and containerized agent, use the SAP Cloud Connector and its existing connections to back-end ABAP systems to connect your SAP system to Microsoft Sentinel.
+The **Agentless solution** uses the SAP Cloud Connector and SAP Integration Suite, which are already familiar to most SAP customers. This significantly reduces deployment times, especially for those less familiar with Docker, Kubernetes, and Linux administration. By using the SAP Cloud Connector, the solution profits from already existing setups and established integration processes. This means you don't have to tackle network challenges again, as the people running your SAP Cloud Connector have already gone through that process.
+
+The **Agentless solution** is compatible with SAP S/4HANA Cloud, Private Edition RISE with SAP, and SAP S/4HANA on-premises, ensuring continued functionality of existing security content, including detections, workbooks, and playbooks.
 
 > [!IMPORTANT]
 > Microsoft Sentinel's **Agentless solution** is in limited preview as a prereleased product, which may be substantially modified before it’s commercially released. Microsoft makes no warranties expressed or implied, with respect to the information provided here. Access to the **Agentless solution** also requires registration and is only available to approved customers and partners during the preview period. 
 
 For more information, see:
 
-- <!--blog / sign up form-->
+- [Microsoft Sentinel for SAP goes agentless ](https://community.sap.com/t5/enterprise-resource-planning-blogs-by-members/microsoft-sentinel-for-sap-goes-agentless/ba-p/13960238)
+- [Sign up for the limited preview](https://aka.ms/SentinelSAPAgentlessSignUp)
 - [Microsoft Sentinel solution for SAP applications: Deployment overview](sap/deployment-overview.md)
+
 ### Microsoft Sentinel workbooks now available to view directly in the Microsoft Defender portal
 
 Microsoft Sentinel workbooks are now available for viewing directly in the Microsoft Defender portal with Microsoft's unified security operations (SecOps) platform. Now, in the Defender portal, when you select **Microsoft Sentinel > Threat management> Workbooks**, you remain in the Defender portal instead of a new tab being opened for workbooks in the Azure portal. Continue tabbing out to the Azure portal only when you need to edit your workbooks.
