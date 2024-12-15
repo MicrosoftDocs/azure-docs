@@ -51,6 +51,9 @@ To access file data with the storage account access key, you must have an Azure 
 
 When you attempt to access file data in the Azure portal, the portal first checks whether you've been assigned a role with **Microsoft.Storage/storageAccounts/listkeys/action**. If you've been assigned a role with this action, then the portal uses the storage account key for accessing file data. If you haven't been assigned a role with this action, then the portal attempts to access data using your Microsoft Entra account.
 
+> [!NOTE]
+> To successfully authenticate using the access key, ensure that you have enabled **Allow storage account key access** in the Configuration Blade under Settings.
+
 > [!IMPORTANT]
 > When a storage account is locked with an Azure Resource Manager **ReadOnly** lock, the [List Keys](/rest/api/storagerp/storageaccounts/listkeys) operation isn't permitted for that storage account. **List Keys** is a POST operation, and all POST operations are prevented when a **ReadOnly** lock is configured for the account. For this reason, when the account is locked with a **ReadOnly** lock, users must use Microsoft Entra credentials to access file data in the portal. For information about accessing file data in the Azure portal with Microsoft Entra ID, see [Use your Microsoft Entra account](#use-your-azure-ad-account).
 
