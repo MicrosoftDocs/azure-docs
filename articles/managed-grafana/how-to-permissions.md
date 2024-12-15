@@ -6,7 +6,8 @@ ms.author: malev
 ms.service: azure-managed-grafana
 ms.custom: engagement-fy23
 ms.topic: how-to 
-ms.date: 10/23/2023 
+ms.date: 10/23/2024
+#customer intent: I want to grant the Azure Monitor role to an Azure Managed Grafana instance so that I can start monitoring an Azure service in Grafana.
 ---
 
 # How to modify access permissions to Azure Monitor
@@ -56,7 +57,7 @@ To edit permissions for a specific resource, follow these steps.
 
 1. Select **Next**, then **Review + assign** to confirm the assignment of the new permission.
 
-For more information about how to use Managed Grafana with Azure Monitor, go to [Monitor your Azure services in Grafana](../azure-monitor/visualize/grafana-plugin.md).
+For more information about how to use Managed Grafana with Azure Monitor, go to [Monitor your Azure services in Grafana](/azure/azure-monitor/visualize/grafana-plugin).
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -85,9 +86,9 @@ az role assignment create --assignee-object-id "<assignee>" --assignee-principal
 Example: assigning permission for an Azure Managed Grafana instance to access an Application Insights resource using a managed identity.
 
 ```azurecli
-az role assignment create --assignee-object-id "abcdef01-2345-6789-0abc-def012345678" --assignee-principal-type "ServicePrincipal" \
+az role assignment create --assignee-object-id "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb" --assignee-principal-type "ServicePrincipal" \
 --role "Monitoring Reader" \
---scope "/subscriptions/abcdef01-2345-6789-0abc-def012345678/resourcegroups/my-rg/providers/microsoft.insights/components/myappinsights/"
+--scope "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/my-rg/providers/microsoft.insights/components/myappinsights/"
 ```
 
 For more information about assigning Azure roles using the Azure CLI, refer to the [Role based access control documentation](../role-based-access-control/role-assignments-cli.md).

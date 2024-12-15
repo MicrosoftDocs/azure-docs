@@ -1,25 +1,26 @@
 ### YamlMime:Landing
 
-title: Azure Business Continuity Center documentation (preview)
-summary: The Azure Business Continuity Center (preview) is an easy-to-use web-based user interface for managing your backup and disaster recovery at scale from single place across various environment and solutions.  Use it for configuring backups and replication, defining protection policies, monitoring operations, review configurations and much more.
+title: Azure Business Continuity Center documentation
+summary: The Azure Business Continuity Center is an easy-to-use web-based user interface for managing your backup and disaster recovery at scale from single place across various environment and solutions. Use it for configuring backups and replication, defining protection policies, monitoring operations, review configurations and much more.
 
 metadata:
   title: Azure Business Continuity Center Documentation
-  description: The Azure Business Continuity Center (preview) is an easy-to-use web-based user interface for managing your backup and disaster recovery at scale from single place across various environment and solutions.  Use it for configuring backups and replication, defining protection policies, monitoring operations, review configurations and much more.
+  description: The Azure Business Continuity Center is an easy-to-use web-based user interface for managing your backup and disaster recovery at scale from single place across various environment and solutions. Use it for configuring backups and replication, defining protection policies, monitoring operations, review configurations and much more.
   ms.service: azure-business-continuity-center
   ms.custom:
     - ignite-2023
+    - ignite-2024
   ms.topic: landing-page
   author: AbhishekMallick-MS
   ms.author: v-abhmallick
-  ms.date: 11/15/2023
+  ms.date: 11/19/2024
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card (optional)
-  - title: Learn about Azure Business Continuity center (preview)
+  - title: Learn about Azure Business Continuity center
     linkLists:
       - linkListType: overview
         links:

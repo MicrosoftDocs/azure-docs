@@ -12,6 +12,8 @@ ms.author: duau
 
 # Understanding Azure Content Delivery Network billing
 
+[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
+
 This FAQ describes the billing structure for content hosted by Azure Content Delivery Network.
 
 ## What is a billing region?

@@ -1,7 +1,7 @@
 ---
 title: IoT solution scalability and high availability
 description: An overview of the scalability, high availability, and disaster recovery options for an IoT solution.
-ms.service: iot
+ms.service: azure-iot
 services: iot
 author: dominicbetts
 ms.author: dobett
@@ -65,10 +65,3 @@ The following tutorials and guides provide more detail and guidance:
 - [How to manually migrate an Azure IoT hub to a new Azure region](../iot-hub/migrate-hub-arm.md)
 - [Manage device reconnections to create resilient applications (IoT Hub and IoT Central)](./concepts-manage-device-reconnections.md)
 - [IoT Central device best practices](../iot-central/core/concepts-device-implementation.md#best-practices)
-
-## Next steps
-
-Now that you've seen an overview of the extensibility options available to your IoT solution, some suggested next steps include:
-
-- [What Azure technologies and services can you use to create IoT solutions?](iot-services-and-technologies.md)
-- [IoT solution options](iot-introduction.md#solution-options)

@@ -267,6 +267,8 @@ The output is information about the device that was created.
 
 ### Configure and run the simulation
 
+[!INCLUDE [iot-authentication-device-connection-string.md](../../includes/iot-authentication-device-connection-string.md)]
+
 Next, configure the device simulator to send data to your IoT Hub instance.
 
 Begin by getting the IoT hub connection string with the following command. The connection string value will start with `HostName=`.

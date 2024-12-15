@@ -9,7 +9,7 @@ ms.custom: mvc
 
 # Remove Update Management from Automation account
 
-[!INCLUDE [./log-analytics-retirement-announcement.md](../includes/log-analytics-retirement-announcement.md)]
+[!INCLUDE [./automation-update-management-retirement-announcement.md](../includes/automation-update-management-retirement-announcement.md)]
 
 After you enable management of updates on your virtual machines using Azure Automation Update Management, you may decide to stop using it and remove the configuration from the account and linked Log Analytics workspace.  This article tells you how to completely remove Update Management from the managed VMs, your Automation account, and Log Analytics workspace.
 

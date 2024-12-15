@@ -6,7 +6,7 @@ author: dlepow
  
 ms.service: azure-api-management
 ms.topic: overview
-ms.date: 05/21/2024
+ms.date: 10/23/2024
 ms.author: danlep
 ms.custom: mvc
 ---
@@ -105,7 +105,7 @@ Using the developer portal, developers can:
 API Management is offered in a variety of pricing tiers to meet the needs of different customers. Each tier offers a distinct combination of features, performance, capacity limits, scalability, SLA, and pricing for different scenarios. The tiers are grouped as follows:
 
 * **Classic** - The original API Management offering, including the Developer, Basic, Standard, and Premium tiers. The Premium tier is designed for enterprises requiring access to private backends, enhanced security features, multi-region deployments, availability zones, and high scalability. The Developer tier is an economical option for non-production use, while the Basic, Standard, and Premium tiers are production-ready tiers. 
-* **V2** - A new set of tiers that offer fast provisioning and scaling, including Basic v2 for development and testing, and Standard v2 for production workloads. Standard v2 supports simplified connection to network-isolated backends.   
+* **V2** - A new set of tiers that offer fast provisioning and scaling, including Basic v2 for development and testing, and Standard v2 and Premium v2 for production workloads. Standard v2 and Premium v2 support virtual network integration for simplified connection to network-isolated backends. Premium v2 also supports virtual network injection for full isolation of network traffic to and from the gateway.
 * **Consumption** - The Consumption tier is a serverless gateway for managing APIs that scales based on demand and billed per execution. It is designed for applications with serverless compute, microservices-based architectures, and those with variable traffic patterns.
 
 **More information**:
@@ -118,7 +118,7 @@ API Management is offered in a variety of pricing tiers to meet the needs of dif
 API Management integrates with many complementary Azure services to create enterprise solutions, including:
 
 * **[Azure API Center](../api-center/overview.md)** to build a complete inventory of APIs​ in the organization - regardless of their type, lifecycle stage, or deployment location​ - for API discovery, reuse, and governance
-* **[Copilot in Azure](../copilot/overview.md)** to help author API Management policies or explain already configured policies​
+* **[Copilot in Azure](/azure/copilot/overview)** to help author API Management policies or explain already configured policies​
 * **[Azure Key Vault](/azure/key-vault/general/overview)** for secure safekeeping and management of [client certificates](api-management-howto-mutual-certificates.md) and [secrets​](api-management-howto-properties.md)
 * **[Azure Monitor](api-management-howto-use-azure-monitor.md)** for logging, reporting, and alerting on management operations, systems events, and API requests​
 * **[Application Insights](api-management-howto-app-insights.md)** for live metrics, end-to-end tracing, and troubleshooting

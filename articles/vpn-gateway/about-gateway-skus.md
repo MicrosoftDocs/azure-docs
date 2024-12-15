@@ -4,7 +4,7 @@ description: Learn about VPN Gateway SKUs.
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: conceptual
-ms.date: 08/15/2024
+ms.date: 10/04/2024
 ms.author: cherylmc 
 
 ---
@@ -13,6 +13,9 @@ ms.author: cherylmc
 When you create a VPN Gateway virtual network gateway, you specify the gateway SKU that you want to use. This article describes the factors that you should take into consideration when selecting a gateway SKU. If you're looking for information about ExpressRoute gateway SKUs, see [Virtual network gateways for ExpressRoute](../expressroute/expressroute-about-virtual-network-gateways.md). For Virtual WAN gateways, see [Virtual WAN gateway settings](../virtual-wan/gateway-settings.md).
 
 When you configure a virtual network gateway SKU, select the SKU that satisfies your requirements based on the types of workloads, throughput, features, and SLAs. The following sections show the relevant information that you should use when deciding.
+
+> [!NOTE]
+> We're simplifying our VPN Gateway SKU portfolio and will be transitioning all non availability zone (AZ) supported SKUs to AZ supported SKUs. For more information and timelines, see [VPN Gateway SKU consolidation and migration](gateway-sku-consolidation.md).
 
 ## <a name="benchmark"></a>Gateway SKUs by tunnel, connection, and throughput
 

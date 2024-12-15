@@ -21,11 +21,7 @@ The file includes all the parameters defined in the automation rule. Rules of an
 
 This article shows you how to export and import automation rules.
 
-> [!IMPORTANT]
->
-> - Exporting and importing rules is in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
-> - [!INCLUDE [unified-soc-preview](includes/unified-soc-preview-without-alert.md)]
+[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
 ## Export rules
 

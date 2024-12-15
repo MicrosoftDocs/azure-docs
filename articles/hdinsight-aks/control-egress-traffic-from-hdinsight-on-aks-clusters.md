@@ -3,7 +3,8 @@ title: Control network traffic from HDInsight on AKS Cluster pools and cluster
 description: A guide to configure and manage inbound and outbound network connections from HDInsight on AKS.
 ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
-ms.date: 05/21/2024
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Control network traffic from HDInsight on AKS Cluster pools and clusters
@@ -43,7 +44,7 @@ In the following sections, we describe each method in detail.
 
 ### Outbound with load balancer
 
-The load balancer is used for egress through an HDInsight on AKS assigned public IP. When you configure the outbound type of load balancer on your cluster pool, you can expect egress out of the load balancer created by the HDInsight on AKS.  
+The load balancer is used for egress through a HDInsight on AKS assigned public IP. When you configure the outbound type of load balancer on your cluster pool, you can expect egress out of the load balancer created by the HDInsight on AKS.  
 
 You can configure the outbound with load balancer configuration using the Azure portal.
 
@@ -243,7 +244,7 @@ The Public FQDN can only be resolved to a CNAME with subdomain, therefore it mus
 The Private DNS zone should be able to resolve private FQDN to an IP `(privatelink.{clusterPoolName}.{subscriptionId})`. 
  
 > [!NOTE]
-> HDInsight on AKS creates private DNS zone in the cluster pool, virtual network. If your client applications are in same virtual network, you need not configure the private DNS zone again. In case you're using a client application in a different virtual network, you're required to use virutal network peering and bind to private dns zone in the cluster pool virtual network or use private endpoints in the virutal network, and private dns zones, to add the A-record to the private endpoint private IP. 
+> HDInsight on AKS creates private DNS zone in the cluster pool, virtual network. If your client applications are in same virtual network, you need not configure the private DNS zone again. In case you're using a client application in a different virtual network, you're required to use virtual network peering and bind to private dns zone in the cluster pool virtual network or use private endpoints in the virtual network, and private dns zones, to add the A-record to the private endpoint private IP. 
 
 Private FQDN： `{clusterName}.privatelink.{clusterPoolName}.{subscriptionId}.{region}.hdinsightaks.net`
 

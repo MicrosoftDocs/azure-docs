@@ -11,12 +11,11 @@ ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, engag
 
 # Use built-in persistent storage in Azure Spring Apps
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ✔️ Java ✔️ C#
+**This article applies to:** ✅ Java ✅ C#
 
-**This article applies to:** ✔️ Basic/Standard ❌ Enterprise
+**This article applies to:** ✅ Basic/Standard ❎ Enterprise
 
 Azure Spring Apps provides two types of built-in storage for your application: persistent and temporary.
 
@@ -90,5 +89,5 @@ Other operations:
 
 ## Next steps
 
-- [Quotas and service plans for Azure Spring Apps](../enterprise/quotas.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json)
-- [Scale an application in Azure Spring Apps](../enterprise/how-to-scale-manual.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json)
+- [Quotas and service plans for Azure Spring Apps](quotas.md)
+- [Scale an application in Azure Spring Apps](how-to-scale-manual.md)

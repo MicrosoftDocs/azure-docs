@@ -6,14 +6,14 @@ ms.service: sap-on-azure
 ms.subservice: sap-monitor
 ms.topic: overview
 ms.custom: subject-monitoring
-ms.date: 10/27/2022
+ms.date: 08/21/2024
 ms.author: jushiman
 #Customer intent: As a developer, I want to learn how to monitor my SAP resources on Azure so that I can better understand their availability, performance, and operation.
 ---
 
 # What is Azure Monitor for SAP solutions?
 
-When you have critical SAP applications and business processes that rely on Azure resources, you might want to monitor those resources for availability, performance, and operation. Azure Monitor for SAP solutions is an Azure-native monitoring product for SAP landscapes that run on Azure. It uses specific parts of the [Azure Monitor](../../azure-monitor/overview.md) infrastructure. 
+When you have critical SAP applications and business processes that rely on Azure resources, you might want to monitor those resources for availability, performance, and operation. Azure Monitor for SAP solutions is an Azure-native monitoring product for SAP landscapes that run on Azure. It uses specific parts of the [Azure Monitor](/azure/azure-monitor/overview) infrastructure. 
 
 You can use Azure Monitor for SAP solutions with both [SAP on Azure virtual machines (VMs)](/azure/virtual-machines/workloads/sap/hana-get-started) and [SAP on Azure Large Instances](/azure/virtual-machines/workloads/sap/hana-overview-architecture).
 
@@ -23,12 +23,12 @@ You can use Azure Monitor for SAP solutions to collect data from Azure infrastru
 
 To monitor components of an SAP landscape, add the corresponding [provider](providers.md). These components include Azure VMs, high-availability (HA) clusters, SAP HANA databases, and SAP NetWeaver. For more information, see [Quickstart: Deploy Azure Monitor for SAP solutions in Azure portal](quickstart-portal.md).
 
-Azure Monitor for SAP solutions uses the [Azure Monitor](../../azure-monitor/overview.md) capabilities of [Log Analytics](../../azure-monitor/logs/log-analytics-overview.md) and [workbooks](../../azure-monitor/visualize/workbooks-overview.md). With it, you can:
+Azure Monitor for SAP solutions uses the [Azure Monitor](/azure/azure-monitor/overview) capabilities of [Log Analytics](/azure/azure-monitor/logs/log-analytics-overview) and [workbooks](/azure/azure-monitor/visualize/workbooks-overview). With it, you can:
 
-- Create [custom visualizations](../../azure-monitor/visualize/workbooks-overview.md) by editing the default that Azure Monitor for SAP solutions provides.
-- Write [custom queries](../../azure-monitor/logs/log-analytics-tutorial.md).
-- Create [custom alerts](../../azure-monitor/alerts/alerts-log.md) by using Log Analytics workspaces.
-- Take advantage of the [flexible retention period](../../azure-monitor/logs/data-retention-configure.md) in Azure Monitor Logs and Log Analytics.
+- Create [custom visualizations](/azure/azure-monitor/visualize/workbooks-overview) by editing the default that Azure Monitor for SAP solutions provides.
+- Write [custom queries](/azure/azure-monitor/logs/log-analytics-tutorial).
+- Create [custom alerts](/azure/azure-monitor/alerts/alerts-log) by using Log Analytics workspaces.
+- Take advantage of the [flexible retention period](/azure/azure-monitor/logs/data-retention-configure) in Azure Monitor Logs and Log Analytics.
 - Connect monitoring data with your ticketing system.
 
 ## What data is collected?
@@ -127,12 +127,12 @@ The key components of the architecture are:
 - The managed resource group, which is deployed automatically as part of the Azure Monitor for SAP solutions resource's deployment. Inside the managed resource group, resources like these help collect data:
   - An [Azure Functions resource](../../azure-functions/functions-overview.md) hosts the monitoring code. This logic collects data from the source systems and transfers the data to the monitoring framework.
   - An [Azure Key Vault resource](/azure/key-vault/general/basic-concepts) holds the SAP HANA database credentials and stores information about providers.
-  - A [Log Analytics workspace](../../azure-monitor/logs/log-analytics-workspace-overview.md) is the destination for storing data. Optionally, you can choose to use an existing workspace in the same subscription as your Azure Monitor for SAP solutions resource at deployment.
+  - A [Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-workspace-overview) is the destination for storing data. Optionally, you can choose to use an existing workspace in the same subscription as your Azure Monitor for SAP solutions resource at deployment.
   - A [storage account](../../storage/common/storage-account-overview.md) is associated with the Azure Functions resource. It's used to manage triggers and executions of logging functions.
 
-[Azure Monitor workbooks](../../azure-monitor/visualize/workbooks-overview.md) provide customizable visualization of the data in Log Analytics. To automatically refresh your workbooks or visualizations, pin the items to the Azure dashboard. The maximum refresh frequency is every 30 minutes.
+[Azure Monitor workbooks](/azure/azure-monitor/visualize/workbooks-overview) provide customizable visualization of the data in Log Analytics. To automatically refresh your workbooks or visualizations, pin the items to the Azure dashboard. The maximum refresh frequency is every 30 minutes.
 
-You can also use Kusto Query Language (KQL) to [run log queries](../../azure-monitor/logs/log-query-overview.md) against the raw tables inside the Log Analytics workspace.
+You can also use Kusto Query Language (KQL) to [run log queries](/azure/azure-monitor/logs/log-query-overview) against the raw tables inside the Log Analytics workspace.
 
 ## How do you analyze logs?
 
@@ -140,7 +140,7 @@ Azure Monitor for SAP solutions doesn't support resource logs or activity logs. 
 
 ## How do you make Kusto queries?
 
-When you select **Logs** from the **Azure Monitor for SAP solutions** menu, Log Analytics opens with the query scope set to the current instance of Azure Monitor for SAP solutions. Log queries include only data from that resource. To run a query that includes data from other accounts or data from other Azure services, select **Logs** from the **Azure Monitor** menu. For more information, see [Log query scope and time range in Azure Monitor Log Analytics](../../azure-monitor/logs/scope.md).
+When you select **Logs** from the **Azure Monitor for SAP solutions** menu, Log Analytics opens with the query scope set to the current instance of Azure Monitor for SAP solutions. Log queries include only data from that resource. To run a query that includes data from other accounts or data from other Azure services, select **Logs** from the **Azure Monitor** menu. For more information, see [Log query scope and time range in Azure Monitor Log Analytics](/azure/azure-monitor/logs/scope).
 
 You can use Kusto queries to help you monitor your Azure Monitor for SAP solutions resources. The following sample query gives you data from a custom log for a specified time range. You can view the list of custom tables by expanding the **Custom Logs** section. You can specify the time range and the number of rows. In this example, you get five rows of data for your selected time range:
 

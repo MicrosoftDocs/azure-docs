@@ -10,6 +10,10 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
+
+
+#Customer intent: As a security analyst, I want to integrate threat intelligence into Microsoft Sentinel so that I can detect, investigate, and respond to potential security threats effectively.
+
 ---
 
 # Understand threat intelligence in Microsoft Sentinel
@@ -146,7 +150,7 @@ Microsoft enriches IP and domain indicators with extra `GeoLocation` and `WhoIs`
 
 View `GeoLocation` and `WhoIs` data on the **Threat Intelligence** pane for those types of threat indicators imported into Microsoft Sentinel.
 
-For example, use `GeoLocation` data to find information like the organization or country for an IP indicator. Use `WhoIs` data to find data like registrar and record creation data from a domain indicator.
+For example, use `GeoLocation` data to find information like the organization or country/region for an IP indicator. Use `WhoIs` data to find data like registrar and record creation data from a domain indicator.
 
 ## Detect threats with threat indicator analytics
 
@@ -166,7 +170,7 @@ Microsoft provides access to its threat intelligence through the Defender Threat
 
 Workbooks provide powerful interactive dashboards that give you insights into all aspects of Microsoft Sentinel, and threat intelligence is no exception. Use the built-in **Threat Intelligence** workbook to visualize key information about your threat intelligence. You can easily customize the workbook according to your business needs. Create new dashboards by combining many data sources to help you visualize your data in unique ways.
 
-Because Microsoft Sentinel workbooks are based on Azure Monitor workbooks, extensive documentation and many more templates are already available. For more information, see [Create interactive reports with Azure Monitor workbooks](../azure-monitor/visualize/workbooks-overview.md).
+Because Microsoft Sentinel workbooks are based on Azure Monitor workbooks, extensive documentation and many more templates are already available. For more information, see [Create interactive reports with Azure Monitor workbooks](/azure/azure-monitor/visualize/workbooks-overview).
 
 There's also a rich resource for [Azure Monitor workbooks on GitHub](https://github.com/microsoft/Application-Insights-Workbooks), where you can download more templates and contribute your own templates.
 

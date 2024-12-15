@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: conceptual
-ms.date: 07/18/2024
+ms.date: 10/21/2024
 ms.author: cshoe
 ---
 
@@ -22,11 +22,11 @@ Learn to set up your Kubernetes cluster for Container Apps, via [Set up an Azure
 
 As you configure your cluster, you carry out these actions:
 
-- **The connected cluster**, which is an Azure projection of your Kubernetes infrastructure. For more information, see [What is Azure Arc-enabled Kubernetes?](../azure-arc/kubernetes/overview.md).
+- **The connected cluster**, which is an Azure projection of your Kubernetes infrastructure. For more information, see [What is Azure Arc-enabled Kubernetes?](/azure/azure-arc/kubernetes/overview).
 
-- **A cluster extension**, which is a subresource of the connected cluster resource. The Container Apps extension [installs the required resources into your connected cluster](#resources-created-by-the-container-apps-extension). For more information about cluster extensions, see [Cluster extensions on Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/conceptual-extensions.md).
+- **A cluster extension**, which is a subresource of the connected cluster resource. The Container Apps extension [installs the required resources into your connected cluster](#resources-created-by-the-container-apps-extension). For more information about cluster extensions, see [Cluster extensions on Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/conceptual-extensions).
 
-- **A custom location**, which bundles together a group of extensions and maps them to a namespace for created resources. For more information, see [Custom locations on top of Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/conceptual-custom-locations.md).
+- **A custom location**, which bundles together a group of extensions and maps them to a namespace for created resources. For more information, see [Custom locations on top of Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/conceptual-custom-locations).
 
 - **A Container Apps connected environment**, which enables configuration common across apps but not related to cluster operations. Conceptually, it's deployed into the custom location resource, and app developers create apps into this environment.
 
@@ -38,9 +38,13 @@ The following public preview limitations apply to Azure Container Apps on Azure 
 |---|---|
 | Supported Azure regions | East US, West Europe, East Asia |
 | Cluster networking requirement | Must support [LoadBalancer](https://kubernetes.io/docs/concepts/services-networking/service/#loadbalancer) service type |
+| Node OS requirement | **Linux** only. | 
 | Feature: Managed identities | [Not available](#are-managed-identities-supported) |
 | Feature: Pull images from ACR with managed identity | Not available (depends on managed identities) |
 | Logs | Log Analytics must be configured with cluster extension; not per-application |
+
+> [!IMPORTANT]
+> If deploying onto **AKS-HCI** ensure that you have [setup HAProxy as your load balancer](/azure/aks/hybrid/configure-load-balancer)  before attempting to install the extension.
 
 ## Resources created by the Container Apps extension
 
@@ -77,6 +81,7 @@ The following table describes the role of each revision created for you:
 - [Are there any scaling limits?](#are-there-any-scaling-limits)
 - [What logs are collected?](#what-logs-are-collected)
 - [What do I do if I see a provider registration error?](#what-do-i-do-if-i-see-a-provider-registration-error)
+- [Can the extension be installed on Windows nodes?](#can-the-extension-be-installed-on-windows-nodes)
 - [Can I deploy the Container Apps extension on an Arm64 based cluster?](#can-i-deploy-the-container-apps-extension-on-an-arm64-based-cluster)
 
 ### How much does it cost?
@@ -99,13 +104,17 @@ All applications deployed with Azure Container Apps on Azure Arc-enabled Kuberne
 
 Logs for both system components and your applications are written to standard output.
 
-Both log types can be collected for analysis using standard Kubernetes tools. You can also configure the application environment cluster extension with a [Log Analytics workspace](../azure-monitor/logs/log-analytics-overview.md), and it sends all logs to that workspace.
+Both log types can be collected for analysis using standard Kubernetes tools. You can also configure the application environment cluster extension with a [Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-overview), and it sends all logs to that workspace.
 
 By default, logs from system components are sent to the Azure team. Application logs aren't sent. You can prevent these logs from being transferred by setting `logProcessor.enabled=false` as an extension configuration setting. This configuration setting disables forwarding of application to your Log Analytics workspace. Disabling the log processor might affect the time needed for any support cases, and you'll be asked to collect logs from standard output through some other means.
 
 ### What do I do if I see a provider registration error?
 
 As you create an Azure Container Apps connected environment resource, some subscriptions might see the "No registered resource provider found" error. The error details might include a set of locations and API versions that are considered valid. If this error message is returned, the subscription must be re-registered with the `Microsoft.App` provider. Re-registering the provider has no effect on existing applications or APIs. To re-register, use the Azure CLI to run `az provider register --namespace Microsoft.App --wait`. Then reattempt the connected environment command.
+
+## Can the extension be installed on Windows nodes?
+
+No, the extension cannot be installed on Windows nodes. The extension supports installation on **Linux** nodes **only**.
 
 ### Can I deploy the Container Apps extension on an Arm64 based cluster?
 
@@ -212,6 +221,16 @@ Arm64 based clusters aren't supported at this time.
  ### Container Apps extension v1.37.1 (July 2024)
 
  - Update EasyAuth to support MISE
+
+ ### Container Apps extension v1.37.2 (September 2024)
+
+  - Updated Dapr-Metrics image to v0.6.8 to resolve network timeout issue
+  - Resolved issue in Log Processor which prevented MDSD container from starting when cluster is connected behind a Proxy
+
+ ### Container Apps extension v1.37.7 (October 2024)
+
+  - Resolved issue with MDM Init container which caused container to crash in event it couldn't be pulled
+  - Added support for [Logic Apps Hybrid Deployment Model (Public Preview)](https://techcommunity.microsoft.com/t5/azure-integration-services-blog/announcement-introducing-the-logic-apps-hybrid-deployment-model/ba-p/4271568)
 
 ## Next steps
 

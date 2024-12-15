@@ -53,7 +53,7 @@ The following are some reasons why you might want to transfer a subscription:
 Transferring a subscription requires downtime to complete the process. Depending on your scenario, you can consider the following alternate approaches:
 
 - Re-create the resources and copy data to the target directory and subscription.
-- Adopt a multi-directory architecture and leave the subscription in the source directory. Use Azure Lighthouse to delegate resources so that users in the target directory can access the subscription in the source directory. For more information, see [Azure Lighthouse in enterprise scenarios](../lighthouse/concepts/enterprise.md).
+- Adopt a multi-directory architecture and leave the subscription in the source directory. Use Azure Lighthouse to delegate resources so that users in the target directory can access the subscription in the source directory. For more information, see [Azure Lighthouse in enterprise scenarios](/azure/lighthouse/concepts/enterprise).
 
 ### Understand the impact of transferring a subscription
 
@@ -70,7 +70,8 @@ Several Azure resources have a dependency on a subscription or a directory. Depe
 | User-assigned managed identities | Yes | Yes | [List managed identities](#list-role-assignments-for-managed-identities) | You must delete, re-create, and attach the managed identities to the appropriate resource. You must re-create the role assignments. |
 | Azure Key Vault | Yes | Yes | [List Key Vault access policies](#list-key-vaults) | You must update the tenant ID associated with the key vaults. You must remove and add new access policies. |
 | Azure SQL databases with Microsoft Entra authentication integration enabled | Yes | No | [Check Azure SQL databases with Microsoft Entra authentication](#list-azure-sql-databases-with-azure-ad-authentication) | You cannot transfer an Azure SQL database with Microsoft Entra authentication enabled to a different directory. For more information, see [Use Microsoft Entra authentication](/azure/azure-sql/database/authentication-aad-overview). |
-| Azure database for MySQL with Microsoft Entra authentication integration enabled | Yes | No |  | You cannot transfer an Azure database for MySQL (Single and Flexible server) with Microsoft Entra authentication enabled to a different directory. | 
+| Azure Database for MySQL with Microsoft Entra authentication integration enabled | Yes | No |  | You cannot transfer an Azure database for MySQL (Single and Flexible server) with Microsoft Entra authentication enabled to a different directory. | 
+| Azure Database for PostgreSQL Flexible Server with Microsoft Entra authentication integration enabled or with Customer Managed Key enabled | Yes | No |  | You cannot transfer an Azure Database for PostgreSQL with Microsoft Entra authentication or with Customer Managed Key enabled to a different directory. You have to disable these features first, transfer the server, and then re-enable these features. | 
 | Azure Storage and Azure Data Lake Storage Gen2 | Yes | Yes |  | You must re-create any ACLs. |
 | Azure Files | Yes | In most scenarios |  | You must re-create any ACLs. For storage accounts with Entra Kerberos authentication enabled, you must disable and re-enable Entra Kerberos authentication after the transfer. For Entra Domain Services, transferring to another Microsoft Entra directory where Entra Domain Services is not enabled is not supported. |
 | Azure File Sync | Yes | Yes |  | The storage sync service and/or storage account can be moved to a different directory. For more information, see [Frequently asked questions (FAQ) about Azure Files](../storage/files/storage-files-faq.md#azure-file-sync) |
@@ -397,4 +398,4 @@ If your intent is to remove access from users in the source directory so that th
 - [Transfer billing ownership of an Azure subscription to another account](../cost-management-billing/manage/billing-subscription-transfer.md)
 - [Transfer Azure subscriptions between subscribers and CSPs](../cost-management-billing/manage/transfer-subscriptions-subscribers-csp.yml)
 - [Associate or add an Azure subscription to your Microsoft Entra tenant](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
-- [Azure Lighthouse in enterprise scenarios](../lighthouse/concepts/enterprise.md)
+- [Azure Lighthouse in enterprise scenarios](/azure/lighthouse/concepts/enterprise)

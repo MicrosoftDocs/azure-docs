@@ -45,7 +45,7 @@ Find the pricing for **DCsv2**, **DCsv3**, and **DCdsv3** VMs on the [Azure VMs 
 
 ### Cores quota
 
-You might need to increase the cores quota in your Azure subscription from the default value. Your [subscription might also limit the number of cores](#azure-subscription) that you can deploy in certain VM size families, including **DCsv2-Series**. You can [request a quota increase](../azure-portal/supportability/per-vm-quota-requests.md) at no charge. Default limits might be different based on your subscription category.
+You might need to increase the cores quota in your Azure subscription from the default value. Your [subscription might also limit the number of cores](#azure-subscription) that you can deploy in certain VM size families, including **DCsv2-Series**. You can [request a quota increase](/azure/azure-portal/supportability/per-vm-quota-requests) at no charge. Default limits might be different based on your subscription category.
 
 If you have large-scale capacity needs, contact Azure Support. Azure quotas are credit limits, not capacity guarantees. Whatever your quota, you're only charged for cores that you use.
   

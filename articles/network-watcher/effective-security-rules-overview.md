@@ -6,7 +6,8 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: concept-article
-ms.date: 09/15/2023
+ms.date: 09/30/2024
+
 #CustomerIntent: As an Azure administrator, I want to see the effective security rules applied to an Azure virtual machine (VM) instead of checking each network security group that applies to the VM.
 ---
 
@@ -16,7 +17,7 @@ Effective security rules view is a feature in Azure Network Watcher that you can
 
 You can define a prescriptive set of security rules as a model for security governance in your organization. Then, you can implement a periodic compliance audit in a programmatic way by comparing the prescriptive rules with the effective rules for each of the virtual machines in your network.
 
-The effective security rules applied to a network interface are an aggregation of the rules that exist in the network security group associated to a network interface and the subnet the network interface is in. For more information, see [Network security groups](../virtual-network/network-security-groups-overview.md?toc=%2Fazure%2Fnetwork-watcher%2Ftoc.json) and [How network security groups filter network traffic](../virtual-network/network-security-group-how-it-works.md?toc=%2Fazure%2Fnetwork-watcher%2Ftoc.json). Additionally, the effective security rules include the admin rules that are applied to the virtual network using the Azure Virtual Network Manager. For more information, see [Azure Virtual Network Manager](../virtual-network-manager/overview.md?toc=%2Fazure%2Fnetwork-watcher%2Ftoc.json).
+The effective security rules applied to a network interface are an aggregation of rules that exist in the network security group associated to a network interface and the subnet the network interface is in. For more information, see [Network security groups](../virtual-network/network-security-groups-overview.md?toc=%2Fazure%2Fnetwork-watcher%2Ftoc.json) and [How network security groups filter network traffic](../virtual-network/network-security-group-how-it-works.md?toc=%2Fazure%2Fnetwork-watcher%2Ftoc.json). Additionally, the effective security rules include the admin rules that are applied to the virtual network using the Azure Virtual Network Manager. For more information, see [Azure Virtual Network Manager](../virtual-network-manager/overview.md?toc=%2Fazure%2Fnetwork-watcher%2Ftoc.json).
 
 ## Effective security rules in the Azure portal
 

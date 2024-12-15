@@ -25,9 +25,9 @@ If those options don't solve the problem, contact [Dynatrace support](https://s
 
 ## Logs not being emitted or limit reached issue
 
-- Resource doesn't support sending logs. Only resource types with monitoring log categories can be configured to send logs.  For more information, see [supported categories](../../azure-monitor/essentials/resource-logs-categories.md).
+- Resource doesn't support sending logs. Only resource types with monitoring log categories can be configured to send logs.  For more information, see [supported categories](/azure/azure-monitor/essentials/resource-logs-categories).
 
-- Limit of five diagnostic settings reached. This displays the message of Limit reached against the resource. Each Azure resource can have a maximum of five diagnostic settings. For more information, see [diagnostic settings](../../azure-monitor/essentials/diagnostic-settings.md?tabs=portal) You can go ahead and remove the other destinations to make sure each resource is sending data to at max five destinations.
+- Limit of five diagnostic settings reached. This displays the message of Limit reached against the resource. Each Azure resource can have a maximum of five diagnostic settings. For more information, see [diagnostic settings](/azure/azure-monitor/essentials/diagnostic-settings?tabs=portal) You can go ahead and remove the other destinations to make sure each resource is sending data to at max five destinations.
 
 - Export of Metrics data isn't supported currently by the partner solutions under Azure Monitor diagnostic settings. 
 

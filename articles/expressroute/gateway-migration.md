@@ -39,6 +39,9 @@ Historically, users had to use the Resize-AzVirtualNetworkGateway PowerShell com
 
 With the guided gateway migration experience you can deploy a second virtual network gateway in the same GatewaySubnet and Azure automatically transfers the control plane and data path configuration from the old gateway to the new one. During the migration process, there will be two virtual network gateways in operation within the same GatewaySubnet. This feature is designed to support migrations without downtime. However, users may experience brief connectivity issues or interruptions during the migration process.
 
+> [!NOTE]
+> The total time required for the migration to complete can take up to one hour. During this period, the gateway will remain locked, and no changes will be permitted.
+
 Gateway migration is recommended if you have a non-Az enabled Gateway SKU or a non-Az enabled Gateway Basic IP Gateway SKU.
 
 | Migrate from Non-Az enabled Gateway SKU     | Migrate to Az-enabled Gateway SKU              |
@@ -60,8 +63,9 @@ It's recommended to migrate to an Az-enabled SKU for enhanced reliability and hi
 
 ### Limitations
 
-The guided gateway migration experience doesn't support these scenarios:
-* Downgrade scenarios, Az-enabled Gateway SKU to non-Az-enabled Gateway SKU.
+The guided gateway migration experience doesn't support downgrade scenarios, Az-enabled Gateway SKU to non-Az-enabled Gateway SKU.
+
+To proceed with migration, a /27 prefix or longer is required in the GatewaySubnet.
 
 Private endpoints (PEs) in the virtual network, connected over ExpressRoute private peering, might have connectivity problems during the migration. To understand and reduce this issue, see [Private endpoint connectivity](expressroute-about-virtual-network-gateways.md#private-endpoint-connectivity-and-planned-maintenance-events).
 
@@ -71,10 +75,7 @@ In the gateway migration experience, you need to validate if your resource is ca
 
 ### Virtual network 
 
-* Gateway Subnet needs two or more prefixes for migration.
-* MaxGatewayCountInVnetReached – Reached maximum number of gateways that can be created in a Virtual Network. 
-
- You must create a second prefix in your Gateway Subnet for migration.
+MaxGatewayCountInVnetReached – Reached maximum number of gateways that can be created in a Virtual Network. 
 
 ## Next steps
 

@@ -1,12 +1,12 @@
 ---
-title: Organize spaceborne geospatial data with STAC - Azure Orbital Analytics
+title: Organize spaceborne geospatial data with STAC
 description: Create an implementation of SpatioTemporal Asset Catalog (STAC) creation to structure geospatial data.
 author: taiyee
-ms.service: orbital
+ms.service: azure-orbital
 ms.topic: conceptual
 ms.custom: ga
 ms.date: 09/29/2022
-ms.author: taiyee
+ms.author: mosagie
 ---
 
 # Organize spaceborne geospatial data with SpatioTemporal Asset Catalog (STAC)
@@ -41,13 +41,13 @@ Here are a couple of examples:
 
 ## Architecture
 
-:::image type="content" source="media/stac-architecture.png" alt-text="Diagram of STAC architecture." lightbox="media/stac-architecture.png":::
+:::image type="content" source="media/stac-architecture.png" alt-text="Diagram of SpatioTemporal Asset Catalog (STAC) architecture." lightbox="media/stac-architecture.png":::
 
 Download a [Visio file](https://download.microsoft.com/download/5/6/4/564196b7-dd01-468a-af21-1da16489f298/stac_arch.vsdx) for this architecture.
 
 ### Dataflow 
 
-:::image type="content" source="media/stac-data-flow.png" alt-text="STAC dataflow diagram." lightbox="media/stac-data-flow.png":::
+:::image type="content" source="media/stac-data-flow.png" alt-text="SpatioTemporal Asset Catalog (STAC) dataflow diagram." lightbox="media/stac-data-flow.png":::
 
 Download a [Visio file](https://download.microsoft.com/download/5/6/4/564196b7-dd01-468a-af21-1da16489f298/stac_data_flow.vsdx) for this dataflow.
 
@@ -106,11 +106,11 @@ The following Azure services are used in this architecture.
 - [Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/overview) is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings. It has richer capabilities such as zone resilient high availability (HA), predictable performance, maximum control, custom maintenance window, cost optimization controls, and simplified developer experience suitable for your enterprise workloads.
 - [API Management Services](https://azure.microsoft.com/services/api-management/) offers a scalable, multicloud API management platform for securing, publishing and analyzing APIs.
 - [Azure Kubernetes Services](/azure/aks/intro-kubernetes) offers the quickest way to start developing and deploying cloud-native apps, with built-in code-to-cloud pipelines and guardrails.
-- [Container Registry](../container-registry/container-registry-intro.md) to store and manage your container images and related artifacts.
+- [Container Registry](/azure/container-registry/container-registry-intro) to store and manage your container images and related artifacts.
 - [Virtual Machine](/azure/virtual-machines/overview) (VM) gives you the flexibility of virtualization for a wide range of computing solutions. In a fully secured deployment, a user connects to a VM via Azure Bastion (described in the next item below) to perform a range of operations like copying files to storage accounts, running Azure CLI commands, and interacting with other services.  
 - [Azure Bastion](../bastion/bastion-overview.md) enables you to securely and seamlessly RDP & SSH to your VMs in Azure virtual network, without the need of public IP on the VM, directly from the Azure portal, and without the need of any other client/agent or any piece of software.
-- [Application Insights](../azure-monitor/app/app-insights-overview.md) provides extensible application performance management and monitoring for live web apps.
-- [Log Analytics](../azure-monitor/logs/log-analytics-overview.md) is a tool to edit and run log queries from data collected by Azure Monitor logs and interactively analyze the results.
+- [Application Insights](/azure/azure-monitor/app/app-insights-overview) provides extensible application performance management and monitoring for live web apps.
+- [Log Analytics](/azure/azure-monitor/logs/log-analytics-overview) is a tool to edit and run log queries from data collected by Azure Monitor logs and interactively analyze the results.
 
 The following Geospatial libraries are also used:
 
@@ -169,7 +169,7 @@ At a high level, this deployment does the following:
 - Deploys Azure API Management service and publishes the endpoint for STAC FastAPI.
 - Packages the code and its dependencies, builds the Docker container images, and pushes them to Azure Container Registry.
 
-    :::image type="content" source="media/stac-deploy.png" alt-text="Diagram of STAC deployment services." lightbox="media/stac-deploy.png":::
+    :::image type="content" source="media/stac-deploy.png" alt-text="Diagram of a sample STAC deployment services." lightbox="media/stac-deploy.png":::
 
 Download a [Visio file](https://download.microsoft.com/download/5/6/4/564196b7-dd01-468a-af21-1da16489f298/stac_deploy.vsdx) for this implementation.
 

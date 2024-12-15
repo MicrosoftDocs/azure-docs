@@ -51,7 +51,7 @@ Create a workspace in the subscription that has the VNets link to the ExpressRou
 1. Sign in to the [Azure portal](https://portal.azure.com). From the subscription that has the virtual networks connected to your ExpressRoute circuit, select **+ Create a resource**. Search for *Log Analytics Workspace*, then select **Create**.
 
    >[!NOTE]
-   >You can create a new workspace, or use an existing workspace. If you want to use an existing workspace, you must make sure that the workspace has been migrated to the new query language. [More information...](../azure-monitor/logs/log-query-overview.md)
+   >You can create a new workspace, or use an existing workspace. If you want to use an existing workspace, you must make sure that the workspace has been migrated to the new query language. [More information...](/azure/azure-monitor/logs/log-query-overview)
    >
 
     :::image type="content" source="./media/how-to-configure-connection-monitor/search-log-analytics.png" alt-text="Screenshot of searching for Log Analytics in create a resource.":::
@@ -132,10 +132,10 @@ It's recommended that you install the Log Analytics agent on at least two server
 
 1. Select the appropriate operating system for the steps to install the Log Analytics agent on your servers.
 
-    * [Windows](../azure-monitor/agents/agent-windows.md#install-the-agent)
-    * [Linux](../azure-monitor/agents/agent-linux.md)
+    * [Windows](/azure/azure-monitor/agents/agent-windows#install-the-agent)
+    * [Linux](/azure/azure-monitor/agents/agent-linux)
 
-1. When complete, the Microsoft Monitoring Agent appears in the Control Panel. You can review your configuration, and [verify the agent connectivity](../azure-monitor/agents/agent-windows.md#verify-agent-connectivity-to-azure-monitor) to Azure Monitor logs.
+1. When complete, the Microsoft Monitoring Agent appears in the Control Panel. You can review your configuration, and [verify the agent connectivity](/azure/azure-monitor/agents/agent-windows#verify-agent-connectivity-to-azure-monitor) to Azure Monitor logs.
 
 1. Repeat steps 1 and 2 for the other on-premises machines that you wish to use for monitoring.
 

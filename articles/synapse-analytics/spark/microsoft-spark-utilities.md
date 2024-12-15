@@ -537,6 +537,11 @@ mssparkutils.fs.append("file path", "content to append", True) # Set the last pa
 ```
 ::: zone-end
 
+> [!NOTE]
+> - ```mssparkutils.fs.append()``` and ```mssparkutils.fs.put()``` do not support concurrent writing to the same file due to lack of atomicity guarantees.
+> - When using the ``` mssparkutils.fs.append ``` API in a ```for``` loop to write to the same file, we recommend to add a ```sleep``` statement around 0.5s~1s between the recurring writes. This is because the ```mssparkutils.fs.append``` API's internal ```flush``` operation is asynchronous, so a short delay helps ensure data integrity.
+
+
 ### Delete file or directory
 
 Removes a file or a directory.

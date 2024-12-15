@@ -168,7 +168,7 @@ For building log projections, Azure Functions supports output bindings for
 
 Azure Functions can run under a [Azure managed identity](../active-directory/managed-identities-azure-resources/overview.md) and with that, it can hold the configuration values for credentials in tightly access-controlled storage inside of [Azure Key Vault](/azure/key-vault/general/overview).
 
-Azure Functions furthermore allows the replication tasks to directly integrate with Azure virtual networks and [service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) for all Azure messaging services, and it is readily integrated with [Azure Monitor](../azure-monitor/overview.md).
+Azure Functions furthermore allows the replication tasks to directly integrate with Azure virtual networks and [service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) for all Azure messaging services, and it is readily integrated with [Azure Monitor](/azure/azure-monitor/overview).
 
 With the Azure Functions consumption plan, the prebuilt triggers can even scale down to zero while no messages are available for replication, which means you incur no costs for keeping the configuration ready to scale back up; the key downside of using the consumption plan is that the latency for replication tasks "waking up" from this state is significantly higher than with the hosting plans where the infrastructure is kept running.  
 

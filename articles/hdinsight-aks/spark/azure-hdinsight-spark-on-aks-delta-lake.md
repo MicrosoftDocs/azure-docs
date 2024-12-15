@@ -3,7 +3,8 @@ title: How to use Delta Lake in Azure HDInsight on AKS with Apache Spark™ clus
 description: Learn how to use Delta Lake scenario in Azure HDInsight on AKS with Apache Spark™ cluster. 
 ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
-ms.date: 10/27/2023
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Use Delta Lake in Azure HDInsight on AKS with Apache Spark™ cluster (Preview)
@@ -185,7 +186,7 @@ createDirectory(avgMoMKPIChangePath)
    1. Print Delta Table Schema for transformed and average KPI data1.
 
     ```
-    // tranform data schema
+    // transform data schema
     dtTransformed.toDF.printSchema
     // Average KPI Data Schema
     dtAvgKpi.toDF.printSchema

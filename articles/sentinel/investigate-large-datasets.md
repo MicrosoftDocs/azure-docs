@@ -9,6 +9,10 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
+
+
+#Customer intent: As a security analyst, I want to search and restore archived log data so that I can conduct thorough investigations on historical events.
+
 ---
 
 # Start an investigation by searching for events in large datasets
@@ -35,11 +39,11 @@ The following image shows example search criteria for a search job.
 
 Use search to find events in any of the following log types:
 
-- [Analytics logs](../azure-monitor/logs/data-platform-logs.md)
-- [Basic logs](../azure-monitor/logs/data-platform-logs.md)
-- [Auxiliary logs](../azure-monitor/logs/data-platform-logs.md)
+- [Analytics logs](/azure/azure-monitor/logs/data-platform-logs)
+- [Basic logs](/azure/azure-monitor/logs/data-platform-logs)
+- [Auxiliary logs](/azure/azure-monitor/logs/data-platform-logs)
 
-You can also search analytics or basic log data stored in [long-term retention](../azure-monitor/logs/data-retention-configure.md#interactive-long-term-and-total-retention).
+You can also search analytics or basic log data stored in [long-term retention](/azure/azure-monitor/logs/data-retention-configure#interactive-long-term-and-total-retention).
 
 ### Limitations of a search job
 
@@ -58,7 +62,7 @@ Search jobs aren't currently supported for the following workspaces:
 - Customer-managed key enabled workspaces
 - Workspaces in the China East 2 region
 
-To learn more, see [Search job in Azure Monitor](../azure-monitor/logs/search-jobs.md) in the Azure Monitor documentation.
+To learn more, see [Search job in Azure Monitor](/azure/azure-monitor/logs/search-jobs) in the Azure Monitor documentation.
 
 ## Restore historical data from archived logs
 
@@ -82,7 +86,7 @@ Before you start to restore an archived log table, be aware of the following lim
 - Restore up to four archived tables per workspace per week.
 - Limited to two concurrent restore jobs per workspace.
 
-To learn more, see [Restore logs in Azure Monitor](../azure-monitor/logs/restore.md).
+To learn more, see [Restore logs in Azure Monitor](/azure/azure-monitor/logs/restore).
 
 ## Bookmark search results or restored data rows
 

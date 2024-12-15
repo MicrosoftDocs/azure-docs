@@ -3,7 +3,7 @@ title: Tutorial - Improved exports experience - Preview
 description: This tutorial helps you create automatic exports for your actual and amortized costs in the Cost and Usage Specification standard (FOCUS) format.
 author: jojohpm
 ms.author: jojoh
-ms.date: 08/28/2024
+ms.date: 11/23/2024
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -40,10 +40,9 @@ For Azure Storage accounts:
 - Your Azure storage account must be configured for blob or file storage.
 - Don't configure exports to a storage container that is configured as a destination in an [object replication rule](../../storage/blobs/object-replication-overview.md#object-replication-policies-and-rules).
 - To export to storage accounts with configured firewalls, you need other privileges on the storage account. The other privileges are only required during export creation or modification. They are:
-  - Owner role on the storage account.  
-  Or
-  - Any custom role with `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/permissions/read` permissions.  
-  Additionally, ensure that you enable [Allow trusted Azure service access](../../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services) to the storage account when you configure the firewall.
+  - **Owner** role or any custom role with `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/permissions/read` permissions.
+  
+  - Additionally, ensure that you enable [Allow trusted Azure service access](../../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services) to the storage account when you configure the firewall.
 - The storage account configuration must have the **Permitted scope for copy operations (preview)** option set to **From any storage account**.  
     :::image type="content" source="./media/tutorial-export-acm-data/permitted-scope-copy-operations.png" alt-text="Screenshot showing From any storage account option set." lightbox="./media/tutorial-export-acm-data/permitted-scope-copy-operations.png" :::
 
@@ -186,6 +185,8 @@ The improved exports experience currently has the following limitations.
 
 - Shared access service (SAS) key-based cross tenant export is only supported for Microsoft partners at the billing account scope. It isn't supported for other partner scenarios like any other scope, EA indirect contract, or Azure Lighthouse.
 
+- EA price sheet: Reservation prices are only available for the current month price sheet and can't be retrieved for historical exports. To retain historical reservation prices, set up recurring exports.
+
 ## FAQ
 
 #### Why is file partitioning enabled in exports? 
@@ -194,7 +195,95 @@ The file partitioning is a feature that is activated by default to facilitate th
 
 #### How does the enhanced export experience handle missing attributes like subscription IDs?
 
-In the new export experience, missing attributes such as subscription IDs will be set to null or empty, rather than using a default empty GUID (00000000-0000-0000-0000-000000000000), to more accurately indicate the absence of a value. This affects charges pertaining to unused reservations, unused savings plan and rounding adjustments.
+In the new export experience, missing attributes such as subscription IDs are set to null or empty rather than using a default empty GUID (00000000-0000-0000-0000-000000000000). The null or empty values more accurately indicate the absence of a value. It affects charges pertaining to unused reservations, unused savings plan, and rounding adjustments.
+
+#### How much historical data can I retrieve using Exports?
+
+You can retrieve up to 13 months of historical data through the Azure portal for all datasets, except for reservation recommendations, which are limited to the current recommendation snapshot. To access data older than 13 months, you can use the REST API.
+
+- Cost and usage (Actual), Cost and usage (Amortized), and Cost and usage (FOCUS): Up to seven years of data.
+
+- Reservation transactions: Up to seven years of data across all channels.
+
+- Reservation recommendations, Reservation details: Up to 13 months of data.
+
+- All available prices:
+
+  - MCA/MPA: Up to 13 months.
+    
+  - EA: Up to 25 months (starting from December 2022).
+    
+#### Which datasets support Parquet format and compression?
+
+The following table captures the supported formats and compression formats for each of the exported datasets. If you're creating an export with multiple datasets, Parquet & compression options only appear in the dropdown if all of the selected datasets support them. 
+
+|Dataset|Format supported|Compression supported|
+| -------- | -------- | -------- |
+|Cost and usage details (Actual)|CSV|None, Gzip|
+||Parquet|None, Snappy|
+|Cost and usage details (Amortized)|CSV|None, Gzip|
+||Parquet|None, Snappy|
+|Cost and usage details (Usage only)|CSV|None, Gzip|
+||Parquet|None, Snappy|
+|Cost and usage details (FOCUS)|CSV|None, Gzip|
+||Parquet|None, Snappy|
+|Reservation details|CSV|None|
+|Reservation recommendations|CSV|None|
+|Reservation transactions|CSV|None|
+|Price Sheet|CSV|None, Gzip|
+||Parquet|None, Snappy|
+
+#### Why do I get the 'Unauthorized' error while trying to create an Export? 
+
+When attempting to create an Export to a storage account with a firewall, the user must have the Owner role or a custom role with `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/permissions/read` permissions. If these permissions are missing, you encounter an error similar to:
+
+
+```json
+{
+	"error":{
+	"code":"Unauthorized",
+	"message":"The user does not have authorization to perform 'Microsoft.Authorization/roleAssignments/write' action on specified storage account, please use a storage account with sufficient permissions. If the permissions have changed recently then retry after some time."
+	}
+}
+```
+
+You can check for the permissions on the storage account by referring to the steps in [Check access for a user to a single Azure resource](../../role-based-access-control/check-access.md). 
+
+#### What is the maximum number of subscriptions allowed within a management group (MG) when creating an export? 
+
+The maximum limit is **3,000 subscriptions** per management group in Cost Management, including exports. 
+
+To manage more than 3,000 subscriptions: 
+
+- Organize them into smaller management groups. For example, if you have a total of 12,500 subscriptions, create five management groups with approximately 2,500 subscriptions each. Create separate exports for each management group scope and combine the exported data for a complete view. 
+
+- Alternatively, if all subscriptions are under the same billing account, create an export at the **billing account scope** to get combined data.
+
+#### How are the exported files organized in the blob storage folders?
+
+The exported files are organized in a structured hierarchy within the storage folders. The naming and hierarchy of the folders are as follows:
+
+- `StorageContainer/StorageDirectory/ExportName/[YYYYMMDD-YYYYMMDD]/[RunID]/`
+
+This path contains the CSV files and a manifest file.
+
+For example:
+
+- `StorageContainer/StorageDirectory/ExportName/[20240401-20240430]/[RunID1]/`
+
+This folder contains the CSV files and the manifest file for all export runs during the April 2024 time period.
+
+- `StorageContainer/StorageDirectory/ExportName/[20241101-20241130]/[RunID2]/`
+
+This folder contains the CSV files and the manifest file for all export runs during the November 2024 time period.
+
+Azure ensures that the cost file for a particular month is available within that month's folder. For example, `[20240401-20240430]`, `[20241101-20241130]` and so on.
+
+- **Without file overwrite:** You see multiple *RunIDs* within the month folder, representing different export runs. For example, 30 different *RunIDs* for 30 days.
+
+- **With file overwrite:** You see only one *RunID* within the month folder, representing the latest run.
+
+At the time of export creation, you can name the *StorageContainer*, *StorageDirectory*, and *ExportName*.
 
 ## Next steps
 

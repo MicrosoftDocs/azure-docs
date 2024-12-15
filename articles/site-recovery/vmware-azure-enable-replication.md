@@ -2,11 +2,10 @@
 title: Enable VMware VMs for disaster recovery using Azure Site Recovery
 description: This article describes how to enable VMware VM replication for disaster recovery using the Azure Site Recovery service
 author: ankitaduttaMSFT
-manager: gaggupta
 ms.service: azure-site-recovery
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: ankitadutta
-ms.date: 05/27/2021
+ms.date: 09/24/2024
 ---
 
 # Enable replication to Azure for VMware VMs

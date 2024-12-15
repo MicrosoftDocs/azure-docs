@@ -7,7 +7,7 @@ author: daviburg
 ms.author: daviburg
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 04/18/2024
+ms.date: 10/24/2024
 ---
 
 # Connect to SAP from workflows in Azure Logic Apps
@@ -205,6 +205,23 @@ SAP upgraded their .NET connector (NCo) to version 3.1, which changed the way th
    - **WEBSITE_PRIVATE_PORTS**: Set this environment variable value to two free and usable ports on your local computer, separating the values with a comma (**,**), for example, **8080,8088**.
 
 * The message content to send to your SAP server, such as a sample IDoc file. This content must be in XML format and include the namespace of the [SAP action](/connectors/sap/#actions) that you want to use. You can [send IDocs with a flat file schema by wrapping them in an XML envelope](sap-create-example-scenario-workflows.md#send-flat-file-idocs).
+
+* For scenarios where you want to send IDocs from your logic app workflow to SAP, change your SAP processing mode from the default **Trigger immediately** setting to **Trigger by background program** so that your workflow doesn't time out.
+
+  If your SAP system is under load, for example, when your workflow sends a batch of IDocs all at one time to SAP, the queued IDoc calls time out. The default processing mode causes your SAP system to block the inbound call for IDoc transmission until an IDoc finishes processing. In Azure Logic Apps, workflow actions have a 2-minute timeout, by default.
+
+  To change your SAP system's processing mode, follow these steps:
+
+  1. In SAP, find the SAP partner profile, and open the **Partner profiles** settings. You can use the **we20** transaction code (T-Code) with the **/n** prefix.
+
+  1. On the **Inbound options** tab, under **Processing by Function Module**, change the setting to **Trigger by background program** from **Trigger immediately**.
+
+     The **Trigger by background program** setting lets the underlying IDoc transport tRFC call **`IDOC_INBOUND_ASYNCHRONOUS`** to complete immediately, rather than block the connection until the IDoc finishes processing. However, this setting works only if the IDoc doesn't include the [Express behavior overwriting segment, per SAP Support Note 1777090 - IDocs are processed immediately despite having the "Trigger by background program" option selected in WE20 - SAP for Me](https://me.sap.com/notes/0001777090).
+
+  For more information, see the following resources:
+
+  - [SAP Support Note 1845390 - Poor performance when posting IDocs with report RBDAPP01 - SAP for Me](https://me.sap.com/notes/1845390/E)
+  - [SAP Support Note 1333417 - Performance problems when processing IDocs immediately - SAP for Me](https://me.sap.com/notes/1333417/E)
 
 <a name="network-prerequisites"></a>
 
@@ -548,7 +565,7 @@ For a Standard workflow that runs in single-tenant Azure Logic Apps, you can ena
 
    1. On your logic app resource menu, under **Settings**, select **Environment variables**.
 
-   1. On the **App settings** tab, check whether the settings named **SAP_PSE** and **SAP__PSE_Password** already exist. If they don't exist, you have to add each setting at the end of the settings list, provide the following required information, and select **Apply** for each setting:
+   1. On the **App settings** tab, check whether the settings named **SAP_PSE** and **SAP_PSE_Password** already exist. If they don't exist, you have to add each setting at the end of the settings list, provide the following required information, and select **Apply** for each setting:
 
       | Name | Value | Description |
       |------|-------|-------------|
@@ -608,9 +625,9 @@ For a Standard workflow that runs in single-tenant Azure Logic Apps, you can ena
 
 <a name="test-sending-idocs-from-sap"></a>
 
-### Set up and test sending IDocs to your workflow from SAP
+### Set up and test sending IDocs from SAP to your workflow
 
-Follow these steps only for testing your SAP configuration with your logic app workflow. Production environments require additional configuration. 
+To send IDocs from SAP to your logic app workflow, follow these steps to set up and test your SAP configuration with your logic app workflow. These steps apply only to testing as production environments require additional configuration.
 
 To send IDocs from SAP to your workflow, you need the following minimum configuration:
 
@@ -645,7 +662,7 @@ This destination identifies your logic app workflow as the receiver port.
       > receive the following errors in the tRFC Monitor (T-Code SM58) when you attempt to send an IDoc to SAP:
       >
       > * **Function IDOC_INBOUND_ASYNCHRONOUS not found**
-      > * **Non-ABAP RFC client (partner type ) not supported**
+      > * **Non-ABAP RFC client (partner type) not supported**
       >
       > For more information from SAP, review the following notes (login required):
       >
@@ -688,18 +705,6 @@ This destination identifies your SAP system as the sender port.
 
 1. To test your connection, select **Connection Test**.
 
-#### Create receiver port
-
-1. In SAP, open the **Ports In IDOC processing** settings. You can use the **we21** transaction code (T-Code) with the **/n** prefix.
-
-1. Select **Ports** > **Transactional RFC** > **Create**.
-
-1. In the settings box that opens, select **own port name**. For your test port, enter a **Name**. Save your changes.
-
-1. In the settings for your new receiver port, for **RFC destination**, enter the identifier for [your test RFC destination](#create-rfc-destination).
-
-1. Save your changes.
-
 #### Create sender port
 
 1. In SAP, open the **Ports In IDOC processing** settings. You can use the **we21** transaction code (T-Code) with the **/n** prefix.
@@ -713,6 +718,18 @@ This destination identifies your SAP system as the sender port.
    All sender port names must start with the letters **SAP**, for example, **SAPTEST**.
 
 1. In the settings for your new sender port, for **RFC destination**, enter the identifier for [your ABAP connection](#create-abap-connection).
+
+1. Save your changes.
+
+#### Create receiver port
+
+1. In SAP, open the **Ports In IDOC processing** settings. You can use the **we21** transaction code (T-Code) with the **/n** prefix.
+
+1. Select **Ports** > **Transactional RFC** > **Create**.
+
+1. In the settings box that opens, select **own port name**. For your test port, enter a **Name**. Save your changes.
+
+1. In the settings for your new receiver port, for **RFC destination**, enter the identifier for [your test RFC destination](#create-rfc-destination).
 
 1. Save your changes.
 
@@ -732,7 +749,10 @@ This destination identifies your SAP system as the sender port.
 
 #### Create partner profiles
 
-For production environments, you must create two partner profiles. The first profile is for the sender, which is your organization and SAP system. The second profile is for the receiver, which is your logic app resource and workflow.
+For production environments, you must create the following two partner profiles:
+
+- One profile for the sender, which is your organization and SAP system.
+- One profile for the receiver, which is your logic app resource and workflow.
 
 1. In SAP, open the **Partner profiles** settings. You can use the **we20** transaction code (T-Code) with the **/n** prefix.
 
@@ -748,7 +768,7 @@ For production environments, you must create two partner profiles. The first pro
 
 1. Save your changes.
 
-   If you haven't [created the logical system partner](#create-logical-system-partner), you get the error, **Enter a valid partner number**.
+   If you didn't [create the logical system partner](#create-logical-system-partner), you get the error, **Enter a valid partner number**.
 
 1. In your partner profile's settings, under **Outbound parmtrs.**, select **Create outbound parameter**.
 
@@ -829,7 +849,7 @@ You can [export all of your gateway's configuration and service logs](/data-inte
 
 ### Capture ETW events
 
-As an optional advanced logging task, you can directly capture ETW events, and then [consume the data in Azure Diagnostics in Event Hubs](../../azure-monitor/agents/diagnostics-extension-stream-event-hubs.md) or [collect your data to Azure Monitor Logs](../../azure-monitor/agents/diagnostics-extension-logs.md). For more information, review the [best practices for collecting and storing data](/azure/architecture/best-practices/monitoring#collecting-and-storing-data).
+As an optional advanced logging task, you can directly capture ETW events, and then [consume the data in Azure Diagnostics in Event Hubs](/azure/azure-monitor/agents/diagnostics-extension-stream-event-hubs) or [collect your data to Azure Monitor Logs](/azure/azure-monitor/agents/diagnostics-extension-logs). For more information, review the [best practices for collecting and storing data](/azure/architecture/best-practices/monitoring#collecting-and-storing-data).
 
 To work with the resulting ETL files, you can use [PerfView](https://github.com/Microsoft/perfview/blob/main/README.md), or you can write your own program. The following walkthrough uses PerfView:
 
@@ -960,7 +980,7 @@ You can control this tracing capability at the application level by adding the f
 
    A new folder named **NCo**, or whatever folder name that you used, appears for the application setting value, **C:\home\LogFiles\NCo**, that you set earlier.
 
-1. Open the **$SAP_RFC_TRACE_DIRECTORY** folder, which contains the following :
+1. Open the **$SAP_RFC_TRACE_DIRECTORY** folder, which contains the following files:
 
    * NCo trace logs: A file named **dev_nco_rfc.log**, one or multiple files named **nco_rfc_NNNN.log**, and one or multiple files named **nco_rfc_NNNN.trc** files where **NNNN** is a thread identifier.
    
@@ -1026,7 +1046,7 @@ You can control this tracing capability at the application level by adding the f
 
 ## Send SAP telemetry for on-premises data gateway to Azure Application Insights
 
-With the August 2021 update for the on-premises data gateway, SAP connector operations can send telemetry data from the SAP NCo client library and traces from the Microsoft SAP Adapter to [Application Insights](../../azure-monitor/app/app-insights-overview.md), which is a capability in Azure Monitor. This telemetry primarily includes the following data:
+With the August 2021 update for the on-premises data gateway, SAP connector operations can send telemetry data from the SAP NCo client library and traces from the Microsoft SAP Adapter to [Application Insights](/azure/azure-monitor/app/app-insights-overview), which is a capability in Azure Monitor. This telemetry primarily includes the following data:
 
 * Metrics and traces based on SAP NCo metrics and monitors.
 
@@ -1059,7 +1079,7 @@ Before you can send SAP telemetry for your gateway installation to Application I
 
 * [Create an Application Insights resource (classic)](/previous-versions/azure/azure-monitor/app/create-new-resource)
 
-* [Workspace-based Application Insights resources](../../azure-monitor/app/create-workspace-resource.md)
+* [Workspace-based Application Insights resources](/azure/azure-monitor/app/create-workspace-resource)
 
 To enable sending SAP telemetry to Application insights, follow these steps:
 
@@ -1069,7 +1089,7 @@ To enable sending SAP telemetry to Application insights, follow these steps:
 
 1. In your on-premises data gateway installation directory, check that the **Microsoft.ApplicationInsights.dll** file has the same version number as the **Microsoft.ApplicationInsights.EventSourceListener.dll** file that you added. The gateway currently uses version 2.14.0.
 
-1. In the **ApplicationInsights.config** file, add your [Application Insights instrumentation key](../../azure-monitor/app/sdk-connection-string.md) by uncommenting the line with the `<InstrumentationKey></InstrumentationKey>` element. Replace the placeholder, *your-Application-Insights-instrumentation-key*, with your key, for example:
+1. In the **ApplicationInsights.config** file, add your [Application Insights instrumentation key](/azure/azure-monitor/app/sdk-connection-string) by uncommenting the line with the `<InstrumentationKey></InstrumentationKey>` element. Replace the placeholder, *your-Application-Insights-instrumentation-key*, with your key, for example:
 
       ```xml
       <?xml version="1.0" encoding="utf-8"?>
@@ -1102,9 +1122,9 @@ To enable sending SAP telemetry to Application insights, follow these steps:
 
    * `Level` values: [EventLevel Enum](/dotnet/api/system.diagnostics.tracing.eventlevel)
 
-   * [EventSource tracking](../../azure-monitor/app/configuration-with-applicationinsights-config.md#eventsource-tracking)
+   * [EventSource tracking](/azure/azure-monitor/app/configuration-with-applicationinsights-config#eventsource-tracking)
 
-   * [EventSource events](../../azure-monitor/app/asp-net-trace-logs.md#use-eventsource-events)
+   * [EventSource events](/azure/azure-monitor/app/asp-net-trace-logs#use-eventsource-events)
 
 1. After you apply your changes, restart the on-premises data gateway service.
 

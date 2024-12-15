@@ -5,7 +5,7 @@ description: This quickstart shows how to create an internal load balancer using
 author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: quickstart
-ms.date: 05/01/2023
+ms.date: 09/30/2024
 ms.author: mbender
 ms.custom: mvc, devx-track-azurecli, mode-api, template-quickstart, engagement-fy23
 #Customer intent: I want to create a load balancer so that I can load balance internal traffic to VMs.
@@ -95,7 +95,9 @@ az network bastion create \
     --name myBastionHost \
     --public-ip-address myBastionIP \
     --vnet-name myVNet \
-    --location westus2
+    --location westus2 \
+    --only-show-errors \
+    --no-wait
 ```
 
 It can take a few minutes for the Azure Bastion host to deploy.

@@ -1,25 +1,26 @@
 ---
 title: Introduction to Apache Kafka in Event Hubs on Azure Cloud
-description: Learn what Apache Kafka in the Event Hubs service on Azure Cloud is and how to use it to stream data from Apache Kafka applications without setting up a Kafka cluster on your own.
+description: Learn what Apache Kafka in Azure Event Hubs is and how to use it to stream data from Apache Kafka applications without setting up a Kafka cluster on your own.
 ms.topic: overview
-ms.date: 11/16/2023
+ms.date: 12/12/2024
+# Customer intent: How does Azure Event Hubs support the Apache Kafka protocol?
 ---
 
-# What is Azure Event Hubs for Apache Kafka
+# What is Azure Event Hubs for Apache Kafka?
 
-This article explains how you can use Azure Event Hubs to stream data from [Apache Kafka](https://kafka.apache.org) applications without setting up a Kafka cluster on your own.
+This article explains how you can use Azure Event Hubs to stream data from [Apache Kafka](https://kafka.apache.org) applications without setting up a Kafka cluster on your own. 
 
-> [!NOTE]
-> This feature is supported only in the **standard, premium** and **dedicated** tiers. 
+
 
 ## Overview
 
 Azure Event Hubs provides an Apache Kafka endpoint on an event hub, which enables users to connect to the event hub using the Kafka protocol. You can often use an event hub's Kafka endpoint from your applications without any code changes. You modify only the configuration, that is, update the connection string in configurations to point to the Kafka endpoint exposed by your event hub instead of pointing to a Kafka cluster. Then, you can start streaming events from your applications that use the Kafka protocol into event hubs, which are equivalent to Kafka topics.
 
-To learn more about how to migrate your Kafka applications to Azure Event Hubs, please see the [migration guide](apache-kafka-migration-guide.md).
+To learn more about how to migrate your Kafka applications to Azure Event Hubs, see the [migration guide](apache-kafka-migration-guide.md).
 
 > [!NOTE]
-> Event Hubs for Kafka Ecosystems supports [Apache Kafka version 1.0](https://kafka.apache.org/10/documentation.html) and later.
+> - This feature is supported only in the **standard, premium** and **dedicated** tiers. 
+> - Event Hubs for Kafka Ecosystems supports [Apache Kafka version 1.0](https://kafka.apache.org/10/documentation.html) and later.
 
 ## Apache Kafka and Azure Event Hubs conceptual mapping
 
@@ -37,11 +38,10 @@ Conceptually, Kafka and Event Hubs are very similar. They're both partitioned lo
 
 ### Kafka Streams
 
+Kafka Streams is a client library for stream analytics that is part of the Apache Kafka open-source project, but is separate from the Apache Kafka event broker.
+
 > [!NOTE]
 > Kafka Streams is currently in Public preview in Premium, and Dedicated tier.
->
-
-Kafka Streams is a client library for stream analytics that is part of the Apache Kafka open-source project, but is separate from the Apache Kafka event broker.
 
 Azure Event Hubs supports the Kafka Streams client library, with details and concepts available [here](apache-kafka-streams.md).
  
@@ -56,12 +56,8 @@ Standalone and without ksqlDB, Kafka Streams has fewer capabilities than many al
 - [Apache Storm](event-hubs-storm-getstarted-receive.md)
 - [Apache Spark](event-hubs-kafka-spark-tutorial.md)
 - [Apache Flink](event-hubs-kafka-flink-tutorial.md)
-- [Apache Flink on HDInsight on AKS](../hdinsight-aks/flink/flink-overview.md)
+- [Apache Flink on HDInsight on Azure Kubernetes Service](../hdinsight-aks/flink/flink-overview.md)
 - [Akka Streams](event-hubs-kafka-akka-streams-tutorial.md)
- 
-The listed services and frameworks can generally acquire event streams and reference data directly from a diverse set of sources through adapters. Kafka Streams can only acquire data from Apache Kafka and your analytics projects are therefore locked into Apache Kafka. To use data from other sources, you're required to first import data into Apache Kafka with the Kafka Connect framework.
- 
-If you must use the Kafka Streams framework on Azure, [Apache Kafka on HDInsight](../hdinsight/kafka/apache-kafka-introduction.md) provides you with that option. Apache Kafka on HDInsight provides full control over all configuration aspects of Apache Kafka, while being fully integrated with various aspects of the Azure platform, from fault/update domain placement to network isolation to monitoring integration.
 
 ### Kafka Transactions
 
@@ -154,7 +150,7 @@ For a **tutorial** with step-by-step instructions to create an event hub and acc
 
 ## Other Azure Event Hubs features 
 
-The Event Hubs for Apache Kafka feature is one of three protocols concurrently available on Azure Event Hubs, complementing HTTP and AMQP. You can write with any of these protocols and read with any another, so that your current Apache Kafka producers can continue publishing via Apache Kafka, but your reader can benefit from the native integration with Event Hubs' AMQP interface, such as Azure Stream Analytics or Azure Functions. Conversely, you can readily integrate Azure Event Hubs into AMQP routing networks as a target endpoint, and yet read data through Apache Kafka integrations.  
+The Event Hubs for Apache Kafka feature is one of three protocols concurrently available on Azure Event Hubs along with HTTP and AMQP. You can write with any of these protocols and read with any another, so that your current Apache Kafka producers can continue publishing via Apache Kafka, but your reader can benefit from the native integration with Event Hubs' AMQP interface, such as Azure Stream Analytics or Azure Functions. Conversely, you can readily integrate Azure Event Hubs into AMQP routing networks as a target endpoint, and yet read data through Apache Kafka integrations.  
 
 Additionally, Event Hubs features such as [Capture](event-hubs-capture-overview.md), which enables extremely cost efficient long-term archival via Azure Blob Storage and Azure Data Lake Storage, and [Geo Disaster-Recovery](event-hubs-geo-dr.md) also work with the Event Hubs for Kafka feature.
 
@@ -164,7 +160,7 @@ Azure Event Hubs for Apache Kafka supports both idempotent producers and idempot
 
 One of the core tenets of Azure Event Hubs is the concept of **at-least once** delivery. This approach ensures that events will always be delivered. It also means that events can be received more than once, even repeatedly, by consumers such as a function. For this reason, it's important that the consumer supports the [idempotent consumer](https://microservices.io/patterns/communication-style/idempotent-consumer.html) pattern. 
 
-## Next steps
+## Related content
 This article provided an introduction to Event Hubs for Kafka. To learn more, see [Apache Kafka developer guide for Azure Event Hubs](apache-kafka-developer-guide.md).
 
 For a **tutorial** with step-by-step instructions to create an event hub and access it using SAS or OAuth, see [Quickstart: Data streaming with Event Hubs using the Kafka protocol](event-hubs-quickstart-kafka-enabled-event-hubs.md).

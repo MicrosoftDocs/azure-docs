@@ -53,7 +53,7 @@ The `validate-azure-ad-token` policy enforces the existence and validity of a JS
         <!-- if there are multiple possible allowed values, then add additional value elements -->
     </required-claims>
     <decryption-keys>
-        <key>Base64 encoded signing key | certificate-id="mycertificate"</key>
+        <key certificate-id="mycertificate"/>
         <!-- if there are multiple keys, then add additional key elements -->
     </decryption-keys>
 </validate-azure-ad-token>
@@ -79,7 +79,7 @@ The `validate-azure-ad-token` policy enforces the existence and validity of a JS
 | backend-application-ids | Contains a list of acceptable backend application IDs.  This is only required in advanced cases for the configuration of options and can generally be removed. Policy expressions aren't allowed. | No |
 | client-application-ids | Contains a list of acceptable client application IDs. If multiple `application-id` elements are present, then each value is tried until either all are exhausted (in which case validation fails) or until one succeeds. If a client application ID isn't provided, one or more `audience` claims should be specified. Policy expressions aren't allowed. | No |
 | required-claims     | Contains a list of `claim` elements for claim values expected to be present on the token for it to be considered valid. When the `match` attribute is set to `all`, every claim value in the policy must be present in the token for validation to succeed. When the `match` attribute is set to `any`, at least one claim must be present in the token for validation to succeed. Policy expressions are allowed. | No       |
-| decryption-keys     | A list of Base64-encoded keys, in [`key`](#key-attributes) subelements, used to decrypt the tokens. If multiple security keys are present, then each key is tried until either all keys are exhausted (in which case validation fails) or a key succeeds.<br/><br/>To decrypt a token encrypted with an asymmetric key, optionally specify the public key using a `certificate-id` attribute with value set to the identifier of a certificate uploaded to API Management.         | No       |
+| decryption-keys     | A list of [`key`](#key-attributes) subelements, used to decrypt a token signed with an asymmetric key. If multiple keys are present, then each key is tried until either all keys are exhausted (in which case validation fails) or a key succeeds.<br/><br/>Specify the public key using a `certificate-id` attribute with value set to the identifier of a certificate uploaded to API Management.         | No       |
 
 ### claim attributes
 
@@ -92,7 +92,7 @@ The `validate-azure-ad-token` policy enforces the existence and validity of a JS
 ### key attributes
 | Attribute                            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                            | Required                                                                         | Default                                                                           |
 | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| certificate-id  | Identifier of a certificate entity [uploaded](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-certificate-entity#Add) to API Management, used to specify the public key to verify a token signed with an asymmetric key.   | No | N/A |
+| certificate-id  | Identifier of a certificate entity [uploaded](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-certificate-entity#Add) to API Management, used to specify the public key to verify a token signed with an asymmetric key.   | Yes | N/A |
 
 ## Usage
 

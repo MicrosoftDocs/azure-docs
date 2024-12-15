@@ -4,7 +4,8 @@ description: Add catalogs to an existing Trino cluster in HDInsight on AKS
 ms.service: azure-hdinsight-on-aks
 ms.custom: devx-track-arm-template
 ms.topic: how-to 
-ms.date: 10/19/2023
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Configure catalogs

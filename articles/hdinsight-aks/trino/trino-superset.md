@@ -3,7 +3,8 @@ title: Use Apache Superset with Trino on HDInsight on AKS
 description: Deploying Superset and connecting to Trino with HDInsight on AKS
 ms.service: azure-hdinsight-on-aks
 ms.topic: how-to 
-ms.date: 10/19/2023
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Deploy Apache Superset™
@@ -123,7 +124,7 @@ This step creates the Azure Kubernetes Service (AKS) cluster where you can insta
 
     **Optional**: use Microsoft Azure Postgres instead of using the Postgres deployed inside the Kubernetes cluster. 
     
-    Create an "Azure Database for PostgreSQL" instance to allow easier maintainence, allow for backups, and provide better reliability.
+    Create an "Azure Database for PostgreSQL" instance to allow easier maintenance, allow for backups, and provide better reliability.
     
     ```yaml
     postgresql:

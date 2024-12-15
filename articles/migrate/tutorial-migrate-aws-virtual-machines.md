@@ -5,14 +5,11 @@ author: vijain
 ms.author: vijain
 ms.topic: tutorial
 ms.service: azure-migrate
-ms.date: 07/05/2024
+ms.date: 12/10/2024
 ms.custom: MVC, engagement-fy24
 ---
 
 # Discover, assess, and migrate Amazon Web Services (AWS) VMs to Azure
-
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that's nearing end-of-life status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 This tutorial shows you how to discover, assess, and migrate Amazon Web Services (AWS) virtual machines (VMs) to Azure VMs by using Azure Migrate: Server Assessment and the Migration and modernization tool.
 
@@ -34,6 +31,11 @@ In this tutorial, you learn how to:
 > * Run a full migration to Azure.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
+
+> [!IMPORTANT]
+> While lengthy, this tutorial represents the recommended process for migrating AWS VMs to Azure VMs using Azure Migrate. While alternative methods like using Azure Image Builder may work in theory, there are numerous compatibility issues that can arise.
+>
+>This tutorial provides a comprehensive overview of the process and addresses compatibility, supported configurations, testing to ensure your VM boots properly, and frequently asked questions.
 
 ## Discover and assess
 
@@ -177,7 +179,7 @@ A Mobility service agent must be preinstalled on the source AWS VMs to be migrat
 
 - [AWS System Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/what-is-systems-manager.html)
 - [System Center Configuration Manager](../site-recovery/vmware-azure-mobility-install-configuration-mgr.md)
-- [Azure Arc for servers and custom script extensions](../azure-arc/servers/overview.md)
+- [Azure Arc for servers and custom script extensions](/azure/azure-arc/servers/overview)
 - [Install Mobility agent for Windows](../site-recovery/vmware-physical-mobility-service-overview.md#install-the-mobility-service-using-command-prompt-classic)
 - [Install Mobility agent for Linux](../site-recovery/vmware-physical-mobility-service-overview.md#linux-machine-1)
 
@@ -383,7 +385,7 @@ After you verify that the test migration works as expected, you can migrate the 
 
 **Question:** Can I migrate AWS VMs running the Amazon Linux operating system?<br>
 **Answer:** VMs running Amazon Linux can't be migrated as is because the Amazon Linux OS is only supported on AWS.
-To migrate workloads running on Amazon Linux, you can spin up a CentOS/RHEL VM in Azure. Then you can migrate the workload running on the AWS Linux machine by using a relevant workload migration approach. For example, depending on the workload, there might be workload-specific tools to aid the migration. These tools might be for databases or deployment tools for web servers.
+To migrate workloads running on Amazon Linux, you can spin up a RHEL VM in Azure. Then you can migrate the workload running on the AWS Linux machine by using a relevant workload migration approach. For example, depending on the workload, there might be workload-specific tools to aid the migration. These tools might be for databases or deployment tools for web servers.
 
 ## Next steps
 

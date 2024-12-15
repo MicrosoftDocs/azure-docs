@@ -3,7 +3,8 @@ title: Apache Flink® Configuration Management in HDInsight on AKS
 description: Learn about Apache Flink Configuration Management in HDInsight on AKS.
 ms.service: azure-hdinsight-on-aks
 ms.topic: tutorial
-ms.date: 04/25/2024
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Apache Flink® Configuration management in HDInsight on AKS

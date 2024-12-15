@@ -50,7 +50,9 @@ You can create an empty App Service plan, or you can create a plan as part of ap
 
 ## Move an app to another App Service plan
 
-You can move an app to another App Service plan, as long as the source plan and the target plan are in the _same resource group and geographical region and of the same OS type_. Any change in type, such as Windows to Linux or any type that's different from the originating type, isn't supported.
+You can move an app to another App Service plan, as long as the source plan and the target plan are in the _same resource group and geographical region and of the same OS type_. Any change in type, such as Windows to Linux or any type that's different from the originating type, isn't supported. 
+
+Any VNET integration configured on the app must be disabled prior to changing App Service plans. 
 
 
 > [!NOTE]
@@ -90,7 +92,7 @@ You can find **Clone App** in the **Development Tools** section of the menu.
 
 To scale up an App Service plan's pricing tier, see [Scale up an app in Azure](manage-scale-up.md).
 
-To scale out an app's instance count, see [Scale instance count manually or automatically](../azure-monitor/autoscale/autoscale-get-started.md).
+To scale out an app's instance count, see [Scale instance count manually or automatically](/azure/azure-monitor/autoscale/autoscale-get-started).
 
 <a name="delete"></a>
 

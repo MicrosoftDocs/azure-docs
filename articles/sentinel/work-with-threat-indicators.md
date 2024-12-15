@@ -10,7 +10,10 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
-#customer intent: As a security analyst, I want to use threat intelligence so that I can power my threat detections.
+
+
+#Customer intent: As a security analyst, I want to use threat intelligence in Microsoft Sentinel so that I can detect and respond to security threats more effectively.
+
 ---
 
 # Work with threat indicators in Microsoft Sentinel
@@ -136,7 +139,7 @@ Here's how to find the threat intelligence workbook provided in Microsoft Sentin
 
 Workbooks provide powerful interactive dashboards that give you insights into all aspects of Microsoft Sentinel. You can do many tasks with workbooks, and the provided templates are a great starting point. Customize the templates or create new dashboards by combining many data sources so that you can visualize your data in unique ways.
 
-Microsoft Sentinel workbooks are based on Azure Monitor workbooks, so extensive documentation and many more templates are available. For more information, see [Create interactive reports with Azure Monitor workbooks](../azure-monitor/visualize/workbooks-overview.md).
+Microsoft Sentinel workbooks are based on Azure Monitor workbooks, so extensive documentation and many more templates are available. For more information, see [Create interactive reports with Azure Monitor workbooks](/azure/azure-monitor/visualize/workbooks-overview).
 
 There's also a rich resource for [Azure Monitor workbooks on GitHub](https://github.com/microsoft/Application-Insights-Workbooks), where you can download more templates and contribute your own templates.
 

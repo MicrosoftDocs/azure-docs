@@ -1,7 +1,7 @@
 ---
 title: Control the OT traffic monitored by Microsoft Defender for IoT
 description: Learn how to control the OT network traffic monitored by Microsoft Defender for IoT.
-ms.date: 07/04/2023
+ms.date: 10/11/2024
 ms.topic: how-to
 ---
 
@@ -33,9 +33,7 @@ After [onboarding](onboard-sensors.md) a new OT network sensor to Microsoft Defe
 
 1. Sign into your OT sensor as an Admin user and select **System settings** > **Basic** > **Deployment**.
 
-1. Select **Analyze**. The analysis starts, and a tab is shown for each interface that's monitored by the sensor. Each tab shows the subnets detected by the indicated interface. For example:
-
-    :::image type="content" source="media/how-to-control-what-traffic-is-monitored/deployment-settings.png" alt-text="Screenshot of the Deployment settings page." lightbox="media/how-to-control-what-traffic-is-monitored/deployment-settings.png":::
+1. Select **Analyze**. The analysis starts, and a tab is shown for each interface that's monitored by the sensor. Each tab shows the subnets detected by the indicated interface.
 
 1. Each interface tab shows the following details:
 

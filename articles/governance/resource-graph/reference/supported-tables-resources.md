@@ -760,6 +760,8 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - microsoft.scvmm/virtualnetworks
 - microsoft.scvmm/vmmservers
 - Microsoft.Search/searchServices (Search services)
+- microsoft.security/apicollections
+- microsoft.security/apicollections/apiendpoints
 - microsoft.security/assignments
 - microsoft.security/automations
 - microsoft.security/customassessmentautomations
@@ -917,7 +919,7 @@ For sample queries for this table, see [Resource Graph sample queries for securi
 
 - microsoft.security/assessments
   - Sample query: [Count healthy, unhealthy, and not applicable resources per recommendation](../samples/samples-by-category.md#count-healthy-unhealthy-and-not-applicable-resources-per-recommendation)
-  - Sample query: [List Azure Security Center recommendations](../samples/samples-by-category.md#list-azure-security-center-recommendations)
+  - Sample query: [List Azure Security Center recommendations](../samples/samples-by-category.md)
   - Sample query: [List Container Registry vulnerability assessment results](../samples/samples-by-category.md#list-container-registry-vulnerability-assessment-results)
   - Sample query: [List Qualys vulnerability assessment results](../samples/samples-by-category.md#list-qualys-vulnerability-assessment-results)
 - microsoft.security/assessments/subassessments
@@ -930,7 +932,7 @@ For sample queries for this table, see [Resource Graph sample queries for securi
   - Sample query: [Get specific IoT alert](../samples/samples-by-category.md#get-specific-iot-alert)
 - microsoft.security/locations/alerts (Security Alerts)
 - microsoft.security/pricings
-  - Sample query: [Show Azure Defender pricing tier per subscription](../samples/samples-by-category.md#show-azure-defender-pricing-tier-per-subscription)
+  - Sample query: [Show Azure Defender pricing tier per subscription](../samples/samples-by-category.md)
 - microsoft.security/regulatorycompliancestandards
   - Sample query: [Regulatory compliance state per compliance standard](../samples/samples-by-category.md#regulatory-compliance-state-per-compliance-standard)
 - microsoft.security/regulatorycompliancestandards/regulatorycompliancecontrols

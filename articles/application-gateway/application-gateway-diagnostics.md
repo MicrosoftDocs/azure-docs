@@ -51,7 +51,7 @@ Other storage locations:
 - **Azure Event Hubs**: Event hubs are a great option for integrating with other security information and event management (SIEM) tools to get alerts on your resources.
 - **Azure Monitor partner integrations**.
 
-Learn more about the Azure Monitor's [diagnostic settings destinations](../azure-monitor/essentials/diagnostic-settings.md?WT.mc_id=Portal-Microsoft_Azure_Monitoring&tabs=portal#destinations) .
+Learn more about the Azure Monitor's [diagnostic settings destinations](/azure/azure-monitor/essentials/diagnostic-settings?WT.mc_id=Portal-Microsoft_Azure_Monitoring&tabs=portal#destinations) .
 
 ## Enable logging through PowerShell
 

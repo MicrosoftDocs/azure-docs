@@ -58,8 +58,6 @@ When a resource is created, updated, or deleted, a new change resource (`Microso
     "tags.key1": {
       "newValue": "NewTagValue",
       "previousValue": "null",
-      "changeCategory": "User",
-      "propertyChangeType": "Insert"
     }
   }
 }

@@ -3,7 +3,8 @@ title: What's new in HDInsight on AKS? (Preview)
 description: An introduction to new concepts in HDInsight on AKS that aren't in HDInsight.
 ms.service: azure-hdinsight-on-aks
 ms.topic: conceptual
-ms.date: 03/24/2024
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # What's new in HDInsight on AKS? (Preview)

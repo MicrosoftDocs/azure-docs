@@ -13,6 +13,8 @@ ms.author: duau
 
 # Troubleshooting Azure Content Delivery Network endpoints that return a 404 status code
 
+[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
+
 This article enables you to troubleshoot issues with Azure Content Delivery Network endpoints that return 404 HTTP response status codes.
 
 If you need more help at any point in this article, you can contact the Azure experts on the [MSDN Azure and the Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can also file an Azure Support incident. Go to the [Azure Support site](https://azure.microsoft.com/support/options/) and select **Get Support**.

@@ -159,6 +159,12 @@ items:
       href: export-from-consumption-to-standard-logic-app.md
     - name: Export from integration service environment to Standard logic app
       href: export-from-ise-to-standard-logic-app.md
+  - name: Hybrid deployment for Azure Logic Apps
+    items:
+    - name: Set up requirements for hybrid deployment
+      href: set-up-standard-workflows-hybrid-deployment-requirements.md
+    - name: Create Standard workflows for hybrid deployment
+      href: create-standard-workflows-hybrid-deployment.md
   - name: Azure Arc-enabled Logic Apps
     items:
     - name: About Azure Arc-enabled Logic Apps
@@ -167,14 +173,14 @@ items:
       href: azure-arc-enabled-logic-apps-create-deploy-workflows.md
   - name: Migrate
     items:
-    - name: Migrate from BizTalk to Azure
+    - name: Migrate from BizTalk to Azure Logic Apps
       items:
       - name: Why migrate from BizTalk Server?
-        href: biztalk-server-to-azure-integration-services-overview.md
+        href: biztalk-server-migration-overview.md
       - name: Which integration services to choose
         href: azure-integration-services-choose-capabilities.md
       - name: Migration options and best practices
-        href: biztalk-server-azure-integration-services-migration-approaches.md
+        href: biztalk-server-migration-approaches.md
   - name: Develop
     items:
     - name: Build your workflow with a trigger or action
@@ -299,10 +305,14 @@ items:
       items:
       - name: Create maps in Visual Studio Code
         href: create-maps-data-transformation-visual-studio-code.md
-      - name: Transform XML
-        href: logic-apps-enterprise-integration-transform.md
       - name: Process XML
         href: logic-apps-enterprise-integration-xml.md
+      - name: Parse XML
+        href: logic-apps-enterprise-integration-xml-parse.md
+      - name: Compose XML
+        href: logic-apps-enterprise-integration-xml-compose.md
+      - name: Transform XML
+        href: logic-apps-enterprise-integration-transform.md
       - name: Validate XML
         href: logic-apps-enterprise-integration-xml-validation.md
       - name: Transform JSON
@@ -326,7 +336,7 @@ items:
     - name: Azure Event Hubs
       href: ../connectors/connectors-create-api-azure-event-hubs.md
     - name: Azure Functions
-      href: logic-apps-azure-functions.md
+      href: call-azure-functions-from-workflows.md
     - name: Azure Logic Apps
       href: logic-apps-http-endpoint.md
     - name: Azure Monitor Application Insights

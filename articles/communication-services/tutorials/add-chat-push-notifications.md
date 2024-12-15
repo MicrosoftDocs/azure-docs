@@ -182,7 +182,7 @@ In the protocol extension, the Chat SDK provides an implementation of the `decry
 
 2. Download the [GitHub repository for sample apps](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/add-chat-push-notifications-auto-renew).
 
-3. Put User A's `<ACESS_TOKEN>` and `<ACS_RESOURCE_ENDPOINT>` values into *AppSettings.plist*.
+3. Put User A's `<ACCESS_TOKEN>` and `<ACS_RESOURCE_ENDPOINT>` values into *AppSettings.plist*.
 
 4. Set **Enable Bitcode** to **No** for two Pod targets: **AzureCommunicationChat** and **Trouter**.
 

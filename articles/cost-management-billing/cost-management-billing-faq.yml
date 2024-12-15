@@ -8,7 +8,7 @@ metadata:
   ms.service: cost-management-billing
   ms.subservice: common
   ms.topic: faq
-  ms.date: 02/22/2024
+  ms.date: 11/14/2024
   ms.author: banders
 title: Cost Management + Billing frequently asked questions (FAQ)
 summary: |
@@ -92,9 +92,9 @@ sections:
       - question: As a CSP partner, is Cost Management supported on Classic CSP offer in Azure Plan?
         answer: |
           Given the plans to transition customers on Classic CSP to Azure Plan on the [New Commerce experience](https://www.microsoft.com/licensing/news/new-azure-experience-in-csp), Cost Management + Billing is available only for the direct partners and indirect providers of customers who are on Azure Plan. 
-      - question: As a CSP partner (global admin), how can I enable the cost visibility policy at the subscription scope for my end customers and resellers on the Azure Plan?
+      - question: As a CSP partner, how can I enable the cost visibility policy at the subscription scope for my end customers and resellers on the Azure Plan?
         answer: |
-          See [Enable Cost Management for Customer Tenant Subscriptions](costs/get-started-partners.md#enable-cost-management-for-customer-tenant-subscriptions) to enable the cost visibility policy for Azure consumed services at retail rates for Azure RBAC users of the subscription. As a global admin of a direct partner or an indirect provider, you can view the costs in the customer tenant regardless of the policy.
+          See [Enable Cost Management for Customer Tenant Subscriptions](costs/get-started-partners.md#enable-cost-management-for-customer-tenant-subscriptions) to enable the cost visibility policy for Azure consumed services at retail rates for Azure RBAC users of the subscription. As a direct partner or an indirect provider, you can view the costs in the customer tenant if you're a [billing administrator](/partner-center/account-settings/permissions-overview#billing-admin-role).
       - question: How can I charge back costs?
         answer: |
           You can allocate costs in Cost Management to see the costs that you distribute to subscriptions, resource groups, or tags in cost analysis. For more information, see the [Create and manage Azure cost allocation rules](costs/allocate-costs.md) article.
@@ -351,7 +351,7 @@ sections:
           For issues with Power BI, log a ticket with the [Power BI support team](https://support.powerbi.com).
       - question: Why don't my resource tags show on my reports?
         answer: |
-          Resource tags are managed on the Azure portal. You can contact the Azure subscription team in the [Azure portal](https://portal.azure.com). Follow the steps in the [How to create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md) article.
+          Resource tags are managed on the Azure portal. You can contact the Azure subscription team in the [Azure portal](https://portal.azure.com). Follow the steps in the [How to create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request) article.
       - question: Why does my resource rate change every day?
         answer: |
           The resource rate shown in the detailed usage report is a calculated value. It represents the average monthly rate that was charged for the service. The resource rate is calculated from the average of your monthly commitment and your monthly overage charges for a unit of service. The portion of usage charged against your commitment and overage rates change to the day the month closes. Thus, the listed resource rate also changes during the month. The resource rate locks on the fifth day following the end of the month.

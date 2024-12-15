@@ -53,12 +53,12 @@ There's no extra cost for a firewall deployed in more than one Availability Zone
 
 As the firewall scales, it creates instances in the zones it's in. So, if the firewall is in Zone 1 only, new instances are created in Zone 1. If the firewall is in all three zones, then it creates instances across the three zones as it scales.
 
-Azure Firewall Availability Zones are available in regions that support Availability Zones. For more information, see [Regions that support Availability Zones in Azure](../availability-zones/az-region.md).
+Azure Firewall Availability Zones are available in regions that support Availability Zones. For more information, see [Azure regions with availability zones](../reliability/availability-zones-region-support.md).
 
 > [!NOTE]
 > Availability Zones can only be configured during deployment. You can't configure an existing firewall to include Availability Zones.
 
-For more information about Availability Zones, see [Regions and Availability Zones in Azure](../availability-zones/az-overview.md).
+For more information about Availability Zones, see [Regions and Availability Zones in Azure](../reliability/availability-zones-overview.md).
 
 ## Unrestricted cloud scalability
 
@@ -116,7 +116,7 @@ Forced Tunnel mode can't be configured at run time. You can either redeploy the 
 
 ## Outbound SNAT support
 
-All outbound virtual network traffic IP addresses are translated to the Azure Firewall public IP (Source Network Address Translation). You can identify and allow traffic originating from your virtual network to remote Internet destinations. When Azure Firewall has multiple public IPs configured for providing outbound connectivity, it will use the Public IPs as needed based on available ports. It will **randomly pick the first Public IP** and only use the **next available Public IP** after no more connections can be made from the current public IP **due to SNAT port exhaustion**.
+All outbound virtual network traffic IP addresses are translated to the Azure Firewall public IP (Source Network Address Translation). You can identify and allow traffic originating from your virtual network to remote Internet destinations. When Azure Firewall has multiple public IPs configured for providing outbound connectivity, any public IP may be chosen and we do not recommend building any dependencies on which public IP may be used for outbound connections. 
 
 In scenarios where you have high throughput or dynamic traffic patterns, it is recommended to use an [Azure NAT Gateway](/azure/nat-gateway/nat-overview). Azure NAT Gateway dynamically selects public IPs for providing outbound connectivity. To learn more about how to integrate NAT Gateway with Azure Firewall, see [Scale SNAT ports with Azure NAT Gateway](/azure/firewall/integrate-with-nat-gateway).
 

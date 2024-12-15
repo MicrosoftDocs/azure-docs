@@ -7,7 +7,7 @@ ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: devx-track-csharp, mode-other, devx-track-dotnet
-ms.date: 02/20/2024
+ms.date: 10/05/2024
 ms.author: malev
 #Customer intent: As a .NET developer, I want to manage all my app settings in one place.
 ---
@@ -43,11 +43,21 @@ You can use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to crea
 
 ## Connect to an App Configuration store
 
-1. Add a reference to the `Microsoft.Extensions.Configuration.AzureAppConfiguration` NuGet package by running the following command:
+You can connect to your App Configuration store using Microsoft Entra ID (recommended), or a connection string.
 
+1. Add NuGet package references by running the following command:
+
+    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
+    ```dotnetcli
+    dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration
+    dotnet add package Azure.Identity
+    ```
+
+    ### [Connection string](#tab/connection-string)
     ```dotnetcli
     dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration
     ```
+    ---
 
 1. Run the following command to restore packages for your project:
 
@@ -55,15 +65,41 @@ You can use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to crea
     dotnet restore
     ```
 
-1. Open *Program.cs*, and add the following statements:
+1. Open the *Program.cs* file, and add the following namespaces:
 
+
+    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
+    ```csharp
+    using Microsoft.Extensions.Configuration;
+    using Microsoft.Extensions.Configuration.AzureAppConfiguration;
+    using Azure.Identity;
+    ```
+
+    ### [Connection string](#tab/connection-string)
     ```csharp
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     ```
+    ---
 
-1. Use App Configuration by calling the `AddAzureAppConfiguration` method in the `Program.cs` file.
+1. Connect to your App Configuration store by calling the `AddAzureAppConfiguration` method in the `Program.cs` file.
 
+    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
+    You use the `DefaultAzureCredential` to authenticate to your App Configuration store. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader** role. Be sure to allow sufficient time for the permission to propagate before running your application.
+
+    ```csharp
+    var builder = new ConfigurationBuilder();
+    builder.AddAzureAppConfiguration(options =>
+    {
+        string endpoint = Environment.GetEnvironmentVariable("Endpoint");
+        options.Connect(new Uri(endpoint), new DefaultAzureCredential());
+    });
+
+    var config = builder.Build();
+    Console.WriteLine(config["TestApp:Settings:Message"] ?? "Hello world!");
+    ```
+
+    ### [Connection string](#tab/connection-string)
     ```csharp
     var builder = new ConfigurationBuilder();
     builder.AddAzureAppConfiguration(Environment.GetEnvironmentVariable("ConnectionString"));
@@ -71,45 +107,53 @@ You can use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to crea
     var config = builder.Build();
     Console.WriteLine(config["TestApp:Settings:Message"] ?? "Hello world!");
     ```
+    ---
 
 ## Build and run the app locally
 
-1. Set an environment variable named **ConnectionString**, and set it to the access key to your App Configuration store. At the command line, run the following command:
+1. Set an environment variable.
 
-    ### [Windows command prompt](#tab/windowscommandprompt)
+    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
+    Set the environment variable named **Endpoint** to the endpoint of your App Configuration store found under the *Overview* of your store in the Azure portal.
 
-    To build and run the app locally using the Windows command prompt, run the following command:
+    If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
-    ```console
+    ```cmd
+    setx Endpoint "endpoint-of-your-app-configuration-store"
+    ```
+
+    If you use PowerShell, run the following command:
+
+    ```powershell
+    $Env:Endpoint = "endpoint-of-your-app-configuration-store"
+    ```
+
+    If you use macOS or Linux, run the following command:
+
+    ```bash
+    export Endpoint='endpoint-of-your-app-configuration-store'
+    ```
+
+    ### [Connection string](#tab/connection-string)
+    Set the environment variable named **ConnectionString** to the read-only connection string of your App Configuration store found under *Access keys* of your store in the Azure portal.
+
+    If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
+
+    ```cmd
     setx ConnectionString "connection-string-of-your-app-configuration-store"
     ```
 
-    Restart the command prompt to allow the change to take effect. Print the value of the environment variable to validate that it's set properly.
+   If you use PowerShell, run the following command:
 
-    ### [PowerShell](#tab/powershell)
-
-    If you use Windows PowerShell, run the following command:
-
-    ```azurepowershell
+    ```powershell
     $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
     ```
 
-    ### [macOS](#tab/unix)
+    If you use macOS or Linux, run the following command:
 
-    If you use macOS, run the following command:
-
-    ```console
+    ```bash
     export ConnectionString='connection-string-of-your-app-configuration-store'
     ```
-
-    ### [Linux](#tab/linux)
-
-    If you use Linux, run the following command:
-
-    ```console
-    export ConnectionString='connection-string-of-your-app-configuration-store'
-    ```
-
     ---
 
 1. Run the following command to build the console app:
@@ -123,6 +167,8 @@ You can use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to crea
     ```dotnetcli
     dotnet run
     ```
+
+    :::image type="content" source="./media/quickstarts/dotnet-core-app-run.png" alt-text="Screenshot of a terminal window showing the app running locally.":::
 
 ## Clean up resources
 

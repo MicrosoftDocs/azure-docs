@@ -5,7 +5,7 @@ services: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/06/2024
+ms.date: 11/17/2024
 # Customer intent: As a developer, I want to monitor the health for my Standard logic app workflows in single-tenant Azure Logic Apps by setting up Health Check, which is an Azure App Service feature.
 ---
 
@@ -35,7 +35,7 @@ After you enable Health Check, the App Service platform pings the specified work
 
 If a workflow running on an instance doesn't respond to the ping after 10 requests, the App Service platform determines that the instance is unhealthy and removes the instance for that specific logic app from the load balancer in Azure. With a two-request minimum, you can specify the required number of failed requests to determine that an instance is unhealthy. For more information about overriding default behavior, see [Configuration: Monitor App Service instances using Health Check](../app-service/monitor-instances-health-check.md#configuration).
 
-After Health Check removes the unhealthy instance, the feature continues to ping the instance. If the instance responds with a healthy status code, inclusively ranging from 200 to 299, Health Check returns the instance to the load balancer. However, if the instance remains unhealthy for one hour, Health Check replaces the instance with a new one. For more information, see [What App Service does with health checks](../app-service/monitor-instances-health-check.md#what-app-service-does-with-health-checks).
+After Health Check removes the unhealthy instance, the feature continues to ping the instance. If the instance responds with a healthy status code, inclusively ranging from 200 to 299, Health Check returns the instance to the load balancer. However, if the instance remains unhealthy for one hour, Health Check replaces the instance with a new one. For more information, see [What App Service does with health checks](../app-service/monitor-instances-health-check.md#how-health-check-works).
 
 ## Prerequisites
 
@@ -122,6 +122,44 @@ After Health Check removes the unhealthy instance, the feature continues to ping
    - Confirm that the **Workflows.HealthCheckWorkflowName** property and your health workflow name appear correctly.
 
    - Confirm that the specified path matches the workflow and **Request** trigger name.
+
+## Common health problems
+
+### My logic app resource doesn't have any workflows, but the resource still scales out to multiple instances, which incur costs.
+
+This behavior can happen if the logic app resource isn't healthy, or typically, when the resource can't access the associated storage account. Try checking whether the storage account has a networking setting that blocks access, or whether you have a networking firewall policy that blocks access.
+
+### My logic app resource has workflows, but they aren't running or running a lot. However, the resource still scales out to multiple instances, which incur costs.
+
+1. Check whether the resource can access the associated storage account.
+
+   For example, does the storage account have a networking setting that blocks access? Do you have a networking firewall policy that blocks access?
+
+1. If your workflow starts with a [service provider-based trigger](/azure/connectors/built-in#service-provider-based-built-in-connectors), make sure that the trigger successfully works as expected.
+
+   - A failed service provider-based trigger might create unnecessary scaling, which can dramatically increase costs.
+   
+     For example, a common oversight is setting a trigger without giving your logic app permission or access to the destination, such as a Service Bus queue, Storage blob container, and so on.
+   
+   - Make sure to monitor such triggers at all times, so that you can promptly detect and fix any issues.
+
+### My workflow intermittently stops processing messages for hours but runs well most other times.
+
+If your Standard logic app uses the hosting option named **Workflow Service Plan** and isn't hosted in an App Service Environment, make sure that **Runtime Scale Monitoring** is turned on and that **Always Ready Instances** is set to at least **1**.
+
+1. In the [Azure portal](https://portal.azure.com), find and open your logic app, if not already open.
+
+1. On the logic app menu, under **Settings**, select **Configuration**.
+
+1. On the **Workflow runtime settings** tab, next to **Runtime Scale Monitoring**, select **On**.
+
+1. On the **Configuration** page toolbar, select **Save**.
+
+1. On the logic app menu, under **Settings**, select **Scale out (App Service plan)**.
+
+1. Under **App Scale out**, make sure that the **Always Ready Instances** value *isn't set* to **0**.
+
+
 
 ## Related content
 

@@ -31,6 +31,11 @@ For information about networking options in API Management, see [Use a virtual n
 
 * The subnet can't be shared with another Azure resource, including another workspace gateway.
 
+## Subnet size 
+
+* Minimum: /27 (32 addresses)
+* Maximum: /24 (256 addresses) - recommended
+
 ## Subnet delegation
 
 The subnet must be delegated as follows to enable the desired inbound and outbound access. 

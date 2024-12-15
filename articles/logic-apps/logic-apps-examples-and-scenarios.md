@@ -121,7 +121,7 @@ You can access, convert, and transform multiple content types by using the many 
 
 Azure Logic Apps integrates with many services, such as Azure Functions, Azure API Management, Azure App Service, and custom HTTP endpoints, for example, REST and SOAP.
 
-* [Call Azure Functions from Azure Logic Apps](../logic-apps/logic-apps-azure-functions.md)
+* [Call Azure Functions from Azure Logic Apps](call-azure-functions-from-workflows.md)
 * [Tutorial: Create a streaming customer insights dashboard with Azure Logic Apps and Azure Functions](../logic-apps/logic-apps-scenario-social-serverless.md)
 * [Tutorial: Create a function that integrates with Azure Logic Apps and Azure AI services to analyze X post sentiment](../azure-functions/functions-twitter-email.md)
 * [Tutorial: Build an AI-powered social dashboard by using Power BI and Azure Logic Apps](/shows/)

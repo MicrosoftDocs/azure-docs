@@ -6,7 +6,7 @@ description: In this quickstart, learn how to access Azure Cache for Redis from 
 
 ms.devlang: csharp
 ms.topic: quickstart
-ms.custom: devx-track-csharp, mvc, mode-other, devx-track-dotnet
+ms.custom: devx-track-csharp, mvc, mode-other, devx-track-dotnet, ignite-2024
 ms.date: 03/25/2022
 ---
 # Quickstart: Use Azure Cache for Redis in .NET Framework
@@ -15,7 +15,7 @@ In this quickstart, you incorporate Azure Cache for Redis into a .NET Framework 
 
 ## Skip to the code on GitHub
 
-Clone the repo from [(https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/dotnet](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/dotnet) on GitHub.
+Clone the repo from [Azure-Samples/azure-cache-redis-samples](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/dotnet) on GitHub.
 
 ## Prerequisites
 
@@ -27,21 +27,18 @@ Clone the repo from [(https://github.com/Azure-Samples/azure-cache-redis-samples
 
 [!INCLUDE [redis-cache-create](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/redis-cache-create.md)]
 
-[!INCLUDE [redis-cache-access-keys](includes/redis-cache-access-keys.md)]
+[!INCLUDE [cache-entra-access](includes/cache-entra-access.md)]
 
-1. Create a file on your computer named *CacheSecrets.config* and place it *C:\AppSecrets\CacheSecrets.config*. 
-
-1. Edit the *CacheSecrets.config* file and add the following contents:
+1. Edit the *App.config* file and add the following contents:
 
     ```xml
     <appSettings>
-        <add key="CacheConnection" value="<host-name>,abortConnect=false,ssl=true,allowAdmin=true,password=<access-key>"/>
-    </appSettings>
+
+   <add key="RedisHostName" value="your_redis_cache_hostname"/>
+  </appSettings>
     ```
 
-1. Replace `<host-name>` with your cache host name.
-
-1. Replace `<access-key>` with the primary key for your cache.
+1. Replace "your_Azure_Redis_hostname" with your Azure Redis host name and port numbers. For example: `cache-name.eastus.redis.azure.net:10000` for Azure Cache for Redis Enterprise, and `cache-name.redis.cache.windows.net:6380` for Azure Cache for Redis services.
 
 1. Save the file.
 
@@ -53,36 +50,17 @@ In this section, you prepare the console application to use the [StackExchange.R
 1. In Visual Studio, select **Tools** > **NuGet Package Manager** > **Package Manager Console**, and run the following command from the Package Manager Console window.
 
     ```powershell
-    Install-Package StackExchange.Redis
+    Install-Package Microsoft.Azure.StackExchangeRedis
     ```
     
 1. Once the installation is completed, the *StackExchange.Redis* cache client is available to use with your project.
-
-## Connect to the Secrets cache
-
-In Visual Studio, open your *App.config* file to verify it contains an `appSettings` `file` attribute that references the *CacheSecrets.config* file.
-
-```xml
-<?xml version="1.0" encoding="utf-8" ?>
-<configuration>
-    <startup> 
-        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.7.2" />
-    </startup>
-
-    <appSettings file="C:\AppSecrets\CacheSecrets.config"></appSettings>
-</configuration>
-```
-
-Never store credentials in source code. To keep this sample simple, we use an external secrets config file. A better approach would be to use [Azure Key Vault with certificates](/rest/api/keyvault/certificate-scenarios).
 
 ## Connect to the cache with RedisConnection
 
 The connection to your cache is managed by the `RedisConnection` class. The connection is first made in this statement from `Program.cs`:
 
 ```csharp
-     _redisConnection = await RedisConnection.InitializeAsync(connectionString: ConfigurationManager.AppSettings["CacheConnection"].ToString());
-
-
+     _redisConnection = await RedisConnection.InitializeAsync(redisHostName: ConfigurationManager.AppSettings["RedisHostName"].ToString());
 ```
 
 The value of the *CacheConnection* appSetting is used to reference the cache connection string from the Azure portal as the password parameter.
@@ -161,16 +139,16 @@ One simple way to serialize objects is to use the `JsonConvert` serialization me
 
 Add the `System.text.Json` namespace to Visual Studio:
 
-1. Select **Tools** > **NuGet Package Manager** > *Package Manager Console**.
+1. Select **Tools** > **NuGet Package Manager** > **Package Manager Console**.
 
 1. Then, run the following command from the Package Manager Console window.
     ```powershell
     Install-Package system.text.json
     ```
     
-<!-- :::image type="content" source="media/cache-dotnet-how-to-use-azure-redis-cache/cache-console-app-partial.png" alt-text="Console app partial"::: -->
+<!-- :::image type="content" source="media/cache-dotnet-how-to-use-azure-redis-cache/cache-console-app-partial.png" alt-text="Screenshot that shows console app."::: -->
 
-The following `Employee` class was defined in *Program.cs*  so that the sample could also show how to get and set a serialized object :
+The following `Employee` class was defined in *Program.cs*  so that the sample could also show how to get and set a serialized object:
 
 ```csharp
 class Employee
@@ -194,25 +172,7 @@ Press **Ctrl+F5** to build and run the console app to test serialization of .NET
 
 :::image type="content" source="media/cache-dotnet-core-quickstart/cache-console-app-complete.png" alt-text="Console app completed":::
 
-## Clean up resources
-
-If you continuing to the use this quickstart, you can keep the resources created and reuse them.
-
-Otherwise, if you are finished with the quickstart sample application, you can delete the Azure resources created in this quickstart to avoid charges.
-
-> [!IMPORTANT]
-> Deleting a resource group is irreversible and that the resource group and all the resources in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. If you created the resources for hosting this sample inside an existing resource group that contains resources you want to keep, you can delete each resource individually on the left instead of deleting the resource group.
->
-
-Sign in to the [Azure portal](https://portal.azure.com) and select **Resource groups**.
-
-In the **Filter by name...** textbox, type the name of your resource group. The instructions for this article used a resource group named *TestResources*. On your resource group in the result list, select **...** then **Delete resource group**.
-
-:::image type="content" source="media/cache-dotnet-core-quickstart/cache-delete-resource-group.png" alt-text="Delete":::
-
-You are asked to confirm the deletion of the resource group. Type the name of your resource group to confirm, and select **Delete**.
-
-After a few moments, the resource group and all of its contained resources are deleted.
+[!INCLUDE [cache-delete-resource-group](includes/cache-delete-resource-group.md)]
 
 ## Next steps
 

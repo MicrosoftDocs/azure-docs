@@ -3,7 +3,8 @@ title: Table API and SQL - Use Delta Catalog type with Hive with Apache Flink® 
 description: Learn about how to create Delta Catalog with Apache Flink® on Azure HDInsight on AKS
 ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
-ms.date: 03/29/2024
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Create Delta Catalog with Apache Flink® on Azure HDInsight on AKS

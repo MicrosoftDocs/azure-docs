@@ -4,8 +4,7 @@ description: Describes critical open issues and resolutions for the Azure Data B
 services: databox
 author: stevenmatthew
  
-ms.service: databox
-ms.subservice: gateway
+ms.service: azure-data-box-gateway
 ms.topic: release-notes
 ms.date: 01/07/2022
 ms.author: shaas

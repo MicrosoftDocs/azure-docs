@@ -6,7 +6,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 05/22/2024
+ms.date: 11/27/2024
 ms.author: jianleishen
 ---
 # Copy data from PostgreSQL using Azure Data Factory or Synapse Analytics
@@ -30,7 +30,7 @@ This PostgreSQL connector is supported for the following capabilities:
 
 For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
-Specifically, this PostgreSQL connector supports PostgreSQL **version 7.4 and above**.
+Specifically, this PostgreSQL connector supports PostgreSQL **version 12 and above**.
 
 ## Prerequisites
 
@@ -210,6 +210,7 @@ To copy data from PostgreSQL, the following properties are supported in the copy
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to: **PostgreSqlV2Source** | Yes |
 | query | Use the custom SQL query to read data. For example: `"query": "SELECT * FROM \"MySchema\".\"MyTable\""`. | No (if "tableName" in dataset is specified) |
+| queryTimeout | The wait time before terminating the attempt to execute a command and generating an error, default is 120 minutes. If parameter is set for this property, allowed values are timespan, such as "02:00:00" (120 minutes). For more information, see [CommandTimeout](https://www.npgsql.org/doc/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_CommandTimeout). <br> If both `commandTimeout` and `queryTimeout` are configured, `queryTimeout` takes precedence. | No |
 
 > [!NOTE]
 > Schema and table names are case-sensitive. Enclose them in `""` (double quotes) in the query.
@@ -236,7 +237,8 @@ To copy data from PostgreSQL, the following properties are supported in the copy
         "typeProperties": {
             "source": {
                 "type": "PostgreSqlV2Source",
-                "query": "SELECT * FROM \"MySchema\".\"MyTable\""
+                "query": "SELECT * FROM \"MySchema\".\"MyTable\"",
+                "queryTimeout": "00:10:00"
             },
             "sink": {
                 "type": "<sink type>"
@@ -299,7 +301,7 @@ When copying data from PostgreSQL, the following mappings are used from PostgreS
 |`XML`|`String`|`String`|
 |`IntArray`|`String`|`String`|
 |`TextArray`|`String`|`String`|
-|`NumbericArray`|`String`|`String`|
+|`NumericArray`|`String`|`String`|
 |`DateArray`|`String`|`String`|
 |`Range`|`String`|`String`|
 |`Bpchar`|`String`|`String`|
@@ -308,9 +310,9 @@ When copying data from PostgreSQL, the following mappings are used from PostgreS
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
-## Upgrade the PostgreSQL linked service
+## <a name="upgrade-the-postgresql-linked-service"></a> Upgrade the PostgreSQL connector
 
-Here are steps that help you upgrade your PostgreSQL linked service:
+Here are steps that help you upgrade your PostgreSQL connector:
 
 1. Create a new PostgreSQL linked service and configure it by referring to [Linked service properties](#linked-service-properties).
 

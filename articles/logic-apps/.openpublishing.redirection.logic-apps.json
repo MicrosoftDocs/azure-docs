@@ -1,6 +1,16 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/logic-apps/biztalk-server-azure-integration-services-migration-approaches.md",
+            "redirect_url": "/azure/logic-apps/biztalk-server-migration-approaches",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/logic-apps/biztalk-server-to-azure-integration-services-overview.md",
+            "redirect_url": "/azure/logic-apps/biztalk-server-migration-overview",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md",
             "redirect_url": "/azure/logic-apps/single-tenant-overview-compare",
             "redirect_document_id": false

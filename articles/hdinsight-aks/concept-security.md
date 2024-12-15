@@ -3,7 +3,8 @@ title: Security in HDInsight on AKS
 description: An introduction to security with managed identity from Microsoft Entra ID in HDInsight on AKS.
 ms.service: azure-hdinsight-on-aks
 ms.topic: conceptual
-ms.date: 05/11/2024
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Overview of enterprise security in Azure HDInsight on AKS

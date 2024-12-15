@@ -3,7 +3,8 @@ title: Use firewall to restrict outbound traffic on HDInsight on AKS, using Azur
 description: Learn how to secure traffic using firewall on HDInsight on AKS using Azure portal
 ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
-ms.date: 08/3/2023
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Use firewall to restrict outbound traffic using Azure portal

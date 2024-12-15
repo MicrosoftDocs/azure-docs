@@ -3,7 +3,8 @@ title: How to perform Change Data Capture of SQL Server with Apache Flink® Data
 description: Learn how to perform Change Data Capture of SQL Server with Apache Flink® DataStream API and DataStream Source.
 ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
-ms.date: 04/02/2024
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Change Data Capture of SQL Server with Apache Flink® DataStream API and DataStream Source on HDInsight on AKS
@@ -110,7 +111,7 @@ VALUES ('hammer','16oz carpenter''s hammer',1.0);
 INSERT INTO products(name,description,weight)
 VALUES ('rocks','box of assorted rocks',5.3);
 INSERT INTO products(name,description,weight)
-VALUES ('jacket','water resistent black wind breaker',0.1);
+VALUES ('jacket','water resistant black wind breaker',0.1);
 INSERT INTO products(name,description,weight)
 VALUES ('spare tire','24 inch spare tire',22.2);
 

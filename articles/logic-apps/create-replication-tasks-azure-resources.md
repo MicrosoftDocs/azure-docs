@@ -113,7 +113,7 @@ For Service Bus, you must enable sessions so that message sequences with the sam
 > a disruptive event. To prevent reprocessing already processed messages, you have to set up a way to 
 > track the already processed messages so that processing resumes only with the unprocessed messages.
 >
-> For example, you can set up a database that stores the proccessing state for each message. 
+> For example, you can set up a database that stores the processing state for each message. 
 > When a message arrives, check the message's state and process only when the message is unprocessed. 
 > That way, no processing happens for an already processed message. 
 >
@@ -413,7 +413,7 @@ To learn how you can build your own automated workflows so that you can integrat
 
 ## Monitor replication tasks
 
-To check the performance and health of your replication task, or underlying logic app workflow, you can use [Application Insights](../azure-monitor/app/app-insights-overview.md), which is a capability in Azure Monitor. The [Application Insights Application Map](../azure-monitor/app/app-map.md) is a useful visual tool that you can use to monitor replication tasks. This map is automatically generated from the captured monitoring information so that you can explore the performance and reliability of the replication task source and target transfers. For immediate diagnostic insights and low latency visualization of log details, you can work with the [Live Metrics](../azure-monitor/app/live-stream.md) portal tool, also a capability in Azure Monitor.
+To check the performance and health of your replication task, or underlying logic app workflow, you can use [Application Insights](/azure/azure-monitor/app/app-insights-overview), which is a capability in Azure Monitor. The [Application Insights Application Map](/azure/azure-monitor/app/app-map) is a useful visual tool that you can use to monitor replication tasks. This map is automatically generated from the captured monitoring information so that you can explore the performance and reliability of the replication task source and target transfers. For immediate diagnostic insights and low latency visualization of log details, you can work with the [Live Metrics](/azure/azure-monitor/app/live-stream) portal tool, also a capability in Azure Monitor.
 
 <a name="edit-task"></a>
 

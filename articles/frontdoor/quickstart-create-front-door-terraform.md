@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Create an Azure Front Door (classic) using Terraform'
-description: This quickstart describes how to create an Azure Front Door Service using Terraform.
+description: This quickstart describes how to create an Azure Front Door (classic) using Terraform.
 services: front-door
 author: johndowns
 ms.author: jodowns
@@ -17,7 +17,7 @@ ai-usage: ai-assisted
 
 [!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
 
-This quickstart describes how to use Terraform to create a Front Door (classic) profile to set up high availability for a web endpoint.
+This quickstart describes how to use Terraform to create an Azure Front Door (classic) profile to set up high availability for a web endpoint.
 
 In this article, you learn how to:
 

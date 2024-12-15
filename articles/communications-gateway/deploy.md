@@ -1,8 +1,8 @@
 ---
 title: Deploy Azure Communications Gateway
 description: This article guides you through planning for and deploying an Azure Communications Gateway.
-author: rcdun
-ms.author: rdunstan
+author: GemmaWakeford
+ms.author: gwakeford
 ms.service: azure-communications-gateway
 ms.topic: how-to
 ms.date: 01/08/2024
@@ -38,7 +38,7 @@ Use the Azure portal to create an Azure Communications Gateway resource.
 1. Select the communications services that you want to support in the **Communications Services** configuration tab, use the information that you collected in [Collect configuration values for each communications service](prepare-to-deploy.md#collect-configuration-values-for-each-communications-service) to fill out the fields, and then select **Next: Test Lines**.
 1. Use the information that you collected in [Collect values for service verification numbers](prepare-to-deploy.md#collect-values-for-service-verification-numbers) to fill out the fields in the **Test Lines** configuration tab and then select **Next: Tags**.
     - Don't configure numbers for integration testing.
-    - Microsoft Teams Direct Routing and Azure Operator Call Protection Preview don't require service verification numbers.
+    - Microsoft Teams Direct Routing doesn't require service verification numbers.
 1. (Optional) Configure tags for your Azure Communications Gateway resource: enter a **Name** and **Value** for each tag you want to create.
 1. Select **Review + create**.
 
@@ -74,7 +74,6 @@ When your resource has been provisioned, you can connect Azure Communications Ga
     * Depending on your network, you might need to configure SBCs, softswitches, and access control lists (ACLs).
     > [!IMPORTANT]
     > When configuring SBCs, firewalls, and ACLs, ensure that your network can receive traffic from both of the /28 IP ranges provided to you by your onboarding team because the IP addresses used by Azure Communications Gateway can change as a result of maintenance, scaling or disaster scenarios.
-    * If you are using Azure Operator Call Protection Preview, a component in your network (typically an SBC), must act as a SIPREC Session Recording Client (SRC).
     * Your network needs to send SIP traffic to per-region FQDNs for Azure Communications Gateway. To find these FQDNs:
         1. Sign in to the [Azure portal](https://azure.microsoft.com/).
         1. In the search bar at the top of the page, search for your Communications Gateway resource.

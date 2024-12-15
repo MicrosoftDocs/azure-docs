@@ -28,9 +28,9 @@ For more information, review the following documentation:
 
 - [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 - [Single-tenant versus multitenant in Azure Logic Apps](../logic-apps/single-tenant-overview-compare.md)
-- [Azure Arc overview](../azure-arc/overview.md)
+- [Azure Arc overview](/azure/azure-arc/overview)
 - [Azure Kubernetes Service overview](/azure/aks/intro-kubernetes)
-- [What is Azure Arc-enabled Kubernetes?](../azure-arc/kubernetes/overview.md)
+- [What is Azure Arc-enabled Kubernetes?](/azure/azure-arc/kubernetes/overview)
 - [What is Kubernetes?](https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/)
 
 <a name="why-use"></a>
@@ -47,8 +47,8 @@ For more information, review the following documentation:
 
 - [Single-tenant versus multitenant in Azure Logic Apps](../logic-apps/single-tenant-overview-compare.md)
 - [Azure Kubernetes Service overview](/azure/aks/intro-kubernetes)
-- [What is Azure Arc-enabled Kubernetes?](../azure-arc/kubernetes/overview.md)
-- [Custom locations on Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/conceptual-custom-locations.md)
+- [What is Azure Arc-enabled Kubernetes?](/azure/azure-arc/kubernetes/overview)
+- [Custom locations on Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/conceptual-custom-locations)
 - [App Service, Functions, and Logic Apps on Azure Arc (Preview)](../app-service/overview-arc-integration.md)
 - [Set up an Azure Arc-enabled Kubernetes cluster to run App Service, Functions, and Logic Apps (Preview)](../app-service/manage-create-arc-environment.md)
 

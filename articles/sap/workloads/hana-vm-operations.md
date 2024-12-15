@@ -6,7 +6,7 @@ manager: bburns
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.date: 11/09/2023
+ms.date: 09/16/2024
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
@@ -53,7 +53,7 @@ Deploy the VMs in Azure by using:
 - Azure PowerShell cmdlets.
 - The Azure CLI.
 
-You also can deploy a complete installed SAP HANA platform on the Azure VM services through the [SAP Cloud platform](https://cal.sap.com/). The installation process is described in [Deploy SAP S/4HANA or BW/4HANA on Azure](./cal-s4h.md).
+You also can deploy a complete installed SAP HANA platform on the Azure VM services through the [SAP Cloud platform](https://cal.sap.com). The installation process is described in [Deploy SAP S/4HANA or BW/4HANA on Azure](./cal-s4h.md).
 
 >[!IMPORTANT]
 > In order to use M208xx_v2 VMs, you need to be careful selecting your Linux image. For more information, see [Memory optimized virtual machine sizes](/azure/virtual-machines/mv2-series).
@@ -104,6 +104,12 @@ To deploy SAP HANA in Azure without a site-to-site connection, you still want to
 
 Another description on how to use Azure NVAs to control and monitor access from Internet without the hub and spoke VNet architecture can be found in the article [Deploy highly available network virtual appliances](/azure/architecture/reference-architectures/dmz/nva-ha).
 
+
+### Clock source options in Azure VMs
+SAP HANA requires reliable and accurate timing information to perform optimally. Traditionally Azure VMs running on Azure hypervisor used only Hyper-V TSC page as a default clock source. Technology advancements in hardware, host OS and Linux guest OS kernels made it possible to provide "Invariant TSC" as a clock source option on some Azure VM SKUs.  
+
+Hyper-V TSC page (`hyperv_clocksource_tsc_page`)  is supported on all Azure VMs as a clock source. 
+If the underlying hardware, hypervisor and guest OS linux kernel support Invariant TSC, `tsc` will be offered as available and supported clock source in the guest OS on Azure VMs.    
 
 ## Configuring Azure infrastructure for SAP HANA scale-out
 

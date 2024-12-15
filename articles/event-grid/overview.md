@@ -62,8 +62,7 @@ Event Grid offers a rich mixture of features. These features include:
 - **High throughput** - Build high-volume integrated solutions with Event Grid.
 - **Custom domain names** - Allows users to assign their own domain names to Event Grid namespace's HTTP endpoints, enhancing security and simplifying client configuration.
 
-> [!NOTE]
-> **Regarding TLS 1.0 / 1.1 deprecation**: For system topics, you need to take action only for the event delivery to webhook destinations. If the destination supports TLS 1.2, the event delivery happens using 1.2. If the destination doesn't support TLS 1.2, the event delivery automatically falls back to 1.0 and 1.1. Post Oct 31st 2024, event delivery using 1.0 and 1.1 won't be supported. Ensure that your webhook destinations support TLS 1.2. One easy way to check for TLS 1.2 support is to use [Qualys SSL Labs](https://www.ssllabs.com/ssltest/). If the report shows that TLS 1.2 is supported, no action is required. For more information, see the following blog post: [Retirement: Upcoming TLS changes for Azure Event Grid](https://azure.microsoft.com/updates/v2/TLS-changes-for-Azure-Event-Grid)
+[!INCLUDE [tls-note.md](./includes/tls-note.md)]
 
 ## Use cases
 
@@ -162,41 +161,22 @@ You can configure **private links** to connect to Azure Event Grid to **publish 
 ## Regions where Event Grid namespace is available
 
 Here's the list of regions where the new MQTT broker and namespace topics features are available:
-- Australia East
-- Australia South East
-- Brazil South
-- Brazil Southeast
-- Canada Central
-- Canada East
-- Central India
-- Central US
-- East Asia
-- East US
-- East US 2
-- France Central
-- Germany West Central
-- Israel Central
-- Italy North
-- Japan East
-- Japan West
-- Korea Central
-- Korea South
-- North Central US  
-- North Europe
-- Norway East
-- Poland Central
-- South Africa West
-- South Central US
-- South India
-- Southeast Asia
-- Sweden Central
-- Switzerland North
-- UAE North
-- UK South
-- UK West
-- West Europe
-- West US 2
-- West US 3
+
+| Region | Region | Region | Region |
+| -- | -- | -- | -- | 
+| Australia East | Australia South East | Australia Central |Australia Central 2 |
+| Brazil South | Brazil Southeast | Canada Central | Canada East |
+| Central India | Central US | East Asia | East US |
+| East US 2 | West US | France Central | France South |
+| Germany North | Germany West Central | Israel Central | Italy North |
+| Japan East | Japan West | Korea Central | Korea South |
+| Mexico Central | North Central US | North Europe | Norway East |
+| Poland Central | South Africa West | South Africa North | South Central US |
+| South India | Southeast Asia | Spain Central | Sweden Central |
+| Sweden South | Switzerland North | Switzerland West | UAE North |
+| UAE Central | UK South | UK West | West Europe |
+| West US 2 | West US 3 | West Central US |
+ 
 
 ## Next steps
 

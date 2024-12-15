@@ -7,8 +7,8 @@ metadata:
   title: NGINXaaS 
   description: NGINXaaS integrates with Azure to combine the benefits of NGINX and the Azure cloud.
   ms.topic: landing-page
-  author: flang-msft
-  ms.author: franlanglois
+  
+  
   ms.date: 01/18/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new

@@ -43,24 +43,6 @@ This quickstart shows you how to connect Azure Kubernetes Service (AKS) to other
 
 ## Create a service connection
 
-### [Using an access key](#tab/Using-access-key)
-
-Run the following Azure CLI command to create a service connection to an Azure Blob Storage with an access key, providing the following information.
-
-```azurecli
-az aks connection create storage-blob --secret
-```
-
-Provide the following information as prompted:
-
-* **Source compute service resource group name:** the resource group name of the AKS cluster.
-* **AKS cluster name:** the name of your AKS cluster that connects to the target service.
-* **Target service resource group name:** the resource group name of the Blob Storage.
-* **Storage account name:** the account name of your Blob Storage.
-
-> [!NOTE]
-> If you don't have a Blob Storage, you can run `az aks connection create storage-blob --new --secret` to provision a new one and directly get connected to your aks cluster.
-
 ### [Using a workload identity](#tab/Using-Managed-Identity)
 
 > [!IMPORTANT]
@@ -81,6 +63,27 @@ az aks connection create storage-blob \
 
 > [!NOTE]
 > If you don't have a Blob Storage, you can run `az aks connection create storage-blob --new --workload-identity <user-identity-resource-id>"` to provision a new one and get connected to your function app straightaway.
+
+### [Using an access key](#tab/Using-access-key)
+
+> [!WARNING]
+> Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
+
+Run the following Azure CLI command to create a service connection to an Azure Blob Storage with an access key, providing the following information.
+
+```azurecli
+az aks connection create storage-blob --secret
+```
+
+Provide the following information as prompted:
+
+* **Source compute service resource group name:** the resource group name of the AKS cluster.
+* **AKS cluster name:** the name of your AKS cluster that connects to the target service.
+* **Target service resource group name:** the resource group name of the Blob Storage.
+* **Storage account name:** the account name of your Blob Storage.
+
+> [!NOTE]
+> If you don't have a Blob Storage, you can run `az aks connection create storage-blob --new --secret` to provision a new one and connect it to your AKS cluster.
 
 ---
 

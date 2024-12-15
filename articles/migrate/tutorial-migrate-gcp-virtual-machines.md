@@ -4,7 +4,7 @@ description: This article describes how to migrate GCP VMs to Azure with Azure M
 author: vijain
 ms.author: vijain
 ms.topic: tutorial
-ms.date: 03/20/2024
+ms.date: 09/18/2024
 ms.service: azure-migrate
 ms.custom: MVC, engagement-fy24
 ---
@@ -166,7 +166,7 @@ The first step of migration is to set up the replication appliance. To set up th
 A Mobility service agent must be preinstalled on the source GCP VMs to be migrated before you can initiate replication. The approach you choose to install the Mobility service agent might depend on your organization's preferences and existing tools. The "push" installation method built into Azure Site Recovery isn't currently supported. Approaches you might want to consider:
 
 - [System Center Configuration Manager](../site-recovery/vmware-azure-mobility-install-configuration-mgr.md)
-- [Azure Arc for servers and custom script extensions](../azure-arc/servers/overview.md)
+- [Azure Arc for servers and custom script extensions](/azure/azure-arc/servers/overview)
 - [Install Mobility agent for Windows](../site-recovery/vmware-physical-mobility-service-overview.md#install-the-mobility-service-using-command-prompt-classic)
 - [Install Mobility agent for Linux](../site-recovery/vmware-physical-mobility-service-overview.md#linux-machine-1)
 

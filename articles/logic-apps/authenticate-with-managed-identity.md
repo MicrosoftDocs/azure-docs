@@ -609,7 +609,7 @@ After you [enable the managed identity for your logic app resource](#azure-porta
 > [!IMPORTANT]
 >
 > If you have an Azure function where you want to use the system-assigned identity, 
-> first [enable authentication for Azure Functions](logic-apps-azure-functions.md#enable-authentication-functions).
+> first [enable authentication for Azure Functions](call-azure-functions-from-workflows.md#enable-authentication-functions).
 
 The following steps show how to use the managed identity with a trigger or action using the Azure portal. To specify the managed identity in a trigger or action's underlying JSON definition, see [Managed identity authentication](logic-apps-securing-a-logic-app.md#managed-identity-authentication).
 
@@ -742,7 +742,7 @@ The following steps show how to use the managed identity with a trigger or actio
         > user-assigned managed identity defined and enabled. However, your logic app should 
         > use only one managed identity at a time. 
         >
-        > For example, a workflow that acceses different Azure Service Bus messaging entities 
+        > For example, a workflow that accesses different Azure Service Bus messaging entities 
         > should use only one managed identity. See [Connect to Azure Service Bus from workflows](../connectors/connectors-create-api-servicebus.md#prerequisites).
 
      For more information, see [Example: Authenticate built-in trigger or action with a managed identity](#authenticate-built-in-managed-identity).
@@ -1303,7 +1303,7 @@ For more information, see [Microsoft.Web/connections/accesspolicies (ARM templat
 
 ---
 
-<a name="setup-identity-apihub-authentiation"></a>
+<a name="setup-identity-apihub-authentication"></a>
 
 ## Set up advanced control over API connection authentication
 

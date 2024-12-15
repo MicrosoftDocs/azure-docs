@@ -82,7 +82,7 @@ Depending on the version of `$convert-data` you’re using, you can:
 
 * Use the [troubleshooting guide](convert-data-troubleshoot.md) for the FHIR service in Azure Health Data Services version of the `$convert-data` operation.
 
-* Open a [support request](../../azure-portal/supportability/how-to-create-azure-support-request.md) for the FHIR service in Azure Health Data Service FHIR Services version of the `$convert-data` operation.
+* Open a [support request](/azure/azure-portal/supportability/how-to-create-azure-support-request) for the FHIR service in Azure Health Data Service FHIR Services version of the `$convert-data` operation.
 
 * Leave a comment on the [GitHub repository](https://github.com/microsoft/FHIR-Converter/issues) for the open source version of the FHIR converter.
 

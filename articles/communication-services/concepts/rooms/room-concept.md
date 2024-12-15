@@ -26,15 +26,13 @@ Virtual Rooms empower developers with essential security and control capabilitie
 | Voice (VoIP) | ✔️ |
 | Video | ✔️ |
 | Client initiated dial-out to a PSTN number | ✔️ |
-| Server initiated dial-out to a PSTN number** | ✔️ |
+| Server initiated dial-out to a PSTN number | ✔️ |
 | Server-side call management (Call Automation)*  | ✔️ |
 | PSTN Dial-in | ❌ |
 | Async Messaging (Chat) | ❌ |
 | Interoperability with Microsoft Teams | ❌ |
 
 \* Some exceptions apply. The full list of supported [Call Automation capabilities](#how-to-conduct-calls-in-virtual-rooms) are listed in this document.
-
-\*\* Currently in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## When to use Virtual Rooms
 
@@ -70,17 +68,15 @@ At a high level, to conduct calls in a Virtual Rooms you need to create and mana
 | Virtual Rooms security-controls management - Set/Update flag to allow PSTN dial-out from specific Virtual Rooms   | ✔️ | ❌ |  ❌ |
 | Get list of users invited to join a Virtual Room | ✔️ | ❌ |  ❌ |
 | A user initiates a Virtual Rooms call or joins an in-progress call | ❌ | ✔️ |  ❌ |
-| Dial-out to a PSTN user  | ❌ | ✔️ | ✔️* |
-| Add/Remove VoIP participants to an in-progress call | ❌ | ✔️ |  ✔️* |
-| Get list of participants who joined the in-progress call | ❌ | ✔️ |  ✔️* |
-| Start/Stop call captions and change captions language | ❌ | ✔️* |  ❌ |
-| Manage call recording | ❌ | ❌ |  ✔️* |
-| Send/Receive DTMF to/from PSTN participants | ❌ | ❌ | ✔️* |
-| Play audio prompts to participants  | ❌ | ❌ | ✔️* |
+| Dial-out to a PSTN user  | ❌ | ✔️ | ✔️ |
+| Add/Remove VoIP participants to an in-progress call | ❌ | ✔️ |  ✔️ |
+| Get list of participants who joined the in-progress call | ❌ | ✔️ |  ✔️ |
+| Start/Stop call captions and change captions language | ❌ | ✔️ |  ❌ |
+| Manage call recording | ❌ | ❌ |  ✔️ |
+| Send/Receive DTMF to/from PSTN participants | ❌ | ❌ | ✔️ |
+| Play audio prompts to participants  | ❌ | ❌ | ✔️ |
 
 [Calling client SDK](../voice-video-calling/calling-sdk-features.md#detailed-capabilities) provides the full list of client-side in-call operations and explains how to use them.
-
-\* Currently in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Managing Virtual Rooms calls from the server-side using Call Automation Server SDK
 
@@ -88,9 +84,9 @@ Call Automation SDK empowers developers to manage Virtual Rooms calls from the s
 
 | Call Automation capability | Supported in Rooms call | 
 | ------ | :------: |
-| Dial-out to PSTN participant * | ✔️ |
-| Send/Read DTMF to/from PSTN participant * | ✔️ |
-| Send announcements to specific call participants * | ✔️ |
+| Dial-out to PSTN participant | ✔️ |
+| Send/Read DTMF to/from PSTN participant | ✔️ |
+| Send announcements to specific call participants | ✔️ |
 | Add/Remove a VoIP participant from an ongoing call | ✔️ |
 | End call for all users | ✔️ |
 | Call transcriptions | ❌ |
@@ -129,7 +125,6 @@ Developers can allow/disallow the ability for call participants to dial-out to a
 1. A participant with Presenter role adds PSTN number into a call
 1. PSTN user accepts and joins a room call
 
-
 ### Virtual Rooms API/SDKs
 
 Rooms are created and managed via rooms APIs or SDKs. Use the rooms API/SDKs in your server application for `room` operations:
@@ -145,9 +140,9 @@ Rooms are created and managed via rooms APIs or SDKs. Use the rooms API/SDKs in 
 | Virtual Rooms SDKs | 2024-04-15 | Generally Available - Fully supported |
 | Virtual Rooms SDKs | 2023-06-14 | Generally Available - Fully supported |
 | Virtual Rooms SDKs | 2023-10-30 | Public Preview - Fully supported |
-| Virtual Rooms SDKs | 2023-03-31 | Will be retired on April 30, 2024 |
-| Virtual Rooms SDKs | 2022-02-01 | Will be retired on April 30, 2024 |
-| Virtual Rooms SDKs | 2021-04-07 | Will be retired on April 30, 2024 |
+| Virtual Rooms SDKs | 2023-03-31 | Public Preview - retired |
+| Virtual Rooms SDKs | 2022-02-01 | Public Preview - retired |
+| Virtual Rooms SDKs | 2021-04-07 | Public Preview - retired |
 
 ## Predefined participant roles and permissions in Virtual Rooms calls
 <a name="predefined-participant-roles-and-permissions"></a>
@@ -156,12 +151,14 @@ Room participants can be assigned one of the following roles: **Presenter**, **A
 
 The following table provides detailed capabilities mapped to the roles. At a high level, **Presenter** role has full control, **Attendee** capabilities are limited to audio and video, while **Consumer** can only receive audio, video, and screen sharing.
 
+<b>Note:</b> A PSTN call participant is not a part of Room roster, so a user role is not assigned to them. They capabilities are limited to mute/unmute themselves on the local device.
+
 | Capability | Role: Presenter | Role: Attendee | Role: Consumer
 |---------------------------------------------| :--------: | :--------: | :--------: |
 | **Mid call controls** | | |
 | - Turn video on/off | ✔️ | ✔️ | ❌ |
 | - Mute/Unmute mic | ✔️ | ✔️ | ❌ |
-| - Mute remote user ** | ✔️ | ❌ | ❌ |
+| - Mute remote user | ✔️ | ❌ | ❌ |
 | - Switch between cameras | ✔️ | ✔️ | ❌ |
 | - Active speaker | ✔️ | ✔️ | ✔️ |
 | - Choose speaker for calls | ✔️ | ✔️ | ✔️ |
@@ -170,8 +167,8 @@ The following table provides detailed capabilities mapped to the roles. At a hig
 | - Show call state (Early media, Incoming, Connecting, Ringing, Connected, Hold, Disconnecting, Disconnected | ✔️ | ✔️ | ✔️ |
 | - Show if a participant is muted | ✔️ | ✔️ | ✔️ |
 | - Show the reason why a participant left a call | ✔️ | ✔️ | ✔️ |
-| - Start call captions ** | ✔️ | ✔️ | ✔️ |
-| - Change captions language ** | ✔️ | ✔️ | ❌ |
+| - Start call captions | ✔️ | ✔️ | ✔️ |
+| - Change captions language | ✔️ | ✔️ | ❌ |
 | - End meeting for all participants | ✔️ | ❌ | ❌ |
 | - Invite to join a Virtual Room participant to a call | ✔️ | ❌ | ❌ |
 | **Screen sharing** | | |
@@ -231,5 +228,5 @@ The *Open Room* concept is now deprecated. Going forward, *Invite Only* rooms ar
 - Learn how to [manage a room call](../../quickstarts/rooms/manage-rooms-call.md).
 - Review the [Network requirements for media and signaling](../voice-video-calling/network-requirements.md).
 - Analyze your Rooms data, see: [Rooms Logs](../Analytics/logs/rooms-logs.md).
-- Learn how to use the Log Analytics workspace, see: [Log Analytics Tutorial](../../../azure-monitor/logs/log-analytics-tutorial.md).
-- Create your own queries in Log Analytics, see: [Get Started Queries](../../../azure-monitor/logs/get-started-queries.md).
+- Learn how to use the Log Analytics workspace, see: [Log Analytics Tutorial](/azure/azure-monitor/logs/log-analytics-tutorial).
+- Create your own queries in Log Analytics, see: [Get Started Queries](/azure/azure-monitor/logs/get-started-queries).

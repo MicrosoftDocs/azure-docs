@@ -2,7 +2,9 @@
 title: Azure subscription limits and quotas
 description: Provides a list of common Azure subscription and service limits, quotas, and constraints. This article includes information on how to increase limits along with maximum values.
 ms.topic: conceptual
-ms.date: 07/19/2024
+ms.custom:
+  - ignite-2024
+ms.date: 12/12/2024
 ---
 
 # Azure subscription and service limits, quotas, and constraints
@@ -137,7 +139,7 @@ To learn more about limits on a more granular level, such as document size, quer
 
 ## Azure Chaos Studio limits
 
-For Azure Chaos Studio limits, see [Azure Chaos Studio service limits](../../chaos-studio/chaos-studio-service-limits.md).
+For Azure Chaos Studio limits, see [Azure Chaos Studio service limits](/azure/chaos-studio/chaos-studio-service-limits).
 
 ## Azure Communications Gateway limits
 
@@ -225,7 +227,7 @@ The latest values for Azure Machine Learning Compute quotas can be found in the 
 
 ## Azure Monitor limits
 
-For Azure Monitor limits, see [Azure Monitor service limits](../../azure-monitor/service-limits.md).
+For Azure Monitor limits, see [Azure Monitor service limits](/azure/azure-monitor/service-limits).
 
 ## Azure Data Factory limits
 
@@ -255,7 +257,7 @@ The following limits apply to [Azure role-based access control (Azure RBAC)](../
 
 ## Azure Spring Apps limits
 
-To learn more about the limits for Azure Spring Apps, see [Quotas and service plans for Azure Spring Apps](../../spring-apps/enterprise/quotas.md).
+To learn more about the limits for Azure Spring Apps, see [Quotas and service plans for Azure Spring Apps](../../spring-apps/basic-standard/quotas.md).
 
 ## Azure Storage limits
 
@@ -324,9 +326,9 @@ If you use classic deployment model instead of the Azure Resource Manager deploy
 
 ## Container Registry limits
 
-The following table details the features and limits of the Basic, Standard, and Premium [service tiers](../../container-registry/container-registry-skus.md).
+The following table details the features and limits of the Basic, Standard, and Premium [service tiers](/azure/container-registry/container-registry-skus).
 
-[!INCLUDE [container-registry-limits](../../../includes/container-registry-limits.md)]
+[!INCLUDE [container-registry-limits](~/reusable-content/ce-skilling/azure/includes/container-registry/container-registry-limits.md)]
 
 ## Content Delivery Network limits
 
@@ -397,7 +399,7 @@ The following table details the features and limits of the Basic, Standard, and 
 
 ### Media Services v2 (legacy)
 
-For limits specific to Media Services v2 (legacy), see [Media Services v2 (legacy)](/azure/media-services/previous/media-services-quotas-and-limitations)
+For limits specific to Media Services v2 (legacy), see [Media Services v2 (legacy)]
 
 ## Mobile Services limits
 
@@ -410,6 +412,9 @@ For limits specific to Media Services v2 (legacy), see [Media Services v2 (legac
 ## Networking limits
 
 [!INCLUDE [azure-virtual-network-limits](../../../includes/azure-virtual-network-limits.md)]
+
+### <a name="load-balancer"></a>Azure Load Balancer limits
+[!INCLUDE [azure-load-balancer-limits](../../../includes/load-balancer-limits.md)]
 
 ### Application Gateway limits
 
@@ -517,7 +522,7 @@ For more information, see [VM Applications](/azure/virtual-machines/vm-applicati
 
 #### Disk encryption sets
 
-There's a limitation of 1000 disk encryption sets per region, per subscription. For more
+There's a limitation of 5000 disk encryption sets per region, per subscription. For more
 information, see the encryption documentation for
 [Linux](/azure/virtual-machines/disk-encryption#restrictions) or
 [Windows](/azure/virtual-machines/disk-encryption#restrictions) virtual machines. If you
@@ -576,6 +581,11 @@ The maximum number of allowed Managed Run Commands is currently limited to 25.
 ## Dev tunnels limits
 
 [!INCLUDE [dev-tunnels-service-limits](../../../includes/dev-tunnels/dev-tunnels-service-limits.md)]
+
+## Network Security Perimeters limits
+
+[!INCLUDE [network-security-perimeter-limits](../../../includes/network-security-perimeter-limits.md)]
+
 
 ## See also
 

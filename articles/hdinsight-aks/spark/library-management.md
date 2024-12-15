@@ -3,7 +3,8 @@ title: Library Management in Azure HDInsight on AKS
 description: Learn how to use Library Management in Azure HDInsight on AKS with Spark 
 ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
-ms.date: 08/29/2023
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Library management in Spark
@@ -74,6 +75,6 @@ If you decide not to use the libraries anymore, then you can easily delete the l
    > [!NOTE]
    > * Packages installed from Jupyter notebook can only be deleted from Jupyter Notebook.
    > * Packages installed from library manager can only be uninstalled from library manager.
-   > * For upgrading a library/package, uninstall the current version of the library and resinstall the required version of the library.
-   > * Installation of libraries from Jupyter notebook is particular to the session. It is not persistant.
+   > * For upgrading a library/package, uninstall the current version of the library and reinstall the required version of the library.
+   > * Installation of libraries from Jupyter notebook is particular to the session. It is not persistent.
    > * Installing heavy packages may take some time due to their size and complexity.
