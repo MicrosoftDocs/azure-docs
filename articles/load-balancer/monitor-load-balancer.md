@@ -234,6 +234,9 @@ az monitor diagnostic-settings create \
 
 [!INCLUDE [horz-monitor-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-activity-log.md)]
 
+> [!NOTE]
+>  Load balancer activity logs will not include updates to the balancer backend pools when the backend pool is a NIC-based backend pool. To monitor and alert on updates to the load balancer backend pool for NIC-based backend pools, we recommend collecting logs on the NIC resource-level or at a resource group level instead. 
+
 [!INCLUDE [horz-monitor-analyze-data](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-analyze-data.md)]
 
 [!INCLUDE [horz-monitor-external-tools](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-external-tools.md)]
