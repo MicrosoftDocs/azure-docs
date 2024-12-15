@@ -21,7 +21,7 @@ This article includes troubleshooting steps to help you ensure accurate and time
 Selected troubleshooting procedures are only relevant when your data connector agent is [deployed via the command line](deploy-command-line.md). If you used the recommended procedure to [deploy the agent from the portal](deploy-data-connector-agent-container.md), use the portal to make any configuration changes.
 
 > [!NOTE]
-> This article is relevant only for the data connector agent, and isn't relevant for the [SAP agentless solution](deployment-overview.md#data-connector&tabs=agentless).
+> This article is relevant only for the data connector agent, and isn't relevant for the [SAP agentless solution](deployment-overview.md#data-connector) (limited preview).
 >
 
 ## Useful Docker commands
