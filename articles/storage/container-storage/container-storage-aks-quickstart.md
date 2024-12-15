@@ -112,7 +112,7 @@ The resources consumed are per node, and will be consumed for each node in the n
 
 ## Ensure VM type for your cluster meets the following criteria
 
-To use Azure Container Storage, you'll need a node pool of at least three Linux VMs. If you're using local NVMe for your storage pool, the node pool should contain a minimum of four Linux VMs. Each VM should have a minimum of four virtual CPUs (vCPUs). Azure Container Storage will consume one core for I/O processing on every VM the extension is deployed to.
+To use Azure Container Storage, you'll need a node pool of at least three Linux VMs. Each VM should have a minimum of four virtual CPUs (vCPUs). Azure Container Storage will consume one core for I/O processing on every VM the extension is deployed to.
 
 Follow these guidelines when choosing a VM type for the cluster nodes. You must choose a VM type that supports [Azure premium storage](/azure/virtual-machines/premium-storage-performance).
 
@@ -158,7 +158,7 @@ The deployment will take 10-15 minutes. When it completes, you'll have an AKS cl
 
 ### Install Azure Container Storage on specific node pools
 
-If you want to install Azure Container Storage on specific node pools, follow these instructions. The node pools must contain at least three Linux VMs each. If you're using local NVMe for your storage pool, then the node pools must contain at least four Linux VMs each.
+If you want to install Azure Container Storage on specific node pools, follow these instructions. The node pools must contain at least three Linux VMs.
 
 1. Run the following command to view the list of available node pools. Replace `<resource-group>` and `<cluster-name>` with your own values.
    

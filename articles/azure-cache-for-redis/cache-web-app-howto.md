@@ -215,8 +215,6 @@ After the new app has been published, add a new app setting. This setting is use
 
 2. Add a new app setting named **CacheConnection** for the app to use to connect to the cache. Use the same value you configured for `RedisHostName` in your *web.config* file.
 
-   :::image type="content" source="media/cache-web-app-howto/cache-add-app-setting.png" alt-text="Screenshot showing how to add app setting.":::
-
 ### Run the app in Azure
 
 1. In your browser, go to the URL for the app. The URL appears in the results of the publishing operation in the Visual Studio output window. It's also provided in the Azure portal on the overview page of the app you created.

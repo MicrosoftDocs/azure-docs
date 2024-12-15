@@ -59,7 +59,7 @@ Create an alias record that points to a resource record in the zone.
 1. Select the **server** record for the **Zone record set**.
 1. Select **OK**.
 
-    :::image type="content" source="./media/tutorial-alias-rr/add-alias-record-set-inline.png" alt-text="Screentshot of adding the alias record set in the Add record set page." lightbox="./media/tutorial-alias-rr/add-alias-record-set-expanded.png":::
+    :::image type="content" source="./media/tutorial-alias-rr/add-alias-record-set-inline.png" alt-text="Screenshot of adding the alias record set in the Add record set page." lightbox="./media/tutorial-alias-rr/add-alias-record-set-expanded.png":::
 
 ## Test the alias record
 
