@@ -32,7 +32,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Assess VMware VMs with Server Assessment
-            url: ./tutorial-discover-vmware.md
+            url: ./tutorial-discover-vmware.md?context=/azure/migrate/context/migrate-context
           - text: Assess Hyper-V VMs with Server Assessment
             url: ./tutorial-discover-hyper-v.md
           - text: Assess physical servers with Server Assessment
@@ -42,7 +42,7 @@ landingContent:
           - text: Assess SQL instances for migration to Azure SQL
             url: ./tutorial-assess-sql.md
           - text: Migrate VMware VMs with Migration and modernization
-            url: ./server-migrate-overview.md
+            url: ./server-migrate-overview.md?context=/azure/migrate/context/migrate-context
           - text: Migrate Hyper-V VMs with Migration and modernization
             url: ./tutorial-migrate-hyper-v.md
           - text: Migrate physical servers/VMs with Migration and modernization
@@ -64,7 +64,7 @@ landingContent:
           - text: Review the Azure Migrate support matrix
             url: migrate-support-matrix.md
           - text: Review the VMware support matrix
-            url: ./migrate-support-matrix-vmware.md
+            url: ./migrate-support-matrix-vmware.md?context=/azure/migrate/context/migrate-context
           - text: Review the Hyper-V support matrix
             url: ./migrate-support-matrix-hyper-v.md
           - text: Review the physical server support matrix
@@ -85,7 +85,7 @@ landingContent:
           - text: Upgrade Windows OS
             url: ./how-to-upgrade-windows.md
           - text: Scale VMware assessment
-            url: ./scale-vmware-assessment.md
+            url: ./scale-vmware-assessment.md?context=/azure/migrate/context/migrate-context
           - text: Automate and scale migration
             url: ./how-to-migrate-at-scale.md
           - text: Troubleshoot assessment and migration
@@ -105,7 +105,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Learn about VMware/physical agent-based migration
-            url: ./agent-based-migration-architecture.md
+            url: ./agent-based-migration-architecture.md?context=/azure/migrate/context/migrate-context
           - text: Learn about Hyper-V migration
             url: ./hyper-v-migration-architecture.md
           - text: Learn about assessments

@@ -212,6 +212,7 @@
         "articles/azure-arc/**/*.md": "JnHs",
         "articles/azure-arc/servers/**/*.md": "johnmarco",
         "articles/azure-cache-for-redis/**/*.md": "flang-msft",
+        "articles/azure-cache-for-redis/**/*.yml": "flang-msft",
         "articles/azure-fluid-relay/**/*.md": "GrantMeStrength",
         "articles/azure-functions/**/*.md": "ggailey777",
         "articles/azure-government/**/*.md": "EliotSeattle",
@@ -942,7 +943,8 @@
         "articles/virtual-desktop/**/*.yml": "azure-virtual-desktop"
       },
       "ms.reviewer": {
-        "articles/advisor/*.md": "ikhapova"
+        "articles/advisor/*.md": "ikhapova",
+        "articles/healthcare-apis/*.md": "leeclontz"
       },
       "search.appverid": {
         "articles/private-5g-core/**/*.md": "ap5gc",

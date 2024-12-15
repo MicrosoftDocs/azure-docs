@@ -117,7 +117,10 @@ To understand whether a feature is supported in your sensor version, check the r
 
 **Supported until**: 12/2025
 
-This version includes bug fixes for stability improvements.
+This version includes the following updates and enhancements:
+
+- Bug fixes for stability improvements.
+- Support Multiple Source Devices in DDoS Attack Alerts – Enhance alert details by displaying up to 10 source devices involved in DDoS attack.
 
 ### 24.1.7
 

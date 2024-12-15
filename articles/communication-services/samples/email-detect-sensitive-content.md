@@ -138,7 +138,7 @@ Loop through the content to check for any sensitive data. Start the sensitivity 
 Add the following code into the `AnalyzeSensitiveData` function following the line that creates the `TextAnalyticsClient` variable. 
 
 ```csharp
-bool senstiveDataDetected = false;  // we start with a baseline that of no sensitive data
+bool sensitiveDataDetected = false;  // we start with a baseline that of no sensitive data
 var actions = new TextAnalyticsActions
 {
     RecognizePiiEntitiesActions = new List<RecognizePiiEntitiesAction> { new RecognizePiiEntitiesAction() }
@@ -164,7 +164,7 @@ await foreach (var documentResults in operation.Value)
                 {
                     if (document.Entities.Count > 0)
                     {
-                        senstiveDataDetected = true; // Sensitive data detected
+                        sensitiveDataDetected = true; // Sensitive data detected
                     }
 
                 }
@@ -173,7 +173,7 @@ await foreach (var documentResults in operation.Value)
                  
     }
 }
-return senstiveDataDetected;
+return sensitiveDataDetected;
 ```
 
 ## Add function that checks for inappropriate content

@@ -5,7 +5,7 @@ services: virtual-wan
 author: rambk
 ms.service: azure-virtual-wan
 ms.topic: conceptual
-ms.date: 01/25/2022
+ms.date: 12/10/2024
 ms.author: rambala
 ---
 
@@ -29,15 +29,13 @@ Inherently, Virtual WAN is designed to offer carrier-grade high-available networ
 
 With the point-to-site VPN gateway, the minimum number of instances deployed is two. With the point-to-site VPN gateway, you choose the aggregate throughput capacity of point to site gateways and multiple instances are automatically provisioned for you. You choose the aggregate capacity according to the number of clients or users you intend to connect to the virtual hub. From the client connectivity perspective, the point-to-site VPN gateway instances are hidden behind the Fully Qualified Domain Name (FQDN) of the gateway.
 
-For the site-to-site VPN gateway, two instances of the gateway are deployed within a virtual hub. Each of the gateway instance is deployed with its own set of public and private IP addresses. The following screen capture shows the IP addresses associated with the two instances of an example site-to-site VPN gateway configuration. In other words, the two instances provide two independent tunnel endpoints for establishing site-to-site VPN connectivity from your branches. To maximize high-availability, see [Azure path selection across multiple ISP links](path-selection-multiple-links.md).
-
-:::image type="content" source="./media/disaster-recovery-design/site-to-site-gateway-config.png" alt-text="Screenshot that shows an example site-to-site V P N gateway configuration.":::
+For the site-to-site VPN gateway, two instances of the gateway are deployed within a virtual hub. Each of the gateway instance is deployed with its own set of public and private IP addresses. The two instances provide two independent tunnel endpoints for establishing site-to-site VPN connectivity from your branches. To maximize high-availability, see [Azure path selection across multiple ISP links](path-selection-multiple-links.md).
 
 Maximizing the high-availability of your network architecture is a key first step for Business Continuity and Disaster Recovery (BCDR). In the rest of this article, as stated previously, let's go beyond high-availability and discuss how to architect your Virtual WAN connectivity network for BCDR.
 
 ## Need for disaster recovery design
 
-Disaster may strike at any time, anywhere. Disaster may occur in a cloud provider regions or network, within a service provider network, or within an on-premises network. Regional impact of a cloud or network service due to certain factors such as natural calamity, human errors, war, terrorism, misconfiguration are hard to rule-out. So for the continuity of your business-critical applications you need to have a disaster recovery design. For a comprehensive disaster recovery design, you need to identify all the dependencies that may possibly fail in your end-to-end communication path, and create non-overlapping redundancy for each of the dependency.
+Disaster might strike at any time, anywhere. Disaster might occur in a cloud provider regions or network, within a service provider network, or within an on-premises network. Regional impact of a cloud or network service due to certain factors such as natural calamity, human errors, war, terrorism, misconfiguration are hard to rule-out. So for the continuity of your business-critical applications you need to have a disaster recovery design. For a comprehensive disaster recovery design, you need to identify all the dependencies that might possibly fail in your end-to-end communication path, and create non-overlapping redundancy for each of the dependency.
 
 Irrespective of whether you run your mission-critical applications in an Azure region, on-premises or anywhere else, you can use another Azure region as your failover site. The following articles addresses disaster recovery from applications and frontend access perspectives:
 
@@ -46,13 +44,13 @@ Irrespective of whether you run your mission-critical applications in an Azure r
 
 ## Challenges of using redundant connectivity
 
-When you interconnect the same set of networks using more than one connection, you introduce parallel paths between the networks. Parallel paths, when not properly architected, could lead to asymmetrical routing. If you have stateful entities (for example, NAT, firewall) in the path, asymmetrical routing could block traffic flow.  Typically, over private connectivity you won't have or come across stateful entities such as NAT or Firewalls. Therefore, asymmetrical routing over private connectivity doesn't necessarily block traffic flow.
+When you interconnect the same set of networks using more than one connection, you introduce parallel paths between the networks. Parallel paths, when not properly architected, could lead to asymmetrical routing. If you have stateful entities (for example, NAT, firewall) in the path, asymmetrical routing could block traffic flow. Typically, over private connectivity you won't have or come across stateful entities such as NAT or Firewalls. Therefore, asymmetrical routing over private connectivity doesn't necessarily block traffic flow.
 
 However, if you load balance traffic across geo-redundant parallel paths, you would experience inconsistent network performance because of the difference in physical path of the parallel connections. So we need to consider network traffic performance both during the steady state (non-failure state), and a failure state as part of our disaster recovery design.
 
 ## Access network redundancy
 
-Most SD-WAN services (managed solutions or otherwise) provide you network connectivity via multiple transport type (for example, Internet broadband, MPLS, LTE). To safeguard against transport network failures, choose connectivity over more than one transport network. For a home user scenario, you can consider using mobile network as a back-up for broadband network connectivity. 
+Most SD-WAN services (managed solutions or otherwise) provide network connectivity via multiple transport type (for example, Internet broadband, MPLS, LTE). To safeguard against transport network failures, choose connectivity over more than one transport network. For a home user scenario, you can consider using mobile network as a back-up for broadband network connectivity. 
 
 If network connectivity over different transport type isn't possible, then choose network connectivity via more than one service provider. If you're getting connectivity via more than one service providers, ensure that the service providers maintain non-overlapping independent access networks.
 
@@ -93,7 +91,7 @@ Multi-link topology protects against CPE device failures and a service provider 
 
 :::image type="content" source="./media/disaster-recovery-design/multi-hub.png" alt-text="Diagram of multi-hub site-to-site V P N connections to a branch site.":::
 
-In the above topology, because intra-Azure-region latency over the connection between the hubs is insignificant, you can use all the site-to-site VPN connections between the on-premises and the two virtual hubs in active-active state by spreading the spoke VNets across the hubs. In the topology, by default, traffic between on-premises and a spoke VNET would traverse directly through the virtual hub to which the spoke VNET is connected during the steady-state and use another virtual hub as a backup only during a failure state. Traffic would traverse through the directly connected hub in the steady state, because the BGP routes advertised by the directly connected hub would have shorter AS-path compared to the backup hub.
+In the above topology, because intra-Azure-region latency over the connection between the hubs is insignificant, you can use all the site-to-site VPN connections between the on-premises and the two virtual hubs in active-active state by spreading the spoke VNets across the hubs. In the topology, by default, traffic between on-premises and a spoke virtual network would traverse directly through the virtual hub to which the spoke virtual network is connected during the steady-state and use another virtual hub as a backup only during a failure state. Traffic would traverse through the directly connected hub in the steady state, because the BGP routes advertised by the directly connected hub would have shorter AS-path compared to the backup hub.
 
 The multi-hub multi-link topology would protect and provide business continuity against most of the failure scenarios. However, if a catastrophic failure takes down the entire Azure region, you need 'multi-region multi-link topology' to withstand the failure.
 

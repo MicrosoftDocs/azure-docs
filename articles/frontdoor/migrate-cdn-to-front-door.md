@@ -21,6 +21,7 @@ We recommend that your plan this migration well in advance and test the function
 ## Prerequisites
 
 - Review the [feature differences](front-door-cdn-comparison.md) between Azure CDN and Azure Front Door to determine if there are any compatibility gaps.
+- You are already using custom domains on Azure CDN from Edgio
 - You need access to a VM connected to the internet that can run Wget on Linux or Invoke-WebRequest on Windows using PowerShell.
 - You need access to a monitoring tool such as CatchPoint or ThousandEyes to verify the availability of your URLs before and after the migration. These tools are the most ideal because they can monitor the availability of your URLs from different locations around the world. `webpagetest.org` is another option, but it only provides a limited view of your URLs from a few locations.
 
@@ -180,6 +181,9 @@ The initial traffic distribution starts by routing a small percentage of traffic
     1. Ensure the Azure Front Door endpoint is enabled, Weight is set to 100, and the health check is set to **Always serve traffic**.
 
     1. Ensure the Azure CDN from Edgio endpoint is disabled.
+  
+> [!NOTE]
+> If you're currently utilizing `azureedge.net` within your codebase, you'll need to update your code to utilize `<YourNewAFDEndpoint.azurefd.net>. If this is a significant concern for you organization, contact support for further assistance.
 
 ### Remove Azure Traffic Manager
 
