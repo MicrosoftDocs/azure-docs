@@ -260,21 +260,81 @@ additionalContent:
             - text: "Azure Announcements"
               url:  https://azure.microsoft.com/en-us/blog/tag/high-performance-computing/?s=HPC
 
-              
-    - title: HPC Conferences # < 60 chars (optional)
-      summary: Learn more about product updates, event information, and technology offers and more. # < 160 chars (optional)
+tools:
+  title: Community Resources # < 60 chars (optional)
+  summary: Connect with other HPC users and communicate with the HPC team
+  items:
+    # Card 1
+    - title: User Groups
+      imageSrc: /media/hubs/powershell/i_group.svg
+      url: https://aka.ms/psusergroup
+    # Card 2
+    - title: PowerShell Tech Community
+      imageSrc: /media/hubs/powershell/i_group-feedback.svg
+      url: https://techcommunity.microsoft.com/t5/powershell/ct-p/WindowsPowerShell
+
+
+
+            - url: https://azure.microsoft.com/blog/tag/high-performance-computing/?s=HPC
+              text: HPC Blog Posts on Azure.com
+            - url: https://techcommunity.microsoft.com/t5/azure-high-performance-computing/bg-p/AzureHighPerformanceComputingBlog
+              text: HPC TechCommunity Blog Reads
+
+
+
+
+    # Card 3
+    - title: DSC Community
+      imageSrc: /media/hubs/powershell/i_group-feedback.svg
+      url: https://dsccommunity.org/
+    # Card 4
+    - title: PowerShell.org
+      imageSrc: /media/hubs/powershell/i_group-feedback.svg
+      url: https://powershell.org/
+    # Card 5
+    - title: StackOverFlow
+      imageSrc: /media/hubs/powershell/logo_stackoverflow.svg
+      url: https://stackoverflow.com/questions/tagged/powershell
+    # Card 6
+    - title: r/PowerShell
+      imageSrc: /media/hubs/powershell/logo_reddit.svg
+      url: https://www.reddit.com/r/PowerShell/
+    # Card 7
+    - title: PowerShell Slack
+      imageSrc: /media/logos/logo-slack.svg
+      url: https://aka.ms/psslack
+    # Card 8
+    - title: PowerShell Discord
+      imageSrc: ./media/index/discord.svg
+      url: https://aka.ms/psdiscord
+    # Card 9
+    - title: Spiceworks
+      imageSrc: ./media/index/Spiceworks_48px_color.png
+      url: https://community.spiceworks.com/programming/powershell
+    # Card 10
+    - title: Digital Art
+      imageSrc: /media/hubs/powershell/i_digital-art.svg
+      url: /powershell/scripting/community/digital-art
+
+additionalContent:
+  # Supports up to 3 sections
+  sections:
+    - title: PowerShell Team # < 60 chars (optional)
+      summary: Communicate with the PowerShell team # < 160 chars (optional)
       items:
-        # Card
-        - title: Microsoft HPC at Supercomputing 2024
-          links:
-            - text: Supercomputing 24 Website
-              url:  https://sc24.supercomputing.org/
-        # Card
-        - title: ISC23 (ISC High Performance Event) 
-          links:
-            - text: Microsoft at ISC!
-              url: https://www.aka.ms/ISC
-            - text: Microsoft at ISC23 Blog
-              url: https://www.aka.ms/ISC23
-            - text: ISC High Performance Event Website!
-              url: https://www.isc-hpc.com/
+        # Card 1
+        - title: PowerShell Team Blog
+          summary: Official news and announcements
+          url: https://devblogs.microsoft.com/powershell/
+        # Card 2
+        - title: PowerShell Community Blog
+          summary: A place for the community to learn PowerShell and share insights
+          url: https://devblogs.microsoft.com/powershell-community/
+        # Card 3
+        - title: PowerShell Team on Twitter
+          summary: PowerShell news 280 characters at a time
+          url: https://twitter.com/PowerShell_Team
+        # Card 4
+        - title: GitHub Issues
+          summary: The place for bugs in the current release
+          url: https://github.com/powershell/powershell/issues              
