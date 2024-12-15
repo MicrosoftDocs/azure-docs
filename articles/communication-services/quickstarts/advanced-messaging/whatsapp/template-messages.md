@@ -45,8 +45,16 @@ To list out your templates programmatically, you can fetch all templates for you
 
 [!INCLUDE [List templates with .NET](./includes/templates/template-messages-list-templates-net.md)]
 
-## Types of WhatsApp Templates
+## Types of WhatsApp Templates Supported
 
+| Template Type   | Description |
+|----------|---------------------------|
+| Text-based message templates  | WhatsApp message templates are specific message formats with or without parameters.    |
+| Media-based message templates    | WhatsApp message templates with media parameters for header components.   |
+| Interactive message templates | Interactive message templates expand the content you can send recipients, by  including interactive buttons using the components object. Both Call-to-Action and Quick Reply are supported.|
+| Location-based message templates |  WhatsApp message templates with location parameters in terms Longitute and Lantitude for header components.|
+
+Let's see more details of each of these supported templates.
 [!INCLUDE [Template usage quick reference with .NET](./includes/templates/template-messages-quick-reference-net.md)]
 
 ## Full code example
