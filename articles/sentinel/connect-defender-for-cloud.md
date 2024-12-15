@@ -28,6 +28,8 @@ appliesto:
 - **Bi-directional alert synchronization**: Enabling **bi-directional sync** automatically syncs the status of original security alerts with that of the Microsoft Sentinel incidents that contain those alerts. So, for example, when a Microsoft Sentinel incident containing a security alerts is closed, the corresponding original alert is closed in Microsoft Defender for Cloud automatically.
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+> [!NOTE]
+> The connector does not support syncing alerts from subscriptions owned by other tenants, even when Lighthouse is enabled for those tenants.
 
 ## Prerequisites
 
