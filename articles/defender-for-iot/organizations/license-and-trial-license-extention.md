@@ -36,9 +36,9 @@ A customer can cancel the license from **Plans and pricing**. To learn more, see
 
 Tenants without an active site license have a 30-day grace period from the last expired license to renew the expired licenses. Afterward the 30 days the Defender for IoT service stops, and data retention stops after 90 days.​
 
-### Migrate a license from an ACR license to the new M365 license? ACR - Azure Commercial R**
+### Migrate an Azure Consumption Revenue (ACR) license to the new M365 license
 
-To migrate from the legacy Azure Commercial R<!-- what is this?--> (ACR) license to the new Microsoft 365 license, see [migrate from a legacy OT plan](how-to-manage-subscriptions.md#migrate-from-a-legacy-ot-plan).
+To migrate from the legacy Azure Consumption Revenue (ACR) license to the new Microsoft 365 license, see [migrate from a legacy OT plan](how-to-manage-subscriptions.md#migrate-from-a-legacy-ot-plan).
 
 If you still need extra support, reach out to the sales team by [completing this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4hp0oiujZ9PvzH6GeTqtclUQzJNVlg5V1ZNUVVUMko4U1kyWjI1WDdOSi4u).<!-- form is closed, need updated link-->
 
