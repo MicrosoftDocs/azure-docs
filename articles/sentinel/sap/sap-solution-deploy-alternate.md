@@ -26,7 +26,7 @@ Content in this article is intended for your **SAP BASIS** teams. For more infor
 
 ## Prerequisites
 
-- Make sure that your system complies with the prerequisites documented in the main [SAP data connector prerequisites document](prerequisites-for-deploying-sap-continuous-threat-monitoring.md) before you start.
+- Make sure that your system complies with the relevant prerequisites before you start. For more information, see [Deployment prerequisites for the Microsoft Sentinel solutions for SAP applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md).
 
 ## Manually add SAP data connector agent Azure Key Vault secrets
 
