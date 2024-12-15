@@ -20,11 +20,24 @@ zone_pivot_groups: sentinel-sap-connection
 
 For the Microsoft Sentinel solution for SAP applications to operate correctly, you must first get your SAP data into Microsoft Sentinel. Do this by either deploying the Microsoft Sentinel SAP data connector agent, or by connecting the Microsoft Sentinel agentless data connector for SAP. Select the option at the top of the page that matches your environment.
 
-This article describes the third step in deploying the Microsoft Sentinel solution for SAP applications. Make sure to perform the steps in this article in the order that they're presented.
+This article describes the third step in deploying one of the Microsoft Sentinel solutions for SAP applications.
+
+:::zone pivot="connection-agent"
 
 :::image type="content" source="media/deployment-steps/deploy-data-connector.png" alt-text="Diagram of the SAP solution deployment flow, highlighting the Connect your SAP system step." border="false" :::
 
-Content in this article is relevant for your **security**, **infrastructure**, and  **SAP BASIS** teams.
+Content in this article is relevant for your **security**, **infrastructure**, and  **SAP BASIS** teams. Make sure to perform the steps in this article in the order that they're presented.
+
+:::zone-end
+
+:::zone pivot="connection-agentless"
+
+:::image type="content" source="media/deployment-steps/deploy-data-connector-agentless.png" alt-text="Diagram of the SAP solution deployment flow, highlighting the Connect your SAP system step." border="false" :::
+
+Content in this article is relevant for your **security** team, using information provided by your **SAP BASIS** teams.
+
+:::zone-end
+
 
 > [!IMPORTANT]
 > Microsoft Sentinel's **Agentless solution** is in limited preview as a prereleased product, which may be substantially modified before it’s commercially released. Microsoft makes no warranties expressed or implied, with respect to the information provided here. Access to the **Agentless solution** also [requires registration](https://aka.ms/SentinelSAPAgentlessSignUp) and is only available to approved customers and partners during the preview period. For more information, see [Microsoft Sentinel for SAP goes agentless ](https://community.sap.com/t5/enterprise-resource-planning-blogs-by-members/microsoft-sentinel-for-sap-goes-agentless/ba-p/13960238).
@@ -35,22 +48,27 @@ Before you connect your SAP system to Microsoft Sentinel:
 
 - Make sure that all of the deployment prerequisites are in place. For more information, see [Prerequisites for deploying Microsoft Sentinel solution for SAP applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md).
 
-- Make sure that you have the Microsoft Sentinel solution for **SAP applications** or the **SAP Agentless** solution [installed in your Microsoft Sentinel workspace](deploy-sap-security-content.md).
-
-- Make sure that your SAP system is fully [prepared for the deployment](preparing-sap.md). 
-
-    :::zone pivot="connection-agent"
-    If you're deploying the data connector agent to communicate with Microsoft Sentinel over SNC, make sure that you completed [Configure your system to use SNC for secure connections](preparing-sap.md#configure-your-system-to-use-snc-for-secure-connections).
-
-    :::zone-end
-
-    :::zone pivot="connection-agentless"
-    If you're deploying the agentless data connector, make sure your DCR is configured as described in [Install the solution from the content hub](deploy-sap-security-content.md#install-the-solution-from-the-content-hub).
-
-    :::zone-end
-
 :::zone pivot="connection-agent"
 
+- Make sure that you have the Microsoft Sentinel solution for **SAP applications** [installed in your Microsoft Sentinel workspace](deploy-sap-security-content.md)
+
+- Make sure that your SAP system is fully [prepared for the deployment](preparing-sap.md).
+
+- If you're deploying the data connector agent to communicate with Microsoft Sentinel over SNC, make sure that you completed [Configure your system to use SNC for secure connections](preparing-sap.md#configure-your-system-to-use-snc-for-secure-connections).
+
+:::zone-end
+
+:::zone pivot="connection-agentless"
+
+- Make sure that you have the Microsoft Sentinel **SAP Agentless** solution [installed in your Microsoft Sentinel workspace](deploy-sap-security-content.md)
+
+- Make sure that your SAP system is fully [prepared for the deployment](preparing-sap.md).
+
+- Make sure your DCR is configured as described in [Install the solution from the content hub](deploy-sap-security-content.md#install-the-solution-from-the-content-hub).
+
+:::zone-end
+
+:::zone pivot="connection-agent"
 
 ## Watch a demo video
 
@@ -323,8 +341,6 @@ While deployment is also supported from the command line, we recommend that you 
 The system configuration you defined is deployed into the Azure key vault you defined during the deployment. You can now see the system details in the table under **Configure an SAP system and assign it to a collector agent**. This table displays the associated agent name, SAP System ID (SID), and health status for systems that you added via the portal or otherwise.
 
 At this stage, the system's **Health** status is **Pending**. If the agent is updated successfully, it pulls the configuration from Azure Key vault, and the status changes to **System healthy**. This update can take up to 10 minutes.
-
-The deployment procedure generates a **systemconfig.json** file that contains the configuration details for the SAP data connector agent. For more information, see [SAP data connector agent configuration file](deployment-overview.md#sap-data-connector-agent-configuration-file).
 
 :::zone-end
 

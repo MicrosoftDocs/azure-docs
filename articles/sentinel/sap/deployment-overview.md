@@ -48,20 +48,11 @@ Microsoft Sentinel supports a few options for storing your agent configuration i
 
 You can also authenticate using SAP's Secure Network Communication (SNC) and X.509 certificates. While using SNC provides a higher level of authentication security, it might not be practical for all scenarios.
 
-### SAP data connector agent configuration file
-
-When using the data connector agent, the deployment procedure generates a **systemconfig.json** file that contains the configuration details for the SAP data connector agent. The file is located in the `/sapcon-app/sapcon/config/system` directory on your VM. You can use this file to update the configuration of your SAP data connector agent.
-
-Earlier versions of the deployment script, released before June 2023, generated a **systemconfig.ini** file instead. For more information, see:
-
-- [Systemconfig.json file reference](reference-systemconfig-json.md)
-- [Systemconfig.ini file reference](reference-systemconfig.md) (legacy)
-
 ### [Agentless data connector (limited preview)](#tab/agentless)
 
 The Microsoft Sentinel agentless data connector for SAP uses the SAP Cloud Connector and SAP Integration Suite to connect to your SAP system and pull logs from it, as shown in the following image:
 
-:::image type="content" source="media/deployment-overview/agentless-connector.png" alt-text="Diagram that shows the Microsoft Sentinel agentless data connector in a SAP environment.":::
+:::image type="content" source="media/deployment-overview/agentless-connector.png" alt-text="Diagram that shows the Microsoft Sentinel agentless data connector in a SAP environment." border="false":::
 
 By using the SAP Cloud Connector, the **Agentless solution** profits from already existing setups and established integration processes. This means you don't have to tackle network challenges again, as the people running your SAP Cloud Connector have already gone through that process.
 
@@ -88,6 +79,10 @@ For more information, see [Microsoft Sentinel solution for SAP applications: sec
 
 ## Deployment flow and personas
 
+Deploying the Microsoft Sentinel solutions for SAP applications involves several steps and requires collaboration across multiple teams, differing depending on whether you're using a data connector agent or the agentless solution. Select one of the following tabs to learn more:
+
+### [Containerized data connector agent](#tab/agent)
+
 Deploying the Microsoft Sentinel solutions for SAP applications involves several steps and requires collaboration across multiple teams, including the **security**, **infrastructure**, and **SAP BASIS** teams. The following image shows the steps in deploying the Microsoft Sentinel solutions for SAP applications, with relevant teams indicated:
 
 :::image type="content" source="media/deployment-steps/full-flow.png" alt-text="Diagram showing the full steps in the Microsoft Sentinel solution for SAP applications deployment flow." border="false":::
@@ -96,7 +91,7 @@ We recommend that you involve all relevant teams when planning your deployment t
 
 **Deployment steps include**:
 
-1. [Review the prerequisites for deploying Microsoft Sentinel solution for SAP applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md). Some prerequisites require coordination with your infrastructure or SAP BASIS teams.
+1. [Review the prerequisites for deploying the Microsoft Sentinel solution for SAP applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md). Some prerequisites require coordination with your infrastructure or SAP BASIS teams.
 
 1. The following steps can happen in parallel as they involve separate teams, and aren't dependent on each other:
 
@@ -104,12 +99,7 @@ We recommend that you involve all relevant teams when planning your deployment t
 
     1. [Configure your SAP system for the Microsoft Sentinel solution](preparing-sap.md), including configuring SAP authorizations, configuring SAP auditing, and more. We recommend that these steps be done by your SAP BASIS team, and our documentation includes references to SAP documentation.
 
-1. [Connect your SAP system](deploy-data-connector-agent-container.md) using one of the following methods, depending on the Microsoft Sentinel solution you deployed:
-
-    - Deploy a containerized data connector agent
-    - Use an agentless data connector with the SAP Cloud Connetor (limited preview)
-
-    This step requires coordination between your security, infrastructure, and SAP BASIS teams.
+1. [Connect your SAP system](deploy-data-connector-agent-container.md) by deploying a containerized data connector agent.     This step requires coordination between your security, infrastructure, and SAP BASIS teams.
 
 1. [Enable SAP detections and threat protection](deployment-solution-configuration.md). This step is handled by the security team on the Azure portal.
 
@@ -123,6 +113,30 @@ We recommend that you involve all relevant teams when planning your deployment t
 If you're using the data connector agent and need to stop Microsoft Sentinel from collecting your SAP data, stop log ingestion and disable the connector. Then remove the extra user role and any optional CRs installed on your SAP system.
 
 For more information, see [Stop SAP data collection](stop-collection.md).
+
+### [Agentless data connector (limited preview)](#tab/agentless)
+
+Deploying the Microsoft Sentinel solutions for SAP applications involves several steps and requires collaboration across your **security** and **SAP BASIS** teams. The following image shows the steps in deploying the Microsoft Sentinel solutions for SAP applications, with relevant teams indicated:
+
+:::image type="content" source="media/deployment-steps/full-flow-agentless.png" alt-text="Diagram showing the full steps in the Microsoft Sentinel agentless solution for SAP applications deployment flow." border="false":::
+
+We recommend that you involve both teams when planning your deployment to ensure that effort is allocated and the deployment can move smoothly.
+
+**Deployment steps include**:
+
+1. [Review the prerequisites for deploying the SAP agentless solution](prerequisites-for-deploying-sap-continuous-threat-monitoring.md).
+
+1. The following steps can happen in parallel as they involve separate teams, and aren't dependent on each other:
+
+    1. [Deploy the SAP agentless solution from the content hub](deploy-sap-security-content.md). This step is handled by the security team on the Azure portal.
+
+    1. [Configure your SAP system for the Microsoft Sentinel solution](preparing-sap.md), including configuring SAP authorizations, configuring SAP auditing, and more. We recommend that these steps be done by your SAP BASIS team, and our documentation includes references to SAP documentation.
+
+1. [Connect your SAP system](deploy-data-connector-agent-container.md) using an agentless data connector with the SAP Cloud Connector. This step is handled by your security team on the Azure portal, using information provided by your SAP BASIS team.
+
+1. [Enable SAP detections and threat protection](deployment-solution-configuration.md). This step is handled by the security team on the Azure portal.
+
+---
 
 ## Related content
 
