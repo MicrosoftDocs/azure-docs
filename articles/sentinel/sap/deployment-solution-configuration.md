@@ -28,10 +28,9 @@ Content in this article is relevant for your **security** team.
 
 ## Prerequisites
 
-Before configuring the settings described in this article, you must have your data connector agent and solution content installed.
+Before configuring the settings described in this article, you must have a Microsoft Sentinel SAP solution installed and a data connector configured.
 
 For more information, see [Deploy the Microsoft Sentinel solution for SAP applications from the content hub](deploy-sap-security-content.md) and [Deploy Microsoft Sentinel solution for SAP applications](deployment-overview.md).
-
 
 ## Start enabling analytics rules
 
