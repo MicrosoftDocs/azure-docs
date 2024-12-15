@@ -25,7 +25,8 @@ For a video demonstration of the procedures in this article, watch the following
 
 :::zone-end
 
->:::zone pivot="connection-agentless"
+:::zone pivot="connection-agentless"
+
 > [!IMPORTANT]
 > Monitoring the health of your SAP systems is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
