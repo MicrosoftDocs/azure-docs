@@ -16,11 +16,23 @@ zone_pivot_groups: sentinel-sap-connection
 After you [deploy the SAP solution](sap/deployment-overview.md), you want to ensure proper functioning and performance of your SAP systems, and keep track of your system health, connectivity, and performance. This article describes how you can check the connectivity health manually on the data connector page and use a dedicated alert rule template to monitor the health of your SAP systems.
 
 > [!IMPORTANT]
+
+:::zone pivot="connection-agentless"
+
+> [!IMPORTANT]
 > Monitoring the health of your SAP systems is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+>
+>:::zone pivot="connection-agentless"
+> Microsoft Sentinel's **Agentless solution** is in limited preview as a prereleased product, which may be substantially modified before it’s commercially released. Microsoft makes no warranties expressed or implied, with respect to the information provided here. Access to the **Agentless solution** also [requires registration](https://aka.ms/SentinelSAPAgentlessSignUp) and is only available to approved customers and partners during the preview period. For more information, see [Microsoft Sentinel for SAP goes agentless ](https://community.sap.com/t5/enterprise-resource-planning-blogs-by-members/microsoft-sentinel-for-sap-goes-agentless/ba-p/13960238).
+> :::zone-end
+
+:::zone pivot="connection-agent"
 
 For a video demonstration of the procedures in this article, watch the following video:
 <br><br>
 > [!VIDEO https://www.youtube.com/embed/FasuyBSIaQM?si=apdesRR29Lvq6aQM]
+
+:::zone-end
 
 ## Prerequisites
 
