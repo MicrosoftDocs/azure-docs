@@ -338,12 +338,14 @@ The deployment procedure generates a **systemconfig.json** file that contains th
 
 1. In the **Agentless connection** side pane, enter the following details:
 
-   - **RFC destination name**: THe name of the RFC destination, taken from your BTP destination.
-   - **SAP Agentless Client ID**: The *clientid* value taken from the Process Integration Runtime service key JSON file.
-   - **SAP Agentless Client Secret**: The *clientsecret* value taken from the Process Integration Runtime service key JSON file.
-   - **Authorization server URL**: The *tokenurlurl* value taken from the Process Integration Runtime service key JSON file. For example: `https://your-tenant.authentication.region.hana.ondemand.com/oauth/token`
-   - **Integration Suite Endpoint**: The *url* value taken from the Process Integration Runtime service key JSON file. For example: `https://your-tenant.it-account-rt.cfapps.region.hana.ondemand.com`
-      
+    | Field        | Description                      |
+    |-------------------------------|---------------------------------------|
+    | **RFC destination name**      | The name of the RFC destination, taken from your BTP destination.                |
+    | **SAP Agentless Client ID**   | The *clientid* value taken from the Process Integration Runtime service key JSON file.                 |
+    | **SAP Agentless Client Secret** | The *clientsecret* value taken from the Process Integration Runtime service key JSON file.             |
+    | **Authorization server URL**  | The *tokenurlurl* value taken from the Process Integration Runtime service key JSON file. For example: `https://your-tenant.authentication.region.hana.ondemand.com/oauth/token` |
+    | **Integration Suite Endpoint** | The *url* value taken from the Process Integration Runtime service key JSON file. For example: `https://your-tenant.it-account-rt.cfapps.region.hana.ondemand.com` |
+
 :::zone-end
 
 ## Check connectivity and health
