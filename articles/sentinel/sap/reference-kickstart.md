@@ -156,7 +156,7 @@ If set to `cfgf`, the configuration file stored locally is used to store secrets
 
 **Required:** No. The script attempts to locate the nwrfc*.zip file in the current folder. If it isn't found, the user is prompted to supply a valid NetWeaver SDK archive file.
 
-**Description:** NetWeaver SDK file path. A valid SDK is required for the data collector to operate. For more information, see [SAP prerequisites for the agentless data connector](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#sap-prerequisites-for-the-agentless-data-connector).
+**Description:** NetWeaver SDK file path. A valid SDK is required for the data collector to operate. For more information, see [SAP prerequisites](prerequisites-for-deploying-sap-continuous-threat-monitoring.md).
 
 ## Enterprise Application ID
 
