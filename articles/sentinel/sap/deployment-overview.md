@@ -67,7 +67,7 @@ By using the SAP Cloud Connector, the **Agentless solution** profits from alread
 
 The **Agentless solution** is compatible with SAP S/4HANA Cloud, Private Edition RISE with SAP, and SAP S/4HANA on-premises, ensuring continued functionality of existing security content, including detections, workbooks, and playbooks.
 
-The agentless solution currently supports only the audit log. As Microsoft Sentinel progresses the preview program, we're prioritizing additional support for logs that generate the most security value for our customers.
+The agentless solution in limited preview starts by supporting the SAP audit log, which typically covers the majority of SAP threat scenarios.
 
 > [!IMPORTANT]
 > Microsoft Sentinel's **Agentless solution** is in limited preview as a prereleased product, which may be substantially modified before it’s commercially released. Microsoft makes no warranties expressed or implied, with respect to the information provided here. Access to the **Agentless solution** also [requires registration](https://aka.ms/SentinelSAPAgentlessSignUp) and is only available to approved customers and partners during the preview period. For more information, see [Microsoft Sentinel for SAP goes agentless ](https://community.sap.com/t5/enterprise-resource-planning-blogs-by-members/microsoft-sentinel-for-sap-goes-agentless/ba-p/13960238).
