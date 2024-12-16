@@ -37,7 +37,7 @@ sections:
       - question: |
           How am I billed for Azure Managed Redis?
         answer: |
-          Azure Managed Redis pricing is [here](https://azure.microsoft.com/pricing/details/cache/). The pricing page lists pricing as an hourly and monthly rate. Caches are billed on a per-minute basis. The period is measured from time a cache is created until the time that a cache is deleted.
+          Azure Managed Redis pricing is [here](https://azure.microsoft.com/pricing/details/managed-redis/). The pricing page lists pricing as an hourly and monthly rate. Caches are billed on a per-minute basis. The period is measured from time a cache is created until the time that a cache is deleted.
           There's no option for stopping or pausing the billing of a cache.
           
       - question: |

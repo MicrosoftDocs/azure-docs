@@ -142,22 +142,6 @@ python manage.py runserver
 
 ## 1. Create App Service and PostgreSQL
 
-
-### [Flask](#tab/flask)
-
-```bash
-git clone https://github.com/Azure-Samples/msdocs-flask-postgresql-sample-app.git
-```
-
-### [Django](#tab/django)
-
-```bash
-git clone https://github.com/Azure-Samples/msdocs-django-postgresql-sample-app.git
-```
-
------
-
-
 In this step, you create the Azure resources. The steps used in this tutorial create a set of secure-by-default resources that include App Service and Azure Database for PostgreSQL. For the creation process, you'll specify:
 
 * The **Name** for the web app. It's the name used as part of the DNS name for your webapp in the form of `https://<app-name>.azurewebsites.net`.

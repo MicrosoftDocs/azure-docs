@@ -80,7 +80,7 @@ az network application-gateway waf-policy custom-rule match-condition add --matc
 ```azurepowershell
 $variable = New-AzApplicationGatewayFirewallMatchVariable -VariableName RemoteAddr 
 $condition = New-AzApplicationGatewayFirewallCondition -MatchVariable $variable -Operator GeoMatch -MatchValue "US" -NegationCondition $True
-$groupByVariable = New-AzApplicationGatewayFirewallCustomRuleGroupByVariablde -VariableName GeoLocation 
+$groupByVariable = New-AzApplicationGatewayFirewallCustomRuleGroupByVariable -VariableName GeoLocation 
 $groupByUserSession = New-AzApplicationGatewayFirewallCustomRuleGroupByUserSession -GroupByVariable $groupByVariable 
 $ratelimitrule = New-AzApplicationGatewayFirewallCustomRule -Name GeoRateLimitRule -Priority 95 -RateLimitDuration OneMin -RateLimitThreshold 500 -RuleType RateLimitRule -MatchCondition $condition -GroupByUserSession $groupByUserSession -Action Block -State Enabled  
 ```
