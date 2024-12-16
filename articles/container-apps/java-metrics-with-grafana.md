@@ -81,7 +81,7 @@ First, create an Azure Managed Grafana instance, and grant necessary role assign
        --location $LOCATION
    ```
 
-1. Grant the Azure Managed Grafana instance permission to read metrics from Azure Monitor. Find more about the [authentication and permissions for Azure Managed Grafana](https://learn.microsoft.com/azure/managed-grafana/how-to-authentication-permissions).
+1. Grant the Azure Managed Grafana instance permission to read metrics from Azure Monitor. Find more about the [authentication and permissions for Azure Managed Grafana](../managed-grafana/how-to-authentication-permissions.md).
 
    ```azurecli
    GRAFA_IDDENTITY=$(az grafana show --name $GRAFANA_INSTANCE_NAME --resource-group $RESOURCE_GROUP --query "identity.principalId" --output tsv)
@@ -92,7 +92,7 @@ First, create an Azure Managed Grafana instance, and grant necessary role assign
 ## Create an Java metrics dashboard
 
 > [!IMPORTANT]
-> To add a new dashboard in grafana, you need to have `Grafana Admin` or `Grafana Editor`role, see [Azure Managed Grafana roles](https://learn.microsoft.com/azure/managed-grafana/concept-role-based-access-control).
+> To add a new dashboard in grafana, you need to have `Grafana Admin` or `Grafana Editor`role, see [Azure Managed Grafana roles](../managed-grafana/concept-role-based-access-control.md).
 
 
 1. Assign the `Grafana Admin` role to your account on the Azure Managed Grafana resource.
