@@ -107,7 +107,7 @@ In this article, you learn how to:
 1. Run [`Get-AzAutomationAccount`](/powershell/module/az.automation/get-azautomationaccount#example-2-get-an-account) to view the Automation account.
 
     ```azurepowershell
-    Get-AzAutomationAccount -ResourceGroupName "resource_group_name" -Name "automation_account_name"
+    Get-AzAutomationAccount -ResourceGroupName $resource_group_name -Name $automation_account_name
     ```
 
 ---
