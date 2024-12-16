@@ -1,5 +1,5 @@
 ---
-title: Media access states
+title: Control participants' access to media
 titleSuffix: An Azure Communication Services how-to guide
 description: Use Azure Communication Services SDKs to send media access state.
 author: fuyan
