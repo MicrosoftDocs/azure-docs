@@ -70,7 +70,7 @@ The following filtering parameters are available:
 
 or example, to filter only authentication events from the last day to a specific user, use:
 
-```kql
+```kusto
 imProcessCreate (targetusername_has = 'johndoe', starttime = ago(1d), endtime=now())
 ```
 
