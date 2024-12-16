@@ -87,9 +87,9 @@ Consider the following configuration where Hub 1 (Normal) and Hub 2 (Secured) ar
 
 ## <a name="knownlimitations"></a>  Known Limitations
 
-* The following table describes the avaiablility of routing intent in different Azure environments.
-    * Routing intent is not available in Mirosoft Azure operated by 21 Vianet.
-    * Palo Alto Cloud NGFW is only available in Azure Public. Reach out to Palo Alto Networks regarding avaialbility of Cloud NGFW in Azure Government and Microsoft Azure operated by Viacom.
+* The following table describes the availability of routing intent in different Azure environments.
+    * Routing intent is not available in Microsoft Azure operated by 21 Vianet.
+    * Palo Alto Cloud NGFW is only available in Azure Public. Reach out to Palo Alto Networks regarding availability of Cloud NGFW in Azure Government and Microsoft Azure operated by Viacom.
     * Network Virtual Appliances are not available in all Azure Government regions. Contact your NVA partner regarding availability in Azure Government.  
 
 | Cloud Environment| Azure Firewall| Network Virtual Appliance| SaaS solutions|
@@ -143,7 +143,7 @@ foreach($connection in $hubVNETconnections) {
     $addressSpaceCount += $VNET.AddressSpace.AddressPrefixes.Count
   }
   catch{
-    Write-Host "An error ocurred  while processing VNET connected to Virtual WAN hub with resource URI:  " -NoNewline
+    Write-Host "An error occurred  while processing VNET connected to Virtual WAN hub with resource URI:  " -NoNewline
     Write-Host $resourceURI 
     Write-Host "Error Message: " -ForegroundColor Red
     Write-Host $_.Exception.Message -ForegroundColor Red 

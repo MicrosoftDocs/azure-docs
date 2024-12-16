@@ -80,7 +80,7 @@ Some parameter can accept both list of values of type `dynamic` or a single stri
 
 For example, to filter only audit events with the terms `install` or `update` in their [Operation](#operation) field, from the last day , use:
 
-```kql
+```kusto
 imAuditEvent (operation_has_any=dynamic(['install','update']), starttime = ago(1d), endtime=now())
 ```
 
