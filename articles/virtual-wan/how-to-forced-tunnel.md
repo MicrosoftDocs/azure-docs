@@ -257,7 +257,7 @@ Below is a sample EAP XML file. Change the *TrustedRootCA* field to the thumbpri
                 <TLSExtensions xmlns="http://www.microsoft.com/provisioning/EapTlsConnectionPropertiesV2">
                     <FilteringInfo xmlns="http://www.microsoft.com/provisioning/EapTlsConnectionPropertiesV3">
                         <CAHashList Enabled="true">
-                            <IssuerHash> ROOT CERTIFCATE THUMBPRINT  </IssuerHash>
+                            <IssuerHash> ROOT CERTIFICATE THUMBPRINT  </IssuerHash>
                         </CAHashList>
                     </FilteringInfo>
                 </TLSExtensions>
