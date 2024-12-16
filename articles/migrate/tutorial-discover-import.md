@@ -5,7 +5,7 @@ author: rashi-ms
 ms.author: rajosh
 ms.manager: ronai
 ms.topic: tutorial
-ms.date: 08/21/2024
+ms.date: 10/25/2024
 ms.service: azure-migrate
 ms.custom: engagement-fy25
 

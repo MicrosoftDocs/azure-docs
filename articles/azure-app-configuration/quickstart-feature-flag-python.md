@@ -97,7 +97,7 @@ When starting the application, a browser window will open to authenticate the us
     If you use macOS, run the following command:
 
     ```console
-    export APP_CONFIGURATION_ENDPOINT='endpoint-of-your-app-configuration-store'
+    export APP_CONFIGURATION_ENDPOINT=<endpoint-of-your-app-configuration-store>
     ```
 
     Restart the command prompt to allow the change to take effect. Validate that it's set properly by printing the value of the environment variable.
@@ -107,7 +107,7 @@ When starting the application, a browser window will open to authenticate the us
     If you use Linux, run the following command:
 
     ```console
-    export APP_CONFIGURATION_ENDPOINT='endpoint-of-your-app-configuration-store'
+    export APP_CONFIGURATION_ENDPOINT=<endpoint-of-your-app-configuration-store>
     ```
 
     Restart the command prompt to allow the change to take effect. Validate that it's set properly by printing the value of the environment variable.

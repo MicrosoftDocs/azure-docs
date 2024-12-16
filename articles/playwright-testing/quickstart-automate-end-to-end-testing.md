@@ -86,7 +86,7 @@ Update the `package.json` file in your repository to add details about Microsoft
 
 ```typescript
 "devDependencies": {
-    "@azure/microsoft-playwright-testing": "^1.0.0-beta.3"
+    "@azure/microsoft-playwright-testing": "^1.0.0-beta.6"
 }
 ```
 

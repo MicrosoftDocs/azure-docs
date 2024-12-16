@@ -86,7 +86,7 @@ If you build locally, download and install the [Azure CLI](/cli/azure/install-az
     If you use macOS, run the following command:
     
     ```console
-        export ConnectionString='connection-string-of-your-app-configuration-store'
+        export ConnectionString=<connection-string-of-your-app-configuration-store>
     ```
     
     ### [Linux](#tab/linux)
@@ -94,7 +94,7 @@ If you build locally, download and install the [Azure CLI](/cli/azure/install-az
     If you use Linux, run the following command:
     
     ```console
-        export ConnectionString='connection-string-of-your-app-configuration-store'
+        export ConnectionString=<connection-string-of-your-app-configuration-store>
     ```
     
     ---

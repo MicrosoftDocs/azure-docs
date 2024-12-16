@@ -195,7 +195,7 @@ This project will use [dependency injection in .NET Azure Functions](../azure-fu
     If you use macOS or Linux, run the following command:
 
     ```bash
-    export ConnectionString='connection-string-of-your-app-configuration-store'
+    export ConnectionString=<connection-string-of-your-app-configuration-store>
     ```
 
 2. Press F5 to test your function. If prompted, accept the request from Visual Studio to download and install **Azure Functions Core (CLI)** tools. You might also need to enable a firewall exception so that the tools can handle HTTP requests.

@@ -196,7 +196,7 @@ Azure Functions support running [in-process](../azure-functions/functions-dotnet
     If you use macOS or Linux, run the following command:
 
     ```console
-    export ConnectionString='connection-string-of-your-app-configuration-store'
+    export ConnectionString=<connection-string-of-your-app-configuration-store>
     ```
 
 2. To test your function, press F5. If prompted, accept the request from Visual Studio to download and install **Azure Functions Core (CLI)** tools. You might also need to enable a firewall exception so that the tools can handle HTTP requests.

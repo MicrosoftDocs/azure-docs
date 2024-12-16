@@ -131,7 +131,7 @@ You can connect to your App Configuration store using Microsoft Entra ID (recomm
     If you use macOS or Linux, run the following command:
 
     ```bash
-    export Endpoint='endpoint-of-your-app-configuration-store'
+    export Endpoint=<endpoint-of-your-app-configuration-store>
     ```
 
     ### [Connection string](#tab/connection-string)
@@ -152,7 +152,7 @@ You can connect to your App Configuration store using Microsoft Entra ID (recomm
     If you use macOS or Linux, run the following command:
 
     ```bash
-    export ConnectionString='connection-string-of-your-app-configuration-store'
+    export ConnectionString=<connection-string-of-your-app-configuration-store>
     ```
     ---
 

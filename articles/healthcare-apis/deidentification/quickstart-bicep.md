@@ -36,7 +36,7 @@ The Bicep file used in this quickstart is from
 
 The following Azure resources are defined in the Bicep file:
 
-- [Microsoft.HealthDataAIServices/deidServices](/azure/templates)
+- [Microsoft.HealthDataAIServices/deidServices](/azure/templates/microsoft.healthdataaiservices/deidservices?pivots=deployment-language-bicep)
 
 ## Deploy the Bicep file
 

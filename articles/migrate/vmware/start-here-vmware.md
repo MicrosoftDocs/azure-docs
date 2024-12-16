@@ -10,7 +10,7 @@ products:
   - vmware
   - azure-virtual-machines
   - azure-vmware-solution
-ms.date: 05/08/2024
+ms.date: 08/14/2024
 ms.custom: vmware-scenario-422
 
 # Customer intent - Overview  of the options for assessing an existing VMware deployment for migration

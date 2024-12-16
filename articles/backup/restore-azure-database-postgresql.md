@@ -91,7 +91,7 @@ As one of the restore options, Cross Region Restore (CRR) allows you to restore 
 ### Considerations
 
 - To begin using the feature, read the [Before you start](create-manage-backup-vault.md#before-you-start) section.
-- To check if Cross Region Restore is enabled, see the [Configure Cross Region Restore](create-manage-backup-vault.md#perform-cross-region-restore-using-azure-portal) section.
+- To check if Cross Region Restore is enabled, see the [Configure Cross Region Restore](manage-backup-vault.md#perform-cross-region-restore-using-azure-portal) section.
 
 
 ### View backup instances in secondary region

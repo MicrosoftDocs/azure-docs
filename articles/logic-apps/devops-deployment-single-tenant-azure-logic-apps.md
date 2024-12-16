@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
 ms.date: 10/23/2024
-# Customer intent: As a developer, I want to learn about DevOps deployment support for Standard logi apps in single-tenant Azure Logic Apps.
+# Customer intent: As a developer, I want to learn about DevOps deployment support for Standard logic apps in single-tenant Azure Logic Apps.
 ---
 
 # DevOps deployment for Standard logic apps in single-tenant Azure Logic Apps

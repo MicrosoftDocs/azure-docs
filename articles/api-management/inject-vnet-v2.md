@@ -68,9 +68,11 @@ The subnet needs to be delegated to the **Microsoft.Web/hostingEnvironments** se
 
 For more information about configuring subnet delegation, see [Add or remove a subnet delegation](../virtual-network/manage-subnet-delegation.md).
 
+[!INCLUDE [api-management-virtual-network-address-prefix](../../includes/api-management-virtual-network-address-prefix.md)]
+
 ### Permissions
 
-You must have at least the following role-based access control permissions on the subnet or at a higher level to configure virtual network integration:
+You must have at least the following role-based access control permissions on the subnet or at a higher level to configure virtual network injection:
 
 | Action | Description |
 |-|-|
@@ -86,13 +88,11 @@ When you [create](get-started-create-service-instance.md) a Premium v2 instance 
 
 1. In the **Create API Management service** wizard, select the **Networking** tab.
 1. In **Connectivity type**, select **Virtual network**.
-1. In **Type**, select **Internal**. 
-1. In **Configure virtual networks**, select the virtual network and the delegated subnet that you want to integrate. 
-
-    Optionally, provide a public IP address resource if you want to own and control an IP address that's used only for outbound connection to the internet.
+1. In **Type**, select **Virtual Network injection**. 
+1. In **Configure virtual networks**, select the virtual network and the delegated subnet that you want to inject. 
 1. Complete the wizard to create the API Management instance.
 
-## DNS settings for integration with private IP address
+## DNS settings for access to private IP address
 
 When a Premium v2 API Management instance is injected in a virtual network, you have to manage your own DNS to enable inbound access to API Management. 
 

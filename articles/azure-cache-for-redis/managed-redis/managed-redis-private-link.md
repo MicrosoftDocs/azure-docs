@@ -43,7 +43,7 @@ You can restrict public access to the private endpoint of your cache by disablin
 >
 
 > [!IMPORTANT]
-> When using private link, you cannot export or import data to a to a storage account that has firewall enabled unless you're using a Premium tier cache with [managed identity to autenticate to the storage account](../cache-managed-identity.md).
+> When using private link, you cannot export or import data to a to a storage account that has firewall enabled unless you're using a Premium tier cache with [managed identity to authenticate to the storage account](../cache-managed-identity.md).
 > For more information, see [What if I have firewall enabled on my storage account?](managed-redis-how-to-import-export-data.md#what-if-i-have-firewall-enabled-on-my-storage-account)
 >
 

@@ -201,7 +201,7 @@ The `ProcessPushNotification` method takes in a `PushNotification` object contai
     If you use macOS, run the following command:
 
     ```console
-    export AppConfigurationConnectionString='connection-string-of-your-app-configuration-store'
+    export AppConfigurationConnectionString=<connection-string-of-your-app-configuration-store>
     ```
 
     ### [Linux](#tab/linux)
@@ -209,7 +209,7 @@ The `ProcessPushNotification` method takes in a `PushNotification` object contai
     If you use Linux, run the following command:
 
     ```console
-    export AppConfigurationConnectionString='connection-string-of-your-app-configuration-store'
+    export AppConfigurationConnectionString=<connection-string-of-your-app-configuration-store>
     ```
 
     ---

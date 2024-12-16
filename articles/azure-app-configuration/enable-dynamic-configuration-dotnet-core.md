@@ -129,7 +129,7 @@ In the previous code, you're manually saving an instance of `IConfigurationRefre
     If you use macOS or Linux, run the following command:
 
     ```console
-     export ConnectionString='connection-string-of-your-app-configuration-store'
+     export ConnectionString=<connection-string-of-your-app-configuration-store>
     ```
 
 1. Run the following command to build the console app:

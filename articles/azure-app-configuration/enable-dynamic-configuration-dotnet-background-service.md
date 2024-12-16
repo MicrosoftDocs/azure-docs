@@ -189,7 +189,7 @@ You use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a
     If you use macOS or Linux, run the following command:
 
     ```bash
-    export Endpoint='endpoint-of-your-app-configuration-store'
+    export Endpoint=<endpoint-of-your-app-configuration-store>
     ```
 
     ### [Connection string](#tab/connection-string)
@@ -210,7 +210,7 @@ You use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a
     If you use macOS or Linux, run the following command:
 
     ```bash
-    export ConnectionString='connection-string-of-your-app-configuration-store'
+    export ConnectionString=<connection-string-of-your-app-configuration-store>
     ```
     ---
 
