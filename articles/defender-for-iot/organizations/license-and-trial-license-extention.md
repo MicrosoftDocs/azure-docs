@@ -18,7 +18,7 @@ Each site can only have one license associated with it, so you must purchase the
 
 If your network has even more than 5,000 devices a customer should contact their representative to find out how to access the 2XL or 3XL licenses in the Azure portal.
 
-Each Microsoft 365 license lasts for one year. <!-- is this the correct license name? -->The OT site license isnt't included in the ME5 or E5 security packages.
+Each Microsoft 365 license lasts for one year. <!-- is this the correct license name? -->The OT site license isn't included in the ME5 or E5 security packages.
 
 ### Preconfigured hardware
 
