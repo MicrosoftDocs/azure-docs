@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: concept-article
-ms.date: 07/05/2024
+ms.date: 12/13/2024
 
 #CustomerIntent: As an Azure administrator, I need to monitor communication between one VM and another. If the communication fails, I need to know why so that I can resolve the problem. 
 ---
@@ -15,37 +15,42 @@ ms.date: 07/05/2024
 
 [!INCLUDE [Migrate connection monitor (classic)](../../includes/network-watcher-connection-monitor-classic.md)]
 
-Connection monitor provides unified, end-to-end connection monitoring in Network Watcher. The Connection monitor feature supports hybrid and Azure cloud deployments. Network Watcher provides tools to monitor, diagnose, and view connectivity-related metrics for your Azure deployments.
+Connection monitor provides unified and continuous network connectivity monitoring, enabling users to detect anomalies, identify the specific network component responsible for issues, and troubleshoot with actionable insights in Azure and hybrid cloud environments.
 
-Here are some use cases for Connection monitor:
+Connection monitor tests measure aggregated packet loss and network latency metrics across TCP, ICMP, and HTTP pings. A unified topology visualizes the end-to-end network path, highlighting network path hops with hop performance metrics. Connection monitor provides actionable insights and detailed logs to efficiently analyze and troubleshoot the root cause of an issue.
 
-- Your front-end web server virtual machine (VM) or virtual machine scale set communicates with a database server VM in a multi-tier application. You want to check network connectivity between the two VM/or scale sets.
-- You want VMs/scale sets in, for example, the East US region to ping VMs/scale sets in the Central US region, and you want to compare cross-region network latencies.
-- You have multiple on-premises office sites, one in Seattle, Washington, for example, and another in Ashburn, Virginia. Your office sites connect to Microsoft 365 URLs. For your users of Microsoft 365 URLs, you want to compare the latencies between Seattle and Ashburn.
-- Your hybrid application needs connectivity to an Azure storage account endpoint. Your on-premises site and your Azure application connect to the same endpoint. You want to compare the latencies of the on-premises site with the latencies of the Azure application.
-- You want to check the connectivity between your on-premises setups and the Azure VMs/virtual machine scale sets that host your cloud application.
-- You want to check the connectivity from single or multiple instances of an Azure Virtual Machine Scale Set to your Azure or Non-Azure multi-tier application. 
+:::image type="content" source="./media/connection-monitor-overview/connection-monitor-diagram.png" alt-text="Diagram showing how Connection monitor interacts with Azure VMs, non-Azure hosts, endpoints, and data storage locations.":::
 
-Here are some benefits of Connection monitor:
+## Connection monitor use cases
 
-* Unified, intuitive experience for Azure and hybrid monitoring needs
-* Cross-region, cross-workspace connectivity monitoring
-* Higher probing frequencies and better visibility into network performance
-* Faster alerting for your hybrid deployments
-* Support for connectivity checks that are based on HTTP, Transmission Control Protocol (TCP), and Internet Control Message Protocol (ICMP) 
-* Metrics and Log Analytics support for both Azure and non-Azure test setups
+Here are some use cases of Connection monitor:
 
-:::image type="content" source="./media/connection-monitor-2-preview/hero-graphic-new.png" alt-text="Diagram showing how Connection monitor interacts with Azure VMs, non-Azure hosts, endpoints, and data storage locations.":::
+- Your front-end web server virtual machine (VM) communicates with a database server VM in a multi-tier application. You want to check network connectivity between the two VMs.
+- You want to check the connectivity from single or multiple instances of an Azure Virtual Machine Scale Set to your Azure or non-Azure multi-tier application. 
+- You want to check the connectivity between your on-premises setups and the Azure VMs or scale sets that host your cloud application.
+- You want VMs the East US region to ping VMs in the Central US region to measure and compare cross-region network latencies.
+- You have on-premises office sites in Seattle, Washington, and Ashburn, Virginia, both connecting to Microsoft 365 URLs. You want to compare the latencies between these locations for your Microsoft 365 users.
+- Your hybrid application requires connectivity to an Azure storage account endpoint, accessed by both your on-premises site and Azure application. You want to compare the latency of the on-premises site with that of the Azure application.
 
-To start using Connection monitor for monitoring, follow these steps: 
+## Connection monitor benefits
 
-1. [Install monitoring agents](#install-monitoring-agents).
-1. [Enable Network Watcher on your subscription](#enable-network-watcher-on-your-subscription).
-1. [Create a connection monitor](#create-a-connection-monitor).
-1. [Analyze monitoring data and set alerts](#analyze-monitoring-data-and-set-alerts).
-1. [Diagnose issues in your network](#diagnose-issues-in-your-network).
+Here are some of the benefits of using Connection monitor:
 
-The following sections provide details for these steps.
+- Cross-subscription, cross-workspace monitoring experience for Azure and Hybrid cloud environments.
+
+- Supported source endpoints enabled with Network Watcher extension: Azure VMs, Azure virtual machine scale sets, and Arc enabled on-premises hosts.
+
+- Supported destination endpoints: Azure VMs, Azure virtual machine scale sets, Arc enabled on-premises hosts, URLs, FQDNs, and IP addresses. Destination endpoints don't require the Network Watcher extension.
+
+- High probing frequencies and visibility into network performance  
+
+- End-to-end network path visibility with the Topology.
+
+- Quick alerting for Azure and hybrid deployments.
+
+- Support for connectivity checks that are based on HTTP, TCP, and ICMP.
+
+- Metrics with Azure Monitor and logs with Azure Log Analytics.
 
 ## Install monitoring agents
 
@@ -244,7 +249,7 @@ On the dashboard, you can expand each connection monitor to view its test groups
 
 You can filter a list based on:
 
-* **Top-level filters**: Search the list by text, entity type (Connection monitor, test group, or test) timestamp, and scope. Scope includes subscriptions, regions,  sources, and destination types. See box 1 in the following image.
+* **Top-level filters**: Search the list by text, entity type (Connection monitor, test group, or test), timestamp, and scope. Scope includes subscriptions, regions,  sources, and destination types. See box 1 in the following image.
 * **State-based filters**: Filter by the state of the connection monitor, test group, or test. See box 2 in the following image.
 * **Alert-based filter**: Filter by alerts that are fired on the connection monitor resource. See box 3 in the following image.
 

@@ -420,6 +420,9 @@
     - name: Customize API Management developer portal
       displayName: API Management and WordPress
       href: /azure/api-management/developer-portal-wordpress-plugin
+    - name: WordPress FAQ
+      displayName: WordPress frequently asked questions
+      href: wordpress-faq.md
 - name: WebJobs
   items:
     - name: Create WebJobs
@@ -522,8 +525,6 @@
           href: /azure/developer/java/migration/migrate-weblogic-to-jboss-eap-on-azure-app-service?toc=/azure/app-service/toc.json&bc=/azure/bread/toc.json
         - name: Migrate WebSphere
           href: /azure/developer/java/migration/migrate-websphere-to-jboss-eap-on-azure-app-service?toc=/azure/app-service/toc.json&bc=/azure/bread/toc.json
-        - name: Migrate WordPress
-          href: migrate-wordpress.md
     - name: Cookbooks
       items:
         - name: Reference Architectures
