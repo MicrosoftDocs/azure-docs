@@ -106,7 +106,7 @@ az networkfabric device upgrade --version 2.0.0 -g myResourceGroup --resource-na
 
 Replace `myResourceGroup` and `myDeviceName` with the actual names of your resource group and device, respectively.
 
-#### **Step 3: Finalize upgrade**
+#### **Step 4: Finalize upgrade**
 
 After updating all devices, run the completion command to exit maintenance mode:
 
