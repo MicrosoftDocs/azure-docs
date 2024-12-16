@@ -21,8 +21,8 @@ Long-term retention for Azure Database for MySQL - Flexible Server (preview) is 
 
 ## Supported scenarios
 
-- This feature backs up the entire Azure Database for MySQL flexible server to a Backup vault.
-- You can recover the Azure Database for MySQL - Flexible Server long-term retention (LTR) data in the specified storage containers that you use to rebuild the Azure Database for MySQL flexible server. You can also restore this data as a new Azure Database for MySQL flexible server with database native tools.
+- This feature backs up the entire Azure Database for MySQL Flexible Server to a Backup vault.
+- You can recover the Azure Database for MySQL - Flexible Server long-term retention (LTR) data in the specified storage containers that you use to rebuild the Azure Database for MySQL Flexible Server. You can also restore this data as a new Azure Database for MySQL Flexible Server with database native tools.
 
 ## Limitations
 
@@ -32,5 +32,5 @@ Long-term retention for Azure Database for MySQL - Flexible Server (preview) is 
 ## Related content
 
 - [Long-term retention for Azure Database for MySQL - Flexible Server by using Azure Backup](backup-azure-mysql-flexible-server-about.md)
-- [Back up an Azure Database for MySQL flexible server (preview)](backup-azure-mysql-flexible-server.md)
-- [Restore an Azure Database for MySQL flexible server (preview)](backup-azure-mysql-flexible-server-restore.md)
+- [Back up an Azure Database for MySQL Flexible Server (preview)](backup-azure-mysql-flexible-server.md)
+- [Restore an Azure Database for MySQL Flexible Server (preview)](backup-azure-mysql-flexible-server-restore.md)
