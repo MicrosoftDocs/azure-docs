@@ -212,6 +212,7 @@
         "articles/azure-arc/**/*.md": "JnHs",
         "articles/azure-arc/servers/**/*.md": "johnmarco",
         "articles/azure-cache-for-redis/**/*.md": "flang-msft",
+        "articles/azure-cache-for-redis/**/*.yml": "flang-msft",
         "articles/azure-fluid-relay/**/*.md": "GrantMeStrength",
         "articles/azure-functions/**/*.md": "ggailey777",
         "articles/azure-government/**/*.md": "EliotSeattle",

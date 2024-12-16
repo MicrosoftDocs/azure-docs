@@ -51,7 +51,6 @@ Use the following steps to configure an analytic rule in Sentinel.
 
    ```
     let Threshold = 3; 
-
     AzureDiagnostics
     | where Category == "ApplicationGatewayFirewallLog"
     | where action_s == "Matched"
@@ -59,9 +58,7 @@ Use the following steps to configure an analytic rule in Sentinel.
     | where ruleGroup_s == "REQUEST-932-APPLICATION-ATTACK-RCE" or ruleGroup_s ==    "REQUEST-931-APPLICATION-ATTACK-RFI" or ruleGroup_s == "REQUEST-932-APPLICATION-ATTACK-RCE" or    ruleGroup_s == "REQUEST-933-APPLICATION-ATTACK-PHP" or ruleGroup_s ==    "REQUEST-942-APPLICATION-ATTACK-SQLI" or ruleGroup_s == "REQUEST-921-PROTOCOL-ATTACK" or ruleGroup_s    == "REQUEST-941-APPLICATION-ATTACK-XSS"
     | project transactionId_g, hostname_s, requestUri_s, TimeGenerated, clientIp_s, Message,    details_message_s, details_data_s
     | join kind = inner(
-   
     AzureDiagnostics
-   
     | where Category == "ApplicationGatewayFirewallLog"
     | where action_s == "Blocked") on transactionId_g
     | extend Uri = strcat(hostname_s,requestUri_s)
