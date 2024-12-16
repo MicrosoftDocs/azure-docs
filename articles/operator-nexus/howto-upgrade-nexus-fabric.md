@@ -33,8 +33,8 @@ Confirm that the Network Fabric Controller is in a 'Provisioned' state.
 
 #### **Step 1: Verify Fabric runtime version**
 
-Verify current fabric runtime version before upgrade
-    [How to check current cluster runtime version](./howto-check-runtime-version.md#check-current-fabric-runtime-version)
+Verify current fabric runtime version before upgrade:
+    [How to check current cluster runtime version.](./howto-check-runtime-version.md#check-current-fabric-runtime-version)
 
 #### **Step 2: Initiate upgrade**
 Start the upgrade with the following command:
