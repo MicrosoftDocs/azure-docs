@@ -36,7 +36,7 @@ For a video demonstration of the procedures in this article, watch the following
 
 ## Prerequisites
 
-- Before you can perform the procedures in this article, you need to have a SAP data connector connected to your SAP system. SAP logs aren't displayed in the Microsoft Sentinel **Logs** page until your SAP system is connected and data starts streaming into Microsoft Sentinel.
+- Before you can perform the procedures in this article, you need to have an SAP data connector connected to your SAP system. SAP logs aren't displayed in the Microsoft Sentinel **Logs** page until your SAP system is connected and data starts streaming into Microsoft Sentinel.
 
 For more information, see [Connect your SAP system to Microsoft Sentinel](sap/deploy-data-connector-agent-container.md).
 

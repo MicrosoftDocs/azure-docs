@@ -18,7 +18,7 @@ ms.collection: usx-security
 
 This article describes how you can use the *SAP - Security Audit Controls* workbook to monitor and track security control framework compliance across your SAP systems, including the following functionality:
 
-- See recommendations on which analytics rules to enable, and enable them in-place with proper preset configuration.
+- See recommendations on which analytics rules to enable, and enable them in place with proper preset configuration.
 - Associate your analytics rules to the SOX or NIST control framework, or apply your own custom control framework.
 - Review incidents and alerts summarized by control, according to the selected control framework.
 - Export relevant incidents for further analysis, for auditing and reporting purposes.

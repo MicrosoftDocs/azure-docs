@@ -151,7 +151,7 @@ For more information, see [Database Collector in Background Processing](https://
 
 1. Create an instance of SAP Integration Suite.
 
-1. Assign the SAP BTP **Integration_Provisioner** role to your your SAP BTP subaccount user account.
+1. Assign the SAP BTP **Integration_Provisioner** role to your SAP BTP subaccount user account.
 
 1. In the SAP Integration Suite, add the cloud integration capability.
 

@@ -78,7 +78,7 @@ The following table describes each metric in the **Logon analysis** area:
 
 |Area  |Description  |
 |---------|---------|
-|**Unique user logons per system**     |Shows the number of unique signins for each SAP system, and a graph with the sign-in trends over the selected time for each system. <br><br>For example: the 012 system has 1.4-K unique logon attempts in the last 14 days, and in these 14 days the graph shows a relatively rising sign-in trend.         |
+|**Unique user logons per system**     |Shows the number of unique sign-ins for each SAP system, and a graph with the sign-in trends over the selected time for each system. <br><br>For example: the 012 system has 1.4-K unique logon attempts in the last 14 days, and in these 14 days the graph shows a relatively rising sign-in trend.         |
 |**Logon types trend**     |Shows a trend of the number of sign ins according to type, for example, login via dialog. <br><br>Hover over the graph to show the number of logons for different dates.|
 |**Logon failures Vs. success by unique users - trend**     |Shows a trend of successful and failed sign ins in the selected period. <br><br>Hover over the graph to show the amount of successful and failed sign ins for different dates.|
 

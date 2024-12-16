@@ -32,7 +32,7 @@ Content in this article is relevant for your **security**, **infrastructure**, a
 
 :::zone pivot="connection-agentless"
 
-:::image type="content" source="media/deployment-steps/deploy-data-connector-agentless.png" alt-text="Diagram of the SAP solution deployment flow, highlighting the Connect your SAP system step." border="false" :::
+:::image type="content" source="media/deployment-steps/deploy-data-connector-agentless.png" alt-text="Diagram of the SAP solution deployment flow, highlighting the Connect your SAP system step."  :::
 
 Content in this article is relevant for your **security** team, using information provided by your **SAP BASIS** teams.
 
@@ -204,7 +204,7 @@ This procedure describes how to create a new agent and connect it to your SAP sy
 
 Deploying the data connector agent from the portal is supported from both the Azure portal, and the Defender portal if you onboarded your workspace to the unified security operations platform.
 
-While deployment is also supported from the command line, we recommend that you use the portal for typical deployments. Data connector agents deployed using the command line can be managed only via the command line, and not via the portal. For more information, see [Deploy a SAP data connector agent from the command line](deploy-command-line.md).
+While deployment is also supported from the command line, we recommend that you use the portal for typical deployments. Data connector agents deployed using the command line can be managed only via the command line, and not via the portal. For more information, see [Deploy an SAP data connector agent from the command line](deploy-command-line.md).
 
 > [!IMPORTANT]
 > Deploying the container and creating connections to SAP systems from the portal is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.

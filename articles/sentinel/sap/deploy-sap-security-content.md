@@ -18,7 +18,7 @@ zone_pivot_groups: sentinel-sap-connection
 
 # Install a Microsoft Sentinel solution for SAP applications
 
-The Microsoft Sentinel solutions for SAP applications include a SAP data connector, which collects logs from your SAP systems and sends them to your Microsoft Sentinel workspace, and out-of-the-box security content, which helps you gain insight into your organization's SAP environment and detect and respond to security threats. Installing your solution is a required step before you can configure your data connector agent container.
+The Microsoft Sentinel solutions for SAP applications include an SAP data connector, which collects logs from your SAP systems and sends them to your Microsoft Sentinel workspace, and out-of-the-box security content, which helps you gain insight into your organization's SAP environment and detect and respond to security threats. Installing your solution is a required step before you can configure your data connector agent container.
 
 Microsoft Sentinel supports both a containerized data collector agent and an agentless solution. Select the deployment option at the top of the page that matches your environment.
 
