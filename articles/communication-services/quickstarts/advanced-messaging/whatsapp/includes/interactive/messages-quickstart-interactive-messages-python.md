@@ -85,9 +85,9 @@ Follow these steps to add the necessary code snippets to the messages-quickstart
 - [Authenticate the client](#authenticate-the-client)
 - [Set channel registration ID](#set-channel-registration-id)
 - [Set recipient list](#set-recipient-list)
-- [Send a Interactive List options messages to a WhatsApp user](#send-a-interactive-list-options-messages-to-a-whatsapp-user)
-- [Send a Interactive Reply Button message to a WhatsApp user](#send-a-interactive-reply-button-messages-to-a-whatsapp-user)
-- [Send a Interactive CTA Url based message to a WhatsApp user](#send-a-interactive-cta-url-based-messages-to-a-whatsapp-user)
+- [Send a Interactive List options message to a WhatsApp user](#send-a-interactive-list-options-message-to-a-whatsapp-user)
+- [Send a Interactive Reply Button message to a WhatsApp user](#send-a-interactive-reply-button-message-to-a-whatsapp-user)
+- [Send a Interactive CTA Url based message to a WhatsApp user](#send-a-interactive-cta-url-based-message-to-a-whatsapp-user)
 
 ### Authenticate the client 
 
@@ -237,7 +237,7 @@ To do so, from your personal WhatsApp account, send a message to your business n
 
 :::image type="content" source="../../media/get-started/user-initiated-conversation.png" lightbox="../../media/get-started/user-initiated-conversation.png" alt-text="A WhatsApp conversation viewed on the web showing a user message sent to the WhatsApp Business Account number.":::
 
-### Send a Interactive List options messages to a WhatsApp user
+### Send a Interactive List options message to a WhatsApp user
 
 Advanced Messages SDK allows Contoso to send interactive WhatsApp messages, which initiated WhatsApp users initiated. To send text messages below details are required:
 - [WhatsApp Channel ID](#set-channel-registration-id)
@@ -254,7 +254,7 @@ Advanced Messages SDK allows Contoso to send interactive WhatsApp messages, whic
 > [!IMPORTANT]
 > To send a text message to a WhatsApp user, the WhatsApp user must first send a message to the WhatsApp Business Account. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
 
-In this example, business sends interactive shipping options message"
+In this example, business sends interactive shipping options message to user.
 ```python
     def send_whatsapplist_message(self):
 
@@ -327,6 +327,8 @@ Messages SDK allows Contoso to send Image WhatsApp messages to WhatsApp users. T
 > [!IMPORTANT]
 > To send a text message to a WhatsApp user, the WhatsApp user must first send a message to the WhatsApp Business Account. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
 
+In this example, business sends reply button message to user.
+
 ```python
     def send_whatsappreplybutton_message(self):
 
@@ -385,6 +387,8 @@ Messages SDK allows Contoso to send Image WhatsApp messages to WhatsApp users. T
 
 > [!IMPORTANT]
 > To send a document message to a WhatsApp user, the WhatsApp user must first send a message to the WhatsApp Business Account. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
+
+In this example, business sends click to a link message to user.
 
 ```python
     def send_whatapp_click_to_action_message(self):
