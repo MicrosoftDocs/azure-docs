@@ -106,7 +106,7 @@ Run the following command to update the first infrastructure authorization key:
     az networkfabric controller update \
         --resource-group 'nfc resource group' \
         --resource-name 'nfc_name' \
-        --infra-er-connections '[{expressRouteCircuitId:"er-circuit-A",expressRouteAuthorizationKey:"er-authz-key-a20"},                            {expressRouteCircuitId:"er-circuit-B",expressRouteAuthorizationKey:"er-authz-key-b1"}]' \
+        --infra-er-connections '[{expressRouteCircuitId:"er-circuit-A",expressRouteAuthorizationKey:"er-authz-key-a20"},{expressRouteCircuitId:"er-circuit-B",expressRouteAuthorizationKey:"er-authz-key-b1"}]' \
         --debug
     ```
 Post-check: Verify that the new connection for **er-circuit-A** is operational.
@@ -119,7 +119,7 @@ Run the following command to update the second infrastructure authorization key:
     az networkfabric controller update \
         --resource-group 'nfc resource group' \
         --resource-name 'nfc_name' \
-        --infra-er-connections '[{expressRouteCircuitId:"er-circuit-A,expressRouteAuthorizationKey:"er-authz-key-a20"},                            {expressRouteCircuitId:"er-circuit-B",expressRouteAuthorizationKey:"er-authz-key-b20"}]' \
+        --infra-er-connections '[{expressRouteCircuitId:"er-circuit-A,expressRouteAuthorizationKey:"er-authz-key-a20"},{expressRouteCircuitId:"er-circuit-B",expressRouteAuthorizationKey:"er-authz-key-b20"}]' \
         --debug
     ```
 
@@ -133,7 +133,7 @@ Run the following command to update the first workload authorization key:
     az networkfabric controller update \
         --resource-group 'nfc resource group' \
         --resource-name 'nfc_name' \
-        --workload-er-connections '[{expressRouteCircuitId:"er-circuit-C",expressRouteAuthorizationKey:"er-authz-key-c20"},                                {expressRouteCircuitId:"er-circuit-D",expressRouteAuthorizationKey:"er-authz-key-d1"}]' \
+        --workload-er-connections '[{expressRouteCircuitId:"er-circuit-C",expressRouteAuthorizationKey:"er-authz-key-c20"},{expressRouteCircuitId:"er-circuit-D",expressRouteAuthorizationKey:"er-authz-key-d1"}]' \
         --debug
     ```
 Post-check: Verify that the new connection for **er-circuit-C** is operational.
@@ -146,8 +146,7 @@ Run the following command to update the second workload authorization key:
     az networkfabric controller update \
     --resource-group 'nfc resource group' \
     --resource-name 'nfc_name' \
-    --workload-er-connections '[{expressRouteCircuitId:"er-circuit-C",expressRouteAuthorizationKey:"er-authz-key-c20"},
-                                {expressRouteCircuitId:"er-circuit-D",expressRouteAuthorizationKey:"er-authz-key-d20"}]' \
+    --workload-er-connections '[{expressRouteCircuitId:"er-circuit-C",expressRouteAuthorizationKey:"er-authz-key-c20"},{expressRouteCircuitId:"er-circuit-D",expressRouteAuthorizationKey:"er-authz-key-d20"}]' \
     --debug
     ```
 
