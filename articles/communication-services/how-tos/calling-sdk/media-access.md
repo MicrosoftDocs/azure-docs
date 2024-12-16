@@ -26,7 +26,7 @@ zone_pivot_groups: acs-plat-web-ios-android-windows
 ::: zone pivot="platform-windows"
 [!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
 ::: zone-end
-During an active call, you may want to send or receive states from other users. Let's learn how. 
+In this article you are going to learn how you can control audio and video of other attendees in group calls and Teams meetings. You would also learn how to identify, that your audio or video has been enabled or disabled by presenters or organizer.
 
 ## Prerequisites
 
