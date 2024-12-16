@@ -40,7 +40,7 @@ Tenants without an active site license have a 30-day grace period from the last 
 
 To migrate from the legacy Azure Consumption Revenue (ACR) license to the new Microsoft 365 license, see [migrate from a legacy OT plan](how-to-manage-subscriptions.md#migrate-from-a-legacy-ot-plan).
 
-If you still need extra support, reach out to the sales team by [completing this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4hp0oiujZ9PvzH6GeTqtclUQzJNVlg5V1ZNUVVUMko4U1kyWjI1WDdOSi4u).<!-- form is closed, need updated link-->
+If you still need extra support, reach out to the sales team by [completing this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4hp0oiujZ9PvzH6GeTqtclUMDJCWDBNUVpNTjc1SVdXMDNPWlhUWDEyMi4u).
 
 ## The trial license
 
