@@ -52,7 +52,7 @@ Business continuity planning isn't just about the cloud platform and infrastruct
 | Rogue administrators | A user with administrative privileges has intentionally performed a damaging action against the system. |
 | Unexpected influx of traffic to an application | A spike in traffic has overwhelmed the system's resources. |
 
-*Failure mode analysis* (FMA) is the processs of identifying potential ways in which a workload or its components could fail and the ways in which the solution behaves under those situations. To learn more about failure mode analysis, see [Recommendations for performing failure mode analysis](/azure/well-architected/failure-mode-analysis).
+*Failure mode analysis* (FMA) is the process of identifying potential ways in which a workload or its components could fail and the ways in which the solution behaves under those situations. To learn more about failure mode analysis, see [Recommendations for performing failure mode analysis](/azure/well-architected/failure-mode-analysis).
 
 Each risk can be analyzed to understand its likelihood and its severity. Severity needs to include any potential downtime or data loss, as well as whether any aspects of the rest of the solution design that might compensate for negative effects.
 
@@ -72,7 +72,7 @@ The same risk might be classified as HA for one workload and DR for another work
 
 There are a range of different controls available for each risk. Part of business continuity planning is deciding which controls to apply for each specific situation based on the business needs. Many common mitigations are technical in nature and rely on technology is configured or used. For example, you can build resiliency into a solution's design by using redundancy, data replication, failover, and backups. However, some controls might instead be based around business processes, such as by triggering a response playbook, or failing back to manual operations.
 
-When you're considering which controls to apply, understand whether they require or assume downtime or data loss. For example, some controls require a human to be notified and then to respond, which takes time. If a solution requires high uptime, manual proceses are likely to be too slow, and you should control many of the risks by using automated approaches. For more information, see [High availability](#high-availability).
+When you're considering which controls to apply, understand whether they require or assume downtime or data loss. For example, some controls require a human to be notified and then to respond, which takes time. If a solution requires high uptime, manual processes are likely to be too slow, and you should control many of the risks by using automated approaches. For more information, see [High availability](#high-availability).
 
 For some risks, you can choose to operate the solution in a *degraded state*. When a solution operates in a degraded state, some components might be disabled or non-functional, but core business operations can continue to be performed. To learn more, see [Recommendations for self-healing and self-preservation](/azure/well-architected/reliability/self-preservation).
 
@@ -80,9 +80,9 @@ For some risks, you can choose to operate the solution in a *degraded state*. Wh
 
 High availability (HA) is the state in which a specific workload can maintain the necessary level of uptime on a day-to-day basis, even during transient faults and intermittent failures. For example, in a cloud environment, it's common for there to be server crashes, brief network outages, equipment restarts due to patches, and so on. Because these events happen regularly, it's important that each workload is designed and configured for high availability in accordance with the requirements of the specific application and customer expectations. The HA of each workload contributes to your business continuity plan.
  
-Because HA can vary with each workload, it's important to understand the requirements and customer expectations when determining high availability. For example, an application that's used within your organization might require a relatively low level of uptime, while a critical financial application might require a much higher uptime. Even within a workload, different *flows* might have different requirements. For example, in an eCommerce application, flows related to customers browsing and placing orders might be critical while order fulfilment and back-office processing flows might be lower priority. To learn more about flows, see [Recommendations for identifying and rating flows](/azure/well-architected/reliability/identify-flows).
+Because HA can vary with each workload, it's important to understand the requirements and customer expectations when determining high availability. For example, an application that's used within your organization might require a relatively low level of uptime, while a critical financial application might require a much higher uptime. Even within a workload, different *flows* might have different requirements. For example, in an eCommerce application, flows related to customers browsing and placing orders might be critical while order fulfillment and back-office processing flows might be lower priority. To learn more about flows, see [Recommendations for identifying and rating flows](/azure/well-architected/reliability/identify-flows).
  
-When defining high availability, a workload architect defines:
+When a workfload architect plans for high availability, they define:
  
 - **Service level objectives (SLO)**, which describe things like the percentage of time the workload should be available to users.
 - **Service level indicators** (SLI), which are specific metrics that are used to measure whether the workload is meeting an SLO.
@@ -92,7 +92,7 @@ The higher the uptime requirement, the more work you have to do to reach that le
 > [!TIP]
 > Don't overengineer your solution to reach higher levels of reliability than are justified. Use business requirements to guide your decisions.
 
-It is also important to understand that HA is not measured by the uptime of a single component like a node, but by the overall availability of the entire workload. For more detailed information on how to define and measure high availability, see [Recommendations for defining reliability targets](/azure/well-architected/reliability/metrics).
+Uptime isn't measured by the uptime of a single component like a node, but by the overall availability of the entire workload. For more detailed information on how to define and measure high availability, see [Recommendations for defining reliability targets](/azure/well-architected/reliability/metrics).
 
 ### High availability design elements
 
@@ -102,9 +102,9 @@ To achieve high availability, a workload may include the following design elemen
     
     Review the service level agreements (SLAs) for each service to understand the expected levels of availability. You might need to select specific tiers of services to achieve high levels of availability.
  
- - **Redundancy** is the practice of duplicating instances or data to increase the reliability of the workload. For example, a web application might use multiple instances of a web server to ensure that the application remains available even if one instance fails. A database may have a multiple replicas to ensure that the data remains available even if one replica fails.
+ - **Redundancy** is the practice of duplicating instances or data to increase the reliability of the workload. For example, a web application might use multiple instances of a web server to ensure that the application remains available even if one instance fails. A database may have multiple replicas to ensure that the data remains available even if one replica fails.
  
-    Often you can choose distribute those replicas or redundant instances around a datacenter, between availability zones within a region, or even across regions.
+    Often you can choose to distribute those replicas or redundant instances around a datacenter, between availability zones within a region, or even across regions.
  
  - **Fault tolerance** is the ability of a system to continue operating in the event of a failure. For example, a web application might be designed to continue operating even if a single web server fails.
  
@@ -124,7 +124,7 @@ To understand the capabilities of each Azure service, see its [reliability guide
 A *disaster* is a distinct, uncommon, major event that has a larger and longer-lasting impact than an application can mitigate through the high availability aspect of its design. Examples of disasters include:
  
 - **Natural disasters**, such as hurricanes, earthquakes, floods, or fire.
-- **Human errors tnat result in a major impact**, such as accidentally deleting production data, or a misconfigured firewall that exposes sensitive data.
+- **Human errors that result in a major impact**, such as accidentally deleting production data, or a misconfigured firewall that exposes sensitive data.
 - **Major security incidents**, like denial of service or ransomware attacks that lead to data corruption, data loss, or service outages.
  
 *Disaster recovery* is about planning how you respond to these types of situations.
