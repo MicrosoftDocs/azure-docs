@@ -15,7 +15,7 @@ ms.date: 12/10/2024
 
 Many manufacturers use on-premises SAP Enterprise Resource Planning (ERP) systems. Often, manufacturers connect SAP systems to Industrial IoT solutions, and use the connected system to retrieve data for manufacturing processes, customer orders, and inventory status. This article describes how to connect these SAP-based ERP systems.
 
-This solution uses [IEC 621. Open Platform Communications (OPC) Unified Architecture (UA)](https://opcfoundation.org) for all operational technology data.
+This solution uses [IEC 62541. Open Platform Communications (OPC) Unified Architecture (UA)](https://opcfoundation.org) for all operational technology data.
 
 The following diagram shows an overview of the solution:
 
