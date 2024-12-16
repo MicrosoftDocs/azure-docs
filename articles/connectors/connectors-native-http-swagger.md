@@ -32,8 +32,6 @@ The **HTTP + Swagger** built-in operations currently support only OpenAPI 2.0, n
 
   * The Swagger file must have [Cross-Origin Resource Sharing (CORS)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) enabled.
 
-  The examples in this guide use [Azure AI Face](/azure/ai-services/computer-vision/overview-identity), which requires an [Azure AI services resource key and region](/azure/ai-services/multi-service-resource?pivots=azportal).
-
   > [!NOTE]
   >
   > To reference a Swagger file that's unhosted or that doesn't meet the security and cross-origin requirements, 
