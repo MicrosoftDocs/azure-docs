@@ -334,11 +334,11 @@
             "source_path_from_root": "/articles/migrate/contoso-migration-overview.md",
             "redirect_url": "/azure/cloud-adoption-framework/migrate/",
             "redirect_document_id": false
-        }
+        },
         {
             "source_path_from_root": "/articles/migrate/migrate-support-matrix-vmware-migration.md",
             "redirect_url": "/azure/migrate/vmware/migrate-support-matrix-vmware-migration?context=/azure/migrate/context/migrate-context",
             "redirect_document_id": true
-        },
+        }
     ]
 }
