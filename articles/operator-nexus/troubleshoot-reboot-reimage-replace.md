@@ -97,7 +97,7 @@ az networkcloud baremetalmachine show -n <nodeName> /
 --subscription <subscriptionID> | jq '.virtualMachinesAssociatedIds'
 ```
 
-***For NAKS nodes: (requires logging into the NAKS cluster)***
+***For Nexus Kubernetes cluster nodes: (requires logging into the Nexus Kubernetes cluster)***
 
 ```
 kubectl get nodes <resourceName> -ojson |jq '.metadata.labels."topology.kubernetes.io/baremetalmachine"'

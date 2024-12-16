@@ -107,7 +107,7 @@ az networkcloud cluster show --resource-group "<resourceGroup>" /
       "waitTimeMinutes": 1
 ```
 
-In this example, if less than 60% of the compute nodes being provisioned in a rack fail to provision (on a rack by rack basis), the cluster deployment fails. If 60% or more of the compute nodes are successfully provisioned, cluster deployment moves on to the next rack of compute nodes.
+In this example, if less than 60% of the compute nodes being provisioned in a rack fail to provision (on a Rack by Rack basis), the cluster deployment fails. If 60% or more of the compute nodes are successfully provisioned, cluster deployment moves on to the next rack of compute nodes.
 
 The following example is for a customer using Rack by Rack strategy with a threshold type CountSuccess of 10 nodes per rack and a 1-minute pause.
 
@@ -132,7 +132,7 @@ az networkcloud cluster show --resource-group "<resourceGroup>" /
       "waitTimeMinutes": 1
 ```
 
-In this example, if less than 10 compute nodes being provisioned in a rack fail to provision (on a rack by rack basis), the cluster deployment fails. If 10 or more of the compute nodes are successfully provisioned, cluster deployment moves on to the next rack of compute nodes.
+In this example, if less than 10 compute nodes being provisioned in a rack fail to provision (on a Rack by Rack basis), the cluster deployment fails. If 10 or more of the compute nodes are successfully provisioned, cluster deployment moves on to the next rack of compute nodes.
 
 > [!NOTE]
 > ***`update-strategy` cannot be changed after the cluster runtime upgrade has started.***
@@ -149,13 +149,13 @@ az networkcloud cluster update-version --cluster-name "<clusterName>" /
 --subscription <subscriptionID>
 ```
 
-The runtime upgrade is a long process. The upgrade first upgrades the management nodes and then sequentially rack by rack for the worker nodes.
+The runtime upgrade is a long process. The upgrade first upgrades the management nodes and then sequentially Rack by Rack for the worker nodes.
 The upgrade is considered to be finished when 80% of worker nodes per rack and 100% of management nodes are successfully upgraded.
 Workloads might be impacted while the worker nodes in a rack are in the process of being upgraded, however workloads in all other racks are not impacted. Consideration of workload placement in light of this implementation design is encouraged.
 
-Upgrading all the nodes takes multiple hours but can take more if other processes, like firmware updates, are also part of the upgrade.
+Upgrading all the nodes takes multiple hours, depending upon how many racks exist for the Cluster.
 Due to the length of the upgrade process, the Cluster's detail status should be checked periodically for the current state of the upgrade.
-To check on the status of the upgrade observe the detailed status of the cluster. This check can be done via the portal or az CLI.
+To check on the status of the upgrade observe the detailed status of the Cluster. This check can be done via the portal or az CLI.
 
 To view the upgrade status through the Azure portal, navigate to the targeted cluster resource. In the cluster's *Overview* screen, the detailed status is provided along with a detailed status message.
 
