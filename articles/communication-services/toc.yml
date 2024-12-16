@@ -227,10 +227,10 @@ items:
     items:
     - name: WhatsApp
       items:
+        - name: Try Advanced Messaging Sandbox
+          href: quickstarts/advanced-messaging/whatsapp/whatsapp-sandbox-quickstart.md
         - name: Register WhatsApp Business Account
           href: quickstarts/advanced-messaging/whatsapp/connect-whatsapp-business-account.md
-        - name: WhatsApp Business Account FAQ
-          href: quickstarts/advanced-messaging/whatsapp/whatsapp-business-account-faq.md
         - name: Send WhatsApp Messages
           items:
             - name: Text And Media Messages
@@ -247,8 +247,8 @@ items:
           href: quickstarts/advanced-messaging/whatsapp/handle-advanced-messaging-events.md
         - name: Download Media Payload
           href: quickstarts/advanced-messaging/whatsapp/download-media.md
-        - name: Try Advanced Messaging Sandbox
-          href: quickstarts/advanced-messaging/whatsapp/whatsapp-sandbox-quickstart.md
+        - name: WhatsApp Business Account FAQ
+          href: quickstarts/advanced-messaging/whatsapp/whatsapp-business-account-faq.md
     - name: Message Analysis
       items:
         - name: Enable Message Analysis With Azure OpenAI
