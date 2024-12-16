@@ -75,9 +75,9 @@ Azure Migrate has a suite of the following tools integrated within the product:
 | **Azure Migrate: Discovery and assessment** | Discover and assess servers including SQL and web apps | Discover and assess on-premises servers running on VMware, Hyper-V, and physical servers in preparation for migration to Azure. |
 | **Migration and modernization** | Migrate servers | Migrate VMware VMs, Hyper-V VMs, physical servers, other virtualized servers, and public cloud VMs to Azure. |
 | **Data Migration Assistant** | Assess SQL Server databases for migration to Azure SQL Database, Azure SQL Managed Instance, or Azure VMs running SQL Server. | Data Migration Assistant is a stand-alone tool to assess SQL Servers. It helps pinpoint potential problems blocking migration. It finds unsupported features, new features that can benefit you after migration, and the right path for database migration. [Learn more](https://learn.microsoft.com/sql/dma/dma-overview). |
-| **Azure Database Migration Service** | Migrate on-premises databases to Azure VMs running SQL Server, Azure SQL Database, or SQL Managed Instances | [Learn more](https://learn.microsoft.com/azure/dms/dms-overview) about Database Migration Service. |
+| **Azure Database Migration Service** | Migrate on-premises databases to Azure VMs running SQL Server, Azure SQL Database, or SQL Managed Instances | [Learn more](/azure/dms/dms-overview) about Database Migration Service. |
 | **Web app migration assistant** | Assess on-premises web apps and migrate them to Azure. | Azure App Service Migration Assistant is a standalone tool to assess on-premises websites for migration to Azure App Service.<br><br>Use Migration Assistant to migrate .NET and PHP web apps to Azure. [Learn more](https://appmigration.microsoft.com/) about Azure App Service Migration Assistant. |
-| **Azure Data Box** | Migrate offline data | Use Azure Data Box products to move large amounts of offline data to Azure. [Learn more](https://learn.microsoft.com/azure/databox/). |
+| **Azure Data Box** | Migrate offline data | Use Azure Data Box products to move large amounts of offline data to Azure. [Learn more](/azure/databox/). |
 | **Movere** | Deprecated | Use Azure Migrate for your migration journey. |
 
 #### ISV integration
