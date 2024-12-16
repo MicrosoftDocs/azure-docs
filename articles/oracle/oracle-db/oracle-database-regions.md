@@ -14,6 +14,9 @@ ms.author: jacobjaygbay
 
 Learn what Azure regions and corresponding Oracle Cloud Infrastructure (OCI) regions support Oracle Database@Azure in standard business regions across the globe.
 
+>[!NOTE]
+>To publish a region for Oracle Database@Azure, Microsoft requires two availability zones. However, Oracle Cloud Infrastructure (OCI) regions are single availability zones. Therefore, in a few instances, Oracle Database@Azure is available in regions where Azure and OCI regions are in the same geographic location.
+
 ## Asia Pacific (APAC)
 
 The following table lists Azure regions and corresponding OCI regions that support Oracle Database@Azure in the APAC business region:
