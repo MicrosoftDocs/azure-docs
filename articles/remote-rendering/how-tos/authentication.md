@@ -36,7 +36,7 @@ Azure Remote Rendering uses the same authentication mechanism as [Azure Spatial 
     {"AccessToken":"eyJhbGciOiJSUzI1<truncated>uLkO2FvA"}
     ```
 
-    Where the Authorization header is formatted as follows: `Bearer <Azure_AD_token>` or `Bearer <accoundId>:<accountKey>`. The former is preferable for security. The token returned from this REST call is the MR access token.
+    Where the Authorization header is formatted as follows: `Bearer <Azure_AD_token>` or `Bearer <accountId>:<accountKey>`. The former is preferable for security. The token returned from this REST call is the MR access token.
 
 ## Authentication for deployed applications
 
