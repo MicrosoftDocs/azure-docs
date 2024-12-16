@@ -52,13 +52,11 @@ This built-in trigger sends an HTTP request to a URL for a Swagger file that des
 
 1. On the designer, [follow these general steps to add the **HTTP** trigger named **HTTP + Swagger**](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger).
 
-1. In the **Swagger Endpoint** box, enter the URL for the Swagger file that you want, and select **Add Action**.
+1. In the **Swagger endpoint** box, enter the URL for the Swagger file that you want, and select **Add action**.
 
-   Make sure to use or create your own endpoint. As an example only, these steps use the following [Azure AI Face API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) Swagger URL located in the West US region and might not work in your specific trigger:
+   Make sure to use or create your own endpoint and URL. These steps use non-functional Swagger URLs for the Azure AI Face service only as an example:
 
-   `https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/export?DocumentFormat=Swagger&ApiName=Face%20API%20-%20V1.0`
-
-   :::image type="content" source="media/connectors-native-http-swagger/http-swagger-trigger-parameters-standard.png" alt-text="Screenshot shows Standard workflow designer with trigger named httpswaggeraction. The Swagger Endpoint property is set to a URL value.":::
+   :::image type="content" source="media/connectors-native-http-swagger/http-swagger-trigger-parameters-standard.png" alt-text="Screenshot shows Standard workflow designer with trigger named H T T P + Swagger. The Swagger endpoint property is set to a URL value.":::
 
 1. When the designer shows the operations described by the Swagger file, select the operation that you want to use.
 
@@ -82,13 +80,11 @@ This built-in trigger sends an HTTP request to a URL for a Swagger file that des
 
 1. On the designer, [follow these general steps to add the **HTTP** trigger named **HTTP + Swagger**](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=consumption#add-trigger).
 
-1. In the **SWAGGER ENDPOINT URL** box, enter the URL for the Swagger file that you want, and select **Next**.
+1. In the **Swagger endpoint** box, enter the URL for the Swagger file that you want, and select **Add action**.
 
-   Make sure to use or create your own endpoint. As an example only, these steps use the following [Azure AI Face API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) Swagger URL located in the West US region and might not work in your specific trigger:
+   Make sure to use or create your own endpoint and URL. These steps use non-functional Swagger URLs for the Azure AI Face service only as an example:
 
-   `https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/export?DocumentFormat=Swagger&ApiName=Face%20API%20-%20V1.0`
-
-   :::image type="content" source="media/connectors-native-http-swagger/http-swagger-trigger-parameters-consumption.png" alt-text="Screenshot shows Consumption workflow designer with trigger named H T T P + Swagger. The SWAGGER ENDPOINT URL property is set to a URL value.":::
+   :::image type="content" source="media/connectors-native-http-swagger/http-swagger-trigger-parameters-consumption.png" alt-text="Screenshot shows Consumption workflow designer with trigger named H T T P + Swagger. The Swagger endpoint property is set to a URL value.":::
 
 1. When the designer shows the operations described by the Swagger file, select the operation that you want to use.
 
