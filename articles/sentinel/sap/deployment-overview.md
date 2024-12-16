@@ -56,7 +56,7 @@ The Microsoft Sentinel agentless data connector for SAP uses the SAP Cloud Conne
 
 By using the SAP Cloud Connector, the **Agentless solution** profits from already existing setups and established integration processes. This means you don't have to tackle network challenges again, as the people running your SAP Cloud Connector have already gone through that process.
 
-The **Agentless solution** is compatible with SAP S/4HANA Cloud, Private Edition RISE with SAP, and SAP S/4HANA on-premises, ensuring continued functionality of existing security content, including detections, workbooks, and playbooks.
+The **Agentless solution** is compatible with SAP S/4HANA Cloud, Private Edition RISE with SAP, SAP S/4HANA on-premises, and SAP ERP Central Component (ECC), ensuring continued functionality of existing security content, including detections, workbooks, and playbooks.
 
 The agentless solution in limited preview starts by supporting the SAP audit log, which typically covers the majority of SAP threat scenarios.
 
