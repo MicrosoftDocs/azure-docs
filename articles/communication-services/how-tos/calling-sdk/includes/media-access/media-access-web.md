@@ -52,7 +52,7 @@ mediaAccessFeature.forbidAudio(participants);
 ```
 
 ### Handle changed states
-With the 'Media access' API, you can subscribe to the `mediaAccessChanged` events to handle changes in the state of participants on a call. These events are from a call instance and provide information about the participant whose state change and the `meetingMediaAccessChanged` events to handle Teams meeting options setting Disable/Enable mic/camera changes.
+You can subscribe to the `mediaAccessChanged` events from 'Media access' API to handle changes in the state of participants on a call. These events are from a call instance and provide information about the participant whose state change and the `meetingMediaAccessChanged` events to handle Teams meeting options setting Disable/Enable mic/camera changes.
 
 To subscribe to these events, you can use the following code:
 ```js
