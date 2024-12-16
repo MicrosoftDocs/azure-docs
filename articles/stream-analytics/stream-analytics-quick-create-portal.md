@@ -157,8 +157,8 @@ In this section, you configure an IoT Hub device input to the Stream Analytics j
 When no longer needed, delete the resource group, the Stream Analytics job, and all related resources. Deleting the job avoids billing the streaming units consumed by the job. If you're planning to use the job in future, you can stop it and restart it later when you need. If you aren't going to continue to use this job, delete all resources created by this quickstart by using the following steps:
 
 1. From the left-hand menu in the Azure portal, select **Resource groups** and then select the name of the resource you created.  
-
-2. On your resource group page, select **Delete**, type the name of the resource to delete in the text box, and then select **Delete**.
+1. On your resource group page, select **Delete**, type the name of the resource to delete in the text box, and then select **Delete**.
+1. On the **Raspberry Pi Azure IoT Online Simulator** app, select **Reset** next to Run in the bottom pane to the right. 
 
 ## Next step
 To learn about configuring other input sources and performing real-time detection, continue to the following article:
