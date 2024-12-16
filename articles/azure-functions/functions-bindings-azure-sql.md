@@ -9,7 +9,7 @@ ms.custom:
   - devx-track-js
   - devx-track-python
   - ignite-2023
-ms.date: 03/12/2023
+ms.date: 12/06/2024
 ms.author: bspendolini
 ms.reviewer: glenga
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -258,6 +258,8 @@ Notable keywords include:
 - Source code for the Azure SQL bindings can be found in [this GitHub repository](https://github.com/Azure/azure-functions-sql-extension).
 - This binding requires connectivity to an Azure SQL or SQL Server database.
 - Output bindings against tables with columns of data types `NTEXT`, `TEXT`, or `IMAGE` aren't supported and data upserts will fail. These types [will be removed](/sql/t-sql/data-types/ntext-text-and-image-transact-sql) in a future version of SQL Server and aren't compatible with the `OPENJSON` function used by this Azure Functions binding.
+- Use [managed identities](/azure/azure-sql/database/authentication-azure-ad-user-assigned-managed-identity) instead of usernames and passwords.
+- Concider using an [Azure Key Value](/azure/app-service/app-service-key-vault-references) to store application settings.
 
 ## Samples
 

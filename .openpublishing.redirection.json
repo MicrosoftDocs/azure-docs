@@ -6,6 +6,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/migrate/context/vmware-context.yml",
+      "redirect_url": "articles/migrate/context/migrate-context",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/partner-solutions/split-experimentation/how-to-set-up-data-access.md",
       "redirect_url": "/previous-versions/azure/partner-solutions/split-experimentation/how-to-set-up-data-access",
       "redirect_document_id": false
@@ -1978,6 +1983,11 @@
     {
       "source_path_from_root": "/articles/firewall/tutorial-protect-firewall.md",
       "redirect_url": "/azure/firewall/tutorial-protect-firewall-ddos",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/firewall-manager/check-point-overview.md",
+      "redirect_url": "/azure/firewall-manager/deploy-trusted-security-partner",
       "redirect_document_id": false
     },
     {
@@ -4018,6 +4028,46 @@
     {
       "source_path_from_root": "/articles/defender-for-iot/device-builders/overview-firmware-analysis.md",
       "redirect_url": "/azure/firmware-analysis/overview-firmware-analysis",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/managed-grafana/how-to-upgrade-grafana-10.md",
+      "redirect_url": "/azure/managed-grafana/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/managed-grafana/concept-whats-new.md",
+      "redirect_url": "/azure/managed-grafana/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/managed-grafana/how-to-transition-domain.md",
+      "redirect_url": "/azure/managed-grafana/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/load-balancer/move-across-regions-external-load-balancer-portal.md",
+      "redirect_url": "/azure/load-balancer/move-across-regions-azure-load-balancer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/load-balancer/move-across-regions-external-load-balancer-powershell.md",
+      "redirect_url": "/azure/load-balancer/move-across-regions-azure-load-balancer",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path_from_root": "/articles/load-balancer/move-across-regions-internal-load-balancer-portal.md",
+      "redirect_url": "/azure/load-balancer/move-across-regions-azure-load-balancer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/load-balancer/move-across-regions-internal-load-balancer-powershell.md",
+      "redirect_url": "/azure/load-balancer/move-across-regions-azure-load-balancer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/fasttrack/index.yml",
+      "redirect_url": "/azure",
       "redirect_document_id": false
     }
   ]

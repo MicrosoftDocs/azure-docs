@@ -39,18 +39,18 @@ Expected Output
 ```azurecli
 {
   "properties": {
-    "networkFabricId": "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkFabrics/example-networkFabric",
+    "networkFabricId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkFabrics/example-networkFabric",
     "networkDeviceIds": [
-      "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkDevices/example-networkDevice"
+      "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkDevices/example-networkDevice"
     ],
     "sourceInterfaceIds": [
-      "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkDevices/example-networkDevice/networkInterfaces/example-networkInterface"
+      "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkDevices/example-networkDevice/networkInterfaces/example-networkInterface"
     ],
     "networkTapIds": [
-      "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkTaps/example-networkTap"
+      "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkTaps/example-networkTap"
     ],
     "neighborGroupIds": [
-      "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/neighborGroups/example-neighborGroup"
+      "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/neighborGroups/example-neighborGroup"
     ],
     "provisioningState": "Succeeded"
   },
@@ -58,7 +58,7 @@ Expected Output
     "key2806": "key"
   },
   "location": "eastuseuap",
-  "id": "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkPacketBrokers/example-networkPacketBroker",
+  "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkPacketBrokers/example-networkPacketBroker",
   "name": "example-networkPacketBroker",
   "type": "microsoft.managednetworkfabric/networkPacketBrokers",
   "systemData": {
@@ -88,7 +88,7 @@ NetworkTapRule resource provides ability for providing filtering and forwarding 
 | match-configurations/action|Provide action details. Actions can be Drop, Count, Log,Goto,Redirect,Mirror|  | |
 | dynamic-match-configurations|List of dynamic match configurations based Port, VLAN & IP |  | |
 > [!NOTE]
-> Network Tap rules and Neighbor Groups must be created prior to refrencing them in Network Tap 
+> Network Tap rules and Neighbor Groups must be created prior to referencing them in Network Tap 
 ### Create Network Tap Rule
 This command creates a Network Tap rule:
 ```azurecli
@@ -96,13 +96,13 @@ az networkfabric taprule create --resource-group "example-rg" --location "westus
  --configuration-type "Inline" \
  --match-configurations "[{matchConfigurationName:config1,sequenceNumber:10,ipAddressType:IPv4,matchConditions:[{encapsulationType:None,portCondition:{portType:SourcePort,layer4Protocol:TCP,ports:[100],portGroupNames:['example-portGroup1']},protocolTypes:[TCP],vlanMatchCondition:{vlans:['10'],innerVlans:['11-20']},ipCondition:{type:SourceIP,prefixType:Prefix,ipPrefixValues:['10.10.10.10/20']}}],\
  actions:[{type:Drop,truncate:100,isTimestampEnabled:True,destinationId:'/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxx/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/neighborGroups/example-neighborGroup',matchConfigurationName:match1}]}]"\
- --dynamic-match-configurations"[{ipGroups:[{name:'example-ipGroup1',ipAddressType:IPv4,ipPrefixes:['10.10.10.10/30']}],vlanGroups:[{name:'exmaple-vlanGroup',vlans:['10']}],portGroups:[{name:'example-portGroup1',ports:['100-200']}]}]"
+ --dynamic-match-configurations"[{ipGroups:[{name:'example-ipGroup1',ipAddressType:IPv4,ipPrefixes:['10.10.10.10/30']}],vlanGroups:[{name:'example-vlanGroup',vlans:['10']}],portGroups:[{name:'example-portGroup1',ports:['100-200']}]}]"
 ```
 Expected output:
 ```output
 {
   "properties": {
-    "networkTapId": "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkTaps/example-taprule",
+    "networkTapId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkTaps/example-taprule",
     "pollingIntervalInSeconds": 30,
     "lastSyncedTime": "2023-06-12T07:11:22.485Z",
     "configurationState": "Succeeded",
@@ -140,7 +140,7 @@ Expected output:
                 "11-20"
               ],
               "vlanGroupNames": [
-                "exmaple-vlanGroup"
+                "example-vlanGroup"
               ]
             },
             "ipCondition": {
@@ -160,7 +160,7 @@ Expected output:
             "type": "Drop",
             "truncate": "100",
             "isTimestampEnabled": "True",
-            "destinationId": "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/neighborGroups/example-neighborGroup",
+            "destinationId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/neighborGroups/example-neighborGroup",
             "matchConfigurationName": "match1"
           }
         ]
@@ -178,7 +178,7 @@ Expected output:
         ],
         "vlanGroups": [
           {
-            "name": "exmaple-vlanGroup",
+            "name": "example-vlanGroup",
             "vlans": [
               "10",
               "100-200"
@@ -207,7 +207,7 @@ Expected output:
     "keyID": "keyValue"
   },
   "location": "eastuseuap",
-  "id": "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkTapRules/example-tapRule",
+  "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkTapRules/example-tapRule",
   "name": "example-tapRule",
   "type": "microsoft.managednetworkfabric/networkTapRules",
   "systemData": {
@@ -229,7 +229,7 @@ Expected output:
 ```output
 {
   "properties": {
-    "networkTapId": "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkTaps/example-taprule",
+    "networkTapId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkTaps/example-taprule",
     "pollingIntervalInSeconds": 30,
     "lastSyncedTime": "2023-06-12T07:11:22.485Z",
     "configurationState": "Succeeded",
@@ -267,7 +267,7 @@ Expected output:
                 "11-20"
               ],
               "vlanGroupNames": [
-                "exmaple-vlanGroup"
+                "example-vlanGroup"
               ]
             },
             "ipCondition": {
@@ -287,7 +287,7 @@ Expected output:
             "type": "Drop",
             "truncate": "100",
             "isTimestampEnabled": "True",
-            "destinationId": "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/neighborGroups/example-neighborGroup",
+            "destinationId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/neighborGroups/example-neighborGroup",
             "matchConfigurationName": "match1"
           }
         ]
@@ -305,7 +305,7 @@ Expected output:
         ],
         "vlanGroups": [
           {
-            "name": "exmaple-vlanGroup",
+            "name": "example-vlanGroup",
             "vlans": [
               "10",
               "100-200"
@@ -334,7 +334,7 @@ Expected output:
     "keyID": "keyValue"
   },
   "location": "eastuseuap",
-  "id": "/subscriptions/1234ABCD-0A1B-1234-5678-123456ABCDEF/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkTapRules/example-tapRule",
+  "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkTapRules/example-tapRule",
   "name": "example-tapRule",
   "type": "microsoft.managednetworkfabric/networkTapRules",
   "systemData": {
@@ -455,6 +455,6 @@ az networkfabric tap create --resource-group "example-rg" --location "westus3" \
 --resource-name "example-networktap" \
 --network-packet-broker-id "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxx/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkPacketBrokers/example-networkPacketBroker" \
 --polling-type "Pull"\
---destinations "[{name:'example-destinationName',destinationType:IsolationDomain,destinationId:'/subscriptions/xxxxx/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/l3IsloationDomains/example-l3Domain/internalNetworks/example-internalNetwork',\
+--destinations "[{name:'example-destinationName',destinationType:IsolationDomain,destinationId:'/subscriptions/xxxxx/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/l3IsolationDomains/example-l3Domain/internalNetworks/example-internalNetwork',\
 isolationDomainProperties:{encapsulation:None,neighborGroupIds:['/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxx/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/neighborGroups/example-neighborGroup']},\
 ```
