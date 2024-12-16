@@ -16,7 +16,7 @@ This article summarizes prerequisites and support requirements for using the [Az
 
 To assess servers, first, create an Azure Migrate project. The Azure Migrate: Discovery and assessment tool is automatically added to the project. Then, deploy the Azure Migrate appliance. The appliance continuously discovers on-premises servers and sends configuration and performance metadata to Azure. When discovery is finished, gather the discovered servers into groups and run assessments per group.
 
-As you plan your migration of VMware servers to Azure, see the [migration support matrix](../migrate-support-matrix-vmware-migration.md).
+As you plan your migration of VMware servers to Azure, see the [migration support matrix](migrate-support-matrix-vmware-migration.md).
 
 
 ## VMware requirements
