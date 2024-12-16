@@ -90,7 +90,9 @@ Generate new authorization keys for the ExpressRoute circuits using the command 
 | Workload             | er-circuit-D              | er-authz-key-d20  |
 
 > [!NOTE]
-> There are 4 ExpressRoute circuits, each with an existing connection. Repeat the above step for each circuit that requires a new authorization key. The authorization keys provided here are sample values and should not be used as real keys.
+> There are 4 ExpressRoute circuits, each with an existing connection.<br>
+> Repeat the above step for each circuit that requires a new authorization key.<br>
+> The authorization keys provided here are sample values and should not be used as real keys.
 
 ### Step 4: Update Authorization Keys
 
