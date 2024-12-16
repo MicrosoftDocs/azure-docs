@@ -1,7 +1,7 @@
 ---
-title: Quickstart - Add precall diagnostics to your app
+title: Quickstart - Add pre-call diagnostics to your app
 titleSuffix: An Azure Communication Services quickstart
-description: In this quickstart, you will learn how to add pre call diagnostics capabilities to your app by using Azure Communication Services.
+description: This quickstart describes how to add pre-call diagnostics capabilities to your app using Azure Communication Services.
 author: yassirbisteni
 manager: bobgao
 ms.author: yassirb
@@ -13,21 +13,22 @@ zone_pivot_groups: acs-plat-web-windows-android-ios
 ms.custom: mode-other, devx-track-js
 ---
 
-# Quickstart: Add precall diagnostics to your app
+# Quickstart: Add pre-call diagnostics to your app
+
 ::: zone pivot="platform-web"
-[!INCLUDE [Precall diagnostics with JavaScript](./includes/pre-call-diagnostics/pre-call-diagnostics-javascript.md)]
+[!INCLUDE [Pre-call diagnostics with JavaScript](./includes/pre-call-diagnostics/pre-call-diagnostics-javascript.md)]
 ::: zone-end
 
 ::: zone pivot="platform-windows"
-[!INCLUDE [Precall diagnostics with Windows](./includes/pre-call-diagnostics/pre-call-diagnostics-windows.md)]
+[!INCLUDE [Pre-call diagnostics with Windows](./includes/pre-call-diagnostics/pre-call-diagnostics-windows.md)]
 ::: zone-end
 
 ::: zone pivot="platform-android"
-[!INCLUDE [Precall diagnostics with Android](./includes/pre-call-diagnostics/pre-call-diagnostics-android.md)]
+[!INCLUDE [Pre-call diagnostics with Android](./includes/pre-call-diagnostics/pre-call-diagnostics-android.md)]
 ::: zone-end
 
 ::: zone pivot="platform-ios"
-[!INCLUDE [Precall diagnostics with iOS](./includes/pre-call-diagnostics/pre-call-diagnostics-ios.md)]
+[!INCLUDE [Pre-call diagnostics with iOS](./includes/pre-call-diagnostics/pre-call-diagnostics-ios.md)]
 ::: zone-end
 
 ## Pricing
@@ -36,10 +37,10 @@ When the pre-call diagnostic test runs behind the scenes, it uses calling minute
 
 ## Next steps
 
-- [Check your network condition with the diagnostics tool](../../concepts/developer-tools/network-diagnostic.md)
-- [Explore User-Facing Diagnostic APIs](../../concepts/voice-video-calling/user-facing-diagnostics.md)
-- [Enable Media Quality Statistics in your application](../../concepts/voice-video-calling/media-quality-sdk.md)
-- [Consume call logs with Azure Monitor](../../concepts/analytics/logs/voice-and-video-logs.md)
+- [Check your network condition with the diagnostics tool](../../concepts/developer-tools/network-diagnostic.md).
+- [Explore User-Facing Diagnostic APIs](../../concepts/voice-video-calling/user-facing-diagnostics.md).
+- [Enable Media Quality Statistics in your application](../../concepts/voice-video-calling/media-quality-sdk.md).
+- [Consume call logs with Azure Monitor](../../concepts/analytics/logs/voice-and-video-logs.md).
 
 ## Related articles
 

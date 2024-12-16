@@ -1,25 +1,25 @@
 ---
-title: Azure Communication Services precall diagnostics
+title: Azure Communication Services pre-call diagnostics
 titleSuffix: An Azure Communication Services concept document
-description: Overview of the precall diagnostic API feature.
+description: Implement the pre-call diagnostic API feature.
 author: yassirbisteni
 manager: bobgao
 services: azure-communication-services
-ms.author: yassirb
-ms.date: 12/12/2024
+ms.author: ybisteni
+ms.date: 11/11/2024
 ms.topic: conceptual
 ms.service: azure-communication-services
 ---
 
-## Precall diagnostics
+## Implement pre-call diagnostics with iOS
 
 [!INCLUDE [Public Preview Disclaimer](../../../../includes/public-preview-include.md)]
 
-The precall API feature allows developers to programmatically validate a client’s readiness to join an Azure Communication Services call. You can only access precall features using the Calling SDK. The precall diagnostic feature provides multiple diagnostics including device, connection, and call quality. Provide us with [feedback](../../../../support.md) about which platforms you want to see precall diagnostics enabled.
+The pre-call API feature allows developers to programmatically validate a client’s readiness to join an Azure Communication Services call. You can only access pre-call features using the Calling SDK. The pre-call diagnostic feature provides multiple diagnostics including device, connection, and call quality. Provide us with [feedback](../../support.md) about which platforms you want to see pre-call diagnostics enabled.
 
-## Precall diagnostics access
+### Pre-call diagnostics access
 
-To access precall diagnostics, you need to initialize a `CallClient`, and provision an Azure Communication Services access token. Then you can access the `PreCallDiagnostics` feature and the `startTest` method.
+To access pre-call diagnostics, you need to initialize a `CallClient`, and provision an Azure Communication Services access token. Then you can access the `PreCallDiagnostics` feature and the `startTest` method.
 
 ```swift
 let acsToken: String;
@@ -65,9 +65,9 @@ class PreCallDiagnosticsCallClientFeatureObserver: NSObject, PreCallDiagnosticsC
 
 Once it finishes running, developers can access the result object.
 
-## Diagnostic results
+### Diagnostic results
 
-Pre-call diagnostics return a full diagnostic of the device including details like availability and compatibility, call quality statistics, and in-call diagnostics. The results are returned as a `PreCallDiagnosticsReadyEvent` object.
+Pre-call diagnostics returns a full diagnostic of the device including details like availability and compatibility, call quality statistics, and in-call diagnostics. The results are returned as a `PreCallDiagnosticsReadyEvent` object.
 
 ```swift
 func onPreCallDiagnosticsReady(args: PreCallDiagnosticsReadyEventArgs) -> Void
@@ -91,9 +91,9 @@ func onPreCallDiagnosticsReady(args: PreCallDiagnosticsReadyEventArgs) -> Void
 }
 ```
 
-You can access individual result objects using the `PreCallDiagnosticsReadyEvent` type. Results for individual tests are returned as they are completed with many of the test results being available immediately. The results might take up to 1 minute as the test validates the quality of the video and audio.
+You can access individual result objects using the `PreCallDiagnosticsReadyEvent` type. Results for individual tests are returned as they're completed with many of the test results being available immediately. The results might take up to 1 minute as the test validates the quality of the video and audio.
 
-### Device permissions
+#### Device permissions
 
 The permission check determines whether video and audio devices are available from a permissions perspective. Provides `boolean` value for `audio` and `video` devices. 
 

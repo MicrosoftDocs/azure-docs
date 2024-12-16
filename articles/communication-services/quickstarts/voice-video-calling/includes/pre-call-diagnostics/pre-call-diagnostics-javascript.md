@@ -1,7 +1,7 @@
 ---
-title: Azure Communication Services precall diagnostics
+title: Azure Communication Services pre-call diagnostics
 titleSuffix: An Azure Communication Services concept document
-description: Overview of the precall diagnostic API feature.
+description: Overview of the pre-call diagnostic API feature.
 author: tophpalmer
 manager: chpalm
 services: azure-communication-services
@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.service: azure-communication-services
 ---
 
-## Precall diagnostics
+## Pre-call diagnostics
 
 [!INCLUDE [Public Preview Disclaimer](../../../../includes/public-preview-include.md)]
 
-The precall API feature enables developers to programmatically validate a client’s readiness to join an Azure Communication Services call. You can only access precall features using the Calling SDK. The precall diagnostic feature provides multiple diagnostics including device, connection, and call quality. Provide us with [feedback](../../../../support.md) about which platforms you want to see precall diagnostics enabled.
+The pre-call API feature enables developers to programmatically validate a client’s readiness to join an Azure Communication Services call. You can only access pre-call features using the Calling SDK. The pre-call diagnostic feature provides multiple diagnostics including device, connection, and call quality. Provide us with [feedback](../../../../support.md) about which platforms you want to see pre-call diagnostics enabled.
 
 ## Prerequisites
 
@@ -30,12 +30,12 @@ The precall API feature enables developers to programmatically validate a client
 
   For more information, see [Use Azure CLI to Create and Manage Access Tokens](../../../identity/access-tokens.md?pivots=platform-azcli).
 
-## Accessing precall diagnostics
+## Accessing pre-call diagnostics
 
 >[!IMPORTANT]
 >Pre-call diagnostics are available starting with version [1.9.1-beta.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.9.1-beta.1) of the Calling SDK. Make sure to use that version or higher when following these instructions.
 
-To Access precall diagnostics, you need to initialize a `callClient`, and provision an Azure Communication Services access token. There you can access the `PreCallDiagnostics` feature and the `startTest` method.
+To access pre-call diagnostics, you need to initialize a `callClient`, and provision an Azure Communication Services access token. There you can access the `PreCallDiagnostics` feature and the `startTest` method.
 
 ```javascript
 import { CallClient, Features} from "@azure/communication-calling";
@@ -124,7 +124,7 @@ If devices aren't available, the user shouldn't continue into joining a call. Ra
 
 Performs a quick call to check in-call metrics for audio and video and provides results back. Includes connectivity (`connected`, boolean), bandwidth quality (`bandWidth`, `'Bad' | 'Average' | 'Good'`) and call diagnostics for audio and video (`diagnostics`). Provided diagnostic categories include `jitter`, `packetLoss`, and `rtt` and results are generated using a simple quality grade (`'Bad' | 'Average' | 'Good'`).
 
-InCall diagnostics uses [Media quality statistics](../../../../concepts/voice-video-calling/media-quality-sdk.md) to calculate quality scores and diagnose issues. During the precall diagnostic, the full set of media quality statistics are available for consumption. These statistics include raw values across video and audio metrics that you can use programatically.
+InCall diagnostics uses [Media quality statistics](../../../../concepts/voice-video-calling/media-quality-sdk.md) to calculate quality scores and diagnose issues. During the pre-call diagnostic, the full set of media quality statistics are available for consumption. These statistics include raw values across video and audio metrics that you can use programatically.
 
 The InCall diagnostic provides a convenience layer on top of media quality statistics to consume the results without the need to process all the raw data. For more information including instructions to access, see [Media quality statistics for an ongoing call](../../../../concepts/voice-video-calling/media-quality-sdk.md#media-quality-statistics-for-an-ongoing-call).
 
