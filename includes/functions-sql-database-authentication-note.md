@@ -2,9 +2,9 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 12/09/2024
+ms.date: 12/16/2024
 ms.author: glenga
 ---
 
 > [!IMPORTANT]
-> For optimal security, you should use Microsoft Entra ID with managed identities to authorize requests against your database, when possible. Microsoft Entra authentication with managed identity authorization provides the best security over shared access key authorization, and you don't have to managed keys. For more information about using managed identities with your database, see [Tutorial: Connect a function app to Azure SQL with managed identity and SQL bindings](functions-identity-access-azure-sql-with-managed-identity.md).
+> For optimal security, you should use Microsoft Entra ID with managed identities for connections between Functions and Azure SQL Database. Managed identities make your app more secure by eliminating secrets from your application deployments, such as credentials in the connection strings, server names, and ports being used. You can learn how to use managed identities in this tutorial, [Connect a function app to Azure SQL with managed identity and SQL bindings](../azure-functions/functions-identity-access-azure-sql-with-managed-identity.md).
