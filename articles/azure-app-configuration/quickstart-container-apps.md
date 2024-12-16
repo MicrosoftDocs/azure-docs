@@ -44,10 +44,14 @@ In this quickstart, you use Azure App Configuration in an app running in Azure C
       - Select the **System-assigned managed identity** authentication type
       - Expand the **Advanced** menu
       - Assign your identity the **App Configuration Data Reader** role
-      - Under **Configuration information**, you find an environment variable named `AZURE_APPCONFIGURATION_ENDPOINT`. Select the pencil icon on the right and edit the environment variable name to match the variable name in your application that contains your App Configuration endpoint. If you built your application following the [ASP.NET Core quickstart](./quickstart-aspnet-core-app.md), your variable name is `Endpoints:AppConfiguration`. If you're working with another application, enter the corresponding environment variable name, then select **Done**.
+      - Under **Configuration information**, you find an environment variable named `AZURE_APPCONFIGURATION_ENDPOINT`. Select the pencil icon on the right and edit the environment variable name to match the variable name in your application that contains your App Configuration endpoint. If you built your application following the [ASP.NET Core quickstart](./quickstart-aspnet-core-app.md), your variable name is `Endpoints:AppConfiguration`. Customize it to `Endpoints_AppConfiguration`. If you're working with another application, enter the corresponding environment variable name, then select **Done**.
+    
+        > [!NOTE]
+        > Service connector doesn't take in colons (`:`). If your variable contains a colon, replace it with an underscore (`_`).
+
       - Use default values for everything else.
 
-    When the connection is created, an environment variable named `Endpoints:AppConfiguration` is added to the container of your Container App resource. Its value is a reference to your App Configuration store endpoint.
+    When the connection is created, an environment variable named `Endpoints_AppConfiguration` is added to the container of your Container App resource. Its value is a reference to your App Configuration store endpoint.
 
 ## Build a container
 
@@ -170,7 +174,7 @@ The web page looks like this:
 
 [!INCLUDE [Azure App Configuration cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
-## Next steps
+## Related content
 
 In this quickstart, you:
 
