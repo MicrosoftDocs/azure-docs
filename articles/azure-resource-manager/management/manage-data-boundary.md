@@ -2,7 +2,7 @@
 title: Configure data boundary
 description: Learn how to configure data boundary.
 ms.topic: how-to
-ms.date: 12/11/2024
+ms.date: 12/16/2024
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 # Customer intent: As an Azure user, I want to create a new data boundary.
 ---
@@ -85,6 +85,13 @@ For more information, see [Assign Azure roles](../../role-based-access-control/r
 
 ## Create data boundary
 
+Data boundary geo currently has two options:
+
+|Data boundary geo | Description |
+|------|-------------|
+|Global| By default, all tenants have a global data boundary. |
+|EU    | Establish an EU data boundary. |
+
 To opt in a tenant to data boundary, use the following commands.
 
 # [Azure CLI](#tab/azure-cli)
@@ -137,13 +144,6 @@ Request body:
 For more information, see [Azure REST API Reference](/rest/api/azure/).
 
 ---
-
-Data boundary geo currently has two options:
-
-|Data boundary geo | Description |
-|------|-------------|
-|Global| By default, all tenants have a global data boundary. |
-|EU    | Establish an EU data boundary. |
 
 ## Read data boundary
 
