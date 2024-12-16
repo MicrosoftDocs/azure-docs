@@ -20,7 +20,7 @@ When you set up the appliance, it connects to vCenter Server and starts discover
 
 ## Before you start
 
-If you haven't set up a vCenter Server user account that Azure Migrate uses for discovery, do that now for [assessment](./tutorial-discover-vmware.md#prepare-vmware) or [agentless migration](./migrate-support-matrix-vmware-migration.md#agentless-migration).
+If you haven't set up a vCenter Server user account that Azure Migrate uses for discovery, do that now for [assessment](./tutorial-discover-vmware.md?context=/azure/migrate/context/migrate-context#prepare-vmware) or [agentless migration](./migrate-support-matrix-vmware-migration.md?context=/azure/migrate/context/migrate-context#agentless-migration).
 
 
 ## Assign permissions and roles
@@ -39,7 +39,7 @@ You can assign permissions on VMware vSphere inventory objects using one of two 
 
 ### Assign a role for agentless migration
 
-1. On the appliance vCenter Server account you're using for migration, apply a user-defined role that has the [permissions needed](migrate-support-matrix-vmware-migration.md#vmware-vsphere-requirements-agentless), to all parent objects that host servers you want to discover and migrate.
+1. On the appliance vCenter Server account you're using for migration, apply a user-defined role that has the [permissions needed](migrate-support-matrix-vmware-migration.md?context=/azure/migrate/context/migrate-context#vmware-vsphere-requirements-agentless), to all parent objects that host servers you want to discover and migrate.
 2. You can name the role with something that's easier to identify. For example, <em>Azure_Migrate</em>.
 
 ### Scoped discovery of VMs
@@ -54,4 +54,4 @@ You can assign permissions on VMware vSphere inventory objects using one of two 
 
 ## Next steps
 
-[Set up the appliance](how-to-set-up-appliance-vmware.md)
+[Set up the appliance](how-to-set-up-appliance-vmware.md?context=/azure/migrate/context/migrate-context)
