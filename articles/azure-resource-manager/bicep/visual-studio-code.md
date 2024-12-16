@@ -211,7 +211,7 @@ For the extract commands, see [Extract parameters, variables, and types](#extrac
 
 Extracting [variables](./variables.md), [parameters](./parameters.md), and [user-defined data types](./user-defined-data-types.md) involves isolating and defining these components from existing code to improve code structure, maintainability, and clarity.
 
-The following screenshot shows a definition of a storage account resource. You can extract a parameter or a variable, or a user-defined data type based of a property, such as `kind`. 
+The following screenshot shows a definition of a storage account resource. You can extract a parameter or a variable, or a user-defined data type based off of a property, such as `kind`. 
 
 Select the `kind` line from the code, and then select the yellow light bulb icon. The context windows shows the available extract options.
 
