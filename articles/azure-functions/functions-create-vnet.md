@@ -190,6 +190,9 @@ Create the queue where your Azure Functions Service Bus trigger gets events:
 
 1. Select **Create**.
 
+> [!IMPORTANT]
+> This tutorial currently shows you how to connect to Service Bus using a connection string, which requires you to handle a share secret. For improved security, you should instead use managed identities when connecting to Service Bus from your app. For more information, see [Identity-based connections](functions-bindings-service-bus-trigger.md?tabs=extensionv5#identity-based-connections) in the Service Bus binding reference article.
+
 ## Get a Service Bus connection string
 
 1. In your Service Bus, in the menu on the left, select **Shared access policies**.
