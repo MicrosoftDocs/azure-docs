@@ -15,7 +15,7 @@ ms.service: azure-communication-services
 
 [!INCLUDE [Public Preview Disclaimer](../../../../includes/public-preview-include.md)]
 
-The pre-call API feature allows developers to programmatically validate a client’s readiness to join an Azure Communication Services call. You can only access pre-call features using the Calling SDK. The pre-call diagnostic feature provides multiple diagnostics including device, connection, and call quality. Provide us with [feedback](../../support.md) about which platforms you want to see pre-call diagnostics enabled.
+The pre-call API feature allows developers to programmatically validate a client’s readiness to join an Azure Communication Services call. You can only access pre-call features using the Calling SDK. The pre-call diagnostic feature provides multiple diagnostics including device, connection, and call quality. Provide us with [feedback](../../../../support.md) about which platforms you want to see pre-call diagnostics enabled.
 
 ### Pre-call diagnostics access
 
