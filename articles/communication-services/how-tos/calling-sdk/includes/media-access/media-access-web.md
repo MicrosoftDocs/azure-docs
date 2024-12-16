@@ -112,28 +112,8 @@ Here's an example of how to use the `getAllOthersMediaAccess` API:
 const mediaAccessHandFeature = call.feature(Features.MediaAccess);
 let remoteParticipantsMediaAccess = mediaAccessHandFeature.getAllOthersMediaAccess();
 ```
-Example returned by list all remote participants media access:
-```json
-{
-    "identifier": {
-        "kind": "microsoftTeamsUser",
-        "rawId": "8:orgid:9190c503-61e1-43e6-a165-daf3bad4cd53",
-        "microsoftTeamsUserId": "9190c503-61e1-43e6-a165-daf3bad4cd53",
-        "isAnonymous": false,
-        "cloud": "public"
-    },
-    "isAudioPermitted": true,
-    "isVideoPermitted": true
-},
-{
-    "identifier": {
-        "kind": "communicationUser",
-        "communicationUserId": "8:acs:efd3c229-b212-437a-945d-92326f13a1be_00000024-70f3-ae62-4ff7-343a0d002fcb"
-    },
-    "isAudioPermitted": true,
-    "isVideoPermitted": true
-},
-```
+See `Handle changed states` section for example array of media access objects returned by list all remote participants media access.
+
 ### Troubleshooting
 
 |Error code| Subcode | Result Category | Reason | Resolution |
