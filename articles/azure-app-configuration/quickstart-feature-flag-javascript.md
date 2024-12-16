@@ -54,8 +54,8 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
     const credential = new DefaultAzureCredential(); // For more information, see https://learn.microsoft.com/azure/developer/javascript/sdk/credential-chains#use-defaultazurecredential-for-flexibility
 
     async function run() {
-        // Connect to Azure App Configuration using connection string
-        const settings = await load(connectionString, {
+        // Connect to Azure App Configuration using token credential
+        const settings = await load(endpoint, credential, {
             featureFlagOptions: {
                 enabled: true,
                 // Note: selectors must be explicitly provided for feature flags.
@@ -136,13 +136,13 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
     If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
     ```cmd
-    setx AZURE_APPCONFIG_ENDPOINT "endpoint-of-your-app-configuration-store"
+    setx AZURE_APPCONFIG_ENDPOINT <endpoint-of-your-app-configuration-store>
     ```
 
     If you use PowerShell, run the following command:
 
     ```powershell
-    $Env:AZURE_APPCONFIG_ENDPOINT = "endpoint-of-your-app-configuration-store"
+    $Env:AZURE_APPCONFIG_ENDPOINT = <endpoint-of-your-app-configuration-store>
     ```
 
     If you use macOS or Linux, run the following command:
@@ -157,13 +157,13 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
     If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
     ```cmd
-    setx AZURE_APPCONFIG_CONNECTION_STRING "connection-string-of-your-app-configuration-store"
+    setx AZURE_APPCONFIG_CONNECTION_STRING <connection-string-of-your-app-configuration-store>
     ```
 
    If you use PowerShell, run the following command:
 
     ```powershell
-    $Env:AZURE_APPCONFIG_CONNECTION_STRING = "connection-string-of-your-app-configuration-store"
+    $Env:AZURE_APPCONFIG_CONNECTION_STRING = <connection-string-of-your-app-configuration-store>
     ```
 
     If you use macOS or Linux, run the following command:

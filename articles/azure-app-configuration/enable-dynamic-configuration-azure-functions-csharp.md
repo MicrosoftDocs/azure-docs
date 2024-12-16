@@ -184,13 +184,13 @@ Azure Functions support running [in-process](../azure-functions/functions-dotnet
 1. Set an environment variable named **ConnectionString**, and set it to the access key to your app configuration store. If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
     ```console
-    setx ConnectionString "connection-string-of-your-app-configuration-store"
+    setx ConnectionString <connection-string-of-your-app-configuration-store>
     ```
 
     If you use Windows PowerShell, run the following command:
 
     ```powershell
-    $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
+    $Env:ConnectionString = <connection-string-of-your-app-configuration-store>
     ```
 
     If you use macOS or Linux, run the following command:

@@ -98,7 +98,7 @@ In this section, you will create a console application and load data from your A
     To run the app locally using the Windows command prompt, run the following command and replace `<app-configuration-store-connection-string>` with the connection string of your app configuration store:
 
     ```cmd
-    setx AZURE_APPCONFIG_CONNECTION_STRING "connection-string-of-your-app-configuration-store"
+    setx AZURE_APPCONFIG_CONNECTION_STRING <connection-string-of-your-app-configuration-store>
     ```
 
     #### [PowerShell](#tab/powershell)

@@ -177,13 +177,13 @@ You use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a
     If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
     ```cmd
-    setx Endpoint "endpoint-of-your-app-configuration-store"
+    setx Endpoint <endpoint-of-your-app-configuration-store>
     ```
 
     If you use PowerShell, run the following command:
 
     ```powershell
-    $Env:Endpoint = "endpoint-of-your-app-configuration-store"
+    $Env:Endpoint = <endpoint-of-your-app-configuration-store>
     ```
 
     If you use macOS or Linux, run the following command:
@@ -198,13 +198,13 @@ You use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a
     If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
     ```cmd
-    setx ConnectionString "connection-string-of-your-app-configuration-store"
+    setx ConnectionString <connection-string-of-your-app-configuration-store>
     ```
 
    If you use PowerShell, run the following command:
 
     ```powershell
-    $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
+    $Env:ConnectionString = <connection-string-of-your-app-configuration-store>
     ```
 
     If you use macOS or Linux, run the following command:

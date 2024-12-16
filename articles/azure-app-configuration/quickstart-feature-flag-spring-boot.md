@@ -131,7 +131,7 @@ To create a new Spring Boot project:
     To build and run the app locally using the Windows command prompt, run the following command:
 
     ```console
-    setx APP_CONFIGURATION_CONNECTION_STRING "connection-string-of-your-app-configuration-store"
+    setx APP_CONFIGURATION_CONNECTION_STRING <connection-string-of-your-app-configuration-store>
     ```
 
     Restart the command prompt to allow the change to take effect. Print the value of the environment variable to validate that it is set properly.
@@ -141,7 +141,7 @@ To create a new Spring Boot project:
     If you use Windows PowerShell, run the following command:
 
     ```azurepowershell
-    $Env:APP_CONFIGURATION_CONNECTION_STRING = "connection-string-of-your-app-configuration-store"
+    $Env:APP_CONFIGURATION_CONNECTION_STRING = <connection-string-of-your-app-configuration-store>
     ```
 
     ### [macOS](#tab/unix)

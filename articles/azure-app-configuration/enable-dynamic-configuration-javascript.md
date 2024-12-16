@@ -39,6 +39,8 @@ Add the following key-value to your Azure App Configuration store. For more info
 The following examples show how to use refreshable configuration values in console applications.
 Choose the following instructions based on how your application consumes configuration data loaded from App Configuration, either as a `Map` or a configuration object.
 
+You can connect to App Configuration using either Microsoft Entra ID (recommended) or a connection string. The following code snippet demonstrates using Microsoft Entra ID. You use the DefaultAzureCredential to authenticate to your App Configuration store. While completing the quickstart listed in the prerequisites, you already [assigned your credential the App Configuration Data Reader role](./concept-enable-rbac.md#authentication-with-token-credentials).
+
 1. Open the file *app.js* and update the `load` function. Add a `refreshOptions` parameter to enable the refresh and configure refresh options. The loaded configuration will be updated when a change is detected on the server. By default, a refresh interval of 30 seconds is used, but you can override it with the `refreshIntervalInMs` property.
 
     ### [Use configuration as Map](#tab/configuration-map)
