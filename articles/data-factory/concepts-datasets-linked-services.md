@@ -171,5 +171,5 @@ See the following tutorial for step-by-step instructions for creating pipelines 
 - [Quickstart: create a data factory using Azure portal](quickstart-create-data-factory-portal.md)
 
 ### Dataset schema references
-- [Azure Data Factory Copy Activity Schema and Type Mapping](https://learn.microsoft.com/en-us/azure/data-factory/copy-activity-schema-and-type-mapping)
-- [Azure Data Factory Concepts - Datasets and Linked Services](https://learn.microsoft.com/en-us/azure/data-factory/concepts-datasets-linked-services)
+- [Azure Data Factory Copy Activity Schema and Type Mapping](copy-activity-schema-and-type-mapping.md)
+- [Azure Data Factory Concepts - Datasets and Linked Services](concepts-datasets-linked-services.md)
