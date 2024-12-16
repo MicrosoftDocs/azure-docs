@@ -54,7 +54,7 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
     const credential = new DefaultAzureCredential(); // For more information, see https://learn.microsoft.com/azure/developer/javascript/sdk/credential-chains#use-defaultazurecredential-for-flexibility
 
     async function run() {
-        // Connect to Azure App Configuration using token credential
+        // Connect to Azure App Configuration using endpoint and token credential
         const settings = await load(endpoint, credential, {
             featureFlagOptions: {
                 enabled: true,
