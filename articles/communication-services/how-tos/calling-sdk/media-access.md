@@ -1,7 +1,7 @@
 ---
 title: Control participants' access to media
 titleSuffix: An Azure Communication Services how-to guide
-description: Use Azure Communication Services SDKs to send media access state.
+description: Use Azure Communication Services SDKs to control access to media for individual participants.
 author: fuyan
 ms.author: fuyan
 ms.service: azure-communication-services
