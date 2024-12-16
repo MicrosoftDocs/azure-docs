@@ -100,6 +100,7 @@ We recommend that your **SAP BASIS** team verify and ensure SAP system prerequis
 
 | Prerequisite | Description |
 | ---- | ----------- |
+| **Supported SAP versions** | The **Agentless** solution supports SAP NetWeaver systems with [SAP_BASIS versions 750](https://userapps.support.sap.com/sap(bD1kZSZjPTAwMQ==)/support/pam/pam.html?smpsrv=https%3a%2f%2fwebsmp201.sap-ag.de#ts=60&s=netweaver%207.5&o=most_viewed%7Cdesc&st=l&rpp=20&page=1&pvnr=73554900100900000414&pt=g%7Cd) and above. |
 | **SAP system** | Your SAP system must have: <br><br>An SAP BTP Subaccount with following services enabled:  <br>    - SAP Integration Suite <br>- SAP Process Integration Runtime <br>- Cloud Foundry Runtime<br>    For more information, see the [SAP documentation](https://help.sap.com/docs/sap-hana-spatial-services/onboarding/creating-subaccount-on-sap-business-technology-platform-sap-btp ). [Trial accounts](https://developers.sap.com/tutorials/hcp-create-trial-account.html) are supported.<br><br>The [SAP Cloud Connector](https://help.sap.com/docs/connectivity/sap-btp-connectivity-cf/installation?locale=en-US) deployed <br><br>SAP NetWeaver version 7.5 or higher|
 | **SAP roles and permissions** | You must have the following roles in your SAP systems: <br><br>**In SAP NetWeaver 7.5+**: SAP Netweaver Administrator <br><br>**In SAP BTP, all of the following roles**:<br>- Subaccount administrator <br>- Integration Provisioner <br>- PI_Administrator <br>- PI_Integration_Developer <br>- PI_Business_Expert| 
 
