@@ -303,8 +303,8 @@
       items:
         - name: Check runtime version
           href: howto-check-runtime-version.md
-        - name: Site decommision checklist
-          href: howto-decommision-nexus-instance-checklist.md
+        - name: Site decommission checklist
+          href: howto-decommission-nexus-instance-checklist.md
       
 - name: Troubleshooting
   expanded: true
