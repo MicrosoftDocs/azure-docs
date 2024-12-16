@@ -190,7 +190,7 @@ To instantiate a `NotificationMessagesClient`, add the following code:
 ```
 ---
 
-### Common setting for sending any message using Advanced Messages SDK
+### Common configuration
 
 [!INCLUDE [Common setting for using Advanced Messages SDK](../common-setting.md)]
 
