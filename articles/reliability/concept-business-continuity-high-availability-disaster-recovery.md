@@ -82,7 +82,7 @@ High availability (HA) is the state in which a specific workload can maintain th
  
 Because HA can vary with each workload, it's important to understand the requirements and customer expectations when determining high availability. For example, an application that's used within your organization might require a relatively low level of uptime, while a critical financial application might require a much higher uptime. Even within a workload, different *flows* might have different requirements. For example, in an eCommerce application, flows related to customers browsing and placing orders might be critical while order fulfillment and back-office processing flows might be lower priority. To learn more about flows, see [Recommendations for identifying and rating flows](/azure/well-architected/reliability/identify-flows).
  
-When a workfload architect plans for high availability, they define:
+When a workload architect plans for high availability, they define:
  
 - **Service level objectives (SLO)**, which describe things like the percentage of time the workload should be available to users.
 - **Service level indicators** (SLI), which are specific metrics that are used to measure whether the workload is meeting an SLO.
