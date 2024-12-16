@@ -47,7 +47,7 @@ In this quickstart, you use Azure App Configuration in an app running in Azure C
       - Under **Configuration information**, you find an environment variable named `AZURE_APPCONFIGURATION_ENDPOINT`. Select the pencil icon on the right and edit the environment variable name to match the variable name in your application that contains your App Configuration endpoint. If you built your application following the [ASP.NET Core quickstart](./quickstart-aspnet-core-app.md), your variable name is `Endpoints:AppConfiguration`. When editing the variable name, replace the colon with an underscore so that `Endpoints:AppConfiguration` becomes `Endpoints_AppConfiguration`. If you're working with another application, enter the corresponding environment variable name, ensuring that any colons are replaced with underscores, then select **Done**.
     
         > [!NOTE]
-        > Service connector doesn't take in colons (`:`). If your variable contains a colon, replace it with an underscore (`_`).
+        > Service connector doesn't accept colons (`:`). If your variable contains a colon, replace it with an underscore (`_`).
 
       - Use default values for everything else.
 
