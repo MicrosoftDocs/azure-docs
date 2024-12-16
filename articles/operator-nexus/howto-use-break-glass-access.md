@@ -25,6 +25,7 @@ To start with break glass IAM configuration, you need to set up SSH keys using t
 - **Python**: Version 3.11 or higher (64-bit)
 - **Azure CLI**: Version 2.61 or higher (64-bit)
 - **Nexusidentity Extension**: This extension must be added to Azure CLI.
+- **YubiKey Firmware Version**: Must be 5.2.3 or higher.
 
 ### Steps to Install Nexusidentity Extension and Generate SSH Keys
 
@@ -66,6 +67,9 @@ To start with break glass IAM configuration, you need to set up SSH keys using t
       ```Azure CLI
       az nexusidentity gen-keys
       ```
+
+> [!NOTE]
+> Method Dv2.0 passkeys requires the YubiKey hardware token with a firmware version of 5.2.3 or higher.
 
    e. During this process:
 
