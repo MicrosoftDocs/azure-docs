@@ -6,8 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: concept-article
-ms.reviewer: harshacs
-ms.date: 04/24/2024
+ms.date: 12/16/2024
 
 #CustomerIntent: As an Azure administrator, I want to use Traffic analytics to analyze Network Watcher flow logs so that I can view network activity, secure my networks, and optimize performance.
 ---
@@ -146,6 +145,113 @@ Traffic analytics requires the following prerequisites:
     > [!CAUTION]
     > Data collection rule and data collection endpoint resources are created and managed by traffic analytics. If you perform any operation on these resources, traffic analytics may not function as expected.
     
+## Supported regions
+
+The following tables list the regions that support enabling traffic analytics for flow logs and the Log Analytics workspaces that you can use.
+
+#### [North America / South America](#tab/Americas)
+
+> [!div class="mx-tableFixed"]
+> | Region  | Network security group flow logs | Virtual network flow logs | Traffic analytics | Log Analytics workspace |
+> | ------- | -------------------------------- | ------------------------- | ----------------------- | ----------------------- |
+> | Brazil South | X | X | X | X |
+> | Brazil Southeast | X | X | X | X |
+> | Canada Central | X | X | X | X |
+> | Canada East | X | X | X | X |
+> | Central US | X | X | X | X |
+> | East US | X | X | X | X |
+> | East US 2 | X | X | X | X |
+> | Mexico Central | X | X | X |  |
+> | North Central US | X | X | X | X |
+> | South Central US | X | X | X | X |
+> | West Central US | X | X | X | X |
+> | West US | X | X | X | X |
+> | West US 2 | X | X | X | X |
+> | West US 3 | X | X | X | X |
+
+#### [Europe](#tab/Europe)
+
+> [!div class="mx-tableFixed"]
+> | Region  | Network security group flow logs | Virtual network flow logs | Traffic analytics | Log Analytics workspace |
+> | ------- | -------------------------------- | ------------------------- | ----------------------- | ----------------------- |
+> | France Central | X | X | X | X |
+> | France South | X | X |  |  |
+> | Germany North| X | X | X | X |
+> | Germany West Central | X | X | X | X |
+> | Italy North | X | X | X | X |
+> | North Europe | X | X | X | X |
+> | Norway East | X | X | X | X |
+> | Norway West | X | X |  | X |
+> | Poland Central | X | X | X | X |
+> | Spain Central | X | X | X |  |
+> | Sweden Central | X | X | X | X |
+> | Switzerland North | X | X | X | X |
+> | Switzerland West | X | X | X | X |
+> | UK South | X | X | X | X |
+> | UK West | X | X | X | X |
+> | West Europe | X | X | X | X |
+
+#### [Australia / Asia / Pacific](#tab/APAC)
+
+> [!div class="mx-tableFixed"]
+> | Region  | Network security group flow logs | Virtual network flow logs | Traffic analytics | Log Analytics workspace |
+> | ------- | -------------------------------- | ------------------------- | ----------------------- | ----------------------- |
+> | Australia Central | X | X | X | X |
+> | Australia Central 2 | X | X |  | X |
+> | Australia East | X | X | X | X |
+> | Australia Southeast | X | X | X | X |
+> | Central India | X | X | X | X |
+> | China East | X | X |  |  |
+> | China East 2 | X | X | X | X |
+> | China East 3 | X | X | X |  |
+> | China North | X | X | X | X |
+> | China North 2 | X | X | X | X |
+> | China North 3 | X | X | X |  |
+> | East Asia | X | X | X | X |
+> | Japan East | X | X | X | X |
+> | Japan West | X | X | X | X |
+> | Korea Central | X | X | X | X |
+> | Korea South | X | X | X | X |
+> | South India | X | X | X | X |
+> | Southeast Asia | X | X | X | X |
+> | Taiwan North | X | X | X |  |
+> | Taiwan Northwest | X | X |  |  |
+> | West India | X | X | X | X |
+
+#### [Middle East / Africa](#tab/MiddleEast)
+
+> [!div class="mx-tableFixed"]
+> | Region  | Network security group flow logs | Virtual network flow logs | Traffic analytics | Log Analytics workspace |
+> | ------- | -------------------------------- | ------------------------- | ----------------------- | ----------------------- |
+> | Israel Central | X | X | X | X |
+> | Qatar Central | X | X | X | X |
+> | South Africa North | X | X | X | X |
+> | South Africa West | X | X |  | X |
+> | UAE Central | X | X | X | X |
+> | UAE North | X | X | X | X |
+
+#### [Azure Government](#tab/AzGov)
+
+> [!div class="mx-tableFixed"]
+> | Region  | Network security group flow logs | Virtual network flow logs | Traffic analytics | Log Analytics workspace |
+> | ------- | -------------------------------- | ------------------------- | ----------------------- | ----------------------- |
+> | US DoD Central | X | X |  |  |
+> | US DoD East | X | X | X |  |
+> | US Gov Arizona | X | X | X | X |
+> | US Gov Iowa | X | X |  |  |
+> | US Gov Texas | X | X | X | X |
+> | US Gov Virginia | X | X | X | X |
+> | US Nat East | X | X | X | X |
+> | US Nat West | X | X | X | X |
+> | US Sec East | X | X | X | X |
+> | US Sec West | X | X | X | X |
+> | US Sec West Central | X | X |  |  |
+
+---
+
+> [!NOTE]
+> If flow logs are supported in a region, but Log Analytics workspace isn't supported in that region for traffic analytics, you can use a Log Analytics workspace from any other supported region. In this case, there won't be any additional cross-region data transfer charges for using a Log Analytics workspace from another region.
+
 ## Pricing
 
 For pricing details, see [Network Watcher pricing](https://azure.microsoft.com/pricing/details/network-watcher/) and [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
