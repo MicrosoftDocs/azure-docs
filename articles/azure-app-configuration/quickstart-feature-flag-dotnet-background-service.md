@@ -50,7 +50,7 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
     using Microsoft.FeatureManagement;
     ```
 
-1. Connect to App Configuration using Microsoft Entra ID (recommended) or a connection string, add a call to the `UseFeatureFlags` method inside the `AddAzureAppConfiguration` call, and register feature management services.
+1. Add a call to the `UseFeatureFlags` method inside the `AddAzureAppConfiguration` call and register feature management services.
 
     ### [Microsoft Entra ID (recommended)](#tab/entra-id)
 
@@ -59,6 +59,7 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
     // ... ...
     builder.Configuration.AddAzureAppConfiguration(options =>
     {
+        string endpoint = Environment.GetEnvironmentVariable("Endpoint"); 
         options.Connect(new Uri(endpoint), new DefaultAzureCredential());
 
         // Use feature flags
