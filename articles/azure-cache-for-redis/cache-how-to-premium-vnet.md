@@ -28,7 +28,7 @@ ms.date: 12/12/2024
   - potential data loss
   - failure of management operations like scaling
   - intermittent or complete SSL/TLS failures
-  - updates might not be applied, leading to instances missing out on latest security and performance features
+  - failure to apply updates, including important security and reliability improvements
     
   - in the most severe scenarios, loss of availability
 - VNet injected caches are only available for Premium-tier Azure Cache for Redis, not other tiers.
