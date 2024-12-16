@@ -12,27 +12,34 @@ ms.date: 11/12/2024
 
 # Overview
 
-The user faces issues creating Neighbor Group resources in the Azure portal due to an AuthorizationFailed error for the Microsoft.Resources/deployments/action permission, which appears invalid. Additionally, the portal adds an empty ipv6Addresses array by default, causing further errors.
+While creating Neighbor Group resources in the Azure portal, an AuthorizationFailed error for the Microsoft.Resources/deployments/action permission might occur. The portal adds an empty ipv6 addresses array by default in some circumstances.
 
 ## Diagnosis
 
-* Customer tries to create Neighbor Group resources for NPB using the portal. Note that creation of Neighbor Groups is successful when using the az cli.
-* The following authorization error is receieved `The user does not have access for authorization to perform action 'Microsoft.Resources/deployments/action' over scope '/subscriptions/12768799-47d2-4435-aad8-c263bf62be01/providers/Microsoft.Resources/deployments/register' or the scope is invalid. If access was recently granted, please refresh your credentials. (Code: AuthorizationFailed) [ Error code: AuthorizationFailed ]'`
-* Customer tries to grant access to the action `Microsoft.Resources/deployments/action` however this is not a valid permission according to Azure
-* Customer is also failing to enable Network Tap Rule from the portal
-* Inspecting the Neighbor Group shows that certain fields are being set when not specified, for example the customer only specified ipv4 address, but the `ipv6Addresses` field is being set.
+### Immediate Symptoms
+* Neighbor Group resources for NPB are attempted to be created using the portal. Note that the creation of Neighbor Groups is successful when using the az CLI.
+* An authorization error is received: The user does not have access for authorization to perform action `'Microsoft.Resources/deployments/action' over scope '/subscriptions/********-****-****-****-************/providers/Microsoft.Resources/deployments/register' or the scope is invalid. If access was recently granted, please refresh your credentials. (Code: AuthorizationFailed) [ Error code: AuthorizationFailed ]'`.
+* An attempt is made to grant access to the action Microsoft.Resources/deployments/action, but this is not a valid permission in Azure.
+
+### Troubleshooting
+* Enabling Network Tap Rule from the portal is also failing.
+* Upon inspection, the Neighbor Group shows that certain fields are being set when not specified. For example, only the IPv4 address was specified, but the `ipv6Addresses` field is also being set.
 
 ## Mitigation steps
 
 Follow these steps for mitigation.
 
 ### Use Az CLI to deploy the resource
+* Inspect the existing deployment and locate the template used
+* Copy it into a ARM template file
+* Remove empty IPv6 address array from it
+* Leave parameters as they are before
 
   ```bash
   az deployment group create \
   --resource-group <resource-group-name> \
-  --template-file <template-file.json or .bicep> \
-  --parameters <parameters-file.json>
+  --template-file <template-file> \
+  --parameters <parameters-file>
   ```
 
 ## Verification
