@@ -5,7 +5,7 @@ description: Learn about Virtual WAN virtual hub routing preference.
 author: cherylmc
 ms.service: azure-virtual-wan
 ms.topic: conceptual
-ms.date: 03/27/2024
+ms.date: 12/10/2024
 ms.author: cherylmc
 ---
 # Virtual hub routing preference

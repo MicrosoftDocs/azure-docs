@@ -43,7 +43,7 @@ Not having Azure Write Accelerator support or support by other caches makes the 
 ## Production recommended storage solution based on Azure premium storage
 
 > [!NOTE]
-> The configurations suggested below keep the HANA minimum KPIs, as listed in [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md) in mind. Our tests so far gave no indications that with the values listed, SAP HCMT tests would fail in throughput or latency. That stated, not all variations possible and combinations around stripe sets stretched across multiple disks or different stripe sizes were tested. Tests condcuted with striped volumes across multiple disks were done with the stripe sizes documented in [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md). 
+> The configurations suggested below keep the HANA minimum KPIs, as listed in [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md) in mind. Our tests so far gave no indications that with the values listed, SAP HCMT tests would fail in throughput or latency. That stated, not all variations possible and combinations around stripe sets stretched across multiple disks or different stripe sizes were tested. Tests conducted with striped volumes across multiple disks were done with the stripe sizes documented in [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md). 
 
 
 > [!NOTE]

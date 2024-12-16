@@ -111,7 +111,7 @@ VALUES ('hammer','16oz carpenter''s hammer',1.0);
 INSERT INTO products(name,description,weight)
 VALUES ('rocks','box of assorted rocks',5.3);
 INSERT INTO products(name,description,weight)
-VALUES ('jacket','water resistent black wind breaker',0.1);
+VALUES ('jacket','water resistant black wind breaker',0.1);
 INSERT INTO products(name,description,weight)
 VALUES ('spare tire','24 inch spare tire',22.2);
 
