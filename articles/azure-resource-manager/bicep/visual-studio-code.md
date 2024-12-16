@@ -213,7 +213,7 @@ Extracting [variables](./variables.md), [parameters](./parameters.md), and [user
 
 The following screenshot shows a definition of a storage account resource. You can extract a parameter or a variable, or a user-defined data type based off of a property, such as `kind`. 
 
-Select the `kind` line from the code, and then select the yellow light bulb icon. The context windows shows the available extract options.
+Select the `kind` line from the code, and then select the yellow light bulb icon. The context window shows the available extract options.
 
 :::image type="content" source="./media/visual-studio-code/visual-studio-code-azure-variable-parameter-type-extraction.png" alt-text="Screenshot of variable, parameter, type extraction.":::
 
