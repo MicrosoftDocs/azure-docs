@@ -4,8 +4,8 @@ description: Learn how to monitor Azure Private Link using Azure Monitor, includ
 ms.date: 12/16/2024
 ms.custom: horz-monitor
 ms.topic: conceptual
-author: davidsmatlak
-ms.author: davidsmatlak
+author: AbdullahBell
+ms.author: abell
 ms.service: azure-private-link
 ---
 
