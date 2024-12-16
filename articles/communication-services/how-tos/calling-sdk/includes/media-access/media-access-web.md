@@ -16,7 +16,7 @@ The media access feature allows organizers or presenters to prevent attendees fr
 import { Features} from "@azure/communication-calling";
 ```
 
-Then you can get the feature API object from the call instance:
+Then you can get the instance of `MediaAccess` API from the `call` instance:
 
 ```js
 const mediaAccessFeature = call.feature(Features.MediaAccess);
