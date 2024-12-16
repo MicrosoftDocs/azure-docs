@@ -135,8 +135,6 @@ Follow these steps to create a public IPv4 address with a Standard SKU and routi
 
 1. Select **Review + create**. After validation succeeds, select **Create**.
 
-:::image type="content" source="./media/create-public-ip-portal/routing-preference.png" alt-text="Screenshot that shows the Create public IP address Basics tab for a Standard SKU and internet routing setting.":::
-
 > [!NOTE]
 > In regions with [availability zones](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), you have the option to select **No Zone** (default), a specific zone, or **Zone-redundant**. The choice depends on your specific domain failure requirements. In regions without availability zones, this field doesn't appear.
 
@@ -171,8 +169,6 @@ Follow these steps to create a public IPv4 address with a Standard SKU and a glo
    - **Domain name label scope (preview)**: Leave the value blank.
 
 1. Select **Review + create**. After validation succeeds, select **Create**.
-
-:::image type="content" source="./media/create-public-ip-portal/tier.png" alt-text="Screenshot that shows the Create public IP address Basics tab for a Standard SKU and global tier setting.":::
 
 You can associate the IP address you created with a cross-region load balancer. For more information, see [Tutorial: Create a cross-region load balancer using the Azure portal](../../load-balancer/tutorial-cross-region-portal.md).
 

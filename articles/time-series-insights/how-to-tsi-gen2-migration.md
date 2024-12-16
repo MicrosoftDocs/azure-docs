@@ -182,7 +182,7 @@ events
 | where timestamp >= datetime(2021-11-01T00:00:0.0000000Z) and timestamp < datetime(2021-11-05T00:00:00.000000Z)
 | where deviceId_string== "deviceId1" and siteId_string == "siteId1" and dataId_string == "dataId1"
 | take 10000
-| project timestamp, sensorStringValue= ['sensors.value_string'], sensorBoolValue= ['sensors.value_bool'], sensorDoublelValue= ['sensors.value_double']
+| project timestamp, sensorStringValue= ['sensors.value_string'], sensorBoolValue= ['sensors.value_bool'], sensorDoubleValue= ['sensors.value_double']
 ```
 
 ###	AggregateSeries  
