@@ -23,11 +23,12 @@ This how-to guide explains the steps for installing the required Azure CLI and e
 5. Target cluster must be in a running state, with all control plane nodes healthy and 80+% of compute nodes in a running and healthy state.
    
 ## Checking current runtime version
-[How to check current cluster runtime version](./howto-check-runtime-version.md#check-current-cluster-runtime-version)
+Verify current cluster runtime version before upgrade:
+[How to check current cluster runtime version.](./howto-check-runtime-version.md#check-current-cluster-runtime-version)
 
 ## Finding available runtime versions
 
-### Via Portal
+### Via Azure portal
 
 To find available upgradeable runtime versions, navigate to the target cluster in the Azure portal. In the cluster's overview pane, navigate to the ***Available upgrade versions*** tab.
 
