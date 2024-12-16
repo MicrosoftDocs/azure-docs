@@ -38,7 +38,7 @@ Before proceeding with the key update, ensure the following prerequisites are me
 3. Set the active subscription for your Azure CLI session:
 
     ```Azure CLI
-    az account set -s '<Subscription ID>'
+    az account set -s `<Subscription ID>`
     ```
    
 Replace <Subscription ID> with your Azure subscription ID.
@@ -49,8 +49,8 @@ Retrieve the current authorization keys using the following command:
 
     ```Azure CLI
     az network express-route auth list \
-    --resource-group <resource-group> \
-    --circuit-name <circuit-name>
+        --resource-group <resource-group> \
+        --circuit-name <circuit-name>
     ```
 
 Replace <resource-group> and <circuit-name> with your specific resource group and circuit name.
@@ -75,9 +75,9 @@ Generate new authorization keys for the ExpressRoute circuits using the command 
 
     ```Azure CLI
     az network express-route auth create \
-    --resource-group <resource-group> \
-    --circuit-name <circuit-name> \
-    --name <authorization-name>
+        --resource-group <resource-group> \
+        --circuit-name <circuit-name> \
+        --name <authorization-name>
     ```
 
 #### New Authorization Keys
