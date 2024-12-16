@@ -41,7 +41,6 @@ This feature allows users with the Organizer and Presenter roles to forbid and p
 
 To use this feature, you can use the following code:
 ```js
-const mediaAccessFeature = call.feature(Features.MediaAccess);
 //forbid all attendees audio
 mediaAccessFeature.forbidOthersAudio();
 //or we can provide array of CommunicationIdentifier to specify list of participants
@@ -56,8 +55,6 @@ You can subscribe to the `mediaAccessChanged` events from 'Media access' API to 
 
 You can use the following code to subscribe these events:
 ```js
-const mediaAccessFeature = call.feature(Features.MediaAccess);
-
 const mediaAccessChangedHandler = (event) => {
     console.log(`Latest media access states ${event.mediaAccesses}`);
 };
