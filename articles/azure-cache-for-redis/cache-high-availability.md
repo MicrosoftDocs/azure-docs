@@ -134,6 +134,9 @@ Zone-redundant Enterprise and Enterprise Flash tier caches are available in the 
 
 Currently, the only way to convert your cache from a non-AZ configuration to an AZ configuration is to redeploy the cache. To learn how to redeploy your current cache, see [Migrate an Azure Cache for Redis instance to availability zone support](/azure/reliability/migrate-cache-redis).
 
+> [!NOTE]
+   > Converting an existing resource from non-availability zone support to availability zone support is in preview for standard & premium tier caches.
+
 ## Persistence
 
 Applicable tiers: **Premium**, **Enterprise (preview)**, **Enterprise Flash (preview)**
