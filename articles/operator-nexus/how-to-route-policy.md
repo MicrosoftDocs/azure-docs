@@ -574,6 +574,7 @@ Expected output:
 
 This command deletes route policies:
 
+
 ```Azurecli
 az networkfabric routepolicy delete --resource-group "ResourceGroupName" --resource-name "rcf-Fab3-l3domain-v6-connsubnet-ext-policy"
 ```
