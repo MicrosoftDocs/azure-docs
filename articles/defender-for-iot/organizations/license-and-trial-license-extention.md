@@ -1,5 +1,5 @@
 ---
-title: Microsoft Defender for IoT license information and trial license extention
+title: Microsoft Defender for IoT license information and trial license extension
 description: Learn about the Defender for IoT trial license.
 ms.topic: concept-article
 ms.date: 11/17/2024
@@ -12,13 +12,13 @@ This article contains general information about the Microsoft Defender for IoT l
 
 ## The Defender for IoT license
 
-The Defender for IoT license is site-based according to the number of devices that your network has and needs to monitor. This ranges from a site that is an extra-small license for 250 devices to an extra large site license for over 5,000 devices.
+The Defender for IoT license is site-based according to the number of devices that your network has and needs to monitor. This ranges from a site that is an extra-small license for 100 devices to an extra large site license for over 5,000 devices.
 
 Each site can only have one license associated with it, so you must purchase the license that covers the number of devices at the site. For example, a site with more than 1000 devices customers need to purchase one XL license (covering 5000 devices) instead of two Large licenses (covering 1000 devices each). The only exception is the XL license, which can have multiple licenses applied to one site if there are more than 5000 OT devices there.
 
 If your network has even more than 5,000 devices a customer should contact their representative to find out how to access the 2XL or 3XL licenses in the Azure portal.
 
-Each Microsoft 365 license lasts for one year. <!-- is this the correct license name? -->The OT site license isnt't included in the ME5 or E5 security packages. <!-- merge these 2 sentences or leave seperate for effect? Limor-->
+Each Microsoft 365 license lasts for one year. <!-- is this the correct license name? -->The OT site license isnt't included in the ME5 or E5 security packages.
 
 ### Preconfigured hardware
 
@@ -54,7 +54,7 @@ To purchase a full Defender for IoT license at the end of the trial period, see 
 
 A trial license can be extended by the customer up until 15 days before the end of the trial using the [Microsoft 365 Admin Center](https://admin.microsoft.com/Adminportal/Home?#/homepage).
 
-Customers with either MCA or MOSA billing accounts can use these instructions to [request an extention for their trial license](/microsoft-365/commerce/try-or-buy-microsoft-365#extend-your-trial). This request must be made by a user with Global or Billing Admin permissions on the customer tenant. For more information, see [admin roles in Microsoft 365 admin center](/microsoft-365/admin/add-users/about-admin-roles).
+Customers with either MCA or MOSA billing accounts can use these instructions to [request an extension for their trial license](/microsoft-365/commerce/try-or-buy-microsoft-365#extend-your-trial). This request must be made by a user with Global or Billing Admin permissions on the customer tenant. For more information, see [admin roles in Microsoft 365 admin center](/microsoft-365/admin/add-users/about-admin-roles).
 
 ## Contact the sales team
 
