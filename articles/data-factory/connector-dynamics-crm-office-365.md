@@ -500,6 +500,15 @@ To write data into a lookup field with multiple targets like Customer and Owner,
 
 1. Map both the value and entity-reference columns from source to sink. The entity-reference column must be mapped to a virtual column with the special naming pattern `{lookup_field_name}@EntityReference`. The column doesn't actually exist in Dynamics. It's used to indicate this column is the metadata column of the given multitarget lookup field.
 
+### Setting the Owner field
+
+When setting the Owner field in Dynamics 365 (Microsoft Dataverse) or Dynamics CRM, it is important to provide a valid reference. The valid options for the `@EntityReference` are:
+
+- `systemuser`: This refers to an individual user within the system.
+- `team`: This refers to a team of users within the organization.
+
+Ensure that the value provided corresponds to one of these options to avoid errors during data transformation.
+
 For example, assume the source has these two columns:
 
 - **CustomerField** column of type **GUID**, which is the primary key value of the target entity in Dynamics.
