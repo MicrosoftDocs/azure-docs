@@ -64,7 +64,7 @@ This built-in trigger sends an HTTP request to a URL for a Swagger file that des
 
 1. To add other available parameters, open the **Advanced parameters** list, and select the parameters that you want.
 
-   For more information about authentication types available for HTTP + Swagger, see [Add authentication to outbound calls](/azure/logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
+   For more information about authentication types available for HTTP + Swagger, see [Add authentication to outbound calls](/azure/logic-apps/logic-apps-securing-a-logic-app#add-authentication-outbound).
 
 1. Continue building your workflow with the actions that you want to run when the trigger fires.
 
