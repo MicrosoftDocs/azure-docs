@@ -43,17 +43,17 @@ pip install azure-communication-messages
 
 ### Set up the app framework
 
-Create a new file called `interactive-messages-quickstart.py` and add the basic program structure.
+Create a new file called `reaction-messages-quickstart.py` and add the basic program structure.
 
 ```console
-type nul > interactive-messages-quickstart.py   
+type nul > reaction-messages-quickstart.py   
 ```
 #### Basic program structure
 ```python
 import os
 
 class MessagesQuickstart(object):
-    print("Azure Communication Services - Advanced Messages SDK QuickstartFor Interactive Types.")
+    print("Azure Communication Services - Advanced Messages SDK Quickstart For Reaction Types.")
 
 if __name__ == '__main__':
     messages = MessagesQuickstart()
@@ -65,18 +65,7 @@ The following classes and interfaces handle some of the major features of the Az
 | Name                        | Description                                                                                            |
 |-----------------------------|--------------------------------------------------------------------------------------------------------|
 | NotificationMessagesClient  | This class connects to your Azure Communication Services resource. It sends the messages.              |
-| InteractiveNotificationContent  | This class defines the interactive message business can send to user. |
-| InteractiveMessage | This class defines interactive message content.|
-| WhatsAppListActionBindings | This class defines WhatsApp List interactive message properties binding . |
-| WhatsAppButtonActionBindings| This class defines WhatsApp Button interactive message properties binding .|
-| WhatsAppUrlActionBindings | This class defines WhatsApp Url interactive message properties binding .|
-| TextMessageContent     | This class defines the text content for Interactive message body , footer, header. |
-| VideoMessageContent   | This class defines the video content for Interactive message header.  |
-| DocumentMessageContent | This class defines the document content for Interactive message header. |
-| ImageMessageContent | This class defines the image content for Interactive message header.|
-| ActionGroupContent | This class defines the ActionGroup or ListOptions content for Interactive message.|
-| ButtonSetContent | This class defines the Reply Buttons content for Interactive message. |
-| LinkContent | This class defines the Url or Click-To-Action content for Interactive message. |
+| ReactionNotificationContent | This class defines the reaction content of the messages with emoji and reply message id.|
 
 ## Code examples
 
@@ -85,9 +74,7 @@ Follow these steps to add the necessary code snippets to the messages-quickstart
 - [Authenticate the client](#authenticate-the-client)
 - [Set channel registration ID](#set-channel-registration-id)
 - [Set recipient list](#set-recipient-list)
-- [Send a Interactive List options messages to a WhatsApp user](#send-a-interactive-list-options-messages-to-a-whatsapp-user)
-- [Send a Interactive Reply Button message to a WhatsApp user](#send-a-interactive-reply-button-messages-to-a-whatsapp-user)
-- [Send a Interactive CTA Url based message to a WhatsApp user](#send-a-interactive-cta-url-based-messages-to-a-whatsapp-user)
+- [Send a Reaction messages to a WhatsApp user message](#send-a-reaction-messages-to-a-whatsapp-user-message)
 
 ### Authenticate the client 
 
@@ -237,210 +224,61 @@ To do so, from your personal WhatsApp account, send a message to your business n
 
 :::image type="content" source="../../media/get-started/user-initiated-conversation.png" lightbox="../../media/get-started/user-initiated-conversation.png" alt-text="A WhatsApp conversation viewed on the web showing a user message sent to the WhatsApp Business Account number.":::
 
-### Send a Interactive List options messages to a WhatsApp user
+### Send a Reaction messages to a WhatsApp user message
 
-Advanced Messages SDK allows Contoso to send interactive WhatsApp messages, which initiated WhatsApp users initiated. To send text messages below details are required:
+Advanced Messages SDK allows Contoso to send reaction WhatsApp messages, which initiated by WhatsApp users. To send text messages below details are required:
 - [WhatsApp Channel ID](#set-channel-registration-id)
 - [Recipient Phone Number in E16 format](#set-recipient-list)
-- List Message can be created using given properties:
+- Reaction content can be created using given properties:
 
 | Action type   | Description |
 |----------|---------------------------|
-| ActionGroupContent    | This class defines title of the group content and array of the group.    |
-| ActionGroup    | This class defines title of the group and array of the group Items.   |
-| ActionGroupItem | This class defines Id, Title and description of the group Item. |
-| WhatsAppListActionBindings| This class defines the ActionGroupContent binding with the Interactive message. |
+| ReactionNotificationContent    | This class defines title of the group content and array of the group.    |
+| Emoji    | This property defines the unnicode for emoji character.   |
+| Reply Message Id | This property defines Id of the message to be replied with emoji. |
 
 > [!IMPORTANT]
 > To send a text message to a WhatsApp user, the WhatsApp user must first send a message to the WhatsApp Business Account. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
 
-In this example, business sends inetractive shipping options message"
+In this example, business sends reaction to the user message"
 ```python
-    def send_whatsapplist_message(self):
+    def send_reaction_message(self):
 
         from azure.communication.messages import NotificationMessagesClient
-        from azure.communication.messages.models import (
-            ActionGroupContent,
-            ActionGroup,
-            ActionGroupItem,
-            InteractiveMessage,
-            TextMessageContent,
-            WhatsAppListActionBindings,
-            InteractiveNotificationContent,
-        )
+        from azure.communication.messages.models import ReactionNotificationContent
 
         messaging_client = NotificationMessagesClient.from_connection_string(self.connection_string)
 
-        action_items_list1 = [
-            ActionGroupItem(id="priority_express", title="Priority Mail Express", description="Next Day to 2 Days"),
-            ActionGroupItem(id="priority_mail", title="Priority Mail", description="1–3 Days"),
-        ]
-        action_items_list2 = [
-            ActionGroupItem(id="usps_ground_advantage", title="USPS Ground Advantage", description="2-5 Days"),
-            ActionGroupItem(id="media_mail", title="Media Mail", description="2-8 Days"),
-        ]
-        groups = [
-            ActionGroup(title="I want it ASAP!", items_property=action_items_list1),
-            ActionGroup(title="I can wait a bit", items_property=action_items_list2),
-        ]
-
-        action_group_content = ActionGroupContent(title="Shipping Options", groups=groups)
-
-        interactionMessage = InteractiveMessage(
-            body=TextMessageContent(text="Test Body"),
-            footer=TextMessageContent(text="Test Footer"),
-            header=TextMessageContent(text="Test Header"),
-            action=WhatsAppListActionBindings(content=action_group_content),
-        )
-        interactiveMessageContent = InteractiveNotificationContent(
+        video_options = ReactionNotificationContent(
             channel_registration_id=self.channel_id,
             to=[self.phone_number],
-            interactive_message=interactionMessage,
+            emoji="\uD83D\uDE00",
+            message_id="<<ReplyMessageIdGuid>>",
         )
 
         # calling send() with whatsapp message details
-        message_responses = messaging_client.send(interactiveMessageContent)
-        response = message_responses.receipts[0]
-        print("Message with message id {} was successful sent to {}".format(response.message_id, response.to))
-
-```
-
-To run send_text_message(), update the [main method](#basic-program-structure)
-```python
-    #Calling send_whatsapplist_message()
-    messages.send_whatsapplist_message()
-```
-
-### Send a Interactive Reply Button message to a WhatsApp user
-
-Messages SDK allows Contoso to send Image WhatsApp messages to WhatsApp users. To send Image embedded messages below details are required:
-- [WhatsApp Channel ID](#set-channel-registration-id)
-- [Recipient Phone Number in E16 format](#set-recipient-list)
-- Reply Button Message can be created using given properties:
-
-| Action type   | Description |
-|----------|---------------------------|
-| ButtonSetContent    | This class defines button set content for reply button messages.  |
-| ButtonContent    | This class defines id and title of the reply buttons.  |
-| WhatsAppButtonActionBindings| This class defines the ButtonSetContent binding with the Interactive message. |
-
-> [!IMPORTANT]
-> To send a text message to a WhatsApp user, the WhatsApp user must first send a message to the WhatsApp Business Account. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
-
-```python
-    def send_whatsappreplybutton_message(self):
-
-        from azure.communication.messages import NotificationMessagesClient
-        from azure.communication.messages.models import (
-            ButtonSetContent,
-            ButtonContent,
-            InteractiveMessage,
-            TextMessageContent,
-            WhatsAppButtonActionBindings,
-            InteractiveNotificationContent,
-        )
-
-        messaging_client = NotificationMessagesClient.from_connection_string(self.connection_string)
-
-        reply_button_action_list = [
-            ButtonContent(title="Cancel", id="cancel"),
-            ButtonContent(title="Agree", id="agree"),
-        ]
-        button_set = ButtonSetContent(buttons=reply_button_action_list)
-        interactionMessage = InteractiveMessage(
-            body=TextMessageContent(text="Test Body"),
-            footer=TextMessageContent(text="Test Footer"),
-            header=TextMessageContent(text="Test Header"),
-            action=WhatsAppButtonActionBindings(content=button_set),
-        )
-        interactiveMessageContent = InteractiveNotificationContent(
-            channel_registration_id=self.channel_id,
-            to=[self.phone_number],
-            interactive_message=interactionMessage,
-        )
-
-        # calling send() with whatsapp message details
-        message_responses = messaging_client.send(interactiveMessageContent)
+        message_responses = messaging_client.send(video_options)
         response = message_responses.receipts[0]
         print("Message with message id {} was successful sent to {}".format(response.message_id, response.to))
 ```
 
-To run send_whatsappreplybutton_message(), update the [main method](#basic-program-structure)
+To run send_reaction_message(), update the [main method](#basic-program-structure)
 ```python
-    # Calling send_imagesend_whatsappreplybutton_message_message()
-    messages.send_whatsappreplybutton_message()
-```
-
-### Send a Interactive CTA Url based message to a WhatsApp user
-
-Messages SDK allows Contoso to send Image WhatsApp messages to WhatsApp users. To send Image embedded messages below details are required:
-- [WhatsApp Channel ID](#set-channel-registration-id)
-- [Recipient Phone Number in E16 format](#set-recipient-list)
-- Click-To-Action or Link content Message can be created using given properties:
-
-| Action type   | Description |
-|----------|---------------------------|
-| LinkContent    | This class defines url or link content for message.  |
-| WhatsAppUrlActionBindings| This class defines the LinkContent binding with the Interactive message. |
-
-> [!IMPORTANT]
-> To send a document message to a WhatsApp user, the WhatsApp user must first send a message to the WhatsApp Business Account. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
-
-```python
-    def send_whatapp_click_to_action_message(self):
-
-        from azure.communication.messages import NotificationMessagesClient
-        from azure.communication.messages.models import (
-            LinkContent,
-            InteractiveMessage,
-            TextMessageContent,
-            WhatsAppUrlActionBindings,
-            InteractiveNotificationContent,
-        )
-
-        messaging_client = NotificationMessagesClient.from_connection_string(self.connection_string)
-
-        urlAction = LinkContent(
-            title="Test Url",
-            url="https://example.com/audio.mp3",
-        )
-        interactionMessage = InteractiveMessage(
-            body=TextMessageContent(text="Test Body"),
-            footer=TextMessageContent(text="Test Footer"),
-            header=TextMessageContent(text="Test Header"),
-            action=WhatsAppUrlActionBindings(content=urlAction),
-        )
-        interactiveMessageContent = InteractiveNotificationContent(
-            channel_registration_id=self.channel_id,
-            to=[self.phone_number],
-            interactive_message=interactionMessage,
-        )
-
-        # calling send() with whatsapp message details
-        message_responses = messaging_client.send(interactiveMessageContent)
-        response = message_responses.receipts[0]
-        print("Message with message id {} was successful sent to {}".format(response.message_id, response.to))
-```
-
-To run send_whatapp_click_to_action_message(), update the [main method](#basic-program-structure)
-```python
-    # Calling send_whatapp_click_to_action_message()
-    messages.send_whatapp_click_to_action_message()
+    #Calling send_reaction_message()
+    messages.send_reaction_message()
 ```
 
 ## Run the code
 
-To run the code, make sure you are on the directory where your `messages-quickstart.py` file is.
+To run the code, make sure you are on the directory where your `reaction-messages-quickstart.py` file is.
 
 ```console
-python interactive-messages-quickstart.py
+python reaction-messages-quickstart.py
 ```
 
 ```output
 Azure Communication Services - Advanced Messages Quickstart
-WhatsApp List Message with message id <<GUID>> was successfully sent to <<ToRecipient>>
-WhatsApp Button Message with message id <<GUID>> was successfully sent to <<ToRecipient>>
-WhatsApp CTA containing Message with message id <<GUID>> was successfully sent to <<ToRecipient>>
+WhatsApp Reaction Message with message id <<GUID>> was successfully sent to <<ToRecipient>>
 ```
 
 ## Full sample code
@@ -456,129 +294,28 @@ class MessagesQuickstart(object):
     phone_number = os.getenv("RECIPIENT_PHONE_NUMBER")
     channelRegistrationId = os.getenv("WHATSAPP_CHANNEL_ID")
 
-    def send_whatsapplist_message(self):
+    def send_reaction_message(self):
 
         from azure.communication.messages import NotificationMessagesClient
-        from azure.communication.messages.models import (
-            ActionGroupContent,
-            ActionGroup,
-            ActionGroupItem,
-            InteractiveMessage,
-            TextMessageContent,
-            WhatsAppListActionBindings,
-            InteractiveNotificationContent,
-        )
+        from azure.communication.messages.models import ReactionNotificationContent
 
         messaging_client = NotificationMessagesClient.from_connection_string(self.connection_string)
 
-        action_items_list1 = [
-            ActionGroupItem(id="priority_express", title="Priority Mail Express", description="Next Day to 2 Days"),
-            ActionGroupItem(id="priority_mail", title="Priority Mail", description="1–3 Days"),
-        ]
-        action_items_list2 = [
-            ActionGroupItem(id="usps_ground_advantage", title="USPS Ground Advantage", description="2-5 Days"),
-            ActionGroupItem(id="media_mail", title="Media Mail", description="2-8 Days"),
-        ]
-        groups = [
-            ActionGroup(title="I want it ASAP!", items_property=action_items_list1),
-            ActionGroup(title="I can wait a bit", items_property=action_items_list2),
-        ]
-
-        action_group_content = ActionGroupContent(title="Shipping Options", groups=groups)
-
-        interactionMessage = InteractiveMessage(
-            body=TextMessageContent(text="Test Body"),
-            footer=TextMessageContent(text="Test Footer"),
-            header=TextMessageContent(text="Test Header"),
-            action=WhatsAppListActionBindings(content=action_group_content),
-        )
-        interactiveMessageContent = InteractiveNotificationContent(
+        video_options = ReactionNotificationContent(
             channel_registration_id=self.channel_id,
             to=[self.phone_number],
-            interactive_message=interactionMessage,
+            emoji="\uD83D\uDE00",
+            message_id="<<ReplyMessageIdGuid>>",
         )
 
         # calling send() with whatsapp message details
-        message_responses = messaging_client.send(interactiveMessageContent)
+        message_responses = messaging_client.send(video_options)
         response = message_responses.receipts[0]
-        print("Message with message id {} was successful sent to {}".format(response.message_id, response.to))
-
-    def send_whatsappreplybutton_message(self):
-
-        from azure.communication.messages import NotificationMessagesClient
-        from azure.communication.messages.models import (
-            ButtonSetContent,
-            ButtonContent,
-            InteractiveMessage,
-            TextMessageContent,
-            WhatsAppButtonActionBindings,
-            InteractiveNotificationContent,
-        )
-
-        messaging_client = NotificationMessagesClient.from_connection_string(self.connection_string)
-
-        reply_button_action_list = [
-            ButtonContent(title="Cancel", id="cancel"),
-            ButtonContent(title="Agree", id="agree"),
-        ]
-        button_set = ButtonSetContent(buttons=reply_button_action_list)
-        interactionMessage = InteractiveMessage(
-            body=TextMessageContent(text="Test Body"),
-            footer=TextMessageContent(text="Test Footer"),
-            header=TextMessageContent(text="Test Header"),
-            action=WhatsAppButtonActionBindings(content=button_set),
-        )
-        interactiveMessageContent = InteractiveNotificationContent(
-            channel_registration_id=self.channel_id,
-            to=[self.phone_number],
-            interactive_message=interactionMessage,
-        )
-
-        # calling send() with whatsapp message details
-        message_responses = messaging_client.send(interactiveMessageContent)
-        response = message_responses.receipts[0]
-        print("Message with message id {} was successful sent to {}".format(response.message_id, response.to))
-
-    def send_whatapp_click_to_action_message(self):
-
-            from azure.communication.messages import NotificationMessagesClient
-            from azure.communication.messages.models import (
-                LinkContent,
-                InteractiveMessage,
-                TextMessageContent,
-                WhatsAppUrlActionBindings,
-                InteractiveNotificationContent,
-            )
-
-            messaging_client = NotificationMessagesClient.from_connection_string(self.connection_string)
-
-            urlAction = LinkContent(
-                title="Test Url",
-                url="https://example.com/audio.mp3",
-            )
-            interactionMessage = InteractiveMessage(
-                body=TextMessageContent(text="Test Body"),
-                footer=TextMessageContent(text="Test Footer"),
-                header=TextMessageContent(text="Test Header"),
-                action=WhatsAppUrlActionBindings(content=urlAction),
-            )
-            interactiveMessageContent = InteractiveNotificationContent(
-                channel_registration_id=self.channel_id,
-                to=[self.phone_number],
-                interactive_message=interactionMessage,
-            )
-
-            # calling send() with whatsapp message details
-            message_responses = messaging_client.send(interactiveMessageContent)
-            response = message_responses.receipts[0]
-            print("Message with message id {} was successful sent to {}".format(response.message_id, response.to))
-
+        print("WhatsApp Reaction Message with message id {} was successful sent to {}".format(response.message_id, response.to))
 
 if __name__ == '__main__':
     messages = MessagesQuickstart()
-    messages.send_whatsapplist_message()
-    messages.send_whatsappreplybutton_message()
-    messages.send_whatapp_click_to_action_message()
+    messages.send_reaction_message()
 ```
 
 > [!NOTE]

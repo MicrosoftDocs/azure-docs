@@ -53,7 +53,7 @@ type nul > interactive-messages-quickstart.py
 import os
 
 class MessagesQuickstart(object):
-    print("Azure Communication Services - Advanced Messages SDK QuickstartFor Interactive Types.")
+    print("Azure Communication Services - Advanced Messages SDK Quickstart For Interactive Types.")
 
 if __name__ == '__main__':
     messages = MessagesQuickstart()
@@ -254,7 +254,7 @@ Advanced Messages SDK allows Contoso to send interactive WhatsApp messages, whic
 > [!IMPORTANT]
 > To send a text message to a WhatsApp user, the WhatsApp user must first send a message to the WhatsApp Business Account. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
 
-In this example, business sends inetractive shipping options message"
+In this example, business sends interactive shipping options message"
 ```python
     def send_whatsapplist_message(self):
 
@@ -501,7 +501,7 @@ class MessagesQuickstart(object):
         # calling send() with whatsapp message details
         message_responses = messaging_client.send(interactiveMessageContent)
         response = message_responses.receipts[0]
-        print("Message with message id {} was successful sent to {}".format(response.message_id, response.to))
+        print("WhatsApp List Message with message id {} was successful sent to {}".format(response.message_id, response.to))
 
     def send_whatsappreplybutton_message(self):
 
@@ -537,7 +537,7 @@ class MessagesQuickstart(object):
         # calling send() with whatsapp message details
         message_responses = messaging_client.send(interactiveMessageContent)
         response = message_responses.receipts[0]
-        print("Message with message id {} was successful sent to {}".format(response.message_id, response.to))
+        print("WhatsApp Button Message with message id {} was successful sent to {}".format(response.message_id, response.to))
 
     def send_whatapp_click_to_action_message(self):
 
@@ -571,7 +571,7 @@ class MessagesQuickstart(object):
             # calling send() with whatsapp message details
             message_responses = messaging_client.send(interactiveMessageContent)
             response = message_responses.receipts[0]
-            print("Message with message id {} was successful sent to {}".format(response.message_id, response.to))
+            print("WhatsApp CTA containing Message with message id {} was successful sent to {}".format(response.message_id, response.to))
 
 
 if __name__ == '__main__':
