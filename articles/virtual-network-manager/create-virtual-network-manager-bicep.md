@@ -151,7 +151,7 @@ resource deploymentScript 'Microsoft.Resources/deploymentScripts@2020-10-01' = {
       # string with comma-separated list of deployment target regions
       [parameter(mandatory=$true)][string[]]$targetLocations,
 
-      # configuration type to deploy. must be either connecticity or securityadmin
+      # configuration type to deploy. must be either connectivity or securityadmin
       [parameter(mandatory=$true)][ValidateSet('Connectivity','SecurityAdmin')][string]$configType,
 
       # AVNM resource group name

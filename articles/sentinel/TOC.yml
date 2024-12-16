@@ -154,13 +154,13 @@
           - name: Connect your SAP system
             displayName: disable, stop ingestion, stop 
             href: sap/deploy-data-connector-agent-container.md
-          - name: Troubleshoot SAP solution deployment
+          - name: Troubleshoot SAP data connector agent
             href: sap/sap-deploy-troubleshoot.md    
           - name: Extra deployment steps
             items:
             - name: Collect SAP HANA audit logs
               href: sap/collect-sap-hana-audit-logs.md
-            - name: Update the connector
+            - name: Update the data connector agent
               href: sap/update-sap-data-connector.md      
             - name: Deploy from the command line
               href: sap/deploy-command-line.md
@@ -170,13 +170,13 @@
             items:
             - name: Required ABAP permissions
               href: sap/required-abap-authorizations.md
-            - name: Kickstart script reference
+            - name: Data connector agent kickstart script reference
               href: sap/reference-kickstart.md
-            - name: Container update script reference 
+            - name: Data connector agent update script reference 
               href: sap/reference-update.md
-            - name: Systemconfig.json file reference
+            - name: Data connector agent systemconfig.json file reference
               href: sap/reference-systemconfig-json.md
-            - name: Systemconfig.ini file reference (legacy)
+            - name: Data connector agent systemconfig.ini file reference (legacy)
               href: sap/reference-systemconfig.md
         - name: Enable SAP detections and threat protection
           href: sap/deployment-solution-configuration.md

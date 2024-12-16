@@ -66,6 +66,6 @@ Feature | Windows credentials | Linux credentials
 
 ## Next steps
 
-- [Steps to add credentials in VMware appliance](./tutorial-discover-vmware.md#provide-server-credentials).
+- [Steps to add credentials in VMware appliance](./tutorial-discover-vmware.md?context=/azure/migrate/context/migrate-context#provide-server-credentials).
 - [Steps to add credentials in Hyper-V appliance](tutorial-discover-hyper-v.md#provide-server-credentials).
 - [Steps to add credentials in physical appliance](tutorial-discover-physical.md#start-continuous-discovery). 
