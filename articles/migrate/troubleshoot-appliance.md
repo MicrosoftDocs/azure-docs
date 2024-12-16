@@ -320,6 +320,6 @@ This error can occur if the appliance is in a shut-down state or the DRA service
 ## Next steps
 
 - Set up an appliance for [VMware](how-to-set-up-appliance-vmware.md), [Hyper-V](how-to-set-up-appliance-hyper-v.md), or [physical servers](how-to-set-up-appliance-physical.md).
-- Learn how to migrate [VMware VMs](./vmware/tutorial-migrate-vmware.md), [Hyper-V VMs](tutorial-migrate-hyper-v.md), or [physical servers](tutorial-migrate-physical-virtual-machines.md).
+- Learn how to migrate [VMware VMs](tutorial-migrate-vmware.md), [Hyper-V VMs](tutorial-migrate-hyper-v.md), or [physical servers](tutorial-migrate-physical-virtual-machines.md).
 
 

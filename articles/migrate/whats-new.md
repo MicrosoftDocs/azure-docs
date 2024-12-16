@@ -24,7 +24,7 @@ ms.custom: mvc, engagement-fy25
 
 ## Update (October 2024)
 
-The RVTools XLSX (preview) file import now reads storage data, when available, from vPartition and vMemory (for storage required for unreserved memory) sheets. [Learn more](vmware/tutorial-import-vmware-using-rvtools-xlsx.md#prerequisites).
+The RVTools XLSX (preview) file import now reads storage data, when available, from vPartition and vMemory (for storage required for unreserved memory) sheets. [Learn more](tutorial-import-vmware-using-rvtools-xlsx.md#prerequisites).
 
 
 ## Update (April 2024)
