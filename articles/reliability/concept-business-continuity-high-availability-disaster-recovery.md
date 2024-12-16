@@ -83,7 +83,7 @@ There are multiple ways you can group controls, including:
 
 - **Automated or manual.** Controls might be fully automated, such as self-healing or automated failover. Other controls might require manual intervention, such as restoring from backup or making an explicit decision to fail over to another instance of the solution.
 
-When you're considering which controls to apply, understand whether they require or assume downtime or data loss. For example, reactive manual controls typically require a human to be notified and then to respond, which takes time. If your solution requires high uptime, you need to control many of the risks by using automated technical controls. To learn more, see [What is high availability?](./concept-high-availability.md).
+When you're considering which controls to apply, understand whether they require or assume downtime or data loss. For example, reactive manual controls typically require a human to be notified and then to respond, which takes time. If your solution requires high uptime, you need to control many of the risks by using automated technical controls. To learn more, see [High availability](#high-availability).
 
 <!-- TODO for HA you're going to need to prefer mitigations that can be automated -->
 
@@ -111,9 +111,13 @@ To achieve high availability, a workload may use include the following design el
  
  - **Use services and tiers that support high availability**. For example, Azure offers a variety of services that are designed to be highly available, such as Azure Virtual Machines, Azure App Service, and Azure SQL Database. These services are designed to provide high availability by default, and can be used to build highly available workloads. You might need to select specific tiers of services to achieve high levels of availability.
  - **Redundancy** is the practice of duplicating instances or data to increase the reliability of the workload. For example, a web application might use multiple instances of a web server to ensure that the application remains available even if one instance fails. A database may have a multiple replicas to ensure that the data remains available even if one replica fails. You can choose distribute those replicas or redundant instances around a data center, between availability zones within a region, or even across regions.
- - **Fault tolerance** is the ability of a system to continue operating in the event of a failure. For example, a web application might be designed to continue operating even if a single web server fails. Fault tolerance can be achieved through redundancy, failover, and other techniques.
+ - **Fault tolerance** is the ability of a system to continue operating in the event of a failure. For example, a web application might be designed to continue operating even if a single web server fails. Fault tolerance can be achieved through redundancy, failover, partitioning, and other techniques.
  - **Scalability and elasticity** are the abilities of a system to handle increased load by adding resources. For example, a web application might be designed to automatically add additional web servers as traffic increases. Scalability and elasticity can help a system maintain availability during peak loads. For more information on how to design a scalable and elastic system, see [Scalability and elasticity](/azure/well-architected/reliability/scaling).
  - **Monitoring and alerting** lets you know the health of your system, even when automated mitigations take place. Use Azure Service Health, Azure Resource Health, and Azure Monitor, as well as Scheduled Events for virtual machines. For more information on how to design a reliability monitoring and alerting strategy, see [Monitoring and alerting](/azure/well-architected/reliability/monitoring-alerting-strategy).
+
+<!-- 
+ If you have stringent requirements, HA might also include a multi-region active/active design. This is very costly and complex to implement, but if done well it can result in a very resilient solution. Normally, though, regional failures are considered disasters and are part of your disaster recovery planning.
+ -->
 
 ## Disaster recovery
 
