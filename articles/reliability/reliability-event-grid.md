@@ -109,7 +109,7 @@ If you use a [non-paired region](cross-region-replication-azure.md#regions-with-
 
 ### Disaster recovery failover experience
 
-Disaster recovery is measured with two metrics, [Recovery Point Objective (RPO) and Recovery Time Objective (RTO)](./concept-disaster-recovery.md#recovery-objectives).
+Disaster recovery is measured with two metrics, Recovery Point Objective (RPO) and Recovery Time Objective (RTO). For more information, see [What are business continuity, high availability, and disaster recovery?](./concept-business-continuity-high-availability-disaster-recovery.md#disaster-recovery).
 
 Event Grid’s automatic failover has different RPOs and RTOs for your metadata (topics, domains, event subscriptions) and data (events). If you need different specification from the following ones, you can still implement your own client-side failover using the topic health APIs.
 

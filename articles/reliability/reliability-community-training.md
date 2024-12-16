@@ -81,7 +81,7 @@ The Microsoft Community Training team manages the entire disaster recovery proce
 
 
 >[!NOTE]
-> RTO depends on database and storage size, latency between the paired region. Database or storage VM capacity (SKU). RPO depends on underlying Azure resources, such as [Azure SQL](/azure/azure-sql/database/recovery-using-backups?view=azuresql&tabs=azure-portal&preserve-view=true#geo-restore-considerations) and Azure storage. For more information on RTO and RPO, see [Overview of Disaster Recovery](./concept-disaster-recovery.md).
+> RTO depends on database and storage size, latency between the paired region. Database or storage VM capacity (SKU). RPO depends on underlying Azure resources, such as [Azure SQL](/azure/azure-sql/database/recovery-using-backups?view=azuresql&tabs=azure-portal&preserve-view=true#geo-restore-considerations) and Azure storage. For more information on RTO and RPO, see [What are business continuity, high availability, and disaster recovery?](./concept-business-continuity-high-availability-disaster-recovery.md#disaster-recovery).
 
 
 #### Outage detection, notification, and management

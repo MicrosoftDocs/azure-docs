@@ -132,7 +132,7 @@ A *disaster* is a distinct, uncommon, major event that has a larger and longer-l
 > [!NOTE]
 > You should follow recommended practices across your solution to minimize the likelihood of these events. However, even after careful proactive planning, it's prudent to plan how you would respond to these situations if they arise.
 
-### Requirements
+### Disaster recovery requirements
 
 Due to the rarity and severity of disaster events, DR planning brings different expectations for your response. Many organizations accept the fact that, in a disaster scenario, some level of downtime or data loss is unavoidable. A complete DR plan must specify the following critical business requirements for each flow: 
 

@@ -136,7 +136,7 @@ Improving business continuity using cross region high availability disaster reco
 |Area|Cause of complexity escalation|Optimization strategies|
 |----|------------------------|-----------------------|
 |Read Write patterns |Requiring both primary and secondary to be Read and Write enabled |Design the secondary to be read only|
-|Zero RPO & RTO |Requiring zero data loss (RPO=0) and zero downtime (RTO=0) |Design RPO and RTO in ways to reduce the number of components that need to fail over. For more information on RTO and RPO, see [Recovery objectives](./concept-disaster-recovery.md#recovery-objectives).|
+|Zero RPO & RTO |Requiring zero data loss (RPO=0) and zero downtime (RTO=0) |Design RPO and RTO in ways to reduce the number of components that need to fail over. For more information on RTO and RPO, see [What are business continuity, high availability, and disaster recovery?](./concept-business-continuity-high-availability-disaster-recovery.md#disaster-recovery).|
 |Business functionality |Requiring full business functionality of primary in secondary |Evaluate if you can run with bare minimum critical subset of the business functionality in secondary.|
 |Connectivity |Requiring all upstream and downstream systems from primary to connect to the secondary as well|Limit the secondary connectivity to a bare minimum critical subset.|
 
