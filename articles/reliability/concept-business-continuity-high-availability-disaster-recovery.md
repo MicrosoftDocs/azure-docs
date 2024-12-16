@@ -12,7 +12,7 @@ ms.subservice: azure-reliability
 
 # What are business continuity, high availability, and disaster recovery?
 
-*Business continuity* is the state in which your business is able to continue to remain operational, even during failures, outages, or disasters. You achieve business continuity through proactive planning, preparation, and the implementation of resilient systems and processes.
+*Business continuity* is the state in which your business is able to continue to remain operational, even during failures, outages, or disasters that affect your solution. You achieve business continuity through proactive planning, preparation, and the implementation of resilient systems and processes.
 
 Planning for business continuity is about identifying, understanding, classifying, and managing risks. Based on the risks and their likelihoods, you can design your solution for *high availability* and *disaster recovery*. High availability is about designing your solution to be resilient to day-to-day issues and to meet your business needs for availability. Disaster recovery is about planning how you deal with catastrophic outages and uncommon risks.
 
