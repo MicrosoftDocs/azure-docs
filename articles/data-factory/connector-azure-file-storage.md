@@ -7,7 +7,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/13/2024
+ms.date: 12/16/2024
 ---
 
 # Copy data from or to Azure Files by using Azure Data Factory
