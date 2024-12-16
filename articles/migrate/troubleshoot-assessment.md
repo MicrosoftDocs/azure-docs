@@ -263,7 +263,7 @@ The server might start in Azure, but Azure provides no operating system support.
 
 #### Fix
 
-The operating system of the VM was specified as **Other** in vCenter Server or could not be identified as a known OS in Azure Migrate. This behavior blocks Azure Migrate from verifying the Azure readiness of the VM. Ensure that the operating system is [supported](./migrate-support-matrix-vmware-migration.md#azure-vm-requirements) by Azure before you migrate the server.
+The operating system of the VM was specified as **Other** in vCenter Server or could not be identified as a known OS in Azure Migrate. This behavior blocks Azure Migrate from verifying the Azure readiness of the VM. Ensure that the operating system is [supported](migrate-support-matrix-vmware-migration.md#azure-vm-requirements) by Azure before you migrate the server.
 
 ### Issue: Unsupported bit version
 
