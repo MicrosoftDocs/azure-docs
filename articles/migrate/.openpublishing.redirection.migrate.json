@@ -22,7 +22,7 @@
         },
         {
             "source_path_from_root": "/articles/migrate/migrate-support-matrix-vmware-migration.md",
-            "redirect_url": "/azure/migrate/vmware/migrate-support-matrix-vmware-migration?context=/azure/migrate/context/migrate-context",
+            "redirect_url": "/azure/migrate/vmware/migrate-support-matrix-vmware-migration"
             "redirect_document_id": true
         },
         {
@@ -336,8 +336,8 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/migrate/migrate-support-matrix-vmware-migration.md",
-            "redirect_url": "/azure/migrate/vmware/migrate-support-matrix-vmware-migration?context=/azure/migrate/context/migrate-context",
+            "source_path_from_root": "/articles/migrate/vmware/migrate-support-matrix-vmware-migration.md",
+            "redirect_url": "migrate-support-matrix-vmware-migration?context=/azure/migrate/context/migrate-context",
             "redirect_document_id": true
         }
     ]
