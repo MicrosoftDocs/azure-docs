@@ -48,7 +48,7 @@ landingContent:
           - text: CycleCloud 8.6.5 is now available
             url: release-notes.md
           - text: CycleCloud Workspace for Slurm
-            url: release-notes/ccws/2024.09.18.md
+            url: release-notes/ccws/release-notes.md
           - text: Node Health Checks are now supported
             url: how-to/healthcheck.md
           - text: CycleCloud supports Confidential VMs and Trusted Platform Launch for nodes
