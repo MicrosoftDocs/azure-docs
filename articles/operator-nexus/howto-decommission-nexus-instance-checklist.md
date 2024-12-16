@@ -23,9 +23,10 @@ Note: Due to the underlying dependencies and references across these resources, 
 6) [Delete Cluster Manager resource](./howto-cluster-manager.md#delete-cluster-manager)
 7) [Deprovision Fabric](./howto-configure-network-fabric.md#deleting-fabric)
 8) [Clean up ACL (Access Control List) resources](./howto-delete-access-control-list-network-to-network-interconnect.md)
-9) [Delete Fabric resource](./howto-configure-network-fabric.md#deleting-fabric)
-10) [Disable DHCP (Dynamic Host Configuration Protocol) and put devices into ZTP (Zero Touch Provisioning) mode](./howto-platform-prerequisites.md#default-setup-for-other-devices-installed)
-11) [Delete Network Fabric Controller (NFC) resource](./howto-configure-network-fabric-controller.md#delete-network-fabric-controller)
-
+9) [Clean up RoutePolicy resources (if present)](./how-to-route-policy.md#delete-route-policy)
+10) [Delete Fabric resource](./howto-configure-network-fabric.md#deleting-fabric)
+11) [Disable DHCP (Dynamic Host Configuration Protocol) and put devices into ZTP (Zero Touch Provisioning) mode](./howto-platform-prerequisites.md#default-setup-for-other-devices-installed)
+12) [Delete Network Fabric Controller (NFC) resource](./howto-configure-network-fabric-controller.md#delete-network-fabric-controller)
+     Note: Only delete Network Fabric Controller(NFC) if the fabric being deleted was the only fabric associated to the NFC
 ## Support and questions
 For further technical questions or assistance, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). For more information about Support plans, see [Azure Support plans](https://azure.microsoft.com/support/plans/response/).
