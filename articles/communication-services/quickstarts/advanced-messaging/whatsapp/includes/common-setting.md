@@ -11,6 +11,11 @@ ms.custom: include file
 ms.author: shamkh
 ---  
 
+### Authenticate the client 
+
+Messages sending is done using NotificationMessagesClient. NotificationMessagesClient is authenticated using your connection string acquired from Azure Communication Services resource in the Azure portal. For more information on connection strings, see [access-your-connection-strings-and-service-endpoints](../../../../create-communication-resource.md#access-your-connection-strings-and-service-endpoints).
+
+[!INCLUDE [Authenticate the client ](./authenticate-notification-messages-client-net.md)]
 
 #### Set channel registration ID   
 
