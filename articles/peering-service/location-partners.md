@@ -51,7 +51,6 @@ The following table provides information on the Peering Service connectivity par
 | [Swisscom](https://www.swisscom.ch/en/business/enterprise/offer/wireline/ip-plus/) | Europe |
 | [Telstra International](https://www.telstra.com.sg/en/products/global-networks/global-internet/global-internet-direct) | Asia, Europe |
 | [TOKAI-NETWORK](https://www.broadline.ne.jp/en/) | Japan  |
-| [Vocusgroup NZ](https://www.vocus.co.nz/microsoftazuredirectpeering/) | Oceania |
 | [Vodacom](https://www.vodacom.com/index.php) | Africa |
 | [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions) | Asia, Europe, North America |
 
@@ -61,7 +60,7 @@ The following table provides information on the Peering Service connectivity par
 
 | Metro | Partners (ISPs) |
 |-------|-----------------|
-| Auckland | [Kordia](https://www.kordia.co.nz/cloudconnect), [Vocusgroup NZ](https://www.vocus.co.nz/microsoftazuredirectpeering/) |
+| Auckland | [Kordia](https://www.kordia.co.nz/cloudconnect), |
 | Amsterdam | [Colt](https://www.colt.net/product/cloud-prioritisation/), [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions) |
 | Ashburn | [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions) |
 | Brussels | [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions) |
@@ -88,7 +87,7 @@ The following table provides information on the Peering Service connectivity par
 | Singapore | [Singtel](https://www.singtel.com/business/campaign/singnet-cloud-connect-microsoft-direct), [Colt](https://www.colt.net/product/cloud-prioritisation/), [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions) |
 | Seoul | [Sejong Telecom](https://www.sejongtelecom.net/) |
 | Sofia | [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions) |
-| Sydney | [Kordia](https://www.kordia.co.nz/cloudconnect), [Vocusgroup NZ](https://www.vocus.co.nz/microsoftazuredirectpeering/) |
+| Sydney | [Kordia](https://www.kordia.co.nz/cloudconnect), |
 | Tokyo | [Colt](https://www.colt.net/product/cloud-prioritisation/), [IIJ](https://www.iij.ad.jp/en/), [NTT Communications](https://www.ntt.com/en/services/network/software-defined-network.html), [TOKAI-NETWORK](https://www.broadline.ne.jp/en/) |
 | Vienna | [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions) |
 | Warsaw | [Atman](https://www.atman.pl/en/atman-internet-maps/) |
