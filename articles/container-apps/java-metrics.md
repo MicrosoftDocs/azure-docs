@@ -130,4 +130,5 @@ You can see Java metric names on Azure Monitor, but the data sets show as empty 
 ## Next steps
 
 > [!div class="nextstepaction"]
+> [Build a Java metrics dashboard with Azure Managed Grafana](java-metrics-with-grafana.md)
 > [Monitor logs with Log Analytics](log-monitoring.md)
