@@ -18,7 +18,7 @@ Microsoft used similar configurations and data volumes to validate Azure IoT Ope
 
 ## Single node cluster
 
-This example shows the capabilities of Azure IoT Operations when it runs on a host with relatively low hardware specification. In this example, Azure IoT Operations is deployed to a single node cluster. Data generated from assets is first aggregated with a PLC, and then sent to the Azure IoT Operations OPC UA connector.
+This example shows the capabilities of Azure IoT Operations when it runs on a host with relatively low hardware specification. In this example, Azure IoT Operations is deployed to a single node cluster. Data generated from assets is first aggregated with a PLC, and then sent to the Azure IoT Operations connector for OPC UA.
 
 ### Configuration
 
@@ -41,13 +41,13 @@ The following table shows the MQTT broker configuration for the single node exam
 
 The end-to-end data flow in the example looks like this:
 
-`Assets -> PLC -> OPC UA connector -> MQTT broker -> Dataflows -> Event Hubs`
+`Assets -> PLC -> Connector for OPC UA -> MQTT broker -> Dataflows -> Event Hubs`
 
 The data volumes in the example are:
 
 - 125 assets aggregated by a single OPC UA server.
 - 6,250 tags based on 50 tags for each asset. Each tag updates 2/second and has an average size of 20 bytes.
-- The OPC UA connector sends 125 message/second to the MQTT broker.
+- The connector for OPC UA sends 125 message/second to the MQTT broker.
 - One data flow pipeline pushes 6,250 tags to an Event Hubs endpoint.
 
 In this example, Microsoft recommends using Event Hubs because you can only create one dataflow instance with a 4-core CPU. If you choose Event Grid, it can only handle 100 messages/sec.
@@ -83,19 +83,19 @@ The following table shows the MQTT broker configuration for the multi-node examp
 | backendPartitions        | 5     |
 | memoryProfile            | High  |
 
-In this example, there are two types of data source. One connects through the OPC UA connector, and one connects through the MQTT broker.
+In this example, there are two types of data source. One connects through the connector for OPC UA, and one connects through the MQTT broker.
 
 In this example, an asset doesn't represent a real piece of equipment, but is a logical grouping that aggregates data points and sends messages.
 
 The first end-to-end data flow in the example looks like this:
 
-`Assets -> PLC -> OPC UA connector -> MQTT broker -> Dataflows -> Event Hubs`
+`Assets -> PLC -> Connector for OPC UA -> MQTT broker -> Dataflows -> Event Hubs`
 
 The data volumes in the first data flow in the example are:
 
 - 85 assets, aggregated by five OPC UA servers.
 - 85,000 tags based on 1,000 tags for each asset. Each tag updates 1/second and has an average size of 8 bytes. Approximately 50% of the tag values change each cycle. The data point update rate is 45,000/second.
-- The OPC UA connector sends 85 message/second to the MQTT broker.
+- The connector for OPC UA sends 85 message/second to the MQTT broker.
 - One data flow pipeline pushes 85,000 tags to an Event Hubs endpoint.
 
 The second end-to-end data flow in the example looks like this:
