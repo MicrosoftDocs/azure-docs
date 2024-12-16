@@ -85,7 +85,7 @@ To integrate with Proofpoint On Demand Email Security (using Azure Functions) ma
 
 Option 1 - Azure Resource Manager (ARM) Template
 
-Use this method for automated deployment of the Proofpoint On Demand Email Security data connector using an ARM Tempate.
+Use this method for automated deployment of the Proofpoint On Demand Email Security data connector using an ARM Template.
 
 1. Click the **Deploy to Azure** button below. 
 
