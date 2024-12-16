@@ -61,6 +61,14 @@ sections:
           By using the nslookup command, you can send a DNS query for the name myip.opendns.com to the OpenDNS resolver. The service returns the source IP address that was used to send the query. When you run the following query from your VM, the response is the public IP used for that VM:
           
            ```nslookup myip.opendns.com resolver1.opendns.com```
+
+        - question: |
+          Can I ping from a backend VM behind a load balancer to a public IP?
+        answer: |
+         No, this will not work. Azure Load Balancer does not support ICMP for outbound NAT. 
+         Only TCP and UDP are supported protocols for outbound connections. 
+         ICMP will only function for outbound connections if the backend VM has an Instance-Level Public IP 
+         (ILPIP). Without an ILPIP, ICMP outbound packets will be discarded.
            
       - question: |
           Can I add a VM from the same availability set to different backend pools of a load balancer?
