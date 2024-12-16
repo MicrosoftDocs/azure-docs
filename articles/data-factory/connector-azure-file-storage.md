@@ -487,7 +487,7 @@ The following properties are supported for Azure Files under `storeSettings` set
 ```
 
 >[!NOTE]
-> You can copy up to 4 MB to the sink when using system-assigned or user-assigned managed identity as the authentication type.
+>You can copy up to 4 MB of data to the sink when using system-assigned or user-assigned managed identity as the authentication type.
 
 ### Folder and file filter examples
 
