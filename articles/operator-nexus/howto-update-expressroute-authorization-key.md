@@ -45,7 +45,7 @@ Replace `<Subscription ID>` with your Azure subscription ID.
 
 ### Step 2: Retrieve existing authorization keys
 
-Retrieve the current authorization keys using the following command:
+- Retrieve the current authorization keys using the following command:
 
     ```Azure CLI
     az network express-route auth list \
@@ -71,14 +71,14 @@ Replace <resource-group> and <circuit-name> with your specific resource group an
 
 ## Step 3: Generate new authorization keys
 
-Generate new authorization keys for the ExpressRoute circuits using the command below:
+- Generate new authorization keys for the ExpressRoute circuits using the command below:
 
-    ```Azure CLI
+```Azure CLI
     az network express-route auth create \
         --resource-group <resource-group> \
         --circuit-name <circuit-name> \
         --name <authorization-name>
-    ```
+```
 
 #### New Authorization Keys
 
@@ -100,7 +100,7 @@ There are 4 ExpressRoute circuits, each with an existing connection. Follow thes
 
 ### Step 4.1: Update the First Infrastructure Authorization Key
 
-Run the following command to update the first infrastructure authorization key:
+- Run the following command to update the first infrastructure authorization key:
 
     ```Azure CLI
     az networkfabric controller update \
@@ -109,11 +109,12 @@ Run the following command to update the first infrastructure authorization key:
         --infra-er-connections '[{expressRouteCircuitId:"er-circuit-A",expressRouteAuthorizationKey:"er-authz-key-a20"},{expressRouteCircuitId:"er-circuit-B",expressRouteAuthorizationKey:"er-authz-key-b1"}]' \
         --debug
     ```
+
 Post-check: Verify that the new connection for **er-circuit-A** is operational.
 
 ### Step 4.2: Update the Second Infrastructure Authorization Key
 
-Run the following command to update the second infrastructure authorization key:
+- Run the following command to update the second infrastructure authorization key:
 
     ```
     az networkfabric controller update \
@@ -127,7 +128,7 @@ Post-check: Verify that the new connection for **er-circuit-B** is operational.
 
 ### Step 4.3: Update the First Workload Authorization Key
 
-Run the following command to update the first workload authorization key:
+- Run the following command to update the first workload authorization key:
 
     ```Azure CLI
     az networkfabric controller update \
@@ -140,7 +141,7 @@ Post-check: Verify that the new connection for **er-circuit-C** is operational.
 
 ### Step 4.4: Update the Second Workload Authorization Key
 
-Run the following command to update the second workload authorization key:
+- Run the following command to update the second workload authorization key:
 
     ```
     az networkfabric controller update \
