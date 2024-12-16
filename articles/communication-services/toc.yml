@@ -238,7 +238,11 @@ items:
             - name: Template Messages
               href: quickstarts/advanced-messaging/whatsapp/template-messages.md
             - name: Interactive Messages
-              href: quickstarts/advanced-messaging/whatsapp/get-started-interactive-types.md
+              href: quickstarts/advanced-messaging/whatsapp/send-interactive-messages.md
+            - name: Reaction Messages
+              href: quickstarts/advanced-messaging/whatsapp/send-reaction-messages.md
+            - name: Sticker Messages
+              href: quickstarts/advanced-messaging/whatsapp/send-sticker-messages.md
         - name: Handle Advanced Messaging Events
           href: quickstarts/advanced-messaging/whatsapp/handle-advanced-messaging-events.md
         - name: Download Media Payload
