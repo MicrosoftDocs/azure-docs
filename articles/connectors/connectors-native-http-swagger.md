@@ -58,10 +58,6 @@ This built-in trigger sends an HTTP request to a URL for a Swagger file that des
 
 1. After the designer shows the operations described by the Swagger file, select the operation that you want to use.
 
-   The following example renames the trigger to a more descriptive name.
-
-   :::image type="content" source="media/connectors-native-http-swagger/http-swagger-trigger-operations.png" alt-text="Screenshot shows the example trigger and list with Swagger operations.":::
-
 1. Provide the values for the trigger parameters, which vary based on the selected operation, that you want to include in the endpoint call.
 
 1. If the trigger requires that you specify a firing schedule, specify the recurrence for how often you want the trigger to call the endpoint.
@@ -89,10 +85,6 @@ This built-in action sends an HTTP request to the URL for the Swagger file that 
    :::image type="content" source="media/connectors-native-http-swagger/http-swagger-action-parameters.png" alt-text="Screenshot shows workflow designer with trigger named Fabrikam API - Create order and open information pane for HTTP + Swagger action. The Swagger endpoint property is set to a URL.":::
 
 1. After the designer shows the operations described by the Swagger file, select the operation that you want to use.
-
-   The following example renames the action to a more descriptive name.
-
-   :::image type="content" source="media/connectors-native-http-swagger/http-swagger-action-operations-standard.png" alt-text="Screenshot shows action named Fabrikam - Check customer and list with Swagger operations.":::
 
 1. Provide the values for the action parameters, which vary based on the selected operation, that you want to include in the endpoint call.
 
