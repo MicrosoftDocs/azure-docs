@@ -382,4 +382,4 @@ To get an accurate operating system suitability/readiness in Azure VM and Azure 
 ## Next steps
 
 * Review [assessment best practices](../best-practices-assessment.md).
-* Learn how to [prepare for a VMware assessment](./tutorial-discover-vmware.md).
+* Learn how to [prepare for a VMware assessment](tutorial-discover-vmware.md).

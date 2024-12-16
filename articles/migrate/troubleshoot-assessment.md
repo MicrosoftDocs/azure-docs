@@ -213,7 +213,7 @@ The required privileges of guest operations haven't been enabled on the vCenter 
 
 #### Recommended Action
 
-Ensure that the vCenter Server user account has privileges enabled for **Virtual Machines** > **Guest Operations** to interact with the server and pull the required data. [Learn more](./vmware/tutorial-discover-vmware.md#create-an-account-to-access-vcenter-server) on how to set up the vCenter Server account with required privileges.
+Ensure that the vCenter Server user account has privileges enabled for **Virtual Machines** > **Guest Operations** to interact with the server and pull the required data. [Learn more](tutorial-discover-vmware.md#create-an-account-to-access-vcenter-server) on how to set up the vCenter Server account with required privileges.
 
 ### Error Code: 9022: The access is denied to run the Get-WmiObject cmdlet on the server.
 

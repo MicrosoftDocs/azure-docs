@@ -154,6 +154,7 @@ Learn more on how to perform [software inventory](how-to-discover-applications.m
 
 
 ## Update (December 2021)
+
 - Support to discover, assess, and migrate VMs from multiple vCenter Servers using a single Azure Migrate appliance. [Learn more](tutorial-discover-vmware.md#start-continuous-discovery).
 - Simplified [Azure VMware Solution assessment](./concepts-azure-vmware-solution-assessment-calculation.md) experience to understand sizing assumptions, resource utilization, and limiting factor for migrating on-premises VMware VMs to Azure VMware Solution. Other enhancements added:
     - Support for two new target assessment regions: Central US and Canada East
