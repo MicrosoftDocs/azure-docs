@@ -17,7 +17,7 @@ This guide provides step-by-step instructions for updating authorization keys fo
 
 Before proceeding with the key update, ensure the following prerequisites are met:
 
-- **Identify the Network Fabric Controller (NFC):** Locate the NFC for which you want to update the ExpressRoute authorization keys.
+- **Identify the Network Fabric Controller (NFC):** Locate the Network Fabric Controller (NFC) for which you want to update the ExpressRoute authorization keys.
 
 - **Verify ExpressRoute Connections:** Ensure there are 4 operational ExpressRoute connections (2 for infrastructure ER GW and 2 for tenant ER GW) to 4 ExpressRoute circuits.
 
@@ -66,12 +66,12 @@ Replace <resource-group> and <circuit-name> with your specific resource group an
 
 > [!NOTE]
 > There are 4 ExpressRoute circuits, each with an existing connection.<br>
-> Repeat the above step for each circuit that requires a new authorization key.<br>
+> This step must be repeated for each circuit to generate a new authorization key for each circuit.<br>
 > The authorization keys provided here are sample values and should not be used as real keys.
 
 ## Step 3: Generate new authorization keys
 
-- Generate new authorization keys for the ExpressRoute circuits using the command below:
+- Use the command below to generate new authorization keys for the ExpressRoute circuits:
 
 ```Azure CLI
     az network express-route auth create \
@@ -91,7 +91,7 @@ Replace <resource-group> and <circuit-name> with your specific resource group an
 
 > [!NOTE]
 > There are 4 ExpressRoute circuits, each with an existing connection.<br>
-> Repeat the above step for each circuit that requires a new authorization key.<br>
+> This step must be repeated for each circuit to generate a new authorization key for each circuit.<br>
 > The authorization keys provided here are sample values and should not be used as real keys.
 
 ### Step 4: Update Authorization Keys
@@ -159,8 +159,8 @@ Use metrics from the ExpressRoute gateway to monitor the health of connections d
 
 ### Key Metric: Count of Routes Learned from Peer
 
-During the update, you may observe a temporary dip in the count of routes learned. This should recover once the update is complete.
+During the update, you may observe a temporary dip in the count of routes learned. The count of routes learned should recover once the update is complete.
 
-Each connection has 2 peers. By filtering metrics for BGP peers, you can confirm the specific connections impacted during the update.
+Each connection has 2 peers. By filtering metrics for BGP (Border Gateway Protocol) peers, you can confirm the specific connections impacted during the update
 
 For additional details on monitoring, refer to the [Monitoring data reference for Azure ExpressRoute](/azure/expressroute/monitor-expressroute.md).
