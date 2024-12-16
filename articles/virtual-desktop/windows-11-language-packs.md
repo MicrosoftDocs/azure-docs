@@ -87,7 +87,7 @@ You can create a custom image by following these steps:
    $CSVFile = "Windows-10-1809-FOD-to-LP-Mapping-Table.csv"
    $filePath = (Get-Location).Path + "\$CSVFile"
 
-   ##Import Necesarry CSV File##
+   ##Import Necessary CSV File##
    $FODList = Import-Csv -Path $filePath -Delimiter ";"
 
    ##Set Language (Target)##
