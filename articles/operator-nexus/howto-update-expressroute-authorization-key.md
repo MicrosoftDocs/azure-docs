@@ -38,10 +38,10 @@ Before proceeding with the key update, ensure the following prerequisites are me
 3. Set the active subscription for your Azure CLI session:
 
     ```Azure CLI
-    az account set -s `<Subscription ID>`
+    az account set -s "<Subscription ID>"
     ```
    
-Replace <Subscription ID> with your Azure subscription ID.
+Replace `<Subscription ID>` with your Azure subscription ID.
 
 ### Step 2: Retrieve existing authorization keys
 
