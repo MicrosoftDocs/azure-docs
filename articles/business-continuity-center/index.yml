@@ -34,11 +34,11 @@ landingContent:
   # Card (optional)
   - title: Manage data protection
     linkLists:
-      - linkListType: Quickstarts
+      - linkListType: Quickstart
         links:
           - text: Understand the protection estate
             url: quick-understand-protection-estate.md
-      - linkListType: Tutorials
+      - linkListType: Tutorial
         links:
           - text: Configure protection for data sources
             url: tutorial-configure-protection-datasource.md
@@ -58,7 +58,7 @@ landingContent:
   # Card (optional)
   - title: Azure Business Continuity Center Copilot (preview)
     linkLists:
-      - linkListType: Tutorials
+      - linkListType: Tutorial
         links:
           - text: Manage BCDR estate (preview)
             url: tutorial-manage-data-using-copilot.md
