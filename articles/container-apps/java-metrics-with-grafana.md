@@ -36,6 +36,7 @@ Use the following steps to define environment variables and ensure your Azure Ma
 1. Create variables to support your grafana configuration. 
    ```bash
    export LOCATION=eastus
+   export SUBSCRIPTION_ID={my-subscriprion-id}
    export RESOURCE_GROUP=my-grafana-resource-group
    export GRAFANA_INSTANCE_NAME=my-grafana-name
    ```
@@ -43,8 +44,9 @@ Use the following steps to define environment variables and ensure your Azure Ma
    | Variable                | Description                                                                        |
    |-------------------------|------------------------------------------------------------------------------------|
    | `LOCATION`              | The Azure region location where you create your Azure Managed Grafana instance. |
+   | `SUBSCRIPTION_ID`       | The subscription ID which you use to create your Azure Container Apps. |
    | `RESOURCE_GROUP`        | The Azure resource group name for your Azure Managed Grafana instance.                           |
-   | `GRAFANA_INSTANCE_NAME`           | The instance name for your Azure Managed Grafana instance.               |
+   | `GRAFANA_INSTANCE_NAME` | The instance name for your Azure Managed Grafana instance.               |
   
 
 1. Log in to Azure with the Azure CLI.
@@ -116,7 +118,7 @@ First, create an Azure Managed Grafana instance, and grant necessary role assign
    ```azurecli
    az grafana show --resource-group $RESOURCE_GROUP \
       --name $GRAFANA_INSTANCE_NAME \
-      --query "properties.endpoint" 
+      --query "properties.endpoint" \
       --output tsv
    ```
    This command returns the URL you can use to access the Azure Managed Grafana dashboard. Open your browser with URL and login.
