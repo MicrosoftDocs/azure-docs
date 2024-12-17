@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 10/26/2024
+ms.date: 12/16/2024
 ms.custom: engagement-fy23
 ---
 
@@ -133,11 +133,8 @@ To increase the timeout for sending a message, [add the **ServiceProviders.Servi
   > However, despite this setting, the message still might not complete if your workflow remains in a 
   > throttled state at next polling interval.
   >
-  > However, if you [turn on a Service Bus trigger's concurrency setting](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency), 
-  > the default value for the `maximumWaitingRuns` property is 10. Based on the Service Bus entity's lock duration setting 
-  > and the run duration for your workflow, this default value might be too large and might cause a "lock lost" exception. 
-  > To find the optimal value for your scenario, start testing with a value of 1 or 2 for the `maximumWaitingRuns` property. 
-  > To change the maximum waiting runs value, review [Change waiting runs limit](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs).
+  > If you do still need to use concurrency control for a workflow with service bus trigger, we suggest creating and saving the workflow first, 
+  > and then edit the workflow to enable concurrency control. Do not enable concurrency control in the initial save.
 
 ### Service Bus built-in connector triggers
 
