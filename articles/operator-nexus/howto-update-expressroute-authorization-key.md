@@ -38,7 +38,7 @@ Before proceeding with the key update, ensure the following prerequisites are me
 3. Set the active subscription for your Azure CLI session:
 
     ```Azure CLI
-    az account set -s "<Subscription ID>"
+    az account set -s <Subscription ID>
     ```
    
 Replace `<Subscription ID>` with your Azure subscription ID.
@@ -49,8 +49,8 @@ Replace `<Subscription ID>` with your Azure subscription ID.
 
     ```Azure CLI
     az network express-route auth list \
-        --resource-group "<resource-group>" \
-        --circuit-name "<circuit-name>"
+        --resource-group <resource-group> \
+        --circuit-name <circuit-name>
     ```
 
 Replace `<resource-group>` and `<circuit-name>` with your specific resource group and circuit name.
@@ -99,6 +99,9 @@ Replace `<resource-group>` and `<circuit-name>` with your specific resource grou
 ### Step 4: Update Authorization Keys
 
 There are 4 ExpressRoute circuits, each with an existing connection. Follow these steps to update the keys one at a time for infrastructure and workload connections.
+
+> [!NOTE]
+> Authorization key rotation will cause temporary network connectivity loss. Plan the updates carefully to minimize disruptions.
 
 ### Step 4.1: Update the First Infrastructure Authorization Key
 
