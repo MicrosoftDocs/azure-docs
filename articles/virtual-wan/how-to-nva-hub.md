@@ -46,14 +46,11 @@ These permissions need to be granted to the Azure Marketplace Managed Applicatio
 
 ## Assigning Permissions to Azure Managed Application
 
->[!NOTE]
-> At this time, assigning extra permissions to faciliate Azure Managed Application deployments of Network Virtual Appliances in Virtual WAN is not required for all NVA deployments but will be in the future. Reference provider documentation to determine whether or not user-assigned identities are applicable to your enviornment.
-
 Network Virtual Appliances that are deployed via Azure Marketplace Managed Application are deployed in a special resource group in your Azure tenant called the **managed resource group**. When you create a Managed Application in your subscription, a corresponding and separate **managed resource group** is created in your subscription. All Azure resources created by the Managed Application (including the Network Virtual Appliance) are deployed into the **managed resource group**.
 
-Azure Marketplace owns a first-party service principal that performs the deployment of resources into the **managed resource group**. This first-party principal has permissions to create resources in the **managed resource group**, but doesn;t have permissions to read, update or create Azure resources outside of the **managed resource group**.
+Azure Marketplace owns a first-party service principal that performs the deployment of resources into the **managed resource group**. This first-party principal has permissions to create resources in the **managed resource group**, but doesn't have permissions to read, update or create Azure resources outside of the **managed resource group**.
 
-To ensure that your NVA deployment is performed with the sufficient level of permissions, grant additional permissions to the Azure Marketplace deployment service principal by deploying your Managed Application with a user-assigned managed identity that has permissions over the Virtual WAN hub and public IP address that you want to use with your Network Virtual Appliance. This user-assigned Managed Identity is used only for initial deployment of resources in the managed resource group and is  used solely in the context of that Managed Application deployment.
+To ensure that your NVA deployment is performed with the sufficient level of permissions, grant additional permissions to the Azure Marketplace deployment service principal by deploying your Managed Application with a user-assigned managed identity that has permissions over the Virtual WAN hub and public IP address that you want to use with your Network Virtual Appliance. This user-assigned Managed Identity is used only for initial deployment of resources in the managed resource group and is used solely in the context of that Managed Application deployment.
 
 >[!NOTE]
 > Only user-assigned system identities can be assigned to Azure Managed Applications to deploy Network Virtual Appliances in the Virtual WAN Hub. System-assigned identities are not supported.
@@ -99,7 +96,7 @@ The following section describes the steps needed to deploy a Network Virtual App
 
   :::image type="content" source="./media/network-virtual-appliance-creation/network-virtual-appliance-vendor.png"alt-text="Screenshot showing how to select NVA vendor."lightbox="./media/network-virtual-appliance-creation/network-virtual-appliance-vendor.png":::
 
-4. Follow the managed application creation experience to deploy your NVA and reference any provider documentation. Ensure that the user-assigned system identity created in the previous section is selected as part of the managed application creation workflow.
+4. Follow the managed application creation experience to deploy your NVA and reference your provider's documentation. Ensure that the user-assigned system identity created in the previous section is selected as part of the managed application creation workflow.
 
 ## Common Deployment Errors
 
@@ -110,8 +107,7 @@ The following section describes the steps needed to deploy a Network Virtual App
 ```
 The client <> with object id <> has permission to perform action 'Microsoft.Network/networkVirtualAppliances/write' on scope '/subscriptions/<>/resourceGroups/mrg-<>; however, it doesn't have permission to perform action(s) 'Microsoft.Network/virtualHubs/read on the linked scope(s) '/subscriptions/<>/resourceGroups/<>/providers/Microsoft.Network/virtualHubs/<> (respectively) or the linked scope(s) are invalid."
 ```
-
-
+                             
 ## Next steps
 
 * To learn more about Virtual WAN, see [What is Virtual WAN?](virtual-wan-about.md)
