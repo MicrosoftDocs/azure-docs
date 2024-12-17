@@ -15,15 +15,15 @@ Azure NetApp Files supports using cross-zone and cross-region replication on the
 
 * Cross-region and​ cross-zone replication target volumes
 
-:::image type="content" source="./media/cross-zone-region-introduction/zone-region.png" alt-text="Diagram of cross-zone and cross-region replication." lightbox="./media/cross-zone-region-introduction/zone-region.png" ":::
+:::image type="content" source="./media/cross-zone-region-introduction/zone-region.png" alt-text="Diagram of cross-zone and cross-region replication." lightbox="./media/cross-zone-region-introduction/zone-region.png":::
 
 * Two cross-region replication target volumes
 
-:::image type="content" source="./media/cross-zone-region-introduction/double-region.png" alt-text="Diagram of double cross-region replication." lightbox="./media/cross-zone-region-introduction/double-region.png" ":::
+:::image type="content" source="./media/cross-zone-region-introduction/double-region.png" alt-text="Diagram of double cross-region replication." lightbox="./media/cross-zone-region-introduction/double-region.png":::
 
 * Two cross-zone replication target volumes in any combination of availability zones, including in-zone replication
 
-:::image type="content" source="./media/cross-zone-region-introduction/double-zone.png" alt-text="Diagram of double cross-zone replication." lightbox="./media/cross-zone-region-introduction/double-zone.png" ":::
+:::image type="content" source="./media/cross-zone-region-introduction/double-zone.png" alt-text="Diagram of double cross-zone replication." lightbox="./media/cross-zone-region-introduction/double-zone.png":::
 
 ## Requirements 
 

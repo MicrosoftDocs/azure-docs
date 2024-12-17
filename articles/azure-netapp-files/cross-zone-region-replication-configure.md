@@ -1,6 +1,6 @@
 ---
 title: Manage cross-zone region replication for Azure NetApp Files
-description: Describes how to manage disaster recovery by using Azure NetApp Files cross-region replication.
+description: Describes how to manage disaster recovery by using Azure NetApp Files cross-zone region replication.
 services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
@@ -14,7 +14,7 @@ Azure NetApp Files supports volume cross-zone and cross-region replication on th
 
 ## Requirements 
 
-- Cross-zone region replication supports creating two replication relationships for a source relationship: cross-zone replication, cross-region replication, or a combination.  
+- Cross-zone region replication supports creating two replication relationships for a source volume: cross-zone replication, cross-region replication, or a combination.  
 - Cross-zone-region replication volumes must abide by the same requirements and considerations as individual [cross-zone replication](cross-zone-replication-requirements-considerations.md) and [cross-region replication](cross-region-replication-requirements-considerations.md) volumes.  
 
 ## Register the feature
@@ -49,8 +49,12 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 1. [Authorize data replication from the source volume](cross-region-replication-create-peering.md#authorize-replication-from-the-source-volume).  
 1. In the source volume’s menu, select **Replication**. Confirm there are two volumes listed under **Destination volumes**. 
 
+>[!NOTE]
+>With cross-zone region replication, you can create a combination of a cross-zone and a cross-region replication relationship, two cross-region replication relationships, or two cross-zone replication relationships. The cross-zone relationship can be within the same zone.
+
+
 <!-- replace image -->
-:::image type="content" source="./media/cross-zone-region-replication-configure/complete-configuration.png" alt-text="Screenshot of successful configuration." lightbox="./media/cross-zone-region-replication-configure/complete-configuration.png" ":::
+:::image type="content" source="./media/cross-zone-region-replication-configure/complete-configuration.png" alt-text="Screenshot of successful configuration." lightbox="./media/cross-zone-region-replication-configure/complete-configuration.png":::
 
 
 ## Next steps 
