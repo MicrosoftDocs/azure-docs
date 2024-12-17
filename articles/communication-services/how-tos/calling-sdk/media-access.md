@@ -71,6 +71,8 @@ The following table show support for individual APIs in the calling SDK related 
 |forbidOthersVideo		        |	✔️           |                          |
 |permitOthersVideo            | ✔️           |                          |
 |getAllOthersMediaAccess      | ✔️           |✔️                        |
+|mediaAccessChanged           | ✔️           |✔️                        |
+|meetingMediaAccessChanged    | ✔️           |                          |
 
 ::: zone pivot="platform-web"
 [!INCLUDE [Media Access Client-side JavaScript](./includes/media-access/media-access-web.md)]
