@@ -61,7 +61,7 @@ When creating or updating the resources below, add the appropriate permissions f
 
 ### NVA resources
 
-NVAs (Network Virtual Appliances) in Virtual WAN are typically deployed through Azure managed applications or directly via NVA orchestration software. For more information on how to properly assign permissions to managed applications or NVA orchestration software, see instructions [here](aka.ms/).
+NVAs (Network Virtual Appliances) in Virtual WAN are typically deployed through Azure managed applications or directly via NVA orchestration software. For more information on how to properly assign permissions to managed applications or NVA orchestration software, see instructions [here](https://aka.ms/nvadeployment).
 
 |Resource | Required Azure permissions |
 |---|---|
