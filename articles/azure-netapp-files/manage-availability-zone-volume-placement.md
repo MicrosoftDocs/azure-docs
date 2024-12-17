@@ -6,7 +6,7 @@ author: b-ahibbard
 ms.service: azure-netapp-files
 ms.custom: devx-track-terraform
 ms.topic: how-to
-ms.date: 12/11/2024
+ms.date: 12/17/2024
 ms.author: anfdocs
 ---
 # Manage availability zone volume placement for Azure NetApp Files
