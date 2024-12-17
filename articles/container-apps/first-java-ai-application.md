@@ -6,14 +6,14 @@ author: KarlErickson
 ms.author: sonwan
 ms.service: azure-container-apps
 ms.topic: quickstart
-ms.date: 12/12/2024
+ms.date: 12/17/2024
 ms.custom:
 #customer intent: As a developer, I want to see a simple example of an AI application deployed to Azure Container Apps.
 ---
 
 # Launch your first Java AI application to Azure Container Apps
 
-In this quickstart, you explore the architecture of an AI application in Azure Container Apps, and then you deploy the application. The article demonstrates how to deploy a sample AI chat assistant application based on the Spring PetClinic application to run on Azure Container Apps. The application uses the [Azure OpenAI Service](/azure/ai-services/openai/overview) and demonstrates how to automate deployment using the Azure Developer CLI (azd). The following screenshot shows the AI assistant:
+In this quickstart, you deploy your first Java AI application to Azure Container Apps. The application is a sample AI chat assistant based on the Spring PetClinic application, and it uses the [Azure OpenAI Service](/azure/ai-services/openai/overview). The quickstart also demonstrates how to automate deployment using the Azure Developer CLI (azd). The following screenshot shows the AI assistant:
 
 :::image type="content" source="media/first-ai-application/home-with-chatbot.png"  alt-text="Screenshot of home." lightbox="media/first-ai-application/home-with-chatbot.png":::
 
@@ -33,9 +33,9 @@ In this quickstart, you explore the architecture of an AI application in Azure C
 
 - [Azure Developer CLI (azd)](/azure/developer/azure-developer-cli/install-azd).
 
-## Install the extensions
+## Install the Azure CLI extensions
 
-Install the extensions by using the following command:
+Install the Azure CLI extensions by using the following command:
 
 ```bash
    az extension add -n containerapp --upgrade
@@ -46,15 +46,13 @@ Install the extensions by using the following command:
 To prepare the project, clone the [spring-petclinic-ai](https://github.com/Azure-Samples/spring-petclinic-ai) repository by using the following command:
 
 ```bash
-git clone https://github.com/Azure-Samples/spring-petclinic-ai.git
+   git clone https://github.com/Azure-Samples/spring-petclinic-ai.git
 ```
 
 ## Deploy your application
 
 > [!NOTE]
-> This template uses [Azure OpenAI Service](/azure/ai-services/openai/overview) deployment modules **gpt-4o** and **text-embedding-ada-002**, which may not be available in all Azure regions. Check for [up-to-date region availability](/azure/ai-services/openai/concepts/models#standard-deployment-model-availability) and select a region during deployment accordingly.
-
-We recommend using region **East US**, **East US 2**, **North Central US**, **South Central US**, **Sweden Central**, **West US**, or **West US 3**.
+> This template uses [Azure OpenAI Service](/azure/ai-services/openai/overview) deployment modules **gpt-4o** and **text-embedding-ada-002**, which may not be available in all Azure regions. Check for [up-to-date region availability](/azure/ai-services/openai/concepts/models#standard-deployment-model-availability) and select a region during deployment accordingly. We recommend using the following regions: **East US**, **East US 2**, **North Central US**, **South Central US**, **Sweden Central**, **West US**, or **West US 3**.
 
 To deploy your application, use the following steps:
 
@@ -70,7 +68,7 @@ To deploy your application, use the following steps:
    azd up
    ```
 
-1. When the system prompts you, enter `first-ai` for the environment name. After that, enter values for your Azure Subscription and Azure location, substituting your actual values for the placeholders in the following prompt:
+1. When the system prompts you, enter `first-ai` for the environment name. After that, enter values for your Azure Subscription and Azure location, substituting your actual values for the placeholders in the following prompts:
 
     ```azurecli
     ? Enter a new environment name: first-ai
@@ -109,18 +107,18 @@ SUCCESS: Your up workflow to provision and deploy to Azure completed in 17 minut
 
 Now you can start using your application. Open the app by selecting the URL from the deploy output:
 
-```
-INFO: Deploy finish succeed!
-INFO: App url: https://petclinic-ai.<cluster>.<region>.azurecontainerapps.io
+```azurecli
+   INFO: Deploy finish succeed!
+   INFO: App url: https://petclinic-ai.<cluster>.<region>.azurecontainerapps.io
 ```
 
-The Petclinic page and AI assistant assistant appear. You can get help by having a natural language chat with the AI assistant, which can assist you with the following tasks:
+The Petclinic page and AI assistant appear. You can get help by having a natural language chat with the AI assistant, which can assist you with the following tasks:
 
 - Querying the registered pet owners
 - Adding a new pet owner
 - Updating the pet owner's information
 - Adding a new pet
-- Querying the vets' information
+- Querying the vet's information
 
 The following image shows a chat where the user asks the AI assistant to register a new owner with a pet to the PetClinic, and the AI assistant then performs these tasks:
 
@@ -134,7 +132,7 @@ If you plan to continue working with subsequent tutorials, you might want to ret
 
 ### [Azure portal](#tab/azure-portal)
 
-To delete the resources, use the [Azure portal](https://portal.azure.com?azure-portal=true) to find the resource group of this sample, and delete the resource group directly.
+To delete the resources, use the [Azure portal](https://portal.azure.com?azure-portal=true) to find the resource group of this sample, and delete it.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -148,4 +146,4 @@ To delete the resource group, use following command:
 
 ## Related content
 
-- [Java on Azure Container Apps overview](./ai-in-container-apps-conceptual-overview.md)
+- [Java on Azure Container Apps overview](java-ai-in-container-apps-conceptual-overview.md)
