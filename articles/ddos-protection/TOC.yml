@@ -79,8 +79,8 @@
     href: ddos-pricing-guide.md
   - name: Reference architectures
     href: ddos-protection-reference-architectures.md
-  - name: Monitoring Azure DDoS Protection 
-    href: monitor-ddos-protection-reference.md
+  - name: Monitor Azure DDoS Protection 
+    href: monitor-ddos-protection.md
   - name: Reliability
     href: ../reliability/reliability-ddos.md?toc=/azure/ddos-protection/TOC.json
   - name: Fundamental best practices
@@ -127,6 +127,8 @@
     href: /rest/api/virtualnetwork/ddosprotectionplans
   - name: Azure Resource Manager
     href: ../azure-resource-manager/management/overview.md
+  - name: Monitoring data reference
+    href: monitor-ddos-protection-reference.md
 - name: Resources
   items:
   - name: FAQ
