@@ -98,7 +98,7 @@ If you want to clean up and remove a Communication Services subscription, you ca
 
 ## Next steps
 
-Advance to the next article to learn how to use Advanced Messaging SDK for WhatsApp messaging.
-> [!div class="nextstepaction"]
-> [Get Started With Advanced Communication Messages SDK](./get-started.md).
+Next you might also want to see the following articles:
+- [Understand Advanced Communication Messages Events](../../../../event-grid/communication-services-advanced-messaging-events.md)
+- [Get Started With Advanced Communication Messages SDK](./get-started.md)
 
