@@ -111,7 +111,7 @@ To see which regions support availability zones for App Service Environment v3, 
 
 ### Requirements
 
-You must deploy a minimum of three instances of your Workflow Service plan.
+You must deploy at least three instances of your Workflow Service Plan. Each instance roughly corresponds to one VM. To distribute these instances (VMs) across availability zones, you must have a minimum of three instances.
 
 ::: zone-end
 

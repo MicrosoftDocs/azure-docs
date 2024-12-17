@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, shahparth, laveeshb, azla
 ms.topic: how-to
-ms.date: 11/19/2024
+ms.date: 12/18/2024
 ms.custom: references_regions
 #Customer intent: As a developer, I want to protect logic apps from zonal failures by setting up availability zones and zone redundancy.
 ---
@@ -18,9 +18,7 @@ ms.custom: references_regions
 
 For scenarios where you need high reliability for your logic app workflows, you can set up *zone redundancy* with *availability zones* within an Azure region. Azure Logic Apps can then distribute logic app workloads across all the availability zones within a region. This capability protects your apps and their information from datacenter failures within a region.
 
-
 This guide shows how to enable zone redundancy for your logic apps.
-
 
 ## Prerequisites
 
@@ -38,8 +36,6 @@ This guide shows how to enable zone redundancy for your logic apps.
 
   - [Outbound IP addresses for managed connectors and custom connectors](/connectors/common/outbound-ip-addresses)
 
-
-
 ## Limitations
 
 With HTTP-based actions, certificates exported or created with AES256 encryption won't work when used for client certificate authentication. The same certificates also won't work when used for OAuth authentication.
@@ -50,25 +46,25 @@ For Consumption logic apps, zone redundancy is automatically enabled. You don't 
 
 For Standard logic apps only, follow these steps:
 
-1. In the [Azure portal](https://portal.azure.com), start creating a Standard logic app. On the **Create Logic App** page, stop after you select **Standard** as the plan type for your logic app.
+1. In the [Azure portal](https://portal.azure.com), start creating a logic app.
 
-   :::image type="content" source="media/set-up-zone-redundancy-availability-zones/select-standard-plan.png" alt-text="Screenshot shows Azure portal, Create Logic App page, logic app details, and selected Standard plan type." lightbox="media/set-up-zone-redundancy-availability-zones/select-standard-plan.png":::
+   On the **Create Logic App** page, select **Workflow Service Plan** or **App Service Environment V3** depending on the hosting model you want to use.
+
+   :::image type="content" source="media/set-up-zone-redundancy-availability-zones/select-standard-plan.png" alt-text="Screenshot shows Azure portal, Create Logic App page, Standard plan types." lightbox="media/set-up-zone-redundancy-availability-zones/select-standard-plan.png":::
 
    For a tutorial, see [Create Standard logic app workflows with single-tenant Azure Logic Apps in the Azure portal](create-single-tenant-workflows-azure-portal.md).
-
-   After you select **Standard**, the **Zone redundancy** section and options become available.
-
-   > [!NOTE]
-   >
-   > The **Zone redundancy** options appear unavailable if you select an unsupported Azure region or an 
-   > existing Windows plan that created in an unsupported Azure region. Make sure to select a supported 
-   > Azure region and a Windows plan that was created in a supported Azure region, or create a new Windows plan.
 
 1. Under **Zone redundancy**, select **Enabled**.
 
    At this point, your logic app creation experience appears similar to this example:
 
    :::image type="content" source="media/set-up-zone-redundancy-availability-zones/enable-zone-redundancy-standard.png" alt-text="Screenshot shows Azure portal, Create Logic App page, Standard logic app details, and the Enabled option selected under Zone redundancy." lightbox="media/set-up-zone-redundancy-availability-zones/enable-zone-redundancy-standard.png":::
+
+   > [!NOTE]
+   >
+   > The **Zone redundancy** options appear unavailable if you select an unsupported Azure region or an 
+   > existing Windows plan that created in an unsupported Azure region. Make sure to select a supported 
+   > Azure region and a Windows plan that was created in a supported Azure region, or create a new Windows plan.
 
 1. Finish creating your logic app workflow.
 
