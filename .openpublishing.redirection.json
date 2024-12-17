@@ -4036,6 +4036,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/managed-grafana/how-to-create-api-keys.md",
+      "redirect_url": "/azure/managed-grafana/how-to-service-accounts",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/load-balancer/move-across-regions-external-load-balancer-portal.md",
       "redirect_url": "/azure/load-balancer/move-across-regions-azure-load-balancer",
       "redirect_document_id": false

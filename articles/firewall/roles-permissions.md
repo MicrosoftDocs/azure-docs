@@ -1,17 +1,17 @@
 ---
-title: About VPN roles and permissions
-titleSuffix: VPN Gateway
-description: Learn about roles and permissions for VPN 
-author: aybatra
-ms.service: azure-vpn-gateway
+title: About Azure Firewall roles and permissions
+titleSuffix: Azure Firewall
+description: Learn about roles and permissions for Azure Firewall.
+author: raboilla
+ms.service: azure-firewall
 ms.topic: conceptual
-ms.date: 12/4/2024
-ms.author: cherylmc
+ms.date: 12/9/2024
+ms.author: victorh
 
 ---
-# About roles and permissions for VPN 
+# About roles and permissions for Azure Firewall
 
-The VPN utilize multiple resources, such as virtual networks and IP addresses, during both creation and management operations.
+The Azure Firewall utilizes multiple resources, such as virtual networks and IP addresses, during both creation and management operations.
 Because of this, it's essential to verify permissions on all involved resources during these operations.
 
 ## Azure built-in roles
@@ -25,12 +25,12 @@ If the [Azure built-in roles](../role-based-access-control/built-in-roles.md) do
 Just like built-in roles, you can assign custom roles to users, groups, and service principals at management group, subscription, and resource group scopes.
 For more information, see [Steps to create a custom role](../role-based-access-control/custom-roles.md#steps-to-create-a-custom-role)  .
 
-To ensure proper functionality, check your custom role permissions to confirm user service principals, and managed identities operating the VPN gateway have the necessary permissions.
+To ensure proper functionality, check your custom role permissions to confirm user service principals, and managed identities operating the Azure Firewall have the necessary permissions.
 To add any missing permissions listed here, see [Update a custom role](../role-based-access-control/custom-roles-portal.md#update-a-custom-role).
 
 ## Permissions
 
-Depending on whether you're creating new resources or using existing ones, add the appropriate permissions from the following list:
+Depending on whether you're creating new resources or using existing ones, add the appropriate permissions from the following list for Azure Firewall in a Hub VNET:
 
 |Resource | Resource status | Required Azure permissions |
 |---|---|---|
@@ -38,9 +38,12 @@ Depending on whether you're creating new resources or using existing ones, add t
 | Subnet | Use existing| Microsoft.Network/virtualNetworks/subnets/read<br>Microsoft.Network/virtualNetworks/subnets/join/action |
 | IP addresses| Create new| Microsoft.Network/publicIPAddresses/write<br>Microsoft.Network/publicIPAddresses/join/action |
 | IP addresses  | Use existing| Microsoft.Network/publicIPAddresses/read<br>Microsoft.Network/publicIPAddresses/join/action |
-| Local Network Gateway  | Create new/ Update existing| Microsoft.Network/localnetworkgateways/write |
-| Connection | Create new/ Update existing| Microsoft.Network/connections/write |
-| Azure VPN Gateway | Create new/ Update existing| Microsoft.Network/localnetworkgateways/write<br>Microsoft.Network/publicIPAddresses/join/action<br>Microsoft.Network/virtualNetworks/subnets/join/action | 
+
+If you are creating an Azure Firewall in Azure Virtual WAN, add the following permission:
+
+|Resource | Resource status | Required Azure permissions |
+|---|---|---|
+| virtualHubs | Create new | Microsoft.Network/virtualHubs/read
 
 For more information, see [Azure permissions for Networking](../role-based-access-control/permissions/networking.md) and [Virtual network permissions](../virtual-network/virtual-network-manage-subnet.md#permissions).
 
@@ -58,7 +61,5 @@ For more information, see [Scope levels](../role-based-access-control/scope-over
 
 ## Next steps
 
-- [What is Azure Role Based Access](../role-based-access-control/overview.md)
-
-- [Azure Role Based Access Control](../role-based-access-control/role-assignments-list-portal.yml)
-
+[What is Azure Role Based Access](../role-based-access-control/overview.md)
+[Azure Role Based Access Control](../role-based-access-control/role-assignments-list-portal.yml)
