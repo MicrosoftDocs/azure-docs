@@ -63,7 +63,7 @@ The following table shows support for individual APIs in the calling SDK related
 |Operations                     | Communication Services user | Microsoft 365 user |
 |-----------------------------|---------------|--------------------------|
 | Forbid audio		              |	✔️           | ✔️                       |
-|permitAudio                  | ✔️           | ✔️                       |
+| Permit audio                  | ✔️           | ✔️                       |
 |forbidVideo		              |	✔️           | ✔️                       |
 |permitVideo                  | ✔️           | ✔️                       |
 |forbidOthersAudio		        |	✔️           |                          |
