@@ -185,7 +185,7 @@ The `ProcessPushNotification` method takes in a `PushNotification` object contai
     To build and run the app locally using the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
     ```console
-    setx AppConfigurationConnectionString "connection-string-of-your-app-configuration-store"
+    setx AppConfigurationConnectionString "<connection-string-of-your-app-configuration-store>"
     ```
 
     ### [PowerShell](#tab/powershell)
@@ -193,7 +193,7 @@ The `ProcessPushNotification` method takes in a `PushNotification` object contai
     If you use Windows PowerShell, run the following command:
 
     ```powershell
-    $Env:AppConfigurationConnectionString = "connection-string-of-your-app-configuration-store"
+    $Env:AppConfigurationConnectionString = "<connection-string-of-your-app-configuration-store>"
     ```
 
     ### [macOS](#tab/unix)
@@ -201,7 +201,7 @@ The `ProcessPushNotification` method takes in a `PushNotification` object contai
     If you use macOS, run the following command:
 
     ```console
-    export AppConfigurationConnectionString='connection-string-of-your-app-configuration-store'
+    export AppConfigurationConnectionString='<connection-string-of-your-app-configuration-store>'
     ```
 
     ### [Linux](#tab/linux)
@@ -209,7 +209,7 @@ The `ProcessPushNotification` method takes in a `PushNotification` object contai
     If you use Linux, run the following command:
 
     ```console
-    export AppConfigurationConnectionString='connection-string-of-your-app-configuration-store'
+    export AppConfigurationConnectionString='<connection-string-of-your-app-configuration-store>'
     ```
 
     ---
