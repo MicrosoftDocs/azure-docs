@@ -72,7 +72,7 @@ The following table shows support for individual APIs in the calling SDK related
 | Permit video of all other attendees |	✔️[1]           |     ✔️[1]                     |
 |getAllOthersMediaAccess      | ✔️           |✔️                        |
 | Get notification that media access changed          | ✔️           |✔️                        |
-|meetingMediaAccessChanged    | ✔️           |                          |
+| Get notification that Teams meeting's media access changed    | ✔️[1]           |    ✔️[1]                      |
 
 ::: zone pivot="platform-web"
 [!INCLUDE [Media Access Client-side JavaScript](./includes/media-access/media-access-web.md)]
