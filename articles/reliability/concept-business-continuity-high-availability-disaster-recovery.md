@@ -61,7 +61,7 @@ Each risk should be analyzed to understand its likelihood and its severity. Seve
  
 Business continuity plans must address both common and uncommon risks.
 
-- Some risks are commonplace, planned, and expected. For example, in a cloud environment it's common for there to be server crashes, brief network outages, equipment restarts due to patches, and so forth. Because these events happen regularly, workloads need to be resilient to them. A high availability strategy must consider and control for each risk of this type.
+- Some risks are commonplace, planned, and expected. For example, in a cloud environment it's common for there to be *transient failures* including brief network outages, equipment restarts due to patches, timeouts when a service is busy, and so forth. Because these events happen regularly, workloads need to be resilient to them. A high availability strategy must consider and control for each risk of this type.
 
 - Unusual risks are generally the result of a catastrophic and unforeseeable event, such as natural disasters or major network attacks. Disaster recovery processes deal with these rare risks.
 
@@ -87,8 +87,8 @@ Have a formal change control process for anything that would alter the state of 
 
 ## High availability
 
-High availability is the state in which a specific workload can maintain its necessary level of uptime on a day-to-day basis, even during transient faults and intermittent failures. For example, in a cloud environment, it's common for there to be server crashes, brief network outages, equipment restarts due to patches, and so on. Because these events happen regularly, it's important that each workload is designed and configured for high availability in accordance with the requirements of the specific application and customer expectations. The HA of each workload contributes to your business continuity plan.
- 
+High availability is the state in which a specific workload can maintain its necessary level of uptime on a day-to-day basis, even during transient faults and intermittent failures. Because these events happen regularly, it's important that each workload is designed and configured for high availability in accordance with the requirements of the specific application and customer expectations. The HA of each workload contributes to your business continuity plan.
+
 Because HA can vary with each workload, it's important to understand the requirements and customer expectations when determining high availability. For example, an application that's used within your organization might require a relatively low level of uptime, while a critical financial application might require a much higher uptime. Even within a workload, different *flows* might have different requirements. For example, in an eCommerce application, flows that support customers browsing and placing orders might be critical, while order fulfillment and back-office processing flows might be lower priority. To learn more about flows, see [Recommendations for identifying and rating flows](/azure/well-architected/reliability/identify-flows).
  
 When a workload architect plans for high availability, they define:
