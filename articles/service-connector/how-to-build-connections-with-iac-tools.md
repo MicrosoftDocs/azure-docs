@@ -51,7 +51,7 @@ Authoring the template from scratch is the preferred and recommended way to prov
 
 ```bicep
 // This template creates a webapp and a storage account.
-// In order to make it more readable, we use only the mininal set of parameters to create the resources.
+// In order to make it more readable, we use only the minimal set of parameters to create the resources.
 
 param location string = resourceGroup().location
 // App Service plan parameters
@@ -175,7 +175,7 @@ resource webApp 'Microsoft.Web/sites@2022-09-01' existing = {
   name: webAppName
 }
 
-// Get an existig storage
+// Get an existing storage
 resource storageAccount 'Microsoft.Storage/storageAccounts@2023-01-01' existing = {
   name: storageAccountName
 }

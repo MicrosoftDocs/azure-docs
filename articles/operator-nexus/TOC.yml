@@ -161,6 +161,8 @@
                   href: howto-credential-rotation.md
                 - name: Credential Manager Key Vault
                   href: how-to-credential-manager-key-vault.md
+                - name: Updating ExpressRoute Gateway Authorization Key in Azure Operator Nexus
+                  href: howto-update-expressroute-authorization-key.md
     - name: Network Fabric
       expanded: false
       items:

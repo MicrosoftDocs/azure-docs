@@ -168,13 +168,6 @@ Click the resource provider name in the following list to see the list of permis
 > | [Microsoft.IoTSecurity](./permissions/internet-of-things.md#microsoftiotsecurity) |  | [IoT security](/azure/iot/iot-security-architecture) |
 > | [Microsoft.StreamAnalytics](./permissions/internet-of-things.md#microsoftstreamanalytics) | Real-time data stream processing from millions of IoT devices. | [Stream Analytics](/azure/stream-analytics/) |
 
-## Mixed reality
-
-> [!div class="mx-tableFixed"]
-> | Resource provider | Description | Azure service |
-> | --- | --- | --- |
-> | [Microsoft.MixedReality](./permissions/mixed-reality.md#microsoftmixedreality) | Blend your physical and digital worlds to create immersive, collaborative experiences. | [Azure Spatial Anchors](/azure/spatial-anchors/) |
-
 <a name='microsoftapimanagement'></a>
 
 ## Integration

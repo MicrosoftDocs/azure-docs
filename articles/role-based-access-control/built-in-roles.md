@@ -330,9 +330,6 @@ The following table provides a brief description of each built-in role. Click th
 > | --- | --- | --- |
 > | <a name='remote-rendering-administrator'></a>[Remote Rendering Administrator](./built-in-roles/mixed-reality.md#remote-rendering-administrator) | Provides user with conversion, manage session, rendering and diagnostics capabilities for Azure Remote Rendering | 3df8b902-2a6f-47c7-8cc5-360e9b272a7e |
 > | <a name='remote-rendering-client'></a>[Remote Rendering Client](./built-in-roles/mixed-reality.md#remote-rendering-client) | Provides user with manage session, rendering and diagnostics capabilities for Azure Remote Rendering. | d39065c4-c120-43c9-ab0a-63eed9795f0a |
-> | <a name='spatial-anchors-account-contributor'></a>[Spatial Anchors Account Contributor](./built-in-roles/mixed-reality.md#spatial-anchors-account-contributor) | Lets you manage spatial anchors in your account, but not delete them | 8bbe83f1-e2a6-4df7-8cb4-4e04d4e5c827 |
-> | <a name='spatial-anchors-account-owner'></a>[Spatial Anchors Account Owner](./built-in-roles/mixed-reality.md#spatial-anchors-account-owner) | Lets you manage spatial anchors in your account, including deleting them | 70bbe301-9835-447d-afdd-19eb3167307c |
-> | <a name='spatial-anchors-account-reader'></a>[Spatial Anchors Account Reader](./built-in-roles/mixed-reality.md#spatial-anchors-account-reader) | Lets you locate and read properties of spatial anchors in your account | 5d51204f-eb77-4b1c-b86a-2ec626c49413 |
 
 ## Integration
 
