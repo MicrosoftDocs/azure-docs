@@ -100,7 +100,13 @@ mediaAccessFeature.on('meetingMediaAccessChanged', meetingMediaAccessChangedHand
 The `mediaAccessChanged` event contains an object with the `mediaAccesses` property, which represents the participant's media accesses.
 The `meetingMediaAccessChanged` event contains an object with the `mediaAccesses` property, which represents the Teams meeting options setting media accesses.
 
-To unsubscribe from the events, you can use the `off` method.
+### Stop receiving media access events
+Use the following code to stop receiving media access events.
+```js
+mediaAccessFeature.off('mediaAccessChanged', mediaAccessChangedHandler):
+
+mediaAccessFeature.off('meetingMediaAccessChanged', meetingMediaAccessChangedHandler):
+```
 
 ### List of all remote participants media access state
 To get information about all remote participants media access state on current call, you can use the `getAllOthersMediaAccess` API.
