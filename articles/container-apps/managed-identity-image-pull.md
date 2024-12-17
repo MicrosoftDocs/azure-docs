@@ -174,9 +174,12 @@ Follow these steps to create a container app with the default quickstart image.
     | **Subscription** | Select your Azure subscription. |
     | **Resource group** | Select an existing resource group or create a new one. |
     | **Container app name** | Enter a container app name. |
-    | **Location** | Select a location. |
-    | **Create Container App Environment** | Create a new or select an existing environment. |
+    | **Deployment source** | Leave this set to **Container image**. |
+    | **Region** | Select a region. |
+    | **Container Apps Environment** | Select an existing environment or select **Create new**. For more information see [Azure Container Apps environments](environment.md) |
 
+1. Select **Next : Container >**.
+1. In the **Container** tab, enable **Use quickstart image**. Leave **Quickstart image** set to **Simple hello world container**.
 1. Select the **Review + Create** button at the bottom of the **Create Container App** page.
 1. Select the **Create** button at the bottom of the **Create Container App** page.
 
