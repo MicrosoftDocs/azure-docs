@@ -5,18 +5,24 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 02/23/2023
+ms.date: 12/17/2024
 ms.author: anfdocs
 ---
 # Create volume replication for Azure NetApp Files
 
-This article shows you how to set up cross-region replication by creating replication peering. 
+Azure NetApp Files enables you to replicate a volume for data protection and resiliency. You can replicate volumes across [regions](cross-region-replication-introduction.md), [zones in the same region](cross-zone-replication-introduction.md), or a [combination](cross-zone-region-replication.md). 
 
 Setting up replication peering enables you to asynchronously replicate data from an Azure NetApp Files volume (source) to another Azure NetApp Files volume (destination). The source volume and the destination volume must be deployed in separate regions. The service level for the destination capacity pool can match that of the source capacity pool, or you can select a different service level.   
 
-Azure NetApp Files replication does not currently support multiple subscriptions; all replications must be performed under a single subscription.
+## Considerations
 
-Before you begin, ensure that you have reviewed the [requirements and considerations for using cross-region replication](cross-region-replication-requirements-considerations.md).  
+* During normal operations, the destination volume in an Azure NetApp Files replication relationship is available for read-only access. The destination volume becomes available for read-write when the replication is stopped. Any subsequent changes to the destination volume need to be synchronized with the source volume by performing a reverse-resync. After the reverse-resync, normal replication can be resumed. For more information, see [Manage disaster recovery using Azure NetApp Files](cross-region-replication-manage-disaster-recovery.md). 
+* You can establish replication between different subscriptions under the same tenant ID. Replication across tenants isn't supported. 
+* Replication between capacity pools with different service levels (for example, Premium and Ultra) is supported. You can move volumes to a different capacity pool without interruption to replication. 
+
+>[!IMPORTANT]
+>Review the [requirements and considerations for cross-region replication](cross-region-replication-requirements-considerations.md) before establishing replication. 
+
 
 ## Locate the source volume resource ID  
 
