@@ -31,52 +31,59 @@ When updating your on-premises software, we recommend:
 
 For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md).
 
-### On-premises monitoring software versions
+### OT monitoring software versions (sensor versions)
 
 Cloud features may be dependent on a specific sensor version. Such features are listed below for the relevant software versions, and are only available for data coming from sensors that have the required version installed, or higher.
 
-| Version / Patch |  Release date | Scope     | Supported until |
-| ------- |  ------------ | ----------- | ------------------- |
-| **24.1** | | | |
-| 24.1.7  |12/2024 | Minor |12/2025 |
-| 24.1.6  |11/2024 | Minor |12/2025 |
-| 24.1.5  |09/2024 | Minor |09/2025 |
-| 24.1.4  |07/2024 | Minor |07/2025 |
-| 24.1.3  |06/2024 | Minor |06/2025 |
-| 24.1.2  |04/2024 | Minor |04/2025 |
-| **23.2** | | | |
-| 23.2.0 | 12/2023 | Major | 12/2024 |
-| **23.1** | | | |
-| 23.1.3 | 09/2023 | Patch | 08/2024 |
-| 23.1.2 | 07/2023 | Major | 06/2024 |
-| **22.3** | | | |
-|22.3.10 | 07/2023 | Patch | 06/2024 |
-| 22.3.9 | 05/2023 | Patch | 04/2024 |
-| 22.3.8 | 04/2023 | Patch | 03/2024 |
-| 22.3.7 | 03/2023 | Patch | 02/2024 |
-| 22.3.6 | 03/2023 | Patch | 02/2024 |
-| 22.3.5 | 01/2023 | Patch | 12/2023 |
-| 22.3.4 | 01/2023 | Major | 12/2023 |
-| **22.2** | | | |
-| 22.2.9 | 01/2023 | Patch | 12/2023 |
-| 22.2.8 | 11/2022 | Patch | 10/2023 |
-| 22.2.7| 10/2022  | Patch | 09/2023 |
-| 22.2.6|09/2022 |Patch | 04/2023|
-|22.2.5 |08/2022 | Patch| 04/2023 |
-|22.2.4 |07/2022 |Patch |04/2023 |
-| 22.2.3| 07/2022| Major| 04/2023|
-| **22.1** | | | |
-| 22.1.7| 07/2022 |Patch | 06/2023 |
-| 22.1.6| 06/2022 |Patch |10/2022  |
-| 22.1.5| 06/2022 |Patch | 10/2022 |
-| 22.1.4|04/2022 | Patch|10/2022  |
-| 22.1.3|03/2022 |Patch | 10/2022|
-| 22.1.2| 02/2022 | Major|10/2022  |
-| **10.5** | | | |
-|10.5.5 |12/2021 |Patch |  09/2022|
-|10.5.4 |12/2021 |Patch |  09/2022|
-| 10.5.3| 10/2021 |Patch | 07/2022|
-| 10.5.2| 10/2021 | Major| 07/2022|
+> [!NOTE]
+> The on-premises management console is being retired on **January 1, 2025**. The table below specifies whether each version includes the on-premises management console. 
+> - For versions where the management console is specified as included, you can use the on-premises management console, but no support service or maintenance is available. 
+> - For versions where the management console is specified as not included, you can't use or access the management console.
+> 
+> For more information, see [On-premises management console retirement](on-premises-management-console-retirement).
+
+| Version / Patch |  Release date | Scope     | Supported until |Management console |
+| ------- |  ------------ | ----------- | ------------------- | ------------------- |
+| **24.1** | | | | |
+| 24.1.7  |12/2024 | Minor |12/2025 |Included |
+| 24.1.6  |11/2024 | Minor |12/2025 |Included |
+| 24.1.5  |09/2024 | Minor |09/2025 |Included |
+| 24.1.4  |07/2024 | Minor |07/2025 |Included |
+| 24.1.3  |06/2024 | Minor |06/2025 |Included |
+| 24.1.2  |04/2024 | Minor |04/2025 |Included |
+| **23.2** | | | | |
+| 23.2.0 | 12/2023 | Major | 12/2024 |Included |
+| **23.1** | | | | |
+| 23.1.3 | 09/2023 | Patch | 08/2024 |Not included |
+| 23.1.2 | 07/2023 | Major | 06/2024 |Not included |
+| **22.3** | | | | |
+|22.3.10 | 07/2023 | Patch | 06/2024 |Not included |
+| 22.3.9 | 05/2023 | Patch | 04/2024 |Not included |
+| 22.3.8 | 04/2023 | Patch | 03/2024 |Not included |
+| 22.3.7 | 03/2023 | Patch | 02/2024 |Not included |
+| 22.3.6 | 03/2023 | Patch | 02/2024 |Not included |
+| 22.3.5 | 01/2023 | Patch | 12/2023 |Not included |
+| 22.3.4 | 01/2023 | Major | 12/2023 |Not included |
+| **22.2** | | | | |
+| 22.2.9 | 01/2023 | Patch | 12/2023 |Not included |
+| 22.2.8 | 11/2022 | Patch | 10/2023 |Not included |
+| 22.2.7| 10/2022  | Patch | 09/2023 |Not included |
+| 22.2.6|09/2022 |Patch | 04/2023|Not included |
+|22.2.5 |08/2022 | Patch| 04/2023 |Not included |
+|22.2.4 |07/2022 |Patch |04/2023 |Not included |
+| 22.2.3| 07/2022| Major| 04/2023|Not included |
+| **22.1** | | | | |
+| 22.1.7| 07/2022 |Patch | 06/2023 |Not included |
+| 22.1.6| 06/2022 |Patch |10/2022  |Not included |
+| 22.1.5| 06/2022 |Patch | 10/2022 |Not included |
+| 22.1.4|04/2022 | Patch|10/2022  |Not included |
+| 22.1.3|03/2022 |Patch | 10/2022|Not included |
+| 22.1.2| 02/2022 | Major|10/2022  |Not included |
+| **10.5** | | | | |
+|10.5.5 |12/2021 |Patch |  09/2022|Not included |
+|10.5.4 |12/2021 |Patch |  09/2022|Not included |
+| 10.5.3| 10/2021 |Patch | 07/2022|Not included |
+| 10.5.2| 10/2021 | Major| 07/2022|Not included |
 
 ### Threat intelligence updates
 

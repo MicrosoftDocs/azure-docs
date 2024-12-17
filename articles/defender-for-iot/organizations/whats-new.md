@@ -18,6 +18,10 @@ Features released earlier than nine months ago are described in the [What's new 
 
 [!INCLUDE [defender-iot-defender-reference](../includes/defender-for-iot-defender-reference.md)]
 
+## On-premises management console retirement
+
+The legacy on-premises management console won't be available for download after **January 1st, 2025**. We recommend transitioning to the new architecture using the full spectrum of on-premises and cloud APIs before this date. For more information, see [On-premises management console retirement](on-premises-management-console-retirement).
+
 ## October 2024
 
 |Service area  |Updates  |

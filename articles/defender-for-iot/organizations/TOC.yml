@@ -57,6 +57,12 @@
   items:
   - name: OT deployment path
     href: ot-deploy/ot-deploy-path.md
+  - name: On-premises management console retirement
+    items:
+    - name: On-premises management console retirement
+      href: ot-deploy/on-premises-management-console-retirement.md
+    - name: Transition to the cloud
+      href: ot-deploy/transition-on-premises-management-console-to-cloud.md
   - name: Plan and prepare for an OT deployment
     items:
     - name: Plan your OT monitoring system
