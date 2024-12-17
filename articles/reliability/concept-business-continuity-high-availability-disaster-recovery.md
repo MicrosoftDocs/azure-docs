@@ -77,6 +77,14 @@ When you're considering which controls to apply, understand whether they require
 
 For some risks, you can choose to operate the solution in a *degraded state*. When a solution operates in a degraded state, some components might be disabled or nonfunctional, but core business operations can continue to be performed. To learn more, see [Recommendations for self-healing and self-preservation](/azure/well-architected/reliability/self-preservation).
 
+Risk migration can also come in the form of training. Individuals designing, implementing, operating, and evolving the workload should be competent, encouraged to speak up if they have concerns, and feel a sense of responsibility for the system.
+	
+Have a formal change control process for anything that would alter the state of the running system. For example, consider implementing the following processes:
+	
+- Workloads should be subject to rigorous testing commensurate with the criticality of the workload. Test code and component integrations to mitigate the risk associated with change. Every change to a system should undergo testing to help prevent a reliability-impacting change from reaching production.
+- Introduce strategic quality gates as part of your workload's safe deployment practices.
+- Formalize procedures for ad-hoc production access and data manipulation, because these activities present a high risk of causing reliability incidents. Procedures might include pairing with another engineer, using checklists, and getting peer reviews before executing scripts or applying changes.
+
 ## High availability
 
 High availability is the state in which a specific workload can maintain its necessary level of uptime on a day-to-day basis, even during transient faults and intermittent failures. For example, in a cloud environment, it's common for there to be server crashes, brief network outages, equipment restarts due to patches, and so on. Because these events happen regularly, it's important that each workload is designed and configured for high availability in accordance with the requirements of the specific application and customer expectations. The HA of each workload contributes to your business continuity plan.
@@ -101,7 +109,7 @@ To achieve high availability, a workload may include the following design elemen
  
  - **Use services and tiers that support high availability**. For example, many Azure services are designed to be highly available, such as Azure Virtual Machine Scale Sets, Azure App Service, and Azure SQL Database. These services natively provide the capability of high availability and can be used to build highly available workloads.
     
-    Review the service level agreements (SLAs) for each service to understand the expected levels of availability and the conditions you need to meet. You might need to select specific tiers of services to achieve certain levels of availability.
+    Review the service level agreements (SLAs) for each service to understand the expected levels of availability and the conditions you need to meet. You might need to select or avoid specific tiers of services to achieve certain levels of availability. Some services from Microsoft are offered with the understanding that no SLA is provided, such as development or basic tiers, or that the resource could be reclaimed from your running system, such as spot-based offerings. Also, some tiers have added reliability characteristics, such as availability zone support. 
 
  - **Redundancy** is the practice of duplicating instances or data to increase the reliability of the workload. For example, a web application might use multiple instances of a web server to ensure that the application remains available even if one instance fails. A database may have multiple replicas to ensure that the data remains available even if one replica fails.
  
@@ -115,8 +123,16 @@ To achieve high availability, a workload may include the following design elemen
 
     Fault tolerance also requires that your applications handle transient faults. To learn more, see [Recommendations for handling transient faults](/azure/well-architected/reliability/handle-transient-faults).
  
- - **Scalability and elasticity** are the abilities of a system to handle increased load by adding resources as they're required. For example, a web application might be designed to automatically add more web servers as traffic increases. Scalability and elasticity can help a system maintain availability during peak loads. For more information on how to design a scalable and elastic system, see [Recommendations for designing a reliable scaling strategy](/azure/well-architected/reliability/scaling).
+ - **Scalability and elasticity** are the abilities of a system to handle increased load by adding resources as they're required. For example, a web application might be designed to automatically add more web servers as traffic increases. Scalability and elasticity can help a system maintain availability during peak loads.
  
+    Scalability is also a key factor to consider during partial or complete malfunction. If a replica or compute instance is unavailable, the remaining components might need to bear more load to handle the load that was previously being handled by the faulted node.
+ 
+    Consider *overprovisioning* if your system cannot scale quick enough to handle your expected changes in load. For more information on how to design a scalable and elastic system, see [Recommendations for designing a reliable scaling strategy](/azure/well-architected/reliability/scaling).
+
+- **Zero-downtime deployment techniques** enable you to deploy updates and make configuration changes without requiring downtime. Deployments and other changes introduce significant risk of downtime. Achieving high availability requires that you deploy in a controlled way, such as by updating a subset of your resources at a time, controlling the amount of traffic that reaches the new deployment, monitoring for any impact to your users, and rapidly remediating the issue or rolling back to a previous known-good deployment. To learn more about zero-downtime deployment techniques, see [Safe deployment practices](/devops/operate/safe-deployment-practices).
+
+    If you decide not to implement zero-downtime deployments, define *maintenance windows* so you can make system changes at a time your users expect.
+
  - **Monitoring and alerting** lets you know the health of your system, even when automated mitigations take place. Use Azure Service Health, Azure Resource Health, and Azure Monitor, as well as Scheduled Events for virtual machines. For more information on how to design a reliability monitoring and alerting strategy, see [Recommendations for designing a reliable monitoring and alerting strategy](/azure/well-architected/reliability/monitoring-alerting-strategy).
 
 To understand the capabilities of each Azure service, see its [reliability guide](./overview-reliability-guidance.md). You can then decide which capabilities to include in your high availability strategy.
