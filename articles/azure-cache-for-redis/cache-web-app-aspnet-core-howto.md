@@ -30,17 +30,6 @@ The `quickstart/aspnet-core` directory is also configured as an [Azure Developer
 azd up
 ```
 
-### Explore the eShop sample
-
-As a next step, you can see a real-world scenario eShop application demonstrating the ASP.NET core caching providers: [ASP.NET core eShop using Redis caching providers](https://github.com/Azure-Samples/azure-cache-redis-demos).
-
-Features included:
-
-- Redis Distributed Caching
-- Redis session state provider
-
-Deployment instructions are in the README.md.
-
 ## Prerequisites
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
@@ -62,108 +51,57 @@ Deployment instructions are in the README.md.
 
 ::: zone-end
 
-## [Microsoft Entra ID Authentication (recommended)](#tab/entraid)
+## Microsoft Entra ID Authentication (recommended)
 
 [!INCLUDE [cache-entra-access](includes/cache-entra-access.md)]
 
-## [Access Key Authentication](#tab/accesskey)
+<!-- ## [Access Key Authentication](#tab/accesskey) -->
 
 [!INCLUDE [redis-access-key-alert](includes/redis-access-key-alert.md)]
 
-[!INCLUDE [redis-cache-passwordless](includes/redis-cache-passwordless.md)]
+<!-- [!INCLUDE [redis-cache-passwordless](includes/redis-cache-passwordless.md)] -->
 
-### Add a local secret for the host name
+### Install the Library for using Entra ID Authentication
+The [Azure.StackExchange.Redis](https://www.nuget.org/packages/Microsoft.Azure.StackExchangeRedis) library contains the Microsoft Entra ID authentication method for connecting to Azure Redis services using Entra ID. It is applicable to all Azure Cache for Redis, Azure Cache for Redis Enterprise, and Azure Managed Redis (Preview).
 
-In your command window, execute the following command to store a new secret named *RedisHostName*, after replacing the placeholders, including angle brackets, for your cache name and primary access key:
-
-```dos
-dotnet user-secrets set RedisHostName "<cache-name>.redis.cache.windows.net"
-```
-
-For using Azure Managed Redis (preview) instance, store a new secret named RedisHostName as below:
-
-```dos
-dotnet user-secrets set RedisHostName "<cache-name>.<region>.redis.azure.net"
+```cli
+dotnet add package Microsoft.Azure.StackExchangeRedis
 ```
 
 ---
 
-## Connect to the cache with RedisConnection
+## Connect to the cache using Entra ID
 
-The `RedisConnection` class manages the connection to your cache. The connection is made in this statement in `HomeController.cs` in the *Controllers* folder:
-
-```csharp
-_redisConnection = await _redisConnectionFactory;
+1. Include the libraries in your code
+   
 ```
-
-The `RedisConnection.cs` class includes the `StackExchange.Redis` and `Azure.Identity` namespaces at the top of the file to include essential types to connect to Azure Cache for Redis.
-
-```csharp
-using StackExchange.Redis;
 using Azure.Identity;
+using StackExchange.Redis
 ```
 
-The `RedisConnection` code ensures that there's always a healthy connection to the cache by managing the `ConnectionMultiplexer` instance from `StackExchange.Redis`. The `RedisConnection` class recreates the connection when a connection is lost and unable to reconnect automatically.
+1. Using the default Azure credentials to authenticate the client connection. This enables your code to use the signed-in user credential when running locally, and an Azure managed identity when running in Azure without code change.
+   
+```csharp
+var configurationOptions = await ConfigurationOptions.Parse($"{_redisHostName}").ConfigureForAzureWithTokenCredentialAsync(new DefaultAzureCredential());
+ConnectionMultiplexer _newConnection = await ConnectionMultiplexer.ConnectAsync(configurationOptions);
+IDatabase Database = _newConnection.GetDatabase();
+```
+
+### To edit the *appsettings.json* file
+
+1. Edit the *Web.config* file. Then add the following content:
+
+    ```json
+    "_redisHostName":"<cache-hostname>"
+    ```
+
+1. Replace `<cache-hostname>` with your cache host name as it appears in the Overview blade of Azure Portal. For example, *my-redis.eastus.azure.net:10000*
+
+1. Save the file.
 
 For more information, see [StackExchange.Redis](https://stackexchange.github.io/StackExchange.Redis/) and the code in a [GitHub repo](https://github.com/StackExchange/StackExchange.Redis).
 
-## Layout views in the sample
 
-The home page layout for this sample is stored in the *_Layout.cshtml* file. From this page, you start the actual cache testing by clicking the **Azure Cache for Redis Test** from this page.
-
-1. Open *Views\Shared\\_Layout.cshtml*.
-
-1. You should see in `<div class="navbar-header">`:
-
-    ```html
-    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="RedisCache">Azure Cache for Redis Test</a>
-    ```
-
-:::image type="content" source="media/cache-web-app-aspnet-core-howto/cache-welcome-page.png" alt-text="Screenshot of welcome page.":::
-
-### Showing data from the cache
-
-From the home page, you select **Azure Cache for Redis Test** to see the sample output.
-
-1. In **Solution Explorer**, expand the **Views** folder, and then right-click the **Home** folder.
-
-1. You should see this code in the *RedisCache.cshtml* file.
-
-    ```csharp
-    @{
-        ViewBag.Title = "Azure Cache for Redis Test";
-    }
-
-    <h2>@ViewBag.Title.</h2>
-    <h3>@ViewBag.Message</h3>
-    <br /><br />
-    <table border="1" cellpadding="10">
-        <tr>
-            <th>Command</th>
-            <th>Result</th>
-        </tr>
-        <tr>
-            <td>@ViewBag.command1</td>
-            <td><pre>@ViewBag.command1Result</pre></td>
-        </tr>
-        <tr>
-            <td>@ViewBag.command2</td>
-            <td><pre>@ViewBag.command2Result</pre></td>
-        </tr>
-        <tr>
-            <td>@ViewBag.command3</td>
-            <td><pre>@ViewBag.command3Result</pre></td>
-        </tr>
-        <tr>
-            <td>@ViewBag.command4</td>
-            <td><pre>@ViewBag.command4Result</pre></td>
-        </tr>
-        <tr>
-            <td>@ViewBag.command5</td>
-            <td><pre>@ViewBag.command5Result</pre></td>
-        </tr>
-    </table>
-    ```
 
 ## Run the app locally
 
