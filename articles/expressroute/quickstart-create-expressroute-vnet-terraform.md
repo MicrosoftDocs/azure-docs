@@ -2,7 +2,7 @@
 title: 'Quickstart: Configure an Azure virtual network gateway with Terraform'
 description: In this quickstart, you create a resource group, a virtual network, a subnet for the gateway, a public IP for the gateway, an Azure ExpressRoute gateway, an ExpressRoute circuit, and an ExpressRoute circuit peering in Azure.
 ms.topic: quickstart
-ms.date: 12/16/2024
+ms.date: 12/17/2024
 ms.custom: devx-track-terraform
 ms.service: azure-virtual-network
 author: duongau
@@ -120,7 +120,7 @@ In this article, you learn how to:
 1. Run [`Get-AzVirtualNetworkGateway`](/powershell/module/az.network/get-azvirtualnetworkgateway#:~:text=Example%202:%20Get%20a%20Virtual%20Network%20Gateway) to view the Azure virtual network gateway.
 
    ```azurepowershell
-   Get-AzVirtualNetworkGateway -Name myGateway* -ResourceGroupName myRG
+   Get-AzVirtualNetworkGateway -Name gateway_name* -ResourceGroupName resource_group_name
    ```
 
 ---
