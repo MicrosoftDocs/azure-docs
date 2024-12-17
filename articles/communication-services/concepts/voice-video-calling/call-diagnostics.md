@@ -126,7 +126,7 @@ Your tags used in `DiagnosticOptions` could be used in 3 places in the Call Diag
 * Participants table in Call Overview section
   ![Screenshot of the Call Diagnostics Call Overview section that shows the DiagnosticOptions column.](media/uihint-participants-table.png)
 * Timeline section in Participants information Sidepanel
-  ![image](media/uihint-timeline.png)
+  ![Screenshot of the Call Diagnostics timeline section that shows the DiagnosticOptions values when exploring a participants side pane details.](media/uihint-timeline.png)
 
 ### I cannot see the `DiagnosticOptions` information column in the tables. How can I enable them?
 
