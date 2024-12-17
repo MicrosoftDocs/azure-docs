@@ -48,7 +48,7 @@ conceptualContent:
     - title: Azure HPC Solution Components # < 60 chars (Optional; Remove if not applicable.)
       items:
       # Card
-        - title: Azure HPC Scenarios and Architectures
+        - title: Azure HPC Personas and Migration Guidelines
           links:
             - url: /azure/architecture/example-scenario/infrastructure/video-rendering/
               itemType: overview
@@ -57,9 +57,6 @@ conceptualContent:
               itemType: overview
               text: Computer-aided Engineering
             - url: /azure/architecture/example-scenario/infrastructure/image-modeling/
-              itemType: overview
-              text: Digital image-based modeling on Azure
-            - url: /azure/architecture/guide/hpc/hpc-deployments/
               itemType: overview
               text: HPC Migration Deployments
             - url: /azure/high-performance-computing/lift-and-shift-overview/
@@ -104,9 +101,6 @@ conceptualContent:
         # Card
         - title: Azure HPC Optimization
           links:
-            - url: ../hpc-cache/hpc-cache-overview.md
-              itemType: overview
-              text: Azure HPC Cache
             - url: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview
               itemType: overview
               text: Autoscaling
@@ -137,12 +131,10 @@ additionalContent:
       summary: See Azure HPC solutions, tutorials, guides, and resources. # < 160 chars (Optional; Remove if not applicable.)
       items:
       # Card
-      - title: Landing Zone Accelerators
+      - title: Zone Accelerators
         links:
           - url: /azure/cloud-adoption-framework/scenarios/azure-hpc/azure-hpc-landing-zone-accelerator
-            text: Infra Landing Zone 
-          - url: /azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-landing-zone
-            text: Data Landing Zone
+            text: Infra Landing Zone
           - url: https://azure.github.io/az-hop/
             text: HPC OnDemand Platform Zone
       # Card
@@ -152,11 +144,6 @@ additionalContent:
             text: Cloud Adoption Scenarios
           - url: /azure/cloud-adoption-framework/migrate/
             text: Cloud Migration Overview          
-      # Card
-      - title: Azure HPC Support
-        links:
-          - url: https://learn.microsoft.com/azure/fasttrack/
-            text: Get expert help with Azure FastTrack
       # Card
       - title: Tutorials
         links:
@@ -169,16 +156,9 @@ additionalContent:
           - url: /azure/virtual-machines/extensions/enable-infiniband
             text: Enable Inifiniband
          
-    - title: HPC Channels and Written Thought Leadership # < 60 chars (optional)
+    - title: HPC Channels # < 60 chars (optional)
       summary: Explore our marketplace, innovate with our partners to accelerate your HPC workloads with cloud flexibility, capability, and scalability. # < 160 chars (optional)
       items:
-        # Card
-        - title: Azure HPC Channels
-          links:
-            - url: https://azure.microsoft.com/blog/tag/high-performance-computing/?s=HPC
-              text: HPC Blog Posts on Azure.com
-            - url: https://techcommunity.microsoft.com/t5/azure-high-performance-computing/bg-p/AzureHighPerformanceComputingBlog
-              text: HPC TechCommunity Blog Reads
         # Card
         - title: Azure HPC Content on Sites
           links:
@@ -195,8 +175,6 @@ additionalContent:
         # Card
         - title: Explore Other Azure HPC Content
           links:
-            - url: https://www.aka.ms/hpc-saves-the-day
-              text: HPC saves the day!
             - url: https://busenq.com/article/microsoft-azure/
               text: HPC Powers Word-Record Simulation
             - url: https://bigcompute.org/blog/high-performance-computing-for-rd/
@@ -210,131 +188,35 @@ additionalContent:
       summary: Learn more about Azure HPC with various video content and events. # < 160 chars (Optional; Remove if not applicable.)
       items:
         # Card
-        - title: Azure HPC Business Strategy
-          #summary:
-          links:
-            - text: "Azure HPC+AI Platform Overview"
-              url: https://www.youtube.com/watch?v=V0-laXwBI7I
-            - text: "What is High Performance Computing - HPC?"
-              url: https://www.youtube.com/watch?v=0biElmaDfFs
-            - text: "The benefits of HPC, AI, and the Cloud with Steve Scott"
-              url: https://www.youtube.com/watch?v=GmimOVxFSRY  
-            - text: "Want to learn more? Check out the 'HPC Business Strategy' playlist!"
-              url: https://aka.ms/HPCBusinessStrategy
+        - title: Azure HPC Business Strategy  
+          url: https://aka.ms/HPCBusinessStrategy
         # Card
         - title: Azure HPC Deep Dives
-          #summary:
-          links:
-            - text: "Comparing cloud platform performance for HPC+AI workloads"
-              url: https://www.youtube.com/watch?v=4-0TYA7Po2A
-            - text: "Leveraging EESSI for WRF simulations at scale on Azure HPC"
-              url: https://www.youtube.com/watch?v=LGkQi7BDf6w
-            - text: "Day 1 - (3) UCX on Azure HPC and AI Clusters"
-              url: https://www.youtube.com/watch?v=L4aGCOEvRJQ
-            - text: "Want to learn more? Check out the 'HPC Deep Dives' playlist!"
-              url: https://aka.ms/HPCDeepDives
-          # Card
+          url: https://aka.ms/HPCDeepDives
+        # Card
         - title: Azure HPC Partners
-          #summary:
-          links:
-            - text: "Deploying, Benchmarking & Visualising Workflows in an AMD HPC cluster in Azure"
-              url: https://www.youtube.com/watch?v=qUQFWbVnbsU
-            - text: "HPC Technical Capabilities and Solutions for the Energy Industry Powered by Microsoft Azure Cloud"
-              url: https://www.youtube.com/watch?v=NXOFG4aoD4g
-            - text: "How to Migrate HPC environments to Microsoft Azure Part One"
-              url: https://www.youtube.com/watch?v=1GjWhGrPI_A
-            - text: "Want to learn more? Check out the 'HPC Partners' playlist!"
-              url: https://aka.ms/HPCPartners
-          # Card
+          url: https://aka.ms/HPCPartners
+        # Card
         - title: Azure HPC Events
-          #summary:
-          links:
-            - text: "Azure HPC+Al Day Keynote"
-              url: https://www.youtube.com/watch?v=YeCHFabuBMo
-            - text: "Leading performance for cloud HPC+AI workloads with Microsoft Azure"
-              url: https://www.youtube.com/watch?v=x8foF0fuxgo
-            - text: "The Cloud HPC+AI Journey to Microsoft Azure"
-              url: https://www.youtube.com/watch?v=tXLnV6MDsVc
-            - text: "Want to learn more? Check out the 'HPC Events' playlist!"
-              url: https://aka.ms/HPCEvents
-            - text: "Azure Announcements"
-              url:  https://azure.microsoft.com/en-us/blog/tag/high-performance-computing/?s=HPC
+          url: https://aka.ms/HPCEvents
 
 tools:
-  title: Community Resources # < 60 chars (optional)
+  title: Community Resources and HPC Team# < 60 chars (optional)
   summary: Connect with other HPC users and communicate with the HPC team
   items:
     # Card 1
-    - title: User Groups
-      imageSrc: /media/hubs/powershell/i_group.svg
-      url: https://aka.ms/psusergroup
+    - title: High Performance Computing Tech Community
+      imageSrc: /media/hubs/powershell/i_group-feedback.svg
+      url: https://techcommunity.microsoft.com/t5/azure-high-performance-computing/bg-p/AzureHighPerformanceComputingBlog
     # Card 2
-    - title: PowerShell Tech Community
+    - title: High Performance Computing Team Blogs
       imageSrc: /media/hubs/powershell/i_group-feedback.svg
-      url: https://techcommunity.microsoft.com/t5/powershell/ct-p/WindowsPowerShell
-
-
-
-            - url: https://azure.microsoft.com/blog/tag/high-performance-computing/?s=HPC
-              text: HPC Blog Posts on Azure.com
-            - url: https://techcommunity.microsoft.com/t5/azure-high-performance-computing/bg-p/AzureHighPerformanceComputingBlog
-              text: HPC TechCommunity Blog Reads
-
-
-
-
+      url: https://azure.microsoft.com/blog/?sort-by=newest-oldest&category=compute&date=any&s=HPC
     # Card 3
-    - title: DSC Community
-      imageSrc: /media/hubs/powershell/i_group-feedback.svg
-      url: https://dsccommunity.org/
-    # Card 4
-    - title: PowerShell.org
-      imageSrc: /media/hubs/powershell/i_group-feedback.svg
-      url: https://powershell.org/
-    # Card 5
     - title: StackOverFlow
       imageSrc: /media/hubs/powershell/logo_stackoverflow.svg
-      url: https://stackoverflow.com/questions/tagged/powershell
-    # Card 6
-    - title: r/PowerShell
+      url: https://stackoverflow.com/questions/tagged/hpc
+    # Card 4
+    - title: r/HPC
       imageSrc: /media/hubs/powershell/logo_reddit.svg
-      url: https://www.reddit.com/r/PowerShell/
-    # Card 7
-    - title: PowerShell Slack
-      imageSrc: /media/logos/logo-slack.svg
-      url: https://aka.ms/psslack
-    # Card 8
-    - title: PowerShell Discord
-      imageSrc: ./media/index/discord.svg
-      url: https://aka.ms/psdiscord
-    # Card 9
-    - title: Spiceworks
-      imageSrc: ./media/index/Spiceworks_48px_color.png
-      url: https://community.spiceworks.com/programming/powershell
-    # Card 10
-    - title: Digital Art
-      imageSrc: /media/hubs/powershell/i_digital-art.svg
-      url: /powershell/scripting/community/digital-art
-
-additionalContent:
-  # Supports up to 3 sections
-  sections:
-    - title: PowerShell Team # < 60 chars (optional)
-      summary: Communicate with the PowerShell team # < 160 chars (optional)
-      items:
-        # Card 1
-        - title: PowerShell Team Blog
-          summary: Official news and announcements
-          url: https://devblogs.microsoft.com/powershell/
-        # Card 2
-        - title: PowerShell Community Blog
-          summary: A place for the community to learn PowerShell and share insights
-          url: https://devblogs.microsoft.com/powershell-community/
-        # Card 3
-        - title: PowerShell Team on Twitter
-          summary: PowerShell news 280 characters at a time
-          url: https://twitter.com/PowerShell_Team
-        # Card 4
-        - title: GitHub Issues
-          summary: The place for bugs in the current release
-          url: https://github.com/powershell/powershell/issues              
+      url: https://www.reddit.com/r/HPC/
