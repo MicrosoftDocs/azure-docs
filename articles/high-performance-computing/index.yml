@@ -13,7 +13,6 @@ metadata:
   ms.topic: hub-page
   author: padmalathas
   ms.author: padmalathas
-  ms.reviewer: mattmcinnes
   ms.date: 12/11/2024
 
 # Main Items (Icons)
@@ -26,10 +25,6 @@ highlightedContent:
       itemType: overview
       url: /azure/architecture/topics/high-performance-computing
     # Card
-    - title: Getting started with HPC VMs
-      itemType: get-started
-      url: /azure/virtual-machines/set-up-hpc-vms?context=/azure/virtual-machines/context/context
-    # Card
     - title: Azure HPC Architecture
       itemType: architecture
       url: /azure/architecture/browse/?terms=HPC
@@ -38,30 +33,26 @@ highlightedContent:
       itemType: learn
       url: /training/paths/run-high-performance-computing-applications-azure/
     # Card
-    - title: Azure HPC Technical Blog
+    - title: Azure HPC Announcements
       itemType: whats-new
-      url: https://techcommunity.microsoft.com/t5/azure-high-performance-computing/bg-p/AzureHighPerformanceComputingBlog
-
+      url: https://azure.microsoft.com//updates?filters=%5B%22Azure+DNS%22%2C%22Virtual+Network%22%2C%22Azure+Firewall%22%2C%22Azure+Bastion%22%2C%22Azure+Private+Link%22%2C%22Application+Gateway%22%2C%22Web+Application+Firewall%22%2C%22Azure+Front+Door%22%2C%22Azure+ExpressRoute%22%2C%22Azure+Virtual+Network+Manager%22%2C%22Network+Watcher%22%2C%22Content+Delivery+Network%22%2C%22Load+Balancer%22%2C%22VPN+Gateway%22%2C%22Virtual+WAN%22%2C%22Traffic+Manager%22%2C%22Azure+Firewall+Manager%22%2C%22Azure+Route+Server%22%2C%22Azure+DDoS+Protection%22%5Dfilters=%5B%22Azure+DNS%22%2C%22Virtual+Network%22%2C%22Azure+Firewall%22%2C%22Azure+Bastion%22%2C%22Azure+Private+Link%22%2C%22Application+Gateway%22%2C%22Web+Application+Firewall%22%2C%22Azure+Front+Door%22%2C%22Azure+ExpressRoute%22%2C%22Azure+Virtual+Network+Manager%22%2C%22Network+Watcher%22%2C%22Content+Delivery+Network%22%2C%22Load+Balancer%22%2C%22VPN+Gateway%22%2C%22Virtual+WAN%22%2C%22Traffic+Manager%22%2C%22Azure+Firewall+Manager%22%2C%22Azure+Route+Server%22%2C%22Azure+DDoS+Protection%22%5D
 conceptualContent:
   # Supports up to 3 subsections
   sections:
     - title: Azure HPC Solution Components # < 60 chars (Optional; Remove if not applicable.)
       items:
       # Card
-        - title: Azure HPC Personas and Migration Guidelines
+        - title: Azure HPC Scenarios and Migration Guidelines
           links:
-            - url: /azure/architecture/example-scenario/infrastructure/video-rendering/
+            - url: /azure/cloud-adoption-framework/scenarios/azure-hpc/azure-hpc-landing-zone-accelerator
               itemType: overview
-              text: 3D Video Rendering
-            - url: /azure/architecture/example-scenario/apps/hpc-saas
+              text: Introduction to HPC Scenario
+            - url: https://azure.github.io/az-hop/
               itemType: overview
-              text: Computer-aided Engineering
-            - url: /azure/architecture/example-scenario/infrastructure/image-modeling/
-              itemType: overview
-              text: HPC Migration Deployments
+              text: HPC OnDemand Platform Zone  
             - url: /azure/high-performance-computing/lift-and-shift-overview/
               itemType: overview
-              text: On-premises to cloud lift and shift migration guide
+              text: HPC Migration Deployments
         # Card
         - title: Azure HPC Compute
           links:
@@ -95,18 +86,9 @@ conceptualContent:
             - url: /azure/cyclecloud/overview
               itemType: overview
               text: Azure CycleCloud
-            - url: /azure/logic-apps/logic-apps-overview
+            - url: /azure/virtual-machines/compiling-scaling-applications
               itemType: overview
-              text: Azure Logic Apps
-        # Card
-        - title: Azure HPC Optimization
-          links:
-            - url: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview
-              itemType: overview
-              text: Autoscaling
-            - url: /azure/virtual-machines/spot-vms
-              itemType: overview
-              text: Spot VMs             
+              text: Autoscaling             
         # Card
         - title: Manage, Monitor, and Control
           links:
@@ -115,10 +97,7 @@ conceptualContent:
               text: Azure Monitor
             - url: /azure/databox/
               itemType: reference
-              text: Azure Databox
-            - url: /azure/confidential-ledger/
-              itemType: reference
-              text: Azure Confidential Ledger 
+              text: Azure DataBox 
             - url: /azure/open-datasets/
               itemType: reference
               text: Azure Open Datasets
@@ -127,23 +106,9 @@ conceptualContent:
 # Azure HPC Resourcess
 additionalContent:
   sections:
-    - title: Take the next step # < 60 chars (Optional; Remove if not applicable.)
-      summary: See Azure HPC solutions, tutorials, guides, and resources. # < 160 chars (Optional; Remove if not applicable.)
-      items:
-      # Card
-      - title: Zone Accelerators
-        links:
-          - url: /azure/cloud-adoption-framework/scenarios/azure-hpc/azure-hpc-landing-zone-accelerator
-            text: Infra Landing Zone
-          - url: https://azure.github.io/az-hop/
-            text: HPC OnDemand Platform Zone
-      # Card
-      - title: Cloud Adoption
-        links:
-          - url: /azure/cloud-adoption-framework/scenarios/azure-hpc/
-            text: Cloud Adoption Scenarios
-          - url: /azure/cloud-adoption-framework/migrate/
-            text: Cloud Migration Overview          
+    - title: HPC Channels # < 60 chars (optional)
+      summary: See Azure HPC solutions, tutorials, guides, and resources. Explore our marketplace, innovate with our partners to accelerate your HPC workloads with cloud flexibility, capability, and scalability. # < 160 chars (optional)
+      items:     
       # Card
       - title: Tutorials
         links:
@@ -155,17 +120,11 @@ additionalContent:
             text: Create, customize, and manage HPC Cluster using CycleCloud
           - url: /azure/virtual-machines/extensions/enable-infiniband
             text: Enable Inifiniband
-         
-    - title: HPC Channels # < 60 chars (optional)
-      summary: Explore our marketplace, innovate with our partners to accelerate your HPC workloads with cloud flexibility, capability, and scalability. # < 160 chars (optional)
-      items:
         # Card
         - title: Azure HPC Content on Sites
           links:
             - url: https://www.aka.ms/Microsoft-NVIDIA/HPCwire
               text: Microsoft - NVIDIA
-            - url: https://www.aka.ms/VentureBeat/MakeAIYourReality
-              text: Microsoft - NVIDIA 
             - url: https://insidehpc.com/2023/03/manufacturing-repatriation-how-hpc-class-technologies-from-microsoft-azure-and-amd-support-manufacturers-reshoring-strategies/
               text: Microsoft - AMD
             - url: https://insidehpc.com/2022/10/staying-at-the-cutting-edge-of-automotive-design-technology-with-azure-cloud-platform-and-amd/
@@ -185,7 +144,7 @@ additionalContent:
 
 # Video Playlists and other links
     - title: HPC Video Content # < 60 chars (Optional; Remove if not applicable.)
-      summary: Learn more about Azure HPC with various video content and events. # < 160 chars (Optional; Remove if not applicable.)
+      summary: Azure HPC with various video content and events. # < 160 chars (Optional; Remove if not applicable.)
       items:
         # Card
         - title: Azure HPC Business Strategy  
@@ -201,7 +160,7 @@ additionalContent:
           url: https://aka.ms/HPCEvents
 
 tools:
-  title: Community Resources and HPC Team# < 60 chars (optional)
+  title: Community Resources and HPC Team # < 60 chars (Optional)
   summary: Connect with other HPC users and communicate with the HPC team
   items:
     # Card 1
