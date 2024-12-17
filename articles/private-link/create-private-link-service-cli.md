@@ -189,7 +189,7 @@ az network vnet subnet update \
     --name subnet-1 \
     --vnet-name vnet-1 \
     --resource-group test-rg \
-    --disable-private-link-service-network-policies yes
+    --disable-private-link-service-network-policies true
 ```
 
 ## Create a private link service
