@@ -66,24 +66,6 @@ Cloud features may be dependent on a specific sensor version. Such features are 
 | 22.3.4 | 01/2023 | Major | 12/2023 |Not included |
 | **22.2** | | | | |
 | 22.2.9 | 01/2023 | Patch | 12/2023 |Not included |
-| 22.2.8 | 11/2022 | Patch | 10/2023 |Not included |
-| 22.2.7| 10/2022  | Patch | 09/2023 |Not included |
-| 22.2.6|09/2022 |Patch | 04/2023|Not included |
-|22.2.5 |08/2022 | Patch| 04/2023 |Not included |
-|22.2.4 |07/2022 |Patch |04/2023 |Not included |
-| 22.2.3| 07/2022| Major| 04/2023|Not included |
-| **22.1** | | | | |
-| 22.1.7| 07/2022 |Patch | 06/2023 |Not included |
-| 22.1.6| 06/2022 |Patch |10/2022  |Not included |
-| 22.1.5| 06/2022 |Patch | 10/2022 |Not included |
-| 22.1.4|04/2022 | Patch|10/2022  |Not included |
-| 22.1.3|03/2022 |Patch | 10/2022|Not included |
-| 22.1.2| 02/2022 | Major|10/2022  |Not included |
-| **10.5** | | | | |
-|10.5.5 |12/2021 |Patch |  09/2022|Not included |
-|10.5.4 |12/2021 |Patch |  09/2022|Not included |
-| 10.5.3| 10/2021 |Patch | 07/2022|Not included |
-| 10.5.2| 10/2021 | Major| 07/2022|Not included |
 
 ### Threat intelligence updates
 
