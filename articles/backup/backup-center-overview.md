@@ -2,7 +2,7 @@
 title: Overview of Backup center for Azure Backup and Azure Site Recovery
 description: This article provides an overview of Backup center for Azure.
 ms.topic: overview
-ms.date: 09/24/2024
+ms.date: 12/24/2024
 ms.service: azure-backup
 ms.custom: engagement-fy23
 author: AbhishekMallick-MS
@@ -50,31 +50,41 @@ Learn more about [supported and unsupported scenarios](backup-center-support-mat
 
 ## Get started
 
-To get started with using Backup center, search for **Backup center** in the Azure portal and navigate to the **Backup center** dashboard.
+To get started with using Backup center, follow these steps:
 
-:::image type="content" source="./media/backup-center-overview/backup-center-search.png" alt-text="Screenshot showing how to search for Backup center.":::
+1. In the [Azure portal](https://portal.azure.com/), search for **Azure Business Continuity Center**, and then go to the **Azure Business Continuity Center** dashboard.
 
-On the **Overview** blade, two tiles appear – **Jobs** and **Backup instances**.
+    :::image type="content" source="./media/backup-center-overview/business-continuity-center-search.png" alt-text="Screenshot showing how to search for Azure Business Continuity Center." lightbox="./media/backup-center-overview/business-continuity-center-search.png" :::
 
-:::image type="content" source="./media/backup-center-overview/backup-center-overview-widgets.png" alt-text="Screenshot showing the Backup center tiles.":::
+1. To lunch Backup center, Select **Help** in the top menu > **Go to Backup Center**.
 
-On the **Jobs** tile, you get a summarized view of all backup and restore related jobs that were triggered across your backup estate in the last 24 hours.
+    :::image type="content" source="./media/backup-center-overview/backup-center-launch-from-help-menu.png" alt-text="Screenshot shows how to launch Backup center from the Help menu." lightbox="./media/backup-center-overview/backup-center-launch-from-help-menu.png" ::: 
 
-- You can view information on the number of jobs that have completed, failed, and are in-progress.
-- Select any of the numbers in this tile allows you to view more information on jobs for a particular datasource type, operation type, and status.
+   Alternatively, you can select the link in the information banner to go to Backup Center.
 
-On the **Jobs** tile, you also get a summarized view of all Azure Site Recovery related jobs that were triggered across your entire replication estate in the last 24 hours.
+    :::image type="content" source="./media/backup-center-overview/backup-center-launch-from-information-banner.png" alt-text="Screenshot shows how to launch Backup center from the information banner." lightbox="./media/backup-center-overview/backup-center-launch-from-information-banner.png" ::: 
 
-:::image type="content" source="./media/backup-center-overview/azure-site-recovery-job-backup-center.png" alt-text="Screenshot showing an Azure Site Recovery job on Backup center.":::
+   - On the **Overview** blade, two tiles appear – **Jobs** and **Backup instances**.
 
-On the **Backup Instances** tile, you get a summarized view of all backup instances across your backup estate. For example, you can see the number of backup instances that are in soft-deleted state compared to the number of instances that are still configured for protection.
+      :::image type="content" source="./media/backup-center-overview/backup-center-overview-widgets.png" alt-text="Screenshot showing the Backup center tiles.":::
 
-- Select any of the numbers in this tile allows you to view more information on backup instances for a particular datasource type and protection state.
-- You can also view all backup instances whose underlying datasource isn't found (the datasource might be deleted, or you may not have access to the datasource).
+   - On the **Jobs** tile, you get a summarized view of all backup and restore related jobs that were triggered across your backup estate in the last 24 hours.
 
-On the **Backup Instances** tile, you can also get a summarized view of all replicated items across your entire replication estate.
+     - You can view information on the number of jobs that have completed, failed, and are in-progress.
+     - Select any of the numbers in this tile allows you to view more information on jobs for a particular datasource type, operation type, and status.
 
-:::image type="content" source="./media/backup-center-overview/azure-site-recovery-replication-estate-backup-instance.png" alt-text="Screenshot showing a backup instance of a replicated item of Azure Site Recovery on Backup center.":::
+   - On the **Jobs** tile, you also get a summarized view of all Azure Site Recovery related jobs that were triggered across your entire replication estate in the last 24 hours.
+
+      :::image type="content" source="./media/backup-center-overview/azure-site-recovery-job-backup-center.png" alt-text="Screenshot showing an Azure Site Recovery job on Backup center.":::
+
+   - On the **Backup Instances** tile, you get a summarized view of all backup instances across your backup estate. For example, you can see the number of backup instances that are in soft-deleted state compared to the number of instances that are still configured for protection.
+
+     - Select any of the numbers in this tile allows you to view more information on backup instances for a particular datasource type and protection state.
+     - You can also view all backup instances whose underlying datasource isn't found (the datasource might be deleted, or you may not have access to the datasource).
+
+   - On the **Backup Instances** tile, you can also get a summarized view of all replicated items across your entire replication estate.
+
+     :::image type="content" source="./media/backup-center-overview/azure-site-recovery-replication-estate-backup-instance.png" alt-text="Screenshot showing a backup instance of a replicated item of Azure Site Recovery on Backup center.":::
 
 Watch the following video to understand the capabilities of Backup center:
 
