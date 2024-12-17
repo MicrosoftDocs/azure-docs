@@ -58,7 +58,7 @@ As per the pricing change, you'll be billed against the volume of data gathered 
 
     | where DataType in (AzureMigrateDataTables)  
 
-    | summarize AzureMigateGBperMonth=sum(Quantity)/1000 
+    | summarize AzureMigrateGBperMonth=sum(Quantity)/1000 
     ```
 
 ## Support for Azure Monitor agent in Azure Migrate 

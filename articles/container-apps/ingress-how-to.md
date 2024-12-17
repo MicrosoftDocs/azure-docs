@@ -135,7 +135,7 @@ You can disable ingress for your container app using the portal.
 1. Deselect the **Ingress** **Enabled** setting.
 1. Select **Save**.
 
-:::image type="content" source="media/ingress/screenshot-disable-ingress.png" alt-text="Sceenshot of disabling container app ingress.":::
+:::image type="content" source="media/ingress/screenshot-disable-ingress.png" alt-text="Screenshot of disabling container app ingress.":::
 
 ::: zone-end
 
