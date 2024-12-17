@@ -31,8 +31,6 @@ When increasing the virtual hub capacity, the virtual hub router will continue t
 > Regardless of the virtual hub's capacity, the hub can only accept a maximum of 10,000 routes from its connected resources (virtual networks, branches, other virtual hubs, etc).
 >
 
-### Configure virtual hub capacity
-
 Capacity is configured on the **Basics** tab **Virtual hub capacity** setting when you create your virtual hub.
 
 :::image type="content" source="./media/hub-settings/basics-hub.png" alt-text="Screenshot shows capacity.":::
