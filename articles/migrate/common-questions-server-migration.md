@@ -127,6 +127,9 @@ Migration and modernization tool migrates all the UEFI-based machines to Azure a
 
 ### Which operating systems are supported for migration of UEFI-based machines to Azure?
 
+> [!Note]
+> If a major version of an operating system is supported in agentless migration, all minor versions and kernels are automatically supported.
+
 | **Operating systems supported for UEFI-based machines** | **Agentless VMware to Azure**                                                                                                             | **Agentless Hyper-V to Azure** | **Agent-based VMware, physical and other clouds to Azure** |
 | ------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ | ---------------------------------------------------------- |
 | Windows Server 2019, 2016, 2012 R2, 2012                | Y                                                                                                                                         | Y                              | Y                                                          |
