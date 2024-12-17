@@ -14,29 +14,44 @@ ms.subservice: data
 
 # Voice and video Insights
 
-In this document, we outline the available insights dashboard to monitor Voice and Video logs and metrics.
+Azure Communication Services (ACS) integrates [Copilot in Azure)](../../../copilot/overview.md) with your call quality analytics and visualizations in the **Voice and Video Insights** blade. You will find the **Insights** blade in the monitoring section of your of your ACS resource when you are in your Azure Portal. You can interact with Copilot to quickly understand the high level summary of the calling health of your ACS calling resource and learn how to improve the call quality for your call participants. We recommend using the **Voice and Video Insights** sections described in this article first to understand and improve your overall call quality, and as needed, use Call Diagnostics to troubleshoot individual calls in granular detail. 
 
 ## Overview
-Within your Communications Resource, we've provided an **Insights** feature that displays many data visualizations conveying insights from the Azure Monitor logs and metrics monitored for your Communications Services. The visualizations within Insights are made possible via [Azure Monitor Workbooks](/azure/azure-monitor/visualize/workbooks-overview). In order to take advantage of Workbooks, follow the instructions outlined in [Enable Azure Monitor in Diagnostic Settings](../enable-logging.md). To enable Workbooks, you need to send your logs to a [Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-overview) destination. 
+The **Insights** blade is run with  powered by [Azure Monitor Workbooks](/azure/azure-monitor/visualize/workbooks-overview) so you can modify and save edits to the template we provided to better suite your needs. By editing the workbook you can also explore the logic behind each visual. To learn more see, [build workbook reports on top of your data](/azure/azure-monitor/logs/data-platform-logs#built-in-insights-and-custom-dashboards-workbooks-and-reports). 
+
+**Voice and Video Insights** consists of four main sections. 
+- **Volume:** Provides general statistics
+- **Reliability:** Aggregates all API functionality and error codes to focus your analysis 
+- **User Facing Diagnostics (UFD):** Highlights trends that can impact users call experince
+- **Quality:** Analyzes single calls for quality 
 
 :::image type="content" source="..\media\workbooks\insights-overview-2.png" alt-text="Screenshot of Communication Services Insights dashboard.":::
 
-## Prerequisites
+## How to enable Voice and Video Insights
 
-- In order to take advantage of Workbooks, follow the instructions outlined in [Enable Logging with Azure Monitor](../enable-logging.md). You need to enable all logs for the best experience.
-- To use Workbooks, you need to send your logs to a [Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-overview) destination. 
+### Collect Call Logs
+Azure Communication Services generates call logs that you can capture. For Voice and Video Insights to show anything, you must enable a diagnostic setting in Azure Monitor to store these call logs for each calling resource that you want to monitor. Azure Monitor will start sending this data to a Log Analytics workspace for Voice and Video Insights to view.
 
-## Accessing Azure Insights for Communication Services
+Follow instructions to add diagnostic settings for your resource in [Enable logs via Diagnostic Settings in Azure Monitor](../analytics/enable-logging.md). We recommend that you initially collect all logs. After you understand the capabilities in Azure Monitor, determine which logs you want to retain and for how long. When you add your diagnostic setting, you're prompted to [select logs](../analytics/enable-logging.md#adding-a-diagnostic-setting). To collect all logs, select **allLogs**.
+
+Your data volume, retention, and usage in Log Analytics within Azure Monitor is billed through existing Azure data meters. We recommend that you monitor your data usage and retention policies for cost considerations as needed. For more information, see [Controlling costs](/azure/azure-monitor/essentials/diagnostic-settings#controlling-costs).
+
+If you have multiple Azure Communications Services resource IDs, you must enable these settings for each resource ID and query call details for participants within their respective resource IDs.
+
+> [!IMPORTANT]
+> Voice and Video Insights only works if there's data that's sent to a Log Analytics workspace. Diagnostic settings begin collecting data for a single Azure Communications Services resource ID after you enable the diagnostic setting. Keep in mind data collection is not retroactive. 
+
+### Enable Copilot in Azure
+Your organization manages access to [Microsoft Copilot in Azure (preview)](../../../copilot/overview.md). After your organization has access to Copilot in Azure, the Voice and Video Insights sections will display multiple Copilot icons you can interact with.
+
+Interact with Copilot in Azure for quality improvement guidance and explanations of common terms. Giving Copilot in Azure detailed information will help it enhance analysis, identify problems, and identify fixes.
+
+## Accessing Insights
 
 Inside your Azure Communication Services resource, scroll down on the left nav bar to the **Monitor** category and click on the **Insights** tab:
 
 :::image type="content" source="..\media\workbooks\acs-insights-nav.png" alt-text="Screenshot of the Insights navigation blade.":::
 
-## Authentication insights
-
-The **Authentication** tab shows authentication logs, which are created through operations such as issuing an access token or creating an identity. The data displayed includes the types of operations performed and the results of those operations:
-
-:::image type="content" source="..\media\workbooks\auth.png" alt-text="Screenshot of the authentication overview.":::
 
 ## Voice and Video Insights
 
@@ -89,6 +104,12 @@ And clicking on a participant displays a list of the outgoing streams for that p
 
 :::image type="content" source="..\media\workbooks\voice-and-video-details-streams.png" alt-text="Screenshot of voice and video stream details.":::
 
+## Authentication insights
+
+The **Authentication** tab shows authentication logs, which are created through operations such as issuing an access token or creating an identity. The data displayed includes the types of operations performed and the results of those operations:
+
+:::image type="content" source="..\media\workbooks\auth.png" alt-text="Screenshot of the authentication overview.":::
+
 ## More information about workbooks
 
 For an in-depth description of workbooks, refer to the [Azure Monitor Workbooks](/azure/azure-monitor/visualize/workbooks-overview) documentation.
@@ -104,3 +125,14 @@ Editing these dashboards doesn't modify the **Insights** tab, but rather creates
 :::image type="content" source="..\media\workbooks\workbooks-tab.png" alt-text="Screenshot of the workbooks tab.":::
 
 For an in-depth description of workbooks, refer to the [Azure Monitor Workbooks](/azure/azure-monitor/visualize/workbooks-overview) documentation.
+
+
+## Next steps
+
+- Learn about Call Diagnostics: [Call Diagnostics](../../voice-video-calling/call-diagnostics.md)
+- Learn how to manage call quality: [Improve and manage call quality](../../manage-call-quality.md).
+- Explore troubleshooting guidance: [Overview of audio issues](../../../../../resources/troubleshooting/voice-video-calling/audio-issues/overview.md).
+- Learn about other quality best practices: [Best practices: Azure Communication Services calling SDKs](../best-practices.md).
+- Learn how to use the Log Analytics workspace: [Log Analytics tutorial](/azure/azure-monitor/logs/log-analytics-tutorial).
+- Create your own queries in Log Analytics: [Get started with log queries in Azure Monitor](/azure/azure-monitor/logs/get-started-queries).
+- Explore known call issues: [Known issues in the SDKs and APIs](../known-issues.md).
