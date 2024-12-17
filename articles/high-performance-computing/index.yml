@@ -40,7 +40,7 @@ productDirectory:
   title: Azure HPC Solution Components # < 60 chars (Optional; Remove if not applicable.)
   summary: Available services, infrastructure, and technology that supports Azure HPC # < 160 chars (optional)
   items:
-    # Card 1
+    # Card
     - title: Azure HPC Scenarios and Migration Guidelines
       imageSrc: /media/index/migrate.svg 
       links:
@@ -50,7 +50,7 @@ productDirectory:
           text: HPC OnDemand Platform Zone  
         - url: /azure/high-performance-computing/lift-and-shift-overview/
           text: HPC Migration Deployments
-    # Card 2
+    # Card
     - title: Azure HPC Compute
       imageSrc: /media/index/batch-accounts.svg
       links:
@@ -60,7 +60,7 @@ productDirectory:
           text: GPU Accelerated VMs
         - url: /azure/virtual-machines/hx-series
           text: Memory Optimized VMs
-    # Card 3
+    # Card
     - title: Azure HPC Storage
       imageSrc: /media/index/virtual-machine.svg
       links:
@@ -70,7 +70,7 @@ productDirectory:
             text: Azure Blob Storage
           - url: /azure/azure-managed-lustre/amlfs-overview
             text: Azure Managed Lustre             
-    # Card 4
+    # Card
     - title: Azure HPC Workload Orchestration
       imageSrc: /media/index/managed-lustre.svg 
       links:
@@ -80,7 +80,7 @@ productDirectory:
           text: Azure CycleCloud
         - url: /azure/virtual-machines/compiling-scaling-applications
           text: Autoscaling             
-    # Card 5
+    # Card
     - title: Manage, Monitor, and Control
       imageSrc: /media/common/ih_tools.svg
       links:
