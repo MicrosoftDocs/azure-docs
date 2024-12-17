@@ -18,7 +18,7 @@ The on-premises management console will be retired on **January 1, 2025** with t
     - You can still use the on-premises management console. 
     - Defender for IoT no longer provides support service or maintains the on-premises management console. 
 
-    For a list of supported versions, see [OT monitoring software versions](release-notes.md). [ ](../release-notes.md)  
+    For a list of supported versions, see [OT monitoring software versions](../release-notes.md)  
 
 - Following any version upgrade, you will no longer be able to use the on-premises management console. For example, if you're using the on-premises management console on version 24.1.2, and you upgrade to version 24.1.6, you can no longer use the on-premises management console.
 
