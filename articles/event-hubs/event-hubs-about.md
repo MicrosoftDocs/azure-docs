@@ -2,7 +2,7 @@
 title: 'Azure Event Hubs: Data streaming platform with Kafka support'
 description: Learn about Azure Event Hubs, which is a real-time data streaming platform with native Apache Kafka support.
 ms.topic: overview
-ms.date: 01/24/2024
+ms.date: 12/17/2024
 ---
 
 # Azure Event Hubs: A real-time data streaming platform with native Apache Kafka support
