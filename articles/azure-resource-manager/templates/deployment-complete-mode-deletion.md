@@ -2202,7 +2202,6 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | objectAnchorsAccounts | Yes |
 > | objectUnderstandingAccounts | Yes |
 > | remoteRenderingAccounts | Yes |
-> | spatialAnchorsAccounts | Yes |
 
 ## Microsoft.MobileNetwork
 

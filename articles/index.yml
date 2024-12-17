@@ -1151,14 +1151,6 @@ productDirectory:
         - mixed-reality
       url: object-anchors/index.yml
     # Card
-    - title: Spatial Anchors
-      summary: Create multi-user, spatially aware mixed reality experiences
-      imageSrc: ./media/index/spatial-anchor-accounts.svg
-      azureCategories:
-        - mixed-reality
-        - mobile
-      url: spatial-anchors/index.yml
-    # Card
     - title: Azure Remote Rendering
       summary: Render high-quality, interactive 3D content, and stream it to your devices in real time
       imageSrc: ./media/index/remote-rendering.svg
