@@ -87,7 +87,8 @@ const meetingMediaAccessChangedHandler = (event) => {
 ```
 The meeting media access changed event has a media access object
 ```json
- "isAudioPermitted": true,
+{
+    "isAudioPermitted": true,
  "isVideoPermitted": true
 ```
 ```js
