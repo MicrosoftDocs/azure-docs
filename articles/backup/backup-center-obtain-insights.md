@@ -2,7 +2,7 @@
 title: Obtain insights using Backup center
 description: Learn how to analyze historical trends and gain deeper insights on your backups with Backup center. 
 ms.topic: how-to
-ms.date: 09/24/2024
+ms.date: 12/24/2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -27,7 +27,9 @@ For analyzing historical trends and gaining deeper insights on your backups, Bac
 
 - Refer to the [support matrix](backup-center-support-matrix.md) for a detailed list of supported and unsupported scenarios.
 
-## Get started
+[!INCLUDE [How to open the Backup center.](../../includes/backup-center-open-console.md)]
+
+
 
 ### Configure your vaults to send data to a Log Analytics workspace
 

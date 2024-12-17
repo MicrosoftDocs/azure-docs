@@ -48,21 +48,8 @@ Backup center is currently supported for:
 
 Learn more about [supported and unsupported scenarios](backup-center-support-matrix.md).
 
-## Get started
 
-To get started with using Backup center, follow these steps:
-
-1. In the [Azure portal](https://portal.azure.com/), search for **Azure Business Continuity Center**, and then go to the **Azure Business Continuity Center** dashboard.
-
-    :::image type="content" source="./media/backup-center-overview/business-continuity-center-search.png" alt-text="Screenshot showing how to search for Azure Business Continuity Center." lightbox="./media/backup-center-overview/business-continuity-center-search.png" :::
-
-1. To lunch Backup center, Select **Help** in the top menu > **Go to Backup Center**.
-
-    :::image type="content" source="./media/backup-center-overview/backup-center-launch-from-help-menu.png" alt-text="Screenshot shows how to launch Backup center from the Help menu." lightbox="./media/backup-center-overview/backup-center-launch-from-help-menu.png" ::: 
-
-   Alternatively, you can select the link in the information banner to go to Backup Center.
-
-    :::image type="content" source="./media/backup-center-overview/backup-center-launch-from-information-banner.png" alt-text="Screenshot shows how to launch Backup center from the information banner." lightbox="./media/backup-center-overview/backup-center-launch-from-information-banner.png" ::: 
+[!INCLUDE [How to open the Backup center.](../../includes/backup-center-open-console.md)]
 
    - On the **Overview** blade, two tiles appear – **Jobs** and **Backup instances**.
 
