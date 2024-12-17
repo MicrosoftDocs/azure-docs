@@ -55,10 +55,9 @@ Before you can send messages to a batch, that batch must first exist as the dest
 
 1. In the [Azure portal](https://portal.azure.com), create a logic app resource with a blank workflow.
 
-   This example creates a batch receiver.
-1. with the name **BatchReceiver**.
+   This example creates a batch receiver logic app and workflow named **BatchReceiver**.
 
-1. On the workflow designer, select **Add a trigger**, and [follow these general steps to add the **Batch Operations** trigger named **Batch Trigger**](create-workflow-with-trigger-or-action.md#add-trigger).
+1. In the workflow designer, select **Add a trigger**, and [follow these general steps to add the **Batch Operations** trigger named **Batch Trigger**](create-workflow-with-trigger-or-action.md#add-trigger).
 
 1. Set the following trigger properties:
 
