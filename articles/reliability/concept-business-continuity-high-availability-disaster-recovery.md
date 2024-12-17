@@ -16,23 +16,23 @@ ms.subservice: azure-reliability
 
 Planning for business continuity is about identifying, understanding, classifying, and managing risks. Based on the risks and their likelihoods, you can design your solution for *high availability* (HA) and *disaster recovery* (DR). High availability is about designing your solution to be resilient to day-to-day issues and to meet your business needs for availability. Disaster recovery is about planning how you deal with catastrophic outages and uncommon risks.
 
-This article describes business continuity, high availability, and disaster recovery and provides links to resources that can help you to design your own strategies for each. Use the [Reliability guides by service](./overview-reliability-guidance.md) to understand how the Azure services you use support designing your own business continuity approach. For detailed guidance on how to architect for business continuity, go to the [Azure Well-Architected Framework](/azure/well-architected/).
+This article describes business continuity, high availability, and disaster recovery and provides links to resources that can help you to design your own strategies for each. Use the [Reliability guides by service](./overview-reliability-guidance.md) to understand how the Azure services you use support designing your own business continuity approach. For detailed guidance on how to design workloads for business continuity, go to the [Azure Well-Architected Framework](/azure/well-architected/).
 
 ## Business continuity
 
 For a successful *business continuity plan*, it's essential to:
  
-- **Identify risks** to your workload's availability or functionality, such as network issues, hardware failures, or a region outage.
+- **Identify risks** to your workload's availability or functionality, such as network issues, hardware failures, human error, or a region outage.
  
 - **Classify risks** as either a day-to-day risk, which should be factored into plans for high availability, or a catastrophic or unusual risk, which should be part of disaster recovery planning.
  
-- **Design for HA or DR to minimize or mitigate risks** such as by using redundancy, failover, and backups. You might also consider nontechnical and process-based mitigations and controls.
+- **Design for HA or DR to minimize or mitigate risks** such as by using redundancy, failover, and backups. You should also consider nontechnical and process-based mitigations and controls.
  
 A business continuity plan doesn't only take into consideration the resiliency features of the cloud platform itself, or even the features of the application. Business continuity is achieved by incorporating all aspects of support in the business including people, business-related manual or automated processes, and other technologies.
 
 ### Risks for cloud-based solutions
 
-When you run a solution in the cloud, there are a range of events that can happen. These events can affect the resources that the workload uses. The following table is a nonexhaustive list of example events, ordered by expected likelihood:
+When you run a solution in the cloud, there are a range of events that can happen. These events can affect the resources that the workload uses. The following table is a nonexhaustive list of example events, ordered by your best estimation of expected likelihood:
 
 | Example risk | Description | Regularity (likelihood) |
 |---|---|---|
@@ -47,6 +47,7 @@ Business continuity planning isn't just about the cloud platform and infrastruct
 | Example risk | Description |
 |---|---|
 | Data loss or corruption | Data has been deleted, overwritten, or otherwise corrupted by an accident, or from a security breach like a ransomware attack. |
+| Software bug | A deployment of new or updated code introduces a bug that impacts availability or integrity, leaving the workload in a malfunctioning state. |
 | Failed deployments | A deployment of a new component or version has failed, leaving the solution in an inconsistent state. |
 | Denial of service attacks | The system has been attacked in an attempt to prevent legitimate use of the solution. |
 | Rogue administrators | A user with administrative privileges has intentionally performed a damaging action against the system. |
@@ -54,7 +55,7 @@ Business continuity planning isn't just about the cloud platform and infrastruct
 
 *Failure mode analysis* (FMA) is the process of identifying potential ways in which a workload or its components could fail, and how the solution behaves under those situations. To learn more, see [Recommendations for performing failure mode analysis](/azure/well-architected/reliability/failure-mode-analysis).
 
-Each risk can be analyzed to understand its likelihood and its severity. Severity needs to include any potential downtime or data loss, as well as whether any aspects of the rest of the solution design might compensate for negative effects.
+Each risk should be analyzed to understand its likelihood and its severity. Severity needs to include any potential downtime or data loss, as well as whether any aspects of the rest of the solution design might compensate for negative effects.
 
 ### Risk classification
  
@@ -89,7 +90,7 @@ When a workload architect plans for high availability, they define:
  
 Commonly, uptime is measured based on the number of "nines" in the uptime percentage, such as 99.9% (three nines) or 99.95% (three and a half nines). The higher the uptime requirement, the less tolerance you have for outages, and the more work you have to do to reach that level of availability. Uptime isn't measured by the uptime of a single component like a node, but by the overall availability of the entire workload.
 
-> [!TIP]
+> [!IMPORTANT]
 > Don't overengineer your solution to reach higher levels of reliability than are justified. Use business requirements to guide your decisions.
 
 For more detailed information on how to define and measure high availability, see [Recommendations for defining reliability targets](/azure/well-architected/reliability/metrics).
@@ -98,7 +99,7 @@ For more detailed information on how to define and measure high availability, se
 
 To achieve high availability, a workload may include the following design elements:
  
- - **Use services and tiers that support high availability**. For example, many Azure services are designed to be highly available, such as Azure Virtual Machine Scale Sets, Azure App Service, and Azure SQL Database. These services are designed to provide high availability by default, and can be used to build highly available workloads.
+ - **Use services and tiers that support high availability**. For example, many Azure services are designed to be highly available, such as Azure Virtual Machine Scale Sets, Azure App Service, and Azure SQL Database. These services natively provide the capability of high availability and can be used to build highly available workloads.
     
     Review the service level agreements (SLAs) for each service to understand the expected levels of availability and the conditions you need to meet. You might need to select specific tiers of services to achieve certain levels of availability.
 
@@ -108,9 +109,9 @@ To achieve high availability, a workload may include the following design elemen
 
     To learn more about redundancy, see [Recommendations for designing for redundancy](/azure/well-architected/reliability/redundancy) and [Recommendations for using availability zones and regions](/azure/well-architected/reliability/regions-availability-zones).
  
- - **Fault tolerance** is the ability of a system to continue operating in the event of a failure. For example, a web application might be designed to continue operating even if a single web server fails.
+ - **Fault tolerance** is the ability of a system to continue operating, in some defined capacity, in the event of a failure. For example, a web application might be designed to continue operating even if a single web server fails.
  
-    Fault tolerance can be achieved through redundancy, failover, partitioning, and other techniques.
+    Fault tolerance can be achieved through redundancy, failover, partitioning, graceful degradation, and other techniques.
 
     Fault tolerance also requires that your applications handle transient faults. To learn more, see [Recommendations for handling transient faults](/azure/well-architected/reliability/handle-transient-faults).
  
@@ -146,20 +147,20 @@ Due to the rarity and severity of disaster events, DR planning brings different 
 
 :::image type="content" source="media/disaster-recovery-rpo-rto.png" alt-text="Screenshot of RTO and RPO durations in hours." border="false":::
 
-Each workload and flow might have individual RPO and RTO values. Examine disaster-scenario risks and potential recovery strategies when deciding on the requirements. The process of specifying an RPO and RTO effectively creates DR requirements for your workload as a result of your unique business concerns (costs, impact, data loss, etc.).
+Each component or flow in the workload might have individual RPO and RTO values. Examine disaster-scenario risks and potential recovery strategies when deciding on the requirements. The process of specifying an RPO and RTO effectively creates DR requirements for your workload as a result of your unique business concerns (costs, impact, data loss, etc.).
 
 > [!NOTE]
 > While it's tempting to aim for an RTO and RPO of zero (no downtime and no data loss in the event of a disaster), in practice it's difficult and costly to implement. It's important for technical and business stakeholders to discuss these requirements together and make a decision about what realistic requirements should be. For more information, see [Recommendations for defining reliability targets](/azure/well-architected/reliability/metrics).
 
 ### Disaster recovery plans
 
-Regardless of the cause of the disaster, it's important that you create a well-defined and tested DR plan, and an application design that actively supports it. You might create multiple DR plans for different types of situations. DR plans often rely on process controls and manual intervention.
+Regardless of the cause of the disaster, it's important that you create a well-defined and testable DR plan. That plan will be used as part of infrastructure and application design to actively support it. You might create multiple DR plans for different types of situations. DR plans often rely on process controls and manual intervention.
 
 DR isn't an automatic feature of Azure. However, many services do provide features and capabilities that you can use to support your DR strategies. You should review the [reliability guides for each Azure service](./overview-reliability-guidance.md) to understand how the service works and its capabilities, and then map those capabilities to your DR plan.
 
 To learn more about disaster recovery planning, see [Recommendations for designing a disaster recovery strategy](/azure/well-architected/reliability/disaster-recovery).
 
-It's critical that you validate and test your DR plans, and your wider reliability strategy. To learn more, see [Recommendations for designing a reliability testing strategy](/azure/well-architected/reliability/testing-strategy).
+It's critical that you routinely validate and test your DR plans, and your wider reliability strategy. To learn more, see [Recommendations for designing a reliability testing strategy](/azure/well-architected/reliability/testing-strategy).
 
 ## Next steps
 
