@@ -9,7 +9,7 @@ ms.date: 12/13/2024
 ---
 
 ---
-# About roles and permissions for the Virtual WAN Hub
+# About roles and permissions for Azure Route Server
 
 Azure Route Server utilizes multiple underlying resources during both creation and management operations.
 Because of this, it's essential to verify permissions on all involved resources during these operations.
