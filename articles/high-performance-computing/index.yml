@@ -142,10 +142,7 @@ tools:
             - url: https://idcdocserv.com/US50583623
               text: HPC for Product Modeling
 
-
-additionalContent:
-  # Supports up to 4 sections
-  sections:
+# HPC Channels
     - title: Community Resources and HPC Team # < 60 chars (Optional)
       summary: Connect with other HPC users and communicate with the HPC team
       items:
@@ -166,8 +163,9 @@ additionalContent:
           imageSrc: /media/hubs/powershell/logo_reddit.svg
           url: https://www.reddit.com/r/HPC/
 
-
-# Video Playlists and other links
+additionalContent:
+  sections:
+  # Video Playlists and other links
     - title: HPC Video Content # < 60 chars (Optional; Remove if not applicable.)
       summary: Azure HPC with various video content and events. # < 160 chars (Optional; Remove if not applicable.)
       items:
