@@ -131,7 +131,7 @@ Your tags used in `DiagnosticOptions` could be used in 3 places in the Call Diag
 ### I cannot see the `DiagnosticOptions` information column in the tables. How can I enable them?
 
 To view the `DiagnosticOptions` columns in Call Diagnostics you have to enable them by using `Edit Columns` button which is located in the Call Search and Call Overview sections:
-![image](media/uihint-edit-columns-button.png).
+![Screenshot of the Call Diagnostics search view with a red rectangle around the Edit Columns icon.](media/uihint-edit-columns-button.png).
 
 After clicking this button choose the `DiagnosticOptions` option and click on the `Done` button:
 ![image](media/uihint-choose-columns-sidepane.png)
