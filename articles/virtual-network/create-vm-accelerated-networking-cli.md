@@ -5,14 +5,11 @@ author: mattreatMSFT
 ms.author: mareat
 ms.service: azure-virtual-network
 ms.topic: how-to
-ms.date: 10/22/2024
-ms.custom: fasttrack-edit, devx-track-azurecli, linux-related-content
+ms.date: 12/17/2024
+ms.custom: fasttrack-edit, devx-track-azurecli, linux-related-content, innovation-engine
 ---
 
 # Use Azure CLI to create a Windows or Linux VM with Accelerated Networking
-
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 This article describes how to create a Linux or Windows virtual machine (VM) with Accelerated Networking (AccelNet) enabled by using the Azure CLI command-line interface. The article also discusses how to enable and manage Accelerated Networking on existing VMs.
 
@@ -26,28 +23,155 @@ To use Azure PowerShell to create a Windows VM with Accelerated Networking enabl
 
 - The latest version of [Azure CLI installed](/cli/azure/install-azure-cli). Sign in to Azure by using the [az login](/cli/azure/reference-index#az-login) command.
 
-## Create a VM with Accelerated Networking
-
-In the following examples, you can replace the example parameters such as `<myResourceGroup>`, `<myNic>`, and `<myVm>` with your own values.
-
-### Create a virtual network
+## Create a virtual network
 
 1. Use [az group create](/cli/azure/group#az-group-create) to create a resource group to contain the resources. Be sure to select a supported Windows or Linux region as listed in [Windows and Linux Accelerated Networking](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview).
 
-   ```azurecli
-   az group create --name <myResourceGroup> --location <myAzureRegion>
-   ```
+    ```bash
+    export RANDOM_SUFFIX=$(openssl rand -hex 3)
+    export RESOURCE_GROUP_NAME="test-rg$RANDOM_SUFFIX"
+    export REGION="eastus2"
 
+    az group create \
+        --name $RESOURCE_GROUP_NAME \
+        --location $REGION
+    ```
+
+    Results:
+    
+    <!-- expected_similarity=0.3 --> 
+
+    ```json
+    {
+      "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/test-rgdf15c2",
+      "location": "eastus2",
+      "managedBy": null,
+      "name": "test-rgdf15c2",
+      "properties": {
+        "provisioningState": "Succeeded"
+      },
+      "tags": null,
+      "type": "Microsoft.Resources/resourceGroups"
+    }
+    ```
+    
 1. Use [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) to create a virtual network with one subnet in the resource group:
 
-   ```azurecli
-   az network vnet create \
-     --resource-group <myResourceGroup> \
-     --name <myVnet> \
-     --address-prefix 192.168.0.0/16 \
-     --subnet-name <mySubnet> \
-     --subnet-prefix 192.168.1.0/24
+   ```bash
+    export RESOURCE_GROUP_NAME="test-rg$RANDOM_SUFFIX"
+    export VNET_NAME="vnet-1$RANDOM_SUFFIX"
+    export SUBNET_NAME="test-subnet-1$RANDOM_SUFFIX"
+    export VNET_ADDRESS_PREFIX="10.0.0.0/16"
+    export SUBNET_ADDRESS_PREFIX="10.0.0.0/24"
+
+    az network vnet create \
+        --resource-group $RESOURCE_GROUP_NAME \
+        --name $VNET_NAME \
+        --address-prefix $VNET_ADDRESS_PREFIX \
+        --subnet-name $SUBNET_NAME \
+        --subnet-prefix $SUBNET_ADDRESS_PREFIX
    ```
+
+    Results:
+    
+    <!-- expected_similarity=0.3 --> 
+
+    ```json
+    {
+      "newVNet": {
+        "addressSpace": {
+          "addressPrefixes": [
+            "10.0.0.0/16"
+          ]
+        },
+        "enableDdosProtection": false,
+        "etag": "W/\"7811acf5-19e8-4c07-8452-588f9d07b58e\"",
+        "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/test-rgdf15c2/providers/Microsoft.Network/virtualNetworks/vnet-1df15c2",
+        "location": "eastus2",
+        "name": "vnet-1df15c2",
+        "provisioningState": "Succeeded",
+        "resourceGroup": "test-rgdf15c2",
+        "resourceGuid": "0bbe1550-489b-45d2-b6f3-dd959e67d14c",
+        "subnets": [
+          {
+            "addressPrefix": "10.0.0.0/24",
+            "delegations": [],
+            "etag": "W/\"7811acf5-19e8-4c07-8452-588f9d07b58e\"",
+            "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/test-rgdf15c2/providers/Microsoft.Network/virtualNetworks/vnet-1df15c2/subnets/test-subnet-1df15c2",
+            "name": "test-subnet-1df15c2",
+            "privateEndpointNetworkPolicies": "Disabled",
+            "privateLinkServiceNetworkPolicies": "Enabled",
+            "provisioningState": "Succeeded",
+            "resourceGroup": "test-rgdf15c2",
+            "type": "Microsoft.Network/virtualNetworks/subnets"
+          }
+        ],
+        "type": "Microsoft.Network/virtualNetworks",
+        "virtualNetworkPeerings": []
+      }
+    }
+    ```
+
+1. Create the Bastion subnet with [az network vnet subnet create](/cli/azure/network/vnet/subnet).
+
+```bash
+export RESOURCE_GROUP_NAME="test-rg$RANDOM_SUFFIX"
+export VNET_NAME="vnet-1$RANDOM_SUFFIX"
+export SUBNET_NAME="AzureBastionSubnet"
+export SUBNET_ADDRESS_PREFIX="10.0.1.0/24"
+
+az network vnet subnet create \
+    --vnet-name $VNET_NAME \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --name AzureBastionSubnet \
+    --address-prefix $SUBNET_ADDRESS_PREFIX
+```
+    
+Results:
+    
+<!-- expected_similarity=0.3 --> 
+
+```json
+{
+    "addressPrefix": "10.0.1.0/24",
+    "delegations": [],
+    "etag": "W/\"63193779-430a-4554-8d2a-99b48b56f518\"",
+    "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/test-rgdf15c2/providers/Microsoft.Network/virtualNetworks/vnet-1df15c2/subnets/AzureBastionSubnet",
+    "name": "AzureBastionSubnet",
+    "privateEndpointNetworkPolicies": "Disabled",
+    "privateLinkServiceNetworkPolicies": "Enabled",
+    "provisioningState": "Succeeded",
+    "resourceGroup": "test-rgdf15c2",
+    "type": "Microsoft.Network/virtualNetworks/subnets"
+}
+```
+
+## Create Azure Bastion
+
+Create a public IP address for the Azure Bastion host with [az network public-ip create](/cli/azure/network/public-ip). The following example creates a public IP address named *public-ip-bastion* in the *vnet-1* virtual network.
+
+```azurecli-interactive
+az network public-ip create \
+    --resource-group test-rg \
+    --name public-ip-bastion \
+    --location eastus2 \
+    --allocation-method Static \
+    --sku Standard
+```
+
+Create an Azure Bastion host with [az network bastion create](/cli/azure/network/bastion). The following example creates an Azure Bastion host named *bastion* in the *AzureBastionSubnet* subnet of the *vnet-1* virtual network. Azure Bastion is used to securely connect Azure virtual machines without exposing them to the public internet.
+
+```azurecli-interactive
+az network bastion create \
+    --resource-group test-rg \
+    --name bastion \
+    --vnet-name vnet-1 \
+    --public-ip-address public-ip-bastion \
+    --location eastus2 \
+    --no-wait
+```
+
+
 
 ### Create a network security group
 
