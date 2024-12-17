@@ -83,7 +83,7 @@ IDatabase Database = _newConnection.GetDatabase();
     </appSettings>
     ```
 
-1. Replace `<cache-hostname>` with your cache host name as it appears in the Overview blade of Azure Portal. For example, *my-redis.eastuse.azure.net:10000*
+1. Replace `<cache-hostname>` with your cache host name as it appears in the Overview blade of Azure Portal. For example, *my-redis.eastus.azure.net:10000*
 
 1. Save the file.
 
