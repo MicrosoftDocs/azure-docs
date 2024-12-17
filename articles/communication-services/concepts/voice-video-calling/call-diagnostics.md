@@ -134,7 +134,7 @@ To view the `DiagnosticOptions` columns in Call Diagnostics you have to enable t
 ![Screenshot of the Call Diagnostics search view with a red rectangle around the Edit Columns icon.](media/uihint-edit-columns-button.png)
 
 After clicking this button choose the `DiagnosticOptions` option and click on the `Done` button:
-![Screenshot of the Call Diagnostics search view with the columneditor opened on the right side. The DiagnosticOptions circle has been selected.](media/uihint-choose-columns-sidepane.png)
+![Screenshot of the Call Diagnostics search view with the column editor opened on the right side. The DiagnosticOptions circle has been selected.](media/uihint-choose-columns-sidepane.png)
 You will be able to see the `DiagnosticOptions`column now.
 
 ### Where can I find more information about adding tags for my Calls in Call Diagnostics?
