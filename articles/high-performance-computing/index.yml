@@ -158,17 +158,21 @@ additionalContent:
       items:
         # Card 1
 	- title: High Performance Computing Tech Community
-          # imageSrc: /media/hubs/powershell/i_group-feedback.svg
-	  url: https://techcommunity.microsoft.com/t5/azure-high-performance-computing/bg-p/AzureHighPerformanceComputingBlog
+          links:
+	    # imageSrc: /media/hubs/powershell/i_group-feedback.svg
+	    url: https://techcommunity.microsoft.com/t5/azure-high-performance-computing/bg-p/AzureHighPerformanceComputingBlog
         # Card 2
 	- title: High Performance Computing Team Blogs
-          # imageSrc: /media/hubs/powershell/i_group-feedback.svg
-	  url: https://azure.microsoft.com/blog/?sort-by=newest-oldest&category=compute&date=any&s=HPC
+          links:
+            # imageSrc: /media/hubs/powershell/i_group-feedback.svg
+	    url: https://azure.microsoft.com/blog/?sort-by=newest-oldest&category=compute&date=any&s=HPC
         # Card 3
 	- title: StackOverFlow
-          # imageSrc: /media/hubs/powershell/logo_stackoverflow.svg
-	  url: https://stackoverflow.com/questions/tagged/hpc
+          links:
+	    # imageSrc: /media/hubs/powershell/logo_stackoverflow.svg
+	    url: https://stackoverflow.com/questions/tagged/hpc
         # Card 4
 	- title: Reddit
-          # imageSrc: /media/hubs/powershell/logo_reddit.svg
-	  url: https://www.reddit.com/r/HPC/ 			  
+          links:
+            # imageSrc: /media/hubs/powershell/logo_reddit.svg
+	    url: https://www.reddit.com/r/HPC/ 			  
