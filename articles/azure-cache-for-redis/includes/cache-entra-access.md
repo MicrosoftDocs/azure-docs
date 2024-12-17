@@ -16,7 +16,7 @@ Azure Redis caches, except for Enterprise and Enterprise Flash tiers, have Micro
 
 1. Select **Authentication** from the Resource menu.
 
-1. Enter the name of a valid user. The user you enter is automatically assigned _Data Owner Access Policy_ by default when you select **Save**. You can also enter a managed identity or service principal to connect to your cache instance.
+1. Select **Select member** and enter the name of a valid user. The user you enter is automatically assigned _Data Owner Access Policy_ by default when you select **Save**. You can also enter a managed identity or service principal to connect to your cache instance.
 
      :::image type="content" source="media/cache-entra-access/cache-enable-microsoft-entra.png" alt-text="Screenshot showing authentication selected in the resource menu and the enable Microsoft Entra authentication checked.":::
 
