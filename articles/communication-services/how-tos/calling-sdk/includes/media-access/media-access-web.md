@@ -58,7 +58,7 @@ const mediaAccessChangedHandler = (event) => {
     console.log(`Latest media access states ${event.mediaAccesses}`);
 };
 ```
-Media access changed event has an array of media access objects:
+`mediaAccessChanged` event has an array of media access objects:
 ```json
 {
     "identifier": {
