@@ -2,7 +2,7 @@
 title: 'Quickstart: Use Terraform to create an Azure Automation account'
 description: In this quickstart, you use Terraform to create an Azure resource group, an Azure Automation account with a system-assigned identity, and assign a "Contributor" role to the Automation account.
 ms.topic: quickstart
-ms.date: 12/16/2024
+ms.date: 12/17/2024
 ms.custom: devx-track-terraform
 ms.service: azure-automation
 author: SnehaSudhirG
@@ -90,7 +90,7 @@ In this article, you learn how to:
     az automation account show --name $automation_account_name --resource-group $resource_group_name
     ```
 
-### [PowerShell](#tab/PowerShell)
+### [Azure PowerShell](#tab/azure-powershell)
 
 1. Get the Azure resource group name.
 
