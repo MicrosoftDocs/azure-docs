@@ -646,7 +646,7 @@ If you don't specify any **logLevel** values, the default verbosity level is **I
 
 ### Remove storage dependency errors
 
-If you want to filter out storage dependency errors such as 404 errors and 412 errors, you can set **Host.Workflow** log level to **None**. 
+To filter out storage dependency errors, such as **404 Not Found** errors and **412 Precondition Failed** errors, set the **Host.Workflow** log level to **None**, for example:
 
 ```json
 {
