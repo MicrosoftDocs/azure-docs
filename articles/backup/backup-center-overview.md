@@ -51,6 +51,8 @@ Learn more about [supported and unsupported scenarios](backup-center-support-mat
 
 [!INCLUDE [How to open the Backup center.](../../includes/backup-center-open-console.md)]
 
+The **Backup center** console provides the following details:
+
    - On the **Overview** blade, two tiles appear – **Jobs** and **Backup instances**.
 
       :::image type="content" source="./media/backup-center-overview/backup-center-overview-widgets.png" alt-text="Screenshot showing the Backup center tiles.":::
