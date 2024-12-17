@@ -50,23 +50,24 @@ The following table shows support of media access for specific call type and ide
 
 ### Operations
 
-The following table shows support for individual APIs in the calling SDK related to individual identity types.
+The following table shows support for individual APIs in the calling SDK related to individual identity types. All operations are only supported in Teams meeting.
 
 |Operations                     | Communication Services user | Microsoft 365 user |
 |-----------------------------|---------------|--------------------------|
-| Forbid audio		              |	✔️           | ✔️                       |
-| Permit audio                  | ✔️           | ✔️                       |
-| Forbid video		              |	✔️           | ✔️                       |
-| Permit video                  | ✔️           | ✔️                       |
-| Forbid audio	of all other attendees	        |	✔️[1]           |       ✔️   [1]                |
+| Permit audio                  | ✔️ [1]       | ✔️ [1]                      |
+| Forbid audio		              |	✔️ [1]          | ✔️ [1]                      |
+| Permit video                  | ✔️ [1]          | ✔️ [1]                      |
+| Forbid video		              |	✔️ [1]          | ✔️ [1]                      |
 | Permit audio of all other attendees  | ✔️[1]           |             ✔️[1]             |
-| Forbid video of all other attendees |	✔️[1]           |     ✔️[1]                     |
+| Forbid audio	of all other attendees	        |	✔️[1]           |       ✔️   [1]                |
 | Permit video of all other attendees |	✔️[1]           |     ✔️[1]                     |
+| Forbid video of all other attendees |	✔️[1]           |     ✔️[1]                     |
 | Get media access of other participants | ✔️           |✔️                        |
 | Get notification that media access changed          | ✔️           |✔️                        |
-| Get notification that Teams meeting's media access changed    | ✔️[1]           |    ✔️[1]                      |
+| Get notification that Teams meeting's media access changed    | ✔️           |    ✔️                      |
 
-[1] The operation is only supported in Teams meeting
+[1] Only user with role organizer, co-organizer, or presenter.
+
 
 ### SDKs
 
