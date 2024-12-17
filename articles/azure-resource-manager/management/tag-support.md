@@ -2202,7 +2202,6 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | objectAnchorsAccounts | Yes | Yes |
 > | objectUnderstandingAccounts | Yes | Yes |
 > | remoteRenderingAccounts | Yes | Yes |
-> | spatialAnchorsAccounts | Yes | Yes |
 
 ## Microsoft.MobileNetwork
 
