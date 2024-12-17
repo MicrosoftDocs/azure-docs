@@ -2,8 +2,8 @@
 title: Tutorial on how to attach custom tags to your client telemetry
 titleSuffix: An Azure Communication Services tutorial
 description: Assign a custom attribute tag to participants telemetry using the calling SDK.
-author: sloanster
-ms.author: micahvivion
+author: amagginetti
+ms.author: amagginetti
 
 services: azure-communication-services
 ms.date: 10/24/2024
