@@ -110,7 +110,7 @@ In last step, you verified the function project locally. Now you'll learn how to
 az functionapp connection create storage-table --source-id "<your-function-resource-id>" --target-id "<your-storage-table-resource-id>" --secret
 ```
 
-* `--source-id` format: `/subscriptions/{subscription}/resourceG roups/{source_resource_group}/providers/Microsoft.Web/sites/{site}`
+* `--source-id` format: `/subscriptions/{subscription}/resourceGroups/{source_resource_group}/providers/Microsoft.Web/sites/{site}`
 * `--target-id` format: `/subscriptions/{subscription}/resourceGroups/{target_resource_group}/providers/Microsoft.Storage/storageAccounts/{account}/tableServices/default`
 
 You've created a Service Connector resource that configures an `AZURE_STORAGETABLE_CONNECTIONSTRING` variable in the function's App Settings. This app setting will then be consumed by the function binding to connect to the storage, so that the function can write to the storage table. You can learn more about [how Service Connector helps Azure Functions connect to services](./how-to-use-service-connector-in-function.md).
@@ -124,7 +124,7 @@ Now you can deploy your function to Azure and verify the storage table output bi
 
 ## Troubleshoot
 
-If there are any errors related with storage host, such as `No such host is known (<acount-name>.table.core.windows.net:443)`, you need check whether the connection string you use to connect to Azure Storage contains the table endpoint or not. If it doesn't, go to Azure Storage portal, copy the connection string from the `Access keys` blade, and replace the values.
+If there are any errors related with storage host, such as `No such host is known (<account-name>.table.core.windows.net:443)`, you need check whether the connection string you use to connect to Azure Storage contains the table endpoint or not. If it doesn't, go to Azure Storage portal, copy the connection string from the `Access keys` blade, and replace the values.
 
 If this error happens when you start the project locally, check the `local.settings.json` file.
 

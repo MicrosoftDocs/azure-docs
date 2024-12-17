@@ -50,7 +50,7 @@ Before you begin this tutorial, ensure that you have the following prerequisites
 
 To create a project and register the Azure Migrate appliance, you must have an Azure user account that has the following permissions:
 
-- Contributor or Owner permissions in Azure subscription. Complete the procedure to [set Contributor or Owner permissions in the Azure subscription](tutorial-discover-vmware.md#prepare-an-azure-user-account)
+- Contributor or Owner permissions in Azure subscription. Complete the procedure to [set Contributor or Owner permissions in the Azure subscription](../tutorial-discover-vmware.md#prepare-an-azure-user-account)
 - Permissions to register Microsoft Entra apps.
 - Owner or Contributor and User Access Administrator permission at subscription level to create an instance of Azure Key Vault, which is used during the agentless server migration.
 

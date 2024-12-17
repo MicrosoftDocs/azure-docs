@@ -74,6 +74,7 @@ resource "azurerm_linux_web_app" "webapp" {
   location              = azurerm_resource_group.rg.location
   resource_group_name   = azurerm_resource_group.rg.name
   service_plan_id       = azurerm_service_plan.appserviceplan.id
+  depends_on            = [azurerm_service_plan.appserviceplan]
   https_only            = true
   site_config { 
     minimum_tls_version = "1.2"
