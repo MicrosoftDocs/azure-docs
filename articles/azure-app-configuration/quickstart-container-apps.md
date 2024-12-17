@@ -44,11 +44,11 @@ In this quickstart, you use Azure App Configuration in an app running in Azure C
       - Select the **System-assigned managed identity** authentication type
       - Expand the **Advanced** menu
       - Assign your identity the **App Configuration Data Reader** role
-      - Under **Configuration information**, you find an environment variable named `AZURE_APPCONFIGURATION_ENDPOINT`. Select the pencil icon on the right and edit the environment variable name to match the variable name in your application that you load your App Configuration endpoint from. If you built your application following the [ASP.NET Core quickstart](./quickstart-aspnet-core-app.md), your variable name is `Endpoints:AppConfiguration`. When editing the variable name, replace the colon with double underscores so that `Endpoints:AppConfiguration` becomes `Endpoints__AppConfiguration`. If you're working with another application, enter the corresponding environment variable name, ensuring that any colons are replaced with underscores, then select **Done**.
+      - Under **Configuration information**, you find an environment variable named `AZURE_APPCONFIGURATION_ENDPOINT`. Select the pencil icon on the right and edit the environment variable name to match the variable name in your application that you load your App Configuration endpoint from. If you built your application following the [ASP.NET Core quickstart](./quickstart-aspnet-core-app.md), your variable name is `Endpoints:AppConfiguration`. When editing the variable name, replace the colon with double underscores so that `Endpoints:AppConfiguration` becomes `Endpoints__AppConfiguration`. If you're working with another application, enter the corresponding environment variable name, ensuring that any colons are replaced with double underscores, then select **Done**.
     
    1. Use default values for everything else.
 
-    When the connection is created, an environment variable named `Endpoints_AppConfiguration` is added to the container of your Container App resource. Its value is a reference of the Container App secret, the endpoint of your App Configuration store.
+    When the connection is created, an environment variable named `Endpoints__AppConfiguration` is added to the container of your Container App resource. Its value is a reference of the Container App secret, the endpoint of your App Configuration store.
 
 ## Build a container
 
@@ -182,7 +182,7 @@ In this quickstart, you:
 - Added the container image to Azure Container Apps
 - Browsed to the URL of the Azure Container Apps instance updated with the settings you configured in your App Configuration store.
 
-The managed identity enables one Azure resource to access another without you maintaining secrets. You can streamline access from Container Apps to other Azure resources. For more information, see how to [access App Configuration using the managed identity](howto-integrate-azure-managed-service-identity.md) and how to [[access Container Registry using the managed identity](/azure/container-registry/container-registry-authentication-managed-identity)].
+The managed identity enables one Azure resource to access another without you maintaining secrets. You can streamline access from Container Apps to other Azure resources. For more information, see how to [access App Configuration using the managed identity](howto-integrate-azure-managed-service-identity.md) and how to [access Container Registry using the managed identity](/azure/container-registry/container-registry-authentication-managed-identity).
 
 To learn how to configure your ASP.NET Core web app to dynamically refresh configuration settings, continue to the next tutorial.
 
