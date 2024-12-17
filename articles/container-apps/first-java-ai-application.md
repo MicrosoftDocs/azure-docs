@@ -15,7 +15,7 @@ ms.custom:
 
 In this quickstart, you deploy your first Java AI application to Azure Container Apps. The application is a sample AI chat assistant based on the Spring PetClinic application, and it uses the [Azure OpenAI Service](/azure/ai-services/openai/overview). The quickstart also demonstrates how to automate deployment using the Azure Developer CLI (azd). The following screenshot shows the AI assistant:
 
-:::image type="content" source="media/first-ai-application/home-with-chatbot.png"  alt-text="Screenshot of home." lightbox="media/first-ai-application/home-with-chatbot.png":::
+:::image type="content" source="media/first-java-ai-application/home-with-chatbot.png"  alt-text="Screenshot of home." lightbox="media/first-java-ai-application/home-with-chatbot.png":::
 
 ## Prerequisites
 
@@ -122,7 +122,7 @@ The PetClinic page and AI assistant appear. You can get help by having a natural
 
 The following image shows a chat where the user asks the AI assistant to register a new owner with a pet to the PetClinic. The AI assistant then performs these tasks:
 
-:::image type="content" source="media/first-ai-application/add-new-item.png" alt-text="Screenshot of AI chat assistant adding new item.":::
+:::image type="content" source="media/first-java-ai-application/add-new-item.png" alt-text="Screenshot of AI chat assistant adding new item." lightbox="media/first-java-ai-application/add-new-item.png":::
 
 The capabilities of the AI assistant depend on the model you deploy in Azure OpenAI and the implementation of the defined functions.
 
