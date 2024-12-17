@@ -1,5 +1,5 @@
 ---
-title: Understand Azure Device Update for IoT Hub agent
+title: Azure Device Update for IoT Hub agent overview
 description: Understand the structure and functions of the Azure Device Update for IoT Hub agent.
 author: eshashah-msft
 ms.author: eshashah
@@ -11,12 +11,12 @@ ms.subservice: device-update
 
 # Device Update for IoT Hub agent overview
 
-This article summarizes the structure and function of the Azure Device Update for IoT Hub agent. The Device Update agent consists of two conceptual layers:
+The Device Update agent consists of two conceptual layers:
 
 - The *interface layer* builds on top of [Azure IoT Plug and Play](../iot/overview-iot-plug-and-play.md) to allow messages to flow between the Device Update agent and the Device Update service.
-- The *platform layer* performs the high-level download, install, and apply update actions, which can be platform- or device-specific.
+- The *platform layer* does the high-level update download, install, and apply actions, which can be platform- or device-specific.
 
-The following diagram shows agent implementations.
+The following diagram lists Device Update agent capabilities and actions.
 
 :::image type="content" source="media/understand-device-update/client-agent-reference-implementations.png" alt-text="Diagram that shows agent implementations." border="false" lightbox="media/understand-device-update/client-agent-reference-implementations.png":::
 
@@ -28,7 +28,7 @@ The interface layer is made up of the following components:
 - [Device information interface](https://github.com/Azure/iot-hub-device-update/tree/main/src/agent/device_info_interface)
 - [Diagnostic information interface](https://github.com/Azure/iot-hub-device-update/tree/main/src/diagnostics_component/diagnostics_interface)
 
-These interfaces use a configuration file for the device specific values that need to be reported to the Device Update services. For more information, see [Device Update configuration file](device-update-configuration-file.md).
+These interfaces use a configuration file for the device specific values to report to Device Update services. For more information, see [Device Update configuration file](device-update-configuration-file.md).
 
 ### Device Update core interface
 
@@ -36,7 +36,7 @@ The [Device Update core interface](https://github.com/Azure/iot-plugandplay-mode
 
 ### Device information interface
 
-The [device information interface](https://github.com/Azure/iot-plugandplay-models/blob/main/dtmi/azure/devicemanagement/deviceinformation-1.json) implements the `Azure IoT PnP DeviceInformation` interface.
+The [device information interface](https://github.com/Azure/iot-plugandplay-models/blob/main/dtmi/azure/devicemanagement/deviceinformation-1.json) implements the Azure IoT `DeviceInformation` interface.
 
 ### Diagnostic information interface
 
@@ -44,17 +44,17 @@ The [diagnostic information interface](https://github.com/Azure/iot-plugandplay-
 
 ## Platform layer
 
-The Linux platform layer integrates with the [Delivery Optimization client](https://github.com/microsoft/do-client/releases) for downloads. All clients that run on Linux systems, such as the Device Update Raspberry Pi reference image, use the Linux platform layer.
+All clients that run on Linux systems, such as the Device Update Raspberry Pi reference image, use the Linux platform layer. The Linux platform layer integrates with the [Delivery Optimization client](https://github.com/microsoft/do-client/releases) for downloads.
 
 The Linux platform layer implementation that integrates with [Delivery Optimization](https://github.com/microsoft/do-client) for downloads is in *src/platform_layers/linux_platform_layer*. This layer can integrate with update handlers such as `SWUpdate`, `Apt`, and `Script` to implement the installers.
 
-If you choose to implement with your own downloader instead of Delivery Optimization, be sure to review the [requirements for large file downloads](device-update-limits.md#requirements-for-large-file-downloads).
+If you choose to implement your own downloader instead of Delivery Optimization, be sure to review the [requirements for large file downloads](device-update-limits.md#requirements-for-large-file-downloads).
 
-### Update handlers
+## Update handlers
 
-Update handlers invoke installers or commands to do over-the-air updates. You can either use [existing update content handlers](https://github.com/Azure/iot-hub-device-update/blob/main/src/extensions/inc/aduc/content_handler.hpp) or implement a [custom content handler](https://github.com/Azure/iot-hub-device-update/tree/main/docs/agent-reference/how-to-implement-custom-update-handler.md) that can invoke any installer to execute the over-the-air updates you need for your use case.
+Update handlers invoke installers or commands to do over-the-air updates. You can either use [existing update content handlers](https://github.com/Azure/iot-hub-device-update/blob/main/src/extensions/inc/aduc/content_handler.hpp), or implement a [custom content handler](https://github.com/Azure/iot-hub-device-update/tree/main/docs/agent-reference/how-to-implement-custom-update-handler.md) that can invoke any installer to execute the over-the-air updates you need for your use case.
 
-## Check and upgrade Device Update agent version
+## Check and upgrade agent version
 
 You can check the installed versions of the Device Update agent and the Delivery Optimization agent in the [properties](device-update-plug-and-play.md#device-properties) section of your [IoT device twin](../iot-hub/iot-hub-devguide-device-twins.md).
 
