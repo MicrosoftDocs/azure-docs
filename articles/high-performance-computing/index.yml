@@ -1,13 +1,11 @@
 ### YamlMime:Hub
 
 title: Azure HPC documentation
-summary: Azure high-performance computing (HPC) is a collection of Microsoft-managed workload orchestration services that integrate with compute, network, and storage resources. HPC offers purpose-built infrastructure and solutions for a wide variety of applications and parallelized workloads.
+summary: Official Azure high-performance computing (HPC) documentation. <b> Learn about Azure HPC's various workload orchestration services that integrate with compute, network, and storage resources.
 brand: azure
 
 metadata:
   title: Azure HPC documentation
-  description: Official Azure high-performance computing (HPC) documentation. <b> Learn about Azure HPC's various workload orchestration services that integrate with compute, network, and storage resources.
-  imageSrc: ../high-performance-computing/media/hpc-logo.png
   subject: high-performance-computing
   ms.service: hpc-fundamentals
   ms.topic: hub-page
@@ -41,65 +39,50 @@ productDirectory:
   title: Azure HPC Solution Components # < 60 chars (Optional; Remove if not applicable.)
   summary: Available services, infrastructure, and technology that supports Azure HPC # < 160 chars (optional)
   items:
-    # Card
+    # Card 1
     - title: Azure HPC Scenarios and Migration Guidelines
       links:
         - url: /azure/cloud-adoption-framework/scenarios/azure-hpc/azure-hpc-landing-zone-accelerator
-          itemType: overview
           text: Introduction to HPC Scenario
         - url: https://azure.github.io/az-hop/
-          itemType: overview
           text: HPC OnDemand Platform Zone  
         - url: /azure/high-performance-computing/lift-and-shift-overview/
-          itemType: overview
           text: HPC Migration Deployments
-    # Card
+    # Card 2
     - title: Azure HPC Compute
       links:
         - url: /azure/virtual-machines/sizes-hpc
-          itemType: concept
           text: High Performance VMs 
         - url: /azure/virtual-machines/sizes-gpu
-          itemType: concept
           text: GPU Accelerated VMs
         - url: /azure/virtual-machines/hx-series
-          itemType: concept
           text: Memory Optimized VMs
-    # Card
+    # Card 3
     - title: Azure HPC Storage
       links:
           - url: ../azure-netapp-files/azure-netapp-files-introduction.md
-            itemType: concept
             text: Azure NetApp Files
           - url: /azure/azure-managed-lustre/blob-integration
-            itemType: concept
             text: Azure Blob Storage
           - url: /azure/azure-managed-lustre/amlfs-overview
-            itemType: concept
             text: Azure Managed Lustre             
-    # Card
+    # Card 4
     - title: Azure HPC Workload Orchestration
       links:
         - url: ../batch/batch-technical-overview.md
-          itemType: overview
           text: Azure Batch
         - url: /azure/cyclecloud/overview
-          itemType: overview
           text: Azure CycleCloud
         - url: /azure/virtual-machines/compiling-scaling-applications
-          itemType: overview
           text: Autoscaling             
-    # Card
+    # Card 5
     - title: Manage, Monitor, and Control
       links:
         - url: /azure/azure-monitor/
-          itemType: reference
           text: Azure Monitor
         - url: /azure/databox/
-          itemType: reference
           text: Azure DataBox 
         - url: /azure/open-datasets/
-          itemType: reference
           text: Azure Open Datasets
 
 
@@ -108,7 +91,7 @@ tools:
   title: HPC Channels # < 60 chars (optional)
   summary: See Azure HPC solutions, tutorials, guides, and resources. Explore our marketplace, innovate with our partners. # < 160 chars (optional)
   items: 
-    # Card
+    # Card 1
     - title: Developer resources
       imageSrc: /media/common/i_code-edit.svg
       links:
@@ -120,7 +103,7 @@ tools:
           text: Create, customize, and manage HPC Cluster using CycleCloud
         - url: /azure/virtual-machines/extensions/enable-infiniband
           text: Enable Inifiniband            
-    # Card
+    # Card 2
     - title: Azure HPC Content on Sites
       links:
         - url: https://www.aka.ms/Microsoft-NVIDIA/HPCwire
@@ -133,7 +116,7 @@ tools:
           text: Azure and AMD for Sustainability
         - url: https://bigcompute.org/blog/high-performance-computing-for-rd/
           text: HPC for Innovation in R&D             
-    # Card
+    # Card 3
     - title: Related technologies
       imageSrc: /media/common/i_link.svg
       links:
@@ -164,8 +147,8 @@ tools:
       url: https://www.reddit.com/r/HPC/
 
 additionalContent:
-  sections:
   # Video Playlists and other links
+  sections:
     - title: HPC Video Content # < 60 chars (Optional; Remove if not applicable.)
       summary: Azure HPC with various video content and events. # < 160 chars (Optional; Remove if not applicable.)
       items:
