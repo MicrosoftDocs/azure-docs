@@ -62,4 +62,4 @@ New Azure CDN from Edgio profiles can't be created after December 13, 2025.
 
 ### Can I request an extension for the retirement/shutdown of the Azure CDN from Edgio service?
 
-No, extensions aren't possible. Edgio confirmed that their platform will shut down by January 15, 2025.
+No, extensions aren't possible. Edgio confirmed that their platform will shut down by January 15, 2024.
