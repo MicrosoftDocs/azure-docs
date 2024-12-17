@@ -6,7 +6,7 @@ ms.topic: reference
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 09/20/2024
+ms.date: 12/12/2024
 ms.custom: generated
 ---
 
@@ -51,8 +51,7 @@ Azure service: [Azure API Center](/azure/api-center/overview)
 > | Microsoft.ApiCenter/services/metadataSchemas/read | Checks if specified metadataSchema exists |
 > | Microsoft.ApiCenter/services/metadataSchemas/delete | Deletes specified metadataSchema. |
 > | Microsoft.ApiCenter/services/operationResults/read | Checks status of a long running operation |
-> | Microsoft.ApiCenter/services/workspaces/apiSources/action | Triggers synchronization with the API source. |
-> | Microsoft.ApiCenter/services/workspaces/linkApiSource/action | Links an API Source. |
+> | Microsoft.ApiCenter/services/workspaces/linkApiSource/action | Links an API source. |
 > | Microsoft.ApiCenter/services/workspaces/write | Creates or updates specified workspace. |
 > | Microsoft.ApiCenter/services/workspaces/read | Returns paginated collection of workspaces. |
 > | Microsoft.ApiCenter/services/workspaces/read | Returns the details of the specified workspace. |
@@ -91,6 +90,7 @@ Azure service: [Azure API Center](/azure/api-center/overview)
 > | Microsoft.ApiCenter/services/workspaces/apis/versions/definitions/analysisResults/read | Returns analysis report for specified API definition. |
 > | Microsoft.ApiCenter/services/workspaces/apis/versions/definitions/operationResults/read | Checks status of individual import operation |
 > | Microsoft.ApiCenter/services/workspaces/apiSources/read | List API Sources inside a catalog. |
+> | Microsoft.ApiCenter/services/workspaces/apiSources/write | Creates or updates the specified API source. |
 > | Microsoft.ApiCenter/services/workspaces/apiSources/read | Returns the details of the specified API source. |
 > | Microsoft.ApiCenter/services/workspaces/apiSources/delete | Deletes specified API Source. |
 > | Microsoft.ApiCenter/services/workspaces/environments/read | Returns paginated collection of environments |
@@ -613,6 +613,8 @@ Azure service: [Azure App Configuration](/azure/azure-app-configuration/)
 > | Microsoft.AppConfiguration/configurationStores/PrivateEndpointConnectionsApproval/action | Auto-Approve a private endpoint connection under the specified configuration store. |
 > | Microsoft.AppConfiguration/configurationStores/keyValues/action | Performs an action on an existing key-value from the configuration store. This also grants the ability to read key values. |
 > | Microsoft.AppConfiguration/configurationStores/joinPerimeter/action | Determines if a user is allowed to associate an Azure App Configuration with a Network Security Perimeter. |
+> | Microsoft.AppConfiguration/configurationStores/resetSasKind/action | Reset SAS of a specific kind. |
+> | Microsoft.AppConfiguration/configurationStores/generateSasToken/action | Generate a security token to be used for SAS authentication. |
 > | Microsoft.AppConfiguration/configurationStores/eventGridFilters/read | Gets the properties of the specified configuration store event grid filter or lists all the configuration store event grid filters under the specified configuration store. |
 > | Microsoft.AppConfiguration/configurationStores/eventGridFilters/write | Create or update a configuration store event grid filter with the specified parameters. |
 > | Microsoft.AppConfiguration/configurationStores/eventGridFilters/delete | Deletes a configuration store event grid filter. |
@@ -645,6 +647,7 @@ Azure service: [Azure App Configuration](/azure/azure-app-configuration/)
 > | Microsoft.AppConfiguration/locations/operationsStatus/read | Get the status of an operation. |
 > | Microsoft.AppConfiguration/operations/read | Lists all of the operations supported by Microsoft App Configuration. |
 > | **DataAction** | **Description** |
+> | Microsoft.AppConfiguration/configurationStores/useSasAuth/action | Use SAS authentication for the configuration store. |
 > | Microsoft.AppConfiguration/configurationStores/keyValues/read | Reads a key-value from the configuration store. |
 > | Microsoft.AppConfiguration/configurationStores/keyValues/write | Creates or updates a key-value in the configuration store. |
 > | Microsoft.AppConfiguration/configurationStores/keyValues/delete | Deletes an existing key-value from the configuration store. |
