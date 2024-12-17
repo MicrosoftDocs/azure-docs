@@ -212,6 +212,7 @@
         "articles/azure-arc/**/*.md": "JnHs",
         "articles/azure-arc/servers/**/*.md": "johnmarco",
         "articles/azure-cache-for-redis/**/*.md": "flang-msft",
+        "articles/azure-cache-for-redis/**/*.yml": "flang-msft",
         "articles/azure-fluid-relay/**/*.md": "GrantMeStrength",
         "articles/azure-functions/**/*.md": "ggailey777",
         "articles/azure-government/**/*.md": "EliotSeattle",
@@ -942,7 +943,8 @@
         "articles/virtual-desktop/**/*.yml": "azure-virtual-desktop"
       },
       "ms.reviewer": {
-        "articles/advisor/*.md": "ikhapova"
+        "articles/advisor/*.md": "ikhapova",
+        "articles/healthcare-apis/*.md": "leeclontz"
       },
       "search.appverid": {
         "articles/private-5g-core/**/*.md": "ap5gc",
@@ -1120,6 +1122,8 @@
         "articles/azure-arc/**/*.md": "Azure Arc",
         "articles/azure-cache-for-redis/**/*.md": "Azure Cache for Redis",
         "articles/azure-cache-for-redis/**/*.yml": "Azure Cache for Redis",
+        "articles/azure-cache-for-redis/managed-redis/**/*.md": "Azure Managed Redis",
+        "articles/azure-cache-for-redis/managed-redis/**/*.yml": "Azure Managed Redis",
         "articles/azure-center-sap-solutions/*.md": "Azure Center for SAP solutions",
         "articles/azure-center-sap-solutions/*.yml": "Azure Center for SAP solutions",
         "articles/azure-fluid-relay/**/*.md": "Azure Fluid Relay",
@@ -1181,8 +1185,8 @@
         "articles/iot-central/**/*yml": "Azure IoT Central",
         "articles/iot-dps/**/*.md": "Azure IoT Hub Device Provisioning Service",
         "articles/iot-dps/**/*.yml": "Azure IoT Hub Device Provisioning Service",
-        "articles/iot-operations/**/*.md": "Azure IoT Operations Preview",
-        "articles/iot-operations/**/*.yml": "Azure IoT Operations Preview",
+        "articles/iot-operations/**/*.md": "Azure IoT Operations",
+        "articles/iot-operations/**/*.yml": "Azure IoT Operations",
         "articles/iot/**/*.md": "Azure IoT",
         "articles/iot/**/*yml": "Azure IoT",
         "articles/jenkins/**/*.yml": "Jenkins",

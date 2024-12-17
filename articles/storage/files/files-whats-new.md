@@ -21,7 +21,7 @@ Azure Files and Azure File Sync are updated regularly to offer new features and 
 The Azure File Sync v19 release improves performance, security, and adds support for Windows Server 2025: 
 - Faster server provisioning and improved disaster recovery for Azure File Sync server endpoints
 - Sync performance improvements
-- Preview: Managed Identity support for Azure File Sync service and servers
+- Preview: Managed Identities support for Azure File Sync service and servers
 - Azure File Sync agent support for Windows Server 2025
 
 To learn more, see the [Azure File Sync release notes](../file-sync/file-sync-release-notes.md#version-19100). 
@@ -114,7 +114,8 @@ Nconnect is a client-side Linux mount option that increases performance at scale
 
 Azure File Sync is now a zone-redundant service, which means an outage in a zone has limited impact while improving the service resiliency to minimize customer impact. To fully leverage this improvement, configure your storage accounts to use zone-redundant storage (ZRS) or geo-zone redundant storage (GZRS) replication. To learn more about different redundancy options for your storage accounts, see [Azure Files redundancy](files-redundancy.md).
 
-Note: Azure File Sync is zone-redundant in all regions that [support zones](../../reliability/availability-zones-service-support.md#azure-regions-with-availability-zone-support) except US Gov Virginia.
+> [!NOTE]
+> Azure File Sync is zone-redundant in all regions that [support availability zones](../../reliability/availability-zones-region-support.md) except US Gov Virginia.
 
 ## What's new in 2022
 

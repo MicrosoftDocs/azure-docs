@@ -19,7 +19,7 @@ This article details the Windows and Linux operating systems supported and syste
 ## Supported operating systems
 
 >[!NOTE]
-> - All operating systems are assumed to be x64. For this reason, x86 isn't supported for any operating system.
+> - Only x64 operating systems are currently supported. Neither ARM64 nor x86 are supported for any operating system.
 
 
 ### Support for automatic VM Guest patching

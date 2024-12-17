@@ -6,7 +6,7 @@ ms.reviewer: amberbhargava
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 03/26/2024
+ms.date: 11/14/2024
 ms.author: banders
 ---
 
@@ -52,7 +52,7 @@ Before you begin, make sure that the people involved in the product transfer hav
 
 ### Required permission for the transfer requestor
 
-To request the billing ownership, you must have **Global Admin** or **Admin Agents** role. To learn more, see [Partner Center - Assign users roles and permissions](/partner-center/permissions-overview).
+To request the billing ownership, you must have the **Admin Agent** or [billing admin](/partner-center/account-settings/permissions-overview#billing-admin-role) role. To learn more, see [Partner Center - Assign users roles and permissions](/partner-center/permissions-overview).
 
 ### Required permission for the subscription transfer recipient 
 
@@ -225,7 +225,7 @@ If these two directories aren't the same, the subscriptions couldn't be transfer
 
 ### EA subscription in the non-organization directory
 
-The EA subscriptions from non-organization directories can be transferred as long as the directory has a reseller relationship with the CSP. If the directory doesn’t have a reseller relationship, you need to make sure to have the organization user in the directory as a *Global Administrator* who can accept the partner relationship. The domain name portion of the username must either be the initial default domain name *[domain name].onmicrosoft.com* or a verified, non-federated custom domain name such as *contoso.com*.  
+The EA subscriptions from non-organization directories can be transferred as long as the directory has a reseller relationship with the CSP. If the directory doesn’t have a reseller relationship, you need to make sure to have the organization user in the directory as a [billing admin](/partner-center/account-settings/permissions-overview#billing-admin-role) who can accept the partner relationship. The domain name portion of the username must either be the initial default domain name *[domain name].onmicrosoft.com* or a verified, non-federated custom domain name such as *contoso.com*.  
 
 To add a new user to the directory, see [Quickstart: Add new users to Microsoft Entra ID to add the new user to the directory](../../active-directory/fundamentals/add-users-azure-active-directory.md).
 

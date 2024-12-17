@@ -149,7 +149,7 @@ For information about customizing trace information, see the [trace](trace-polic
 In this tutorial, you learned how to:
 
 > [!div class="checklist"]
-> * Trace an example call in the test conosle
+> * Trace an example call in the test console
 > * Review request processing steps
 > * Enable tracing for an API
 

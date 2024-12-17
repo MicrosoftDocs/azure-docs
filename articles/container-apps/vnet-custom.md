@@ -145,7 +145,7 @@ $vnet = New-AzVirtualNetwork @VnetArgs
 
 ---
 
-When using the Workload profiles environment, you need update the VNET to delegate the subnet to `Microsoft.App/environments`. This delegation is not applicable to the Consumption-only environment.
+When using the Workload profiles environment, update the VNET to delegate the subnet to `Microsoft.App/environments`. This delegation is not applicable to the Consumption-only environment.
 
 # [Bash](#tab/bash)
 
@@ -244,7 +244,7 @@ The following table describes the parameters used in for `New-AzContainerAppMana
 |---|---|
 | `EnvName` | Name of the Container Apps environment. |
 | `ResourceGroupName` | Name of the resource group. |
-| `LogAnalyticConfigurationCustomerId` | The ID of an existing the Log Analytics workspace. |
+| `LogAnalyticConfigurationCustomerId` | The ID of an existing Log Analytics workspace. |
 | `LogAnalyticConfigurationSharedKey` | The Log Analytics client secret.|
 | `Location` | The Azure location where the environment is to deploy. |
 | `VnetConfigurationInfrastructureSubnetId` | Resource ID of a subnet for infrastructure components and user application containers. |

@@ -6,7 +6,7 @@ ms.author: piyushdhore
 ms.manager: vijain
 ms.topic: troubleshooting
 ms.service: azure-migrate
-ms.date: 10/18/2023
+ms.date: 08/08/2024
 ms.custom: vmware-scenario-422, engagement-fy24
 ---
 
@@ -379,4 +379,4 @@ This might happen if:
 
 ## Next Steps
 
-Continue VM replication, and perform [test migration](./tutorial-migrate-vmware.md#run-a-test-migration).
+Continue VM replication, and perform [test migration](../tutorial-migrate-vmware.md#run-a-test-migration).

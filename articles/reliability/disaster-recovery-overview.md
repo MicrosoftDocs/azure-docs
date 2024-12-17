@@ -4,7 +4,7 @@ description: Disaster recovery overview for Microsoft Azure products and service
 author: anaharris-ms
 ms.service: azure
 ms.topic: conceptual
-ms.date: 08/25/2023
+ms.date: 12/06/2024
 ms.author: anaharris
 ms.custom: subject-reliability, subject-reliability
 ms.subservice: azure-reliability
@@ -30,8 +30,7 @@ Each major process or workload that an application implements should have separa
 
 ## Design for disaster recovery
 
-Disaster recovery isn't an automatic feature, but must be designed, built, and tested. To support a solid DR strategy, you must build an application with DR in mind from the ground up. Azure offers services, features, and guidance to help you support DR when you create apps.
-
+Disaster recovery isn't an automatic feature, but must be designed, built, and tested. To support a solid DR strategy, you must build an application with DR in mind from the ground up. Azure offers services, features, and guidance to help you support DR when you create apps. To understand what you need to do to support DR, you must first understand the shared responsibility model for resiliency. For more information, see [Shared responsibility for resiliency](./concept-shared-responsibility.md).
 
 
 
@@ -69,6 +68,8 @@ Most services that run on Azure platform as a service (PaaS) offerings like [Azu
 
 
 ## Next steps
+
+- [Shared responsibility for resiliency](./concept-shared-responsibility.md).
 
 - [Disaster recovery guidance by service](./disaster-recovery-guidance-overview.md)
 
