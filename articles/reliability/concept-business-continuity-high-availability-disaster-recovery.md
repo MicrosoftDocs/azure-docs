@@ -16,7 +16,7 @@ ms.subservice: azure-reliability
 
 Planning for business continuity is about identifying, understanding, classifying, and managing risks. Based on the risks and their likelihoods, you can design your solution for *high availability* and *disaster recovery*. High availability is about designing your solution to be resilient to day-to-day issues and to meet your business needs for availability. Disaster recovery is about planning how you deal with catastrophic outages and uncommon risks.
 
-This article describes business continuity, high availability, and disaster recovery and provides links to resources that can help you to design your own strategies for each. Use the [Reliabiity guides by service](./overview-reliability-guidance.md) to understand how the Azure services you use support designing your own business continuity approach. For detailed guidance on how to architect for business continuity, go to the [Azure Well-Architected Framework](/azure/well-architected/).
+This article describes business continuity, high availability, and disaster recovery and provides links to resources that can help you to design your own strategies for each. Use the [Reliability guides by service](./overview-reliability-guidance.md) to understand how the Azure services you use support designing your own business continuity approach. For detailed guidance on how to architect for business continuity, go to the [Azure Well-Architected Framework](/azure/well-architected/).
 
 ## Business continuity
 
@@ -26,13 +26,13 @@ For a successful *business continuity plan*, it's essential to:
  
 - **Classify risks** as either a day-to-day risk, which should be factored into plans for high availability, or a catastrophic or unusual risk, which should be part of disaster recovery planning.
  
-- **Design for HA or DR to minimize or mitigate risks** such as by using redundancy, failover, and backups. You might also consider non-technical and process-based mitigations and controls.
+- **Design for HA or DR to minimize or mitigate risks** such as by using redundancy, failover, and backups. You might also consider nontechnical and process-based mitigations and controls.
  
 A business continuity plan doesn't only take into consideration the resiliency features of the cloud platform itself, or even the features of the application. Business continuity is achieved by incorporating all aspects of support in the business including people, business-related manual or automated processes, and other technologies.
 
 ### Risks for cloud-based solutions
 
-When you run a solution in the cloud, there are a range of events that can happen. These events can affect the resources that the workload uses. The following table is a non-exhaustive list of example events, ordered by expected likelihood:
+When you run a solution in the cloud, there are a range of events that can happen. These events can affect the resources that the workload uses. The following table is a nonexhaustive list of example events, ordered by expected likelihood:
 
 | Example risk | Description | Regularity (likelihood) |
 |---|---|---|
@@ -74,7 +74,7 @@ There are often several possible controls that can mitigate each risk. Part of b
 
 When you're considering which controls to apply, understand whether they require or assume downtime or data loss. For example, some controls require a human to be notified and then to respond, which takes time. If a solution requires high uptime, manual processes are likely to be too slow, and you should control many of the risks by using automated approaches. For more information, see [High availability](#high-availability).
 
-For some risks, you can choose to operate the solution in a *degraded state*. When a solution operates in a degraded state, some components might be disabled or non-functional, but core business operations can continue to be performed. To learn more, see [Recommendations for self-healing and self-preservation](/azure/well-architected/reliability/self-preservation).
+For some risks, you can choose to operate the solution in a *degraded state*. When a solution operates in a degraded state, some components might be disabled or nonfunctional, but core business operations can continue to be performed. To learn more, see [Recommendations for self-healing and self-preservation](/azure/well-architected/reliability/self-preservation).
 
 ## High availability
 
@@ -98,7 +98,7 @@ For more detailed information on how to define and measure high availability, se
 
 To achieve high availability, a workload may include the following design elements:
  
- - **Use services and tiers that support high availability**. For example, Azure offers a variety of services that are designed to be highly available, such as Azure Virtual Machine Scale Sets, Azure App Service, and Azure SQL Database. These services are designed to provide high availability by default, and can be used to build highly available workloads.
+ - **Use services and tiers that support high availability**. For example, many Azure services are designed to be highly available, such as Azure Virtual Machine Scale Sets, Azure App Service, and Azure SQL Database. These services are designed to provide high availability by default, and can be used to build highly available workloads.
     
     Review the service level agreements (SLAs) for each service to understand the expected levels of availability and the conditions you need to meet. You might need to select specific tiers of services to achieve certain levels of availability.
 
@@ -142,7 +142,7 @@ Due to the rarity and severity of disaster events, DR planning brings different 
 
 - **Recovery Point Objective (RPO)** is the maximum duration of acceptable data loss in the event of a disaster. RPO is measured in units of time, such as "30 minutes of data" or "four hours of data."
 
-- **Recovery Time Objective (RTO)** is the maximum duration of acceptable downtime in the event of a disaster, where "downtime" is defined by your specification. RTO is also measured in units of time, like "eight hours of downtime".
+- **Recovery Time Objective (RTO)** is the maximum duration of acceptable downtime in the event of a disaster, where "downtime" is defined by your specification. RTO is also measured in units of time, like "eight hours of downtime."
 
 :::image type="content" source="media/disaster-recovery-rpo-rto.png" alt-text="Screenshot of RTO and RPO durations in hours." border="false":::
 
@@ -153,7 +153,7 @@ Each workload and flow might have individual RPO and RTO values. Examine disaste
 
 ### Disaster recovery plans
 
-Regardless of the cause of the disaster, it is important that you create a well-defined and tested DR plan, and an application design that actively supports it. You might create multiple DR plans for different types of situations. DR plans often rely on process controls and manual intervention.
+Regardless of the cause of the disaster, it's important that you create a well-defined and tested DR plan, and an application design that actively supports it. You might create multiple DR plans for different types of situations. DR plans often rely on process controls and manual intervention.
 
 DR isn't an automatic feature of Azure. However, many services do provide features and capabilities that you can use to support your DR strategies. You should review the [reliability guides for each Azure service](./overview-reliability-guidance.md) to understand how the service works and its capabilities, and then map those capabilities to your DR plan.
 
@@ -165,4 +165,4 @@ It's critical that you validate and test your DR plans, and your wider reliabili
 
 - Use the [Azure service reliability guides](./overview-reliability-guidance.md) to understand how each Azure service supports reliability in its design, and to learn about the capabilities you can build into your HA and DR plans.
 - Use the [Azure Well-Architected Framework: Reliability pillar](/azure/well-architected/reliability) to learn more about how to design a reliable workload on Azure.
-- Use the [Well-Architected Framework perspective on Azure services](/azure/well-architected/service-guides/) to learn more about how to configure each Azure service to meet your requirements for reliabiity and across the other pillars of the Well-Architected Framework.
+- Use the [Well-Architected Framework perspective on Azure services](/azure/well-architected/service-guides/) to learn more about how to configure each Azure service to meet your requirements for reliability and across the other pillars of the Well-Architected Framework.
