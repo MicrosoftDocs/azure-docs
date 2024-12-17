@@ -22,7 +22,7 @@ Logic app workflows help you more easily integrate and orchestrate data between 
 
 * [Connections](../connectors/introduction.md) that you create from logic app workflows to other apps, services, and systems. For more information, see [Connections to resources](/azure/logic-apps/business-continuity-disaster-recovery-guidance#connections-to-resources) later in this topic.
 
-* [On-premises data gateways](../logic-apps/connect-on-premises-data-sources.md), which are Azure resources that you create and use in your logic apps to access data in on-premises systems. Each gateway resource represents a separate [data gateway installation](../logic-apps/install-on-premises-data-gateway.md) on a local computer. You can configure an on-premises data gateway for high availabilty by using multiple computers. For more information, see [High availability support](../logic-apps/install-on-premises-data-gateway.md#high-availability-support).
+* [On-premises data gateways](../logic-apps/connect-on-premises-data-sources.md), which are Azure resources that you create and use in your logic apps to access data in on-premises systems. Each gateway resource represents a separate [data gateway installation](../logic-apps/install-on-premises-data-gateway.md) on a local computer. You can configure an on-premises data gateway for high availability by using multiple computers. For more information, see [High availability support](../logic-apps/install-on-premises-data-gateway.md#high-availability-support).
 
 * [Integration accounts](/azure/logic-apps/logic-apps-enterprise-integration-create-integration-account) where you define and store the artifacts that logic app workflows use for [business-to-business (B2B) enterprise integration](/azure/logic-apps/logic-apps-enterprise-integration-overview) scenarios. For example, you can [set up cross-region disaster recovery for integration accounts](/azure/logic-apps/logic-apps-enterprise-integration-b2b-business-continuity).
 
@@ -137,7 +137,7 @@ No additional cost applies to use zone redundancy, which is automatically enable
 
 ::: zone pivot="standard-workflow-service-plan"
 
-When you have Standard workflows with the Workflow Service Plan in single-tenant Azure Logic Apps, no additional cost applies to enabling availability zones as long as you have three or more instances of the plan. You are charged based on your plan SKU, the specified capacity, and any instances that you scale up or down, based on your autoscale criteria. If you enable availability zones but specify a capacity less than three instances, the platform enforces the minimum three instances and charges you for these three instances.
+When you have Standard workflows with the Workflow Service Plan in single-tenant Azure Logic Apps, no additional cost applies to enabling availability zones as long as you have three or more instances of the plan. You are charged based on your plan SKU, the specified capacity, and any instances that you scale up or down, based on your autoscale criteria. If you enable availability zones but specify a capacity of fewer than three instances, the platform enforces the minimum three instances and charges you for these three instances.
 
 ::: zone-end
 
@@ -211,7 +211,7 @@ Each logic app is deployed into a single Azure region. If the region becomes una
 
 For higher resiliency, you can deploy a standby or backup logic app in a secondary region and fail over to that other region if the primary region is unavailable. To enable this capability, complete the following tasks:
 
-- Deploy your logic app in both both primary and secondary regions.
+- Deploy your logic app in both primary and secondary regions.
 - Reconfigure connections to resources as needed.
 - Configure load balancing and failover policies. 
 - Plan to monitor the primary instance health and initiate failover.

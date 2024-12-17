@@ -30,7 +30,7 @@ For more information on reliability in Azure Logic Apps, including intra-regiona
 
 ## Primary and secondary deployment
 
-A multi-region deployment consists of a primary and a secondary logic app. The primary logic app is configured to fail over to the secondary logic app in an another region where Azure Logic Apps is also available. That way, if the primary suffers losses, disruptions, or failures, the secondary can take on the work. This deployment strategy requires that your secondary logic app and dependent resources are already deployed and ready in the secondary region.
+A multi-region deployment consists of a primary and a secondary logic app. The primary logic app is configured to fail over to the secondary logic app in another region where Azure Logic Apps is also available. That way, if the primary suffers losses, disruptions, or failures, the secondary can take on the work. This deployment strategy requires that your secondary logic app and dependent resources are already deployed and ready in the secondary region.
 
 > [!NOTE]
 >
