@@ -48,7 +48,7 @@ For Standard logic apps only, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com), start creating a logic app.
 
-   On the **Create Logic App** page, select **Workflow Service Plan** or **App Service Environment V3** depending on the hosting model you want to use.
+1. On the **Create Logic App** page, select **Workflow Service Plan** or **App Service Environment V3**, based on the hosting option you want to use.
 
    :::image type="content" source="media/set-up-zone-redundancy-availability-zones/select-standard-plan.png" alt-text="Screenshot shows Azure portal, Create Logic App page, Standard plan types." lightbox="media/set-up-zone-redundancy-availability-zones/select-standard-plan.png":::
 
