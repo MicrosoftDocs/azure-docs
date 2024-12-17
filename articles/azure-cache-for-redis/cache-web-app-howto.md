@@ -38,15 +38,38 @@ Clone the repo [https://github.com/Azure-Samples/azure-cache-redis-samples/tree/
 
 ::: zone-end
 
-## [Microsoft Entra ID Authentication (recommended)](#tab/entraid)
+## Microsoft Entra ID Authentication (recommended)
 
 [!INCLUDE [cache-entra-access](includes/cache-entra-access.md)]
 
-## [Access Key Authentication](#tab/accesskey)
-
 [!INCLUDE [redis-access-key-alert](includes/redis-access-key-alert.md)]
 
+<!--
 [!INCLUDE [redis-cache-passwordless](includes/redis-cache-passwordless.md)]
+-->
+### Install the Library for using Entra ID Authentication
+The [Azure.StackExchange.Redis](https://www.nuget.org/packages/Microsoft.Azure.StackExchangeRedis) library contains the Microsoft Entra ID authentication method for connecting to Azure Redis services using Entra ID. It is applicable to all Azure Cache for Redis, Azure Cache for Redis Enterprise, and Azure Managed Redis (Preview).
+
+```cli
+dotnet add package Microsoft.Azure.StackExchangeRedis
+```
+
+### Connect to the cache using Entra ID
+
+1. Include the libraries in your code
+   
+```
+using Azure.Identity;
+using StackExchange.Redis
+```
+
+1. Using the default Azure credentials to authenticate the client connection. This enables your code to use the signed-in user credential when running locally, and an Azure managed identity when running in Azure without code change.
+   
+```csharp
+var configurationOptions = await ConfigurationOptions.Parse($"{_redisHostName}").ConfigureForAzureWithTokenCredentialAsync(new DefaultAzureCredential());
+ConnectionMultiplexer _newConnection = await ConnectionMultiplexer.ConnectAsync(configurationOptions);
+IDatabase Database = _newConnection.GetDatabase();
+```
 
 ### To edit the *CacheSecrets.config* file
 
@@ -56,120 +79,17 @@ Clone the repo [https://github.com/Azure-Samples/azure-cache-redis-samples/tree/
 
     ```xml
     <appSettings>
-        <add key="RedisHostName" value="<cache-hostname>:<port-number>"/>
+        <add key="RedisHostName" value="<cache-hostname-with-portnumber>"/>
     </appSettings>
     ```
 
-1. Replace `<cache-hostname>` with your cache host name as it appears in the Overview blade of Azure Portal
-
-1. Replace `<port-number>` with your cache host port number.
+1. Replace `<cache-hostname>` with your cache host name as it appears in the Overview blade of Azure Portal. For example, *my-redis.eastuse.azure.net:10000*
 
 1. Save the file.
-
----
-
-## Update the MVC application
-
-In this section, you can see an MVC application that presents a view that displays a simple test against Azure Cache for Redis. The MVC application can connect to your Azure Managed Redis (preview) instance when the "RedisHostName" configuration points to your Azure Managed Redis instance.
-
-## Install StackExchange.Redis
-
-Your solution needs the `StackExchange.Redis` package to run. Install it, with this procedure:
-
-1. To configure the app to use the [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) NuGet package for Visual Studio, select **Tools > NuGet Package Manager > Package Manager Console**.
-
-1. Run the following command from the `Package Manager Console` window:
-
-    ```powershell
-    Install-Package Microsoft.Azure.StackExchangeRedis
-    ```
-
-1. The NuGet package downloads and adds the required assembly references for your client application to access Azure Cache for Redis with the `Microsoft.Azure.StackExchangeRedis` client.
-
-## Connect to the cache with RedisConnection
-
-The connection to your cache is managed by the `RedisConnection` class. The connection is first made in this statement from `ContosoTeamStats/Controllers/HomeController.cs`:
-
-```csharp
-private static Task<RedisConnection> _redisConnectionFactory = RedisConnection.InitializeAsync(redisHostName: ConfigurationManager.AppSettings["RedisHostName"].ToString());
-
-```
-
-In `RedisConnection.cs`, you see the `StackExchange.Redis` namespace has been added to the code. This is needed for the `RedisConnection` class.
-
-```csharp
-using StackExchange.Redis;
-```
-
-The `RedisConnection` code ensures that there is always a healthy connection to the cache by managing the `ConnectionMultiplexer` instance from `StackExchange.Redis`. The `RedisConnection` class recreates the connection when a connection is lost and unable to reconnect automatically.
-
-The following line of code uses Microsoft Entra ID to connect to Azure Cache for Redis or Azure Managed Redis (preview) without password.
-
-```csharp
-var configurationOptions = await ConfigurationOptions.Parse($"{_redisHostName}").ConfigureForAzureWithTokenCredentialAsync(new DefaultAzureCredential());
-```
 
 For more information, see [StackExchange.Redis](https://stackexchange.github.io/StackExchange.Redis/) and the code in a [GitHub repo](https://github.com/StackExchange/StackExchange.Redis).
 
 <!-- :::code language="csharp" source="~/samples-cache/quickstart/aspnet/ContosoTeamStats/RedisConnection.cs "::: -->
-
-## Layout views in the sample
-
-The home page layout for this sample is stored in the *_Layout.cshtml* file. From this page, you start the actual cache testing by clicking the **Azure Cache for Redis Test** from this page.
-
-1. In **Solution Explorer**, expand the **Views** > **Shared** folder. Then open the *_Layout.cshtml* file.
-
-1. You see the following line in `<div class="navbar-header">`.
-
-    ```csharp
-    @Html.ActionLink("Azure Cache for Redis Test", "RedisCache", "Home", new { area = "" }, new { @class = "navbar-brand" })
-    ```
-
-    :::image type="content" source="media/cache-web-app-howto/cache-welcome-page.png" alt-text="Screenshot of welcome page.":::
-
-### Showing data from the cache
-
-From the home page, you select **Azure Cache for Redis Test** to see the sample output.
-
-1. In **Solution Explorer**, expand the **Views** folder, and then right-click the **Home** folder.
-
-1. You should see this code in the *RedisCache.cshtml* file.
-
-    ```csharp
-    @{
-        ViewBag.Title = "Azure Cache for Redis Test";
-    }
-
-    <h2>@ViewBag.Title.</h2>
-    <h3>@ViewBag.Message</h3>
-    <br /><br />
-    <table border="1" cellpadding="10">
-        <tr>
-            <th>Command</th>
-            <th>Result</th>
-        </tr>
-        <tr>
-            <td>@ViewBag.command1</td>
-            <td><pre>@ViewBag.command1Result</pre></td>
-        </tr>
-        <tr>
-            <td>@ViewBag.command2</td>
-            <td><pre>@ViewBag.command2Result</pre></td>
-        </tr>
-        <tr>
-            <td>@ViewBag.command3</td>
-            <td><pre>@ViewBag.command3Result</pre></td>
-        </tr>
-        <tr>
-            <td>@ViewBag.command4</td>
-            <td><pre>@ViewBag.command4Result</pre></td>
-        </tr>
-        <tr>
-            <td>@ViewBag.command5</td>
-            <td><pre>@ViewBag.command5Result</pre></td>
-        </tr>
-    </table>
-    ```
 
 ## Run the app locally
 
