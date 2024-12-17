@@ -49,7 +49,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- Deploy and configure the Azure Migrate appliance in your [VMware](./tutorial-discover-vmware.md), [Hyper-V](./tutorial-discover-hyper-v.md), or [physical environment](./tutorial-discover-physical.md).
+- Deploy and configure the Azure Migrate appliance in your [VMware](tutorial-discover-vmware.md), [Hyper-V](./tutorial-discover-hyper-v.md), or [physical environment](./tutorial-discover-physical.md).
 - Check the [appliance requirements](./migrate-appliance.md#appliance---vmware) and [URL access](./migrate-appliance.md#url-access) to be provided.
 ::: zone pivot="asp-net"
 - Follow [these steps](./how-to-discover-sql-existing-project.md) to discover ASP.NET web apps running on your environment.

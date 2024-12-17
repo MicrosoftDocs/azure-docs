@@ -136,7 +136,6 @@ The resource providers for developer tools services are:
 | Microsoft.DevCenter | [Microsoft Dev Box](../../dev-box/index.yml) |
 | Microsoft.DevSpaces | [Azure Dev Spaces](/previous-versions/azure/dev-spaces/) |
 | Microsoft.LoadTestService | [Azure Load Testing](/azure/load-testing/) |
-| Microsoft.MixedReality | [Azure Spatial Anchors](../../spatial-anchors/index.yml) |
 | Microsoft.Notebooks | [Azure Notebooks](https://notebooks.azure.com/help/introduction) |
 
 ## DevOps resource providers

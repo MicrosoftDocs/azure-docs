@@ -135,7 +135,7 @@ queue and displays status information about the queue.
 
    Note that the required client assemblies are now referenced and some new code files have been added.
 10. Follow the same steps to add the `Azure.Identity` NuGet package to the project.  
-10. In **Solution Explorer**, expand **FronendWebRole**, right-click **Models** and select **Add**,
+10. In **Solution Explorer**, expand **FrontendWebRole**, right-click **Models** and select **Add**,
     then select **Class**. In the **Name** box, type the name
     **OnlineOrder.cs**. Then select **Add**.
 
