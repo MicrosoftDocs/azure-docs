@@ -45,10 +45,8 @@ The following table shows support of media access for specific call type and ide
 
 |Identities                   | Teams meeting | Room | 1:1 call | Group call | 1:1 Teams interop call | Group Teams interop call |
 |-----------------------------|---------------|------|----------|------------|------------------------|--------------------------|
-|Communication Services user	| ✔️	          |      |          |     ✔️	       |	                      |	                         |
-|Microsoft 365 user	          | ✔️	          |      |          |  ✔️	          |                        |                          |
-
-
+|Communication Services user	| ✔️	          |      |          |     	     |	                      |	✔️                       |
+|Microsoft 365 user	          | ✔️	          |      |          |  	         |                        | ✔️                       |
 
 ### SDKs
 
@@ -57,6 +55,22 @@ The following tables show support for the media access feature in individual Azu
 | Support status | Web | Web UI | iOS | iOS UI | Android | Android UI | Windows |
 |----------------|-----|--------|--------|--------|----------|--------|---------|
 | Is Supported   | ✔️  |        |        |        |          |        |         |		
+
+### Operations
+
+The following table show support for individual APIs in the calling SDK related to call types.
+
+|Api                          | Teams meeting | Group Teams interop call |
+|-----------------------------|---------------|--------------------------|
+|forbidAudio		              |	✔️           | ✔️                       |
+|permitAudio                  | ✔️           | ✔️                       |
+|forbidVideo		              |	✔️           | ✔️                       |
+|permitVideo                  | ✔️           | ✔️                       |
+|forbidOthersAudio		        |	✔️           |                          |
+|permitOthersAudio            | ✔️           |                          |
+|forbidOthersVideo		        |	✔️           |                          |
+|permitOthersVideo            | ✔️           |                          |
+|getAllOthersMediaAccess      | ✔️           |✔️                        |
 
 ::: zone pivot="platform-web"
 [!INCLUDE [Media Access Client-side JavaScript](./includes/media-access/media-access-web.md)]
