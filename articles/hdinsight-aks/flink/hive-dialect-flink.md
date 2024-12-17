@@ -34,7 +34,7 @@ The reason for this issue arises due to an open [Hive Jira](https://issues.apach
      ```command
      rm /opt/flink-webssh/lib/flink-sql-connector-hive*jar
      ```
-  1. Download the following jar in `webssh` pod and add it under the /opt/flink-webssh/lib wget https://aka.ms/hdiflinkhivejdk11jar.
+  1. Download the following jar in `webssh` pod and add it under the /opt/flink-webssh/lib wget https://mvnrepository.com/artifact/org.apache.flink/flink-table-planner-loader/1.17.0.
     (The above hive jar has the fix [https://issues.apache.org/jira/browse/HIVE-27508](https://issues.apache.org/jira/browse/HIVE-27508))
 
     ```console

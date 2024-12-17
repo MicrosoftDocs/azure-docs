@@ -118,12 +118,11 @@ Accelerated Networking requires network configurations that mark the NVIDIA driv
 The following example shows a sample configuration drop-in for `NetworkManager` on RHEL or CentOS:
 
 ```bash
-sudo mkdir -p /etc/NetworkManager/conf.d
-sudo cat > /etc/NetworkManager/conf.d/99-azure-unmanaged-devices.conf <<EOF
-# Ignore SR-IOV interface on Azure, since it's transparently bonded
-# to the synthetic interface
-[keyfile]
-unmanaged-devices=driver:mlx4_core;driver:mlx5_core
+sudo cat <<EOF > /etc/udev/rules.d/68-azure-sriov-nm-unmanaged.rules
+# Accelerated Networking on Azure exposes a new SRIOV interface to the VM.
+# This interface is transparentlybonded to the synthetic interface,
+# so NetworkManager should just ignore any SRIOV interfaces.
+SUBSYSTEM=="net", DRIVERS=="hv_pci", ACTION!="remove", ENV{NM_UNMANAGED}="1"
 EOF
 ```
 

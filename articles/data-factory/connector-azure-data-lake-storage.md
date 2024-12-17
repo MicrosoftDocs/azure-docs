@@ -7,7 +7,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 01/05/2024
+ms.date: 09/12/2024
 ---
 
 # Copy and transform data in Azure Data Lake Storage Gen2 using Azure Data Factory or Azure Synapse Analytics
@@ -383,7 +383,17 @@ These properties are supported for the linked service:
 
 For a full list of sections and properties available for defining datasets, see [Datasets](concepts-datasets-linked-services.md).
 
-[!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
+Azure Data Factory supports the following file formats. Refer to each article for format-based settings.
+
+- [Avro format](format-avro.md)
+- [Binary format](format-binary.md)
+- [Delimited text format](format-delimited-text.md)
+- [Excel format](format-excel.md)
+- [Iceberg format](format-iceberg.md)
+- [JSON format](format-json.md)
+- [ORC format](format-orc.md)
+- [Parquet format](format-parquet.md)
+- [XML format](format-xml.md)
 
 The following properties are supported for Data Lake Storage Gen2 under `location` settings in the format-based dataset:
 
@@ -497,7 +507,15 @@ The following properties are supported for Data Lake Storage Gen2 under `storeSe
 
 ### Azure Data Lake Storage Gen2 as a sink type
 
-[!INCLUDE [data-factory-v2-file-sink-formats](includes/data-factory-v2-file-sink-formats.md)]
+Azure Data Factory supports the following file formats. Refer to each article for format-based settings.
+
+- [Avro format](format-avro.md)
+- [Binary format](format-binary.md)
+- [Delimited text format](format-delimited-text.md)
+- [Iceberg format](format-iceberg.md)
+- [JSON format](format-json.md)
+- [ORC format](format-orc.md)
+- [Parquet format](format-parquet.md)
 
 The following properties are supported for Data Lake Storage Gen2 under `storeSettings` settings in format-based copy sink:
 
@@ -682,7 +700,7 @@ In this case, all files that were sourced under /data/sales are moved to /backup
 
 ### Sink properties
 
-In the sink transformation, you can write to either a container or folder in Azure Data Lake Storage Gen2. the **Settings** tab lets you manage how the files get written.
+In the sink transformation, you can write to either a container or folder in Azure Data Lake Storage Gen2. The **Settings** tab lets you manage how the files get written.
 
 :::image type="content" source="media/data-flow/file-sink-settings.png" alt-text="sink options":::
 

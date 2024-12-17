@@ -33,7 +33,7 @@ Each value can have a maximum length of 64 characters, with support for only let
 
 Here is an example of how to use the **Diagnostic Options** parameters from within your WebJS application:
 ```js
-this.callClient = new CallClient({
+const callClient = new CallClient({
     diagnostics: {
         appName: 'contoso-healthcare-calling-services',
         appVersion: '2.1',
@@ -48,7 +48,7 @@ Once you add the values to your client SDK, they're populated and appear in your
 **contoso-healthcare-calling-services**/**2.1** azsdk-js-communication-calling/1.27.1-rc.10 (javascript_calling_sdk;**#clientTag:contoso_virtual_visits"**,**`#clientTag:participant0001**). Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36 Edg/129.0.0.0
 
 > [!NOTE]
-> If you doesn't set a value of `appName` and `appVersion` from within the client API, the default value of default/0.0.0 will appear within the `UserAgent` field
+> If you don't set a value of `appName` and `appVersion` from within the client API, the default value of default/0.0.0 will appear within the `UserAgent` field.
 
 ## Next steps
 - Learn more about Azure Communication Services Call Diagnostic Center [here](../../concepts//voice-video-calling/call-diagnostics.md)

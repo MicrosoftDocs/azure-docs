@@ -20,21 +20,8 @@ CustomerIntent: As a cloud architect/engineer, I want to understand reliability 
 > [!IMPORTANT]
 > This feature is currently in preview. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include more legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability. For information about this specific preview, see [Azure HDInsight on AKS preview information](/azure/hdinsight-aks/preview). For questions or feature suggestions, please submit a request on [AskHDInsight](https://aka.ms/askhdinsight) with the details and follow us for more updates on [Azure HDInsight Community](https://www.linkedin.com/groups/14313521/).
 
-This article describes reliability support in [Azure HDInsight on Azure Kubernetes Service (AKS)](../hdinsight-aks/overview.md), and covers both [specific reliability recommendations](#reliability-recommendations) and [disaster recovery and business continuity](#disaster-recovery-and-business-continuity). For a more detailed overview of reliability principles in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
+This article describes reliability support in [Azure HDInsight on Azure Kubernetes Service (AKS)](../hdinsight-aks/overview.md), and [disaster recovery and business continuity](#disaster-recovery-and-business-continuity). 
 
-## Reliability recommendations
-
-[!INCLUDE [Reliability recommendations](includes/reliability-recommendations-include.md)]
-
-### Reliability recommendations summary
-
-| Category | Priority |Recommendation |  
-|---------------|--------|---|
-| Availability |:::image type="icon" source="media/icon-recommendation-medium.svg":::| [Default and minimum virtual machine size recommendations](../hdinsight-aks/virtual-machine-recommendation-capacity-planning.md#clusters) |
-|  |:::image type="icon" source="media/icon-recommendation-low.svg":::| [Auto Scale HDInsight on AKS Clusters](../hdinsight-aks/hdinsight-on-aks-autoscale-clusters.md) |
-| Monitoring |:::image type="icon" source="media/icon-recommendation-low.svg"::: |[How to integrate with Log Analytics](../hdinsight-aks/how-to-azure-monitor-integration.md) |
-| |:::image type="icon" source="media/icon-recommendation-low.svg"::: |[Monitoring with Azure Managed Prometheus and Grafana](../hdinsight-aks/monitor-with-prometheus-grafana.md) |
-| Security |:::image type="icon" source="media/icon-recommendation-low.svg":::| [Use NSG to restrict traffic to HDInsight on AKS](../hdinsight-aks/secure-traffic-by-nsg.md) |
 
 ## Availability zone support
 

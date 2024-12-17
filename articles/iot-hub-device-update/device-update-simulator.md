@@ -114,7 +114,7 @@ The Device Update agent runs on every device that's managed by Device Update. Fo
    For more information about the parameters in this step, see [Device Update configuration file](device-update-configuration-file.md).
 
    > [!NOTE]
-   >You can also use the IoT Identity Service to provision the device. To do, that [install the iot indentity service](https://azure.github.io/iot-identity-service/installation.html) before installing the Device Update agent. Then, configure the Device Update agent with `"connectionType": "AIS"` and `connectionData` as a blank string in the configuration file.
+   >You can also use the IoT Identity Service to provision the device. To do, that [install the iot identity service](https://azure.github.io/iot-identity-service/installation.html) before installing the Device Update agent. Then, configure the Device Update agent with `"connectionType": "AIS"` and `connectionData` as a blank string in the configuration file.
 
 1. Save and close the file. `CTRL`+`X`, `Y`, and `Enter`.
 
