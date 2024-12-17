@@ -120,26 +120,26 @@ additionalContent:
             text: Create, customize, and manage HPC Cluster using CycleCloud
           - url: /azure/virtual-machines/extensions/enable-infiniband
             text: Enable Inifiniband
-        # Card
-        - title: Azure HPC Content on Sites
-          links:
-            - url: https://www.aka.ms/Microsoft-NVIDIA/HPCwire
-              text: Microsoft - NVIDIA
-            - url: https://insidehpc.com/2023/03/manufacturing-repatriation-how-hpc-class-technologies-from-microsoft-azure-and-amd-support-manufacturers-reshoring-strategies/
-              text: Microsoft - AMD
-            - url: https://insidehpc.com/2022/10/staying-at-the-cutting-edge-of-automotive-design-technology-with-azure-cloud-platform-and-amd/
-              text: Azure Cloud and AMD for Manufacturing
-            - url: https://insidehpc.com/2023/03/azure-amd-and-the-power-of-cloud-based-hpc-for-sustainability-rd-projects/
-              text: Azure and AMD for Sustainability    
-        # Card
-        - title: Explore Other Azure HPC Content
-          links:
-            - url: https://busenq.com/article/microsoft-azure/
-              text: HPC Powers Word-Record Simulation
-            - url: https://bigcompute.org/blog/high-performance-computing-for-rd/
-              text: HPC for Innovation in R&D          
-            - url: https://idcdocserv.com/US50583623
-              text: HPC for Product Modeling
+      # Card
+      - title: Azure HPC Content on Sites
+        links:
+          - url: https://www.aka.ms/Microsoft-NVIDIA/HPCwire
+            text: Microsoft - NVIDIA
+          - url: https://insidehpc.com/2023/03/manufacturing-repatriation-how-hpc-class-technologies-from-microsoft-azure-and-amd-support-manufacturers-reshoring-strategies/
+            text: Microsoft - AMD
+          - url: https://insidehpc.com/2022/10/staying-at-the-cutting-edge-of-automotive-design-technology-with-azure-cloud-platform-and-amd/
+            text: Azure Cloud and AMD for Manufacturing
+          - url: https://insidehpc.com/2023/03/azure-amd-and-the-power-of-cloud-based-hpc-for-sustainability-rd-projects/
+            text: Azure and AMD for Sustainability    
+      # Card
+      - title: Explore Other Azure HPC Content
+        links:
+          - url: https://busenq.com/article/microsoft-azure/
+            text: HPC Powers Word-Record Simulation
+          - url: https://bigcompute.org/blog/high-performance-computing-for-rd/
+            text: HPC for Innovation in R&D          
+          - url: https://idcdocserv.com/US50583623
+            text: HPC for Product Modeling
 
 
 # Video Playlists and other links
