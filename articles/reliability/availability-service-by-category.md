@@ -98,7 +98,6 @@ As mentioned previously, Azure classifies services into three categories: founda
 > | Azure Red Hat OpenShift                              |
 > | Azure Remote Rendering                               |
 > | Azure SignalR Service                                |
-> | Azure Spatial Anchors                                |
 > | Azure Spring Apps                                    |
 > | Azure Storage: Archive Storage                       |
 > | Azure Synapse Analytics                              |
