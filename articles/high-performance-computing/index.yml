@@ -62,7 +62,7 @@ productDirectory:
           text: Memory Optimized VMs
     # Card 3
     - title: Azure HPC Storage
-      imageSrc: ./media/index/virtual-machine.svg
+      imageSrc: /media/index/virtual-machine.svg
       links:
           - url: ../azure-netapp-files/azure-netapp-files-introduction.md
             text: Azure NetApp Files
