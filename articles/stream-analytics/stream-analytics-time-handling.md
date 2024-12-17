@@ -84,7 +84,7 @@ Instead of using a watermark that is global to all events in an input partition,
 
 Substreams are a unique solution provided by Azure Stream Analytics, and aren't offered by other streaming data processing systems.
 
-When you use substreams, Stream Analytics applies the late arrival tolerance window to incoming events. The late arrival tolerance decides the maximum amount by which different substreams can be apart from each other. For example, if Device 1 is at Timestamp 1, and Device 2 is at Timestamp 2, the at most late arrival tolerance is  Timestamp 2 minus Timestamp 1. The default setting is 5 seconds and is likely too small for devices with divergent timestamps. We recommend that you start with 5 minutes and make adjustments according to their device clock skew pattern.
+When you use substreams, Stream Analytics applies the late arrival tolerance window to incoming events. The late arrival tolerance decides the maximum amount by which different substreams can be apart from each other. For example, if Device 1 is at Timestamp 1, and Device 2 is at Timestamp 2, the at-most late arrival tolerance is Timestamp 2 minus Timestamp 1. The default setting is 5 seconds and is likely too small for devices with divergent timestamps. We recommend that you start with 5 minutes and make adjustments according to their device clock skew pattern.
 
 ## Early arriving events
 
