@@ -35,9 +35,9 @@ You need to obtain the resource ID of the source volume that you want to replica
 
 ## Create the data replication volume (the destination volume)
 
-You need to create a destination volume where you want the data from the source volume to be replicated to. Before you can create a destination volume, you need to have a NetApp account and a capacity pool in the destination region. 
+You need to create a destination volume where you want the data from the source volume to be replicated to. Before you can create a destination volume for _cross-region replication_, you need to have a NetApp account and a capacity pool in the destination region. If you're establishing _cross-zone replication_, skip to step four. 
 
-1. The destination account must be in a different region from the source volume region. If necessary, create a NetApp account in the Azure region to be used for replication by following the steps in [Create a NetApp account](azure-netapp-files-create-netapp-account.md).   
+1. If necessary, create a NetApp account in the Azure region to be used for replication by following the steps in [Create a NetApp account](azure-netapp-files-create-netapp-account.md).   
 You can also select an existing NetApp account in a different region.  
 
 2. If necessary, create a capacity pool in the newly created NetApp account by following the steps in [Create a capacity pool](azure-netapp-files-set-up-capacity-pool.md).   
@@ -101,8 +101,11 @@ To authorize the replication, you need to obtain the resource ID of the replicat
 
 ## Next steps  
 
+* [Cross-zone replication](cross-zone-replication-introduction.md)
+* [Requirements and considerations for cross-zone replication](cross-zone-replication-requirements-considerations.md)
 * [Cross-region replication](cross-region-replication-introduction.md)
 * [Requirements and considerations for using cross-region replication](cross-region-replication-requirements-considerations.md)
+* [Cross-zone region replication](cross-zone-region-replication.md)
 * [Display health status of replication relationship](cross-region-replication-display-health-status.md)
 * [Volume replication metrics](azure-netapp-files-metrics.md#replication)
 * [Manage disaster recovery](cross-region-replication-manage-disaster-recovery.md)
