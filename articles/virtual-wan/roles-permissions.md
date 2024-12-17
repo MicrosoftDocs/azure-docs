@@ -9,7 +9,7 @@ ms.date: 12/13/2024
 ms.author: cherylmc
 
 ---
-# About roles and permissions for the Virtual WAN Hub
+# About roles and permissions for Azure Virtual WAN
 
 The Virtual WAN hub utilizes multiple underlying resources during both creation and management operations.
 Because of this, it's essential to verify permissions on all involved resources during these operations.
