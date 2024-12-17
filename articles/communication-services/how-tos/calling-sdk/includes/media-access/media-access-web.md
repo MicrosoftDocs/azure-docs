@@ -89,14 +89,15 @@ The meeting media access changed event has a media access object
 ```json
 {
     "isAudioPermitted": true,
- "isVideoPermitted": true
+    "isVideoPermitted": true
 }
+```
+
 ```js
 mediaAccessFeature.on('mediaAccessChanged', mediaAccessChangedHandler):
 
 mediaAccessFeature.on('meetingMediaAccessChanged', meetingMediaAccessChangedHandler):
 ```
-
 The `mediaAccessChanged` event contains an object with the `mediaAccesses` property, which represents the participant's media accesses.
 The `meetingMediaAccessChanged` event contains an object with the `mediaAccesses` property, which represents the Teams meeting options setting media accesses.
 
@@ -109,12 +110,33 @@ mediaAccessFeature.off('meetingMediaAccessChanged', meetingMediaAccessChangedHan
 ```
 
 ### List media access state for all remote participants
-To get information about all remote participants media access state on current call, you can use the `getAllOthersMediaAccess` API.
+You can use the `getAllOthersMediaAccess` API gets information about all remote participants media access state on current call.
 Here's an example of how to use the `getAllOthersMediaAccess` API:
 ```js
 let remoteParticipantsMediaAccess = mediaAccessHandFeature.getAllOthersMediaAccess();
 ```
-See `Handle changed states` section for example array of media access objects returned by list all remote participants media access.
+Example array of media access objects returned by list all remote participants media access.
+```json
+{
+    "identifier": {
+        "kind": "microsoftTeamsUser",
+        "rawId": "8:orgid:9190c503-61e1-43e6-a165-daf3bad4cd53",
+        "microsoftTeamsUserId": "9190c503-61e1-43e6-a165-daf3bad4cd53",
+        "isAnonymous": false,
+        "cloud": "public"
+    },
+    "isAudioPermitted": true,
+    "isVideoPermitted": true
+},
+{
+    "identifier": {
+        "kind": "communicationUser",
+        "communicationUserId": "8:acs:efd3c229-b212-437a-945d-92326f13a1be_00000024-70f3-ae62-4ff7-343a0d002fcb"
+    },
+    "isAudioPermitted": true,
+    "isVideoPermitted": true
+},
+```
 
 ### Troubleshooting
 
