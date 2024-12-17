@@ -19,7 +19,7 @@ Our [current architecture guidance](#architecture-guidance) is designed to be mo
 
 If you're an existing customer using an on-premises management console to manage your OT sensors, we recommend transitioning to the updated architecture guidance. The following image shows a graphical representation of the transition steps to the new recommendations:
 
-:::image type="content" source="../media/on-premises-architecture/transition.png" alt-text="Diagram of the transition from a legacy on-premises management console to the newer recommendations." border="false" lightbox="../media/on-premises-architecture/transition.png":::
+:::image type="content" source="../media/on-premises-architecture/transition-new.png" alt-text="Diagram of the transition from a legacy on-premises management console to the newer recommendations." border="false" lightbox="../media/on-premises-architecture/transition.png":::
 
 ## How to manage the transition period
 
