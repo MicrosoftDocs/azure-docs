@@ -66,7 +66,7 @@ The following table shows support for individual APIs in the calling SDK related
 | Permit audio                  | ✔️           | ✔️                       |
 | Forbid video		              |	✔️           | ✔️                       |
 | Permit video                  | ✔️           | ✔️                       |
-|forbidOthersAudio		        |	✔️           |                          |
+| Forbid audio	of all other attendees	        |	✔️[1]           |       ✔️   [1]                |
 |permitOthersAudio            | ✔️           |                          |
 |forbidOthersVideo		        |	✔️           |                          |
 |permitOthersVideo            | ✔️           |                          |
