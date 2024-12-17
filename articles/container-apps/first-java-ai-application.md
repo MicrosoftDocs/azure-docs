@@ -76,7 +76,7 @@ To deploy your application, use the following steps:
     ? Select an Azure location to use: <REGION>
     ```
 
-It takes about 15 minutes to get your first AI application ready. The following is typical output:
+It takes about 15 minutes to get your first AI application ready. The following output is typical of what the system generates after a successful deployment:
 
 ```azurecli
 (✓) Done: Resource group: rg-first-ai (5.977s)
@@ -112,15 +112,15 @@ Now you can start using your application. Open the app by selecting the URL from
    INFO: App url: https://petclinic-ai.<cluster>.<region>.azurecontainerapps.io
 ```
 
-The Petclinic page and AI assistant appear. You can get help by having a natural language chat with the AI assistant, which can assist you with the following tasks:
+The PetClinic page and AI assistant appear. You can get help by having a natural language chat with the AI assistant, which can assist you with the following tasks:
 
 - Querying the registered pet owners
 - Adding a new pet owner
-- Updating the pet owner's information
+- Updating a pet owner's information
 - Adding a new pet
-- Querying the vet's information
+- Querying a vet's information
 
-The following image shows a chat where the user asks the AI assistant to register a new owner with a pet to the PetClinic, and the AI assistant then performs these tasks:
+The following image shows a chat where the user asks the AI assistant to register a new owner with a pet to the PetClinic. The AI assistant then performs these tasks:
 
 :::image type="content" source="media/first-ai-application/add-new-item.png" alt-text="Screenshot of AI chat assistant adding new item.":::
 
