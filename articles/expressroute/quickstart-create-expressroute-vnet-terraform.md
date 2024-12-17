@@ -79,12 +79,6 @@ In this article, you learn how to:
    resource_group_name=$(terraform output -raw resource_group_name)
    ```
 
-1. Get the ExpressRoute circuit ID.
-
-   ```console
-   express_route_circuit_id=$(terraform output -raw express_route_circuit_id)
-   ```
-
 1. Get the gateway name.
 
    ```console
@@ -97,18 +91,12 @@ In this article, you learn how to:
    az network vnet-gateway show --name $gateway_name --resource-group $resource_group_name
    ```
 
-### [PowerShell](#tab/PowerShell)
+### [Azure PowerShell](#tab/azure-powershell)
 
 1. Get the Azure resource group name.
 
    ```console
    $resource_group_name=$(terraform output -raw resource_group_name)
-   ```
-
-1. Get the ExpressRoute circuit ID.
-
-   ```console
-   $expressRouteCircuitId=$(terraform output -raw express_route_circuit_id)
    ```
 
 1. Get the gateway name.
@@ -120,7 +108,7 @@ In this article, you learn how to:
 1. Run [`Get-AzVirtualNetworkGateway`](/powershell/module/az.network/get-azvirtualnetworkgateway#:~:text=Example%202:%20Get%20a%20Virtual%20Network%20Gateway) to view the Azure virtual network gateway.
 
    ```azurepowershell
-   Get-AzVirtualNetworkGateway -Name gateway_name* -ResourceGroupName resource_group_name
+   Get-AzVirtualNetworkGateway -Name $gateway_name -ResourceGroupName $resource_group_name
    ```
 
 ---
