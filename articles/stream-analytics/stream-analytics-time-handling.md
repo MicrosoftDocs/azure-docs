@@ -126,7 +126,7 @@ You can observe a number of the Event ordering time tolerance effects through [A
 
 |Metric  | Description  |
 |---------|---------|
-| **Out-of-Order Events** | Indicates the number of events received out of order, that were either dropped or given an adjusted timestamp. This metric is directly impacted by the configuration of the **Out of order events** setting on the **Event ordering** page on the job in the Azure portal. |
+| **Out-of-Order Events** | Indicates the number of events received out of order that were either dropped or given an adjusted timestamp. This metric is directly impacted by the configuration of the **Out of order events** setting on the **Event ordering** page on the job in the Azure portal. |
 | **Late Input Events** | Indicates the number of events arriving late from the source. This metric includes events that have been dropped or have had their timestamp was adjusted. This metric is directly impacted by the configuration of the **Events that arrive late** setting in the **Event ordering** page on the job in the Azure portal. |
 | **Early Input Events** | Indicates the number of events arriving early from the source that have either been dropped, or their timestamp has been adjusted if they are beyond 5 minutes early. |
 | **Watermark Delay** | Indicates the delay of the streaming data processing job. See more information in the following section.|
