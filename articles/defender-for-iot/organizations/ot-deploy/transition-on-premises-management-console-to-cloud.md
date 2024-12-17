@@ -10,7 +10,7 @@ ms.date: 12/17/2024
 This article describes how to transition from the on-premises management console to the cloud.
 
 > [!IMPORTANT]
-> The on-premises management console won't be supported or available for download after January 1st, 2025. For more information, see [On-premises management console retirement](on-premises-management-console-retirement).
+> The on-premises management console won't be supported or available for download after January 1st, 2025. For more information, see [On-premises management console retirement](on-premises-management-console-retirement.md).
 >
 
 Our [current architecture guidance](#architecture-guidance) is designed to be more efficient, secure, and reliable than using the legacy on-premises management console. The updated guidance has fewer components, which makes it easier to maintain and troubleshoot. The smart sensor technology used in the new architecture allows for on-premises processing, reducing the need for cloud resources and improving performance. The updated guidance keeps your data within your own network, providing better security than cloud computing.

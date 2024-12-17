@@ -248,7 +248,7 @@ The [legacy on-premises management console](legacy-central-management/legacy-air
 
 For more information, see:
 
-- [Transitioning from a legacy on-premises management console](ot-deploy/air-gapped-deploy.md#transitioning-from-a-legacy-on-premises-management-console).
+- [Transitioning from a legacy on-premises management console](ot-deploy/transition-on-premises-management-console-to-cloud.md)
 - [Versioning and support for on-premises software versions](release-notes.md#versioning-and-support-for-on-premises-software-versions)
 
 ### Live statuses for cloud-based sensor updates
