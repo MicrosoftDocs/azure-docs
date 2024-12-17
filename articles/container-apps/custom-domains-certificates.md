@@ -83,11 +83,11 @@ Azure Container Apps allows you to bind one or more custom domains to a containe
     
     # [Private endpoint](#tab/private-endpoint)
 
-    - If you selected *A record*, you need to have a private DNS zone which has the same DNS zone name as your public DNS. Create the following DNS records on your private DNS zone:
-
+    - If you selected *A record*, you need to have a private DNS zone which has the same DNS zone name as your public DNS. Create the following DNS records on your private DNS zone: 
+    
         | Record type | Host | Value |
         |--|--|--|
-        | A | `@` | The Private IP of your private endpoint on your container apps environment. |
+        | A | `@` | The Private IP of your privateendpoint on your container apps environment. |
 
         In addition, you will need to add the following record to your public DNS zone.
 
@@ -95,16 +95,11 @@ Azure Container Apps allows you to bind one or more custom domains to a containe
         |--|--|--|
         | TXT | `asuid` | The domain verification code. |
 
-    - If you selected *CNAME*, create the following DNS records:
+    - If you selected *CNAME*, create the following DNS records in your public DNS zone:
 
         | Record type | Host | Value |
         |--|--|--|
         | CNAME | The subdomain (for example, `www`) | The generated domain of your container app. |
-
-        In addition, you will need to add the following record to your public DNS zone.
-
-        | Record type | Host | Value |
-        |--|--|--|
         | TXT | `asuid.` followed by the subdomain (for example, `asuid.www`) | The domain verification code. |
 
     ---
