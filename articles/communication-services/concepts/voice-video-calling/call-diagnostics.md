@@ -124,7 +124,7 @@ Your tags used in `DiagnosticOptions` could be used in 3 places in the Call Diag
 * Calls search
   ![Screenshot of the Call Diagnostics Search view that shows the DiagnosticOptions column.](media/uihint-call-search.png)
 * Participants table in Call Overview section
-  ![image](media/uihint-participants-table.png)
+  ![Screenshot of the Call Diagnostics Call Overview section that shows the DiagnosticOptions column.](media/uihint-participants-table.png)
 * Timeline section in Participants information Sidepanel
   ![image](media/uihint-timeline.png)
 
