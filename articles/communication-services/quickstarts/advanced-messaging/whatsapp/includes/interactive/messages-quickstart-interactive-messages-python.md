@@ -78,23 +78,23 @@ The following classes and interfaces handle some of the major features of the Az
 | ButtonSetContent | This class defines the Reply Buttons content for Interactive message. |
 | LinkContent | This class defines the Url or Click-To-Action content for Interactive message. |
 
-## Code examples
-
+## Common configuration
 Follow these steps to add the necessary code snippets to the messages-quickstart.py python program.
 
 - [Authenticate the client](#authenticate-the-client)
 - [Set channel registration ID](#set-channel-registration-id)
 - [Set recipient list](#set-recipient-list)
+
+[!INCLUDE [Common setting for using Advanced Messages SDK](../common-setting.md)]
+
+## Code examples
+Following are supported WhatsApp Interactive messages in Advanced Messages SDK:
+
 - [Send a Interactive List options message to a WhatsApp user](#send-a-interactive-list-options-message-to-a-whatsapp-user)
 - [Send a Interactive Reply Button message to a WhatsApp user](#send-a-interactive-reply-button-message-to-a-whatsapp-user)
 - [Send a Interactive CTA Url based message to a WhatsApp user](#send-a-interactive-cta-url-based-message-to-a-whatsapp-user)
 
-### Common configuration
-
-[!INCLUDE [Common setting for using Advanced Messages SDK](../common-setting.md)]
-
-### Send a Interactive List options message to a WhatsApp user
-
+## Send a Interactive List options message to a WhatsApp user
 Advanced Messages SDK allows Contoso to send interactive WhatsApp messages, which initiated WhatsApp users initiated. To send text messages below details are required:
 - [WhatsApp Channel ID](#set-channel-registration-id)
 - [Recipient Phone Number in E16 format](#set-recipient-list)
@@ -167,7 +167,7 @@ To run send_text_message(), update the [main method](#basic-program-structure)
     messages.send_whatsapplist_message()
 ```
 
-### Send a Interactive Reply Button message to a WhatsApp user
+## Send a Interactive Reply Button message to a WhatsApp user
 
 Messages SDK allows Contoso to send Image WhatsApp messages to WhatsApp users. To send Image embedded messages below details are required:
 - [WhatsApp Channel ID](#set-channel-registration-id)
@@ -229,7 +229,7 @@ To run send_whatsappreplybutton_message(), update the [main method](#basic-progr
     messages.send_whatsappreplybutton_message()
 ```
 
-### Send a Interactive CTA Url based message to a WhatsApp user
+## Send a Interactive CTA Url based message to a WhatsApp user
 
 Messages SDK allows Contoso to send Image WhatsApp messages to WhatsApp users. To send Image embedded messages below details are required:
 - [WhatsApp Channel ID](#set-channel-registration-id)

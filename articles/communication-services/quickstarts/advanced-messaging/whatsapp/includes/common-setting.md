@@ -13,11 +13,11 @@ ms.author: shamkh
 
 ### Authenticate the client 
 
-Messages sending is done using NotificationMessagesClient. NotificationMessagesClient is authenticated using your connection string acquired from Azure Communication Services resource in the Azure portal. For more information on connection strings, see [access-your-connection-strings-and-service-endpoints](../../../../create-communication-resource.md#access-your-connection-strings-and-service-endpoints).
+Messages sending is done using NotificationMessagesClient. NotificationMessagesClient is authenticated using your connection string acquired from Azure Communication Services resource in the Azure portal. For more information on connection strings, see [access-your-connection-strings-and-service-endpoints](../../../create-communication-resource.md#access-your-connection-strings-and-service-endpoints).
 
 [!INCLUDE [Authenticate the client ](./authenticate-notification-messages-client-net.md)]
 
-#### Set channel registration ID   
+### Set channel registration ID   
 
 The Channel Registration ID GUID was created during [channel registration](../connect-whatsapp-business-account.md). You can look it up in the portal on the Channels tab of your Azure Communication Services resource.
 
@@ -28,7 +28,7 @@ Assign it to a variable called channelRegistrationId.
     channelRegistrationId = os.getenv("WHATSAPP_CHANNEL_ID_GUID")
 ```
 
-#### Set recipient list
+### Set recipient list
 
 You need to supply a real phone number that has a WhatsApp account associated with it. This WhatsApp account receives the template, text, and media messages sent in this quickstart.
 For this quickstart, this phone number may be your personal phone number.   
@@ -51,7 +51,7 @@ Usage Example:
     to=[self.phone_number],
 ```
 
-#### Start sending messages between a business and a WhatsApp user
+### Start sending messages between a business and a WhatsApp user
 
 Conversations between a WhatsApp Business Account and a WhatsApp user can be initiated in one of two ways:
 - The business sends a template message to the WhatsApp user.

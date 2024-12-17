@@ -67,165 +67,21 @@ The following classes and interfaces handle some of the major features of the Az
 | NotificationMessagesClient  | This class connects to your Azure Communication Services resource. It sends the messages.              |
 | StickerNotificationContent | This class defines sticker content of the messages|
 
-## Code examples
-
+## Common configuration
 Follow these steps to add the necessary code snippets to the messages-quickstart.py python program.
 
 - [Authenticate the client](#authenticate-the-client)
 - [Set channel registration ID](#set-channel-registration-id)
 - [Set recipient list](#set-recipient-list)
+
+[!INCLUDE [Common setting for using Advanced Messages SDK](../common-setting.md)]
+
+## Code examples
+Follow these steps to add the necessary code snippets to the messages-quickstart.py python program.
+
 - [Send a Sticker messages to a WhatsApp user](#send-a-sticker-messages-to-a-whatsapp-user)
 
-### Authenticate the client 
-
-Messages sending is done using NotificationMessagesClient. NotificationMessagesClient is authenticated using your connection string acquired from Azure Communication Services resource in the Azure portal. For more information on connection strings, see [access-your-connection-strings-and-service-endpoints](../../../../create-communication-resource.md#access-your-connection-strings-and-service-endpoints).
-
-#### [Connection String](#tab/connection-string)
-
-Get Azure Communication Resource connection string from Azure portal as given in screenshot. On the left, navigate to the `Keys` tab. Copy the `Connection string` field for the primary key. The connection string is in the format `endpoint=https://{your Azure Communication Services resource name}.communication.azure.com/;accesskey={secret key}`.
-
-:::image type="content" source="../../media/get-started/get-communication-resource-connection-string.png" alt-text="Screenshot that shows an Azure Communication Services resource in the Azure portal, viewing the 'Primary Key' field in the 'Keys' section.":::
-
-Set the environment variable `COMMUNICATION_SERVICES_CONNECTION_STRING` to the value of your connection string.   
-Open a console window and enter the following command:
-```console
-setx COMMUNICATION_SERVICES_CONNECTION_STRING "<your connection string>"
-```
-After you add the environment variable, you might need to restart any running programs that will need to read the environment variable, including the console window. For example, if you're using Visual Studio as your editor, restart Visual Studio before running the example.
-
-For more information on how to set an environment variable for your system, follow the steps at [Store your connection string in an environment variable](../../../../create-communication-resource.md#store-your-connection-string-in-an-environment-variable).
-
-```python
-    # Get a connection string to our Azure Communication Services resource.
-    connection_string = os.getenv("COMMUNICATION_SERVICES_CONNECTION_STRING")
-    
-    def send_template_message(self):
-        from azure.communication.messages import NotificationMessagesClient
-
-        # Create NotificationMessagesClient Client
-        messaging_client = NotificationMessagesClient.from_connection_string(self.connection_string)
-```
-
-#### [Microsoft Entra ID](#tab/aad)
-
-NotificationMessagesClient is also authenticated using Microsoft Entra ID/TokenCredentials. For more information, see [access-Azure-Communication-Resources-using-TokenCredentials](/python/api/overview/azure/identity-readme?view=azure-python&preserve-view=true#environment-variables).
-
-The [`azure.identity`](https://github.com/Azure/azure-sdk-for-python/tree/azure-identity_1.15.0/sdk/identity/azure-identity) package provides various credential types that your application can use to authenticate. You can choose from the various options to authenticate the identity client detailed at [Azure Identity - Credential providers](/python/api/overview/azure/identity-readme?view=azure-python#credential-classes&preserve-view=true) and [Azure Identity - Authenticate the client](/python/api/overview/azure/identity-readme?view=azure-python#authenticate-with-defaultazurecredential&preserve-view=true). This option walks through one way of using the [`DefaultAzureCredential`](/python/api/overview/azure/identity-readme?view=azure-python#defaultazurecredential&preserve-view=true).
- 
-The `DefaultAzureCredential` attempts to authenticate via [`several mechanisms`](/python/api/overview/azure/identity-readme?view=azure-python#defaultazurecredential&preserve-view=true) and it might be able to find its authentication credentials if you're signed into Visual Studio or Azure CLI. However, this option walks you through setting up with environment variables.   
-
-To create a `DefaultAzureCredential` object:
-1. To set up your service principle app, follow the instructions at [Creating a Microsoft Entra registered Application](../../../../identity/service-principal.md?pivots=platform-azcli#creating-a-microsoft-entra-registered-application).
-
-1. Set the environment variables `AZURE_CLIENT_ID`, `AZURE_CLIENT_SECRET`, and `AZURE_TENANT_ID` using the output of your app's creation.    
-    Open a console window and enter the following commands:
-    ```console
-    setx COMMUNICATION_SERVICES_ENDPOINT_STRING "<https://<resource name>.communication.azure.com>"
-    setx AZURE_CLIENT_ID "<your app's appId>"
-    setx AZURE_CLIENT_SECRET "<your app's password>"
-    setx AZURE_TENANT_ID "<your app's tenant>"
-    ```
-    After you add the environment variables, you might need to restart any running programs that will need to read the environment variables, including the console window. For example, if you're using Visual Studio as your editor, restart Visual Studio before running the example.
-
-1. To use the [`DefaultAzureCredential`](/python/api/overview/azure/identity-readme?view=azure-python#defaultazurecredential&preserve-view=true) provider, or other credential providers provided with the Azure SDK, install the `azure.identity` python package and then instantiate client.
-    
-```python
-    # Get a connection string to our Azure Communication Services resource.
-    endpoint_string = os.getenv("COMMUNICATION_SERVICES_ENDPOINT_STRING")
-    
-    def send_template_message(self):
-        from azure.communication.messages import NotificationMessagesClient
-        from azure.identity import DefaultAzureCredential
-
-        # Create NotificationMessagesClient Client
-        messaging_client = NotificationMessagesClient(endpoint=self.endpoint_string,
-                                                    credential=DefaultAzureCredential())
-```
-
-#### [AzureKeyCredential](#tab/azurekeycredential)
-
-You can also authenticate with an AzureKeyCredential.
-
-Get the endpoint and key from your Azure Communication Services resource in the Azure portal. On the left, navigate to the `Keys` tab. Copy the `Endpoint` and the `Key` field for the primary key.
-
-:::image type="content" source="../../media/get-started/get-communication-resource-endpoint-and-key.png" lightbox="../../media/get-started/get-communication-resource-endpoint-and-key.png" alt-text="Screenshot that shows an Azure Communication Services resource in the Azure portal, viewing the 'Connection string' field in the 'Primary key' section.":::
-
-Set the environment variable `COMMUNICATION_SERVICES_KEY` to the value of your connection string.   
-Open a console window and enter the following command:
-```console
-setx COMMUNICATION_SERVICES_ENDPOINT_STRING "<https://<resource name>.communication.azure.com>"
-setx COMMUNICATION_SERVICES_KEY "<your key>"
-```
-After you add the environment variable, you might need to restart any running programs that will need to read the environment variable, including the console window. For example, if you're using Visual Studio as your editor, restart Visual Studio before running the example.
-
-For more information on how to set an environment variable for your system, follow the steps at [Store your connection string in an environment variable](../../../../create-communication-resource.md#store-your-connection-string-in-an-environment-variable).
-
-To instantiate a `NotificationMessagesClient`, add the following code:
-
-```python
-    # Get a connection string to our Azure Communication Services resource.
-    endpoint_string = os.getenv("COMMUNICATION_SERVICES_ENDPOINT_STRING")
-    key = os.getenv("COMMUNICATION_SERVICES_KEY")
-
-    def send_template_message(self):
-        from azure.core.credentials import AzureKeyCredential
-        from azure.communication.messages import NotificationMessagesClient
-
-        # Create NotificationMessagesClient Client
-        messaging_client = NotificationMessagesClient(endpoint=self.endpoint_string,
-                                                    credential=AzureKeyCredential(self.key))
-```
----
-
-### Set channel registration ID   
-
-The Channel Registration ID GUID was created during [channel registration](../../connect-whatsapp-business-account.md). You can look it up in the portal on the Channels tab of your Azure Communication Services resource.
-
-:::image type="content" source="../../media/get-started/get-messages-channel-id.png" lightbox="../../media/get-started/get-messages-channel-id.png" alt-text="Screenshot that shows an Azure Communication Services resource in the Azure portal, viewing the 'Channels' tab. Attention is placed on the copy action of the 'Channel ID' field.":::
-
-Assign it to a variable called channelRegistrationId.
-```python
-    channelRegistrationId = os.getenv("WHATSAPP_CHANNEL_ID_GUID")
-```
-
-### Set recipient list
-
-You need to supply a real phone number that has a WhatsApp account associated with it. This WhatsApp account receives the template, text, and media messages sent in this quickstart.
-For this quickstart, this phone number may be your personal phone number.   
-
-The recipient phone number can't be the business phone number (Sender ID) associated with the WhatsApp channel registration. The Sender ID appears as the sender of the text and media messages sent to the recipient.
-
-The phone number should include the country code. For more information on phone number formatting, see WhatsApp documentation for [Phone Number Formats](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/phone-numbers#phone-number-formats).
-
-> [!NOTE]
-> Only one phone number is currently supported in the recipient list.
-
-Set the recipient list like this:
-```python
-    phone_number = os.getenv("RECIPIENT_WHATSAPP_PHONE_NUMBER")
-```
-
-Usage Example:
-```python
-    # Example only
-    to=[self.phone_number],
-```
-
-### Start sending messages between a business and a WhatsApp user
-
-Conversations between a WhatsApp Business Account and a WhatsApp user can be initiated in one of two ways:
-- The business sends a template message to the WhatsApp user.
-- The WhatsApp user sends any message to the business number.
-
-For Interactive messages, Only after the user sends a message to the business, the business is allowed to send interactive messages to the user during the active conversation. Once the 24 hour conversation window expires, the conversation must be reinitiated. To learn more about conversations, see the definition at [WhatsApp Business Platform](https://developers.facebook.com/docs/whatsapp/pricing#conversations).
-
-To initiate a conversation between a WhatsApp Business Account and a WhatsApp user is to have the user initiate the conversation.
-To do so, from your personal WhatsApp account, send a message to your business number (Sender ID).
-
-:::image type="content" source="../../media/get-started/user-initiated-conversation.png" lightbox="../../media/get-started/user-initiated-conversation.png" alt-text="A WhatsApp conversation viewed on the web showing a user message sent to the WhatsApp Business Account number.":::
-
-### Send a Sticker messages to a WhatsApp user
-
+## Send a Sticker messages to a WhatsApp user
 Advanced Messages SDK allows Contoso to send sticker WhatsApp messages, which is initiated by WhatsApp users. To send text messages below details are required:
 - [WhatsApp Channel ID](#set-channel-registration-id)
 - [Recipient Phone Number in E16 format](#set-recipient-list)
@@ -268,7 +124,6 @@ To run send_sticker_message(), update the [main method](#basic-program-structure
 ```
 
 ## Run the code
-
 To run the code, make sure you are on the directory where your `messages-quickstart.py` file is.
 
 ```console
