@@ -73,7 +73,7 @@ For your workflow to run properly, some app settings are required.
 | `Workflows.CustomHostName` | No | None | Sets the host name to use for workflow and input-output URLs, for example, "logic.contoso.com". For information to configure a custom DNS name, see [Map an existing custom DNS name to Azure App Service](../app-service/app-service-web-tutorial-custom-domain.md) and [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](../app-service/configure-ssl-bindings.md). |
 | `Workflows.<workflowName>.FlowState` | No | None | Sets the state for <*workflowName*>. |
 | `Workflows.<workflowName>.RuntimeConfiguration.RetentionInDays` | No | `90` days | Sets the amount of time in days to keep the run history for <*workflowName*>. <br><br>- Minimum: 7 days <br>- Maximum: 365 days |
-| `Workflows.RuntimeConfiguration.RetentionInDays` | No | `90` days | Sets the amount of time in days to keep workflow run history after a run starts. Minimum is 7 days and maximum is 365 days. |
+| `Workflows.RuntimeConfiguration.RetentionInDays` | No | `90` days | Sets the amount of time in days to keep workflow run history after a run starts. <br><br>- Minimum: 7 days <br>- Maximum: 365 days |
 | `Workflows.WebhookRedirectHostUri` | No | None | Sets the host name to use for webhook callback URLs. |
 
 <a name="manage-app-settings"></a>
