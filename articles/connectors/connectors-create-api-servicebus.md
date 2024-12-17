@@ -133,7 +133,9 @@ To increase the timeout for sending a message, [add the **ServiceProviders.Servi
   > However, despite this setting, the message still might not complete if your workflow remains in a 
   > throttled state at next polling interval.
   >
-  > If you do still need to use concurrency control for a workflow with service bus trigger, we suggest creating and saving the workflow first, 
+  > If you must change the concurrency on a Service Bus auto-complete trigger, don't make this change before 
+  > you initially save your workflow. Create and save your workflow first before you edit the trigger to change the concurrency.
+    ```
   > and then edit the workflow to enable concurrency control. Do not enable concurrency control in the initial save.
 
 ### Service Bus built-in connector triggers
