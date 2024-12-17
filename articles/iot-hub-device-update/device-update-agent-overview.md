@@ -56,7 +56,7 @@ Update handlers invoke installers or commands to do over-the-air updates. You ca
 
 ## Check and upgrade Device Update agent version
 
-You can check the installed versions of the Device Update agent and the Delivery Optimization agent in the [Device Properties](device-update-plug-and-play.md#device-properties) section of your [IoT device twin](../iot-hub/iot-hub-devguide-device-twins.md).
+You can check the installed versions of the Device Update agent and the Delivery Optimization agent in the [properties](device-update-plug-and-play.md#device-properties) section of your [IoT device twin](../iot-hub/iot-hub-devguide-device-twins.md).
 
 If you use the Device Update agent, make sure you're on the version 1.0.0 general availability (GA) version. For more information, see [Migrate devices and groups to the latest Device Update release](migration-public-preview-refresh-to-ga.md).
 
