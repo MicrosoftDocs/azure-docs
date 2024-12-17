@@ -110,7 +110,7 @@ mediaAccessFeature.off('meetingMediaAccessChanged', meetingMediaAccessChangedHan
 ```
 
 ### List media access state for all remote participants
-You can use the `getAllOthersMediaAccess` API gets information about all remote participants media access state on current call.
+You can use the `getAllOthersMediaAccess` API to get information about all remote participants media access state on current call.
 Here's an example of how to use the `getAllOthersMediaAccess` API:
 ```js
 let remoteParticipantsMediaAccess = mediaAccessHandFeature.getAllOthersMediaAccess();
