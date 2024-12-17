@@ -18,9 +18,11 @@ The Device Update module agent can run along with other system processes and [Io
 
 ## Module identity and device identity
 
-You can create up to 50 module identities under each Azure IoT Hub device identity. Each Module Identity implicitly generates a Module Identity Twin. On the device side, you can use the IoT Hub device SDKs to create modules that each open an independent connection to IoT Hub. Module Identity and Module Identity Twin provide capabilities similar to device identity and device twin, but at a finer granularity. For more information, see [Understand and use module twins in IoT Hub](../iot-hub/iot-hub-devguide-module-twins.md).
+You can create up to 50 module identities under each Azure IoT Hub device identity. Each Module Identity implicitly generates a Module Identity Twin. On the device side, you can use the IoT Hub device SDKs to create modules that each open an independent connection to IoT Hub.
 
-When you provision the Device Update agent as a Module Identity, all [communications](device-update-plug-and-play.md) between the device and the Device Update service must happen over the Module Twin. Remember to tag the Module Twin of the device when you create [groups](device-update-groups.md). If you migrate from a device-level agent to adding the agent as a Module Identity, remove the older agent that communicated over the device twin.
+Module Identity and Module Identity Twin provide capabilities similar to device identity and device twin, but at a finer granularity. For more information, see [Understand and use module twins in IoT Hub](../iot-hub/iot-hub-devguide-module-twins.md).
+
+When you provision the Device Update agent as a Module Identity, all [communications](device-update-plug-and-play.md) between the device and the Device Update service must happen over the Module Twin. Remember to tag the Module Twin of the device when you create [device groups](device-update-groups.md). If you migrate from a device-level agent to adding the agent as a Module Identity, remove the older agent that communicated over the device twin.
 
 ## Supported update types
 
@@ -64,7 +66,7 @@ Update package lists on your device by running `sudo apt-get update`.
 <a name="on-iot-edge-enabled-devices"></a>
 ## Install and provision the agent
 
-You can download and unzip sample images from the **Assets** section on the [Releases](https://github.com/Azure/iot-hub-device-update/releases) page. In *Tutorial_RaspberryPi3.zip*, the *swUpdate* file is the base image that you can flash onto a Raspberry Pi B3+ board. The *.gz* file is the update you import through Device Update. For more information, see [Use bmaptool to flash the SD card](./device-update-raspberry-pi.md#use-bmaptool-to-flash-the-sd-card).
+You can download and unzip sample images from the **Assets** section on the [Releases](https://github.com/Azure/iot-hub-device-update/releases) page. In *Tutorial_RaspberryPi3.zip*, the *swUpdate* file is the base image that you can flash onto a Raspberry Pi B3+ board. The *.gz* file is the update you import through Device Update. For more information, see [Azure Device Update for IoT Hub using a Raspberry Pi image](./device-update-raspberry-pi.md#use-bmaptool-to-flash-the-sd-card).
 
 - For release candidate (rc) agent versions, download the *.deb* file  from [Releases](https://github.com/Azure/iot-hub-device-update/releases) to the machine you want to install the Device Update agent on, and then run the following command:
 
