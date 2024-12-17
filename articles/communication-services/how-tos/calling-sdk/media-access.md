@@ -70,7 +70,7 @@ The following table shows support for individual APIs in the calling SDK related
 | Permit audio of all other attendees  | ✔️[1]           |             ✔️[1]             |
 |forbidOthersVideo		        |	✔️           |                          |
 | Permit video of all other attendees |	✔️[1]           |     ✔️[1]                     |
-|getAllOthersMediaAccess      | ✔️           |✔️                        |
+| Get media access of other participants | ✔️           |✔️                        |
 | Get notification that media access changed          | ✔️           |✔️                        |
 | Get notification that Teams meeting's media access changed    | ✔️[1]           |    ✔️[1]                      |
 
