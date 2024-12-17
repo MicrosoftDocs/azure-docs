@@ -69,7 +69,7 @@ The following table shows support for individual APIs in the calling SDK related
 | Forbid audio	of all other attendees	        |	✔️[1]           |       ✔️   [1]                |
 | Permit audio of all other attendees  | ✔️[1]           |             ✔️[1]             |
 |forbidOthersVideo		        |	✔️           |                          |
-|permitOthersVideo            | ✔️           |                          |
+| Permit video of all other attendees |	✔️[1]           |     ✔️[1]                     |
 |getAllOthersMediaAccess      | ✔️           |✔️                        |
 |mediaAccessChanged           | ✔️           |✔️                        |
 |meetingMediaAccessChanged    | ✔️           |                          |
