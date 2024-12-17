@@ -90,7 +90,7 @@ Enable replication as follows:
     - Select **No** if you don't want to apply Azure Hybrid Benefit and select **Next**. 
 
     - Select **Yes** if you have Windows Server machines that are covered with active Software Assurance or Windows Server subscriptions, and you want to apply the benefit to the machines you're migrating and select **Next**. 
-1. In **Compute**, review the VM name, size, OS disk type, and availability configuration (if selected in the previous step). VMs must conform with [Azure requirements](migrate-support-matrix-vmware-migration.md#azure-vm-requirements). 
+1. In **Compute**, review the VM name, size, OS disk type, and availability configuration (if selected in the previous step). VMs must conform with [Azure requirements](migrate-support-matrix-vmware-migration.md#azure-vm-requirements?context=/azure/migrate/context/migrate-context). 
 
     - **VM size**: If you're using assessment recommendations, the VM size dropdown shows the recommended size. Otherwise, Azure Migrate picks a size based on the closest match in the Azure subscription. Alternatively, pick a manual size in **Azure VM size**. 
 
@@ -106,7 +106,7 @@ Enable replication as follows:
 1. In **Tags**, add tags to your migrated virtual machines, disks, and NICs.
 
 1. In **Review and start replication**, review the settings, and select **Replicate** to start the initial replication for the servers. 
-    Next, follow the instructions to [perform migrations](tutorial-migrate-vmware.md#run-a-test-migration). 
+    Next, follow the instructions to [perform migrations](tutorial-migrate-vmware.md#run-a-test-migration?context=/azure/migrate/context/migrate-context). 
 
 #### Provisioning for the first time  
 
@@ -131,9 +131,9 @@ Ensure that the on-premises appliance has network connectivity to the storage ac
 
 ## Next steps 
 
- - [Migrate VMs](tutorial-migrate-vmware.md#migrate-vms)
- - Complete the [migration process](tutorial-migrate-vmware.md#complete-the-migration).
- - Review the [post-migration best practices](tutorial-migrate-vmware.md#post-migration-best-practices). 
+ - [Migrate VMs](tutorial-migrate-vmware.md#migrate-vms?context=/azure/migrate/context/migrate-context)
+ - Complete the [migration process](tutorial-migrate-vmware.md#complete-the-migration?context=/azure/migrate/context/migrate-context).
+ - Review the [post-migration best practices](tutorial-migrate-vmware.md#post-migration-best-practices?context=/azure/migrate/context/migrate-context). 
 
 ::: zone-end
 
