@@ -58,7 +58,7 @@ landingContent:
             url: how-to-connect-azure-data-explorer.md
           - text: Enable Grafana Enterprise
             url: how-to-grafana-enterprise.md
-      - linkListType: how-to-guide
+      - linkListType: tutorial
         links:
           - text: Connect to self-hosted Prometheus via managed private endpoint
             url: tutorial-mpe-oss-prometheus.md
