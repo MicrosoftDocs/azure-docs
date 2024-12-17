@@ -14,7 +14,7 @@ ms.subservice: azure-reliability
 
 *Business continuity* is the state in which your business is able to continue to remain operational, even during failures, outages, or disasters that affect your solution. You achieve business continuity through proactive planning, preparation, and the implementation of resilient systems and processes.
 
-Planning for business continuity is about identifying, understanding, classifying, and managing risks. Based on the risks and their likelihoods, you can design your solution for *high availability* and *disaster recovery*. High availability is about designing your solution to be resilient to day-to-day issues and to meet your business needs for availability. Disaster recovery is about planning how you deal with catastrophic outages and uncommon risks.
+Planning for business continuity is about identifying, understanding, classifying, and managing risks. Based on the risks and their likelihoods, you can design your solution for *high availability* (HA) and *disaster recovery* (DR). High availability is about designing your solution to be resilient to day-to-day issues and to meet your business needs for availability. Disaster recovery is about planning how you deal with catastrophic outages and uncommon risks.
 
 This article describes business continuity, high availability, and disaster recovery and provides links to resources that can help you to design your own strategies for each. Use the [Reliability guides by service](./overview-reliability-guidance.md) to understand how the Azure services you use support designing your own business continuity approach. For detailed guidance on how to architect for business continuity, go to the [Azure Well-Architected Framework](/azure/well-architected/).
 
@@ -62,7 +62,7 @@ Business continuity plans must address both common and uncommon risks.
 
 - Some risks are commonplace, planned, and expected. For example, in a cloud environment it's common for there to be server crashes, brief network outages, equipment restarts due to patches, and so forth. Because these events happen regularly, workloads need to be resilient to them. A high availability strategy must consider and control for each risk of this type.
 
-- Unusual risks are generally the result of a catastrophic and unforeseeable event, such as natural disasters or major network attacks. Disaster recovery (DR) processes deal with these rare risks.
+- Unusual risks are generally the result of a catastrophic and unforeseeable event, such as natural disasters or major network attacks. Disaster recovery processes deal with these rare risks.
 
 High availability and disaster recovery are interrelated, and so it's important to plan strategies for both of them together.
 
@@ -78,7 +78,7 @@ For some risks, you can choose to operate the solution in a *degraded state*. Wh
 
 ## High availability
 
-High availability (HA) is the state in which a specific workload can maintain its necessary level of uptime on a day-to-day basis, even during transient faults and intermittent failures. For example, in a cloud environment, it's common for there to be server crashes, brief network outages, equipment restarts due to patches, and so on. Because these events happen regularly, it's important that each workload is designed and configured for high availability in accordance with the requirements of the specific application and customer expectations. The HA of each workload contributes to your business continuity plan.
+High availability is the state in which a specific workload can maintain its necessary level of uptime on a day-to-day basis, even during transient faults and intermittent failures. For example, in a cloud environment, it's common for there to be server crashes, brief network outages, equipment restarts due to patches, and so on. Because these events happen regularly, it's important that each workload is designed and configured for high availability in accordance with the requirements of the specific application and customer expectations. The HA of each workload contributes to your business continuity plan.
  
 Because HA can vary with each workload, it's important to understand the requirements and customer expectations when determining high availability. For example, an application that's used within your organization might require a relatively low level of uptime, while a critical financial application might require a much higher uptime. Even within a workload, different *flows* might have different requirements. For example, in an eCommerce application, flows that support customers browsing and placing orders might be critical, while order fulfillment and back-office processing flows might be lower priority. To learn more about flows, see [Recommendations for identifying and rating flows](/azure/well-architected/reliability/identify-flows).
  
@@ -87,7 +87,7 @@ When a workload architect plans for high availability, they define:
 - **Service level objectives (SLO)**, which describe things like the percentage of time the workload should be available to users.
 - **Service level indicators** (SLI), which are specific metrics that are used to measure whether the workload is meeting an SLO.
  
-Uptime isn't measured by the uptime of a single component like a node, but by the overall availability of the entire workload. The higher the uptime requirement, the more work you have to do to reach that level of availability.
+Commonly, uptime is measured based on the number of "nines" in the uptime percentage, such as 99.9% (three nines) or 99.95% (three and a half nines). The higher the uptime requirement, the less tolerance you have for outages, and the more work you have to do to reach that level of availability. Uptime isn't measured by the uptime of a single component like a node, but by the overall availability of the entire workload.
 
 > [!TIP]
 > Don't overengineer your solution to reach higher levels of reliability than are justified. Use business requirements to guide your decisions.
