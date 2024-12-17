@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 03/05/2024
 ms.author: cherylmc
 ms.custom: references_regions
-# Customer intent: As someone with a networking background, I want to learn more aobut Branch IPsec connectivity automation
+# Customer intent: As someone with a networking background, I want to learn more about Branch IPsec connectivity automation
 ---
 # Virtual WAN Branch IPsec connectivity automation 
 
