@@ -190,7 +190,7 @@ Azure Functions support running [in-process](../azure-functions/functions-dotnet
     If you use Windows PowerShell, run the following command:
 
     ```powershell
-    $Env:ConnectionString = "connection-string-of-your-app-configuration-store>"
+    $Env:ConnectionString = "<connection-string-of-your-app-configuration-store>"
     ```
 
     If you use macOS or Linux, run the following command:

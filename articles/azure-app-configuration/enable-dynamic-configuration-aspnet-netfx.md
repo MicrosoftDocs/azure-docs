@@ -169,7 +169,7 @@ Add the following key-values to the App Configuration store and leave **Label** 
 
     If you use Windows PowerShell, run the following command:
     ```powershell
-    $Env:ConnectionString = "connection-string-of-your-app-configuration-store>"
+    $Env:ConnectionString = "<connection-string-of-your-app-configuration-store>"
     ```
 
 1. Restart Visual Studio to allow the change to take effect. 

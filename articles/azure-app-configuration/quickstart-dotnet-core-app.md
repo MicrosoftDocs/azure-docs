@@ -146,7 +146,7 @@ You can connect to your App Configuration store using Microsoft Entra ID (recomm
    If you use PowerShell, run the following command:
 
     ```powershell
-    $Env:ConnectionString = "connection-string-of-your-app-configuration-store>"
+    $Env:ConnectionString = "<connection-string-of-your-app-configuration-store>"
     ```
 
     If you use macOS or Linux, run the following command:

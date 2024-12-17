@@ -78,7 +78,7 @@ If you build locally, download and install the [Azure CLI](/cli/azure/install-az
     If you use Windows PowerShell, run the following command:
     
     ```powershell
-        $Env:ConnectionString = "connection-string-of-your-app-configuration-store>"
+        $Env:ConnectionString = "<connection-string-of-your-app-configuration-store>"
     ```
     
     ### [macOS](#tab/unix)

@@ -123,7 +123,7 @@ In the previous code, you're manually saving an instance of `IConfigurationRefre
     If you use Windows PowerShell, run the following command:
 
     ```powershell
-     $Env:ConnectionString = "connection-string-of-your-app-configuration-store>"
+     $Env:ConnectionString = "<connection-string-of-your-app-configuration-store>"
     ```
 
     If you use macOS or Linux, run the following command:

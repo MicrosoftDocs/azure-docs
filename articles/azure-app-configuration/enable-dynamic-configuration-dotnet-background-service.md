@@ -204,7 +204,7 @@ You use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a
    If you use PowerShell, run the following command:
 
     ```powershell
-    $Env:ConnectionString = "connection-string-of-your-app-configuration-store>"
+    $Env:ConnectionString = "<connection-string-of-your-app-configuration-store>"
     ```
 
     If you use macOS or Linux, run the following command:
