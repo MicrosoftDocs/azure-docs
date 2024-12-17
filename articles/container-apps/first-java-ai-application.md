@@ -1,5 +1,5 @@
 ---
-title: Launch your first AI application to Azure Container Apps
+title: Launch your first Java AI application to Azure Container Apps
 description: Use the azd automation tool to deploy a sample AI application to Azure Container Apps.
 services: container-apps
 author: KarlErickson
@@ -11,7 +11,7 @@ ms.custom:
 #customer intent: As a developer, I want to see a simple example of an AI application deployed to Azure Container Apps.
 ---
 
-# Launch your first AI application to Azure Container Apps
+# Launch your first Java AI application to Azure Container Apps
 
 In this quickstart, you explore the architecture of an AI application in Azure Container Apps, and then you deploy the application. The article demonstrates how to deploy a sample AI chat assistant application based on the Spring PetClinic application to run on Azure Container Apps. The application uses the [Azure OpenAI Service](/azure/ai-services/openai/overview) and demonstrates how to automate deployment using the Azure Developer CLI (azd). The following screenshot shows the AI assistant:
 

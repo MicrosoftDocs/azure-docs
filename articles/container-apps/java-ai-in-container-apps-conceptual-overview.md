@@ -1,16 +1,16 @@
 ---
-title:  AI Applications in Azure Container Apps
-description: "Explains the architecture and deployment of AI applications in Azure Container Apps."
+title:  Java AI Applications Deployed to Azure Container Apps
+description: "Explains the architecture of AI applications deployed to Azure Container Apps."
 author: KarlErickson
 ms.author: sonwan
 ms.service: azure-container-apps
 ms.topic: concept-article
 ms.date: 12/12/2024
 ms.custom: devx-track-java, devx-track-extended-java
-#customer intent: As a developer, I want to understand the architecture of AI applications in Azure Container Apps so that I can deploy my AI applications in that environment.
+#customer intent: As a developer, I want to understand the architecture of AI applications deployed to Azure Container Apps.
 ---
 
-# AI applications in Azure Container Apps
+# Java AI applications deployed to Azure Container Apps
 
 In this tutorial, you explore the architecture of AI applications in Azure Container Apps and learn how to deploy these applications.
 
