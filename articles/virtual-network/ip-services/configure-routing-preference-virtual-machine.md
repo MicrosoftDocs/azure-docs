@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Configure routing preference for a virtual machine'
 description: Learn how to create a virtual machine with a public IP address with routing preference choice using the Azure portal.
-ms.date: 12/06/2024
+ms.date: 12/11/2024
 ms.author: mbender
 author: mbender-ms
 ms.service: azure-virtual-network
@@ -65,7 +65,10 @@ In this section, you create a virtual machine and public IP address in the Azure
     | Virtual machine name | Enter **myVM**. |
     | Region | Select **(US) West US 2**. |
     | Availability options | Select **No infrastructure redundancy required**. |
-    | Image | Select **Windows Server 2019 Datacenter - Gen2**. |
+    | Zone options | Select **Self-selected zone**. |
+    | Availability zone | Select **Zone 1**. |
+    | Security type | Select **Standard**. |
+    | Image | Select **Windows Server 2022 Datacenter: Azure Edition - x64 Gen2**. |
     | Azure Spot instance | Leave the default of unchecked. |
     | Size | Select a size. |
     | **Administrator account** |   |
@@ -76,8 +79,6 @@ In this section, you create a virtual machine and public IP address in the Azure
     | Public inbound ports | Select **Allow selected ports**. |
     | Select inbound ports | Leave the default of **RDP (3389)**.</br> _**Opening port 3389 from the internet is not recommended for production workloads**_. |
 
-    :::image type="content" source="./media/tutorial-routing-preference-virtual-machine-portal/create-virtual-machine.png" alt-text="Screenshot of create virtual machine.":::
-
 5. Select **Next: Disks** then **Next: Networking**, or select the **Networking** tab.
 
 6. In the networking tab, enter or select the following information.
@@ -87,9 +88,7 @@ In this section, you create a virtual machine and public IP address in the Azure
     | **Network interface** |   |
     | Virtual network | Leave the default of **(new) TutorVMRoutePref-rg-vnet**. |
     | Subnet | Leave the default of **(new) default (10.1.0.0/24)**. |
-    | Public IP | Select **Create new**.</br> In **Name**, enter **myPublicIP**.</br> Select **Standard** in **SKU**.</br> In **Routing preference**, select **Internet**.</br> Select **OK**. |
-
-    :::image type="content" source="./media/tutorial-routing-preference-virtual-machine-portal/create-public-ip.png" alt-text="Screenshot of create public IP address.":::
+    | Public IP | Select **Create new**.</br> In **Name**, enter **myPublicIP**.</br> In **Routing preference**, select **Internet**.</br> In **Availability zone**, select **Zone 1**.</br> Select **OK**. |
 
 7. Select **Review + create**.
 
