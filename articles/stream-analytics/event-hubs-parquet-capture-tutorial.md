@@ -107,7 +107,7 @@ Before you start, make sure you've completed the following steps:
         TOP 100 *
     FROM
         OPENROWSET(
-            BULK 'https://adlsname.dfs.core.windows.net/container/*/*/*.parquet',
+            BULK 'https://adlsname.dfs.core.windows.net/container/*/*.parquet',
             FORMAT='PARQUET'
         ) AS [result]
      ```
