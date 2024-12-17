@@ -165,4 +165,4 @@ During the update, you may observe a temporary dip in the count of routes learne
 
 Each connection has 2 peers. By filtering metrics for BGP (Border Gateway Protocol) peers, you can confirm the specific connections impacted during the update
 
-For more details on monitoring, refer to the [Monitoring data reference for Azure ExpressRoute](\azure\expressroute\monitor-expressroute.md).
+For more details on monitoring, refer to the [Monitoring data reference for Azure ExpressRoute](../expressroute/monitor-expressroute.md).
