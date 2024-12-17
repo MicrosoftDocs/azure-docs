@@ -21,8 +21,11 @@ The on-premises management console will be retired on **January 1, 2025** with t
     For a list of supported versions, see [OT monitoring software versions](release-noted.md).    
 
 - Following any version upgrade, you will no longer be able to use the on-premises management console. For example, if you're using the on-premises management portal on version 24.1.2, and you upgrade to version 24.1.6, you can no longer use the on-premises management console.
-- Air-gapped sensor support isn't affected by these changes to the on-premises management console support. We continue to support air-gapped deployments and assist with the transition to the cloud. The sensors retain a full user interface so that they can be used in "lights out" scenarios and continue to analyze and secure the network in the event of an outage.
-- Air-gapped sensors that can't connect to the cloud can be managed directly via the sensor console GUI, CLI, or API. For more information, see [Transition from on-premises management console to the cloud](transition-from-on-premises-management-console-to-cloud).
+
+## Air-gapped sensor support
+
+- Air-gapped sensor support isn't affected by these changes to the on-premises management console support. We continue to support air-gapped deployments and assist with the [transition to the cloud](transition-from-on-premises-management-console-to-cloud.md). The sensors retain a full user interface so that they can be used in "lights out" scenarios and continue to analyze and secure the network in the event of an outage.
+- Air-gapped sensors that can't connect to the cloud can be managed directly via the sensor console UI, CLI, or API.
 
 ## Next steps
 
