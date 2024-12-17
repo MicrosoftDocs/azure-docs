@@ -140,7 +140,7 @@ You will be able to see the `DiagnosticOptions`column now.
 ### Where can I find more information about adding tags for my Calls in Call Diagnostics?
 
 You can find more information for adding `DiagnosticOptions` tags in: 
-https://learn.microsoft.com/en-us/azure/communication-services/tutorials/voice-video-calling/diagnostic-options-tag
+https://learn.microsoft.com/azure/communication-services/tutorials/voice-video-calling/diagnostic-options-tag
 
 ## Related content
 
