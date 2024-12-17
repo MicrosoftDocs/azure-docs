@@ -169,6 +169,6 @@ additionalContent:
           # imageSrc: /media/hubs/powershell/logo_stackoverflow.svg
 	  url: https://stackoverflow.com/questions/tagged/hpc
         # Card 4
-	- title: r/HPC
+	- title: Reddit
           # imageSrc: /media/hubs/powershell/logo_reddit.svg
 	  url: https://www.reddit.com/r/HPC/ 			  
