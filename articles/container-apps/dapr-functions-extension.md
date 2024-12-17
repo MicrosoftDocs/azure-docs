@@ -50,18 +50,6 @@ The [Dapr extension for Azure Functions](../azure-functions/functions-bindings-d
 
 ## Create resource group
 
-> [!NOTE]
-> Azure Container Apps support for Functions is currently in preview and available in the following regions.
-> - Australia East
-> - Central US
-> - East US
-> - East US 2
-> - North Europe
-> - South Central US
-> - UK South
-> - West Europe
-> - West US 3
-
 Specifying one of the available regions, create a resource group for your container app.
 
    ```azurecli
