@@ -9,7 +9,7 @@ ms.devlang: csharp
 ms.custom: devx-track-csharp, mode-other, devx-track-dotnet
 ms.topic: quickstart
 ms.tgt_pltfrm: .NET
-ms.date: 12/02/2024
+ms.date: 12/17/2024
 ms.author: zhiyuanliang
 #Customer intent: As a .NET background service developer, I want to use feature flags to control feature availability quickly and confidently.
 ---
@@ -64,11 +64,14 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
 
         // Use feature flags
         options.UseFeatureFlags();
+
         // Register the refresher so that the Worker service can consume it through dependency injection
         builder.Services.AddSingleton(options.GetRefresher());
     });
+
     // Register feature management services
     builder.Services.AddFeatureManagement();
+
     // The rest of existing code in Program.cs
     // ... ...
     ```
