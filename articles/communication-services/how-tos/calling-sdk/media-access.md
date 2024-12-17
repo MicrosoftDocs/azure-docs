@@ -58,7 +58,7 @@ The following tables show support for the media access feature in individual Azu
 
 ### Operations
 
-The following table show support for individual APIs in the calling SDK related to call types.
+The following table shows support for individual APIs in the calling SDK related to individual identity types.
 
 |Api name                     | Teams meeting | Group Teams interop call |
 |-----------------------------|---------------|--------------------------|
