@@ -50,7 +50,7 @@ This built-in trigger sends an HTTP request to a URL for a Swagger file that des
 
 1. In the **Swagger endpoint** box, enter the URL for the Swagger file that you want, and select **Add action**.
 
-   The following example uses a non-functional example sample Swagger URL. Your URL might use a different format.
+   The following example uses a non-functional Swagger URL. Your URL might use a different format.
 
    :::image type="content" source="media/connectors-native-http-swagger/http-swagger-trigger-parameters.png" alt-text="Screenshot shows workflow designer with selected Add trigger shape and information pane for HTTP + Swagger trigger. The Swagger endpoint property is set to an example URL.":::
 
@@ -78,7 +78,7 @@ This built-in action sends an HTTP request to the URL for the Swagger file that 
 
 1. In the **Swagger endpoint** box, enter the URL for the Swagger file that you want, and select **Add action**.
 
-   This example uses a non-functional example sample Swagger URL. Your URL might use a different format.
+   The following example uses a non-functional Swagger URL. Your URL might use a different format.
 
    :::image type="content" source="media/connectors-native-http-swagger/http-swagger-action-parameters.png" alt-text="Screenshot shows workflow designer with trigger named Fabrikam API - Create order and open information pane for HTTP + Swagger action. The Swagger endpoint property is set to a URL.":::
 
