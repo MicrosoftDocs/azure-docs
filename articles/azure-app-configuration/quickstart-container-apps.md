@@ -30,12 +30,12 @@ In this quickstart, you use Azure App Configuration in an app running in Azure C
 
 1. In the Azure portal, navigate to your Container App instance.
 
-1. Follow the [Service Connector quickstart for Azure Container Apps](../service-connector/quickstart-portal-container-apps.md) to create a service connection for your App Configuration store, using the settings below.
+1. Follow the [Service Connector quickstart for Azure Container Apps](../service-connector/quickstart-portal-container-apps.md) to create a service connection for your App Configuration store, using the following settings.
 
-    1. In the **Basics** tab:
+   1. In the **Basics** tab:
        
       - Under **Service type**, select **App Configuration**
-      - Select your App Configuration store
+      - Under **App Configuration**, select your App Configuration store.
 
         :::image type="content" border="true" source="media\connect-container-app\use-service-connector.png" alt-text="Screenshot the Azure platform showing a form in the Service Connector menu in a Container App." lightbox="media\connect-container-app\use-service-connector.png":::
 
@@ -44,14 +44,11 @@ In this quickstart, you use Azure App Configuration in an app running in Azure C
       - Select the **System-assigned managed identity** authentication type
       - Expand the **Advanced** menu
       - Assign your identity the **App Configuration Data Reader** role
-      - Under **Configuration information**, you find an environment variable named `AZURE_APPCONFIGURATION_ENDPOINT`. Select the pencil icon on the right and edit the environment variable name to match the variable name in your application that contains your App Configuration endpoint. If you built your application following the [ASP.NET Core quickstart](./quickstart-aspnet-core-app.md), your variable name is `Endpoints:AppConfiguration`. When editing the variable name, replace the colon with an underscore so that `Endpoints:AppConfiguration` becomes `Endpoints_AppConfiguration`. If you're working with another application, enter the corresponding environment variable name, ensuring that any colons are replaced with underscores, then select **Done**.
+      - Under **Configuration information**, you find an environment variable named `AZURE_APPCONFIGURATION_ENDPOINT`. Select the pencil icon on the right and edit the environment variable name to match the variable name in your application that you load your App Configuration endpoint from. If you built your application following the [ASP.NET Core quickstart](./quickstart-aspnet-core-app.md), your variable name is `Endpoints:AppConfiguration`. When editing the variable name, replace the colon with double underscores so that `Endpoints:AppConfiguration` becomes `Endpoints__AppConfiguration`. If you're working with another application, enter the corresponding environment variable name, ensuring that any colons are replaced with underscores, then select **Done**.
     
-        > [!NOTE]
-        > Service connector doesn't accept colons (`:`). If your variable contains a colon, replace it with an underscore (`_`).
+   1. Use default values for everything else.
 
-      - Use default values for everything else.
-
-    When the connection is created, an environment variable named `Endpoints_AppConfiguration` is added to the container of your Container App resource. Its value is a reference to your App Configuration store endpoint.
+    When the connection is created, an environment variable named `Endpoints_AppConfiguration` is added to the container of your Container App resource. Its value is a reference of the Container App secret, the endpoint of your App Configuration store.
 
 ## Build a container
 
