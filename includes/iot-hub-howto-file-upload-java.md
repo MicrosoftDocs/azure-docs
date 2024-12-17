@@ -123,18 +123,13 @@ Free the `client` resources.
 client.closeNow();
 ```
 
-## Receive a file upload notification in a backend application
+## Create a backend application
 
-You can create a backend application to receive file upload notifications.
-
-To create a file upload notification application:
-
-1. Connect to the IoT hub service client
-1. Check for a file upload notification
+This section describes how to receive a file upload notification in a backend application.
 
 The [ServiceClient](/java/api/com.azure.core.annotation.serviceclient) class contains methods that services can use to receive file upload notifications.
 
-### Connect to the IoT hub service client
+### Connect to the IoT Hub
 
 Create a `IotHubServiceClientProtocol` object. The connection uses the `AMQPS` protocol.
 

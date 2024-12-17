@@ -16,12 +16,26 @@ To connect a device to IoT Hub using an X.509 certificate:
 
 1. Use [DeviceAuthenticationWithX509Certificate](/dotnet/api/microsoft.azure.devices.client.deviceauthenticationwithx509certificate) to create an object that contains device and certificate information. `DeviceAuthenticationWithX509Certificate` is passed as the second parameter to `DeviceClient.Create` (step 2).
 
-1. Use [DeviceClient.Create](/dotnet/api/microsoft.azure.devices.client.deviceclient.create?view=azure-dotnet&branch=main#microsoft-azure-devices-client-deviceclient-create(system-string-microsoft-azure-devices-client-iauthenticationmethod-microsoft-azure-devices-client-transporttype)) to connect the device to IoT Hub using an X.509 certificate.
+1. Use [DeviceClient.Create](/dotnet/api/microsoft.azure.devices.client.deviceclient.create?view=azure-dotnet&#microsoft-azure-devices-client-deviceclient-create(system-string-microsoft-azure-devices-client-iauthenticationmethod-microsoft-azure-devices-client-transporttype)) to connect the device to IoT Hub using an X.509 certificate.
 
-In this example, the device and certificate information has been populated in the `auth` `DeviceAuthenticationWithX509Certificate` object that is passed to `DeviceClient.Create`. An example of `DeviceAuthenticationWithX509Certificate` information population is omitted because of the flexible nature of how the certificate information can be added.
+In this example, the device and certificate information are populated in the `auth` `DeviceAuthenticationWithX509Certificate` object that is passed to `DeviceClient.Create`.
 
 ```csharp
+RootCertPath = "~/certificates/certs/sensor-thl-001-device.cert.pem";
+Intermediate1CertPath = "~/certificates/certs/sensor-thl-001-device.intermediate1.cert.pem";
+Intermediate2CertPath = "~/certificates/certs/sensor-thl-001-device.intermediate2.cert.pem";
+DevicePfxPath = "~/certificates/certs/sensor-thl-001-device.cert.pfx";
+DevicePfxPassword = "1234";
+DeviceName = "MyDevice";
 HostName = "xxxxx.azure-devices.net";
+
+var chainCerts = new X509Certificate2Collection();
+chainCerts.Add(new X509Certificate2(RootCertPath));
+chainCerts.Add(new X509Certificate2(Intermediate1CertPath));
+chainCerts.Add(new X509Certificate2(Intermediate2CertPath));
+using var deviceCert = new X509Certificate2(DevicePfxPath, DevicePfxPassword);
+using var auth = new DeviceAuthenticationWithX509Certificate(DeviceName, deviceCert, chainCerts);
+
 using var deviceClient = DeviceClient.Create(
     HostName,
     auth,

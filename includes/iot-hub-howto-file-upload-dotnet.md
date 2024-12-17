@@ -120,9 +120,40 @@ You can create a backend service to receive file upload notification messages fr
 
 The [ServiceClient](/dotnet/api/microsoft.azure.devices.serviceclient) class contains methods that services can use to receive file upload notifications.
 
+### Add service NuGet Package
+
+Backend service applications require the **Microsoft.Azure.Devices** NuGet package.
+
+### Connect to IoT hub
+
+You can connect a backend service to IoT Hub using the following methods:
+
+* Shared access policy
+* Microsoft Entra
+
+[!INCLUDE [iot-authentication-service-connection-string.md](iot-authentication-service-connection-string.md)]
+
+#### Connect using a shared access policy
+
+Connect a backend application to a device using [CreateFromConnectionString](/dotnet/api/microsoft.azure.devices.registrymanager.createfromconnectionstring). Your application needs **service connect** permission. Supply this shared access policy connection string as a parameter to `fromConnectionString`. For more information about shared access policies, see [Control access to IoT Hub with shared access signatures](/azure/iot-hub/authenticate-authorize-sas).
+
+For example:
+
+```csharp
+using Microsoft.Azure.Devices;
+static ServiceClient serviceClient;
+static string connectionString = "{Shared access policy connection string}";
+serviceClient = ServiceClient.CreateFromConnectionString(connectionString);
+```
+
+#### Connect using Microsoft Entra
+
+[!INCLUDE [iot-hub-howto-connect-service-iothub-entra-dotnet](iot-hub-howto-connect-service-iothub-entra-dotnet.md)]
+
+### Receive file upload notification
+
 To receive file upload notification:
 
-1. Call [CreateFromConnectionString](/dotnet/api/microsoft.azure.devices.serviceclient.createfromconnectionstring) to connect to IoT hub. Pass the IoT hub primary connection string.
 1. Create a [CancellationToken](/dotnet/api/azure.core.httpmessage.cancellationtoken?#azure-core-httpmessage-cancellationtoken).
 1. Call [GetFileNotificationReceiver](/dotnet/api/microsoft.azure.devices.serviceclient.getfilenotificationreceiver?#microsoft-azure-devices-serviceclient-getfilenotificationreceiver) to create a notification receiver.
 1. Use a loop with [ReceiveAsync](/dotnet/api/microsoft.azure.devices.receiver-1.receiveasync?#microsoft-azure-devices-receiver-1-receiveasync(system-threading-cancellationtoken)) to wait for the file upload notification.
@@ -130,11 +161,6 @@ To receive file upload notification:
 For example:
 
 ```csharp
-using Microsoft.Azure.Devices;
-static ServiceClient serviceClient;
-static string connectionString = "{IoT hub connection string}";
-serviceClient = ServiceClient.CreateFromConnectionString(connectionString);
-
 // Define the cancellation token
 CancellationTokenSource source = new CancellationTokenSource();
 CancellationToken token = source.Token;
