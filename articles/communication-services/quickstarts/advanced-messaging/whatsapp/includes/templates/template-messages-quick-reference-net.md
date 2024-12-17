@@ -12,7 +12,6 @@ ms.author: memontic
 ---
 
 ## Templates with no parameters
-
 If the template takes no parameters, you don't need to supply the values or bindings when creating the `MessageTemplate`.
 
 ```csharp
@@ -34,23 +33,22 @@ var sampleTemplate = new MessageTemplate(templateName, templateLanguage);
 ``````
 
 ## Templates with text parameters in the body
-
 Use `MessageTemplateText` to define parameters in the body denoted with double brackets surrounding a number, such as `{{1}}`. The number, indexed started at 1, indicates the order in which the binding values must be supplied to create the message template. Including parameters not in the template is invalid.
 
 Template definition with two parameter:
-```
+```json
 {
   "type": "BODY",
   "text": "Message with two parameters: {{1}} and {{2}}"
-},
-```
+}
+``````
 
 ### Examples
 sample_shipping_confirmation template
 :::image type="content" source="../../media/template-messages/sample-shipping-confirmation-details-azure-portal.png" lightbox="../../media/template-messages/sample-shipping-confirmation-details-azure-portal.png" alt-text="Screenshot that shows template details for template named sample_shipping_confirmation.":::
 
 In this sample, the body of the template has one parameter:
-```
+```json
 {
   "type": "BODY",
   "text": "Your package has been shipped. It will be delivered in {{1}} business days."
@@ -73,13 +71,11 @@ shippingConfirmationTemplate.Bindings = bindings;
 shippingConfirmationTemplate.Values.Add(threeDays);
 ``````
 
-
 ## Templates with media parameter in the header
-
 Use `MessageTemplateImage`, `MessageTemplateVideo`, or `MessageTemplateDocument` to define the media parameter in a header.
 
 Template definition with image media parameter in header:
-```
+```json
 {
   "type": "HEADER",
   "format": "IMAGE"
@@ -110,7 +106,6 @@ template.Values.Add(media);
 ``````
 
 ### Examples
-
 sample_movie_ticket_confirmation template
 :::image type="content" source="../../media/template-messages/sample-movie-ticket-confirmation-details-azure-portal.png" lightbox="../../media/template-messages/sample-movie-ticket-confirmation-details-azure-portal.png" alt-text="Screenshot that shows template details for template named sample_movie_ticket_confirmation.":::
 
@@ -123,7 +118,7 @@ In this sample, the header of the template requires an image:
 ```
 
 And the body of the template requires four text parameters:
-```
+```json
 {
   "type": "BODY",
   "text": "Your ticket for *{{1}}*\n*Time* - {{2}}\n*Venue* - {{3}}\n*Seats* - {{4}}"
@@ -168,7 +163,7 @@ movieTicketConfirmationTemplate.Bindings = bindings;
 Use `MessageTemplateLocation` to define the location parameter in a header.
 
 Template definition for header component requiring location as:
-```
+```json
 {
   "type": "header",
   "parameters": [
@@ -197,7 +192,6 @@ The "format" can require different media types. In the .NET SDK, each media type
 For more information on location based templates, see [WhatsApp's documentation for message media](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-message-templates#location). 
 
 ### Example
-
 sample_movie_location template
 
 :::image type="content" source="../../media/template-messages/sample-location-based-template.jpg" lightbox="../../media/template-messages/sample-location-based-template.jpg" alt-text="Screenshot that shows template details for template named sample_location_template.":::
@@ -218,7 +212,6 @@ Location based Message template assembly:
 ``````
 
 ## Templates with quick reply buttons
-
 Use `MessageTemplateQuickAction` to define the payload for quick reply buttons and `MessageTemplateQuickAction` objects have the following three attributes. 
 
 |  Properties   | Description |  Type |
@@ -228,7 +221,7 @@ Use `MessageTemplateQuickAction` to define the payload for quick reply buttons a
 | Payload| The `payload` assigned to a button is available in a message reply if the user selects the button.| string |
  
 Template definition wth quick reply buttons:
-```
+```json
 {
   "type": "BUTTONS",
   "buttons": [
@@ -249,12 +242,11 @@ The order that the buttons appear in the template definition should match the or
 For more information on the payload in quick reply responses from the user, see WhatsApp's documentation for [Received Callback from a Quick Reply Button](https://developers.facebook.com/docs/whatsapp/cloud-api/webhooks/payload-examples#received-callback-from-a-quick-reply-button).
 
 #### Example
-
 sample_issue_resolution template
 :::image type="content" source="../../media/template-messages/sample-issue-resolution-details-azure-portal.png" lightbox="../../media/template-messages/sample-issue-resolution-details-azure-portal.png" alt-text="Screenshot that shows template details for template named sample_issue_resolution.":::
 
 Here, the body of the template requires one text parameter:
-```
+```json
 {
   "type": "BODY",
   "text": "Hi {{1}}, were we able to solve the issue that you were facing?"
@@ -262,7 +254,7 @@ Here, the body of the template requires one text parameter:
 ```
 
 And the template includes two prefilled reply buttons, `Yes` and `No`.
-```
+```json
 {
   "type": "BUTTONS",
   "buttons": [
@@ -300,7 +292,6 @@ issueResolutionTemplate.Bindings = bindings;
 ``````
 
 ## Templates with call to action buttons
-
 Use `MessageTemplateQuickAction` to define the url suffix for call to action buttons and `MessageTemplateQuickAction` object have the following three attributes.
 
 |  Properties   | Description |  Type |
@@ -309,7 +300,7 @@ Use `MessageTemplateQuickAction` to define the url suffix for call to action but
 | Text  | The  'text' that is appended to the URL.  | string|
 
 Template definition buttons:
-```
+```json
 {
   "type": "BUTTONS",
   "buttons": [
@@ -325,13 +316,12 @@ Template definition buttons:
 The order that the buttons appear in the template definition should match the order in which the buttons are defined when creating the bindings with `MessageTemplateWhatsAppBindings`.
 
 ### Example
-
 sample_purchase_feedback template
 This sample template adds a button with a dynamic URL link to the message. It also uses an image in the header and a text parameter in the body.
 :::image type="content" source="../../media/template-messages/edit-sample-purchase-feedback-whatsapp-manager.png" lightbox="../../media/template-messages/edit-sample-purchase-feedback-whatsapp-manager.png" alt-text="Screenshot that shows editing URL Type in the WhatsApp manager.":::
 
 In this sample, the header of the template requires an image:
-```
+```json
 {
   "type": "HEADER",
   "format": "IMAGE"
@@ -339,7 +329,7 @@ In this sample, the header of the template requires an image:
 ```
 
 Here, the body of the template requires one text parameter:
-```
+```json
 {
   "type": "BODY",
   "text": "Thank you for purchasing {{1}}! We value your feedback and would like to learn more about your experience."
@@ -347,7 +337,7 @@ Here, the body of the template requires one text parameter:
 ```
 
 And the template includes a dynamic URL button with one parameter:
-```
+```json
 {
   "type": "BUTTONS",
   "buttons": [

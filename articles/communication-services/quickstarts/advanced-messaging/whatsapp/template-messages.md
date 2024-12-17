@@ -54,14 +54,15 @@ To list out your templates programmatically, you can fetch all templates for you
 | Interactive message templates | Interactive message templates expand the content you can send recipients, by  including interactive buttons using the components object. Both Call-to-Action and Quick Reply are supported.|
 | Location-based message templates |  WhatsApp message templates with location parameters in terms Longitute and Lantitude for header components.|
 
-Let's see more details of each of these supported templates.
+##  Code examples
+
 [!INCLUDE [Template usage quick reference with .NET](./includes/templates/template-messages-quick-reference-net.md)]
 
-## Full code example
+### Full code example
 
 [!INCLUDE [Full code example with .NET](./includes/templates/template-messages-full-code-example-net.md)]
 
-## More Examples
+### More Examples
 
 These examples utilize sample templates available to WhatsApp Business Accounts created through the Azure portal embedded signup.
 
