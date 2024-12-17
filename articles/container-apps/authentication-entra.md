@@ -61,7 +61,7 @@ To register the app, perform the following steps:
 
         `<APP_URL>/.auth/login/aad/callback`.
     
-        For example: `https://<CONTAINER_APP_NAME>.<HOSTNAME>.<LOCATION>.azurecontainerapps.io/.auth/login/aad/callback`.
+        For example: `https://<CONTAINER_APP_NAME>.<ENVIRONMENT_UNIQUE_ID>.<REGION_NAME>.azurecontainerapps.io/.auth/login/aad/callback`.
 
     1. In **Implicit grant and hybrid flows**, enable **ID tokens** to allow OpenID Connect user sign-ins from Container Apps.
     1. Select **Register**.
