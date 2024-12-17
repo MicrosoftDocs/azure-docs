@@ -88,22 +88,22 @@ A reimage action is the best practice for lowest operational risk to ensure the 
 
 As a best practice, make sure the BMM's workloads are drained using the cordon command, with evacuate "True", before executing the reimage command.
 
-***To identify if any workloads are currently running on a BMM, run the following command:***
+**To identify if any workloads are currently running on a BMM, run the following command:**
 
-***For Virtual Machines:***
+**For Virtual Machines:**
 ```azurecli
 az networkcloud baremetalmachine show -n <nodeName> /
 --resource-group <resourceGroup> /
 --subscription <subscriptionID> | jq '.virtualMachinesAssociatedIds'
 ```
 
-***For Nexus Kubernetes cluster nodes: (requires logging into the Nexus Kubernetes cluster)***
+**For Nexus Kubernetes cluster nodes: (requires logging into the Nexus Kubernetes cluster)**
 
 ```
 kubectl get nodes <resourceName> -ojson |jq '.metadata.labels."topology.kubernetes.io/baremetalmachine"'
 ```
 
-***The following Azure CLI command will `cordon` the specified bareMetalMachineName.***
+**The following Azure CLI command will `cordon` the specified bareMetalMachineName.**
 ```
 az networkcloud baremetalmachine cordon \
   --evacuate "True" \
@@ -112,7 +112,7 @@ az networkcloud baremetalmachine cordon \
   --subscription <subscriptionID>
 ```
 
-***The following Azure CLI command will `reimage` the specified bareMetalMachineName.***
+**The following Azure CLI command will `reimage` the specified bareMetalMachineName.**
 ```
 az networkcloud baremetalmachine reimage \
   --name <bareMetalMachineName>  \
@@ -120,7 +120,7 @@ az networkcloud baremetalmachine reimage \
   --subscription <subscriptionID>
 ```
 
-***The following Azure CLI command will `uncordon` the specified bareMetalMachineName.***
+**The following Azure CLI command will `uncordon` the specified bareMetalMachineName.**
 ```
 az networkcloud baremetalmachine uncordon \
   --name <bareMetalMachineName> \
@@ -139,7 +139,7 @@ A hardware validation process is invoked to ensure the integrity of the physical
 
 As a best practice, first issue a `cordon` command to remove the bare metal machine from workload scheduling and then shut down the BMM in advance of physical repairs.
 
-***The following Azure CLI command will `cordon` the specified bareMetalMachineName.***
+**The following Azure CLI command will `cordon` the specified bareMetalMachineName.**
 ```
 az networkcloud baremetalmachine cordon \
   --evacuate "True" \
@@ -170,7 +170,7 @@ When you're performing the following physical repairs, a replace action ***is re
 
 After physical repairs are completed, perform a replace action.
   
-***The following Azure CLI command will `replace` the specified bareMetalMachineName.***
+**The following Azure CLI command will `replace` the specified bareMetalMachineName.**
 ```
 az networkcloud baremetalmachine replace \
   --name <bareMetalMachineName>  \
@@ -183,7 +183,7 @@ az networkcloud baremetalmachine replace \
   --subscription <subscriptionID>
 ```
 
-***The following Azure CLI command will uncordon the specified bareMetalMachineName.***
+**The following Azure CLI command will uncordon the specified bareMetalMachineName.**
 ```
 az networkcloud baremetalmachine uncordon \
   --name <bareMetalMachineName> \
