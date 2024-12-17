@@ -2,10 +2,10 @@
 title: Azure Communication Services Voice and Video Insights
 titleSuffix: An Azure Communication Services concept document
 description: Descriptions of data visualizations available for Voice and Video Communications Services via Workbooks
-author:  mkhribech
+author:  amagginetti
 services: azure-communication-services
 
-ms.author: mkhribech
+ms.author: amagginetti
 ms.date: 03/08/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
@@ -23,7 +23,7 @@ Within your Communications Resource, we've provided an **Insights** feature that
 
 ## Prerequisites
 
-- In order to take advantage of Workbooks, follow the instructions outlined in [Enable Logging with Azure Monitor](../enable-logging.md). You need to enable `Operational Authentication Logs`, `Call Summary Logs`, `Call Diagnostic Logs`.
+- In order to take advantage of Workbooks, follow the instructions outlined in [Enable Logging with Azure Monitor](../enable-logging.md). You need to enable all logs for the best experience.
 - To use Workbooks, you need to send your logs to a [Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-overview) destination. 
 
 ## Accessing Azure Insights for Communication Services
