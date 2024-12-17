@@ -60,7 +60,7 @@ The following tables show support for the media access feature in individual Azu
 
 The following table shows support for individual APIs in the calling SDK related to individual identity types.
 
-|Api name                     | Teams meeting | Group Teams interop call |
+|Operations                     | Communication Services user | Microsoft 365 user |
 |-----------------------------|---------------|--------------------------|
 |forbidAudio		              |	✔️           | ✔️                       |
 |permitAudio                  | ✔️           | ✔️                       |
