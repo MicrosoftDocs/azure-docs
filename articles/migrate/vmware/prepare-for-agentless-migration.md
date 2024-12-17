@@ -19,12 +19,15 @@ This article provides an overview of the changes performed when you [migrate VMw
 Before you migrate your on-premises VM to Azure, you may require a few changes to make the VM ready for Azure. These changes are important to ensure that the migrated VM can boot successfully in Azure and connectivity to the Azure VM can be established.
 Azure Migrate automatically handles these configuration changes for the following operating system versions for both Linux and Windows. This process is called *Hydration*.
 
+> [!Note]
+> If a major version of an operating system is supported in agentless migration, all minor versions and kernels are automatically supported.
+
 **Operating system versions supported for hydration**
 
 - Windows Server 2008 or later
 - Red Hat Enterprise Linux 9.x, 8.x, 7.9, 7.8, 7.7, 7.6, 7.5, 7.4, 7.3, 7.2, 7.1, 7.0, 6.x
 - CentOS Stream
-- SUSE Linux Enterprise Server 15 SP4, 15 SP3, 15 SP2, 15 SP1, 15 SP0, 12, 11 SP4, 11 SP3
+- SUSE Linux Enterprise Server 15 SP6, 15 SP5, 15 SP4, 15 SP3, 15 SP2, 15 SP1, 15 SP0, 12, 11 SP4, 11 SP3
 - Ubuntu 22.04, 21.04, 20.04, 19.04, 19.10, 18.04LTS, 16.04LTS, 14.04LTS
 - Kali Linux (2016, 2017, 2018, 2019, 2020, 2021, 2022)
 - Debian 11, 10, 9, 8, 7
