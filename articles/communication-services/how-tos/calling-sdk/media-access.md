@@ -71,7 +71,7 @@ The following table shows support for individual APIs in the calling SDK related
 |forbidOthersVideo		        |	✔️           |                          |
 | Permit video of all other attendees |	✔️[1]           |     ✔️[1]                     |
 |getAllOthersMediaAccess      | ✔️           |✔️                        |
-|mediaAccessChanged           | ✔️           |✔️                        |
+| Get notification that media access changed          | ✔️           |✔️                        |
 |meetingMediaAccessChanged    | ✔️           |                          |
 
 ::: zone pivot="platform-web"
