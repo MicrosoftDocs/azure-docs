@@ -89,7 +89,7 @@ When starting the application, a browser window will open to authenticate the us
     If you use Windows PowerShell, run the following command:
 
     ```azurepowershell
-    $Env:APP_CONFIGURATION_ENDPOINT = <endpoint-of-your-app-configuration-store>
+    $Env:APP_CONFIGURATION_ENDPOINT = "<endpoint-of-your-app-configuration-store>"
     ```
 
     ### [macOS](#tab/unix)

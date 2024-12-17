@@ -173,7 +173,7 @@ To use the Spring Cloud Azure Config starter to have your application communicat
    If you use Windows PowerShell, run the following command:
 
    ```azurepowershell
-   $Env:APP_CONFIGURATION_ENDPOINT = <endpoint-of-your-app-configuration-store>
+   $Env:APP_CONFIGURATION_ENDPOINT = "<endpoint-of-your-app-configuration-store>"
    ```
 
    If you use macOS or Linux, run the following command:
