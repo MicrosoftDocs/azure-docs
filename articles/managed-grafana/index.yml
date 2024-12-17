@@ -35,22 +35,35 @@ landingContent:
         links:
           - text: Manage data sources
             url: how-to-data-source-plugins-managed-identity.md
-          - text: Manage plugins
-            url: how-to-manage-plugins.md
-          - text: Add an Azure Monitor workspace
-            url: how-to-connect-azure-monitor-workspace.md
           - text: Create a dashboard
             url: how-to-create-dashboard.md
           - text: Share a dashboard
             url: how-to-share-dashboard.md
           - text: Use reporting and image rendering
             url: how-to-use-reporting-and-image-rendering.md
+          - text: Use service accounts
+            url: how-to-use-service-accounts.md
+  
+  - title: Manage data sources
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Manage data sources
+            url: how-to-data-source-plugins-managed-identity.md
+          - text: Manage plugins
+            url: how-to-manage-plugins.md
+          - text: Add an Azure Monitor workspace
+            url: how-to-connect-azure-monitor-workspace.md
+          - text: Add Azure Data Explorer
+            url: how-to-connect-azure-data-explorer.md
+          - text: Enable Grafana Enterprise
+            url: how-to-grafana-enterprise.md
   
   - title: Manage access and networking
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Share an instance
+          - text: Share a workspace
             url: how-to-share-grafana-workspace.md
           - text: Use Microsoft Entra groups
             url: how-to-sync-teams-with-entra-groups.md
@@ -68,8 +81,15 @@ landingContent:
             url: how-to-api-calls.md
           - text: Grafana settings
             url: grafana-settings.md
-
-  - title: Set up Grafana monitoring
+          - text: Use deterministic outbound IPs
+            url: how-to-use-deterministic-outbound-ips.md
+      - linkListType: concept
+        links:
+          - text: Encryption
+            url: encryption.md
+          - text: Azure RBAC
+            url: concept-role-based-access-control.md
+  - title: Configure monitoring
     linkLists:
       - linkListType: how-to-guide
         links:
@@ -77,6 +97,8 @@ landingContent:
             url: how-to-monitor-managed-grafana-workspace.md
           - text: Configure SMTP settings
             url: how-to-smtp-settings.md
+          - text: Use Azure Monitor alerts with Grafana
+            url: how-to-use-azure-monitor-alerts.md
 
   - title: Manage availability
     linkLists:
