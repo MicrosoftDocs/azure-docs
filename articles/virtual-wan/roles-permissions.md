@@ -30,14 +30,44 @@ To add any missing permissions listed here, see [Update a custom role](../role-b
 
 ## Permissions
 
-Depending on whether you're creating new resources or using existing ones, add the appropriate permissions from the following list:
+When creating or updating the resources below, add the appropriate permissions from the following list:
 
-|Resource | Resource status | Required Azure permissions |
-|---|---|---|
-| Subnet | Create new| Microsoft.Network/virtualNetworks/subnets/write<br>Microsoft.Network/virtualNetworks/subnets/join/action |
-| Subnet | Use existing| Microsoft.Network/virtualNetworks/subnets/read<br>Microsoft.Network/virtualNetworks/subnets/join/action |
-| IP addresses| Create new| Microsoft.Network/publicIPAddresses/write<br>Microsoft.Network/publicIPAddresses/join/action |
-| IP addresses  | Use existing| Microsoft.Network/publicIPAddresses/read<br>Microsoft.Network/publicIPAddresses/join/action |
+### Virtual hub resources
+
+|Resource | Required Azure permissions |
+|---|---|
+| virtualHubs | Microsoft.Network/virtualNetworks/peer/action <br>Microsoft.Network/virtualWans/join/action  |
+| virtualHubs/hubVirtualNetworkConnections | Microsoft.Network/virtualNetworks/peer/action <br>Microsoft.Network/virtualHubs/routeMaps/read <br>Microsoft.Network/virtualHubs/hubRouteTables/read |
+| virtualHubs/bgpConnections | Microsoft.Network/virtualHubs/hubVirtualNetworkConnections/read |
+| virtualHubs/hubRouteTables  |  Microsoft.Network/securityPartnerProviders/read <br>Microsoft.Network/virtualHubs/hubVirtualNetworkConnections/read <br>Microsoft.Network/networkVirtualAppliances/read <br>Microsoft.Network/azurefirewalls/read |
+| virtualHubs/routingIntent |  Microsoft.Network/securityPartnerProviders/read <br>Microsoft.Network/networkVirtualAppliances/read <br>Microsoft.Network/azurefirewalls/read |
+
+### ExpressRoute gateway resources
+
+|Resource | Required Azure permissions |
+|---|---|
+| expressroutegateways | Microsoft.Network/virtualHubs/read  <br>Microsoft.Network/virtualHubs/hubRouteTables/read <br>Microsoft.Network/virtualHubs/routeMaps/read <br>Microsoft.Network/expressRouteGateways/expressRouteConnections/read  |
+| expressRouteGateways/expressRouteConnections | Microsoft.Network/virtualHubs/hubRouteTables/read <br>Microsoft.Network/virtualHubs/routeMaps/read | 
+
+
+### VPN resources
+
+|Resource | Required Azure permissions |
+|---|---|
+| p2svpngateways  | Microsoft.Network/virtualHubs/read  <br>Microsoft.Network/virtualHubs/hubRouteTables/read <br>Microsoft.Network/virtualHubs/routeMaps/read <br>Microsoft.Network/vpnServerConfigurations/read  |
+| p2sVpnGateways/p2sConnectionConfigurations  | Microsoft.Network/virtualHubs/hubRouteTables/read <br>Microsoft.Network/virtualHubs/routeMaps/read | 
+| vpngateways  | Microsoft.Network/virtualHubs/read  <br>Microsoft.Network/virtualHubs/hubRouteTables/read <br>Microsoft.Network/virtualHubs/routeMaps/read <br>Microsoft.Network/vpnGateways/vpnConnections/read | 
+| vpnsites  | Microsoft.Network/virtualWans/read  | 
+
+### NVA resources
+
+NVAs (Network Virtual Appliances) in Virtual WAN are typically deployed through Azure managed applications or directly via NVA orchestration software. For more information on how to properly assign permissions to managed applications or NVA orchestration software, see instructions [here](aka.ms/).
+
+|Resource | Required Azure permissions |
+|---|---|
+| networkVirtualAppliances  | Microsoft.Network/virtualHubs/read  |
+| networkVirtualAppliances/networkVirtualApplianceConnections  | Microsoft.Network/virtualHubs/routeMaps/read <br>Microsoft.Network/virtualHubs/hubRouteTables/read | 
+
 
 For more information, see [Azure permissions for Networking](../role-based-access-control/permissions/networking.md) and [Virtual network permissions](../virtual-network/virtual-network-manage-subnet.md#permissions).
 
