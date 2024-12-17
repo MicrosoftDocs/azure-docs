@@ -88,7 +88,7 @@ NetworkTapRule resource provides ability for providing filtering and forwarding 
 | match-configurations/action|Provide action details. Actions can be Drop, Count, Log,Goto,Redirect,Mirror|  | |
 | dynamic-match-configurations|List of dynamic match configurations based Port, VLAN & IP |  | |
 > [!NOTE]
-> Network Tap rules and Neighbor Groups must be created prior to refrencing them in Network Tap 
+> Network Tap rules and Neighbor Groups must be created prior to referencing them in Network Tap 
 ### Create Network Tap Rule
 This command creates a Network Tap rule:
 ```azurecli
@@ -96,7 +96,7 @@ az networkfabric taprule create --resource-group "example-rg" --location "westus
  --configuration-type "Inline" \
  --match-configurations "[{matchConfigurationName:config1,sequenceNumber:10,ipAddressType:IPv4,matchConditions:[{encapsulationType:None,portCondition:{portType:SourcePort,layer4Protocol:TCP,ports:[100],portGroupNames:['example-portGroup1']},protocolTypes:[TCP],vlanMatchCondition:{vlans:['10'],innerVlans:['11-20']},ipCondition:{type:SourceIP,prefixType:Prefix,ipPrefixValues:['10.10.10.10/20']}}],\
  actions:[{type:Drop,truncate:100,isTimestampEnabled:True,destinationId:'/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxx/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/neighborGroups/example-neighborGroup',matchConfigurationName:match1}]}]"\
- --dynamic-match-configurations"[{ipGroups:[{name:'example-ipGroup1',ipAddressType:IPv4,ipPrefixes:['10.10.10.10/30']}],vlanGroups:[{name:'exmaple-vlanGroup',vlans:['10']}],portGroups:[{name:'example-portGroup1',ports:['100-200']}]}]"
+ --dynamic-match-configurations"[{ipGroups:[{name:'example-ipGroup1',ipAddressType:IPv4,ipPrefixes:['10.10.10.10/30']}],vlanGroups:[{name:'example-vlanGroup',vlans:['10']}],portGroups:[{name:'example-portGroup1',ports:['100-200']}]}]"
 ```
 Expected output:
 ```output
@@ -140,7 +140,7 @@ Expected output:
                 "11-20"
               ],
               "vlanGroupNames": [
-                "exmaple-vlanGroup"
+                "example-vlanGroup"
               ]
             },
             "ipCondition": {
@@ -178,7 +178,7 @@ Expected output:
         ],
         "vlanGroups": [
           {
-            "name": "exmaple-vlanGroup",
+            "name": "example-vlanGroup",
             "vlans": [
               "10",
               "100-200"
@@ -267,7 +267,7 @@ Expected output:
                 "11-20"
               ],
               "vlanGroupNames": [
-                "exmaple-vlanGroup"
+                "example-vlanGroup"
               ]
             },
             "ipCondition": {
@@ -305,7 +305,7 @@ Expected output:
         ],
         "vlanGroups": [
           {
-            "name": "exmaple-vlanGroup",
+            "name": "example-vlanGroup",
             "vlans": [
               "10",
               "100-200"
@@ -455,6 +455,6 @@ az networkfabric tap create --resource-group "example-rg" --location "westus3" \
 --resource-name "example-networktap" \
 --network-packet-broker-id "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxx/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkPacketBrokers/example-networkPacketBroker" \
 --polling-type "Pull"\
---destinations "[{name:'example-destinationName',destinationType:IsolationDomain,destinationId:'/subscriptions/xxxxx/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/l3IsloationDomains/example-l3Domain/internalNetworks/example-internalNetwork',\
+--destinations "[{name:'example-destinationName',destinationType:IsolationDomain,destinationId:'/subscriptions/xxxxx/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/l3IsolationDomains/example-l3Domain/internalNetworks/example-internalNetwork',\
 isolationDomainProperties:{encapsulation:None,neighborGroupIds:['/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxx/resourcegroups/example-rg/providers/Microsoft.ManagedNetworkFabric/neighborGroups/example-neighborGroup']},\
 ```

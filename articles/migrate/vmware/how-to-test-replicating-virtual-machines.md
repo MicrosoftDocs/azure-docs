@@ -28,7 +28,7 @@ Before you get started, perform the following steps:
 > You'll need at least one replicating virtual machine in the project before you can test the migration.
 
 Review the following tutorials based on your environment:
-- [Migrating VMware VMs with agentless migration](./tutorial-migrate-vmware.md).
+- [Migrating VMware VMs with agentless migration](../tutorial-migrate-vmware.md).
 - [Migrating Hyper-V VMs to Azure](../tutorial-migrate-hyper-v.md).
 - [Migrating machines as physical servers to Azure](../tutorial-migrate-physical-virtual-machines.md)
 

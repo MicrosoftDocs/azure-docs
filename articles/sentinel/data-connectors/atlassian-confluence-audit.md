@@ -69,7 +69,7 @@ To integrate with Atlassian Confluence Audit (using Azure Functions) make sure y
 
 Option 1 - Azure Resource Manager (ARM) Template
 
-Use this method for automated deployment of the Confluence Audit data connector using an ARM Tempate.
+Use this method for automated deployment of the Confluence Audit data connector using an ARM Template.
 
 1. Click the **Deploy to Azure** button below. 
 
