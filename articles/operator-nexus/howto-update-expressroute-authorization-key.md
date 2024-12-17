@@ -118,7 +118,7 @@ Post-check: Verify that the new connection for **er-circuit-A** is operational.
 
 - Run the following command to update the second infrastructure authorization key:
 
-    ```
+    ```Azure CLI
     az networkfabric controller update \
         --resource-group 'nfc resource group' \
         --resource-name 'nfc_name' \
@@ -145,7 +145,7 @@ Post-check: Verify that the new connection for **er-circuit-C** is operational.
 
 - Run the following command to update the second workload authorization key:
 
-    ```
+    ```Azure CLI
     az networkfabric controller update \
     --resource-group 'nfc resource group' \
     --resource-name 'nfc_name' \
