@@ -20,6 +20,18 @@ This article describes business continuity, high availability, and disaster reco
 
 ## Business continuity
 
+Business continuity means different things in different situations. The costs of a workload not being available might include some or all of the following effects:
+
+- Loss of business income, in whole or in part.
+- The inability to provide an important service to users.
+- Breach of a commitment you've made to a customer or another party.
+
+It's important to understand and communicate the business expectations, and the consequences of failures, to important stakeholders including those who design, implement, and operate the workload. Those stakeholders share back the costs involved in meeting that vision, and there's a process of negotiation and revisions of that vision based on budget and other constraints.
+
+For more information on the process of defining and measuring against targets, see [Recommendations for defining reliability targets](/azure/well-architected/reliability/metrics).
+
+### Business continuity planning
+
 For a successful *business continuity plan*, it's essential to:
  
 - **Identify risks** to your workload's availability or functionality, such as network issues, hardware failures, human error, or a region outage.
@@ -91,17 +103,10 @@ High availability is the state in which a specific workload can maintain its nec
 
 Because HA can vary with each workload, it's important to understand the requirements and customer expectations when determining high availability. For example, an application that's used within your organization might require a relatively low level of uptime, while a critical financial application might require a much higher uptime. Even within a workload, different *flows* might have different requirements. For example, in an eCommerce application, flows that support customers browsing and placing orders might be critical, while order fulfillment and back-office processing flows might be lower priority. To learn more about flows, see [Recommendations for identifying and rating flows](/azure/well-architected/reliability/identify-flows).
  
-When a workload architect plans for high availability, they define:
- 
-- **Service level objectives (SLO)**, which describe things like the percentage of time the workload should be available to users.
-- **Service level indicators** (SLI), which are specific metrics that are used to measure whether the workload is meeting an SLO.
- 
 Commonly, uptime is measured based on the number of "nines" in the uptime percentage, such as 99.9% (three nines) or 99.95% (three and a half nines). The higher the uptime requirement, the less tolerance you have for outages, and the more work you have to do to reach that level of availability. Uptime isn't measured by the uptime of a single component like a node, but by the overall availability of the entire workload.
 
 > [!IMPORTANT]
 > Don't overengineer your solution to reach higher levels of reliability than are justified. Use business requirements to guide your decisions.
-
-For more detailed information on how to define and measure high availability, see [Recommendations for defining reliability targets](/azure/well-architected/reliability/metrics).
 
 ### High availability design elements
 
