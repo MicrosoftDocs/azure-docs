@@ -48,14 +48,6 @@ The following table shows support of media access for specific call type and ide
 |Communication Services user	| ✔️	          |      |          |     	     |	                      |	✔️                       |
 |Microsoft 365 user	          | ✔️	          |      |          |  	         |                        | ✔️                       |
 
-### SDKs
-
-The following tables show support for the media access feature in individual Azure Communication Services SDKs.
-
-| Support status | Web | Web UI | iOS | iOS UI | Android | Android UI | Windows |
-|----------------|-----|--------|--------|--------|----------|--------|---------|
-| Is Supported   | ✔️  |        |        |        |          |        |         |		
-
 ### Operations
 
 The following table shows support for individual APIs in the calling SDK related to individual identity types.
@@ -75,6 +67,14 @@ The following table shows support for individual APIs in the calling SDK related
 | Get notification that Teams meeting's media access changed    | ✔️[1]           |    ✔️[1]                      |
 
 [1] The operation is only supported in Teams meeting
+
+### SDKs
+
+The following tables show support for the media access feature in individual Azure Communication Services SDKs.
+
+| Support status | Web | Web UI | iOS | iOS UI | Android | Android UI | Windows |
+|----------------|-----|--------|--------|--------|----------|--------|---------|
+| Is Supported   | ✔️  |        |        |        |          |        |         |		
 
 ::: zone pivot="platform-web"
 [!INCLUDE [Media Access Client-side JavaScript](./includes/media-access/media-access-web.md)]
