@@ -69,7 +69,7 @@ Replace `<resource-group>` and `<circuit-name>` with your specific resource grou
 > This step must be repeated for each circuit to generate a new authorization key for each circuit.<br>
 > The authorization keys provided here are sample values and should not be used as real keys.
 
-## Step 3: Generate new authorization keys
+### Step 3: Generate new authorization keys
 
 - Use the command below to generate new authorization keys for the ExpressRoute circuits:
 
