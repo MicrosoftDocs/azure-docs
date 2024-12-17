@@ -90,4 +90,4 @@ capabilitiesFeature.on('capabilitiesChanged', (capabilitiesChangeInfo) => {
 - *reaction*: Ability to react in the meeting (beta only)
 - *viewAttendeeNames*: Ability to view attendee names in the meeting
 - *forbidOthersAudio*: Ability to forbid all remote participants' audio in the meeting
-- *forbidOthersVideo*: Ability to forbid remote participants video in the meeting
+- *forbidOthersVideo*: Ability to forbid all remote participants' video in the meeting
