@@ -16,11 +16,11 @@ This how-to guide explains the steps for installing the required Azure CLI and e
 
 ## Prerequisites
 
-1. The [Install Azure CLI][installation-instruction] must be installed.
-2. The `networkcloud` CLI extension is required. If the `networkcloud` extension isn't installed, it can be installed following the steps listed [here](https://github.com/MicrosoftDocs/azure-docs-pr/blob/main/articles/operator-nexus/howto-install-cli-extensions.md).
-3. Access to the Azure portal for the target cluster to be upgraded.
-4. You must be logged in to the same subscription as your target cluster via `az login`
-5. Target cluster must be in a running state, with all control plane nodes healthy and 80+% of compute nodes in a running and healthy state.
+- The [Install Azure CLI][installation-instruction] must be installed.
+- The `networkcloud` CLI extension is required. If the `networkcloud` extension isn't installed, it can be installed following the steps listed [here](https://github.com/MicrosoftDocs/azure-docs-pr/blob/main/articles/operator-nexus/howto-install-cli-extensions.md).
+- Access to the Azure portal for the target cluster to be upgraded.
+- You must be logged in to the same subscription as your target cluster via `az login`
+- Target cluster must be in a running state, with all control plane nodes healthy and 80+% of compute nodes in a running and healthy state.
    
 ## Checking current runtime version
 Verify current cluster runtime version before upgrade:
