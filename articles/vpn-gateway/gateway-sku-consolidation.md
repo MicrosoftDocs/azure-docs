@@ -75,6 +75,9 @@ No. This migration is seamless and there's no expected downtime during migration
 
 Yes. AZ SKUs get the benefits of Zone redundancy for VPN gateways in [Azure regions with availability zones](../reliability/availability-zones-region-support.md). If the region doesn't support zone redundancy, the gateway is regional until the region it's deployed to supports zone redundancy.
 
+### Will my IP adress change after the migration?
+No, your IP address will remain the same. For gateways using Basic IP, you will need to migrate your gateway to use Standard IP when the migration tool becomes available. Your IP address will remain the same during the migration from Basic IP to Standard IP, and subsequently from Non-AZ SKU to AZ SKU.
+
 ### Is VPN Gateway Basic SKU retiring?
 
 No, the VPN Gateway Basic SKU isn't retiring. You can create a VPN gateway using the Basic gateway SKU via [PowerShell](create-gateway-basic-sku-powershell.md) or CLI. Currently, the VPN Gateway Basic SKU supports only the Basic SKU public IP address resource (which is on a path to retirement). We're working on adding support for the Standard SKU public IP address resource to the VPN Gateway Basic SKU.
