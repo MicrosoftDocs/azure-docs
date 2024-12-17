@@ -67,7 +67,7 @@ Before defining the Stream Analytics job, you should prepare the input data. The
 ## Create a Stream Analytics job
 
 1. On a separate tab of the same browser window or in a separate browser window, sign in to the [Azure portal](https://portal.azure.com).
-2. Select **All services** on the left menu. Select **Analytics** under **Categories**. Hover the mouse over **Stream Analytics jobs**, and select **+** or Select **+ Create** in the pop up window. 
+2. Select **All services** on the left menu. Select **Analytics** under **Categories**. Hover the mouse over **Stream Analytics jobs**, and select **+** or Select **+ Create** in the pop-up window. 
 
     :::image type="content" source="./media/stream-analytics-quick-create-portal/create-job-menu.png" alt-text="Screenshot that shows the Stream Analytics job menu." lightbox="./media/stream-analytics-quick-create-portal/create-job-menu.png":::      
 1. On the **New Stream Analytics job** page, follow these steps:
