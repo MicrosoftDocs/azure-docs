@@ -92,28 +92,28 @@ The meeting media access changed event has a media access object
     "isVideoPermitted": true
 }
 ```
-
-```js
-mediaAccessFeature.on('mediaAccessChanged', mediaAccessChangedHandler):
-
-mediaAccessFeature.on('meetingMediaAccessChanged', meetingMediaAccessChangedHandler):
-```
 The `mediaAccessChanged` event contains an object with the `mediaAccesses` property, which represents the participant's media accesses.
-The `meetingMediaAccessChanged` event contains an object with the `mediaAccesses` property, which represents the Teams meeting options setting media accesses.
+```js
+mediaAccessFeature.on('mediaAccessChanged', mediaAccessChangedHandler)
+```
+The `meetingMediaAccessChanged` event is for Teams meeting only not supported in group call, it contains an object with the `mediaAccesses` property, which represents the Teams meeting options setting media accesses.
+```js
+mediaAccessFeature.on('meetingMediaAccessChanged', meetingMediaAccessChangedHandler)
+```
 
 ### Stop receiving media access events
 Use the following code to stop receiving media access events.
 ```js
-mediaAccessFeature.off('mediaAccessChanged', mediaAccessChangedHandler):
+mediaAccessFeature.off('mediaAccessChanged', mediaAccessChangedHandler)
 
-mediaAccessFeature.off('meetingMediaAccessChanged', meetingMediaAccessChangedHandler):
+mediaAccessFeature.off('meetingMediaAccessChanged', meetingMediaAccessChangedHandler)
 ```
 
 ### List media access state for all remote participants
 You can use the `getAllOthersMediaAccess` API to get information about all remote participants media access state on current call.
 Here's an example of how to use the `getAllOthersMediaAccess` API:
 ```js
-let remoteParticipantsMediaAccess = mediaAccessHandFeature.getAllOthersMediaAccess();
+let remoteParticipantsMediaAccess = mediaAccessHandFeature.getAllOthersMediaAccess()
 ```
 Example array of media access objects returned by list all remote participants media access.
 ```json
