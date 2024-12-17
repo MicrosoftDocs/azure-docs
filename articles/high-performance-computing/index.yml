@@ -89,18 +89,18 @@ productDirectory:
         - url: /azure/virtual-machines/compiling-scaling-applications
           itemType: overview
           text: Autoscaling             
-     # Card
-     - title: Manage, Monitor, and Control
-       links:
-         - url: /azure/azure-monitor/
-           itemType: reference
-           text: Azure Monitor
-         - url: /azure/databox/
-           itemType: reference
-           text: Azure DataBox 
-         - url: /azure/open-datasets/
-           itemType: reference
-           text: Azure Open Datasets
+    # Card
+    - title: Manage, Monitor, and Control
+      links:
+        - url: /azure/azure-monitor/
+          itemType: reference
+          text: Azure Monitor
+        - url: /azure/databox/
+          itemType: reference
+          text: Azure DataBox 
+        - url: /azure/open-datasets/
+          itemType: reference
+          text: Azure Open Datasets
 
 
 # Azure HPC Resources
