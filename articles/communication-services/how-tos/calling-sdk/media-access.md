@@ -74,6 +74,8 @@ The following table shows support for individual APIs in the calling SDK related
 | Get notification that media access changed          | ✔️           |✔️                        |
 | Get notification that Teams meeting's media access changed    | ✔️[1]           |    ✔️[1]                      |
 
+[1] The operation is only supported in Teams meeting
+
 ::: zone pivot="platform-web"
 [!INCLUDE [Media Access Client-side JavaScript](./includes/media-access/media-access-web.md)]
 ::: zone-end
