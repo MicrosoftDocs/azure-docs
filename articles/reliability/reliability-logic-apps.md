@@ -97,7 +97,7 @@ Consumption logic apps that are deployed in [any region that supports availabili
 
 ::: zone pivot="standard-workflow-service-plan"
 
-You can deploy zone-redundant Standard logic apps with Workflow Service plans in [any region that supports availability zones](./availability-zones-region-support.md).
+You can deploy zone-redundant Standard logic apps with Workflow Service Plans in [any region that supports availability zones](./availability-zones-region-support.md).
 
 ::: zone-end
 
@@ -137,7 +137,7 @@ No additional cost applies to use zone redundancy, which is automatically enable
 
 ::: zone pivot="standard-workflow-service-plan"
 
-When you have Standard workflows with a Workflow Service Plan in single-tenant Azure Logic Apps, no additional cost applies to enabling availability zones as long as you have three or more instances of your plan. You are charged based on your plan SKU, the specified capacity, and any instances that you scale to based on your autoscale criteria. If you enable availability zones but specify a capacity less than three, the platform enforces a minimum instance count of three and charges you for those three instances.
+When you have Standard workflows with the Workflow Service Plan in single-tenant Azure Logic Apps, no additional cost applies to enabling availability zones as long as you have three or more instances of the plan. You are charged based on your plan SKU, the specified capacity, and any instances that you scale up or down, based on your autoscale criteria. If you enable availability zones but specify a capacity less than three instances, the platform enforces the minimum three instances and charges you for these three instances.
 
 ::: zone-end
 
@@ -214,17 +214,17 @@ For higher resiliency, you can deploy a standby or backup logic app in a seconda
 - Deploy your logic app in both both primary and secondary regions.
 - Reconfigure connections to resources as needed.
 - Configure load balancing and failover policies. 
-- Plan to monitor primary instance health and initiate failover.
+- Plan to monitor the primary instance health and initiate failover.
 
-For more information on multi-region deployments for your logic app workflows see:
+For more information on multi-region deployments for your logic app workflows, see the following documentation:
 
-- [Multi-region deployments in Azure Logic Apps](/azure/logic-apps/business-continuity-disaster-recovery-guidance).
-- [Set up cross-region disaster recovery for integration accounts in Azure Logic Apps](/azure/logic-apps/logic-apps-enterprise-integration-b2b-business-continuity).
+- [Multi-region deployments in Azure Logic Apps](/azure/logic-apps/business-continuity-disaster-recovery-guidance)
+- [Set up cross-region disaster recovery for integration accounts in Azure Logic Apps](/azure/logic-apps/logic-apps-enterprise-integration-b2b-business-continuity)
 - [Create replication tasks for Azure resources using Azure Logic Apps](/azure/logic-apps/create-replication-tasks-azure-resources)
 
 ## Service-level agreement
 
-The service-level agreement (SLA) for Azure Logic Apps describes the expected availability of the service. It also describes the conditions that must be met to achieve that availability expectation. To understand those conditions, it's important that you review the [Service Level Agreements (SLA) for Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
+The service-level agreement (SLA) for Azure Logic Apps describes the expected availability of the service. This agreement also describes the conditions to meet for achieving this expectation. To understand these conditions, make sure that you review the [Service Level Agreements (SLA) for Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
 
 ## Related content
 
