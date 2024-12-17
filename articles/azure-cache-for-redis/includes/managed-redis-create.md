@@ -1,5 +1,5 @@
 ---
-ms.date: 08/16/2024
+ms.date: 12/17/2024
 
 ms.topic: include
 ms.custom:
@@ -25,12 +25,12 @@ ms.custom:
 1. Select **Next: Networking** and select either a public or private endpoint.
 
 1. Select **Next: Advanced**.
-    
-   Configure any [Redis modules](../managed-redis/managed-redis-redis-modules.md) you wan to be add to the instance.
 
-   By default, for a new managed cache: 
-     - ** Access Keys Authentication** is disabled for security reasons.
+   Configure any [Redis modules](../managed-redis/managed-redis-redis-modules.md) you wan to add to the instance.
+
+   By default, for a new managed cache:
      - Microsoft Entra ID is enabled.
+     - - **Access Keys Authentication** is disabled for security reasons.
 
    > [!IMPORTANT]
    > For optimal security, we recommend that you use Microsoft Entra ID with managed identities to authorize requests against your cache if possible. Authorization by using Microsoft Entra ID and managed identities provides superior security and ease of use over shared access key authorization. For more information about using managed identities with your cache, see [Use Microsoft Entra ID for cache authentication](/azure/azure-cache-for-redis/cache-azure-active-directory-for-authentication).
@@ -39,7 +39,7 @@ ms.custom:
 
    :::image type="content" source="media/managed-redis-create/managed-redis-advanced-settings.png" alt-text="Screenshot that shows the Azure Managed Redis Advanced tab.":::
 
-   If you're using **Active geo-replication**, it must be configured during creation. For instructions on how do to this, see [Configure active geo-replication for Azure Managed Redis instances](../managed-redis/managed-redis-how-to-active-geo-replication.md).
+   If you're using **Active geo-replication**, it must be configured during creation. For more information, see [Configure active geo-replication for Azure Managed Redis instances](../managed-redis/managed-redis-how-to-active-geo-replication.md).
 
    > [!IMPORTANT]
    > You can't change the clustering policy of an Azure Managed Redis (preview) instance after you create it. If you're using [RediSearch](../managed-redis/managed-redis-redis-modules.md#redisearch), the Enterprise cluster policy is required, and `NoEviction` is the only eviction policy supported.
