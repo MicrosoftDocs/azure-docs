@@ -33,16 +33,16 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Manage data sources
-            url: how-to-data-source-plugins-managed-identity.md
           - text: Create a dashboard
             url: how-to-create-dashboard.md
+          - text: Manage data sources
+            url: how-to-data-source-plugins-managed-identity.md
           - text: Share a dashboard
             url: how-to-share-dashboard.md
           - text: Use reporting and image rendering
             url: how-to-use-reporting-and-image-rendering.md
           - text: Use service accounts
-            url: how-to-use-service-accounts.md
+            url: how-to-service-accounts.md
   
   - title: Manage data sources
     linkLists:
@@ -54,10 +54,14 @@ landingContent:
             url: how-to-manage-plugins.md
           - text: Add an Azure Monitor workspace
             url: how-to-connect-azure-monitor-workspace.md
-          - text: Add Azure Data Explorer
+          - text: Configure Azure Data Explorer
             url: how-to-connect-azure-data-explorer.md
           - text: Enable Grafana Enterprise
             url: how-to-grafana-enterprise.md
+      - linkListType: how-to-guide
+        links:
+          - text: Connect to self-hosted Prometheus via managed private endpoint
+            url: tutorial-mpe-oss-prometheus.md
   
   - title: Manage access and networking
     linkLists:
@@ -65,24 +69,22 @@ landingContent:
         links:
           - text: Share a workspace
             url: how-to-share-grafana-workspace.md
-          - text: Use Microsoft Entra groups
-            url: how-to-sync-teams-with-entra-groups.md
           - text: Set up authentication and permissions
             url: how-to-authentication-permissions.md
+          - text: Use Microsoft Entra groups
+            url: how-to-sync-teams-with-entra-groups.md
           - text: Modify access to Azure Monitor
             url: how-to-permissions.md
           - text: Connect to a data source privately
             url: how-to-connect-to-data-source-privately.md
           - text: Set up private access
             url: how-to-set-up-private-access.md
-          - text: Connect to self-hosted Prometheus via managed private endpoint
-            url: tutorial-mpe-oss-prometheus.md
           - text: Call Grafana APIs programmatically
             url: how-to-api-calls.md
           - text: Grafana settings
             url: grafana-settings.md
           - text: Use deterministic outbound IPs
-            url: how-to-use-deterministic-outbound-ips.md
+            url: how-to-deterministic-ip.md
       - linkListType: concept
         links:
           - text: Encryption
@@ -100,7 +102,7 @@ landingContent:
           - text: Use Azure Monitor alerts with Grafana
             url: how-to-use-azure-monitor-alerts.md
 
-  - title: Manage availability
+  - title: Understand availability
     linkLists:
       - linkListType: concept
         links:
