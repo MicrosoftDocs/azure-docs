@@ -171,9 +171,6 @@ items:
     - name: Application Insights
       tocHref: /azure/azure-monitor/azure-monitor-app-hub
       topicHref: /azure/azure-monitor/azure-monitor-app-hub
-  - name: Azure Spatial Anchors
-    tocHref: /azure/spatial-anchors/
-    topicHref: /azure/spatial-anchors/
   - name: Azure Remote Rendering
     tocHref: /azure/remote-rendering/
     topicHref: /azure/remote-rendering/
