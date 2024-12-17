@@ -52,14 +52,25 @@ Virtual Network (VNet) enables many Azure resources to securely communicate with
 
 ### Limitations of VNet injection
 
-- Creating and maintaining virtual network configurations is error prone. Troubleshooting network configuration issues is challenging. Incorrect virtual network configurations can lead to various issues:
-  - loss of metrics for your cache instances
-  - unplanned loss of availability, which can cause data loss (loss of availability caused by customer network configuration might not be covered by SLA)
-  - failure to replicate data, which can cause data loss
+- Creating and maintaining virtual network configurations are often error prone. Troubleshooting is challenging, too. Incorrect virtual network configurations can lead to issues:
+
+  - obstructed metrics transmission from your cache instances
+  
+  - failure of replica node to replicate data from primary node
+  
+  - potential data loss
+  
   - failure of management operations like scaling
+  
+  - intermittent or complete SSL/TLS failures
+  
+  - failure to apply updates, including important security and reliability improvements
+  
+  - in the most severe scenarios, loss of availability
+  
 - When using a VNet injected cache, you must keep your VNet updated to allow access to cache dependencies, such as Certificate Revocation Lists, Public Key Infrastructure, Azure Key Vault, Azure Storage, Azure Monitor, and more.
-- VNet injected caches are only available for Premium-tier Azure Cache for Redis instances.
-- You can't inject an existing Azure Cache for Redis instance into a Virtual Network. You can only select this option when you create the cache.
+- VNet injected caches are only available for Premium-tier Azure Cache for Redis instances, not other tiers.
+- You can't inject an existing Azure Cache for Redis instance into a Virtual Network. You must select this option when you *create* the cache.
 
 ## Firewall rules
 
