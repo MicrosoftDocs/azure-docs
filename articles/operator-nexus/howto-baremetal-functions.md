@@ -76,16 +76,16 @@ az networkcloud baremetalmachine restart \
 
 ## Make a BMM unschedulable (cordon)
 
-***To identify if any workloads are currently running on a BMM, run the following command:***
+**To identify if any workloads are currently running on a BMM, run the following command:**
 
-***For Virtual Machines:***
+**For Virtual Machines:**
 ```azurecli
 az networkcloud baremetalmachine show -n <nodeName> /
 --resource-group <resourceGroup> /
 --subscription <subscriptionID> | jq '.virtualMachinesAssociatedIds'
 ```
 
-***For Nexus Kubernetes cluster nodes: (requires logging into the Nexus Kubernetes cluster)***
+**For Nexus Kubernetes cluster nodes: (requires logging into the Nexus Kubernetes cluster)**
 
 ```
 kubectl get nodes <resourceName> -ojson |jq '.metadata.labels."topology.kubernetes.io/baremetalmachine"'
