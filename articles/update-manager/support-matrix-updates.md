@@ -38,6 +38,7 @@ Following is the list of supported images and no other marketplace images releas
 
 | **Offer** | **Plan**|**Unsupported image(s)** |
 |--- | --- | ---|
+|cis-windows-server-2012-r2-v2-2-1-l1 | cis-ws2012-r2-l1 ||
 |cis-windows-server-2012-r2-v2-2-1-l2 | cis-ws2012-r2-l2 ||
 |cis-windows-server-2016-v1-0-0-l1 | cis--l1 ||
 |cis-windows-server-2016-v1-0-0-l2 | cis-ws2016-l2 ||

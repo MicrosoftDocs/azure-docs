@@ -20,7 +20,7 @@ items:
   - name: Support matrix
     href: support-matrix.md
     items:
-      - name: Support matrix for updates, one time updates, Periodic assessment and Scheduled patching
+      - name: Support for Updates, Periodic assessments, Scheduled patching
         href: support-matrix-updates.md
 - name: Quickstarts
   items:
