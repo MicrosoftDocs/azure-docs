@@ -6,7 +6,7 @@ ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
 ms.date: 01/05/2024
-ms.custom:
+ai-usage: ai-assisted
 ---
 
 # Global parameters in Azure Data Factory
