@@ -49,11 +49,11 @@ Replace `<Subscription ID>` with your Azure subscription ID.
 
     ```Azure CLI
     az network express-route auth list \
-        --resource-group <resource-group> \
-        --circuit-name <circuit-name>
+        --resource-group "<resource-group>" \
+        --circuit-name "<circuit-name>"
     ```
 
-Replace <resource-group> and <circuit-name> with your specific resource group and circuit name.
+Replace `<resource-group>` and `<circuit-name>` with your specific resource group and circuit name.
 
 #### Existing authorization keys
 
@@ -79,6 +79,8 @@ Replace <resource-group> and <circuit-name> with your specific resource group an
         --circuit-name <circuit-name> \
         --name <authorization-name>
 ```
+
+Replace `<resource-group>` and `<circuit-name>` with your specific resource group and circuit name.
 
 #### New Authorization Keys
 
