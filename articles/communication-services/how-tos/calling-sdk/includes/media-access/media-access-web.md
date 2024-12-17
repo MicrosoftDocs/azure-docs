@@ -90,7 +90,7 @@ The meeting media access changed event has a media access object
 {
     "isAudioPermitted": true,
  "isVideoPermitted": true
-```
+}
 ```js
 mediaAccessFeature.on('mediaAccessChanged', mediaAccessChangedHandler):
 
