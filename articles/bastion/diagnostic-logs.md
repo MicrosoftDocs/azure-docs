@@ -2,9 +2,9 @@
 title: 'Enable and work with Azure Bastion resource logs'
 description: Learn how to enable and work with Azure Bastion diagnostic logs.
 author: cherylmc
-ms.service: bastion
+ms.service: azure-bastion
 ms.topic: how-to
-ms.date: 02/03/2020
+ms.date: 12/09/2024
 ms.author: cherylmc
 
 ---
@@ -13,23 +13,25 @@ ms.author: cherylmc
 
 As users connect to workloads using Azure Bastion, Bastion can log diagnostics of the remote sessions. You can then use the diagnostics to view which users connected to which workloads, at what time, from where, and other such relevant logging information. In order to use the diagnostics, you must enable diagnostics logs on Azure Bastion. This article helps you enable diagnostics logs, and then view the logs.
 
->[!NOTE]
->To view all resource logs available for Bastion, select each of the resource logs. If you exclude the 'All Logs' setting, you will not see all the available resource logs.
+> [!NOTE]
+> To view all resource logs available for Bastion, select each of the resource logs. If you exclude the 'All Logs' setting, you will not see all the available resource logs.
 
 ## <a name="enable"></a>Enable the resource log
 
 1. In the [Azure portal](https://portal.azure.com), go to your Azure Bastion resource and select **Diagnostics settings** from the Azure Bastion page.
 
-   ![Screenshot that shows the "Diagnostics settings" page.](./media/diagnostic-logs/1diagnostics-settings.png)
-2. Select **Diagnostics settings**, then select **+Add diagnostic setting** to add a destination for the logs.
+1. Select **Diagnostics settings**, then select **+Add diagnostic setting** to add a destination for the logs.
 
-   ![Screenshot that shows the "Diagnostics settings" page with the "Add diagnostic setting" button selected.](./media/diagnostic-logs/2add-diagnostic-setting.png)
-3. On the **Diagnostics settings** page, select the type of storage account to be used for storing diagnostics logs.
+1. On the **Diagnostics settings** page, select your desired settings. For example:
 
-   ![Screenshot of the "Diagnostics settings" page with the section to select a storage location highlighted.](./media/diagnostic-logs/3add-storage-account.png)
-4. When you complete the settings, it will look similar to this example:
+   | Setting | Value |
+   |---|---|
+   | Category groups | audit or allLogs |
+   | Categories | Bastion Audit Logs |
+   | Destination details | Select the storage account where you want to store the logs. |
+   | Metrics | AllMetrics|
 
-   ![example settings](./media/diagnostic-logs/4example-settings.png)
+1. When you complete the settings, select **Save**.
 
 ## <a name="view"></a>View diagnostics log
 
@@ -37,21 +39,20 @@ To access your diagnostics logs, you can directly use the storage account that y
 
 1. Navigate to your storage account resource, then to **Containers**. You see the **insights-logs-bastionauditlogs** blob created in your storage account blob container.
 
-   ![diagnostics settings](./media/diagnostic-logs/1-navigate-to-logs.png)
-2. As you go inside the container, you see various folders in your blob. These folders indicate the resource hierarchy for your Azure Bastion resource.
+1. As you go inside the container, you see various folders in your blob. These folders indicate the resource hierarchy for your Azure Bastion resource.
 
-   ![add diagnostic setting](./media/diagnostic-logs/2-resource-h.png)
-3. Navigate to the full hierarchy of your Azure Bastion resource whose diagnostics logs you wish to access/view. The 'y=', 'm=', 'd=', 'h=' and 'm=' indicate the year, month, day, hour, and minute respectively for the resource logs.
+1. Navigate to the full hierarchy of your Azure Bastion resource whose diagnostics logs you wish to access/view. The 'y=', 'm=', 'd=', 'h=' and 'm=' indicate the year, month, day, hour, and minute respectively for the resource logs.
 
-   ![select storage location](./media/diagnostic-logs/3-resource-location.png)
-4. Locate the json file created by Azure Bastion that contains the diagnostics log data for the time-period navigated to.
+   :::image type="content" source="./media/diagnostic-logs/3-resource-location.png" alt-text="Screenshot shows the storage location." lightbox="./media/diagnostic-logs/3-resource-location.png":::
 
-5. Download the json file from your storage blob container. An example entry of successful login from the json file is shown below for reference:
+1. Locate the json file created by Azure Bastion that contains the diagnostics log data for the time-period navigated to.
+
+1. Download the json file from your storage blob container. The following example shows the entry of successful sign in from the json file:
 
    ```json
    { 
    "time":"2019-10-03T16:03:34.776Z",
-   "resourceId":"/SUBSCRIPTIONS/<subscripionID>/RESOURCEGROUPS/MYBASTION/PROVIDERS/MICROSOFT.NETWORK/BASTIONHOSTS/MYBASTION-BASTION",
+   "resourceId":"/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/MYBASTION/PROVIDERS/MICROSOFT.NETWORK/BASTIONHOSTS/MYBASTION-BASTION",
    "operationName":"Microsoft.Network/BastionHost/connect",
    "category":"BastionAuditLogs",
    "level":"Informational",
@@ -62,8 +63,8 @@ To access your diagnostics logs, you can directly use the storage account that y
       "clientIpAddress":"131.107.159.86",
       "clientPort":24039,
       "protocol":"ssh",
-      "targetResourceId":"/SUBSCRIPTIONS/<subscripionID>/RESOURCEGROUPS/MYBASTION/PROVIDERS/MICROSOFT.COMPUTE/VIRTUALMACHINES/LINUX-KEY",
-      "subscriptionId":"<subscripionID>",
+      "targetResourceId":"/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/MYBASTION/PROVIDERS/MICROSOFT.COMPUTE/VIRTUALMACHINES/LINUX-KEY",
+      "subscriptionId":"<subscriptionID>",
       "message":"Successfully Connected.",
       "resourceType":"VM",
       "targetVMIPAddress":"172.16.1.5",
@@ -72,16 +73,16 @@ To access your diagnostics logs, you can directly use the storage account that y
    },
    "FluentdIngestTimestamp":"2019-10-03T16:03:34.0000000Z",
    "Region":"eastus",
-   "CustomerSubscriptionId":"<subscripionID>"
+   "CustomerSubscriptionId":"<subscriptionID>"
    }
    ```
    
-   Below is an example entry of unsuccessful login (e.g. due to incorrect username/password) from the json file:
+   The following example shows the entry of unsuccessful sign in (for example, due to incorrect username/password) from the json file:
    
    ```json
    { 
    "time":"2019-10-03T16:03:34.776Z",
-   "resourceId":"/SUBSCRIPTIONS/<subscripionID>/RESOURCEGROUPS/MYBASTION/PROVIDERS/MICROSOFT.NETWORK/BASTIONHOSTS/MYBASTION-BASTION",
+   "resourceId":"/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/MYBASTION/PROVIDERS/MICROSOFT.NETWORK/BASTIONHOSTS/MYBASTION-BASTION",
    "operationName":"Microsoft.Network/BastionHost/connect",
    "category":"BastionAuditLogs",
    "level":"Informational",
@@ -92,8 +93,8 @@ To access your diagnostics logs, you can directly use the storage account that y
       "clientIpAddress":"131.107.159.86",
       "clientPort":24039,
       "protocol":"ssh",
-      "targetResourceId":"/SUBSCRIPTIONS/<subscripionID>/RESOURCEGROUPS/MYBASTION/PROVIDERS/MICROSOFT.COMPUTE/VIRTUALMACHINES/LINUX-KEY",
-      "subscriptionId":"<subscripionID>",
+      "targetResourceId":"/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/MYBASTION/PROVIDERS/MICROSOFT.COMPUTE/VIRTUALMACHINES/LINUX-KEY",
+      "subscriptionId":"<subscriptionID>",
       "message":"Login Failed",
       "resourceType":"VM",
       "targetVMIPAddress":"172.16.1.5",
@@ -102,7 +103,7 @@ To access your diagnostics logs, you can directly use the storage account that y
    },
    "FluentdIngestTimestamp":"2019-10-03T16:03:34.0000000Z",
    "Region":"eastus",
-   "CustomerSubscriptionId":"<subscripionID>"
+   "CustomerSubscriptionId":"<subscriptionID>"
    }
    ```
    

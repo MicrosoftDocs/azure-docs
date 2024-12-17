@@ -4,7 +4,7 @@ description: This article helps you understand the Traffic Manager subnet overri
 services: traffic-manager
 author: greg-lindsay
 ms.topic: how-to
-ms.service: traffic-manager
+ms.service: azure-traffic-manager
 ms.date: 06/03/2024
 ms.author: greglin
 ms.custom: template-how-to, devx-track-azurecli

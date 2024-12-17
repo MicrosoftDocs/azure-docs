@@ -14,7 +14,7 @@ ms.date: 08/10/2018
 
 Microsoft Azure Government delivers a dedicated cloud with world-class security and compliance, enabling US government agencies and their partners to transform their workloads to the cloud. For example, your workload may include using virtual machines. Before provisioning a VM, you need to create and configure a virtual network for your environment. A virtual network enables resources to securely communicate with each other (within Azure and with servers accessing Azure).
 
-This tutorial shows how to connect to Azure Government, create a virtual network and a virtual machine on this network in Azure Government cloud. The Azure Government marketplace provides a VM library, in this tutorial we use "Data Science Virtual Machine - Windows 2016 CSP". To learn more about Azure Virtual Machines and see end-to-end scenarios, see [Virtual Machines Documentation](../virtual-machines/index.yml).
+This tutorial shows how to connect to Azure Government, create a virtual network and a virtual machine on this network in Azure Government cloud. The Azure Government marketplace provides a VM library, in this tutorial we use "Data Science Virtual Machine - Windows 2016 CSP". To learn more about Azure Virtual Machines and see end-to-end scenarios, see [Virtual Machines Documentation](/azure/virtual-machines/).
 
 In this tutorial, you learn how to:
 

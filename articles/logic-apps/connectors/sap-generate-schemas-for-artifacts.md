@@ -21,7 +21,7 @@ This how-to guide shows how to create an example logic app workflow that generat
 | Request message structure | Use this information to form your BAPI `get` list. |
 | Response message structure | Use this information to parse the response. |
 
-Both Standard and Consumption logic app workflows offer the SAP *managed* connector that's hosted and run in multitenant Azure. Standard workflows also offer the preview SAP *built-in* connector that's hosted and run in single-tenant Azure Logic Apps, but this connector is currently in preview and subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). If you create and host a Consumption workflow in an integration service environment (ISE), you can also use the SAP connector's ISE-native version. For more information, see [Connector technical reference](sap.md#connector-technical-reference).
+Both Standard and Consumption logic app workflows offer the SAP *managed* connector that's hosted and run in multitenant Azure. Standard workflows also offer the preview SAP *built-in* connector that's hosted and run in single-tenant Azure Logic Apps, but this connector is currently in preview and subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). For more information, see [Connector technical reference](sap.md#connector-technical-reference).
 
 ## Prerequisites
 
@@ -350,7 +350,7 @@ You can begin your XML schema with an optional XML prolog. The SAP connector wor
 
 ### XML samples for RFC requests
 
-The following example shows a basic RFC call where the RFC name is `STFC_CONNECTION`. This request uses the default namespace named `xmlns=`. However, you can assign and use namespace aliases such as `xmmlns:exampleAlias=`. The namespace value is the namespace for all the RFCs in SAP for Microsoft services. The request has a simple input parameter named `<REQUTEXT>`.
+The following example shows a basic RFC call where the RFC name is `STFC_CONNECTION`. This request uses the default namespace named `xmlns=`. However, you can assign and use namespace aliases such as `xmlns:exampleAlias=`. The namespace value is the namespace for all the RFCs in SAP for Microsoft services. The request has a simple input parameter named `<REQUTEXT>`.
 
 ```xml
 <STFC_CONNECTION xmlns="http://Microsoft.LobServices.Sap/2007/03/Rfc/">

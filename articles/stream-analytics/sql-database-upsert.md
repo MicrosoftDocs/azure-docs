@@ -1,7 +1,7 @@
 ---
 title: Update or merge records in Azure SQL Database with Azure Functions
 description: This article describes how to use Azure Functions to update or merge records from Azure Stream Analytics to Azure SQL Database
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.date: 02/27/2024
 ---
@@ -408,7 +408,7 @@ Azure Cosmos DB [supports UPSERT natively](./stream-analytics-documentdb-output.
 
 If the requirements match, an option is to replace the target SQL database by an Azure Cosmos DB instance. Doing so requires an important change in the overall solution architecture.
 
-For Synapse SQL, Azure Cosmos DB can be used as an intermediary layer via [Azure Synapse Link for Azure Cosmos DB](../cosmos-db/synapse-link.md). Azure Synapse Link can be used to create an [analytical store](../cosmos-db/analytical-store-introduction.md). This data store can then be queried directly in Synapse SQL.
+For Synapse SQL, Azure Cosmos DB can be used as an intermediary layer via [Azure Synapse Link for Azure Cosmos DB](/azure/cosmos-db/synapse-link). Azure Synapse Link can be used to create an [analytical store](/azure/cosmos-db/analytical-store-introduction). This data store can then be queried directly in Synapse SQL.
 
 ### Comparison of the alternatives
 

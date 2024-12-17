@@ -4,9 +4,9 @@ titleSuffix: Azure Front Door
 description: This article explains the concept of what an origin and origin group is in a Front Door configuration.
 services: front-door
 author: duongau
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.topic: conceptual
-ms.date: 04/04/2023
+ms.date: 08/12/2024
 ms.author: duau
 zone_pivot_groups: front-door-tiers
 ---

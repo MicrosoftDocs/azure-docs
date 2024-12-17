@@ -5,6 +5,10 @@ author: oshezaf
 ms.topic: how-to
 ms.date: 11/09/2021
 ms.author: ofshezaf
+
+
+#Customer intent: As a security analyst, I want to develop custom ASIM parsers so that I can normalize and analyze security event data from various sources in a consistent format.
+
 --- 
 
 # Develop Advanced Security Information Model (ASIM) parsers (Public preview)
@@ -116,7 +120,7 @@ For example, Infoblox DNS events are sent as Syslog messages, and are hard to di
 
 To use the ASimSourceType watchlist in your parsers, use the `_ASIM_GetSourceBySourceType` function in the parser filtering section. For example, the Infoblox DNS parser includes the following in the filtering section:
 
-```KQL
+```kusto
   | where Computer in (_ASIM_GetSourceBySourceType('InfobloxNIOS'))
 ```
 
@@ -189,7 +193,7 @@ The KQL operators that perform parsing are listed below, ordered by their perfor
 
 The simplest form of normalization is renaming an original field to its normalized name. Use the operator `project-rename` for that. Using project-rename ensures that the field is still managed as a physical field and handling the field is more performant. For example:
 
-```KQL
+```kusto
  | project-rename
     ActorUserId = InitiatingProcessAccountSid,
     ActorUserAadId = InitiatingProcessAccountObjectId,
@@ -204,7 +208,7 @@ Also, ensuring that parser output fields matches type defined in the schema is c
 
 For example, the original unique event ID may be sent as an integer, but ASIM requires the value to be a string, to ensure broad compatibility among data sources. Therefore, when assigning the source field use `extend` and `tostring` instead of `project-rename`:
 
-```KQL
+```kusto
   | extend EventOriginalUid = tostring(ReportId),
 ```
 
@@ -214,13 +218,13 @@ The value of the source field, once extracted, may need to be mapped to the set 
 
 For example, the Microsoft DNS parser assigns the `EventResult` field based on the Event ID and Response Code using an `iff` statement, as follows:
 
-```KQL
+```kusto
    extend EventResult = iff(EventId==257 and ResponseCode==0 ,'Success','Failure')
 ```
 
 To map several values, define the mapping using the `datatable` operator and use `lookup` to perform the mapping. For example, some sources report numeric DNS response codes and the network protocol, while the schema mandates the more common text labels representation for both. The following example demonstrates how to derive the needed values using `datatable` and `lookup`:
 
-```KQL
+```kusto
    let NetworkProtocolLookup = datatable(Proto:real, NetworkProtocol:string)[
         6, 'TCP',
         17, 'UDP'
@@ -241,7 +245,7 @@ Notice that lookup is useful and efficient also when the mapping has only two po
 
 When the mapping conditions are more complex combine `iff`, `case`, and `lookup`. The example below shows how to combine `lookup` and `case`. The `lookup` example above returns an empty value in the field `DnsResponseCodeName` if the lookup value is not found. The `case` example below augments it by using the result of the `lookup` operation if available, and specifying additional conditions otherwise. 
 
-```KQL
+```kusto
    | extend DnsResponseCodeName = 
       case (
         DnsResponseCodeName != "", DnsResponseCodeName,
@@ -253,7 +257,7 @@ When the mapping conditions are more complex combine `iff`, `case`, and `lookup`
 
 Microsoft Sentinel provides handy functions for common lookup values. For example, the `DnsResponseCodeName` lookup above, can be implemented using one of the following functions:
 
-```KQL
+```kusto
 
 | extend DnsResponseCodeName = _ASIM_LookupDnsResponseCode(DnsResponseCode)
 
@@ -269,7 +273,7 @@ For a full list of ASIM help functions, refer to [ASIM functions](normalization-
 
 In addition to the fields available from the source, a resulting ASIM event includes enrichment fields that the parser should generate. In many cases, the parsers can assign a constant value to the fields, for example:
 
-```KQL
+```kusto
   | extend                  
      EventCount = int(1),
      EventProduct = 'M365 Defender for Endpoint',
@@ -282,13 +286,13 @@ Another type of enrichment fields that your parsers should set are type fields, 
 
 In most cases, types are also assigned a constant value. However, in some cases the type has to be determined based on the actual value, for example:
 
-```KQL
+```kusto
    DomainType = iif (array_length(SplitHostname) > 1, 'FQDN', '')
 ```
 
 <a name="resolvefqnd"></a>Microsoft Sentinel provides useful functions for handling enrichment. For example, use the following function to automatically assign the fields `SrcHostname`, `SrcDomain`, `SrcDomainType` and `SrcFQDN` based on the value in the field `Computer`. 
 
-```KQL
+```kusto
   | invoke _ASIM_ResolveSrcFQDN('Computer')
 ```
 
@@ -315,7 +319,7 @@ The following KQL operators are used to select fields in your results set:
 
 For example, when parsing a custom log table, use the following to remove the remaining original fields that still have a type descriptor:
 
-```KQL
+```kusto
     | project-away
         *_d, *_s, *_b, *_g
 ``` 
@@ -355,7 +359,7 @@ To avoid duplicate events and excessive processing, make sure each function star
 
 ## Deploy parsers
 
-Deploy parsers manually by copying them to the Azure Monitor Log page and saving the query as a function. This method is useful for testing. For more information, see [Create a function](../azure-monitor/logs/functions.md).
+Deploy parsers manually by copying them to the Azure Monitor Log page and saving the query as a function. This method is useful for testing. For more information, see [Create a function](/azure/azure-monitor/logs/functions).
 
 To deploy a large number of parsers, we recommend using parser ARM templates, as follows:
 
@@ -388,7 +392,7 @@ To test ASIM, [deploy the ASIM testing tool](https://aka.ms/ASimTestingTools) to
 
 To make sure that your parser produces a valid schema, use the ASIM schema tester by running the following query in the Microsoft Sentinel **Logs** page:
 
-  ```KQL
+  ```kusto
   <parser name> | getschema | invoke ASimSchemaTester('<schema>')
   ```
 
@@ -424,7 +428,7 @@ Handle the results as follows:
 
 To make sure that your parser produces valid values, use the ASIM data tester by running the following query in the Microsoft Sentinel **Logs** page:
 
-  ```KQL
+  ```kusto
   <parser name> | limit <X> | invoke ASimDataTester ('<schema>')
   ```
 

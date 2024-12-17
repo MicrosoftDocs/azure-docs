@@ -4,7 +4,7 @@ description: In this tutorial, you'll learn how to analyze data located in a sto
 author: whhender
 ms.author: whhender
 ms.reviewer: whhender
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 11/18/2022
@@ -24,6 +24,9 @@ So far, we've covered scenarios where data resides in databases in the workspace
 ### Create CSV and Parquet files in your storage account
 
 Run the following code in a notebook in a new code cell. It creates a CSV file and a parquet file in the storage account.
+
+>[!TIP]
+>This table was created earlier in the quickstart, and you can find the steps [here](get-started-analyze-spark.md#analyze-the-nyc-taxi-data-using-spark-and-notebooks).
 
 ```py
 %%pyspark

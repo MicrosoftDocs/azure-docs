@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 07/12/2024
 ms.topic: how-to
-ms.service: iot-central
+ms.service: azure-iot-central
 services: iot-central
 
 ---
@@ -17,8 +17,6 @@ The IoT Central REST API lets you develop client applications that integrate wit
 Every IoT Central REST API call requires an authorization header. To learn more, see [How to authenticate and authorize IoT Central REST API calls](howto-authorize-rest-api.md).
 
 For the reference documentation for the IoT Central REST API, see [Azure IoT Central REST API reference](/rest/api/iotcentral/).
-
-[!INCLUDE [iot-central-postman-collection](../../../includes/iot-central-postman-collection.md)]
 
 To learn how to manage device templates by using the IoT Central UI, see [How to set up device templates](../core/howto-set-up-template.md) and [How to edit device templates](../core/howto-edit-device-template.md)
 

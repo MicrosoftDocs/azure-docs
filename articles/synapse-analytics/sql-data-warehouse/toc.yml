@@ -101,7 +101,7 @@ items:
       - name: Data discovery & classification
         href: /azure/azure-sql/database/data-discovery-and-classification-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
       - name: Vulnerability assessment
-        href: ../../defender-for-cloud/sql-azure-vulnerability-assessment-overview.md
+        href: /azure/defender-for-cloud/sql-azure-vulnerability-assessment-overview
       - name: Advanced Threat Protection
         href: /azure/azure-sql/database/threat-detection-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
     - name: Auditing

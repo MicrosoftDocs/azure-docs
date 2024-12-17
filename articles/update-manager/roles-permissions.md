@@ -4,7 +4,7 @@ description: This article explains th roles and permission required to manage Az
 ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 07/19/2024
+ms.date: 10/06/2024
 ms.topic: overview
 ---
  
@@ -18,8 +18,9 @@ The built-in roles provide blanket permissions on a virtual machine, which inclu
 
 | **Resource** | **Role** |
 |---|---|
-| **Azure VM** | Azure Virtual Machine Contributor or Azure [Owner](../role-based-access-control/built-in-roles.md)|
-| **Azure Arc-enabled server** | [Azure Connected Machine Resource Administrator](../azure-arc/servers/security-overview.md)|
+| **Azure VM** | Azure Virtual Machine Contributor or Azure [Owner](../role-based-access-control/built-in-roles/general.md#azure-built-in-roles-for-general).
+| **Azure Arc-enabled server** | [Azure Connected Machine Resource Administrator](/azure/azure-arc/servers/security-overview)|
+
 
 ## Permissions
 

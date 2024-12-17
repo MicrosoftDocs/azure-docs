@@ -4,7 +4,7 @@ description: Reference for network configuration settings when deploying Azure A
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: reference
 ms.date: 11/29/2023
 ms.author: danlep
@@ -46,7 +46,7 @@ When an API Management service instance is hosted in a VNet, the ports in the fo
 | * / 443                     | Outbound           | TCP                | VirtualNetwork / AzureKeyVault                | **Access to Azure Key Vault**                         | External & Internal  |
 | * / 5671, 5672, 443          | Outbound           | TCP                | VirtualNetwork / EventHub            | Dependency for [Log to Azure Event Hubs policy](api-management-howto-log-event-hubs.md) and [Azure Monitor](api-management-howto-use-azure-monitor.md) (optional) | External & Internal  |
 | * / 445                      | Outbound           | TCP                | VirtualNetwork / Storage             | Dependency on Azure File Share for [GIT](api-management-configuration-repository-git.md) (optional)                   | External & Internal  |
-| * / 1886, 443                     | Outbound           | TCP                | VirtualNetwork / AzureMonitor         | **Publish [Diagnostics Logs and Metrics](api-management-howto-use-azure-monitor.md), [Resource Health](../service-health/resource-health-overview.md), and [Application Insights](api-management-howto-app-insights.md)**                  | External & Internal  |
+| * / 1886, 443                     | Outbound           | TCP                | VirtualNetwork / AzureMonitor         | **Publish [Diagnostics Logs and Metrics](api-management-howto-use-azure-monitor.md), [Resource Health](/azure/service-health/resource-health-overview), and [Application Insights](api-management-howto-app-insights.md)**                  | External & Internal  |
 | * / 6380             | Inbound & Outbound | TCP                | VirtualNetwork / VirtualNetwork     | Access external Azure Cache for Redis service for [caching](api-management-caching-policies.md) policies between machines (optional)        | External & Internal  |
 | * / 6381 - 6383              | Inbound & Outbound | TCP                | VirtualNetwork / VirtualNetwork     | Access internal Azure Cache for Redis service for [caching](api-management-caching-policies.md) policies between machines (optional)        | External & Internal  |
 | * / 4290              | Inbound & Outbound | UDP                | VirtualNetwork / VirtualNetwork     | Sync Counters for [Rate Limit](rate-limit-policy.md) policies between machines (optional)        | External & Internal  |
@@ -68,7 +68,7 @@ When an API Management service instance is hosted in a VNet, the ports in the fo
 | * / 5671, 5672, 443          | Outbound           | TCP                | VirtualNetwork / Azure Event Hubs            | Dependency for [Log to Azure Event Hubs policy](api-management-howto-log-event-hubs.md) and monitoring agent (optional)| External & Internal  |
 | * / 445                      | Outbound           | TCP                | VirtualNetwork / Storage             | Dependency on Azure File Share for [GIT](api-management-configuration-repository-git.md) (optional)                     | External & Internal  |
 | * / 443, 12000                     | Outbound           | TCP                | VirtualNetwork / AzureCloud            | Health and Monitoring Extension & Dependency on Event Grid (if events notification activated) (optional)       | External & Internal  |
-| * / 1886, 443                     | Outbound           | TCP                | VirtualNetwork / AzureMonitor         | **Publish [Diagnostics Logs and Metrics](api-management-howto-use-azure-monitor.md), [Resource Health](../service-health/resource-health-overview.md), and [Application Insights](api-management-howto-app-insights.md)**                  | External & Internal  |
+| * / 1886, 443                     | Outbound           | TCP                | VirtualNetwork / AzureMonitor         | **Publish [Diagnostics Logs and Metrics](api-management-howto-use-azure-monitor.md), [Resource Health](/azure/service-health/resource-health-overview), and [Application Insights](api-management-howto-app-insights.md)**                  | External & Internal  |
 | * / 6380             | Inbound & Outbound | TCP                | VirtualNetwork / VirtualNetwork     | Access external Azure Cache for Redis service for [caching](api-management-caching-policies.md) policies between machines (optional)        | External & Internal  |
 | * / 6381 - 6383              | Inbound & Outbound | TCP                | VirtualNetwork / VirtualNetwork     | Access internal Azure Cache for Redis service for [caching](api-management-caching-policies.md) policies between machines (optional)        | External & Internal  |
 | * / 4290              | Inbound & Outbound | UDP                | VirtualNetwork / VirtualNetwork     | Sync Counters for [Rate Limit](rate-limit-policy.md) policies between machines (optional)        | External & Internal  |
@@ -120,7 +120,7 @@ Enable publishing the [developer portal](api-management-howto-developer-portal.m
   You're not required to allow inbound requests from service tag `AzureLoadBalancer` for the Developer SKU, since only one compute unit is deployed behind it. However, inbound connectivity from `AzureLoadBalancer` becomes **critical** when scaling to a higher SKU, such as Premium, because failure of the health probe from load balancer then blocks all inbound access to the control plane and data plane.
 
 ## Application Insights  
-  If you enabled [Azure Application Insights](api-management-howto-app-insights.md) monitoring on API Management, allow outbound connectivity to the [telemetry endpoint](../azure-monitor/ip-addresses.md#outgoing-ports) from the VNet.
+  If you enabled [Azure Application Insights](api-management-howto-app-insights.md) monitoring on API Management, allow outbound connectivity to the [telemetry endpoint](/azure/azure-monitor/ip-addresses#outgoing-ports) from the VNet.
 
 ## KMS endpoint
 

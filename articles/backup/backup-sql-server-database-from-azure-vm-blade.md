@@ -3,7 +3,7 @@ title: Back up SQL Server from the Azure VM blade using Azure Backup
 description: In this article, learn how to back up SQL Server databases from the Azure VM blade via the Azure portal.
 ms.topic: how-to
 ms.date: 07/23/2024
-ms.service: backup
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---

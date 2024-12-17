@@ -6,13 +6,13 @@ description: Define a phone factor technical profile in a custom policy in Azure
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: reference
 ms.date: 01/11/2024
 
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As a developer implementing phone number verification in Azure AD B2C, I want to define a phone factor technical profile, so that I can provide a user interface for users to verify or enroll their phone numbers, support multiple phone numbers, and return claims indicating the status of the phone number.

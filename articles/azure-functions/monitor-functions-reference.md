@@ -37,11 +37,11 @@ These metrics are used to estimate the costs associated with _on demand_ and _al
 | ------ | ---------- | ----------------- |
 | **OnDemandFunctionExecutionCount**    | Total number of function executions in on demand instances.  | `OnDemandFunctionExecutionCount / 10` is the **On Demand Total Executions** meter, for which the unit of measurement is in tens.  |
 | **AlwaysReadyFunctionExecutionCount** | Total number of function executions in always ready instances. | `AlwaysReadyFunctionExecutionCount / 10` is the **Always Ready Total Executions** meter, for which the unit of measurement is in tens. |
-| **OnDemandFunctionExecutionUnits**  | Total MB-millseconds from on demand instances while actively executing functions. | `OnDemandFunctionExecutionUnits / 1,024,000` is the On Demand Execution Time meter, in GB-seconds. |
-| **AlwaysReadyFunctionExecutionUnits** | Total MB-millseconds from always ready instances while actively executing functions. | `AlwaysReadyFunctionExecutionUnits / 1,024,000` is the Always Ready Execution Time meter, in GB-seconds. |
-| **AlwaysReadyUnits** | The total MB-millseconds of always ready instances assigned to the app, whether or not functions are actively executing. | `AlwaysReadyUnits / 1,024,000` is the Always Ready Baseline meter, in GB-seconds. |
+| **OnDemandFunctionExecutionUnits**  | Total MB-milliseconds from on demand instances while actively executing functions. | `OnDemandFunctionExecutionUnits / 1,024,000` is the On Demand Execution Time meter, in GB-seconds. |
+| **AlwaysReadyFunctionExecutionUnits** | Total MB-milliseconds from always ready instances while actively executing functions. | `AlwaysReadyFunctionExecutionUnits / 1,024,000` is the Always Ready Execution Time meter, in GB-seconds. |
+| **AlwaysReadyUnits** | The total MB-milliseconds of always ready instances assigned to the app, whether or not functions are actively executing. | `AlwaysReadyUnits / 1,024,000` is the Always Ready Baseline meter, in GB-seconds. |
 
-In this table, all execution units are calculated by multipling the fixed instance memory size, such as 2,048 MB or 4,096 MB, by total execution times, in milliseconds.
+In this table, all execution units are calculated by multiplying the fixed instance memory size, such as 2,048 MB or 4,096 MB, by total execution times, in milliseconds.
 
 ---
 
@@ -53,7 +53,7 @@ The following table lists the metrics available for the Microsoft.Web/sites reso
 >These metrics aren't available when your function app runs on Linux in a [Consumption plan](./consumption-plan.md).
 
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
-[!INCLUDE [Microsoft.Web/sites](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-web-sites-metrics-include.md)]
+[!INCLUDE [Microsoft.Web/sites](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-web-sites-metrics-include.md)]
 
 [!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
 
@@ -62,7 +62,7 @@ The following table lists the metrics available for the Microsoft.Web/sites reso
 [!INCLUDE [horz-monitor-ref-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
 
 ### Supported resource logs for Microsoft.Web/sites
-[!INCLUDE [Microsoft.Web/sites](~/azure-reference-other-repo/azure-monitor-ref/supported-logs/includes/microsoft-web-sites-logs-include.md)]
+[!INCLUDE [Microsoft.Web/sites](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/logs/microsoft-web-sites-logs-include.md)]
 
 The log specific to Azure Functions is **FunctionAppLogs**.
 

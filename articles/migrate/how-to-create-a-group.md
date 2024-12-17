@@ -6,8 +6,8 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: how-to
-ms.date: 07/28/2021
-ms.custom: engagement-fy23
+ms.date: 08/21/2024
+ms.custom: engagement-fy25
 ---
 
 # Create a group for assessment
@@ -36,13 +36,9 @@ If you want to create a group manually outside of creating an assessment, do the
     - If you haven't yet added the Azure Migrate: Discovery and assessment tool, click to add it. [Learn more](how-to-assess.md).
     - If you haven't yet created an Azure Migrate project, [learn more](./create-manage-projects.md).
 
-    ![Select groups](./media/how-to-create-a-group/select-groups.png)
-
 2. Click the **Group** icon.
 3. In **Create group**, specify a group name, and in **Appliance name**, select the Azure Migrate appliance you're using for server discovery.
 4. From the server list, select the servers you want to add to the group > **Create**.
-
-    ![Create group](./media/how-to-create-a-group/create-group.png)
 
 You can now use this group when you [create an Azure VM assessment](how-to-create-assessment.md) or [an Azure VMware Solution (AVS) assessment](how-to-create-azure-vmware-solution-assessment.md) or [an Azure SQL assessment](how-to-create-azure-sql-assessment.md) or [an Azure App Service assessment](how-to-create-azure-app-service-assessment.md).
 
@@ -56,8 +52,8 @@ Dependency mapping helps you to visualize dependencies across servers. You typic
 
 If you've already [set up dependency mapping](how-to-create-group-machine-dependencies.md), and want to refine an existing group, do the following:
 
-1. In the **Servers** tab, in **Azure Migrate: Discovery and assessment** tile, click **Groups**.
-2. Click the group you want to refine.
+1. In the **Servers, databases and web apps** tab, in **Azure Migrate: Discovery and assessment** tile, select **Groups**.
+2. Select the group you want to refine.
     - If you haven't yet set up dependency mapping, the **Dependencies** column will show a **Requires installation** status. For each server for which you want to visualize dependencies, click **Requires installation**. Install a couple of agents on each server, before you can map the server dependencies. [Learn more](how-to-create-group-machine-dependencies.md).
 
         ![Add dependency mapping](./media/how-to-create-a-group/add-dependency-mapping.png)

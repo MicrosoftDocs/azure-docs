@@ -1,10 +1,10 @@
 ---
 title: Support matrix for Azure Blobs backup
 description: Provides a summary of support settings and limitations when backing up Azure Blobs.
-ms.topic: conceptual
-ms.date: 07/24/2024
+ms.topic: reference
+ms.date: 12/03/2024
 ms.custom: references_regions, engagement-fy24
-ms.service: backup
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -23,7 +23,7 @@ Operational backup for blobs is available in all public cloud regions, except Fr
 
 # [Vaulted backup](#tab/vaulted-backup)
 
-Vaulted backup for blobs is currently available in all public regions **except** South Africa West, Sweden Central, Sweden South, Israel Central, Poland Central, India Central, Italy North and Malaysia South.
+Vaulted backup for blobs is available in all public regions.
 
 
 ---
@@ -63,6 +63,10 @@ Operational backup of blobs uses blob point-in-time restore, blob versioning, so
 - Currently, you can perform only *one backup* per day (that includes scheduled and on-demand backups). Backup fails if you attempt to perform more than one backup operation a day.
 - If you stop protection (vaulted backup) on a storage account, it doesn't delete the object replication policy created on the storage account. In these scenarios, you need to manually delete the *OR policies*.
 - Cool and archived blobs are currently not supported.
+- The backup operation isn't supported for blobs that are uploaded by using [Data Lake Storage APIs](/rest/api/storageservices/data-lake-storage-gen2).
+- When you delete and recreate a storage account with the same name, **Object Replication** doesn't recognize the change. As a result, future Recovery Points continue to include the older blobs and their versions.
+- Similarly, if you delete and recreate a container with the same name, **Object Replication** doesn't track the change, and future Recovery Points still include the previous blobs and versions.
+- If you suspend and resume protection or delete the **Object Replication policy** on the **source storage account**, the policy triggers a full backup.
 
 
 ---

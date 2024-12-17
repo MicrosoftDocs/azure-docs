@@ -2,7 +2,7 @@
 title: Develop & configure Azure Functions app - Azure SignalR
 description: Details on how to develop and configure serverless real-time applications using Azure Functions and Azure SignalR Service
 author: vicancy
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.topic: conceptual
 ms.date: 04/02/2024
 ms.author: lianwei
@@ -16,6 +16,8 @@ ms.custom: devx-track-csharp
 Azure Functions applications can use the [Azure SignalR Service bindings](../azure-functions/functions-bindings-signalr-service.md) to add real-time capabilities. Client applications use client SDKs available in several languages to connect to Azure SignalR Service and receive real-time messages.
 
 This article describes the concepts for developing and configuring an Azure Function app that is integrated with SignalR Service.
+
+[!INCLUDE [Connection string security](includes/signalr-connection-string-security.md)]
 
 ## SignalR Service configuration
 
@@ -153,7 +155,10 @@ public interface IChatClient
 }
 ```
 
-Then you can use the strongly typed methods as follows:
+Then you can use the strongly typed methods as follows.
+
+[!INCLUDE [Connection string security comment](includes/signalr-connection-string-security-comment.md)]
+
 ```cs
 [SignalRConnection("AzureSignalRConnectionString")]
 public class Functions : ServerlessHub<IChatClient>

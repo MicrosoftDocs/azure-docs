@@ -45,7 +45,7 @@ From the command line, go inside the root directory of the `ChatQuickstart` iOS 
 Open the Podfile, and add the following dependencies to the `ChatQuickstart` target:
 
 ```
-pod 'AzureCommunicationChat', '~> 1.3.5'
+pod 'AzureCommunicationChat', '~> 1.3.6'
 ```
 
 Install the dependencies with the following command: `pod install`. Note that this also creates an Xcode workspace.
@@ -58,7 +58,7 @@ Open the workspace `ChatQuickstart.xcworkspace` in Xcode, and then open `ViewCon
 
 In this quickstart, you add your code to `viewController`, and view the output in the Xcode console. This quickstart doesn't address building a user interface in iOS. 
 
-At the top of `viewController.swift`, import the `AzureCommunication` and `AzureCommunicatonChat` libraries:
+At the top of `viewController.swift`, import the `AzureCommunication` and `AzureCommunicationChat` libraries:
 
 ```
 import AzureCommunicationCommon

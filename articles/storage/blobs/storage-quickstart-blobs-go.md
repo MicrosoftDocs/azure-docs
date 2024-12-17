@@ -4,7 +4,7 @@ titleSuffix: Azure Storage
 description: In this quickstart, you learn how to use the Azure Blob Storage client module for Go to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
 author: pauljewellmsft
 ms.author: pauljewell
-ms.date: 05/22/2024
+ms.date: 09/13/2024
 ms.service: azure-blob-storage
 ms.topic: quickstart
 ms.devlang: golang
@@ -266,14 +266,7 @@ handleError(err)
 
 To learn more about deleting blobs and containers, and to explore more code examples, see [Delete a blob with Go](storage-blob-delete-go.md) and [Delete a container with Go](storage-blob-container-delete-go.md).
 
-## Next steps
-
-In this quickstart, you learned how to upload, download, and list blobs using Go.
-
-To see Blob storage sample apps, continue to:
+## Next step
 
 > [!div class="nextstepaction"]
-> [Azure Blob Storage library for Go samples](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#example-package)
-
-- To learn more, see the [Azure Blob Storage client module for Go](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azblob).
-- For tutorials, samples, quickstarts, and other documentation, visit [Azure for Go Developers](/azure/developer/go/overview).
+> [Azure Blob Storage developer guides for Go](storage-blob-go-get-started.md#build-your-app)

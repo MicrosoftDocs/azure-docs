@@ -4,8 +4,7 @@ description: Describes how to define alert processing rules to manage alert noti
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 03/13/2023
 ms.author: alkohli
@@ -20,14 +19,14 @@ This article describes how to create alert processing rules in the Azure portal.
 
 An alert processing rule can add action groups to alert notifications. Use alert notification preferences, like email or SMS messages, to notify users when alerts are triggered.
 
-For more information about alert processing rules, see [Alert processing rules](../azure-monitor/alerts/alerts-processing-rules.md?tabs=portal). For more information about action groups, see [Create and manage action groups in the Azure portal](../azure-monitor/alerts/action-groups.md).
+For more information about alert processing rules, see [Alert processing rules](/azure/azure-monitor/alerts/alerts-processing-rules?tabs=portal). For more information about action groups, see [Create and manage action groups in the Azure portal](/azure/azure-monitor/alerts/action-groups).
 
 ## Create an alert processing rule
 
 Use the following steps in the Azure portal to create an alert processing rule for your Azure Stack Edge device.
 
 > [!NOTE]
-> These steps create an alert processing rule. The alert processing rule adds action groups to alert notifications. For details about creating an alert processing rule to suppress notifications, see [Alert processing rules](../azure-monitor/alerts/alerts-action-rules.md?tabs=portal).
+> These steps create an alert processing rule. The alert processing rule adds action groups to alert notifications. For details about creating an alert processing rule to suppress notifications, see [Alert processing rules](/azure/azure-monitor/alerts/alerts-action-rules?tabs=portal).
 
 1. Go to the Azure Stack Edge device in the [Azure portal](https://portal.azure.com), and select the **Alerts** menu item (under **Monitoring**). Then select **Alert processing rules**.
 
@@ -55,7 +54,7 @@ Use the following steps in the Azure portal to create an alert processing rule f
    
 1. On the **Add filters** pane, under **Filters**, add each filter you want to apply. For each filter, select the **Filter** type, **Operator**, and **Value**.
 
-   For a list of filter options, see [Filter criteria](../azure-monitor/alerts/alerts-processing-rules.md?tabs=portal#scope-and-filters-for-alert-processing-rules).
+   For a list of filter options, see [Filter criteria](/azure/azure-monitor/alerts/alerts-processing-rules?tabs=portal#scope-and-filters-for-alert-processing-rules).
 
    The filters in the following example apply to all alerts at Severity levels 2, 3, and 4 that the Monitor service raises for Azure Stack Edge resources. 
 
@@ -65,10 +64,10 @@ Use the following steps in the Azure portal to create an alert processing rule f
 
    Select an option to **+ Select action group** for an existing group or **+ Create action group** to create a new one.
 
-    To create a new action group, select **+ Create action group** and follow the steps in [Alert processing rules](../azure-monitor/alerts/alerts-processing-rules.md#add-action-groups-to-all-alert-types).
+    To create a new action group, select **+ Create action group** and follow the steps in [Alert processing rules](/azure/azure-monitor/alerts/alerts-processing-rules#add-action-groups-to-all-alert-types).
 
    >[!NOTE]
-   >Select the **Suppress notifications** option if you don't want to invoke notifications for alerts. For more information, see [Alert processing rules](../azure-monitor/alerts/alerts-processing-rules.md?tabs=portal#suppress-notifications-during-planned-maintenance).
+   >Select the **Suppress notifications** option if you don't want to invoke notifications for alerts. For more information, see [Alert processing rules](/azure/azure-monitor/alerts/alerts-processing-rules?tabs=portal#suppress-notifications-during-planned-maintenance).
 
    [![Screenshot of the rule setting options for rule type and action group options for an action rule in Azure Stack Edge.](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/azure-stack-edge-action-rule-setting-options-08.png)](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/azure-stack-edge-action-rule-setting-options-08.png#lightbox)
 
@@ -112,5 +111,5 @@ The email notification looks similar to the following example.
 ## Next steps
 
 - [View device alerts](azure-stack-edge-alerts.md).
-- [Work with alert metrics](../azure-monitor/alerts/alerts-metric.md).
+- [Work with alert metrics](/azure/azure-monitor/alerts/alerts-metric).
 - [Set up Azure Monitor](azure-stack-edge-gpu-enable-azure-monitor.md).

@@ -1,7 +1,7 @@
 ---
 title: Apache HBase REST not responding to requests in Azure HDInsight
 description: Resolve issue with Apache HBase REST not responding to requests in Azure HDInsight.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: troubleshooting
 ms.date: 03/23/2024
 ---

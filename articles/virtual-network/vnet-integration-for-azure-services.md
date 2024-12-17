@@ -3,7 +3,7 @@ title: Virtual network integration of Azure services for network isolation
 titlesuffix: Azure Virtual Network
 description: This article describes different methods of integrating an Azure service to a virtual network that enables you to securely access the Azure service.
 author: asudbring
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: conceptual
 ms.date: 05/08/2023
 ms.author: allensu

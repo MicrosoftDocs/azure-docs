@@ -6,7 +6,7 @@ ms.custom: horz-monitor
 ms.topic: reference
 author: sethmanheim
 ms.author: sethm
-ms.service: notification-hubs
+ms.service: azure-notification-hubs
 ---
 
 # Azure Notification Hubs monitoring data reference

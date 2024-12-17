@@ -7,8 +7,8 @@ ms.author: sipa
 ms.date: 12/10/2020
 ms.topic: tutorial
 ms.service: azure-maps
-ms.custom: devx-track-extended-java
-services: azure-maps
+ms.subservice: android-sdk
+ms.custom: devx-track-java
 zone_pivot_groups: azure-maps-android
 ---
 

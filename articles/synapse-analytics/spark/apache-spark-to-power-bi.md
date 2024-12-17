@@ -4,7 +4,7 @@ description: This tutorial provides an overview on how to create a Power BI dash
 author: midesa
 ms.author: midesa 
 ms.reviewer: whhender 
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: spark
 ms.topic: tutorial
 ms.date: 11/16/2020

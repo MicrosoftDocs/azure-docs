@@ -3,7 +3,7 @@ title: Access a lab virtual machine
 titleSuffix: Azure Lab Services
 description: Learn how to access a lab in Azure Lab Services. Use Teams, Canvas, or the Lab Services website to view, start, stop, and connect to a lab.
 services: lab-services
-ms.service: lab-services
+ms.service: azure-lab-services
 author: RoseHJM
 ms.author: rosemalcolm
 ms.topic: how-to

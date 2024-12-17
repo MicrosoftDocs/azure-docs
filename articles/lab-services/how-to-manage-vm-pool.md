@@ -3,9 +3,9 @@ title: Manage a lab VM pool
 titleSuffix: Azure Lab Services
 description: Learn how to manage a lab VM pool in Azure Lab Services and change the number of lab virtual machines that are available for lab users.
 services: lab-services
-ms.service: lab-services
-author: ntrogh
-ms.author: nicktrog
+ms.service: azure-lab-services
+author: RoseHJM
+ms.author: rosemalcolm
 ms.topic: how-to
 ms.date: 07/04/2023
 ---

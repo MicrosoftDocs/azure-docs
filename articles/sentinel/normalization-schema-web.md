@@ -8,6 +8,10 @@ ms.topic: reference
 ms.date: 11/17/2021
 ms.author: ofshezaf
 
+
+
+#Customer intent: As a security analyst, I want to understand the Web Session normalization schema so that I can accurately interpret and analyze HTTP network session data for threat detection and response.
+
 ---
 
 # The Advanced Security Information Model (ASIM) Web Session normalization schema reference (Public preview)
@@ -86,7 +90,7 @@ Some parameter can accept both list of values of type `dynamic` or a single stri
 
 For example, to filter only Web sessions for a specified list of domain names, use:
 
-```kql
+```kusto
 let torProxies=dynamic(["tor2web.org", "tor2web.com", "torlink.co"]);
 _Im_WebSession (url_has_any = torProxies)
 ```

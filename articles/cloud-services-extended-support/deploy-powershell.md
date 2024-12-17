@@ -2,7 +2,7 @@
 title: Deploy Azure Cloud Services (extended support) - Azure PowerShell
 description: Deploy Azure Cloud Services (extended support) by using Azure PowerShell.
 ms.topic: quickstart
-ms.service: cloud-services-extended-support
+ms.service: azure-cloud-services-extended-support
 author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt

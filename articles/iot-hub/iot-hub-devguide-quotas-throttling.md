@@ -5,7 +5,7 @@ description: This article provides a description of the quotas that apply to IoT
 author: kgremban
 
 ms.author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.topic: concept-article
 ms.date: 06/17/2024
 ms.custom: ["Role: Cloud Development", "Role: Operations", "Role: Technical Support"]
@@ -89,7 +89,7 @@ The same throttle limits apply to identity operations made through [bulk registr
 
 ### Device connections throttle
 
-The *device connections* throttle governs the rate at which new device connections can be established with an IoT hub. The *device connections* throttle doesn't relate to the maximum number of simultaneously connected devices. Increate the number of units in an IoT hub to increase the *device connections* rate.
+The *device connections* throttle governs the rate at which new device connections can be established with an IoT hub. The *device connections* throttle doesn't relate to the maximum number of simultaneously connected devices. Increase the number of units in an IoT hub to increase the *device connections* rate.
 
 For example, if you buy a single S1 unit, you get a throttle of 100 connections/second. Therefore, to connect 100,000 devices, it takes at least 1,000 seconds (approximately 16 minutes). However, you can have as many simultaneously connected devices as you have devices registered in your identity registry (up to 1,000,000).
 

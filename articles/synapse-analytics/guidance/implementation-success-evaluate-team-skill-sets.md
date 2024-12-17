@@ -4,7 +4,7 @@ description: "Learn how to evaluate your team of skilled resources that will imp
 author: whhender
 ms.author: whhender
 ms.reviewer: whhender
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: conceptual
 ms.date: 05/31/2022
 ---

@@ -2,7 +2,7 @@
 title: Integrate Fortinet with Microsoft Defender for IoT
 description: In this article, you learn how to integrate Microsoft Defender for IoT with Fortinet.
 ms.topic: tutorial
-ms.date: 01/01/2023
+ms.date: 10/14/2024
 ms.custom: how-to
 ---
 
@@ -196,10 +196,6 @@ Forwarding alert rules run only on alerts triggered after the forwarding rule is
 ## Block a malicious source using the Fortigate firewall
 
 You can set policies to automatically block malicious sources in the FortiGate firewall, using alerts in Defender for IoT.
-
-For example, the following alert can block the malicious source:
-
-:::image type="content" source="media/tutorial-fortinet/suspicion.png" alt-text="Screenshot of the NotPetya Malware suspicion window." lightbox="media/tutorial-fortinet/suspicion.png":::
 
 **To set a FortiGate firewall rule that blocks a malicious source**:
 

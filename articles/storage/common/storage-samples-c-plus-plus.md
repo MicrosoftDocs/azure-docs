@@ -49,7 +49,7 @@ The following table provides an overview of our samples repository and the scena
    :::column-end:::
 :::row-end:::
 
-## Data Lake Storage Gen2 samples
+## Data Lake Storage samples
 
 :::row:::
    :::column:::

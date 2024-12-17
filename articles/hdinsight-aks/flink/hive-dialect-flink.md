@@ -1,14 +1,17 @@
 ---
 title: Hive dialect in Apache Flink® clusters on HDInsight on AKS
 description: How to use Hive dialect in Apache Flink® clusters on HDInsight on AKS.
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
-ms.date: 04/17/2024
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Hive dialect in Apache Flink® clusters on HDInsight on AKS
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 In this article, learn how to use Hive dialect in Apache Flink clusters on HDInsight on AKS.
 
@@ -31,7 +34,7 @@ The reason for this issue arises due to an open [Hive Jira](https://issues.apach
      ```command
      rm /opt/flink-webssh/lib/flink-sql-connector-hive*jar
      ```
-  1. Download the following jar in `webssh` pod and add it under the /opt/flink-webssh/lib wget https://aka.ms/hdiflinkhivejdk11jar.
+  1. Download the following jar in `webssh` pod and add it under the /opt/flink-webssh/lib wget https://mvnrepository.com/artifact/org.apache.flink/flink-table-planner-loader/1.17.0.
     (The above hive jar has the fix [https://issues.apache.org/jira/browse/HIVE-27508](https://issues.apache.org/jira/browse/HIVE-27508))
 
     ```console

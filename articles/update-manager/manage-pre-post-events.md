@@ -1,5 +1,5 @@
 ---
-title: Manage the pre and post (preview) maintenance configuration events in Azure Update Manager
+title: Manage the pre and post maintenance configuration events in Azure Update Manager
 description: The article provides the steps to manage the pre and post maintenance events in Azure Update Manager.
 ms.service: azure-update-manager
 ms.date: 07/24/2024
@@ -8,37 +8,11 @@ ms.author: sudhirsneha
 author: SnehaSudhirG
 ---
 
-# Manage pre and post events (preview) maintenance configuration events
+# Manage pre and post events maintenance configuration events
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers :heavy_check_mark: Azure VMs.
 
-This article describes on how to register your subscription and manage pre and post events in Azure Update Manager.
-
-## Register your subscription for public preview
-
-To self-register your subscription for public preview, follow these steps:
-
-#### [Azure portal](#tab/portal)
-
-1. Sign in to the [Azure portal](https://portal.azure.com) and select **More services**.
-1. On the **All services** page, search for **Preview features**.
-1. On the **Preview Features** page, search and select **Pre and Post Events**.
-1. Select the feature and then select **Register** to register the subscription.
-
-   :::image type="content" source="./media/tutorial-using-functions/register-feature.png" alt-text="Screenshot that shows how to register the preview feature." lightbox="./media/tutorial-using-functions/register-feature.png"::: 
-
-#### [Azure CLI](#tab/cli)
-
-```azurecli-interactive
-az feature register --name InGuestPatchPrePostMaintenanceActivity --namespace Microsoft.Maintenance
-```
-
-#### [PowerShell](#tab/ps)
-
-```azurepowershell-interactive
-Register-AzProviderFeature -FeatureName "InGuestPatchPrePostMaintenanceActivity" -ProviderNamespace "Microsoft.Maintenance"
-```
----
+This article describes on how to manage pre and post events in Azure Update Manager.
 
 ## Manage pre and post events
 
@@ -109,7 +83,7 @@ To use application insights to monitor executions in Azure functions, refer [her
 
 ### Cancel a schedule run before it begins to run
 
-To cancel the schedule run, the cancelation API in your pre-event must get triggered at least 10 minutes before the schedule maintenance configuration start time. You must call the cancelation API in your pre-event, that is, Runbook script or Azure function code. 
+To cancel the schedule run, the cancellation API in your pre-event must get triggered at least 10 minutes before the schedule maintenance configuration start time. You must call the cancellation API in your pre-event, that is, Runbook script or Azure function code. 
 
 **To cancel the schedule maintenance run**
 
@@ -182,16 +156,16 @@ To view the history of an event created through Azure Function, follow these ste
 3. Select the **By Maintenance run ID** tab, and then select the maintenance run ID for which you want to view the status.
 4. Refer to the **Status** to view the status. If the maintenance run has been canceled, the status will be displayed as **cancelled**. Select the status to view the details.
 
-There are two types of cancelations:
+There are two types of cancellations:
 
-- **Cancelation by user**: When you invoke the cancelation API from your script or code.
-- **Cancelation by system**: When the system invokes the cancelation API due to an internal error. This is done only if the system is unable to send the pre-event to the customer's end point that is 30 minutes before the scheduled patching job. In this case, the upcoming scheduled maintenance configuration will be canceled due to the failure of running the pre-events by the system.
+- **Cancellation by user**: When you invoke the cancellation API from your script or code.
+- **Cancellation by system**: When the system invokes the cancellation API due to an internal error. This is done only if the system is unable to send the pre-event to the customer's end point that is 30 minutes before the scheduled patching job. In this case, the upcoming scheduled maintenance configuration will be canceled due to the failure of running the pre-events by the system.
 
-To confirm if the cancelation is by user or system, you can view the status of the maintenance run ID from the ARG query mentioned above in **See details**. The **error message** displays whether the schedule run has been canceled by the user or system and the **status** field confirms the status of the maintenance run.
+To confirm if the cancellation is by user or system, you can view the status of the maintenance run ID from the ARG query mentioned above in **See details**. The **error message** displays whether the schedule run has been canceled by the user or system and the **status** field confirms the status of the maintenance run.
 
- :::image type="content" source="./media/manage-pre-post-events/cancelation-api-user-inline.png" alt-text="Screenshot that shows how to view the cancelation status." lightbox="./media/manage-pre-post-events/cancelation-api-user-expanded.png":::
+ :::image type="content" source="./media/manage-pre-post-events/cancelation-api-user-inline.png" alt-text="Screenshot that shows how to view the cancellation status." lightbox="./media/manage-pre-post-events/cancelation-api-user-expanded.png":::
 
-The above image shows an example of cancelation by the user, where the error message would be **Maintenance cancelled using cancellation API at YYYY-MM-DD**. If the maintenance run is canceled by the system due to any reason, the error message in the JSON would be **Maintenance cancelled due to internal platform failure at YYYY-MM-DD**.
+The above image shows an example of cancellation by the user, where the error message would be **Maintenance cancelled using cancellation API at YYYY-MM-DD**. If the maintenance run is canceled by the system due to any reason, the error message in the JSON would be **Maintenance cancelled due to internal platform failure at YYYY-MM-DD**.
 
 
 ## Delete pre and post event

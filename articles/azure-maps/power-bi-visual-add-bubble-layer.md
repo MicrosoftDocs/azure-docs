@@ -7,7 +7,7 @@ ms.author: limingchen
 ms.date: 12/04/2023
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: power-bi-visual
 ---
 
 # Add a bubble layer
@@ -25,46 +25,17 @@ Initially all bubbles have the same fill color. If a field is passed into the **
 | Shape          | Transparency. The fill transparency of each bubble. |
 | Color          | Fill color of each bubble. This option is hidden when a field is passed into the **Legend** bucket of the **Fields** pane and a separate **Data colors** section appears in the **Format** pane. |
 | Border         | Settings for the border include color, width, transparency and blur.<br/>&nbsp;&nbsp;&nbsp;&nbsp;• Color specifies the color that outlines the bubble. This option is hidden when the **High-contrast outline** option is enabled.<br/>&nbsp;&nbsp;&nbsp;&nbsp;• Width specifies the width of the outline in pixels.<br/>&nbsp;&nbsp;&nbsp;&nbsp;• Transparency specifies the transparency of each bubble.<br/>&nbsp;&nbsp;&nbsp;&nbsp;• Blur specifies the amount of blur applied to the outline of the bubble. A value of one blurs the bubbles such that only the center point has no transparency. A value of 0 apply any blur effect.|
-| Zoom           | Settings for the zoom property include scale, maximum and minimum.<br/>&nbsp;&nbsp;&nbsp;&nbsp;• (Deprecated) Zoom scale is the amount the bubbles should scale relative to the zoom level. A zoom scale of one means no scaling. Large values make bubbles smaller when zoomed out and larger when zoomed in. This helps to reduce the clutter on the map when zoomed out, yet ensures points stand out more when zoomed in. A value of 1 doesn't apply any scaling.<br/>&nbsp;&nbsp;&nbsp;&nbsp;• Maximum zoom level tiles are available.<br/>&nbsp;&nbsp;&nbsp;&nbsp;• Minimum zoom level tiles are available.     |
+| Zoom           | Settings for the zoom property include scale, maximum and minimum.<br/>&nbsp;&nbsp;&nbsp;&nbsp;• Maximum zoom level tiles are available.<br/>&nbsp;&nbsp;&nbsp;&nbsp;• Minimum zoom level tiles are available.     |
 | Options        | Settings for the options property include pitch alignment and layer position.<br/>&nbsp;&nbsp;&nbsp;&nbsp;• Pitch alignment specifies how the bubbles look when the map is pitched.<br/>&nbsp;&nbsp;&nbsp;&nbsp;• layer position specifies the position of the layer relative to other map layers.   |
 
 ## Bubble size scaling
 
-> [!NOTE]
->
-> **Bubble size scaling retirement**
->
-> The Power BI Visual bubble layer **Bubble size scaling** settings were deprecated starting in the September 2023 release of Power BI. You can no longer create reports using these settings, but existing reports will continue to work. It is recomended that you upgrade existing reports that use these settings to the new **range scaling** property. To upgrade to the new **range scaling** property, select the desired option in the **Range scaling** drop-down list:
->
-> :::image type="content" source="./media/power-bi-visual/range-scaling-drop-down.png" alt-text="A screenshot of the range scaling drop-down":::
->
-> For more information on the range scaling settings, see **range scaling** in the [previous section](#add-a-bubble-layer).
-
-If a field is passed into the **Size** bucket of the **Fields** pane, the bubbles are scaled relatively to the measure value of each data point. The **Size** option in the **Bubble layer** section of the **Format** pane disappears when a field is passed into the **Size** bucket, as the bubbles have their radii scaled between a min and max value. The following options appear in the **Bubble layer** section of the **Format** pane when a **Size** bucket has a field specified.
+If a field is passed into the **Size** bucket of the **Fields** pane, the bubbles are scaled relatively to the measure value of each data point. The **Size** option in the **Bubble layer** section of the **Format** pane disappears when a field is passed into the **Size** bucket, as the bubbles have their radius scaled between a min and max value. The following options appear in the **Bubble layer** section of the **Format** pane when a **Size** bucket has a field specified.
 
 | Setting             | Description  |
 |---------------------|--------------|
 | Min size            | Minimum bubble size when scaling the data.|
 | Max size            | Maximum bubble size when scaling the data.|
-| Size scaling method | Scaling algorithm used to determine relative bubble size.<br/><br/>&nbsp;• Linear: Range of input data linearly mapped to the min and max size. (default)<br/>&nbsp;• Log: Range of input data logarithmically mapped to the min and max size.<br/>&nbsp;• Cubic-Bezier: Specify X1, Y1, X2, Y2 values of a Cubic-Bezier curve to create a custom scaling method. |
-
-When the **Size scaling method** is set to **Log**, the following options are made available.
-
-| Setting   | Description      |
-|-----------|------------------|
-| Log scale | The logarithmic scale to apply when calculating the size of the bubbles. |
-
-When the **Size scaling method** is set to **Cubic-Bezier**, the following options are made available to customize the scaling curve.
-
-| Setting | Description                           |
-|---------|---------------------------------------|
-| X1      | X1 parameter of a cubic Bezier curve. |
-| Y1      | X2 parameter of a cubic Bezier curve. |
-| X2      | Y1 parameter of a cubic Bezier curve. |
-| Y2      | Y2 parameter of a cubic Bezier curve. |
-
-> [!TIP]
-> [https://cubic-bezier.com/](https://cubic-bezier.com/) has a handy tool for creating the parameters for Cubic-Bezier curves.
 
 ## Category labels
 

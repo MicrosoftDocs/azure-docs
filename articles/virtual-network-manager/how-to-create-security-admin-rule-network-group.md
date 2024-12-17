@@ -4,7 +4,7 @@ titleSuffix: Azure Virtual Network Manager
 description: Learn how to deploy security admin rules using network groups as the source and destination in Azure Virtual Network Manager.
 author: mbender-ms
 ms.author: mbender
-ms.service: virtual-network-manager
+ms.service: azure-virtual-network-manager
 ms.topic: how-to 
 ms.date: 04/17/2024
 ms.custom: template-how-to, references_regions
@@ -41,9 +41,6 @@ To create a security admin configuration, follow these steps:
 1. Select **Configuration** under **Settings** on the left side of the portal window.
 
 1. In the **Configurations** window, select the **Create security admin configuration** button or **+ Create > Security admin configuration** from the drop-down menu.
-
-    :::image type="content" source="media/how-to-create-security-admin-rules-network-groups/create-security-admin-configuration.png" alt-text="Screenshot of creation of security admin configuration in Configurations of a network manager.":::
-
 1. In the **Basics** tab of the **Create security admin configuration** windows, enter the following settings:
   
     | **Setting** | **Value** |

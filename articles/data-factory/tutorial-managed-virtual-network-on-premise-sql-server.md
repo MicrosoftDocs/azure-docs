@@ -3,10 +3,9 @@ title: Access on-premises SQL Server from Data Factory Managed VNet using Privat
 description: This tutorial provides steps for using the Azure portal to setup Private Link Service and access on-premises SQL Server from Managed VNet using Private Endpoint.
 author: lrtoyou1223
 ms.author: lle
-ms.service: data-factory
-ms.subservice: tutorials
 ms.topic: tutorial
-ms.date: 03/21/2024
+ms.date: 10/03/2024
+ms.subservice: data-movement
 ---
 
 # Tutorial: How to access on-premises SQL Server from Data Factory Managed VNet using Private Endpoint
@@ -258,6 +257,9 @@ data factory from the resources list.
 
    > [!NOTE]
    > When deploying your SQL Server on a virtual machine within a virtual network, it is essential to enhance your FQDN by appending **privatelink**. Otherwise, it will be conflicted with other records in the DNS setting. For example, you can simply modify the SQL Server's FQDN from **sqlserver.westus.cloudapp.azure.net** to **sqlserver.privatelink.westus.cloudapp.azure.net**.
+
+   > [!NOTE]
+   > Currently ApplicationIntent and MultiSubnetFailover are not supported in SQL connection properties.
 
 8. Create private endpoint.
 

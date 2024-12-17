@@ -21,6 +21,9 @@ The storage appliance in an Azure Operator Nexus instance is represented as an A
 
 The Azure Operator Nexus software Kubernetes stack offers two types of storage. Operators select them through the Kubernetes StorageClass mechanism.
 
+> [!IMPORTANT]
+> Azure Operator Nexus does not support ephemeral volumes. Nexus recommends that the persistent volume storage mechanisms described in this document are used for all workload volumes as these provide the highest levels of performance and availability. All storage in Azure Operator Nexus is provided by the storage appliance. There is no support for storage provided by baremetal machine disks.
+
 ### StorageClass: nexus-volume
 
 The default storage mechanism, *nexus-volume*, is the preferred choice for most users. It provides the highest levels of performance and availability. However, volumes can't be simultaneously shared across multiple worker nodes. Operators can access and manage these volumes by using the Azure API and portal, through the volume resource.
@@ -50,13 +53,18 @@ status:
 
 ### StorageClass: nexus-shared
 
-In situations where a shared file system is required, the *nexus-shared* storage class is available. This storage class provides a shared storage solution by enabling multiple pods in the same Nexus Kubernetes cluster to concurrently access and share the same volume. The *nexus-shared* storage class is backed by an NFS storage service. This NFS storage service (storage pool currently limited to a maximum size of 1TiB) is available per Cloud Service Network (CSN). Any Nexus Kubernetes cluster attached to the CSN can provision persistent volume from this shared storage pool. Nexus-shared supports both Read Write Once (RWO) and Read Write Many (RWX) access modes. What that means is that the workload applications can make use of either of these access modes to access the shared storage.
+In situations where a shared file system is required, the *nexus-shared* storage class is available. This storage class provides a highly available shared storage solution by enabling multiple pods in the same Nexus Kubernetes cluster to concurrently access and share the same volume. The *nexus-shared* storage class is backed by a highly available NFS storage service. This NFS storage service (storage pool currently limited to a maximum size of 1 TiB) is available per Cloud Service Network (CSN). The NFS storage service is deployed automatically on creation of a CSN resource. Any Nexus Kubernetes cluster attached to the CSN can provision persistent volumes from this shared storage pool. Nexus-shared supports both Read Write Once (RWO) and Read Write Many (RWX) access modes. What that means is that the workload applications can make use of either of these access modes to access the shared storage.
+
+<!--- IMG ![Nexus Shared Volume](Docs/media/nexus-shared-volume.png) IMG --->
+:::image type="content" source="media/nexus-shared-volume.png" alt-text="Diagram depicting how nexus-shared provisions a volume for a workload in Nexus Kubernetes Cluster":::
+
+Figure: Nexus Shared Volume
 
 Although the performance and availability of *nexus-shared* are sufficient for most applications, we recommend that workloads with heavy I/O requirements use the *nexus-volume* option for optimal performance.
 
 #### Read Write Once (RWO)
 
-In Read Write Once (RWO) mode, the nexus-shared volume can be mounted by only one node or claimant at a time. ReadWriteOnce access mode still allows multiple pods to access the volume when the pods are running on the same node.
+In Read Write Once (RWO) mode, only one node or claimant can mount the nexus-shared volume at a time. ReadWriteOnce access mode still allows multiple pods to access the volume when the pods are running on the same node.
 ```
 apiVersion: v1
 items:
@@ -84,7 +92,7 @@ items:
 
 #### Read Write Many (RWX)
 
-In Read Write Many (RWX) mode, the nexus-shared volume can be mounted by multiple nodes or claimants at the same time.
+In the Read Write Many (RWX) mode, multiple nodes or claimants can mount the nexus-shared volume at the same time.
 ```
 apiVersion: v1
 items:
@@ -111,7 +119,7 @@ items:
 ```
 ### Examples
 #### Read Write Once (RWO) with nexus-volume storage class
-The below manifest creates a StatefulSet with PersistentVolumeClaimTemplate using nexus-volume storage class in ReadWriteOnce mode.
+This example manifest creates a StatefulSet with PersistentVolumeClaimTemplate using nexus-volume storage class in ReadWriteOnce mode.
 ```
 apiVersion: apps/v1
 kind: StatefulSet
@@ -150,7 +158,7 @@ spec:
             storage: 10Gi
         storageClassName: nexus-volume
 ```
-Each pod of the StatefulSet will have one PersistentVolumeClaim created.
+Each pod of the StatefulSet has one PersistentVolumeClaim created.
 ```
 # kubectl get pvc
 NAME                             STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   AGE
@@ -239,7 +247,7 @@ spec:
           claimName: test-volume-rwx
 ...
 ```
-Once applied, there will be three replicas of the deployment sharing the same PVC.
+Once applied, there are three replicas of the deployment sharing the same PVC.
 ```
 # kubectl get pvc
 NAME                             STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   AGE
@@ -252,7 +260,7 @@ test-deploy-rwx-fdb8f49c-86pv4   1/1     Running   0          18s     10.245.224
 test-deploy-rwx-fdb8f49c-9zsjf   1/1     Running   0          18s     10.245.126.74    nexus-cluster-6a8c4018-agentpool1-md-27nw4   <none>           <none>
 test-deploy-rwx-fdb8f49c-wdgw7   1/1     Running   0          18s     10.245.231.75    nexus-cluster-6a8c4018-agentpool2-md-vhhv6   <none>           <none>
 ```
-It can observed from the below output that all pods are writing into the same PVC.
+It can be observed from the below output that all pods are writing into the same PVC.
 ```
 # kubectl exec test-deploy-rwx-fdb8f49c-86pv4 -- cat /mnt/hostname.txt
 Thu Nov  9 21:51:41 UTC 2023 -- test-deploy-rwx-fdb8f49c-86pv4
@@ -272,6 +280,25 @@ Thu Nov  9 21:51:41 UTC 2023 -- test-deploy-rwx-fdb8f49c-9zsjf
 Thu Nov  9 21:51:41 UTC 2023 -- test-deploy-rwx-fdb8f49c-wdgw7
 Thu Nov  9 21:51:42 UTC 2023 -- test-deploy-rwx-fdb8f49c-86pv4
 ```
+
+## Volume size limits and capacity management
+
+PVCs created using the nexus-volume and nexus-shared have minimum and maximum claim sizes.
+
+| Storage Class | Minimum PVC Size | Maximum PVC Size |
+|---------------|------------------|------------------|
+| nexus-volume  | 1 MiB | 12 TiB |
+| nexus-shared  | None | 1 TiB |
+
+> [!IMPORTANT]
+> Volumes that reach their consumption limit will cause out of disk space errors on the workloads that consume them. You must make sure that you provision suitable volume sizes for your workload requirements. You must monitor both the storage appliance and all NFS servers for their percentage storage consumption. You can do this using the metrics documented in the [list of available metrics](./list-of-metrics-collected.md).
+
+- Both nexus-volume and nexus-shared PVCs have their requested storage capacity enforced as a consumption limit. A volume can't consume more storage than the associated PVC request.
+- All physical volumes are thin-provisioned. You must monitor the total storage consumption on your storage appliance and perform maintenance operations to free up storage space if necessary.
+- A nexus-volume PVC provisioning request fails if the requested size is less than the minimum or more than the maximum supported volume size.
+- Nexus-shared volumes are logically thin-provisioned on the backing NFS server. This NFS server has a fixed capacity of 1 TiB.
+  - A nexus-shared PVC can be provisioned despite requesting more than 1 TiB of storage, however, only 1 TiB can be consumed.
+  - It is possible to provision a set of PVCs where the sum of capacity requests is greater than 1 TiB. However, the consumption limit of 1 TiB applies; the set of associated PVs may not consume more than 1 TiB of storage.
 
 ## Storage appliance status
 

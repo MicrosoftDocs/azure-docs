@@ -27,7 +27,7 @@ You can now export Consumption logic apps to a Standard logic app. Using Visual 
 > exported workflows to your satisfaction with the destination environment. You choose when 
 > to disable or delete your source logic apps. 
 
-This article provides information about the export process and shows how to export your logic app workflows from an ISE to a local Standard logic app project in Visual Studio Code.
+This article provides information about the export process and shows how to export your logic app workflows from a Consumption workflow to a local Standard logic app project in Visual Studio Code.
 
 ## Known issues and limitations
 

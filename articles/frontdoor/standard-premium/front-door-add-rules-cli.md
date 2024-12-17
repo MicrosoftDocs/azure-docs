@@ -4,7 +4,7 @@ description: Learn how to create an Azure Front Door Standard/Premium (Preview) 
 ms.topic: sample
 author: duau
 ms.author: duau
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.date: 12/30/2021
 ms.custom: devx-track-azurecli
 

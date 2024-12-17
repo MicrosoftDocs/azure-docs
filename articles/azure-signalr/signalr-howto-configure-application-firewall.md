@@ -2,7 +2,7 @@
 title: SignalR Application Firewall (Preview)
 description: An introduction about why and how to set up Application Firewall for Azure SignalR service
 author: biqian
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 07/10/2024
@@ -134,7 +134,7 @@ services.AddSignalR().AddAzureSignalR(options =>
             // The token name is not important. You could change it as you like.
             new Claim("uniqueToken", Guid.NewGuid().ToString()),
            
-            // Cutom claim: Used in ThrottleByJwtCustomClaimRule
+            // Custom claim: Used in ThrottleByJwtCustomClaimRule
             new Claim("<Custom Claim Name>", "<Custom Claim Value>"),
             // Custom claim example
             new Claim("freeUser", context.Request.Query["username"]),

@@ -6,7 +6,7 @@ brand: azure ## Used for color theming of icons and hero area
 metadata: 
   title: Azure load balancing and content delivery
   summary: Learn about the various Azure load balancing and content delivery services available that provide security for your resources in Azure. Services include Azure Load Balancer, Azure Gateway Load Balancer, Azure Application Gateway, and Azure Front Door.
-  ms.service: load-balancer 
+  ms.service: azure-load-balancer
   ms.topic: hub-page
   author: mbender-ms
   ms.author: mbender
@@ -32,18 +32,18 @@ highlightedContent:
 productDirectory:
   title: Get started
   items:
-    - title: Azure Load Balancer
-      imageSrc: ./media/load-balancer.svg
-      summary: "Manage distribution of load-balanced traffic for public and internal traffic with Azure Load Balancer."
-      url: /azure/load-balancer
     - title: Azure Application Gateway
       imageSrc: ./media/application-gateway.svg
       summary: "Optimize app delivery with Azure Application Gateway for HTTP/HTTPS traffic."
       url: /azure/application-gateway
+    - title: Azure Load Balancer
+      imageSrc: ./media/load-balancer.svg
+      summary: "Manage distribution of load-balanced traffic for public and internal traffic with Azure Load Balancer."
+      url: /azure/load-balancer
     - title: Azure Front Door
       imageSrc: ./media/front-door-cdn.svg
       summary: "Manage web application performance and global routing with Azure Front Door."
-      url: /azure/frontdoor/
+      url: /azure/frontdoor
           
 conceptualContent:
   sections:
@@ -158,3 +158,5 @@ additionalContent:
           url: /azure/networking/security/
         - title: Hybrid connectivity
           url: /azure/networking/hybrid-connectivity/
+        - title: Network monitoring and management
+          url: ../monitoring-management/index.yml 

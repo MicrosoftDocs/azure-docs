@@ -12,10 +12,13 @@ ms.date: 06/09/2024
 appliesto:
   - Microsoft Sentinel in the Microsoft Defender portal
   - Microsoft Sentinel in the Azure portal
-#customerIntent: As a SOC engineer, I want to learn about about how to interact with SOC optimziation recommendations programmatically via API.
+
+
+#Customer intent: As a security operations center (SOC) manager, I want to programmatically interact with SOC optimization recommendations so that I can automate evaluations, integrate with third-party tools, and manage multiple environments efficiently.
+
 ---
 
-# Using SOC optimizations programmatically (Preview)
+# Use SOC optimizations programmatically (Preview)
 
 Use the Microsoft Sentinel `recommendations` API to programmatically interact with SOC optimization recommendations, helping you to close coverage gaps against specific threats and tighten ingestion rates. You can get details about all current recommendations across your workspaces or a specific SOC optimization recommendation, or you can reevaluate a recommendation if you've made changes in your environment.
 

@@ -1,6 +1,6 @@
 ---
-title: Configure Twitter authentication
-description: Learn how to configure Twitter authentication as an identity provider for your App Service or Azure Functions app.
+title: Configure X authentication
+description: Learn how to configure X authentication as an identity provider for your App Service or Azure Functions app.
 ms.assetid: c6dc91d7-30f6-448c-9f2d-8e91104cde73
 ms.topic: article
 ms.date: 03/29/2021
@@ -9,19 +9,19 @@ author: cephalin
 ms.author: cephalin
 ---
 
-# Configure your App Service or Azure Functions app to use Twitter login
+# Configure your App Service or Azure Functions app to use X login
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
-This article shows how to configure Azure App Service or Azure Functions to use Twitter as an authentication provider.
+This article shows how to configure Azure App Service or Azure Functions to use X as an authentication provider.
 
-To complete the procedure in this article, you need a Twitter account that has a verified email address and phone number. To create a new Twitter account, go to [twitter.com].
+To complete the procedure in this article, you need an X account that has a verified email address and phone number. To create a new X account, go to [x.com].
 
-## <a name="register"> </a>Register your application with Twitter
+## <a name="register"> </a>Register your application with X
 
-1. Sign in to the [Azure portal] and go to your application. Copy your **URL**. You'll use it to configure your Twitter app.
-1. Go to the [Twitter Developers] website, sign in with your Twitter account credentials, and select **Create an app**.
-1. Enter the **App name** and the **Application description** for your new app. Paste your application's **URL** into the **Website URL** field. In the **Callback URLs** section, enter the HTTPS URL of your App Service app and append the path `/.auth/login/twitter/callback`. For example, `https://contoso.azurewebsites.net/.auth/login/twitter/callback`.
+1. Sign in to the [Azure portal] and go to your application. Copy your **URL**. You'll use it to configure your X app.
+1. Go to the [X Developers] website, sign in with your X account credentials, and select **Create an app**.
+1. Enter the **App name** and the **Application description** for your new app. Paste your application's **URL** into the **Website URL** field. In the **Callback URLs** section, enter the HTTPS URL of your App Service app and append the path `/.auth/login/x/callback`. For example, `https://contoso.azurewebsites.net/.auth/login/x/callback`.
 1. At the bottom of the page, type at least 100 characters in **Tell us how this app will be used**, then select **Create**. Click **Create** again in the pop-up. The application details are displayed.
 1. Select the **Keys and Access Tokens** tab.
 
@@ -32,7 +32,7 @@ To complete the procedure in this article, you need a Twitter account that has a
    > [!IMPORTANT]
    > The API secret key is an important security credential. Do not share this secret with anyone or distribute it with your app.
 
-## <a name="secrets"> </a>Add Twitter information to your application
+## <a name="secrets"> </a>Add X information to your application
 
 1. Sign in to the [Azure portal] and navigate to your app.
 1. Select **Authentication** in the menu on the left. Click **Add identity provider**.
@@ -46,7 +46,7 @@ To complete the procedure in this article, you need a Twitter account that has a
 
 1. Click **Add**.
 
-You're now ready to use Twitter for authentication in your app. The provider will be listed on the **Authentication** screen. From there, you can edit or delete this provider configuration.
+You're now ready to use X for authentication in your app. The provider will be listed on the **Authentication** screen. From there, you can edit or delete this provider configuration.
 
 ## <a name="related-content"> </a>Next steps
 
@@ -54,7 +54,7 @@ You're now ready to use Twitter for authentication in your app. The provider wil
 
 <!-- URLs. -->
 
-[Twitter Developers]: https://go.microsoft.com/fwlink/p/?LinkId=268300
-[twitter.com]: https://go.microsoft.com/fwlink/p/?LinkID=268287
+[X Developers]: https://go.microsoft.com/fwlink/p/?LinkId=268300
+[x.com]: https://go.microsoft.com/fwlink/p/?LinkID=268287
 [Azure portal]: https://portal.azure.com/
 [xamarin]: ../app-services-mobile-app-xamarin-ios-get-started-users.md

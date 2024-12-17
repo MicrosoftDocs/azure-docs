@@ -67,7 +67,7 @@ Azure Application Insights helps you understand how people use your Azure Remote
 
 For more information, visit:
 
-* [Usage Analysis with Application Insights](../../../../azure-monitor/app/usage.md)
+* [Usage Analysis with Application Insights](/azure/azure-monitor/app/usage)
 
 ## Fast startup time strategies
 
@@ -272,6 +272,5 @@ For authentication, it’s wise to move as much of the ARR authentication and se
 
 For more information:
 
-* [Microsoft Entra service Authentication](../../../../spatial-anchors/concepts/authentication.md?tabs=csharp#azure-ad-service-authentication)
 * [Strengthen Your Security Posture with Azure](https://azure.microsoft.com/overview/security/)
 * [Cloud Security](https://azure.microsoft.com/product-categories/security/)

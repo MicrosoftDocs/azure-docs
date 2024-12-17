@@ -2,7 +2,7 @@
 author: whhender
 ms.author: whhender
 ms.reviewer: whhender
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: include
 ms.date: 02/28/2022
 ---

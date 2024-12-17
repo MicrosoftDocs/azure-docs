@@ -1,6 +1,6 @@
 ---
 author: vhorne
-ms.service: dns
+ms.service: azure-dns
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: victorh

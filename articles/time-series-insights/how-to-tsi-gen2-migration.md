@@ -1,7 +1,7 @@
 ---
 title: 'Time Series Insights Gen2 migration to Real-Time Intelligence in Microsoft Fabric | Microsoft Docs'
 description: How to migrate Azure Time Series Insights Gen 2 environments to Real-Time Intelligence in Microsoft Fabric.
-ms.service: time-series-insights
+ms.service: azure-time-series-insights
 author: tedvilutis
 ms.author: tvilutis
 ms.topic: conceptual
@@ -182,7 +182,7 @@ events
 | where timestamp >= datetime(2021-11-01T00:00:0.0000000Z) and timestamp < datetime(2021-11-05T00:00:00.000000Z)
 | where deviceId_string== "deviceId1" and siteId_string == "siteId1" and dataId_string == "dataId1"
 | take 10000
-| project timestamp, sensorStringValue= ['sensors.value_string'], sensorBoolValue= ['sensors.value_bool'], sensorDoublelValue= ['sensors.value_double']
+| project timestamp, sensorStringValue= ['sensors.value_string'], sensorBoolValue= ['sensors.value_bool'], sensorDoubleValue= ['sensors.value_double']
 ```
 
 ###	AggregateSeries  

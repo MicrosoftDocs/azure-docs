@@ -4,20 +4,21 @@ description: Guidance for using resource classes to manage concurrency and compu
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: whhender
-ms.date: 02/04/2020
-ms.service: synapse-analytics
+ms.date: 07/29/2024
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
-ms.custom: azure-synapse
+ms.custom:
+  - azure-synapse
 ---
 
 # Workload management with resource classes in Azure Synapse Analytics
 
-Guidance for using resource classes to manage memory and concurrency for Synapse SQL pool queries in Azure Synapse.  
+Guidance for using resource classes to manage memory and concurrency for Synapse SQL pool queries in Azure Synapse. 
 
-## What are resource classes
+## What are resource classes?
 
-The performance capacity of a query is determined by the user's resource class.  Resource classes are pre-determined resource limits in Synapse SQL pool that govern compute resources and concurrency for query execution. Resource classes can help you configure resources for your queries by setting limits on the number of queries that run concurrently and on the compute-resources assigned to each query.  There's a trade-off between memory and concurrency.
+The performance capacity of a query is determined by the user's resource class. Resource classes are pre-determined resource limits in Synapse SQL pool that govern compute resources and concurrency for query execution. Resource classes can help you configure resources for your queries by setting limits on the number of queries that run concurrently and on the compute-resources assigned to each query. There's a trade-off between memory and concurrency.
 
 - Smaller resource classes reduce the maximum memory per query, but increase concurrency.
 - Larger resource classes increase the maximum memory per query, but reduce concurrency.
@@ -27,14 +28,14 @@ There are two types of resource classes:
 - Static resources classes, which are well suited for increased concurrency on a data set size that is fixed.
 - Dynamic resource classes, which are well suited for data sets that are growing in size and need increased performance as the service level is scaled up.
 
-Resource classes use concurrency slots to measure resource consumption.  [Concurrency slots](#concurrency-slots) are explained later in this article.
+Resource classes use concurrency slots to measure resource consumption. [Concurrency slots](#concurrency-slots) are explained later in this article.
 
 - To view the resource utilization for the resource classes, see [Memory and concurrency limits](memory-concurrency-limits.md).
 - To adjust the resource class, you can run the query under a different user or [change the current user's resource class](#change-a-users-resource-class) membership.
 
 ### Static resource classes
 
-Static resource classes allocate the same amount of memory regardless of the current performance level, which is measured in [data warehouse units](what-is-a-data-warehouse-unit-dwu-cdwu.md). Since queries get the same memory allocation regardless of the performance level, [scaling out the data warehouse](quickstart-scale-compute-portal.md) allows more queries to run within a resource class.  Static resource classes are ideal if the data volume is known and constant.
+Static resource classes allocate the same amount of memory regardless of the current performance level, which is measured in [data warehouse units](what-is-a-data-warehouse-unit-dwu-cdwu.md). Since queries get the same memory allocation regardless of the performance level, [scaling out the data warehouse](quickstart-scale-compute-portal.md) allows more queries to run within a resource class. Static resource classes are ideal if the data volume is known and constant.
 
 The static resource classes are implemented with these pre-defined database roles:
 
@@ -49,14 +50,15 @@ The static resource classes are implemented with these pre-defined database role
 
 ### Dynamic resource classes
 
-Dynamic Resource Classes allocate a variable amount of memory depending on the current service level. While static resource classes are beneficial for higher concurrency and static data volumes, dynamic resource classes are better suited for a growing or variable amount of data.  When you scale up to a larger service level, your queries automatically get more memory.  
+Dynamic resource classes allocate a variable amount of memory depending on the current service level. While static resource classes are beneficial for higher concurrency and static data volumes, dynamic resource classes are better suited for a growing or variable amount of data. When you scale up to a larger service level, your queries automatically get more memory. 
 
-The dynamic resource classes are implemented with these pre-defined database roles:
+Except for smallrc, the dynamic resource classes are implemented with these pre-defined database roles:
 
-- smallrc
 - mediumrc
 - largerc
 - xlargerc
+
+Smallrc does not appear as a database role, but is the [Default resource class](#default-resource-class). 
 
 The memory allocation for each resource class is as follows.
 
@@ -73,7 +75,7 @@ The memory allocation for each resource class is as follows.
 
 By default, each user is a member of the dynamic resource class **smallrc**.
 
-The resource class of the service administrator is fixed at smallrc and cannot be changed.  The service administrator is the user created during the provisioning process.  The service administrator in this context is the login specified for the "Server admin login" when creating a new Synapse SQL pool with a new server.
+The resource class of the service administrator is fixed at smallrc and cannot be changed. The service administrator is the user created during the provisioning process. The service administrator in this context is the login specified for the "Server admin login" when creating a new Synapse SQL pool with a new server.
 
 > [!NOTE]
 > Users or groups defined as Active Directory admin are also service administrators.
@@ -86,13 +88,13 @@ Resource classes are designed to improve performance for data management and man
 
 These operations are governed by resource classes:
 
-- INSERT-SELECT, UPDATE, DELETE
-- SELECT (when querying user tables)
-- ALTER INDEX - REBUILD or REORGANIZE
-- ALTER TABLE REBUILD
-- CREATE INDEX
-- CREATE CLUSTERED COLUMNSTORE INDEX
-- CREATE TABLE AS SELECT (CTAS)
+- `INSERT`-`SELECT`, `UPDATE`, `DELETE`
+- `SELECT` (when querying user tables)
+- `ALTER INDEX` - `REBUILD` or `REORGANIZE`
+- `ALTER TABLE REBUILD`
+- `CREATE INDEX`
+- `CREATE CLUSTERED COLUMNSTORE INDEX`
+- `CREATE TABLE AS SELECT` (CTAS)
 - Data loading
 - Data movement operations conducted by the Data Movement Service (DMS)
 
@@ -101,25 +103,25 @@ These operations are governed by resource classes:
 
 ### Operations not governed by resource classes
 
-Some queries always run in the smallrc resource class even though the user is a member of a larger resource class. These exempt queries do not count towards the concurrency limit. For example, if the concurrency limit is 16, many users can be selecting from system views without impacting the available concurrency slots.
+Some queries always run in the smallrc resource class even though the user is a member of a larger resource class. These exempt queries do not count toward the concurrency limit. For example, if the concurrency limit is 16, many users can be selecting from system views without affecting the available concurrency slots.
 
 The following statements are exempt from resource classes and always run in smallrc:
 
-- CREATE or DROP TABLE
-- ALTER TABLE ... SWITCH, SPLIT, or MERGE PARTITION
-- ALTER INDEX DISABLE
-- DROP INDEX
-- CREATE, UPDATE, or DROP STATISTICS
-- TRUNCATE TABLE
-- ALTER AUTHORIZATION
-- CREATE LOGIN
-- CREATE, ALTER, or DROP USER
-- CREATE, ALTER, or DROP PROCEDURE
-- CREATE or DROP VIEW
-- INSERT VALUES
-- SELECT from system views and DMVs
-- EXPLAIN
-- DBCC
+- `CREATE` or `DROP TABLE`
+- `ALTER TABLE ... SWITCH`, `SPLIT`, or `MERGE PARTITION`
+- `ALTER INDEX DISABLE`
+- `DROP INDEX`
+- `CREATE`, `UPDATE`, or `DROP STATISTICS`
+- `TRUNCATE TABLE`
+- `ALTER AUTHORIZATION`
+- `CREATE LOGIN`
+- `CREATE`, `ALTER`, or `DROP USER`
+- `CREATE`, `ALTER`, or `DROP PROCEDURE`
+- `CREATE` or `DROP VIEW`
+- `INSERT VALUES`
+- `SELECT` from system views and DMVs
+- `EXPLAIN`
+- `DBCC`
 
 <!--
 Removed as these two are not confirmed / supported under Azure Synapse Analytics
@@ -130,7 +132,7 @@ Removed as these two are not confirmed / supported under Azure Synapse Analytics
 
 ## Concurrency slots
 
-Concurrency slots are a convenient way to track the resources available for query execution. They are like tickets that you purchase to reserve seats at a concert because seating is limited. The total number of concurrency slots per data warehouse is determined by the service level. Before a query can start executing, it must be able to reserve enough concurrency slots. When a query completes, it releases its concurrency slots.  
+Concurrency slots are a convenient way to track the resources available for query execution. They are like tickets that you purchase to reserve seats at a concert because seating is limited. The total number of concurrency slots per data warehouse is determined by the service level. Before a query can start executing, it must be able to reserve enough concurrency slots. When a query completes, it releases its concurrency slots. 
 
 - A query running with 10 concurrency slots can access 5 times more compute resources than a query running with 2 concurrency slots.
 - If each query requires 10 concurrency slots and there are 40 concurrency slots, then only 4 queries can run concurrently.
@@ -139,7 +141,7 @@ Only resource governed queries consume concurrency slots. System queries and som
 
 ## View the resource classes
 
-Resource classes are implemented as pre-defined database roles. There are two types of resource classes: dynamic and static. To view a list of the resource classes, use the following query:
+Resource classes are implemented as predefined database roles. There are two types of resource classes: dynamic and static. To view a list of the resource classes, use the following query:
 
 ```sql
 SELECT name
@@ -151,13 +153,13 @@ WHERE  name LIKE '%rc%' AND type_desc = 'DATABASE_ROLE';
 
 Resource classes are implemented by assigning users to database roles. When a user runs a query, the query runs with the user's resource class. For example, if a user is a member of the staticrc10 database role, their queries run with small amounts of memory. If a database user is a member of the xlargerc or staticrc80 database roles, their queries run with large amounts of memory.
 
-To increase a user's resource class, use [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) to add the user to a database role of a large resource class.  The below code adds a user to the largerc database role.  Each request gets 22% of the system memory.
+To increase a user's resource class, use [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) to add the user to a database role of a large resource class. The following code adds a user to the largerc database role. Each request gets 22% of the system memory.
 
 ```sql
 EXEC sp_addrolemember 'largerc', 'loaduser';
 ```
 
-To decrease the resource class, use [sp_droprolemember](/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).  If 'loaduser' is not a member or any other resource classes, they go into the default smallrc resource class with a 3% memory grant.  
+To decrease the resource class, use [sp_droprolemember](/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). If 'loaduser' is not a member or any other resource classes, they go into the default smallrc resource class with a 3% memory grant. 
 
 ```sql
 EXEC sp_droprolemember 'largerc', 'loaduser';
@@ -167,13 +169,13 @@ EXEC sp_droprolemember 'largerc', 'loaduser';
 
 Users can be members of multiple resource classes. When a user belongs to more than one resource class:
 
-- Dynamic resource classes take precedence over static resource classes. For example, if a user is a member of both mediumrc(dynamic) and staticrc80 (static), queries run with mediumrc.
+- Dynamic resource classes take precedence over static resource classes. For example, if a user is a member of both mediumrc (dynamic) and staticrc80 (static), queries run with mediumrc.
 - Larger resource classes take precedence over smaller resource classes. For example, if a user is a member of mediumrc and largerc, queries run with largerc. Likewise, if a user is a member of both staticrc20 and statirc80, queries run with staticrc80 resource allocations.
 
 ## Recommendations
 
 >[!NOTE]
->Consider leveraging workload management capabilities ([workload isolation](sql-data-warehouse-workload-isolation.md), [classification](sql-data-warehouse-workload-classification.md) and [importance](sql-data-warehouse-workload-importance.md)) for more control over your workload and predictable performance.  
+>Consider leveraging workload management capabilities ([workload isolation](sql-data-warehouse-workload-isolation.md), [classification](sql-data-warehouse-workload-classification.md) and [importance](sql-data-warehouse-workload-importance.md)) for more control over your workload and predictable performance. 
 
 We recommend creating a user that is dedicated to running a specific type of query or load operation. Give that user a permanent resource class instead of changing the resource class on a frequent basis. Static resource classes afford greater overall control on the workload, so we suggest using static resource classes before considering dynamic resource classes.
 
@@ -190,9 +192,9 @@ Once you have determined the memory requirement, choose whether to assign the lo
 
 ### Resource classes for queries
 
-Some queries are compute-intensive and some aren't.  
+Some queries are compute-intensive and some aren't. 
 
-- Choose a dynamic resource class when queries are complex, but don't need high concurrency.  For example, generating daily or weekly reports is an occasional need for resources. If the reports are processing large amounts of data, scaling the data warehouse provides more memory to the user's existing resource class.
+- Choose a dynamic resource class when queries are complex, but don't need high concurrency. For example, generating daily or weekly reports is an occasional need for resources. If the reports are processing large amounts of data, scaling the data warehouse provides more memory to the user's existing resource class.
 - Choose a static resource class when resource expectations vary throughout the day. For example, a static resource class works well when the data warehouse is queried by many people. When scaling the data warehouse, the amount of memory allocated to the user doesn't change. Consequently, more queries can be executed in parallel on the system.
 
 Proper memory grants depend on many factors, such as the amount of data queried, the nature of the table schemas, and various joins, select, and group predicates. In general, allocating more memory allows queries to complete faster, but reduces the overall concurrency. If concurrency is not an issue, over-allocating memory does not harm throughput.
@@ -201,27 +203,31 @@ To tune performance, use different resource classes. The next section gives a st
 
 ## Example code for finding the best resource class
 
-You can use the following specified stored procedure to figure out concurrency and memory grant per resource class at a given SLO and the best resource class for memory intensive CCI operations on non-partitioned CCI table at a given resource class:
+Use the `prc_workload_management_by_DWU` stored procedure to:
 
-Here's the purpose of this stored procedure:
 
-1. To see the concurrency and memory grant per resource class at a given SLO. User needs to provide NULL for both schema and tablename as shown in this example.  
-2. To see the best resource class for the memory-intensive CCI operations (load, copy table, rebuild index, etc.) on non-partitioned CCI table at a given resource class. The stored proc uses table schema to find out the required memory grant.
+- See the concurrency and memory grant per resource class at a given SLO. 
+    - Provide `NULL` for both schema and tablename.
+- See the best resource class for the memory-intensive CCI operations (load, copy table, rebuild index, etc.) on nonpartitioned CCI table at a given resource class. 
+    - The stored proc uses table schema to find out the required memory grant.
+
+For examples, see [Usage example](#usage-example).
+
 
 ### Dependencies & Restrictions
 
 - This stored procedure isn't designed to calculate the memory requirement for a partitioned cci table.
 - This stored procedure doesn't take memory requirements into account for the SELECT part of CTAS/INSERT-SELECT and assumes it's a SELECT.
 - This stored procedure uses a temp table, which is available in the session where this stored procedure was created.
-- This stored procedure depends on the current offerings (for example, hardware configuration, DMS config), and if any of that changes then this stored proc won't work correctly.  
-- This stored procedure depends on existing concurrency limit offerings and if these change then this stored procedure won't work correctly.  
-- This stored procedure depends on existing resource class offerings and if these change then this stored procedure won't work correctly.  
+- This stored procedure depends on the current offerings (for example, hardware configuration, DMS config), and if any of that changes then this stored proc won't work correctly. 
+- This stored procedure depends on existing concurrency limit offerings and if these change then this stored procedure won't work correctly. 
+- This stored procedure depends on existing resource class offerings and if these change then this stored procedure won't work correctly. 
 
 >[!NOTE]  
 >If you are not getting output after executing stored procedure with parameters provided, then there could be two cases.
 >
->1. Either DW Parameter contains an invalid SLO value
->2. Or, there is no matching resource class for the CCI operation on the table.
+>- Either DW Parameter contains an invalid SLO value
+>- Or, there is no matching resource class for the CCI operation on the table.
 >
 >For example, at DW100c, the highest memory grant available is 1 GB, and if table schema is wide enough to cross the requirement of 1 GB.
 
@@ -230,9 +236,9 @@ Here's the purpose of this stored procedure:
 Syntax:  
 `EXEC dbo.prc_workload_management_by_DWU @DWU VARCHAR(7), @SCHEMA_NAME VARCHAR(128), @TABLE_NAME VARCHAR(128)`
   
-1. @DWU: Either provide a NULL parameter to extract the current DWU from the DW DB or provide any supported DWU in the form of 'DW100c'
-2. @SCHEMA_NAME: Provide a schema name of the table
-3. @TABLE_NAME: Provide a table name of the interest
+- `@DWU`: Either provide a `NULL` parameter to extract the current DWU from the DW DB or provide any supported DWU in the form of 'DW100c'
+- `@SCHEMA_NAME`: Provide a schema name of the table
+- `@TABLE_NAME`: Provide a table name of the interest
 
 Examples executing this stored proc:
 
@@ -243,7 +249,7 @@ EXEC dbo.prc_workload_management_by_DWU 'DW6000c', NULL, NULL;
 EXEC dbo.prc_workload_management_by_DWU NULL, NULL, NULL;  
 ```
 
-The following statement creates Table1 that is used in the preceding examples.
+The following statement creates `Table1` that is used in the preceding examples.
 `CREATE TABLE Table1 (a int, b varchar(50), c decimal (18,10), d char(10), e varbinary(15), f float, g datetime, h date);`
 
 ### Stored procedure definition
@@ -577,6 +583,6 @@ SELECT  CASE
 GO
 ```
 
-## Next steps
+## Related content
 
 For more information about managing database users and security, see [Secure a database in Synapse SQL](sql-data-warehouse-overview-manage-security.md). For more information about how larger resource classes can improve clustered columnstore index quality, see [Memory optimizations for columnstore compression](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).

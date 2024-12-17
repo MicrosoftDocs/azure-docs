@@ -1,19 +1,21 @@
 ---
-title: Resources for creating Microsoft Sentinel custom connectors | Microsoft Docs
-description: Learn about available resources for creating custom connectors for Microsoft Sentinel. Methods include the Log Analytics agent and API, Logstash, Logic Apps, PowerShell, and Azure Functions.
-author: limwainstein
+title: Resources for creating Microsoft Sentinel custom connectors
+description: Learn about available resources for creating custom connectors for Microsoft Sentinel. Methods include the Log Analytics API, Logstash, Logic Apps, PowerShell, and Azure Functions.
+author: austinmccollum
 ms.topic: conceptual
-ms.date: 01/09/2023
-ms.author: lwainstein
+ms.date: 11/06/2024
+ms.author: austinmc
+#Customer intent: As a security engineer, I want to know which Microsoft Sentinel custom data connector would be most appropriate to build for ingesting data from sources with no out-of-the-box solution.
+
 ---
 
 # Resources for creating Microsoft Sentinel custom connectors
 
-Microsoft Sentinel provides a wide range of [built-in connectors for Azure services and external solutions](connect-data-sources.md), and also supports ingesting data from some sources without a dedicated connector.
+Microsoft Sentinel provides a wide range of [out-of-the-box connectors for Azure services and external solutions](connect-data-sources.md), and also supports ingesting data from some sources without a dedicated connector.
 
 If you're unable to connect your data source to Microsoft Sentinel using any of the existing solutions available, consider creating your own data source connector.
 
-For a full list of supported connectors, see the [Microsoft Sentinel: The connectors grand (CEF, Syslog, Direct, Agent, Custom, and more)](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-sentinel-the-connectors-grand-cef-syslog-direct-agent/ba-p/803891) blog post.
+For a full list of supported connectors, see the [Find your Microsoft Sentinel data connector)](data-connectors-reference.md).
 
 ## Compare custom connector methods
 
@@ -22,36 +24,35 @@ The following table compares essential details about each method for creating cu
 |Method description  |Capability | Serverless    |Complexity  |
 |---------|---------|---------|---------|
 | **[Codeless Connector Platform (CCP)](#connect-with-the-codeless-connector-platform)** <br>Best for less technical audiences to create SaaS connectors using a configuration file instead of advanced development. | Supports all capabilities available with the code. | Yes | Low; simple, codeless development
-|**[Log Analytics Agent](#connect-with-the-log-analytics-agent)** <br>Best for collecting files from on-premises and IaaS sources   | File collection only  |   No      |Low         |
-|**[Logstash](#connect-with-logstash)** <br>Best for on-premises and IaaS sources, any source for which a plugin is available, and organizations already familiar with Logstash  | Available plugins, plus custom plugin, capabilities provide significant flexibility.   |   No; requires a VM or VM cluster to run           |   Low; supports many scenarios with plugins      |
+|**[Azure Monitor Agent](#connect-with-the-azure-monitor-agent)** <br>Best for collecting files from on-premises and IaaS sources   | File collection, data transformation  |   No      | Low         |
+|**[Logstash](#connect-with-logstash)** <br>Best for on-premises and IaaS sources, any source for which a plugin is available, and organizations already familiar with Logstash  | Supports all capabilities of the Azure Monitor Agent  |   No; requires a VM or VM cluster to run           |   Low; supports many scenarios with plugins      |
 |**[Logic Apps](#connect-with-logic-apps)** <br>High cost; avoid for high-volume data <br>Best for low-volume cloud sources  | Codeless programming allows for limited flexibility, without support for implementing algorithms.<br><br> If no available action already supports your requirements, creating a custom action may add complexity.    |    Yes         |   Low; simple, codeless development      |
-|**[PowerShell](#connect-with-powershell)** <br>Best for prototyping and periodic file uploads | Direct support for file collection. <br><br>PowerShell can be used to collect more sources, but will require coding and configuring the script as a service.      |No               |  Low       |
-|**[Log Analytics API](#connect-with-the-log-analytics-api)** <br>Best for ISVs implementing integration, and for unique collection requirements   | Supports all capabilities available with the code.  | Depends on the implementation           |     High    |
+|**[Log Ingestion API in Azure Monitor](#connect-with-the-log-ingestion-api)** <br>Best for ISVs implementing integration, and for unique collection requirements   | Supports all capabilities available with the code.  | Depends on the implementation           |     High    |
 |**[Azure Functions](#connect-with-azure-functions)** <br>Best for high-volume cloud sources, and for unique collection requirements  | Supports all capabilities available with the code.  |  Yes             |     High; requires programming knowledge    |
 
 
 > [!TIP]
 > For comparisons of using Logic Apps and Azure Functions for the same connector, see:
 >
-> - [Ingest Fastly Web Application Firewall logs into Microsoft Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/ingest-fastly-web-application-firewall-logs-into-azure-sentinel/ba-p/1238804)
+> - [Ingest Fastly Web Application Firewall logs into Microsoft Sentinel](https://techcommunity.microsoft.com/blog/microsoftsentinelblog/ingest-fastly-web-application-firewall-logs-into-azure-sentinel/1238804)
 > - Office 365 (Microsoft Sentinel GitHub community): [Logic App connector](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Get-O365Data) | [Azure Function connector](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/O365%20Data)
 >
 
 ## Connect with the Codeless Connector Platform
 
-The Codeless Connector Platform (CCP) provides a configuration file that can be used by both customers and partners, and then deployed to your own workspace, or as a solution to Microsoft Sentinel's solution's gallery.
+The Codeless Connector Platform (CCP) provides a configuration file that can be used by both customers and partners, and then deployed to your own workspace, or as a solution to Microsoft Sentinel's content hub.
 
 Connectors created using the CCP are fully SaaS, without any requirements for service installations, and also include health monitoring and full support from Microsoft Sentinel.
 
 For more information, see [Create a codeless connector for Microsoft Sentinel](create-codeless-connector.md).
 
-## Connect with the Log Analytics agent
+## Connect with the Azure Monitor Agent
 
-If your data source delivers events in files, we recommend that you use the Azure Monitor Log Analytics agent to create your custom connector.
+If your data source delivers events in text files, we recommend that you use the Azure Monitor Agent to create your custom connector.
 
-- For more information, see [Collecting custom logs in Azure Monitor](../azure-monitor/agents/data-sources-custom-logs.md).
+- For more information, see [Collect logs from a text file with Azure Monitor Agent](/azure/azure-monitor/agents/data-collection-log-text).
 
-- For an example of this method, see [Collecting custom JSON data sources with the Log Analytics agent for Linux in Azure Monitor](../azure-monitor/agents/data-sources-json.md).
+- For an example of this method, see [Collect logs from a JSON file with Azure Monitor Agent](/azure/azure-monitor/agents/data-collection-log-json).
 
 ## Connect with Logstash
 
@@ -61,7 +62,7 @@ With the Microsoft Sentinel Logstash Output plugin, you can use any Logstash inp
 
 For examples of using Logstash as a custom connector, see:
 
-- [Hunting for Capital One Breach TTPs in AWS logs using Microsoft Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/hunting-for-capital-one-breach-ttps-in-aws-logs-using-azure/ba-p/1019767) (blog)
+- [Hunting for Capital One Breach TTPs in AWS logs using Microsoft Sentinel](https://techcommunity.microsoft.com/blog/microsoftsentinelblog/hunting-for-capital-one-breach-ttps-in-aws-logs-using-azure-sentinel---part-i/1014258) (blog)
 - [Radware Microsoft Sentinel implementation guide](https://support.radware.com/ci/okcsFattach/get/1025459_3)
 
 For examples of useful Logstash plugins, see:
@@ -72,7 +73,7 @@ For examples of useful Logstash plugins, see:
 - [Google_pubsub input plugin](https://www.elastic.co/guide/en/logstash/current/plugins-inputs-google_pubsub.html)
 
 > [!TIP]
-> Logstash also enables scaled data collection using a cluster. For more information, see [Using a load-balanced Logstash VM at scale](https://techcommunity.microsoft.com/t5/azure-sentinel/scaling-up-syslog-cef-collection/ba-p/1185854).
+> Logstash also enables scaled data collection using a cluster. For more information, see [Using a load-balanced Logstash VM at scale](https://techcommunity.microsoft.com/blog/microsoftsentinelblog/scaling-up-syslog-cef-collection/1185854).
 >
 
 ## Connect with Logic Apps
@@ -118,59 +119,18 @@ For examples of how you can create a custom connector for Microsoft Sentinel usi
 
 - [Create a data pipeline with the Data Collector API](/connectors/azureloganalyticsdatacollector/)
 - [Palo Alto Prisma Logic App connector using a webhook](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Ingest-Prisma) (Microsoft Sentinel GitHub community)
-- [Secure your Microsoft Teams calls with scheduled activation](https://techcommunity.microsoft.com/t5/azure-sentinel/secure-your-calls-monitoring-microsoft-teams-callrecords/ba-p/1574600) (blog)
-- [Ingesting AlienVault OTX threat indicators into Microsoft Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/ingesting-alien-vault-otx-threat-indicators-into-azure-sentinel/ba-p/1086566) (blog)
+- [Secure your Microsoft Teams calls with scheduled activation](https://techcommunity.microsoft.com/blog/microsoftsentinelblog/secure-your-calls--monitoring-microsoft-teams-callrecords-activity-logs-using-az/1574600) (blog)
+- [Ingesting AlienVault OTX threat indicators into Microsoft Sentinel](https://techcommunity.microsoft.com/blog/microsoftsentinelblog/ingesting-alien-vault-otx-threat-indicators-into-azure-sentinel/1086566) (blog)
 
-## Connect with PowerShell
-
-The [Upload-AzMonitorLog PowerShell script](https://www.powershellgallery.com/packages/Upload-AzMonitorLog/) enables you to use PowerShell to stream events or context information to Microsoft Sentinel from the command line. This streaming effectively creates a custom connector between your data source and Microsoft Sentinel.
-
-For example, the following script uploads a CSV file to Microsoft Sentinel:
-
-``` PowerShell
-Import-Csv .\testcsv.csv
-| .\Upload-AzMonitorLog.ps1
--WorkspaceId '69f7ec3e-cae3-458d-b4ea-6975385-6e426'
--WorkspaceKey $WSKey
--LogTypeName 'MyNewCSV'
--AddComputerName
--AdditionalDataTaggingName "MyAdditionalField"
--AdditionalDataTaggingValue "Foo"
-```
-
-The [Upload-AzMonitorLog PowerShell script](https://www.powershellgallery.com/packages/Upload-AzMonitorLog/) script uses the following parameters:
-
-|Parameter  |Description  |
-|---------|---------|
-|**WorkspaceId**     |   Your Microsoft Sentinel workspace ID, where you'll be storing your data.  [Find your workspace ID and key](#find-your-workspace-id-and-key).  |
-|**WorkspaceKey**     |   The primary or secondary key for the Microsoft Sentinel workspace where you'll be storing your data. [Find your workspace ID and key](#find-your-workspace-id-and-key).  |
-|**LogTypeName**     |    The name of the custom log table where you want to store the data. A suffix of **_CL** will automatically be added to the end of your table name.  |
-|**AddComputerName**     |   When this parameter exists, the script adds the current computer name to every log record, in a field named **Computer**.      |
-|**TaggedAzureResourceId**     | When this parameter exists, the script associates all uploaded log records with the specified Azure resource. <br><br>This association enables the uploaded log records for resource-context queries, and adheres to resource-centric, role-based access control.       |
-|**AdditionalDataTaggingName**     |      When this parameter exists, the script adds another field to every log record, with the configured name, and the value that's configured for the **AdditionalDataTaggingValue** parameter. <br><br>In this case, **AdditionalDataTaggingValue** must not be empty. |
-|**AdditionalDataTaggingValue**     |   When this parameter exists, the script adds another field to every log record, with the configured value, and the field name configured for the **AdditionalDataTaggingName** parameter. <br><br>If the **AdditionalDataTaggingName** parameter is empty, but a value is configured, the default field name is **DataTagging**.       |
-
-
-### Find your workspace ID and key
-
-Find the details for the **WorkspaceID** and **WorkspaceKey** parameters in Microsoft Sentinel:
-
-1. In Microsoft Sentinel, select **Settings** on the left, and then select the **Workspace settings** tab.
-
-1. Under **Get started with Log Analytics** > **1 Connect a data source**, select **Windows and Linux agents management**.
-
-1. Find your workspace ID, primary key, and secondary key on the **Windows servers** tabs.
-
-## Connect with the Log Analytics API
+## Connect with the Log Ingestion API
 
 You can stream events to Microsoft Sentinel by using the Log Analytics Data Collector API to call a RESTful endpoint directly.
 
 While calling a RESTful endpoint directly requires more programming, it also provides more flexibility.
 
-For more information, see the [Log Analytics Data collector API](../azure-monitor/logs/data-collector-api.md), especially the following examples:
-
-- [C#](../azure-monitor/logs/data-collector-api.md#sample-requests)
-- [Python](../azure-monitor/logs/data-collector-api.md#sample-requests)
+For more information, see the following articles:
+- [Log Ingestion API in Azure Monitor](/azure/azure-monitor/logs/logs-ingestion-api-overview).
+- [Sample code to send data to Azure Monitor using Logs ingestion API](/azure/azure-monitor/logs/tutorial-logs-ingestion-code).
 
 ## Connect with Azure Functions
 
@@ -182,8 +142,8 @@ For examples of this method, see:
 - [Connect your Okta Single Sign-On to Microsoft Sentinel with Azure Function](./data-connectors/okta-single-sign-on-using-azure-function.md)
 - [Connect your Proofpoint TAP to Microsoft Sentinel with Azure Function](./data-connectors/proofpoint-tap-using-azure-functions.md)
 - [Connect your Qualys VM to Microsoft Sentinel with Azure Function](data-connectors/qualys-vulnerability-management-using-azure-functions.md)
-- [Ingesting XML, CSV, or other formats of data](../azure-monitor/logs/create-pipeline-datacollector-api.md#ingesting-xml-csv-or-other-formats-of-data)
-- [Monitoring Zoom with Microsoft Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/monitoring-zoom-with-azure-sentinel/ba-p/1341516) (blog)
+- [Ingesting XML, CSV, or other formats of data](/azure/azure-monitor/logs/create-pipeline-datacollector-api#ingesting-xml-csv-or-other-formats-of-data)
+- [Monitoring Zoom with Microsoft Sentinel](https://techcommunity.microsoft.com/blog/microsoftsentinelblog/monitoring-zoom-with-azure-sentinel/1341516) (blog)
 - [Deploy a Function App for getting Office 365 Management API data into Microsoft Sentinel](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/O365%20Data) (Microsoft Sentinel GitHub community)
 
 ## Parse your custom connector data
@@ -206,5 +166,3 @@ Use the data ingested into Microsoft Sentinel to secure your environment with an
 - [Detect threats](threat-detection.md)
 - [Automate threat prevention](tutorial-respond-threats-playbook.md)
 - [Hunt for threats](hunting.md)
-
-Also, learn about one example of creating a custom connector to monitor Zoom: [Monitoring Zoom with Microsoft Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/monitoring-zoom-with-azure-sentinel/ba-p/1341516).

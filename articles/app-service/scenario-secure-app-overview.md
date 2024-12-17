@@ -5,7 +5,7 @@ services: active-directory, app-service-web, storage, microsoft-graph
 author: rwike77
 manager: CelesteDG
 
-ms.service: app-service
+ms.service: azure-app-service
 ms.topic: tutorial
 ms.date: 12/10/2021
 ms.author: ryanwi

@@ -2,7 +2,7 @@
 title: Common causes of Cloud Service (classic) roles recycling | Microsoft Docs
 description: A cloud service role that suddenly recycles can cause significant downtime. Here are some common issues that cause roles to be recycled, which may help you reduce downtime.
 ms.topic: troubleshooting
-ms.service: cloud-services
+ms.service: azure-cloud-services-classic
 ms.date: 07/23/2024
 author: hirenshah1
 ms.author: hirshah
@@ -24,7 +24,7 @@ If a role in your application relies on any assembly that isn't part of the .NET
 
 Before you build and package your application, verify the following statements are true:
 
-* If using Visual studio, make sure the **Copy Local** property is set to **True** for each referenced assembly in your project that isn't part of the Azure SDK or the .NET Framework.
+* If using Visual Studio, make sure the **Copy Local** property is set to **True** for each referenced assembly in your project that isn't part of the Azure SDK or the .NET Framework.
 * Make sure the web.config file doesn't reference any unused assemblies in the compilation element.
 * The **Build Action** of every .cshtml file is set to **Content**. This setting ensures that the files appear correctly in the package and enables other referenced files to appear in the package.
 

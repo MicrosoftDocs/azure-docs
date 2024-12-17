@@ -2,7 +2,7 @@
 title: include file
 description: include file
 author: spelluru
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: include
 ms.date: 02/14/2024
 ms.author: spelluru
@@ -49,6 +49,8 @@ Before an application can send data to Azure Event Hubs, the event hub must have
 
 1. On the **Event Hubs Namespace** page, select **Shared access policies** on the left menu.
 1. Select **RootManageSharedAccessKey** from the list of policies. 
+
+    :::image type="content" source="media/event-generator-app/select-key.png" alt-text="Screenshot that shows the Shared access policies page.":::
 1. Then, select the copy button next to **Connection string - primary key**. 
 1. Paste the connection string into a text editor. You need this connection string in the next section.
 

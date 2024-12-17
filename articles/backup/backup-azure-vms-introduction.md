@@ -1,8 +1,8 @@
 ---
 title: About Azure VM backup
 description: In this article, learn how the Azure Backup service backs up Azure Virtual machines, and how to follow best practices.
-ms.topic: conceptual
-ms.date: 03/14/2024
+ms.topic: overview
+ms.date: 09/11/2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -15,7 +15,9 @@ Azure Backup provides independent and isolated backups to guard against unintend
 
 As part of the backup process, a [snapshot is taken](#snapshot-creation), and the data is transferred to the Recovery Services vault with no impact on production workloads. The snapshot provides different levels of consistency, as described [here](#snapshot-consistency). You can opt for an agent-based application-consistent/file-consistent backup or an agentless crash-consistent backup in the backup policy.
 
-Azure Backup also has specialized offerings for database workloads like [SQL Server](backup-azure-sql-database.md) and [SAP HANA](sap-hana-db-about.md) that are workload-aware, offer 15 minute RPO (recovery point objective), and allow backup and restore of individual databases.
+Azure Backup also has specialized offerings for database workloads like [SQL Server](backup-azure-sql-database.md) and [SAP HANA](sap-hana-db-about.md) that are workload-aware, offer 15 minute RPO (recovery point objective), and allow backup and restore of individual databases. 
+
+You can now also back up your virtual machines with Azure Backup in Azure Extended Zones (preview). [Azure Extended Zones](../extended-zones/overview.md) (preview) provide enhanced resiliency by distributing resources across multiple physical locations within an Azure region. This approach minimizes the impact of potential failures for critical infrastructure. By using Extended Zones, your organizations can achieve higher availability and fault tolerance for their applications. Learn how to [back up an Azure VM in Azure Extended Zones (preview)](./backup-azure-vms-extended-zones.md).
 
 ## Backup process
 
@@ -29,7 +31,7 @@ When you back up Azure VMs with Azure Backup, VMs are encrypted at rest with Sto
 
 **Encryption** | **Details** | **Support**
 --- | --- | ---
-**SSE** | With SSE, Azure Storage provides encryption at rest by automatically encrypting data before storing it. Azure Storage also decrypts data before retrieving it. Azure Backup supports backups of VMs with two types of Storage Service Encryption:<li> **SSE with platform-managed keys**: This encryption is by default for all disks in your VMs. See more [here](../virtual-machines/disk-encryption.md#platform-managed-keys).<li> **SSE with customer-managed keys**. With CMK, you manage the keys used to encrypt the disks. See more [here](../virtual-machines/disk-encryption.md#customer-managed-keys). | Azure Backup uses SSE for at-rest encryption of Azure VMs.
+**SSE** | With SSE, Azure Storage provides encryption at rest by automatically encrypting data before storing it. Azure Storage also decrypts data before retrieving it. Azure Backup supports backups of VMs with two types of Storage Service Encryption:<li> **SSE with platform-managed keys**: This encryption is by default for all disks in your VMs. See more [here](/azure/virtual-machines/disk-encryption#platform-managed-keys).<li> **SSE with customer-managed keys**. With CMK, you manage the keys used to encrypt the disks. See more [here](/azure/virtual-machines/disk-encryption#customer-managed-keys). | Azure Backup uses SSE for at-rest encryption of Azure VMs.
 **Azure Disk Encryption** | Azure Disk Encryption encrypts both OS and data disks for Azure VMs.<br/><br/> Azure Disk Encryption integrates with BitLocker encryption keys (BEKs), which are safeguarded in a key vault as secrets. Azure Disk Encryption also integrates with Azure Key Vault key encryption keys (KEKs). | Azure Backup supports backup of managed and unmanaged Azure VMs encrypted with BEKs only, or with BEKs together with KEKs.<br/><br/> Both BEKs and KEKs are backed up and encrypted.<br/><br/> Because KEKs and BEKs are backed up, users with the necessary permissions can restore keys and secrets back to the key vault if needed. These users can also recover the encrypted VM.<br/><br/> Encrypted keys and secrets can't be read by unauthorized users or by Azure.
 
 For managed and unmanaged Azure VMs, Backup supports both VMs encrypted with BEKs only or VMs encrypted with BEKs together with KEKs.

@@ -3,8 +3,8 @@ title: Troubleshooting Elastic Cloud (Elasticsearch) - An Azure Native ISV Servi
 description: This article provides information about troubleshooting Elastic integration with Azure
 ms.topic: conceptual
 ms.date: 10/06/2023
-author: flang-msft
-ms.author: franlanglois
+
+
 ---
 
 # Troubleshooting Elastic Cloud (Elasticsearch) - An Azure Native ISV Service
@@ -17,16 +17,16 @@ Only users who have *Owner* or *Contributor* access on the Azure subscription ca
 
 ## Logs not being emitted to Elastic
 
-- Only resources listed in [Azure Monitor resource log categories](../../azure-monitor/essentials/resource-logs-categories.md) emit logs to Elastic. To verify whether the resource is emitting logs to Elastic:
+- Only resources listed in [Azure Monitor resource log categories](/azure/azure-monitor/essentials/resource-logs-categories) emit logs to Elastic. To verify whether the resource is emitting logs to Elastic:
 
-   1. Navigate to [Azure diagnostic setting](../../azure-monitor/essentials/diagnostic-settings.md) for the resource.
+   1. Navigate to [Azure diagnostic setting](/azure/azure-monitor/essentials/diagnostic-settings) for the resource.
    1. Verify that there's a diagnostic setting option available.
 
    :::image type="content" source="media/troubleshoot/check-diagnostic-setting.png" alt-text="Screenshot of verify diagnostic setting.":::
 
-- Resource doesn't support sending logs. Only resource types with monitoring log categories can be configured to send logs. For more information, see [supported categories](../../azure-monitor/essentials/resource-logs-categories.md).
+- Resource doesn't support sending logs. Only resource types with monitoring log categories can be configured to send logs. For more information, see [supported categories](/azure/azure-monitor/essentials/resource-logs-categories).
 
-- Limit of five diagnostic settings reached. Each Azure resource can have a maximum of five diagnostic settings. For more information, see [diagnostic settings](../../azure-monitor/essentials/diagnostic-settings.md?tabs=portal)
+- Limit of five diagnostic settings reached. Each Azure resource can have a maximum of five diagnostic settings. For more information, see [diagnostic settings](/azure/azure-monitor/essentials/diagnostic-settings?tabs=portal)
 
 - Export of Metrics data isn't supported currently by the partner solutions under Azure Monitor diagnostic settings.
 

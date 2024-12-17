@@ -3,7 +3,7 @@ title: Connect a container app to a cloud service with Service Connector
 description: Learn to connect a container app to an Azure service using the Azure portal or the CLI.
 author: maud-lv
 ms.author: malev
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: how-to
 ms.date: 07/24/2024
 ms.custom: service-connector, devx-track-azurecli
@@ -109,7 +109,7 @@ The following steps create a service connection using an access key or a system-
     - **Name of the storage account**: the name of the storage account that contains your blob.
 
     > [!IMPORTANT]
-    > To use Managed Identity, you must have the permission to manage [Microsoft Entra role assignments](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). If you don't have this permission, you won't be able to create a connection. You can ask your subscription owner to grant you this permission or use an access key instead to create the connection.
+    > To use Managed Identity, you must have the permission to manage [Microsoft Entra role assignments](/entra/identity/role-based-access-control/manage-roles-portal). If you don't have this permission, you won't be able to create a connection. You can ask your subscription owner to grant you this permission or use an access key instead to create the connection.
 
     > [!NOTE]
     > If you don't have a Blob Storage, you can run `az containerapp connection create storage-blob --new --secret` to provision a new one.

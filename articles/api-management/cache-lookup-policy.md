@@ -4,9 +4,9 @@ description: Reference for the cache-lookup policy available for use in Azure AP
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
-ms.date: 03/18/2024
+ms.date: 07/23/2024
 ms.author: danlep
 ---
 
@@ -64,7 +64,7 @@ Use the `cache-lookup` policy to perform cache lookup and return a valid cached 
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
--  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted
+-  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted, workspace
 
 ### Usage notes
 

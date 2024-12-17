@@ -3,7 +3,7 @@ title: Filter and ingest to Azure Data Explorer using the Stream Analytics no co
 description: Learn how to use the no code editor to easily create a Stream Analytics job. It continuously reads from Event Hubs, filters the incoming data, and then writes the results continuously to Azure Data Explorer.
 author: xujxu
 ms.author: xujiang1
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.date: 10/12/2022
 ---
@@ -22,7 +22,7 @@ This article describes how you can use the no code editor to easily create a Str
 1. In the [Azure portal](https://portal.azure.com), locate and select the Azure Event Hubs instance.
 1. Select **Features** > **Process Data** and then select **Start** on the **Filter and store data to Azure Data Explorer** card.
   
-    :::image type="content" source="./media/no-code-filter-ingest-data-explorer/event-hub-process-data-templates.png" alt-text="Screenshot showing the Filter and ingest to ADLS Gen2 card where you select Start." lightbox="./media/no-code-filter-ingest-data-explorer/event-hub-process-data-templates.png" :::
+    :::image type="content" source="./media/no-code-filter-ingest-data-explorer/event-hub-process-data-templates.png" alt-text="Screenshot showing the Filter and ingest to Azure Data Lake Storage Gen2 card where you select Start." lightbox="./media/no-code-filter-ingest-data-explorer/event-hub-process-data-templates.png" :::
 
 1. Enter a name for the Stream Analytics job, then select **Create**.  
     
@@ -70,6 +70,8 @@ This article describes how you can use the no code editor to easily create a Str
     You can also see the job under the Process Data section on the **Stream Analytics jobs** tab. Select **Open metrics** to monitor it or stop and restart it, as needed.
 
     :::image type="content" source="./media/no-code-filter-ingest-data-explorer/no-code-list-jobs.png" alt-text="Screenshot of the Stream Analytics jobs tab where you view the running jobs status." lightbox="./media/no-code-filter-ingest-data-explorer/no-code-list-jobs.png" :::
+
+[!INCLUDE [geo-replication-stream-analytics-job](./includes/geo-replication-stream-analytics-job.md)]
 
 ## Next steps
 

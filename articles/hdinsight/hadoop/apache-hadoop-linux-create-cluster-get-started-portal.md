@@ -2,10 +2,10 @@
 title: 'Quickstart: Apache Hadoop, Apache Hive & Azure HDInsight portal'
 description: In this quickstart, you use the Azure portal to create an HDInsight Hadoop cluster
 keywords: hadoop getting started,hadoop linux,hadoop quickstart,hive getting started,hive quickstart
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: quickstart
 ms.custom: hdinsightactive, mvc, mode-ui, linux-related-content
-ms.date: 11/29/2023
+ms.date: 11/25/2024
 #Customer intent: As a data analyst, I need to create a Hadoop cluster in Azure HDInsight using Azure portal and run a Hive job
 ---
 

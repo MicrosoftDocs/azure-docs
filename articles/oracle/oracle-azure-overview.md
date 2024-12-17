@@ -4,7 +4,7 @@ description: Oracle on Azure offerings
 author: jjaygbay1
 ms.author: jacobjaygbay
 ms.service: oracle-on-azure
-ms.topic: article
+ms.topic: overview
 ms.custom: engagement-fy23
 ms.date: 12/12/2023
 ---

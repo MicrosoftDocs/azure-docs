@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Load data & run queries with Apache Spark - Azure HDInsight'
 description: Tutorial - Learn how to load data and run interactive queries on Spark clusters in Azure HDInsight.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive, mvc
 ms.date: 07/12/2024
@@ -64,7 +64,7 @@ Applications can create dataframes directly from files or folders on the remote 
     csvFile.write.saveAsTable("hvac")
     ```
 
-## Run queries on the dataframe
+## Run queries on the datanami
 
 Once the table is created, you can run an interactive query on the data.
 

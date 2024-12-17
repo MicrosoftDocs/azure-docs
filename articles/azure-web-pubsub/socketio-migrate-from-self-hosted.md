@@ -13,6 +13,8 @@ ms.topic: how-to
 
 In this article, you migrate a Socket.IO chat app to Azure by using Web PubSub for Socket.IO.
 
+[!INCLUDE [Connection string security](includes/web-pubsub-connection-string-security.md)]
+
 ## Prerequisites
 
 > [!div class="checklist"]
@@ -48,6 +50,8 @@ For the migration process in this guide, you use a sample chat app provided on [
     ```
 
 4. Locate in your server-side code where you created the Socket.IO server, and append useAzureSocketIO(...):
+
+    [!INCLUDE [Connection string security comment](includes/web-pubsub-connection-string-security-comment.md)]
 
     ```javascript
     const io = require("socket.io")();

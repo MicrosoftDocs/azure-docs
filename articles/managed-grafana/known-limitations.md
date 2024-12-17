@@ -1,20 +1,20 @@
 ---
-title: Azure Managed Grafana service limitations
+title: Azure Managed Grafana service limits
 titlesuffix: Azure Managed Grafana
-description: Learn about current technical or feature limitations you may encounter in the Azure Managed Grafana service.
-ms.service: managed-grafana
+description: Learn about current service limits, quotas, and constraints you may encounter using Azure Managed Grafana.
+ms.service: azure-managed-grafana
 ms.topic: troubleshooting
-ms.date: 05/23/2024
+ms.date: 12/17/2024
 ms.author: malev
 ms.custom: engagement-fy23
 author: maud-lv
 ---
 
-# Limitations of Azure Managed Grafana
+# Service limits, quotas, and constraints
 
 Azure Managed Grafana delivers the native Grafana functionality in the highest possible fidelity. There are some differences between what it provides and what you can get by self-hosting Grafana. As a general rule, Azure Managed Grafana disables features and settings that might affect the security or reliability of the service and individual Grafana instances it manages.
 
-## Current limitations
+## Service limits
 
 Azure Managed Grafana has the following known limitations:
 
@@ -33,6 +33,10 @@ Azure Managed Grafana has the following known limitations:
 * Unified alerting is enabled by default for all instances created after December 2022. For instances created before this date, unified alerting must be enabled manually by the Azure Managed Grafana team. For activation, [open a support ticket](find-help-open-support-ticket.md#open-a-support-ticket).
 
 * > Only Azure subscriptions billed directly through Microsoft are eligible for the purchase of Grafana Enterprise. CSP subscriptions, i.e., Azure subscriptions billed through Cloud Solution Providers (CSP), are ineligible.
+
+## Current User authentication
+
+The *Current User* authentication option triggers the following limitation. Grafana offers some automated features such as alerts and reporting, that are expected to run in the background periodically. The Current User authentication method relies on a user being logged in, in an interactive session, to connect a data source to a database. Therefore, when this authentication method is used and no user is logged in, automated tasks can't run in the background. To leverage automated tasks, we recommend setting up another data source with another authentication method or [configuring alerts in Azure Monitor](./how-to-use-azure-monitor-alerts.md).
 
 ## Feature availability in sovereign clouds
 
@@ -56,7 +60,11 @@ Each data source also has its own limits that can be reflected in Azure Managed 
 * Refer to [Azure Monitor](/azure/azure-monitor/service-limits) to learn about Azure Monitor service limits including alerts, Prometheus metrics, data collection, logs and more.
 * Refer to [Azure Data Explorer](/azure/data-explorer/kusto/concepts/querylimits) to learn about Azure Data Explorer service limits.
 
-## Next steps
+## Managed identities
+
+Each Azure Managed Grafana instance can only be assigned one managed identity, user-assigned or system-assigned, but not both.
+
+## Related links
 
 > [!div class="nextstepaction"]
 > [Troubleshooting](./troubleshoot-managed-grafana.md)

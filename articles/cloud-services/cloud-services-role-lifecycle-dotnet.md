@@ -2,7 +2,7 @@
 title: Handle Cloud Service (classic) lifecycle events | Microsoft Docs
 description: Learn how to use the lifecycle methods of a Cloud Service role in .NET, including RoleEntryPoint, which provides methods to respond to lifecycle events.
 ms.topic: article
-ms.service: cloud-services
+ms.service: azure-cloud-services-classic
 ms.date: 07/23/2024
 author: hirenshah1
 ms.author: hirshah
