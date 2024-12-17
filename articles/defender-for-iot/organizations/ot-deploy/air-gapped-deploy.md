@@ -10,7 +10,7 @@ ms.date: 09/19/2023
 Microsoft Defender for IoT helps organizations achieve and maintain compliance of their OT environment by providing a comprehensive solution for threat detection and management, including coverage across parallel networks. Defender for IoT supports organizations across the industrial, energy, and utility fields, and compliance organizations like NERC CIP or IEC62443.
 
 > [!IMPORTANT]
-> The legacy on-premises management console won't be supported or available for download after January 1st, 2025. We recommend transitioning to the new architecture using the full spectrum of on-premises and cloud APIs before this date. For more information, see [On-premises management console retirement](on-premises-management-console-retirement).
+> The legacy on-premises management console won't be supported or available for download after January 1st, 2025. We recommend transitioning to the new architecture using the full spectrum of on-premises and cloud APIs before this date. For more information, see [On-premises management console retirement](on-premises-management-console-retirement.md).
 >
 
 Certain industries, such as governmental organizations, financial services, nuclear power operators, and industrial manufacturing, maintain air-gapped networks. Air-gapped networks are physically separated from other, unsecured networks like enterprise networks, guest networks, or the internet. Defender for IoT helps these organizations comply with global standards for threat detection and management, network segmentation, and more.

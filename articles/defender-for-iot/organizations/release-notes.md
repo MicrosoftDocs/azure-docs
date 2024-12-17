@@ -40,7 +40,7 @@ Cloud features may be dependent on a specific sensor version. Such features are 
 > - For versions where the management console is specified as included, you can use the on-premises management console, but no support service or maintenance is available. 
 > - For versions where the management console is specified as not included, you can't use or access the management console.
 > 
-> For more information, see [On-premises management console retirement](on-premises-management-console-retirement).
+> For more information, see [On-premises management console retirement](ot-deploy/on-premises-management-console-retirement.md).
 
 | Version / Patch |  Release date | Scope     | Supported until |Management console |
 | ------- |  ------------ | ----------- | ------------------- | ------------------- |

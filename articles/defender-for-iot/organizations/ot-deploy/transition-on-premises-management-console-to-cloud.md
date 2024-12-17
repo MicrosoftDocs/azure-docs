@@ -10,10 +10,10 @@ ms.date: 12/17/2024
 This article describes how to transition from the on-premises management console to the cloud.
 
 > [!IMPORTANT]
-> The [legacy on-premises management console](../legacy-central-management/legacy-air-gapped-deploy.md) won't be supported or available for download after January 1st, 2025. For more information, see [On-premises management console retirement](on-premises-management-console-retirement).
+> The on-premises management console won't be supported or available for download after January 1st, 2025. For more information, see [On-premises management console retirement](on-premises-management-console-retirement).
 >
 
-Our [current architecture guidance](#architecture-recommendations) is designed to be more efficient, secure, and reliable than using the legacy on-premises management console. The updated guidance has fewer components, which makes it easier to maintain and troubleshoot. The smart sensor technology used in the new architecture allows for on-premises processing, reducing the need for cloud resources and improving performance. The updated guidance keeps your data within your own network, providing better security than cloud computing.
+Our [current architecture guidance](#architecture-guidance) is designed to be more efficient, secure, and reliable than using the legacy on-premises management console. The updated guidance has fewer components, which makes it easier to maintain and troubleshoot. The smart sensor technology used in the new architecture allows for on-premises processing, reducing the need for cloud resources and improving performance. The updated guidance keeps your data within your own network, providing better security than cloud computing.
 
 ## Architecture guidance
 
@@ -33,7 +33,7 @@ If you're an existing customer using an on-premises management console to manage
 
 1. Connect your sensors to on-premises, Azure, and other cloud resources, as needed for each site. For example, connect to an on-premises SIEM, proxy servers, backup storage, and other partner systems. You may have multiple sites and adopt a hybrid approach, where only specific sites are kept completely air-gapped or isolated using data-diodes.
 
-    For more information, see the information linked in the [air-gapped deployment procedure](#deployment-steps), as well as the following cloud resources:
+    For more information, see the information linked in the [air-gapped deployment procedure](air-gapped-deploy.md#deployment-steps), as well as the following cloud resources:
 
     - [Provision sensors for cloud management](provision-cloud-management.md)
     - [OT threat monitoring in enterprise SOCs](../concept-sentinel-integration.md)
