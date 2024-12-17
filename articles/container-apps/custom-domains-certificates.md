@@ -88,6 +88,11 @@ Azure Container Apps allows you to bind one or more custom domains to a containe
         | Record type | Host | Value |
         |--|--|--|
         | A | `@` | The Private IP of your private endpoint on your container apps environment. |
+
+    In addition, you will need to add the following record to your public DNS zone.
+
+        | Record type | Host | Value |
+        |--|--|--|
         | TXT | `asuid` | The domain verification code. |
 
     - If you selected *CNAME*, create the following DNS records:
@@ -95,6 +100,11 @@ Azure Container Apps allows you to bind one or more custom domains to a containe
         | Record type | Host | Value |
         |--|--|--|
         | CNAME | The subdomain (for example, `www`) | The generated domain of your container app. |
+
+    In addition, you will need to add the following record to your public DNS zone.
+
+        | Record type | Host | Value |
+        |--|--|--|
         | TXT | `asuid.` followed by the subdomain (for example, `asuid.www`) | The domain verification code. |
 
     ---
