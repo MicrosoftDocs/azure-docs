@@ -78,7 +78,7 @@ You can view detailed call logs for each participant within a call. Call informa
 AI can help app developers across every step of the development lifecycle: designing, building, and operating. Developers can use [Microsoft Copilot in Azure (preview)](/azure/copilot/overview) within Call Diagnostics to understand and resolve various calling problems. For example, developers can ask Copilot in Azure these questions:
 
 - How to run network diagnostics in Azure Communication Services VoIP calls.
-- How to optimize my calls for poor network conditions.
+- How to optimize your calls for poor network conditions.
 - What are the common causes of poor media streams in Azure Communication Services calls?
 - How to fix subcode 41048 if the video on a call didn't work.
 
@@ -145,10 +145,7 @@ After clicking the **Edit Columns** button, choose the **DiagnosticOptions** opt
 
 You can now see the `DiagnosticOptions` column.
 
-### More information about adding tags for my Calls in Call Diagnostics
-
-You can find more information for adding `DiagnosticOptions` tags in: 
-https://learn.microsoft.com/azure/communication-services/tutorials/voice-video-calling/diagnostic-options-tag
+### More information about adding tags for your Calls in Call Diagnostics
 
 For more information about adding `DiagnosticOptions` tags, see [Add custom tags to your client telemetry](../../tutorials/voice-video-calling/diagnostic-options-tag.md).
 
