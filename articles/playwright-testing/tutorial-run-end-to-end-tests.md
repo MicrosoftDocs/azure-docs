@@ -52,26 +52,26 @@ git clone https://github.com/microsoft/playwright-testing-service
 cd playwright-testing-service/samples/get-started
 ```
 
-2. Install dependencies
+2. Install dependencies.
 
 ```powershell
 npm install
 ```
-3. Run Playwright tests 
+3. Run Playwright tests.
 
-Run this command to execute tests locally, without the service to identify any problems before integrating with the service. This project is used in the next steps to integrate with the service. 
+Run this command to execute tests locally, outside of the service, to identify any problems before integrating with the service. This project is used in the next steps to integrate with the service. 
 
 ```powershell
 npx playwright test
 ```
 
-## Integrate Playwright test suite with Microsoft Playwright Testing service.
+## Integrate Playwright test suite with Microsoft Playwright Testing service
 
-In this tutorial, you set up Playwright Testing service and integrate the Playwright test suite you created in the previous tutorial with the service. 
+Integrate the Playwright test suite you created in the previous tutorial with Playwright Testing service. 
 
 Follow these steps to set up the service and integrate the test suite. 
 
-1. Create a Playwright Testing workspace
+1. Create a Playwright Testing workspace.
 
 To get started with running your Playwright tests at scale on cloud browsers, you first create a Microsoft Playwright Testing workspace in the Playwright portal.
 
@@ -80,7 +80,7 @@ To get started with running your Playwright tests at scale on cloud browsers, yo
 When the workspace creation finishes, you're redirected to the setup guide.
 
 
-2. Install Microsoft Playwright Testing package 
+2. Install Microsoft Playwright Testing package.
 
 To install service package, navigate to the location of your test suite you created in the previous tutorial and run this command:
 
@@ -93,7 +93,7 @@ This command generates `playwright.service.config.ts` file which serves to:
 - Direct and authenticate Playwright to the Microsoft Playwright Testing service.
 - Adds a reporter to publish test results and artifacts.
 
-3. Configure the service region endpoint
+3. Configure the service region endpoint.
 
 In your setup, you have to provide the region-specific service endpoint. The endpoint depends on the Azure region you selected when creating the workspace.
 
@@ -106,7 +106,7 @@ To get the service endpoint URL, perform the following steps:
     :::image type="content" source="./media/quickstart-run-end-to-end-tests/playwright-testing-region-endpoint.png" alt-text="Screenshot that shows how to copy the workspace region endpoint in the Playwright Testing portal." lightbox="./media/quickstart-run-end-to-end-tests/playwright-testing-region-endpoint.png":::
 
 
-4. Set up your environment
+4. Set up your environment.
 
 To set up your environment, you have to configure the `PLAYWRIGHT_SERVICE_URL` environment variable with the value you obtained in the previous steps.
 
@@ -127,9 +127,9 @@ We recommend that you use the `dotenv` module to manage your environment. With `
     Make sure to replace the `{MY-REGION-ENDPOINT}` text placeholder with the value you copied earlier.
 
 
-5. Set up Authentication
+5. Set up authentication.
 
-To run your Playwright tests in your Microsoft Playwright Testing workspace, you need to authenticate the Playwright client where you're running the tests with the service. In this tutorial, it is the dev workstation where you are running the Playwright tests.  
+To run your Playwright tests in your Microsoft Playwright Testing workspace, you need to authenticate the Playwright client where you're running the tests with the service. Authenticate with the dev workstation where you are running the Playwright tests.  
 
 Microsoft Entra ID is the default and recommended authentication for the service. Use [Azure CLI](/cli/azure/install-azure-cli) to sign-in
 
@@ -141,7 +141,7 @@ az login
 > If you're a part of multiple Microsoft Entra tenants, make sure you sign in to the tenant where your workspace belongs. You can get the tenant ID from Azure portal. See [Find your Microsoft Entra Tenant](/azure/azure-portal/get-subscription-tenant-id#find-your-microsoft-entra-tenant). Once you get the ID, sign-in using the command `az login --tenant <TenantID>`
 
 
-6. Enable artifacts in your Playwright setup 
+6. Enable artifacts in your Playwright setup.
 
 In the `playwright.config.ts` file of your project, ensure you are collecting all the required artifacts.
 ```typescript
