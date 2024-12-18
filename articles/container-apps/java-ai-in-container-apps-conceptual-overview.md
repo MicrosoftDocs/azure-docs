@@ -31,13 +31,9 @@ The following diagram shows the architecture of the AI application in Azure Cont
 The following are the key components of this sample application:
 
 - [Azure Container Apps Environment](/azure/container-apps/environment), to run the container apps instances.
-
 - [Azure OpenAI Service](/azure/ai-services/openai/overview).
-
 - [Azure Container Registry](/azure/container-registry/container-registry-intro), to build and save images for the application.
-
 - [Azure Container Apps](/azure/container-apps/overview) instance for this application.
-
 - [Managed Identities](/entra/identity/managed-identities-azure-resources/overview) for security connections.
 
 Read the [bicep scripts](https://github.com/Azure-Samples/spring-petclinic-ai/blob/main/infra/bicep/main.bicep) in the [spring-petclinic-ai](https://github.com/Azure-Samples/spring-petclinic-ai/) repo to learn more about the deployment of the structure.
