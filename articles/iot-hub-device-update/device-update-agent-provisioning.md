@@ -22,7 +22,7 @@ You can create up to 50 module identities under each Azure IoT Hub device identi
 
 Module identity and module identity twin provide similar capabilities to device identity and device twin, but at a finer granularity. For more information, see [Understand and use module twins in IoT Hub](../iot-hub/iot-hub-devguide-module-twins.md).
 
-When you provision the Device Update agent as a module identity, all [communications](device-update-plug-and-play.md) between the device and the Device Update service must happen over the Module Twin. Remember to tag the Module Twin of the device when you create [device groups](device-update-groups.md). If you migrate from a device-level agent to adding the agent as a module identity, remove the older agent that communicated over the device twin.
+When you provision the Device Update agent as a module identity, all [communications](device-update-plug-and-play.md) between the device and the Device Update service must happen over the module twin. Remember to tag the module twin of the device when you create [device groups](device-update-groups.md). If you migrate from a device-level agent to adding the agent as a module identity, remove the older agent that communicated over the device twin.
 
 ## Supported update types
 
@@ -67,7 +67,7 @@ To set up an IoT device or IoT Edge device to install [package based updates](./
 
 You can provision the Device Update agent as a module identity on IoT Edge enabled devices or non-IoT Edge IoT devices. To check if you have IoT Edge enabled on your device, see [View registered devices and retrieve provisioning information](../iot-edge/how-to-provision-single-device-linux-symmetric.md?preserve-view=true&view=iotedge-2020-11#view-registered-devices-and-retrieve-provisioning-information).
 
-You can download and unzip sample images from the **Assets** section on the [Releases](https://github.com/Azure/iot-hub-device-update/releases) page. In *Tutorial_RaspberryPi3.zip*, the *swUpdate* file is the base image that you can flash onto a Raspberry Pi B3+ board. The *.gz* file is the update you can import through Device Update. For more information, see [Azure Device Update for IoT Hub using a Raspberry Pi image](./device-update-raspberry-pi.md#use-bmaptool-to-flash-the-sd-card).
+You can download sample images to use from the **Assets** section on the [Releases](https://github.com/Azure/iot-hub-device-update/releases) page. In *Tutorial_RaspberryPi3.zip*, the *swUpdate* file is the base image that you can flash onto a Raspberry Pi B3+ board. The *.gz* file is the update you can import through Device Update. For more information, see [Azure Device Update for IoT Hub using a Raspberry Pi image](./device-update-raspberry-pi.md#use-bmaptool-to-flash-the-sd-card).
 
 ### On IoT Edge enabled devices
 
