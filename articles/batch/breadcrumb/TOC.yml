@@ -1,8 +1,0 @@
-items:
-- name: Azure
-  tocHref: /azure/
-  topicHref: /azure/index
-  items:
-    - name: Batch
-      tocHref: /azure/reliability/
-      topicHref: /azure/batch/index
