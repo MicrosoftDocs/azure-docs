@@ -1,8 +1,9 @@
 ---
 title: Scalability - Azure Event Hubs | Microsoft Docs
 description: This article provides information on how to scale Azure Event Hubs by using partitions and throughput units. 
-ms.topic: article
-ms.date: 11/23/2023
+ms.topic: concept-article
+ms.date: 12/12/2024
+# Customer intent: I want to learn how to scare Azure Event Hubs to keep up with the increased workload. 
 ---
 
 # Scaling with Event Hubs
@@ -51,7 +52,7 @@ To learn about configuring PUs for a premium tier namespace, see [Configure proc
 
 
 
-## Next steps
+## Related content
 You can learn more about Event Hubs by visiting the following links:
 
 - [Automatically scale throughput units for a standard tier namespace](event-hubs-auto-inflate.md)

@@ -126,7 +126,7 @@ With the explicit specification of the result set schema, you can minimize the t
 > Mismatch between text encoding in the file and string column collation might cause unexpected conversion errors.
 > You can easily change default collation of the current database using the following T-SQL statement:
 >   `alter database current collate Latin1_General_100_BIN2_UTF8`
-> You can easily set collation on the colum types using the following definition:
+> You can easily set collation on the column types using the following definition:
 >    `geo_id varchar(6) collate Latin1_General_100_BIN2_UTF8`
 
 ## Dataset

@@ -35,7 +35,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 > [!IMPORTANT]
 > While lengthy, this tutorial represents the recommended process for migrating AWS VMs to Azure VMs using Azure Migrate. While alternative methods like using Azure Image Builder may work in theory, there are numerous compatibility issues that can arise.
 >
->This tutorial provides a comprehensive overview of the process and addresses compatability, supported configurations, testing to ensure your VM boots properly, and frequently asked questions.
+>This tutorial provides a comprehensive overview of the process and addresses compatibility, supported configurations, testing to ensure your VM boots properly, and frequently asked questions.
 
 ## Discover and assess
 

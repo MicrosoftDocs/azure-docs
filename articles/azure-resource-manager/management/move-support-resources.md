@@ -1298,7 +1298,6 @@ Moves between Resource groups and subscriptions are supported for APIs that use 
 > | ------------- | ----------- | ---------- | ---------- |
 > | objectunderstandingaccounts | No | No | No |
 > | remoterenderingaccounts | **Yes** | **Yes** | No |
-> | spatialanchorsaccounts | **Yes** | **Yes** | No |
 
 ## Microsoft.MobileNetwork
 

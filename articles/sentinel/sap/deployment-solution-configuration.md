@@ -16,7 +16,7 @@ ms.collection: usx-security
 
 # Enable SAP detections and threat protection
 
-While deploying the Microsoft Sentinel data collector agent and solution for SAP applications provides you with the ability to monitor SAP systems for suspicious activities and identify threats, extra configuration steps are required to ensure the solution is optimized for your SAP deployment. This article provides best practices for getting started with the security content delivered with the Microsoft Sentinel solution for SAP applications, and is the last step in deploying the SAP integration.
+While deploying a Microsoft Sentinel data collector and solution for SAP provides you with the ability to monitor SAP systems for suspicious activities and identify threats, extra configuration steps are required to ensure the solution is optimized for your SAP deployment. This article provides best practices for getting started with the security content delivered with the Microsoft Sentinel solution for SAP applications, and is the last step in deploying the SAP integration.
 
 :::image type="content" source="media/deployment-steps/settings.png" alt-text="Diagram of the SAP solution deployment flow, highlighting the Configure solution settings step." border="false":::
 
@@ -28,10 +28,9 @@ Content in this article is relevant for your **security** team.
 
 ## Prerequisites
 
-Before configuring the settings described in this article, you must have your data connector agent and solution content installed.
+Before configuring the settings described in this article, you must have a Microsoft Sentinel SAP solution installed and a data connector configured.
 
 For more information, see [Deploy the Microsoft Sentinel solution for SAP applications from the content hub](deploy-sap-security-content.md) and [Deploy Microsoft Sentinel solution for SAP applications](deployment-overview.md).
-
 
 ## Start enabling analytics rules
 
