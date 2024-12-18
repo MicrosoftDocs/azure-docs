@@ -90,13 +90,15 @@ For Standard workflows with the App Service Environment v3 hosting option, you c
 
 ::: zone pivot="consumption"
 
-Consumption logic apps that are deployed in [any region that supports availability zones](./availability-zones-region-support.md) are automatically zone redundant.
+Consumption logic apps that are deployed in [any region that supports availability zones](./availability-zones-region-support.md) are automatically zone redundant. The exception is Japan West, which doesn't currently support zone-redundant logic apps because some of the dependent services don't yet support zone redundancy.
 
 ::: zone-end
 
 ::: zone pivot="standard-workflow-service-plan"
 
-You can deploy zone-redundant Standard logic apps with Workflow Service Plans in [any region that supports availability zones](./availability-zones-region-support.md). The exception is Japan West, which doesn't currently support zone-redundant logic apps because some of the dependent services don't yet support zone redundancy.
+You can deploy zone-redundant Standard logic apps with Workflow Service Plans in any region that supports availability zones for Azure App Service. To learn more, see [Reliability in Azure App Service](./reliability-app-service.md).
+
+The exception is Japan West, which doesn't currently support zone-redundant logic apps.
 
 ::: zone-end
 
