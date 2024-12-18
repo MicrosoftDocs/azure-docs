@@ -34,7 +34,7 @@ Usually, building AI solutions involves several key steps and requires a few bui
 >
 > To find Azure Copilot, on the [Azure portal](https://portal.azure.com) toolbar, select **Copilot**.
 
-You can assemble various components, not only to perform data ingestion but also to provide a robust backend for the chat interface. This backend facilitates entering prompts and generates dependable responses during interactions. However, creating the code to manage and control all these elements can prove challenging, which is the case for most solutions.
+You can assemble various components, not only to perform data ingestion but also to provide a robust backend for the chat interface. This backend facilitates entering prompts and generates dependable responses during interactions. However, creating the code to manage and control all these elements can pose challenges, which is the case for most solutions.
 
 Azure Logic Apps offers a low code approach and simplifies backend management by providing prebuilt connectors that you use as building blocks to streamline the backend process. This approach lets you focus on sourcing your data and making sure that search results provide current and relevant information. With these AI connectors, your workflow acts as an orchestration engine that transfers data between AI services and other components that you want to integrate.
 
@@ -70,7 +70,7 @@ Azure OpenAI Service provides access to [OpenAI's language models](https://opena
 >
 > To find Azure Copilot, on the [Azure portal](https://portal.azure.com) toolbar, select **Copilot**.
 
-The **Azure OpenAI** connector has different versions, baed on [logic app type and hosting model](/azure/logic-apps/logic-apps-overview#resource-environment-differences):
+The **Azure OpenAI** connector has different versions, based on [logic app type and hosting model](/azure/logic-apps/logic-apps-overview#resource-environment-differences):
 
 | Logic app | Environment | Connector version |
 |-----------|-------------|-------------------|
@@ -80,6 +80,8 @@ The **Azure OpenAI** connector has different versions, baed on [logic app type a
 ### Azure AI Search
 
 Azure AI Search is platform for AI-powered information retrieval that helps developers build rich search experiences and generative AI apps by combining large language models with enterprise data. With the **Azure AI Search** connector, your workflow can connect to Azure AI Search to index documents and perform vector searches on your data.
+
+The **Azure AI Search** connector has different versions, based on [logic app type and hosting model](/azure/logic-apps/logic-apps-overview#resource-environment-differences):
 
 | Logic app | Environment | Connector version |
 |-----------|-------------|-------------------|
