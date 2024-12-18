@@ -190,7 +190,7 @@ Example array of media access objects returned by list all remote participants m
 |----------------------------------------------|--------|--------|---------|----------|
 |500		| 46500	| UnexpectedServerError  | Internal error while updating the audio /video access. | Gather browser console logs and contact Azure Communication Services support. |
 |500	| 46501 | UnexpectedClientError  | Could not initialize media access feature.  | Gather browser console logs and contact Azure Communication Services support. |
-|403 | 46502	| ExpectedError | Change media access failed. User does not have a Organizer, Co-Organizer or Presenter role. | Ensure that the user has the mentioned roles and try again. If the issue persists, gather browser console logs and contact Azure Communication Services support. |
+|403 | 46502	| ExpectedError | Change media access failed. User does not have an organizer, co-organizer, or presenter role. | Ensure that the user has the mentioned roles and try again. If the issue persists, gather browser console logs and contact Azure Communication Services support. |
 |403| 46503 | UnexpectedServerError |Change media access failed. Change media access can only be done in meeting/group call scenarios. | Ensure that the feature is initialized only for meeting / group call scenarios. If the issue persists, gather browser console logs and contact Azure Communication Services support. |
 |403 | 46504| ExpectedError | Change media access failed. Only able to change media access for attendees. | Ensure that the method is called only for the attendee MRI's.|
 |412 | 46505| ExpectedError | Failed to change media access. |  Call must be in connected state. |
