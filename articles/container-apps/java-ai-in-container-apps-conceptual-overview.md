@@ -84,12 +84,12 @@ Some introduction to the code for readers to understand the flows of this first 
 
    Some key configuration of the chatClient, see function `ChatClientCustomizer`:
 
-   - Client to connect to Azure OpenAI. Both api-key and managed identity supported.
-   - ChatModel. Deployment `gpt-4o` and temperature `0.7` are set in configuration file.
-   - VectorStore. The vector database stores mathematical representations of our documents, known as embeddings. The vectore data is used by the Chat API to find documents relevant to a user's question.
-   - System Prompt. Customize AI behavior and enhance performance.
-   - Functions. Customized functions for OpenAI to interact with business system, these functions define the AI capabilities to your business.
-   - Advisors. Provides a flexible and powerful way to intercept, modify, and enhance AI-driven interactions in your Spring applications.
+    - Client to connect to Azure OpenAI. Both api-key and managed identity supported.
+    - ChatModel. Deployment `gpt-4o` and temperature `0.7` are set in configuration file.
+    - VectorStore. The vector database stores mathematical representations of our documents, known as embeddings. The vectore data is used by the Chat API to find documents relevant to a user's question.
+    - System Prompt. Customize AI behavior and enhance performance.
+    - Functions. Customized functions for OpenAI to interact with business system, these functions define the AI capabilities to your business.
+    - Advisors. Provides a flexible and powerful way to intercept, modify, and enhance AI-driven interactions in your Spring applications.
 
    ```java
    @Bean
