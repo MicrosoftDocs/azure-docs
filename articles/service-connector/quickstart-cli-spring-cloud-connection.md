@@ -28,7 +28,7 @@ Service Connector lets you quickly connect compute services to cloud services, w
 
 - The Azure Spring Apps extension must be installed in the Azure CLI or the Cloud Shell. To install it, run `az extension add --name spring`.
 
-## Initial set up
+## Initial setup
 
 1. If you're using Service Connector for the first time, start by running the command [az provider register](/cli/azure/provider#az-provider-register) to register the Service Connector resource provider.
 
