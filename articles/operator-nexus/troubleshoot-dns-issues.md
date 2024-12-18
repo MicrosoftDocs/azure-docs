@@ -12,15 +12,15 @@ ms.date: 12/10/2024
 
 # Troubleshoot Nexus DNS Issues
 
-NNF (Nexus Network Fabric) NNF provides a bridge between Nexus resources hosted by a Kubernetes
+NNF (Nexus Network Fabric) provides a bridge between Nexus resources hosted by a Kubernetes
 cluster running on Azure VMs (Virtual Machines) and Azure, accessing Azure resources via their
 domain names. However a DNS (Domain Name System) error in NNF can mean that Azure resources
 can't be contacted which impacts deployment or management of Nexus resources.
 
 The DNS proxy that causes this error is an [Envoy DNS Proxy](https://www.envoyproxy.io/docs/envoy/latest/)
-running via a Kubernetes deployment in either an Infrastructure or Tenant cluster.
-The precise location of the DNS proxy will have been determined when the customer
-has deployed ther NAKS (Nexus Azure Kubernetes Service) cluster or during some other
+running via a Kubernetes deployment in either an infrastructure or tenant Kubernetes cluster.
+The precise location of the DNS proxy is determined when the customer
+deploys their NAKS (Nexus Azure Kubernetes Service) cluster or during some other
 deployment. 
 
 ## Diagnosis
@@ -32,16 +32,16 @@ deployment.
 
 ### Trigger a DNS cache refresh for the NNF Workload Proxy
 
-- Based on configuration and deployment, identify the Infrastructure or Tenant Kubernetes Cluster on which the DNS proxy is runnning
-- Log-in to the Kubernetes cluster
+- Identify the Infrastructure or Tenant Kubernetes Cluster on which the DNS proxy is running from the initial configuration and deployment process
+- Log in to the Kubernetes cluster
   - Using the Azure portal, find your cluster
   - From the _Overview_ blade, click the _Connect_ command (between _Refresh_ and _Delete_)
-  - Follow the instructions from the resulting pop-up window that explains how to use Kubernetes cluster
+  - Follow the instructions from the resulting pop-up window that explain how to connect to the Kubernetes cluster
 - Identify the DNS proxy deployment using this command
   ```bash
   $ kubectl get deployments --all-namespaces=true | grep envoy
   ```
-- Restart the deployment, which will cause the DNS caching to be reset, using this command:
+- Restart the deployment, which causes the DNS caching to be reset, using this command:
   ```bash
   kubectl rollout restart deployment <your-envoy-deployment-name> --namespace <namespace-where-envoy-pod-exists>
   ```
