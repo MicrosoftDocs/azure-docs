@@ -153,7 +153,7 @@ Now create one or more batch sender logic app workflows that send messages to th
 
       **Consumption workflow**
 
-      After you add the **Send to batch trigger worklow** action, a list appears and shows only the logic app resources with batch triggers that exist in the same Azure subscription *and* Azure region as your batch sender logic app resource.
+      After you add the **Send to batch trigger workflow** action, a list appears and shows only the logic app resources with batch triggers that exist in the same Azure subscription *and* Azure region as your batch sender logic app resource.
 
       1. From the logic apps list, select the previously created logic app to use as the batch receiver. When the available triggers appear, select the trigger named **Batch_messages**.
 

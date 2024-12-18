@@ -48,7 +48,7 @@ Before you can work on a Consumption workflow definition in Visual Studio, make 
 
 1. Open the shortcut menu for your workflow definition and template. Select **Open With Logic App Designer**.
 
-   ![Open logic app in a Visual Studio solution.](./media/logic-apps-author-definitions/open-logic-app-designer.png)
+   :::image type="content" source="media/logic-apps-author-definitions/open-logic-app-designer.png" alt-text="Screenshot shows opened logic app in a Visual Studio solution.":::
 
    > [!TIP]
    >
