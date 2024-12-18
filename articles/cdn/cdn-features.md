@@ -12,6 +12,8 @@ ms.custom: mvc
 
 # What are the comparisons between Azure Content Delivery Network product features?
 
+[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
+
 Azure Content Delivery Network includes three products:
 
 - **Azure CDN Standard from Microsoft**
@@ -48,7 +50,7 @@ The following table compares the features available with each product.
 | [Token authentication](cdn-token-auth.md)  |  |  |**&#x2713;**|
 | [DDoS Protection](https://www.cisa.gov/news-events/news/understanding-denial-service-attacks)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Bring your own certificate](cdn-custom-ssl.md?tabs=option-2-enable-https-with-your-own-certificate#tlsssl-certificates) |**&#x2713;** | **&#x2713;** | **&#x2713;** |
-| Supported TLS Versions | TLS 1.2, TLS 1.0/1.1 - [Configurable](/rest/api/cdn/custom-domains/enable-custom-https#usermanagedhttpsparameters) | TLS 1.2, TLS 1.3 | TLS 1.2, TLS 1.3 |
+| Supported TLS Versions | TLS 1.3, TLS 1.2, TLS 1.0/1.1 - [Configurable](/rest/api/cdn/custom-domains/enable-custom-https#usermanagedhttpsparameters) | TLS 1.2, TLS 1.3 | TLS 1.2, TLS 1.3 |
 ||||
 | **Analytics and reporting** | **Standard Microsoft** | **Standard Edgio** | **Premium Edgio** |
 | [Azure diagnostic logs](cdn-azure-diagnostic-logs.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |
@@ -60,7 +62,7 @@ The following table compares the features available with each product.
 | [Real-time alerts](cdn-real-time-alerts.md)  |  | |**&#x2713;** |
 ||||
 | **Ease of use** | **Standard Microsoft** | **Standard Edgio** | **Premium Edgio** |
-| Easy integration with Azure services, such as [Storage](cdn-create-a-storage-account-with-cdn.md), [Web Apps](cdn-add-to-web-app.md), and [Media Services](/azure/media-services/previous/media-services-portal-manage-streaming-endpoints)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |
+| Easy integration with Azure services, such as [Storage](cdn-create-a-storage-account-with-cdn.md), [Web Apps](cdn-add-to-web-app.md), and Media Services | **&#x2713;** |**&#x2713;** |**&#x2713;** |
 | Management via [REST API](/rest/api/cdn/), [.NET](cdn-app-dev-net.md), [Node.js](cdn-app-dev-node.md), or [PowerShell](cdn-manage-powershell.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Compression MIME types](./cdn-improve-performance.md)  |Configurable |Configurable  |Configurable  |
 | Compression encodings  |gzip, brotli |gzip, deflate, bzip2, brotli  |gzip, deflate, bzip2, brotli  |

@@ -3,17 +3,15 @@ title: 'Connectivity configuration in Azure Virtual Network Manager'
 description: Learn about different types network topology you can create with a connectivity configuration in Azure Virtual Network Manager.
 author: mbender-ms
 ms.author: mbender
-ms.service: virtual-network-manager
+ms.service: azure-virtual-network-manager
 ms.topic: conceptual
-ms.date: 03/22/2024
+ms.date: 06/26/2024
 ms.custom: template-concept
 ---
 
 # Connectivity configuration in Azure Virtual Network Manager
 
 In this article, you learn about the different types of configurations you can create and deploy using Azure Virtual Network Manager. There are two types of configurations currently available: *Connectivity* and *Security Admins*. 
-
-[!INCLUDE [virtual-network-manager-preview](../../includes/virtual-network-manager-preview.md)]
 
 ## Connectivity configuration
 
@@ -46,6 +44,8 @@ A hub-and-spoke is a network topology in which you have a virtual network select
 
 In this configuration, you have settings you can enable such as *direct connectivity* between spoke virtual networks. By default, this connectivity is only for virtual networks in the same region. To allow connectivity across different Azure regions, you need to enable *Global mesh*. You can also enable *Gateway* transit to allow spoke virtual networks to use the VPN or ExpressRoute gateway deployed in the hub.
 
+If checked, any peerings that do not match the contents of this configuration can by removed, even if these peerings were manually created after this configuration is deployed. If you remove a VNet from a network group used in the configuration, your virtual manager removes only peerings it created.
+
 ### Direct connectivity
 
 Enabling *Direct connectivity* creates an overlay of a [*connected group*](#connected-group) on top of your hub and spoke topology, which contains spoke virtual networks of a given group. Direct connectivity allows a spoke VNet to talk directly to other VNets in its spoke group, but not to VNets in other spokes.
@@ -66,8 +66,9 @@ To assist you in understanding the topology of your network group, Azure Virtual
   1. Select the **Preview Topology** tab to test out the Topology View and review your configuration's current connectivity.
   1. Complete the creation of your connectivity configuration.
 
-> [!NOTE]
-> The Topology View is only available during the creation of your connectivity configuration in the Azure portal. Once the configuration is created, you can no longer view the topology.
+You can review the current topology of a network group by selecting **Visualization** under **Settings** in the network group's details page. The view shows the connectivity between the  member virtual networks in the network group.
+
+:::image type="content" source="media/concept-configuration-types/network-group-topology.png" alt-text="Screenshot of visualization window showing topology of network group.":::
 
 ### Use cases
 

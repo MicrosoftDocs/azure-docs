@@ -1,9 +1,9 @@
 ---
 title: Troubleshooting Logz.io
 description: This article describes how to troubleshoot Logz.io integration with Azure.
-author: flang-msft
 
-ms.author: franlanglois
+
+
 ms.topic: conceptual
 ms.date: 01/06/2023
 
@@ -42,14 +42,14 @@ Use the following patterns to add new values:
 
 ### Logs not being sent to Logz.io
 
-- Only resources listed in [Azure Monitor resource log categories](../../azure-monitor/essentials/resource-logs-categories.md) send logs to Logz.io.  To verify whether a resource is sending logs to Logz.io:
+- Only resources listed in [Azure Monitor resource log categories](/azure/azure-monitor/essentials/resource-logs-categories) send logs to Logz.io.  To verify whether a resource is sending logs to Logz.io:
 
-   1. Go to [Azure diagnostic setting](../../azure-monitor/essentials/diagnostic-settings.md) for the specific resource.
+   1. Go to [Azure diagnostic setting](/azure/azure-monitor/essentials/diagnostic-settings) for the specific resource.
    1. Verify that there's a Logz.io diagnostic setting.
 
    :::image type="content" source="media/troubleshoot/diagnostics.png" alt-text="Screenshot of the Azure monitoring diagnostic settings for Logz.io.":::
 
-- Limit of five diagnostic settings reached. Each Azure resource can have a maximum of five diagnostic settings. For more information, see [diagnostic settings](../../azure-monitor/essentials/diagnostic-settings.md?tabs=portal).
+- Limit of five diagnostic settings reached. Each Azure resource can have a maximum of five diagnostic settings. For more information, see [diagnostic settings](/azure/azure-monitor/essentials/diagnostic-settings?tabs=portal).
 
 - Export of Metrics data isn't supported currently by the partner solutions under Azure Monitor diagnostic settings. 
 

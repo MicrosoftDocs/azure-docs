@@ -3,7 +3,7 @@ title: Health probes in Azure Container Apps
 description: Check startup, liveness, and readiness with Azure Container Apps health probes
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: conceptual
 ms.date: 08/29/2023
 ms.author: cshoe
@@ -164,14 +164,15 @@ The optional `failureThreshold` setting defines the number of attempts Container
 
 If ingress is enabled, the following default probes are automatically added to the main app container if none is defined for each type.
 
-> [!NOTE]
-> Default probes are currently not applied on workload profile environments when using the Consumption plan. This behavior may change in the future.
-
 | Probe type | Default values |
 | -- | -- |
 | Startup | Protocol: TCP<br>Port: ingress target port<br>Timeout: 3 seconds<br>Period: 1 second<br>Initial delay: 1 second<br>Success threshold: 1<br>Failure threshold: 240 |
-| Readiness | Protocol: TCP<br>Port: ingress target port<br>Timeout: 5 seconds<br>Period: 5 seconds<br>Initial delay: 3 seconds<br>Success threshold: 1<br>Failure threshold: 48 |
 | Liveness | Protocol: TCP<br>Port: ingress target port |
+| Readiness | Protocol: TCP<br>Port: ingress target port<br>Timeout: 5 seconds<br>Period: 5 seconds<br>Initial delay: 3 seconds<br>Success threshold: 1<br>Failure threshold: 48 |
+
+If you're running your container app in [multiple revision mode](revisions.md#revision-modes), after you deploy a revision, wait until your readiness probes indicate success before you shift traffic to that revision. In single revision mode, traffic is shifted automatically once the readiness probe returns a successful state.
+
+A revision state appears as unhealthy if any of its replicas fails its readiness probe check, even if all other replicas in the revision are healthy. Container Apps restarts the replica in question until it is healthy again or the failure threshold is exceeded. If the failure threshold is exceeded, try restarting the revision, but it might mean the revision is not configured correctly.
 
 If your app takes an extended amount of time to start (which is common in Java) you often need to customize the probes so your container doesn't crash.
 

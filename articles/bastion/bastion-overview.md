@@ -2,11 +2,13 @@
 title: 'About Azure Bastion'
 description: Learn about Azure Bastion, which provides secure and seamless RDP/SSH connectivity to your virtual machines without exposing RDP/SSH ports externally.
 author: cherylmc
-# Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure Bastion so that I can securely connect to my Azure virtual machines.
-ms.service: bastion
+ms.service: azure-bastion
+ms.custom:
+  - ignite-2024
 ms.topic: overview
 ms.date: 04/30/2024
 ms.author: cherylmc
+# Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure Bastion so that I can securely connect to my Azure virtual machines.
 ---
 # What is Azure Bastion?
 
@@ -51,7 +53,7 @@ The following diagrams show the available architectures for Azure Bastion.
 
 :::image type="content" source="./media/quickstart-developer-sku/bastion-shared-pool.png" alt-text="Diagram that shows the Azure Bastion developer SKU architecture." lightbox="./media/quickstart-developer-sku/bastion-shared-pool.png":::
 
-**Private-only deployment (Preview)**
+**Private-only deployment**
 
 :::image type="content" source="./media/private-only-deployment/private-only-architecture.png" alt-text="Diagram showing Azure Bastion private-only architecture." lightbox="./media/private-only-deployment/private-only-architecture.png":::
 
@@ -71,7 +73,7 @@ Azure Bastion pricing is a combination of hourly pricing based on SKU and instan
 
 ## <a name="new"></a>What's new?
 
-Subscribe to the RSS feed and view the latest Azure Bastion feature updates on the [Azure Updates](https://azure.microsoft.com/updates/?category=networking&query=Azure%20Bastion) page.
+Subscribe to the RSS feed and view the latest Azure Bastion feature updates on the [Azure Updates](https://azure.microsoft.com/updates?filters=%5B%22Azure+Bastion%22%5D) page.
 
 ## Bastion FAQ
 

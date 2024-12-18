@@ -3,7 +3,7 @@ title: Monitor with RAN Metrics in Azure portal
 description: Learn about RAN basic metrics 
 author: delnas
 ms.author: delnas
-ms.service: private-5g-core
+ms.service: azure-private-5g-core
 ms.topic: concept-article 
 ms.date: 5/28/2024
 
@@ -18,7 +18,7 @@ These are a subset of metrics chosen from the RAN vendor’s EMS based on custom
 
 
 ## Visualize RAN metrics using the Azure portal 
-RAN metrics are collected per site resource and aggregated across all access points connected. See [Supported metrics with Azure Monitor](https://learn.microsoft.com/azure/azure-monitor/reference/supported-metrics/metrics-index) for the RAN metrics available for retrieval included under *microsoft.mobilenetwork/radioAccessNetworks*.
+RAN metrics are collected per site resource and aggregated across all access points connected. See [Supported metrics with Azure Monitor](/azure/azure-monitor/reference/supported-metrics/metrics-index) for the RAN metrics available for retrieval included under *microsoft.mobilenetwork/radioAccessNetworks*.
 
 You can use the Azure portal to monitor your access points performance, reliability, and connection status. The RAN insights resource's **Overview** page under the **Monitoring** tab provides a prebuilt dashboard containing RAN metrics received. 
     :::image type="content" source="media/ran-insights/ran-insights-monitoring-tab.png" alt-text="Screenshot of the Azure portal showing RAN insight resource monitoring tab.":::
@@ -29,11 +29,11 @@ To view more metrics on and create custom charts, select the **Metrics** tab und
 
 Using the buttons just above the charts, you can edit the timespan from which the data shown in the charts and the granularity of how that data is plotted. 
 
-Timespan options range from showing the previous hour of data to the previous 7 days of data and granularity options range from plotting every minute to plotting every 12 hours. For detailed information on interacting with the Azure Monitor graphics, see [Get started with metrics explorer](https://learn.microsoft.com/azure/azure-monitor/essentials/analyze-metrics)
+Timespan options range from showing the previous hour of data to the previous 7 days of data and granularity options range from plotting every minute to plotting every 12 hours. For detailed information on interacting with the Azure Monitor graphics, see [Get started with metrics explorer](/azure/azure-monitor/essentials/analyze-metrics)
 
 Note that the EMS might provide metrics at intervals up to 15 minutes apart. For an optimal experience, adjust the plotting rate to match the value recommended by the EMS provider. For instance, if your RAN provider emits metrics every 5 minutes, it's advisable to set the **Time granularity** to 5 minutes accordingly.
 
-You can also set alerts on each of your RAN metrics. By following [Create Azure Monitor metric alert rules](https://learn.microsoft.com/azure/azure-monitor/alerts/alerts-create-metric-alert-rule). RAN metrics are available for monitoring and retrieval for up to 30 days. 
+You can also set alerts on each of your RAN metrics. By following [Create Azure Monitor metric alert rules](/azure/azure-monitor/alerts/alerts-create-metric-alert-rule). RAN metrics are available for monitoring and retrieval for up to 30 days. 
 
 
 

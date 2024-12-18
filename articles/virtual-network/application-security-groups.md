@@ -3,8 +3,8 @@ title: Azure application security groups overview
 titlesuffix: Azure Virtual Network
 description: Learn about the use of application security groups. 
 author: asudbring
-ms.service: virtual-network
-ms.topic: conceptual
+ms.service: azure-virtual-network
+ms.topic: concept-article
 ms.date: 04/08/2023
 ms.author: allensu
 ---

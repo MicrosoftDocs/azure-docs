@@ -1,7 +1,6 @@
 ---
 title: REST APIs for the Workflow Orchestration Manager integration runtime
 description: This article documents the REST APIs for the Workflow Orchestration Manager integration runtime.
-ms.service: data-factory
 ms.topic: reference
 author: nabhishek
 ms.author: abnarain
@@ -125,7 +124,7 @@ Sample request:
 
 ```rest
 HTTP
-PUT https://management.azure.com/subscriptions/222f1459-6ebd-4896-82ab-652d5f6883cf/resourcegroups/abnarain-rg/providers/Microsoft.DataFactory/factories/ambika-df/integrationruntimes/sample-2?api-version=2018-06-01
+PUT https://management.azure.com/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/abnarain-rg/providers/Microsoft.DataFactory/factories/ambika-df/integrationruntimes/sample-2?api-version=2018-06-01
 ```
 
 Sample body:

@@ -3,8 +3,8 @@ title: GitHub projects for the MedTech service - Azure Health Data Services
 description: Learn about the MedTech service open-source software library for ingesting device messages from popular wearable devices.
 services: healthcare-apis
 author: chachachachami
-ms.service: healthcare-apis
-ms.subservice: iomt
+ms.service: azure-health-data-services
+ms.subservice: medtech-service
 ms.topic: reference
 ms.date: 04/28/2023
 ms.author: chrupa

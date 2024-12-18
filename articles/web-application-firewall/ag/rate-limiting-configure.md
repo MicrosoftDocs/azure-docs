@@ -4,7 +4,7 @@ titleSuffix: Azure Web Application Firewall
 description: Learn how to configure rate limit custom rules for Application Gateway WAF v2.
 services: web-application-firewall
 author: joeolerich
-ms.service: web-application-firewall
+ms.service: azure-web-application-firewall
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.date: 11/01/2023
 ms.author: victorh
@@ -80,7 +80,7 @@ az network application-gateway waf-policy custom-rule match-condition add --matc
 ```azurepowershell
 $variable = New-AzApplicationGatewayFirewallMatchVariable -VariableName RemoteAddr 
 $condition = New-AzApplicationGatewayFirewallCondition -MatchVariable $variable -Operator GeoMatch -MatchValue "US" -NegationCondition $True
-$groupByVariable = New-AzApplicationGatewayFirewallCustomRuleGroupByVariablde -VariableName GeoLocation 
+$groupByVariable = New-AzApplicationGatewayFirewallCustomRuleGroupByVariable -VariableName GeoLocation 
 $groupByUserSession = New-AzApplicationGatewayFirewallCustomRuleGroupByUserSession -GroupByVariable $groupByVariable 
 $ratelimitrule = New-AzApplicationGatewayFirewallCustomRule -Name GeoRateLimitRule -Priority 95 -RateLimitDuration OneMin -RateLimitThreshold 500 -RuleType RateLimitRule -MatchCondition $condition -GroupByUserSession $groupByUserSession -Action Block -State Enabled  
 ```

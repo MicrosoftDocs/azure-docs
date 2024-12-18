@@ -3,9 +3,9 @@ title: Azure Network Watcher overview
 description: Learn about Azure Network Watcher's monitoring, diagnostics, logging, and metrics capabilities in a virtual network.
 author: halkazwini
 ms.author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: overview
-ms.date: 06/03/2024
+ms.date: 06/12/2024
 
 #CustomerIntent: As someone with basic Azure network experience, I want to understand how Azure Network Watcher can help me resolve some of the network-related problems I've encountered and provide insight into how I use Azure networking.
 ---
@@ -23,7 +23,7 @@ Network Watcher consists of three major sets of tools and capabilities:
 :::image type="content" source="./media/network-watcher-overview/network-watcher-capabilities.png" alt-text="Diagram showing Azure Network Watcher's capabilities.":::
 
 > [!NOTE] 
-> When you create or update a virtual network in your subscription, Network Watcher is automatically enabled in your virtual network's region. There's no impact on your resources or associated charge for automatically enabling Network Watcher. For more information, see [Enable or disable Network Watcher](network-watcher-create.md).
+> When you create or update a virtual network in your subscription, Network Watcher is automatically enabled in your virtual network's region. There's no impact on your resources or associated charge for automatically enabling Network Watcher. You must manually enable Network Watcher if you previously chose to opt out of Network Watcher automatic enablement. For more information, see [Enable or disable Network Watcher](network-watcher-create.md).
 
 ## Monitoring
 
@@ -58,7 +58,7 @@ Network Watcher offers seven network diagnostic tools that help troubleshoot and
 
 ### NSG diagnostics
 
-**NSG diagnostics** allows you to detect traffic filtering issues at a virtual machine, virtual machine scale set, or application gateway level. It checks if a packet is allowed or denied to or from an IP address, IP prefix, or a service tag. It tells you which security rule allowed or denied the traffic. It also allows you to add a new security rule with a higher priority to allow or deny the traffic. For more information, see [NSG diagnostics overview](network-watcher-network-configuration-diagnostics-overview.md) and [Diagnose network security rules](diagnose-network-security-rules.md).
+**NSG diagnostics** allows you to detect traffic filtering issues at a virtual machine, virtual machine scale set, or application gateway level. It checks if a packet is allowed or denied to or from an IP address, IP prefix, or a service tag. It tells you which security rule allowed or denied the traffic. It also allows you to add a new security rule with a higher priority to allow or deny the traffic. For more information, see [NSG diagnostics overview](nsg-diagnostics-overview.md) and [Diagnose network security rules](diagnose-network-security-rules.md).
 
 ### Next hop
 
@@ -93,6 +93,8 @@ Network Watcher offers two traffic tools that help you log and visualize network
 - [Network security group flow logs](nsg-flow-logs-overview.md) and [Manage network security group flow logs](nsg-flow-logs-portal.md).
 - [Virtual network flow logs](vnet-flow-logs-overview.md) and [Manage virtual network flow logs](vnet-flow-logs-portal.md).
 
+[!INCLUDE [NSG flow logs retirement](../../includes/network-watcher-nsg-flow-logs-retirement.md)]
+
 ### Traffic analytics
 
 **Traffic analytics** provides rich visualizations of flow logs data. For more information about traffic analytics, see [traffic analytics](traffic-analytics.md) and [Manage traffic analytics using Azure Policy](traffic-analytics-policy-portal.md).
@@ -109,7 +111,7 @@ The **Usage + quotas** capability of Network Watcher provides a summary of your 
 
 Network Watcher has the following limits:
 
-[!INCLUDE [network-watcher-limits](~/reusable-content/ce-skilling/azure/includes/network-watcher-limits.md)]
+[!INCLUDE [network-watcher-limits](../../includes/network-watcher-limits.md)]
 
 ## Pricing
 

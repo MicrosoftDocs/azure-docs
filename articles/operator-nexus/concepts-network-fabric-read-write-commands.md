@@ -4,6 +4,7 @@ description: Learn how to use the Nexus Fabric Read Write commands to modify dev
 author: HollyCl
 ms.author: HollyCl
 ms.service: azure-operator-nexus
+ms.custom: devx-track-azurecli
 ms.topic: concept-article 
 ms.date: 05/03/2024
 #CustomerIntent: As a <type of user>, I want <what?> so that <why?>.
@@ -60,7 +61,7 @@ show interfaces description
 ```
 
 ```Output
-|Interface  |Status  |Protocol  |Decsription  |
+|Interface  |Status  |Protocol  |Description  |
 |---------|---------|---------|---------|
 |Et1      | admin down        | down          | **"AR-Mgmt2:Et1 to Not-Connected"**          |
 |Et2      | admin down        | down          | **"AR-Mgmt2:Et2 to Not-Connected"**         |
@@ -166,7 +167,7 @@ show interfaces description
 ```
 
 ```Output
-|Interface  |Status  |Protocol  |Decsription  |
+|Interface  |Status  |Protocol  |Description  |
 |---------|---------|---------|---------|
 |Et1      | admin down        | down          | **RW-test1**         |
 |Et2      | admin down        | down          | "AR-Mgmt2:Et2 to Not-Connected"        |
@@ -272,7 +273,7 @@ show interfaces description
 ```
 
 ```Output
-|Interface  |Status  |Protocol  |Decsription  |
+|Interface  |Status  |Protocol  |Description  |
 |---------|---------|---------|---------|
 |Et1      | admin down        | down          | **RW-test1**         |
 |Et2      | admin down        | down          | **RW-test2**         |
@@ -376,7 +377,7 @@ show interfaces description
 ```
 
 ```Output
-|Interface  |Status  |Protocol  |Decsription  |
+|Interface  |Status  |Protocol  |Description  |
 |---------|---------|---------|---------|
 |Et1      | admin down        | down          | "AR-Mgmt2:Et1 to Not-Connected"          |
 |Et2      | admin down        | down          | "AR-Mgmt2:Et2 to Not-Connected"        |
@@ -484,7 +485,7 @@ show interfaces description
 ```
 
 ```Output
-|Interface  |Status  |Protocol  |Decsription  |
+|Interface  |Status  |Protocol  |Description  |
 |---------|---------|---------|---------|
 |Et1      | admin down        | down          | **"AR-Mgmt2:Et1 to Not-Connected"**         |
 |Et2      | admin down        | down          | **"AR-Mgmt2:Et2 to Not-Connected"**         |

@@ -4,7 +4,7 @@ metadata:
   description: In this article, discover answers to common questions about the Microsoft Azure Backup Server (MABS) and DPM (Data Protection Manager).
   ms.reviewer: srinathv
   ms.topic: faq
-  ms.service: backup
+  ms.service: azure-backup
   ms.date: 10/13/2021
   author: AbhishekMallick-MS
   ms.author: v-abhmallick

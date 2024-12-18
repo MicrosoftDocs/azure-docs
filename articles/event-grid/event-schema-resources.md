@@ -212,7 +212,7 @@ The `resourceInfo` object for the `CreatedOrUpdated` event has the following ext
 | `tags` | String | Tags for the resource. |
 | `properties` | Object | Payload of the resource. |
 
-Only the `CreatedOrUpdated` event includes the `properties` object. The schema of this `properties` object is unique to each publisher. To discover the schema, see the [REST API documentation for the specific Azure resource](/rest/api/azure/). You can find an example in the **Examples events** section of this article. 
+Only the `CreatedOrUpdated` event includes the `properties` object. The schema of this `properties` object is unique to each publisher. To discover the schema, see the [REST API documentation](/rest/api/azure/) for the specific Azure resource. You can find an example in the **Examples events** section of this article. 
  
 ```json
             "properties": {
@@ -243,7 +243,7 @@ This section shows the `CreatedOrUpdated` event generated when an Azure Storage 
   "data": {
     "resourceInfo": {
       "tags": {},
-      "id": "/subscriptions/{subcription-id}/resourceGroups/{rg-name}/providers/Microsoft.Storage/storageAccounts/{storageAccount-name}",
+      "id": "/subscriptions/{subscription-id}/resourceGroups/{rg-name}/providers/Microsoft.Storage/storageAccounts/{storageAccount-name}",
       "name": "StorageAccount-name",
       "type": "Microsoft.Storage/storageAccounts",
       "location": "eastus",
@@ -320,7 +320,7 @@ This section shows the `CreatedOrUpdated` event generated when an Azure Storage 
   "data": {
     "resourceInfo": {
       "tags": {},
-      "id": "/subscriptions/{subcription-id}/resourceGroups/{rg-name}/providers/Microsoft.Storage/storageAccounts/{storageAccount-name}",
+      "id": "/subscriptions/{subscription-id}/resourceGroups/{rg-name}/providers/Microsoft.Storage/storageAccounts/{storageAccount-name}",
       "name": "StorageAccount-name",
       "type": "Microsoft.Storage/storageAccounts",
       "location": "eastus",

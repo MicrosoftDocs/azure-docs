@@ -4,7 +4,7 @@ titleSuffix: Azure Virtual Network
 description: Learn about the ways a public IP address is used with an Azure Load Balancer and how to change the configuration.
 author: mbender-ms
 ms.author: mbender
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: how-to 
 ms.date: 08/24/2023
@@ -108,11 +108,7 @@ To change the IP, you associate a new public IP address previously created with 
 6. In **Frontend IP configuration**, select **myFrontend** or your load balancer frontend.
 
 7. In the load balancer frontend configuration, select **myStandardPublicIP-2** in **Public IP address**.
-
 8. Select **Save**.
-
-    :::image type="content" source="./media/configure-public-ip-load-balancer/change-public-ip-address.png" alt-text="Screenshot of changing the public I P address of the load balancer.":::
-
 9. In **Frontend IP configuration**, verify the load balancer frontend displays the new IP address named **myStandardPublicIP-2**.
 
     :::image type="content" source="./media/configure-public-ip-load-balancer/verify-new-ip.png" alt-text="Screenshot of the load balancer Frontend I P configuration page showing the new public I P address.":::
@@ -145,8 +141,6 @@ In this section, you change the frontend configuration used for outbound connect
 8. In **Public IP prefix**, select the public IP prefix you created previously **myPublicIPPrefixOutbound**.
 
 9. Select **Save**.
-
-    :::image type="content" source="./media/configure-public-ip-load-balancer/change-public-ip-prefix.png" alt-text="Screenshot of changing the public IP prefix of the load balancer.":::
 
 10. In **Frontend IP configuration**, verify the load balancer frontend displays the public IP prefix named **myPublicIPPrefixOutbound**.
 

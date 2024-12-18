@@ -1,0 +1,25 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/storage-actions/storage-tasks/storage-task-properties-operators-operations.md",
+            "redirect_url": "/azure/storage-actions/storage-tasks/storage-task-conditions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage-actions/storage-tasks/storage-task-properties-operators-operations.md#supported-properties-in-a-clause",
+            "redirect_url": "/azure/storage-actions/storage-tasks/storage-task-conditions#supported-properties",
+            "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/storage-actions/storage-tasks/storage-task-properties-operators-operations.md#supported-operators-in-a-clause",
+          "redirect_url": "/azure/storage-actions/storage-tasks/storage-task-conditions#supported-operators",
+          "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/storage-actions/storage-tasks/storage-task-properties-operators-operations.md#supported-operations",
+          "redirect_url": "/azure/storage-actions/storage-tasks/storage-task-operations#supported-operations",
+          "redirect_document_id": false
+        }
+
+    ]
+}

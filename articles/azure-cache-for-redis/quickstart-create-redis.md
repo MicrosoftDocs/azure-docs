@@ -1,9 +1,9 @@
 ---
 title: 'Quickstart: Create an open-source Redis cache'
 description: In this quickstart, learn how to create an instance of Azure Cache for Redis in Basic, Standard, or Premium tier
-author: flang-msft
-ms.author: franlanglois
-ms.service: cache
+
+
+
 ms.custom: mvc, mode-other
 ms.topic: quickstart
 ms.date: 05/06/2022
@@ -19,7 +19,7 @@ You'll need an Azure subscription before you begin. If you don't have one, creat
 
 ## Create a cache
 
-[!INCLUDE [redis-cache-create](includes/redis-cache-create.md)]
+[!INCLUDE [redis-cache-create](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/redis-cache-create.md)]
 
 ## Next steps
 

@@ -1,7 +1,7 @@
 ---
 title: IntelliSense in Azure Stream Analytics tools for Visual Studio Code
 description: This article describes how to use IntelliSense features in Azure Stream Analytics tools for Visual Studio Code.
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 author: alexlzx
 ms.author: zhenxilin
 ms.date: 12/27/2022

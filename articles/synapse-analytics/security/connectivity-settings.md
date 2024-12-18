@@ -4,8 +4,8 @@ description: Learn to configure connectivity settings in Azure Synapse Analytics
 author: danzhang-msft
 ms.author: danzhang
 ms.reviewer: wiassaf
-ms.date: 02/28/2024
-ms.service: synapse-analytics
+ms.date: 12/09/2024
+ms.service: azure-synapse-analytics
 ms.subservice: security
 ms.topic: conceptual
 ---
@@ -25,6 +25,7 @@ You can use the public network access feature to allow incoming public network c
 > This feature is only available to Azure Synapse workspaces associated with [Azure Synapse Analytics Managed Virtual Network](synapse-workspace-managed-vnet.md). However, you can still open your Synapse workspaces to the public network regardless of its association with managed VNet.
 > 
 > When the public network access is disabled, access to GIT mode in Synapse Studio and commit changes won't be blocked as long as the user has enough permission to access the integrated Git repo or the corresponding Git branch. However, the publish button won't work because the access to Live mode is blocked by the firewall settings.
+> When the public network access is disabled, the self-hosted integration runtime can still communicate with Synapse. We do not currently support establishing a private link between a self-hosted integration runtime and Synapse control plane.
 
 Selecting the **Disable** option will not apply any firewall rules that you might configure. Additionally, your firewall rules will appear grayed out in the Network setting in Synapse portal. Your firewall configurations are reapplied when you enable public network access again. 
 
@@ -56,9 +57,17 @@ Selecting the **Disable** option will not apply any firewall rules that you migh
 The connection policy for Synapse SQL in Azure Synapse Analytics is set to *Default*. You cannot change this in Azure Synapse Analytics. For more information, see [Connectivity architecture](/azure/azure-sql/database/connectivity-architecture#connection-policy).
 
 ## Minimal TLS version
+
 The serverless SQL endpoint and development endpoint only accept TLS 1.2 and above.
 
-Since December 2021, a minimum level of TLS 1.2 is required for workspace-managed dedicated SQL pools in new Synapse workspaces. Sign-in attempts from connections using a TLS version lower than 1.2 fail. Customers can raise or lower this requirement using the [minimal TLS REST API](/rest/api/synapse/sqlserver/workspace-managed-sql-server-dedicated-sql-minimal-tls-settings/update) for both new Synapse workspaces or existing workspaces, so users who cannot use a higher TLS client version in the workspaces can connect. Customers can also raise the minimum TLS version to meet their security needs. 
+Since December 2021, a minimum level of TLS 1.2 is required for workspace-managed dedicated SQL pools in new Synapse workspaces. You can raise or lower this requirement using the [minimal TLS REST API](/rest/api/synapse/sqlserver/workspace-managed-sql-server-dedicated-sql-minimal-tls-settings/update) for both new Synapse workspaces or existing workspaces, so users who cannot use a higher TLS client version in the workspaces can connect. Customers can also raise the minimum TLS version to meet their security needs. 
+
+> [!IMPORTANT]
+> Azure will begin to retire older TLS versions (TLS 1.0 and 1.1) starting in November 2024. Use TLS 1.2 or higher. After March 31, 2025, you will no longer be able to set the minimal TLS version for Azure Synapse Analytics client connections below TLS 1.2.  After this date, sign-in attempts from connections using a TLS version lower than 1.2 will fail. For more information, see [Announcement: Azure support for TLS 1.0 and TLS 1.1 will end](https://azure.microsoft.com/updates/azure-support-tls-will-end-by-31-october-2024-2/).
+
+## Azure Policy
+
+Azure policy to prevent modifications to the networking settings in Synapse Workspace is not currently available.
 
 ## Related content
 

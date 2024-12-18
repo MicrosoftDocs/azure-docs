@@ -6,7 +6,18 @@ ms.date: 02/27/2024
 ---
 # Azure Functions deployment slots
 
-Azure Functions deployment slots allow your function app to run different instances called _slots_. Slots are different environments exposed via a publicly available endpoint. One app instance is always mapped to the production slot, and you can swap instances assigned to a slot on demand. Function apps running in a [Consumption plan](./consumption-plan.md) have a single extra slot for staging. You can obtain more staging slots by running your app in a [Premium plan](./functions-premium-plan.md) or [Dedicated (App Service) plan](./dedicated-plan.md). For more information, see [Service limits](./functions-scale.md#service-limits). 
+Azure Functions deployment slots allow your function app to run different instances called _slots_. Slots are different environments exposed via a publicly available endpoint. One app instance is always mapped to the production slot, and you can swap instances assigned to a slot on demand. 
+
+The number of available slots depends on your specific hosting option:
+
+| Hosting option | Slots (including production) |
+| ---- | ---- | 
+| [Consumption plan](consumption-plan.md) | 2 |
+| [Flex Consumption plan](flex-consumption-plan.md) | Not currently supported |
+| [Premium plan](functions-premium-plan.md) | 3 |
+| [Dedicated (App Service) plan](dedicated-plan.md) | [1-20](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits) |
+| [Container Apps](functions-container-apps-hosting.md) | Uses [Revisions](../container-apps/revisions.md) |
+  
 
 The following reflect how functions are affected by swapping slots:
 
@@ -44,6 +55,8 @@ Keep in mind the following points:
 - To swap a staging slot with the production slot, make sure that the production slot is *always* the target slot. This way, the swap operation doesn't affect your production app.
 
 - Settings related to event sources and bindings must be configured as [deployment slot settings](#manage-settings) *before you start a swap*. Marking them as "sticky" ahead of time ensures events and outputs are directed to the proper instance.
+
+- When you create a new staging slot, all existing settings from the production slot are created in the new slot, regardless of the *stickiness* of the setting.    
 
 ## Manage settings
 

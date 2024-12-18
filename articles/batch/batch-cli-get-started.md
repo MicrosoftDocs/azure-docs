@@ -2,7 +2,7 @@
 title: Get started with Azure CLI for Batch
 description: Learn how to manage Azure Batch service resources using the Azure Command Line Interface (Azure CLI).
 ms.topic: how-to
-ms.date: 12/20/2021
+ms.date: 06/13/2024
 ms.custom: H1Hack27Feb2017, devx-track-azurecli
 
 ---

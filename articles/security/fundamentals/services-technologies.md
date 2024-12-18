@@ -2,15 +2,15 @@
 title: Azure Security Services and Technologies | Microsoft Docs
 description: The article provides a curated list of Azure Security services and technologies.
 services: security
-author: terrylanfear
+author: msmbaldwin
 manager: rkarlin
 
 ms.assetid: a5a7f60a-97e2-49b4-a8c5-7c010ff27ef8
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: conceptual
-ms.date: 01/16/2023
-ms.author: terrylan
+ms.date: 04/27/2024
+ms.author: mbaldwin
 
 ---
 # Security services and technologies available on Azure
@@ -24,10 +24,10 @@ Over time, this list will change and grow, just as Azure does. Make sure to chec
 ## General Azure security
 |Service|Description|
 |--------|--------|
-|[Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-cloud-introduction.md)| A cloud workload protection solution that provides security management and advanced threat protection across hybrid cloud workloads.|
+|[Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction)| A cloud workload protection solution that provides security management and advanced threat protection across hybrid cloud workloads.|
 |[Microsoft Sentinel](../../sentinel/overview.md)| A scalable, cloud-native solution that delivers intelligent security analytics and threat intelligence across the enterprise.|
-|[Azure Key Vault](../../key-vault/general/overview.md)| A secure secrets store for the passwords, connection strings, and other information you need to keep your apps working. |
-|[Azure Monitor logs](../../azure-monitor/logs/log-query-overview.md)|A monitoring service that collects telemetry and other data, and provides a query language and analytics engine to deliver operational insights for your apps and resources. Can be used alone or with other services such as Defender for Cloud. |
+|[Azure Key Vault](/azure/key-vault/general/overview)| A secure secrets store for the passwords, connection strings, and other information you need to keep your apps working. |
+|[Azure Monitor logs](/azure/azure-monitor/logs/log-query-overview)|A monitoring service that collects telemetry and other data, and provides a query language and analytics engine to deliver operational insights for your apps and resources. Can be used alone or with other services such as Defender for Cloud. |
 |[Azure Dev/Test Labs](../../devtest-labs/devtest-lab-overview.md)|A service that helps developers and testers quickly create environments in Azure while minimizing waste and controlling cost.  |
 
 <!---|[Azure&nbsp;Disk&nbsp;Encryption](/azure/azure-security-disk-encryption-overview)| THIS WILL GO TO THE NEW OVERVIEW TOPIC MEGHAN STEWART IS WRITING|--->

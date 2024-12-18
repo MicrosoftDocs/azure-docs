@@ -4,7 +4,7 @@ titleSuffix: Azure Virtual Network
 description: Use Bicep templates to create a virtual network and virtual machines, and deploy Azure Bastion to securely connect from the internet.
 services: virtual-network
 author: asudbring
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: quickstart
 ms.date: 02/28/2024
 ms.author: allensu

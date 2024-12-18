@@ -2,7 +2,7 @@
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: include
-ms.date: 02/13/2024
+ms.date: 06/21/2024
 ms.author: kendownie
 ---
 
@@ -12,6 +12,6 @@ ms.author: kendownie
 
 - You'll need the Kubernetes command-line client, `kubectl`. It's already installed if you're using Azure Cloud Shell, or you can install it locally by running the `az aks install-cli` command.
 
-- If you haven't already installed Azure Container Storage, follow the instructions in [Install Azure Container Storage](../articles/storage/container-storage/container-storage-aks-quickstart.md).
+- If you haven't already installed Azure Container Storage, follow the instructions in [Use Azure Container Storage with Azure Kubernetes Service](../articles/storage/container-storage/container-storage-aks-quickstart.md).
 
 - Check if your target region is supported in [Azure Container Storage regions](../articles/storage/container-storage/container-storage-introduction.md#regional-availability).

@@ -7,7 +7,7 @@ ms.author: kgremban
 ms.custom: [mvc, amqp, mqtt, 'Role: Cloud Development', 'Role: IoT Device', devx-track-azurecli]
 ms.date: 02/01/2023
 ms.topic: tutorial
-ms.service: iot-hub
+ms.service: azure-iot-hub
 #Customer intent: As a developer, I want to know what tools I can use to verify connectivity between my IoT devices and my IoT hub.
 ---
 
@@ -37,7 +37,7 @@ In this tutorial, you learn how to:
     * When you're prompted, install Azure CLI extensions on first use. For more information about extensions, see [Use extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
     * Run [az version](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az-upgrade).
 
-  [!INCLUDE [iot-hub-cli-version-info](~/reusable-content/ce-skilling/azure/includes/iot-hub-cli-version-info.md)]
+  [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 * The sample application that you run in this tutorial uses Node.js. You need Node.js v10.x.x or later on your development machine.
 
@@ -54,7 +54,7 @@ In this tutorial, you learn how to:
 
 ## Create an IoT hub
 
-[!INCLUDE [iot-hub-include-create-hub-cli](~/reusable-content/ce-skilling/azure/includes/iot-hub-include-create-hub-cli.md)]
+[!INCLUDE [iot-hub-include-create-hub-cli](../../includes/iot-hub-include-create-hub-cli.md)]
 
 ## Check device authentication
 
@@ -117,7 +117,7 @@ In some scenarios, such as in a cloud protocol gateway or as part of a custom au
 > [!NOTE]
 > The SimulatedDevice-2.js sample includes examples of generating a SAS token both with and without the SDK.
 
-1. Run the [az iot hub genereate-sas-token](/cli/azure/iot/hub#az-iot-hub-generate-sas-token) command to generate a known-good SAS token using the CLI:
+1. Run the [az iot hub generate-sas-token](/cli/azure/iot/hub#az-iot-hub-generate-sas-token) command to generate a known-good SAS token using the CLI:
 
    ```azurecli-interactive
    az iot hub generate-sas-token --device-id {your_device_id} --hub-name {your_iot_hub_name}

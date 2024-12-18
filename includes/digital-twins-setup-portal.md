@@ -3,7 +3,7 @@
  description: include file for the portal steps to create an Azure Digital Twins instance
  services: digital-twins
  author: baanders
- ms.service: digital-twins
+ ms.service: azure-digital-twins
  ms.topic: include
  ms.date: 6/2/2021
  ms.author: baanders

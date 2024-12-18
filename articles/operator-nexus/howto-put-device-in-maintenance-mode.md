@@ -6,7 +6,7 @@ ms.author: sushrao
 ms.service: azure-operator-nexus
 ms.topic: how-to
 ms.date: 05/17/2024
-ms.custom: template-how-to
+ms.custom: template-how-to, devx-track-azurecli
 ---
 
 # Device maintenance mode 
@@ -54,7 +54,7 @@ az networkfabric device update-admin-state --resource-group "resource-group-name
 
 ### Example command
 
-```azuecli
+```azurecli
 az networkfabric device update-admin-state --resource-group "resource-group-name" --resource-name "AggrRack-CE1" --state UnderMaintenance
 ```
 

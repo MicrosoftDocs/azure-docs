@@ -4,10 +4,10 @@ titlesuffix: Azure NAT Gateway
 description: This quickstart shows how to create a NAT gateway by using the Azure portal.
 author: asudbring
 ms.author: allensu
-ms.service: nat-gateway
+ms.service: azure-nat-gateway
 ms.topic: quickstart 
 ms.date: 06/20/2023
-ms.custom: template-quickstart, FY23 content-maintenance
+ms.custom: template-quickstart, FY23 content-maintenance, linux-related-content
 ---
 
 # Quickstart: Create a NAT gateway using the Azure portal
@@ -60,7 +60,7 @@ In this section, you test the NAT gateway. You first discover the public IP of t
 
     ```output
     azureuser@vm-1:~$ curl ifconfig.me
-    20.7.200.36
+    203.0.113.0.25
     ```
 
 [!INCLUDE [portal-clean-up.md](~/reusable-content/ce-skilling/azure/includes/portal-clean-up.md)]

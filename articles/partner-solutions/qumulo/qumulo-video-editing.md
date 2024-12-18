@@ -46,7 +46,7 @@ Access to the ANQ service instance is enabled through VNet injection from a dedi
 
 The solution architecture comprises the following components:
 
-- [Azure Native Qumulo Scalable File Service (ANQ)](https://qumulo.com/azure) to provide consolidated, cloud-based VNA archive services
+- [Azure Native Qumulo (ANQ) Scalable File Service](https://qumulo.com/azure) to provide consolidated, cloud-based VNA archive services
 - [Leostream](https://leostream.com/media-entertainment/) connection Broker for connecting incoming clients to resource groups within the solution
 - [GPU-optimized virtual machines](/azure/virtual-machines/sizes-gpu)
 - Media Asset Manager for tracking and organizing content
@@ -121,7 +121,6 @@ Here's some information on what you need when deploying ANQ for video editing.
 - To deploy Azure Native Qumulo Scalable File Service, visit [our website](https://qumulo.com/product/azure/).
 - For more information regarding inbound and outbound networking, [Required Networking Ports for Qumulo Core](https://docs.qumulo.com/administrator-guide/networking/required-networking-ports.html)
 - For more information regarding Adobe Premiere Pro, see [Best practices for Creative Cloud deployment on VDI](https://helpx.adobe.com/enterprise/using/creative-cloud-deployment-on-vdi.html)
-- For more information regarding HPE Anyware, see [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/teradici.hp_anyware?tab=Overview).
 
 ## Next steps
 

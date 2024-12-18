@@ -62,7 +62,7 @@ Connect to Cognni
 1. Go to [Cognni integrations page](https://intelligence.cognni.ai/integrations)
 2. Click **'Connect'** on the 'Microsoft Sentinel' box
 3. Copy and paste **'workspaceId'** and **'sharedKey'** (from below) to the related fields on Cognni's integrations screen
-4. Click the **'Connect'** botton to complete the configuration.  
+4. Click the **'Connect'** button to complete the configuration.  
   Soon, all your Cognni-detected incidents will be forwarded here (into Microsoft Sentinel)
 
 Not a Cognni user? [Join us](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/shieldox.appsource_freetrial)

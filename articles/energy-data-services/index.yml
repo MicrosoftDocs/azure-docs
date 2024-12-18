@@ -6,7 +6,7 @@ summary: Microsoft Azure Data Manager for Energy is an open, secure, reliable, a
 metadata:
   title: Microsoft Azure Data Manager for Energy
   description: description
-  ms.service: energy-data-services
+  ms.service: azure-data-manager-energy
   ms.topic: landing-page
   author: bharathim
   ms.author: bselvaraj
@@ -36,12 +36,16 @@ landingContent:
             url: tutorial-manifest-ingestion.md
       - linkListType: concept
         links:
+          - text: OSDU® services available on Azure Data Manager for Energy
+            url: osdu-services-on-adme.md
           - text: Manifest ingestion concepts
             url: concepts-manifest-ingestion.md
           - text: CSV parser concepts
             url: concepts-csv-parser-ingestion.md
           - text: Index and search workflows
             url: concepts-index-and-search.md
+          - text: Syncing Reference data values
+            url: concepts-reference-data-values.md
       - linkListType: whats-new
         links:
           - text: Release notes
@@ -94,6 +98,8 @@ landingContent:
             url: how-to-add-more-data-partitions.md
           - text: How to generate auth token
             url: how-to-generate-auth-token.md
+          - text: How to deploy Geospatial Consumption Zone (GCZ)
+            url: how-to-deploy-gcz.md
           - text: How to deploy OSDU Admin UI
             url: how-to-deploy-osdu-admin-ui.md
       - linkListType: concept

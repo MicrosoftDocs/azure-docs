@@ -1,14 +1,17 @@
 ---
 title: What is Apache Flink® in Azure HDInsight on AKS? (Preview)
 description: An introduction to Apache Flink® in Azure HDInsight on AKS.
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
-ms.date: 10/28/2023
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # What is Apache Flink® in Azure HDInsight on AKS? (Preview)
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 [Apache Flink](https://flink.apache.org/) is a framework and distributed processing engine for stateful computations over unbounded and bounded data streams. Flink has been designed to run in all common cluster environments, perform computations and stateful streaming applications at in-memory speed and at any scale. Applications are parallelized into possibly thousands of tasks that are distributed and concurrently executed in a cluster. Therefore, an application can use unlimited amounts of vCPUs, main memory, disk and network IO. Moreover, Flink easily maintains large application state. Its asynchronous and incremental checkpointing algorithm ensures minimal influence on processing latencies while guaranteeing exactly once state consistency.
 

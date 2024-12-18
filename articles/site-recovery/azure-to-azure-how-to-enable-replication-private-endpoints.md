@@ -3,9 +3,9 @@ title: Enable replication for private endpoints in Azure Site Recovery
 description: This article describes how to configure replication for VMs with private endpoints from one Azure region to another by using Site Recovery.
 author: ankitaduttaMSFT
 ms.author: ankitadutta
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: how-to
-ms.date: 04/23/2022
+ms.date: 09/03/2024
 ms.custom: references_regions, subject-rbac-steps, engagement-fy23
 ---
 # Replicate machines with private endpoints
@@ -323,9 +323,8 @@ domain names to private IPs.
       :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/add-record-set.png" alt-text="Shows the page to add a DNS A type record for the fully qualified domain name to the private endpoint in the Azure portal.":::
 
    > [!NOTE]
-   > After you enable replication, two more fully qualified domain names are created on the private
-   > endpoints in both regions. Ensure that you add the DNS records for these newly created
-   > fully qualified domain names as well.
+   > After you enable replication, two more fully qualified domain names are created on the private endpoints in both regions. Ensure that you add the DNS records for these newly created fully qualified domain names as well.
+   > Static IP for Azure Site Recovery private endpoint is not supported. 
 
 ## Next steps
 

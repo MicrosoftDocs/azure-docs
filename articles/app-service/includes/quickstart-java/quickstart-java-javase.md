@@ -1,6 +1,6 @@
 ---
 author: cephalin
-ms.service: app-service
+ms.service: azure-app-service
 ms.devlang: java
 ms.topic: include
 ms.date: 02/10/2024
@@ -29,7 +29,7 @@ The quickstart deploys either a Spring Boot app, embedded Tomcat, or Quarkus app
 -----
 
 If Maven isn't your preferred development tool, check out our similar tutorials for Java developers:
-+ [Gradle](../../configure-language-java.md?pivots=platform-linux#gradle)
++ [Gradle](../../configure-language-java-deploy-run.md?pivots=platform-linux#gradle)
 + [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app)
 + [Eclipse](/azure/developer/java/toolkit-for-eclipse/create-hello-world-web-app)
 + [Visual Studio Code](https://code.visualstudio.com/docs/java/java-webapp)
@@ -104,7 +104,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:2.13.0:config
 1. For **Create new run configuration**, type **Y**, then **Enter**.
 1. For **Define value for OS**, type **2** for Linux, then **Enter**.
 1. For **Define value for javaVersion**, type **1** for Java 17, then **Enter**.
-1. For **Define value for pricingTier**, type **9** for P1v2, then **Enter**.
+1. For **Define value for pricingTier**, type **3** for P1v2, then **Enter**.
 1. For **Confirm**, type **Y**, then **Enter**.
 
     ```

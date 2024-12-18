@@ -1,15 +1,14 @@
 ---
 title: Azure Virtual Desktop troubleshooting overview - Azure
 description: An overview for troubleshooting issues while setting up an Azure Virtual Desktop environment.
-author: Heidilohr
+author: dknappettmsft
 ms.topic: troubleshooting
 ms.date: 10/14/2021
-ms.author: helohr
+ms.author: daknappe
+ms.custom: docs_inherited
 ---
-# Troubleshooting overview, feedback, and support for Azure Virtual Desktop
 
->[!IMPORTANT]
->This content applies to Azure Virtual Desktop with Azure Resource Manager Azure Virtual Desktop objects. If you're using Azure Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/troubleshoot-set-up-overview-2019.md).
+# Troubleshooting overview, feedback, and support for Azure Virtual Desktop
 
 This article provides an overview of the issues you may encounter when setting up an Azure Virtual Desktop environment and provides ways to resolve the issues.
 
@@ -60,5 +59,5 @@ Use the following table to identify and resolve issues you may encounter when se
 - To troubleshoot issues when using PowerShell with Azure Virtual Desktop, see [Azure Virtual Desktop PowerShell](troubleshoot-powershell.md).
 - To learn more about the service, see [Azure Virtual Desktop environment](environment-setup.md).
 - To go through a troubleshoot tutorial, see [Tutorial: Troubleshoot Resource Manager template deployments](../azure-resource-manager/templates/template-tutorial-troubleshoot.md).
-- To learn about auditing actions, see [Audit operations with Resource Manager](../azure-monitor/essentials/activity-log.md).
+- To learn about auditing actions, see [Audit operations with Resource Manager](/azure/azure-monitor/essentials/activity-log).
 - To learn about actions to determine errors during deployment, see [View deployment operations](../azure-resource-manager/templates/deployment-history.md).

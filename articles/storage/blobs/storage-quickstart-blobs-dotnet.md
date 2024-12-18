@@ -3,7 +3,7 @@ title: "Quickstart: Azure Blob Storage library - .NET"
 description: In this quickstart, you learn how to use the Azure Blob Storage client library for .NET to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
 author: pauljewellmsft
 ms.author: pauljewell
-ms.date: 02/06/2024
+ms.date: 09/13/2024
 ms.service: azure-blob-storage
 ms.topic: quickstart
 ms.devlang: csharp
@@ -596,15 +596,7 @@ You'll be prompted to confirm the deletion of the resources. Enter `y` to confir
 
 ::: zone-end
 
-## Next steps
-
-In this quickstart, you learned how to upload, download, and list blobs using .NET.
-
-To see Blob storage sample apps, continue to:
+## Next step
 
 > [!div class="nextstepaction"]
-> [Azure Blob Storage library for .NET samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples)
-
-- To learn more, see the [Azure Blob Storage client libraries for .NET](/dotnet/api/overview/azure/storage).
-- For tutorials, samples, quick starts and other documentation, visit [Azure for .NET developers](/dotnet/azure/sdk/azure-sdk-for-dotnet).
-- To learn more about .NET, see [Get started with .NET in 10 minutes](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/intro).
+> [Azure Storage samples and developer guides for .NET](../common/storage-samples-dotnet.md?toc=/azure/storage/blobs/toc.json)

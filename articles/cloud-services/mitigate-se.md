@@ -6,10 +6,10 @@ services: cloud-services
 author: ju-shim
 tags: azure-resource-manager
 keywords: spectre,meltdown,specter
-ms.service: cloud-services
+ms.service: azure-cloud-services-classic
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
-ms.date: 02/21/2023
+ms.date: 07/24/2024
 ms.author: jushiman
 ms.custom: compute-evergreen
 ---

@@ -6,11 +6,11 @@ summary: Explore all of your cloud resources and more effectively manage your cl
 metadata:
   title: Azure Resource Graph documentation
   description: Explore all of your cloud resources and more effectively manage your cloud inventory.
-  ms.service: resource-graph
+  ms.service: azure-resource-graph
   ms.topic: landing-page
-  author: davidsmatlak
-  ms.author: davidsmatlak
-  ms.date: 02/22/2024
+  author: daphnemamsft
+  ms.author: daphnema
+  ms.date: 07/11/2024
 
 landingContent:
   - title: About Azure Resource Graph

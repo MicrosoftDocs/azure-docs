@@ -10,7 +10,7 @@ ms.date: 02/08/2024
 
 # Add maps for transformations in workflows with Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption-standard.md)]
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 Workflow actions such as **Transform XML** and **Liquid** require a map to perform their tasks. For example, the **Transform XML** action requires a map to convert XML between formats. A map is an XML document that uses [Extensible Stylesheet Language Transformation (XSLT)](https://www.w3.org/TR/xslt/) language to describe how to convert data from XML to another format and has the .xslt file name extension. The map consists of a source XML schema as input and a target XML schema as output. You can define a basic transformation, such as copying a name and address from one document to another. Or, you can create more complex transformations using the out-of-the-box map operations. You can manipulate or control data by using different built-in functions, such as string manipulations, conditional assignments, arithmetic expressions, date time formatters, and even looping constructs.
 
@@ -28,9 +28,8 @@ This guide shows how to add a map for your workflow to use. You can add maps eit
 
   * Visual Studio 2019 and the [Microsoft Azure Logic Apps Enterprise Integration Tools extension](https://aka.ms/vsenterpriseintegrationtools).
 
-  * Visual Studio 2015 and the [Microsoft Azure Logic Apps Enterprise Integration Tools for Visual Studio 2015 2.0 extension](https://aka.ms/vsmapsandschemas).
-
     > [!NOTE]
+    >
     > Don't install the Microsoft Azure Logic Apps Enterprise Integration Tools extension alongside the BizTalk Server extension. 
     > Having both extensions might produce unexpected behavior. Make sure that you only have one of these extensions installed.
     >
@@ -106,11 +105,7 @@ When you create maps using Visual Studio Code and the Data Mapper extension, you
 
 ### Visual Studio
 
-When you create maps using Visual Studio, you'll need to create an integration project with either of the following tools:
-
-* Visual Studio 2019 and the [Microsoft Azure Logic Apps Enterprise Integration Tools extension](https://aka.ms/vsenterpriseintegrationtools)
-
-* Visual Studio 2015 and the [Microsoft Azure Logic Apps Enterprise Integration Tools for Visual Studio 2015 2.0 extension](https://aka.ms/vsmapsandschemas).
+If you create maps with Visual Studio, you'll need to create an integration project with Visual Studio 2019 and the [Microsoft Azure Logic Apps Enterprise Integration Tools extension](https://aka.ms/vsenterpriseintegrationtools).
 
 In the integration project, you can build an integration map file, which lets you visually map items between two XML schema files. These tools offer the following map capabilities:
 

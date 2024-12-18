@@ -55,7 +55,7 @@ The process flow for Azure Native Qumulo for PACS VNA is depicted here:
 
 The solution architecture comprises the following components:
 
-- [Azure Native Qumulo Scalable File Service (ANQ)](https://qumulo.com/azure) to provide consolidated, cloud-based VNA archive services
+- [Azure Native Qumulo (ANQ) Scalable File Service](https://qumulo.com/azure) to provide consolidated, cloud-based VNA archive services
 - One-way replication enabled between the on-premises Qumulo cluster(s) and the target ANQ cluster on Azure.
 - On-premises PACS application environment(s), configured to export VNA formatted data to the local Qumulo cluster
 - [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview)

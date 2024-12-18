@@ -2,7 +2,7 @@
 title: Migrate Azure Recovery Services Vault to availability zone support 
 description: Learn how to migrate your Azure Recovery Services Vault to availability zone support.
 author: jfaurskov 
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: conceptual
 ms.date: 06/24/2022
 ms.author: anaharris 
@@ -121,5 +121,6 @@ Follow these steps:
 
 ## Next steps
 
--  [Reliability for Azure Backup](./reliability-backup.md)
--  [Azure services and regions that support availability zones](availability-zones-service-support.md)
+- [Reliability for Azure Backup](./reliability-backup.md)
+- [Azure services with availability zones](availability-zones-service-support.md)
+- [Azure regions with availability zones](availability-zones-region-support.md)

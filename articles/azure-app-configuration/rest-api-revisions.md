@@ -5,8 +5,11 @@ author: maud-lv
 ms.author: malev
 ms.service: azure-app-configuration
 ms.topic: reference
-ms.date: 08/17/2020
+ms.date: 08/02/2024
+zone_pivot_groups: appconfig-data-plane-api-version
+
 ---
+:::zone target="docs" pivot="v1,v23-10,v23-11"
 
 # Key-value revisions
 
@@ -15,8 +18,6 @@ A *key-value revision* defines the historical representation of a key-value reso
 For all operations, ``key`` is an optional parameter. If omitted, it implies any key.
 
 For all operations, ``label`` is an optional parameter. If omitted, it implies any label.
-
-This article applies to API version 1.0.
 
 ## Prerequisites
 
@@ -99,12 +100,29 @@ Content-Range: items 0-2/80
 
 ## Filtering
 
+:::zone-end
+:::zone target="docs" pivot="v1,v23-10"
+
 A combination of `key` and `label` filtering is supported.
 Use the optional `key` and `label` query string parameters.
 
 ```http
 GET /revisions?key={key}&label={label}&api-version={api-version}
 ```
+
+:::zone-end
+:::zone target="docs" pivot="v23-11"
+
+A combination of `key`, `label` and `tags` filtering is supported.
+Use the optional `key`, `label` and `tags` query string parameters.
+Multiple tag filters can be provided as query string parameters in the `tagName=tagValue` format. Tag filters must be an exact match. 
+
+```http
+GET /revisions?key={key}&label={label}&tags={tagFilter1}&tags={tagFilter2}&api-version={api-version}
+```
+
+:::zone-end
+:::zone target="docs" pivot="v1,v23-10,v23-11"
 
 ### Supported filters
 
@@ -119,13 +137,27 @@ GET /revisions?key={key}&label={label}&api-version={api-version}
 
 |Label filter|Effect|
 |--|--|
-|`label` is omitted or `label=`|Matches entry without label|
+|`label` is omitted or `label=`|Matches key-values with no label|
 |`label=*`|Matches **any** label|
 |`label=prod`|Matches the label **prod**|
 |`label=prod*`|Matches labels that start with **prod**|
 |`label=*prod`|Matches labels that end with **prod**|
 |`label=*prod*`|Matches labels that contain **prod**|
 |`label=prod,test`|Matches labels **prod** or **test** (limited to 5 CSV)|
+
+:::zone-end
+:::zone target="docs" pivot="v23-11"
+
+|Tags filter|Effect|
+|--|--|
+|`tags` is omitted or `tags=` |Matches **any** tag|
+|`tags=group=app1`|Matches key-values that have a tag named `group` with value `app1`|
+|`tags=group=app1&tags=env=prod`|Matches key-values that have a tag named `group` with value `app1` and a tag named `env` with value `prod`(limited to 5 tag filters)|
+|`tags=tag1=%00`|Matches key-values that have a tag named `tag1` with value `null`|
+|`tags=tag1=`|Matches key-values that have a tag named `tag1` with empty value|
+
+:::zone-end
+:::zone target="docs" pivot="v1,v23-10,v23-11"
 
 ### Reserved characters
 
@@ -207,3 +239,5 @@ Link: <{relative uri}>; rel="original"
     ]
 }
 ```
+
+:::zone-end

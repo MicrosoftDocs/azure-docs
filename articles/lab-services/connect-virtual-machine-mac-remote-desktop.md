@@ -3,7 +3,7 @@ title: Connect to Azure Lab Services VMs from Mac
 titleSuffix: Azure Lab Services
 description: Learn how to connect using remote desktop (RDP) from a Mac to a virtual machine in Azure Lab Services.
 services: lab-services
-ms.service: lab-services
+ms.service: azure-lab-services
 author: RoseHJM
 ms.author: rosemalcolm
 ms.topic: how-to
@@ -13,10 +13,9 @@ ms.date: 03/04/2024
 
 # Connect to a VM using Remote Desktop Protocol on a Mac
 
-In this article, you learn how to connect to a lab virtual machine (VM) in Azure Lab Services from a Mac by using Remote Desktop Protocol (RDP).
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+In this article, you learn how to connect to a lab virtual machine (VM) in Azure Lab Services from a Mac by using Remote Desktop Protocol (RDP).
 
 ## Install Microsoft Remote Desktop on a Mac
 
@@ -55,10 +54,6 @@ Connect to the lab VM by using the remote desktop application. You can retrieve 
     :::image type="content" source="./media/how-to-use-classroom-lab/certificate-error.png" alt-text="Screenshot of certificate error for Microsoft Remote Desktop app." lightbox="./media/how-to-use-classroom-lab/certificate-error.png":::
 
 1. After the connection is established, you see the desktop of your lab VM.
-
-    The following example is for a CentOS Linux VM:
-
-    :::image type="content" source="./media/how-to-use-classroom-lab/vm-ui.png" alt-text="Screenshot of the desktop for a CentOS Linux VM." lightbox="./media/how-to-use-classroom-lab/vm-ui.png":::
 
 ## Related content
 

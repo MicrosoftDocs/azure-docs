@@ -14,11 +14,11 @@ ms.custom: template-how-to
 
 This article provides the necessary details that allow you to configure your Azure Red Hat OpenShift cluster (ARO) to use Azure Spot Virtual Machines.
 
-Using Azure Spot Virtual Machines allows you to take advantage of our unused capacity at a significant cost savings. At any point in time when Azure needs the capacity back, the Azure infrastructure will evict Azure Spot Virtual Machines. For more information around Spot Instances, see [Spot Virtual Machines](../virtual-machines/spot-vms.md).
+Using Azure Spot Virtual Machines allows you to take advantage of our unused capacity at a significant cost savings. At any point in time when Azure needs the capacity back, the Azure infrastructure will evict Azure Spot Virtual Machines. For more information around Spot Instances, see [Spot Virtual Machines](/azure/virtual-machines/spot-vms).
 
 ## Before you begin
 
-Before getting started, ensure that you have an Azure Red Hat Openshift cluster deployed. If you need an ARO cluster, see the [ARO quickstart](tutorial-create-cluster.md) for a public cluster, or the [private cluster tutorial](howto-create-private-cluster-4x.md) for a private cluster. The steps to configure your cluster to use Spot VMs are the same for both private and public clusters.
+Before getting started, ensure that you have an Azure Red Hat Openshift cluster deployed. If you need an ARO cluster, see the [ARO quickstart](create-cluster.md) for a public cluster, or the [private cluster tutorial](howto-create-private-cluster-4x.md) for a private cluster. The steps to configure your cluster to use Spot VMs are the same for both private and public clusters.
 
 An ARO cluster should always have at least three worker nodes that are non-Spot VMs, and three control nodes. An ARO cluster can't have any spot VM-based control nodes.
 
@@ -33,7 +33,7 @@ To get this MachineSet created, we will:
 2. Create a modified MachineSet configuration.
 3. Deploy this MachineSet to your cluster
 
-First, [connect to your OpenShift cluster using the CLI](tutorial-connect-cluster.md).
+First, [connect to your OpenShift cluster using the CLI](connect-cluster.md).
 
 ```azurecli-interactive
 oc login $apiServer -u kubeadmin -p <kubeadmin password>

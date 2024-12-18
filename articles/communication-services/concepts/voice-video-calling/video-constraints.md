@@ -1,7 +1,7 @@
 ---
-title: Azure Communication Services Video constraints
-titleSuffix: An Azure Communication Services concept document
-description: Overview of Video Constraints
+title: Azure Communication Services Video Constraints
+titleSuffix: An Azure Communication Services concept article
+description: Get an overview of the Video Constraints API.
 author: sloanster
 ms.author: micahvivion
 manager: nmurav
@@ -13,23 +13,25 @@ ms.service: azure-communication-services
 ms.subservice: calling
 ---
 
-# Video constraints
+# Video Constraints
 
-The Video constraints API is a powerful tool that enables developers to control the video quality from within their video calls. With this API, developers can set maximum video resolutions, frame rate, and bitrate used so that the call is optimized for the user's device and network conditions. The ACS video engine is optimized to allow the video quality to change dynamically based on devices ability and network quality. But there might be certain scenarios where you would want to have tighter control of the video quality that end users experience. For instance, there may be situations where the highest video quality isn't a priority, or you may want to limit the video bandwidth usage in the application. To support those use cases, you can use the Video Constraints API to have tighter control over video quality.
+The Video Constraints API enables developers to control the video quality from within video calls. With this API, developers can set maximum video resolutions, frame rate, and bitrate so that the call is optimized for the user's device and network conditions.
 
-Another benefit of the Video Constraints API is that it enables developers to optimize the video call for different devices. For example, if a user is using an older device with limited processing power, developers can set constraints on the video resolution to ensure that the video call runs smoothly on that device.
+The Azure Communication Services video engine is optimized to allow the video quality to change dynamically based on a device's ability and the network quality. But there might be certain scenarios where the highest video quality isn't a priority, or you want to limit the video bandwidth usage in an application. To support those use cases, you can use the Video Constraints API to have tighter control over the video quality that users experience.
+
+Another benefit of the Video Constraints API is that it enables developers to optimize the video call for different devices. For example, if a user is using an older device with limited processing power, you can set constraints on the video resolution to ensure that the video call runs smoothly on that device.
 
 ## Supported constraints
 
-| Platform | Supported Constraints | 
+| Platform | Supported constraints |
 | ----------- | ----------- |
-| **Web** | **Incoming video**: resolution<br />**Outgoing video**: resolution, framerate, bitrate |
-| **Android** | **Incoming video**: resolution<br />**Outgoing video**: resolution, framerate |
-| **iOS** | **Incoming video**: resolution<br />**Outgoing video**: resolution, framerate |
-| **Windows** | **Incoming video**: resolution<br />**Outgoing** video: resolution, framerate |
+| **Web** | **Incoming video**: resolution<br />**Outgoing video**: resolution, frame rate, bitrate |
+| **Android** | **Incoming video**: resolution<br />**Outgoing video**: resolution, frame rate |
+| **iOS** | **Incoming video**: resolution<br />**Outgoing video**: resolution, frame rate |
+| **Windows** | **Incoming video**: resolution<br />**Outgoing video**: resolution, frame rate |
 
-## Next steps
-For more information, see the following articles:
-- [Tutorial on how to enable video constraints](../../quickstarts/voice-video-calling/get-started-video-constraints.md)
-- [Enable Media Quality Statistics in your application](./media-quality-sdk.md)
-- Learn about [Calling SDK capabilities](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
+## Related content
+
+- [Quickstart: Set video constraints in your calling app](../../quickstarts/voice-video-calling/get-started-video-constraints.md)
+- [Enable media quality statistics in your application](./media-quality-sdk.md)
+- [Quickstart: Add voice calling to your app](../../quickstarts/voice-video-calling/getting-started-with-calling.md)

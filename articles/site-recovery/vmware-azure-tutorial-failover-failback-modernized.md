@@ -1,7 +1,7 @@
 ---
 title: Run VMware VMs failover to Azure
 description: Learn how to fail over VMware VMs to Azure in Azure Site Recovery - Modernized
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: tutorial
 ms.date: 09/29/2023
 ms.custom: MVC
@@ -80,7 +80,7 @@ Follow these steps to verify VM properties:
 ## Connect to failed-over VM
 
 1. If you want to connect to Azure VMs after failover by using Remote Desktop Protocol (RDP) and Secure Shell (SSH), [verify that the requirements have been met](failover-failback-overview.md#connect-to-azure-after-failover).
-2. After failover, go to the VM and validate by [connecting](../virtual-machines/windows/connect-logon.md) to it.
+2. After failover, go to the VM and validate by [connecting](/azure/virtual-machines/windows/connect-logon) to it.
 3. Use **Change recovery point** if you want to use a different recovery point after failover. After you commit the failover in the next step, this option will no longer be available.
 4. After validation, select **Commit** to finalize the recovery point of the VM after failover.
 5. After you commit, all the other available recovery points are deleted. This step completes the failover.

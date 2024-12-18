@@ -1,12 +1,13 @@
 ---
-title: Azure Orbital Ground Station - Prepare for launch and early operations
-description: Learn how to get ready for Launch with Azure Orbital.
+title: Prepare for launch and early operations
+description: Steps to prepare for an upcoming satellite launch and acquire your satellite with Azure Orbital Ground Station.
 author: hrshelar
-ms.service: orbital
+ms.service: azure-orbital
 ms.topic: how-to
 ms.custom: ga
 ms.date: 10/12/2023
-ms.author: hrshelar
+ms.author: mosagie
+# Customer intent: As a satellite operator, I want to be prepared to operate my account.
 ---
 
 # Prepare for launch and early operations
@@ -18,7 +19,7 @@ Follow these steps to get ready for an upcoming satellite launch and acquire you
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Contributor permissions at the subscription level.
 - A [Basic Support Plan](https://azure.microsoft.com/support/plans/) or higher to submit a spacecraft authorization request.
-- Private spacecraft: an active satellite license. In certain countries including the United States, authorization for market access (or a waiver of the United States’ market access rules) is required for satellites not licensed in the country.
+- Private spacecraft: an active satellite license. In certain countries/regions including the United States, authorization for market access (or a waiver of the United States’ market access rules) is required for satellites not licensed in the country/region.
 - Private spacecraft: added as a point of communication to Microsoft and/or Partner ground stations. For more information, see [initiate ground station licensing](initiate-licensing.md).
 - A [contact profile resource](concepts-contact-profile.md)
 

@@ -2,12 +2,12 @@
 title: Migrate Azure Service Bus namespaces - standard to premium
 description: Guide to allow migration of existing Azure Service Bus standard namespaces to premium
 ms.topic: article
-ms.date: 08/17/2023
+ms.date: 06/19/2024
 ---
 
 # Migrate existing Azure Service Bus standard namespaces to the premium tier
 
-Previously, Azure Service Bus offered namespaces only on the standard tier. Namespaces are multi-tenant setups that are optimized for low throughput and developer environments. The premium tier offers dedicated resources per namespace for predictable latency and increased throughput at a fixed price. The premium tier is optimized for high throughput and production environments that require additional enterprise features.
+Previously, Azure Service Bus offered namespaces only on the standard tier. Namespaces are multitenant setups that are optimized for low throughput and developer environments. The premium tier offers dedicated resources per namespace for predictable latency and increased throughput at a fixed price. The premium tier is optimized for high throughput and production environments that require additional enterprise features.
 
 This article describes how to migrate existing standard tier namespaces to the premium tier.  
 
@@ -123,7 +123,7 @@ Migration by using the Azure portal has the same logical flow as migrating by us
 
 Some of the features provided by Azure Service Bus Standard tier aren't supported by Azure Service Bus Premium tier. These are by design since the premium tier offers dedicated resources for predictable throughput and latency.
 
-Here's a list of features not supported by Premium and their mitigation -
+Here's an overview of features not supported by Premium and their mitigation.
 
 ### Express entities
 
@@ -165,7 +165,7 @@ The downtime that is experienced by the application is limited to the time it ta
 
 ### Do I have to make any configuration changes while doing the migration?
 
-No, there are no code or configuration changes needed to do the migration. The connection string that sender and receiver applications use to access the standard Namespace is automatically mapped to act as an alias for the premium namespace.
+No, there are no code or configuration changes needed to do the migration. The DNS name of your standard namespace will point to your premium namespace. The connection string that your sender and receiver applications use to access the standard Namespace is automatically mapped to act as an alias for the premium namespace.
 
 ### How do I abort the migration? 
 
@@ -218,4 +218,4 @@ However, if you can migrate during a planned maintenance/housekeeping window, an
 ## Next steps
 
 * Learn more about the [differences between standard and premium Messaging](./service-bus-premium-messaging.md).
-* Learn about the [High-Availability and Geo-Disaster recovery aspects for Service Bus premium](service-bus-outages-disasters.md#protection-against-outages-and-disasters---premium-tier).
+* Learn about the [High-Availability and Geo-Disaster recovery aspects for Service Bus premium](service-bus-outages-disasters.md#protection-against-outages-and-disasters).

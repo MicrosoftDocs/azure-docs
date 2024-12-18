@@ -4,7 +4,7 @@ description: A tutorial on using the Azure Queue Storage to create queues, and i
 author: normesta
 ms.author: normesta
 ms.reviewer: dineshm
-ms.date: 06/09/2020
+ms.date: 08/07/2024
 ms.topic: tutorial
 ms.service: azure-queue-storage
 ms.devlang: csharp
@@ -39,7 +39,11 @@ In this tutorial, you learn how to:
 
 ## Create an Azure Storage account
 
-First, create an Azure Storage account. For a step-by-step guide to creating a storage account, see [Create a storage account](../common/storage-account-create.md?toc=/azure/storage/queues/toc.json). This is a separate step you perform after creating a free Azure account in the prerequisites.
+1. First, create an Azure Storage account. 
+  
+   For a step-by-step guide to creating a storage account, see [Create a storage account](../common/storage-account-create.md?toc=/azure/storage/queues/toc.json). This is a separate step you perform after creating a free Azure account in the prerequisites. 
+
+2. Make sure that your user account has been assigned the [Storage Queue Data Contributor](storage-quickstart-queues-dotnet.md#authenticate-to-azure) role, scoped to the storage account, parent resource group, or subscription. See [Authenticate to Azure](storage-quickstart-queues-dotnet.md#authenticate-to-azure).
 
 ## Create the app
 
@@ -127,25 +131,7 @@ Since the app uses cloud resources, the code runs asynchronously.
 
 ## Create a queue
 
-Before making any calls into Azure APIs, you must get your credentials from the Azure portal.
-
-[!INCLUDE [storage-quickstart-credentials-include](../../../includes/storage-quickstart-credentials-include.md)]
-
-### Add the connection string to the app
-
-Add the connection string into the app so it can access the storage account.
-
-1. Switch back to Visual Studio Code.
-
-1. In the `Main` method, replace the `Console.WriteLine("Hello, World");` code with the following line that gets the connection string from the environment variable.
-
-   :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v12/QueueApp/Program.cs" id="snippet_DeclareConnectionString":::
-
-1. Add the following code to `Main` to create a queue object, which is later passed into the send and receive methods.
-
-   :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v12/QueueApp/Program.cs" id="snippet_CreateQueueClient":::
-
-1. Save the file.
+Before making any calls into Azure APIs, you must make sure you're authenticated with the same Microsoft Entra account you assigned the role to. Once authenticated,  you can create and authorize a `QueueClient` object by using `DefaultAzureCredential` to access queue data in the storage account. `DefaultAzureCredential` automatically discovers and uses the account you signed into. To learn how to sign in and then create a `QueueClient` object, see [Authorize access and create a client object](storage-quickstart-queues-dotnet.md#authorize-access-and-create-a-client-object).
 
 ## Insert messages into the queue
 
@@ -199,17 +185,118 @@ If there are no command-line arguments, attempt a retrieve operation. Call the `
 
 Finally, wait for user input before exiting by calling `Console.ReadLine`.
 
-1. Expand the `Main` method to check for command-line arguments and wait for user input.
+1. Expand the `Main` method to check for command-line arguments and wait for user input. In the code snippet below, make sure to replace the `{storageAccountName}` placeholder with the name of your storage account.
 
-   :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v12/QueueApp/Program.cs" id="snippet_Main":::
+   ```csharp   
+   static async Task Main(string[] args)
+   {
+      QueueClient queue = new QueueClient(
+         new Uri($"https://{storageAccountName}.queue.core.windows.net/mystoragequeue"),
+         new DefaultAzureCredential());
 
-1. Save the file.
+      if (args.Length > 0)
+      {
+         string value = String.Join(" ", args);
+         await InsertMessageAsync(queue, value);
+         Console.WriteLine($"Sent: {value}");
+      }
+      else
+      {
+         string value = await RetrieveNextMessageAsync(queue);
+         Console.WriteLine($"Received: {value}");
+      }
+
+      Console.Write("Press Enter...");
+      Console.ReadLine();
+   }
+   ```
+
+2. Save the file.
 
 ## Complete code
 
 Here is the complete code listing for this project.
 
-   :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v12/QueueApp/Program.cs" id="snippet_AllCode":::
+```csharp
+using System;
+using System.Threading.Tasks;
+using Azure.Storage.Queues;
+using Azure.Storage.Queues.Models;
+using Azure.Identity;
+
+namespace QueueApp
+{
+    class Program
+    {
+        static async Task Main(string[] args)
+        {
+            QueueClient queue = new QueueClient(
+               new Uri($"https://{storageAccountName}.queue.core.windows.net/mystoragequeue"),
+               new DefaultAzureCredential());
+
+            if (args.Length > 0)
+            {
+                string value = String.Join(" ", args);
+                await InsertMessageAsync(queue, value);
+                Console.WriteLine($"Sent: {value}");
+            }
+            else
+            {
+                string value = await RetrieveNextMessageAsync(queue);
+                Console.WriteLine($"Received: {value}");
+            }
+
+            Console.Write("Press Enter...");
+            Console.ReadLine();
+        }
+
+        static async Task InsertMessageAsync(QueueClient theQueue, string newMessage)
+        {
+            if (null != await theQueue.CreateIfNotExistsAsync())
+            {
+                Console.WriteLine("The queue was created.");
+            }
+
+            await theQueue.SendMessageAsync(newMessage);
+        }
+
+        static async Task<string> RetrieveNextMessageAsync(QueueClient theQueue)
+        {
+            if (await theQueue.ExistsAsync())
+            {
+                QueueProperties properties = await theQueue.GetPropertiesAsync();
+
+                if (properties.ApproximateMessagesCount > 0)
+                {
+                    QueueMessage[] retrievedMessage = await theQueue.ReceiveMessagesAsync(1);
+                    string theMessage = retrievedMessage[0].Body.ToString();
+                    await theQueue.DeleteMessageAsync(retrievedMessage[0].MessageId, retrievedMessage[0].PopReceipt);
+                    return theMessage;
+                }
+                else
+                {
+                    Console.Write("The queue is empty. Attempt to delete it? (Y/N) ");
+                    string response = Console.ReadLine();
+
+                    if (response.ToUpper() == "Y")
+                    {
+                        await theQueue.DeleteIfExistsAsync();
+                        return "The queue was deleted.";
+                    }
+                    else
+                    {
+                        return "The queue was not deleted.";
+                    }
+                }
+            }
+            else
+            {
+                return "The queue does not exist. Add a message to the command line to create the queue and store the message.";
+            }
+        }
+    }
+}
+```
 
 ## Build and run the app
 

@@ -2,6 +2,7 @@
 title: Use OpenTelemetry with Azure Functions
 description: This article shows you how to enable export of application logs and traces from your function app using OpenTelemetry.
 ms.service: azure-functions
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
 ms.topic: how-to 
 ms.date: 05/16/2024
 zone_pivot_groups: programming-languages-set-functions
@@ -28,7 +29,7 @@ This article shows you how to configure your function app to export log and trac
 
 + Correlation across traces and logs being generated both at the host and in your application code.
 + Consistent, standards-based generation of exportable telemetry data. 
-+ Integrates with other providers that can consume OpenTeleletry-compliant data. 
++ Integrates with other providers that can consume OpenTelemetry-compliant data. 
 
 OpenTelemetry is enabled at the function app level, both in host configuration (`host.json`) and in your code project. Functions also provides a client optimized experience for exporting OpenTelemetry data from your function code that's running in a language-specific worker process.
 
@@ -147,6 +148,7 @@ Java worker optimizations aren't yet available for OpenTelemetry, so there's not
     npm install @opentelemetry/api 
     npm install @opentelemetry/auto-instrumentations-node 
     npm install @azure/monitor-opentelemetry-exporter 
+    npm install @azure/functions-opentelemetry-instrumentation
     ```
     ### [OTLP Exporter](#tab/otlp-export) 
 
@@ -154,6 +156,7 @@ Java worker optimizations aren't yet available for OpenTelemetry, so there's not
     npm install @opentelemetry/api 
     npm install @opentelemetry/auto-instrumentations-node 
     npm install @opentelemetry/exporter-logs-otlp-http 
+    npm install @azure/functions-opentelemetry-instrumentation
     ```
     ---
 
@@ -294,4 +297,3 @@ When you export your data using OpenTelemetry, keep these current considerations
 
 [Monitor Azure Functions](monitor-functions.md)
 [Flex Consumption plan](./flex-consumption-plan.md)
-

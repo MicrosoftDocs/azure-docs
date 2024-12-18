@@ -14,11 +14,14 @@ This tutorial will help you learn how to install and authenticate the Defender f
 In this tutorial you'll learn how to:
 
 > [!div class="checklist"]
+>
 > - Download and install the micro agent
 > - Authenticate the micro agent
 > - Validate the installation
 > - Test the system
 > - Install a specific micro agent version
+
+[!INCLUDE [device-agents-note](../includes/device-agents-note.md)]
 
 ## Prerequisites
 

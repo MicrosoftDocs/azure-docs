@@ -3,16 +3,19 @@ title: Relocate Azure Key Vault to another region
 description: This article offers guidance on moving a key vault to another region.
 services: key-vault
 author: anaharris
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: concept-article
 ms.date: 03/18/2024
 ms.author: mbaldwin
-ms.custom: subject-relocation
+ms.custom: subject-relocation, devx-track-azurepowershell
 # Customer intent: As a key vault administrator, I want to move my vault to another region.
 ---
 
 # Relocate Azure Key Vault to another region
+
+[!INCLUDE [relocate-reasons](./includes/service-relocation-reason-include.md)]
+
 
 Azure Key Vault doesn't support key vault relocation to another region. 
 

@@ -9,6 +9,10 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
+
+
+#Customer intent: As a security analyst, I want to use Jupyter notebooks with MSTICPy in Microsoft Sentinel so that I can efficiently perform threat hunting and data analysis with minimal coding.
+
 ---
 
 # Get started with Jupyter notebooks and MSTICPy in Microsoft Sentinel
@@ -94,7 +98,7 @@ This procedure describes how to launch your notebook and initialize MSTICpy.
     display(HTML("Checking upgrade to latest msticpy version"))
     %pip install --upgrade --quiet msticpy[azuresentinel]>=$REQ_MSTICPY_VER
 
-    # intialize msticpy
+    # initialize msticpy
     from msticpy.nbtools import nbinit
     nbinit.init_notebook(
     namespace=globals(),
@@ -355,7 +359,7 @@ MSTICPy also includes many built-in queries available for you to run. List avail
        Table name
        (default value is: SigninLogs)
    Query:
-        {table} | where TimeGenerated >= datetime({start}) | where TimeGenerated <= datetime({end}) | extend Result = iif(ResultType==0, "Sucess", "Failed") | extend Latitude = tostring(parse_json(tostring(LocationDetails.geoCoordinates)).latitude) | extend Longitude = tostring(parse_json(tostring(LocationDetails.geoCoordinates)).longitude)
+        {table} | where TimeGenerated >= datetime({start}) | where TimeGenerated <= datetime({end}) | extend Result = iif(ResultType==0, "Success", "Failed") | extend Latitude = tostring(parse_json(tostring(LocationDetails.geoCoordinates)).latitude) | extend Longitude = tostring(parse_json(tostring(LocationDetails.geoCoordinates)).longitude)
    ```
 
 1. To view both tables and queries in a scrollable, filterable list, proceed to the next cell, with the following code, and run it.
@@ -397,7 +401,7 @@ Query results return as a [Pandas DataFrame](https://pandas.pydata.org), which i
 
    ```python
    # The time parameters are taken from the qry_prov time settings
-   # but you can override this by supplying explict "start" and "end" datetimes
+   # but you can override this by supplying explicit "start" and "end" datetimes
    signins_df = qry_prov.Azure.list_all_signins_geo()
    
    # display first 5 rows of any results

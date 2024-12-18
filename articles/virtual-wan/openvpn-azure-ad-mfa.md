@@ -1,34 +1,33 @@
 ---
-title: 'Enable MFA for VPN users by using Microsoft Entra authentication'
+title: 'Enable MFA for VPN users: Microsoft Entra ID authentication'
 description: Learn how to enable Microsoft Entra multifactor authentication (MFA) for VPN users by using Microsoft Entra authentication.
 services: virtual-wan
 author: cherylmc
-
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: how-to
-ms.date: 08/23/2023
-ms.author: alzam
+ms.date: 09/24/2024
+ms.author: cherylmc
 
 ---
-# Enable Microsoft Entra multifactor authentication (MFA) for VPN users by using Microsoft Entra authentication
+# Enable multifactor authentication (MFA) for P2S VPN - Microsoft Entra ID authentication
 
-[!INCLUDE [overview](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-vwan-openvpn-enable-mfa-overview.md)]
+[!INCLUDE [overview](../../includes/vpn-gateway-vwan-openvpn-enable-mfa-overview.md)]
 
 ## <a name="enableauth"></a>Enable authentication
 
-[!INCLUDE [enable authentication](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-vwan-openvpn-enable-auth.md)]
+[!INCLUDE [enable authentication](../../includes/vpn-gateway-vwan-openvpn-enable-auth.md)]
 
 ## <a name="enablesign"></a>Configure sign-in settings
 
-[!INCLUDE [sign in](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-vwan-openvpn-sign-in.md)]
+[!INCLUDE [sign in](../../includes/vpn-gateway-vwan-openvpn-sign-in.md)]
 
 ## <a name="peruser"></a>Option 1 - Per User access
 
-[!INCLUDE [per user](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-vwan-openvpn-per-user.md)]
+[!INCLUDE [per user](../../includes/vpn-gateway-vwan-openvpn-per-user.md)]
 
 ## <a name="conditional"></a>Option 2 - Conditional Access
 
-[!INCLUDE [conditional access](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-vwan-openvpn-conditional.md)]
+[!INCLUDE [conditional access](../../includes/vpn-gateway-vwan-openvpn-conditional.md)]
 
 ## Next steps
 

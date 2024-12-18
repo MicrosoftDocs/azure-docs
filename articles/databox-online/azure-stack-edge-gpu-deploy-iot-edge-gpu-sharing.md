@@ -4,8 +4,7 @@ description: Describes how you can deploy a GPU shared workload via IoT Edge on 
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 03/12/2021
 ms.author: alkohli

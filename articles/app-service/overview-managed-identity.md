@@ -2,7 +2,7 @@
 title: Managed identities
 description: Learn how managed identities work in Azure App Service and Azure Functions, how to configure a managed identity and generate a token for a back-end resource.
 ms.topic: article
-ms.date: 06/27/2023
+ms.date: 09/30/2024
 ms.reviewer: yevbronsh,mahender
 author: cephalin
 ms.author: cephalin
@@ -22,7 +22,7 @@ This article shows you how to create a managed identity for App Service and Azur
 > [!NOTE]
 > Managed identities are not available for [apps deployed in Azure Arc](overview-arc-integration.md).
 
-[!INCLUDE [app-service-managed-identities](~/reusable-content/ce-skilling/azure/includes/app-service-managed-identities.md)]
+[!INCLUDE [app-service-managed-identities](../../includes/app-service-managed-identities.md)]
 
 The managed identity configuration is specific to the slot. To configure a managed identity for a deployment slot in the portal, navigate to the slot first. To find the managed identity for your web app or deployment slot in your Microsoft Entra tenant from the Azure portal, search for it directly from the **Overview** page of your tenant. Usually, the slot name is similar to `<app-name>/slots/<slot-name>`.
 
@@ -259,7 +259,7 @@ The principalId is a unique identifier for the identity that's used for Microsof
 You may need to configure the target resource to allow access from your app or function. For example, if you [request a token](#connect-to-azure-services-in-app-code) to access Key Vault, you must also add an access policy that includes the managed identity of your app or function. Otherwise, your calls to Key Vault will be rejected, even if you use a valid token. The same is true for Azure SQL Database. To learn more about which resources support Microsoft Entra tokens, see [Azure services that support Microsoft Entra authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
 > [!IMPORTANT]
-> The back-end services for managed identities maintain a cache per resource URI for around 24 hours. If you update the access policy of a particular target resource and immediately retrieve a token for that resource, you may continue to get a cached token with outdated permissions until that token expires. There's currently no way to force a token refresh.
+> The back-end services for managed identities maintain a cache per resource URI for around 24 hours. This means that it can take several hours for changes to a managed identity's group or role membership to take effect. Today, it is not possible to force a managed identity's token to be refreshed before its expiry. If you change a managed identity’s group or role membership to add or remove permissions, you may therefore need to wait several hours for the Azure resource using the identity to have the correct access. For alternatives to groups or role memberships, see [Limitation of using managed identities for authorization](/entra/identity/managed-identities-azure-resources/managed-identity-best-practice-recommendations).
 
 ## Connect to Azure services in app code
 
@@ -269,12 +269,12 @@ App Service and Azure Functions provide an internally accessible [REST endpoint]
 
 # [HTTP GET](#tab/http)
 
-A raw HTTP GET request looks like the following example:
+A raw HTTP GET request uses the [two supplied environment variables](#rest-endpoint-reference) and looks like the following example:
 
 ```http
 GET /MSI/token?resource=https://vault.azure.net&api-version=2019-08-01 HTTP/1.1
-Host: localhost:4141
-X-IDENTITY-HEADER: 853b9a84-5bfa-4b22-a3f3-0b9a43d9ad8a
+Host: <ip-address-:-port-in-IDENTITY_ENDPOINT>
+X-IDENTITY-HEADER: <value-of-IDENTITY_HEADER>
 ```
 
 And a sample response might look like the following:
@@ -288,7 +288,7 @@ Content-Type: application/json
     "expires_on": "1586984735",
     "resource": "https://vault.azure.net",
     "token_type": "Bearer",
-    "client_id": "5E29463D-71DA-4FE0-8E69-999B57DB23B0"
+    "client_id": "00001111-aaaa-2222-bbbb-3333cccc4444"
 }
 ```
 
@@ -304,8 +304,8 @@ For .NET apps and functions, the simplest way to work with a managed identity is
 See the respective documentation headings of the client library for information:
 
 - [Add Azure Identity client library to your project](/dotnet/api/overview/azure/identity-readme#getting-started)
-- [Access Azure service with a system-assigned identity](/dotnet/api/overview/azure/identity-readme#authenticating-with-defaultazurecredential)
-- [Access Azure service with a user-assigned identity](/dotnet/api/overview/azure/identity-readme#specifying-a-user-assigned-managed-identity-with-the-defaultazurecredential)
+- [Access Azure service with a system-assigned identity](/dotnet/api/overview/azure/identity-readme#authenticate-with-defaultazurecredential)
+- [Access Azure service with a user-assigned identity](/dotnet/api/overview/azure/identity-readme#specify-a-user-assigned-managed-identity-with-defaultazurecredential)
 
 The linked examples use [`DefaultAzureCredential`](/dotnet/api/overview/azure/identity-readme#defaultazurecredential). It's useful for the majority of the scenarios because the same pattern works in Azure (with managed identities) and on your local machine (without managed identities).
 
@@ -316,8 +316,8 @@ For Node.js apps and JavaScript functions, the simplest way to work with a manag
 See the respective documentation headings of the client library for information:
 
 - [Add Azure Identity client library to your project](/javascript/api/overview/azure/identity-readme#install-the-package)
-- [Access Azure service with a system-assigned identity](/javascript/api/overview/azure/identity-readme#authenticating-with-defaultazurecredential)
-- [Access Azure service with a user-assigned identity](/javascript/api/overview/azure/identity-readme#authenticating-a-user-assigned-managed-identity-with-defaultazurecredential)
+- [Access Azure service with a system-assigned identity](/javascript/api/overview/azure/identity-readme#authenticate-with-defaultazurecredential)
+- [Access Azure service with a user-assigned identity](/javascript/api/overview/azure/identity-readme#specify-a-user-assigned-managed-identity-with-defaultazurecredential)
 
 The linked examples use [`DefaultAzureCredential`](/javascript/api/overview/azure/identity-readme#defaultazurecredential). It's useful for the majority of the scenarios because the same pattern works in Azure (with managed identities) and on your local machine (without managed identities).
 
@@ -330,8 +330,8 @@ For Python apps and functions, the simplest way to work with a managed identity 
 See the respective documentation headings of the client library for information:
 
 - [Add Azure Identity client library to your project](/python/api/overview/azure/identity-readme#getting-started)
-- [Access Azure service with a system-assigned identity](/python/api/overview/azure/identity-readme#authenticating-with-defaultazurecredential)
-- [Access Azure service with a user-assigned identity](/python/api/overview/azure/identity-readme#authenticating-a-user-assigned-managed-identity-with-defaultazurecredential)
+- [Access Azure service with a system-assigned identity](/python/api/overview/azure/identity-readme#authenticate-with-defaultazurecredential)
+- [Access Azure service with a user-assigned identity](/python/api/overview/azure/identity-readme#authenticate-with-a-user-assigned-managed-identity)
 
 The linked examples use [`DefaultAzureCredential`](/python/api/overview/azure/identity-readme#defaultazurecredential). It's useful for the majority of the scenarios because the same pattern works in Azure (with managed identities) and on your local machine (without managed identities).
 
@@ -342,8 +342,8 @@ For Java apps and functions, the simplest way to work with a managed identity is
 See the respective documentation headings of the client library for information:
 
 - [Add Azure Identity client library to your project](/java/api/overview/azure/identity-readme#include-the-package)
-- [Access Azure service with a system-assigned identity](/java/api/overview/azure/identity-readme#authenticating-with-defaultazurecredential)
-- [Access Azure service with a user-assigned identity](/java/api/overview/azure/identity-readme#authenticating-a-user-assigned-managed-identity-with-defaultazurecredential)
+- [Access Azure service with a system-assigned identity](/java/api/overview/azure/identity-readme#authenticate-with-defaultazurecredential)
+- [Access Azure service with a user-assigned identity](/java/api/overview/azure/identity-readme#authenticate-a-user-assigned-managed-identity-with-defaultazurecredential)
 
 The linked examples use [`DefaultAzureCredential`](/azure/developer/java/sdk/identity-azure-hosted-auth#default-azure-credential). It's useful for the majority of the scenarios because the same pattern works in Azure (with managed identities) and on your local machine (without managed identities).
 

@@ -2,7 +2,7 @@
 title: Create UI definition string functions
 description: Describes the string functions to use when constructing UI definitions for Azure Managed Applications
 ms.topic: reference
-ms.date: 07/13/2020
+ms.date: 06/21/2024
 ---
 
 # CreateUiDefinition string functions
@@ -81,7 +81,7 @@ The following sample returns true.
 
 ## substring
 
-Returns the substring of the specified string. The substring starts at the specified index and has the specified length.
+Returns the substring of the specified string. The substring begins at the specified index and has the specified length.
 
 The following example returns `"web"`:
 
@@ -111,4 +111,4 @@ The following example returns `"CONTOSO"`:
 
 ## Next steps
 
-* For an introduction to Azure Resource Manager, see [Azure Resource Manager overview](../management/overview.md).
+- For an introduction to Azure Resource Manager, see [Azure Resource Manager overview](../management/overview.md).

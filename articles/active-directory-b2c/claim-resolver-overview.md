@@ -6,12 +6,12 @@ description: Learn how to use claims resolvers in a custom policy in Azure Activ
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: reference
 ms.date: 01/17/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As a developer using Azure AD B2C custom policies, I want to understand how to use claim resolvers in my technical profiles, so that I can provide context information about authorization requests and populate claims with dynamic values.
@@ -97,7 +97,7 @@ The following table lists the claim resolvers with information about the OpenID 
 | Claim | Description | Example |
 | ----- | ----------- | --------|
 | {OIDC:AuthenticationContextReferences} |The `acr_values` query string parameter. | N/A |
-| {OIDC:ClientId} |The `client_id`  query string parameter. | 00000000-0000-0000-0000-000000000000 |
+| {OIDC:ClientId} |The `client_id`  query string parameter. | 00001111-aaaa-2222-bbbb-3333cccc4444 |
 | {OIDC:DomainHint} |The `domain_hint`  query string parameter. | facebook.com |
 | {OIDC:LoginHint} |  The `login_hint` query string parameter. | someone@contoso.com |
 | {OIDC:MaxAge} | The `max_age`. | N/A |

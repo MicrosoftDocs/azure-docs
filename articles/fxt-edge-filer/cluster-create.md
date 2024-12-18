@@ -1,14 +1,17 @@
 ---
 title: 'Tutorial: Create the Azure FXT Edge Filer cache cluster'
 description: Learn how to create a hybrid storage cache cluster with the Azure FXT Edge Filer and how to sign in to the cluster control panel to configure the cluster settings.
-author: femila
-ms.author: femila
-ms.service: fxt-edge-filer
+author: pauljewellmsft
+ms.author: pauljewell
+ms.service: azure-fxt-edge-filer
 ms.topic: tutorial
 ms.date: 07/01/2019
 ---
 
 # Tutorial: Create the Azure FXT Edge Filer cluster
+
+> [!NOTE]
+> **Action Required:** Azure FXT Edge Filer will be retired on December 31, 2026. Please remove all Azure FXT Edge Filer resources by December 31, 2026. Visit https://aka.ms/fxtretirementfaq for more information.
 
 After you install and initialize the Azure FXT Edge Filer hardware nodes for your cache, use the FXT cluster software to create the cache cluster.
 

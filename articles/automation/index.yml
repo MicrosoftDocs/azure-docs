@@ -5,7 +5,7 @@ metadata:
   title: Azure Automation documentation
   description: Learn how to use Automation to configure and automate operational tasks across a hybrid environment.
   author: SnehaSudhirG
-  ms.service: automation
+  ms.service: azure-automation
   ms.topic: landing-page
   ms.date: 08/30/2022
   ms.author: sudhirsneha

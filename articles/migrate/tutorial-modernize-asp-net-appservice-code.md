@@ -1,8 +1,8 @@
 ---
 title: Modernize ASP.NET web apps to Azure App Service code
 description: At-scale migration of ASP.NET web apps to Azure App Service using Azure Migrate
-author: vineetvikram
-ms.author: vivikram
+author: v-sreedevank
+ms.author: v-sreedevank
 ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 02/28/2023
@@ -29,7 +29,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 Before you begin this tutorial, you should:
 
-1. [Complete the first tutorial](./tutorial-discover-vmware.md) to discover web apps running in your VMware environment.
+1. [Complete the first tutorial](tutorial-discover-vmware.md) to discover web apps running in your VMware environment.
 2. [Complete the second tutorial](./tutorial-assess-webapps.md) to assess web apps to determine their readiness status for migration to [Azure App Service](https://azure.microsoft.com/services/app-service/). It's necessary to assess web apps in order to migrate them using the integrated flow.
 3. Go to the existing project or [create a new project](./create-manage-projects.md).
 

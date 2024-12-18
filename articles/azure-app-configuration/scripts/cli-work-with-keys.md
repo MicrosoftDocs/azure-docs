@@ -71,7 +71,7 @@ az appconfig kv delete --name $appConfigName --key $refKey
 az appconfig kv list --name $appConfigName
 ```
 
-[!INCLUDE [cli-script-cleanup](~/reusable-content/ce-skilling/azure/includes/cli-script-clean-up.md)]
+[!INCLUDE [cli-script-cleanup](../../../includes/cli-script-clean-up.md)]
 
 ## Script explanation
 

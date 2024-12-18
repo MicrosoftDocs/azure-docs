@@ -6,9 +6,8 @@ ms.author: jeffreymason
 ms.service: azure-operator-nexus
 ms.topic: how-to
 ms.date: 05/08/2024
-ms.custom: template-how-to
+ms.custom: template-how-to, devx-track-arm-template
 ---
-
 
 # Example of cluster.parameter.jsonc template file.
 
@@ -50,9 +49,6 @@ ms.custom: template-how-to
     },
     "secretArchive": {
       "value": "$KV_RESOURCE_ID"
-    },
-    "sshKeyUrl": {
-      "value": "https://"
     },
     "aggregatorOrSingleRack": {
       "value": {

@@ -5,6 +5,10 @@ author: oshezaf
 ms.topic: reference
 ms.date: 11/09/2021
 ms.author: ofshezaf
+
+
+#Customer intent: As a security analyst, I want to use the Process Event normalization schema so that I can standardize and analyze process activity data across different sources for better threat detection and response.
+
 ---
 
 # The Advanced Security Information Model (ASIM) Process Event normalization schema reference (Public preview)
@@ -66,7 +70,7 @@ The following filtering parameters are available:
 
 or example, to filter only authentication events from the last day to a specific user, use:
 
-```kql
+```kusto
 imProcessCreate (targetusername_has = 'johndoe', starttime = ago(1d), endtime=now())
 ```
 

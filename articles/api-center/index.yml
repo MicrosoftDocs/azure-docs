@@ -6,7 +6,7 @@ summary: Azure API Center helps you develop and maintain a structured inventory 
 metadata: 
   title: Azure API Center documentation | Microsoft Docs
   description: Azure API Center helps you develop and maintain a structured inventory of your organization's APIs. API Center enables API discovery, reuse, and governance at scale.
-  ms.service: api-center
+  ms.service: azure-api-center
   ms.topic: landing-page
   author: dlepow
   ms.author: danlep
@@ -61,7 +61,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Analyze APIs using linting rules
-            url: enable-api-analysis-linting.md
+            url: enable-managed-api-analysis-linting.md
       - linkListType: concept
         links:
           - text: Use metadata for governance

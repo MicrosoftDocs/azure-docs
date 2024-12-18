@@ -4,7 +4,7 @@ description: This tutorial walks you through how to set up a private connection 
 services: expressroute
 author: duongau
 ms.author: duau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: tutorial
 ms.date: 01/02/2024
 # Customer intent: As a network engineer, I want to establish a private connection from my on-premises network to my Azure virtual network using ExpressRoute.
@@ -131,7 +131,7 @@ In this tutorial, you learn how to:
     * **ExpressRoute circuit**: Specify the ExpressRoute circuit that you wish to connect with the virtual network gateway.
     * **Redeem authorization**: Leave this box unchecked since you're connecting to a circuit in the same subscription.
     * **Routing weight**: Leave the default value of **0**. This weight value is used to determine which ExpressRoute circuit is preferred when multiple ExpressRoute circuits are linked to the same virtual network gateway.
-    * **FathPath**: Leave this box unchecked. FastPath is a feature that improves data path performance between on-premises and Azure by bypassing the Azure VPN gateway for data traffic. For more information, see [FastPath](about-fastpath.md).
+    * **FastPath**: Leave this box unchecked. FastPath is a feature that improves data path performance between on-premises and Azure by bypassing the Azure VPN gateway for data traffic. For more information, see [FastPath](about-fastpath.md).
 
 1. Select **Create** to create the connection. The connection is created and the virtual network gateway is linked to the ExpressRoute circuit.
 
