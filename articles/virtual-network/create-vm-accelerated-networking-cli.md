@@ -43,10 +43,10 @@ To use Azure PowerShell to create a Windows VM with Accelerated Networking enabl
 
     ```json
     {
-      "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/test-rgdf15c2",
+      "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/test-rg69e367",
       "location": "eastus2",
       "managedBy": null,
-      "name": "test-rgdf15c2",
+      "name": "test-rg69e367",
       "properties": {
         "provisioningState": "Succeeded"
       },
@@ -60,7 +60,7 @@ To use Azure PowerShell to create a Windows VM with Accelerated Networking enabl
    ```bash
     export RESOURCE_GROUP_NAME="test-rg$RANDOM_SUFFIX"
     export VNET_NAME="vnet-1$RANDOM_SUFFIX"
-    export SUBNET_NAME="test-subnet-1$RANDOM_SUFFIX"
+    export SUBNET_NAME="subnet-1$RANDOM_SUFFIX"
     export VNET_ADDRESS_PREFIX="10.0.0.0/16"
     export SUBNET_ADDRESS_PREFIX="10.0.0.0/24"
 
@@ -77,7 +77,7 @@ To use Azure PowerShell to create a Windows VM with Accelerated Networking enabl
     <!-- expected_similarity=0.3 --> 
 
     ```json
-    {
+   {
       "newVNet": {
         "addressSpace": {
           "addressPrefixes": [
@@ -85,24 +85,24 @@ To use Azure PowerShell to create a Windows VM with Accelerated Networking enabl
           ]
         },
         "enableDdosProtection": false,
-        "etag": "W/\"7811acf5-19e8-4c07-8452-588f9d07b58e\"",
-        "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/test-rgdf15c2/providers/Microsoft.Network/virtualNetworks/vnet-1df15c2",
+        "etag": "W/\"300c6da1-ee4a-47ee-af6e-662d3a0230a1\"",
+        "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/test-rg69e367/providers/Microsoft.Network/virtualNetworks/vnet-169e367",
         "location": "eastus2",
-        "name": "vnet-1df15c2",
+        "name": "vnet-169e367",
         "provisioningState": "Succeeded",
-        "resourceGroup": "test-rgdf15c2",
-        "resourceGuid": "0bbe1550-489b-45d2-b6f3-dd959e67d14c",
+        "resourceGroup": "test-rg69e367",
+        "resourceGuid": "3d64254d-70d4-47e3-a129-473d70ea2ab8",
         "subnets": [
           {
             "addressPrefix": "10.0.0.0/24",
             "delegations": [],
-            "etag": "W/\"7811acf5-19e8-4c07-8452-588f9d07b58e\"",
-            "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/test-rgdf15c2/providers/Microsoft.Network/virtualNetworks/vnet-1df15c2/subnets/test-subnet-1df15c2",
-            "name": "test-subnet-1df15c2",
+            "etag": "W/\"300c6da1-ee4a-47ee-af6e-662d3a0230a1\"",
+            "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/test-rg69e367/providers/Microsoft.Network/virtualNetworks/vnet-169e367/subnets/subnet-169e367",
+            "name": "subnet-169e367",
             "privateEndpointNetworkPolicies": "Disabled",
             "privateLinkServiceNetworkPolicies": "Enabled",
             "provisioningState": "Succeeded",
-            "resourceGroup": "test-rgdf15c2",
+            "resourceGroup": "test-rg69e367",
             "type": "Microsoft.Network/virtualNetworks/subnets"
           }
         ],
@@ -114,134 +114,220 @@ To use Azure PowerShell to create a Windows VM with Accelerated Networking enabl
 
 1. Create the Bastion subnet with [az network vnet subnet create](/cli/azure/network/vnet/subnet).
 
-```bash
-export RESOURCE_GROUP_NAME="test-rg$RANDOM_SUFFIX"
-export VNET_NAME="vnet-1$RANDOM_SUFFIX"
-export SUBNET_NAME="AzureBastionSubnet"
-export SUBNET_ADDRESS_PREFIX="10.0.1.0/24"
+    ```bash
+    export RESOURCE_GROUP_NAME="test-rg$RANDOM_SUFFIX"
+    export VNET_NAME="vnet-1$RANDOM_SUFFIX"
+    export SUBNET_NAME="AzureBastionSubnet"
+    export SUBNET_ADDRESS_PREFIX="10.0.1.0/24"
 
-az network vnet subnet create \
-    --vnet-name $VNET_NAME \
-    --resource-group $RESOURCE_GROUP_NAME \
-    --name AzureBastionSubnet \
-    --address-prefix $SUBNET_ADDRESS_PREFIX
-```
+    az network vnet subnet create \
+        --vnet-name $VNET_NAME \
+        --resource-group $RESOURCE_GROUP_NAME \
+        --name AzureBastionSubnet \
+        --address-prefix $SUBNET_ADDRESS_PREFIX
+    ```
     
-Results:
+    Results:
     
-<!-- expected_similarity=0.3 --> 
+    <!-- expected_similarity=0.3 --> 
 
-```json
-{
-    "addressPrefix": "10.0.1.0/24",
-    "delegations": [],
-    "etag": "W/\"63193779-430a-4554-8d2a-99b48b56f518\"",
-    "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/test-rgdf15c2/providers/Microsoft.Network/virtualNetworks/vnet-1df15c2/subnets/AzureBastionSubnet",
-    "name": "AzureBastionSubnet",
-    "privateEndpointNetworkPolicies": "Disabled",
-    "privateLinkServiceNetworkPolicies": "Enabled",
-    "provisioningState": "Succeeded",
-    "resourceGroup": "test-rgdf15c2",
-    "type": "Microsoft.Network/virtualNetworks/subnets"
-}
-```
+    ```json
+    {
+      "addressPrefix": "10.0.1.0/24",
+      "delegations": [],
+      "etag": "W/\"a2863964-0276-453f-a104-b37391e8088b\"",
+      "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/test-rg69e367/providers/Microsoft.Network/virtualNetworks/vnet-169e367/subnets/AzureBastionSubnet",
+      "name": "AzureBastionSubnet",
+      "privateEndpointNetworkPolicies": "Disabled",
+      "privateLinkServiceNetworkPolicies": "Enabled",
+      "provisioningState": "Succeeded",
+      "resourceGroup": "test-rg69e367",
+      "type": "Microsoft.Network/virtualNetworks/subnets"
+    }
+    ```
 
 ## Create Azure Bastion
 
-Create a public IP address for the Azure Bastion host with [az network public-ip create](/cli/azure/network/public-ip). The following example creates a public IP address named *public-ip-bastion* in the *vnet-1* virtual network.
+1. Create a public IP address for the Azure Bastion host with [az network public-ip create](/cli/azure/network/public-ip).
 
-```azurecli-interactive
-az network public-ip create \
-    --resource-group test-rg \
-    --name public-ip-bastion \
-    --location eastus2 \
-    --allocation-method Static \
-    --sku Standard
-```
+    ```bash
+    export RESOURCE_GROUP_NAME="test-rg$RANDOM_SUFFIX"
+    export PUBLIC_IP_NAME="public-ip-bastion$RANDOM_SUFFIX"
+    export LOCATION="eastus2"
+    export ALLOCATION_METHOD="Static"
+    export SKU="Standard"
 
-Create an Azure Bastion host with [az network bastion create](/cli/azure/network/bastion). The following example creates an Azure Bastion host named *bastion* in the *AzureBastionSubnet* subnet of the *vnet-1* virtual network. Azure Bastion is used to securely connect Azure virtual machines without exposing them to the public internet.
-
-```azurecli-interactive
-az network bastion create \
-    --resource-group test-rg \
-    --name bastion \
-    --vnet-name vnet-1 \
-    --public-ip-address public-ip-bastion \
-    --location eastus2 \
-    --no-wait
-```
-
-
-
-### Create a network security group
-
-1. Use [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create) to create a network security group (NSG).
-
-   ```azurecli
-   az network nsg create \
-     --resource-group <myResourceGroup> \
-     --name <myNsg>
+   az network public-ip create \
+      --resource-group $RESOURCE_GROUP_NAME \
+      --name $PUBLIC_IP_NAME \
+      --location $LOCATION \
+      --allocation-method $ALLOCATION_METHOD \
+      --sku $SKU
    ```
+    
+    Results:
+    
+    <!-- expected_similarity=0.3 --> 
 
-1. The NSG contains several default rules, one of which disables all inbound access from the internet. Use [az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule-create) to open a port to allow remote desktop protocol (RDP) or secure shell (SSH) access to the VM.
+    ```json
+    {
+      "publicIp": {
+        "ddosSettings": {
+          "protectionMode": "VirtualNetworkInherited"
+        },
+        "etag": "W/\"efa750bf-63f9-4c02-9ace-a747fc405d0f\"",
+        "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/test-rg69e367/providers/Microsoft.Network/publicIPAddresses/public-ip-bastion69e367",
+        "idleTimeoutInMinutes": 4,
+        "ipAddress": "203.0.113.173",
+        "ipTags": [],
+        "location": "eastus2",
+        "name": "public-ip-bastion69e367",
+        "provisioningState": "Succeeded",
+        "publicIPAddressVersion": "IPv4",
+        "publicIPAllocationMethod": "Static",
+        "resourceGroup": "test-rg69e367",
+        "resourceGuid": "fc809493-80c8-482c-9f5a-9d6442472a99",
+        "sku": {
+          "name": "Standard",
+          "tier": "Regional"
+        },
+        "type": "Microsoft.Network/publicIPAddresses"
+      }
+    }
+    ```
 
-   # [Windows](#tab/windows)
+1. Create an Azure Bastion host with [az network bastion create](/cli/azure/network/bastion). Azure Bastion is used to securely connect Azure virtual machines without exposing them to the public internet.
 
-   ```azurecli
-   az network nsg rule create \
-     --resource-group <myResourceGroup> \
-     --nsg-name <myNsg> \
-     --name Allow-RDP-Internet \
-     --access Allow \
-     --protocol Tcp \
-     --direction Inbound \
-     --priority 100 \
-     --source-address-prefix Internet \
-     --source-port-range "*" \
-     --destination-address-prefix "*" \
-     --destination-port-range 3389
-   ```
+    ```bash
+    export RESOURCE_GROUP_NAME="test-rg$RANDOM_SUFFIX"
+    export BASTION_NAME="bastion$RANDOM_SUFFIX"
+    export VNET_NAME="vnet-1$RANDOM_SUFFIX"
+    export PUBLIC_IP_NAME="public-ip-bastion$RANDOM_SUFFIX"
+    export LOCATION="eastus2"
+   
+   az network bastion create \
+      --resource-group $RESOURCE_GROUP_NAME \
+      --name $BASTION_NAME \
+      --vnet-name $VNET_NAME \
+      --public-ip-address $PUBLIC_IP_NAME \
+      --location $LOCATION
+    ```
 
-   # [Linux](#tab/linux)
+    Results:
+    
+    <!-- expected_similarity=0.3 --> 
 
-   ```azurecli
-   az network nsg rule create \
-     --resource-group <myResourceGroup> \
-     --nsg-name <myNsg> \
-     --name Allow-SSH-Internet \
-     --access Allow \
-     --protocol Tcp \
-     --direction Inbound \
-     --priority 100 \
-     --source-address-prefix Internet \
-     --source-port-range "*" \
-     --destination-address-prefix "*" \
-     --destination-port-range 22
-   ```
+    ```json
+    {
+      "disableCopyPaste": false,
+      "dnsName": "bst-cc1d5c1d-9496-44fa-a8b3-3b2130efa306.bastion.azure.com",
+      "enableFileCopy": false,
+      "enableIpConnect": false,
+      "enableKerberos": false,
+      "enableSessionRecording": false,
+      "enableShareableLink": false,
+      "enableTunneling": false,
+      "etag": "W/\"229bd068-160b-4935-b23d-eddce4bb31ed\"",
+      "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/test-rg69e367/providers/Microsoft.Network/bastionHosts/bastion69e367",
+      "ipConfigurations": [
+        {
+          "etag": "W/\"229bd068-160b-4935-b23d-eddce4bb31ed\"",
+          "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/test-rg69e367/providers/Microsoft.Network/bastionHosts/bastion69e367/bastionHostIpConfigurations/bastion_ip_config",
+          "name": "bastion_ip_config",
+          "privateIPAllocationMethod": "Dynamic",
+          "provisioningState": "Succeeded",
+          "publicIPAddress": {
+            "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/test-rg69e367/providers/Microsoft.Network/publicIPAddresses/public-ip-bastion69e367",
+            "resourceGroup": "test-rg69e367"
+          },
+          "resourceGroup": "test-rg69e367",
+          "subnet": {
+            "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/test-rg69e367/providers/Microsoft.Network/virtualNetworks/vnet-169e367/subnets/AzureBastionSubnet",
+            "resourceGroup": "test-rg69e367"
+          },
+          "type": "Microsoft.Network/bastionHosts/bastionHostIpConfigurations"
+        }
+      ],
+      "location": "eastus2",
+      "name": "bastion69e367",
+      "provisioningState": "Succeeded",
+      "resourceGroup": "test-rg69e367",
+      "scaleUnits": 2,
+      "sku": {
+        "name": "Standard"
+      },
+      "type": "Microsoft.Network/bastionHosts"
+    }
+    ```
 
----
 ### Create a network interface with Accelerated Networking
 
-1. Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) to create a public IP address. The VM doesn't need a public IP address if you don't access it from the internet, but you need the public IP to complete the steps for this article.
+1. Use [az network nic create](/cli/azure/network/nic#az-network-nic-create) to create a network interface (NIC) with Accelerated Networking enabled. The following example creates a NIC in the subnet of the virtual network.
 
-   ```azurecli
-   az network public-ip create \
-     --name <myPublicIp> \
-     --resource-group <myResourceGroup>
+   ```bash
+    export RESOURCE_GROUP_NAME="test-rg$RANDOM_SUFFIX"
+    export NIC_NAME="nic-1$RANDOM_SUFFIX"
+    export VNET_NAME="vnet-1$RANDOM_SUFFIX"
+    export SUBNET_NAME="subnet-1$RANDOM_SUFFIX"
+
+    az network nic create \
+        --resource-group $RESOURCE_GROUP_NAME \
+        --name $NIC_NAME \
+        --vnet-name $VNET_NAME \
+        --subnet $SUBNET_NAME \
+        --accelerated-networking true
    ```
 
-1. Use [az network nic create](/cli/azure/network/nic#az-network-nic-create) to create a network interface (NIC) with Accelerated Networking enabled. The following example creates a NIC in the subnet of the virtual network, and associates the NSG to the NIC.
+    Results:
+    
+    <!-- expected_similarity=0.3 --> 
 
-   ```azurecli
-   az network nic create \
-    --resource-group <myResourceGroup> \
-     --name <myNic> \
-     --vnet-name <myVnet> \
-     --subnet <mySubnet> \
-     --accelerated-networking true \
-     --public-ip-address <myPublicIp> \
-     --network-security-group <myNsg>
-   ```
+    ```json
+   {
+      "NewNIC": {
+        "auxiliaryMode": "None",
+        "auxiliarySku": "None",
+        "disableTcpStateTracking": false,
+        "dnsSettings": {
+          "appliedDnsServers": [],
+          "dnsServers": [],
+          "internalDomainNameSuffix": "juswipouodrupijji24xb0rkxa.cx.internal.cloudapp.net"
+        },
+        "enableAcceleratedNetworking": true,
+        "enableIPForwarding": false,
+        "etag": "W/\"0e24b553-769b-4350-b1aa-ab4cd04100bf\"",
+        "hostedWorkloads": [],
+        "id": "/subscriptions/68ed2a89-5b8a-45e0-b2f9-65b8fa556333/resourceGroups/test-rg69e367/providers/Microsoft.Network/networkInterfaces/nic-169e367",
+        "ipConfigurations": [
+          {
+            "etag": "W/\"0e24b553-769b-4350-b1aa-ab4cd04100bf\"",
+            "id": "/subscriptions/68ed2a89-5b8a-45e0-b2f9-65b8fa556333/resourceGroups/test-rg69e367/providers/Microsoft.Network/networkInterfaces/nic-169e367/ipConfigurations/ipconfig1",
+            "name": "ipconfig1",
+            "primary": true,
+            "privateIPAddress": "10.0.0.4",
+            "privateIPAddressVersion": "IPv4",
+            "privateIPAllocationMethod": "Dynamic",
+            "provisioningState": "Succeeded",
+            "resourceGroup": "test-rg69e367",
+            "subnet": {
+              "id": "/subscriptions/68ed2a89-5b8a-45e0-b2f9-65b8fa556333/resourceGroups/test-rg69e367/providers/Microsoft.Network/virtualNetworks/vnet-169e367/subnets/subnet-169e367",
+              "resourceGroup": "test-rg69e367"
+            },
+            "type": "Microsoft.Network/networkInterfaces/ipConfigurations"
+          }
+        ],
+        "location": "eastus2",
+        "name": "nic-169e367",
+        "nicType": "Standard",
+        "provisioningState": "Succeeded",
+        "resourceGroup": "test-rg69e367",
+        "resourceGuid": "6798a335-bd66-42cc-a92a-bb678d4d146e",
+        "tapConfigurations": [],
+        "type": "Microsoft.Network/networkInterfaces",
+        "vnetEncryptionSupported": false
+      }
+    }
+    ```
 
 ### Create a VM and attach the NIC
 
@@ -249,50 +335,60 @@ Use [az vm create](/cli/azure/vm#az-vm-create) to create the VM, and use the `--
 
 # [Windows](#tab/windows)
 
-The following example creates a Windows Server 2019 Datacenter VM with a size that supports Accelerated Networking, Standard_DS4_v2.
+The following example creates a Windows Server 2019 Datacenter VM with a size that supports Accelerated Networking, Standard_DS4_v2. Replace `<myNic>` with the NIC you created in the previous step.
 
-```azurecli
+```powershell
 az vm create \
-  --resource-group <myResourceGroup> \
-  --name <myVm> \
-  --image Win2019Datacenter \
-  --size Standard_DS4_v2 \
-  --admin-username <myAdminUser> \
-  --admin-password <myAdminPassword> \
-  --nics <myNic>
+    --resource-group test-rg \
+    --name vm-1 \
+    --image Win2019Datacenter \
+    --size Standard_DS4_v2 \
+    --admin-username azureuser \
+    --nics <myNic>
 ```
 
 # [Linux](#tab/linux)
 
 The following example creates a VM with a size that supports Accelerated Networking, Standard_DS4_v2.
 
-```azurecli
+```bash
+export RESOURCE_GROUP_NAME="test-rg$RANDOM_SUFFIX"
+export VM_NAME="vm-1$RANDOM_SUFFIX"
+export IMAGE="Ubuntu2204"
+export SIZE="Standard_DS4_v2"
+export ADMIN_USER="azureuser"
+export NIC_NAME="nic-1$RANDOM_SUFFIX"
+
 az vm create \
-  --resource-group <myResourceGroup> \
-  --name <myVm> \
-  --image Ubuntu2204 \
-  --size Standard_DS4_v2 \
-  --admin-username <myAdminUser> \
-  --generate-ssh-keys \
-  --nics <myNic>
+   --resource-group $RESOURCE_GROUP_NAME \
+   --name $VM_NAME \
+   --image $IMAGE \
+   --size $SIZE \
+   --admin-username $ADMIN_USER \
+   --authentication-type password \
+   --nics $NIC_NAME
 ```
+
+Results:
+    
+    <!-- expected_similarity=0.3 --> 
+
+    ```json
+    {
+        "fqdns": "",
+        "id": "/subscriptions/68ed2a89-5b8a-45e0-b2f9-65b8fa556333/resourceGroups/test-rg69e367/providers/Microsoft.Compute/virtualMachines/vm-169e367",
+        "location": "eastus2",
+        "macAddress": "60-45-BD-84-F0-D5",
+        "powerState": "VM running",
+        "privateIpAddress": "10.0.0.4",
+        "publicIpAddress": "",
+        "resourceGroup": "test-rg69e367",
+        "zones": ""
+    }
+    ```
 
 ---
 
-After the VM is created, you get output similar to the following example. For a Linux machine, take note of the `publicIpAddress`, which you enter to access the VM in the next step.
-
-```output
-{
-  "fqdns": "",
-  "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVm",
-  "location": "centralus",
-  "macAddress": "00-0D-3A-23-9A-49",
-  "powerState": "VM running",
-  "privateIpAddress": "192.168.0.4",
-  "publicIpAddress": "40.68.254.142",
-  "resourceGroup": "myResourceGroup"
-}
-```
 
 ## Confirm that accelerated networking is enabled
 
@@ -306,11 +402,13 @@ Once you create the VM in Azure, connect to the VM and confirm that the Ethernet
 
 1. On the VM's **Overview** page, select **Connect**.
 
-1. On the **Connect** screen, select **Native RDP**.
+1. On the **Connect** screen, select **Bastion**.
 
-1. On the **Native RDP** screen, select **Download RDP file**.
+1. On the **Bastion** screen, select **Use Bastion**.
 
-1. Open the downloaded RDP file, and then sign in with the credentials you entered when you created the VM.
+1. Enter the credentials you used when you created the VM, and then select **Connect**.
+
+1. A new browser window will open with the Bastion connection to your VM.
 
 1. On the remote VM, right-click **Start** and select **Device Manager**.
 
@@ -339,18 +437,21 @@ Once you create the VM in Azure, connect to the VM and confirm that the Ethernet
 
 # [Linux](#tab/linux)
 
-1. Use the following command to create an SSH session with the VM. Replace `<myPublicIp>` with the public IP address assigned to the VM you created, and replace `<myAdminUser>` with the `--admin-username` you specified when you created the VM.
+1. In the [Azure portal](https://portal.azure.com), search for and select *virtual machines*.
 
-   ```azurecli
-   ssh <myAdminUser>@<myPublicIp>
-   ```
+1. On the **Virtual machines** page, select your new VM.
+
+1. On the VM's **Overview** page, select **Connect** then **Connect via Bastion**.
+
+1. Enter the username and password you used when you created the VM, and then select **Connect**.
+
+1. A new browser window will open with the Bastion connection to your VM.
 
 1. From a shell on the remote VM, enter `uname -r` and confirm that the kernel version is one of the following versions, or greater:
 
    - **Ubuntu 16.04**: 4.11.0-1013.
    - **SLES SP3**: 4.4.92-6.18.
    - **RHEL**: 3.10.0-693, 2.6.32-573. RHEL 6.7-6.10 are supported if the Mellanox VF version 4.5+ is installed before Linux Integration Services 4.3+.
-   - **CentOS**: 3.10.0-693.
 
    > [!NOTE]
    > Other kernel versions may be supported. For an updated list, see the compatibility tables for each distribution at [Supported Linux and FreeBSD virtual machines for Hyper-V](/windows-server/virtualization/hyper-v/supported-linux-and-freebsd-virtual-machines-for-hyper-v-on-windows), and confirm that SR-IOV is supported. You can find more details in the release notes for [Linux Integration Services for Hyper-V and Azure](https://www.microsoft.com/download/details.aspx?id=55106). *
@@ -375,6 +476,8 @@ Once you create the VM in Azure, connect to the VM and confirm that the Ethernet
    vf_tx_bytes: 1099443970
    vf_tx_dropped: 0
    ```
+
+1. Close the Bastion connection to the VM.
 
 ---
 
