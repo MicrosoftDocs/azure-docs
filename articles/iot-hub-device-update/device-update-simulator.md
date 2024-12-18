@@ -1,9 +1,9 @@
 ---
 title: Azure Device Update for IoT Hub using a simulator agent
-description: Get started with Device Update for Azure IoT Hub using the Ubuntu simulator agent.
+description: Get started with Device Update for Azure IoT Hub using the Ubuntu 18.04 simulator agent.
 author: kgremban
 ms.author: kgremban
-ms.date: 12/09/2024
+ms.date: 12/17/2024
 ms.topic: tutorial
 ms.service: azure-iot-hub
 ms.subservice: device-update
@@ -22,17 +22,16 @@ In this tutorial, you:
 > - Download and install an image update.
 > - Import the image update.
 > - Deploy the image update.
-> - View update deployment history.
+> - View the update deployment history.
 
 ## Prerequisites
 
-- An IoT device
-- An Ubuntu 18.04 or higher x64 physical or virtual machine
+- An Ubuntu 18.04 x64 physical or virtual machine
 - A [Device Update account and instance configured with an IoT hub](create-device-update-account.md)
 
 ## Register and configure a device and module
 
-Add the device to the device registry in your IoT hub. Every device that connects to IoT Hub must be registered.
+Add a device to the device registry in your IoT hub. Every device that connects to IoT Hub must be registered.
 
 1. In the [Azure portal](https://portal.azure.com), open the IoT hub page associated with your Device Update instance.
 1. In the navigation pane, select **Device management** > **Devices**.
@@ -63,7 +62,7 @@ You can assign a tag to any device that Device Update manages to assign the devi
 
    ```json
    "tags": {
-       "DeviceUpdateGroup": "simulator-tutorial"
+       "DeviceUpdateGroup": "DU-simulator-tutorial"
    },
    ```
 
@@ -71,7 +70,10 @@ You can assign a tag to any device that Device Update manages to assign the devi
 
 ## Install and configure the Device Update agent
 
-The Device Update agent runs on every device that Device Update manages. In this tutorial, you install the Device Update agent on your device and configure it to run as a simulator, demonstrating how you can apply an update to a device without changing the device configuration.
+The Device Update agent runs on every device that Device Update manages. In this tutorial, you install the Device Update agent on the Ubuntu 18.04 device and configure it to run as a simulator, demonstrating how you can apply an update to a device without changing the device configuration.
+
+>[!NOTE]
+>You can also use the Azure IoT Identity Service to provision the device. To do that, [install the Azure IoT Identity Service](https://azure.github.io/iot-identity-service/installation.html) before installing the Device Update agent. Then configure the Device Update agent with `"connectionType": "AIS"` and leave `connectionData` as a blank string in the configuration file.
 
 1. Add the Microsoft package repository, and then add the Microsoft package signing key to your list of trusted keys.
 
@@ -131,9 +133,6 @@ The Device Update agent runs on every device that Device Update manages. In this
 
 1. Press **Ctrl**+**X** to exit the editor, and enter *y* to save your changes.
 
-   >[!NOTE]
-   >You can also use the Azure IoT Identity Service to provision the device. To do that, [install the Azure IoT Identity Service](https://azure.github.io/iot-identity-service/installation.html) before installing the Device Update agent. Then configure the Device Update agent with `"connectionType": "AIS"` and leave `connectionData` as a blank string in the configuration file.
-
 1. To set up the agent to run as a simulator, run the following command on the IoT device. The Device Update agent invokes the simulator handler to process updates that use the Microsoft SWUpdate extension.
 
    ```bash
@@ -142,7 +141,7 @@ The Device Update agent runs on every device that Device Update manages. In this
 
 ### Get the simulator files
 
-1. Download and extract the *Tutorial_Simulator.zip* archive from the [GitHub Device Update Releases](https://github.com/Azure/iot-hub-device-update/releases) latest release **Assets** section. If your test device and development machine are separate devices, download and extract the ZIP file onto both devices.
+1. Download and extract the *Tutorial_Simulator.zip* archive from the [GitHub Device Update Releases](https://github.com/Azure/iot-hub-device-update/releases) latest release **Assets** section onto your Ubuntu 18.04 machine.
 
    You can use `wget` to download the ZIP file. Replace `<release_version>` with the latest release, for example `1.0.0`.
 
@@ -180,19 +179,21 @@ The Device Update agent runs on every device that Device Update manages. In this
 
 ## Import the update
 
-This section uses the *TutorialImportManifest_Sim.importmanifest.json* and *adu-update-image-raspberrypi3.swu* files from the downloaded *Tutorial_Simulator* folder. The update file is the same one as in the [Raspberry Pi tutorial](device-update-raspberry-pi.md). Because the update in this tutorial is simulated, the specific file content doesn't matter.
+Download and extract the *Tutorial_Simulator.zip* archive from the [GitHub Device Update Releases](https://github.com/Azure/iot-hub-device-update/releases) latest release **Assets** section onto your development machine if it's different from your Ubuntu 18.04 IoT device. This section uses the *TutorialImportManifest_Sim.importmanifest.json* and *adu-update-image-raspberrypi3.swu* files from the *Tutorial_Simulator* folder.
+
+The update file is the same one as in the [Raspberry Pi tutorial](device-update-raspberry-pi.md). Because the update in this tutorial is simulated, the specific file content doesn't matter.
 
 1. On your development machine, sign in to the [Azure portal](https://portal.azure.com/) and go to the IoT hub configured with your Device Update instance.
 1. In the navigation pane, select **Device Management** > **Updates**.
 1. On the **Updates** page, select **Import a new update**.
 1. On the **Import update** page, select **Select from storage container**.
-1. Select an existing storage account, or create a new account by selecting **+ Storage account**.
-1. Select an existing container, or create a new container by selecting **+ Container**. This container is used to stage the update files for importing.
+1. Select an existing storage account, or create a new account by selecting **Storage account**.
+1. Select an existing container, or create a new container by selecting **Container**. This container is used to stage the update files for importing.
 
    > [!NOTE]
    > To avoid accidentally importing files from previous updates, use a new container each time you import an update. If you don't use a new container, be sure to delete any files from the existing container.
 
-1. On the container page, select **Upload**, browse to and select the *TutorialImportManifest_Sim.importmanifest.json* and *adu-update-image-raspberrypi3.swu* files, and then select **Upload**.
+1. On the container page, select **Upload**. Browse to and select the *TutorialImportManifest_Sim.importmanifest.json* and *adu-update-image-raspberrypi3.swu* files, and then select **Upload**.
 
 1. Select the checkboxes by both files and then select **Select** to return to the **Import update** page.
 
@@ -246,7 +247,7 @@ You should see the device group that contains the simulated device you set up in
 
 ## Clean up resources
 
-When you no longer need the resources you created for this tutorial, you can delete them.
+If you're going to continue to the next tutorial, keep your Device Update and IoT Hub resources. When you no longer need the resources you created for this tutorial, you can delete them.
 
 1. In the [Azure portal](https://portal.azure.com), navigate to the resource group that contains the resources.
 1. If you want to delete all the resources in the group, select **Delete resource group**.

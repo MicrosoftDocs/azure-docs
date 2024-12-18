@@ -3,7 +3,7 @@ title: Azure Device Update for IoT Hub using the Ubuntu package agent
 description: Perform an end-to-end package update using the Device Update Ubuntu Server 22.04 x64 package agent to update Azure IoT Edge.
 author: eshashah
 ms.author: eshashah
-ms.date: 12/09/2024
+ms.date: 12/17/2024
 ms.topic: tutorial
 ms.service: azure-iot-hub
 ms.subservice: device-update
@@ -31,9 +31,9 @@ In this tutorial, you:
 ## Prerequisites
 
 - A [Device Update account and instance configured with an IoT hub](create-device-update-account.md).
-- An [Azure IoT Edge Device in the IoT hub with the connection string copied](../iot-edge/how-to-provision-single-device-linux-symmetric.md?view=iotedge-2020-11&preserve-view=true#view-registered-devices-and-retrieve-provisioning-information).
+- An [Azure IoT Edge device registered in the IoT hub with the connection string copied](../iot-edge/how-to-provision-single-device-linux-symmetric.md?view=iotedge-2020-11&preserve-view=true#view-registered-devices-and-retrieve-provisioning-information).
 
-## Prepare the VM and device
+## Prepare the device
 
 For convenience, this tutorial uses a [cloud-init](/azure/virtual-machines/linux/using-cloud-init) based [Azure Resource Manager (ARM) template](/azure/azure-resource-manager/templates/overview) to quickly set up an Ubuntu 22.04 LTS virtual machine (VM). The template installs both the IoT Edge runtime and the Device Update package agent, and automatically configures the device with provisioning information by using the IoT Edge device connection string you supply. Using the ARM template also avoids the need to start a secure shell (SSH) session to complete setup.
 
@@ -125,15 +125,15 @@ Device Update uses groups to organize devices. Device Update automatically sorts
 
 ## Import the update
 
-The *Tutorial_IoTEdge_PackageUpdate.zip* file has the required files for the tutorial. Download the file from the **Assets** section of the latest release on the [GitHub Device Update Releases page](https://github.com/Azure/iot-hub-device-update/releases), and unzip it.
+The *Tutorial_IoTEdge_PackageUpdate.zip* file has the required files for the tutorial.
 
-The extracted *Tutorial_IoTEdge_PackageUpdate* folder contains the *sample-defender-iot-apt-manifest.json* sample APT manifest and its corresponding *sample-defender-iot--importManifest.json* import manifest.
-
+1. Download the *Tutorial_IoTEdge_PackageUpdate.zip* file from the **Assets** section of the latest release on the [GitHub Device Update Releases page](https://github.com/Azure/iot-hub-device-update/releases).
+1. Unzip the file. The extracted *Tutorial_IoTEdge_PackageUpdate* folder contains the *sample-defender-iot-apt-manifest.json* sample APT manifest and its corresponding *sample-defender-iot--importManifest.json* import manifest.
 1. On the [Azure portal](https://portal.azure.com) IoT hub page for your Device Update instance, select **Device Management** > **Updates** from the left navigation.
 1. On the **Updates** page, select **Import a new update**.
 1. On the **Import update** page, select **Select from storage container**.
-1. On the **Storage accounts** page, select an existing storage account or create a new account by selecting **+ Storage account**.
-1. On the **Containers** page, select an existing container or create a new container by using **+ Container**. You use the container to stage the update files for import.
+1. On the **Storage accounts** page, select an existing storage account or create a new account by selecting **Storage account**.
+1. On the **Containers** page, select an existing container or create a new container by selecting **Container**. You use the container to stage the update files for import.
 
    :::image type="content" source="media/import-update/storage-account-ppr.png" alt-text="Screenshot that shows Storage accounts and Containers.":::
 
