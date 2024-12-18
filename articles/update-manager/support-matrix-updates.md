@@ -162,7 +162,6 @@ Following is the list of supported images and no other marketplace images releas
 
 #### Supported Linux OS versions
 
-**Publisher - (to add)**
 
 | **Offer** | **Plan**|**Unsupported image(s)** |
 |--- | --- | ---|
@@ -170,13 +169,11 @@ Following is the list of supported images and no other marketplace images releas
 |ad-dc-2019| ad-dc-2019 |
 |ad-dc-2022 | ad-dc-2022 |
 
-**Publisher - (to add)**
 
 | **Offer** | **Plan**|**Unsupported image(s)** |
 |--- | --- | ---|
 |almalinux-hpc | 8_6-hpc, 8_6-hpc-gen2 |
 
-**Publisher - (to add)**
 
 | **Offer** | **Plan**|**Unsupported image(s)** |
 |--- | --- | ---|
@@ -188,7 +185,7 @@ Following is the list of supported images and no other marketplace images releas
 |aviatrix-companion-gateway-v16 | aviatrix-companion-gateway-v16|
 |aviatrix-copilot |avx-cplt-byol-01, avx-cplt-byol-02 |
 
-**Publisher - (to add)**
+
 
 | **Offer** | **Plan**|**Unsupported image(s)** |
 |--- | --- | ---|
@@ -234,14 +231,13 @@ Following is the list of supported images and no other marketplace images releas
 |cis-ubuntu | cis-ubuntu1804-l1 </br> cis-ubuntulinux2004-l1-gen1 </br> cis-ubuntulinux2204-l1-gen1 </br> cis-ubuntulinux2204-l1-gen2 ||
 
 
-**Publisher (to add)**
 
 | **Offer** | **Plan**|**Unsupported image(s)** |
 
 |--- | --- | ---|
 |cis-ubuntu-linux-1804-l1| cis-ubuntu1804-l1||
 
-**Publisher (to add)**
+
 
 | **Offer** | **Plan**|**Unsupported image(s)** |
 |--- | --- | ---|
