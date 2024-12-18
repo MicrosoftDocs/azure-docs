@@ -22,7 +22,19 @@ const mediaAccessFeature = call.feature(Features.MediaAccess);
 ```
 
 ### Control access to send audio or video of individual attendees
-You can use methods `permitAudio()` and `forbidAudio()` to enable or disable audio of all attendees and methods `permitVideo()` and `forbidVideo()` to enable or disable video of all attendees. If presenters or organizer enable audio or video for all attendees, those attendees would be able to unmute or enable video. This action won't for privacy reasons unmute or turn on video of attendees.
+You can use method `permitAudio()` to allow selected attendees to unmute or method `permitVideo()` to allow selected attendees to turn on video. These actions won't automatically unmute or turn on video, they only allow attendees to perform these actions. 
+
+```js
+//Define list of attendees
+CommunicationUserIdentifier acsUser = new CommunicationUserIdentifier(<USER_ID>);
+MicrosoftTeamsUserIdentifier teamsUser = new MicrosoftTeamsUserIdentifier(<USER_ID>)
+CommunicationIdentifier participants = new CommunicationIdentifier[]{ acsUser, teamsUser };
+
+//Allow selected attendees to unmute
+mediaAccessFeature.permitAudio(participants);
+
+//Allow selected attendees to turn on video
+mediaAccessFeature.permitVideo(participants);
 ```js
 //forbid audio
 mediaAccessFeature.forbidAudio([user1, user2]);
