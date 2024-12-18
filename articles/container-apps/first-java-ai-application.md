@@ -22,15 +22,10 @@ In this quickstart, you deploy your first Java AI application to Azure Container
 - Azure account. If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). To perform this quickstart, you need the **Contributor** and **User Access Administrator** roles, or the **Owner** role. For more information, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml?tabs=current).
 
 - GitHub account. Get one for [free](https://github.com/join).
-
 - [git](https://git-scm.com/downloads).
-
 - [Azure CLI](/cli/azure/install-azure-cli).
-
 - The [Microsoft Build of Open JDK](/java/openjdk/install). We recommend version 17.
-
 - [Maven](https://maven.apache.org/download.cgi).
-
 - [Azure Developer CLI (azd)](/azure/developer/azure-developer-cli/install-azd).
 
 ## Install the Azure CLI extensions
@@ -70,11 +65,11 @@ To deploy your application, use the following steps:
 
 1. When the system prompts you, enter `first-ai` for the environment name. After that, enter values for your Azure Subscription and Azure location, substituting your actual values for the placeholders in the following prompts:
 
-    ```azurecli
-    ? Enter a new environment name: first-ai
-    ? Select an Azure Subscription to use: <SUBSCRIPTION>
-    ? Select an Azure location to use: <REGION>
-    ```
+   ```azurecli
+   ? Enter a new environment name: first-ai
+   ? Select an Azure Subscription to use: <SUBSCRIPTION>
+   ? Select an Azure location to use: <REGION>
+   ```
 
 It takes about 15 minutes to get your first AI application ready. The following output is typical of what the system generates after a successful deployment:
 
