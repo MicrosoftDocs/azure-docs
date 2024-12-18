@@ -70,7 +70,7 @@ let TableWithBlobId =
 | extend blobTime = format_datetime(todatetime(FlowIntervalStartTime_t), "yyyy MM dd hh")
 | extend nsgComponents = split(toupper(NSGList_s), "/"), dateTimeComponents = split(blobTime, " ")
 | extend BlobPath = strcat("https://", saName,
-                        "@insights-logs-networksecuritygroupflowevent/resoureId=/SUBSCRIPTIONS/", nsgComponents[0],
+                        "@insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/", nsgComponents[0],
                         "/RESOURCEGROUPS/", nsgComponents[1],
                         "/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/", nsgComponents[2],
                         "/y=", dateTimeComponents[0], "/m=", dateTimeComponents[1], "/d=", dateTimeComponents[2], "/h=", dateTimeComponents[3],
@@ -147,7 +147,7 @@ The following table lists the fields in the schema and what they signify for net
 > | **LoadBalancer2_s** | \<SubscriptionID\>/\<ResourceGroupName\>/\<LoadBalancerName\> | Load balancer associated with the Destination IP in the flow. |
 > | **LocalNetworkGateway1_s** | \<SubscriptionID\>/\<ResourceGroupName\>/\<LocalNetworkGatewayName\> | Local network gateway associated with the Source IP in the flow. |
 > | **LocalNetworkGateway2_s** | \<SubscriptionID\>/\<ResourceGroupName\>/\<LocalNetworkGatewayName\> | Local network gateway associated with the Destination IP in the flow. |
-> | **ConnectionType_s** | - VNetPeering <br> - VpnGateway <br> - ExpressRoute | The onnection Type. |
+> | **ConnectionType_s** | - VNetPeering <br> - VpnGateway <br> - ExpressRoute | The Connection Type. |
 > | **ConnectionName_s** | \<SubscriptionID\>/\<ResourceGroupName\>/\<ConnectionName\> | The connection Name. For flow type P2S, it is formatted as \<gateway name\>_\<VPN Client IP\>. |
 > | **ConnectingVNets_s**	| Space separated list of virtual network names | In case of hub and spoke topology, hub virtual networks are populated here. |
 > | **Country_s** | Two letter country code (ISO 3166-1 alpha-2) | Populated for flow type ExternalPublic. All IP addresses in PublicIPs_s field share the same country code. |
