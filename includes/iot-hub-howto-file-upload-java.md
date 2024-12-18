@@ -174,7 +174,7 @@ private static final ServiceClient serviceClient (iotHubConnectionString, protoc
 
 ##### Open the connection between application and IoT Hub
 
-[open](/java/api/com.microsoft.azure.sdk.iot.service.serviceclient?#com-microsoft-azure-sdk-iot-service-serviceclient-open()) the AMQP sender connection. This method creates the connection between the application and IoT Hub.
+[Open](/java/api/com.microsoft.azure.sdk.iot.service.serviceclient?#com-microsoft-azure-sdk-iot-service-serviceclient-open()) the AMQP sender connection. This method creates the connection between the application and IoT Hub.
 
 ```java
 serviceClient.open();
