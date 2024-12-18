@@ -24,7 +24,7 @@ In this tutorial, you explore the architecture of AI applications in Azure Conta
 
 The following diagram shows the architecture of the AI application in Azure Container Apps:
 
-:::image type="complex" source="media/first-java-ai-application/architecture-chart.png" alt-text="Diagram of the architecture of the AI application." lightbox="media/first-ai-application/architecture-chart.png":::
+:::image type="complex" source="media/first-java-ai-application/architecture-chart.png" alt-text="Diagram of the architecture of the AI application." lightbox="media/first-java-ai-application/architecture-chart.png":::
    Diagram that shows the architecture of the AI application. Users access the system through authentication managed by Entra ID. The Azure Container App environment contains an API gatewway that enables routing for and communication with the application. The API gateway uses managed identities to securely interact with the Azure Container Registry and with Azure Cognitive Services. The API gateway also handles communication with external users. A virtual network between the API gateway and external systems provides secure and isolated network connectivity.
 :::image-end:::
 
@@ -124,4 +124,4 @@ Please refer to the source code for more details.
 
 ## Related content
 
-- [Java on Azure Container Apps overview](first-ai-application.md)
+- [Java on Azure Container Apps overview](first-java-ai-application.md)
