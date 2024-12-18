@@ -26,7 +26,7 @@ To use ASIM alert event parsers, deploy the parsers from the [Microsoft Sentinel
 | **Source** | **Notes** | **Parser**
 | --- | --------------------------- | ---------- |
 | **Defender XDR Alerts** | Microsoft Defender XDR alert events (in the `AlertEvidence` table). | `ASimAlertEventMicrosoftDefenderXDR` |
-| **Exchange 365 administrative events** | SentinelOne Singularity `Threats.` events (in the `SentinelOne_CL` table). | `ASimAlertEventSentinelOneSingularity` |
+| **SentinelOne Singularity** | SentinelOne Singularity `Threats.` events (in the `SentinelOne_CL` table). | `ASimAlertEventSentinelOneSingularity` |
 
 ## Audit event parsers
 
