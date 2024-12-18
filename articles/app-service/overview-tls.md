@@ -79,7 +79,7 @@ For App Service Environments with `FrontEndSSLCipherSuiteOrder` cluster setting,
 
 ## End-to-end TLS Encryption
 
-End-to-end (E2E) TLS encryption is available in Standard App Service plans and higher. Front-end intra-cluster traffic between App Service front-ends and the workers running application workloads can now be encrypted.
+End-to-end (E2E) TLS encryption is available in Premium App Service plans (and legacy Standard App Service plans). Front-end intra-cluster traffic between App Service front-ends and the workers running application workloads can now be encrypted.
 
 ## Next steps
 * [Secure a custom DNS name with a TLS/SSL binding](configure-ssl-bindings.md)
