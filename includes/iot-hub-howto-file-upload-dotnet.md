@@ -181,3 +181,7 @@ while (true)
     await notificationReceiver.CompleteAsync(fileUploadNotification);
 }
 ```
+
+### SDK file upload receiver sample
+
+The SDK includes this [file upload receiver sample](https://github.com/Azure/azure-iot-sdk-csharp/blob/86065001a92fedb42877722c6a57ae37e45eed30/iothub/service/samples/getting%20started/FileUploadNotificationReceiverSample/FileUploadNotificationReceiverSample.cs).
