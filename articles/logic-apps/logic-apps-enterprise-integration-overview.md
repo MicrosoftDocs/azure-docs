@@ -51,7 +51,7 @@ Although organizations use different protocols and formats for B2B communication
 
       Visual Studio downloads and installs the extension.
 
-* To create, manage, and deploy logic app resources, you can use the Azure portal, [Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md), [Visual Studio](quickstart-create-logic-apps-with-visual-studio.md), or [PowerShell](/powershell/module/az.logicapp).
+* To create, manage, and deploy logic app resources, you can use the Azure portal, [Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md), or [PowerShell](/powershell/module/az.logicapp).
 
 After you create an integration account and add your artifacts, you can start building B2B workflows by creating a logic app resource.
 

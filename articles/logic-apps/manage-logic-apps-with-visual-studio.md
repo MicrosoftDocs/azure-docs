@@ -26,30 +26,22 @@ You can create, edit, manage, and deploy automated workflows that integrate serv
 
 * Download and install these tools, if you don't have them already:
 
-  * [Visual Studio 2019 or 2017 - Community edition or greater](https://aka.ms/download-visual-studio). The Azure Logic Apps extension is currently unavailable for Visual Studio 2022. This guide uses Visual Studio Community 2017, which is free.
+  * [Visual Studio 2019 - Community edition or greater](https://aka.ms/download-visual-studio). The Azure Logic Apps extension is currently unavailable for Visual Studio 2022. This guide uses Visual Studio Community 2017, which is free.
 
     > [!IMPORTANT]
     >
-    > When you install Visual Studio 2019 or 2017, make sure that you select the **Azure development** workload.
+    > When you install Visual Studio 2019, make sure that you select the **Azure development** workload.
     > For more information, see [Manage resources associated with your Azure accounts in Visual Studio Cloud Explorer](/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer).
 
   * [Azure SDK (2.9.1 or later)](https://azure.microsoft.com/downloads/)
 
   * [Azure PowerShell](https://github.com/Azure/azure-powershell#installation)
 
-  * The latest Azure Logic Apps Tools for the Visual Studio extension for the version that you want:
-
-    * [Visual Studio 2019](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2019)
-
-    * [Visual Studio 2017](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2017)
+  * The latest Azure Logic Apps Tools for the Visual Studio extension for [Visual Studio 2019](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2019)
 
     You can either download and install Azure Logic Apps Tools directly from the Visual Studio Marketplace, or learn [how to install this extension from inside Visual Studio](/visualstudio/ide/finding-and-using-visual-studio-extensions). Make sure that you restart Visual Studio after you finish installing.
 
-  * To use Azure Government subscriptions with Visual Studio, see these topics for additional setup:
-
-    * Visual Studio 2019: [Quickstart: Connect to Azure Government with Visual Studio](../azure-government/documentation-government-connect-vs.md)
-
-    * Visual Studio 2017: [Introducing the Azure Environment Selector Visual Studio extension](https://devblogs.microsoft.com/azuregov/introducing-the-azure-environment-selector-visual-studio-extension/), which you can download and install from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=SteveMichelotti.AzureEnvironmentSelector).
+  * To use Azure Government subscriptions with Visual Studio, see [Quickstart: Connect to Azure Government with Visual Studio](../azure-government/documentation-government-connect-vs.md) for additional setup.
 
 * Access to the web while using the embedded workflow designer for Azure Logic Apps
 
