@@ -9,7 +9,6 @@ ms.author: fuyan
 
 ## Implement Media Access
 
-The media access feature allows organizers or presenters to prevent attendees from unmuting or turning on video themselves during Microsoft Teams meetings or group calls.
 `MediaAccess` is a `feature` of the class `Call`. You first need to import package `Features` from the Calling SDK:
 
 ```js
