@@ -59,7 +59,7 @@ The following table shows support for individual APIs in the calling SDK related
 | Permit video                  | ✔️ [1]          | ✔️ [1]                      |Enable camera|
 | Forbid video		              |	✔️ [1]          | ✔️ [1]                      |Disable camera|
 | Permit audio of all other attendees  | ✔️[1]           |             ✔️[1]             |Enable mic for all attendees|
-| Forbid audio	of all other attendees	        |	✔️[1]           |       ✔️   [1]                |Disable mic for all attendees|
+| Forbid audio	of all attendees	        |	✔️[1] [2]          |       ✔️ [1][2]                |Meeting option: Disable mic for all attendees|
 | Permit video of all other attendees |	✔️[1]           |     ✔️[1]                     |Enable camera for all attendees|
 | Forbid video of all other attendees |	✔️[1]           |     ✔️[1]                     |Disable camera for all attendees|
 | Get media access of other participants | ✔️           |✔️                        ||
