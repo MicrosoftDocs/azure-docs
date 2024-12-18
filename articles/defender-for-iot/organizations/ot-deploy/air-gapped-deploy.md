@@ -15,7 +15,7 @@ Microsoft Defender for IoT helps organizations achieve and maintain compliance o
 
 Certain industries, such as governmental organizations, financial services, nuclear power operators, and industrial manufacturing, maintain air-gapped networks. Air-gapped networks are physically separated from other, unsecured networks like enterprise networks, guest networks, or the internet. Defender for IoT helps these organizations comply with global standards for threat detection and management, network segmentation, and more.
 
-While digital transformation has helped businesses to streamline their operations and improve their bottom lines, they often face friction with air-gapped networks. The isolation in air-gapped networks provides security but also complicates digital transformation. For example, architectural designs such as Zero Trust, which include the use of multi-factor authentication, are challenging to apply across air-gapped networks.
+While digital transformation has helped businesses to streamline their operations and improve their bottom lines, they often face friction with air-gapped networks. The isolation in air-gapped networks provides security but also complicates digital transformation. For example, architectural designs such as Zero Trust, which include the use of multifactor authentication, are challenging to apply across air-gapped networks.
 
 Air-gapped networks are often used to store sensitive data or control cyber physical systems that are not connected to any external network, making them less vulnerable to cyberattacks. However, air-gapped networks are not completely secure and can still be breached. It's therefore imperative to monitor air-gapped networks to detect and respond to any potential threats.
 

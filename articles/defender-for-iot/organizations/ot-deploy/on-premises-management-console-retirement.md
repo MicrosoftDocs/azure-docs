@@ -9,7 +9,7 @@ ms.date: 12/17/2024
 
 This article describes the retirement of the on-premises management console from **January 1, 2025**.
 
-### Retirement details
+## Retirement details
 
 The on-premises management console will be retired on **January 1, 2025** with the following updates/changes:
 
