@@ -52,19 +52,19 @@ The following table shows support of media access for specific call type and ide
 
 The following table shows support for individual APIs in the calling SDK related to individual identity types. All operations are only supported in Teams meeting.
 
-|Operations                     | Communication Services user | Microsoft 365 user |
-|-----------------------------|---------------|--------------------------|
-| Permit audio                  | ✔️ [1]       | ✔️ [1]                      |
-| Forbid audio		              |	✔️ [1]          | ✔️ [1]                      |
-| Permit video                  | ✔️ [1]          | ✔️ [1]                      |
-| Forbid video		              |	✔️ [1]          | ✔️ [1]                      |
-| Permit audio of all other attendees  | ✔️[1]           |             ✔️[1]             |
-| Forbid audio	of all other attendees	        |	✔️[1]           |       ✔️   [1]                |
-| Permit video of all other attendees |	✔️[1]           |     ✔️[1]                     |
-| Forbid video of all other attendees |	✔️[1]           |     ✔️[1]                     |
-| Get media access of other participants | ✔️           |✔️                        |
-| Get notification that media access changed          | ✔️           |✔️                        |
-| Get notification that Teams meeting's media access changed    | ✔️           |    ✔️                      |
+|Operations                     | Communication Services user | Microsoft 365 user | Equivalent Teams UI action|
+|-----------------------------|---------------|--------------------------|--------------------------|
+| Permit audio                  | ✔️ [1]       | ✔️ [1]                      |Enable mic|
+| Forbid audio		              |	✔️ [1]          | ✔️ [1]                      |Disable mic|
+| Permit video                  | ✔️ [1]          | ✔️ [1]                      |Enable camera|
+| Forbid video		              |	✔️ [1]          | ✔️ [1]                      |Disable camera|
+| Permit audio of all other attendees  | ✔️[1]           |             ✔️[1]             |Enable mic for all attendees|
+| Forbid audio	of all other attendees	        |	✔️[1]           |       ✔️   [1]                |Disable mic for all attendees|
+| Permit video of all other attendees |	✔️[1]           |     ✔️[1]                     |Enable camera for all attendees|
+| Forbid video of all other attendees |	✔️[1]           |     ✔️[1]                     |Disable camera for all attendees|
+| Get media access of other participants | ✔️           |✔️                        ||
+| Get notification that media access changed          | ✔️           |✔️                        ||
+| Get notification that Teams meeting's media access changed    | ✔️           |    ✔️                      ||
 
 [1] Only user with role organizer, co-organizer, or presenter.
 
