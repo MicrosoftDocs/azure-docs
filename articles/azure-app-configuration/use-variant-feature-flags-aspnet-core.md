@@ -28,7 +28,7 @@ In this tutorial, you use a variant feature flag to manage experiences for diffe
     dotnet new razor --auth Individual -o QuoteOfTheDay
     ```
 
-1. Create a [user secret](/aspnet/core/security/app-secrets) for the application by navigating into the *QuoteOfTheDay* folder and run the following commands. This secret holds the endpoint for your App Configuration store.
+1. Create a [user secret](/aspnet/core/security/app-secrets) for the application by navigating into the *QuoteOfTheDay* folder and run the following commands. Replace the `<Your App Configuration store endpoint>` placeholder with your App Configuration store's endpoint. You can find the endpoint in your App Configuration store's **Overview** blade in the Azure portal.
 
     ```dotnetcli
     dotnet user-secrets init
@@ -45,7 +45,7 @@ In this tutorial, you use a variant feature flag to manage experiences for diffe
 
 ## Connect to App Configuration for feature management
 
-1. Open *Program.cs*, and add the following using statements.
+1. Open *Program.cs* and add the following using statements.
 
     ```csharp
     using Azure.Identity;
@@ -61,7 +61,8 @@ In this tutorial, you use a variant feature flag to manage experiences for diffe
     var builder = WebApplication.CreateBuilder(args); 
 
     // Retrieve the endpoint
-    string endpoint = builder.Configuration.GetValue<string>("Endpoints:AppConfiguration");
+    string endpoint = builder.Configuration.GetValue<string>("Endpoints:AppConfiguration")
+        ?? throw new InvalidOperationException("The setting `Endpoints:AppConfiguration` was not found.");
 
     // Load configuration and feature flags from Azure App Configuration
     builder.Configuration
