@@ -80,6 +80,15 @@
       "redirect_url": "/previous-versions/azure/operator-5g-core/tutorial-configure-network-function",
     },
     {
+      "source_path": "articles/private-multi-access-edge-compute-mec/overview.md",
+      "redirect_url": "/previous-versions/azure/private-multi-access-edge-compute-mec/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-multi-access-edge-compute-mec/partner-programs.md",
+      "redirect_url": "/previous-versions/azure/private-multi-access-edge-compute-mec/partner-programs",
+    },
+    {
       "source_path": "articles/time-series-insights/breaking-changes-long-data-type.md",
       "redirect_url": "/previous-versions/azure/time-series-insights/breaking-changes-long-data-type",
       "redirect_document_id": false
