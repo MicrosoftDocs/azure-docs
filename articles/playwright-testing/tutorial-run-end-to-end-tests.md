@@ -13,7 +13,7 @@ ms.date: [12/18/2024]
 
 # Tutorial: Run end-to-end Playwright tests with Microsoft Playwright Testing service
 
-In this tutorial, you learn how to integrate your Playwright test suite with Microsoft Playwright Testing, run tests faster using cloud-hosted browsers, and troubleshoot efficiently using the service's reporting features. You'll simulate a Playwright test suite, connect it to the service for faster execution, and use reporting tools for streamlined troubleshooting.
+In this tutorial, you learn how to integrate your Playwright test suite with Microsoft Playwright Testing, run tests faster using cloud-hosted browsers, and troubleshoot efficiently using the service's reporting features. You simulate a Playwright test suite, connect it to the service for faster execution, and use reporting tools for streamlined troubleshooting.
 
 In this tutorial, you:
 
@@ -43,7 +43,7 @@ Before you start, validate your environment:
 
 ## Set up Playwright test suite
 
-In this step, you are creating a Playwright test suite which will be integrated with the service. 
+In this step, you are creating a Playwright test suite which is integrated with the service. 
 
 1. Clone the sample repository and navigate to test folder. 
 
@@ -59,7 +59,7 @@ npm install
 ```
 3. Run Playwright tests 
 
-Run this command to execute tests locally, without the service. This is required to verify if the tests are running fine before integrating with the service. This project is used in the next steps to integrate with the service. 
+Run this command to execute tests locally, without the service to identify any problems before integrating with the service. This project is used in the next steps to integrate with the service. 
 
 ```powershell
 npx playwright test
@@ -82,13 +82,13 @@ When the workspace creation finishes, you're redirected to the setup guide.
 
 2. Install Microsoft Playwright Testing package 
 
-Navigate to the location of your test suite you created in the previous tutorial and run this command to install service package. 
+To install service package, navigate to the location of your test suite you created in the previous tutorial and run this command:
 
 ```npm
 npm init @azure/microsoft-playwright-testing@latest
 ```
 
-This generates `playwright.service.config.ts` file which serves to:
+This command generates `playwright.service.config.ts` file which serves to:
 
 - Direct and authenticate Playwright to the Microsoft Playwright Testing service.
 - Adds a reporter to publish test results and artifacts.
@@ -158,7 +158,7 @@ You've now prepared the configuration for running your Playwright tests in the c
 
 ### Run Playwright tests with the service
 
-With Microsoft Playwright Testing, you get charged based on the number of total test minutes and number of test results published. If you're a first-time user or [getting started with a free trial](./how-to-try-playwright-testing-free.md), you might start with running a single test at scale instead of your full test suite to avoid exhausting your free trial limits.
+With Microsoft Playwright Testing, you get charged based on the number of total test minutes and number of test results published. If you're a first-time user or [getting started with a free trial](./how-to-try-playwright-testing-free.md), you miay run a single test at scale instead of your full test suite to avoid exhausting your free trial limits.
 
 Follow these steps to run Playwright tests with Microsoft Playwright Testing:
 
