@@ -46,8 +46,8 @@ When creating or updating the resources below, add the appropriate permissions f
 
 |Resource | Required Azure permissions |
 |---|---|
-| expressroutegateways | Microsoft.Network/virtualHubs/read  <br>Microsoft.Network/virtualHubs/hubRouteTables/read <br>Microsoft.Network/virtualHubs/routeMaps/read <br>Microsoft.Network/expressRouteGateways/expressRouteConnections/read  |
-| expressRouteGateways/expressRouteConnections | Microsoft.Network/virtualHubs/hubRouteTables/read <br>Microsoft.Network/virtualHubs/routeMaps/read | 
+| expressroutegateways | Microsoft.Network/virtualHubs/read  <br>Microsoft.Network/virtualHubs/hubRouteTables/read <br>Microsoft.Network/virtualHubs/routeMaps/read <br>Microsoft.Network/expressRouteGateways/expressRouteConnections/read <br>Microsoft.Network/expressRouteCircuits/join/action |
+| expressRouteGateways/expressRouteConnections | Microsoft.Network/virtualHubs/hubRouteTables/read <br>Microsoft.Network/virtualHubs/routeMaps/read <br>Microsoft.Network/expressRouteCircuits/join/action | 
 
 
 ### VPN resources
