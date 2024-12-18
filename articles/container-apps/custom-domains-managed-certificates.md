@@ -220,7 +220,7 @@ Container Apps supports apex domains and subdomains. Each domain type requires a
     az containerapp hostname add \
         --hostname $DOMAIN_NAME \
         -g $RESOURCE_GROUP \
-        -n $CONTAINER_APP_NAME
+        -n $CONTAINER_APP
     ```
 
 1. Configure the managed certificate and bind the domain to your container app.
@@ -228,9 +228,9 @@ Container Apps supports apex domains and subdomains. Each domain type requires a
     ```azurecli
     az containerapp hostname bind \
         --hostname $DOMAIN_NAME \
-        -g $RESOURCE_GROUP_NAME \
-        -n $CONTAINER_APP_NAME \
-        --environment $ENVIRONMENT_NAME \
+        -g $RESOURCE_GROUP \
+        -n $CONTAINER_APP \
+        --environment $ENVIRONMENT \
         --validation-method <VALIDATION_METHOD>
     ```
 
