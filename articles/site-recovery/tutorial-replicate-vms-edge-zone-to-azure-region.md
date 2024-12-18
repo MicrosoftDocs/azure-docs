@@ -4,7 +4,7 @@ description: This article describes how to replicate, failover, and failback Azu
 author: ankitaduttaMSFT
 ms.service: azure-site-recovery
 ms.topic: tutorial
-ms.date: 12/11/2024
+ms.date: 12/18/2024
 ms.author: ankitadutta
 
 ---
@@ -12,6 +12,9 @@ ms.author: ankitadutta
 # Replicate virtual machines running in an Azure Extended Zone to an Azure region
 
 This article describes how to replicate, failover, and failback Azure virtual machines (VMs) running on an Azure Extended Zone to its parent Azure region.
+
+> [!IMPORTANT]
+> The Azure Site Recovery functionality for Extended Zones is in preview state.
 
 ## Disaster recovery in Azure Extended Zone 
 
