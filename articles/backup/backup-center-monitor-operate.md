@@ -2,7 +2,7 @@
 title: Monitor and operate backups and disaster recovery using Backup center
 description: This article explains how to monitor and operate backups and disaster recovery at-scale using Backup center.
 ms.topic: how-to
-ms.date: 10/10/2024
+ms.date: 12/24/2024
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -19,6 +19,8 @@ Now, you can use Azure Business Continuity Center to monitor your jobs and repli
 ## Supported scenarios
 
 Learn about the [supported and unsupported scenarios](../business-continuity-center/business-continuity-center-support-matrix.md#supported-scenarios).
+
+[!INCLUDE [How to open the Backup center.](../../includes/backup-center-open-console.md)]
 
 ## Backup instances
 
