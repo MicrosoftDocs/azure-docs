@@ -118,7 +118,7 @@ Your organization manages access to [Microsoft Copilot in Azure (preview)](/azur
 
 Use Copilot in Azure for Call Diagnostics to improve call quality by detailing problems faced during Azure Communication Services calls. Giving Copilot in Azure detailed information from Call Diagnostics helps Copilot enhance analysis, identify problems, and identify fixes. Copilot in Azure currently lacks programmatic access to your call details.
 
-### Use `DiagnosticOptions` to view tagged calls in Call Diagnostics?
+### Use `DiagnosticOptions` to view tagged calls in Call Diagnostics
 
 You can use your tags from `DiagnosticOptions` in three places on the Call Diagnostics interface:
 
