@@ -31,7 +31,8 @@ The [azure-iot-device](/javascript/api/azure-iot-device) package contains object
 
 Follow this procedure to upload a file from a device to IoT hub:
 
-1. Get Blob shared access signatures
+1. Connect the device to IoT Hub
+1. Get a Blob shared access signature (SAS) token from IoT Hub
 1. Upload the file to Azure Storage
 1. Send file upload status notification to IoT hub
 
@@ -128,7 +129,7 @@ client.open(function(err) {
 })
 ```
 
-#### Get a SAS URI from IoT hub
+#### Get a SAS token from IoT hub
 
 Use [getBlobSharedAccessSignature](/javascript/api/azure-iot-device/client?#azure-iot-device-client-getblobsharedaccesssignature) to get the linked storage account SAS token from IoT hub.
 
@@ -269,7 +270,7 @@ var client = Client.fromConnectionString(connectionString);
 
 To create a file upload notification callback receiver:
 
-1. Call [getFileNotificationReceiver](/javascript/api/azure-iothub/client?#azure-iothub-client-getfilenotificationreceiver). Supply the name of a file upload callback method that are called when notification messages are received.
+1. Call [getFileNotificationReceiver](/javascript/api/azure-iothub/client?#azure-iothub-client-getfilenotificationreceiver). Supply the name of a file upload callback method that is called when notification messages are received.
 1. Process file upload notifications in the callback method.
 
 This example sets up a `receiveFileUploadNotification` notification  callback receiver. The receiver interprets the file upload status information and prints a status message to the console.
