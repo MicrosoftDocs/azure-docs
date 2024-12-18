@@ -20,4 +20,4 @@ Azure Redis caches, except for Enterprise and Enterprise Flash tiers, have Micro
 
      :::image type="content" source="media/cache-entra-access/cache-enable-microsoft-entra.png" alt-text="Screenshot showing authentication selected in the resource menu and the enable Microsoft Entra authentication checked.":::
 
-For information on using Microsoft Entra ID with Azure CLI, see the [references pages for identity](/cli/azure/redis/identity).
+For information on using Microsoft Entra ID with Azure CLI, see the [reference pages for identity](/cli/azure/redis/identity).
