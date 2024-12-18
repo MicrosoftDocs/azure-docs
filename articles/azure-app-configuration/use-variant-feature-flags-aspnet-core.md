@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: Use variant feature flags from Azure App Configuration in an ASP.NET application'
+title: 'Tutorial: Use variant feature flags from Azure App Configuration in an ASP.NET Core application'
 titleSuffix: Azure App configuration
-description: In this tutorial, you learn how to use variant feature flags in an ASP.NET application
+description: In this tutorial, you learn how to use variant feature flags in an ASP.NET Core application
 #customerintent: As a user of Azure App Configuration, I want to learn how I can use variants and variant feature flags in my ASP.NET application.
 author: rossgrambo
 ms.author: rossgrambo
@@ -11,7 +11,7 @@ ms.topic: tutorial
 ms.date: 10/18/2024
 ---
 
-# Tutorial: Use variant feature flags from Azure App Configuration in an ASP.NET application
+# Tutorial: Use variant feature flags from Azure App Configuration in an ASP.NET Core application
 
 In this tutorial, you use a variant feature flag to manage experiences for different user segments in an example application, *Quote of the Day*. You utilize the variant feature flag created in [Use variant feature flags](./use-variant-feature-flags.md). Before proceeding, ensure you create the variant feature flag named *Greeting* in your App Configuration store.
 
@@ -28,10 +28,11 @@ In this tutorial, you use a variant feature flag to manage experiences for diffe
     dotnet new razor --auth Individual -o QuoteOfTheDay
     ```
 
-1. Create a [user secret](/aspnet/core/security/app-secrets) for the application by navigating into the *QuoteOfTheDay* folder and run the following command. This secret holds the endpoint for your App Configuration.
+1. Create a [user secret](/aspnet/core/security/app-secrets) for the application by navigating into the *QuoteOfTheDay* folder and run the following commands. This secret holds the endpoint for your App Configuration store.
 
     ```dotnetcli
-    dotnet user-secrets set Endpoints:AppConfiguration "<App Configuration Endpoint>"
+    dotnet user-secrets init
+    dotnet user-secrets set Endpoints:AppConfiguration "<Your App Configuration store endpoint>"
     ```
 
 1. Add the latest versions of the required packages.
@@ -44,7 +45,7 @@ In this tutorial, you use a variant feature flag to manage experiences for diffe
 
 ## Connect to App Configuration for feature management
 
-1. In *Program.cs*, add the following using statements.
+1. Open *Program.cs*, and add the following using statements.
 
     ```csharp
     using Azure.Identity;
@@ -52,18 +53,22 @@ In this tutorial, you use a variant feature flag to manage experiences for diffe
     using Microsoft.FeatureManagement;
     ```
 
-1. In *Program.cs*, under the line `var builder = WebApplication.CreateBuilder(args);`, add the App Configuration provider, which pulls down the configuration from Azure App Configuration when the application starts. By default, the `UseFeatureFlags` method pulls down all feature flags with no label.
+1. Add the following code to connect to your App Configuration store and call `UseFeatureFlags` to pull down all feature flags with no label.
 
     You use the `DefaultAzureCredential` to authenticate to your App Configuration store. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader** role. Be sure to allow sufficient time for the permission to propagate before running your application.
 
     ```csharp
+    var builder = WebApplication.CreateBuilder(args); 
+
+    // Retrieve the endpoint
+    string endpoint = builder.Configuration.GetValue<string>("Endpoints:AppConfiguration");
+
+    // Load configuration and feature flags from Azure App Configuration
     builder.Configuration
         .AddAzureAppConfiguration(options =>
         {
-            string endpoint = builder.Configuration.Get("Endpoints:AppConfiguration");
-            options.Connect(new Uri(endpoint), new DefaultAzureCredential());
-
-            options.UseFeatureFlags();
+            options.Connect(new Uri(endpoint), new DefaultAzureCredential())
+                   .UseFeatureFlags();
         });
     ```
 

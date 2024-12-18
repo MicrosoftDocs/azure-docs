@@ -64,12 +64,6 @@ Connect to your App Configuration store using Microsoft Entra ID (recommended), 
     ```
     ---
 
-1. Run the following command to restore packages for your project:
-
-    ```dotnetcli
-    dotnet restore
-    ```
-
 1. Create a user secret for the application by navigating into the *TestAppConfig* folder and running the following command.
 
     ### [Microsoft Entra ID (recommended)](#tab/entra-id)
@@ -124,7 +118,7 @@ Connect to your App Configuration store using Microsoft Entra ID (recommended), 
     var builder = WebApplication.CreateBuilder(args); 
     
     // Retrieve the endpoint
-    string endpoint = builder.Configuration.Get("Endpoints:AppConfiguration");
+    string endpoint = builder.Configuration.GetValue<string>("Endpoints:AppConfiguration");
     
     // Load configuration from Azure App Configuration 
     builder.Configuration.AddAzureAppConfiguration(options =>
