@@ -36,7 +36,7 @@ For more information, see [Update Defender for IoT OT monitoring software](updat
 Cloud features may be dependent on a specific sensor version. Such features are listed below for the relevant software versions, and are only available for data coming from sensors that have the required version installed, or higher.
 
 > [!IMPORTANT]
-> The on-premises management console won't be supported or available for download after January 1st, 2025. For more information, see [On-premises management console retirement](on-premises-management-console-retirement.md).
+> The on-premises management console won't be supported or available for download after January 1st, 2025. For more information, see [on-premises management console retirement](ot-deploy/on-premises-management-console-retirement.md).
 >
 
 | Version / Patch |  Release date | Scope     | Supported until |
