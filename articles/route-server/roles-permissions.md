@@ -1,5 +1,6 @@
 ---
 title: About route server roles and permissions
+titleSuffix: Azure Route Server
 description: Learn about roles and permissions for Azure Route Server
 author: siddomala
 ms.author: halkazwini

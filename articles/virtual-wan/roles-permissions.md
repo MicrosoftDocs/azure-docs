@@ -1,6 +1,6 @@
 ---
 title: About virtual hub roles and permissions
-titleSuffix: Virtual Hub
+titleSuffix: Azure Virtual WAN
 description: Learn about roles and permissions for a Virtual WAN Hub.
 author: siddomala
 ms.service: azure-virtual-wan
