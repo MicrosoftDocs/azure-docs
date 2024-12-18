@@ -63,7 +63,7 @@ To extend the trial, use:
 1. the sale's team [license extension request form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4hp0oiujZ9PvzH6GeTqtclUMDJCWDBNUVpNTjc1SVdXMDNPWlhUWDEyMi4u).
 
 <!-- Belle wanted this added as a blue note to the article. Where is the best place to add this? -->
->!NOTE
+>[!NOTE]
 >
 >A trial license can be extended by the customer up until 15 days before the end of the trial using the [Microsoft 365 Admin Center](https://admin.microsoft.com/Adminportal/Home?#/homepage).
 >
