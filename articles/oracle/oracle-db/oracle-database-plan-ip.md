@@ -34,13 +34,13 @@ The Client Subnet has the following IP address requirements:
 - 13 IP addresses are reserved for networking services in the Client Subnet, regardless of how many VM clusters are present in the Client Subnet. The 13 addresses are: the first 4 IP addresses, the 9th to 16th IP address, and the last IP address.
 
 For example, in a 10.0.0.0/24 subnet, the following 13 IPs are reserved:
-
+```
 - 10.0.0.0 to 10.0.0.3
 
 - 10.0.0.8 to 10.0.0.15
 
 - 10.0.0.255
-
+```
 ### Scenarios: CIDR size required for a client subnet
 
 The following table shows scenarios of provisioned virtual machine clusters of varying sizes. The number of instances of each scenario that can fit in a client subnet depends on the CIDR size of the subnet. This table doesn't show all possible scenarios.
