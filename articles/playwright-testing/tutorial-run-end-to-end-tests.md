@@ -158,7 +158,7 @@ You've now prepared the configuration for running your Playwright tests in the c
 
 ### Run Playwright tests with the service
 
-With Microsoft Playwright Testing, you get charged based on the number of total test minutes and number of test results published. If you're a first-time user or [getting started with a free trial](./how-to-try-playwright-testing-free.md), you miay run a single test at scale instead of your full test suite to avoid exhausting your free trial limits.
+With Microsoft Playwright Testing, you get charged based on the number of total test minutes and number of test results published. If you're a first-time user or [getting started with a free trial](./how-to-try-playwright-testing-free.md), you may run a single test at scale instead of your full test suite to avoid exhausting your free trial limits.
 
 Follow these steps to run Playwright tests with Microsoft Playwright Testing:
 
