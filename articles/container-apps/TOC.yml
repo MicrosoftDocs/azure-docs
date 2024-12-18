@@ -365,10 +365,10 @@
       - name: Artificial Intelligence
         items:
         - name: Introduction to the PetClinic AI sample
-          href: ai-in-container-apps-conceptual-overview.md
+          href: java-ai-in-container-apps-conceptual-overview.md
           displayName: java
         - name: Launch your first AI application
-          href: first-ai-application.md
+          href: first-java-ai-application.md
           displayName: java
         displayName: java
       - name: Launch your first Java microservice apps with managed Java components
