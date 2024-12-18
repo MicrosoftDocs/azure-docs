@@ -362,20 +362,26 @@
         displayName: java    
       - name: Launch your first Java app
         items:
-        - name: Artifacts(Preview)
-          href: java-get-started.md
+        - name: Dockerfile
+          href: /azure/developer/java/toolkit-for-intellij/java-get-started-dockerfile.md
+          displayName: java
+        - name: Github Repository
+          href: /azure/developer/java/toolkit-for-intellij/java-get-started-github-repository.md
           displayName: java
         - name: IntelliJ
           href: /azure/developer/java/toolkit-for-intellij/create-container-apps-intellij?toc=/azure/container-apps/toc.json&bc=/azure/container-apps/breadcrumb/toc.json
           displayName: java
-      # - name: Artificial Intelligence
-      #   items:
-      #   - name: Introduction to the PetClinic AI sample
-      #     href: ai-in-container-apps-conceptual-overview.md
-      #     displayName: java
-      #   - name: Launch your first AI application
-      #     href: first-ai-application.md
-      #     displayName: java
+        - name: Artifacts(Preview)
+          href: java-get-started.md
+          displayName: java
+      - name: Artificial Intelligence
+        items:
+        - name: Introduction to the PetClinic AI sample
+          href: first-java-ai-application.md
+          displayName: java
+        - name: Launch your first AI application
+          href: first-java-ai-application.md
+          displayName: java
       - name: Java Components
         items:
         - name: Launch your first Java microservice apps with managed Java components

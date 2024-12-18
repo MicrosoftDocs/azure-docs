@@ -1,6 +1,6 @@
 ---
-title: Launch your first Java application in Azure Container Apps
-description: Learn how to deploy a java project in Azure Container Apps.
+title: Launch your first Java application in Azure Container Apps with WAR or JAR
+description: Learn how to deploy a java project in Azure Container Apps with WAR or JAR.
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
@@ -11,9 +11,9 @@ ms.author: cshoe
 zone_pivot_groups: container-apps-java-artifacts
 ---
 
-# Quickstart: Launch your first Java application in Azure Container Apps
+# Quickstart: Launch your first Java application in Azure Container Apps with WAR or JAR
 
-This article shows you how to deploy the Spring PetClinic sample application to run on Azure Container Apps. Rather than manually creating a Dockerfile and directly using a container registry, you can deploy your Java application directly from a Java Archive (JAR) file or a web application archive (WAR) file.
+This article shows you how to deploy the Spring PetClinic sample application to run on Azure Container Apps with a web application archive (WAR) file / Java Archive (JAR) file. You can deploy your Java application with many different options like local filesystem, code reposity, Maven, IDEs, a web application archive (WAR) file / Java Archive (JAR) file or even directly from the source code.
 
 By the end of this tutorial you deploy a web application, which you can manage through the Azure portal.
 
@@ -40,7 +40,7 @@ Clone the Spring PetClinic sample application to your machine.
 ::: zone pivot="jar"
 
 ```bash
-git clone https://github.com/spring-projects/spring-petclinic.git
+git clone https://github.com/Azure-Samples/azure-container-apps-java-samples.git
 ```
 
 ::: zone-end
@@ -61,7 +61,13 @@ git clone https://github.com/spring-petclinic/spring-framework-petclinic.git
 Change into the *spring-petclinic* folder.
 
 ```bash
-cd spring-petclinic
+cd azure-container-apps-java-samples/spring-petclinic/spring-petclinic/
+```
+
+Init and update the PetClinc to the latest version.
+
+```bash
+git submodule update --init --recursive
 ```
 
 Clean the Maven build area, compile the project's code, and create a JAR file, all while skipping any tests.
@@ -166,4 +172,7 @@ View the application by pasting this URL into a browser. Your app should resembl
 ## Next steps
 
 > [!div class="nextstepaction"]
+> [Launch your first Java microservice application with managed Java components](java-microservice-get-started.md)
+> [Launch your first Java AI application](first-java-ai-application.md)
 > [Java build environment variables](java-build-environment-variables.md)
+
