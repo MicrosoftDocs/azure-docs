@@ -38,7 +38,10 @@ ms.date: 12/03/2024
 
 11. [Disable DHCP (Dynamic Host Configuration Protocol) and put devices into ZTP (Zero Touch Provisioning) mode](./howto-platform-prerequisites.md#default-setup-for-other-devices-installed)
 
-12. [Delete Network Fabric Controller (NFC) resource](./howto-configure-network-fabric-controller.md#delete-network-fabric-controller) Note: Only delete Network Fabric Controller(NFC) if the fabric being deleted was the only fabric associated to the NFC.
+12. [Delete Network Fabric Controller (NFC) resource](./howto-configure-network-fabric-controller.md#delete-network-fabric-controller)
+    
+    > [!NOTE]
+    > Only delete Network Fabric Controller (NFC) if the fabric being deleted was the only fabric associated to the NFC.
 
 ## Support and questions
 For further technical questions or assistance, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). For more information about Support plans, see [Azure Support plans](https://azure.microsoft.com/support/plans/response/).
