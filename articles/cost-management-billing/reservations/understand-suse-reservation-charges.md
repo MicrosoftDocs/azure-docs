@@ -24,7 +24,7 @@ A reservation discount is "*use-it-or-lose-it*." So, if you don't have matching 
 
 When you shut down a resource, the reservation discount automatically applies to another matching resource in the specified scope. If no matching resources are found in the specified scope, then the reserved hours are *lost*.
 
-Stopped resources are billed and continue to use reservation hours. Deallocate or delete resources or scale-in other resources to use your available reservation hours with other workloads. 
+Stopped resources are billed and continue to use reservation hours. To use your available reservation hours with other workloads, deallocate or delete resources or scale-in other resources.
 
 ## Review RedHat VM usage before you buy
 
@@ -60,7 +60,7 @@ For the license type, you must match the license of your VM against the ones ava
 - SUSE Linux Enterprise Server for HPC Standard
 - SUSE Linux Enterprise Server for SAP Standard
 
-For the type or amount of vCPUs license, it’s a little bit more complicated. Each license type has three variations: 1-2 vCPUs, 3-4 vCPUs and 5+ vCPU. To choose the variant that fits your needs, you to understand the formula behind the ratios. 
+For the type or amount of vCPUs license, it’s slightly more complicated. Each license type has three variations: 1-2 vCPUs, 3-4 vCPUs, and 5+ vCPU. To choose the variant that fits your needs, you to understand the formula behind the ratios. 
 
 ### Ratio calculation
 
@@ -69,7 +69,7 @@ The ratio in the context of SUSE reservation charges determines how the discount
 1. Identify the VM size. Each VM size has a specific number of vCPUs.
 1. Determine the “Coverage Value” for your VMs by using the ratios defined in the [Instance size flexibility ratios](https://aka.ms/isf) file based on the following formula:
 
-    $$ \frac {Ratio Of The Bought License} {Sum of the Ratio Of The "Target" Licenses} ={Coverage value}$$
+`Ratio Of The Bought License / Sum of the Ratio Of The "Target" Licenses = Coverage value`
 
 ### Practical example
 
@@ -78,12 +78,12 @@ Let’s look at a practical example. Assume you buy the *SLES_HPC_Priority_3-4_v
 - If you have two VMs with two vCPUs each, you:
     1. Capture the ratio of the target license for machines with 1-2 vCPU which is one, per the instance size flexibility ratio file. Because you have two VMs, the sum for the ratios is two.
 	2. Input the value in the formula. It is: 
-        $$ \frac {2} {2} = 1
+        `2 / 2 = 1`
 	3. If you buy the SLES_HPC_Priority_3-4_vCPU_VM license, it fully covers two VMs with 1-2 vCPUs each.
-- If you have one VM with six vCPUs then:
+- If you have one VM with six vCPUs, then:
 	1. Capture the ratio of the target license for VMs with 5+ vCPUs, which is 2.6 according to the instance size flexibility ratio file.
 	2. Input the value in the formula, it is:
-	    $$ \frac {2} {2.6} = 0.77
+	    `2 / 2.6 = 0.77`
 	4. If you buy the SLES_HPC_Priority_3-4_vCPU_VM license, it covers 77% of a VM with 6 vCPUs. Because there’s a difference in coverage, the result is that 77% of the VM is covered by the reservation and the remainder of 23% gets charged at the normal rate.
 
 ### Environment-wide calculation
@@ -133,5 +133,5 @@ To learn more about reservations, see the following articles:
 - [Prepay for SUSE software plans with Azure Reservations](/azure/virtual-machines/linux/prepay-suse-software-charges)
 - [Prepay for Virtual Machines with Azure Reserved VM Instances](/azure/virtual-machines/prepay-reserved-vm-instances)
 - [Manage Azure Reservations](manage-reserved-vm-instance.md)
-- [Understand reservation usage for your Pay-As-You-Go subscription](understand-reserved-instance-usage.md)
+- [Understand reservation usage for your pay-as-you-go subscription](understand-reserved-instance-usage.md)
 - [Understand reservation usage for your Enterprise enrollment](understand-reserved-instance-usage-ea.md)
