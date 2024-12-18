@@ -1,6 +1,6 @@
 ---
-title: 'End-to-end TLS with Azure Front Door'
-description: Learn about end-to-end TLS encryption when using Azure Front Door.
+title: 'About TLS encryption with Azure Front Door'
+description: Learn about TLS encryption when using Azure Front Door.
 services: frontdoor
 author: duongau
 ms.service: azure-frontdoor
@@ -10,7 +10,7 @@ ms.author: duau
 zone_pivot_groups: front-door-tiers
 ---
 
-# End-to-end TLS with Azure Front Door
+# About TLS encryption with Azure Front Door
 
 > [!IMPORTANT]
 > Support for TLS 1.0 and 1.1 will be discontinued on March 1, 2025.

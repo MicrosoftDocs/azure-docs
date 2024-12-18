@@ -142,22 +142,6 @@ python manage.py runserver
 
 ## 1. Create App Service and PostgreSQL
 
-
-### [Flask](#tab/flask)
-
-```bash
-git clone https://github.com/Azure-Samples/msdocs-flask-postgresql-sample-app.git
-```
-
-### [Django](#tab/django)
-
-```bash
-git clone https://github.com/Azure-Samples/msdocs-django-postgresql-sample-app.git
-```
-
------
-
-
 In this step, you create the Azure resources. The steps used in this tutorial create a set of secure-by-default resources that include App Service and Azure Database for PostgreSQL. For the creation process, you'll specify:
 
 * The **Name** for the web app. It's the name used as part of the DNS name for your webapp in the form of `https://<app-name>.azurewebsites.net`.
@@ -287,6 +271,22 @@ The creation wizard generated the connectivity variables for you already as [app
         **Step 3:** In a terminal or command prompt, run the following Python script to generate a unique secret: `python -c 'import secrets; print(secrets.token_hex())'`. Copy the output value to use in the next step.
     :::column-end:::
     :::column:::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 4:** Back in the **Configuration** page, select **New application setting**. Name the setting `SECRET_KEY`. Paste the value from the previous value. Select **OK**.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-app-service-app-setting.png" alt-text="A screenshot showing how to set the SECRET_KEY app setting in the Azure portal (Django)." lightbox="./media/tutorial-python-postgresql-app/azure-portal-app-service-app-setting.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 5:** Select **Save**.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-app-service-app-setting-save.png" alt-text="A screenshot showing how to save the SECRET_KEY app setting in the Azure portal (Django)." lightbox="./media/tutorial-python-postgresql-app/azure-portal-app-service-app-setting-save.png":::
     :::column-end:::
 :::row-end:::
 

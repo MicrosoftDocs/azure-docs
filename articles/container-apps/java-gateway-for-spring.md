@@ -88,7 +88,7 @@ Execute the following commands to create your resource group and Container Apps 
 
 ## Use the Gateway for Spring Java component
 
-Now that you have a Container Apps environment, you can create your container app use a gateway for spring java compoments to route request to them.
+Now that you have a Container Apps environment, you can create your container app use a gateway for spring java components to route request to them.
 
 1. Create the Gateway for Spring Java component.
 

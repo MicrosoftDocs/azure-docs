@@ -16,10 +16,14 @@ zone_pivot_groups: azure-signalr-service-mode
 
 SignalR Service SDK supports multiple endpoints for SignalR Service instances. You can use this feature to scale the concurrent connections, or use it for cross-region messaging.
 
+[!INCLUDE [Connection string security](includes/signalr-connection-string-security.md)]
+
 :::zone pivot="default-mode"
 ## For ASP.NET Core
 
 ### Add multiple endpoints from config
+
+[!INCLUDE [Connection string security comment](includes/signalr-connection-string-security-comment.md)]
 
 Configure with key `Azure:SignalR:ConnectionString` or `Azure:SignalR:ConnectionString:` for SignalR Service connection string.
 

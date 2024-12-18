@@ -3,7 +3,7 @@ title: Parameters in Bicep files
 description: Describes how to define parameters in a Bicep file.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 08/20/2024
+ms.date: 12/06/2024
 ---
 
 # Parameters in Bicep
@@ -292,5 +292,5 @@ resource vnet 'Microsoft.Network/virtualNetworks@2023-11-01' = {
 ## Next steps
 
 - To learn about the available properties for parameters, see [Understand the structure and syntax of Bicep files](file.md).
-- To learn about passing in parameter values as a file, see [Create a Bicep parameter file](parameter-files.md).
+- To learn about passing in parameter values as a file, see [Create a Bicep parameters file](parameter-files.md).
 - To learn about providing parameter values at deployment, see [Deploy with Azure CLI](./deploy-cli.md), and [Deploy with Azure PowerShell](./deploy-powershell.md).

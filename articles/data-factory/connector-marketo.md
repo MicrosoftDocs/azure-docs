@@ -139,7 +139,7 @@ To copy data from Marketo, set the source type in the copy activity to **Marketo
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to: **MarketoSource** | Yes |
-| query | Use the custom SQL query to read data. For example: `"SELECT * FROM Activitiy_Types"`. | No (if "tableName" in dataset is specified) |
+| query | Use the custom SQL query to read data. For example: `"SELECT * FROM Activity_Types"`. | No (if "tableName" in dataset is specified) |
 
 **Example:**
 
@@ -163,7 +163,7 @@ To copy data from Marketo, set the source type in the copy activity to **Marketo
         "typeProperties": {
             "source": {
                 "type": "MarketoSource",
-                "query": "SELECT top 1000 * FROM Activitiy_Types"
+                "query": "SELECT top 1000 * FROM Activity_Types"
             },
             "sink": {
                 "type": "<sink type>"

@@ -1,13 +1,11 @@
 ---
-ms.date: 11/15/2023
+ms.date: 12/16/2024
 author: robece
 ms.author: robece
 title: Concepts for Event Grid namespace topics
 description: General concepts of Event Grid namespace topics and their main functionality such as pull and push delivery.
-ms.topic: conceptual
-ms.custom:
-  - ignite-2023
-  - build-2024
+ms.topic: concept-article
+# Customer intent: I want to know concepts of Azure Event Grid namespaces. 
 ---
 
 # Azure Event Grid namespace concepts
@@ -131,7 +129,7 @@ Event Grid uses Event Hubs SDK to send events to Event Hubs using [AMQP](https:/
 
 [!INCLUDE [differences-between-consumption-modes](./includes/differences-between-consumption-modes.md)]
 
-## Next steps
+## Related content
 
 * For an introduction to Event Grid, see [About Event Grid](overview.md).
 * To get started using namespace topics, refer to [publish events using namespace topics](publish-events-using-namespace-topics.md).
