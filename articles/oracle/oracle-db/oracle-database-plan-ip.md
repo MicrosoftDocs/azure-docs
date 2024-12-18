@@ -35,11 +35,11 @@ The Client Subnet has the following IP address requirements:
 
 For example, in a 10.0.0.0/24 subnet, the following 13 IPs are reserved:
 
-    - 10.0.0.0 to 10.0.0.3
+- 10.0.0.0 to 10.0.0.3
 
-    - 10.0.0.8 to 10.0.0.15
+- 10.0.0.8 to 10.0.0.15
 
-    - 10.0.0.255
+- 10.0.0.255
 
 ### Scenarios: CIDR size required for a client subnet
 
