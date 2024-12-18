@@ -32,7 +32,7 @@ In this article, learn about the default NSX topology in Azure VMware Solution, 
 
 
 
-Customers typically host their application workloads by creating new NSX segments and attaching them to the default Tier-1 Gateway. Additionally, customers with an HCX migration use case uses the default HCX-uplink segment, which is also connected to the default Tier-1 Gateway.    
+Customers typically host their application workloads by creating new NSX segments and attaching them to the default Tier-1 Gateway. Additionally, customers with an HCX migration use case use the default HCX-uplink segment, which is also connected to the default Tier-1 Gateway.    
 
 The default NSX topology for Azure VMware Solution, where all traffic exits through the default Tier-1 Gateway, may not be optimal based on customer traffic flows and throughput requirements. Here are some potential challenges and the recommended configurations to optimize the NSX Edge data path resource.
 
@@ -49,7 +49,7 @@ The default NSX topology for Azure VMware Solution, where all traffic exits thro
 ### Recommended Practices:
 It is possible to change the NSX North-bound network connectivity to distribute the traffic evenly to both Edge VMs. Creating an additional Tier-1 Gateways and distributing the NSX segments across multiple Tier-1 Gateways evenly distributes traffic across the Edge VMs. For an HCX migration use case, the recommendation would be to move HCX Layer 2 (L2) Extension and migration traffic to a newly created Tier-1 Gateway, so it uses the NSX Edge resource optimally.
 
-To make an Active Edge for a given Tier-1 Gateway predictable, it is recommended to create an additional Tier-1 Gateway with the High Availability (HA) Mode set to Active/Standby with the Failover mode set to preemptive. This configuration allows you to select a different active Edge VM then the one in use by the default Tier-1 Gateway. This naturally splits north-bound traffic across multiple Tier-1 Gateways, so both NSX Edges are optimally utilized, thus avoiding a potential bottleneck with the default NSX topology. 
+To make an Active Edge for a given Tier-1 Gateway predictable, it is recommended to create an additional Tier-1 Gateway with the High Availability (HA) Mode set to Active/Standby with the Failover mode set to preemptive. This configuration allows you to select a different active Edge VM than the one in use by the default Tier-1 Gateway. This naturally splits north-bound traffic across multiple Tier-1 Gateways, so both NSX Edges are optimally utilized, thus avoiding a potential bottleneck with the default NSX topology. 
  
 :::image type="content" source="media/nsxt/default-nsx-topology.png" alt-text="Diagram showing the default nsx topology in Azure VMware Solution." border="false" lightbox="media/nsxt/default-nsx-topology.png":::
 
@@ -115,9 +115,9 @@ Here are a few configuration recommendations to mitigate an NSX Edge VMs perform
 
 3.	Disable the Tier-1 Gateway Firewall if it is not required to get better packet processing power. (By default, the Tier-1 Gateway Firewall is enabled).
 
-4.	Make sure NSX Edge VMs and HCX Network Extension (NE) appliances are on separate hosts, to avoid multiple heavy packet processing workloads on same hosts.
+4.	Verify that NSX Edge VMs and HCX Network Extension (NE) appliances are on separate hosts, to avoid multiple heavy packet processing workloads on same hosts.
 
-5. Make sure for HCX migration use case, be sure that the HCX Network Extension (NE) and HCX Interconnect (IX) appliances have the CPU reserved. Reserving the CPU allows HCX to optimally process the HCX migration traffic. (By default, these appliances have no CPU reservations).
+5. Verify for HCX migration use case, that the HCX Network Extension (NE) and HCX Interconnect (IX) appliances have the CPU reserved. Reserving the CPU allows HCX to optimally process the HCX migration traffic. (By default, these appliances have no CPU reservations).
 
 ## How to optimize Azure VMware Solution NSX Data Path Performance - HCX Use Case 
  
