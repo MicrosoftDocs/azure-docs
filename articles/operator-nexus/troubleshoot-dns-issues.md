@@ -17,6 +17,12 @@ cluster running on Azure VMs (Virtual Machines) and Azure, accessing Azure resou
 domain names. However a DNS (Domain Name System) error in NNF can mean that Azure resources
 can't be contacted which impacts deployment or management of Nexus resources.
 
+The DNS proxy that causes this error is an [Envoy DNS Proxy](https://www.envoyproxy.io/docs/envoy/latest/)
+running via a Kubernetes deployment in either an Infrastructure or Tenant cluster.
+The precise location of the DNS proxy will have been determined when the customer
+has deployed ther NAKS (Nexus Azure Kubernetes Service) cluster or during some other
+deployment. 
+
 ## Diagnosis
 
 * Deployment or management of remote Nexus resources fails with "DeploymentFailed."
@@ -24,13 +30,20 @@ can't be contacted which impacts deployment or management of Nexus resources.
 
 ## Mitigation steps
 
-Follow these steps for mitigation.
-
 ### Trigger a DNS cache refresh for the NNF Workload Proxy
-  
+
+- Based on configuration and deployment, identify the Infrastructure or Tenant Kubernetes Cluster on which the DNS proxy is runnning
+- Log-in to the Kubernetes cluster
+  - Using the Azure portal, find your cluster
+  - From the _Overview_ blade, click the _Connect_ command (between _Refresh_ and _Delete_)
+  - Follow the instructions from the resulting pop-up window that explains how to use Kubernetes cluster
+- Identify the DNS proxy deployment using this command
   ```bash
-  # TBD awaiting feedback from folks who worked on the original IcMs as to
-  # what commands should appear here.
+  $ kubectl get deployments --all-namespaces=true | grep envoy
+  ```
+- Restart the deployment, which will cause the DNS caching to be reset, using this command:
+  ```bash
+  kubectl rollout restart deployment <your-envoy-deployment-name> --namespace <namespace-where-envoy-pod-exists>
   ```
 
 ## Verification
