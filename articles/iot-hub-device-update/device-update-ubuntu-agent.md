@@ -3,7 +3,7 @@ title: Azure Device Update for IoT Hub using the Ubuntu package agent
 description: Perform an end-to-end package update using the Device Update Ubuntu Server 22.04 x64 package agent to update Azure IoT Edge.
 author: eshashah
 ms.author: eshashah
-ms.date: 12/17/2024
+ms.date: 12/18/2024
 ms.topic: tutorial
 ms.service: azure-iot-hub
 ms.subservice: device-update
@@ -26,7 +26,7 @@ In this tutorial, you:
 > - Add a group tag to your device.
 > - Import the package update.
 > - Deploy the package update.
-> - View update deployment history.
+> - View the update deployment history.
 
 ## Prerequisites
 
@@ -104,13 +104,13 @@ For convenience, this tutorial uses a [cloud-init](/azure/virtual-machines/linux
 
 ## Add a group tag to your device
 
-Device Update uses groups to organize devices. Device Update automatically sorts devices into groups based on their assigned tags and compatibility properties. Each device can belong to only one group, but groups can have multiple subgroups to sort different device classes. For more information about tags and groups, see [Manage device groups](create-update-group.md).
+Device Update automatically organizes devices into groups based on their assigned tags and compatibility properties. Each device can belong to only one group, but groups can have multiple subgroups to sort different device classes. For more information about tags and groups, see [Manage device groups](create-update-group.md).
 
 1. On the [Azure portal](https://portal.azure.com) IoT hub page for your Device Update instance, select **Device management** > **Devices** from the left navigation.
 1. Go to the **Device twin** or **Module Identity** twin for your device.
-1. In the device twin or Device Update agent module **Module Identity Twin** file, delete any existing Device Update tag values by setting them to `null`, and then add the following new Device Update group tag.
+1. In the device twin or Device Update agent **Module Identity Twin** file, delete any existing Device Update tag values by setting them to `null`, and then add the following new Device Update group tag.
 
-   If you're using device identity with the Device Update agent, make these changes on the device twin. If you're using a Module Identity with the Device Update agent module, add the tag in the **Module Identity Twin**.
+   If you're using device identity with the Device Update agent, make these changes on the device twin. If you're using a module identity with the Device Update agent module, add the tag in the **Module Identity Twin**.
 
    ```json
    "tags": {
@@ -193,7 +193,7 @@ You should see the device group that contains the device you set up in this tuto
 
    :::image type="content" source="media/deploy-update/deployments-history.png" alt-text="Screenshot that shows Deployment history." lightbox="media/deploy-update/deployments-history.png":::
 
-1. On the **Deployment details** page, select **Refresh** to view the latest status details.
+1. On the **Deployment details** page, select the **Refresh** icon to view the latest status details.
 
    :::image type="content" source="media/deploy-update/deployment-details.png" alt-text="Screenshot that shows deployment details." lightbox="media/deploy-update/deployment-details.png":::
 

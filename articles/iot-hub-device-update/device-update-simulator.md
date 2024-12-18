@@ -179,7 +179,7 @@ The Device Update agent runs on every device that Device Update manages. In this
 
 ## Import the update
 
-Download and extract the *Tutorial_Simulator.zip* archive from the [GitHub Device Update Releases](https://github.com/Azure/iot-hub-device-update/releases) latest release **Assets** section onto your development machine if it's different from your Ubuntu 18.04 IoT device. This section uses the *TutorialImportManifest_Sim.importmanifest.json* and *adu-update-image-raspberrypi3.swu* files from the *Tutorial_Simulator* folder.
+Download and extract the *Tutorial_Simulator.zip* archive from the [GitHub Device Update Releases](https://github.com/Azure/iot-hub-device-update/releases) latest release **Assets** section onto your development machine, if it's different from your Ubuntu 18.04 IoT device. This section uses the *TutorialImportManifest_Sim.importmanifest.json* and *adu-update-image-raspberrypi3.swu* files from the *Tutorial_Simulator* folder.
 
 The update file is the same one as in the [Raspberry Pi tutorial](device-update-raspberry-pi.md). Because the update in this tutorial is simulated, the specific file content doesn't matter.
 
