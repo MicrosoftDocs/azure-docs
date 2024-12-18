@@ -30,7 +30,7 @@ ms.custom:
 
    By default, for a new managed cache:
      - Microsoft Entra ID is enabled.
-     - - **Access Keys Authentication** is disabled for security reasons.
+     - **Access Keys Authentication** is disabled for security reasons.
 
    > [!IMPORTANT]
    > For optimal security, we recommend that you use Microsoft Entra ID with managed identities to authorize requests against your cache if possible. Authorization by using Microsoft Entra ID and managed identities provides superior security and ease of use over shared access key authorization. For more information about using managed identities with your cache, see [Use Microsoft Entra ID for cache authentication](/azure/azure-cache-for-redis/cache-azure-active-directory-for-authentication).
@@ -56,8 +56,6 @@ ms.custom:
 1. Select **Next: Tags** and skip.
 
 1. Select **Next: Review + create**.
-
-   :::image type="content" source="media/managed-redis-create/managed-redis-summary.png" alt-text="Screenshot showing the Azure Managed Redis Review + Create tab.":::
 
 1. Review the settings and select **Create**.
 
