@@ -136,7 +136,6 @@
         - name: On-Premises Operator Nexus Instance
           expanded: false
           items:
-<<<<<<< HEAD
               - name: Before you start Operator Nexus platform deployment
                 href: howto-platform-prerequisites.md
               - name: Network Fabric
@@ -159,35 +158,8 @@
                 href: howto-credential-rotation.md
               - name: Credential Manager Key Vault
                 href: how-to-credential-manager-key-vault.md
-=======
-            - name: Operator Nexus Instance Lifecycle Management
-              expanded: false
-              items:
-                - name: Before you start Operator Nexus platform deployment
-                  href: howto-platform-prerequisites.md
-                - name: Network Fabric
-                  href: howto-configure-network-fabric.md
-                - name: Cluster
-                  href: howto-configure-cluster.md
-                - name: Cluster Template JSON Example
-                  href: cluster-jsonc-example.md
-                - name: Cluster Parameters JSON Example
-                  href: cluster-parameters-jsonc-example.md
-                - name: Instance Readiness Testing
-                  href: howto-run-instance-readiness-testing.md
-                - name: Cluster Upgrades
-                  href: howto-cluster-runtime-upgrade.md
-                - name: Cluster Upgrades With PauseRack Startegy
-                  href: howto-cluster-runtime-upgrade-with-pauserack-strategy.md
-                - name: How to upgrade Network Fabric
-                  href: howto-upgrade-nexus-fabric.md
-                - name: Credential Rotation
-                  href: howto-credential-rotation.md
-                - name: Credential Manager Key Vault
-                  href: how-to-credential-manager-key-vault.md
-                - name: Updating ExpressRoute Gateway Authorization Key in Azure Operator Nexus
-                  href: howto-update-expressroute-authorization-key.md
->>>>>>> main
+              - name: Updating ExpressRoute Gateway Authorization Key in Azure Operator Nexus
+                href: howto-update-expressroute-authorization-key.md
     - name: Network Fabric
       expanded: false
       items:
