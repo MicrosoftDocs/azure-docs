@@ -7,7 +7,7 @@ items:
 - name: Quickstarts
   items:
   - name: Configure the Azure Operator 5G Core extension for status monitoring
-    href: quickstart-perform-checks-post-deployment.md
+    href: quickstart-configure-extension-for-status-monitoring.md
   expanded: false
 - name: How-to guides
 - name: Tutorials
