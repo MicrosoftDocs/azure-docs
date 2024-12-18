@@ -1,6 +1,6 @@
 ---
-title: Integrate a virtual network with an external Azure Container Apps environment
-description: Learn how to integrate a virtual network with an external Azure Container Apps environment.
+title: Integrate a virtual network with an Azure Container Apps environment
+description: Learn how to integrate a virtual network with an Azure Container Apps environment.
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
@@ -11,7 +11,7 @@ ms.author: cshoe
 zone_pivot_groups: azure-cli-or-portal
 ---
 
-# Provide a virtual network to an external Azure Container Apps environment
+# Provide a virtual network to an Azure Container Apps environment
 
 The following example shows you how to create a Container Apps environment in an existing virtual network (VNet).
 
@@ -20,10 +20,14 @@ The following example shows you how to create a Container Apps environment in an
 <!-- Create -->
 [!INCLUDE [container-apps-create-portal-steps.md](../../includes/container-apps-create-portal-steps.md)]
 
-> [!NOTE]
-> An existing VNet must have a dedicated subnet with a CIDR range of `/23` or larger when using the Consumption only environemnt. It must have a CIDR range of `/27` or larger when using the workload profiles environment. To learn more about subnet sizing, see the [networking architecture overview](./networking.md#subnet).
+You also have the option of deploying a private DNS for your Container Apps environment. For more information see [Create and configure an Azure Private DNS zone](waf-app-gateway.md#create-and-configure-an-azure-private-dns-zone).
 
-1. Select the **Networking** tab to create a VNet.
+#### Create a virtual network
+
+> [!NOTE]
+> To use a VNet with Container Apps, the VNet must have a dedicated subnet with a CIDR range of `/23` or larger when using the Consumption only environemnt, or a CIDR range of `/27` or larger when using the workload profiles environment. To learn more about subnet sizing, see the [networking architecture overview](./networking.md#subnet).
+
+1. Select the **Networking** tab.
 1. Select **Yes** next to *Use your own virtual network*.
 1. Next to the *Virtual network* box, select the **Create new** link and enter the following value.
 
@@ -41,7 +45,7 @@ The following example shows you how to create a Container Apps environment in an
     | Subnet Address Block | Keep the default values. |
 
 1. Select the **OK** button.
-1. Under *Virtual IP*, select **External**.
+1. Under *Virtual IP*, select **External** for an external environment, or **Internal** for an internal environment.
 1. Select **Create**.
 
 <!-- Deploy -->
@@ -184,6 +188,8 @@ Finally, create the Container Apps environment using the custom VNet.
 
 # [Bash](#tab/bash)
 
+To create the environment, run the following command. To create an internal environment, add `--internal-only`.
+
 ```azurecli-interactive
 az containerapp env create \
   --name $CONTAINERAPPS_ENVIRONMENT \
@@ -202,7 +208,7 @@ The following table describes the parameters used with `containerapp env create`
 | `logs-workspace-key` | The Log Analytics client secret. Required if using an existing workspace. |
 | `location` | The Azure location where the environment is to deploy. |
 | `infrastructure-subnet-resource-id` | Resource ID of a subnet for infrastructure components and user application containers. |
-
+| `internal-only` | (Optional) The environment doesn't use a public static IP, only internal IP addresses available in the custom VNet. (Requires an infrastructure subnet resource ID.) |
 
 # [Azure PowerShell](#tab/azure-powershell)
 
@@ -221,7 +227,7 @@ $WorkspaceId = (Get-AzOperationalInsightsWorkspace -ResourceGroupName $ResourceG
 $WorkspaceSharedKey = (Get-AzOperationalInsightsWorkspaceSharedKey -ResourceGroupName $ResourceGroupName -Name $WorkspaceArgs.Name).PrimarySharedKey
 ```
 
-To create the environment, run the following command:
+To create the environment, run the following command. Replace `<INTERNAL>` with `$true` or `$false` depending on whether you want an internal environment.
 
 ```azurepowershell-interactive
 $EnvArgs = @{
@@ -232,7 +238,7 @@ $EnvArgs = @{
     LogAnalyticConfigurationCustomerId = $WorkspaceId
     LogAnalyticConfigurationSharedKey = $WorkspaceSharedKey
     VnetConfigurationInfrastructureSubnetId = $InfrastructureSubnet
-    VnetConfigurationInternal = $true
+    VnetConfigurationInternal = <INTERNAL>
 }
 New-AzContainerAppManagedEnv @EnvArgs
 ```
@@ -247,6 +253,7 @@ The following table describes the parameters used in for `New-AzContainerAppMana
 | `LogAnalyticConfigurationSharedKey` | The Log Analytics client secret.|
 | `Location` | The Azure location where the environment is to deploy. |
 | `VnetConfigurationInfrastructureSubnetId` | Resource ID of a subnet for infrastructure components and user application containers. |
+| `VnetConfigurationInternal` | (Optional) If `$true`, the environment doesn't use a public static IP, only internal IP addresses available in the custom VNet. (Requires an infrastructure subnet resource ID.) |
 
 ---
 
