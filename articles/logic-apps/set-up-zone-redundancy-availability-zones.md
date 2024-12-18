@@ -63,7 +63,7 @@ For Standard logic apps only, follow these steps:
    > [!NOTE]
    >
    > The **Zone redundancy** options appear unavailable if you select an unsupported Azure region or an 
-   > existing Windows plan that created in an unsupported Azure region. Make sure to select a supported 
+   > existing Windows plan that was created in an unsupported Azure region. Make sure to select a supported 
    > Azure region and a Windows plan that was created in a supported Azure region, or create a new Windows plan.
 
 1. Finish creating your logic app workflow.
