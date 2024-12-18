@@ -47,7 +47,14 @@ mediaAccessFeature.permitVideo([user1, user2]);
 ```
 
 ### Control access to send audio or video of all attendees
-This feature allows users with the Organizer and Presenter roles to forbid and permit media access for other participants on Teams calls. In Azure Communication calls, changing the state of other participants isn't allowed unless adding the presenter role.
+Microsoft Teams meetings support API that allows participants with role organizer, co-organizers or presenters to allow or deny all attendees to send audio or video. You can use method `permitOthersAudio()` to allow all attendees to unmute or method `permitOthersVideo()` to allow all attendees to turn on video. These actions won't automatically unmute or turn on video, they only allow attendees to perform these actions. 
+
+```js
+//Allow all attendees to unmute
+mediaAccessFeature.permitOthersAudio();
+
+//Allow all attendees to turn on video
+mediaAccessFeature.permitOthersVideo();
 
 To use this feature, you can use the following code:
 ```js
