@@ -12,7 +12,7 @@ ms.date: 12/02/2024
 
 # Roll out features to targeted audiences in an ASP.NET Core application
 
-In this guide, you'll use the targeting filter to roll out a feature to a targeted audience for your ASP.NET Core application. For more information about the targeting filter, see [Roll out features to targeted audiences](./howto-targetingfilter.md).
+In this guide, you'll use the targeting filter to roll out a feature to targeted audiences for your ASP.NET Core application. For more information about the targeting filter, see [Roll out features to targeted audiences](./howto-targetingfilter.md).
 
 ## Prerequisites
 
@@ -31,17 +31,9 @@ In this section, you create a web application that allows users to sign in and u
    dotnet new webapp --auth Individual -o TestFeatureFlags
    ```
 
-1. Navigate to the newly created *TestFeatureFlags* directory.
-
-   ```dotnetcli
-   cd TestFeatureFlags
-   ```
-
-1. Add references to the following NuGet packages to connect to your App Configuration store using Microsoft Entra ID (recommended) or a connection string.
+1. Navigate to the newly created *TestFeatureFlags* directory and add references to the following NuGet packages.
 
     ### [Microsoft Entra ID (recommended)](#tab/entra-id)
-
-     Add references to the following NuGet packages.
 
     ```dotnetcli
     dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore
@@ -51,21 +43,13 @@ In this section, you create a web application that allows users to sign in and u
 
     ### [Connection string](#tab/connection-string)
 
-    Add references to the following NuGet packages.
-    
     ```dotnetcli
     dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore
     dotnet add package Microsoft.FeatureManagement.AspNetCore
     ```
     ---
 
-1. Restore packages for your project:
-
-     ```dotnetcli
-     dotnet restore
-     ```
-
-1. Create a user secret for the application by navigating into the *TestFeatureFlags* folder and running the following command.
+1. Create a user secret for the application by running the following commands.
 
     ### [Microsoft Entra ID (recommended)](#tab/entra-id)
 
@@ -78,11 +62,11 @@ In this section, you create a web application that allows users to sign in and u
 
     ### [Connection string](#tab/connection-string)
 
-    The command uses [Secret Manager](/aspnet/core/security/app-secrets) to store a secret named `ConnectionStrings:AppConfig`, which stores the connection string for your App Configuration store. Replace the `<your_connection_string>` placeholder with your App Configuration store's connection string. You can find the connection string in your App Configuration store's **Access settings** in the Azure portal.
+    The command uses [Secret Manager](/aspnet/core/security/app-secrets) to store a secret named `ConnectionStrings:AppConfiguration`, which stores the connection string for your App Configuration store. Replace the `<your-App-Configuration-connection-string>` placeholder with your App Configuration store's read-only connection string. You can find the connection string in your App Configuration store's **Access settings** in the Azure portal.
 
     ```dotnetcli
     dotnet user-secrets init
-    dotnet user-secrets set ConnectionStrings:AppConfig "<your_connection_string>"
+    dotnet user-secrets set ConnectionStrings:AppConfiguration "<your-App-Configuration-connection-string>"
     ```
     ---
 
@@ -102,18 +86,15 @@ In this section, you create a web application that allows users to sign in and u
     
         var builder = WebApplication.CreateBuilder(args);
     
-        // Load configuration from Azure App Configuration 
+        // Retrieve the endpoint
+        string endpoint = builder.Configuration.GetValue<string>("Endpoints:AppConfiguration") 
+            ?? throw new InvalidOperationException("The setting `Endpoints:AppConfiguration` was not found.");
+        
+        // Connect to Azure App Configuration and load all feature flags with no label
         builder.Configuration.AddAzureAppConfiguration(options =>
         {
-            string endpoint = builder.Configuration.Get("Endpoints:AppConfiguration");
-            options.Connect(new Uri(endpoint), new DefaultAzureCredential());
-        });
-    
-        // Load feature flag configuration from Azure App Configuration
-        builder.Configuration.AddAzureAppConfiguration(options =>
-        {
-            options.Connect(new Uri(endpoint), new DefaultAzureCredential());
-            options.UseFeatureFlags();
+            options.Connect(new Uri(endpoint), new DefaultAzureCredential())
+                   .UseFeatureFlags();
         });
     
         // Add Azure App Configuration middleware to the container of services
@@ -136,14 +117,15 @@ In this section, you create a web application that allows users to sign in and u
 
     var builder = WebApplication.CreateBuilder(args);
 
-    // Retrieve the App Config connection string
-    string AppConfigConnectionString = builder.Configuration.GetConnectionString("AppConfig") ?? throw new InvalidOperationException("Connection string 'AppConfig' not found."); ;
+    // Retrieve the connection string
+    string connectionString = builder.Configuration.GetConnectionString("AppConfiguration")
+        ?? throw new InvalidOperationException("The connection string 'AppConfiguration' was not found.");
 
-    // Load feature flag configuration from Azure App Configuration
+    // Connect to Azure App Configuration and load all feature flags with no label
     builder.Configuration.AddAzureAppConfiguration(options =>
     {
-        options.Connect(AppConfigConnectionString);
-        options.UseFeatureFlags();
+        options.Connect(connectionString)
+               .UseFeatureFlags();
     });
 
     // Add Azure App Configuration middleware to the container of services
