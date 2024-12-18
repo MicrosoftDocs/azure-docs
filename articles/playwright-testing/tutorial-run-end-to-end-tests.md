@@ -1,6 +1,6 @@
 ---
-title: Tutorial: Run end to end tests with Playwright Testing
-description: "In this tutorial, you learn how to integrate Microsoft Playwright Testing with a Playwright test suite, run Playwright tests on cloud hosted browsers and troubleshoot failed test using reports."
+title: Tutorial: Run end-to-end tests with Playwright Testing
+description: "In this tutorial, you learn how to integrate Microsoft Playwright Testing with a Playwright test suite, run Playwright tests on cloud hosted browsers and troubleshoot failed tests using reports."
 author: vvs11
 ms.author: vanshsingh
 ms.service: microsoft-playwright-testing
@@ -11,22 +11,22 @@ ms.date: [12/18/2024]
 
 ---
 
-# Tutorial: Run end to end Playwright tests with Microsoft Playwright Testing service
+# Tutorial: Run end-to-end Playwright tests with Microsoft Playwright Testing service
 
-In this tutorial, you learn how to integrate your Playwright test suite with Microsoft Playwright Testing, run tests faster using cloud-hosted browsers, and troubleshoot efficiently with the service's reporting features. You'll simulate a Playwright test suite, connect it to the service for faster execution, and use reporting tools for streamlined troubleshooting.
+In this tutorial, you learn how to integrate your Playwright test suite with Microsoft Playwright Testing, run tests faster using cloud-hosted browsers, and troubleshoot efficiently using the service's reporting features. You'll simulate a Playwright test suite, connect it to the service for faster execution, and use reporting tools for streamlined troubleshooting.
 
 In this tutorial, you:
 
 > [!div class="checklist"]
 > * Set up a Playwright test suite.
-> * Integrate Playwright test suite with Microsoft Playwright Testing service.
+> * Integrate the Playwright test suite with Microsoft Playwright Testing service.
 > * Run the test suite with the service for faster execution and efficient troubleshooting. 
 
 ## Prerequisites
 
 * An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 * The [Azure CLI](/cli/azure/install-azure-cli) installed on your local computer.
-* Azure CLI version 2.2.0 or later. Run `az --version` to find the version that is installed on your computer. If you need to install or upgrade the Azure CLI, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
+* Azure CLI version 2.2.0 or later. Run `az --version` to check the installed version on your computer. If you need to install or upgrade the Azure CLI, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 * Visual Studio Code. If you don't have it, [download and install it](https://code.visualstudio.com/Download).
 * Git. If you don't have it, [download and install it](https://git-scm.com/download).
 
@@ -101,7 +101,7 @@ To get the service endpoint URL, perform the following steps:
 
 1. In **Add region endpoint in your setup**, copy the region endpoint for your workspace.
 
-    The endpoint URL matches the Azure region that you selected when creating the workspace. Make sure this URL is available in `PLAYWRIGHT_SERVICE_URL` environment variable.
+    The endpoint URL matches the Azure region that you selected when creating the workspace. Ensure this URL is available in `PLAYWRIGHT_SERVICE_URL` environment variable.
 
     :::image type="content" source="./media/quickstart-run-end-to-end-tests/playwright-testing-region-endpoint.png" alt-text="Screenshot that shows how to copy the workspace region endpoint in the Playwright Testing portal." lightbox="./media/quickstart-run-end-to-end-tests/playwright-testing-region-endpoint.png":::
 
@@ -143,7 +143,7 @@ az login
 
 6. Enable artifacts in your Playwright setup 
 
-In the `playwright.config.ts` file of your project, make sure you are collecting all the required artifacts.
+In the `playwright.config.ts` file of your project, ensure you are collecting all the required artifacts.
 ```typescript
   use: {
     trace: 'on-first-retry',
@@ -160,7 +160,7 @@ You've now prepared the configuration for running your Playwright tests in the c
 
 With Microsoft Playwright Testing, you get charged based on the number of total test minutes and number of test results published. If you're a first-time user or [getting started with a free trial](./how-to-try-playwright-testing-free.md), you might start with running a single test at scale instead of your full test suite to avoid exhausting your free trial limits.
 
-Perform the following steps to run Playwright tests with Microsoft Playwright Testing:
+Follow these steps to run Playwright tests with Microsoft Playwright Testing:
 
 1. Open a terminal window.
 
@@ -201,6 +201,6 @@ You can now troubleshoot the failed test cases in the Playwright portal.
 
 > [Set up continuous end-to-end testing in CI/CD](./quickstart-automate-end-to-end-testing.md)
 
-> [Explore service config options](./how-to-use-service-config-file.md)
+> [Explore service configuration options](./how-to-use-service-config-file.md)
 
 > [Determine the optimal test suite configuration](./concept-determine-optimal-configuration.md)
