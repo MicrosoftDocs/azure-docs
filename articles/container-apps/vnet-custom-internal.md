@@ -99,7 +99,7 @@ $VnetName = 'my-custom-vnet'
 
 ---
 
-Now create a virtual network to associate with the Container Apps environment. The virtual network must have two subnets available for the container app instance.
+Now create a virtual network to associate with the Container Apps environment. The virtual network must have a subnet available for the environment deployment.
 
 # [Bash](#tab/bash)
 
