@@ -300,6 +300,14 @@
               href: howto-service-principal-rotation.md
     - name: Install CLI Extension
       href: howto-install-cli-extensions.md
+    - name: General
+      expanded: false
+      items:
+        - name: Check runtime version
+          href: howto-check-runtime-version.md
+        - name: Site decommission checklist
+          href: howto-decommission-nexus-instance-checklist.md
+      
 - name: Troubleshooting
   expanded: true
   items:
