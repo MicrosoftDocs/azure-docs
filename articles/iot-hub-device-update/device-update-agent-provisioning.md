@@ -3,7 +3,7 @@ title: Provision Azure Device Update for IoT Hub agent| Microsoft Docs
 description: Learn how to provision the Azure Device Update for Azure IoT Hub agent.
 author: eshashah-msft
 ms.author: eshashah
-ms.date: 12/16/2024
+ms.date: 12/18/2024
 ms.topic: how-to
 ms.service: azure-iot-hub
 ms.subservice: device-update
@@ -11,18 +11,18 @@ ms.subservice: device-update
 
 # Provision Azure Device Update for IoT Hub agent
 
-The Device Update module agent can run along with other system processes and [IoT Edge modules](../iot-edge/iot-edge-modules.md) that connect to your IoT Hub as part of the same logical device. This article describes how to provision the Device Update agent as a Module Identity.
+The Device Update module agent can run along with other system processes and [IoT Edge modules](../iot-edge/iot-edge-modules.md) that connect to your IoT Hub as part of the same logical device. This article describes how to provision the Device Update agent as a module identity.
 
 >[!NOTE]
 >If you use the Device Update agent, make sure you're on the version 1.0.0 general availability (GA) version. You can check the installed versions of the Device Update agent and the Delivery Optimization agent in the [properties](device-update-plug-and-play.md#device-properties) section of your [IoT device twin](../iot-hub/iot-hub-devguide-device-twins.md). For more information, see [Migrate devices and groups to the latest Device Update release](migration-public-preview-refresh-to-ga.md).
 
 ## Module identity and device identity
 
-You can create up to 50 module identities under each Azure IoT Hub device identity. Each Module Identity implicitly generates a Module Identity Twin. On the device side, you can use the IoT Hub device SDKs to create modules that each open an independent connection to IoT Hub.
+You can create up to 50 module identities under each Azure IoT Hub device identity. Each module identity implicitly generates a module identity twin. On the device side, you can use the IoT Hub device SDKs to create modules that each open an independent connection to IoT Hub.
 
-Module Identity and Module Identity Twin provide capabilities similar to device identity and device twin, but at a finer granularity. For more information, see [Understand and use module twins in IoT Hub](../iot-hub/iot-hub-devguide-module-twins.md).
+module identity and module identity twin provide similar capabilities to device identity and device twin, but at a finer granularity. For more information, see [Understand and use module twins in IoT Hub](../iot-hub/iot-hub-devguide-module-twins.md).
 
-When you provision the Device Update agent as a Module Identity, all [communications](device-update-plug-and-play.md) between the device and the Device Update service must happen over the Module Twin. Remember to tag the Module Twin of the device when you create [device groups](device-update-groups.md). If you migrate from a device-level agent to adding the agent as a Module Identity, remove the older agent that communicated over the device twin.
+When you provision the Device Update agent as a module identity, all [communications](device-update-plug-and-play.md) between the device and the Device Update service must happen over the Module Twin. Remember to tag the Module Twin of the device when you create [device groups](device-update-groups.md). If you migrate from a device-level agent to adding the agent as a module identity, remove the older agent that communicated over the device twin.
 
 ## Supported update types
 
@@ -82,7 +82,7 @@ You can download and unzip sample images from the **Assets** section on the [Rel
 
 ### Prepare the device
 
-You can provision the Device Update agent as a Module Identity on IoT Edge enabled devices or non-IoT Edge IoT devices. To check if you have IoT Edge enabled on your device, see [View registered devices and retrieve provisioning information](../iot-edge/how-to-provision-single-device-linux-symmetric.md?preserve-view=true&view=iotedge-2020-11#view-registered-devices-and-retrieve-provisioning-information).
+You can provision the Device Update agent as a module identity on IoT Edge enabled devices or non-IoT Edge IoT devices. To check if you have IoT Edge enabled on your device, see [View registered devices and retrieve provisioning information](../iot-edge/how-to-provision-single-device-linux-symmetric.md?preserve-view=true&view=iotedge-2020-11#view-registered-devices-and-retrieve-provisioning-information).
 
 - For an [IoT Edge enabled device](../iot-edge/index.yml), follow the instructions at [Manually provision a single Linux IoT Edge device](../iot-edge/how-to-provision-single-device-linux-symmetric.md?preserve-view=true&view=iotedge-2020-11#install-iot-edge).
 
@@ -110,7 +110,7 @@ You can provision the Device Update agent as a Module Identity on IoT Edge enabl
 
 For testing or on constrained devices, you can also configure the Device Update agent without using the IoT Identity service. You can use a connection string to provision the Device Update agent from the module or device.
 
-1. In the Azure portal, copy the primary connection string. If the Device Update agent is configured as a Module Identity, copy the module's primary connection string. Otherwise, copy the device's primary connection string.
+1. In the Azure portal, copy the primary connection string. If the Device Update agent is configured as a module identity, copy the module's primary connection string. Otherwise, copy the device's primary connection string.
 
 1. In a Terminal window on the machine or IoT device where you installed the Device Update agent, edit the [Device Update configuration file](device-update-configuration-file.md) by running the following command:
 
