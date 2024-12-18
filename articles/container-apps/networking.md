@@ -2,13 +2,13 @@
 title: Networking in Azure Container Apps environment
 description: Learn how to configure virtual networks in Azure Container Apps.
 services: container-apps
-author: cachai
+author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom:
   - ignite-2024
 ms.topic:  conceptual
 ms.date: 08/29/2023
-ms.author: cachai
+ms.author: cshoe
 ---
 
 # Networking in Azure Container Apps environment
