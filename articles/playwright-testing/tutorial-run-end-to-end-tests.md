@@ -3,7 +3,7 @@ title: 'Tutorial: Run end-to-end tests with Playwright Testing'
 description: 'In this tutorial, you learn how to integrate Microsoft Playwright Testing with a Playwright test suite, run Playwright tests on cloud hosted browsers and troubleshoot failed tests using reports.'
 author: vvs11
 ms.author: vanshsingh
-ms.service: microsoft-playwright-testing
+ms.service: playwright-testing
 ms.topic: tutorial
 ms.date: 12/18/2024
 
