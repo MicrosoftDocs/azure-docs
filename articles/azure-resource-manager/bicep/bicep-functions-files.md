@@ -70,11 +70,40 @@ The contents of the file as an Any object.
 
 The following example creates a JSON file that contains values for a network security group.
 
-::: code language="json" source="~/azure-docs-bicep-samples/syntax-samples/functions/loadJsonContent/nsg-security-rules.json" :::
+```json
+{
+  "description": "Allows SSH traffic",
+  "protocol": "Tcp",
+  "sourcePortRange": "*",
+  "destinationPortRange": "22",
+  "sourceAddressPrefix": "*",
+  "destinationAddressPrefix": "*",
+  "access": "Allow",
+  "priority": 100,
+  "direction": "Inbound"
+}
+```
 
 You load that file and convert it to a JSON object. You use the object to assign values to the resource.
 
-::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/functions/loadJsonContent/loadsharedrules.bicep" highlight="3,12" :::
+```bicep
+param location string = resourceGroup().location
+
+var nsgconfig = loadJsonContent('nsg-security-rules.json')
+
+resource newNSG 'Microsoft.Network/networkSecurityGroups@2023-11-01' = {
+  name: 'example-nsg'
+  location: location
+  properties: {
+    securityRules: [
+      {
+        name: 'SSH'
+        properties: nsgconfig
+      }
+    ]
+  }
+}
+```
 
 You can reuse the file of values in other Bicep files that deploy a network security group.
 
@@ -112,11 +141,38 @@ The contents of the file as an Any object.
 
 The following example creates a YAML file that contains values for a network security group.
 
-::: code language="yml" source="~/azure-docs-bicep-samples/syntax-samples/functions/loadYamlContent/nsg-security-rules.yaml" :::
+```yaml
+description: "Allows SSH traffic"
+protocol: "Tcp"
+sourcePortRange: "*"
+destinationPortRange: "22"
+sourceAddressPrefix: "*"
+destinationAddressPrefix: "*"
+access: "Allow"
+priority: 100
+direction: "Inbound"
+```
 
 You load that file and convert it to a JSON object. You use the object to assign values to the resource.
 
-::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/functions/loadYamlContent/loadsharedrules.bicep" highlight="3,12" :::
+```bicep
+param location string = resourceGroup().location
+
+var nsgconfig = loadYamlContent('nsg-security-rules.yaml')
+
+resource newNSG 'Microsoft.Network/networkSecurityGroups@2023-11-01' = {
+  name: 'example-nsg'
+  location: location
+  properties: {
+    securityRules: [
+      {
+        name: 'SSH'
+        properties: nsgconfig
+      }
+    ]
+  }
+}
+```
 
 You can reuse the file of values in other Bicep files that deploy a network security group.
 
@@ -153,7 +209,24 @@ The contents of the file as a string.
 
 The following example loads a script from a file and uses it for a deployment script.
 
-::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/functions/loadTextContent/loaddeploymentscript.bicep" highlight="13" :::
+```bicep
+resource exampleScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
+  name: 'exampleScript'
+  location: resourceGroup().location
+  kind: 'AzurePowerShell'
+  identity: {
+    type: 'UserAssigned'
+    userAssignedIdentities: {
+      '/subscriptions/{sub-id}/resourcegroups/{rg-name}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{id-name}': {}
+    }
+  }
+  properties: {
+    azPowerShellVersion: '8.3'
+    scriptContent: loadTextContent('myscript.ps1')
+    retentionInterval: 'P1D'
+  }
+}
+```
 
 ## Next steps
 

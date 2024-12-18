@@ -6,7 +6,7 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: devx-track-azurecli, linux-related-content
 ms.topic: how-to
-ms.date: 09/30/2022
+ms.date: 09/04/2024
 ms.author: anfdocs
 ---
 # Monitor the capacity of a volume  
@@ -33,9 +33,7 @@ The *available space* is accurate using File Explorer or the `dir` command. Howe
 
 ### Linux (NFS) clients 
 
-Linux clients can check the used and available capacity of a volume using the [df command](https://linux.die.net/man/1/df).  
-
-The `-h` option shows the size, including used and available space in human readable format (using M, G and T unit sizes).
+Linux clients can check the used and available capacity of a volume using the [`df -h`](https://linux.die.net/man/1/df). Using the `h` option displays the size, including used and available space in human readable format (using M, G and T unit sizes).
 
 The following snapshot shows volume capacity reporting in Linux:
 
@@ -47,7 +45,7 @@ The *available space* is accurate using the `df` command. However, the *consumed
 > The `du` command doesn’t account for the space used by snapshots generated in the volume. As such, it’s not recommended for determining the available capacity in a volume.
 
 ## Using Azure portal
-Azure NetApp Files leverages the standard [Azure Monitor](../azure-monitor/overview.md) functionality. As such, you can use Azure Monitor to monitor Azure NetApp Files volumes.  
+Azure NetApp Files leverages the standard [Azure Monitor](/azure/azure-monitor/overview) functionality. As such, you can use Azure Monitor to monitor Azure NetApp Files volumes.  
 
 ## Using Azure CLI  
 

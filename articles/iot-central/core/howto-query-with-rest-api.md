@@ -4,9 +4,9 @@ description: How to use the IoT Central REST API to query devices in an applicat
 titleSuffix: Azure IoT Central
 author: dominicbetts
 ms.author: dobett
-ms.date: 05/19/2023
+ms.date: 10/14/2024
 ms.topic: how-to
-ms.service: iot-central
+ms.service: azure-iot-central
 services: iot-central
 
 ---
@@ -17,7 +17,7 @@ The IoT Central REST API lets you develop client applications that integrate wit
 
 - Get the last 10 telemetry values reported by a device.
 - Find all devices that are in an error state and have outdated firmware.
-- Telemetry trends from devices, averaged in 10-minute windows.
+- Analyze telemetry trends from devices, averaged in 10-minute windows.
 - Get the current firmware version of all your thermostat devices.
 
 This article describes how to use the `/query` API to query devices.
@@ -27,8 +27,6 @@ A device can group the properties, telemetry, and commands it supports into _com
 Every IoT Central REST API call requires an authorization header. To learn more, see [How to authenticate and authorize IoT Central REST API calls](howto-authorize-rest-api.md).
 
 For the reference documentation for the IoT Central REST API, see [Azure IoT Central REST API reference](/rest/api/iotcentral/).
-
-[!INCLUDE [iot-central-postman-collection](../../../includes/iot-central-postman-collection.md)]
 
 To learn how to query devices by using the IoT Central UI, see [How to use data explorer to analyze device data.](../core/howto-create-analytics.md)
 
@@ -121,7 +119,7 @@ You can find the component name in the device template:
 
 The following limits apply in the `SELECT` clause:
 
-- There's no wildcard operator.
+- No wildcard operator is available.
 - You can't have more than 15 items in the select list.
 - A query returns a maximum of 10,000 records.  
 
@@ -295,7 +293,3 @@ The current limits for queries are:
 - The maximum length of a query string is 350 characters.
 - You can't use the wildcard (`*`) in the `SELECT` clause list.
 - Queries can retrieve up to 10,000 records.
-
-## Next steps
-
-Now that you've learned how to query devices with the REST API, a suggested next step is to learn [How to use the IoT Central REST API to manage users and roles](howto-manage-users-roles-with-rest-api.md).

@@ -105,7 +105,7 @@ You create a C# function app in an [Elastic Premium plan](./functions-premium-pl
 Congratulations! You've successfully created your premium function app.
 
 > [!NOTE] 
-> Some deployments may occassionally fail to create the private endpoints in the storage account with the error 'StorageAccountOperationInProgress'. This failure occurs even though the function app itself gets created successfully. When you encounter such an error, delete the function app and retry the operation. You can instead create the private endpoints on the storage account manually. 
+> Some deployments may occasionally fail to create the private endpoints in the storage account with the error 'StorageAccountOperationInProgress'. This failure occurs even though the function app itself gets created successfully. When you encounter such an error, delete the function app and retry the operation. You can instead create the private endpoints on the storage account manually. 
 
 ### Create a Service Bus
 
@@ -294,7 +294,7 @@ The following DNS zones were created in this tutorial:
 - privatelink.servicebus.windows.net
 - privatelink.azurewebsites.net
 
-[!INCLUDE [clean-up-section-portal](~/reusable-content/ce-skilling/azure/includes/clean-up-section-portal.md)]
+[!INCLUDE [clean-up-section-portal](../../includes/clean-up-section-portal.md)]
 
 ## Next steps
 

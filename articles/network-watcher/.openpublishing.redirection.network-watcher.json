@@ -1,6 +1,26 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/network-watcher/network-watcher-network-configuration-diagnostics-overview.md",
+            "redirect_url": "/azure/network-watcher/nsg-diagnostics-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/network-watcher/usage-scenarios-traffic-analytics.md",
+            "redirect_url": "/azure/network-watcher/traffic-analytics-usage-scenarios",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/network-watcher/data-residency.md",
+            "redirect_url": "/azure/network-watcher/frequently-asked-questions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/network-watcher/connection-monitor-virtual-machine-scale-set.md",
+            "redirect_url": "/previous-versions/azure/network-watcher/connection-monitor-virtual-machine-scale-set",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/network-watcher/view-network-topology.md",
             "redirect_url": "/azure/network-watcher/network-insights-topology",
             "redirect_document_id": false

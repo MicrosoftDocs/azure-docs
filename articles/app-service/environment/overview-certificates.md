@@ -9,7 +9,7 @@ ms.author: madsd
 
 # Certificates and the App Service Environment 
 > [!NOTE]
-> This article is about the App Service Environment v3 which is used with Isolated v2 App Service plans
+> This article is about the App Service Environment v3, which is used with Isolated v2 App Service plans
 >
 
 The App Service Environment is a deployment of the Azure App Service that runs within your Azure virtual network. It can be deployed with an internet accessible application endpoint or an application endpoint that is in your virtual network. If you deploy the App Service Environment with an internet accessible endpoint, that deployment is called an External App Service Environment. If you deploy the App Service Environment with an endpoint in your virtual network, that deployment is called an ILB App Service Environment. You can learn more about the ILB App Service Environment from the [Create and use an ILB App Service Environment](./creation.md) document.

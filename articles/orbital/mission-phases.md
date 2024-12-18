@@ -1,12 +1,12 @@
 ---
 title: Azure Orbital Ground Station - Mission Phases
-description: Points users to relevant resources depending on the phase of their mission.
+description: Points users to relevant resources, like secure access to communication products and services, depending on the phase of their mission.
 author: kellydevens
-ms.service: orbital
+ms.service: azure-orbital
 ms.topic: how-to
 ms.custom: ga
 ms.date: 10/12/2023
-ms.author: kellydevens
+ms.author: mosagie
 #Customer intent: As a satellite operator or user, I want to know how to use AOGS at each phase in my satellite mission.
 ---
 

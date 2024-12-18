@@ -12,7 +12,7 @@ ms.date: 01/04/2024
 
 # Add schemas to use with workflows with Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption-standard.md)]
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 Workflow actions such as **Flat File** and **XML Validation** require a schema to perform their tasks. For example, the **XML Validation** action requires an XML schema to check that documents use valid XML and have the expected data in the predefined format. This schema is an XML document that uses [XML Schema Definition (XSD)](https://www.w3.org/TR/xmlschema11-1/) language and has the .xsd file name extension. The **Flat File** actions use a schema to encode and decode XML content.
 
@@ -22,13 +22,10 @@ This article shows how to add a schema to your integration account. If you're wo
 
 * An Azure account and subscription. If you don't have a subscription yet, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* The schema file that you want to add. To create schemas, you can use the following tools:
-
-  * Visual Studio 2019 and the [Microsoft Azure Logic Apps Enterprise Integration Tools Extension](https://aka.ms/vsenterpriseintegrationtools).
-
-  * Visual Studio 2015 and the [Microsoft Azure Logic Apps Enterprise Integration Tools for Visual Studio 2015 2.0](https://aka.ms/vsmapsandschemas) extension.
+* The schema file that you want to add. To create schemas, you can use Visual Studio 2019 and the [Microsoft Azure Logic Apps Enterprise Integration Tools Extension](https://aka.ms/vsenterpriseintegrationtools).
 
    > [!NOTE]
+   >
    > Don't install the extension alongside the BizTalk Server extension. Having both extensions might 
    > produce unexpected behavior. Make sure that you only have one of these extensions installed.
    >

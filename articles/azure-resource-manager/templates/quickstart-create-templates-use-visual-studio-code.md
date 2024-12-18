@@ -1,7 +1,7 @@
 ---
 title: Create template - Visual Studio Code
 description: Use Visual Studio Code and the Azure Resource Manager tools extension to work on Azure Resource Manager templates (ARM templates).
-ms.date: 07/28/2023
+ms.date: 09/26/2024
 ms.topic: quickstart
 ms.custom: mode-ui, devx-track-arm-template
 #Customer intent: As a developer new to Azure deployment, I want to learn how to use Visual Studio Code to create and edit Resource Manager templates, so I can use the templates to deploy Azure resources.
@@ -74,11 +74,11 @@ Place your cursor in the parameters block, add a carriage return, type `"`, and 
 
 :::image type="content" source="./media/quickstart-create-templates-use-visual-studio-code/9.png" alt-text="Screenshot showing a parameter being added to the ARM template.":::
 
-Update the name of the parameter to `storageAccountName` and the description to `Storage Account Name`.
+Update the name of the parameter to `storageAccountName` and the description to `Storage account name`.
 
 :::image type="content" source="./media/quickstart-create-templates-use-visual-studio-code/10.png" alt-text="Screenshot showing the completed parameter in an ARM template.":::
 
-Azure storage account names have a minimum length of 3 characters and a maximum of 24. Add both `minLength` and `maxLength` to the parameter and provide appropriate values.
+Azure storage account names have a minimum length of three characters and a maximum of 24. Add both `minLength` and `maxLength` to the parameter and provide appropriate values.
 
 :::image type="content" source="./media/quickstart-create-templates-use-visual-studio-code/11.png" alt-text="Screenshot showing minLength and maxLength being added to an ARM template parameter.":::
 
@@ -133,6 +133,7 @@ New-AzResourceGroup -Name arm-vscode -Location eastus
 
 New-AzResourceGroupDeployment -ResourceGroupName arm-vscode -TemplateFile ./azuredeploy.json -TemplateParameterFile ./azuredeploy.parameters.json
 ```
+
 ---
 
 ## Clean up resources
@@ -150,6 +151,7 @@ az group delete --name arm-vscode
 ```azurepowershell
 Remove-AzResourceGroup -Name arm-vscode
 ```
+
 ---
 
 ## Next steps

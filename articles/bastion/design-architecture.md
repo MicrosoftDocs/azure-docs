@@ -5,7 +5,7 @@ author: cherylmc
 ms.topic: article
 ms.date: 05/09/2024
 ms.author: cherylmc
-ms.service: bastion
+ms.service: azure-bastion
 ---
 
 # Design architecture for Azure Bastion

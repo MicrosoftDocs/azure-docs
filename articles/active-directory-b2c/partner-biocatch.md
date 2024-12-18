@@ -5,11 +5,12 @@ description: Tutorial to configure Azure Active Directory B2C with BioCatch to i
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.topic: how-to
-ms.date: 01/26/2024
+ms.date: 06/21/2024
+
 ms.author: gasinh
-ms.subservice: B2C
+ms.subservice: b2c
 
 # Customer intent: I'm a developer integrating Azure AD B2C authentication with BioCatch technology. I need to configure the custom UI, policies, and user journey. My goal is to enhance the security of my Customer Identity and Access Management (CIAM) system by analyzing user physical and cognitive behaviors.
 ---
@@ -340,7 +341,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
 Add the policy files to Azure AD B2C. For the following instructions, use the directory with the Azure AD B2C tenant. 
 
-1. Sign in to the [**Azure portal**](https://portal.azure.com/) as the Global Administrator of the Azure AD B2C tenant.
+1. Sign in to the [**Azure portal**](https://portal.azure.com/) as at least B2C IEF Policy Administrator of the Azure AD B2C tenant.
 1. In the portal toolbar, select **Directories + subscriptions**.
 1. On the **Portal settings, Directories + subscriptions** page, in the **Directory name** list, locate the Azure AD B2C directory.
 2. Select **Switch**.
@@ -380,9 +381,9 @@ For the following instructions, see [Tutorial: Register a web application in Azu
 
       "iss": "https://tenant.b2clogin.com/12345678-1234-1234-1234-123456789012/v2.0/", 
 
-      "sub": "12345678-1234-1234-1234-123456789012", 
+      "sub": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb", 
 
-      "aud": "12345678-1234-1234-1234-123456789012", 
+      "aud": "00001111-aaaa-2222-bbbb-3333cccc4444", 
 
       "acr": "b2c_1a_signup_signin_biocatch_policy", 
 
@@ -404,7 +405,7 @@ For the following instructions, see [Tutorial: Register a web application in Azu
 
       "score": 275, 
 
-      "tid": "12345678-1234-1234-1234-123456789012" 
+      "tid": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb" 
 
     }.[Signature]  
 

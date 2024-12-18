@@ -2,7 +2,7 @@
 title: Create a workflow with a trigger or action
 description: Start building your workflow by adding a trigger or an action in Azure Logic Apps.
 services: logic-apps
-ms.service: logic-apps
+ms.service: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
@@ -12,7 +12,7 @@ ms.date: 05/14/2024
 
 # Build a workflow with a trigger or action in Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption-standard.md)]
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 This how-to guide shows how to start your workflow by adding a *trigger* and then continue your workflow by adding an *action*. The trigger is always the first step in any workflow and specifies the condition to meet before your workflow can start to run. Following the trigger, you have to add one or more subsequent actions for your workflow to perform the tasks that you want. The trigger and actions work together to define your workflow's logic and structure.
 
@@ -26,10 +26,9 @@ This guide shows the steps for Consumption and Standard logic app workflows.
 
 - To add an action, you have to start with a logic app resource and a workflow that minimally has a trigger.
 
-The following steps use the Azure portal, but you can also use the following tools to create a logic app and workflow:
+The following steps use the Azure portal, but you can also use the following tools to build a logic app workflow:
 
-  - Consumption workflows: [Visual Studio](quickstart-create-logic-apps-with-visual-studio.md) or [Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md)
-
+  - Consumption workflows: [Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md)
   - Standard workflows: [Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md)
 
 <a name="add-trigger"></a>

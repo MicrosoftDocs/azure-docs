@@ -2,12 +2,12 @@
 title: Create UI definition logical functions
 description: Describes the functions to perform logical operations.
 ms.topic: reference
-ms.date: 07/13/2020
+ms.date: 06/24/2024
 ---
 
 # CreateUiDefinition logical functions
 
-These functions can be used in conditional expressions. Some functions may not support all JSON data types.
+These functions can be used in conditional expressions. Some functions might not support all JSON data types.
 
 ## and
 
@@ -39,31 +39,30 @@ This function is especially useful in the context of optional invocation that ha
 
 Consider this `DropDown`, which allows the user to choose from several different database types:
 
-```
+```json
 {
-    "name": "databaseType",
-    "type": "Microsoft.Common.DropDown",
-    "label": "Choose database type",
-    "toolTip": "Choose database type",
-    "defaultValue": "Oracle Database",
-    "visible": "[bool(steps('section_database').connectToDatabase)]"
-    "constraints": {
-        "allowedValues": [
-            {
-                "label": "Azure Database for PostgreSQL",
-                "value": "postgresql"
-            },
-            {
-                "label": "Oracle Database",
-                "value": "oracle"
-            },
-            {
-                "label": "Azure SQL",
-                "value": "sqlserver"
-            }
-        ],
-        "required": true
-    },
+  "name": "databaseType",
+  "type": "Microsoft.Common.DropDown",
+  "label": "Choose database type",
+  "toolTip": "Choose database type",
+  "defaultValue": "Oracle Database",
+  "visible": "[bool(steps('section_database').connectToDatabase)]""constraints": {
+    "allowedValues": [
+      {
+        "label": "Azure Database for PostgreSQL",
+        "value": "postgresql"
+      },
+      {
+        "label": "Oracle Database",
+        "value": "oracle"
+      },
+      {
+        "label": "Azure SQL",
+        "value": "sqlserver"
+      }
+    ],
+    "required": true
+  },
 ```
 
 To condition the action of another field on the current chosen value of this field, use `coalesce()`, as shown here:
@@ -72,7 +71,7 @@ To condition the action of another field on the current chosen value of this fie
 "regex": "[concat('^jdbc:', coalesce(steps('section_database').databaseConnectionInfo.databaseType, ''), '.*$')]",
 ```
 
-This is necessary because the `databaseType` is initially not visible and therefore does not have a value. This causes the entire expression to not evaluate correctly.
+This functionality is necessary because the `databaseType` is initially not visible and therefore doesn't have a value, which causes the entire expression to not evaluate correctly.
 
 ## equals
 
@@ -192,4 +191,4 @@ The following example returns `true`:
 
 ## Next steps
 
-* For an introduction to Azure Resource Manager, see [Azure Resource Manager overview](../management/overview.md).
+- For an introduction to Azure Resource Manager, see [Azure Resource Manager overview](../management/overview.md).

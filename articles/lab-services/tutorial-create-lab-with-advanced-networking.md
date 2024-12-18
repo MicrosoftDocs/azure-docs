@@ -1,13 +1,15 @@
 ---
 title: Use advanced networking in Azure Lab Services | Microsoft Docs
 description: Create an Azure Lab Services lab plan with advanced networking.  Create two labs and verify they share same virtual network when published.
-ms.service: lab-services
+ms.service: azure-lab-services
 ms.topic: tutorial 
 ms.date: 08/28/2023
 ms.custom: template-tutorial
 ---
 
 # Tutorial: Set up lab to lab communication with advanced networking
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 [!INCLUDE [update focused article](includes/lab-services-new-update-focused-article.md)]
 
@@ -101,7 +103,7 @@ Next, you configure the subnet to be used with Azure Lab Services.  To use a sub
 
 ## Create a network security group
 
-[!INCLUDE [nsg intro](~/reusable-content/ce-skilling/azure/includes/virtual-networks-create-nsg-intro-include.md)]
+[!INCLUDE [nsg intro](../../includes/virtual-networks-create-nsg-intro-include.md)]
 
 An NSG is required when using advanced networking in Azure Lab Services.
 

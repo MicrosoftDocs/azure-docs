@@ -1,14 +1,17 @@
 ---
 title: Microsoft Azure FXT Edge Filer - Additional documentation 
 description: Additional reference documents help you understand and work with your Microsoft Azure FXT Edge Filer hybrid cache. 
-author: femila
-ms.service: fxt-edge-filer
+author: pauljewellmsft
+ms.author: pauljewell
+ms.service: azure-fxt-edge-filer
 ms.topic: conceptual
 ms.date: 06/20/2019
-ms.author: femila
 ---
 
 # Additional documentation for Azure FXT Edge Filer
+
+> [!NOTE]
+> **Action Required:** Azure FXT Edge Filer will be retired on December 31, 2026. Please remove all Azure FXT Edge Filer resources by December 31, 2026. Visit https://aka.ms/fxtretirementfaq for more information.
 
 Other non-Microsoft resources might help you understand and work with your Microsoft Azure FXT Edge Filer hybrid cache.
 

@@ -2,11 +2,11 @@
 title: Collect device debug logs
 titleSuffix: Azure IoT Hub
 description: To troubleshoot device issues, it's sometimes useful to collect low-level debug logs from the devices. This article shows how to use the device SDKs to generate debug logs.
-author: dominicbetts
-ms.author: dobett
+author: kgremban
+ms.author: kgremban
 ms.date: 01/20/2023
 ms.topic: how-to
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 services: iot-hub
 zone_pivot_groups: programming-languages-set-twenty-seven

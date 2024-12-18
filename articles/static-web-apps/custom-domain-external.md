@@ -3,9 +3,9 @@ title: Set up a custom domain with external providers in Azure Static Web Apps
 description: Use an external provider to manage your custom domain in Azure Static Web Apps.
 services: static-web-apps
 author: craigshoemaker
-ms.service: static-web-apps
+ms.service: azure-static-web-apps
 ms.topic: how-to
-ms.date: 05/29/2024
+ms.date: 10/21/2024
 ms.author: cshoe
 ---
 
@@ -17,10 +17,6 @@ There are multiple methods of configuring a custom domain for use with Static We
 
 - If you're using an apex domain (a domain without a subdomain, also known as a root domain), see [configuring a custom apex domain on Static Web Apps](apex-domain-external.md).
 - If you're using Azure DNS, see [configuring a custom domain with Azure DNS](custom-domain-azure-dns.md) or [configuring a custom apex domain with Azure DNS](apex-domain-azure-dns.md).
-
-> [!NOTE]
-> - You can map a custom domain to your Azure Static Web App using either `CNAME` or `A` record. `CNAME` record maps a domain name to another domain (or subdomain) whereas `A` record maps a domain name to an IP address. If the IP address changes, a `CNAME` entry is still valid, unlike `A` record. Let’s say you have WebApp1 and you would like users to access it from https://www.contoso.com. You can do it in two possible ways: you can create a `CNAME` record, also known as an alias, and map it to WebApp1.azurestaticapps.net. Alternatively, you can create an `A` record and map it to the IP address of WebApp1. In this tutorial, we will show you how to use `CNAME` record.
-> - Static Web Apps doesn't support set-up of a custom domain with a private DNS server, hosted on-premises. Consider using an [Azure Private DNS zone](../dns/private-dns-privatednszone.md).
 
 ## Prerequisites
 

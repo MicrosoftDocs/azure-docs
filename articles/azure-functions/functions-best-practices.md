@@ -7,6 +7,7 @@ ms.date: 08/30/2021
 ms.devlang: csharp
 ms.custom:
   - build-2024
+  - ignite-2024
 # ms.devlang: csharp, java, javascript, powershell, python
 # Customer intent: As a developer, I want to understand how to correctly design, deploy, and maintain my functions so I can run them in the most safe and efficient way possible.
 ---
@@ -24,8 +25,6 @@ When you create a function app in Azure, you must choose a hosting plan for your
 + [Flex Consumption plan](./flex-consumption-plan.md)
 + [Premium plan](functions-premium-plan.md)
 + [Dedicated (App Service) plan](dedicated-plan.md)
-
-[!INCLUDE [functions-flex-preview-note](../../includes/functions-flex-preview-note.md)]
 
 In the context of the App Service platform, the _Premium_ plan used to dynamically host your functions is the Elastic Premium plan (EP). There are other Dedicated (App Service) plans called Premium. To learn more, see the [Premium plan](functions-premium-plan.md) article.
 
@@ -73,9 +72,9 @@ Keep in mind the following considerations when creating this storage account:
 
 + To reduce latency, create the storage account in the same region as the function app.
 
-+ To improve performance in production, use a separate storage account for each function app. This is especially true with Durable Functions and Event Hub triggered functions. 
++ To improve performance in production, use a separate storage account for each function app. This is especially true with Durable Functions and Event Hubs triggered functions. 
 
-+ For Event Hub triggered functions, don't use an account with [Data Lake Storage enabled](https://github.com/Azure/azure-functions-eventhubs-extension/issues/81).
++ For Event Hubs triggered functions, don't use an account with [Data Lake Storage enabled](https://github.com/Azure/azure-functions-eventhubs-extension/issues/81).
 
 ### Handling large data sets
 
@@ -112,7 +111,7 @@ Consider these options for a successful deployment:
 
 ## Write robust functions
 
-There are several design principles you can following when writing your function code that help with general performance and availability of your functions. These principles include:
+There are several design principles you can follow when writing your function code that help with general performance and availability of your functions. These principles include:
  
 + [Avoid long running functions.](performance-reliability.md#avoid-long-running-functions) 
 + [Plan cross-function communication.](performance-reliability.md#cross-function-communication) 
@@ -185,7 +184,7 @@ Premium plan is the recommended plan for reducing colds starts while maintaining
 
 | Plan | Guidance |
 | --- | --- | 
-| **Premium plan** | • [Implement a Warmup trigger in your function app](functions-bindings-warmup.md)<br/>• [Set the values for Always-Ready instances and Max Burst limit](functions-premium-plan.md#plan-and-sku-settings)<br/>• [Use virtual network trigger support when using non-HTTP triggers on a virtual network](functions-networking-options.md#premium-plan-with-virtual-network-triggers)|
+| **Premium plan** | • [Implement a Warmup trigger in your function app](functions-bindings-warmup.md)<br/>• [Set the values for Always-Ready instances and Max Burst limit](functions-premium-plan.md#plan-and-sku-settings)<br/>• [Use virtual network trigger support when using non-HTTP triggers on a virtual network](functions-networking-options.md#elastic-premium-plan-with-virtual-network-triggers)|
 | **Dedicated plans** | • [Run on at least two instances with Azure App Service Health Check enabled](../app-service/monitor-instances-health-check.md)<br/>• [Implement autoscaling](/azure/architecture/best-practices/auto-scaling)|
 | **Consumption plan** | • Review your use of Singleton patterns and the concurrency settings for bindings and triggers to avoid artificially placing limits on how your function app scales.<br/>• [Review the `functionAppScaleLimit` setting, which can limit scale-out](event-driven-scaling.md#limit-scale-out)<br/>• Check for a Daily Usage Quota (GB-Sec) limit set during development and testing. Consider removing this limit in production environments. |
 

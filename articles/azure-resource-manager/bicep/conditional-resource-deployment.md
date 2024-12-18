@@ -3,7 +3,7 @@ title: Conditional deployment with Bicep
 description: Describes how to conditionally deploy a resource in Bicep.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 03/20/2024
+ms.date: 07/11/2024
 ---
 
 # Conditional deployments in Bicep with the if expression
@@ -24,7 +24,7 @@ In Bicep, you can conditionally deploy a resource by passing in a parameter that
 ```bicep
 param deployZone bool
 
-resource dnsZone 'Microsoft.Network/dnszones@2018-05-01' = if (deployZone) {
+resource dnsZone 'Microsoft.Network/dnsZones@2023-07-01-preview' = if (deployZone) {
   name: 'myZone'
   location: 'global'
 }
@@ -56,7 +56,7 @@ param location string = resourceGroup().location
 ])
 param newOrExisting string = 'new'
 
-resource saNew 'Microsoft.Storage/storageAccounts@2022-09-01' = if (newOrExisting == 'new') {
+resource saNew 'Microsoft.Storage/storageAccounts@2023-04-01' = if (newOrExisting == 'new') {
   name: storageAccountName
   location: location
   sku: {
@@ -65,7 +65,7 @@ resource saNew 'Microsoft.Storage/storageAccounts@2022-09-01' = if (newOrExistin
   kind: 'StorageV2'
 }
 
-resource saExisting 'Microsoft.Storage/storageAccounts@2022-09-01' existing = if (newOrExisting == 'existing') {
+resource saExisting 'Microsoft.Storage/storageAccounts@2023-04-01' existing = if (newOrExisting == 'existing') {
   name: storageAccountName
 }
 
@@ -88,7 +88,7 @@ param vmName string
 param location string
 param logAnalytics string = ''
 
-resource vmName_omsOnboarding 'Microsoft.Compute/virtualMachines/extensions@2023-03-01' = if (!empty(logAnalytics)) {
+resource vmName_omsOnboarding 'Microsoft.Compute/virtualMachines/extensions@2024-03-01' = if (!empty(logAnalytics)) {
   name: '${vmName}/omsOnboarding'
   location: location
   properties: {

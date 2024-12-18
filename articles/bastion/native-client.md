@@ -1,11 +1,11 @@
 ---
-title: 'Configure Bastion for native client connections'
+title: Configure Bastion for native client connections
 titleSuffix: Azure Bastion
 description: Learn how to configure Bastion for native client connections.
 author: cherylmc
-ms.service: bastion
+ms.service: azure-bastion
 ms.topic: how-to
-ms.date: 12/04/2023
+ms.date: 12/09/2024
 ms.author: cherylmc
 ---
 
@@ -26,7 +26,6 @@ If you haven't already deployed Bastion to your VNet, you can deploy with the na
 
 1. On the **Basics** tab, for **Instance Details -> Tier** select **Standard**. Native client support requires the Standard SKU.
 
-   :::image type="content" source="./media/native-client/standard.png" alt-text="Settings for a new bastion host with Standard SKU selected." lightbox="./media/native-client/standard.png":::
 1. Before you create the bastion host, go to the **Advanced** tab and check the box for **Native Client Support**, along with the checkboxes for any other features that you want to deploy.
 
    :::image type="content" source="./media/native-client/new-host.png" alt-text="Screenshot that shows settings for a new bastion host with Native Client Support box selected." lightbox="./media/native-client/new-host.png":::
@@ -39,8 +38,6 @@ If you've already deployed Bastion to your VNet, modify the following configurat
 
 1. Navigate to the **Configuration** page for your Bastion resource. Verify that the SKU Tier is **Standard**. If it isn't, select **Standard**.
 1. Select the box for **Native Client Support**, then apply your changes.
-
-    :::image type="content" source="./media/native-client/update-host.png" alt-text="Screenshot that shows settings for updating an existing host with Native Client Support box selected." lightbox="./media/native-client/update-host.png":::
 
 ## <a name="secure"></a>Secure your native client connection
 

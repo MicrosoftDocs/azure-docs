@@ -1,7 +1,7 @@
 ---
 title: Use condition in templates
 description: Learn how to deploy Azure resources based on conditions. Shows how to either deploy a new resource or use an existing resource.
-ms.date: 03/20/2024
+ms.date: 06/20/2024
 ms.topic: tutorial
 ---
 

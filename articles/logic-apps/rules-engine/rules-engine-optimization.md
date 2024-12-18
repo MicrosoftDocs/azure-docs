@@ -1,7 +1,7 @@
 ---
 title: Optimization for the Azure Logic Apps Rules Engine
 description: Learn how the Azure Logic Apps Rules Engine works from condition evaluation and action execution to prioritization, and how to optimize operation.
-ms.service: logic-apps
+ms.service: azure-logic-apps
 ms.suite: integration
 author: haroldcampos
 ms.author: hcampos
@@ -14,7 +14,7 @@ ms.date: 06/10/2024
 
 # Optimization for Azure Logic Apps Rules Engine execution (Preview)
 
-[!INCLUDE [logic-apps-sku-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-standard.md)]
+[!INCLUDE [logic-apps-sku-standard](../../../includes/logic-apps-sku-standard.md)]
 
 > [!IMPORTANT]
 > This capability is in preview and is subject to the 

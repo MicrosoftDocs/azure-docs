@@ -3,7 +3,7 @@ title: Linter rule - no unused existing resources
 description: Linter rule - no unused existing resources
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 03/20/2024
+ms.date: 10/14/2024
 ---
 
 # Linter rule - no unused existing resources
@@ -23,14 +23,14 @@ To reduce confusion in your template, delete any [existing resources](./existing
 The following example fails this test because the existing resource **stg** is declared but never used:
 
 ```bicep
-resource stg 'Microsoft.Storage/storageAccounts@2022-09-01' existing = {
+resource stg 'Microsoft.Storage/storageAccounts@2023-05-01' existing = {
   name: 'examplestorage'
 }
 ```
 
-Use **Quick Fix** to remove the unused existing resource.
+Use **Quick Fix** to remove the unused existing resource:
 
-:::image type="content" source="./media/linter-rule-no-unused-existing-resources/linter-rule-no-unused-existing-resources-quick-fix.png" alt-text="The screenshot of No unused existing resources linter rule quick fix.":::
+:::image type="content" source="./media/linter-rule-no-unused-existing-resources/linter-rule-no-unused-existing-resources-quick-fix.png" alt-text="A screenshot using Quick Fix for the no-unused-existing-resources linter rule.":::
 
 ## Next steps
 

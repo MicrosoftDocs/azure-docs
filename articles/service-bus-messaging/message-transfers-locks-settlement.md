@@ -23,7 +23,7 @@ If the message is rejected by Service Bus, the rejection contains an error indic
 
 Advanced Messaging Queuing Protocol (AMQP) is the only protocol supported for .NET Standard, Java, JavaScript, Python, and Go clients. For [.NET Framework clients](service-bus-amqp-dotnet.md), you can use Service Bus Messaging Protocol (SBMP) or AMQP. When you use the AMQP protocol, message transfers and settlements are pipelined and asynchronous. We recommend that you use the asynchronous programming model API variants.
 
-[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](~/reusable-content/ce-skilling/azure/includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
+[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](../../includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
  
 A sender can put several messages on the wire in rapid succession without having to wait for each message to be acknowledged, as would otherwise be the case with the SBMP protocol or with HTTP 1.1. Those asynchronous send operations complete as the respective messages are accepted and stored, on partitioned entities or when send operation to different entities overlap. The completions might also occur out of the original send order.
 
@@ -109,7 +109,7 @@ If a receiving client fails to process a message and knows that redelivering the
 > [!NOTE]
 > A dead-letter subqueue exists for a queue or a topic subscription only when you have the [dead-letter feature](service-bus-dead-letter-queues.md) enabled for the queue or subscription. 
 
-A special case of settlement is deferral, which is discussed in a [separate article](message-deferral.md).
+A special case of settlement is deferral. See the [Message deferral](message-deferral.md) for details. 
 
 The `Complete`, `DeadLetter`, or `RenewLock` operations might fail due to network issues, if the held lock has expired, or there are other service-side conditions that prevent settlement. In one of the latter cases, the service sends a negative acknowledgment that surfaces as an exception in the API clients. If the reason is a broken network connection, the lock is dropped since Service Bus doesn't support recovery of existing AMQP links on a different connection.
 
@@ -122,6 +122,7 @@ The typical mechanism for identifying duplicate message deliveries is by checkin
 >   * Service Update
 >   * OS update
 >   * Changing properties on the entity (Queue, Topic, Subscription) while holding the lock.
+>   * If the Service Bus Client application loses its connection to the Service Bus for any reason.
 >
 > When the lock is lost, Azure Service Bus will generate a MessageLockLostException or SessionLockLostException, which will surface in the client application. In this case, the client's default retry logic should automatically kick in and retry the operation.
 

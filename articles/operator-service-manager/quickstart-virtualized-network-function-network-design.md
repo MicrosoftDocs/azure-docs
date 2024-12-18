@@ -30,6 +30,10 @@ An `nsd-input.jsonc` file is generated when you run this command.
 
 > [!NOTE]
 > Edit the nsd-input.jsonc file, replacing it with the values shown in the sample. Remove the section where resource_element_type is set to ArmTemplate. This is for adding infrastructure (such as VNets) to more complicated NSDs, which is not needed in this quickstart. Save the file as **input-vnf-nsd.jsonc**.
+>
+> If you changed the name of the publisher when publishing the NFDV, use your publisher name for both the `publisher_name` and `publisher` fields (the latter is within the `resource_element_templates` array).
+>
+> If you have used a different resource group name, update both the `publisher_resource_group_name` and `publisher_resource_group` fields (the latter is within the `resource_element_templates` array).
 
 ```json
 {

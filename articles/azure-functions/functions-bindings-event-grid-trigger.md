@@ -38,13 +38,13 @@ The type of the input parameter used with an Event Grid trigger depends on these
 
 [!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
 
-[!INCLUDE [functions-in-process-model-retirement-note](~/reusable-content/ce-skilling/azure/includes/functions-in-process-model-retirement-note.md)]
+[!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
 
 # [Isolated worker model](#tab/isolated-process)
 
 When running your C# function in an isolated worker process, you need to define a custom type for event properties. The following example defines a `MyEventType` class.
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventGrid/EventGridFunction.cs" range="35-49":::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventGrid/EventGridFunction.cs" range="35-48":::
 
 The following example shows how the custom type is used in both the trigger and an Event Grid output binding:
 
@@ -489,7 +489,7 @@ For explanations of the common and event-specific properties, see [Event propert
 
 ## Next steps
 
-* If you have questions, submit an issue to the team [here](https://github.com/Azure/azure-functions-eventgrid-extension/issues)
+* If you have questions, submit an issue to the team [here](https://github.com/Azure/azure-sdk-for-net/issues)
 * [Dispatch an Event Grid event](./functions-bindings-event-grid-output.md)
 
 [EventGridEvent]: /dotnet/api/microsoft.azure.eventgrid.models.eventgridevent

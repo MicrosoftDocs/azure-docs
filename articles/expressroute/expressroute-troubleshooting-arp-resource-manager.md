@@ -3,7 +3,7 @@ title: 'Azure ExpressRoute: ARP tables - Troubleshooting'
 description: This page provides instructions on getting the Address Resolution Protocol (ARP) tables for an ExpressRoute circuit
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.custom:
 ms.topic: troubleshooting
 ms.date: 06/30/2023
@@ -22,7 +22,7 @@ This article walks you through the steps to learn the ARP tables for your Expres
 > This document is intended to help you diagnose and fix simple issues. It is not intended to be a replacement for Microsoft support. You must open a support ticket with [Microsoft support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) if you are unable to solve the problem using the guidance described in this article.
 > 
 
-[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/hybrid-az-ps.md)]
+[!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
 ## Address Resolution Protocol (ARP) and ARP tables
 
@@ -113,8 +113,8 @@ Sample output for one of the paths:
 ```output
 Age InterfaceProperty IpAddress  MacAddress    
 --- ----------------- ---------  ----------    
- 10 On-Prem           65.0.0.1   ffff.eeee.dddd
-  0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
+ 10 On-Prem           20.33.0.1   ffff.eeee.dddd
+  0 Microsoft         20.33.0.2   aaaa.bbbb.cccc
 ```
 
 
@@ -131,15 +131,15 @@ The ARP table of a peering can be used to determine and validate layer 2 configu
 ```output
 Age InterfaceProperty IpAddress  MacAddress    
 --- ----------------- ---------  ----------    
- 10 On-Prem           65.0.0.1   ffff.eeee.dddd
-  0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
+ 10 On-Prem           20.33.0.1   ffff.eeee.dddd
+  0 Microsoft         20.33.0.2   aaaa.bbbb.cccc
 ```
 or
 
 ```output
 Age InterfaceProperty IpAddress  MacAddress    
 --- ----------------- ---------  ----------    
- 10 On-Prem           65.0.0.1   ffff.eeee.dddd
+ 10 On-Prem           20.33.0.1   ffff.eeee.dddd
 ```
 
 ### ARP table when on-premises / connectivity provider side has problems
@@ -149,15 +149,15 @@ If a problem with the on-premises or connectivity provider occurs, the ARP table
 ```output
 Age InterfaceProperty IpAddress  MacAddress    
 --- ----------------- ---------  ----------   
-  0 On-Prem           65.0.0.1   Incomplete
-  0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
+  0 On-Prem           20.33.0.1   Incomplete
+  0 Microsoft         20.33.0.2   aaaa.bbbb.cccc
 ```
 or
    
 ```output
 Age InterfaceProperty IpAddress  MacAddress    
 --- ----------------- ---------  ----------    
-  0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
+  0 Microsoft         20.33.0.2   aaaa.bbbb.cccc
 ```  
 
 > [!NOTE]

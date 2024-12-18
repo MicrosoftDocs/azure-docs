@@ -3,7 +3,7 @@ title: Module setting for Bicep config
 description: Describes how to customize configuration values for modules in Bicep deployments.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 02/16/2024
+ms.date: 06/28/2024
 ---
 
 # Add module settings in the Bicep config file
@@ -100,13 +100,16 @@ For a template spec, use:
 module stgModule  'ts/CoreSpecs:storage:v1' = {
 ```
 
-An alias has been predefined for the [public module registry](./modules.md#path-to-module). To reference a public module, you can use the format:
+An alias has been predefined for [public modules](./modules.md#file-in-registry). To reference a public module, you can use the format:
 
 ```bicep
 br/public:<file>:<tag>
 ```
 
-You can override the public module registry alias definition in the bicepconfig.json file:
+> [!NOTE]
+> Non-AVM (Azure Verified Modules) modules are retired from the public module registry with most of them available as AVM modules.
+
+You can override the public module registry alias definition in the [bicepconfig.json file](./bicep-config.md):
 
 ```json
 {

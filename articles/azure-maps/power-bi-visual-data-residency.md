@@ -7,7 +7,7 @@ ms.author: limingchen
 ms.date: 03/22/2024
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: power-bi-visual
 ---
 
 # Azure Maps Power BI visual Data Residency
@@ -25,7 +25,7 @@ To discover your tenant's location in Power BI:
 1. Select **About Power BI**
 1. Once the **About Power BI** dialog box opens, notice the **your data is stored in** followed by the Tenant location, which is, in this example, Ireland.
 
-    :::image type="content" source="media/power-bi-visual/about-power-bi.png" alt-text="Screenshot showing the About Power BI diloag box.":::
+    :::image type="content" source="media/power-bi-visual/about-power-bi.png" alt-text="Screenshot showing the About Power BI dialog box.":::
 
 The previous example would use the `eu.atlas.microsoft.com` endpoint.
 

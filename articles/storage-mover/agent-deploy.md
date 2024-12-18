@@ -5,7 +5,7 @@ author: stevenmatthew
 ms.author: shaas
 ms.service: azure-storage-mover
 ms.topic: how-to
-ms.date: 10/30/2023
+ms.date: 07/19/2024
 ---
 
 <!-- 
@@ -36,7 +36,12 @@ This article guides you through the steps necessary to successfully deploy a Sto
 
 ## Prerequisites
 
-- A capable Windows Hyper-V or VMware host on which to run the agent VM.<br/> See the [Recommended compute and memory resources](#recommended-compute-and-memory-resources) section in this article for details about resource requirements for the agent VM.
+1. The below Storage Mover endpoints need to have access to https traffic
+-	`mcr.microsoft.com`
+-	`<region>.agentgateway.prd.azsm.azure.com`
+-	`evhns-sm-ur-prd-<region>.servicebus.windows.net`
+
+2. A capable Windows Hyper-V or VMware host on which to run the agent VM.<br/> See the [Recommended compute and memory resources](#recommended-compute-and-memory-resources) section in this article for details about resource requirements for the agent VM.
 
 > [!NOTE]
 > At present, Windows Hyper-V and VMware are the only supported virtualization environments for your agent VM. Other virtualization environments have not been tested and are not supported.
@@ -127,12 +132,9 @@ The agent is delivered with a default user account and password. Connect to the 
 
 ## Bandwidth throttling
 
-Take time to consider the amount of bandwidth a new machine uses before you deploy it to your network. An Azure Storage Mover agent communicates with a source share using the local network, and the Azure Storage service on the wide area network (WAN) link. In both cases, the agent uses all available network bandwidth.
+Take time to consider the amount of bandwidth a new machine uses before you deploy it to your network. An Azure Storage Mover agent communicates with a source share using the local network, and the Azure Storage service on the wide area network (WAN) link. In both cases, the agent is designed to make full use of the network's bandwidth by default. However, you can now [set bandwidth management schedules](./bandwidth-management.md) for your Storage Mover agents.
 
-> [!IMPORTANT]
-> The current Azure Storage Mover agent does not support bandwidth throttling schedules.
-
-If bandwidth throttling is important to you, create a local virtual network with an internet connection and configure quality of service (QoS) settings. This approach allows you to expose the agent through the virtual network and to locally configure an unauthenticated network proxy server on the agent if needed.
+Alternatively, you can create a local virtual network with an internet connection and configure quality of service (QoS) settings. This approach allows you to expose the agent through the virtual network and to locally configure an unauthenticated network proxy server on the agent if needed.
 
 ## Decommissioning an agent
 

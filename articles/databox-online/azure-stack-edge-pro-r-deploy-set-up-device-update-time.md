@@ -4,8 +4,7 @@ description: Tutorial to deploy Azure Stack Edge Pro R instructs you to set up d
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: tutorial
 ms.date: 10/14/2022
 ms.author: alkohli
@@ -72,7 +71,7 @@ Follow these steps to configure device related settings:
 
         ![Local web UI "Update Server" page](./media/azure-stack-edge-pro-r-deploy-set-up-device-update-time/device-7.png)
 
-        You can also choose to deploy updates from the **Windows Server Update services** (WSUS). Provide the path to the WSUS server.
+        You can also choose to deploy updates from the **Windows Server Update services (WSUS)**. Provide the path to the WSUS server.
         
         ![Local web UI "Update Server" page 2](./media/azure-stack-edge-pro-r-deploy-set-up-device-update-time/update-3.png)
 

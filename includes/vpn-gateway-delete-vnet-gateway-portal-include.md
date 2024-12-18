@@ -3,7 +3,7 @@
 author: cherylmc
 ms.author: cherylmc
 ms.date: 08/22/2023
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: include
 ---
 ### Step 1: Go to the virtual network gateway

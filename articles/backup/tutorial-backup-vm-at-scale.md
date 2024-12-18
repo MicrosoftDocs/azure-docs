@@ -4,7 +4,7 @@ description: In this tutorial, learn how to create a Recovery Services vault, de
 ms.date: 04/23/2024
 ms.topic: tutorial
 ms.custom: mvc, engagement-fy24
-ms.service: backup
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---

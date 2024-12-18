@@ -5,9 +5,9 @@ description: Learn about Virtual WAN routing scenarios for secure traffic travel
 services: virtual-wan
 author: cherylmc
 
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: conceptual
-ms.date: 04/27/2021
+ms.date: 10/25/2024
 ms.author: cherylmc
 
 ---

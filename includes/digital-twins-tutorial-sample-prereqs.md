@@ -1,7 +1,7 @@
 ---
 author: baanders
 description: prerequisites for Azure Digital Twins tutorials
-ms.service: digital-twins
+ms.service: azure-digital-twins
 ms.topic: include
 ms.date: 9/12/2023
 ms.author: baanders

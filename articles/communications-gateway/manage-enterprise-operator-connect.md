@@ -1,9 +1,9 @@
 ---
 title: Use Azure Communications Gateway's Number Management Portal (preview) to manage an enterprise
 description: Learn how to add and remove enterprises and numbers with Azure Communication Gateway's Number Management Portal.
-author: rcdun
-ms.author: rdunstan
-ms.service: communications-gateway
+author: GemmaWakeford
+ms.author: gwakeford
+ms.service: azure-communications-gateway
 ms.topic: how-to
 ms.date: 02/16/2024
 ms.custom: template-how-to-pattern

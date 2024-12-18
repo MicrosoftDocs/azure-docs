@@ -1,10 +1,10 @@
 ---
 title: 'Tutorial: Use FSSPEC to read/write ADLS data in serverless Apache Spark pool in Synapse Analytics'
 description: Tutorial for how to use FSSPEC in PySpark notebook to read/write ADLS data in serverless Apache Spark pool.
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: spark
 ms.topic: tutorial
-ms.reviewer: sngun, garye
+ms.reviewer: whhender, garye
 ms.date: 11/02/2021
 author: JasonWHowell
 ms.author: jasonh

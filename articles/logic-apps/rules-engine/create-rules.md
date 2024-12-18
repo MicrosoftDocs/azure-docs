@@ -1,7 +1,7 @@
 ---
 title: Create rules with Microsoft Rules Composer
 description: Learn how to create rules for an Azure Logic Apps Rules Engine project using the Microsoft Rules Composer.
-ms.service: logic-apps
+ms.service: azure-logic-apps
 ms.suite: integration
 author: haroldcampos
 ms.author: hcampos
@@ -14,7 +14,7 @@ ms.date: 06/10/2024
 
 # Create rules using the Microsoft Rules Composer (Preview)
 
-[!INCLUDE [logic-apps-sku-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-standard.md)]
+[!INCLUDE [logic-apps-sku-standard](../../../includes/logic-apps-sku-standard.md)]
 
 > [!IMPORTANT]
 > This capability is in preview and is subject to the 
@@ -403,7 +403,7 @@ For example, suppose you have the following XML schema:
 ## Related content
 
 - [Add arithmetic and logical operators to rules](add-rules-operators.md)
-- [Add control functions to actions for optimizing rules exection](add-rules-control-functions.md)
+- [Add control functions to actions for optimizing rules execution](add-rules-control-functions.md)
 - [Perform advanced tasks on rulesets](perform-advanced-ruleset-tasks.md)
 - [Test your rulesets](test-rulesets.md)
 - [Create an Azure Logic Apps Rules Engine project](create-rules-engine-project.md)

@@ -4,7 +4,7 @@ description: Learn to deploy a Microsoft Azure Managed Confidential Consortium F
 author: msftsettiy
 ms.author: settiy
 ms.date: 09/08/2023
-ms.service: confidential-ledger
+ms.service: azure-confidential-ledger
 ms.topic: quickstart
 ms.custom: mode-ui
 ---
@@ -43,7 +43,7 @@ Then, re-register the `Microsoft.ConfidentialLedger` resource provider as descri
 
 1. From the Azure portal menu, or from the Home page, select **Create a resource**.
 
-2. In the Search box, enter "Confidential Ledger", select said application, and then choose **Create**.
+1. In the Search box, enter "Confidential Ledger", select said application, and then choose **Create**.
 
 1. On the Create confidential ledger section, provide the following information:
     - **Subscription**: Choose the desired subscription.
@@ -54,7 +54,7 @@ Then, re-register the `Microsoft.ConfidentialLedger` resource provider as descri
     - **Application Type**: Choose Custom JavaScript Application.
     - **Network Node Count**: Choose the desired node count.
 
-:::image type="content" source="media/quickstart-tutorials/create-mccf-resource.png" alt-text="A screenshot of the Managed CCF create screen.":::
+   :::image type="content" source="media/quickstart-tutorials/create-mccf-resource.png" alt-text="A screenshot of the Managed CCF create screen.":::
 
 1. Select the **Security** tab.
 
@@ -63,7 +63,7 @@ Then, re-register the `Microsoft.ConfidentialLedger` resource provider as descri
     - **Member Group**: An optional group name.
     - **Certificate**: Paste the contents of the member0_cert.pem file.
 
-:::image type="content" source="media/quickstart-tutorials/create-mccf-resource-security-tab.png" alt-text="A screenshot of the Managed CCF resource security tab screen.":::
+   :::image type="content" source="media/quickstart-tutorials/create-mccf-resource-security-tab.png" alt-text="A screenshot of the Managed CCF resource security tab screen.":::
 
 1. Select **Review + Create**. After validation has passed, select **Create**.1.
 

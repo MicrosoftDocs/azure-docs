@@ -52,7 +52,7 @@ You should create a new folder for the destination because a CIM disk image is m
    msixmgr.exe -Unpack -packagePath "C:\msix\myapp.msix" -destination "C:\msix\myapp\myapp.cim" -applyACLs -create -fileType cim -rootDirectory apps
    ```
 
-   The output should be as follows:
+   The output should be similar to the following example:
 
    ```Output
    Successfully created the CIM file: C:\msix\myapp\myapp.cim
@@ -72,7 +72,7 @@ Here's an example command to create a VHDX disk image from an MSIX image. A sing
    msixmgr.exe -Unpack -packagePath "C:\msix\myapp.msix" -destination "C:\msix\myapp.vhdx" -applyACLs -create -fileType vhdx -rootDirectory apps
    ```
 
-   The output should be as follows:
+   The output should be similar to the following example:
 
    ```Output
    Successfully created virtual disk

@@ -30,7 +30,7 @@ Call transfers involve three parties:
 
 1. There's already a connected call between the *transferor* and the *transferee*. The *transferor* decides to transfer the call from the *transferee* to the *transfer target*.
 1. The *transferor* calls the `transfer` API.
-1. The *transfer target* receives an incoming call only if the *transferee* accepts the transfer request.
+1. The *transfer target* receives an incoming call.
 
 To transfer a current call, you can use the `transfer` API. `transfer` takes the optional `transferCallOptions`, which allows you to set a `disableForwardingAndUnanswered` flag:
 
@@ -53,7 +53,7 @@ const transfer = callTransferApi.transfer({targetParticipant: id});
 2. There's already a connected call between the *transferor* and the *transfer target*.
 3. The *transferor* decides to transfer the call with the *transferee* to the call with *transfer target*.
 4. The *transferor* calls the `transfer` API.
-6. The *transfer target* receives an incoming call only if the *transferee* accepts the transfer request.
+6. The *transfer target* receives an incoming call.
 
 To transfer a current call, you can use the `transfer` API.
 
@@ -97,3 +97,52 @@ transfer.on('stateChanged', () => {
 });
 ```
 
+### Transfer to voicemail:
+
+1. There is a connected call between the *transferor* and the *transferee*. 
+2. The Teams User Identifier of the *target participant voicemail* is known.
+3. The *transferor* decides to transfer the call with the *transferee* to the *target participant's voicemail* using the target participant's Teams User Identifier.
+4. The *transferor* calls the `transfer` API.
+5. The *transferee* receives the transfer request.
+
+To transfer a current call, you can use the `transfer` API.
+
+```js
+// transfer to the target participant voicemail specified by their Teams User Identifier
+const id: MicrosoftTeamsUserIdentifier = { microsoftTeamsUserId: userId}
+```
+
+```js
+// call transfer API
+const transfer = callTransferApi.transfer({ targetParticipantVoicemail: id });
+```
+
+The `transfer` API allows you to subscribe to `stateChanged`. It also comes with a  transfer `state` and `error` properties
+
+```js
+// transfer state
+const transferState = transfer.state; // None | Transferring | Transferred | Failed
+
+// to check the transfer failure reason
+const transferError = transfer.error; // transfer error code that describes the failure if a transfer request failed
+```
+
+The *transferee* can listen to a `transferAccepted` event. The listener for this event has a `TransferEventArgs` which contains the call object of the new transfer call
+between the  *transferee* and the *target participant voicemail*. 
+
+```js
+// Transferee can subscribe to the transferAccepted event
+callTransferApi.on('transferAccepted', args => {
+    const newTransferCall =  args.targetCall;
+});
+```
+
+The *transferor* can subscribe to events for change of the state of the transfer. If the call to the *transferee* was successfully connected with *target participant voicemail*, *transferor* can hang up the original call with *transferee*.
+
+```js
+transfer.on('stateChanged', () => {
+   if (transfer.state === 'Transferred') {
+       call.hangUp();
+   }
+});
+```

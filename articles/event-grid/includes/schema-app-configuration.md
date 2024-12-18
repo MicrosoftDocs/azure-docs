@@ -1,9 +1,8 @@
 ---
  title: App Configuration schema for Azure Event Grid
  description: Describes the schema for App Configuration in Azure Event Grid. 
- services: event-grid
  author: spelluru
- ms.service: event-grid
+ ms.service: azure-event-grid
  ms.topic: include
  ms.date: 12/02/2022
  ms.author: spelluru
@@ -83,7 +82,7 @@ The following example shows the schema of a key-value modified event:
 ```json
 [{
   "id": "84e17ea4-66db-4b54-8050-df8f7763f87b",
-  "source": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/microsoft.appconfiguration/configurationstores/contoso",
+  "source": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/testrg/providers/microsoft.appconfiguration/configurationstores/contoso",
   "subject": "https://contoso.azconfig.io/kv/Foo?label=FizzBuzz",
   "data": {
     "key": "Foo",
@@ -101,7 +100,7 @@ The following example shows the schema of a key-value deleted event:
 ```json
 [{
   "id": "84e17ea4-66db-4b54-8050-df8f7763f87b",
-  "source": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/microsoft.appconfiguration/configurationstores/contoso",
+  "source": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/testrg/providers/microsoft.appconfiguration/configurationstores/contoso",
   "subject": "https://contoso.azconfig.io/kv/Foo?label=FizzBuzz",
   "data": {
     "key": "Foo",
@@ -118,7 +117,7 @@ The following example shows the schema of a snapshot created event:
 
 ```json
 [{
-  "source": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/microsoft.appconfiguration/configurationstores/contoso",
+  "source": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/testrg/providers/microsoft.appconfiguration/configurationstores/contoso",
   "subject": "https://contoso.azconfig.io/kvsnapshots/Foo",
   "type": "Microsoft.AppConfiguration.SnapshotCreated",
   "time": "2023-09-02T20:05:03.0000000Z",
@@ -136,7 +135,7 @@ The following example shows the schema of a snapshot modified event:
 
 ```json
 [{
-  "source": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/microsoft.appconfiguration/configurationstores/contoso",
+  "source": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/testrg/providers/microsoft.appconfiguration/configurationstores/contoso",
   "subject": "https://contoso.azconfig.io/snapshots/Foo",
   "type": "Microsoft.AppConfiguration.SnapshotModified",
   "time": "2023-09-03T20:05:03.0000000Z",
@@ -156,7 +155,7 @@ The following example shows the schema of a key-value modified event:
 ```json
 [{
   "id": "84e17ea4-66db-4b54-8050-df8f7763f87b",
-  "topic": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/microsoft.appconfiguration/configurationstores/contoso",
+  "topic": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/testrg/providers/microsoft.appconfiguration/configurationstores/contoso",
   "subject": "https://contoso.azconfig.io/kv/Foo?label=FizzBuzz",
   "data": {
     "key": "Foo",
@@ -175,7 +174,7 @@ The following example shows the schema of a key-value deleted event:
 ```json
 [{
   "id": "84e17ea4-66db-4b54-8050-df8f7763f87b",
-  "topic": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/microsoft.appconfiguration/configurationstores/contoso",
+  "topic": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/testrg/providers/microsoft.appconfiguration/configurationstores/contoso",
   "subject": "https://contoso.azconfig.io/kv/Foo?label=FizzBuzz",
   "data": {
     "key": "Foo",
@@ -194,7 +193,7 @@ The following example shows the schema of a snapshot created event:
 ```json
 [{
   "id": "84e17ea4-66db-4b54-8050-df8f7763f87b",
-  "topic": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/microsoft.appconfiguration/configurationstores/contoso",
+  "topic": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/testrg/providers/microsoft.appconfiguration/configurationstores/contoso",
   "subject": "https://contoso.azconfig.io/snapshots/Foo",
   "data": {
     "Name": "Foo",
@@ -213,7 +212,7 @@ The following example shows the schema of a snapshot modified event:
 ```json
 [{
   "id": "84e17ea4-66db-4b54-8050-df8f7763f87b",
-  "topic": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/microsoft.appconfiguration/configurationstores/contoso",
+  "topic": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/testrg/providers/microsoft.appconfiguration/configurationstores/contoso",
   "subject": "https://contoso.azconfig.io/snapshots/Foo",
   "data": {
     "name": "Foo",
@@ -230,5 +229,3 @@ The following example shows the schema of a snapshot modified event:
 
 
 ---
-
-

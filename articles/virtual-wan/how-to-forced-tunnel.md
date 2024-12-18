@@ -3,7 +3,7 @@ title: 'Configure forced tunneling for Virtual WAN Point-to-site VPN'
 titleSuffix: Azure Virtual WAN
 description: Learn to configure forced tunneling for P2S VPN in Virtual WAN.
 author: wtnlee
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 08/24/2023
 ms.author: wellee
@@ -59,8 +59,6 @@ The steps to configure forced-tunneling are different, depending on the operatin
 > For Windows clients, forced tunneling with the Azure VPN client is only available with software version 2:1900:39.0 or newer.
 
 1. Validate the version of your Azure VPN client is compatible with forced tunneling. To do this, click on the three dots at the bottom of the Azure VPN client, and click on Help. Alternatively, the keyboard short cut to navigate to Help is Ctrl-H. The version number can be found towards the top of the screen. Ensure your version number is **2:1900:39.0** or later.
-
-   :::image type="content" source="./media/virtual-wan-forced-tunnel/vpn-client-version.png"alt-text="Screenshot showing how to configure N V A private routing policies."lightbox="./media/virtual-wan-forced-tunnel/vpn-client-version.png":::
 
 1. Open the zip-file downloaded from the previous section. You should see a folder titled **AzureVPN**. Open the folder and open **azurevpnconfig.xml** in your favorite XML editing tool.
 
@@ -259,7 +257,7 @@ Below is a sample EAP XML file. Change the *TrustedRootCA* field to the thumbpri
                 <TLSExtensions xmlns="http://www.microsoft.com/provisioning/EapTlsConnectionPropertiesV2">
                     <FilteringInfo xmlns="http://www.microsoft.com/provisioning/EapTlsConnectionPropertiesV3">
                         <CAHashList Enabled="true">
-                            <IssuerHash> ROOT CERTIFCATE THUMBPRINT  </IssuerHash>
+                            <IssuerHash> ROOT CERTIFICATE THUMBPRINT  </IssuerHash>
                         </CAHashList>
                     </FilteringInfo>
                 </TLSExtensions>

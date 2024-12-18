@@ -6,16 +6,13 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.service: azure-migrate
-ms.date: 03/13/2024
+ms.date: 11/04/2024
 ms.custom: engagement-fy23, linux-related-content
 ---
 
 # Support matrix for physical server discovery and assessment
 
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that's nearing end-of-life status. Please consider your use and plan accordingly.
-
-This article summarizes prerequisites and support requirements when you assess physical servers for migration to Azure by using the [Azure Migrate: Discovery and assessment](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool) tool. If you want to migrate physical servers to Azure, see the [migration support matrix](migrate-support-matrix-physical-migration.md).
+This article summarizes prerequisites and support requirements when you assess physical servers for migration to Azure by using the [Azure Migrate: Discovery and assessment](migrate-services-overview.md) tool. If you want to migrate physical servers to Azure, see the [migration support matrix](migrate-support-matrix-physical-migration.md).
 
 To assess physical servers, you create a project and add the Azure Migrate: Discovery and assessment tool to the project. After you add the tool, you deploy the [Azure Migrate appliance](migrate-appliance.md). The appliance continuously discovers on-premises servers and sends servers metadata and performance data to Azure. After discovery is finished, you gather discovered servers into groups and run an assessment for a group.
 
@@ -87,8 +84,7 @@ For Linux servers, based on the features you want to perform, you can create a u
     Operating system | Versions
     --- | ---
     Red Hat Enterprise Linux | 5.1, 5.3, 5.11, 6.x, 7.x, 8.x, 9.x
-    CentOS | 5.1, 5.9, 5.11, 6.x, 7.x, 8.x
-    Ubuntu | 12.04, 14.04, 16.04, 18.04, 20.04
+    Ubuntu | 12.04, 14.04, 16.04, 18.04, 20.04, 22.04
     Oracle Linux | 6.1, 6.7, 6.8, 6.9, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7.9, 8, 8.1, 8.3, 8.5
     SUSE Linux | 10, 11 SP4, 12 SP1, 12 SP2, 12 SP3, 12 SP4, 15 SP2, 15 SP3
     Debian | 7, 8, 9, 10, 11
@@ -360,7 +356,7 @@ Support | ASP.NET web apps | Java web apps
 --- | --- | ---
 Stack | VMware, Hyper-V, and physical servers. | VMware, Hyper-V, and physical servers.
 Windows servers | Windows Server 2008 R2 and later are supported. | Not supported.
-Linux servers | Not supported. | Ubuntu Linux 16.04/18.04/20.04, Debian 7/8, CentOS 6/7, and Red Hat Enterprise Linux 5/6/7.
+Linux servers | Not supported. | Ubuntu Linux 16.04/18.04/20.04, Debian 7/8, and Red Hat Enterprise Linux 5/6/7.
 Web server versions | IIS 7.5 and later. | Tomcat 8 or later.
 Required privileges | Local admin. | Root or sudo user.
 
@@ -376,7 +372,7 @@ Support | Details
 Supported servers | You can enable agentless dependency analysis on up to 1,000 servers discovered per appliance.
 Operating systems | Servers running all Windows and Linux versions that meet the server requirements and have the required access permissions are supported.
 Server requirements | Windows servers must have PowerShell remoting enabled and PowerShell version 2.0 or later installed. <br/><br/> Linux servers must have SSH connectivity enabled and ensure that the following commands can be executed on the Linux servers: touch, chmod, cat, ps, grep, echo, sha256sum, awk, netstat, ls, sudo, dpkg, rpm, sed, getcap, which, date.
-Windows server access | A user account (local or domain) with administrator permissions on servers.
+Windows server access | Guest user account
 Linux server access | A sudo user account with permissions to execute ls and netstat commands. If you're providing a sudo user account, ensure that you enable **NOPASSWD** for the account to run the required commands without prompting for a password every time the sudo command is invoked. <br/> <br/> Alternatively, you can create a user account that has the CAP_DAC_READ_SEARCH and CAP_SYS_PTRACE permissions on /bin/netstat and /bin/ls files set by using the following commands: <br/><br/> <code>sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep usr/bin/ls</code><br /><code>sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep usr/bin/netstat</code>
 Port access | Windows servers need access on port 5985 (HTTP). Linux servers need access on port 22 (TCP).
 Discovery method |  Agentless dependency analysis is performed by directly connecting to the servers by using the server credentials added on the appliance. <br/><br/> The appliance gathers the dependency information from Windows servers by using PowerShell remoting and from Linux servers by using the SSH connection. <br/><br/> No agent is installed on the servers to pull dependency data.
@@ -389,14 +385,14 @@ Requirement | Details
 --- | ---
 Before deployment | You should have a project in place with the Azure Migrate: Discovery and assessment tool added to the project.<br/><br/>  You deploy dependency visualization after setting up an Azure Migrate appliance to discover your on-premises servers.<br/><br/> [Learn how](create-manage-projects.md) to create a project for the first time.<br/> [Learn how](how-to-assess.md) to add an assessment tool to an existing project.<br/> Learn how to set up the Azure Migrate appliance for assessment of [Hyper-V](how-to-set-up-appliance-hyper-v.md), [VMware](how-to-set-up-appliance-vmware.md), or physical servers.
 Azure Government | Dependency visualization isn't available in Azure Government.
-Log Analytics | Azure Migrate and Modernize uses the [Service Map](/previous-versions/azure/azure-monitor/vm/service-map) solution in [Azure Monitor logs](../azure-monitor/logs/log-query-overview.md) for dependency visualization.<br/><br/> You associate a new or existing Log Analytics workspace with a project. You can't modify the workspace for a project after you add the workspace. <br/><br/> The workspace must be in the same subscription as the project.<br/><br/> The workspace must reside in the East US, Southeast Asia, or West Europe regions. Workspaces in other regions can't be associated with a project.<br /> The workspace must be in a region in which [Service Map is supported](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&regions=all). You can monitor Azure VMs in any region. The VMs themselves aren't limited to the regions supported by the Log Analytics workspace.<br/><br/> In Log Analytics, the workspace associated with Azure Migrate and Modernize is tagged with the Migration Project key and the project name.
-Required agents | On each server that you want to analyze, install the following agents:<br/>- [Microsoft Monitoring agent (MMA)](../azure-monitor/agents/agent-windows.md)<br/> - [Dependency agent](../azure-monitor/vm/vminsights-dependency-agent-maintenance.md)<br/><br/> If on-premises servers aren't connected to the internet, you need to download and install the Log Analytics gateway on them.<br/><br/> Learn more about installing the [Dependency agent](how-to-create-group-machine-dependencies.md#install-the-dependency-agent) and [MMA](how-to-create-group-machine-dependencies.md#install-the-mma).
+Log Analytics | Azure Migrate and Modernize uses the [Service Map](/previous-versions/azure/azure-monitor/vm/service-map) solution in [Azure Monitor logs](/azure/azure-monitor/logs/log-query-overview) for dependency visualization.<br/><br/> You associate a new or existing Log Analytics workspace with a project. You can't modify the workspace for a project after you add the workspace. <br/><br/> The workspace must be in the same subscription as the project.<br/><br/> The workspace must reside in the East US, Southeast Asia, or West Europe regions. Workspaces in other regions can't be associated with a project.<br /> The workspace must be in a region in which [Service Map is supported](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&regions=all). You can monitor Azure VMs in any region. The VMs themselves aren't limited to the regions supported by the Log Analytics workspace.<br/><br/> In Log Analytics, the workspace associated with Azure Migrate and Modernize is tagged with the Migration Project key and the project name.
+Required agents | On each server that you want to analyze, install the following agents:<br/>- [Microsoft Monitoring agent (MMA)](/azure/azure-monitor/agents/agent-windows)<br/> - [Dependency agent](/azure/azure-monitor/vm/vminsights-dependency-agent-maintenance)<br/><br/> If on-premises servers aren't connected to the internet, you need to download and install the Log Analytics gateway on them.<br/><br/> Learn more about installing the [Dependency agent](how-to-create-group-machine-dependencies.md#install-the-dependency-agent) and [MMA](how-to-create-group-machine-dependencies.md#install-the-mma).
 Log Analytics workspace | The workspace must be in the same subscription as a project.<br/><br/> Azure Migrate and Modernize supports workspaces residing in the East US, Southeast Asia, and West Europe regions.<br/><br/>  The workspace must be in a region in which [Service Map is supported](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&regions=all). You can monitor Azure VMs in any region. The VMs themselves aren't limited to the regions supported by the Log Analytics workspace.<br/><br/> You can't modify the workspace for a project after you add the workspace.
 Costs | The Service Map solution doesn't incur any charges for the first 180 days. The count starts from the day that you associate the Log Analytics workspace with the project.<br/><br/> After 180 days, standard Log Analytics charges apply.<br/><br/> Using any solution other than Service Map in the associated Log Analytics workspace incurs [standard charges](https://azure.microsoft.com/pricing/details/log-analytics/) for Log Analytics.<br/><br/> When the project is deleted, the workspace isn't automatically deleted. After you delete the project, Service Map usage isn't free. Each node is charged according to the paid tier of the Log Analytics workspace.<br/><br/>If you have projects that you created before Azure Migrate general availability (GA on February 28, 2018), you might incur other Service Map charges. To ensure that you're charged only after 180 days, we recommend that you create a new project. Workspaces that were created before GA are still chargeable.
-Management | When you register agents to the workspace, use the ID and key provided by the project.<br/><br/> You can use the Log Analytics workspace outside Azure Migrate and Modernize.<br/><br/> If you delete the associated project, the workspace isn't deleted automatically. [Delete it manually](../azure-monitor/logs/manage-access.md).<br/><br/> Don't delete the workspace created by Azure Migrate and Modernize unless you delete the project. If you do, the dependency visualization functionality doesn't work as expected.
+Management | When you register agents to the workspace, use the ID and key provided by the project.<br/><br/> You can use the Log Analytics workspace outside Azure Migrate and Modernize.<br/><br/> If you delete the associated project, the workspace isn't deleted automatically. [Delete it manually](/azure/azure-monitor/logs/manage-access).<br/><br/> Don't delete the workspace created by Azure Migrate and Modernize unless you delete the project. If you do, the dependency visualization functionality doesn't work as expected.
 Internet connectivity | If servers aren't connected to the internet, install the Log Analytics gateway on the servers.
 Azure Government | Agent-based dependency analysis isn't supported.
 
 ## Next steps
 
-Prepare for [physical discovery and assessment](./tutorial-discover-physical.md).
+Prepare for [discovery](./tutorial-discover-physical.md) of physical servers.

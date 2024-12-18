@@ -22,12 +22,13 @@ For example:
 
 ## Request regional capacity quota increase
 
-You can [submit a support request](azure-netapp-files-resource-limits.md#request-limit-increase) for an increase of a regional capacity quota without incurring extra cost. The support request you submit will be sent to the Azure capacity management team for processing. You will receive a response typically within two business days. The Azure capacity management team might contact you if you have a large request.  
+You can [submit a support request](azure-netapp-files-resource-limits.md#request-limit-increase) for an increase of a regional capacity quota without incurring extra cost. The support request you submit is sent to the Azure capacity management team for processing. You typically receive a response within two business days. The Azure capacity management team might contact you if you have a large request.  
 
-A regional capacity quota increase does not incur a billing increase. Billing is still based on the provisioned capacity pools.
-For example, if you currently have 25 TiB of provisioned capacity, you can request a quota increase to 35 TiB.  Within two business days, your quota increase will be applied to the requested region. When the quota increase is applied, you still pay for only the current provisioned capacity (25 TiB). But when you actually provision the additional 10 TiB, you will be billed for 35 TiB.
+A regional capacity quota increase doesn't incur a billing increase. Billing is still based on the provisioned capacity pools.
 
-The current [resource limits](azure-netapp-files-resource-limits.md#resource-limits) for Azure NetApp Files are not changing. You will still be able to provision a 500-TiB capacity pool. But before doing so, the regional capacity quota needs to be increased to 500 TiB.
+For example, if you currently have 25 TiB of provisioned capacity, you can request a quota increase to 35 TiB.  Within two business days, your quota increase is applied to the requested region. When the quota increase is applied, you still pay for only the current provisioned capacity (25 TiB). But when you actually provision the additional 10 TiB, you're billed for 35 TiB.
+
+To understand minimum and maximum capacity pool sizes, see [resource limits](azure-netapp-files-resource-limits.md#resource-limits) for Azure NetApp Files.
 
 ## Next steps  
 

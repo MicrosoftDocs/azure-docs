@@ -3,7 +3,7 @@ title: Publish revisions with GitHub Actions in Azure Container Apps
 description: Learn to automatically create new revisions in Azure Container Apps using a GitHub Actions workflow.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom: devx-track-azurecli, ignite-2023
 ms.topic: how-to
 ms.date: 11/09/2022
@@ -79,7 +79,7 @@ steps:
 ```
 
 > [!IMPORTANT]
-> If you're building a container image in a separate step, make sure you use a unique tag such as the commit SHA instead of a stable tag like `latest`. For more information, see [Image tag best practices](../container-registry/container-registry-image-tag-version.md).
+> If you're building a container image in a separate step, make sure you use a unique tag such as the commit SHA instead of a stable tag like `latest`. For more information, see [Image tag best practices](/azure/container-registry/container-registry-image-tag-version).
 
 ### Authenticate with Azure Container Registry
 

@@ -5,6 +5,10 @@ author: oshezaf
 ms.topic: reference
 ms.date: 06/07/2021
 ms.author: ofshezaf
+
+
+#Customer intent: As a security analyst, I want to use ASIM helper functions to translate and enrich numeric codes in my data queries so that I can improve the readability and accuracy of my security event analysis.
+
 ---
 
 # Advanced Security Information Model (ASIM) helper functions (Public preview)
@@ -17,7 +21,7 @@ Enrichment lookup functions provide an easy method of looking up known values, b
 
 The **lookup** version is a scalar function that accepts as input the numeric code and returns the textual form. Use the following KQL snippet with the **lookup** version:
 
-```KQL
+```kusto
 | extend ProtocolName = _ASIM_LookupNetworkProtocol (ProtocolNumber)
 ``` 
 
@@ -29,7 +33,7 @@ The **resolve** version is a tabular function that:
 
 Use the following KQL snippet with the **resolve** version:
 
-```KQL
+```kusto
 | invoke _ASIM_ResolveNetworkProtocol (`ProtocolNumber`)
 ``` 
 

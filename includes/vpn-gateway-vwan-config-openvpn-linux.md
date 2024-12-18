@@ -8,7 +8,7 @@ ms.custom: include file, linux-related-content
 #Customer intent: This file is duplicated as vpn-gateway-config-openvpn-linux.md. If the steps and screenshots in this file are updated, they need to be also updated in the other file unless specific to Virtual WAN.
 ---
 
-[!INCLUDE [OpenVPN client version 2.6 not supported](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-vwan-open-vpn-client-version-unsupported.md)]
+[!INCLUDE [OpenVPN client version 2.6 not supported](./vpn-gateway-vwan-open-vpn-client-version-unsupported.md)]
 
 1. Open a new Terminal session. You can open a new session by pressing 'Ctrl + Alt + t' at the same time.
 
@@ -73,6 +73,6 @@ ms.custom: include file, linux-related-content
 
 1. Click **Add** on the **Add VPN** window.
   
-   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/vpn-gateway-vwan-config-openvpn-linux/import.png" alt-text="Screenshot shows Import from file on the Add VPN page." lightbox="~/reusable-content/ce-skilling/azure/media/vpn-gateway-vwan-config-openvpn-linux/import.png":::
+   :::image type="content" source="./media/vpn-gateway-vwan-config-openvpn-linux/import.png" alt-text="Screenshot shows Import from file on the Add VPN page." lightbox="./media/vpn-gateway-vwan-config-openvpn-linux/import.png":::
 
 1. You can connect by turning the VPN **ON** on the **Network Settings** page, or under the network icon in the system tray.
