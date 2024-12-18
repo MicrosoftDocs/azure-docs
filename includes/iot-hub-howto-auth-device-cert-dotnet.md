@@ -16,9 +16,11 @@ To connect a device to IoT Hub using an X.509 certificate:
 
 1. Use [DeviceAuthenticationWithX509Certificate](/dotnet/api/microsoft.azure.devices.client.deviceauthenticationwithx509certificate) to create an object that contains device and certificate information. `DeviceAuthenticationWithX509Certificate` is passed as the second parameter to `DeviceClient.Create` (step 2).
 
-1. Use [DeviceClient.Create](/dotnet/api/microsoft.azure.devices.client.deviceclient.create?view=azure-dotnet&#microsoft-azure-devices-client-deviceclient-create(system-string-microsoft-azure-devices-client-iauthenticationmethod-microsoft-azure-devices-client-transporttype)) to connect the device to IoT Hub using an X.509 certificate.
+1. Use [DeviceClient.Create](/dotnet/api/microsoft.azure.devices.client.deviceclient.create?&#microsoft-azure-devices-client-deviceclient-create(system-string-microsoft-azure-devices-client-iauthenticationmethod-microsoft-azure-devices-client-transporttype)) to connect the device to IoT Hub using an X.509 certificate.
 
-In this example, the device and certificate information are populated in the `auth` `DeviceAuthenticationWithX509Certificate` object that is passed to `DeviceClient.Create`.
+In this example, device and certificate information is populated in the `auth` `DeviceAuthenticationWithX509Certificate` object that is passed to `DeviceClient.Create`.
+
+This example shows certificate input parameter values as local variables for clarity. In a production system, store sensitive input parameters in environment variables or another more secure storage location. For example, use `Environment.GetEnvironmentVariable("HOSTNAME")` to read the host name environment variable.
 
 ```csharp
 RootCertPath = "~/certificates/certs/sensor-thl-001-device.cert.pem";
@@ -46,10 +48,6 @@ For more information about certificate authentication, see:
 
 * [Authenticate identities with X.509 certificates](/azure/iot-hub/authenticate-authorize-x509)
 * [Tutorial: Create and upload certificates for testing](/azure/iot-hub/tutorial-x509-test-certs)
-* [X509Certificate2Collection](/dotnet/api/system.security.cryptography.x509certificates.x509certificate2collection)
-* [X509Certificate2](/dotnet/api/system.security.cryptography.x509certificates.x509certificate2)
-* [Tutorial: Provision multiple X.509 devices using enrollment groups](/azure/iot-dps/tutorial-custom-hsm-enrollment-group-x509?pivots=programming-language-csharp)
-* [OpenSSL CA](https://openssl-ca.readthedocs.io/)
 
 ##### Code samples
 

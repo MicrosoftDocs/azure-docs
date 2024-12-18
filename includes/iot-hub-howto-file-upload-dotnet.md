@@ -29,7 +29,7 @@ Follow this procedure to upload a file from a device to IoT hub:
 1. Upload the file to Azure storage
 1. Notify IoT hub of the file upload status
 
-### Connect to the device
+### Connect a device to IoT Hub
 
 A device app can authenticate with IoT Hub using the following methods:
 

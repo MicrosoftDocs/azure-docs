@@ -226,7 +226,9 @@ The SDK includes an [upload to blob advanced](https://github.com/Azure/azure-iot
 
 ## Create a backend application
 
-This section describes how to receive file upload notification in a backend application.
+This section describes how to receive file upload notifications in a backend application.
+
+The [ServiceClient](/javascript/api/azure-iothub/client) class contains methods that services can use to receive file upload notifications.
 
 ### Install service SDK package
 
@@ -236,41 +238,36 @@ Run this command to install **azure-iothub** on your development machine:
 npm install azure-iothub --save
 ```
 
-## Receive file upload notification in a backend application
+### Connect to IoT hub
 
-You can create a backend application to check the IoT hub service client for device file upload notifications.
+You can connect a backend service to IoT Hub using the following methods:
 
-To create a file upload notification application:
+* Shared access policy
+* Microsoft Entra
 
-1. Connect to the IoT hub service client
-1. Check for a file upload notification
+[!INCLUDE [iot-authentication-service-connection-string.md](iot-authentication-service-connection-string.md)]
 
-### Connect to the IoT hub service client
+#### Connect using a shared access policy
 
-The [ServiceClient](/javascript/api/azure-iothub/client) class contains methods that services can use to receive file upload notifications.
+Use [fromConnectionString](/javascript/api/azure-iothub/client?#azure-iothub-client-fromconnectionstring) to connect to IoT hub.
 
-Connect to IoT hub using [fromConnectionString](/javascript/api/azure-iothub/client?#azure-iothub-client-fromconnectionstring). Pass the IoT hub primary connection string.
+To upload a file from a device, your service needs the **service connect** permission. By default, every IoT Hub is created with a shared access policy named **service** that grants this permission.
 
-```javascript
-const Client = require('azure-iothub').Client;
-const connectionString = "{IoT hub primary connection string}";
-const serviceClient = Client.fromConnectionString(connectionString);
-```
-
-[Open](/javascript/api/azure-iothub/client?#azure-iothub-client-open-1) the connection to IoT hub.
+As a parameter to `CreateFromConnectionString`, supply the **service** shared access policy connection string. For more information about shared access policies, see [Control access to IoT Hub with shared access signatures](/azure/iot-hub/authenticate-authorize-sas).
 
 ```javascript
-//Open the connection to IoT hub
-serviceClient.open(function (err) {
-  if (err) {
-    console.error('Could not connect: ' + err.message);
-  } else {
-    console.log('Service client connected');
+var Client = require('azure-iothub').Client;
+var connectionString = '{IoT hub shared access policy connection string}';
+var client = Client.fromConnectionString(connectionString);
 ```
 
-### Check for a file upload notification
+#### Connect using Microsoft Entra
 
-To check for file upload notifications:
+[!INCLUDE [iot-hub-howto-connect-service-iothub-entra-node](iot-hub-howto-connect-service-iothub-entra-node.md)]
+
+### Create a file upload notification callback receiver
+
+To create a file upload notification callback receiver:
 
 1. Call [getFileNotificationReceiver](/javascript/api/azure-iothub/client?#azure-iothub-client-getfilenotificationreceiver). Supply the name of a file upload callback method that are called when notification messages are received.
 1. Process file upload notifications in the callback method.
@@ -296,3 +293,7 @@ if (err) {
   });
 }
 ```
+
+#### SDK file upload notification sample
+
+The SDK includes a [file upload](https://github.com/Azure/azure-iot-sdk-node/blob/main/e2etests/test/file_upload.js) sample.

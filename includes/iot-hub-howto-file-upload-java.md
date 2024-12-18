@@ -7,7 +7,7 @@ ms.author: kgremban
 ms.service: azure-iot-hub
 ms.devlang: java
 ms.topic: include
-ms.date: 07/01/2024
+ms.date: 12/12/2024
 ms.custom: amqp, mqtt, devx-track-java, devx-track-extended-java
 ---
 
@@ -129,17 +129,62 @@ This section describes how to receive a file upload notification in a backend ap
 
 The [ServiceClient](/java/api/com.azure.core.annotation.serviceclient) class contains methods that services can use to receive file upload notifications.
 
-### Connect to the IoT Hub
+### Add import statements
 
-Create a `IotHubServiceClientProtocol` object. The connection uses the `AMQPS` protocol.
-
-Call `createFromConnectionString` to connect to IoT hub. Pass the IoT hub primary connection string.
+Add these **import** statements to use the Azure IoT Java SDK and exception handler.
 
 ```java
-private static final String connectionString = "{IoT hub primary connection string}";
-private static final IotHubServiceClientProtocol protocol = IotHubServiceClientProtocol.AMQPS;
-ServiceClient sc = ServiceClient.createFromConnectionString(connectionString, protocol);
+import com.microsoft.azure.sdk.iot.service.*;
+import java.io.IOException;
+import java.net.URISyntaxException;
 ```
+
+### Connect to the IoT Hub
+
+You can connect a backend service to IoT Hub using the following methods:
+
+* Shared access policy
+* Microsoft Entra
+
+[!INCLUDE [iot-authentication-service-connection-string.md](iot-authentication-service-connection-string.md)]
+
+#### Connect using a shared access policy
+
+##### Define the connection protocol
+
+Use [IotHubServiceClientProtocol](/java/api/com.microsoft.azure.sdk.iot.service.iothubserviceclientprotocol) to define the application-layer protocol used by the service client to communicate with an IoT Hub.
+
+`IotHubServiceClientProtocol` only accepts the `AMQPS` or `AMQPS_WS` enum.
+
+```java
+private static final IotHubServiceClientProtocol protocol =    
+    IotHubServiceClientProtocol.AMQPS;
+```
+
+##### Create the ServiceClient object
+
+Create the [ServiceClient](/java/api/com.azure.core.annotation.serviceclient) object, supplying the Iot Hub connection string and protocol.
+
+To invoke a direct method on a device through IoT Hub, your service needs the **service connect** permission. By default, every IoT Hub is created with a shared access policy named **service** that grants this permission.
+
+As a parameter to the `ServiceClient` constructor, supply the **service** shared access policy. For more information about shared access policies, see [Control access to IoT Hub with shared access signatures](/azure/iot-hub/authenticate-authorize-sas).
+
+```java
+String iotHubConnectionString = "HostName=xxxxx.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey=xxxxxxxxxxxxxxxxxxxxxxxx";
+private static final ServiceClient serviceClient (iotHubConnectionString, protocol);
+```
+
+##### Open the connection between application and IoT Hub
+
+[open](/java/api/com.microsoft.azure.sdk.iot.service.serviceclient?#com-microsoft-azure-sdk-iot-service-serviceclient-open()) the AMQP sender connection. This method creates the connection between the application and IoT Hub.
+
+```java
+serviceClient.open();
+```
+
+#### Connect using Microsoft Entra
+
+[!INCLUDE [iot-hub-howto-connect-service-iothub-entra-java](iot-hub-howto-connect-service-iothub-entra-java.md)]
 
 ### Check for file upload status
 
@@ -152,7 +197,7 @@ To check for file upload status:
 For example:
 
 ```java
-FileUploadNotificationReceiver receiver = sc.getFileUploadNotificationReceiver();
+FileUploadNotificationReceiver receiver = serviceClient.getFileUploadNotificationReceiver();
 receiver.open();
 FileUploadNotification fileUploadNotification = receiver.receive(2000);
 

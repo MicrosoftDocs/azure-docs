@@ -51,8 +51,6 @@ For more information about certificate authentication, see:
 
 * [Authenticate identities with X.509 certificates](/azure/iot-hub/authenticate-authorize-x509)
 * [Tutorial: Create and upload certificates for testing](/azure/iot-hub/tutorial-x509-test-certs)
-* [Tutorial: Provision multiple X.509 devices using enrollment groups](/azure/iot-dps/tutorial-custom-hsm-enrollment-group-x509?pivots=programming-language-python)
-* [OpenSSL CA](https://openssl-ca.readthedocs.io/)
 
 ##### Code samples
 
