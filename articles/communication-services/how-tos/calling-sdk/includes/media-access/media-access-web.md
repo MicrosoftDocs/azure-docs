@@ -156,6 +156,10 @@ You can use the `getAllOthersMediaAccess` API to get information about all remot
 Here's an example of how to use the `getAllOthersMediaAccess` API:
 ```js
 let remoteParticipantsMediaAccess = mediaAccessHandFeature.getAllOthersMediaAccess()
+
+remoteParticipantsMediaAccess.forEach((mediaAccess) => {
+       console.log(`Identifier: ${mediaAccess.participant } can unmute: ${mediaAccess.isAudioPermitted } and can turn on video: ${mediaAccess.isVideoPermitted }`);  
+})
 ```
 Example array of media access objects returned by list all remote participants media access.
 ```json
