@@ -193,6 +193,6 @@ Example array of media access objects returned by list all remote participants m
 |403 | 46502	| ExpectedError | Change media access failed. User does not have an organizer, co-organizer, or presenter role. | Ensure that the user has the mentioned roles and try again. If the issue persists, gather browser console logs and contact Azure Communication Services support. |
 |403| 46503 | UnexpectedServerError |Change media access failed. Change media access can only be done in meeting/group call scenarios. | Ensure that the feature is initialized only for meeting / group call scenarios. If the issue persists, gather browser console logs and contact Azure Communication Services support. |
 |403 | 46504| ExpectedError | Change media access failed. Only able to change media access for attendees. | Ensure that the method is called only for the attendee MRI's.|
-|412 | 46505| ExpectedError | Failed to change media access. |  Call must be in connected state. |
+|412 | 46505| ExpectedError | Failed to change media access. | Use media access APIs only when your instance of `Call` has property `state` set to `connected`. |
 |412| 46506 | UnexpectedClientError | Media access change failed as meeting capabilities are empty. | Gather browser console logs and contact Azure Communication Services support. |
 |412| 46507 | ExpectedError | Azure Communication Services currently disabled this feature.  | Try the APIs in a couple of days. |
