@@ -313,7 +313,7 @@ az network private-endpoint delete --name MyPrivateEndpoint --resource-group MyR
 - [What features aren't supported with private endpoints?](#what-features-arent-supported-with-private-endpoints)
 - [How do I verify if my private endpoint is configured correctly?](#how-do-i-verify-if-my-private-endpoint-is-configured-correctly)
 - [How can I change my private endpoint to be disabled or enabled from public network access?](#how-can-i-change-my-private-endpoint-to-be-disabled-or-enabled-from-public-network-access)
-- [How can I migrate my VNet injected cache to a Private Link cache?](#how-can-i-migrate-my-vnet-injected-cache-to-a-private-link-cache)
+<!-- - [How can I migrate my VNet injected cache to a Private Link cache?](#how-can-i-migrate-my-vnet-injected-cache-to-a-private-link-cache) -->
 - [How can I have multiple endpoints in different virtual networks?](#how-can-i-have-multiple-endpoints-in-different-virtual-networks)
 - [What happens if I delete all the private endpoints on my cache?](#what-happens-if-i-delete-all-the-private-endpoints-on-my-cache)
 - [Are network security groups (NSG) enabled for private endpoints?](#are-network-security-groups-nsg-enabled-for-private-endpoints)
@@ -335,15 +335,35 @@ For more information, see [Azure services DNS zone configuration](/azure/private
 
 - You might not connect to your private endpoint if your cache instance is using an [unsupported feature](#what-features-arent-supported-with-private-endpoints).
 
+### What features aren't supported with private endpoints?
+
+- There is no restriction for using private endpoint with Azure Managed Redis (Preview).
+
 ### How do I verify if my private endpoint is configured correctly?
 
 Go to **Overview** in the Resource menu on the portal. You see the **Host name** for your cache in the working pane. Run a command like `nslookup <hostname>` from within the VNet that is linked to the private endpoint to verify that the command resolves to the private IP address for the cache.
 
    :::image type="content" source="media/managed-redis-private-link/managed-redis-private-ip-address.png" alt-text="In the Azure portal, private endpoint D N S settings.":::
 
+### How can I change my private endpoint to be disabled or enabled from public network access?
+
+To change the value in the Azure portal, follow these steps:
+
+  1. In the Azure portal, search for **Azure Managed Redis**.  Then, press enter or select it from the search suggestions.
+
+  1. Select the cache instance you want to change the public network access value.
+
+  1. On the left side of the screen, select **Private Endpoint**.
+
+  1. Delete the private endpoint. 
+
 ### How can I have multiple endpoints in different virtual networks?
 
 To have multiple private endpoints in different virtual networks, the private DNS zone must be manually configured to the multiple virtual networks *before* creating the private endpoint. For more information, see [Azure Private Endpoint DNS configuration](/azure/private-link/private-endpoint-dns).
+
+### What happens if I delete all the private endpoints on my cache?
+
+Deleting all private endpoints on your Azure Managed Redis (preview) will make the service to have public network access.
 
 ### Are network security groups (NSG) enabled for private endpoints?
 
