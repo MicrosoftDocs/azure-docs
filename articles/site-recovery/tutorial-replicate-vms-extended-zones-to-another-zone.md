@@ -467,4 +467,4 @@ To replicate VMs running in a Extended Zones to another Azure Extended Zones, fo
 ## Next steps
 
 - View the [Azure Site Recovery PowerShell reference](https://learn.microsoft.com/powershell/module/az.recoveryservices/?view=azps-13.0.0) to learn how you can create recovery plans, perform failovers, and failbacks with PowerShell.
-- Learn how to [Set up  disaster recovery for Azure VMs using the Azure PowerShell](../azure-to-azure-powershell.md).
+- Learn how to [Set up  disaster recovery for Azure VMs using the Azure PowerShell](./azure-to-azure-powershell.md).
