@@ -129,7 +129,7 @@ If any of the steps are missed, please move the resource to the previous resourc
 
 #### Issue
 
-You want to ensure that the Windows Update client won't install pacthes on your Windows Server so you want to set the patch setting to Manual. The Azure machine has the patch orchestration option as `AutomaticByOS/Windows` automatic updates and you're unable to change the patch orchestration to Manual Updates by using **Change update settings**.
+You want to ensure that the Windows Update client won't install patches on your Windows Server so you want to set the patch setting to Manual. The Azure machine has the patch orchestration option as `AutomaticByOS/Windows` automatic updates and you're unable to change the patch orchestration to Manual Updates by using **Change update settings**.
 
 #### Resolution
 

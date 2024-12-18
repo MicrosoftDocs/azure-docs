@@ -127,7 +127,7 @@ You can use Visual Studio to create a new console app project.
     If you use the Windows command prompt, run the following command.
 
     ```console
-    setx ConnectionString "connection-string-of-your-app-configuration-store"
+    setx ConnectionString "<connection-string-of-your-app-configuration-store>"
     ```
 
     Restart the command prompt to allow the change to take effect. Print the value of the environment variable to validate that it's set properly.
@@ -137,7 +137,7 @@ You can use Visual Studio to create a new console app project.
     If you use Windows PowerShell, run the following command.
 
     ```azurepowershell
-    $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
+    $Env:ConnectionString = "<connection-string-of-your-app-configuration-store>"
     ```
 
     ---

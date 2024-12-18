@@ -103,7 +103,7 @@ The following notes provide more details about the zone import process.
 6. Select **Review + Create** and then select **Create**.
 7. When deployment is complete, select **Go to resource** and then select **Recordsets**. An SOA record compatible with Azure Private DNS is automatically added to the zone. See the following example:
 
-    [ ![creenshot showing the private.contoso.com zone record sets.](./media/private-dns-import-export-portal/recordsets.png) ](./media/private-dns-import-export-portal/recordsets.png#lightbox)
+    [ ![Screenshot showing the private.contoso.com zone record sets.](./media/private-dns-import-export-portal/recordsets.png) ](./media/private-dns-import-export-portal/recordsets.png#lightbox)
 
 ## Export a zone file
 

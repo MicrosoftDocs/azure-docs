@@ -121,6 +121,20 @@ items:
     href: how-to-configure-stop-on-disconnect.md
   - name: Skip or delay an automatic shutdown
     href: how-to-skip-delay-stop.md
+- name: Connect devices to dev boxes
+  items:
+  - name: Connect physical devices to a dev box
+    displayName: USB, devices, connect, physical, peripherals, android
+    href: how-to-connect-devices-to-dev-box.md
+  - name: Configure virtual switch
+    displayName: connect, devices, switch
+    href: how-to-connect-dev-box-virtual-switch.md
+  - name: Drives and storage
+    displayName: drives, storage, connect, physical, peripherals, android, switch
+    href: /azure/virtual-desktop/redirection-configure-drives-storage?tabs=group-policy&pivots=dev-box
+  - name: USB redirection
+    displayName: USB, devices, connect, physical, peripherals, android, switch
+    href: /azure/virtual-desktop/redirection-configure-usb?tabs=intune&pivots=dev-box
 - name: Troubleshooting
   items: 
   - name: Automatically repair connectivity issues
