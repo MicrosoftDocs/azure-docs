@@ -1,5 +1,5 @@
 ---
-title: Azure VMware Solution NSX Scale and Performance Recommendations for VMware HCX
+title: NSX Scale and Performance Recommendations for VMware HCX
 description: Learn about the default NSX Topology in Azure VMware Solution and recommended practices to mitigate performance issues around HCX migration use cases. 
 ms.topic: how-to 
 ms.service: azure-vmware
@@ -8,7 +8,7 @@ ms.custom: engagement-fy25
 ---
 
 
-# Azure VMware Solution NSX Scale and performance recommendations for VMware HCX
+# NSX Scale and performance recommendations for VMware HCX
 
 
 
