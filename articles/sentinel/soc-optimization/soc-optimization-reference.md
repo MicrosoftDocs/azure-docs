@@ -7,7 +7,7 @@ manager: raynew
 ms.collection:
   - usx-security
 ms.topic: reference
-ms.date: 12/09/2024
+ms.date: 12/18/2024
 appliesto:
   - Microsoft Sentinel in the Microsoft Defender portal
   - Microsoft Sentinel in the Azure portal
@@ -78,9 +78,9 @@ SOC optimization uses advanced machine learning to identify tables that are miss
 
 ### Considerations
 
-- Recommendations based on machine learning never look into the content of the logs from our customers or ingest them at any point. No customer data, content, or End User Identifiable Information (EUII) is exposed to the analysis.
+- Not all workspaces get similar organizations recommendations. A workspace receives these recommendations only if our machine learning model identifies significant similarities with other organizations and discovers tables that they have but you don't. SOCs in their early or onboarding stages are generally more likely to receive these recommendations than SOCs with a higher level of maturity.
 
-- Not all workspaces get similar organizations recommendations. A workspace receives these recommendations only if our machine learning model identifies significant similarities with other organizations and discovers tables that they have but you don't.
+- Recommendations are based on machine learning models that rely solely on Organizational Identifiable Information (OII) and system metadata. The models never access or analyze the content of customer logs or ingest them at any point. No customer data, content, or End User Identifiable Information (EUII) is exposed to the analysis.
 
 ## Related content
 
