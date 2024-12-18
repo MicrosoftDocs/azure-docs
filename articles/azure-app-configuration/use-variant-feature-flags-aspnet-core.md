@@ -8,10 +8,10 @@ ms.author: rossgrambo
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 10/18/2024
+ms.date: 12/18/2024
 ---
 
-# Tutorial: Use variant feature flags from Azure App Configuration in an ASP.NET Core application
+# Tutorial: Use variant feature flags in an ASP.NET Core application
 
 In this tutorial, you use a variant feature flag to manage experiences for different user segments in an example application, *Quote of the Day*. You utilize the variant feature flag created in [Use variant feature flags](./use-variant-feature-flags.md). Before proceeding, ensure you create the variant feature flag named *Greeting* in your App Configuration store.
 
@@ -28,11 +28,11 @@ In this tutorial, you use a variant feature flag to manage experiences for diffe
     dotnet new razor --auth Individual -o QuoteOfTheDay
     ```
 
-1. Create a [user secret](/aspnet/core/security/app-secrets) for the application by navigating into the *QuoteOfTheDay* folder and run the following commands. Replace the `<Your App Configuration store endpoint>` placeholder with your App Configuration store's endpoint. You can find the endpoint in your App Configuration store's **Overview** blade in the Azure portal.
+1. Navigate to the *QuoteOfTheDay* directory and create a [user secret](/aspnet/core/security/app-secrets) for the application by running the following commands. Replace the `<your-App-Configuration-endpoint>` placeholder with your App Configuration store's endpoint. You can find the endpoint in your App Configuration store's **Overview** blade in the Azure portal.
 
     ```dotnetcli
     dotnet user-secrets init
-    dotnet user-secrets set Endpoints:AppConfiguration "<Your App Configuration store endpoint>"
+    dotnet user-secrets set Endpoints:AppConfiguration "<your-App-Configuration-endpoint>"
     ```
 
 1. Add the latest versions of the required packages.

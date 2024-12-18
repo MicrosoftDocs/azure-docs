@@ -77,11 +77,11 @@ Connect to your App Configuration store using Microsoft Entra ID (recommended), 
     
     ### [Connection string](#tab/connection-string)
 
-    The command uses [Secret Manager](/aspnet/core/security/app-secrets) to store a secret named `ConnectionStrings:AppConfig`, which stores the connection string for your App Configuration store. Replace the `<your_connection_string>` placeholder with your App Configuration store's connection string. You can find the connection string in your App Configuration store's **Access settings** in the Azure portal.
+    The command uses [Secret Manager](/aspnet/core/security/app-secrets) to store a secret named `ConnectionStrings:AppConfiguration`, which stores the connection string for your App Configuration store. Replace the `<your-App-Configuration-connection-string>` placeholder with your App Configuration store's read-only connection string. You can find the connection string in your App Configuration store's **Access settings** in the Azure portal.
 
     ```dotnetcli
     dotnet user-secrets init
-    dotnet user-secrets set ConnectionStrings:AppConfiguration "<your_connection_string>"
+    dotnet user-secrets set ConnectionStrings:AppConfiguration "<your-App-Configuration-connection-string>"
     ```
 
     > [!TIP]
