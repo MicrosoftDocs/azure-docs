@@ -1,18 +1,18 @@
 ---
-title:  Java AI Applications Deployed to Azure Container Apps
+title:  Introduction to the Java PetClinic AI Sample
 description: "Explains the architecture of AI applications deployed to Azure Container Apps."
 author: KarlErickson
 ms.author: sonwan
 ms.service: azure-container-apps
 ms.topic: concept-article
-ms.date: 12/12/2024
+ms.date: 12/17/2024
 ms.custom: devx-track-java, devx-track-extended-java
 #customer intent: As a developer, I want to understand the architecture of AI applications deployed to Azure Container Apps.
 ---
 
-# Java AI applications deployed to Azure Container Apps
+# Introduction to the Java PetClinic AI sample
 
-In this tutorial, you explore the architecture of AI applications in Azure Container Apps and learn how to deploy these applications.
+In this tutorial, you explore the architecture of AI applications in Azure Container Apps and learn how to deploy these AI applications.
 
 ## Prerequisites
 
@@ -22,21 +22,25 @@ In this tutorial, you explore the architecture of AI applications in Azure Conta
 
 ## Architecture of the AI app in Azure Container Apps
 
-The following diagram shows the architecture of the AI application on Azure Container Apps:
+The following diagram shows the architecture of the AI application in Azure Container Apps:
 
-:::image type="complex" source="media/first-ai-application/architecture-chart.png" alt-text="Diagram of the architecture of the AI application." lightbox="media/first-ai-application/architecture-chart.png":::
+:::image type="complex" source="media/first-java-ai-application/architecture-chart.png" alt-text="Diagram of the architecture of the AI application." lightbox="media/first-ai-application/architecture-chart.png":::
    Diagram that shows the architecture of the AI application. Users access the system through authentication managed by Entra ID. The Azure Container App environment contains an API gatewway that enables routing for and communication with the application. The API gateway uses managed identities to securely interact with the Azure Container Registry and with Azure Cognitive Services. The API gateway also handles communication with external users. A virtual network between the API gateway and external systems provides secure and isolated network connectivity.
 :::image-end:::
 
 The following are the key components of this sample application:
 
 - [Azure Container Apps Environment](/azure/container-apps/environment), to run the container apps instances.
+
 - [Azure OpenAI Service](/azure/ai-services/openai/overview).
+
 - [Azure Container Registry](/azure/container-registry/container-registry-intro), to build and save images for the application.
+
 - [Azure Container Apps](/azure/container-apps/overview) instance for this application.
+
 - [Managed Identities](/entra/identity/managed-identities-azure-resources/overview) for security connections.
 
-Read the [bicep scripts](https://github.com/Azure-Samples/spring-petclinic-ai/blob/main/infra/bicep/main.bicep) to learn more about the deployment of the structure.
+Read the [bicep scripts](https://github.com/Azure-Samples/spring-petclinic-ai/blob/main/infra/bicep/main.bicep) in the [spring-petclinic-ai](https://github.com/Azure-Samples/spring-petclinic-ai/) repo to learn more about the deployment of the structure.
 
 ## Apply your changes
 
@@ -49,25 +53,25 @@ If there are some changes to the code, apply the updates to Azure by using these
 
 ## Implement the first application
 
-This sample is an AI chat assistant based on Retrieval Augmented Generation (RAG). It uses Spring AI SDKs to connect to Azure OpenAI service.
+The application introduced in this article is an AI chat assistant that uses Retrieval Augmented Generation (RAG). To connect to Azure OpenAI Service, the application uses Spring AI SDKs.
 
-### Concept
+### Key concepts
 
 This quickstart, which implements an AI application, uses the following key concepts:
 
-- [Spring AI](https://spring.io/projects/spring-ai). This is an application framework for AI engineering. Its goal is to apply Spring ecosystem design principles to the AI domain. [langchain4j](https://docs.langchain4j.dev/intro) is another popular AI framework that has its own PetClinic sample. For more information on the the Spring PetClinic With OpenAI and Langchain4j, see the [spring-petclinic-langchain4j
+- [Spring AI](https://spring.io/projects/spring-ai). This is an application framework for AI engineering. Its goal is to apply Spring ecosystem design principles to the AI domain. [langchain4j](https://docs.langchain4j.dev/intro) is another popular AI framework that has its own PetClinic sample. For more information on the the Spring PetClinic with OpenAI and Langchain4j, see the [spring-petclinic-langchain4j
 ](https://github.com/Azure-Samples/spring-petclinic-langchain4j) repo.
 
-- RAG with Azure OpenAI. RAG allows developers to use supported AI chat models that can reference specific sources of information to ground the response. Adding this information allows the model to reference both the specific data provided and its pretrained knowledge to provide more effective responses. Azure OpenAI enables RAG by connecting pretrained models to your own data sources. Azure OpenAI uses your data in the following steps:
+- RAG with Azure OpenAI. RAG allows developers to use supported AI chat models that can reference specific sources of information to ground the response. Adding this information allows the model to reference both the specific data provided and its pretrained knowledge to provide more effective responses. Azure OpenAI enables RAG by connecting pretrained models to your own data sources through the following steps:
 
     1. Receive the user prompt.
     1. Determine the relevant content and intent of the prompt.
     1. Query the search index with that content and intent.
-    1. Insert a search result chunk into the Azure OpenAI prompt, along with system message and user prompt.
+    1. Insert a search result chunk into the Azure OpenAI prompt, along with the system message and the user prompt.
     1. Send the entire prompt to Azure OpenAI.
     1. Return the response and data reference (if any) to the user.
 
-For more information, see [Spring AI Chat Client](https://docs.spring.io/spring-ai/reference/api/chatclient.html) and [Implement Retrieval Augmented Generation (RAG) with Azure OpenAI Service](/training/modules/use-own-data-azure-openai).
+For more information, see [Spring Chat Client API](https://docs.spring.io/spring-ai/reference/api/chatclient.html) and [Implement Retrieval Augmented Generation (RAG) with Azure OpenAI Service](/training/modules/use-own-data-azure-openai).
 
 ### Code implementation
 
