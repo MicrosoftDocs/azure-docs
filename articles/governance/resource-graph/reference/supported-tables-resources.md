@@ -596,7 +596,6 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - Microsoft.MixedReality/objectAnchorsAccounts (Object Anchors Accounts)
 - Microsoft.MixedReality/objectUnderstandingAccounts (Object Understanding Accounts)
 - Microsoft.MixedReality/remoteRenderingAccounts (Remote Rendering Accounts)
-- Microsoft.MixedReality/spatialAnchorsAccounts (Spatial Anchors Accounts)
 - microsoft.mixedreality/surfacereconstructionaccounts
 - Microsoft.MobileNetwork/mobileNetworks (Mobile Networks)
 - microsoft.mobilenetwork/mobilenetworks/datanetworks

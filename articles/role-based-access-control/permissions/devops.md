@@ -6,7 +6,7 @@ ms.topic: reference
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 09/20/2024
+ms.date: 12/12/2024
 ms.custom: generated
 ---
 
@@ -193,9 +193,6 @@ Azure service: [Azure Lab Services](/azure/lab-services/)
 > | Action | Description |
 > | --- | --- |
 > | Microsoft.DevTestLab/register/action | Registers the subscription |
-> | Microsoft.DevTestLab/labCenters/delete | Delete lab centers. |
-> | Microsoft.DevTestLab/labCenters/read | Read lab centers. |
-> | Microsoft.DevTestLab/labCenters/write | Add or modify lab centers. |
 > | Microsoft.DevTestLab/labs/delete | Delete labs. |
 > | Microsoft.DevTestLab/labs/read | Read labs. |
 > | Microsoft.DevTestLab/labs/write | Add or modify labs. |
@@ -286,6 +283,7 @@ Azure service: [Azure Lab Services](/azure/lab-services/)
 > | Microsoft.DevTestLab/labs/virtualMachines/Restart/action | Restart a virtual machine. |
 > | Microsoft.DevTestLab/labs/virtualMachines/Start/action | Start a virtual machine. |
 > | Microsoft.DevTestLab/labs/virtualMachines/Stop/action | Stop a virtual machine |
+> | Microsoft.DevTestLab/labs/virtualMachines/Hibernate/action |  |
 > | Microsoft.DevTestLab/labs/virtualMachines/TransferDisks/action | Transfers all data disks attached to the virtual machine to be owned by the current user. |
 > | Microsoft.DevTestLab/labs/virtualMachines/UnClaim/action | Release ownership of an existing virtual machine |
 > | Microsoft.DevTestLab/labs/virtualMachines/schedules/delete | Delete schedules. |

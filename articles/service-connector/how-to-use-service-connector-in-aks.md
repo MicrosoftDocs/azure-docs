@@ -63,7 +63,7 @@ Different kubernetes resources are created when the target service type and auth
 
 #### Kubernetes secret
 
-A kubernetes secret is created when the authentication type is `Connection String` or `Service Principal`. Your cluster workload definition can reference the secret directly. The following snnipet is an example.
+A kubernetes secret is created when the authentication type is `Connection String` or `Service Principal`. Your cluster workload definition can reference the secret directly. The following snippet is an example.
 
 ```yaml
 apiVersion: batch/v1
@@ -89,7 +89,7 @@ Then, your application codes can consume the connection string in the secret fro
 
 #### Kubernetes service account
 
-Both a kubernetes service account and a secret are created when the authentication type is `Workload Identity`. Your cluster workload definition can reference the service account and secret to authenticate through workload identity. The following snipet provides an example.
+Both a kubernetes service account and a secret are created when the authentication type is `Workload Identity`. Your cluster workload definition can reference the service account and secret to authenticate through workload identity. The following snippet provides an example.
 
 ```yaml
 apiVersion: batch/v1
