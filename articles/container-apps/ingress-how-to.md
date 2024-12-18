@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 06/13/2024
+ms.date: 12/18/2024
 ms.author: cshoe
 ms.custom: devx-track-azurecli
 zone_pivot_groups: arm-azure-cli-portal
@@ -28,10 +28,15 @@ You can set the following ingress template properties:
 | `external` | Allow ingress to your app from outside its Container Apps environment. |`true` or `false`(default) | Yes |
 | `ipSecurityRestrictions` | IP ingress restrictions. See [Set up IP ingress restrictions](ip-restrictions.md) | An array of rules | No |
 | `stickySessions.affinity` | Enables [session affinity](sticky-sessions.md). | `none` (default), `sticky` | No |
-| `targetPort` | The port your container listens to for incoming requests. | Set this value to the port number that your container uses. For HTTP ingress, your application ingress endpoint is always exposed on port `443`. | Yes |
+| `targetPort` | The port your container app listens to for incoming requests. | Set this value to the port number that your container uses. For HTTP ingress, your application ingress endpoint is always exposed on port `443`. | Yes |
 | `traffic` | [Traffic splitting](traffic-splitting.md) weights split between revisions. | An array of rules | No |
 | `transport` | The transport protocol type. | auto (default) detects HTTP/1 or HTTP/2, `http` for HTTP/1, `http2` for HTTP/2, `tcp` for TCP. | No |
 
+### Automatic port detection
+
+If your container app listens on ports 80 or 443, Container Apps detects this automatically.
+    - Automatic port detection only works for HTTP traffic, not TCP traffic.
+    - If you have HTTP health probes listening on ports 80 or 443, this can interfere with automatic port detection. The default ingress configuration uses TCP health probes. For more information see [Health probes in Azure Container Apps](health-probes.md).
 
 ## Enable ingress
 
