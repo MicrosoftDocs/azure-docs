@@ -79,6 +79,21 @@ const mediaAccessChangedHandler = (event) => {
 }
 mediaAccessFeature.on('mediaAccessChanged', mediaAccessChangedHandler )
 
+### Media Access properties
+Class `MediaAccess` has the following properties:
+| Properties | Description |
+| -- | -- |
+| participant | Identifier of the participant whose media access has changed. |
+| isAudioPermitted | Boolean value indicating whether ability to send audio is allowed for this participant. |
+| isVideoPermitted | Boolean value indicating whether ability to send video is allowed for this participant. |
+
+### Meeting media access properties
+Class `MeetingMediaAccess` has the following properties:
+| Properties | Description |
+| -- | -- |
+| isAudioPermitted | Boolean value indicating whether ability to send audio is allowed in the Teams meeting for attendees. |
+| isVideoPermitted | Boolean value indicating whether ability to send video is allowed in the Teams meeting for attendees. |
+
 You can use the following code to subscribe these events:
 ```js
 const mediaAccessChangedHandler = (event) => {
