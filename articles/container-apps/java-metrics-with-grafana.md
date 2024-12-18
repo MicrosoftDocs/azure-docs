@@ -36,15 +36,15 @@ Use the following steps to define environment variables and ensure your Azure Ma
 1. Create variables to support your grafana configuration. 
    ```bash
    export LOCATION=eastus
-   export SUBSCRIPTION_ID={my-subscriprion-id}
-   export RESOURCE_GROUP=my-grafana-resource-group
-   export GRAFANA_INSTANCE_NAME=my-grafana-name
+   export SUBSCRIPTION_ID={subscriprion-id}
+   export RESOURCE_GROUP=grafana-resource-group
+   export GRAFANA_INSTANCE_NAME=grafana-name
    ```
 
    | Variable                | Description                                                                        |
    |-------------------------|------------------------------------------------------------------------------------|
    | `LOCATION`              | The Azure region location where you create your Azure Managed Grafana instance. |
-   | `SUBSCRIPTION_ID`       | The subscription ID which you use to create your Azure Container Apps. |
+   | `SUBSCRIPTION_ID`       | The subscription ID which you use to create your Azure Container Apps and Azure Managed Grafana instance. |
    | `RESOURCE_GROUP`        | The Azure resource group name for your Azure Managed Grafana instance.                           |
    | `GRAFANA_INSTANCE_NAME` | The instance name for your Azure Managed Grafana instance.               |
   
@@ -61,7 +61,7 @@ Use the following steps to define environment variables and ensure your Azure Ma
    az group create --name $RESOURCE_GROUP --location $LOCATION
    ```
 
-1. Use the following command to ensure that you have the latest version of the Azure CLI extensions for Azure Managed Grafana:
+1. Use the following command to ensure that you have the latest version of the Azure CLI extensions for Azure Managed Grafana.
 
     ```azurecli
     az extension add --name amg --upgrade
@@ -81,7 +81,7 @@ First, create an Azure Managed Grafana instance, and grant necessary role assign
        --location $LOCATION
    ```
 
-1. Grant the Azure Managed Grafana instance permission to read metrics from Azure Monitor. Find more about the [authentication and permissions for Azure Managed Grafana](../managed-grafana/how-to-authentication-permissions.md).
+1. Grant the Azure Managed Grafana instance "Monitoring Reader" role to read metrics from Azure Monitor. Find more about the [authentication and permissions for Azure Managed Grafana](../managed-grafana/how-to-authentication-permissions.md).
 
    ```azurecli
    GRAFA_IDDENTITY=$(az grafana show --name $GRAFANA_INSTANCE_NAME --resource-group $RESOURCE_GROUP --query "identity.principalId" --output tsv)
@@ -89,7 +89,7 @@ First, create an Azure Managed Grafana instance, and grant necessary role assign
    az role assignment create --assignee $GRAFA_IDDENTITY --role "Monitoring Reader" --scope /subscriptions/$SUBSCRIPTION_ID
    ```
 
-## Create an Java metrics dashboard
+## Create a Java metrics dashboard
 
 > [!IMPORTANT]
 > To add a new dashboard in grafana, you need to have `Grafana Admin` or `Grafana Editor`role, see [Azure Managed Grafana roles](../managed-grafana/concept-role-based-access-control.md).
@@ -97,7 +97,7 @@ First, create an Azure Managed Grafana instance, and grant necessary role assign
 
 1. Assign the `Grafana Admin` role to your account on the Azure Managed Grafana resource.
 
-   Get the resource ID for your Azure Managed Grafana instance
+   Get the resource ID for your Azure Managed Grafana instance.
    ```azurecli
    GRAFANA_RESOURCE_ID=$(az grafana show --resource-group $RESOURCE_GROUP --name $GRAFANA_INSTANCE_NAME --query id --output tsv)
    ```
@@ -131,11 +131,11 @@ First, create an Azure Managed Grafana instance, and grant necessary role assign
 ## Visiualize Java metrics for Azure Container Apps with Grafana
 
 1. Input your resource information in the filters for your Azure Container Apps. Now you can view all the [supported Java metrics in Azure Container Apps](java-metrics.md) within the dashboard. The sample dashboard provides live metric data, including
-   - Container App Overview Container App Overview
-   - JVM Memory Usage JVM Memory Usage
-   - JVM Memory Buffer JVM Memory Buffer
+   - Container App Overview
+   - JVM Memory Usage
+   - JVM Memory Buffer
    - JVM GC JVM GC
-   - A detailed JVM Memory Usage Analysis detailed JVM Memory Usage Analysis
+   - A detailed JVM Memory Usage Analysis
    
    :::image type="content" source="media/java-metrics-with-grafana/grafana-overview.png" alt-text="Screenshot of Overview tab in grafana." lightbox="media/java-metrics-with-grafana/grafana-overview.png":::
 
