@@ -88,7 +88,7 @@ The preparation script executes the following changes based on the OS type of th
 
       - IntelIde.sys
       - Atapi
-      - Storfit
+      - Storflt
       - Storvsc
       - VMbus
 
