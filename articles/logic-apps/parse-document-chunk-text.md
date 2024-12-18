@@ -10,7 +10,7 @@ ms.date: 12/18/2024
 # Customer intent: As a developer using Azure Logic Apps, I want to parse a document or chunk text that I want to use with Azure AI operations for my workflow in Azure Logic Apps.
 ---
 
-# Parse or chunk content for Standard workflows in Azure Logic Apps (Preview)
+# Parse or chunk content for workflows in Azure Logic Apps (Preview)
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
