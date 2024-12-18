@@ -52,9 +52,6 @@ If you intend to implement Auto OS Upgrades within a pool, it's essential to con
 > [!Note]
 > **Upgrade Policy mode** and **Automatic OS Upgrade Policy** are separate settings and control different aspects of the provisioned scale set by Azure Batch. The Upgrade Policy mode will determine what happens to existing instances in scale set. However, Automatic OS Upgrade Policy enableAutomaticOSUpgrade is specific to the OS image and tracks changes the image publisher has made and determines what happens when there is an update to the image.
 
-> [!IMPORTANT]
-> If you are using [user subscription](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode), it's essential to note that a subscription feature **Microsoft.Compute/RollingUpgradeDeferral** is required for your subscription to be registered. You cannot use *osRollingUpgradeDeferral* unless this feature is registered. To enable this feature, please [manually register](../azure-resource-manager/management/preview-features.md) it on your subscription.
-
 ### REST API
 The following example describes how to create a pool with Auto OS Upgrade via REST API:
 
