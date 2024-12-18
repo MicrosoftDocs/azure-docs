@@ -80,6 +80,7 @@ You can use the built-in roles, such as [Network contributor](../role-based-acce
 
 ## Permissions
 Depending on whether you're creating new resources or using existing ones, add the appropriate permissions from the following list:
+
 |Resource | Resource status | Required Azure permissions |
 |---|---|---|
 | Subnet | Create new| Microsoft.Network/virtualNetworks/subnets/write<br>Microsoft.Network/virtualNetworks/subnets/join/action |
