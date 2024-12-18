@@ -37,6 +37,7 @@ You can link a Power BI workspace to your Azure Synapse workspace. This capabili
 1. Set **Name** to **NYCTaxiWorkspace1** or similar.
 1. Set **Workspace name** to the Power BI workspace you created earlier, similar to **NYCTaxiWorkspace1**.
 1. Select **Create**.
+1. Click **Publish All**. Then refresh the page.
 
 ### Create a Power BI dataset that uses data in your Azure Synapse workspace
 
