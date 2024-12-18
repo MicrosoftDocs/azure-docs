@@ -36,7 +36,7 @@ The [Device Update core interface](https://github.com/Azure/iot-plugandplay-mode
 
 ### Device information interface
 
-The [device information interface](https://github.com/Azure/iot-plugandplay-models/blob/main/dtmi/azure/devicemanagement/deviceinformation-1.json) implements the Azure IoT `DeviceInformation` interface.
+The [device information interface](https://github.com/Azure/iot-plugandplay-models/blob/main/dtmi/azure/devicemanagement/deviceinformation-1.json) implements the Azure IoT Plug and Play (PnP) `DeviceInformation` interface.
 
 ### Diagnostic information interface
 
