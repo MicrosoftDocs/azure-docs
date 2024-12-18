@@ -35,7 +35,7 @@ This quickstart shows how to create the same example logic app workflow as the A
 
     > [!IMPORTANT]
     >
-    > If you use Visual Studio 2019 or 2017, make sure that you select the **Azure development** workload.
+    > If you use Visual Studio 2019, make sure that you select the **Azure development** workload.
     >
     > The Azure Logic Apps extension is unavailable for Visual Studio 2022.
 
@@ -43,11 +43,7 @@ This quickstart shows how to create the same example logic app workflow as the A
 
   * [Azure PowerShell](https://github.com/Azure/azure-powershell#installation)
 
-  * The corresponding Azure Logic Apps Tools for the Visual Studio extension, which is unavailable for Visual Studio 2022:
-
-    * [Visual Studio 2019](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2019)
-
-    * [Visual Studio 2017](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2017)
+  * The [Azure Logic Apps Tools extension for Visual Studio 2019](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2019). This extension is unavailable for Visual Studio 2022.
 
     You can download and install Azure Logic Apps Tools directly from the Visual Studio Marketplace, or learn [how to install this extension from inside Visual Studio](/visualstudio/ide/finding-and-using-visual-studio-extensions). Make sure that you restart Visual Studio after you finish installing.
 
@@ -89,10 +85,6 @@ To work with Azure Government subscriptions in Azure Logic Apps, you need to [ad
 To revert this setup, delete the JSON file at the following location, and restart Visual Studio:
 
 `%localappdata%\.IdentityService\AadConfigurations\AadProvider.Configuration.json`
-
-### Visual Studio 2017
-
-You can use the [Azure Environment Selector Visual Studio extension](https://devblogs.microsoft.com/azuregov/introducing-the-azure-environment-selector-visual-studio-extension/), which you can download and install from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=SteveMichelotti.AzureEnvironmentSelector).
 
 <a name="create-resource-group-project"></a>
 
