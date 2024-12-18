@@ -26,13 +26,13 @@ const mediaAccessFeature = call.feature(Features.MediaAccess);
 You can use methods `permitAudio()` and `forbidAudio()` to enable or disable audio of all attendees and methods `permitVideo()` and `forbidVideo()` to enable or disable video of all attendees. If presenters or organizer enable audio or video for all attendees, those attendees would be able to unmute or enable video. This action won't for privacy reasons unmute or turn on video of attendees.
 ```js
 //forbid audio
-mediaAccessFeature.forbidAudio();
+mediaAccessFeature.forbidAudio([user1, user2]);
 //permit audio
-mediaAccessFeature.permitAudio();
+mediaAccessFeature.permitAudio([user1, user2]);
 //forbid video
-mediaAccessFeature.forbidVideo();
+mediaAccessFeature.forbidVideo([user1, user2]);
 //permit video
-mediaAccessFeature.permitVideo();
+mediaAccessFeature.permitVideo([user1, user2]);
 ```
 
 ### Forbid and permit media access for other participants
