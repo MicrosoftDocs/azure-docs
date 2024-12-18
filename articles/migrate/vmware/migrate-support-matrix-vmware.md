@@ -6,7 +6,7 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.service: azure-migrate
-ms.date: 11/04/2024
+ms.date: 11/06/2024
 ms.custom: vmware-scenario-422, engagement-fy24
 ---
 
@@ -320,7 +320,7 @@ Discovery method |  Dependency information between servers is gathered by using 
 
 Requirement | Details
 --- | ---
-Before deployment | You should have a project in place with the Azure Migrate: Discovery and assessment tool added to the project.<br /><br />You deploy dependency visualization after setting up an Azure Migrate appliance to discover your on-premises servers.<br /><br />Learn how to [create a project for the first time](../create-manage-projects.md).<br /> Learn how to [add a discovery and assessment tool to an existing project](../how-to-assess.md).<br /> Learn how to set up the Azure Migrate appliance for assessment of [Hyper-V](../how-to-set-up-appliance-hyper-v.md), [VMware](how-to-set-up-appliance-vmware.md), or physical servers.
+Before deployment | You should have a project in place with the Azure Migrate: Discovery and assessment tool added to the project.<br /><br />You deploy dependency visualization after setting up an Azure Migrate appliance to discover your on-premises servers.<br /><br />Learn how to [create a project for the first time](../create-manage-projects.md).<br /> Learn how to [add a discovery and assessment tool to an existing project](../how-to-assess.md).<br /> Learn how to set up the Azure Migrate appliance for assessment of [Hyper-V](../how-to-set-up-appliance-hyper-v.md), [VMware](../how-to-set-up-appliance-vmware.md), or physical servers.
 Supported servers | Supported for all servers in your on-premises environment.
 Log Analytics | Azure Migrate and Modernize uses the [Service Map](/previous-versions/azure/azure-monitor/vm/service-map) solution in [Azure Monitor logs](/azure/azure-monitor/logs/log-query-overview) for dependency visualization.<br /><br /> You associate a new or existing Log Analytics workspace with a project. You can't modify the workspace for a project after you add the workspace. <br /><br /> The workspace must be in the same subscription as the project.<br /><br /> The workspace must be located in the East US, Southeast Asia, or West Europe regions. Workspaces in other regions can't be associated with a project.<br /><br /> The workspace must be in a [region in which Service Map is supported](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&regions=all). You can monitor Azure VMs in any region. The VMs themselves aren't limited to the regions supported by the Log Analytics workspace.<br /><br /> In Log Analytics, the workspace associated with Azure Migrate is tagged with the project key and project name.
 Required agents | On each server that you want to analyze, install the following agents:<br />- Azure Monitor agent (AMA)<br />- [Dependency agent](/azure/azure-monitor/vm/vminsights-dependency-agent-maintenance)<br /><br /> If on-premises servers aren't connected to the internet, download and install the Log Analytics gateway on them.<br /><br /> Learn more about installing the [Dependency agent](../how-to-create-group-machine-dependencies.md#install-the-dependency-agent) and the Azure Monitor agent.
@@ -342,9 +342,9 @@ Assessment | You can add up to 35,000 servers in a single group.<br /><br /> You
 Learn more about [assessments](../concepts-assessment-calculation.md).
 
 
-## Import servers by using RVTools XLSX (preview)
+## Import servers using RVTools XLSX (preview)
 
-As part of your migration journey to Azure by using the Azure Migrate appliance, you first discover servers, inventory, and workloads. However, for a quick assessment before you deploy the appliance, you can [import the servers by using the RVTools XLSX file (preview)](tutorial-import-vmware-using-rvtools-xlsx.md).
+As part of your migration journey to Azure by using the Azure Migrate appliance, you first discover servers, inventory, and workloads. However, for a quick assessment before you deploy the appliance, you can [import the servers by using the RVTools XLSX file (preview)](../tutorial-import-vmware-using-rvtools-xlsx.md).
 
 ### Key benefits
 
@@ -382,4 +382,4 @@ To get an accurate operating system suitability/readiness in Azure VM and Azure 
 ## Next steps
 
 * Review [assessment best practices](../best-practices-assessment.md).
-* Learn how to [prepare for a VMware assessment](./tutorial-discover-vmware.md).
+* Learn how to [prepare for a VMware assessment](../tutorial-discover-vmware.md).

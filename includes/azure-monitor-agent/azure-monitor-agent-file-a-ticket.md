@@ -7,7 +7,7 @@ ms.date: 3/22/2022
 
 ## File a ticket
 
-1. Open a data collection rule and on the menu on the left, select **New Support Request**. You can also open the [Help + support pane](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) and select **Create a support request**.
+1. Open a data collection rule and on the menu on the left, select **New Support Request**. You can also open the [Help + support pane](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) and select **Create a support request**.
 1. Select:
 	- **Issue type**: Technical.
 	- **Subscription**: Select the subscription where your machines reside.

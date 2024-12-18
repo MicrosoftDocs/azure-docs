@@ -24,7 +24,7 @@ On your local computer:
 
 # [C\#](#tab/csharp)
 
-+ [.NET 6.0 SDK](https://dotnet.microsoft.com/download)
++ [.NET SDK](https://dotnet.microsoft.com/download)
 + [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later
 
 # [JavaScript](#tab/nodejs)

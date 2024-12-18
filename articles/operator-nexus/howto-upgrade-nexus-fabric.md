@@ -31,8 +31,12 @@ Confirm that the Network Fabric Controller is in a 'Provisioned' state.
 
 ### **Upgrade workflow**
 
-#### **Step 1: Initiate upgrade**
+#### **Step 1: Verify Fabric runtime version**
 
+Verify current fabric runtime version before upgrade:
+    [How to check current cluster runtime version.](./howto-check-runtime-version.md#check-current-fabric-runtime-version)
+
+#### **Step 2: Initiate upgrade**
 Start the upgrade with the following command:
 
 ```Azure CLI
@@ -57,7 +61,7 @@ Replace `myResourceGroup` and `myFabricName` with the actual names of your resou
 > [!NOTE]
 > This command places the NetworkFabric in 'Under Maintenance'.
 
-#### **Step 2: Device-specific upgrades**
+#### **Step 3: Device-specific upgrades**
 
 Follow the recommended sequence for device upgrades, addressing any failures manually if necessary.
 
@@ -102,7 +106,7 @@ az networkfabric device upgrade --version 2.0.0 -g myResourceGroup --resource-na
 
 Replace `myResourceGroup` and `myDeviceName` with the actual names of your resource group and device, respectively.
 
-#### **Step 3: Finalize upgrade**
+#### **Step 4: Finalize upgrade**
 
 After updating all devices, run the completion command to exit maintenance mode:
 

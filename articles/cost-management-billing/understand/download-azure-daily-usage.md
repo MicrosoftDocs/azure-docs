@@ -9,14 +9,14 @@ ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
-ms.date: 08/14/2024
+ms.date: 11/14/2024
 ---
 
 # View and download your Azure usage and charges
 
 You can download a daily breakdown of your Azure usage and charges in the Azure portal. Only certain roles have permission to get Azure usage information, like the Account Administrator or Enterprise Administrator. To learn more about getting access to billing information, see [Manage access to Azure billing using roles](../manage/manage-billing-access.md).
 
-If you have a Microsoft Customer Agreement (MCA), you must be a billing profile Owner, Contributor, Reader, or Invoice manager to view your Azure usage and charges. If you have a Microsoft Partner Agreement (MPA), only the Global Admin and Admin Agent role in the partner organization Microsoft can view and download Azure usage and charges.
+If you have a Microsoft Customer Agreement (MCA), you must be a billing profile Owner, Contributor, Reader, or Invoice manager to view your Azure usage and charges. If you have a Microsoft Partner Agreement (MPA), only the [billing admin](/partner-center/account-settings/permissions-overview#billing-admin-role) and Admin Agent role in the partner organization Microsoft can view and download Azure usage and charges.
 
 Based on the type of subscription that you use, options to download your usage and charges vary.
 

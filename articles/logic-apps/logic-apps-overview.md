@@ -98,13 +98,17 @@ To learn how other companies improved their agility and increased focus on their
 
 All these services help you connect and bring together disparate systems. Each service has their advantages and benefits, so combining their capabilities is the best way to quickly build a scalable, full-featured integration system. For more information, see [Choose between Azure Logic Apps, Azure Functions, Azure WebJobs, and Microsoft Power Automate](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md).
 
+## How does Azure Logic Apps differ from Azure Automation Runbooks?
+
+[Azure Automation Runbooks](/azure/automation/automation-runbook-types) provide a lightweight and cost-effective solution for straightforward remediations, such as restarting virtual machines. In contrast, Azure Logic Apps are ideal for workflows and orchestrations between multiple services, systems, apps, and data. including workloads that run custom code or require complex logic that uses control structures such as loops, branching, conditions, and more.
+
 ## How quickly can I ramp up my solutions with Azure Logic Apps?
 
 You can start small with your current systems and services, and then grow incrementally at your own pace. When you're ready, Azure Logic Apps helps you implement and scale up to more mature integration scenarios by providing the following capabilities and benefits.
 
 ### Visually create and edit workflows with easy-to-use tools
 
-Save time and simplify complex processes by using the visual design tools in Azure Logic Apps. Create your workflows from start to finish by using the Azure Logic Apps workflow designer in the Azure portal, Visual Studio Code, or Visual Studio. Just start your workflow with a trigger, and add any number of actions from the [connectors gallery](/connectors/connector-reference/connector-reference-logicapps-connectors).
+Save time and simplify complex processes by using the visual design tools in Azure Logic Apps. Create your workflows from start to finish by using the Azure Logic Apps workflow designer in the Azure portal or Visual Studio Code. Just start your workflow with a trigger, and add any number of actions from the [connectors gallery](/connectors/connector-reference/connector-reference-logicapps-connectors).
 
 ### Connect different systems across various environments
 
@@ -180,7 +184,7 @@ The following section describes the logic for the example enterprise workflow, w
 
 :::image type="content" source="./media/logic-apps-overview/example-enterprise-workflow.png" alt-text="Screenshot shows the workflow designer and a sample enterprise workflow that uses switches and conditions." lightbox="./media/logic-apps-overview/example-enterprise-workflow.png":::
 
-You can visually create workflows using the Azure Logic Apps workflow designer in the Azure portal, Visual Studio Code, or Visual Studio. Each workflow also has an underlying definition that uses JavaScript Object Notation (JSON) format. If you prefer, you can edit workflows by changing this JSON definition. For some creation and management tasks, Azure Logic Apps provides Azure PowerShell and Azure CLI command support. For automated deployment, Azure Logic Apps supports Azure Resource Manager templates.
+You can visually create workflows using the Azure Logic Apps workflow designer in the Azure portal or Visual Studio Code. Each workflow also has an underlying definition that uses JavaScript Object Notation (JSON) format. If you prefer, you can edit workflows by changing this JSON definition. For some creation and management tasks, Azure Logic Apps provides Azure PowerShell and Azure CLI command support. For automated deployment, Azure Logic Apps supports Azure Resource Manager templates.
 
 ## Pricing options
 
@@ -193,8 +197,6 @@ Before you can start with Azure Logic Apps, you need an Azure subscription. If y
 When you're ready, try one or more of the following quickstart guides for Azure Logic Apps:
 
 * [Create a multitenant Consumption logic app workflow in the Azure portal](quickstart-create-example-consumption-workflow.md)
-
-* [Create a multitenant Consumption logic app workflow in Visual Studio](quickstart-create-logic-apps-with-visual-studio.md)
 
 * [Create a multitenant Consumption logic app workflow in Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md)
 
