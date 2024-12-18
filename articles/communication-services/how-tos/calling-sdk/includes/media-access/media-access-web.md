@@ -46,7 +46,7 @@ mediaAccessFeature.forbidVideo([user1, user2]);
 mediaAccessFeature.permitVideo([user1, user2]);
 ```
 
-### Forbid and permit media access for other participants
+### Control access to send audio or video of all attendees
 This feature allows users with the Organizer and Presenter roles to forbid and permit media access for other participants on Teams calls. In Azure Communication calls, changing the state of other participants isn't allowed unless adding the presenter role.
 
 To use this feature, you can use the following code:
