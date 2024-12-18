@@ -1,6 +1,6 @@
 ---
 title: Create connections with IaC tools
-description: earn how to create connections using Infrastructure as Code (IaC) tools and translate your infrastructure configurations into IaC templates for CI/CD pipelines.
+description: Learn how to create connections using Infrastructure as Code (IaC) tools and translate your infrastructure configurations into IaC templates for CI/CD pipelines.
 author: houk-ms
 ms.service: service-connector
 ms.topic: how-to
