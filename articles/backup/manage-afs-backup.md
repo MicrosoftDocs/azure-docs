@@ -2,7 +2,7 @@
 title: Manage Azure File share backups
 description: This article describes common tasks for managing and monitoring the Azure File shares that are backed up by Azure Backup.
 ms.topic: how-to
-ms.date: 09/11/2024
+ms.date: 12/18/2024
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -198,7 +198,7 @@ To delete backup data for the Azure File share:
 
 ## Unregister a storage account
 
-To protect your file shares in a particular storage account by using a different Recovery Services vault, first [stop protection for all file shares](#stop-protection-on-a-file-share) in that storage account. Then unregister the account from the current Recovery Services vault used for protection.
+To protect your file shares in a particular storage account by using a different Recovery Services vault, first [stop protection for all file shares](#stop-protection-on-a-file-share) with the **Delete backup data** option in that storage account. Then unregister the account from the current Recovery Services vault used for protection.
 
 The following procedure assumes that the protection was stopped for all file shares in the storage account you want to unregister.
 
