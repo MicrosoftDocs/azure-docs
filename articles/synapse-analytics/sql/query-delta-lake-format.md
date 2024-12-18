@@ -5,7 +5,7 @@ services: synapse analytics
 ms.service: azure-synapse-analytics
 ms.topic: how-to
 ms.subservice: sql
-ms.date: 02/15/2023
+ms.date: 12/17/2024
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: whhender, wiassaf
@@ -23,7 +23,7 @@ You can learn more from the [how to query delta lake tables video](https://www.y
 The serverless SQL pool in Synapse workspace enables you to read the data stored in Delta Lake format, and serve it to reporting tools. 
 A serverless SQL pool can read Delta Lake files that are created using Apache Spark, Azure Databricks, or any other producer of the Delta Lake format.
 
-Apache Spark pools in Azure Synapse enable data engineers to modify Delta Lake files using Scala, PySpark, and .NET. Serverless SQL pools help data analysts to create reports on Delta Lake files created by data engineers. 
+Apache Spark pools in Azure Synapse enable data engineers to modify Delta Lake files using Scala, PySpark, and .NET. Serverless SQL pools help data analysts to create reports on Delta Lake files created by data engineers.
 
 > [!IMPORTANT]
 > Querying Delta Lake format using the serverless SQL pool is **Generally available** functionality. However, querying Spark Delta tables is still in public preview and not production ready. There are known issues that might happen if you query Delta tables created using the Spark pools. See the known issues in [Serverless SQL pool self-help](resources-self-help-sql-on-demand.md#delta-lake).
@@ -50,7 +50,7 @@ The URI in the `OPENROWSET` function must reference the root Delta Lake folder t
 > [!div class="mx-imgBorder"]
 >![ECDC COVID-19 Delta Lake folder](./media/shared/covid-delta-lake-studio.png)
 
-If you don't have this subfolder, you are not using Delta Lake format. You can convert your plain Parquet files in the folder to Delta Lake format using the following Apache Spark Python script:
+If you don't have this subfolder, you aren't using Delta Lake format. You can convert your plain Parquet files in the folder to Delta Lake format using the following Apache Spark Python script:
 
 ```python
 %%pyspark
@@ -64,7 +64,7 @@ To improve the performance of your queries, consider specifying explicit types i
 > The serverless Synapse SQL pool uses schema inference to automatically determine columns and their types. The rules for schema inference are the same used for Parquet files.
 > For Delta Lake type mapping to SQL native type check [type mapping for Parquet](develop-openrowset.md#type-mapping-for-parquet). 
 
-Make sure you can access your file. If your file is protected with SAS key or custom Azure identity, you will need to set up a [server level credential for sql login](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-level-credential).
+Make sure you can access your file. If your file is protected with SAS key or custom Azure identity, you'll need to set up a [server level credential for sql login](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-level-credential).
 
 > [!IMPORTANT]
 > Ensure you are using a UTF-8 database collation (for example `Latin1_General_100_BIN2_UTF8`) because string values in Delta Lake files are encoded using UTF-8 encoding.
@@ -80,7 +80,7 @@ The previous examples used the full path to the file. As an alternative, you can
 > [!IMPORTANT]
 > Data sources can be created only in custom databases (not in the master database or the databases replicated from Apache Spark pools). 
 
-To use the samples below, you will need to complete the following step:
+To use the samples below, you'll need to complete the following step:
 1. **Create a database** with a datasource that references [NYC Yellow Taxi](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/) storage account. 
 1. Initialize the objects by executing [setup script](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) on the database you created in step 1. This setup script will create the data sources, database scoped credentials, and external file formats that are used in these samples.
 
@@ -172,7 +172,7 @@ The folder name in the `OPENROWSET` function (`yellow` in this example) is conca
 > [!div class="mx-imgBorder"]
 >![Yellow Taxi Delta Lake folder](./media/shared/yellow-taxi-delta-lake.png)
 
-If you don't have this subfolder, you are not using Delta Lake format. You can convert your plain Parquet files in the folder to Delta Lake format using the following Apache Spark Python script:
+If you don't have this subfolder, you aren't using Delta Lake format. You can convert your plain Parquet files in the folder to Delta Lake format using the following Apache Spark Python script:
 
 ```python
 %%pyspark
@@ -186,12 +186,10 @@ The second argument of `DeltaTable.convertToDeltaLake` function represents the p
 
 - Review the limitations and the known issues on [Synapse serverless SQL pool self-help page](resources-self-help-sql-on-demand.md#delta-lake).
 
-## Next steps
+## Related content
 
 Advance to the next article to learn how to [Query Parquet nested types](query-parquet-nested-types.md).
 If you want to continue building Delta Lake solution, learn how to create [views](create-use-views.md#delta-lake-views) or [external tables](create-use-external-tables.md#delta-lake-external-table) on the Delta Lake folder.
-
-## See also
 
 - [What is Delta Lake](../spark/apache-spark-what-is-delta-lake.md)
 - [Learn how to use Delta Lake in Apache Spark pools for Azure Synapse Analytics](../spark/apache-spark-delta-lake-overview.md)
