@@ -84,7 +84,7 @@ To register the app, perform the following steps:
 
             The **Application ID URI** uniquely identifies your application when it's used as a resource, which allows requested tokens to grant access. The value is also used as a prefix for scopes you create.
 
-            For a single-tenant app, you can use the default value, which is in the form `api://<application-client-id>`. You can also specify a more readable URI like `https://contoso.com/api` based on one of the verified domains for your tenant. For a multitenant app, you must provide a custom URI. To learn more about accepted formats for App ID URIs, see the [app registrations best practices reference](../active-directory/develop/security-best-practices-for-app-registration.md#application-id-uri).
+            For a single-tenant app, you can use the default value, which is in the form `api://<APPLICATION_CLIENT_ID>`. You can also specify a more readable URI like `https://contoso.com/api` based on one of the verified domains for your tenant. For a multitenant app, you must provide a custom URI. To learn more about accepted formats for App ID URIs, see the [app registrations best practices reference](../active-directory/develop/security-best-practices-for-app-registration.md#application-id-uri).
 
             The value is automatically saved.
 
