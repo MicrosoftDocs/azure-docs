@@ -79,7 +79,7 @@ AI can help app developers across every step of the development lifecycle: desig
 
 - How to run network diagnostics in Azure Communication Services VoIP calls.
 - How to optimize your calls for poor network conditions.
-- What are the common causes of poor media streams in Azure Communication Services calls?
+- What are common causes of poor media streams in Azure Communication Services calls?
 - How to fix subcode 41048 if the video on a call didn't work.
 
 :::image type="content" source="./media/call-diagnostics-all-calls-copilot.png" alt-text="Screenshot of a Call Diagnostics search that shows recent calls for an Azure Communications Services resource and a response from Copilot in Azure."  lightbox="./media/call-diagnostics-all-calls-copilot.png":::
@@ -133,7 +133,7 @@ You can use your tags from `DiagnosticOptions` in three places on the Call Diagn
 
 ### View `DiagnosticOptions` information column in the tables
 
-If you can't see the `DiagnosticOptions` information column in the tables, how can you enable them?
+If you can't see the `DiagnosticOptions` information column in the tables, here's how to view the information:
 
 To view the `DiagnosticOptions` columns in Call Diagnostics you need to enable them using the **Edit Columns** button located in the Call Search and Call Overview sections:
 
