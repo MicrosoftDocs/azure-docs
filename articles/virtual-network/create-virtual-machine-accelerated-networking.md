@@ -1,8 +1,8 @@
 ---
 title: Create an Azure Virtual Machine with Accelerated Networking
 description: Use Azure portal, Azure CLI, or PowerShell to create Linux or Windows virtual machines that have Accelerated Networking enabled for improved network performance.
-author: mattreatMSFT
-ms.author: mareat
+author: asudbring
+ms.author: allensu
 ms.service: azure-virtual-network
 ms.topic: how-to
 ms.date: 12/17/2024
@@ -12,10 +12,6 @@ ms.custom: fasttrack-edit, devx-track-azurecli, linux-related-content, innovatio
 # Create an Azure Virtual Machine with Accelerated Networking
 
 This article describes how to create a Linux or Windows virtual machine (VM) with Accelerated Networking (AccelNet) enabled by using the Azure CLI command-line interface. The article also discusses how to enable and manage Accelerated Networking on existing VMs.
-
-You can also create a VM with Accelerated Networking enabled by using the [Azure portal](quick-create-portal.md). For more information about using the Azure portal to manage Accelerated Networking on VMs, see [Manage Accelerated Networking through the portal](#manage-accelerated-networking-through-the-portal).
-
-To use Azure PowerShell to create a Windows VM with Accelerated Networking enabled, see [Use Azure PowerShell to create a Linux VM with Accelerated Networking](create-vm-accelerated-networking-powershell.md).
 
 ## Prerequisites
 
@@ -45,31 +41,88 @@ If you choose to install and use PowerShell locally, this article requires the A
 
 ### [Portal](#tab/portal)
 
+[!INCLUDE [virtual-network-create-with-bastion.md](~/reusable-content/ce-skilling/azure/includes/virtual-network-create-with-bastion.md)]
+
 ### [PowerShell](#tab/powershell)
 
-1. Use [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup) to create a resource group to contain the resources.
+Before creating a virtual network, you have to create a resource group for the virtual network, and all other resources created in this article. Create a resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). The following example creates a resource group named **test-rg** in the **eastus** location.
 
-   ```azurepowershell
-   New-AzResourceGroup -Name "<myResourceGroup>" -Location "<myAzureRegion>"
-   ```
+```azurepowershell-interactive
+$resourceGroup = @{
+    Name = "test-rg"
+    Location = "EastUS2"
+}
+New-AzResourceGroup @resourceGroup
+```
 
-1. Use [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.Network/New-azVirtualNetworkSubnetConfig) to create a subnet configuration.
+Create a virtual network with [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). The following example creates a virtual network named **vnet-1** with the address prefix **10.0.0.0/16**.
 
-   ```azurepowershell
-   $subnet = New-AzVirtualNetworkSubnetConfig `
-     -Name "<mySubnet>" `
-     -AddressPrefix "<192.168.1.0/24>"
-   ```
+```azurepowershell-interactive
+$vnet1 = @{
+    ResourceGroupName = "test-rg"
+    Location = "EastUS2"
+    Name = "vnet-1"
+    AddressPrefix = "10.0.0.0/16"
+}
+$virtualNetwork1 = New-AzVirtualNetwork @vnet1
+```
 
-1. Use [New-AzVirtualNetwork](/powershell/module/az.Network/New-azVirtualNetwork) to create a virtual network with the subnet.
+Create a subnet configuration with [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig). The following example creates a subnet configuration with a **10.0.0.0/24** address prefix:
 
-   ```azurepowershell
-   $vnet = New-AzVirtualNetwork -ResourceGroupName "<myResourceGroup>" `
-     -Location "<myAzureRegion>" `
-     -Name "<myVnet>" `
-     -AddressPrefix "<192.168.0.0/16>" `
-     -Subnet $Subnet
-   ```
+```azurepowershell-interactive
+$subConfig = @{
+    Name = "subnet-1"
+    AddressPrefix = "10.0.0.0/24"
+    VirtualNetwork = $virtualNetwork1
+}
+$subnetConfig1 = Add-AzVirtualNetworkSubnetConfig @subConfig
+```
+
+Create a subnet configuration for Azure Bastion with [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig). The following example creates a subnet configuration with a **10.0.1.0/24** address prefix:
+
+```azurepowershell-interactive
+$subBConfig = @{
+    Name = "AzureBastionSubnet"
+    AddressPrefix = "10.0.1.0/24"
+    VirtualNetwork = $virtualNetwork1
+}
+$subnetConfig2 = Add-AzVirtualNetworkSubnetConfig @subBConfig
+```
+
+Write the subnet configuration to the virtual network with [Set-AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork), which creates the subnet:
+
+```azurepowershell-interactive
+$virtualNetwork1 | Set-AzVirtualNetwork
+```
+
+### Create Azure Bastion
+
+Create a public IP address for the Azure Bastion host with [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress). The following example creates a public IP address named *public-ip-bastion* in the *vnet-1* virtual network.
+
+```azurepowershell-interactive
+$publicIpParams = @{
+    ResourceGroupName = "test-rg"
+    Name = "public-ip-bastion"
+    Location = "EastUS2"
+    AllocationMethod = "Static"
+    Sku = "Standard"
+}
+New-AzPublicIpAddress @publicIpParams
+```
+
+Create an Azure Bastion host with [New-AzBastion](/powershell/module/az.network/new-azbastion). The following example creates an Azure Bastion host named *bastion* in the *AzureBastionSubnet* subnet of the *vnet-1* virtual network. Azure Bastion is used to securely connect Azure virtual machines without exposing them to the public internet.
+
+```azurepowershell-interactive
+$bastionParams = @{
+    ResourceGroupName = "test-rg"
+    Name = "bastion"
+    VirtualNetworkName = "vnet-1"
+    PublicIpAddressName = "public-ip-bastion"
+    PublicIpAddressRgName = "test-rg"
+    VirtualNetworkRgName = "test-rg"
+}
+New-AzBastion @bastionParams -AsJob
+```
 
 ### [CLI](#tab/cli)
 
@@ -194,15 +247,7 @@ If you choose to install and use PowerShell locally, this article requires the A
     }
     ```
 
----
-
-## Create Azure Bastion
-
-### [Portal](#tab/portal)
-
-### [PowerShell](#tab/powershell)
-
-### [CLI](#tab/cli)
+### Create Azure Bastion
 
 1. Create a public IP address for the Azure Bastion host with [az network public-ip create](/cli/azure/network/public-ip).
 
@@ -322,19 +367,24 @@ If you choose to install and use PowerShell locally, this article requires the A
 
 ### [Portal](#tab/portal)
 
+Accelerated networking is enabled in the portal during virtual machine creation. Proceed to the next section to create a VM.
+
 ### [PowerShell](#tab/powershell)
 
 1. Use [New-AzNetworkInterface](/powershell/module/az.Network/New-azNetworkInterface) to create a network interface (NIC) with Accelerated Networking enabled, and assign the public IP address to the NIC.
 
-   ```azurepowershell
-   $nic = New-AzNetworkInterface `
-     -ResourceGroupName "<myResourceGroup>" `
-     -Name "<myNic>" `
-     -Location "<myAzureRegion>" `
-     -SubnetId $vnet.Subnets[0].Id `
-     -PublicIpAddressId $publicIp.Id `
-     -EnableAcceleratedNetworking
-   ```
+    ```azurepowershell
+    $vnet = Get-AzVirtualNetwork -ResourceGroupName "test-rg" -Name "vnet-1"
+
+    $nicParams = @{
+        ResourceGroupName = "test-rg"
+        Name = "nic-1"
+        Location = "eastus2"
+        SubnetId = $vnet.Subnets[0].Id
+        EnableAcceleratedNetworking = $true
+    }
+    $nic = New-AzNetworkInterface @nicParams
+    ```
 
 ### [CLI](#tab/cli)
 
@@ -413,45 +463,38 @@ If you choose to install and use PowerShell locally, this article requires the A
 
 ### [PowerShell](#tab/powershell)
 
-1. Use [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential) to set a user name and password for the VM and store them in the `$cred` variable.
+Create a VM with [New-AzVM](/powershell/module/az.compute/new-azvm). The following example creates a VM named **vm-1** in the **vnet-1** virtual network. When prompted, enter the username and password for the virtual machine.
 
-   ```azurepowershell
-   $cred = Get-Credential
-   ```
+```azurepowershell-interactive
+# Create a credential object
+$cred = Get-Credential
 
-1. Use [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig) to define a VM with a VM size that supports accelerated networking, as listed in [Windows Accelerated Networking](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview). For a list of all Windows VM sizes and characteristics, see [Windows VM sizes](/azure/virtual-machines/sizes).
+# Define the network interface parameters
+$nicParams = @{
+    ResourceGroupName = "test-rg"
+    Name = "nic-1"
+}
 
-   ```azurepowershell
-   $vmConfig = New-AzVMConfig -VMName "<myVm>" -VMSize "Standard_DS4_v2"
-   ```
+# Get the network interface object
+$nic = Get-AzNetworkInterface @nicParams
 
-1. Use [Set-AzVMOperatingSystem](/powershell/module/az.compute/set-azvmoperatingsystem) and [Set-AzVMSourceImage](/powershell/module/az.compute/set-azvmsourceimage) to create the rest of the VM configuration. The following example creates a Windows Server 2019 Datacenter VM:
+# Define the VM parameters
+$vmParams = @{
+    ResourceGroupName = "test-rg"
+    Location = "EastUS2"
+    Name = "vm-1"
+    ImageName = "Canonical:ubuntu-24_04-lts:server-gen1:latest"
+    Size = "Standard_DS1_v2"
+    Credential = $cred
+    VirtualNetworkName = "vnet-1"
+    SubnetName = "subnet-1"
+    PublicIpAddressName = $null
+    NetworkInterfaceIds = @($nic.Id)
+}
 
-   ```azurepowershell
-   $vmConfig = Set-AzVMOperatingSystem -VM $vmConfig `
-     -Windows `
-     -ComputerName "<myVM>" `
-     -Credential $cred `
-     -ProvisionVMAgent `
-     -EnableAutoUpdate
-   $vmConfig = Set-AzVMSourceImage -VM $vmConfig `
-     -PublisherName "MicrosoftWindowsServer" `
-     -Offer "WindowsServer" `
-     -Skus "2019-Datacenter" `
-     -Version "latest"
-   ```
-
-1. Use [Add-AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface) to attach the NIC that you previously created to the VM.
-
-   ```azurepowershell
-   $vmConfig = Add-AzVMNetworkInterface -VM $vmConfig -Id $nic.Id
-   ```
-
-1. Use [New-AzVM](/powershell/module/az.compute/new-azvm) to create the VM with Accelerated Networking enabled.
-
-   ```azurepowershell
-   New-AzVM -VM $vmConfig -ResourceGroupName "<myResourceGroup>" -Location "<myAzureRegion>"
-   ```
+# Create the VM
+New-AzVM @vmParams
+```
 
 ### [CLI](#tab/cli)
 
