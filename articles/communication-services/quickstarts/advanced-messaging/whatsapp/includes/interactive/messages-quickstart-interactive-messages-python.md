@@ -231,7 +231,7 @@ To run send_whatsappreplybutton_message(), update the [main method](#basic-progr
     messages.send_whatsappreplybutton_message()
 ```
 
-:::image type="content" source="../../media/interactive-reaction-sticker/reply-button-interactive-message.jpg" lightbox="../../media/interactive-reaction-sticker/reply-button-interactive-message.jpg" alt-text="Screenshot that shows WhatsApp List interactive message from Business to User.":::
+:::image type="content" source="../../media/interactive-reaction-sticker/reply-button-interactive-message.jpg" lightbox="../../media/interactive-reaction-sticker/reply-button-interactive-message.jpg" alt-text="Screenshot that shows WhatsApp Reply Button interactive message from Business to User.":::
 
 ## Send a Interactive CTA Url based message to a WhatsApp user
 
