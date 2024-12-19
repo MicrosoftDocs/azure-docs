@@ -12,7 +12,7 @@ ms.author: anfdocs
 
 # Configure cross-tenant customer-managed keys for Azure NetApp Files volume encryption (preview)
 
-Cross-tenant customer-managed keys (CMK) for Azure NetApp Files volume encryption allows service providers based on Azure to offer [customer-managed key encryption](configure-customer-managed-keys.md). In the cross-tenant scenario, the NetApp account resides in a tenant managed by an independent software vendor (ISV), while the key used for encryption of volumes in that NetApp account resides in a key vault in a tenant that you manage.
+Cross-tenant customer-managed keys (CMK) for Azure NetApp Files volume encryption allows service providers based on Azure to offer [customer-managed key encryption](configure-customer-managed-keys.md). In the cross-tenant scenario, the NetApp account resides in a tenant managed by an independent software vendor, while the key used for encryption of volumes in that NetApp account resides in a key vault in a tenant that you manage.
 
 ## Understand cross-tenant customer-managed keys
 
@@ -22,7 +22,7 @@ The following diagram illustrates a sample cross-tenant CMK configuration. In th
 
 A multitenant application registration is created by the service provider in Tenant 1. A [federated identity credential](/entra/workload-id/workload-identity-federation-create-trust?pivots=identity-wif-apps-methods-azp) is created on this application using a user-assigned managed identity along with a private endpoint to the key vault. Then, the name and application ID of the app are shared. 
 
-Following these steps, you install the service provider's application in your tenant (tenant 2) and grant the service principal associated with the installed application access to the key vault. You also store the encryption key (that is, the customer-managed key) in the key vault. You also shares the key location (the URI of the key) with the service provider. Following configuration, the service provider has:
+Following these steps, you install the service provider's application in your tenant (tenant 2) then grant the service principal associated with the installed application access to the key vault. You also store the encryption key (that is, the customer-managed key) in the key vault. You also share the key location (the URI of the key) with the service provider. Following configuration, the service provider has:
 
 - An application ID for a multitenant application installed in the customer's tenant, which has been granted access to the customer-managed key. 
 - A managed identity configured as the credential on the multitenant application. 
@@ -89,14 +89,14 @@ Cross-tenant CMK is currently only supported for the REST API.
 ##  Configure a NetApp account to use a key from a vault in another tenant.
 
 1. Create the application registration. 
-    1. Navigate to Microsoft Entra ID in the Azure Portal
+    1. Navigate to Microsoft Entra ID in the Azure portal
     1. Select **Manage > App registrations** from the left pane.
     1. Select **+ New registration**.
     1. Provide the name for the application registration then select **Account** in any organizational directory.
     1. Select **Register**.
     1. Take note of the ApplicationID/ClientID of the application.
 1. Create a user-assigned managed identity. 
-    1. Navigate to Managed Identities in the Azure Portal. 
+    1. Navigate to Managed Identities in the Azure portal. 
     1. Select **+ Create**.
     1. Provide the resource group, region, and name for the managed identity.    
     1. Select **Review + create**.
@@ -110,7 +110,7 @@ Cross-tenant CMK is currently only supported for the REST API.
     1. Under Federated credential scenario, select **Customer Managed Keys**.
     1. Choose **Select a managed identity**. From the pane, select the subscription. Under **Managed identity**, select **User-assigned managed identity**. In the Select box, search for the managed identity you created earlier, then choose **Select** at the bottom of the pane.
     1. Under Credential details, provide a name and optional description for the credential. Select **Add**.
-1. Create a private endpoint to the your key vault:
+1. Create a private endpoint to your key vault:
     1. Have the customer share the full Azure ResourceId of their Key Vault. <!-- huh? -->
     1. Navigate to **Private Endpoints**.
     1. Select **+ Create**.
@@ -118,14 +118,14 @@ Cross-tenant CMK is currently only supported for the REST API.
     1. In the Resource tab, enter the following:
         - Under Connection Method, select **Connect to an Azure resource by resource ID or alias**.
         - Under **Resource ID or alias**, enter the ResourceID of the customer’s key vault.
-        - Under target sub-resource enter “vault”. Then select **Next > Virtual Network**.
+        - Under target subresource, enter "vault". Then select **Next > Virtual Network**.
     1. In the Virtual Network tab, select a virtual network and subnet for the private endpoint. The endpoint must be in the same virtual network as the volumes you wish to create. The subnet must be a different subnet than the one delegated to `Microsoft.NetApp/volumes`.
     1. Select Next on the next few tabs. Finally, select **Create** on the final tab.
 
 ### Authorize access to the key vault 
 
 1. Install the service provider application in the customer tenant
-    1. Get the Admin Consent URL from the provider for their cross-tenant application. In our example the URL would look like this: https://login.microsoftonline.com/<tenant1 tenantId>/adminconsent/client_id=<client/application ID for the cross tenant-application> This opens a login page where you enter your credentials. Once you enter your credentials, you may see an error stating there is no redirect URL configured. This is OK.
+    1. Get the Admin Consent URL from the provider for their cross-tenant application. In our example the URL would look like this: https://login.microsoftonline.com/<tenant1 tenantId>/adminconsent/client_id=<client/application ID for the cross tenant-application> This opens a login page where you enter your credentials. Once you enter your credentials, you may see an error stating there's no redirect URL configured. This is OK.
 1. Grant the service provider application access to the key vault. 
     1. Navigate to your key vault. Select Access Control (IAM) from the left pane.  
     1. Under Grant access to this resource, select **Add role assignment**. 
