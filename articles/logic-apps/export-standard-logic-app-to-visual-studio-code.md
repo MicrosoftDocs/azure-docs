@@ -1,26 +1,27 @@
 ---
-title: Export Standard logic app workflows to Visual Studio Code
-description: Learn how to download your Standard logic app resource and workflows from the Azure portal into Visual Studio Code.
-author: ecfan
-services: logic-apps
+title: Export Standard logic apps to Visual Studio Code
+description: Download your Standard logic app and workflows from the Azure portal into Visual Studio Code.
 ms.suite: integration
+services: logic-apps
+author: wsilveiranz
+ms.author: wsilvera
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 12/19/2024
-# As an Azure Logic Apps developer, I want to learn how to export my Standard logic app and workflows from the Azure portal into Visual Studio Code.
+# As an Azure Logic Apps developer, I want to export my Standard logic app and workflows from the Azure portal into Visual Studio Code.
 ---
 
 # Export Standard logic app workflows from Azure portal to Visual Studio Code
 
-[!INCLUDE [logic-apps-sku-standard](../../../includes/logic-apps-sku-standard.md)]
+[!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
-If you currently work on Standard logic app workflows using the Azure portal, you might find yourself wanting to use Visual Studio Code instead. When you switch to Visual Studio Code, you reap the following benefits:
+If you currently work on Standard logic app workflows using the Azure portal, you might find yourself wanting to use Visual Studio Code instead. When you switch to Visual Studio Code, you get the following benefits:
 
 - More control over your development environment.
 - Expanded debugging and testing capabilities.
 - Effectively use version control with your app projects.
 
-This guide shows how to export your logic app as a zip file package from the portal. This package contains your logic app workflows, connections, host configuration, and app settings. You can then use this package to create a workspace for your logic app project files in Visual Studio Code.
+This guide shows how to download your Standard logic app as a zip file package from the portal. This package contains your logic app workflows, connections, host configuration, and app settings. In Visual Studio Code, you can then use this package to create a workspace that contains your logic app project files.
 
 ## Prerequisites
 
@@ -30,7 +31,7 @@ This guide shows how to export your logic app as a zip file package from the por
 
 * The Standard logic app and workflows that you want to export
 
-## Export logic app from portal
+## Download logic app from portal
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
