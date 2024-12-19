@@ -6,13 +6,13 @@ services: frontdoor
 author: duongau
 ms.service: azure-frontdoor
 ms.topic: how-to
-ms.date: 10/30/2024
+ms.date: 12/18/2024
 ms.author: duau
 ---
 
 # Migrate Azure CDN from Edgio to Azure Front Door
 
-Azure CDN from Edgio will be retired on November 4, 2025. You must migrate your workload to Azure Front Door before this date to avoid service disruption. This article provides guidance on how to migrate your workloads from Azure CDN from Edgio to Azure Front Door using Azure Traffic Manager. The migration process in this article can also be used to migrate workloads from a legacy CDN to Azure Front Door.
+Azure CDN from Edgio will be retired on January 15, 2025. You must migrate your workload to Azure Front Door before this date to avoid service disruption. This article provides guidance on how to migrate your workloads from Azure CDN from Edgio to Azure Front Door using Azure Traffic Manager. The migration process in this article can also be used to migrate workloads from a legacy CDN to Azure Front Door.
 
 Azure Traffic Manager initially routes all traffic to the Azure CDN from Edgio. After you set up Azure Front Door, you can update the Traffic Manager profile to incrementally route traffic to the Azure Front Door. This approach allows you to validate if Azure Front Door is compatible with your workloads before fully migrating.
 
@@ -89,7 +89,7 @@ The followings steps assume you're using an Azure Blob Storage account as your o
 
 1. Select **Review + create** and then select **Create**.
 
-1. Set up the custom domain for the Azure Front Door profile. For more information, see [Custom domains](front-door-custom-domain.md). You may have multiple custom domains in your Azure CDN from Edgio profile. Ensure you add all custom domains to the Azure Front Door profile and associate them with the correct routes.
+1. Set up the custom domain for the Azure Front Door profile. For more information, see [Custom domains](standard-premium/how-to-add-custom-domain.md). You may have multiple custom domains in your Azure CDN from Edgio profile. Ensure you add all custom domains to the Azure Front Door profile and associate them with the correct routes.
 
 ### Set up Traffic Manager
 

@@ -334,7 +334,7 @@ Once you've downloaded and opened the project, there are a few essential concept
 |Function|The Azure Function is defined by both the function code and the bindings. These are in [./src/functions/process-blobs.js](https://github.com/Azure-Samples/msdocs-storage-bind-function-service/blob/main/javascript-v4/src/functions/process-blob.js). |
 |Triggers and bindings|The triggers and bindings indicate that data, which is expected into or out of the function and which service is going to send or receive that data. 
 
-Triggers and bindings used in this tutorial to expediate the development process by removing the need to write code to connect to services. 
+Triggers and bindings used in this tutorial to expedite the development process by removing the need to write code to connect to services. 
 
 ### Input Storage Blob trigger
 
@@ -363,7 +363,7 @@ When the function finishes, the function uses the returned object as the data to
 
 ```javascript
 
-// ... function definition ojbect
+// ... function definition object
 app.storageBlob('process-blob-image', { 
     
         // removed for brevity    
