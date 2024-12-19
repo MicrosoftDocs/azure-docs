@@ -43,6 +43,7 @@ mediaAccessFeature.permitVideo(participants);
 
 //Disallow selected attendees to turn on video
 mediaAccessFeature.forbidVideo(participants);
+```
 
 ### Control access to send audio or video of all attendees
 Microsoft Teams meetings support API that allows participants with role organizer, co-organizers or presenters to allow or deny all attendees to send audio or video. You can use method `permitOthersAudio()` to allow all attendees to unmute or method `permitOthersVideo()` to allow all attendees to turn on video. These actions won't automatically unmute or turn on video, they only allow attendees to perform these actions. 
@@ -59,16 +60,6 @@ mediaAccessFeature.permitOthersVideo();
 
 //Disallow all attendees to turn on video
 mediaAccessFeature.forbidOthersVideo();
-
-To use this feature, you can use the following code:
-```js
-//forbid all attendees audio
-mediaAccessFeature.forbidOthersAudio();
-//or we can provide array of CommunicationIdentifier to specify list of participants
-CommunicationUserIdentifier acsUser = new CommunicationUserIdentifier(<USER_ID>);
-MicrosoftTeamsUserIdentifier teamsUser = new MicrosoftTeamsUserIdentifier(<USER_ID>)
-CommunicationIdentifier participants[] = new CommunicationIdentifier[]{ acsUser, teamsUser };
-mediaAccessFeature.forbidAudio(participants);
 ```
 
 ### Get notification that media access changed
