@@ -218,10 +218,8 @@
       items:
       - name: Accelerated Networking overview
         href: accelerated-networking-overview.md
-      - name: Creating an AccelNet VM with PowerShell
-        href: create-vm-accelerated-networking-powershell.md
-      - name: Creating an AccelNet VM with Azure CLI
-        href: create-vm-accelerated-networking-cli.md
+      - name: Creating a virutal machine with accelerated networking
+        href: create-virtual-machine-accelerated-networking.md
         items:
         - name: How Accelerated Networking works
           href: accelerated-networking-how-it-works.md
