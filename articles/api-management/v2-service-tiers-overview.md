@@ -80,6 +80,7 @@ The following API Management capabilities are currently unavailable in the v2 ti
 * Inbound connection using a private endpoint
 * Upgrade to v2 tiers from classic tiers 
 * CA Certificates
+* Sending events to Event Grid
 
 **Developer portal**
 * Reports
