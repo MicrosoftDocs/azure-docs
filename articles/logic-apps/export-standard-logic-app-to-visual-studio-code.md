@@ -85,7 +85,7 @@ This guide shows how to export your logic app as a zip file package from the por
    > If you have any connections that use a managed identity for authentication, make sure 
    > that you update these connections by following the steps in the created project's 
    > **README.md** file, which automatically opens after workspace creation. These steps 
-   > describe how to update these connections.
+   > describe how to update these connections for local development, debugging, and testing.
 
 ## Related content
 
