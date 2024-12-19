@@ -284,7 +284,7 @@ The creation wizard generated the database connectivity string for you already a
         1. In **Region**, set it to the same location as the resource group.
         1. In the dialog, in **Location**, select the same location as your App Service app.
         1. In **Resource Group**, select **msdocs-python-postgres-tutorial**.
-        1. In **Name**, type **msdocs-python-myspostgres-XYZVaultEndpoint**.
+        1. In **Name**, type **msdocs-python-spostgres-XYZVaultEndpoint**.
         1. In **Virtual network**, select **msdocs-python-postgres-XYZVnet**.
         1. In **Subnet**, **msdocs-python-postgres-XYZSubnet**.
         1. Select **OK**.
@@ -297,10 +297,10 @@ The creation wizard generated the database connectivity string for you already a
 :::row:::
     :::column span="2":::
         **Step 4: Configure the Service Connector**
-        1. In the top search bar, type *msdocs-tomcat-mysql*, then the App Service resource called **msdocs-python-postgres-XYZ**.
+        1. In the top search bar, type *msdocs-python-postgres*, then select the App Service resource called **msdocs-python-postgres-XYZ**.
         1. In the App Service page, in the left menu, select **Settings > Service Connector**. There's already a connector, which the app creation wizard created for you.
         1. Select checkbox next to the connector, then select **Edit**.
-        1. In the **Basics** tab, set **Client type** to **Java**.
+        1. In the **Basics** tab, for Flask, set **Client type** to **Python**. For Django, set the **Client type** to **Django**.
         1. Select the **Authentication** tab.
         1. In **Password**, paste the password you copied earlier.
         1. Select **Store Secret in Key Vault**.
@@ -315,7 +315,7 @@ The creation wizard generated the database connectivity string for you already a
     :::column span="2":::
         **Step 5: Establish the Key Vault connection**        
         1. In the **Create connection** dialog for the Key Vault connection, in **Key Vault**, select the key vault you created earlier.
-        1. Select **Review + Create**. You should see that **System assigned managed identity** is set to **Selected**.
+        1. Select **Review + Create**.
         1. When validation completes, select **Create**.
     :::column-end:::
     :::column:::
