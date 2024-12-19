@@ -40,7 +40,7 @@ The following sections provide more detail about the custom allocation request a
 
 ## Manage function keys
 
-Custom allocation policies use function keys to authenticate calls to Azure Functions. The behavior of key management differs based on whether you configure the custom allocation policy through the Azure portal or programmatically.
+Custom allocation policies use function keys to authenticate calls to Azure Functions where the authorization level is set to `Function`. The behavior of key management differs based on whether you configure the custom allocation policy through the Azure portal or programmatically.
 
 ### Function keys in the portal
 
@@ -55,6 +55,8 @@ You can verify that the key is embedded in the webhook URL by running a GET comm
 When you create an enrollment programmatically using the DPS API, you need to manually provide the key during creation of the enrollment. If the key isn't provided, the Azure Functions call fails authentication.
 
 Before you create the individual or group enrollment, retrieve the function key from your function. For more information, see [Get your function access keys](../azure-functions/function-keys-how-to.md#get-your-function-access-keys). Then, include the function key in the **webhookUrl** field of the **CustomAllocationDefinition**.
+
+For more information, see [Azure Functions HTTP trigger > Access key authorization](../azure-functions/functions-bindings-http-webhook-trigger.md#api-key-authorization).
 
 ## Custom allocation policy request
 
