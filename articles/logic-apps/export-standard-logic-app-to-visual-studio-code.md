@@ -71,7 +71,7 @@ This guide shows how to download your Standard logic app as a zip file package f
 
    You're now prompted to select the folder where you want to create your workspace.
 
-1. From the prompt list, select **Browse**. Find and select the local repository folder where you want to create your workspace. When you're done, choose **Select**.
+1. From the prompt list, select **Browse**. Find and select the local repository folder where you want to create your workspace. When you're done, choose **Select**. Follow the additional prompts to continue creating your workspace.
 
 1. Enter a name to use for your workspace.
 
