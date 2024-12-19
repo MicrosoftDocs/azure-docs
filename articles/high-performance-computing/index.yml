@@ -1,7 +1,7 @@
 ### YamlMime:Hub
 
 title: Azure HPC documentation
-summary: Official Azure high-performance computing (HPC) documentation.\n Learn about Azure HPC's various workload orchestration services that integrate with compute, network, and storage resources.\n
+summary: Official Azure high-performance computing (HPC) documentation. Learn about Azure HPC's various workload orchestration services that integrate with compute, network, and storage resources.
 brand: azure
 
 metadata:
