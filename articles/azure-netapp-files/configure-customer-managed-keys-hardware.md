@@ -75,7 +75,7 @@ Azure NetApp Files volume encryption with customer-managed keys with the managed
 
 ## Register the feature
 
-This feature is currently in preview. You need to register the feature before using it for the first time. After registration, the feature is enabled and works in the background. No UI control is required. 
+You need to register the feature before using it for the first time. After registration, the feature is enabled and works in the background. No UI control is required. 
 
 1. Register the feature: 
 
