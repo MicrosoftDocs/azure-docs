@@ -7,10 +7,7 @@ ms.date: 12/18/2024
 ms.custom: engagement-fy25
 ---
 
-
 # NSX Scale and performance recommendations for VMware HCX
-
-
 
 In this article, learn about the default NSX topology in Azure VMware Solution, NSX data path performance characteristics, how to identify NSX data path resource constraints and recommended configurations to help mitigate resource constraints and optimize over all data path performance for HCX migrations. 
    
@@ -18,49 +15,48 @@ In this article, learn about the default NSX topology in Azure VMware Solution, 
 
  The Azure VMware Solution NSX default topology has the following configuration:
 
-•	Three node NSX Manager cluster.
+*	Three node NSX Manager cluster.
 
-•	NSX Edge and Gateway for North-bound traffic:
+*	NSX Edge and Gateway for North-bound traffic:
 
-     •	Two Large Form Factor NSX Edges, deployed in an NSX Edge cluster.
+     *	Two Large Form Factor NSX Edges, deployed in an NSX Edge cluster.
 
-     •	A Default NSX Tier-0 Gateway in Active/Active mode.
+     *	A Default NSX Tier-0 Gateway in Active/Active mode.
 
-     •	A Default NSX Tier-1 Gateway in Active/Standby mode.
+     *	A Default NSX Tier-1 Gateway in Active/Standby mode.
 
-     •	A Default HCX-UPLINK segment connected to default Tier-1 Gateway.
-
-
-
+     *	A Default HCX-UPLINK segment connected to default Tier-1 Gateway.
+     
 Customers typically host their application workloads by creating new NSX segments and attaching them to the default Tier-1 Gateway. Additionally, customers with an HCX migration use case use the default HCX-uplink segment, which is also connected to the default Tier-1 Gateway.    
 
-The default NSX topology for Azure VMware Solution, where all traffic exits through the default Tier-1 Gateway, may not be optimal based on customer traffic flows and throughput requirements. Here are some potential challenges and the recommended configurations to optimize the NSX Edge data path resource.
+The default NSX topology for Azure VMware Solution, where all traffic exits through the default Tier-1 Gateway, may not be optimal based on customer traffic flows and throughput requirements.
 
 ### Potential Challenge:
 
-•	All the north-bound network traffic (Migrations, L2 Extensions, VM traffic outbound of Azure VMware Solution) uses the default Tier-1 Gateway which is in Active/Standby mode.
+ Here are some potential challenges and the recommended configurations to optimize the NSX Edge data path resource.
 
-•	In the default Active/Standby mode, the Tier-1 Gateway only uses the Active Edge VM for all north-bound traffic. 
+*	All the north-bound network traffic (Migrations, L2 Extensions, VM traffic outbound of Azure VMware Solution) uses the default Tier-1 Gateway which is in Active/Standby mode.
 
-•	The second Edge VM, which is standby, is not used for north-bound traffic.
+*	In the default Active/Standby mode, the Tier-1 Gateway only uses the Active Edge VM for all north-bound traffic. 
 
-•	Depending on the throughput requirements, and flows this could potentially create a bottleneck on the Active Edge VM.
+*	The second Edge VM, which is standby, is not used for north-bound traffic.
+
+*	Depending on the throughput requirements, and flows this could potentially create a bottleneck on the Active Edge VM.
 
 ### Recommended Practices:
 It is possible to change the NSX North-bound network connectivity to distribute the traffic evenly to both Edge VMs. Creating an additional Tier-1 Gateways and distributing the NSX segments across multiple Tier-1 Gateways evenly distributes traffic across the Edge VMs. For an HCX migration use case, the recommendation would be to move HCX Layer 2 (L2) Extension and migration traffic to a newly created Tier-1 Gateway, so it uses the NSX Edge resource optimally.
 
 To make an Active Edge for a given Tier-1 Gateway predictable, it is recommended to create an additional Tier-1 Gateway with the High Availability (HA) Mode set to Active/Standby with the Failover mode set to preemptive. This configuration allows you to select a different active Edge VM than the one in use by the default Tier-1 Gateway. This naturally splits north-bound traffic across multiple Tier-1 Gateways, so both NSX Edges are optimally utilized, thus avoiding a potential bottleneck with the default NSX topology. 
- 
+
 :::image type="content" source="media/nsxt/default-nsx-topology.png" alt-text="Diagram showing the default nsx topology in Azure VMware Solution." border="false" lightbox="media/nsxt/default-nsx-topology.png":::
-
-
-Figure 1: Depicts the default NSX topology in Azure VMware Solution
 
 ### NSX Edge performance characteristics
 
 Each of the NSX Edge Virtual machine (EVM) can support up to approximately ~20 Gbps based on the number of flows, packet size, and services enabled on the NSX gateways. Each of the Edge VMs (Large form factors) has four Data Plane Development Kit (DPDK) enabled CPU cores, essentially each of the DPDK core could process up to ~5 Gbps traffic, based on flow hashing, packet size, and services enabled on NSX gateway. For more information on NSX Edge performance, see the VMware NSX-T Reference Design Guide section 8.6.2.*
 
 ## Monitor, Identify, and Fix potential Edge data path Performance Bottlenecks 
+
+Using the built-in NSX alarm framework is recommended to monitor and identify key NSX edge performance metrics. 
 
 ### How to Monitor and Identify NSX Edge Data Path Resource Constraints:
 
@@ -73,8 +69,6 @@ NSX Edge performance can be monitored and identified by using the built-in NSX a
 3.	Edge Datapath NIC throughput high.
 
 :::image type="content" source="media/nsxt/nsx-edge-critical-alerts.png" alt-text="Diagram showing nsx edge health critical alerts." border="false" lightbox="media/nsxt/nsx-edge-critical-alerts.png":::
- 
-Figure 2: NSX Edge Health Critical Alerts
 
 ## How to fix the NSX Edge resource constraints:
 
@@ -82,28 +76,26 @@ To validate the issue, check the historic and real-time traffic throughput:
 
 Validation of issue:
 
-•	Historic/Realtime traffic throughput – check traffic throughput at the alarm time for the correlation. 
+*	Historic/Realtime traffic throughput – check traffic throughput at the alarm time for the correlation. 
 
 :::image type="content" source="media/nsxt/nsx-edge-performance-charts.png" alt-text="Diagram showing nsx edge vm performance charts." border="false" lightbox="media/nsxt/nsx-edge-performance-charts.png":::
-
-Figure 3: NSX Edge VM Performance Charts
 
 To mitigate the issue, here are a few options to consider. 
 
 Mitigation options:
 1.	Edge Scale-UP: NSX Edge Scale-UP from Large (four DPDK CPU) to X-Large (eight DPDK CPU) form factor could resolve part of the issue.
 
-     • Edge Scale up provides additional CPU and memory for data path packet processing.
+     * Edge Scale up provides additional CPU and memory for data path packet processing.
 
-     • Edge Scale up may not help if you have one or more heavy flows, for example, HCX Network Extension (NE) to Network Extension (NE) traffic, as this traffic could potentially pin to one of the DPDK CPU cores.
+     * Edge Scale up may not help if you have one or more heavy flows, for example, HCX Network Extension (NE) to Network Extension (NE) traffic, as this traffic could potentially pin to one of the DPDK CPU cores.
 
 2.	Tier-1 Gateway Topology Change: Change the Azure VMware Solution NSX default Tier-1 Gateway topology with multiple Tier-1 Gateways to split the traffic across multiple Edge VMs
 
-     • More details in the next section with an example of HCX migration use case.
+     * More details in the next section with an example of HCX migration use case.
 
 3.	Edge Scale-OUT:  If customer has large number of Hosts in the SDDC and workloads, NSX Edge Scale-OUT (from two Edges to four Edges) could be an option to add additional NSX Edge data path resources.
 
-     • However, NSX Edge Scale-OUT is effective only with a change in the NSX default Tier-1 Gateway topology to distribute the traffic optimally across all four Edge VMs. More details in the next section with an example of HCX migration use case.
+     * However, NSX Edge Scale-OUT is effective only with a change in the NSX default Tier-1 Gateway topology to distribute the traffic optimally across all four Edge VMs. More details in the next section with an example of HCX migration use case.
 
 ### Default and configuration recommendations to the NSX Edge data path performance.
 
@@ -133,14 +125,14 @@ In general, creating additional Tier-1 Gateways and distributing segments across
  
 :::image type="content" source="media/nsxt/nsx-traffic-flow-additional-tier-1-gateway.png" alt-text="Diagram showing nsx traffic flow in Azure VMware Solution with an additional Tier-1 gateway." border="false" lightbox="media/nsxt/nsx-traffic-flow-additional-tier-1-gateway.png":::
 
-Figure 4: NSX traffic Flow with additional Tier-1 Gateways created. 
-
-
 ### Detailed Steps (Mitigate Edge VM bottleneck)
+
+The creation of an additional Tier-1 Gateway can help mitigate potential Edge VM bottlenecks. 
 
 [Create an NSX Tier-1 Gateway](tutorial-nsx-tier-1-gateway.md).
 
 Distributed Only Option: 
+
 1.	No Edge Cluster can be selected. 
 
 2.	All connected Segments and Service Ports must be advertised.
@@ -149,11 +141,8 @@ Distributed Only Option:
  
 :::image type="content" source="media/nsxt/nsx-tier-1-gateway-distributed-only.png" alt-text="Diagram showing nsx tier-1 gateway distributed only option." border="false" lightbox="media/nsxt/nsx-tier-1-gateway-distributed-only.png":::
 
-Figure 5: Tier-1 Gateway Distributed Only Option.
-
 >[!IMPORTANT] 
 >In a Distributed Only High Availability (HA) Mode, traffic is distributed across all Edge VMs. Workload traffic and Migration traffic may traverse the Active Edge at the same time. 
-
 
 Active/Standby Option: 
 
@@ -173,11 +162,8 @@ An Active/Standby configuration with the preferred Edge VM defined allows you to
 
 :::image type="content" source="media/nsxt/nsx-tier-1-gateway-active-standby.png" alt-text="Diagram showing nsx tier-1 gateway active standby option." border="false" lightbox="media/nsxt/nsx-tier-1-gateway-active-standby.png":::
 
-Figure 6: Tier-1 Gateway Active/Standby Option.
-
 >[!NOTE] 
 >Microsoft Recommends the Active/Standby HA Mode when additional Tier-1 Gateways are created. This allows customers to seperate Workload and migration traffic across different Edge VMs.  
-
 
 ## Create a new Segment for HCX Uplink and attach to the new Tier-1 Gateway 
 
@@ -189,8 +175,6 @@ Select the newly created Tier-1 Gateway when creating your new NSX Segment.
 >When creating a new NSX Segment, customers can utilize the Azure VMware Solution reserved IP space. For example, a new segment can be created with an IP range of 10.18.75.129/26, assuming the following IP space 10.18.72.0/22 was used to create the Azure VMware Solution Private Cloud.
  
 :::image type="content" source="media/nsxt/nsx-segment-creation.png" alt-text="Diagram showing the creation of a nsx segment." border="false" lightbox="media/nsxt/nsx-segment-creation.png":::
-
-Figure 7: NSX Segment creation for new HCX Uplink network. 
 
 ## Create an HCX Network Profile 
 
@@ -210,13 +194,9 @@ For detailed steps on how to Create an HCX Network Profile. [HCX Network Profile
  
 :::image type="content" source="media/hcx/hcx-uplink-network-profile.png" alt-text="Diagram showing the creation of a hcx network profile." border="false" lightbox="media/nsxt/hcx-uplink-network-profile.png":::
  
-Figure 8: HCX Network profile creation.
-
 Once the new HCX Uplink Network Profile is created, update the existing Service Mesh and edit the default uplink profile with the newly created Network Profile. 
 
 :::image type="content" source="media/hcx/hcx-service-mesh-edit.png" alt-text="Diagram showing how to edit an existing HCX service mesh." border="false" lightbox="media/nsxt/hcx-service-mesh-edit.png":::
-
-Figure 9: HCX Service Mesh edit. 
 
 7.	Select the existing **Service Mesh** and select **Edit**. 
  
@@ -225,8 +205,6 @@ Figure 9: HCX Service Mesh edit.
 9.	Select **Service Mesh Change**.
 
 :::image type="content" source="media/hcx/hcx-in-service-mode.png" alt-text="Diagram showing how to edit an in service mode on a hcx Network extension appliance." border="false" lightbox="media/nsxt/hcx-in-service-mode.png":::
-
-Figure 10: HCX In-Service Mode 
  
 >[!Note] 
 >In-Service Mode of the HCX Network Extension appliances should be considered to reduce downtime during this Service Mesh edit.   
