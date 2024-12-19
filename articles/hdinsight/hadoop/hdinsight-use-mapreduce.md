@@ -101,8 +101,8 @@ HDInsight can run HiveQL jobs by using various methods. Use the following table 
 
 | **Use this**... | **...to do this** |  ...from this **client operating system** |
 |:--- |:--- |:--- |:--- |
-| [SSH](apache-hadoop-use-mapreduce-ssh.md) |Use the Hadoop command through **SSH** |Linux, Unix, `MacOS X`, or Windows |
-| [Curl](apache-hadoop-use-mapreduce-curl.md) |Submit the job remotely by using **REST** |Linux, Unix, `MacOS X`, or Windows |
+| [SSH](apache-hadoop-use-mapreduce-ssh.md) |Use the Hadoop command through **SSH** |Linux, Unix, `macOS X`, or Windows |
+| [Curl](apache-hadoop-use-mapreduce-curl.md) |Submit the job remotely by using **REST** |Linux, Unix, `macOS X`, or Windows |
 | [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |Submit the job remotely by using **Windows PowerShell**  |Windows |
 
 ## Next steps

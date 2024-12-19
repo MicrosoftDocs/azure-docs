@@ -19,7 +19,7 @@ To complete this walkthrough, make sure you have the following prerequisites:
 
 - Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/).
 - [Git](https://www.git-scm.com/downloads)
-- Linux/MacOS
+- Linux/macOS
 - Latest Kafka release available from [kafka.apache.org](https://kafka.apache.org/downloads)
 - Read through the [Event Hubs for Apache Kafka](./azure-event-hubs-apache-kafka-overview.md) introduction article
 

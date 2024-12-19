@@ -104,7 +104,7 @@ For example:
 
     ```kusto
     SigninLogs
-    | where AppDisplayName == "GithHub.Com"
+    | where AppDisplayName == "GitHub.Com"
     | join kind=inner  (
         IdentityInfo
         | summarize arg_max(TimeGenerated, *) by AccountObjectId) on $left.UserId == $right.AccountObjectId
