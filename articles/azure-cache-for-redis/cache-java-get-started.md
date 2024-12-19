@@ -70,7 +70,6 @@ Replace the placeholders with the following values:
 ## Create a new Java app
 
 Using Maven, generate a new quickstart app:
-
     ```xml
     mvn archetype:generate \
         -DarchetypeGroupId=org.apache.maven.archetypes \
@@ -87,7 +86,6 @@ Using Maven, generate a new quickstart app:
 1. Open the *pom.xml* file. In the file, you see a dependency for [Jedis](https://github.com/xetorthio/jedis):
 
 ### [Microsoft Entra ID Authentication (recommended)](#tab/entraid)
-
     ```xml
     <dependency>
         <groupId>com.azure</groupId>
@@ -104,7 +102,6 @@ Using Maven, generate a new quickstart app:
 
 
 ### [Access Key Authentication](#tab/accesskey)
-
     ```xml
     <dependency>
         <groupId>redis.clients</groupId>
