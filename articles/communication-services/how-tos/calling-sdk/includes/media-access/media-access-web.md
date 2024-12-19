@@ -23,6 +23,7 @@ const mediaAccessFeature = call.feature(Features.MediaAccess);
 
 ### Control access to send audio or video of individual attendees
 You can use method `permitAudio()` to allow selected attendees to unmute or method `permitVideo()` to allow selected attendees to turn on video. These actions won't automatically unmute or turn on video, they only allow attendees to perform these actions. 
+use method `forbidAudio()` to disallow selected attendees to unmute or method `forbidVideo()` to disallow selected attendees to turn on video. Also these actions will mute or turn off video for selected attendees.
 
 ```js
 //Define list of attendees
@@ -33,18 +34,14 @@ CommunicationIdentifier participants = new CommunicationIdentifier[]{ acsUser, t
 //Allow selected attendees to unmute
 mediaAccessFeature.permitAudio(participants);
 
+//Disallow selected attendees to unmute
+mediaAccessFeature.forbidAudio(participants);
+
 //Allow selected attendees to turn on video
 mediaAccessFeature.permitVideo(participants);
-```js
-//forbid audio
-mediaAccessFeature.forbidAudio([user1, user2]);
-//permit audio
-mediaAccessFeature.permitAudio([user1, user2]);
-//forbid video
-mediaAccessFeature.forbidVideo([user1, user2]);
-//permit video
-mediaAccessFeature.permitVideo([user1, user2]);
-```
+
+//Disallow selected attendees to turn on video
+mediaAccessFeature.forbidVideo(participants);
 
 ### Control access to send audio or video of all attendees
 Microsoft Teams meetings support API that allows participants with role organizer, co-organizers or presenters to allow or deny all attendees to send audio or video. You can use method `permitOthersAudio()` to allow all attendees to unmute or method `permitOthersVideo()` to allow all attendees to turn on video. These actions won't automatically unmute or turn on video, they only allow attendees to perform these actions. 
@@ -53,8 +50,14 @@ Microsoft Teams meetings support API that allows participants with role organize
 //Allow all attendees to unmute
 mediaAccessFeature.permitOthersAudio();
 
+//Disallow all attendees to unmute
+mediaAccessFeature.forbidOthersAudio();
+
 //Allow all attendees to turn on video
 mediaAccessFeature.permitOthersVideo();
+
+//Disallow all attendees to turn on video
+mediaAccessFeature.forbidOthersVideo();
 
 To use this feature, you can use the following code:
 ```js
