@@ -116,7 +116,7 @@ Learn how to use access keys to authenticate Blob storage while configuring seco
 1. Enter **Access key** details.
 1. Click **Next**.
 
-:::image type="content" source="./media/configure-azure-blob-storage/use-access-key.png" alt-text="Screenshot showing the basic tab." border="true" lightbox="./media/configure-azure-blob-storage/use-access-key.png":::
+:::image type="content" source="./media/configure-azure-blob-storage/use-access-key.png" alt-text="Screenshot showing the use access key option." border="true" lightbox="./media/configure-azure-blob-storage/use-access-key.png":::
 
  **Managed Identity as authentication**
 
@@ -133,7 +133,7 @@ Use manage identities to authenticate Azure blob storage while configuring it as
 
 Click **Next**.
 
-:::image type="content" source="./media/configure-azure-blob-storage/use-managed-identity.png" alt-text="Screenshot showing the basic tab." border="true" lightbox="./media/configure-azure-blob-storage/use-managed-identity.png":::
+:::image type="content" source="./media/configure-azure-blob-storage/use-managed-identity.png" alt-text="Screenshot showing the use managed identity option." border="true" lightbox="./media/configure-azure-blob-storage/use-managed-identity.png":::
 
 ## Next steps
 
