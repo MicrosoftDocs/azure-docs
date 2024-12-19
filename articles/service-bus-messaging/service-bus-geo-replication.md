@@ -217,14 +217,14 @@ You can automate promotion either with monitoring systems, or with custom-built 
 
 In the portal, click on the **Promote** icon, and follow the instructions in the pop-up blade to delete the region. 
 
-:::image type="content" source="./media/service-bus-geo-replication/promote-secondary-region.png" alt-text="Screeshot showing the flow to promote secondary region." lightbox="./media/service-bus-geo-replication/promote-secondary-region.png":::
+:::image type="content" source="./media/service-bus-geo-replication/promote-secondary-region.png" alt-text="Screenshot showing the flow to promote secondary region." lightbox="./media/service-bus-geo-replication/promote-secondary-region.png":::
 
 ### Using Azure CLI
 
 Execute the Azure CLI command to initiate the promotion. The **Force** property is optional, and defaults to **false**.
 
 ```azurecli
-az rest --method post --url https://management.azure.com/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.ServiceBus/namespaces/<namespaceName>/failover?api-version=2023-01-01-preview --body "{'properties': {'PrimaryLocation': '<newPrimaryocation>', 'api-version':'2023-01-01-preview', 'Force':'false'}}"
+az rest --method post --url https://management.azure.com/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.ServiceBus/namespaces/<namespaceName>/failover?api-version=2023-01-01-preview --body "{'properties': {'PrimaryLocation': '<newPrimaryLocation>', 'api-version':'2023-01-01-preview', 'Force':'false'}}"
 ```
 
 ### Monitoring data replication
