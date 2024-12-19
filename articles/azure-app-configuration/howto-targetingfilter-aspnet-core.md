@@ -260,7 +260,7 @@ The targeting filter evaluates a user's feature state based on the user's target
     ```
     
     > [!NOTE]
-    > For Blazor applications, see [instructions](./faq.yml#howto-enable-feature-management-in-blazor-applications-or-as-scoped-services-in--net-applications) for enabling feature management as scoped services.
+    > For Blazor applications, see [instructions](./faq.yml#how-to-enable-feature-management-in-blazor-applications-or-as-scoped-services-in--net-applications) for enabling feature management as scoped services.
 
 ## Targeting filter in action
 
