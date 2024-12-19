@@ -204,7 +204,7 @@ As a third option, use a parameter function:
 2. Define the parameters of the function. For example:
 
     ```kusto
-        Tbl: (TimeGenerated:datatime, Computer:string, 
+        Tbl: (TimeGenerated:datetime, Computer:string, 
         EventID:string, SubjectDomainName:string, 
         TargetDomainName:string, SubjectUserName:string)
     ```
