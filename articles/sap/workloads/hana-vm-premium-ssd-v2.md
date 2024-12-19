@@ -57,7 +57,7 @@ Check whether the storage throughput for the different suggested volumes meets t
 
 Values in the table are given as aggregate total for the filesystem. With 1,200 MB/sec throughput limit on a single Premium SSD v2 disk, you require to use multiple disks and striping for larger VMs. Similarly, when using striping to benefit from the included 125 MB/sec and 3,000 IOPS per disk, split the total between the number of disks.
 
-### Examples when using multiple disk ###
+### Examples when using multiple disks ###
 
 When you look up the price list for Azure managed disks, then it becomes apparent that the cost scheme introduced with Premium SSD v2, gives you two general paths to pursue:
 
