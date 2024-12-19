@@ -13,12 +13,12 @@ ms.date: 12/18/2024
 
 # Tutorial: Use variant feature flags in an ASP.NET Core application
 
-In this tutorial, you use a variant feature flag to manage experiences for different user segments in an example application, *Quote of the Day*. You utilize the variant feature flag created in [Use variant feature flags](./use-variant-feature-flags.md). Before proceeding, ensure you create the variant feature flag named *Greeting* in your App Configuration store.
+In this tutorial, you use a variant feature flag to manage experiences for different user segments in an example application, *Quote of the Day*. You utilize the variant feature flag created in [Use variant feature flags](./how-to-variant-feature-flags.md). Before proceeding, ensure you create the variant feature flag named *Greeting* in your App Configuration store.
 
 ## Prerequisites
 
 * Ensure the [.NET CLI](/dotnet/core/tools) is installed on your machine.
-* Follow the [Use variant feature flags](./use-variant-feature-flags.md) tutorial and create the variant feature flag named *Greeting*.
+* Follow the [Use variant feature flags](./how-to-variant-feature-flags.md) tutorial and create the variant feature flag named *Greeting*.
 
 ## Create an ASP.NET Core web app
 
@@ -249,13 +249,13 @@ In this tutorial, you use a variant feature flag to manage experiences for diffe
     ```
 1. Once the application is loaded, select **Register** at the top right to register a new user.
 
-    :::image type="content" source="media/use-variant-feature-flags-aspnet-core/register.png" alt-text="Screenshot of the Quote of the day app, showing Register.":::
+    :::image type="content" source="media/how-to-variant-feature-flags-aspnet-core/register.png" alt-text="Screenshot of the Quote of the day app, showing Register.":::
 
 1. Register a new user named *usera@contoso.com*.
 
 1. Select the link **Click here to validate email** after entering user information.
 
-    :::image type="content" source="media/use-variant-feature-flags-aspnet-core/click-to-confirm.png" alt-text="Screenshot of the Quote of the day app, showing click to confirm.":::
+    :::image type="content" source="media/how-to-variant-feature-flags-aspnet-core/click-to-confirm.png" alt-text="Screenshot of the Quote of the day app, showing click to confirm.":::
 
 1. Repeat the same steps to register a second user named *userb@contoso.com*.
 
@@ -264,15 +264,15 @@ In this tutorial, you use a variant feature flag to manage experiences for diffe
 
 1. Select **Login** at the top right to sign in as usera@contoso.com.
 
-    :::image type="content" source="media/use-variant-feature-flags-aspnet-core/login.png" alt-text="Screenshot of the Quote of the day app, showing **Login**.":::
+    :::image type="content" source="media/how-to-variant-feature-flags-aspnet-core/login.png" alt-text="Screenshot of the Quote of the day app, showing **Login**.":::
 
 1. Once logged in, you see a long greeting message for **usera@contoso.com**
 
-    :::image type="content" source="media/use-variant-feature-flags-aspnet-core/long-variant.png" alt-text="Screenshot of the Quote of the day app, showing a long message for the user.":::
+    :::image type="content" source="media/how-to-variant-feature-flags-aspnet-core/long-variant.png" alt-text="Screenshot of the Quote of the day app, showing a long message for the user.":::
 
 1. Click *Logout* and login as **userb@contoso.com**, you see the simple greeting message.
 
-    :::image type="content" source="media/use-variant-feature-flags-aspnet-core/simple-variant.png" alt-text="Screenshot of the Quote of the day app, showing a simple message for the user.":::
+    :::image type="content" source="media/how-to-variant-feature-flags-aspnet-core/simple-variant.png" alt-text="Screenshot of the Quote of the day app, showing a simple message for the user.":::
 
 ## Next steps
 
