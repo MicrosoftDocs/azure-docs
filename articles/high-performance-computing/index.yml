@@ -149,7 +149,7 @@ additionalContent:
           url: https://aka.ms/HPCPartners
         # Card 4
         - title: Azure HPC Events
-          url: https://aka.ms/HPCEvents
+	  url: https://aka.ms/HPCEvents
 		  
 
    # HPC Channels
