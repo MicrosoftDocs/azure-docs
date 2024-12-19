@@ -34,7 +34,7 @@ The most recent stable release of the Azure Maps services.
 
 ## Previous releases
 
-There are previous stable releases of an Azure Maps services that are still in use. The services in these lists will generally have a more recent version available, and are slated for retirement. If using a previous release, update to the latest version before it's retired to avoid disruption of service.
+There are previous stable releases of an Azure Maps service that are still in use. The services in these lists will generally have a more recent version available, and are slated for retirement. If using a previous release, update to the latest version before it's retired to avoid disruption of service.
 
 ### Version 2022-08-01
 
