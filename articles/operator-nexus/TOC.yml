@@ -323,6 +323,8 @@
           href: troubleshoot-memory-limits.md
         - name: Troubleshoot LACP Bonding
           href: troubleshoot-lacp-bonding.md
+        - name: Troubleshoot DNS Issues
+          href: troubleshoot-dns-issues.md
     - name: Tenant Workload
       expanded: false
       items:
