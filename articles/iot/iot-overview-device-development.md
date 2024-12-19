@@ -21,7 +21,13 @@ The following diagram shows a high-level view of the components in a typical edg
 
 :::image type="content" source="media/iot-overview-device-development/iot-edge-architecture.svg" alt-text="Diagram that shows the high-level IoT solution architecture highlighting asset connectivity areas." border="false":::
 
-Assets typically have built-in firmware that that implements standard protocols. For example, a robotic arm might be an OPC UA client and a security video might implement ONVIF. Azure IoT Operations includes various connectors that can use these protocols to assets, and translate messages from the assets into MQTT messages. You can create your own, custom connectors to connect to assets that use protocols not natively supported by Azure IoT Operations.
+Assets typically have built-in firmware that that implements standard protocols. For example, a robotic arm might be an OPC UA client and a security video camera might implement ONVIF. Azure IoT Operations includes various connectors that can use these protocols to communicate with assets and translate messages from the assets into MQTT messages. Some assets can receive messages enabling you to perform operations on them such as:
+
+- Pan or tilt a security camera.
+- Change the logging level on a robotic arm.
+- Initiate a firmware update.
+
+You can create your own, custom connectors to connect to assets that use protocols not natively supported by Azure IoT Operations.
 
 # [Cloud-based solution](#tab/cloud)
 
@@ -80,7 +86,7 @@ Examples of specialized hardware and operating systems include:
 
 [Eclipse ThreadX](https://github.com/eclipse-threadx/rtos-docs) is a real time operating system for IoT and edge devices powered by MCUs. Eclipse ThreadX is designed to support highly constrained devices that are battery powered and have less than 64 KB of flash memory.
 
-[Azure Sphere](/azure-sphere/product-overview/what-is-azure-sphere) is a secure, high-level application platform with built-in communication and security features for internet-connected devices. It comprises a secured, connected, crossover MCU, a custom high-level Linux-based operating system, and a cloud-based security service that provides continuous, renewable security.
+[Azure Sphere (Integrated)](/azure-sphere/product-overview/what-is-azure-sphere?view=azure-sphere-integrated) is a secure, high-level application platform with built-in communication and security features for internet-connected devices. It comprises a secured, connected, crossover MCU, a custom high-level Linux-based operating system, and a cloud-based security service that provides continuous, renewable security.
 
 ### Device primitives
 
@@ -174,6 +180,8 @@ Containerization is a way to package and run your code in a lightweight, isolate
 # [Edge-based solution](#tab/edge)
 
 Azure IoT Operations containerizes all its connectors, brokers, and other components that run on the edge. Azure IoT Edge deploys to a Kubernetes cluster, which is a container orchestration platform. Deploy any custom connectors or other components that you create to the Kubernetes cluster.
+
+You can view a solution that uses Azure IoT Edge as an edge-based gateway to IoT Hub as a hybrid solution that includes elements of both edge-based and cloud-based solutions.
 
 # [Cloud-based solution](#tab/cloud)
 
