@@ -3,7 +3,7 @@ title: Provision Azure Device Update for IoT Hub agent| Microsoft Docs
 description: Learn how to provision the Azure Device Update for Azure IoT Hub agent.
 author: eshashah-msft
 ms.author: eshashah
-ms.date: 12/18/2024
+ms.date: 12/19/2024
 ms.topic: how-to
 ms.service: azure-iot-hub
 ms.subservice: device-update
@@ -78,7 +78,6 @@ Follow these instructions to provision the Device Update agent on [IoT Edge enab
 1. Install the Device Update image update agent by running the following command:
 
    ```shell
-   
    sudo apt-get install deviceupdate-agent
    ```
 
@@ -87,12 +86,10 @@ Follow these instructions to provision the Device Update agent on [IoT Edge enab
    - For latest agent versions from packages.microsoft.com, update package lists on your device and install the Device Update agent package and its dependencies using:
 
      ```shell
-     
      sudo apt-get update
      ```
 
      ```shell
-     
      sudo apt-get install deviceupdate-agent
      ```
 
@@ -119,7 +116,6 @@ Follow these instructions to provision the Device Update agent on Linux IoT devi
 1. Install the Device Update agent by running the following command:
 
    ```shell
-   
    sudo apt-get install deviceupdate-agent
    ```
 
