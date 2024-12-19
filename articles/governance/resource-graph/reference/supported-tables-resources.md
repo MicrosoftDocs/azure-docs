@@ -593,8 +593,6 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - microsoft.migrate/movecollections
 - Microsoft.Migrate/projects (Migration projects)
 - Microsoft.MixedReality/holographicsBroadcastAccounts (Holographics Broadcast Accounts)
-- Microsoft.MixedReality/objectAnchorsAccounts (Object Anchors Accounts)
-- Microsoft.MixedReality/objectUnderstandingAccounts (Object Understanding Accounts)
 - Microsoft.MixedReality/remoteRenderingAccounts (Remote Rendering Accounts)
 - microsoft.mixedreality/surfacereconstructionaccounts
 - Microsoft.MobileNetwork/mobileNetworks (Mobile Networks)

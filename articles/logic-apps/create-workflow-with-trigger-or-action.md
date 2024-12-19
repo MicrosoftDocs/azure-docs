@@ -26,10 +26,9 @@ This guide shows the steps for Consumption and Standard logic app workflows.
 
 - To add an action, you have to start with a logic app resource and a workflow that minimally has a trigger.
 
-The following steps use the Azure portal, but you can also use the following tools to create a logic app and workflow:
+The following steps use the Azure portal, but you can also use the following tools to build a logic app workflow:
 
-  - Consumption workflows: [Visual Studio](quickstart-create-logic-apps-with-visual-studio.md) or [Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md)
-
+  - Consumption workflows: [Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md)
   - Standard workflows: [Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md)
 
 <a name="add-trigger"></a>

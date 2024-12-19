@@ -14,6 +14,8 @@ ms.custom: vmware-scenario-422, engagement-fy24
 
 This article describes some common issues and specific errors that you might encounter when you replicate on-premises VMware VMs using the Migration and modernization agentless method.
 
+[!INCLUDE [scenario-banner.md](../includes/scenario-banner.md)]
+
 When you replicate a VMware virtual machine using the agentless replication method, data from the virtual machine's disks (vmdks) are replicated to replica managed disks in your Azure subscription. When replication starts for a VM, an initial replication cycle occurs, in which full copies of the disks are replicated. After the initial replication completes, incremental replication cycles are scheduled periodically to transfer any changes that have occurred since the previous replication cycle.
 
 You might occasionally see replication cycles failing for a VM. These failures can happen due to reasons ranging from issues in on-premises network configuration to issues at the Azure Migrate Cloud Service backend. In this article, we will:
