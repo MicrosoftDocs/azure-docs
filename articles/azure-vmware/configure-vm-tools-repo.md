@@ -21,6 +21,9 @@ In this artticle, you learn how to:
 > * Find and download the version of Tools that you want
 > * Upload new files
 
+> [!NOTE]
+> When you want to upload a new version of VMware Tools you will need to go through this process again. Also, if you create a new cluster it will need to be repeated.
+
 ## Prerequisites
 
 * Ability to use "run" commands in the Azure Portal against your SDDC
