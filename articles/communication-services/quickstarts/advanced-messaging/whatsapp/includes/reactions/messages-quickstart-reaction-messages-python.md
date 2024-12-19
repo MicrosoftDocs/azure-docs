@@ -124,6 +124,8 @@ To run send_reaction_message(), update the [main method](#basic-program-structur
     messages.send_reaction_message()
 ```
 
+:::image type="content" source="../../media/interactive/sticker-message.jpg" lightbox="../../media/interactive/sticker-message.jpg" alt-text="Screenshot that shows WhatsApp CTA interactive message from Business to User.":::
+
 ## Run the code
 
 To run the code, make sure you are on the directory where your `reaction-messages-quickstart.py` file is.

@@ -135,6 +135,8 @@ Azure Communication Services - Advanced Messages Quickstart
 WhatsApp Sticker Message with message id <<GUID>> was successfully sent to <<ToRecipient>>
 ```
 
+:::image type="content" source="../../media/interactive/sticker-message.jpg" lightbox="../../media/interactive/sticker-message.jpg" alt-text="Screenshot that shows WhatsApp CTA interactive message from Business to User.":::
+
 ## Full sample code
 
 ```python
