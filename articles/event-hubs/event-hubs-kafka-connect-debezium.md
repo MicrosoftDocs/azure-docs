@@ -27,7 +27,7 @@ In this tutorial, you take the following steps:
 To complete this walk through, you require:
 
 - Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/).
-- Linux/MacOS
+- Linux/macOS
 - Kafka release (version 1.1.1, Scala version 2.11), available from [kafka.apache.org](https://kafka.apache.org/downloads#1.1.1)
 - Read through the [Event Hubs for Apache Kafka](./azure-event-hubs-apache-kafka-overview.md) introduction article
 
