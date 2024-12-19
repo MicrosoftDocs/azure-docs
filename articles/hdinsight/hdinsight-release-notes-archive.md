@@ -154,6 +154,17 @@ For workload specific versions, see [HDInsight 5.x component versions](./hdinsig
     
     The `setOwnerUser` implementation given in Ranger 2.3.0 release has a critical regression issue when being used by Hive. In Ranger 2.3.0, when HiveServer2 tries to evaluate the policies, Ranger Client tries to get the owner of the hive table by calling the Metastore in the setOwnerUser function which essentially makes call to storage to check access for that table. This issue causes the queries to run slow when Hive runs on 2.3.0 Ranger.
 
+**New regions added**
+
+* Italy North
+* Israel Central
+* Spain Central
+* Mexico Central
+* Jio India Central
+ 
+Add to June 2024 Archive Notes
+ 
+
 **Coming soon**
 
 * [Basic and Standard A-series VMs Retirement](https://azure.microsoft.com/updates/basic-and-standard-aseries-vms-on-hdinsight-will-retire-on-31-august-2024/).
@@ -1260,7 +1271,7 @@ HDInsight made some improvements and optimizations on scaling for HBase accelera
 No deprecation in this release.
 
 ### Behavior changes
-#### Disable Stardard_A5 VM size as Head Node for HDInsight 4.0
+#### Disable Standard_A5 VM size as Head Node for HDInsight 4.0
 HDInsight cluster Head Node is responsible for initializing and managing the cluster. Standard_A5 VM size has reliability issues as Head Node for HDInsight 4.0. Starting from this release, customers won't be able to create new clusters with Standard_A5 VM size as Head Node. You can use other two-core VMs like E2_v3 or E2s_v3. Existing clusters will run as is. A four-core VM is highly recommended for Head Node to ensure the high availability and reliability of your production HDInsight clusters.
 
 #### Network interface resource not visible for clusters running on Azure virtual machine scale sets
@@ -1331,7 +1342,7 @@ You need to drop and recreate your clusters if you’d like to move existing clu
 
 It’s highly recommended that you test your script actions and custom applications deployed on edge nodes on an Ubuntu 18.04 virtual machine (VM) in advance. You can [create Ubuntu Linux VM on 18.04-LTS](https://azure.microsoft.com/resources/templates/vm-simple-linux/), then create and use a [secure shell (SSH) key pair](/azure/virtual-machines/linux/mac-create-ssh-keys#ssh-into-your-vm) on your VM to run and test your script actions and custom applications deployed on edge nodes.
 
-#### Disable Stardard_A5 VM size as Head Node for HDInsight 4.0
+#### Disable Standard_A5 VM size as Head Node for HDInsight 4.0
 HDInsight cluster Head Node is responsible for initializing and managing the cluster. Standard_A5 VM size has reliability issues as Head Node for HDInsight 4.0. Starting from the next release in May 2021, customers won't be able to create new clusters with Standard_A5 VM size as Head Node. You can use other 2-core VMs like E2_v3 or E2s_v3. Existing clusters will run as is. A 4-core VM is highly recommended for Head Node to ensure the high availability and reliability of your production HDInsight clusters.
 
 ### Bug fixes
@@ -1357,7 +1368,7 @@ HDInsight now uses Azure virtual machines to provision the cluster. The service 
 
 ### Deprecation
 #### Disabled VM sizes
-Starting from January 9 2021, HDInsight will block all customers creating clusters using standand_A8, standand_A9, standand_A10 and standand_A11 VM sizes. Existing clusters will run as is. Consider moving to HDInsight 4.0 to avoid potential system/support interruption.
+Starting from January 9 2021, HDInsight will block all customers creating clusters using standard_A8, standard_A9, standard_A10 and standard_A11 VM sizes. Existing clusters will run as is. Consider moving to HDInsight 4.0 to avoid potential system/support interruption.
 
 ### Behavior changes
 #### Default cluster VM size changes to `Ev3`-series 
@@ -1400,7 +1411,7 @@ HDInsight now uses Azure virtual machines to provision the cluster. Starting fro
 HDInsight 3.6 ML Services cluster type will be end of support by December 31 2020. Customers won't be able to create new 3.6 ML Services clusters after December 31 2020. Existing clusters will run as is without the support from Microsoft. Check the support expiration for HDInsight versions and cluster types [here](./hdinsight-component-versioning.md).
 
 #### Disabled VM sizes
-Starting from November 16 2020, HDInsight will block new customers creating clusters using standand_A8, standand_A9, standand_A10 and standand_A11 VM sizes. Existing customers who have used these VM sizes in the past three months won't be affected. Starting from January 9 2021, HDInsight will block all customers creating clusters using standand_A8, standand_A9, standand_A10 and standand_A11 VM sizes. Existing clusters will run as is. Consider moving to HDInsight 4.0 to avoid potential system/support interruption.
+Starting from November 16 2020, HDInsight will block new customers creating clusters using standard_A8, standard_A9, standard_A10 and standard_A11 VM sizes. Existing customers who have used these VM sizes in the past three months won't be affected. Starting from January 9 2021, HDInsight will block all customers creating clusters using standard_A8, standard_A9, standard_A10 and standard_A11 VM sizes. Existing clusters will run as is. Consider moving to HDInsight 4.0 to avoid potential system/support interruption.
 
 ### Behavior changes
 #### Add NSG rule checking before scaling operation
@@ -1429,7 +1440,7 @@ HDInsight now uses Azure virtual machines to provision the cluster. Starting fro
 HDInsight 3.6 ML Services cluster type will be end of support by December 31 2020. Customers won't create new 3.6 ML Services clusters after December 31 2020. Existing clusters will run as is without the support from Microsoft. Check the support expiration for HDInsight versions and cluster types [here](./hdinsight-component-versioning.md#supported-hdinsight-versions).
 
 #### Disabled VM sizes
-Starting from November 16 2020, HDInsight will block new customers creating clusters using standand_A8, standand_A9, standand_A10 and standand_A11 VM sizes. Existing customers who have used these VM sizes in the past three months won't be affected. Starting from January 9 2021, HDInsight will block all customers creating clusters using standand_A8, standand_A9, standand_A10 and standand_A11 VM sizes. Existing clusters will run as is. Consider moving to HDInsight 4.0 to avoid potential system/support interruption.
+Starting from November 16 2020, HDInsight will block new customers creating clusters using standard_A8, standard_A9, standard_A10 and standard_A11 VM sizes. Existing customers who have used these VM sizes in the past three months won't be affected. Starting from January 9 2021, HDInsight will block all customers creating clusters using standard_A8, standard_A9, standard_A10 and standard_A11 VM sizes. Existing clusters will run as is. Consider moving to HDInsight 4.0 to avoid potential system/support interruption.
 
 ### Behavior changes
 No behavior change for this release.

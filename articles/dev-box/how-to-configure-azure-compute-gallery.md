@@ -52,8 +52,7 @@ The image version must meet the following requirements:
 - Generation 2
 - Hyper-V v2
 - Windows OS
-    - Windows 10 Enterprise version 20H2 or later
-    - Windows 11 Enterprise 21H2 or later
+    - Supported versions of [Windows 10 or Windows 11 Enterprise](/windows/release-health/supported-versions-windows-client).
 - Generalized VM image
     - For more information about creating a generalized image, see [Reduce provisioning and startup times](#reduce-provisioning-and-startup-times) for more information.
 - Single-session VM image (Multiple-session VM images aren't supported.)
