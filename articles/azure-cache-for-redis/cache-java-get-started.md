@@ -10,7 +10,7 @@ ms.devlang: java
 ms.custom: devx-track-java, devx-track-javaee, mode-api, mvc, devx-track-extended-java, ignite-2024
 ---
 
-# Quickstart: Use Azure Cache for Redis in Java
+# Quickstart: Use Azure Cache for Redis in Java with Jedis Redis client
 
 In this quickstart, you incorporate Azure Cache for Redis into a Java app using the [Jedis](https://github.com/xetorthio/jedis) Redis client. Your cache is a secure, dedicated cache that is accessible from any application within Azure.
 
