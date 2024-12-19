@@ -59,6 +59,8 @@ For more information, see the following resources:
 
 ## Connector technical reference
 
+In Consumption worklfows, the **Azure OpenAI** and **Azure AI Search** managed or "shared" connectors are currently in preview and subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 ### Azure OpenAI
 
 Azure OpenAI Service provides access to [OpenAI's language models](https://openai.com/product), which include GPT-4, GPT-4 Turbo with Vision, GPT-3.5-Turbo, and the Embeddings model series. With the **Azure OpenAI** connector, your workflow can connect to Azure OpenAI Service and get OpenAI embeddings for your data or generate chat completions.
