@@ -13,6 +13,8 @@ ms.author: duau
 
 Managing a hybrid network can get increasingly complex as you deploy more ExpressRoute circuits and establish more connections to your workloads in different Azure regions. To help manage the complexity of your network and route traffic from Azure to on-premises efficiently, you can configure BGP communities on your Azure virtual networks.
 
+> Note. Use of Virtual Network BGP communities and ExpressRoute is not currently compatible with Azure Virtual WAN.
+
 ## What is a BGP community?
 
 A Border Gateway Protocol (BGP) community is a group of IP prefixes that share a common property called a BGP community tag or value. In Azure, you can now: 
