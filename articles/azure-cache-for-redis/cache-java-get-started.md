@@ -53,29 +53,31 @@ Using Maven, generate a new quickstart app:
 1. Open the *pom.xml* file. In the file, you see a dependency for [Jedis](https://github.com/xetorthio/jedis):
 
 ### [Microsoft Entra ID Authentication (recommended)](#tab/entraid)
-    ```xml
-    <dependency>
-        <groupId>com.azure</groupId>
-        <artifactId>azure-identity</artifactId>
-        <version>1.11.2</version> <!-- {x-version-update;com.azure:azure-identity;dependency} -->
-    </dependency>
 
-    <dependency>
-        <groupId>redis.clients</groupId>
-        <artifactId>jedis</artifactId>
-        <version>5.1.0</version>  <!-- {x-version-update;redis.clients:jedis;external_dependency} -->
-    </dependency>
-    ```
+```xml
+<dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-identity</artifactId>
+    <version>1.11.2</version> <!-- {x-version-update;com.azure:azure-identity;dependency} -->
+</dependency>
+
+<dependency>
+    <groupId>redis.clients</groupId>
+    <artifactId>jedis</artifactId>
+    <version>5.1.0</version>  <!-- {x-version-update;redis.clients:jedis;external_dependency} -->
+</dependency>
+```
 
 
 ### [Access Key Authentication](#tab/accesskey)
-    ```xml
-    <dependency>
-        <groupId>redis.clients</groupId>
-        <artifactId>jedis</artifactId>
-        <version>5.1.0</version>  <!-- {x-version-update;redis.clients:jedis;external_dependency} -->
-    </dependency>
-    ```
+
+```xml
+<dependency>
+    <groupId>redis.clients</groupId>
+    <artifactId>jedis</artifactId>
+    <version>5.1.0</version>  <!-- {x-version-update;redis.clients:jedis;external_dependency} -->
+</dependency>
+```
     
 ---
 

@@ -23,7 +23,7 @@ Replace the placeholders with the following values:
     1. On the navigation pane, select **Data Access Configuration**.
     1. On the **Redis Users** tab, find the **Username** column.
 
-       :::image type="content" source="media/cache-java-redisson-get-started/user-name.png" alt-text="Screenshot of the Azure portal that shows the Azure Cache for Redis Data Access Configuration page with the Redis Users tab and a Username value highlighted." lightbox="media/cache-java-redisson-get-started/user-name.png":::
+       :::image type="content" source="media/cache-java-get-started/user-name.png" alt-text="Screenshot of the Azure portal that shows the Azure Cache for Redis Data Access Configuration page with the Redis Users tab and a Username value highlighted." lightbox="media/cache-java-get-started/user-name.png":::
 
 ### [Access Key Authentication](#tab/accesskey)
 

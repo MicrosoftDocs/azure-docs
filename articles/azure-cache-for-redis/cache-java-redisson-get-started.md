@@ -58,29 +58,29 @@ Open the *pom.xml* file and add a dependency for [Redisson](https://github.com/r
 
 ### [Microsoft Entra ID Authentication (recommended)](#tab/entraid)
 
-    ```xml
-    <dependency>
-        <groupId>com.azure</groupId>
-        <artifactId>azure-identity</artifactId>
-        <version>1.11.2</version> <!-- {x-version-update;com.azure:azure-identity;dependency} -->
-    </dependency>
-    
-    <dependency>
-        <groupId>org.redisson</groupId>
-        <artifactId>redisson</artifactId>
-        <version>3.27.0</version> <!-- {x-version-update;org.redisson:redisson;external_dependency} -->
-    </dependency>
-    ```
+```xml
+<dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-identity</artifactId>
+    <version>1.11.2</version> <!-- {x-version-update;com.azure:azure-identity;dependency} -->
+</dependency>
+
+<dependency>
+    <groupId>org.redisson</groupId>
+    <artifactId>redisson</artifactId>
+    <version>3.27.0</version> <!-- {x-version-update;org.redisson:redisson;external_dependency} -->
+</dependency>
+```
 
 
 ### [Access Key Authentication](#tab/accesskey)
 
-    ```xml
-    <dependency>
-        <groupId>org.redisson</groupId>
-        <artifactId>redisson</artifactId>
-        <version>3.27.0</version> <!-- {x-version-update;org.redisson:redisson;external_dependency} -->
-    </dependency>
+```xml
+<dependency>
+    <groupId>org.redisson</groupId>
+    <artifactId>redisson</artifactId>
+    <version>3.27.0</version> <!-- {x-version-update;org.redisson:redisson;external_dependency} -->
+</dependency>
     ```
     
 ---
