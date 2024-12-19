@@ -58,7 +58,6 @@ Typically, a network administrator creates a private endpoint. Depending on your
 1. [Get available private endpoint types in subscription](#get-available-private-endpoint-types-in-subscription)
 1. [Disable network policies in subnet](#disable-network-policies-in-subnet)
 1. [Create private endpoint - portal](#create-private-endpoint---portal)
-(#approve-pending-private-endpoint-connections)
 
 ### Get available private endpoint types in subscription
 
