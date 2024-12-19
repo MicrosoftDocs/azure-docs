@@ -209,7 +209,8 @@ Once the new HCX Uplink Network Profile is created, update the existing Service 
 
 10. Select **Finish**.
 
-[!IMPORTANT]Downtime varies depending on the Service Mesh change created. It is recommended to allocate 5 minutes of downtime for these changes to take effect. 
+>[!IMPORTANT]
+>Downtime varies depending on the Service Mesh change created. It is recommended to allocate 5 minutes of downtime for these changes to take effect. 
 
 ## More information 
 
