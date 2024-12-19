@@ -53,6 +53,7 @@ You can currently use up to three identifiers for a given entity when creating a
 - \* These identifiers appear in the list of identifiers that can be used in entity mapping, but strictly speaking they are not part of the entity schema.
 - \*\* These identifiers are considered strong only under certain conditions. Follow the asterisks' links to see the conditions that apply, under the relevant entity's listing in the [entity schemas section below](#entity-type-schemas).
 - *Italicized identifier names* (without an asterisk) represent internal entities, which means that one entity type can have other entity types as attributes (see the [entity schemas section below](#entity-type-schemas)). Follow the identifier's link to see the internal entity's own schema.
+- Other entities may be present in the schema to support Microsoft Sentinel functionality, but aren't represented by an entity details page in Microsoft Sentinel.
 
 ## Entity type schemas
 
