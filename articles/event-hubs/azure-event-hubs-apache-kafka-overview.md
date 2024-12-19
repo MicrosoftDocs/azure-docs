@@ -13,17 +13,17 @@ This article explains how you can use Azure Event Hubs to stream data from [Apac
 
 Azure Event Hubs provides an Apache Kafka endpoint on an event hub, which enables users to connect to the event hub using the Kafka protocol. You can often use an event hub's Kafka endpoint from your applications without any code changes. You modify only the configuration, that is, update the connection string in configurations to point to the Kafka endpoint exposed by your event hub instead of pointing to a Kafka cluster. Then, you can start streaming events from your applications that use the Kafka protocol into event hubs, which are equivalent to Kafka topics.
 
-To learn more about how to migrate your Kafka applications to Azure Event Hubs, see the [migration guide](apache-kafka-migration-guide.md).
+To learn more about how to migrate your Apache Kafka applications to Azure Event Hubs, see the [migration guide](apache-kafka-migration-guide.md).
 
 > [!NOTE]
 > - This feature is supported only in the **standard, premium** and **dedicated** tiers. 
-> - Event Hubs for Kafka Ecosystems supports [Apache Kafka version 1.0](https://kafka.apache.org/10/documentation.html) and later.
+> - Event Hubs for Apache Kafka Ecosystems supports [Apache Kafka version 1.0](https://kafka.apache.org/10/documentation.html) and later.
 
 ## Apache Kafka and Azure Event Hubs conceptual mapping
 
-Conceptually, Kafka and Event Hubs are very similar. They're both partitioned logs built for streaming data, whereby the client controls which part of the retained log it wants to read. The following table maps concepts between Kafka and Event Hubs.
+Conceptually, Apache Kafka and Event Hubs are very similar. They're both partitioned logs built for streaming data, whereby the client controls which part of the retained log it wants to read. The following table maps concepts between Apache Kafka and Event Hubs.
 
-| Kafka Concept | Event Hubs Concept|
+| Apache Kafka Concept | Event Hubs Concept|
 | --- | --- |
 | Cluster | Namespace |
 | Topic | An event hub |
@@ -121,7 +121,7 @@ sasl.login.callback.handler.class=CustomAuthenticateCallbackHandler
 ```
 
 > [!NOTE]
-> The above configuration properties are for the Java programming language. For **samples** that show how to use OAuth with Event Hubs for Kafka using different programming languages, see [samples on GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth).
+> These configuration properties are for the Java programming language. For **samples** that show how to use OAuth with Event Hubs for Kafka using different programming languages, see [samples on GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth).
 
 ### Shared Access Signature (SAS)
 Event Hubs also provides the **Shared Access Signatures (SAS)** for delegated access to Event Hubs for Kafka resources. Authorizing access using OAuth 2.0 token-based mechanism provides superior security and ease of use over SAS. The built-in roles can also eliminate the need for ACL-based authorization, which has to be maintained and managed by the user. You can use this feature with your Kafka clients by specifying **SASL_SSL** for the protocol and **PLAIN** for the mechanism. 
@@ -155,7 +155,7 @@ Additionally, Event Hubs features such as [Capture](event-hubs-capture-overview.
 
 Azure Event Hubs for Apache Kafka supports both idempotent producers and idempotent consumers. 
 
-One of the core tenets of Azure Event Hubs is the concept of **at-least once** delivery. This approach ensures that events will always be delivered. It also means that events can be received more than once, even repeatedly, by consumers such as a function. For this reason, it's important that the consumer supports the [idempotent consumer](https://microservices.io/patterns/communication-style/idempotent-consumer.html) pattern. 
+One of the core tenets of Azure Event Hubs is the concept of **at-least once** delivery. This approach ensures that events are always delivered. It also means that events can be received more than once, even repeatedly, by consumers such as a function. For this reason, it's important that the consumer supports the [idempotent consumer](https://microservices.io/patterns/communication-style/idempotent-consumer.html) pattern. 
 
 ## Related content
 This article provided an introduction to Event Hubs for Kafka. To learn more, see [Apache Kafka developer guide for Azure Event Hubs](apache-kafka-developer-guide.md).
