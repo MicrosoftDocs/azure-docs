@@ -151,7 +151,7 @@ additionalContent:
         - title: Azure HPC Events
 	  url: https://aka.ms/HPCEvents
 
-
+   
    # HPC Channels
     - title: Community Resources and HPC Team # < 60 chars (Optional)
       summary: Connect with other HPC users and communicate with the HPC team
