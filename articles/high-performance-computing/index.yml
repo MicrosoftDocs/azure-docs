@@ -43,6 +43,7 @@ productDirectory:
       items:
       # Card
         - title: Azure HPC Scenarios and Migration Guidelines
+          imageSrc: ../media/index/migrate.svg
           links:
             - url: /azure/cloud-adoption-framework/scenarios/azure-hpc/azure-hpc-landing-zone-accelerator
               itemType: overview
@@ -55,6 +56,7 @@ productDirectory:
               text: HPC Migration Deployments
         # Card
         - title: Azure HPC Compute
+          imageSrc: ../media/index/virtual-machine.svg
           links:
             - url: /azure/virtual-machines/sizes-hpc
               itemType: concept
@@ -67,6 +69,7 @@ productDirectory:
               text: Memory Optimized VMs
         # Card
         - title: Azure HPC Storage
+          imageSrc: ../media/index/storage.svg
           links:
             - url: ../azure-netapp-files/azure-netapp-files-introduction.md
               itemType: concept
@@ -79,6 +82,7 @@ productDirectory:
               text: Azure Managed Lustre             
         # Card
         - title: Azure HPC Workload Orchestration
+          imageSrc: ./media/hpc-logo.png
           links:
             - url: ../batch/batch-technical-overview.md
               itemType: overview
@@ -91,6 +95,7 @@ productDirectory:
               text: Autoscaling             
         # Card
         - title: Manage, Monitor, and Control
+          imageSrc: ../media/index/monitor.svg
           links:
             - url: /azure/azure-monitor/
               itemType: reference
