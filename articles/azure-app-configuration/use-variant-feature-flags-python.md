@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.date: 12/02/2024
 ---
 
-# Tutorial: Use variant feature flags in Azure App Configuration
+# Use variant feature flags application
 
 In this tutorial, you use a variant feature flag to manage experiences for different user segments in an example application, *Quote of the Day*. You utilize the variant feature flag created in [Use variant feature flags](./use-variant-feature-flags.md). Before proceeding, ensure you create the variant feature flag named *Greeting* in your App Configuration store.
 
@@ -36,7 +36,7 @@ In this tutorial, you use a variant feature flag to manage experiences for diffe
     .\venv\Scripts\Activate
     ```
 
-1. Install the required packages. The latest preview versions of `azure-appconfiguration-provider`, and `featuremanagement` are required for variant feature flags.
+1. Install the required packages. The latest versions of `azure-appconfiguration-provider`, and `featuremanagement` are required for variant feature flags.
 
     ```bash
     pip install flask azure-appconfiguration-provider==2.0.0b3 azure-identity featuremanagement[AzureMonitor]==2.0.0b3 flask-login flask_sqlalchemy flask_bcrypt
@@ -260,7 +260,7 @@ In this tutorial, you use a variant feature flag to manage experiences for diffe
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>QuoteOfTheDay</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/site.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='site.css') }}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     </head>
     <body>
@@ -362,9 +362,7 @@ In this tutorial, you use a variant feature flag to manage experiences for diffe
 
 1. Create a new folder named *static* in the *QuoteOfTheDay* folder.
 
-1. Create a new folder named *css* in the *static* folder.
-
-1. Create a new file named *site.css* in the *css* folder.
+1. Create a new file named *site.css* in the *static* folder.
 
     ```css
     html {
@@ -458,7 +456,7 @@ In this tutorial, you use a variant feature flag to manage experiences for diffe
 
 ### Build and run the app
 
-1. Set an environment variable. Set the environment variable named **Endpoint** to the endpoint of your App Configuration store found under the *Overview* of your store in the Azure portal.
+1. Set an environment variable. Set the environment variable named **AzureAppConfigurationEndpoint** to the endpoint of your App Configuration store found under the *Overview* of your store in the Azure portal.
 
     If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
