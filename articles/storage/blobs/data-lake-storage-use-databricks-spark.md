@@ -234,7 +234,7 @@ print("Number of flights in the database: ", flight_df.count())
 flight_df.show(25, False)
 
 # You can also use the DataFrame to run simple queries. Results are returned in a DataFrame.
-# Show the first 25 rows of the results of a query that returns selected colums for all flights originating from airports in Texas
+# Show the first 25 rows of the results of a query that returns selected columns for all flights originating from airports in Texas
 flight_df.select("FlightDate", "Reporting_Airline", "Flight_Number_Reporting_Airline", "OriginCityName", "DepTime", "DestCityName", "ArrTime", "ArrDelay").filter("OriginState = 'TX'").show(258, False)
 
 # Use display to run visualizations

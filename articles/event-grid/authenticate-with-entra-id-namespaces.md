@@ -52,7 +52,7 @@ Besides managed identities, another identity option is to create a security prin
 Once you have an application security principal and followed above steps, [assign the permission to publish events to that identity](#assign-permission-to-a-security-principal-to-publish-events).
 
 > [!NOTE]
-> When you register an application in the portal, an [application object](/entra/identity-platform/app-objects-and-service-principals?tabs=browser#application-object) and a [service principal](/entra/identity-platform/app-objects-and-service-principals?tabs=browser#service-principal-object) are created automatically in your home tenant. Alternatively, you can use Microsot Graph to register your application. However, if you register or create an application using the Microsoft Graph APIs, creating the service principal object is a separate step. 
+> When you register an application in the portal, an [application object](/entra/identity-platform/app-objects-and-service-principals?tabs=browser#application-object) and a [service principal](/entra/identity-platform/app-objects-and-service-principals?tabs=browser#service-principal-object) are created automatically in your home tenant. Alternatively, you can use Microsoft Graph to register your application. However, if you register or create an application using the Microsoft Graph APIs, creating the service principal object is a separate step. 
 
 ## Assign permission to a security principal to publish events
 

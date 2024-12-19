@@ -401,6 +401,28 @@
   items:
     - name: Deploy an application that uses OpenAI on App Service
       href: deploy-intelligent-apps.md
+- name: WordPress
+  items:
+    - name: WordPress overview
+      href: overview-wordpress.md
+    - name: WordPress architecture
+      displayName: WordPress on App Service architecture
+      href: /azure/architecture/example-scenario/infrastructure/wordpress-app-service
+    - name: Deploy WordPress
+      displayName: Create a WordPress site
+      href: quickstart-wordpress.md
+    - name: Migrate WordPress to App Service
+      displayName: Move WordPress to App Service
+      href: migrate-wordpress.md
+    - name: Configure WordPress
+      displayName: Setup WordPress
+      href: reference-app-settings.md#wordpress
+    - name: Customize API Management developer portal
+      displayName: API Management and WordPress
+      href: /azure/api-management/developer-portal-wordpress-plugin
+    - name: WordPress FAQ
+      displayName: WordPress frequently asked questions
+      href: wordpress-faq.md
 - name: WebJobs
   items:
     - name: Create WebJobs
@@ -503,8 +525,6 @@
           href: /azure/developer/java/migration/migrate-weblogic-to-jboss-eap-on-azure-app-service?toc=/azure/app-service/toc.json&bc=/azure/bread/toc.json
         - name: Migrate WebSphere
           href: /azure/developer/java/migration/migrate-websphere-to-jboss-eap-on-azure-app-service?toc=/azure/app-service/toc.json&bc=/azure/bread/toc.json
-        - name: Migrate WordPress
-          href: migrate-wordpress.md
     - name: Cookbooks
       items:
         - name: Reference Architectures

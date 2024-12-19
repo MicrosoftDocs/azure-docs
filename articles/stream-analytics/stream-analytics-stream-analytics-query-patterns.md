@@ -3,7 +3,7 @@ title: Common query patterns in Azure Stream Analytics
 description: This article describes several common query patterns and designs that are useful in Azure Stream Analytics jobs.
 ms.service: azure-stream-analytics
 ms.topic: how-to
-ms.date: 01/23/2024
+ms.date: 12/17/2024
 ms.custom: devx-track-js
 ---
 
@@ -938,7 +938,7 @@ MATCH_RECOGNIZE (
 	AFTER MATCH SKIP TO NEXT ROW
 	PATTERN (Success+ Warning{2,})
 	DEFINE
-		Success AS Succes.Return_Code = 'Success',
+		Success AS Success.Return_Code = 'Success',
 		Warning AS Warning.Return_Code <> 'Success'
 ) AS patternMatch
 ```
@@ -993,7 +993,7 @@ JOIN
 	referenceInput 
 	ON input.Equipment_id = referenceInput.Equipment_id
 	WHERE 
-		ST_WITHIN(input.Equipment_currenct_location, referenceInput.Equipment_lease_location) = 1
+		ST_WITHIN(input.Equipment_current_location, referenceInput.Equipment_lease_location) = 1
 ```
 
 The query enables the manufacturer to monitor the machines location automatically, getting alerts when a machine leaves the allowed geofence. The built-in geospatial function allows users to use GPS data within the query without third-party libraries.

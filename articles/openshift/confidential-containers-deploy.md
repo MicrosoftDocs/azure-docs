@@ -6,7 +6,7 @@ ms.author: johnmarc
 ms.service: azure-redhat-openshift
 keywords: confidential containers, aro, deploy, openshift, red hat
 ms.topic: how-to
-ms.date: 11/21/2024
+ms.date: 12/19/2024
 ms.custom: template-how-to
 ---
 
@@ -470,7 +470,7 @@ Create a secure route with edge TLS termination for Trustee. External ingress tr
       CLOUD_PROVIDER: "azure"
       VXLAN_PORT: "9000"
       AZURE_INSTANCE_SIZE: "Standard_DC2as_v5"
-      AZURE_INSTANCE_SIZES: "Standard_DC2as_v5,Standard_DC4as_v5,Standard_DC8as_v5,Standard_DC16as_v5"
+      AZURE_INSTANCE_SIZES: "Standard_DC2as_v5,Standard_DC4as_v5,Standard_DC8as_v5"
       AZURE_SUBNET_ID: "<azure_subnet_id>"
       AZURE_NSG_ID: "<azure_nsg_id>"
       PROXY_TIMEOUT: "5m"
@@ -481,8 +481,8 @@ Create a secure route with edge TLS termination for Trustee. External ingress tr
       AA_KBC_PARAMS: "cc_kbc::https://${TRUSTEE_HOST}"
     ```
 
-    - `AZURE_INSTANCE_SIZE` is the default if an instance size isn't defined in the workload.
-    - `AZURE_INSTANCE_SIZES` lists all of the instance sizes you can specify when creating the pod. This allows you to define smaller instance sizes for workloads that need less memory and fewer CPUs or larger instance sizes for larger workloads.
+    - `AZURE_INSTANCE_SIZE` is the default if an instance size isn't defined in the workload. **For TDX, specify "Standard_EC4eds_v5"**.
+    - `AZURE_INSTANCE_SIZES` lists all of the instance sizes you can specify when creating the pod. This allows you to define smaller instance sizes for workloads that need less memory and fewer CPUs or larger instance sizes for larger workloads. **For TDX, specify "Standard_EC4eds_v5, Standard_EC8eds_v5, Standard_EC16eds_v5".**
     - Specify the `AZURE_SUBNET_ID` value that you retrieved.
     - Specify the `AZURE_NSG_ID` value that you retrieved.
     - `AZURE_IMAGE_ID` (Optional): By default, this value is populated when you run the KataConfig custom resource, using an Azure image ID based on your cluster credentials. If you create your own Azure image, specify the correct image ID.

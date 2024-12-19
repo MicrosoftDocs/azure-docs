@@ -22,7 +22,7 @@ You might experience the problem that a new or existing Microsoft Azure Site-to-
 Check the type of Azure  virtual network gateway:
 
 1. Go to [Azure portal](https://portal.azure.com).
-2. Check the **Overview** page of the virtual network gateway for the type information.
+2. Check the **Overview** page of the virtual network gateway to verify the **Type**. Example: Route-based.
     
     ![The overview of the gateway](media/vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently/gatewayoverview.png)
 
