@@ -14,9 +14,9 @@ ms.date: 12/18/2024
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../../includes/logic-apps-sku-consumption-standard.md)]
 
-To integrate enterprise services, systems, and data with AI technologies, your logic app workflows can connect to **Azure OpenAI** and **Azure AI Search** in logic app workflows for your integration solutions.
+To integrate enterprise services, systems, and data with AI technologies, your logic app workflows can connect to **Azure OpenAI** and **Azure AI Search** resources that you use for these integration scenarios.
 
-This guide provides an overview and examples that show how to use the **Azure OpenAI** and **Azure AI Search** connector operations in your workflow.
+This guide provides an overview and examples that show how to use **Azure OpenAI** and **Azure AI Search** connector operations in your workflow.
 
 - [What is Azure OpenAI Service](/azure/ai-services/openai/overview)
 - [What is Azure AI Search](/azure/search/search-what-is-azure-search)
@@ -53,7 +53,9 @@ For more information, see the following resources:
   - [Azure OpenAI connection requirements](/connectors/azureopenai/#default)
   - [Azure AI Search connection requirements](/connectors/azureaisearch/#creating-a-connection)
 
-- The logic app workflow from where you want to access Azure OpenAI or Azure AI Search. To start your workflow with an Azure Blob trigger, you need a blank workflow. To use an Azure Blob action, start your workflow with any trigger.
+- A logic app workflow where you want to access your Azure OpenAI and Azure AI Search resources.
+
+  The connectors for these services currently provide only actions, not triggers. Before you can add an Azure AI connector action, make sure your workflow starts with the appropriate trigger for your scenario.
 
 ## Connector technical reference
 
