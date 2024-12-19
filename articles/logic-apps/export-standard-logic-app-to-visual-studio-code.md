@@ -29,9 +29,9 @@ This guide shows how to download your Standard logic app as a zip file package f
 
 * An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* [Visual Studio Code with the Azure Logic Apps (Standard) extension installed and their prerequisites](/azure/logic-apps/create-single-tenant-workflows-visual-studio-code#prerequisites)
+* [Visual Studio Code with the Azure Logic Apps (Standard) extension installed and their prerequisites](/azure/logic-apps/create-single-tenant-workflows-visual-studio-code#prerequisites).
 
-* The Standard logic app and workflows that you want to export from the Azure portal
+* The Standard logic app and workflows that you want to export from the Azure portal.
 
 ## Download logic app from the portal
 
