@@ -97,7 +97,7 @@ Add a feature flag called *Beta* to the App Configuration store (created in the 
     Add `using Microsoft.FeatureManagement;` at the top of the file if it's not present.
 
     > [!NOTE]
-    > For Blazor applications, see [instructions](./faq.yml#howto-enable-feature-management-in-blazor-applications-or-as-scoped-services-in--net-applications) for enabling feature management as scoped services.
+    > For Blazor applications, see [instructions](./faq.yml#how-to-enable-feature-management-in-blazor-applications-or-as-scoped-services-in--net-applications) for enabling feature management as scoped services.
 
 1. Add a new empty Razor page named **Beta** under the *Pages* directory. It includes two files *Beta.cshtml* and *Beta.cshtml.cs*.
 
