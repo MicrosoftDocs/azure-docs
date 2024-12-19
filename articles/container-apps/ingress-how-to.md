@@ -36,7 +36,7 @@ You can set the following ingress template properties:
 
 If your container app listens on ports 80 or 443, Container Apps detects this automatically.
     - Automatic port detection only works for HTTP traffic, not TCP traffic.
-    - If you have HTTP health probes listening on ports 80 or 443, this can interfere with automatic port detection. The default ingress configuration uses TCP health probes. For more information see [Health probes in Azure Container Apps](health-probes.md).
+    - If you have HTTP health probes listening on ports 80 or 443, this can interfere with automatic port detection. The default ingress configuration uses TCP health probes. For more information see [health probes](health-probes.md).
 
 ## Enable ingress
 
