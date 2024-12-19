@@ -4,7 +4,7 @@ description: This article provides a summary of support for updates, one time up
 ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 12/02/2024
+ms.date: 12/19/2024
 ms.topic: overview
 zone_pivot_groups: support-matrix-updates
 ---
@@ -40,19 +40,23 @@ Following is the list of supported images and no other marketplace images releas
 |--- | --- | ---|
 |cis-windows-server-2012-r2-v2-2-1-l1 | cis-ws2012-r2-l1 ||
 |cis-windows-server-2012-r2-v2-2-1-l2 | cis-ws2012-r2-l2 ||
-|cis-windows-server-2016-v1-0-0-l1 | cis--l1 ||
+|cis-windows-server-2016-v1-0-0-l1  | cis-ws2016-l1 ||
 |cis-windows-server-2016-v1-0-0-l2 | cis-ws2016-l2 ||
 |cis-windows-server-2019-v1-0-0-l1 | cis-ws2019-l1 ||
 |cis-windows-server-2019-v1-0-0-l2 | cis-ws2019-l2 ||
-|cis-windows-server-2022-l1| cis-windows-server-2022-l1 </br>cis-windows-server-2022-l1-gen2 | |
-|cis-windows-server-2022-l2 | cis-windows-server-2022-l2 </br>cis-windows-server-2022-l2-gen2 | |
-|cis-windows-server| cis-windows-server2016-l1-gen1 </br> cis-windows-server2019-l1-gen1 </br> cis-windows-server2019-l1-gen2 </br> cis-windows-server2019-l2-gen1 </br> cis-windows-server2022-l1-gen2 </br> cis-windows-server2022-l2-gen2 </br>cis-windows-server2022-l1-gen1 ||
+|cis-windows-server-2022-l1 | * ||
+|cis-windows-server-2022-l2 | * ||
+|cis-windows-server| cis-windows-server2016-l* </br> cis-windows-server2019-l* </br> cis-windows-server2022-l </br> cis-windows-server2019-stig-gen1 | cis-windows-server-l*-azure-observability | 
+|cis-win-2016-stig | cis-win-2016-stig |
+|cis-win-2019-stig | cis-win-2019-stig |
+
 
 **Publisher - cloud-infrastructure-services**
 
 | **Offer** | **Plan**|**Unsupported image(s)** |
 |--- | --- | ---|
 |hpc2019-windows-server-2019| hpc2019-windows-server-2019||
+
 
 **Publisher - microsoftsqlserver**
 
@@ -67,11 +71,13 @@ Following is the list of supported images and no other marketplace images releas
 |sql2019-ws2019 | standard |
 |sql2019-ws2019 | standard-gen2|
 
+
 **Publisher - cognosys**
 
 | **Offer** | **Plan**|**Unsupported image(s)** |
 |--- | --- | ---|
 | sql-server-2016-sp2-std-win2016-debug-utilities |sql-server-2016-sp2-std-win2016-debug-utilities|
+
 
 **Publisher - filemagellc**
 
@@ -79,11 +85,13 @@ Following is the list of supported images and no other marketplace images releas
 |--- | --- | ---|
 |filemage-gateway-vm-win-001 </br> filemage-gateway-vm-win-002 |
 
+
 **Publisher - github**
 
 | **Offer** | **Plan**|**Unsupported image(s)** |
 |--- | --- | ---|
 |github-enterprise| github-enterprise||
+
 
 **Publisher - matillion**
 
@@ -91,11 +99,13 @@ Following is the list of supported images and no other marketplace images releas
 |--- | --- | ---|
 |matillion | matillion-etl-for-snowflake||
 
+
 **Publisher - microsoft-ads**
 
 | **Offer** | **Plan**|**Unsupported image(s)** |
 |--- | --- | ---|
 |windows-data-science-vm| windows2016 </br> windows2016byol||
+
 
 **Publisher -  microsoft-dsvm**
 
@@ -104,11 +114,13 @@ Following is the list of supported images and no other marketplace images releas
 |ubuntu-1804| 1804-gen2 ||
 |dsvm-windows </br> dsvm-win-2019 </br> dsvm-win-2022 | * </br> * </br> * |
 
+
 **Publisher -  microsoftazuresiterecovery**
 
 | **Offer** | **Plan**|**Unsupported image(s)** |
 |--- | --- | ---|
 |process-server | windows-2012-r2-datacenter |
+
 
 **Publisher -  microsoftbiztalkserver**
 
@@ -116,17 +128,20 @@ Following is the list of supported images and no other marketplace images releas
 |--- | --- | ---|
 |biztalk-server | *|
 
+
 **Publisher -  microsoftdynamicsax**
 
 | **Offer** | **Plan**|**Unsupported image(s)** |
 |--- | --- | ---|
 |dynamics | * |
 
+
 **Publisher -  microsoftpowerbi**	
 
 | **Offer** | **Plan**|**Unsupported image(s)** |
 |--- | --- | ---|
 |* |* |
+
 
 **Publisher -  microsoftsharepoint**	
 
@@ -141,6 +156,7 @@ Following is the list of supported images and no other marketplace images releas
 |--- | --- | ---|
 |Visualstudio* |  *-ws2012r2 </br> *-ws2016-ws2019 </br> *-ws2022 |
 
+
 **Publisher -  microsoftwindowsserver**
 
 | **Offer** | **Plan**|**Unsupported image(s)** |
@@ -152,6 +168,7 @@ Following is the list of supported images and no other marketplace images releas
 |microsoftwindowsserver | windowsserverupgrade | * |
 |microsoftwindowsserverhpcpack | windowsserverhpcpack | * |
 
+
 **Publisher -  microsoftwindowsserver**
 
 | **Offer** | **Plan**|**Unsupported image(s)** |
@@ -159,9 +176,7 @@ Following is the list of supported images and no other marketplace images releas
 |netapp |netapp-oncommand-cloud-manager| occm-byol||
 
 
-
 #### Supported Linux OS versions
-
 
 | **Offer** | **Plan**|**Unsupported image(s)** |
 |--- | --- | ---|
@@ -186,7 +201,6 @@ Following is the list of supported images and no other marketplace images releas
 |aviatrix-copilot |avx-cplt-byol-01, avx-cplt-byol-02 |
 
 
-
 | **Offer** | **Plan**|**Unsupported image(s)** |
 |--- | --- | ---|
 |centos-ci | 7-ci |
@@ -194,11 +208,13 @@ Following is the list of supported images and no other marketplace images releas
 |centos-lvm | 7-lvm-gen2 |
 |centos-lvm | 7-lvm, 8-lvm |
 
+
 **Publisher - center-for-internet-security-inc**
 
 | **Offer** | **Plan**|**Unsupported image(s)** |
 |--- | --- | ---|
 |cis-oracle-linux-8-l1 | cis-oracle8-l1|
+
 
 **Publisher - cis-rhel**
 |
@@ -206,11 +222,13 @@ Following is the list of supported images and no other marketplace images releas
 |--- | --- | ---|
 | cis-redhat7-l1-gen1 </br> cis-redhat8-l1-gen1 </br> cis-redhat8-l2-gen1 </br>  cis-redhat9-l1-gen1 </br> cis-redhat9-l1-gen2| |
 
+
 **Publisher - cis-rhel-7-l2**
 
 | **Offer** | **Plan**|**Unsupported image(s)** |
 |--- | --- | ---|
 | cis-rhel7-l2 | |
+
 
 **Publisher - cis-rhel-8-l2**
 
@@ -218,11 +236,13 @@ Following is the list of supported images and no other marketplace images releas
 |--- | --- | ---|
 | cis-rhel8-l2 | |
 
+
 **Publisher - cis-rhel9-l1**
 
 | **Offer** | **Plan**|**Unsupported image(s)** |
 |--- | --- | ---|
 | cis-rhel9-l1 </br> cis-rhel9-l1-gen2 ||
+
 
 **Publisher - center-for-internet-security-inc**
 
@@ -231,17 +251,16 @@ Following is the list of supported images and no other marketplace images releas
 |cis-ubuntu | cis-ubuntu1804-l1 </br> cis-ubuntulinux2004-l1-gen1 </br> cis-ubuntulinux2204-l1-gen1 </br> cis-ubuntulinux2204-l1-gen2 ||
 
 
-
 | **Offer** | **Plan**|**Unsupported image(s)** |
 
 |--- | --- | ---|
 |cis-ubuntu-linux-1804-l1| cis-ubuntu1804-l1||
 
 
-
 | **Offer** | **Plan**|**Unsupported image(s)** |
 |--- | --- | ---|
 |cis-ubuntu-linux-2004-l1 | cis-ubuntu2004-l1 </br> cis-ubuntu-linux-2204-l1-gen2|
+
 
 **Publisher - center-for-internet-security-inc**
 
@@ -291,11 +310,13 @@ Following is the list of supported images and no other marketplace images releas
 |ubuntu-2004 | 2004, 2004-gen2 |
 |ubuntu-hpc | 1804, 2004-preview-ndv5, 2004, 2204, 2204-preview-ndv5 |
 
+
 **Publisher - sles-15-sp5-chost-byos**
 
 | **Offer** | **Plan**|**Unsupported image(s)** |
 |--- | --- | ---|
 | gen1, gen2 |
+
 
 **Publisher - almalinux**
 
@@ -304,11 +325,13 @@ Following is the list of supported images and no other marketplace images releas
 |almalinux </br> | 8-gen1, 8-gen2, 9-gen1, 9-gen2|
 |almalinux-x86_64 | 8-gen1, 8-gen2, 8_7-gen2, 9-gen1, 9-gen2|
 
+
 **Publisher - aviatrix-systems**
 
 | **Offer** | **Plan**|**Unsupported image(s)** |
 |--- | --- | ---|
 |aviatrix-bundle-payg  | aviatrix-enterprise-bundle-byol|
+
 
 **Publisher - belindaczsro1588885355210**
 
@@ -316,11 +339,13 @@ Following is the list of supported images and no other marketplace images releas
 |--- | --- | ---|
 |belvmsrv01 |belvmsrv003|| 
 
+
 **Publisher - canonical**
 
 | **Offer** | **Plan**|**Unsupported image(s)** |
 |--- | --- | ---|
 | *||
+
 
 **Publisher - cloud-infrastructure-services**
 
@@ -328,11 +353,13 @@ Following is the list of supported images and no other marketplace images releas
 |--- | --- | ---|
 |rds-farm-2019| rds-farm-2019|
 
+
 **Publisher - cloudera**
 
 | **Offer** | **Plan**|**Unsupported image(s)** |
 |--- | --- | ---|
 |cloudera-centos-os| 7_5||
+
 
 **Publisher - cncf-upstream**
 
@@ -340,17 +367,20 @@ Following is the list of supported images and no other marketplace images releas
 |--- | --- | ---|
 | capi | ubuntu-1804-gen1, ubuntu-2004-gen1, ubuntu-2204-gen1 |
 
+
 **Publisher - credativ**
 
 | **Offer** | **Plan**|**Unsupported image(s)** |
 |--- | --- | ---|
 | debian | 9, 9-backports |
 
+
 **Publisher - debian**
 
 | **Offer** | **Plan**|**Unsupported image(s)** |
 |--- | --- | ---|
 | debian-10 | 10, 10-gen2,</br> 10-backports, </br> 10-backports-gen2 |
+
 
 **Publisher - esri**
 
@@ -361,6 +391,7 @@ Following is the list of supported images and no other marketplace images releas
 |arcgis-enterprise | byol-108 </br> byol-109 </br> byol-111 </br> byol-1081 </br> byol-1091|
 |esri|arcgis-enterprise-106| byol-1061||
 
+
 **Publisher - erockyenterprisesoftwarefoundationinc1653071250513**
 
 | **Offer** | **Plan**|**Unsupported image(s)** |
@@ -368,11 +399,13 @@ Following is the list of supported images and no other marketplace images releas
 | rockylinux | free |
 | rockylinux-9 | rockylinux-9 |
 
+
 **Publisher - microsoft-aks**
 
 | **Offer** | **Plan**|**Unsupported image(s)** |
 |--- | --- | ---|
 |aks |aks-engine-ubuntu-1804-202112 | |
+
 
 **Publisher - microsoft-dsvm**
 
@@ -389,6 +422,7 @@ Following is the list of supported images and no other marketplace images releas
 |cbl-mariner | cbl-mariner-1 </br> 1-gen2 </br> cbl-mariner-2 </br> cbl-mariner-2-gen2. | |
 |cbl-mariner-1,1-gen2, cbl-mariner-2, cbl-mariner-2-gen2 |
 
+
 **Publisher - microsoftsqlserver**
 
 | **Offer** | **Plan**|**Unsupported image(s)** |
@@ -396,11 +430,13 @@ Following is the list of supported images and no other marketplace images releas
 | * | * |**Offers**: sql2019-sles* </br> sql2019-rhel7 </br> sql2017-rhel 7 </br></br> Example  </br> Publisher: </br> microsoftsqlserver </br> Offer: sql2019-sles12sp5 </br> sku:webARM </br></br> Publisher: microsoftsqlserver </br> Offer: sql2019-rhel7 </br> sku: web-ARM | 
 | * | *|**Offers**:  sql2019-sles*</br> sql2019-rhel7 </br> sql2017-rhel7 |
 
+
 **Publisher - nginxinc**
 
 | **Offer** | **Plan**|**Unsupported image(s)** |
 |--- | --- | ---|
 |nginx-plus-ent-v1 | nginx-plus-ent-centos7 |
+
 
 **Publisher  ntegralinc1586961136942**
 
@@ -408,11 +444,13 @@ Following is the list of supported images and no other marketplace images releas
 |--- | --- | ---|
 |ntg_oracle_8_7| ntg_oracle_8_7|
 
+
 **Publisher - openlogic**
 
 | **Offer** | **Plan**|**Unsupported image(s)** |
 |--- | --- | ---|
 | centos | 7.2, 7.3, 7.4, 7.5, 7.6, 7_8, 7_9, 7_9-gen2 |
+
 
 **Publisher - oracle**
 |
@@ -420,12 +458,14 @@ Following is the list of supported images and no other marketplace images releas
 |--- | --- | ---|
 |oracle-linux | 7*, ol7*, ol8*, ol9*, ol9-lvm*, 8, 8-ci, 81, 81-ci, 81-gen2 |
 
+
 **Publisher - procomputers**
 
 | **Offer** | **Plan**|**Unsupported image(s)** |
 |--- | --- | ---|
 |almalinux-8-7| almalinux-8-7||
 |rhel-8-2 | rhel-8-2||
+
 
 **Publisher - redhat**
 
@@ -448,12 +488,14 @@ Following is the list of supported images and no other marketplace images releas
 |rhel| 7*,8*,9* |  |
 |sap-apps | 7*, 8* |
 
+
 **Publisher - southrivertech1586314123192**
 
 | **Offer** | **Plan**|**Unsupported image(s)** |
 |--- | --- | ---|
 | tn-ent-payg| Tnentpayg||
 | tn-sftp-payg | Tnsftppayg ||
+
 
 **Publisher - suse**
 
@@ -468,11 +510,13 @@ Following is the list of supported images and no other marketplace images releas
 |sles-sap-15-* | gen*  </br> **Offer**: sles-sap-15-\*-byos  </br></br> **Sku**: gen\* </br> Example </br> Publisher: suse </br> Offer: sles-sap-15-sp3-byos </br> sku: gen1-ARM  |
 |sles-sap-15-sp2-byos | gen2||
 
+
 **Publisher - talend**
 
 | **Offer** | **Plan**|**Unsupported image(s)** |
 |--- | --- | ---|
 |talend_re_image | tlnd_re|
+
 
 **Publisher - thorntechnologiesllc**
 
@@ -480,12 +524,14 @@ Following is the list of supported images and no other marketplace images releas
 |--- | --- | ---|
 | sftpgateway | Sftpgateway|
 
+
 **Publisher - veeam**
 
 |**Offer** |**Plan**|**Unsupported image(s)** |
 |--- | --- | ---|
 |office365backup | veeamoffice365backup ||
 |veeam-backup-replication| veeam-backup-replication-v11||
+
 
 **Publisher - zscaler**
 
