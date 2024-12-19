@@ -89,5 +89,5 @@ capabilitiesFeature.on('capabilitiesChanged', (capabilitiesChangeInfo) => {
 - *muteOthers*: Ability to soft mute remote participant(s) in the meeting 
 - *reaction*: Ability to react in the meeting (beta only)
 - *viewAttendeeNames*: Ability to view attendee names in the meeting
-- *forbidOthersAudio*: Ability to forbid all remote participants' audio in the meeting
-- *forbidOthersVideo*: Ability to forbid all remote participants' video in the meeting
+- *forbidOthersAudio*: Ability to forbid attendees' audio in the meeting or group call
+- *forbidOthersVideo*: Ability to forbid attendees' video in the meeting or group call
