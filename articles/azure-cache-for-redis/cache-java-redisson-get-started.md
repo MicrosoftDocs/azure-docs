@@ -38,7 +38,7 @@ This quickstart uses the Maven archetype feature to generate the scaffolding for
 
 ## Create a new Java app
 
-Using Maven, generate a new quickstart app:
+Use maven to generate a new quickstart app:
 
 
 ```bash
@@ -52,9 +52,9 @@ mvn archetype:generate \
     -Dversion=1.0
 ```
 
-Change to the new *redis-redisson-test* project directory.
+1. Change to the new *redis-redisson-test* project directory.
 
-Open the *pom.xml* file and add a dependency for [Redisson](https://github.com/redisson/redisson#maven):
+2. Open the *pom.xml* file and add a dependency for [Redisson](https://github.com/redisson/redisson#maven):  
 
 ### [Microsoft Entra ID Authentication (recommended)](#tab/entraid)
 
@@ -84,9 +84,9 @@ Open the *pom.xml* file and add a dependency for [Redisson](https://github.com/r
     
 ---
 
-Save the *pom.xml* file.
+3. Save the *pom.xml* file.  
 
-Open *App.java* and replace the code with the following code:
+4. Open *App.java* and replace the code with the following code:  
 
 
 ### [Microsoft Entra ID Authentication (recommended)](#tab/entraid)
@@ -229,10 +229,7 @@ public class App {
 ---
 
 
-
-This code shows you how to connect to an Azure Cache for Redis instance using Microsoft Entra ID with the JCache API support from the Redisson client library. The code also stores and retrieves a string value in the cache. For more information on JCache, see the [JCache specification](https://jcp.org/en/jsr/detail?id=107).
-
-Save *App.java*.
+5. Save *App.java*.
 
 ## Build and run the app
 
