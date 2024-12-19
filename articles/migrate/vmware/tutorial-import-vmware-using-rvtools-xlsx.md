@@ -12,11 +12,11 @@ ms.custom: vmware-scenario-422
 
 # Import servers running in a VMware environment with RVTools XLSX (preview)
 
-[!INCLUDE [scenario-banner.md](../includes/scenario-banner.md)]
-
 As part of your migration journey to Azure, you discover your on-premises inventory and workloads.
 
 This tutorial shows you how to discover the servers that are running in your VMware environment by using RVTools XLSX (preview). When you use this tool, you can control the data shared in the file and there's no need to set up the Azure Migrate appliance to discover servers. [Learn more](../migrate-support-matrix-vmware.md#import-servers-using-rvtools-xlsx-preview).
+
+[!INCLUDE [scenario-banner.md](../includes/scenario-banner.md)]
 
 
 In this tutorial, you learn how to:

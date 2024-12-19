@@ -11,9 +11,9 @@ ms.custom: vmware-scenario-422, engagement-fy24
 ---
 # Agentless migration architecture
 
-[!INCLUDE [scenario-banner.md](../includes/scenario-banner.md)]
-
 This article describes the replication concepts when migrating VMware VMs using the Migration and modernization tool's agentless migration method.
+
+[!INCLUDE [scenario-banner.md](../includes/scenario-banner.md)]
 
 ## Replication process
 

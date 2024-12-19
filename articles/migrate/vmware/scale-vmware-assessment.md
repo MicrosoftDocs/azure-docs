@@ -12,8 +12,9 @@ ms.custom: engagement-fy25
 
 # Assess large numbers of servers in VMware environment for migration to Azure
 
-
 This article describes how to assess large numbers (1000-35,000) of on-premises servers in a VMware environment for migration to Azure, using the Azure Migrate Discovery and assessment tool.
+
+[!INCLUDE [scenario-banner.md](../includes/scenario-banner.md)]
 
 [Azure Migrate](../migrate-services-overview.md) provides a hub of tools that help you to discover, assess, and migrate apps, infrastructure, and workloads to Microsoft Azure. The hub includes Azure Migrate tools, and partner independent software vendor (ISV) offerings. 
 
