@@ -8,7 +8,7 @@ ms.custom:
   - devx-track-python
 ms.collection: 
   - ce-skilling-ai-copilot
-ms.date: 07/25/2024
+ms.date: 12/19/2024
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -302,7 +302,9 @@ public static async Task<IActionResult> Run(
 ::: zone pivot="programming-language-powershell" 
 + [Azure Functions HTTP trigger](functions-bindings-http-webhook.md?pivots=programming-language-powershell)
 ::: zone-end
-
+::: zone pivot="programming-language-typescript" 
++ [Azure Functions HTTP trigger](functions-bindings-http-webhook.md?pivots=programming-language-typescript)
+::: zone-end
 ::: zone pivot="programming-language-java"
 + Training: [Develop Java serverless Functions on Azure using Maven](/training/modules/develop-azure-functions-app-with-maven-plugin/)
 + [Azure Functions HTTP trigger](functions-bindings-http-webhook.md?pivots=programming-language-java)
