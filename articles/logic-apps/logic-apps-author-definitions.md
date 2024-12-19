@@ -14,7 +14,7 @@ ms.date: 12/09/2024
 
 When you create enterprise integration solutions with automated workflows in [Azure Logic Apps](/azure/logic-apps/logic-apps-overview), the underlying workflow definitions use simple and declarative JavaScript Object Notation (JSON) along with the [Workflow Definition Language (WDL) schema](/azure/logic-apps/logic-apps-workflow-definition-language) for their description and validation. These formats make workflow definitions easier to read and understand without knowing much about code. When you want to automate creating and deploying logic app resources, you can include workflow definitions as [Azure resources](/azure/azure-resource-manager/management/overview) inside [Azure Resource Manager templates](/azure/azure-resource-manager/templates/overview). To create, manage, and deploy logic apps, you can then use [Azure PowerShell](/powershell/module/az.logicapp), [Azure CLI](/azure/azure-resource-manager/templates/deploy-cli), or the [Azure Logic Apps REST APIs](/rest/api/logic/).
 
-To work with workflow definitions in JSON, open the code view editor when you work in the Azure portal, Visual Studio Code, or Visual Studio, or copy the definition into any editor that you want.
+To work with workflow definitions in JSON, open the code view editor when you work in the Azure portal or Visual Studio Code. You can also copy and paste the definition into any editor that you want.
 
 > [!NOTE]
 >

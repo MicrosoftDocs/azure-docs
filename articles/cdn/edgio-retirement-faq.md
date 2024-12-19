@@ -42,8 +42,6 @@ Consider whether Akamai or another CDN provider might be compatible with your ne
 
 If you find that Azure Front Door isn't suitable for your workload, we offer an alternative service called [Routing Preference Unmetered](../virtual-network/ip-services/routing-preference-unmetered.md), also known as "CDN Interconnect." This service might allow free data transfer for traffic egressing from your Azure resources to another CDN of your choice.
 
-Additionally, you can choose to continue working directly with Edgio to minimize interruptions, keeping your origins on Azure while utilizing Edgio's services. For further information, contact Microsoft Support or reach out to [Edgio](https://edg.io/contact-us/).
-
 ### Does Microsoft validate my workloads work on Azure Front Door?
 
 You need to determine if Azure Front Door suits your workloads. We recommend setting up a test environment to validate that your services are compatible with Azure Front Door.
@@ -58,8 +56,8 @@ We communicate the retirement of Azure CDN from Edgio through multiple channels,
 
 ### When will it no longer be possible to create new Azure CDN from Edgio profiles?
 
-New Azure CDN from Edgio profiles can't be created after December 13, 2025.
+New Azure CDN from Edgio profiles can't be created after December 13, 2024.
 
 ### Can I request an extension for the retirement/shutdown of the Azure CDN from Edgio service?
 
-No, extensions aren't possible. Edgio confirmed that their platform will shut down by January 15, 2024.
+No, extensions aren't possible. Edgio confirmed that their platform will shut down by January 15, 2025.

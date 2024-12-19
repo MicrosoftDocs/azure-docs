@@ -11,6 +11,8 @@ ms.author: cshoe
 
 # Configure the Azure Static Web Apps CLI
 
+[!INCLUDE [Required version](includes/static-web-apps-cli-required-version.md)]
+
 The Azure Static Web Apps (SWA) CLI gets configuration information for your static web app in one of two ways:
 
 - CLI options (passed in at runtime)
