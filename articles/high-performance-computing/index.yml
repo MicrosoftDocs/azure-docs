@@ -1,7 +1,7 @@
 ### YamlMime:Hub
 
 title: Azure HPC documentation
-summary: Official Azure high-performance computing (HPC) documentation. Learn about Azure HPC's various workload orchestration services that integrate with compute, network, and storage resources.\n
+summary: Official Azure high-performance computing (HPC) documentation.\n Learn about Azure HPC's various workload orchestration services that integrate with compute, network, and storage resources.\n
 brand: azure
 
 metadata:
@@ -39,7 +39,7 @@ highlightedContent:
 # productDirectory section (Optional; Remove if not applicable.)
 productDirectory:
       title: Azure HPC Solution Components # < 60 chars (Optional; Remove if not applicable.)
-      summary: Available services, infrastructure, and technology that supports Azure HPC # < 160 chars (optional)
+      summary: Available services, infrastructure, and technology that supports Azure HPC. See Azure HPC solutions, tutorials, guides, and resources. Explore our marketplace, innovate with our partners. # < 160 chars (optional)
       items:
       # Card
       - title: Azure HPC Scenarios and Migration Guidelines
@@ -104,9 +104,10 @@ productDirectory:
              text: Create, customize, and manage HPC Cluster using CycleCloud
            - url: /azure/virtual-machines/extensions/enable-infiniband
              text: Enable Inifiniband
+     
       # Card 
       - title: Azure HPC Content on Sites
-        imageSrc: ../media/index/avatar_128.svg
+        imageSrc: ./media/avatar_128.svg
         links:
            - url: https://www.aka.ms/Microsoft-NVIDIA/HPCwire
              text: Microsoft - NVIDIA
@@ -116,6 +117,7 @@ productDirectory:
              text: Azure Cloud and AMD for Manufacturing
            - url: https://insidehpc.com/2023/03/azure-amd-and-the-power-of-cloud-based-hpc-for-sustainability-rd-projects/
              text: Azure and AMD for Sustainability    
+     
       # Card
       - title: Related Technologies
         imageSrc: /media/common/i_link.svg
@@ -126,6 +128,7 @@ productDirectory:
              text: HPC for Innovation in R&D          
            - url: https://techcommunity.microsoft.com/blog/azurehighperformancecomputingblog/setting-up-slurm-cloud-bursting-using-cyclecloud-on-azure/4140922
              text: Slurm Cloud Bursting Using CycleCloud on Azure
+     
       # Card
       - title: Azure HPC Video Playlists and Event links
         imageSrc: ../media/index/video-indexer.svg
