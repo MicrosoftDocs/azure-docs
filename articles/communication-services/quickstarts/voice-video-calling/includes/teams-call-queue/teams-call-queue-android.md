@@ -111,7 +111,7 @@ android {
 
 dependencies {
     ...
-    implementation ("com.azure.android:azure-communication-calling:2.6.0")
+    implementation ("com.azure.android:azure-communication-calling:2.+")
     ...
 }
 ```

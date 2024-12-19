@@ -57,7 +57,7 @@ To use in the calling App, we need to add a prefix to this ID. Currently, the fo
   ```
 
   For details, see [Use Azure CLI to Create and Manage Access Tokens](../../../identity/access-tokens.md?pivots=platform-azcli).
-- Minimum support for Teams calling applications: 2.14.0-beta.1
+- Minimum support for Teams calling applications: 2.15.0
 
 ## Setting up
 
@@ -80,7 +80,7 @@ In Xcode, create a new iOS project and select the **App** template. This tutoria
    use_frameworks!
 
    target 'AzureCommunicationCallingSample' do
-     pod 'AzureCommunicationCalling', '~> 2.14.0-beta.1'
+     pod 'AzureCommunicationCalling', '~> 2.15.0'
    end
    ```
 

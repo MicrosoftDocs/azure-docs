@@ -60,7 +60,7 @@ To complete this tutorial, you need the following prerequisites:
   ```
 
   For details, see [Use Azure CLI to Create and Manage Access Tokens](../../../identity/access-tokens.md?pivots=platform-azcli).
-- Minimum support for Teams calling applications: 1.10.0-beta.1
+- Minimum support for Teams calling applications: 1.11.0
 
   
 ## Setting up
