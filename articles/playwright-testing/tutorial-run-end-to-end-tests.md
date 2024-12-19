@@ -71,7 +71,7 @@ Integrate the Playwright test suite you created in the previous tutorial with Pl
 
 Follow these steps to set up the service and integrate the test suite. 
 
-1. Create a Playwright Testing workspace.
+### Create a Playwright Testing workspace.
 
 To get started with running your Playwright tests at scale on cloud browsers, you first create a Microsoft Playwright Testing workspace in the Playwright portal.
 
@@ -80,7 +80,7 @@ To get started with running your Playwright tests at scale on cloud browsers, yo
 When the workspace creation finishes, you're redirected to the setup guide.
 
 
-2. Install Microsoft Playwright Testing package.
+### Install Microsoft Playwright Testing package.
 
 To install service package, navigate to the location of your test suite you created in the previous tutorial and run this command:
 
@@ -93,7 +93,7 @@ This command generates `playwright.service.config.ts` file which serves to:
 - Direct and authenticate Playwright to the Microsoft Playwright Testing service.
 - Adds a reporter to publish test results and artifacts.
 
-3. Configure the service region endpoint.
+### Configure the service region endpoint.
 
 In your setup, you have to provide the region-specific service endpoint. The endpoint depends on the Azure region you selected when creating the workspace.
 
@@ -106,7 +106,7 @@ To get the service endpoint URL, perform the following steps:
     :::image type="content" source="./media/quickstart-run-end-to-end-tests/playwright-testing-region-endpoint.png" alt-text="Screenshot that shows how to copy the workspace region endpoint in the Playwright Testing portal." lightbox="./media/quickstart-run-end-to-end-tests/playwright-testing-region-endpoint.png":::
 
 
-4. Set up your environment.
+### Set up your environment.
 
 To set up your environment, you have to configure the `PLAYWRIGHT_SERVICE_URL` environment variable with the value you obtained in the previous steps.
 
@@ -127,7 +127,7 @@ We recommend that you use the `dotenv` module to manage your environment. With `
     Make sure to replace the `{MY-REGION-ENDPOINT}` text placeholder with the value you copied earlier.
 
 
-5. Set up authentication.
+### Set up authentication.
 
 To run your Playwright tests in your Microsoft Playwright Testing workspace, you need to authenticate the Playwright client where you're running the tests with the service. Authenticate with the dev workstation where you are running the Playwright tests.  
 
@@ -141,7 +141,7 @@ az login
 > If you're a part of multiple Microsoft Entra tenants, make sure you sign in to the tenant where your workspace belongs. You can get the tenant ID from Azure portal. See [Find your Microsoft Entra Tenant](/azure/azure-portal/get-subscription-tenant-id#find-your-microsoft-entra-tenant). Once you get the ID, sign-in using the command `az login --tenant <TenantID>`
 
 
-6. Enable artifacts in your Playwright setup.
+### Enable artifacts in your Playwright setup.
 
 In the `playwright.config.ts` file of your project, ensure you are collecting all the required artifacts.
 ```typescript
@@ -199,8 +199,6 @@ You can now troubleshoot the failed test cases in the Playwright portal.
 
 > [!div class="nextstepaction"]
 
-> [Set up continuous end-to-end testing in CI/CD](./quickstart-automate-end-to-end-testing.md)
-
-> [Explore service configuration options](./how-to-use-service-config-file.md)
-
-> [Determine the optimal test suite configuration](./concept-determine-optimal-configuration.md)
+- [Set up continuous end-to-end testing in CI/CD](./quickstart-automate-end-to-end-testing.md)
+- [Explore service configuration options](./how-to-use-service-config-file.md)
+- [Determine the optimal test suite configuration](./concept-determine-optimal-configuration.md)
