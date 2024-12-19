@@ -24,7 +24,7 @@ const mediaAccessFeature = call.feature(Features.MediaAccess);
 ### Control access to send audio or video of individual attendees
 You can use method `permitAudio()` to allow selected attendees to unmute or method `permitVideo()` to allow selected attendees to turn on video. These actions won't automatically unmute or turn on video, they only allow attendees to perform these actions. 
 
-Use method `forbidAudio()` to disallow selected attendees to unmute or method `forbidVideo()` to disallow selected attendees to turn on video and these actions will mute or turn off video for selected attendees.
+Use method `forbidAudio()` to disallow selected attendees to unmute or method `forbidVideo()` to disallow selected attendees to turn on video and these actions will disable mic or camera for selected attendees.
 
 ```js
 //Define list of attendees
@@ -47,7 +47,7 @@ mediaAccessFeature.forbidVideo(participants);
 
 ### Control access to send audio or video of all attendees
 Microsoft Teams meetings support API that allows participants with role organizer, co-organizers or presenters to allow or deny all attendees to send audio or video. You can use method `permitOthersAudio()` to allow all attendees to unmute or method `permitOthersVideo()` to allow all attendees to turn on video. These actions won't automatically unmute or turn on video, they only allow attendees to perform these actions. 
-You can use method `forbidOthersAudio()` to disallow all attendees to unmute or method `forbidOthersVideo()` to disallow all attendees to turn on video.
+You can use method `forbidOthersAudio()` to disallow all attendees to unmute or method `forbidOthersVideo()` to disallow all attendees to turn on video and these actions will disable mic or camera for selected attendees.
 
 ```js
 //Allow all attendees to unmute
