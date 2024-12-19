@@ -258,7 +258,7 @@ The creation wizard generated the database connectivity string for you already a
         This app setting lets you connect to the Postgres database secured behind a private endpoint. However, the secret is saved directly in the App Service app, which isn't the best. You'll change this.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-java-tomcat-mysql-app/azure-portal-secure-connection-secrets-1.png" alt-text="A screenshot showing how to see the value of an app setting." lightbox="./media/tutorial-java-tomcat-mysql-app/azure-portal-secure-connection-secrets-1.png":::
+        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-secure-connection-secrets-1.png" alt-text="A screenshot showing how to see the value of an app setting." lightbox="./media/tutorial-python-postgresql-app/azure-portal-secure-connection-secrets-1.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -270,7 +270,7 @@ The creation wizard generated the database connectivity string for you already a
         1. In **Region**, set it to the same location as the resource group.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-java-tomcat-mysql-app/azure-portal-secure-connection-secrets-2.png" alt-text="A screenshot showing how to create a key vault." lightbox="./media/tutorial-java-tomcat-mysql-app/azure-portal-secure-connection-secrets-2.png":::
+        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-secure-connection-secrets-2.png" alt-text="A screenshot showing how to create a key vault." lightbox="./media/tutorial-python-postgresql-app/azure-portal-secure-connection-secrets-2.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -291,7 +291,7 @@ The creation wizard generated the database connectivity string for you already a
         1. Select **Review + create**, then select **Create**. Wait for the key vault deployment to finish. You should see "Your deployment is complete."
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-java-tomcat-mysql-app/azure-portal-secure-connection-secrets-3.png" alt-text="A screenshot showing how to secure a key vault with a private endpoint." lightbox="./media/tutorial-java-tomcat-mysql-app/azure-portal-secure-connection-secrets-3.png":::
+        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-secure-connection-secrets-3.png" alt-text="A screenshot showing how to secure a key vault with a private endpoint." lightbox="./media/tutorial-python-postgresql-app/azure-portal-secure-connection-secrets-3.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -300,7 +300,7 @@ The creation wizard generated the database connectivity string for you already a
         1. In the top search bar, type *msdocs-python-postgres*, then select the App Service resource called **msdocs-python-postgres-XYZ**.
         1. In the App Service page, in the left menu, select **Settings > Service Connector**. There's already a connector, which the app creation wizard created for you.
         1. Select checkbox next to the connector, then select **Edit**.
-        1. In the **Basics** tab, for Flask, set **Client type** to **Python**. For Django, set the **Client type** to **Django**.
+        1. In the **Basics** tab, under **PostgreSQL database** select the PostgreSQL database that was created.
         1. Select the **Authentication** tab.
         1. In **Password**, paste the password you copied earlier.
         1. Select **Store Secret in Key Vault**.
@@ -308,7 +308,7 @@ The creation wizard generated the database connectivity string for you already a
         A **Create connection** dialog is opened on top of the edit dialog.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-java-tomcat-mysql-app/azure-portal-secure-connection-secrets-4.png" alt-text="A screenshot showing how to edit a service connector with a key vault connection." lightbox="./media/tutorial-java-tomcat-mysql-app/azure-portal-secure-connection-secrets-4.png":::
+        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-secure-connection-secrets-4.png" alt-text="A screenshot showing how to edit a service connector with a key vault connection." lightbox="./media/tutorial-python-postgresql-app/azure-portal-secure-connection-secrets-4.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -319,7 +319,7 @@ The creation wizard generated the database connectivity string for you already a
         1. When validation completes, select **Create**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-java-tomcat-mysql-app/azure-portal-secure-connection-secrets-5.png" alt-text="A screenshot showing how to configure a key vault service connector." lightbox="./media/tutorial-java-tomcat-mysql-app/azure-portal-secure-connection-secrets-5.png":::
+        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-secure-connection-secrets-5.png" alt-text="A screenshot showing how to configure a key vault service connector." lightbox="./media/tutorial-python-postgresql-app/azure-portal-secure-connection-secrets-5.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -330,7 +330,7 @@ The creation wizard generated the database connectivity string for you already a
         1. Select **Save**. Wait until the **Update succeeded** notification appears.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-java-tomcat-mysql-app/azure-portal-secure-connection-secrets-6.png" alt-text="A screenshot showing the key vault connection selected in the defaultConnector." lightbox="./media/tutorial-java-tomcat-mysql-app/azure-portal-secure-connection-secrets-6.png":::
+        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-secure-connection-secrets-6.png" alt-text="A screenshot showing the key vault connection selected in the defaultConnector." lightbox="./media/tutorial-python-postgresql-app/azure-portal-secure-connection-secrets-6.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -340,7 +340,7 @@ The creation wizard generated the database connectivity string for you already a
         1. Next to **AZURE_POSTGRESQL_CONNECTIONSTRING**, select **Show value**. The value should be `@Microsoft.KeyVault(...)`, which means that it's a [key vault reference](app-service-key-vault-references.md) because the secret is now managed in the key vault.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-java-tomcat-mysql-app/azure-portal-secure-connection-secrets-7.png" alt-text="A screenshot showing how to see the value of the MySQL environment variable in Azure." lightbox="./media/tutorial-java-tomcat-mysql-app/azure-portal-secure-connection-secrets-7.png":::
+        :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-secure-connection-secrets-7.png" alt-text="A screenshot showing how to see the value of the MySQL environment variable in Azure." lightbox="./media/tutorial-python-postgresql-app/azure-portal-secure-connection-secrets-7.png":::
     :::column-end:::
 :::row-end:::
 
