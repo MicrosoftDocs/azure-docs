@@ -350,6 +350,8 @@
             Troubleshooting dual-stack configuration issues for Nexus Kubernetes
             cluster
           href: troubleshoot-kubernetes-cluster-dual-stack-configuration.md
+        - name: Troubleshoot Neighbor Group Creation Error
+          href: troubleshoot-neighbor-group-creation-error.md
 - name: FAQ
   href: azure-operator-nexus-faq.md
 - name: Reference
