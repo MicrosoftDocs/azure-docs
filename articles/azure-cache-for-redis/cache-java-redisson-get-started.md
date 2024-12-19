@@ -72,7 +72,6 @@ Open the *pom.xml* file and add a dependency for [Redisson](https://github.com/r
 </dependency>
 ```
 
-
 ### [Access Key Authentication](#tab/accesskey)
 
 ```xml
@@ -81,7 +80,7 @@ Open the *pom.xml* file and add a dependency for [Redisson](https://github.com/r
     <artifactId>redisson</artifactId>
     <version>3.27.0</version> <!-- {x-version-update;org.redisson:redisson;external_dependency} -->
 </dependency>
-    ```
+```
     
 ---
 
@@ -91,6 +90,7 @@ Open *App.java* and replace the code with the following code:
 
 
 ### [Microsoft Entra ID Authentication (recommended)](#tab/entraid)
+
 ```java
 package example.demo;
 
@@ -228,9 +228,6 @@ public class App {
 
 ---
 
-
-
-```java
 
 
 This code shows you how to connect to an Azure Cache for Redis instance using Microsoft Entra ID with the JCache API support from the Redisson client library. The code also stores and retrieves a string value in the cache. For more information on JCache, see the [JCache specification](https://jcp.org/en/jsr/detail?id=107).

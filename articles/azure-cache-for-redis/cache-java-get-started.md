@@ -37,16 +37,17 @@ Clone the repo [Java quickstart](https://github.com/Azure-Samples/azure-cache-re
 ## Create a new Java app
 
 Using Maven, generate a new quickstart app:
-    ```xml
-    mvn archetype:generate \
-        -DarchetypeGroupId=org.apache.maven.archetypes \
-        -DarchetypeArtifactId=maven-archetype-quickstart \
-        -DarchetypeVersion=1.3 \
-        -DinteractiveMode=false \
-        -DgroupId=example.demo \
-        -DartifactId=redis-jedis-test \
-        -Dversion=1.0
-    ```
+
+```xml
+mvn archetype:generate \
+    -DarchetypeGroupId=org.apache.maven.archetypes \
+    -DarchetypeArtifactId=maven-archetype-quickstart \
+    -DarchetypeVersion=1.3 \
+    -DinteractiveMode=false \
+    -DgroupId=example.demo \
+    -DartifactId=redis-jedis-test \
+    -Dversion=1.0
+```
 
 1. Change to the new **redis-jedis-test** project directory.
 
