@@ -1,7 +1,7 @@
 ### YamlMime:Hub
 
 title: Azure HPC documentation
-summary: Official Azure high-performance computing (HPC) documentation. <b> Learn about Azure HPC's various workload orchestration services that integrate with compute, network, and storage resources.
+summary: Official Azure high-performance computing (HPC) documentation. <br> Learn about Azure HPC's various workload orchestration services that integrate with compute, network, and storage resources.
 brand: azure
 
 metadata:
@@ -92,6 +92,27 @@ productDirectory:
            - url: /azure/open-datasets/
              text: Azure Open Datasets
 
+tools:
+  title: Community Resources and HPC Team # < 60 chars (Optional)
+  summary: Connect with other HPC users and communicate with the HPC team
+  items:
+    # Card 1
+    - title: High Performance Computing Tech Community
+      imageSrc: /media/hubs/powershell/i_group-feedback.svg
+      url: https://techcommunity.microsoft.com/t5/azure-high-performance-computing/bg-p/AzureHighPerformanceComputingBlog
+    # Card 2
+    - title: High Performance Computing Team Blogs
+      imageSrc: /media/hubs/powershell/i_group-feedback.svg
+      url: https://azure.microsoft.com/blog/?sort-by=newest-oldest&category=compute&date=any&s=HPC
+    # Card 3
+    - title: StackOverFlow
+      imageSrc: /media/hubs/powershell/logo_stackoverflow.svg
+      url: https://stackoverflow.com/questions/tagged/hpc
+    # Card 4
+    - title: r/HPC
+      imageSrc: /media/hubs/powershell/logo_reddit.svg
+      url: https://www.reddit.com/r/HPC/
+
 
 # Azure HPC Resourcess
 additionalContent:
@@ -147,24 +168,3 @@ additionalContent:
         # Card
         - title: Azure HPC Events
           url: https://aka.ms/HPCEvents
-
-tools:
-  title: Community Resources and HPC Team # < 60 chars (Optional)
-  summary: Connect with other HPC users and communicate with the HPC team
-  items:
-    # Card 1
-    - title: High Performance Computing Tech Community
-      imageSrc: /media/hubs/powershell/i_group-feedback.svg
-      url: https://techcommunity.microsoft.com/t5/azure-high-performance-computing/bg-p/AzureHighPerformanceComputingBlog
-    # Card 2
-    - title: High Performance Computing Team Blogs
-      imageSrc: /media/hubs/powershell/i_group-feedback.svg
-      url: https://azure.microsoft.com/blog/?sort-by=newest-oldest&category=compute&date=any&s=HPC
-    # Card 3
-    - title: StackOverFlow
-      imageSrc: /media/hubs/powershell/logo_stackoverflow.svg
-      url: https://stackoverflow.com/questions/tagged/hpc
-    # Card 4
-    - title: r/HPC
-      imageSrc: /media/hubs/powershell/logo_reddit.svg
-      url: https://www.reddit.com/r/HPC/
