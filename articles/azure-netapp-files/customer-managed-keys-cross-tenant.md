@@ -125,7 +125,7 @@ Cross-tenant CMK is currently only supported for the REST API.
 ### Authorize access to the key vault 
 
 1. Install the service provider application in the customer tenant
-    1. Get the Admin Consent URL from the provider for their cross-tenant application. In our example the URL would look like this: https://login.microsoftonline.com/<tenant1 tenantId>/adminconsent/client_id=<client/application ID for the cross tenant-application> This opens a login page where you enter your credentials. Once you enter your credentials, you may see an error stating there's no redirect URL configured. This is OK.
+    1. Get the Admin Consent URL from the provider for their cross-tenant application. In our example the URL would look like: `https://login.microsoftonline.com/<tenant1 tenantId>/adminconsent/client_id=<client/application ID for the cross tenant-application>`. This opens a login page where you enter your credentials. Once you enter your credentials, you may see an error stating there's no redirect URL configured. This is OK.
 1. Grant the service provider application access to the key vault. 
     1. Navigate to your key vault. Select Access Control (IAM) from the left pane.  
     1. Under Grant access to this resource, select **Add role assignment**. 
