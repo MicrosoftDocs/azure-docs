@@ -130,13 +130,7 @@ const meetingMediaAccessChangedHandler = (event) => {
     console.log(`Latest meeting media access state ${event.mediaAccesses}`);
 };
 ```
-The meeting media access changed event has a media access object
-```json
-{
-    "isAudioPermitted": true,
-    "isVideoPermitted": true
-}
-```
+
 The `mediaAccessChanged` event contains an object with the `mediaAccesses` property, which represents the participant's media accesses.
 ```js
 mediaAccessFeature.on('mediaAccessChanged', mediaAccessChangedHandler)
