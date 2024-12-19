@@ -61,8 +61,9 @@ Here are some other differences that aren't covered by the previous mapping. Con
 | Redis version | 6 | 7.4 |
 | Supported TLS versions | 1.2 and 1.3 | 1.2 and 1.3 |
 
-## Regional availablility for AMR
-AMR is current supported in the following regions. This list will be actively updated, and eventually we aim to support all regions in Azure. Please work with your sales contact to raise requests on regions you need to help us prioritize. 
+## Regional availability for Azure Managed Redis
+
+Azure Managed Redis is current supported in the following regions. This list is updated regularly. Eventually, Azure Managed Redis will be supported all regions in Azure. Work with your sales contact to raise requests on regions where you need support.
 
 | Americas | Europe | Middle East | Africa | Asia Pacific |
 |---|---|---|---|---|
@@ -77,8 +78,6 @@ AMR is current supported in the following regions. This list will be actively up
 |West US | | | | |
 |Central US | | | | |
 |Canada Central | | | | |
-
-
 
 ## Migrate your Azure Cache for Redis instance to Azure Managed Redis
 
@@ -111,7 +110,7 @@ AMR is current supported in the following regions. This list will be actively up
 | Premium - P4 | Balanced - B50 | 12 |
 | Premium - P5 | Balanced - B100 | 0 |
 
-- *This option is for cost efficiency. Ensure the peak of total used memory in the past month is less than the suggested AMR memory to choose this option.
+- *This option is for cost efficiency. Ensure the peak of total used memory in the past month is less than the suggested Azure Managed Redis memory to choose this option.
 - ** This option is for abundant memory consumption.
 
 #### Azure Cache for Redis Premium clustered
@@ -147,7 +146,7 @@ General steps to implement this option are:
 
 #### Export data to an RDB file and import it into Azure Managed Redis
 
-This option is applicable only to premium tier caches. Open-source Redis defines a standard mechanism for taking a snapshot of a cache's in-memory dataset and saving it to a file. This RDB file type can be read by another Redis cache. [Azure Cache for Redis premium tier](../cache-overview.md#service-tiers) supports exporting data from a cache instance via RDB files. You can use an RDB file to transfer data from an existing Azure Cache for Redis instance to Azure Managed Redis instance.
+This option is applicable only to premium tier caches. Open-source Redis defines a standard mechanism for taking a snapshot of a cache's in-memory dataset and saving it to a file. Another Redis cache can read the RDB file that was exported. [Azure Cache for Redis premium tier](../cache-overview.md#service-tiers) supports exporting data from a cache instance via RDB files. You can use an RDB file to transfer data from an existing Azure Cache for Redis instance to Azure Managed Redis instance.
 
 General steps to implement this option are:
 
