@@ -12,7 +12,7 @@ ms.subservice: storage-common-concepts
 
 # Running ISV file services in Azure
 
-Azure offers various options for storing file data. Azure native services, both first party and [native ISV](/azure/partner-solutions/overview), are:
+Azure offers various options for storing file data. Azure native storage services, both first party and [native ISV services](/azure/partner-solutions/overview), are:
 - [Azure Files](https://azure.microsoft.com/services/storage/files/) – Fully managed file shares in the cloud that are accessible via the industry-standard SMB and NFS protocols. Azure Files offer two different types (standard and premium) with different performance characteristics.
 - [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) – Fully managed file shares in the cloud designed to meet the performance requirements for enterprise line-of-business applications. Azure NetApp Files offer multiple service levels with different performance limitations (standard, premium, and ultra).
 - [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) – Large-scale object storage platform for storing unstructured data. Azure Blob Storage offer two different types (standard and premium) with different performance characteristics.
