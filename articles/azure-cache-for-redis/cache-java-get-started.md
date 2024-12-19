@@ -31,9 +31,9 @@ Clone the repo [Java quickstart](https://github.com/Azure-Samples/azure-cache-re
 
 ## Set up the working environment
 
-Depending on your operating system, add environment variables for your **Host name** and **Primary access key** that you noted previously. Open a command prompt, or a terminal window, and set up the following values:
+The following steps show you how to set up the working environment for the Java app. You can choose to authenticate with Azure Cache for Redis using Microsoft Entra ID(recommended) or access keys.
 
-## [Microsoft Entra ID Authentication (recommended)](#tab/entraid)
+### [Microsoft Entra ID Authentication (recommended)](#tab/entraid)
 
 ```bash
 export REDIS_CACHE_HOSTNAME=<your-host-name>.redis.cache.windows.net
@@ -44,8 +44,15 @@ Replace the placeholders with the following values:
 
 - `<your-host-name>`: The DNS host name, obtained from the *Properties* section of your Azure Cache for Redis resource in the Azure portal.
 - `<user-name>`: Object ID of your managed identity or service principal.
+  - You can get the user name by using the following steps:
 
-## [Access Key Authentication](#tab/accesskey)
+    1. In the Azure portal, navigate to your Azure Cache for Redis instance.
+    1. On the navigation pane, select **Data Access Configuration**.
+    1. On the **Redis Users** tab, find the **Username** column.
+
+       :::image type="content" source="media/cache-java-redisson-get-started/user-name.png" alt-text="Screenshot of the Azure portal that shows the Azure Cache for Redis Data Access Configuration page with the Redis Users tab and a Username value highlighted." lightbox="media/cache-java-redisson-get-started/user-name.png":::
+
+### [Access Key Authentication](#tab/accesskey)
 
 ```bash
 export REDIS_CACHE_HOSTNAME=<your-host-name>.redis.cache.windows.net
@@ -79,7 +86,7 @@ Using Maven, generate a new quickstart app:
 
 1. Open the *pom.xml* file. In the file, you see a dependency for [Jedis](https://github.com/xetorthio/jedis):
 
-## [Microsoft Entra ID Authentication (recommended)](#tab/entraid)
+### [Microsoft Entra ID Authentication (recommended)](#tab/entraid)
 
     ```xml
     <dependency>
@@ -96,7 +103,7 @@ Using Maven, generate a new quickstart app:
     ```
 
 
-## [Access Key Authentication](#tab/accesskey)
+### [Access Key Authentication](#tab/accesskey)
 
     ```xml
     <dependency>
@@ -114,7 +121,7 @@ Using Maven, generate a new quickstart app:
 
 1. Open *App.java* and see the code with the following code:
     
-    ## [Microsoft Entra ID Authentication (recommended)](#tab/entraid)
+    ### [Microsoft Entra ID Authentication (recommended)](#tab/entraid)
      ```java
     package example.demo;
     
@@ -178,7 +185,7 @@ Using Maven, generate a new quickstart app:
     }
     ```
 
-    ## [Access Key Authentication](#tab/accesskey)
+    ### [Access Key Authentication](#tab/accesskey)
     ```java
     package example.demo;
     

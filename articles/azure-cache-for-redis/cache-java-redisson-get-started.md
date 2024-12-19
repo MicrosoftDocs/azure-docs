@@ -33,56 +33,14 @@ This quickstart uses the Maven archetype feature to generate the scaffolding for
 
 ## Set up the working environment
 
-The steps in this section show you two options for how to select the Azure identity used for the Redis connection. The sample code looks at the value of the `AUTH_TYPE` environment variable and takes action depending on the value.
+The following steps show you how to set up the working environment for the Java app. You can choose to authenticate with Azure Cache for Redis using Microsoft Entra ID(recommended) or access keys.
 
-### Identity option 1: Authentication with Redis Key
-
-Depending on your operating system, add environment variables for your cache's host name and primary access key. Open a command prompt, or a terminal window, and set up the following values:
-
-### [Linux](#tab/bash)
-
-```bash
-export REDIS_CACHE_HOSTNAME=<your-host-name>.redis.cache.windows.net
-export REDIS_CACHE_KEY=<your-primary-access-key>
-export AUTH_TYPE=RedisKey
-```
-
-### [Windows](#tab/cmd)
-
-```cmd
-set REDIS_CACHE_HOSTNAME=<your-host-name>.redis.cache.windows.net
-set REDIS_CACHE_KEY=<your-primary-access-key>
-set AUTH_TYPE=RedisKey
-```
-
----
-
-Replace the placeholders with the following values:
-
-- `<your-host-name>`: The DNS host name, obtained from the *Properties* section of your Azure Cache for Redis resource in the Azure portal.
-- `<your-primary-access-key>`: The primary access key, obtained from the *Access keys* section of your Azure Cache for Redis resource in the Azure portal.
-
-### Identity option 2: Authentication with Microsoft Entra ID
-
-Depending on your operating system, add environment variables for your cache's host name and user name. Open a command prompt, or a terminal window, and set up the following values:
-
-### [Linux](#tab/bash)
+### [Microsoft Entra ID Authentication (recommended)](#tab/entraid)
 
 ```bash
 export REDIS_CACHE_HOSTNAME=<your-host-name>.redis.cache.windows.net
 export USER_NAME=<user-name>
-export AUTH_TYPE=MicrosoftEntraID
 ```
-
-### [Windows](#tab/cmd)
-
-```cmd
-set REDIS_CACHE_HOSTNAME=<your-host-name>.redis.cache.windows.net
-set USER_NAME=<user-name>
-set AUTH_TYPE=MicrosoftEntraID
-```
-
----
 
 Replace the placeholders with the following values:
 
@@ -96,11 +54,25 @@ Replace the placeholders with the following values:
 
        :::image type="content" source="media/cache-java-redisson-get-started/user-name.png" alt-text="Screenshot of the Azure portal that shows the Azure Cache for Redis Data Access Configuration page with the Redis Users tab and a Username value highlighted." lightbox="media/cache-java-redisson-get-started/user-name.png":::
 
+### [Access Key Authentication](#tab/accesskey)
+
+```bash
+export REDIS_CACHE_HOSTNAME=<your-host-name>.redis.cache.windows.net
+export REDIS_CACHE_KEY=<your-primary-access-key>
+```
+
+Replace the placeholders with the following values:
+
+- `<your-host-name>`: The DNS host name, obtained from the *Properties* section of your Azure Cache for Redis resource in the Azure portal.
+- `<your-primary-access-key>`: The primary access key, obtained from the *Access keys* section of your Azure Cache for Redis resource in the Azure portal.
+
+---
+
+
 ## Create a new Java app
 
 Using Maven, generate a new quickstart app:
 
-### [Linux](#tab/bash)
 
 ```bash
 mvn archetype:generate \
@@ -113,38 +85,38 @@ mvn archetype:generate \
     -Dversion=1.0
 ```
 
-### [Windows](#tab/cmd)
-
-```cmd
-mvn archetype:generate \
-    -DarchetypeGroupId=org.apache.maven.archetypes \
-    -DarchetypeArtifactId=maven-archetype-quickstart \
-    -DarchetypeVersion=1.3 \
-    -DinteractiveMode=false \
-    -DgroupId=example.demo \
-    -DartifactId=redis-redisson-test \
-    -Dversion=1.0
-```
-
----
-
 Change to the new *redis-redisson-test* project directory.
 
 Open the *pom.xml* file and add a dependency for [Redisson](https://github.com/redisson/redisson#maven):
 
-```xml
+### [Microsoft Entra ID Authentication (recommended)](#tab/entraid)
+
+    ```xml
     <dependency>
         <groupId>com.azure</groupId>
         <artifactId>azure-identity</artifactId>
-        <version>1.8.2</version>
+        <version>1.11.2</version> <!-- {x-version-update;com.azure:azure-identity;dependency} -->
     </dependency>
-
+    
     <dependency>
         <groupId>org.redisson</groupId>
         <artifactId>redisson</artifactId>
-        <version>3.24.3</version>
+        <version>3.27.0</version> <!-- {x-version-update;org.redisson:redisson;external_dependency} -->
     </dependency>
-```
+    ```
+
+
+### [Access Key Authentication](#tab/accesskey)
+
+    ```xml
+    <dependency>
+        <groupId>org.redisson</groupId>
+        <artifactId>redisson</artifactId>
+        <version>3.27.0</version> <!-- {x-version-update;org.redisson:redisson;external_dependency} -->
+    </dependency>
+    ```
+    
+---
 
 Save the *pom.xml* file.
 
@@ -251,19 +223,11 @@ Save *App.java*.
 
 Execute the following Maven command to build and run the app:
 
-### [Linux](#tab/bash)
 
 ```bash
 mvn compile exec:java -Dexec.mainClass=example.demo.App
 ```
 
-### [Windows](#tab/cmd)
-
-```cmd
-mvn compile exec:java -Dexec.mainClass=example.demo.App
-```
-
----
 
 In the following output, you can see that the `Message` key previously had a cached value, which was set in the last run. The app updated that cached value.
 
