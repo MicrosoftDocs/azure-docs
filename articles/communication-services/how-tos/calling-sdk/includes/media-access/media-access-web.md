@@ -73,7 +73,7 @@ const mediaAccessChangedHandler = (event) => {
     }
 }
 mediaAccessFeature.on('mediaAccessChanged', mediaAccessChangedHandler )
-
+```
 ### Media Access properties
 Class `MediaAccess` has the following properties:
 | Properties | Description |
