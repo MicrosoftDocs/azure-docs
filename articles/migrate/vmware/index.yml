@@ -20,7 +20,7 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Geting started with VMware migration
+          - text: Getting started with VMware migration
             url: start-here-vmware.md
           - text: Support Matrix for VMware discovery
             url: migrate-support-matrix-vmware.md
