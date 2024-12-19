@@ -55,7 +55,7 @@ Prerelease version of an Azure Maps service. Preview releases contain new functi
 
 | API | API version | Description |
 |-----|-------------|-------------|
-| [Route][Route-2024-07-01-preview] | 2024-07-01-preview | Returns the ideal route in GeoJSON between locations for multiple modes of transportation.<BR><BR>Some of the updates in this version of the Route service include:<ul><li>Routes with "via" waypoints that the route must pass through.</li><li>More geographies</li><li>More languages available for localized travel instructions.</li></ul> |
+| [Route][Route-2024-07-01-preview] | 2024-07-01-preview | Returns the ideal route in GeoJSON between locations for multiple modes of transportation.<BR><BR>Some of the updates in this version of the Route service include:<ul><li>New Snap to Roads API that snaps GPS data to road aligned coordinates.</li><li>Support for up to 50,000 cells in Route Matrix async.</li><li>High-definition route range polygon.</li><li>Routes with "via" waypoints that the route must pass through.</li><li>More geographies</li><li>More languages available for localized travel instructions.</li><li> |
 
 <!--- Links to latest versions of each service ---------------------------------->
 [Data Registry]: /rest/api/maps/data-registry
