@@ -99,7 +99,7 @@ Mitigation options:
 
 Here are a few configuration recommendations to mitigate an NSX Edge VMs performance challenges.
 
-1. By default, Edge VMs are part of Azure VMware Solution management resource pool on vCenter.  All appliances in the management resource pool have dedicated computing resources assigned.  
+1. By default, Edge VMs are part of Azure VMware Solution management resource pool on vCenter. All appliances in the management resource pool have dedicated computing resources assigned.  
 
 2. By default, Edge VMs are hosted on different Hosts with anti-affinity rules applied, to avoid multiple heavy packet processing workloads on same hosts.
 
@@ -190,7 +190,7 @@ For detailed steps on how to Create an HCX Network Profile. [HCX Network Profile
 
 6. Select **Create**.
  
-:::image type="content" source="media/hcx/hcx-uplink-network-profile.png" alt-text="Diagram showing the creation of a HCX network profile." border="false" lightbox="media/nsxt/hcx-uplink-network-profile.png":::
+:::image type="content" source="media/hcx/hcx-uplink-network-profile.png" alt-text="Diagram showing the creation of an HCX network profile." border="false" lightbox="media/nsxt/hcx-uplink-network-profile.png":::
  
 Once the new HCX Uplink Network Profile is created, update the existing Service Mesh and edit the default uplink profile with the newly created Network Profile. 
 
@@ -202,7 +202,7 @@ Once the new HCX Uplink Network Profile is created, update the existing Service 
         
 9. Select **Service Mesh Change**.
 
-:::image type="content" source="media/hcx/hcx-in-service-mode.png" alt-text="Diagram showing how to edit an in service mode on a HCX Network extension appliance." border="false" lightbox="media/nsxt/hcx-in-service-mode.png":::
+:::image type="content" source="media/hcx/hcx-in-service-mode.png" alt-text="Diagram showing how to edit an in service mode on an HCX Network extension appliance." border="false" lightbox="media/nsxt/hcx-in-service-mode.png":::
  
 >[!Note] 
 >In-Service Mode of the HCX Network Extension appliances should be considered to reduce downtime during this Service Mesh edit.   
