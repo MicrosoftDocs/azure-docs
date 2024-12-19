@@ -197,7 +197,7 @@ The following section contains a more in-depth look at the full schemas of each 
 - **Address**  
 \*\* Address alone is a unique, strong identifier when the IP address is a global address.
 - **Address + AddressScope**  
-\*\* For private/internal, non-global IP addresses, the AddressScope component is required to make this a strong identifer.
+\*\* For private/internal, non-global IP addresses, the AddressScope component is required to make this a strong identifier.
 
 [Back to list of entity type schemas](#list-of-entity-type-schemas) | [Back to entity identifiers table](#entity-types-and-identifiers)
 
