@@ -35,6 +35,7 @@ Following is the list of supported images and no other marketplace images releas
 #### Supported Windows OS versions
 
 **Publisher - Center for Internet Security Inc**
+
 | **Offer** | **Plan**|**Unsupported image(s)** |
 |--- | --- | ---|
 |cis-windows-server-2012-r2-v2-2-1-l1 | cis-ws2012-r2-l1 ||
@@ -52,6 +53,7 @@ Following is the list of supported images and no other marketplace images releas
 </br>
 
 **Publisher - cloud-infrastructure-services**
+
 | **Offer** | **Plan**|**Unsupported image(s)** |
 |--- | --- | ---|
 |hpc2019-windows-server-2019| hpc2019-windows-server-2019||
@@ -59,6 +61,7 @@ Following is the list of supported images and no other marketplace images releas
 </br>
 
 **Publisher - microsoftsqlserver**
+
 | **Offer** | **Plan**|**Unsupported image(s)** |
 |--- | --- | ---|
 |sql2016sp1-ws2016 | standard
@@ -73,6 +76,7 @@ Following is the list of supported images and no other marketplace images releas
 </br>
 
 **Publisher - cognosys**
+
 | **Offer** | **Plan**|**Unsupported image(s)** |
 |--- | --- | ---|
 | sql-server-2016-sp2-std-win2016-debug-utilities |sql-server-2016-sp2-std-win2016-debug-utilities|
@@ -80,6 +84,7 @@ Following is the list of supported images and no other marketplace images releas
 </br>
 
 **Publisher - filemagellc**
+
 | **Offer** | **Plan**|**Unsupported image(s)** |
 |--- | --- | ---|
 |filemage-gateway-vm-win-001 </br> filemage-gateway-vm-win-002 |
@@ -87,6 +92,7 @@ Following is the list of supported images and no other marketplace images releas
 </br>
 
 **Publisher - github**
+
 | **Offer** | **Plan**|**Unsupported image(s)** |
 |--- | --- | ---|
 |github-enterprise| github-enterprise||
@@ -94,6 +100,7 @@ Following is the list of supported images and no other marketplace images releas
 </br>
 
 **Publisher - matillion**
+
 | **Offer** | **Plan**|**Unsupported image(s)** |
 |--- | --- | ---|
 |matillion | matillion-etl-for-snowflake||
@@ -101,6 +108,7 @@ Following is the list of supported images and no other marketplace images releas
 </br>
 
 **Publisher - microsoft-ads**
+
 | **Offer** | **Plan**|**Unsupported image(s)** |
 |--- | --- | ---|
 |windows-data-science-vm| windows2016 </br> windows2016byol||
@@ -108,6 +116,7 @@ Following is the list of supported images and no other marketplace images releas
 </br>
 
 **Publisher -  microsoft-dsvm**
+
 | **Offer** | **Plan**|**Unsupported image(s)** |
 |--- | --- | ---|
 |ubuntu-1804| 1804-gen2 ||
@@ -116,6 +125,7 @@ Following is the list of supported images and no other marketplace images releas
 </br>
 
 **Publisher -  microsoftazuresiterecovery**
+
 | **Offer** | **Plan**|**Unsupported image(s)** |
 |--- | --- | ---|
 |process-server | windows-2012-r2-datacenter |
@@ -123,6 +133,7 @@ Following is the list of supported images and no other marketplace images releas
 </br>
 
 **Publisher -  microsoftbiztalkserver**
+
 | **Offer** | **Plan**|**Unsupported image(s)** |
 |--- | --- | ---|
 |biztalk-server | *|
@@ -130,6 +141,7 @@ Following is the list of supported images and no other marketplace images releas
 </br>
 
 **Publisher -  microsoftdynamicsax**
+
 | **Offer** | **Plan**|**Unsupported image(s)** |
 |--- | --- | ---|
 |dynamics | * |
@@ -137,6 +149,7 @@ Following is the list of supported images and no other marketplace images releas
 </br>
 
 **Publisher -  microsoftpowerbi**	
+
 | **Offer** | **Plan**|**Unsupported image(s)** |
 |--- | --- | ---|
 |* |* |
@@ -144,6 +157,7 @@ Following is the list of supported images and no other marketplace images releas
 </br>
 
 **Publisher -  microsoftsharepoint**	
+
 | **Offer** | **Plan**|**Unsupported image(s)** |
 |--- | --- | ---|
 |microsoftsharepointserver | *|
@@ -151,6 +165,7 @@ Following is the list of supported images and no other marketplace images releas
 </br>
 
 **Publisher -  Visualstudio**
+
 | **Offer** | **Plan**|**Unsupported image(s)** |
 |--- | --- | ---|
 |Visualstudio* |  *-ws2012r2 </br> *-ws2016-ws2019 </br> *-ws2022 |
@@ -158,6 +173,7 @@ Following is the list of supported images and no other marketplace images releas
 </br>
 
 **Publisher -  microsoftwindowsserver**
+
 | **Offer** | **Plan**|**Unsupported image(s)** |
 |--- | --- | ---|
 |windows server | windowsserver 2008| |
@@ -170,6 +186,7 @@ Following is the list of supported images and no other marketplace images releas
 </br>
 
 **Publisher -  microsoftwindowsserver**
+
 | **Offer** | **Plan**|**Unsupported image(s)** |
 |--- | --- | ---|
 |netapp |netapp-oncommand-cloud-manager| occm-byol||
@@ -210,6 +227,7 @@ Following is the list of supported images and no other marketplace images releas
 </br>
 
 **Publisher - center-for-internet-security-inc**
+
 | **Offer** | **Plan**|**Unsupported image(s)** |
 |--- | --- | ---|
 |cis-oracle-linux-8-l1 | cis-oracle8-l1|
@@ -217,6 +235,7 @@ Following is the list of supported images and no other marketplace images releas
 </br>
 
 **Publisher - cis-rhel**
+
 | **Offer** | **Plan**|**Unsupported image(s)** |
 |--- | --- | ---|
 | cis-redhat7-l1-gen1 </br> cis-redhat8-l1-gen1 </br> cis-redhat8-l2-gen1 </br>  cis-redhat9-l1-gen1 </br> cis-redhat9-l1-gen2| |
