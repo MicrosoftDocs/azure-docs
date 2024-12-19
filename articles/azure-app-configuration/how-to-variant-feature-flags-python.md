@@ -13,12 +13,12 @@ ms.date: 12/02/2024
 
 # Use variant feature flags application
 
-In this tutorial, you use a variant feature flag to manage experiences for different user segments in an example application, *Quote of the Day*. You utilize the variant feature flag created in [Use variant feature flags](./how-to-variant-feature-flags.md). Before proceeding, ensure you create the variant feature flag named *Greeting* in your App Configuration store.
+In this tutorial, you use a variant feature flag to manage experiences for different user segments in an example application, *Quote of the Day*. You utilize the variant feature flag created in [Use variant feature flags](./howto-variant-feature-flags.md). Before proceeding, ensure you create the variant feature flag named *Greeting* in your App Configuration store.
 
 ## Prerequisites
 
 * Python 3.8 or later - for information on setting up Python on Windows, see the [Python on Windows documentation](/windows/python/)
-* Follow the [Use variant feature flags](./how-to-variant-feature-flags.md) tutorial and create the variant feature flag named *Greeting*.
+* Follow the [Use variant feature flags](./howto-variant-feature-flags.md) tutorial and create the variant feature flag named *Greeting*.
 
 ## Create a Python web app
 
@@ -480,7 +480,7 @@ In this tutorial, you use a variant feature flag to manage experiences for diffe
 1. Wait for the app to start, and then open a browser and navigate to `http://localhost:5000/`.
 1. Once viewing the running application, select **Register** at the top right to register a new user.
 
-    :::image type="content" source="media/how-to-variant-feature-flags-python/register.png" alt-text="Screenshot of the Quote of the day app, showing Register.":::
+    :::image type="content" source="media/howto-variant-feature-flags-python/register.png" alt-text="Screenshot of the Quote of the day app, showing Register.":::
 
 1. Register a new user named *usera@contoso.com*.
 
@@ -491,7 +491,7 @@ In this tutorial, you use a variant feature flag to manage experiences for diffe
 
 1. You're automatically logged in. You should see that usera@contoso.com sees the long message when viewing the app.
 
-    :::image type="content" source="media/how-to-variant-feature-flags-python/special-message.png" alt-text="Screenshot of the Quote of the day app, showing a special message for the user.":::
+    :::image type="content" source="media/howto-variant-feature-flags-python/special-message.png" alt-text="Screenshot of the Quote of the day app, showing a special message for the user.":::
 
 1. Logout with using the **Logout** button in the top right.
 
@@ -499,7 +499,7 @@ In this tutorial, you use a variant feature flag to manage experiences for diffe
 
 1. You're' automatically logged in. You should see that userb@contoso.com sees the short message when viewing the app.
 
-    :::image type="content" source="media/how-to-variant-feature-flags-python/message.png" alt-text="Screenshot of the Quote of the day app, showing a message for the user.":::
+    :::image type="content" source="media/howto-variant-feature-flags-python/message.png" alt-text="Screenshot of the Quote of the day app, showing a message for the user.":::
 
 ## Next steps
 

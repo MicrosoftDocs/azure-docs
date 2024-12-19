@@ -764,12 +764,12 @@
     },
     {
       "source_path_from_root": "/articles/azure-app-configuration/use-variant-feature-flags.md",
-      "redirect_url": "/azure/azure-app-configuration/how-to-variant-feature-flags",
+      "redirect_url": "/azure/azure-app-configuration/howto-variant-feature-flags",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-app-configuration/use-variant-feature-flags-aspnet-core.md",
-      "redirect_url": "/azure/azure-app-configuration/how-to-variant-feature-flags-aspnet-core",
+      "redirect_url": "/azure/azure-app-configuration/howto-variant-feature-flags-aspnet-core",
       "redirect_document_id": false
     },
     {

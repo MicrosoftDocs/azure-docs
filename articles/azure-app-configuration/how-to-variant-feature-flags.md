@@ -73,4 +73,4 @@ In this tutorial, you create a web app named _Quote of the Day_. When the app is
     | Long | "I hope this makes your day!" | 25% | 
 
 2. Continue to the following instructions to use the variant feature flag in your application for the language or platform you're using.
-    * [ASP.NET Core](./how-to-variant-feature-flags-aspnet-core.md)
+    * [ASP.NET Core](./howto-variant-feature-flags-aspnet-core.md)
