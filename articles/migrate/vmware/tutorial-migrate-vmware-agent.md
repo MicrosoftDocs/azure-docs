@@ -11,13 +11,9 @@ ms.custom: vmware-scenario-422, MVC, engagement-fy25
 
 # Migrate VMware vSphere VMs to Azure (agent-based)
 
-<<<<<<< HEAD
 [!INCLUDE [scenario-banner.md](../includes/scenario-banner.md)]
 
 This article shows you how to migrate on-premises VMware vSphere VMs to Azure, using the [Migration and modernization](../migrate-services-overview.md) tool, with agent-based migration.  You can also migrate VMware vSphere VMs using agentless migration. [Compare](../server-migrate-overview.md#compare-migration-methods) the methods.
-=======
-This article shows you how to migrate on-premises VMware vSphere VMs to Azure, using the [Migration and modernization](../migrate-services-overview.md) tool, with agent-based migration.  You can also migrate VMware vSphere VMs using agentless migration. [Compare](./server-migrate-overview.md#compare-migration-methods) the methods.
->>>>>>> bd2a0bfb943fa0016c43df69a373b2720aa835e2
 
  In this tutorial, you learn how to:
 > [!div class="checklist"]
