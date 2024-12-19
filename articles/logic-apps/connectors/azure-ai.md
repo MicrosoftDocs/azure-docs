@@ -59,7 +59,7 @@ For more information, see the following resources:
 
 ## Connector technical reference
 
-In Consumption worklfows, the **Azure OpenAI** and **Azure AI Search** managed or "shared" connectors are currently in preview and subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+In Consumption workflows, the **Azure OpenAI** and **Azure AI Search** managed or "shared" connectors are currently in preview and subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ### Azure OpenAI
 
