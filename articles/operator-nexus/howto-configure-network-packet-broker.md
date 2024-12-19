@@ -448,6 +448,24 @@ Network TAP allows Operators to define destinations and encapsulation mechanism 
 | destination/type| type of destination.IsolationDomain or NNI |   ||
 | destination/IsolationDomainProperties| Details of Isolation domain. Encapsulation, Neighbor group IDs | Azure Resource Manager (ARM) ID of internal network or NNI  |False|
 | destinationTapRuleId| ARMID of the Tap rule, which needs to be applied | |True |
+
+> [!NOTE] 
+> Network Tap rules and Neighbor Groups must be created prior to refrencing them in Network Tap
+
+### NetworkTAP device programming naming conventions/ best practices:
+
+It is essential to ensure that the configurations and values within these fieldset names (vlanGroupNames, ipGroupNames, PortGroupNames) are correctly defined and do not conflict with each other.  
+
+- **Recommendations:** 
+
+  - **Unique Field-Set Names:** The field-set names across NetworkTAPRules must be unique if the field-set contents are distinct.
+
+  - **Unique Resource Names:** The NetworkTAP and NetworkTAPRule resource names must be unique across resource groups within the Fabric.
+
+  - **Regional Resource Creation:** The NetworkTAP and NetworkTAPRule resources must be created within the Region and associated with the respective Fabric within the Region.
+
+  - **Destination Name Modification:** The destination name is unique for a defined network tap rule destination configuration. Destination name cannot be modified once the network tap configuration is pushed to the device.
+
 ### Create Network TAP
 This command creates  network Tap resource:
 ```azurecli
