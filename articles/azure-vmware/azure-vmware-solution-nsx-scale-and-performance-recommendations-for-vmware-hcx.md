@@ -190,11 +190,11 @@ For detailed steps on how to Create an HCX Network Profile. [HCX Network Profile
 
 6. Select **Create**.
  
-:::image type="content" source="media/hcx/hcx-uplink-network-profile.png" alt-text="Diagram showing the creation of an HCX network profile." border="false" lightbox="media/nsxt/hcx-uplink-network-profile.png":::
+:::image type="content" source="media/hcx/hcx-uplink-network-profile.png" alt-text="Diagram showing the creation of an HCX network profile." border="false" lightbox="media/hcx/hcx-uplink-network-profile.png":::
  
 Once the new HCX Uplink Network Profile is created, update the existing Service Mesh and edit the default uplink profile with the newly created Network Profile. 
 
-:::image type="content" source="media/hcx/hcx-service-mesh-edit.png" alt-text="Diagram showing how to edit an existing HCX service mesh." border="false" lightbox="media/nsxt/hcx-service-mesh-edit.png":::
+:::image type="content" source="media/hcx/hcx-service-mesh-edit.png" alt-text="Diagram showing how to edit an existing HCX service mesh." border="false" lightbox="media/hcx/hcx-service-mesh-edit.png":::
 
 7. Select the existing **Service Mesh** and select **Edit**. 
  
@@ -202,7 +202,7 @@ Once the new HCX Uplink Network Profile is created, update the existing Service 
         
 9. Select **Service Mesh Change**.
 
-:::image type="content" source="media/hcx/hcx-in-service-mode.png" alt-text="Diagram showing how to edit an in service mode on an HCX Network extension appliance." border="false" lightbox="media/nsxt/hcx-in-service-mode.png":::
+:::image type="content" source="media/hcx/hcx-in-service-mode.png" alt-text="Diagram showing how to edit an in service mode on an HCX Network extension appliance." border="false" lightbox="media/hcx/hcx-in-service-mode.png":::
  
 >[!Note] 
 >In-Service Mode of the HCX Network Extension appliances should be considered to reduce downtime during this Service Mesh edit.   
