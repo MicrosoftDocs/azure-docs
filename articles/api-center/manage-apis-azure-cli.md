@@ -125,7 +125,7 @@ az apic api update --resource-group myResourceGroup \
     --title "Petstore API v2"
 ```
 
-The following example updates the API's Boolean *internal* custom property to *false*.
+The following example sets the API's Boolean *internal* custom property to *false*.
 
 ```azurecli-interactive
 az apic api update --resource-group myResourceGroup \
