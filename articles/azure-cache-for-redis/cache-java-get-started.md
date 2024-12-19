@@ -36,55 +36,52 @@ Clone the repo [Java quickstart](https://github.com/Azure-Samples/azure-cache-re
 
 ## Create a new Java app
 
-Using Maven, generate a new quickstart app:
+1. Use maven to generate a new quickstart app:
 
-```xml
-mvn archetype:generate \
-    -DarchetypeGroupId=org.apache.maven.archetypes \
-    -DarchetypeArtifactId=maven-archetype-quickstart \
-    -DarchetypeVersion=1.3 \
-    -DinteractiveMode=false \
-    -DgroupId=example.demo \
-    -DartifactId=redis-jedis-test \
-    -Dversion=1.0
-```
+    ```xml
+    mvn archetype:generate \
+        -DarchetypeGroupId=org.apache.maven.archetypes \
+        -DarchetypeArtifactId=maven-archetype-quickstart \
+        -DarchetypeVersion=1.3 \
+        -DinteractiveMode=false \
+        -DgroupId=example.demo \
+        -DartifactId=redis-jedis-test \
+        -Dversion=1.0
+    ```
 
-1. Change to the new **redis-jedis-test** project directory.
-
+1. Change to the new **redis-jedis-test** project directory.  
 1. Open the *pom.xml* file. In the file, you see a dependency for [Jedis](https://github.com/xetorthio/jedis):
 
-### [Microsoft Entra ID Authentication (recommended)](#tab/entraid)
+    ### [Microsoft Entra ID Authentication (recommended)](#tab/entraid)
 
-```xml
-<dependency>
-    <groupId>com.azure</groupId>
-    <artifactId>azure-identity</artifactId>
-    <version>1.11.2</version> <!-- {x-version-update;com.azure:azure-identity;dependency} -->
-</dependency>
+    ```xml
+    <dependency>
+        <groupId>com.azure</groupId>
+        <artifactId>azure-identity</artifactId>
+        <version>1.11.2</version> <!-- {x-version-update;com.azure:azure-identity;dependency} -->
+    </dependency>
 
-<dependency>
-    <groupId>redis.clients</groupId>
-    <artifactId>jedis</artifactId>
-    <version>5.1.0</version>  <!-- {x-version-update;redis.clients:jedis;external_dependency} -->
-</dependency>
-```
-
-
-### [Access Key Authentication](#tab/accesskey)
-
-```xml
-<dependency>
-    <groupId>redis.clients</groupId>
-    <artifactId>jedis</artifactId>
-    <version>5.1.0</version>  <!-- {x-version-update;redis.clients:jedis;external_dependency} -->
-</dependency>
-```
-    
----
+    <dependency>
+        <groupId>redis.clients</groupId>
+        <artifactId>jedis</artifactId>
+        <version>5.1.0</version>  <!-- {x-version-update;redis.clients:jedis;external_dependency} -->
+    </dependency>
+    ```
 
 
-1. Close the *pom.xml* file.
+    ### [Access Key Authentication](#tab/accesskey)
 
+    ```xml
+    <dependency>
+        <groupId>redis.clients</groupId>
+        <artifactId>jedis</artifactId>
+        <version>5.1.0</version>  <!-- {x-version-update;redis.clients:jedis;external_dependency} -->
+    </dependency>
+    ```
+        
+    ---
+
+1. Close the *pom.xml* file.  
 1. Open *App.java* and see the code with the following code:
     
     ### [Microsoft Entra ID Authentication (recommended)](#tab/entraid)
@@ -202,13 +199,12 @@ mvn archetype:generate \
         }
     }
     ```
-
     ---
-
     
     This code shows you how to connect to an Azure Cache for Redis instance using the cache host name and key environment variables. The code also stores and retrieves a string value in the cache. The `PING` and `CLIENT LIST` commands are also executed.
 
-1. Close the *App.java*.
+1. Close the *App.java*.  
+
 
 ## Build and run the app
 
