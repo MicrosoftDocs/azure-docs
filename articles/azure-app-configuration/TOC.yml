@@ -165,7 +165,7 @@
       - name: ASP.NET Core
         href: use-variant-feature-flags-aspnet-core.md
       - name: Python
-        href: use-variant-feature-flags-python.md
+        href: how-to-variant-feature-flags-python.md
   - name: Enable Azure monitoring
     items:
     - name: Monitor App Configuration

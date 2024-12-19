@@ -165,7 +165,7 @@ landingContent:
         - text: Use variant feature flags
           url: use-variant-feature-flags.md
         - text: Use variant feature flags in Python
-          url: use-variant-feature-flags-python.md
+          url: how-to-variant-feature-flags-python.md
       - linkListType: reference
         links:
         - text: .NET feature management
