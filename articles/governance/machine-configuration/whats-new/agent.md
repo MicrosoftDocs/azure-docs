@@ -20,19 +20,80 @@ For information on release notes for the connected machine agent, see
 
 ## Release notes
 
+## Extension for Windows
+
+### Version 1.29.85.0 - October 2024
+
+#### Updated
+
+- OpenSSL updated from 3.3.1 to 3.3.2.
+
+#### Fixed
+
+- Fixed an issue that was causing the agent to become unresponsive when trying to read a response from the service.
+- Timeouts were added to address unresponsiveness from the agent.
+- If the agent takes more than 3 minutes to read a response or send a request to the service, it will now timeout and continue execution.
+
+### Version 1.29.82.0 - September 2024
+
+#### New Features
+
+- Customers can now download custom policies using managed identity.
+- For more details, see [How to create custom machine configuration policy definitions - Azure Automanage][11].
+
+### Version 1.29.80.0 - July 2024
+
+#### Fixed
+
+- Resolved OpenSSL CVE.
+- For more information, see [CVE-2024-38098][10].
+
+
+## Extension for Linux
+
+### Version 1.26.79 - October 2024
+
+##### Fixed
+
+- Fixed an issue that was causing the agent to become unresponsive when trying to read a response from the service.
+- Timeouts were added to address unresponsiveness from the agent.
+- If the agent takes more than 3 minutes to read a response or send a request to the service, it will now timeout and continue execution.
+
+### Version 1.26.77 - September 2024
+
+#### Updated
+
+- OpenSSL update from 3.0.14 to 3.0.15.
+
+### Version 1.26.76 - September 2024
+
+#### New Features
+
+- Customers can now download custom policies using managed identity.
+- For more details, see [How to create custom machine configuration policy definitions - Azure Automanage][04].
+
+### Version 1.26.74 - July 2024
+
+#### Updated
+
+- OpenSSL update from 3.0.13 to 3.0.14.
+
+#### Fixed
+
+- Resolved OpenSSL CVE.
+- For more information, see [CVE-2024-38098][10].
+
 ### Version 1.26.48 - January 2023
 
 #### New Features
 
-- In this release, we've added support for Linux distributions such as Red Hat Enterprise Linux
-  (RHEL) 9, Mariner 1&2, Alma 9, and Rocky 9.
+- Added support for Linux distributions such as Red Hat Enterprise Linux (RHEL) 9, Mariner 1&2, Alma 9, and Rocky 9.
 
 #### Fixed
 
-- Reliability improvements were made to the guest configuration policy engine
+- Reliability improvements were made to the guest configuration policy engine.
 
-
-### Guest Configuration Linux Extension version 1.26.38
+### Version 1.26.38
 
 In this release, various improvements were made.
 
@@ -41,7 +102,7 @@ In this release, various improvements were made.
   URL patterns to allow. If the tag exists, the agent only allows custom packages to be
   downloaded from the specified URLs. Built-in packages are unaffected by this feature.
 
-## Fixed
+#### Fixed
 
 - Resolves local elevation of privilege vulnerability [CVE-2022-38007][03].
 - If you're currently running an older version of the AzurePolicyforLinux extension, use the
@@ -92,3 +153,6 @@ az vm extension set \
 [07]: ../how-to/create-policy-definition.md
 [08]: ../../policy/assign-policy-portal.md
 [09]: ../../policy/how-to/determine-non-compliance.md
+[10]: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-38098
+[11]: https://learn.microsoft.com/en-us/azure/governance/machine-configuration/how-to/create-policy-definition#create-an-azure-policy-definition
+[11]: articles/governance/machine-configuration/how-to/create-policy-definition.md
