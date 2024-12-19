@@ -327,6 +327,11 @@ Functions is often the compute component in a serverless workflow topology, such
 + Training: [Deploy serverless APIs with Azure Functions, Logic Apps, and Azure SQL Database](/training/modules/deploy-backend-apis/)
 ::: zone-end
 
+::: zone pivot="programming-language-typescript" 
++ Quickstart: [Create your first durable function in Azure using JavaScript](./durable/quickstart-ts-vscode.md)
++ Training: [Deploy serverless APIs with Azure Functions, Logic Apps, and Azure SQL Database](/training/modules/deploy-backend-apis/)
+::: zone-end
+
 ::: zone pivot="programming-language-python" 
 + Quickstart: [Create your first durable function in Azure using Python](./durable/quickstart-python-vscode.md)
 + Training: [Deploy serverless APIs with Azure Functions, Logic Apps, and Azure SQL Database](/training/modules/deploy-backend-apis/)
@@ -346,7 +351,9 @@ There are processes where you might need to log, audit, or perform some other op
 
 [ ![Diagram of a function being used to respond to database changes.](./media/functions-scenarios/respond-to-database-changes.png) ](./media/functions-scenarios/respond-to-database-changes-expanded.png#lightbox)
 
- Consider the following examples:
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-python" 
+Consider these examples:
+::: zone-end
 
 ::: zone pivot="programming-language-csharp" 
 + Article: [Connect Azure Functions to Azure Cosmos DB using Visual Studio Code](functions-add-output-binding-cosmos-db-vs-code.md?pivots=programming-language-csharp&tabs=isolated-process)
@@ -372,7 +379,7 @@ For example, you can use triggers on Azure Storage queues as a way to chain toge
 
 [ ![Diagram of Azure Functions in a reliable message system.](./media/functions-scenarios/create-reliable-message-systems.png) ](./media/functions-scenarios/create-reliable-message-systems-expanded.png#lightbox)
 
- The following article shows how to write output to a storage queue.
+These articles show how to write output to a storage queue:
 
 ::: zone pivot="programming-language-csharp" 
 + Article: [Connect Azure Functions to Azure Storage using Visual Studio Code](functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-csharp&tabs=isolated-process)
@@ -410,7 +417,9 @@ And these articles show how to trigger from an Azure Service Bus queue or topic.
 ::: zone pivot="programming-language-javascript" 
 + [Azure Service Bus trigger for Azure Functions](functions-bindings-service-bus-trigger.md?pivots=programming-language-javascript)
 ::: zone-end
-
+::: zone pivot="programming-language-typescript" 
++ [Azure Service Bus trigger for Azure Functions](functions-bindings-service-bus-trigger.md?pivots=programming-language-typescript)
+::: zone-end
 ::: zone pivot="programming-language-python" 
 + [Azure Service Bus trigger for Azure Functions](functions-bindings-service-bus-trigger.md?pivots=programming-language-python)
 ::: zone-end
