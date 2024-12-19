@@ -113,7 +113,6 @@ Using Maven, generate a new quickstart app:
 ---
 
 
-
 1. Close the *pom.xml* file.
 
 1. Open *App.java* and see the code with the following code:

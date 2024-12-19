@@ -122,6 +122,8 @@ Save the *pom.xml* file.
 
 Open *App.java* and replace the code with the following code:
 
+
+### [Microsoft Entra ID Authentication (recommended)](#tab/entraid)
 ```java
 package example.demo;
 
@@ -139,7 +141,6 @@ import javax.cache.Caching;
 import javax.cache.configuration.Configuration;
 import javax.cache.configuration.MutableConfiguration;
 import java.time.LocalDateTime;
-
 
 /**
  * Redis test
@@ -165,55 +166,105 @@ public class App {
 
         System.out.println("\nCache Command  : SET Message");
         map.put("Message",
-            String.format("Hello! The cache is working from Java! %s", LocalDateTime.now()));
+                String.format("Hello! The cache is working from Java! %s", LocalDateTime.now()));
 
         // Demonstrate "SET Message" executed as expected
         System.out.println("\nCache Command  : GET Message");
         System.out.println("Cache Response : " + map.get("Message"));
 
         redissonClient.shutdown();
+
     }
 
-    private static Config getConfig(){
-        if ("MicrosoftEntraID".equals(System.getenv("AUTH_TYPE"))) {
-            System.out.println("Auth with Microsoft Entra ID");
-            return getConfigAuthWithAAD();
-        } else if ("RedisKey".equals(System.getenv("AUTH_TYPE"))) {
-            System.out.println("Auth with Redis key");
-            return getConfigAuthWithKey();
-        }
-        System.out.println("Auth with Redis key");
-        return getConfigAuthWithKey();
-    }
-
-    private static Config getConfigAuthWithKey() {
-        // Connect to the Azure Cache for Redis over the TLS/SSL port using the key
-        Config redissonconfig = new Config();
-        redissonconfig.useSingleServer().setPassword(System.getenv("REDIS_CACHE_KEY"))
-            .setAddress(String.format("rediss://%s:6380", System.getenv("REDIS_CACHE_HOSTNAME")));
-        return redissonconfig;
-    }
-
-    private static Config getConfigAuthWithAAD() {
+    private static Config getConfig() {
         //Construct a Token Credential from Identity library, e.g. DefaultAzureCredential / ClientSecretCredential / Client CertificateCredential / ManagedIdentityCredential etc.
         DefaultAzureCredential defaultAzureCredential = new DefaultAzureCredentialBuilder().build();
 
         // Fetch a Microsoft Entra token to be used for authentication.
         String token = defaultAzureCredential
-            .getToken(new TokenRequestContext()
-                .addScopes("acca5fbb-b7e4-4009-81f1-37e38fd66d78/.default")).block().getToken();
+                .getToken(new TokenRequestContext()
+                        .addScopes("https://redis.azure.com/.default")).block().getToken();
 
         // Connect to the Azure Cache for Redis over the TLS/SSL port using the key
         Config redissonconfig = new Config();
         redissonconfig.useSingleServer()
-            .setAddress(String.format("rediss://%s:6380", System.getenv("REDIS_CACHE_HOSTNAME")))
-            .setUsername(System.getenv("USER_NAME")) // (Required) Username is Object ID of your managed identity or service principal
-            .setPassword(token); // Microsoft Entra access token as password is required.
+                .setAddress(String.format("rediss://%s:6380", System.getenv("REDIS_CACHE_HOSTNAME")))
+                .setUsername(System.getenv("USER_NAME")) // (Required) Username is Object ID of your managed identity or service principal
+                .setPassword(token); // Microsoft Entra access token as password is required.
         return redissonconfig;
     }
-
 }
+
 ```
+
+### [Access Key Authentication](#tab/accesskey)
+
+```java
+package example.demo;
+
+import org.redisson.Redisson;
+import org.redisson.api.RedissonClient;
+import org.redisson.config.Config;
+import org.redisson.jcache.configuration.RedissonConfiguration;
+
+import javax.cache.Cache;
+import javax.cache.CacheManager;
+import javax.cache.Caching;
+import javax.cache.configuration.Configuration;
+import javax.cache.configuration.MutableConfiguration;
+import java.time.LocalDateTime;
+
+/**
+ * Redis test
+ *
+ */
+public class App {
+    public static void main(String[] args) {
+
+       Config redissonconfig = getConfig();
+
+        RedissonClient redissonClient = Redisson.create(redissonconfig);
+
+        MutableConfiguration<String, String> jcacheConfig = new MutableConfiguration<>();
+        Configuration<String, String> config = RedissonConfiguration.fromInstance(redissonClient, jcacheConfig);
+
+        // Perform cache operations using JCache
+        CacheManager manager = Caching.getCachingProvider().getCacheManager();
+        Cache<String, String> map = manager.createCache("test", config);
+
+        // Simple get and put of string data into the cache
+        System.out.println("\nCache Command  : GET Message");
+        System.out.println("Cache Response : " + map.get("Message"));
+
+        System.out.println("\nCache Command  : SET Message");
+        map.put("Message",
+                String.format("Hello! The cache is working from Java! %s", LocalDateTime.now()));
+
+        // Demonstrate "SET Message" executed as expected
+        System.out.println("\nCache Command  : GET Message");
+        System.out.println("Cache Response : " + map.get("Message"));
+
+        redissonClient.shutdown();
+
+    }
+
+    private static Config getConfig() {
+        // Connect to the Azure Cache for Redis over the TLS/SSL port using the key
+        Config redissonconfig = new Config();
+        redissonconfig.useSingleServer().setPassword(System.getenv("REDIS_CACHE_KEY"))
+                .setAddress(String.format("rediss://%s:6380", System.getenv("REDIS_CACHE_HOSTNAME")));
+        return redissonconfig;
+    }
+}
+
+```
+
+---
+
+
+
+```java
+
 
 This code shows you how to connect to an Azure Cache for Redis instance using Microsoft Entra ID with the JCache API support from the Redisson client library. The code also stores and retrieves a string value in the cache. For more information on JCache, see the [JCache specification](https://jcp.org/en/jsr/detail?id=107).
 
