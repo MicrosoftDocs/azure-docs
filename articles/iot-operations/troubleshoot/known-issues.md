@@ -23,6 +23,8 @@ This article lists the known issues for Azure IoT Operations.
 
 - During and after deploying Azure IoT Operations, you might see warnings about `Unable to retrieve some image pull secrets (regcred)` in the logs and Kubernetes events. These warnings are expected and don't affect the deployment and use of Azure IoT Operations.
 
+- If your deployment fails with the message `Error occurred while creating custom resources needed by system extensions`, you have encountered a known sporadic failure that will be fixed in a future release. As a work around, use the [az iot ops delete](/cli/azure/iot/ops#az-iot-ops-delete) command with the `--include-deps` flag to delete Azure IoT Operations from your cluster. When Azure IoT Operations and its dependencies are deleted from your cluster, retry the deployment.
+
 ## MQTT broker
 
 - MQTT broker resources created in your cluster using Kubernetes aren't visible Azure portal. This is expected because [managing Azure IoT Operations components using Kubernetes is in preview](../deploy-iot-ops/howto-manage-update-uninstall.md#preview-manage-components-using-kubernetes-deployment-manifests), and synchronizing resources from the edge to the cloud isn't currently supported.
@@ -41,7 +43,7 @@ This article lists the known issues for Azure IoT Operations.
 
 ## Azure IoT Layered Network Management (preview)
 
-- If the Layered Network Management service doesn't get an IP address while running K3S on Ubuntu host, reinstall K3S without _trafeik ingress controller_ by using the `--disable=traefik` option.
+- If the Layered Network Management service doesn't get an IP address while running K3S on Ubuntu host, reinstall K3S without _traefik ingress controller_ by using the `--disable=traefik` option.
 
     ```bash
     curl -sfL https://get.k3s.io | sh -s - --disable=traefik --write-kubeconfig-mode 644

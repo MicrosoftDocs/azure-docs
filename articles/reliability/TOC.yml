@@ -2,6 +2,12 @@
   href: index.yml
 - name: What is reliability?
   href: overview.md
+- name: Reliability fundamentals
+  items:
+  - name: Shared responsibility for resiliency
+    href: concept-shared-responsibility.md
+  - name: Azure service incident response
+    href: incident-response.md
 - name: Availability zone support
   items:
   - name: What are Azure availability zones?
@@ -234,6 +240,8 @@
     items:
     - name: Microsoft Community Training
       href: reliability-community-training.md
+    - name: Sustainability data solutions in Fabric
+      href: reliability-sustainability-data-solutions-fabric.md
   - name: Integration
     items:
     - name: Azure Service Bus

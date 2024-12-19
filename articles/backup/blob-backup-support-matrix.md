@@ -2,7 +2,7 @@
 title: Support matrix for Azure Blobs backup
 description: Provides a summary of support settings and limitations when backing up Azure Blobs.
 ms.topic: reference
-ms.date: 11/20/2024
+ms.date: 12/18/2024
 ms.custom: references_regions, engagement-fy24
 ms.service: azure-backup
 author: AbhishekMallick-MS
@@ -64,8 +64,13 @@ Operational backup of blobs uses blob point-in-time restore, blob versioning, so
 - If you stop protection (vaulted backup) on a storage account, it doesn't delete the object replication policy created on the storage account. In these scenarios, you need to manually delete the *OR policies*.
 - Cool and archived blobs are currently not supported.
 - The backup operation isn't supported for blobs that are uploaded by using [Data Lake Storage APIs](/rest/api/storageservices/data-lake-storage-gen2).
+- When you delete and recreate a storage account with the same name, **Object Replication** doesn't recognize the change. As a result, future Recovery Points continue to include the older blobs and their versions.
+- Similarly, if you delete and recreate a container with the same name, **Object Replication** doesn't track the change, and future Recovery Points still include the previous blobs and versions.
+- If you suspend and resume protection or delete the **Object Replication policy** on the **source storage account**, the policy triggers a full backup.
+- Backup vaults with User-Assigned Managed Identity (UAMI) aren't compatible with Azure Blob Vaulted backups. Only System-Assigned Managed Identity (SAMI) works, because the vault needs to access the storage account where the blobs are stored. The vault uses its system-assigned managed identity for this access.
 
 ---
+
 ## Next steps
 
 [Overview of Azure Blobs backup for Azure Blobs](blob-backup-overview.md)

@@ -431,7 +431,7 @@ If your source data store and format meet the criteria described in this section
             },
             "sink": {
                 "type": "AzureDatabricksDeltaLakeSink",
-                "sqlReadrQuery": "VACUUM eventsTable DRY RUN"
+                "sqlReaderQuery": "VACUUM eventsTable DRY RUN"
             }
         }
     }

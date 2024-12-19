@@ -94,7 +94,7 @@ After you create budgets, they show a simple view of your current spending again
 
 Select **Add**.
 
-:::image type="content" source="./media/tutorial-acm-create-budgets/budgets-cost-management.png" alt-text="Screenthost showing a list of budgets already created." lightbox="./media/tutorial-acm-create-budgets/budgets-cost-management.png" :::
+:::image type="content" source="./media/tutorial-acm-create-budgets/budgets-cost-management.png" alt-text="Screenshot showing a list of budgets already created." lightbox="./media/tutorial-acm-create-budgets/budgets-cost-management.png" :::
 
 In the **Create budget** window, make sure that the scope shown is correct. Choose any filters that you want to add. Filters allow you to create budgets on specific costs, such as resource groups in a subscription or a service like virtual machines. For more information about the common filter properties that you can use in budgets and cost analysis, see [Group and filter properties](group-filter.md#group-and-filter-properties).
 

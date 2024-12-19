@@ -1,9 +1,8 @@
 ---
 title: Migrate VMware vSphere VMs with agent-based the Migration and modernization tool
 description: Learn how to run an agent-based migration of VMware vSphere VMs with Azure Migrate.
-author: vijain
-ms.author: vijain
-ms.manager: kmadnani
+author: piyushdhore-microsoft 
+ms.author: piyushdhore
 ms.topic: tutorial
 ms.service: azure-migrate
 ms.date: 09/26/2024
@@ -12,9 +11,13 @@ ms.custom: vmware-scenario-422, MVC, engagement-fy25
 
 # Migrate VMware vSphere VMs to Azure (agent-based)
 
+<<<<<<< HEAD
 [!INCLUDE [scenario-banner.md](../includes/scenario-banner.md)]
 
 This article shows you how to migrate on-premises VMware vSphere VMs to Azure, using the [Migration and modernization](../migrate-services-overview.md) tool, with agent-based migration.  You can also migrate VMware vSphere VMs using agentless migration. [Compare](../server-migrate-overview.md#compare-migration-methods) the methods.
+=======
+This article shows you how to migrate on-premises VMware vSphere VMs to Azure, using the [Migration and modernization](../migrate-services-overview.md) tool, with agent-based migration.  You can also migrate VMware vSphere VMs using agentless migration. [Compare](./server-migrate-overview.md#compare-migration-methods) the methods.
+>>>>>>> bd2a0bfb943fa0016c43df69a373b2720aa835e2
 
  In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -71,9 +74,6 @@ Assign the Virtual Machine Contributor role to the account, so that you have per
 ### Assign permissions to register the Replication Appliance in Microsoft Entra ID
 
 If you are following the least privilege principle, assign the **Application Developer** Microsoft Entra role to the user registering the Replication Appliance. Follow the [Assign administrator and non-administrator roles to users with Microsoft Entra ID](../../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md) guide to do so.
-
-> [!IMPORTANT]
-> If the user registering the Replication Appliance is a Microsoft Entra Global Administrator, that user already has the required permissions.
 
 ### Set up an Azure network
 

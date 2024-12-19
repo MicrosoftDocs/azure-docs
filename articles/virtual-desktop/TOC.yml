@@ -754,4 +754,4 @@
     - name: Azure compliance offerings
       href: https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/
     - name: Azure Virtual Desktop (classic) documentation
-      href: ./virtual-desktop-fall-2019/index.yml
+      href: /previous-versions/azure/virtual-desktop-classic

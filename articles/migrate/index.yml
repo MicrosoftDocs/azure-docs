@@ -97,7 +97,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Learn about VMware/physical agent-based migration
-            url: ./agent-based-migration-architecture.md
+            url: ./agent-based-migration-architecture.md?context=/azure/migrate/context/migrate-context
           - text: Learn about Hyper-V migration
             url: ./hyper-v-migration-architecture.md
           - text: Learn about assessments

@@ -72,6 +72,7 @@ The following API Management capabilities are currently unavailable in the v2 ti
 
 **Infrastructure and networking**
 * Multi-region deployment 
+* Availability zone support
 * Multiple custom domain names 
 * Capacity metric - *replaced by CPU Percentage of Gateway and Memory Percentage of Gateway metrics*
 * Built-in analytics - *replaced by Azure Monitor-based dashboard*
@@ -79,6 +80,7 @@ The following API Management capabilities are currently unavailable in the v2 ti
 * Inbound connection using a private endpoint
 * Upgrade to v2 tiers from classic tiers 
 * CA Certificates
+* Sending events to Event Grid
 
 **Developer portal**
 * Reports

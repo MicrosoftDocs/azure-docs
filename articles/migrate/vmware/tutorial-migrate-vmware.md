@@ -37,7 +37,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 Before you begin this tutorial, you should:
 
-1. [Complete the first tutorial](./tutorial-discover-vmware.md) to prepare Azure and VMware for migration.
+1. [Complete the first tutorial](tutorial-discover-vmware.md) to prepare Azure and VMware for migration.
 2. We recommend that you complete the second tutorial to [assess VMware VMs](./tutorial-assess-vmware-azure-vm.md) before migrating them to Azure, but you don't have to.
 3. Go to the already created project or [create a new project](../create-manage-projects.md)
 4. Verify permissions for your Azure account - Your Azure account needs permissions to create a VM, and write to an Azure managed disk.
@@ -117,7 +117,7 @@ Enable replication as follows:
 
     :::image type="content" source="../media/tutorial-migrate-vmware/target-settings.png" alt-text="Screenshot on target settings.":::
 
-11. In **Compute**, review the VM name, size, OS disk type, and availability configuration (if selected in the previous step). VMs must conform with [Azure requirements](migrate-support-matrix-vmware-migration.md#azure-vm-requirements).
+11. In **Compute**, review the VM name, size, OS disk type, and availability configuration (if selected in the previous step). VMs must conform with [Azure requirements](../migrate-support-matrix-vmware-migration.md#azure-vm-requirements).
 
     - **VM size**: If you're using assessment recommendations, the VM size dropdown shows the recommended size. Otherwise, Azure Migrate picks a size based on the closest match in the Azure subscription. Alternatively, pick a manual size in **Azure VM size**.
     - **OS Type**: Select the type of OS used (Windows or Linux).

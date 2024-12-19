@@ -245,7 +245,7 @@ An administrator in the **subscription-1** Microsoft Entra ID tenant must approv
     echo $appid2
     ```
 
-1. Use the appid for **spn-2-peer-vnet** and the Microsoft Entra ID tenant ID for **subcription-1** to build the sign-in URL for the approval. The URL is built from the following example:
+1. Use the appid for **spn-2-peer-vnet** and the Microsoft Entra ID tenant ID for **subscription-1** to build the sign-in URL for the approval. The URL is built from the following example:
 
     ```
     https://login.microsoftonline.com/entra-tenant-id-subscription-1/oauth2/authorize?client_id={$appid2}&response_type=code&redirect_uri=https://www.microsoft.com
@@ -254,7 +254,7 @@ An administrator in the **subscription-1** Microsoft Entra ID tenant must approv
     The URL looks similar to the below example.
 
     ```
-    https://login.microsoftonline.com/c2d26d12-71cc-4f3b-8557-1fa18d077698/oauth2/authorize?client_id=22223333-cccc-4444-dddd-5555eeee6666&response_type=code&redirect_uri=https://www.microsoft.com
+    https://login.microsoftonline.com/aaaabbbb-0000-cccc-1111-dddd2222eeee/oauth2/authorize?client_id=22223333-cccc-4444-dddd-5555eeee6666&response_type=code&redirect_uri=https://www.microsoft.com
     ```
 
 1. Open the URL in a web browser and sign-in with an administrator in the Microsoft Entra ID tenant in **subscription-1**.
@@ -331,7 +331,7 @@ An administrator in the **subscription-2** Microsoft Entra ID tenant must approv
     The URL looks similar to the below example.
 
     ```
-    https://login.microsoftonline.com/24baaf57-f30d-4fba-a20e-822030f7eba3/oauth2/authorize?client_id=11112222-bbbb-3333-cccc-4444dddd5555&response_type=code&redirect_uri=https://www.microsoft.com
+    https://login.microsoftonline.com/bbbbcccc-1111-dddd-2222-eeee3333ffff/oauth2/authorize?client_id=11112222-bbbb-3333-cccc-4444dddd5555&response_type=code&redirect_uri=https://www.microsoft.com
     ```
 
 1. Open the URL in a web browser and sign-in with an administrator in the Microsoft Entra ID tenant in **subscription-2**.

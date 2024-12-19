@@ -381,4 +381,4 @@ This might happen if:
 
 ## Next Steps
 
-Continue VM replication, and perform [test migration](./tutorial-migrate-vmware.md#run-a-test-migration).
+Continue VM replication, and perform [test migration](../tutorial-migrate-vmware.md#run-a-test-migration).

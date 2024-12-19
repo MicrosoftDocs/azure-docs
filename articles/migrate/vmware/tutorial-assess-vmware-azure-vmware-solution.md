@@ -83,7 +83,7 @@ Run an assessment as follows:
    Node size | **Performance history** | Indicate the data duration on which you want to base the assessment. (Default is one day)
    Node size | **Percentile utilization** | Indicate the percentile value you want to use for the performance sample. (Default is 95th percentile)
    Node size | **Comfort factor** | Indicate the buffer you want to use during assessment. This accounts for issues like seasonal usage, short performance history, and likely increases in future usage. For example, consider a comfort factor of 2 for effective utilization of 2 Cores. In this case, the assessment considers the effective cores as 4 cores. Similarly, for the same comfort factor and an effective utilization of 8 GB memory, the assessment considers effective memory as 16 GB.
-   Pricing | **Offer/Licencing program** | The [Azure offer](https://azure.microsoft.com/support/legal/offer-details/) you're enrolled in is displayed. The assessment estimates the cost for that offer.
+   Pricing | **Offer/Licensing program** | The [Azure offer](https://azure.microsoft.com/support/legal/offer-details/) you're enrolled in is displayed. The assessment estimates the cost for that offer.
    Pricing | **Currency** | Select the billing currency for your account.
    Pricing | **Discount (%)** | Add any subscription-specific discounts you receive on top of the Azure offer. The default setting is 0%.
 

@@ -2,7 +2,7 @@
 title: Azure Database for PostgreSQL- Flexible server support matrix
 description: Provides a summary of support settings and limitations of Azure Database for PostgreSQL- Flexible server backup.
 ms.topic: reference
-ms.date: 09/09/2024
+ms.date: 12/17/2024
 ms.custom: references_regions, ignite-2024
 ms.service: azure-backup
 author: AbhishekMallick-MS
@@ -25,7 +25,7 @@ Azure Database for PostgreSQL - Flexible server backup is now available in all p
 
 - Both Cross Region and Cross Subscription backups are supported.
 
-- Recommended limit for the maximum database size is 400 GB.
+- Recommended limit for the maximum server size is 4 TB.
 
 - Recommended backup frequency for backing up a server is Weekly. In case you opt for Daily backup and observe failures, we recommend decreasing the frequency while relying on automated backup solution to achieve required RPO.  
 

@@ -2,7 +2,7 @@
 title: Manage Azure File share backups
 description: This article describes common tasks for managing and monitoring the Azure File shares that are backed up by Azure Backup.
 ms.topic: how-to
-ms.date: 09/11/2024
+ms.date: 12/18/2024
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -32,7 +32,7 @@ To open the **Backup Jobs** blade:
 
 1. On the **Backup Jobs** blade, select **Azure Files (Azure Storage)** as the datasource type and select any row to see details of the particular job.
 
-   :::image type="content" source="./media/manage-afs-backup/backup-center-jobs-inline.png" alt-text="Screenshow showing the list of jobs." lightbox="./media/manage-afs-backup/backup-center-jobs-expanded.png":::
+   :::image type="content" source="./media/manage-afs-backup/backup-center-jobs-inline.png" alt-text="Screenshot showing the list of jobs." lightbox="./media/manage-afs-backup/backup-center-jobs-expanded.png":::
    
     >[!NOTE]
     >In case of *snapshot tier*, the data transferred to the vault is reported as *0*.
@@ -198,7 +198,7 @@ To delete backup data for the Azure File share:
 
 ## Unregister a storage account
 
-To protect your file shares in a particular storage account by using a different Recovery Services vault, first [stop protection for all file shares](#stop-protection-on-a-file-share) in that storage account. Then unregister the account from the current Recovery Services vault used for protection.
+To protect your file shares in a particular storage account by using a different Recovery Services vault, first [stop protection for all file shares](#stop-protection-on-a-file-share) with the **Delete backup data** option in that storage account. Then unregister the account from the current Recovery Services vault used for protection.
 
 The following procedure assumes that the protection was stopped for all file shares in the storage account you want to unregister.
 
