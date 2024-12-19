@@ -4,7 +4,7 @@ description: Download your Standard logic app and workflows from the Azure porta
 ms.suite: integration
 services: logic-apps
 author: wsilveiranz
-ms.author: wsilvera
+ms.author: wsilveira
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 12/19/2024
