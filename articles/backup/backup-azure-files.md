@@ -2,7 +2,7 @@
 title: Back up Azure File shares in the Azure portal
 description: Learn how to use the Azure portal to back up Azure File shares in the Recovery Services vault
 ms.topic: how-to
-ms.date: 11/20/2024
+ms.date: 12/20/2024
 ms.service: azure-backup
 ms.custom: engagement-fy23
 author: AbhishekMallick-MS
@@ -45,11 +45,11 @@ To configure backup for multiple file shares from the Recovery Services vault, f
 
    :::image type="content" source="./media/backup-afs/azure-file-configure-backup.png" alt-text="Screenshot showing to configure Backup for Azure File." lightbox="./media/backup-afs/azure-file-configure-backup.png":::
 
-1. On the **Start: Configure Backup** blade, select **Azure Files (Azure Storage)** as the datasource type, select the vault that you want to protect the file shares with, and then select **Continue**.
+1. On the **Backup Goal** pane, select **Azure Files (Azure Storage)** as the datasource type, select the vault that you want to protect the file shares with, and then select **Continue**.
 
-   :::image type="content" source="./media/backup-afs/azure-file-share-select-vault.png" alt-text="Screenshot showing to select Azure Files.":::
+   :::image type="content" source="./media/backup-afs/azure-file-share-select-vault.png" alt-text="Screenshot showing to select Azure Files." lightbox="./media/backup-afs/azure-file-share-select-vault.png":::
 
-1. Click **Select** to select the storage account that contains the file shares to be backed up.
+1. On the **Configure backup** pane, click **Select** to select the storage account that contains the file shares to be backed up.
 
    The **Select storage account** blade opens on the right, which lists a set of discovered supported storage accounts. They're either associated with this vault or present in the same region as the vault, but not yet associated with any Recovery Services vault.
 
@@ -66,7 +66,7 @@ To configure backup for multiple file shares from the Recovery Services vault, f
 
 1. On the **Configure Backup** blade, under the **FileShares to Backup** section, select the *file shares type* you want to back up, and then select **Add**.
 
-   :::image type="content" source="./media/backup-afs/azure-select-file-share-inline.png" alt-text="Screenshot showing to select the file shares to back up." lightbox="./media/backup-afs/azure-select-file-share-expanded.png":::
+   :::image type="content" source="./media/backup-afs/azure-select-file-share.png" alt-text="Screenshot showing to select the file shares to back up." lightbox="./media/backup-afs/azure-select-file-share.png":::
 
 1. The **Select file shares** context blade opens on the right. Azure searches the storage account for file shares that can be backed up. If you recently added your file shares and don't see them in the list, allow some time for the file shares to appear.
 
