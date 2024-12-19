@@ -26,7 +26,7 @@ zone_pivot_groups: acs-plat-web-ios-android-windows
 ::: zone pivot="platform-windows"
 [!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
 ::: zone-end
-In this article you are going to learn how you can control audio and video of other attendees in group calls and Teams meetings. You would also learn how to identify, that your audio or video has been enabled or disabled by presenters or organizer.
+In this article you are going to learn how organizers or presenters can prevent attendees from unmuting or turning on video themselves during Microsoft Teams meetings or group calls. This feature allows selected roles to control the ability of other attendees to send audio and video. You can't control access to send media for other roles. You would also learn how to identify, that your audio or video has been enabled or disabled or how to learn state of other participants.
 
 ## Prerequisites
 
