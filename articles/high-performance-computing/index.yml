@@ -1,7 +1,7 @@
 ### YamlMime:Hub
 
 title: Azure HPC documentation
-summary: Official Azure high-performance computing (HPC) documentation. <br> Learn about Azure HPC's various workload orchestration services that integrate with compute, network, and storage resources.
+summary: Official Azure high-performance computing (HPC) documentation. Learn about Azure HPC's various workload orchestration services that integrate with compute, network, and storage resources.\n
 brand: azure
 
 metadata:
@@ -63,7 +63,7 @@ productDirectory:
              text: Memory Optimized VMs
       # Card
       - title: Azure HPC Storage
-        imageSrc: ../media/index/storage.svg
+        imageSrc: ../media/index/storage-accounts.svg
         links:
            - url: ../azure-netapp-files/azure-netapp-files-introduction.md
              text: Azure NetApp Files
@@ -93,58 +93,37 @@ productDirectory:
              text: Azure Open Datasets
 
 tools:
-  title: Community Resources and HPC Team # < 60 chars (Optional)
-  summary: Connect with other HPC users and communicate with the HPC team
-  items:
+  title: HPC Channels # < 60 chars (optional)
+  summary: See Azure HPC solutions, tutorials, guides, and resources. Explore our marketplace, innovate with our partners. # < 160 chars (optional)
+  items:     
     # Card 1
-    - title: High Performance Computing Tech Community
-      imageSrc: /media/hubs/powershell/i_group-feedback.svg
-      url: https://techcommunity.microsoft.com/t5/azure-high-performance-computing/bg-p/AzureHighPerformanceComputingBlog
+    - title: Developer Resources
+      imageSrc: /media/common/i_code-edit.svg
+      links:
+         - url: /training/modules/intro-to-hpc/2-azure-batch
+           text: Run HPC applications on Azure
+         - url: /training/modules/run-parallel-tasks-in-azure-batch-with-the-azure-cli/
+           text: Run Parallel Tasks in Azure Batch
+         - url: /training/modules/azure-cyclecloud-high-performance-computing/
+           text: Create, customize, and manage HPC Cluster using CycleCloud
+         - url: /azure/virtual-machines/extensions/enable-infiniband
+           text: Enable Inifiniband
     # Card 2
-    - title: High Performance Computing Team Blogs
-      imageSrc: /media/hubs/powershell/i_group-feedback.svg
-      url: https://azure.microsoft.com/blog/?sort-by=newest-oldest&category=compute&date=any&s=HPC
+    - title: Azure HPC Content on Sites
+      imageSrc: ../media/index/avatar_128.svg
+      links:
+         - url: https://www.aka.ms/Microsoft-NVIDIA/HPCwire
+           text: Microsoft - NVIDIA
+         - url: https://insidehpc.com/2023/03/manufacturing-repatriation-how-hpc-class-technologies-from-microsoft-azure-and-amd-support-manufacturers-reshoring-strategies/
+           text: Microsoft - AMD
+         - url: https://insidehpc.com/2022/10/staying-at-the-cutting-edge-of-automotive-design-technology-with-azure-cloud-platform-and-amd/
+           text: Azure Cloud and AMD for Manufacturing
+         - url: https://insidehpc.com/2023/03/azure-amd-and-the-power-of-cloud-based-hpc-for-sustainability-rd-projects/
+           text: Azure and AMD for Sustainability    
     # Card 3
-    - title: StackOverFlow
-      imageSrc: /media/hubs/powershell/logo_stackoverflow.svg
-      url: https://stackoverflow.com/questions/tagged/hpc
-    # Card 4
-    - title: r/HPC
-      imageSrc: /media/hubs/powershell/logo_reddit.svg
-      url: https://www.reddit.com/r/HPC/
-
-
-# Azure HPC Resourcess
-additionalContent:
-  sections:
-    - title: HPC Channels # < 60 chars (optional)
-      summary: See Azure HPC solutions, tutorials, guides, and resources. Explore our marketplace, innovate with our partners. # < 160 chars (optional)
-      items:     
-      # Card
-      - title: Developer Resources
-        links:
-          - url: /training/modules/intro-to-hpc/2-azure-batch
-            text: Run HPC applications on Azure
-          - url: /training/modules/run-parallel-tasks-in-azure-batch-with-the-azure-cli/
-            text: Run Parallel Tasks in Azure Batch
-          - url: /training/modules/azure-cyclecloud-high-performance-computing/
-            text: Create, customize, and manage HPC Cluster using CycleCloud
-          - url: /azure/virtual-machines/extensions/enable-infiniband
-            text: Enable Inifiniband
-      # Card
-      - title: Azure HPC Content on Sites
-        links:
-          - url: https://www.aka.ms/Microsoft-NVIDIA/HPCwire
-            text: Microsoft - NVIDIA
-          - url: https://insidehpc.com/2023/03/manufacturing-repatriation-how-hpc-class-technologies-from-microsoft-azure-and-amd-support-manufacturers-reshoring-strategies/
-            text: Microsoft - AMD
-          - url: https://insidehpc.com/2022/10/staying-at-the-cutting-edge-of-automotive-design-technology-with-azure-cloud-platform-and-amd/
-            text: Azure Cloud and AMD for Manufacturing
-          - url: https://insidehpc.com/2023/03/azure-amd-and-the-power-of-cloud-based-hpc-for-sustainability-rd-projects/
-            text: Azure and AMD for Sustainability    
-      # Card
-      - title: Related Technologies
-        links:
+    - title: Related Technologies
+      imageSrc: /media/common/i_link.svg
+      links:
           - url: https://www.hpcwire.com/solution_content/microsoft-amd/announcing-azure-hbv5-virtual-machines-a-breakthrough-in-memory-bandwidth-for-hpc/
             text: The most powerful Azure virtual machine for HPC
           - url: https://bigcompute.org/blog/high-performance-computing-for-rd/
@@ -152,6 +131,30 @@ additionalContent:
           - url: https://techcommunity.microsoft.com/blog/azurehighperformancecomputingblog/setting-up-slurm-cloud-bursting-using-cyclecloud-on-azure/4140922
             text: Slurm Cloud Bursting Using CycleCloud on Azure
 
+
+additionalContent:
+  sections:
+# Azure HPC Resources
+    - title: Community Resources and HPC Team # < 60 chars (Optional)
+      summary: Connect with other HPC users and communicate with the HPC team
+      items:
+        # Card 1
+        - title: High Performance Computing Tech Community
+          imageSrc: /media/hubs/powershell/i_group-feedback.svg
+          url: https://techcommunity.microsoft.com/t5/azure-high-performance-computing/bg-p/AzureHighPerformanceComputingBlog
+        # Card 2
+        - title: High Performance Computing Team Blogs
+          imageSrc: /media/hubs/powershell/i_group-feedback.svg
+          url: https://azure.microsoft.com/blog/?sort-by=newest-oldest&category=compute&date=any&s=HPC
+        # Card 3
+        - title: StackOverFlow
+          imageSrc: /media/hubs/powershell/logo_stackoverflow.svg
+          url: https://stackoverflow.com/questions/tagged/hpc
+        # Card 4
+        - title: r/HPC
+          imageSrc: /media/hubs/powershell/logo_reddit.svg
+          url: https://www.reddit.com/r/HPC/
+  
 # Video Playlists and other links
     - title: HPC Video Content # < 60 chars (Optional; Remove if not applicable.)
       summary: Azure HPC with various video content and events. # < 160 chars (Optional; Remove if not applicable.)
