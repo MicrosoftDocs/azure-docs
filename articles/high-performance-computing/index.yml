@@ -51,46 +51,46 @@ productDirectory:
              text: HPC OnDemand Platform Zone  
            - url: /azure/high-performance-computing/lift-and-shift-overview/
              text: HPC Migration Deployments
-        # Card
-        - title: Azure HPC Compute
-          imageSrc: ../media/index/virtual-machine.svg
-          links:
-            - url: /azure/virtual-machines/sizes-hpc
-              text: High Performance VMs 
-            - url: /azure/virtual-machines/sizes-gpu
-              text: GPU Accelerated VMs
-            - url: /azure/virtual-machines/hx-series
-              text: Memory Optimized VMs
-        # Card
-        - title: Azure HPC Storage
-          imageSrc: ../media/index/storage.svg
-          links:
-            - url: ../azure-netapp-files/azure-netapp-files-introduction.md
-              text: Azure NetApp Files
-            - url: /azure/azure-managed-lustre/blob-integration
-              text: Azure Blob Storage
-            - url: /azure/azure-managed-lustre/amlfs-overview
-              text: Azure Managed Lustre             
-        # Card
-        - title: Azure HPC Workload Orchestration
-          imageSrc: ./media/hpc-logo.png
-          links:
-            - url: ../batch/batch-technical-overview.md
-              text: Azure Batch
-            - url: /azure/cyclecloud/overview
-              text: Azure CycleCloud
-            - url: /azure/virtual-machines/compiling-scaling-applications
-              text: Autoscaling             
-        # Card
-        - title: Manage, Monitor, and Control
-          imageSrc: ../media/index/monitor.svg
-          links:
-            - url: /azure/azure-monitor/
-              text: Azure Monitor
-            - url: /azure/databox/
-              text: Azure DataBox 
-            - url: /azure/open-datasets/
-              text: Azure Open Datasets
+      # Card
+      - title: Azure HPC Compute
+        imageSrc: ../media/index/virtual-machine.svg
+        links:
+           - url: /azure/virtual-machines/sizes-hpc
+             text: High Performance VMs 
+           - url: /azure/virtual-machines/sizes-gpu
+             text: GPU Accelerated VMs
+           - url: /azure/virtual-machines/hx-series
+             text: Memory Optimized VMs
+      # Card
+      - title: Azure HPC Storage
+        imageSrc: ../media/index/storage.svg
+        links:
+           - url: ../azure-netapp-files/azure-netapp-files-introduction.md
+             text: Azure NetApp Files
+           - url: /azure/azure-managed-lustre/blob-integration
+             text: Azure Blob Storage
+           - url: /azure/azure-managed-lustre/amlfs-overview
+             text: Azure Managed Lustre             
+      # Card
+      - title: Azure HPC Workload Orchestration
+        imageSrc: ./media/hpc-logo.png
+        links:
+           - url: ../batch/batch-technical-overview.md
+             text: Azure Batch
+           - url: /azure/cyclecloud/overview
+             text: Azure CycleCloud
+           - url: /azure/virtual-machines/compiling-scaling-applications
+             text: Autoscaling             
+      # Card
+      - title: Manage, Monitor, and Control
+        imageSrc: ../media/index/monitor.svg
+        links:
+           - url: /azure/azure-monitor/
+             text: Azure Monitor
+           - url: /azure/databox/
+             text: Azure DataBox 
+           - url: /azure/open-datasets/
+             text: Azure Open Datasets
 
 
 # Azure HPC Resourcess
