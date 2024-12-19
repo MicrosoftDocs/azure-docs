@@ -167,7 +167,7 @@ To run send_text_message(), update the [main method](#basic-program-structure)
     messages.send_whatsapplist_message()
 ```
 
-:::image type="content" source="../../media/interactive/list-interactive-message.jpg" lightbox="../../media/interactive/list-interactive-message.jpg" alt-text="Screenshot that shows WhatsApp List interactive message from Business to User.":::
+:::image type="content" source="../../media/interactive-reaction-sticker/list-interactive-message.jpg" lightbox="../../media/interactive-reaction-sticker/list-interactive-message.jpg" alt-text="Screenshot that shows WhatsApp List interactive message from Business to User.":::
 
 ## Send a Interactive Reply Button message to a WhatsApp user
 
@@ -231,7 +231,7 @@ To run send_whatsappreplybutton_message(), update the [main method](#basic-progr
     messages.send_whatsappreplybutton_message()
 ```
 
-:::image type="content" source="../../media/interactive/reply-button-interactive-message.jpg" lightbox="../../media/interactive/reply-button-interactive-message.jpg" alt-text="Screenshot that shows WhatsApp List interactive message from Business to User.":::
+:::image type="content" source="../../media/interactive-reaction-sticker/reply-button-interactive-message.jpg" lightbox="../../media/interactive-reaction-sticker/reply-button-interactive-message.jpg" alt-text="Screenshot that shows WhatsApp List interactive message from Business to User.":::
 
 ## Send a Interactive CTA Url based message to a WhatsApp user
 
@@ -292,7 +292,7 @@ To run send_whatapp_click_to_action_message(), update the [main method](#basic-p
     messages.send_whatapp_click_to_action_message()
 ```
 
-:::image type="content" source="../../media/interactive/click-to-action-interactive-message.jpg" lightbox="../../media/interactive/click-to-action-interactive-message.jpg" alt-text="Screenshot that shows WhatsApp CTA interactive message from Business to User.":::
+:::image type="content" source="../../media/interactive-reaction-sticker/click-to-action-interactive-message.jpg" lightbox="../../media/interactive-reaction-sticker/click-to-action-interactive-message.jpg" alt-text="Screenshot that shows WhatsApp CTA interactive message from Business to User.":::
 
 ## Run the code
 

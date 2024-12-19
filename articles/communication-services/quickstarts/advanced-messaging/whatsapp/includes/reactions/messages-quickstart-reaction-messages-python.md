@@ -124,7 +124,7 @@ To run send_reaction_message(), update the [main method](#basic-program-structur
     messages.send_reaction_message()
 ```
 
-:::image type="content" source="../../media/interactive/sticker-message.jpg" lightbox="../../media/interactive/sticker-message.jpg" alt-text="Screenshot that shows WhatsApp CTA interactive message from Business to User.":::
+:::image type="content" source="../../media/interactive-reaction-sticker/sticker-message.jpg" lightbox="../../media/interactive-reaction-sticker/sticker-message.jpg" alt-text="Screenshot that shows WhatsApp CTA interactive message from Business to User.":::
 
 ## Run the code
 
