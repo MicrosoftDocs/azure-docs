@@ -7,7 +7,7 @@
     },
     {
       "source_path_from_root": "/articles/sap/workloads/cal-s4h.md",
-      "redirect_url": "/azure/sap/sap-on-azure-overview.md",
+      "redirect_url": "/azure/sap/sap-on-azure-overview",
       "redirect_document_id": true
     },
     {
