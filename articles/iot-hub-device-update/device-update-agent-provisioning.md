@@ -75,7 +75,12 @@ Follow these instructions to provision the Device Update agent on [IoT Edge enab
 
 1. Follow the instructions at [Manually provision a single Linux IoT Edge device](../iot-edge/how-to-provision-single-device-linux-symmetric.md?preserve-view=true&view=iotedge-2020-11#install-iot-edge).
 
-1. Install the Device Update image update agent.
+1. Install the Device Update image update agent by running the following command:
+
+   ```shell
+   
+   sudo apt-get install deviceupdate-agent
+   ```
 
 1. Install the Device Update package update agent.
 
@@ -111,7 +116,15 @@ Follow these instructions to provision the Device Update agent on Linux IoT devi
 
 1. Configure the IoT Identity Service by following the instructions in [Configuring the Azure IoT Identity Service](https://azure.github.io/iot-identity-service/configuration.html).
 
-1. Install the Device Update agent.
+1. Install the Device Update agent by running the following command:
+
+   ```shell
+   
+   sudo apt-get install deviceupdate-agent
+   ```
+
+>[!NOTE]
+>If your IoT device isn't able to run the IoT Identity Service or IoT Edge, which bundles the IoT Identity Service, you can still install the Device Update agent and configure it by [using a connection string](#use-a-connection-string).
 
 ## Configure the Device Update agent
 
@@ -125,7 +138,7 @@ In the *du-config.json* file, set all values that have a `Place value here` plac
 
 ### Use a connection string
 
-For testing or on constrained devices, you can also configure the Device Update agent without using the IoT Identity service. You can use a connection string to provision the Device Update agent from the module or device.
+For testing or on constrained devices, you can configure the Device Update agent without using the IoT Identity service. You can use a connection string to provision the Device Update agent from the module or device.
 
 1. In the Azure portal, copy the primary connection string. If the Device Update agent is configured as a module identity, copy the module's primary connection string. Otherwise, copy the device's primary connection string.
 
