@@ -5,6 +5,7 @@ description: Why and how to move from Azure Cache for Redis to Azure Managed Red
 ms.service: azure
 ms.custom:
   - ignite-2024
+  - references_regions
 ms.topic: how-to
 ms.date: 11/15/2024
 
