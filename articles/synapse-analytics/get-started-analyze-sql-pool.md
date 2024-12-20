@@ -90,6 +90,7 @@ A dedicated SQL pool consumes billable resources as long as it's active. You can
         FILE_TYPE = 'PARQUET'
         ,MAXERRORS = 0
         ,IDENTITY_INSERT = 'OFF'
+        ,AUTO_CREATE_TABLE ='ON'
     )
     ```
 

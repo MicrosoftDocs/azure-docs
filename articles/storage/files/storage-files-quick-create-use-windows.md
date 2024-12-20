@@ -69,16 +69,17 @@ Next, create an SMB Azure file share.
 
 So far, you've created an Azure storage account and a file share with one file in it. Next, create an Azure VM to represent the on-premises server.
 
-1. Select **Create a resource** in the upper left-hand corner of the Azure portal.
+1. Select **Home**, and then select **Create a resource** in the upper left-hand corner of the Azure portal.
 1. Under **Popular services**, select **Virtual machine**.
 1. In the **Basics** tab, under **Project details**, select the resource group you created earlier.
 
    :::image type="content" source="media/storage-files-quick-create-use-windows/vm-resource-group-and-subscription.png" alt-text="Screenshot of the Basic tab with VM information filled out.":::
 
 1. Under **Instance details**, name the VM *qsVM*.
+1. Under **Availability options**, select **No infrastructure redundancy required**.
 1. For **Security type**, select **Standard**.
 1. For **Image**, select **Windows Server 2022 Datacenter: Azure Edition - x64 Gen2**.
-1. Leave the default settings for **Region**, **Availability options**, and **Size**.
+1. Leave the default settings for **Region**, **VM architecture**, and **Size**.
 1. Under **Administrator account**, add a **Username** and enter a **Password** for the VM.
 1. Under **Inbound port rules**, choose **Allow selected ports** and then select **RDP (3389)** and **HTTP** from the drop-down.
 1. Select **Review + create**.

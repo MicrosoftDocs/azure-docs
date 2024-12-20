@@ -298,7 +298,7 @@ The following fields are aliases that are maintained for backwards compatibility
 - `Query` (alias to `DnsQuery`)
 - `QueryType` (alias to `DnsQueryType`)
 - `QueryTypeName` (alias to `DnsQueryTypeName`)
-- `ResponseName` (alias to `DnsReasponseName`)
+- `ResponseName` (alias to `DnsResponseName`)
 - `ResponseCodeName` (alias to `DnsResponseCodeName`)
 - `ResponseCode` (alias to `DnsResponseCode`)
 - `QueryClass` (alias to `DnsQueryClass`)
