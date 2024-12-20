@@ -56,7 +56,7 @@ We communicate the retirement of Azure CDN from Edgio through multiple channels,
 
 ### When will it no longer be possible to create new Azure CDN from Edgio profiles?
 
-New Azure CDN from Edgio profiles can't be created after December 13, 2025.
+New Azure CDN from Edgio profiles can't be created after December 13, 2024.
 
 ### Can I request an extension for the retirement/shutdown of the Azure CDN from Edgio service?
 

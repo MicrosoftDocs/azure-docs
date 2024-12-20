@@ -1296,7 +1296,6 @@ Moves between Resource groups and subscriptions are supported for APIs that use 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ---------- |
-> | objectunderstandingaccounts | No | No | No |
 > | remoterenderingaccounts | **Yes** | **Yes** | No |
 
 ## Microsoft.MobileNetwork

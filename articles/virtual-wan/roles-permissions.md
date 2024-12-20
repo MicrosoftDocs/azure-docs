@@ -83,6 +83,20 @@ For more information, see [Scope levels](../role-based-access-control/scope-over
 > [!NOTE]
 > Allow sufficient time for [Azure Resource Manager cache](../role-based-access-control/troubleshooting.md) to refresh after role assignment changes.
 
+## Additional services
+
+To view roles and permissions for other services, see the following links:
+
+- [Azure Application Gateway](../application-gateway/configuration-infrastructure.md)
+
+- [Azure ExpressRoute](../expressroute/roles-permissions.md) 
+
+- [Azure Firewall](../firewall/roles-permissions.md) 
+
+- [Azure Route Server](../route-server/roles-permissions.md)
+
+- [Azure VPN Gateway](../vpn-gateway/roles-permissions.md)
+
 ## Next steps
 
 - [What is Azure Role Based Access](../role-based-access-control/overview.md)
