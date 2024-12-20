@@ -23,7 +23,7 @@ ms.topic: include
 
      * **Requirements:** When you select the **IKEv2** tunnel type, you see a message directing you to select an authentication method. For IKEv2, you can specify multiple authentication methods. You can choose Azure Certificate, RADIUS-based authentication or both.
 
-     * **IPSec custom parameters:** To customize the parameters for IKE Phase 1 and IKE Phase 2, toggle the IPsec switch to **Custom** and select the parameter values. For more information about customizable parameters, see the [Custom IPsec](../articles/virtual-wan/point-to-site-ipsec.md) article.
+     * **IPsec custom parameters:** To customize the parameters for IKE Phase 1 and IKE Phase 2, toggle the IPsec switch to **Custom** and select the parameter values. For more information about customizable parameters, see the [Custom IPsec](../articles/virtual-wan/point-to-site-ipsec.md) article.
 
      **OpenVPN**
 
