@@ -74,6 +74,8 @@ mvn archetype:generate \
 
 ### [Access Key Authentication](#tab/accesskey)
 
+[!INCLUDE [redis-access-key-alert](includes/redis-access-key-alert.md)]
+
 ```xml
 <dependency>
     <groupId>org.redisson</groupId>
