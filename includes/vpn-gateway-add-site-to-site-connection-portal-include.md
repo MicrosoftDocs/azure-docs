@@ -14,7 +14,7 @@
    * Under **Project details**, select the subscription and the resource group where your resources are located.
    * Under **Instance details**, configure the following settings:
 
-     * **Connection type**: Select **Site-to-site (IPSec)**.
+     * **Connection type**: Select **Site-to-site (IPsec)**.
      * **Name**: Name your connection.
      * **Region**: Select the region for this connection.
 1. Select the **Settings** tab and configure the following values:
