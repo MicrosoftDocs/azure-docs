@@ -22,7 +22,7 @@ Azure CDN from Edgio will be shut down on January 15, 2025. You must migrate you
 
 ### I see Edgio filed for Chapter 11 bankruptcy. Can Microsoft guarantee that Azure CDN from Edgio’s availability and services until November 4, 2025?
 
-Edgio has informed us that their services will remain operational until at least January 15, 2025. However, we can't guarantee that Edgio won't unexpectedly cease operations before this date due to circumstances beyond our control. Therefore, we will automatically migrate your workload if you haven't taken action by January 7, 2025.
+Edgio has informed us that their services will remain operational until at least January 15, 2025. However, we can't guarantee that Edgio won't unexpectedly cease operations before this date due to circumstances beyond our control. Therefore, we'll automatically migrate your workload if you haven't taken action by January 7, 2025.
 
 ### How can I see my impacted Azure CDN from Edgio resources?
 
@@ -34,19 +34,19 @@ The following is a recap of the migration options we sent to all users:
 
 - Validate if your workloads on Azure CDN from Edgio are compatible with Azure Front Door (see here and here to help verify) and migrate as soon as possible using these instructions before January 7, 2025.
 
-- If Azure Front Door is not compatible with your workload(s), determine if Akamai could be compatible via the Azure Marketplace or work with another CDN provider. If you chose to work with Akamai, please feel free to contact Microsoft Support, and we can put you in touch with the Akamai team dedicated to performing migrations to their platform.
+- If Azure Front Door isn't compatible with your workloads, determine if Akamai could be compatible via Azure Marketplace or work with another CDN provider. If you chose to work with Akamai, feel free to contact Microsoft Support, and we can put you in touch with the Akamai team dedicated to performing migrations to their platform.
 
     > [!IMPORTANT]
     > - If you plan a migration to Akamai or another CDN provider, you will need set a Feature Flag by following these instructions (select the Feature Flag “DoNotForceMigrateEdgioCDNProfiles”) before January 7, 2025. Doing so will prevent Microsoft from migrating you to Azure Front Door (please see below). Note you will have until January 14, 2025 to complete your migration to another CDN, but again Microsoft cannot guarantee your services will be available on the Edgio platform before this date.
     > - The Azure Marketplace is currently not available for customers in South Korea.
     > - Please be advised we will need to halt all configuration changes to Azure CDN by Edgio profiles starting on January 3, 2025. This means you will not be able update your CDN profile configuration, but your services on Azure CDN from Edgio will still operate until you are migrated or the Edgio platform is shut down on January 15, 2025
 
-- If you have any services running on Azure CDN from Edgio on January 7, 2025 and have not informed us of your plans (please see above), we will attempt to migrate your services over to Azure Front Door on January 7, 2025. We will be performing this migration to Azure Front Door on a “best effort” basis, and doing so might cause issues related to the billing, features, availability, and/or performance you are currently consuming with Azure CDN from Edgio.
+- If you have any services running on Azure CDN from Edgio on January 7, 2025 and haven't informed us of your plans (please see above), we'll attempt to migrate your services over to Azure Front Door on January 7, 2025. We'll be performing this migration to Azure Front Door on a “best effort” basis, and doing so might cause issues related to the billing, features, availability, and/or performance you're currently consuming with Azure CDN from Edgio.
 
 ### What are some key things I should do to verify my workloads are working properly on AFD?
 
 - Look at [metrics and logs](../frontdoor/front-door-diagnostics.md) for Azure Front Door resources to observe for 4xx/5xx errors, cache/byte hit ratios, and origin health.
-- Please see the following troubleshooting guides for any other issues:
+- See the following troubleshooting guides for any other issues:
     - [Troubleshoot Azure Front Door common issues](../frontdoor/troubleshoot-issues.md)
     - [Troubleshoot general performance problems](../frontdoor/troubleshoot-performance-issues.md)
     - [Frequently asked questions](../frontdoor/front-door-faq.yml)
@@ -65,7 +65,7 @@ For any questions regarding billing changes, reach out to our support team or yo
 ### What options do I have with migrating my workloads from Azure CDN from Edgio?
 
 You're encouraged to migrate your workloads to Microsoft's flagship CDN product called Azure Front Door Standard or Premium. Next steps:
-1. Review [Azure Front Door and Azure CDN features](../frontdoor/front-door-cdn-comparison.md) to determine if Azure Front Door is compatible with your workload(s).
+1. Review [Azure Front Door and Azure CDN features](../frontdoor/front-door-cdn-comparison.md) to determine if Azure Front Door is compatible with your workloads.
 2. Understand [Azure Front Door Pricing](https://azure.microsoft.com/pricing/details/frontdoor/).
 3. Follow the [Azure CDN to Azure Front Door migration guide](../frontdoor/migrate-cdn-to-front-door.md). This guide provides detailed instructions on how to set up an Azure Front Door profile, test functionality, and migrate your compatible workloads from Azure CDN from Edgio to Azure Front Door with the help of Azure Traffic Manager.
 
@@ -79,7 +79,7 @@ If no action is taken before January 15, 2025, Azure CDN from Edgio profiles and
 
 ### What will happen after Microsoft migrates my workloads to Azure Front Door on January 7, 2025?
 
-After the migration, you will receive an email notification confirming whether your workloads have been successfully migrated to Azure Front Door Standard or if the migration was unsuccessful. We are migrating you to Azure Front Door Standard as it may be more cost-effective. If you need the extra features of Azure Front Door Premium, you can [upgrade your service](../frontdoor/tier-upgrade.md).
+After the migration, you'll receive an email notification confirming whether your workloads have been successfully migrated to Azure Front Door Standard or if the migration was unsuccessful. We're migrating you to Azure Front Door Standard as it may be more cost-effective. If you need the extra features of Azure Front Door Premium, you can [upgrade your service](../frontdoor/tier-upgrade.md).
 
 If the migration was unsuccessful or if you encounter issues with availability, performance, or feature functionality after a successful migration, contact Microsoft support for assistance.
 
@@ -94,7 +94,7 @@ We communicate the retirement of Azure CDN from Edgio through multiple channels,
 | December 13, 2024 | Creation of new Azure CDN from Edgio profiles is no longer allowed.                                                       |
 | January 3, 2025   | No further changes to Azure CDN from Edgio profiles will be permitted.                                                    |
 | January 6, 2025   | Deadline for setting a Feature Flag to prevent automatic migration to Azure Front Door.                                   |
-| January 7, 2025   | Automatic migration of remaining Azure CDN from Edgio profiles to Azure Front Door begins if the Feature Flag is not set. |
+| January 7, 2025   | Automatic migration of remaining Azure CDN from Edgio profiles to Azure Front Door begins if the Feature Flag isn't set. |
 | January 7-8, 2025 | Notifications sent to customers regarding the status of their migration to Azure Front Door.                              |
 | January 14, 2025  | Final day of service for Azure CDN from Edgio.                                                                            |
 | January 15, 2025  | Shutdown of the Edgio platform.                                                                                           |
@@ -105,4 +105,4 @@ No, extensions aren't possible. Edgio confirmed that their platform will shut do
 
 ### Can I retain my existing *.azureedge.net domain when I move to Azure Front Door?
 
-You can temporarily retain your *.azureedge.net domain by following the instructions provided in [Migrate to Azure Front Door while retaining *.azureedge.net domain](migrate-cdn-to-front-door-retain-edge-domain.md). However, this is only a short-term solution due to the urgent retirement of Azure CDN from Edgio. Relying on domains like *.azureedge.net and *.azurefd.net is not recommended as it poses availability risks. To ensure greater flexibility and avoid a single point of failure, it is advisable to adopt a custom domain as soon as possible.
+You can temporarily retain your *.azureedge.net domain by following the instructions provided in [Migrate to Azure Front Door while retaining *.azureedge.net domain](migrate-cdn-to-front-door-retain-edge-domain.md). However, this is only a short-term solution due to the urgent retirement of Azure CDN from Edgio. Relying on domains like *.azureedge.net and *.azurefd.net isn't recommended as it poses availability risks. To ensure greater flexibility and avoid a single point of failure, it's advisable to adopt a custom domain as soon as possible.
