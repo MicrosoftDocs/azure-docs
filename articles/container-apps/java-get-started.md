@@ -167,7 +167,7 @@ In this example, `containerapp up` command includes the `--query properties.conf
 
 View the application by pasting this URL into a browser. Your app should resemble the following screenshot.
 
-:::image type="content" source="media/java-deploy-war-file/azure-container-apps-petclinic-warfile.png" alt-text="Screenshot of petclinic application.":::
+:::image type="content" source="media/java-deploy-war-file/validation.png" alt-text="Screenshot of validation.":::
 
 ## Next steps
 
