@@ -36,7 +36,7 @@ Copy the following template and save it locally. You'll use this file to trouble
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
-  "parameters": {
+  "parameterss": {
     "storageAccountType": {
       "type": "string",
       "defaultValue": "Standard_LRS",
@@ -86,9 +86,9 @@ Copy the following template and save it locally. You'll use this file to trouble
 
 ## Fix validation error
 
-Open the file in Visual Studio Code. The wavy line under `parameters:` indicates an error. To see the validation error, hover over the error.
+Open the file in Visual Studio Code. The wavy line under `parameterss:` indicates an error. To see the validation error, hover over the error.
 
-:::image type="content" source="media/quickstart-troubleshoot-arm-deployment/validation-error.png" alt-text="Screenshot of Visual Studio Code highlighting a template validation error with a red wavy line under the misspelled 'parameters:' in the code.":::
+:::image type="content" source="media/quickstart-troubleshoot-arm-deployment/validation-error.png" alt-text="Screenshot of Visual Studio Code highlighting a template validation error with a red wavy line under the misspelled 'parameterss:' in the code.":::
 
 You'll notice that `variables` and `resources` have errors for _undefined parameter reference_. To display the template's validation errors, select **View** > **Problems**.
 
@@ -97,10 +97,10 @@ You'll notice that `variables` and `resources` have errors for _undefined parame
 All the errors are caused by the incorrect spelling of an element name.
 
 ```json
-"parameters": {
+"parameterss": {
 ```
 
-The error message states _Template validation failed: Could not find member 'parameters' on object of type 'Template'. Path 'parameters', line 4, position 16_.
+The error message states _Template validation failed: Could not find member 'parameterss' on object of type 'Template'. Path 'parameterss', line 4, position 16_.
 
 The ARM template syntax for [parameters](../templates/syntax.md#parameters) shows that `parameters` is the correct element name.
 
