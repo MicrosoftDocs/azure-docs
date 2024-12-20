@@ -13,7 +13,7 @@ ms.author: duau
 # Migrate to Azure Front Door while retaining *.azureedge.net domain
 
 > [!IMPORTANT]
-> This is a temporary measure due to the sudden and imminent retirement of Azure CDN from Edgio. Relying on domains like `*.azureedge.net` and `*.azurefd.net` isn'tt recommended as it poses availability risks. To ensure greater flexibility and avoid a single point of failure, adopt a custom domain as soon as possible.
+> This is a temporary measure due to the sudden and imminent retirement of Azure CDN from Edgio. Relying on domains like `*.azureedge.net` and `*.azurefd.net` isn't recommended as it poses availability risks. To ensure greater flexibility and avoid a single point of failure, adopt a custom domain as soon as possible.
 
 This article provides you with instructions for migrating to Azure Front Door from Azure CDN from Edgio while retaining the `*.azureedge.net` domain.
 
