@@ -61,7 +61,9 @@ For workload specific versions, see [HDInsight 5.x component versions](./hdinsig
   * This change will be rolled out in a phased manner for different regions.
   > [!NOTE]
   > Standard LB changes in HDInsight are available in all public regions except US East, US East2, US West, US West2, US South Central, US Gov Regions, and China regions.
-  > This change will be available in these pending regions effective January 9, 2025.
+  >
+  > This change will be available in these pending regions effective January 9, 2025. 
+  >
   > For any assistance, contact [support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
   > [!IMPORTANT]
