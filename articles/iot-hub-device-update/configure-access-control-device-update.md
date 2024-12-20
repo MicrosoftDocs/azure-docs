@@ -11,7 +11,7 @@ ms.subservice: device-update
 
 # Configure access control for Device Update resources
 
-For users to access Azure Device Update for IoT Hub, you must grant them access to the Device Update account and instance. You must also grant the Device Update service principal access to the linked IoT hub so it can manage updates and gather information. This article describes how to grant the necessary access by using the Azure portal or the Azure CLI.
+For users to access Azure Device Update for IoT Hub, you must grant them access to the Device Update account and instance. You must also grant the Device Update service principal access to the linked IoT hub so it can manage updates and gather information. This article describes how to grant the necessary access by using Azure role-based access control (RBAC) in the Azure portal or Azure CLI.
 
 ## Prerequisites
 
@@ -21,7 +21,7 @@ For users to access Azure Device Update for IoT Hub, you must grant them access 
 
 ## Configure access control for Device Update account
 
-The following roles are available through Azure role-based access control (RBAC) for assigning access to Device Update:
+The following roles are available for assigning access to Device Update:
 
 - Device Update Administrator
 - Device Update Reader
@@ -48,7 +48,7 @@ For more information, see [Azure role-based access control (RBAC) and Device Upd
 
 1. Select **Review + assign**.
 1. Review the new role assignments and select **Review + assign** again.
-1. Azure role-based access control (RBAC) adds the role assignments, and the selected members can now use Device Update from within your IoT Hub.
+1. Azure RBAC adds the role assignments, and the selected members can now use Device Update from within your IoT Hub.
 
 # [Azure CLI](#tab/cli)
 
@@ -90,7 +90,7 @@ Device Update communicates with IoT Hub to manage deployments and updates and to
 
    :::image type="content" source="media/create-device-update-account/assign-role-to-du-service-principal.png" alt-text="Screenshot of access Control member selection for IoT Hub." lightbox="media/create-device-update-account/assign-role-to-du-service-principal.png":::
 
-6. Select **Review + Assign** and then select **Review + Assign** again.
+6. Select **Review + assign** and then select **Review + assign** again.
 
 To validate that you set permissions correctly:
 
@@ -114,4 +114,4 @@ az role assignment create --role "IoT Hub Data Contributor" --assignee https://a
 ## Related content
 
 - [Azure role-based access control (RBAC) and Device Update](device-update-control-access.md)
-- [az role assignment](/cli/azure/role/assignment)
+- [Command reference for az role assignment](/cli/azure/role/assignment)
