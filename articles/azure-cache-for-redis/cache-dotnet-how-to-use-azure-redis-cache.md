@@ -75,11 +75,9 @@ IDatabase Database = _newConnection.GetDatabase();
 ::: zone-end
 
 
-### To edit the *CacheSecrets.config* file
+### To edit the *app.config* file
 
-1. Create a file on your computer named *CacheSecrets.config*. Put it in a location where it won't be checked in with the source code of your sample application. For this quickstart, the *CacheSecrets.config* file is located at *C:\AppSecrets\CacheSecrets.config*.
-
-1. Edit the *app.config* file. Then add the following content:
+1. Edit the *app.config* file by adding the following content:
 
     ```xml
     <appSettings>
@@ -99,11 +97,10 @@ For more information, see [StackExchange.Redis](https://stackexchange.github.io/
 
 ::: zone-end
 
-### To edit the *CacheSecrets.config* file
+### To edit the *app.config* file
 
-1. Create a file on your computer named *CacheSecrets.config*. Put it in a location where it won't be checked in with the source code of your sample application. For this quickstart, the *CacheSecrets.config* file is located at *C:\AppSecrets\CacheSecrets.config*.
 
-1. Edit the *app.config* file. Then add the following content:
+1. Edit the *app.config* file by adding the following content:
 
     ```xml
     <appSettings>
