@@ -11,7 +11,7 @@ ms.subservice: device-update
 
 # Azure Device Update for IoT Hub configuration file
 
-The Azure Device Update for IoT Hub agent uses configuration information from the *du-config.json* file on the device. The agent reads the following values and reports them to the Device Update service:
+The Azure Device Update for IoT Hub agent uses configuration information from a *du-config.json* file on the device. The agent reads and reports the following values to the Device Update service:
 
 * AzureDeviceUpdateCore:4.ClientMetadata:4.deviceProperties["manufacturer"]
 * AzureDeviceUpdateCore:4.ClientMetadata:4.deviceProperties["model"]
@@ -23,7 +23,7 @@ The Azure Device Update for IoT Hub agent uses configuration information from th
 
 To update or create the *du-config.json* configuration file:
 
-- When you install the Debian agent on an IoT Device with a Linux OS, modify the */etc/adu/du-config.json* file to update values.
+- When you install the Debian agent on an IoT Device with a Linux OS, modify the */etc/adu/du-config.json* file to update the values.
 - For a Yocto build system, in the partition or disk called `adu`, create a JSON file called */adu/du-config.json*.
 
 ## Configuration file fields and values
