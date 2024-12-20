@@ -169,7 +169,7 @@ Most of the data sources are raw logs that are noisy and have high volume, but h
 
 1. **Create a summary rule**: 
 
-    1. Extend your query to extract key fields, such as the source address, destination address, and destination port from the **CommonSecurityLog_CL** table, which is the **CommonSecurityLog** with the Auxilairy plan.
+    1. Extend your query to extract key fields, such as the source address, destination address, and destination port from the **CommonSecurityLog_CL** table, which is the **CommonSecurityLog** with the Auxiliary plan.
        
     1. Perform an inner lookup against the active Threat Intelligence Indicators to identify any matches with our source address. This allows you to cross-reference your data with known threats.
        
