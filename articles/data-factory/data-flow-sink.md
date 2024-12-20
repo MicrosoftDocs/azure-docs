@@ -75,7 +75,7 @@ After you've added a sink, configure via the **Sink** tab. Here you can pick or 
 
 The following video explains a number of different sink options for text-delimited file types.
 
-> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4tf7T]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=f6b52fbb-e98b-4fa1-b872-a0278ed02227]
 
 :::image type="content" source="media/data-flow/sink-settings.png" alt-text="Screenshot that shows Sink settings.":::
 
@@ -86,7 +86,7 @@ The following video explains a number of different sink options for text-delimit
 
 ## Cache sink
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4HKt1]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=f0587234-eb56-458f-8c55-478881ed2985]
 
 A *cache sink* is when a data flow writes data into the Spark cache instead of a data store. In mapping data flows, you can reference this data within the same flow many times using a *cache lookup*. This is useful when you want to reference data as part of an expression but don't want to explicitly join the columns to it. Common examples where a cache sink can help are looking up a max value on a data store and matching error codes to an error message database. 
 
@@ -138,7 +138,7 @@ When writing to databases, certain rows of data may fail due to constraints set 
 
 Below is a video tutorial on how to use database error row handling automatically in your sink transformation.
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4IWne]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=0d38b49c-428f-4ac3-82c2-c677823d60c9]
 
 For assert failure rows, you can use the Assert transformation upstream in your data flow and then redirect failed assertions to an output file here in the sink errors tab. You also have an option here to ignore rows with assertion failures and not output those rows at all to the sink destination data store.
 

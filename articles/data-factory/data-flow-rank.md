@@ -19,7 +19,7 @@ ms.date: 05/15/2024
 
 Use the rank transformation to generate an ordered ranking based upon sort conditions specified by the user. 
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4GGJo]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=c6c8f590-1cba-4cf9-ada3-58e44516804a]
 
 ## Configuration
 
