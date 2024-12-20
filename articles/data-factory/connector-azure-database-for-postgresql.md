@@ -7,7 +7,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 11/19/2024
+ms.date: 12/19/2024
 ---
 
 # Copy and transform data in Azure Database for PostgreSQL using Azure Data Factory or Synapse Analytics
@@ -30,11 +30,10 @@ This Azure Database for PostgreSQL connector is supported for the following capa
 
 *&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
 
-The three activities work on all Azure Database for PostgreSQL deployment options:
+The three activities work on Azure Database for PostgreSQL  [Single Server](/azure/postgresql/single-server/) and [Flexible Server](/azure/postgresql/flexible-server/), as well as [Azure Cosmos DB for PostgreSQL](/azure/postgresql/hyperscale/).
 
-* [Single Server](/azure/postgresql/single-server/)
-* [Flexible Server](/azure/postgresql/flexible-server/)
-* [Hyperscale (Citus)](/azure/postgresql/hyperscale/)
+>[!NOTE]
+>When utilizing Azure Database for PostgreSQL flexible Server or Azure Cosmos DB for PostgreSQL, please ensure to apply [2.0 driver version](#20-driver-version) in the connector. If you are currently using 1.0 driver version, please [upgrade the connector](#upgrade-the-azure-database-for-postgresql-connector).
 
 ## Getting started
 
@@ -68,11 +67,94 @@ The following sections offer details about properties that are used to define Da
 
 ## Linked service properties
 
-The following properties are supported for the Azure Database for PostgreSQL linked service:
+The Azure Database for PostgreSQL connector **2.0** driver version supports TLS 1.3. Refer to this [section](#upgrade-the-azure-database-for-postgresql-connector) to upgrade your Azure SQL Database connector version from 1.0 driver version. For the property details, see the corresponding sections.
+
+- [2.0 driver version](#10-driver-version)
+- [1.0 driver version](#10-driver-version)
+
+### 2.0 driver version
+
+The following properties are supported for the Azure Database for PostgreSQL linked service when you apply 2.0 driver version:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **AzurePostgreSql**. | Yes |
+| version | The driver version that you specify. The value is `2.0`. | Yes |
+| server | Specifies the host name and optionally port on which Azure Database for PostgreSQL is running. | Yes |
+| port |The TCP port of the Azure Database for PostgreSQL server. The default value is `5432`. |No |
+| database| The name of the Azure Database for PostgreSQL database to connect to. |Yes |
+| username| The username to connect with. Not required if using IntegratedSecurity. |Yes |
+| password| The password to connect with. Not required if using IntegratedSecurity. |Yes |
+| sslMode | Controls whether SSL is used, depending on server support. <br/>- **Disable**: SSL is disabled. If the server requires SSL, the connection will fail.<br/>- **Allow**: Prefer non-SSL connections if the server allows them, but allow SSL connections.<br/>- **Prefer**: Prefer SSL connections if the server allows them, but allow connections without SSL.<br/>- **Require**: The connection fails if the server doesn't support SSL.<br/>- **Verify-ca**: The connection fails if the server doesn't support SSL. Also verifies server certificate.<br/>- **Verify-full**: The connection fails if the server doesn't support SSL. Also verifies server certificate with host's name. <br/>Options: Disable (0) / Allow (1) / Prefer (2) **(Default)** / Require (3) / Verify-ca (4) / Verify-full (5) | No |
+| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. If not specified, it uses the default Azure Integration Runtime. |No |
+| ***Additional connection properties:*** |  |  |
+| schema | Sets the schema search path. | No |
+| pooling | Whether connection pooling should be used. | No |
+| connectionTimeout | The time to wait (in seconds) while trying to establish a connection before terminating the attempt and generating an error. | No |
+| commandTimeout | The time to wait (in seconds) while trying to execute a command before terminating the attempt and generating an error. Set to zero for infinity. | No |
+| trustServerCertificate | Whether to trust the server certificate without validating it. | No |
+| readBufferSize | Determines the size of the internal buffer Npgsql uses when reading. Increasing may improve performance if transferring large values from the database. | No |
+| timezone | Gets or sets the session timezone. | No |
+| encoding | Gets or sets the .NET encoding that will be used to encode/decode PostgreSQL string data. | No |
+
+**Example**:
+
+```json
+{
+    "name": "AzurePostgreSqlLinkedService",
+    "properties": {
+        "type": "AzurePostgreSql",
+        "version": "2.0",
+        "typeProperties": {
+            "server": "<server name>",
+            "port": "5432",
+            "database": "<database name>",
+            "sslMode": 2,
+            "username": "<user name>",
+            "password": {
+                "type": "SecureString",
+                "value": "<password>"
+            }
+        }
+    }
+}
+```
+**Example**:
+
+***Store password in Azure Key Vault***
+
+```json
+{
+    "name": "AzurePostgreSqlLinkedService",
+    "properties": {
+        "type": "AzurePostgreSql",
+        "typeProperties": {
+            "server": "<server name>",
+            "port": "5432",
+            "database": "<database name>",
+            "sslMode": 2,
+            "username": "<user name>",
+            "password": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
+            }
+        }
+    }
+}
+```
+
+### 1.0 driver version
+
+The following properties are supported for the Azure Database for PostgreSQL linked service when you apply 1.0 driver version:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | The type property must be set to: **AzurePostgreSql**. | Yes |
+| version | The driver version that you specify. The value is `1.0`. | Yes |
 | connectionString | An ODBC connection string to connect to Azure Database for PostgreSQL.<br/>You can also put a password in Azure Key Vault and pull the `password` configuration out of the connection string. See the following samples and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) for more details. | Yes |
 | connectVia | This property represents the [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is located in private network). If not specified, it uses the default Azure Integration Runtime. |No |
 
@@ -90,6 +172,7 @@ A typical connection string is `Server=<server>.postgres.database.azure.com;Data
     "name": "AzurePostgreSqlLinkedService",
     "properties": {
         "type": "AzurePostgreSql",
+        "version": "1.0",
         "typeProperties": {
             "connectionString": "Server=<server>.postgres.database.azure.com;Database=<database>;Port=<port>;UID=<username>;Password=<Password>"
         }
@@ -106,6 +189,7 @@ A typical connection string is `Server=<server>.postgres.database.azure.com;Data
     "name": "AzurePostgreSqlLinkedService",
     "properties": {
         "type": "AzurePostgreSql",
+        "version": "1.0",
         "typeProperties": {
             "connectionString": "Server=<server>.postgres.database.azure.com;Database=<database>;Port=<port>;UID=<username>;",
             "password": { 
@@ -371,6 +455,11 @@ IncomingStream sink(allowSchemaDrift: true,
 ## Lookup activity properties
 
 For more information about the properties, see [Lookup activity](control-flow-lookup-activity.md).
+
+
+## Upgrade the Azure Database for PostgreSQL connector
+
+In **Edit linked service** page, select **2.0** under **Driver version** and configure the linked service by referring to [Linked service properties 2.0 driver version](#20-driver-version).
 
 ## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
