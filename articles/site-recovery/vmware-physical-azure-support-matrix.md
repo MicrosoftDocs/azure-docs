@@ -62,7 +62,9 @@ Ports | 443 used for control channel orchestration<br/>9443 for data transport
 NAT | Supported
 
 > [!NOTE]
-> Operating system has to be installed with English locale. Conversion of locale post installation could result in potential issues.
+> Operating system must be installed with English locale. Conversion of locale post installation could result in potential issues.
+>
+> FQDN or NAT IP selection is a one time selection and cannot be changed later the appliance .
 
 ## Replicated machines
 
@@ -330,7 +332,7 @@ Host NFS | Yes for VMware<br/><br/> No for physical servers
 Host SAN (iSCSI/FC) | Yes
 Host vSAN | Yes for VMware<br/><br/> N/A for physical servers
 Host multipath (MPIO) | Yes, tested with Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM for CLARiiON
-Host Virtual Volumes (VVols) | Yes for VMware<br/><br/> N/A for physical servers
+Host Virtual Volumes (VVols) | Yes for VMware<br/><br/> N/A for physical servers. <br> Failback and Re-protect is not supported.
 Guest/server VMDK | Yes
 Guest/server shared cluster disk | No
 Guest/server encrypted disk | No
@@ -338,7 +340,7 @@ FIPS encryption | No
 Guest/server NFS | No
 Guest/server iSCSI | For Migration - Yes, but you must setup replication as a Physical machine.<br/>For Disaster Recovery - No, iSCSI will failback as an attached disk to the VM
 Guest/server SMB 3.0 | No
-Guest/server RDM | Yes<br/><br/> N/A for physical servers
+Guest/server RDM | Yes<br/><br/> However, when failing back such VMs from Azure to on-premises VMware, the RDM disks attach as additional disks. <br> N/A for physical servers
 Guest/server disk > 1 GB | Yes, disk must be larger than 1024 MB<br/><br/>Up to 32,767 GB when replicating to managed disk (9.41 version onwards)<br></br> Up to 4,095 GB when replicating to storage accounts
 Guest/server disk with 4K logical and 4k physical sector size | No
 Guest/server disk with 4K logical and 512-bytes physical sector size | No
@@ -346,7 +348,8 @@ Guest/server volume with striped disk >4 TB | Yes
 Logical volume management (LVM)| Thick provisioning - Yes <br></br> Thin provisioning - Yes, it is supported from [Update Rollup 61](https://support.microsoft.com/topic/update-rollup-61-for-azure-site-recovery-kb5012960-a1cc029b-03ad-446f-9365-a00b41025d39) onwards. It wasn't supported in earlier Mobility service versions.
 Guest/server - Storage Spaces | No
 Guest/server - NVMe interface | Yes, for Windows machines. Not supported for Linux machines.
-Guest/server hot add/remove disk | No
+Guest/server hot add | Yes
+Guest/server - remove disk | No
 Guest/server - exclude disk | Yes
 Guest/server multipath (MPIO) | No
 ReFS | Resilient File System is supported with Mobility service version 9.23 or higher
