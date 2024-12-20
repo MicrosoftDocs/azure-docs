@@ -69,18 +69,18 @@ This article provides you with instructions for migrating to Azure Front Door fr
 
 1. Select **Add a new domain**. Use the following settings and select **Add**:
 
-        | Field               | Value                          |
-        |---------------------|--------------------------------|
-        | Domain type         | Non-Azure validated domain     |
-        | DNS management      | All other DNS services         |
-        | Custom domain       | `<existing_endpoint_name>.azureedge.net` |
-        | Certificate type    | AFD managed                    |
-        | Minimum TLS version | TLS 1.2                        |
+| Field               | Value                          |
+|---------------------|--------------------------------|
+| Domain type         | Non-Azure validated domain     |
+| DNS management      | All other DNS services         |
+| Custom domain       | `<existing_endpoint_name>.azureedge.net` |
+| Certificate type    | AFD managed                    |
+| Minimum TLS version | TLS 1.2                        |
 
 1. In the Add a route setting, leave the Patterns to match and Accepted protocols as default.
 
-        > [!NOTE]
-        > A CDN profile can have multiple endpoints, so you may need to create multiple routes.
+    > [!NOTE]
+    > A CDN profile can have multiple endpoints, so you may need to create multiple routes.
 
 1. Select **Add a new origin group**. Enter a name for the origin group and select **+ Add an origin**. Enter the origin name and select the origin type. For Azure Blob Storage, select **Storage** as the origin type. Choose the hostname of the Azure Blob Storage account and leave the rest of the settings as default. Select **Add**.
 
@@ -109,21 +109,21 @@ This article provides you with instructions for migrating to Azure Front Door fr
 
 1. Create a support request with the following details. If you have already created a support case for the Edgio retirement, there's no need to create a new one.
 
-        - **Issue type**: Technical
-        - **Subscription**: Your subscription
-        - **Service**: My services, then select Azure CDN
-        - **Summary**: "DNS flip of `<existing_endpoint_name>.azureedge.net` to `<new_endpoint_name>.azurefd.net`"
-        - **Problem type**: Migrating Microsoft CDN to Front Door Standard or Premium
+    - **Issue type**: Technical
+    - **Subscription**: Your subscription
+    - **Service**: My services, then select Azure CDN
+    - **Summary**: "DNS flip of `<existing_endpoint_name>.azureedge.net` to `<new_endpoint_name>.azurefd.net`"
+    - **Problem type**: Migrating Microsoft CDN to Front Door Standard or Premium
 
 1. Skip the *Recommended solutions* section.
 
 1. Under **Additional details**, provide the following information:
 
-        - AFD profile name
-        - Resource group of AFD profile
-        - Subscription ID of AFD profile
-        - AFD endpoint hostname (for example, `contoso.azurefd.net`)
-        - Azure CDN from Edgio endpoint hostname (for example, `contoso.azureedge.net`)
+    - Azure Front Door profile name
+    - Resource group of AFD profile
+    - Subscription ID of AFD profile
+    - AFD endpoint hostname (for example, `contoso.azurefd.net`)
+    - Azure CDN from Edgio endpoint hostname (for example, `contoso.azureedge.net`)
 
 1. The Azure support team makes the necessary DNS changes. Traffic will now start being served by the Azure Front Door service.
 
