@@ -14,7 +14,11 @@ ms.custom:
 
 Azure Static Web Apps collects a series of metrics when you add a managed API to your application.
 
-To view metrics on your app, open your static web app in the Azure portal and select **Monitoring**. In the *Monitoring* query window, you have the following metrics available:
+To view metrics on your app, open your static web app in the Azure portal and select **Monitoring**. In the *Monitoring* query window, you have access to metrics that report activity of your application.
+
+## Supported metrics
+
+The following metrics are tracked for your application:
 
 | Name | Description |
 |---|---|
