@@ -87,7 +87,7 @@ To access Run commands for VCDA:
 
 The Azure VMware Solution private cloud portal provides a range of Run commands for VCDA as are shown in the following screenshot. The commands empower you to perform various operations, including installation, configuration, uninstallation, scaling, and more.  
 
-The Run command **Install-VCDAAVS** installs and configures the VMware Cloud Director Availability instance in Azure VMware Solution. The instance includes VMware Cloud Director Replication Manager, Tunnel, and two Replicators. You can add more replicators by using **Install-VCDARepliactor** to scale. 
+The Run command **Install-VCDAAVS** installs and configures the VMware Cloud Director Availability instance in Azure VMware Solution. The instance includes VMware Cloud Director Replication Manager, Tunnel, and two Replicators. You can add more replicators by using **Install-VCDAReplicator** to scale. 
 
 > [!NOTE]
 > Run the **Initialize-AVSSite** command before you run the install command. 
@@ -98,7 +98,7 @@ The following image shows the Run commands that are available under **VMware.VCD
 
 :::image type="content" source="media/deploy-vmware-cloud-director-availability/vmware-cloud-director-availability-run-command.png" alt-text="Screenshot shows multiple VMware Cloud Director Availability Run commands available within the VMware Cloud Director Availability Run command package."lightbox="media/deploy-vmware-cloud-director-availability/vmware-cloud-director-availability-run-command.png"::: 
 
-Refer to [VMware Cloud Director Availability in Azure VMware Soltion](https://docs.vmware.com/en/VMware-Cloud-Director-Availability/4.7/VMware-Cloud-Director-Availability-in-AVS/GUID-2BF88B54-5775-4414-8213-D3B41BCDE3EB.html) for detailed instructions on utilizing the Run commands to effectively install and manage VMware Cloud Director Availability within your Azure solution private cloud. 
+Refer to [VMware Cloud Director Availability in Azure VMware Solution](https://docs.vmware.com/en/VMware-Cloud-Director-Availability/4.7/VMware-Cloud-Director-Availability-in-AVS/GUID-2BF88B54-5775-4414-8213-D3B41BCDE3EB.html) for detailed instructions on utilizing the Run commands to effectively install and manage VMware Cloud Director Availability within your Azure solution private cloud. 
 
 ## FAQs
 
