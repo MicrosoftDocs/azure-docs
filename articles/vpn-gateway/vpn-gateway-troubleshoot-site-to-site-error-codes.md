@@ -55,7 +55,7 @@ Connectivity failure.
 
 ### Cause
 
-IKE /IPSec policy mismatch.
+IKE /IPsec policy mismatch.
 
 ### Solution
 
