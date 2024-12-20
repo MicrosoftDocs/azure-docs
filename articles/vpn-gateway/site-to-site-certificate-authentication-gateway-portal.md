@@ -302,7 +302,7 @@ Before moving forward, gather the following information for the required configu
    * Under **Project details**, select the subscription and the resource group where your resources are located.
    * Under **Instance details**, configure the following settings:
 
-     * **Connection type**: Select **Site-to-site (IPSec)**.
+     * **Connection type**: Select **Site-to-site (IPsec)**.
      * **Name**: Name your connection. Example: VNet-to-Site1.
      * **Region**: Select the region for this connection.
 1. Select the **Settings** tab.
