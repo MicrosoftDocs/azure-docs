@@ -185,8 +185,6 @@
     items:
     - name: Hyper-V to Azure architecture
       href: hyper-v-azure-architecture.md
-    - name: About excluding disks from replication
-      href: exclude-disks-replication.md
   - name: About Backup center
     items:
     - name: Backup center overview
@@ -233,6 +231,8 @@
     href: site-recovery-role-based-linked-access-control.md
 - name: How-to Guides
   items:
+  - name: Exclude disks from replication
+    href: exclude-disks-replication.md
   - name: Azure to Azure disaster recovery
     items:
     - name: Set up networking
