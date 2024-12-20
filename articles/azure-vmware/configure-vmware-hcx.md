@@ -78,7 +78,7 @@ VMware HCX Connector deploys a subset of virtual appliances (automated) that req
    - Uplink
    
    > [!NOTE]
-   > * For Azure VMware Solution connected via VPN, set Uplink Network Profile MTU's to 1350 to account for IPSec overhead.
+   > * For Azure VMware Solution connected via VPN, set Uplink Network Profile MTU's to 1350 to account for IPsec overhead.
    > * Azure VMware Solution defaults to 1500 MTU, which is sufficient for most ExpressRoute implementations.
    >   * If your ExpressRoute provider does not support jumbo frames, you may need to lower the MTU in ExpressRoute setups as well.
    >   * Adjust MTU settings on both HCX Connector (on-premises) and HCX Cloud Manager (Azure VMware Solution) network profiles.
