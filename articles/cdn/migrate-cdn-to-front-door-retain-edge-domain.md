@@ -32,7 +32,7 @@ This article provides you with instructions for migrating to Azure Front Door fr
     > - If you are already using custom domains on Edgio, follow the steps in [Migrate Azure CDN from Edgio to Azure Front Door](../frontdoor/migrate-cdn-to-front-door.md).
 
     > [!IMPORTANT]
-> If you plan to migrate to Azure Front Door, set the Feature Flag **DoNotForceMigrateEdgioCDNProfiles** before January 7, 2025 using [Set up preview feature](../azure-resource-manager/management/preview-features.md). This will prevent Microsoft from auto-migrating your profiles to Azure Front Door. Auto-migration is on a *best effort* basis and may cause issues with billing, features, availability, and performance. Complete your migration to another CDN by January 14, 2025, as we can't guarantee service availability on the Edgio platform after this date.
+    > If you plan to migrate to Azure Front Door, set the Feature Flag **DoNotForceMigrateEdgioCDNProfiles** before January 7, 2025 using [Set up preview feature](../azure-resource-manager/management/preview-features.md). This will prevent Microsoft from auto-migrating your profiles to Azure Front Door. Auto-migration is on a *best effort* basis and may cause issues with billing, features, availability, and performance. Complete your migration to another CDN by January 14, 2025, as we can't guarantee service availability on the Edgio platform after this date.
 
 ## Gather information
 
@@ -69,13 +69,13 @@ This article provides you with instructions for migrating to Azure Front Door fr
 
 1. Select **Add a new domain**. Use the following settings and select **Add**:
 
-| Field               | Value                          |
-|---------------------|--------------------------------|
-| Domain type         | Non-Azure validated domain     |
-| DNS management      | All other DNS services         |
-| Custom domain       | `<existing_endpoint_name>.azureedge.net` |
-| Certificate type    | AFD managed                    |
-| Minimum TLS version | TLS 1.2                        |
+    | Field               | Value                          |
+    |---------------------|--------------------------------|
+    | Domain type         | Non-Azure validated domain     |
+    | DNS management      | All other DNS services         |
+    | Custom domain       | `<existing_endpoint_name>.azureedge.net` |
+    | Certificate type    | AFD managed                    |
+    | Minimum TLS version | TLS 1.2                        |
 
 1. In the Add a route setting, leave the Patterns to match and Accepted protocols as default.
 
@@ -127,6 +127,6 @@ This article provides you with instructions for migrating to Azure Front Door fr
 
 1. The Azure support team makes the necessary DNS changes. Traffic will now start being served by the Azure Front Door service.
 
-## Next steps
+## Next step
 
 Learn about [best practices](../frontdoor/best-practices.md) for Azure Front Door.
