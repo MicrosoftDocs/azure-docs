@@ -5,7 +5,7 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: azure-static-web-apps
 ms.topic: how-to
-ms.date: 12/18/2024
+ms.date: 12/20/2024
 ms.author: cshoe
 ms.custom:
 ---
@@ -14,22 +14,22 @@ ms.custom:
 
 Azure Static Web Apps collects a series of metrics when you add a managed API to your application.
 
-To view metrics on your app, open your static web app in the Azure portal and select **Monitoring**. In the *Monitoring* query window, you have the following metrics available: 
+To view metrics on your app, open your static web app in the Azure portal and select **Monitoring**. In the *Monitoring* query window, you have the following metrics available:
 
 | Name | Description |
 |---|---|
 | `BytesSent` | The number of outgoing bytes. |
-| `CdnPercentageOf4XX` | TODO |
-| `CdnPercentageOf5XX` | TODO |
-| `CdnRequestCount` | TODO |
-| `CdnResponseSize` | TODO |
-| `CdnTotalLatency` | TODO |
-| `DataApiErrors` | TODO |
-| `DataApiHits` | TODO |
-| `FunctionErrors` | TODO |
-| `FunctionHits` | TODO |
-| `SiteErrors` | TODO |
-| `SiteHits` | TODO |
+| `CdnPercentageOf4XX` | Percentage of requests that result in `400` series server responses. |
+| `CdnPercentageOf5XX` | Percentage of requests that result in `500` series server responses. |
+| `CdnRequestCount` | Number of requests that make it to the site when enterprise grade edge is enabled. |
+| `CdnResponseSize` | Size of CDN responses in bytes. |
+| `CdnTotalLatency` | Time, measured in milliseconds, representing the CDN latency. |
+| `DataApiErrors` | Number of errors produced from API calls. |
+| `DataApiHits` | Number of hit to API endpoints. |
+| `FunctionErrors` | Number of errors encounter by managed API functions. |
+| `FunctionHits` | Number of hits to managed API functions. |
+| `SiteErrors` | Number of errors encountered by the website. |
+| `SiteHits` | Number of hits to the website. |
 
 ## Related content
 
