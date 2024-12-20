@@ -6,7 +6,7 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: linux-related-content
 ms.topic: overview
-ms.date: 12/17/2024
+ms.date: 12/20/2024
 ms.author: anfdocs
 ---
 
@@ -14,11 +14,11 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
+## December 2024
+
 * [Volume enhancement: Azure NetApp Files 50 GiB minimum volume sizes](azure-netapp-files-create-volumes.md) is now generally available (GA)
 
     This enhancement allows you to create an Azure NetApp Files volume as small as 50 GiB—a reduction from the initial minimum size of 100 GiB. This reduced size can save costs for workloads that require volumes smaller than 100 GiB, allowing you to appropriately size storage volumes. All volume workflows which were supported with a 100 GiB minimum volume size are now supported with this new minimum size of 50 GiB.
-
-## December 2024
 
 * [Volume enhancement: creating volumes with the same file path, share name, or volume path in different availability zones](manage-availability-zone-volume-placement.md#file-path-uniqueness) is now generally available (GA)
 
