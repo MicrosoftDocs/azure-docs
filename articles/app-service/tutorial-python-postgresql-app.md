@@ -284,7 +284,7 @@ The creation wizard generated the database connectivity string for you already a
         1. In **Region**, set it to the same location as the resource group.
         1. In the dialog, in **Location**, select the same location as your App Service app.
         1. In **Resource Group**, select **msdocs-python-postgres-tutorial**.
-        1. In **Name**, type **msdocs-python-spostgres-XYZVaultEndpoint**.
+        1. In **Name**, type **msdocs-python-postgres-XYZVaultEndpoint**.
         1. In **Virtual network**, select **msdocs-python-postgres-XYZVnet**.
         1. In **Subnet**, **msdocs-python-postgres-XYZSubnet**.
         1. Select **OK**.
@@ -344,7 +344,7 @@ The creation wizard generated the database connectivity string for you already a
     :::column-end:::
 :::row-end:::
 
-To summarize, the process involved retrieving the MySQL connection string from the App Service's environment variables, creating an Azure Key Vault for secure secret management with private access, and updating the service connector to store the password in the key vault. A secure connection between the App Service app and key vault was established using a system-assigned managed identity, and the setup was verified by confirming the connection string uses a Key Vault reference.
+To summarize, the process involved retrieving the PostgreSQL connection string from the App Service's environment variables, creating an Azure Key Vault for secure secret management with private access, and updating the service connector to store the password in the key vault. A secure connection between the App Service app and key vault was established using a system-assigned managed identity, and the setup was verified by confirming the connection string uses a Key Vault reference.
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
