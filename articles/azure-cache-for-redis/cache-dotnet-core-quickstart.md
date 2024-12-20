@@ -5,7 +5,7 @@ description: In this quickstart, learn how to access Azure Cache for Redis in yo
 ms.devlang: csharp
 ms.custom: devx-track-csharp, mvc, mode-other, devx-track-dotnet, ignite-2024
 ms.topic: quickstart
-ms.date: 12/13/2024
+ms.date: 12/20/2024
 zone_pivot_groups: redis-type
 #Customer intent: As a .NET developer, new to Azure Redis, I want to create a new Node.js app that uses Azure Managed Redis or Azure Cache for Redis.
 ---
@@ -70,7 +70,7 @@ IDatabase Database = _newConnection.GetDatabase();
 
 ::: zone pivot="azure-managed-redis"
 
-### To edit the _appsettings.json_ file 
+### To edit the _appsettings.json_ file
 
 1. Edit the _Web.config_ file. Then add the following content:
 
@@ -78,7 +78,9 @@ IDatabase Database = _newConnection.GetDatabase();
     "_redisHostName":"<cache-hostname>"
     ```
 
-1. Replace `<cache-hostname>` with your cache host name as it appears in the Overview section of the Resource menu in the Azure portal. For example, _my-redis.eastus.azure.net:10000_.
+1. Replace `<cache-hostname>` with your cache host name as it appears in the Overview section of the Resource menu in the Azure portal.
+
+   For example, with Azure Managed Redis or the Enterprise tiers: _my-redis.eastus.azure.net:10000_
 
 1. Save the file.
 
@@ -90,13 +92,15 @@ For more information, see [StackExchange.Redis](https://stackexchange.github.io/
 
 ### To edit the _appsettings.json_ file
 
-1. Edit the _Web.config_ file. Then add the following content:
+1. Edit the _appsettings.json_ file. Then add the following content:
 
     ```json
     "_redisHostName":"<cache-hostname>"
     ```
 
-1. Replace `<cache-hostname>` with your cache host name as it appears in the Overview section of the Resource menu in the Azure portal. For example, _my-redis.eastus.azure.net:10000_.
+1. Replace `<cache-hostname>` with your cache host name as it appears in the Overview section of the Resource menu in the Azure portal. 
+
+   For example, with Azure Cache for Redis: _my-redis.eastus.azure.net:6380_
 
 1. Save the file.
 

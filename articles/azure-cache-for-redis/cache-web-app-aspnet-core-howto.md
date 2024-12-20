@@ -5,7 +5,7 @@ description: In this quickstart, you learn how to create an ASP.NET Core web app
 ms.devlang: csharp
 ms.custom: devx-track-csharp, mvc, mode-other, ignite-2024
 ms.topic: quickstart
-ms.date: 12/12/2024
+ms.date: 12/20/2024
 zone_pivot_groups: redis-type
 #Customer intent: As an ASP.NET developer, new to Azure Redis, I want to create a new Node.js app that uses Azure Managed Redis or Azure Cache for Redis.
 ---
@@ -84,7 +84,7 @@ dotnet add package Microsoft.Azure.StackExchangeRedis
 
 ### To edit the _appsettings.json_ file
 
-1. Edit the _Web.config_ file. Then add the following content:
+1. Edit the _appsettings.json_ file. Then add the following content:
 
     ```json
     "_redisHostName":"<cache-hostname>"
@@ -104,7 +104,7 @@ For more information, see [StackExchange.Redis](https://stackexchange.github.io/
 
 ### To edit the _appsettings.json_ file
 
-1. Edit the _Web.config_ file. Then add the following content:
+1. Edit the _appsettings.json_ file. Then add the following content:
 
     ```json
     "_redisHostName":"<cache-hostname>"
@@ -119,8 +119,6 @@ For more information, see [StackExchange.Redis](https://stackexchange.github.io/
 For more information, see [StackExchange.Redis](https://stackexchange.github.io/StackExchange.Redis/) and the code in a [GitHub repo](https://github.com/StackExchange/StackExchange.Redis).
 
 ::: zone-end
-
-### To edit the _appsettings.json_ file
 
 ## Run the app locally
 

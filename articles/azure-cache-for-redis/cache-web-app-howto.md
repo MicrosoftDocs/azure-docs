@@ -81,7 +81,9 @@ IDatabase Database = _newConnection.GetDatabase();
     </appSettings>
     ```
 
-1. Replace `<cache-hostname>` with your cache host name as it appears in the Overview on the Resource menu in Azure portal. For example, *my-redis.eastus.azure.net:10000*
+1. Replace `<cache-hostname>` with your cache host name as it appears in the Overview on the Resource menu in Azure portal. 
+
+   For example, with Azure Managed Redis or the Enterprise tiers: _my-redis.eastus.azure.net:10000_
 
 1. Save the file.
 
@@ -103,11 +105,14 @@ For more information, see [StackExchange.Redis](https://stackexchange.github.io/
     </appSettings>
     ```
 
-1. Replace `<cache-hostname>` with your cache host name as it appears in the Overview on the Resource menu in Azure portal. For example, *my-redis.eastus.azure.net:10000*
+1. Replace `<cache-hostname>` with your cache host name as it appears in the Overview on the Resource menu in Azure portal.
+
+   For example with Azure Cache for Redis, *my-redis.eastus.azure.net:6380*
 
 1. Save the file.
 
 For more information, see [StackExchange.Redis](https://stackexchange.github.io/StackExchange.Redis/) and the code in a [GitHub repo](https://github.com/StackExchange/StackExchange.Redis).
+
 ::: zone-end
 
 ## Run the app locally
