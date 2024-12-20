@@ -38,7 +38,7 @@ To assign the Monitoring Data Reader role:
 
 1. Open your Azure Managed Grafana workspace.
 1. In the left menu, select **Integrations** > **Azure Monitor workspaces**.
-1. Select **Add**
+1. Select **Add**.
 1. In the pane that opens, select an Azure Monitor workspace from the list and confirm with **Add**.
 1. Once the operation is complete, Azure displays all the Azure Monitor workspaces added to the Azure Managed Grafana workspace. You can add more Azure Monitor workspaces by selecting **Add** again.
 
