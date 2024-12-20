@@ -3,7 +3,7 @@ title: Common query patterns in Azure Stream Analytics
 description: This article describes several common query patterns and designs that are useful in Azure Stream Analytics jobs.
 ms.service: azure-stream-analytics
 ms.topic: how-to
-ms.date: 01/23/2024
+ms.date: 12/17/2024
 ms.custom: devx-track-js
 ---
 
