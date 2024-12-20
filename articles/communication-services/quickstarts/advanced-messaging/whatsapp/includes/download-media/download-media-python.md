@@ -7,7 +7,7 @@ manager: camilo.ramirez
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.subservice: advanced-messaging
-ms.date: 02/20/2024
+ms.date: 12/20/2024
 ms.topic: include
 ms.custom: Include file
 ms.author: shamkh
@@ -53,7 +53,7 @@ type nul > reaction-messages-quickstart.py
 import os
 
 class MessagesQuickstart(object):
-    print("Azure Communication Services - Advanced Messages SDK Quickstart For Sticker Types.")
+    print("Azure Communication Services - Advanced Messages SDK Quickstart For Reaction Types.")
 
 if __name__ == '__main__':
     messages = MessagesQuickstart()
@@ -65,7 +65,7 @@ The following classes and interfaces handle some of the major features of the Az
 | Name                        | Description                                                                                            |
 |-----------------------------|--------------------------------------------------------------------------------------------------------|
 | NotificationMessagesClient  | This class connects to your Azure Communication Services resource. It sends the messages.              |
-| StickerNotificationContent | This class defines sticker content of the messages|
+| ReactionNotificationContent | This class defines the reaction content of the messages with emoji and reply message id.|
 
 > [!NOTE]
 > Please find the SDK reference [here](https://learn.microsoft.com/python/api/azure-communication-messages/azure.communication.messages).
@@ -82,52 +82,56 @@ Follow these steps to add the necessary code snippets to the messages-quickstart
 ## Code examples
 Follow these steps to add the necessary code snippets to the messages-quickstart.py python program.
 
-- [Send a Sticker messages to a WhatsApp user](#send-a-sticker-messages-to-a-whatsapp-user)
+- [Send a Reaction messages to a WhatsApp user message](#send-a-reaction-messages-to-a-whatsapp-user-message)
 
-## Send a Sticker messages to a WhatsApp user
-Advanced Messages SDK allows Contoso to send sticker WhatsApp messages, which is initiated by WhatsApp users. To send text messages below details are required:
+## Send a Reaction messages to a WhatsApp user message
+Advanced Messages SDK allows Contoso to send reaction WhatsApp messages, which initiated by WhatsApp users. To send text messages below details are required:
 - [WhatsApp Channel ID](#set-channel-registration-id)
 - [Recipient Phone Number in E16 format](#set-recipient-list)
-- Sticker Message content can be created using given properties:
+- Reaction content can be created using given properties:
 
 | Action type   | Description |
 |----------|---------------------------|
-| StickerNotificationContent    | This class defines  Sticker messge content.  |
-| Media_Uri    | This property defines the uri to the animated/static sticker.   |
+| ReactionNotificationContent    | This class defines title of the group content and array of the group.    |
+| Emoji    | This property defines the unnicode for emoji character.   |
+| Reply Message Id | This property defines Id of the message to be replied with emoji. |
 
 > [!IMPORTANT]
 > To send a text message to a WhatsApp user, the WhatsApp user must first send a message to the WhatsApp Business Account. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
 
-In this example, business sends sticker message to the WhatsApp user"
+In this example, business sends reaction to the user message"
 ```python
-   def send_sticker_message(self):
+    def send_reaction_message(self):
 
         from azure.communication.messages import NotificationMessagesClient
-        from azure.communication.messages.models import StickerNotificationContent
+        from azure.communication.messages.models import ReactionNotificationContent
 
         messaging_client = NotificationMessagesClient.from_connection_string(self.connection_string)
 
-        video_options = StickerNotificationContent(
+        video_options = ReactionNotificationContent(
             channel_registration_id=self.channel_id,
             to=[self.phone_number],
-            media_uri="https://www.simpleimageresizer.com/_uploads/photos/d299e618/1.sm_512x512_cropped.webp",
+            emoji="\uD83D\uDE00",
+            message_id="<<ReplyMessageIdGuid>>",
         )
 
         # calling send() with whatsapp message details
         message_responses = messaging_client.send(video_options)
         response = message_responses.receipts[0]
         print("Message with message id {} was successful sent to {}".format(response.message_id, response.to))
-
 ```
 
-To run send_sticker_message(), update the [main method](#basic-program-structure)
+To run send_reaction_message(), update the [main method](#basic-program-structure)
 ```python
-    #Calling send_sticker_message()
-    messages.send_sticker_message()
+    #Calling send_reaction_message()
+    messages.send_reaction_message()
 ```
+
+:::image type="content" source="../../media/interactive-reaction-sticker/reaction-message.png" lightbox="../../media/interactive-reaction-sticker/reaction-message.png" alt-text="Screenshot that shows WhatsApp CTA interactive message from Business to User.":::
 
 ## Run the code
-To run the code, make sure you are on the directory where your `messages-quickstart.py` file is.
+
+To run the code, make sure you are on the directory where your `reaction-messages-quickstart.py` file is.
 
 ```console
 python reaction-messages-quickstart.py
@@ -135,10 +139,8 @@ python reaction-messages-quickstart.py
 
 ```output
 Azure Communication Services - Advanced Messages Quickstart
-WhatsApp Sticker Message with message id <<GUID>> was successfully sent to <<ToRecipient>>
+WhatsApp Reaction Message with message id <<GUID>> was successfully sent to <<ToRecipient>>
 ```
-
-:::image type="content" source="../../media/interactive-reaction-sticker/sticker-message.png" lightbox="../../media/interactive-reaction-sticker/sticker-message.png" alt-text="Screenshot that shows WhatsApp CTA interactive message from Business to User.":::
 
 ## Full sample code
 
@@ -153,27 +155,28 @@ class MessagesQuickstart(object):
     phone_number = os.getenv("RECIPIENT_PHONE_NUMBER")
     channelRegistrationId = os.getenv("WHATSAPP_CHANNEL_ID")
 
-    def send_sticker_message(self):
+    def send_reaction_message(self):
 
         from azure.communication.messages import NotificationMessagesClient
-        from azure.communication.messages.models import StickerNotificationContent
+        from azure.communication.messages.models import ReactionNotificationContent
 
         messaging_client = NotificationMessagesClient.from_connection_string(self.connection_string)
 
-        video_options = StickerNotificationContent(
+        video_options = ReactionNotificationContent(
             channel_registration_id=self.channel_id,
             to=[self.phone_number],
-            media_uri="https://www.simpleimageresizer.com/_uploads/photos/d299e618/1.sm_512x512_cropped.webp",
+            emoji="\uD83D\uDE00",
+            message_id="<<ReplyMessageIdGuid>>",
         )
 
         # calling send() with whatsapp message details
         message_responses = messaging_client.send(video_options)
         response = message_responses.receipts[0]
-        print("WhatsApp Sticker Message with message id {} was successful sent to {}".format(response.message_id, response.to))
+        print("WhatsApp Reaction Message with message id {} was successful sent to {}".format(response.message_id, response.to))
 
 if __name__ == '__main__':
     messages = MessagesQuickstart()
-    messages.send_sticker_message()
+    messages.send_reaction_message()
 ```
 
 > [!NOTE]

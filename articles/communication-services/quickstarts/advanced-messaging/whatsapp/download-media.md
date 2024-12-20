@@ -50,15 +50,15 @@ Here's an example of an AdvancedMessageReceived event with media content:
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-[!INCLUDE [Download WhatsApp media messages with Java SDK](./includes/get-started/messages-get-started-java.md)]
+[!INCLUDE [Download WhatsApp media messages with Java SDK](./includes/download-media/download-media-java.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
-[!INCLUDE [Download WhatsApp media messages with Javascript SDK](./includes/get-started/messages-get-started-js.md)]
+[!INCLUDE [Download WhatsApp media messages with Javascript SDK](./includes/download-media/download-media-js.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-[!INCLUDE [Download WhatsApp media messages with Python SDK](./includes/get-started/messages-quickstart-python.md)]
+[!INCLUDE [Download WhatsApp media messages with Python SDK](./includes/download-media/download-media-python.md)]
 ::: zone-end
 
 ## Next steps
