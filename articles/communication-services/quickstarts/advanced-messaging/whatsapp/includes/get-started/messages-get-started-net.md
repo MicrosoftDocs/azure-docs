@@ -125,6 +125,9 @@ The following classes and interfaces handle some of the major features of the Az
 | TextNotificationContent     | This class defines the "who" and the "what" of the text message you intend to send.                    |
 | MediaNotificationContent    | This class defines the "who" and the "what" of the media message you intend to send.                   |
 
+> [!NOTE]
+> Please find the SDK reference [here](https://review.learn.microsoft.com/en-us/dotnet/api/azure.communication.messages?view=azure-dotnet&branch=main).
+
 ## Code examples
 
 Follow these steps to add the necessary code snippets to the Main function of your *Program.cs* file.

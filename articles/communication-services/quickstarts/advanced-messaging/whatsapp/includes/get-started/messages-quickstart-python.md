@@ -73,6 +73,9 @@ The following classes and interfaces handle some of the major features of the Az
 | VideoNotificationContent    | This class defines the "who" and the "what" of the Video media message you intend to send.             |
 | AudioNotificationContent    | This class defines the "who" and the "what" of the Audio media message you intend to send.             |
 
+> [!NOTE]
+> Please find the SDK reference [here](https://learn.microsoft.com/en-us/python/api/azure-communication-messages/azure.communication.messages?view=azure-python).
+
 ## Code examples
 
 Follow these steps to add the necessary code snippets to the messages-quickstart.py python program.

@@ -77,7 +77,10 @@ The following classes and interfaces handle some of the major features of the Az
 | SendMessageResult                           | This class contains the result from the Advance Messaging service for send notification message.       |
 | MessageTemplateClientBuilder                | This class creates the Message Template Client. You provide it with an endpoint and a credential.      |
 | MessageTemplateClient                       | This class is needed to get the list of WhatsApp templates.                                            |
-| MessageTemplateAsyncClient                  | This class is needed to get the list of WhatsApp templates asynchronously.                             |
+| MessageTemplateAsyncClient                  | This class is needed to get the list of WhatsApp templates asynchronously.  |
+
+> [!NOTE]
+> Please find the SDK reference [here](https://learn.microsoft.com/en-us/java/api/com.azure.communication.messages?view=azure-java-stable)
 
 ## Code examples
 

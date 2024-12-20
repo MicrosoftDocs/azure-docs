@@ -70,6 +70,9 @@ The following classes and interfaces handle some of the major features of the Az
 | MessageClient   | This class connects to your Azure Communication Services resource. It sends the messages.              |
 | MessageTemplate | This class defines which template you use and the content of the template properties for your message. |
 
+> [!NOTE]
+> Please find the SDK reference [here](https://learn.microsoft.com/en-us/javascript/api/@azure-rest/communication-messages/?view=azure-node-latest)
+
 ## Code examples
 
 Follow these steps to add the necessary code snippets to the main function of your *send-messages.js* file.

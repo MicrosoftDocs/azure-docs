@@ -67,6 +67,9 @@ The following classes and interfaces handle some of the major features of the Az
 | NotificationMessagesClient  | This class connects to your Azure Communication Services resource. It sends the messages.              |
 | StickerNotificationContent | This class defines sticker content of the messages|
 
+> [!NOTE]
+> Please find the SDK reference [here](https://learn.microsoft.com/en-us/python/api/azure-communication-messages/azure.communication.messages?view=azure-python).
+
 ## Common configuration
 Follow these steps to add the necessary code snippets to the messages-quickstart.py python program.
 
