@@ -94,11 +94,11 @@ Here's a list of core metadata to set up the scale rule.
 | metricAggregationInterval          | Collection time of the metric in format "hh:mm:ss" (Default: "0:5:0", Optional)                       |
 | targetValue                        | Target value to trigger scaling actions. (This value can be a float)                                  |
 
-### Example
+
 
 Add a scale rule with [metrics from Azure Container Apps](./metrics.md) for your application.
 
-# [Azure CLI](#tab/azurecli)
+### [Azure CLI](#tab/azurecli)
 
 ```azurecli
 az containerapp update \
@@ -119,7 +119,7 @@ az containerapp update \
         --scale-rule-identity $USER_ASSIGNED_IDENTITY_ID
 ```
 
-# [ARM Template](#tab/arm-template)
+### [ARM Template](#tab/arm-template)
 
 ```json
 {
@@ -147,7 +147,7 @@ az containerapp update \
                             "identity": "<your-managed-identity-id>"
                         }
                     }
-                ]
+                  ]
                 }   
             }
         }
@@ -155,9 +155,13 @@ az containerapp update \
 }
 ```
 
+---
 
-
-This command adds a scale rule to your container app with the name `scale-with-azure-monitor-metrics`, and the scale type is set to `azure-monitor`. It uses the managed identity with resource ID `USER_ASSIGNED_IDENTITY_ID` to authenticate with Azure Monitor and query metrics for your container app. In the example, KEDA queries the metric `JvmGcCount`, and aggregates the metric values within 1 minute with aggregation type `Total`. The target value is set to `30`, which means KEDA calculates the `desiredReplicas` using `ceil(AggregatedMetricValue(JvmGcCount)/30)`.  
+This command adds a scale rule to your container app with the name `scale-with-azure-monitor-metrics`
+- The scale type is set to `azure-monitor`.
+- It uses the managed identity with resource ID `USER_ASSIGNED_IDENTITY_ID` to authenticate with Azure Monitor and query metrics for your container app. 
+- KEDA queries the metric `JvmGcCount`, and aggregates the metric values within 1 minute with aggregation type `Total`. 
+- The target value is set to `30`, which means KEDA calculates the `desiredReplicas` using `ceil(AggregatedMetricValue(JvmGcCount)/30)`.  
 
 > [!NOTE]
 > The metric `JvmGcCount` is only used as an example. You can use any metric from Azure Monitor. Before setting up the scale rule, view the metrics in the Azure portal to determine the appropriate metric, aggregation interval, and target value based on your application's requirements. Additionally, consider using the built-in [HTTP/TCP scale rules](./scale-app.md#http), which can meet most common scaling scenarios, before opting for a custom metric.
@@ -184,12 +188,12 @@ Here's a sample metric snapshot for the example scale rule.
 
 To view the KEDA scale logs, you can run the query in `Logs`.
 
-    ```kusto
+```kusto
     ContainerAppSystemLogs
     | where RevisionName == "<your-revision>"
     | where EventSource == "KEDA"
     | project TimeGenerated, Type, Reason, ContainerAppName, Log
-    ```
+```
 
 :::image type="content" source="media/java-metrics-keda/keda-auto-scale-java-log.png" alt-text="Screenshot of KEDA scale log query" lightbox="media/java-metrics-keda/keda-auto-scale-java-log.png":::
 
