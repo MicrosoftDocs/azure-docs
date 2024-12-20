@@ -2,7 +2,7 @@
 title: Provision a pool with Auto OS Upgrade
 description: Learn how to create a Batch pool with Auto OS Upgrade so that customers can have control over their OS upgrade strategy to ensure safe, workload-aware OS upgrade deployments.
 ms.topic: how-to
-ms.date: 04/02/2024
+ms.date: 12/20/2024
 ms.custom: 
 ---
 
