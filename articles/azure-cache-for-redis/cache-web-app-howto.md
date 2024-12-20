@@ -69,11 +69,9 @@ IDatabase Database = _newConnection.GetDatabase();
 
 ::: zone pivot="azure-managed-redis"
 
-### To edit the *CacheSecrets.config* file
+### To edit the *web.config* file
 
-1. Create a file on your computer named *CacheSecrets.config*. Put it in a location where it isn't checked in with the source code of your sample application. For this quickstart, the *CacheSecrets.config* file is located at _C:\AppSecrets\CacheSecrets.config_.
-
-1. Edit the *Web.config* file. Then add the following content:
+1. Edit the *Web.config* file by adding the following content:
 
     ```xml
     <appSettings>
@@ -93,11 +91,9 @@ For more information, see [StackExchange.Redis](https://stackexchange.github.io/
 
 ::: zone pivot="azure-cache-redis"
 
-### To edit the *CacheSecrets.config* file
+### To edit the *web.config* file
 
-1. Create a file on your computer named *CacheSecrets.config*. Put it in a location where it isn't checked in with the source code of your sample application. For this quickstart, the *CacheSecrets.config* file is located at _C:\AppSecrets\CacheSecrets.config_.
-
-1. Edit the *Web.config* file. Then add the following content:
+1. Edit the *Web.config* file by adding the following content:
 
     ```xml
     <appSettings>
