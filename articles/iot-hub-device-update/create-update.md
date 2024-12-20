@@ -33,7 +33,7 @@ This article describes how to get a new update and prepare it for importing into
 
 ## Obtain an update for your device
 
-Get the update file(s) to deploy to your device.
+Get one or more update files to deploy to your device.
 
 If you purchased devices from an Original Equipment Manufacturer (OEM) or solution integrator, that organization probably provides updates without you having to create update files. Contact the OEM or solution integrator to find out how they make updates available. If your organization creates software for the devices you use, the same organization creates the updates for that software.
 
@@ -49,7 +49,7 @@ Once you have your update files and are familiar with basic [import concepts](im
 The `az iot du init v5` command takes the following arguments:
 
 - The `--update-provider`, `--update-name`, and `--update-version` parameters define the `updateId` object that's a unique identifier for each update.
-- The `--compat` compatibility object is a set of name-value pairs that describe the properties of a device that this update is compatible with. You can use a specific set of compatibility properties with only one provider and name combination.
+- The `--compat` compatibility object is a set of name-value pairs that describe the properties of a device that this update is compatible with. You can't use the same specific set of compatibility properties with more than one provider and name combination.
 - `--step` specifies the update `handler` on the device, such as `microsoft/script:1`, `microsoft/swupdate:1`, or `microsoft/apt:1`, and its associated `properties` for this update.
 - `--file` specifies the `path`s to your update file or files.
 
@@ -63,7 +63,7 @@ az iot du update init v5 \
     --update-name <update name> \
     --update-version <update version> \
     --compat <property1>=<value> <property2>=<value> \
-    --step handler=<handler> properties=<any handler properties, JSON-formatted> \
+    --step handler=<handler> properties=<handler properties, JSON-formatted> \
     --file path=<path(s) and full file name(s) of your update file(s)> 
 ```
 
@@ -79,7 +79,7 @@ az iot du update init v5 \
     --file path=/my/apt/manifest/file
 ```
 
-The `init` command supports advanced scenarios, including the [related files feature](related-files.md) that allows you to define the relationship between different update files. For more examples and a complete list of optional parameters, see the [az iot du init v5](/cli/azure/iot/du/update/init#az-iot-du-update-init-v5) reference.
+The `az iot du init v5` command supports advanced scenarios, including the [related files feature](related-files.md) that allows you to define the relationship between different update files. For more examples and a complete list of optional parameters, see the [az iot du init v5](/cli/azure/iot/du/update/init#az-iot-du-update-init-v5) reference.
 
 Once you create your import manifest and save it as a JSON file, you can [import the update](import-update.md). If you plan to use the Azure portal for importing, be sure to name your import manifest with the format *\<manifestname\>.importmanifest.json*.
 
@@ -87,7 +87,7 @@ Once you create your import manifest and save it as a JSON file, you can [import
 
 If your update is more complex, such as a [proxy update](device-update-proxy-updates.md), you might need to create multiple import manifests. For complex updates, you can use the `az iot du update init v5` Azure CLI command to create a *parent* import manifest and some number of *child* import manifests.
 
-Run the following Azure CLI commands after replacing the placeholder values. For details on the values you can use, see [Import schema and API information](import-schema.md). The example below shows three updates to deploy to the device, one parent update and two child updates.
+Run the following Azure CLI commands after replacing the placeholder values. For details on the values you can use, see [Import schema and API information](import-schema.md). The example below shows three updates to deploy to the device, a parent update and two child updates.
 
 ```azurecli
 az iot du update init v5 \
@@ -119,5 +119,5 @@ az iot du update init v5 \
 
 - [Import an update](import-update.md)
 - [Learn about import concepts](import-concepts.md)
-- [Import schema and API information](import-schema.md).
+- [Import schema and API information](import-schema.md)
 

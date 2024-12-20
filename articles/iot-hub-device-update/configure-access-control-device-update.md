@@ -16,7 +16,7 @@ For users to access Azure Device Update for IoT Hub, you must grant them access 
 ## Prerequisites
 
 - **Owner** or **User Access Administrator** role in your Azure subscription
-- A [Device Update account and instance configured with an IoT hub](create-device-update-account.md).
+- A [Device Update account and instance configured with an IoT hub](create-device-update-account.md)
 - To run Azure CLI commands, the Bash environment in [Azure Cloud Shell](/azure/cloud-shell/quickstart) or [Azure CLI installed locally](/cli/azure/install-azure-cli)
 
 ## Configure access control for Device Update account
@@ -66,7 +66,8 @@ az role assignment create --role '<role>' --assignee <user_or_group> --scope <ac
 ```
 ---
 
-## Configure access for the Device Update service principal in linked IoT hub
+<a name="configure-access-for-azure-device-update-service-principal-in-linked-iot-hub"></a>
+## Configure IoT hub access for the Device Update service principal
 
 Device Update communicates with IoT Hub to manage deployments and updates and to get information about devices. To enable this communication, you need to give the Azure Device Update service principal access to the IoT hub with the **IoT Hub Data Contributor** role.
 
@@ -86,7 +87,7 @@ Device Update communicates with IoT Hub to manage deployments and updates and to
 
    :::image type="content" source="media/create-device-update-account/role-assignment-iot-hub.png" alt-text="Screenshot of access control role assignment within IoT Hub." lightbox="media/create-device-update-account/role-assignment-iot-hub.png":::**
 
-1. On the **Members** tab, select **User, group, or service principal** for **Assign access to**, and then select **Select Members**.
+1. On the **Members** tab, select **User, group, or service principal** for **Assign access to**, and then select **Select members**.
 
 1. On the **Select members** screen, search for and select **Azure Device Update**, and then select **Select**.
 

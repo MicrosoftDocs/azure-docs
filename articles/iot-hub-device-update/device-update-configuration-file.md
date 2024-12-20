@@ -36,7 +36,7 @@ To update or create the *du-config.json* configuration file:
 | model | Reported by the `AzureDeviceUpdateCore:4.ClientMetadata:4` interface to classify the device for targeting the update deployment. |
 | iotHubProtocol| Accepted values are `mqtt` or `mqtt/ws` to change the protocol used to connect with IoT hub. Default value is `'mqtt'`. |
 | compatPropertyNames | Used to check for compatibility of the device to target the update deployment. For all properties to be used for compatibility, the values must be lowercase only. |
-| additionalProperties | Optional, up to five additional lowercase device reported properties to be set and used for compatibility checking. |
+| additionalProperties | Optional, up to five more device reported lowercase property values to be set and used for compatibility checking. |
 | connectionType | Accepted values are `string` or `AIS`. For production scenarios, use `AIS` when using the IoT Identity Service to connect the device to IoT Hub. For testing purposes, use `string` to connect the device using a connection string. |
 | connectionData  | If `connectionType = "AIS"`, set the `connectionData` to an empty string: `"connectionData": ""`. If `connectionType = "string"`, add your device or module connection string. |
 | manufacturer | Reported by the Device Update agent as part of the `DeviceInformation` interface. |
