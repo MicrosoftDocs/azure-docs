@@ -70,6 +70,8 @@ To view roles and permissions for other services, see the following links:
 
 - [Azure Virtual WAN](../virtual-wan/roles-permissions.md)
 
+- [Managed NVA](../virtual-wan/roles-permissions.md#nva-resources)
+
 ## Next steps
 
 - [What is Azure Role Based Access](../role-based-access-control/overview.md)
