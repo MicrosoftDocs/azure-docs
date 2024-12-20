@@ -53,7 +53,7 @@ These tables contain more information about some of the metrics in the preceding
 | **Tunnel Egress TS Mismatch Packet Drop** | Outgoing packet drop count from traffic selector mismatch of a tunnel.|
 | **Tunnel Ingress TS Mismatch Packet Drop** | Incoming packet drop count from traffic selector mismatch of a tunnel.|
 
-#### IPSec metrics
+#### IPsec metrics
 
 | Metric | Description |
 |:-------|:------------|
