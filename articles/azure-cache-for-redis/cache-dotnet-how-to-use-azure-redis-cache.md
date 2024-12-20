@@ -22,7 +22,7 @@ Clone the repo from [Azure-Samples/azure-cache-redis-samples](https://github.com
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 - [Visual Studio 2019](https://www.visualstudio.com/downloads/)
-- [.NET Framework 4 or higher](https://dotnet.microsoft.com/download/dotnet-framework), which is required by the StackExchange.Redis client.
+- [.NET Framework 4 or higher](https://dotnet.microsoft.com/download/dotnet-framework) is required by the StackExchange.Redis client.
 
 ::: zone pivot="azure-managed-redis"
 
@@ -50,8 +50,9 @@ Clone the repo from [Azure-Samples/azure-cache-redis-samples](https://github.com
 
 <!-- [!INCLUDE [redis-cache-passwordless](includes/redis-cache-passwordless.md)] -->
 
-### Install the Library for using Entra ID Authentication
-The [Azure.StackExchange.Redis](https://www.nuget.org/packages/Microsoft.Azure.StackExchangeRedis) library contains the Microsoft Entra ID authentication method for connecting to Azure Redis services using Entra ID. It is applicable to all Azure Cache for Redis, Azure Cache for Redis Enterprise, and Azure Managed Redis (Preview).
+### Install the Library for using Microsoft Entra ID Authentication
+
+The [Azure.StackExchange.Redis](https://www.nuget.org/packages/Microsoft.Azure.StackExchangeRedis) library contains the Microsoft Entra ID authentication method for connecting to Azure Redis services using Microsoft Entra ID. It's applicable to all Azure Cache for Redis, Azure Cache for Redis Enterprise, and Azure Managed Redis (Preview).
 
 ```cli
 dotnet add package Microsoft.Azure.StackExchangeRedis
@@ -59,7 +60,7 @@ dotnet add package Microsoft.Azure.StackExchangeRedis
 
 ----
 
-### Connect to the cache using Entra ID
+### Connect to the cache using Microsoft Entra ID
 
 1. Include the libraries in your code
    
@@ -88,7 +89,7 @@ IDatabase Database = _newConnection.GetDatabase();
     </appSettings>
     ```
 
-1. Replace `<cache-hostname>` with your cache host name as it appears in the Overview blade of Azure Portal. For example, *my-redis.eastus.azure.net:10000*
+1. Replace `<cache-hostname>` with your cache host name as it appears in the Overview from the Resource menu in Azure portal. For example, *my-redis.eastus.azure.net:10000*
 
 1. Save the file.
 

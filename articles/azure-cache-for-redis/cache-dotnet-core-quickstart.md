@@ -43,14 +43,9 @@ Clone the repo [https://github.com/Azure-Samples/azure-cache-redis-samples/tree/
 
 [!INCLUDE [cache-entra-access](includes/cache-entra-access.md)]
 
-<!-- ## [Access Key Authentication](#tab/accesskey) -->
+### Install the Library for using Microsoft Entra ID Authentication
 
-[!INCLUDE [redis-access-key-alert](includes/redis-access-key-alert.md)]
-
-<!-- [!INCLUDE [redis-cache-passwordless](includes/redis-cache-passwordless.md)] -->
-
-### Install the Library for using Entra ID Authentication
-The [Azure.StackExchange.Redis](https://www.nuget.org/packages/Microsoft.Azure.StackExchangeRedis) library contains the Microsoft Entra ID authentication method for connecting to Azure Redis services using Entra ID. It is applicable to all Azure Cache for Redis, Azure Cache for Redis Enterprise, and Azure Managed Redis (Preview).
+The [Azure.StackExchange.Redis](https://www.nuget.org/packages/Microsoft.Azure.StackExchangeRedis) library contains the Microsoft Entra ID authentication method for connecting to Azure Redis services using Microsoft Entra ID. It's applicable to all Azure Cache for Redis, Azure Cache for Redis Enterprise, and Azure Managed Redis (Preview).
 
 ```cli
 dotnet add package Microsoft.Azure.StackExchangeRedis
@@ -58,47 +53,46 @@ dotnet add package Microsoft.Azure.StackExchangeRedis
 
 ---
 
-## Connect to the cache using Entra ID
+## Connect to the cache using Microsoft Entra ID
 
 1. Include the libraries in your code
-   
-```
+
+```csharp
 using Azure.Identity;
 using StackExchange.Redis
 ```
 
 1. Using the default Azure credentials to authenticate the client connection. This enables your code to use the signed-in user credential when running locally, and an Azure managed identity when running in Azure without code change.
-   
+
 ```csharp
 var configurationOptions = await ConfigurationOptions.Parse($"{_redisHostName}").ConfigureForAzureWithTokenCredentialAsync(new DefaultAzureCredential());
 ConnectionMultiplexer _newConnection = await ConnectionMultiplexer.ConnectAsync(configurationOptions);
 IDatabase Database = _newConnection.GetDatabase();
 ```
 
-### To edit the *appsettings.json* file
+### To edit the _appsettings.json_ file
 
-1. Edit the *Web.config* file. Then add the following content:
+1. Edit the _Web.config_ file. Then add the following content:
 
     ```json
     "_redisHostName":"<cache-hostname>"
     ```
 
-1. Replace `<cache-hostname>` with your cache host name as it appears in the Overview blade of Azure Portal. For example, *my-redis.eastus.azure.net:10000*
+1. Replace `<cache-hostname>` with your cache host name as it appears in the Overview section of the Resource menu in the Azure portal. For example, _my-redis.eastus.azure.net:10000_.
 
 1. Save the file.
 
 For more information, see [StackExchange.Redis](https://stackexchange.github.io/StackExchange.Redis/) and the code in a [GitHub repo](https://github.com/StackExchange/StackExchange.Redis).
 
-
 ## Run the sample
 
-If you have opened any files, save them and build the app with the following command:
+If you opened any files, save them, and build the app with the following command:
 
 ```dos
 dotnet build
 ```
 
-Run the app with the following command to test serialization of .NET objects:
+To test serialization of .NET objects, run the app with the following command:
 
 ```dos
 dotnet run

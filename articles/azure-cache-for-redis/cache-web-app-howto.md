@@ -42,29 +42,25 @@ Clone the repo [https://github.com/Azure-Samples/azure-cache-redis-samples/tree/
 
 [!INCLUDE [cache-entra-access](includes/cache-entra-access.md)]
 
-[!INCLUDE [redis-access-key-alert](includes/redis-access-key-alert.md)]
+### Install the library for using Microsoft Entra ID Authentication
 
-<!--
-[!INCLUDE [redis-cache-passwordless](includes/redis-cache-passwordless.md)]
--->
-### Install the Library for using Entra ID Authentication
-The [Azure.StackExchange.Redis](https://www.nuget.org/packages/Microsoft.Azure.StackExchangeRedis) library contains the Microsoft Entra ID authentication method for connecting to Azure Redis services using Entra ID. It is applicable to all Azure Cache for Redis, Azure Cache for Redis Enterprise, and Azure Managed Redis (Preview).
+The [Azure.StackExchange.Redis](https://www.nuget.org/packages/Microsoft.Azure.StackExchangeRedis) library contains the Microsoft using Microsoft Entra ID authentication method for connecting to Azure Redis services using Microsoft Entra ID. It's applicable to all Azure Cache for Redis, Azure Cache for Redis Enterprise, and Azure Managed Redis (Preview).
 
 ```cli
 dotnet add package Microsoft.Azure.StackExchangeRedis
 ```
 
-### Connect to the cache using Entra ID
+### Connect to the cache using Microsoft Entra ID
 
 1. Include the libraries in your code
-   
+
 ```
 using Azure.Identity;
 using StackExchange.Redis
 ```
 
 1. Using the default Azure credentials to authenticate the client connection. This enables your code to use the signed-in user credential when running locally, and an Azure managed identity when running in Azure without code change.
-   
+
 ```csharp
 var configurationOptions = await ConfigurationOptions.Parse($"{_redisHostName}").ConfigureForAzureWithTokenCredentialAsync(new DefaultAzureCredential());
 ConnectionMultiplexer _newConnection = await ConnectionMultiplexer.ConnectAsync(configurationOptions);
@@ -73,7 +69,7 @@ IDatabase Database = _newConnection.GetDatabase();
 
 ### To edit the *CacheSecrets.config* file
 
-1. Create a file on your computer named *CacheSecrets.config*. Put it in a location where it won't be checked in with the source code of your sample application. For this quickstart, the *CacheSecrets.config* file is located at *C:\AppSecrets\CacheSecrets.config*.
+1. Create a file on your computer named *CacheSecrets.config*. Put it in a location where it isn't checked in with the source code of your sample application. For this quickstart, the *CacheSecrets.config* file is located at _C:\AppSecrets\CacheSecrets.config_.
 
 1. Edit the *Web.config* file. Then add the following content:
 
@@ -83,13 +79,11 @@ IDatabase Database = _newConnection.GetDatabase();
     </appSettings>
     ```
 
-1. Replace `<cache-hostname>` with your cache host name as it appears in the Overview blade of Azure Portal. For example, *my-redis.eastus.azure.net:10000*
+1. Replace `<cache-hostname>` with your cache host name as it appears in the Overview on the Resource menu in Azure portal. For example, *my-redis.eastus.azure.net:10000*
 
 1. Save the file.
 
 For more information, see [StackExchange.Redis](https://stackexchange.github.io/StackExchange.Redis/) and the code in a [GitHub repo](https://github.com/StackExchange/StackExchange.Redis).
-
-<!-- :::code language="csharp" source="~/samples-cache/quickstart/aspnet/ContosoTeamStats/RedisConnection.cs "::: -->
 
 ## Run the app locally
 
@@ -123,7 +117,7 @@ After you successfully test the app locally, you can deploy the app to Azure and
 
     | Setting | Recommended value | Description |
     | ------- | :---------------: | ----------- |
-    | **App name** | Use the default. | The app name is the host name for the app when it's deployed to Azure. The name might have a timestamp suffix added to it to make it unique if necessary. |
+    | **App name** | Use the default. | The app name is the host name for the app when deployed to Azure. The name might have a timestamp suffix added to it to make it unique if necessary. |
     | **Subscription** | Choose your Azure subscription. | This subscription is charged for any related hosting costs. If you have multiple Azure subscriptions, verify that the subscription that you want is selected.|
     | **Resource group** | Use the same resource group where you created the cache (for example, *TestResourceGroup*). | The resource group helps you manage all resources as a group. Later, when you want to delete the app, you can just delete the group. |
     | **App Service plan** | Select **New**, and then create a new App Service plan named *TestingPlan*. <br />Use the same **Location** you used when creating your cache. <br />Choose **Free** for the size. | An App Service plan defines a set of compute resources for a web app to run with. |
@@ -132,17 +126,17 @@ After you successfully test the app locally, you can deploy the app to Azure and
 
 1. After you configure the App Service hosting settings, select **Create**.
 
-1. Monitor the **Output** window in Visual Studio to see the publishing status. After the app has been published, the URL for the app is logged:
+1. Monitor the **Output** window in Visual Studio to see the publishing status. After the app is published, the URL for the app is logged:
 
    :::image type="content" source="media/cache-web-app-howto/cache-publishing-output.png" alt-text="Screenshot publishing information in the output pane.":::
 
 ### Add the app setting for the cache
 
-After the new app has been published, add a new app setting. This setting is used to store the cache connection information.
+After the new app is published, add a new app setting. This setting is used to store the cache connection information.
 
 #### To add the app setting
 
-1. Type the app name in the search bar at the top of the Azure portal to find the new app you created.
+1. To find the new app you created, type the app name in the search bar at the top of the Azure portal.
 
    :::image type="content" source="media/cache-web-app-howto/cache-find-app-service.png" alt-text="Screenshot showing how to find the app on the Azure portal.":::
 
@@ -150,7 +144,7 @@ After the new app has been published, add a new app setting. This setting is use
 
 ### Run the app in Azure
 
-1. In your browser, go to the URL for the app. The URL appears in the results of the publishing operation in the Visual Studio output window. It's also provided in the Azure portal on the overview page of the app you created.
+1. In your browser, go to the URL for the app. The URL appears in the results of the publishing operation in the Visual Studio output window. The URL is also provided in the Azure portal on the overview page of the app you created.
 
 1. Select **Azure Cache for Redis Test** on the navigation bar to test cache access as you did with the local version.
 
