@@ -177,7 +177,7 @@ For the classic deployment model:
 
 ### Can I use NAT-T on my VPN connections?
 
-Yes, network address translation traversal (NAT-T) is supported. Azure VPN Gateway does *not* perform any NAT-like functionality on the inner packets to or from the IPsec tunnels. In this configuration, ensure that the on-premises device initiates the IPSec tunnel.
+Yes, network address translation traversal (NAT-T) is supported. Azure VPN Gateway does *not* perform any NAT-like functionality on the inner packets to or from the IPsec tunnels. In this configuration, ensure that the on-premises device initiates the IPsec tunnel.
 
 ### Can I set up my own VPN server in Azure and use it to connect to my on-premises network?
 
