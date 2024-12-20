@@ -151,6 +151,8 @@ items:
     href: configure-hcx-network-extension.md
   - name: VMware HCX Mobility Optimized Networking (MON) guidance
     href: vmware-hcx-mon-guidance.md
+  - name: NSX Scale and Performance Recommendations for VMware HCX
+    href: azure-vmware-solution-nsx-scale-and-performance-recommendations-for-vmware-hcx.md
   - name: Configure NSX network components
     href: configure-nsx-network-components-azure-portal.md
   - name: Configure port mirroring
@@ -181,6 +183,8 @@ items:
     href: vmware-hcx-mon-guidance.md	
   - name: Configure VMware HCX network extension high availability
     href: configure-hcx-network-extension-high-availability.md
+  - name: NSX Scale and Performance Recommendations for VMware HCX
+    href: azure-vmware-solution-nsx-scale-and-performance-recommendations-for-vmware-hcx.md
   - name: Enable VMware HCX access over the internet
     href: enable-hcx-access-over-internet.md
   - name: Upgrade VMware HCX on Azure VMware Solution
