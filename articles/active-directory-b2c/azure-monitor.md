@@ -143,6 +143,9 @@ To create the custom authorization and delegation in Azure Lighthouse, we use an
 
 After you deploy the template, it can take a few minutes (typically no more than five) for the resource projection to complete. You can verify the deployment in your Microsoft Entra tenant and get the details of the resource projection. For more information, see [View and manage service providers](/azure/lighthouse/how-to/view-manage-service-providers).
 
+> [!NOTE]
+> Using Azure Lighthouse with Azure AD B2C is only supported when the above template is used. Using Azure Lighthouse to delegate access to entire subscriptions, or creating resources within the Azure AD B2C tenant not mentioned in this page, is not supported and will put the Azure AD B2C tenant in a bad state.
+
 ## 4. Select your subscription
 
 After you've deployed the template and waited a few minutes for the resource projection to complete, follow these steps to associate your subscription with your Azure AD B2C directory.
