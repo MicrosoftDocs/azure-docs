@@ -46,9 +46,15 @@ Clone the repo from [Azure-Samples/azure-cache-redis-samples](https://github.com
 
 The [Azure.StackExchange.Redis](https://www.nuget.org/packages/Microsoft.Azure.StackExchangeRedis) library contains the Microsoft Entra ID authentication method for connecting to Azure Redis services using Microsoft Entra ID. It's applicable to all Azure Cache for Redis, Azure Cache for Redis Enterprise, and Azure Managed Redis (Preview).
 
-```cli
-dotnet add package Microsoft.Azure.StackExchangeRedis
-```
+1. Open your project in Visual Studio
+
+1. Right click on the project, choose **Manage NuGet Packages...**
+
+1. Search for `Microsoft.Azure.StackExchangeRedis`
+
+1. Click **Install** button to install
+
+1. Accept all prompted content to finish installation
 
 ----
 
