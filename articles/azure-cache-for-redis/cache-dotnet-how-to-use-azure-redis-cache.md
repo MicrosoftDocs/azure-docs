@@ -40,15 +40,7 @@ Clone the repo from [Azure-Samples/azure-cache-redis-samples](https://github.com
 
 ::: zone-end
 
-## Microsoft Entra ID Authentication (recommended)
-
 [!INCLUDE [cache-entra-access](includes/cache-entra-access.md)]
-
-<!-- ## [Access Key Authentication](#tab/accesskey) -->
-
-[!INCLUDE [redis-access-key-alert](includes/redis-access-key-alert.md)]
-
-<!-- [!INCLUDE [redis-cache-passwordless](includes/redis-cache-passwordless.md)] -->
 
 ### Install the Library for using Microsoft Entra ID Authentication
 
@@ -63,19 +55,25 @@ dotnet add package Microsoft.Azure.StackExchangeRedis
 ### Connect to the cache using Microsoft Entra ID
 
 1. Include the libraries in your code
-   
-```
+
+```csharp
 using Azure.Identity;
 using StackExchange.Redis
 ```
 
 1. Using the default Azure credentials to authenticate the client connection. This enables your code to use the signed-in user credential when running locally, and an Azure managed identity when running in Azure without code change.
-   
+
 ```csharp
 var configurationOptions = await ConfigurationOptions.Parse($"{_redisHostName}").ConfigureForAzureWithTokenCredentialAsync(new DefaultAzureCredential());
 ConnectionMultiplexer _newConnection = await ConnectionMultiplexer.ConnectAsync(configurationOptions);
 IDatabase Database = _newConnection.GetDatabase();
 ```
+
+::: zone pivot="azure-managed-redis"
+
+
+::: zone-end
+
 
 ### To edit the *CacheSecrets.config* file
 
@@ -95,6 +93,27 @@ IDatabase Database = _newConnection.GetDatabase();
 
 For more information, see [StackExchange.Redis](https://stackexchange.github.io/StackExchange.Redis/) and the code in a [GitHub repo](https://github.com/StackExchange/StackExchange.Redis).
 
+::: zone pivot="azure-cache-redis"
+
+::: zone-end
+
+### To edit the *CacheSecrets.config* file
+
+1. Create a file on your computer named *CacheSecrets.config*. Put it in a location where it won't be checked in with the source code of your sample application. For this quickstart, the *CacheSecrets.config* file is located at *C:\AppSecrets\CacheSecrets.config*.
+
+1. Edit the *app.config* file. Then add the following content:
+
+    ```xml
+    <appSettings>
+        <add key="RedisHostName" value="<cache-hostname-with-portnumber>"/>
+    </appSettings>
+    ```
+
+1. Replace `<cache-hostname>` with your cache host name as it appears in the Overview from the Resource menu in Azure portal. For example, *my-redis.eastus.azure.net:6380*
+
+1. Save the file.
+
+For more information, see [StackExchange.Redis](https://stackexchange.github.io/StackExchange.Redis/) and the code in a [GitHub repo](https://github.com/StackExchange/StackExchange.Redis).
 
 ## Run the sample
 

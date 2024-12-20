@@ -80,6 +80,8 @@ dotnet add package Microsoft.Azure.StackExchangeRedis
     IDatabase Database = _newConnection.GetDatabase();
     ```
 
+::: zone pivot="azure-managed-redis"
+
 ### To edit the _appsettings.json_ file
 
 1. Edit the _Web.config_ file. Then add the following content:
@@ -90,21 +92,35 @@ dotnet add package Microsoft.Azure.StackExchangeRedis
 
 1. Replace `<cache-hostname>` with your cache host name as it appears in the Overview blade of Azure Portal.
 
-::: zone pivot="azure-managed-redis"
-
    For example, with Azure Managed Redis or the Enterprise tiers: _my-redis.eastus.azure.net:10000_
+
+1. Save the file.
+
+For more information, see [StackExchange.Redis](https://stackexchange.github.io/StackExchange.Redis/) and the code in a [GitHub repo](https://github.com/StackExchange/StackExchange.Redis).
 
 ::: zone-end
 
 ::: zone pivot="azure-cache-redis"
 
-   For example, with Azure Cache for Redis: _my-redis.eastus.azure.net:6380_
+### To edit the _appsettings.json_ file
 
-::: zone-end
+1. Edit the _Web.config_ file. Then add the following content:
+
+    ```json
+    "_redisHostName":"<cache-hostname>"
+    ```
+
+1. Replace `<cache-hostname>` with your cache host name as it appears in the Overview blade of Azure Portal.
+
+   For example, with Azure Cache for Redis: _my-redis.eastus.azure.net:6380_
 
 1. Save the file.
 
 For more information, see [StackExchange.Redis](https://stackexchange.github.io/StackExchange.Redis/) and the code in a [GitHub repo](https://github.com/StackExchange/StackExchange.Redis).
+
+::: zone-end
+
+### To edit the _appsettings.json_ file
 
 ## Run the app locally
 

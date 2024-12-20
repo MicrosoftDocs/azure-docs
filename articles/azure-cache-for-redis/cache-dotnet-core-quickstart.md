@@ -39,8 +39,6 @@ Clone the repo [https://github.com/Azure-Samples/azure-cache-redis-samples/tree/
 
 ::: zone-end
 
-## Microsoft Entra ID Authentication (recommended)
-
 [!INCLUDE [cache-entra-access](includes/cache-entra-access.md)]
 
 ### Install the Library for using Microsoft Entra ID Authentication
@@ -70,6 +68,26 @@ ConnectionMultiplexer _newConnection = await ConnectionMultiplexer.ConnectAsync(
 IDatabase Database = _newConnection.GetDatabase();
 ```
 
+::: zone pivot="azure-managed-redis"
+
+### To edit the _appsettings.json_ file 
+
+1. Edit the _Web.config_ file. Then add the following content:
+
+    ```json
+    "_redisHostName":"<cache-hostname>"
+    ```
+
+1. Replace `<cache-hostname>` with your cache host name as it appears in the Overview section of the Resource menu in the Azure portal. For example, _my-redis.eastus.azure.net:10000_.
+
+1. Save the file.
+
+For more information, see [StackExchange.Redis](https://stackexchange.github.io/StackExchange.Redis/) and the code in a [GitHub repo](https://github.com/StackExchange/StackExchange.Redis).
+
+::: zone-end
+
+::: zone pivot="azure-cache-redis"
+
 ### To edit the _appsettings.json_ file
 
 1. Edit the _Web.config_ file. Then add the following content:
@@ -83,6 +101,7 @@ IDatabase Database = _newConnection.GetDatabase();
 1. Save the file.
 
 For more information, see [StackExchange.Redis](https://stackexchange.github.io/StackExchange.Redis/) and the code in a [GitHub repo](https://github.com/StackExchange/StackExchange.Redis).
+::: zone-end
 
 ## Run the sample
 

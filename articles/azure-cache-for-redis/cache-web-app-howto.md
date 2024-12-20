@@ -67,6 +67,8 @@ ConnectionMultiplexer _newConnection = await ConnectionMultiplexer.ConnectAsync(
 IDatabase Database = _newConnection.GetDatabase();
 ```
 
+::: zone pivot="azure-managed-redis"
+
 ### To edit the *CacheSecrets.config* file
 
 1. Create a file on your computer named *CacheSecrets.config*. Put it in a location where it isn't checked in with the source code of your sample application. For this quickstart, the *CacheSecrets.config* file is located at _C:\AppSecrets\CacheSecrets.config_.
@@ -84,6 +86,29 @@ IDatabase Database = _newConnection.GetDatabase();
 1. Save the file.
 
 For more information, see [StackExchange.Redis](https://stackexchange.github.io/StackExchange.Redis/) and the code in a [GitHub repo](https://github.com/StackExchange/StackExchange.Redis).
+
+::: zone-end
+
+::: zone pivot="azure-cache-redis"
+
+### To edit the *CacheSecrets.config* file
+
+1. Create a file on your computer named *CacheSecrets.config*. Put it in a location where it isn't checked in with the source code of your sample application. For this quickstart, the *CacheSecrets.config* file is located at _C:\AppSecrets\CacheSecrets.config_.
+
+1. Edit the *Web.config* file. Then add the following content:
+
+    ```xml
+    <appSettings>
+        <add key="RedisHostName" value="<cache-hostname-with-portnumber>"/>
+    </appSettings>
+    ```
+
+1. Replace `<cache-hostname>` with your cache host name as it appears in the Overview on the Resource menu in Azure portal. For example, *my-redis.eastus.azure.net:10000*
+
+1. Save the file.
+
+For more information, see [StackExchange.Redis](https://stackexchange.github.io/StackExchange.Redis/) and the code in a [GitHub repo](https://github.com/StackExchange/StackExchange.Redis).
+::: zone-end
 
 ## Run the app locally
 
