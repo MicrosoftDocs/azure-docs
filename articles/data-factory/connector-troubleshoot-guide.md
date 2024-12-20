@@ -43,6 +43,17 @@ You can refer to the troubleshooting pages for each connector to see problems sp
 
 The following errors are general to the copy activity and could occur with any connector.
 
+#### Error code: 2200
+
+- **Message**: `The underlying connection was closed: An unexpected error occurred on a send.`
+
+- **Cause**: This typically indicates an authentication failure during data transfer operations. This can occur when the remote party closes the transport stream.
+
+- **Reccomendation**:
+  - Verify the source connection and test it to ensure it is functioning correctly.
+  - Check the authentication method used for the connection.
+  - Review firewall configuration settings for Azure Cosmos DB to ensure they allow the necessary traffic.
+
 #### Error code: 20000
 
 - **Message**: `Java Runtime Environment cannot be found on the Self-hosted Integration Runtime machine. It is required for parsing or writing to Parquet/ORC files. Make sure Java Runtime Environment has been installed on the Self-hosted Integration Runtime machine.`
