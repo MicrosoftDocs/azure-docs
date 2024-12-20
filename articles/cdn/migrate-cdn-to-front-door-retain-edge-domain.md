@@ -77,7 +77,7 @@ This article provides you with instructions for migrating to Azure Front Door fr
     | Certificate type    | AFD managed                    |
     | Minimum TLS version | TLS 1.2                        |
 
-1. In the Add a route setting, leave the Patterns to match and Accepted protocols as default.
+1. In the **Add a route** page, leave the **Patterns to match** and **Accepted protocols** as default.
 
     > [!NOTE]
     > A CDN profile can have multiple endpoints, so you may need to create multiple routes.
