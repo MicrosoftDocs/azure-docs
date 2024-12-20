@@ -1,17 +1,17 @@
 ---
-title: Understand Device Update for Azure IoT Hub Configuration File
-description: Understand Device Update for Azure IoT Hub  Configuration File.
+title: Azure Device Update for IoT Hub configuration file
+description: Understand the Azure Device Update for IoT Hub du-config.json configuration file.
 author: eshashah-msft
 ms.author: eshashah
-ms.date: 10/11/2023
+ms.date: 12/19/2024
 ms.topic: concept-article
 ms.service: azure-iot-hub
 ms.subservice: device-update
 ---
 
-# Device Update for IoT Hub configuration file
+# Azure Device Update for IoT Hub configuration file
 
-The Device Update agent gets its configuration information from the `du-config.json` file on the device. The agent reads these values and reports them to the Device Update service:
+The Azure Device Update for IoT Hub agent uses configuration information from the *du-config.json* file on the device. The agent reads the following values and reports them to the Device Update service:
 
 * AzureDeviceUpdateCore:4.ClientMetadata:4.deviceProperties["manufacturer"]
 * AzureDeviceUpdateCore:4.ClientMetadata:4.deviceProperties["model"]
@@ -21,27 +21,29 @@ The Device Update agent gets its configuration information from the `du-config.j
 * connectionData
 * connectionType
 
-## File location
+To update or create the *du-config.json* configuration file:
 
-When installing Debian agent on an IoT Device with a Linux OS, modify the `/etc/adu/du-config.json` file to update values. For a Yocto build system, in the partition or disk called `adu`, create a json file called `/adu/du-config.json`.
+- When you install the Debian agent on an IoT Device with a Linux OS, modify the */etc/adu/du-config.json* file to update values.
+- For a Yocto build system, in the partition or disk called `adu`, create a JSON file called */adu/du-config.json*.
 
-## List of fields
+## Configuration file fields and values
 
 | Name |Description |
 |-----------|--------------------|
 | SchemaVersion | The schema version that maps the current configuration file format version. |
-| aduShellTrustedUsers | The list of users that can launch the **adu-shell** program. Note, adu-shell is a broker program that does various update actions as 'root'. The Device Update default content update handlers invoke adu-shell to do tasks that require super user privilege. Examples of tasks that require this privilege are `apt-get install` or executing a privileged script. |
-| manufacturer | Reported by the **AzureDeviceUpdateCore:4.ClientMetadata:4** interface to classify the device for targeting the update deployment. |
-| model | Reported by the **AzureDeviceUpdateCore:4.ClientMetadata:4** interface to classify the device for targeting the update deployment. |
-| iotHubProtocol| Accepted values are `mqtt` or `mqtt/ws` to change the protocol used to connect with IoT hub. Default value is 'mqtt' |
-| compatPropertyNames | These properties are used to check for compatibility of the device to target the update deployment. For all the properties specified to be used for compatibility, the values must be in lower case only |
-| additionalProperties | Optional field. Additional device reported properties can be set and used for compatibility checking . Limited to five device properties. These properties should be in lower case only. |
-| connectionType | Accepted values are `string` or `AIS`. Use `string` when connecting the device to IoT Hub manually for testing purposes. For production scenarios, use `AIS` when using the IoT Identity Service to connect the device to IoT Hub. For more information, see [understand IoT Identity Service configurations](https://azure.github.io/iot-identity-service/configuration.html). |
-| connectionData  |If connectionType = "string", add your IoT device's device or module connection string here. If connectionType = "AIS", set the connectionData to empty string (`"connectionData": ""`). |
-| manufacturer | Reported by the Device Update agent as part of the **DeviceInformation** interface. |
-| model | Reported by the Device Update agent as part of the **DeviceInformation** interface. |
+| aduShellTrustedUsers | The list of users that can launch the adu-shell program, a broker program that does various update actions as `'root'`. The Device Update default content update handlers invoke adu-shell to do tasks that require super user privilege, such as `apt-get install` or executing a privileged script. |
+| manufacturer | Reported by the `AzureDeviceUpdateCore:4.ClientMetadata:4` interface to classify the device for targeting the update deployment. |
+| model | Reported by the `AzureDeviceUpdateCore:4.ClientMetadata:4` interface to classify the device for targeting the update deployment. |
+| iotHubProtocol| Accepted values are `mqtt` or `mqtt/ws` to change the protocol used to connect with IoT hub. Default value is `'mqtt'`. |
+| compatPropertyNames | Used to check for compatibility of the device to target the update deployment. For all properties to be used for compatibility, the values must be lowercase only. |
+| additionalProperties | Optional, up to five additional lowercase device reported properties to be set and used for compatibility checking. |
+| connectionType | Accepted values are `string` or `AIS`. For production scenarios, use `AIS` when using the IoT Identity Service to connect the device to IoT Hub. For testing purposes, use `string` to connect the device using a connection string. |
+| connectionData  | If `connectionType = "AIS"`, set the `connectionData` to an empty string: `"connectionData": ""`. If `connectionType = "string"`, add your device or module connection string. |
+| manufacturer | Reported by the Device Update agent as part of the `DeviceInformation` interface. |
+| model | Reported by the Device Update agent as part of the `DeviceInformation` interface. |
 
-## Example "du-config.json" file contents
+<a name="example-du-configjson-file-contents"></a>
+## Example "du-config.json" file
 
 ```json
 
@@ -52,19 +54,19 @@ When installing Debian agent on an IoT Device with a Linux OS, modify the `/etc/
     "do"
   ],
   "iotHubProtocol": "mqtt",
-  "compatPropertyNames":"manufacturer,model,location,environment" <The property values must be in lower case only>,
-  "manufacturer": <Place your device info manufacturer here>,
-  "model": <Place your device info model here>,
+  "compatPropertyNames":"manufacturer,model,location,environment",
+  "manufacturer": "contoso",
+  "model": "virtual-vacuum-2",
   "agents": [
     {
-      "name": <Place your agent name here>,
+      "name": "main",
       "runas": "adu",
       "connectionSource": {
-        "connectionType": "string", //or “AIS”
-        "connectionData": <Place your Azure IoT device connection string here>
+        "connectionType": "string",
+        "connectionData": "HostName=<hub_name>.azure-devices.net;DeviceId=<device_id>;SharedAccessKey=<device_key>"
       },
-      "manufacturer": <Place your device property manufacturer here>,
-      "model": <Place your device property model here>,
+      "manufacturer": "contoso",
+      "model": "virtual-vacuum-2",
       "additionalDeviceProperties": {
         "location": "usa",
         "environment": "development"
@@ -72,5 +74,9 @@ When installing Debian agent on an IoT Device with a Linux OS, modify the `/etc/
     }
   ]
 }
-
 ```
+
+## Related content
+
+- [Configuring the Azure IoT Identity Service](https://azure.github.io/iot-identity-service/configuration.html)
+- [Tutorial: Azure Device Update for IoT Hub using a Raspberry Pi image](device-update-raspberry-pi.md)
