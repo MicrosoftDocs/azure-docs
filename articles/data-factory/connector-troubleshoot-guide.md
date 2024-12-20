@@ -8,6 +8,7 @@ ms.topic: troubleshooting
 ms.date: 09/25/2024
 ms.author: jianleishen
 ms.custom: synapse
+ai-usage: ai-assisted
 ---
 
 # Troubleshoot Azure Data Factory and Azure Synapse Analytics connectors
