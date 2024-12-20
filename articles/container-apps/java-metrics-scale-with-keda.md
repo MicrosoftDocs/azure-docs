@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Scale a Java container app with Java metrics"
-description: Scale a Java container app with Java metrics.
+title: "Tutorial: Scale a container app with Java metrics"
+description: Scale a container app with Java metrics.
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
@@ -11,15 +11,15 @@ ms.author: cshoe
 #customer intent: As a developer, I want to set up auto scale using Java metrics exposed from Azure Container Apps
 ---
 
-# Tutorial: Scale a Java container app with Java metrics
+# Tutorial: Scale a container app with Java metrics
 
 Azure Container Apps manages automatic horizontal scaling through a set of declarative scaling rules. You can create your own scale rules with [customized event sources](./scale-app.md#custom).
 
-In this tutorial, you add a custom scale rule to scale your container app with Java metrics, and observe how your application scales.
+In this tutorial, you add a custom scale rule to scale your container app with Java metrics and observe how your application scales.
 
 ## Prerequisites
 
-* An Azure account with an active subscription. If you don't already have one, you can [can create one for free](https://azure.microsoft.com/free/).
+* An Azure account with an active subscription. If you don't already have one, you can [create one for free](https://azure.microsoft.com/free/).
 * [Azure CLI](/cli/azure/install-azure-cli).
 * [A Java application deployed in Azure Container Apps](java-get-started.md).
 
@@ -28,13 +28,15 @@ In this tutorial, you add a custom scale rule to scale your container app with J
 Use the following steps to define environment variables and set up the environment.
 
 1. Create variables to support your scale configuration. 
-   ```bash
-   export LOCATION=eastus
-   export TENANT_ID={tenant-id}
-   export SUBSCRIPTION_ID={subscriprion-id}
-   export RESOURCE_GROUP=my-resource-group
-   export APP_NAME=my-aca-app
-   ```
+
+    ```bash
+    export LOCATION=eastus
+    export TENANT_ID={tenant-id}
+    export SUBSCRIPTION_ID={subscription-id}
+    export RESOURCE_GROUP=my-resource-group
+    export APP_NAME=my-aca-app
+    export IDENTITY_NAME=my-identity
+    ```
 
    | Variable                | Description                                                                        |
    |-------------------------|------------------------------------------------------------------------------------|
@@ -44,7 +46,6 @@ Use the following steps to define environment variables and set up the environme
    | `RESOURCE_GROUP`        | The Azure resource group name for your Azure Container Apps.                       |
    | `APP_NAME`              | The app name for your Azure Container Apps.                                        |
    | `IDENTITY_NAME`         | The name for your managed identity, which is assigned to your Azure Container Apps.|
-
 
 1. Log in to Azure with the Azure CLI.
 
@@ -61,32 +62,30 @@ Use the following steps to define environment variables and set up the environme
 ## Set up a managed identity for your Azure Container Apps
 To scale with Azure Container Apps platform metrics, you need a managed identity to access metrics from Azure Monitor.
 
-1. Create an user-assigned identity and assign to your Azure Container Apps, you can follow doc [Add a user-assigned identity](./managed-identity.md#add-a-user-assigned-identity). 
-After you create the identity, run bellow CLI command to set the 
+1. Create a user-assigned identity and assign it to your Azure Container Apps. You can follow the doc [Add a user-assigned identity](./managed-identity.md#add-a-user-assigned-identity). After you create the identity, run the below CLI command to set the identity ID.
+
     ```azurecli
-   USER_ASSIGNED_IDENTITY_ID=$(az identity show --resource-group $RESOURCE_GROUP --name $IDENTITY_NAME --query "id" --output tsv)
-   ```
+    USER_ASSIGNED_IDENTITY_ID=$(az identity show --resource-group $RESOURCE_GROUP --name $IDENTITY_NAME --query "id" --output tsv)
+    ```
 
+2. Grant the `Monitoring Reader` role to your managed identity to read data from Azure Monitor. You can find more details about the RBAC for Azure Monitor in [Built-in Role Monitoring Reader](../role-based-access-control/built-in-roles/monitor.md#monitoring-reader).
 
-2. Grant `Monitoring Reader` role for your managed identity to read data from Azure Monitor. You can find more details aboute the RBAC for Azure Monitor in [Buil-in Role Monitoring Reader](../role-based-access-control/built-in-roles/monitor.md#monitoring-reader)
-
-   ```azurecli
-   # Get the principal id for your managed identity
-   PRINCIPAL_ID=$(az identity show --resource-group $RESOURCE_GROUP --name $IDENTITY_NAME --query "principalId" --output tsv)
+    ```azurecli
+    # Get the principal id for your managed identity
+    PRINCIPAL_ID=$(az identity show --resource-group $RESOURCE_GROUP --name $IDENTITY_NAME --query "principalId" --output tsv)
    
-   az role assignment create --assignee $PRINCIPAL_ID --role "Monitoring Reader" --scope /subscriptions/$SUBSCRIPTION_ID
-   ```
+    az role assignment create --assignee $PRINCIPAL_ID --role "Monitoring Reader" --scope /subscriptions/$SUBSCRIPTION_ID
+    ```
 
 ## Add a scale rule with Azure Monitor metrics
-To scale with Azure Monitor metrics, you can refer [Azure Monitor keda scaler](https://keda.sh/docs/2.16/scalers/azure-monitor/) to define your Container Apps scale rule. 
+To scale with Azure Monitor metrics, you can refer to [Azure Monitor KEDA scaler](https://keda.sh/docs/2.16/scalers/azure-monitor/) to define your Container Apps scale rule. 
 
-Here is a list of core meta data to set up the scale rule.
-
+Here is a list of core metadata to set up the scale rule.
 
 | Metadata key                       | Description                                                                                           |
 |------------------------------------|-------------------------------------------------------------------------------------------------------|
 | tenantId                           | Id of the tenant that contains the Azure resource. This is used for authentication.                   |
-| subscriptionId                     | Id of Azure subscription that contains the Azure resource. This is used for determining the full resource URI. |
+| subscriptionId                     | Id of the Azure subscription that contains the Azure resource. This is used for determining the full resource URI. |
 | resourceGroupName                  | Name of the resource group for the Azure resource.                                                    |
 | resourceURI                        | Shortened URI to the Azure resource with format `<resourceProviderNamespace>/<resourceType>/<resourceName>`. |
 | metricName                         | Name of the metric to query.                                                                          |
@@ -99,7 +98,7 @@ Here is a list of core meta data to set up the scale rule.
 
 Add a scale rule with [metrics from Azure Container Apps](./metrics.md) for your application.
 
-    # [Azure CLI](#tab/Azure CLI)
+    # [Azure CLI](#tab/azurecli)
 
     ```azurecli
     az containerapp update \
@@ -120,11 +119,9 @@ Add a scale rule with [metrics from Azure Container Apps](./metrics.md) for your
             --scale-rule-identity $USER_ASSIGNED_IDENTITY_ID
     ```
 
-    
+    # [ARM Template](#tab/arm)
 
-    # [ARM Template](#tab/ARM Template)
-
-    ```json
+    ```arm
     {
     "resources": {
         "properties": {
@@ -158,17 +155,16 @@ Add a scale rule with [metrics from Azure Container Apps](./metrics.md) for your
     }
     ```
 
-This command adds a scale rule to your container app with name `scale-with-azure-monitor-metrics`, and scale type is set to `azure-monitor`. It uses the managed identity with resource id `USER_ASSIGNED_IDENTITY_ID` to autheticate with Azure Monitor and query metrics for your conatner app. In the example, keda queries metric `JvmGcCount`, and aggregate the metric values within 1 minute with aggregation type `Total`. The target value is set to `30`, which means keda calculates the `desiredReplicas` using `ceil(AggregatedMetricValue(JvmGcCount)/30)`.  
+This command adds a scale rule to your container app with the name `scale-with-azure-monitor-metrics`, and the scale type is set to `azure-monitor`. It uses the managed identity with resource id `USER_ASSIGNED_IDENTITY_ID` to authenticate with Azure Monitor and query metrics for your container app. In the example, KEDA queries the metric `JvmGcCount`, and aggregates the metric values within 1 minute with aggregation type `Total`. The target value is set to `30`, which means KEDA calculates the `desiredReplicas` using `ceil(AggregatedMetricValue(JvmGcCount)/30)`.  
 
 > [!NOTE]
-> The metric `JvmGcCount` is only used as an example. You can use any metric from Azure Monitor. Before setting up the scale rule, view the metrics in Azure portal to determine the appropriate metric, aggregation interval, and target value based on your application's requirements. Additionally, consider using the built-in [HTTP/TCP scale rules](./scale-app.md#http), which can meet most common scaling scenarios, before opting for a custom metric.
-
+> The metric `JvmGcCount` is only used as an example. You can use any metric from Azure Monitor. Before setting up the scale rule, view the metrics in the Azure portal to determine the appropriate metric, aggregation interval, and target value based on your application's requirements. Additionally, consider using the built-in [HTTP/TCP scale rules](./scale-app.md#http), which can meet most common scaling scenarios, before opting for a custom metric.
 
 ## View scaling in Azure portal (optional)
 Once your new revision is ready, [send requests](./tutorial-scaling.md#send-requests) to your container app to trigger auto scale with your Java metrics. 
-1. Go to `Metric` blade in Azure Portal for your Azure Container Apps.
+1. Go to the `Metrics` blade in the Azure Portal for your Azure Container Apps.
 1. Add your metric `jvm.gc.count`, with filter `Revision=<your-revision>` and Split by `Replica`.
-1. Add metric `Replica Count`, with filter `Revision=<your-revision>`. 
+1. Add the metric `Replica Count`, with filter `Revision=<your-revision>`. 
 
 Here is a sample metric snapshot for the example scale rule.
 
@@ -184,17 +180,16 @@ Here is a sample metric snapshot for the example scale rule.
 
 ## Scale Log
 
-To view the KEDA scale logs, you can run bellow query in `Logs`.
+To view the KEDA scale logs, you can run the below query in `Logs`.
 
     ```
     ContainerAppSystemLogs
     | where RevisionName == "<your-revision>"
-    | where  EventSource == "KEDA"
+    | where EventSource == "KEDA"
     | project TimeGenerated, Type, Reason, ContainerAppName, Log
     ```
 
 :::image type="content" source="media/java-metrics-keda/keda-auto-scale-java-log.png" alt-text="Screenshot of KEDA scale log query" lightbox="media/java-metrics-keda/keda-auto-scale-java-log.png":::
-
 
 ## Clean up resources
 
