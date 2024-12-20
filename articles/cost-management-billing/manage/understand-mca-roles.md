@@ -145,7 +145,7 @@ The following tables show what role you need to complete tasks in the context of
 |---|---|---|---|---|---|---|---|
 |View all Azure subscriptions for the billing profile|✔|✔|✔|✔|✔|✔|✔|
 |Create new Azure subscriptions|✔|✔|✘|✔|✔|✔|✘|
-|Cancel Azure subscriptions|✘|✘|✘|✘|✔¹|✘|✘|
+|Cancel Azure subscriptions|✘|✘|✘|✔¹|✘|✘|✘|
 |Change billing profile for the Azure subscriptions|✔|✔|✘|✘|✔|✔|✘|
 
 ¹ Invoice manager can only cancel the subscriptions they created.
