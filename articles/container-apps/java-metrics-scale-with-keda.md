@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Scale a container app with Java metrics"
 description: Scale a container app with Java metrics.
-services: container-apps
+services: azure-container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-extended-java
@@ -15,7 +15,7 @@ ms.author: cshoe
 
 Azure Container Apps manages automatic horizontal scaling through a set of declarative scaling rules. You can create your own scale rules with [customized event sources](./scale-app.md#custom).
 
-In this tutorial, you add a custom scale rule to scale your container app with Java metrics and observe how your application scales.
+In this tutorial, you will add a custom scale rule to scale your container app with Java metrics and observe how your application scales.
 
 ## Prerequisites
 
@@ -41,7 +41,7 @@ Use the following steps to define environment variables and set up the environme
    | Variable                | Description                                                                        |
    |-------------------------|------------------------------------------------------------------------------------|
    | `LOCATION`              | The Azure region location where you create your Azure Container Apps.              |
-   | `TENANT_ID`             | Your tenant's id.                                                                  |
+   | `TENANT_ID`             | Your tenant's ID.                                                                  |
    | `SUBSCRIPTION_ID`       | The subscription ID which you use to create your Azure Container Apps.             |
    | `RESOURCE_GROUP`        | The Azure resource group name for your Azure Container Apps.                       |
    | `APP_NAME`              | The app name for your Azure Container Apps.                                        |
@@ -71,7 +71,7 @@ To scale with Azure Container Apps platform metrics, you need a managed identity
 2. Grant the `Monitoring Reader` role to your managed identity to read data from Azure Monitor. You can find more details about the RBAC for Azure Monitor in [Built-in Role Monitoring Reader](../role-based-access-control/built-in-roles/monitor.md#monitoring-reader).
 
     ```azurecli
-    # Get the principal id for your managed identity
+    # Get the principal ID for your managed identity
     PRINCIPAL_ID=$(az identity show --resource-group $RESOURCE_GROUP --name $IDENTITY_NAME --query "principalId" --output tsv)
    
     az role assignment create --assignee $PRINCIPAL_ID --role "Monitoring Reader" --scope /subscriptions/$SUBSCRIPTION_ID
@@ -84,8 +84,8 @@ Here is a list of core metadata to set up the scale rule.
 
 | Metadata key                       | Description                                                                                           |
 |------------------------------------|-------------------------------------------------------------------------------------------------------|
-| tenantId                           | Id of the tenant that contains the Azure resource. This is used for authentication.                   |
-| subscriptionId                     | Id of the Azure subscription that contains the Azure resource. This is used for determining the full resource URI. |
+| tenantId                           | ID of the tenant that contains the Azure resource. This is used for authentication.                   |
+| subscriptionId                     | ID of the Azure subscription that contains the Azure resource. This is used for determining the full resource URI. |
 | resourceGroupName                  | Name of the resource group for the Azure resource.                                                    |
 | resourceURI                        | Shortened URI to the Azure resource with format `<resourceProviderNamespace>/<resourceType>/<resourceName>`. |
 | metricName                         | Name of the metric to query.                                                                          |
@@ -98,72 +98,72 @@ Here is a list of core metadata to set up the scale rule.
 
 Add a scale rule with [metrics from Azure Container Apps](./metrics.md) for your application.
 
-    # [Azure CLI](#tab/azurecli)
+# [Azure CLI](#tab/azurecli)
 
-    ```azurecli
-    az containerapp update \
-            --name $APP_NAME \
-            --resource-group $RESOURCE_GROUP \
-            --min-replicas 1 \
-            --max-replicas 10 \
-            --scale-rule-name scale-with-azure-monitor-metrics \
-            --scale-rule-type azure-monitor \
-            --scale-rule-metadata "tenantId=${TENANT_ID}" \
-                                "subscriptionId=${SUBSCRIPTION_ID}" \
-                                "resourceGroupName=${RESOURCE_GROUP}" \
-                                "resourceURI=Microsoft.App/containerapps/${APP_NAME}" \
-                                "metricName=JvmGcCount" \
-                                "metricAggregationType=Total" \
-                                "metricAggregationInterval=0:1:0" \
-                                "targetValue=30" \
-            --scale-rule-identity $USER_ASSIGNED_IDENTITY_ID
-    ```
+```azurecli
+az containerapp update \
+        --name $APP_NAME \
+        --resource-group $RESOURCE_GROUP \
+        --min-replicas 1 \
+        --max-replicas 10 \
+        --scale-rule-name scale-with-azure-monitor-metrics \
+        --scale-rule-type azure-monitor \
+        --scale-rule-metadata "tenantId=${TENANT_ID}" \
+                            "subscriptionId=${SUBSCRIPTION_ID}" \
+                            "resourceGroupName=${RESOURCE_GROUP}" \
+                            "resourceURI=Microsoft.App/containerapps/${APP_NAME}" \
+                            "metricName=JvmGcCount" \
+                            "metricAggregationType=Total" \
+                            "metricAggregationInterval=0:1:0" \
+                            "targetValue=30" \
+        --scale-rule-identity $USER_ASSIGNED_IDENTITY_ID
+```
 
-    # [ARM Template](#tab/arm)
+# [ARM Template](#tab/arm-template)
 
-    ```arm
-    {
-    "resources": {
-        "properties": {
-            "template": {
-                "scale": {
-                    "minReplicas": 1,
-                    "maxReplicas": 10,
-                    "rules": [
-                        {
-                            "name": "scale-with-azure-monitor-metrics",
-                            "custom": {
-                                "type": "azure-monitor",
-                                "metadata": {
-                                    "metricAggregationInterval": "0:1:0",
-                                    "metricAggregationType": "Total",
-                                    "metricName": "JvmGcCount",
-                                    "resourceGroupName": "<your-resource-group>",
-                                    "resourceURI": "Microsoft.App/containerapps/<your-app>",
-                                    "subscriptionId": "<your-subscription-id>",
-                                    "targetValue": "30",
-                                    "tenantId": "<your-tenant-id>"
-                                },
-                                "identity": "<your-managed-identity-id>"
-                            }
+```json
+{
+"resources": {
+    "properties": {
+        "template": {
+            "scale": {
+                "minReplicas": 1,
+                "maxReplicas": 10,
+                "rules": [
+                    {
+                        "name": "scale-with-azure-monitor-metrics",
+                        "custom": {
+                            "type": "azure-monitor",
+                            "metadata": {
+                                "metricAggregationInterval": "0:1:0",
+                                "metricAggregationType": "Total",
+                                "metricName": "JvmGcCount",
+                                "resourceGroupName": "<your-resource-group>",
+                                "resourceURI": "Microsoft.App/containerapps/<your-app>",
+                                "subscriptionId": "<your-subscription-id>",
+                                "targetValue": "30",
+                                "tenantId": "<your-tenant-id>"
+                            },
+                            "identity": "<your-managed-identity-id>"
                         }
-                    ]
-                  }   
-                }
+                    }
+                ]
+                }   
             }
         }
     }
-    ```
+}
+```
 
-This command adds a scale rule to your container app with the name `scale-with-azure-monitor-metrics`, and the scale type is set to `azure-monitor`. It uses the managed identity with resource id `USER_ASSIGNED_IDENTITY_ID` to authenticate with Azure Monitor and query metrics for your container app. In the example, KEDA queries the metric `JvmGcCount`, and aggregates the metric values within 1 minute with aggregation type `Total`. The target value is set to `30`, which means KEDA calculates the `desiredReplicas` using `ceil(AggregatedMetricValue(JvmGcCount)/30)`.  
+This command adds a scale rule to your container app with the name `scale-with-azure-monitor-metrics`, and the scale type is set to `azure-monitor`. It uses the managed identity with resource ID `USER_ASSIGNED_IDENTITY_ID` to authenticate with Azure Monitor and query metrics for your container app. In the example, KEDA queries the metric `JvmGcCount`, and aggregates the metric values within 1 minute with aggregation type `Total`. The target value is set to `30`, which means KEDA calculates the `desiredReplicas` using `ceil(AggregatedMetricValue(JvmGcCount)/30)`.  
 
 > [!NOTE]
 > The metric `JvmGcCount` is only used as an example. You can use any metric from Azure Monitor. Before setting up the scale rule, view the metrics in the Azure portal to determine the appropriate metric, aggregation interval, and target value based on your application's requirements. Additionally, consider using the built-in [HTTP/TCP scale rules](./scale-app.md#http), which can meet most common scaling scenarios, before opting for a custom metric.
 
 ## View scaling in Azure portal (optional)
 Once your new revision is ready, [send requests](./tutorial-scaling.md#send-requests) to your container app to trigger auto scale with your Java metrics. 
-1. Go to the `Metrics` blade in the Azure Portal for your Azure Container Apps.
-1. Add your metric `jvm.gc.count`, with filter `Revision=<your-revision>` and Split by `Replica`.
+1. Go to the `Metrics` blade in the Azure portal for your Azure Container Apps.
+1. Add your metric `jvm.gc.count`, with filter `Revision=<your-revision>` and split by `Replica`.
 1. Add the metric `Replica Count`, with filter `Revision=<your-revision>`. 
 
 Here is a sample metric snapshot for the example scale rule.
@@ -182,7 +182,7 @@ Here is a sample metric snapshot for the example scale rule.
 
 To view the KEDA scale logs, you can run the below query in `Logs`.
 
-    ```
+    ```kusto
     ContainerAppSystemLogs
     | where RevisionName == "<your-revision>"
     | where EventSource == "KEDA"
