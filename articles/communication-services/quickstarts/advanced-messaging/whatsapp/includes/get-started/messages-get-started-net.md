@@ -126,7 +126,7 @@ The following classes and interfaces handle some of the major features of the Az
 | MediaNotificationContent    | This class defines the "who" and the "what" of the media message you intend to send.                   |
 
 > [!NOTE]
-> Please find the SDK reference [here](https://review.learn.microsoft.com/dotnet/api/azure.communication.messages).
+> Please find the SDK reference [here](/dotnet/api/azure.communication.messages).
 
 ## Code examples
 

@@ -68,7 +68,7 @@ The following classes and interfaces handle some of the major features of the Az
 | ReactionNotificationContent | This class defines the reaction content of the messages with emoji and reply message id.|
 
 > [!NOTE]
-> Please find the SDK reference [here](https://learn.microsoft.com/python/api/azure-communication-messages/azure.communication.messages).
+> Please find the SDK reference [here](/python/api/azure-communication-messages/azure.communication.messages).
 
 ## Common configuration
 Follow these steps to add the necessary code snippets to the messages-quickstart.py python program.
