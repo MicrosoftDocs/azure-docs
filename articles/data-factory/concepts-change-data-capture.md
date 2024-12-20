@@ -31,7 +31,7 @@ The easiest and quickest way to get started in data factory with CDC is through 
 
 The changed data including inserted, updated and deleted rows can be automatically detected and extracted by ADF mapping data flow from the source databases.  No timestamp or ID columns are required to identify the changes since it uses the native change data capture technology in the databases.  By simply chaining a source transform and a sink transform reference to a database dataset in a mapping data flow, you can see the changes happened on the source database to be automatically applied to the target database, so that you can easily synchronize data between two tables.  You can also add any transformations in between for any business logic to process the delta data. When defining your sink data destination, you can set insert, update, upsert, and delete operations in your sink without the need of an Alter Row transformation because ADF is able to automatically detect the row makers.
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE5bkg2]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=ba3e201c-c9d0-4c1d-806c-b3c8ca601de2]
 
 **Supported connectors**
 -   [SAP CDC](connector-sap-change-data-capture.md)

@@ -43,7 +43,7 @@ Use the following steps to deploy a hotfix in your production and test environme
 ## Video tutorial
 See the video below an in-depth video tutorial on how to hot-fix your environments. 
 
-> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4I7fi]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=b0bab151-85b7-4684-a184-ec5e6b972415]
 
 ## Related content
 

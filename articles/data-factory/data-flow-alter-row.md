@@ -23,7 +23,7 @@ Use the Alter Row transformation to set insert, delete, update, and upsert polic
 
 Alter Row transformations only operate on database, REST, or Azure Cosmos DB sinks in your data flow. The actions that you assign to rows (insert, update, delete, upsert) doesn't occur during debug sessions. To enact the alter row policies on your database tables, run an Execute Data Flow activity in a pipeline.
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4vJYc]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=6e4cb953-1ae0-4a20-9d7f-42bb85c4245b]
 
 > [!NOTE]
 > An Alter Row transformation is not needed for Change Data Capture data flows that use native CDC sources like SQL Server or SAP. In those instances, ADF will automatically detect the row marker so Alter Row policies are unnecessary.
