@@ -108,7 +108,8 @@ To register the app, perform the following steps:
 1. Select **Microsoft** in the identity provider dropdown.
 1. For **App registration type**, you can choose to **Pick an existing app registration in this directory** which automatically gathers the necessary app information. If your registration is from another tenant or you don't have permission to view the registration object, choose **Provide the details of an existing app registration**. For this option, you need to fill in the following configuration details:
 
-    > [!WARNING] Whenever possible, avoid using implicit grant flow. In most scenarios, more secure alternatives are available and recommended. Certain configurations of this flow requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows aren't viable. For more information, see the [security concerns with implicit grant flow](/entra/identity-platform/v2-oauth2-implicit-grant-flow#security-concerns-with-implicit-grant-flow).
+    > [!WARNING]
+    > Whenever possible, avoid using implicit grant flow. In most scenarios, more secure alternatives are available and recommended. Certain configurations of this flow requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows aren't viable. For more information, see the [security concerns with implicit grant flow](/entra/identity-platform/v2-oauth2-implicit-grant-flow#security-concerns-with-implicit-grant-flow).
 
     |Field|Description|
     |-|-|
