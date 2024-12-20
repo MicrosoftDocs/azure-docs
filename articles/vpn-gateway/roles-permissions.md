@@ -62,6 +62,8 @@ To view roles and permissions for other services, see the following links:
 
 - [Azure Application Gateway](../application-gateway/configuration-infrastructure.md)
 
+- [Azure ExpressRoute](../expressroute/roles-permissions.md) 
+
 - [Azure Firewall](../firewall/roles-permissions.md) 
 
 - [Azure Route Server](../route-server/roles-permissions.md)
