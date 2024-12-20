@@ -71,7 +71,7 @@ The following classes and interfaces handle some of the major features of the Az
 | MessageTemplate | This class defines which template you use and the content of the template properties for your message. |
 
 > [!NOTE]
-> Please find the SDK reference [here](https://learn.microsoft.com/en-us/javascript/api/@azure-rest/communication-messages/?view=azure-node-latest)
+> Please find the SDK reference [here](https://learn.microsoft.com/javascript/api/@azure-rest/communication-messages)
 
 ## Code examples
 

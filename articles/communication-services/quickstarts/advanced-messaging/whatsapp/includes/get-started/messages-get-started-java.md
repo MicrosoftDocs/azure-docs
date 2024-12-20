@@ -80,7 +80,7 @@ The following classes and interfaces handle some of the major features of the Az
 | MessageTemplateAsyncClient                  | This class is needed to get the list of WhatsApp templates asynchronously.  |
 
 > [!NOTE]
-> Please find the SDK reference [here](https://learn.microsoft.com/en-us/java/api/com.azure.communication.messages?view=azure-java-stable)
+> Please find the SDK reference [here](https://learn.microsoft.com/java/api/com.azure.communication.messages)
 
 ## Code examples
 

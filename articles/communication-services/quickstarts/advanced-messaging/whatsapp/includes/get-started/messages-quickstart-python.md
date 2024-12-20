@@ -74,7 +74,7 @@ The following classes and interfaces handle some of the major features of the Az
 | AudioNotificationContent    | This class defines the "who" and the "what" of the Audio media message you intend to send.             |
 
 > [!NOTE]
-> Please find the SDK reference [here](https://learn.microsoft.com/en-us/python/api/azure-communication-messages/azure.communication.messages?view=azure-python).
+> Please find the SDK reference [here](https://learn.microsoft.com/python/api/azure-communication-messages/azure.communication.messages).
 
 ## Code examples
 
