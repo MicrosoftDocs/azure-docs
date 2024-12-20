@@ -194,7 +194,7 @@ It is possible to use many virtual networks for your deployments. There are vari
 
 One option is for services on one virtual network to connect to services on another virtual network, by "looping back" through the internet. The connection starts on one virtual network, goes through the internet, and then comes back to the destination virtual network. This option exposes the connection to the security issues inherent in any internet-based communication.
 
-A better option might be to create a site-to-site VPN that connects between two virtual networks. This method uses the same IPSec tunnel mode protocol as the cross-premises site-to-site VPN connection mentioned above.
+A better option might be to create a site-to-site VPN that connects between two virtual networks. This method uses the same IPsec tunnel mode protocol as the cross-premises site-to-site VPN connection mentioned above.
 
 The advantage of this approach is that the VPN connection is established over the Azure network fabric, instead of connecting over the internet. This provides you an extra layer of security, compared to site-to-site VPNs that connect over the internet.
 
