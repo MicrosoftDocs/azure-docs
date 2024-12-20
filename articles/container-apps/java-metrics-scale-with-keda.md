@@ -15,7 +15,7 @@ ms.author: cshoe
 
 Azure Container Apps manages automatic horizontal scaling through a set of declarative scaling rules. You can create your own scale rules with [customized event sources](./scale-app.md#custom).
 
-In this tutorial, you will add a custom scale rule to scale your container app with Java metrics and observe how your application scales.
+In this tutorial, you add a custom scale rule to scale your container app with Java metrics and observe how your application scales.
 
 ## Prerequisites
 
@@ -47,7 +47,7 @@ Use the following steps to define environment variables and set up the environme
    | `APP_NAME`              | The app name for your Azure Container Apps.                                        |
    | `IDENTITY_NAME`         | The name for your managed identity, which is assigned to your Azure Container Apps.|
 
-1. Log in to Azure with the Azure CLI.
+1. Sign in to Azure with the Azure CLI.
 
    ```azurecli
    az login
@@ -62,13 +62,13 @@ Use the following steps to define environment variables and set up the environme
 ## Set up a managed identity for your Azure Container Apps
 To scale with Azure Container Apps platform metrics, you need a managed identity to access metrics from Azure Monitor.
 
-1. Create a user-assigned identity and assign it to your Azure Container Apps. You can follow the doc [Add a user-assigned identity](./managed-identity.md#add-a-user-assigned-identity). After you create the identity, run the below CLI command to set the identity ID.
+1. Create a user-assigned identity and assign it to your Azure Container Apps. You can follow the doc [Add a user-assigned identity](./managed-identity.md#add-a-user-assigned-identity). After you create the identity, run the CLI command to set the identity ID.
 
     ```azurecli
     USER_ASSIGNED_IDENTITY_ID=$(az identity show --resource-group $RESOURCE_GROUP --name $IDENTITY_NAME --query "id" --output tsv)
     ```
 
-2. Grant the `Monitoring Reader` role to your managed identity to read data from Azure Monitor. You can find more details about the RBAC for Azure Monitor in [Built-in Role Monitoring Reader](../role-based-access-control/built-in-roles/monitor.md#monitoring-reader).
+2. Grant the `Monitoring Reader` role for your managed identity to read data from Azure Monitor. You can find more details about the roles for Azure Monitor in [Built-in Role Monitoring Reader](../role-based-access-control/built-in-roles/monitor.md#monitoring-reader).
 
     ```azurecli
     # Get the principal ID for your managed identity
@@ -80,12 +80,12 @@ To scale with Azure Container Apps platform metrics, you need a managed identity
 ## Add a scale rule with Azure Monitor metrics
 To scale with Azure Monitor metrics, you can refer to [Azure Monitor KEDA scaler](https://keda.sh/docs/2.16/scalers/azure-monitor/) to define your Container Apps scale rule. 
 
-Here is a list of core metadata to set up the scale rule.
+Here's a list of core metadata to set up the scale rule.
 
 | Metadata key                       | Description                                                                                           |
 |------------------------------------|-------------------------------------------------------------------------------------------------------|
-| tenantId                           | ID of the tenant that contains the Azure resource. This is used for authentication.                   |
-| subscriptionId                     | ID of the Azure subscription that contains the Azure resource. This is used for determining the full resource URI. |
+| tenantId                           | ID of the tenant that contains the Azure resource.                                                    |
+| subscriptionId                     | ID of the Azure subscription that contains the Azure resource.                                         |
 | resourceGroupName                  | Name of the resource group for the Azure resource.                                                    |
 | resourceURI                        | Shortened URI to the Azure resource with format `<resourceProviderNamespace>/<resourceType>/<resourceName>`. |
 | metricName                         | Name of the metric to query.                                                                          |
@@ -155,6 +155,8 @@ az containerapp update \
 }
 ```
 
+
+
 This command adds a scale rule to your container app with the name `scale-with-azure-monitor-metrics`, and the scale type is set to `azure-monitor`. It uses the managed identity with resource ID `USER_ASSIGNED_IDENTITY_ID` to authenticate with Azure Monitor and query metrics for your container app. In the example, KEDA queries the metric `JvmGcCount`, and aggregates the metric values within 1 minute with aggregation type `Total`. The target value is set to `30`, which means KEDA calculates the `desiredReplicas` using `ceil(AggregatedMetricValue(JvmGcCount)/30)`.  
 
 > [!NOTE]
@@ -166,11 +168,11 @@ Once your new revision is ready, [send requests](./tutorial-scaling.md#send-requ
 1. Add your metric `jvm.gc.count`, with filter `Revision=<your-revision>` and split by `Replica`.
 1. Add the metric `Replica Count`, with filter `Revision=<your-revision>`. 
 
-Here is a sample metric snapshot for the example scale rule.
+Here's a sample metric snapshot for the example scale rule.
 
 :::image type="content" source="media/java-metrics-keda/keda-auto-scale-java-gc-portal.png" alt-text="Screenshot of KEDA scale with JVM metrics" lightbox="media/java-metrics-keda/keda-auto-scale-java-gc-portal.png":::
 
-1. Initially, there is 1 replica (the `minReplicas`) for the app.
+1. Initially, there's one replica (the `minReplicas`) for the app.
 1. A spike in requests causes the replica to experience frequent JVM garbage collection (GC).
 1. KEDA observes the aggregated metric value for `jvm.gc.count` is increased to 140 and calculates desiredReplicas as `ceil(140/30)` = 5.
 1. KEDA scales out the container app's replica count to 5.
@@ -180,7 +182,7 @@ Here is a sample metric snapshot for the example scale rule.
 
 ## Scale Log
 
-To view the KEDA scale logs, you can run the below query in `Logs`.
+To view the KEDA scale logs, you can run the query in `Logs`.
 
     ```kusto
     ContainerAppSystemLogs
