@@ -71,13 +71,11 @@ IDatabase Database = _newConnection.GetDatabase();
 
 ::: zone pivot="azure-managed-redis"
 
-
 ::: zone-end
 
+### To edit the _app.config_ file
 
-### To edit the *app.config* file
-
-1. Edit the *app.config* file by adding the following content:
+1. Edit the _app.config_ file by adding the following content:
 
     ```xml
     <appSettings>
@@ -85,7 +83,7 @@ IDatabase Database = _newConnection.GetDatabase();
     </appSettings>
     ```
 
-1. Replace `<cache-hostname>` with your cache host name as it appears in the Overview from the Resource menu in Azure portal. 
+1. Replace `<cache-hostname>` with your cache host name as it appears in the Overview from the Resource menu in Azure portal.
 
    For example, with Azure Managed Redis or the Enterprise tiers: _my-redis.eastus.azure.net:10000_
 
@@ -97,10 +95,9 @@ For more information, see [StackExchange.Redis](https://stackexchange.github.io/
 
 ::: zone-end
 
-### To edit the *app.config* file
+### To edit the _app.config_ file
 
-
-1. Edit the *app.config* file by adding the following content:
+1. Edit the _app.config_ file by adding the following content:
 
     ```xml
     <appSettings>
