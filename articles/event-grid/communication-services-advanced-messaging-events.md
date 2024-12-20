@@ -43,6 +43,7 @@ Details for the attributes specific to `Microsoft.Communication.AdvancedMessageR
 | Attribute         | Type                                        | Nullable | Description                                                               |
 |:------------------|:-------------------------------------------:|:--------:|---------------------------------------------------------------------------|
 | channelType       | `string`                                    | ✔️      | Channel type of the channel that the message was sent on. Ex. "whatsapp". |
+| messageType       | `string`                                    | ✔️      | Message Type of the message receive event. Ex. "interactive". |
 | from              | `string`                                    | ✔️      | Sender ID that sent the message.                                          |
 | to                | `string`                                    | ✔️      | The channel ID that received the message, formatted as a GUID.            |
 | receivedTimestamp | `DateTimeOffset`                            | ✔️      | Timestamp of the message.                                                 |
@@ -50,7 +51,8 @@ Details for the attributes specific to `Microsoft.Communication.AdvancedMessageR
 | media             | [`MediaContent`](#mediacontent)             | ✔️      | Contains details about the received media.                                |
 | context           | [`MessageContext`](#messagecontext)         | ✔️      | Contains details about the received media.                                |
 | button            | [`ButtonContent`](#buttoncontent)           | ✔️      | Contains details about the received media.                                |
-| interactive       | [`InteractiveContent`](#interactivecontent) | ✔️      | Contains details about the received media.                                |
+| interactive       | [`InteractiveContent`](#interactivecontent) | ✔️      | Contains details about the received media.   |
+| reaction       | [`ReactionContent`](#reactioncontent) | ✔️      | Contains details about the received reaction over business message.                              |
 
 ##### MediaContent
 
@@ -60,6 +62,8 @@ Details for the attributes specific to `Microsoft.Communication.AdvancedMessageR
 | id        | `string` | ❌      | Media ID. Used to retrieve media for download, formatted as a GUID.                  |
 | fileName  | `string` | ✔️      | The filename of the underlying media file as specified when uploaded.                |
 | caption   | `string` | ✔️      | Caption text for the media object, if supported and provided.                        |
+| animated   | `string` | ✔️      | Set to true if the sticker is animated; false otherwise.                      |
+
 
 ##### MessageContext
 
@@ -106,6 +110,13 @@ Details for the attributes specific to `Microsoft.Communication.AdvancedMessageR
 | title       | `string` | ✔️      | Title of the selected list item. |
 | description | `string` | ✔️      | Description of the selected row. |
 
+##### ReactionContent
+
+| Attribute   | Type                                                              | Nullable | Description                                       |
+|:------------|:-----------------------------------------------------------------:|:--------:|---------------------------------------------------|
+| messageId  | `string`                  | ✔️      | Message id to which user reply to.       |
+| emoji | `string` | ✔️      | String representing unicode escape sequence of the emoji.     |
+
 #### Examples
 
 ##### Text message received
@@ -151,6 +162,151 @@ Details for the attributes specific to `Microsoft.Communication.AdvancedMessageR
   "dataVersion": "1.0",
   "metadataVersion": "1",
   "eventTime": "2023-07-06T18:30:22.1921716Z"
+}]
+```
+
+##### List Reply message received with InteractiveListReplyContent
+
+```json
+[{
+  "id": "00000000-0000-0000-0000-000000000000",
+  "topic": "/subscriptions/{subscription-id}/resourcegroups/{resourcegroup-name}/providers/microsoft.communication/communicationservices/{communication-services-resource-name}",
+  "subject": "advancedMessage/sender/{sender@id}/recipient/11111111-1111-1111-1111-111111111111",
+  "data": {
+    "channelType": "whatsapp",
+    "messageType": "interactive",
+    "context": {
+      "from": "{receiverphonenumber@id}",
+      "id": "{reply-message-id}"
+    },
+    "interactive": {
+      "type": "listReply",
+      "listReply": {
+        "id": "priority_mail",
+        "title": "Priority Mail",
+        "description": "1–3 Days"
+      }
+    },
+    "from": "{sender@id}",
+    "to": "{channel-id}",
+    "receivedTimestamp": "2024-12-04T23:53:28+00:00"
+  },
+  "eventType": "Microsoft.Communication.AdvancedMessageReceived",
+  "dataVersion": "1.0",
+  "metadataVersion": "1",
+  "eventTime": "2024-12-04T23:53:29.3079089Z"
+}]
+```
+
+##### Reply Button message received with InteractiveButtonReplyContent
+
+```json
+[{
+  "id": "00000000-0000-0000-0000-000000000000",
+  "topic": "/subscriptions/{subscription-id}/resourcegroups/{resourcegroup-name}/providers/microsoft.communication/communicationservices/{communication-services-resource-name}",
+  "subject": "advancedMessage/sender/{sender@id}/recipient/11111111-1111-1111-1111-111111111111",
+  "data": {
+    "channelType": "whatsapp",
+    "messageType": "interactive",
+    "context": {
+      "from": "{receiverphonenumber@id}",
+      "id": "{reply-message-id}"
+    },
+    "interactive": {
+      "type": "buttonReply",
+      "buttonReply": {
+        "id": "agree",
+        "title": "Agree"
+      }
+    },
+    "from": "{sender@id}",
+    "to": "{channel-id}",
+    "receivedTimestamp": "2024-12-04T23:57:04+00:00"
+  },
+  "eventType": "Microsoft.Communication.AdvancedMessageReceived",
+  "dataVersion": "1.0",
+  "metadataVersion": "1",
+  "eventTime": "2024-12-04T23:57:04.9459858Z"
+}]
+```
+
+##### Reply Sticker message received
+
+```json
+[{
+  "id": "00000000-0000-0000-0000-000000000000",
+  "topic": "/subscriptions/{subscription-id}/resourcegroups/{resourcegroup-name}/providers/microsoft.communication/communicationservices/{communication-services-resource-name}",
+  "subject": "advancedMessage/sender/{sender@id}/recipient/11111111-1111-1111-1111-111111111111",
+  "data": {
+    "channelType": "whatsapp",
+    "messageType": "sticker",
+    "media": {
+      "mimeType": "image/webp",
+      "id": "22222222-2222-2222-2222-222222222222",
+      "animated": false
+    },
+    "from": "{sender@id}",
+    "to": "{channel-id}",
+    "receivedTimestamp": "2024-12-04T23:57:04+00:00"
+  },
+  "eventType": "Microsoft.Communication.AdvancedMessageReceived",
+  "dataVersion": "1.0",
+  "metadataVersion": "1",
+  "eventTime": "2024-12-04T23:57:04.9459858Z"
+}]
+```
+
+##### Reply Reaction message received
+
+```json
+[{
+  "id": "00000000-0000-0000-0000-000000000000",
+  "topic": "/subscriptions/{subscription-id}/resourcegroups/{resourcegroup-name}/providers/microsoft.communication/communicationservices/{communication-services-resource-name}",
+  "subject": "advancedMessage/sender/{sender@id}/recipient/11111111-1111-1111-1111-111111111111",
+  "data": {
+    "channelType": "whatsapp",
+    "messageType": "reaction",
+    "reaction": {
+      "messageId": "{reply-message-id}",
+      "emoji": "👍"
+    },
+    "from": "{sender@id}",
+    "to": "{channel-id}",
+    "receivedTimestamp": "2024-12-04T23:57:04+00:00"
+  },
+  "eventType": "Microsoft.Communication.AdvancedMessageReceived",
+  "dataVersion": "1.0",
+  "metadataVersion": "1",
+  "eventTime": "2024-12-04T23:57:04.9459858Z"
+}]
+```
+
+##### ButtonContent message received
+
+```json
+[{
+  "id": "00000000-0000-0000-0000-000000000000",
+  "topic": "/subscriptions/{subscription-id}/resourcegroups/{resourcegroup-name}/providers/microsoft.communication/communicationservices/{communication-services-resource-name}",
+  "subject": "advancedMessage/sender/{sender@id}/recipient/11111111-1111-1111-1111-111111111111",
+  "data": {
+    "channelType": "whatsapp",
+    "messageType": "button",
+    "context": {
+      "from": "{receiverphonenumber@id}",
+      "id": "{reply-message-id}"
+    },
+    "button": {
+      "text": "Yes",
+      "payload": "Kat said yes"
+    },
+    "from": "{sender@id}",
+    "to": "{channel-id}",
+    "receivedTimestamp": "2024-12-20T04:03:22+00:00"
+  },
+  "eventType": "Microsoft.Communication.AdvancedMessageReceived",
+  "dataVersion": "1.0",
+  "metadataVersion": "1",
+  "eventTime": "2024-12-20T04:03:22.7978135Z"
 }]
 ```
 
