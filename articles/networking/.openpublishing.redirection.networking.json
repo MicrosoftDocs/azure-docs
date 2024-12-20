@@ -1,11 +1,6 @@
 {
     "redirections": [
         {
-            "source_path_from_root": "/articles/networking/azure-orbital-overview.md",
-            "redirect_url": "/azure/orbital/overview",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/networking/cli-samples.md",
             "redirect_url": "/azure/networking/fundamentals/networking-overview",
             "redirect_document_id": false
