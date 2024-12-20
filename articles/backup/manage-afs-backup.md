@@ -113,7 +113,7 @@ You can modify a backup policy to change the backup frequency or retention range
 
 To modify a policy, follow these steps:
 
-1.Go to **Business Continuity Center** > **Protection policies** under the **Manage** section, and then select **Azure Backup** as a solution.
+1. Go to **Business Continuity Center** > **Protection policies** under the **Manage** section, and then select **Azure Backup** as a solution.
 
    All Backup policies configured across your vaults appear.
 
@@ -128,7 +128,7 @@ To modify a policy, follow these steps:
    >[!Note]
    >The change of *backup tier* will retain the existing snapshots *AS-IS* as per the configured retention in the current policy. The future backups will be moved to the vault and retained as per the vault retention you configure. The change of *backup tier* is an irreversible operation and switching from vault to snapshot tier requires reconfiguration of the backup. 
    
-   ::::::image type="content" source="./media/manage-afs-backup/save-policy.png" alt-text="Screenshot shows how to modify a backup policy for Azure File share." lightbox="./media/manage-afs-backup/save-policy.png":::
+   :::image type="content" source="./media/manage-afs-backup/save-policy.png" alt-text="Screenshot shows how to modify a backup policy for Azure File share." lightbox="./media/manage-afs-backup/save-policy.png":::
 
    An *Update in Progress* message appears in the **Modify policy** blade. Once the policy changes successfully, the *Successfully updated the backup policy* message appears.
 ## Stop protection on a file share
@@ -168,7 +168,7 @@ To resume protection for the Azure File share, follow these steps:
 
    :::image type="content" source="./media/manage-afs-backup/azure-file-share-backup-instances.png" alt-text="Screenshot shows how to select Azure Files as the datasource type." lightbox="./media/manage-afs-backup/azure-file-share-backup-instances.png":::
 
-1. Select the backup item for which you want to resume protection. The list of actions available for the item appeaes. 
+1. Select the backup item for which you want to resume protection. The list of actions available for the item appears. 
 
    :::image type="content" source="./media/manage-afs-backup/select-backup-items-resume-protection.png" alt-text="Screenshot shows the list of actions available for the item to resume protection." lightbox="./media/manage-afs-backup/select-backup-items-resume-protection.png":::
 
