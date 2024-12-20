@@ -3,7 +3,7 @@ title: Data types in Bicep
 description: This article describes the data types that are available in Bicep.
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 12/06/2024
+ms.date: 01/02/2025
 ---
 
 # Data types in Bicep
@@ -308,7 +308,7 @@ var storageName = 'storage${uniqueString(resourceGroup().id)}'
 In Bicep, multi-line strings are defined between three single quotation marks (`'''`) followed optionally by a newline (the opening sequence) and three single quotation marks (`'''` is the closing sequence). Characters that are entered between the opening and closing sequence are read verbatim. Escaping isn't necessary or possible.
 
 > [!NOTE]
-> The Bicep parser reads all characters as is. Depending on the line endings of your Bicep file, newlines are interpreted as either `\r\n` or `\n`.
+> The Bicep parser reads every characters as it is. Depending on the line endings of your Bicep file, newlines are interpreted as either `\r\n` or `\n`.
 >
 > Interpolation isn't currently supported in multi-line strings. Because of this limitation, you might need to use the [`concat`](./bicep-functions-string.md#concat) function instead of using [interpolation](#strings).
 >
@@ -371,7 +371,7 @@ Type unions must be reducible to a single Azure Resource Manager type, such as `
 type foo = 'a' | 1
 ```
 
-You can use any type expression as a subtype in a union type declaration (between `|` characters). For example, the following examples are all valid:
+You can use any type of expression as a subtype in a union type declaration (between `|` characters). For example, the following examples are all valid:
 
 ```bicep
 type foo = 1 | 2
@@ -381,7 +381,7 @@ type baz = bar | (4 | 5) | 6
 
 ### Custom-tagged union data type
 
-Bicep supports a custom-tagged union data type, which is used to represent a value that can be one of several types. To declare a custom-tagged union data type, you can use a `@discriminator()` decorator. [Bicep CLI version 0.21.X or higher](./install.md) is required to use this decorator. The syntax is:
+Bicep supports a custom-tagged union data type, which represents a value that can be one of several types. To declare a custom-tagged union data type, you can use a `@discriminator()` decorator. [Bicep CLI version 0.21.X or higher](./install.md) is required to use this decorator. The syntax is:
 
 ```bicep
 @discriminator('<property-name>')
@@ -421,9 +421,9 @@ You can use the union type syntax in [user-defined data types](./user-defined-da
 
 ## Secure strings and objects
 
-Secure string uses the same format as string, and secure object uses the same format as object. With Bicep, you add the `@secure()` [decorator](./parameters.md#use-decorators) to a string or object.
+Secure strings use the same format as string, and secure objects use the same format as object. With Bicep, you add the `@secure()` [decorator](./parameters.md#use-decorators) to a string or object.
 
-When you set a parameter to a secure string or secure object, the value of the parameter isn't saved to the deployment history and isn't logged. If you set that secure value to a property that isn't expecting a secure value, the value isn't protected. For example, if you set a secure string to a tag, that value is stored as plain text. Use secure strings for passwords and secrets.
+When you set a parameter to a secure string or secure object, the value of the parameter isn't saved to the deployment history or logged. If you set that secure value to a property that isn't expecting a secure value, the value isn't protected. For example, if you set a secure string to a tag, that value is stored as plain text. Use secure strings for passwords and secrets.
 
 The following example shows two secure parameters:
 
@@ -456,6 +456,6 @@ In Bicep, you can assign a value of one type (source type) to another type (targ
 | Named resource |X| | | | | | |?| |?| | |
 | Named module   |X| | | | | | |?| | |?| |
 
-## Related content
+## Next steps
 
 To learn about the structure and syntax of Bicep, see [Bicep file structure](./file.md).
