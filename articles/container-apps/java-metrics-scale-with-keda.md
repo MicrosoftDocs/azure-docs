@@ -53,12 +53,6 @@ Use the following steps to define environment variables and set up the environme
    az login
    ```
 
-1. Create a resource group.
-
-   ```azurecli
-   az group create --name $RESOURCE_GROUP --location $LOCATION
-   ```
-
 ## Set up a managed identity for your Azure Container Apps
 To scale with Azure Container Apps platform metrics, you need a managed identity to access metrics from Azure Monitor.
 
