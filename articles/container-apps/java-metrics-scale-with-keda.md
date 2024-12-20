@@ -123,32 +123,32 @@ az containerapp update \
 
 ```json
 {
-"resources": {
-    "properties": {
-        "template": {
-            "scale": {
-                "minReplicas": 1,
-                "maxReplicas": 10,
-                "rules": [
-                    {
-                        "name": "scale-with-azure-monitor-metrics",
-                        "custom": {
-                            "type": "azure-monitor",
-                            "metadata": {
-                                "metricAggregationInterval": "0:1:0",
-                                "metricAggregationType": "Total",
-                                "metricName": "JvmGcCount",
-                                "resourceGroupName": "<your-resource-group>",
-                                "resourceURI": "Microsoft.App/containerapps/<your-app>",
-                                "subscriptionId": "<your-subscription-id>",
-                                "targetValue": "30",
-                                "tenantId": "<your-tenant-id>"
-                            },
-                            "identity": "<your-managed-identity-id>"
+    "resources": {
+        "properties": {
+            "template": {
+                "scale": {
+                    "minReplicas": 1,
+                    "maxReplicas": 10,
+                    "rules": [
+                        {
+                            "name": "scale-with-azure-monitor-metrics",
+                            "custom": {
+                                "type": "azure-monitor",
+                                "metadata": {
+                                    "metricAggregationInterval": "0:1:0",
+                                    "metricAggregationType": "Total",
+                                    "metricName": "JvmGcCount",
+                                    "resourceGroupName": "<your-resource-group>",
+                                    "resourceURI": "Microsoft.App/containerapps/<your-app>",
+                                    "subscriptionId": "<your-subscription-id>",
+                                    "targetValue": "30",
+                                    "tenantId": "<your-tenant-id>"
+                                },
+                                "identity": "<your-managed-identity-id>"
+                            }
                         }
-                    }
-                  ]
-                }   
+                    ]
+                }
             }
         }
     }
