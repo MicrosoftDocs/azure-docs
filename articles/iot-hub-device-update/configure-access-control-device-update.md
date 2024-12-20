@@ -3,7 +3,7 @@ title: Configure access control for Azure Device Update for IoT Hub
 description: Learn how to configure access control for the Azure Device Update for IoT Hub account and service principal.
 author: eshashah-msft
 ms.author: eshashah
-ms.date: 10/31/2022
+ms.date: 12/19/2024
 ms.topic: how-to
 ms.service: azure-iot-hub
 ms.subservice: device-update
