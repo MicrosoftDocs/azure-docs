@@ -160,7 +160,7 @@ The token format varies slightly according to the provider. See the following ta
 | `microsoftaccount` | `{"access_token":"<ACCESS_TOKEN>"}` or `{"authentication_token": "<TOKEN>"`| `authentication_token` is preferred over `access_token`. The `expires_in` property is optional. <br/> When requesting the token from Live services, always request the `wl.basic` scope. |
 | `google` | `{"id_token":"<ID_TOKEN>"}` | The `authorization_code` property is optional. Providing an `authorization_code` value adds an access token and a refresh token to the token store. When specified, `authorization_code` can also optionally be accompanied by a `redirect_uri` property. |
 | `facebook`| `{"access_token":"<USER_ACCESS_TOKEN>"}` | Use a valid [user access token](https://developers.facebook.com/docs/facebook-login/access-tokens) from Facebook. |
-| `twitter` | `{"access_token":"<ACCESS_TOKEN>", "access_token_secret":"<ACCES_TOKEN_SECRET>"}` | |
+| `twitter` | `{"access_token":"<ACCESS_TOKEN>", "access_token_secret":"<ACCESS_TOKEN_SECRET>"}` | |
 | | | |
 
 If the provider token is validated successfully, the API returns with an `authenticationToken` in the response body, which is your session token. 

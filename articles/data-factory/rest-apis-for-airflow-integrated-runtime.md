@@ -192,7 +192,7 @@ Response body:
             "airflowEntityReferences": [],
             "packageProviderPath": "plugins",
             "enableAADIntegration": true,
-            "enableTriggerers": false
+            "enableTriggers": false
          }
       },
       "state": "Initial"

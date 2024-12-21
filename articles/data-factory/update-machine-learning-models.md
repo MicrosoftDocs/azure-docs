@@ -207,7 +207,7 @@ The pipeline has two activities: **AzureMLBatchExecution** and **AzureMLUpdateRe
         "activities": [
             {
                 "name": "amlBEGetilearner",
-                "description": "Use AML BES to get the ileaner file from training web service",
+                "description": "Use AML BES to get the ilearner file from training web service",
                 "type": "AzureMLBatchExecution",
                 "linkedServiceName": {
                     "referenceName": "trainingEndpoint",
