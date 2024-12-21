@@ -4,11 +4,18 @@ ms.author: kgremban
 ms.service: azure-iot-hub
 ms.devlang: java
 ms.topic: include
-ms.date: 06/20/2024
+ms.date: 12/19/2024
 ms.custom: [amqp, mqtt, devx-track-java, devx-track-extended-java]
 ---
 
-## Receive cloud-to-device messages
+## Overview
+
+This how-to contains two sections:
+
+* Receive cloud-to-device messages on a device
+* Send cloud-to-device messages from a backend application
+
+## Receive cloud-to-device messages on a device
 
 This section describes how to receive cloud-to-device messages using the [DeviceClient](/java/api/com.microsoft.azure.sdk.iot.device.deviceclient) class from the Azure IoT SDK for Java.
 
@@ -24,7 +31,18 @@ import com.microsoft.azure.sdk.iot.device.exceptions.IotHubClientException;
 import com.microsoft.azure.sdk.iot.device.transport.IotHubConnectionStatus;
 ```
 
-### Declare a DeviceClient object
+### Connect a device to IoT Hub
+
+A device app can authenticate with IoT Hub using the following methods:
+
+* X.509 certificate
+* Shared access key
+
+#### Authenticate using an X.509 certificate
+
+[!INCLUDE [iot-hub-howto-auth-device-cert-java](iot-hub-howto-auth-device-cert-java.md)]
+
+#### Authenticate using a shared access key
 
 The [DeviceClient](/java/api/com.microsoft.azure.sdk.iot.device.deviceclient?#com-microsoft-azure-sdk-iot-device-deviceclient-deviceclient(java-lang-string-com-microsoft-azure-sdk-iot-device-iothubclientprotocol)) object instantiation requires these parameters:
 
@@ -39,7 +57,7 @@ The [DeviceClient](/java/api/com.microsoft.azure.sdk.iot.device.deviceclient?#co
 For example:
 
 ```java
-static string connectionString = "{a device connection string}";
+static string connectionString = "{IOT hub device connection string}";
 static protocol = IotHubClientProtocol.AMQPS;
 DeviceClient client = new DeviceClient(connectionString, protocol);
 ```
@@ -146,7 +164,7 @@ client.open(true);
 
 **HandleMessages**: a sample device app included with the [Microsoft Azure IoT SDK for Java](https://github.com/Azure/azure-iot-sdk-java/tree/main/iothub/device/iot-device-samples), which connects to your IoT hub and receives cloud-to-device messages.
 
-## Send cloud-to-device messages
+## Send cloud-to-device messages from a backend application
 
 This section describes how to send a cloud-to-device message using the [ServiceClient](/java/api/com.azure.core.annotation.serviceclient) class from the Azure IoT SDK for Java. A solution backend application connects to an IoT Hub and messages are sent to IoT Hub encoded with a destination device. IoT Hub stores incoming messages to its message queue, and messages are delivered from the IoT Hub message queue to the target device.
 
@@ -174,24 +192,34 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 ```
 
-### Define the connection protocol
+### Connect to the IoT Hub
+
+You can connect a backend service to IoT Hub using the following methods:
+
+* Shared access policy
+* Microsoft Entra
+
+[!INCLUDE [iot-authentication-service-connection-string.md](iot-authentication-service-connection-string.md)]
+
+#### Connect using a shared access policy
+
+#### Define the connection protocol
 
 Use [IotHubServiceClientProtocol](/java/api/com.microsoft.azure.sdk.iot.service.iothubserviceclientprotocol) to define the application-layer protocol used by the service client to communicate with an IoT Hub.
 
 `IotHubServiceClientProtocol` only accepts the `AMQPS` or `AMQPS_WS` enum.
 
 ```java
-private static final IotHubServiceClientProtocol protocol =    
-    IotHubServiceClientProtocol.AMQPS;
+IotHubServiceClientProtocol protocol = IotHubServiceClientProtocol.AMQPS;
 ```
 
-### Create the ServiceClient object
+#### Create the ServiceClient object
 
 Create the [ServiceClient](/java/api/com.azure.core.annotation.serviceclient) object, supplying the Iot Hub connection string and protocol.
 
 ```java
-private static final String connectionString = "{yourhubconnectionstring}";
-private static final ServiceClient serviceClient (connectionString, protocol);
+String connectionString = "{yourhubconnectionstring}";
+ServiceClient serviceClient (connectionString, protocol);
 ```
 
 ### Open the connection between application and IoT Hub
@@ -201,6 +229,10 @@ private static final ServiceClient serviceClient (connectionString, protocol);
 ```java
 serviceClient.open();
 ```
+
+#### Connect using Microsoft Entra
+
+[!INCLUDE [iot-hub-howto-connect-service-iothub-entra-java](iot-hub-howto-connect-service-iothub-entra-java.md)]
 
 ### Open a feedback receiver for message delivery feedback
 
@@ -254,6 +286,7 @@ if (feedbackBatch != null) {
 
 ### SDK send message samples
 
-* [Service client sample](/java/api/overview/azure/iot?example) - Send message example, #1.
+There are two send message samples:
 
+* [Service client sample](/java/api/overview/azure/iot?example) - Send message example, #1.
 * [Service client sample](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/service/samples/getting%20started/ServiceClientSample) - Send message example, #2.
