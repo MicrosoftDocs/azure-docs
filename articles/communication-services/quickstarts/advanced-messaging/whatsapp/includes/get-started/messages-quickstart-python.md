@@ -237,11 +237,11 @@ Initiate a conversation by sending a template message.
 
 First, create a MessageTemplate using the values for a template. 
 > [!NOTE]
-> To check which templates you have available, see the instructions at [List templates](../../template-messages.md#list-whatsapp-templates-in-azure-portal).
+> To check which templates you have available, see the instructions at [List templates](../../send-template-messages.md#list-whatsapp-templates-in-azure-portal).
 > If you don't have a template to use, proceed to [Option 2](#option-2-initiate-conversation-from-user).
 
 Here's MessageTemplate creation using a default template, `sample_template`.   
-If `sample_template` isn't available to you, skip to [Option 2](#option-2-initiate-conversation-from-user). For advanced users, see the page [Templates](../../template-messages.md) to understand how to send a different template with Option 1.
+If `sample_template` isn't available to you, skip to [Option 2](#option-2-initiate-conversation-from-user). For advanced users, see the page [Templates](../../send-template-messages.md) to understand how to send a different template with Option 1.
 
 Messages SDK allows Contoso to send templated WhatsApp messages to WhatsApp users. To send template messages below details are required:
 - [WhatsApp Channel ID](#set-channel-registration-id)
@@ -252,7 +252,7 @@ Messages SDK allows Contoso to send templated WhatsApp messages to WhatsApp user
     - Parameters if any
 
 For more examples of how to assemble your MessageTemplate and how to create your own template, refer to the following resource:
-- [Send WhatsApp Template Messages](../../template-messages.md) 
+- [Send WhatsApp Template Messages](../../send-template-messages.md) 
    
 For further WhatsApp requirements on templates, refer to the WhatsApp Business Platform API references:
 - [Template Management](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates/)
