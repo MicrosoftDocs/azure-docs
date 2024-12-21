@@ -8,10 +8,6 @@ ms.date: 12/19/2024
 ms.custom: [amqp, mqtt, "Role: Cloud Development", "Role: IoT Device", devx-track-csharp, devx-track-dotnet]
 ---
 
-## Overview
-
-This article describes how to use the [Azure IoT SDK for .NET](https://github.com/Azure/azure-iot-sdk-csharp/blob/main/readme.md) to create device and backend service application code to receive and send cloud-to-device messages.
-
 ## Create a device application
 
 This section describes how to receive cloud-to-device messages.

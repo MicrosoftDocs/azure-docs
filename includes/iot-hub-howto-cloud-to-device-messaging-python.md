@@ -8,33 +8,17 @@ ms.date: 12/19/2024
 ms.custom: mqtt, devx-track-python, py-fresh-zinc
 ---
 
-## Overview
+## Create a device application
 
-This article describes how to use the [Azure IoT SDK for Python](https://github.com/Azure/azure-iot-sdk-python) to create device and backend service application code to receive and send cloud-to-device messages.
+This section describes how to receive cloud-to-device messages.
 
-There are two Python SDK classes that are used to send messages to and from IoT devices. Message handling methods from these classes are described in sections on this page.
-
-* The [IoTHubDeviceClient](/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient) class includes methods to create a synchronous connection from a device to an Azure IoT Hub and receive messages from IoT Hub.
-
-* The [IoTHubRegistryManager](/python/api/azure-iot-hub/azure.iot.hub.iothub_registry_manager.iothubregistrymanager) class includes APIs for IoT Hub Registry Manager operations. In this article, methods from this class show how to connect to IoT Hub and send a message to a device.
-
-## Install packages
+The [IoTHubDeviceClient](/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient) class includes methods to create a synchronous connection from a device to an Azure IoT Hub and receive messages from IoT Hub.
 
 The **azure-iot-device** library must be installed to create device applications.
 
 ```cmd/sh
 pip install azure-iot-device
 ```
-
-The **azure-iot-hub** library must be installed to create backend service applications.
-
-```cmd/sh
-pip install azure-iot-hub
-```
-
-## Create a device application
-
-This section describes how to receive cloud-to-device messages using the [IoTHubDeviceClient](/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient) class from the Azure IoT SDK for Python.
 
 For a Python-based device application to receive cloud-to-device messages, it must connect to IoT Hub and then set up a callback message handler to process incoming messages from IoT Hub.
 
@@ -130,7 +114,11 @@ finally:
 
 This section describes how to send a cloud-to-device message. A solution backend application connects to an IoT Hub and messages are sent to IoT Hub encoded with a destination device. IoT Hub stores incoming messages to its message queue, and messages are delivered from the IoT Hub message queue to the target device.
 
-The [IoTHubRegistryManager](/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager) class exposes all methods required to create a backend application to interact with cloud-to-device messages from the service.
+The [IoTHubRegistryManager](/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager) class exposes all methods required to create a backend application to interact with cloud-to-device messages from the service. The **azure-iot-hub** library must be installed to create backend service applications.
+
+```cmd/sh
+pip install azure-iot-hub
+```
 
 ### Import the IoTHubRegistryManager object
 

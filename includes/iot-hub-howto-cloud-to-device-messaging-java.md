@@ -8,13 +8,6 @@ ms.date: 12/19/2024
 ms.custom: [amqp, mqtt, devx-track-java, devx-track-extended-java]
 ---
 
-## Overview
-
-This how-to contains two sections:
-
-* Receive cloud-to-device messages on a device
-* Send cloud-to-device messages from a backend application
-
 ## Receive cloud-to-device messages on a device
 
 This section describes how to receive cloud-to-device messages using the [DeviceClient](/java/api/com.microsoft.azure.sdk.iot.device.deviceclient) class from the Azure IoT SDK for Java.

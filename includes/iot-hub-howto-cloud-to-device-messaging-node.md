@@ -8,13 +8,6 @@ ms.date: 12/19/2024
 ms.custom: [amqp, mqtt, devx-track-js]
 ---
 
-## Overview
-
-This article describes how to use the [Azure IoT SDK for Node.js](https://github.com/Azure/azure-iot-sdk-node) to:
-
-* Receive cloud-to-device messages on a device
-* Send cloud-to-device messages from a backend application
-
 ## Create a device application
 
 This section describes how to receive cloud-to-device messages using the [azure-iot-device](/javascript/api/azure-iot-device) package in the Azure IoT SDK for Node.js.
