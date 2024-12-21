@@ -39,5 +39,5 @@ Azure Communication Services enables you to send and receive WhatsApp messages. 
 Next you might also want to see the following articles:
 
 - [Handle Advanced Messaging events](./handle-advanced-messaging-events.md)
-- [Send WhatsApp template messages](../../../quickstarts/advanced-messaging/whatsapp/template-messages.md)
+- [Send WhatsApp template messages](../../../quickstarts/advanced-messaging/whatsapp/send-template-messages.md)
 - [Send WhatsApp Media messages](../../../quickstarts/advanced-messaging/whatsapp/get-started.md)

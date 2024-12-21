@@ -236,7 +236,7 @@ items:
             - name: Text And Media Messages
               href: quickstarts/advanced-messaging/whatsapp/get-started.md
             - name: Template Messages
-              href: quickstarts/advanced-messaging/whatsapp/template-messages.md
+              href: quickstarts/advanced-messaging/whatsapp/send-template-messages.md
             - name: Interactive Messages
               href: quickstarts/advanced-messaging/whatsapp/send-interactive-messages.md
             - name: Reaction Messages
