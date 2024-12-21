@@ -371,3 +371,13 @@ purchaseFeedbackTemplate.Values.Add(product);
 purchaseFeedbackTemplate.Values.Add(urlSuffix);
 purchaseFeedbackTemplate.Bindings = bindings;
 ``````
+
+### Full code example
+
+[!INCLUDE [Full code example with .NET](./template-messages-full-code-example-net.md)]
+
+### More Examples
+
+These examples utilize sample templates available to WhatsApp Business Accounts created through the Azure portal embedded signup.
+
+[!INCLUDE [Template examples with .NET](./template-messages-examples-net.md)]

@@ -10,6 +10,8 @@ ms.date: 02/29/2024
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: advanced-messaging
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
+zone_pivot_groups: acs-js-csharp-java-python
 ---
 
 # Quickstart: Send WhatsApp Template messages using Advanced Messages
@@ -56,17 +58,21 @@ To list out your templates programmatically, you can fetch all templates for you
 
 ##  Code examples
 
+::: zone pivot="programming-language-csharp"
 [!INCLUDE [Template usage quick reference with .NET](./includes/templates/template-messages-quick-reference-net.md)]
+::: zone-end
 
-### Full code example
+::: zone pivot="programming-language-java"
+[!INCLUDE [Send WhatsApp Messages with Java](./includes/templates/messages-quickstart-template-messages-java.md)]
+::: zone-end
 
-[!INCLUDE [Full code example with .NET](./includes/templates/template-messages-full-code-example-net.md)]
+::: zone pivot="programming-language-javascript"
+[!INCLUDE [Send WhatsApp Messages JavaScript SDK](./includes/templates/messages-quickstart-template-messages-js.md)]
+::: zone-end
 
-### More Examples
-
-These examples utilize sample templates available to WhatsApp Business Accounts created through the Azure portal embedded signup.
-
-[!INCLUDE [Template examples with .NET](./includes/templates/template-messages-examples-net.md)]
+::: zone pivot="programming-language-python"
+[!INCLUDE [Send WhatsApp Messages Python SDK](./includes/templates/messages-quickstart-template-messages-python.md)]
+::: zone-end
 
 ## Next steps
 
