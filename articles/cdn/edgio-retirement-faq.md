@@ -32,7 +32,7 @@ You can see them in the [Migrate away from Azure CDN from Edgio](https://www.por
 
 The following is a recap of the migration options we sent to all users:
 
-- Validate if your workloads on Azure CDN from Edgio are compatible with Azure Front Door (see [here](../frontdoor/front-door-cdn-comparison.md) and [here](../frontdoor/front-door-faq.md) to help verify) and migrate as soon as possible using these instructions before January 7, 2025.
+- Validate if your workloads on Azure CDN from Edgio are compatible with Azure Front Door (see [here](../frontdoor/front-door-cdn-comparison.md) and [here](../frontdoor/front-door-faq) to help verify) and migrate as soon as possible using these instructions before January 7, 2025.
     - If you already use custom domains, follow steps mentioned [here](../frontdoor/migrate-cdn-to-front-door.md).
     - If you want to migrate while retaining your existing *.azureedge.net domain, follow steps mentioned [here](migrate-cdn-to-front-door-retain-edge-domain.md).
 
