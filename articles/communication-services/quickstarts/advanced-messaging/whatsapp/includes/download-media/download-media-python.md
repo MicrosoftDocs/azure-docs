@@ -15,11 +15,9 @@ ms.author: shamkh
 
 ## Prerequisites
 
-- [WhatsApp Business Account registered with your Azure Communication Services resource](../../connect-whatsapp-business-account.md).
-
-- Active WhatsApp phone number to receive messages.
-
-- [Python](https://www.python.org/downloads/) 3.7+ for your operating system.
+- [WhatsApp Business Account registered with your Azure Communication Services resource](../../connect-whatsapp-business-account.md)
+- .NET development environment (such as [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/Download), or [.NET CLI](https://dotnet.microsoft.com/download))
+- Event subscription and handling of [Advanced Message Received events](./../../handle-advanced-messaging-events.md#subscribe-to-advanced-messaging-events)
 
 ## Setting up
 
@@ -43,10 +41,10 @@ pip install azure-communication-messages
 
 ### Set up the app framework
 
-Create a new file called `reaction-messages-quickstart.py` and add the basic program structure.
+Create a new file called `download-media-quickstart.py` and add the basic program structure.
 
 ```console
-type nul > reaction-messages-quickstart.py   
+type nul > download-media-quickstart.py   
 ```
 #### Basic program structure
 ```python
@@ -62,10 +60,11 @@ if __name__ == '__main__':
 ## Object model
 The following classes and interfaces handle some of the major features of the Azure Communication Services Messages SDK for Python.
 
-| Name                        | Description                                                                                            |
-|-----------------------------|--------------------------------------------------------------------------------------------------------|
-| NotificationMessagesClient  | This class connects to your Azure Communication Services resource. It sends the messages.              |
-| ReactionNotificationContent | This class defines the reaction content of the messages with emoji and reply message id.|
+| Name            | Description                         |
+|-----------------------------------|-------------------|
+| [NotificationMessagesClient](/python/api/azure-communication-messages/azure.communication.messages.notificationmessagesclient)  | This class connects to your Azure Communication Services resource. It sends the messages.                   |
+| [DownloadMediaAsync](/python/api/azure.communication.messages.notificationmessagesclient.downloadmediaasync)     | Download the media payload from a User to Business message asynchronously, writing the content to a stream. |
+| [Microsoft.Communication.AdvancedMessageReceived](/azure/event-grid/communication-services-advanced-messaging-events#microsoftcommunicationadvancedmessagereceived-event) | Event Grid event that is published when Advanced Messaging receives a message. |
 
 > [!NOTE]
 > Please find the SDK reference [here](/python/api/azure-communication-messages/azure.communication.messages).
@@ -82,101 +81,79 @@ Follow these steps to add the necessary code snippets to the messages-quickstart
 ## Code examples
 Follow these steps to add the necessary code snippets to the messages-quickstart.py python program.
 
-- [Send a Reaction messages to a WhatsApp user message](#send-a-reaction-messages-to-a-whatsapp-user-message)
+- [Receive or Download media from a WhatsApp user](#receive-or-download-media-from-a-whatsapp-user)
 
-## Send a Reaction messages to a WhatsApp user message
-Advanced Messages SDK allows Contoso to send reaction WhatsApp messages, which initiated by WhatsApp users. To send text messages below details are required:
+## Receive or Download media from a WhatsApp user
+Advanced Messages SDK allows Contoso to receive or download media from a WhatsApp user, which initiated by WhatsApp users. To send text messages below details are required:
 - [WhatsApp Channel ID](#set-channel-registration-id)
 - [Recipient Phone Number in E16 format](#set-recipient-list)
-- Reaction content can be created using given properties:
-
-| Action type   | Description |
-|----------|---------------------------|
-| ReactionNotificationContent    | This class defines title of the group content and array of the group.    |
-| Emoji    | This property defines the unnicode for emoji character.   |
-| Reply Message Id | This property defines Id of the message to be replied with emoji. |
+- Download media id as Guid.
 
 > [!IMPORTANT]
 > To send a text message to a WhatsApp user, the WhatsApp user must first send a message to the WhatsApp Business Account. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
 
 In this example, business sends reaction to the user message"
 ```python
-    def send_reaction_message(self):
+     def download_media(self):
 
         from azure.communication.messages import NotificationMessagesClient
-        from azure.communication.messages.models import ReactionNotificationContent
 
         messaging_client = NotificationMessagesClient.from_connection_string(self.connection_string)
+        input_media_id: str = "2a8eb7b8-12cc-4fdb-91b2-df30b75f8bdb"
 
-        video_options = ReactionNotificationContent(
-            channel_registration_id=self.channel_id,
-            to=[self.phone_number],
-            emoji="\uD83D\uDE00",
-            message_id="<<ReplyMessageIdGuid>>",
-        )
+        # calling download_media() with whatsapp message details
+        media_stream = messaging_client.download_media(input_media_id)
+        response = BytesIO(media_stream)
+        print("WhatsApp Media stream downloaded.It's current positions is {}".format(response.tell()))
 
-        # calling send() with whatsapp message details
-        message_responses = messaging_client.send(video_options)
-        response = message_responses.receipts[0]
-        print("Message with message id {} was successful sent to {}".format(response.message_id, response.to))
 ```
 
-To run send_reaction_message(), update the [main method](#basic-program-structure)
+To run download_media(), update the [main method](#basic-program-structure)
 ```python
-    #Calling send_reaction_message()
-    messages.send_reaction_message()
+    #Calling download_media()
+    messages.download_media()
 ```
-
-:::image type="content" source="../../media/interactive-reaction-sticker/reaction-message.png" lightbox="../../media/interactive-reaction-sticker/reaction-message.png" alt-text="Screenshot that shows WhatsApp CTA interactive message from Business to User.":::
 
 ## Run the code
 
-To run the code, make sure you are on the directory where your `reaction-messages-quickstart.py` file is.
+To run the code, make sure you are on the directory where your `download-media-quickstart.py` file is.
 
 ```console
-python reaction-messages-quickstart.py
+python download-media-quickstart.py
 ```
 
 ```output
 Azure Communication Services - Advanced Messages Quickstart
-WhatsApp Reaction Message with message id <<GUID>> was successfully sent to <<ToRecipient>>
+WhatsApp Media stream downloaded.
 ```
 
 ## Full sample code
 
 ```python
 import os
+from io import BytesIO
 
 class MessagesQuickstart(object):
     print("Azure Communication Services - Advanced Messages SDK Quickstart using connection string.")
     # Advanced Messages SDK implementations goes in this section.
    
     connection_string = os.getenv("COMMUNICATION_SERVICES_CONNECTION_STRING")
-    phone_number = os.getenv("RECIPIENT_PHONE_NUMBER")
-    channelRegistrationId = os.getenv("WHATSAPP_CHANNEL_ID")
 
-    def send_reaction_message(self):
+    def download_media(self):
 
         from azure.communication.messages import NotificationMessagesClient
-        from azure.communication.messages.models import ReactionNotificationContent
 
         messaging_client = NotificationMessagesClient.from_connection_string(self.connection_string)
+        input_media_id: str = "2a8eb7b8-12cc-4fdb-91b2-df30b75f8bdb"
 
-        video_options = ReactionNotificationContent(
-            channel_registration_id=self.channel_id,
-            to=[self.phone_number],
-            emoji="\uD83D\uDE00",
-            message_id="<<ReplyMessageIdGuid>>",
-        )
-
-        # calling send() with whatsapp message details
-        message_responses = messaging_client.send(video_options)
-        response = message_responses.receipts[0]
-        print("WhatsApp Reaction Message with message id {} was successful sent to {}".format(response.message_id, response.to))
+        # calling download_media() with whatsapp message details
+        media_stream = messaging_client.download_media(input_media_id)
+        response = BytesIO(media_stream)
+        print("WhatsApp Media stream downloaded.It's current positions is {}".format(response.tell()))
 
 if __name__ == '__main__':
     messages = MessagesQuickstart()
-    messages.send_reaction_message()
+    messages.download_media()
 ```
 
 > [!NOTE]

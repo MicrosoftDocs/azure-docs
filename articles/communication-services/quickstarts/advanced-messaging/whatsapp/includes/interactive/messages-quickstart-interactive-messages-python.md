@@ -79,7 +79,7 @@ The following classes and interfaces handle some of the major features of the Az
 | LinkContent | This class defines the Url or Click-To-Action content for Interactive message. |
 
 > [!NOTE]
-> Please find the SDK reference [here](https://learn.microsoft.com/python/api/azure-communication-messages/azure.communication.messages).
+> Please find the SDK reference [here](/python/api/azure-communication-messages/azure.communication.messages).
 
 ## Common configuration
 Follow these steps to add the necessary code snippets to the messages-quickstart.py python program.
