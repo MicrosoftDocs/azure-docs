@@ -94,17 +94,19 @@ Advanced Messages SDK allows Contoso to receive or download media from a WhatsAp
 
 In this example, business sends reaction to the user message"
 ```python
-     def download_media(self):
+      def download_media(self):
 
         from azure.communication.messages import NotificationMessagesClient
 
         messaging_client = NotificationMessagesClient.from_connection_string(self.connection_string)
-        input_media_id: str = "2a8eb7b8-12cc-4fdb-91b2-df30b75f8bdb"
+        input_media_id: str = "de7558b5-e169-4d47-9ba4-37a95c28f390"
 
-        # calling download_media() with whatsapp message details
+        # calling send() with whatsapp message details
         media_stream = messaging_client.download_media(input_media_id)
-        response = BytesIO(media_stream)
-        print("WhatsApp Media stream downloaded.It's current positions is {}".format(response.tell()))
+        length : int = 0
+        for byte in media_stream:
+            length = length + 1
+        print("WhatsApp Media stream downloaded.It's length is {}".format(length))
 
 ```
 
@@ -139,17 +141,19 @@ class MessagesQuickstart(object):
    
     connection_string = os.getenv("COMMUNICATION_SERVICES_CONNECTION_STRING")
 
-    def download_media(self):
+     def download_media(self):
 
         from azure.communication.messages import NotificationMessagesClient
 
         messaging_client = NotificationMessagesClient.from_connection_string(self.connection_string)
-        input_media_id: str = "2a8eb7b8-12cc-4fdb-91b2-df30b75f8bdb"
+        input_media_id: str = "de7558b5-e169-4d47-9ba4-37a95c28f390"
 
-        # calling download_media() with whatsapp message details
+        # calling send() with whatsapp message details
         media_stream = messaging_client.download_media(input_media_id)
-        response = BytesIO(media_stream)
-        print("WhatsApp Media stream downloaded.It's current positions is {}".format(response.tell()))
+        length : int = 0
+        for byte in media_stream:
+            length = length + 1
+        print("WhatsApp Media stream downloaded.It's length is {}".format(length))
 
 if __name__ == '__main__':
     messages = MessagesQuickstart()
