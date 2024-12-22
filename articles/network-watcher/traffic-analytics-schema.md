@@ -310,7 +310,7 @@ List of threat types:
 | C2 | Indicator detailing a Command & Control node of a botnet. |
 | CryptoMining | Traffic involving this network address / URL is an indication of CyrptoMining / Resource abuse. |
 | DarkNet | Indicator of a Darknet node/network. |
-| DDos | Indicators relating to an active or upcoming DDoS campaign. |
+| DDoS | Indicators relating to an active or upcoming DDoS campaign. |
 | MaliciousUrl | URL that is serving malware. |
 | Malware | Indicator describing a malicious file or files. |
 | Phishing | Indicators relating to a phishing campaign. |
