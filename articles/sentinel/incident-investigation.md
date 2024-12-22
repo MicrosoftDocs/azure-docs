@@ -41,7 +41,7 @@ Microsoft Sentinel incidents give you tools to help your Security Operations (Se
 
 1. Use incident details to audit your incident management. The incident **activity log** tracks actions taken on an incident, whether initiated by humans or automated processes, and displays them along with all the comments on the incident.
 
-  You can add your own comments here as well. For more information, see [Investigate your incident in depth](investigate-incidents.md#investigate-your-incident-in-depth).
+  You can add your own comments here as well. For more information, see [Investigate Microsoft Sentinel incidents in depth in the Azure portal](investigate-incidents.md).
 
 ## Investigate effectively and efficiently
 
@@ -62,7 +62,7 @@ Use Microsoft Sentinel incidents to investigate security incidents effectively a
   - The **alert provider**, in the second part of the subtitle. For bookmarks, the **creator** of the bookmark.
   - The MITRE ATT&CK **tactics** associated with the alert, indicated by icons and ToolTips, in the third part of the subtitle.
 
-  For more information, see [Incident timeline](investigate-incidents.md#incident-timeline).
+  For more information, see [Reconstruct the timeline of attacker activity](investigate-incidents.md#reconstruct-the-timeline-of-attacker-activity).
 
 1. **Learn from similar incidents**. If anything you’ve seen so far in your incident looks familiar, there may be good reason. Microsoft Sentinel stays one step ahead of you by showing you the incidents most similar to the open one. 
 
@@ -96,7 +96,7 @@ Use Microsoft Sentinel incidents to investigate security incidents effectively a
 
   Incident similarity is recalculated every time you enter the incident details page, so the results might vary between sessions if new incidents were created or updated.
 
-  For more information, see [Similar incidents](investigate-incidents.md#similar-incidents).
+  For more information, see [Check for similar incidents in your environment](investigate-incidents.md#check-for-similar-incidents-in-your-environment).
 
 1. **Examine top insights**. Next, having the broad outlines of what happened (or is still happening), and having a better understanding of the context, you’ll be curious about what interesting information Microsoft Sentinel has already found out for you. 
 
@@ -132,7 +132,7 @@ Use Microsoft Sentinel incidents to investigate security incidents effectively a
 
   - **Classify the entity as an [indicator of compromise (IOC)](add-entity-to-threat-intelligence.md)** and add it to your Threat intelligence list.
 
-  Each of these actions is currently supported for certain entity types and not for others. The following table shows which actions are supported for each entity type:
+  <a name=supported-actions></a>Each of these actions is currently supported for certain entity types and not for others. The following table shows which actions are supported for each entity type:
 
   | Available actions &#9654;<br>Entity types &#9660;  | View full details<br>(in entity page) | Add to TI * | Run playbook *<br>(Preview) |
   | ----- | :----: | :----: | :----: |
@@ -177,7 +177,7 @@ The activity log is constantly auto-refreshing, even while open, so you can see 
 
     In that case, filter the incident list by **Owner** to limit the list to the incidents assigned to you or to your team. This filtered set represents your personal workload.
 
-    Otherwise, you can perform basic triage yourself. Start by filtering the list of incidents by available filtering criteria, whether status, severity, or product name. For more information, see [Search for incidents](#search-for-incidents).
+    Otherwise, you can perform basic triage yourself. Start by filtering the list of incidents by available filtering criteria, whether status, severity, or product name. For more information, see [Search for incidents](incident-navigate-triage.md#search-for-incidents).
 
 1. Triage a specific incident and take some actions on it immediately, right from the details pane on the **Incidents** page, without having to enter the incident’s full details page.
 
@@ -191,7 +191,7 @@ The activity log is constantly auto-refreshing, even while open, so you can see 
 
         Recently selected users and groups appear at the top of the pictured drop-down list.
 
-    - **Update the incident’s status** (for example, from **New** to **Active** or **Closed**) by selecting from the **Status** drop-down list. When closing an incident, you're required to specify a reason. For more information, see [Closing an incident](#closing-an-incident).
+    - **Update the incident’s status** (for example, from **New** to **Active** or **Closed**) by selecting from the **Status** drop-down list. When closing an incident, you're required to specify a reason. For more information, see [Close an incident](incident-navigate-triage.md#close-an-incident).
 
     - **Change the incident’s severity** by selecting from the **Severity** drop-down list.
 
@@ -201,7 +201,7 @@ The activity log is constantly auto-refreshing, even while open, so you can see 
 
 1. If the information in the details pane is sufficient to prompt further remediation or mitigation actions, select the **Actions** button at the bottom to do one of the following:
 
-    - **Investigate:** use the [graphical investigation tool](#investigate-incidents-visually-using-the-investigation-graph) to discover relationships between alerts, entities, and activities, both within this incident and across other incidents.
+    - **Investigate:** use the [graphical investigation tool](investigate-incidents.md#investigate-incidents-visually-using-the-investigation-graph) to discover relationships between alerts, entities, and activities, both within this incident and across other incidents.
 
     - **Run playbook:** run a [playbook](automate-responses-with-playbooks.md#run-a-playbook-manually) on this incident to take particular [enrichment, collaboration, or response actions](automate-responses-with-playbooks.md#use-cases-for-playbooks) such as your SOC engineers might have made available.
 
@@ -213,10 +213,6 @@ The activity log is constantly auto-refreshing, even while open, so you can see 
 
 1. If more information about the incident is needed, select **View full details** in the details pane to open and see the incident's details in their entirety, including the alerts and entities in the incident, a list of similar incidents, and selected top insights.
 
-## Next step
-
-[Navigate, triage, and manage Microsoft Sentinel incidents in the Azure portal](incident-navigate-triage.md)
-
 ## Related content
 
 In this document, you learned how the Microsoft Sentinel incident investigation experience in the Azure portal helps you [carry out an investigation in a single context](investigate-incidents.md). For more information about managing and investigating incidents, see the following articles:
@@ -226,3 +222,7 @@ In this document, you learned how the Microsoft Sentinel incident investigation 
 - [Automate incident handling in Microsoft Sentinel with automation rules](automate-incident-handling-with-automation-rules.md).
 - [Identify advanced threats with User and Entity Behavior Analytics (UEBA) in Microsoft Sentinel](identify-threats-with-entity-behavior-analytics.md)
 - [Hunt for security threats](./hunting.md).
+
+## Next step
+
+[Navigate, triage, and manage Microsoft Sentinel incidents in the Azure portal](incident-navigate-triage.md)

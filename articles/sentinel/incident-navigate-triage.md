@@ -54,7 +54,7 @@ This article describes how to navigate and run basic triage on your incidents in
 
         Recently selected users and groups appear at the top of the pictured drop-down list.
 
-    - **Update the incident’s status** (for example, from **New** to **Active** or **Closed**) by selecting from the **Status** drop-down list. When closing an incident, you're required to specify a reason. For more information, see [Closing an incident](#closing-an-incident).
+    - **Update the incident’s status** (for example, from **New** to **Active** or **Closed**) by selecting from the **Status** drop-down list. When closing an incident, you're required to specify a reason. For more information, see [Close an incident](#close-an-incident).
 
     - **Change the incident’s severity** by selecting from the **Severity** drop-down list.
 
@@ -64,7 +64,7 @@ This article describes how to navigate and run basic triage on your incidents in
 
 1. If the information in the details pane is sufficient to prompt further remediation or mitigation actions, select the **Actions** button at the bottom to do one of the following:
 
-    - **Investigate:** use the [graphical investigation tool](#investigate-incidents-visually-using-the-investigation-graph) to discover relationships between alerts, entities, and activities, both within this incident and across other incidents.
+    - **Investigate:** use the [graphical investigation tool](investigate-incidents.md#investigate-incidents-visually-using-the-investigation-graph) to discover relationships between alerts, entities, and activities, both within this incident and across other incidents.
 
     - **Run playbook:** run a [playbook](automate-responses-with-playbooks.md#run-a-playbook-manually) on this incident to take particular [enrichment, collaboration, or response actions](automate-responses-with-playbooks.md#use-cases-for-playbooks) such as your SOC engineers might have made available.
 

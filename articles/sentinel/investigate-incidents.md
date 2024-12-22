@@ -39,7 +39,7 @@ As you're setting up to investigate an incident, assemble the things you need to
 
 1.  Select **Tasks** to [see the tasks assigned for this incident](work-with-tasks.md#view-and-follow-incident-tasks), or to [add your own tasks](work-with-tasks.md#manually-add-an-ad-hoc-task-to-an-incident). Tasks can improve process standardization in your SOC. For more information, see [Use tasks to manage incidents in Microsoft Sentinel](incident-tasks.md).
 
-1. Select **Activity log** to see if any actions have already been taken on this incident&mdash;by automation rules, for example&mdash;and any comments that have been made. You can add your own comments here as well. For more information, see [Audit and comment on incidents](#audit-and-comment-on-incidents).
+1. Select **Activity log** to see if any actions have already been taken on this incident&mdash;by automation rules, for example&mdash;and any comments that have been made. You can add your own comments here as well. For more information, see [Audit and comment on incidents](incident-navigate-triage.md#audit-and-comment-on-incidents).
 
 1. Select **Logs** at any time to open a full, blank Log analytics query window *inside* the incident page. Compose and run a query, related or not, without leaving the incident. So, whenever you're struck with sudden inspiration to go chasing a thought, don't worry about interrupting your flow--the logs are there for you. For more information, see [Dive deeper into your data in Logs](#dive-deeper-into-your-data-in-logs).
 
@@ -75,9 +75,9 @@ The rest of the incident details page is divided into two tabs, **Overview** and
 
 The **Overview** tab contains the following widgets, each of which represents an essential objective of your investigation.
 
-- The **Incident timeline** widget shows you the timeline of alerts and [bookmarks](bookmarks.md) in the incident, which can help you reconstruct the timeline of attacker activity. Select an individual item to see all of its details, enabling you to drill down further. For more information, see [Incident timeline](#incident-timeline).
+- The **Incident timeline** widget shows you the timeline of alerts and [bookmarks](bookmarks.md) in the incident, which can help you reconstruct the timeline of attacker activity. Select an individual item to see all of its details, enabling you to drill down further. For more information, see [Reconstruct the timeline of attacker activity](#reconstruct-the-timeline-of-attacker-activity).
 
-- In the **Similar incidents** widget, you see a collection of up to 20 other incidents that most closely resemble the current incident. This allows you to view the incident in a larger context and helps direct your investigation.  For more information, see [Similar incidents](#similar-incidents).
+- In the **Similar incidents** widget, you see a collection of up to 20 other incidents that most closely resemble the current incident. This allows you to view the incident in a larger context and helps direct your investigation.  For more information, see [Check for similar incidents in your environment](#check-for-similar-incidents-in-your-environment).
 
 - The **Entities** widget shows you all the [entities](entities.md) that have been identified in the alerts. These are the objects that played a role in the incident, whether they be users, devices, addresses, files, or [any other types](./entities-reference.md). Select an entity to see its full details, which are displayed in the **Entities tab**. For more information, see [Explore the incident's entities](#explore-the-incidents-entities).
 
@@ -156,9 +156,9 @@ You can search the list of entities in the entities widget, or filter the list b
 
 :::image type="content" source="media/investigate-incidents/entity-actions-from-overview.png" alt-text="Screenshot of the actions you can take on an entity from the overview tab.":::
 
-If you already know that a particular entity is a known indicator of compromise, select the three dots on the entity's row and choose **Add to TI** to [add the entity to your threat intelligence](add-entity-to-threat-intelligence.md). (This option is available for [supported entity types](incident-investigation.md#view-entities).)
+If you already know that a particular entity is a known indicator of compromise, select the three dots on the entity's row and choose **Add to TI** to [add the entity to your threat intelligence](add-entity-to-threat-intelligence.md). (This option is available for [supported entity types](incident-investigation.md#supported-actions).)
 
-If you want to [trigger an automatic response sequence for a particular entity](respond-threats-during-investigation.md), select the three dots and choose **Run playbook (Preview)**. (This option is available for [supported entity types](incident-investigation.md#view-entities).)
+If you want to [trigger an automatic response sequence for a particular entity](respond-threats-during-investigation.md), select the three dots and choose **Run playbook (Preview)**. (This option is available for [supported entity types](incident-investigation.md#supported-actions).)
 
 Select an entity to see its full details. When you select an entity, you move from the **Overview tab** to the **Entities tab**, another part of the incident details page.
 
