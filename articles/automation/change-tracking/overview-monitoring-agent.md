@@ -17,9 +17,9 @@ ms.service: azure-automation
 This article explains on the latest version of change tracking support using Azure Monitoring Agent as a singular agent for data collection. 
 
 > [!NOTE]
-> File Integrity Monitoring (FIM) using [Microsoft Defender for Endpoint (MDE)](/azure-security-docs/defender-for-cloud/file-integrity-monitoring-enable-defender-endpoint) is now currently available. If you have FIM configured with either AMA or LA, follow the guidance to migrate from:
-> - [FIM with Change Tracking and Inventory using AMA](/azure-security-docs/defender-for-cloud/migrate-file-integrity-monitoring.md#migrate-from-fim-over-ama).
-> - [FIM with Change Tracking and Inventory using MMA](/azure-security-docs/defender-for-cloud/migrate-file-integrity-monitoring.md#migrate-from-fim-over-mma).
+> File Integrity Monitoring (FIM) using [Microsoft Defender for Endpoint (MDE)](/azure/defender-for-cloud/file-integrity-monitoring-enable-defender-endpoint) is now currently available. If you have FIM configured with either AMA or LA, follow the guidance to migrate from:
+> - [FIM with Change Tracking and Inventory using AMA](/azure/defender-for-cloud/migrate-file-integrity-monitoring.md#migrate-from-fim-over-ama).
+> - [FIM with Change Tracking and Inventory using MMA](/azure/defender-for-cloud/migrate-file-integrity-monitoring.md#migrate-from-fim-over-mma).
 
 ## What is Change Tracking & Inventory
 
