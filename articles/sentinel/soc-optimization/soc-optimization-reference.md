@@ -43,7 +43,7 @@ The following table lists the available data value SOC optimization recommendati
 
 | Observation | Action |
 |---------|---------|
-| The table wasn’t used by analytics rules or detections in the last 30 days but was used by other sources, such as workbooks, log queries, hunting queries.     | Turn on analytics rule templates <br>OR<br>Move to [auxillary logs (Preview) or basic logs](https://learn.microsoft.com/en-us/azure/sentinel/billing#auxiliary-logs-and-basic-logs) if the table is eligible.   |
+| The table wasn’t used by analytics rules or detections in the last 30 days but was used by other sources, such as workbooks, log queries, hunting queries.     | Turn on analytics rule templates <br>OR<br>Move to [auxiliary logs (Preview) or basic logs](https://learn.microsoft.com/en-us/azure/sentinel/billing#auxiliary-logs-and-basic-logs) if the table is eligible.   |
 | The table wasn’t used at all in the last 30 days.     | Turn on analytics rule templates <br>OR<br> Stop data ingestion or archive the table.       |
 | The table was only used by Azure Monitor.     | Turn on any relevant analytics rule templates for tables with security value <br>OR<br>Move to a non-security Log Analytics workspace.       |
 
