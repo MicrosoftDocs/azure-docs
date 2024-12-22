@@ -6,7 +6,7 @@ services: cdn
 author: duongau
 ms.service: azure-cdn
 ms.topic: how-to
-ms.date: 12/21/2024
+ms.date: 12/22/2024
 ms.author: duau
 ---
 
@@ -32,9 +32,9 @@ You can see them in the [Migrate away from Azure CDN from Edgio](https://www.por
 
 The following is a recap of the migration options we sent to all users:
 
-- Validate if your workloads on Azure CDN from Edgio are compatible with Azure Front Door (see [here](../frontdoor/front-door-cdn-comparison.md) and [here](../frontdoor/front-door-faq) to help verify) and migrate as soon as possible using these instructions before January 7, 2025.
-    - If you already use custom domains, follow steps mentioned [here](../frontdoor/migrate-cdn-to-front-door.md).
-    - If you want to migrate while retaining your existing *.azureedge.net domain, follow steps mentioned [here](migrate-cdn-to-front-door-retain-edge-domain.md).
+- Validate if your workloads on Azure CDN from Edgio are compatible with Azure Front Door and migrate as soon as possible using these instructions before January 7, 2025. For more information, see [Comparison between Azure Front Door and Azure CDN services](../frontdoor/front-door-cdn-comparison.md) and [Frequently asked questions for Azure Front Door](../frontdoor/front-door-faq.yml).
+    - If you already use custom domains, follow steps in [Migrate Azure CDN from Edgio to Azure Front Door](../frontdoor/migrate-cdn-to-front-door.md).
+    - If you want to migrate while retaining your existing *.azureedge.net domain, follow steps in [Migrate to Azure Front Door while retaining *.azureedge.net domain](migrate-cdn-to-front-door-retain-edge-domain.md).
 
 - If Azure Front Door isn't compatible with your workloads, determine if Akamai could be compatible via Azure Marketplace or work with another CDN provider. If you chose to work with Akamai, feel free to contact Microsoft Support, and we can put you in touch with the Akamai team dedicated to performing migrations to their platform.
 
