@@ -66,6 +66,14 @@ When using a high availability architecture:
 
 For more information, see [About high availability](how-to-set-up-high-availability.md).
 
+## On-premises management console systems
+
+On-premises management consoles allow you to manage and monitor large, multiple-sensor deployments. Use the following hardware profiles for deployment of an on-premises management console:
+
+|Hardware profile  |Max monitored sensors  |Deployment  |
+|---------|---------|---------|
+|E1800    |Up to 300         |Physical / Virtual         |
+
 ## Next steps
 
 > [!div class="step-by-step"]
