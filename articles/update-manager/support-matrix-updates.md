@@ -155,8 +155,8 @@ Following is the list of supported images and no other marketplace images releas
 | windows-cvm | * | |
 | windowsserver-gen2preview | * | |
 | windowsserverdotnet | * | |
-| microsoftwindowsserver | windowsserverupgrade | * | |
-| microsoftwindowsserverhpcpack | windowsserverhpcpack | * | |
+| microsoftwindowsserver | windowsserverupgrade | * |
+| microsoftwindowsserverhpcpack | windowsserverhpcpack | * |
 
 #### Publisher - microsoftwindowsserver
 
@@ -231,7 +231,7 @@ Following is the list of supported images and no other marketplace images releas
 | Offer | Plan | Unsupported image(s) |
 | --- | --- | --- |
 | cis-ubuntu | cis-ubuntu1804-l1 </br> cis-ubuntulinux2004-l1-gen1 </br> cis-ubuntulinux2204-l1-gen1 </br> cis-ubuntulinux2204-l1-gen2 | * |
-| cis-ubuntu-linux-1804-l1 | cis-ubuntu1804-l1| * |
+| cis-ubuntu-linux-1804-l1 | cis-ubuntu1804-l1 | * |
 | cis-ubuntu-linux-2004-l1 | cis-ubuntu2004-l1 </br> cis-ubuntu-linux-2204-l1-gen2 | |
 | cis-ubuntu-linux-2204-l1 | cis-ubuntu-linux-2204-l1 </br> cis-ubuntu-linux-2204-l1-gen2 | |
 | debian-10-daily | 10 </br> 10-gen2 </br> 10-backports </br> 10-backports-gen2 | |
@@ -241,25 +241,25 @@ Following is the list of supported images and no other marketplace images releas
 | oracle-database | oracle_db_21 | |
 | oracle-database-19-3 | oracle-database-19-0904 | |
 | rhel-ha | 9_2 </br> 9_2-gen2 | |
-| rhel-sap-apps | 9_0 </br> 90sapapps-gen2 </br> 9_2 </br> 92sapapps-gen2 |  |
+| rhel-sap-apps | 9_0 </br> 90sapapps-gen2 </br> 9_2 </br> 92sapapps-gen2 | |
 | rhel-sap-ha | 9_2 </br> 92sapha-gen2 | |
-| servercore-2019| servercore-2019 | |
+| servercore-2019 | servercore-2019 | |
 | sftp-2016 | sftp-2016 | |
 | sle-hpc-15-sp4 | gen1 </br> gen2 | |
 | sle-hpc-15-sp4-byos | gen1 </br> gen2 | |
-| sle-hpc-15-sp5 |  gen1 </br> gen 2 | |
+| sle-hpc-15-sp5 | gen1 </br> gen 2 | |
 | sle-hpc-15-sp5-byos | gen1 </br> gen 2 | |
 | sles-15-sp1-sapcal | gen1 </br> gen2 | |
-| sles-15-sp2-basic  | gen2 | |
+| sles-15-sp2-basic | gen2 | |
 | sles-15-sp2-hpc | gen2 | |
 | sles-15-sp3-sapcal | gen1 </br> gen2 | |
 | sles-15-sp4 | gen1 </br> gen2 | |
-| sles-15-sp4-byos | gen1 </br> gen2 |  |
-| sles-15-sp4-chost-byos | gen1 </br> gen 2 ||
-| sles-15-sp4-hardened-byos | gen1 </br> gen2 |  |
+| sles-15-sp4-byos | gen1 </br> gen2 | |
+| sles-15-sp4-chost-byos | gen1 </br> gen 2 | |
+| sles-15-sp4-hardened-byos | gen1 </br> gen2 | |
 | sles-15-sp5 | gen1 </br> gen2 | |
 | sles-15-sp5-basic | gen1 </br> gen2 | |
-| sles-15-sp5-byos | gen1 </br> gen2 |  |
+| sles-15-sp5-byos | gen1 </br> gen2 | |
 | sles-15-sp5-hardened-byos | gen1 </br> gen2 | |
 | sles-15-sp5-sapcal | gen1 </br> gen2 | |
 | sles-byos | 12-sp4 </br> 12-sp4-gen2 | |
@@ -271,7 +271,7 @@ Following is the list of supported images and no other marketplace images releas
 | sles-sap-byos | 12-sp4 </br> 12-sp4-gen2 </br> gen2-12-sp4 | |
 | sles-sapcal | 12-sp3 | |
 | sles-standard | 12-sp4-gen2 | |
-| sles| 12-sp4-gen2 | | |
+| sles| 12-sp4-gen2 | |
 | squid-ubuntu-2004 | squid-ubuntu-2004 | | 
 | ubuntu-2004 | 2004, 2004-gen2 | |
 | ubuntu-hpc | 1804 </br> 2004-preview-ndv5 </br> 2004 </br> 2204 </br> 2204-preview-ndv5 | |
@@ -287,8 +287,8 @@ Following is the list of supported images and no other marketplace images releas
 
 | Offer | Plan | Unsupported image(s) |
 | --- | --- | --- |
-| almalinux </br> | 8-gen1 </br> 8-gen2 </br> 9-gen1 </br> 9-gen2 | | |
-| almalinux-x86_64 | 8-gen1 </br> 8-gen2 </br> 8_7-gen2 </br> 9-gen1 </br> 9-gen2 | | |
+| almalinux </br> | 8-gen1 </br> 8-gen2 </br> 9-gen1 </br> 9-gen2 | |
+| almalinux-x86_64 | 8-gen1 </br> 8-gen2 </br> 8_7-gen2 </br> 9-gen1 </br> 9-gen2 | |
 
 #### Publisher - aviatrix-systems
 
