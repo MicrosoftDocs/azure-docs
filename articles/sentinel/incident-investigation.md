@@ -1,6 +1,6 @@
 ---
-title: Investigate incidents with Microsoft Sentinel in the Azure portal - a sample process
-description: This article describes Microsoft Sentinel's incident investigation and case management capabilities and features in the Azure portal, taking you through the phases of a typical incident investigation while presenting all the displays and tools available to you to help you along.
+title: Microsoft Sentinel incident investigation in the Azure portal
+description: This article describes Microsoft Sentinel's incident investigation and case management capabilities and features in the Azure portal.
 author: yelevin
 ms.author: yelevin
 ms.topic: concept-article
@@ -10,7 +10,7 @@ appliesto:
 #Customer intent: As a security analyst, I want to understand how Microsoft Sentinel incidents in the Azure portal can help me efficiently manage and resolve security threats.
 ---
 
-# Investigate incidents with Microsoft Sentinel in the Azure portal - a sample process
+# Microsoft Sentinel incident investigation in the Azure portal
 
 Microsoft Sentinel gives you a complete, full-featured case management platform for investigating and managing security incidents. **Incidents** are Microsoft Sentinel’s name for files that contain a complete and constantly updated chronology of a security threat, whether it’s individual pieces of evidence (alerts), suspects and parties of interest (entities), insights collected and curated by security experts and AI/machine learning models, or comments and logs of all the actions taken in the course of the investigation.
 
