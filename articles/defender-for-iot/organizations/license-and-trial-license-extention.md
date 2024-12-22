@@ -1,12 +1,12 @@
 ---
-title: Microsoft Defender for IoT license information and trial license extension
-description: Learn about the Defender for IoT trial license.
+title: Microsoft Defender for IoT license overview information and trial license extension - Microsoft Defender for IoT 
+description: Learn about the Defender for IoT license and trial license options and details.
 ms.topic: concept-article
 ms.date: 11/17/2024
 ms.custom: enterprise-iot
 ---
 
-# Defender for IoT licenses
+# Defender for IoT licenses overview
 
 This article provides an overview about the Microsoft Defender for IoT license and trial license. It also explains how to extend the trial period, if needed, and continue the Proof of Concept (POC) to further explore the value of Defender for IoT.
 
@@ -14,9 +14,11 @@ This article provides an overview about the Microsoft Defender for IoT license a
 
 The Defender for IoT license is site-based according to the number of devices that your network has and needs to monitor. This ranges from a site that is an extra-small license for 100 devices to an extra large site license for over 5,000 devices.
 
-Each physical site can only have one license associated with it, so you must purchase the license that covers the number of devices at the site. For example, for a site with 2,000 devices a customer needs to purchase one Extra Large (XL) license (covering up to 5,000 devices) instead of two Large licenses (covering  up to 1,000 devices each). If you need a license for a site with more than 5,000 devices, ask your seller to help you access the 2XL or 3XL licenses in the Azure portal.
+Each physical site needs to have one license associated with it, so you need to purchase the license that covers the number of devices at the site. For example, for a site with 2000 devices a customer needs to purchase one Extra Large (XL) license (covering up to 5000 devices). You cannot purchase two Large licenses (covering up to 1000 devices each). If you need a license for a site with more than 5000 devices, ask your seller to help you access the 2XL or 3XL licenses in the Azure portal.
 
-Each Microsoft 365 license lasts for one year. A customer could also utilize the volume licensing option to purchase longer term licenses, for more information contact the sales team by [completing this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4hp0oiujZ9PvzH6GeTqtclUMDJCWDBNUVpNTjc1SVdXMDNPWlhUWDEyMi4u).<!-- check this is ok? belle -->
+Each Microsoft 365 license lasts for one year. A customer could also utilize the large-scale, long-term licensing option to fit your individual business needs, for more information contact the sales team.
+
+Once the license is set up and running, full security value is provided to all your devices even if they exceed the limit of the license. When renewing the license ensure that it’s updated to the new size for your network.  
 
 >[!NOTE]
 >The OT site license isn't included in the ME5 or E5 security packages.
@@ -52,17 +54,16 @@ To purchase a full Defender for IoT license at the end of the trial period, see 
 
 ## Extend a trial license in the Admin Center
 
-If you need more time to evaluate the features and advantages of Defender for IoT the trial license can be extended up until 15 days before the end of the trial. Within the last 15 days the trial can’t be extended.
+If you need more time to evaluate the product and security value of Defender for IoT the trial license can be extended up until 15 days before the end of the trial. Within the last 15 days the trial can’t be extended.
 
-The trial extension request must be made by a user with Global or Billing Admin permissions on the customer tenant. For more information, see admin roles in [Microsoft 365 Admin Center](https://admin.microsoft.com/Adminportal/Home?#/homepage).
+To extend the trial, either:
 
-To extend the trial, use:
+1. use the [Microsoft 365 Admin Center](https://admin.microsoft.com/Adminportal/Home?#/homepage) portal and follow the [extend your trial instructions](/microsoft-365/commerce/try-or-buy-microsoft-365#extend-your-trial).
 
-1. the [Microsoft 365 Admin Center](https://admin.microsoft.com/Adminportal/Home?#/homepage), go to **Marketplace** or **Billing > Purchase Services**, search for **Microsoft Defender for IoT – OT Site license – Trial** and follow the subscription wizard.
-1. these instructions to [request an extension for their trial license](/microsoft-365/commerce/try-or-buy-microsoft-365#extend-your-trial).
-1. the sale's team [license extension request form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4hp0oiujZ9PvzH6GeTqtclUMDJCWDBNUVpNTjc1SVdXMDNPWlhUWDEyMi4u).
+    The trial extension request must be made by a user with Global or Billing Admin permissions on the customer tenant. For more information, see admin roles in [Microsoft 365 Admin Center](https://admin.microsoft.com/Adminportal/Home?#/homepage).
 
-<!-- Belle wanted this added as a blue note to the article. Where is the best place to add this? -->
+1. contact your sale's team representative who can help you extend your license.
+
 >[!NOTE]
 >
 >A trial license can be extended by the customer up until 15 days before the end of the trial using the [Microsoft 365 Admin Center](https://admin.microsoft.com/Adminportal/Home?#/homepage).
@@ -70,13 +71,9 @@ To extend the trial, use:
 
 ### Government license customers
 
-GCC customers using the Azure Commercial portal should [contact the sales team](#contact-the-sales-team) to activate the Defender for IoT trial license.  
+GCC customers using the Azure Commercial portal should contact the sales team to activate the Defender for IoT trial license.  
 
-GCC-H and DoD customers using the Azure Government portal have the Defender for IoT trial license available as part of their plan.
-
-## Contact the sales team
-
-If you still need extra support, reach out to the sales team [to request a trial extension](https://trials.transform.microsoft.com/customer-admin-trials).
+GCC-H and DoD customers using the Azure Government portal have the Defender for IoT trial license available as part of their plan. To activate the trial, in the Defender for IoT menu, select **Management > Plans and pricing**. Select **Add plan** and choose **Trial – 30 days**.
 
 ## Next steps
 
