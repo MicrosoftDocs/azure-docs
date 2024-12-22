@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 12/22/2024
 appliesto: 
   - Microsoft Sentinel in the Azure portal
-#Customer intent: As a security analyst, I want to efficiently investigate security incidents using a comprehensive case management platform so that I can reduce the mean time to resolve (MTTR) and ensure effective incident response.
+#Customer intent: As a security analyst, I want to understand how to investigate a Microsoft Sentinel incident in the Azure portal in depth in such a way that I reduce the mean time to resolve (MTTR) and ensure effective incident response.
 ---
 
 # Investigate Microsoft Sentinel incidents in depth in the Azure portal

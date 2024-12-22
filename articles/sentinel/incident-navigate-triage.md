@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 12/22/2024
 appliesto: 
   - Microsoft Sentinel in the Azure portal
-#Customer intent: As a security analyst, I want to learn how to navigate and triage incidents in Microsoft Sentinel in the Azure portal so that I can investigate and respond to security incidents.
+#Customer intent: As a security analyst, I want to learn the basics of navigating, triaging, and managing Microsoft Sentinel incidents in the Azure portal so that I can start investigating and responding to security incidents.
 ---
 
 # Navigate, triage, and manage Microsoft Sentinel incidents in the Azure portal

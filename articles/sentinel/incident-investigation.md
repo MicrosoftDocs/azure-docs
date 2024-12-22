@@ -7,7 +7,7 @@ ms.topic: concept-article
 ms.date: 12/22/2024
 appliesto: 
   - Microsoft Sentinel in the Azure portal
-#Customer intent: As a security analyst, I want to use Microsoft Sentinel for incident investigation so that I can efficiently manage and resolve security threats.
+#Customer intent: As a security analyst, I want to understand how Microsoft Sentinel incidents in the Azure portal can help me efficiently manage and resolve security threats.
 ---
 
 # Investigate incidents with Microsoft Sentinel in the Azure portal - a sample process
