@@ -3,7 +3,7 @@ title: Investigate incidents with Microsoft Sentinel in the Azure portal - a sam
 description: This article describes Microsoft Sentinel's incident investigation and case management capabilities and features in the Azure portal, taking you through the phases of a typical incident investigation while presenting all the displays and tools available to you to help you along.
 author: yelevin
 ms.author: yelevin
-ms.topic: conceptual-article
+ms.topic: concept-article
 ms.date: 12/22/2024
 appliesto: 
   - Microsoft Sentinel in the Azure portal
