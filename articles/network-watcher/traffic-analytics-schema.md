@@ -296,10 +296,12 @@ The following table details public IP schema:
 
 > [!NOTE]
 > - *NTAIPDetails* in virtual network flow logs replaces *AzureNetworkAnalyticsIPDetails_CL* used in network security group flow logs.
+> 
 > - Traffic analytics can log any malicious FQDN associated to the IP for malicious flows. To filter out, use the port, URL and domain fields as needed. 
 
 ---
 
+<br>
 List of threat types:
 
 | Value | Description |
