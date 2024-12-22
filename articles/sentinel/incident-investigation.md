@@ -101,7 +101,7 @@ Incident similarity is calculated based on data from the 14 days prior to the la
 Incident similarity is recalculated every time you enter the incident details page, so the results might vary between sessions if new incidents were created or updated.
 For more information, see [Check for similar incidents in your environment](investigate-incidents.md#check-for-similar-incidents-in-your-environment).
 
-### Top insights
+### Top incident insights
 
 Next, having the broad outlines of what happened (or is still happening), and having a better understanding of the context, you’ll be curious about what interesting information Microsoft Sentinel has already found out for you. 
 
