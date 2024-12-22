@@ -495,8 +495,7 @@ Following is the list of supported images and no other marketplace images releas
 </br>
 
 **Publisher - oracle**
-|
- **Offer** | **Plan**|**Unsupported image(s)** |
+| **Offer** | **Plan**|**Unsupported image(s)** |
 |--- | --- | ---|
 |oracle-linux | 7*, ol7*, ol8*, ol9*, ol9-lvm*, 8, 8-ci, 81, 81-ci, 81-gen2 |
 
