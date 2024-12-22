@@ -932,7 +932,7 @@
     - name: Sample incident investigation
       href: incident-investigation.md
     - name: Triage and manage your incidents
-      href: triage-manage-incidents.md
+      href: incident-navigate-triage.md
       displayName: close incidents, search incidents, comment on incidents
     - name: Investigate incidents in depth
       href: investigate-incidents.md
