@@ -168,7 +168,7 @@ Follow the steps in [Configure Azure Application Gateway Private Link](../applic
         --additional-latency-in-milliseconds 50
     ```
 
-1. Run [az network application-gaeay frontend-ip list](/cli/azure/network/application-gateway/frontend-ip#az-network-application-gateway-frontend-ip-list) to get the frontend IP configuration name of the Application Gateway.
+1. Run [az network application-gateway frontend-ip list](/cli/azure/network/application-gateway/frontend-ip#az-network-application-gateway-frontend-ip-list) to get the frontend IP configuration name of the Application Gateway.
 
     ```azurecli-interactive
     az network application-gateway frontend-ip list --gateway-name myAppGateway --resource-group myResourceGroup
