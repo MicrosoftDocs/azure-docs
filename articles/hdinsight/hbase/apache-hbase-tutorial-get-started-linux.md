@@ -4,7 +4,7 @@ description: Follow this Apache HBase tutorial to start using hadoop on HDInsigh
 ms.service: azure-hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive, linux-related-content
-ms.date: 05/10/2024
+ms.date: 12/23/2024
 ---
 
 # Tutorial: Use Apache HBase in Azure HDInsight
@@ -24,13 +24,13 @@ In this tutorial, you learn how to:
 
 * An SSH client. For more information, see [Connect to HDInsight (Apache Hadoop) using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* Bash. The examples in this article use the Bash shell on Windows 10 for the curl commands. See [Windows Subsystem for Linux Installation Guide for Windows 10](/windows/wsl/install-win10) for installation steps.  Other [Unix shells](https://www.gnu.org/software/bash/) will work as well.  The curl examples, with some slight modifications, can work on a Windows Command prompt.  Or you can use the Windows PowerShell cmdlet [Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod).
+* Bash. The examples in this article use the Bash shell on Windows 10 for the curl commands. See [Windows Subsystem for Linux Installation Guide for Windows 10](/windows/wsl/install-win10) for installation steps.  Other [Unix shells](https://www.gnu.org/software/bash/) work as well.  The curl examples, with some slight modifications, can work on a Windows Command prompt.  Or you can use the Windows PowerShell cmdlet [Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod).
 
 ## Create Apache HBase cluster
 
-The following procedure uses an Azure Resource Manager template to create an HBase cluster. The template also creates the dependent default Azure Storage account. To understand the parameters used in the procedure and other cluster creation methods, see [Create Linux-based Hadoop clusters in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
+The following procedure uses an Azure Resource Manager template to create a HBase cluster. The template also creates the dependent default Azure Storage account. To understand the parameters used in the procedure and other cluster creation methods, see [Create Linux-based Hadoop clusters in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 
-1. Select the following image to open the template in the Azure portal. The template is located in [Azure quickstart templates](https://azure.microsoft.com/resources/templates/).
+1. Select the following image to open the template in the Azure portal. The template is located in [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/).
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.hdinsight%2Fhdinsight-hbase-linux%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-tutorial-get-started-linux/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
 
@@ -51,7 +51,7 @@ The following procedure uses an Azure Resource Manager template to create an HBa
 
 3. Select **I agree to the terms and conditions stated above**, and then select **Purchase**. It takes about 20 minutes to create a cluster.
 
-After an HBase cluster is deleted, you can create another HBase cluster by using the same default blob container. The new cluster picks up the HBase tables you created in the original cluster. To avoid inconsistencies, we recommend that you disable the HBase tables before you delete the cluster.
+After a HBase cluster is deleted, you can create another HBase cluster by using the same default blob container. The new cluster picks up the HBase tables you created in the original cluster. To avoid inconsistencies, we recommend that you disable the HBase tables before you delete the cluster.
 
 ## Create tables and insert data
 
@@ -67,7 +67,7 @@ In HBase (an implementation of [Cloud BigTable](https://cloud.google.com/bigtabl
 
 **To use the HBase shell**
 
-1. Use `ssh` command to connect to your HBase cluster. Edit the command below by replacing `CLUSTERNAME` with the name of your cluster, and then enter the command:
+1. Use `ssh` command to connect to your HBase cluster. Edit the following command by replacing `CLUSTERNAME` with the name of your cluster, and then enter the command:
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
@@ -79,7 +79,7 @@ In HBase (an implementation of [Cloud BigTable](https://cloud.google.com/bigtabl
     hbase shell
     ```
 
-1. Use `create` command to create an HBase table with two-column families. The table and column names are case-sensitive. Enter the following command:
+1. Use `create` command to create a HBase table with two-column families. The table and column names are case-sensitive. Enter the following command:
 
     ```hbaseshell
     create 'Contacts', 'Personal', 'Office'
@@ -204,7 +204,7 @@ You can query data in HBase tables by using [Apache Hive](https://hive.apache.or
 The Hive query to access HBase data need not be executed from the HBase cluster. Any cluster that comes with Hive (including Spark, Hadoop, HBase, or Interactive Query) can be used to query HBase data, provided the following steps are completed:
 
 1. Both clusters must be attached to the same Virtual Network and Subnet
-2. Copy `/usr/hdp/$(hdp-select --version)/hbase/conf/hbase-site.xml` from the HBase cluster headnodes to the Hive cluster headnodes and workernodes.
+2. Copy `/usr/hdp/$(hdp-select --version)/hbase/conf/hbase-site.xml` from the HBase cluster headnodes to the Hive cluster headnodes and worker nodes.
 
 ### Secure Clusters
 
@@ -212,7 +212,7 @@ HBase data can also be queried from Hive using ESP-enabled HBase:
 
 1. When following a multi-cluster pattern, both clusters must be ESP-enabled. 
 2. To allow Hive to query HBase data, make sure that the `hive` user is granted permissions to access the HBase data via the Hbase Apache Ranger plugin
-3. When using separate, ESP-enabled clusters, the contents of `/etc/hosts` from the HBase cluster headnodes must be appended to `/etc/hosts` of the Hive cluster headnodes and workernodes. 
+3. When you use separate, ESP-enabled clusters, the contents of `/etc/hosts` from the HBase cluster headnodes must be appended to `/etc/hosts` of the Hive cluster headnodes and worker nodes. 
 > [!NOTE]
 > After scaling either clusters, `/etc/hosts` must be appended again
 
@@ -245,7 +245,7 @@ The HBase REST API is secured via [basic authentication](https://en.wikipedia.or
     fi
     ```
 
-1. Set environment variable for ease of use. Edit the commands below by replacing `MYPASSWORD` with the cluster login password. Replace `MYCLUSTERNAME` with the name of your HBase cluster. Then enter the commands.
+1. Set environment variable for ease of use. Edit the following commands by replacing `MYPASSWORD` with the cluster login password. Replace `MYCLUSTERNAME` with the name of your HBase cluster. Then enter the commands.
 
     ```bash
     export PASSWORD='MYPASSWORD'
@@ -307,7 +307,7 @@ For more information about HBase Rest, see [Apache HBase Reference Guide](https:
 > [!NOTE]
 > Thrift is not supported by HBase in HDInsight.
 >
-> When using Curl or any other REST communication with WebHCat, you must authenticate the requests by providing the user name and password for the HDInsight cluster administrator. You must also use the cluster name as part of the Uniform Resource Identifier (URI) used to send the requests to the server:
+> When you use Curl or any other REST communication with WebHCat, you must authenticate the requests by providing the user name and password for the HDInsight cluster administrator. You must also use the cluster name as part of the Uniform Resource Identifier (URI) used to send the requests to the server:
 >
 > `curl -u <UserName>:<Password> \`
 >
