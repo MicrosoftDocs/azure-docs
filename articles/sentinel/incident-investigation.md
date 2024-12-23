@@ -97,8 +97,9 @@ Similarity is determined based on the following criteria:
 | **Similar entities** | An incident is considered similar to another incident if they both include the same [entities](entities.md). The more entities two incidents have in common,the more similar they're considered to be. |
 | **Similar rule** | An incident is considered similar to another incident if they were both created by the same [analytics rule](detect-threats-built-in.md). |
 | **Similar alert details** | An incident is considered similar to another incident if they share the same title, product name, and/or [custom details(surface-custom-details-in-alerts.md). |
-Incident similarity is calculated based on data from the 14 days prior to the last activity in the incident, that being the end time of the most recent alert in the incident.
-Incident similarity is recalculated every time you enter the incident details page, so the results might vary between sessions if new incidents were created or updated.
+
+Incident similarity is calculated based on data from the 14 days prior to the last activity in the incident, that being the end time of the most recent alert in the incident. Incident similarity is also recalculated every time you enter the incident details page, so the results might vary between sessions if new incidents were created or updated.
+
 For more information, see [Check for similar incidents in your environment](investigate-incidents.md#check-for-similar-incidents-in-your-environment).
 
 ### Top incident insights
