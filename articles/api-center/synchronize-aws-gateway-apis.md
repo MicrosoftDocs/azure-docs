@@ -64,10 +64,6 @@ For property details, see the [Azure API Center REST API reference](/rest/api/ap
     > [!NOTE]
     > Azure CLI command examples in this article can run in PowerShell or a bash shell. Where needed because of different variable syntax, separate command examples are provided for the two shells.
 
-## Add a managed identity in your API center
-
-[!INCLUDE [enable-managed-identity](includes/enable-managed-identity.md)]
-
 ## Create IAM user access keys
 
 To authenticate your API center with Amazon API Gateway, you need access keys for an AWS IAM user. 
