@@ -101,9 +101,9 @@ To check the billing subscription for an Azure savings plan:
 2. Select **All services** > **Savings Plan**.
 3. Select the Savings Plan.
 4. Select **Renewal**.
-5. Select **Replace this savings plan with a new savings plan purchase**
+5. Select **Replace this savings plan with a new savings plan purchase**.
 
-This will show you the billing subscription of current savings plan along with other details. You can update the details like scope, billing subscription, quantity, term, and billing frequency for the new savings plan which will be purchased automatically upon expiry of current savings plan.
+These steps show you the billing subscription of current savings plan along with other details. You can update the details like scope, billing subscription, quantity, term, and billing frequency for the new savings plan which will be purchased automatically upon expiry of current savings plan.
 
 ## Transfer a savings plan
 Although you can't cancel, exchange, or refund a savings plan, you can transfer it from one supported agreement to another. For more information about supported transfers, see [Azure product transfer hub](../manage/subscription-transfer.md#product-transfer-support).
