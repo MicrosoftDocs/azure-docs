@@ -75,6 +75,7 @@ To scale with Azure Container Apps platform metrics, you need a managed identity
 To scale with Azure Monitor metrics, you can refer to [Azure Monitor KEDA scaler](https://keda.sh/docs/2.16/scalers/azure-monitor/) to define your Container Apps scale rule. 
 
 Here's a list of core metadata to set up the scale rule.
+
 | Metadata key                       | Description                                                                                           |
 |------------------------------------|-------------------------------------------------------------------------------------------------------|
 | tenantId                           | ID of the tenant that contains the Azure resource.                                                    |
@@ -171,8 +172,8 @@ Here's a sample metric snapshot for the example scale rule.
 
 1. Initially, there's one replica (the `minReplicas`) for the app.
 1. A spike in requests causes the Java app to experience frequent JVM garbage collection (GC).
-1. KEDA observes the aggregated metric value for `jvm.gc.count` is increased to 140 and calculates desiredReplicas as `ceil(140/30)` = 5.
-1. KEDA scales out the container app's replica count to 5.
+1. KEDA observes the aggregated metric value for `jvm.gc.count` is increased, and calculates the `desiredReplicas` value.
+1. KEDA scales out the container app's replica count to 6.
 1. The http traffic is distributed across more replicas, reducing the average GC count.
 1. The GC count further decreases when no requests are coming in.
 1. After a cooldown period, KEDA scales the replica count down to `minReplicas=1`.
