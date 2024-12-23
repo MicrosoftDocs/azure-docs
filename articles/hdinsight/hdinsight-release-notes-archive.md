@@ -154,6 +154,17 @@ For workload specific versions, see [HDInsight 5.x component versions](./hdinsig
     
     The `setOwnerUser` implementation given in Ranger 2.3.0 release has a critical regression issue when being used by Hive. In Ranger 2.3.0, when HiveServer2 tries to evaluate the policies, Ranger Client tries to get the owner of the hive table by calling the Metastore in the setOwnerUser function which essentially makes call to storage to check access for that table. This issue causes the queries to run slow when Hive runs on 2.3.0 Ranger.
 
+**New regions added**
+
+* Italy North
+* Israel Central
+* Spain Central
+* Mexico Central
+* Jio India Central
+ 
+Add to June 2024 Archive Notes
+ 
+
 **Coming soon**
 
 * [Basic and Standard A-series VMs Retirement](https://azure.microsoft.com/updates/basic-and-standard-aseries-vms-on-hdinsight-will-retire-on-31-august-2024/).

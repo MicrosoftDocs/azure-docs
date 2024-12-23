@@ -434,7 +434,7 @@ The next task is to create a client application and define the service contract 
 
    1. In **Solution Explorer**, right-click the current solution (not the project), and select **Add** > **New Project**.
    1. In **Add a new project**, select **Console App (.NET Framework)** for C#, and select **Next**.
-   1. Specify *EchoClient* as the name of the proejct and select **Create**.
+   1. Specify *EchoClient* as the name of the project and select **Create**.
 
 1. In **Solution Explorer**, in the **EchoClient** project, double-click **Program.cs** to open the file in the editor, if it isn't already open.
 1. Change the namespace name from its default name of `EchoClient` to `Microsoft.ServiceBus.Samples`.

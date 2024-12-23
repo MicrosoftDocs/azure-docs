@@ -43,6 +43,8 @@
     href: route-injection-in-spokes.md
   - name: IP anycast
     href: anycast.md
+  - name: Roles and permissions
+    href: roles-permissions.md
 - name: How-to guides
   items:
   - name: Configure and manage Route Server
