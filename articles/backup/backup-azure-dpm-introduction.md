@@ -146,7 +146,7 @@ Every machine that's backed up by Azure Backup must have the Backup agent (also 
 5. In **Recovery Folder Setting**, specify a location that can be used during data recovery.
 
     - Azure Backup uses this location as a temporary holding area for recovered data.
-    - After the  data recovery process is complete, Azure Backup will clean up the data in this area.
+    - After the data recovery process is complete, Azure Backup will clean up the data in this area.
     - The location must have enough space to hold items that you expect to recover in parallel.
 
     ![Recovery Folder Setting](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_RecoveryFolder.png)
