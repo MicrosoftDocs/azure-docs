@@ -197,7 +197,7 @@ To create a backup policy that configures multiple backups a day, follow these s
    $schPol.ScheduleRunTimeZone=$timeZone.Id
    ```
 
-   To reate a policy with daily schedule, run the following cmdlet:
+   To create a policy with daily schedule, run the following cmdlet:
 
    ```azurepowershell
    $UtcTime = Get-Date -Date "2019-03-20 01:30:00Z"
