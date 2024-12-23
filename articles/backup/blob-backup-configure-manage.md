@@ -177,7 +177,7 @@ To stop backup for a storage account, follow these steps:
 
    You can go to the backup instance from the storage account via **Storage account** > **Data protection** > **Manage backup settings**, or directly from the Business Continuity Center  via **Business Continuity Center** > **Protected Items** , and then select **Azure Backup** as a **Solution** in the filter. 
 
-    ![Storage account location](./media/blob-backup-configure-manage/storage-account-location.png)
+    :::image type="content" source="./media/blob-backup-configure-manage/storage-account-location.png" alt-text="Screenshot shows the Storage account location.":::
 
     
 
