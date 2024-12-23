@@ -3,7 +3,7 @@ title: Understand Device Update for Azure IoT Hub Configuration File
 description: Understand Device Update for Azure IoT Hub  Configuration File.
 author: eshashah-msft
 ms.author: eshashah
-ms.date: 10/11/2023
+ms.date: 12/15/2024
 ms.topic: concept-article
 ms.service: azure-iot-hub
 ms.subservice: device-update
@@ -40,6 +40,11 @@ When installing Debian agent on an IoT Device with a Linux OS, modify the `/etc/
 | connectionData  |If connectionType = "string", add your IoT device's device or module connection string here. If connectionType = "AIS", set the connectionData to empty string (`"connectionData": ""`). |
 | manufacturer | Reported by the Device Update agent as part of the **DeviceInformation** interface. |
 | model | Reported by the Device Update agent as part of the **DeviceInformation** interface. |
+|dataFolder| Optional field. This sets path for the ADU Data folder. Value is set. Default path is '/var/lib/adu'| 
+|extensionsFolder| Optional field. This sets path for the ADU Extensions folder. Default path is '/var/lib/adu/extensions'|
+|downloadsFolder| Optional field. This sets path for the ADU Downloads folder. Default path is '/var/lib/adu/downloads'|
+|aduShellFilePath| Optional field. This sets path for the ADU shell. Default path is '/usr/lib/adu'|
+|downloadTimeoutInMinutes| Optional field. This sets download timeout in minutes for update payload. A value of zero means to use the default which is 8 hours.|
 
 ## Example "du-config.json" file contents
 
