@@ -5,6 +5,7 @@ ms.topic: tutorial
 ms.date: 06/15/2023
 author: karengu0
 ms.author: karenguo
+ms.service: azure-iot-operations
 #Customer intent: As a device builder, I want to see what vulnerabilities or weaknesses might exist in my firmware image.
 ---
 
@@ -32,7 +33,7 @@ To use the **Firmware analysis** page to analyze your firmware security, your fi
 
 - Your image must be an unencrypted, Linux-based firmware image.
 
-- Your image must be less than 5 GB in size.
+- Your image must be less than 1 GB in size.
 
 ## Onboard your subscription to use Firmware analysis
 > [!NOTE]

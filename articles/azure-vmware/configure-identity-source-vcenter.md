@@ -3,7 +3,7 @@ title: Set an external identity source for vCenter Server
 description: Learn how to set Windows Server Active Directory over LDAP or LDAPS for VMware vCenter Server as an external identity source.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 3/29/2024
+ms.date: 12/13/2024
 ms.custom: engagement-fy23
 ---
 
@@ -18,7 +18,6 @@ You can set up vCenter Server to use an external Lightweight Directory Access Pr
 In this article, you learn how to:
 
 > [!div class="checklist"]
->
 > - Export a certificate for LDAPS authentication. (Optional)
 > - Upload the LDAPS certificate to blob storage and generate a shared access signature (SAS) URL. (Optional)
 > - Configure NSX DNS for resolution to your Windows Server Active Directory domain.
@@ -134,10 +133,13 @@ To add Windows Server Active Directory over LDAP with SSL as an external identit
    | **DomainName** | The domain's fully qualified domain name (FQDN). For example, **avslab.local**.  |
    | **Name** | A name for the external identity source. For example, **avslab.local**. |
    | **Retain up to** | The retention period of the cmdlet output. The default value is 60 days.   |
-   | **Specify name for execution** | An alphanumeric name. For example, **addexternalIdentity**.  |
+   | **Specify name for execution** | An alphanumeric name. For example, **addExternalIdentity**.  |
    | **Timeout** | The period after which a cmdlet exits if it isn't finished running.  |
 
 1. To monitor progress and confirm successful completion, check **Notifications** or the **Run Execution Status** pane.
+
+> [!IMPORTANT]
+> If the Run command **New-LDAPSIdentitySource** fails, utilize the Run command **Debug-LDAPSIdentitySources** to troubleshoot the issue.
 
 ## Add Windows Server Active Directory by using LDAP
 
@@ -162,7 +164,7 @@ To add Windows Server Active Directory over LDAP as an external identity source 
    | **Credential**  | The domain username and password for authentication with the Windows Server Active Directory source (not CloudAdmin). The user must be in the `<username@avslab.local>` format.  |
    | **GroupName**  | The group in your external identity source that grants CloudAdmin access. For example, **avs-admins**.  |
    | **Retain up to**  | The retention period for the cmdlet output. The default value is 60 days.   |
-   | **Specify name for execution**  | An alphanumeric name. For example, **addexternalIdentity**.  |
+   | **Specify name for execution**  | An alphanumeric name. For example, **addExternalIdentity**.  |
    | **Timeout**  |  The period after which a cmdlet exits if it isn't finished running.  |
 
 1. To monitor the progress, check **Notifications** or the **Run Execution Status** pane.
@@ -265,7 +267,7 @@ To remove all existing external identity sources at once, run the Remove-Externa
    | Name | Description |
    | --- | --- |
    | **Retain up to**  | The retention period of the cmdlet output. The default value is 60 days.   |
-   | **Specify name for execution**  | An alphanumeric name. For example, **remove_externalIdentity**.  |
+   | **Specify name for execution**  | An alphanumeric name. For example, **remove_ExternalIdentity**.  |
    | **Timeout**  |  The period after which a cmdlet exits if it isn't finished running.  |
 
 1. To see the progress, check **Notifications** or the **Run Execution Status** pane.

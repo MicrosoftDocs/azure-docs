@@ -4,7 +4,7 @@ description: Reliability guides for Microsoft Azure products and services. View 
 author: anaharris-ms
 ms.service: azure
 ms.topic: reliability-article
-ms.date: 11/01/2024
+ms.date: 12/03/2024
 ms.author: anaharris
 ms.custom: subject-reliability
 ms.subservice: azure-reliability
@@ -110,7 +110,7 @@ Below is a list of Azure service reliability guides, organized by service catego
 | Product| Guidance |
 |----------|---------|
 |Microsoft Community Training| [Reliability in Microsoft Community Training](reliability-community-training.md) |
-
+|Sustainability Data Solutions in Fabric | [Reliability in Sustainability Data Solutions in Fabric](reliability-sustainability-data-solutions-fabric.md) |
 
 ## Integration
 
@@ -226,5 +226,6 @@ Azure Media Services| [High Availability with Media Services and Video on Demand
 ## Related content
 
 
-- [Azure services and regions with availability zones](availability-zones-service-support.md)
+- [Azure services with availability zones](availability-zones-service-support.md)
+- [Azure regions with availability zones](availability-zones-region-support.md)
 - [Build solutions for high availability using availability zones](/azure/architecture/high-availability/building-solutions-for-high-availability)

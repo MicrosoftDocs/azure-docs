@@ -8,7 +8,7 @@ ms.assetid: cbf18abe-41cb-44f7-bdec-966f32c89325
 ms.topic: article
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
-ms.date: 06/19/2024
+ms.date: 11/19/2024
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017, devx-track-azurepowershell
 ---
@@ -292,7 +292,7 @@ If you're running ERS1, add the SAP profile parameter `enque/encni/set_so_keepal
 1. Add this profile parameter to the SAP ASCS/SCS instance profile, if you're using ERS1:
 
    ```powershell
-   enque/encni/set_so_keepalive = true
+   enque/encni/set_so_keepalive = TRUE
    ```
 
    For both ERS1 and ERS2, make sure that the `keepalive` OS parameters are set as described in SAP note [1410736](https://launchpad.support.sap.com/#/notes/1410736).

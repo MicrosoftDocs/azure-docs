@@ -5,13 +5,13 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: article
-ms.date: 08/05/2024
+ms.date: 10/23/2024
 ms.author: danlep
 ---
 
 # Get API analytics in Azure API Management
 
-[!INCLUDE [premium-dev-standard-basic-standardv2-basicv2.md](../../includes/api-management-availability-premium-dev-standard-basic-standardv2-basicv2.md)]
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2.md)]
 
 Azure API Management provides analytics for your APIs so that you can analyze their usage and performance. Use analytics for high-level monitoring and troubleshooting of your APIs. For other monitoring features, including near real-time metrics and resource logs for diagnostics and auditing, see [Tutorial: Monitor published APIs](api-management-howto-use-azure-monitor.md).
 
@@ -43,7 +43,7 @@ With API analytics, analyze the usage and performance of the APIs in your API Ma
 > [!NOTE]
 > * API analytics provides data on requests, including failed and unauthorized requests.
 > * Geography values are approximate based on IP address mapping.
-> * There may be a delay of 15 minutes or more in the availability of analytics data.
+> * There may be a delay in the availability of analytics data.
 
 ## Azure Monitor-based dashboard
 
@@ -58,6 +58,9 @@ If you need to configure one, the following are brief steps to send gateway logs
 1. In **Destination details**, select **Send to Log Analytics** and select a Log Analytics workspace in the same or a different subscription. If you need to create a workspace, see [Create a Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace).
 1. Make sure **Resource specific** is selected as the destination table.
 1. Select **Save**.
+
+> [!IMPORTANT]
+> A new Log Analytics workspace can take up to 2 hours to start receiving data. An existing workspace should start receiving data within approximately 15 minutes.
 
 ### Access the dashboard
 

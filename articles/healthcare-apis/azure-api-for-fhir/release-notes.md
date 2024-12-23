@@ -17,6 +17,17 @@ ms.author: kavitagaddam
 
 Azure API for FHIR&reg; provides a fully managed deployment of the Microsoft FHIR Server for Azure. The server is an implementation of the [FHIR](https://hl7.org/fhir) standard. This document provides details about the features and enhancements made to Azure API for FHIR.
 
+## **November 2024**
+
+### FHIR service
+
+**Bug fixes**
+
+- Export Validation Improvement: An issue was found where exports proceeded despite invalid search parameters. A new change is implemented to prevent exports under these conditions. This is the default behavior. Customers can override it using the lenient flag. This change was communicated to customers last month.
+- Bundle Performance Enhancement: The profile refresh process during bundle execution has been simplified. If a bundle contains changes to `ValueSet`, `StructureDefinition`, and/or `CodeSystem`, no profile refreshes will occur until the bundle is fully completed. This change improves the performance of bundles by reducing delays caused by multiple refreshes when handling changes to these resource types.
+- Content Type Header Parsing: An issue related to parsing the `application/x-www-form-urlencoded` content type header has been addressed and resolved.
+- Reindexing Enhancements The reindex operation has been improved by removing an artificial limitation that previously restricted handling of large historical datasets, or cases where customers requested a limited query size. Additionally, reindex process would incorrectly report as "completed" when handling many sequential historical or deleted resources with the default query size. This issue has been addressed to ensure that the reindexing process completes correctly and reports the appropriate status.
+
 ## **October 2024**
 
 ### FHIR service
@@ -194,7 +205,7 @@ Bug is now fixed and Resource will be updated if it matches the Etag header. For
 
 |Enhancements |Related information |
 | :------------------- | :--------------- |
-|Added Publisher to `CapabiilityStatement.name` |You can now find the publisher in the capability statement at `CapabilityStatement.name`. [#2319](https://github.com/microsoft/fhir-server/pull/2319) |
+|Added Publisher to `CapabilityStatement.name` |You can now find the publisher in the capability statement at `CapabilityStatement.name`. [#2319](https://github.com/microsoft/fhir-server/pull/2319) |
 |Log `FhirOperation` linked to anonymous calls to Request metrics |We weren’t logging operations that didn’t require authentication. We extended the ability to get `FhirOperation` type in `RequestMetrics` for anonymous calls. [#2295](https://github.com/microsoft/fhir-server/pull/2295) |
 
 ### **Bug fixes**

@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Azure IoT Operations Preview
+title: Troubleshoot Azure IoT Operations
 description: Troubleshoot your Azure IoT Operations deployment
 author: kgremban
 ms.author: kgremban
@@ -9,11 +9,9 @@ ms.custom:
 ms.date: 11/01/2024
 ---
 
-# Troubleshoot Azure IoT Operations Preview
+# Troubleshoot Azure IoT Operations
 
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
-
-This article contains troubleshooting tips for Azure IoT Operations Preview.
+This article contains troubleshooting tips for Azure IoT Operations.
 
 ## General deployment troubleshooting
 
@@ -52,16 +50,15 @@ An OPC UA server connection fails with a `BadSecurityModeRejected` error if the 
 
 - Add a secure endpoint to the OPC UA server and set up the certificate mutual trust to establish the connection.
 
+## Azure IoT Layered Network Management (preview) troubleshooting
 
-## Azure IoT Layered Network Management Preview troubleshooting
-
-The troubleshooting guidance in this section is specific to Azure IoT Operations when using the Layered Network Management component. For more information, see [How does Azure IoT Operations Preview work in layered network?](../manage-layered-network/concept-iot-operations-in-layered-network.md).
+The troubleshooting guidance in this section is specific to Azure IoT Operations when using the Layered Network Management component. For more information, see [How does Azure IoT Operations work in layered network?](../manage-layered-network/concept-iot-operations-in-layered-network.md).
 
 ### Can't install Layered Network Management on the parent level
 
 If the Layered Network Management operator install fails or you can't apply the custom resource for a Layered Network Management instance:
 
-1. Verify the regions are supported for public preview. Public preview supports eight regions. For more information, see [Quickstart: Run Azure IoT Operations Preview in GitHub Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md#connect-a-kubernetes-cluster-to-azure-arc).
+1. Verify the regions are supported. For more information, see [Supported regions](../overview-iot-operations.md#supported-regions).
 1. If there are any other errors in installing Layered Network Management Arc extensions, follow the guidance included with the error. Try uninstalling and installing the extension.
 1. Verify the Layered Network Management operator is in the *Running and Ready* state.
 1. If applying the custom resource `kubectl apply -f cr.yaml` fails, the output of this command lists the reason for error. For example, CRD version mismatch or wrong entry in CRD.
@@ -181,3 +178,15 @@ Use Wireshark to open the trace file. Look for connection failures or unresponsi
 
 1. Filter the packets with the *ip.addr == [IP address]* parameter. Input the IP address of your custom DNS service address.
 1. Review the DNS query and response, check if there's a domain name that isn't on the allowlist of Layered Network Management.
+
+## Operations experience
+
+To sign in to the [operations experience](https://iotoperations.azure.com) web UI, you need a Microsoft Entra ID account with at least contributor permissions for the resource group that contains your **Kubernetes - Azure Arc** instance.
+
+If you receive one of the following error messages: 
+
+- A problem occurred getting unassigned instances
+- Message: The request is not authorized
+- Code: PermissionDenied
+
+Verify your Microsoft Entra ID account meets the requirements in the [prerequisites](../discover-manage-assets/howto-manage-assets-remotely.md#prerequisites) section for operations experience access. 

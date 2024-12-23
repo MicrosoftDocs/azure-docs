@@ -13,7 +13,9 @@ ms.topic: how-to
 [Socket.IO protocol](https://socket.io/docs/v4/socket-io-protocol/) is an application layer protocol, which is built on a transport layer protocol named [Engine.IO protocol](https://socket.io/docs/v4/engine-io-protocol/). 
 Engine.IO is responsible for establishing the low-level connection between the server and the client. An Engine.IO connection manages exactly one real connection, which is either a HTTP long-polling connection or a WebSocket connection.
 
-[Native authentication mechanism provided by Socket.IO library](https://socket.io/docs/v4/middlewares/#sending-credentials) are applied on Socket.IO connection level. The Engine.IO connection has already been built successfully before the authentication takes effect. The underlying Engine.IO connection could be built between client and server without any authentication mechanism. Attackers could make use of Engine.IO connection without any authentication to consume customer's resource without any restriction. 
+[Native authentication mechanism provided by Socket.IO library](https://socket.io/docs/v4/middlewares/#sending-credentials) are applied on Socket.IO connection level. The Engine.IO connection has already been built successfully before the authentication takes effect. The underlying Engine.IO connection could be built between client and server without any authentication mechanism. Attackers could make use of Engine.IO connection without any authentication to consume customer's resource without any restriction.
+
+[!INCLUDE [Connection string security](includes/web-pubsub-connection-string-security.md)]
 
 ## Authentication for Socket.IO connection
 This level of authentication is NOT recommended in production environment. For it doesn't provide any protection for the low-level Engine.IO connection, which makes your resource easy to be attacked.
@@ -35,6 +37,9 @@ The web application that handles negotiation request could be an independent one
 - Server-side
 
 1. Create a Socket.IO server supported by the service
+
+[!INCLUDE [Connection string security comment](includes/web-pubsub-connection-string-security-comment.md)]
+
 ```javascript
 const azure = require("@azure/web-pubsub-socket.io");
 const app = express();

@@ -56,7 +56,7 @@ The [Load spatial data] sample shows how to read a spatial data set, and renders
 > [!VIDEO //codepen.io/azuremaps/embed/yLNXrZx/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
 --------------------------------------------------->
 
-The next code demo shows how to read and load KML, or KMZ, to the map. KML can contain ground overlays, which is in the form of an `ImageLyaer` or `OgcMapLayer`. These overlays must be added on the map separately from the features. Additionally, if the data set has custom icons, those icons need to be loaded to the maps resources before the features are loaded.
+The next code demo shows how to read and load KML, or KMZ, to the map. KML can contain ground overlays, which is in the form of an `ImageLayer` or `OgcMapLayer`. These overlays must be added on the map separately from the features. Additionally, if the data set has custom icons, those icons need to be loaded to the maps resources before the features are loaded.
 
 The [Load KML onto map] sample shows how to load KML or KMZ files onto the map. For the source code of this sample, see [Load KML onto map source code].
 
@@ -84,58 +84,57 @@ atlas.io.read('https://nonCorsDomain.example.com/mySuperCoolData.xml', {
 The following code snippet shows how to read a delimited file and render it on the map. In this case, the code uses a CSV file that has spatial data columns. You must add a reference to the Azure Maps Spatial IO module.
 
 ```javascript
-
 <!-- Add reference to the Azure Maps Spatial IO module. -->
 <script src="https://atlas.microsoft.com/sdk/javascript/spatial/0/atlas-spatial.min.js"></script>
 
-<script type="text/javascript">
-var map, datasource, layer;
+<script>
+    var datasource, delimitedFileUrl = "Chicago_Police_Stations.csv";
+    // Download CSV file (delimitedFileUrl) from:
+    // https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Static/data/SpatialCSV/Chicago_Police_Stations.csv
 
-//a URL pointing to the CSV file
-var delimitedFileUrl = "https://s3-us-west-2.amazonaws.com/s.cdpn.io/1717245/earthquakes_gt7_alltime.csv";
+    function GetMap() {
 
-function InitMap()
-{
-  map = new atlas.Map('myMap', {
-    center: [-73.985708, 40.75773],
-    zoom: 12,
-    view: "Auto",
-
-    //Add authentication details for connecting to Azure Maps.
-    authOptions: {
-      // Get an Azure Maps key at https://azuremaps.com/.
-      authType: 'subscriptionKey',
-      subscriptionKey: '{Your-Azure-Maps-Subscription-key}'
-    },
-  });    
-
-  //Wait until the map resources are ready.
-  map.events.add('ready', function () {
-    //Create a data source and add it to the map.
-    datasource = new atlas.source.DataSource();
-    map.sources.add(datasource);
-
-    //Add a simple data layer for rendering the data.
-    layer = new atlas.layer.SimpleDataLayer(datasource);
-    map.layers.add(layer);
-
-    //Read a CSV file from a URL or pass in a raw string.
-    atlas.io.read(delimitedFileUrl).then(r => {
-      if (r) {
-      //Add the feature data to the data source.
-      datasource.add(r);
-
-      //If bounding box information is known for data, set the map view to it.
-      if (r.bbox) {
-        map.setCamera({
-        bounds: r.bbox,
-        padding: 50
+        //Instantiate a map object
+        var map = new atlas.Map("myMap", {
+            center: [-87.628899, 41.874693],
+            zoom: 9,
+            view: "Auto",
+            // Replace <Your Azure Maps Subscription Key> with your Azure Maps subscription key. https://aka.ms/am-primaryKey
+            authOptions: {
+                authType: 'subscriptionKey',
+                subscriptionKey: '{Your-Azure-Maps-Subscription-key}'
+            }
+        });
+    
+    //Wait until the map resources are ready.
+      map.events.add('ready', function () {
+        
+        //Create a data source and add it to the map.
+        datasource = new atlas.source.DataSource();
+        map.sources.add(datasource);
+        
+        //Add a simple data layer for rendering the data.
+        layer = new atlas.layer.SimpleDataLayer(datasource);
+        map.layers.add(layer);
+        
+        //Read a CSV file from a URL or pass in a raw string.
+        atlas.io.read(delimitedFileUrl).then(r => {
+            if (r) {
+                
+                //Add the feature data to the data source.
+                datasource.add(r);
+                
+                //If bounding box information is known for data, set the map view to it.
+                if (r.bbox) {
+                    map.setCamera({
+                        bounds: r.bbox,
+                        padding: 50
+                    });
+                }
+            }
+          });
         });
       }
-      }
-    });
-  });
-}
 </script>
 ```
 
