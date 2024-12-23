@@ -93,7 +93,7 @@ Unlike reservations, you can't cancel or exchange savings plans. You can trade-i
 ## Change Billing subscription
 Currently, the billing subscription used for monthly payments of a savings plan can't be changed.
 
-## Check billing subscription for an Azure Savings Plan
+## Check billing subscription for an Azure savings plan
 
 To check the billing subscription for an Azure savings plan:
 
