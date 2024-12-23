@@ -163,8 +163,10 @@ This command adds a scale rule to your container app with the name `scale-with-a
 ## View scaling in Azure portal (optional)
 Once your new revision is ready, [send requests](./tutorial-scaling.md#send-requests) to your container app to trigger auto scale with your Java metrics. 
 1. Go to the `Metrics` blade in the Azure portal for your Azure Container Apps.
-1. Add your metric `jvm.gc.count`, with filter `Revision=<your-revision>` and split by `Replica`.
-1. Add the metric `Replica Count`, with filter `Revision=<your-revision>`. 
+1. Add a chart, use the metric `jvm.gc.count`, with filter `Revision=<your-revision>`, aggregation using `Sum`, and split by `Replica`. You can see the `JvmGcCount` metric value for each replica in this chat.
+1. Add a chart, use the metric `jvm.gc.count`, with filter `Revision=<your-revision>` and aggregation using `Sum`. You can see the total aggregated `JvmGcCount` metric value for the revision in this chat.
+1. Add a chart, use the metric `Replica Count`, with filter `Revision=<your-revision>` and aggregation using `Max`. You can see the replica count for the revision in this chat.
+
 
 Here's a sample metric snapshot for the example scale rule.
 
@@ -172,8 +174,8 @@ Here's a sample metric snapshot for the example scale rule.
 
 1. Initially, there's one replica (the `minReplicas`) for the app.
 1. A spike in requests causes the Java app to experience frequent JVM garbage collection (GC).
-1. KEDA observes the aggregated metric value for `jvm.gc.count` is increased, and calculates the `desiredReplicas` value.
-1. KEDA scales out the container app's replica count to 6.
+1. KEDA observes the aggregated metric value for `jvm.gc.count` is increased to `256`, and calculates the `desiredReplicas` value as `ceil(256/30)=9`.
+1. KEDA scales out the container app's replica count to 9.
 1. The http traffic is distributed across more replicas, reducing the average GC count.
 1. The GC count further decreases when no requests are coming in.
 1. After a cooldown period, KEDA scales the replica count down to `minReplicas=1`.
