@@ -259,7 +259,7 @@ The following tables list the supported regions where you can enable traffic ana
 
 For pricing details, see [Network Watcher pricing](https://azure.microsoft.com/pricing/details/network-watcher/) and [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
-## Traffic analytics (FAQ)
+## Traffic analytics FAQ
 
 To get answers to the most frequently asked questions about traffic analytics, see [Traffic analytics FAQ](traffic-analytics-faq.yml).
 
