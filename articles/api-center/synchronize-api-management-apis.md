@@ -4,7 +4,7 @@ description: Link an API Management instance to Azure API Center for automatic s
 author: dlepow
 ms.service: azure-api-center
 ms.topic: how-to
-ms.date: 10/30/2024
+ms.date: 12/23/2024
 ms.author: danlep 
 ms.custom: devx-track-azurecli
 # Customer intent: As an API program manager, I want to integrate my Azure API Management instance with my API center and synchronize API Management APIs to my inventory.
@@ -39,7 +39,7 @@ The following table shows entity properties that can be modified in Azure API Ce
 | Entity       | Properties configurable in API Center                     | Properties determined in API Management                                           |
 |--------------|-----------------------------------------|-----------------|
 | API          | summary<br/>lifecycleStage<br/>termsOfService<br/>license<br/>externalDocumentation<br/>customProperties    | title<br/>description<br/>kind                   |
-| API version  | lifecycleStage      | title                                                |
+| API version  | lifecycleStage      | title<br/>definitions (if synchronized)                            |
 | Environment  | title<br/>description<br/>kind</br>server.managementPortalUri<br/>onboarding<br/>customProperties      | server.type
 | Deployment   |  title<br/>description<br/>server<br/>state<br/>customProperties    |      server.runtimeUri |
 
@@ -75,8 +75,8 @@ You can link an API Management instance using the portal.
 
 1. In the [portal](https://portal.azure.com), navigate to your API center.
 1. Under **Assets**, select **Environments**.
-1. Select **Links (preview)** > **+ New link**.
-1. In the **Link your Azure API Management Service** page:
+1. Select **Integrations (preview)** > **+ New integration** > **From Azure API Management**.
+1. In the **Integrate your Azure API Management Service** page:
     1. Select the **Subscription**, **Resource group**, and **Azure API Management service** that you want to link.
     1. In **Link details**, enter an identifier.
     1. In **Environment details**, enter an **Environment title** (name), **Environment type**, and optional **Environment description**.
@@ -89,19 +89,7 @@ The environment is added in your API center. The API Management APIs are importe
 
 :::image type="content" source="media/synchronize-api-management-apis/environment-link-list.png" alt-text="Screenshot of environment list in the portal.":::
 
-
-## Delete a link
-
-While an API Management instance is linked, you can't delete synchronized APIs from your API center. If you need to, you can delete the link. When you delete a link:
-
-* The synchronized API Management APIs in your API center inventory are deleted
-* The environment and deployments associated with the API Management instance are deleted
-
-To delete an API Management link:
-
-1. In the [portal](https://portal.azure.com), navigate to your API center.
-1. Under **Assets**, select **Environments** > **Link (preview)**.
-1. Select the link, and then select **Delete** (trash can icon). 
+[!INCLUDE [delete-api-integration](includes/delete-api-integration.md)]
 
 ## Related content
  

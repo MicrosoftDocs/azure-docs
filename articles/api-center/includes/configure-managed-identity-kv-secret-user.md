@@ -42,16 +42,16 @@ To allow import of APIs, assign your API center's managed identity the **Key Vau
         --query "identity.principalId" --output tsv)
     ```
 
-1. Get the resource ID of your key vault using the [az apim show](/cli/azure/apim#az-apim-show) command. [UPDATE THIS COMMAND]
+1. Get the resource ID of your key vault using the [az keyvault show](/cli/azure/keyvault#az-keyvault-show) command.
  
     ```azurecli
     #! /bin/bash
-    kvID=$(az apim show --name <apim-name> --resource-group <resource-group-name> --query "id" --output tsv)
+    kvID=$(az keyvault show --name <kv-name> --resource-group <resource-group-name> --query "id" --output tsv)
     ```
 
     ```azurecli
     # Formatted for PowerShell
-    $kvID=$(az apim show --name <apim-name> --resource-group <resource-group-name> --query "id" --output tsv)
+    $kvID=$(az keyvault show --name <kv-name> --resource-group <resource-group-name> --query "id" --output tsv)
     ```
 
 1. Assign the managed identity the **Key Vault Secrets User** role in your key vault the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command.
@@ -61,7 +61,7 @@ To allow import of APIs, assign your API center's managed identity the **Key Vau
     scope="${kvID:1}"
 
     az role assignment create \
-        --role "Key Vault Secrets User \
+        --role "Key Vault Secrets User" \
         --assignee-object-id $apicObjID \
         --assignee-principal-type ServicePrincipal \
         --scope $scope 
@@ -72,7 +72,7 @@ To allow import of APIs, assign your API center's managed identity the **Key Vau
     $scope=$apimID.substring(1)
 
     az role assignment create `
-        --role "API Management Service Reader Role" `
+        --role "Key Vault Secrets User" `
         --assignee-object-id $apicObjID `
         --assignee-principal-type ServicePrincipal `
         --scope $scope 
