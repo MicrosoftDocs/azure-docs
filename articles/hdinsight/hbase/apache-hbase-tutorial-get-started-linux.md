@@ -30,7 +30,7 @@ In this tutorial, you learn how to:
 
 The following procedure uses an Azure Resource Manager template to create a HBase cluster. The template also creates the dependent default Azure Storage account. To understand the parameters used in the procedure and other cluster creation methods, see [Create Linux-based Hadoop clusters in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 
-1. Select the following image to open the template in the Azure portal. The template is located in [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/).
+1. Select the following image to open the template in the Azure portal. The template is located in [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/).
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.hdinsight%2Fhdinsight-hbase-linux%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-tutorial-get-started-linux/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
 
@@ -270,7 +270,7 @@ The HBase REST API is secured via [basic authentication](https://en.wikipedia.or
     -v
     ```
 
-    The schema is provided in the JSon format.
+    The schema is provided in the JSON format.
 1. Use the following command to insert some data:
 
     ```bash
@@ -341,7 +341,7 @@ HBase in HDInsight ships with a Web UI for monitoring clusters. Using the Web UI
 
 ## Cluster recreation
 
-After an HBase cluster is deleted, you can create another HBase cluster by using the same default blob container. The new cluster picks up the HBase tables you created in the original cluster. To avoid inconsistencies, however, we recommend that you disable the HBase tables before you delete the cluster. 
+After a HBase cluster is deleted, you can create another HBase cluster by using the same default blob container. The new cluster picks up the HBase tables you created in the original cluster. To avoid inconsistencies, however, we recommend that you disable the HBase tables before you delete the cluster. 
 
 You can use the HBase command `disable 'Contacts'`. 
 
@@ -357,7 +357,7 @@ If you're not going to continue to use this application, delete the HBase cluste
 
 ## Next steps
 
-In this tutorial, you learned how to create an Apache HBase cluster. And how to create tables and view the data in those tables from the HBase shell. You also learned how to use a Hive query on data in HBase tables. And how to use the HBase C# REST API to create an HBase table and retrieve data from the table. To learn more, see:
+In this tutorial, you learned how to create an Apache HBase cluster. And how to create tables and view the data in those tables from the HBase shell. You also learned how to use a Hive query on data in HBase tables. And how to use the HBase C# REST API to create a HBase table and retrieve data from the table. To learn more, see:
 
 > [!div class="nextstepaction"]
 > [HDInsight HBase overview](./apache-hbase-overview.md)
