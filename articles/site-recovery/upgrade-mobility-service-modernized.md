@@ -266,7 +266,7 @@ To update the Recovery Service agent, download the latest version [here](./site-
 
 3.	To update the Recovery Service agent, run the following command: 
     
-    `MARSAgentInstaller.exe /q /nu`
+    `MARSAgentInstaller.exe /q /nu for mars agent`
 
 #### Update remaining components of appliance
 
