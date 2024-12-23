@@ -220,7 +220,8 @@ HBase data can also be queried from Hive using ESP-enabled HBase:
 
 The HBase REST API is secured via [basic authentication](https://en.wikipedia.org/wiki/Basic_access_authentication). You shall always make requests by using Secure HTTP (HTTPS) to help ensure that your credentials are securely sent to the server.
 
-1. To enable the HBase REST API in the HDInsight cluster, add the following custom startup script to the **Script Action** section. You can add the startup script when you create the cluster or after the cluster has been created. For **Node Type**, select **Region Servers** to ensure that the script executes only in HBase Region Servers.
+1. To enable the HBase REST API in the HDInsight cluster, add the following custom startup script to the **Script Action** section. You can add the startup script when you create the cluster or after the cluster has been created. For **Node Type**, select **Region Servers** to ensure that the script executes only in HBase Region Servers. Script starts HBase REST proxy on 8090 port on Region servers.
+
 
     ```bash
     #! /bin/bash
@@ -298,9 +299,12 @@ The HBase REST API is secured via [basic authentication](https://en.wikipedia.or
     -v
     ```
 
+> [!NOTE]
+> Scan through the cluster endpoint is not supported yet.
+
 For more information about HBase Rest, see [Apache HBase Reference Guide](https://hbase.apache.org/book.html#_rest).
 
-> [!NOTE]  
+> [!NOTE]
 > Thrift is not supported by HBase in HDInsight.
 >
 > When using Curl or any other REST communication with WebHCat, you must authenticate the requests by providing the user name and password for the HDInsight cluster administrator. You must also use the cluster name as part of the Uniform Resource Identifier (URI) used to send the requests to the server:
