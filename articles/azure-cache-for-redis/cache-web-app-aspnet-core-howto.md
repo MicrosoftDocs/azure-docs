@@ -67,10 +67,10 @@ dotnet add package Microsoft.Azure.StackExchangeRedis
 
 1. Include the libraries in your code
 
-    ```csharp
-    using Azure.Identity;
-    using StackExchange.Redis
-    ```
+       ```csharp
+       using Azure.Identity;
+       using StackExchange.Redis
+       ```
 
 1. Using the default Azure credentials to authenticate the client connection. This enables your code to use the signed-in user credential when running locally, and an Azure managed identity when running in Azure without code change.
 
