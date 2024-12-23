@@ -1,6 +1,6 @@
 ---
 title: Bicep CLI commands 
-description: Learn about the the commands that you can use in the Bicep CLI. These commands include building Azure Resource Manager templates from Bicep.
+description: Learn about the the commands that you can use in the Bicep CLI. These commands include building JSON Azure Resource Manager templates from Bicep.
 ms.topic: reference
 ms.custom: devx-track-azurecli, devx-track-bicep, devx-track-arm-template
 ms.date: 01/02/2025
@@ -14,7 +14,7 @@ This guidance shows how to run the commands in the Azure CLI. When running comma
 
 ## build
 
-The `build` command converts a Bicep file to an Azure Resource Manager template (ARM template). Typically, you don't need to run this command because it runs automatically when you deploy a Bicep file. Run it manually when you want to see the ARM JSON template that's created from your Bicep file.
+The `build` command converts a Bicep file to a JSON Azure Resource Manager template (ARM template). Typically, you don't need to run this command because it runs automatically when you deploy a Bicep file. Run it manually when you want to see the JSON ARM template that's created from your Bicep file.
 
 Using any of following Bicep features automatically enables language version 2.0 code generation:
 
@@ -70,7 +70,7 @@ To use the `--no-restore` switch, you must have [Bicep CLI version 0.4.X or high
 
 ## build-params
 
-The `build-params` command builds a _.bicepparam_ file into a JSON parameters file:
+The `build-params` command builds a `.bicepparam` file into a JSON parameters file:
 
 ```azurecli
 az bicep build-params --file params.bicepparam
@@ -80,7 +80,7 @@ This command converts a _params.bicepparam_ parameters file into a _params.json_
 
 ## decompile
 
-The `decompile` command converts ARM JSON template to a Bicep file:
+The `decompile` command converts a JSON ARM template to a Bicep file:
 
 ```azurecli
 az bicep decompile --file main.json
@@ -88,17 +88,17 @@ az bicep decompile --file main.json
 
 This command creates a file named _main.bicep_ in the same directory as _main.json_. If _main.bicep_ exists in the same directory, use the **--force** switch to overwrite the existing Bicep file.
 
-For more information about using this command, see [Decompile ARM JSON template to Bicep](decompile.md).
+For more information about using this command, see [Decompile JSON ARM template to Bicep](decompile.md).
 
 ## decompile-params
 
-The `decompile-params` command decompiles a JSON parameters file to a _.bicepparam_ parameters file.
+The `decompile-params` command decompiles a JSON parameters file to a `.bicepparam` parameters file.
 
 ```azurecli
 az bicep decompile-params --file azuredeploy.parameters.json --bicep-file ./dir/main.bicep
 ```
 
-This command decompiles an _azuredeploy.parameters.json_ parameters file into a _azuredeploy.parameters.bicepparam_ file. `--bicep-file` specifies the path to the Bicep file (relative to the .bicepparam file) that is referenced in the `using` declaration.
+This command decompiles an _azuredeploy.parameters.json_ parameters file into an _azuredeploy.parameters.bicepparam_ file. `--bicep-file` specifies the path to the Bicep file (relative to the `.bicepparam` file) that's referenced in the `using` declaration.
 
 ## format
 

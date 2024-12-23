@@ -8,7 +8,7 @@ ms.date: 01/02/2025
 
 # Bicep functions for Bicep parameters files
 
-Bicep provides a function called `readEnvironmentVariable()` that allows you to retrieve values from environment variables. It also offers the flexibility to set a default value if the environment variable doesn't exist. This function can only be used in _.bicepparam_ files.
+Bicep provides a function called `readEnvironmentVariable()` that allows you to retrieve values from environment variables. It also offers the flexibility to set a default value if the environment variable doesn't exist. This function can only be used in `.bicepparam` files.
 
 ## getSecret
 
@@ -17,7 +17,7 @@ Bicep provides a function called `readEnvironmentVariable()` that allows you to 
 This function returns a secret from an [Azure Key Vault](/azure/key-vault/secrets/about-secrets). Use this function to pass a secret to a Bicep file's secure string parameter.
 
 > [!NOTE]
-> You can also use the [keyVaultName.getSecret(secretName)](./bicep-functions-resource.md#getsecret) function from within a _.bicep_ file.
+> You can also use the [keyVaultName.getSecret(secretName)](./bicep-functions-resource.md#getsecret) function from within a `.bicep` file.
 
 ```bicep
 using './main.bicep'
@@ -46,7 +46,7 @@ The value for the secret.
 
 ### Example
 
-The following _.bicepparam_ file has a `securePassword` parameter that has the latest value of the _\<secretName\>_ secret:
+The following `.bicepparam` file has a `securePassword` parameter that has the latest value of the _\<secretName\>_ secret:
 
 ```bicep
 using './main.bicep'
@@ -54,7 +54,7 @@ using './main.bicep'
 param securePassword = getSecret('exampleSubscription', 'exampleResourceGroup', 'exampleKeyVault', 'exampleSecretPassword')
 ```
 
-The following _.bicepparam_ file has a `securePassword` parameter that has the value of the _\<secretName\>_ secret, but it's pinned to a specific _\<secretValue\>_:
+The following `.bicepparam` file has a `securePassword` parameter that has the value of the _\<secretName\>_ secret, but it's pinned to a specific _\<secretValue\>_:
 
 ```bicep
 using './main.bicep'
