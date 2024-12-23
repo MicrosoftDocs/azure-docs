@@ -2,7 +2,7 @@
 title: Include file - Java
 description: Java Audio Streaming quickstart
 services: azure-communication-services
-author: Alvin
+author: alvin-l-han
 ms.service: azure-communication-services
 ms.subservice: call-automation
 ms.date: 11/26/2024

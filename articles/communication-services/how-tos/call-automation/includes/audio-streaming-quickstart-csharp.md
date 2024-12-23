@@ -2,7 +2,7 @@
 title: Include file - C#
 description: C# Bidirectional audio streaming how-to
 services: azure-communication-services
-author: Alvin
+author: alvin-l-han
 ms.service: azure-communication-services
 ms.subservice: call-automation
 ms.date: 11/24/2024
