@@ -120,7 +120,7 @@ Disk: 4K logical and physical sector | Not supported: Gen 1/Gen 2 | Not supporte
 Disk: 4K logical and 512-bytes physical sector | Yes |  Yes
 Logical volume management (LVM). LVM is supported on data disks only. Azure provides only a single OS disk. | Yes | Yes
 Volume with striped disk >1 TB | Yes | Yes
-Storage Spaces | No | No
+Storage Spaces/ Storage Spaces Direct (S2D) | No | No
 Hot add/remove disk | No | No
 Exclude disk | Yes | Yes
 Multi-path (MPIO) | Yes | Yes
@@ -178,7 +178,7 @@ FC disk | Not supported | Prerequisites check fails if unsupported.
 Hard disk format | VHD <br/><br/> VHDX | Site Recovery automatically converts VHDX to VHD when you fail over to Azure. When you fail back to on-premises, the virtual machines continue to use the VHDX format.
 BitLocker | Not supported | BitLocker must be disabled before you enable replication for a VM.
 VM name | Between 1 and 63 characters. Restricted to letters, numbers, and hyphens. The VM name must start and end with a letter or number. | Update the value in the VM properties in Site Recovery.
-VM type | Generation 1<br/><br/> Generation 2--Windows | Generation 2 VMs with an OS disk type of basic (which includes one or two data volumes formatted as VHDX) and less than 2 TB of disk space are supported.<br></br>Linux Generation 2 VMs aren't supported. [Learn more](https://azure.microsoft.com/blog/new-azure-migrate-and-azure-site-recovery-enhancements-for-cloud-migration/).|
+VM type | Generation 1<br/><br/> Generation 2 | Generation 2 VMs with an OS disk type of basic (which includes one or two data volumes formatted as VHDX) and less than 2 TB of disk space are supported. |
 
 ## Recovery Services vault actions
 
