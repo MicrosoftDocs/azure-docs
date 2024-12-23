@@ -37,11 +37,11 @@ As you're setting up to investigate an incident, assemble the things you need to
 
 :::image type="content" source="media/investigate-incidents/top-toolbar.png" alt-text="Screenshot of the button bar on the incident details page.":::
 
-1.  Select **Tasks** to [see the tasks assigned for this incident](work-with-tasks.md#view-and-follow-incident-tasks), or to [add your own tasks](work-with-tasks.md#manually-add-an-ad-hoc-task-to-an-incident). Tasks can improve process standardization in your SOC. For more information, see [Use tasks to manage incidents in Microsoft Sentinel](incident-tasks.md).
+- Select **Tasks** to [see the tasks assigned for this incident](work-with-tasks.md#view-and-follow-incident-tasks), or to [add your own tasks](work-with-tasks.md#manually-add-an-ad-hoc-task-to-an-incident). Tasks can improve process standardization in your SOC. For more information, see [Use tasks to manage incidents in Microsoft Sentinel](incident-tasks.md).
 
-1. Select **Activity log** to see if any actions have already been taken on this incident&mdash;by automation rules, for example&mdash;and any comments that have been made. You can add your own comments here as well. For more information, see [Audit and comment on incidents](incident-navigate-triage.md#audit-and-comment-on-incidents).
+- Select **Activity log** to see if any actions have already been taken on this incident&mdash;by automation rules, for example&mdash;and any comments that have been made. You can add your own comments here as well. For more information, see [Audit and comment on incidents](incident-navigate-triage.md#audit-and-comment-on-incidents).
 
-1. Select **Logs** at any time to open a full, blank Log analytics query window *inside* the incident page. Compose and run a query, related or not, without leaving the incident. So, whenever you're struck with sudden inspiration to go chasing a thought, don't worry about interrupting your flow--the logs are there for you. For more information, see [Dive deeper into your data in Logs](#dive-deeper-into-your-data-in-logs).
+- Select **Logs** at any time to open a full, blank Log analytics query window *inside* the incident page. Compose and run a query, related or not, without leaving the incident. So, whenever you're struck with sudden inspiration to go chasing a thought, don't worry about interrupting your flow--the logs are there for you. For more information, see [Dive deeper into your data in Logs](#dive-deeper-into-your-data-in-logs).
 
 The **Incident actions** button is also located opposite the **Overview** and **Entities** tabs. Here, you have the same actions described earlier as available from the **Actions** button on the details pane on the **Incidents** grid page. The only one missing is **Investigate**, which is available on the left-hand details panel instead.
 
