@@ -7,6 +7,7 @@ ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: concept-article
 ms.date: 12/23/2024
+ms.custom: references_regions
 
 #CustomerIntent: As an Azure administrator, I want to use Traffic analytics to analyze Network Watcher flow logs so that I can view network activity, secure my networks, and optimize performance.
 ---
