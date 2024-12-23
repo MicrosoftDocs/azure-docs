@@ -146,9 +146,9 @@ Traffic analytics requires the following prerequisites:
     > [!CAUTION]
     > Data collection rule and data collection endpoint resources are created and managed by traffic analytics. If you perform any operation on these resources, traffic analytics may not function as expected.
     
-## Supported regions
+## Availability
 
-The following tables list the regions that support enabling traffic analytics for flow logs and the Log Analytics workspaces that you can use.
+The following tables list the supported regions where you can enable traffic analytics for your flow logs and the Log Analytics workspaces that you can use.
 
 #### [North America / South America](#tab/Americas)
 
