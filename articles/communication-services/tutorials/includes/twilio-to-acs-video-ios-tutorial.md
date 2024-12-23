@@ -197,7 +197,7 @@ class ApplicationCallAgentDelegate: NSObject, CallAgentDelegate {
  
     func callAgent(_ callAgent: CallAgent, didUpdateCalls args: CallsUpdatedEventArgs) {} 
  
-    func callAgent(_ callAgent: CallAgent, didRecieveIncomingCall incomingCall: IncomingCall) { 
+    func callAgent(_ callAgent: CallAgent, didReceiveIncomingCall incomingCall: IncomingCall) { 
         // This is called when the application receives an incoming call 
         // An application could use this callback to  display an incoming call banner 
         // or report an incoming call to CallKit 

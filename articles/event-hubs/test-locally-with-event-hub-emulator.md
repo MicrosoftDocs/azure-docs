@@ -79,7 +79,7 @@ To run the Event Hubs emulator locally on Linux or macOS:
 
    ```
 
-2. To sping up containers for Event Hubs emulator, Save the following .yaml file as *docker-compose.yaml*.
+2. To spin up containers for Event Hubs emulator, Save the following .yaml file as *docker-compose.yaml*.
 
    ```
    name: microsoft-azure-eventhubs

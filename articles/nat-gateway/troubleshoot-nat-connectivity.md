@@ -56,7 +56,7 @@ You observe a drop in the datapath availability of NAT gateway, which coincides 
 * If your investigation is inconclusive, open a support case to [further troubleshoot](#more-troubleshooting-guidance).
 
 >[!NOTE]
->It is important to understand why SNAT port exhaustion occurs. Make sure you use the right patterns for scalable and reliable scenarios. Adding more SNAT ports to a scenario without understanding the cause of the demand should be a last resort. If you do not understand why your scenario is applying pressure on SNAT port inventory, adding more SNAT ports by adding more IP addresses will only delay the same exhaustion failure as your application scales.  You may be masking other inefficiencies and anti-patterns. For more informations, see [best practices for efficient use of outbound connections](#outbound-connectivity-best-practices).
+>It is important to understand why SNAT port exhaustion occurs. Make sure you use the right patterns for scalable and reliable scenarios. Adding more SNAT ports to a scenario without understanding the cause of the demand should be a last resort. If you do not understand why your scenario is applying pressure on SNAT port inventory, adding more SNAT ports by adding more IP addresses will only delay the same exhaustion failure as your application scales.  You may be masking other inefficiencies and anti-patterns. For more information, see [best practices for efficient use of outbound connections](#outbound-connectivity-best-practices).
 
 ### Possible solutions for TCP connection timeouts
 

@@ -38,10 +38,10 @@ The first step is to get the following information from your [Azure Data Manager
 
 | Parameter          | Value             | Example                               |
 | ------------------ | ------------------------ |-------------------------------------- |
-| `CLIENT_ID`          | Application (client) ID  | `3dbbbcc2-f28f-44b6-a5ab-xxxxxxxxxxxx`  |
+| `CLIENT_ID`          | Application (client) ID  | `00001111-aaaa-2222-bbbb-3333cccc4444`  |
 | `CLIENT_SECRET`      | Client secrets           |  `_fl******************`                |
 | `TENANT_ID`          | Directory (tenant) ID    | `72f988bf-86f1-41af-91ab-xxxxxxxxxxxx`  |
-| `SCOPE`              | Application (client) ID  | `3dbbbcc2-f28f-44b6-a5ab-xxxxxxxxxxxx`  |
+| `SCOPE`              | Application (client) ID  | `00001111-aaaa-2222-bbbb-3333cccc4444`  |
 | `base_uri`           | URI                      | `<instance>.energy.azure.com`           |
 | `data-partition-id`  | Data partitions        | `<instance>-<data-partition-name>`                    |
 

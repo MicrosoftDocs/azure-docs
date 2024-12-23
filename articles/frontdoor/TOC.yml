@@ -222,7 +222,7 @@
         href: /security/benchmark/azure/baselines/azure-front-door-security-baseline?toc=/azure/frontdoor/TOC.json
       - name: DDoS protection
         href: front-door-ddos.md
-      - name: End-to-end TLS encryption
+      - name: About TLS encryption
         href: end-to-end-tls.md
       - name: Web Application Firewall
         href: web-application-firewall.md
@@ -459,7 +459,11 @@
     - name: Edgio
       items:
       - name: Migrate to Azure Front Door
-        href: migrate-cdn-to-front-door.md
+        items:
+        - name: Custom domain
+          href: migrate-cdn-to-front-door.md
+        - name: Retain *.azureedge.net domain
+          href: ../cdn/migrate-cdn-to-front-door-retain-edge-domain.md?toc=/azure/frontdoor/TOC.json
       - name: Standard
         items:
         - name: Optimize content

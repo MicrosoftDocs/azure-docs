@@ -21,7 +21,7 @@ You can secure WebSocket APIs by applying existing access control policies, like
 
 In this article, you will:
 > [!div class="checklist"]
-> * Understand Websocket passthrough flow.
+> * Understand WebSocket passthrough flow.
 > * Add a WebSocket API to your API Management instance.
 > * Test your WebSocket API.
 > * View the metrics and logs for your WebSocket API.

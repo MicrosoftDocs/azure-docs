@@ -97,7 +97,7 @@
         href: vpn-gateway-delete-vnet-gateway-powershell.md
   - name: Site-to-site (S2S)
     items:
-    - name: Configure site-to-site connections
+    - name: Configure site-to-site connections - shared key
       items:
       - name: Azure portal
         href: tutorial-site-to-site-portal.md
@@ -105,6 +105,8 @@
         href: vpn-gateway-create-site-to-site-rm-powershell.md
       - name: Azure CLI
         href: vpn-gateway-howto-site-to-site-resource-manager-cli.md
+    - name: Configure site-to-site connections - certificate
+      href: site-to-site-certificate-authentication-gateway-portal.md
     - name: Add or remove site-to-site-connections
       href: add-remove-site-to-site-connections.md
     - name: Connect to multiple policy-based VPN devices
@@ -221,7 +223,9 @@
       items:
       - name: P2S gateway configuration
         items:
-        - name: Configure a point-to-site VPN
+        - name: Azure portal
+          href: point-to-site-radius-gateway.md
+        - name: Azure Powershell
           href: point-to-site-how-to-radius-ps.md
         - name: Multifactor authentication - P2S RADIUS and NPS server
           href: vpn-gateway-radius-mfa-nsp.md

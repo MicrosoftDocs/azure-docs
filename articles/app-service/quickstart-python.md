@@ -203,10 +203,6 @@ Azure App Service supports multiple methods to deploy your application code to A
 
 [!INCLUDE [Deploy VS Code](./includes/quickstart-python/deploy-visual-studio-code.md)]
 
-### [Deploy using Local Git](#tab/local-git-deploy)
-
-[!INCLUDE [Deploy Local Git](./includes/quickstart-python/deploy-local-git.md)]
-
 ### [Deploy using a ZIP file](#tab/zip-deploy)
 
 [!INCLUDE [Deploy using ZIP file](./includes/quickstart-python/deploy-zip-file.md)]

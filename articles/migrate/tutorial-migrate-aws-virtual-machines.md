@@ -5,7 +5,7 @@ author: vijain
 ms.author: vijain
 ms.topic: tutorial
 ms.service: azure-migrate
-ms.date: 09/26/2024
+ms.date: 12/10/2024
 ms.custom: MVC, engagement-fy24
 ---
 
@@ -31,6 +31,11 @@ In this tutorial, you learn how to:
 > * Run a full migration to Azure.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
+
+> [!IMPORTANT]
+> While lengthy, this tutorial represents the recommended process for migrating AWS VMs to Azure VMs using Azure Migrate. While alternative methods like using Azure Image Builder may work in theory, there are numerous compatibility issues that can arise.
+>
+>This tutorial provides a comprehensive overview of the process and addresses compatibility, supported configurations, testing to ensure your VM boots properly, and frequently asked questions.
 
 ## Discover and assess
 
@@ -224,8 +229,8 @@ A Mobility service agent must be preinstalled on the source AWS VMs to be migrat
 
     > [!NOTE]
     >
-    > - If you selected private endpoint as the connectivity method for the Azure Migrate project, grant the Recovery Services vault access to the cache storage account. [Learn more](migrate-servers-to-azure-using-private-link.md#grant-access-permissions-to-the-recovery-services-vault).
-    > - To replicate by using Azure ExpressRoute with private peering, create a private endpoint for the cache storage account. [Learn more](migrate-servers-to-azure-using-private-link.md#create-a-private-endpoint-for-the-storage-account-1).
+    > - If you selected private endpoint as the connectivity method for the Azure Migrate project, grant the Recovery Services vault access to the cache storage account. [Learn more](migrate-hyper-v-servers-to-azure-using-private-link.md#grant-access-permissions-to-the-recovery-services-vault).
+    > - To replicate by using Azure ExpressRoute with private peering, create a private endpoint for the cache storage account. [Learn more](migrate-hyper-v-servers-to-azure-using-private-link.md#create-a-private-endpoint-for-the-storage-account).
 1. In **Availability options**, select:
     -  **Availability Zone**: Pins the migrated machine to a specific availability zone in the region. Use this option to distribute servers that form a multinode application tier across availability zones. If you select this option, you need to specify the availability zone to use for each of the selected machines on the **Compute** tab. This option is only available if the target region selected for the migration supports availability zones.
     -  **Availability Set**: Places the migrated machine in an availability set. The target resource group that was selected must have one or more availability sets in order to use this option.
