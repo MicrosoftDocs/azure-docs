@@ -69,7 +69,7 @@ The following sections offer details about properties that are used to define Da
 
 The Azure Database for PostgreSQL connector **2.0** driver version supports TLS 1.3. Refer to this [section](#upgrade-the-azure-database-for-postgresql-connector) to upgrade your Azure SQL Database connector version from 1.0 driver version. For the property details, see the corresponding sections.
 
-- [2.0 driver version](#10-driver-version)
+- [2.0 driver version](#20-driver-version)
 - [1.0 driver version](#10-driver-version)
 
 ### 2.0 driver version
@@ -86,7 +86,7 @@ The following properties are supported for the Azure Database for PostgreSQL lin
 | username| The username to connect with. Not required if using IntegratedSecurity. |Yes |
 | password| The password to connect with. Not required if using IntegratedSecurity. |Yes |
 | sslMode | Controls whether SSL is used, depending on server support. <br/>- **Disable**: SSL is disabled. If the server requires SSL, the connection will fail.<br/>- **Allow**: Prefer non-SSL connections if the server allows them, but allow SSL connections.<br/>- **Prefer**: Prefer SSL connections if the server allows them, but allow connections without SSL.<br/>- **Require**: The connection fails if the server doesn't support SSL.<br/>- **Verify-ca**: The connection fails if the server doesn't support SSL. Also verifies server certificate.<br/>- **Verify-full**: The connection fails if the server doesn't support SSL. Also verifies server certificate with host's name. <br/>Options: Disable (0) / Allow (1) / Prefer (2) **(Default)** / Require (3) / Verify-ca (4) / Verify-full (5) | No |
-| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. If not specified, it uses the default Azure Integration Runtime. |No |
+| connectVia | This property represents the [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is located in private network). If not specified, it uses the default Azure Integration Runtime.|
 | ***Additional connection properties:*** |  |  |
 | schema | Sets the schema search path. | No |
 | pooling | Whether connection pooling should be used. | No |
@@ -128,6 +128,7 @@ The following properties are supported for the Azure Database for PostgreSQL lin
     "name": "AzurePostgreSqlLinkedService",
     "properties": {
         "type": "AzurePostgreSql",
+        "version": "2.0",
         "typeProperties": {
             "server": "<server name>",
             "port": "5432",
