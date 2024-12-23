@@ -233,13 +233,13 @@ If you prefer a visual, graphical representation of alerts, entities, and the co
   
 The investigation graph provides you with:
 
-- **Visual context from raw data**: The live, visual graph displays entity relationships extracted automatically from the raw data. This enables you to easily see connections across different data sources.
+| **Investigation content**           | **Description**    |
+|---------------------------|----------------------|
+| **Visual context from raw data** | The live, visual graph displays entity relationships extracted automatically from the raw data. This enables you to easily see connections across different data sources.|
+|**Full investigation scope discovery** | Expand your investigation scope using built-in exploration queries to surface the full scope of a breach.|
+| **Built-in investigation steps** | Use predefined exploration options to make sure you're asking the right questions in the face of a threat.|
 
-- **Full investigation scope discovery**: Expand your investigation scope using built-in exploration queries to surface the full scope of a breach.
-
-- **Built-in investigation steps**: Use predefined exploration options to make sure you're asking the right questions in the face of a threat.
-
-To use the investigation graph:
+**To use the investigation graph**:
 
 1. Select an incident, then select **Investigate**. This takes you to the investigation graph. The graph provides an illustrative map of the entities directly connected to the alert and each resource connected further.
 
