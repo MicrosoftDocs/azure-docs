@@ -152,6 +152,7 @@ Depending on the entity type, you can take a number of further actions from this
 | **File (hash)** | | &#10004; | &#10004; |
 | **Azure resource** | &#10004; | | | 
 | **IoT device** | &#10004; | | |
+
 \* For entities for which the **Add to TI** or **Run playbook** actions are available, you can take those actions right from the **Entities** widget in the **Overview tab**, neverleaving the incident page.
 
 ### Incident logs
