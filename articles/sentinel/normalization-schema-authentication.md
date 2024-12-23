@@ -204,7 +204,7 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 | **SrcGeoCountry**|Optional |Country |Example: `Canada` <br><br>For more information, see [Logical types](normalization-about-schemas.md#logical-types). |
 | **SrcGeoCity**|Optional |City |Example: `Montreal` <br><br>For more information, see [Logical types](normalization-about-schemas.md#logical-types). |
 |**SrcGeoRegion** | Optional|Region | Example: `Quebec` <br><br>For more information, see [Logical types](normalization-about-schemas.md#logical-types).|
-| **SrcGeoLongtitude**|Optional |Longitude  | Example: `-73.614830` <br><br>For more information, see [Logical types](normalization-about-schemas.md#logical-types).|
+| **SrcGeoLongitude**|Optional |Longitude  | Example: `-73.614830` <br><br>For more information, see [Logical types](normalization-about-schemas.md#logical-types).|
 | **SrcGeoLatitude**|Optional |Latitude |Example: `45.505918` <br><br>For more information, see [Logical types](normalization-about-schemas.md#logical-types). |
 | **SrcRiskLevel** | Optional | Integer | The risk level associated with the source. The value should be adjusted to a range of `0` to `100`, with `0` for benign and `100` for a high risk.<br><br>Example: `90` |
 | **SrcOriginalRiskLevel** | Optional | Integer | The risk level associated with the source, as reported by the reporting device. <br><br>Example: `Suspicious` |
