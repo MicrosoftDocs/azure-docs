@@ -217,6 +217,8 @@ However you end up on the **Logs** panel, if you've run a query whose results yo
 
 1. After creating the bookmark (or if you choose not to), select **Done** to close the **Logs** panel.
 
+For example:
+
 :::image type="content" source="media/investigate-incidents/logs-panel.png" alt-text="Screenshot of Logs panel open in incident details page." lightbox="media/investigate-incidents/logs-panel.png":::
 
 ## Expand or focus your investigation
