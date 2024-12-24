@@ -2,7 +2,7 @@
 title: What is Azure Private Link service?
 description: Learn about Azure Private Link service.
 services: private-link
-author: abell
+author: AbdullahBell
 ms.service: azure-private-link
 ms.topic: conceptual
 ms.date: 10/15/2024
