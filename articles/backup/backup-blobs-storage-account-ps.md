@@ -158,7 +158,7 @@ To update the backup instance, run the following cmdlets:
 
 1. Update the policy or the new containers to existing backup items.
 
-   1. Create the storage account context by using the `New-AzStorageContext` cmdlet. Provide the `-UseConnectedAccount` parameter so that data operations is performed using your Microsoft Entra credentials. Learn more [about the storage account commands](/azure/storage/blobs/blob-containers-powershell#list-containers). 
+   1. Create the storage account context by using the `New-AzStorageContext` cmdlet. Provide the `-UseConnectedAccount` parameter so that data operations are performed using your Microsoft Entra credentials. Learn more [about the storage account commands](/azure/storage/blobs/blob-containers-powershell#list-containers). 
 
       ```azurepowershell
       Create a context object using Azure AD credentials
@@ -217,7 +217,7 @@ To update the backup instance, run the following cmdlets:
 
          ```
 
-   1. Fetch the backup policy with the name of vaulted-policy that you want to update in Backup Instance. You can also fetch the new policy that need to be updated in Backup Instance.
+   1. Fetch the backup policy with the name of vaulted-policy that you want to update in Backup Instance. You can also fetch the new policy that needs to be updated in Backup Instance.
 
          ```azurepowershell
          $updatePolicy = Get-AzDataProtectionBackupPolicy -SubscriptionId "Demosub" -VaultName BCDR-BV-EastUS -ResourceGroupName Demo-BCDR-RG -name continer-1
