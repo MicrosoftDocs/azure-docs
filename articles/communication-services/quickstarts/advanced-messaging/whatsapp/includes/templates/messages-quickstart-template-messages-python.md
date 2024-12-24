@@ -245,6 +245,87 @@ Location based Message template assembly:
             channel_registration_id=self.channel_id, to=[self.phone_number], template=sample_movie_location)
 ```
 
+## Templates with call to action buttons
+Use `MessageTemplateQuickAction` to define the url suffix for call to action buttons and `MessageTemplateQuickAction` object have the following three attributes.
+
+|  Properties   | Description |  Type |
+|----------|---------------------------|-----------|
+| Name  | The `name` is used to look up the value in `MessageTemplateWhatsAppBindings`. | string|
+| Text  | The  'text' that is appended to the URL.  | string|
+
+Template definition buttons:
+```json
+{
+  "type": "BUTTONS",
+  "buttons": [
+    {
+      "type": "URL",
+      "text": "Take Survey",
+      "url": "https://www.example.com/{{1}}"
+    }
+  ]
+}
+```
+
+The order that the buttons appear in the template definition should match the order in which the buttons are defined when creating the bindings with `MessageTemplateWhatsAppBindings`.
+
+### Example
+sample_purchase_feedback template
+This sample template adds a button with a dynamic URL link to the message. It also uses an image in the header and a text parameter in the body.
+:::image type="content" source="../../media/template-messages/edit-sample-purchase-feedback-whatsapp-manager.png" lightbox="../../media/template-messages/edit-sample-purchase-feedback-whatsapp-manager.png" alt-text="Screenshot that shows editing URL Type in the WhatsApp manager.":::
+
+In this sample, the header of the template requires an image:
+```json
+{
+  "type": "HEADER",
+  "format": "IMAGE"
+},
+```
+
+Here, the body of the template requires one text parameter:
+```json
+{
+  "type": "BODY",
+  "text": "Thank you for purchasing {{1}}! We value your feedback and would like to learn more about your experience."
+},
+```
+
+And the template includes a dynamic URL button with one parameter:
+```json
+{
+  "type": "BUTTONS",
+  "buttons": [
+    {
+      "type": "URL",
+      "text": "Take Survey",
+      "url": "https://www.example.com/{{1}}"
+    }
+  ]
+}
+```
+
+Create one `MessageTemplateImage`, one `MessageTemplateText`, and one `MessageTemplateQuickAction` variable. Then, assemble your list of `MessageTemplateValue` and your `MessageTemplateWhatsAppBindings` by providing the parameters in the order that the parameters appear in the template content. The order also matters when defining your binding's buttons.
+
+```python
+# Setting template options
+templateName = "sample_purchase_feedback"
+templateLanguage = "en_us"
+imageUrl = "https://aka.ms/acsicon1" 
+sample_purchase_feedback: MessageTemplate = MessageTemplate(name=templateName, language=templateLanguage )
+name = MessageTemplateText(name="first", text="Coffee")
+image = MessageTemplateImage(name="image", url=imageUrl)
+uri_to_click = MessageTemplateQuickAction(name="text", text="Take Survey")
+
+bindings = WhatsAppMessageTemplateBindings(body=[WhatsAppMessageTemplateBindingsComponent(ref_value=name.name)],
+                                            header=[WhatsAppMessageTemplateBindingsComponent(ref_value=image.name)],
+                                            buttons=[WhatsAppMessageTemplateBindingsButton(sub_type=WhatsAppMessageButtonSubType.URL, ref_value=uri_to_click.name)])
+sample_purchase_feedback.bindings = bindings
+sample_purchase_feedback.template_values=[name, image, uri_to_click]
+template_options = TemplateNotificationContent(
+    channel_registration_id=self.channel_id, to=[self.phone_number], template=sample_purchase_feedback)
+```
+
+
 ## Full example
 
 ```python
@@ -370,12 +451,47 @@ class SendWhatsAppTemplateMessageSample(object):
         print("WhatsApp Location Templated Message with message id {} was successfully sent to {}"
             .format(response.message_id, response.to))
 
+    def send_template_message_with_call_to_action(self):
+
+        from azure.communication.messages import NotificationMessagesClient
+        from azure.communication.messages.models import (TemplateNotificationContent, MessageTemplate,
+        MessageTemplateText, WhatsAppMessageTemplateBindings, WhatsAppMessageTemplateBindingsComponent,
+        MessageTemplateQuickAction, MessageTemplateImage, WhatsAppMessageTemplateBindingsButton,
+        WhatsAppMessageButtonSubType)
+
+        messaging_client = NotificationMessagesClient.from_connection_string(self.connection_string)
+
+        # Setting template options
+        templateName = "sample_purchase_feedback"
+        templateLanguage = "en_us"
+        imageUrl = "https://aka.ms/acsicon1" 
+        sample_purchase_feedback: MessageTemplate = MessageTemplate(name=templateName, language=templateLanguage )
+        name = MessageTemplateText(name="first", text="Coffee")
+        image = MessageTemplateImage(name="image", url=imageUrl)
+        uri_to_click = MessageTemplateQuickAction(name="text", text="Take Survey")
+
+        bindings = WhatsAppMessageTemplateBindings(body=[WhatsAppMessageTemplateBindingsComponent(ref_value=name.name)],
+                                                    header=[WhatsAppMessageTemplateBindingsComponent(ref_value=image.name)],
+                                                    buttons=[WhatsAppMessageTemplateBindingsButton(sub_type=WhatsAppMessageButtonSubType.URL,
+                                                                                                    ref_value=uri_to_click.name)])
+        sample_purchase_feedback.bindings = bindings
+        sample_purchase_feedback.template_values=[name, image, uri_to_click]
+        template_options = TemplateNotificationContent(
+            channel_registration_id=self.channel_id, to=[self.phone_number], template=sample_purchase_feedback)
+
+        # calling send() with whatsapp message details
+        message_responses = messaging_client.send(template_options)
+        response = message_responses.receipts[0]
+        print("WhatsApp Call To Action Templated Message with message id {} was successfully sent to {}"
+        .format(response.message_id, response.to))
+
 if __name__ == "__main__":
     sample = SendWhatsAppTemplateMessageSample()
     sample.send_template_message_without_parameters()
     sample.send_template_message_with_parameters()
     sample.send_template_message_with_buttons()
     sample.send_template_message_with_location()
+    sample.send_template_message_with_call_to_action()
 ```
 
 ## Run the code
