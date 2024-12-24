@@ -128,124 +128,27 @@ The following classes and interfaces handle some of the major features of the Az
 > [!NOTE]
 > Please find the SDK reference [here](/dotnet/api/azure.communication.messages).
 
-## Code examples
-
-Follow these steps to add the necessary code snippets to the Main function of your *Program.cs* file.
+## Common configuration
+Follow these steps to add the necessary code snippets to the messages-quickstart.py python program.
 
 - [Authenticate the client](#authenticate-the-client)
 - [Set channel registration ID](#set-channel-registration-id)
 - [Set recipient list](#set-recipient-list)
 - [Start sending messages between a business and a WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user)
-  - [Send a template message to a WhatsApp User](#option-1-initiate-conversation-from-business---send-a-template-message)
-  - [Initiate conversation from user](#option-2-initiate-conversation-from-user)
+
+[!INCLUDE [Common setting for using Advanced Messages SDK](../common-setting.md)]
+
+## Code examples
+
+Follow these steps to add the necessary code snippets to the Main function of your *Program.cs* file.
 - [Send a text message to a WhatsApp user](#send-a-text-message-to-a-whatsapp-user)
-- [Send a media message to a WhatsApp user](#send-a-media-message-to-a-whatsapp-user)
-
-### Authenticate the client   
-
-The `NotificationMessagesClient` is used to connect to your Azure Communication Services resource.   
-
-[!INCLUDE [Authenticate the NotificationMessagesClient](./../authenticate-notification-messages-client-net.md)]
-
-### Set channel registration ID   
-
-The Channel Registration ID GUID was created during [channel registration](../../connect-whatsapp-business-account.md). You can look it up in the portal on the Channels tab of your Azure Communication Services resource.
-
-:::image type="content" source="../../media/get-started/get-messages-channel-id.png" lightbox="../../media/get-started/get-messages-channel-id.png" alt-text="Screenshot that shows an Azure Communication Services resource in the Azure portal, viewing the 'Channels' tab. Attention is placed on the copy action of the 'Channel ID' field.":::
-
-Assign it to a variable called channelRegistrationId.
-```csharp
-var channelRegistrationId = new Guid("<your channel registration ID GUID>");
-```
-
-### Set recipient list
-
-You need to supply a real phone number that has a WhatsApp account associated with it. This WhatsApp account receives the template, text, and media messages sent in this quickstart.
-For this quickstart, this phone number may be your personal phone number.   
-
-The recipient phone number can't be the business phone number (Sender ID) associated with the WhatsApp channel registration. The Sender ID appears as the sender of the text and media messages sent to the recipient.
-
-The phone number should include the country code. For more information on phone number formatting, see WhatsApp documentation for [Phone Number Formats](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/phone-numbers#phone-number-formats).
-
-> [!NOTE]
-> Only one phone number is currently supported in the recipient list.
-
-Create the recipient list like this:
-```csharp
-var recipientList = new List<string> { "<to WhatsApp phone number>" };
-```
-
-Example:
-```csharp
-// Example only
-var recipientList = new List<string> { "+14255550199" };
-```
-
-### Start sending messages between a business and a WhatsApp user
-
-Conversations between a WhatsApp Business Account and a WhatsApp user can be initiated in one of two ways:
-- The business sends a template message to the WhatsApp user.
-- The WhatsApp user sends any message to the business number.
-
-Regardless of how the conversation was started, **a business can only send template messages until the user sends a message to the business.** Only after the user sends a message to the business, the business is allowed to send text or media messages to the user during the active conversation. Once the 24 hour conversation window expires, the conversation must be reinitiated. To learn more about conversations, see the definition at [WhatsApp Business Platform](https://developers.facebook.com/docs/whatsapp/pricing#conversations).
-
-#### (Option 1) Initiate conversation from business - Send a template message
-Initiate a conversation by sending a template message.
-
-First, create a MessageTemplate using the values for a template. 
-> [!NOTE]
-> To check which templates you have available, see the instructions at [List templates](../../send-template-messages.md#list-whatsapp-templates-in-azure-portal).
-> If you don't have a template to use, proceed to [Option 2](#option-2-initiate-conversation-from-user).
-
-Here's MessageTemplate creation using a default template, `sample_template`.   
-If `sample_template` isn't available to you, skip to [Option 2](#option-2-initiate-conversation-from-user). For advanced users, see the page [Templates](../../send-template-messages.md) to understand how to send a different template with Option 1.
-
-The Messages SDK allows Contoso to send templated WhatsApp messages to WhatsApp users. To send a template message, you need:
-- [Authenticated NotificationMessagesClient](#authenticate-the-client)
-- [WhatsApp Channel ID](#set-channel-registration-id)
-- [Recipient Phone Number in E16 format](#set-recipient-list)
-- Template details
-    - Name like 'sample_template'
-    - Language like 'en_us'
-    - Parameters if any
-    
-```csharp
-// Assemble the template content
-string templateName = "sample_template";
-string templateLanguage = "en_us";
-var messageTemplate = new MessageTemplate(templateName, templateLanguage);
-```
-
-For more examples of how to assemble your MessageTemplate and how to create your own template, refer to the following resource:
-- [Send WhatsApp Template Messages](../../send-template-messages.md) 
-   
-For further WhatsApp requirements on templates, refer to the WhatsApp Business Platform API references:
-- [Create and Manage Templates](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates/)
-- [Template Components](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates/components)
-- [Sending Template Messages](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-message-templates)
-
-Assemble then send the template message:
-```csharp
-// Assemble template message
-var templateContent = 
-    new TemplateNotificationContent(channelRegistrationId, recipientList, messageTemplate);
-
-// Send template message
-Response<SendMessageResult> sendTemplateMessageResult = 
-    await notificationMessagesClient.SendAsync(templateContent);
-```
-
-Now, the user needs to respond to the template message. From the WhatsApp user account, reply to the template message received from the WhatsApp Business Account. The content of the message is irrelevant for this scenario.
+- [Send a image media message to a WhatsApp user](#send-a-image-media-message-to-a-whatsapp-user)
+- [Send a document media message to a WhatsApp user](#send-a-document-media-message-to-a-whatsapp-user)
+- [Send an audio media message to a WhatsApp user](#send-an-audio-media-message-to-a-whatsapp-user)
+- [Send a video media message to a WhatsApp user](#send-a-video-media-message-to-a-whatsapp-user)
 
 > [!IMPORTANT]
-> The recipient must respond to the template message to initiate the conversation before text or media message can be delivered to the recipient.
-
-#### (Option 2) Initiate conversation from user
-
-The other option to initiate a conversation between a WhatsApp Business Account and a WhatsApp user is to have the user initiate the conversation.
-To do so, from your personal WhatsApp account, send a message to your business number (Sender ID).
-
-:::image type="content" source="../../media/get-started/user-initiated-conversation.png" lightbox="../../media/get-started/user-initiated-conversation.png" alt-text="A WhatsApp conversation viewed on the web showing a user message sent to the WhatsApp Business Account number.":::
+> To send a text message to a WhatsApp user, the WhatsApp user must first send a message to the WhatsApp Business Account. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
 
 ### Send a text message to a WhatsApp user
 
@@ -255,11 +158,7 @@ The Messages SDK allows Contoso to send WhatsApp text messages, which initiated 
 - [Recipient phone number in E16 format](#set-recipient-list)
 - Message body/text to be sent
 
-> [!IMPORTANT]
-> To send a text message to a WhatsApp user, the WhatsApp user must first send a message to the WhatsApp Business Account. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
-
 In this example, we reply to the WhatsApp user with the text "Thanks for your feedback.\n From Notification Messaging SDK".
-
 Assemble then send the text message:
 ```csharp
 // Assemble text message
@@ -271,23 +170,16 @@ Response<SendMessageResult> sendTextMessageResult =
     await notificationMessagesClient.SendAsync(textContent);
 ```
 
-### Send a media message to a WhatsApp user
+### Send a image media message to a WhatsApp user
 
 The Messages SDK allows Contoso to send WhatsApp media messages to WhatsApp users. To send an embedded media message, you need:
 - [Authenticated NotificationMessagesClient](#authenticate-the-client)
 - [WhatsApp channel ID](#set-channel-registration-id)
 - [Recipient phone number in E16 format](#set-recipient-list)
-- Uri of the Media
-
-> [!IMPORTANT]
-> To send a text message to a WhatsApp user, the WhatsApp user must first send a message to the WhatsApp Business Account. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
+- Uri of the Image Media
 
 > [!IMPORTANT]
 > As of SDK version 1.1.0, `MediaNotificationContent` is being deprecated for images. We encourage you to use `ImageNotificationContent` for sending images and explore other content-specific classes for other media types like `DocumentNotificationContent`, `VideoNotificationContent`, and `AudioNotificationContent`.
-
-Below are example code snippets for sending different types of media messages, including images, documents, videos, and audio files.
-
-#### Sending an image content
 
 Assemble the image message:  
 ```csharp
@@ -303,7 +195,12 @@ Send the image message:
 var imageResponse = await notificationMessagesClient.SendAsync(imageNotificationContent);
 ```
 
-#### Sending a document 
+### Send a document media message to a WhatsApp user
+The Messages SDK allows Contoso to send WhatsApp media messages to WhatsApp users. To send an embedded media message, you need:
+- [Authenticated NotificationMessagesClient](#authenticate-the-client)
+- [WhatsApp channel ID](#set-channel-registration-id)
+- [Recipient phone number in E16 format](#set-recipient-list)
+- Uri of the Document Media
 
 Assemble the document content:  
 ```csharp
@@ -320,7 +217,12 @@ Send the document message:
 var documentResponse = await notificationMessagesClient.SendAsync(documentNotificationContent);
 ```
 
-#### Sending a video content
+### Send a video media message to a WhatsApp user
+The Messages SDK allows Contoso to send WhatsApp media messages to WhatsApp users. To send an embedded media message, you need:
+- [Authenticated NotificationMessagesClient](#authenticate-the-client)
+- [WhatsApp channel ID](#set-channel-registration-id)
+- [Recipient phone number in E16 format](#set-recipient-list)
+- Uri of the Video Media
 
 Assemble the video message:  
 ```csharp
@@ -336,7 +238,12 @@ Send the video message:
 var videoResponse = await notificationMessagesClient.SendAsync(videoNotificationContent);
 ```
 
-#### Sending an audio content
+### Send an audio media message to a WhatsApp user
+The Messages SDK allows Contoso to send WhatsApp media messages to WhatsApp users. To send an embedded media message, you need:
+- [Authenticated NotificationMessagesClient](#authenticate-the-client)
+- [WhatsApp channel ID](#set-channel-registration-id)
+- [Recipient phone number in E16 format](#set-recipient-list)
+- Uri of the Audio Media
 
 Assemble the audio message:  
 ```csharp
@@ -349,7 +256,7 @@ Send the audio message:
 var audioResponse = await notificationMessagesClient.SendAsync(audioNotificationContent);
 ```
 
-## Run the code
+### Run the code
 
 Build and run your program.  
 
