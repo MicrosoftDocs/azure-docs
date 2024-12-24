@@ -71,21 +71,21 @@ You can use [connection string](#connection-string) or [Microsoft Entra identity
 
 For instructions on how to retrieve the connection string for your Azure SignalR Service, see [Connection strings in Azure SignalR Service](../azure-signalr/concept-connection-string.md#how-to-get-connection-strings)
 
-This connection string should be stored in an application setting with a name `AzureSignalRConnectionString`. You can customized the application setting name with the `connectionStringSetting` property of the binding configuration.
+This connection string should be stored in an application setting with a name `AzureSignalRConnectionString`. You can customize the application setting name with the `connectionStringSetting` property of the binding configuration.
 
 ### Identity-based connections
 
-If you are using version 1.7.0 or higher, instead of using a connection string with a secret, you can have the app use an [Microsoft Entra identity](../active-directory/fundamentals/active-directory-whatis.md).
+If you're using version 1.7.0 or higher, instead of using a connection string with a secret, you can have the app use an [Microsoft Entra identity](../active-directory/fundamentals/active-directory-whatis.md).
 
 First of all, you should make sure your Microsoft Entra identity has role [SignalR Service Owner](../role-based-access-control/built-in-roles.md#signalr-service-owner).
 
-Then you would define settings with a common prefix `AzureSignalRConnectionString`. You can customized prefix name with the `connectionStringSetting` property of the binding configuration.
+Then you would define settings with a common prefix `AzureSignalRConnectionString`. You can customize prefix name with the `connectionStringSetting` property of the binding configuration.
 
 In this mode, the settings include following items:
 
 | Property   | Environment variable template     | Description     |  Required  | Example value     |
 |--------------|----------|-----|----------|
-| Service URI | `AzureSignalRConnectionString__serviceUri` | The URI of your service endpoint. When you only configure "Service URI", [DefaultAzureCredential](/dotnet/azure/sdk/authentication/credential-chains?tabs=dac#defaultazurecredential-overview) type would be used by the extensions to attempt to authenticate with the service.  |  Yes |  https://mysignalrsevice.service.signalr.net|
+| Service URI | `AzureSignalRConnectionString__serviceUri` | The URI of your service endpoint. When you only configure "Service URI", the extensions would attempt to use [DefaultAzureCredential](/dotnet/azure/sdk/authentication/credential-chains?tabs=dac#defaultazurecredential-overview) type to authenticate with the service.  |  Yes |  https://mysignalrsevice.service.signalr.net|
 | Token Credential |  `AzureSignalRConnectionString__credential` | Defines how a token should be obtained for the connection. This setting should be set to `managedidentity` if your deployed Azure Function intends to use managed identity authentication. This value is only valid when a managed identity is available in the hosting environment. | No   | managedidentity |
 | Client ID | `AzureSignalRConnectionString__clientId` | When `credential` is set to `managedidentity`, this property can be set to specify the user-assigned identity to be used when obtaining a token. The property accepts a client ID corresponding to a user-assigned identity assigned to the application. It's invalid to specify both a Resource ID and a client ID. If not specified, the system-assigned identity is used. This property is used differently in [local development scenarios](./functions-reference.md#local-development-with-identity-based-connections), when `credential` shouldn't be set. |   No |  00000000-0000-0000-0000-000000000000  |
 | Resource ID | `AzureSignalRConnectionString__managedIdentityResourceId` | When `credential` is set to `managedidentity`, this property can be set to specify the resource Identifier to be used when obtaining a token. The property accepts a resource identifier corresponding to the resource ID of the user-defined managed identity. It's invalid to specify both a resource ID and a client ID. If neither are specified, the system-assigned identity is used. This property is used differently in [local development scenarios](./functions-reference.md#local-development-with-identity-based-connections), when `credential` shouldn't be set. |   No |  /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup/providers/Microsoft.SignalRService/SignalR/mysignalrservice   |
@@ -100,11 +100,11 @@ In this mode, the settings include following items:
 
 You can also configure multiple endpoints and specify identity settings per endpoint.
 
-In this case, prefix your settings with `Azure__SignalR__Endpoints__{endpointName}`. The `{endpointName}` is an arbitrary name assigned by you to associate a group of settings to a service endpoint. Note that the prefix `Azure__SignalR__Endpoints__{endpointName}` cannot be customized by `connectionStringSetting` property.
+In this case, prefix your settings with `Azure__SignalR__Endpoints__{endpointName}`. The `{endpointName}` is an arbitrary name assigned by you to associate a group of settings to a service endpoint. The prefix `Azure__SignalR__Endpoints__{endpointName}` can't be customized by `connectionStringSetting` property.
 
 | Property   | Environment variable template     | Description     |   Required  | Example value     |
 |--------------|----------|-----|----------|
-| Service URI | `Azure__SignalR__Endpoints__{endpointName}__serviceUri` | The URI your service endpoint. When you only configure "Service URI", [DefaultAzureCredential](/dotnet/azure/sdk/authentication/credential-chains?tabs=dac#defaultazurecredential-overview) type would be used by the extensions to attempt to authenticate with the service. |Yes |  https://mysignalrsevice1.service.signalr.net|
+| Service URI | `Azure__SignalR__Endpoints__{endpointName}__serviceUri` | The URI your service endpoint. When you only configure "Service URI", the extensions would attempt to use [DefaultAzureCredential](/dotnet/azure/sdk/authentication/credential-chains?tabs=dac#defaultazurecredential-overview) type to authenticate with the service. |Yes |  https://mysignalrsevice1.service.signalr.net|
 | Endpoint Type | `Azure__SignalR__Endpoints__{endpointName}__type` | Indicates whether the service endpoint is primary or secondary. If not specified, it defaults to `Primary`. Valid values are `Primary` and `Secondary`, case-insensitive. | No | `Secondary` |
 | Token Credential |  `Azure__SignalR__Endpoints__{endpointName}__credential` | Defines how a token should be obtained for the connection. This setting should be set to `managedidentity` if your deployed Azure Function intends to use managed identity authentication. This value is only valid when a managed identity is available in the hosting environment. | No   | managedidentity |
 | Client ID | `Azure__SignalR__Endpoints__{endpointName}__clientId` | When `credential` is set to `managedidentity`, this property can be set to specify the user-assigned identity to be used when obtaining a token. The property accepts a client ID corresponding to a user-assigned identity assigned to the application. It's invalid to specify both a Resource ID and a client ID. If not specified, the system-assigned identity is used. This property is used differently in [local development scenarios](./functions-reference.md#local-development-with-identity-based-connections), when `credential` shouldn't be set. |   No |  00000000-0000-0000-0000-000000000000  |
