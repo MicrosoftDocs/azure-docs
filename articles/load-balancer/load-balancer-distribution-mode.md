@@ -4,7 +4,7 @@ titleSuffix: Azure Load Balancer
 description: In this article, get started configuring the distribution mode for Azure Load Balancer to support source IP affinity.
 services: load-balancer
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: how-to
 ms.custom: template-how-to, devx-track-azurecli
 ms.date: 01/22/2024
@@ -43,9 +43,6 @@ The following options are available:
 * **Client IP and protocol (three-tuple: source IP, destination IP, and protocol type)** - Specifies that successive requests from the same client IP address and protocol combination are handled by the same virtual machine.
 
 5. Choose the distribution mode and then select **Save**.
-
-:::image type="content" source="./media/load-balancer-distribution-mode/session-persistence.png" alt-text="Change session persistence on load balancer rule." border="true" lightbox="./media/load-balancer-distribution-mode/session-persistence.png":::
-
 
 # [**PowerShell**](#tab/azure-powershell)
 

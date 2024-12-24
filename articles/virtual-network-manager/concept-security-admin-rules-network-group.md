@@ -4,7 +4,7 @@ titleSuffix: Azure Virtual Network Manager
 description: Learn how a network administrator can deploy security admin rules using network groups as the source and destination in Azure Virtual Network Manager.
 author: mbender-ms
 ms.author: mbender
-ms.service: virtual-network-manager
+ms.service: azure-virtual-network-manager
 ms.topic: conceptual
 ms.date: 04/15/2024
 ms.custom: template-concept, engagement-fy23, references_regions

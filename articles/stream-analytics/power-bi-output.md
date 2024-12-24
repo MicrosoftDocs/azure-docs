@@ -3,7 +3,7 @@ title: Power BI output from Azure Stream Analytics
 description: This article describes how to output data from Azure Stream Analytics to Power BI.
 author: AliciaLiMicrosoft 
 ms.author: ali 
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: conceptual
 ms.date: 07/20/2023
 ---
@@ -14,6 +14,10 @@ You can use [Power BI](/power-bi/fundamentals/power-bi-overview) as an output fo
 
 > [!NOTE]
 > Power BI output from Stream Analytics is currently not available in Microsoft Azure operated by 21Vianet and Azure Germany (T-Systems International).
+
+> [!Important]
+> Real-time streaming in Power BI is deprecating. For more information about the retirement of real-time streaming in Power BI, see the [blog](https://powerbi.microsoft.com/en-us/blog/announcing-the-retirement-of-real-time-streaming-in-power-bi/) post.
+> Beginning Oct 31,2027 users will not be able to create Stream Analytics jobs with Power BI output connector and the existing jobs running with Power BI connector will be stopped. Microsoft recommends users to explore Real-Time Intelligence in Microsoft Fabric. If you are interested in migrating to Fabric Real-Time Intelligence, you can use the guidance provided in this [blog](https://techcommunity.microsoft.com/blog/analyticsonazure/simplifying-migration-to-fabric-real-time-intelligence-for-power-bi-real-time-re/4283180) post. If you need more migration guidance from Microsoft, such as architecture review, clarification about specific capabilities, please fill out your request [here](https://forms.office.com/r/sQeaA8KLAZ).
 
 ## Output configuration
 

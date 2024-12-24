@@ -3,9 +3,9 @@ title: 'QuickStart: Create and configure Azure DDoS Network Protection using - A
 description: Learn how to use Azure DDoS Network Protection to mitigate an attack.
 author: AbdullahBell
 ms.author: abell
-ms.service: ddos-protection
+ms.service: azure-ddos-protection
 ms.topic: quickstart
-ms.date: 11/28/2023
+ms.date: 07/17/2024
 ms.custom: template-quickstart
 ---
 
@@ -127,7 +127,7 @@ You can disable the DDoS protection from a virtual network, while it is still en
     :::image type="content" source="./media/manage-ddos-protection/ddos-disable-in-virtual-network.gif" alt-text="Gif of disabling DDoS Protection within virtual network.":::
 
 > [!NOTE]
-> Disabling a DDoS protection from a virtual network will not delete it. The DDoS protection costs will still be charged if you only disable the DDoS protection from a virtual network, without deleting the DDoS protection plan itself. To avoid unnecesary costs, you need to fully delete the DDoS protection plan resource. Please see [Clean up resources](#clean-up-resources). 
+> Disabling a DDoS protection from a virtual network will not delete it. The DDoS protection costs will still be charged if you only disable the DDoS protection from a virtual network, without deleting the DDoS protection plan itself. To avoid unnecessary costs, you need to fully delete the DDoS protection plan resource. Please see [Clean up resources](#clean-up-resources). 
 
 ## Clean up resources
 

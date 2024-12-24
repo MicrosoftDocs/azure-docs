@@ -1,18 +1,18 @@
 ---
 title: How to enable zone redundancy in Azure Managed Grafana
-description: Learn how to create a zone-redundant Managed Grafana instance. 
-ms.service: managed-grafana
+description: Learn how to create a zone-redundant Managed Grafana instance for protection against datacenter failure.
+ms.service: azure-managed-grafana
 ms.topic: how-to
 author: maud-lv
 ms.author: malev
 ms.custom: engagement-fy23
-ms.date: 10/06/2023
+ms.date: 12/20/2024
 
 --- 
 
 # Enable zone redundancy in Azure Managed Grafana
 
-Azure Managed Grafana offers a zone-redundant option to protect your instance against datacenter failure. Enabling zone redundancy for Managed Grafana lets you deploy your Managed Grafana resources across a minimum of three [Azure availability zones](../availability-zones/az-overview.md#azure-regions-with-availability-zones) within the same Azure region.
+Azure Managed Grafana offers a zone-redundant option to protect your instance against datacenter failure. Enabling zone redundancy for Managed Grafana lets you deploy your Managed Grafana resources across a minimum of three [Azure availability zones](../reliability/availability-zones-region-support.md) within the same Azure region.
 
 In this how-to guide, learn how to enable zone redundancy for Azure Managed Grafana during the creation of your Managed Grafana instance.
 
@@ -39,7 +39,7 @@ Open your CLI and run the `az login` command to sign in to Azure.
 az login
 ```
 
-This command will prompt your web browser to launch and load an Azure sign-in page. If the browser fails to open, use device code flow with `az login --use-device-code`. For more sign-in options, go to [sign in with the Azure CLI](/cli/azure/authenticate-azure-cli).
+This command prompts your web browser to launch and load an Azure sign-in page. If the browser fails to open, use device code flow with `az login --use-device-code`. For more sign-in options, go to [sign in with the Azure CLI](/cli/azure/authenticate-azure-cli).
 
 ---
 
@@ -62,7 +62,7 @@ Create a workspace and enable zone redundancy with the Azure portal or the CLI.
     | Subscription ID     | Select the Azure subscription you want to use.                                                         | *my-subscription*   |
     | Resource group name | Create a resource group for your Azure Managed Grafana resources.                                      | *my-resource-group* |
     | Location            | Specify the geographic location in which to host your resource. Choose the location closest to you.    | *(US) East US*      |
-    | Name                | Enter a unique resource name. It will be used as the domain name in your Managed Grafana instance URL. | *my-grafana*        |
+    | Name                | Enter a unique resource name. It is used as the domain name in your Managed Grafana instance URL. | *my-grafana*        |
     | Pricing plan        | Select the **Standard** plan to get access to the zone redundancy feature. This feature is only available for customers using a [Standard plan](overview.md#service-tiers).                             | *Standard*          |
     | Zone Redundancy     | Set **Enable Zone Redundancy** to **Enable**.                                                          | *Enabled*           |
 
@@ -99,7 +99,7 @@ Create a workspace and enable zone redundancy with the Azure portal or the CLI.
     az grafana create --name <managed-grafana-resource-name> --resource-group <resource-group-name> --zone-redundancy enabled
     ```
 
-Once the deployment is complete, you'll see a note in the output of the command line stating that the instance was successfully created, alongside with additional information about the deployment.
+Once the deployment is complete, you see a note in the output of the command line stating that the instance was successfully created, alongside with additional information about the deployment.
 
 > [!NOTE]
 > The CLI experience for Azure Managed Grafana is part of the amg extension for the Azure CLI (version 2.30.0 or higher). The extension will automatically install the first time you run an `az grafana` command.

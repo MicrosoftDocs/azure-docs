@@ -84,9 +84,9 @@ Upload as many files as you like before continuing.
 
 ## List the blobs in a container
 
-Get a list of blobs in the container by using [Get-AzStorageBlob](/powershell/module/az.storage/get-azstorageblob). This example shows just the names of the blobs uploaded.
+Get a list of blobs in the container by using [Get-AzStorageBlob](/powershell/module/az.storage/get-azstorageblob). This example lists the names of the blobs uploaded.
 
-```azurepowershell-intereactive
+```azurepowershell-interactive
 Get-AzStorageBlob -Container $ContainerName -Context $Context |
   Select-Object -Property Name
 ```

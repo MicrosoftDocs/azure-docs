@@ -4,7 +4,7 @@ description: Learn to view the application logs in Azure Monitor
 author: msftsettiy
 ms.author: settiy
 ms.date: 09/09/2023
-ms.service: confidential-ledger
+ms.service: azure-confidential-ledger
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 ---
@@ -17,7 +17,7 @@ The logs from your TypeScript and JavaScript application can be viewed in Azure 
 
 ## Create the Log Analytics workspace
 
-1. Follow the instructions at [Create a workspace](../azure-monitor/logs/quick-create-workspace.md) to create a workspace.
+1. Follow the instructions at [Create a workspace](/azure/azure-monitor/logs/quick-create-workspace) to create a workspace.
 2. After the workspace is created, make a note of the Resource ID from the properties page.
     :::image type="content" source="media/how-to/log-analytics-workspace-properties.png" alt-text="Screenshot that shows the properties of a Log Analytics workspace screen.":::
 1. Navigate to the Managed CCF resource and make a note of the Resource ID from the properties page.

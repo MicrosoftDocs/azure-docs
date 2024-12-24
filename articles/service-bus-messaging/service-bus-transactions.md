@@ -1,10 +1,11 @@
 ---
-title: Overview of transaction processing in Azure Service Bus
+title: Transactions in Azure Service Bus
 description: This article gives you an overview of transaction processing and the send via feature in Azure Service Bus.
-ms.topic: article
-ms.date: 11/13/2023
+ms.topic: concept-article
+ms.date: 12/19/2024
 ms.devlang: csharp
 ms.custom: devx-track-csharp
+# Customer intent: I want to know how Azure Service Bus supports transactions. 
 ---
 
 # Overview of Service Bus transaction processing
@@ -55,7 +56,9 @@ The power of this transactional capability becomes apparent when the transfer qu
 If you need to receive from a topic subscription and then send to a queue or topic in the same transaction, the transfer entity must be a topic. In this scenario, start transaction scope on the topic, receive from the subscription with in the transaction scope, and send via the transfer topic to a queue or topic destination. 
 
 > [!NOTE]
-> If a message is sent via a transfer queue in the scope of a transaction, `TransactionPartitionKey` is functionally equivalent to `PartitionKey`. It ensures that messages are kept together and in order as they are transferred. 
+> - If a message is sent via a transfer queue in the scope of a transaction, `TransactionPartitionKey` is functionally equivalent to `PartitionKey`. It ensures that messages are kept together and in order as they are transferred. 
+> - If the destination queue or topic is deleted, a 404 exception is raised.
+
 
 ### See it in code
 
@@ -87,11 +90,10 @@ To learn more about the `EnableCrossEntityTransactions` property, see the follow
 A transaction times out after 2 minutes. The transaction timer starts when the first operation in the transaction starts. 
 
 
-## Next steps
+## Related content
 
 For more information about Service Bus queues, see the following articles:
 
-* [How to use Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
 * [Chaining Service Bus entities with autoforwarding](service-bus-auto-forwarding.md)
 * [Working with transactions sample](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/samples/Sample06_Transactions.md) (`Azure.Messaging.ServiceBus` library)
 * [Azure Queue Storage and Service Bus queues compared](service-bus-azure-and-service-bus-queues-compared-contrasted.md)

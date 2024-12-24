@@ -1,7 +1,7 @@
 ---
 title: Manage logs for an HDInsight cluster - Azure HDInsight 
 description: Determine the types, sizes, and retention policies for HDInsight activity log files.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/04/2024
@@ -96,8 +96,6 @@ log4j.logger.alerts=DEBUG,alerts
 ## Step 3: Manage the cluster job execution log files
 
 The next step is reviewing the job execution log files for the various services.  Services could include Apache HBase, Apache Spark, and many others. A Hadoop cluster produces a large number of verbose logs, so determining which logs are useful (and which aren't) can be time-consuming.  Understanding the logging system is important for targeted management of log files.  The following image is an example log file.
-
-:::image type="content" source="./media/hdinsight-log-management/hdi-log-file-example.png" alt-text="HDInsight example log file sample output.":::
 
 ### Access the Hadoop log files
 

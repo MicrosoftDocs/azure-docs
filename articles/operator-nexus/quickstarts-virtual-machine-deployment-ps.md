@@ -1,8 +1,8 @@
 ---
 title: Create an Azure Operator Nexus virtual machine by using Azure PowerShell
 description: Learn how to create an Azure Operator Nexus virtual machine (VM) for virtual network function (VNF) workloads using PowerShell
-author: rashirg
-ms.author: rajeshwarig
+author: dramasamy
+ms.author: dramasamy
 ms.service: azure-operator-nexus
 ms.topic: how-to
 ms.date: 09/20/2023
@@ -38,20 +38,23 @@ Before you run the commands, you need to set several variables to define the con
 | ADMIN_USERNAME             | The username for the virtual machine administrator.                                                   |
 | SSH_PUBLIC_KEY             | The SSH public key that is used for secure communication with the virtual machine.                    |
 | CPU_CORES                  | The number of CPU cores for the virtual machine (even number, max 46 vCPUs)                                         |
-| MEMORY_SIZE                | The amount of memory (in GB, max 224 GB) for the virtual machine.                                                 |
-| VM_DISK_SIZE               | The size (in GB) of the virtual machine disk.                                                         |
+| MEMORY_SIZE                | The amount of memory (in GiB, max 224 GiB) for the virtual machine.                                                 |
+| VM_DISK_SIZE               | The size (in GiB) of the virtual machine disk.                                                         |
 | VM_IMAGE                   | The URL of the virtual machine image.                                                                 |
 | ACR_URL                    | The URL of the Azure Container Registry.                                                              |
 | ACR_USERNAME               | The username for the Azure Container Registry.                                                        |
 | ACR_PASSWORD               | The password for the Azure Container Registry.                                                        |
 | VMDEVICEMODEL            | The VMDeviceModel defaults to T2, available options T2(Modern) and T1(Transitional).     |
 | USERDATA                 | The base64 encoded string of cloud-init userdata.                                                       |
-| BOOTMETHOD                 | The Method used to boot the virutalmachine UEFI or BIOS.    |
+| BOOTMETHOD                 | The Method used to boot the virtualmachine UEFI or BIOS.    |
 | OS_DISK_CREATE_OPTION       | The OS disk create specifies ephemeral disk option.    |
 | OS_DISK_DELETE_OPTION       | The OS disk delete specifies delete disk option.   |
 | IP_AllOCATION_METHOD        | The IpAllocationMethod valid for L3Networks specify Dynamic or Static or Disabled.    |
 | NETWORKATTACHMENTNAME            | The name of the Network to attach for workload.      |
 | NETWORKDATA            | The base64 encoded string of cloud-init network data.      |
+
+> [!WARNING]
+> User data will not be encrypted, and any process on the VM can query this data. You should not store confidential information in user data. For more information, see [Azure data security and encryption best practices](/azure/security/fundamentals/data-encryption-best-practices).
 
 Once you've defined these variables, you can run the Azure PowerShell command to create the virtual machine. Add the ```-Debug``` flag at the end to provide more detailed output for troubleshooting purposes.
 
@@ -148,7 +151,7 @@ After a few minutes, the command completes and returns information about the vir
 
 ## Review deployed resources
 
-[!INCLUDE [quickstart-review-deployment-poweshell](./includes/virtual-machine/quickstart-review-deployment-ps.md)]
+[!INCLUDE [quickstart-review-deployment-powershell](./includes/virtual-machine/quickstart-review-deployment-ps.md)]
 
 ## Clean up resources
 

@@ -50,7 +50,7 @@ An organizer-assigned policy can disable the feature in all meetings this user o
 |Setting name |	Policy scope|Description	|Tenant policy|	property	|
 |--|--|--|--|--|
 |[Let anonymous people join a meeting](/microsoftteams/meeting-settings-in-teams#allow-anonymous-users-to-join-meetings) | per-organizer | If disabled, Teams external users can't join Teams meetings.	| [CsExternalAccessPolicy](/PowerShell/module/skype/set-csexternalaccesspolicy)|	EnableAcsFederationAccess	|
-|Blocked anonymous join client types | per-organizer	|  If the property "BlockedAnonymousJoinClientTypes" is set to "Teams" or "Null", the Teams external users via Azure Communication Services can join Teams meeting.	| [CsTeamsMeetingPolicy](/powershell/module/skype/set-csteamsmeetingpolicy) |	BlockedAnonymousJoinClientTypes	|
+|Blocked anonymous join client types | per-organizer	|  If the property "BlockedAnonymousJoinClientTypes" is set to "ACS", the Teams external users via Azure Communication Services can't join Teams meeting.	| [CsTeamsMeetingPolicy](/powershell/module/skype/set-csteamsmeetingpolicy) |	BlockedAnonymousJoinClientTypes	|
 |[Anonymous users can join a meeting](/microsoftteams/meeting-settings-in-teams#allow-anonymous-users-to-join-meetings) | per-organizer |  If disabled, Teams external users can't join Teams meetings.	|[CsTeamsMeetingPolicy](/powershell/module/skype/set-csteamsmeetingpolicy)|	AllowAnonymousUsersToJoinMeeting|
 |[Let anonymous people start a meeting](/microsoftteams/meeting-settings-in-teams#allow-anonymous-users-to-join-meetings)| per-organizer |  Teams external users can start a Teams meeting without Teams user if enabled. |	[CsTeamsMeetingPolicy](/powershell/module/skype/set-csteamsmeetingpolicy)	|AllowAnonymousUsersToStartMeeting|
 |Anonymous users can dial out to phone users | per-organizer |  If enabled, Teams external users can add phone participants to the meeting.|	[CsTeamsMeetingPolicy](/powershell/module/skype/set-csteamsmeetingpolicy)	|AllowAnonymousUsersToDialOut|
@@ -89,7 +89,7 @@ Teams administrators can use meeting templates to control meeting settings that 
 ||Enable Watermarks|Specifies if watermarks are used for camera feeds and content that's shared on screen in the meeting.
 |Audio and video|Enable mic for attendees? |	When off, you can unmute individual attendees as needed.
 ||Enable camera for attendees? | When on, meeting attendees can turn on video.
-|Recording and transcription|Record meetings automatically|	 Speficy if the meeting is recorded automatically.
+|Recording and transcription|Record meetings automatically|	 Specify if the meeting is recorded automatically.
 ||Who can record meetings?| Specifies who can record the meeting.
 |Roles|Notify when callers join and leave|A sound plays when someone calling in by phone joins or leaves the meeting.
 |Meeting engagement|Allow meeting chat|	Specifies if the meeting chat is available. It can also be used to prevent chatting before and after the meeting.

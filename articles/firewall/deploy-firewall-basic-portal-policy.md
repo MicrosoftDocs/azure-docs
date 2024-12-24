@@ -3,7 +3,7 @@ title: 'Deploy & configure Azure Firewall Basic and policy using the Azure porta
 description: In this how-to, you learn how to deploy and configure Azure Firewall Basic and policy rules using the Azure portal. 
 services: firewall
 author: vhorne
-ms.service: firewall
+ms.service: azure-firewall
 ms.topic: how-to
 ms.date: 09/12/2022
 ms.author: victorh

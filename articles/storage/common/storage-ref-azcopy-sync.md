@@ -14,6 +14,8 @@ ms.reviewer: zezha-msft
 
 Replicates the source location to the destination location. This article provides a detailed reference for the azcopy sync command. To learn more about synchronizing blobs between source and destination locations, see [Synchronize with Azure Blob storage by using AzCopy v10](storage-use-azcopy-blobs-synchronize.md). For Azure Files, see [Synchronize files](storage-use-azcopy-files.md#synchronize-files).
 
+[!INCLUDE [storage-azcopy-change-support](includes/storage-azcopy-change-support.md)]
+
 ## Synopsis
 
 The last modified times are used for comparison. The file is skipped if the last modified time in the destination is more recent. Alternatively, you can use the `--compare-hash` flag to transfer only files which differ in their MD5 hash. The supported pairs are:
@@ -144,7 +146,7 @@ Note: if include and exclude flags are used together, only files matching the in
 
 `--hash-meta-dir` When using `--local-hash-storage-mode=HiddenFiles`, you can specify an alternate directory to store hash metadata files in (as opposed to next to the related files in the source).
 
-`--local-hash-storage-mode` Specify an alternative way to cache file hashes. Valid options are: `HiddenFiles (OS Agnostic)`, `XAttr (Linux/MacOS only` (requires `user_xattr` on all file systems traversed sat the source), `AlternateDataStreams` (Windows only. requires named streams on target volume).
+`--local-hash-storage-mode` Specify an alternative way to cache file hashes. Valid options are: `HiddenFiles (OS Agnostic)`, `XAttr (Linux/macOS only` (requires `user_xattr` on all file systems traversed sat the source), `AlternateDataStreams` (Windows only. requires named streams on target volume).
 
 `--mirror-mode`    Disable last-modified-time based comparison and overwrites the conflicting files and blobs at the destination if this flag is set to true. Default is false
 

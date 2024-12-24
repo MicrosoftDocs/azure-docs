@@ -3,7 +3,7 @@ title: 'Connectivity configuration in Azure Virtual Network Manager'
 description: Learn about different types network topology you can create with a connectivity configuration in Azure Virtual Network Manager.
 author: mbender-ms
 ms.author: mbender
-ms.service: virtual-network-manager
+ms.service: azure-virtual-network-manager
 ms.topic: conceptual
 ms.date: 06/26/2024
 ms.custom: template-concept
@@ -43,6 +43,8 @@ A hub-and-spoke is a network topology in which you have a virtual network select
 :::image type="content" source="./media/concept-configuration-types/hub-and-spoke.png" alt-text="Diagram of a hub and spoke topology.":::
 
 In this configuration, you have settings you can enable such as *direct connectivity* between spoke virtual networks. By default, this connectivity is only for virtual networks in the same region. To allow connectivity across different Azure regions, you need to enable *Global mesh*. You can also enable *Gateway* transit to allow spoke virtual networks to use the VPN or ExpressRoute gateway deployed in the hub.
+
+If checked, any peerings that do not match the contents of this configuration can by removed, even if these peerings were manually created after this configuration is deployed. If you remove a VNet from a network group used in the configuration, your virtual manager removes only peerings it created.
 
 ### Direct connectivity
 

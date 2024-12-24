@@ -10,4 +10,10 @@
 ---
 
 
-There are various scenarios in which you might want to move your existing Azure resources from one region to another. Examples are for manageability, governance reasons, or because of company mergers and acquisitions. 
+There are various reasons why you may want to move your existing Azure resources from one region to another. You may want to:
+
+- Take advantage of a new Azure region.
+- Deploy features or services available in specific regions only.
+- Meet internal policy and governance requirements.
+- Align with company mergers and acquisitions
+- Meet capacity planning requirements.

@@ -1,7 +1,7 @@
 ---
 title: Industry AI solutions
 description: Industry AI solutions in Azure Synapse Analytics
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: machine-learning
 ms.topic: overview
 ms.reviewer: garye

@@ -4,11 +4,11 @@ titlesuffix: Azure Managed Grafana
 description: In this guide, learn how to connect an Azure Data Explorer datasource to Grafana and learn about the authentication methods available for Azure Data Explorer.
 author: maud-lv
 ms.author: malev
-ms.service: managed-grafana
+ms.service: azure-managed-grafana
 ms.custom: devx-track-azurecli
 zone_pivot_groups: azure-red-hat-openshift-service-principal
 ms.topic: how-to
-ms.date: 11/29/2023
+ms.date: 12/19/2024
 # CustomerIntent: As an Azure Managed Grafana customer, I want to add and configure Azure Data Explorer so that I can use an Azure Data Explorer datasource in a Grafana dashboard.
 ---
 
@@ -29,11 +29,7 @@ Add an Azure Data Explorer data source to Grafana by following the steps below.
 
 1. Open an Azure Managed Grafana instance in the Azure portal.
 1. In the **Overview** section, open the **Endpoint** URL.
-1. In the Grafana portal, deploy the menu on the left and select **Connections** > **Connect data**.
-
-    :::image type="content" source="media\azure-data-explorer\connect-data.png" alt-text="Screenshot of the Grafana platform showing the Connect data option.":::
-
-1. Select **Azure Data Explorer Datasource** from the list, and add it to Grafana by selecting **Create a Azure Data Explorer Datasource data source**.
+1. In the Grafana portal, go to **Connections** > **Data sources** > **Add new data source**, then search and select **Azure Data Explorer Datasource**.
 
 ## Configure an Azure Data Explorer data source
 
@@ -53,11 +49,8 @@ Enter Azure Data Explorer configuration settings.
     #### Add a new permission
 
     1. In the Azure portal, open your Azure Data Explorer cluster.
-    1. In the **Overview** section, select the database that contains your data.
+    1. Select **Data** > **Databases** from the left menu, then select the database that contains your data.
     1. Select **Permissions > Add > Viewer**.
-
-        :::image type="content" source="media\azure-data-explorer\add-permission.png" alt-text="Screenshot of the Azure platform showing a user adding a viewer permission in an Azure Data Explorer database.":::
-
     1. In the search box, enter your Azure Managed Grafana workspace name, select the workspace and then choose **Select**. A success notification appears.
   
     #### Configure the data source in Grafana

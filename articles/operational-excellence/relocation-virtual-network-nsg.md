@@ -12,7 +12,7 @@ ms.custom: subject-relocation, devx-track-azurepowershell
 
 # Relocate Azure network security group (NSG) to another region
 
-[!INCLUDE [relocate-reasons](./includes/service-relocation-reason-include.md)]
+
 
 This article shows you how to relocate an NSG to a new region by creating a copy of the source configuration and security rules of the NSG to another region.
 

@@ -8,7 +8,10 @@ ms.service: microsoft-sentinel
 ms.topic: conceptual
 ms.date: 8/24/2022
 ms.custom: template-concept
-#Customer intent: As a SOC collaborator or MSSP analyst, I want to manage dynamic Sentinel workspace content based on source control repositories for continuous integration and continuous delivery (CI/CD). Specifically as an MSSP content manager, I want to deploy one solution to many customer workspaces and still be able to tailor custom content for their environments.
+
+
+#Customer intent: As a SOC collaborator or MSSP analyst, I want to manage dynamic Microsoft Sentinel content as code based on source control repositories using CI/CD pipelines so that I can automate updates and ensure consistent configurations across workspaces. As an MSSP content manager, I want to deploy one solution to many customer workspaces and still be able to tailor custom content for their environments.
+
 ---
 
 # Manage custom content with Microsoft Sentinel repositories (public preview)
@@ -63,7 +66,7 @@ A sample repository is available with ARM templates for each of the content type
 ## Improve performance with smart deployments
 
 > [!TIP]
-> To ensure smart deployments works in GitHub, Workflows must have read and write permissions on your repositoriy. See [Managing GitHub Actions settings for a repository](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository) for more details.
+> To ensure smart deployments works in GitHub, Workflows must have read and write permissions on your repository. See [Managing GitHub Actions settings for a repository](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository) for more details.
 >
 
 The **smart deployments** feature is a back-end capability that improves performance by actively tracking modifications made to the content files of a connected repository. It uses a CSV file within the '.sentinel' folder in your repository to audit each commit. The workflow avoids redeploying content that hasn't been modified since the last deployment. This process improves your deployment performance and prevents tampering with unchanged content in your workspace, such as resetting dynamic schedules of your analytics rules.

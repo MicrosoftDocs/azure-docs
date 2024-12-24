@@ -3,7 +3,7 @@ title: "include file"
 description: "include file"
 services: app-service
 author: jasonfreeberg
-ms.service: app-service
+ms.service: azure-app-service
 ms.topic: "include"
 ms.date: 08/27/2021
 ms.author: jafreebe

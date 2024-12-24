@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 05/07/2024
+ms.date: 12/12/2024
 ms.custom: generated
 ---
 
@@ -1057,6 +1057,10 @@ Grants read/write access to Kubernetes resources within a namespace in the fleet
 > | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/secrets/* |  |
 > | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/serviceaccounts/* |  |
 > | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/services/* |  |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/cluster.kubernetes-fleet.io/internalmemberclusters/read | Read fleet internalmembercluster resource |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/placement.kubernetes-fleet.io/resourceoverrides/* |  |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/placement.kubernetes-fleet.io/resourceoverridesnapshots/read | Read fleet resourceoverridesnapshot resource |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/placement.kubernetes-fleet.io/works/read | Read fleet work resource |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -1109,7 +1113,11 @@ Grants read/write access to Kubernetes resources within a namespace in the fleet
         "Microsoft.ContainerService/fleets/resourcequotas/read",
         "Microsoft.ContainerService/fleets/secrets/*",
         "Microsoft.ContainerService/fleets/serviceaccounts/*",
-        "Microsoft.ContainerService/fleets/services/*"
+        "Microsoft.ContainerService/fleets/services/*",
+        "Microsoft.ContainerService/fleets/cluster.kubernetes-fleet.io/internalmemberclusters/read",
+        "Microsoft.ContainerService/fleets/placement.kubernetes-fleet.io/resourceoverrides/*",
+        "Microsoft.ContainerService/fleets/placement.kubernetes-fleet.io/resourceoverridesnapshots/read",
+        "Microsoft.ContainerService/fleets/placement.kubernetes-fleet.io/works/read"
       ],
       "notDataActions": []
     }
@@ -1217,6 +1225,10 @@ Grants read-only access to most Kubernetes resources within a namespace in the f
 > | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/resourcequotas/read | Reads resourcequotas |
 > | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/serviceaccounts/read | Reads serviceaccounts |
 > | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/services/read | Reads services |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/cluster.kubernetes-fleet.io/internalmemberclusters/read | Read fleet internalmembercluster resource |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/placement.kubernetes-fleet.io/resourceoverrides/read | Read fleet resourceoverride resource |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/placement.kubernetes-fleet.io/resourceoverridesnapshots/read | Read fleet resourceoverridesnapshot resource |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/placement.kubernetes-fleet.io/works/read | Read fleet work resource |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -1265,7 +1277,11 @@ Grants read-only access to most Kubernetes resources within a namespace in the f
         "Microsoft.ContainerService/fleets/replicationcontrollers/read",
         "Microsoft.ContainerService/fleets/resourcequotas/read",
         "Microsoft.ContainerService/fleets/serviceaccounts/read",
-        "Microsoft.ContainerService/fleets/services/read"
+        "Microsoft.ContainerService/fleets/services/read",
+        "Microsoft.ContainerService/fleets/cluster.kubernetes-fleet.io/internalmemberclusters/read",
+        "Microsoft.ContainerService/fleets/placement.kubernetes-fleet.io/resourceoverrides/read",
+        "Microsoft.ContainerService/fleets/placement.kubernetes-fleet.io/resourceoverridesnapshots/read",
+        "Microsoft.ContainerService/fleets/placement.kubernetes-fleet.io/works/read"
       ],
       "notDataActions": []
     }
@@ -1295,32 +1311,56 @@ Grants read/write access to most Kubernetes resources within a namespace in the 
 > | *none* |  |
 > | **DataActions** |  |
 > | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/apps/controllerrevisions/read | Reads controllerrevisions |
-> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/apps/daemonsets/* |  |
-> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/apps/deployments/* |  |
-> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/apps/statefulsets/* |  |
-> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/autoscaling/horizontalpodautoscalers/* |  |
-> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/batch/cronjobs/* |  |
-> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/batch/jobs/* |  |
-> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/configmaps/* |  |
-> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/endpoints/* |  |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/apps/daemonsets/read | Reads daemonsets |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/apps/daemonsets/write | Writes daemonsets |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/apps/deployments/read | Reads deployments |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/apps/deployments/write | Writes deployments |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/apps/statefulsets/read | Reads statefulsets |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/apps/statefulsets/write | Writes statefulsets |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/autoscaling/horizontalpodautoscalers/read | Reads horizontalpodautoscalers |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/autoscaling/horizontalpodautoscalers/write | Writes horizontalpodautoscalers |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/batch/cronjobs/read | Reads cronjobs |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/batch/cronjobs/write | Writes cronjobs |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/batch/jobs/read | Reads jobs |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/batch/jobs/write | Writes jobs |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/configmaps/read | Reads configmaps |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/configmaps/write | Writes configmaps |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/endpoints/read | Reads endpoints |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/endpoints/write | Writes endpoints |
 > | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/events.k8s.io/events/read | Reads events |
 > | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/events/read | Reads events |
-> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/extensions/daemonsets/* |  |
-> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/extensions/deployments/* |  |
-> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/extensions/ingresses/* |  |
-> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/extensions/networkpolicies/* |  |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/extensions/daemonsets/read | Reads daemonsets |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/extensions/daemonsets/write | Writes daemonsets |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/extensions/deployments/read | Reads deployments |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/extensions/deployments/write | Writes deployments |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/extensions/ingresses/read | Reads ingresses |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/extensions/ingresses/write | Writes ingresses |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/extensions/networkpolicies/read | Reads networkpolicies |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/extensions/networkpolicies/write | Writes networkpolicies |
 > | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/limitranges/read | Reads limitranges |
 > | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/namespaces/read | Reads namespaces |
-> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/networking.k8s.io/ingresses/* |  |
-> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/networking.k8s.io/networkpolicies/* |  |
-> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/persistentvolumeclaims/* |  |
-> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/policy/poddisruptionbudgets/* |  |
-> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/replicationcontrollers/* |  |
-> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/replicationcontrollers/* |  |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/networking.k8s.io/ingresses/read | Reads ingresses |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/networking.k8s.io/ingresses/write | Writes ingresses |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/networking.k8s.io/networkpolicies/read | Reads networkpolicies |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/networking.k8s.io/networkpolicies/write | Writes networkpolicies |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/persistentvolumeclaims/read | Reads persistentvolumeclaims |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/persistentvolumeclaims/write | Writes persistentvolumeclaims |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/policy/poddisruptionbudgets/read | Reads poddisruptionbudgets |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/policy/poddisruptionbudgets/write | Writes poddisruptionbudgets |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/replicationcontrollers/read | Reads replicationcontrollers |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/replicationcontrollers/write | Writes replicationcontrollers |
 > | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/resourcequotas/read | Reads resourcequotas |
-> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/secrets/* |  |
-> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/serviceaccounts/* |  |
-> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/services/* |  |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/secrets/read | Reads secrets |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/secrets/write | Writes secrets |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/serviceaccounts/read | Reads serviceaccounts |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/serviceaccounts/write | Writes serviceaccounts |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/services/read | Reads services |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/services/write | Writes services |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/cluster.kubernetes-fleet.io/internalmemberclusters/read | Read fleet internalmembercluster resource |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/placement.kubernetes-fleet.io/resourceoverrides/read | Read fleet resourceoverride resource |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/placement.kubernetes-fleet.io/resourceoverrides/write | Write fleet resourceoverride resource |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/placement.kubernetes-fleet.io/resourceoverridesnapshots/read | Read fleet resourceoverridesnapshot resource |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/placement.kubernetes-fleet.io/works/read | Read fleet work resource |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -1345,37 +1385,240 @@ Grants read/write access to most Kubernetes resources within a namespace in the 
       "notActions": [],
       "dataActions": [
         "Microsoft.ContainerService/fleets/apps/controllerrevisions/read",
-        "Microsoft.ContainerService/fleets/apps/daemonsets/*",
-        "Microsoft.ContainerService/fleets/apps/deployments/*",
-        "Microsoft.ContainerService/fleets/apps/statefulsets/*",
-        "Microsoft.ContainerService/fleets/autoscaling/horizontalpodautoscalers/*",
-        "Microsoft.ContainerService/fleets/batch/cronjobs/*",
-        "Microsoft.ContainerService/fleets/batch/jobs/*",
-        "Microsoft.ContainerService/fleets/configmaps/*",
-        "Microsoft.ContainerService/fleets/endpoints/*",
+        "Microsoft.ContainerService/fleets/apps/daemonsets/read",
+        "Microsoft.ContainerService/fleets/apps/daemonsets/write",
+        "Microsoft.ContainerService/fleets/apps/deployments/read",
+        "Microsoft.ContainerService/fleets/apps/deployments/write",
+        "Microsoft.ContainerService/fleets/apps/statefulsets/read",
+        "Microsoft.ContainerService/fleets/apps/statefulsets/write",
+        "Microsoft.ContainerService/fleets/autoscaling/horizontalpodautoscalers/read",
+        "Microsoft.ContainerService/fleets/autoscaling/horizontalpodautoscalers/write",
+        "Microsoft.ContainerService/fleets/batch/cronjobs/read",
+        "Microsoft.ContainerService/fleets/batch/cronjobs/write",
+        "Microsoft.ContainerService/fleets/batch/jobs/read",
+        "Microsoft.ContainerService/fleets/batch/jobs/write",
+        "Microsoft.ContainerService/fleets/configmaps/read",
+        "Microsoft.ContainerService/fleets/configmaps/write",
+        "Microsoft.ContainerService/fleets/endpoints/read",
+        "Microsoft.ContainerService/fleets/endpoints/write",
         "Microsoft.ContainerService/fleets/events.k8s.io/events/read",
         "Microsoft.ContainerService/fleets/events/read",
-        "Microsoft.ContainerService/fleets/extensions/daemonsets/*",
-        "Microsoft.ContainerService/fleets/extensions/deployments/*",
-        "Microsoft.ContainerService/fleets/extensions/ingresses/*",
-        "Microsoft.ContainerService/fleets/extensions/networkpolicies/*",
+        "Microsoft.ContainerService/fleets/extensions/daemonsets/read",
+        "Microsoft.ContainerService/fleets/extensions/daemonsets/write",
+        "Microsoft.ContainerService/fleets/extensions/deployments/read",
+        "Microsoft.ContainerService/fleets/extensions/deployments/write",
+        "Microsoft.ContainerService/fleets/extensions/ingresses/read",
+        "Microsoft.ContainerService/fleets/extensions/ingresses/write",
+        "Microsoft.ContainerService/fleets/extensions/networkpolicies/read",
+        "Microsoft.ContainerService/fleets/extensions/networkpolicies/write",
         "Microsoft.ContainerService/fleets/limitranges/read",
         "Microsoft.ContainerService/fleets/namespaces/read",
-        "Microsoft.ContainerService/fleets/networking.k8s.io/ingresses/*",
-        "Microsoft.ContainerService/fleets/networking.k8s.io/networkpolicies/*",
-        "Microsoft.ContainerService/fleets/persistentvolumeclaims/*",
-        "Microsoft.ContainerService/fleets/policy/poddisruptionbudgets/*",
-        "Microsoft.ContainerService/fleets/replicationcontrollers/*",
-        "Microsoft.ContainerService/fleets/replicationcontrollers/*",
+        "Microsoft.ContainerService/fleets/networking.k8s.io/ingresses/read",
+        "Microsoft.ContainerService/fleets/networking.k8s.io/ingresses/write",
+        "Microsoft.ContainerService/fleets/networking.k8s.io/networkpolicies/read",
+        "Microsoft.ContainerService/fleets/networking.k8s.io/networkpolicies/write",
+        "Microsoft.ContainerService/fleets/persistentvolumeclaims/read",
+        "Microsoft.ContainerService/fleets/persistentvolumeclaims/write",
+        "Microsoft.ContainerService/fleets/policy/poddisruptionbudgets/read",
+        "Microsoft.ContainerService/fleets/policy/poddisruptionbudgets/write",
+        "Microsoft.ContainerService/fleets/replicationcontrollers/read",
+        "Microsoft.ContainerService/fleets/replicationcontrollers/write",
         "Microsoft.ContainerService/fleets/resourcequotas/read",
-        "Microsoft.ContainerService/fleets/secrets/*",
-        "Microsoft.ContainerService/fleets/serviceaccounts/*",
-        "Microsoft.ContainerService/fleets/services/*"
+        "Microsoft.ContainerService/fleets/secrets/read",
+        "Microsoft.ContainerService/fleets/secrets/write",
+        "Microsoft.ContainerService/fleets/serviceaccounts/read",
+        "Microsoft.ContainerService/fleets/serviceaccounts/write",
+        "Microsoft.ContainerService/fleets/services/read",
+        "Microsoft.ContainerService/fleets/services/write",
+        "Microsoft.ContainerService/fleets/cluster.kubernetes-fleet.io/internalmemberclusters/read",
+        "Microsoft.ContainerService/fleets/placement.kubernetes-fleet.io/resourceoverrides/read",
+        "Microsoft.ContainerService/fleets/placement.kubernetes-fleet.io/resourceoverrides/write",
+        "Microsoft.ContainerService/fleets/placement.kubernetes-fleet.io/resourceoverridesnapshots/read",
+        "Microsoft.ContainerService/fleets/placement.kubernetes-fleet.io/works/read"
       ],
       "notDataActions": []
     }
   ],
   "roleName": "Azure Kubernetes Fleet Manager RBAC Writer",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Azure Kubernetes Service Arc Cluster Admin Role
+
+List cluster admin credential action.
+
+[Learn more](/azure/aks/hybrid/concepts-security-access-identity)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.HybridContainerService](../permissions/hybrid-multicloud.md#microsofthybridcontainerservice)/provisionedClusterInstances/read | Gets the Hybrid AKS provisioned cluster instances associated with the connected cluster |
+> | [Microsoft.HybridContainerService](../permissions/hybrid-multicloud.md#microsofthybridcontainerservice)/provisionedClusterInstances/listAdminKubeconfig/action | Lists the admin credentials of a provisioned cluster instance used only in direct mode. |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/Read | Read connectedClusters |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "List cluster admin credential action.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/b29efa5f-7782-4dc3-9537-4d5bc70a5e9f",
+  "name": "b29efa5f-7782-4dc3-9537-4d5bc70a5e9f",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.HybridContainerService/provisionedClusterInstances/read",
+        "Microsoft.HybridContainerService/provisionedClusterInstances/listAdminKubeconfig/action",
+        "Microsoft.Kubernetes/connectedClusters/Read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Kubernetes Service Arc Cluster Admin Role",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Azure Kubernetes Service Arc Cluster User Role
+
+List cluster user credential action.
+
+[Learn more](/azure/aks/hybrid/concepts-security-access-identity)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.HybridContainerService](../permissions/hybrid-multicloud.md#microsofthybridcontainerservice)/provisionedClusterInstances/read | Gets the Hybrid AKS provisioned cluster instances associated with the connected cluster |
+> | [Microsoft.HybridContainerService](../permissions/hybrid-multicloud.md#microsofthybridcontainerservice)/provisionedClusterInstances/listUserKubeconfig/action | Lists the AAD user credentials of a provisioned cluster instance used only in direct mode. |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/Read | Read connectedClusters |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "List cluster user credential action.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/233ca253-b031-42ff-9fba-87ef12d6b55f",
+  "name": "233ca253-b031-42ff-9fba-87ef12d6b55f",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.HybridContainerService/provisionedClusterInstances/read",
+        "Microsoft.HybridContainerService/provisionedClusterInstances/listUserKubeconfig/action",
+        "Microsoft.Kubernetes/connectedClusters/Read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Kubernetes Service Arc Cluster User Role",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Azure Kubernetes Service Arc Contributor Role
+
+Grants access to read and write Azure Kubernetes Services hybrid clusters
+
+[Learn more](/azure/aks/hybrid/concepts-security-access-identity)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.HybridContainerService](../permissions/hybrid-multicloud.md#microsofthybridcontainerservice)/Locations/operationStatuses/read | read operationStatuses |
+> | [Microsoft.HybridContainerService](../permissions/hybrid-multicloud.md#microsofthybridcontainerservice)/Operations/read | read Operations |
+> | [Microsoft.HybridContainerService](../permissions/hybrid-multicloud.md#microsofthybridcontainerservice)/kubernetesVersions/read | Lists the supported kubernetes versions from the underlying custom location |
+> | [Microsoft.HybridContainerService](../permissions/hybrid-multicloud.md#microsofthybridcontainerservice)/kubernetesVersions/write | Puts the kubernetes version resource type |
+> | [Microsoft.HybridContainerService](../permissions/hybrid-multicloud.md#microsofthybridcontainerservice)/kubernetesVersions/delete | Delete the kubernetes versions resource type |
+> | [Microsoft.HybridContainerService](../permissions/hybrid-multicloud.md#microsofthybridcontainerservice)/provisionedClusterInstances/read | Gets the Hybrid AKS provisioned cluster instances associated with the connected cluster |
+> | [Microsoft.HybridContainerService](../permissions/hybrid-multicloud.md#microsofthybridcontainerservice)/provisionedClusterInstances/write | Creates the Hybrid AKS provisioned cluster instance |
+> | [Microsoft.HybridContainerService](../permissions/hybrid-multicloud.md#microsofthybridcontainerservice)/provisionedClusterInstances/delete | Deletes the Hybrid AKS provisioned cluster instance |
+> | [Microsoft.HybridContainerService](../permissions/hybrid-multicloud.md#microsofthybridcontainerservice)/provisionedClusterInstances/agentPools/read | Gets the agent pools in the Hybrid AKS provisioned cluster instance |
+> | [Microsoft.HybridContainerService](../permissions/hybrid-multicloud.md#microsofthybridcontainerservice)/provisionedClusterInstances/agentPools/write | Updates the agent pool in the Hybrid AKS provisioned cluster instance |
+> | [Microsoft.HybridContainerService](../permissions/hybrid-multicloud.md#microsofthybridcontainerservice)/provisionedClusterInstances/agentPools/delete | Deletes the agent pool in the Hybrid AKS provisioned cluster instance |
+> | [Microsoft.HybridContainerService](../permissions/hybrid-multicloud.md#microsofthybridcontainerservice)/provisionedClusterInstances/upgradeProfiles/read | read upgradeProfiles |
+> | [Microsoft.HybridContainerService](../permissions/hybrid-multicloud.md#microsofthybridcontainerservice)/skus/read | Lists the supported VM SKUs from the underlying custom location |
+> | [Microsoft.HybridContainerService](../permissions/hybrid-multicloud.md#microsofthybridcontainerservice)/skus/write | Puts the VM SKUs resource type |
+> | [Microsoft.HybridContainerService](../permissions/hybrid-multicloud.md#microsofthybridcontainerservice)/skus/delete | Deletes the Vm Sku resource type |
+> | [Microsoft.HybridContainerService](../permissions/hybrid-multicloud.md#microsofthybridcontainerservice)/virtualNetworks/read | Lists the Hybrid AKS virtual networks by subscription |
+> | [Microsoft.HybridContainerService](../permissions/hybrid-multicloud.md#microsofthybridcontainerservice)/virtualNetworks/write | Patches the Hybrid AKS virtual network |
+> | [Microsoft.HybridContainerService](../permissions/hybrid-multicloud.md#microsofthybridcontainerservice)/virtualNetworks/delete | Deletes the Hybrid AKS virtual network |
+> | [Microsoft.ExtendedLocation](../permissions/hybrid-multicloud.md#microsoftextendedlocation)/customLocations/deploy/action | Deploy permissions to a Custom Location resource |
+> | [Microsoft.ExtendedLocation](../permissions/hybrid-multicloud.md#microsoftextendedlocation)/customLocations/read | Gets an Custom Location resource |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/Read | Read connectedClusters |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/Write | Writes connectedClusters |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/Delete | Deletes connectedClusters |
+> | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/listClusterUserCredential/action | List clusterUser credential |
+> | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/clusters/read | Gets clusters |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Grants access to read and write Azure Kubernetes Services hybrid clusters",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/5d3f1697-4507-4d08-bb4a-477695db5f82",
+  "name": "5d3f1697-4507-4d08-bb4a-477695db5f82",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.HybridContainerService/Locations/operationStatuses/read",
+        "Microsoft.HybridContainerService/Operations/read",
+        "Microsoft.HybridContainerService/kubernetesVersions/read",
+        "Microsoft.HybridContainerService/kubernetesVersions/write",
+        "Microsoft.HybridContainerService/kubernetesVersions/delete",
+        "Microsoft.HybridContainerService/provisionedClusterInstances/read",
+        "Microsoft.HybridContainerService/provisionedClusterInstances/write",
+        "Microsoft.HybridContainerService/provisionedClusterInstances/delete",
+        "Microsoft.HybridContainerService/provisionedClusterInstances/agentPools/read",
+        "Microsoft.HybridContainerService/provisionedClusterInstances/agentPools/write",
+        "Microsoft.HybridContainerService/provisionedClusterInstances/agentPools/delete",
+        "Microsoft.HybridContainerService/provisionedClusterInstances/upgradeProfiles/read",
+        "Microsoft.HybridContainerService/skus/read",
+        "Microsoft.HybridContainerService/skus/write",
+        "Microsoft.HybridContainerService/skus/delete",
+        "Microsoft.HybridContainerService/virtualNetworks/read",
+        "Microsoft.HybridContainerService/virtualNetworks/write",
+        "Microsoft.HybridContainerService/virtualNetworks/delete",
+        "Microsoft.ExtendedLocation/customLocations/deploy/action",
+        "Microsoft.ExtendedLocation/customLocations/read",
+        "Microsoft.Kubernetes/connectedClusters/Read",
+        "Microsoft.Kubernetes/connectedClusters/Write",
+        "Microsoft.Kubernetes/connectedClusters/Delete",
+        "Microsoft.Kubernetes/connectedClusters/listClusterUserCredential/action",
+        "Microsoft.AzureStackHCI/clusters/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Kubernetes Service Arc Contributor Role",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -1521,9 +1764,14 @@ Grants access to read and write Azure Kubernetes Service clusters
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/managedClusters/read | Get a managed cluster |
-> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/managedClusters/write | Creates a new managed cluster or updates an existing one |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/locations/* | Read locations available to ContainerService resources |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/managedClusters/* | Create and manage a managed cluster |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/managedclustersnapshots/* | Create and manage a managed cluster snapshot |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/snapshots/* | Create and manage a snapshot |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -1542,9 +1790,14 @@ Grants access to read and write Azure Kubernetes Service clusters
   "permissions": [
     {
       "actions": [
-        "Microsoft.ContainerService/managedClusters/read",
-        "Microsoft.ContainerService/managedClusters/write",
-        "Microsoft.Resources/deployments/*"
+        "Microsoft.Authorization/*/read",
+        "Microsoft.ContainerService/locations/*",
+        "Microsoft.ContainerService/managedClusters/*",
+        "Microsoft.ContainerService/managedclustersnapshots/*",
+        "Microsoft.ContainerService/snapshots/*",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read"
       ],
       "notActions": [],
       "dataActions": [],
@@ -1893,16 +2146,16 @@ Allows read/write access to most objects in a namespace. This role does not allo
 }
 ```
 
-## Azure Kubernetes Service Arc Cluster Admin Role
+## Connected Cluster Managed Identity CheckAccess Reader
 
-Lists cluster admin credential actions.
+Built-in role that allows a Connected Cluster managed identity to call the checkAccess API
+
+[Learn more](/azure/azure-arc/kubernetes/azure-rbac)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | Microsoft.HybridContainerService/provisionedClusterInstances/read | Gets the Hybrid AKS provisioned cluster instance and instances associated with the connected cluster |
-> | Microsoft.HybridContainerService/provisionedClusterInstances/listAdminKubeconfig/action | Lists the admin credentials of a provisioned cluster instance used only in direct mode. |
-> | Microsoft.Kubernetes/connectedClusters/Read | Read connectedClusters |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -1912,163 +2165,25 @@ Lists cluster admin credential actions.
 
 ```json
 {
-    "assignableScopes": [
-      "/"
-    ],
-    "description": "List cluster admin credential action.",
-    "id": "/subscriptions/586c20df-c465-4f10-8673-65aa4859e7ca/providers/Microsoft.Authorization/roleDefinitions/b29efa5f-7782-4dc3-9537-4d5bc70a5e9f",
-    "name": "b29efa5f-7782-4dc3-9537-4d5bc70a5e9f",
-    "permissions": [
-      {
-        "actions": [
-          "Microsoft.HybridContainerService/provisionedClusterInstances/read",
-          "Microsoft.HybridContainerService/provisionedClusterInstances/listAdminKubeconfig/action",
-          "Microsoft.Kubernetes/connectedClusters/Read"
-        ],
-        "condition": null,
-        "conditionVersion": null,
-        "dataActions": [],
-        "notActions": [],
-        "notDataActions": []
-      }
-    ],
-    "roleName": "Azure Kubernetes Service Arc Cluster Admin Role",
-    "roleType": "BuiltInRole",
-    "type": "Microsoft.Authorization/roleDefinitions"
-}
-```
-
-## Azure Kubernetes Service Arc Cluster User Role
-
-Lists cluster user credential actions.
-
-> [!div class="mx-tableFixed"]
-> | Actions | Description |
-> | --- | --- |
-> | Microsoft.HybridContainerService/provisionedClusterInstances/read | Gets the Hybrid AKS provisioned cluster instance and instances associated with the connected cluster |
-> | Microsoft.HybridContainerService/provisionedClusterInstances/listUserKubeconfig/action | Lists the AAD user credentials of a provisioned cluster instance used only in direct mode. |
-> | Microsoft.Kubernetes/connectedClusters/Read | Read connectedClusters |
-> | **NotActions** |  |
-> | *none* |  |
-> | **DataActions** |  |
-> | *none* |  |
-> | **NotDataActions** |  |
-> | *none* |  |
-
-```json
-{
-    "assignableScopes": [
-      "/"
-    ],
-    "description": "List cluster user credential action.",
-    "id": "/subscriptions/586c20df-c465-4f10-8673-65aa4859e7ca/providers/Microsoft.Authorization/roleDefinitions/233ca253-b031-42ff-9fba-87ef12d6b55f",
-    "name": "233ca253-b031-42ff-9fba-87ef12d6b55f",
-    "permissions": [
-      {
-        "actions": [
-          "Microsoft.HybridContainerService/provisionedClusterInstances/read",
-          "Microsoft.HybridContainerService/provisionedClusterInstances/listUserKubeconfig/action",
-          "Microsoft.Kubernetes/connectedClusters/Read"
-        ],
-        "condition": null,
-        "conditionVersion": null,
-        "dataActions": [],
-        "notActions": [],
-        "notDataActions": []
-      }
-    ],
-    "roleName": "Azure Kubernetes Service Arc Cluster User Role",
-    "roleType": "BuiltInRole",
-    "type": "Microsoft.Authorization/roleDefinitions"
-}
-```
-
-## Azure Kubernetes Service Arc Contributor Role
-
-Grants access to read and write Azure Kubernetes Services Arc clusters.
-
-> [!div class="mx-tableFixed"]
-> | Actions | Description |
-> | --- | --- |
-> | Microsoft.HybridContainerService/Locations/operationStatuses/read | Read operationStatuses |
-> | Microsoft.HybridContainerService/Operations/read | Read Operations |
-> | Microsoft.HybridContainerService/kubernetesVersions/read | Get the supported kubernetes versions from the underlying custom location |
-> | Microsoft.HybridContainerService/kubernetesVersions/write | Put the kubernetes version resource type |
-> | Microsoft.HybridContainerService/kubernetesVersions/delete | Delete the kubernetes versions resource type |
-> | Microsoft.HybridContainerService/provisionedClusterInstances/read | Get the Hybrid AKS provisioned cluster instance and instances associated with the connected cluster |
-> | Microsoft.HybridContainerService/provisionedClusterInstances/write | Create the Hybrid AKS provisioned cluster instance |
-> | Microsoft.HybridContainerService/provisionedClusterInstances/delete | Delete the Hybrid AKS provisioned cluster instance |
-> | Microsoft.HybridContainerService/provisionedClusterInstances/agentPools/read | Get the agent pools in the Hybrid AKS provisioned cluster instance |
-> | Microsoft.HybridContainerService/provisionedClusterInstances/agentPools/write | Create and update the agent pool in the Hybrid AKS provisioned cluster instance |
-> | Microsoft.HybridContainerService/provisionedClusterInstances/agentPools/delete | Delete the agent pool in the Hybrid AKS provisioned cluster instance |
-> | Microsoft.HybridContainerService/provisionedClusterInstances/upgradeProfiles/read | read operationStatuses |
-> | Microsoft.HybridContainerService/skus/read | Get the supported VM skus from the underlying custom location |
-> | Microsoft.HybridContainerService/skus/write | Puts the VM SKUs resource type |
-> | Microsoft.HybridContainerService/skus/delete | Deletes the Vm Sku resource type |
-> | Microsoft.HybridContainerService/virtualNetworks/read | List the Hybrid AKS virtual networks by resource group and subscription |
-> | Microsoft.HybridContainerService/virtualNetworks/write | Put and patch the Hybrid AKS virtual network |
-> | Microsoft.HybridContainerService/virtualNetworks/delete | Deletes the Hybrid AKS virtual network |
-> | Microsoft.ExtendedLocation/customLocations/deploy/action | Deploy permissions to a Custom Location resource |
-> | Microsoft.ExtendedLocation/customLocations/read | Gets an Custom Location resource |
-> | Microsoft.Kubernetes/connectedClusters/Read | Read connectedClusters |
-> | Microsoft.Kubernetes/connectedClusters/Write | Writes connectedClusters |
-> | Microsoft.Kubernetes/connectedClusters/Delete | Deletes connectedClusters |
-> | Microsoft.Kubernetes/connectedClusters/listClusterUserCredential/action | List clusterUser credential |
-> | Microsoft.AzureStackHCI/clusters/read | Gets clusters |
-> | **NotActions** |  |
-> | *none* |  |
-> | **DataActions** |  |
-> | *none* |  |
-> | **NotDataActions** |  |
-> | *none* |  |
-
-```json
-{
-    "assignableScopes": [
-      "/"
-    ],
-    "description": "Grants access to read and write Azure Kubernetes Services Arc clusters",
-    "id": "/subscriptions/586c20df-c465-4f10-8673-65aa4859e7ca/providers/Microsoft.Authorization/roleDefinitions/5d3f1697-4507-4d08-bb4a-477695db5f82",
-    "name": "5d3f1697-4507-4d08-bb4a-477695db5f82",
-    "permissions": [
-      {
-        "actions": [
-          "Microsoft.HybridContainerService/Locations/operationStatuses/read",
-          "Microsoft.HybridContainerService/Operations/read",
-          "Microsoft.HybridContainerService/kubernetesVersions/read",
-          "Microsoft.HybridContainerService/kubernetesVersions/write",
-          "Microsoft.HybridContainerService/kubernetesVersions/delete",
-          "Microsoft.HybridContainerService/provisionedClusterInstances/read",
-          "Microsoft.HybridContainerService/provisionedClusterInstances/write",
-          "Microsoft.HybridContainerService/provisionedClusterInstances/delete",
-          "Microsoft.HybridContainerService/provisionedClusterInstances/agentPools/read",
-          "Microsoft.HybridContainerService/provisionedClusterInstances/agentPools/write",
-          "Microsoft.HybridContainerService/provisionedClusterInstances/agentPools/delete",
-          "Microsoft.HybridContainerService/provisionedClusterInstances/upgradeProfiles/read",
-          "Microsoft.HybridContainerService/skus/read",
-          "Microsoft.HybridContainerService/skus/write",
-          "Microsoft.HybridContainerService/skus/delete",
-          "Microsoft.HybridContainerService/virtualNetworks/read",
-          "Microsoft.HybridContainerService/virtualNetworks/write",
-          "Microsoft.HybridContainerService/virtualNetworks/delete",
-          "Microsoft.ExtendedLocation/customLocations/deploy/action",
-          "Microsoft.ExtendedLocation/customLocations/read",
-          "Microsoft.Kubernetes/connectedClusters/Read",
-          "Microsoft.Kubernetes/connectedClusters/Write",
-          "Microsoft.Kubernetes/connectedClusters/Delete",
-          "Microsoft.Kubernetes/connectedClusters/listClusterUserCredential/action",
-          "Microsoft.AzureStackHCI/clusters/read"
-        ],
-        "condition": null,
-        "conditionVersion": null,
-        "dataActions": [],
-        "notActions": [],
-        "notDataActions": []
-      }
-    ],
-    "roleName": "Azure Kubernetes Service Arc Contributor Role",
-    "roleType": "BuiltInRole",
-    "type": "Microsoft.Authorization/roleDefinitions",
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Built-in role that allows a Connected Cluster managed identity to call the checkAccess API",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/65a14201-8f6c-4c28-bec4-12619c5a9aaa",
+  "name": "65a14201-8f6c-4c28-bec4-12619c5a9aaa",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Connected Cluster Managed Identity CheckAccess Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
@@ -2144,6 +2259,10 @@ Role definition to authorize any user/service to create connectedClusters resour
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/Write | Writes connectedClusters |
 > | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/connectedClusters/read | Read connectedClusters |
+> | [Microsoft.KubernetesConfiguration](../permissions/hybrid-multicloud.md#microsoftkubernetesconfiguration)/extensions/write | Creates or updates extension resource. |
+> | [Microsoft.KubernetesConfiguration](../permissions/hybrid-multicloud.md#microsoftkubernetesconfiguration)/extensions/read | Gets extension instance resource. |
+> | [Microsoft.KubernetesConfiguration](../permissions/hybrid-multicloud.md#microsoftkubernetesconfiguration)/extensions/delete | Deletes extension instance resource. |
+> | [Microsoft.KubernetesConfiguration](../permissions/hybrid-multicloud.md#microsoftkubernetesconfiguration)/extensions/operations/read | Gets Async Operation status. |
 > | [Microsoft.Support](../permissions/general.md#microsoftsupport)/* | Create and update a support ticket |
 > | **NotActions** |  |
 > | *none* |  |
@@ -2171,6 +2290,10 @@ Role definition to authorize any user/service to create connectedClusters resour
         "Microsoft.Resources/subscriptions/resourceGroups/read",
         "Microsoft.Kubernetes/connectedClusters/Write",
         "Microsoft.Kubernetes/connectedClusters/read",
+        "Microsoft.KubernetesConfiguration/extensions/write",
+        "Microsoft.KubernetesConfiguration/extensions/read",
+        "Microsoft.KubernetesConfiguration/extensions/delete",
+        "Microsoft.KubernetesConfiguration/extensions/operations/read",
         "Microsoft.Support/*"
       ],
       "notActions": [],
@@ -2232,6 +2355,100 @@ Can create, update, get, list and delete Kubernetes Extensions, and get extensio
     }
   ],
   "roleName": "Kubernetes Extension Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Service Fabric Cluster Contributor
+
+Manage your Service Fabric Cluster resources. Includes clusters, application types, application type versions, applications, and services. You will need additional permissions to deploy and manage the cluster's underlying resources such as virtual machine scale sets, storage accounts, networks, etc.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.ServiceFabric](../permissions/compute.md#microsoftservicefabric)/clusters/* |  |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Manage your Service Fabric Cluster resources. Includes clusters, application types, application type versions, applications, and services. You will need additional permissions to deploy and manage the cluster's underlying resources such as virtual machine scale sets, storage accounts, networks, etc.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/b6efc156-f0da-4e90-a50a-8c000140b017",
+  "name": "b6efc156-f0da-4e90-a50a-8c000140b017",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.ServiceFabric/clusters/*",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Service Fabric Cluster Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Service Fabric Managed Cluster Contributor
+
+Deploy and manage your Service Fabric Managed Cluster resources. Includes managed clusters, node types, application types, application type versions, applications, and services.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.ServiceFabric](../permissions/compute.md#microsoftservicefabric)/managedclusters/* |  |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Deploy and manage your Service Fabric Managed Cluster resources. Includes managed clusters, node types, application types, application type versions, applications, and services.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/83f80186-3729-438c-ad2d-39e94d718838",
+  "name": "83f80186-3729-438c-ad2d-39e94d718838",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.ServiceFabric/managedclusters/*",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Service Fabric Managed Cluster Contributor",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }

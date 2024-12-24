@@ -1,12 +1,12 @@
 ---
-title: Azure Orbital Ground Stations - About Microsoft and partner ground stations
-description: Provides specs on Microsoft ground stations and outlines partner ground station network.
-author: kellydevens
-ms.service: orbital
+title: About Microsoft and partner ground stations
+description: Offers specifications and definitions for Microsoft ground stations and partner ground station network. 
+ms.service: azure-orbital
 ms.topic: how-to
 ms.custom: ga
 ms.date: 10/20/2023
-ms.author: kellydevens
+author: hrshelar
+ms.author: mosagie
 #Customer intent: As a satellite operator or user, I want to learn about Microsoft and partner ground stations.
 ---
 

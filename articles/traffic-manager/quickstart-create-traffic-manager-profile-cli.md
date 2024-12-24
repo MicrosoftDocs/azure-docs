@@ -4,7 +4,7 @@ description: This quickstart article describes how to create a Traffic Manager p
 services: traffic-manager
 author: greg-lindsay
 manager: kumud
-ms.service: traffic-manager
+ms.service: azure-traffic-manager
 ms.topic: quickstart
 ms.date: 02/18/2023
 ms.author: greglin

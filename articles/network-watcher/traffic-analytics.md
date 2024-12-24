@@ -4,10 +4,10 @@ titleSuffix: Azure Network Watcher
 description: Learn what Azure Network Watcher traffic analytics is, and how to use it for viewing network activity, securing networks, and optimizing performance.
 author: halkazwini
 ms.author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: concept-article
-ms.reviewer: harshacs
-ms.date: 04/24/2024
+ms.date: 12/24/2024
+ms.custom: references_regions
 
 #CustomerIntent: As an Azure administrator, I want to use Traffic analytics to analyze Network Watcher flow logs so that I can view network activity, secure my networks, and optimize performance.
 ---
@@ -59,9 +59,9 @@ To use traffic analytics, you need the following components:
 
 - **Network Watcher**: A regional service that you can use to monitor and diagnose conditions at a network-scenario level in Azure. You can use Network Watcher to turn network security group flow logs on and off. For more information, see [What is Azure Network Watcher?](network-watcher-monitoring-overview.md)
 
-- **Log Analytics**: A tool in the Azure portal that you use to work with Azure Monitor Logs data. Azure Monitor Logs is an Azure service that collects monitoring data and stores the data in a central repository. This data can include events, performance data, or custom data that's provided through the Azure API. After this data is collected, it's available for alerting, analysis, and export. Monitoring applications such as network performance monitor and traffic analytics use Azure Monitor Logs as a foundation. For more information, see [Azure Monitor Logs](../azure-monitor/logs/log-query-overview.md?toc=/azure/network-watcher/toc.json). Log Analytics provides a way to edit and run queries on logs. You can also use this tool to analyze query results. For more information, see [Overview of Log Analytics in Azure Monitor](../azure-monitor/logs/log-analytics-overview.md?toc=/azure/network-watcher/toc.json).
+- **Log Analytics**: A tool in the Azure portal that you use to work with Azure Monitor Logs data. Azure Monitor Logs is an Azure service that collects monitoring data and stores the data in a central repository. This data can include events, performance data, or custom data that's provided through the Azure API. After this data is collected, it's available for alerting, analysis, and export. Monitoring applications such as network performance monitor and traffic analytics use Azure Monitor Logs as a foundation. For more information, see [Azure Monitor Logs](/azure/azure-monitor/logs/log-query-overview?toc=/azure/network-watcher/toc.json). Log Analytics provides a way to edit and run queries on logs. You can also use this tool to analyze query results. For more information, see [Overview of Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-overview?toc=/azure/network-watcher/toc.json).
 
-- **Log Analytics workspace**: The environment that stores Azure Monitor log data that pertains to an Azure account. For more information about Log Analytics workspaces, see [Overview of Log Analytics workspace](../azure-monitor/logs/log-analytics-workspace-overview.md?toc=/azure/network-watcher/toc.json).
+- **Log Analytics workspace**: The environment that stores Azure Monitor log data that pertains to an Azure account. For more information about Log Analytics workspaces, see [Overview of Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-workspace-overview?toc=/azure/network-watcher/toc.json).
 
 - Additionally, you need a network security group enabled for flow logging if you're using traffic analytics to analyze [network security group flow logs](nsg-flow-logs-overview.md) or a virtual network enabled for flow logging if you're using traffic analytics to analyze [virtual network flow logs](vnet-flow-logs-overview.md):
 
@@ -105,7 +105,7 @@ Traffic analytics requires the following prerequisites:
 
 - A Network Watcher enabled subscription. For more information, see [Enable or disable Azure Network Watcher](network-watcher-create.md).
 - Network security group flow logs enabled for the network security groups you want to monitor or virtual network flow logs enabled for the virtual network you want to monitor. For more information, see [Create a network security group flow log](nsg-flow-logs-portal.md#create-a-flow-log) or [Create a virtual network flow log](vnet-flow-logs-portal.md#create-a-flow-log).
-- An Azure Log Analytics workspace with read and write access. For more information, see [Create a Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md?toc=/azure/network-watcher/toc.json).
+- An Azure Log Analytics workspace with read and write access. For more information, see [Create a Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace?toc=/azure/network-watcher/toc.json).
 
 - One of the following [Azure built-in roles](../role-based-access-control/built-in-roles.md) needs to be assigned to your account:
 
@@ -139,22 +139,131 @@ Traffic analytics requires the following prerequisites:
 
     <sup>1</sup> Network contributor doesn't cover `Microsoft.OperationalInsights/workspaces/*` actions.
 
-    <sup>2</sup> Only required when using traffic analytics to analyze virtual network flow logs. For more information, see [Data collection rules in Azure Monitor](../azure-monitor/essentials/data-collection-rule-overview.md?toc=/azure/network-watcher/toc.json) and [Data collection endpoints in Azure Monitor](../azure-monitor/essentials/data-collection-endpoint-overview.md?toc=/azure/network-watcher/toc.json).
+    <sup>2</sup> Only required when using traffic analytics to analyze virtual network flow logs. For more information, see [Data collection rules in Azure Monitor](/azure/azure-monitor/essentials/data-collection-rule-overview?toc=/azure/network-watcher/toc.json) and [Data collection endpoints in Azure Monitor](/azure/azure-monitor/essentials/data-collection-endpoint-overview?toc=/azure/network-watcher/toc.json).
 
     To learn how to check roles assigned to a user for a subscription, see [List Azure role assignments using the Azure portal](../role-based-access-control/role-assignments-list-portal.yml?toc=/azure/network-watcher/toc.json). If you can't see the role assignments, contact the respective subscription admin.
 
     > [!CAUTION]
     > Data collection rule and data collection endpoint resources are created and managed by traffic analytics. If you perform any operation on these resources, traffic analytics may not function as expected.
     
+## Availability
+
+The following tables list the supported regions where you can enable traffic analytics for your flow logs and the Log Analytics workspaces that you can use.
+
+#### [North America / South America](#tab/Americas)
+
+> [!div class="mx-tableFixed"]
+> | Region  | Network security group flow logs | Virtual network flow logs | Traffic analytics | Log Analytics workspace |
+> | ------- | -------------------------------- | ------------------------- | ----------------------- | ----------------------- |
+> | Brazil South | ✓ | ✓ | ✓ | ✓ |
+> | Brazil Southeast | ✓ | ✓ | ✓ | ✓ |
+> | Canada Central | ✓ | ✓ | ✓ | ✓ |
+> | Canada East | ✓ | ✓ | ✓ | ✓ |
+> | Central US | ✓ | ✓ | ✓ | ✓ |
+> | East US | ✓ | ✓ | ✓ | ✓ |
+> | East US 2 | ✓ | ✓ | ✓ | ✓ |
+> | Mexico Central | ✓ | ✓ | ✓ |  |
+> | North Central US | ✓ | ✓ | ✓ | ✓ |
+> | South Central US | ✓ | ✓ | ✓ | ✓ |
+> | West Central US | ✓ | ✓ | ✓ | ✓ |
+> | West US | ✓ | ✓ | ✓ | ✓ |
+> | West US 2 | ✓ | ✓ | ✓ | ✓ |
+> | West US 3 | ✓ | ✓ | ✓ | ✓ |
+
+#### [Europe](#tab/Europe)
+
+> [!div class="mx-tableFixed"]
+> | Region  | Network security group flow logs | Virtual network flow logs | Traffic analytics | Log Analytics workspace |
+> | ------- | -------------------------------- | ------------------------- | ----------------------- | ----------------------- |
+> | France Central | ✓ | ✓ | ✓ | ✓ |
+> | France South | ✓ | ✓ |  |  |
+> | Germany North| ✓ | ✓ | ✓ | ✓ |
+> | Germany West Central | ✓ | ✓ | ✓ | ✓ |
+> | Italy North | ✓ | ✓ | ✓ | ✓ |
+> | North Europe | ✓ | ✓ | ✓ | ✓ |
+> | Norway East | ✓ | ✓ | ✓ | ✓ |
+> | Norway West | ✓ | ✓ |  | ✓ |
+> | Poland Central | ✓ | ✓ | ✓ | ✓ |
+> | Spain Central | ✓ | ✓ | ✓ |  |
+> | Sweden Central | ✓ | ✓ | ✓ | ✓ |
+> | Switzerland North | ✓ | ✓ | ✓ | ✓ |
+> | Switzerland West | ✓ | ✓ | ✓ | ✓ |
+> | UK South | ✓ | ✓ | ✓ | ✓ |
+> | UK West | ✓ | ✓ | ✓ | ✓ |
+> | West Europe | ✓ | ✓ | ✓ | ✓ |
+
+#### [Australia / Asia / Pacific](#tab/APAC)
+
+> [!div class="mx-tableFixed"]
+> | Region  | Network security group flow logs | Virtual network flow logs | Traffic analytics | Log Analytics workspace |
+> | ------- | -------------------------------- | ------------------------- | ----------------------- | ----------------------- |
+> | Australia Central | ✓ | ✓ | ✓ | ✓ |
+> | Australia Central 2 | ✓ | ✓ |  | ✓ |
+> | Australia East | ✓ | ✓ | ✓ | ✓ |
+> | Australia Southeast | ✓ | ✓ | ✓ | ✓ |
+> | Central India | ✓ | ✓ | ✓ | ✓ |
+> | China East | ✓ | ✓ |  |  |
+> | China East 2 | ✓ | ✓ | ✓ | ✓ |
+> | China East 3 | ✓ | ✓ | ✓ |  |
+> | China North | ✓ | ✓ | ✓ | ✓ |
+> | China North 2 | ✓ | ✓ | ✓ | ✓ |
+> | China North 3 | ✓ | ✓ | ✓ |  |
+> | East Asia | ✓ | ✓ | ✓ | ✓ |
+> | Japan East | ✓ | ✓ | ✓ | ✓ |
+> | Japan West | ✓ | ✓ | ✓ | ✓ |
+> | Jio India Central |  |  |  | ✓ |
+> | Jio India West | ✓ | ✓ | ✓ | ✓ |
+> | Korea Central | ✓ | ✓ | ✓ | ✓ |
+> | Korea South | ✓ | ✓ | ✓ | ✓ |
+> | South India | ✓ | ✓ | ✓ | ✓ |
+> | Southeast Asia | ✓ | ✓ | ✓ | ✓ |
+> | Taiwan North | ✓ | ✓ | ✓ |  |
+> | Taiwan Northwest | ✓ | ✓ |  |  |
+> | West India | ✓ | ✓ |  |  |
+
+#### [Middle East / Africa](#tab/MiddleEast)
+
+> [!div class="mx-tableFixed"]
+> | Region  | Network security group flow logs | Virtual network flow logs | Traffic analytics | Log Analytics workspace |
+> | ------- | -------------------------------- | ------------------------- | ----------------------- | ----------------------- |
+> | Israel Central | ✓ | ✓ | ✓ | ✓ |
+> | Qatar Central | ✓ | ✓ | ✓ | ✓ |
+> | South Africa North | ✓ | ✓ | ✓ | ✓ |
+> | South Africa West | ✓ | ✓ |  | ✓ |
+> | UAE Central | ✓ | ✓ | ✓ | ✓ |
+> | UAE North | ✓ | ✓ | ✓ | ✓ |
+
+#### [Azure Government](#tab/AzGov)
+
+> [!div class="mx-tableFixed"]
+> | Region  | Network security group flow logs | Virtual network flow logs | Traffic analytics | Log Analytics workspace |
+> | ------- | -------------------------------- | ------------------------- | ----------------------- | ----------------------- |
+> | US DoD Central | ✓ | ✓ |  |  |
+> | US DoD East | ✓ | ✓ |  |  |
+> | US Gov Arizona | ✓ | ✓ | ✓ | ✓ |
+> | US Gov Iowa | ✓ | ✓ |  |  |
+> | US Gov Texas | ✓ | ✓ | ✓ | ✓ |
+> | US Gov Virginia | ✓ | ✓ | ✓ | ✓ |
+> | US Nat East | ✓ | ✓ | ✓ | ✓ |
+> | US Nat West | ✓ | ✓ | ✓ | ✓ |
+> | US Sec East | ✓ | ✓ | ✓ | ✓ |
+> | US Sec West | ✓ | ✓ | ✓ | ✓ |
+> | US Sec West Central | ✓ | ✓ |  |  |
+
+---
+
+> [!NOTE]
+> If flow logs are supported in a region, but Log Analytics workspace isn't supported in that region for traffic analytics, you can use a Log Analytics workspace from any other supported region. In this case, there won't be any additional cross-region data transfer charges for using a Log Analytics workspace from another region.
+
 ## Pricing
 
 For pricing details, see [Network Watcher pricing](https://azure.microsoft.com/pricing/details/network-watcher/) and [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
-## Traffic analytics (FAQ)
+## Traffic analytics FAQ
 
 To get answers to the most frequently asked questions about traffic analytics, see [Traffic analytics FAQ](traffic-analytics-faq.yml).
 
 ## Related content
 
-- To learn how to use traffic analytics, see [Usage scenarios](usage-scenarios-traffic-analytics.md).
+- To learn how to use traffic analytics, see [Usage scenarios](traffic-analytics-usage-scenarios.md).
 - To understand the schema and processing details of traffic analytics, see [Schema and data aggregation in Traffic Analytics](traffic-analytics-schema.md).

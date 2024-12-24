@@ -5,12 +5,14 @@ services: cdn
 author: duongau
 manager: kumudd
 ms.service: azure-cdn
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/20/2024
 ms.author: duau
 ---
 
 # Match conditions in the Standard rules engine for Azure Content Delivery Network
+
+[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
 
 In the [Standard rules engine](cdn-standard-rules-engine.md) for Azure Content Delivery Network, a rule consists of one or more match conditions and an action. This article provides detailed descriptions of the match conditions you can use in the Standard rules engine for Azure Content Delivery Network.
 

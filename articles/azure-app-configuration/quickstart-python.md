@@ -1,5 +1,5 @@
 --- 
-title: Using Azure App Configuration in Python apps with the Azure SDK for Python | Microsoft Learn
+title: Using Azure App Configuration in Python apps with the Azure SDK for Python
 description: This document shows examples of how to use the Azure SDK for Python to access your data in Azure App Configuration.
 services: azure-app-configuration
 author: maud-lv
@@ -7,7 +7,7 @@ ms.service: azure-app-configuration
 ms.devlang: python
 ms.topic: sample
 ms.custom: devx-track-python, mode-other, engagement-fy23, py-fresh-zinc
-ms.date: 11/17/2022
+ms.date: 11/20/2023
 ms.author: malev
 #Customer intent: As a Python developer, I want to use the Azure SDK for Python to access my data in Azure App Configuration.
 ---
@@ -79,7 +79,7 @@ Add the following key-value to the App Configuration store and leave **Label** a
     To run the app locally using the Windows command prompt, run the following command and replace `<app-configuration-store-connection-string>` with the connection string of your app configuration store:
 
     ```cmd
-    setx AZURE_APPCONFIG_CONNECTION_STRING "connection-string-of-your-app-configuration-store"
+    setx AZURE_APPCONFIG_CONNECTION_STRING "<connection-string-of-your-app-configuration-store>"
     ```
 
     ### [PowerShell](#tab/powershell)

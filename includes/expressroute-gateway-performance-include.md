@@ -3,14 +3,14 @@
  description: include file
  services: expressroute
  author: duongau
- ms.service: expressroute
+ ms.service: azure-expressroute
  ms.topic: include
  ms.date: 07/09/2024
  ms.author: duau
  ms.custom: include file
 ---
 
-The following tables provides an overview of the different types of gateways, their respective limitations, and their expected performance metrics. These numbers are derived from the following testing conditions and represent the max support limits. Actual performance may vary, depending on how closely traffic replicates these testing conditions.
+The following tables provide an overview of the different types of gateways, their respective limitations, and their expected performance metrics. These numbers are derived from the following testing conditions and represent the max support limits. Actual performance may vary, depending on how closely traffic replicates these testing conditions.
 
 #### Testing conditions
 
@@ -35,7 +35,7 @@ This table applies to both the Azure Resource Manager and classic deployment mod
 | **Ultra Performance/ErGw3Az** | 10,000 | 1,000,000 | 11,000 | 1,000,000 |
 | **ErGwScale (per scale unit)** | 1,000 | 100,000 | 2,000 | 100,000 per scale unit |
 
-<sup>1<sup/> The values in the table are estimates and varies depending on the CPU utilization of the gateway. If the CPU utilization is high and the number of supported VMs gets exceeded, the gateway will start to dropping packets.
+<sup>1<sup/> The values in the table are estimates and vary depending on the CPU utilization of the gateway. If the CPU utilization is high and the number of supported VMs gets exceeded, the gateway will start to drop packets.
 
 > [!IMPORTANT]
 > * Application performance depends on multiple factors, such as end-to-end latency, and the number of traffic flows the application opens. The numbers in the table represent the upper limit that the application can theoretically achieve in an ideal environment. Additionally, Microsoft performs routine host and OS maintenance on the ExpressRoute Virtual Network Gateway, to maintain reliability of the service. During a maintenance period, the control plane and data path capacity of the gateway is reduced.

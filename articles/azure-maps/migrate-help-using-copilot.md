@@ -7,7 +7,7 @@ ms.author: sipa
 ms.date: 05/16/2024
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: general
 ---
 
 # Migrate Bing Maps Enterprise applications to Azure Maps with GitHub Copilot
@@ -112,7 +112,8 @@ GitHub Copilot generates a code snippet that matches your instructions, using [A
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Azure Maps Geocode and Pushpin Example</title>
-    <script type="text/javascript" src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=3"></script>
+    <link href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.css" rel="stylesheet" />
+    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.js"></script>
     <style>
         #map {
             width: 100%;
@@ -124,7 +125,7 @@ GitHub Copilot generates a code snippet that matches your instructions, using [A
     <div id="map"></div>
     <script>
         var subscriptionKey = 'YOUR_SUBSCRIPTION_KEY'; // Replace with your Azure Maps subscription key
-        var query = '1 Microsoft Way, Seattle';
+        var query = '1 Microsoft Way, Redmond';
  
         // Make Geocode API request
         fetch(`https://atlas.microsoft.com/geocode?api-version=2023-06-01&subscription-key=${subscriptionKey}&query=${query}`)

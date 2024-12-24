@@ -5,7 +5,7 @@ author: anaharris-ms
 ms.author: anaharris
 ms.reviewer: anaharris
 ms.date: 04/03/2024
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: concept-article
 ms.custom:
   - subject-relocation

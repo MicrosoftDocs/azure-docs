@@ -2199,10 +2199,7 @@ The resources are listed by resource provider namespace. To match a resource pro
 > [!div class="mx-tableFixed"]
 > | Resource type | Complete mode deletion |
 > | ------------- | ----------- |
-> | objectAnchorsAccounts | Yes |
-> | objectUnderstandingAccounts | Yes |
 > | remoteRenderingAccounts | Yes |
-> | spatialAnchorsAccounts | Yes |
 
 ## Microsoft.MobileNetwork
 

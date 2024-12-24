@@ -5,14 +5,15 @@ author: maud-lv
 ms.author: malev
 ms.service: azure-app-configuration
 ms.topic: reference
-ms.date: 08/17/2020
+ms.date: 08/02/2024
+zone_pivot_groups: appconfig-data-plane-api-version
+
 ---
+:::zone target="docs" pivot="v1,v23-10,v23-11"
 
 # Key-values
 
 A key-value is a resource identified by unique combination of `key` + `label`. `label` is optional. To explicitly reference a key-value without a label, use "\0" (URL encoded as ``%00``). See details for each operation.
-
-This article applies to API version 1.0.
 
 ## Operations
 
@@ -107,7 +108,11 @@ HTTP/1.1 200 OK
 ## List key-values
 
 Optional: ``key`` (If not specified, it implies any key.)
+
 Optional: ``label`` (If not specified, it implies any label.)
+
+:::zone-end
+:::zone target="docs" pivot="v1,v23-10"
 
 ```http
 GET /kv?label=*&api-version={api-version} HTTP/1.1
@@ -120,7 +125,74 @@ HTTP/1.1 200 OK
 Content-Type: application/vnd.microsoft.appconfig.kvset+json; charset=utf-8
 ```
 
-For additional options, see the "Filtering" section later in this article.
+:::zone-end
+:::zone target="docs" pivot="v23-11"
+
+Optional: ``tags`` (If not specified, it implies any tags.)
+
+```http
+GET /kv?key=Test*&label=*&tags=tag1=value1&tags=tag2=value2&api-version={api-version} HTTP/1.1
+```
+
+**Response:**
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/vnd.microsoft.appconfig.kvset+json; charset=utf-8
+```
+:::zone-end
+:::zone target="docs" pivot="v1,v23-10,v23-11"
+
+For more options, see the "Filtering" section later in this article.
+
+:::zone-end
+:::zone target="docs" pivot="v23-10,v23-11"
+
+## List key-values (conditionally)
+
+To improve client caching, use `If-Match` or `If-None-Match` request headers. The `etag` argument is part of the list key-values response body and header.
+If `If-Match` or `If-None-Match` are omitted, the operation is unconditional.
+
+The following response gets the key-value only if the current representation matches the specified `etag`:
+
+```http
+GET /kv?key={key}label={label}&api-version={api-version} HTTP/1.1
+If-Match: "4f6dd610dd5e4deebc7fbaef685fb903"
+```
+
+**Responses:**
+
+```http
+HTTP/1.1 412 PreconditionFailed
+```
+
+or
+
+```http
+HTTP/1.1 200 OK
+```
+
+The following response gets the key-values only if the current representation doesn't match the specified `etag`:
+
+```http
+GET /kv?key={key}label={label}&api-version={api-version} HTTP/1.1
+If-None-Match: "4f6dd610dd5e4deebc7fbaef685fb903"
+```
+
+**Responses:**
+
+```http
+HTTP/1.1 304 NotModified
+```
+
+or
+
+```http
+HTTP/1.1 200 OK
+```
+
+:::zone-end
+:::zone target="docs" pivot="v1,v23-10,v23-11"
 
 ## Pagination
 
@@ -150,12 +222,30 @@ Link: <{relative uri}>; rel="next"
 
 ## Filtering
 
+:::zone-end
+:::zone target="docs" pivot="v1,v23-10"
+
 A combination of `key` and `label` filtering is supported.
 Use the optional `key` and `label` query string parameters.
 
 ```http
 GET /kv?key={key}&label={label}&api-version={api-version}
 ```
+
+:::zone-end
+:::zone target="docs" pivot="v23-11"
+
+A combination of `key`, `label`, and `tags` filtering is supported.
+Use the optional `key`, `label`, and `tags` query string parameters.
+Multiple tag filters can be provided as query string parameters in the `tagName=tagValue` format. Tag filters must be an exact match. 
+
+```http
+GET /kv?key={key}&label={label}&tags={tagFilter1}&tags={tagFilter2}&api-version={api-version}
+```
+
+:::zone-end
+:::zone target="docs" pivot="v1,v23-10,v23-11"
+
 
 ### Supported filters
 
@@ -169,10 +259,24 @@ GET /kv?key={key}&label={label}&api-version={api-version}
 |Label filter|Effect|
 |--|--|
 |`label` is omitted or `label=*`|Matches **any** label|
-|`label=%00`|Matches KV without label|
+|`label=%00`|Matches key-values with no label|
 |`label=prod`|Matches the label **prod**|
 |`label=prod*`|Matches labels that start with **prod**|
 |`label=prod,test`|Matches labels **prod** or **test** (limited to 5 CSV)|
+
+:::zone-end
+:::zone target="docs" pivot="v23-11"
+
+|Tags filter|Effect|
+|--|--|
+|`tags` is omitted or `tags=` |Matches **any** tag|
+|`tags=group=app1`|Matches key-values that have a tag named `group` with value `app1`|
+|`tags=group=app1&tags=env=prod`|Matches key-values that have a tag named `group` with value `app1` and a tag named `env` with value `prod`(limited to 5 tag filters)|
+|`tags=tag1=%00`|Matches key-values that have a tag named `tag1` with value `null`|
+|`tags=tag1=`|Matches key-values that have a tag named `tag1` with empty value|
+
+:::zone-end
+:::zone target="docs" pivot="v1,v23-10,v23-11"
 
 ***Reserved characters***
 
@@ -182,7 +286,7 @@ If a reserved character is part of the value, then it must be escaped by using `
 
 ***Filter validation***
 
-In the case of a filter validation error, the response is HTTP `400` with error details:
+If filter validation fails, the response is HTTP `400` with error details:
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -298,7 +402,7 @@ ETag: "4f6dd610dd5e4deebc7fbaef685fb903"
 }
 ```
 
-If the item is locked, you'll receive the following response:
+If the item is locked, the following response is returned:
 
 ```http
 HTTP/1.1 409 Conflict
@@ -393,3 +497,5 @@ HTTP/1.1 204 No Content
 ## Delete key (conditionally)
 
 This is similar to the "Set key (conditionally)" section earlier in this article.
+
+:::zone-end

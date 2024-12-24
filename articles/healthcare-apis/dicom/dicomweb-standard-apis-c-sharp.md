@@ -1,12 +1,12 @@
 ---
 title:  Use C# and DICOMweb Standard APIs in Azure Health Data Services
 description: Learn how to use C# and DICOMweb Standard APIs to store, retrieve, search, and delete DICOM files in the DICOM service. 
-author: mmitrik
-ms.service: healthcare-apis
-ms.subservice: dicom
+author: varunbms
+ms.service: azure-health-data-services
+ms.subservice: dicom-service
 ms.topic: tutorial
 ms.date: 10/18/2023
-ms.author: mmitrik
+ms.author: buchvarun
 ---
 
 # Use C# and DICOMweb Standard APIs
@@ -62,7 +62,7 @@ With the DicomWebClient, we can now perform the Store, Retrieve, Search, and Del
 
 ## Store DICOM instances (STOW)
 
-By using the DicomWebClient, we can now store DICOM files.
+Using the DicomWebClient, we can now store DICOM files.
 
 ### Store single instance
 
@@ -79,7 +79,7 @@ DicomWebResponse response = await client.StoreAsync(new[] { dicomFile });
 
 ### Store instances for a specific study
 
-Store instances for a specific study demonstrate how to upload a DICOM file into a specified study.
+Store instances for a specific study demonstrates how to upload a DICOM file into a specified study.
 
 _Details:_
 
@@ -96,7 +96,7 @@ Before moving on to the next part of the tutorial, upload the `green-square.dcm`
 
 The code snippets show how to perform each of the retrieve queries using the DicomWebClient created previously.
 
-The variables are used throughout the rest of the examples:
+The variables are used throughout the rest of the examples.
 
 ```c#
 string studyInstanceUid = "1.2.826.0.1.3680043.8.498.13230779778012324449356534479549187420"; //StudyInstanceUID for all 3 examples
@@ -174,7 +174,7 @@ _Details:_
 DicomWebResponse response = await client.RetrieveSeriesMetadataAsync(studyInstanceUid, seriesInstanceUid);
 ```
 
-This series has two instances (green-square and red-triangle), so the response should return metadata for both instances. Validate that the response has a status code of OK and that both instances of the metadata are returned.
+The series has two instances (green-square and red-triangle), so the response should return metadata for both instances. Validate that the response has a status code of OK and that both instances of the metadata are returned.
 
 ### Retrieve a single instance within a series of a study
 
@@ -188,7 +188,7 @@ _Details:_
 DicomWebResponse response = await client.RetrieveInstanceAsync(studyInstanceUid, seriesInstanceUid, sopInstanceUid);
 ```
 
-This response should only return the instance red-triangle. Validate that the response has a status code of OK and that the instance is returned.
+The response should only return the instance red-triangle. Validate that the response has a status code of OK and that the instance is returned.
 
 ### Retrieve metadata of a single instance within a series of a study
 
@@ -202,7 +202,7 @@ _Details:_
 DicomWebResponse response = await client.RetrieveInstanceMetadataAsync(studyInstanceUid, seriesInstanceUid, sopInstanceUid);
 ```
 
-This response should only return the metadata for the instance red-triangle. Validate that the response has a status code of OK and that the metadata is returned.
+The response should only return the metadata for the instance red-triangle. Validate that the response has a status code of OK and that the metadata is returned.
 
 ### Retrieve one or more frames from a single instance
 
@@ -217,7 +217,7 @@ DicomWebResponse response = await client.RetrieveFramesAsync(studyInstanceUid, s
 
 ```
 
-This response should return the only frame from the red-triangle. Validate that the response has a status code of OK and that the frame is returned.
+The response should return the only frame from the red-triangle. Validate that the response has a status code of OK and that the frame is returned.
 
 ## Query DICOM (QIDO)
 
@@ -237,7 +237,7 @@ string query = $"/studies?StudyInstanceUID={studyInstanceUid}";
 DicomWebResponse response = await client.QueryStudyAsync(query);
 ```
 
-Validates that the response includes one study, and that the response code is OK.
+Validate that the response includes one study, and that the response code is OK.
 
 ### Search for series
 
@@ -252,7 +252,7 @@ string query = $"/series?SeriesInstanceUID={seriesInstanceUid}";
 DicomWebResponse response = await client.QuerySeriesAsync(query);
 ```
 
-Validates that the response includes one series, and that the response code is OK.
+Validate that the response includes one series, and that the response code is OK.
 
 ### Search for series within a study
 
@@ -267,7 +267,7 @@ string query = $"/studies/{studyInstanceUid}/series?SeriesInstanceUID={seriesIns
 DicomWebResponse response = await client.QueryStudySeriesAsync(studyInstanceUid, query);
 ```
 
-Validates that the response includes one series, and that the response code is OK.
+Validate that the response includes one series, and that the response code is OK.
 
 ### Search for instances
 
@@ -282,7 +282,7 @@ string query = $"/instances?SOPInstanceUID={sopInstanceUid}";
 DicomWebResponse response = await client.QueryInstancesAsync(query);
 ```
 
-Validates that the response includes one instance, and that the response code is OK.
+Validate that the response includes one instance, and that the response code is OK.
 
 ### Search for instances within a study
 
@@ -297,7 +297,7 @@ string query = $"/studies/{studyInstanceUid}/instances?SOPInstanceUID={sopInstan
 DicomWebResponse response = await client.QueryStudyInstanceAsync(studyInstanceUid, query);
 ```
 
-Validates that the response includes one instance, and that the response code is OK.
+Validate that the response includes one instance, and that the response code is OK.
 
 ### Search for instances within a study and series
 
@@ -312,7 +312,7 @@ string query = $"/studies/{studyInstanceUid}/series/{seriesInstanceUid}/instance
 DicomWebResponse response = await client.QueryStudySeriesInstanceAsync(studyInstanceUid, seriesInstanceUid, query);
 ```
 
-Validates that the response includes one instance, and that the response code is OK.
+Validate that the response includes one instance, and that the response code is OK.
 
 ## Delete DICOM
 
@@ -332,7 +332,7 @@ string sopInstanceUidRed = "1.2.826.0.1.3680043.8.498.47359123102728459884412887
 DicomWebResponse response = await client.DeleteInstanceAsync(studyInstanceUid, seriesInstanceUid, sopInstanceUidRed);
 ```
 
-This repose deletes the red-triangle instance from the server. If it's successful, the response status code contains no content.
+This response deletes the red-triangle instance from the server. If it's successful, the response status code contains no content.
 
 ### Delete a specific series within a study
 
@@ -346,7 +346,7 @@ _Details:_
 DicomWebResponse response = await client.DeleteSeriesAsync(studyInstanceUid, seriesInstanceUid);
 ```
 
-This response deletes the green-square instance (it's the only element left in the series) from the server. If it's successful, the response status code contains no content.
+The response deletes the green-square instance from the server (it's the only element left in the series). If it's successful, the response status code contains no content.
 
 ### Delete a specific study
 
@@ -360,6 +360,6 @@ _Details:_
 DicomWebResponse response = await client.DeleteStudyAsync(studyInstanceUid);
 ```
 
-This response deletes the blue-circle instance (it's the only element left in the series) from the server. If it's successful, the response status code contains no content.
+The response deletes the blue-circle instance from the server (it's the only element left in the series). If it's successful, the response status code contains no content.
 
 [!INCLUDE [DICOM trademark statement](../includes/healthcare-apis-dicom-trademark.md)]

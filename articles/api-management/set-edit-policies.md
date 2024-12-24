@@ -4,7 +4,7 @@ description: Configure policies at different scopes in an Azure API Management i
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 10/18/2023
 ms.author: danlep
@@ -23,6 +23,9 @@ More information about policies:
 * [Policy overview](api-management-howto-policies.md)
 * [Policy reference](api-management-policies.md) for a full list of policy statements and their settings
 * [Policy snippets repo](https://github.com/Azure/api-management-policy-snippets)
+* [Azure API Management policy toolkit](https://github.com/Azure/azure-api-management-policy-toolkit/)
+* [Author policies using Microsoft Copilot in Azure](/azure/copilot/author-api-management-policies?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json)
+
 
 ## Prerequisites
 
@@ -230,8 +233,9 @@ To modify the policy evaluation order using the policy editor:
 
 For more information about working with policies, see:
 
-+ [Tutorial: Transform and protect APIs](transform-api.md)
-+ [Set or edit policies](set-edit-policies.md)
-+ [Policy reference](./api-management-policies.md) for a full list of policy statements and their settings
-+ [Policy snippets repo](https://github.com/Azure/api-management-policy-snippets)	
-+ [Author policies using Microsoft Copilot in Azure](../copilot/author-api-management-policies.md?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json)
+* [Tutorial: Transform and protect APIs](transform-api.md)
+* [Set or edit policies](set-edit-policies.md)
+* [Policy reference](./api-management-policies.md)
+* [Policy snippets repo](https://github.com/Azure/api-management-policy-snippets)
+* [Azure API Management policy toolkit](https://github.com/Azure/azure-api-management-policy-toolkit/)
+* [Author policies using Microsoft Copilot in Azure](/azure/copilot/author-api-management-policies?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json)

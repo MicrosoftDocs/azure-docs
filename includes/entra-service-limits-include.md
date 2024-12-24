@@ -4,7 +4,7 @@
  author: rolyon
  ms.service: entra-id
  ms.topic: include
- ms.date: 06/13/2024
+ ms.date: 07/15/2024
  ms.author: rolyon
  ms.custom: include file
 ---
@@ -12,7 +12,7 @@ Here are the usage constraints and other service limits for the Microsoft Entra 
 
 | Category | Limit |
 | --- | --- |
-| Tenants | <li>A single user can belong to a maximum of 500 Microsoft Entra tenants as a member or a guest. <li>A single user can create a maximum of 200 directories.<li>Limit of 300 [license-based subscriptions](/microsoft-365/commerce/licenses/subscriptions-and-licenses) (such as Microsoft 365 subscriptions) per tenant |
+| Tenants | <li>A single user can belong to a maximum of 500 Microsoft Entra tenants as a member or a guest. <li>Create a maximum of 200 tenants.<li>Limit of 300 [license-based subscriptions](/microsoft-365/commerce/licenses/subscriptions-and-licenses) (such as Microsoft 365 subscriptions) per tenant |
 | Domains | <li>You can add no more than 5,000 managed domain names. <li>If you set up all of your domains for federation with on-premises Active Directory, you can add no more than 2,500 domain names in each tenant. |
 |Resources |<ul><li>By default, a maximum of 50,000 Microsoft Entra resources can be created in a single tenant by users of the Microsoft Entra ID Free edition. If you have at least one verified domain, the default Microsoft Entra service quota for your organization is extended to 300,000 Microsoft Entra resources. <br>The Microsoft Entra service quota for organizations created by self-service sign-up remains 50,000 Microsoft Entra resources, even after you perform an internal admin takeover and the organization is converted to a managed tenant with at least one verified domain. This service limit is unrelated to the pricing tier limit of 500,000 resources on the Microsoft Entra pricing page. <br>To go beyond the default quota, you must contact Microsoft Support.</li><li>A non-admin user can create no more than 250 Microsoft Entra resources. Both active resources and deleted resources that are available to restore count toward this quota. Only deleted Microsoft Entra resources that were deleted fewer than 30 days ago are available to restore. Deleted Microsoft Entra resources that are no longer available to restore count toward this quota at a value of one-quarter for 30 days. <br>If you have developers who are likely to repeatedly exceed this quota in the course of their regular duties, you can [create and assign a custom role](../articles/active-directory/roles/quickstart-app-registration-limits.md) with permission to create a limitless number of app registrations.</li><li>Resource limitations apply to all directory objects in a given Microsoft Entra tenant, including users, groups, applications, and service principals.</li></ul> |
 | Schema extensions |<ul><li>String-type extensions can have a maximum of 256 characters. </li><li>Binary-type extensions are limited to 256 bytes.</li><li>Only 100 extension values, across *all* types and *all* applications, can be written to any single Microsoft Entra resource.</li><li>Only User, Group, TenantDetail, Device, Application, and ServicePrincipal entities can be extended with string-type or binary-type single-valued attributes.</li></ul> |

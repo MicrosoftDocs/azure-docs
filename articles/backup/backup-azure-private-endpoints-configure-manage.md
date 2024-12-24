@@ -2,8 +2,8 @@
 title: How to create and manage private endpoints (with v2 experience) for Azure Backup
 description: This article explains how to configure and manage private endpoints for Azure Backup.
 ms.topic: how-to
-ms.service: backup
-ms.date: 06/14/2024
+ms.service: azure-backup
+ms.date: 12/20/2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -35,8 +35,8 @@ Follow these steps:
    :::image type="content" source="./media/backup-azure-private-endpoints/deny-public-network.png" alt-text="Screenshot showing how to select the Deny option.":::
 
    >[!Note]
-   >- Once you deny access, you can still access the vault, but you can't move data to/from networks that don't contain private endpoints. For more information, see [Create private endpoints for Azure Backup](#create-private-endpoints-for-azure-backup).
-   >- Denial of public access is currently not supported for vaults that have *Cross Region Restore* enabled.
+   >Once you deny access, you can still access the vault, but you can't move data to/from networks that don't contain private endpoints. For more information, see [Create private endpoints for Azure Backup](#create-private-endpoints-for-azure-backup).
+   
 
 3. Select **Apply** to save the changes. 
 
@@ -198,8 +198,8 @@ When using the MARS Agent to back up your on-premises resources, make sure your 
 But if you remove private endpoints for the vault after a MARS agent has been registered to it, you'll need to re-register the container with the vault. You don't need to stop protection for them.
 
 >[!NOTE]
-> - Private endpoints are supported with only DPM server 2022 and later.
-> - Private endpoints are not yet supported with MABS.
+>- Private endpoints are supported with only DPM server 2022 (10.22.123.0) and later.
+>- Private endpoints are supported with only MABS V4 (14.0.30.0) and later.
 
 #### Cross Subscription Restore to a Private Endpoint enabled vault
 

@@ -1,15 +1,16 @@
 ---
-title: 'Deploy private-only Bastion'
+title: Deploy private-only Bastion
 description: Learn how to deploy Bastion for a private-only scenario.
 author: cherylmc
-ms.service: bastion
+ms.service: azure-bastion
+ms.custom:
+  - ignite-2024
 ms.topic: how-to
-ms.date: 05/30/2024
+ms.date: 12/09/2024
 ms.author: cherylmc
-
 ---
 
-# Deploy Bastion as private-only (Preview)
+# Deploy Bastion as private-only
 
 This article helps you deploy Bastion as a private-only deployment. [!INCLUDE [private-only bastion description](../../includes/bastion-private-only-description.md)] 
 
@@ -76,9 +77,7 @@ This section helps you deploy Bastion as private-only to your virtual network.
 
 1. On the **Create a Bastion** pane, configure the settings for your bastion host. The **Project details** values are populated from your virtual network values.
 
-    Under **Instance details**, configure these values:
-
-   :::image type="content" source="./media/private-only-deployment/instance-values.png" alt-text="Screenshot of Azure Bastion instance details." lightbox="./media/private-only-deployment/instance-values.png":::
+   Under **Instance details**, configure these values:
 
    * **Name**: The name that you want to use for your Bastion resource.
 

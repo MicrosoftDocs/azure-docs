@@ -3,7 +3,7 @@ title: 'Troubleshoot Azure Site-to-Site VPN disconnects intermittently'
 description: Learn how to troubleshoot the problem in which the Site-to-Site VPN connection disconnected regularly. 
 titleSuffix: Azure VPN Gateway
 author: chadmath
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: troubleshooting
 ms.date: 02/13/2023
 ms.author: genli
@@ -22,7 +22,7 @@ You might experience the problem that a new or existing Microsoft Azure Site-to-
 Check the type of Azure  virtual network gateway:
 
 1. Go to [Azure portal](https://portal.azure.com).
-2. Check the **Overview** page of the virtual network gateway for the type information.
+2. Check the **Overview** page of the virtual network gateway to verify the **Type**. Example: Route-based.
     
     ![The overview of the gateway](media/vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently/gatewayoverview.png)
 

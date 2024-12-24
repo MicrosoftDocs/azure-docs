@@ -3,8 +3,8 @@ title: Create a Logz.io resource
 description: Quickstart article that describes how to create a Logz.io resource in Azure.
 ms.topic: conceptual
 ms.date: 10/25/2021
-author: flang-msft
-ms.author: franlanglois
+
+
 ms.custom: references_regions
 ---
 
@@ -61,7 +61,7 @@ There are two types of logs that can be sent from Azure to Logz.io:
 
 Subscription level logs can be sent to Logz.io by checking the box titled **Send subscription level logs**. If this box isn't checked, none of the subscription level logs are sent to Logz.io.
 
-Azure resource logs can be sent to Logz.io by checking the box titled **Send Azure resource logs for all defined resources**. The types of Azure resource logs are listed in [Azure Monitor Resource Log categories](../../azure-monitor/essentials/resource-logs-categories.md). To filter the specific set of Azure resources sending logs to Logz.io, you can use Azure resource tags.
+Azure resource logs can be sent to Logz.io by checking the box titled **Send Azure resource logs for all defined resources**. The types of Azure resource logs are listed in [Azure Monitor Resource Log categories](/azure/azure-monitor/essentials/resource-logs-categories). To filter the specific set of Azure resources sending logs to Logz.io, you can use Azure resource tags.
 
 Tag rules for sending logs are as follows:
 

@@ -11,7 +11,7 @@ ms.custom: template-how-to
 
 # Use Azure Policy to secure your Nexus resources
 
-In this article, you'll learn how to use Azure Policy to secure and validate the compliance status of your Nexus resources.
+In this article, you can learn how to use Azure Policy to secure and validate the compliance status of your Nexus resources.
 
 ## Before you begin
 
@@ -22,12 +22,12 @@ If you're new to Azure Policy, here are some helpful resources that you can use 
 
 ##### Understanding Policy Definitions and Assignments
 
-- **Policy Definitions**: These are the rules that your resources need to comply with. They can be built-in or custom.
+- **Policy Definitions**: The rules that your resources need to comply with. They can be built-in or custom.
 - **Assignments**: The process of applying a policy definition to your resources.
 
 ##### Steps for security enforcement
 
-1. **Explore built-in policies**: Review built-in policies relevant to Nexus Bare Metal Machine (BMM) resources.
+1. **Explore built-in policies**: Review built-in policies relevant to Nexus Bare Metal Machine (BMM) and Compute Cluster resources.
 2. **Customize policies**: Customize policies to address specific needs of your resources.
 3. **Policy assignment**: Assign policies through the Azure portal, ensuring correct scope.
 4. **Monitoring and compliance**: Regularly monitor policy compliance using Azure tools.
@@ -59,31 +59,29 @@ If you're new to Azure Policy, here are some helpful resources that you can use 
 
 ## Use Azure Policy to secure your Nexus BMM resources
 
-The Operator Nexus service offers a built-in policy definition that is recommended to be assigned to your Nexus BMM resources. This policy definition is called **[Preview]: Nexus compute machines should meet security baseline**. This policy definition is used to ensure that your Nexus BMM resources are configured with industry best practice security settings.
+The Operator Nexus service offers a built-in policy definition that is recommended to assign to your Nexus BMM resources. This policy definition is called **[Preview]: Nexus compute machines should meet security baseline**. This policy definition is used to ensure that your Nexus BMM resources are configured with industry best practice security settings.
 
 - [[Preview]: Nexus compute machines should meet security baseline](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fec2c1bce-5ad3-4b07-bb4f-e041410cd8db)
 
-## Use Azure Policy to secure your Nexus Kubernetes cluster
+## Use Azure Policy to secure your Nexus Kubernetes Compute Cluster resources
 
-Operator Nexus Arc-connected Nexus Kubernetes do not yet have built-in policy definitions available. However, you can create custom policy definitions to meet your organization's security and compliance requirements or utilize built-in policy definitions for AKS clusters.
+The Operator Nexus service offers a built-in initiative definition that is recommended to assign to your Nexus Kubernetes Compute Cluster resources. This initiative definition is called **[Preview]: Nexus compute cluster should meet security baseline**. This initiative definition is used to ensure that your Nexus Kubernetes Compute Cluster resources are configured with industry best practice security settings.
 
-- [Understand Azure Policy for Kubernetes clusters](../governance/policy/concepts/policy-for-kubernetes.md)
-- [Azure Policy Built-in definitions for AKS](../aks/policy-reference.md)
+- [[Preview]: Nexus compute cluster should meet security baseline](https://portal.azure.com/#blade/Microsoft_Azure_Policy/InitiativeDetail.ReactView/id/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2F336cb876-5cb8-4795-b9d1-bd9323d3487e)
 
-### Customizing Policies for Nexus Kubernetes cluster
+### Customizing Policies
 
-- Customize policies considering the unique aspects of Nexus Kubernetes clusters, such as network configurations and container security.
+- Customize policies considering the unique aspects of the specific resources.
 - Refer to [Custom policy definitions](../governance/policy/tutorials/create-custom-policy-definition.md) for guidance.
 
 ## Apply and validate Policies for Nexus resources
 
-Whether you are securing Nexus BMM resources or Nexus Kubernetes clusters, the process of applying and validating policies is similar. Here's a generalized approach:
+Whether you're securing Nexus BMM resources or Nexus Kubernetes Compute Clusters, the process of applying and validating policies is similar. Here's a generalized approach:
 
 1. **Identify Suitable Policies**:
 
    - For Nexus Bare Metal Machine resources, consider the recommended **[Preview]: Nexus compute machines should meet security baseline** policy.
-   - For Nexus Kubernetes clusters, explore [built-in AKS policies](../aks/policy-reference.md) or create custom policy definitions to meet specific security and compliance needs.
-   - Review [Azure Policy Built-in definitions](../governance/policy/samples/built-in-policies.md) and [Azure Policy for Kubernetes clusters](../governance/policy/concepts/policy-for-kubernetes.md) for more insights.
+   - For Nexus Kubernetes Compute Clusters, consider the recommended **[Preview]: Nexus compute cluster should meet security baseline** initiative.
 
 2. **Assign Policies**:
 

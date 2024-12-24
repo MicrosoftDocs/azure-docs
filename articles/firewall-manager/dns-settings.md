@@ -3,7 +3,7 @@ title: Azure Firewall policy DNS settings
 description: You can configure Azure Firewall policies with  DNS server and DNS proxy settings.
 services: firewall-manager
 author: vhorne
-ms.service: firewall-manager
+ms.service: azure-firewall-manager
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 06/21/2024
@@ -111,8 +111,6 @@ To configure DNS proxy, you must configure your virtual network DNS servers sett
 3. By default, **DNS Proxy** is disabled. When this setting is enabled, the firewall listens on port 53 and forwards DNS requests to the configured DNS servers.
 4. Review the **DNS servers** configuration to make sure that the settings are appropriate for your environment.
 5. Select **Save**.
-
-:::image type="content" source="../firewall/media/dns-settings/dns-proxy.png" alt-text="Screenshot showing settings for the DNS proxy.":::
 
 #### [CLI](#tab/azure-devops-cli)
 

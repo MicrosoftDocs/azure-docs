@@ -3,7 +3,7 @@ title: Subscribe to Grafana Enterprise
 description:  Activate Grafana Enterprise to access Grafana Enterprise plugins within Azure Managed Grafana
 author: maud-lv
 ms.author: malev
-ms.service: managed-grafana
+ms.service: azure-managed-grafana
 ms.topic: how-to 
 ms.date: 03/22/2024
 ---

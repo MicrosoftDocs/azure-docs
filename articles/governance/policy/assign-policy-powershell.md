@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Create policy assignment using Azure PowerShell"
 description: In this quickstart, you create an Azure Policy assignment to identify non-compliant resources using Azure PowerShell.
-ms.date: 02/26/2024
+ms.date: 08/28/2024
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell
 ---
@@ -59,7 +59,7 @@ Run the following commands and replace `<resourceGroupName>` with your resource 
 $rg = Get-AzResourceGroup -Name '<resourceGroupName>'
 
 $definition = Get-AzPolicyDefinition |
-  Where-Object { $_.Properties.DisplayName -eq 'Audit VMs that do not use managed disks' }
+  Where-Object { $_.DisplayName -eq 'Audit VMs that do not use managed disks' }
 ```
 
 The `$rg` variable stores properties for the resource group and the `$definition` variable stores the policy definition's properties. The properties are used in subsequent commands.

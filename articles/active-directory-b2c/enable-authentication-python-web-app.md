@@ -5,12 +5,12 @@ titleSuffix: Azure AD B2C
 
 author: kengaderdus
 manager: CelesteDG
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.custom: devx-track-python
 ms.topic: how-to
 ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 #Customer intent: As a Python web application developer, I want to enable Azure Active Directory B2C authentication in my application, so that users can sign in, sign out, update their profile, and reset their password using Azure AD B2C user flows.
 ---
 

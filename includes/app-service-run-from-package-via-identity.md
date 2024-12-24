@@ -1,7 +1,7 @@
 ---
 author: mattchenderson
 ms.author: mahender
-ms.service: app-service
+ms.service: azure-app-service
 ms.subservice: web-apps
 ms.topic: include
 ms.date: 06/28/2024

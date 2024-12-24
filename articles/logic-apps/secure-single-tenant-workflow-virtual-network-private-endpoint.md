@@ -1,12 +1,13 @@
 ---
 title: Secure traffic between Standard workflows and virtual networks
 description: Secure traffic between Standard logic app workflows and virtual networks in Azure using private endpoints.
-services: logic-apps
+services: azure-logic-apps
+ms.service: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.custom: engagement-fy23
-ms.date: 01/10/2024
+ms.date: 08/09/2024
 # Customer intent: As a developer, I want to connect to my Standard logic app workflows with virtual networks using private endpoints and virtual network integration.
 ---
 
@@ -29,13 +30,15 @@ For more information, review the following documentation:
 
 ## Prerequisites
 
-You need to have a new or existing Azure virtual network that includes a subnet without any delegations. This subnet is used to deploy and allocate private IP addresses from the virtual network.
+- A new or existing Azure virtual network that includes a subnet without any delegations. This subnet is used to deploy and allocate private IP addresses from the virtual network.
 
-For more information, review the following documentation:
+  For more information, review the following documentation:
 
-- [Quickstart: Create a virtual network using the Azure portal](../virtual-network/quick-create-portal.md)
-- [What is subnet delegation?](../virtual-network/subnet-delegation-overview.md)
-- [Add or remove a subnet delegation](../virtual-network/manage-subnet-delegation.md)
+  - [Quickstart: Create a virtual network using the Azure portal](../virtual-network/quick-create-portal.md)
+  - [What is subnet delegation?](../virtual-network/subnet-delegation-overview.md)
+  - [Add or remove a subnet delegation](../virtual-network/manage-subnet-delegation.md)
+
+[!INCLUDE [api-test-http-request-tools-bullet](../../includes/api-test-http-request-tools-bullet.md)]
 
 <a name="set-up-inbound"></a>
 
@@ -43,7 +46,7 @@ For more information, review the following documentation:
 
 To secure inbound traffic to your workflow, complete these high-level steps:
 
-1. Start your workflow with a built-in trigger that can receive and handle inbound requests, such as the Request trigger or the HTTP + Webhook trigger. This trigger sets up your workflow with a callable endpoint.
+1. Start your workflow with a built-in trigger that can receive and handle inbound requests, such as the **Request** trigger or the **HTTP + Webhook** trigger. This trigger sets up your workflow with a callable endpoint.
 
 1. Add a private endpoint for your logic app resource to your virtual network.
 
@@ -67,7 +70,7 @@ To secure inbound traffic to your workflow, complete these high-level steps:
 
 Along with the [virtual network setup in the top-level prerequisites](#prerequisites), you need to have a new or existing Standard logic app workflow that starts with a built-in trigger that can receive requests.
 
-For example, the Request trigger creates an endpoint on your workflow that can receive and handle inbound requests from other callers, including workflows. This endpoint provides a URL that you can use to call and trigger the workflow. For this example, the steps continue with the Request trigger.
+For example, the **Request** trigger creates an endpoint on your workflow that can receive and handle inbound requests from other callers, including workflows. This endpoint provides a URL that you can use to call and trigger the workflow. For this example, the steps continue with the **Request** trigger.
 
 For more information, review [Receive and respond to inbound HTTP requests using Azure Logic Apps](../connectors/connectors-native-reqres.md).
 
@@ -75,7 +78,7 @@ For more information, review [Receive and respond to inbound HTTP requests using
 
 1. If you haven't already, create a single-tenant based logic app, and a blank workflow.
 
-1. After the designer opens, add the Request trigger as the first step in your workflow.
+1. After the designer opens, add the **Request** trigger as the first step in your workflow.
 
 1. Based on your scenario requirements, add other actions that you want to run in your workflow.
 
@@ -89,9 +92,7 @@ For more information, review [Create single-tenant logic app workflows in Azure 
 
 1. On the **Overview** page, copy and save the **Workflow URL** for later use.
 
-   To trigger the workflow, you call or send a request to this URL.
-
-1. Make sure that the URL works by calling or sending a request to the URL. You can use any local tool or app that you want for creating and sending HTTP requests, such as [Insomnia](https://insomnia.rest/) or [Bruno](https://www.usebruno.com/).
+1. To test the URL and trigger the workflow, send an HTTP request to the URL by using your HTTP request tool and its instructions.
 
 ### Set up private endpoint connection
 
@@ -144,7 +145,7 @@ For more information, review the following documentation:
 
 1. If you haven't already, in the [Azure portal](https://portal.azure.com), create a single-tenant based logic app, and a blank workflow.
 
-1. After the designer opens, add the Request trigger as the first step in your workflow.
+1. After the designer opens, add the **Request** trigger as the first step in your workflow.
 
 1. Add an HTTP action to call an internal service that's unavailable through the Internet and runs with a private IP address such as `10.0.1.3`.
 
@@ -153,6 +154,8 @@ For more information, review the following documentation:
 1. From the designer, manually run the workflow.
 
    The HTTP action fails, which is by design and expected because the workflow runs in the cloud and can't access your internal service.
+
+<a name="set-up-virtual-network-integration"></a>
 
 ### Set up virtual network integration
 

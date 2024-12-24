@@ -3,7 +3,7 @@ title: Authenticate with X.509 certificates
 titleSuffix: Azure IoT Hub
 description: Understand how Azure IoT Hub uses X.509 certificates to authenticate IoT hubs and devices. 
 author: kgremban
-ms.service: iot-hub
+ms.service: azure-iot-hub
 services: iot-hub
 ms.author: kgremban
 ms.topic: conceptual
@@ -13,7 +13,7 @@ ms.custom: ['Role: Cloud Development', 'Role: IoT Device', 'Role: System Archite
 
 # Authenticate identities with X.509 certificates
 
-IoT Hub uses X.509 certificates to authenticate devices. X.509 authentication allows authentication of an IoT device at the physical layer as part of the Transport Layer Security (TLS) standard connection establishment. 
+IoT Hub uses X.509 certificates to authenticate devices. X.509 authentication allows authentication of an IoT device as part of the Transport Layer Security (TLS) standard connection establishment. 
 
 An X.509 CA certificate is a digital certificate that can sign other certificates. A digital certificate is considered an X.509 certificate if it conforms to the certificate formatting standard prescribed by IETF's RFC 5280 standard. A certificate authority (CA) means that its holder can sign other certificates.
 

@@ -5,7 +5,7 @@ author: XiaoyuMSFT
 ms.author: xiaoyul
 ms.reviewer: nibruno; wiassaf
 ms.date: 03/01/2023
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql
 ms.topic: conceptual
 ---
@@ -125,7 +125,7 @@ SELECT C, SUM(D)
 FROM T
 GROUP BY C
 
--- You could create a single mateiralized view of this form
+-- You could create a single materialized view of this form
 SELECT A, C, SUM(B), SUM(D)
 FROM T
 GROUP BY A, C

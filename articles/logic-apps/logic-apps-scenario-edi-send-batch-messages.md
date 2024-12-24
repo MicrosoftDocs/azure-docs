@@ -29,8 +29,6 @@ Make sure that your batch receiver and batch sender logic app workflows use the 
 
 ## Prerequisites
 
-To follow this example, you need these items:
-
 * An Azure subscription. If you don't have a subscription, you can [start with a free Azure account](https://azure.microsoft.com/free/).
 
 * Basic knowledge about how to create logic app workflows. For more information, see [Create an example Consumption logic app workflow in multitenant Azure Logic Apps](quickstart-create-example-consumption-workflow.md).
@@ -41,7 +39,7 @@ To follow this example, you need these items:
 
 * An existing [X12 agreement](logic-apps-enterprise-integration-x12.md) in your integration account.
 
-* To use Visual Studio rather than the Azure portal, make sure you [set up Visual Studio for working with Azure Logic Apps](quickstart-create-logic-apps-with-visual-studio.md).
+[!INCLUDE [api-test-http-request-tools-bullet](../../includes/api-test-http-request-tools-bullet.md)]
 
 <a name="receiver"></a>
 
@@ -51,7 +49,7 @@ Before you can send messages to a batch, that batch must first exist as the dest
 
 For this batch receiver, you specify the batch mode, name, release criteria, X12 agreement, and other settings. 
 
-1. In the [Azure portal](https://portal.azure.com), Visual Studio, or Visual Studio Code, create a logic app with the following name: **BatchX12Messages**
+1. In the [Azure portal](https://portal.azure.com) or Visual Studio Code, create a logic app with the following name: **BatchX12Messages**
 
 1. [Link your logic app to your integration account](logic-apps-enterprise-integration-create-integration-account.md#link-account).
 
@@ -103,7 +101,7 @@ For this batch receiver, you specify the batch mode, name, release criteria, X12
 
 1. Save your logic app workflow.
 
-1. If you're using Visual Studio, make sure that you [deploy your batch receiver logic app to Azure](quickstart-create-logic-apps-with-visual-studio.md#deploy-logic-app-to-azure). Otherwise, you can't select the batch receiver when you create the batch sender.
+1. If you're using Visual Studio Code, make sure that you [deploy your batch receiver logic app to Azure](/azure/logic-apps/quickstart-create-logic-apps-visual-studio-code). Otherwise, you can't select the batch receiver when you create the batch sender.
 
 ### Test your workflow
 
@@ -166,7 +164,7 @@ the batch into subsets to collect messages with that key.
 
 ## Test your workflows
 
-To test your batching solution, post X12 messages to your batch sender logic app from a local tool or app that can send HTTP requests, such as [Insomnia](https://insomnia.rest/) or [Bruno](https://www.usebruno.com/). Soon, you start getting X12 messages in your request bin, either every 10 minutes or in batches of 10, all with the same partition key.
+To test your batching solution, post X12 messages to your batch sender logic app workflow using your HTTP request tool and its instructions. Soon, you start getting X12 messages in your request bin, either every 10 minutes or in batches of 10, all with the same partition key.
 
 ## Next steps
 

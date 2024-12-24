@@ -3,9 +3,9 @@ title: 'Quickstart: Deploy Azure Bastion automatically - Basic SKU'
 titleSuffix: Azure Bastion
 description: Learn how to deploy Azure Bastion with default settings from the Azure portal.
 author: cherylmc
-ms.service: bastion
+ms.service: azure-bastion
 ms.topic: quickstart
-ms.date: 04/25/2024
+ms.date: 12/09/2024
 ms.author: cherylmc
 
 ---
@@ -34,7 +34,7 @@ To complete this quickstart, you need these resources:
 * An Azure subscription. If you don't already have one, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) or sign up for a [free account](https://azure.microsoft.com/pricing/free-trial).
 * A VM in a virtual network. When you deploy Bastion by using default values, the values are pulled from the virtual network in which your VM resides. This VM doesn't become a part of the Bastion deployment itself, but you connect to it later in the exercise.
 
-  * If you don't already have a VM in a virtual network, create a VM by using [Quickstart: Create a Windows VM](../virtual-machines/windows/quick-create-portal.md) or [Quickstart: Create a Linux VM](../virtual-machines/linux/quick-create-portal.md).
+  * If you don't already have a VM in a virtual network, create a VM by using [Quickstart: Create a Windows VM](/azure/virtual-machines/windows/quick-create-portal) or [Quickstart: Create a Linux VM](/azure/virtual-machines/linux/quick-create-portal).
   * If you don't have a virtual network, you can create one at the same time that you create your VM. If you already have a virtual network, make sure that it's selected on the **Networking** tab when you create your VM.  
 
 * Required VM roles:
@@ -98,8 +98,8 @@ When the Bastion deployment is complete, the screen changes to the **Connect** p
 
     :::image type="content" source="./media/quickstart-host-portal/connected.png" alt-text="Screenshot that shows an RDP connection to a virtual machine." lightbox="./media/quickstart-host-portal/connected.png":::
 
-    > [!NOTE]
-    > When you connect, the desktop of the VM might look different from the example screenshot.
+   > [!NOTE]
+   > When you connect, the desktop of the VM might look different from the example screenshot.
 
 Using keyboard shortcut keys while you're connected to a VM might not result in the same behavior as shortcut keys on a local computer. For example, when you're connected to a Windows VM from a Windows client, Ctrl+Alt+End is the keyboard shortcut for Ctrl+Alt+Delete on a local computer. To do this from a Mac while you're connected to a Windows VM, the keyboard shortcut is Fn+Ctrl+Alt+Backspace.
 

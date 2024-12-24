@@ -4,7 +4,7 @@ description: How to enable CORS policies in Azure API Management and Power Platf
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 03/24/2023
 ms.author: danlep

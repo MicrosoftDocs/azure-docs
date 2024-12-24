@@ -2,7 +2,7 @@
 title: Shared metadata tables
 description: Azure Synapse Analytics provides a shared metadata model where creating a table in serverless Apache Spark pool will make it accessible from serverless SQL pool and dedicated SQL pool without duplicating the data. 
 services: sql-data-warehouse 
-ms.service:  synapse-analytics 
+ms.service: azure-synapse-analytics
 ms.topic: overview 
 ms.subservice: metadata
 ms.date: 10/13/2021
@@ -27,7 +27,7 @@ Since the tables are synchronized to serverless SQL pool asynchronously, there w
 
 Use Spark to manage Spark created databases. For example, delete it through a serverless Apache Spark pool job, and create tables in it from Spark.
 
-Objects in synchronized databases cannot be modified from serverless SQL pool.
+Objects in synchronized databases can't be modified from serverless SQL pool.
 
 ## Expose a Spark table in SQL
 
@@ -43,7 +43,7 @@ Spark provides two types of tables that Azure Synapse exposes in SQL automatical
 
   Spark also provides ways to create external tables over existing data, either by providing the `LOCATION` option or using the Hive format. Such external tables can be over a variety of data formats, including Parquet.
 
-Azure Synapse currently only shares managed and external Spark tables that store their data in Parquet, DELTA, or CSV format with the SQL engines. Tables backed by other formats are not automatically synced. You may be able to sync such tables explicitly yourself as an external table in your own SQL database if the SQL engine supports the table's underlying format.
+Azure Synapse currently only shares managed and external Spark tables that store their data in Parquet, DELTA, or CSV format with the SQL engines. Tables backed by other formats aren't automatically synced. You can sync such tables explicitly yourself as an external table in your own SQL database if the SQL engine supports the table's underlying format.
 
 > [!NOTE] 
 > Currently, only Parquet and CSV formats are fully supported in serverless SQL pool. Spark Delta tables are also available in the serverless SQL pool, but this feature is in **public preview**. External tables created in Spark are not available in dedicated SQL pool databases.
@@ -65,16 +65,16 @@ Spark tables provide different data types than the Synapse SQL engines. The foll
 | `LongType`, `long`, `bigint`                | `bigint`              | **Spark**: *LongType* represents 8-byte signed integer numbers.<BR>**SQL**: See [int, bigint, smallint, and tinyint](/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql).|
 | `BooleanType`, `boolean`                    | `bit` (Parquet), `varchar(6)` (CSV)  | **Spark**: Boolean.<BR>**SQL**: See [/sql/t-sql/data-types/bit-transact-sql).|
 | `DecimalType`, `decimal`, `dec`, `numeric`  | `decimal`             | **Spark**: *DecimalType* represents arbitrary-precision signed decimal numbers. Backed internally by java.math.BigDecimal. A BigDecimal consists of an arbitrary precision integer unscaled value and a 32-bit integer scale. <br> **SQL**: Fixed precision and scale numbers. When maximum precision is used, valid values are from - 10^38 +1 through 10^38 - 1. The ISO synonyms for decimal are dec and dec(p, s). numeric is functionally identical to decimal. See [decimal and numeric](/sql/t-sql/data-types/decimal-and-numeric-transact-sql). |
-| `IntegerType`, `Integer`, `int`             | `int`                 | **Spark** *IntegerType* represents 4-byte signed integer numbers. <BR>**SQL**: See [int, bigint, smallint, and tinyint](/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql).|
-| `ByteType`, `Byte`, `tinyint`               | `smallint`            | **Spark**: *ByteType* represents 1-byte signed integer numbers [-128 to 127] and ShortType represents 2-byte signed integer numbers [-32768 to 32767]. <br> **SQL**: Tinyint represents 1-byte signed integer numbers [0, 255] and smallint represents 2-byte signed integer numbers [-32768, 32767]. See [int, bigint, smallint, and tinyint](/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql).|
+| `IntegerType`, `Integer`, `int`             | `int`                 | **Spark** *IntegerType* represents 4 byte signed integer numbers. <BR>**SQL**: See [int, bigint, smallint, and tinyint](/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql).|
+| `ByteType`, `Byte`, `tinyint`               | `smallint`            | **Spark**: *ByteType* represents 1 byte signed integer numbers [-128 to 127] and ShortType represents 2 byte signed integer numbers [-32768 to 32767]. <br> **SQL**: Tinyint represents 1 byte signed integer numbers [0, 255] and smallint represents 2 byte signed integer numbers [-32768, 32767]. See [int, bigint, smallint, and tinyint](/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql).|
 | `ShortType`, `Short`, `smallint`            | `smallint`            | Same as above. |
 | `DoubleType`, `Double`                      | `float`               | **Spark**: *DoubleType* represents 8-byte double-precision floating point numbers. **SQL**: See [float and real](/sql/t-sql/data-types/float-and-real-transact-sql).|
 | `FloatType`, `float`, `real`                | `real`                | **Spark**: *FloatType* represents 4-byte double-precision floating point numbers. **SQL**: See [float and real](/sql/t-sql/data-types/float-and-real-transact-sql).|
-| `DateType`, `date`                          | `date`                | **Spark**: *DateType* represents values comprising values of fields year, month and day, without a time-zone.<BR>**SQL**: See [date](/sql/t-sql/data-types/date-transact-sql).|
+| `DateType`, `date`                          | `date`                | **Spark**: *DateType* represents values comprising values of fields year, month, and day, without a time-zone.<BR>**SQL**: See [date](/sql/t-sql/data-types/date-transact-sql).|
 | `TimestampType`, `timestamp`                | `datetime2`           | **Spark**: *TimestampType* represents values comprising values of fields year, month, day, hour, minute, and second, with the session local time-zone. The timestamp value represents an absolute point in time.<BR>**SQL**: See [datetime2](/sql/t-sql/data-types/datetime2-transact-sql). |
 | `char`                                      | `char`                |
-| `StringType`, `String`, `varchar`           | `Varchar(n)`          | **Spark**: *StringType* represents character string values. *VarcharType(n)* is a variant of StringType which has a length limitation. Data writing will fail if the input string exceeds the length limitation. This type can only be used in table schema, not functions/operators.<br> *CharType(n)* is a variant of *VarcharType(n)* which is fixed length. Reading column of type *CharType(n)* always returns string values of length n. *CharType(n)* column comparison will pad the short one to the longer length. <br> **SQL**: If there's a length provided from Spark, n in *varchar(n)* will be set to that length. If it is partitioned column, n can be max 2048. Otherwise, it will be *varchar(max)*. See [char and varchar](/sql/t-sql/data-types/char-and-varchar-transact-sql).<br> Use it with collation `Latin1_General_100_BIN2_UTF8`. |
-| `BinaryType`, `binary`                      | `varbinary(n)`        | **SQL**: If there's a length provided from Spark, `n` in *Varbinary(n)* will be set to that length. If it is partitioned column, n can be max 2048. Otherwise, it will be *Varbinary(max)*.  See [binary and varbinary](/sql/t-sql/data-types/binary-and-varbinary-transact-sql).|
+| `StringType`, `String`, `varchar`           | `Varchar(n)`          | **Spark**: *StringType* represents character string values. *VarcharType(n)* is a variant of StringType which has a length limitation. Data writing will fail if the input string exceeds the length limitation. This type can only be used in table schema, not functions/operators.<br> *CharType(n)* is a variant of *VarcharType(n)* which is fixed length. Reading column of type *CharType(n)* always returns string values of length n. *CharType(n)* column comparison will pad the short one to the longer length. <br> **SQL**: If there's a length provided from Spark, n in *varchar(n)* will be set to that length. If it's partitioned column, n can be max 2048. Otherwise, it will be *varchar(max)*. See [char and varchar](/sql/t-sql/data-types/char-and-varchar-transact-sql).<br> Use it with collation `Latin1_General_100_BIN2_UTF8`. |
+| `BinaryType`, `binary`                      | `varbinary(n)`        | **SQL**: If there's a length provided from Spark, `n` in *Varbinary(n)* will be set to that length. If it's partitioned column, n can be max 2048. Otherwise, it will be *Varbinary(max)*.  See [binary and varbinary](/sql/t-sql/data-types/binary-and-varbinary-transact-sql).|
 | `array`, `map`, `struct`                    | `varchar(max)`        | **SQL**: Serializes into JSON with collation `Latin1_General_100_BIN2_UTF8`. See [JSON Data](/sql/relational-databases/json/json-data-sql-server).|
 
 >[!NOTE]
@@ -82,7 +82,7 @@ Spark tables provide different data types than the Synapse SQL engines. The foll
 
 ## Security model
 
-The Spark databases and tables, as well as their synchronized representations in the SQL engine will be secured at the underlying storage level. Since they do not currently have permissions on the objects themselves, the objects can be seen in the object explorer.
+The Spark databases and tables, and their synchronized representations in the SQL engine will be secured at the underlying storage level. Since they don't currently have permissions on the objects themselves, the objects can be seen in the object explorer.
 
 The security principal who creates a managed table is considered the owner of that table and has all the rights to the table as well as the underlying folders and files. In addition, the owner of the database will automatically become co-owner of the table.
 
@@ -140,7 +140,7 @@ df.Write().Mode(SaveMode.Append).InsertInto("mytestdb.myparquettable");
 Now you can read the data from your serverless SQL pool as follows:
 
 ```sql
-SELECT * FROM mytestdb.dbo.myparquettable WHERE name = 'Alice';
+SELECT * FROM mytestdb.myparquettable WHERE name = 'Alice';
 ```
 
 You should get the following row as result:
@@ -153,7 +153,7 @@ id | name | birthdate
 
 ### Create an external table in Spark and query from serverless SQL pool
 
-In this example, we will create an external Spark table over the Parquet data files that got created in the previous example for the managed table.
+In this example, we'll create an external Spark table over the Parquet data files that got created in the previous example for the managed table.
 
 For example, with SparkSQL run:
 
@@ -163,7 +163,7 @@ CREATE TABLE mytestdb.myexternalparquettable
     LOCATION "abfss://<storage-name>.dfs.core.windows.net/<fs>/synapse/workspaces/<synapse_ws>/warehouse/mytestdb.db/myparquettable/"
 ```
 
-Replace the placeholder `<storage-name>` with the ADLS Gen2 storage account name that you are using, `<fs>` with the file system name you're using and the placeholder `<synapse_ws>` with the name of the Azure Synapse workspace you're using to run this example.
+Replace the placeholder `<storage-name>` with the ADLS Gen2 storage account name that you're using, `<fs>` with the file system name you're using and the placeholder `<synapse_ws>` with the name of the Azure Synapse workspace you're using to run this example.
 
 The previous example creates the table `myextneralparquettable` in the database `mytestdb`. After a short delay, you can see the table in your serverless SQL pool. For example, run the following statement from your serverless SQL pool.
 

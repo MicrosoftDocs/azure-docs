@@ -4,7 +4,7 @@ titleSuffix: Azure NAT Gateway
 description: Learn how to configure outbound connectivity for a dual stack network with a NAT gateway and a public load balancer.
 author: asudbring
 ms.author: allensu
-ms.service: nat-gateway
+ms.service: azure-nat-gateway
 ms.topic: tutorial
 ms.date: 07/13/2023
 ms.custom: template-tutorial, devx-track-azurecli, linux-related-content
@@ -511,13 +511,13 @@ Before you can validate outbound connectivity, make not of the IPv4, and IPv6 pu
 
 1. Select **public-ip-nat**.
 
-1. Make note of the address in **IP address**. In this example, it's **20.230.191.5**.
+1. Make note of the address in **IP address**. In this example, it's **203.0.113.5**.
 
 1. Return to **Public IP addresses**.
 
 1. Select **public-ip-ipv6**.
 
-1. Make note of the address in **IP address**. In this example, it's **2603:1030:c02:8::14**.
+1. Make note of the address in **IP address**. In this example, it's **2001:DB8::14**.
 
 
 # [**CLI**](#tab/dual-stack-outbound-cli)
@@ -540,7 +540,7 @@ azureuser@Azure:~$ az network public-ip show \
     --name public-ip-nat \
     --query ipAddress \
     --output tsv
-40.90.217.214
+203.0.113.5
 ```
 
 ### IPv6
@@ -559,7 +559,7 @@ azureuser@Azure:~$ az network public-ip show \
     --name public-ip-ipv6 \
     --query ipAddress \
     --output tsv
-2603:1030:c04:3::4d
+2001:DB8::14
 ```
 
 ---
@@ -590,7 +590,7 @@ Make note of both IP addresses. Use the IPs to verify the outbound connectivity 
 
     ```output
     azureuser@vm-1:~$ curl -4 icanhazip.com
-    20.230.191.5
+    203.0.113.5
     ```
 
 1. At the command line, enter the following command to verify the IPv4 address.
@@ -601,7 +601,7 @@ Make note of both IP addresses. Use the IPs to verify the outbound connectivity 
 
     ```output
     azureuser@vm-1:~$ curl -6 icanhazip.com
-    2603:1030:c02:8::14
+    2001:DB8::14
     ```
 
 1. Close the bastion connection to **vm-1**.
@@ -628,7 +628,7 @@ Make note of both IP addresses. Use the IPs to verify the outbound connectivity 
 
     ```output
     azureuser@vm-1:~$ curl -4 icanhazip.com
-    40.90.217.214
+    203.0.113.5
     ```
 
 1. At the command line, enter the following command to verify the IPv4 address.
@@ -639,7 +639,7 @@ Make note of both IP addresses. Use the IPs to verify the outbound connectivity 
 
     ```output
     azureuser@vm-1:~$ curl -6 icanhazip.com
-    2603:1030:c04:3::4d
+    2001:DB8::14
     ```
 
 1. Close the bastion connection to **vm-1**.

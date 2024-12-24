@@ -2,7 +2,7 @@
 title: 'Quickstart: Deploy Azure API for FHIR using an ARM template'
 description: In this quickstart, learn how to deploy Azure API for Fast Healthcare Interoperability Resources (FHIR®), by using an Azure Resource Manager template (ARM template).
 author: expekesheth
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurepowershell, mode-api, devx-track-arm-template
@@ -12,13 +12,13 @@ ms.date: 09/27/2023
 
 # Quickstart: Use an ARM template to deploy Azure API for FHIR
 
-[!INCLUDE [retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
+[!INCLUDE[retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
 
-In this quickstart, you'll learn how to use an Azure Resource Manager template (ARM template) to deploy Azure API for Fast Healthcare Interoperability Resources (FHIR®). You can deploy Azure API for FHIR through the Azure portal, PowerShell, or CLI.
+In this quickstart, you learn how to use an Azure Resource Manager template (ARM template) to deploy Azure API for Fast Healthcare Interoperability Resources (FHIR®). You can deploy Azure API for FHIR through the Azure portal, PowerShell, or CLI.
 
-[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE[About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
-If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal once you sign in.
+If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template opens in the Azure portal once you sign in.
 
 :::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.healthcareapis%2fazure-api-for-fhir%2fazuredeploy.json":::
 
@@ -48,7 +48,7 @@ The template used in this quickstart is from [Azure Quickstart Templates](https:
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.healthcareapis/azure-api-for-fhir/azuredeploy.json":::
 
-The template defines one Azure resource:
+The template defines one Azure resource.
 
 * **Microsoft.HealthcareApis/services**
 
@@ -57,6 +57,8 @@ The template defines one Azure resource:
 Replace the line above with the following line once https://learn.microsoft.com/azure/templates/microsoft.healthcareapis/services goes live:
 
 * [**Microsoft.HealthcareApis/services**](/azure/templates/microsoft.healthcareapis/services)
+
+This file does not exist. I am leaving this note here, but anticipate no changes in this matter before Azure API for FHIR retires.
 
 -->
 
@@ -139,7 +141,7 @@ read -p "Press [ENTER] to continue: "
 ---
 
 > [!NOTE]
-> The deployment takes a few minutes to complete. Note the names for the Azure API for FHIR service and the resource group, which you use to review the deployed resources later.
+> The deployment takes a few minutes to complete. Note the names for the Azure API for FHIR service and the resource group, for use in reviewing deployed resources.
 
 ## Review deployed resources
 
@@ -151,11 +153,11 @@ Follow these steps to see an overview of your new Azure API for FHIR service:
 
 2. In the FHIR list, select your new service. The **Overview** page for the new Azure API for FHIR service appears.
 
-3. To validate that the new FHIR API account is provisioned, select the link next to **FHIR metadata endpoint** to fetch the FHIR API capability statement. The link has a format of `https://<service-name>.azurehealthcareapis.com/metadata`. If the account is provisioned, a large JSON file is displayed.
+3. To validate that the new FHIR API account is provisioned, select the link next to **FHIR metadata endpoint** to fetch the FHIR API capability statement. The link has a format of `https://<service-name>.azurehealthcareapis.com/metadata`. If the account is provisioned, a JSON file is displayed.
 
 # [PowerShell](#tab/PowerShell)
 
-Run the following interactive code to view details about your Azure API for FHIR service. You'll have to enter the name of the new service and the resource group.
+Run the following interactive code to view details about your Azure API for FHIR service. You have to enter the name and resource group of the new service.
 
 ```azurepowershell-interactive
 $serviceName = Read-Host -Prompt "Enter the name of your Azure API for FHIR service"
@@ -172,7 +174,7 @@ Read-Host "Press [ENTER] to continue"
 
 # [CLI](#tab/CLI)
 
-Run the following interactive code to view details about your Azure API for FHIR service. You'll have to enter the name of the new service and the resource group.
+Run the following interactive code to view details about your Azure API for FHIR service. You have to enter the name of the new service and the resource group.
 
 ```azurecli-interactive
 read -p "Enter the name of your Azure API for FHIR service: " serviceName &&
@@ -189,7 +191,7 @@ read -p "Press [ENTER] to continue: "
 
 ## Clean up resources
 
-When it's no longer needed, delete the resource group, which deletes the resources in the resource group.
+When no longer needed, delete the resource group. This deletes the resources in the resource group.
 
 # [Portal](#tab/azure-portal)
 
@@ -225,7 +227,7 @@ For a step-by-step tutorial that guides you through the process of creating an A
 
 ## Next steps
 
-In this quickstart guide, you've deployed the Azure API for FHIR into your subscription. For information about how to register applications and the Azure API for FHIR configuration settings, see
+In this quickstart guide, you've deployed the Azure API for FHIR into your subscription. For information about how to register applications and the Azure API for FHIR configuration settings, see the following.
 
 
 >[!div class="nextstepaction"]
@@ -249,4 +251,4 @@ In this quickstart guide, you've deployed the Azure API for FHIR into your subsc
 >[!div class="nextstepaction"]
 >[Configure Private Link](configure-private-link.md)
 
-FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
+[!INCLUDE [FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]

@@ -56,7 +56,7 @@ On the leftmost pane in your Defender EASM resource pane, under **Manage**, sele
 To successfully create a data connection, you must first ensure that you've completed the required steps to grant Defender EASM permission to the tool of your choice. This process enables the application to ingest your exported data. It also provides the authentication credentials needed to configure the connection.
 
 > [!NOTE] 
-> Defender EASM data connections do not support Log Analytics workspaces that have private link(s) configured. 
+> Defender EASM data connections do not support private links or networks. 
 
 ## Configure Log Analytics permissions
 

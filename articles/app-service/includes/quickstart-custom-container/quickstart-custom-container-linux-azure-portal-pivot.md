@@ -1,6 +1,6 @@
 ---
 author: cephalin
-ms.service: app-service
+ms.service: azure-app-service
 ms.devlang: java
 ms.custom: linux-related-content
 ms.topic: quickstart
@@ -17,7 +17,7 @@ ms.author: cephalin
 To complete this quickstart, you need:
 
 - An [Azure account](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-docker-extension&mktingSource=vscode-tutorial-docker-extension)
-- An [Azure container registry](../../../container-registry/container-registry-get-started-portal.md)
+- An [Azure container registry](/azure/container-registry/container-registry-get-started-portal)
 - [Azure CLI](/cli/azure/install-azure-cli)
 - [Docker](https://www.docker.com/community-edition)
 
@@ -84,7 +84,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Under **App Service Plan**, select **Create new** App Service Plan. Type *myAppServicePlan* for the name. To change to the Free tier, select **Change size**, select the **Dev/Test** tab, select **F1**, and select the **Apply** button at the bottom of the page.
 
-    :::image type="content" source="../../media/quickstart-custom-container/app-service-plan-details-linux.png" alt-text="Screenshot of the Administrator account section where you provide the administrator username and password.":::
+    :::image type="content" source="../../media/quickstart-custom-container/app-service-plan-details-linux.png" alt-text="Screenshot of the App Service plan options.":::
 
 1. Select the **Next: Docker >** button at the bottom of the page.
 
