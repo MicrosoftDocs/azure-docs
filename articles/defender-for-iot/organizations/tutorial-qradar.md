@@ -21,8 +21,6 @@ Integrating with QRadar supports:
 
 - Access to a Defender for IoT OT sensor as an Admin user. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 
-- Access to a Defender for IoT OT on-premises management console as an Admin user. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
-
 - Access to the QRadar Admin area.
 
 ## Configure Syslog listener for QRadar
@@ -87,7 +85,6 @@ When configuring the forwarding rule:
 1. Optionally, select to enable encryption, and then configure encryption, and/or select to manage alerts externally. 
 
 For more information, see [Forward on-premises OT alert information](how-to-forward-alert-information-to-partners.md).
-
 
 ## Map notifications to QRadar
 
