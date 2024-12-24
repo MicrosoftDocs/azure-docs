@@ -291,7 +291,7 @@ To use the `SM-Saml-issuer` session management technical profile, add a referenc
 The `NoopSSOSessionProvider` session provider is used to suppress single sign on behavior. Technical profiles that use this type of session provider will always be processed, even when the user has an active session. This type of session provider can be useful to force particular technical profiles to always run, for example:
 
 - [Claims transformation](claims-transformation-technical-profile.md) - To create, or transform claims that are later used to determine which orchestration steps to process or skip.
-- [Restful](restful-technical-profile.md) - Fetch updated data from a Restful service each time the policy runs. You can also call a Restful for extended logging, and auditing.
+- [RESTful](restful-technical-profile.md) - Fetch updated data from a RESTful service each time the policy runs. You can also call a RESTful for extended logging, and auditing.
 - [Self-asserted](self-asserted-technical-profile.md) - Force the user to provide data each time the policy runs. For example, verify emails with one-time pass-code, or ask the user's consent.
 - [Phonefactor](phone-factor-technical-profile.md) - Force the user to perform multifactor authentication as part of a "step up authentication" even during subsequent logons (single sign-on).
 
