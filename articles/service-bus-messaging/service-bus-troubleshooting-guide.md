@@ -290,9 +290,9 @@ See the following articles:
 [MaxConcurrentSessions]: /dotnet/api/azure.messaging.servicebus.servicebussessionprocessoroptions.maxconcurrentsessions
 [DebugThreadPoolStarvation]: /dotnet/core/diagnostics/debug-threadpool-starvation
 [DiagnoseThreadPoolExhaustion]: /shows/on-net/diagnosing-thread-pool-exhaustion-issues-in-net-core-apps
-[TryTimeout]: /dotnet/api/azure.messaging.servicebus.servicebusretryoptions.trytimeout?view=azure-dotnet
-[SessionIdleTimeout]: /dotnet/api/azure.messaging.servicebus.servicebussessionprocessoroptions.sessionidletimeout?view=azure-dotnet
-[BackgroundService]: /dotnet/api/microsoft.extensions.hosting.backgroundservice?view=dotnet
+[TryTimeout]: /dotnet/api/azure.messaging.servicebus.servicebusretryoptions.trytimeout?view=azure-dotnet&preserve-view=true
+[SessionIdleTimeout]: /dotnet/api/azure.messaging.servicebus.servicebussessionprocessoroptions.sessionidletimeout?view=azure-dotnet&preserve-view=true
+[BackgroundService]: /dotnet/api/microsoft.extensions.hosting.backgroundservice?view=dotnet&preserve-view=true
 [TransactionTimeout]: /azure/service-bus-messaging/service-bus-transactions#timeout
 [CrossEntityTransactions]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/samples/Sample06_Transactions.md#transactions-across-entities
 [Transactions]: /azure/service-bus-messaging/service-bus-transactions
