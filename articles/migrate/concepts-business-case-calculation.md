@@ -143,7 +143,7 @@ Cost components for running on-premises servers. For TCO calculations, an annual
 |     | **Storage Maintenance** |     | Default is 10% of storage hardware acquisition cost. |
 | **Network** | **Network Hardware and software** | Network equipment (Cabinets, switches, routers, load balancers etc.) and software | As an industry standard and used by sellers in Business cases, it's a % of compute and storage cost. Default is 10% of storage and compute cost. |
 |     | **Maintenance** | Maintenance | Defaulted to 15% of network hardware and software cost. |
-| Security | General Servers | Server security cost | Default is USD 250 per year per server. This is multiplied with number of servers (General servers) |
+| **Security** | **General Servers** | Server security cost | Default is USD 250 per year per server. This is multiplied with number of servers (General servers) |
 |     | **SQL Servers** | SQL protection cost | Default is USD 1000 per year per server. This is multiplied with number of servers running SQL |
 | **Facilities** | **Facilities & Infrastructure** | DC Facilities - Lease and Power | The Facilities cost is based on a colocation model, which includes space, power, and lease costs per kWh.<br> Annual facilities cost = Total energy capacity * Average colocation costs * 12. (Assume 40% of datacenter energy capacity remains unused.) <br> Total energy capacity = Energy consumption by current workloads / (1 - unused energy capacity). <br>To determine energy consumption for your workloads: <br>- Compute resources: Total physical cores * On-Prem TDP (0.009 kWh per core) * Load factor (2.00) * On-Prem PUE (1.80).<br> - Storage resources: Total storage in TB * On-Prem storage power rating (10 kWh per TB) * Conversion factor (0.0001) * Load factor (2.00) * On-Prem PUE (1.80). |
 | **Labor** | **Labor** | IT admin | DC admin cost = ((Number of virtual machines) / (Avg. # of virtual machines that can be managed by a full-time administrator)) * 730 * 12 |
@@ -216,7 +216,7 @@ Cost components for running on-premises servers. For TCO calculations, an annual
 
 When you create a business case, by default, servers remaining on-premises are assumed to be Arc-enabled. You can disable Arc calculation by editing Azure cost assumptions.
 
-| Expense | Year 0 | Year 1 | Year 2 | Year 3 | Methodology |
+| Component | Year 0 | Year 1 | Year 2 | Year 3 | Methodology |
 | --- | --- | --- | --- | --- | --- |
 | **Estate migrated per year** | 0% | 20% | 50% | 100% | User input |
  
@@ -225,7 +225,7 @@ When you create a business case, by default, servers remaining on-premises are a
 
 #### Future state: CAPEX and OPEX
 
-| Expense | Methodology |
+| Component | Methodology |
 | --- | --- |
 | **CAPEX** | Year n CAPEX = (100- estimated migration % that year)* Year n CAPEX in current state |
 | **OPEX** | Year n OPEX = (estimated migration % that year) * Total Azure TCO * (1+ infrastructure growth rate%) + (100- estimated migration % that year)* Year n OPEX in current state |
