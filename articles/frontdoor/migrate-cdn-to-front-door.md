@@ -18,6 +18,9 @@ Azure Traffic Manager initially routes all traffic to the Azure CDN from Edgio. 
 
 We recommend that your plan this migration well in advance and test the functionality over the course of a few days to ensure a smooth transition. 
 
+> [!IMPORTANT]
+> If you plan to migrate to Azure Front Door, set the Feature Flag **DoNotForceMigrateEdgioCDNProfiles** before January 7, 2025 using [Set up preview feature](../azure-resource-manager/management/preview-features.md). This will prevent Microsoft from auto-migrating your profiles to Azure Front Door. Auto-migration is on a *best effort* basis and may cause issues with billing, features, availability, and performance. Note you will have until January 14, 2025 to complete your migration to another CDN, but again Microsoft cannot guarantee your services will be available on the Edgio platform before this date.
+
 ## Prerequisites
 
 - Review the [feature differences](front-door-cdn-comparison.md) between Azure CDN and Azure Front Door to determine if there are any compatibility gaps.

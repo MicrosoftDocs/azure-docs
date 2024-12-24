@@ -68,3 +68,21 @@ Use the following command to check the status of Micro-BFD sessions on the PE de
 show bfd status dest-ip 10.30.0.65 detail
 ```
 Ensure that the Micro-BFD sessions are established and operational.
+
+## Recovery steps if Micro-BFD is misconfigured
+
+In scenarios such as reconfiguration, where Micro-BFD is disabled by default, and the Provider Edge (PE) device is configured with Micro-BFD settings from a previous deployment, it is crucial to remove the Micro-BFD configuration from the PE device.
+
+Follow these steps to ensure that Micro-BFD is disabled on your PE devices:
+
+### Step1: Identify the PE devices
+
+Determine which PE devices have the Micro-BFD configuration from the previous deployment.
+
+### Step2: Remove Micro-BFD configuration
+
+Access the configuration settings of each identified PE device and remove any existing Micro-BFD settings.
+
+### Verify configuration
+
+Ensure that the Micro-BFD settings have been successfully removed and that the PE device is operating without Micro-BFD enabled.
