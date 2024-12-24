@@ -3,7 +3,7 @@ title: Register APIs using GitHub Actions - Azure API Center
 description: Learn how to automate the registration of APIs in your API center using a CI/CD workflow based on GitHub Actions.
 ms.service: azure-api-center
 ms.topic: how-to
-ms.date: 07/24/2024
+ms.date: 12/23/2024
 ms.author: danlep
 author: dlepow
 ms.custom: devx-track-azurecli
@@ -20,9 +20,9 @@ The following diagram shows how API registration in your API center can be autom
 
 :::image type="content" source="media/register-apis-github-actions/scenario-overview.svg" alt-text="Diagram showing steps to trigger a GitHub actions workflow to register an API in an Azure API center." lightbox="media/register-apis-github-actions/scenario-overview.svg":::
 
-1. Set up a GitHub Actions workflow in your repository that triggers when a pull request that adds an API definition file is merged.
+1. Set up a GitHub Actions workflow in your repository that triggers when a pull request adding an API definition file is merged.
 1. Create a branch from the main branch in your GitHub repository.
-1. Add an API definition file, commit the changes, and push them to the new branch.
+1. Add an API definition file, commit the changes, and push to the new branch.
 1. Create a pull request to merge the new branch into the main branch.
 1. Merge the pull request.
 1. The merge triggers a GitHub Actions workflow that registers the API in your API center.
@@ -133,42 +133,38 @@ In this example:
 To configure the workflow file:
 
 1. Copy and save the file under a name such as `register-api.yml`.
-1. Update the values for the environment variables to match your API center in Azure.
 1. Confirm or update the name of the repository folder (`APIs`) where you'll add the API definition file.
 1. Add this workflow file in the  `/.github/workflows/` path in your GitHub repository.
+1. Set [variables](https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/store-information-in-variables) in your repo for your API center name and resource group name in Azure.
 
 > [!TIP]
 > Using the [Visual Studio Code extension](build-register-apis-vscode-extension.md) for Azure API Center, you can generate a starting workflow file by running an extension command. In the Command Palette, select **Azure API Center: Register APIs**. Select **CI/CD** > **GitHub**. You can then modify the file for your scenario.
 
 ```yml
 name: Register API Definition to Azure API Center
-on:
+'on':
   pull_request:
-    types: [closed]
+    types:
+      - closed
     branches:
       - main
     paths:
-      - "APIs/**/*.json"
+      - APIs/**/*.json
 permissions:
   contents: read
   pull-requests: read
 env:
-  # set this to your Azure API Center resource group name
-  RESOURCE_GROUP: <YOUR_RESOURCE_GROUP>
-  # set this to your Azure API Center service name
-  SERVICE_NAME: <YOUR_API_CENTER>
+  TOKEN: '${{ secrets.GITHUB_TOKEN }}'
 jobs:
   register:
     runs-on: ubuntu-latest
     environment: production
     steps:
       - uses: actions/checkout@v2
-    
       - name: Get specification file path in the PR
         id: get-file-location
         uses: actions/github-script@v5
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const pull_number = context.payload.pull_request.number;
             const owner = context.repo.owner;
@@ -180,23 +176,37 @@ jobs:
             });
             if (files.data.length === 1) {
               const filename = files.data[0].filename;
-              core.exportVariable('API_FILE_LOCATION', hfilename);
-              console.log(`API_FILE_LOCATION: ${{ env.API_FILE_LOCATION }}`);
-            }
-            else {
+              const variableName = 'API_FILE_LOCATION';
+              const variableValue = filename;
+
+              # Set the repository-level variable using the GitHub API
+              # const octokit = github.getOctokit(core.getInput('GITHUB_TOKEN'));
+              import { Octokit } from "octokit";
+              const octokit = new Octokit({ 
+                  auth: process.env.TOKEN,
+                });
+              await octokit.request('PUT /repos/{owner}/{repo}/actions/variables/{name}', {
+                owner: owner,
+                repo: repo,
+                name: variableName,
+                value: variableValue
+              });
+              
+              console.log(`Set repository variable ${variableName} to ${variableValue}`);
+            } else {
               console.log('The PR does not add exactly one specification file.');
             }
       - name: Azure login
         uses: azure/login@v1
         with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
-          
+          creds: '${{ secrets.AZURE_CREDENTIALS }}'
       - name: Register to API Center
         uses: azure/CLI@v2
         with:
           azcliversion: latest
-          inlineScript: |
-            az apic api register -g ${{ env.RESOURCE_GROUP }} -n ${{ env.SERVICE_NAME }} --api-location ${{ env.API_FILE_LOCATION }}
+          inlineScript: >
+            az apic api register -g ${{ vars.RESOURCE_GROUP }} -n ${{
+            vars.SERVICE_NAME }} --api-location ${{ vars.API_FILE_LOCATION }}
 ```
 
 
