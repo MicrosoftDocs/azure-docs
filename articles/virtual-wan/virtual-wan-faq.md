@@ -81,7 +81,7 @@ There are two options to add DNS servers for the P2S clients. The first method i
    $P2SVpnGateway = Get-AzP2sVpnGateway -ResourceGroupName $rgName -Name $P2SvpnGatewayName
    $updatedP2SVpnGateway = Update-AzP2sVpnGateway -ResourceGroupName $rgName -Name $P2SvpnGatewayName -CustomDnsServer $customDnsServers 
 
-   // Re-generate Vpn profile either from PS/Portal for Vpn clients to have the specified dns servers
+   // Re-generate VPN profile either from PS/Portal for VPN clients to have the specified dns servers
    ```
 
 2. Or, if you're using the Azure VPN Client for Windows 10, you can modify the downloaded profile XML file and add the **\<dnsservers>\<dnsserver> \</dnsserver>\</dnsservers>** tags before importing it.
