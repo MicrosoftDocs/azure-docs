@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/cdn/akamai-retirement-faq.md",
+      "redirect_url": "/previous-versions/azure/cdn/akamai-retirement-faq",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/operator-5g-core/concept-centralized-lifecycle-management.md",
       "redirect_url": "/previous-versions/azure/operator-5g-core/concept-centralized-lifecycle-management",
       "redirect_document_id": false
