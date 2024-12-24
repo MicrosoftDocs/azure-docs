@@ -16,7 +16,7 @@ resources in Azure.
 
 When adding a User-Assigned Managed Identity to a Batch Pool, it is crucial to set the *Identity* property in your configuration. This property links the managed identity to the pool, enabling it to access Azure resources securely. Incorrect setting of the *Identity* property can result in common errors, such as access issues or upload errors.
 
-For more information on configuring managed identities in Azure Batch, please refer to the [Azure Batch Managed Identities documentation](https://learn.microsoft.com/troubleshoot/azure/hpc/batch/use-managed-identities-azure-batch-account-pool).
+For more information on configuring managed identities in Azure Batch, please refer to the [Azure Batch Managed Identities documentation](/troubleshoot/azure/hpc/batch/use-managed-identities-azure-batch-account-pool).
 
 This topic explains how to enable user-assigned managed identities on Batch pools and how to use managed identities within the nodes.
 
