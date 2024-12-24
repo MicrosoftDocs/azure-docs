@@ -129,6 +129,7 @@ Details for the attributes specific to `Microsoft.Communication.AdvancedMessageR
   "data": {
     "content": "Hello",
     "channelType": "whatsapp",
+    "messageType": "text",
     "from": "{sender@id}",
     "to": "11111111-1111-1111-1111-111111111111",
     "receivedTimestamp": "2023-07-06T18:30:19+00:00"
@@ -140,7 +141,7 @@ Details for the attributes specific to `Microsoft.Communication.AdvancedMessageR
 }]
 ```
 
-##### Media message received
+##### Image Media message received
 
 ```json
 [{
@@ -149,6 +150,7 @@ Details for the attributes specific to `Microsoft.Communication.AdvancedMessageR
   "subject": "advancedMessage/sender/{sender@id}/recipient/11111111-1111-1111-1111-111111111111",
   "data": {
     "channelType": "whatsapp",
+    "messageType": "image",
     "media": {
       "mimeType": "image/jpeg",
       "id": "22222222-2222-2222-2222-222222222222",
@@ -163,6 +165,32 @@ Details for the attributes specific to `Microsoft.Communication.AdvancedMessageR
   "metadataVersion": "1",
   "eventTime": "2023-07-06T18:30:22.1921716Z"
 }]
+```
+
+##### Document Media message received
+
+```json
+{
+  "id": "08f9bc33-8b29-446d-be7a-f78604fa5895",
+  "topic": "/subscriptions/d206c0a8-dfad-4165-a870-a21054b5660c/resourcegroups/acs-cpm-ppe-resources/providers/microsoft.communication/communicationservices/acscpm-whatsup-pperesource",
+  "subject": "advancedMessage/sender/14254360097/recipient/75476a19-a68d-4e10-806c-3680f099e069",
+  "data": {
+    "channelType": "whatsapp",
+    "messageType": "document",
+    "media": {
+      "mimeType": "application/pdf",
+      "id": "bb112ea4-bf32-45c2-b3a7-576059232122",
+      "fileName": "UTSAV Mela 2024  India's Independence Day  Kids Out and About Seattle.pdf"
+    },
+    "from": "14254360097",
+    "to": "75476a19-a68d-4e10-806c-3680f099e069",
+    "receivedTimestamp": "2024-12-24T06:41:56+00:00"
+  },
+  "eventType": "Microsoft.Communication.AdvancedMessageReceived",
+  "dataVersion": "1.0",
+  "metadataVersion": "1",
+  "eventTime": "2024-12-24T06:41:59.1218953Z"
+}
 ```
 
 ##### List Reply message received with InteractiveListReplyContent

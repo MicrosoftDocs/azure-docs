@@ -271,7 +271,7 @@ The order that the buttons appear in the template definition should match the or
 
 ### Example
 sample_purchase_feedback template
-This sample template adds a button with a dynamic URL link to the message. It also uses an image in the header and a text parameter in the body.
+This sample template adds a button with a dynamic URL link to the message. It also uses an image in the header and a text parameter in the body. Create Call to Action button template with **Dynamic** URL type for **View website** action type.
 :::image type="content" source="../../media/template-messages/edit-sample-purchase-feedback-whatsapp-manager.png" lightbox="../../media/template-messages/edit-sample-purchase-feedback-whatsapp-manager.png" alt-text="Screenshot that shows editing URL Type in the WhatsApp manager.":::
 
 In this sample, the header of the template requires an image:
@@ -308,21 +308,22 @@ Create one `MessageTemplateImage`, one `MessageTemplateText`, and one `MessageTe
 
 ```python
 # Setting template options
-templateName = "sample_purchase_feedback"
-templateLanguage = "en_us"
-imageUrl = "https://aka.ms/acsicon1" 
-sample_purchase_feedback: MessageTemplate = MessageTemplate(name=templateName, language=templateLanguage )
-name = MessageTemplateText(name="first", text="Coffee")
-image = MessageTemplateImage(name="image", url=imageUrl)
-uri_to_click = MessageTemplateQuickAction(name="text", text="Take Survey")
+        templateName = "sample_purchase_feedback"
+        templateLanguage = "en_us"
+        imageUrl = "https://aka.ms/acsicon1" 
+        sample_purchase_feedback: MessageTemplate = MessageTemplate(name=templateName, language=templateLanguage )
+        name = MessageTemplateText(name="first", text="Joe")
+        image = MessageTemplateImage(name="image", url=imageUrl)
+        uri_to_click = MessageTemplateQuickAction(name="url", text="questions")
 
-bindings = WhatsAppMessageTemplateBindings(body=[WhatsAppMessageTemplateBindingsComponent(ref_value=name.name)],
-                                            header=[WhatsAppMessageTemplateBindingsComponent(ref_value=image.name)],
-                                            buttons=[WhatsAppMessageTemplateBindingsButton(sub_type=WhatsAppMessageButtonSubType.URL, ref_value=uri_to_click.name)])
-sample_purchase_feedback.bindings = bindings
-sample_purchase_feedback.template_values=[name, image, uri_to_click]
-template_options = TemplateNotificationContent(
-    channel_registration_id=self.channel_id, to=[self.phone_number], template=sample_purchase_feedback)
+        bindings = WhatsAppMessageTemplateBindings(body=[WhatsAppMessageTemplateBindingsComponent(ref_value=name.name)],
+                                                    header=[WhatsAppMessageTemplateBindingsComponent(ref_value=image.name)],
+                                                    buttons=[WhatsAppMessageTemplateBindingsButton(sub_type=WhatsAppMessageButtonSubType.URL,
+                                                    ref_value=uri_to_click.name)])
+        sample_purchase_feedback.bindings = bindings
+        sample_purchase_feedback.template_values=[name, image, uri_to_click]
+        template_options = TemplateNotificationContent(
+            channel_registration_id=self.channel_id, to=[self.phone_number], template=sample_purchase_feedback)
 ```
 
 
@@ -466,9 +467,9 @@ class SendWhatsAppTemplateMessageSample(object):
         templateLanguage = "en_us"
         imageUrl = "https://aka.ms/acsicon1" 
         sample_purchase_feedback: MessageTemplate = MessageTemplate(name=templateName, language=templateLanguage )
-        name = MessageTemplateText(name="first", text="Coffee")
+        name = MessageTemplateText(name="first", text="Joe")
         image = MessageTemplateImage(name="image", url=imageUrl)
-        uri_to_click = MessageTemplateQuickAction(name="text", text="Take Survey")
+        uri_to_click = MessageTemplateQuickAction(name="url", text="questions")
 
         bindings = WhatsAppMessageTemplateBindings(body=[WhatsAppMessageTemplateBindingsComponent(ref_value=name.name)],
                                                     header=[WhatsAppMessageTemplateBindingsComponent(ref_value=image.name)],

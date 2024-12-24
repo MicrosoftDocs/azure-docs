@@ -87,7 +87,10 @@ Follow these steps to add the necessary code snippets to the messages-quickstart
   - [Send a template message to a WhatsApp User](#option-1-initiate-conversation-from-business---send-a-template-message)
   - [Initiate conversation from user](#option-2-initiate-conversation-from-user)
 - [Send a text message to a WhatsApp user](#send-a-text-message-to-a-whatsapp-user)
-- [Send a media message to a WhatsApp user](#send-a-media-message-to-a-whatsapp-user)
+- [Send an Image media message to a WhatsApp user](#send-an-image-media-message-to-a-whatsapp-user)
+- [Send a Document media message to a WhatsApp user](#send-a-document-media-message-to-a-whatsapp-user)
+- [Send an audio media message to a WhatsApp user](#send-an-audio-media-message-to-a-whatsapp-user)
+- [Send a video media message to a WhatsApp user](#send-a-video-media-message-to-a-whatsapp-user)
 
 ### Authenticate the client 
 
@@ -386,7 +389,7 @@ To run send_text_message(), update the [main method](#basic-program-structure)
     messages.send_image_message()
 ```
 
-### Send a document media message to a WhatsApp user
+### Send a Document media message to a WhatsApp user
 
 Messages SDK allows Contoso to send Image WhatsApp messages to WhatsApp users. To send Image embedded messages below details are required:
 - [WhatsApp Channel ID](#set-channel-registration-id)
