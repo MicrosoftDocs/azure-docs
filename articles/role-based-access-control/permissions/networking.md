@@ -522,7 +522,7 @@ Azure service: [Application Gateway](/azure/application-gateway/), [Azure Bastio
 > | Microsoft.Network/connections/write | Creates or updates an existing VirtualNetworkGatewayConnection |
 > | Microsoft.Network/connections/delete | Deletes VirtualNetworkGatewayConnection |
 > | Microsoft.Network/connections/sharedkey/action | Get VirtualNetworkGatewayConnection SharedKey |
-> | Microsoft.Network/connections/vpndeviceconfigurationscript/action | Gets Vpn Device Configuration of VirtualNetworkGatewayConnection |
+> | Microsoft.Network/connections/vpndeviceconfigurationscript/action | Gets VPN Device Configuration of VirtualNetworkGatewayConnection |
 > | Microsoft.Network/connections/revoke/action | Marks an Express Route Connection status as Revoked |
 > | Microsoft.Network/connections/startpacketcapture/action | Starts a Virtual Network Gateway Connection Packet Capture. |
 > | Microsoft.Network/connections/stoppacketcapture/action | Stops a Virtual Network Gateway Connection Packet Capture. |
@@ -1077,14 +1077,14 @@ Azure service: [Application Gateway](/azure/application-gateway/), [Azure Bastio
 > | microsoft.network/p2sVpnGateways/reset/action | Resets a P2SVpnGateway |
 > | microsoft.network/p2sVpnGateways/detach/action | Detaches a P2SVpnGateway Hub from WAN Traffic manager |
 > | microsoft.network/p2sVpnGateways/attach/action | Attaches a P2SVpnGateway Hub from WAN Traffic manager |
-> | Microsoft.Network/p2sVpnGateways/generatevpnprofile/action | Generate Vpn Profile for P2SVpnGateway |
-> | Microsoft.Network/p2sVpnGateways/getp2svpnconnectionhealth/action | Gets a P2S Vpn Connection health for P2SVpnGateway |
-> | Microsoft.Network/p2sVpnGateways/getp2svpnconnectionhealthdetailed/action | Gets a P2S Vpn Connection health detailed for P2SVpnGateway |
+> | Microsoft.Network/p2sVpnGateways/generatevpnprofile/action | Generate VPN Profile for P2SVpnGateway |
+> | Microsoft.Network/p2sVpnGateways/getp2svpnconnectionhealth/action | Gets a P2S VPN Connection health for P2SVpnGateway |
+> | Microsoft.Network/p2sVpnGateways/getp2svpnconnectionhealthdetailed/action | Gets a P2S VPN Connection health detailed for P2SVpnGateway |
 > | Microsoft.Network/p2sVpnGateways/disconnectp2svpnconnections/action | Disconnect p2s vpn connections |
-> | Microsoft.Network/p2sVpnGateways/providers/Microsoft.Insights/diagnosticSettings/read | Gets the P2S Vpn Gateway Diagnostic Settings |
-> | Microsoft.Network/p2sVpnGateways/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the P2S Vpn Gateway diagnostic settings, this operation is supplemented by insights resource provider. |
-> | Microsoft.Network/p2sVpnGateways/providers/Microsoft.Insights/logDefinitions/read | Gets the events for P2S Vpn Gateway |
-> | Microsoft.Network/p2sVpnGateways/providers/Microsoft.Insights/metricDefinitions/read | Gets the available metrics for P2S Vpn Gateway |
+> | Microsoft.Network/p2sVpnGateways/providers/Microsoft.Insights/diagnosticSettings/read | Gets the P2S VPN Gateway Diagnostic Settings |
+> | Microsoft.Network/p2sVpnGateways/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the P2S VPN Gateway diagnostic settings, this operation is supplemented by insights resource provider. |
+> | Microsoft.Network/p2sVpnGateways/providers/Microsoft.Insights/logDefinitions/read | Gets the events for P2S VPN Gateway |
+> | Microsoft.Network/p2sVpnGateways/providers/Microsoft.Insights/metricDefinitions/read | Gets the available metrics for P2S VPN Gateway |
 > | Microsoft.Network/privateDnsOperationResults/read | Gets results of a Private DNS operation |
 > | Microsoft.Network/privateDnsOperationStatuses/read | Gets status of a Private DNS operation |
 > | Microsoft.Network/privateDnsZones/read | Get the Private DNS zone properties, in JSON format. Note that this command does not retrieve the virtual networks to which the Private DNS zone is linked or the record sets contained within the zone. |
@@ -1246,13 +1246,13 @@ Azure service: [Application Gateway](/azure/application-gateway/), [Azure Bastio
 > | Microsoft.Network/virtualHubs/routingIntent/read | Gets a Routing Intent child resource of Virtual Hub |
 > | Microsoft.Network/virtualHubs/routingIntent/write | Creates or Updates a Routing Intent child resource of Virtual Hub |
 > | Microsoft.Network/virtualHubs/routingIntent/delete | Deletes a Routing Intent child resource of Virtual Hub |
-> | Microsoft.Network/virtualnetworkgateways/supportedvpndevices/action | Lists Supported Vpn Devices |
+> | Microsoft.Network/virtualnetworkgateways/supportedvpndevices/action | Lists Supported VPN Devices |
 > | Microsoft.Network/virtualNetworkGateways/read | Gets a VirtualNetworkGateway |
 > | Microsoft.Network/virtualNetworkGateways/write | Creates or updates a VirtualNetworkGateway |
 > | Microsoft.Network/virtualNetworkGateways/delete | Deletes a virtualNetworkGateway |
 > | microsoft.network/virtualnetworkgateways/generatevpnclientpackage/action | Generate VpnClient package for virtualNetworkGateway |
 > | microsoft.network/virtualnetworkgateways/generatevpnprofile/action | Generate VpnProfile package for VirtualNetworkGateway |
-> | microsoft.network/virtualnetworkgateways/getvpnclientconnectionhealth/action | Get Per Vpn Client Connection Health for VirtualNetworkGateway |
+> | microsoft.network/virtualnetworkgateways/getvpnclientconnectionhealth/action | Get Per VPN Client Connection Health for VirtualNetworkGateway |
 > | microsoft.network/virtualnetworkgateways/disconnectvirtualnetworkgatewayvpnconnections/action | Disconnect virtual network gateway vpn connections |
 > | microsoft.network/virtualnetworkgateways/getvpnprofilepackageurl/action | Gets the URL of a pre-generated vpn client profile package |
 > | microsoft.network/virtualnetworkgateways/setvpnclientipsecparameters/action | Set Vpnclient Ipsec parameters for VirtualNetworkGateway P2S client. |
@@ -1357,7 +1357,7 @@ Azure service: [Application Gateway](/azure/application-gateway/), [Azure Bastio
 > | Microsoft.Network/virtualWans/read | Get a Virtual Wan |
 > | Microsoft.Network/virtualWans/write | Create or update a Virtual Wan |
 > | Microsoft.Network/virtualWans/join/action | Joins a Virtual WAN. Not alertable. |
-> | Microsoft.Network/virtualwans/vpnconfiguration/action | Gets a Vpn Configuration |
+> | Microsoft.Network/virtualwans/vpnconfiguration/action | Gets a VPN Configuration |
 > | Microsoft.Network/virtualwans/vpnServerConfigurations/action | Get VirtualWanVpnServerConfigurations |
 > | Microsoft.Network/virtualwans/generateVpnProfile/action | Generate VirtualWanVpnServerConfiguration VpnProfile |
 > | Microsoft.Network/virtualWans/updateVpnReferences/action | Update VPN reference in VirtualWan |
@@ -1370,9 +1370,9 @@ Azure service: [Application Gateway](/azure/application-gateway/), [Azure Bastio
 > | Microsoft.Network/virtualWans/virtualHubProxies/write | Creates a Virtual Hub proxy or updates a Virtual Hub proxy |
 > | Microsoft.Network/virtualWans/virtualHubProxies/delete | Deletes a Virtual Hub proxy |
 > | Microsoft.Network/virtualWans/virtualHubs/read | Gets all Virtual Hubs that reference a Virtual Wan. |
-> | Microsoft.Network/virtualWans/vpnSiteProxies/read | Gets a Vpn Site proxy definition |
-> | Microsoft.Network/virtualWans/vpnSiteProxies/write | Creates a Vpn Site proxy or updates a Vpn Site proxy |
-> | Microsoft.Network/virtualWans/vpnSiteProxies/delete | Deletes a Vpn Site proxy |
+> | Microsoft.Network/virtualWans/vpnSiteProxies/read | Gets a VPN Site proxy definition |
+> | Microsoft.Network/virtualWans/vpnSiteProxies/write | Creates a VPN Site proxy or updates a VPN Site proxy |
+> | Microsoft.Network/virtualWans/vpnSiteProxies/delete | Deletes a VPN Site proxy |
 > | Microsoft.Network/virtualWans/vpnSites/read | Gets all VPN Sites that reference a Virtual Wan. |
 > | Microsoft.Network/vpnGateways/read | Gets a VpnGateway. |
 > | Microsoft.Network/vpnGateways/write | Puts a VpnGateway. |
@@ -1381,28 +1381,28 @@ Azure service: [Application Gateway](/azure/application-gateway/), [Azure Bastio
 > | microsoft.network/vpngateways/getbgppeerstatus/action | Gets bgp peer status of a VpnGateway |
 > | microsoft.network/vpngateways/getlearnedroutes/action | Gets learned routes of a VpnGateway |
 > | microsoft.network/vpngateways/getadvertisedroutes/action | Gets advertised routes of a VpnGateway |
-> | microsoft.network/vpngateways/startpacketcapture/action | Start Vpn gateway Packet Capture with according resource |
-> | microsoft.network/vpngateways/stoppacketcapture/action | Stop Vpn gateway Packet Capture with sasURL |
+> | microsoft.network/vpngateways/startpacketcapture/action | Start VPN gateway Packet Capture with according resource |
+> | microsoft.network/vpngateways/stoppacketcapture/action | Stop VPN gateway Packet Capture with sasURL |
 > | microsoft.network/vpngateways/listvpnconnectionshealth/action | Gets connection health for all or a subset of connections on a VpnGateway |
 > | microsoft.network/vpnGateways/natRules/read | Gets a NAT rule resource |
 > | microsoft.network/vpnGateways/natRules/write | Puts a NAT rule resource |
 > | microsoft.network/vpnGateways/natRules/delete | Deletes a NAT rule resource |
-> | Microsoft.Network/vpnGateways/providers/Microsoft.Insights/diagnosticSettings/read | Gets the Vpn Gateway Diagnostic Settings |
-> | Microsoft.Network/vpnGateways/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the Vpn Gateway diagnostic settings, this operation is supplemented by insights resource provider. |
-> | Microsoft.Network/vpnGateways/providers/Microsoft.Insights/logDefinitions/read | Gets the events for Vpn Gateway |
-> | Microsoft.Network/vpnGateways/providers/Microsoft.Insights/metricDefinitions/read | Gets the available metrics for Vpn Gateway |
+> | Microsoft.Network/vpnGateways/providers/Microsoft.Insights/diagnosticSettings/read | Gets the VPN Gateway Diagnostic Settings |
+> | Microsoft.Network/vpnGateways/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the VPN Gateway diagnostic settings, this operation is supplemented by insights resource provider. |
+> | Microsoft.Network/vpnGateways/providers/Microsoft.Insights/logDefinitions/read | Gets the events for VPN Gateway |
+> | Microsoft.Network/vpnGateways/providers/Microsoft.Insights/metricDefinitions/read | Gets the available metrics for VPN Gateway |
 > | microsoft.network/vpnGateways/vpnConnections/read | Gets a VpnConnection. |
 > | microsoft.network/vpnGateways/vpnConnections/write | Puts a VpnConnection. |
 > | microsoft.network/vpnGateways/vpnConnections/delete | Deletes a VpnConnection. |
 > | microsoft.network/vpnGateways/vpnConnections/startpacketcapture/action | Start packet capture for selected linked in vpn connection |
 > | microsoft.network/vpnGateways/vpnConnections/stoppacketcapture/action | Stop packet capture for selected linked in vpn connection |
-> | microsoft.network/vpnGateways/vpnConnections/vpnLinkConnections/getikesas/action | Lists Vpn Link Connection IKE Security Associations |
+> | microsoft.network/vpnGateways/vpnConnections/vpnLinkConnections/getikesas/action | Lists VPN Link Connection IKE Security Associations |
 > | microsoft.network/vpnGateways/vpnConnections/vpnLinkConnections/resetconnection/action | Resets connection for vWAN |
-> | microsoft.network/vpnGateways/vpnConnections/vpnLinkConnections/read | Gets a Vpn Link Connection |
-> | microsoft.network/vpnGateways/vpnConnections/vpnLinkConnections/sharedKeys/read | Gets Vpn Link Connection Shared Key |
-> | microsoft.network/vpnGateways/vpnConnections/vpnLinkConnections/sharedKeys/default/read | Gets Vpn Link Connection Shared Key |
-> | microsoft.network/vpnGateways/vpnConnections/vpnLinkConnections/sharedKeys/default/write | Puts Vpn Link Connection Shared Key |
-> | microsoft.network/vpnGateways/vpnConnections/vpnLinkConnections/sharedKeys/default/listSharedKey/action | Gets Vpn Link Connection Shared Key |
+> | microsoft.network/vpnGateways/vpnConnections/vpnLinkConnections/read | Gets a VPN Link Connection |
+> | microsoft.network/vpnGateways/vpnConnections/vpnLinkConnections/sharedKeys/read | Gets VPN Link Connection Shared Key |
+> | microsoft.network/vpnGateways/vpnConnections/vpnLinkConnections/sharedKeys/default/read | Gets VPN Link Connection Shared Key |
+> | microsoft.network/vpnGateways/vpnConnections/vpnLinkConnections/sharedKeys/default/write | Puts VPN Link Connection Shared Key |
+> | microsoft.network/vpnGateways/vpnConnections/vpnLinkConnections/sharedKeys/default/listSharedKey/action | Gets VPN Link Connection Shared Key |
 > | Microsoft.Network/vpnServerConfigurations/read | Get VpnServerConfiguration |
 > | Microsoft.Network/vpnServerConfigurations/write | Create or Update VpnServerConfiguration |
 > | Microsoft.Network/vpnServerConfigurations/delete | Delete VpnServerConfiguration |
@@ -1415,10 +1415,10 @@ Azure service: [Application Gateway](/azure/application-gateway/), [Azure Bastio
 > | Microsoft.Network/vpnServerConfigurations/p2sVpnGatewayProxies/read | Gets a P2SVpnGateway Proxy definition |
 > | Microsoft.Network/vpnServerConfigurations/p2sVpnGatewayProxies/write | Creates a P2SVpnGateway Proxy or updates a P2SVpnGateway Proxy |
 > | Microsoft.Network/vpnServerConfigurations/p2sVpnGatewayProxies/delete | Deletes a P2SVpnGateway Proxy |
-> | Microsoft.Network/vpnsites/read | Gets a Vpn Site resource. |
-> | Microsoft.Network/vpnsites/write | Creates or updates a Vpn Site resource. |
-> | Microsoft.Network/vpnsites/delete | Deletes a Vpn Site resource. |
-> | microsoft.network/vpnSites/vpnSiteLinks/read | Gets a Vpn Site Link |
+> | Microsoft.Network/vpnsites/read | Gets a VPN Site resource. |
+> | Microsoft.Network/vpnsites/write | Creates or updates a VPN Site resource. |
+> | Microsoft.Network/vpnsites/delete | Deletes a VPN Site resource. |
+> | microsoft.network/vpnSites/vpnSiteLinks/read | Gets a VPN Site Link |
 
 ## Next steps
 
