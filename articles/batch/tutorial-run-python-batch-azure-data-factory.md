@@ -117,7 +117,7 @@ with open(outputBlobName, "rb") as data:
     blob.upload_blob(data, overwrite=True)
 ```
 
-For more information on working with Azure Blob Storage, refer to the [Azure Blob Storage documentation](https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction). 
+For more information on working with Azure Blob Storage, refer to the [Azure Blob Storage documentation](/azure/storage/blobs/storage-blobs-introduction.md). 
 
 Run the script locally to test and validate functionality. 
 
