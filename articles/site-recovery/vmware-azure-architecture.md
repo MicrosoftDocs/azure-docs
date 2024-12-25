@@ -33,7 +33,7 @@ The following table and graphic provide a high-level view of the components used
 For Site Recovery to work as expected, you need to modify outbound network connectivity to allow your environment to replicate.
 
 > [!NOTE]
-> Site Recovery of VMware/Physical machines using Classic architecture doesn't support using an authentication proxy to control network connectivity. The same is supported when using the [modernized architecutre](vmware-azure-architecture-modernized.md).
+> Site Recovery of VMware/Physical machines using Classic architecture doesn't support using an authentication proxy to control network connectivity. The same is supported when using the [modernized architecture](vmware-azure-architecture-modernized.md).
 
 ### Outbound connectivity for URLs
 
