@@ -84,7 +84,7 @@ Follow these steps to add the necessary code snippets to the messages-quickstart
 
 - [Send a Sticker messages to a WhatsApp user](#send-a-sticker-messages-to-a-whatsapp-user)
 
-## Send a Sticker messages to a WhatsApp user
+### Send a Sticker messages to a WhatsApp user
 Advanced Messages SDK allows Contoso to send sticker WhatsApp messages, which is initiated by WhatsApp users. To send text messages below details are required:
 - [WhatsApp Channel ID](#set-channel-registration-id)
 - [Recipient Phone Number in E16 format](#set-recipient-list)
@@ -126,7 +126,7 @@ To run send_sticker_message(), update the [main method](#basic-program-structure
     messages.send_sticker_message()
 ```
 
-## Run the code
+### Run the code
 To run the code, make sure you are on the directory where your `messages-quickstart.py` file is.
 
 ```console

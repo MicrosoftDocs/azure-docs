@@ -84,7 +84,7 @@ Follow these steps to add the necessary code snippets to the messages-quickstart
 
 - [Send a Reaction messages to a WhatsApp user message](#send-a-reaction-messages-to-a-whatsapp-user-message)
 
-## Send a Reaction messages to a WhatsApp user message
+### Send a Reaction messages to a WhatsApp user message
 Advanced Messages SDK allows Contoso to send reaction WhatsApp messages, which initiated by WhatsApp users. To send text messages below details are required:
 - [WhatsApp Channel ID](#set-channel-registration-id)
 - [Recipient Phone Number in E16 format](#set-recipient-list)
@@ -129,7 +129,7 @@ To run send_reaction_message(), update the [main method](#basic-program-structur
 
 :::image type="content" source="../../media/interactive-reaction-sticker/reaction-message.png" lightbox="../../media/interactive-reaction-sticker/reaction-message.png" alt-text="Screenshot that shows WhatsApp CTA interactive message from Business to User.":::
 
-## Run the code
+### Run the code
 
 To run the code, make sure you are on the directory where your `reaction-messages-quickstart.py` file is.
 
