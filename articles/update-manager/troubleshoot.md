@@ -48,7 +48,7 @@ To review the logs related to all actions performed by the extension, on Windows
 
 * `WindowsUpdateExtension.log`: Contains information related to the patch actions. This information includes the patches assessed and installed on the machine and any problems encountered in the process.
 * `cmd_execution_<numeric>_stdout.txt`: There's a wrapper above the patch action. It's used to manage the extension and invoke specific patch operation. This log contains information about the wrapper. For autopatching, the log has information on whether the specific patch operation was invoked.
-* `cmd_excution_<numeric>_stderr.txt`
+* `cmd_execution_<numeric>_stderr.txt`
 
 ---
 
