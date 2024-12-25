@@ -11,14 +11,14 @@ ms.custom: include file
 ms.author: memontic
 ---
 
-## Templates with no parameters
+### Send Template message with no parameters
 If the template takes no parameters, you don't need to supply the values or bindings when creating the `MessageTemplate`.
 
 ```csharp
 var messageTemplate = new MessageTemplate(templateName, templateLanguage); 
 ``````
 
-### Example
+#### Example
 Here is the sample template named `sample_template` takes no parameters.
 
 :::image type="content" source="../../media/template-messages/sample-template-details-azure-portal.png" lightbox="../../media/template-messages/sample-template-details-azure-portal.png" alt-text="Screenshot that shows template details for template named sample_template.":::
@@ -32,7 +32,7 @@ string templateLanguage = "en_us";
 var sampleTemplate = new MessageTemplate(templateName, templateLanguage); 
 ``````
 
-## Templates with text parameters in the body
+### Send Template message with text parameters in the body
 Use `MessageTemplateText` to define parameters in the body denoted with double brackets surrounding a number, such as `{{1}}`. The number, indexed started at 1, indicates the order in which the binding values must be supplied to create the message template. Including parameters not in the template is invalid.
 
 Template definition with two parameter:
@@ -43,7 +43,7 @@ Template definition with two parameter:
 }
 ``````
 
-### Examples
+#### Examples
 sample_shipping_confirmation template
 :::image type="content" source="../../media/template-messages/sample-shipping-confirmation-details-azure-portal.png" lightbox="../../media/template-messages/sample-shipping-confirmation-details-azure-portal.png" alt-text="Screenshot that shows template details for template named sample_shipping_confirmation.":::
 
@@ -71,7 +71,7 @@ shippingConfirmationTemplate.Bindings = bindings;
 shippingConfirmationTemplate.Values.Add(threeDays);
 ``````
 
-## Templates with media parameter in the header
+### Send Template message with media parameter in the header
 Use `MessageTemplateImage`, `MessageTemplateVideo`, or `MessageTemplateDocument` to define the media parameter in a header.
 
 Template definition with image media parameter in header:
@@ -105,7 +105,7 @@ template.Bindings = bindings;
 template.Values.Add(media);
 ``````
 
-### Examples
+#### Examples
 sample_movie_ticket_confirmation template
 :::image type="content" source="../../media/template-messages/sample-movie-ticket-confirmation-details-azure-portal.png" lightbox="../../media/template-messages/sample-movie-ticket-confirmation-details-azure-portal.png" alt-text="Screenshot that shows template details for template named sample_movie_ticket_confirmation.":::
 
@@ -154,11 +154,11 @@ movieTicketConfirmationTemplate.Values.Add(seats);
 movieTicketConfirmationTemplate.Bindings = bindings;
 ``````
 
-### More Examples
+#### More Examples
 - VIDEO: [Use sample template sample_happy_hour_announcement](#use-sample-template-sample_happy_hour_announcement)
 - DOCUMENT: [Use sample template sample_flight_confirmation](#use-sample-template-sample_flight_confirmation)
 
-## Templates with location in the header
+### Send Template message with location in the header
 
 Use `MessageTemplateLocation` to define the location parameter in a header.
 
@@ -191,7 +191,7 @@ The "format" can require different media types. In the .NET SDK, each media type
 
 For more information on location based templates, see [WhatsApp's documentation for message media](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-message-templates#location). 
 
-### Example
+#### Example
 sample_movie_location template
 
 :::image type="content" source="../../media/template-messages/sample-location-based-template.jpg" lightbox="../../media/template-messages/sample-location-based-template.jpg" alt-text="Screenshot that shows template details for template named sample_location_template.":::
@@ -211,7 +211,7 @@ Location based Message template assembly:
  messageTemplateWithLocation.Bindings = location_bindings;
 ``````
 
-## Templates with quick reply buttons
+### Send Template message with quick reply buttons
 Use `MessageTemplateQuickAction` to define the payload for quick reply buttons and `MessageTemplateQuickAction` objects have the following three attributes. 
 
 |  Properties   | Description |  Type |
@@ -291,7 +291,7 @@ issueResolutionTemplate.Values.Add(no);
 issueResolutionTemplate.Bindings = bindings;
 ``````
 
-## Templates with call to action buttons
+### Send Template message with call to action buttons
 Use `MessageTemplateQuickAction` to define the url suffix for call to action buttons and `MessageTemplateQuickAction` object have the following three attributes.
 
 |  Properties   | Description |  Type |
@@ -315,7 +315,7 @@ Template definition buttons:
 
 The order that the buttons appear in the template definition should match the order in which the buttons are defined when creating the bindings with `MessageTemplateWhatsAppBindings`.
 
-### Example
+#### Example
 sample_purchase_feedback template
 This sample template adds a button with a dynamic URL link to the message. It also uses an image in the header and a text parameter in the body.
 :::image type="content" source="../../media/template-messages/edit-sample-purchase-feedback-whatsapp-manager.png" lightbox="../../media/template-messages/edit-sample-purchase-feedback-whatsapp-manager.png" alt-text="Screenshot that shows editing URL Type in the WhatsApp manager.":::

@@ -80,10 +80,10 @@ Follow these steps to add the necessary code snippets to the messages-quickstart
 
 ## Code examples
 Follow these steps to add the necessary code snippets to the messages-quickstart.py python program.
+- [Download the media payload to a stream](#download-the-media-payload-to-a-stream)
+- [Download the media payload to a file](#download-the-media-payload-to-a-file)
 
-- [Receive or Download media from a WhatsApp user](#receive-or-download-media-from-a-whatsapp-user)
-
-## Receive or Download media from a WhatsApp user
+### Download the media payload to a stream
 Advanced Messages SDK allows Contoso to receive or download media from a WhatsApp user, which initiated by WhatsApp users. To send text messages below details are required:
 - [WhatsApp Channel ID](#set-channel-registration-id)
 - [Recipient Phone Number in E16 format](#set-recipient-list)
@@ -116,7 +116,10 @@ To run download_media(), update the [main method](#basic-program-structure)
     messages.download_media()
 ```
 
-## Run the code
+### Download the media payload to a file
+<<Coming soon>>
+
+### Run the code
 
 To run the code, make sure you are on the directory where your `download-media-quickstart.py` file is.
 

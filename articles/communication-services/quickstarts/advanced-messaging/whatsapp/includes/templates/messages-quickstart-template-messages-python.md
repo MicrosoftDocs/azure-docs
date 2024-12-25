@@ -46,6 +46,7 @@ Create a new file called `messages-quickstart.py` and add the basic program stru
 ```console
 type nul > messages-quickstart.py   
 ```
+
 #### Basic program structure
 ```python
 import os
@@ -57,10 +58,10 @@ if __name__ == '__main__':
     messages = MessagesQuickstart()
 ```
 
-## Templates with no parameters
+### Send Template message with no parameters
 If the template takes no parameters, you don't need to supply the values or bindings when creating the `MessageTemplate`.
 
-### Example
+#### Example
 Here is the sample template named `sample_template` takes no parameters.
 
 :::image type="content" source="../../media/template-messages/sample-template-details-azure-portal.png" lightbox="../../media/template-messages/sample-template-details-azure-portal.png" alt-text="Screenshot that shows template details for template named sample_template.":::
@@ -71,7 +72,7 @@ Assemble the `MessageTemplate` by referencing the target template's name and lan
 input_template: MessageTemplate = MessageTemplate(name="gathering_invitation", language="ca")  # Name of the WhatsApp Template
 ```
 
-## Templates with text parameters in the body
+### Send Template message with text parameters in the body
 Use `MessageTemplateText` to define parameters in the body denoted with double brackets surrounding a number, such as `{{1}}`. The number, indexed started at 1, indicates the order in which the binding values must be supplied to create the message template. Including parameters not in the template is invalid.
 
 Template definition with two parameter:
@@ -80,9 +81,9 @@ Template definition with two parameter:
   "type": "BODY",
   "text": "Message with two parameters: {{1}} and {{2}}"
 }
-``````
+```
 
-### Examples
+#### Examples
 sample_shipping_confirmation template
 :::image type="content" source="../../media/template-messages/sample-shipping-confirmation-details-azure-portal.png" lightbox="../../media/template-messages/sample-shipping-confirmation-details-azure-portal.png" alt-text="Screenshot that shows template details for template named sample_shipping_confirmation.":::
 
@@ -110,7 +111,74 @@ template_options = TemplateNotificationContent(
 )
 ```
 
-## Templates with quick reply buttons
+### Send Template message with media parameter in the header
+Use `MessageTemplateImage`, `MessageTemplateVideo`, or `MessageTemplateDocument` to define the media parameter in a header.
+
+Template definition with image media parameter in header:
+```json
+{
+  "type": "HEADER",
+  "format": "IMAGE"
+},
+```
+
+The "format" can have different media types supported by WhatsApp. In the .NET SDK, each media type uses a corresponding MessageTemplateValue type.
+
+| Format   | MessageTemplateValue Type | File Type |
+|----------|---------------------------|-----------|
+| IMAGE    | `MessageTemplateImage`    | png, jpg  |
+| VIDEO    | `MessageTemplateVideo`    | mp4       |
+| DOCUMENT | `MessageTemplateDocument` | pdf       |
+
+For more information on supported media types and size limits, see [WhatsApp's documentation for message media](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/media#supported-media-types). 
+
+
+#### Examples
+sample_movie_ticket_confirmation template
+:::image type="content" source="../../media/template-messages/sample-movie-ticket-confirmation-details-azure-portal.png" lightbox="../../media/template-messages/sample-movie-ticket-confirmation-details-azure-portal.png" alt-text="Screenshot that shows template details for template named sample_movie_ticket_confirmation.":::
+
+In this sample, the header of the template requires an image:
+```
+{
+  "type": "HEADER",
+  "format": "IMAGE"
+},
+```
+
+And the body of the template requires four text parameters:
+```json
+{
+  "type": "BODY",
+  "text": "Your ticket for *{{1}}*\n*Time* - {{2}}\n*Venue* - {{3}}\n*Seats* - {{4}}"
+},
+```
+
+Create one `MessageTemplateImage` and four `MessageTemplateText` variables. Then, assemble your list of `MessageTemplateValue` and your `MessageTemplateWhatsAppBindings` by providing the parameters in the order that the parameters appear in the template content.
+
+```python
+ # Setting template options
+templateName = "sample_movie_ticket_confirmation"
+templateLanguage = "en_us" 
+imageUrl = "https://aka.ms/acsicon1"
+sample_movie_ticket_confirmation: MessageTemplate = MessageTemplate(name=templateName, language=templateLanguage )
+image = MessageTemplateImage(name="image", url=imageUrl)
+title = MessageTemplateText(name="title", text="Contoso")
+time = MessageTemplateText(name="time", text="July 1st, 2023 12:30PM")
+venue = MessageTemplateText(name="venue", text="Southridge Video")
+seats = MessageTemplateText(name="seats", text="Seat 1A")
+
+bindings = WhatsAppMessageTemplateBindings(header=[WhatsAppMessageTemplateBindingsComponent(ref_value=image.name)],
+                                            body=[WhatsAppMessageTemplateBindingsComponent(ref_value=title.name),
+                                                    WhatsAppMessageTemplateBindingsComponent(ref_value=time.name),
+                                                    WhatsAppMessageTemplateBindingsComponent(ref_value=venue.name),
+                                                    WhatsAppMessageTemplateBindingsComponent(ref_value=seats.name)])
+sample_movie_ticket_confirmation.bindings = bindings
+sample_movie_ticket_confirmation.template_values=[image,title,time,venue,seats]
+template_options = TemplateNotificationContent(
+    channel_registration_id=self.channel_id, to=[self.phone_number], template=sample_movie_ticket_confirmation)
+```
+
+### Send Template message with quick reply buttons
 Use `MessageTemplateQuickAction` to define the payload for quick reply buttons and `MessageTemplateQuickAction` objects have the following three attributes. 
 
 |  Properties   | Description |  Type |
@@ -189,7 +257,7 @@ template_options = TemplateNotificationContent(
 )
 ```
 
-## Templates with location in the header
+### Send Template message with location in the header
 
 Use `MessageTemplateLocation` to define the location parameter in a header.
 
@@ -222,7 +290,7 @@ The "format" can require different media types. In the .NET SDK, each media type
 
 For more information on location based templates, see [WhatsApp's documentation for message media](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-message-templates#location). 
 
-### Example
+#### Example
 sample_movie_location template
 
 :::image type="content" source="../../media/template-messages/sample-location-based-template.jpg" lightbox="../../media/template-messages/sample-location-based-template.jpg" alt-text="Screenshot that shows template details for template named sample_location_template.":::
@@ -245,7 +313,7 @@ Location based Message template assembly:
             channel_registration_id=self.channel_id, to=[self.phone_number], template=sample_movie_location)
 ```
 
-## Templates with call to action buttons
+### Send Template message with call to action buttons
 Use `MessageTemplateQuickAction` to define the url suffix for call to action buttons and `MessageTemplateQuickAction` object have the following three attributes.
 
 |  Properties   | Description |  Type |
@@ -269,7 +337,7 @@ Template definition buttons:
 
 The order that the buttons appear in the template definition should match the order in which the buttons are defined when creating the bindings with `MessageTemplateWhatsAppBindings`.
 
-### Example
+#### Example
 sample_purchase_feedback template
 This sample template adds a button with a dynamic URL link to the message. It also uses an image in the header and a text parameter in the body. Create Call to Action button template with **Dynamic** URL type for **View website** action type.
 :::image type="content" source="../../media/template-messages/edit-sample-purchase-feedback-whatsapp-manager.png" lightbox="../../media/template-messages/edit-sample-purchase-feedback-whatsapp-manager.png" alt-text="Screenshot that shows editing URL Type in the WhatsApp manager.":::
@@ -391,6 +459,44 @@ class SendWhatsAppTemplateMessageSample(object):
         response = message_responses.receipts[0]
         print("WhatsApp text parameters Templated Message with message id {} was successfully sent to {}"
             .format(response.message_id, response.to))
+
+    def send_template_message_with_media(self):
+
+        from azure.communication.messages import NotificationMessagesClient
+        from azure.communication.messages.models import (TemplateNotificationContent, MessageTemplate,
+        MessageTemplateText, WhatsAppMessageTemplateBindings, WhatsAppMessageTemplateBindingsComponent,
+        MessageTemplateImage)
+
+        messaging_client = NotificationMessagesClient.from_connection_string(self.connection_string)
+
+        # Setting template options
+        templateName = "sample_movie_ticket_confirmation"
+        templateLanguage = "en_us" 
+        imageUrl = "https://aka.ms/acsicon1"
+        sample_movie_ticket_confirmation: MessageTemplate = MessageTemplate(name=templateName, language=templateLanguage )
+        image = MessageTemplateImage(name="image", url=imageUrl)
+        title = MessageTemplateText(name="title", text="Contoso")
+        time = MessageTemplateText(name="time", text="July 1st, 2023 12:30PM")
+        venue = MessageTemplateText(name="venue", text="Southridge Video")
+        seats = MessageTemplateText(name="seats", text="Seat 1A")
+
+        bindings = WhatsAppMessageTemplateBindings(header=[WhatsAppMessageTemplateBindingsComponent(ref_value=image.name)],
+                                                   body=[WhatsAppMessageTemplateBindingsComponent(ref_value=title.name),
+                                                         WhatsAppMessageTemplateBindingsComponent(ref_value=time.name),
+                                                         WhatsAppMessageTemplateBindingsComponent(ref_value=venue.name),
+                                                         WhatsAppMessageTemplateBindingsComponent(ref_value=seats.name)])
+
+        sample_movie_ticket_confirmation.bindings = bindings
+        sample_movie_ticket_confirmation.template_values=[image,title,time,venue,seats]
+        template_options = TemplateNotificationContent(
+            channel_registration_id=self.channel_id, to=[self.phone_number], template=sample_movie_ticket_confirmation)
+
+        # calling send() with whatsapp message details
+        message_responses = messaging_client.send(template_options)
+        response = message_responses.receipts[0]
+        print("WhatsApp media parameters in templated message header with message id {} was successfully sent to {}"
+            .format(response.message_id, response.to))
+
     def send_template_message_with_buttons(self):
 
         from azure.communication.messages import NotificationMessagesClient

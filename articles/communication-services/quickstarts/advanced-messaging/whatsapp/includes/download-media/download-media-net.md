@@ -124,19 +124,20 @@ The following classes and interfaces handle some of the major features of the Az
 | [DownloadMediaToAsync](/dotnet/api/azure.communication.messages.notificationmessagesclient.downloadmediatoasync) | Download the media payload from a User to Business message asynchronously, writing the content to a file.   |
 | [Microsoft.Communication.AdvancedMessageReceived](/azure/event-grid/communication-services-advanced-messaging-events#microsoftcommunicationadvancedmessagereceived-event) | Event Grid event that is published when Advanced Messaging receives a message. |
 
+## Common configuration
+Follow these steps to add the necessary code snippets to the messages-quickstart.py python program.
+
+- [Authenticate the client](#authenticate-the-client)
+- [Set channel registration ID](#set-channel-registration-id)
+- [Set recipient list](#set-recipient-list)
+
+[!INCLUDE [Common setting for using Advanced Messages SDK](../common-setting.md)]
+
 ## Code examples
 
 Follow these steps to add the necessary code snippets to the Main function of your *Program.cs* file.
-
-- [Authenticate the client](#authenticate-the-client)
 - [Download the media payload to a stream](#download-the-media-payload-to-a-stream)
 - [Download the media payload to a file](#download-the-media-payload-to-a-file)
-
-### Authenticate the client   
-
-The `NotificationMessagesClient` is used to connect to your Azure Communication Services resource.    
-
-[!INCLUDE [Authenticate the NotificationMessagesClient](./../authenticate-notification-messages-client-net.md)]
 
 ### Download the media payload to a stream   
 
@@ -229,7 +230,7 @@ Download the media to the destination path:
 Response response = await notificationMessagesClient.DownloadMediaToAsync(mediaId, filePath);
 ```
 
-## Run the code
+### Run the code
 
 Build and run your program.  
 

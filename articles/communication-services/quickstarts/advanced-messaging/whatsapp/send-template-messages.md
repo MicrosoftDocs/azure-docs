@@ -69,7 +69,23 @@ The following classes and interfaces handle some of the major features of the Az
 > [!NOTE]
 > Please find the SDK reference [here](/python/api/azure-communication-messages/azure.communication.messages).
 
+## Common configuration
+Follow these steps to add the necessary code snippets to the messages-quickstart.py python program.
+
+- [Authenticate the client](#authenticate-the-client)
+- [Set channel registration ID](#set-channel-registration-id)
+- [Set recipient list](#set-recipient-list)
+
+[!INCLUDE [Common setting for using Advanced Messages SDK](./includes/common-setting.md)]
+
 ##  Code examples
+Follow these steps to add the necessary code snippets to the messages-quickstart.py python program.
+- [Send Template message with no parameters](#send-template-message-with-no-parameters)
+- [Send Template message with text parameters in the body](#send-template-message-with-text-parameters-in-the-body)
+- [Send Template message with media parameter in the header](#send-template-message-with-media-parameter-in-the-header)
+- [Send Template message with location in the header](#send-template-message-with-location-in-the-header)
+- [Send Template message with quick reply buttons](#send-template-message-with-quick-reply-buttons)
+- [Send Template message with call to action buttons](#send-template-message-with-call-to-action-buttons)
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Template usage quick reference with .NET](./includes/templates/template-messages-quick-reference-net.md)]
