@@ -360,7 +360,7 @@ If your template also includes the managed identity's resource definition, you c
       }
    },
    "variables": {
-      "logicAppName": "[parameters(`Template_LogicAppName')]",
+      "logicAppName": "[parameters('Template_LogicAppName')]",
       "userAssignedIdentityName": "[parameters('Template_UserAssignedIdentityName')]"
    },
    "resources": [
@@ -448,7 +448,7 @@ If your template also includes the managed identity's resource definition, you c
          "identity": {
             "type": "UserAssigned",
             "userAssignedIdentities": {
-               "[resourceId(Microsoft.ManagedIdentity/userAssignedIdentities', variables('userAssignedIdentityName'))]": {}
+               "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', variables('userAssignedIdentityName'))]": {}
             }
          },
          "properties": {
@@ -1492,7 +1492,7 @@ The following steps remove access to the target resource from the managed identi
 
 1. On the logic app resource menu, under **Settings**, select **Identity**, and then follow the steps for your identity:
 
-   - Select **System assigned** > **On** > **Save**. When Azure prompts you to confirm, select **Yes**.
+   - Select **System assigned** > **Off** > **Save**. When Azure prompts you to confirm, select **Yes**.
 
    - Select **User assigned** and the managed identity, and then select **Remove**. When Azure prompts you to confirm, select **Yes**.
 
