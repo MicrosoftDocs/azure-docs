@@ -113,7 +113,7 @@ For Service Bus, you must enable sessions so that message sequences with the sam
 > a disruptive event. To prevent reprocessing already processed messages, you have to set up a way to 
 > track the already processed messages so that processing resumes only with the unprocessed messages.
 >
-> For example, you can set up a database that stores the proccessing state for each message. 
+> For example, you can set up a database that stores the processing state for each message. 
 > When a message arrives, check the message's state and process only when the message is unprocessed. 
 > That way, no processing happens for an already processed message. 
 >

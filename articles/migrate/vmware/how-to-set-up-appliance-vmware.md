@@ -14,6 +14,8 @@ ms.custom: vmware-scenario-422, engagement-fy23
 
 This article describes how to set up the Azure Migrate appliance for assessment by using the [Azure Migrate: Discovery and assessment](../migrate-services-overview.md) tool.
 
+[!INCLUDE [scenario-banner.md](../includes/scenario-banner.md)]
+
 The [Azure Migrate appliance](../migrate-appliance.md) is a lightweight appliance that the Azure Migrate: Discovery and assessment tool uses to discover servers running in vCenter Server and to send server configuration and performance metadata to Azure.
 
 ## Set up the appliance
@@ -65,7 +67,7 @@ Before you deploy the OVA file, verify that the file is secure:
 1. Run the following command to generate the hash for the OVA file:
 
     ```
-    C:\>CertUtil -HashFile <file_location> <hashing_agorithm>
+    C:\>CertUtil -HashFile <file_location> <hashing_algorithm>
     ```
 
     For example:

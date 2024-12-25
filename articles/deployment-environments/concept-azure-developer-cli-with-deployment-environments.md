@@ -17,7 +17,7 @@ In this article, you learn about Azure Developer CLI (`azd`) and how it works wi
 
 `azd` is an open-source command-line tool that provides developer-friendly commands that map to key stages in your workflow. You can install `azd` locally on your machine or use it in other environments.
 
-With ADE, you can create environments from an environment definition in a catalog attached to your dev center, or by using the [ADE extensibilty model to execute deployments](how-to-configure-extensibility-model-custom-image.md). By adding `azd`, you can streamline the process of provisioning infrastructure and deploying code to the cloud.
+With ADE, you can create environments from an environment definition in a catalog attached to your dev center, or by using the [ADE extensibility model to execute deployments](how-to-configure-extensibility-model-custom-image.md). By adding `azd`, you can streamline the process of provisioning infrastructure and deploying code to the cloud.
 
 ## How does `azd` work with ADE?
 
@@ -103,5 +103,5 @@ When the dev center feature is enabled, the default behavior of some common `azd
 ## Related content
 
 - [Add and configure an environment definition](./configure-environment-definition.md)
-- [Create an environment by using the Azure Developer CLI](./how-to-create-environment-with-azure-developer.md)
+- [Create an environment from an Azure Developer CLI template](./how-to-configure-azure-developer-cli-deployment-environments.md )
 - [Make your project compatible with Azure Developer CLI](/azure/developer/azure-developer-cli/make-azd-compatible?pivots=azd-create)

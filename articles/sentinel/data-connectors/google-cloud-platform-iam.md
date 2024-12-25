@@ -77,7 +77,7 @@ To integrate with Google Cloud Platform IAM (using Azure Functions) make sure yo
 
 Option 1 - Azure Resource Manager (ARM) Template
 
-Use this method for automated deployment of the data connector using an ARM Tempate.
+Use this method for automated deployment of the data connector using an ARM Template.
 
 1. Click the **Deploy to Azure** button below. 
 

@@ -59,7 +59,7 @@ If your data source supports full DNS logging and you've chosen to log multiple 
 
 For example, you might modify your query with the following normalization:
 
-```kql
+```kusto
 _Im_Dns | where SrcIpAddr != "127.0.0.1" and EventSubType == "response"
 ```
 
@@ -97,13 +97,13 @@ The following filtering parameters are available:
 
 For example, to filter only DNS queries from the last day that failed to resolve the domain name, use:
 
-```kql
+```kusto
 _Im_Dns (responsecodename = 'NXDOMAIN', starttime = ago(1d), endtime=now())
 ```
 
 To filter only DNS queries for a specified list of domain names, use:
 
-```kql
+```kusto
 let torProxies=dynamic(["tor2web.org", "tor2web.com", "torlink.co"]);
 _Im_Dns (domain_has_any = torProxies)
 ```
@@ -298,7 +298,7 @@ The following fields are aliases that are maintained for backwards compatibility
 - `Query` (alias to `DnsQuery`)
 - `QueryType` (alias to `DnsQueryType`)
 - `QueryTypeName` (alias to `DnsQueryTypeName`)
-- `ResponseName` (alias to `DnsReasponseName`)
+- `ResponseName` (alias to `DnsResponseName`)
 - `ResponseCodeName` (alias to `DnsResponseCodeName`)
 - `ResponseCode` (alias to `DnsResponseCode`)
 - `QueryClass` (alias to `DnsQueryClass`)
@@ -350,7 +350,7 @@ In most cases, logged DNS events don't include response information, which may b
 
 You can also provide an extra KQL function called `_imDNS<vendor>Response_`, which takes the unparsed response as input and returns dynamic value with the following structure:
 
-```kql
+```kusto
 [
     {
         "part": "answer"

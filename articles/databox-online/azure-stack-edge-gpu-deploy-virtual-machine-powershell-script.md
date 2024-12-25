@@ -205,7 +205,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
     
      Using Vnet /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/ASERG/providers/Microsoft.Network/virtualNetworks/ASEVNET
     
-     Creating a new Newtork Interface
+     Creating a new Network Interface
     WARNING: The output object type of this cmdlet will be modified in a future release.
     
     VirtualMachine              :

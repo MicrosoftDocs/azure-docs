@@ -6,7 +6,7 @@ ms.topic: reference
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 09/20/2024
+ms.date: 12/12/2024
 ms.custom: generated
 ---
 
@@ -82,10 +82,17 @@ Azure service: [Azure Stack HCI](/azure-stack/hci/)
 > | Microsoft.AzureStackHCI/Clusters/SecuritySettings/Read | Gets SecuritySettings of HCI cluster |
 > | Microsoft.AzureStackHCI/Clusters/SecuritySettings/Write | Create or updates SecuritySettings resource of HCI cluster |
 > | Microsoft.AzureStackHCI/Clusters/SecuritySettings/Delete | Delete SecuritySettings resource of HCI cluster |
+> | Microsoft.AzureStackHCI/clusters/updates/Read | Gets/Lists updates resource |
+> | Microsoft.AzureStackHCI/clusters/updates/Apply/Action | Allows to apply updates |
+> | Microsoft.AzureStackHCI/clusters/updates/updateRuns/Read | Gets/Lists updateRuns resource |
+> | Microsoft.AzureStackHCI/clusters/updateSummaries/Read | Gets/Lists Update Summaries resource |
 > | Microsoft.AzureStackHCI/EdgeDevices/Read | Gets EdgeDevices resources |
 > | Microsoft.AzureStackHCI/EdgeDevices/Write | Creates or updates EdgeDevice resource |
 > | Microsoft.AzureStackHCI/EdgeDevices/Delete | Deletes EdgeDevice resource |
 > | Microsoft.AzureStackHCI/EdgeDevices/Validate/Action | Validates EdgeDevice Resources for deployment |
+> | Microsoft.AzureStackHCI/EdgeDevices/Jobs/Read | Reads Edge Device Job Resource |
+> | Microsoft.AzureStackHCI/EdgeDevices/Jobs/Write | Writes Edge Device Job Resource |
+> | Microsoft.AzureStackHCI/EdgeDevices/Jobs/Delete | Deletes Edge Device Job Resource |
 > | Microsoft.AzureStackHCI/GalleryImages/Delete | Deletes gallery images resource |
 > | Microsoft.AzureStackHCI/GalleryImages/Write | Creates/Updates gallery images resource |
 > | Microsoft.AzureStackHCI/GalleryImages/Read | Gets/Lists gallery images resource |

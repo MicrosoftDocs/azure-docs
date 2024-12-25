@@ -77,7 +77,7 @@ The following properties are supported for Zoho linked service:
 | endpoint | The endpoint of the Zoho server (`crm.zoho.com/crm/private`). | Yes |
 | authenticationType | Allowed values are `OAuth_2.0` and `Access Token`. | Yes |
 | clientId | The client ID associated with your Zoho application. | Yes for OAuth 2.0 authentication | 
-| clientSecrect | The clientsecret associated with your Zoho application. Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes for OAuth 2.0 authentication | 
+| clientSecret | The clientsecret associated with your Zoho application. Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes for OAuth 2.0 authentication | 
 | refreshToken | The OAuth 2.0 refresh token associated with your Zoho application, used to refresh the access token when it expires. Refresh token will never expire. To get a refresh token, you must request the `offline` access_type, learn more from [this article](https://www.zoho.com/crm/developer/docs/api/auth-request.html). <br>Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md).| Yes for OAuth 2.0 authentication |
 | accessToken | The access token for Zoho authentication. Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | useEncryptedEndpoints | Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.  | No |
@@ -96,7 +96,7 @@ The following properties are supported for Zoho linked service:
                 "authenticationType":"OAuth_2.0", 
                 "endpoint": "crm.zoho.com/crm/private", 
                 "clientId": "<client ID>", 
-                "clientSecrect": {
+                "clientSecret": {
                     "type": "SecureString",
                     "value": "<client secret>"
                 },

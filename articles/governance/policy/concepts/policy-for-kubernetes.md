@@ -606,6 +606,12 @@ Finally, to identify the AKS cluster version that you're using, follow the linke
 
 ### Add-on versions available per each AKS cluster version
 
+#### 1.9.1
+Security improvements.
+- Released January 2025
+- Kubernetes 1.27+
+- Gatekeeper 3.17.1
+
 #### 1.8.0
 Policy can now be used to evaluate CONNECT operations, for instance, to deny `exec`s. Note that there is no brownfield compliance available for noncompliant CONNECT operations, so a policy with Audit effect that targets CONNECTs is a no op.
 
