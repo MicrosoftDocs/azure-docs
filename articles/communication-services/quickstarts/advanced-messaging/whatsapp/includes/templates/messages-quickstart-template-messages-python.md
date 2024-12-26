@@ -11,25 +11,18 @@ ms.custom: include file
 ms.author: shamkh
 ---
 
-### Prerequisites
+## Setting up
 
-- [WhatsApp Business Account registered with your Azure Communication Services resource](../../connect-whatsapp-business-account.md).
-
-- Active WhatsApp phone number to receive messages.
-
-- [Python](https://www.python.org/downloads/) 3.7+ for your operating system.
-
-### Setting up
-
-#### Create a new Python application
-
+### Create a new Python application
 In a terminal or console window, create a new folder for your application and navigate to it.
 
 ```console
 mkdir messages-quickstart && cd messages-quickstart
 ```
 
-#### Install the package
+### Install the package
+Make sure python is installed before proceeding:
+- [Python](https://www.python.org/downloads/) 3.7+ for your operating system.
 
 You need to use the Azure Communication Messages client library for Python [version 1.0.0](https://pypi.org/project/azure-communication-messages) or above.
 
@@ -39,7 +32,7 @@ From a console prompt, execute the following command:
 pip install azure-communication-messages
 ```
 
-#### Set up the app framework
+### Set up the app framework
 
 Create a new file called `messages-quickstart.py` and add the basic program structure.
 
@@ -47,7 +40,7 @@ Create a new file called `messages-quickstart.py` and add the basic program stru
 type nul > messages-quickstart.py   
 ```
 
-#### Basic program structure
+### Basic program structure
 ```python
 import os
 
@@ -57,6 +50,35 @@ class MessagesQuickstart(object):
 if __name__ == '__main__':
     messages = MessagesQuickstart()
 ```
+
+##  Code examples
+Follow these steps to add the necessary code snippets to the messages-quickstart.py python program.
+- [List WhatsApp templates in Azure Portal](#list-whatsapp-templates-in-azure-portal)
+- [Send Template message with no parameters](#send-template-message-with-no-parameters)
+- [Send Template message with text parameters in the body](#send-template-message-with-text-parameters-in-the-body)
+- [Send Template message with media parameter in the header](#send-template-message-with-media-parameter-in-the-header)
+- [Send Template message with location in the header](#send-template-message-with-location-in-the-header)
+- [Send Template message with quick reply buttons](#send-template-message-with-quick-reply-buttons)
+- [Send Template message with call to action buttons](#send-template-message-with-call-to-action-buttons)
+
+### List WhatsApp templates in Azure Portal
+
+You can view your templates in the Azure portal by going to your Azure Communication Service resource > Advanced Messaging -> Templates.
+
+:::image type="content" source="./media/template-messages/list-templates-azure-portal.png" lightbox="./media/template-messages/list-templates-azure-portal.png" alt-text="Screenshot that shows an Azure Communication Services resource in the Azure portal, viewing the 'Templates' tab.":::
+
+By selecting a template, you can view the template details.   
+The `content` field of the template details may include parameter bindings. The parameter bindings can be denoted as:
+- A "format" field with a value such as `IMAGE`.
+- Double brackets surrounding a number, such as `{{1}}`. The number, indexed started at 1, indicates the order in which the binding values must be supplied to create the message template.
+
+:::image type="content" source="./media/template-messages/sample-movie-ticket-confirmation-azure-portal.png" lightbox="./media/template-messages/sample-movie-ticket-confirmation-azure-portal.png" alt-text="Screenshot that shows template details.":::
+
+Alternatively, you can view and edit all of your WhatsApp Business Account's templates in the [WhatsApp Manager](https://business.facebook.com/wa/manage/home/) > Account tools > [Message templates](https://business.facebook.com/wa/manage/message-templates/). 
+
+To list out your templates programmatically, you can fetch all templates for your channel ID:
+
+[!INCLUDE [List templates with Python](./includes/templates/template-messages-list-templates-python.md)]
 
 ### Send Template message with no parameters
 If the template takes no parameters, you don't need to supply the values or bindings when creating the `MessageTemplate`.

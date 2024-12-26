@@ -11,6 +11,131 @@ ms.custom: include file
 ms.author: memontic
 ---
 
+## Setting up
+
+### Create the .NET project
+
+#### [Visual Studio](#tab/visual-studio)
+
+To create your project, follow the tutorial at [Create a .NET console application using Visual Studio](/dotnet/core/tutorials/with-visual-studio).
+
+To compile your code, press <kbd>Ctrl</kbd>+<kbd>F7</kbd>.
+
+#### [Visual Studio Code](#tab/vs-code)
+
+To create your project, follow the tutorial at [Create a .NET console application using Visual Studio Code](/dotnet/core/tutorials/with-visual-studio-code).
+
+Build and run your program by running the following commands in the Visual Studio Code Terminal (View > Terminal).
+```console
+dotnet build
+dotnet run
+```
+
+#### [.NET CLI](#tab/dotnet-cli)
+
+First, create your project.
+```console
+dotnet new console -o AdvancedMessagingQuickstart
+```
+
+Next, navigate to your project directory and build your project.
+
+```console
+cd AdvancedMessagingQuickstart
+dotnet build
+```
+
+---
+
+### Install the package
+
+Install the Azure.Communication.Messages NuGet package to your C# project.
+
+#### [Visual Studio](#tab/visual-studio)
+ 
+1. Open the NuGet Package Manager at `Project` > `Manage NuGet Packages...`.   
+2. Search for the package `Azure.Communication.Messages`.   
+3. Install the latest release.
+
+#### [Visual Studio Code](#tab/vs-code)
+
+1. Open the Visual Studio Code terminal ( `View` > `Terminal` ).
+2. Install the package by running the following command.
+```console
+dotnet add package Azure.Communication.Messages
+```
+
+#### [.NET CLI](#tab/dotnet-cli)
+
+Install the package by running the following command.
+```console
+dotnet add package Azure.Communication.Messages
+```
+
+---
+
+### Set up the app framework
+
+Open the *Program.cs* file in a text editor.   
+
+Replace the contents of your *Program.cs* with the following code:
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using Azure;
+using Azure.Communication.Messages;
+
+namespace AdvancedMessagingQuickstart
+{
+    class Program
+    {
+        public static async Task Main(string[] args)
+        {
+            Console.WriteLine("Azure Communication Services - Send WhatsApp Messages");
+
+            // Quickstart code goes here
+        }
+    }
+}
+```
+
+To use the Advanced Messaging features, we add a `using` directive to include the `Azure.Communication.Messages` namespace.
+
+```csharp
+using Azure.Communication.Messages;
+```
+
+##  Code examples
+Follow these steps to add the necessary code snippets to the messages-quickstart.py python program.
+- [List WhatsApp templates in Azure Portal](#list-whatsapp-templates-in-azure-portal)
+- [Send Template message with no parameters](#send-template-message-with-no-parameters)
+- [Send Template message with text parameters in the body](#send-template-message-with-text-parameters-in-the-body)
+- [Send Template message with media parameter in the header](#send-template-message-with-media-parameter-in-the-header)
+- [Send Template message with location in the header](#send-template-message-with-location-in-the-header)
+- [Send Template message with quick reply buttons](#send-template-message-with-quick-reply-buttons)
+- [Send Template message with call to action buttons](#send-template-message-with-call-to-action-buttons)
+
+### List WhatsApp templates in Azure Portal
+
+You can view your templates in the Azure portal by going to your Azure Communication Service resource > Advanced Messaging -> Templates.
+
+:::image type="content" source="./media/template-messages/list-templates-azure-portal.png" lightbox="./media/template-messages/list-templates-azure-portal.png" alt-text="Screenshot that shows an Azure Communication Services resource in the Azure portal, viewing the 'Templates' tab.":::
+
+By selecting a template, you can view the template details.   
+The `content` field of the template details may include parameter bindings. The parameter bindings can be denoted as:
+- A "format" field with a value such as `IMAGE`.
+- Double brackets surrounding a number, such as `{{1}}`. The number, indexed started at 1, indicates the order in which the binding values must be supplied to create the message template.
+
+:::image type="content" source="./media/template-messages/sample-movie-ticket-confirmation-azure-portal.png" lightbox="./media/template-messages/sample-movie-ticket-confirmation-azure-portal.png" alt-text="Screenshot that shows template details.":::
+
+Alternatively, you can view and edit all of your WhatsApp Business Account's templates in the [WhatsApp Manager](https://business.facebook.com/wa/manage/home/) > Account tools > [Message templates](https://business.facebook.com/wa/manage/message-templates/). 
+
+To list out your templates programmatically, you can fetch all templates for your channel ID:
+
+[!INCLUDE [List templates with .NET](./includes/templates/template-messages-list-templates-net.md)]
+
 ### Send Template message with no parameters
 If the template takes no parameters, you don't need to supply the values or bindings when creating the `MessageTemplate`.
 
