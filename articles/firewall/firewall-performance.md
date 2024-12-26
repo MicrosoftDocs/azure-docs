@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: azure-firewall
 ms.topic: conceptual
-ms.date: 01/30/2024
+ms.date: 12/26/2024
 ms.author: victorh
 ---
 
