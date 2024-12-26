@@ -524,6 +524,7 @@ Build and run your program by running the following commands in the Visual Studi
 dotnet build
 dotnet run
 ```
+---
 
 ## Full code example
 
