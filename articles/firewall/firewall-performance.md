@@ -46,9 +46,6 @@ The following set of performance results demonstrates the maximal Azure Firewall
 |Premium SKU with TLS enabled and IDPS enabled in Alert only mode     |100|100|
 |Premium SKU with TLS enabled and IDPS enabled in Deny mode     |10|10|
 
-> [!NOTE]
-> IPS (Intrusion Prevention System) takes place when one or more signatures are configured to *Alert and Deny* mode.
-
 ### Throughput for single connections
 
 |Firewall use case  |Throughput (Gbps)|
