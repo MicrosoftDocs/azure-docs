@@ -11,35 +11,35 @@ ms.author: periclesrocha
 ms.reviewer: WilliamDAssafMSFT 
 ---
 
-# Tutorial: load data using EntraID
+# Tutorial: load data using Entra ID
 
 Applies to: Azure Synapse Analytics
 
-This article explains how to create external tables using EntraID passthrough.
+This article explains how to create external tables using Entra ID passthrough.
 
 ## Prerequisites:
 
-This tutorial requires the following resources to be in place:
+The following resources are required to complete this tutorial:
 
 * An Azure Synapse Analytics workspace and a dedicated SQL Pool
 
-## Give the EntraID account access to the storage account
+## Give the Entra ID account access to the storage account
 
-This examples uses an EntraID account (or group) to authenticate to the source data.
+This example uses an Entra ID account (or group) to authenticate to the source data.
 
-To enable access to data on ADLS Gen2 accounts, you need to give your EntraID account (or group) access to the source account. To grant the proper permissions, follow these steps:
+To enable access to data on Azure Data Lake Storage (ADLS) Gen2 accounts, you need to give your Entra ID account (or group) access to the source account. To grant the proper permissions, follow these steps:
 
-1. In the Azure Portal, find your storage account.
+1. In the Azure portal, find your storage account.
 2. Select **Data storage -> Containers**, and navigate to the folder where the source data the external table needs access to is.
 3. Select **Access control (IAM)**.
 4. Select **Add -> Add role assignment**.
 5. In the list of job function roles, select **Storage Blob Data Reader** and select **Next**.
-6. In the Add role assignment page, select **+ Select members**. The Select members pane opens in the right-hand corner.
-7. Type the name of the desired EntraID account or group until it is displayed. Pick your desired EntraID account and chose **Select**.
-8. Back to the Add role assignment page, make sure the list of Members include your desired EntraID account. Once verified, select **Review + assign**.
+6. In the Add role assignment page, select **+ Select members**. The **Select members** pane opens in the right-hand corner.
+7. Type the name of the desired Entra ID account. When displayed, pick your desired Entra ID account and chose **Select**.
+8. In the the **Add role assignment** page, make sure the list of Members include your desired Entra ID account. Once verified, select **Review + assign**.
 9. In the confirmation page, review the changes and select **Review + assign**.
 
-The EntraID account or group is now a member of the Storage Blob Data Reader role and has access to the source folder.
+The Entra ID account or group is now a member of the Storage Blob Data Reader role and has access to the source folder.
 
 # Create the required database objects
 
@@ -49,7 +49,7 @@ External tables require the following objects to be created:
 2. An external file format that defines the format of the source files.
 3. An external table definition that is used for queries.
 
-To follow these steps, you will need to use the SQL editor in the Azure Synapse Workspace, or your preferred SQL client connected to your dedicated SQL Pool. Let’s look at these steps in detail.
+To follow these steps, you need to use the SQL editor in the Azure Synapse Workspace, or your preferred SQL client connected to your dedicated SQL Pool. Let’s look at these steps in detail.
 
 ### Create the external data source
 
@@ -97,11 +97,11 @@ Where:
 
 * \<FileFormatName> is the name you want to use for your external file format
 
-In the example above, adjust parameters such as FIELD\_TERMINATOR, STRING\_DELIMITER, FIRST\_ROW and others as needed in accordance with your source data. For more formatting options and to learn more about EXTERNAL FILE FORMAT, visit <https://learn.microsoft.com/en-us/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest&tabs=delimited>.
+In this example, adjust parameters such as FIELD_TERMINATOR, STRING_DELIMITER, FIRST_ROW and others as needed in accordance with your source data. For more formatting options and to learn more about EXTERNAL FILE FORMAT, visit <https://learn.microsoft.com/en-us/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest&tabs=delimited>.
 
 ### Create the external table
 
-Now that we’ve created all the necessary objects that hold the metadata to securely access external data, it is time to create the external table. To create the external table, use the following command:
+Now that the necessary objects that hold the metadata to securely access external data are created, it's time to create the external table. To create the external table, use the following command:
 
 ```sql
 -- Adjust the table name and columns to your desired name and external table schema
@@ -127,7 +127,7 @@ Where:
 
 Make sure to adjust the table name and schema to the desired name and the schema of the data in your source files.
 
-At this point, all the metadata required to access the external table has been created. To test your external table, use a simple query such as the one below:
+At this point, all the metadata required to access the external table are created. To test your external table, use a query such as the following one to validate your work:
 
 ```sql
 SELECT TOP 10 Col1, Col2 FROM <ExternalTableName>
