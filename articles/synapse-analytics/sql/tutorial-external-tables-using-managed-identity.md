@@ -7,7 +7,7 @@ ms.topic: tutorial
 ms.subservice: sql
 ms.date: 01/04/2025
 ms.custom: 
-ms.author: periclesrocha
+ms.author: procha
 ms.reviewer: WilliamDAssafMSFT 
 ---
 
