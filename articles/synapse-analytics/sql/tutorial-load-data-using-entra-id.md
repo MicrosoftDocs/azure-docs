@@ -11,9 +11,7 @@ ms.author: periclesrocha
 ms.reviewer: WilliamDAssafMSFT 
 ---
 
-# Tutorial: load data using Entra ID
-
-Applies to: Azure Synapse Analytics
+# Tutorial: Loading external data using Entra ID
 
 This article explains how to create external tables using Entra ID passthrough.
 
@@ -41,7 +39,32 @@ To enable access to data on Azure Data Lake Storage (ADLS) Gen2 accounts, you ne
 
 The Entra ID account or group is now a member of the Storage Blob Data Reader role and has access to the source folder.
 
-# Create the required database objects
+## Ingest data using COPY INTO
+
+The COPY INTO statement provides flexible, high-throughput data ingestion into your tables, and is the primary strategy to ingest data into your dedicated SQL Pool tables. It allows users to ingest data from external locations without having to create any of the extra database objects that are required for external tables.
+
+The COPY INTO statement uses the CREDENTIAL argument to specify the authentication mechanism used to connect to the source account. However, when authenticating using Microsoft Entra ID or to a public storage account, CREDENTIAL doesn't need to be specified. Therefore, to run the COPY INTO statement using a workspace managed identity for authentication, use the following command:
+
+```sql
+COPY INTO <TableName>
+FROM 'https://<AccountName>.dfs.core.windows.net/<Container>/<Folder>/ '
+WITH
+(
+    [<CopyIntoOptions>]
+)
+```
+
+Where:
+
+* \<TableName> is the name of the table to ingest data into
+* \<AccountName> is your ADLS Gen2 account name
+* \<Container> is the name of the container within your storage account where the source data is stored
+* \<Folder> is the folder (or path with subfolders) where the source data is stored within your container. You can also provide a file name if pointing directly to a single file.
+* \<CopyIntoOptions> is the list of any other options you wish to provide to the COPY INTO statement.
+
+To learn more and explore the full syntax of COPY INTO, refer to <https://learn.microsoft.com/en-us/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest>.
+
+## Create the required database objects
 
 External tables require the following objects to be created:
 

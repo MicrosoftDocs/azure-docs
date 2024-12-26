@@ -320,6 +320,10 @@ items:
       href: ./sql/tutorial-logical-data-warehouse.md
     - name: Power BI Desktop
       href: ./sql/tutorial-connect-power-bi-desktop.md  
+    - name: Loading external data using Entra ID
+      href: ./sql/tutorial-load-data-using-entra-id.md  
+    - name: Loading external data using a Managed Identity
+      href: ./sql/tutorial-external-tables-using-managed-identity.md  
   - name: Concepts
     items:
     - name: Back up and restore
