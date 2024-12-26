@@ -10,7 +10,7 @@ ms.date: 05/06/2024
 ms.author: vanshsingh
 ---
 
-# Use Microsoft Playwright Testing Reporting with Playwright sharding (preview)
+# Use Microsoft Playwright Testing Reporting preview with Playwright sharding
 
 In this article, you learn how to use the Microsoft Playwright Testing service's reporting feature with test runs that use [Playwright's sharding features](https://playwright.dev/docs/test-sharding). 
 
@@ -32,9 +32,7 @@ You can use Playwright Testing's reporting feature to get a consolidated report 
 Add or update `runId` to `playwright.service.config.ts` file in your setup. 
 
 ```typescript
-.
-.
-.
+
 export default defineConfig(
   config,
   getServiceConfig(config, {
