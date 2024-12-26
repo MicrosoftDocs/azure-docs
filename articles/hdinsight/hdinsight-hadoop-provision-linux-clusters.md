@@ -22,7 +22,7 @@ If you're using multiple clusters together, you'll want to create a virtual netw
 
 ## Cluster setup methods
 
-The following table shows the different methods you can use to set up an HDInsight cluster.
+The following table shows the different methods you can use to set up a HDInsight cluster.
 
 | Clusters created with | Web browser | Command line | REST API | SDK |
 | --- |:---:|:---:|:---:|:---:|
@@ -33,7 +33,7 @@ The following table shows the different methods you can use to set up an HDInsig
 | [cURL](hdinsight-hadoop-create-linux-clusters-curl-rest.md) |&nbsp; |✅ |✅ |&nbsp; |
 | [Azure Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md) |&nbsp; |✅ |&nbsp; |&nbsp; |
 
-This article walks you through setup in the [Azure portal](https://portal.azure.com), where you can create an HDInsight cluster.
+This article walks you through setup in the [Azure portal](https://portal.azure.com), where you can create a HDInsight cluster.
 
 ## Basics
 
@@ -136,9 +136,9 @@ For more information, see [Use external metadata stores in Azure HDInsight](./hd
 
 #### SQL database for Hive
 
-If you want to retain your Hive tables after you delete an HDInsight cluster, use a custom metastore. You can then attach the metastore to another HDInsight cluster.
+If you want to retain your Hive tables after you delete a HDInsight cluster, use a custom metastore. You can then attach the metastore to another HDInsight cluster.
 
-An HDInsight metastore that is created for one HDInsight cluster version can't be shared across different HDInsight cluster versions. For a list of HDInsight versions, see [Supported HDInsight versions](hdinsight-component-versioning.md#supported-hdinsight-versions).
+A HDInsight metastore that is created for one HDInsight cluster version can't be shared across different HDInsight cluster versions. For a list of HDInsight versions, see [Supported HDInsight versions](hdinsight-component-versioning.md#supported-hdinsight-versions).
 
 > [!IMPORTANT]
 > The default metastore provides an Azure SQL Database with a **basic tier 5 DTU limit (not upgradeable)**! Suitable for basic testing purposes. For large or production workloads, we recommend migrating to an external metastore.
@@ -194,7 +194,7 @@ For more information, see [Managed identities in Azure HDInsight](./hdinsight-ma
 
 :::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-configuration-disk-attach.png" alt-text="HDInsight choose your node size.":::
 
-You're billed for node usage for as long as the cluster exists. Billing starts when a cluster is created and stops when the cluster is deleted. Clusters can't be de-allocated or put on hold.
+You're billed for node usage for as long as the cluster exists. Billing starts when a cluster is created and stops when the cluster is deleted. Clusters can't be deallocated or put on hold.
 
 ### Node configuration
 
@@ -208,7 +208,7 @@ Each cluster type has its own number of nodes, terminology for nodes, and defaul
 
 For more information, see [Default node configuration and virtual machine sizes for clusters](hdinsight-supported-node-configuration.md) in "What are the Hadoop components and versions in HDInsight?"
 
-The cost of HDInsight clusters is determined by the number of nodes and the virtual machines sizes for the nodes.
+The cost of HDInsight clusters determined by the number of nodes and the virtual machines sizes for the nodes.
 
 Different cluster types have different node types, numbers of nodes, and node sizes:
 
@@ -245,7 +245,7 @@ For more information, see [Sizes for virtual machines](/azure/virtual-machines/s
 > The added disks are only configured for node manager local directories and **not for datanode directories**
 
 
-HDInsight cluster comes with pre-defined disk space based on SKU. If you run some large applications, can lead to insufficient disk space, with disk full error -  `LinkId=221672#ERROR_NOT_ENOUGH_DISK_SPACE` and job failures. 
+HDInsight cluster comes with predefined disk space based on SKU. If you run some large applications, can lead to insufficient disk space, with disk full error -  `LinkId=221672#ERROR_NOT_ENOUGH_DISK_SPACE` and job failures. 
 
 More discs can be added to the cluster using the new feature **NodeManager**’s local directory. At the time of Hive and Spark cluster creation, the number of discs can be selected and added to the worker nodes. The selected disk, which will be of size 1TB each, would be part of **NodeManager**'s local directories.
 
