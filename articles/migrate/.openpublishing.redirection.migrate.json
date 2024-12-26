@@ -22,8 +22,8 @@
         },
         {
             "source_path_from_root": "/articles/migrate/migrate-support-matrix-vmware-migration.md",
-            "redirect_url": "/azure/migrate/vmware/migrate-support-matrix-vmware-migration?context=/azure/migrate/context/migrate-context",
-            "redirect_document_id": true
+            "redirect_url": "/azure/migrate/vmware/migrate-support-matrix-vmware-migration",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/migrate/migrate-support-matrix-vmware.md",
@@ -77,7 +77,12 @@
         },
         {
             "source_path_from_root": "/articles/migrate/tutorial-migrate-vmware.md",
-            "redirect_url": "/azure/migrate/vmware/tutorial-migrate-vmware?context=/azure/migrate/context/migrate-context",
+            "redirect_url": "/azure/migrate/vmware/tutorial-migrate-vmware",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/azure/migrate/vmware/tutorial-migrate-vmware.md",
+            "redirect_url": "tutorial-migrate-vmware?context=/azure/migrate/context/migrate-context",
             "redirect_document_id": true
         },
         {
@@ -251,6 +256,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/migrate/scale-vmware-assessment.md",
+            "redirect_url": "/azure/migrate/vmware/scale-vmware-assessment",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/migrate/troubleshooting-general.md",
             "redirect_url": "troubleshoot-general",
             "redirect_document_id": false
@@ -303,6 +313,16 @@
         {
             "source_path_from_root": "/articles/migrate/tutorial-assess-webapps-physical.md",
             "redirect_url": "tutorial-assess-webapps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/migrate/migrate-servers-to-azure-using-private-link.md",
+            "redirect_url": "/azure/migrate/migrate-hyper-v-servers-to-azure-using-private-link",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/migrate/tutorial-assess-sql-vmware.md",
+            "redirect_url": "/azure/migrate/vmware/tutorial-assess-sql-vmware",
             "redirect_document_id": false
         },
         {

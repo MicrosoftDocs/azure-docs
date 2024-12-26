@@ -39,7 +39,7 @@ The following considerations might help you decide on a size:
 * Your subscription might also limit the number of cores you can deploy in certain size families. To increase a quota, contact Azure Support.
 
 ## Performance considerations
-We created the concept of the Azure Compute Unit (ACU) to provide a way of comparing compute (CPU) performance across Azure SKUs and to identify which SKU is most likely to satisfy your performance needs. ACU is currently standardized on a Small (Standard_A1) VM being 100. Following that sandard, all other SKUs represent approximately how much faster that SKU can run a standard benchmark.
+We created the concept of the Azure Compute Unit (ACU) to provide a way of comparing compute (CPU) performance across Azure SKUs and to identify which SKU is most likely to satisfy your performance needs. ACU is currently standardized on a Small (Standard_A1) VM being 100. Following that standard, all other SKUs represent approximately how much faster that SKU can run a standard benchmark.
 
 > [!IMPORTANT]
 > The ACU is only a guideline. The results for your workload may vary.

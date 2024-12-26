@@ -540,7 +540,7 @@ In this release, we've made the following changes:
 In this release, we've made the following changes:
 
 - Accessibility improvements through increased color contrast in the virtual desktop connection blue bar.
-- Updated connection information dialog to distinguish between Websocket (renamed from TCP), RDP Shortpath for managed networks, and RDP Shortpath for public networks.
+- Updated connection information dialog to distinguish between WebSocket (renamed from TCP), RDP Shortpath for managed networks, and RDP Shortpath for public networks.
 - Fixed bugs.
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
 - Updates to Teams for Azure Virtual Desktop, including the following:

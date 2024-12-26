@@ -73,7 +73,7 @@ This article provides step-by-step guidance on how to use HDInsight Tools in [Az
 
     - [Environment variables](#prerequisites): If you already set the system environment variable **HADOOP_HOME** to **C:\WinUtils**, it can auto detect that no need to manually add.
     - [WinUtils.exe Location](#prerequisites): If you have not set the system environment variable, you can find the location by clicking its button.
-    - Just choose either of two options and, they are not needed on MacOS and Linux.
+    - Just choose either of two options and, they are not needed on macOS and Linux.
 
 1. You can also set the configuration manually before performing local run and local debug. In the preceding screenshot, select the plus sign (**+**). Then select the **Apache Spark on HDInsight** option. Enter information for **Name**, **Main class name** to save, then click the local run button.
 

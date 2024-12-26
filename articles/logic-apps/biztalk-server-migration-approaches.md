@@ -95,7 +95,7 @@ We recommend that your MVP definition include the following business outcomes, w
 - What is the primary goal that you want to achieve? 
 - What capabilities or features must you address for this MVP?
 - What are the business process flows? This question provides the opportunity to optimize existing processes supported by BizTalk Server.
-- What are the business decisions, for example, business outcomes that affect the MVP, or what is the esource availability?
+- What are the business decisions, for example, business outcomes that affect the MVP, or what is the resource availability?
 
 We recommend that your MVP include the following in-scope processes, which are expressed as [*Features*](/azure/devops/boards/backlogs/define-features-epics?view=azure-devops&preserve-view=true&tabs=agile-process#what-makes-a-feature-or-epic) in Scrum terminology:
 
@@ -327,7 +327,7 @@ As a concrete example, you might rename a Service Bus connection in an **OrderQu
 
 ### Handle exceptions with scopes and "Run after" options
 
-[Scopes](logic-apps-control-flow-run-steps-group-scopes.md) provide the capability to group multiple actions so that you can implement Try-Catch-Finally behavior. The **Scope** action's functionality is similar to the **Region** concept in Visual Studio. On the designer, you can collapse and expand a scope's contents to improve developer productivity.
+[Scopes](logic-apps-control-flow-run-steps-group-scopes.md) provide the capability to group multiple actions so that you can implement Try-Catch-Finally behavior. On the designer, you can collapse and expand a scope's contents to improve developer productivity.
 
 When you implement this pattern, you can also specify when to run the **Scope** action and the actions inside, based on the preceding action's execution status, which can be **Succeeded**, **Failed**, **Skipped**, or **TimedOut**. To set up this behavior, use the **Scope** action's [**Run after** (`runAfter`) options](logic-apps-exception-handling.md#manage-the-run-after-behavior):
 

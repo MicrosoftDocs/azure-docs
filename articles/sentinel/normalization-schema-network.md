@@ -75,7 +75,7 @@ Some parameter can accept both list of values of type `dynamic` or a single stri
 
 For example, to filter only network sessions for a specified list of domain names, use:
 
-```kql
+```kusto
 let torProxies=dynamic(["tor2web.org", "tor2web.com", "torlink.co"]);
 _Im_NetworkSession (hostname_has_any = torProxies)
 ```

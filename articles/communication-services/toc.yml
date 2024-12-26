@@ -390,8 +390,11 @@ items:
       - name: Diagnose media quality issues
         href: concepts/voice-video-calling/media-quality-sdk.md
         displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
-      - name: Ensure precall readiness
+      - name: Ensure pre-call readiness
         href: concepts/voice-video-calling/pre-call-diagnostics.md
+        displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
+      - name: Add pre-call diagnostics
+        href: quickstarts/voice-video-calling/get-started-pre-call-diagnostics.md
         displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
       - name: Check if user is running supported browser
         href: how-tos/calling-sdk/browser-support.md
