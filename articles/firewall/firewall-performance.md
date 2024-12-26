@@ -39,12 +39,12 @@ The following set of performance results demonstrates the maximal Azure Firewall
 
 |Firewall type and use case  |TCP/UDP bandwidth (Gbps)  |HTTP/S bandwidth (Gbps)  |
 |---------|---------|---------|
-|Basic|0.25|0.25|
-|Standard     |30|30|
-|Premium (no TLS/IDPS)     |100|100|
-|Premium with TLS (no IDS/IPS)     |-|100|
-|Premium with TLS and IDS     |100|100|
-|Premium with TLS and IPS      |10|10|
+|Basic SKU |0.25|0.25|
+|Standard SKU    |30|30|
+|Premium SKU with both TLS disabled and IDPS disabled     |100|100|
+|Premium SKU with TLS inspection enabled and IDPS disabled      |-|100|
+|Premium SKU with TLS enabled and IDPS enabled in Alert only mode     |100|100|
+|Premium SKU with TLS enabled and IDPS enabled in Deny mode     |10|10|
 
 > [!NOTE]
 > IPS (Intrusion Prevention System) takes place when one or more signatures are configured to *Alert and Deny* mode.
