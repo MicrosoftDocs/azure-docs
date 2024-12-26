@@ -73,6 +73,7 @@ When performance testing, make sure you test for at least 10 to 15 minutes, and 
 > [!NOTE]
 > Azure Firewall Basic doesn't autoscale.
 
-## Next steps
+## Next step
 
-- Learn how to [deploy and configure an Azure Firewall](tutorial-firewall-deploy-portal.md).
+> [!div class="nextstepaction"]
+> [deploy and configure an Azure Firewall](tutorial-firewall-deploy-portal.md)
