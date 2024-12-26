@@ -129,8 +129,8 @@ This article provides you with instructions for migrating to Azure Front Door fr
 1. If you face any issues and need to rollback the DNS changes, you can reopen the support ticket and request for rollback.
 
     > [!NOTE]
-    > Most of the traffic will immediately switch to Azure Front Door. You may see a small portion of the traffic still served by Edgio. The DNS changes takes time to propagate and some DNS servers have high TTL for DNS record expiry. Wait for 24-48 hours for all the traffic to switch.
-    > After the changes, under AFD Domains blade, the 'Certificate state' field may show the value as 'issuing' and the 'DNS state' field may show the value as 'Certificate needed'. This is just a portal bug that will be fixed by January 31st. The bug doesn't impact your certificates or traffic in any manner as the Certificate and DNS State for *.azureedge.net domains are completely managed by AFD.
+    > - Most of the traffic will immediately switch to Azure Front Door. You may see a small portion of the traffic still served by Edgio. The DNS changes takes time to propagate and some DNS servers have high TTL for DNS record expiry. Wait for 24-48 hours for all the traffic to switch.
+    > - After the changes, under AFD Domains blade, the 'Certificate state' field may show the value as 'issuing' and the 'DNS state' field may show the value as 'Certificate needed'. This is just a portal bug that will be fixed by January 31st. The bug doesn't impact your certificates or traffic in any manner as the Certificate and DNS State for *.azureedge.net domains are completely managed by AFD.
    
 
 ## Next step
