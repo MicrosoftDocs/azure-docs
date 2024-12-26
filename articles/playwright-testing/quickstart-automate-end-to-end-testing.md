@@ -160,7 +160,7 @@ Once you collect these artifacts, attach them to the `TestContext` to ensure the
 
 ## Set up authentication
     
-The CI machine running Playwright tests needs to authenticate with Playwright Testing service to get the browsers to run the tests and to publish the test results and artifacts back to the service. 
+The CI machine running Playwright tests must authenticate with Playwright Testing service to get the browsers to run the tests and to publish the test results and artifacts. 
 
 The service offers two authentication methods: Microsoft Entra ID and Access Tokens. We strongly recommend using Microsoft Entra ID to authenticate your pipelines. 
 
@@ -168,50 +168,50 @@ The service offers two authentication methods: Microsoft Entra ID and Access Tok
     
 # [GitHub Actions](#tab/github)
 
-If you are using GitHub Actions, you can connect to the service using GitHub OpenID Connect. Follow the steps to set up the integration:
+  If you're using GitHub Actions, you can connect to the service using GitHub OpenID Connect. Follow the steps to set up the integration:
 
-##### Prerequisites
+  ##### Prerequisites
 
-**Option 1: Microsoft Entra application**
+  **Option 1: Microsoft Entra application**
 
-* Create a Microsoft Entra application with a service principal by [Azure portal](/entra/identity-platform/howto-create-service-principal-portal#register-an-application-with-microsoft-entra-id-and-create-a-service-principal), [Azure CLI](/cli/azure/azure-cli-sp-tutorial-1#create-a-service-principal), or [Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps#create-a-service-principal).
+  * Create a Microsoft Entra application with a service principal by [Azure portal](/entra/identity-platform/howto-create-service-principal-portal#register-an-application-with-microsoft-entra-id-and-create-a-service-principal), [Azure CLI](/cli/azure/azure-cli-sp-tutorial-1#create-a-service-principal), or [Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps#create-a-service-principal).
 
-*  Copy the values for **Client ID**, **Subscription ID**, and **Directory (tenant) ID** to use later in your GitHub Actions workflow.
+  *  Copy the values for **Client ID**, **Subscription ID**, and **Directory (tenant) ID** to use later in your GitHub Actions workflow.
 
-* Assign the `Owner` or `Contributor` role to the service principal created in the previous step. These roles must be assigned on the Playwright Testing workspace. For more details, see [how to manage access](./how-to-manage-access-tokens.md).
+  * Assign the `Owner` or `Contributor` role to the service principal created in the previous step. These roles must be assigned on the Playwright Testing workspace. For more details, see [how to manage access](./how-to-manage-access-tokens.md).
 
-* [Configure a federated identity credential on a Microsoft Entra application](/entra/workload-id/workload-identity-federation-create-trust) to trust tokens issued by GitHub Actions to your GitHub repository. 
+  * [Configure a federated identity credential on a Microsoft Entra application](/entra/workload-id/workload-identity-federation-create-trust) to trust tokens issued by GitHub Actions to your GitHub repository. 
 
-**Option 2: User-assigned managed identity**
+  **Option 2: User-assigned managed identity**
 
-* [Create a user-assigned managed identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities#create-a-user-assigned-managed-identity).
+  * [Create a user-assigned managed identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities#create-a-user-assigned-managed-identity).
 
-*  Copy the values for **Client ID**, **Subscription ID**, and **Directory (tenant) ID** to use later in your GitHub Actions workflow.
+  *  Copy the values for **Client ID**, **Subscription ID**, and **Directory (tenant) ID** to use later in your GitHub Actions workflow.
 
-*  Assign the `Owner` or `Contributor` role to the user-assigned managed identity created in the previous step. These roles must be assigned on the Playwright Testing workspace. For more details, see [how to manage access](./how-to-manage-access-tokens.md).
+  *  Assign the `Owner` or `Contributor` role to the user-assigned managed identity created in the previous step. These roles must be assigned on the Playwright Testing workspace. For more details, see [how to manage access](./how-to-manage-access-tokens.md).
 
-* [Configure a federated identity credential on a user-assigned managed identity](/entra/workload-id/workload-identity-federation-create-trust-user-assigned-managed-identity) to trust tokens issued by GitHub Actions to your GitHub repository. 
+  * [Configure a federated identity credential on a user-assigned managed identity](/entra/workload-id/workload-identity-federation-create-trust-user-assigned-managed-identity) to trust tokens issued by GitHub Actions to your GitHub repository. 
 
-##### Create GitHub secrets
+  ##### Create GitHub secrets
 
-1. Add the values you got in the previous step as secrets to your GitHub repository. See [set up GitHub Action Secret](/azure/developer/github/connect-from-azure-openid-connect?branch=main#create-github-secrets). These variables are used in the GitHub Action workflow in subsequent steps. 
+  1. Add the values you got in the previous step as secrets to your GitHub repository. See [set up GitHub Action Secret](/azure/developer/github/connect-from-azure-openid-connect?branch=main#create-github-secrets). These variables are used in the GitHub Action workflow in subsequent steps. 
 
-| GitHub Secret       | Source (Microsoft Entra Application or Managed Identity) |
-|---------------------|----------------------------------------------------------|
-| `AZURE_CLIENT_ID`    | Client ID                                                |
-| `AZURE_SUBSCRIPTION_ID` | Subscription ID                                       |
-| `AZURE_TENANT_ID`    | Directory (Tenant) ID                                    |
+  | GitHub Secret       | Source (Microsoft Entra Application or Managed Identity) |
+  |---------------------|----------------------------------------------------------|
+  | `AZURE_CLIENT_ID`    | Client ID                                                |
+  | `AZURE_SUBSCRIPTION_ID` | Subscription ID                                       |
+  | `AZURE_TENANT_ID`    | Directory (Tenant) ID                                    |
 
-> **Note:**  
-> For enhanced security, it is strongly recommended to use GitHub Secrets to store sensitive values rather than including them directly in your workflow file.
+  > **Note:**  
+  > For enhanced security, it is strongly recommended to use GitHub Secrets to store sensitive values rather than including them directly in your workflow file.
 
 # [Azure Pipelines](#tab/pipelines)
 
-If you're using Azure Pipelines, you can connect to the service using Service Connections. Follow the steps to set up the integration:
+  If you're using Azure Pipelines, you can connect to the service using Service Connections. Follow the steps to set up the integration:
 
-1. [Create an app registration with workload identity federation](https://learn.microsoft.com//azure/devops/pipelines/library/connect-to-azure#create-an-app-registration-with-workload-identity-federation-automatic). Select the subscription and resource group associated with your Playwright Testing workspace. Typically, the resource group has the same name as the Playwright Testing workspace.
+  1. [Create an app registration with workload identity federation](https://learn.microsoft.com//azure/devops/pipelines/library/connect-to-azure#create-an-app-registration-with-workload-identity-federation-automatic). Select the subscription and resource group associated with your Playwright Testing workspace. Typically, the resource group has the same name as the Playwright Testing workspace.
 
-2. Use this service connection in Azure Pipeline yaml file as shown in subsequent steps.  
+  2. Use this service connection in Azure Pipeline yaml file as shown in subsequent steps.  
 
 #### Set up authentication using access tokens
 

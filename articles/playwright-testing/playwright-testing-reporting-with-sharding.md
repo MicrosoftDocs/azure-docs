@@ -47,7 +47,7 @@ You can use `PLAYWRIGHT_SERVICE_RUN_ID` variable in your setup to ensure the `ru
 
 ## Set up variables
 
-The `runId` setting is be used as an identifier by Playwright Testing service to distinguish between test runs. The results from multiple runs with same `runId` are reported to the same run on the Playwright portal. 
+The `runId` setting is used as an identifier by Playwright Testing service to distinguish between test runs. The results from multiple runs with same `runId` are reported to the same run on the Playwright portal. 
 
 By default, a test run that uses reporting feature automatically generates a unique `runId` unless you explicitly set the value yourself. If the value of the variable remains same across runs, the results are reported together in the same run on the Playwright portal. 
 
