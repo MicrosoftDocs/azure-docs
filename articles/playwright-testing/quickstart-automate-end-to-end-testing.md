@@ -170,9 +170,9 @@ The service offers two authentication methods: Microsoft Entra ID and Access Tok
 
   If you're using GitHub Actions, you can connect to the service using GitHub OpenID Connect. Follow the steps to set up the integration:
 
-  **Prerequisites**
+  ##### Prerequisites
 
-  *Option 1: Microsoft Entra application*
+  **Option 1: Microsoft Entra application**
 
   - Create a Microsoft Entra application with a service principal by [Azure portal](/entra/identity-platform/howto-create-service-principal-portal#register-an-application-with-microsoft-entra-id-and-create-a-service-principal), [Azure CLI](/cli/azure/azure-cli-sp-tutorial-1#create-a-service-principal), or [Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps#create-a-service-principal).
 
@@ -182,7 +182,7 @@ The service offers two authentication methods: Microsoft Entra ID and Access Tok
 
   - [Configure a federated identity credential on a Microsoft Entra application](/entra/workload-id/workload-identity-federation-create-trust) to trust tokens issued by GitHub Actions to your GitHub repository. 
 
-  *Option 2: User-assigned managed identity*
+  **Option 2: User-assigned managed identity**
 
   - [Create a user-assigned managed identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities#create-a-user-assigned-managed-identity).
 
@@ -192,7 +192,7 @@ The service offers two authentication methods: Microsoft Entra ID and Access Tok
 
   - [Configure a federated identity credential on a user-assigned managed identity](/entra/workload-id/workload-identity-federation-create-trust-user-assigned-managed-identity) to trust tokens issued by GitHub Actions to your GitHub repository. 
 
-  **Create GitHub secrets**
+  ##### Create GitHub secrets
 
   -  Add the values you got in the previous step as secrets to your GitHub repository. See [set up GitHub Action Secret](/azure/developer/github/connect-from-azure-openid-connect?branch=main#create-github-secrets). These variables are used in the GitHub Action workflow in subsequent steps. 
 
@@ -212,6 +212,8 @@ The service offers two authentication methods: Microsoft Entra ID and Access Tok
   - [Create an app registration with workload identity federation](https://learn.microsoft.com/azure/devops/pipelines/library/connect-to-azure#create-an-app-registration-with-workload-identity-federation-automatic). Select the subscription and resource group associated with your Playwright Testing workspace. Typically, the resource group has the same name as the Playwright Testing workspace.
 
   - Use this service connection in Azure Pipeline yaml file as shown in subsequent steps.  
+
+---
 
 #### Set up authentication using access tokens
 
