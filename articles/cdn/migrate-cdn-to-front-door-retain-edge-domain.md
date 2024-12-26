@@ -126,6 +126,7 @@ This article provides you with instructions for migrating to Azure Front Door fr
     - Azure CDN from Edgio endpoint hostname (for example, `contoso.azureedge.net`)
 
 1. The Azure support team makes the necessary DNS changes within 24-48 hours of filing the ticket. Traffic will now start being served by the Azure Front Door service.
+1. If you face any issues and need to rollback the DNS changes, you can reopen the support ticket and request for rollback.
 
     > [!NOTE]
     > Most of the traffic will immediately switch to Azure Front Door. You may see a small portion of the traffic still served by Edgio. The DNS changes takes time to propagate and some DNS servers have high TTL for DNS record expiry. Wait for 24-48 hours for all the traffic to switch.
