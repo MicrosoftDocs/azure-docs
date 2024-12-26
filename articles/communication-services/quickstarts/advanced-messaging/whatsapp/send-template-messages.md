@@ -20,7 +20,7 @@ This document provides guidance to send WhatsApp Template messages using Advance
 
 ## Prerequisites
 
-- [WhatsApp Business Account registered with your Azure Communication Services resource](../../connect-whatsapp-business-account.md).
+- [WhatsApp Business Account registered with your Azure Communication Services resource](./connect-whatsapp-business-account.md).
 - [Create WhatsApp template](#create-and-manage-whatsapp-template-message).
 - Active WhatsApp phone number to receive messages.
 

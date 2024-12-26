@@ -497,11 +497,40 @@ purchaseFeedbackTemplate.Values.Add(urlSuffix);
 purchaseFeedbackTemplate.Bindings = bindings;
 ``````
 
-### Full code example
+## Run the code
+
+Build and run your program.  
+
+To send a text or media message to a WhatsApp user, there must be an active conversation between the WhatsApp Business Account and the WhatsApp user.  
+If you don't have an active conversation, for the purposes of this quickstart, you should add a wait between sending the template message and sending the text message. This added delay gives you enough time to reply to the business on the user's WhatsApp account. For reference,given example prompts for manual user input before sending the next message, check full example at [Sample code](#full-code-example).
+If successful, you receive three messages on the user's WhatsApp account.
+
+### [Visual Studio](#tab/visual-studio)
+
+1. To compile your code, press <kbd>Ctrl</kbd>+<kbd>F7</kbd>.
+1. To run the program without debugging, press <kbd>Ctrl</kbd>+<kbd>F5</kbd>.
+
+### [Visual Studio Code](#tab/vs-code)
+
+Build and run your program by running the following commands in the Visual Studio Code Terminal (View > Terminal).
+```console
+dotnet build
+dotnet run
+```
+
+### [.NET CLI](#tab/dotnet-cli)
+
+Build and run your program.
+```console
+dotnet build
+dotnet run
+```
+
+## Full code example
 
 [!INCLUDE [Full code example with .NET](./template-messages-full-code-example-net.md)]
 
-### More Examples
+## More Examples
 
 These examples utilize sample templates available to WhatsApp Business Accounts created through the Azure portal embedded signup.
 
