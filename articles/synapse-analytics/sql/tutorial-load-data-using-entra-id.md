@@ -62,7 +62,7 @@ Where:
 * \<Folder> is the folder (or path with subfolders) where the source data is stored within your container. You can also provide a file name if pointing directly to a single file.
 * \<CopyIntoOptions> is the list of any other options you wish to provide to the COPY INTO statement.
 
-To learn more and explore the full syntax of COPY INTO, refer to <https://learn.microsoft.com/en-us/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest>.
+To learn more and explore the full syntax of COPY INTO, refer to <https://learn.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest>.
 
 ## Create the required database objects
 
@@ -95,7 +95,7 @@ Where:
 * \<Container> is the name of the container within your storage account where the source data is stored
 * \<Folder> is the folder (or path with subfolders) where the source data is stored within your container
 
-To learn more about external data sources, refer to <https://learn.microsoft.com/en-us/sql/t-sql/statements/create-external-data-source-transact-sql?view=azure-sqldw-latest&tabs=dedicated>.
+To learn more about external data sources, refer to <https://learn.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql?view=azure-sqldw-latest&tabs=dedicated>.
 
 ### Create the external file format
 
@@ -120,7 +120,7 @@ Where:
 
 * \<FileFormatName> is the name you want to use for your external file format
 
-In this example, adjust parameters such as FIELD_TERMINATOR, STRING_DELIMITER, FIRST_ROW and others as needed in accordance with your source data. For more formatting options and to learn more about EXTERNAL FILE FORMAT, visit <https://learn.microsoft.com/en-us/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest&tabs=delimited>.
+In this example, adjust parameters such as FIELD_TERMINATOR, STRING_DELIMITER, FIRST_ROW and others as needed in accordance with your source data. For more formatting options and to learn more about EXTERNAL FILE FORMAT, visit <https://learn.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest&tabs=delimited>.
 
 ### Create the external table
 
@@ -158,4 +158,4 @@ SELECT TOP 10 Col1, Col2 FROM <ExternalTableName>
 
 If everything was configured properly, you should see the data from your source data as a result of this query.
 
-To learn more and explore the full syntax of EXTERNAL TABLE, refer to <https://learn.microsoft.com/en-us/sql/t-sql/statements/create-external-table-transact-sql?view=azure-sqldw-latest&tabs=dedicated>.
+To learn more and explore the full syntax of EXTERNAL TABLE, refer to <https://learn.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql?view=azure-sqldw-latest&tabs=dedicated>.

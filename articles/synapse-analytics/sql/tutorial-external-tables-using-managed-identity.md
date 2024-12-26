@@ -24,7 +24,7 @@ The following resources are required to complete this tutorial:
 
 ## Give the workspace identity access to the storage account
 
-Each Azure Synapse Analytics workspace automatically creates a managed identity that helps you configure secure access to external data from your workspace. To learn more about managed identities for Azure Synapse Analytics, visit [Managed service identity for Azure Synapse Analytics - Azure Synapse | Microsoft Learn](https://learn.microsoft.com/en-us/azure/synapse-analytics/synapse-service-identity).
+Each Azure Synapse Analytics workspace automatically creates a managed identity that helps you configure secure access to external data from your workspace. To learn more about managed identities for Azure Synapse Analytics, visit [Managed service identity for Azure Synapse Analytics - Azure Synapse | Microsoft Learn](https://learn.microsoft.com/azure/synapse-analytics/synapse-service-identity).
 
 To enable your managed identity to access data on ADLS Gen2 accounts, you need to give your identity access to the source account. To grant proper permissions, follow these steps:
 
@@ -40,7 +40,7 @@ To enable your managed identity to access data on ADLS Gen2 accounts, you need t
 
 Your workspace identity is now a member of the Storage Blob Data Contributor role and has access to the source folder.
 
-Note: these steps also apply to secure ADLS Gen2 accounts that are configured to restrict public access. To learn more about securing your ADLS Gen2 account, visit [Configure Azure Storage firewalls and virtual networks | Microsoft Learn](https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security?tabs=azure-portal).
+Note: these steps also apply to secure ADLS Gen2 accounts that are configured to restrict public access. To learn more about securing your ADLS Gen2 account, visit [Configure Azure Storage firewalls and virtual networks | Microsoft Learn](https://learn.microsoft.com/azure/storage/common/storage-network-security?tabs=azure-portal).
 
 ## Ingest data using COPY INTO
 
@@ -66,7 +66,7 @@ Where:
 * \<Folder> is the folder (or path with subfolders) where the source data is stored within your container. You can also provide a file name if pointing directly to a single file.
 * \<CopyIntoOptions> is the list of any other options you wish to provide to the COPY INTO statement.
 
-To learn more and explore the full syntax of COPY INTO, refer to <https://learn.microsoft.com/en-us/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest>.
+To learn more and explore the full syntax of COPY INTO, refer to <https://learn.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest>.
 
 ## Query data on ADLS Gen2 using external tables
 
@@ -101,7 +101,7 @@ Where:
 
 * \<Secure Password Here> should be replaced with a strong password. This password is used to encrypt the master key in the database
 
-To learn more about the database master key, refer to <https://learn.microsoft.com/en-us/sql/t-sql/statements/create-master-key-transact-sql?view=azure-sqldw-latest>.
+To learn more about the database master key, refer to <https://learn.microsoft.com/sql/t-sql/statements/create-master-key-transact-sql?view=azure-sqldw-latest>.
 
 #### Create the database scoped credential
 
@@ -117,7 +117,7 @@ Where:
 
 * \<CredentialName> should be replaced with the name you would like to use for your database scoped credential
 
-To learn more about database scoped credentials, refer to <https://learn.microsoft.com/en-us/sql/t-sql/statements/create-database-scoped-credential-transact-sql?view=azure-sqldw-latest>.
+To learn more about database scoped credentials, refer to <https://learn.microsoft.com/sql/t-sql/statements/create-database-scoped-credential-transact-sql?view=azure-sqldw-latest>.
 
 #### Create the external data source
 
@@ -142,7 +142,7 @@ Where:
 * \<Folder> is the folder (or path with subfolders) where the source data is stored within your container. You can also provide a file name if pointing directly to a single file.
 * \<Credential> is the name of the database scoped credential you created in step b)
 
-To learn more about external data sources, refer to <https://learn.microsoft.com/en-us/sql/t-sql/statements/create-external-data-source-transact-sql?view=azure-sqldw-latest&tabs=dedicated>.
+To learn more about external data sources, refer to <https://learn.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql?view=azure-sqldw-latest&tabs=dedicated>.
 
 #### Create the external file format
 
@@ -167,7 +167,7 @@ Where:
 
 * \<FileFormatName> is the name you want to use for your external file format
 
-In this example, adjust parameters such as FIELD_TERMINATOR, STRING_DELIMITER, FIRST_ROW and others as needed in accordance with your source data. For more formatting options and to learn more about EXTERNAL FILE FORMAT, visit <https://learn.microsoft.com/en-us/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest&tabs=delimited>.
+In this example, adjust parameters such as FIELD_TERMINATOR, STRING_DELIMITER, FIRST_ROW and others as needed in accordance with your source data. For more formatting options and to learn more about EXTERNAL FILE FORMAT, visit <https://learn.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest&tabs=delimited>.
 
 #### Create the external table
 
@@ -205,4 +205,4 @@ SELECT TOP 10 Col1, Col2 FROM <ExternalTableName>
 
 If everything was configured properly, you should see the data from your source data as a result of this query.
 
-To learn more and explore the full syntax of EXTERNAL TABLE, refer to <https://learn.microsoft.com/en-us/sql/t-sql/statements/create-external-table-transact-sql?view=azure-sqldw-latest&tabs=dedicated>.
+To learn more and explore the full syntax of EXTERNAL TABLE, refer to <https://learn.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql?view=azure-sqldw-latest&tabs=dedicated>.
