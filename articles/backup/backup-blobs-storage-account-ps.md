@@ -206,8 +206,8 @@ To update the backup instance, run the following cmdlets:
    1. Fetch the backup instance that needs to be updated.
 
          ```azurepowershell
-         C:\Users\dapatil> $instance = Search-AzDataProtectionBackupInstanceInAzGraph -Subscription "Demosub" -ResourceGroup Demo-BCDR-RG -Vault BCDR-BV-EastUS -DatasourceType AzureBlob
-         PS C:\Users\dapatil> $instance
+         C:\Users\testuser> $instance = Search-AzDataProtectionBackupInstanceInAzGraph -Subscription "Demosub" -ResourceGroup Demo-BCDR-RG -Vault BCDR-BV-EastUS -DatasourceType AzureBlob
+         PS C:\Users\testuser> $instance
                         Output
          Name                                                                     BackupInstanceName
          ----                                                                     ------------------
@@ -226,12 +226,12 @@ To update the backup instance, run the following cmdlets:
    1. Update the backup instance with new list of container (the existing backed up containers & new containers).       
 
          ```azurepowershell
-         PS C:\Users\dapatil> $updateBI = Update-AzDataProtectionBackupInstance -ResourceGroupName Daya-BCDR-RG -VaultName DPBCDR-BV-EastUS -BackupInstanceName $instance[0].Name -SubscriptionId "ef4ab5a7-c2c0-4304-af80-af49f48af3d1"  -PolicyId $updatePolicy.id -VaultedBackupContainer $targetContainers.name
+         PS C:\Users\testuser> $updateBI = Update-AzDataProtectionBackupInstance -ResourceGroupName Daya-BCDR-RG -VaultName DPBCDR-BV-EastUS -BackupInstanceName $instance[0].Name -SubscriptionId "ef4ab5a7-c2c0-4304-af80-af49f48af3d1"  -PolicyId $updatePolicy.id -VaultedBackupContainer $targetContainers.name
          
          
-         PS C:\Users\dapatil> $updateBI.Property.PolicyInfo.PolicyId
+         PS C:\Users\testuser> $updateBI.Property.PolicyInfo.PolicyId
          /subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/Daya-BCDR-RG/providers/Microsoft.DataProtection/backupVaults/DPBCDR-BV-EastUS/backupPolicies/continerdeltest-1
-         PS C:\Users\dapatil> $updateBI.Property.PolicyInfo.PolicyParameter.BackupDatasourceParametersList[0].ContainersList
+         PS C:\Users\testuser> $updateBI.Property.PolicyInfo.PolicyParameter.BackupDatasourceParametersList[0].ContainersList
          cont-01
          cont-02
          cont-03
