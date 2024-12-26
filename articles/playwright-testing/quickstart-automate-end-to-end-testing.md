@@ -158,6 +158,79 @@ Enable artifacts such as screenshot, videos and traces to be captured by Playwri
 Once you collect these artifacts, attach them to the `TestContext` to ensure they are available in your test reports. For more information, see our [sample project for NUnit](https://aka.ms/mpt/nunit-sample)
 ::: zone-end
 
+## Set up authentication
+    
+The CI machine running Playwright tests needs to authenticate with Playwright Testing service to get the browsers to run the tests and to publish the test results and arifacts back to the service. 
+
+The service offers two authentication methods: Microsoft Entra ID and Access Tokens. We strongly recommend using Microsoft Entra ID to authenticate your pipelines. 
+
+#### Set up authentication using Microsoft Entra ID
+    
+  # [GitHub Actions](#tab/github)
+
+  If you are using GitHub Actions, you can connect to the service using GitHub OpenID Connect. Follow the steps below to set up the integration:
+
+  ##### Prerequisites
+
+  **Option 1: Microsoft Entra application**
+
+  * Create a Microsoft Entra application with a service principal by [Azure portal](/entra/identity-platform/howto-create-service-principal-portal#register-an-application-with-microsoft-entra-id-and-create-a-service-principal), [Azure CLI](/cli/azure/azure-cli-sp-tutorial-1#create-a-service-principal), or [Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps#create-a-service-principal).
+
+  *  Copy the values for **Client ID**, **Subscription ID**, and **Directory (tenant) ID** to use later in your GitHub Actions workflow.
+  
+  * Assign the `Owner` or `Contributor` role to the service principal created in the previous step. These roles must be assigned on the Playwright Testing workspace. For more details, refer to [How to manage access](./how-to-manage-access-tokens.md).
+  
+  * [Configure a federated identity credential on a Microsoft Entra application](/entra/workload-id/workload-identity-federation-create-trust) to trust tokens issued by GitHub Actions to your GitHub repository. 
+
+  **Option 2: User-assigned managed identity**
+
+  * [Create a user-assigned managed identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities#create-a-user-assigned-managed-identity).
+
+  *  Copy the values for **Client ID**, **Subscription ID**, and **Directory (tenant) ID** to use later in your GitHub Actions workflow.
+  
+  *  Assign the `Owner` or `Contributor` role to the user-assigned managed identity created in the previous step. These roles must be assigned on the Playwright Testing workspace. For more details, refer to [How to manage access](./how-to-manage-access-tokens.md).
+  
+  * [Configure a federated identity credential on a user-assigned managed identity](/entra/workload-id/workload-identity-federation-create-trust-user-assigned-managed-identity) to trust tokens issued by GitHub Actions to your GitHub repository. 
+
+  ##### Create GitHub secrets
+
+  1. Add the values you got in the previous step as secrets to your GitHub repository. See [set up GitHub Action Secret](/azure/developer/github/connect-from-azure-openid-connect?branch=main#create-github-secrets). These variables will be used in the GitHub Action workflow in subsequest steps. 
+
+    | GitHub Secret       | Source (Microsoft Entra Application or Managed Identity) |
+    |---------------------|----------------------------------------------------------|
+    | `AZURE_CLIENT_ID`    | Client ID                                                |
+    | `AZURE_SUBSCRIPTION_ID` | Subscription ID                                       |
+    | `AZURE_TENANT_ID`    | Directory (Tenant) ID                                    |
+
+    > **Note:**  
+    > For enhanced security, it is strongly recommended to use GitHub Secrets to store sensitive values rather than including them directly in your workflow file.
+
+  # [Azure Pipelines](#tab/pipelines)
+
+  If you are using Azure Pipelines, you can connect to the service using Service Connections. Follow the steps below to set up the integration:
+
+  1. [Create an app registration with workload identity federation](/azure/devops/pipelines/library/connect-to-azure?view=azure-devops#create-an-app-registration-with-workload-identity-federation-automatic). Select the subscription and resource group associated with your Playwright Testing workspace. Typically, the resource group has the same name as the Playwright Testing workspace.
+
+  2. Use this service connection in Azure Pipeline yaml file as shown in subsequent steps.  
+
+  #### Set up authentication using access tokens
+
+  > [!CAUTION]
+  > We strongly recommend using Microsoft Entra ID for authentication to the service. If you are using access tokens, see [How to Manage Access Tokens](./how-to-manage-access-tokens.md)
+
+  You can generate an access token from your Playwright Testing workspace and use it in your setup. However, we strongly recommend Microsoft Entra ID for authentication due to its enhanced security. Access tokens, while convenient, function like long-lived passwords and are more susceptible to being compromised.
+
+  1. Authentication using access tokens is disabled by default. To use, [Enable access-token based authentication](./how-to-manage-authentication.md#enable-authentication-using-access-tokens)
+
+  2. [Set up authentication using access tokens](./how-to-manage-authentication.md#set-up-authentication-using-access-tokens)
+
+  3. Store the access token in a CI workflow secret and use it in the GitHub Actions workflow or Azure Pipeline yaml file. 
+
+    | Secret name | Value |
+    | ----------- | ------------ |
+    | *PLAYWRIGHT_SERVICE_ACCESS_TOKEN* | Paste the value of Access Token you created previously. | 
+
+
 ## Update the workflow definition
 
 ::: zone pivot="playwright-test-runner"
@@ -175,47 +248,51 @@ Update the CI workflow definition to run your Playwright tests with the Playwrig
     
       # This step is to sign-in to Azure to run tests from GitHub Action workflow. 
       # Choose how to set up authentication to Azure from GitHub Actions. This is one example. 
-    on:
-      push:
-        branches: [ main, master ]
-      pull_request:
-        branches: [ main, master ]
-    permissions: # Required when using Microsoft Entra ID to authenticate
-      id-token: write
-      contents: read
-    jobs:
-      test:
-        timeout-minutes: 60
-        runs-on: ubuntu-latest
+      name: Playwright Tests (Microsoft Playwright Testing)
+      on:
+        push:
+          branches: [main, master]
+        pull_request:
+          branches: [main, master]
+
+      permissions: # Required when using Microsoft Entra ID to authenticate
+        id-token: write
+        contents: read
+
+      jobs:
+        test:
+          timeout-minutes: 60
+          runs-on: ubuntu-latest
           steps:
-          - uses: actions/checkout@v4    
-    - name: Login to Azure with AzPowershell (enableAzPSSession true) 
-      uses: azure/login@v2 
-      with: 
-        client-id: ${{ secrets.AZURE_CLIENT_ID }} 
-        tenant-id: ${{ secrets.AZURE_TENANT_ID }}  
-        subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}  
-        enable-AzPSSession: true 
+            - uses: actions/checkout@v4
 
-    - name: Install dependencies
-        working-directory: path/to/playwright/folder # update accordingly
-      run: npm ci
+            - name: Login to Azure with AzPowershell (enableAzPSSession true)
+              uses: azure/login@v2
+              with:
+                client-id: ${{ secrets.AZURE_CLIENT_ID }} # GitHub Open ID connect values copied in previous steps
+                tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+                subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+                enable-AzPSSession: true
 
-    - name: Run Playwright tests
-        working-directory: path/to/playwright/folder # update accordingly
-      env:
-        # Regional endpoint for Microsoft Playwright Testing
-        PLAYWRIGHT_SERVICE_URL: ${{ secrets.PLAYWRIGHT_SERVICE_URL }}
-        PLAYWRIGHT_SERVICE_RUN_ID: ${{ github.run_id }}-${{ github.run_attempt }}-${{ github.sha }}
-      run: npx playwright test -c playwright.service.config.ts --workers=20
+            - name: Install dependencies
+              working-directory: path/to/playwright/folder # update accordingly
+              run: npm ci
 
-    - name: Upload Playwright report
-      uses: actions/upload-artifact@v3
-      if: always()
-      with:
-        name: playwright-report
-        path: path/to/playwright/folder/playwright-report/ # update accordingly
-        retention-days: 10
+            - name: Run Playwright tests
+              working-directory: path/to/playwright/folder # update accordingly
+              env:
+                # Regional endpoint for Microsoft Playwright Testing
+                PLAYWRIGHT_SERVICE_URL: ${{ secrets.PLAYWRIGHT_SERVICE_URL }}
+                # PLAYWRIGHT_SERVICE_ACCESS_TOKEN: ${{ secrets.PLAYWRIGHT_SERVICE_ACCESS_TOKEN }} # Not recommended, use Microsoft Entra ID authentication. 
+              run: npx playwright test -c playwright.service.config.ts --workers=20
+
+            - name: Upload Playwright report
+              uses: actions/upload-artifact@v3
+              if: always()
+              with:
+                name: playwright-report
+                path: path/to/playwright/folder/playwright-report/ # update accordingly
+                retention-days: 10
     ```
 
     # [Azure Pipelines](#tab/pipelines)
@@ -233,7 +310,8 @@ Update the CI workflow definition to run your Playwright tests with the Playwrig
       displayName: Run Playwright Test  
         env:
         PLAYWRIGHT_SERVICE_URL: $(PLAYWRIGHT_SERVICE_URL)
-        PLAYWRIGHT_SERVICE_RUN_ID: ${{ parameters.runIdPrefix }}$(Build.DefinitionName) - $(Build.BuildNumber) - $(System.JobAttempt) 
+        # PLAYWRIGHT_SERVICE_ACCESS_TOKEN: $(PLAYWRIGHT_SERVICE_ACCESS_TOKEN) # Not recommended, use Microsoft Entra ID authentication. 
+
       inputs:
         azureSubscription: My_Service_Connection # Service connection used to authenticate this pipeline with Azure to use the service
         scriptType: 'pscore'
@@ -287,7 +365,7 @@ Update the CI workflow definition to run your Playwright tests with the Playwrig
           - name: Login to Azure with AzPowershell (enableAzPSSession true) 
             uses: azure/login@v2 
             with: 
-              client-id: ${{ secrets.AZURE_CLIENT_ID }} 
+              client-id: ${{ secrets.AZURE_CLIENT_ID }} # GitHub Open ID connect values copied in previous steps
               tenant-id: ${{ secrets.AZURE_TENANT_ID }}  
               subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}  
               enable-AzPSSession: true 
@@ -310,7 +388,7 @@ Update the CI workflow definition to run your Playwright tests with the Playwrig
             env:
               # Regional endpoint for Microsoft Playwright Testing
               PLAYWRIGHT_SERVICE_URL: ${{ secrets.PLAYWRIGHT_SERVICE_URL }}
-              PLAYWRIGHT_SERVICE_RUN_ID: ${{ github.run_id }}-${{ github.run_attempt }}-${{ github.sha }}
+              # PLAYWRIGHT_SERVICE_ACCESS_TOKEN: ${{ secrets.PLAYWRIGHT_SERVICE_ACCESS_TOKEN }} # Not recommended, use Microsoft Entra ID authentication. 
             run: dotnet test --settings:.runsettings --logger "microsoft-playwright-testing" -- NUnit.NumberOfTestWorkers=20
 
           - name: Upload Playwright report
@@ -345,9 +423,10 @@ Update the CI workflow definition to run your Playwright tests with the Playwrig
       displayName: Run Playwright Test  
         env:
         PLAYWRIGHT_SERVICE_URL: $(PLAYWRIGHT_SERVICE_URL)
-        PLAYWRIGHT_SERVICE_RUN_ID: ${{ parameters.runIdPrefix }}$(Build.DefinitionName) - $(Build.BuildNumber) - $(System.JobAttempt) 
+        # PLAYWRIGHT_SERVICE_ACCESS_TOKEN: $(PLAYWRIGHT_SERVICE_ACCESS_TOKEN) # Not recommended, use Microsoft Entra ID authentication. 
+
       inputs:
-        azureSubscription: My_Service_Connection # Service connection used to authenticate this pipeline with Azure to use the service
+        azureSubscription: My_Service_Connection # Service connection used to authenticate this pipeline with Azure to use the service using Microsoft Entra ID.
         scriptType: 'pscore'
         scriptLocation: 'inlineScript'
         inlineScript: |
