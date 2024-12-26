@@ -502,8 +502,15 @@ purchaseFeedbackTemplate.Bindings = bindings;
 Build and run your program.  
 
 To send a text or media message to a WhatsApp user, there must be an active conversation between the WhatsApp Business Account and the WhatsApp user.  
-If you don't have an active conversation, for the purposes of this quickstart, you should add a wait between sending the template message and sending the text message. This added delay gives you enough time to reply to the business on the user's WhatsApp account. For reference,given example prompts for manual user input before sending the next message, check full example at [Sample code](#full-code-example).
-If successful, you receive three messages on the user's WhatsApp account.
+If you don't have an active conversation, for the purposes of this quickstart, you should add a wait between sending the template message and sending the text message. This added delay gives you enough time to reply to the business on the user's WhatsApp account. For reference,given example prompts for manual user input before sending the next message, check full example at [Sample code](#full-code-example). If successful, you receive three messages on the user's WhatsApp account.
+
+### [.NET CLI](#tab/dotnet-cli)
+
+Build and run your program.
+```console
+dotnet build
+dotnet run
+```
 
 ### [Visual Studio](#tab/visual-studio)
 
@@ -513,14 +520,6 @@ If successful, you receive three messages on the user's WhatsApp account.
 ### [Visual Studio Code](#tab/vs-code)
 
 Build and run your program by running the following commands in the Visual Studio Code Terminal (View > Terminal).
-```console
-dotnet build
-dotnet run
-```
-
-### [.NET CLI](#tab/dotnet-cli)
-
-Build and run your program.
 ```console
 dotnet build
 dotnet run
