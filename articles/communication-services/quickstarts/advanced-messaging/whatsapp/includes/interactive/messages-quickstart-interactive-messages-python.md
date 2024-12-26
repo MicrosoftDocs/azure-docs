@@ -67,10 +67,10 @@ The following classes and interfaces handle some of the major features of the Az
 | NotificationMessagesClient  | This class connects to your Azure Communication Services resource. It sends the messages.              |
 | InteractiveNotificationContent  | This class defines the interactive message business can send to user. |
 | InteractiveMessage | This class defines interactive message content.|
-| WhatsAppListActionBindings | This class defines WhatsApp List interactive message properties binding . |
-| WhatsAppButtonActionBindings| This class defines WhatsApp Button interactive message properties binding .|
-| WhatsAppUrlActionBindings | This class defines WhatsApp Url interactive message properties binding .|
-| TextMessageContent     | This class defines the text content for Interactive message body , footer, header. |
+| WhatsAppListActionBindings | This class defines WhatsApp List interactive message properties binding. |
+| WhatsAppButtonActionBindings| This class defines WhatsApp Button interactive message properties binding.|
+| WhatsAppUrlActionBindings | This class defines WhatsApp Url interactive message properties binding.|
+| TextMessageContent     | This class defines the text content for Interactive message body,footer,header. |
 | VideoMessageContent   | This class defines the video content for Interactive message header.  |
 | DocumentMessageContent | This class defines the document content for Interactive message header. |
 | ImageMessageContent | This class defines the image content for Interactive message header.|
@@ -93,11 +93,11 @@ Follow these steps to add the necessary code snippets to the messages-quickstart
 ## Code examples
 Following are supported WhatsApp Interactive messages in Advanced Messages SDK:
 
-- [Send a Interactive List options message to a WhatsApp user](#send-a-interactive-list-options-message-to-a-whatsapp-user)
-- [Send a Interactive Reply Button message to a WhatsApp user](#send-a-interactive-reply-button-message-to-a-whatsapp-user)
-- [Send a Interactive CTA Url based message to a WhatsApp user](#send-a-interactive-cta-url-based-message-to-a-whatsapp-user)
+- [Send an Interactive List options message to a WhatsApp user](#send-an-interactive-list-options-message-to-a-whatsapp-user)
+- [Send an Interactive Reply Button message to a WhatsApp user](#send-an-interactive-reply-button-message-to-a-whatsapp-user)
+- [Send an Interactive Click-to-action Url based message to a WhatsApp user](#send-an-interactive-click-to-action-url-based-message-to-a-whatsapp-user)
 
-### Send a Interactive List options message to a WhatsApp user
+### Send an Interactive List options message to a WhatsApp user
 Advanced Messages SDK allows Contoso to send interactive WhatsApp messages, which initiated WhatsApp users initiated. To send text messages below details are required:
 - [WhatsApp Channel ID](#set-channel-registration-id)
 - [Recipient Phone Number in E16 format](#set-recipient-list)
@@ -107,7 +107,7 @@ Advanced Messages SDK allows Contoso to send interactive WhatsApp messages, whic
 |----------|---------------------------|
 | ActionGroupContent    | This class defines title of the group content and array of the group.    |
 | ActionGroup    | This class defines title of the group and array of the group Items.   |
-| ActionGroupItem | This class defines Id, Title and description of the group Item. |
+| ActionGroupItem | This class defines Id, Title, and description of the group Item. |
 | WhatsAppListActionBindings| This class defines the ActionGroupContent binding with the Interactive message. |
 
 > [!IMPORTANT]
@@ -172,7 +172,7 @@ To run send_text_message(), update the [main method](#basic-program-structure)
 
 :::image type="content" source="../../media/interactive-reaction-sticker/list-interactive-message.jpg" lightbox="../../media/interactive-reaction-sticker/list-interactive-message.jpg" alt-text="Screenshot that shows WhatsApp List interactive message from Business to User.":::
 
-### Send a Interactive Reply Button message to a WhatsApp user
+### Send an Interactive Reply Button message to a WhatsApp user
 
 Messages SDK allows Contoso to send Image WhatsApp messages to WhatsApp users. To send Image embedded messages below details are required:
 - [WhatsApp Channel ID](#set-channel-registration-id)
@@ -236,7 +236,7 @@ To run send_whatsappreplybutton_message(), update the [main method](#basic-progr
 
 :::image type="content" source="../../media/interactive-reaction-sticker/reply-button-interactive-message.jpg" lightbox="../../media/interactive-reaction-sticker/reply-button-interactive-message.jpg" alt-text="Screenshot that shows WhatsApp Reply Button interactive message from Business to User.":::
 
-### Send a Interactive CTA Url based message to a WhatsApp user
+### Send an Interactive Click-to-action Url based message to a WhatsApp user
 
 Messages SDK allows Contoso to send Image WhatsApp messages to WhatsApp users. To send Image embedded messages below details are required:
 - [WhatsApp Channel ID](#set-channel-registration-id)
@@ -295,7 +295,7 @@ To run send_whatapp_click_to_action_message(), update the [main method](#basic-p
     messages.send_whatapp_click_to_action_message()
 ```
 
-:::image type="content" source="../../media/interactive-reaction-sticker/click-to-action-interactive-message.jpg" lightbox="../../media/interactive-reaction-sticker/click-to-action-interactive-message.jpg" alt-text="Screenshot that shows WhatsApp CTA interactive message from Business to User.":::
+:::image type="content" source="../../media/interactive-reaction-sticker/click-to-action-interactive-message.jpg" lightbox="../../media/interactive-reaction-sticker/click-to-action-interactive-message.jpg" alt-text="Screenshot that shows WhatsApp Click-to-action interactive message from Business to User.":::
 
 ### Run the code
 
