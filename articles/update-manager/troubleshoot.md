@@ -302,15 +302,15 @@ For Windows, see [Protocols in TLS/SSL Schannel SSP](/windows/win32/secauthn/pro
 For Linux, execute the following command to see the supported versions of TLS for your distro.
 `nmap --script ssl-enum-ciphers -p 443 www.azure.com`
 
-### Https connection check failed
+### HTTPS connection check failed
 
 #### Issue
 
-Https connection is not available which is required to download and install updates from required endpoints for each operating system. 
+HTTPS connection is not available which is required to download and install updates from required endpoints for each operating system. 
 
 #### Resolution
 
-Allow Https connection from your machine. 
+Allow HTTPS connection from your machine. 
 
 ### MsftLinuxPatchAutoAssess service is not running, or Time is not active 
 
