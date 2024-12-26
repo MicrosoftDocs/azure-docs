@@ -168,6 +168,10 @@ Use the **Certificates** tab to deploy an SSL/TLS certificate on your OT sensor.
     >
     > For more information, see [Manage SSL/TLS certificates](../how-to-manage-individual-sensors.md#manage-ssltls-certificates).
 
+1. In the **Validation of OT sensor certificate** area, select **Mandatory** to validate an OT sensor's certificate against a certificate revocation list (CRL), as [configured in your certificate](../best-practices/certificate-requirements.md#crt-file-requirements).
+
+    For more information, see [SSL/TLS certificate requirements for on-premises resources](../best-practices/certificate-requirements.md) and [Create SSL/TLS certificates for OT appliances](create-ssl-certificates.md).
+
 1. Select **Finish** to complete the initial setup and open your sensor console.
 
 ## Configure setup via the CLI

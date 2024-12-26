@@ -63,7 +63,7 @@ For more information, see:
 - [Networking requirements](../networking-requirements.md)
 
 > [!NOTE]
-> If you're working with an air-gapped sensor and are [deploying an on-premises management console](air-gapped-deploy.md), configure **Network adapter 1** to connect to the on-premises management console UI instead of the Azure portal.
+> If you're working with an air-gapped sensor and are [deploying an OT sensor](air-gapped-deploy.md), configure **Network adapter 1** to connect to the OT sensor instead of the Azure portal.
 >
 
 ## Download software files from the Azure portal
