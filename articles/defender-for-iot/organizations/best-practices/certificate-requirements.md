@@ -16,6 +16,7 @@ Use the content below to learn about the requirements for [creating SSL/TLS cert
 Defender for IoT uses SSL/TLS certificates to secure communication between the following system components:
 
 - Between users and the OT sensor
+- Between an OT sensor and a high availability (HA) server, if configured
 - Between OT sensors and partners servers defined in [alert forwarding rules](../how-to-forward-alert-information-to-partners.md)
 
 Some organizations also validate their certificates against a Certificate Revocation List (CRL) and the certificate expiration date, and the certificate trust chain. Invalid certificates can't be uploaded to OT sensors, and will block encrypted communication between Defender for IoT components.

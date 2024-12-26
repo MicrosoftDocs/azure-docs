@@ -125,7 +125,7 @@ The source of suspicious alerts can be blocked in order to prevent further occur
 
 **To block the source of suspicious alerts**:
 
-1. Sign in to the on-premises management console, then select **Alerts**.
+1. Sign in to the OT sensor, then select **Alerts**.
 
 1. Select the alert related to Fortinet integration.
 
