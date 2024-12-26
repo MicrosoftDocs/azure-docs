@@ -117,7 +117,7 @@ To run download_media(), update the [main method](#basic-program-structure)
 ```
 
 ### Download the media payload to a file
-<<Coming soon>>
+Coming soon
 
 ### Run the code
 

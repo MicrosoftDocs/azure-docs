@@ -117,7 +117,7 @@ The Messages SDK allows Contoso to download the media in received WhatsApp media
 ```
 
 ### Download the media payload to a file
-<<Coming soon>>
+Coming soon
 
 ### Run the code
 

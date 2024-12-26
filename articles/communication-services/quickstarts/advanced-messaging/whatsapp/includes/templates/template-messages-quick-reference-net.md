@@ -121,20 +121,20 @@ Follow these steps to add the necessary code snippets to the messages-quickstart
 
 You can view your templates in the Azure portal by going to your Azure Communication Service resource > Advanced Messaging -> Templates.
 
-:::image type="content" source="./media/template-messages/list-templates-azure-portal.png" lightbox="./media/template-messages/list-templates-azure-portal.png" alt-text="Screenshot that shows an Azure Communication Services resource in the Azure portal, viewing the 'Templates' tab.":::
+:::image type="content" source="../../media/template-messages/list-templates-azure-portal.png" lightbox="../../media/template-messages/list-templates-azure-portal.png" alt-text="Screenshot that shows an Azure Communication Services resource in the Azure portal, viewing the 'Templates' tab.":::
 
 By selecting a template, you can view the template details.   
 The `content` field of the template details may include parameter bindings. The parameter bindings can be denoted as:
 - A "format" field with a value such as `IMAGE`.
 - Double brackets surrounding a number, such as `{{1}}`. The number, indexed started at 1, indicates the order in which the binding values must be supplied to create the message template.
 
-:::image type="content" source="./media/template-messages/sample-movie-ticket-confirmation-azure-portal.png" lightbox="./media/template-messages/sample-movie-ticket-confirmation-azure-portal.png" alt-text="Screenshot that shows template details.":::
+:::image type="content" source="../../media/template-messages/sample-movie-ticket-confirmation-azure-portal.png" lightbox="../../media/template-messages/sample-movie-ticket-confirmation-azure-portal.png" alt-text="Screenshot that shows template details.":::
 
 Alternatively, you can view and edit all of your WhatsApp Business Account's templates in the [WhatsApp Manager](https://business.facebook.com/wa/manage/home/) > Account tools > [Message templates](https://business.facebook.com/wa/manage/message-templates/). 
 
 To list out your templates programmatically, you can fetch all templates for your channel ID:
 
-[!INCLUDE [List templates with .NET](./includes/templates/template-messages-list-templates-net.md)]
+[!INCLUDE [List templates with .NET](./template-messages-list-templates-net.md)]
 
 ### Send Template message with no parameters
 If the template takes no parameters, you don't need to supply the values or bindings when creating the `MessageTemplate`.
