@@ -18,6 +18,16 @@ Features released earlier than nine months ago are described in the [What's new 
 
 [!INCLUDE [defender-iot-defender-reference](../includes/defender-for-iot-defender-reference.md)]
 
+## December 2024
+
+|Service area  |Updates  |
+|---------|---------|
+| **OT networks** | - [Support Multiple Source Devices in DDoS Attack Alerts](#support-multiple-source-devices-in-ddos-attack-alerts) |
+
+### Support Multiple Source Devices in DDoS Attack Alerts
+
+Alert details now display up to 10 source devices involved in DDoS attack.
+
 ## October 2024
 
 |Service area  |Updates  |
