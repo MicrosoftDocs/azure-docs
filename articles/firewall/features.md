@@ -53,12 +53,12 @@ There's no extra cost for a firewall deployed in more than one Availability Zone
 
 As the firewall scales, it creates instances in the zones it's in. So, if the firewall is in Zone 1 only, new instances are created in Zone 1. If the firewall is in all three zones, then it creates instances across the three zones as it scales.
 
-Azure Firewall Availability Zones are available in regions that support Availability Zones. For more information, see [Regions that support Availability Zones in Azure](../availability-zones/az-region.md).
+Azure Firewall Availability Zones are available in regions that support Availability Zones. For more information, see [Azure regions with availability zones](../reliability/availability-zones-region-support.md).
 
 > [!NOTE]
 > Availability Zones can only be configured during deployment. You can't configure an existing firewall to include Availability Zones.
 
-For more information about Availability Zones, see [Regions and Availability Zones in Azure](../availability-zones/az-overview.md).
+For more information about Availability Zones, see [Regions and Availability Zones in Azure](../reliability/availability-zones-overview.md).
 
 ## Unrestricted cloud scalability
 

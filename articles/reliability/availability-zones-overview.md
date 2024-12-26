@@ -22,7 +22,7 @@ The following diagram shows several example Azure regions. Regions 1 and 2 suppo
 
 :::image type="content" source="media/regions-availability-zones.png" alt-text="Screenshot of physically separate availability zone locations within an Azure region.":::
 
-To see which regions support availability zones, see [Azure regions with availability zone support](availability-zones-service-support.md#azure-regions-with-availability-zone-support).
+To see which regions support availability zones, see [Azure regions with availability zone support](availability-zones-region-support.md).
 
 > [!NOTE]  
 > You need to deploy two or more Virtual Machines to different availability zones in the same region to get the highest possible [SLA connectivity percentage](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1).
@@ -37,10 +37,11 @@ There are two ways that Azure services use availability zones:
 
 - **Zone-redundant** resources are spread across multiple availability zones. Microsoft manages spreading requests across zones and the replication of data across zones. If an outage occurs in a single availability zone, Microsoft manages failover automatically.
 
-Azure services support one or both of these approaches. Platform as a service (PaaS) services typically support zone-redundant deployments. Infrastructure as a service (IaaS) services typically support zonal deployments. For more information about how Azure services work with availability zones, see [Azure regions with availability zone support](availability-zones-service-support.md#azure-regions-with-availability-zone-support). 
+Azure services support one or both of these approaches. Platform as a service (PaaS) services typically support zone-redundant deployments. Infrastructure as a service (IaaS) services typically support zonal deployments. For more information about how Azure services work with availability zones, see [Azure regions with availability zone support](availability-zones-region-support.md).
+
+Some services don't use availability zones until you configure them to do so. If you don't explicitly configure a service for availability zone support, it's called a *non-zonal* or *regional* deployment. Resources configured in this way might be placed in any availability zone in the region, and might be moved. If any availability zone in the region experiences an outage, non-zonal resources might be in the affected zone and could experience downtime.
 
 For information on service-specific reliability support using availability zones as well as recommended disaster recovery guidance see [Reliability guidance overview](./reliability-guidance-overview.md).
-
 
 ## Physical and logical availability zones
 
@@ -73,7 +74,7 @@ Many regions also have a [*paired region*](./cross-region-replication-azure.md#a
 
 ## Shared responsibility model
 
-The [shared responsibility model](/azure/security/fundamentals/shared-responsibility) describes how responsibilities are divided between the cloud provider (Microsoft) and you. Depending on the type of services you use, you might take on more or less responsibility for operating the service.
+The [shared responsibility model](./concept-shared-responsibility.md) describes how responsibilities are divided between the cloud provider (Microsoft) and you. Depending on the type of services you use, you might take on more or less responsibility for operating the service.
 
 Microsoft provides availability zones and regions to give you flexibility in how you design your solution to meet your requirements. When you use managed services, Microsoft takes on more of the management responsibilities for your resources, which might even include data replication, failover, failback, and other tasks related to operating a distributed system.
 
@@ -89,7 +90,9 @@ For more detailed information on how to use regions and availability zones in a 
 
 ## Next steps
 
-- [Azure services and regions with availability zones](availability-zones-service-support.md)
+- [Azure services with availability zones](availability-zones-service-support.md)
+
+- [Azure regions with availability zones](availability-zones-region-support.md)
 
 - [Availability zone migration guidance](availability-zones-migration-overview.md)
 

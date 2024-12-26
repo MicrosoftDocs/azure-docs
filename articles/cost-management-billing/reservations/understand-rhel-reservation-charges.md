@@ -7,7 +7,7 @@ ms.service: cost-management-billing
 ms.subservice: reservations
 ms.custom: linux-related-content
 ms.topic: conceptual
-ms.date: 10/10/2024
+ms.date: 12/06/2024
 ms.author: banders
 ---
 # Understand how the Red Hat Linux Enterprise software reservation plan discount is applied for Azure

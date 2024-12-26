@@ -5,7 +5,7 @@ author: anraghun
 ms.author: anraghun
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 03/06/2024
+ms.date: 09/18/2024
 ms.custom: template-tutorial, engagement-fy24
 ---
 
@@ -29,7 +29,7 @@ In this tutorial, you'll learn how to:
 Before you begin this tutorial, you should address the following:
 
  - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
- - [Complete the first tutorial](./tutorial-discover-vmware.md) to discover web apps running in your VMware environment.
+ - [Complete the first tutorial](tutorial-discover-vmware.md) to discover web apps running in your VMware environment.
  - Go to the existing project or [create a new project](./create-manage-projects.md).
 
 ### Limitations

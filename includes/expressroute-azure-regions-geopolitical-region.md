@@ -5,7 +5,7 @@
  author: duongau
  ms.service: azure-expressroute
  ms.topic: include
- ms.date: 08/21/2024
+ ms.date: 12/18/2024
  ms.author: duau
  ms.custom: include file
 ---
@@ -24,7 +24,7 @@ The following table provides a map of Azure regions to ExpressRoute locations wi
 
 | Geopolitical region | Azure regions | ExpressRoute locations |
 | --- | --- | --- |
-| **Europe** | France Central<br/>France South<br/>Germany North<br/>Germany West Central<br/>Italy North<br/>North Europe<br/>Norway East<br/>Norway West<br/>Poland Central<br/>Sweden Central<br/>Switzerland North<br/>Switzerland West<br/>UK West<br/>UK South<br/>West Europe | Amsterdam<br/>Amsterdam2<br/>Berlin<br/>Copenhagen<br/>Dublin<br/>Dublin2<br/>Frankfurt<br/>Frankfurt2<br/>Geneva<br/>London<br/>London2<br/>Madrid<br/>Madrid2<br/>Marseille<br/>Milan<br/>Milan2<br/>Munich<br/>Newport(Wales)<br/>Oslo<br/>Paris<br/>Paris2<br/>Stavanger<br/>Stockholm<br/>Warsaw<br/>Zurich<br/>Zurich2 |
+| **Europe** | France Central<br/>France South<br/>Germany North<br/>Germany West Central<br/>Italy North<br/>North Europe<br/>Norway East<br/>Norway West<br/>Poland Central<br/>Sweden Central<br/>Switzerland North<br/>Switzerland West<br/>UK West<br/>UK South<br/>West Europe | Amsterdam<br/>Amsterdam2<br/>Berlin<br/>Copenhagen<br/>Dublin<br/>Dublin2<br/>Frankfurt<br/>Frankfurt2<br/>Geneva<br/>London<br/>London2<br/>Madrid<br/>Madrid2<br/>Marseille<br/>Milan<br/>Milan2<br/>Munich<br/>Newport(Wales)<br/>Oslo<br/>Paris<br/>Paris2<br/>Stavanger<br/>Stockholm<br/>Vienna<br/>Vienna2<br/>Warsaw<br/>Zurich<br/>Zurich2 |
 | **South Africa** | South Africa West<br/>South Africa North |Cape Town<br/>Johannesburg |
 
 #### [Asia](#tab/asia)
@@ -44,7 +44,7 @@ The following table provides a map of Azure regions to ExpressRoute locations wi
 | Geopolitical region | Azure regions | ExpressRoute locations |
 | --- | --- | --- |
 | **Australia Government** |Australia Central<br/>Australia Central 2 |Canberra<br/>Canberra2 |
-| **Oceania** | Australia East<br/>Australia Southeast |Auckland<br/>Melbourne<br/>Perth<br/>Sydney<br/>Sydney2 |
+| **Oceania** | Australia East<br/>Australia Southeast<br/>New Zealand North |Auckland<br/>Melbourne<br/>Perth<br/>Sydney<br/>Sydney2 |
 
 #### [US Government](#tab/usgov)
 

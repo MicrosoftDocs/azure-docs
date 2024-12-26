@@ -8,6 +8,7 @@ ms.topic: troubleshooting
 ms.date: 09/25/2024
 ms.author: jianleishen
 ms.custom: synapse
+ai-usage: ai-assisted
 ---
 
 # Troubleshoot Azure Data Factory and Azure Synapse Analytics connectors
@@ -42,6 +43,17 @@ You can refer to the troubleshooting pages for each connector to see problems sp
 ## General copy activity errors
 
 The following errors are general to the copy activity and could occur with any connector.
+
+#### Error code: 2200
+
+- **Message**: `The underlying connection was closed: An unexpected error occurred on a send.`
+
+- **Cause**: This typically indicates an authentication failure during data transfer operations. This can occur when the remote party closes the transport stream.
+
+- **Reccomendation**:
+  - Verify the source connection and test it to ensure it is functioning correctly.
+  - Check the authentication method used for the connection.
+  - Review firewall configuration settings for Azure Cosmos DB to ensure they allow the necessary traffic.
 
 #### Error code: 20000
 

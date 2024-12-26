@@ -6,6 +6,7 @@ ms.author: karenguo
 ms.topic: conceptual
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.date: 01/10/2024
+ms.service: azure
 ---
 
 # Frequently asked questions about Firmware analysis

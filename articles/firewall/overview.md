@@ -75,7 +75,7 @@ For the supported regions for Azure Firewall, see [Azure products available by r
 
 ## What's new
 
-To learn what's new with Azure Firewall, see [Azure updates](https://azure.microsoft.com/updates/?category=networking&query=Azure%20Firewall).
+To learn what's new with Azure Firewall, see [Azure updates](https://azure.microsoft.com/updates?filters=%5B%22Azure+Firewall%22%5D).
 
 
 ## Known issues

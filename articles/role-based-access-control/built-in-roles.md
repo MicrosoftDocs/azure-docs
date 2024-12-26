@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 10/28/2024
+ms.date: 12/12/2024
 ms.custom: generated
 ---
 
@@ -46,6 +46,7 @@ The following table provides a brief description of each built-in role. Click th
 > | <a name='azure-arc-vmware-vm-contributor'></a>[Azure Arc VMware VM Contributor](./built-in-roles/compute.md#azure-arc-vmware-vm-contributor) | Arc VMware VM Contributor has permissions to perform all VM actions. | b748a06d-6150-4f8a-aaa9-ce3940cd96cb |
 > | <a name='classic-virtual-machine-contributor'></a>[Classic Virtual Machine Contributor](./built-in-roles/compute.md#classic-virtual-machine-contributor) | Lets you manage classic virtual machines, but not access to them, and not the virtual network or storage account they're connected to. | d73bb868-a0df-4d4d-bd69-98a00b01fccb |
 > | <a name='compute-gallery-artifacts-publisher'></a>[Compute Gallery Artifacts Publisher](./built-in-roles/compute.md#compute-gallery-artifacts-publisher) | This is the role for publishing gallery artifacts. | 85a2d0d9-2eba-4c9c-b355-11c2cc0788ab |
+> | <a name='compute-gallery-image-reader'></a>[Compute Gallery Image Reader](./built-in-roles/compute.md#compute-gallery-image-reader) | This is the role for reading gallery images. | cf7c76d2-98a3-4358-a134-615aa78bf44d |
 > | <a name='compute-gallery-sharing-admin'></a>[Compute Gallery Sharing Admin](./built-in-roles/compute.md#compute-gallery-sharing-admin) | This role allows user to share gallery to another subscription/tenant or share it to the public. | 1ef6a3be-d0ac-425d-8c01-acb62866290b |
 > | <a name='data-operator-for-managed-disks'></a>[Data Operator for Managed Disks](./built-in-roles/compute.md#data-operator-for-managed-disks) | Provides permissions to upload data to empty managed disks, read, or export data of managed disks (not attached to running VMs) and snapshots using SAS URIs and Azure AD authentication. | 959f8984-c045-4866-89c7-12bf9737be2e |
 > | <a name='desktop-virtualization-application-group-contributor'></a>[Desktop Virtualization Application Group Contributor](./built-in-roles/compute.md#desktop-virtualization-application-group-contributor) | Contributor of the Desktop Virtualization Application Group. | 86240b0e-9422-4c43-887b-b61143f32ba8 |
@@ -71,6 +72,7 @@ The following table provides a brief description of each built-in role. Click th
 > | <a name='virtual-machine-data-access-administrator-preview'></a>[Virtual Machine Data Access Administrator (preview)](./built-in-roles/compute.md#virtual-machine-data-access-administrator-preview) | Manage access to Virtual Machines by adding or removing role assignments for the Virtual Machine Administrator Login and Virtual Machine User Login roles. Includes an ABAC condition to constrain role assignments. | 66f75aeb-eabe-4b70-9f1e-c350c4c9ad04 |
 > | <a name='virtual-machine-local-user-login'></a>[Virtual Machine Local User Login](./built-in-roles/compute.md#virtual-machine-local-user-login) | View Virtual Machines in the portal and login as a local user configured on the arc server | 602da2ba-a5c2-41da-b01d-5360126ab525 |
 > | <a name='virtual-machine-user-login'></a>[Virtual Machine User Login](./built-in-roles/compute.md#virtual-machine-user-login) | View Virtual Machines in the portal and login as a regular user. | fb879df8-f326-4884-b1cf-06f3ad86be52 |
+> | <a name='vm-restore-operator'></a>[VM Restore Operator](./built-in-roles/compute.md#vm-restore-operator) | Create and Delete resources during VM Restore. This role is in preview and subject to change. | dfce8971-25e3-42e3-ba33-6055438e3080 |
 > | <a name='windows-365-network-interface-contributor'></a>[Windows 365 Network Interface Contributor](./built-in-roles/compute.md#windows-365-network-interface-contributor) | This role is used by Windows 365 to provision required network resources and join Microsoft-hosted VMs to network interfaces. | 1f135831-5bbe-4924-9016-264044c00788 |
 > | <a name='windows-365-network-user'></a>[Windows 365 Network User](./built-in-roles/compute.md#windows-365-network-user) | This role is used by Windows 365 to read virtual networks and join the designated virtual networks. | 7eabc9a4-85f7-4f71-b8ab-75daaccc1033 |
 > | <a name='windows-admin-center-administrator-login'></a>[Windows Admin Center Administrator Login](./built-in-roles/compute.md#windows-admin-center-administrator-login) | Let's you manage the OS of your resource via Windows Admin Center as an administrator. | a6333a3e-0164-44c3-b281-7a577aff287f |
@@ -328,9 +330,6 @@ The following table provides a brief description of each built-in role. Click th
 > | --- | --- | --- |
 > | <a name='remote-rendering-administrator'></a>[Remote Rendering Administrator](./built-in-roles/mixed-reality.md#remote-rendering-administrator) | Provides user with conversion, manage session, rendering and diagnostics capabilities for Azure Remote Rendering | 3df8b902-2a6f-47c7-8cc5-360e9b272a7e |
 > | <a name='remote-rendering-client'></a>[Remote Rendering Client](./built-in-roles/mixed-reality.md#remote-rendering-client) | Provides user with manage session, rendering and diagnostics capabilities for Azure Remote Rendering. | d39065c4-c120-43c9-ab0a-63eed9795f0a |
-> | <a name='spatial-anchors-account-contributor'></a>[Spatial Anchors Account Contributor](./built-in-roles/mixed-reality.md#spatial-anchors-account-contributor) | Lets you manage spatial anchors in your account, but not delete them | 8bbe83f1-e2a6-4df7-8cb4-4e04d4e5c827 |
-> | <a name='spatial-anchors-account-owner'></a>[Spatial Anchors Account Owner](./built-in-roles/mixed-reality.md#spatial-anchors-account-owner) | Lets you manage spatial anchors in your account, including deleting them | 70bbe301-9835-447d-afdd-19eb3167307c |
-> | <a name='spatial-anchors-account-reader'></a>[Spatial Anchors Account Reader](./built-in-roles/mixed-reality.md#spatial-anchors-account-reader) | Lets you locate and read properties of spatial anchors in your account | 5d51204f-eb77-4b1c-b86a-2ec626c49413 |
 
 ## Integration
 
@@ -531,6 +530,7 @@ The following table provides a brief description of each built-in role. Click th
 > | --- | --- | --- |
 > | <a name='azure-resource-bridge-deployment-role'></a>[Azure Resource Bridge Deployment Role](./built-in-roles/hybrid-multicloud.md#azure-resource-bridge-deployment-role) | Azure Resource Bridge Deployment Role | 7b1f81f9-4196-4058-8aae-762e593270df |
 > | <a name='azure-stack-hci-administrator'></a>[Azure Stack HCI Administrator](./built-in-roles/hybrid-multicloud.md#azure-stack-hci-administrator) | Grants full access to the cluster and its resources, including the ability to register Azure Stack HCI and assign others as Azure Arc HCI VM Contributor and/or Azure Arc HCI VM Reader | bda0d508-adf1-4af0-9c28-88919fc3ae06 |
+> | <a name='azure-stack-hci-connected-infravms'></a>[Azure Stack HCI Connected InfraVMs](./built-in-roles/hybrid-multicloud.md#azure-stack-hci-connected-infravms) | Role of Arc Integration for Azure Stack HCI Infrastructure Virtual Machines. | c99c945f-8bd1-4fb1-a903-01460aae6068 |
 > | <a name='azure-stack-hci-device-management-role'></a>[Azure Stack HCI Device Management Role](./built-in-roles/hybrid-multicloud.md#azure-stack-hci-device-management-role) | Microsoft.AzureStackHCI Device Management Role | 865ae368-6a45-4bd1-8fbf-0d5151f56fc1 |
 > | <a name='azure-stack-hci-vm-contributor'></a>[Azure Stack HCI VM Contributor](./built-in-roles/hybrid-multicloud.md#azure-stack-hci-vm-contributor) | Grants permissions to perform all VM actions | 874d1c73-6003-4e60-a13a-cb31ea190a85 |
 > | <a name='azure-stack-hci-vm-reader'></a>[Azure Stack HCI VM Reader](./built-in-roles/hybrid-multicloud.md#azure-stack-hci-vm-reader) | Grants permissions to view VMs | 4b3fe76c-f777-4d24-a2d7-b027b0f7b273 |

@@ -483,7 +483,7 @@ Machine configuration built-in policy samples are available in the following loc
 [26]: https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3cf2ab00-13f1-4d0c-8971-2ac904541a7e
 [27]: https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F497dff13-db2a-4c0f-8603-28fa3b331ab6
 [28]: /azure/virtual-machines/availability
-[29]: /azure/availability-zones/cross-region-replication-azure
+[29]: /azure/reliability/cross-region-replication-azure
 [30]: /azure/virtual-machines/availability#availability-sets
 [31]: /azure/site-recovery/site-recovery-overview
 [32]: ../policy/troubleshoot/general.md

@@ -6,6 +6,7 @@ ms.author: karenguo
 ms.topic: quickstart
 ms.custom: devx-track-python
 ms.date: 04/10/2024
+ms.service: azure
 ---
 
 # Quickstart: Upload firmware images to Firmware analysis using Python

@@ -7,7 +7,7 @@ ms.manager: abhemraj
 ms.topic: conceptual
 ms.service: azure-migrate
 ms.date: 11/04/2024
-ms.cutom: engagement-fy25
+ms.custom: engagement-fy25
 ---
 
 # Support matrix for Hyper-V assessment
