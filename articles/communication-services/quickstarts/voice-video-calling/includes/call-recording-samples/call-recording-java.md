@@ -19,22 +19,21 @@ You can download the sample app from [GitHub](https://github.com/Azure-Samples/c
 
 ## Before you start
 
-Call Recording APIs use exclusively the `serverCallId`to initiate recording. There are a couple of methods you can use to fetch the `serverCallId` depending on your scenario:
+Call Recording APIs exclusively use the `serverCallId` to initiate recording. There are a couple of methods you can use to fetch the `serverCallId` depending on your scenario:
 
 ### Call Automation scenarios
-- When using [Call Automation](../../../call-automation/callflows-for-customer-interactions.md), you have two options to get the `serverCallId`:
+
+When using [Call Automation](../../../call-automation/callflows-for-customer-interactions.md), you have two options to get the `serverCallId`:
     1) Once a call is created, a `serverCallId` is returned as a property of the `CallConnected` event after a call has been established. Learn how to [Get CallConnected event](../../../call-automation/callflows-for-customer-interactions.md?pivots=programming-language-java#update-programcs) from Call Automation SDK.
     2) Once you answer the call or a call is created the `serverCallId` is returned as a property of the `AnswerCallResult` or `CreateCallResult` API responses respectively.
 
 ### Calling SDK scenarios
-- When using [Calling Client SDK](../../get-started-with-video-calling.md), you can retrieve the `serverCallId` by using the `getServerCallId` method on the call. 
+
+When using [Calling Client SDK](../../get-started-with-video-calling.md), you can retrieve the `serverCallId` by using the `getServerCallId` method on the call.
+
 Use this example to learn how to [Get serverCallId](../../get-server-call-id.md) from the Calling Client SDK. 
 
-
-
-Let's get started with a few simple steps!
-
-
+Let's get started with a few simple steps.
 
 ## 1. Create a Call Automation client
 
@@ -70,11 +69,12 @@ Response<RecordingStateResult> response = callAutomationClient.getCallRecording(
 Start Recording session with your own Azure Blob Storage to store the recording file once recording is complete.
 
 ```java
-       StartRecordingOptions recordingOptions = new StartRecordingOptions(callLocator)
-       .setRecordingChannel(RecordingChannel.MIXED)
-       .setRecordingContent(RecordingContent.AUDIO_VIDEO)
-       .setRecordingFormat(RecordingFormat.MP4)
-       .setRecordingStorage(new AzureBlobContainerRecordingStorage("<YOUR_STORAGE_CONTAINER_URL>"));
+        StartRecordingOptions recordingOptions = new StartRecordingOptions(callLocator)
+        .setRecordingChannel(RecordingChannel.MIXED)
+        .setRecordingContent(RecordingContent.AUDIO_VIDEO)
+        .setRecordingFormat(RecordingFormat.MP4)
+        .setRecordingStorage(new AzureBlobContainerRecordingStorage("<YOUR_STORAGE_CONTAINER_URL>"))
+        .setExternalStorage(new BlobStorage("<Insert Container / Blob Uri>"));
  
        // //start recording
        RecordingStateResult result = callRecording.start(recordingOptions);
