@@ -107,8 +107,8 @@ No, extensions aren't possible. If you don't want us to automatically migrate yo
 
 ### Can I set the feature flag at resource/profile level instead of subscription level?
 
-No
+No. Feature flag can only be set at sibscription level.
 
 ### If I have a subscription with the 'DoNotForceMigrateEdgioCDNProfiles' flag is enabled and I do not migrate the resources by myself before January 15th, will the Edgio profiles be automatically deleted after January 15th?
 
-Yes. They will be automatically deleted by MIcrosoft team.
+Yes. They will be automatically deleted by MIcrosoft after January 15th.
