@@ -21,7 +21,7 @@ After you complete this quickstart, you have a CI workflow that runs your Playwr
 
 * An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-* A Microsoft Playwright Testing workspace. Complete the [quickstart: run Playwright tests at scale](./quickstart-run-end-to-end-tests.md) to create a workspace.
+* A Microsoft Playwright Testing workspace. Complete the [quickstart: run Playwright tests at scale](./quickstart-run-end-to-end-tests.md) and create a workspace.
 
 # [GitHub Actions](#tab/github)
 - A GitHub account. If you don't have a GitHub account, you can [create one for free](https://github.com/).
@@ -62,7 +62,7 @@ To get the service endpoint URL and store it as a CI workflow secret, perform th
 ::: zone pivot="playwright-test-runner"
 ## Add service configuration file
 
-If you haven't configured your Playwright tests yet for running them with service, add a service configuration file to your repository. In the next step, you then specify this service configuration file on the Playwright CLI.
+If you don't have Playwright tests configured to run with the service, add a service configuration file to your repository. In the next step, you then specify this service configuration file on the Playwright CLI.
 
 1. Create a new file `playwright.service.config.ts` alongside the `playwright.config.ts` file.
 
@@ -92,7 +92,7 @@ Update the `package.json` file in your repository to add details about Microsoft
 
 ## Enable artifacts in Playwright configuration 
 
-In the `playwright.config.ts` file of your project, make sure you are collecting all the required artifacts.
+In the `playwright.config.ts` file of your project, make sure you're collecting all the required artifacts.
 ```typescript
   use: {
     trace: 'on-first-retry',
@@ -120,7 +120,7 @@ In your project, install Microsoft Playwright Testing package.
 dotnet add package Azure.Developer.MicrosoftPlaywrightTesting.NUnit --prerelease
 ```
 
-This updates your project's `csproj` file by adding the service package details to the `ItemGroup` section. Remember to commit these changes.
+This command updates your project's `csproj` file by adding the service package details to the `ItemGroup` section. Remember to commit these changes.
 
 ```xml
   <ItemGroup>
@@ -150,85 +150,85 @@ If you haven't configured your Playwright tests yet for running them with servic
 
 ## Enable artifacts in your Playwright setup 
 
-Enable artifacts such as screenshot, videos and traces to be captured by Playwright. 
+Set up Playwright to capture artifacts such as screenshot, videos and traces. 
 - For screenshots, see [capture screenshots](https://playwright.dev/dotnet/docs/screenshots#introduction)
 - For videos, see [record videos for your tests](https://playwright.dev/dotnet/docs/videos#introduction)
 - For traces, see [recording a trace](https://playwright.dev/dotnet/docs/trace-viewer-intro#recording-a-trace)
 
-Once you collect these artifacts, attach them to the `TestContext` to ensure they are available in your test reports. For more information, see our [sample project for NUnit](https://aka.ms/mpt/nunit-sample)
+Once you collect these artifacts, attach them to the `TestContext` to ensure they're available in your test reports. For more information, see our [sample project for NUnit](https://aka.ms/mpt/nunit-sample)
 ::: zone-end
 
 ## Set up authentication
     
-The CI machine running Playwright tests needs to authenticate with Playwright Testing service to get the browsers to run the tests and to publish the test results and arifacts back to the service. 
+The CI machine running Playwright tests needs to authenticate with Playwright Testing service to get the browsers to run the tests and to publish the test results and artifacts back to the service. 
 
 The service offers two authentication methods: Microsoft Entra ID and Access Tokens. We strongly recommend using Microsoft Entra ID to authenticate your pipelines. 
 
 #### Set up authentication using Microsoft Entra ID
     
-  # [GitHub Actions](#tab/github)
+# [GitHub Actions](#tab/github)
 
-  If you are using GitHub Actions, you can connect to the service using GitHub OpenID Connect. Follow the steps below to set up the integration:
+If you are using GitHub Actions, you can connect to the service using GitHub OpenID Connect. Follow the steps to set up the integration:
 
-  ##### Prerequisites
+##### Prerequisites
 
-  **Option 1: Microsoft Entra application**
+**Option 1: Microsoft Entra application**
 
-  * Create a Microsoft Entra application with a service principal by [Azure portal](/entra/identity-platform/howto-create-service-principal-portal#register-an-application-with-microsoft-entra-id-and-create-a-service-principal), [Azure CLI](/cli/azure/azure-cli-sp-tutorial-1#create-a-service-principal), or [Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps#create-a-service-principal).
+* Create a Microsoft Entra application with a service principal by [Azure portal](/entra/identity-platform/howto-create-service-principal-portal#register-an-application-with-microsoft-entra-id-and-create-a-service-principal), [Azure CLI](/cli/azure/azure-cli-sp-tutorial-1#create-a-service-principal), or [Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps#create-a-service-principal).
 
-  *  Copy the values for **Client ID**, **Subscription ID**, and **Directory (tenant) ID** to use later in your GitHub Actions workflow.
-  
-  * Assign the `Owner` or `Contributor` role to the service principal created in the previous step. These roles must be assigned on the Playwright Testing workspace. For more details, refer to [How to manage access](./how-to-manage-access-tokens.md).
-  
-  * [Configure a federated identity credential on a Microsoft Entra application](/entra/workload-id/workload-identity-federation-create-trust) to trust tokens issued by GitHub Actions to your GitHub repository. 
+*  Copy the values for **Client ID**, **Subscription ID**, and **Directory (tenant) ID** to use later in your GitHub Actions workflow.
 
-  **Option 2: User-assigned managed identity**
+* Assign the `Owner` or `Contributor` role to the service principal created in the previous step. These roles must be assigned on the Playwright Testing workspace. For more details, see [how to manage access](./how-to-manage-access-tokens.md).
 
-  * [Create a user-assigned managed identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities#create-a-user-assigned-managed-identity).
+* [Configure a federated identity credential on a Microsoft Entra application](/entra/workload-id/workload-identity-federation-create-trust) to trust tokens issued by GitHub Actions to your GitHub repository. 
 
-  *  Copy the values for **Client ID**, **Subscription ID**, and **Directory (tenant) ID** to use later in your GitHub Actions workflow.
-  
-  *  Assign the `Owner` or `Contributor` role to the user-assigned managed identity created in the previous step. These roles must be assigned on the Playwright Testing workspace. For more details, refer to [How to manage access](./how-to-manage-access-tokens.md).
-  
-  * [Configure a federated identity credential on a user-assigned managed identity](/entra/workload-id/workload-identity-federation-create-trust-user-assigned-managed-identity) to trust tokens issued by GitHub Actions to your GitHub repository. 
+**Option 2: User-assigned managed identity**
 
-  ##### Create GitHub secrets
+* [Create a user-assigned managed identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities#create-a-user-assigned-managed-identity).
 
-  1. Add the values you got in the previous step as secrets to your GitHub repository. See [set up GitHub Action Secret](/azure/developer/github/connect-from-azure-openid-connect?branch=main#create-github-secrets). These variables will be used in the GitHub Action workflow in subsequest steps. 
+*  Copy the values for **Client ID**, **Subscription ID**, and **Directory (tenant) ID** to use later in your GitHub Actions workflow.
 
-    | GitHub Secret       | Source (Microsoft Entra Application or Managed Identity) |
-    |---------------------|----------------------------------------------------------|
-    | `AZURE_CLIENT_ID`    | Client ID                                                |
-    | `AZURE_SUBSCRIPTION_ID` | Subscription ID                                       |
-    | `AZURE_TENANT_ID`    | Directory (Tenant) ID                                    |
+*  Assign the `Owner` or `Contributor` role to the user-assigned managed identity created in the previous step. These roles must be assigned on the Playwright Testing workspace. For more details, see [how to manage access](./how-to-manage-access-tokens.md).
 
-    > **Note:**  
-    > For enhanced security, it is strongly recommended to use GitHub Secrets to store sensitive values rather than including them directly in your workflow file.
+* [Configure a federated identity credential on a user-assigned managed identity](/entra/workload-id/workload-identity-federation-create-trust-user-assigned-managed-identity) to trust tokens issued by GitHub Actions to your GitHub repository. 
 
-  # [Azure Pipelines](#tab/pipelines)
+##### Create GitHub secrets
 
-  If you are using Azure Pipelines, you can connect to the service using Service Connections. Follow the steps below to set up the integration:
+1. Add the values you got in the previous step as secrets to your GitHub repository. See [set up GitHub Action Secret](/azure/developer/github/connect-from-azure-openid-connect?branch=main#create-github-secrets). These variables are used in the GitHub Action workflow in subsequent steps. 
 
-  1. [Create an app registration with workload identity federation](/azure/devops/pipelines/library/connect-to-azure?view=azure-devops#create-an-app-registration-with-workload-identity-federation-automatic). Select the subscription and resource group associated with your Playwright Testing workspace. Typically, the resource group has the same name as the Playwright Testing workspace.
+| GitHub Secret       | Source (Microsoft Entra Application or Managed Identity) |
+|---------------------|----------------------------------------------------------|
+| `AZURE_CLIENT_ID`    | Client ID                                                |
+| `AZURE_SUBSCRIPTION_ID` | Subscription ID                                       |
+| `AZURE_TENANT_ID`    | Directory (Tenant) ID                                    |
 
-  2. Use this service connection in Azure Pipeline yaml file as shown in subsequent steps.  
+> **Note:**  
+> For enhanced security, it is strongly recommended to use GitHub Secrets to store sensitive values rather than including them directly in your workflow file.
 
-  #### Set up authentication using access tokens
+# [Azure Pipelines](#tab/pipelines)
 
-  > [!CAUTION]
-  > We strongly recommend using Microsoft Entra ID for authentication to the service. If you are using access tokens, see [How to Manage Access Tokens](./how-to-manage-access-tokens.md)
+If you're using Azure Pipelines, you can connect to the service using Service Connections. Follow the steps to set up the integration:
 
-  You can generate an access token from your Playwright Testing workspace and use it in your setup. However, we strongly recommend Microsoft Entra ID for authentication due to its enhanced security. Access tokens, while convenient, function like long-lived passwords and are more susceptible to being compromised.
+1. [Create an app registration with workload identity federation](https://learn.microsoft.com//azure/devops/pipelines/library/connect-to-azure#create-an-app-registration-with-workload-identity-federation-automatic). Select the subscription and resource group associated with your Playwright Testing workspace. Typically, the resource group has the same name as the Playwright Testing workspace.
 
-  1. Authentication using access tokens is disabled by default. To use, [Enable access-token based authentication](./how-to-manage-authentication.md#enable-authentication-using-access-tokens)
+2. Use this service connection in Azure Pipeline yaml file as shown in subsequent steps.  
 
-  2. [Set up authentication using access tokens](./how-to-manage-authentication.md#set-up-authentication-using-access-tokens)
+#### Set up authentication using access tokens
 
-  3. Store the access token in a CI workflow secret and use it in the GitHub Actions workflow or Azure Pipeline yaml file. 
+> [!CAUTION]
+> We strongly recommend using Microsoft Entra ID for authentication to the service. If you're using access tokens, see [How to Manage Access Tokens](./how-to-manage-access-tokens.md)
 
-    | Secret name | Value |
-    | ----------- | ------------ |
-    | *PLAYWRIGHT_SERVICE_ACCESS_TOKEN* | Paste the value of Access Token you created previously. | 
+You can generate an access token from your Playwright Testing workspace and use it in your setup. However, we strongly recommend Microsoft Entra ID for authentication due to its enhanced security. Access tokens, while convenient, function like long-lived passwords and are more susceptible to being compromised.
+
+1. Authentication using access tokens is disabled by default. To use, [Enable access-token based authentication](./how-to-manage-authentication.md#enable-authentication-using-access-tokens)
+
+2. [Set up authentication using access tokens](./how-to-manage-authentication.md#set-up-authentication-using-access-tokens)
+
+3. Store the access token in a CI workflow secret and use it in the GitHub Actions workflow or Azure Pipeline yaml file. 
+
+| Secret name | Value |
+| ----------- | ------------ |
+| *PLAYWRIGHT_SERVICE_ACCESS_TOKEN* | Paste the value of Access Token you created previously. | 
 
 
 ## Update the workflow definition
