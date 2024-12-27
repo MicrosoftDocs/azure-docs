@@ -49,9 +49,9 @@ Before you create an ExpressRoute gateway, you must create a gateway subnet. The
 
 When you create the gateway subnet, you specify the number of IP addresses that the subnet contains. The IP addresses in the gateway subnet are allocated to the gateway VMs and gateway services. Some configurations require more IP addresses than others. 
 
-When planning your gateway subnet size, refer to the documentation for the configuration that you're planning to create. For example, the ExpressRoute/VPN Gateway coexist configuration requires a larger gateway subnet than most other configurations. Furthermore, you might want to make sure your gateway subnet contains enough IP addresses to accommodate possible future configurations. We recommend that you create a gateway subnet of /27 or larger. If you plan to connect 16 ExpressRoute circuits to your gateway, you **must** create a gateway subnet of /26 or larger. If you're creating a dual stack gateway subnet, we recommend that you also use an IPv6 range of /64 or larger. This setup accommodates most configurations.
+When planning your gateway subnet size, refer to the documentation for the configuration that you're planning to create. For example, the ExpressRoute/VPN gateway coexist configuration requires a larger gateway subnet than most other configurations. Furthermore, you might want to make sure your gateway subnet contains enough IP addresses to accommodate possible future configurations. We recommend that you create a gateway subnet of /27 or larger. If you plan to connect 16 ExpressRoute circuits to your gateway, you **must** create a gateway subnet of /26 or larger. If you're creating a dual stack gateway subnet, we recommend that you also use an IPv6 range of /64 or larger. This setup accommodates most configurations.
 
-The following Resource Manager PowerShell example shows a gateway subnet named GatewaySubnet. You can see that the CIDR notation specifies a /27, which allows for enough IP addresses for most configurations that currently exist.
+The following Resource Manager PowerShell example shows a gateway subnet named GatewaySubnet. You can see that the Classless Interdomain Routing (CIDR) notation specifies a /27, which allows for enough IP addresses for most configurations that currently exist.
 
 ```azurepowershell-interactive
 Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/27
@@ -65,7 +65,7 @@ Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/2
 
 The following table shows the features supported across each gateway type and the maximum number of ExpressRoute circuit connections supported by each gateway SKU.
 
-| Gateway SKU | VPN Gateway and ExpressRoute coexistence | FastPath | Max Number of Circuit Connections |
+| Gateway SKU | VPN gateway and ExpressRoute coexistence | FastPath | Max number of circuit connections |
 |--|--|--|--|
 | **Standard SKU/ERGw1Az** | Yes | No | 4 |
 | **High Perf SKU/ERGw2Az** | Yes | No | 8 |
@@ -101,7 +101,7 @@ To learn about migrating an ExpressRoute gateway, see [Gateway migration](gatewa
 
 The ErGwScale virtual network gateway SKU enables you to achieve 40-Gbps connectivity to VMs and private endpoints in the virtual network. This SKU allows you to set a minimum and maximum scale unit for the virtual network gateway infrastructure, which autoscales based on the active bandwidth or flow count. You can also set a fixed scale unit to maintain a constant connectivity at a desired bandwidth value.
 
-### Availability zone deployment & regional availability
+### Availability zone deployment and regional availability
 
 ErGwScale supports both zonal and zonal-redundant deployments in Azure availability zones. For more information about these concepts, review the [Zonal and zone-redundant services](../reliability/availability-zones-overview.md#zonal-and-zone-redundant-services) documentation.
 
@@ -159,7 +159,7 @@ ErGwScale is free of charge during public preview. For information about Express
 
 ## VNet to VNet and VNet to virtual WAN connectivity
 
-By default, VNet to VNet and VNet to virtual WAN connectivity is disabled through an ExpressRoute circuit for all gateway SKUs. To enable this connectivity, you must configure the ExpressRoute virtual network gateway to allow this traffic. For more information, see guidance about [virtual network connectivity over ExpressRoute](virtual-network-connectivity-guidance.md). To enable this traffic, see [Enable VNet to VNet or VNet to Virtual WAN connectivity through ExpressRoute](expressroute-howto-add-gateway-portal-resource-manager.md#enable-or-disable-vnet-to-vnet-or-vnet-to-virtual-wan-traffic-through-expressroute).
+By default, VNet to VNet and VNet to virtual WAN connectivity is disabled through an ExpressRoute circuit for all gateway SKUs. To enable this connectivity, you must configure the ExpressRoute virtual network gateway to allow this traffic. For more information, see guidance about [virtual network connectivity over ExpressRoute](virtual-network-connectivity-guidance.md). To enable this traffic, see [Enable VNet to VNet or VNet to virtual WAN connectivity through ExpressRoute](expressroute-howto-add-gateway-portal-resource-manager.md#enable-or-disable-vnet-to-vnet-or-vnet-to-virtual-wan-traffic-through-expressroute).
 
 ## <a name="fastpath"></a>FastPath
 
@@ -174,11 +174,11 @@ The ExpressRoute virtual network gateway facilitates connectivity to private end
 > [!IMPORTANT]
 > * The throughput and control plane capacity for connectivity to private endpoint resources may be reduced by half compared to connectivity to non-private endpoint resources.
 > * During a maintenance period, you may experience intermittent connectivity issues to private endpoint resources.
-> * You need to ensure that on-premises configuration, including router & firewall settings, are correctly set up to ensure that packets for the IP 5-tuple transits use a single next hop (Microsoft Enterprise Edge router - MSEE) unless there is a maintenance event. If your on-premises firewall or router configuration is causing the same IP 5-tuple to frequently switch next hops, then you will experience connectivity issues.
+> * You need to ensure that on-premises configuration, including router and firewall settings, are correctly set up to ensure that packets for the IP 5-tuple transits use a single next hop (Microsoft Enterprise Edge Router - MSEE) unless there is a maintenance event. If your on-premises firewall or router configuration is causing the same IP 5-tuple to frequently switch next hops, then you will experience connectivity issues.
 
 ### Private endpoint connectivity and planned maintenance events
 
-Private endpoint connectivity is stateful. When a connection to a private endpoint gets established over ExpressRoute private peering, inbound and outbound connections get routed through one of the back-end instances of the gateway infrastructure. During a maintenance event, back-end instances of the virtual network gateway infrastructure are rebooted one at a time, which could lead to intermittent connectivity issues.
+Private endpoint connectivity is stateful. When a connection to a private endpoint gets established over ExpressRoute private peering, inbound, and outbound connections get routed through one of the back-end instances of the gateway infrastructure. During a maintenance event, back-end instances of the virtual network gateway infrastructure are rebooted one at a time, which could lead to intermittent connectivity issues.
 
 To avoid or minimize connectivity issues with private endpoints during maintenance activities, we recommend setting the TCP time-out value to fall between 15-30 seconds on your on-premises applications. Test and configure the optimal value based on your application requirements.
 
