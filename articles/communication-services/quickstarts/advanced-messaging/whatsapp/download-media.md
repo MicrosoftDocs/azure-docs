@@ -65,6 +65,7 @@ Here's an example of an AdvancedMessageReceived event with media content:
 
 In this quickstart, you tried out the Advanced Messaging for WhatsApp SDK. Next you might also want to see the following articles:
 
+- [More Sample](/samples/azure/azure-sdk-for-js/communication-messages-javascript)
 - [Send WhatsApp Messages using Advanced Messages](../../../quickstarts/advanced-messaging/whatsapp/get-started.md)
 - [Handle Advanced Messaging Events](./handle-advanced-messaging-events.md)
 - [Send WhatsApp Template Messages](../../../quickstarts/advanced-messaging/whatsapp/send-template-messages.md)
