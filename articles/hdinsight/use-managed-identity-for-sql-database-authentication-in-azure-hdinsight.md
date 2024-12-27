@@ -1,0 +1,76 @@
+--- 
+title: Use Managed Identity for SQL Database authentication in Azure HDInsight 
+description: Learn how to use managed identity for SQL Database authentication in Azure HDInsight. 
+ms.service: azure-hdinsight 
+ms.topic: how-to 
+ms.date: 12/26/2024 
+---
+
+# Use Managed Identity for SQL Database authentication in Azure HDInsight 
+
+
+HDInsight has added the Managed Identity option for authenticating SQL databases within its cluster offerings and providing a more secure authentication mechanism. 
+
+This article outlines the process of using the Managed Identity (MSI) option for SQL Database authentication when creating a HDInsight cluster. 
+
+The Managed Identity option is available for the following Databases:
+ 
+
+| Databases | Host on Behalf of (HoBo)  DB  | Bring Your Own (BYO) DB |
+|-|-|-|
+|Ambari|✅ |✅ |
+|Hive |✅| ✅|
+|Oozie |✅ |✅ |
+|Ranger (ESP)|N | N |
+
+> [!NOTE]
+> MSI option is presently unavailable for ESP clusters configured with the HoBo setup.
+
+## Create Managed Identity
+
+1. During cluster creation, navigate to the Storage section and select the SQL database for Ambari, Hive, Oozie, or Ranger. Choose Managed Identity as the Authentication method. 
+    :::image type="content" source="./media/use-managed-identity-for-sql-database-authentication-in-azure-hdinsight/basic-tab.png" alt-text="Screenshot showing the basic tab." border="true" lightbox="./media/use-managed-identity-for-sql-database-authentication-in-azure-hdinsight/basic-tab.png":::
+
+1. Select the Managed Identity to authenticate with SQL Database.
+    :::image type="content" source="./media/use-managed-identity-for-sql-database-authentication-in-azure-hdinsight/storage-tab.png" alt-text="Screenshot showing the storage tab." border="true" lightbox="./media/use-managed-identity-for-sql-database-authentication-in-azure-hdinsight/storage-tab.png":::
+1. Create a contained user with the Managed identity (contosoMSI) in the corresponding SQL database.
+1. Follow these steps in the Azure SQL database query editor to create a database user and grant it read-write permissions. Perform these steps for each SQL Database you're going to use for different services such as Ambari, Hive, Oozie, or Ranger. 
+1. User name must contain the original MSI name extended by a user-defined suffix. As best practice, the suffix can include an initial part of its Object ID. 
+Object ID of managed identity can be obtained from portal on the managed identity portal page.
+ 
+    For example: 
+    MSI Name: contosoMSI 
+    Object ID: `2ba6c-1111-2222-3333-cccccccccccc`
+ 
+
+    user_name could be `contosoMSI-2ba6c`
+
+    ``` 
+    CREATE USER {user_name} FROM EXTERNAL PROVIDER WITH OBJECT_ID={object id of cluster managed identity};   
+ 
+    ALTER ROLE db_datareader ADD MEMBER {user_name};   
+    ALTER ROLE db_ddladmin ADD MEMBER {user_name};   
+    ALTER ROLE db_datawriter ADD MEMBER {user_name};   
+    ``` 
+    > [!NOTE]  
+    > If the roles `db_executor`, `db_view_def`, and `db_view_state` are already defined in your database, there is no need to proceed with the subsequent step.
+
+    ``` 
+    CREATE ROLE db_executor;   
+    GRANT EXECUTE TO db_executor;   
+    ALTER ROLE db_executor ADD MEMBER {user_name};   
+
+    CREATE ROLE db_view_def;   
+    GRANT VIEW DEFINITION TO db_view_def;   
+    ALTER ROLE db_view_def ADD MEMBER {user_name};   
+    CREATE ROLE db_view_db_state;  
+
+    GRANT VIEW DATABASE STATE TO db_view_db_state;   
+
+    ALTER ROLE db_view_def ADD MEMBER {user_name};  
+    ``` 
+
+1. After entering the necessary details, proceed with Cluster creation on the portal.  
+
+    > [!NOTE]
+    > If you’re using managed identity as Entra admin in SQL DB, you have to execute the above commands via SDK/Powershell.
