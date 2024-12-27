@@ -1,6 +1,6 @@
 ---
- title: include file
- description: include file
+ title: Include file
+ description: Include file
  services: vpn-gateway
  author: cherylmc
  ms.service: azure-vpn-gateway
