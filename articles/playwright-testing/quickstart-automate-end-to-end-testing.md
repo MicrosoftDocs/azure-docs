@@ -155,7 +155,7 @@ Set up Playwright to capture artifacts such as screenshot, videos and traces.
 - For videos, see [record videos for your tests](https://playwright.dev/dotnet/docs/videos#introduction)
 - For traces, see [recording a trace](https://playwright.dev/dotnet/docs/trace-viewer-intro#recording-a-trace)
 
-Once you collect these artifacts, attach them to the `TestContext` to ensure they're available in your test reports. For more information, see our [sample project for NUnit](https://aka.ms/mpt/nunit-sample)
+Once you collect these artifacts, attach them to the `TestContext` to ensure they're available in your test reports. For more information, see our [sample project for NUnit](https://aka.ms/mpt/nunit-sample).
 ::: zone-end
 
 ## Set up authentication
@@ -202,7 +202,7 @@ The service offers two authentication methods: Microsoft Entra ID and Access Tok
   | `AZURE_SUBSCRIPTION_ID` | Subscription ID                                       |
   | `AZURE_TENANT_ID`    | Directory (Tenant) ID                                    |
 
-  > **Note:**  
+  > [!NOTE] 
   > For enhanced security, it is strongly recommended to use GitHub Secrets to store sensitive values rather than including them directly in your workflow file.
 
   # [Azure Pipelines](#tab/pipelines)
@@ -218,13 +218,13 @@ The service offers two authentication methods: Microsoft Entra ID and Access Tok
 #### Set up authentication using access tokens
 
 > [!CAUTION]
-> We strongly recommend using Microsoft Entra ID for authentication to the service. If you're using access tokens, see [How to Manage Access Tokens](./how-to-manage-access-tokens.md)
+> We strongly recommend using Microsoft Entra ID for authentication to the service. If you're using access tokens, see [How to manage access tokens](./how-to-manage-access-tokens.md)
 
 You can generate an access token from your Playwright Testing workspace and use it in your setup. However, we strongly recommend Microsoft Entra ID for authentication due to its enhanced security. Access tokens, while convenient, function like long-lived passwords and are more susceptible to being compromised.
 
-1. Authentication using access tokens is disabled by default. To use, [Enable access-token based authentication](./how-to-manage-authentication.md#enable-authentication-using-access-tokens)
+1. Authentication using access tokens is disabled by default. To use, [Enable access-token based authentication](./how-to-manage-authentication.md#enable-authentication-using-access-tokens).
 
-2. [Set up authentication using access tokens](./how-to-manage-authentication.md#set-up-authentication-using-access-tokens)
+2. [Set up authentication using access tokens](./how-to-manage-authentication.md#set-up-authentication-using-access-tokens).
 
 3. Store the access token in a CI workflow secret and use it in the GitHub Actions workflow or Azure Pipeline yaml file. 
 

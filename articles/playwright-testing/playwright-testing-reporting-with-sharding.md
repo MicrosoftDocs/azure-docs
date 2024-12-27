@@ -16,7 +16,7 @@ In this article, you learn how to use the Microsoft Playwright Testing service's
 
 Playwright's sharding enables you to split your test suite to run across multiple machines simultaneously. This feature helps running tests in parallel.
 
-You can use Playwright Testing's reporting feature to get a consolidated report of a test run with sharding. You need to make sure the `runId` of the test run is same across all shards. 
+You can use Playwright Testing's reporting feature to get a consolidated report of a test run with sharding. Ensure the `runId` of the test run is same across all shards. 
 
 > [!IMPORTANT]
 > Microsoft Playwright Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -53,7 +53,7 @@ By default, a test run that uses reporting feature automatically generates a uni
 > If you use the cloud-hosted browsers provided by Microsoft Playwright Testing service to run your tests, you might have already set this variable. To avoid overwrites, make sure you set it only once. 
 
 
-While using sharding, make sure the same `runId` is set across all the shards for the results to be reported together. This can be achieved by using a variable `PLAYWRIGHT_SERVICE_RUN_ID` and setting this value same across all shards. 
+While using sharding, make sure the same `runId` is set across all the shards for the results to be reported together. Use the variable `PLAYWRIGHT_SERVICE_RUN_ID` and set the value same across all shards. 
 
 Here's an example of how you can set it in your pipeline via GitHub Actions. 
 
