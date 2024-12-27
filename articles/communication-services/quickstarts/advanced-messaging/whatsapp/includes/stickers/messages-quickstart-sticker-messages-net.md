@@ -12,3 +12,7 @@ ms.author: shamkh
 ---
 
 ## Prerequisites
+
+## Setting Up
+
+[!INCLUDE [Setting up for .NET Application](../dot-net-application-setup.md)]
