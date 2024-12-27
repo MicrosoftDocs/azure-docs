@@ -136,6 +136,8 @@ It is best practice to load data into a staging table. Staging tables allow you 
 To load data, you can use any of these loading options:
 
 - The [COPY statement](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) is the recommended loading utility as it enables you to seamlessly and flexibly load data. The statement has many additional loading capabilities that PolyBase does not provide. See the [NY taxi cab COPY tutorial](./load-data-from-azure-blob-storage-using-copy.md) to run through a sample tutorial.  
+- [Tutorial: Load external data using Microsoft Entra ID](../sql/tutorial-load-data-using-entra-id.md)
+- [Tutorial: Load external data using a managed identity](../sql/tutorial-external-tables-using-managed-identity.md) 
 - [PolyBase with T-SQL](./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md) requires you to define external data objects.
 - [PolyBase and COPY statement with Azure Data Factory (ADF)](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json) is another orchestration tool.  It defines a pipeline and schedules jobs.
 - [PolyBase with SSIS](/sql/integration-services/load-data-to-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&view=azure-sqldw-latest&preserve-view=true) works well when your source data is in SQL Server. SSIS defines the source to destination table mappings, and also orchestrates the load. If you already have SSIS packages, you can modify the packages to work with the new data warehouse destination.

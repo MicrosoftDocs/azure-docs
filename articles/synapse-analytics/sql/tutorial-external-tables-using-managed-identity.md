@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Loading External Data Using a Managed Identity"
+title: "Tutorial: Load External Data Using a Managed Identity"
 description: This tutorial shows how to connect to external data for queries or ingestion using a managed identity.
 author: periclesrocha
 ms.author: procha
@@ -10,7 +10,7 @@ ms.subservice: sql
 ms.topic: tutorial
 ---
 
-# Tutorial: Loading external data using a managed identity
+# Tutorial: Load external data using a managed identity
 
 This article explains how to create external tables or ingest data from Azure Data Lake Storage (ADLS) Gen2 accounts using a managed identity.
 
@@ -197,6 +197,6 @@ To learn more and explore the full syntax of `CREATE EXTERNAL TABLE`, see [CREAT
 
 ## Related content
 
-- [Tutorial: Loading external data using a managed identity](tutorial-external-tables-using-managed-identity.md)
+- [Tutorial: Load external data using a managed identity](tutorial-external-tables-using-managed-identity.md)
 - [Load Contoso retail data into dedicated SQL pools in Azure Synapse Analytics](../sql-data-warehouse/sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
 - [Managed identities for Azure Synapse Analytics](../synapse-service-identity.md)

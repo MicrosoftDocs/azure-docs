@@ -10,7 +10,7 @@ ms.subservice: sql
 ms.topic: tutorial
 ---
 
-# Tutorial: Loading external data using Microsoft Entra ID
+# Tutorial: Load external data using Microsoft Entra ID
 
 This article explains how to create external tables using Microsoft Entra ID passthrough.
 
@@ -157,6 +157,6 @@ To learn more and explore the full syntax of EXTERNAL TABLE, refer to <https://l
 
 ## Related content
 
-- [Tutorial: Loading external data using a managed identity](tutorial-external-tables-using-managed-identity.md)
+- [Tutorial: Load external data using a managed identity](tutorial-external-tables-using-managed-identity.md)
 - [Load Contoso retail data into dedicated SQL pools in Azure Synapse Analytics](../sql-data-warehouse/sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
 - [Use Microsoft Entra authentication for authentication with Synapse SQL](active-directory-authentication.md)
