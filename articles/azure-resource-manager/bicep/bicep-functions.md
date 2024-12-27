@@ -8,7 +8,7 @@ ms.date: 01/02/2025
 
 # Bicep functions overview
 
-This article describes all of the functions that you can use in a Bicep file. To define custom functions, see [User-defined functions](./user-defined-functions.md). For a description of the sections in a Bicep file, see [Understand the structure and syntax of Bicep files](./file.md).
+This article describes all of the functions that you can use in a Bicep file. To define custom functions, see [User-defined functions](./user-defined-functions.md). For a description of the sections in a Bicep file, see [Bicep file structure and syntax](./file.md).
 
 Most functions work the same when deployed to a resource group, subscription, management group, or tenant. A few functions can't be used in all scopes. They're noted in the lists below.
 
@@ -201,6 +201,5 @@ Bicep provides the following functions for working with strings. All of these fu
 
 ## Next steps
 
-* For a description of the sections in a Bicep file, see [Understand the structure and syntax of Bicep files](./file.md).
-* To iterate a specific number of times when creating a type of resource, see [Iterative loops in Bicep](loops.md).
-* To see how to deploy the Bicep file you've created, see [Deploy resources with Bicep and Azure PowerShell](./deploy-powershell.md).
+* To iterate a specific number of times when creating a type of resource, see [Iterative loops in Bicep](./loops.md).
+* To see how to deploy the Bicep file you've created, see [Deploy Bicep files with the Azure CLI](./deploy-cli.md) and [Azure PowerShell](./deploy-powershell.md).

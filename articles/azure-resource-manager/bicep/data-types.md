@@ -458,4 +458,4 @@ In Bicep, you can assign a value of one type (source type) to another type (targ
 
 ## Next steps
 
-To learn about the structure and syntax of Bicep, see [Bicep file structure](./file.md).
+To learn about the structure and syntax of Bicep, see [Bicep file structure and syntax](./file.md).

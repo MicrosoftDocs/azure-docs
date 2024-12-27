@@ -13,7 +13,7 @@ The `using` statement in [Bicep parameters files](./parameter-files.md) ties the
 > [!NOTE]
 > The Bicep parameters file is only supported in the [Bicep CLI](./install.md) version 0.18.4 or newer, [Azure CLI](/cli/azure/install-azure-cli) version 2.47.0 or newer, and [Azure PowerShell](/powershell/azure/install-azure-powershell) version 9.7.1 or newer.
 >
-> To use the statement with JSON ARM templates, Bicep modules, and template specs, you need to have the [Bicep CLI](./install.md) version 0.22.6 or later and [Azure CLI](/cli/azure/install-azure-cli) version 2.53.0 or later.
+> To use the statement with JSON ARM templates, Bicep modules, and template specs, you need to have [Bicep CLI](./install.md) version 0.22.6 or later and [Azure CLI](/cli/azure/install-azure-cli) version 2.53.0 or later.
 
 ## Syntax
 

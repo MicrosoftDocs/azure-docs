@@ -126,7 +126,7 @@ This command creates a parameters file named _main.parameters.json_. The paramet
 
 ## install
 
-The `install` command adds the Bicep CLI to your local environment. For more information, see [Install Bicep tools](install.md). This command is only available through the Azure CLI.
+The `install` command adds the Bicep CLI to your local environment, and it's only available through the Azure CLI. For more information, see [Install Bicep tools](install.md).
 
 To install the latest version, use:
 
@@ -325,7 +325,7 @@ For example:
 az bicep publish --file storage.bicep --target br:exampleregistry.azurecr.io/bicep/modules/storage:v1 --documentationUri https://www.contoso.com/exampleregistry.html
 ```
 
-The `publish` command doesn't recognize aliases specified in a [bicepconfig.json](bicep-config-modules.md) file. Provide the full module path.
+The `publish` command doesn't recognize aliases specified in a [_bicepconfig.json_ file](bicep-config-modules.md). Provide the full module path.
 
 > [!WARNING]
 > Publishing to the same target overwrites the old module. We recommend that you increment the version when updating.
