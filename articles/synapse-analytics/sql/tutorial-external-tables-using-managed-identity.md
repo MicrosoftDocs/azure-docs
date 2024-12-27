@@ -1,9 +1,9 @@
 ---
 title: "Tutorial: Load External Data Using a Managed Identity"
 description: This tutorial shows how to connect to external data for queries or ingestion using a managed identity.
-author: periclesrocha
-ms.author: procha
-ms.reviewer: WilliamDAssafMSFT
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.reviewer: periclesrocha
 ms.date: 01/04/2025
 ms.service: azure-synapse-analytics
 ms.subservice: sql
@@ -66,7 +66,7 @@ Where:
 - `<Folder>` is the folder (or path with subfolders) where the source data is stored within your container. You can also provide a file name if pointing directly to a single file.
 - `<CopyIntoOptions>` is the list of any other options you wish to provide to the COPY INTO statement.
 
-To learn more and explore the full syntax of COPY INTO, see [COPY INTO (Transact-SQL)](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest).
+To learn more and explore the full syntax of COPY INTO, see [COPY INTO (Transact-SQL)](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true).
 
 ## Query data on ADLS Gen2 using external tables
 
@@ -97,7 +97,7 @@ To create a master key, use the following T-SQL command:
 CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<Secure Password>';
 ```
 
-To learn more about the database master key, see [CREATE MASTER KEY (Transact-SQL)](/sql/t-sql/statements/create-master-key-transact-sql?view=azure-sqldw-latest).
+To learn more about the database master key, see [CREATE MASTER KEY (Transact-SQL)](/sql/t-sql/statements/create-master-key-transact-sql?view=azure-sqldw-latest&preserve-view=true).
 
 #### Create the database scoped credential
 
@@ -109,7 +109,7 @@ To create the database scoped credential, use the following command. Replace `<C
 CREATE DATABASE SCOPED CREDENTIAL <CredentialName> WITH IDENTITY = 'Managed Service Identity';
 ```
 
-To learn more about database scoped credentials, see [CREATE DATABASE SCOPED CREDENTIAL (Transact-SQL)](/sql/t-sql/statements/create-database-scoped-credential-transact-sql?view=azure-sqldw-latest).
+To learn more about database scoped credentials, see [CREATE DATABASE SCOPED CREDENTIAL (Transact-SQL)](/sql/t-sql/statements/create-database-scoped-credential-transact-sql?view=azure-sqldw-latest&preserve-view=true).
 
 #### Create the external data source
 
@@ -134,7 +134,7 @@ Where:
 - `<Folder>` is the folder (or path with subfolders) where the source data is stored within your container. You can also provide a file name if pointing directly to a single file.
 - `<Credential>` is the name of [the database scoped credential you created earlier](#create-the-database-scoped-credential).
 
-To learn more about external data sources, see [CREATE EXTERNAL DATA SOURCE (Transact-SQL)](/sql/t-sql/statements/create-external-data-source-transact-sql?view=azure-sqldw-latest&tabs=dedicated).
+To learn more about external data sources, see [CREATE EXTERNAL DATA SOURCE (Transact-SQL)](/sql/t-sql/statements/create-external-data-source-transact-sql?view=azure-sqldw-latest&preserve-view=true&tabs=dedicated).
 
 #### Create the external file format
 
@@ -155,7 +155,7 @@ WITH (
 );
 ```
 
-In this example, adjust parameters such as `FIELD_TERMINATOR`, `STRING_DELIMITER`, `FIRST_ROW`, and others as needed in accordance with your source data. For more formatting options and to learn more about `EXTERNAL FILE FORMAT`, see [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest).
+In this example, adjust parameters such as `FIELD_TERMINATOR`, `STRING_DELIMITER`, `FIRST_ROW`, and others as needed in accordance with your source data. For more formatting options and to learn more about `EXTERNAL FILE FORMAT`, see [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest&preserve-view=true).
 
 #### Create the external table
 
@@ -193,7 +193,7 @@ SELECT TOP 10 Col1, Col2 FROM <ExternalTableName>;
 
 If everything was configured properly, you should see the data from your source data as a result of this query.
 
-To learn more and explore the full syntax of `CREATE EXTERNAL TABLE`, see [CREATE EXTERNAL TABLE (Transact-SQL)](/sql/t-sql/statements/create-external-table-transact-sql?view=azure-sqldw-latest&tabs=dedicated).
+To learn more and explore the full syntax of `CREATE EXTERNAL TABLE`, see [CREATE EXTERNAL TABLE (Transact-SQL)](/sql/t-sql/statements/create-external-table-transact-sql?view=azure-sqldw-latest&preserve-view=true&tabs=dedicated).
 
 ## Related content
 
