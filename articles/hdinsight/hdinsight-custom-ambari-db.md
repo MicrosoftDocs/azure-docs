@@ -4,7 +4,7 @@ description: Learn how to create HDInsight clusters with your own custom Apache 
 ms.service: azure-hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
-ms.date: 09/06/2024
+ms.date: 12/27/2024
 ---
 # Set up HDInsight clusters with a custom Ambari DB
 
@@ -72,6 +72,8 @@ az deployment group create --name HDInsightAmbariDBDeployment \
 > Please use the following recommended SQL DB and Headnode VM for your HDInsight cluster. Please don't use default Ambari DB (S0) for any production environment. 
 >
 
+> [!NOTE]
+> You can use Managed Identity to authenticate with SQL database for Ambari. For more information, see [Use Managed Identity for SQL Database authentication in Azure HDInsight](./use-managed-identity-for-sql-database-authentication-in-azure-hdinsight.md)
 
 ## Database and Headnode sizing
 

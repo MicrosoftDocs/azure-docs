@@ -140,6 +140,8 @@ If you want to retain your Hive tables after you delete a HDInsight cluster, use
 
 A HDInsight metastore that is created for one HDInsight cluster version can't be shared across different HDInsight cluster versions. For a list of HDInsight versions, see [Supported HDInsight versions](hdinsight-component-versioning.md#supported-hdinsight-versions).
 
+You can use Managed Identity to authenticate with SQL database for Hive. For more information, see [Use Managed Identity for SQL Database authentication in Azure HDInsight](./use-managed-identity-for-sql-database-authentication-in-azure-hdinsight.md)
+
 > [!IMPORTANT]
 > The default metastore provides an Azure SQL Database with a **basic tier 5 DTU limit (not upgradeable)**! Suitable for basic testing purposes. For large or production workloads, we recommend migrating to an external metastore.
 
@@ -147,9 +149,13 @@ A HDInsight metastore that is created for one HDInsight cluster version can't be
 
 To increase performance when using Oozie, use a custom metastore. A metastore can also provide access to Oozie job data after you delete your cluster.
 
+You can use Managed Identity to authenticate with SQL database for Oozie. For more information, see  [Use Managed Identity for SQL Database authentication in Azure HDInsight](./use-managed-identity-for-sql-database-authentication-in-azure-hdinsight.md)
+
 #### SQL database for Ambari
 
 Ambari is used to monitor HDInsight clusters, make configuration changes, and store cluster management information as well as job history. The custom Ambari DB feature allows you to deploy a new cluster and setup Ambari in an external database that you manage. For more information, see [Custom Ambari DB](./hdinsight-custom-ambari-db.md).
+
+You can use Managed Identity to authenticate with SQL database for Ambari. For more information, see [Use Managed Identity for SQL Database authentication in Azure HDInsight](./use-managed-identity-for-sql-database-authentication-in-azure-hdinsight.md)
 
 > [!IMPORTANT]
 > You cannot reuse a custom Oozie metastore. To use a custom Oozie metastore, you must provide an empty Azure SQL Database when creating the HDInsight cluster.

@@ -4,7 +4,7 @@ description: Use external metadata stores with Azure HDInsight clusters.
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 07/12/2024
+ms.date: 27/12/2024
 ---
 
 # Use external metadata stores in Azure HDInsight
@@ -116,15 +116,21 @@ When using a custom Oozie metastore database, you have the ability to change the
 
 To update the Oozie metastore password:
 1. Open the Ambari UI.
-2. Click **Services --> Oozie --> Configs --> Database**.
-3. Update the **Database Password** fields to the new SQL server database password.
-4. Click the **Test Connection** button to make sure the new password works.
-5. Click the **Save** button.
-6. Follow the Ambari prompts to save the config and Restart the required services.
+1. Click **Services --> Oozie --> Configs --> Database**.
+1. Update the **Database Password** fields to the new SQL server database password.
+1. Click the **Test Connection** button to make sure the new password works.
+1. Click the **Save** button.
+1. Follow the Ambari prompts to save the config and Restart the required services.
+
+> [!NOTE]
+> You can use Managed Identity to authenticate with SQL database for Oozie. For more information, see  [Use Managed Identity for SQL Database authentication in Azure HDInsight](./use-managed-identity-for-sql-database-authentication-in-azure-hdinsight.md)
 
 ## Custom Ambari DB
 
 To use your own external database with Apache Ambari on HDInsight, see [Custom Apache Ambari database](hdinsight-custom-ambari-db.md).
+
+> [!NOTE]
+> You can use Managed Identity to authenticate with SQL database for Ambari. For more information, see [Use Managed Identity for SQL Database authentication in Azure HDInsight](./use-managed-identity-for-sql-database-authentication-in-azure-hdinsight.md)
 
 ## Next steps
 
