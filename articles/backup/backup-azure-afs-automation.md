@@ -155,8 +155,8 @@ A backup policy is associated with at least one retention policy. A retention po
 >[!Important]
 >The following cmdlets are used for the Backup policies:
 >
->- View the default backup policy retention by using `Get-AzRecoveryServicesBackupRetentionPolicyObject`.
->- View the default backup policy schedule by using `Get-AzRecoveryServicesBackupSchedulePolicyObject`.
+>- View the default backup retention policy by using `Get-AzRecoveryServicesBackupRetentionPolicyObject`.
+>- View the default backup schedule policy by using `Get-AzRecoveryServicesBackupSchedulePolicyObject`.
 >- Create a new backup policy by using `New-AzRecoveryServicesBackupProtectionPolicy`. Provide the schedule and retention policy objects as inputs.
 
 To create a backup policy that configures multiple backups a day, follow these steps:
