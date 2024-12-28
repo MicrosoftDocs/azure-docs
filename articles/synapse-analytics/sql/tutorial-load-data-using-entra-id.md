@@ -22,7 +22,7 @@ The following resources are required to complete this tutorial:
 
 ## Give the Microsoft Entra ID account access to the storage account
 
-This example uses an Microsoft Entra ID account (or group) to authenticate to the source data.
+This example uses a Microsoft Entra ID account (or group) to authenticate to the source data.
 
 To enable access to data on Azure Data Lake Storage (ADLS) Gen2 accounts, you need to give your Microsoft Entra ID account (or group) access to the source account. To grant the proper permissions, follow these steps:
 
