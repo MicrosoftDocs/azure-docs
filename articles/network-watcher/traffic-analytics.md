@@ -87,14 +87,15 @@ To use traffic analytics, you need the following components:
       For information about the differences between network security group flow logs and virtual network flow logs, see [Virtual network flow logs compared to network security group flow logs](vnet-flow-logs-overview.md#virtual-network-flow-logs-compared-to-network-security-group-flow-logs).
 
 > [!NOTE]
-> To use Traffic analytics, you need one of the following [Azure built-in roles](../role-based-access-control/built-in-roles.md) needs to be assigned to your account:
+> To use Traffic analytics, you must assign one of the following [Azure built-in roles](../role-based-access-control/built-in-roles.md) to your account:
+> 
 > | Deployment model | Role |
 > | ---------------- | ---- |
 > | Resource Manager | [Owner](../role-based-access-control/built-in-roles.md?toc=/azure/network-watcher/toc.json#owner) |
 > |                  | [Contributor](../role-based-access-control/built-in-roles.md?toc=/azure/network-watcher/toc.json#contributor) |
 > |                  | [Network contributor](../role-based-access-control/built-in-roles.md?toc=/azure/network-watcher/toc.json#network-contributor) and [Monitoring contributor](../role-based-access-control/built-in-roles.md?toc=/azure/network-watcher/toc.json#monitoring-contributor) |
 > 
->  If none of the preceding built-in roles are assigned to your account, assign to your account a [custom role](../role-based-access-control/custom-roles.md?toc=/azure/network-watcher/toc.json) that supports the actions listed in [Traffic analytics permissions](required-rbac-permissions.md#traffic-analytics).
+>  If none of the preceding built-in roles are assigned to your account, assign a [custom role](../role-based-access-control/custom-roles.md?toc=/azure/network-watcher/toc.json) that supports the actions listed in [Traffic analytics permissions](required-rbac-permissions.md#traffic-analytics).
 
 ## How traffic analytics works
 
