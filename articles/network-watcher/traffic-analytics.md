@@ -88,15 +88,13 @@ To use traffic analytics, you need the following components:
 
 > [!NOTE]
 > To use Traffic analytics, you need one of the following [Azure built-in roles](../role-based-access-control/built-in-roles.md) needs to be assigned to your account:
-> 
-> 
 > | Deployment model | Role |
 > | ---------------- | ---- |
 > | Resource Manager | [Owner](../role-based-access-control/built-in-roles.md?toc=/azure/network-watcher/toc.json#owner) |
 > |                  | [Contributor](../role-based-access-control/built-in-roles.md?toc=/azure/network-watcher/toc.json#contributor) |
 > |                  | [Network contributor](../role-based-access-control/built-in-roles.md?toc=/azure/network-watcher/toc.json#network-contributor) and [Monitoring contributor](../role-based-access-control/built-in-roles.md?toc=/azure/network-watcher/toc.json#monitoring-contributor) |
 > 
->  If none of the preceding built-in roles are assigned to your account, assign a [custom role](../role-based-access-control/custom-roles.md?toc=/azure/network-watcher/toc.json) to your account. The custom role should support the actions listed in [Traffic analytics permissions](required-rbac-permissions.md#traffic-analytics).
+>  If none of the preceding built-in roles are assigned to your account, assign to your account a [custom role](../role-based-access-control/custom-roles.md?toc=/azure/network-watcher/toc.json) that supports the actions listed in [Traffic analytics permissions](required-rbac-permissions.md#traffic-analytics).
 
 ## How traffic analytics works
 
