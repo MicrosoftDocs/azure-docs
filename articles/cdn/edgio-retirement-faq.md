@@ -22,7 +22,7 @@ Azure CDN from Edgio will be shut down on January 15, 2025. You must migrate you
 
 ### I see Edgio filed for Chapter 11 bankruptcy. Can Microsoft guarantee that Azure CDN from Edgio’s availability and services until November 4, 2025?
 
-Edgio has informed us that their services will remain operational until at least January 15, 2025. However, we can't guarantee that Edgio won't unexpectedly cease operations before this date due to circumstances beyond our control. Therefore, we'll automatically migrate your workload if you haven't taken action by January 7, 2025.
+Edgio has informed us that their services will remain operational until at least January 15, 2025. However, we can't guarantee that Edgio won't unexpectedly cease operations before this date due to circumstances beyond our control. Therefore, we'll automatically migrate your workload if you haven't taken action by January 7, 2025. Automatic migration will not be possible for endpoints with `*.vo.msecnd.net` domains.
 
 ### How can I see my impacted Azure CDN from Edgio resources?
 
@@ -40,9 +40,13 @@ The following is a recap of the migration options we sent to all users:
 
     > [!IMPORTANT]
     > - If you plan a migration to Akamai or another CDN provider, you must set the Feature Flag `DoNotForceMigrateEdgioCDNProfiles` before January 7, 2025. Doing so will prevent Microsoft from migrating you to Azure Front Door (please see below). Note you will have until January 14, 2025 to complete your migration to another CDN, but again Microsoft cannot guarantee your services will be available on the Edgio platform before this date.
-    > - Please be advised we will need to halt all configuration changes to Azure CDN by Edgio profiles starting on January 3, 2025. This means you will not be able update your CDN profile configuration, but your services on Azure CDN from Edgio will still operate until you are migrated or the Edgio platform is shut down on January 15, 2025
+    > - Please be advised we will need to halt all configuration changes to Azure CDN by Edgio profiles starting on January 3, 2025. This means you will not be able update your CDN profile configuration, but your services on Azure CDN from Edgio will still operate until you are migrated or the Edgio platform is shut down on January 15, 2025. If you apply the `DoNotForceMigrateEdgioCDNProfiles` feature flag beofre January 3, your configuration will not be frozen for changes.
 
 - If you have any services running on Azure CDN from Edgio on January 7, 2025 and haven't informed us of your plans (please see above), we'll attempt to migrate your services over to Azure Front Door on January 7, 2025. We'll be performing this migration to Azure Front Door on a “best effort” basis, and doing so might cause issues related to the billing, features, availability, and/or performance you're currently consuming with Azure CDN from Edgio.
+
+### Can I retain my existing *.azureedge.net domain when I move to Azure Front Door?
+
+You can temporarily retain your *.azureedge.net domain by following the instructions provided in [Migrate to Azure Front Door while retaining *.azureedge.net domain](migrate-cdn-to-front-door-retain-edge-domain.md). However, this is only a short-term solution due to the urgent retirement of Azure CDN from Edgio. Relying on domains like *.azureedge.net and *.azurefd.net isn't recommended as it poses availability risks. To ensure greater flexibility and avoid a single point of failure, it's advisable to adopt a custom domain as soon as possible.
 
 ### What are some key things I should do to verify my workloads are working properly on AFD?
 
@@ -93,6 +97,10 @@ We communicate the retirement of Azure CDN from Edgio through multiple channels,
 
 No, extensions aren't possible. Edgio confirmed that their platform will shut down by January 15, 2025.
 
-### Can I retain my existing *.azureedge.net domain when I move to Azure Front Door?
+### Can I request an extension for the automatic migration of the Azure CDN from Edgio profiles on January 7th?
 
-You can temporarily retain your *.azureedge.net domain by following the instructions provided in [Migrate to Azure Front Door while retaining *.azureedge.net domain](migrate-cdn-to-front-door-retain-edge-domain.md). However, this is only a short-term solution due to the urgent retirement of Azure CDN from Edgio. Relying on domains like *.azureedge.net and *.azurefd.net isn't recommended as it poses availability risks. To ensure greater flexibility and avoid a single point of failure, it's advisable to adopt a custom domain as soon as possible.
+No, extensions aren't possible. If you don't want us to automatically migrate your profiles, you must set the Feature Flag `DoNotForceMigrateEdgioCDNProfiles` before January 7, 2025. More details above.
+
+### Can I set the feature flag at resource/profile level instead of subscription level?
+
+No
