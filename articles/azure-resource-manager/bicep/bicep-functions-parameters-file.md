@@ -28,7 +28,7 @@ param securePassword = getSecret('exampleSubscription', 'exampleResourceGroup', 
 
 You get an error if you use this function with string interpolation.
 
-A [namespace qualifier](bicep-functions.md#namespaces-for-functions) (`az`) can be used, but it's optional since the function is available from the _default_ Azure Namespace.
+A [namespace qualifier](bicep-functions.md#namespaces-for-functions) (`az`) can be used, but it's optional since the function is available from the _default_ Azure namespace.
 
 ### Parameters
 
