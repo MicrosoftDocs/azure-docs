@@ -95,8 +95,8 @@ To use traffic analytics, you need the following components:
 > |                  | [Contributor](../role-based-access-control/built-in-roles.md?toc=/azure/network-watcher/toc.json#contributor) |
 > |                  | [Network contributor](../role-based-access-control/built-in-roles.md?toc=/azure/network-watcher/toc.json#network-contributor) <sup>1</sup> and [Monitoring contributor](../role-based-access-control/built-in-roles.md?toc=/azure/network-watcher/toc.json#monitoring-contributor) <sup>2</sup> |
 > 
-> <sup>1</sup> Network contributor doesn't cover `Microsoft.OperationalInsights/workspaces/*` actions.
-> <sup>2</sup> Only required when using traffic analytics to analyze virtual network flow logs.
+> - <sup>1</sup> Network contributor doesn't cover `Microsoft.OperationalInsights/workspaces/*` actions.
+> - <sup>2</sup> Only required when using traffic analytics to analyze virtual network flow logs.
 > 
 >  If none of the preceding built-in roles are assigned to your account, assign a [custom role](../role-based-access-control/custom-roles.md?toc=/azure/network-watcher/toc.json) that supports the actions listed in [Traffic analytics permissions](required-rbac-permissions.md#traffic-analytics).
 
