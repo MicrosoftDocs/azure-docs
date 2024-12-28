@@ -84,9 +84,7 @@ To use traffic analytics, you need the following components:
       - Information about the flow, such as the source and destination IP addresses, the source and destination ports, and the protocol.
       - The status of the traffic, such as allowed or denied.
     
-      For more information, see [Virtual network flow logs overview](vnet-flow-logs-overview.md) and [Create a virtual network flow log](vnet-flow-logs-portal.md#create-a-flow-log).
-
-      To learn about the differences between network security group flow logs and virtual network flow logs, see [Virtual network flow logs compared to network security group flow logs](vnet-flow-logs-overview.md#virtual-network-flow-logs-compared-to-network-security-group-flow-logs). 
+      For more information, see [Virtual network flow logs overview](vnet-flow-logs-overview.md) and [Create a virtual network flow log](vnet-flow-logs-portal.md#create-a-flow-log). To learn about the differences between network security group flow logs and virtual network flow logs, see [Virtual network flow logs compared to network security group flow logs](vnet-flow-logs-overview.md#virtual-network-flow-logs-compared-to-network-security-group-flow-logs). 
 
 > [!NOTE]
 > To use Traffic analytics, you must assign one of the following [Azure built-in roles](../role-based-access-control/built-in-roles.md) to your account:
@@ -95,7 +93,10 @@ To use traffic analytics, you need the following components:
 > | ---------------- | ---- |
 > | Resource Manager | [Owner](../role-based-access-control/built-in-roles.md?toc=/azure/network-watcher/toc.json#owner) |
 > |                  | [Contributor](../role-based-access-control/built-in-roles.md?toc=/azure/network-watcher/toc.json#contributor) |
-> |                  | [Network contributor](../role-based-access-control/built-in-roles.md?toc=/azure/network-watcher/toc.json#network-contributor) and [Monitoring contributor](../role-based-access-control/built-in-roles.md?toc=/azure/network-watcher/toc.json#monitoring-contributor) |
+> |                  | [Network contributor](../role-based-access-control/built-in-roles.md?toc=/azure/network-watcher/toc.json#network-contributor) <sup>1</sup> and [Monitoring contributor](../role-based-access-control/built-in-roles.md?toc=/azure/network-watcher/toc.json#monitoring-contributor) <sup>2</sup> |
+> 
+> <sup>1</sup> Network contributor doesn't cover `Microsoft.OperationalInsights/workspaces/*` actions.
+> <sup>2</sup> Only required when using traffic analytics to analyze virtual network flow logs.
 > 
 >  If none of the preceding built-in roles are assigned to your account, assign a [custom role](../role-based-access-control/custom-roles.md?toc=/azure/network-watcher/toc.json) that supports the actions listed in [Traffic analytics permissions](required-rbac-permissions.md#traffic-analytics).
 
@@ -109,53 +110,6 @@ Reduced logs are enhanced with geography, security, and topology information and
 
 :::image type="content" source="./media/traffic-analytics/data-flow-for-nsg-flow-log-processing.png" alt-text="Diagram that shows how network traffic data flows from a network security group log to an analytics dashboard. Middle steps include aggregation and enhancement.":::
 
-## Prerequisites
-
-Traffic analytics requires the following prerequisites:
-
-- A Network Watcher enabled subscription. For more information, see [Enable or disable Azure Network Watcher](network-watcher-create.md).
-- Network security group flow logs enabled for the network security groups you want to monitor or virtual network flow logs enabled for the virtual network you want to monitor. For more information, see [Create a network security group flow log](nsg-flow-logs-portal.md#create-a-flow-log) or [Create a virtual network flow log](vnet-flow-logs-portal.md#create-a-flow-log).
-- An Azure Log Analytics workspace with read and write access. For more information, see [Create a Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace?toc=/azure/network-watcher/toc.json).
-
-- One of the following [Azure built-in roles](../role-based-access-control/built-in-roles.md) needs to be assigned to your account:
-
-    | Deployment model | Role |
-    | ---------------- | ---- |
-    | Resource Manager | [Owner](../role-based-access-control/built-in-roles.md?toc=/azure/network-watcher/toc.json#owner) |
-    |                  | [Contributor](../role-based-access-control/built-in-roles.md?toc=/azure/network-watcher/toc.json#contributor) |
-    |                  | [Network contributor](../role-based-access-control/built-in-roles.md?toc=/azure/network-watcher/toc.json#network-contributor) <sup>1</sup> and [Monitoring contributor](../role-based-access-control/built-in-roles.md?toc=/azure/network-watcher/toc.json#monitoring-contributor) <sup>2</sup> |
-
-    If none of the preceding built-in roles are assigned to your account, assign a [custom role](../role-based-access-control/custom-roles.md?toc=/azure/network-watcher/toc.json) to your account. The custom role should support the following actions at the subscription level:
-    
-    - `Microsoft.Network/applicationGateways/read`
-    - `Microsoft.Network/connections/read`
-    - `Microsoft.Network/loadBalancers/read`
-    - `Microsoft.Network/localNetworkGateways/read`
-    - `Microsoft.Network/networkInterfaces/read`
-    - `Microsoft.Network/networkSecurityGroups/read`
-    - `Microsoft.Network/publicIPAddresses/read`
-    - `Microsoft.Network/routeTables/read`
-    - `Microsoft.Network/virtualNetworkGateways/read`
-    - `Microsoft.Network/virtualNetworks/read`
-    - `Microsoft.Network/expressRouteCircuits/read`
-    - `Microsoft.OperationalInsights/workspaces/read` <sup>1</sup>
-    - `Microsoft.OperationalInsights/workspaces/sharedkeys/action` <sup>1</sup>
-    - `Microsoft.Insights/dataCollectionRules/read` <sup>2</sup>
-    - `Microsoft.Insights/dataCollectionRules/write` <sup>2</sup>
-    - `Microsoft.Insights/dataCollectionRules/delete` <sup>2</sup>
-    - `Microsoft.Insights/dataCollectionEndpoints/read` <sup>2</sup>
-    - `Microsoft.Insights/dataCollectionEndpoints/write` <sup>2</sup>
-    - `Microsoft.Insights/dataCollectionEndpoints/delete` <sup>2</sup>
-
-    <sup>1</sup> Network contributor doesn't cover `Microsoft.OperationalInsights/workspaces/*` actions.
-
-    <sup>2</sup> Only required when using traffic analytics to analyze virtual network flow logs. For more information, see [Data collection rules in Azure Monitor](/azure/azure-monitor/essentials/data-collection-rule-overview?toc=/azure/network-watcher/toc.json) and [Data collection endpoints in Azure Monitor](/azure/azure-monitor/essentials/data-collection-endpoint-overview?toc=/azure/network-watcher/toc.json).
-
-    To learn how to check roles assigned to a user for a subscription, see [List Azure role assignments using the Azure portal](../role-based-access-control/role-assignments-list-portal.yml?toc=/azure/network-watcher/toc.json). If you can't see the role assignments, contact the respective subscription admin.
-
-    > [!CAUTION]
-    > Data collection rule and data collection endpoint resources are created and managed by traffic analytics. If you perform any operation on these resources, traffic analytics may not function as expected.
-    
 ## Availability
 
 The following tables list the supported regions where you can enable traffic analytics for your flow logs and the Log Analytics workspaces that you can use.
