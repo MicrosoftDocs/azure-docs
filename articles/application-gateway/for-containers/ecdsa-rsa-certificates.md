@@ -4,7 +4,7 @@ description: Learn how to configure a listener with both ECDSA and RSA certifica
 services: application gateway
 author: greg-lindsay
 ms.service: azure-appgw-for-containers
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 5/9/2024
 ms.author: greglin
 ---
