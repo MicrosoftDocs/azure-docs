@@ -12,3 +12,7 @@ ms.author: shamkh
 ---
 
 ## Prerequisites
+
+## Setting up
+
+[!INCLUDE [Setting up for Java Application](../java-application-setup.md)]

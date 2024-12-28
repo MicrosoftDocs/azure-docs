@@ -13,32 +13,7 @@ ms.author: shamkh
 
 ## Setting up
 
-### Create a new Python application
-In a terminal or console window, create a new folder for your application and navigate to it.
-
-```console
-mkdir messages-quickstart && cd messages-quickstart
-```
-
-### Install the package
-Make sure python is installed before proceeding:
-- [Python](https://www.python.org/downloads/) 3.7+ for your operating system.
-
-You need to use the Azure Communication Messages client library for Python [version 1.0.0](https://pypi.org/project/azure-communication-messages) or above.
-
-From a console prompt, execute the following command:
-
-```console
-pip install azure-communication-messages
-```
-
-### Set up the app framework
-
-Create a new file called `messages-quickstart.py` and add the basic program structure.
-
-```console
-type nul > messages-quickstart.py   
-```
+[!INCLUDE [Setting up for Python Application](../python-application-setup.md)]
 
 ### Basic program structure
 ```python

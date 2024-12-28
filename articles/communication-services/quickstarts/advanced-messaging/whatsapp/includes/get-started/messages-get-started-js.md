@@ -23,44 +23,7 @@ ms.author: armohamed
 
 To set up an environment for sending messages, take the steps in the following sections.
 
-### Create a new Node.js application
-
-1. Create a new directory for your app and navigate to it by opening your terminal or command window, then run the following command.
-
-   ```console
-   mkdir advance-messages-quickstart && cd advance-messages-quickstart
-   ```
-
-1. Run the following command to create a **package.json** file with default settings.
-
-   ```console
-   npm init -y
-   ```
-
-1. Use a text editor to create a file called **send-messages.js** in the project root directory.
-1. Add the following code snippet to the file **send-messages.js**.
-   ```javascript
-   async function main() {
-       // Quickstart code goes here.
-   }
-
-   main().catch((error) => {
-       console.error("Encountered an error while sending message: ", error);
-       process.exit(1);
-   });
-   ```
-
-In the following sections, you added all the source code for this quickstart to the **send-messages.js** file that you created.
-
-### Install the package
-
-Use the `npm install` command to install the Azure Communication Services Advance Messaging SDK for JavaScript.
-
-```console
-npm install @azure-rest/communication-messages --save
-```
-
-The `--save` option lists the library as a dependency in your **package.json** file.
+[!INCLUDE [Setting up for JScript Application](../jscript-application-setup.md)]
 
 ## Object model
 The following classes and interfaces handle some of the major features of the Azure Communication Services Advance Messaging SDK for JavaScript.
