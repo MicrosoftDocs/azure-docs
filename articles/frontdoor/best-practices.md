@@ -68,6 +68,10 @@ For more information, see [Select the certificate for Azure Front Door to deploy
 
 ## Domain name best practices
 
+### Adopt custom domains
+
+Adopt custom domains for your Front Door endpoints to ensure better availaility and flexiility while managing your domains and traffic. Don't hardcode AFD provided domains (like *.azurefd.z01.net) in your clients/codebases/firewall. Use custom domains for such scenarios.
+
 ### Use the same domain name on Front Door and your origin
 
 Front Door can rewrite the `Host` header of incoming requests. This feature can be helpful when you manage a set of customer-facing custom domain names that route to a single origin. This feature can also help when you want to avoid configuring custom domain names in Front Door and at your origin. However, when you rewrite the `Host` header, request cookies and URL redirections might break. In particular, when you use platforms like Azure App Service, features like [session affinity](../app-service/configure-common.md#configure-general-settings) and [authentication and authorization](../app-service/overview-authentication-authorization.md) might not work correctly.
