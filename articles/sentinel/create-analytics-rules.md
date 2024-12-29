@@ -197,12 +197,14 @@ In the **Incident settings** tab, choose whether Microsoft Sentinel turns alerts
 
    1. **Re-open closed matching incidents**: If an incident has been resolved and closed, and later on another alert is generated that should belong to that incident, set this setting to **Enabled** if you want the closed incident re-opened, and leave as **Disabled** if you want the alert to create a new incident.
 
-     > [!IMPORTANT]
-     > If you onboarded Microsoft Sentinel to the Microsoft Defender portal, the **alert grouping** settings take effect only at the moment that the incident is created.
-     > 
-     > Because the Defender portal's correlation engine is responsible for alert correlation in this scenario, it accepts these settings as initial instructions, but it also might make decisions about alert correlation that don't take these settings into account.
-     >
-     > Therefore, the way alerts are grouped into incidents might often be different than you would expect based on these settings.
+      This option is not available when Microsoft Sentinel is onboarded to the Microsoft Defender portal.
+
+   > [!IMPORTANT]
+   > If you onboarded Microsoft Sentinel to the Microsoft Defender portal, the **alert grouping** settings take effect only at the moment that the incident is created.
+   > 
+   > Because the Defender portal's correlation engine is responsible for alert correlation in this scenario, it accepts these settings as initial instructions, but it also might make decisions about alert correlation that don't take these settings into account.
+   >
+   > Therefore, the way alerts are grouped into incidents might often be different than you would expect based on these settings.
 
    > [!NOTE]
    >
