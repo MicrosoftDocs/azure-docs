@@ -43,16 +43,16 @@ Details for the attributes specific to `Microsoft.Communication.AdvancedMessageR
 | Attribute         | Type                                        | Nullable | Description                                                               |
 |:------------------|:-------------------------------------------:|:--------:|---------------------------------------------------------------------------|
 | channelType       | `string`                                    | ✔️      | Channel type of the channel that the message was sent on. Ex. "whatsapp". |
-| messageType       | `string`                                    | ✔️      | Message Type of the message receive event. Ex. "interactive". |
+| messageType       | `string`                                    | ✔️      | Message Type of the message receive event. Ex. "interactive", "sticker", "reaction". |
 | from              | `string`                                    | ✔️      | Sender ID that sent the message.                                          |
 | to                | `string`                                    | ✔️      | The channel ID that received the message, formatted as a GUID.            |
-| receivedTimestamp | `DateTimeOffset`                            | ✔️      | Timestamp of the message.                                                 |
+| receivedTimestamp | `DateTimeOffset`                            | ✔️      | Timestamp when the message is received.                                   |
 | content           | `string`                                    | ✔️      | The text content in the message.                                          |
-| media             | [`MediaContent`](#mediacontent)             | ✔️      | Contains details about the received media.                                |
-| context           | [`MessageContext`](#messagecontext)         | ✔️      | Contains details about the received media.                                |
-| button            | [`ButtonContent`](#buttoncontent)           | ✔️      | Contains details about the received media.                                |
-| interactive       | [`InteractiveContent`](#interactivecontent) | ✔️      | Contains details about the received media.   |
-| reaction       | [`ReactionContent`](#reactioncontent) | ✔️      | Contains details about the received reaction over business message.                              |
+| media             | [`MediaContent`](#mediacontent)             | ✔️      | Contains details about the received [media](#mediacontent).                                |
+| context           | [`MessageContext`](#messagecontext)         | ✔️      | Contains details about the reply [message context](#messagecontext) incase user replies back to business message. |
+| button            | [`ButtonContent`](#buttoncontent)           | ✔️      | Contains details of the reply button content user has selected for template message.  |
+| interactive       | [`InteractiveContent`](#interactivecontent) | ✔️      | Contains details about interactive message response like [buttonReply](#interactivebuttonreplycontent) or [listReply](#interactivelistreplycontent)|
+| reaction          | [`ReactionContent`](#reactioncontent)       | ✔️      | Contains details about the received [reaction](#reactioncontent) over business send message.         |
 
 ##### MediaContent
 

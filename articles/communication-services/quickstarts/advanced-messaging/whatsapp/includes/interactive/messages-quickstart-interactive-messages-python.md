@@ -16,9 +16,7 @@ ms.author: shamkh
 ## Prerequisites
 
 - [WhatsApp Business Account registered with your Azure Communication Services resource](../../connect-whatsapp-business-account.md).
-
 - Active WhatsApp phone number to receive messages.
-
 - [Python](https://www.python.org/downloads/) 3.7+ for your operating system.
 
 ## Setting up
