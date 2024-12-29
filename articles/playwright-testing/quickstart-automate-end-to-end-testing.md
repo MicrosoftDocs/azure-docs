@@ -460,14 +460,16 @@ The settings for your test run can be defined in `.runsettings` file. For more i
 
 > [!CAUTION]
 > With Microsoft Playwright Testing, you get charged based on the number of total test minutes consumed and test results published. If you're a first-time user or [getting started with a free trial](./how-to-try-playwright-testing-free.md), you might start with running a single test at scale instead of your full test suite to avoid exhausting your free test minutes and test results.
->
-> After you validate that the test runs successfully, you can gradually increase the test load by running more tests with the service.
->
+
+After you validate that the test runs successfully, you can gradually increase the test load by running more tests with the service.
+
 ::: zone pivot="playwright-test-runner"
 
-> You can run a single test with the service by using the following command-line:
->
-> ```npx playwright test {name-of-file.spec.ts} --config=playwright.service.config.ts```
+You can run a single test with the service by using the following command-line:
+
+```powershell
+npx playwright test {name-of-file.spec.ts} --config=playwright.service.config.ts
+```
 
 ::: zone-end
 ## View test runs and results in the Playwright portal
