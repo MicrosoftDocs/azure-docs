@@ -11,7 +11,7 @@ author: SnehaSudhirG
 zone_pivot_groups: enable-change-tracking-inventory-using-monitoring-agent
 ---
 
-# Enable Change Tracking and Inventory using Azure Monitoring Agents
+# Enable Change Tracking and Inventory using Azure Monitoring Agent
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: Windows Registry :heavy_check_mark: Windows Files :heavy_check_mark: Linux Files :heavy_check_mark: Windows Software :heavy_check_mark: File Content Changes
 
