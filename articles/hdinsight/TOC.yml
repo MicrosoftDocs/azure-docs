@@ -127,6 +127,8 @@ items:
         href: hdinsight-hadoop-use-data-lake-storage-gen2-portal.md
       - name: Use Data Lake Storage Gen2 with Azure CLI
         href: hdinsight-hadoop-use-data-lake-storage-gen2-azure-cli.md
+      - name: Configure blob storage as primary storage in Azure HDInsight
+        href: configure-azure-blob-storage.md  
     - name: Extend clusters
       items:
       - name: Install HDInsight apps

@@ -17,7 +17,7 @@ ms.collection: usx-security
 
 This article provides a reference of the configurable parameters available in the kickstart script used to the deploy the Microsoft Sentinel for SAP applications data connector agent. 
 
-For more information, see [Deploy and configure the container hosting the SAP data connector agent](deploy-data-connector-agent-container.md).
+For more information, see [Connect your SAP system to Microsoft Sentinel](deploy-data-connector-agent-container.md).
 
 Content in this article is intended for your **SAP BASIS** teams.
 
@@ -156,7 +156,7 @@ If set to `cfgf`, the configuration file stored locally is used to store secrets
 
 **Required:** No. The script attempts to locate the nwrfc*.zip file in the current folder. If it isn't found, the user is prompted to supply a valid NetWeaver SDK archive file.
 
-**Description:** NetWeaver SDK file path. A valid SDK is required for the data collector to operate. For more information, see [SAP prerequisites](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#sap-prerequisites).
+**Description:** NetWeaver SDK file path. A valid SDK is required for the data collector to operate. For more information, see [SAP prerequisites](prerequisites-for-deploying-sap-continuous-threat-monitoring.md).
 
 ## Enterprise Application ID
 
@@ -352,6 +352,5 @@ If the certificate is issued by an enterprise CA, the issuing CA certificate and
 
 For more information, see:
 
-- [Deploy and configure the container hosting the SAP data connector agent](deploy-data-connector-agent-container.md)
+- [Connect your SAP system to Microsoft Sentinel](deploy-data-connector-agent-container.md)
 - [Troubleshoot your Microsoft Sentinel solution for SAP applications solution deployment](sap-deploy-troubleshoot.md)
-- [Systemconfig.json file reference](reference-systemconfig-json.md)

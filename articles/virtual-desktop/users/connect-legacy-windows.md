@@ -4,6 +4,7 @@ description: Learn how to connect Connect to Azure Virtual Desktop with the lega
 ms.topic: how-to
 author: dknappettmsft
 ms.author: daknappe
+ms.custom: "se-defect-target"
 ms.date: 09/24/2024
 ---
 

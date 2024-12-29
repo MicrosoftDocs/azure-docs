@@ -24,7 +24,7 @@ landingContent:
           - text: Use Cases
             url: overview-use-cases.md
           - text: Client SDK sample visualization
-            url: https://tsiclientsample.azurewebsites.net/
+            url: https://github.com/microsoft/tsiclient
       - linkListType: concept
         links:
           - text: Visualize data in Time Series Insights Explorer

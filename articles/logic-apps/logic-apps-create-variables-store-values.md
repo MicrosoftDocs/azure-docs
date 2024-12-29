@@ -37,10 +37,9 @@ Variables exist and are global only within the workflow instance that creates th
 
   Before you can add actions for creating and working with variables, your workflow must start with a trigger as the first step in your workflow. For more information, see [Build a workflow with a trigger or action](create-workflow-with-trigger-or-action.md).
 
-The following steps use the Azure portal, but with the appropriate Azure Logic Apps extension, you can also use the following tools to create logic app workflows:
+The following steps use the Azure portal, but with the appropriate Azure Logic Apps extension, you can also use the following tools to build logic app workflows:
 
-* Consumption workflows: [Visual Studio](quickstart-create-logic-apps-with-visual-studio.md) or [Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md)
-
+* Consumption workflows: [Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md)
 * Standard workflows: [Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md)
 
 Based on whether you have a Consumption or Standard workflow, follow the corresponding steps:

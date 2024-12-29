@@ -29,7 +29,7 @@ Usually, this problem occurs for one of two reasons:
 - Your network prevents communication to the Azure Synapse Analytics back-end. The most frequent case is that TCP port 1443 is blocked. To get serverless SQL pool to work, unblock this port. Other problems could prevent serverless SQL pool from working too. For more information, see the [Troubleshooting guide](../troubleshoot/troubleshoot-synapse-studio.md).
 - You don't have permission to sign in to serverless SQL pool. To gain access, an Azure Synapse workspace administrator must add you to the workspace administrator role or the SQL administrator role. For more information, see [Azure Synapse access control](../security/synapse-workspace-access-control-overview.md).
 
-### Websocket connection closed unexpectedly
+### WebSocket connection closed unexpectedly
 
 Your query might fail with the error message `Websocket connection was closed unexpectedly.` This message means that your browser connection to Synapse Studio was interrupted, for example, because of a network issue.
 
@@ -1109,6 +1109,10 @@ Connect-AzAccount -ServicePrincipal -Credential $cred -Tenant $tenantId
 
 New-AzSynapseRoleAssignment -WorkspaceName "<workspaceName>" -RoleDefinitionName "Synapse Administrator" -ObjectId "<app_id_to_add_as_admin>" [-Debug]
 ```
+> [!NOTE]
+> In this case, the synapse data studio UI will not display the role assignment added by the above method, so it is recommended to add the role assignment to both object ID and application ID at the same time so that it can be displayed on the UI as well.
+> 
+> New-AzSynapseRoleAssignment -WorkspaceName "\<workspaceName\>" -RoleDefinitionName "Synapse Administrator" -ObjectId "\<object_id_to_add_as_admin\>" [-Debug]
 
 **Validation**
 

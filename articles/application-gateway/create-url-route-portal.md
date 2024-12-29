@@ -7,7 +7,6 @@ ms.service: azure-application-gateway
 ms.topic: tutorial
 ms.date: 09/03/2024
 ms.author: greglin
-ms.custom: template-tutorial
 #Customer intent: As an IT administrator, I want to use the Azure portal to set up an application gateway so I can route my app traffic based on path-based routing rules.
 ---
 
@@ -198,7 +197,7 @@ Review the settings on the **Review + create** tab, and then select **Create** t
 
 3. Change the URL to *http://&lt;ip-address&gt;:8080/images/test.htm*, replacing &lt;ip-address&gt; with the public IP address of **myAppGateway**, and you should see something like the following example:
 
-    ![Screenshow of test images URL in application gateway](./media/application-gateway-create-url-route-portal/application-gateway-iistest-images.png)
+    ![Screenshot of test images URL in application gateway](./media/application-gateway-create-url-route-portal/application-gateway-iistest-images.png)
 
    The listener on port 8080 routes this request to the *Images* backend pool.
 

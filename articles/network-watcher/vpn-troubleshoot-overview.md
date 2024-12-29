@@ -30,7 +30,7 @@ The following table lists which gateways and connections are supported with Netw
 |Route Based | Supported|
 |Policy Based | Not Supported|
 |**Connection types**||
-|IPSec| Supported|
+|IPsec| Supported|
 |VNet2VNet| Supported|
 |ExpressRoute| Not Supported|
 |VPNClient| Not Supported|

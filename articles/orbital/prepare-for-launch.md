@@ -19,7 +19,7 @@ Follow these steps to get ready for an upcoming satellite launch and acquire you
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Contributor permissions at the subscription level.
 - A [Basic Support Plan](https://azure.microsoft.com/support/plans/) or higher to submit a spacecraft authorization request.
-- Private spacecraft: an active satellite license. In certain countries including the United States, authorization for market access (or a waiver of the United States’ market access rules) is required for satellites not licensed in the country.
+- Private spacecraft: an active satellite license. In certain countries/regions including the United States, authorization for market access (or a waiver of the United States’ market access rules) is required for satellites not licensed in the country/region.
 - Private spacecraft: added as a point of communication to Microsoft and/or Partner ground stations. For more information, see [initiate ground station licensing](initiate-licensing.md).
 - A [contact profile resource](concepts-contact-profile.md)
 
