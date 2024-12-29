@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 09/20/2024
+ms.date: 12/12/2024
 ms.custom: generated
 ---
 
@@ -36,6 +36,8 @@ Grants full access to manage all resources, but does not allow you to assign rol
 > | [Microsoft.Purview](../permissions/analytics.md#microsoftpurview)/consents/write | Create or Update a Consent Resource. |
 > | [Microsoft.Purview](../permissions/analytics.md#microsoftpurview)/consents/delete | Delete the Consent Resource. |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deploymentStacks/manageDenySetting/action | Manage the denySettings property of a deployment stack. |
+> | [Microsoft.Subscription](../permissions/general.md#microsoftsubscription)/cancel/action | Cancels the Subscription |
+> | [Microsoft.Subscription](../permissions/general.md#microsoftsubscription)/enable/action | Reactivates the Subscription |
 > | **DataActions** |  |
 > | *none* |  |
 > | **NotDataActions** |  |
@@ -63,7 +65,9 @@ Grants full access to manage all resources, but does not allow you to assign rol
         "Microsoft.Compute/galleries/share/action",
         "Microsoft.Purview/consents/write",
         "Microsoft.Purview/consents/delete",
-        "Microsoft.Resources/deploymentStacks/manageDenySetting/action"
+        "Microsoft.Resources/deploymentStacks/manageDenySetting/action",
+        "Microsoft.Subscription/cancel/action",
+        "Microsoft.Subscription/enable/action"
       ],
       "dataActions": [],
       "notDataActions": []

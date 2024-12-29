@@ -4,7 +4,7 @@ description: How to publish applications with RemoteApp in Azure Virtual Desktop
 author: dknappettmsft
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.date: 03/05/2024
+ms.date: 12/11/2024
 ms.author: daknappe
 ---
 
@@ -20,6 +20,9 @@ You publish applications in the following scenarios:
 
 This article shows you how to publish applications that are installed locally with RemoteApp using the Azure portal and Azure PowerShell. You can't publish applications using Azure CLI.
 
+> [!IMPORTANT]
+> Users who have access to both a desktop application group and RemoteApp application group assigned to the same host pool only have access to the type of applications from the application group determined by the preferred application group type for the host pool. For more information, see [Preferred application group type behavior for pooled host pools](preferred-application-group-type.md).
+
 ## Prerequisites
 
 # [Azure portal](#tab/portal)
@@ -32,7 +35,7 @@ In order to publish an application to a RemoteApp application group, you need th
 
 - At least one session host is powered on in the host pool the application group is assigned to.
 
-- The applications you want to publish are installed on the session hosts in the host pool the application group is assigned to. If you're using app attach, you must add and assign an MSIX package to your host pool before you start. For more information, see [Add and manage app attach applications](app-attach-setup.md).
+- The applications you want to publish are installed on the session hosts in the host pool the application group is assigned to. If you're using app attach, you must add and assign an MSIX, Appx, or App-V package to your host pool before you start. For more information, see [Add and manage app attach applications](app-attach-setup.md).
 
 - As a minimum, the Azure account you use must have the [Desktop Virtualization Application Group Contributor](rbac.md#desktop-virtualization-application-group-contributor) built-in role-based access control (RBAC) roles on the resource group, or on the subscription to create the resources.
 
@@ -334,6 +337,8 @@ Your session hosts need to use a virtual machine (VM) size that supports [nested
 1. Once you installed Windows Sandbox on your session hosts, it's available in a desktop session. If you also want to publish it as a RemoteApp, follow the steps to [Add applications to a RemoteApp application group](#add-applications-to-a-remoteapp-application-group) and use the file path `C:\Windows\System32\WindowsSandbox.exe`.
 
 ## Next steps
+
+- Connect to your RemoteApp. For more information, select [Get started with Windows App to connect to devices and apps](/windows-app/get-started-connect-devices-desktops-apps?pivots=azure-virtual-desktop).
 
 - Learn how to [Add and manage app attach applications](app-attach-setup.md).
 

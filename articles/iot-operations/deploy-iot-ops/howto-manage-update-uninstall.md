@@ -12,8 +12,6 @@ ms.date: 10/24/2024
 
 # Manage the lifecycle of an Azure IoT Operations instance
 
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
-
 Use the Azure CLI and Azure portal to manage, uninstall, or update Azure IoT Operations instances.
 
 ## Prerequisites
@@ -131,6 +129,20 @@ az iot ops update --name <INSTANCE_NAME> --resource-group --tags ""
 
 ---
 
+### Manage components
+
+Each Azure IoT Operations instance includes several components, like the MQTT broker, connector for OPC UA, and dataflows. To learn more about managing these components, see their respective articles. For example, to manage the MQTT broker, start with [Broker overview](../manage-mqtt-broker/overview-broker.md).
+
+### (Preview) Manage components using Kubernetes deployment manifests
+
+In general, Azure IoT Operations uses the Azure Arc platform to provide a hybrid cloud experience where you can manage the configuration through Azure Resource Manager (ARM) and front-end tools like the Azure portal, Bicep, and the Azure CLI.
+
+However, you can also manage the components of Azure IoT Operations using YAML Kubernetes deployment manifests. This means you can use tools like `kubectl` to manage some components of Azure IoT Operations. This feature is in preview and has some limitations:
+
+- Only some components support using Kubernetes deployment manifests. These components are the [MQTT broker](../manage-mqtt-broker/overview-broker.md) and [dataflows](../connect-to-cloud/overview-dataflow.md). Other components like the connector for OPC UA and Akri services don't support this feature.
+- Unless Azure IoT Operations is [deployed with resource sync enabled using `az iot ops create --enable-rsync`](/cli/azure/iot/ops#az-iot-ops-create), changes made to the resources using Kubernetes deployment manifests are not synced to Azure. To learn more about resource sync, see [Resource sync](/azure/azure-arc/data/resource-sync).
+- Even if resource sync is enabled, brand new resources created using Kubernetes deployment manifests are not synced to Azure. Only changes to existing resources are synced.
+
 ## Uninstall
 
 The Azure CLI and Azure portal offer different options for uninstalling Azure IoT Operations.
@@ -171,39 +183,6 @@ To delete the instance and also remove the Azure IoT Operations dependencies (th
 
 ```azurecli
 az iot ops delete --name <INSTANCE_NAME> --resource-group <RESOURCE_GROUP> --include-deps
-```
-
----
-
-## Upgrade
-
-In public preview, Azure IoT Operations supports upgrading instances from version 0.7.x to 0.8.x. 
-
-When a generally available release is made available, you'll need to deploy a new Azure IoT Operations installation. You won't be able to upgrade from a preview installation.
-
-### [Azure portal](#tab/portal)
-
-1. In the [Azure portal](https://portal.azure.com), go to the resource group that contains your Azure IoT Operations instance, or search for and select **Azure IoT Operations**.
-
-1. Select the name of your Azure IoT Operations instance.
-
-1. On the **Overview** page of your instance, select **Upgrade**.
-
-1. The **Upgrade Azure IoT Operations** wizard prompts you to make sure you have the latest version for the Azure IoT Operations CLI extension. Copy and run the provided `az extension add` command.
-
-1. Update to the latest version of Azure IoT Operations instance. Copy and run the provided `az iot ops upgrade` command.
-
-1. Once the upgrade command completes successfully, you can exit the wizard and refresh your instance page.
-
-### [Azure CLI](#tab/cli)
-
-Use the `az iot ops upgrade` command to upgrade an Azure IoT Operations deployment. This command:
-
-* Upgrades Azure Arc extensions on your cluster.
-* Upgrades the Azure IoT Operations instance.
-
-```azurecli
-az iot ops upgrade --resource-group <RESOURCE_GROUP> --name <INSTANCE_NAME>
 ```
 
 ---

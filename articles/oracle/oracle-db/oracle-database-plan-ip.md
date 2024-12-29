@@ -25,14 +25,22 @@ Other requirements that are specific to client subnets and backup subnets are de
 
 ## Client subnet requirements
 
-The client subnet has the following IP address requirements:
+The Client Subnet has the following IP address requirements:
 
-- Each virtual machine requires 4 IP addresses. Virtual machine clusters must have a minimum of two virtual machines. Therefore, a virtual machine cluster with two virtual machines requires 8 IP addresses in the client subnet. Each virtual machine that's added to a virtual machine cluster increases the number of IP addresses required in the client subnet by 4 IP addresses.
-- Each virtual machine cluster requires 3 IP addresses for [Single Client Access Names (SCANs)](https://docs.oracle.com/en/cloud/paas/exadata-cloud/csexa/connect-db-using-net-services.html), regardless of how many virtual machines are in the virtual machine cluster.
-- In the client subnet, 17 IP addresses are reserved for networking services, regardless of how many virtual machine clusters are in the client subnet. The 17 IP addresses are the first 16 IP addresses and the last IP address.
+- 4 IP addresses are needed for each virtual machine. VM clusters have a minimum of 2 virtual machines. Therefore, a VM cluster with 2 virtual machines requires 8 IP addresses in the Client Subnet. Each additional virtual machine added to a VM cluster increases the number of IP addresses needed in the Client Subnet by 4 IPs.
 
-**Example**: The number of IP addresses required for a client subnet that has one virtual machine cluster with two virtual machines is *11 IPs (one virtual machine cluster with two virtual machines, plus three SCANs) + 17 IPs (for networking services) = 28 IPs*.
+- Each VM cluster requires 3 IP addresses for [Single Client Access Names (SCANs)](https://docs.oracle.com/en/cloud/paas/exadata-cloud/csexa/connect-db-using-net-services.html), regardless of how many virtual machines are present in the VM cluster.
 
+- 13 IP addresses are reserved for networking services in the Client Subnet, regardless of how many VM clusters are present in the Client Subnet. The 13 addresses are: the first 4 IP addresses, the 9th to 16th IP address, and the last IP address.
+
+For example, in a 10.0.0.0/24 subnet, the following 13 IPs are reserved:
+```
+- 10.0.0.0 to 10.0.0.3
+
+- 10.0.0.8 to 10.0.0.15
+
+- 10.0.0.255
+```
 ### Scenarios: CIDR size required for a client subnet
 
 The following table shows scenarios of provisioned virtual machine clusters of varying sizes. The number of instances of each scenario that can fit in a client subnet depends on the CIDR size of the subnet. This table doesn't show all possible scenarios.

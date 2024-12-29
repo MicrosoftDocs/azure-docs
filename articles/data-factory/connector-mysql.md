@@ -6,7 +6,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/09/2024
+ms.date: 10/28/2024
 ms.author: jianleishen
 ---
 
@@ -305,7 +305,7 @@ When copying data from MySQL, the following mappings are used from MySQL data ty
 | `time` |`TimeSpan` |`TimeSpan` |
 | `timestamp` |`Datetime` |`Datetime` |
 | `tinyblob` |`Byte[]` |`Byte[]` |
-| `tinyint` |`SByte` |`Int16` |
+| `tinyint` |`SByte` <br/> (`tinyint(1)` is mapped to `Boolean`) |`Int16` |
 | `tinyint unsigned` |`Int16` |`Int16` |
 | `tinytext` |`String` |`String` |
 | `varchar` |`String` |`String` |
@@ -324,6 +324,18 @@ Here are steps that help you upgrade your MySQL connector:
 1. The data type mapping for the latest MySQL linked service is different from that for the legacy version. To learn the latest data type mapping, see [Data type mapping for MySQL](connector-mysql.md#data-type-mapping-for-mysql).
 
 1. The latest driver version v2 supports more MySQL versions. For more information, see [Supported capabilities](connector-mysql.md#supported-capabilities).
+
+### Best practices for MySQL connector recommended version
+
+This section introduces best practices for MySQL connector recommended version.
+
+#### Cannot load SSL key
+
+- **Symptoms**: If you are using MySQL connector recommended version with SSL Key as a connection property, you may meet the following error message: `Could not load the client key from your_pem_file: Unrecognized PEM header: -----BEGIN PRIVATE KEY-----`
+
+- **Cause**: The recommended version cannot decrypt the PCKS#8 format.
+
+- **Recommendation**: Convert the PEM format to PCKS#1.
 
 ## Differences between the recommended and the legacy driver version
 

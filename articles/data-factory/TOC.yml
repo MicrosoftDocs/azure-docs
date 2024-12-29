@@ -1401,11 +1401,11 @@ items:
     href: monitor-data-factory-reference.md
 - name: Resources
   items:
-  - name: Important changes (deprecations) coming
+  - name: Important changes coming
     items: 
-    - name: Connector upgrade and deprecations
+    - name: Connector upgrades
       href: connector-deprecation-plan.md
-    - name: Connector deprecation FAQ
+    - name: Connector upgrade FAQ
       href: connector-deprecation-frequently-asked-questions.md
   - name: Whitepapers
     href: whitepapers.md

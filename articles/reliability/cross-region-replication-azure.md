@@ -5,7 +5,7 @@ author: anaharris-ms
 ms.service: azure
 ms.subservice: azure-availability-zones
 ms.topic: conceptual
-ms.date: 12/12/2022
+ms.date: 11/08/2024
 ms.author: anaharris
 ms.custom: references_regions, subject-reliability
 ---
@@ -22,9 +22,9 @@ Some Azure services support cross-region replication to ensure business continui
 
 ## Shared responsibility
 
-Not all Azure services automatically replicate data or automatically fall back from a failed region to cross-replicate to another enabled region. In these scenarios, you are responsible for recovery and replication. These examples are illustrations of the *shared responsibility model*. It's a fundamental pillar in your disaster recovery strategy. For more information about the shared responsibility model and to learn about business continuity and disaster recovery in Azure, see [Business continuity management in Azure](business-continuity-management-program.md).
+Not all Azure services automatically replicate data or automatically fall back from a failed region to cross-replicate to another enabled region. In these scenarios, you are responsible for recovery and replication. These examples are illustrations of the *shared responsibility model*. It's a fundamental pillar in your disaster recovery strategy. For more information, see [Shared responsibility for resiliency](./concept-shared-responsibility.md).
 
-Shared responsibility becomes the crux of your strategic decision-making when it comes to disaster recovery. Azure doesn't require you to use cross-region replication, and you can use services to build resiliency without cross-replicating to another enabled region. But we strongly recommend that you configure your essential services across regions to benefit from [isolation](../security/fundamentals/isolation-choices.md) and improve [availability](availability-zones-service-support.md). 
+Shared responsibility becomes the crux of your strategic decision-making when it comes to disaster recovery. Azure doesn't require you to use cross-region replication, and you can use services to build resiliency without cross-replicating to another enabled region. But we strongly recommend that you configure your essential services across regions to benefit from [isolation](../security/fundamentals/isolation-choices.md) and improve [availability](availability-zones-overview.md). 
 
 For applications that support multiple active regions, we recommend that you use available multiple enabled regions. This practice ensures optimal availability for applications and minimized recovery time if an event affects availability. Whenever possible, design your application for [maximum resiliency](/azure/architecture/framework/resiliency/overview) and ease of [disaster recovery](/azure/architecture/framework/resiliency/backup-and-recovery).
 
@@ -101,7 +101,7 @@ Many regions have a paired region to support cross-region replication based on p
 
 Azure continues to expand globally in regions without a regional pair and achieves high availability by leveraging [availability zones](../reliability/availability-zones-overview.md) and [locally redundant or zone-redundant storage (LRS/ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage). Regions without a pair will not have [geo-redundant storage (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage). However, [some services offer alternative options for cross-region replication](./cross-region-replication-azure-no-pair.md).
 
-Non-paired regions follow [data residency](https://azure.microsoft.com/global-infrastructure/data-residency/#overview) guidelines to allow for the option to keep data resident within the same region. Customers are responsible for data resiliency based on their Recovery Point Objective or Recovery Time Objective (RTO/RPO) needs and may move, copy, or access their data from any location globally. In the rare event that an entire Azure region is unavailable, customers will need to plan for their Cross Region Disaster Recovery per guidance from [Azure services that support high availability](../reliability/availability-zones-service-support.md#azure-services-with-availability-zone-support) and  [Azure Resiliency – Business Continuity and Disaster Recovery](https://azure.microsoft.com/mediahandler/files/resourcefiles/resilience-in-azure-whitepaper/resiliency-whitepaper-2022.pdf).
+Non-paired regions follow [data residency](https://azure.microsoft.com/global-infrastructure/data-residency/#overview) guidelines to allow for the option to keep data resident within the same region. Customers are responsible for data resiliency based on their Recovery Point Objective or Recovery Time Objective (RTO/RPO) needs and may move, copy, or access their data from any location globally. In the rare event that an entire Azure region is unavailable, customers will need to plan for their Cross Region Disaster Recovery per guidance from [Azure services that support high availability](../reliability/availability-zones-service-support.md) and  [Azure Resiliency – Business Continuity and Disaster Recovery](https://azure.microsoft.com/mediahandler/files/resourcefiles/resilience-in-azure-whitepaper/resiliency-whitepaper-2022.pdf).
 
 The table below lists Azure regions without a region pair:
 
@@ -111,7 +111,7 @@ The table below lists Azure regions without a region pair:
 | Israel | Israel Central|
 | Italy | Italy North|
 | Mexico | Mexico Central |
-| New Zealand | New Zealand North (coming soon) |
+| New Zealand | New Zealand North |
 | Poland | Poland Central |
 | Qatar | Qatar Central |
 | Spain | Spain Central|
@@ -119,7 +119,8 @@ The table below lists Azure regions without a region pair:
 ## Next steps
 
 - [Azure cross-region replication for non-paired regions](./cross-region-replication-azure-no-pair.md)
-- [Azure services and regions that support availability zones](availability-zones-service-support.md)
+- [Azure services with availability zones](availability-zones-service-support.md)
+- [Azure regions with availability zones](availability-zones-region-support.md)
 - [Disaster recovery guidance by service](disaster-recovery-guidance-overview.md)
 - [Reliability guidance](./reliability-guidance-overview.md)
 - [Business continuity management program in Azure](./business-continuity-management-program.md)

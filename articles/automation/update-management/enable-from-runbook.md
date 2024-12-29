@@ -4,7 +4,7 @@ description: This article tells how to enable Update Management from a runbook.
 services: automation
 ms.subservice: update-management
 ms.topic: how-to
-ms.date: 09/15/2024
+ms.date: 11/18/2024
 ms.custom: mvc
 ms.service: azure-automation
 ---
@@ -16,7 +16,8 @@ ms.service: azure-automation
 This article describes how you can use a runbook to enable the [Update Management](overview.md) feature for VMs in your environment. To enable Azure VMs at scale, you must enable an existing VM with Update Management.
 
 > [!NOTE]
-> When enabling Update Management, only certain regions are supported for linking a Log Analytics workspace and an Automation account. For a list of the supported mapping pairs, see [Region mapping for Automation account and Log Analytics workspace](../how-to/region-mappings.md).
+> - Azure Update Management onboarding via the portal is no longer available, as the service was retired on **August 31, 2024**. Existing virtual machines (VMs) utilizing Azure Update Management with the legacy agent will remain operational until **February 1, 2025**. We recommend that you configure [periodic assessment](../../update-manager/tutorial-assessment-deployment-using-policy.md) or [patch schedules](../../update-manager/scheduled-patching.md) using [Azure Update Manager](../../update-manager/overview.md).
+> - When enabling Update Management, only certain regions are supported for linking a Log Analytics workspace and an Automation account. For a list of the supported mapping pairs, see [Region mapping for Automation account and Log Analytics workspace](../how-to/region-mappings.md).
 
 This method uses two runbooks:
 
