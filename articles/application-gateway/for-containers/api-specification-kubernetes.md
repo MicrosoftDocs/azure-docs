@@ -5,7 +5,7 @@ description: This article provides documentation for Application Gateway for Con
 services: application-gateway
 author: greglin
 ms.service: azure-appgw-for-containers
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 9/16/2024
 ms.author: greglin
 ---

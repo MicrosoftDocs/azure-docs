@@ -4,7 +4,6 @@ description: Azure Content Delivery Network query string caching controls how fi
 services: cdn
 author: duongau
 manager: danielgi
-ms.assetid: 99db4a85-4f5f-431f-ac3a-69e05518c997
 ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 03/20/2024
