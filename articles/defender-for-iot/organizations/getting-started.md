@@ -21,7 +21,7 @@ Once you set up the trial license and OT plan, you can onboard OT sensors and as
 
 For more information, see [Free trial](billing.md#free-trial).
 
-A trial license can be extended up to 15 days before the trail expires. For more information, see [extend your trial license](license-and-trial-license-extention.md#extend-a-trial-license-in-the-admin-center).
+A trial license can be extended up to 15 days before the trail expires. For more information, see [extend your trial license](license-and-trial-license-extention.md#trial-license-extension).
 
 ## Prerequisites
 
@@ -97,13 +97,13 @@ This procedure describes how to add an OT plan for Defender for IoT in the Azure
 
 Your new plan is listed under the relevant subscription on the **Plans and pricing** > **Plans** page. For more information, see [Manage your subscriptions](how-to-manage-subscriptions.md).
 
-## Government customers trial license extension
+## Government customers trial license
 
-### Azure Commercial portal trial license extension for GCC customers
+### Azure Commercial portal trial license for GCC customers
 
 Government Community Cloud (GCC) customers using the Azure Commercial portal should contact the sales team to activate the Defender for IoT trial license.  
 
-### Azure Government portal trial license extension for GCC-H or DoD customers
+### Azure Government portal trial license for GCC-H or DoD customers
 
 Government Community Cloud High (GCC-H) and U.S. Department of Defense (DoD) customers using the Azure Government portal have the Defender for IoT trial license available as part of their plan.
 

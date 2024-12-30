@@ -11,7 +11,9 @@ Your Microsoft Defender for IoT deployment for OT monitoring is managed through 
 
 If you're looking to manage support for enterprise IoT security, see [Manage enterprise IoT monitoring support with Microsoft Defender for IoT](manage-subscriptions-enterprise.md).
 
-This article is relevant for commercial Defender for IoT customers. If you're a government customer, contact your Microsoft sales representative for more information.
+This article is relevant for commercial Defender for IoT customers.
+
+If you're a government customer, see [government customers trial license](getting-started.md#government-customers-trial-license) or contact your Microsoft sales representative for more information.
 
 ## Prerequisites
 
@@ -91,7 +93,7 @@ You might need to cancel a Defender for IoT plan from your Azure subscription, f
 
 ### Cancel your Defender for IoT licenses
 
-Canceling an OT plan in the Azure portal *doesn't* also cancel your Defender for IoT license. To change your billed licenses,  make sure that you also cancel your Defender for IoT license from the Microsoft 365 admin center.
+Canceling an OT plan in the Azure portal *doesn't* also cancel your Defender for IoT license. To change your billed licenses, make sure that you also cancel your Defender for IoT license from the Microsoft 365 admin center.
 
 For more information, see the [Microsoft 365 admin center documentation](/microsoft-365/commerce/subscriptions/manage-self-service-purchases-admins#cancel-a-purchase-or-trial-subscription).
 
