@@ -236,7 +236,7 @@ After you finish building your workflow, you can deploy your logic app to your A
 > If your changes still haven't appeared in the workflow, you can check whether the revision exists:
 >
 > 1. In the [Azure portal](https://portal.azure.com), open your resource. On the resource menu, 
->    under **Revisions**, and select **Revisions and replicas**.
+>    under **Revisions**, select **Revisions and replicas**.
 >
 > 1. On the **Revisions and replicas** page, on the **Active revisions** tab, check whether 
 >    a new revision appears on the list.
