@@ -4,10 +4,9 @@ description: Learn about Azure Private Link service.
 services: private-link
 author: abell
 ms.service: azure-private-link
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 10/15/2024
 ms.author: abell
-ms.custom: template-concept
 ---
 
 # What is Azure Private Link service?
