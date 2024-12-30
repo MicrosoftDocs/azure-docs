@@ -4,7 +4,7 @@ description: Compare Azure Firewall performance for Azure Firewall Basic, Standa
 services: firewall
 author: vhorne
 ms.service: azure-firewall
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 12/26/2024
 ms.author: victorh
 ---

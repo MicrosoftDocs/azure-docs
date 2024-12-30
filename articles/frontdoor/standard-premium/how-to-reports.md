@@ -4,7 +4,7 @@ description: This article explains how reporting works in Azure Front Door.
 services: frontdoor
 author: duongau
 ms.service: azure-frontdoor
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/31/2024
 ms.author: duau
 ---
