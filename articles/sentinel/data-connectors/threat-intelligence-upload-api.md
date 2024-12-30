@@ -1,15 +1,15 @@
 ---
-title: "Threat Intelligence Upload Indicators API (Preview) connector for Microsoft Sentinel"
-description: "Learn how to install the connector Threat Intelligence Upload Indicators API (Preview) to connect your data source to Microsoft Sentinel."
+title: "Threat Intelligence Upload API (Preview) connector for Microsoft Sentinel"
+description: "Learn how to install the connector Threat Intelligence Upload API (Preview) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 10/15/2024
+ms.date: 12/24/2024
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ms.collection: sentinel-data-connector
 ---
 
-# Threat Intelligence Upload Indicators API (Preview) connector for Microsoft Sentinel
+# Threat Intelligence Upload API (Preview) connector for Microsoft Sentinel
 
 Microsoft Sentinel offers a data plane API to bring in threat intelligence from your Threat Intelligence Platform (TIP), such as Threat Connect, Palo Alto Networks MineMeld, MISP, or other integrated applications. Threat indicators can include IP addresses, domains, URLs, file hashes and email addresses. For more information, see the [Microsoft Sentinel documentation](https://go.microsoft.com/fwlink/p/?linkid=2269830&wt.mc_id=sentinel_dataconnectordocs_content_cnl_csasci).
 
@@ -52,15 +52,15 @@ Follow These Steps to Connect to your Threat Intelligence:
 [concat('To send request to the APIs, you need to acquire Azure Active Directory access token. You can follow instruction in this page: /azure/databricks/dev-tools/api/latest/aad/app-aad-token#get-an-azure-ad-access-token 
   - Notice: Please request AAD access token with scope value: ', variables('management'), '.default')]
 
-2. Send indicators to Sentinel
+2. Send STIX objects to Sentinel
 
-You can send indicators by calling our Upload Indicators API. For more information about the API, click [here](/azure/sentinel/upload-indicators-api). 
+You can send the supported STIX object types by calling our Upload API. For more information about the API, click [here](/azure/sentinel/upload-indicators-api). 
 
 >HTTP method: POST 
 
->Endpoint: `https://api.ti.sentinel.azure.com/workspaces/[WorkspaceID]/threatintelligenceindicators:upload?api-version=2022-07-01`
+>Endpoint: https://api.ti.sentinel.azure.com/workspaces/[WorkspaceID]/threatintelligence-stix-objects:upload?api-version=2024-02-01  
 
->WorkspaceID: the workspace that the indicators are uploaded to.  
+>WorkspaceID: the workspace that the STIX objects are uploaded to.  
 
 
 >Header Value 1: "Authorization" = "Bearer [Microsoft Entra ID Access Token from step 1]" 
@@ -68,7 +68,7 @@ You can send indicators by calling our Upload Indicators API. For more informati
 
 > Header Value 2: "Content-Type" = "application/json"  
  
->Body: The body is a JSON object containing an array of indicators in STIX format.
+>Body: The body is a JSON object containing an array of STIX objects.
 
 
 
