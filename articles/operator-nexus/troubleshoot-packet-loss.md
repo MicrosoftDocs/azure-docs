@@ -42,14 +42,14 @@ Connecting to host <server-ip>, port 5201
 iperf Done.
 ```
 
-## Troubleshooting Steps
+## Troubleshooting steps
 The following troubleshooting steps can be used for diagnosing the cluster.
 
-### Gather Information
+### Gather information
 To assist with the troubleshooting process, please gather and provide the following cluster information:
 
 * Subscription ID: the unique identifier of your Azure subscription.
-* Tenant ID: the unique identifier of your Azure Active Directory (AAD) tenant.
+* Tenant ID: the unique identifier of your Microsoft Entra tenant.
 * Undercloud Name: the name of the undercloud resource associated with your deployment.
 * Undercloud Resource Group: the resource group containing the undercloud resource.
 * NAKS Cluster Name: the name of the NAKS cluster experiencing issues.
@@ -57,10 +57,10 @@ To assist with the troubleshooting process, please gather and provide the follow
 * Inter-Switch Devices (ISD) connected to NAKS: the details of the Inter-Switch Devices (ISDs) that are connected to the NAKS cluster.
 * Source and Destination IPs: the source and destination IP addresses where packet drops are being observed.
 
-### Verify Provisioning Status of the Network Fabric
-Verify on Azure Portal that the NF status is in the provisioned state; the Provisioning State should be 'Succeeded' and Configuration State 'Provisioned'.
+### Verify provisioning status of the Network Fabric
+Verify on Azure portal that the NF status is in the provisioned state; the Provisioning State should be 'Succeeded' and Configuration State 'Provisioned'.
 
-### View iperf-client Pod Events
+### View iperf-client pod events
 Use kubectl to inspect events from the iperf-client pod for more detailed information. This can help identify the root cause of the issue with the iperf-client pod.
 ```console
 kubectl get events --namespace default | grep iperf-client
@@ -71,13 +71,13 @@ NAMESPACE LAST SEEN TYPE REASON OBJECT MESSAGE
 default 5m39s Warning BackOff pod/iperf-client-8f7974984-xr67p Back-off restarting failed container iperf-client in pod iperf-client-8f7974984-xr67p_default(masked-id)
 ```
 
-### Validate L3 ISD Configuration
+### Validate L3 ISD configuration
 Confirm that the L3 ISD (Layer 3 Isolation Domain) configuration on the devices is correct. 
 
-## Potential Solutions
+## Potential solutions
 If the iperf-client pod is constantly being restarted and other resource statuses appear to be healthy, the following remedies can be attempted:
 
-### Adjust Network Buffer Settings
+### Adjust network buffer settings
 Modify the network buffer settings to improve performance by adjusting the following parameters:
 * net.core.rmem_max: Increase the maximum receive buffer size.
 * net.core.wmem_max: Increase the maximum send buffer size.
@@ -87,7 +87,7 @@ sysctl -w net.core.rmem_max=67108864
 sysctl -w net.core.wmem_max=67108864
 ```
 
-### Optimize iperf Tool Usage
+### Optimize iperf tool usage
 Use iperf tool options to optimize buffer usage and run parallel streams:
 * -P: Number of parallel client streams.
 * -w: TCP window size.
