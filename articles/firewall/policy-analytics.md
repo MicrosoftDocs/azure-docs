@@ -4,7 +4,7 @@ description: Learn about Azure Firewall Policy Analytics
 services: firewall
 author: vhorne
 ms.service: azure-firewall
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/09/2023
 ms.author: victorh
 ---

@@ -4,7 +4,7 @@ description: This article introduces the Azure Application Standard_v2 and WAF_v
 services: application-gateway
 author: greg-lindsay
 ms.service: azure-application-gateway
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 11/02/2023
 ms.author: greglin
 ms.custom: fasttrack-edit, references_regions

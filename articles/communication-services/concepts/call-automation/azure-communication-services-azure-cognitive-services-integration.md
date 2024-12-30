@@ -40,6 +40,7 @@ You'll need to connect your Azure Communication Services resource with the Azure
 ## Prerequisites 
 - Azure account with an active subscription and access to Azure portal, for details see [Create an account for free](https://azure.microsoft.com/free/).
 - Azure Communication Services resource. See [Create an Azure Communication Services resource](../../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp). 
+- Azure Communication Service  `Microsoft.Authorization/roleAssignments/write` permissions, commonly done through Azure RBAC. See [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 - An [Azure AI Services resource](/azure/ai-services/multi-service-resource) .
 
 ### Connecting through the Azure portal
