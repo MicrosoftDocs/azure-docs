@@ -107,11 +107,11 @@ If you need more time to evaluate the product and security value of Defender for
 
 To extend the trial, either:
 
-1. use the [Microsoft 365 Admin Center](https://admin.microsoft.com/Adminportal/Home?#/homepage) portal and follow the [extend your trial instructions](/microsoft-365/commerce/try-or-buy-microsoft-365#extend-your-trial).
+1. Use the [Microsoft 365 Admin Center](https://admin.microsoft.com/Adminportal/Home?#/homepage) portal and follow the [extend your trial instructions](/microsoft-365/commerce/try-or-buy-microsoft-365#extend-your-trial).
 
     The trial extension request must be made by a user with Global or Billing Admin permissions on the customer tenant. For more information, see admin roles in [Microsoft 365 Admin Center](https://admin.microsoft.com/Adminportal/Home?#/homepage).
 
-1. contact your sale's team representative who can help you extend your license.
+1. Contact your sale's team representative who can help you extend your license.
 
 >[!NOTE]
 >

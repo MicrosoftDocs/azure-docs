@@ -14,8 +14,8 @@ A trial supports a **Large** site size with up to 1,000 devices. You might want 
 
 There are two stages to starting a trial for Defender for IoT.
 
-Stage 1: [Add a trial license](#add-a-trial-license).
-Stage 2: [Add an OT plan](#add-an-ot-plan).
+1. Stage 1: [Add a trial license](#add-a-trial-license).
+1. Stage 2: [Add an OT plan](#add-an-ot-plan).
 
 Once you set up the trial license and OT plan, you can onboard OT sensors and associate them with this license and plan.
 
