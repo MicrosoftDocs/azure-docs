@@ -187,8 +187,7 @@ Select **Add VLAN** to add more VLANs as needed.
 
 ### Public addresses
 
-Add public addresses that might have been used for internal use and shouldn't be included as suspicious IP addresses or tracking the data<!-- Theo is this correct? OR-->.
-Excluded public IP addresses that might have been used for internal use and shouldn't be included as suspicious IP addresses or tracking the data.
+Add public addresses that might have been used for internal use and shouldn't be included as suspicious IP addresses or tracking the data.
 
 1. In the **Settings** tab, type the **IP address** and **Mask** address.
 
@@ -201,7 +200,7 @@ Excluded public IP addresses that might have been used for internal use and shou
 
 ### DHCP ranges
 
-Add the range of IP addresses to configure the DHCP settings to cover a device that might have multiple IP addresses associated with it.
+Add the range of IP addresses to configure the DHCP settings that can apply to a device that might have multiple IP addresses associated with it.
 
 1. In the **Settings** tab, type the **From** and **To** IP addresses, and optionally enter a **Name**.
 
