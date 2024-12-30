@@ -4,7 +4,7 @@ description: Learn about Azure ExpressRoute FastPath to send network traffic by 
 services: expressroute
 author: duongau
 ms.service: azure-expressroute
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 11/7/2024
 ms.author: duau
 ms.custom: template-concept, references_regions, engagement-fy23

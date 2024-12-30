@@ -4,7 +4,7 @@ description: This article provides a detailed overview of peering locations serv
 services: expressroute
 author: duongau
 ms.service: azure-expressroute
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 12/18/2024
 ms.author: duau
 ms.custom: references_regions, template-concept, engagement-fy23
