@@ -15,16 +15,18 @@ zone_pivot_groups: ade-extensibility-iac-framework
 
 # Configure container image to execute deployments
 
+Azure Deployment Environments (ADE) supports an extensibility model that enables you to Configure your environment definition with your preferred IaC template framework. You can store custom images in a container registry like Azure Container Registry (ACR) or Docker Hub and then reference them in your environment definitions to deploy environments.
+
 ::: zone pivot="arm-bicep"
-In this article, you learn how to build custom Bicep container images to deploy your environment definitions in Azure Deployment Environments (ADE).
+In this article, you learn how to build custom Bicep container images to deploy your environment definitions in ADE. You learn how to use a sample image provided by Microsoft or how to configure a custom image provision infrastructure using the Bicep Infrastructure-as-Code (IaC) framework.
 ::: zone-end
 
 ::: zone pivot="terraform"
-In this article, you learn how to build custom Terraform container images to deploy your environment definitions in Azure Deployment Environments (ADE). You learn how to configure a custom image to provision infrastructure using the Terraform Infrastructure-as-Code (IaC) framework.
+In this article, you learn how to build custom Terraform container images to create deployment environments with Azure Deployment Environments (ADE). You learn how to configure a custom image to provision infrastructure using the Terraform Infrastructure-as-Code (IaC) framework.
 ::: zone-end
 
 ::: zone pivot="pulumi"
-In this article, you learn how to utilize [Pulumi](https://pulumi.com) for deployments in Azure Deployment Environments (ADE). You learn how to use a sample image provided by Pulumi or how to configure a custom image to provision infrastructure using the Pulumi Infrastructure-as-Code (IaC) framework.
+In this article, you learn how to utilize [Pulumi](https://pulumi.com) for deployments in ADE. You learn how to use a sample image provided by Pulumi or how to configure a custom image to provision infrastructure using the Pulumi Infrastructure-as-Code (IaC) framework.
 ::: zone-end
 
 ## Prerequisites
@@ -35,6 +37,7 @@ In this article, you learn how to utilize [Pulumi](https://pulumi.com) for deplo
 
 ## Use container images with ADE
 
+::: zone pivot="arm-bicep"
 You can take one of the following approaches to use container images with ADE:
 - **Use a sample container image** For simple scenarios, use the sample ARM-Bicep container image provided by ADE.
 - **Create a custom container image** For more complex scenarios, create a custom container image that meets your specific requirements.
@@ -55,7 +58,6 @@ The first step in the process is to choose the type of image you want to use. Se
 
 ### [Use a sample container image](#tab/sample/)
 
-::: zone pivot="arm-bicep"
 ### Use a sample container image
 
 ADE supports ARM and Bicep without requiring any extra configuration. You can create an environment definition that deploys Azure resources for a deployment environment by adding the template files (like *azuredeploy.json* and *environment.yaml*) to your catalog. ADE then uses the sample ARM-Bicep container image to create the deployment environment.
@@ -77,7 +79,25 @@ For more information about how to create environment definitions that use the AD
 ::: zone-end
 
 ::: zone pivot="terraform"
-Use a custom image to configure a Terraform image.
+You can take one of the following approaches to use container images with ADE:
+- Create a container image leveraging a GitHub workflow: To start with, you can use the published GitHub workflow from the Leveraging ADE's Extensibility Model With Terraform repository.
+- Create a custom container image: You can create a workflow that creates a Terraform specific image customized with all the software, settings, and configuration that you need.
+
+1. Create a workflow that creates an image.
+   - Microsoft provides sample code in the Leveraging ADE's Extensibility Model With Terraform repository.
+1.	Customize the workflow.
+1.	Build the image.
+1.	Upload the image to a container registry
+    - Choose a private registry like Azure Container Registry (ACR) or a public registry.
+1. Configure access to the registry.
+   - For a private registry, give the Dev Center ACR permission.
+   - For a public registry, configure anonymous pull.
+1. Add the image location to the runner parameter in your metadata file.
+
+### Create a container image leveraging a GitHub workflow
+Use the [published repository](https://github.com/Azure/ade-extensibility-model-terraform/blob/main/README.md#azure-deployment-environments---leveraging-ades-extensibility-model-with-terraform) to take advantage of the GitHub workflow. The repository contains ADE-compatible sample image components, including a Dockerfile and shell scripts for deploying and deleting environments using Terraform IaC templates. This sample code helps you create your own container image. 
+The published GitHub Action helps to build and push an image to an Azure Container Registry (ACR). You can reference a provided ACR image link within an environment definition in ADE to deploy or delete an environment with the provided image.
+
 ::: zone-end
 
 ::: zone pivot="pulumi"

@@ -11,59 +11,69 @@ ms.date: 10/17/2024
 
 ---
 
-# ADE extensibility model
+# What is the ADE Extensibility Model?
 
-The Azure Deployment Environments (ADE) extensibility model allows you to create custom images for your environment definitions, which can run actions like deploying resources to Azure, running tests, or executing scripts. The extensibility model supports popular infrastructucture-as-code (IaC) frameworks like Azure Resource Manager (ARM) templates, Bicep, Terraform, and Pulumi.
+Azure Deployment Environments (ADE) enables you to provide a curated set of infrastructure-as-code (IaC) templates that your development teams use to perform deployments. ADE offers power and flexibility for organizations through an extensibility model which enables platform engineers to define pre-approved templates using their preferred IaC framework.
+The following diagram shows the full workflow for ADE. The catalog stores IaC templates, which reference container images for use in deployments. Platform engineers curate these images and templates, and configure environment settings based on the stage of development, enabling developers to create highly specific deployment environments. Developers can create ad hoc environments for dev/test purposes or shared environments as part of their CI/CD pipeline, or as part of an automated pipeline.
 
-Microsoft provides a selection of sample images to get you started, including a core image and an ARM-Bicep image. 
+:::image type="content" source="media/concept-extensibility-model/deployment-environments-overview.svg" alt-text="tezr":::
 
-Azure Deployment Environments (ADE) supports three approaches for creating environments:
+The extensibility model enables platform engineers to define the app infrastructure using their preferred IaC framework including ARM, Bicep, Terraform, and Pulumi. Platform engineers create and customize container images for different scenarios. They push these images to a container registry and reference them in the environment definition’s metadata file. This ensures that whenever a deployment is made, the deployment execution happens based on how the container image is configured. The following diagram shows the relationship between the custom images stored in a container registry, and the environment definition within the catalog. 
 
-- **Native Support with ARM/Bicep:** 
-    - Use the sample ARM/Bicep image supplied by Microsoft.
-    - Specify ARM or Bicep as the runner in the manifest file (*environment.yaml*). 
-    - Define the resources to deploy in the template file (*azuredeploy.json*, *main.bicep*).
+:::image type="content" source="media/concept-extensibility-model/extensibility-model-detail.svg" alt-text="tetet":::
 
-- **Extensibility with Third-Party Images:** 
-    - This approach offers the flexibility to use trusted third-party tools.
-    - Use a third-party sample image, like those from Terraform or Pulumi. 
-    - Upload a copy of the image to your preferred registry and specify its location as the runner in your manifest file (*environment.yaml*). 
-    - Define the resources to deploy in the template file (*main.tf*) or project file (*Pulumi.yaml*).
+## Get started with custom images
 
-- **Extensibility with Custom Images:** 
-    - Customize any sample image to meet your specific requirements. 
-    - After customization, upload it to your registry and set its location as the runner in your manifest file (*environment.yaml*). 
-    - This option provides full control over your environment setup.
+You can choose from multiple options for creating and building custom images, depending on the IaC framework you require and the complexity of your needs.
 
-An [environment definition](configure-environment-definition.md) comprises at least two files, a template file and a manifest file. The manifest file specifies the custom image to use in the environment definition. The template file contains the code that defines the resources to deploy. The specfic files depend on the framework you use: ARM, Bicep, Terraform, or Pulumi. The following table lists commonly used files for each framework:
+### ARM-Bicep
+**1. Use a standard image**
+For first party frameworks - ARM and Bicep - ADE provides standard images that customers can take advantage of and can just use identifiers ARM or Bicep to configure the respective IaC template as an environment definition. For ARM or Bicep deployments, you can use the standard image by referencing it in the environment.yaml file and defining resources in the template file (*azuredeploy.json*, *main.bicep*).
 
-|IaC framework   |File  |Description  |
-|----------------|---------|---------|
-|ARM / Bicep     |*azuredeploy.json*, or *main.bicep* </br> *environment.yaml* |Template files </br> Manifest file  |
-|Terraform       |*main.tf* </br> *environment.yaml* |Template file </br> Manifest file  |
-|Pulumi          |*Pulumi.yaml* </br> *environment.yaml* |Pulumi project file </br> Manifest file  |
+For instructions, see: aka.ms/arm-bicep-standard.
 
-Environment definitions might also contain a user program written in your preferred programming language like C#, TypeScript, or Python, etc.
+**1. Create a custom image using a script**
+To make the process of building a custom image and pushing it to a container registry easier, Microsoft provides a script that builds and pushes the image to a registry that you specify. 
 
+For instructions, see: aka.ms/arm-bicep-custom-script.
 
-Microsoft provides a selection of images to get you started, including a core image, and an Azure Resource Manager (ARM)-Bicep image. You can access these sample images in the [Runner-Images](https://aka.ms/deployment-environments/runner-images) folder.
+**1. Create a custom image manually**
+For more complex scenarios, start with the standard image and customize it by installing software packages and adjusting settings. Build the image and upload it to a container registry where ADE can access it. Specify the image's location in the environment.yaml file.
 
-To use the extensibility model, create your own custom images and store them in a container registry like Azure Container Registry (ACR) or Docker Hub. You can then reference these images in your environment definitions to deploy your environments. 
+For instructions, see: aka.ms/arm-bicep-custom.
 
-## How to use the ADE extensibility model
+### Terraform
+**1. Leverage a GitHub workflow to create Terraform specific container image**
+You can leverage the published GitHub workflow to help create a container image that is Terraform specific. You can upload the new image to a container registry and use it by referencing it in the environment.yaml file and defining resources in the template file (*main.tf*).
 
-Sample image
+For instructions, see: aka.ms/terraform-workflow-standard.
 
-<add diagram>
+**1. Create a Terraform specific container image with a script**
+You can use a GitHub workflow to create a custom Terraform image that includes the software, settings, and other customizations you need for your Terraform specific image. You can then upload the new image to a container registry and use it by referencing it in the environment.yaml file.
 
-Use just the sample image, specify image in manifest file (runner parameter)
+For instructions, see: aka.ms/terraform-workflow-custom.
 
-Custom image
+**1. Create a Terraform specific container image manually**
+You can use a GitHub workflow to create a custom Terraform image that includes the software, settings, and other customizations you need for your Terraform specific image. You can then upload the new image to a container registry and use it by referencing it in the environment.yaml file.
 
-<add diagram>
+For instructions, see: aka.ms/terraform-workflow-custom.
 
-Base a new image on the sample image, customize, build, upload to registry, config anonymous pull or ACRPull, specify image in manifest file (runner parameter)
+### Pulumi
+**1. Use a standard image**
+The Pulumi team provides a prebuilt image to get you started, which you can use directly from your ADE environment definitions. For Pulumi images, you can use the standard image by referencing it in the environment.yaml file and defining the resources to deploy in the project file (*pulumi.yaml*).
 
-## Related content
+For instructions, see: aka.ms/pulumi-standard.
 
-[Configure container image to execute deployments](how-to-configure-extensibility-model-custom-image.md)
+**1. Create a custom image using a script**
+To make the process of building a custom image and pushing it to a container registry easier, Pulumi provides a script that builds and pushes the image to a registry that you specify. 
+
+For instructions, see: aka.ms/pulumi-custom-script.
+
+**1. Create a custom image manually**
+For more complex scenarios, start with the standard image and customize it by installing software packages and adjusting settings. Build the image and upload it to a container registry where ADE can access it. Specify the image's location in the environment.yaml file.
+
+For instructions, see: aka.ms/pulumi-custom.
+
+## Related content 
+
+ 
