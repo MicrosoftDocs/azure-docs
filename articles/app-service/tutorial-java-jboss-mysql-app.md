@@ -727,7 +727,7 @@ A few considerations:
 
 #### How do I get a valid access token for the MySQL connection using Microsoft Entra authentication?
 
-For a Microsoft Entra user, a system-assigned managed identity, or a user-asssigned managed identity that's authorized to access the MySQL database, Azure CLI can help you generate an access token. In case of a managed identity, the identity must be configured on the App Service app or VM where you run Azure CLI. 
+For a Microsoft Entra user, a system-assigned managed identity, or a user-assigned managed identity that's authorized to access the MySQL database, Azure CLI can help you generate an access token. In case of a managed identity, the identity must be configured on the App Service app or VM where you run Azure CLI. 
 
 ```azurecli-interactive
 # Sign in as a Microsoft Entra user
