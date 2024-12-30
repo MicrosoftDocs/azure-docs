@@ -4,7 +4,7 @@ description: This article is a checklist for deleting components within Azure Vi
 author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/15/2024
 ---
 
