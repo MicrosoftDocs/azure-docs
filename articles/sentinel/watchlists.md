@@ -74,9 +74,9 @@ Query data in any table against data from a watchlist by treating the watchlist 
 The following example query joins the `RemoteIPCountry` column in the `Heartbeat` table with the search key defined for the watchlist named `mywatchlist`.
 
   ```kusto
-     Heartbeat
-    | lookup kind=leftouter _GetWatchlist('mywatchlist') 
-     on $left.RemoteIPCountry == $right.SearchKey
+  Heartbeat
+  | lookup kind=leftouter _GetWatchlist('mywatchlist') 
+    on $left.RemoteIPCountry == $right.SearchKey
   ```
 
 Let's look some other example queries. 
@@ -114,6 +114,15 @@ The following example query uses the watchlist inline with the query and the sea
   ```
 
 For more information, see [Build queries and detection rules with watchlists in Microsoft Sentinel](watchlists-queries.md).
+
+See more information on the following items used in the preceding examples, in the Kusto documentation:
+- [***where*** operator](/kusto/query/where-operator?view=microsoft-sentinel&preserve-view=true)
+- [***project*** operator](/kusto/query/project-operator?view=microsoft-sentinel&preserve-view=true)
+- [***lookup*** operator](/kusto/query/lookup-operator?view=microsoft-sentinel&preserve-view=true)
+- [***in*** operator](/kusto/query/in-cs-operator?view=microsoft-sentinel&preserve-view=true)
+- [***let*** statement](/kusto/query/let-statement?view=microsoft-sentinel&preserve-view=true)
+
+[!INCLUDE [kusto-reference-general-no-alert](includes/kusto-reference-general-no-alert.md)]
 
 ## Next steps
 
