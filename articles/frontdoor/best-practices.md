@@ -4,7 +4,7 @@ description: This page provides information about how to configure Azure Front D
 services: frontdoor
 author: johndowns
 ms.service: azure-frontdoor
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/11/2024
 ms.author: jodowns
 ---
