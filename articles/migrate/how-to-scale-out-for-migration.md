@@ -39,7 +39,7 @@ Before you get started, you need to perform the following steps:
 > [!IMPORTANT]
 > You'll need to have at least one replicating virtual machine in the project before you can add a scale-out appliance for migration.
 
-To learn how to perform the above, review the tutorial on [migrating VMware virtual machines to Azure with the agentless migration method](./tutorial-migrate-vmware.md).
+To learn how to perform the above, review the tutorial on [migrating VMware virtual machines to Azure with the agentless migration method](tutorial-migrate-vmware.md).
 
 ## Deploy a scale-out appliance
 
@@ -202,4 +202,4 @@ In this article, you learned:
 - How to replicate VMs using a scale-out appliance
 
 
-[Learn more](./tutorial-migrate-vmware.md) about migrating servers to Azure using the Migration and modernization tool.
+[Learn more](tutorial-migrate-vmware.md) about migrating servers to Azure using the Migration and modernization tool.

@@ -4,7 +4,7 @@ description: This article describes how to migrate GCP VMs to Azure with Azure M
 author: vijain
 ms.author: vijain
 ms.topic: tutorial
-ms.date: 09/18/2024
+ms.date: 12/30/2024
 ms.service: azure-migrate
 ms.custom: MVC, engagement-fy24
 ---
@@ -125,9 +125,6 @@ The first step of migration is to set up the replication appliance. To set up th
 ### Download the replication appliance installer
 
 1. In the Azure Migrate project, select **Servers, databases, and web apps** > **Migration and modernization** > **Discover**.
-
-    ![Screenshot that shows the Discover button.](./media/tutorial-migrate-physical-virtual-machines/migrate-discover.png)
-
 1. In **Discover machines** > **Are your machines virtualized?**, select **Not virtualized/Other**.
 1. In **Target region**, select the Azure region to which you want to migrate the machines.
 1. Select **Confirm that the target region for migration is \<region-name\>**.
@@ -196,9 +193,6 @@ A Mobility service agent must be preinstalled on the source GCP VMs to be migrat
 > Through the portal, you can add up to 10 VMs for replication at once. To replicate more VMs simultaneously, you can add them in batches of 10.
 
 1. In the Azure Migrate project, select **Servers, databases, and web apps** > **Migration and modernization** > **Replicate**.
-
-    ![Screenshot that shows selecting Replicate.](./media/tutorial-migrate-physical-virtual-machines/select-replicate.png)
-
 1. In **Replicate**, > **Source settings** > **Are your machines virtualized?**, select **Not virtualized/Other**.
 1. In **On-premises appliance**, select the name of the Azure Migrate appliance that you set up.
 1. In **Process Server**, select the name of the replication appliance.
@@ -215,8 +209,8 @@ A Mobility service agent must be preinstalled on the source GCP VMs to be migrat
 1. In **Cache storage account**, keep the default option to use the cache storage account that was automatically created for the project. Use the dropdown list if you want to specify a different storage account to use as the cache storage account for replication. <br/>
     > [!NOTE]
     >
-    > - If you selected private endpoint as the connectivity method for the Azure Migrate project, grant the Recovery Services vault access to the cache storage account. [Learn more](migrate-servers-to-azure-using-private-link.md#grant-access-permissions-to-the-recovery-services-vault).
-    > - To replicate using ExpressRoute with private peering, create a private endpoint for the cache storage account. [Learn more](migrate-servers-to-azure-using-private-link.md#create-a-private-endpoint-for-the-storage-account-1).
+    > - If you selected private endpoint as the connectivity method for the Azure Migrate project, grant the Recovery Services vault access to the cache storage account. [Learn more](migrate-hyper-v-servers-to-azure-using-private-link.md#grant-access-permissions-to-the-recovery-services-vault).
+    > - To replicate using ExpressRoute with private peering, create a private endpoint for the cache storage account. [Learn more](migrate-hyper-v-servers-to-azure-using-private-link.md#create-a-private-endpoint-for-the-storage-account).
 1. In **Availability options**, select:
     -  **Availability Zone**: Pins the migrated machine to a specific availability zone in the region. Use this option to distribute servers that form a multinode application tier across availability zones. If you select this option, you need to specify the availability zone to use for each of the selected machines on the **Compute** tab. This option is only available if the target region selected for the migration supports availability zones.
     -  **Availability Set**: Place the migrated machine in an availability set. The target resource group that was selected must have one or more availability sets in order to use this option.
@@ -283,8 +277,6 @@ To do a test migration:
 
 1. In **Migration goals**, select **Servers, databases, and web apps** > **Migration and modernization** > **Test migrated servers**.
 
-     ![Screenshot that shows Test migrated servers.](./media/tutorial-migrate-physical-virtual-machines/test-migrated-servers.png)
-
 1. Right-click the VM to test and select **Test migrate**.
 
     :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/test-migrate-inline.png" alt-text="Screenshot that shows the result after selecting test migration." lightbox="./media/tutorial-migrate-physical-virtual-machines/test-migrate-expanded.png":::
@@ -306,9 +298,6 @@ To do a test migration:
 After you verify that the test migration works as expected, you can migrate the GCP VMs.
 
 1. In the Azure Migrate project, select **Servers, databases, and web apps** > **Migration and modernization** > **Replicating servers**.
-
-    ![Screenshot that shows Replicating servers.](./media/tutorial-migrate-physical-virtual-machines/replicate-servers.png)
-
 1. In **Replicating machines**, right-click the VM and select **Migrate**.
 1. In **Migrate** > **Shut down virtual machines and perform a planned migration with no data loss**, select **Yes** > **OK**.
     

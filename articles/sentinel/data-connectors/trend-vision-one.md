@@ -76,7 +76,7 @@ To integrate with Trend Vision One (using Azure Functions) make sure you have:
 
 Azure Resource Manager (ARM) Template Deployment
 
-This method provides an automated deployment of the Trend Vision One connector using an ARM Tempate.
+This method provides an automated deployment of the Trend Vision One connector using an ARM Template.
 
 1. Click the **Deploy to Azure** button below. 
 
