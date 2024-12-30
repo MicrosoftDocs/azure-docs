@@ -1,8 +1,8 @@
 ---
 title: Modernize ASP.NET web apps to Azure Kubernetes Service
 description: At-scale migration of ASP.NET web apps to Azure Kubernetes Service using Azure Migrate
-author: anraghun
-ms.author: anraghun
+author: SnehaSudhirG
+ms.author: sudhirsneha
 ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 09/18/2024
