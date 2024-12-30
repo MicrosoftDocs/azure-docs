@@ -4,7 +4,6 @@ description: Real-time alerts in Microsoft Azure CDN. Real-time alerts provide n
 services: cdn
 author: zhangmanling
 manager: erikre
-ms.assetid: 1e85b809-e1a9-4473-b835-69d1b4ed3393
 ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 03/20/2024

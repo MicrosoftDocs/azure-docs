@@ -4,7 +4,7 @@ titleSuffix: VPN Gateway
 description: Learn about roles and permissions for VPN 
 author: aybatra
 ms.service: azure-vpn-gateway
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 12/4/2024
 ms.author: cherylmc
 
