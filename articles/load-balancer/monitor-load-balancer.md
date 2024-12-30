@@ -3,7 +3,7 @@ title: Monitor Azure Load Balancer
 description: Start here to learn how to monitor Azure Load Balancer by using Azure Monitor and Azure Monitor Insights.
 ms.date: 08/21/2024
 ms.custom: horz-monitor, template-how-to, subject-monitoring, engagement-fy23, devx-track-azurecli, devx-track-azurepowershell
-ms.topic: conceptual
+ms.topic: concept-article
 author: mbender-ms
 ms.author: mbender
 ms.service: azure-load-balancer
