@@ -30,7 +30,7 @@ Microsoft is partnered with Arrow Electronics to provide preconfigured hardware 
 
 For more information, see [OT preconfigured appliances help guide](ot-pre-configured-appliances.md) or the [OT monitoring appliance catalog](appliance-catalog/index.yml).
 
-### Cancelling or renewing a license
+### License cancellation or renewal
 
 Customers can cancel a paid license within seven days of the start of the license and receive a prorated refund. After seven days, turn off the [recurring billing](/microsoft-365/commerce/subscriptions/renew-your-subscription) setting to prevent automatic renewal.​  
 
@@ -40,29 +40,19 @@ A license can also be deactivated, for more information, see [cancel your subscr
 
 Tenants without an active site license have a 30-day grace period from the last expired license to renew the expired licenses. Afterward the 30 days the Defender for IoT service stops, and data retention stops after 90 days.​
 
-### Migrate an Azure Consumption Revenue (ACR) license to the new Microsoft 365 license
+### Migration of an Azure Consumption Revenue (ACR) license to the new Microsoft 365 license
 
-To migrate the legacy Azure Consumption Revenue (ACR) license to the new Microsoft 365 license, see [migrate from a legacy OT plan](how-to-manage-subscriptions.md#migrate-from-a-legacy-ot-plan).
+The legacy ACR license can be migrated to the new Microsoft 365 license. For more information, see [migrate from a legacy OT plan](how-to-manage-subscriptions.md#migrate-from-a-legacy-ot-plan).
 
-## The trial license
+## Trial license extension
 
-A trial license covers a site with up to 1,000 devices for a minimum of 30 days.
+A trial license covers a site with up to 1,000 devices for a minimum of 30 days. To start a trial license, see [start a Microsoft Defender for IoT trial](getting-started.md).
 
 During the period of the trial license Defender for IoT gives full security value to all of the devices connected to the site, even if there are more than 1000 devices.
 
+To extend your trial license, see [extend a trial license in the Admin center](how-to-manage-subscriptions.md#extend-a-trial-license-in-the-admin-center).
+
 To purchase a full Defender for IoT license at the end of the trial period, see [purchase a Defender for IoT license](how-to-manage-subscriptions.md#purchase-a-defender-for-iot-license).
-
-## Extend a trial license in the Admin Center
-
-If you need more time to evaluate the product and security value of Defender for IoT the trial license can be extended up until 15 days before the end of the trial. Within the last 15 days the trial can’t be extended.
-
-To extend the trial, either:
-
-1. use the [Microsoft 365 Admin Center](https://admin.microsoft.com/Adminportal/Home?#/homepage) portal and follow the [extend your trial instructions](/microsoft-365/commerce/try-or-buy-microsoft-365#extend-your-trial).
-
-    The trial extension request must be made by a user with Global or Billing Admin permissions on the customer tenant. For more information, see admin roles in [Microsoft 365 Admin Center](https://admin.microsoft.com/Adminportal/Home?#/homepage).
-
-1. contact your sale's team representative who can help you extend your license.
 
 >[!NOTE]
 >
@@ -71,9 +61,11 @@ To extend the trial, either:
 
 ### Government license customers
 
-GCC customers using the Azure Commercial portal should contact the sales team to activate the Defender for IoT trial license.  
+For Government Community Cloud (GCC), Government Community Cloud High (GCC-H) and U.S. Department of Defense (DoD) customers who want to activate the trial, see [government customers trial license extension](getting-started.md#government-customers-trial-license-extension).
+<!-- OR -->
+Government Community Cloud (GCC) customers using the Azure Commercial portal should contact the sales team to activate the Defender for IoT trial license.  
 
-GCC-H and DoD customers using the Azure Government portal have the Defender for IoT trial license available as part of their plan. To activate the trial, in the Defender for IoT menu, select **Management > Plans and pricing**. Select **Add plan** and choose **Trial – 30 days**.
+Government Community Cloud High (GCC-H) and U.S. Department of Defense (DoD) customers using the Azure Government portal have the Defender for IoT trial license available as part of their plan. To activate the trial, see [trial license extension for GCC-H or DoD customers](getting-started.md#azure-government-portal-trial-license-extension-for-gcc-h-or-dod-customers).
 
 ## Next steps
 

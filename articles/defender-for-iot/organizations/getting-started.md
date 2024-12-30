@@ -17,7 +17,7 @@ There are two stages to starting a trial for Defender for IoT.
 Stage 1: [Add a trial license](#add-a-trial-license).
 Stage 2: [Add an OT plan](#add-an-ot-plan).
 
-Once the trial license and OT plan are set up, you'll be able to onboard OT sensors and associate them with this license and plan.
+Once you set up the trial license and OT plan, you can onboard OT sensors and associate them with this license and plan.
 
 For more information, see [Free trial](billing.md#free-trial).
 
@@ -96,6 +96,22 @@ This procedure describes how to add an OT plan for Defender for IoT in the Azure
 1. Select the terms and conditions, and then select **Save**.
 
 Your new plan is listed under the relevant subscription on the **Plans and pricing** > **Plans** page. For more information, see [Manage your subscriptions](how-to-manage-subscriptions.md).
+
+## Government customers trial license extension
+
+### Azure Commercial portal trial license extension for GCC customers
+
+Government Community Cloud (GCC) customers using the Azure Commercial portal should contact the sales team to activate the Defender for IoT trial license.  
+
+### Azure Government portal trial license extension for GCC-H or DoD customers
+
+Government Community Cloud High (GCC-H) and U.S. Department of Defense (DoD) customers using the Azure Government portal have the Defender for IoT trial license available as part of their plan.
+
+To activate the trial:
+
+1. In the Defender for IoT menu, select **Management > Plans and pricing**.
+1. Select **Add plan**.
+1. Select **Trial – 30 days**.
 
 ## Onboard an OT sensor
 
