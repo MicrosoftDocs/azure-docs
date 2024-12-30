@@ -5,7 +5,7 @@ author: Danzhang-msft
 ms.service: azure-synapse-analytics
 ms.topic: how-to
 ms.subservice: security 
-ms.date: 012/20/2024 
+ms.date: 12/20/2024 
 ms.author: danzhang
 ms.reviewer: whhender
 ---

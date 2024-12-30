@@ -26,11 +26,7 @@ If you don't have an Azure subscription, [create a free account before you begin
 
 1. Starting from Synapse Studio, select **Manage**.
 
-    ![Synapse Studio select manage.](media/quickstart-link-powerbi/synapse-studio-select-manage.png)
-
 1. Under **External Connections**, select **Linked services**.
-
-    ![Linked services highlighted.](media/quickstart-link-powerbi/manage-select-linked-services.png)
 
 1. Select **+ New**.
 
@@ -54,8 +50,6 @@ If you don't have an Azure subscription, [create a free account before you begin
 Once your workspaces are linked, you can browse your Power BI datasets, edit/create new Power BI Reports from Synapse Studio.
 
 1. Select **Develop**.
-
-    ![Synapse Studio select develop.](media/quickstart-link-powerbi/synapse-studio-select-develop.png)
 
 1. Expand Power BI and the workspace you wish to use.
 
