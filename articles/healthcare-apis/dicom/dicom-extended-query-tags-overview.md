@@ -61,7 +61,6 @@ The following VR types are supported:
 | AS   | Age String            | X                     |                |                |
 | CS   | Code String           | X                     |                |                |
 | DA   | Date                  | X                     | X              |                |
-| DS   | Decimal String        | X                     |                |                |
 | DT   | Date Time             | X                     | X              |                |
 | FD   | Floating Point Double | X                     |                |                |
 | FL   | Floating Point Single | X                     |                |                |
