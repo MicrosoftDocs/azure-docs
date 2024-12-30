@@ -536,7 +536,7 @@ The following example describes a sample Azure Arc-enabled Logic Apps resource d
    "apiVersion": "2020-12-01",
    "name": "[parameters('name')]",
    "location": "[parameters('location')]",
-   "kind": " kubernetes,functionapp,workflowapp,container",
+   "kind": "kubernetes,functionapp,workflowapp,container",
    "extendedLocation": {
       "name": "[parameters('customLocationId')]",
       "type": "CustomLocation"

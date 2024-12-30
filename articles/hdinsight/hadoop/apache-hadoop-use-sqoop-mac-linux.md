@@ -38,7 +38,7 @@ Learn how to use Apache Sqoop to import and export between an Apache Hadoop clus
 
 
     export SERVER_CONNECT="jdbc:sqlserver://$SQL_SERVER.database.windows.net:1433;user=sqluser;password=$PASSWORD"
-    export SERVER_DB_CONNECT="jdbc:sqlserver://$SQL_SERVER.database.windows.net:1433;user=sqluser;password=$PASSWORD;database=$DABATASE"
+    export SERVER_DB_CONNECT="jdbc:sqlserver://$SQL_SERVER.database.windows.net:1433;user=sqluser;password=$PASSWORD;database=$DATABASE"
     ```
 
 ## Sqoop export
