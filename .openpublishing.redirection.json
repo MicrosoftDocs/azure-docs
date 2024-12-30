@@ -6,6 +6,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/migrate/replicate-using-expressroute.md",
+      "redirect_url": "/azure/migrate/discover-and-assess-using-private-endpoints",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/operator-5g-core/concept-centralized-lifecycle-management.md",
       "redirect_url": "/previous-versions/azure/operator-5g-core/concept-centralized-lifecycle-management",
       "redirect_document_id": false
@@ -4465,6 +4470,11 @@
     {
       "source_path_from_root": "/articles/fasttrack/index.yml",
       "redirect_url": "/azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/data-connectors/threat-intelligence-upload-indicators-api.md",
+      "redirect_url": "/azure/sentinel/data-connectors/threat-intelligence-upload-api",
       "redirect_document_id": false
     }
   ]

@@ -7,7 +7,6 @@ ms.service: azure-application-gateway
 ms.topic: tutorial
 ms.date: 06/30/2022
 ms.author: greglin
-ms.custom: template-tutorial
 #Customer intent: As an IT administrator, I want to use the Azure portal to configure Application Gateway with TLS termination so I can secure my application traffic.
 ---
 

@@ -4,7 +4,7 @@ description: Learn about Azure Application Gateway features
 services: application-gateway
 author: greg-lindsay
 ms.service: azure-application-gateway
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/24/2023
 ms.author: greglin
 ---

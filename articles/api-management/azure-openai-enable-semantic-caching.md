@@ -62,7 +62,7 @@ Configure a [backend](backends.md) resource for the embeddings API deployment wi
         https://my-aoai.openai.azure.com/openai/deployments/embeddings-deployment/embeddings
         ```
 * **Authorization credentials** - Go to **Managed Identity** tab.
-  * **Client indentity** - Select *System assigned identity* or type in a User assigned managed identity client ID.
+  * **Client identity** - Select *System assigned identity* or type in a User assigned managed identity client ID.
   * **Resource ID** - Enter `https://cognitiveservices.azure.com/` for Azure OpenAI Service.
 
 ### Test backend 
