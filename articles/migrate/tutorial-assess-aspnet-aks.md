@@ -2,7 +2,7 @@
 title: Assess ASP.NET/Java web apps for migration to Azure Kubernetes Service
 description: Assessments of ASP.NET web apps to Azure Kubernetes Service using Azure Migrate
 author: SnehaSudhirG
-ms.author: SnehaSudhirG
+ms.author: sudhirsneha
 ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 07/31/2024
