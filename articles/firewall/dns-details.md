@@ -4,7 +4,7 @@ description: Learn how Azure Firewall DNS Proxy works
 services: firewall
 author: vhorne
 ms.service: azure-firewall
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/11/2024
 ms.author: victorh
 ---
