@@ -22,7 +22,7 @@ Watchlists in Microsoft Sentinel allow you to correlate data from a data source 
 
 Use watchlists in your search, detection rules, threat hunting, and response playbooks.
 
-Watchlists are stored in your Microsoft Sentinel workspace as name-value pairs and are cached for optimal query performance and low latency.
+Watchlists are stored in your Microsoft Sentinel workspace in the `Watchlist` table as name-value pairs and are cached for optimal query performance and low latency.
 
 > [!IMPORTANT]
 > The features for watchlist templates and the ability to create a watchlist from a file in Azure Storage are currently in **PREVIEW**. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -69,9 +69,11 @@ For more information, see the following articles:
 
 ## Watchlists in queries for searches and detection rules
 
-Query data in any table against data from a watchlist by treating the watchlist as a table for joins and lookups. When you create a watchlist, you define the *SearchKey*. The search key is the name of a column in your watchlist that you expect to use as a join with other data or as a frequent object of searches. For example, suppose you have a server watchlist that contains country/region names and their respective two-letter country codes. You expect to use the country codes often for searches or joins. So you use the country code column as the search key.
+To correlate your watchlist data with other Microsoft Sentinel data, use Kusto tabular operators such as `join` and `lookup` with the `Watchlist` table. Microsoft Sentinel creates two functions in the workspace to help reference and query your watchlists.
+- `_GetWatchlistAlias` - simply returns the aliases of all your watchlists
+- `_GetWatchlist` - queries the name-value pairs of the specified watchlist
 
-The following example query joins the `RemoteIPCountry` column in the `Heartbeat` table with the search key defined for the watchlist named `mywatchlist`.
+When you create a watchlist, you define the *SearchKey*. The search key is the name of a column in your watchlist that you expect to use as a join with other data or as a frequent object of searches. For example, suppose you have a server watchlist that contains country/region names and their respective two-letter country codes. You expect to use the country codes often for searches or joins. So you use the country code column as the search key.
 
   ```kusto
      Heartbeat
@@ -90,7 +92,7 @@ Suppose you want to use a watchlist in an analytics rule. You create a watchlist
    |`10.0.150.39,Home`     |
    |`172.20.32.117,Work`   |
 
-To only include events from IP addresses in the watchlist, you might use a query where watchlist is used as a variable or where the watchlist is used inline. 
+To only include events from IP addresses in the watchlist, you might use a query where `watchlist` is used as a variable or where the watchlist is used inline.
 
 The following example query uses the watchlist as a variable:
 
