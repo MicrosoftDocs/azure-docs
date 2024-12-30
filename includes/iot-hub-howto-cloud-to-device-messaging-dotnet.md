@@ -184,7 +184,7 @@ You can connect a backend service to IoT Hub using the following methods:
 
 #### Connect using a shared access policy
 
-### Supply the connection string
+##### Supply the connection string
 
 Connect a backend application to a device using [CreateFromConnectionString](/dotnet/api/microsoft.azure.devices.serviceclient.createfromconnectionstring). In addition to the required IoT Hub primary connection string, the `CreateFromConnectionString` method can be overloaded to include these *optional* parameters:
 

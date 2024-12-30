@@ -28,14 +28,10 @@ import com.microsoft.azure.sdk.iot.device.transport.IotHubConnectionStatus;
 
 A device app can authenticate with IoT Hub using the following methods:
 
-* X.509 certificate
 * Shared access key
+* X.509 certificate
 
 [!INCLUDE [iot-authentication-device-connection-string.md](iot-authentication-device-connection-string.md)]
-
-#### Authenticate using an X.509 certificate
-
-[!INCLUDE [iot-hub-howto-auth-device-cert-java](iot-hub-howto-auth-device-cert-java.md)]
 
 #### Authenticate using a shared access key
 
@@ -56,6 +52,10 @@ static string connectionString = "{IOT hub device connection string}";
 static protocol = IotHubClientProtocol.AMQPS;
 DeviceClient client = new DeviceClient(connectionString, protocol);
 ```
+
+#### Authenticate using an X.509 certificate
+
+[!INCLUDE [iot-hub-howto-auth-device-cert-java](iot-hub-howto-auth-device-cert-java.md)]
 
 ### Set the message callback method
 
