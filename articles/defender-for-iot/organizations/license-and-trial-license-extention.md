@@ -62,10 +62,6 @@ To purchase a full Defender for IoT license at the end of the trial period, see 
 ### Government license customers
 
 For Government Community Cloud (GCC), Government Community Cloud High (GCC-H) and U.S. Department of Defense (DoD) customers who want to activate the trial, see [government customers trial license extension](getting-started.md#government-customers-trial-license).
-<!-- OR -->
-Government Community Cloud (GCC) customers using the Azure Commercial portal should contact the sales team to activate the Defender for IoT trial license.  
-
-Government Community Cloud High (GCC-H) and U.S. Department of Defense (DoD) customers using the Azure Government portal have the Defender for IoT trial license available as part of their plan. To activate the trial, see [trial license extension for GCC-H or DoD customers](getting-started.md#azure-government-portal-trial-license-for-gcc-h-or-dod-customers).
 
 ## Next steps
 
