@@ -171,7 +171,7 @@ Hyper-V VMs can be replicated every 30 seconds (except for premium storage) or 5
 
 ### Can Azure Site Recovery and Hyper-V Replica be configured together on a Hyper-V machine?
 
-Yes, both Azure Site Recovery and Hyper-V Replica can be configured together for a machine. But the machine will have to protected as a physical machine and will be replicated to Azure using Modern Appliance. Learn more about protecting physical machines [here](./physical-server-azure-architecture-modernized.md).
+Yes, both Azure Site Recovery and Hyper-V Replica can be configured together for a machine. But the machine will have to be protected as a physical machine and will be replicated to Azure using Modern Appliance. Learn more about protecting physical machines [here](./physical-server-azure-architecture-modernized.md).
 
 ### Can I extend replication?
 
