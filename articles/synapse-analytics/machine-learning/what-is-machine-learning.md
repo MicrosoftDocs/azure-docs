@@ -5,7 +5,7 @@ ms.service: azure-synapse-analytics
 ms.subservice: machine-learning
 ms.topic: overview 
 ms.reviewer: whhender
-ms.date: 08/31/2022
+ms.date: 12/30/2024
 author: nelgson
 ms.author: negust
 ---
@@ -53,17 +53,6 @@ In Azure Synapse, training machine learning models can be performed on the Apach
 Machine learning models can be trained with help from various algorithms and libraries. [Spark MLlib](http://spark.apache.org/docs/latest/ml-guide.html) offers scalable machine learning algorithms that can help solving most classical machine learning problems. For a tutorial on how to train a model using MLlib in Synapse, see [Build a machine learning app with Apache Spark MLlib and Azure Synapse Analytics](../spark/apache-spark-machine-learning-mllib-notebook.md).
 
 In addition to MLlib, popular libraries such as [Scikit Learn](https://scikit-learn.org/stable/) can also be used to develop models. See [Manage libraries for Apache Spark in Azure Synapse Analytics](../spark/apache-spark-azure-portal-add-libraries.md) for details on how to install libraries on Synapse Spark Pools.
-
-### Train models with Azure Machine Learning automated ML
-
-Another way to train machine learning models, that does not require much prior familiarity with machine learning, is to use automated ML. [Automated ML](/azure/machine-learning/concept-automated-ml) is a feature that automatically trains a set of machine learning models and allows the user to select the best model based on specific metrics. Thanks to a seamless integration with Azure Machine Learning from Azure Synapse Notebooks, users can easily leverage automated ML in Synapse with passthrough Microsoft Entra authentication.  This means that you only need to point to your Azure Machine Learning workspace and do not need to enter any credentials. The tutorial, [Train a model in Python with automated machine learning](../spark/apache-spark-azure-machine-learning-tutorial.md), describes how to train models using Azure Machine Learning automated ML on Synapse Spark Pools.
-
-> [!WARNING]
-> - Effective September 29, 2023, Azure Synapse will discontinue official support for [Spark 2.4 Runtimes](../spark/apache-spark-24-runtime.md). Post September 29, 2023, we will not be addressing any support tickets related to Spark 2.4. There will be no release pipeline in place for bug or security fixes for Spark 2.4. Utilizing Spark 2.4 post the support cutoff date is undertaken at one's own risk. We strongly discourage its continued use due to potential security and functionality concerns.
-> - As part of the deprecation process for Apache Spark 2.4, we would like to notify you that AutoML in Azure Synapse Analytics will also be deprecated. This includes both the low code interface and the APIs used to create AutoML trials through code.
-> - Please note that AutoML functionality was exclusively available through the Spark 2.4 runtime.
-> - For customers who wish to continue leveraging AutoML capabilities, we recommend saving your data into your Azure Data Lake Storage Gen2 (ADLSg2) account. From there, you can seamlessly access the AutoML experience through Azure Machine Learning (AzureML). Further information regarding this workaround is available [here](../machine-learning/access-data-from-aml.md).
->
 
 ## Model deployment and scoring
 

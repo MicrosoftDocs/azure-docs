@@ -77,10 +77,6 @@ df = spark.sql("SELECT * FROM `Retail_mil`.`RetailProduct`")
 df.show(10)
 ```
 
-## Train machine learning models
-
-You can use lake database to train your machine learning models and score the data. For more details [Train machine learning models](../machine-learning/tutorial-automl.md) 
-
 ## Next steps
 
 Continue to explore the capabilities of the database designer using the links below.
