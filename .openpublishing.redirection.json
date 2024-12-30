@@ -2933,6 +2933,36 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/orbital/delete-contact.md",
+      "redirect_url": "https://azure.microsoft.com/en-us/updates?id=azure-orbital-ground-station-retirement",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/orbital/license-spacecraft.md",
+      "redirect_url": "https://azure.microsoft.com/en-us/updates?id=azure-orbital-ground-station-retirement",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/orbital/orbital-preview.md",
+      "redirect_url": "https://azure.microsoft.com/en-us/updates?id=azure-orbital-ground-station-retirement",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/orbital/overview-analytics.md",
+      "redirect_url": "https://azure.microsoft.com/en-us/updates?id=azure-orbital-ground-station-retirement",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/orbital/partner-network-integration.md",
+      "redirect_url": "https://azure.microsoft.com/en-us/updates?id=azure-orbital-ground-station-retirement",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/orbital/space-partner-program-overview.md",
+      "redirect_url": "https://azure.microsoft.com/en-us/updates?id=azure-orbital-ground-station-retirement",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/partner-twilio-cloud-services-dotnet-phone-call-web-role.md",
       "redirect_url": "https://www.twilio.com/docs/usage/tutorials/serverless-webhooks-azure-functions-and-csharp",
       "redirect_document_id": false
