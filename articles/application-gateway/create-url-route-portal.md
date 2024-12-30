@@ -7,7 +7,6 @@ ms.service: azure-application-gateway
 ms.topic: tutorial
 ms.date: 09/03/2024
 ms.author: greglin
-ms.custom: template-tutorial
 #Customer intent: As an IT administrator, I want to use the Azure portal to set up an application gateway so I can route my app traffic based on path-based routing rules.
 ---
 

@@ -11,7 +11,7 @@ ms.date: 10/24/2024
 > The Azure Resource Group project is now in extended support, meaning we will continue to support existing features and capabilities but won't prioritize adding new features.
 
 > [!NOTE]
-> For the best and most secure experience, we strongly recommend updating your Visual Studio installation to the [latest Long-Term Support (LTS) version](/visualstudio/install/update-visual-studio). Upgrading will improve both the reliability and overall performance of your Visual Studio environment. If you choose not to upgrade, you may encounter the issues documented in [Issues when creating and deploying Azure resource groups through Visual Studio](https://learn.microsoft.com/troubleshoot/developer/visualstudio/ide/troubleshoot-create-deploy-resource-group).
+> For the best and most secure experience, we strongly recommend updating your Visual Studio installation to the [latest Long-Term Support (LTS) version](/visualstudio/install/update-visual-studio). Upgrading will improve both the reliability and overall performance of your Visual Studio environment. If you choose not to upgrade, you may encounter the issues documented in [Issues when creating and deploying Azure resource groups through Visual Studio](/troubleshoot/developer/visualstudio/ide/troubleshoot-create-deploy-resource-group).
 
 Visual Studio 16.4 supports using the Az PowerShell module in the template deployment script. However, Visual Studio doesn't automatically install that module. To use the Az module, you need to take four steps:
 
