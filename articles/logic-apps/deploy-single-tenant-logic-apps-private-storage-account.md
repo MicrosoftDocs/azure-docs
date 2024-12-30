@@ -27,7 +27,7 @@ For more information, review the following documentation:
 
 ## Deploy using Azure portal or Visual Studio Code
 
-This deployment method requires that temporary public access to your storage account. If you can't enable public access due to your organization's policies, you can still deploy your logic app to a private storage account. However, you have to [deploy with an Azure Resource Manager template (ARM template)](#deploy-arm-template), which is described in a later section. 
+This deployment method requires temporary public access to your storage account. If you can't enable public access due to your organization's policies, you can still deploy your logic app to a private storage account. However, you have to [deploy with an Azure Resource Manager template (ARM template)](#deploy-arm-template), which is described in a later section. 
 
 > [!NOTE]
 >
@@ -53,7 +53,7 @@ This deployment method requires that temporary public access to your storage acc
 
    1. On the logic app resource menu, under **Settings**, select **Networking**.
 
-   1. In the **Outbound traffic configuration** section, next to **Virtual network integration**, select **Not configured** > **Add virtual network integration** .
+   1. In the **Outbound traffic configuration** section, next to **Virtual network integration**, select **Not configured** > **Add virtual network integration**.
 
    1. On the **Add virtual network integration** pane that opens, select your Azure subscription and your virtual network.
 
