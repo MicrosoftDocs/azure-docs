@@ -30,11 +30,11 @@ Each virtual network can have only one virtual network gateway per gateway type.
 
 [!INCLUDE [expressroute-gwsku-include](../../includes/expressroute-gwsku-include.md)]
 
-If you want to upgrade your gateway to a higher capacity gateway SKU, you can use the Seamless Gateway Migration tool in either Azure portal or PowerShell. The following upgrades are supported:
+If you want to upgrade your gateway to a higher-capacity gateway SKU, you can use the Seamless Gateway Migration tool in either the Azure portal or PowerShell. The following upgrades are supported:
 
-* Non-Az-enabled SKU on Basic IP to Non-Az-enabled SKU on Standard IP.
-* Non-Az-enabled SKU on Basic IP to Az-enabled SKU on Standard IP.
-* Non-Az-enabled SKU on Standard IP to Az-enabled SKU on Standard IP.
+* Non-Az-enabled SKU on Basic IP to Non-Az-enabled SKU on Standard IP
+* Non-Az-enabled SKU on Basic IP to Az-enabled SKU on Standard IP
+* Non-Az-enabled SKU on Standard IP to Az-enabled SKU on Standard IP
 
 For more information, see [Migrate to an availability zone-enabled gateway](expressroute-howto-gateway-migration-powershell.md).
 
@@ -42,7 +42,7 @@ For all other downgrade scenarios, you need to delete and re-create the gateway,
 
 ## <a name="gwsub"></a>Gateway subnet creation
 
-Before you create an ExpressRoute gateway, you must create a gateway subnet. The gateway subnet contains the IP addresses used by the virtual network gateway VMs and services.
+Before you create an ExpressRoute gateway, you must create a gateway subnet. The virtual network gateway virtual machines (VMs) and services use IP addresses that are contained in the gateway subnet.
 
 When you create your virtual network gateway, gateway VMs are deployed to the gateway subnet and configured with the required ExpressRoute gateway settings. Never deploy anything else into the gateway subnet. The gateway subnet must be named "GatewaySubnet" to work properly, because doing so lets Azure know to deploy the virtual network gateway VMs and services into this subnet.
 
@@ -53,7 +53,7 @@ When you create your virtual network gateway, gateway VMs are deployed to the ga
 
 When you create the gateway subnet, you specify the number of IP addresses that the subnet contains. The IP addresses in the gateway subnet are allocated to the gateway VMs and gateway services. Some configurations require more IP addresses than others.
 
-When you're planning your gateway subnet size, refer to the documentation for the configuration that you're planning to create. For example, the ExpressRoute/VPN gateway coexist configuration requires a larger gateway subnet than most other configurations. Furthermore, you might want to make sure your gateway subnet contains enough IP addresses to accommodate possible future configurations.
+When you're planning your gateway subnet size, refer to the documentation for the configuration that you're planning to create. For example, the ExpressRoute/VPN gateway coexistence configuration requires a larger gateway subnet than most other configurations. Furthermore, you might want to make sure your gateway subnet contains enough IP addresses to accommodate possible future configurations.
 
 We recommend that you create a gateway subnet of /27 or larger. If you plan to connect 16 ExpressRoute circuits to your gateway, you *must* create a gateway subnet of /26 or larger. If you're creating a dual stack gateway subnet, we recommend that you also use an IPv6 range of /64 or larger. This setup accommodates most configurations.
 
@@ -69,7 +69,7 @@ Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/2
 
 ### <a name="gatewayfeaturesupport"></a>Feature support by gateway SKU
 
-The following table shows the features supported across each gateway type and the maximum number of ExpressRoute circuit connections supported by each gateway SKU.
+The following table shows the features that each gateway type supports and the maximum number of ExpressRoute circuit connections that each gateway SKU supports.
 
 | Gateway SKU | VPN gateway and ExpressRoute coexistence | FastPath | Maximum number of circuit connections |
 |--|--|--|--|
@@ -87,18 +87,18 @@ The following table shows the features supported across each gateway type and th
 
 ### <a name="zrgw"></a>Zone-redundant gateway SKUs
 
-You can also deploy ExpressRoute gateways in Azure availability zones. This configuration physically and logically separates them into different availability zones, protecting your on-premises network connectivity to Azure from zone-level failures.
+You can also deploy ExpressRoute gateways in Azure availability zones. Physically and logically separating the gateways into availability zones helps protect your on-premises network connectivity to Azure from zone-level failures.
 
 ![Diagram that shows deployment of ExpressRoute gateways in Azure availability zones.](./media/expressroute-about-virtual-network-gateways/zone-redundant.png)
 
-Zone-redundant gateways use specific new gateway SKUs for ExpressRoute gateway.
+Zone-redundant gateways use specific new gateway SKUs for ExpressRoute gateways:
 
 * ErGw1AZ
 * ErGw2AZ
 * ErGw3AZ
 * ErGwScale (preview)
 
-The new gateway SKUs also support other deployment options to best match your needs. When creating a virtual network gateway using the new gateway SKUs, you can deploy the gateway in a specific zone. This type of gateway is referred to as a zonal gateway. When you deploy a zonal gateway, all the instances of the gateway are deployed in the same availability zone.
+The new gateway SKUs also support other deployment options to best match your needs. When you create a virtual network gateway by using the new gateway SKUs, you can deploy the gateway in a specific zone. This type of gateway is called a *zonal gateway*. When you deploy a zonal gateway, all the instances of the gateway are deployed in the same availability zone.
 
 To learn about migrating an ExpressRoute gateway, see [Gateway migration](gateway-migration.md).
 
@@ -135,13 +135,13 @@ The virtual network gateway infrastructure autoscales between the minimum and ma
 
 ### Limitations
 
-* **Basic IP**: ErGwScale doesn't support the *Basic IP SKU*. You need to use a *Standard IP SKU* to configure ErGwScale.
-* **Minimum and maximum scale units**: You can configure the *scale unit* for ErGwScale between 1-40. The *minimum scale unit* can't be lower than 1 and the *maximum scale unit* can't be higher than 40.
-* **Migration scenarios**: You can't migrate from Standard/ErGw1Az or HighPerf/ErGw2Az/UltraPerf/ErGw3Az to ErGwScale in the *public preview*.
+* **Basic IP**: ErGwScale doesn't support the Basic IP SKU. You need to use a Standard IP SKU to configure ErGwScale.
+* **Minimum and maximum scale units**: You can configure the scale unit for ErGwScale between 1 and 40. The *minimum scale unit* can't be lower than 1 and the *maximum scale unit* can't be higher than 40.
+* **Migration scenarios**: You can't migrate from Standard/ErGw1Az or HighPerf/ErGw2Az/UltraPerf/ErGw3Az to ErGwScale in the preview.
 
 ### Pricing
 
-ErGwScale is free of charge during public preview. For information about ExpressRoute pricing, see [Azure ExpressRoute pricing](https://azure.microsoft.com/pricing/details/expressroute/#pricing).
+ErGwScale is free of charge during the preview. For information about ExpressRoute pricing, see [Azure ExpressRoute pricing](https://azure.microsoft.com/pricing/details/expressroute/#pricing).
 
 ### Supported performance per scale unit
 
@@ -162,11 +162,11 @@ ErGwScale is free of charge during public preview. For information about Express
 
 ## Connectivity from VNet to VNet and from VNet to virtual WAN
 
-By default, VNet to VNet and VNet to virtual WAN connectivity is disabled through an ExpressRoute circuit for all gateway SKUs. To enable this connectivity, you must configure the ExpressRoute virtual network gateway to allow this traffic. For more information, see guidance about [virtual network connectivity over ExpressRoute](virtual-network-connectivity-guidance.md). To enable this traffic, see [Enable VNet to VNet or VNet to virtual WAN connectivity through ExpressRoute](expressroute-howto-add-gateway-portal-resource-manager.md#enable-or-disable-vnet-to-vnet-or-vnet-to-virtual-wan-traffic-through-expressroute).
+By default, VNet-to-VNet and VNet-to-virtual-WAN connectivity is disabled through an ExpressRoute circuit for all gateway SKUs. To enable this connectivity, you must configure the ExpressRoute virtual network gateway to allow this traffic. For more information, see guidance about [virtual network connectivity over ExpressRoute](virtual-network-connectivity-guidance.md). To enable this traffic, see [Enable VNet-to-VNet or VNet-to-virtual-WAN connectivity through ExpressRoute](expressroute-howto-add-gateway-portal-resource-manager.md#enable-or-disable-vnet-to-vnet-or-vnet-to-virtual-wan-traffic-through-expressroute).
 
 ## <a name="fastpath"></a>FastPath
 
-ExpressRoute virtual network gateway is designed to exchange network routes and route network traffic. FastPath is designed to improve the data path performance between your on-premises network and your virtual network. When FastPath is enabled, it sends network traffic directly to virtual machines in the virtual network, bypassing the gateway.
+The ExpressRoute virtual network gateway is designed to exchange network routes and route network traffic. FastPath is designed to improve the data path performance between your on-premises network and your virtual network. When FastPath is enabled, it sends network traffic directly to virtual machines in the virtual network, bypassing the gateway.
 
 For more information about FastPath, including limitations and requirements, see [About FastPath](about-fastpath.md).
 
@@ -177,11 +177,11 @@ The ExpressRoute virtual network gateway facilitates connectivity to private end
 > [!IMPORTANT]
 > * The throughput and control plane capacity for connectivity to private endpoint resources might be reduced by half compared to connectivity to non-private endpoint resources.
 > * During a maintenance period, you might experience intermittent connectivity problems to private endpoint resources.
-> * You need to ensure that on-premises configuration, including router and firewall settings, are correctly set up to ensure that packets for the IP 5-tuple transits use a single next hop (Microsoft Enterprise Edge Router) unless there is a maintenance event. If your on-premises firewall or router configuration is causing the same IP 5-tuple to frequently switch next hops, you will experience connectivity problems.
+> * You need to ensure that on-premises configuration, including router and firewall settings, are correctly set up to ensure that packets for the IP 5-tuple transits use a single next hop (Microsoft Enterprise Edge router) unless there's a maintenance event. If your on-premises firewall or router configuration is causing the same IP 5-tuple to frequently switch next hops, you'll experience connectivity problems.
 
 ### Private endpoint connectivity and planned maintenance events
 
-Private endpoint connectivity is stateful. When a connection to a private endpoint gets established over ExpressRoute private peering, inbound and outbound connections get routed through one of the back-end instances of the gateway infrastructure. During a maintenance event, back-end instances of the virtual network gateway infrastructure are rebooted one at a time, which could lead to intermittent connectivity problems.
+Private endpoint connectivity is stateful. When a connection to a private endpoint is established over ExpressRoute private peering, inbound and outbound connections are routed through one of the back-end instances of the gateway infrastructure. During a maintenance event, back-end instances of the virtual network gateway infrastructure are rebooted one at a time, which could lead to intermittent connectivity problems.
 
 To avoid or minimize connectivity problems with private endpoints during maintenance activities, we recommend setting the TCP time-out value to fall between 15 and 30 seconds on your on-premises applications. Test and configure the optimal value based on your application requirements.
 
@@ -196,7 +196,7 @@ See the following pages for more technical resources and specific syntax require
 
 ## VNet-to-VNet connectivity
 
-By default, connectivity between virtual networks is enabled when you link multiple virtual networks to the same ExpressRoute circuit. We don't recommend using your ExpressRoute circuit for communication between virtual networks. Instead, we recommend you use [virtual network peering](../virtual-network/virtual-network-peering-overview.md). For more information about why VNet-to-VNet connectivity isn't recommended over ExpressRoute, see [Connectivity between virtual networks over ExpressRoute](virtual-network-connectivity-guidance.md).
+By default, connectivity between virtual networks is enabled when you link multiple virtual networks to the same ExpressRoute circuit. We don't recommend using your ExpressRoute circuit for communication between virtual networks. Instead, we recommend that you use [virtual network peering](../virtual-network/virtual-network-peering-overview.md). For more information about why VNet-to-VNet connectivity isn't recommended over ExpressRoute, see [Connectivity between virtual networks over ExpressRoute](virtual-network-connectivity-guidance.md).
 
 ### Virtual network peering
 
@@ -208,7 +208,7 @@ A virtual network with an ExpressRoute gateway can have virtual network peering 
 
 * For more information about creating ExpressRoute gateways, see [Create a virtual network gateway for ExpressRoute](expressroute-howto-add-gateway-resource-manager.md).
 
-* For more information on how to deploy ErGwScale, see [Configure a virtual network gateway for ExpressRoute using the Azure portal](expressroute-howto-add-gateway-portal-resource-manager.md).
+* For more information about how to deploy ErGwScale, see [Configure a virtual network gateway for ExpressRoute using the Azure portal](expressroute-howto-add-gateway-portal-resource-manager.md).
 
 * For more information about configuring zone-redundant gateways, see [Create a zone-redundant virtual network gateway](../../articles/vpn-gateway/create-zone-redundant-vnet-gateway.md).
 
