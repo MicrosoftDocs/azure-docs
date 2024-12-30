@@ -60,11 +60,11 @@ capabilitiesFeature.on('capabilitiesChanged', (capabilitiesChangeInfo) => {
             continue;
         }
         if(key === 'forbidOthersAudio' && value.reason != 'FeatureNotSupported') {
-            (value.isPresent) ? this.setState({ canReact: true }) : this.setState({ canReact: false });
+            (value.isPresent) ? this.setState({ canForbidOthersAudio: true }) : this.setState({ canForbidOthersAudio: false });
             continue;
         }
         if(key === 'forbidOthersVideo' && value.reason != 'FeatureNotSupported') {
-            (value.isPresent) ? this.setState({ canReact: true }) : this.setState({ canReact: false });
+            (value.isPresent) ? this.setState({ canForbidOthersVideo: true }) : this.setState({ canForbidOthersVideo: false });
             continue;
         }
     }
