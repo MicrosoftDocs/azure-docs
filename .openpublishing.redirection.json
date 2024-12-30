@@ -4464,7 +4464,7 @@
     },
     {
       "source_path_from_root": "/articles/sentinel/data-connectors/threat-intelligence-upload-indicators-api.md",
-      "redirect_url": "/azure/sentinel/data-connectors/threat-intelligence-upload-indicators-api",
+      "redirect_url": "/azure/sentinel/data-connectors/threat-intelligence-upload-api",
       "redirect_document_id": false
     }
   ]
