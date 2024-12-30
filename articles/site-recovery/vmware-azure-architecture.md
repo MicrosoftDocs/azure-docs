@@ -3,7 +3,7 @@ title: VMware VM disaster recovery architecture in Azure Site Recovery - Classic
 description: This article provides an overview of components and architecture used when setting up disaster recovery of on-premises VMware VMs to Azure with Azure Site Recovery - Classic
 ms.service: azure-site-recovery
 ms.topic: concept-article
-ms.date: 09/10/2024
+ms.date: 12/28/2024
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 ---
@@ -141,7 +141,6 @@ After replication is set up and you run a disaster recovery drill (test failover
     - Stage 1: Reprotect the Azure VMs so that they replicate from Azure back to the on-premises VMware VMs.
     -  Stage 2: Run a failover to the on-premises site.
     - Stage 3: After workloads have failed back, you reenable replication for the on-premises VMs.
-
 
 
 ![Diagram showing VMware failback from Azure.](./media/vmware-azure-architecture/enhanced-failback.png)

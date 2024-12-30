@@ -4,7 +4,6 @@ description: This article provides instructions on how to scale your AKS backend
 services: application-gateway
 author: greg-lindsay
 ms.service: azure-application-gateway
-ms.custom:
 ms.topic: how-to
 ms.date: 9/17/2024
 ms.author: greglin
