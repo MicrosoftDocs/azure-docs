@@ -8,11 +8,11 @@ ms.date: 12/19/2024
 ms.custom: [amqp, mqtt, devx-track-java, devx-track-extended-java]
 ---
 
-## Receive cloud-to-device messages on a device
+## Create a device application
 
 This section describes how to receive cloud-to-device messages using the [DeviceClient](/java/api/com.microsoft.azure.sdk.iot.device.deviceclient) class from the Azure IoT SDK for Java.
 
-For a Java-based device application to receive cloud-to-device messages, it must connect to IoT Hub, then set up a callback listener and message handler to process incoming messages from IoT Hub. The device application should also be able to detect and handle disconnects in case the device-to-IoT Hub message connection is broken.
+For a Java-based device application to receive cloud-to-device messages, it must connect to IoT Hub, then set up a callback listener and message handler to process incoming messages from IoT Hub.
 
 ### Import Azure IoT Java SDK libraries
 
@@ -30,6 +30,8 @@ A device app can authenticate with IoT Hub using the following methods:
 
 * X.509 certificate
 * Shared access key
+
+[!INCLUDE [iot-authentication-device-connection-string.md](iot-authentication-device-connection-string.md)]
 
 #### Authenticate using an X.509 certificate
 
@@ -157,7 +159,7 @@ client.open(true);
 
 **HandleMessages**: a sample device app included with the [Microsoft Azure IoT SDK for Java](https://github.com/Azure/azure-iot-sdk-java/tree/main/iothub/device/iot-device-samples), which connects to your IoT hub and receives cloud-to-device messages.
 
-## Send cloud-to-device messages from a backend application
+## Create a backend application
 
 This section describes how to send a cloud-to-device message using the [ServiceClient](/java/api/com.azure.core.annotation.serviceclient) class from the Azure IoT SDK for Java. A solution backend application connects to an IoT Hub and messages are sent to IoT Hub encoded with a destination device. IoT Hub stores incoming messages to its message queue, and messages are delivered from the IoT Hub message queue to the target device.
 
@@ -196,7 +198,7 @@ You can connect a backend service to IoT Hub using the following methods:
 
 #### Connect using a shared access policy
 
-#### Define the connection protocol
+##### Define the connection protocol
 
 Use [IotHubServiceClientProtocol](/java/api/com.microsoft.azure.sdk.iot.service.iothubserviceclientprotocol) to define the application-layer protocol used by the service client to communicate with an IoT Hub.
 
@@ -206,7 +208,7 @@ Use [IotHubServiceClientProtocol](/java/api/com.microsoft.azure.sdk.iot.service.
 IotHubServiceClientProtocol protocol = IotHubServiceClientProtocol.AMQPS;
 ```
 
-#### Create the ServiceClient object
+##### Create the ServiceClient object
 
 Create the [ServiceClient](/java/api/com.azure.core.annotation.serviceclient) object, supplying the Iot Hub connection string and protocol.
 
@@ -215,7 +217,7 @@ String connectionString = "{yourhubconnectionstring}";
 ServiceClient serviceClient (connectionString, protocol);
 ```
 
-### Open the connection between application and IoT Hub
+##### Open the connection between application and IoT Hub
 
 [open](/java/api/com.microsoft.azure.sdk.iot.service.serviceclient?#com-microsoft-azure-sdk-iot-service-serviceclient-open()) the AMQP sender connection. This method creates the connection between the application and IoT Hub.
 

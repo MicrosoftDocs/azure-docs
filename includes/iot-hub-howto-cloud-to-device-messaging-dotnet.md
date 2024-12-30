@@ -17,8 +17,6 @@ There are two options that a device client application can use to receive messag
 * **Callback**: The device application sets up an asynchronous message handler method that is called immediately when a message arrives.
 * **Polling**: The device application checks for new IoT Hub messages using a code loop (for example, a `while` or `for` loop). The loop executes continually, checking for messages.
 
-[!INCLUDE [iot-authentication-device-connection-string.md](iot-authentication-device-connection-string.md)]
-
 ### Required device NuGet Package
 
 Device client applications written in C# require the **Microsoft.Azure.Devices.Client** NuGet package.
@@ -34,12 +32,10 @@ using Microsoft.Azure.Devices.Shared;
 
 A device app can authenticate with IoT Hub using the following methods:
 
-* X.509 certificate
 * Shared access key
+* X.509 certificate
 
-#### Authenticate using an X.509 certificate
-
-[!INCLUDE [iot-hub-howto-auth-device-cert-dotnet](iot-hub-howto-auth-device-cert-dotnet.md)]
+[!INCLUDE [iot-authentication-device-connection-string.md](iot-authentication-device-connection-string.md)]
 
 #### Authenticate using a shared access key
 
@@ -61,6 +57,10 @@ static deviceClient = null;
 deviceClient = DeviceClient.CreateFromConnectionString(DeviceConnectionString, 
    TransportType.Mqtt);
 ```
+
+#### Authenticate using an X.509 certificate
+
+[!INCLUDE [iot-hub-howto-auth-device-cert-dotnet](iot-hub-howto-auth-device-cert-dotnet.md)]
 
 ### Callback
 

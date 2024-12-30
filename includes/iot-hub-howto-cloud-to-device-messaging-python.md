@@ -22,7 +22,7 @@ pip install azure-iot-device
 
 For a Python-based device application to receive cloud-to-device messages, it must connect to IoT Hub and then set up a callback message handler to process incoming messages from IoT Hub.
 
-### Device import statements
+### Device import statement
 
 Add this code to import the `IoTHubDeviceClient` functions from the azure.iot.device SDK.
 
@@ -34,14 +34,10 @@ from azure.iot.device import IoTHubDeviceClient
 
 A device app can authenticate with IoT Hub using the following methods:
 
-* X.509 certificate
 * Shared access key
+* X.509 certificate
 
 [!INCLUDE [iot-authentication-device-connection-string.md](iot-authentication-device-connection-string.md)]
-
-#### Authenticate using an X.509 certificate
-
-[!INCLUDE [iot-hub-howto-auth-device-cert-python](iot-hub-howto-auth-device-cert-python.md)]
 
 #### Authenticate using a shared access key
 
@@ -60,6 +56,10 @@ device_client = IoTHubDeviceClient.create_from_connection_string(CONNECTION_STRI
 # Connect the client
 device_client.connect()
 ```
+
+#### Authenticate using an X.509 certificate
+
+[!INCLUDE [iot-hub-howto-auth-device-cert-python](iot-hub-howto-auth-device-cert-python.md)]
 
 ##### Handle reconnection
 
