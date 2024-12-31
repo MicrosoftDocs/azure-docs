@@ -127,4 +127,4 @@ In this Quickstart, you created an Automation account. [Explore articles about A
 To use managed identities with your Automation account, continue to:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Create Automation PowerShell runbook using managed identity](/azure/automation/learn/powershell-runbook-managed-identity.md)
+> [Tutorial - Create Automation PowerShell runbook using managed identity](../learn/powershell-runbook-managed-identity.md)
