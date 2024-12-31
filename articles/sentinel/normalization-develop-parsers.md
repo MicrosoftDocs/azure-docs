@@ -307,7 +307,7 @@ This function will set the fields as follows:
 | server1.microsoft.com | SrcHostname: server1<br>SrcDomain: microsoft.com<br> SrcDomainType: FQDN<br>SrcFQDN:server1.microsoft.com |
 
 
-The functions `_ASIM_ResolveDstFQDN` and `_ASIM_ResolveDvcFQDN` perform a similar task populating the related `Dst` and `Dvc` fields.For a full list of ASIM help functions, refer to [ASIM functions](normalization-functions.md)
+The functions `_ASIM_ResolveDstFQDN` and `_ASIM_ResolveDvcFQDN` perform a similar task populating the related `Dst` and `Dvc` fields. For a full list of ASIM help functions, refer to [ASIM functions](normalization-functions.md)
 
 ### Select fields in the result set
 
