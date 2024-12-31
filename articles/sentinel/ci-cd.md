@@ -4,7 +4,7 @@ titleSuffix: Microsoft Sentinel
 description: This article describes how to create connections with a GitHub or Azure DevOps repository where you can manage your custom content and deploy it to Microsoft Sentinel.
 author: austinmccollum
 ms.topic: how-to
-ms.date: 03/07/2024
+ms.date: 12/31/2024
 ms.author: austinmc
 appliesto:
     - Microsoft Sentinel in the Azure portal
@@ -150,7 +150,7 @@ If you intend to delete the Microsoft Sentinel app from a GitHub repository, we 
 
 Each Microsoft Sentinel App installation has a unique ID that's used when both adding and removing the connection. If the ID is missing or changed, remove the connection from the Microsoft Sentinel **Repositories** page and manually remove the workflow from your GitHub repository to prevent any future content deployments.
 
-## Next steps
+## Related content
 
 Use your custom content in Microsoft Sentinel in the same way that you'd use out-of-the-box content.
 

@@ -6,7 +6,10 @@ author: austinmccollum
 ms.topic: how-to
 ms.date: 12/31/2024
 ms.author: austinmc
-
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
+ms.collection: usx-security
 
 #Customer intent: As a SOC collaborator or MSSP analyst, I want to customize repository deployment workflows and pipelines so that I can control deployment triggers, paths, and parameter mappings for efficient and tailored content deployment to cloud workspaces.
 
