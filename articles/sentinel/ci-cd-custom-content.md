@@ -38,7 +38,7 @@ If you find content in a public repository where you aren't a contributor, first
 
 ## Plan your repository content
 
-Repository content must be stored as [Bicep files](../azure-resource-manager/bicep/file.md) or [Azure Resource Manager (ARM) templates](../azure-resource-manager/templates/overview.md). Bicep is more intuitive and makes it easier to describe Azure resources and Microsoft Sentinel content. Deploy Bicep files alongside of or instead of ARM JSON templates.
+Repository content must be stored as [Bicep files](../azure-resource-manager/bicep/file.md) or [Azure Resource Manager (ARM) templates](../azure-resource-manager/templates/overview.md). Bicep is more intuitive and makes it easier to describe Azure resources and Microsoft Sentinel content. Deploy Bicep files alongside or instead of ARM JSON templates.
 
 | Repository | supported formats |
 |---|---|
