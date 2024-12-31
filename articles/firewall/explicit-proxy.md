@@ -4,7 +4,7 @@ description: Learn about Azure Firewall's Explicit Proxy setting.
 services: firewall
 author: vhorne
 ms.service: azure-firewall
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/30/2023
 ms.author: magakman
 ---
