@@ -6,7 +6,7 @@ author: b-ahibbard
 ms.service: azure-netapp-files
 ms.custom: references_regions
 ms.topic: conceptual
-ms.date: 10/07/2024
+ms.date: 12/31/2024
 ms.author: anfdocs
 ---
 # Requirements and considerations for large volumes
