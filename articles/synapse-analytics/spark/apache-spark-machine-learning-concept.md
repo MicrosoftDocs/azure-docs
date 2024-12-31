@@ -34,7 +34,7 @@ There are several options when training machine learning models using Azure Spar
 Learn more about the machine learning capabilities by viewing the article on how to [train models in Azure Synapse Analytics](../spark/apache-spark-machine-learning-training.md).
 
 ### SparkML and MLlib
-Spark's in-memory distributed computation capabilities make it a good choice for the iterative algorithms used in machine learning and graph computations. ```spark.ml``` provides a uniform set of high-level APIs that help users create and tune  machine learning pipelines.To learn more about ```spark.ml```, you can visit the [Apache Spark ML programming guide](https://archive.apache.org/dist/spark/docs/1.2.2/ml-guide.html).
+Spark's in-memory distributed computation capabilities make it a good choice for the iterative algorithms used in machine learning and graph computations. ```spark.ml``` provides a uniform set of high-level APIs that help users create and tune  machine learning pipelines. To learn more about ```spark.ml```, you can visit the [Apache Spark ML programming guide](https://archive.apache.org/dist/spark/docs/1.2.2/ml-guide.html).
 
 ### Open-source libraries
 Every Apache Spark pool in Azure Synapse Analytics comes with a set of pre-loaded and popular machine learning libraries.  Some of the relevant machine learning libraries that are included by default include:

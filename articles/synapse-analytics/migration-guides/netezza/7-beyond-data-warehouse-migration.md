@@ -83,7 +83,7 @@ You can use these features without writing any code, or you can add custom code 
 :::image type="content" source="../media/7-beyond-data-warehouse-migration/azure-data-factory-pipeline.png" border="true" alt-text="Screenshot of an example of a Data Factory pipeline." lightbox="../media/7-beyond-data-warehouse-migration/azure-data-factory-pipeline-lrg.png":::
 
 >[!TIP]
->Data Factory lets you to build scalable data integration pipelines without code.
+>Data Factory lets you build scalable data integration pipelines without code.
 
 Implement Data Factory pipeline development from any of several places, including:
 
