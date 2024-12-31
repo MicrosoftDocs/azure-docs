@@ -35,6 +35,9 @@ In this article, you learn how to utilize [Pulumi](https://pulumi.com) for deplo
 - Azure Deployment Environments set up in your Azure subscription. 
   - To set up ADE, follow the [Quickstart: Configure Azure Deployment Environments](quickstart-create-and-configure-devcenter.md).
 
+
+<!-- ====== ARM-Bicep ========================================================================================================= -->
+
 ::: zone pivot="arm-bicep"
 ## Use container images with ADE
 
@@ -241,10 +244,18 @@ echo "{\"outputs\": $deploymentOutput}" > $ADE_OUTPUTS
 --- 
 ::: zone-end
 
+
+<!-- =========== TERRAFORM ======================================================================================================== -->
+
+
 ::: zone pivot="terraform"
+## Use container images with ADE
+
 You can take one of the following approaches to use container images with ADE:
-- Create a container image leveraging a GitHub workflow: To start with, you can use the published GitHub workflow from the Leveraging ADE's Extensibility Model With Terraform repository.
-- Create a custom container image: You can create a workflow that creates a Terraform specific image customized with all the software, settings, and configuration that you need.
+- **Create a container image leveraging a GitHub workflow:** To start with, you can use the published GitHub workflow from the Leveraging ADE's Extensibility Model With Terraform repository.
+- **Create a custom container image:** You can create a workflow that creates a Terraform specific image customized with all the software, settings, and configuration that you need.
+ 
+The main steps you'll follow when using a container image are:
 
 1. Create a workflow that creates an image.
    - Microsoft provides sample code in the Leveraging ADE's Extensibility Model With Terraform repository.
@@ -292,43 +303,7 @@ RUN mv terraform /usr/bin/terraform
 
 > [!Tip]
 > You can get the download URL for your preferred version of the Terraform CLI from [Hashicorp releases](https://aka.ms/deployment-environments/terraform-cli-zip).
-::: zone-end
 
-
-::: zone pivot="pulumi"
-### [Use a sample container image](#tab/sample/)
-
-### Use a sample container image provided by Pulumi
-
-The Pulumi team provides a prebuilt image to get you started, which you can see in the [Runner-Image](https://github.com/pulumi/azure-deployment-environments/tree/main/Runner-Image) folder. This image is publicly available at Pulumi's Docker Hub as [`pulumi/azure-deployment-environments`](https://hub.docker.com/repository/docker/pulumi/azure-deployment-environments), so you can use it directly from your ADE environment definitions.
-
-Here's a sample *environment.yaml* file that utilizes the prebuilt image:
-
-```yaml
-name: SampleDefinition
-version: 1.0.0
-summary: First Pulumi-Enabled Environment
-description: Deploys a Storage Account with Pulumi
-runner: pulumi/azure-deployment-environments:0.1.0
-templatePath: Pulumi.yaml
-```
-
-You can find a few sample environment definitions in the [Environments folder](https://github.com/pulumi/azure-deployment-environments/tree/main/Environments).
-
-### [Create a custom image](#tab/custom/)
-
-### Create a custom image
-
-Creating a custom container image allows you to customize your deployments to fit your requirements. You can create custom images based on the Pulumi sample images.
-
-After you complete the image customization, you must build the image and push it to your container registry.
-
-To create an image configured for ADE, follow these steps:
-1. Create a custom image based on a sample image.
-1. Install desired packages.
-1. Configure operation shell scripts.
-1. Create operation shell scripts that use the Pulumi CLI.
-::: zone-end
 
 **1. Create a custom image based on a sample image**
 
@@ -382,9 +357,6 @@ COPY scripts/* /scripts/
 RUN find /scripts/ -type f -iname "*.sh" -exec dos2unix '{}' '+'
 RUN find /scripts/ -type f -iname "*.sh" -exec chmod +x {} \;
 ```
-::: zone-end
-
-::: zone pivot="terraform"
 
 **4. Create operation shell scripts that use the Terraform CLI**
 
@@ -459,8 +431,42 @@ echo "{\"outputs\": $tfOutputs}" > $ADE_OUTPUTS
 ::: zone-end
 
 
+<!-- ======== PULUMI ==================================================================================================================== -->
 
+::: zone pivot="pulumi"
+### [Use a sample container image](#tab/sample/)
 
+### Use a sample container image provided by Pulumi
+
+The Pulumi team provides a prebuilt image to get you started, which you can see in the [Runner-Image](https://github.com/pulumi/azure-deployment-environments/tree/main/Runner-Image) folder. This image is publicly available at Pulumi's Docker Hub as [`pulumi/azure-deployment-environments`](https://hub.docker.com/repository/docker/pulumi/azure-deployment-environments), so you can use it directly from your ADE environment definitions.
+
+Here's a sample *environment.yaml* file that utilizes the prebuilt image:
+
+```yaml
+name: SampleDefinition
+version: 1.0.0
+summary: First Pulumi-Enabled Environment
+description: Deploys a Storage Account with Pulumi
+runner: pulumi/azure-deployment-environments:0.1.0
+templatePath: Pulumi.yaml
+```
+
+You can find a few sample environment definitions in the [Environments folder](https://github.com/pulumi/azure-deployment-environments/tree/main/Environments).
+
+### [Create a custom image](#tab/custom/)
+
+### Create a custom image
+
+Creating a custom container image allows you to customize your deployments to fit your requirements. You can create custom images based on the Pulumi sample images.
+
+After you complete the image customization, you must build the image and push it to your container registry.
+
+To create an image configured for ADE, follow these steps:
+1. Create a custom image based on a sample image.
+1. Install desired packages.
+1. Configure operation shell scripts.
+1. Create operation shell scripts that use the Pulumi CLI.
+::: zone-end
 
 ::: zone pivot="pulumi"
 There are four steps to deploy infrastructure via Pulumi: 
