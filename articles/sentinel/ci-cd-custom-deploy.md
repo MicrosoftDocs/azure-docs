@@ -4,7 +4,7 @@ titleSuffix: Microsoft Sentinel
 description: This article describes how to customize repository deployments for the repositories feature in Microsoft Sentinel.
 author: austinmccollum
 ms.topic: how-to
-ms.date: 3/13/2024
+ms.date: 12/31/2024
 ms.author: austinmc
 
 
@@ -16,9 +16,10 @@ ms.author: austinmc
 
 There are two primary ways to customize the deployment of your repository content to Microsoft Sentinel workspaces. Each method uses different files and syntax, so consider these examples to get you started.
 
-- Modify the GitHub workflow or DevOps pipeline to customize deployment options such as your connection's deployment trigger, deployment path, or usage of smart deployments.
-
-- Utilize the newly introduced configuration file to control the prioritized order of your content deployments, choose to *exclude* specific content files from those deployments, or map parameter files to specific content files. 
+| Customization method | Deployment options covered |
+|---|---|
+| GitHub workflow<br>DevOps pipeline | Customize your connection's deployment trigger<br>Customize your deployment path<br>Smart deployments enablement|
+| Configuration files | Control the prioritized order of your content deployments<br>Choose to *exclude* specific content files from deployments<br>Scale deployments across different workspaces by mapping parameter files to specific content files|
 
 > [!IMPORTANT]
 >
@@ -38,7 +39,7 @@ For more information, see [Validate your content](ci-cd-custom-content.md#valida
 
 ## Customize the workflow or pipeline
 
-The default workflow only deploys content modified since the last deployment, based on commits to the repository. But you may need other customizations such as to configure different deployment triggers, or to deploy content exclusively from a specific root folder.
+The default workflow only deploys content modified since the last deployment, based on commits to the repository. Customize to configure different deployment triggers, or to deploy content exclusively from a specific root folder.
 
 Select one of the following tabs depending on your connection type:
 
@@ -68,7 +69,7 @@ Select one of the following tabs depending on your connection type:
                 - `.github/workflows/sentinel-deploy-<deployment-id>.yml`
         ```
 
-        You may want to change these settings, for example, to schedule the workflow to run periodically, or to combine different workflow events together.
+        Change these settings, for example, to schedule the workflow to run periodically, or to combine different workflow events together.
 
         For more information, see the [GitHub documentation](https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows#configuring-workflow-events) on configuring workflow events.
 
@@ -229,11 +230,10 @@ Here's an example of the entire contents of a valid *sentinel-deployment.config*
     The deployment script accepts three methods of mapping parameters as described in [Scale your deployments with parameter files](ci-cd-custom-deploy.md#scale-your-deployments-with-parameter-files). Mapping parameters through the sentinel-deployment.config takes the highest precedence and guarantees that a given parameter file is mapped to its associated content files. Simply modify the `"parameterfilemappings":` section with your target connection's workspace ID and full path names of individual .json files.
 
 
-## Next steps
+## Related content
 
 A sample repository is available demonstrating the deployment config file and all three parameter mapping methods. For more information, see [Sentinel CICD repositories sample](https://github.com/SentinelCICD/RepositoriesSampleContent).
 
-Consider these resources for more information about ARM templates:
-
+- [Understand the structure and syntax of Bicep files](../azure-resource-manager/bicep/file.md)
 - [Create Resource Manager parameter file](../azure-resource-manager/templates/parameter-files.md)
 - [Parameters in ARM templates](../azure-resource-manager/templates/parameters.md)
