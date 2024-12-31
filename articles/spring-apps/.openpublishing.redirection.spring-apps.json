@@ -126,11 +126,6 @@
             "redirect_document_id": true
         },
         {
-            "source_path": "quickstart-provision-standard-consumption-app-environment-with-virtual-network.md",
-            "redirect_url": "/azure/spring-apps/consumption-dedicated/quickstart-provision-standard-consumption-app-environment-with-virtual-network",
-            "redirect_document_id": true
-        },
-        {
             "source_path": "quickstart-standard-consumption-config-server.md",
             "redirect_url": "/azure/spring-apps/consumption-dedicated/quickstart-standard-consumption-config-server",
             "redirect_document_id": true
