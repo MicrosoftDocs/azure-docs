@@ -4,7 +4,7 @@ description: Learn about the different Azure Firewall versions and how to choose
 services: firewall
 author: vhorne
 ms.service: azure-firewall
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 04/03/2024
 ms.author: victorh
 ---

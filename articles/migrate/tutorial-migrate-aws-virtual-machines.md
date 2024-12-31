@@ -5,8 +5,8 @@ author: vijain
 ms.author: vijain
 ms.topic: tutorial
 ms.service: azure-migrate
-ms.date: 12/10/2024
-ms.custom: MVC, engagement-fy24
+ms.date: 12/31/2024
+ms.custom: MVC, engagement-fy25
 ---
 
 # Discover, assess, and migrate Amazon Web Services (AWS) VMs to Azure
@@ -133,9 +133,6 @@ The first step of migration is to set up the replication appliance. To set up th
 ### Download the replication appliance installer
 
 1. In the Azure Migrate project, select **Servers, databases, and web apps** > **Migration and modernization** > **Discover**.
-
-    ![Screenshot that shows the Discover button.](./media/tutorial-migrate-physical-virtual-machines/migrate-discover.png)
-
 1. In **Discover machines** > **Are your machines virtualized?**, select **Not virtualized/Other**.
 1. In **Target region**, select the Azure region to which you want to migrate the machines.
 1. Select **Confirm that the target region for migration is \<region-name\>**.
@@ -279,9 +276,7 @@ A Mobility service agent must be preinstalled on the source AWS VMs to be migrat
 
 You can track job status in the portal notifications.
 
-You can monitor replication status by selecting **Replicating servers** in **Azure Migrate: Server Migration**.
-
-![Screenshot that shows the Replicating servers option.](./media/tutorial-migrate-physical-virtual-machines/replicating-servers.png)
+You can monitor replication status by selecting **Replicating servers** in **Migration and modernization**.
 
 ## Run a test migration
 
@@ -294,8 +289,6 @@ When delta replication begins, you can run a test migration for the VMs before y
 To do a test migration:
 
 1. In **Migration goals**, select **Servers, databases, and web apps** > **Migration and modernization** > **Test migrated servers**.
-
-     ![Screenshot that shows Test migrated servers.](./media/tutorial-migrate-physical-virtual-machines/test-migrated-servers.png)
 
 1. Right-click the VM you want to test and select **Test migrate**.
 
@@ -318,9 +311,6 @@ To do a test migration:
 After you verify that the test migration works as expected, you can migrate the AWS VMs.
 
 1. In the Azure Migrate project, select **Servers, databases, and web apps** > **Migration and modernization** > **Replicating servers**.
-
-    ![Screenshot that shows Replicating servers.](./media/tutorial-migrate-physical-virtual-machines/replicate-servers.png)
-
 1. In **Replicating machines**, right-click the VM and select **Migrate**.
 1. In **Migrate** > **Shut down virtual machines and perform a planned migration with no data loss**, select **Yes** > **OK**.
 

@@ -17,7 +17,7 @@ ms.collection: usx-security
 
 # Build queries or detection rules with watchlists in Microsoft Sentinel
 
-Query data in any table against data from a watchlist by treating the watchlist as a table for joins and lookups. When you create a watchlist, you define the *SearchKey*. The search key is the name of a column in your watchlist that you expect to use as a join with other data or as a frequent object of searches.
+Correlate your watchlist data against any Microsoft Sentinel data with Kusto tabular operators such as `join` and `lookup`. When you create a watchlist, you define the *SearchKey*. The search key is the name of a column in your watchlist that you expect to use as a join with other data or as a frequent object of searches.
 
 For optimal query performance, use **SearchKey** as the key for joins in your queries.
 
