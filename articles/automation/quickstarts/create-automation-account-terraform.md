@@ -23,7 +23,7 @@ In this article, you learn how to:
 > [!div class="checklist"]
 > * Create an Azure resource group with a unique name.
 > * Generate a random string for unique naming of the Azure resources.
-> * Create an Automation account and enable public network access.
+> * Create an Automation account, and enable public network access.
 > * Retrieve the current Azure subscription.
 > * Retrieve the role definition for "Reader".
 > * Assign the "Reader" role to the Automation account.
