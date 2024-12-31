@@ -2,7 +2,7 @@
 title: Back up Azure File shares in the Azure portal
 description: Learn how to use the Azure portal to back up Azure File shares in the Recovery Services vault
 ms.topic: how-to
-ms.date: 12/20/2024
+ms.date: 12/31/2024
 ms.service: azure-backup
 ms.custom: engagement-fy23
 author: AbhishekMallick-MS
@@ -232,7 +232,7 @@ To run an on-demand backup, follow these steps:
 
 * Don't delete snapshots created by Azure Backup. Deleting snapshots can result in loss of recovery points and/or restore failures.
 
-* Don't remove the lock taken on the storage account by Azure Backup. Deletion of the lock can make your storage account prone to accidental deletion.
+* Don't remove the lock taken on the storage account by Azure Backup. Deletion of the lock can make your storage account prone to accidental deletion. Learn more [about protect your resources with lock](/azure/azure-resource-manager/management/lock-resources).
 
 ## Next steps
 
