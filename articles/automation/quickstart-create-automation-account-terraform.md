@@ -1,20 +1,20 @@
 ---
 title: 'Quickstart: Use Terraform to create an Azure Automation account'
-description: In this quickstart, you use Terraform to create an Azure resource group, an Azure Automation account with a system-assigned identity, and assign a "Contributor" role to the Automation account.
+description: In this quickstart, you use Terraform to create an Azure resource group, create an Azure Automation account with a system-assigned identity, and assign a "Reader" role to the Automation account.
 ms.topic: quickstart
-ms.date: 12/17/2024
+ms.date: 01/02/2025
 ms.custom: devx-track-terraform
 ms.service: azure-automation
 author: SnehaSudhirG
 ms.author: sudhirsneha
-#customer intent: As a Terraform user, I want to see how to create an Azure Automation account with a system-assigned identity and assign a "Contributor" role to the account.
+#customer intent: As a Terraform user, I want to see how to create an Azure resource group, create an Azure Automation account with a system-assigned identity, and assign a "Reader" role to the account.
 content_well_notification: 
   - AI-contribution
 ---
 
 # Quickstart: Use Terraform to create an Azure Automation account
 
-In this quickstart, you create an Azure Automation account and use Terraform to assign a "Contributor" role to the account. An Automation account is a cloud-based service that provides a secure environment for running runbooks, which are scripts that automate processes. The account can automate frequent, time-consuming, and error-prone tasks that are managed in the cloud. This Automation account is created within an Azure resource group, which is a container that holds related resources for an Azure solution. Additionally, a "Contributor" role is assigned to the Automation account, which grants specific permissions within the scope of the subscription.
+In this quickstart, you create an Azure Automation account and use Terraform to assign a "Reader" role to the account. An Automation account is a cloud-based service that provides a secure environment for running runbooks, which are scripts that automate processes. The account can automate frequent, time-consuming, and error-prone tasks that are managed in the cloud. This Automation account is created within an Azure resource group, which is a container that holds related resources for an Azure solution. Additionally, a "Reader" role is assigned to the Automation account, which grants the subscription permission to view all the resources in an Automation account but not make any changes.
 
 [!INCLUDE [About Terraform](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
 
@@ -25,8 +25,8 @@ In this article, you learn how to:
 > * Generate a random string for unique naming of the Azure resources.
 > * Create an Automation account and enable public network access.
 > * Retrieve the current Azure subscription.
-> * Retrieve the role definition for "Contributor".
-> * Assign the "Contributor" role to the Automation account.
+> * Retrieve the role definition for "Reader".
+> * Assign the "Reader" role to the Automation account.
 > * Output the names of the created resource group and Automation account.
 
 ## Prerequisites
@@ -122,5 +122,8 @@ In this article, you learn how to:
 
 ## Next steps
 
+In this Quickstart, you created an Automation account. To learn more:
+
 > [!div class="nextstepaction"]
-> [See more articles about Automation accounts.](/search/?terms=Azure%20automation%20account%20and%20terraform)
+> Continue to this [Tutorial: Create Automation PowerShell runbook using managed identity](../learn/powershell-runbook-managed-identity.md) to use managed identities with your Automation account.
+> [Explore more articles about Automation accounts](/search/?terms=Azure%20automation%20account%20and%20terraform).
