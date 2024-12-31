@@ -16,7 +16,7 @@ Learn more about [virtual network flow logs](../network-watcher/vnet-flow-logs-o
 
 ## Enable virtual network flow logs
 
-Currently, you need to enable virtual network flow logs on each virtual network you want to monitor. You can enable virtual network flow logs on a virtual network by using the [Azure portal](../network-watcher/vnet-flow-logs-portal.md), [PowerShell](../network-watcher/vnet-flow-logs-powershell.md), or the [Azure CLI](../network-watcher/vnet-flow-logs-cli.md).
+Currently, you need to enable virtual network flow logs on each virtual network you want to monitor. You can enable virtual network flow logs on a virtual network by using the [Azure portal](../network-watcher/vnet-flow-logs-portal.md), [PowerShell](../network-watcher/vnet-flow-logs-powershell.md), or the [Azure CLI](../network-watcher/vnet-flow-logs-cli.md) guide.
 
 Here's an example of a flow log:
 
@@ -26,36 +26,36 @@ Here's an example of a flow log:
         {
             "time": "2022-09-14T09:00:52.5625085Z",
             "flowLogVersion": 4,
-            "flowLogGUID": "a1b2c3d4-e5f6-g7h8-i9j0-k1l2m3n4o5p6",
-            "macAddress": "00224871C205",
+            "flowLogGUID": "66aa66aa-bb77-cc88-dd99-00ee00ee00ee",
+            "macAddress": "112233445566",
             "category": "FlowLogFlowEvent",
-            "flowLogResourceID": "/SUBSCRIPTIONS/1a2b3c4d-5e6f-7g8h-9i0j-1k2l3m4n5o6p7/RESOURCEGROUPS/NETWORKWATCHERRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKWATCHERS/NETWORKWATCHER_EASTUS2EUAP/FLOWLOGS/VNETFLOWLOG",
-            "targetResourceID": "/subscriptions/1a2b3c4d-5e6f-7g8h-9i0j-1k2l3m4n5o6p7/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVNet01",
+            "flowLogResourceID": "/SUBSCRIPTIONS/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/RESOURCEGROUPS/NETWORKWATCHERRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKWATCHERS/NETWORKWATCHER_EASTUS2EUAP/FLOWLOGS/VNETFLOWLOG",
+            "targetResourceID": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVNet",
             "operationName": "FlowLogFlowEvent",
             "flowRecords": {
                 "flows": [
                     {
-                        "aclID": "9a8b7c6d-5e4f-3g2h-1i0j-9k8l7m6n5o4p3",
+                        "aclID": "00aa00aa-bb11-cc22-dd33-44ee44ee44ee",
                         "flowGroups": [
                             {
                                 "rule": "DefaultRule_AllowInternetOutBound",
                                 "flowTuples": [
-                                    "1663146003599,10.0.0.6,52.239.184.180,23956,443,6,O,B,NX,0,0,0,0",
-                                   "1663146003606,10.0.0.6,52.239.184.180,23956,443,6,O,E,NX,3,767,2,1580",
-                                    "1663146003637,10.0.0.6,40.74.146.17,22730,443,6,O,B,NX,0,0,0,0",
-                                    "1663146003640,10.0.0.6,40.74.146.17,22730,443,6,O,E,NX,3,705,4,4569",
-                                    "1663146004251,10.0.0.6,40.74.146.17,22732,443,6,O,B,NX,0,0,0,0",
-                                    "1663146004251,10.0.0.6,40.74.146.17,22732,443,6,O,E,NX,3,705,4,4569",
-                                    "1663146004622,10.0.0.6,40.74.146.17,22734,443,6,O,B,NX,0,0,0,0",
-                                    "1663146004622,10.0.0.6,40.74.146.17,22734,443,6,O,E,NX,2,134,1,108",
-                                    "1663146017343,10.0.0.6,104.16.218.84,36776,443,6,O,B,NX,0,0,0,0",
-                                    "1663146022793,10.0.0.6,104.16.218.84,36776,443,6,O,E,NX,22,2217,33,32466"
+                                    "1663146003599,10.0.0.6,192.0.2.180,23956,443,6,O,B,NX,0,0,0,0",
+                                    "1663146003606,10.0.0.6,192.0.2.180,23956,443,6,O,E,NX,3,767,2,1580",
+                                    "1663146003637,10.0.0.6,203.0.113.17,22730,443,6,O,B,NX,0,0,0,0",
+                                    "1663146003640,10.0.0.6,203.0.113.17,22730,443,6,O,E,NX,3,705,4,4569",
+                                    "1663146004251,10.0.0.6,203.0.113.17,22732,443,6,O,B,NX,0,0,0,0",
+                                    "1663146004251,10.0.0.6,203.0.113.17,22732,443,6,O,E,NX,3,705,4,4569",
+                                    "1663146004622,10.0.0.6,203.0.113.17,22734,443,6,O,B,NX,0,0,0,0",
+                                    "1663146004622,10.0.0.6,203.0.113.17,22734,443,6,O,E,NX,2,134,1,108",
+                                    "1663146017343,10.0.0.6,198.51.100.84,36776,443,6,O,B,NX,0,0,0,0",
+                                    "1663146022793,10.0.0.6,198.51.100.84,36776,443,6,O,E,NX,22,2217,33,32466"
                                 ]
                             }
                         ]
                     },
                     {
-                        "aclID": "b1c2d3e4-f5g6-h7i8-j9k0-l1m2n3o4p5q6",
+                        "aclID": "00aa00aa-bb11-cc22-dd33-44ee44ee44ee",
                         "flowGroups": [
                             {
                                 "rule": "BlockHighRiskTCPPortsFromInternet",
@@ -67,13 +67,13 @@ Here's an example of a flow log:
                             {
                                 "rule": "Internet",
                                 "flowTuples": [
-                                    "1663145989563,20.106.221.10,10.0.0.6,50557,44357,6,I,D,NX,0,0,0,0",
-                                    "1663145989679,20.55.117.81,10.0.0.6,62797,35945,6,I,D,NX,0,0,0,0",
-                                    "1663145989709,20.55.113.5,10.0.0.6,51961,65515,6,I,D,NX,0,0,0,0",
-                                    "1663145990049,13.65.224.51,10.0.0.6,40497,40129,6,I,D,NX,0,0,0,0",
-                                    "1663145990145,20.55.117.81,10.0.0.6,62797,30472,6,I,D,NX,0,0,0,0",
-                                    "1663145990175,20.55.113.5,10.0.0.6,51961,28184,6,I,D,NX,0,0,0,0",
-                                    "1663146015545,20.106.221.10,10.0.0.6,50557,31244,6,I,D,NX,0,0,0,0"
+                                    "1663145989563,192.0.2.10,10.0.0.6,50557,44357,6,I,D,NX,0,0,0,0",
+                                    "1663145989679,203.0.113.81,10.0.0.6,62797,35945,6,I,D,NX,0,0,0,0",
+                                    "1663145989709,203.0.113.5,10.0.0.6,51961,65515,6,I,D,NX,0,0,0,0",
+                                    "1663145990049,198.51.100.51,10.0.0.6,40497,40129,6,I,D,NX,0,0,0,0",
+                                    "1663145990145,203.0.113.81,10.0.0.6,62797,30472,6,I,D,NX,0,0,0,0",
+                                    "1663145990175,203.0.113.5,10.0.0.6,51961,28184,6,I,D,NX,0,0,0,0",
+                                    "1663146015545,192.0.2.10,10.0.0.6,50557,31244,6,I,D,NX,0,0,0,0"
                                 ]
                             }
                         ]
@@ -86,7 +86,7 @@ Here's an example of a flow log:
 
 ```
 
-## Next steps
+## Related content
 
 - Learn more about [virtual network flow logs](../network-watcher/vnet-flow-logs-overview.md) and how to use them.
 - Learn more about [Event log options for Azure Virtual Network Manager](concept-event-logs.md).
