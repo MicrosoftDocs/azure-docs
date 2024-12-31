@@ -52,6 +52,8 @@ The following table describes resource limits for Azure NetApp Files:
 
 \* [!INCLUDE [Limitations for capacity pool minimum of 1 TiB](includes/2-tib-capacity-pool.md)]
 
+
+
 \** 2-PiB [large volume](large-volumes-requirements-considerations.md) large volumes are available on request depending on regional dedicated capacity availability. To request 2-PiB large volumes, contact your account team. 
 
 For more information, see [Capacity management FAQs](faq-capacity-management.md).
