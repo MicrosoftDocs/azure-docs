@@ -31,7 +31,7 @@ Assessments you create with Azure Migrate are a point-in-time snapshot of data. 
 **Azure VMware Solution (AVS)** | Assessments to migrate your on-premises vSphere servers to [Azure VMware Solution](../azure-vmware/introduction.md). You can assess your on-premises [VMware vSphere VMs](how-to-set-up-appliance-vmware.md) for migration to Azure VMware Solution using this assessment type. [Learn more](concepts-azure-vmware-solution-assessment-calculation.md)
 
 > [!NOTE]
-> If the number of Azure VM or Azure VMware Solution assessments are incorrect on the Discovery and assessment tool, click on the total number of assessments to navigate to all the assessments and recalculate the Azure VM or Azure VMware Solution assessments. The Discovery and assessment tool will then show the correct count for that assessment type. 
+> If the number of Azure VM or Azure VMware Solution assessments are incorrect on the Discovery and assessment tool, select the total number of assessments to navigate to all the assessments and recalculate the Azure VM or Azure VMware Solution assessments. The Discovery and assessment tool will then show the correct count for that assessment type. 
 
 Azure VMware Solution assessment provides two sizing criteria options:
 

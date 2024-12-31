@@ -5,10 +5,10 @@ description: In this article, you learn how to use the Private Endpoint feature 
 services: private-link
 author: abell
 ms.service: azure-private-link
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 11/05/2024
 ms.author: abell
-ms.custom: references_regions, template-concept, ignite-2024
+ms.custom: references_regions, ignite-2024
 #Customer intent: As someone who has a basic network background but is new to Azure, I want to understand the capabilities of private endpoints so that I can securely connect to my Azure PaaS services within the virtual network.
 ---
 
