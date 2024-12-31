@@ -76,4 +76,6 @@ For instructions, see: aka.ms/pulumi-custom.
 
 ## Related content 
 
- 
+- [Configure ARM or Bicep container image](/azure/deployment-environments/how-to-configure-extensibility-model-custom-image?tabs=sample%2Cprivate-registry&pivots=arm-bicep)
+- [Configure Terraform container image](/azure/deployment-environments/how-to-configure-extensibility-model-custom-image?tabs=custom%2Cprivate-registry&pivots=terraform)
+- [Configure Pulumi container image](/azure/deployment-environments/how-to-configure-extensibility-model-custom-image?tabs=sample%2Cprivate-registry&pivots=pulumi)
