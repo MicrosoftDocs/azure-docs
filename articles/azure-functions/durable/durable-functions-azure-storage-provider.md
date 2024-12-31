@@ -106,7 +106,7 @@ The extra compression and blob operation steps for large messages can be expensi
 
 The queues, tables, and blobs used by Durable Functions are created in a configured Azure Storage account. The account to use can be specified using the `durableTask/storageProvider/connectionStringName` setting (or `durableTask/azureStorageConnectionStringName` setting in Durable Functions 1.x) in the **host.json** file.
 
-#### Durable Functions 2.x
+#### [Durable 2.x](#tab/durable-2x)
 
 ```json
 {
@@ -120,7 +120,7 @@ The queues, tables, and blobs used by Durable Functions are created in a configu
 }
 ```
 
-#### Durable Functions 1.x
+#### [Durable 1.x](#tab/durable-1x)
 
 ```json
 {
@@ -131,11 +131,15 @@ The queues, tables, and blobs used by Durable Functions are created in a configu
   }
 }
 ```
+---
 
-If not specified, the default `AzureWebJobsStorage` storage account is used. For performance-sensitive workloads, however, configuring a non-default storage account is recommended. Durable Functions uses Azure Storage heavily, and using a dedicated storage account isolates Durable Functions storage usage from the internal usage by the Azure Functions host.
+Keep in mind these considerations when choosing the storage account used by your Durable function app: 
 
-> [!NOTE]
-> Standard general purpose Azure Storage accounts are required when using the Azure Storage provider. All other storage account types are not supported. We highly recommend using legacy v1 general purpose storage accounts for Durable Functions. The newer v2 storage accounts can be significantly more expensive for Durable Functions workloads. For more information on Azure Storage account types, see the [Storage account overview](../../storage/common/storage-account-overview.md) documentation.
++ When not specified, the default `AzureWebJobsStorage` storage account is used. 
++ When possible, you should use Microsoft Entra authentication with managed identities to secure your storage account connection. For more information, see [Connections](../functions-reference.md#connections).
++ For performance-sensitive workloads, you should configure a storage account other than the default account (`AzureWebJobsStorage`). Durable Functions uses Azure Storage heavily, and using a dedicated storage account isolates Durable Functions storage usage from the internal usage by the Azure Functions host.
++ Standard general purpose Azure Storage accounts are required when using the Azure Storage provider. All other storage account types aren't currently supported. 
++ We highly recommend using legacy v1 general purpose storage accounts for Durable Functions. The newer v2 storage accounts can be significantly more expensive for Durable Functions workloads. For more information on Azure Storage account types, see the [Storage account overview](../../storage/common/storage-account-overview.md) documentation.
 
 ### Orchestrator scale-out
 
@@ -146,7 +150,7 @@ While activity functions can be scaled out infinitely by adding more VMs elastic
 
 The number of control queues is defined in the **host.json** file. The following example host.json snippet sets the `durableTask/storageProvider/partitionCount` property (or `durableTask/partitionCount` in Durable Functions 1.x) to `3`. Note that there are as many control queues as there are partitions.
 
-#### Durable Functions 2.x
+#### [Durable 2.x](#tab/durable-2x)
 
 ```json
 {
@@ -160,7 +164,7 @@ The number of control queues is defined in the **host.json** file. The following
 }
 ```
 
-#### Durable Functions 1.x
+#### [Durable 1.x](#tab/durable-1x)
 
 ```json
 {
@@ -171,6 +175,7 @@ The number of control queues is defined in the **host.json** file. The following
   }
 }
 ```
+---
 
 A task hub can be configured with between 1 and 16 partitions. If not specified, the default partition count is **4**.
 
@@ -211,7 +216,7 @@ Extended sessions is a [caching mechanism](durable-functions-perf-and-scale.md#i
 
 You can enable extended sessions by setting `durableTask/extendedSessionsEnabled` to `true` in the **host.json** file. The `durableTask/extendedSessionIdleTimeoutInSeconds` setting can be used to control how long an idle session will be held in memory:
 
-**Functions 2.0**
+### [Functions 2.x](#tab/functions-2x)
 ```json
 {
   "extensions": {

@@ -32,6 +32,9 @@ To learn more about deployments to Azure Container Apps, see [Azure Container Ap
 > [Working with containers and Azure Functions](functions-how-to-custom-container.md?pivots=azure-arc)
 ::: zone-end
 
+>[!IMPORTANT]
+>This article currently shows how to connect to the default storage account by using a connection string. For the best security, you should instead create a managed identity-based connection to Azure Storage using Microsoft Entra authentication. For more information, see the [Functions developer guide](./functions-reference.md#connections).
+
 ## Creating containerized function apps
 
 Functions makes it easy to deploy and run your function apps as Linux containers, which you create and maintain. Functions maintains a set of [language-specific base images](https://mcr.microsoft.com/catalog?search=functions) that you can use when creating containerized function apps.

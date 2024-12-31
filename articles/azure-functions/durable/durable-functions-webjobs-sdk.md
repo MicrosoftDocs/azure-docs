@@ -20,7 +20,7 @@ The chaining Durable Functions sample is available in a WebJobs SDK 2.x version:
 
 ## Prerequisites
 
-This article assumes you're familiar with the basics of the WebJobs SDK, C# class library development for Azure Functions, and Durable Functions. If you need an introduction to these topics, see the following resources:
+This article assumes you're familiar with the basics of the WebJobs SDK, C# class library development for Azure Functions, and Durable Functions. If you need an introduction to these concepts, see the following resources:
 
 * [Get started with the WebJobs SDK](../../app-service/webjobs-sdk-get-started.md)
 * [Create your first function using Visual Studio](../functions-create-your-first-function-visual-studio.md)
@@ -132,7 +132,7 @@ In a WebJobs SDK project, the method name of a function is the function name. Th
 
 ### HTTP trigger
 
-The WebJobs SDK does not have an HTTP trigger. The sample project's orchestration client uses a timer trigger:
+The WebJobs SDK doesn't have an HTTP trigger. The sample project's orchestration client uses a timer trigger:
 
 ```cs
 public static async Task CronJob(
@@ -199,7 +199,7 @@ This section provides an overview of how to run the [sample project](https://git
 
 1. Create a web app and a storage account.
 
-1. In the web app, save the storage connection string in an app setting named `AzureWebJobsStorage`.
+1. In the web app, save the storage connection information in an app setting named `AzureWebJobsStorage`. For the highest level of security, you should use a [managed identity connection](../../app-service/overview-managed-identity.md) to your storage account.
 
 1. Create an Application Insights resource, and use the **General** app type for it.
 
@@ -229,6 +229,9 @@ The main change introduced is the use of .NET Core instead of .NET Framework. To
             "APPINSIGHTS_INSTRUMENTATIONKEY": "<replace with Application Insights instrumentation key>"
         }
     ```
+
+    >[!IMPORTANT]  
+    >For the highest level of security, you should use a managed identity connection to your storage account. For more information, see [How to use managed identities for App Service and Azure Functions](../../app-service/overview-managed-identity.md).
 
 1. Change the `Main` method code to do this. Here's an example:
 

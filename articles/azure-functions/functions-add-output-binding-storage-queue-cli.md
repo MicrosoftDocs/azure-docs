@@ -1,7 +1,7 @@
 ---
 title: Connect Azure Functions to Azure Storage using command line tools
 description: Learn how to connect Azure Functions to an Azure Storage queue by adding an output binding to your command line project.
-ms.date: 04/25/2024
+ms.date: 12/29/2024
 ms.topic: quickstart
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, powershell, python, typescript
@@ -34,7 +34,23 @@ Before you begin, you must complete the article, [Quickstart: Create an Azure Fu
 Before you begin, you must complete the article, [Quickstart: Create an Azure Functions project from the command line](create-first-function-cli-powershell.md). If you already cleaned up resources at the end of that article, go through the steps again to recreate the function app and related resources in Azure.  
 ::: zone-end   
 
-[!INCLUDE [functions-cli-get-storage-connection](../../includes/functions-cli-get-storage-connection.md)]
+### Retrieve the Azure Storage connection string
+
+>[!IMPORTANT]
+>This article currently shows how to connect to your Azure Storage account by using the connection string, which contains a shared secret key. Using a connection string makes it easier for you to verify data updates in the storage account. For the best security, you should instead use managed identities when connecting to your storage account. For more information, see [Connections](./functions-reference.md#connections) in the Developer Guide.
+
+Earlier, you created an Azure Storage account for function app's use. The connection string for this account is stored securely in app settings in Azure. By downloading the setting into the *local.settings.json* file, you can use the connection to write to a Storage queue in the same account when running the function locally.
+
+1. From the root of the project, run the following command, replace `<APP_NAME>` with the name of your function app from the previous step. This command overwrites any existing values in the file.
+
+    ```
+    func azure functionapp fetch-app-settings <APP_NAME>
+    ```
+
+1. Open *local.settings.json* file and locate the value named `AzureWebJobsStorage`, which is the Storage account connection string. You use the name `AzureWebJobsStorage` and the connection string in other sections of this article.
+
+> [!IMPORTANT]
+> Because the *local.settings.json* file contains secrets downloaded from Azure, always exclude this file from source control. The *.gitignore* file created with a local functions project excludes the file by default.
 
 ::: zone pivot="programming-language-csharp"  
 ## Register binding extensions
