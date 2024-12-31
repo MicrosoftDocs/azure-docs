@@ -14,7 +14,7 @@ content_well_notification:
 
 # Quickstart: Use Terraform to create an Azure Automation account
 
-In this quickstart, you create an Azure Automation account and use Terraform to assign a "Reader" role to the account. An Automation account is a cloud-based service that provides a secure environment for running runbooks, which are scripts that automate processes. The account can automate frequent, time-consuming, and error-prone tasks that are managed in the cloud. This Automation account is created within an Azure resource group, which is a container that holds related resources for an Azure solution. Additionally, a "Reader" role is assigned to the Automation account, which grants the subscription permission to view all the resources in an Automation account but not make any changes.
+In this quickstart, you create an Azure Automation account and use Terraform to assign a "Reader" role to the account. An Automation account is a cloud-based service that provides a secure environment for running runbooks, which are scripts that automate processes. The account can automate frequent, time-consuming, and error-prone tasks that are managed in the cloud. This Automation account is created within an Azure resource group, which is a container that holds related resources for an Azure solution. Additionally, a "Reader" role is assigned to the Automation account, granting the subscription permission to view all the resources in an Automation account but not make any changes.
 
 [!INCLUDE [About Terraform](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
 
