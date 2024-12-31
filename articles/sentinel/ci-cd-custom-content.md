@@ -6,7 +6,7 @@ author: austinmccollum
 ms.author: austinmc
 ms.service: microsoft-sentinel
 ms.topic: conceptual
-ms.date: 8/24/2022
+ms.date: 12/31/2024
 ms.custom: template-concept
 
 
@@ -24,12 +24,33 @@ The Microsoft Sentinel repositories feature provides a central experience for th
 
 ## Plan your repository connection
 
-Microsoft Sentinel repositories require careful planning to ensure you have the proper permissions from your workspace to the repository (repo) you want connected. Only connections to GitHub and Azure DevOps repositories with contributor access are currently supported. The Microsoft Sentinel application will need authorization to your repo and have Actions enabled for GitHub and Pipelines enabled for Azure DevOps. 
+Microsoft Sentinel repositories require careful planning to ensure you have the proper permissions from your workspace to the repository (repo) you want connected. 
 
-Repositories require an **Owner** role in the resource group that contains your Microsoft Sentinel workspace. This role is required to create the connection between Microsoft Sentinel and your source control repository. If you're' unable to use the Owner role in your environment, you can instead use the combination of **User Access Administrator** and **Sentinel Contributor** roles to create the connection.
+- Only connections to GitHub and Azure DevOps repositories are supported.
+- Contributor access to the repository is required. 
+- The Microsoft Sentinel application needs authorization to your repo.
+- Actions must be enabled for GitHub.
+- Pipelines must be enabled for Azure DevOps. 
 
-If you find content in a public repository where you *aren't* a contributor, you'll need to get that content into your repo first. You can do that with an import, fork, or clone of the content to a repo where you're a contributor. Then you can connect your repo to your Sentinel workspace. For more information, see [Deploy custom content from your repository](ci-cd.md).
+Repositories require an **Owner** role in the resource group that contains your Microsoft Sentinel workspace. This role is required to create the connection between Microsoft Sentinel and your source control repository. If you're unable to use the Owner role in your environment, use the combination of **User Access Administrator** and **Sentinel Contributor** roles to create the connection.
 
+If you find content in a public repository where you aren't a contributor, first import, fork, or clone the content to a repo where you are a contributor. Then connect your repo to your Microsoft Sentinel workspace. For more information, see [Deploy custom content from your repository](ci-cd.md).
+
+## Plan your repository content
+
+Repository content must be stored as [Bicep files](../azure-resource-manager/bicep/file.md) or [Azure Resource Manager (ARM) templates](../azure-resource-manager/templates/overview.md). Bicep is more intuitive and makes it easier to describe Azure resources and Microsoft Sentinel content. Deploy Bicep files alongside of or instead of ARM JSON templates.
+
+| Repository | supported formats |
+|---|---|
+| GitHub | [Bicep files](../azure-resource-manager/bicep/file.md)<br>[ARM templates](../azure-resource-manager/templates/overview.md) |
+| Azure DevOps | [Bicep files](../azure-resource-manager/bicep/file.md)<br>[ARM templates](../azure-resource-manager/templates/overview.md) |
+
+Even if your original content is an ARM template, consider converting to Bicep to make the review and update processes less complex. For more information on converting ARM templates, see [Decompiling ARM template JSON to Bicep](../azure-resource-manager/bicep/decompile.md).
+
+> [!NOTE]
+> Known Bicep limitations:
+> - Bicep templates do not support the `id` property. When decompiling ARM JSON to Bicep, make sure you don't have this property. For example, analytic rule templates exported from Microsoft Sentinel have the `id` property that needs removal.
+> - Change the ARM JSON schema to version `2019-04-01` for best results when decompiling.
 
 ### Validate your content
 
@@ -45,9 +66,7 @@ The following Microsoft Sentinel content types can be deployed through a reposit
 > This article does *not* describe how to create these types of content from scratch. For more information, see the relevant [Microsoft Sentinel GitHub wiki](https://github.com/Azure/Azure-Sentinel/wiki#get-started) for each content type.
 >
 
-Repositories content needs to be stored as [ARM templates](../azure-resource-manager/templates/overview.md). The repositories deployment doesn't validate the content except to confirm it's in the correct JSON format.
-
-The first step to validate your content is to test it within Microsoft Sentinel. You can also apply the [Microsoft Sentinel GitHub validation process](https://github.com/Azure/Azure-Sentinel/wiki#test-your-contribution) and tools to complement your validation process.
+The repositories deployment doesn't validate the content except to confirm it's in the correct JSON or Bicep format. The first step to validate your content is to test it within Microsoft Sentinel. Another option is to apply the [Microsoft Sentinel GitHub validation process](https://github.com/Azure/Azure-Sentinel/wiki#test-your-contribution) and tools to complement your validation process.
 
 A sample repository is available with ARM templates for each of the content types listed above. The repo also demonstrates how to use advanced features of repository connections. For more information, see [Sentinel CICD repositories sample](https://github.com/SentinelCICD/RepositoriesSampleContent). 
 
@@ -58,9 +77,7 @@ A sample repository is available with ARM templates for each of the content type
 ### Maximum connections and deployments
 
 - Each Microsoft Sentinel workspace is currently limited to **five repository connections**.
-
 - Each Azure resource group is limited to **800 deployments** in its deployment history. If you have a high volume of ARM template deployments in your resource group(s), you may see the `Deployment QuotaExceeded` error. For more information, see [DeploymentQuotaExceeded](/azure/azure-resource-manager/templates/deployment-quota-exceeded) in the Azure Resource Manager templates documentation.
-
 
 
 ## Improve performance with smart deployments
@@ -71,7 +88,7 @@ A sample repository is available with ARM templates for each of the content type
 
 The **smart deployments** feature is a back-end capability that improves performance by actively tracking modifications made to the content files of a connected repository. It uses a CSV file within the '.sentinel' folder in your repository to audit each commit. The workflow avoids redeploying content that hasn't been modified since the last deployment. This process improves your deployment performance and prevents tampering with unchanged content in your workspace, such as resetting dynamic schedules of your analytics rules.
 
-Smart deployments are enabled by default on newly created connections. If you prefer all source control content to be deployed every time a deployment is triggered, regardless of whether that content was modified or not, you can modify your workflow to disable smart deployments. For more information, see [Customize the workflow or pipeline](ci-cd-custom-deploy.md#customize-the-workflow-or-pipeline). 
+Smart deployments are enabled by default on newly created connections. If you prefer all source control content to be deployed every time a deployment is triggered, regardless of whether that content was modified or not, modify your workflow to disable smart deployments. For more information, see [Customize the workflow or pipeline](ci-cd-custom-deploy.md#customize-the-workflow-or-pipeline). 
 
 ## Consider deployment customization options
 
