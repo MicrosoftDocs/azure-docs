@@ -261,9 +261,43 @@ You can take one of the following approaches to use container images with ADE:
 Use the [published repository](https://github.com/Azure/ade-extensibility-model-terraform/blob/main/README.md#azure-deployment-environments---leveraging-ades-extensibility-model-with-terraform) to take advantage of the GitHub workflow. The repository contains ADE-compatible sample image components, including a Dockerfile and shell scripts for deploying and deleting environments using Terraform IaC templates. This sample code helps you create your own container image. 
 The published GitHub Action helps to build and push an image to an Azure Container Registry (ACR). You can reference a provided ACR image link within an environment definition in ADE to deploy or delete an environment with the provided image.
 
+To create an image configured for ADE, follow these steps:
+1. Create a custom image based on a sample image.
+1. Install desired packages.
+1. Configure operation shell scripts.
+1. Create operation shell scripts that use the Terraform CLI. 
+
+**1. Create a custom image based on a sample image**
+
+Create a DockerFile that includes a FROM statement pointing to a sample image hosted on Microsoft Artifact Registry. 
+
+Here's an example FROM statement, referencing the sample core image:
+
+```docker
+FROM mcr.microsoft.com/deployment-environments/runners/core:latest
+```
+
+This statement pulls the most recently published core image, and makes it a basis for your custom image.
+
+**2. Install required packages**
+In this step, you install any packages you require in your image, including Terraform. You can install the Terraform CLI to an executable location so that it can be used in your deployment and deletion scripts. 
+
+Here's an example of that process, installing version 1.7.5 of the Terraform CLI:
+
+```azure cli
+RUN wget -O terraform.zip https://releases.hashicorp.com/terraform/1.7.5/terraform_1.7.5_linux_amd64.zip
+RUN unzip terraform.zip && rm terraform.zip
+RUN mv terraform /usr/bin/terraform
+```
+
+> [!Tip]
+> You can get the download URL for your preferred version of the Terraform CLI from [Hashicorp releases](https://aka.ms/deployment-environments/terraform-cli-zip).
 ::: zone-end
 
+
 ::: zone pivot="pulumi"
+### [Use a sample container image](#tab/sample/)
+
 ### Use a sample container image provided by Pulumi
 
 The Pulumi team provides a prebuilt image to get you started, which you can see in the [Runner-Image](https://github.com/pulumi/azure-deployment-environments/tree/main/Runner-Image) folder. This image is publicly available at Pulumi's Docker Hub as [`pulumi/azure-deployment-environments`](https://hub.docker.com/repository/docker/pulumi/azure-deployment-environments), so you can use it directly from your ADE environment definitions.
@@ -280,36 +314,15 @@ templatePath: Pulumi.yaml
 ```
 
 You can find a few sample environment definitions in the [Environments folder](https://github.com/pulumi/azure-deployment-environments/tree/main/Environments).
-::: zone-end
 
 ### [Create a custom image](#tab/custom/)
 
 ### Create a custom image
 
-Creating a custom container image allows you to customize your deployments to fit your requirements. You can create custom images based on the ADE sample images.
+Creating a custom container image allows you to customize your deployments to fit your requirements. You can create custom images based on the Pulumi sample images.
 
 After you complete the image customization, you must build the image and push it to your container registry.
 
-
-::: zone pivot="terraform"
-Alternatively, you can fork the repo [Leveraging ADE's Extensibility Model With Terraform](https://github.com/Azure/ade-extensibility-model-terraform) to build and push the Terraform image to a provided ACR.
-::: zone-end
-
-You build custom images by using the ADE sample images as a base with ADE CLI, which is preinstalled on the sample images. To learn more about the ADE CLI, see the [CLI Custom Runner Image reference](https://aka.ms/deployment-environments/ade-cli-reference).
-
-In this example, you learn how to build a Docker image to utilize ADE deployments and access the ADE CLI, basing your image off of one of the ADE authored images.
-
-
-
-::: zone pivot="terraform"
-To create an image configured for ADE, follow these steps:
-1. Create a custom image based on a sample image.
-1. Install desired packages.
-1. Configure operation shell scripts.
-1. Create operation shell scripts that use the Terraform CLI. 
-::: zone-end
-
-::: zone pivot="pulumi"
 To create an image configured for ADE, follow these steps:
 1. Create a custom image based on a sample image.
 1. Install desired packages.
@@ -331,23 +344,6 @@ This statement pulls the most recently published core image, and makes it a basi
 
 **2. Install required packages**
 
-
-::: zone pivot="terraform"
-In this step, you install any packages you require in your image, including Terraform. You can install the Terraform CLI to an executable location so that it can be used in your deployment and deletion scripts. 
-
-Here's an example of that process, installing version 1.7.5 of the Terraform CLI:
-
-```azure cli
-RUN wget -O terraform.zip https://releases.hashicorp.com/terraform/1.7.5/terraform_1.7.5_linux_amd64.zip
-RUN unzip terraform.zip && rm terraform.zip
-RUN mv terraform /usr/bin/terraform
-```
-
-> [!Tip]
-> You can get the download URL for your preferred version of the Terraform CLI from [Hashicorp releases](https://aka.ms/deployment-environments/terraform-cli-zip).
-::: zone-end
-
-::: zone pivot="pulumi"
 You can install the Pulumi CLI to an executable location so that it can be used in your deployment and deletion scripts. 
 
 Here's an example of that process, installing the latest version of the Pulumi CLI:
@@ -367,7 +363,7 @@ Here's an example of installing Node.js and TypeScript:
 RUN apk add nodejs npm
 RUN npm install typescript -g
 ```
-::: zone-end
+
 
 The ADE sample images are based on the Azure CLI image, and have the ADE CLI and JQ packages preinstalled. You can learn more about the [Azure CLI](/cli/azure/), and the [JQ package](https://devdocs.io/jq/).
 
@@ -386,7 +382,7 @@ COPY scripts/* /scripts/
 RUN find /scripts/ -type f -iname "*.sh" -exec dos2unix '{}' '+'
 RUN find /scripts/ -type f -iname "*.sh" -exec chmod +x {} \;
 ```
-
+::: zone-end
 
 ::: zone pivot="terraform"
 
@@ -461,6 +457,10 @@ tfOutputs=$(jq 'walk(if type == "object" then
 echo "{\"outputs\": $tfOutputs}" > $ADE_OUTPUTS
 ```
 ::: zone-end
+
+
+
+
 
 ::: zone pivot="pulumi"
 There are four steps to deploy infrastructure via Pulumi: 
