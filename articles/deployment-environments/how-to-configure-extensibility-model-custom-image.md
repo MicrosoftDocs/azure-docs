@@ -46,8 +46,7 @@ You can take one of the following approaches to use container images with ADE:
 - **Create a custom container image** For more complex scenarios, create a custom container image that meets your specific requirements.
  
 The main steps you'll follow when using a container image are:
-1. Choose the image type you want to use: a sample image or a custom image.
-    - If you use a custom image, you begin with a sample image and then customize it to fit your requirements.
+1. Choose the image type you want to use: a sample image or a custom image. If you use a custom image, you begin with a sample image and then customize it to fit your requirements.
 1. Build the image.
 1. Upload the image to a private registry or a public registry.
 1. Configure access to the registry.
@@ -258,38 +257,34 @@ You can take one of the following approaches to use container images with ADE:
  
 The main steps you'll follow when using a container image are:
 
-1. Create a workflow that creates an image.
-   - Microsoft provides sample code in the Leveraging ADE's Extensibility Model With Terraform repository.
+1. Create a workflow that creates an image. Microsoft provides sample code in the Leveraging ADE's Extensibility Model With Terraform repository.
 1.  Customize the workflow.
 1.  Build the image.
-1.  Upload the image to a container registry
-    - Choose a private registry like Azure Container Registry (ACR) or a public registry.
+1.  Upload the image to a container registry. Choose a private registry like Azure Container Registry (ACR) or a public registry.
 1. Configure access to the registry.
    - For a private registry, give the Dev Center ACR permission.
    - For a public registry, configure anonymous pull.
 1. Add the image location to the runner parameter in your metadata file.
 
 ### Create a container image leveraging a GitHub workflow
-Use the [published repository](https://github.com/Azure/ade-extensibility-model-terraform/blob/main/README.md#azure-deployment-environments---leveraging-ades-extensibility-model-with-terraform) to take advantage of the GitHub workflow. The repository contains ADE-compatible sample image components, including a Dockerfile and shell scripts for deploying and deleting environments using Terraform IaC templates. This sample code helps you create your own container image. 
+Creating a custom container image allows you to customize your deployments to fit your requirements. You can create custom images based on the ADE sample images.
+
+After you complete the image customization, you must build the image and push it to your container registry.
+
+You can build and push the image manually, or use a script provided by Microsoft to automate the process.
+
 The published GitHub Action helps to build and push an image to an Azure Container Registry (ACR). You can reference a provided ACR image link within an environment definition in ADE to deploy or delete an environment with the provided image.
 
 To create an image configured for ADE, follow these steps:
-1. Create a custom image based on a sample image.
+1. Create a custom image based on a GitHub workflow.
 1. Install desired packages.
 1. Configure operation shell scripts.
 1. Create operation shell scripts that use the Terraform CLI. 
 
-**1. Create a custom image based on a sample image**
+**1. Create a custom image based on a GitHub workflow**
 
-Create a DockerFile that includes a FROM statement pointing to a sample image hosted on Microsoft Artifact Registry. 
+Use the [published repository](https://github.com/Azure/ade-extensibility-model-terraform/blob/main/README.md#azure-deployment-environments---leveraging-ades-extensibility-model-with-terraform) to take advantage of the GitHub workflow. The repository contains ADE-compatible sample image components, including a Dockerfile and shell scripts for deploying and deleting environments using Terraform IaC templates. This sample code helps you create your own container image. 
 
-Here's an example FROM statement, referencing the sample core image:
-
-```docker
-FROM mcr.microsoft.com/deployment-environments/runners/core:latest
-```
-
-This statement pulls the most recently published core image and makes it a basis for your custom image.
 
 **2. Install required packages**
 In this step, you install any packages you require in your image, including Terraform. You can install the Terraform CLI to an executable location so that it can be used in your deployment and deletion scripts. 
@@ -418,9 +413,7 @@ You can find a few sample environment definitions in the [Environments folder](h
 
 ### Create a custom image
 
-Creating a custom container image allows you to customize your deployments to fit your requirements. You can create custom images based on the Pulumi sample images.
-
-After you complete the image customization, you must build the image and push it to your container registry.
+Creating a custom container image allows you to customize your deployments to fit your requirements. You can create custom images based on the Pulumi sample images, and customize them to meet your requirements. After you complete the image customization, you must build the image and push it to your container registry.
 
 To create an image configured for ADE, follow these steps:
 1. Create a custom image based on a sample image.
@@ -532,10 +525,9 @@ echo "{\"outputs\": ${stackout:-{\}}}" > $ADE_OUTPUTS
 ```
 
 ---
-
 ::: zone-end
 
-## Build an image
+## Build the custom image
 
 You can build your image using the Docker CLI. Ensure the [Docker Engine is installed](https://docs.docker.com/desktop/) on your computer. Then, navigate to the directory of your Dockerfile, and run the following command:
 
