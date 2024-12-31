@@ -20,15 +20,18 @@ Microsoft Sentinel uses Azure Monitor's Log Analytics environment and the Kusto 
 ### Microsoft Sentinel documentation
 - [Kusto Query Language in Microsoft Sentinel](kusto-overview.md)
 
-### Azure Monitor documentation
-- [Tutorial: Use Kusto queries](/azure/data-explorer/kusto/query/tutorial?pivots=azuremonitor)
-- [Get started with KQL queries](/azure/azure-monitor/logs/get-started-queries)
-- [Query best practices](/azure/data-explorer/kusto/query/best-practices)
+### Kusto documentation
+- [Kusto Query Language learning resources](/kusto/query/kql-learning-resources?view=microsoft-sentinel&preserve-view=true)
+- [Tutorial: Learn common operators](/kusto/query/tutorials/learn-common-operators?view=microsoft-sentinel&preserve-view=true)
+- [Tutorial: Use aggregation functions](/kusto/query/tutorials/use-aggregation-functions?view=microsoft-sentinel&preserve-view=true)
+- [Tutorial: Join data from multiple tables](/kusto/query/tutorials/join-data-from-multiple-tables?view=microsoft-sentinel&preserve-view=true)
+- [Get started with KQL queries](/azure/azure-monitor/logs/get-started-queries) (Azure Monitor documentation)
+- [Best practices for Kusto Query Language queries](/kusto/query/best-practices?view=microsoft-sentinel&preserve-view=true)
 
 ### Reference guides
 - [KQL quick reference guide](/azure/data-explorer/kql-quick-reference)
-- [SQL to Kusto cheat sheet](/azure/data-explorer/kusto/query/sqlcheatsheet)
-- [Splunk to Kusto Query Language map](/azure/data-explorer/kusto/query/splunk-cheat-sheet)
+- [SQL to Kusto cheat sheet](/kusto/query/sqlcheatsheet)
+- [Splunk to Kusto Query Language map](/kusto/query/splunk-cheat-sheet)
 
 ### Microsoft Sentinel Learn modules
 - [Write your first query with Kusto Query Language](/training/modules/write-first-query-kusto-query-language/)
