@@ -122,11 +122,9 @@ In this article, you learn how to:
 
 ## Next steps
 
-In this Quickstart, you created an Automation account.
-
-> [Explore articles about Automation accounts](/search/?terms=Azure%20automation%20account%20and%20terraform) to learn more.
+In this Quickstart, you created an Automation account. [Explore articles about Automation accounts](/search/?terms=Azure%20automation%20account%20and%20terraform) to learn more.
 
 To use managed identities with your Automation account, continue to:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Create Automation PowerShell runbook using managed identity](../learn/powershell-runbook-managed-identity.md) 
+> [Tutorial: Create Automation PowerShell runbook using managed identity](/azure/automation/learn/powershell-runbook-managed-identity.md)
