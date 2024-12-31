@@ -61,6 +61,8 @@ items:
 - name: Configure the ADE extensibility model
   expanded: false
   items:
+    - name: What is the ADE Extensibility Model?
+      href: concept-extensibility-model.md
     - name: Configure container image to execute deployments
       href: how-to-configure-extensibility-model-custom-image.md
       displayName: custom image, container, custom runner, extensibility, ARM, Bicep, Terraform, Pulumi 
