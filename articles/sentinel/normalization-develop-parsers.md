@@ -110,7 +110,7 @@ Event | where Source == "Microsoft-Windows-Sysmon" and EventID == 1
 ```
 
 > [!IMPORTANT]
-> A parser should not filter by time. The query which uses the parser will apply a time range. 
+> A parser should not filter by time. The query that uses the parser will apply a time range. 
 
 #### Filtering by source type using a Watchlist
 
@@ -146,8 +146,11 @@ srcipaddr=='*' or ClientIP==srcipaddr
 array_length(domain_has_any) == 0 or Name has_any (domain_has_any)
 ```
 
-#### <a name="optimization"></a>Filtering optimization
+See more information on the following items in the Kusto documentation:
+- [***array_length*** function](/kusto/query/array-length-function?view=microsoft-sentinel&preserve-view=true)
+- [***has_any*** operator](/kusto/query/has-any-operator?view=microsoft-sentinel&preserve-view=true)
 
+#### <a name="optimization"></a>Filtering optimization
 
 To ensure the performance of the parser, note the following filtering recommendations:
 
@@ -304,7 +307,7 @@ This function will set the fields as follows:
 | server1.microsoft.com | SrcHostname: server1<br>SrcDomain: microsoft.com<br> SrcDomainType: FQDN<br>SrcFQDN:server1.microsoft.com |
 
 
-The functions `_ASIM_ResolveDstFQDN` and `_ASIM_ResolveDvcFQDN` perform a similar task populating the related `Dst` and `Dvc` fields.For a full list of ASIM help functions, refer to [ASIM functions](normalization-functions.md)
+The functions `_ASIM_ResolveDstFQDN` and `_ASIM_ResolveDvcFQDN` perform a similar task populating the related `Dst` and `Dvc` fields. For a full list of ASIM help functions, refer to [ASIM functions](normalization-functions.md)
 
 ### Select fields in the result set
 
@@ -497,7 +500,7 @@ To submit the event samples, use the following steps:
 
 - In the `Logs` screen, run a query that will extract from the source table only the events selected by the parser. For example, for the [Infoblox DNS parser](https://github.com/Azure/Azure-Sentinel/blob/master/Parsers/ASimDns/Parsers/ASimDnsInfobloxNIOS.yaml), use the following query:
 
-``` KQL
+```kusto
     Syslog
     | where ProcessName == "named"
 ```
@@ -506,7 +509,7 @@ To submit the event samples, use the following steps:
 
 - In the `Logs` screen, run a query that will output the schema or the parser input table. For example, for the same Infoblox DNS parser, the query is:
 
-``` KQL
+```kusto
     Syslog
     | getschema
 ```
