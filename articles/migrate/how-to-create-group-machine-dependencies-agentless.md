@@ -134,7 +134,7 @@ Select the servers on which you want to stop dependency discovery.
 1. Select the **Dependency analysis** drop-down.
 1. Select **Remove servers**.
 1. In the **Remove servers** page, select the server, which you want to stop for dependency analysis.
-1. After selecting the servers, click **Remove servers**.
+1. After selecting the servers, select **Remove servers**.
 
 If you want to stop dependency simultaneously on multiple servers, you can use [PowerShell](#start-or-stop-dependency-analysis-using-powershell) to do so.
 

@@ -63,7 +63,7 @@ Run an assessment as follows:
 1. In **Select or create a group** > select **Create New** and specify a group name.
 1. Select the appliance, and select the servers you want to add to the group. Select **Next**.
 1. In **Review + create assessment**, review the assessment details, and select **Create Assessment** to create the group and run the assessment.
-1. After the assessment is created, go to **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment** tile and refresh the tile data by clicking on the **Refresh** option on top of the tile. Wait for data to get refreshed.
+1. After the assessment is created, go to **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment** tile and refresh the tile data by selecting the **Refresh** option on top of the tile. Wait for data to get refreshed.
      :::image type="content" source="./media/tutorial-assess-webapps/tile-refresh.png" alt-text="Refresh discovery and assessment tool data":::
 1. Select the number next to Azure App Service assessment.
      :::image type="content" source="./media/tutorial-assess-webapps/assessment-webapps-navigation.png" alt-text="Navigation to created assessment":::
