@@ -5,8 +5,8 @@ author: vijain
 ms.author: vijain
 ms.topic: tutorial
 ms.service: azure-migrate
-ms.date: 12/30/2024
-ms.custom: MVC, engagement-fy24
+ms.date: 12/31/2024
+ms.custom: MVC, engagement-fy25
 ---
 
 # Discover, assess, and migrate Amazon Web Services (AWS) VMs to Azure
@@ -276,7 +276,7 @@ A Mobility service agent must be preinstalled on the source AWS VMs to be migrat
 
 You can track job status in the portal notifications.
 
-You can monitor replication status by selecting **Replicating servers** in **Azure Migrate: Server Migration**.
+You can monitor replication status by selecting **Replicating servers** in **Migration and modernization**.
 
 ## Run a test migration
 
