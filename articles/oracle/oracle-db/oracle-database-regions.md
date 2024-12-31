@@ -15,8 +15,8 @@ ms.author: jacobjaygbay
 Learn what Azure regions and corresponding Oracle Cloud Infrastructure (OCI) regions support Oracle Database@Azure in standard business regions across the globe. 
 
 The list below mentions the Azure and corresponding OCI regions with the regional availability for Oracle Database@Azure:
-- Dual – Minimum two azure zones are available in this region
-- Single – One azure zone available with a corresponding paired DR region
+- Dual – Minimum two Azure zones are available in this region
+- Single – One Azure zone available with a corresponding paired DR region
 - DR - Disaster recovery only region
 
 ## Asia Pacific (APAC)
