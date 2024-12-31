@@ -5,20 +5,20 @@ author: mbender-ms
 ms.author: mbender
 ms.topic: concept-article
 ms.service: azure-virtual-network-manager
-ms.date: 08/11/2023
+ms.date: 12/31/2024
 ---
 
 # Monitoring Azure Virtual Network Manager with virtual network flow logs
 
-Monitoring traffic is critical to understanding how your network is performing and to troubleshoot issues. Administrators can utilize virtual network flow logs to show whether traffic is flowing through or blocked on a VNet by a [security admin rule]. Virtual network flow logs are a feature of Network Watcher.
+Monitoring traffic is critical to understanding how your network is performing and to troubleshoot issues. Administrators can utilize virtual network flow logs to show whether traffic is flowing through or blocked on a virtual network by a [security admin rule](concept-security-admins.md). Virtual network flow logs are a feature of Network Watcher.
 
 Learn more about [virtual network flow logs](../network-watcher/vnet-flow-logs-overview.md) including usage and how to enable.
 
 ## Enable virtual network flow logs
 
-Currently, you need to enable Virtual Network flow logs on each VNet you want to monitor. You can enable virtual network flow logs on a VNet by using the [Azure portal](../network-watcher/vnet-flow-logs-portal.md), [PowerShell](../network-watcher/vnet-flow-logs-powershell.md), or the [Azure CLI](../network-watcher/vnet-flow-logs-cli.md).
+Currently, you need to enable virtual network flow logs on each virtual network you want to monitor. You can enable virtual network flow logs on a virtual network by using the [Azure portal](../network-watcher/vnet-flow-logs-portal.md), [PowerShell](../network-watcher/vnet-flow-logs-powershell.md), or the [Azure CLI](../network-watcher/vnet-flow-logs-cli.md).
 
-Here's an example of a flow log
+Here's an example of a flow log:
 
 ```json
 {
@@ -88,5 +88,5 @@ Here's an example of a flow log
 
 ## Next steps
 
-- Learn more about [VNet Flow Logs](../network-watcher/vnet-flow-logs-overview.md) and how to use them.
+- Learn more about [virtual network flow logs](../network-watcher/vnet-flow-logs-overview.md) and how to use them.
 - Learn more about [Event log options for Azure Virtual Network Manager](concept-event-logs.md).
