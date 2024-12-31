@@ -262,7 +262,7 @@ Follow these steps to ingest log messages from JuniperIDP:
         
         The following screenshot shows the complete query in the preceding example in a more readable format:
 
-        :::image type="content" source="media/unified-connector-custom-device/kusto-query-screenshot.png" alt-text="Screenshot showing expanded Kusto query with line breaks for readability.":::
+        :::image type="content" source="media/unified-connector-custom-device/kusto-query-screenshot.png" alt-text="Screenshot showing expanded Kusto query with line breaks for readability." lightbox="media/unified-connector-custom-device/kusto-query-screenshot.png":::
 
         See more information on the following items used in the preceding examples, in the Kusto documentation:
         - [***parse*** operator](/kusto/query/parse-operator?view=microsoft-sentinel&preserve-view=true)
