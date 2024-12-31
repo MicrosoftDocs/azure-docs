@@ -81,7 +81,7 @@ For more information about how to create environment definitions that use the AD
 
 ### [Create a custom image](#tab/custom/)
 
-### Create a custom image
+### Create a custom container image
 
 Creating a custom container image allows you to customize your deployments to fit your requirements. You can create custom images based on the ADE sample images.
 
@@ -241,12 +241,13 @@ if [ -z "$deploymentOutput" ]; then
 fi
 echo "{\"outputs\": $deploymentOutput}" > $ADE_OUTPUTS
 ```
+
 --- 
+
 ::: zone-end
 
 
 <!-- =========== TERRAFORM ======================================================================================================== -->
-
 
 ::: zone pivot="terraform"
 ## Use container images with ADE
@@ -259,9 +260,9 @@ The main steps you'll follow when using a container image are:
 
 1. Create a workflow that creates an image.
    - Microsoft provides sample code in the Leveraging ADE's Extensibility Model With Terraform repository.
-1.	Customize the workflow.
-1.	Build the image.
-1.	Upload the image to a container registry
+1.  Customize the workflow.
+1.  Build the image.
+1.  Upload the image to a container registry
     - Choose a private registry like Azure Container Registry (ACR) or a public registry.
 1. Configure access to the registry.
    - For a private registry, give the Dev Center ACR permission.
@@ -288,7 +289,7 @@ Here's an example FROM statement, referencing the sample core image:
 FROM mcr.microsoft.com/deployment-environments/runners/core:latest
 ```
 
-This statement pulls the most recently published core image, and makes it a basis for your custom image.
+This statement pulls the most recently published core image and makes it a basis for your custom image.
 
 **2. Install required packages**
 In this step, you install any packages you require in your image, including Terraform. You can install the Terraform CLI to an executable location so that it can be used in your deployment and deletion scripts. 
@@ -304,45 +305,6 @@ RUN mv terraform /usr/bin/terraform
 > [!Tip]
 > You can get the download URL for your preferred version of the Terraform CLI from [Hashicorp releases](https://aka.ms/deployment-environments/terraform-cli-zip).
 
-
-**1. Create a custom image based on a sample image**
-
-Create a DockerFile that includes a FROM statement pointing to a sample image hosted on Microsoft Artifact Registry. 
-
-Here's an example FROM statement, referencing the sample core image:
-
-```docker
-FROM mcr.microsoft.com/deployment-environments/runners/core:latest
-```
-
-This statement pulls the most recently published core image, and makes it a basis for your custom image.
-
-**2. Install required packages**
-
-You can install the Pulumi CLI to an executable location so that it can be used in your deployment and deletion scripts. 
-
-Here's an example of that process, installing the latest version of the Pulumi CLI:
-
-```docker
-RUN apk add curl
-RUN curl -fsSL https://get.pulumi.com | sh
-ENV PATH="${PATH}:/root/.pulumi/bin"
-```
-
-Depending on which programming language you intend to use for Pulumi programs, you might need to install one or more corresponding runtimes. The Python runtime is already available in the base image.
-
-Here's an example of installing Node.js and TypeScript:
-
-```docker
-# install node.js, npm, and typescript
-RUN apk add nodejs npm
-RUN npm install typescript -g
-```
-
-
-The ADE sample images are based on the Azure CLI image, and have the ADE CLI and JQ packages preinstalled. You can learn more about the [Azure CLI](/cli/azure/), and the [JQ package](https://devdocs.io/jq/).
-
-To install any more packages you need within your image, use the RUN statement.
 
 **3. Configure operation shell scripts**
 
@@ -430,7 +392,6 @@ echo "{\"outputs\": $tfOutputs}" > $ADE_OUTPUTS
 ```
 ::: zone-end
 
-
 <!-- ======== PULUMI ==================================================================================================================== -->
 
 ::: zone pivot="pulumi"
@@ -466,9 +427,45 @@ To create an image configured for ADE, follow these steps:
 1. Install desired packages.
 1. Configure operation shell scripts.
 1. Create operation shell scripts that use the Pulumi CLI.
-::: zone-end
 
-::: zone pivot="pulumi"
+**1. Create a custom image based on a sample image**
+
+Create a DockerFile that includes a FROM statement pointing to a sample image hosted on Microsoft Artifact Registry. 
+
+Here's an example FROM statement, referencing the sample core image:
+
+```docker
+FROM mcr.microsoft.com/deployment-environments/runners/core:latest
+```
+
+This statement pulls the most recently published core image, and makes it a basis for your custom image.
+
+**2. Install required packages**
+
+You can install the Pulumi CLI to an executable location so that it can be used in your deployment and deletion scripts. 
+
+Here's an example of that process, installing the latest version of the Pulumi CLI:
+
+```docker
+RUN apk add curl
+RUN curl -fsSL https://get.pulumi.com | sh
+ENV PATH="${PATH}:/root/.pulumi/bin"
+```
+
+Depending on which programming language you intend to use for Pulumi programs, you might need to install one or more corresponding runtimes. The Python runtime is already available in the base image.
+
+Here's an example of installing Node.js and TypeScript:
+
+```docker
+# install node.js, npm, and typescript
+RUN apk add nodejs npm
+RUN npm install typescript -g
+```
+
+The ADE sample images are based on the Azure CLI image, and have the ADE CLI and JQ packages preinstalled. You can learn more about the [Azure CLI](/cli/azure/), and the [JQ package](https://devdocs.io/jq/).
+
+To install any more packages you need within your image, use the RUN statement.
+
 There are four steps to deploy infrastructure via Pulumi: 
 
 1. `pulumi login` - connect to the state storage, either in local file system or in [Pulumi Cloud](https://www.pulumi.com/product/pulumi-cloud/)
@@ -533,10 +530,10 @@ Finally, to make the outputs of your deployment uploaded and accessible when acc
 stackout=$(pulumi stack output --json | jq -r 'to_entries|.[]|{(.key): {type: "string", value: (.value)}}')
 echo "{\"outputs\": ${stackout:-{\}}}" > $ADE_OUTPUTS
 ```
-::: zone-end
 
 ---
 
+::: zone-end
 
 ## Build an image
 
@@ -551,6 +548,7 @@ For example, if you want to save your image under a repository within your regis
 ```docker
 docker build . -t {YOUR_REGISTRY}.azurecr.io/customImage:1.0.0
 ```
+
 
 ## Make the custom image available to ADE
 
