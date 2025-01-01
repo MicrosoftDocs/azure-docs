@@ -2,8 +2,8 @@
 title: Useful resources for working with Kusto Query Language in Microsoft Sentinel
 description: This document provides you with a list of useful resources for working with Kusto Query Language in Microsoft Sentinel.
 author: yelevin
-ms.topic: conceptual
-ms.date: 01/10/2022
+ms.topic: reference
+ms.date: 01/01/2025
 ms.author: yelevin
 
 
