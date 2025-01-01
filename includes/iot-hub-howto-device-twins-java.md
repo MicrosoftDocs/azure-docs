@@ -38,9 +38,18 @@ import com.microsoft.azure.sdk.iot.device.*;
 import com.microsoft.azure.sdk.iot.device.DeviceTwin.*;
 ```
 
-### Connect to the device
+### Connect a device to IoT Hub
 
-To connect to a device:
+A device app can authenticate with IoT Hub using the following methods:
+
+* Shared access key
+* X.509 certificate
+
+[!INCLUDE [iot-authentication-device-connection-string.md](iot-authentication-device-connection-string.md)]
+
+#### Authenticate using a shared access key
+
+To connect a device to IoT Hub:
 
 1. Use [IotHubClientProtocol](/java/api/com.microsoft.azure.sdk.iot.device.iothubclientprotocol) to choose a transport protocol. For example:
 
@@ -60,6 +69,10 @@ To connect to a device:
     ```java
     client.open(true);
     ```
+
+#### Authenticate using an X.509 certificate
+
+[!INCLUDE [iot-hub-howto-auth-device-cert-java](iot-hub-howto-auth-device-cert-java.md)]
 
 ### Retrieve and view a device twin
 
