@@ -178,17 +178,16 @@ Once the query selects the relevant records, it may need to parse them. Typicall
 
 The KQL operators that perform parsing are listed below, ordered by their performance optimization. The first provides the most optimized performance, while the last provides the least optimized performance.
 
-|Operator  |Description  |
-|---------|---------|
-|[split](/azure/data-explorer/kusto/query/splitfunction)     |    Parse a string of delimited values.     |
-|[parse_csv](/azure/data-explorer/kusto/query/parsecsvfunction)     |     Parse a string of values formatted as a CSV (comma-separated values) line.    |
-|[parse-kv](/azure/data-explorer/kusto/query/parse-kv-operator)     |     Extracts structured information from a string expression and represents the information in a key/value form.    |
-|[parse](/azure/data-explorer/kusto/query/parseoperator)     |    Parse multiple values from an arbitrary string using a pattern, which can be a simplified pattern with better performance, or a regular expression.     |
-|[extract_all](/azure/data-explorer/kusto/query/extractallfunction)     | Parse single values from an arbitrary string using a regular expression. `extract_all` has a similar performance to `parse` if the latter uses a regular expression.        |
-|[extract](/azure/data-explorer/kusto/query/extractfunction)     |    Extract a single value from an arbitrary string using a regular expression. <br><br>Using `extract` provides better performance than `parse` or `extract_all` if a single value is needed. However, using multiple activations of `extract` over the same source string is less efficient than a single `parse` or `extract_all` and should be avoided.      |
-|[parse_json](/azure/data-explorer/kusto/query/parsejsonfunction)  | Parse the values in a string formatted as JSON. If only a few values are needed from the JSON, using `parse`, `extract`, or `extract_all` provides better performance.        |
-|[parse_xml](/azure/data-explorer/kusto/query/parse-xmlfunction)     |    Parse the values in a string formatted as XML. If only a few values are needed from the XML, using `parse`, `extract`, or `extract_all` provides better performance.     |
-
+| Operator/function()  | Description  |
+| --------- | --------- |
+| [split()](/kusto/query/split-function) function    |    Parse a string of delimited values.     |
+| [parse_csv()](/kusto/query/parse-csv-function) function    |     Parse a string of values formatted as a CSV (comma-separated values) line.    |
+| [parse-kv](/kusto/query/parse-kv-operator) operator    |     Extracts structured information from a string expression and represents the information in a key/value form.    |
+| [parse](/kusto/query/parse-operator) operator    |    Parse multiple values from an arbitrary string using a pattern, which can be a simplified pattern with better performance, or a regular expression.     |
+| [extract_all()](/kusto/query/extract-all-function) function    | Parse single values from an arbitrary string using a regular expression. `extract_all` has a similar performance to `parse` if the latter uses a regular expression.        |
+| [extract()](/kusto/query/extract-function) function     |    Extract a single value from an arbitrary string using a regular expression. <br><br>Using `extract` provides better performance than `parse` or `extract_all` if a single value is needed. However, using multiple activations of `extract` over the same source string is less efficient than a single `parse` or `extract_all` and should be avoided.      |
+| [parse_json()](/kusto/query/parse-json-function) function | Parse the values in a string formatted as JSON. If only a few values are needed from the JSON, using `parse`, `extract`, or `extract_all` provides better performance.        |
+| [parse_xml()](/kusto/query/parse-xml-function) function    |    Parse the values in a string formatted as XML. If only a few values are needed from the XML, using `parse`, `extract`, or `extract_all` provides better performance.     |
 
 ### Normalizing
 
