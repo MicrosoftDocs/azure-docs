@@ -410,7 +410,7 @@ Handle the results as follows:
 | Missing recommended alias [\<Field\>] aliasing existing column [\<Field\>] | Add the alias to your parser |
 | Missing optional alias [\<Field\>] aliasing existing column [\<Field\>] | Add the alias to your parser |
 | Missing mandatory alias [\<Field\>] aliasing missing column [\<Field\>] | This error accompanies a similar error for the aliased field. Correct the aliased field error and add this alias to your parser. |
-| Type mismatch for field [\<Field\>]. It is currently [\<Type\>] and should be [\<Type\>] | Make sure that the type of normalized field is correct, usually by using a [conversion function](/azure/data-explorer/kusto/query/scalarfunctions#conversion-functions) such as `tostring`. |
+| Type mismatch for field [\<Field\>]. It is currently [\<Type\>] and should be [\<Type\>] | Make sure that the type of normalized field is correct, usually by using a [conversion function](/kusto/query/scalar-functions?view=microsoft-sentinel&preserve-view=true#conversion-functions) such as `tostring`. |
 
 | Info | Action |
 | ----- | ------ |
@@ -447,7 +447,7 @@ Handle the results as follows:
 
 | Message | Action |
 | ------- | ------ |
-| **(0) Error: type mismatch for column  [\<Field\>]. It is currently [\<Type\>] and should be [\<Type\>]** | Make sure that the type of normalized field is correct, usually by using a [conversion function](/azure/data-explorer/kusto/query/scalarfunctions#conversion-functions) such as `tostring`.  |
+| **(0) Error: type mismatch for column  [\<Field\>]. It is currently [\<Type\>] and should be [\<Type\>]** | Make sure that the type of normalized field is correct, usually by using a [conversion function](/kusto/query/scalar-functions?view=microsoft-sentinel&preserve-view=true#conversion-functions) such as `tostring`.  |
 | **(0) Error: Invalid value(s) (up to 10 listed) for field [\<Field\>] of type [\<Logical Type\>]** | Make sure that the parser maps the correct source field to the output field. If mapped correctly, update the parser to transform the source value to the correct type, value or format. Refer to the [list of logical types](normalization-about-schemas.md#logical-types) for more information on the correct values and formats for each logical type. <br><br>Note that the testing tool lists only a sample of 10 invalid values.   |
 | **(1) Warning: Empty value in mandatory field [\<Field\>]** | Mandatory fields should be populated, not just defined. Check whether the field can be populated from other sources for records for which the current source is empty. |
 | **(2) Info: Empty value in recommended field [\<Field\>]** | Recommended fields should usually be populated. Check whether the field can be populated from other sources for records for which the current source is empty. |
