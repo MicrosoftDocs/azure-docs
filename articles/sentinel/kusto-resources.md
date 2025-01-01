@@ -13,7 +13,7 @@ ms.author: yelevin
 
 # Useful resources for working with Kusto Query Language in Microsoft Sentinel
 
-Microsoft Sentinel uses Azure Monitor's Log Analytics environment and the Kusto Query Language (KQL) to build the queries that undergird much of Sentinel's functionality, from analytics rules to workbooks to hunting. This article lists resources that can help you skill up in working with Kusto Query Language, which will give you more tools to work with Microsoft Sentinel, whether as a security engineer or analyst.
+Microsoft Sentinel uses Azure Monitor's Log Analytics environment and the Kusto Query Language (KQL) to build the queries that undergird much of its functionality, from analytics rules to workbooks to hunting. This article lists resources that can help you skill-up in working with Kusto Query Language, giving you more tools to work with Microsoft Sentinel, whether as a security engineer or analyst.
 
 ## Microsoft technical resources
 
@@ -46,7 +46,7 @@ Microsoft Sentinel uses Azure Monitor's Log Analytics environment and the Kusto 
   - [Azure Sentinel correlation rules: Active Lists out, make_list() in: the AAD/AWS correlation example](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/azure-sentinel-correlation-rules-active-lists-out-make-list-in/ba-p/1029225)
   - [Azure Sentinel correlation rules: the join KQL operator](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/azure-sentinel-correlation-rules-the-join-kql-operator/ba-p/1041500)
   - [Implementing Lookups in Azure Sentinel](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/implementing-lookups-in-azure-sentinel/ba-p/1091306)
-  - [Approximate, partial and combined lookups in Azure Sentinel](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/approximate-partial-and-combined-lookups-in-azure-sentinel/ba-p/1393795)
+  - [Approximate, partial, and combined lookups in Azure Sentinel](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/approximate-partial-and-combined-lookups-in-azure-sentinel/ba-p/1393795)
 
 ### Training and skilling resources
 - [Rod Trent's Must Learn KQL series](https://github.com/rod-trent/MustLearnKQL)
