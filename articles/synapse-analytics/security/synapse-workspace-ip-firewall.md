@@ -42,11 +42,15 @@ Make sure that the firewall on your network and local computer allows outgoing c
 
 To connect using tools such as SSMS and Power BI, you must allow outgoing communication on TCP port 1433. The 1433 port used by SSMS (Desktop Application).
 
-## Manage the Azure Synapse workspace firewall 
+> [!NOTE]
+> Azure Policy operates at a level above other Azure services by applying policy rules against PUT requests and GET responses of resource types exchanged between Azure Resource Manager and the owning resource provider (RP). However, updates to Synapse workspace firewall settings in the Azure Portal are made using POST calls, such as the replaceAllIpFirewallRules operation.\
+> Due to this design, Azure Policy definitions cannot block changes to networking settings made via POST operations. As a result, modifications to firewall rules through the Azure Portal may bypass Azure Policy, even if restrictive policies are in place.
+
+## Manage the Azure Synapse workspace firewall
 
 For more information on managing the firewall, see [the Azure SQL documentation to manage server-level firewalls](/azure/azure-sql/database/firewall-configure#create-and-manage-ip-firewall-rules). Azure Synapse only supports server-level IP firewall rules. It doesn't support database-level IP firewall rules.
 
-For more information on the methods to manage the firewall programmatically, see: 
+For more information on the methods to manage the firewall programmatically, see:
 - [API](/rest/api/synapse/ip-firewall-rules)
 - [PowerShell](/powershell/module/az.synapse/new-azsynapsefirewallrule)
 - [Azure CLI](/cli/azure/sql/server/firewall-rule)
