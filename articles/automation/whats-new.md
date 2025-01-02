@@ -31,9 +31,9 @@ Azure Automation will **discontinue** execution of all runbooks that use AzureRM
 
 Starting **March 01, 2025** all agent-based and extension-based User Hybrid Runbook Workers, Webhooks and DSC nodes using Transport Layer Security (TLS) 1.0 and 1.1 protocols would no longer be able to connect to Azure Automation. All jobs running or scheduled on Hybrid Workers using TLS 1.0 and 1.1 protocols will fail. [Learn more](automation-managing-data.md#tls-for-azure-automation).
 
-### Final retirement notice: Agent-based user hybrid runbook worker
+### Final retirement notice: Agent-based User Hybrid Runbook Worker
 
-Starting **April 01, 2025** all jobs running on agent-based user hybrid runbook worker (Windows and Linux) will be stopped. [Learn more](migrate-existing-agent-based-hybrid-worker-to-extension-based-workers.md).
+Starting **April 01, 2025** all jobs running on Agent-based User Hybrid Runbook Worker (Windows and Linux) will be stopped. [Learn more](migrate-existing-agent-based-hybrid-worker-to-extension-based-workers.md).
 
 
 ## July 2024
