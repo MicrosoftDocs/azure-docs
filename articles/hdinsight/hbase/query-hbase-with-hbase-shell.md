@@ -5,7 +5,7 @@ keywords: hdinsight,hadoop,HBase
 ms.service: azure-hdinsight
 ms.custom: hdinsightactive, mode-other
 ms.topic: quickstart
-ms.date: 01/04/2024
+ms.date: 01/02/2025
 #Customer intent: As a HBase user, I want learn HBase shell so that I can run queries.
 ---
 

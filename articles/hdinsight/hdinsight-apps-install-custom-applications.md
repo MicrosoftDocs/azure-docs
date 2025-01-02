@@ -4,7 +4,7 @@ description: Learn how to install HDInsight applications for Apache Hadoop clust
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 01/04/2024
+ms.date: 01/02/2025
 ---
 
 # Install custom Apache Hadoop applications on Azure HDInsight

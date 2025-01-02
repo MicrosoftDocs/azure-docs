@@ -5,7 +5,7 @@ ms.service: azure-hdinsight
 ms.topic: how-to
 ms.tool: azure-powershell
 ms.custom: hdinsightactive, devx-track-azurepowershell, linux-related-content
-ms.date: 01/29/2024
+ms.date: 01/02/2025
 ---
 
 # Create Linux-based clusters in HDInsight using Azure PowerShell

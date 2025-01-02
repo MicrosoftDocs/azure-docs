@@ -4,7 +4,7 @@ description: This quickstart shows how to use Resource Manager template to creat
 ms.service: azure-hdinsight
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
-ms.date: 01/04/2024
+ms.date: 01/02/2025
 #Customer intent: As a developer new to Interactive Query on Azure, I need to see how to create an Interactive Query cluster.
 ---
 
