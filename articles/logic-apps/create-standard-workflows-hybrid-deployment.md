@@ -235,8 +235,8 @@ After you finish building your workflow, you can deploy your logic app to your A
 >
 > If your changes still haven't appeared in the workflow, you can check whether the revision exists:
 >
-> 1. In the [Azure portal](https://portal.azure.com), open your On the resource menu, 
->    under **Revisions**, and select **Revisions and replicas**.
+> 1. In the [Azure portal](https://portal.azure.com), open your resource. On the resource menu, 
+>    under **Revisions**, select **Revisions and replicas**.
 >
 > 1. On the **Revisions and replicas** page, on the **Active revisions** tab, check whether 
 >    a new revision appears on the list.
@@ -439,7 +439,7 @@ After you deploy your Standard logic app, confirm that your app is running corre
    For more information, see the following documentation:
 
    - [az aks get-credentials](/cli/azure/aks#az-aks-get-credentials)
-   - [Command line tool (kubetctl)](https://kubernetes.io/docs/reference/kubectl/)
+   - [Command line tool (kubectl)](https://kubernetes.io/docs/reference/kubectl/)
 
 ### Cluster doesn't have enough nodes
 
@@ -479,7 +479,7 @@ kubectl get csidrivers
 If the results list that appears doesn't include **smb.csi.k8s.io**, from a Windows command prompt, and run the following command:
 
 **`helm repo add csi-driver-smb`**<br>
-**`help repo update`**
+**`helm repo update`**
 **`helm install csi-driver-smb csi-driver-smb/csi-driver-smb --namespace kube-system --version v1.15.0`**
 
 To check the CSI SMB Driver pods status, from the Windows command prompt, run the following command:

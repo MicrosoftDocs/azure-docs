@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: build-2023, devx-track-azurecli
 ms.topic: conceptual
-ms.date: 10/20/2024
+ms.date: 12/19/2024
 ms.author: cshoe
 ---
 
@@ -240,7 +240,7 @@ The cron expression `*/1 * * * *` runs the job every minute.
 
 ### Event-driven jobs
 
-Event-driven jobs are triggered by events from supported [custom scalers](scale-app.md#custom). Examples of event-driven jobs include:
+ Events from supported [custom scalers](scale-app.md#custom) trigger event-driven jobs. Examples of event-driven jobs include:
 
 - A job that runs when a new message is added to a queue such as Azure Service Bus, Kafka, or RabbitMQ.
 - A self-hosted [GitHub Actions runner](tutorial-ci-cd-runners-jobs.md?pivots=container-apps-jobs-self-hosted-ci-cd-github-actions) or [Azure DevOps agent](tutorial-ci-cd-runners-jobs.md?pivots=container-apps-jobs-self-hosted-ci-cd-azure-pipelines) that runs when a new job is queued in a workflow or pipeline.
@@ -431,22 +431,20 @@ Content-Type: application/json
 Authorization: Bearer <TOKEN>
 
 {
-    "template": {
-        "containers": [
-            {
-                "image": "mcr.microsoft.com/k8se/quickstart-jobs:latest",
-                "name": "main",
-                "resources": {
-                    "cpu": 0.25,
-                    "memory": "0.5Gi"
-                },
-                "command": [
-                    "echo",
-                    "Hello, Azure Container Apps jobs!"
-                ]
-            }
-        ]
-    }
+    "containers": [
+        {
+            "image": "mcr.microsoft.com/k8se/quickstart-jobs:latest",
+            "name": "main",
+            "resources": {
+                "cpu": 0.25,
+                "memory": "0.5Gi"
+            },
+            "command": [
+                "echo",
+                "Hello, Azure Container Apps jobs!"
+            ]
+        }
+    ]
 }
 ```
 
@@ -596,7 +594,7 @@ The following example Azure Resource Manager template creates a job with advance
 
 # [Azure portal](#tab/azure-portal)
 
-To configure advanced settings using the Azure portal, search for *Container App Jobs* in the Azure portal and select *Create*. Select *Configuration* to configure the settings.
+To configure advanced settings using the Azure portal, search for *Container App Jobs* in the Azure portal and select *Create*. To configure the settings, select *Configuration*.
 
 ---
 

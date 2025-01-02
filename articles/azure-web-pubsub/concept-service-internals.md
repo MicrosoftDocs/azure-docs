@@ -12,7 +12,7 @@ ms.date: 08/21/2024
 
 Azure Web PubSub Service provides an easy way to publish/subscribe messages using simple [WebSocket](https://tools.ietf.org/html/rfc6455) connections.
 
-- Clients can be written in any language that has Websocket support.
+- Clients can be written in any language that has WebSocket support.
 - Both text and binary messages are supported within one connection.
 - A simple protocol allows clients to publish massages directly to each other.
 - The service manages the WebSocket connections for you.

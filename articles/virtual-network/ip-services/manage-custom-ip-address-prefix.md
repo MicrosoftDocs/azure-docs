@@ -9,7 +9,7 @@ ms.date: 08/05/2024
 ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.custom: devx-track-azurepowershell
-ms.topic: conceptual
+ms.topic: concept-article
 
 ---
 

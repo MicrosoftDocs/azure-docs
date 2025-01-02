@@ -6,7 +6,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network
 ms.subservice: ip-services
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 10/23/2024
 ---
 
@@ -55,7 +55,7 @@ If you deploy a virtual machine in Azure and it doesn't have explicit outbound c
 
 Some examples of configurations that won't work when using default outbound access:
 - When you have multiple NICs on the same VM, default outbound IPs won't consistently be the same across all NICs.
-- When scaling up/down Virtual Machine Scale sets, default outbound IPs assigned to individual instances can and  change.
+- When scaling up/down Virtual Machine Scale sets, default outbound IPs assigned to individual instances can change.
 - Similarly, default outbound IPs aren't consistent or contiguous across VM instances in a Virtual Machine Scale Set.
 
 ## How can I transition to an explicit method of public connectivity (and disable default outbound access)?

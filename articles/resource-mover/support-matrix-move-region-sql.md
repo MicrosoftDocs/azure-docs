@@ -4,7 +4,7 @@ description: Review support for moving Azure SQL resources between regions with 
 author: ankitaduttaMSFT
 ms.service: azure-resource-mover
 ms.topic: concept-article
-ms.date: 09/18/2024
+ms.date: 12/27/2024
 ms.author: ankitadutta
 ms.custom: UpdateFrequency.5
 ---
