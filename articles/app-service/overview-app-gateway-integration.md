@@ -6,7 +6,7 @@ author: madsd
 ms.assetid: 073eb49c-efa1-4760-9f0c-1fecd5c251cc
 ms.service: azure-app-service
 ms.topic: article
-ms.date: 09/29/2023
+ms.date: 01/02/2025
 ms.author: madsd
 ms.custom: devx-track-azurecli, devx-track-arm-template
 ms.devlang: azurecli
@@ -127,9 +127,14 @@ To work around the default redirect, you can configure authentication to inspect
 }
 ```
 
-### ARR affinity
+### Session affinity
 
-In multiple-instance deployments, [ARR affinity](./configure-common.md?tabs=portal#configure-general-settings) ensures that client requests are routed to the same instance for the life of the session. ARR affinity doesn't work with host name overrides. For session affinity to work, you have to configure an identical custom domain and certificate in App Service and in Application Gateway and not override the host name.
+In multiple-instance deployments, [session affinity](./configure-common.md?tabs=portal#configure-general-settings) ensures that client requests are routed to the same instance for the life of the session. Session affinity can be configured to adapt the cookie domain to the incoming header from reverse proxy. By configuring [session affinity proxy](./configure-common.md?tabs=portal#configure-general-settings) to true, session affinity will look for `X-Original-Host` or `X-Forwarded-Host` and adapt the cookie domain to the domain found in this header. As a recommended practice when enabling session affinity proxy, you should configure your access restrictions on the site to ensure that traffic is coming from your reverse proxy.
+
+You can configure also configure `sessionAffinityProxyEnabled` by using the following command:
+
+```azurecli-interactive
+az resource update --resource-group myRG --name myWebApp --resource-type "Microsoft.Web/sites" --set properties.sessionAffinityProxyEnabled=true
 
 ## Next steps
 
