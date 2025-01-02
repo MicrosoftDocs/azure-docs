@@ -51,7 +51,7 @@ Before you create a watchlist, be aware of the following limitations:
 - Using Lighthouse to manage watchlists across different workspaces is not supported at this time.
 - Local file uploads are currently limited to files of up to 3.8 MB in size.
 - File uploads from an Azure Storage account (in preview) are currently limited to files up to 500 MB in size.
-- Watchlists must adhere to the same column and table restrictions as KQL entities. For more information, see [KQL entity names](/azure/data-explorer/kusto/query/schema-entities/entity-names).
+- Watchlists must adhere to the same column and table restrictions as KQL entities. For more information, see [KQL entity names](/kusto/query/schema-entities/entity-names?view=microsoft-sentinel&preserve-view=true).
 
 ## Options to create watchlists
 
@@ -76,9 +76,9 @@ To correlate your watchlist data with other Microsoft Sentinel data, use Kusto t
 When you create a watchlist, you define the *SearchKey*. The search key is the name of a column in your watchlist that you expect to use as a join with other data or as a frequent object of searches. For example, suppose you have a server watchlist that contains country/region names and their respective two-letter country codes. You expect to use the country codes often for searches or joins. So you use the country code column as the search key.
 
   ```kusto
-     Heartbeat
-    | lookup kind=leftouter _GetWatchlist('mywatchlist') 
-     on $left.RemoteIPCountry == $right.SearchKey
+  Heartbeat
+  | lookup kind=leftouter _GetWatchlist('mywatchlist') 
+    on $left.RemoteIPCountry == $right.SearchKey
   ```
 
 Let's look some other example queries. 
@@ -116,6 +116,15 @@ The following example query uses the watchlist inline with the query and the sea
   ```
 
 For more information, see [Build queries and detection rules with watchlists in Microsoft Sentinel](watchlists-queries.md).
+
+See more information on the following items used in the preceding examples, in the Kusto documentation:
+- [***where*** operator](/kusto/query/where-operator?view=microsoft-sentinel&preserve-view=true)
+- [***project*** operator](/kusto/query/project-operator?view=microsoft-sentinel&preserve-view=true)
+- [***lookup*** operator](/kusto/query/lookup-operator?view=microsoft-sentinel&preserve-view=true)
+- [***in*** operator](/kusto/query/in-cs-operator?view=microsoft-sentinel&preserve-view=true)
+- [***let*** statement](/kusto/query/let-statement?view=microsoft-sentinel&preserve-view=true)
+
+[!INCLUDE [kusto-reference-general-no-alert](includes/kusto-reference-general-no-alert.md)]
 
 ## Next steps
 

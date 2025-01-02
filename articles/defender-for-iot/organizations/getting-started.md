@@ -27,9 +27,12 @@ A trial license can be extended up to 15 days before the trail expires. For more
 
 Before you start, you need:
 
-1. An email address to be used as the contact for your new Microsoft Tenant
-1. A Billing Admin permissions (Entra ID role on the tenant)
-1. Credit card details for your new Azure subscription, although you aren't charged until you switch from the **Free Trial** to the **Pay-As-You-Go** plan
+1. An email address to be used as the contact for your new Microsoft tenant.
+1. A Microsoft tenant, with Global or Billing admin access to the tenant.
+
+    For more information, see [Buy or remove licenses for a Microsoft business subscription](/microsoft-365/commerce/licenses/buy-licenses) and [About admin roles in the Microsoft 365 admin center](/microsoft-365/admin/add-users/about-admin-roles).
+
+1. Credit card details for your new Azure subscription, although you aren't charged until you switch from the **Free Trial** to the **Pay-As-You-Go** plan.
 
 ## Add a trial license
 

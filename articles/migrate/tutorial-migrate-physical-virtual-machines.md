@@ -6,7 +6,7 @@ ms.author: vijain
 ms.manager: kmadnani
 ms.topic: tutorial
 ms.service: azure-migrate
-ms.date: 10/18/2024
+ms.date: 12/31/2024
 ms.custom: MVC, engagement-fy25
 ---
 
@@ -147,7 +147,7 @@ The first step of migration is to set up the replication appliance. To set up th
 
     ![Screenshot that shows Finalize registration.](./media/tutorial-migrate-physical-virtual-machines/finalize-registration.png)
 
-The mobility service agent must be installed on the servers to get them discovered by using the replication appliance. Discovered machines appear in **Azure Migrate: Server Migration**. As VMs are discovered, the **Discovered servers** count rises.
+The mobility service agent must be installed on the servers to get them discovered by using the replication appliance. Discovered machines appear in **Migration and modernization**. As VMs are discovered, the **Discovered servers** count rises.
 
 > [!NOTE]
 > We recommend that you perform discovery and assessment prior to the migration by using the Azure Migrate: Discovery and assessment tool, a separate lightweight Azure Migrate appliance. You can deploy the appliance as a physical server to continuously discover servers and performance metadata. For detailed steps, see [Discover physical servers](tutorial-discover-physical.md).
@@ -256,7 +256,7 @@ Now, select machines for migration.
 
 You can track job status in the portal notifications.
 
-You can monitor replication status by selecting **Replicating servers** in **Azure Migrate: Server Migration**.
+You can monitor replication status by selecting **Replicating servers** in **Migration and modernization**.
 
 ## Run a test migration
 
