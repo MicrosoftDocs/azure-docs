@@ -63,6 +63,6 @@
   expanded: true
   items:
   - name: Performance and Benchmarking Overview
-    href: overview.md
+    href: ./performanceandbenchmarking/overview.md
   - name: HPC Performance and Benchmarking Applications
-    href: hpc-perf-bench-apps.md
+    href: ./performanceandbenchmarking/hpc-perf-bench-apps.md
