@@ -43,6 +43,9 @@ This article describes how to set up agentless dependency analysis using Azure M
     - Server credentials, which can be domain/ Windows (non-domain)/ Linux (non-domain) credentials. [Learn more](add-server-credentials.md) about how to provide credentials and how the appliance handles them.
     - Verify the permissions required to perform agentless dependency analysis. For Windows servers, you need to provide domain or non-domain (local) account with administrative permissions. For Linux servers, provide a sudo user account with permissions to execute ls and netstat commands or create a user account that has the CAP_DAC_READ_SEARCH and CAP_SYS_PTRACE permissions on /bin/netstat and /bin/ls files. If you're providing a sudo user account, ensure that you enabled NOPASSWD for the account to run the required commands without prompting for a password every time sudo command is invoked.
 
+> [!Note]
+> In some recent Linux OS versions, the netstat command was replaced by the `ss` command; have that in mind when preparing the servers.
+
 ### Add credentials and initiate discovery
 
 1. Open the appliance configuration manager, complete the prerequisite checks and registration of the appliance.
