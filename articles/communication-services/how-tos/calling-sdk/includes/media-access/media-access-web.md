@@ -90,8 +90,7 @@ You can subscribe to the `MeetingMediaAccess` events from `MediaAccess` API to r
 
 ```js
 const meetingMediaAccessChangedHandler = (event) => {
-    console.log(`Teams meeting settings changed media access state:`);  
-    console.log(`Attendees: can unmute: ${event.meetingMediaAccess.isAudioPermitted} and can turn on video: ${event.meetingMediaAccess.isVideoPermitted}`);  
+    console.log(`Teams meeting settings - Allow mic for attendees: ${event.meetingMediaAccess.isAudioPermitted}, Allow camera for attendees: ${event.meetingMediaAccess.isVideoPermitted}`);  
 }
 mediaAccessFeature.on('meetingMediaAccessChanged', meetingMediaAccessChangedHandler )
 ```
