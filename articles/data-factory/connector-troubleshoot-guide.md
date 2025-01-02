@@ -119,7 +119,7 @@ The following errors are general to the copy activity and could occur with any c
 
 - **Recommendation**: Correct all OAuth2 client credential flow settings of your authorization server.
 
-<a name="error-code-<a name="error-code-oauth2accesstokentypenotsupported"></a>"></a>
+<a name="error-code-<a name="error-code-oauth2accesstokentypenotsupported"></a>
 #### Error code: 20152 - OAuth2AccessTokenTypeNotSupported
 
 - **Message**: `The token type '%tokenType;' from your authorization server is not supported, supported types: '%tokenTypes;'.`
