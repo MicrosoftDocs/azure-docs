@@ -27,21 +27,21 @@ You can use method `permitAudio()` to allow selected attendees to unmute or meth
 Use method `forbidAudio()` to deny selected attendees to unmute or method `forbidVideo()` to deny selected attendees to turn on video and these actions disable mic or camera for selected attendees.
 
 ```js
-//Define list of attendees
-CommunicationUserIdentifier acsUser = new CommunicationUserIdentifier(<USER_ID>);
-MicrosoftTeamsUserIdentifier teamsUser = new MicrosoftTeamsUserIdentifier(<USER_ID>)
-CommunicationIdentifier participants = new CommunicationIdentifier[]{ acsUser, teamsUser };
+// Define list of attendees
+const acsUser = new CommunicationUserIdentifier('ACS_USER_ID');
+const teamsUser = new MicrosoftTeamsUserIdentifier('TEAMS_USER_ID');
+const participants = [acsUser, teamsUser];
 
-//Allow selected attendees to unmute
+// Allow selected attendees to unmute
 mediaAccessFeature.permitAudio(participants);
 
-//Deny selected attendees to unmute
+// Deny selected attendees to unmute
 mediaAccessFeature.forbidAudio(participants);
 
-//Allow selected attendees to turn on video
+// Allow selected attendees to turn on video
 mediaAccessFeature.permitVideo(participants);
 
-//Deny selected attendees to turn on video
+// Deny selected attendees to turn on video
 mediaAccessFeature.forbidVideo(participants);
 ```
 
@@ -51,16 +51,16 @@ Microsoft Teams meetings support API that allows participants with role organize
 Use method `forbidOthersAudio()` to disallow all attendees to unmute or method `forbidOthersVideo()` to disallow all attendees to turn on video and these actions disable mic or camera for selected attendees.
 
 ```js
-//Allow all attendees to unmute
+// Allow all attendees to unmute
 mediaAccessFeature.permitOthersAudio();
 
-//Deny all attendees to unmute
+// Deny all attendees to unmute
 mediaAccessFeature.forbidOthersAudio();
 
-//Allow all attendees to turn on video
+// Allow all attendees to turn on video
 mediaAccessFeature.permitOthersVideo();
 
-//Deny all attendees to turn on video
+// Deny all attendees to turn on video
 mediaAccessFeature.forbidOthersVideo();
 ```
 
