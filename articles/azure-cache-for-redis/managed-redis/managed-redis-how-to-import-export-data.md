@@ -85,7 +85,7 @@ Export allows you to export the data stored in Azure Managed Redis. You can use 
 
    > [!IMPORTANT]
    >
-   > - If your cache data export to Firewall-enabled storage accounts fails, refer to [What if I have firewall enabled on my storage account?](#what-if-i-have-firewall-enabled-on-my-storage-account)
+   > If your cache data export to Firewall-enabled storage accounts fails, refer to [What if I have firewall enabled on my storage account?](#what-if-i-have-firewall-enabled-on-my-storage-account)
    >
    > For more information, see [Azure storage account overview](/azure/storage/common/storage-account-overview).
    >
