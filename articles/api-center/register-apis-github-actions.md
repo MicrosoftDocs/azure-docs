@@ -135,18 +135,18 @@ To configure the workflow file:
 1. Copy and save the file under a name such as `register-api.yml`.
 1. Confirm or update the name of the repository folder (`APIs`) where you'll add the API definition file.
 1. Add this workflow file in the  `/.github/workflows/` path in your GitHub repository.
-1. Set [variables](https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/store-information-in-variables) in your repo for your API center name and resource group name in Azure.
+1. Set the [Actions variables](https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/store-information-in-variables) `SERVICE_NAME` and `RESOURCE_GROUP` in your repo for your API center name and resource group name in Azure.
 
 > [!TIP]
-> Using the [Visual Studio Code extension](build-register-apis-vscode-extension.md) for Azure API Center, you can generate a starting workflow file by running an extension command. In the Command Palette, select **Azure API Center: Register APIs**. Select **CI/CD** > **GitHub**. You can then modify the file for your scenario.
+> Using the [Visual Studio Code extension](build-register-apis-vscode-extension.md) for Azure API Center, you can generate a starting workflow file by running an extension command. In the Command Palette, select **Azure API Center: Register APIs**. Select **CI/CD** > **GitHub**. You can then modify or extend the file for your scenario.
 
 ```yml
 name: Register API Definition to Azure API Center
 on:
   pull_request:
-    types: [closed]
+    types: [ closed ]
     branches:
-      - main
+      - [ "main" ]
     paths:
       - "APIs/**/*.json"
 permissions:
