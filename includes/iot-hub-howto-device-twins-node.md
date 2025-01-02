@@ -29,7 +29,7 @@ This section describes how to use the [azure-iot-device](/javascript/api/azure-i
 
 [!INCLUDE [iot-authentication-device-connection-string.md](iot-authentication-device-connection-string.md)]
 
-### Install SDK packages
+### Install device SDK package
 
 Run this command to install the **azure-iot-device** device SDK on your development machine:
 
@@ -262,7 +262,7 @@ This section describes how to create a backend application that:
 * Retrieves and updates a device twin
 * Creates a device twin query
 
-### Install service SDK packages
+### Install service SDK package
 
 Run this command to install **azure-iothub** on your development machine:
 

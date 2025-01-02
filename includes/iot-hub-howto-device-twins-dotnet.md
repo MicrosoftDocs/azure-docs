@@ -11,6 +11,8 @@ ms.date: 12/31/2024
 ms.custom: mqtt, devx-track-csharp, devx-track-dotnet
 ---
 
+  * Requires Visual Studio
+
 ## Overview
 
 This article describes how to use the [Azure IoT SDK for .NET](https://github.com/Azure/azure-iot-sdk-csharp/blob/main/readme.md) to create device and backend service application code for device twins.
@@ -29,7 +31,7 @@ This section describes how to use device application code to:
 
 Device client applications written in C# require the **Microsoft.Azure.Devices.Client** NuGet package.
 
-Add this `using` statements to use the device library.
+Add this `using` statement to use the device library.
 
 ```csharp
 using Microsoft.Azure.Devices.Client;
