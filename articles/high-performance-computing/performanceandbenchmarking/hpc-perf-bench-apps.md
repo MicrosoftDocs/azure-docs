@@ -5,7 +5,7 @@ author: padmalathas
 ms.author: padmalathas
 ms.date: 01/01/2025
 ms.topic: conceptual
-ms.service: azure-virtual-machine
+ms.service: azure-virtual-machines
 ms.subservice: hpc
 products:
   - azure-virtual-machines
