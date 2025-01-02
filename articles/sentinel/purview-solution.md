@@ -103,6 +103,12 @@ Use this procedure to customize the Microsoft Purview analytics rules' queries t
     | where TimeGenerated > ago (24h)
     ```
 
+    See more information on the following items used in the preceding example, in the Kusto documentation:
+    - [***where*** operator](/kusto/query/where-operator?view=microsoft-sentinel&preserve-view=true)
+    - [***ago()*** function](/kusto/query/ago-function?view=microsoft-sentinel&preserve-view=true)
+
+    [!INCLUDE [kusto-reference-general-no-alert](includes/kusto-reference-general-no-alert.md)]
+
 1. Under **Query scheduling**, define settings so that the rules show data discovered in the last 24 hours. We also recommend that you set **Event grouping** to group all events into a single alert.
 
     :::image type="content" source="media/purview-solution/analytics-rule-wizard.png" alt-text="Screenshot of the analytics rule wizard defined to show data detected in the last 24 hours.":::

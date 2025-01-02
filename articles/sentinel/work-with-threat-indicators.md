@@ -131,6 +131,13 @@ Here's how to find the threat intelligence workbook provided in Microsoft Sentin
     | summarize count() by ThreatType
     ```
 
+    See more information on the following items used in the preceding example, in the Kusto documentation:
+    - [***summarize*** operator](/kusto/query/summarize-operator?view=microsoft-sentinel&preserve-view=true)
+    - [***count()*** aggregation function](/kusto/query/count-aggregation-function?view=microsoft-sentinel&preserve-view=true)
+
+    [!INCLUDE [kusto-reference-general-no-alert](includes/kusto-reference-general-no-alert.md)]
+
+
 1. On the **Visualization** dropdown menu, select **Bar chart**.
 
 1. Select **Done editing**, and view the new chart for your workbook.
