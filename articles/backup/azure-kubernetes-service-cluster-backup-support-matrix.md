@@ -52,6 +52,8 @@ You can use [Azure Backup](./backup-overview.md) to help protect Azure Kubernete
 
 - You must install the backup extension in the AKS cluster. If you're using Azure CLI to install the backup extension, ensure that the version is 2.41 or later. Use `az upgrade` command to upgrade the Azure CLI.
 
+- In case you are using Terraform to enable Azure Backup for AKS, ensure that the Terraform version being used in 3.99 or above.
+
 - The blob container provided as input during installation of the backup extension should be in the same region and subscription as that of the AKS cluster. Only blob containers in a General-purpose V2 Storage Account are supported and Premium Storage Account aren't supported.   
 
 - The Backup vault and the AKS cluster should be in the same region and subscription.
@@ -83,7 +85,9 @@ You can use [Azure Backup](./backup-overview.md) to help protect Azure Kubernete
 
 ### Additional limitations for Vaulted backup and Cross Region Restore
 
-- Only Azure Disk with Persistent Volumes of size <= 1 TB are eligible to be moved to the Vault Tier; disks with the higher size are skipped in the backup data moved to the Vault Tier. 
+- Currently, Azure Disks with Persistent Volumes of size <= 1 TB are eligible to be moved to the Vault Tier; disks with the higher size are skipped in the backup data moved to the Vault Tier. 
+
+- Only Azure Disks with public access enabled from all networks are eligible to be moved to the Vault Tier; if their are disks with network access apart from public access, tiering operation will fail. 
 
 - *Disaster Recovery* feature is only available between Azure Paired Regions (if backup is configured in a Geo Redundant Backup vault). The backup data is only available in an Azure paired region. For example, if you have an AKS cluster in East US that is backed up in a Geo Redundant Backup vault, the backup data is also available in West US for restore.
 
