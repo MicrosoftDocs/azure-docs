@@ -35,7 +35,7 @@ CommunicationIdentifier participants = new CommunicationIdentifier[]{ acsUser, t
 //Allow selected attendees to unmute
 mediaAccessFeature.permitAudio(participants);
 
-//Disallow selected attendees to unmute
+//Deny selected attendees to unmute
 mediaAccessFeature.forbidAudio(participants);
 
 //Allow selected attendees to turn on video
