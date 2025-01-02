@@ -65,7 +65,7 @@ mediaAccessFeature.forbidOthersVideo();
 ```
 
 ### Get notification that media access changed
-You can subscribe to the `mediaAccessChanged` events from `MediaAccess` API to receive array of `MediaAccess` instances, that allow you to learn which attendees are now allowed or denied sending audio or video. This event is triggered when a participant with an appropriate role changes media access for selected or all attendees. 
+You can subscribe to the `mediaAccessChanged` events from `MediaAccess` API to receive array of `MediaAccess` instances that allow you to learn which attendees are now allowed or denied sending audio or video. This event is triggered when a participant with an appropriate role changes media access for selected or all attendees. 
 
 ```js
 const mediaAccessChangedHandler = (event) => {
@@ -85,15 +85,15 @@ Class `MediaAccess` has the following properties:
 | isAudioPermitted | Boolean value indicating whether ability to send audio is allowed for this participant. |
 | isVideoPermitted | Boolean value indicating whether ability to send video is allowed for this participant. |
 
-You can use the following code to subscribe these events:
+### Get notification that meeting media access changed
+You can subscribe to the `MeetingMediaAccess` events from `MediaAccess` API to receive a `MeetingMediaAccess` instance that allows you to learn the Teams meeting settings which attendees are now allowed or denied sending audio or video. This event is triggered when Teams meeting settings `Allow mic for attendees` or `Allow camera for attendees` changes.
+
 ```js
-const mediaAccessChangedHandler = (event) => {
-    console.log(`Latest media access states ${event.mediaAccesses}`);
-};
-```
-The `mediaAccessChanged` event contains an object with the `mediaAccesses` property, which represents the participant's media accesses.
-```js
-mediaAccessFeature.on('mediaAccessChanged', mediaAccessChangedHandler)
+const meetingMediaAccessChangedHandler = (event) => {
+    console.log(`Teams meeting settings changed media access state:`);  
+    console.log(`Attendees: can unmute: ${event.meetingMediaAccess.isAudioPermitted} and can turn on video: ${event.meetingMediaAccess.isVideoPermitted}`);  
+}
+mediaAccessFeature.on('meetingMediaAccessChanged', meetingMediaAccessChangedHandler )
 ```
 
 ### Meeting media access properties
@@ -103,16 +103,6 @@ Class `MeetingMediaAccess` has the following properties:
 |--|--|
 | isAudioPermitted | Boolean value indicating whether ability to send audio is allowed in the Teams meeting for attendees. |
 | isVideoPermitted | Boolean value indicating whether ability to send video is allowed in the Teams meeting for attendees. |
-
-```js
-const meetingMediaAccessChangedHandler = (event) => {
-    console.log(`Latest meeting media access state ${event.mediaAccesses}`);
-};
-```
-The `meetingMediaAccessChanged` event contains an object with the `mediaAccesses` property, which represents the Teams meetings media access setting for all attendees.
-```js
-mediaAccessFeature.on('meetingMediaAccessChanged', meetingMediaAccessChangedHandler)
-```
 
 ### Stop receiving media access events
 Use the following code to stop receiving media access events.
