@@ -266,6 +266,9 @@ Here are some common issues that might arise when using Private Link with Azure 
 
 For more Private Link troubleshooting suggestions, see [Troubleshoot Azure Private Endpoint connectivity problems](../private-link/troubleshoot-private-endpoint-connectivity.md).
 
+## Limitation:
+   Cross-tenant scenarios are not supported by Azure Digital Twins.
+
 ## Next steps
 
 Quickly set up a protected environment with Private Link using an ARM template: [Azure Digital Twins with Azure function and Private Link](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.digitaltwins/digitaltwins-with-function-private-link).
