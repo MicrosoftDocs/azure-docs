@@ -52,7 +52,7 @@ There are three tabbed sections in this workbook:
 
 - The **Overview** tab shows the general status of data ingestion in the selected workspace: volume measures, EPS rates, and time last log received.
 
-- The **Data collection anomalies** tab will help you to detect anomalies in the data collection process, by table and data source. Each tab presents anomalies for a particular table (the **General** tab includes a collection of tables). The anomalies are calculated using the **series_decompose_anomalies()** function that returns an **anomaly score**. [Learn more about this function](/azure/data-explorer/kusto/query/series-decompose-anomaliesfunction?WT.mc_id=Portal-fx). Set the following parameters for the function to evaluate:
+- The **Data collection anomalies** tab will help you to detect anomalies in the data collection process, by table and data source. Each tab presents anomalies for a particular table (the **General** tab includes a collection of tables). The anomalies are calculated using the **series_decompose_anomalies()** function that returns an **anomaly score**. [Learn more about this function](/kusto/query/series-decompose-anomalies-function?view=microsoft-sentinel&preserve-view=true&WT.mc_id=Portal-fx). Set the following parameters for the function to evaluate:
 
     - **AnomaliesTimeRange**: This time picker applies only to the data collection anomalies view.
     - **SampleInterval**: The time interval in which data is sampled in the given time range. The anomaly score is calculated only on the last interval's data.
@@ -117,44 +117,55 @@ SentinelHealth
 **Detect connectors with changes from fail to success state**:
 
 ```kusto
-let lastestStatus = SentinelHealth
+let latestStatus = SentinelHealth
 | where TimeGenerated > ago(12h)
 | where OperationName == 'Data fetch status change'
 | where Status in ('Success', 'Failure')
 | project TimeGenerated, SentinelResourceName, SentinelResourceId, LastStatus = Status
 | summarize TimeGenerated = arg_max(TimeGenerated,*) by SentinelResourceName, SentinelResourceId;
-let nextToLastestStatus = SentinelHealth
+let nextTolatestStatus = SentinelHealth
 | where TimeGenerated > ago(12h)
 | where OperationName == 'Data fetch status change'
 | where Status in ('Success', 'Failure')
-| join kind = leftanti (lastestStatus) on SentinelResourceName, SentinelResourceId, TimeGenerated
+| join kind = leftanti (latestStatus) on SentinelResourceName, SentinelResourceId, TimeGenerated
 | project TimeGenerated, SentinelResourceName, SentinelResourceId, NextToLastStatus = Status
 | summarize TimeGenerated = arg_max(TimeGenerated,*) by SentinelResourceName, SentinelResourceId;
-lastestStatus
-| join kind=inner (nextToLastestStatus) on SentinelResourceName, SentinelResourceId
+latestStatus
+| join kind=inner (nextTolatestStatus) on SentinelResourceName, SentinelResourceId
 | where NextToLastStatus == 'Failure' and LastStatus == 'Success'
 ```
 
 **Detect connectors with changes from success to fail state**:
 
 ```kusto
-let lastestStatus = SentinelHealth
+let latestStatus = SentinelHealth
 | where TimeGenerated > ago(12h)
 | where OperationName == 'Data fetch status change'
 | where Status in ('Success', 'Failure')
 | project TimeGenerated, SentinelResourceName, SentinelResourceId, LastStatus = Status
 | summarize TimeGenerated = arg_max(TimeGenerated,*) by SentinelResourceName, SentinelResourceId;
-let nextToLastestStatus = SentinelHealth
+let nextTolatestStatus = SentinelHealth
 | where TimeGenerated > ago(12h)
 | where OperationName == 'Data fetch status change'
 | where Status in ('Success', 'Failure')
-| join kind = leftanti (lastestStatus) on SentinelResourceName, SentinelResourceId, TimeGenerated
+| join kind = leftanti (latestStatus) on SentinelResourceName, SentinelResourceId, TimeGenerated
 | project TimeGenerated, SentinelResourceName, SentinelResourceId, NextToLastStatus = Status
 | summarize TimeGenerated = arg_max(TimeGenerated,*) by SentinelResourceName, SentinelResourceId;
-lastestStatus
-| join kind=inner (nextToLastestStatus) on SentinelResourceName, SentinelResourceId
+latestStatus
+| join kind=inner (nextTolatestStatus) on SentinelResourceName, SentinelResourceId
 | where NextToLastStatus == 'Success' and LastStatus == 'Failure'
 ```
+
+See more information on the following items used in the preceding examples, in the Kusto documentation:
+- [***let*** statement](/kusto/query/let-statement?view=microsoft-sentinel&preserve-view=true)
+- [***where*** operator](/kusto/query/where-operator?view=microsoft-sentinel&preserve-view=true)
+- [***project*** operator](/kusto/query/project-operator?view=microsoft-sentinel&preserve-view=true)
+- [***summarize*** operator](/kusto/query/summarize-operator?view=microsoft-sentinel&preserve-view=true)
+- [***join*** operator](/kusto/query/join-operator?view=microsoft-sentinel&preserve-view=true)
+- [***ago()*** function](/kusto/query/ago-function?view=microsoft-sentinel&preserve-view=true)
+- [***arg_max()*** aggregation function](/kusto/query/arg-max-aggregation-function?view=microsoft-sentinel&preserve-view=true)
+
+[!INCLUDE [kusto-reference-general-no-alert](includes/kusto-reference-general-no-alert.md)]
 
 ### Configure alerts and automated actions for health issues
 

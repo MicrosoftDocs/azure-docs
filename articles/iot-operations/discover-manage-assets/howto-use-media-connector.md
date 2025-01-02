@@ -64,7 +64,7 @@ az k8s-extension update `
 ```
 
 > [!NOTE]
-> This update process id for preview components only. The media connector is currently a preview component.
+> This update process is for preview components only. The media connector is currently a preview component.
 
 ## Deploy the media server
 

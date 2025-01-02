@@ -38,10 +38,10 @@ This article describes how to set up agent-based dependency analysis in Azure Mi
 ## Associate a workspace
 
 1. After you've discovered servers for assessment, in **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select **Overview**.  
-2. In **Azure Migrate: Discovery and assessment**, click **Essentials**.
-3. In **OMS Workspace**, click **Requires configuration**.
+2. In **Azure Migrate: Discovery and assessment**, select **Essentials**.
+3. In **OMS Workspace**, select **Requires configuration**.
 
-     ![Configure Log Analytics workspace](./media/how-to-create-group-machine-dependencies/oms-workspace-select.png)   
+     ![Configure Log Analytics workspace](./media/how-to-create-group-machine-dependencies/oms-workspace-select.png)
 
 4. In **Configure OMS workspace**, specify whether you want to create a new workspace, or use an existing one.
     - You can select an existing workspace from all the workspaces in the project subscription.
@@ -60,12 +60,12 @@ On each server you want to analyze, install the agents.
 > [!NOTE]
 > For servers monitored by System Center Operations Manager 2012 R2 or later, you don't need to install the MMA agent. Service Map integrates with Operations Manager. [Follow](/previous-versions/azure/azure-monitor/vm/service-map-scom#prerequisites) integration guidance.
 
-1. In **Azure Migrate: Discovery and assessment**, click **Discovered servers**.
-1. Click **Columns** to select **Dependencies (Agent-based)** to see the column on the Discovered servers page.
+1. In **Azure Migrate: Discovery and assessment**, select **Discovered servers**.
+1. Select **Columns** to select **Dependencies (Agent-based)** to see the column on the Discovered servers page.
 
-    :::image type="content" source="./media/how-to-create-group-machine-dependencies/columns-inline.png" alt-text="Screenshot showing the result after clicking columns." lightbox="./media/how-to-create-group-machine-dependencies/columns-expanded.png":::
+    :::image type="content" source="./media/how-to-create-group-machine-dependencies/columns-inline.png" alt-text="Screenshot showing the result after selecting columns." lightbox="./media/how-to-create-group-machine-dependencies/columns-expanded.png":::
 
-1. For each server you want to analyze with dependency visualization, in the **Dependencies** column, click **Requires agent installation**.
+1. For each server you want to analyze with dependency visualization, in the **Dependencies** column, select **Requires agent installation**.
 1. In the **Dependencies** page, download the MMA and Dependency agent for Windows or Linux.
 1. Under **Configure MMA agent**, copy the workspace ID and key. You need these when you install the MMA agent.
 
@@ -81,10 +81,10 @@ Install the MMA on each Windows or Linux server you want to analyze.
 To install the agent on a Windows server:
 
 1. Double-click the downloaded agent.
-2. On the **Welcome** page, click **Next**. On the **License Terms** page, click **I Agree** to accept the license.
+2. On the **Welcome** page, select **Next**. On the **License Terms** page, select **I Agree** to accept the license.
 3. In **Destination Folder**, keep or modify the default installation folder > **Next**.
 4. In **Agent Setup Options**, select **Azure Log Analytics** > **Next**.
-5. Click **Add** to add a new Log Analytics workspace. Paste in the workspace ID and key that you copied from the portal. Click **Next**.
+5. Select **Add** to add a new Log Analytics workspace. Paste in the workspace ID and key that you copied from the portal. Select **Next**.
 
 You can install the agent from the command line or using an automated method such as Configuration Manager or Intigua.
 - [Learn more](/azure/azure-monitor/agents/log-analytics-agent#installation-options) about using these methods to install the MMA agent.
@@ -123,21 +123,21 @@ Now create a group for assessment.
 > [!NOTE]
 > Groups for which you want to visualize dependencies shouldn't contain more than 10 servers. If you have more than 10 servers, split them into smaller groups.
 
-1. In **Azure Migrate: Discovery and assessment**, click **Discovered servers**.
-2. In the **Dependencies** column, click **View dependencies** for each server you want to review.
+1. In **Azure Migrate: Discovery and assessment**, select **Discovered servers**.
+2. In the **Dependencies** column, select **View dependencies** for each server you want to review.
 3. On the dependency map, you can see the following:
     - Inbound (clients) and outbound (servers) TCP connections, to and from the server.
     - Dependent servers that don't have the dependency agents installed are grouped by port numbers.
     - Dependent servers with dependency agents installed are shown as separate boxes.
     - Processes running inside the server. Expand each server box to view the processes.
-    - Server properties (including FQDN, operating system, MAC address). Click on each server box to view the details.
+    - Server properties (including FQDN, operating system, MAC address). Select each server box to view the details.
 
-4. You can look at dependencies for different time durations by clicking on the time duration in the time range label.
+4. You can look at dependencies for different time durations by selecting on the time duration in the time range label.
     - By default the range is an hour. 
     - You can modify the time range, or specify start and end dates, and duration.
     - Time range can be up to an hour. If you need a longer range, use Azure Monitor to query dependent data for a longer period.
 
-5. After you've identified the dependent servers that you want to group together, use Ctrl+Click to select multiple servers on the map, and click **Group machines**.
+5. After you've identified the dependent servers that you want to group together, use Ctrl+Click to select multiple servers on the map, and select **Group machines**.
 6. Specify a group name.
 7. Verify that the dependent servers are discovered by Azure Migrate.
 
@@ -145,7 +145,7 @@ Now create a group for assessment.
     - To add a server, run discovery again, and verify that the server is discovered.
 
 8. If you want to create an assessment for this group, select the checkbox to create a new assessment for the group.
-8. Click **OK** to save the group.
+8. Select **OK** to save the group.
 
 After creating the group, we recommend that you install agents on all the servers in the group, and then visualize dependencies for the entire group.
 
@@ -158,11 +158,11 @@ You can query dependency data captured by Service Map in the Log Analytics works
 
 Run a query for dependency data as follows:
 
-1. After you install the agents, go to the portal and click **Overview**.
-2. In **Azure Migrate: Discovery and assessment**, click **Overview**. Click the down arrow to expand **Essentials**.
-3. In **OMS Workspace**, click the workspace name.
-3. On the Log Analytics workspace page > **General**, click **Logs**.
-4. Write your query, and click **Run**.
+1. After you install the agents, go to the portal and select **Overview**.
+2. In **Azure Migrate: Discovery and assessment**, select **Overview**. Select the down arrow to expand **Essentials**.
+3. In **OMS Workspace**, select the workspace name.
+3. On the Log Analytics workspace page > **General**, select **Logs**.
+4. Write your query, and select **Run**.
 
 ### Sample queries
 

@@ -200,7 +200,7 @@ az networkcloud cluster update --name "<clusterName>" /
 az networkcloud cluster show --resource-group "<resourceGroup>" --name "<clusterName>" | grep -a3 computeDeploymentThreshold
 
   "clusterType": "MultiRack",
-  "clusterVersion": "<CLUSER_VERSION>",
+  "clusterVersion": "<CLUSTER_VERSION>",
   "computeDeploymentThreshold": {
     "grouping": "PerCluster",
     "type": "PercentSuccess",
