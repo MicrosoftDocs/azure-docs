@@ -298,7 +298,7 @@ To minimize the effect on read access latency, only the first read of the last 2
 In the following example, blobs are moved to cool storage if they haven't been accessed for 30 days. The `enableAutoTierToHotFromCool` property is a Boolean value that indicates whether a blob should automatically be tiered from cool back to hot if it's accessed again after being tiered to cool.
 
 > [!TIP]
-> If a blob is moved to the cool tier, and then is automatically moved back before 30 days has elapsed, an early deletion fee is charged. Before you set the `enablAutoTierToHotFromCool` property, make sure to analyze the access patterns of your data so you can reduce unexpected charges.
+> If a blob is moved to the cool tier, and then is automatically moved back before 30 days has elapsed, an early deletion fee is charged. Before you set the `enableAutoTierToHotFromCool` property, make sure to analyze the access patterns of your data so you can reduce unexpected charges.
 
 ```json
 {

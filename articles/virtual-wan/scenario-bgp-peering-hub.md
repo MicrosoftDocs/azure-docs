@@ -4,7 +4,7 @@ titleSuffix: Azure Virtual WAN
 description: Learn about BGP peering with an Azure Virtual WAN virtual hub.
 author: cherylmc
 ms.service: azure-virtual-wan
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 10/25/2024
 ms.author: cherylmc
 

@@ -5,6 +5,7 @@ ms.author: karenguo
 description: Learn about the latest updates for Firmware analysis.
 ms.topic: conceptual
 ms.date: 11/04/2024
+ms.service: azure
 ---
 
 # What's new in Firmware analysis

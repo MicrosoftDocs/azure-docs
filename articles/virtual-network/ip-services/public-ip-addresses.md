@@ -5,7 +5,7 @@ description: Learn about public IP addresses in Azure.
 services: virtual-network
 ms.service: azure-virtual-network
 ms.subservice: ip-services
-ms.topic: conceptual
+ms.topic: concept-article
 author: mbender-ms
 ms.author: mbender
 ms.date: 09/27/2024
