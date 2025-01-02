@@ -22,9 +22,9 @@ const mediaAccessFeature = call.feature(Features.MediaAccess);
 ```
 
 ### Control access to send audio or video of individual attendees
-You can use method `permitAudio()` to allow selected attendees to unmute or method `permitVideo()` to allow selected attendees to turn on video. These actions won't automatically unmute or turn on video, they only allow attendees to perform these actions. 
+You can use method `permitAudio()` to allow selected attendees to unmute or method `permitVideo()` to allow selected attendees to turn on video. These actions don't automatically unmute or turn on video. They only allow attendees to perform these actions. 
 
-Use method `forbidAudio()` to deny selected attendees to unmute or method `forbidVideo()` to deny selected attendees to turn on video and these actions will disable mic or camera for selected attendees.
+Use method `forbidAudio()` to deny selected attendees to unmute or method `forbidVideo()` to deny selected attendees to turn on video and these actions disable mic or camera for selected attendees.
 
 ```js
 //Define list of attendees
@@ -46,9 +46,9 @@ mediaAccessFeature.forbidVideo(participants);
 ```
 
 ### Control access to send audio or video of all attendees
-Microsoft Teams meetings support API that allows participants with role organizer, co-organizers or presenters to allow or deny all attendees to send audio or video. You can use method `permitOthersAudio()` to allow all attendees to unmute or method `permitOthersVideo()` to allow all attendees to turn on video. These actions won't automatically unmute or turn on video, they only allow attendees to perform these actions. 
+Microsoft Teams meetings support API that allows participants with role organizer, coorganizers, or presenters to allow or deny all attendees to send audio or video. You can use method `permitOthersAudio()` to allow all attendees to unmute or method `permitOthersVideo()` to allow all attendees to turn on video. These actions don't automatically unmute or turn on video. They only allow attendees to perform these actions. 
 
-Use method `forbidOthersAudio()` to disallow all attendees to unmute or method `forbidOthersVideo()` to disallow all attendees to turn on video and these actions will disable mic or camera for selected attendees.
+Use method `forbidOthersAudio()` to disallow all attendees to unmute or method `forbidOthersVideo()` to disallow all attendees to turn on video and these actions disable mic or camera for selected attendees.
 
 ```js
 //Allow all attendees to unmute
@@ -65,7 +65,7 @@ mediaAccessFeature.forbidOthersVideo();
 ```
 
 ### Get notification that media access changed
-You can subscribe to the `mediaAccessChanged` events from 'MediaAccess' API to receive array of `MediaAccess` instances, that allow you to learn which attendees are now allowed or denied sending audio or video. This event is triggered when a participant with an appropriate role changes media access for selected or all attendees. 
+You can subscribe to the `mediaAccessChanged` events from 'MediaAccess' API to receive array of `MediaAccess` instances that allow you to learn which attendees are now allowed or denied sending audio or video. This event is triggered when a participant with an appropriate role changes media access for selected or all attendees. 
 
 ```js
 const mediaAccessChangedHandler = (event) => {
@@ -80,8 +80,8 @@ mediaAccessFeature.on('mediaAccessChanged', mediaAccessChangedHandler )
 Class `MediaAccess` has the following properties:
 
 | Properties | Description |
-| -- | -- |
-| participant | Identifier of the participant whose media access has changed. |
+|--|--|
+| participant | Identifier of the participant whose media access changed. |
 | isAudioPermitted | Boolean value indicating whether ability to send audio is allowed for this participant. |
 | isVideoPermitted | Boolean value indicating whether ability to send video is allowed for this participant. |
 
@@ -100,7 +100,7 @@ mediaAccessFeature.on('mediaAccessChanged', mediaAccessChangedHandler)
 Class `MeetingMediaAccess` has the following properties:
 
 | Properties | Description |
-| -- | -- |
+|--|--|
 | isAudioPermitted | Boolean value indicating whether ability to send audio is allowed in the Teams meeting for attendees. |
 | isVideoPermitted | Boolean value indicating whether ability to send video is allowed in the Teams meeting for attendees. |
 
@@ -109,7 +109,7 @@ const meetingMediaAccessChangedHandler = (event) => {
     console.log(`Latest meeting media access state ${event.mediaAccesses}`);
 };
 ```
-The `meetingMediaAccessChanged` event is for Teams meeting only not supported in group call, it contains an object with the `mediaAccesses` property, which represents the Teams meeting options setting media accesses.
+The `meetingMediaAccessChanged` event is for Teams meeting only not supported in group call. It contains an object with the `mediaAccesses` property, which represents the Teams meeting options setting media accesses.
 ```js
 mediaAccessFeature.on('meetingMediaAccessChanged', meetingMediaAccessChangedHandler)
 ```
@@ -138,8 +138,8 @@ remoteParticipantsMediaAccess.forEach((mediaAccess) => {
 |Error code| Subcode | Result Category | Reason | Resolution |
 |----------------------------------------------|--------|--------|---------|----------|
 |500		| 46500	| UnexpectedServerError  | Internal error while updating the audio or video access. | Gather browser console logs and contact Azure Communication Services support. |
-|500	| 46501 | UnexpectedClientError  | Could not initialize media access feature.  | Gather browser console logs and contact Azure Communication Services support. |
-|403 | 46502	| ExpectedError | Change media access failed. User does not have an organizer, co-organizer, or presenter role. | Ensure that the user has the mentioned roles and try again. If the issue persists, gather browser console logs and contact Azure Communication Services support. |
+|500	| 46501 | UnexpectedClientError  | Couldn't initialize media access feature.  | Gather browser console logs and contact Azure Communication Services support. |
+|403 | 46502	| ExpectedError | Change media access failed. User doesn't have an organizer, coorganizer, or presenter role. | Ensure that the user has the mentioned roles and try again. If the issue persists, gather browser console logs and contact Azure Communication Services support. |
 |403| 46503 | UnexpectedServerError |Change media access failed. Change media access can only be done in meeting/group call scenarios. | Ensure that the feature is initialized only for Teams meeting or group call scenarios. You can check `Capability` feature to learn about the availability of the feature. If the issue persists, gather browser console logs and contact Azure Communication Services support. |
 |403 | 46504| ExpectedError | Change media access failed. Only able to change media access for attendees. | Ensure that the method is called only for participants with role attendees. You can check the property `role` of class `remoteParticipant` to understand the role of the participant.|
 |412 | 46505| ExpectedError | Failed to change media access. | Use media access APIs only when your instance of `Call` has property `state` set to `connected`. |
