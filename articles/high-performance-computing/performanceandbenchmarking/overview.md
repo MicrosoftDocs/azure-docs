@@ -64,7 +64,7 @@ Various techniques are employed to gather detailed performance data and identify
 ## Performance Optimization Techniques
 These strategies help maximize system efficiency and application performance across different aspects of HPC systems. The most effective techniques typically combine elements from all three categories, creating a balanced optimization strategy that considers the entire system's performance characteristics. Success often comes from identifying which combination of these techniques best matches your specific application and system architecture.
 
-:::image type="content" source="media/performance-techniques.png" alt-text="A screenshot of the effective techniques with combined elements.":::
+:::image type="content" source="media/performance-techniques.jpg" alt-text="A screenshot of the effective techniques with combined elements.":::
 
 ## Best Practices for Benchmarking
 Following are established benchmarking practices ensures reliable and reproducible performance measurements.
