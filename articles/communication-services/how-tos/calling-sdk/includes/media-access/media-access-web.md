@@ -54,7 +54,7 @@ Use method `forbidOthersAudio()` to disallow all attendees to unmute or method `
 //Allow all attendees to unmute
 mediaAccessFeature.permitOthersAudio();
 
-//Disallow all attendees to unmute
+//Deny all attendees to unmute
 mediaAccessFeature.forbidOthersAudio();
 
 //Allow all attendees to turn on video
