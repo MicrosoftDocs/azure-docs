@@ -78,18 +78,12 @@ mediaAccessFeature.on('mediaAccessChanged', mediaAccessChangedHandler )
 ```
 ### Media Access properties
 Class `MediaAccess` has the following properties:
+
 | Properties | Description |
 | -- | -- |
 | participant | Identifier of the participant whose media access has changed. |
 | isAudioPermitted | Boolean value indicating whether ability to send audio is allowed for this participant. |
 | isVideoPermitted | Boolean value indicating whether ability to send video is allowed for this participant. |
-
-### Meeting media access properties
-Class `MeetingMediaAccess` has the following properties:
-| Properties | Description |
-| -- | -- |
-| isAudioPermitted | Boolean value indicating whether ability to send audio is allowed in the Teams meeting for attendees. |
-| isVideoPermitted | Boolean value indicating whether ability to send video is allowed in the Teams meeting for attendees. |
 
 You can use the following code to subscribe these events:
 ```js
@@ -97,14 +91,23 @@ const mediaAccessChangedHandler = (event) => {
     console.log(`Latest media access states ${event.mediaAccesses}`);
 };
 ```
+The `mediaAccessChanged` event contains an object with the `mediaAccesses` property, which represents the participant's media accesses.
+```js
+mediaAccessFeature.on('mediaAccessChanged', mediaAccessChangedHandler)
+```
+
+### Meeting media access properties
+Class `MeetingMediaAccess` has the following properties:
+
+| Properties | Description |
+| -- | -- |
+| isAudioPermitted | Boolean value indicating whether ability to send audio is allowed in the Teams meeting for attendees. |
+| isVideoPermitted | Boolean value indicating whether ability to send video is allowed in the Teams meeting for attendees. |
+
 ```js
 const meetingMediaAccessChangedHandler = (event) => {
     console.log(`Latest meeting media access state ${event.mediaAccesses}`);
 };
-```
-The `mediaAccessChanged` event contains an object with the `mediaAccesses` property, which represents the participant's media accesses.
-```js
-mediaAccessFeature.on('mediaAccessChanged', mediaAccessChangedHandler)
 ```
 The `meetingMediaAccessChanged` event is for Teams meeting only not supported in group call, it contains an object with the `mediaAccesses` property, which represents the Teams meeting options setting media accesses.
 ```js
