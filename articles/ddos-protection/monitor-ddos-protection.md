@@ -64,7 +64,7 @@ For more information on metrics, see [Monitoring Azure DDoS Protection](monitor-
     :::image type="content" source="./media/ddos-attack-telemetry/vnet-ddos-metrics.png" alt-text="Screenshot of DDoS diagnostic settings within Azure." lightbox="./media/ddos-attack-telemetry/vnet-ddos-metrics.png":::
 
 > [!NOTE]
-> To filter IP Addresses select **Add filter**. Under **Property**, select **Protected IP Address**, and the operator should be set to **=**. Under **Values**, you will see a dropdown of public IP addresses, associated with the virtual network, that are protected by Azure DDoS Protection.
+> To filter IP Addresses, select **Add filter**. Under **Property**, select **Protected IP Address**, and the operator should be set to **=**. Under **Values**, you see a dropdown of public IP addresses, associated with the virtual network, that are protected by Azure DDoS Protection.
 
 ### View metrics from Public IP address
 
@@ -77,11 +77,11 @@ For more information on metrics, see [Monitoring Azure DDoS Protection](monitor-
 1. Under **Metric** select your chosen metric then under **Aggregation** select type as **Max**.
 
 > [!NOTE]
-> When changing DDoS IP protection from **enabled** to **disabled**, telemetry for the public IP resource will not be available.
+> When you change DDoS IP protection from **enabled** to **disabled**, telemetry for the public IP resource isn't available.
 
 ### View DDoS mitigation policies
 
-Azure DDoS Protection uses three automatically adjusted mitigation policies (TCP SYN, TCP, and UDP) for each public IP address of the resource being protected. This applies to any virtual network with DDoS protection enabled. 
+Azure DDoS Protection uses three automatically adjusted mitigation policies (TCP SYN, TCP, and UDP) for each public IP address of the resource being protected. This approach applies to any virtual network with DDoS protection enabled. 
 
 You can see the policy limits within your public IP address metrics by choosing the *Inbound SYN packets to trigger DDoS mitigation*, *Inbound TCP packets to trigger DDoS mitigation*, and *Inbound UDP packets to trigger DDoS mitigation* metrics. Make sure to set the aggregation type to *Max*.
 
@@ -96,7 +96,7 @@ You can make a chart for the public IP address resource. In this chart, include 
 :::image type="content" source="./media/manage-ddos-protection/ddos-baseline-metrics.png" alt-text="Screenshot of viewing peace time telemetry." lightbox="./media/manage-ddos-protection/ddos-baseline-metrics.png":::
 
 > [!NOTE]
-> To make a fair comparison, you need to convert the data to packets-per-second. You can do this by dividing the number you see by 60, as the data represents the number of packets, bytes, or SYN packets collected over 60 seconds. For example, if you have 91,000 packets collected over 60 seconds, divide 91,000 by 60 to get approximately 1,500 packets-per-second (pps).
+> To make a fair comparison, you need to convert the data to packets-per-second. You can do this conversion by dividing the number you see by 60, as the data represents the number of packets, bytes, or SYN packets collected over 60 seconds. For example, if you have 91,000 packets collected over 60 seconds, divide 91,000 by 60 to get approximately 1,500 packets-per-second (pps).
 
 ### Validate and test
 
@@ -107,12 +107,6 @@ To simulate a DDoS attack to validate DDoS protection telemetry, see [Validate D
 [!INCLUDE [azmon-horz-export-data](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/azmon-horz-export-data.md)]
 
 [!INCLUDE [azmon-horz-kusto](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/azmon-horz-kusto.md)]
-
-### Recommended Kusto queries for Azure DDoS Protection
-
-<!-- Add any recommended Kusto queries here. -->
-
-<!-- Add any links to community resources with sample Kusto queries here. -->
 
 [!INCLUDE [azmon-horz-alerts-part-one](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/azmon-horz-alerts-part-one.md)]
 
