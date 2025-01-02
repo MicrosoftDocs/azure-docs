@@ -94,5 +94,4 @@ Following are established benchmarking practices ensures reliable and reproducib
 ## Related resources
 
 - [HPC workload best practices guide](/azure/virtual-machines/workload-guidelines-best-practices-storage)
-- [Run a Linux VM on Azure](/azure/architecture/reference-architectures/n-tier/linux-vm)
 - [HPC system and big-compute solutions](/azure/architecture/solution-ideas/articles/big-compute-with-azure-batch)
