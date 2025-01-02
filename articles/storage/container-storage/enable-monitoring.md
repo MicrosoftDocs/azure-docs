@@ -1,6 +1,6 @@
 ---
 title: Enable monitoring for Azure Container Storage
-description: Learn how to enable monitoring for stateful workloads running on Azure Container Storage using Prometheus (preview) and Azure Monitor.
+description: Enable monitoring for stateful workloads running on Azure Container Storage using Azure Monitor managed service for Prometheus.
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: how-to
@@ -30,16 +30,18 @@ Azure Managed Grafana default dashboard support isn't currently enabled for Azur
 
 You can use Azure Monitor managed service for Prometheus to collect Azure Container Storage metrics along with other Prometheus metrics from your AKS cluster. To start collecting Azure Container Storage metrics, [enable Managed Prometheus on the AKS cluster](/azure/azure-monitor/containers/kubernetes-monitoring-enable?tabs=cli#enable-prometheus-and-grafana). If your AKS cluster already has Prometheus enabled, then installing Azure Container Storage on that cluster will automatically start collecting Azure Container Storage metrics.
 
-### Scrape frequency and metrics collected for default targets
+### Scrape frequency
 
 The default scrape frequency for all default targets and scrapes is 30 seconds.
+
+### Metrics collected for default targets
 
 The following Azure Container Storage targets are enabled by default, which means you don't have to provide any scrape job configuration for these targets:
 
 - `acstor-capacity-provisioner` (storage pool metrics)
 - `acstor-metrics-exporter` (disk metrics)
 
-You can customize data collection for these default targets using the Managed Prometheus ConfigMap. See [Customize scraping of Prometheus metrics in Azure Monitor](/azure/azure-monitor/containers/prometheus-metrics-scrape-configuration).
+You can customize data collection for the default targets using the Managed Prometheus ConfigMap. See [Customize scraping of Prometheus metrics in Azure Monitor](/azure/azure-monitor/containers/prometheus-metrics-scrape-configuration).
 
 #### Storage pool metrics
 
@@ -72,7 +74,7 @@ Azure Container Storage provides the following disk metrics collected from the `
 
 Azure Container Storage metrics are stored in the Azure Monitor workspace that's associated with Managed Prometheus. You can query metrics directly from the workspace or through the Azure Managed Grafana instance that's connected to the workspace.
 
-To view Azure Container Storage metrics in the Azure Monitor workspace, follow these steps:
+To view Azure Container Storage metrics, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com?azure-portal=true) and navigate to your AKS cluster.
 
@@ -84,7 +86,7 @@ To view Azure Container Storage metrics in the Azure Monitor workspace, follow t
 
    :::image type="content" source="media/enable-monitoring/metrics.png" alt-text="Screenshot showing how to query Azure Container Storage metrics using the Azure portal." lightbox="media/enable-monitoring/metrics.png":::
 
-1. Alternatively, you can select the Managed Grafana instance, and on the instance overview page, click on the Endpoint URL. This will navigate to the Grafana portal where you can query the Azure Container Storage metrics. The data source will be automatically configured for you to query metrics from the associated Azure Monitor workspace.
+1. Alternatively, you can select the Managed Grafana instance, and on the instance overview page, click on the endpoint URL. This will navigate to the Grafana portal where you can query the metrics. The data source will be automatically configured for you to query metrics from the associated Azure Monitor workspace.
 
    :::image type="content" source="media/enable-monitoring/dashboard.png" alt-text="Screenshot of an Azure Managed Prometheus dashboard and metrics browser." lightbox="media/enable-monitoring/dashboard.png":::
 
