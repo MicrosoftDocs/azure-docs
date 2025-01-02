@@ -25,15 +25,15 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 ###  Final retirement notice: AzureRM modules starting February 01, 2025
 
-Azure Automation will **discontinue** execution of all runbooks that use AzureRM modules. AzureRM PowerShell module has retired on **February 29, 2024**. Refer to [migration resources](https://aka.ms/azpsmigrate) for guidance on transitioning from AzureRM to Az PowerShell module.
+Azure Automation will **discontinue** execution of all runbooks that use AzureRM modules. AzureRM PowerShell module has retired on **February 29, 2024**. Refer [migration resources](https://aka.ms/azpsmigrate) for guidance on transitioning from AzureRM to Az PowerShell module.
 
 ### Final retirement notice: TLS 1.0/1.1 protocols for Azure Automation
 
 Starting **March 01, 2025** all agent-based and extension-based User Hybrid Runbook Workers, Webhooks and DSC nodes using Transport Layer Security (TLS) 1.0 and 1.1 protocols would no longer be able to connect to Azure Automation. All jobs running or scheduled on Hybrid Workers using TLS 1.0 and 1.1 protocols will fail. [Learn more](automation-managing-data.md#tls-for-azure-automation).
 
-### Final retirement notice: Agent-Based User Hybrid Runbook Worker
+### Final retirement notice: agent-based user hybrid runbook worker
 
-Starting **April 01, 2025** all jobs running on agent-based User Hybrid Runbook Worker (Windows and Linux) will be stopped. [Learn more](migrate-existing-agent-based-hybrid-worker-to-extension-based-workers.md).
+Starting **April 01, 2025** all jobs running on agent-based user hybrid runbook worker (Windows and Linux) will be stopped. [Learn more](migrate-existing-agent-based-hybrid-worker-to-extension-based-workers.md).
 
 
 ## July 2024
