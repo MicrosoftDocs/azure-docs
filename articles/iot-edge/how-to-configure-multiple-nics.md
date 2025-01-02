@@ -75,7 +75,7 @@ Once you successfully assign the virtual switch to the EFLOW VM, create a networ
         Add-EflowVmEndpoint -vSwitchName "{switchName}" -vEndpointName "{EndpointName}" -ip4Address "{staticIp4Address}" -ip4GatewayAddress "{gatewayIp4Address}" -ip4PrefixLength "{prefixLength}"
         ```
 
-        For example, if you wanted to create and assign the **OnlineEndpoint** endpoint with the external virtual switch named **OnlineExt**, and Static IP configurations (_ip4Address=192.168.0.103, ip4GatewayAddress=192.168.0.1, ip4PrefixLenght=24_) you should use the following command:
+        For example, if you wanted to create and assign the **OnlineEndpoint** endpoint with the external virtual switch named **OnlineExt**, and Static IP configurations (_ip4Address=192.168.0.103, ip4GatewayAddress=192.168.0.1, ip4PrefixLength=24_) you should use the following command:
         ```powershell
         Add-EflowVmEndpoint -vSwitchName "OnlineExt" -vEndpointName "OnlineEndpoint" -ip4Address "192.168.0.103" -ip4GatewayAddress "192.168.0.1" -ip4PrefixLength "24"
         ```

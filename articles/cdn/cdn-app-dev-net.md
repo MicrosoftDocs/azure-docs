@@ -4,7 +4,6 @@ description: Learn how to write .NET applications to manage Azure CDN using Visu
 services: cdn
 author: duongau
 manager: kumudd
-ms.assetid: 63cf4101-92e7-49dd-a155-a90e54a792ca
 ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 03/20/2024

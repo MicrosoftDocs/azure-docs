@@ -53,6 +53,7 @@ You can currently use up to three identifiers for a given entity when creating a
 - \* These identifiers appear in the list of identifiers that can be used in entity mapping, but strictly speaking they are not part of the entity schema.
 - \*\* These identifiers are considered strong only under certain conditions. Follow the asterisks' links to see the conditions that apply, under the relevant entity's listing in the [entity schemas section below](#entity-type-schemas).
 - *Italicized identifier names* (without an asterisk) represent internal entities, which means that one entity type can have other entity types as attributes (see the [entity schemas section below](#entity-type-schemas)). Follow the identifier's link to see the internal entity's own schema.
+- Other entities may be present in the schema, which is a general schema that supports many things besides Microsoft Sentinel. Only those entities available in Microsoft Sentinel are listed in this article.
 
 ## Entity type schemas
 
@@ -196,7 +197,7 @@ The following section contains a more in-depth look at the full schemas of each 
 - **Address**  
 \*\* Address alone is a unique, strong identifier when the IP address is a global address.
 - **Address + AddressScope**  
-\*\* For private/internal, non-global IP addresses, the AddressScope component is required to make this a strong identifer.
+\*\* For private/internal, non-global IP addresses, the AddressScope component is required to make this a strong identifier.
 
 [Back to list of entity type schemas](#list-of-entity-type-schemas) | [Back to entity identifiers table](#entity-types-and-identifiers)
 
