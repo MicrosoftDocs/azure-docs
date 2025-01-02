@@ -2,7 +2,7 @@
 title: Azure Functions language stack support policy
 description: Learn about the support policy for the various language stacks that Azure Functions supports.
 ms.topic: conceptual
-ms.date: 08/05/2024
+ms.date: 01/02/2025
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -23,7 +23,7 @@ The Functions runtime includes the Functions host and programming language-speci
     After the language end-of-life date, function apps that use retired language versions can still be created and deployed, and they continue to run on the platform. However, these apps aren't eligible for new features, security patches, and performance optimizations until after you upgrade them to a supported language version.
 
     > [!IMPORTANT]
-    >If you're running function apps using an unsupported runtime or language version, you may encounter issues and performance implications and are required to upgrade before receiving support for your function app. Because of this, you're highly encouraged to upgrade the language version of such an app to a supported version. TO learn how, see [Update language stack versions in Azure Functions](./update-language-versions.md).
+    >If you're running function apps using an unsupported runtime or language version, you might encounter issues and performance implications and are required to upgrade before receiving support for your function app. As such, you're highly encouraged to upgrade the language version of such an app to a supported version. TO learn how, see [Update language stack versions in Azure Functions](./update-language-versions.md).
 
 ## Retirement policy exceptions
 
@@ -36,7 +36,7 @@ Any Functions-supported exceptions to language-specific retirement policies are 
 Use these resources to better understand and plan for language support-related changes in your function apps.
 ::: zone pivot="programming-language-csharp" 
  
-| Topic | Resources |
+| Resource | Details  |
 | --- | --- |
 | **Language version support timelines** | [.NET support policy page](https://dotnet.microsoft.com/platform/support/policy/dotnet-core)|
 | **Configuring language versions** | [Isolated worker model](./dotnet-isolated-process-guide.md#supported-versions)<br/>[In-process model](./functions-dotnet-class-library.md#supported-versions)|
@@ -45,7 +45,7 @@ Use these resources to better understand and plan for language support-related c
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript" 
 
-| Topic | Additional Resources |
+| Resource | Details  |
 | --- | --- |
 | **Language version support timelines** | [Node.js release page on GitHub](https://github.com/nodejs/Release#release-schedule)|
 | **Configuring language versions** | [Setting the Node version](./functions-reference-node.md#setting-the-node-version)|
@@ -54,7 +54,7 @@ Use these resources to better understand and plan for language support-related c
 ::: zone-end  
 ::: zone pivot="programming-language-java" 
 
-| Topic | Additional Resources |
+| Resource | Details  |
 | --- | --- |
 | **Language version support timelines** | [Java support on Azure and Azure Stack](/azure/developer/java/fundamentals/java-support-on-azure)|
 | **Configuring language versions** | [Update the stack configuration](./update-language-versions.md#update-the-stack-configuration)|
@@ -63,7 +63,7 @@ Use these resources to better understand and plan for language support-related c
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
 
-| Topic | Additional Resources |
+| Resource | Details  |
 | --- | --- |
 | **Language version support timelines** | [PowerShell Support Lifecycle](/powershell/scripting/powershell-support-lifecycle#powershell-end-of-support-dates)|
 | **Configuring language versions** | [Changing the PowerShell version](./functions-reference-python.md#python-version)|
@@ -71,7 +71,7 @@ Use these resources to better understand and plan for language support-related c
 ::: zone-end  
 ::: zone pivot="programming-language-python" 
 
-| Topic | Additional Resources |
+| Resource | Details  |
 | --- | --- |
 | **Language version support timelines** | [Python developer's guide](https://devguide.python.org/#status-of-python-branches)|
 | **Configuring language versions** | [Changing Python version](functions-reference-python.md#changing-python-version)|
@@ -90,7 +90,7 @@ For the language levels currently supported by Azure Functions, see [Languages b
 
 This section provides you with answers to questions that are frequently asked about language support policies.
 
-### Which versions of my preferred development language are currently supported by Azure Functions? 
+### Which versions of my preferred development language does Functions currently support? 
 
 For the up-to-date list of supported language versions, see [Supported languages in Azure Functions](supported-languages.md#languages-by-runtime-version). 
 
@@ -104,7 +104,7 @@ After a previously supported language runtime reaches its end-of-support, Micros
 
 ### Can I continue to use an unsupported language stack or runtime version?
 
-You can continue to use previously supported language stacks and runtime versions beyond the end-of-support date. However, you must take into account that these versions do not receive updates, security patches, or official support from Microsoft. Your apps might also face performance degradation when using a retired runtime versions. 
+You can continue to use previously supported language stacks and runtime versions beyond the end-of-support date. However, you must take into account that these versions don't receive updates, security patches, or official support from Microsoft. Your apps might also face performance degradation when using a retired runtime versions. 
 
 ### How do I upgrade my function app to a newer supported language stack and runtime version? 
 
@@ -118,7 +118,7 @@ Azure provides these methods to check the current runtime version used by your f
 + [Using the Azure CLI](set-runtime-version.md?tabs=azure-cli#view-the-current-runtime-version) 
 + [Using Azure PowerShell](set-runtime-version.md?tabs=azure-powershell#view-the-current-runtime-version)
 
-The language stack for your function app is determined by the `FUNCTIONS_WORKER_RUNTIME` [application setting](functions-how-to-use-azure-function-app-settings.md#settings).  
+The language stack for your function app is determined based on the value of the `FUNCTIONS_WORKER_RUNTIME` [application setting](functions-how-to-use-azure-function-app-settings.md#settings).  
 
 ## Next steps
 
