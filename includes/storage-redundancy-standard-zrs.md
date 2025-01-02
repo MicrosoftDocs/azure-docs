@@ -16,6 +16,7 @@ ZRS for standard general-purpose v2 storage accounts is available for a subset o
 - (Asia Pacific) Japan East
 - (Asia Pacific) Korea Central
 - (Asia Pacific) Southeast Asia
+- (Asia Pacific) New Zealand North
 - (Europe) France Central
 - (Europe) Germany West Central
 - (Europe) Italy North
