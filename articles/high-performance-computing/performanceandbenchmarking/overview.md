@@ -37,6 +37,8 @@ In a distributed computing environments, network performance metrics help evalua
   - Message Rate: Number of messages that can be sent per second
   - Bisection Bandwidth: Worst-case bandwidth when the network is split into two equal parts
 
+---
+
 ## Benchmarking Categories
 Different types of benchmarks serve various purposes in evaluating system performance, from testing specific components to assessing real-world application performance.
 
