@@ -41,7 +41,7 @@ mediaAccessFeature.forbidAudio(participants);
 //Allow selected attendees to turn on video
 mediaAccessFeature.permitVideo(participants);
 
-//Disallow selected attendees to turn on video
+//Deny selected attendees to turn on video
 mediaAccessFeature.forbidVideo(participants);
 ```
 
