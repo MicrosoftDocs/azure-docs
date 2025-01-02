@@ -28,8 +28,8 @@ Use method `forbidAudio()` to deny selected attendees to unmute or method `forbi
 
 ```js
 // Define list of attendees
-const acsUser = new CommunicationUserIdentifier('ACS_USER_ID');
-const teamsUser = new MicrosoftTeamsUserIdentifier('TEAMS_USER_ID');
+const acsUser = new CommunicationUserIdentifier('<USER_ID>');
+const teamsUser = new MicrosoftTeamsUserIdentifier('<USER_ID>');
 const participants = [acsUser, teamsUser];
 
 // Allow selected attendees to unmute
