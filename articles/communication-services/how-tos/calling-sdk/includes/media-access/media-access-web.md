@@ -109,7 +109,7 @@ const meetingMediaAccessChangedHandler = (event) => {
     console.log(`Latest meeting media access state ${event.mediaAccesses}`);
 };
 ```
-The `meetingMediaAccessChanged` event is for Teams meeting only not supported in group call, it contains an object with the `mediaAccesses` property, which represents the Teams meeting options setting media accesses.
+The `meetingMediaAccessChanged` event contains an object with the `mediaAccesses` property, which represents the Teams meetings or group calls media access setting for all attendees.
 ```js
 mediaAccessFeature.on('meetingMediaAccessChanged', meetingMediaAccessChangedHandler)
 ```
