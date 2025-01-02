@@ -83,7 +83,7 @@ The following tables show support for the media access feature in individual Azu
 [!INCLUDE [Media Access Client-side JavaScript](./includes/media-access/media-access-web.md)]
 ::: zone-end
 
-Additional resources
+Other resources
 For more information about using the Media Access feature in Teams calls and meetings, see the [Microsoft Teams documentation](https://support.microsoft.com/en-us/office/manage-attendee-audio-and-video-permissions-in-microsoft-teams-meetings-f9db15e1-f46f-46da-95c6-34f9f39e671a).
 
 ## Next steps
