@@ -4,7 +4,7 @@ description: This article provides a comparison between the different Azure Fron
 services: frontdoor
 author: duongau
 ms.service: azure-frontdoor
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 11/12/2024
 ms.author: duau
 ---

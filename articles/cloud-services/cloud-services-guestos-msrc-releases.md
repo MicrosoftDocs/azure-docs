@@ -4407,7 +4407,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | MS15-117 |[3101722] |Security Update for NDIS to Address Elevation of Privilege |2.45 |November 10, 2015 |
 | MS15-118 |[3104507] |Security Updates for .NET Framework to Address Elevation of Privilege |4.26, 3.33, 2.45 |November 10, 2015 |
 | MS15-119 |[3104521] |Security Update for Winsock to Address Elevation of Privilege |4.26, 3.33, 2.45 |November 10, 2015 |
-| MS15-120 |[3102939] |Security Update for IPSec to Address Denial of Service |4.26, 3.33 |November 10, 2015 |
+| MS15-120 |[3102939] |Security Update for IPsec to Address Denial of Service |4.26, 3.33 |November 10, 2015 |
 | MS15-121 |[3081320] |Security Update to Schannel to Address Spoofing |4.26, 3.33, 2.45 |November 10, 2015 |
 | MS15-122 |[3105256] |Security Update for Kerberos to Address Security Feature Bypass |4.26, 3.33, 2.45 |November 10, 2015 |
 | Microsoft Security Advisory |[3097966] |Inadvertently disclosed Digital Certificates Could Allow spoofing |4.26, 3.33, 2.45 |November 10, 2015 |
