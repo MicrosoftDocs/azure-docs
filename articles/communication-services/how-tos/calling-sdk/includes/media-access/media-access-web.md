@@ -60,7 +60,7 @@ mediaAccessFeature.forbidOthersAudio();
 //Allow all attendees to turn on video
 mediaAccessFeature.permitOthersVideo();
 
-//Disallow all attendees to turn on video
+//Deny all attendees to turn on video
 mediaAccessFeature.forbidOthersVideo();
 ```
 
