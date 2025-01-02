@@ -11,6 +11,8 @@ ms.date: 07/20/2024
 ms.custom: mqtt, devx-track-java, devx-track-extended-java
 ---
 
+  * Requires [Java SE Development Kit 8](/azure/developer/java/fundamentals/). Make sure you select **Java 8** under **Long-term support** to navigate to downloads for JDK 8.
+
 ## Overview
 
 This article describes how to use the [Azure IoT SDK for Java](https://github.com/Azure/azure-iot-sdk-java) to create device and backend service application code for device twins.

@@ -38,11 +38,11 @@ This article shows you how to develop two types of applications:
 
 ## Prerequisites
 
-* **An IoT hub**. Some SDK calls require the IoT Hub primary connection string, so make a note of the connection string.
+* An IoT hub
 
-* **A registered device**. Some SDK calls require the device primary connection string, so make a note of the connection string.
+* A registered device
 
-* If your application uses the MQTT protocol, make sure that **port 8883** is open in your firewall. The MQTT protocol communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](../iot/iot-mqtt-connect-to-iot-hub.md#connecting-to-iot-hub).
+* If your application uses the MQTT protocol, make sure that port 8883 is open in your firewall. The MQTT protocol communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](../iot/iot-mqtt-connect-to-iot-hub.md#connecting-to-iot-hub).
 
 * Language SDK requirements:
   * **.NET SDK** - Requires Visual Studio.
