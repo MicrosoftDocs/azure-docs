@@ -142,29 +142,28 @@ To configure the workflow file:
 
 ```yml
 name: Register API Definition to Azure API Center
-'on':
+on:
   pull_request:
-    types:
-      - closed
+    types: [closed]
     branches:
       - main
     paths:
-      - APIs/**/*.json
+      - "APIs/**/*.json"
 permissions:
   contents: read
   pull-requests: read
-env:
-  TOKEN: '${{ secrets.GITHUB_TOKEN }}'
 jobs:
   register:
     runs-on: ubuntu-latest
     environment: production
     steps:
       - uses: actions/checkout@v2
+      
       - name: Get specification file path in the PR
         id: get-file-location
         uses: actions/github-script@v5
         with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const pull_number = context.payload.pull_request.number;
             const owner = context.repo.owner;
@@ -176,37 +175,24 @@ jobs:
             });
             if (files.data.length === 1) {
               const filename = files.data[0].filename;
-              const variableName = 'API_FILE_LOCATION';
-              const variableValue = filename;
-
-              # Set the repository-level variable using the GitHub API
-              # const octokit = github.getOctokit(core.getInput('GITHUB_TOKEN'));
-              import { Octokit } from "octokit";
-              const octokit = new Octokit({ 
-                  auth: process.env.TOKEN,
-                });
-              await octokit.request('PUT /repos/{owner}/{repo}/actions/variables/{name}', {
-                owner: owner,
-                repo: repo,
-                name: variableName,
-                value: variableValue
-              });
-              
-              console.log(`Set repository variable ${variableName} to ${variableValue}`);
-            } else {
+              core.exportVariable('API_FILE_LOCATION', filename);
+              console.log(`API_FILE_LOCATION: ${{ env.API_FILE_LOCATION }}`);
+            }
+            else {
               console.log('The PR does not add exactly one specification file.');
             }
+
       - name: Azure login
         uses: azure/login@v1
         with:
-          creds: '${{ secrets.AZURE_CREDENTIALS }}'
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
       - name: Register to API Center
         uses: azure/CLI@v2
         with:
           azcliversion: latest
-          inlineScript: >
-            az apic api register -g ${{ vars.RESOURCE_GROUP }} -n ${{
-            vars.SERVICE_NAME }} --api-location ${{ vars.API_FILE_LOCATION }}
+          inlineScript: |
+            az apic api register -g ${{ vars.RESOURCE_GROUP }} -n ${{ vars.SERVICE_NAME }} --api-location ${{ env.API_FILE_LOCATION }}
 ```
 
 
@@ -268,7 +254,7 @@ You can extend the GitHub Actions workflow to include other steps, such as addin
         with:
           azcliversion: latest
           inlineScript: |
-            az apic api update -g ${{ env.RESOURCE_GROUP }} -n ${{ env.SERVICE_NAME }} --api-id {{ env.API_ID }} --custom-properties {{ env.METADATA_FILE }}
+            az apic api update -g ${{ vars.RESOURCE_GROUP }} -n ${{ vars.SERVICE_NAME }} --api-id {{ env.API_ID }} --custom-properties {{ env.METADATA_FILE }}
     ```
 
 ## Related content
