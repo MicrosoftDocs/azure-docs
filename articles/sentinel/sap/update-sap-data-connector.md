@@ -124,8 +124,7 @@ See more information on the following items used in the preceding example, in th
 - [***arg_max()*** aggregation function](/kusto/query/arg-max-aggregation-function?view=microsoft-sentinel&preserve-view=true)
 - [***make_set()*** aggregation function](/kusto/query/make-set-aggregation-function?view=microsoft-sentinel&preserve-view=true)
 - 
-[!INCLUDE [kusto-reference-general-no-alert](includes/kusto-reference-general-no-alert.md)]
-
+[!INCLUDE [kusto-reference-general-no-alert](../includes/kusto-reference-general-no-alert.md)]
 
 ### Check for required Azure roles
 

@@ -92,7 +92,7 @@ See more information on the following items used in the preceding examples, in t
 - [***union*** operator](/kusto/query/union-operator?view=microsoft-sentinel&preserve-view=true)
 - [***column_ifexists()*** function](/kusto/query/column-ifexists-function?view=microsoft-sentinel&preserve-view=true)
 
-[!INCLUDE [kusto-reference-general-no-alert](includes/kusto-reference-general-no-alert.md)]
+[!INCLUDE [kusto-reference-general-no-alert](../includes/kusto-reference-general-no-alert.md)]
 
 ### SAP HANA
 
