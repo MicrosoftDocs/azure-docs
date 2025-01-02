@@ -65,11 +65,11 @@ mediaAccessFeature.forbidOthersVideo();
 ```
 
 ### Get notification that media access changed
-You can subscribe to the `mediaAccessChanged` events from `MediaAccess` API to receive array of `MediaAccess` instances that allow you to learn which attendees are now allowed or denied sending audio or video. This event is triggered when a participant with an appropriate role changes media access for selected or all attendees. 
+You can subscribe to the `mediaAccessChanged` events from `MediaAccess` API to receive array of `MediaAccess` instances that allow you to learn all remote participants' media access if they're now allowed or denied sending audio or video. By default all nonattendees are allowed audio and video. This event is triggered when a participant with an appropriate role changes media access for selected or all attendees. 
 
 ```js
 const mediaAccessChangedHandler = (event) => {
-    console.log(`Attendees that changed media access states:`);  
+    console.log(`Attendees that changed media access states:`);
     event.mediaAccesses.forEach( (mediaAccess) => {
        console.log(`Identifier: ${mediaAccess.participant } can unmute: ${mediaAccess.isAudioPermitted } and can turn on video: ${mediaAccess.isVideoPermitted }`);  
     }

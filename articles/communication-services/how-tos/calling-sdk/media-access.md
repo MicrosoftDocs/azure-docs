@@ -26,7 +26,7 @@ zone_pivot_groups: acs-plat-web-ios-android-windows
 ::: zone pivot="platform-windows"
 [!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
 ::: zone-end
-In this article you're going to learn how organizer, coorganizer or presenter can prevent attendees from unmuting or turning on video themselves during Microsoft Teams meetings or group calls. This feature allows selected roles to control the ability of other attendees to send audio and video. You can't control access to send media for other roles. You would also learn how to identify, that your audio or video is enabled or disabled or how to learn state of other participants.
+In this article you're going to learn how organizer, coorganizer, or presenter can prevent attendees from unmuting or turning on video themselves during Microsoft Teams meetings or group calls. This feature allows selected roles to control the ability of other attendees to send audio and video. You can't control access to send media for other roles. You would also learn how to identify, that your audio or video is enabled or disabled or how to learn state of other participants.
 
 ## Prerequisites
 
@@ -54,14 +54,14 @@ The following table shows support for individual APIs in the calling SDK related
 
 |Operations                     | Communication Services user | Microsoft 365 user | Equivalent Teams UI action|
 |-----------------------------|---------------|--------------------------|--------------------------|
-| Permit audio                  | ✔️ [1]       | ✔️ [1]                      |Enable mic|
-| Forbid audio		              |	✔️ [1]          | ✔️ [1]                      |Disable mic|
-| Permit video                  | ✔️ [1]          | ✔️ [1]                      |Enable camera|
-| Forbid video		              |	✔️ [1]          | ✔️ [1]                      |Disable camera|
-| Permit audio of all attendees | ✔️[1][2]           |             ✔️[1] [2]            |Meeting option: Enable mic for all attendees|
-| Forbid audio	of all attendees	        |	✔️[1] [2]          |       ✔️ [1][2]                |Meeting option: Disable mic for all attendees|
-| Permit video of all attendees |	✔️[1][2]           |     ✔️[1] [2]                    |Meeting option: Enable camera for all attendees|
-| Forbid video of all attendees |	✔️[1][2]           |     ✔️[1][2]                     |Meeting option: Disable camera for all attendees|
+| Permit audio                  | ✔️ [1]       | ✔️ [1]                      | Enable mic |
+| Forbid audio		              |	✔️ [1]          | ✔️ [1]                      | Disable mic |
+| Permit video                  | ✔️ [1]          | ✔️ [1]                      | Enable camera |
+| Forbid video		              |	✔️ [1]          | ✔️ [1]                      | Disable camera |
+| Permit audio of all attendees | ✔️[1] [2]           |             ✔️[1] [2]            | Meeting option: Enable mic for all attendees |
+| Forbid audio	of all attendees	        |	✔️[1] [2]          |       ✔️ [1] [2]                | Meeting option: Disable mic for all attendees |
+| Permit video of all attendees |	✔️[1] [2]           |     ✔️[1] [2]                    | Meeting option: Enable camera for all attendees |
+| Forbid video of all attendees |	✔️[1] [2]           |     ✔️[1] [2]                     | Meeting option: Disable camera for all attendees |
 | Get media access of other participants | ✔️           |✔️                        ||
 | Get media access of all attendees | ✔️[2]           |✔️[2]                        ||
 | Get notification that media access changed          | ✔️           |✔️                        ||
