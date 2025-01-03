@@ -52,6 +52,10 @@ When you host your Apache Ambari DB in an external database, remember the follow
 - Back up your custom Ambari DB periodically. Azure SQL Database generates backups automatically, but the backup retention time-frame varies. For more information, see [Learn about automatic SQL Database backups](/azure/azure-sql/database/automated-backups-overview).
 - Don't change the custom Ambari DB password after the HDInsight cluster reaches the **Running** state. It is not supported. 
 
+> [!NOTE]
+> You can use Managed Identity to authenticate with SQL database for Ambari. For more information, see [Use Managed Identity for SQL Database authentication in Azure HDInsight](./use-managed-identity-for-sql-database-authentication-in-azure-hdinsight.md)
+
+
 ## Deploy clusters with a custom Ambari DB
 
 To create a HDInsight cluster that uses your own external Ambari database, use the [custom Ambari DB Quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.hdinsight/hdinsight-custom-ambari-db).
@@ -71,9 +75,6 @@ az deployment group create --name HDInsightAmbariDBDeployment \
 > [!WARNING]
 > Please use the following recommended SQL DB and Headnode VM for your HDInsight cluster. Please don't use default Ambari DB (S0) for any production environment. 
 >
-
-> [!NOTE]
-> You can use Managed Identity to authenticate with SQL database for Ambari. For more information, see [Use Managed Identity for SQL Database authentication in Azure HDInsight](./use-managed-identity-for-sql-database-authentication-in-azure-hdinsight.md)
 
 ## Database and Headnode sizing
 
