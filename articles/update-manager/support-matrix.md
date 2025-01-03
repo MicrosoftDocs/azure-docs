@@ -25,7 +25,7 @@ This article details the Windows and Linux operating systems supported and syste
 
 For Updates/One time Updates/Periodic assessments and Scheduled patching, see the list of [supported OS images](support-matrix-updates.md).
 
-### Support for automatic VM Guest patching
+## Support for automatic VM Guest patching
 
 If [automatic VM guest patching](/azure/virtual-machines/automatic-vm-guest-patching) is enabled on a VM, then the available Critical and Security patches are downloaded and applied automatically on the VM.
 
