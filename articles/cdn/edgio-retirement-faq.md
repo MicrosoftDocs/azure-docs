@@ -120,3 +120,7 @@ No.
 ### Can I be informed regarding the exact date and time when my Edgio profile is automatically migrated?
 
 No. We're doing this migration on a "best effort" basis between January 7th and 14th, 2025 for customers who did not take action prior. Therefore we can't inform each customer regarding migration timings, but as noted previously after the migration we'll inform you as to whether it was successful.
+
+## Next steps
+
+[Set up preview features](../azure-resource-manager/management/preview-features.md)
