@@ -4,19 +4,14 @@ description: File access logs provide file access logging for individual volumes
 services: azure-netapp-files
 documentationcenter: ''
 author: b-ahibbard
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 05/09/2023
+ms.date: 01/03/2025
 ms.author: anfdocs
 ms.custom: references_regions
 ---
+
 # Manage file access logs in Azure NetApp Files
 
 File access logs provide file access logging for individual volumes, capturing file system operations on selected volumes. The logs capture [standard file operation](#recognized-events). File access logs are provided on top of the platform logging captured in the [Azure Activity Log](../azure-monitor/essentials/activity-log.md). This article describes how to manage file access logs using Azure NetApp Files. 

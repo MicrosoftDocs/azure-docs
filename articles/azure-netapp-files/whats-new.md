@@ -511,17 +511,12 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
     [Citrix App Layering](https://docs.citrix.com/en-us/citrix-app-layering/4.html) radically reduces the time it takes to manage Windows applications and images. App Layering separates the management of your OS and apps from your infrastructure. You can install each app and OS patch once, update the associated templates, and redeploy your images. You can publish layered images as open standard virtual disks, usable in any environment. You can use App Layering to provide dynamic access application layer virtual disks stored on SMB shared networked storage, including Azure NetApp Files. To enhance App Layering resiliency to events of storage service maintenance, Azure NetApp Files has extended support for [SMB Transparent Failover via SMB Continuous Availability (CA) shares on Azure NetApp Files](azure-netapp-files-create-volumes-smb.md#continuous-availability) for App Layering virtual disks. For more information, see [Azure NetApp Files Azure Virtual Desktop Infrastructure solutions | Citrix](azure-netapp-files-solution-architectures.md#citrix). Azure NetApp Files doesn't support custom applications with SMB Continuous Availability.
 
 ## April 2022
-<<<<<<< HEAD
-* Features that are now generally available (GA)   
-=======
 
 * Features that are now generally available (GA)
->>>>>>> 715ea8372fbdab1848ad5aeb1942e01aadfded98
 
     The following features are now GA. You no longer need to register the features before using them.
     * [Dynamic change of service level](dynamic-change-volume-service-level.md)
     * [Administrators privilege users](create-active-directory-connections.md#administrators-privilege-users)
-
 
 ## March 2022
 
