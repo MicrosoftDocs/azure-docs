@@ -131,10 +131,10 @@ To work around the default redirect, you can configure authentication to inspect
 
 In multiple-instance deployments, [session affinity](./configure-common.md?tabs=portal#configure-general-settings) ensures that client requests are routed to the same instance for the life of the session. Session affinity can be configured to adapt the cookie domain to the incoming header from reverse proxy. By configuring [session affinity proxy](./configure-common.md?tabs=portal#configure-general-settings) to true, session affinity looks for `X-Original-Host` or `X-Forwarded-Host` and adapt the cookie domain to the domain found in this header. As a recommended practice when enabling session affinity proxy, you should configure your access restrictions on the site to ensure that traffic is coming from your reverse proxy.
 
-You can also configure `sessionAffinityProxyEnabled` by using the following command:
+You can also configure `clientAffinityProxyEnabled` by using the following command:
 
 ```azurecli-interactive
-az resource update --resource-group myRG --name myWebApp --resource-type "Microsoft.Web/sites" --set properties.sessionAffinityProxyEnabled=true
+az resource update --resource-group myRG --name myWebApp --resource-type "Microsoft.Web/sites" --set properties.clientAffinityProxyEnabled=true
 ```
 
 ## Next steps

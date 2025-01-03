@@ -132,7 +132,7 @@ The first step of migration is to set up the replication appliance. To set up th
 
 ### Download the replication appliance installer
 
-1. In the Azure Migrate project, select **Servers, databases, and web apps** > **Migration and modernization** > **Discover**.
+1. In the Azure Migrate project, select **Servers, databases and web apps** > **Migration and modernization** > **Discover**.
 1. In **Discover machines** > **Are your machines virtualized?**, select **Not virtualized/Other**.
 1. In **Target region**, select the Azure region to which you want to migrate the machines.
 1. Select **Confirm that the target region for migration is \<region-name\>**.
@@ -205,7 +205,7 @@ A Mobility service agent must be preinstalled on the source AWS VMs to be migrat
 > [!NOTE]
 > Through the portal, you can add up to 10 VMs for replication at once. To replicate more VMs simultaneously, you can add them in batches of 10.
 
-1. In the Azure Migrate project, select **Servers, databases, and web apps** > **Migration and modernization** > **Replicate**.
+1. In the Azure Migrate project, select **Servers, databases and web apps** > **Migration and modernization** > **Replicate**.
 
     ![Screenshot that shows selecting Replicate.](./media/tutorial-migrate-physical-virtual-machines/select-replicate.png)
 
@@ -288,7 +288,7 @@ When delta replication begins, you can run a test migration for the VMs before y
 
 To do a test migration:
 
-1. In **Migration goals**, select **Servers, databases, and web apps** > **Migration and modernization** > **Test migrated servers**.
+1. In **Servers, databases and web apps** > **Migration and modernization** > **Test migrated servers**.
 
 1. Right-click the VM you want to test and select **Test migrate**.
 
@@ -310,7 +310,7 @@ To do a test migration:
 
 After you verify that the test migration works as expected, you can migrate the AWS VMs.
 
-1. In the Azure Migrate project, select **Servers, databases, and web apps** > **Migration and modernization** > **Replicating servers**.
+1. In the Azure Migrate project, select **Servers, databases and web apps** > **Migration and modernization** > **Replicating servers**.
 1. In **Replicating machines**, right-click the VM and select **Migrate**.
 1. In **Migrate** > **Shut down virtual machines and perform a planned migration with no data loss**, select **Yes** > **OK**.
 

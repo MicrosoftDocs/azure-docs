@@ -67,8 +67,8 @@ Follow the instructions on [how to set up an Azure Migrate project](../tutorial-
 To import the servers using RVTools XLSX (preview) file, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to **Azure Migrate**.
-1. Under **Migration goals**, select **Servers, databases and web apps**.
-1. On **Azure Migrate | Servers, databases and web apps** page, under **Assessment tools**, select **Discover** and then select **Using import**.
+1. Select **Servers, databases and web apps**.
+1. On **Servers, databases and web apps** page, under **Assessment tools**, select **Discover** and then select **Using import**.
 
     :::image type="content" source="../media/tutorial-import-vmware-using-rvtools-xlsx/navigation-using-import.png" alt-text="Screenshot that shows how to navigate to the RVTools import option." lightbox="../media/tutorial-import-vmware-using-rvtools-xlsx/navigation-using-import.png":::
 

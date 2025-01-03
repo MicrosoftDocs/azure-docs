@@ -36,12 +36,13 @@ An Azure App Service assessment provides one sizing criteria:
 
 Run an assessment as follows:
 
-1. On the **Overview** page > **Servers, databases and web apps**, select **Discover, assess and migrate**.
+1. In **Servers, databases and web apps**, select **Discover, assess and migrate**.
+
     :::image type="content" source="./media/tutorial-assess-webapps/discover-assess-migrate.png" alt-text="Overview page for Azure Migrate":::
-2. On **Azure Migrate: Discovery and assessment**, select **Assess** and choose the assessment type as **Azure App Service**.
+1. On **Azure Migrate: Discovery and assessment**, select **Assess** and choose the assessment type as **Azure App Service**.
     :::image type="content" source="./media/tutorial-assess-webapps/assess.png" alt-text="Dropdown to choose assessment type as Azure App Service":::
-3. In **Create assessment**, you'll see the assessment type pre-selected as **Azure App Service** and the discovery source defaulted to **Servers discovered from Azure Migrate appliance**.
-4. Select **Edit** to review the assessment properties.
+1. In **Create assessment**, you'll see the assessment type pre-selected as **Azure App Service** and the discovery source defaulted to **Servers discovered from Azure Migrate appliance**.
+1. Select **Edit** to review the assessment properties.
 
     :::image type="content" source="./media/tutorial-assess-webapps/assess-webapps.png" alt-text="Edit button from where assessment properties can be customized":::
 
@@ -73,7 +74,7 @@ Run an assessment as follows:
 
 **To view an assessment**:
 
-1. **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**,  select the number next to Azure App Service assessment.
+1. In **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select the number next to Azure App Service assessment.
 2. Select the assessment name that you wish to view.
       :::image type="content" source="./media/tutorial-assess-webapps/assessment-webapps-summary.png" alt-text="App Service assessment overview":::
 3. Review the assessment summary. You can also edit the assessment properties or recalculate the assessment.
