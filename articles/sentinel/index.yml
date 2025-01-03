@@ -66,7 +66,7 @@ landingContent:
             url: microsoft-sentinel-defender-portal.md
       - linkListType: deploy
         links:
-          - text: "Plan your deployment"
+          - text: "Plan your unified SecOps deployment"
             url: /unified-secops-platform/overview-plan
           - text: "Deploy Microsoft's unified SecOps platform"
             url: /unified-secops-platform/overview-deploy
