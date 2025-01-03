@@ -90,27 +90,27 @@ For the language levels currently supported by Azure Functions, see [Languages b
 
 This section provides you with answers to questions that are frequently asked about language support policies.
 
-### Which versions of my preferred development language does Functions currently support? 
+### Which versions of my preferred language does Functions currently support? 
 
-For the up-to-date list of supported language versions, see [Supported languages in Azure Functions](supported-languages.md#languages-by-runtime-version). 
+For the up-to-date list of supported language stack versions, see [Supported languages in Azure Functions](supported-languages.md#languages-by-runtime-version). 
 
-### How long will Functions continue to support my language and runtime version?
+### How long will Functions continue to support my language version?
 
-Functions support aligns with the end-of-life date published by the community for a given language. For end-of-life date of currently supported versions, see [Supported languages in Azure Functions](supported-languages.md#languages-by-runtime-version).
+Functions support aligns with the end-of-life date published by the community for a given language stack. For the expected end-of-life date of currently supported versions, see [Supported languages in Azure Functions](supported-languages.md#languages-by-runtime-version).
 
-### What happens when my language runtime version reaches the end of support?
+### What happens when my runtime version reaches the end of support?
 
-After a previously supported language runtime reaches its end-of-support, Microsoft no longer provides bug fixes, security updates, or patches. Apps using retired runtime versions may also face performance degradation. You must upgrade to a supported version of your language runtime to maintain security and stability.  
+After a previously supported Functions runtime version reaches its end-of-support, Microsoft no longer provides bug fixes, security updates, or patches. Apps using retired versions may also face performance degradation. You must upgrade to a supported version to maintain security and stability. 
 
 ### Can I continue to use an unsupported language stack or runtime version?
 
-You can continue to use previously supported language stacks and runtime versions beyond the end-of-support date. However, you must take into account that these versions don't receive updates, security patches, or official support from Microsoft. Your apps might also face performance degradation when using a retired runtime versions. 
+You can continue to use previously supported language stacks and Functions runtime versions beyond the end-of-support date. However, you must take into account that these versions don't receive updates, security patches, or official support from Microsoft. Your apps might also face performance degradation when using a retired runtime versions. 
 
-### How do I upgrade my function app to a newer supported language stack and runtime version? 
+### How do I upgrade my function app to a newer supported language stack or runtime version? 
 
 To make sure that your app is compatible with both the latest supported Functions runtime version and the latest version of your language stack, see [Update language stack versions in Azure Functions](update-language-versions.md) 
 
-### How do I check which version of a language stack and Functions runtime is being used by my function app? 
+### How do I check which language stack and runtime version is being used by my function app? 
 
 Azure provides these methods to check the current runtime version used by your function app:
 
@@ -118,11 +118,11 @@ Azure provides these methods to check the current runtime version used by your f
 + [Using the Azure CLI](set-runtime-version.md?tabs=azure-cli#view-the-current-runtime-version) 
 + [Using Azure PowerShell](set-runtime-version.md?tabs=azure-powershell#view-the-current-runtime-version)
 
-The language stack for your function app is determined based on the value of the `FUNCTIONS_WORKER_RUNTIME` [application setting](functions-how-to-use-azure-function-app-settings.md#settings).  
+The language stack for your function app is determined based on the value of the `FUNCTIONS_WORKER_RUNTIME` application setting. For more information, see [Work with application settings](functions-how-to-use-azure-function-app-settings.md#settings).  
 
 ## Related articles
 
-To learn more about how to upgrade your functions apps language versions, see the following resources:
+To learn more about how to upgrade your function app's language version, see these articles:
 
 
 + [Update language stack versions](./update-language-versions.md)
