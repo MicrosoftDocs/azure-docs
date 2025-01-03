@@ -122,7 +122,7 @@ To view this metric, select **Metrics** explorer experience from the **Monitor**
 
 ### Azure DNS Microsoft.Network/dnsResolverPolicies
 
-- [AzureActivity](/azure/azure-monitor/reference/tables/azuresctivity#columns)
+- [AzureActivity](/azure/azure-monitor/reference/tables/azureactivity#columns)
 - [DNSQueryLogs](/azure/azure-monitor/reference/tables/dnsquerylogs#columns)
 
 [!INCLUDE [horz-monitor-ref-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-activity-log.md)]
