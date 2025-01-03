@@ -272,7 +272,7 @@ In this section, you create a Python console app that initiates a remote **lockD
 
         except msrest.exceptions.HttpOperationError as ex:
             print ( "" )
-            print ( "Http error {}".format(ex.response.text) )
+            print ( "HTTP error {}".format(ex.response.text) )
             return
         except Exception as ex:
             print ( "" )

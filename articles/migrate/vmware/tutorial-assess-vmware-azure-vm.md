@@ -11,11 +11,13 @@ ms.custom: vmware-scenario-422, MVC, engagement-fy24
 #Customer intent: As a VMware VM admin, I want to assess my VMware VMs in preparation for migration to Azure.
 ---
 
-# Tutorial: Assess VMware VMs for migration to Azure VMs
+# Assess VMware VMs for migration to Azure VMs
 
 As part of your migration journey to Azure, you assess your on-premises workloads to measure cloud readiness, identify risks, and estimate costs and complexity.
 
 This article shows you how to assess discovered servers from your VMware environment in preparation for migration to Azure VMs, using the Azure Migrate: Discovery and assessment tool.
+
+[!INCLUDE [scenario-banner.md](../includes/scenario-banner.md)]
 
 
 In this tutorial, you learn how to:

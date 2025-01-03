@@ -4,7 +4,7 @@ titleSuffix: Azure Virtual Network
 description: Learn about subnet extension in Azure.
 author: asudbring
 ms.service: azure-virtual-network
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 04/06/2023
 ms.author: allensu
 ---

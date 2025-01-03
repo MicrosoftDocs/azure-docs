@@ -4,7 +4,7 @@ description: Learn how to manage complex networks with BGP community values.
 services: expressroute
 author: duongau
 ms.service: azure-expressroute
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/30/2023
 ms.author: duau
 

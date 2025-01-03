@@ -13,7 +13,7 @@ metadata:
   ms.topic: landing-page
   author: AbhishekMallick-MS
   ms.author: v-abhmallick
-  ms.date: 11/19/2024
+  ms.date: 12/16/2024
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
@@ -32,9 +32,33 @@ landingContent:
             url: business-continuity-center-support-matrix.md
           
   # Card (optional)
+  - title: Manage data protection
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Understand the protection estate
+            url: quick-understand-protection-estate.md
+      - linkListType: tutorial
+        links:
+          - text: Configure protection for data sources
+            url: tutorial-configure-protection-datasource.md
+          - text: Recover deleted items
+            url: tutorial-recover-deleted-item.md
+          - text: Configure and view reports
+            url: tutorial-reporting-for-data-insights.md
+
+  # Card (optional)
   - title: Monitor protection
     linkLists:
       - linkListType: how-to-guide
         links:
           - text: Monitor protection summary
             url: tutorial-monitor-protection-summary.md
+
+  # Card (optional)
+  - title: Azure Business Continuity Center Copilot (preview)
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Manage BCDR estate (preview)
+            url: tutorial-manage-data-using-copilot.md

@@ -87,19 +87,6 @@ Find a project as follows:
 
 3. Select the appropriate subscription and project.
 
-
-### Find a classic project
-
-If you created the project in the [previous version](migrate-services-overview.md) of Azure Migrate, find it as follows:
-
-1. In the [Azure portal](https://portal.azure.com), search for *Azure Migrate*.
-2. In the Azure Migrate dashboard, if you've created a project in the previous version, a banner referencing older projects appears. Select the banner.
-
-    :::image type="content" source="./media/create-manage-projects/access-existing-projects.png" alt-text="Screenshot to access already existing projects.":::
-
-3. Review the list of old projects.
-
-
 ## Delete a project
 
 To delete a project, follow these steps: 
@@ -132,4 +119,4 @@ Note that:
 
 ## Next steps
 
-Add [assessment](how-to-assess.md) or [migration](how-to-migrate.md) tools to projects.
+Add [assessment](how-to-create-assessment.md) or [migration](how-to-migrate.md) tools to projects.

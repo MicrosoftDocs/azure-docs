@@ -4,8 +4,8 @@ description: This article provides a detailed overview of available providers an
 services: expressroute
 author: duongau
 ms.service: azure-expressroute
-ms.topic: conceptual
-ms.date: 12/10/2024
+ms.topic: concept-article
+ms.date: 12/18/2024
 ms.author: duau
 ms.custom: references_regions, template-concept, engagement-fy23
 ---
@@ -85,7 +85,7 @@ The following table shows connectivity locations and the service providers for e
 | **Frankfurt2** | [Equinix FR7](https://www.equinix.com/locations/europe-colocation/germany-colocation/frankfurt-data-centers/fr7/) | 1 | Germany West Central | &check; | DE-CIX<br/>Deutsche Telekom AG<br/>Equinix<br/>InterCloud<br/>Telefonica |
 | **Geneva** | [Equinix GV2](https://www.equinix.com/locations/europe-colocation/switzerland-colocation/geneva-data-centers/gv2/) | 1 | Switzerland West | &check; | Colt<br/>Equinix<br/>InterCloud<br/>Megaport<br/>Swisscom |
 | **Hong Kong** | [Equinix HK1](https://www.equinix.com/data-centers/asia-pacific-colocation/hong-kong-colocation/hong-kong-data-centers/hk1) | 2 | East Asia | &check; | Aryaka Networks<br/>British Telecom<br/>CenturyLink Cloud Connect<br/>Chief Telecom<br/>China Telecom Global<br/>China Unicom Global<br/>Colt<br/>Equinix<br/>InterCloud<br/>Megaport<br/>NTT Communications<br/>Orange<br/>PCCW Global Limited<br/>Tata Communications<br/>Telia Carrier<br/>Telefonica<br/>Verizon<br/>Zayo |
-| **Hong Kong2** | [iAdvantage MEGA-i](https://www.iadvantage.net/index.php/locations/mega-i) | 2 | East Asia | &check; | China Mobile International<br/>China Telecom Global<br/>Deutsche Telekom AG<br/>Equinix<br/>iAdvantage<br/>Megaport<br/>PCCW Global Limited<br/>SingTel<br/>Vodafone |
+| **Hong Kong2** | [iAdvantage MEGA-i](https://www.iadvantage.net/index.php/locations/mega-i) | 2 | East Asia | &check; | China Mobile International<br/>China Telecom Global<br/>Deutsche Telekom AG<br/>Digital Realty<br/>Equinix<br/>iAdvantage<br/>Megaport<br/>PCCW Global Limited<br/>SingTel<br/>Vodafone |
 
 #### [J-M](#tab/j-m)
 
@@ -124,7 +124,7 @@ The following table shows connectivity locations and the service providers for e
 | **Paris2** | [Equinix](https://www.equinix.com/data-centers/europe-colocation/france-colocation/paris-data-centers/pa4) | 1 | France Central | &check; | Equinix<br/>InterCloud<br/>Orange |
 | **Perth** | [NextDC P1](https://www.nextdc.com/data-centres/p1-perth-data-centre) | 2 | &cross; | &check; | Equinix<br/>Megaport<br/>NextDC |
 | **Phoenix** | [EdgeConneX PHX01](https://www.cyrusone.com/data-centers/north-america/arizona/phx1-phx8-phoenix) | 1 | West US 3 | &check; | AT&T NetBond<br/>Cox Business Cloud Port<br/>CenturyLink Cloud Connect<br/>DE-CIX<br/>Megaport<br/>Zayo |
-| **Phoenix2** | [PhoenixNAP](https://phoenixnap.com/) | 1 | West US 3 | &check; |  |
+| **Phoenix2** | [PhoenixNAP](https://phoenixnap.com/) | 1 | West US 3 | &check; | Digital Realty |
 | **Portland** | [EdgeConnex POR01](https://www.edgeconnex.com/locations/north-america/portland-or/) | 1 | West US 2 | &check; |  |
 | **Pune** | [STT GDC Pune DC1](https://www.sttelemediagdc.in/our-data-centres-in-india) | 2 | Central India | &check; | Airtel<br/>Lightstorm<br/>SIFY<br/>Tata Communications |
 | **Quebec City** | [Vantage](https://vantage-dc.com/data_centers/quebec-city-data-center-campus/) | 1 | Canada East | &check; | Bell Canada<br/>Equinix<br/>Megaport<br/>RISQ<br/>Telus |
@@ -142,7 +142,7 @@ The following table shows connectivity locations and the service providers for e
 | **Sao Paulo** | [Equinix SP2](https://www.equinix.com/locations/americas-colocation/brazil-colocation/sao-paulo-data-centers/sp2/) | 3 | Brazil South | &check; | Aryaka Networks<br/>Ascenty Data Centers<br/>British Telecom<br/>Equinix<br/>InterCloud<br/>Level 3 Communications<br/>Neutrona Networks<br/>Orange<br/>RedCLARA<br/>Tata Communications<br/>Telefonica<br/>UOLDIVEO |
 | **Sao Paulo2** | [TIVIT TSM](https://www.tivit.com/en/tivit/) | 3 | Brazil South | &check; | Ascenty Data Centers<br/>Tivit |
 | **Seattle** | [Equinix SE2](https://www.equinix.com/locations/americas-colocation/united-states-colocation/seattle-data-centers/se2/) | 1 | West US 2 | &check; | Aryaka Networks<br/>CenturyLink Cloud Connect<br/>DE-CIX<br/>Digital Realty<br/>Equinix<br/>Level 3 Communications<br/>Megaport<br/>Pacific Northwest Gigapop<br/>PacketFabric<br/>Telus<br/>Zayo |
-| **Seoul** | [KINX Gasan IDC](https://www.kinx.net/?lang=en) | 2 | Korea Central | &check; | KINX<br/>KT<br/>LG CNS<br/>LGUplus<br/>Equinix<br/>Sejong Telecom<br/>SK Telecom |
+| **Seoul** | [KINX Gasan IDC](https://www.kinx.net/?lang=en) | 2 | Korea Central | &check; | Digital Realty<br/>KINX<br/>KT<br/>LG CNS<br/>LGUplus<br/>Equinix<br/>Sejong Telecom<br/>SK Telecom |
 | **Seoul2** | [KT IDC](https://www.kt-idc.com/eng/introduce/sub1_4_10.jsp#tab) | 2 | Korea Central | &cross; | KT |
 | **Silicon Valley** | [Equinix SV1](https://www.equinix.com/locations/americas-colocation/united-states-colocation/silicon-valley-data-centers/sv1/) | 1 | West US | &check; | Aryaka Networks<br/>AT&T Dynamic Exchange<br/>AT&T NetBond<br/>British Telecom<br/>CenturyLink Cloud Connect<br/>China Unicom Global<br/>Colt<br/>Comcast<br/>Coresite<br/>Cox Business Cloud Port<br/>Digital Realty<br/>Equinix<br/>InterCloud<br/>Internet2<br/>IX Reach<br/>Level 3 Communications<br/>Megaport<br/>Momentum Telecom<br/>Orange<br/>Packet<br/>Sprint<br/>Tata Communications<br/>Telia Carrier<br/>Verizon<br/>Vodafone<br/>Zayo |
 | **Silicon Valley2** | [Coresite SV7](https://www.coresite.com/data-centers/locations/silicon-valley/sv7) | 1 | West US | &check; | Colt<br/>Coresite<br/>Momentum Telecom |
@@ -159,14 +159,16 @@ The following table shows connectivity locations and the service providers for e
 |--|--|--|--|--|--|
 | **Taipei** | Chief Telecom | 2 | &cross; | &check; | Chief Telecom<br/>Chunghwa Telecom<br/>FarEasTone |
 | **Taipei2** | Chunghwa Telecom | 2 | &cross; | &check; | |
-| **Tel Aviv** | Bezeq International | 2 | Israel Central | &check; | Bezeq International |
-| **Tel Aviv2** | SDS | 2 | Israel Central | &check; | |
+| **Tel Aviv** | Bezeq International | 2 | Israel Central | &check; | Bezeq International<br/>Cellcom Fixed Line Communication (l.p.) |
+| **Tel Aviv2** | SDS | 2 | Israel Central | &check; | Hot Telecom |
 | **Tokyo** | [Equinix TY4](https://www.equinix.com/locations/asia-colocation/japan-colocation/tokyo-data-centers/ty4/) | 2 | Japan East | &check; | Aryaka Networks<br/>AT&T NetBond<br/>BBIX<br/>British Telecom<br/>CenturyLink Cloud Connect<br/>Colt<br/>Equinix<br/>Intercloud<br/>Internet Initiative Japan Inc. - IIJ<br/>Megaport<br/>NTT Communications<br/>NTT EAST<br/>Orange<br/>Softbank<br/>Telehouse - KDDI<br/>Verizon </br></br> |
 | **Tokyo2** | [AT TOKYO](https://www.attokyo.com/) | 2 | Japan East | &check; | AT TOKYO<br/>BBIX<br/>China Telecom Global<br/>China Unicom Global<br/>Colt<br/>DE-CIX<br/>Digital Realty<br/>Equinix<br/>IPC<br/>IX Reach<br/>Megaport<br/>PCCW Global Limited<br/>Tokai Communications |
 | **Tokyo3** | [NEC](https://www.nec.com/en/global/solutions/cloud/inzai_datacenter.html) | 2 | Japan East | &check; | NEC<br/>SCSK |
 | **Toronto** | [Cologix TOR1](https://www.cologix.com/data-centers/toronto/tor1/) | 1 | Canada Central | &check; | AT&T NetBond<br/>Bell Canada<br/>CenturyLink Cloud Connect<br/>Cologix<br/>Equinix<br/>IX Reach Megaport<br/>Orange<br/>Telus<br/>Verizon<br/>Zayo |
 | **Toronto2** | [Allied REIT](https://www.alliedreit.com/property/905-king-st-w/) | 1 | Canada Central | &check; | Fibrenoire<br/>Zayo |
 | **Vancouver** | [Cologix VAN1](https://www.cologix.com/data-centers/vancouver/van1/) | 1 | &cross; | &check; | Bell Canada<br/>Cologix<br/>Megaport<br/>Telus<br/>Zayo |
+| **Vienna** | [Digital Realty VIE1](https://www.digitalrealty.com/data-centers/emea/vienna/vie1) | 1 | &cross; | &check; | Digital Realty |
+| **Vienna2** | [NTT Data VIE1](https://services.global.ntt/en-us/services-and-products/global-data-centers/global-locations/emea/vienna-1-data-center) | 1 | &cross; | &check; |  |
 | **Warsaw** | [Equinix WA1](https://www.equinix.com/data-centers/europe-colocation/poland-colocation/warsaw-data-centers/wa1) | 1 | Poland Central | &check; | Equinix<br/>Exatel<br/>Orange Poland<br/>T-mobile Poland |
 | **Washington DC** | [Equinix DC2](https://www.equinix.com/locations/americas-colocation/united-states-colocation/washington-dc-data-centers/dc2/)<br/>[Equinix DC6](https://www.equinix.com/data-centers/americas-colocation/united-states-colocation/washington-dc-data-centers/dc6) | 1 | East US<br/>East US 2 | &check; | Aryaka Networks<br/>AT&T NetBond<br/>British Telecom<br/>CenturyLink Cloud Connect<br/>Cologix<br/>Colt<br/>Comcast<br/>Coresite<br/>Cox Business Cloud Port<br/>Crown Castle<br/>Digital Realty<br/>Equinix<br/>Flo Networks<br/>IPC<br/>Internet2<br/>InterCloud<br/>IPC<br/>Iron Mountain<br/>IX Reach<br/>Level 3 Communications<br/>Lightpath<br/>Megaport<br/>Momentum Telecom<br/>NTT Communications<br/>Orange<br/>PacketFabric<br/>SES<br/>Sprint<br/>Tata Communications<br/>Telia Carrier<br/>Telefonica<br/>Verizon<br/>Zayo |
 | **Washington DC2** | [Coresite VA2](https://www.coresite.com/data-center/va2-reston-va) | 1 | East US<br/>East US 2 | &cross; | CenturyLink Cloud Connect<br/>Coresite<br/>Intelsat<br/>Megaport<br/>Momentum Telecom<br/>Viasat<br/>Zayo |

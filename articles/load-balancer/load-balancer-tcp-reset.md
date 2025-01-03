@@ -5,10 +5,9 @@ description: With this article, learn about Azure Load Balancer with bidirection
 services: load-balancer
 author: mbender-ms
 ms.service: azure-load-balancer
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 07/31/2024
 ms.author: mbender
-ms.custom: template-concept, engagement-fy23
 ---
 
 # Load Balancer TCP Reset and Idle Timeout

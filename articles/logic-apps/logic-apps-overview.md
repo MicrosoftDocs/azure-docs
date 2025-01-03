@@ -108,7 +108,7 @@ You can start small with your current systems and services, and then grow increm
 
 ### Visually create and edit workflows with easy-to-use tools
 
-Save time and simplify complex processes by using the visual design tools in Azure Logic Apps. Create your workflows from start to finish by using the Azure Logic Apps workflow designer in the Azure portal, Visual Studio Code, or Visual Studio. Just start your workflow with a trigger, and add any number of actions from the [connectors gallery](/connectors/connector-reference/connector-reference-logicapps-connectors).
+Save time and simplify complex processes by using the visual design tools in Azure Logic Apps. Create your workflows from start to finish by using the Azure Logic Apps workflow designer in the Azure portal or Visual Studio Code. Just start your workflow with a trigger, and add any number of actions from the [connectors gallery](/connectors/connector-reference/connector-reference-logicapps-connectors).
 
 ### Connect different systems across various environments
 
@@ -184,7 +184,7 @@ The following section describes the logic for the example enterprise workflow, w
 
 :::image type="content" source="./media/logic-apps-overview/example-enterprise-workflow.png" alt-text="Screenshot shows the workflow designer and a sample enterprise workflow that uses switches and conditions." lightbox="./media/logic-apps-overview/example-enterprise-workflow.png":::
 
-You can visually create workflows using the Azure Logic Apps workflow designer in the Azure portal, Visual Studio Code, or Visual Studio. Each workflow also has an underlying definition that uses JavaScript Object Notation (JSON) format. If you prefer, you can edit workflows by changing this JSON definition. For some creation and management tasks, Azure Logic Apps provides Azure PowerShell and Azure CLI command support. For automated deployment, Azure Logic Apps supports Azure Resource Manager templates.
+You can visually create workflows using the Azure Logic Apps workflow designer in the Azure portal or Visual Studio Code. Each workflow also has an underlying definition that uses JavaScript Object Notation (JSON) format. If you prefer, you can edit workflows by changing this JSON definition. For some creation and management tasks, Azure Logic Apps provides Azure PowerShell and Azure CLI command support. For automated deployment, Azure Logic Apps supports Azure Resource Manager templates.
 
 ## Pricing options
 
@@ -197,8 +197,6 @@ Before you can start with Azure Logic Apps, you need an Azure subscription. If y
 When you're ready, try one or more of the following quickstart guides for Azure Logic Apps:
 
 * [Create a multitenant Consumption logic app workflow in the Azure portal](quickstart-create-example-consumption-workflow.md)
-
-* [Create a multitenant Consumption logic app workflow in Visual Studio](quickstart-create-logic-apps-with-visual-studio.md)
 
 * [Create a multitenant Consumption logic app workflow in Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md)
 

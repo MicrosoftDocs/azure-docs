@@ -4,7 +4,7 @@ description: Learn how to migrate your ExpressRoute circuit from one circuit to 
 services: expressroute
 author: duongau
 ms.service: azure-expressroute
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 10/06/2023
 ms.author: duau
 ---

@@ -1,8 +1,8 @@
 ---
 title: Assess ASP.NET/Java web apps for migration to Azure Kubernetes Service
 description: Assessments of ASP.NET web apps to Azure Kubernetes Service using Azure Migrate
-author: anraghun
-ms.author: anraghun
+author: SnehaSudhirG
+ms.author: sudhirsneha
 ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 07/31/2024
@@ -49,7 +49,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- Deploy and configure the Azure Migrate appliance in your [VMware](./tutorial-discover-vmware.md), [Hyper-V](./tutorial-discover-hyper-v.md), or [physical environment](./tutorial-discover-physical.md).
+- Deploy and configure the Azure Migrate appliance in your [VMware](tutorial-discover-vmware.md), [Hyper-V](./tutorial-discover-hyper-v.md), or [physical environment](./tutorial-discover-physical.md).
 - Check the [appliance requirements](./migrate-appliance.md#appliance---vmware) and [URL access](./migrate-appliance.md#url-access) to be provided.
 ::: zone pivot="asp-net"
 - Follow [these steps](./how-to-discover-sql-existing-project.md) to discover ASP.NET web apps running on your environment.
@@ -116,9 +116,9 @@ The assessment can take around 10 minutes to complete.
 1. On the **Servers, databases and web apps** page, under **Assessment tools** > **Assessments**, select the number next to the Web apps on Azure assessment. 
 1. On the **Assessments** page, select a desired assessment name to view from the list of assessments.
 
-    :::image type="content" source="./media/tutorial-assess-aspnet-aks/hub-view-assessments.png" alt-text="Screenshot of clicking the hyperlink to see the list of web app assessments.":::
+    :::image type="content" source="./media/tutorial-assess-aspnet-aks/hub-view-assessments.png" alt-text="Screenshot of selecting the hyperlink to see the list of web app assessments.":::
 
-2. Use the search bar to filter for your assessment. It should be in the **Ready** state. 
+1. Use the search bar to filter for your assessment. It should be in the **Ready** state. 
 
     :::image type="content" source="./media/tutorial-assess-aspnet-aks/assessment-list.png" alt-text="Screenshot of filtering for the created assessment.":::
 

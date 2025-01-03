@@ -72,7 +72,7 @@ Complete the following steps to configure the properties under the **Properties*
 |**Application type**| Leave application type as *Default (Azure Application)*. Make no changes.|
 |**Legal**| Here you have three options to choose from - (1) Use the standard contract (2) Provide terms and conditions link (3) Provide terms and conditions text. Choose the option that works best for you. If you select the standard contract, the options to share Terms & Conditions are hidden.|
 
-   :::image type="content" source="media/publish-sentinel-solutions/partner-center-offer-properties.png" alt-text="Screenshot of offer properies tab in partner center."  lightbox="media/publish-sentinel-solutions/partner-center-offer-properties.png" :::  
+   :::image type="content" source="media/publish-sentinel-solutions/partner-center-offer-properties.png" alt-text="Screenshot of offer properties tab in partner center."  lightbox="media/publish-sentinel-solutions/partner-center-offer-properties.png" :::  
 
 ## Offer listing
 Complete the following steps to configure the properties under the **Offer listing** tab in Microsoft Partner Center. The parameters that you set in this tab define how customers can find your solution and what information they see for your solution. 
