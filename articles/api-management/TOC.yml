@@ -178,6 +178,8 @@
     href: monitor-api-management.md
   - name: Log events to Azure Event Hubs
     href: api-management-howto-log-event-hubs.md
+  - name: Log requests with Azure Application Insights
+    href: api-management-howto-app-insights.md
 - name: Define APIs
   items:
   - name: Add and import APIs
@@ -393,6 +395,8 @@
       href: enable-cors-developer-portal.md
     - name: Enable console OAuth support
       href: api-management-howto-oauth2.md
+    - name: Integrate Application Insights
+      href: developer-portal-integrate-application-insights.md
     - name: Integrate Google Tag Manager
       href: developer-portal-integrate-google-tag-manager.md
     - name: Customize developer portal on WordPress

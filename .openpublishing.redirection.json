@@ -341,17 +341,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/api-management/api-management-howto-app-insights.md",
-      "redirect_url": "/azure/api-management/monitor-api-management",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/api-management/visualize-using-managed-grafana-dashboard.md",
-      "redirect_url": "/azure/api-management/monitor-api-management",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/api-management/developer-portal-integrate-application-insights.md",
       "redirect_url": "/azure/api-management/monitor-api-management",
       "redirect_document_id": false
     },
