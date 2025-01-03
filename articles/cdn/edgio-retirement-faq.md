@@ -22,7 +22,7 @@ Azure CDN from Edgio is shutting down on January 15, 2025. You must migrate your
 
 ### I see Edgio filed for Chapter 11 bankruptcy. Can Microsoft guarantee that Azure CDN from Edgio’s availability and services until November 4, 2025?
 
-Edgio informed us that their services are remaining operational until at least January 15, 2025. However, we can't guarantee that Edgio won't unexpectedly cease operations before this date due to circumstances beyond our control. Therefore, we'll automatically migrate your workload if you haven't taken action by January 7, 2025. Automatic migration is not be possible for endpoints with `*.vo.msecnd.net` domains.
+Edgio informed us that their services are remaining operational until at least January 15, 2025. However, we can't guarantee that Edgio won't unexpectedly cease operations before this date due to circumstances beyond our control. Therefore, we'll automatically migrate your workload if you haven't taken action by January 7, 2025. Automatic migration isn't possible for endpoints with `*.vo.msecnd.net` domains.
 
 ### How can I see my impacted Azure CDN from Edgio resources?
 
@@ -42,18 +42,18 @@ The following process is a recap of the migration options we sent to all users:
     > - If you plan a migration to Akamai or another CDN provider, you [must set the Feature Flag](../azure-resource-manager/management/preview-features.md) `DoNotForceMigrateEdgioCDNProfiles` before January 7, 2025. Doing so prevents Microsoft from migrating you to Azure Front Door (see the following comments). You have until January 14, 2025 to complete your migration to another CDN, but again Microsoft can't guarantee your services to be available on the Edgio platform before this date.
     > - Be advised we need to halt all configuration changes to Azure CDN by Edgio profiles starting on January 3, 2025. This means you can't update your CDN profile configuration, but your services on Azure CDN from Edgio can still operate until you are migrated or the Edgio platform is shut down on January 15, 2025. If you apply the `DoNotForceMigrateEdgioCDNProfiles` feature flag before January 3, your configuration will not be frozen for changes.
 
-- If you have any services running on Azure CDN from Edgio on January 7, 2025 and haven't informed us of your plans (see the previous comments), we'll attempt to migrate your services to Azure Front Door between January 7th and 14th, 2025. We are performing this migration to Azure Front Door on a “best effort” basis, and doing so might cause issues related to the billing, features, availability, and/or performance you're currently consuming with Azure CDN from Edgio. If Microsoft attempts to migrate your workloads to Azure Front Door, we will send you a follow-up email to advise you of the status of the migration, and provide potential actions or guidance.
+- If you have any services running on Azure CDN from Edgio on January 7, 2025 and haven't informed us of your plans (see the previous comments), we'll attempt to migrate your services to Azure Front Door between January 7th and 14th, 2025. We are performing this migration to Azure Front Door on a “best effort” basis, and doing so might cause issues related to the billing, features, availability, and/or performance you're currently consuming with Azure CDN from Edgio. If Microsoft attempts to migrate your workloads to Azure Front Door, we'll send you a follow-up email to advise you of the status of the migration, and provide potential actions or guidance.
 
 ### Can you provide more insights into the automatic migration to Azure Front Door Standard?
 
-If Azure CDN from Edgio customers do not set a Feature Flag by following [these instructions](../azure-resource-manager/management/preview-features.md) (select the Feature Flag "DoNotForceMigrateEdgioCDNProfiles") before 7 January 2025, Microsoft will migrate existing Azure CDN from Edgio profile to an Azure Front Door Standard profile between January 7th and 14th, 2025. These migrations to Azure Front Door are performed on a "best effort" basis, and doing so might cause issues related to the billing, features, availability, and/or performance you're currently consuming with Azure CDN from Edgio. Hence, as noted previously, customers should migrate themselves and not rely on this automatic migration.
+If Azure CDN from Edgio customers don't [set the Feature Flag](../azure-resource-manager/management/preview-features.md) `DoNotForceMigrateEdgioCDNProfiles` before 7 January 2025, Microsoft will migrate existing Azure CDN from Edgio profile to an Azure Front Door Standard profile. Migration is happening between January 7th and 14th, 2025. These migrations to Azure Front Door are performed on a "best effort" basis, and doing so might cause issues related to the billing, features, availability, and/or performance you're currently consuming with Azure CDN from Edgio. Hence, as noted previously, customers should migrate themselves and not rely on this automatic migration.
 Important notes regarding these “best effort” automatic migrations to Azure Front Door Standard:
 -	Between January 7th and 14th, 2025 you'll receive an email notification confirming if your workloads have been successfully migrated to Azure Front Door Standard or if the migration was unsuccessful. If the migration was successful and you encounter issues with availability, performance, or feature functionality, contact Microsoft support for assistance. For customers whom the migration unsuccessful will be provided guidance on possible next steps they can take.
 -	We're migrating customers to Azure Front Door Standard as it may be more cost-effective. If you need the extra features of Azure Front Door Premium, you can [upgrade your service](../frontdoor/tier-upgrade.md).
--	Existing Azure CDN from Edgio domains (custom domains and/or *.azureedge.net domains) will be added as custom domains on the new Front Door endpoints and we will switch the traffic from Edgio platform to Front Door platform.
+-	Existing Azure CDN from Edgio domains (custom domains and/or *.azureedge.net domains) will be added as custom domains on the new Front Door endpoints and we'll switch the traffic from Edgio platform to Front Door platform.
 -	We are not able to roll back the automatic migration.
--	Microsoft can not always maintain feature level parity in the new Front Door configuration.
--	Automatic migration is not possible for endpoints with `*.vo.msecnd.net` domains.
+-	Microsoft can't always maintain feature level parity in the new Front Door configuration.
+-	Automatic migration isn't possible for endpoints with `*.vo.msecnd.net` domains.
 
 
 ### What is the recap of the key dates?
@@ -63,7 +63,7 @@ Important notes regarding these “best effort” automatic migrations to Azure 
 | December 13, 2024 | No new Azure CDN from Edgio profiles can be created. |
 | January 3, 2025   | No more profile changes are allowed on Azure CDN from Edgio. |
 | January 6, 2025   | Last date for customers to set a Feature Flag to advise Microsoft not to migrate your workloads to Azure Front Door. |
-| January 7-14, 2025 | All remaining Azure CDN from Edgio profiles are migrated to Azure Front Door if the said Feature Flag is not set. |
+| January 7-14, 2025 | All remaining Azure CDN from Edgio profiles are migrated to Azure Front Door if the said Feature Flag isn't set. |
 | January 7-14, 2025 | Azure CDN from Edgio customers who did not act are notified via email of their migration status to Azure Front Door. |
 | January 14, 2025  | Last day of service on Azure CDN from Edgio. |
 | January 15, 2025  | Shutdown of the Edgio platform. |
@@ -117,6 +117,6 @@ No, extensions aren't possible. If you don't want us to automatically migrate yo
 
 No.
 
-### Can I be informed regarding the the exact date and time when my Edgio profile is automatically migrated?
+### Can I be informed regarding the exact date and time when my Edgio profile is automatically migrated?
 
-No. We are doing this migration on a "best effort" basis between January 7th and 14th, 2025 for customers who did not take action prior. Therefore we can't inform each customer regarding migration timings, but as noted previously after the migration we will inform you as to whether it was successful.
+No. We are doing this migration on a "best effort" basis between January 7th and 14th, 2025 for customers who did not take action prior. Therefore we can't inform each customer regarding migration timings, but as noted previously after the migration we'll inform you as to whether it was successful.
