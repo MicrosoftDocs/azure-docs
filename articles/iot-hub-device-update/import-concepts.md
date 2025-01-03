@@ -1,15 +1,15 @@
 ---
-title: Azure Device Update for IoT Hub import manifest
+title: Azure Device Update for IoT Hub import manifest concepts
 description: Understand the important concepts and sections in the Azure Device Update for IoT Hub import manifest.
 author: andrewbrownmsft
 ms.author: andbrown
-ms.date: 12/31/2024
+ms.date: 01/02/2025
 ms.topic: concept-article
 ms.service: azure-iot-hub
 ms.subservice: device-update
 ---
 
-# Azure Device Update for IoT Hub import manifest
+# Azure Device Update for IoT Hub import manifest concepts
 
 To deploy an update to devices using Azure Device Update for IoT Hub, you first import the update into the Device Update service, which stores the imported update and deploys it to devices. Along with the update payload, you submit a JSON import manifest file that defines important information about the update. This article describes the important concepts and sections in the import manifest JSON file.
 

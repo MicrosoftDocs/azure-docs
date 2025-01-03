@@ -3,7 +3,7 @@ title: Import an update to Azure Device Update for IoT Hub
 description: Learn how to import update files into Azure Device Update for IoT Hub by using the Azure portal, Azure CLI, or programmatically.
 author: andrewbrownmsft
 ms.author: andbrown
-ms.date: 12/31/2024
+ms.date: 01/02/2025
 ms.topic: how-to
 ms.service: azure-iot-hub
 ms.subservice: device-update
@@ -37,6 +37,9 @@ To import an update, you first upload the update files and import manifest into 
 1. On the **Import update** page, select **Select from storage container**.
 
 1. On the **Storage accounts** page, select an existing storage account or create a new account by selecting **Storage account**. You use the storage account for a container to stage the update files.
+
+   > [!IMPORTANT]
+   > Make sure the storage account you use or create doesn't have private endpoints enabled. To see if private endpoints are enabled, you can check for your Azure Storage account name under **Private endpoints** in the [Private Link Center](https://portal.azure.com/#blade/Microsoft_Azure_Network/PrivateLinkCenterBlade/overview).
 
 1. On the **Containers** page, select an existing container or create a new container by selecting **Container**. You use the container to stage the update files for import.
 
