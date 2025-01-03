@@ -43,6 +43,10 @@
         href: dual-protocol-permission-behaviors.md
       - name: Understand data encryption 
         href: understand-data-encryption.md
+      - name: Understand Kerberos
+        href: kerberos.md 
+      - name: Understand DNS 
+        href: domain-name-systems.md
       - name: Understand guidelines for Active Directory Domain Services
         href: understand-guidelines-active-directory-domain-service-site.md
       - name: Understand DNS 
