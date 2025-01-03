@@ -53,7 +53,7 @@ Performing software inventory helps identify and tailor a migration path to Azur
 
 After software inventory has completed, you can review and export the inventory in the Azure portal.
 
-1. In **Azure Migrate - Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select the displayed count to open the **Discovered servers** page.
+1. In **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select the displayed count to open the **Discovered servers** page.
 
     > [!NOTE]
     > At this stage you can optionally also enable dependency analysis for the discovered servers, so that you can visualize dependencies across servers you want to assess. [Learn more](concepts-dependency-visualization.md) about dependency analysis.
