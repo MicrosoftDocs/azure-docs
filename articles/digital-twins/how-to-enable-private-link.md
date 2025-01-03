@@ -244,9 +244,11 @@ For a sample template that allows an Azure function to connect to Azure Digital 
 
 This template creates an Azure Digital Twins instance, a virtual network, an Azure function connected to the virtual network, and a Private Link connection to make the Azure Digital Twins instance accessible to the Azure function through a private endpoint.
 
-## Troubleshoot
+## Limitations and troubleshooting
 
-Here are some common issues that might arise when using Private Link with Azure Digital Twins.
+A limitation of using Private Link with Azure Digital Twins is that cross-tenant scenarios are not supported.
+
+For troubleshooting, here are some common issues that might arise:
 
 * **Issue:** When trying to access Azure Digital Twins APIs, you see an HTTP error code 403 with the following error in the response body:
     ```json
@@ -265,9 +267,6 @@ Here are some common issues that might arise when using Private Link with Azure 
     **Resolution:** Verify that there are no [network security group](../virtual-network/network-security-groups-overview.md) rules that prohibit the client from communicating to the private endpoint and its subnet. Communication on TCP port 443 must be permitted between the client's source IP address/subnet, and the private endpoint destination IP address/subnet.
 
 For more Private Link troubleshooting suggestions, see [Troubleshoot Azure Private Endpoint connectivity problems](../private-link/troubleshoot-private-endpoint-connectivity.md).
-
-## Limitation:
-   Cross-tenant scenarios are not supported by Azure Digital Twins.
 
 ## Next steps
 
