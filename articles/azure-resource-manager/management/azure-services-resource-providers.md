@@ -267,6 +267,7 @@ The resource providers for monitoring services are:
 | Microsoft.ChangeAnalysis | [Azure Monitor](/azure/azure-monitor/) |
 | Microsoft.Insights | [Azure Monitor](/azure/azure-monitor/) |
 | Microsoft.Intune | [Azure Monitor](/azure/azure-monitor/) |
+| Microsoft.Monitor | [Azure Monitor](/azure/azure-monitor/) |
 | Microsoft.OperationalInsights | [Azure Monitor](/azure/azure-monitor/) |
 | Microsoft.OperationsManagement | [Azure Monitor](/azure/azure-monitor/) |
 | Microsoft.WorkloadMonitor | [Azure Monitor](/azure/azure-monitor/) |
