@@ -109,7 +109,7 @@ The below steps will guide you how to use Azure Site Recovery to copy data to th
     a. subscription, select the appropriate one.
 4. Create a resource group **ContosoRG**.
 5. Specify an Azure region. To check supported regions, see geographic availability in [Azure Site Recovery Pricing Details](https://azure.microsoft.com/pricing/details/site-recovery/).
-6. In Recovery Services vaults, click **Overview** > **ConsotoVMVault** > **+Replicate**
+6. In Recovery Services vaults, click **Overview** > **ContosoVMVault** > **+Replicate**
 7. Select **To Azure** > **Not virtualized/Other**.
 
 ### Set up the configuration server to discover virtual machines.

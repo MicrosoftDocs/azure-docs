@@ -2,7 +2,7 @@
 title: Restore Azure File shares
 description: Learn how to use the Azure portal to restore an entire file share or specific files from a restore point created by Azure Backup.
 ms.topic: how-to
-ms.date: 12/02/2024
+ms.date: 12/20/2024
 ms.service: azure-backup
 ms.custom: engagement-fy23
 author: AbhishekMallick-MS
@@ -72,7 +72,7 @@ To restore Azure file share in the original location, follow these steps:
 1. Select whether to skip or overwrite if there are conflicts.
 1. After you enter the appropriate values in all boxes, select **Restore** to start the restore operation.
 
-   :::image type="content" source="./media/restore-afs/azure-file-share-alternate-location-recovery.png" alt-text="Screenshot shows how to select Alternate Location.":::
+   :::image type="content" source="./media/restore-afs/azure-file-share-alternate-location-recovery.png" alt-text="Screenshot shows how to select Alternate Location." lightbox="./media/restore-afs/azure-file-share-alternate-location-recovery.png":::
 
 # [Item-level recovery](#tab/item-level-recovery)
 
@@ -124,7 +124,7 @@ To perform item-level restore for Azure File share to the original location, fol
 
 ### Restore to an alternate location (item-level recovery)
 
-To perform iten-level restore for Azure File share to an alternate location, follow these steps:
+To perform item-level restore for Azure File share to an alternate location, follow these steps:
 
 1. Select **Alternate Location** as the **Recovery Destination**.
 1. Select the destination storage account where you want to restore the backed-up content from the **Storage Account** drop-down list.
@@ -150,7 +150,7 @@ To perform iten-level restore for Azure File share to an alternate location, fol
 
 After you trigger the restore operation, the backup service creates a job for tracking. Azure Backup displays notifications about the job in the portal. To view operations for the job, select the notifications hyperlink.
 
-![Screenshot shows how to select notifications hyperlink.](./media/restore-afs/notifications-link.png)
+:::image type="content" source="./media/restore-afs/notifications-link.png" alt-text="Screenshot shows how to select notifications hyperlink." lightbox="./media/restore-afs/notifications-link.png":::
 
 You can also monitor restore progress from the Recovery Services vault:
 

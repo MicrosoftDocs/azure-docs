@@ -4,7 +4,7 @@ description: Learn how to use Azure Front Door with Azure Storage Blob for the u
 services: front-door
 author: kostinams
 ms.service: azure-frontdoor
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/10/2024
 ms.author: irkostin
 ms.reviewer: hmb

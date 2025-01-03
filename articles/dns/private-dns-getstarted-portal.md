@@ -114,7 +114,7 @@ Now, create a virtual machine to test autoregistgration in your private DNS zone
 13. Review the settings and then click **Create**. It will take a few minutes for the virtual machine allocation to complete.
 14. Search for and select **Virtual machines** and then verify that the VM status is **Running**. If it isn't running, start the virtual machine.
 
-## Review autoregistion
+## Review autoregistration
 
 1. Search for or select **Private DNS zones** and then select the **private.contoso.com** zone.
 2. Under DNS Management, select Recordsets.

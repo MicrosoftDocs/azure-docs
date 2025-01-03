@@ -3,7 +3,7 @@ title: Monitor Azure ExpressRoute
 description: Start here to learn how to monitor Azure ExpressRoute by using Azure Monitor. This article includes links to other resources.
 ms.date: 07/11/2024
 ms.custom: horz-monitor, subject-monitoring, FY 23 content-maintenance
-ms.topic: conceptual
+ms.topic: concept-article
 author: duongau
 ms.author: duau
 ms.service: azure-expressroute
