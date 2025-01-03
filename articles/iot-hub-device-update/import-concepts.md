@@ -13,9 +13,10 @@ ms.subservice: device-update
 
 To deploy an update to devices using Azure Device Update for IoT Hub, you first import the update into the Device Update service, which stores the imported update and deploys it to devices. Along with the update payload, you submit a JSON import manifest file that defines important information about the update. This article describes the important concepts and sections in the import manifest JSON file.
 
-## The import manifest file
+<a name="import-manifest"></a>
+## Import manifest file
 
-You submit a import manifest JSON file along with the associated update files, such as a firmware update package, as part of the import process. The metadata defined in the import manifest is used both to ingest the update and at deployment time for functions like validating whether the update installed correctly.
+You submit an import manifest JSON file along with the associated update files, such as a firmware update package, as part of the import process. The metadata defined in the import manifest is used both to ingest the update and at deployment time for functions like validating whether the update installed correctly.
 
 The following JSON code shows an example import manifest file:
 
@@ -83,11 +84,11 @@ For example:
 ```
 
 > [!NOTE]
-> The `updateId` is used only by the Device Update service, and might be different from the software component identities on the devices.
+> The `updateId` is used only by the Device Update service, and is different from the software component identities on the devices.
 
 ### Compatibility
 
-The `compatibility` section defines the devices that can install an update by using one or more arbitrary key-value pairs. Only devices that report properties matching the `compatibility` values are eligible to deploy the update. You can make an update compatible with multiple device classes by including more than one set of device compatibility properties.
+The `compatibility` section uses one or more arbitrary key-value pairs to define the devices that can install an update. Only devices that report properties matching the `compatibility` values are eligible to deploy the update. You can make an update compatible with multiple device classes by including more than one set of device compatibility properties.
 
 The following example shows an update that can only be deployed to devices that report *Contoso* and *Toaster* as their device manufacturer and model.
 
@@ -152,7 +153,7 @@ An update and an import manifest `steps` section can contain more than one step,
 }
 ```
 
-An update and `steps` section can also contain `reference` steps that instruct the device agent to install a different update along with its own import manifest, establishing a parent and child update relationship. The following example update for a toaster contains two child update steps. An update can contain any combination of inline and reference steps.
+A `steps` section can also contain `reference` steps that instruct the device agent to install a different update and corresponding import manifest, establishing a parent and child update relationship. The following example update for a toaster contains two child update steps. An update can contain any combination of inline and reference steps.
 
 ```json
 {

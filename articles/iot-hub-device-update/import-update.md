@@ -20,13 +20,13 @@ To deploy an update to devices using Azure Device Update for IoT Hub, you first 
 - Update files for your device, and an associated import manifest file created by following the instructions in [Prepare an update to import into Device Update](create-update.md).
 ## Import an update
 
-This section shows how to import an update using either the Azure portal or the Azure CLI. You can also [import an update by using the Device Update APIs](#if-youre-importing-using-apis-instead) instead.
+This section shows how to import an update using either the Azure portal or the Azure CLI. You can also [import an update by using the Device Update APIs](#import-using-the-device-update-apis) instead.
 
-To import an update, you first upload the update files and import manifest into an Azure Storage container. Then, you import the update from Azure Storage into Device Update for IoT Hub, where it's stored to be deployed to devices.
+To import an update, you first upload the update files and import manifest into an Azure Storage container. Then, you import the update from Azure Storage into Device Update for IoT Hub, which stores for deployment to devices.
 
 # [Azure portal](#tab/portal)
 
-1. On the [Azure portal](https://portal.azure.com) IoT hub page for your Device Update instance, select **Device Management** > **Updates** from the left navigation.
+1. On the [Azure portal](https://portal.azure.com) IoT hub page for your Device Update instance, select **Device management** > **Updates** from the left navigation.
 
    :::image type="content" source="media/import-update/import-updates-3-ppr.png" alt-text="Screenshot that shows Import updates." lightbox="media/import-update/import-updates-3-ppr.png":::
 
@@ -52,7 +52,7 @@ To import an update, you first upload the update files and import manifest into 
 
    :::image type="content" source="media/import-update/container-ppr.png" alt-text="Screenshot that shows select Upload." lightbox="media/import-update/container-ppr.png":::
 
-1. Select the folder icon on the right side of the **Files** section under the **Upload blob** header. Use the file picker to navigate to the location of your update files and import manifest, select the files, and then select **Open**. You can use the Shift key to multiselect files.
+1. On the **Upload blob** screen, select the folder icon next to the **Files**. Use the file picker to navigate to the location of your update files and import manifest, select the files, and then select **Open**. You can use the Shift key to multiselect files.
 
    :::image type="content" source="media/import-update/container-picker-ppr.png" alt-text="Screenshot that shows selecting files to upload." lightbox="media/import-update/container-picker-ppr.png":::
 
@@ -148,13 +148,13 @@ az iot du update list \
 
 ---
 
-## Use the Device Update APIs
+## Import using the Device Update APIs
 
 You can also import an update programmatically by using any of the following methods:
 
-- The Device Update APIs in the Azure SDKs for [.NET](/dotnet/api/azure.iot.deviceupdate), [Java](/java/api/com.azure.iot.deviceupdate), [JavaScript](/javascript/api/@azure/iot-device-update) or [Python](/python/api/azure-mgmt-deviceupdate/azure.mgmt.deviceupdate)
-- The Device Update [Import Update](/rest/api/deviceupdate/dataplane/updates/import-update) REST API
-- Sample [PowerShell modules](https://github.com/Azure/iot-hub-device-update/tree/main/tools/AduCmdlets) (requires [PowerShell 5] or later for Linux, macOS, or Windows).
+- The Device Update APIs in the Azure SDKs for [.NET](/dotnet/api/azure.iot.deviceupdate), [Java](/java/api/com.azure.iot.deviceupdate), [JavaScript](/javascript/api/@azure/iot-device-update), or [Python](/python/api/azure-mgmt-deviceupdate/azure.mgmt.deviceupdate).
+- The Device Update [Import Update](/rest/api/deviceupdate/dataplane/updates/import-update) REST API.
+- Sample [PowerShell modules](https://github.com/Azure/iot-hub-device-update/tree/main/tools/AduCmdlets) (requires [PowerShell 5](/powershell/scripting/install/installing-powershell) or later for Linux, macOS, or Windows).
 
 > [!NOTE]
 > See [Device Update user roles and access](device-update-control-access.md) for required API permission.

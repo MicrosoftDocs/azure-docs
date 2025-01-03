@@ -31,7 +31,7 @@ The import manifest JSON schema is hosted at [SchemaStore.org](https://json.sche
 |**manifestVersion**|`string`|Import manifest schema version. Must be 5.0.|Yes|
 |**createdDateTime**|`string`|Date and time import manifest was created in ISO 8601 format, for example `"2020-10-02T22:18:04.9446744Z"`.|Yes|
 
-### The updateId object
+### Update object
 
 The `updateID` object is a unique identifier for each update.
 
@@ -39,7 +39,7 @@ The `updateID` object is a unique identifier for each update.
 |---|---|---|---|
 |**provider**|`string`|Entity who is creating or directly responsible for the update. It can be a company name.<br><br>Pattern: `^[a-zA-Z0-9.-]+$`<br>Maximum length: 64 characters|Yes|
 |**name**|`string`|Identifier for a class of update. It can be a device class or model name.<br><br>Pattern: `^[a-zA-Z0-9.-]+$`<br>Maximum length: 64 characters|Yes|
-|**version**|`string`|Two- to four-part dot-separated numerical version numbers. Each part must be a number between 0 and 2147483647 and leading zeroes will be dropped.<br><br>Pattern: `^\d+(?:\.\d+)+$`<br>Examples: `"1.0"`, `"2021.11.8"`|Yes|
+|**version**|`string`|Two- to four-part dot-separated numerical version numbers. Each part must be a number between 0 and 2147483647, and leading zeroes are dropped.<br><br>Pattern: `^\d+(?:\.\d+)+$`<br>Examples: `"1.0"`, `"2021.11.8"`|Yes|
 
 No other properties are allowed.
 
@@ -55,7 +55,7 @@ For example:
 }
 ```
 
-### The compatibility object
+### Compatibility object
 
 The `compatibility` object describes 1-5 properties of a device that this update is compatible with. Each property is a name-value pair of type string. The name must be 1-32 characters long and the value must be 1-64 characters long. You can't use the same exact set of compatibility properties with more than one update provider and name combination.
 
@@ -72,7 +72,7 @@ For example:
 }
 ```
 
-### The instructions object
+### Instructions object
 
 The `instructions` object provides the update installation instructions. The instructions object contains a list of `steps` to be performed. No other properties are allowed.
 
@@ -109,7 +109,7 @@ An `inline` step object is an installation instruction step that performs code e
 |---|---|---|---|
 |**type**|`string`|Instruction step type that performs code execution. Must be `inline`.|No|
 |**description**|`string`|Optional instruction step description. Maximum length: 64 characters|No|
-|**handler**|`string`|Identity of the handler on the device that can execute this step.<br>Pattern: `^\S+/\S+:\d{1,5}$`<br>Minimum length: 5 characters<br>Maximum length: 32 characters<br>Examples: `microsoft/script:1`, `microsoft/swupdate:1`, `microsoft/apt:1` |Yes|
+|**handler**|`string`|Identity of the handler on the device that can execute this step.<br>Pattern: `^\S+/\S+:\d{1,5}$`<br>Minimum length: Five characters<br>Maximum length: 32 characters<br>Examples: `microsoft/script:1`, `microsoft/swupdate:1`, `microsoft/apt:1` |Yes|
 |**files**|`string` `[1-10]`| Names of update files defined as [file objects](#file-object) that the agent passes to the handler. Each element length must be 1-255 characters. |Yes|
 |**handlerProperties**|`inlineStepHandlerProperties`|JSON objects that the agent passes to the handler as arguments.|No|
 
@@ -163,7 +163,7 @@ For example:
 }
 ```
 
-### The files object
+### Files object
 
 Each *file* object is an update payload file, such as a binary, firmware, or script file, that must be unique within an update.
 
@@ -263,6 +263,6 @@ For example:
 
 ## Related content
 
-- [Import concepts and manifest](./import-concepts.md).
-- [Prepare an update to import](create-update.md).
+- [Import concepts and manifest](./import-concepts.md)
+- [Prepare an update to import](create-update.md)
 - [Import an update](import-update.md)
