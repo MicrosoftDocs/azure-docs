@@ -91,7 +91,7 @@ resource signalr 'Microsoft.SignalRService/SignalR@2024-08-01-preview' = {
 
 You can configure rules to allow or deny specified request types for both the public network and each [private endpoint](howto-private-endpoints.md).
 
-For example, [Server Connections](signalr-concept-internals.md#application-server-connections) are typically high-privileged. To enhance security, you may want to restrict their origin. You can configure rules to block all Server Connections from public network, and only allow they originate from a specifiec virtual network.
+For example, [Server Connections](signalr-concept-internals.md#application-server-connections) are typically high-privileged. To enhance security, you may want to restrict their origin. You can configure rules to block all Server Connections from public network, and only allow they originate from a specific virtual network.
 
 If no rule matches, the default action is applied.
 

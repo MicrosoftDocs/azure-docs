@@ -14,28 +14,28 @@ Azure Web PubSub allows you to secure and manage access to your service endpoint
 
 You can configure Azure Web PubSub to secure and control the level of access to your service endpoint based on the request type and subset of networks used. When network rules are configured, only applications that request data over the specified set of networks can access your Web PubSub resource.
 
-   :::image type="content" alt-text="Screenshot showing network access control decision flow chart." source="media\howto-secure-network-access-control\network-acl-decision-flow-chart.png" :::
+  :::image type="content" alt-text="Screenshot showing network access control decision flow chart." source="media\howto-secure-network-access-control\network-access-control-decision-flow-chart.png" :::
 
 
-## Public Network Access
+## Public network access
 
 We offer a single, unified switch to simplify the configuration of public network access. The switch has following options:
 
 * Disabled: Completely blocks public network access. All other network access control rules are ignored for public networks.
 * Enabled: Allows public network access, which is further regulated by additional network access control rules.
 
-### [Configure Public Network Access via Portal](#tab/azure-portal)
+### [Configure public network access via portal](#tab/azure-portal)
 
 1. Go to the Azure Web PubSub instance you want to secure.
 1. Select **Networking** from the left side menu. Select **Public access** tab:
 
-   :::image type="content" alt-text="Screenshot showing how to configure public network access." source="media\howto-secure-network-access-control\portal-public-network-access.png" :::
+  :::image type="content" alt-text="Screenshot showing how to configure public network access." source="media\howto-secure-network-access-control\portal-public-network-access.png" :::
 
 1. Select **Disabled** or **Enabled**.
 
 1. Select **Save** to apply your changes.
 
-### [Configure Public Network Access via Bicep](#tab/bicep)
+### [Configure public network access via bicep](#tab/bicep)
 
 The following template disables public network access:
 
@@ -52,21 +52,21 @@ resource webpubsub 'Microsoft.SignalRService/WebPubSub@2024-08-01-preview' = {
 -----
 
 
-## Default Action
+## Default action
 
 The default action is applied when no other rule matches.
 
-### [Configure Default Action via Portal](#tab/azure-portal)
+### [Configure default action via portal](#tab/azure-portal)
 
 1. Go to the Azure Web PubSub instance you want to secure.
 1. Select **Network access control** from the left side menu.
 
-    ![Default action on portal](media/howto-secure-network-access-control/portal-default-action.png)
+  :::image type="content" alt-text="Screenshot showing default action on portal." source="media/howto-secure-network-access-control/portal-default-action.png" :::
 
 1. To edit the default action, toggle the **Allow/Deny** button.
 1. Select **Save** to apply your changes.
 
-### [Configure Default Action via Bicep](#tab/bicep)
+### [Configure default action via bicep](#tab/bicep)
 
 The following template sets the default action to `Deny`.
 
@@ -84,32 +84,32 @@ resource webpubsub 'Microsoft.SignalRService/WebPubSub@2024-08-01-preview' = {
 -----
 
 
-## Request Type Rules
+## Request type rules
 
 You can configure rules to allow or deny specified request types for both the public network and each [private endpoint](howto-secure-private-endpoints.md).
 
-For example, [REST API calls](reference-rest-api-data-plane.md) are typically high-privileged. To enhance security, you may want to restrict their origin. You can configure rules to block all REST API calls from public network, and only allow they originate from a specifiec virtual network.
+For example, [REST API calls](reference-rest-api-data-plane.md) are typically high-privileged. To enhance security, you may want to restrict their origin. You can configure rules to block all REST API calls from public network, and only allow they originate from a specific virtual network.
 
 If no rule matches, the default action is applied.
 
-### [Configure Request Type Rules via Portal](#tab/azure-portal)
+### [Configure request type rules via portal](#tab/azure-portal)
 
 1. Go to the Azure Web PubSub instance you want to secure.
 1. Select **Network access control** from the left side menu.
 
-    ![Request type rules on portal](media/howto-secure-network-access-control/portal-request-type-rules.png)
+  :::image type="content" alt-text="Screenshot showing request type rules on portal." source="media/howto-secure-network-access-control/portal-request-type-rules.png" :::
 
 1. To edit public network rule, select allowed types of requests under **Public network**.
 
-    ![Edit public network ACL on portal ](media/howto-secure-network-access-control/portal-public-network.png)
+  :::image type="content" alt-text="Screenshot of selecting allowed request types for public network on portal." source="media/howto-secure-network-access-control/portal-public-network.png" :::
 
 1. To edit private endpoint network rules, select allowed types of requests in each row under **Private endpoint connections**.
 
-    ![Edit private endpoint ACL on portal ](media/howto-secure-network-access-control/portal-private-endpoint.png)
+  :::image type="content" alt-text="Screenshot of selecting allowed request types for private endpoints on portal." source="media/howto-secure-network-access-control/portal-private-endpoint.png" :::
 
 1. Select **Save** to apply your changes.
 
-### [Configure Request Type Rules via Bicep](#tab/bicep)
+### [Configure request type rules via bicep](#tab/bicep)
 
 The following template denies all requests from the public network except Client Connections. Additionally, it allows only REST API calls, and Trace calls from a specific private endpoint.
 
@@ -138,7 +138,7 @@ resource webpubsub 'Microsoft.SignalRService/WebPubSub@2024-08-01-preview' = {
 -----
 
 
-## IP Rules
+## IP rules
 
 IP rules allow you to grant or deny access to specific public internet IP address ranges. These rules can be used to permit access for certain internet-based services and on-premises networks or to block general internet traffic.
 
@@ -149,7 +149,7 @@ The following restrictions apply:
 * IP rules are evaluated in the order they are defined. If no rule matches, the default action is applied.
 * IP rules apply only to public traffic and cannot block traffic from private endpoints.
 
-### [Configure IP Rules via Portal](#tab/azure-portal)
+### [Configure IP rules via portal](#tab/azure-portal)
 
 1. Go to the Azure Web PubSub instance you want to secure.
 1. Select **Networking** from the left side menu. Select **Access control rules** tab:
@@ -160,7 +160,7 @@ The following restrictions apply:
 
 1. Select **Save** to apply your changes.
 
-### [Configure IP Rules via Bicep](#tab/bicep)
+### [Configure IP rules via bicep](#tab/bicep)
 
 The following template has these effects:
 
