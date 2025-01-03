@@ -116,8 +116,6 @@ For more information about alerts in Azure DDoS Protection, see [Configure Azure
 
 [!INCLUDE [azmon-horz-alerts-part-two](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/azmon-horz-alerts-part-two.md)]
 
-[!INCLUDE [azmon-horz-advisor](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/azmon-horz-advisor.md)]
-
 ## Related content
 
 - [Azure DDoS Protection monitoring data reference](monitor-ddos-protection-reference.md)
