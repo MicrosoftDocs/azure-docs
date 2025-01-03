@@ -50,6 +50,8 @@ Microsoft Teams meetings support API that allows participants with role organize
 
 Use method `forbidOthersAudio()` to disallow all attendees to unmute or method `forbidOthersVideo()` to disallow all attendees to turn on video and these actions disable mic or camera for selected attendees.
 
+These methods serve as batch processing and can always be overridden with `forbidAudio` and `forbidVideo` or `permitAudio` and `permitVideo`.
+
 ```js
 // Allow all attendees to unmute
 mediaAccessFeature.permitOthersAudio();
@@ -65,7 +67,7 @@ mediaAccessFeature.forbidOthersVideo();
 ```
 
 ### Get notification that media access changed
-You can subscribe to the `mediaAccessChanged` events from `MediaAccess` API to receive array of `MediaAccess` instances that allow you to learn all remote participants' media access if they're now allowed or denied sending audio or video. By default all nonattendees are allowed audio and video. This event is triggered when a participant with an appropriate role changes media access for selected or all attendees. 
+You can subscribe to the `mediaAccessChanged` events from `MediaAccess` API to receive array of `MediaAccess` instances that allow you to learn all remote participants' media access if they're now allowed or denied sending audio or video. By default all participants with role different than attendees are allowed audio and video. This event is triggered when a participant with an appropriate role changes media access for selected or all attendees. 
 
 ```js
 const mediaAccessChangedHandler = (event) => {
