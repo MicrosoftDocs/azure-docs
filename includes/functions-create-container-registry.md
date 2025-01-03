@@ -4,7 +4,7 @@ ms.service: azure-functions
 ms.custom:
   - build-2024
 ms.topic: include
-ms.date: 12/29/2024
+ms.date: 01/03/2025
 ms.author: glenga
 ---
 
@@ -65,7 +65,7 @@ You should be all set.
 ---
 
 >[!IMPORTANT]
->This article currently shows how to connect to the container registry by using shared secret credentials. For the best security, you should instead use only a managed identity-based connection to Azure Container Registry using Microsoft Entra authentication. For more information, see the [Functions developer guide](./functions-reference.md#connections).
+>This article currently shows how to connect to the container registry by using shared secret credentials. For the best security, you should instead use only a managed identity-based connection to Azure Container Registry using Microsoft Entra authentication. For more information, see the [Functions developer guide](../articles/azure-functions/functions-reference.md#connections).
 
 [!INCLUDE [functions-cli-create-venv](functions-cli-create-venv.md)]
 

@@ -3,7 +3,7 @@ title: How to use a secured storage account with Azure Functions
 description: Learn how to use a secured storage account in a virtual network as the default storage account for a function app in Azure Functions.
 ms-service: azure-functions
 ms.topic: how-to
-ms.date: 12/04/2024
+ms.date: 01/03/2025
 ms.custom: template-how-to, build-2024, ignite-2024
 # Customer intent: As a developer, I want to understand how to use a secured storage account in a virtual network as the default storage account for my function app, so that my function app can be secure.
 ---
@@ -18,7 +18,7 @@ When you create a function app, you either create a new storage account or link 
 
 + To create a function app that uses an existing secured storage account as the default storage account, you must create your app either in the [Azure portal](https://portal.azure.com) or by using [ARM template](functions-infrastructure-as-code.md?tabs=json&pivots=premium-plan#secured-deployments) or [Bicep](functions-infrastructure-as-code.md?tabs=bicep&pivots=premium-plan#secured-deployments) deployments.
 + When using a secured storage account with a dynamic scale plan, you should host your functions in the [Flex Consumption plan](./flex-consumption-plan.md). This plan supports both secured storage accounts and managed identity-based connections to storage, which is the most secure connection option.    
-+ All tiers of both the [Dedicated (App Service) plan](./dedicated-plan.md) and the [Elastic Premium plan](./functions-premium-plan.md) also support secure storage accounts. However, there are trade-offs when using managed identities to connect from a Premium plan app. For more information, see <!---<<link here>>--->. 
++ All tiers of both the [Dedicated (App Service) plan](./dedicated-plan.md) and the [Elastic Premium plan](./functions-premium-plan.md) also support secure storage accounts. However, there are trade-offs when using managed identities to connect from a Premium plan app. For more information, see [Create an app without Azure Files](storage-considerations.md#create-an-app-without-azure-files). 
 + The [Consumption plan](consumption-plan.md) doesn't support virtual networks, so you can't connect to a secured storage account when running in the Consumption plan. To take advantage of serverless function hosting, you should instead recreate your app to run in Flex Consumption plan.
 + This article currently shows you how to create a function app in a Premium plan that connects to a secured storage account using the storage account connection string. To provide the best protection of storage account credentials, you should instead use managed identities when connecting to a storage account. Instead follow the [Quickstart: Create and deploy functions to Azure Functions using the Azure Developer CLI](create-first-function-azure-developer-cli.md) to create a function app in the Flex Consumption plan that connects to a new secured storage account using managed identities. 
 + For a list of all restrictions on storage accounts, see [Storage account requirements](storage-considerations.md#storage-account-requirements).
