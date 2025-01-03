@@ -120,7 +120,7 @@ Azure provides these methods to check the current runtime version used by your f
 
 The language stack for your function app is determined based on the value of the `FUNCTIONS_WORKER_RUNTIME` [application setting](functions-how-to-use-azure-function-app-settings.md#settings).  
 
-## Next steps
+## Related articles
 
 To learn more about how to upgrade your functions apps language versions, see the following resources:
 
