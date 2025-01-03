@@ -20,7 +20,7 @@ If your move requires setting up new dependent resources, you'll experience an i
 Moving a resource only moves it to a new resource group or subscription. It doesn't change the location of the resource.
 
 > [!NOTE]  
-> You can't move Azure resources to another resource group or another subscription if there's a read-only lock, whether in the source or in the destination. 
+> Azure resources can't be moved if a read-only lock exists on the source or destination resource group or subscription.
 
 ## Changed resource ID
 
