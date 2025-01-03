@@ -1,6 +1,6 @@
 ---
 title: Bicep CLI commands 
-description: Learn about the the commands that you can use in the Bicep CLI. These commands include building JSON Azure Resource Manager templates from Bicep.
+description: Learn about the commands that you can use in the Bicep CLI. These commands include building JSON Azure Resource Manager templates from Bicep.
 ms.topic: reference
 ms.date: 01/06/2025
 ms.custom: devx-track-azurecli, devx-track-bicep, devx-track-arm-template
