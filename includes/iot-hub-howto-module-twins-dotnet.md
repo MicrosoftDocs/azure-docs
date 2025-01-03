@@ -56,7 +56,7 @@ _moduleClient = ModuleClient.CreateFromConnectionString(ModuleConnectionString, 
 ```
 
 > [!NOTE]
-> C#/.NET does not support connecting a device app to an IoT Hub module identity twin using a certificate.
+> C#/.NET does not support connection of a device app to an IoT Hub module identity twin using a certificate.
 
 ### Retrieve a module identity twin and examine properties
 

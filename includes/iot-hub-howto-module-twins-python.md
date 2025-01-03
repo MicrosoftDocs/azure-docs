@@ -81,7 +81,7 @@ await device_client.connect()
 ```
 
 > [!NOTE]
-> Python does not support connecting a device app to an IoT Hub module identity twin using a certificate.
+> Python does not support connection of a device app to an IoT Hub module identity twin using a certificate.
 
 ### Retrieve a module identity twin and examine properties
 
