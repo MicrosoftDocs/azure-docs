@@ -86,7 +86,7 @@ Class `MediaAccess` has the following properties:
 | isVideoPermitted | Boolean value indicating whether ability to send video is allowed for this participant. |
 
 ### Get notification that meeting media access changed
-You can subscribe to the `MeetingMediaAccess` events from `MediaAccess` API to receive a `MeetingMediaAccess` instance that allows you to learn the Teams meeting settings which attendees are now allowed or denied sending audio or video. This event is triggered when Teams meeting settings `Allow mic for attendees` or `Allow camera for attendees` changes.
+You can subscribe to the `meetingMediaAccessChanged` events from `MediaAccess` API to receive a `MeetingMediaAccess` instance that allows you to learn the Teams meeting settings which attendees are now allowed or denied sending audio or video. This event is triggered when Teams meeting settings `Allow mic for attendees` or `Allow camera for attendees` option changes.
 
 ```js
 const meetingMediaAccessChangedHandler = (event) => {
