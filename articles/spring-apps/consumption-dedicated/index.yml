@@ -70,10 +70,6 @@ landingContent:
             url: ../enterprise/quickstart-deploy-restful-api-app.md?pivots=sc-consumption-plan&toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
           - text: Launch your first event-driven app
             url: ../basic-standard/quickstart-deploy-event-driven-app.md?pivots=sc-consumption-plan&toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
-          - text: Provision a service instance
-            url: quickstart-provision-standard-consumption-service-instance.md
-          - text: Provision in an Azure Container Apps environment with a virtual network
-            url: quickstart-provision-standard-consumption-app-environment-with-virtual-network.md
 
   # Card (optional)
   - title: Develop and deploy apps
