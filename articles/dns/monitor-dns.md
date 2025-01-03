@@ -63,8 +63,6 @@ For more information on how to configure alerting for Azure Monitor metrics, see
 
 [!INCLUDE [azmon-horz-alerts-part-two](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/azmon-horz-alerts-part-two.md)]
 
-[!INCLUDE [azmon-horz-advisor](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/azmon-horz-advisor.md)]
-
 ## Related content
 
 - [Azure DNS monitoring data reference](monitor-dns-reference.md)
