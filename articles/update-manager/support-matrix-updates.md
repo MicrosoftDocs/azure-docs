@@ -4,7 +4,7 @@ description: This article provides a summary of support for updates, one time up
 ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 01/03/2024
+ms.date: 01/03/2025
 ms.topic: overview
 zone_pivot_groups: support-matrix-updates
 ---
