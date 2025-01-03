@@ -31,7 +31,7 @@ This table describes how you can collect data to monitor your service, and what 
 
 [!INCLUDE [azmon-horz-kusto](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/azmon-horz-kusto.md)]
 
-To see Kusto queries in Azure Resource Graph Explorer, see [Private DNS information in Azure Resource Graph](private-dns-arg.md).
+For Kusto queries in Azure Resource Graph Explorer, see [Private DNS information in Azure Resource Graph](private-dns-arg.md).
 
 [!INCLUDE [azmon-horz-alerts-part-one](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/azmon-horz-alerts-part-one.md)]
 
