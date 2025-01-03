@@ -106,7 +106,7 @@ Download the CSV template and add server information to it.
 
 ### Download the template
 
-1. In **Migration goals** > **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select **Discover**.
+1. In **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select **Discover**.
 2. In **Discover machines**, select **Import using CSV**.
 3. Select **Download** to download the CSV template. Alternatively, you can [download it directly](https://go.microsoft.com/fwlink/?linkid=2109031).
 
@@ -170,7 +170,7 @@ For example, to specify all fields for a second disk, add these columns:
 
 After adding information to the CSV template, import the CSV file.
 
-1. In **Migration goals** > **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select **Discover**.
+1. In **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select **Discover**.
 1. In **Discover machines**, select **Import using CSV** 
 1. Upload the .csv file and select **Import**.
 3. The import status is shown.
