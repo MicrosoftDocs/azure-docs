@@ -127,22 +127,22 @@
         },
         {
             "source_path": "quickstart-provision-standard-consumption-app-environment-with-virtual-network.md",
-            "redirect_url": "azure/spring-apps/basic-standard/retirement-announcement",
+            "redirect_url": "/azure/spring-apps/basic-standard/retirement-announcement",
             "redirect_document_id": false
         },
         {
             "source_path": "quickstart-provision-standard-consumption-service-instance.md",
-            "redirect_url": "azure/spring-apps/basic-standard/retirement-announcement",
+            "redirect_url": "/azure/spring-apps/basic-standard/retirement-announcement",
             "redirect_document_id": false
         },
         {
             "source_path": "consumption-dedicated/quickstart-provision-standard-consumption-app-environment-with-virtual-network.md",
-            "redirect_url": "azure/spring-apps/basic-standard/retirement-announcement",
+            "redirect_url": "/azure/spring-apps/basic-standard/retirement-announcement",
             "redirect_document_id": false
         },
         {
             "source_path": "consumption-dedicated/quickstart-provision-standard-consumption-service-instance.md",
-            "redirect_url": "azure/spring-apps/basic-standard/retirement-announcement",
+            "redirect_url": "/azure/spring-apps/basic-standard/retirement-announcement",
             "redirect_document_id": false
         },
         {
