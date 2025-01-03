@@ -93,7 +93,7 @@ Old response:
     "reservationId": "bbbbbbbb-1111-2222-3333-cccccccccccc",
     "usageDate": "2018-02-01T00:00:00",
     "skuName": "Standard_F2s",
-    "instanceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/resourvegroup1/providers/microsoft.compute/virtualmachines/VM1",
+    "instanceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/resourcegroup1/providers/microsoft.compute/virtualmachines/VM1",
     "totalReservedQuantity": 18.000000000000000,
     "reservedHours": 432.000000000000000,
     "usedHours": 400.000000000000000

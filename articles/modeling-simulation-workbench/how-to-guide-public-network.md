@@ -12,7 +12,7 @@ ms.date: 10/11/2024
 
 # Set up a public IP network connector
 
-In Azure Modeling and Simulation Workbench, you can deploy a [connector](./concept-connector.md) that is accessible directly from the internet. The public IP connector uses publicly facing IP addresses. By default, access is denied to all incoming IP addresses and must be explictly granted through a specifying an address or address ranges. Public connectors are useful for training sessions, conferences, or other open work environments with stable or short-term requirements. Both desktop and [data pipeline](./concept-data-pipeline.md) access are managed through the connector's allowlist.
+In Azure Modeling and Simulation Workbench, you can deploy a [connector](./concept-connector.md) that is accessible directly from the internet. The public IP connector uses publicly facing IP addresses. By default, access is denied to all incoming IP addresses and must be explicitly granted through a specifying an address or address ranges. Public connectors are useful for training sessions, conferences, or other open work environments with stable or short-term requirements. Both desktop and [data pipeline](./concept-data-pipeline.md) access are managed through the connector's allowlist.
 
 ## Suitability
 

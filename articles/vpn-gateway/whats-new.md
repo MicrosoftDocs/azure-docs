@@ -3,7 +3,7 @@ title: What's new in Azure VPN Gateway?
 description: Learn what's new with Azure VPN Gateway such as the latest release notes, known issues, bug fixes, deprecated functionality, and upcoming changes.
 author: cherylmc
 ms.service: azure-vpn-gateway
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 08/16/2024
 ms.author: cherylmc
 ---
@@ -18,13 +18,13 @@ Azure VPN Gateway is updated regularly. Stay up to date with the latest announce
 * Deprecated functionality (if applicable)
 * Azure VPN Client versions
 
-You can also find the latest VPN Gateway updates and subscribe to the RSS feed [here](https://azure.microsoft.com/updates/?category=networking&query=azure%20vpn%20gateway).
+You can also find the latest VPN Gateway updates and subscribe to the RSS feed [here](https://azure.microsoft.com/updates?filters=%5B%22VPN+Gateway%22%5D).
 
 ## Recent releases and announcements
 
 | Type | Area | Name | Description | Date added | Limitations |
 |---|---|---|---|---|---|
-|SKU Consolidation | N/A | [VpnGw1-5 non-AZ VPN Gateway SKU](https://learn.microsoft.com/azure/vpn-gateway/gateway-sku-consolidation) | VpnGw1-5 non-AZ SKU will be deprecated on 30 Sep 2026. View the announcement [here](https://azure.microsoft.com/updates/v2/vpngw1-5-non-az-skus-will-be-retired-on-30-september-2026) | Sep 2024 | N/A
+|SKU Consolidation | N/A | [VpnGw1-5 non-AZ VPN Gateway SKU](gateway-sku-consolidation.md) | VpnGw1-5 non-AZ SKU will be deprecated on 30 Sep 2026. View the announcement [here](https://azure.microsoft.com/updates/v2/vpngw1-5-non-az-skus-will-be-retired-on-30-september-2026) | Sep 2024 | N/A
 | P2S VPN | P2S | [Azure VPN Client for Linux](#linux)| [Certificate](point-to-site-certificate-client-linux-azure-vpn-client.md) authentication, [Microsoft Entra ID ](point-to-site-entra-vpn-client-linux.md) authentication.| May 2024 | N/A|
 | P2S VPN | P2S | [Azure VPN Client for macOS](#macos) | Microsoft Entra ID authentication updates, additional features.  | Sept 2024 | N/A|
 | P2S VPN | P2S | [Azure VPN Client for Windows](#windows) | Microsoft Entra ID authentication updates, additional features.  | May 2024 | N/A|

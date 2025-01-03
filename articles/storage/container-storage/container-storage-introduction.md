@@ -23,7 +23,7 @@ To get started using Azure Container Storage, see [Use Azure Container Storage w
 
 :::row:::
     :::column:::
-        > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RW1lDGj]
+        > [!VIDEO https://learn-video.azurefd.net/vod/player?id=0e3cc19a-f57b-4b72-856e-481b42dfacd0]
     :::column-end:::
     :::column:::
         This video provides an introduction to Azure Container Storage, an end-to-end storage management and orchestration service for stateful applications. Learn how to optimize the performance of stateful workloads on Azure Kubernetes Service (AKS) to effectively scale across storage services while providing a cost-effective, container-native experience.
@@ -75,9 +75,9 @@ For more information on these features, email the Azure Container Storage team a
 
 ## Why Azure Container Storage is useful
 
-Until now, providing cloud storage for containers required using individual container storage interface (CSI) drivers to use storage services intended for IaaS-centric workloads and make them work for containers. This creates operational overhead and increases the risk of issues with application availability, scalability, performance, usability, and cost.
+Until now, providing cloud storage for containers required using individual container storage interface (CSI) drivers to use storage services intended for IaaS-centric workloads and make them work for containers. While CSI drivers are useful in certain scenarios, relying on them can create operational overhead and increase the risk of issues with application availability, scalability, performance, usability, and cost.
 
-Azure Container Storage is derived from [OpenEBS](https://openebs.io/), an open-source solution that provides container storage capabilities for Kubernetes. By offering a managed volume orchestration solution via microservice-based storage controllers in a Kubernetes environment, Azure Container Storage enables true container-native storage.
+Despite its name, Azure Container Storage doesn't use CSI drivers. Instead, it is derived from [OpenEBS](https://openebs.io/), an open-source solution that provides container storage capabilities for Kubernetes. By offering a managed volume orchestration solution via microservice-based storage controllers in a Kubernetes environment, Azure Container Storage enables true container-native storage.
 
 You can use Azure Container Storage to:
 

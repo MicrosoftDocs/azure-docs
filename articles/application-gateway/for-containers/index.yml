@@ -44,7 +44,7 @@ landingContent:
       - linkListType: whats-new
         links:
           - text: What's new
-            url: https://azure.microsoft.com/updates/?category=networking&query=Application%20Gateway%20for%20Containers
+            url: https://azure.microsoft.com/updates?searchterms=Application+Gateway+for+Containers
             
   # Card
   - title: Deploy Application Gateway for Containers
