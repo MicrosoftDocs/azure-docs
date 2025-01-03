@@ -275,7 +275,7 @@ When delta replication begins, you can run a test migration for the VMs before y
 
 To do a test migration:
 
-1. In **Migration goals**, select **Servers, databases, and web apps** > **Migration and modernization** > **Test migrated servers**.
+1. In **Servers, databases, and web apps** > **Migration and modernization**, select **Test migrated servers**.
 
 1. Right-click the VM to test and select **Test migrate**.
 

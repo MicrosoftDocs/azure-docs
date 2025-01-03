@@ -34,7 +34,7 @@ Only virtual machines that currently have the New Relic agent installed should b
 
 ## Resource monitoring stopped working
 
-Resource monitoring in New Relic is enabled through the *ingest API key*, which you set up at the time of resource creation. Revoking the ingest API key from the New Relic portal disrupts monitoring of logs and metrics for all resources, including virtual machines and app services. You shouldn't* revoke the ingest API key. If the API key is already revoked, contact New Relic support.
+Resource monitoring in New Relic is enabled through the *ingest API key*, which you set up at the time of resource creation. Revoking the ingest API key from the New Relic portal disrupts monitoring of logs and metrics for all resources, including virtual machines and app services. You shouldn't revoke the ingest API key. If the API key is already revoked, contact New Relic support.
 
 If your Azure subscription is suspended or deleted because of payment-related issues, resource monitoring in New Relic automatically stops. Use a different Azure subscription. Or, add or update the credit card or payment method for the subscription. For more information, see [Add, update, or delete a payment method](../../cost-management-billing/manage/change-credit-card.md).
 
@@ -43,6 +43,8 @@ New Relic manages the APIs for creating and managing resources, and for the stor
 ## Diagnostic settings are active even after disabling the New Relic resource or applying necessary tag rules
 
 If logs are being emitted and diagnostic settings remain active on monitored resources even after the New Relic resource is disabled or tag rules have been modified to exclude certain resources, it's likely that there's a delete lock applied to the resource(s) or the resource group containing the resource. This lock prevents the cleanup of the diagnostic settings, and hence, logs continue to be forwarded for those resources. To resolve this, remove the delete lock from the resource or the resource group. If the lock is removed after the New Relic resource is deleted, the diagnostic settings have to be cleaned up manually to stop log forwarding.
+
+[!INCLUDE [diagnostic-settings](../includes/diagnostic-settings.md)]
 
 ## Next steps
 

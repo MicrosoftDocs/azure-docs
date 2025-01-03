@@ -171,8 +171,7 @@ When delta replication begins, you can run a test migration for the VMs, before 
 
 Do a test migration as follows:
 
-
-1. In **Migration goals** > **Servers, databases and web apps** > **Migration and modernization**, select the numerical value next to **Azure VM**.
+1. In **Servers, databases and web apps** > **Migration and modernization**, select the numerical value next to **Azure VM**.
 
     :::image type="content" source="../media/tutorial-migrate-vmware/test-migrated-servers.png" alt-text="Screenshot of Test migrated servers.":::
 
