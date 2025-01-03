@@ -2,13 +2,13 @@
 title: Bicep CLI commands 
 description: Learn about the the commands that you can use in the Bicep CLI. These commands include building JSON Azure Resource Manager templates from Bicep.
 ms.topic: reference
-ms.custom: devx-track-azurecli, devx-track-bicep, devx-track-arm-template
 ms.date: 01/06/2025
+ms.custom: devx-track-azurecli, devx-track-bicep, devx-track-arm-template
 ---
 
 # Bicep CLI commands
 
-This article describes the commands you can use in the Bicep CLI. You can execute these commands by using the Azure CLI or by directly invoking Bicep CLI commands. Each method requires a distinct installation process. For more information, see [Install Azure CLI](./install.md#azure-cli) and [Install Azure PowerShell](./install.md#azure-powershell).
+This article describes the commands you can use in the Bicep CLI. You can execute these commands by using the Azure CLI or by directly invoking Bicep CLI commands. Each method requires a distinct installation process. For more information about installations, see [Azure CLI](./install.md#azure-cli) and [Azure PowerShell](./install.md#azure-powershell).
 
 This guidance shows how to run the commands in the Azure CLI. When running commands in the Azure CLI, start them with `az`. If you're not using the Azure CLI, run the commands without `az` at the start of each. For example, `az bicep build` becomes `bicep build`, and `az bicep version` becomes `bicep --version`.
 
@@ -66,7 +66,7 @@ The module with reference "br:exampleregistry.azurecr.io/bicep/modules/storage:v
 
 When you get this error, either run the `build` command without the `--no-restore` switch, or run `bicep restore` first.
 
-To use the `--no-restore` switch, you must have [Bicep CLI version 0.4.X or higher](./install.md).
+To use the `--no-restore` switch, you must have [Bicep CLI](./install.md#visual-studio-code-and-bicep-extension) version 0.4.X or later.
 
 ## build-params
 
@@ -311,7 +311,7 @@ The `publish` command adds a module to a registry. The Azure container registry 
 
 After publishing the file to the registry, you can [reference it in a module](modules.md#file-in-registry).
 
-To use the `publish` command, you must have [Bicep CLI version 0.14.X or higher](./install.md). To use the `--documentationUri`/`-d` parameter, you must have [Bicep CLI version 0.14.X or higher](./install.md).
+You must have [Bicep CLI](./install.md#visual-studio-code-and-bicep-extension) version 0.14.X or later to use the `publish` command and the `--documentationUri`/`-d` parameter.
 
 To publish a module to a registry, use:
 
@@ -336,7 +336,7 @@ When your Bicep file uses modules that are published to a registry, the `restore
 
 To restore external modules to the local cache, the account must have the correct profile and permissions to access the registry. You can configure the [profile and credential precedence](./bicep-config-modules.md#configure-profiles-and-credentials) for authenticating to the registry in the Bicep config file.
 
-To use the `restore` command, you must have [Bicep CLI version 0.4.X or higher](./install.md). At this time, this command is only available when calling the Bicep CLI directly. It isn't currently available through the Azure CLI.
+To use the `restore` command, you must have [Bicep CLI](./install.md#visual-studio-code-and-bicep-extension) version 0.14.X or later. At this time, this command is only available when calling the Bicep CLI directly. It isn't currently available through the Azure CLI.
 
 To manually restore the external modules for a file, use:
 

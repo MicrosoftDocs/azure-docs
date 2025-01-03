@@ -2,8 +2,8 @@
 title: Bicep functions overview
 description: Learn about the functions that can be used in a Bicep file to retrieve values, work with strings and numerics, and retrieve deployment information.
 ms.topic: reference
-ms.custom: devx-track-bicep
 ms.date: 01/06/2025
+ms.custom: devx-track-bicep
 ---
 
 # Bicep functions overview
@@ -202,4 +202,4 @@ Bicep provides the following functions for working with strings. All of these fu
 ## Next steps
 
 * To iterate a specific number of times when creating a type of resource, see [Iterative loops in Bicep](./loops.md).
-* To see how to deploy the Bicep file you've created, see [Deploy Bicep files with the Azure CLI](./deploy-cli.md) and [Azure PowerShell](./deploy-powershell.md).
+* To learn how to deploy the Bicep file you've created, see [Deploy Bicep files with the Azure CLI](./deploy-cli.md) and [Azure PowerShell](./deploy-powershell.md).

@@ -1,9 +1,9 @@
 ---
 title: Using statement
-description: Describes how to use the using statement in Bicep.
+description: Learn how to use the `using` statement in Bicep.
 ms.topic: conceptual
-ms.custom: devx-track-bicep
 ms.date: 01/06/2025
+ms.custom: devx-track-bicep
 ---
 
 # Using statement
@@ -11,9 +11,9 @@ ms.date: 01/06/2025
 The `using` statement in [Bicep parameters files](./parameter-files.md) ties the file to a [Bicep file](./file.md), a [JSON Azure Resource Manager template (ARM template)](../templates/syntax.md), a [Bicep module](./modules.md), or a [template spec](./template-specs.md). A `using` declaration must be present in all Bicep parameters files.
 
 > [!NOTE]
-> The Bicep parameters file is only supported in the [Bicep CLI](./install.md) version 0.18.4 or newer, [Azure CLI](/cli/azure/install-azure-cli) version 2.47.0 or newer, and [Azure PowerShell](/powershell/azure/install-azure-powershell) version 9.7.1 or newer.
+> The Bicep parameters file is only supported in the [Bicep CLI](./install.md#visual-studio-code-and-bicep-extension) version 0.18.4 or later, [Azure CLI](/cli/azure/install-azure-cli) version 2.47.0 or later, and [Azure PowerShell](/powershell/azure/install-azure-powershell) version 9.7.1 or later.
 >
-> To use the statement with JSON ARM templates, Bicep modules, and template specs, you need to have [Bicep CLI](./install.md) version 0.22.6 or later and [Azure CLI](/cli/azure/install-azure-cli) version 2.53.0 or later.
+> To use the statement with JSON ARM templates, Bicep modules, and template specs, you need to have [Bicep CLI](./install.md#visual-studio-code-and-bicep-extension) version 0.22.6 or later and [Azure CLI](/cli/azure/install-azure-cli) version 2.53.0 or later.
 
 ## Syntax
 
