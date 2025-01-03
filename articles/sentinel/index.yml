@@ -64,10 +64,6 @@ landingContent:
             url: /unified-secops-platform/overview-defender-portal
           - text: "Microsoft Sentinel in the Microsoft Defender portal"
             url: microsoft-sentinel-defender-portal.md
-      - linkListType: whats-new
-        links:
-          - text: "What's new in Microsoft's unified SecOps platform"
-            url: /unified-secops-platform/whats-new.md
       - linkListType: deploy
         links:
           - text: "Plan your deployment"
