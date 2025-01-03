@@ -5,7 +5,7 @@ author: snehasudhirG
 services: automation
 ms.subservice: change-inventory-management
 ms.topic: how-to
-ms.date: 01/01/2025
+ms.date: 01/03/2025
 ms.author: sudhirsneha
 ms.custom:
 ms.service: azure-automation
@@ -103,7 +103,7 @@ Follow these steps to migrate using scripts:
 
 #### Migration guidance
 
-- The [script](https://github.com/mayguptMSFT/AzureMonitorCommunity/blob/master/Azure%20Services/Azure%20Monitor/Agents/Migration%20Tools/DCR%20Config%20Generator/CTDcrGenerator/CTWorkSpaceSettingstoDCR.ps1) will migrate all Azure Machines and Arc enabled non-Azure machines onboarded to LA agent Change Tracking solution for the Input Log Analytics workspace.
+- The [script](https://github.com/Azure/ChangeTrackingAndInventory/blob/main/MigrateToChangeTrackingAndInventoryUsingAMA/CTAndIMigrationFromMMAToAMA.ps1) will migrate all Azure Machines and Arc enabled Non-Azure Machines onboarded to LA Agent Change Tracking solution for the Input Log Analytics Workspace to the Change Tracking using AMA agent for the Output Log Analytics Workspace. 
 
 - The script provides the ability to migrate using the same workspace, that is Input and Output Log Analytics Workspaces are the same. However, it will then remove the LA (MMA/OMS) agents from the machines.
 
@@ -130,7 +130,7 @@ Follow these steps to migrate using scripts:
    1. Create the Data Collection Rule (DCR) ARM template by fetching the files, services, tracking & registry settings configured in the legacy solution and translating them to equivalent settings for the latest solution using AMA Agent and Change Tracking Extensions for the Output Log Analytics Workspace. 
    1. Deploy Change Tracking solution ARM template to Output Log Analytics Workspace. This is done only if migration to the same workspace is not done. The output workspace requires the legacy solution to create the log analytics tables for Change Tracking like ConfigurationChange & ConfigurationData. The deployment name will be DeployCTSolution_CTMig_{GUID} and it will be in same resource group as Output Log Analytics Workspace. 
    1. Deploy the DCR ARM template created in Step 2. The deployment name will be OutputDCRName_CTMig_{GUID} and it will be in same resource group as Output Log Analytics Workspace. The DCR will be created in the same location as the Output Log Analytics Workspace. 
-   1. Removes MMA Agent from machines list populated in Step a. This is done only if migration to the same workspace is carried out. Machines which have the MMA agent installed via the MSI, will not have the MMA agent removed. It will be removed only if the MMA Agent was installed as an extension. 
+   1. Removes MMA Agent from machines list populated in Step 1. This is done only if migration to the same workspace is carried out. Machines which have the MMA agent installed via the MSI, will not have the MMA agent removed. It will be removed only if the MMA Agent was installed as an extension. 
    1. Assign DCR to machines and install AMA Agent and CT Extensions. The deployment name of it will be MachineName_CTMig and it will be in same resource group as the machine. 
        - Assign the DCR deployed in Step 4 to all machines populated in Step 1. 
        - Install the AMA Agent to all machines populated in Step 1.  
