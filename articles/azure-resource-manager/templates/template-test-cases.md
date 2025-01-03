@@ -3,9 +3,7 @@ title: Template test cases for test toolkit
 description: Describes the template tests that are run by the Azure Resource Manager template test toolkit.
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
-ms.date: 11/09/2022
-ms.author: tomfitz
-author: tfitzmac
+ms.date: 03/20/2024
 ---
 
 # Test cases for ARM templates
@@ -985,7 +983,7 @@ Test name: **CommandToExecute Must Use ProtectedSettings For Secrets**
 For resources with type `CustomScript`, use the encrypted `protectedSettings` when `commandToExecute` includes secret data such as a password. For example, secret data can be used in secure parameters of type `secureString` or `secureObject`, [list*](template-functions-resource.md#list) functions such as `listKeys`, or custom scripts.
 
 Don't use secret data in the `settings` object because it uses clear text. For more information, see [Microsoft.Compute virtualMachines/extensions](/azure/templates/microsoft.compute/virtualmachines/extensions), [Windows](
-/azure/virtual-machines/extensions/custom-script-windows), or [Linux](../../virtual-machines/extensions/custom-script-linux.md).
+/azure/virtual-machines/extensions/custom-script-windows), or [Linux](/azure/virtual-machines/extensions/custom-script-linux).
 
 In Bicep, use [Linter rule - use protectedSettings for commandToExecute secrets](../bicep/linter-rule-protect-commandtoexecute-secrets.md).
 

@@ -3,10 +3,9 @@ title: Troubleshoot Azure Stream Analytics outputs
 description: This article describes techniques to troubleshoot your output connections in Azure Stream Analytics jobs.
 author: ahartoon
 ms.author: anboisve
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: troubleshooting
 ms.date: 12/15/2023
-ms.custom: seodec18
 ---
 
 # Troubleshoot Azure Stream Analytics outputs
@@ -20,7 +19,7 @@ This article describes common issues with Azure Stream Analytics output connecti
 
    * If the **Input Events** value is greater than zero, the job can read the input data. If the **Input Events** value isn't greater than zero, there's an issue with the job's input. See [Troubleshoot input connections](stream-analytics-troubleshoot-input.md) for more information. If your job has reference data input, apply splitting by logical name when looking at **Input Events** metric. If there are no input events from your reference data alone, then it likely means that this input source has not be configured properly to fetch the right reference dataset.
    * If the **Data Conversion Errors** value is greater than zero and climbing, see [Azure Stream Analytics data errors](data-errors.md) for detailed information about data conversion errors.
-   * If the **Runtime Errors** value is greater than zero, your job receives data but generates errors while processing the query. To find the errors, go to the [audit logs](../azure-monitor/essentials/activity-log.md), and then filter on the **Failed** status.
+   * If the **Runtime Errors** value is greater than zero, your job receives data but generates errors while processing the query. To find the errors, go to the [audit logs](/azure/azure-monitor/essentials/activity-log), and then filter on the **Failed** status.
    * If the **Input Events** value is greater than zero and the **Output Events** value equals zero, one of the following statements is true:
       * The query processing resulted in zero output events.
       * Events or fields might be malformed, resulting in a zero output after the query processing.
@@ -108,7 +107,7 @@ When using the original compatibility level (1.0), Azure Stream Analytics change
 
 ## Get help
 
-For further assistance, try our [Microsoft Q&A question page for Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
+For further assistance, try our [Microsoft Q&A question page for Azure Stream Analytics](/answers/tags/179/azure-stream-analytics).
 
 ## Next steps
 

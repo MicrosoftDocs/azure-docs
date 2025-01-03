@@ -3,7 +3,7 @@ title: Reliability in Azure Storage Mover
 description: Find out about reliability in Azure Storage Mover
 author: johnmic
 ms.author: johnmic
-ms.topic: conceptual
+ms.topic: reliability-article
 ms.custom: subject-reliability, references_regions
 ms.service: azure-storage-mover
 ms.date: 03/21/2023
@@ -46,7 +46,7 @@ If the region supports availability zones, the instance metadata is automaticall
 
 ### Prerequisites
 
-- To deploy with availability zone support, you must choose a region that supports availability zones. To see which regions supports availability zones, see the [list of supported regions](availability-zones-service-support.md#azure-regions-with-availability-zone-support). 
+- To deploy with availability zone support, you must choose a region that supports availability zones. To see which regions supports availability zones, see the [list of supported regions](availability-zones-region-support.md).
 
 - (Optional) If your target storage account doesn't support availability zones, and you would like to migrate the account to AZ support, see [Migrate Azure Storage accounts to availability zone support](migrate-storage.md).
 

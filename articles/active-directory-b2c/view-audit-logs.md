@@ -6,20 +6,22 @@ description: How to access Azure AD B2C audit logs programmatically and in the A
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.topic: how-to
 
-ms.date: 01/11/2024
+ms.date: 01/22/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 ms.custom: fasttrack-edit
 
 
-#Customer intent: As an Azure AD B2C administrator, I want to access and view the audit logs for my B2C tenant, so that I can monitor activity, track user sign-ins, and troubleshoot any issues related to B2C resources and applications.
+#Customer intent: As an Azure AD B2C administrator, I want to access and view the audit logs for my Azure AD B2C tenant, so that I can monitor activity, track user sign-ins, and troubleshoot any issues related to B2C resources and applications.
 
 ---
 
 # Accessing Azure AD B2C audit logs
+
+[!INCLUDE [active-directory-b2c-limited-to-custom-policy](../../includes/active-directory-b2c-public-preview.md)]
 
 Azure Active Directory B2C (Azure AD B2C) emits audit logs containing activity information about B2C resources, tokens issued, and administrator access. This article provides a brief overview of the information available in audit logs and instructions on how to access this data for your Azure AD B2C tenant.
 
@@ -164,7 +166,7 @@ Here's the JSON representation of the example activity event shown earlier in th
 {
     "id": "B2C_DQO3J_4984536",
     "category": "Authentication",
-    "correlationId": "00000000-0000-0000-0000-000000000000",
+    "correlationId": "ffffffff-eeee-dddd-cccc-bbbbbbbbbbb0",
     "result": "success",
     "resultReason": "N/A",
     "activityDisplayName": "Issue an id_token to the application",
@@ -174,7 +176,7 @@ Here's the JSON representation of the example activity event shown earlier in th
     "initiatedBy": {
         "user": null,
         "app": {
-            "appId": "00000000-0000-0000-0000-000000000000",
+            "appId": "00001111-aaaa-2222-bbbb-3333cccc4444",
             "displayName": null,
             "servicePrincipalId": null,
             "servicePrincipalName": "00000000-0000-0000-0000-000000000000"

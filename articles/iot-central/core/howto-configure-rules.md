@@ -3,9 +3,9 @@ title: Configure rules and actions in Azure IoT Central
 description: This how-to article shows you, as a builder, how to configure telemetry-based rules and actions in your Azure IoT Central application.
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/14/2023
+ms.date: 04/16/2024
 ms.topic: how-to
-ms.service: iot-central
+ms.service: azure-iot-central
 services: iot-central
 
 # This article applies to operators, builders, and administrators.
@@ -99,7 +99,7 @@ When a rule triggers, it makes an HTTP POST request to the callback URL. The req
     "device": {
         "id": "<device_id>",
         "etag": "<etag>",
-        "displayName": "MXChip IoT DevKit - 1yl6vvhax6c",
+        "displayName": "Refrigerator Monitor - 1yl6vvhax6c",
         "instanceOf": "<device_template_id>",
         "simulated": true,
         "provisioned": true,
@@ -160,8 +160,8 @@ If you have one or more webhooks created and saved before **3 April 2020**, dele
         "enabled": true
     },
     "device": {
-        "id": "mx1",
-        "displayName": "MXChip IoT DevKit - mx1",
+        "id": "rm1",
+        "displayName": "Refrigerator Monitor - rm1",
         "instanceOf": "<device-template-id>",
         "simulated": true,
         "provisioned": true,
@@ -186,9 +186,9 @@ If you have one or more webhooks created and saved before **3 April 2020**, dele
 
 ## Create an Azure Monitor group action
 
-This section describes how to use [Azure Monitor](../../azure-monitor/overview.md) *action groups* to attach multiple actions to an IoT Central rule. You can attach an action group to multiple rules. An [action group](../../azure-monitor/alerts/action-groups.md) is a collection of notification preferences defined by the owner of an Azure subscription.
+This section describes how to use [Azure Monitor](/azure/azure-monitor/overview) *action groups* to attach multiple actions to an IoT Central rule. You can attach an action group to multiple rules. An [action group](/azure/azure-monitor/alerts/action-groups) is a collection of notification preferences defined by the owner of an Azure subscription.
 
-You can [create and manage action groups in the Azure portal](../../azure-monitor/alerts/action-groups.md) or with an [Azure Resource Manager template](../../azure-monitor/alerts/action-groups-create-resource-manager-template.md).
+You can [create and manage action groups in the Azure portal](/azure/azure-monitor/alerts/action-groups) or with an [Azure Resource Manager template](/azure/azure-monitor/alerts/action-groups-create-resource-manager-template).
 
 An action group can:
 

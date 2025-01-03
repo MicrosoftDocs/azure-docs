@@ -1,16 +1,16 @@
 ---
-title: include file
-description: include file
+title: Include file
+description: Include file
 services: azure-communication-services
-author: memontic-ms
-manager: 
+author: glorialimicrosoft
 ms.service: azure-communication-services
-ms.subservice: messages
-ms.date: 10/02/2023
+ms.subservice: advanced-messaging
+ms.date: 02/02/2024
 ms.topic: include
 ms.custom: include file
 ms.author: memontic
 ---
+
 ### Templates with no parameters
 
 If the template takes no parameters, you don't need to supply the values or bindings when creating the `MessageTemplate`.
@@ -38,14 +38,15 @@ Message template assembly:
 ```csharp
 var param1 = new MessageTemplateText(name: "first", text: "First Parameter");
 var param2 = new MessageTemplateText(name: "second", text: "Second Parameter");
-IEnumerable<MessageTemplateValue> values = new List<MessageTemplateValue>
-{
-    param1,
-    param2
-};
-var bindings = new MessageTemplateWhatsAppBindings(
-    body: new[] { param1.Name, param2.Name });
-var messageTemplate = new MessageTemplate(templateName, templateLanguage, values, bindings); 
+
+WhatsAppMessageTemplateBindings bindings = new();
+bindings.Body.Add(new(param1.Name));
+bindings.Body.Add(new(param2.Name));
+
+var messageTemplate = new MessageTemplate(templateName, templateLanguage);
+messageTemplate.Bindings = bindings;
+messageTemplate.Values.Add(param1);
+messageTemplate.Values.Add(param2);
 ``````
 
 #### Examples
@@ -83,14 +84,12 @@ Message template assembly for image media:
 var url = new Uri("< Your media URL >");
 
 var media = new MessageTemplateImage("image", url);
-IEnumerable<MessageTemplateValue> values =  new List<MessageTemplateValue>
-{
-    media
-};
-var bindings = new MessageTemplateWhatsAppBindings(
-    header: new[] { media.Name });
+WhatsAppMessageTemplateBindings bindings = new();
+bindings.Header.Add(new(media.Name));
 
-var messageTemplate = new MessageTemplate(templateName, templateLanguage, values, bindings);
+var messageTemplate = new MessageTemplate(templateName, templateLanguage);
+template.Bindings = bindings;
+template.Values.Add(media);
 ``````
 
 #### Examples
@@ -98,6 +97,56 @@ var messageTemplate = new MessageTemplate(templateName, templateLanguage, values
 - IMAGE: [Use sample template sample_purchase_feedback](#use-sample-template-sample_purchase_feedback)
 - VIDEO: [Use sample template sample_happy_hour_announcement](#use-sample-template-sample_happy_hour_announcement)
 - DOCUMENT: [Use sample template sample_flight_confirmation](#use-sample-template-sample_flight_confirmation)
+
+### Templates with location in the header
+
+Use `MessageTemplateLocation` to define the location parameter in a header.
+
+Template definition for header component requiring location as:
+```
+{
+  "type": "header",
+  "parameters": [
+    {
+      "type": "location",
+      "location": {
+        "latitude": "<LATITUDE>",
+        "longitude": "<LONGITUDE>",
+        "name": "<NAME>",
+        "address": "<ADDRESS>"
+      }
+    }
+  ]
+}
+```
+
+The "format" can require different media types. In the .NET SDK, each media type uses a corresponding MessageTemplateValue type.
+
+|  Properties   | Description |  Type |
+|----------|---------------------------|-----------|
+| ADDRESS | Address that will appear after the 'NAME' value, below the generic map at the top of the message. | string |
+| LATITUDE | Location latitude.  | double       |
+| LONGITUDE| Location longitude. | double      |
+| LOCATIONNAME | Text that will appear immediately below the generic map at the top of the message. |string|
+
+For more information on location based templates, see [WhatsApp's documentation for message media](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-message-templates#location). 
+
+Location based Message template assembly:
+```csharp
+ var location = new MessageTemplateLocation("location");
+ location.LocationName = "Pablo Morales";
+ location.Address = "1 Hacker Way, Menlo Park, CA 94025";
+ location.Position = new Azure.Core.GeoJson.GeoPosition(longitude: 122.148981, latitude: 37.483307);
+
+ WhatsAppMessageTemplateBindings location_bindings = new();
+ location_bindings.Header.Add(new(location.Name));
+
+ var messageTemplateWithLocation = new MessageTemplate(templateNameWithLocation, templateLanguage);
+ messageTemplateWithLocation.Values.Add(location);
+ messageTemplateWithLocation.Bindings = location_bindings;
+``````
+#### Example
+:::image type="content" source="./../media/template-messages/sample-location-based-template.jpg" lightbox="./../media/template-messages/sample-location-based-template.jpg" alt-text="Screenshot that shows template details for template named sample_location_template.":::
 
 ### Templates with quick reply buttons
 
@@ -136,20 +185,17 @@ Message template assembly:
 var yes = new MessageTemplateQuickAction(name: "Yes", payload: "User said yes");
 var no = new MessageTemplateQuickAction(name: "No", payload: "User said no");
 
-IEnumerable<MessageTemplateValue> values = new List<MessageTemplateValue>
-{
-    yes,
-    no
-};
-var bindings = new MessageTemplateWhatsAppBindings(
-    button: new[] {
-        new KeyValuePair<string, MessageTemplateValueWhatsAppSubType>(yes.Name,
-            MessageTemplateValueWhatsAppSubType.QuickReply),
-        new KeyValuePair<string, MessageTemplateValueWhatsAppSubType>(no.Name,
-            MessageTemplateValueWhatsAppSubType.QuickReply)
-    });
+var yesButton = new WhatsAppMessageTemplateBindingsButton(WhatsAppMessageButtonSubType.QuickReply.ToString(), yes.Name);
+var noButton = new WhatsAppMessageTemplateBindingsButton(WhatsAppMessageButtonSubType.QuickReply.ToString(), no.Name);
 
-var messageTemplate = new MessageTemplate(templateName, templateLanguage, values, bindings);
+WhatsAppMessageTemplateBindings bindings = new();
+bindings.Buttons.Add(yesButton);
+bindings.Buttons.Add(noButton);
+
+var messageTemplate = new MessageTemplate(templateName, templateLanguage);
+messageTemplate.Bindings = bindings;
+template.Values.Add(yes);
+template.Values.Add(no);
 ``````
 
 For more information on the payload in quick reply responses from the user, see WhatsApp's documentation for [Received Callback from a Quick Reply Button](https://developers.facebook.com/docs/whatsapp/cloud-api/webhooks/payload-examples#received-callback-from-a-quick-reply-button).
@@ -190,18 +236,14 @@ Message template assembly:
 ```csharp
 var urlSuffix = new MessageTemplateQuickAction(name: "text", text: "url-suffix-text");
 
-IEnumerable<MessageTemplateValue> values = new List<MessageTemplateValue>
-{
-    urlSuffix
-};
-var bindings = new MessageTemplateWhatsAppBindings(
-    button: new[]
-    {
-        new KeyValuePair<string, MessageTemplateValueWhatsAppSubType>(urlSuffix.Name,
-            MessageTemplateValueWhatsAppSubType.Url)
-    });
+var urlButton = new WhatsAppMessageTemplateBindingsButton(WhatsAppMessageButtonSubType.Url.ToString(), urlSuffix.Name);
 
-var messageTemplate = new MessageTemplate(templateName, templateLanguage, values, bindings);
+WhatsAppMessageTemplateBindings bindings = new();
+bindings.Buttons.Add(urlButton);
+
+var messageTemplate = new MessageTemplate(templateName, templateLanguage);
+messageTemplate.Bindings = bindings;
+messageTemplate.Values.Add(urlSuffix);
 ``````
 
 #### Example

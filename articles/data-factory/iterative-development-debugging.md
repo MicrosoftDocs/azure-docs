@@ -2,13 +2,10 @@
 title: Iterative development and debugging
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to develop and debug Data Factory and Synapse Analytics pipelines iteratively with the service UI.
-ms.date: 07/20/2023
+ms.date: 05/15/2024
 ms.topic: conceptual
-ms.service: data-factory
 ms.subservice: authoring
 ms.custom: synapse
-services: data-factory
-ms.workload: data-services
 author: kromerm
 ms.author: makromer
 ---

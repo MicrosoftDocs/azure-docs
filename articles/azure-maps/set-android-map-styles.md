@@ -5,16 +5,22 @@ description: Learn two ways of setting the style of a map. See how to use the Az
 author: sinnypan
 ms.author: sipa
 ms.date: 02/26/2021
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
-ms.custom: devx-track-extended-java
-services: azure-maps
+ms.subservice: android-sdk
+ms.custom: devx-track-java
 zone_pivot_groups: azure-maps-android
 ---
 
 # Set map style (Android SDK)
 
 This article shows you two ways to set map styles using the Azure Maps Android SDK. Azure Maps has six different maps styles to choose from. For more information about supported map styles, see [supported map styles in Azure Maps].
+
+> [!NOTE]
+>
+> **Azure Maps Android SDK retirement**
+>
+> The Azure Maps Native SDK for Android is now deprecated and will be retired on 3/31/25. To avoid service disruptions, migrate to the Azure Maps Web SDK by 3/31/25. For more information, see [The Azure Maps Android SDK migration guide](android-sdk-migration-guide.md).
 
 ## Prerequisites
 

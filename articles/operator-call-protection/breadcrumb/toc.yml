@@ -1,0 +1,11 @@
+items:
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+  - tocHref: /azure/operator-call-protection/
+    name: Operator Call Protection
+    topicHref: /azure/operator-call-protection/
+  - tocHref: /azure/communications-gateway/
+    name: Operator Call Protection
+    topicHref: /azure/operator-call-protection/

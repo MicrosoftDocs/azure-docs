@@ -2,13 +2,11 @@
 title: Token-based (HTTP/2) authentication for APNS in Azure Notification Hubs | Microsoft Docs
 description: Learn how to use the new token authentication for APNS.
 services: notification-hubs
-documentationcenter: .net
 author: sethmanheim
 manager: femila
 editor: jwargo
 
-ms.service: notification-hubs
-ms.workload: mobile
+ms.service: azure-notification-hubs
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: csharp
 ms.topic: article
@@ -56,9 +54,7 @@ The key identifier can be obtained from the **Keys** page under **Certificates, 
 
 ### Application identifier and application name
 
-The application name and identifier are also available in the **Certificates, Identifiers & Profiles** page in the developer account:
-
-![Certificates and IDs](./media/notification-hubs-push-notification-http2-token-authentification/app-name.png)
+The application name and identifier are also available in the **Certificates, Identifiers & Profiles** page in the developer account.
 
 ### Configure via the .NET SDK or the Azure portal
 

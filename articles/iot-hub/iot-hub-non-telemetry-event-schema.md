@@ -4,14 +4,18 @@ description: This article provides the properties and schema for Azure IoT Hub n
 author: kgremban
 ms.author: kgremban  
 ms.topic: conceptual
-ms.date: 07/01/2022
-ms.service: iot-hub
+ms.date: 04/10/2024
+ms.service: azure-iot-hub
 services: iot-hub
 ---
 
 # Azure IoT Hub non-telemetry event schemas
 
-This article provides the properties and schemas for non-telemetry events emitted by Azure IoT Hub. Non-telemetry events are different from device-to-cloud and cloud-to-device messages in that they are emitted directly by IoT Hub in response to specific kinds of state changes associated with your devices. For example, lifecycle changes like a device or module being created or deleted, or connection state changes like a device or module connecting or disconnecting. To observe non-telemetry events, you must have an appropriate message route configured. To learn more about IoT Hub message routing, see [IoT Hub message routing](iot-hub-devguide-messages-d2c.md).
+This article provides the properties and schemas for non-telemetry events emitted by Azure IoT Hub. Non-telemetry events are different from device-to-cloud and cloud-to-device messages in that IoT Hub emits these events in response to specific state changes associated with your devices. For example, lifecycle changes like a device or module being created or deleted, or connection state changes like a device or module connecting or disconnecting. 
+
+You can route non-telemetry events using message routing, or reach to non-telemetry events using Azure Event Grid. To learn more about IoT Hub message routing, see [IoT Hub message routing](iot-hub-devguide-messages-d2c.md) and [React to IoT Hub events by using Event Grid](./iot-hub-event-grid.md).
+
+The event examples in this article were captured using the `az iot hub monitor-events` Azure CLI command. You may see a subset of properties included in the events that arrive at a message routing endpoint.
 
 ## Available event types
 
@@ -30,7 +34,7 @@ Non-telemetry events share several common properties.
 
 ### System properties
 
-The following system properties are set by IoT Hub on each event.
+IoT Hub sets the following system properties on each event.
 
 | Property | Type |Description | Keyword for routing query |
 | -------- | ---- | ---------- | ------------------------- |
@@ -45,7 +49,7 @@ The following system properties are set by IoT Hub on each event.
 
 ### Application properties
 
-The following application properties are set by IoT Hub on each event.
+IoT Hub sets the following application properties on each event.
 
 | Property | Type |Description |
 | -------- | ---- | ---------- |
@@ -67,7 +71,9 @@ Connection state events are emitted whenever a device or module connects or disc
 | Property | Value |
 | ---- | ----------- |
 | iothub-message-schema | deviceConnectionStateNotification |
-| opType | One of the following values: deviceConnected, deviceDisconnected, moduleConnected, or moduleDisconnected. |
+| opType | deviceConnected or deviceDisconnected |
+
+Both modules and devices use the `deviceConnected` and `deviceDisconnected` application properties to report connection state events. If the event came from a module, then the event also includes a `moduleId` property. If there is no `moduleId` property, then the event came from a device.
 
 **System properties**: The following table shows how system properties are set for connection state events:
 
@@ -75,7 +81,7 @@ Connection state events are emitted whenever a device or module connects or disc
 | ---- | ----------- |
 | iothub-message-source |  deviceConnectionStateEvents |
 
-**Body**: The body contains a sequence number. The sequence number is a string representation of a hexadecimal number. You can use string compare to identify the larger number. If you're converting the string to hex, then the number will be a 256-bit number. The sequence number is strictly increasing, and the latest event will have a higher number than other events. This is useful if you have frequent device connects and disconnects, and want to ensure only the latest event is used to trigger a downstream action.
+**Body**: The body contains a sequence number. The sequence number is a string representation of a hexadecimal number. You can use string compare to identify the larger number. If you're converting the string to hex, then the number will be a 256-bit number. The sequence number is strictly increasing, so the latest event has a higher number than older events. This is useful if you have frequent device connects and disconnects, and want to ensure that only the latest event is used to trigger a downstream action.
 
 ### Example
 
@@ -92,7 +98,7 @@ The following JSON shows a device connection state event emitted when a device d
             "system": {
                 "content_encoding": "utf-8",
                 "content_type": "application/json",
-                "correlation_id": "98dcbcf6-3398-c488-c62c-06330e65ea98",
+                "correlation_id": "aaaa0000-bb11-2222-33cc-444444dddddd",
                 "user_id": "contoso-routing-hub"
             },
             "application": {
@@ -127,7 +133,9 @@ Device lifecycle events are emitted whenever a device or module is created or de
 | Property | Value |
 | ---- | ----------- |
 | iothub-message-schema | deviceLifecycleNotification |
-| opType | One of the following values: createDeviceIdentity, deleteDeviceIdentity, createModuleIdentity, or deleteModuleIdentity. |
+| opType | One of the following values: createDeviceIdentity, deleteDeviceIdentity. |
+
+Both modules and devices use the `createDeviceIdentity` and `deleteDeviceIdentity` application properties to report connection state events. If the event came from a module, then the event also includes a `moduleId` property. If there is no `moduleId` property, then the event came from a device.
 
 **System properties**: The following table shows how system properties are set for device lifecycle events:
 
@@ -135,7 +143,7 @@ Device lifecycle events are emitted whenever a device or module is created or de
 | ---- | ----------- |
 | iothub-message-source |  deviceLifecycleEvents |
 
-**Body**: The body contains a representation of the device twin or module twin. It includes the device ID and module ID, the twin etag, the version property, and the tags, properties and associated metadata of the twin.
+**Body**: The body contains a representation of the device twin or module twin. It includes the device ID and module ID, the twin etag, the version property, and the tags, properties, and associated metadata of the twin.
 
 ### Example
 
@@ -160,8 +168,8 @@ The following JSON shows a device lifecycle event emitted when a module is creat
                 "deviceId": "contoso-device-2",
                 "operationTimestamp": "2022-05-27T18:49:38.4904785Z",
                 "moduleId": "module-1",
-                "opType": "createModuleIdentity",
-                "iothub-message-schema": "moduleLifecycleNotification"
+                "opType": "createDeviceIdentity",
+                "iothub-message-schema": "deviceLifecycleNotification"
             }
         },
         "annotations": {
@@ -214,7 +222,7 @@ Device twin change events are emitted whenever a device twin or a module twin is
 | ---- | ----------- |
 | iothub-message-source |  twinChangeEvents |
 
-**Body**: On an update, the body contains the version property of the twin and the updated tags and properties and their associated metadata. On a replace, the body contains the device ID and module ID, the twin etag, the version property, and all the tags, properties and associated metadata of the device or module twin.
+**Body**: On an update, the body contains the version property of the twin and the updated tags and properties and their associated metadata. On a replace, the body contains the device ID and module ID, the twin etag, the version property, and all the tags, properties, and associated metadata of the device or module twin.
 
 ### Example
 

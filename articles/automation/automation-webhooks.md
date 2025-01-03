@@ -3,9 +3,10 @@ title: Start an Azure Automation runbook from a webhook
 description: This article tells how to use a webhook to start a runbook in Azure Automation from an HTTP call.
 services: automation
 ms.subservice: process-automation
-ms.date: 12/21/2023
-ms.topic: conceptual 
+ms.date: 09/09/2024
+ms.topic: how-to 
 ms.custom: devx-track-azurepowershell, devx-track-arm-template
+ms.service: azure-automation
 ---
 
 # Start a runbook from a webhook
@@ -14,7 +15,7 @@ A webhook allows an external service to start a particular runbook in Azure Auto
 
 ![WebhooksOverview](media/automation-webhooks/webhook-overview-image.png)
 
-To understand client requirements for TLS 1.2 or higher with webhooks, see [TLS 1.2 or higher for Azure Automation](automation-managing-data.md#tls-12-or-higher-for-azure-automation).
+To understand client requirements for TLS 1.2 or higher with webhooks, see [TLS for Azure Automation](automation-managing-data.md#tls-for-azure-automation).
 
 ## Webhook properties
 
@@ -144,7 +145,7 @@ Consider the following strategies:
 
     1. Click the copy icon or press <kbd>Ctrl + C</kbd> copy the URL of the webhook. Then save the URL to a secure location.
 
-        :::image type="content" source="media/automation-webhooks/create-new-webhook.png" alt-text="Creaye webhook page with URL highlighted.":::
+        :::image type="content" source="media/automation-webhooks/create-new-webhook.png" alt-text="Create webhook page with URL highlighted.":::
 
         > [!IMPORTANT]
         > Once you create the webhook, you cannot retrieve the URL again. Make sure you copy and record it as above.
@@ -311,7 +312,7 @@ This example uses the PowerShell cmdlet [Invoke-WebRequest](/powershell/module/m
     $body = ConvertTo-Json -InputObject $Names
     ```
 
-1. For larger sets, you may wish to use a file. Create a file named `names.json` and then paste the following code::
+1. For larger sets, you may wish to use a file. Create a file named `names.json` and then paste the following code:
 
     ```json
     [

@@ -4,6 +4,7 @@ description: A tutorial to walk through how to use Azure Web PubSub service and 
 author: JialinXin
 ms.author: jixin
 ms.service: azure-web-pubsub
+ms.custom: devx-track-azurecli
 ms.topic: tutorial
 ms.date: 01/12/2024
 ---
@@ -22,13 +23,15 @@ In this tutorial, you learn how to:
 > - Configure Azure Authentication
 > - Configure Web PubSub Event Handler to route events and messages to the application
 
+[!INCLUDE [Connection string security](includes/web-pubsub-connection-string-security.md)]
+
 ## Prerequisites
 
 # [JavaScript Model v4](#tab/javascript-v4)
 
 - A code editor, such as [Visual Studio Code](https://code.visualstudio.com/)
 
-- [Node.js](https://nodejs.org/en/download/), version 18.x or above.
+- [Node.js](https://nodejs.org/en/download/package-manager/), version 18.x or above.
   > [!NOTE]
   > For more information about the supported versions of Node.js, see [Azure Functions runtime versions documentation](../azure-functions/functions-versions.md#languages).
 - [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing) (v4 or higher preferred) to run Azure Function apps locally and deploy to Azure.
@@ -39,7 +42,7 @@ In this tutorial, you learn how to:
 
 - A code editor, such as [Visual Studio Code](https://code.visualstudio.com/)
 
-- [Node.js](https://nodejs.org/en/download/), version 18.x or above.
+- [Node.js](https://nodejs.org/en/download/package-manager/), version 18.x or above.
   > [!NOTE]
   > For more information about the supported versions of Node.js, see [Azure Functions runtime versions documentation](../azure-functions/functions-versions.md#languages).
 - [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing) (v4 or higher preferred) to run Azure Function apps locally and deploy to Azure.
@@ -62,9 +65,19 @@ In this tutorial, you learn how to:
 
 - The [Azure CLI](/cli/azure) to manage Azure resources.
 
+# [Python](#tab/python)
+
+- A code editor, such as [Visual Studio Code](https://code.visualstudio.com/).
+
+- [Python](https://www.python.org/downloads/) (v3.7+). See [supported Python versions](../azure-functions/functions-reference-python.md#python-version).
+
+- [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing) (v4 or higher preferred) to run Azure Function apps locally and deploy to Azure.
+
+- The [Azure CLI](/cli/azure) to manage Azure resources.
+
 ---
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [create-instance-portal](includes/create-instance-portal.md)]
 
@@ -94,6 +107,12 @@ In this tutorial, you learn how to:
 
    ```bash
    func init --worker-runtime dotnet-isolated
+   ```
+
+   # [Python](#tab/python)
+
+   ```bash
+   func init --worker-runtime python --model V1
    ```
 
 2. Install `Microsoft.Azure.WebJobs.Extensions.WebPubSub`.
@@ -135,6 +154,17 @@ In this tutorial, you learn how to:
    ```bash
    dotnet add package Microsoft.Azure.Functions.Worker.Extensions.WebPubSub --prerelease
    ```
+
+   # [Python](#tab/python)
+
+   ```json
+   {
+     "extensionBundle": {
+       "id": "Microsoft.Azure.Functions.ExtensionBundle",
+       "version": "[3.3.*, 4.0.0)"
+   }
+   ```
+   
 
 3. Create an `index` function to read and host a static web page for clients.
 
@@ -253,6 +283,45 @@ In this tutorial, you learn how to:
      }
      ```
 
+   # [Python](#tab/python)
+
+   - Update `index/function.json` and copy following json codes.
+   
+     ```json
+     {
+       "bindings": [
+         {
+           "authLevel": "anonymous",
+           "type": "httpTrigger",
+           "direction": "in",
+           "name": "req",
+           "methods": ["get", "post"]
+         },
+         {
+           "type": "http",
+           "direction": "out",
+           "name": "$return"
+         }
+       ]
+     }
+
+     ```
+     
+
+   - Update `__init__.py` and replace `main` function with following codes.
+   
+     ```python
+     import os
+
+     import azure.functions as func
+
+
+     def main(req: func.HttpRequest) -> func.HttpResponse:
+         f = open(os.path.dirname(os.path.realpath(__file__)) + "/../index.html")
+         return func.HttpResponse(f.read(), mimetype="text/html")
+     ```
+     
+
 4. Create a `negotiate` function to help clients get service connection url with access token.
 
    ```bash
@@ -352,6 +421,46 @@ In this tutorial, you learn how to:
          return response;
      }
      ```
+
+   # [Python](#tab/python)
+
+   - Update `negotiate/function.json` and copy following json codes. 
+     ```json
+     {
+       "bindings": [
+         {
+           "authLevel": "anonymous",
+           "type": "httpTrigger",
+           "direction": "in",
+           "name": "req"
+         },
+         {
+           "type": "http",
+           "direction": "out",
+           "name": "$return"
+         },
+         {
+           "type": "webPubSubConnection",
+           "name": "connection",
+           "hub": "simplechat",
+           "userId": "{headers.x-ms-client-principal-name}",
+           "direction": "in"
+         }
+       ]
+     }
+     ```
+
+   - Update `negotiate/__init__.py` and copy following codes.
+     ```python
+     import azure.functions as func
+
+
+     def main(req: func.HttpRequest, connection) -> func.HttpResponse:
+         return func.HttpResponse(connection)
+
+     ```
+     
+     
 
 5. Create a `message` function to broadcast client messages through service.
 
@@ -482,6 +591,50 @@ In this tutorial, you learn how to:
      }
      ```
 
+   # [Python](#tab/python)
+
+   - Update `message/function.json` and copy following json codes.
+     ```json
+     {
+       "bindings": [
+         {
+           "type": "webPubSubTrigger",
+           "direction": "in",
+           "name": "request",
+           "hub": "simplechat",
+           "eventName": "message",
+           "eventType": "user"
+         },
+         {
+           "type": "webPubSub",
+           "name": "actions",
+           "hub": "simplechat",
+           "direction": "out"
+         }
+       ]
+     }
+     ``` 
+   - Update `message/__init__.py` and copy following codes.
+     ```python
+     import json
+
+     import azure.functions as func
+     
+     
+     def main(request, actions: func.Out[str]) -> None:
+         req_json = json.loads(request)
+         actions.set(
+             json.dumps(
+                 {
+                     "actionName": "sendToAll",
+                     "data": f'[{req_json["connectionContext"]["userId"]}] {req_json["data"]}',
+                     "dataType": req_json["dataType"],
+                 }
+             )
+         )
+     ```
+     
+
 6. Add the client single page `index.html` in the project root folder and copy content.
 
    ```html
@@ -560,6 +713,8 @@ In this tutorial, you learn how to:
    </ItemGroup>
    ```
 
+   # [Python](#tab/python)
+
 ## Create and Deploy the Azure Function App
 
 Before you can deploy your function code to Azure, you need to create three resources:
@@ -620,6 +775,12 @@ Use the following commands to create these items.
    az functionapp create --resource-group WebPubSubFunction --consumption-plan-location <REGION> --runtime dotnet-isolated --functions-version 4 --name <FUNCIONAPP_NAME> --storage-account <STORAGE_NAME>
    ```
 
+   # [Python](#tab/python)
+
+   ```azurecli
+   az functionapp create --resource-group WebPubSubFunction --consumption-plan-location <REGION> --runtime python --runtime-version 3.9 --functions-version 4 --name <FUNCIONAPP_NAME> --os-type linux --storage-account <STORAGE_NAME>
+   ```
+
 1. Deploy the function project to Azure:
 
    After you have successfully created your function app in Azure, you're now ready to deploy your local functions project by using the [func azure functionapp publish](./../azure-functions/functions-run-local.md) command.
@@ -630,7 +791,9 @@ Use the following commands to create these items.
 
 1. Configure the `WebPubSubConnectionString` for the function app:
 
-   First, find your Web PubSub resource from **Azure Portal** and copy out the connection string under **Keys**. Then, navigate to Function App settings in **Azure Portal** -> **Settings** -> **Configuration**. And add a new item under **Application settings**, with name equals `WebPubSubConnectionString` and value is your Web PubSub resource connection string.
+   [!INCLUDE [Connection string security comment](includes/web-pubsub-connection-string-security-comment.md)]
+
+   First, find your Web PubSub resource from **Azure Portal** and copy out the connection string under **Keys**. Then, navigate to Function App settings in **Azure Portal** -> **Settings** -> **Environment variables**. And add a new item under **App settings**, with name equals `WebPubSubConnectionString` and value is your Web PubSub resource connection string.
 
 ## Configure the Web PubSub service `Event Handler`
 
@@ -658,7 +821,7 @@ Here we choose `Microsoft` as identify provider, which uses `x-ms-client-princip
 - [Microsoft Entra ID](../app-service/configure-authentication-provider-aad.md)
 - [Facebook](../app-service/configure-authentication-provider-facebook.md)
 - [Google](../app-service/configure-authentication-provider-google.md)
-- [Twitter](../app-service/configure-authentication-provider-twitter.md)
+- [X](../app-service/configure-authentication-provider-twitter.md)
 
 ## Try the application
 

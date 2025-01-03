@@ -2,6 +2,7 @@
 title: Migrate Azure Service Bus extension for Azure Functions to version 5.x 
 description: This article shows you how to upgrade your existing function apps using the Azure Service Bus extension version 4.x to be able to use version 5.x of the extension. 
 ms.service: azure-functions
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
 ms.topic: how-to 
 ms.date: 01/12/2024
 zone_pivot_groups: programming-languages-set-functions
@@ -39,9 +40,9 @@ Update your `.csproj` project file to use the latest extension version for your 
     <OutputType>Exe</OutputType>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.Azure.Functions.Worker" Version="1.14.1" />
-    <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.ServiceBus" Version="5.14.1" />
-    <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="1.10.0" />
+    <PackageReference Include="Microsoft.Azure.Functions.Worker" Version="1.21.0" />
+    <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.ServiceBus" Version="5.16.0" />
+    <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="1.16.4" />
   </ItemGroup>
   <ItemGroup>
     <None Update="host.json">
@@ -56,6 +57,8 @@ Update your `.csproj` project file to use the latest extension version for your 
 ```
 
 ### [In-process model](#tab/in-process)
+
+[!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">

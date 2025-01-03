@@ -1,23 +1,26 @@
 ---
-title: Create and access an environment in the developer portal
+title: Create a deployment environment
 titleSuffix: Azure Deployment Environments
-description: Learn how to create and access an environment in an Azure Deployment Environments project through the developer portal.
+description: Learn how to create and access an environment in Azure Deployment Environments through the developer portal. An environment has all Azure resource preconfigured for deploying your application.
 author: RoseHJM
 ms.author: rosemalcolm
-ms.service: deployment-environments
-ms.custom: ignite-2022, build-2023
+ms.service: azure-deployment-environments
+ms.custom: build-2023
 ms.topic: quickstart
 ms.date: 12/01/2023
 ---
 
 # Quickstart: Create and access an environment in Azure Deployment Environments
 
-This quickstart shows you how to create and access an [environment](concept-environments-key-concepts.md#environments) in an existing Azure Deployment Environments project.
+This quickstart shows you how to create and access an [environment](concept-environments-key-concepts.md#environments) in Azure Deployment Environments by using the developer portal.
+
+As a developer, you can create environments associated with a [project](concept-environments-key-concepts.md#projects) in Azure Deployment Environments. An environment has all Azure resource preconfigured for deploying your application.
 
 ## Prerequisites
 
-- [Create and configure a dev center](quickstart-create-and-configure-devcenter.md).
-- [Create and configure a project](quickstart-create-and-configure-projects.md).
+- Your organization must configure Azure Deployment Environments with a dev center and at least one project before you can create a deployment environment.
+    - Platform engineers can follow these steps to configure [Quickstart: Configure Azure Deployment Environments](quickstart-create-and-configure-devcenter.md).
+- You must have permissions as a Deployment Environments User for a project. If you don't have permissions to a project, contact your administrator.
 
 ## Create an environment
 

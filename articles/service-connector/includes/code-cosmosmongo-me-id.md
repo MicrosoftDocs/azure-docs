@@ -32,7 +32,7 @@ ms.author: wchi
     var listConnectionStringUrl = Environment.GetEnvironmentVariable("AZURE_COSMOS_LISTCONNECTIONSTRINGURL");
     var scope = Environment.GetEnvironmentVariable("AZURE_COSMOS_SCOPE");
     
-    // Uncomment the following lines according to the authentication type.
+    // Uncomment the following lines corresponding to the authentication type you want to use.
     // For system-assigned identity.
     // var tokenProvider = new DefaultAzureCredential();
     
@@ -93,7 +93,7 @@ ms.author: wchi
     import javax.net.ssl.*;
     import java.net.InetSocketAddress;
     import com.azure.identity.*;
-    import com.azure.core.credentital.*;
+    import com.azure.core.credential.*;
     import java.net.http.*;
     import java.net.URI;
 
@@ -101,7 +101,7 @@ ms.author: wchi
     String listConnectionStringUrl = System.getenv("AZURE_COSMOS_LISTCONNECTIONSTRINGURL");
     String scope = System.getenv("AZURE_COSMOS_SCOPE");
     
-    // Uncomment the following lines according to the authentication type.
+    // Uncomment the following lines corresponding to the authentication type you want to use.
     // For system managed identity.
     // DefaultAzureCredential defaultCredential = new DefaultAzureCredentialBuilder().build();
 
@@ -132,7 +132,7 @@ ms.author: wchi
     JSONParser parser = new JSONParser();
     JSONObject responseBody = parser.parse(response.body());
     List<Map<String, String>> connectionStrings = responseBody.get("connectionStrings");
-    String connectionString = connectionStrings[0]["connectionString"];
+    String connectionString = connectionStrings.get(0).get("connectionString");
     
     // Connect to Azure Cosmos DB for MongoDB
     MongoClientURI uri = new MongoClientURI(connectionString);
@@ -154,14 +154,13 @@ The authentication type is not supported for Spring Boot.
     import os
     import pymongo
     import requests
-    from azure.core.pipeline.policies import BearerTokenCredentialPolicy
     from azure.identity import ManagedIdentityCredential, ClientSecretCredential
 
     endpoint = os.getenv('AZURE_COSMOS_RESOURCEENDPOINT')
     listConnectionStringUrl = os.getenv('AZURE_COSMOS_LISTCONNECTIONSTRINGURL')
     scope = os.getenv('AZURE_COSMOS_SCOPE')
 
-    # Uncomment the following lines according to the authentication type.
+    # Uncomment the following lines corresponding to the authentication type you want to use.
     # For system-assigned managed identity
     # cred = ManagedIdentityCredential()
 
@@ -177,8 +176,8 @@ The authentication type is not supported for Spring Boot.
 
     # Get the connection string
     session = requests.Session()
-    session = BearerTokenCredentialPolicy(cred, scope).on_request(session)
-    response = session.post(listConnectionStringUrl)
+    token = cred.get_token(scope)
+    response = session.post(listConnectionStringUrl, headers={"Authorization": "Bearer {}".format(token.token)})
     keys_dict = response.json()
     conn_str = keys_dict["connectionStrings"][0]["connectionString"]
 
@@ -214,9 +213,9 @@ The authentication type is not supported for Spring Boot.
     
     endpoint = os.Getenv("AZURE_COSMOS_RESOURCEENDPOINT")
     listConnectionStringUrl = os.Getenv("AZURE_COSMOS_LISTCONNECTIONSTRINGURL")
-    scope = os.Getenv("AZUE_COSMOS_SCOPE")
+    scope = os.Getenv("AZURE_COSMOS_SCOPE")
 
-    // Uncomment the following lines according to the authentication type.
+    // Uncomment the following lines corresponding to the authentication type you want to use.
     // For system-assigned identity.
     // cred, err := azidentity.NewDefaultAzureCredential(nil)
     
@@ -272,7 +271,7 @@ The authentication type is not supported for Spring Boot.
     let listConnectionStringUrl = process.env.AZURE_COSMOS_LISTCONNECTIONSTRINGURL;
     let scope = process.env.AZURE_COSMOS_SCOPE;
     
-    // Uncomment the following lines according to the authentication type.  
+    // Uncomment the following lines corresponding to the authentication type you want to use.  
     // For system-assigned identity.
     // const credential = new DefaultAzureCredential();
     

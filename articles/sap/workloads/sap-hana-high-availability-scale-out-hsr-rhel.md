@@ -3,13 +3,12 @@ title: SAP HANA scale-out with HSR and Pacemaker on RHEL| Microsoft Docs
 description: SAP HANA scale-out with HANA system replication (HSR) and Pacemaker on Red Hat Enterprise Linux (RHEL)
 author: rdeltcheva
 manager: juergent
-tags: azure-resource-manager
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-content
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.date: 01/17/2024
+ms.date: 12/31/2024
 ms.author: radeltch
 ---
 
@@ -66,7 +65,7 @@ Some readers will benefit from consulting a variety of SAP notes and resources b
   * [High availability add-on reference](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index).
   * [Red Hat Enterprise Linux networking guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/networking_guide).
   * [How do I configure SAP HANA scale-out system replication in a Pacemaker cluster with HANA file systems on NFS shares](https://access.redhat.com/solutions/5423971).
-  * [Active/Active (read-enabled): RHEL HA solution for SAP HANA scale out and system replication](https://access.redhat.com/sites/default/files/attachments/v8_ha_solution_for_sap_hana_scale_out_system_replication_1.pdf).
+  * [Active/Active (read-enabled): RHEL HA solution for SAP HANA scale out and system replication](https://access.redhat.com/articles/3004101).
 * Azure-specific RHEL documentation:
   * [Install SAP HANA on Red Hat Enterprise Linux for use in Microsoft Azure](https://access.redhat.com/public-cloud/microsoft-azure).
   * [Red Hat Enterprise Linux Solution for SAP HANA scale-out and system replication](https://access.redhat.com/solutions/4386601).
@@ -187,8 +186,6 @@ The full set of PowerShell code display the setup of the load balancer, which in
 
 ---
 
-> [!IMPORTANT]
-> Floating IP isn't supported on a NIC secondary IP configuration in load-balancing scenarios. For details, see [Azure Load Balancer limitations](../../load-balancer/load-balancer-multivip-overview.md#limitations). If you need an additional IP address for the VM, deploy a second NIC.
 
 > [!NOTE]
 > When you're using the standard load balancer, you should be aware of the following limitation. When you place VMs without public IP addresses in the back-end pool of an internal load balancer, there's no outbound internet connectivity. To allow routing to public end points, you need to perform additional configuration. For more information, see [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
@@ -782,48 +779,8 @@ The following steps get you set up for system replication:
 
        ```bash
         # Execute as root
-        sudo firewall-cmd --zone=public --add-port=30301/tcp --permanent
-        sudo firewall-cmd --zone=public --add-port=30301/tcp
-        sudo firewall-cmd --zone=public --add-port=30303/tcp --permanent
-        sudo firewall-cmd --zone=public --add-port=30303/tcp
-        sudo firewall-cmd --zone=public --add-port=30306/tcp --permanent
-        sudo firewall-cmd --zone=public --add-port=30306/tcp
-        sudo firewall-cmd --zone=public --add-port=30307/tcp --permanent
-        sudo firewall-cmd --zone=public --add-port=30307/tcp
-        sudo firewall-cmd --zone=public --add-port=30313/tcp --permanent
-        sudo firewall-cmd --zone=public --add-port=30313/tcp
-        sudo firewall-cmd --zone=public --add-port=30315/tcp --permanent
-        sudo firewall-cmd --zone=public --add-port=30315/tcp
-        sudo firewall-cmd --zone=public --add-port=30317/tcp --permanent
-        sudo firewall-cmd --zone=public --add-port=30317/tcp
-        sudo firewall-cmd --zone=public --add-port=30340/tcp --permanent
-        sudo firewall-cmd --zone=public --add-port=30340/tcp
-        sudo firewall-cmd --zone=public --add-port=30341/tcp --permanent
-        sudo firewall-cmd --zone=public --add-port=30341/tcp
-        sudo firewall-cmd --zone=public --add-port=30342/tcp --permanent
-        sudo firewall-cmd --zone=public --add-port=30342/tcp
-        sudo firewall-cmd --zone=public --add-port=1128/tcp --permanent
-        sudo firewall-cmd --zone=public --add-port=1128/tcp
-        sudo firewall-cmd --zone=public --add-port=1129/tcp --permanent
-        sudo firewall-cmd --zone=public --add-port=1129/tcp
-        sudo firewall-cmd --zone=public --add-port=40302/tcp --permanent
-        sudo firewall-cmd --zone=public --add-port=40302/tcp
-        sudo firewall-cmd --zone=public --add-port=40301/tcp --permanent
-        sudo firewall-cmd --zone=public --add-port=40301/tcp
-        sudo firewall-cmd --zone=public --add-port=40307/tcp --permanent
-        sudo firewall-cmd --zone=public --add-port=40307/tcp
-        sudo firewall-cmd --zone=public --add-port=40303/tcp --permanent
-        sudo firewall-cmd --zone=public --add-port=40303/tcp
-        sudo firewall-cmd --zone=public --add-port=40340/tcp --permanent
-        sudo firewall-cmd --zone=public --add-port=40340/tcp
-        sudo firewall-cmd --zone=public --add-port=50313/tcp --permanent
-        sudo firewall-cmd --zone=public --add-port=50313/tcp
-        sudo firewall-cmd --zone=public --add-port=50314/tcp --permanent
-        sudo firewall-cmd --zone=public --add-port=50314/tcp
-        sudo firewall-cmd --zone=public --add-port=30310/tcp --permanent
-        sudo firewall-cmd --zone=public --add-port=30310/tcp
-        sudo firewall-cmd --zone=public --add-port=30302/tcp --permanent
-        sudo firewall-cmd --zone=public --add-port=30302/tcp
+        sudo firewall-cmd --zone=public --add-port={30301,30303,30306,30307,30313,30315,30317,30340,30341,30342,1128,1129,40302,40301,40307,40303,40340,50313,50314,30310,30302}/tcp --permanent
+        sudo firewall-cmd --zone=public --add-port={30301,30303,30306,30307,30313,30315,30317,30340,30341,30342,1128,1129,40302,40301,40307,40303,40340,50313,50314,30310,30302}/tcp
        ```
 
 ## Create a Pacemaker cluster
@@ -986,28 +943,34 @@ Now you're ready to create the cluster resources:
    > [!NOTE]
    > For the minimum supported version of package `resource-agents-sap-hana-scaleout` for your operating system release, see [Support policies for RHEL HA clusters - Management of SAP HANA in a cluster](https://access.redhat.com/articles/3397471) .  
 
-2. **[1,2]** Install the HANA system replication hook on one HANA DB node on each system replication site. SAP HANA should still be down.
+2. **[1,2]** Configure the HANA system replication hooks on one HANA DB node on each system replication site. SAP HANA should still be down. 
+   `resource-agents-sap-hana-scaleout` version 0.185.3-0 or newer includes both hooks SAPHanaSR and ChkSrv. It is mandatory for correct cluster operation to enable the SAPHanaSR hook. We highly recommend that you configure both SAPHanaSR and ChkSrv Python hooks.
 
-   1. Prepare the hook as `root`.
-
-      ```bash
-      mkdir -p /hana/shared/myHooks
-      cp /usr/share/SAPHanaSR-ScaleOut/SAPHanaSR.py /hana/shared/myHooks
-      chown -R hn1adm:sapsys /hana/shared/myHooks
-      ```
-
-   2. Adjust `global.ini`.
+   1. Adjust `global.ini`.
 
       ```bash
       # add to global.ini
       [ha_dr_provider_SAPHanaSR]
       provider = SAPHanaSR
-      path = /hana/shared/myHooks
+      path = /usr/share/SAPHanaSR-ScaleOut
       execution_order = 1
-       
+      
+      [ha_dr_provider_chksrv]
+      provider = ChkSrv
+      path = /usr/share/SAPHanaSR-ScaleOut
+      execution_order = 2
+      action_on_lost = kill
+      
       [trace]
       ha_dr_saphanasr = info
+      ha_dr_chksrv = info
       ```
+
+    If you point parameter `path` to the default `/usr/share/SAPHanaSR-ScaleOut` location, the Python hook code updates automatically through OS updates. HANA uses the hook code updates when it next restarts. With an optional own path like `/hana/shared/myHooks`, you can decouple OS updates from the hook version that HANA will use.
+
+    You can adjust the behavior of `ChkSrv` hook by using the `action_on_lost` parameter. Valid values are [ `ignore` | `stop` | `kill` ].
+
+    For more information on the implementation of the SAP HANA hooks, see [Enabling the SAP HANA srConnectionChanged() hook](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_for_sap_solutions/9/html-single/automating_sap_hana_scale-out_system_replication_using_the_rhel_ha_add-on/index#proc_instances_automating-sap-hana-scale-out-v9) and [Enabling the SAP HANA srServiceStateChanged() hook for hdbindexserver process failure action (optional)](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_for_sap_solutions/9/html-single/automating_sap_hana_scale-out_system_replication_using_the_rhel_ha_add-on/index#con_hooks_automating-sap-hana-scale-out-v9).
 
 3. **[AH]** The cluster requires sudoers configuration on the cluster node for <sid\>adm. In this example, you achieve this by creating a new file. Run the commands as `root`.
 
@@ -1016,8 +979,9 @@ Now you're ready to create the cluster resources:
     # Insert the following lines and then save
     Cmnd_Alias SOK = /usr/sbin/crm_attribute -n hana_hn1_glob_srHook -v SOK -t crm_config -s SAPHanaSR
     Cmnd_Alias SFAIL = /usr/sbin/crm_attribute -n hana_hn1_glob_srHook -v SFAIL -t crm_config -s SAPHanaSR
-    hn1adm ALL=(ALL) NOPASSWD: SOK, SFAIL
-    Defaults!SOK, SFAIL !requiretty
+    Cmnd_Alias SRREBOOT = /usr/sbin/crm_attribute -n hana_hn1_gsh -v * -l reboot -t crm_config -s SAPHanaSR
+    hn1adm ALL=(ALL) NOPASSWD: SOK, SFAIL, SRREBOOT
+    Defaults!SOK, SFAIL, SRREBOOT !requiretty
     ```
 
 4. **[1,2]** Start SAP HANA on both replication sites. Run as <sid\>adm.  
@@ -1030,19 +994,23 @@ Now you're ready to create the cluster resources:
 
     ```bash
     cdtrace
-     awk '/ha_dr_SAPHanaSR.*crm_attribute/ \
-     { printf "%s %s %s %s\n",$2,$3,$5,$16 }' nameserver_*
+    awk '/ha_dr_SAPHanaSR.*crm_attribute/ \
+    { printf "%s %s %s %s\n",$2,$3,$5,$16 }' nameserver_*
 
-     # Example entries
-     # 2020-07-21 22:04:32.364379 ha_dr_SAPHanaSR SFAIL
-     # 2020-07-21 22:04:46.905661 ha_dr_SAPHanaSR SFAIL
-     # 2020-07-21 22:04:52.092016 ha_dr_SAPHanaSR SFAIL
-     # 2020-07-21 22:04:52.782774 ha_dr_SAPHanaSR SFAIL
-     # 2020-07-21 22:04:53.117492 ha_dr_SAPHanaSR SFAIL
-     # 2020-07-21 22:06:35.599324 ha_dr_SAPHanaSR SOK
+    # Example entries
+    # 2020-07-21 22:04:52.782774 ha_dr_SAPHanaSR SFAIL
+    # 2020-07-21 22:04:53.117492 ha_dr_SAPHanaSR SFAIL
+    # 2020-07-21 22:06:35.599324 ha_dr_SAPHanaSR SOK
     ```
 
-6. **[1]** Create the HANA cluster resources. Run the following commands as `root`.
+6. **[1]** Verify the ChkSrv hook installation. Run as <sid\>adm on the active HANA system replication site.
+
+    ```bash
+     cdtrace
+     tail -20 nameserver_chksrv.trc
+    ```
+
+7. **[1]** Create the HANA cluster resources. Run the following commands as `root`.
    1. Make sure the cluster is already in maintenance mode.  
 
    2. Next, create the HANA topology resource.  
@@ -1132,7 +1100,7 @@ Now you're ready to create the cluster resources:
       pcs constraint location SAPHanaTopology_HN1_HDB03-clone rule resource-discovery=never score=-INFINITY hana_nfs_s1_active ne true and hana_nfs_s2_active ne true
       ```
 
-7. **[1]** Place the cluster out of maintenance mode. Make sure that the cluster status is `ok`, and that all of the resources are started.
+8. **[1]** Place the cluster out of maintenance mode. Make sure that the cluster status is `ok`, and that all of the resources are started.
 
     ```bash
     sudo pcs property set maintenance-mode=false

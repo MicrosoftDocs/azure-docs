@@ -2,9 +2,9 @@
 title: Enable Microsoft Entra ID for local monitoring tools
 titleSuffix: Azure Private 5G Core
 description: Complete the prerequisite tasks for enabling Microsoft Entra ID to access Azure Private 5G Core's local monitoring tools.
-author: robswain
-ms.author: robswain
-ms.service: private-5g-core
+author: anzaman
+ms.author: alzam
+ms.service: azure-private-5g-core
 ms.topic: how-to
 ms.date: 12/29/2022
 ms.custom: template-how-to
@@ -39,6 +39,9 @@ You'll now register a new local monitoring application with Microsoft Entra ID t
 
 If your deployment contains multiple sites, you can use the same two redirect URIs for all sites, or create different URI pairs for each site. You can configure a maximum of two redirect URIs per site. If you've already registered an application for your deployment and you want to use the same URIs across your sites, you can skip this step.
 
+> [!NOTE]
+> These instructions assume you are using a single application for both distributed tracing and the packet core dashboards. If you want to grant access to different user groups for these two tools, you can instead set up one application for the packet core dashboards roles and one for the distributed trace role.
+
 1. Follow [Quickstart: Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md) to register a new application for your local monitoring tools with the Microsoft identity platform.
     1. In *Add a redirect URI*, select the **Web** platform and add the following two redirect URIs, where *\<local monitoring domain\>* is the domain name for your local monitoring tools that you set up in [Configure domain system name (DNS) for local monitoring IP](#configure-domain-system-name-dns-for-local-monitoring-ip):
 
@@ -47,13 +50,13 @@ If your deployment contains multiple sites, you can use the same two redirect UR
 
     1. In *Add credentials*, follow the steps to add a client secret. Make sure to record the secret under the **Value** column, as this field is only available immediately after secret creation. This is the **Client secret** value that you'll need later in this procedure.
 
-1. Follow [App roles UI](../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui) to create three roles for your application (Admin, Viewer, and Editor) with the following configuration:
+1. Follow [App roles UI](../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui) to create the roles for your application with the following configuration:
 
     - In **Allowed member types**, select **Users/Groups**.
-    - In **Value**, enter one of **Admin**, **Viewer**, and **Editor** for each role you're creating.
+    - In **Value**, enter one of **Admin**, **Viewer**, and **Editor** for each role you're creating. For distributed tracing, you also need a **sas.user** role.
     - In **Do you want to enable this app role?**, ensure the checkbox is selected.
 
-    You'll be able to use these roles when managing access to the packet core dashboards.
+    You'll be able to use these roles when managing access to the packet core dashboards and distributed tracing tool.
 
 1. Follow [Assign users and groups to roles](../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md#assign-users-and-groups-to-roles) to assign users and groups to the roles you created.
 
@@ -65,8 +68,8 @@ If your deployment contains multiple sites, you can use the same two redirect UR
     |---------|---------|---------|
     | **Tenant ID** | In the Azure portal, search for Microsoft Entra ID. You can find the **Tenant ID** field in the Overview page. | `tenant_id` |
     | **Application (client) ID** | Navigate to the new local monitoring app registration you just created. You can find the **Application (client) ID** field in the Overview page, under the **Essentials** heading. | `client_id` |
-    | **Authorization URL** | In the local monitoring app registration Overview page, select **Endpoints**. Copy the contents of the **OAuth 2.0 authorization endpoint (v2)** field. <br /><br /> **Note:** <br />If the string contains `organizations`, replace `organizations` with the Tenant ID value. For example, <br />`https://login.microsoftonline.com/organizations/oauth2/v2.0/authorize`<br /> becomes <br />`https://login.microsoftonline.com/72f998bf-86f1-31af-91ab-2d7cd001db56/oauth2/v2.0/authorize`. | `auth_url` |
-    | **Token URL** |  In the local monitoring app registration Overview page, select **Endpoints**. Copy the contents of the **OAuth 2.0 token endpoint (v2)** field.  <br /><br /> **Note:** <br />If the string contains `organizations`, replace `organizations` with the Tenant ID value. For example, <br />`https://login.microsoftonline.com/organizations/oauth2/v2.0/token`<br /> becomes <br />`https://login.microsoftonline.com/72f998bf-86f1-31af-91ab-2d7cd001db56/oauth2/v2.0/token`. | `token_url` |
+    | **Authorization URL** | In the local monitoring app registration Overview page, select **Endpoints**. Copy the contents of the **OAuth 2.0 authorization endpoint (v2)** field. <br /><br /> **Note:** <br />If the string contains `organizations`, replace `organizations` with the Tenant ID value. For example, <br />`https://login.microsoftonline.com/organizations/oauth2/v2.0/authorize`<br /> becomes <br />`https://login.microsoftonline.com/aaaabbbb-0000-cccc-1111-dddd2222eeee/oauth2/v2.0/authorize`. | `auth_url` |
+    | **Token URL** |  In the local monitoring app registration Overview page, select **Endpoints**. Copy the contents of the **OAuth 2.0 token endpoint (v2)** field.  <br /><br /> **Note:** <br />If the string contains `organizations`, replace `organizations` with the Tenant ID value. For example, <br />`https://login.microsoftonline.com/organizations/oauth2/v2.0/token`<br /> becomes <br />`https://login.microsoftonline.com/aaaabbbb-0000-cccc-1111-dddd2222eeee/oauth2/v2.0/token`. | `token_url` |
     | **Client secret** | You collected this when creating the client secret in the previous step. | `client_secret` |
     | **Distributed tracing redirect URI root** | Make a note of the following part of the redirect URI: **https://*\<local monitoring domain\>***. | `redirect_uri_root` |
     | **Packet core dashboards redirect URI root** | Make a note of the following part of the packet core dashboards redirect URI: **https://*\<local monitoring domain\>*/grafana**. | `root_url` |
@@ -115,21 +118,21 @@ To support Microsoft Entra ID on Azure Private 5G Core applications, you'll need
         namespace: core
     type: Opaque
     data:
-        client_id: <Base64-encoded client ID>
-        client_secret: <Base64-encoded client secret>
-        auth_url: <Base64-encoded authorization URL>
-        token_url: <Base64-encoded token URL>
-        root_url: <Base64-encoded packet core dashboards redirect URI root>
+        GF_AUTH_AZUREAD_CLIENT_ID: <Base64-encoded client ID>
+        GF_AUTH_AZUREAD_CLIENT_SECRET: <Base64-encoded client secret>
+        GF_AUTH_AZUREAD_AUTH_URL: <Base64-encoded authorization URL>
+        GF_AUTH_AZUREAD_TOKEN_URL: <Base64-encoded token URL>
+        GF_SERVER_ROOT_URL: <Base64-encoded packet core dashboards redirect URI root>
     ```
 
 ## Apply Kubernetes Secret Objects
 
 You'll need to apply your Kubernetes Secret Objects if you're enabling Microsoft Entra ID for a site, after a packet core outage, or after updating the Kubernetes Secret Object YAML file.
 
-1. Sign in to [Azure Cloud Shell](../cloud-shell/overview.md) and select **PowerShell**. If this is your first time accessing your cluster via Azure Cloud Shell, follow [Access your cluster](../azure-arc/kubernetes/cluster-connect.md?tabs=azure-cli) to configure kubectl access.
+1. Sign in to [Azure Cloud Shell](../cloud-shell/overview.md) and select **PowerShell**. If this is your first time accessing your cluster via Azure Cloud Shell, follow [Access your cluster](/azure/azure-arc/kubernetes/cluster-connect?tabs=azure-cli) to configure kubectl access.
 1. Apply the Secret Object for both distributed tracing and the packet core dashboards, specifying the core kubeconfig filename.
 
-    `kubectl apply -f  /home/centos/secret-azure-ad-local-monitoring.yaml --kubeconfig=<core kubeconfig>`
+    `kubectl apply -f  $HOME/secret-azure-ad-local-monitoring.yaml --kubeconfig=<core kubeconfig>`
 
 1. Use the following commands to verify if the Secret Objects were applied correctly, specifying the core kubeconfig filename. You should see the correct **Name**, **Namespace**, and **Type** values, along with the size of the encoded values.
 

@@ -4,8 +4,8 @@ description: Learn how you can leverage Azure Virtual WAN to enable working remo
 services: virtual-wan
 author: cherylmc
 
-ms.service: virtual-wan
-ms.topic: conceptual
+ms.service: azure-virtual-wan
+ms.topic: concept-article
 ms.date: 02/03/2023
 ms.author: cherylmc
 

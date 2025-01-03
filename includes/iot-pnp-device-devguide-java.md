@@ -1,7 +1,7 @@
 ---
 author: dominicbetts
 ms.author: dobett
-ms.service: iot-develop
+ms.service: azure-iot
 ms.topic: include
 ms.date: 11/17/2022
 ---
@@ -36,7 +36,7 @@ Devices using the [Device Provisioning Service (DPS)](../articles/iot-dps/about-
 
 ## Use components
 
-As described in [Understand components in IoT Plug and Play models](../articles/iot-develop/concepts-modeling-guide.md), you should decide if you want to use components to describe your devices. When you use components, devices must follow the rules described in the following sections.
+As described in [Understand components in IoT Plug and Play models](../articles/iot/concepts-modeling-guide.md), you should decide if you want to use components to describe your devices. When you use components, devices must follow the rules described in the following sections.
 
 ## Telemetry
 

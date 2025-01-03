@@ -10,9 +10,9 @@ ms.date: 10/23/2023
 
 # Create custom APIs you can call from Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+[!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
 
-Although Azure Logic Apps offers hundreds of connectors 
+Although Azure Logic Apps offers 1,400+ connectors 
 that you can use in logic app workflows, you might want to call APIs, 
 systems, and services that aren't available as connectors. 
 You can create your own APIs that provide actions and triggers to use in workflows. 

@@ -1,53 +1,37 @@
 ---
-title: Publish and deliver events using namespace topics
+title: Deliver events to Azure Event Hubs using push model (CLI)
 description: This article provides step-by-step instructions to publish to Azure Event Grid in the CloudEvents JSON format and deliver those events by using the push delivery model.
 ms.topic: quickstart
-ms.custom: ignite-2023, devx-track-azurecli
+ms.custom: ignite-2023, devx-track-azurecli, build-2024
 ms.author: robece
 author: robece
-ms.date: 11/15/2023
+ms.date: 02/20/2024
 ---
 
-# Publish and deliver events using namespace topics (preview)
+# Deliver events to Azure Event Hubs using namespace topics - Azure CLI 
 
 The article provides step-by-step instructions to publish events to Azure Event Grid in the [CloudEvents JSON format](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/formats/json-format.md) and deliver those events by using the push delivery model. To be specific, you use Azure CLI and Curl to publish events to a namespace topic in Event Grid and push those events from an event subscription to an Event Hubs handler destination. For more information about the push delivery model, see [Push delivery overview](push-delivery-overview.md).
 
 > [!NOTE]
-> - Namespaces, namespace topics, and event subscriptions associated to namespace topics are initially available in the following regions: East US, Central US, South Central US, West US 2, East Asia, Southeast Asia, North Europe, West Europe, UAE North.
-> - The Azure [CLI Event Grid extension](/cli/azure/eventgrid) doesn't yet support namespaces and any of the resources it contains. We will use [Azure CLI resource](/cli/azure/resource) to create Event Grid resources.
-> - Azure Event Grid namespaces currently supports Shared Access Signatures (SAS) token and access keys authentication.
+> The Azure [CLI Event Grid extension](/cli/azure/eventgrid) doesn't yet support namespaces and any of the resources it contains. We will use [Azure CLI resource](/cli/azure/resource) to create Event Grid resources.
 
-[!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note.md](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
-- Use the Bash environment in [Azure Cloud Shell](/azure/cloud-shell/overview). For more information, see [Quickstart for Bash in Azure Cloud Shell](/azure/cloud-shell/quickstart).
+- Use the Bash environment in [Azure Cloud Shell](../cloud-shell/overview.md). For more information, see [Quickstart for Bash in Azure Cloud Shell](../cloud-shell/quickstart.md).
 
-   [:::image type="icon" source="~/articles/reusable-content/azure-cli/media/hdi-launch-cloud-shell.png" alt-text="Launch Azure Cloud Shell" :::](https://shell.azure.com)
+   [:::image type="icon" source="~/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png" alt-text="Launch Azure Cloud Shell" :::](https://shell.azure.com)
 
 - If you prefer to run CLI reference commands locally, [install](/cli/azure/install-azure-cli) the Azure CLI. If you're running on Windows or macOS, consider running Azure CLI in a Docker container. For more information, see [How to run the Azure CLI in a Docker container](/cli/azure/run-azure-cli-docker).
 
-  - If you're using a local installation, sign in to the Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command. To finish the authentication process, follow the steps displayed in your terminal. For other sign-in options, see [Sign in with the Azure CLI](/cli/azure/authenticate-azure-cli).
+  - If you're using a local installation, sign in to the Azure CLI by using the [`az login`](/cli/azure/reference-index#az-login) command. To finish the authentication process, follow the steps displayed in your terminal. For other sign-in options, see [Sign in with the Azure CLI](/cli/azure/authenticate-azure-cli).
 
   - When you're prompted, install the Azure CLI extension on first use. For more information about extensions, see [Use extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
 
   - Run [az version](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az-upgrade).
 
 - This article requires version 2.0.70 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
-
-## Install Event Grid preview extension
-
-By installing the Event Grid preview extension you will get access to the latest features, this step is required in some features that are still in preview.
-
-```azurecli-interactive
-az extension add --name eventgrid
-```
-
-If you already installed the Event Grid preview extension, you can update it with the following command.
-
-```azurecli-interactive
-az extension update --name eventgrid
-```
 
 [!INCLUDE [register-provider-cli.md](./includes/register-provider-cli.md)]
 
@@ -84,7 +68,7 @@ An Event Grid namespace provides a user-defined endpoint to which you post your 
 - It should be between 3-50 characters.
 - It should be regionally unique.
 - Only allowed characters are a-z, A-Z, 0-9 and -
-- It shouldn't start with reserved key word prefixes like `Microsoft`, `System` or `EventGrid`.
+- It shouldn't start with reserved key word prefixes like `Microsoft`, `System`, or `EventGrid`.
 
 1. Declare a variable to hold the name for your Event Grid namespace. Specify a name for the namespace by replacing `<your-namespace-name>` with a value you like.
 
@@ -95,7 +79,7 @@ An Event Grid namespace provides a user-defined endpoint to which you post your 
 2. Create a namespace. You might want to change the location where it's deployed.
 
     ```azurecli-interactive
-    az resource create --resource-group $resource_group --namespace Microsoft.EventGrid --resource-type namespaces --name $namespace --location $location --properties "{}"
+    az eventgrid namespace create -g $resource_group -n $namespace -l $location
     ```
 
 ## Create a namespace topic
@@ -111,33 +95,43 @@ Create a topic that's used to hold all events published to the namespace endpoin
 2. Create your namespace topic:
 
     ```azurecli-interactive
-    az resource create --resource-group $resource_group --namespace Microsoft.EventGrid --resource-type topics --name $topic --parent namespaces/$namespace --properties "{}"
+    az eventgrid namespace topic create -g $resource_group -n $topic --namespace-name $namespace 
     ```
 
 ## Create a new Event Hubs resource
 
-Create an Event Hubs resource that will be used as the handler destination for the namespace topic push delivery subscription.
+Create an Event Hubs resource that is used as the handler destination for the namespace topic push delivery subscription.
 
-```azurecli-interactive
-eventHubsNamespace="<your-event-hubs-namespace-name>"
-```
+1. Declare a variable to hold the Event Hubs namespace name. 
 
-```azurecli-interactive
-eventHubsEventHub="<your-event-hub-name>"
-```
+    ```azurecli-interactive
+    eventHubsNamespace="<your-event-hubs-namespace-name>"
+    ```
+2. Create the Event Hubs namespace. 
 
-```azurecli-interactive
-az eventhubs eventhub create --resource-group $resourceGroup --namespace-name $eventHubsNamespace --name $eventHubsEventHub --partition-count 1
-```
+    ```azurecli-interactive
+    az eventhubs namespace create --resource-group $resource_group --name $eventHubsNamespace --location $location  
+    ```    
+1. Declare a variable to hold the event hub name.
 
+    ```azurecli-interactive
+    eventHubsEventHub="<your-event-hub-name>"
+    ```
+2. Run the following command to create an event hub in the namespace.
+
+    ```azurecli-interactive
+    az eventhubs eventhub create --resource-group $resource_group --namespace-name $eventHubsNamespace --name $eventHubsEventHub 
+    ```
+    
 ## Deliver events to Event Hubs using managed identity
 
 To deliver events to event hubs in your Event Hubs namespace using managed identity, follow these steps:
 
-1. Enable system-assigned or user-assigned managed identity: [namespaces](event-grid-namespace-managed-identity.md), continue reading to the next section to find how to enable managed identity using Azure CLI.
+1. Enable system-assigned or user-assigned managed identity: [namespaces](event-grid-namespace-managed-identity.md). Continue reading to the next section to find how to enable managed identity using Azure CLI.
 1. [Add the identity to the **Azure Event Hubs Data Sender** role  on the Event Hubs namespace](../event-hubs/authenticate-managed-identity.md#to-assign-azure-roles-using-the-azure-portal), continue reading to the next section to find how to add the role assignment.
 1. [Enable the **Allow trusted Microsoft services to bypass this firewall** setting on your Event Hubs namespace](../event-hubs/event-hubs-service-endpoints.md#trusted-microsoft-services).
 1. Configure the event subscription that uses an event hub as an endpoint to use the system-assigned or user-assigned managed identity.
+
 
 ## Enable managed identity in the Event Grid namespace
 
@@ -152,13 +146,13 @@ az eventgrid namespace update --resource-group $resource_group --name $namespace
 1. Get Event Grid namespace system managed identity principal ID.
 
     ```azurecli-interactive
-    principalId=(az eventgrid namespace show --resource-group $resource_group --name $namespace --query identity.principalId -o tsv)
+    principalId=$(az eventgrid namespace show --resource-group $resource_group --name $namespace --query identity.principalId -o tsv)
     ```
 
 2. Get Event Hubs event hub resource ID.
 
     ```azurecli-interactive
-    eventHubResourceId=(az eventhubs eventhub show --resource-group $resource_group --namespace-name $eventHubsNamespace --name $eventHubsEventHub --query id -o tsv)
+    eventHubResourceId=$(az eventhubs eventhub show --resource-group $resource_group --namespace-name $eventHubsNamespace --name $eventHubsEventHub --query id -o tsv)
     ```
 
 3. Add role assignment in Event Hubs for the Event Grid system managed identity.
@@ -187,14 +181,13 @@ Now, send a sample event to the namespace topic by following steps in this secti
 
 1. Get the access keys associated with the namespace you created. You use one of them to authenticate when publishing events. To list your keys, you need the full namespace resource ID first. Get it by running the following command:
 
-    ```azurecli-interactive
-    namespace_resource_id=$(az resource show --resource-group $resource_group --namespace Microsoft.EventGrid --resource-type namespaces --name $namespace --query "id" --output tsv)
+    ```azurecli-interactive 
+    namespace_resource_id=$(az eventgrid namespace show -g $resource_group -n $namespace --query "id" --output tsv)
     ```
-
 2. Get the first key from the namespace:
 
     ```azurecli-interactive
-    key=$(az resource invoke-action --action listKeys --ids $namespace_resource_id --query "key1" --output tsv)
+    key=$(az eventgrid namespace list-key -g $resource_group --namespace-name $namespace --query "key1" --output tsv)
     ```
 
 ### Publish an event
@@ -202,7 +195,7 @@ Now, send a sample event to the namespace topic by following steps in this secti
 1. Retrieve the namespace hostname. You use it to compose the namespace HTTP endpoint to which events are sent. The following operations were first available with API version `2023-06-01-preview`.
 
     ```azurecli-interactive
-    publish_operation_uri="https://"$(az resource show --resource-group $resource_group --namespace Microsoft.EventGrid --resource-type namespaces --name $namespace --query "properties.topicsConfiguration.hostname" --output tsv)"/topics/"$topic:publish?api-version=2023-06-01-preview
+    publish_operation_uri="https://"$(az eventgrid namespace show -g $resource_group -n $namespace --query "topicsConfiguration.hostname" --output tsv)"/topics/"$topic:publish?api-version=2023-06-01-preview
     ```
 
 2. Create a sample [CloudEvents](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/formats/json-format.md) compliant event:
@@ -218,6 +211,10 @@ Now, send a sample event to the namespace topic by following steps in this secti
     ```azurecli-interactive
     curl -X POST -H "Content-Type: application/cloudevents+json" -H "Authorization:SharedAccessKey $key" -d "$event" $publish_operation_uri
     ```
+
+    Navigate to the **Event Hubs Namespace page** in the Azure portal, refresh the page and verify that incoming messages counter in the chart indicates that an event has been received. 
+
+    :::image type="content" source="./media/publish-events-using-namespace-topics-portal/event-hub-received-event.png" alt-text="Screenshot that shows the Event hub page with chart showing an event has been received." lightbox="./media/publish-events-using-namespace-topics-portal/event-hub-received-event.png":::
 
 ## Next steps
 

@@ -16,7 +16,7 @@ This article explains the licensing requirements for using Azure Virtual Desktop
 In the context of providing virtualized infrastructure with Azure Virtual Desktop, *internal users* (for internal commercial purposes) refers to people who are members of your own organization, such as employees of a business or students of a school, including external vendors or contractors. *External users* (for external commercial purposes) aren't members of your organization, but your customers where you might provide a Software-as-a-Service (SaaS) application using Azure Virtual Desktop.
 
 > [!NOTE]
-> Take care not to confuse external *users* with external *identities*. Azure Virtual Desktop doesn't support external identities, including guest accounts or business-to-business (B2B) identities. Whether you're serving internal commercial purposes or external users with Azure Virtual Desktop, you'll need to create and manage identities for those users yourself. For more information, see [Recommendations for deploying Azure Virtual Desktop for internal or external commercial purposes](organization-internal-external-commercial-purposes-recommendations.md).
+> Take care not to confuse external *users* with external *identities*. Azure Virtual Desktop doesn't support external identities, including external guest accounts or business-to-business (B2B) identities. Whether you're serving internal commercial purposes or external users with Azure Virtual Desktop, you'll need to create and manage identities for those users yourself. For more information, see [Recommendations for deploying Azure Virtual Desktop for internal or external commercial purposes](organization-internal-external-commercial-purposes-recommendations.md).
 
 Licensing Azure Virtual Desktop works differently for internal and external commercial purposes. Consider the following examples:
 
@@ -27,15 +27,15 @@ Licensing Azure Virtual Desktop works differently for internal and external comm
 - A software vendor called *Contoso* might use Azure Virtual Desktop to sell remote access of Contoso's productivity app to Contoso's customers (external users). Because Contoso is serving external users for external commercial purposes, Contoso must enroll in Azure Virtual Desktop's per-user access pricing. This enables Contoso to pay for Azure Virtual Desktop access rights on behalf of those external users who connect to Contoso's deployment. The users don't need a separate license like Microsoft 365 to access Azure Virtual Desktop. Contoso still needs to create and manage identities for those external users.
 
 > [!IMPORTANT]
-> Per-user access pricing can only be used for external commercial purposes, not internal purposes. Per-user access pricing isn't a way to enable guest user accounts with Azure Virtual Desktop. Check if your Azure Virtual Desktop solution is is applicable for per-user access pricing by reviewing [our licensing documentation](https://www.microsoft.com/licensing/terms/productoffering/MicrosoftAzure/EAEAS#Documents).
+> Per-user access pricing can only be used for external commercial purposes, not internal purposes. Per-user access pricing isn't a way to enable external guest user accounts with Azure Virtual Desktop. Check if your Azure Virtual Desktop solution is is applicable for per-user access pricing by reviewing [our licensing documentation](https://www.microsoft.com/licensing/terms/productoffering/MicrosoftAzure/EAEAS#Documents).
 
-## Eligible licenses for internal commercial purposes to use Azure Virtual Desktop
+## Eligible licenses to use Azure Virtual Desktop
 
-If you're providing Azure Virtual Desktop access for internal commercial purposes, you must purchase one of the following eligible licenses for each user that accesses Azure Virtual Desktop. The license you need also depends on whether you're using a Windows client operating system or a Windows Server operating system for your session hosts.
+You must provide an eligible license for each user that accesses Azure Virtual Desktop. The license you need also depends on whether you're using a Windows client operating system or a Windows Server operating system for your session hosts, and whether it's for internal or external commercial purposes. The following table shows the eligible licensing methods for each scenario:
 
 [!INCLUDE [Operating systems and user access rights](includes/include-operating-systems-user-access-rights.md)]
 
-## Per-user access pricing for external commercial purposes to use Azure Virtual Desktop
+### Per-user access pricing for external commercial purposes to use Azure Virtual Desktop
 
 Per-user access pricing lets you pay for Azure Virtual Desktop access rights for external commercial purposes. You must enroll in per-user access pricing to build a compliant deployment for external users.
 
@@ -76,7 +76,7 @@ Here's a summary of the two types of licenses for Azure Virtual Desktop you can 
 | Access rights | Internal purposes only. It doesn't grant permission for external commercial purposes, not even identities you create in your own Microsoft Entra tenant. | External commercial purposes only. It doesn't grant access to members of your own organization or contractors for internal business purposes. |
 | Billing | Licensing channels. | Pay-as-you-go through an Azure meter, billed to an Azure subscription. |
 | User behavior | Fixed cost per user each month regardless of user behavior. | Cost per user each month depends on user behavior. |
-| Other products | Dependent on the license. | Only includes access rights to Azure Virtual Desktop and [FSlogix](/fslogix/overview-what-is-fslogix).<br /><br />Per-user access pricing only supports Windows Enterprise and Windows Enterprise multi-session client operating systems for session hosts. Windows Server isn't supported with per-user access pricing. |
+| Other products | Dependent on the license. | Only includes access rights to Azure Virtual Desktop and [FSlogix](/fslogix/overview-what-is-fslogix). |
 
 ## Next steps
 

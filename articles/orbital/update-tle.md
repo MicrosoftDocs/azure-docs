@@ -1,12 +1,12 @@
 ---
 title: Azure Orbital Ground Station - update spacecraft TLE
-description: Update the TLE of an existing spacecraft resource.
-author: apoorvanori
-ms.service: orbital
+description: Update the spacecraft Two-Line Element (TLE) of an existing spacecraft resource before you schedule a contact.
+author: hrshelar
+ms.service: azure-orbital
 ms.topic: tutorial
 ms.custom: ga
 ms.date: 12/06/2022
-ms.author: apoorvanori
+ms.author: mosagie
 # Customer intent: As a satellite operator, I want to ingest data from my satellite into Azure.
 ---
 

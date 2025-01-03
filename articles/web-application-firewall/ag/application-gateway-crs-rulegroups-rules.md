@@ -1,25 +1,25 @@
 ---
-title: CRS rule groups and rules
+title: CRS and DRS rule groups and rules
 titleSuffix: Azure Web Application Firewall
-description: This page provides information on web application firewall CRS rule groups and rules.
+description: This page provides information on web application firewall CRS and DRS rule groups and rules.
 services: web-application-firewall
 author: vhorne
-ms.service: web-application-firewall
-ms.date: 11/08/2022
+ms.service: azure-web-application-firewall
+ms.date: 10/23/2024
 ms.author: victorh
 ms.topic: conceptual
 ---
 
 # Web Application Firewall DRS and CRS rule groups and rules
 
-Application Gateway web application firewall (WAF) protects web applications from common vulnerabilities and exploits. Azure-managed rule sets provide an easy way to deploy protection against a common set of security threats. Since such rule sets are managed by Azure, the rules are updated as needed to protect against new attack signatures. Default rule set also includes the Microsoft Threat Intelligence Collection rules that are written in partnership with the Microsoft Intelligence team to provide increased coverage, patches for specific vulnerabilities, and better false positive reduction.
+The Azure-managed rule sets in the Application Gateway web application firewall (WAF) actively protect web applications from common vulnerabilities and exploits. These rule sets, managed by Azure, receive updates as necessary to guard against new attack signatures. The default rule set also incorporates the Microsoft Threat Intelligence Collection rules. The Microsoft Intelligence team collaborates in writing these rules, ensuring enhanced coverage, specific vulnerability patches, and improved false positive reduction.
 
-Customers also have the option of using rules that are defined based on the OWASP core rule sets 3.2, 3.1, 3.0, or 2.2.9. 
+You also have the option of using rules that are defined based on the OWASP core rule sets 3.2, 3.1, 3.0, or 2.2.9. 
 
-Rules can be disabled on a rule-by-rule basis, or you can set specific actions by individual rule. This article contains the current rules and rule sets offered. In the rare occasion that a published ruleset needs to be updated, it will be documented here.
+You can disable rules individually, or set specific actions for each rule. This article lists the current rules and rule sets available. If a published rule set requires an update, we'll document it here.
 
 > [!NOTE]
-> When changing from one ruleset version to another all disabled and enabled rule settings will return to the default for the ruleset your are migrating to. This means that if you previously disabled or enabled a rule, you will need to disable or enable it again once you've moved to the new ruleset version.
+> When a ruleset version is changed in a WAF Policy, any existing customizations you made to your ruleset will be reset to the defaults for the new ruleset. See: [Upgrading or changing ruleset version](#upgrading-or-changing-ruleset-version).
 
 ## Default rule sets
 
@@ -41,7 +41,7 @@ The version number of the DRS increments when new attack signatures are added to
 The Microsoft Threat Intelligence Collection rules are written in partnership with the Microsoft Threat Intelligence team to provide increased coverage, patches for specific vulnerabilities, and better false positive reduction.
 
 > [!NOTE]
-> Please follow the below guidance to tune WAF while you get started with 2.1 on Application Gateway WAF. Details of the rules are as below. 
+> Please use the following guidance to tune WAF while you get started with 2.1 on Application Gateway WAF. Details of the rules are described next. 
 
 |Rule ID |Rule Group|Description  |Details|
 |---------|---------|---------|---------|
@@ -59,7 +59,7 @@ The Microsoft Threat Intelligence Collection rules are written in partnership wi
 
 ## Core rule sets
 
-The Application Gateway WAF comes pre-configured with CRS 3.2 by default, but you can choose to use any other supported CRS version.
+The Application Gateway WAF comes preconfigured with CRS 3.2 by default, but you can choose to use any other supported CRS version.
  
 CRS 3.2 offers a new engine and new rule sets defending against Java injections, an initial set of file upload checks, and fewer false positives compared with earlier versions of CRS. You can also [customize rules to suit your needs](application-gateway-customize-waf-rules-portal.md). Learn more about the new [Azure WAF engine](waf-engine.md).
 
@@ -82,7 +82,7 @@ Both DRS and CRS are enabled by default in Detection mode in your WAF policies. 
 
 Sometimes you might need to omit certain request attributes from a WAF evaluation. A common example is Active Directory-inserted tokens that are used for authentication. You can configure exclusions to apply when specific WAF rules are evaluated, or to apply globally to the evaluation of all WAF rules. Exclusion rules apply to your whole web application. For more information, see [Web Application Firewall (WAF) with Application Gateway exclusion lists](application-gateway-waf-configuration.md).
 
-By default, DRS version 2.1 / CRS version 3.2 and above will leverage anomaly scoring when a request matches a rule, CRS 3.1 and below will block matching requests by default. Additionally, custom rules can be configured in the same WAF policy if you wish to bypass any of the pre-configured rules in the Core Rule Set.
+By default, DRS version 2.1 / CRS version 3.2 and above uses anomaly scoring when a request matches a rule. CRS 3.1 and below blocks matching requests by default. Additionally, custom rules can be configured in the same WAF policy if you want to bypass any of the preconfigured rules in the Core Rule Set.
 
 Custom rules are always applied before rules in the Core Rule Set are evaluated. If a request matches a custom rule, the corresponding rule action is applied. The request is either blocked or passed through to the back-end. No other custom rules or the rules in the Core Rule Set are processed. 
 
@@ -101,31 +101,38 @@ If the anomaly score is 5 or greater, and the WAF is in Prevention mode, the req
 
 For example, a single *Critical* rule match is enough for the WAF to block a request when in Prevention mode, because the overall anomaly score is 5. However, one *Warning* rule match only increases the anomaly score by 3, which isn't enough by itself to block the traffic. When an anomaly rule is triggered, it shows a "Matched" action in the logs. If the anomaly score is 5 or greater, there is a separate rule triggered with either "Blocked" or "Detected" action depending on whether WAF policy is in Prevention or Detection mode. For more information, please see [Anomaly Scoring mode](ag-overview.md#anomaly-scoring-mode).
 
+### Upgrading or changing ruleset version
+
+If you are upgrading, or assigning a new ruleset version, and would like to preserve existing rule overrides and exclusions, it is recommended to use PowerShell, CLI, REST API, or a templates to make ruleset version changes. A new version of a ruleset can have newer rules, additional rule groups, and may have updates to existing signatures to enforce better security and reduce false positives. It is recommended to validate changes in a test environment, fine tune if necessary, and then deploy in a production environment.
+
+> [!NOTE]
+> If you are using the Azure portal to assign a new managed ruleset to a WAF policy, all the previous customizations from the existing managed ruleset such as rule state, rule actions, and rule level exclusions will be reset to the new managed ruleset's defaults. However, any custom rules, policy settings, and global exclusions will remain unaffected during the new ruleset assignment. You will need to redefine rule overrides and validate changes before deploying in a production environment.
+
 ### DRS 2.1 
 
-DRS 2.1 rules offer better protection than earlier versions of the DRS. It includes additional rules developed by the Microsoft Threat Intelligence team and updates to signatures to reduce false positives. It also supports transformations beyond just URL decoding.
+DRS 2.1 rules offer better protection than earlier versions of the DRS. It includes more rules developed by the Microsoft Threat Intelligence team and updates to signatures to reduce false positives. It also supports transformations beyond just URL decoding.
 
-DRS 2.1 includes 17 rule groups, as shown in the following table. Each group contains multiple rules, and you can customize behavior for individual rules, rule groups, or entire rule set.
+DRS 2.1 includes 17 rule groups, as shown in the following table. Each group contains multiple rules, and you can customize behavior for individual rules, rule groups, or entire rule set. DRS 2.1 is baselined off the Open Web Application Security Project (OWASP) Core Rule Set (CRS) 3.3.2 and includes additional proprietary protections rules developed by Microsoft Threat Intelligence team. 
 
-|Rule group|Description|
-|---|---|
-|**[General](#general-21)**|General group|
-|**[METHOD-ENFORCEMENT](#drs911-21)**|Lock-down methods (PUT, PATCH)|
-|**[PROTOCOL-ENFORCEMENT](#drs920-21)**|Protect against protocol and encoding issues|
-|**[PROTOCOL-ATTACK](#drs921-21)**|Protect against header injection, request smuggling, and response splitting|
-|**[APPLICATION-ATTACK-LFI](#drs930-21)**|Protect against file and path attacks|
-|**[APPLICATION-ATTACK-RFI](#drs931-21)**|Protect against remote file inclusion (RFI) attacks|
-|**[APPLICATION-ATTACK-RCE](#drs932-21)**|Protect again remote code execution attacks|
-|**[APPLICATION-ATTACK-PHP](#drs933-21)**|Protect against PHP-injection attacks|
-|**[APPLICATION-ATTACK-NodeJS](#drs934-21)**|Protect against Node JS attacks|
-|**[APPLICATION-ATTACK-XSS](#drs941-21)**|Protect against cross-site scripting attacks|
-|**[APPLICATION-ATTACK-SQLI](#drs942-21)**|Protect against SQL-injection attacks|
-|**[APPLICATION-ATTACK-SESSION-FIXATION](#drs943-21)**|Protect against session-fixation attacks|
-|**[APPLICATION-ATTACK-SESSION-JAVA](#drs944-21)**|Protect against JAVA attacks|
-|**[MS-ThreatIntel-WebShells](#drs9905-21)**|Protect against Web shell attacks|
-|**[MS-ThreatIntel-AppSec](#drs9903-21)**|Protect against AppSec attacks|
-|**[MS-ThreatIntel-SQLI](#drs99031-21)**|Protect against SQLI attacks|
-|**[MS-ThreatIntel-CVEs](#drs99001-21)**|Protect against CVE attacks|
+|Rule group|ruleGroupName|Description|
+|---|---|---|
+|**[General](#general-21)**|General|General group|
+|**[METHOD-ENFORCEMENT](#drs911-21)**|METHOD-ENFORCEMENT|Lock-down methods (PUT, PATCH)|
+|**[PROTOCOL-ENFORCEMENT](#drs920-21)**|PROTOCOL-ENFORCEMENT|Protect against protocol and encoding issues|
+|**[PROTOCOL-ATTACK](#drs921-21)**|PROTOCOL-ATTACK|Protect against header injection, request smuggling, and response splitting|
+|**[APPLICATION-ATTACK-LFI](#drs930-21)**|LFI|Protect against file and path attacks|
+|**[APPLICATION-ATTACK-RFI](#drs931-21)**|RFI|Protect against remote file inclusion (RFI) attacks|
+|**[APPLICATION-ATTACK-RCE](#drs932-21)**|RCE|Protect again remote code execution attacks|
+|**[APPLICATION-ATTACK-PHP](#drs933-21)**|PHP|Protect against PHP-injection attacks|
+|**[APPLICATION-ATTACK-NodeJS](#drs934-21)**|NODEJS|Protect against Node JS attacks|
+|**[APPLICATION-ATTACK-XSS](#drs941-21)**|XSS|Protect against cross-site scripting attacks|
+|**[APPLICATION-ATTACK-SQLI](#drs942-21)**|SQLI|Protect against SQL-injection attacks|
+|**[APPLICATION-ATTACK-SESSION-FIXATION](#drs943-21)**|FIX|Protect against session-fixation attacks|
+|**[APPLICATION-ATTACK-SESSION-JAVA](#drs944-21)**|JAVA|Protect against JAVA attacks|
+|**[MS-ThreatIntel-WebShells](#drs9905-21)**|MS-ThreatIntel-WebShells|Protect against Web shell attacks|
+|**[MS-ThreatIntel-AppSec](#drs9903-21)**|MS-ThreatIntel-AppSec|Protect against AppSec attacks|
+|**[MS-ThreatIntel-SQLI](#drs99031-21)**|MS-ThreatIntel-SQLI|Protect against SQLI attacks|
+|**[MS-ThreatIntel-CVEs](#drs99001-21)**|MS-ThreatIntel-CVEs|Protect against CVE attacks|
 
 
 ### OWASP CRS 3.2
@@ -135,7 +142,7 @@ CRS 3.2 includes 14 rule groups, as shown in the following table. Each group con
 > [!NOTE]
 > CRS 3.2 is only available on the WAF_v2 SKU. Because CRS 3.2 runs on the new Azure WAF engine, you can't downgrade to CRS 3.1 or earlier. If you need to downgrade, [contact Azure Support](https://aka.ms/azuresupportrequest).
 
-|Rule group|Description|
+|Rule group name|Description|
 |---|---|
 |**[General](#general-32)**|General group|
 |**[KNOWN-CVES](#crs800-32)**|Help detect new and known CVEs|
@@ -160,7 +167,7 @@ CRS 3.1 includes 14 rule groups, as shown in the following table. Each group con
 > [!NOTE]
 > CRS 3.1 is only available on the WAF_v2 SKU.
 
-|Rule group|Description|
+|Rule group name|Description|
 |---|---|
 |**[General](#general-31)**|General group|
 |**[KNOWN-CVES](#crs800-31)**|Help detect new and known CVEs|
@@ -181,7 +188,7 @@ CRS 3.1 includes 14 rule groups, as shown in the following table. Each group con
 
 CRS 3.0 includes 13 rule groups, as shown in the following table. Each group contains multiple rules, which can be disabled. The ruleset is based off OWASP CRS 3.0.0 version.
 
-|Rule group|Description|
+|Rule group name|Description|
 |---|---|
 |**[General](#general-30)**|General group|
 |**[KNOWN-CVES](#crs800-30)**|Help detect new and known CVEs|
@@ -202,9 +209,9 @@ CRS 3.0 includes 13 rule groups, as shown in the following table. Each group con
 CRS 2.2.9 includes 10 rule groups, as shown in the following table. Each group contains multiple rules, which can be disabled.
 
 > [!NOTE]
-> CRS 2.2.9 is no longer supported for new WAF policies. We recommend you upgrade to the latest CRS version. CRS 2.2.9 can't be used along with CRS 3.2/DRS 2.1 and greater versions. 
+> CRS 2.2.9 is no longer supported for new WAF policies. We recommend you upgrade to the latest CRS 3.2/DRS 2.1 and greater versions.  
 
-|Rule group|Description|
+|Rule group name|Description|
 |---|---|
 |**[crs_20_protocol_violations](#crs20)**|Protect against protocol violations (such as invalid characters or a GET with a request body)|
 |**[crs_21_protocol_anomalies](#crs21)**|Protect against incorrect header information|
@@ -217,15 +224,25 @@ CRS 2.2.9 includes 10 rule groups, as shown in the following table. Each group c
 |**[crs_42_tight_security](#crs42)**|Protect against path-traversal attacks|
 |**[crs_45_trojans](#crs45)**|Protect against backdoor trojans|
 
-### Bot rules
+### Bot Manager 1.0
 
-You can enable a managed bot protection rule set to take custom actions on requests from all bot categories.
+The Bot Manager 1.0 rule set provides protection against malicious bots and detection of good bots. The rules provide granular control over bots detected by WAF by categorizing bot traffic as Good, Bad, or Unknown bots. 
 
 |Rule group|Description|
 |---|---|
-|**[BadBots](#bot100)**|Protect against bad bots|
-|**[GoodBots](#bot200)**|Identify good bots|
-|**[UnknownBots](#bot300)**|Identify unknown bots|
+|[BadBots](#bot100)|Protect against bad bots|
+|[GoodBots](#bot200)|Identify good bots|
+|[UnknownBots](#bot300)|Identify unknown bots|
+
+### Bot Manager 1.1
+
+The Bot Manager 1.1 rule set is an enhancement to Bot Manager 1.0 rule set. It provides enhanced protection against malicious bots, and increases good bot detection.
+
+|Rule group|Description|
+|---|---|
+|[BadBots](#bot11-100)|Protect against bad bots|
+|[GoodBots](#bot11-200)|Identify good bots|
+|[UnknownBots](#bot11-300)|Identify unknown bots|
 
 The following rule groups and rules are available when using Web Application Firewall on Application Gateway.
 
@@ -243,7 +260,7 @@ The following rule groups and rules are available when using Web Application Fir
 ### <a name="drs911-21"></a> METHOD ENFORCEMENT
 |RuleId|Description|
 |---|---|
-|911100|Method is not allowed by policy|
+|911100|Method isn't allowed by policy|
 
 ### <a name="drs920-21"></a> PROTOCOL-ENFORCEMENT
 |RuleId|Description|
@@ -251,7 +268,7 @@ The following rule groups and rules are available when using Web Application Fir
 |920100|Invalid HTTP Request Line|
 |920120|Attempted multipart/form-data bypass|
 |920121|Attempted multipart/form-data bypass|
-|920160|Content-Length HTTP header is not numeric.|
+|920160|Content-Length HTTP header isn't numeric.|
 |920170|GET or HEAD Request with Body Content.|
 |920171|GET or HEAD Request with Transfer-Encoding.|
 |920180|POST request missing Content-Length Header.|
@@ -276,12 +293,12 @@ The following rule groups and rules are available when using Web Application Fir
 |920340|Request Containing Content, but Missing Content-Type header|
 |920341|Request containing content requires Content-Type header|
 |920350|Host header is a numeric IP address|
-|920420|Request content type is not allowed by policy|
-|920430|HTTP protocol version is not allowed by policy|
+|920420|Request content type isn't allowed by policy|
+|920430|HTTP protocol version isn't allowed by policy|
 |920440|URL file extension is restricted by policy|
 |920450|HTTP header is restricted by policy|
 |920470|Illegal Content-Type header|
-|920480|Request content type charset is not allowed by policy|
+|920480|Request content type charset isn't allowed by policy|
 |920500|Attempt to access a backup or working file|
 
 ### <a name="drs921-21"></a> PROTOCOL-ATTACK
@@ -392,6 +409,7 @@ The following rule groups and rules are available when using Web Application Fir
 |942100|SQL Injection Attack Detected via libinjection|
 |942110|SQL Injection Attack: Common Injection Testing Detected|
 |942120|SQL Injection Attack: SQL Operator Detected|
+|942130|SQL Injection Attack: SQL Tautology Detected.|
 |942140|SQL Injection Attack: Common DB Names Detected|
 |942150|SQL Injection Attack|
 |942160|Detects blind sqli tests using sleep() or benchmark().|
@@ -527,7 +545,7 @@ The following rule groups and rules are available when using Web Application Fir
 ### <a name="crs911-32"></a> REQUEST-911-METHOD-ENFORCEMENT
 |RuleId|Description|
 |---|---|
-|911100|Method is not allowed by policy|
+|911100|Method isn't allowed by policy|
 
 ### <a name="crs913-32"></a> REQUEST-913-SCANNER-DETECTION
 |RuleId|Description|
@@ -544,7 +562,7 @@ The following rule groups and rules are available when using Web Application Fir
 |920100|Invalid HTTP Request Line|
 |920120|Attempted multipart/form-data bypass|
 |920121|Attempted multipart/form-data bypass|
-|920160|Content-Length HTTP header is not numeric.|
+|920160|Content-Length HTTP header isn't numeric.|
 |920170|GET or HEAD Request with Body Content.|
 |920171|GET or HEAD Request with Transfer-Encoding.|
 |920180|POST request missing Content-Length Header.|
@@ -573,8 +591,8 @@ The following rule groups and rules are available when using Web Application Fir
 |920340|Request Containing Content, but Missing Content-Type header|
 |920341|Request containing content requires Content-Type header|
 |920350|Host header is a numeric IP address|
-|920420|Request content type is not allowed by policy|
-|920430|HTTP protocol version is not allowed by policy|
+|920420|Request content type isn't allowed by policy|
+|920430|HTTP protocol version isn't allowed by policy|
 |920440|URL file extension is restricted by policy|
 |920450|HTTP header is restricted by policy (%{MATCHED_VAR})|
 |920460|Abnormal Escape Characters|
@@ -779,7 +797,7 @@ The following rule groups and rules are available when using Web Application Fir
 
 |RuleId|Description|
 |---|---|
-|911100|Method is not allowed by policy|
+|911100|Method isn't allowed by policy|
 
 
 ### <a name="crs913-31"></a> REQUEST-913-SCANNER-DETECTION
@@ -802,7 +820,7 @@ The following rule groups and rules are available when using Web Application Fir
 |920121|Attempted multipart/form-data bypass|
 |920130|Failed to parse request body.|
 |920140|Multipart request body failed strict validation|
-|920160|Content-Length HTTP header is not numeric.|
+|920160|Content-Length HTTP header isn't numeric.|
 |920170|GET or HEAD Request with Body Content.|
 |920171|GET or HEAD Request with Transfer-Encoding.|
 |920180|POST request missing Content-Length Header.|
@@ -831,8 +849,8 @@ The following rule groups and rules are available when using Web Application Fir
 |920340|Request Containing Content but Missing Content-Type header|
 |920341|Request containing content requires Content-Type header|
 |920350|Host header is a numeric IP address|
-|920420|Request content type is not allowed by policy|
-|920430|HTTP protocol version is not allowed by policy|
+|920420|Request content type isn't allowed by policy|
+|920430|HTTP protocol version isn't allowed by policy|
 |920440|URL file extension is restricted by policy|
 |920450|HTTP header is restricted by policy (%@{MATCHED_VAR})|
 |920460|Abnormal Escape Characters|
@@ -1031,7 +1049,7 @@ The following rule groups and rules are available when using Web Application Fir
 
 |RuleId|Description|
 |---|---|
-|911100|Method is not allowed by policy|
+|911100|Method isn't allowed by policy|
 
 
 ### <a name="crs913-30"></a> REQUEST-913-SCANNER-DETECTION
@@ -1051,7 +1069,7 @@ The following rule groups and rules are available when using Web Application Fir
 |920100|Invalid HTTP Request Line|
 |920130|Failed to parse request body.|
 |920140|Multipart request body failed strict validation|
-|920160|Content-Length HTTP header is not numeric.|
+|920160|Content-Length HTTP header isn't numeric.|
 |920170|GET or HEAD Request with Body Content.|
 |920180|POST request missing Content-Length Header.|
 |920190|Range = Invalid Last Byte Value.|
@@ -1074,8 +1092,8 @@ The following rule groups and rules are available when using Web Application Fir
 |920390|Total arguments size exceeded|
 |920400|Uploaded file size too large|
 |920410|Total uploaded files size too large|
-|920420|Request content type is not allowed by policy|
-|920430|HTTP protocol version is not allowed by policy|
+|920420|Request content type isn't allowed by policy|
+|920430|HTTP protocol version isn't allowed by policy|
 |920440|URL file extension is restricted by policy|
 |920450|HTTP header is restricted by policy (%@{MATCHED_VAR})|
 |920200|Range = Too many fields (6 or more)|
@@ -1230,7 +1248,7 @@ The following rule groups and rules are available when using Web Application Fir
 |960912|Failed to parse request body.|
 |960914|Multipart request body failed strict validation|
 |960915|Multipart parser detected a possible unmatched boundary.|
-|960016|Content-Length HTTP header is not numeric.|
+|960016|Content-Length HTTP header isn't numeric.|
 |960011|GET or HEAD Request with Body Content.|
 |960012|POST request missing Content-Length Header.|
 |960902|Invalid Use of Identity Encoding.|
@@ -1275,9 +1293,9 @@ The following rule groups and rules are available when using Web Application Fir
 
 |RuleId|Description|
 |---|---|
-|960032|Method is not allowed by policy|
-|960010|Request content type is not allowed by policy|
-|960034|HTTP protocol version is not allowed by policy|
+|960032|Method isn't allowed by policy|
+|960010|Request content type isn't allowed by policy|
+|960034|HTTP protocol version isn't allowed by policy|
 |960035|URL file extension is restricted by policy|
 |960038|HTTP header is restricted by policy|
 
@@ -1475,18 +1493,18 @@ The following rule groups and rules are available when using Web Application Fir
 |950921|Backdoor access|
 |950922|Backdoor access|
 
-# [Bot rules](#tab/bot)
+# [Bot Manager 1.0](#tab/bot)
 
-## <a name="bot"></a> Bot Manager rule sets
+## <a name="bot"></a> 1.0 rule sets
 
 ### <a name="bot100"></a> Bad bots
 |RuleId|Description|
 |---|---|
 |Bot100100|Malicious bots detected by threat intelligence|
 |Bot100200|Malicious bots that have falsified their identity|
-
- Bot100100 scans both client IP addresses and the IPs in the X-Forwarded-For header.
  
+ Bot100100 scans both client IP addresses and IPs in the `X-Forwarded-For` header.
+
 ### <a name="bot200"></a> Good bots
 |RuleId|Description|
 |---|---|
@@ -1498,13 +1516,50 @@ The following rule groups and rules are available when using Web Application Fir
 |---|---|
 |Bot300100|Unspecified identity|
 |Bot300200|Tools and frameworks for web crawling and attacks|
-|Bot300300|General purpose HTTP clients and SDKs|
+|Bot300300|General-purpose HTTP clients and SDKs|
 |Bot300400|Service agents|
 |Bot300500|Site health monitoring services|
 |Bot300600|Unknown bots detected by threat intelligence|
 |Bot300700|Other bots|
 
-  Bot300600 scans both client IP addresses and the IPs in the X-Forwarded-For header.
+Bot300600 scans both client IP addresses and IPs in the `X-Forwarded-For` header.
+
+# [Bot Manager 1.1](#tab/bot11)
+
+## <a name="bot11"></a> 1.1 rule sets
+
+### <a name="bot11-100"></a> Bad bots
+|RuleId|Description|
+|---|---|
+|Bot100100|Malicious bots detected by threat intelligence|
+|Bot100200|Malicious bots that have falsified their identity|
+|Bot100300|High risk bots detected by threat intelligence|
+ 
+ Bot100100 scans both client IP addresses and IPs in the `X-Forwarded-For` header.
+
+### <a name="bot11-200"></a> Good bots
+|RuleId|Description|
+|---|---|
+|Bot200100|Search engine crawlers|
+|Bot200200|Verified miscellaneous bots|
+|Bot200300|Verified link checker bots|
+|Bot200400|Verified social media bots|
+|Bot200500|Verified content fetchers|
+|Bot200600|Verified feed fetchers|
+|Bot200700|Verified advertising bots|
+
+### <a name="bot11-300"></a> Unknown bots
+|RuleId|Description|
+|---|---|
+|Bot300100|Unspecified identity|
+|Bot300200|Tools and frameworks for web crawling and attacks|
+|Bot300300|General-purpose HTTP clients and SDKs|
+|Bot300400|Service agents|
+|Bot300500|Site health monitoring services|
+|Bot300600|Unknown bots detected by threat intelligence. This rule also includes IP addresses matched to the Tor network.|
+|Bot300700|Other bots|
+
+Bot300600 scans both client IP addresses and IPs in the `X-Forwarded-For` header.
 
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Azure API Management soft-delete (preview) | Microsoft Docs
 description: Soft-delete allows you to recover a recently deleted API Management instance.
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: conceptual
 author: dlepow
 ms.author: danlep
@@ -9,6 +9,8 @@ ms.date: 02/07/2022
 ---
 
 # API Management soft-delete (preview)
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 With API Management soft-delete, you can recover and restore a recently deleted API Management instance. This feature protects against accidental deletion of your API Management instance.
 

@@ -3,7 +3,7 @@ title: "Deploy a Hugo site to Azure Static Web Apps"
 description: Learn how to deploy a Hugo application to Azure Static Web Apps.
 services: static-web-apps
 author: aaronpowell
-ms.service: static-web-apps
+ms.service: azure-static-web-apps
 ms.topic: tutorial
 ms.date: 01/10/2024
 ms.author: aapowell
@@ -21,7 +21,7 @@ In this tutorial, you learn how to:
 > - Setup an Azure Static Web Apps
 > - Deploy the Hugo app to Azure
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
@@ -176,7 +176,7 @@ jobs:
 
 #### Use the Git Info feature in your Hugo application
 
-If your Hugo application uses the [Git Info feature](https://gohugo.io/variables/git/), the default [workflow file](./build-configuration.md) created for the Static Web App uses the [checkout GitHub Action](https://github.com/actions/checkout) to fetch a _shallow_ version of your Git repository, with a default depth of **1**. In this scenario, Hugo sees all your content files as coming from a _single commit_, so they have the same author, last modification timestamp, and other `.GitInfo` variables.
+If your Hugo application uses the [Git Info feature](https://gohugo.io/methods/page/gitinfo/#prerequisites), the default [workflow file](./build-configuration.md) created for the Static Web App uses the [checkout GitHub Action](https://github.com/actions/checkout) to fetch a _shallow_ version of your Git repository, with a default depth of **1**. In this scenario, Hugo sees all your content files as coming from a _single commit_, so they have the same author, last modification timestamp, and other `.GitInfo` variables.
 
 Update your workflow file to [fetch your full Git history](https://github.com/actions/checkout/blob/main/README.md#fetch-all-history-for-all-tags-and-branches) by adding a new parameter under the `actions/checkout` step to set the `fetch-depth` to `0` (no limit):
 

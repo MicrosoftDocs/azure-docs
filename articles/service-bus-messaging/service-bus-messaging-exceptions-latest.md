@@ -3,7 +3,7 @@ title: Azure Service Bus - messaging exceptions | Microsoft Docs
 description: This article provides a list of Azure Service Bus messaging exceptions and suggested actions to taken when the exception occurs.
 ms.topic: article
 ms.custom: devx-track-dotnet
-ms.date: 02/17/2023
+ms.date: 12/19/2024
 ---
 
 # Service Bus messaging exceptions (.NET)
@@ -200,6 +200,47 @@ We recommend that you follow these verification steps, depending on the type of 
 - [Verify the SAS token was generated correctly](service-bus-sas.md)
 - [Verify the correct role-based access control (RBAC) roles were granted](service-bus-managed-service-identity.md)
 
+## Geo-Replication exceptions
+
+### ServerBusyException
+
+#### Causes 
+
+- During asynchronous replication (replication lag greater than zero), the client tries to perform an operation on a service bus entity (queue, topic) or performs a management operation, but the operation can't be completed because the replication lag between the primary and the secondary regions has exceeded the maximum allowed replication lag in seconds. 
+    - **Example**: The operation is being throttled because with it the new replication lag would reach 38,323 seconds, which is greater than the maximum replication lag that was set (300 seconds). The current replication lag for the latest operation being replicated is 0 seconds. 
+- The replication queue for an entity exceeds its maximum size in bytes. The maximum size in bytes for a replication queue is an internal limit set by Service Bus. 
+    - **Example**: Replication queue size 73128000 exceeded threshold 67108864.  
+- In synchronous replication, a request times out while waiting for another request to replicate. 
+    - **Example**: High volume of requests from client application for skarri-storage-exp1(westus3)/q1:MessagingJournal. Replication to other regions is in progress.  
+
+#### Resolution 
+
+- The client should back off to give time for the service to process its given workload, then the client should retry.
+
+### Timeout
+
+#### Cause 
+
+- A timeout exception in Geo DR means that the operation didn't complete within the client-provided timeout. 
+    - In synchronous replication, an operation’s primary region write and replication to secondary regions are within the scope of the operation’s timeout. 
+    - In asynchronous replication, an operation’s primary region write is within the scope of the operation’s timeout, but an operation’s replication to secondary regions isn't within the scope of the operation’s timeout. 
+    - **Example**: The operation didn't complete within the allocated time 00:01:00 for object message. (ServiceTimeout). 
+
+#### Resolution
+
+- The client should retry the operation. 
+- Some steps of a timed-out operation might have been completed. It’s possible that a timed-out operation might have been written to the primary region and some secondary regions. If an operation has been written to the primary region, it will eventually be replicated to all secondary regions regardless of client timeout. 
+
+### BadRequest 
+
+#### Cause
+
+- During a planned failover, the primary region is temporarily set as read-only in order to allow the secondary region to catch up. If the client attempts a write operation to the primary region while it is in this temporary read-only state, then the client receives a BadRequest exception. 
+    - **Example**: Replication role switch in progress, primary replica:&lt;entity-name&gt; is ReadOnly.
+
+#### Resolution
+- The client must wait for planned failover to complete before write operations succeed. 
+- In case planned failover takes too long, it's possible to trigger a forced failover instead. 
 
 ## Next steps
 

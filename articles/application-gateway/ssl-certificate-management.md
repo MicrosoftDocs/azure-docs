@@ -3,9 +3,9 @@ title: Listener TLS certificate management in Application Gateway
 description: Understand listener certificate management through portal. 
 services: application-gateway
 author: jaesoni
-ms.service: application-gateway
-ms.topic: conceptual
-ms.date: 03/01/2023
+ms.service: azure-application-gateway
+ms.topic: concept-article
+ms.date: 03/19/2024
 ms.author: jaysoni
 ---
 
@@ -17,20 +17,17 @@ Listener TLS/SSL certificates in Application Gateway are used for terminating cl
 
 The TLS/SSL certificates on application gateway are stored in local certificate objects or containers. This certificate container’s reference is then supplied to listeners to support TLS connections for clients. Refer to this illustration for better understanding.  
 
-![Diagram that shows how certficates are linked to a listener.](media/ssl-certificate-management/cert-reference.png)
+![Diagram that shows how certificates are linked to a listener.](media/ssl-certificate-management/cert-reference.png)
 
 Here is a sample application gateway configuration. The SSLCertificates property includes certificate object “contoso-agw-cert" linked to a key vault. The “listener1” references that certificate object.
 
-## Understanding the portal section (Preview)
-
-> [!IMPORTANT]
-> The **TLS certificate for Listeners** (TLS termination/End-to-end TLS) is a **Generally available** feature. Only its Portal management experience ([released in March 2023](https://azure.microsoft.com/updates/public-preview-listener-tls-certificates-management-available-in-the-azure-portal/)) is referred to as Preview.
+## Understanding the portal section
 
 ### Listener SSL certificates 
 
 This section allows you to list all the SSL certificate objects that are present on your application gateway. This view is equivalent of running PowerShell command `Get-AzApplicationGatewaySslCertificate -ApplicationGateway $AppGW` or CLI command `az network application-gateway ssl-cert list --gateway-name --resource-group`. 
 
-![Diagram illustrates listener certficate management via portal.](media/ssl-certificate-management/listener-cert-list-view.png)
+![Diagram illustrates listener certificate management via portal.](media/ssl-certificate-management/listener-cert-list-view.png)
 
 This page gives you a quick summary of all the certificates, their types and association with listeners. 
 
@@ -69,6 +66,14 @@ There are two primary scenarios when deleting a certificate from portal:
 | Port | The port associated with the listener gets updated to reflect the new state. | 
 | Frontend IP | The frontend IP of the gateway gets updated to reflect the new state. | 
 
+### Deletion of a listener with an SSL certificate
+
+When a listener with an associated SSL certificate is deleted, the SSL certificate itself is not deleted. The certificate will remain in the application gateway configuration and can be assigned to another listener. 
+
+### Deletion of a key vault certificate
+
+When deleting a certificate from key vault that is associated to an application gateway, the certificate must be deleted first on application gateway, then on key vault. 
+
 ### Bulk update
 The bulk operation feature is helpful for large gateways having multiple SSL certificates for separate listeners. Similar to individual certificate management, this option also allows you to change the type from "Uploaded" to "Key Vault" or vice-versa (if required). This utility is also helpful in recovering a gateway when facing misconfigurations for multiple certificate objects simultaneously.
 
@@ -87,7 +92,9 @@ To use the Bulk update option,
 1. You can't delete a certificate object if its associated listener is a redirection target for another listener. Any attempt to do so will return the following error. You can either remove the redirection or delete the dependent listener first to resolve this problem. 
 `The listener associated with this certificate is configured as the redirection target for another listener. You will need to either remove this redirection or delete the redirected listener first to allow deletion of this certificate.`
 
-1. The Application Gateway requires at least one active Listener and Rule combination. You thus cannot delete the certificate of a HTTPS listener, if no other active listener exists. This is also true if there are only HTTPS listeners on your gateway, and all of them are referencing the same certificate. Such operations are prevented because deletion of a certificate leads to deletion of all dependent sub resources. 
+1. The Application Gateway requires at least one active Listener and Rule combination. You thus cannot delete the certificate of an HTTPS listener, if no other active listener exists. This is also true if there are only HTTPS listeners on your gateway, and all of them are referencing the same certificate. Such operations are prevented because deletion of a certificate leads to deletion of all dependent sub resources. 
+
+1. If a certificate is deleted in key vault but the reference to the certificate in Application Gateway is not deleted, any update to the Application Gateway will cause it to appear in a failed state. To fix this, you must delete all the certificates without an associated listener one by one.
 
 
 ## Next steps

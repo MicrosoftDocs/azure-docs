@@ -3,75 +3,73 @@ title: URL Rewrite for Azure Application Gateway for Containers - Gateway API
 description: Learn how to rewrite URLs in Gateway API for Application Gateway for Containers.
 services: application gateway
 author: greg-lindsay
-ms.service: application-gateway
-ms.subservice: appgw-for-containers
-ms.topic: conceptual
-ms.date: 11/07/2023
+ms.service: azure-appgw-for-containers
+ms.topic: how-to
+ms.date: 11/5/2024
 ms.author: greglin
 ---
 
-# URL Rewrite for Azure Application Gateway for Containers - Gateway API (preview)
+# URL Rewrite for Azure Application Gateway for Containers - Gateway API
 
 Application Gateway for Containers allows you to rewrite the URL of a client request, including the requests' hostname and/or path.  When Application Gateway for Containers initiates the request to the backend target, the request contains the newly rewritten URL to initiate the request.
 
-
 ## Usage details
 
-URL Rewrites take advantage of [filters](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1beta1.HTTPURLRewriteFilter) as defined by Kubernetes Gateway API.
+URL Rewrites take advantage of [filters](https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io/v1.HTTPURLRewriteFilter) as defined by Kubernetes Gateway API.
 
 ## Background
+
 URL rewrite enables you to translate an incoming request to a different URL when initiated to a backend target.
 
 The following figure illustrates an example of a request destined for _contoso.com/shop_ being rewritten to _contoso.com/ecommerce_. The request is initiated to the backend target by Application Gateway for Containers:
 
-[ ![A diagram showing the Application Gateway for Containers rewriting a URL to the backend.](./media/how-to-url-rewrite-gateway-api/url-rewrite.png) ](./media/how-to-url-rewrite-gateway-api/url-rewrite.png#lightbox)
-
+[![A diagram showing the Application Gateway for Containers rewriting a URL to the backend.](./media/how-to-url-rewrite-gateway-api/url-rewrite.png)](./media/how-to-url-rewrite-gateway-api/url-rewrite.png#lightbox)
 
 ## Prerequisites
 
-> [!IMPORTANT]
-> Application Gateway for Containers is currently in PREVIEW.<br>
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+1. If following the BYO deployment strategy, ensure you set up your Application Gateway for Containers resources and [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md).
+2. If following the ALB managed deployment strategy, ensure you provision your [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md) and provision the Application Gateway for Containers resources via the  [ApplicationLoadBalancer custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
+3. Deploy sample HTTP application:
 
-1. If following the BYO deployment strategy, ensure you have set up your Application Gateway for Containers resources and [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md)
-2. If following the ALB managed deployment strategy, ensure you have provisioned your [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md) and provisioned the Application Gateway for Containers resources via the  [ApplicationLoadBalancer custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
-3. Deploy sample HTTP application
-  Apply the following deployment.yaml file on your cluster to create a sample web application to demonstrate path, query, and header based routing.  
-  ```bash
-  kubectl apply -f https://trafficcontrollerdocs.blob.core.windows.net/examples/traffic-split-scenario/deployment.yaml
-  ```
+   Apply the following deployment.yaml file on your cluster to create a sample web application to demonstrate traffic splitting / weighted round robin support.
+
+    ```bash
+    kubectl apply -f https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/refs/heads/main/articles/application-gateway/for-containers/examples/traffic-split-scenario/deployment.yaml
+    ```
   
-  This command creates the following on your cluster:
-  - a namespace called `test-infra`
-  - two services called `backend-v1` and `backend-v2` in the `test-infra` namespace
-  - two deployments called `backend-v1` and `backend-v2` in the `test-infra` namespace
+   This command creates the following on your cluster:
+
+   - A namespace called `test-infra`
+   - Two services called `backend-v1` and `backend-v2` in the `test-infra` namespace
+   - Two deployments called `backend-v1` and `backend-v2` in the `test-infra` namespace
 
 ## Deploy the required Gateway API resources
 
 # [ALB managed deployment](#tab/alb-managed)
 
 1. Create a Gateway
-```bash
-kubectl apply -f - <<EOF
-apiVersion: gateway.networking.k8s.io/v1beta1
-kind: Gateway
-metadata:
-  name: gateway-01
-  namespace: test-infra
-  annotations:
-    alb.networking.azure.io/alb-namespace: alb-test-infra
-    alb.networking.azure.io/alb-name: alb-test
-spec:
-  gatewayClassName: azure-alb-external
-  listeners:
-  - name: http-listener
-    port: 80
-    protocol: HTTP
-    allowedRoutes:
-      namespaces:
-        from: Same
-EOF
-```
+
+    ```bash
+    kubectl apply -f - <<EOF
+    apiVersion: gateway.networking.k8s.io/v1
+    kind: Gateway
+    metadata:
+      name: gateway-01
+      namespace: test-infra
+      annotations:
+        alb.networking.azure.io/alb-namespace: alb-test-infra
+        alb.networking.azure.io/alb-name: alb-test
+    spec:
+      gatewayClassName: azure-alb-external
+      listeners:
+      - name: http-listener
+        port: 80
+        protocol: HTTP
+        allowedRoutes:
+          namespaces:
+            from: Same
+    EOF
+    ```
 
 [!INCLUDE [application-gateway-for-containers-frontend-naming](../../../includes/application-gateway-for-containers-frontend-naming.md)]
 
@@ -79,51 +77,54 @@ EOF
 
 1. Set the following environment variables
 
-```bash
-RESOURCE_GROUP='<resource group name of the Application Gateway For Containers resource>'
-RESOURCE_NAME='alb-test'
+    ```bash
+    RESOURCE_GROUP='<resource group name of the Application Gateway For Containers resource>'
+    RESOURCE_NAME='alb-test'
 
-RESOURCE_ID=$(az network alb show --resource-group $RESOURCE_GROUP --name $RESOURCE_NAME --query id -o tsv)
-FRONTEND_NAME='frontend'
-```
+    RESOURCE_ID=$(az network alb show --resource-group $RESOURCE_GROUP --name $RESOURCE_NAME --query id -o tsv)
+    FRONTEND_NAME='frontend'
+    ```
 
 2. Create a Gateway
-```bash
-kubectl apply -f - <<EOF
-apiVersion: gateway.networking.k8s.io/v1beta1
-kind: Gateway
-metadata:
-  name: gateway-01
-  namespace: test-infra
-  annotations:
-    alb.networking.azure.io/alb-id: $RESOURCE_ID
-spec:
-  gatewayClassName: azure-alb-external
-  listeners:
-  - name: http-listener
-    port: 80
-    protocol: HTTP
-    allowedRoutes:
-      namespaces:
-        from: Same
-  addresses:
-  - type: alb.networking.azure.io/alb-frontend
-    value: $FRONTEND_NAME
-EOF
-```
+
+    ```bash
+    kubectl apply -f - <<EOF
+    apiVersion: gateway.networking.k8s.io/v1
+    kind: Gateway
+    metadata:
+      name: gateway-01
+      namespace: test-infra
+      annotations:
+        alb.networking.azure.io/alb-id: $RESOURCE_ID
+    spec:
+      gatewayClassName: azure-alb-external
+      listeners:
+      - name: http-listener
+        port: 80
+        protocol: HTTP
+        allowedRoutes:
+          namespaces:
+            from: Same
+      addresses:
+      - type: alb.networking.azure.io/alb-frontend
+        value: $FRONTEND_NAME
+    EOF
+    ```
 
 ---
 
 Once the gateway resource is created, ensure the status is valid, the listener is _Programmed_, and an address is assigned to the gateway.
+
 ```bash
 kubectl get gateway gateway-01 -n test-infra -o yaml
 ```
 
 Example output of successful gateway creation.
+
 ```yaml
 status:
   addresses:
-  - type: IPAddress
+  - type: Hostname
     value: xxxx.yyyy.alb.azure.com
   conditions:
   - lastTransitionTime: "2023-06-19T21:04:55Z"
@@ -169,7 +170,7 @@ Once the gateway is created, create an HTTPRoute resource for `contoso.com`.  Th
 
 ```bash
 kubectl apply -f - <<EOF
-apiVersion: gateway.networking.k8s.io/v1beta1
+apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
   name: rewrite-example
@@ -200,6 +201,7 @@ EOF
 ```
 
 When the HTTPRoute resource is created, ensure the HTTPRoute resource shows _Accepted_ and the Application Gateway for Containers resource is _Programmed_.
+
 ```bash
 kubectl get httproute rewrite-example -n test-infra -o yaml
 ```
@@ -252,6 +254,7 @@ curl -k --resolve contoso.com:80:$fqdnIp http://contoso.com/shop
 ```
 
 Via the response we should see:
+
 ```json
 {
  "path": "/ecommerce",
@@ -290,6 +293,7 @@ curl -k --resolve contoso.com:80:$fqdnIp http://contoso.com
 ```
 
 Via the response we should see:
+
 ```json
 {
  "path": "/",
@@ -320,4 +324,4 @@ Via the response we should see:
 }
 ```
 
-Congratulations, you have installed ALB Controller, deployed a backend application and used filtering to rewrite the client requested URL, prior to traffic being set to the target on Application Gateway for Containers.
+Congratulations, you have installed ALB Controller and deployed a backend application that includes filtering to rewrite the client requested URL. The target on Application Gateway for Containers is ready to receive traffic.

@@ -58,7 +58,7 @@ More details on eligible subscription types are as follows:
 |United Kingdom|
 |United States|
 
-
+[!INCLUDE [Azure Prepayment](../../includes/azure-prepayment.md)]
 
 ## Find information about other countries/regions
 

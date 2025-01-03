@@ -2,11 +2,10 @@
 title: Enable replication of encrypted Azure VMs in Azure Site Recovery
 description: This article describes how to configure replication for VMs with customer-managed key (CMK) enabled disks from one Azure region to another by using Site Recovery.
 author: ankitaduttaMSFT
-manager: rochakm
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 10/09/2023
+ms.date: 12/23/2024
 ms.author: ankitadutta
 ---
 
@@ -16,6 +15,9 @@ This article describes how to replicate Azure VMs with Customer-Managed Keys (CM
 
 ## Prerequisite
 You must create the Disk Encryption set(s) in the target region for the target subscription before enabling replication for your virtual machines that have CMK-enabled managed disks.
+
+> [!NOTE]
+> Azure Site Recovery doesn't support rotating the key for an encrypted virtual machine while it is protected. If you rotate the keys, you must disable and re-enable the replication.
 
 ## Enable replication
 
@@ -65,7 +67,7 @@ As an example, the primary Azure region is East Asia, and the secondary region i
          :::image type="Storage" source="./media/azure-to-azure-how-to-enable-replication-cmk-disks/storage.png" alt-text="Screenshot of Storage."::: 
   
        - **Replica-managed disk**: Site Recovery creates new replica-managed disks in the target region to mirror the source VM's managed disks with the same storage type (Standard or premium) as the source VM's managed disk.
-       - **Cache storage**: Site Recovery needs extra storage account called cache storage in the source region. All the changes happening on the source VMs are tracked and sent to cache storage account before replicating them to the target location. This storage account should be Standard. 
+       - **Cache storage**: Site Recovery needs extra storage account called cache storage in the source region. All the changes happening on the source VMs are tracked and sent to cache storage account before replicating them to the target location. 
          
     1. **Availability options**: Select appropriate availability option for your VM in the target region. If an availability set that was created by Site Recovery already exists, it's reused. Select **View/edit availability options** to view or edit the availability options.
         >[!NOTE]
@@ -74,7 +76,7 @@ As an example, the primary Azure region is East Asia, and the secondary region i
 
          :::image type="Availability option" source="./media/azure-to-azure-how-to-enable-replication-cmk-disks/availability-option.png" alt-text="Screenshot of availability option."::: 
    
-    1. **Capacity reservation**: Capacity Reservation lets you purchase capacity in the recovery region, and then failover to that capacity. You can either create a new Capacity Reservation Group or use an existing one. For more information, see [how capacity reservation works](../virtual-machines/capacity-reservation-overview.md).
+    1. **Capacity reservation**: Capacity Reservation lets you purchase capacity in the recovery region, and then failover to that capacity. You can either create a new Capacity Reservation Group or use an existing one. For more information, see [how capacity reservation works](/azure/virtual-machines/capacity-reservation-overview).
     Select **View or Edit Capacity Reservation group assignment** to modify the capacity reservation settings. On triggering Failover, the new VM will be created in the assigned Capacity Reservation Group.
     
          :::image type="Capacity reservation" source="./media/azure-to-azure-how-to-enable-replication-cmk-disks/capacity-reservation.png" alt-text="Screenshot of capacity reservation.":::
@@ -169,3 +171,7 @@ As an example, the primary Azure region is East Asia, and the secondary region i
 * **I have enabled both platform and customer managed keys, how can I protect my disks?**
 
     Enabling double encryption with both platform and customer managed keys is supported by Site Recovery. Follow the instructions in this article to protect your machine. You need to create a double encryption enabled DES in the target region in advance. At the time of enabling the replication for such a VM, you can provide this DES to Site Recovery.
+
+## Next steps
+
+- [Learn more](site-recovery-test-failover-to-azure.md) about running a test failover.

@@ -4,8 +4,8 @@ description: This article tells how to use Azure Update Manager using REST API w
 ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 09/18/2023
-ms.topic: conceptual
+ms.date: 10/17/2024
+ms.topic: how-to
 ---
 
 # How to programmatically manage updates for Azure Arc-enabled servers
@@ -69,9 +69,10 @@ The following table describes the elements of the request body:
 | `maximumDuration` | Maximum amount of time in minutes the OS update operation can take. It must be an ISO 8601-compliant duration string such as `PT100M`. |
 | `rebootSetting` | Flag to state if you should reboot the machine and if the Guest OS update installation needs it for completion. Acceptable values are: `IfRequired, NeverReboot, AlwaysReboot`. |
 | `windowsParameters` | Parameter options for Guest OS update on machine running a supported Microsoft Windows Server operating system. |
-| `windowsParameters - classificationsToInclude` | List of categories or classifications of OS updates to apply, as supported and provided by Windows Server OS. Acceptable values are: `Critical, Security, UpdateRollUp, FeaturePack, ServicePack, Definition, Tools, Update` |
+| `windowsParameters - classificationsToInclude` | List of categories or classifications of OS updates to apply, as supported and provided by Windows Server OS. Acceptable values are: `Critical, Security, UpdateRollup, FeaturePack, ServicePack, Definition, Tools, Update` |
 | `windowsParameters - kbNumbersToInclude` | List of Windows Update KB IDs that are available to the machine and that you need install. If you've included any 'classificationsToInclude', the KBs available in the category are installed. 'kbNumbersToInclude' is an option to provide list of specific KB IDs over and above that you want to get installed. For example: `1234`  |
 | `windowsParameters - kbNumbersToExclude` | List of Windows Update KB Ids that are available to the machine and that should **not** be installed. If you've included any 'classificationsToInclude', the KBs available in the category will be installed. 'kbNumbersToExclude' is an option to provide list of specific KB IDs that you want to ensure don't get installed. For example: `5678`  |
+| `maxPatchPublishDate` | This is used to install patches that were published on or before this given max published date.| 
 | `linuxParameters` | Parameter options for Guest OS update when machine is running supported Linux distribution |
 | `linuxParameters - classificationsToInclude` | List of categories or classifications of OS updates to apply, as supported & provided by Linux OS's package manager used. Acceptable values are: `Critical, Security, Others`. For more information, see [Linux package manager and OS support](./support-matrix.md#supported-operating-systems). |
 | `linuxParameters - packageNameMasksToInclude` | List of Linux packages that are available to the machine and need to be installed. If you've included any 'classificationsToInclude', the packages available in the category will be installed. 'packageNameMasksToInclude' is an option to provide list of packages over and above that you want to get installed. For example: `mysql, libc=1.0.1.1, kernel*` |
@@ -206,7 +207,7 @@ The following table describes the elements of the request body:
 To specify the POST request, you can use the following Azure REST API call with valid parameters and values. 
 
 ```rest
-PUT on '/subscriptions/0f55bb56-6089-4c7e-9306-41fb78fc5844/resourceGroups/atscalepatching/providers/Microsoft.Maintenance/maintenanceConfigurations/TestAzureInGuestAdv2?api-version=2021-09-01-preview
+PUT on '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/atscalepatching/providers/Microsoft.Maintenance/maintenanceConfigurations/TestAzureInGuestAdv2?api-version=2021-09-01-preview
 
 {
   "location": "eastus2euap",
@@ -299,11 +300,11 @@ PUT on `<ARC or Azure VM resourceId>/providers/Microsoft.Maintenance/configurati
 To specify the PUT request, you can use the following Azure REST API call with valid parameters and values. 
 
 ```rest
-PUT on '/subscriptions/0f55bb56-6089-4c7e-9306-41fb78fc5844/resourceGroups/atscalepatching/providers/Microsoft.Compute/virtualMachines/win-atscalepatching-1/providers/Microsoft.Maintenance/configurationAssignments/TestAzureInGuestAdv?api-version=2021-09-01-preview
+PUT on '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/atscalepatching/providers/Microsoft.Compute/virtualMachines/win-atscalepatching-1/providers/Microsoft.Maintenance/configurationAssignments/TestAzureInGuestAdv?api-version=2021-09-01-preview
 
 {
   "properties": {
-    "maintenanceConfigurationId": "/subscriptions/0f55bb56-6089-4c7e-9306-41fb78fc5844/resourcegroups/atscalepatching/providers/Microsoft.Maintenance/maintenanceConfigurations/TestAzureInGuestIntermediate2"
+    "maintenanceConfigurationId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/atscalepatching/providers/Microsoft.Maintenance/maintenanceConfigurations/TestAzureInGuestIntermediate2"
   },
   "location": "eastus2euap"
 }'

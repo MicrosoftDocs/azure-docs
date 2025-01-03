@@ -4,14 +4,15 @@ description: In this tutorial, learn how to add and connect to shares on your Az
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: tutorial
-ms.date: 01/04/2021
+ms.date: 02/27/2024
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to add and connect to shares on Azure Stack Edge Pro FPGA so I can use it to transfer data to Azure.
 ---
 # Tutorial: Transfer data with Azure Stack Edge Pro FPGA
+
+[!INCLUDE [Azure Stack Edge Pro FPGA end-of-life](../../includes/azure-stack-edge-fpga-eol.md)]
 
 This tutorial describes how to add and connect to shares on your Azure Stack Edge Pro FPGA device. After you've added the shares, Azure Stack Edge Pro FPGA can transfer data to Azure.
 

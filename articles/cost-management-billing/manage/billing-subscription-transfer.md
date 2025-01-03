@@ -4,13 +4,11 @@ description: Describes how to transfer billing ownership of an MOSP Azure subscr
 keywords: transfer azure subscription, azure transfer subscription, move azure subscription to another account,azure change subscription owner, transfer azure subscription to another account, azure transfer billing
 author: bandersmsft
 ms.reviewer: sgautam
-tags: billing,top-support-issue
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 06/06/2023
+ms.date: 09/11/2024
 ms.author: banders
-ms.custom: contperf-fy21q1
 ---
 
 # Transfer billing ownership of an MOSP Azure subscription to another account
@@ -21,9 +19,9 @@ Before you transfer billing ownership for a subscription, read [Azure subscripti
 
 If you want to keep your billing ownership but change subscription type, see [Switch your Azure subscription to another offer](switch-azure-offer.md). To control who can access resources in the subscription, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
 
-If you're an Enterprise Agreement (EA) customer, your enterprise administrator can transfer billing ownership of your subscriptions between accounts. For more information, [Change Azure subscription or account ownership](ea-portal-administration.md#change-azure-subscription-or-account-ownership).
+If you're an Enterprise Agreement (EA) customer, your enterprise administrator can transfer billing ownership of your subscriptions between accounts.
 
-Only the billing administrator of an account can transfer ownership of a subscription.
+Only the account administrator of an account can transfer ownership of a subscription.
 
 When you send or accept a transfer request, you agree to terms and conditions. For more information, see [Transfer terms and conditions](subscription-transfer.md#transfer-terms-and-conditions).
 
@@ -40,14 +38,14 @@ When you send or accept a transfer request, you agree to terms and conditions. F
    :::image type="content" source="./media/billing-subscription-transfer/transfer-billing-ownership-page.png" alt-text="Screenshot showing the Transfer billing ownership page." lightbox="./media/billing-subscription-transfer/transfer-billing-ownership-page.png" :::
 1. If you're transferring your subscription to an account in another Microsoft Entra tenant, select **Move subscription tenant** to move the subscription to the new account's tenant. For more information, see [Transferring subscription to an account in another Microsoft Entra tenant](#transfer-a-subscription-to-another-azure-ad-tenant-account).
     > [!IMPORTANT]
-    > If you choose to move the subscription to the new account's Microsoft Entra tenant, all [Azure role assignments](../../role-based-access-control/role-assignments-portal.md) to access resources in the subscription are permanently removed. Only the user in the new account who accepts your transfer request will have access to manage resources in the subscription. Alternatively, you can clear the **Move subscription tenant** option to transfer billing ownership without moving the subscription to the new account's tenant. If you do so, existing Azure role assignments to access Azure resources will be maintained.  
+    > If you choose to move the subscription to the new account's Microsoft Entra tenant, all [Azure role assignments](../../role-based-access-control/role-assignments-portal.yml) to access resources in the subscription are permanently removed. Only the user in the new account who accepts your transfer request will have access to manage resources in the subscription. Alternatively, you can clear the **Move subscription tenant** option to transfer billing ownership without moving the subscription to the new account's tenant. If you do so, existing Azure role assignments to access Azure resources will be maintained.  
 1. Select **Send transfer request**.
 1. The user gets an email with instructions to review your transfer request.  
-   ![Subscription transfer email sent to the recipient](./media/billing-subscription-transfer/billing-receiver-email.png)
+   :::image type="content" border="true" source="./media/billing-subscription-transfer/billing-receiver-email.png" alt-text="Screenshot showing a subscription transfer email that was sent to the recipient.":::
 1. To approve the transfer request, the user selects the link in the email and follows the instructions. The user then selects a payment method that is used to pay for the subscription. If the user doesn't have an Azure account, they have to sign up for a new account.  
-   ![First subscription transfer web page](./media/billing-subscription-transfer/billing-accept-ownership-step1.png)
-   ![Second subscription transfer web page](./media/billing-subscription-transfer/billing-accept-ownership-step2.png)
-   ![Third subscription transfer web page](./media/billing-subscription-transfer/billing-accept-ownership-step3.png)
+   :::image type="content" border="true" source="./media/billing-subscription-transfer/billing-accept-ownership-step1.png" alt-text="Screenshot showing the first subscription transfer web page.":::
+   :::image type="content" border="true" source="./media/billing-subscription-transfer/billing-accept-ownership-step2.png" alt-text="Screenshot showing the second subscription transfer web page.":::
+   :::image type="content" border="true" source="./media/billing-subscription-transfer/billing-accept-ownership-step3.png" alt-text="Screenshot showing the third subscription transfer web page.":::
 1. Success! The subscription is now transferred.
 
 <a name='transfer-a-subscription-to-another-azure-ad-tenant-account'></a>
@@ -58,7 +56,7 @@ A Microsoft Entra tenant is created for you when you sign up for Azure. The tena
 
 When you create a new subscription, it's hosted in your account's Microsoft Entra tenant. If you want to give others access to your subscription or its resources, you need to invite them to join your tenant. Doing so helps you control access to your subscriptions and resources.
 
-When you transfer billing ownership of your subscription to an account in another Microsoft Entra tenant, you can move the subscription to the new account's tenant. If you do so, all users, groups, or service principals that had [Azure role assignments](../../role-based-access-control/role-assignments-portal.md) to manage subscriptions and its resources lose their access. Only the user in the new account who accepts your transfer request has access to manage the resources. The new owner must manually add these users to the subscription to provide access to the user who lost it. For more information, see [Transfer an Azure subscription to a different Microsoft Entra directory](../../role-based-access-control/transfer-subscription.md).
+When you transfer billing ownership of your subscription to an account in another Microsoft Entra tenant, you can move the subscription to the new account's tenant. If you do so, all users, groups, or service principals that had [Azure role assignments](../../role-based-access-control/role-assignments-portal.yml) to manage subscriptions and its resources lose their access. Only the user in the new account who accepts your transfer request has access to manage the resources. The new owner must manually add these users to the subscription to provide access to the user who lost it. For more information, see [Transfer an Azure subscription to a different Microsoft Entra directory](../../role-based-access-control/transfer-subscription.md).
 
 ## Transfer Visual Studio and Partner Network subscriptions
 
@@ -68,7 +66,7 @@ Visual Studio and Microsoft Cloud Partner Program subscriptions have monthly rec
 
 If you've accepted the billing ownership of an Azure subscription, we recommend you review these next steps:
 
-1. Review and update the Service Admin, Co-Admins, and Azure role assignments. To learn more, see [Add or change Azure subscription administrators](add-change-subscription-administrator.md) and [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+1. Review and update Azure role assignments. To learn more, see [Add or change Azure subscription administrators](add-change-subscription-administrator.md) and [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
 1. Update credentials associated with this subscription's services including:
    1. Management certificates that grant the user admin rights to subscription resources. For more information, see [Create and upload a management certificate for Azure](../../cloud-services/cloud-services-certs-create.md)
    1. Access keys for services like Storage. For more information, see [About Azure storage accounts](../../storage/common/storage-account-create.md)
@@ -85,28 +83,11 @@ To cancel a transfer request:
 1. Navigate to **Subscriptions** > Select the subscription that you sent a transfer request for, then select **Transfer billing ownership**.
 1. At the bottom of the page, select **Cancel the transfer request**.
 
-:::image type="content" source="./media/billing-subscription-transfer/transfer-billing-owership-cancel-request.png" alt-text="Example showing the Transfer billing ownership window with the Cancel the transfer request option" lightbox="./media/billing-subscription-transfer/transfer-billing-owership-cancel-request.png" :::
+:::image type="content" source="./media/billing-subscription-transfer/transfer-billing-owership-cancel-request.png" alt-text="Screenshot showing the Transfer billing ownership window with the Cancel the transfer request option." lightbox="./media/billing-subscription-transfer/transfer-billing-owership-cancel-request.png" :::
 
 ## Troubleshooting
 
 Use the following troubleshooting information if you're having trouble transferring subscriptions.
-
-### Original Azure subscription billing owner leaves your organization
-
-> [!Note]
-> This section specifically applies to a billing account for a Microsoft Customer Agreement. Check if you have access to a [Microsoft Customer Agreement](mca-request-billing-ownership.md#check-for-access).
-
-It's possible that the original billing account owner who created an Azure account and an Azure subscription leaves your organization. If that situation happens, then their user identity is no longer in the organization's Microsoft Entra ID. Then the Azure subscription doesn't have a billing owner. This situation prevents anyone from performing billing operations to the account, including viewing and paying bills. The subscription could go into a past-due state. Eventually, the subscription could get disabled because of nonpayment. Ultimately, the subscription could get deleted, affecting every service that runs on the subscription.
-
-When a subscription no longer has a valid billing account owner, Azure sends an email to other Billing account owners, Service Administrators (if any), Co-Administrators (if any), and Subscription Owners informing them of the situation and provides them with a link to accept billing ownership of the subscription. Any one of the users can select the link to accept billing ownership. For more information about billing roles, see [Billing Roles](understand-mca-roles.md) and [Azure roles, Microsoft Entra roles, and classic subscription administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md).
-
-Here's an example of what the email looks like.
-
-:::image type="content" source="./media/billing-subscription-transfer/orphaned-subscription-email.png" alt-text="Screenshot showing an example email to accept billing ownership." lightbox="./media/billing-subscription-transfer/orphaned-subscription-email.png" :::
-
-Additionally, Azure shows a banner in the subscription's details window in the Azure portal to Billing owners, Service Administrators, Co-Administrators, and Subscription Owners. Select the link in the banner to accept billing ownership.
-
-:::image type="content" source="./media/billing-subscription-transfer/orphaned-subscription-example.png" alt-text="Screenshot showing an example of a subscription without a valid billing owner." lightbox="./media/billing-subscription-transfer/orphaned-subscription-example.png" :::
 
 ### The "Transfer subscription" option is unavailable
 
@@ -120,11 +101,11 @@ Not all types of subscriptions support billing ownership transfer. You can trans
 
 | Offer Name (subscription type) | Microsoft Offer ID |
 |---|---|
-| [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) | MS-AZR-0003P |
+| [Pay-as-you-go](https://azure.microsoft.com/offers/ms-azr-0003p/) | MS-AZR-0003P |
 | [Visual Studio Enterprise subscribers](https://azure.microsoft.com/offers/ms-azr-0063p/)¹ | MS-AZR-0063P |
 | [Visual Studio Professional subscribers](https://azure.microsoft.com/offers/ms-azr-0059p/)¹ | MS-AZR-0059P |
 | [Action Pack](https://azure.microsoft.com/offers/ms-azr-0025p/)¹ | MS-AZR-0025P¹ |
-| [Pay-As-You-Go Dev/Test](https://azure.microsoft.com/offers/ms-azr-0023p/) | MS-AZR-0023P |
+| [Pay-as-you-go Dev/Test](https://azure.microsoft.com/offers/ms-azr-0023p/) | MS-AZR-0023P |
 | [MSDN Platforms subscribers](https://azure.microsoft.com/offers/ms-azr-0062p/)¹ | MS-AZR-0062P |
 | [Visual Studio Test Professional subscribers](https://azure.microsoft.com/offers/ms-azr-0060p/)¹ | MS-AZR-0060P |
 | [Azure Plan](https://azure.microsoft.com/offers/ms-azr-0017g/)² | MS-AZR-0017G |
@@ -143,4 +124,4 @@ If you have questions or need help,  [create a support request](https://go.micro
 
 ## Next steps
 
-- Review and update the Service Admin, Co-Admins, and Azure role assignments. To learn more, see [Add or change Azure subscription administrators](add-change-subscription-administrator.md) and [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+- Review and update Azure role assignments. To learn more, see [Add or change Azure subscription administrators](add-change-subscription-administrator.md) and [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).

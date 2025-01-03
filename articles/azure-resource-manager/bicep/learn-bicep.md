@@ -3,8 +3,9 @@ title: Learn modules for Bicep
 description: Provides an overview of the Learn modules for Bicep.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 09/05/2022
+ms.date: 03/20/2024
 ---
+
 # Learn modules for Bicep
 
 Ready to see how Bicep can help simplify and accelerate your deployments to Azure? Check out the many hands-on courses.
@@ -56,6 +57,18 @@ After that, you might be interested in adding your Bicep code to a deployment pi
   [<img src="media/learn-bicep/bicep-github-actions.svg" width="101" height="120" alt="The trophy for the Deploy Azure resources using Bicep and GitHub Actions learning path." role="presentation"></img>](/training/paths/bicep-github-actions/)
 
   [Option 2: Deploy Azure resources by using Bicep and GitHub Actions](/training/paths/bicep-github-actions/)
+:::column-end:::
+:::row-end:::
+
+## Use deployment stacks
+
+Learn how to manage resource lifecycles with deployment stacks.
+
+:::row:::
+:::column:::
+  [<img src="media/learn-bicep/manage-resource-lifecycles-deployment-stacks.svg" width="101" height="120" alt="The trophy for the Manage resource lifecycles with deployment stacks." role="presentation"></img>](/training/modules/manage-resource-lifecycles-deployment-stacks/)
+    
+  [Manage resource lifecycles with deployment stacks](/training/modules/manage-resource-lifecycles-deployment-stacks)
 :::column-end:::
 :::row-end:::
 

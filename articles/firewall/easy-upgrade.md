@@ -3,8 +3,8 @@ title: Azure Firewall easy upgrade/downgrade
 description: Learn about Azure Firewall easy upgrade/downgrade
 services: firewall
 author: vhorne
-ms.service: firewall
-ms.topic: conceptual
+ms.service: azure-firewall
+ms.topic: concept-article
 ms.date: 04/06/2023
 ms.author: victorh
 ---

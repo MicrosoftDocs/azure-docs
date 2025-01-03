@@ -3,8 +3,7 @@ title: include file
 description: include file
 services: site-recovery
 author: ankitaduttaMSFT
-manager: carmonm
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: include
 ms.date: 09/12/2018
 ms.author: ankitadutta

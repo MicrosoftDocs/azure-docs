@@ -4,11 +4,10 @@ description: Learn about performance scale out capabilities for dedicated SQL po
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.date: 11/12/2019
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
 ms.custom:
-  - seo-lt-2019
   - azure-synapse
 ---
 

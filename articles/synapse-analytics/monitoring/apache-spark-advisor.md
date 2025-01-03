@@ -1,11 +1,11 @@
 ---
 title: Apache Spark Advisor in Azure Synapse Analytics
 description: Spark Advisor is a system to automatically analyze commands/queries, and show the appropriate advice when a customer executes code or query.
-services: synapse-analytics 
+ 
 author: jejiang
 ms.author: jejiang
-ms.reviewer: sngun 
-ms.service: synapse-analytics
+ms.reviewer: whhender 
+ms.service: azure-synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 06/23/2022

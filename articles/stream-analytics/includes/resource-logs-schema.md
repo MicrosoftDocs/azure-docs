@@ -1,11 +1,10 @@
 ---
-title: include file
-description: include file
-services: event-hubs
+title: Azure Event Grid resource logs schema
+description: This article provides schema information for resources logs in Azure Event Grid. 
 author: spelluru
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: include
-ms.date: 07/10/2023
+ms.date: 03/20/2024
 ms.author: spelluru
 ms.custom: "include file"
 
@@ -17,7 +16,7 @@ All logs are stored in JSON format. Each entry has the following common string f
 Name | Description
 ------- | -------
 time | Timestamp (in UTC) of the log.
-resourceId | ID of the resource that the operation took place on, in upper case. It includes the subscription ID, the resource group, and the job name. For example, **/SUBSCRIPTIONS/6503D296-DAC1-4449-9B03-609A1F4A1C87/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT.STREAMANALYTICS/STREAMINGJOBS/MYSTREAMINGJOB**.
+resourceId | ID of the resource that the operation took place on, in upper case. It includes the subscription ID, the resource group, and the job name. For example, **/SUBSCRIPTIONS/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT.STREAMANALYTICS/STREAMINGJOBS/MYSTREAMINGJOB**.
 category | Log category, either **Execution** or **Authoring**.
 operationName | Name of the operation that is logged. For example, **Send Events: SQL Output write failure to mysqloutput**.
 status | Status of the operation. For example, **Failed** or **Succeeded**.
@@ -28,7 +27,7 @@ properties | Log entry-specific detail, serialized as a JSON string. For more in
 
 Execution logs have information about events that happened during Stream Analytics job execution. The schema of properties varies depending on whether the event is a data error or a generic event.
 
-### Data errors
+#### Data errors
 
 Any error that occurs while the job is processing data is in this category of logs. These logs most often are created during data read, serialization, and write operations. These logs don't include connectivity errors. Connectivity errors are treated as generic events. You can learn more about the cause of various different [input and output data errors](../data-errors.md).
 
@@ -49,7 +48,7 @@ Depending on the **operationName** value, data errors have the following schema:
 
 * **Send events** occur during write operations. They identify the streaming event that caused the error.
 
-### Generic events
+#### Generic events
 
 Generic events cover everything else.
 
@@ -60,8 +59,4 @@ Message| Log message.
 Type | Type of message. Maps to internal categorization of errors. For example, **JobValidationError** or **BlobOutputAdapterInitializationFailure**.
 Correlation ID | GUID that uniquely identifies the job execution. All execution log entries from the time the job starts until the job stops have the same **Correlation ID** value.
 
-For reference, see a list of [all resource logs category types supported in Azure Monitor](/azure/azure-monitor/platform/resource-logs-schema). Select the link in the following table to see all the resource log category types collected for Azure Stream Analytics.  
-
-|Resource Log Type | Resource Provider / Type Namespace<br/> and link to individual metrics |
-|-------|-----|
-| Stream Analytics streaming jobs | [Microsoft.StreamAnalytics/streamingjobs](/azure/azure-monitor/platform/resource-logs-categories#microsoftstreamanalyticsstreamingjobs) |
+For reference, see a list of [all resource logs category types supported in Azure Monitor](/azure/azure-monitor/platform/resource-logs-schema) or [all the resource log category types collected for Azure Stream Analytics](../monitor-azure-stream-analytics-reference.md#resource-logs).

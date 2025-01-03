@@ -4,7 +4,6 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Start an interactive debug session when building data flows with Azure Data Factory or Synapse Analytics.
 ms.author: makromer
 author: kromerm
-ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
@@ -79,6 +78,9 @@ You can sort columns in data preview and rearrange columns using drag and drop. 
 When running in Debug Mode in Data Flow, your data won't be written to the Sink transform. A Debug session is intended to serve as a test harness for your transformations. Sinks aren't required during debug and are ignored in your data flow. If you wish to test writing the data in your Sink, execute the Data Flow from a pipeline and use the Debug execution from a pipeline.
 
 Data Preview is a snapshot of your transformed data using row limits and data sampling from data frames in Spark memory. Therefore, the sink drivers aren't utilized or tested in this scenario.
+
+> [!NOTE]
+> Data Preview displays time as per the browser's locale setting.
 
 ### Testing join conditions
 

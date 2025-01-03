@@ -6,10 +6,10 @@ summary: The Azure private multi-access edge compute (MEC) solution enables oper
 metadata:
   title: Azure private multi-access edge compute documentation
   description:  The Azure private multi-access edge compute (MEC) solution enables operators and system integrators to deliver high performance, low-latency connectivity, and IoT applications at the enterprise edge.
-  ms.service: private-multi-access-edge-compute-mec
+  ms.service: azure-private-multiaccess-edge-compute
   ms.topic: landing-page
-  author: kumud
-  ms.author: KumudD
+  author: KumudD
+  ms.author: kumud
   ms.date: 06/15/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -42,18 +42,6 @@ landingContent:
         links:
           - text: Deploy a private mobile network
             url: ../private-5g-core/how-to-guide-deploy-a-private-mobile-network-azure-portal.md
-
-  # Card
-  - title: About Affirmed Private Network Service on Azure
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: What is Affirmed Private Network Service on Azure?
-            url: affirmed-private-network-service-overview.md
-      - linkListType: how-to-guide
-        links:
-          - text: Deploy Affirmed Private Network Service on Azure
-            url: deploy-affirmed-private-network-service-solution.md
 
   # Card
   - title: About Azure Network Function Manager

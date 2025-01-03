@@ -2,8 +2,9 @@
 title: Use PowerShell to back up Windows Server to Azure
 description: In this article, learn how to use PowerShell to set up Azure Backup on Windows Server or a Windows client, and manage backup and recovery.
 ms.topic: how-to
-ms.date: 08/29/2021 
-ms.custom: devx-track-azurepowershell, has-azure-ad-ps-ref
+ms.date: 12/10/2024
+ms.service: azure-backup
+ms.custom: devx-track-azurepowershell, has-azure-ad-ps-ref, engagement-fy24
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -14,7 +15,7 @@ This article shows you how to use PowerShell to set up Azure Backup on Windows S
 
 ## Install Azure PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 To get started, [install the latest PowerShell release](/powershell/azure/install-azure-powershell).
 
@@ -114,7 +115,7 @@ The available options include:
 | /q |Quiet installation |- |
 | /p:"location" |Path to the installation folder for the Azure Backup agent. |C:\Program Files\Microsoft Azure Recovery Services Agent |
 | /s:"location" |Path to the cache folder for the Azure Backup agent. |C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch |
-| /m |Opt-in to Microsoft Update |- |
+| /m |Opt in to Microsoft Update |- |
 | /nu |Don't Check for updates after installation is complete |- |
 | /d |Uninstalls Microsoft Azure Recovery Services Agent |- |
 | /ph |Proxy Host Address |- |
@@ -139,10 +140,10 @@ $CredsFilename = Get-AzRecoveryServicesVaultSettingsFile -Backup -Vault $Vault1 
 In the latest Az module of PowerShell, because of underlying platform limitations, downloading the vault credentials requires a self-signed certificate. The following example shows how to provide a self-signed certificate and download the vault credentials.
 
 ```powershell
-$dt = $(Get-Date).ToString("M-d-yyyy")
+
 $cert = New-SelfSignedCertificate -CertStoreLocation Cert:\CurrentUser\My -FriendlyName 'test-vaultcredentials' -subject "Windows Azure Tools" -KeyExportPolicy Exportable -NotAfter $(Get-Date).AddHours(48) -NotBefore $(Get-Date).AddHours(-24) -KeyProtection None -KeyUsage None -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.2") -Provider "Microsoft Enhanced Cryptographic Provider v1.0"
-$certficate = [convert]::ToBase64String($cert.Export([System.Security.Cryptography.X509Certificates.X509ContentType]::Pfx))
-$CredsFilename = Get-AzRecoveryServicesVaultSettingsFile -Backup -Vault $Vault -Path $CredsPath -Certificate $certficate
+$certificate = [convert]::ToBase64String($cert.Export([System.Security.Cryptography.X509Certificates.X509ContentType]::Pfx))
+$CredsFilename = Get-AzRecoveryServicesVaultSettingsFile -Backup -Vault $Vault -Path $CredsPath -Certificate $certificate
 ```
 
 On the Windows Server or Windows client machine, run the [Start-OBRegistration](/powershell/module/msonlinebackup/start-obregistration) cmdlet to register the machine with the vault.
@@ -168,7 +169,7 @@ Start-OBRegistration -VaultCredentials $CredsFilename.FilePath -Confirm:$false
 
 ```output
 CertThumbprint      : 7a2ef2caa2e74b6ed1222a5e89288ddad438df2
-SubscriptionID      : ef4ab577-c2c0-43e4-af80-af49f485f3d1
+SubscriptionID      : aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e
 ServiceResourceName : testvault
 Region              : WestUS
 Machine registration succeeded.
@@ -242,7 +243,7 @@ At this time, the policy is empty and other cmdlets are needed to define what it
 
 ### Configuring the backup schedule
 
-The first of the three parts of a policy is the backup schedule, which is created using the [New-OBSchedule](/powershell/module/msonlinebackup/new-obschedule) cmdlet. The backup schedule defines when backups need to be taken. When creating a schedule, you need to specify two input parameters:
+The first of the three parts of a policy are the backup schedule, which is created using the [New-OBSchedule](/powershell/module/msonlinebackup/new-obschedule) cmdlet. The backup schedule defines when backups need to be taken. When creating a schedule, you need to specify two input parameters:
 
 * **Days of the week** that the backup should run. You can run the backup job on just one day, or every day of the week, or any combination in between.
 * **Times of the day** when the backup should run. You can define up to three different times of the day when the backup will be triggered.

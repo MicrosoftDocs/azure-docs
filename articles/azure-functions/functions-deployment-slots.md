@@ -2,11 +2,22 @@
 title: Azure Functions deployment slots
 description: Learn to create and use deployment slots with Azure Functions
 ms.topic: conceptual
-ms.date: 03/02/2022
+ms.date: 02/27/2024
 ---
 # Azure Functions deployment slots
 
-Azure Functions deployment slots allow your function app to run different instances called _slots_. Slots are different environments exposed via a publicly available endpoint. One app instance is always mapped to the production slot, and you can swap instances assigned to a slot on demand. Function apps running in a [Consumption plan](./consumption-plan.md) have a single extra slot for staging. You can obtain more staging slots by running your app in a [Premium plan](./functions-premium-plan.md) or [Dedicated (App Service) plan](./dedicated-plan.md). For more information, see [Service limits](./functions-scale.md#service-limits). 
+Azure Functions deployment slots allow your function app to run different instances called _slots_. Slots are different environments exposed via a publicly available endpoint. One app instance is always mapped to the production slot, and you can swap instances assigned to a slot on demand. 
+
+The number of available slots depends on your specific hosting option:
+
+| Hosting option | Slots (including production) |
+| ---- | ---- | 
+| [Consumption plan](consumption-plan.md) | 2 |
+| [Flex Consumption plan](flex-consumption-plan.md) | Not currently supported |
+| [Premium plan](functions-premium-plan.md) | 3 |
+| [Dedicated (App Service) plan](dedicated-plan.md) | [1-20](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits) |
+| [Container Apps](functions-container-apps-hosting.md) | Uses [Revisions](../container-apps/revisions.md) |
+  
 
 The following reflect how functions are affected by swapping slots:
 
@@ -20,7 +31,7 @@ There are many advantages to using deployment slots, including:
 - **Different environments for different purposes**: Using different slots gives you the opportunity to differentiate app instances before swapping to production or a staging slot.
 - **Prewarming**: Deploying to a slot instead of directly to production allows the app to warm up before going live. Additionally, using slots reduces latency for HTTP-triggered workloads. Instances are warmed up before deployment, which reduces the cold start for newly deployed functions.
 - **Easy fallbacks**: After a swap with production, the slot with a previously staged app now has the previous production app. If the changes swapped into the production slot aren't as you expect, you can immediately reverse the swap to get your "last known good instance" back.
-- **Minimize restarts**: Changing app settings in a production slot requires a restart of the running app. You can instead change settings in a staging slot and swap the settings change into production with a prewarmed instance. Slots are the recommended way to upgrade between Functions runtime versions while maintaining the highest availability. To learn more, see [Minimum downtime upgrade](migrate-version-3-version-4.md#minimum-downtime-upgrade). 
+- **Minimize restarts**: Changing app settings in a production slot requires a restart of the running app. You can instead change settings in a staging slot and swap the settings change into production with a prewarmed instance. Slots are the recommended way to migrate between Functions runtime versions while maintaining the highest availability. To learn more, see [Minimum downtime update](migrate-version-3-version-4.md#minimum-downtime-update). 
 
 ## Swap operations
 
@@ -44,6 +55,8 @@ Keep in mind the following points:
 - To swap a staging slot with the production slot, make sure that the production slot is *always* the target slot. This way, the swap operation doesn't affect your production app.
 
 - Settings related to event sources and bindings must be configured as [deployment slot settings](#manage-settings) *before you start a swap*. Marking them as "sticky" ahead of time ensures events and outputs are directed to the proper instance.
+
+- When you create a new staging slot, all existing settings from the production slot are created in the new slot, regardless of the *stickiness* of the setting.    
 
 ## Manage settings
 
@@ -263,6 +276,7 @@ Azure Functions deployment slots have the following considerations:
 - The number of slots available to an app depends on the plan. The Consumption plan is only allowed one deployment slot. More slots are available for apps running under other plans. For details, see [Service limits](functions-scale.md#service-limits).
 - Swapping a slot resets keys for apps that have an `AzureWebJobsSecretStorageType` app setting equal to `files`.
 - When slots are enabled, your function app is set to read-only mode in the portal.
+- Slot swaps might fail when your function app is using a [secured storage account](configure-networking-how-to.md) as its default storage account (set in `AzureWebJobsStorage`). For more information, see the [`WEBSITE_OVERRIDE_STICKY_DIAGNOSTICS_SETTINGS`](functions-app-settings.md#website_override_sticky_diagnostics_settings) reference.
 - Use function app names shorter than 32 characters. Names longer than 32 characters are at risk of causing [host ID collisions](storage-considerations.md#host-id-considerations).
 
 ## Next steps

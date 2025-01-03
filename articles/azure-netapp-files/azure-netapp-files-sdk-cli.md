@@ -2,15 +2,8 @@
 title: Azure NetApp Files SDKs and CLI tools  | Microsoft Docs
 description: "Learn about supported SDKs for Azure NetApp Files and their published locations in GitHub, and about supported command-line tools: Azure CLI and PowerShell."
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.custom: devx-track-arm-template, devx-track-azurecli
 ms.topic: conceptual
 ms.date: 09/30/2022

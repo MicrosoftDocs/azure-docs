@@ -2,7 +2,7 @@
 title: Unregister a VMM server script
 description: This article describes the cleanup script on the VMM server
 manager: evansma
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2021
 ms.author: ankitadutta
@@ -481,7 +481,7 @@ try
                     $cmd = New-Object System.Data.SqlClient.SqlCommand($sql,$conn)
                     $cmd.Transaction = $transaction
                     $cmd.ExecuteNonQuery() | Out-Null
-                    # Done removing stale enteries
+                    # Done removing stale entries
 
                     # Cloud publish settings and registration details are cleaned up even if there are no paired clouds.
                     if($SCVMM2012R2Detected)
@@ -627,7 +627,7 @@ try
                     else
                     {
                         $transaction.Rollback()
-                        Write-Error "Error occured"
+                        Write-Error "Error occurred"
                         $error[0]
                         ""
                         Write-Error "FAILED"

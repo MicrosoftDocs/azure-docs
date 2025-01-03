@@ -3,15 +3,13 @@ title: 'SAP on Azure: What SAP software is supported on Azure'
 description: Explains what SAP software is supported to be deployed on Azure
 author: msjuergent
 manager: bburns
-tags: azure-resource-manager
 ms.assetid: d7c59cc1-b2d0-4d90-9126-628f9c7a5538
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.workload: infrastructure-services
 ms.date: 02/02/2022
 ms.author: juergent
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017, linux-related-content
 ---
 
 # What SAP software is supported for Azure deployments
@@ -84,12 +82,12 @@ Support of non-HANA databases for SAP workload is documented in [SAP support not
 In Azure there are two services, which can be used to run HANA database:
 
 - Azure Virtual Machines
-- [HANA Large Instances](../../virtual-machines/workloads/sap/hana-overview-architecture.md)
+- [HANA Large Instances](/azure/virtual-machines/workloads/sap/hana-overview-architecture)
 
 For running SAP HANA, SAP has more and stronger conditions infrastructure needs to meet than for running NetWeaver or other SAP applications and DBMS. As a result a smaller number of Azure VMs qualify for running the SAP HANA DBMS. The list of supported Azure infrastructure supported for SAP HANA can be found in the so called [SAP HANA hardware directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=v:deCertified;ve:24;iaas;v:125;v:105;v:99;v:120). 
 
 > [!NOTE]
-> The units starting with the letter 'S' are [HANA Large Instances](../../virtual-machines/workloads/sap/hana-overview-architecture.md) units. 
+> The units starting with the letter 'S' are [HANA Large Instances](/azure/virtual-machines/workloads/sap/hana-overview-architecture) units. 
 
 > [!NOTE]
 > SAP has no specific certification dependent on the SAP HANA major releases. Contrary to common opinion, the column **Certification scenario** in the [HANA  certified IaaS platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=v:deCertified;ve:24;iaas;v:125;v:105;v:99;v:120), the column makes **no statement about the HANA major or minor release certified**. You need to assume that all the units listed that can be used for HANA 1.0 and HANA 2.0 as long as the certified operating system releases for the specific units are supported by HANA 1.0 releases as well. 

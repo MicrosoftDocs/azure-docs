@@ -3,7 +3,7 @@ title: Quickstart - Create API Management instance - PowerShell
 description: Use this quickstart to create a new Azure API Management instance by using Azure PowerShell cmdlets.
 services: api-management
 author: dlepow
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: quickstart
 ms.custom: mvc, devx-track-azurepowershell, mode-api, devdivchpfy22
 ms.date: 12/12/2023
@@ -12,16 +12,18 @@ ms.author: danlep
 
 # Quickstart: Create a new Azure API Management instance by using PowerShell
 
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-consumption](../../includes/api-management-availability-premium-dev-standard-basic-consumption.md)]
+
 In this quickstart, you create a new API Management instance by using Azure PowerShell cmdlets. After creating an instance, you can use Azure PowerShell cmdlets for common management actions such as importing APIs in your API Management instance.
 
 [!INCLUDE [api-management-quickstart-intro](../../includes/api-management-quickstart-intro.md)]
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 
 ## Prerequisites
 
-[!INCLUDE [azure-powershell-requirements-no-header](../../includes/azure-powershell-requirements-no-header.md)]
+[!INCLUDE [azure-powershell-requirements-no-header](~/reusable-content/ce-skilling/azure/includes/azure-powershell-requirements-no-header.md)]
 
 ## Create resource group
 

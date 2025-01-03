@@ -5,11 +5,13 @@ description: Learn how to automatically migrate self-hosted developer portal con
 author: dlepow
 ms.author: danlep
 ms.date: 04/15/2021
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
 ---
 
 # Automate developer portal deployments
+
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2.md)]
 
 The API Management developer portal supports programmatic access to content. It allows you to import data to or export from an API Management service through the [content management REST API](/rest/api/apimanagement/). The REST API access works for both managed and self-hosted portals.
 

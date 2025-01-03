@@ -1,12 +1,12 @@
 ---
-ms.service: lab-services
+ms.service: azure-lab-services
 ms.date: 01/24/2023
 ms.topic: include
 ---
 
 When no longer needed, you can delete the resource group, lab plan, and all related resources.
 
-1. On the **Overview** page for the lab plan, select the **Resource group** link.
+1. In the Azure portal, on the **Overview** page for the lab plan, select **Resource group**.
 
 1. At the top of the page for the resource group, select **Delete resource group**.
 

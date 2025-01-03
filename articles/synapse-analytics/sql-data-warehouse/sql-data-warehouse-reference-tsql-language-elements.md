@@ -5,11 +5,10 @@ author: mstehrani
 ms.author: emtehran
 ms.reviewer: wiassaf
 ms.date: 06/13/2018
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
 ms.custom:
-  - seo-lt-2019
   - azure-synapse
 ---
 

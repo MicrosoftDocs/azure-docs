@@ -6,14 +6,10 @@ summary: Learn how to use Azure Event Grid to react to relevant events across bo
 metadata:
   title: Azure Event Grid documentation
   description: Learn how to use Azure Event Grid to react to relevant events across both Azure and non-Azure services in near-real time fashion.
-  ms.service: event-grid
-  ms.custom:
-    - build-2023
-    - ignite-2023
   ms.topic: landing-page
   author: spelluru
   ms.author: spelluru
-  ms.date: 11/15/2023
+  ms.date: 12/12/2024
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
 landingContent:
@@ -45,8 +41,10 @@ landingContent:
             url: publish-events-using-namespace-topics.md
       - linkListType: tutorial
         links:
-          - text: Route MQTT messages to Azure Event Hubs
-            url: mqtt-routing-to-event-hubs-portal.md
+          - text: Route MQTT messages to Azure Event Hubs using namespace topics
+            url: mqtt-routing-to-event-hubs-portal-namespace-topics.md
+          - text: Route MQTT messages to Azure Functions using custom topics
+            url: mqtt-routing-to-azure-functions-portal.md
       - linkListType: sample
         links:
           - text: Code samples
@@ -71,13 +69,13 @@ landingContent:
             url: push-delivery-overview.md
           - text: Concepts
             url: concepts.md
-          - text: Custom (topics) events 
+          - text: Custom topic events 
             url: custom-topics.md
-          - text: system (topics) events
+          - text: system topic events
             url: system-topics.md
-          - text: Partner (topics) events for customers
+          - text: Partner topic events for customers
             url: partner-events-overview.md
-          - text: Partner (topics) events for publishers
+          - text: Partner topic events for publishers
             url: partner-events-overview-for-partners.md
       - linkListType: quickstart
         links:

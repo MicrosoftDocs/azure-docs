@@ -1,5 +1,5 @@
 ---
-author: xiaofanzhou
+author: xfz11
 ms.service: service-connector
 ms.topic: include
 ms.date: 11/13/2023
@@ -65,7 +65,7 @@ await connection.OpenAsync();
         pluginName + "&authenticationPlugins=" + pluginName);
     ```
 
-For more information, see [Use Java and JDBC with Azure Database for MySQL - Flexible Server](../../../mysql/flexible-server/connect-java.md?tabs=passwordless).
+For more information, see [Use Java and JDBC with Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/connect-java?tabs=passwordless).
 
 # [Python](#tab/python-mysql-mi)
 

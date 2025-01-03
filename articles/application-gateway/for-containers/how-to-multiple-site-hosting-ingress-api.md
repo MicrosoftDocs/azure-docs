@@ -1,18 +1,18 @@
 --- 
-title: Multi-site hosting with Application Gateway for Containers - Ingress API (preview)
+title: Multi-site hosting with Application Gateway for Containers - Ingress API
 description: Learn how to host multiple sites with Application Gateway for Containers using the Ingress API.
 services: application-gateway
 author: greglin
-ms.service: application-gateway
-ms.subservice: appgw-for-containers
+ms.service: azure-appgw-for-containers
 ms.topic: how-to
-ms.date: 11/07/2023
+ms.date: 11/5/2024
 ms.author: greglin
 ---
 
-# Multi-site hosting with Application Gateway for Containers - Ingress API (preview)
+# Multi-site hosting with Application Gateway for Containers - Ingress API
 
 This document helps you set up an example application that uses the Ingress API to demonstrate hosting multiple sites on the same Kubernetes Ingress resource / Application Gateway for Containers frontend. Steps are provided to:
+
 - Create an [Ingress](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.27/#ingressrule-v1-networking-k8s-io) resource with two hosts.
 
 ## Background
@@ -23,28 +23,27 @@ Application Gateway for Containers enables multi-site hosting by allowing you to
 
 ## Prerequisites
 
-> [!IMPORTANT]
-> Application Gateway for Containers is currently in PREVIEW.<br>
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+1. If you used the BYO deployment strategy, ensure that you set up your Application Gateway for Containers resources and [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md).
+2. If you used the ALB managed deployment strategy, ensure provisioning of your [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md) and the Application Gateway for Containers resources via the [ApplicationLoadBalancer custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
+3. Deploy sample HTTP application:<br>
+   Apply the following deployment.yaml file on your cluster to create a sample web application to demonstrate path, query, and header based routing.
 
-1. If you follow the BYO deployment strategy, ensure that you set up your Application Gateway for Containers resources and [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md)
-2. If you follow the ALB managed deployment strategy, ensure provisioning of your [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md) and the Application Gateway for Containers resources via the [ApplicationLoadBalancer custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
-3. Deploy sample HTTP application
-  Apply the following deployment.yaml file on your cluster to create a sample web application to demonstrate path, query, and header based routing.  
-  ```bash
-  kubectl apply -f https://trafficcontrollerdocs.blob.core.windows.net/examples/traffic-split-scenario/deployment.yaml
-  ```
+   ```bash
+   kubectl apply -f https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/refs/heads/main/articles/application-gateway/for-containers/examples/traffic-split-scenario/deployment.yaml
+   ```
   
-  This command creates the following on your cluster:
-  - a namespace called `test-infra`
-  - two services called `backend-v1` and `backend-v2` in the `test-infra` namespace
-  - two deployments called `backend-v1` and `backend-v2` in the `test-infra` namespace
+   This command creates the following on your cluster:
+
+   - A namespace called `test-infra`
+   - Two services called `backend-v1` and `backend-v2` in the `test-infra` namespace
+   - Two deployments called `backend-v1` and `backend-v2` in the `test-infra` namespace
 
 ## Deploy the required Ingress resource
 
 # [ALB managed deployment](#tab/alb-managed)
 
 1. Create an Ingress
+
 ```bash
 kubectl apply -f - <<EOF
 apiVersion: networking.k8s.io/v1
@@ -81,7 +80,6 @@ spec:
 EOF
 ```
 
-
 # [Bring your own (BYO) deployment](#tab/byo)
 
 1. Set the following environment variables
@@ -95,6 +93,7 @@ FRONTEND_NAME='frontend'
 ```
 
 2. Create an Ingress
+
 ```bash
 kubectl apply -f - <<EOF
 apiVersion: networking.k8s.io/v1
@@ -134,20 +133,22 @@ EOF
 ---
 
 Once the ingress resource is created, ensure the status shows the hostname of your load balancer and that both ports are listening for requests.
+
 ```bash
 kubectl get ingress ingress-01 -n test-infra -o yaml
 ```
 
 Example output of successful Ingress creation.
+
 ```yaml
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   annotations:
     alb.networking.azure.io/alb-frontend: FRONTEND_NAME
-    alb.networking.azure.io/alb-id: /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/yyyyyyyy/providers/Microsoft.ServiceNetworking/trafficControllers/zzzzzz
+    alb.networking.azure.io/alb-id: /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/yyyyyyyy/providers/Microsoft.ServiceNetworking/trafficControllers/zzzzzz
     kubectl.kubernetes.io/last-applied-configuration: |
-      {"apiVersion":"networking.k8s.io/v1","kind":"Ingress","metadata":{"annotations":{"alb.networking.azure.io/alb-frontend":"FRONTEND_NAME","alb.networking.azure.io/alb-id":"/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/yyyyyyyy/providers/Microsoft.ServiceNetworking/trafficControllers/zzzzzz"},"name"
+      {"apiVersion":"networking.k8s.io/v1","kind":"Ingress","metadata":{"annotations":{"alb.networking.azure.io/alb-frontend":"FRONTEND_NAME","alb.networking.azure.io/alb-id":"/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/yyyyyyyy/providers/Microsoft.ServiceNetworking/trafficControllers/zzzzzz"},"name"
 :"ingress-01","namespace":"test-infra"},"spec":{"ingressClassName":"azure-alb-external","rules":[{"host":"example.com","http":{"paths":[{"backend":{"service":{"name":"echo","port":{"number":80}}},"path":"/","pathType":"Prefix"}]}}],"tls":[{"hosts":["example.com"],"secretName":"listener-tls-secret"}]}}
   creationTimestamp: "2023-07-22T18:02:13Z"
   generation: 2
@@ -192,7 +193,7 @@ status:
 Now we're ready to send some traffic to our sample application, via the FQDN assigned to the frontend. Use the following command to get the FQDN.
 
 ```bash
-fqdn=$(kubectl get ingress ingress-01 -n test-infra -o jsonpath='{.status.loadBalancer.ingress[0].hostname}'')
+fqdn=$(kubectl get ingress ingress-01 -n test-infra -o jsonpath='{.status.loadBalancer.ingress[0].hostname}')
 ```
 
 Next, specify the server name indicator using the curl command, `contoso.com` for the frontend FQDN should return a response from the backend-v1 service.
@@ -203,6 +204,7 @@ curl -k --resolve contoso.com:80:$fqdnIp http://contoso.com
 ```
 
 Via the response we should see:
+
 ```json
 {
  "path": "/",
@@ -241,6 +243,7 @@ curl -k --resolve fabrikam.com:80:$fqdnIp http://fabrikam.com
 ```
 
 Via the response we should see:
+
 ```json
 {
  "path": "/",

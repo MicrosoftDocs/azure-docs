@@ -2,20 +2,17 @@
 title: Customize the user interface with HTML templates
 titleSuffix: Azure AD B2C
 description: Learn how to customize the user interface with HTML templates for your applications that use Azure Active Directory B2C.
-
 author: kengaderdus
 manager: CelesteDG
-
-ms.service: active-directory
-
+ms.service: azure-active-directory
 ms.topic: how-to
-ms.date: 01/11/2024
+ms.date: 01/22/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
 
 
-#Customer intent: As a developer customizing the user interface in Azure Active Directory B2C, I want to know how to customize the default pages and host my own HTML and CSS files, so that I can provide a branded and seamless user experience in my application.
+#Customer intent: As a developer integrating apps with Azure Active Directory B2C, I want to learn how to customize the default user interfaces by using my own HTML, CSS files and JavaScript, so that I can provide a branded and seamless user experience in my application.
 
 ---
 
@@ -231,6 +228,9 @@ To host your HTML content in Blob storage, use the following steps:
 
 To create a public container in Blob storage, perform the following steps:
 
+1. Under **Settings** in the leftmost menu, select **Configuration**.
+1. Enable **Allow Blob anonymous access**.
+1. Select **Save**.
 1. Under **Data storage** in the left-hand menu, select **Containers**.
 1. Select **+ Container**.
 1. For **Name**, enter *root*. The name can be a name of your choosing, for example *contoso*, but we use *root* in this example for simplicity.
@@ -267,7 +267,7 @@ Configure Blob storage for Cross-Origin Resource Sharing by performing the follo
 Validate that you're ready by performing the following steps:
 
 1. Repeat the configure CORS step. For **Allowed origins**, enter `https://www.test-cors.org`
-1. Navigate to [www.test-cors.org](https://www.test-cors.org/) 
+1. Navigate to [www.test-cors.org](https://cors-test.codehappy.dev/) 
 1. For the **Remote URL** box, paste the URL of your HTML file. For example, `https://your-account.blob.core.windows.net/root/azure-ad-b2c/unified.html`
 1. Select **Send Request**.
     The result should be `XHR status: 200`. 
@@ -330,6 +330,9 @@ To configure UI customization, copy the **ContentDefinition** and its child elem
 
 1. Save the extensions file.
 
+1. [Enable JavaScript](javascript-and-page-layout.md?pivots=b2c-custom-policy#enable-javascript)
+
+
 ### 5. Upload and test your updated custom policy
 
 #### 5.1 Upload the custom policy
@@ -379,7 +382,7 @@ In your content definition, change the value of `LoadUri` to `https://<app_name>
 When Azure AD B2C loads the page, it makes a call to your web server endpoint:
 
 ```http
-https://<app_name>.azurewebsites.net/home/unified?campaignId=123&lang=fr&appId=f893d6d3-3b6d-480d-a330-1707bf80ebea
+https://<app_name>.azurewebsites.net/home/unified?campaignId=123&lang=fr&appId=00001111-aaaa-2222-bbbb-3333cccc4444
 ```
 
 ### Dynamic page content URI

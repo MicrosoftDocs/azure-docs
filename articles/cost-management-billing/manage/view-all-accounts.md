@@ -3,11 +3,10 @@ title: View your billing accounts in Azure portal
 description: Learn how to view your billing accounts in the Azure portal. See scope information for Enterprise, Microsoft Customer, and Microsoft Partner Agreements.
 author: bandersmsft
 ms.reviewer: amberb
-tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 05/18/2023
+ms.date: 03/21/2024
 ms.author: banders
 ---
 
@@ -17,7 +16,7 @@ A billing account is created when you sign up to use Azure. You use your billing
 
 Azure portal supports the following type of billing accounts:
 
-- **Microsoft Online Services Program**: A billing account for a Microsoft Online Services Program is created when you sign up for Azure through the Azure website. For example, when you sign up for an [Azure Free Account](https://azure.microsoft.com/offers/ms-azr-0044p/), [account with pay-as-you-go rates](https://azure.microsoft.com/offers/ms-azr-0003p/) or as a [Visual studio subscriber](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/). 
+- **Microsoft Online Services Program**: A billing account for a Microsoft Online Services Program is created when you sign up for Azure through the Azure website. For example, when you sign up for an [Azure Free Account](https://azure.microsoft.com/offers/ms-azr-0044p/), [account with pay-as-you-go rates](https://azure.microsoft.com/offers/ms-azr-0003p/) or as a [Visual Studio subscriber](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/). 
     - A new billing account for a Microsoft Online Services Program can have a maximum of 5 subscriptions. However, subscriptions transferred to the new billing account don't count against the limit.
     - The ability to create other Microsoft Online Services Program subscriptions is determined on an individual basis according to your history with Azure.
     - *If you have difficulty finding a new subscription* after you create it, you might need to change the global subscription filter. For more information about changing the global subscription filter, see [Can't view subscription](create-subscription.md#view-all-subscriptions).
@@ -47,7 +46,7 @@ If you don't have access to view or manage billing accounts, you probably don't 
 
 ### Microsoft Online Services Program
 
-![Screenshot that shows MOSP hierarchy](./media/view-all-accounts/mosp-hierarchy.png)
+:::image type="content" border="true" source="./media/view-all-accounts/mosp-hierarchy.png" alt-text="Screenshot that shows a M O S P hierarchy.":::
 
 |Scope  |Definition  |
 |---------|---------|
@@ -56,7 +55,7 @@ If you don't have access to view or manage billing accounts, you probably don't 
 
 ### Enterprise Agreement
 
-![Screenshot that shows EA hierarchy](./media/view-all-accounts/ea-hierarchy.png)
+:::image type="content" border="true" source="./media/view-all-accounts/ea-hierarchy.png" alt-text="Screenshot that shows an E A hierarchy.":::
 
 |Scope  |Definition  |
 |---------|---------|
@@ -66,7 +65,7 @@ If you don't have access to view or manage billing accounts, you probably don't 
 
 ### Microsoft Customer Agreement
 
-![Screenshot that shows MCA hierarchy](./media/view-all-accounts/mca-hierarchy.png)
+:::image type="content" border="true" source="./media/view-all-accounts/mca-hierarchy.png" alt-text="Screenshot that shows an M C A hierarchy.":::
 
 |Scope  |Tasks  |
 |---------|---------|
@@ -76,7 +75,7 @@ If you don't have access to view or manage billing accounts, you probably don't 
 
 ### Microsoft Partner Agreement
 
-![Screenshot that shows MPA hierarchy](./media/view-all-accounts/mpa-hierarchy.png)
+:::image type="content" border="true" source="./media/view-all-accounts/mpa-hierarchy.png" alt-text="Screenshot that shows an M P A hierarchy.":::
 
 |Scope  |Tasks  |
 |---------|---------|
@@ -91,11 +90,11 @@ If you don't have access to view or manage billing accounts, you probably don't 
 
 2. Search for **Cost Management + Billing**.
 
-   ![Screenshot that shows Azure portal search for Cost Management + Billing.](./media/view-all-accounts/billing-search-cost-management-billing.png)
+   :::image type="content" border="true" source="./media/view-all-accounts/billing-search-cost-management-billing.png" alt-text="Screenshot that shows Azure portal search for Cost Management + Billing.":::
 
 3. In the overview page, select **Switch scope**.
 
-   ![Screenshot that shows billing scopes.](./media/view-all-accounts/overview-select-scopes.png)
+   :::image type="content" border="true" source="./media/view-all-accounts/overview-select-scopes.png" alt-text="Screenshot that shows billing scopes.":::
 
    > [!Note]
     >
@@ -103,7 +102,7 @@ If you don't have access to view or manage billing accounts, you probably don't 
 
 4. Select a scope to view details.
 
-   ![Screenshot that shows billing scopes, which you can select for details.](./media/view-all-accounts/list-of-scopes.png)
+   :::image type="content" border="true" source="./media/view-all-accounts/list-of-scopes.png" alt-text="Screenshot that shows billing scopes, which you can select for details.":::
 
 ## Check the type of your account
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-account-type.md)]
@@ -112,5 +111,6 @@ If you don't have access to view or manage billing accounts, you probably don't 
 
 If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
-## Next steps
+## Related content
+
 - Learn how to start [analyzing your costs](../costs/quick-acm-cost-analysis.md).

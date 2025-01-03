@@ -4,23 +4,28 @@ description: This article displays the Microsoft Sentinel entity types and their
 author: yelevin
 ms.author: yelevin
 ms.topic: reference
-ms.date: 10/15/2023
-ms.custom: ignite-fall-2021
+ms.date: 10/16/2024
+
+
+#Customer intent: As a security analyst, I want to understand the entity types and identifiers in Microsoft Sentinel so that I can effectively track and investigate alerts and incidents.
+
 ---
 
 # Microsoft Sentinel entity types reference
 
-This document contains two sets of information regarding entities and entity types in Microsoft Sentinel.
-- The [**Entity types and identifiers**](#entity-types-and-identifiers) table shows the different types of entities that can be used in [entity mapping](map-data-fields-to-entities.md) in both [analytics rules](detect-threats-custom.md) and [hunting](hunting.md). The table also shows, for each entity type, the different identifiers that can be used to identify an entity.
-- The [**Entity schema**](#entity-type-schemas) section shows the data structure and schema for entities in general and for each entity type in particular, including some types that are not represented in the entity mapping feature.
+This document contains two sets of information regarding entities and entity types in Microsoft Sentinel in the Azure portal and [Microsoft Sentinel in the Defender portal](microsoft-sentinel-defender-portal.md).
+- The [**Entity types and identifiers**](#entity-types-and-identifiers) table shows the different types of [entities](entities.md) that can be identified in alerts and incidents, allowing you to [track and investigate them](entity-pages.md). The table also shows, for each entity type, the different identifiers that can be used to identify an entity.
+- The [**Entity schema**](#entity-type-schemas) section shows the data structure and schema for entities in general and for each entity type in particular.
+
+[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
 ## Entity types and identifiers
 
-The following table shows the **entity types** currently available for mapping in Microsoft Sentinel, and the **attributes** available as **identifiers** for each entity type. Nearly all of these attributes appear in the **Identifiers** drop-down list in the [entity mapping](map-data-fields-to-entities.md) section of the [analytics rule wizard](detect-threats-custom.md) (see footnotes for exceptions).
+The following table shows the **entity types** that can be recognized by Microsoft Sentinel, and the **attributes** that can be used as **identifiers** for each entity type.
 
-You can use up to three identifiers for a single entity mapping. **Strong identifiers** alone are sufficient to uniquely identify an entity, whereas **weak identifiers** can do so only in combination with other identifiers.
+Microsoft Sentinel recognizes entities in alerts and incidents that are created by [entity mapping](map-data-fields-to-entities.md) in [analytics rules](threat-detection.md). It also recognizes entities already identified in alerts ingested from other sources.
 
-Learn more about [strong and weak identifiers](entities.md#strong-and-weak-identifiers).
+You can currently use up to three identifiers for a given entity when creating an entity mapping in Microsoft Sentinel. **Strong identifiers** alone are sufficient to uniquely identify an entity, whereas **weak identifiers** can do so only in combination with other identifiers. Learn more about [strong and weak identifiers](entities.md#strong-and-weak-identifiers). Most but not all identifiers in this table can be used when creating entity mappings in Microsoft Sentinel (see footnotes).
 
 | Entity type | Identifiers | Strong identifiers | Weak identifiers |
 | - | - | - | - |
@@ -28,26 +33,27 @@ Learn more about [strong and weak identifiers](entities.md#strong-and-weak-ident
 | [**Host**](#host) | DnsDomain<br>NTDomain<br>HostName<br>*FullName \**<br>NetBiosName<br>AzureID<br>OMSAgentID<br>OSFamily<br>OSVersion<br>IsDomainJoined | HostName+NTDomain<br>HostName+DnsDomain<br>NetBiosName+NTDomain<br>NetBiosName+DnsDomain<br>AzureID<br>OMSAgentID | HostName<br>NetBiosName |
 | [**IP**](#ip) | Address<br>AddressScope | Address [\*\*](#strong-identifiers-of-an-ip-entity)<br>Address+AddressScope [\*\*](#strong-identifiers-of-an-ip-entity) | |
 | [**URL**](#url) | Url | Url *(if absolute URL)* [\*\*](#strong-identifiers-of-a-url-entity) | Url *(if relative URL)* [\*\*](#strong-identifiers-of-a-url-entity) |
-| [**Azure resource**](#azure-resource) | ResourceId | ResourceId | |
+| [**Azure resource**](#azure-resource)<br>*(AzureResource)* | ResourceId | ResourceId | |
 | [**Cloud application**](#cloud-application)<br>*(CloudApplication)* | AppId<br>Name<br>InstanceName | AppId<br>Name<br>AppId+InstanceName<br>Name+InstanceName | |
-| [**DNS Resolution**](#dns-resolution) | DomainName | DomainName+*DnsServerIp*+*HostIpAddress* | DomainName+*HostIpAddress* |
+| [**DNS resolution**](#dns-resolution)<br>*(DNS)* | DomainName | DomainName+*DnsServerIp*+*HostIpAddress* | DomainName+*HostIpAddress* |
 | [**File**](#file) | Directory<br>Name | Directory+Name | |
 | [**File hash**](#file-hash)<br>*(FileHash)* | Algorithm<br>Value | Algorithm+Value | |
 | [**Malware**](#malware) | Name<br>Category | Name+Category | |
 | [**Process**](#process) | ProcessId<br>CommandLine<br>ElevationToken<br>CreationTimeUtc | *Host*+ProcessID+CreationTimeUtc<br>*Host*+*ParentProcessId*+<br>&nbsp;&nbsp;&nbsp;CreationTimeUtc+CommandLine<br>*Host*+ProcessId+<br>&nbsp;&nbsp;&nbsp;CreationTimeUtc+*ImageFile*<br>*Host*+ProcessId+<br>&nbsp;&nbsp;&nbsp;CreationTimeUtc+*ImageFile*+<br>&nbsp;&nbsp;&nbsp;*FileHash* | ProcessId+CreationTimeUtc+<br>&nbsp;&nbsp;&nbsp;CommandLine (no Host)<br>ProcessId+CreationTimeUtc+<br>&nbsp;&nbsp;&nbsp;*ImageFile* (no Host) |
-| [**Registry key**](#registry-key) | Hive<br>Key | Hive+Key | |
-| [**Registry value**](#registry-value) | Name<br>Value<br>ValueType<br> | *Key*+Name | Name (no Key) |
-| [**Security group**](#security-group) | DistinguishedName<br>SID<br>ObjectGuid | DistinguishedName<br>SID<br>ObjectGuid | |
+| [**Registry key**](#registry-key)<br>*(RegistryKey)* | Hive<br>Key | Hive+Key | |
+| [**Registry value**](#registry-value)<br>*(RegistryValue)* | Name<br>Value<br>ValueType<br> | *Key*+Name | Name (no Key) |
+| [**Security group**](#security-group)<br>*(SecurityGroup)* | DistinguishedName<br>SID<br>ObjectGuid | DistinguishedName<br>SID<br>ObjectGuid | |
 | [**Mailbox**](#mailbox) | MailboxPrimaryAddress<br>DisplayName<br>Upn<br>ExternalDirectoryObjectId<br>RiskLevel | MailboxPrimaryAddress | |
-| [**Mail cluster**](#mail-cluster) | NetworkMessageIds<br>CountByDeliveryStatus<br>CountByThreatType<br>CountByProtectionStatus<br>Threats<br>Query<br>QueryTime<br>MailCount<br>IsVolumeAnomaly<br>Source<br>*ClusterSourceIdentifier \**<br>*ClusterSourceType \**<br>*ClusterQueryStartTime \**<br>*ClusterQueryEndTime \**<br>*ClusterGroup \** | Query+Source | |
-| [**Mail message**](#mail-message) | Recipient<br>Urls<br>Threats<br>Sender<br>*P1Sender \**<br>*P1SenderDisplayName \**<br>*P1SenderDomain \**<br>SenderIP<br>*P2Sender \**<br>*P2SenderDisplayName \**<br>*P2SenderDomain \**<br>ReceivedDate<br>NetworkMessageId<br>InternetMessageId<br>Subject<br>*BodyFingerprintBin1 \**<br>*BodyFingerprintBin2 \**<br>*BodyFingerprintBin3 \**<br>*BodyFingerprintBin4 \**<br>*BodyFingerprintBin5 \**<br>AntispamDirection<br>DeliveryAction<br>DeliveryLocation<br>*Language \**<br>*ThreatDetectionMethods \** | NetworkMessageId+Recipient | |
-| [**Submission mail**](#submission-mail) | NetworkMessageId<br>Timestamp<br>Recipient<br>Sender<br>SenderIp<br>Subject<br>ReportType<br>SubmissionId<br>SubmissionDate<br>Submitter | SubmissionId+NetworkMessageId+<br>&nbsp;&nbsp;&nbsp;Recipient+Submitter |  |
+| [**Mail cluster**](#mail-cluster)<br>*(MailCluster)* | NetworkMessageIds<br>CountByDeliveryStatus<br>CountByThreatType<br>CountByProtectionStatus<br>Threats<br>Query<br>QueryTime<br>MailCount<br>IsVolumeAnomaly<br>Source<br>*ClusterSourceIdentifier \**<br>*ClusterSourceType \**<br>*ClusterQueryStartTime \**<br>*ClusterQueryEndTime \**<br>*ClusterGroup \** | Query+Source | |
+| [**Mail message**](#mail-message)<br>*(MailMessage)* | Recipient<br>Urls<br>Threats<br>Sender<br>*P1Sender \**<br>*P1SenderDisplayName \**<br>*P1SenderDomain \**<br>SenderIP<br>*P2Sender \**<br>*P2SenderDisplayName \**<br>*P2SenderDomain \**<br>ReceivedDate<br>NetworkMessageId<br>InternetMessageId<br>Subject<br>*BodyFingerprintBin1 \**<br>*BodyFingerprintBin2 \**<br>*BodyFingerprintBin3 \**<br>*BodyFingerprintBin4 \**<br>*BodyFingerprintBin5 \**<br>AntispamDirection<br>DeliveryAction<br>DeliveryLocation<br>*Language \**<br>*ThreatDetectionMethods \** | NetworkMessageId+Recipient | |
+| [**Submission mail**](#submission-mail)<br>*(SubmissionMail)* | NetworkMessageId<br>Timestamp<br>Recipient<br>Sender<br>SenderIp<br>Subject<br>ReportType<br>SubmissionId<br>SubmissionDate<br>Submitter | SubmissionId+NetworkMessageId+<br>&nbsp;&nbsp;&nbsp;Recipient+Submitter |  |
 | [**Sentinel entities**](#sentinel-entities) | Entities | Entities |  |
 
 **Table footnotes:**
 - \* These identifiers appear in the list of identifiers that can be used in entity mapping, but strictly speaking they are not part of the entity schema.
 - \*\* These identifiers are considered strong only under certain conditions. Follow the asterisks' links to see the conditions that apply, under the relevant entity's listing in the [entity schemas section below](#entity-type-schemas).
 - *Italicized identifier names* (without an asterisk) represent internal entities, which means that one entity type can have other entity types as attributes (see the [entity schemas section below](#entity-type-schemas)). Follow the identifier's link to see the internal entity's own schema.
+- Other entities may be present in the schema, which is a general schema that supports many things besides Microsoft Sentinel. Only those entities available in Microsoft Sentinel are listed in this article.
 
 ## Entity type schemas
 
@@ -80,6 +86,8 @@ The following section contains a more in-depth look at the full schemas of each 
 - [Sentinel entities](#sentinel-entities)
 
 ### Account
+
+*Entity name: Account*
 
 | Field | Type | Description |
 | ----- | ---- | ----------- |
@@ -138,6 +146,8 @@ The following section contains a more in-depth look at the full schemas of each 
 
 ### Host
 
+*Entity name: Host*
+
 | Field | Type | Description |
 | ----- | ---- | ----------- |
 | **Type** | String | 'host' |
@@ -161,7 +171,7 @@ The following section contains a more in-depth look at the full schemas of each 
 - **NetBiosName + DnsDomain**
 - **AzureID**
 - **OMSAgentID**
-- ***IoTDevice***
+- **IoTDevice**
 
 #### Weak identifiers of a host entity
 
@@ -171,6 +181,8 @@ The following section contains a more in-depth look at the full schemas of each 
 [Back to list of entity type schemas](#list-of-entity-type-schemas) | [Back to entity identifiers table](#entity-types-and-identifiers)
 
 ### IP
+
+*Entity name: IP*
 
 | Field | Type | Description |
 | ----- | ---- | ----------- |
@@ -185,11 +197,13 @@ The following section contains a more in-depth look at the full schemas of each 
 - **Address**  
 \*\* Address alone is a unique, strong identifier when the IP address is a global address.
 - **Address + AddressScope**  
-\*\* For private/internal, non-global IP addresses, the AddressScope component is required to make this a strong identifer.
+\*\* For private/internal, non-global IP addresses, the AddressScope component is required to make this a strong identifier.
 
 [Back to list of entity type schemas](#list-of-entity-type-schemas) | [Back to entity identifiers table](#entity-types-and-identifiers)
 
 ### Malware
+
+*Entity name: Malware*
 
 | Field | Type | Description |
 | ----- | ---- | ----------- |
@@ -206,6 +220,8 @@ The following section contains a more in-depth look at the full schemas of each 
 [Back to list of entity type schemas](#list-of-entity-type-schemas) | [Back to entity identifiers table](#entity-types-and-identifiers)
 
 ### File
+
+*Entity name: File*
 
 | Field | Type | Description |
 | ----- | ---- | ----------- |
@@ -229,6 +245,8 @@ The following section contains a more in-depth look at the full schemas of each 
 [Back to list of entity type schemas](#list-of-entity-type-schemas) | [Back to entity identifiers table](#entity-types-and-identifiers)
 
 ### Process
+
+*Entity name: Process*
 
 | Field | Type | Description |
 | ----- | ---- | ----------- |
@@ -306,6 +324,8 @@ The following section contains a more in-depth look at the full schemas of each 
 [Back to list of entity type schemas](#list-of-entity-type-schemas) | [Back to entity identifiers table](#entity-types-and-identifiers)
 
 ### Azure resource
+
+*Entity name: AzureResource*
 
 | Field | Type | Description |
 | ----- | ---- | ----------- |
@@ -398,6 +418,8 @@ The following section contains a more in-depth look at the full schemas of each 
 
 ### URL
 
+*Entity name: Url*
+
 | Field | Type | Description |
 | ----- | ---- | ----------- |
 | Type | String | 'url' |
@@ -459,6 +481,8 @@ The following section contains a more in-depth look at the full schemas of each 
 [Back to list of entity type schemas](#list-of-entity-type-schemas) | [Back to entity identifiers table](#entity-types-and-identifiers)
 
 ### Mailbox
+
+*Entity name: Mailbox*
 
 | Field | Type | Description |
 | ----- | ---- | ----------- |

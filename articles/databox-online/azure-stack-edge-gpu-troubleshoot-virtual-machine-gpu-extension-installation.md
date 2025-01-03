@@ -4,8 +4,8 @@ description: Describes how to troubleshoot GPU extension installation issues for
 services: databox
 author: v-dalc
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
+ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 06/28/2022
 ms.author: alkohli

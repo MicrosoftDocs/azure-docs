@@ -5,15 +5,16 @@ description: Protect a serverless API with OAuth 2.0 by using Azure Active Direc
 services: api-management, azure-ad-b2c, app-service
 author: WillEastbury
 manager: alberts
-ms.service: api-management
-ms.workload: mobile
-ms.topic: article
+ms.service: azure-api-management
+ms.topic: how-to
 ms.date: 02/18/2021
 ms.author: wieastbu
 ms.custom: fasttrack-new, fasttrack-update, devx-track-js
 ---
 
 # Protect serverless APIs with Azure API Management and Azure AD B2C for consumption from a SPA
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 This scenario shows you how to configure your Azure API Management instance to protect an API.
 We'll use the Azure AD B2C SPA (Auth Code + PKCE) flow to acquire a token, alongside API Management to secure an Azure Functions backend using EasyAuth.
@@ -23,7 +24,7 @@ For a conceptual overview of API authorization, see [Authentication and authoriz
 
 ## Aims
 
-We're going to see how API Management can be used in a simplified scenario with Azure Functions and Azure AD B2C. You'll create a JavaScript (JS) app calling an API, that signs in users with Azure AD B2C. Then you'll use API Management's validate-jwt, CORS, and Rate Limit By Key policy features to protect the Backend API.
+We're going to see how API Management can be used in a simplified scenario with Azure Functions and Azure AD B2C. You'll create a JavaScript (JS) app calling an API that signs in users with Azure AD B2C. Then you'll use API Management's validate-jwt, CORS, and Rate Limit By Key policy features to protect the Backend API.
 
 For defense in depth, we then use EasyAuth to validate the token again inside the back-end API and ensure that API management is the only service that can call the Azure Functions backend.
 
@@ -59,13 +60,13 @@ Here's a quick overview of the steps:
 1. Create the sign-up and sign-in policies to allow users to sign in with Azure AD B2C
 1. Configure API Management with the new Azure AD B2C Client IDs and keys to Enable OAuth2 user authorization in the Developer Console
 1. Build the Function API
-1. Configure the Function API to enable EasyAuth with the new Azure AD B2C Client ID’s and Keys and lock down to APIM VIP
+1. Configure the Function API to enable EasyAuth with the new Azure AD B2C Client IDs and Keys and lock down to APIM VIP
 1. Build the API Definition in API Management
-1. Set up Oauth2 for the API Management API configuration
+1. Set up OAuth2 for the API Management API configuration
 1. Set up the **CORS** policy and add the **validate-jwt** policy to validate the OAuth token for every incoming request
 1. Build the calling application to consume the API
 1. Upload the JS SPA Sample
-1. Configure the Sample JS Client App with the new Azure AD B2C Client ID’s and keys
+1. Configure the Sample JS Client App with the new Azure AD B2C Client IDs and keys
 1. Test the Client Application
 
    > [!TIP]
@@ -198,7 +199,7 @@ Open the Azure AD B2C blade in the portal and do the following steps.
    >
    > We still have no IP security applied, if you have a valid key and OAuth2 token, anyone can call this from anywhere - ideally we want to force all requests to come via API Management.
    >
-   > If you're using APIM Consumption tier then [there isn't a dedicated Azure API Management Virtual IP](./api-management-howto-ip-addresses.md#ip-addresses-of-consumption-tier-api-management-service) to allow-list with the functions access-restrictions. In the Azure API Management Standard SKU and above [the VIP is single tenant and for the lifetime of the resource](./api-management-howto-ip-addresses.md#changes-to-the-ip-addresses). For the Azure API Management Consumption tier, you can lock down your API calls via the shared secret function key in the portion of the URI you copied above. Also, for the Consumption tier - steps 12-17 below do not apply.
+   > If you're using the API Management Consumption, Basic v2, Standard v2, and Premium v2 tiers, then [there isn't a dedicated Azure API Management Virtual IP](./api-management-howto-ip-addresses.md#ip-addresses-of-consumption-basic-v2-standard-v2-and-premium-v2-tier-api-management-service) to allow-list with the functions access-restrictions. In the Azure API Management classic (dedicated) tiers [the VIP is single tenant and for the lifetime of the resource](./api-management-howto-ip-addresses.md#changes-to-the-ip-addresses). For the tiers that run on shared infrastructure, you can lock down your API calls via the shared secret function key in the portion of the URI you copied above. Also, for these tiers - steps 12-17 below do not apply.
 
 1. Close the 'Authentication' blade from the App Service / Functions portal.
 1. Open the *API Management blade of the portal*, then open *your instance*.
@@ -220,7 +221,7 @@ You'll need to add CIDR formatted blocks of addresses to the IP restrictions pan
 1. Click Browse, choose the function app you're hosting the API inside, and click select. Next, click select again.
 1. Give the API a name and description for API Management's internal use and add it to the ‘unlimited’ Product.
 1. Copy and record the API's 'base URL' and click 'create'.
-1. Click the 'settings' tab, then under subscription - switch off the 'Subscription Required' checkbox as we'll use the Oauth JWT token in this case to rate limit. Note that if you're using the consumption tier, this would still be required in a production environment.
+1. Click the 'settings' tab, then under subscription - switch off the 'Subscription Required' checkbox as we'll use the OAuth JWT token in this case to rate limit. Note that if you're using the consumption tier, this would still be required in a production environment.
 
    > [!TIP]
    > If using the consumption tier of APIM the unlimited product won't be available as an out of the box. Instead, navigate to "Products" under "APIs" and hit "Add".

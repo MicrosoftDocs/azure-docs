@@ -3,9 +3,7 @@ title: SAP CDC advanced topics
 titleSuffix: Azure Data Factory
 description: Learn about advanced features and best practices for SAP change data capture in Azure Data Factory.
 author: ukchrist
-ms.service: data-factory
 ms.subservice: data-movement
-ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 01/05/2024
 ms.author: ulrichchrist

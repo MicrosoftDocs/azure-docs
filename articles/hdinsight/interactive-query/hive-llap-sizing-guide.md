@@ -1,11 +1,11 @@
 ---
 title: HDInsight Interactive Query Cluster(LLAP) sizing guide
 description: LLAP sizing guide 
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: troubleshooting
 author: reachnijel 
 ms.author: nijelsf
-ms.date: 12/08/2023
+ms.date: 12/02/2024
 ---
 
 # Azure HDInsight Interactive Query Cluster (Hive LLAP) sizing guide
@@ -42,7 +42,7 @@ specific tuning.
 
 ### **LLAP Architecture/Components:**  
 
-:::image type="content" source="./media/hive-llap-sizing-guide/LLAP_architecture_sizing_guide.png " alt-text="`LLAP Architecture/Components`" border="true":::
+:::image type="content" source="./media/hive-llap-sizing-guide/LLAP_architecture_sizing_guide.png " alt-text="`LLAP Architecture/Components`." border="true":::
 
 ### **LLAP Daemon size estimations:** 
 
@@ -63,7 +63,7 @@ For D14 v2 worker nodes, the recommended value is **102400 MB**
 #### **3. Determining maximum amount of `vcores` per YARN container request**  
 Configuration: ***yarn.scheduler.maximum-allocation-vcores***  
 
-This value indicates the maximum number of virtual CPU cores for every container request at the Resource Manager. Requesting a higher number of `vcores` then this value won't take effect. It's a global property of the YARN scheduler. For LLAP daemon container, this value can be set to 75% of total available `vcores`. The remaining 25% should be reserved for NodeManager, DataNode, and other services running on the worker nodes.  
+This value indicates the maximum number of virtual CPU cores for every container request at the Resource Manager. Requesting a higher number of `vcores` than this value won't take effect. It's a global property of the YARN scheduler. For LLAP daemon container, this value can be set to 75% of total available `vcores`. The remaining 25% should be reserved for NodeManager, DataNode, and other services running on the worker nodes.  
 There are `16 vcores` on D14 v2 VMs and 75% of total `16 vcores` can be used by LLAP daemon container.  
 For D14 v2, the recommended value is **12**.  
 
@@ -76,7 +76,7 @@ Default HDInsight cluster has four LLAP daemons running on four worker nodes, so
 
 **Ambari UI slider for Hive config variable `hive.server2.tez.sessions.per.default.queue`:**
 
-:::image type="content" source="./media/hive-llap-sizing-guide/LLAP_sizing_guide_max_concurrent_queries.png " alt-text="`LLAP maximum concurrent queries`" border="true":::
+:::image type="content" source="./media/hive-llap-sizing-guide/LLAP_sizing_guide_max_concurrent_queries.png " alt-text="`LLAP maximum concurrent queries`." border="true":::
 
 #### **5. Tez Container and Tez Application Master size**    
 Configuration: ***tez.am.resource.memory.mb, hive.tez.container.size***  
@@ -162,7 +162,7 @@ For D14 v2, this value is 19 x 3 GB = **57 GB**
 
 `Ambari environment variable for LLAP heap size:`
 
-:::image type="content" source="./media/hive-llap-sizing-guide/LLAP_sizing_guide_llap_heap_size.png " alt-text="`LLAP heap size`" border="true":::
+:::image type="content" source="./media/hive-llap-sizing-guide/LLAP_sizing_guide_llap_heap_size.png " alt-text="`LLAP heap size`." border="true":::
 
 When SSD cache is disabled, the in-memory cache is amount of memory that is left after taking out Headroom size and Heap size from the LLAP daemon container size.
 
@@ -195,10 +195,10 @@ Ambari environment variables: ***num_llap_nodes, num_llap_nodes_for_llap_daemons
 
 **num_llap_nodes** - specifies number of nodes used by Hive LLAP service, this includes nodes running LLAP daemon, LLAP Service Master, and Tez Application Master(Tez AM).  
 
-:::image type="content" source="./media/hive-llap-sizing-guide/LLAP_sizing_guide_num_llap_nodes.png " alt-text="`Number of Nodes for LLAP service`" border="true":::  
+:::image type="content" source="./media/hive-llap-sizing-guide/LLAP_sizing_guide_num_llap_nodes.png " alt-text="`Number of Nodes for LLAP service`." border="true":::  
 **num_llap_nodes_for_llap_daemons** - specified number of nodes used only for LLAP daemons. LLAP daemon container sizes are set to max fit node, so it results in one `llap` daemon on each node.
 
-:::image type="content" source="./media/hive-llap-sizing-guide/LLAP_sizing_guide_num_llap_nodes_for_llap_daemons.png " alt-text="`Number of Nodes for LLAP daemons`" border="true":::
+:::image type="content" source="./media/hive-llap-sizing-guide/LLAP_sizing_guide_num_llap_nodes_for_llap_daemons.png " alt-text="`Number of Nodes for LLAP daemons`." border="true":::
 
 It's recommended to keep both values same as number of worker nodes in Interactive Query cluster.
 
@@ -226,9 +226,9 @@ If setting these values didn't resolve your issue, visit one of the following...
 
 * Get answers from Azure experts through [Azure Community Support](https://azure.microsoft.com/support/community/).
 
-* Connect with [@AzureSupport](https://twitter.com/azuresupport) - the official Microsoft Azure account for improving customer experience by connecting the Azure community to the right resources: answers, support, and experts.
+* Connect with [@AzureSupport](https://x.com/azuresupport) - the official Microsoft Azure account for improving customer experience by connecting the Azure community to the right resources: answers, support, and experts.
 
-* If you need more help, you can submit a support request from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Select **Support** from the menu bar or open the **Help + support** hub. For more detailed information, review [How to create an Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md). Access to Subscription Management and billing support is included with your Microsoft Azure subscription, and Technical Support is provided through one of the [Azure Support Plans](https://azure.microsoft.com/support/plans/).  
+* If you need more help, you can submit a support request from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Select **Support** from the menu bar or open the **Help + support** hub. For more detailed information, review [How to create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request). Access to Subscription Management and billing support is included with your Microsoft Azure subscription, and Technical Support is provided through one of the [Azure Support Plans](https://azure.microsoft.com/support/plans/).  
 
 * ##### **Other References:**
   * [Configure other LLAP properties](https://docs.cloudera.com/HDPDocuments/HDP3/HDP-3.1.5/performance-tuning/content/hive_setup_llap.html)  

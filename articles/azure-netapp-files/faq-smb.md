@@ -2,11 +2,10 @@
 title: SMB FAQs for Azure NetApp Files | Microsoft Docs
 description: Answers frequently asked questions (FAQs) about the SMB protocol of Azure NetApp Files.
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: conceptual
 author: b-hchen
 ms.author: anfdocs
-ms.date: 05/03/2023
+ms.date: 12/04/2024
 ---
 # SMB FAQs for Azure NetApp Files
 
@@ -15,6 +14,10 @@ This article answers frequently asked questions (FAQs) about the SMB protocol of
 ## Which SMB versions are supported by Azure NetApp Files?
 
 Azure NetApp Files supports SMB 2.1 and SMB 3.1 (which includes support for SMB 3.0). 
+
+## Can I use Windows Server 2025? 
+
+Windows Server 2025 currently doesn't work with the Azure NetApp Files SMB protocol. 
 
 ## Does Azure NetApp Files support access to ‘offline files’ on SMB volumes?
 
@@ -26,15 +29,15 @@ Yes, you must create an Active Directory connection before deploying an SMB volu
 
 ## How many Active Directory connections are supported?
 
-You can configure only one Active Directory (AD) connection per subscription and per region. See [Requirements for Active Directory connections](create-active-directory-connections.md#requirements-for-active-directory-connections) for additional information. 
+Azure NetApp Files now supports the ability to [create multiple Active Directory configurations in a subscription](create-active-directory-connections.md#multi-ad). 
 
-However, you can map multiple NetApp accounts that are under the same subscription and same region to a common AD server created in one of the NetApp accounts. See [Map multiple NetApp accounts in the same subscription and region to an AD connection](create-active-directory-connections.md#shared_ad). 
+You can also map multiple NetApp accounts that are under the same subscription and same region to a common AD server created in one of the NetApp accounts. See [Map multiple NetApp accounts in the same subscription and region to an AD connection](create-active-directory-connections.md#shared_ad). 
 
 <a name='does-azure-netapp-files-support-azure-active-directory'></a>
 
 ## Does Azure NetApp Files support Microsoft Entra ID? 
 
-Both [Microsoft Entra Domain Services](../active-directory-domain-services/overview.md) and [Active Directory Domain Services (AD DS)](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) are supported. You can use existing Active Directory domain controllers with Azure NetApp Files. Domain controllers can reside in Azure as virtual machines, or on premises via ExpressRoute or S2S VPN. Azure NetApp Files doesn't support AD join for [Microsoft Entra ID](../active-directory/fundamentals/index.yml) at this time. However, you can use Microsoft Entra ID with [hybrid identities](/entra/identity/hybrid/whatis-hybrid-identity) to [Access SMB volumes from Microsoft Entra joined Windows virtual machines](access-smb-volume-from-windows-client.md).
+Both [Microsoft Entra Domain Services](../active-directory-domain-services/overview.md) and [Active Directory Domain Services (AD DS)](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) are supported. You can use existing Active Directory domain controllers with Azure NetApp Files. Domain controllers can reside in Azure as virtual machines, or on premises via ExpressRoute or S2S VPN. Azure NetApp Files doesn't support AD join for [Microsoft Entra ID](../active-directory/fundamentals/index.yml) at this time. 
 
 If you're using Azure NetApp Files with Microsoft Entra Domain Services, the organizational unit path is `OU=AADDC Computers` when you configure Active Directory for your NetApp account.
 
@@ -64,6 +67,10 @@ Azure NetApp Files doesn't support using MMC to manage `Sessions` and `Open File
 
 Use the **JSON View** link on the volume overview pane, and look for the **startIp** identifier under **properties** > **mountTargets**.
 
+## Can Azure NetApp Files SMB volumes be accessed via a web browser such as Microsoft Edge?
+
+No. Azure NetApp Files volumes do not support data access via web browsers. 
+
 ## Can an Azure NetApp Files SMB share act as a DFS Namespace (DFS-N) root?
 
 No. However, Azure NetApp Files SMB shares can serve as a DFS Namespace (DFS-N) folder target. 
@@ -79,6 +86,20 @@ Azure NetApp Files supports modifying `SMB Shares` by using Microsoft Management
 See [Modify SMB share permissions](azure-netapp-files-create-volumes-smb.md#modify-smb-share-permissions) for more information on this procedure.
 
 Azure NetApp Files also supports [access-based enumeration](azure-netapp-files-create-volumes-smb.md#access-based-enumeration) and [non-browsable shares](azure-netapp-files-create-volumes-smb.md#non-browsable-share) on SMB and dual-protocol volumes. You can enable these features during or after the creation of an SMB or dual-protocol volume.
+
+## Can I use the same share name for multiple volumes? 
+
+The same share name can be used for:
+* volumes deployed in different regions
+* volumes deployed to different availability zones within the same region 
+
+If you're using:
+* regional volumes (without availability zones) or
+* volumes within the same availability zone, 
+
+The same share name can be used, however the share name must be unique within each delegated subnet or assigned to different delegated subnets. 
+
+For more information, see [Create an SMB volume for Azure NetApp Files](azure-netapp-files-create-volumes-smb.md) or [Create a dual-protocol volume for Azure NetApp Files](create-volumes-dual-protocol.md). 
 
 ## Can I change the SMB share name after the SMB volume has been created?
 
@@ -102,6 +123,12 @@ To learn more about file locking in Azure NetApp Files, see [file locking](under
 
 NTLMv2 and Kerberos network authentication methods are supported with SMB volumes in Azure NetApp Files. NTLMv1 and LanManager are disabled and are not supported.
 
+To disable NTLM, see:
+
+- [Active Directory Hardening Series - Part 1 – Disabling NTLMv1](https://techcommunity.microsoft.com/blog/coreinfrastructureandsecurityblog/active-directory-hardening-series---part-1-%E2%80%93-disabling-ntlmv1/3934787)
+- [Network security - Restrict NTLM Incoming NTLM traffic](/previous-versions/windows/it-pro/windows-10/security/threat-protection/security-policy-settings/network-security-restrict-ntlm-incoming-ntlm-traffic)
+- [Network security - Restrict NTLM in this domain](/previous-versions/windows/it-pro/windows-10/security/threat-protection/security-policy-settings/network-security-restrict-ntlm-ntlm-authentication-in-this-domain)
+
 ## What is the password rotation policy for the Active Directory computer account for SMB volumes?
 
 The Azure NetApp Files service has a policy that automatically updates the password on the Active Directory computer account that is created for SMB volumes. This policy has the following properties:   
@@ -112,7 +139,7 @@ The Azure NetApp Files service has a policy that automatically updates the passw
 
 To see  when the password was last updated on the Azure NetApp Files SMB computer account, check the `pwdLastSet` property on the computer account using the [Attribute Editor](create-volumes-dual-protocol.md#access-active-directory-attribute-editor) in the **Active Directory Users and Computers** utility:
 
-![Screenshot that shows the Active Directory Users and Computers utility](../media/azure-netapp-files/active-directory-users-computers-utility.png)
+![Screenshot that shows the Active Directory Users and Computers utility](./media/faq-smb/active-directory-users-computers-utility.png)
 
 >[!NOTE] 
 > Due to an interoperability issue with the [April 2022 Monthly Windows Update](
@@ -130,7 +157,7 @@ SMB/CIFS oplocks (opportunistic locks) enable the redirector on a SMB/CIFS clien
 ## Next steps  
 
 - [FAQs about SMB performance for Azure NetApp Files](azure-netapp-files-smb-performance.md)
-- [How to create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md)
+- [How to create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request)
 - [Networking FAQs](faq-networking.md)
 - [Security FAQs](faq-security.md)
 - [Performance FAQs](faq-performance.md)

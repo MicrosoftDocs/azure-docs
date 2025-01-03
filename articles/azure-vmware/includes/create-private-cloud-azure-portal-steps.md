@@ -4,7 +4,7 @@ description: Steps to create an Azure VMware Solution private cloud using the Az
 ms.topic: include
 ms.service: azure-vmware
 ms.custom: devx-track-azurecli, engagement-fy23
-ms.date: 1/03/2024
+ms.date: 12/5/2024
 author: suzizuber
 ms.author: v-szuber
 ---
@@ -51,7 +51,7 @@ You can create an Azure VMware Solution private cloud using the Azure portal or 
 1. Verify the information entered, and if correct, select **Create**.  
 
    > [!NOTE]
-   > This step takes roughly 3-4 hours. Adding a single host in an existing or the same cluster takes between 30 - 45 minutes.
+   > This step takes an estimated 4+ hours. Adding a single host in an existing cluster takes an estimated 1 hour. If you are adding a new cluster with maximum nodes (16), it can take an estimated 4+ hours.
 
 1. Verify that the deployment was successful. Navigate to the resource group you created and select your private cloud.  You see the status of **Succeeded** when the deployment is finished. 
 
@@ -63,7 +63,7 @@ Instead of the Azure portal to create an Azure VMware Solution private cloud, yo
 
 To begin using Azure CLI:
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 
 1. Create a resource group with the ['az group create'](/cli/azure/group) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named *myResourceGroup* in the *eastus* location:

@@ -4,7 +4,7 @@ description: This article describes the information to gather before opening a c
 services: automation
 ms.subservice:
 ms.topic: troubleshooting
-ms.custom: engagement-fy23
+ms.custom: engagement-fy23, linux-related-content
 ms.date: 10/21/2022
 ---
 
@@ -81,5 +81,5 @@ In addition to the knowledge Base article [4034605 - How to capture Azure Automa
 ## Next steps
 
 * Get answers from Azure experts through [Azure Forums](https://azure.microsoft.com/support/forums/).
-* Connect with [@AzureSupport](https://twitter.com/azuresupport), the official Microsoft Azure account for improving customer experience by connecting the Azure community to the right resources: answers, support, and experts.
+* Connect with [@AzureSupport](https://x.com/azuresupport), the official Microsoft Azure account for improving customer experience by connecting the Azure community to the right resources: answers, support, and experts.
 * File an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select **Get Support**.

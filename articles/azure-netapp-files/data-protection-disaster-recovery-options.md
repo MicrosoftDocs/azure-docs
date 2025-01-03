@@ -2,17 +2,10 @@
 title: Understand data protection and disaster recovery options in Azure NetApp Files
 description: Learn about data protection and disaster recovery options available in Azure NetApp Files, including snapshots, backups, cross-zone replication, and cross-region replication.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-ahibbard
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/11/2023
+ms.date: 12/04/2024
 ms.author: anfdocs
 ---
 # Understand data protection and disaster recovery options in Azure NetApp Files
@@ -54,7 +47,7 @@ Using snapshot technology, you can replicate your Azure NetApp Files across desi
 - Data availability and redundancy for remote data processing and user access 
 - Efficient storage-based data replication without load on compute infrastructure 
 
-To learn more, see [How volumes and snapshots are replicated cross-region for DR](snapshots-introduction.md#how-volumes-and-snapshots-are-replicated-cross-region-for-dr). To get started with cross-region replication, see [Create cross-region replication for Azure NetApp Files](cross-region-replication-create-peering.md). 
+To learn more, see [How volumes and snapshots are replicated cross-region for DR](snapshots-introduction.md#how-volumes-and-snapshots-are-replicated-for-disaster-recovery-and-business-continuity). To get started with cross-region replication, see [Create cross-region replication for Azure NetApp Files](cross-region-replication-create-peering.md). 
 
 ## Cross-zone replication 
 

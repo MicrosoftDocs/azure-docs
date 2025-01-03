@@ -6,23 +6,35 @@ ms.author: bagol
 ms.topic: feature-availability
 ms.custom: references_regions
 ms.service: microsoft-sentinel
-ms.date: 07/25/2023
+ms.date: 11/26/2024
+
+
+#Customer intent: As a security operations manager, I want to understand the Microsoft Sentinel's feature availability across different Azure environments so that I can effectively plan and manage our security operations.
+
 ---
 
 # Microsoft Sentinel feature support for Azure commercial/other clouds
 
-This article describes the features available in Microsoft Sentinel across different Azure environments. Features are listed as GA (generally available), public preview, or shown as not available.
+This article describes the features available in Microsoft Sentinel across different Azure environments. Features are listed as GA (generally available), public preview, or shown as not available. 
 
 > [!NOTE]
 > These lists and tables do not include feature or bundle availability in the Azure Government Secret or Azure Government Top Secret clouds. 
 > For more information about specific availability for air-gapped clouds, please contact your account team.
+
+## Experience in the Defender portal 
+
+Microsoft Sentinel is also available in the [Microsoft Defender portal](microsoft-sentinel-defender-portal.md) as Microsoft's unified security operations (SecOps) platform. In the Defender portal, all features in general availability are available in both commercial and GCC High and DoD clouds. Features still in preview are available only in the commercial cloud.
+
+While [attack disruption in the Defender portal](/defender-xdr/automatic-attack-disruption) is generally available, [SAP support for attack disruption](/defender-xdr/automatic-attack-disruption#automated-response-actions-for-sap-with-microsoft-sentinel) with Microsoft's unified SecOps platform is available only in the commercial cloud.
+
+For more information, see [Microsoft Defender XDR for US Government customers](/defender-xdr/usgov).
 
 ## Analytics		
 
 |Feature  |Feature stage |Azure commercial  |Azure Government |Azure China 21Vianet  |
 |---------|---------|---------|---------|---------|
 |[Analytics rules health](monitor-analytics-rule-integrity.md) |Public preview |&#x2705; |&#10060; |&#10060; |
-|[MITRE ATT&CK dashboard](mitre-coverage.md)	|Public preview |&#x2705; |&#10060; |&#10060; |
+|[MITRE ATT&CK dashboard](mitre-coverage.md)	|Public preview |&#x2705; |&#x2705; |&#x2705;  |
 |[NRT rules](near-real-time-rules.md) |GA |&#x2705; |&#x2705; |&#x2705; |
 |[Recommendations](detection-tuning.md) |Public preview |&#x2705; |&#x2705; |&#10060; |
 |[Scheduled](detect-threats-built-in.md) and [Microsoft rules](create-incidents-from-alerts.md) |GA |&#x2705; |&#x2705; |&#x2705; |
@@ -39,8 +51,8 @@ This article describes the features available in Microsoft Sentinel across diffe
 
 |Feature  |Feature stage |Azure commercial  |Azure Government |Azure China 21Vianet  |
 |---------|---------|---------|---------|---------|
-|[Amazon Web Services](connect-aws.md?tabs=ct) |GA |&#x2705; |&#10060; |&#10060; |
-|[Amazon Web Services S3 (Preview)](connect-aws.md?tabs=s3) |Public preview |&#x2705; |&#10060; |&#10060; |
+|[Amazon Web Services](connect-aws.md?tabs=ct) |GA |&#x2705; |&#x2705; |&#10060; |
+|[Amazon Web Services S3](connect-aws.md?tabs=s3) |GA|&#x2705; |&#x2705; |&#10060; |
 |[Microsoft Entra ID](connect-azure-active-directory.md) |GA |&#x2705; |&#x2705;|&#x2705; <sup>[1](#logsavailable)</sup> |
 |[Microsoft Entra ID Protection](connect-services-api-based.md) |GA |&#x2705;| &#x2705; |&#10060; |
 |[Azure Activity](data-connectors/azure-activity.md) |GA |&#x2705;| &#x2705;|&#x2705; |
@@ -54,9 +66,9 @@ This article describes the features available in Microsoft Sentinel across diffe
 |[Cisco ASA](data-connectors/cisco-asa.md) |GA |&#x2705; |&#x2705;|&#x2705; |
 |[Codeless Connectors Platform](create-codeless-connector.md?tabs=deploy-via-arm-template%2Cconnect-via-the-azure-portal) |Public preview |&#x2705; |&#10060;|&#10060; |
 |[Common Event Format (CEF)](connect-common-event-format.md) |GA |&#x2705; |&#x2705;|&#x2705; |
-|[Common Event Format (CEF) via AMA (Preview)](connect-cef-ama.md) |Public preview |&#x2705;|&#10060;  |&#x2705; |
+|[Common Event Format (CEF) via AMA](connect-cef-syslog-ama.md) |GA |&#x2705;|&#x2705;  |&#x2705; |
 |[DNS](data-connectors/dns.md) |Public preview |&#x2705;| &#10060; |&#x2705; |
-|[GCP Pub/Sub Audit Logs](connect-google-cloud-platform.md) |Public preview |&#x2705; |&#10060; |&#10060; |
+|[GCP Pub/Sub Audit Logs](connect-google-cloud-platform.md) |Public preview |&#x2705; |&#x2705; |&#10060; |
 |[Microsoft Defender XDR](connect-microsoft-365-defender.md?tabs=MDE) |GA |&#x2705;| &#x2705;|&#10060; |
 |[Microsoft Purview Insider Risk Management (Preview)](sentinel-solutions-catalog.md#domain-solutions) |Public preview |&#x2705; |&#x2705;|&#10060; |
 |[Microsoft Defender for Cloud](connect-defender-for-cloud.md) |GA |&#x2705; |&#x2705; |&#x2705;|
@@ -66,9 +78,10 @@ This article describes the features available in Microsoft Sentinel across diffe
 |[Microsoft Purview (Preview)](connect-services-diagnostic-setting-based.md) |Public preview |&#x2705;|&#10060; |&#10060; |
 |[Microsoft Purview Information Protection](connect-microsoft-purview.md) |Public preview |&#x2705;| &#10060;|&#10060; |
 |[Office 365](connect-services-api-based.md) |GA |&#x2705;|&#x2705; |&#x2705; |
-|[Security Events via Legacy Agent](connect-services-windows-based.md#log-analytics-agent-legacy) |GA |&#x2705; |&#x2705;|&#x2705; |
+|[Summary rules](summary-rules.md) | Public preview |&#x2705; | &#10060; |&#10060; |
 |[Syslog](connect-syslog.md) |GA |&#x2705;| &#x2705;|&#x2705; |
-|[Windows DNS Events via AMA (Preview)](connect-dns-ama.md) |Public preview |&#x2705; |&#10060;|&#10060; |
+|[Syslog via AMA](connect-cef-syslog-ama.md) |GA |&#x2705;| &#x2705;|&#x2705; |
+|[Windows DNS Events via AMA](connect-dns-ama.md) |GA |&#x2705; |&#x2705;|&#x2705; |
 |[Windows Firewall](data-connectors/windows-firewall.md) |GA |&#x2705; |&#x2705;|&#x2705; |
 |[Windows Forwarded Events](connect-services-windows-based.md) |GA |&#x2705;|&#x2705; |&#x2705; |
 |[Windows Security Events via AMA](connect-services-windows-based.md) |GA |&#x2705; |&#x2705;|&#x2705; |
@@ -90,19 +103,19 @@ This article describes the features available in Microsoft Sentinel across diffe
 
 |Feature  |Feature stage |Azure commercial  |Azure Government |Azure China 21Vianet  |
 |---------|---------|---------|---------|---------|
-|[Add entities to threat intelligence](add-entity-to-threat-intelligence.md?tabs=incidents) |Public preview |&#x2705; |&#x2705; |&#10060; |
+|[Add entities to threat intelligence](add-entity-to-threat-intelligence.md?tabs=incidents) |Public preview |&#x2705; |&#x2705; |&#x2705; |
 |[Advanced and/or conditions](add-advanced-conditions-to-automation-rules.md) |GA |&#x2705; |&#x2705;| &#x2705; |
 |[Automation rules](automate-incident-handling-with-automation-rules.md)     |GA        |&#x2705; |&#x2705;| &#x2705;         |
 |[Automation rules health](monitor-automation-health.md) |Public preview |&#x2705; |&#x2705;| &#10060; |
 |[Create incidents manually](create-incident-manually.md) |GA |&#x2705; |&#x2705;| &#x2705; |
 |[Cross-tenant/Cross-workspace incidents view](multiple-workspace-view.md)     |GA         |&#x2705; |&#x2705; |&#x2705;         |
 |[Incident advanced search](investigate-cases.md#search-for-incidents) |GA |&#x2705; |&#x2705;| &#x2705; |
-|[Incident tasks](incident-tasks.md) |Public preview |&#x2705; |&#x2705;| &#x2705; |
-|[Microsoft Defender XDR incident integration](microsoft-365-defender-sentinel-integration.md#working-with-microsoft-defender-xdr-incidents-in-microsoft-sentinel-and-bi-directional-sync) |GA |&#x2705; |&#x2705;| &#10060; |
+|[Incident tasks](incident-tasks.md) |GA |&#x2705; |&#x2705;| &#x2705; |
+|[Microsoft 365 Defender incident integration](microsoft-365-defender-sentinel-integration.md#working-with-microsoft-defender-xdr-incidents-in-microsoft-sentinel-and-bi-directional-sync) |GA |&#x2705; |&#x2705;| &#10060; |
 |[Microsoft Teams integrations](collaborate-in-microsoft-teams.md) |Public preview |&#x2705; |&#x2705;| &#10060; |
 |[Playbook template gallery](use-playbook-templates.md) |Public preview |&#x2705; |&#x2705;| &#10060; |
-|[Run playbooks on entities](respond-threats-during-investigation.md) |Public preview |&#x2705; |&#x2705; |&#10060; |
-|[Run playbooks on incidents](automate-responses-with-playbooks.md) |Public preview |&#x2705; |&#x2705;| &#x2705; |
+|[Run playbooks on entities](respond-threats-during-investigation.md) |GA |&#x2705; |&#x2705; |&#x2705; |
+|[Run playbooks on incidents](automate-responses-with-playbooks.md) |GA |&#x2705; |&#x2705;| &#x2705; |
 |[SOC incident audit metrics](manage-soc-with-incident-metrics.md)     |GA         |&#x2705; |&#x2705;| &#x2705;         |
 
 ## Machine Learning
@@ -116,7 +129,14 @@ This article describes the features available in Microsoft Sentinel across diffe
 
 <sup><a name="partialga"></a>1</sup> Partially GA: The ability to disable specific findings from vulnerability scans is in public preview.
 
-## Normalization		
+## Managing Microsoft Sentinel
+
+|Feature  |Feature stage |Azure commercial  |Azure Government |Azure China 21Vianet  |
+|---------|---------|---------|---------|---------|
+|[Workspace manager](workspace-manager.md) |Public preview | &#x2705; |&#x2705; |&#10060; |
+|[SIEM migration experience](siem-migration.md) | GA | &#x2705; |&#10060; |&#10060; |
+
+## Normalization
 
 |Feature  |Feature stage |Azure commercial  |Azure Government |Azure China 21Vianet  |
 |---------|---------|---------|---------|---------|
@@ -126,14 +146,21 @@ This article describes the features available in Microsoft Sentinel across diffe
 
 |Feature  |Feature stage |Azure commercial  |Azure Government |Azure China 21Vianet  |
 |---------|---------|---------|---------|---------|
-|[Notebooks](notebooks.md) |GA |&#x2705;|&#x2705; |&#x2705; |
-|[Notebook integration with Azure Synapse](notebooks-with-synapse.md) |Public preview |&#x2705;|&#x2705; |&#x2705; |
+|[Notebooks](notebooks.md) |GA |&#x2705; |&#x2705;  |&#x2705;  |
+|[Notebook integration with Azure Synapse](notebooks-with-synapse.md) |Public preview |&#x2705; |&#x2705;  |&#x2705; |
+
+## SOC optimizations
+
+|Feature  |Feature stage |Azure commercial  |Azure Government |Azure China 21Vianet  |
+|---------|---------|---------|---------|---------|
+|[SOC optimizations](soc-optimization/soc-optimization-access.md) |Supported for production use|&#x2705; |&#10060; |&#10060; |
 
 ## SAP
 
 |Feature  |Feature stage |Azure commercial  |Azure Government |Azure China 21Vianet  |
 |---------|---------|---------|---------|---------|
 |[Threat protection for SAP](sap/deployment-overview.md)</sup> |GA |&#x2705;|&#x2705; |&#x2705; |
+|[Agentless data connector](sap/deployment-overview.md#data-connector) | Limited preview | &#x2705; |&#10060; | &#10060;|
 
 ## Threat intelligence support		
 
@@ -178,4 +205,4 @@ This article describes the features available in Microsoft Sentinel across diffe
 In this article, you learned about available features in Microsoft Sentinel. 
 
 - [Learn about Microsoft Sentinel](overview.md)
-- [Plan your Microsoft Sentinel architecture](design-your-workspace-architecture.md)
+- [Design a Log Analytics workspace architecture](/azure/azure-monitor/logs/workspace-design?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json)

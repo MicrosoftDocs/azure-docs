@@ -1,16 +1,9 @@
 ---
 title:  Benefits of using Azure NetApp Files for SQL Server deployment | Microsoft Docs
-description: Shows a detailed cost analysis performance benefits about using Azure NetApp Files for SQL Server deployment.   
+description: Shows a detailed cost analysis performance benefits about using Azure NetApp Files for SQL Server deployment.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/19/2021
 ms.author: anfdocs
@@ -29,12 +22,12 @@ The two sets of graphics in this section show the TCO example.  The number and t
 
 The first set of graphic shows the overall cost of the solution using a 1-TiB database size, comparing the D16s_v4 to the D64, the D8 to the D32, and the D4 to the D16. The projected IOPs for each configuration are indicated by a green or yellow line and corresponds to the right-hand side Y axis.
 
-[ ![Graphic that shows overall cost of the solution using a 1-TiB database size.](../media/azure-netapp-files/solution-sql-server-cost-1-tib.png) ](../media/azure-netapp-files/solution-sql-server-cost-1-tib.png#lightbox)
+[ ![Graphic that shows overall cost of the solution using a 1-TiB database size.](./media/solutions-benefits-azure-netapp-files-sql-server/solution-sql-server-cost-1-tib.png) ](./media/solutions-benefits-azure-netapp-files-sql-server/solution-sql-server-cost-1-tib.png#lightbox)
 
 
 The second set of graphic shows the overall cost using a 50-TiB database. The comparisons are otherwise the same – D16 compared with Azure NetApp Files versus D64 with block by example. 
 
-[ ![Graphic that shows overall cost using a 50-TiB database size.](../media/azure-netapp-files/solution-sql-server-cost-50-tib.png) ](../media/azure-netapp-files/solution-sql-server-cost-50-tib.png#lightbox)
+[ ![Graphic that shows overall cost using a 50-TiB database size.](./media/solutions-benefits-azure-netapp-files-sql-server/solution-sql-server-cost-50-tib.png) ](./media/solutions-benefits-azure-netapp-files-sql-server/solution-sql-server-cost-50-tib.png#lightbox)
  
 ## Performance, and lots of it  
 
@@ -42,7 +35,7 @@ To deliver on the significant cost reduction assertion requires lots of performa
 
 The D16s_v4 can drive an Azure NetApp Files volume to 80,000 database IOPS. As proven by the SQL Storage Benchmark (SSB) benchmarking tool, the D16 instance achieved a workload 125% greater than that achievable to disk from the D64 instance.  See the [SSB testing tool](#ssb-testing-tool) section for details about the tool.
 
-Using a 1-TiB working set size and an 80% read, 20% update SQL Server workload, performance capabilities of most the instances in the D instance class were measured; most, not all, as the D2 and D64 instances themselves were excluded from testing. The former was left out as it doesn't support accelerated networking, and the latter because it's the comparison point. See the following graph to understand the limits of D4s_v4, D8s_v4, D16s_v4, and D32s_v4, respectively.  Managed disk storage tests are not shown in the graph. Comparison values are drawn directly from the [Azure Virtual Machine limits table](../virtual-machines/dv3-dsv3-series.md) for the D class instance type.
+Using a 1-TiB working set size and an 80% read, 20% update SQL Server workload, performance capabilities of most the instances in the D instance class were measured; most, not all, as the D2 and D64 instances themselves were excluded from testing. The former was left out as it doesn't support accelerated networking, and the latter because it's the comparison point. See the following graph to understand the limits of D4s_v4, D8s_v4, D16s_v4, and D32s_v4, respectively.  Managed disk storage tests are not shown in the graph. Comparison values are drawn directly from the [Azure Virtual Machine limits table](/azure/virtual-machines/dv3-dsv3-series) for the D class instance type.
 
 With Azure NetApp Files, each of the instances in the D class can meet or exceed the disk performance capabilities of instances two times larger.  *You can reduce software license costs significantly with Azure NetApp Files.*  
 
@@ -59,7 +52,7 @@ With Azure NetApp Files, each of the instances in the D class can meet or exceed
 
 The following diagram summarizes the S3B CPU limits test:
 
-![Diagram that shows average CPU percentage for single-instance SQL Server over Azure NetApp Files.](../media/azure-netapp-files/solution-sql-server-single-instance-average-cpu.png)
+![Diagram that shows average CPU percentage for single-instance SQL Server over Azure NetApp Files.](./media/solutions-benefits-azure-netapp-files-sql-server/solution-sql-server-single-instance-average-cpu.png)
 
 Scalability is only part of the story. The other part is latency.  It’s one thing for smaller virtual machines to have the ability to drive much higher I/O rates, it’s another thing to do so with low single-digit latencies as shown below.  
 
@@ -72,7 +65,7 @@ Scalability is only part of the story. The other part is latency.  It’s one th
 
 The following diagram shows the latency for single-instance SQL Server over Azure NetApp Files:
 
-![Diagram that shows latency for single-instance SQL Server over Azure NetApp Files.](../media/azure-netapp-files/solution-sql-server-single-instance-latency.png)
+![Diagram that shows latency for single-instance SQL Server over Azure NetApp Files.](./media/solutions-benefits-azure-netapp-files-sql-server/solution-sql-server-single-instance-latency.png)
 
 ## SSB testing tool 
  
@@ -82,7 +75,7 @@ The SSB tool generates a SELECT and UPDATE driven workload issuing the said stat
 
 The tests themselves were configured as 80% SELECT and 20% UPDATE statement, thus 90% random read.  The database itself, which SSB created, was 1000 GB in size. It's comprised of 15 user tables and 9,000,000 rows per user table and 8192 bytes per row. 
 
-The SSB benchmark is an open-source tool.  It's freely available at the [SQL Storage Benchmark GitHub page](https://github.com/NetApp/SQL_Storage_Benchmark.git).  
+The SSB benchmark is an open-source tool.  It's freely available at the SQL Storage Benchmark GitHub page.
 
 
 ## In summary  
@@ -93,4 +86,3 @@ With Azure NetApp Files, you can increase SQL server performance while reducing 
 
 * [Create an SMB volume for Azure NetApp Files](azure-netapp-files-create-volumes-smb.md) 
 * [Solution architectures using Azure NetApp Files – SQL Server](azure-netapp-files-solution-architectures.md#sql-server) 
-

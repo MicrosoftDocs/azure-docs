@@ -4,8 +4,8 @@ titleSuffix: Azure Deployment Environments
 description: Learn how to create and access an environment in an Azure Deployment Environments project by using the Azure CLI.
 author: RoseHJM
 ms.author: rosemalcolm
-ms.service: deployment-environments
-ms.custom: ignite-2022, devx-track-azurecli, build-2023
+ms.service: azure-deployment-environments
+ms.custom: devx-track-azurecli, build-2023
 ms.topic: how-to
 ms.date: 12/07/2023
 ---
@@ -103,7 +103,7 @@ Code: EnvironmentNotFound
 Message: The environment resource was not found.
 ```
 
-To resolve the issue, assign the correct permissions: [Give access to the development team](quickstart-create-and-configure-projects.md#give-access-to-the-development-team).
+To resolve the issue, assign the correct permissions: [Give access to the development team](quickstart-create-and-configure-devcenter.md#give-access-to-the-development-team).
 
 ## Access an environment
 
@@ -121,7 +121,7 @@ To access an environment:
 ### Deploy an environment
 
 ```azurecli
-az devcenter dev environment deploy-action --action-id "deploy" --dev-center-name <devcenterName> \
+az devcenter dev environment deploy --action-id "deploy" --dev-center-name <devcenterName> \
     -g <resourceGroupName> --project-name <projectName> --environment-name <environmentName> --parameters <parametersJsonString>
 ```
 

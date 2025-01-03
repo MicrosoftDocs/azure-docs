@@ -1,9 +1,7 @@
 ---
 title: include file
 description: include file
-services: 
 author: greg-lindsay
-ms.service: 
 ms.topic: include
 ms.date: 06/07/2021
 ms.author: greglin

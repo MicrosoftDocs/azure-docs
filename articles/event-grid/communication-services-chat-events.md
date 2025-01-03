@@ -14,26 +14,28 @@ Azure Communication Services emits chat events only when Azure Communication Ser
 
 ## Event types
 
+Azure Communication Services emits chat events on two different levels: **User-level** and **Thread-level**. User-level events are specific to each user in the chat thread and are delivered once per user, excluding the event sender. Thread-level events pertain to the entire chat thread and are delivered once per thread. For instance, when a message is received in a thread with 10 users, there will be one thread-level event and 9 user-level events, one for each user, except for the sender.
+
 Azure Communication Services emits the following chat event types:
 
-| Event type                                                  | Description                                                                                    |
-| ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| Microsoft.Communication.ChatMessageReceived                 | Published when a message is received for a user in a chat thread that she is member of.        |
-| Microsoft.Communication.ChatMessageEdited                   | Published when a message is edited in a chat thread that the user is member of.                |
-| Microsoft.Communication.ChatMessageDeleted                  | Published when a message is deleted in a chat thread that the user is member of.               |
-| Microsoft.Communication.ChatThreadCreatedWithUser           | Published when the user is added as member at the time of creation of a chat thread.           |
-| Microsoft.Communication.ChatThreadWithUserDeleted           | Published when a chat thread is deleted which the user is member of.                           |
-| Microsoft.Communication.ChatThreadPropertiesUpdatedPerUser  | Published when a chat thread's properties are updated that the user is member of.              |
-| Microsoft.Communication.ChatParticipantAddedToThreadWithUser|  Published for a user when a new  participant is added to a chat thread, that the user is part of.|
-| Microsoft.Communication.ChatParticipantRemovedFromThreadWithUser |  Published for a user when a participant is removed from a chat thread, that the user is part of. |
-| Microsoft.Communication.ChatThreadCreated  | Published when a chat thread is created  |
-| Microsoft.Communication.ChatThreadDeleted| Published when a chat thread is deleted  |
-| Microsoft.Communication.ChatThreadParticipantAdded | Published when a new participant is added to a chat thread  |
-| Microsoft.Communication.ChatThreadParticipantRemoved | Published when a new participant is added to a chat thread.  |  
-| Microsoft.Communication.ChatMessageReceivedInThread | Published when a message is received in a chat thread  |    
-| Microsoft.Communication.ChatThreadPropertiesUpdated| Published when a chat thread's properties like topic are updated.|    
-| Microsoft.Communication.ChatMessageEditedInThread | Published when a message is edited in a chat thread |  
-| Microsoft.Communication.ChatMessageDeletedInThread | Published when a message is deleted in  a chat thread  |  
+| Event type                                                  | Level | Description                                                                                    |
+| ----------------------------------------------------------- | ---------| ------------------------------------------------------------------------------------- |
+| [Microsoft.Communication.ChatMessageReceived](#microsoftcommunicationchatmessagereceived-event)                 | `User` |Published when a message is received in a chat thread with a specific user        |
+| [Microsoft.Communication.ChatMessageEdited](#microsoftcommunicationchatmessageedited-event)                   | `User` |Published when a message is edited in a chat thread with a specific user                |
+| [Microsoft.Communication.ChatMessageDeleted](#microsoftcommunicationchatmessagedeleted-event)                  | `User` |Published when a message is deleted in a chat thread with a specific user               |
+| [Microsoft.Communication.ChatThreadCreatedWithUser](#microsoftcommunicationchatthreadcreatedwithuser-event)           | `User` |Published when a chat thread is created with a specific user           |
+| [Microsoft.Communication.ChatThreadWithUserDeleted](#microsoftcommunicationchatthreadwithuserdeleted-event)           | `User` |Published when a chat thread containing a specific user is deleted                           |
+| [Microsoft.Communication.ChatThreadPropertiesUpdatedPerUser](#microsoftcommunicationchatthreadpropertiesupdatedperuser-event)  | `User` |Published when the chat thread's properties are updated for a specific user          |
+| [Microsoft.Communication.ChatParticipantAddedToThreadWithUser](#microsoftcommunicationchatparticipantaddedtothreadwithuser-event)|  `User` |Published when a participant is added to a chat thread with a specific user |
+| [Microsoft.Communication.ChatParticipantRemovedFromThreadWithUser](#microsoftcommunicationchatparticipantremovedfromthreadwithuser-event) |  `User` |Published when a participant is removed from a chat thread with a specific user  |
+| [Microsoft.Communication.ChatThreadCreated](#microsoftcommunicationchatthreadcreated-event)  | `Thread` |Published when a chat thread is created  |
+| [Microsoft.Communication.ChatThreadDeleted](#microsoftcommunicationchatthreaddeleted-event)| `Thread` | Published when a chat thread is deleted  |
+| [Microsoft.Communication.ChatThreadParticipantAdded](#microsoftcommunicationchatthreadparticipantadded-event) | `Thread` | Published when a new participant is added to a chat thread  |
+| [Microsoft.Communication.ChatThreadParticipantRemoved](#microsoftcommunicationchatthreadparticipantremoved-event) | `Thread` | Published when a participant is removed from a chat thread  |  
+| [Microsoft.Communication.ChatMessageReceivedInThread](#microsoftcommunicationchatmessagereceivedinthread-event) |  `Thread` |Published when a message is received in a chat thread  |    
+| [Microsoft.Communication.ChatThreadPropertiesUpdated](#microsoftcommunicationchatthreadpropertiesupdated-event)| `Thread` | Published when a chat thread's properties are updated |    
+| [Microsoft.Communication.ChatMessageEditedInThread](#microsoftcommunicationchatmessageeditedinthread-event) |  `Thread` |Published when a message is edited in a chat thread |  
+| [Microsoft.Communication.ChatMessageDeletedInThread](#microsoftcommunicationchatmessagedeletedinthread-event) |  `Thread` |Published when a message is deleted in  a chat thread  |  
 
 ## Event responses
 
@@ -55,7 +57,6 @@ This section contains an example of what that data would look like for each even
         "key": "value",
         "description": "A map of data associated with the message"
       },
-      "senderId": "8:acs:109f0644-b956-4cd9-87b1-71024f6e2f44_00000008-578d-7caf-07fd-084822001724",
       "senderCommunicationIdentifier": {
         "rawId": "8:acs:109f0644-b956-4cd9-87b1-71024f6e2f44_00000008-578d-7caf-07fd-084822001724",
         "communicationUser": {
@@ -66,7 +67,6 @@ This section contains an example of what that data would look like for each even
       "composeTime": "2021-02-19T00:25:58.927Z",
       "type": "Text",
       "version": 1613694358927,
-      "recipientId": "8:acs:109f0644-b956-4cd9-87b1-71024f6e2f44_00000008-578d-7d05-83fe-084822000f6d",
       "recipientCommunicationIdentifier": {
         "rawId": "8:acs:109f0644-b956-4cd9-87b1-71024f6e2f44_00000008-578d-7d05-83fe-084822000f6d",
         "communicationUser": {
@@ -99,7 +99,6 @@ This section contains an example of what that data would look like for each even
         "key": "value",
         "description": "A map of data associated with the message"
       },
-      "senderId": "8:acs:109f0644-b956-4cd9-87b1-71024f6e2f44_00000008-578d-7caf-07fd-084822001724",
       "senderCommunicationIdentifier": {
         "rawId": "8:acs:109f0644-b956-4cd9-87b1-71024f6e2f44_00000008-578d-7caf-07fd-084822001724",
         "communicationUser": {
@@ -110,7 +109,6 @@ This section contains an example of what that data would look like for each even
       "composeTime": "2021-02-19T00:25:57.917Z",
       "type": "Text",
       "version": 1613694500784,
-      "recipientId": "8:acs:109f0644-b956-4cd9-87b1-71024f6e2f44_00000008-578d-7d60-83fe-084822000f6f",
       "recipientCommunicationIdentifier": {
         "rawId": "8:acs:109f0644-b956-4cd9-87b1-71024f6e2f44_00000008-578d-7d60-83fe-084822000f6f",
         "communicationUser": {
@@ -136,7 +134,6 @@ This section contains an example of what that data would look like for each even
     "data": {
       "deleteTime": "2021-02-19T00:43:10.14Z",
       "messageId": "1613695388152",
-      "senderId": "8:acs:109f0644-b956-4cd9-87b1-71024f6e2f44_00000008-578d-7d07-83fe-084822000f6e",
       "senderCommunicationIdentifier": {
         "rawId": "8:acs:109f0644-b956-4cd9-87b1-71024f6e2f44_00000008-578d-7d07-83fe-084822000f6e",
         "communicationUser": {
@@ -147,7 +144,6 @@ This section contains an example of what that data would look like for each even
       "composeTime": "2021-02-19T00:43:08.152Z",
       "type": "Text",
       "version": 1613695390361,
-      "recipientId": "8:acs:109f0644-b956-4cd9-87b1-71024f6e2f44_00000008-578d-7d60-83fe-084822000f6f",
       "recipientCommunicationIdentifier": {
         "rawId": "8:acs:109f0644-b956-4cd9-87b1-71024f6e2f44_00000008-578d-7d60-83fe-084822000f6f",
         "communicationUser": {
@@ -172,7 +168,6 @@ This section contains an example of what that data would look like for each even
     "topic": "/subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{communication-services-resource-name}",
     "subject": "thread/{thread-id}/createdBy/rawId/recipient/rawId",
     "data": {
-      "createdBy": "8:acs:3d703c91-9657-4b3f-b19c-ef9d53f99710_00000008-576c-286d-e1fe-0848220013b9",
       "createdByCommunicationIdentifier": {
         "rawId": "8:acs:3d703c91-9657-4b3f-b19c-ef9d53f99710_00000008-576c-286d-e1fe-0848220013b9",
         "communicationUser": {
@@ -182,16 +177,6 @@ This section contains an example of what that data would look like for each even
       "properties": {
         "topic": "Chat about new communication services"
       },
-      "members": [
-        {
-          "displayName": "Bob",
-          "memberId": "8:acs:3d703c91-9657-4b3f-b19c-ef9d53f99710_00000008-576c-286d-e1fe-0848220013b9"
-        },
-        {
-          "displayName": "John",
-          "memberId": "8:acs:3d703c91-9657-4b3f-b19c-ef9d53f99710_00000008-576c-289b-07fd-0848220015ea"
-        }
-      ],
       "participants": [
         {
           "displayName": "Bob",
@@ -214,7 +199,6 @@ This section contains an example of what that data would look like for each even
       ],
       "createTime": "2021-02-18T23:47:26.91Z",
       "version": 1613692046910,
-      "recipientId": "8:acs:3d703c91-9657-4b3f-b19c-ef9d53f99710_00000008-576c-286e-84f5-08482200181c",
       "recipientCommunicationIdentifier": {
         "rawId": "8:acs:3d703c91-9657-4b3f-b19c-ef9d53f99710_00000008-576c-286e-84f5-08482200181c",
         "communicationUser": {
@@ -239,7 +223,6 @@ This section contains an example of what that data would look like for each even
     "topic": "/subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{communication-services-resource-name}",
     "subject": "thread/{thread-id}/deletedBy/{rawId}/recipient/{rawId}",
     "data": {
-      "deletedBy": "8:acs:3d703c91-9657-4b3f-b19c-ef9d53f99710_00000008-5772-6473-83fe-084822000e21",
       "deletedByCommunicationIdentifier": {
         "rawId": "8:acs:3d703c91-9657-4b3f-b19c-ef9d53f99710_00000008-5772-6473-83fe-084822000e21",
         "communicationUser": {
@@ -249,7 +232,6 @@ This section contains an example of what that data would look like for each even
       "deleteTime": "2021-02-18T23:57:51.5987591Z",
       "createTime": "2021-02-18T23:54:15.683Z",
       "version": 1613692578672,
-      "recipientId": "8:acs:3d703c91-9657-4b3f-b19c-ef9d53f99710_00000008-5772-647b-e1fe-084822001416",
       "recipientCommunicationIdentifier": {
         "rawId": "8:acs:3d703c91-9657-4b3f-b19c-ef9d53f99710_00000008-5772-647b-e1fe-084822001416",
         "communicationUser": {
@@ -266,7 +248,7 @@ This section contains an example of what that data would look like for each even
   }]
 ```
 
-### Microsoft.Communication.ChatParticipantAddedToThreadWithUser  event 
+### Microsoft.Communication.ChatParticipantAddedToThreadWithUser event 
 ```json
 [{
     "id": "049a5a7f-6cd7-43c1-b352-df9e9e6146d1",
@@ -356,7 +338,6 @@ This section contains an example of what that data would look like for each even
     "topic": "/subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{communication-services-resource-name}",
     "subject": "thread/{thread-id}/editedBy/{rawId}/recipient/{rawId}",
     "data": {
-      "editedBy": "8:acs:109f0644-b956-4cd9-87b1-71024f6e2f44_00000008-578d-7d07-83fe-084822000f6e",
       "editedByCommunicationIdentifier": {
         "rawId": "8:acs:109f0644-b956-4cd9-87b1-71024f6e2f44_00000008-578d-7d07-83fe-084822000f6e",
         "communicationUser": {
@@ -369,7 +350,6 @@ This section contains an example of what that data would look like for each even
       },
       "createTime": "2021-02-19T00:28:25.864Z",
       "version": 1613694508719,
-      "recipientId": "8:acs:109f0644-b956-4cd9-87b1-71024f6e2f44_00000008-578d-7caf-07fd-084822001724",
       "recipientCommunicationIdentifier": {
         "rawId": "8:acs:109f0644-b956-4cd9-87b1-71024f6e2f44_00000008-578d-7caf-07fd-084822001724",
         "communicationUser": {

@@ -3,7 +3,7 @@
  description: include file
  services: iot-central
  author: dominicbetts
- ms.service: iot-central
+ ms.service: azure-iot-central
  ms.topic: include
  ms.date: 05/22/2023
  ms.author: dobett
@@ -67,14 +67,14 @@ Configure the export destination:
 
 ## Monitor your export
 
-In IoT Central, the **Data export** page lets you check the status of your exports. You can also use [Azure Monitor](../articles/azure-monitor/overview.md) to see how much data you're exporting and any export errors. You can access export and device health metrics in charts in the Azure portal by using, the REST API, queries in PowerShell, or the Azure CLI. Currently, you can monitor the following data export metrics in Azure Monitor:
+In IoT Central, the **Data export** page lets you check the status of your exports. You can also use [Azure Monitor](/azure/azure-monitor/overview) to see how much data you're exporting and any export errors. You can access export and device health metrics in charts in the Azure portal by using, the REST API, queries in PowerShell, or the Azure CLI. Currently, you can monitor the following data export metrics in Azure Monitor:
 
 - Number of messages incoming to export before filters are applied.
 - Number of messages that pass through filters.
 - Number of messages successfully exported to destinations.
 - Number of errors found.
 
-To learn more, see [Monitor application health](../articles/iot-central/core/howto-manage-iot-central-from-portal.md#monitor-application-health).
+To learn more, see [Monitor application health](../articles/iot-central/core/howto-manage-and-monitor-iot-central.md#monitor-application-health).
 
 ## Data formats
 

@@ -1,16 +1,9 @@
 ---
 title: Upgrade the Azure Backup Agent
 description: This information explains why you should upgrade the Azure Backup Agent, and where to download the upgrade.
-services: backup
-cloud: 
-suite: 
 author: v-amallick
-manager: carmonm
-
-ms.service: backup
-ms.tgt_pltfrm: <optional>
-ms.devlang: <optional>
-ms.topic: article
+ms.service: azure-backup
+ms.topic: include
 ms.date: 03/03/2020
 ms.author: v-amallick
 ---

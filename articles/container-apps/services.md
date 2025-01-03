@@ -3,7 +3,7 @@ title: Connect to services in Azure Container Apps (preview)
 description: Learn how to use runtime services in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
@@ -34,7 +34,7 @@ Services available as an add-on include:
 You can get most recent list of add-on services by running the following command:
 
 ```azurecli
-az containerapp service --help
+az containerapp add-on --help
 ```
 
 See the section on how to [manage a service](#manage-a-service) for usage instructions.
@@ -81,10 +81,10 @@ You're responsible for data continuity between development and production enviro
 
 To connect a service to an application, you first need to create the service.
 
-Use the `containerapp service <SERVICE_TYPE> create` command with the service type and name to create a new service.
+Use the `az containerapp add-on <SERVICE_TYPE> create` command with the service type and name to create a new service.
 
 ``` CLI
-az containerapp service redis create \
+az containerapp add-on redis create \
   --name myredis \
   --environment myenv
 ```
@@ -124,6 +124,7 @@ For more information on the service commands and arguments, see the
 - Add-ons are in public preview.
 - Any container app created before May 23, 2023 isn't eligible to use add-ons.
 - Add-ons come with minimal guarantees. For instance, they're automatically restarted if they crash, however there's no formal quality of service or high-availability guarantees associated with them. For production workloads, use Azure-managed services.
+- If you use your own VNET, you must use a workload profiles environment. The Add-ons feature is not supported in consumption only environments that use custom VNETs.
 
 ## Next steps
 

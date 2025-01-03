@@ -1,24 +1,17 @@
 ---
-title: Azure NetApp Files tools 
-description: Learn about the tools available to you to maximize your experience and savings with Azure NetApp Files. 
+title: Azure NetApp Files tools
+description: Learn about the tools available to you to maximize your experience and savings with Azure NetApp Files.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-ahibbard
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/12/2023
+ms.date: 08/20/2024
 ms.author: anfdocs
 ---
 
 # Azure NetApp Files tools 
 
-Azure NetApp Files offers [multiple tools](https://azure.github.io/azure-netapp-files/) to estimate costs, understand features and availability, and monitor your Azure NetApp Files deployment.
+Azure NetApp Files offers [multiple tools](https://aka.ms/anftools) to estimate costs, understand features and availability, and monitor your Azure NetApp Files deployment.
 
 * [**Azure NetApp Files Performance Calculator**](https://aka.ms/anfcalc)
 
@@ -32,9 +25,9 @@ Azure NetApp Files offers [multiple tools](https://azure.github.io/azure-netapp-
 
     This comprehensive tool estimates the infrastructure costs of an SAP HANA on Azure NetApp Files landscape. The estimate includes primary storage, backup, and replication costs.
 
-* [**Azure NetApp Files Standard storage with cool access cost savings estimator**](https://aka.ms/anfcoolaccesscalc)
+* [**Azure NetApp Files storage with cool access cost savings estimator**](https://aka.ms/anfcoolaccesscalc)
 
-    Standard storage with cool access enables you to transparently move infrequently accessed data to less expensive storage. This cost savings estimator helps you understand how much money you can save by enabling Standard storage with cool access.
+    Azure NetApp Files storage with cool access enables you to transparently move infrequently accessed data to less expensive storage. This cost savings estimator helps you understand how much money you can save by enabling storage with cool access.
 
 * [**Azure NetApp Files Region and Feature Map**](https://aka.ms/anfmap)
     

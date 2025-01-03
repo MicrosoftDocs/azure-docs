@@ -53,9 +53,9 @@ The following application settings influence the experience:
 - The *Supported account types* property defines whether the application is single tenant ("Accounts in this organizational directory only") or multitenant ("Accounts in any organizational directory"). For this scenario, you can use multitenant.
 - *Redirect URI* defines the URI where the authentication request is redirected after authentication. For this scenario, you can use **Public client/native (mobile & desktop)** and enter **`http://localhost`** as the URI.
 
-For more detailed information, see [Register an application with the Microsoft identity platform](../../active-directory/develop/quickstart-register-app.md#register-an-application). 
+For more detailed information, see [Register an application with the Microsoft identity platform](/entra/identity-platform/quickstart-register-app#register-an-application). 
 
-When the application is registered, you'll see an [identifier in the overview](../concepts/troubleshooting-info.md#getting-application-id). This identifier, *Application (client) ID*, is used in the next steps.
+When the application is registered, you'll see an [identifier in the overview](../concepts/troubleshooting-info.md#get-an-application-id). This identifier, *Application (client) ID*, is used in the next steps.
 
 ### Step 2: Allow public client flows
 
@@ -87,11 +87,11 @@ The following roles can provide consent on behalf of a company:
 - Application admin
 - Cloud application admin
 
-If you want to check roles in Azure portal, see [List Azure role assignments](../../role-based-access-control/role-assignments-list-portal.md).
+If you want to check roles in Azure portal, see [List Azure role assignments](../../role-based-access-control/role-assignments-list-portal.yml).
 
 To construct an Administrator consent URL, the Fabrikam Microsoft Entra Administrator does the following steps:
 
-1. In the URL *https://login.microsoftonline.com/{Tenant_ID}/adminconsent?client_id={Application_ID}*, the Administrator replaces {Tenant_ID} with the Fabrikam [Tenant ID](../concepts/troubleshooting-info.md#getting-directory-id), and replaces {Application_ID} with the Contoso [Application ID](../concepts/troubleshooting-info.md#getting-application-id).
+1. In the URL *https://login.microsoftonline.com/{Tenant_ID}/adminconsent?client_id={Application_ID}*, the Administrator replaces {Tenant_ID} with the Fabrikam [Tenant ID](../concepts/troubleshooting-info.md#get-a-directory-id), and replaces {Application_ID} with the Contoso [Application ID](../concepts/troubleshooting-info.md#get-an-application-id).
 1. The Administrator logs in and grants permissions on behalf of the organization.
 
 The service principal of the Contoso application in the Fabrikam tenant is created if consent is granted. The Fabrikam Administrator can review the consent in Microsoft Entra ID by doing the following steps:
@@ -109,18 +109,23 @@ You can see that the status of the Communication Services Teams.ManageCalls and 
 
 If you run into the issue "The app is trying to access a service '1fd5118e-2576-4263-8130-9503064c837a'(Azure Communication Services) that your organization '{GUID}' lacks a service principal for. Contact your IT Admin to review the configuration of your service subscriptions or consent to the application to create the required service principal." your Microsoft Entra tenant lacks a service principal for the Azure Communication Services application. To fix this issue, use PowerShell as a Microsoft Entra administrator to connect to your tenant. Replace `Tenant_ID` with an ID of your Microsoft Entra tenancy. 
 
-```script
-Connect-AzureAD -TenantId "Tenant_ID"
-```
-If the command is not found, start PowerShell as an administrator and install the Microsoft Entra ID package.
+You will require **Application.ReadWrite.All** as shown below.
+
+[![Screenshot showing Application Read Write All.](./media/graph-permissions.png)](./media/graph-permissions.png#lightbox)
+
 
 ```script
-Install-Module AzureAD
+Connect-MgGraph -TenantId "Tenant_ID" -Scopes Application.ReadWrite.All
+```
+If the command is not found, start PowerShell as an administrator and install the Microsoft Graph package.
+
+```script
+Install-Module Microsoft.Graph
 ```
 Then execute the following command to add a service principal to your tenant. Do not modify the GUID of the App ID.
 
 ```script
-New-AzureADServicePrincipal -AppId "1fd5118e-2576-4263-8130-9503064c837a"
+New-MgServicePrincipal -AppId "1fd5118e-2576-4263-8130-9503064c837a"
 ```
 
 
@@ -137,7 +142,7 @@ The developer's required actions are shown in following diagram:
 
 By using the MSAL, developers can acquire Microsoft Entra user tokens from the Microsoft identity platform endpoint to authenticate users and access secure web APIs. It can be used to provide secure access to Communication Services. The MSAL supports many different application architectures and platforms, including .NET, JavaScript, Java, Python, Android, and iOS.
 
-For more information about setting up environments in public documentation, see [Microsoft Authentication Library overview](../../active-directory/develop/msal-overview.md).
+For more information about setting up environments in public documentation, see [Microsoft Authentication Library overview](/entra/identity-platform/msal-overview).
 
 > [!NOTE]
 > The following sections describe how to exchange the Microsoft Entra access token for the access token of Teams user for the console application.
@@ -191,5 +196,5 @@ Learn about the following concepts:
 - [Use cases for communication as a Teams user](../concepts/interop/custom-teams-endpoint-use-cases.md)
 - [Azure Communication Services support Teams identities](../concepts/teams-endpoint.md)
 - [Teams interoperability](../concepts/teams-interop.md)
-- [Single-tenant and multi-tenant authentication for Teams users](../concepts/interop/custom-teams-endpoint-authentication-overview.md)
+- [Single-tenant and multitenant authentication for Teams users](../concepts/interop/custom-teams-endpoint-authentication-overview.md)
 - [Create and manage Communication access tokens for Teams users in a single-page application (SPA)](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/manage-teams-identity-spa)

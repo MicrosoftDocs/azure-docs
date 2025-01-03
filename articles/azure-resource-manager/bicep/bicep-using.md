@@ -3,12 +3,12 @@ title: Using statement
 description: Describes how to use the using statement in Bicep.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 10/11/2023
+ms.date: 12/06/2024
 ---
 
 # Using statement
 
-The `using` statement in [Bicep parameter files](./parameter-files.md) ties the [Bicep parameters file](./parameter-files.md) to a [Bicep file](./file.md), an [ARM JSON template](../templates/syntax.md), or a [Bicep module](./modules.md), or a [template spec](./template-specs.md). A `using` declaration must be present in any Bicep parameters file.
+The `using` statement in [Bicep parameters files](./parameter-files.md) ties the [Bicep parameters file](./parameter-files.md) to a [Bicep file](./file.md), an [ARM JSON template](../templates/syntax.md), or a [Bicep module](./modules.md), or a [template spec](./template-specs.md). A `using` declaration must be present in any Bicep parameters file.
 
 > [!NOTE]
 > The Bicep parameters file is only supported in [Bicep CLI](./install.md) version 0.18.4 or newer, [Azure CLI](/cli/azure/install-azure-cli) version 2.47.0 or newer, and [Azure PowerShell](/powershell/azure/install-azure-powershell) version 9.7.1 or newer.
@@ -29,7 +29,7 @@ The `using` statement in [Bicep parameter files](./parameter-files.md) ties the 
   using '<path>/<file-name>.json'
   ```
 
-- To use public module:
+- To use [public modules](./modules.md#path-to-a-module):
 
   ```bicep
   using 'br/public:<file-path>:<tag>'
@@ -38,7 +38,7 @@ The `using` statement in [Bicep parameter files](./parameter-files.md) ties the 
   For example:
 
   ```bicep
-  using 'br/public:storage/storage-account:3.0.1'
+  using 'br/public:avm/res/storage/storage-account:0.9.0' 
 
   param name = 'mystorage'
   ```

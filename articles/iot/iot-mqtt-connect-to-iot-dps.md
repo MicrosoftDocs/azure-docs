@@ -4,7 +4,7 @@ titleSuffix: Azure IoT Device Provisioning Service
 description: Support for devices that use MQTT to connect to the Azure IoT Device Provisioning Service (DPS) device-facing endpoint.
 author: rajeevmv
 ms.author: ravokkar
-ms.service: iot
+ms.service: azure-iot
 ms.topic: conceptual
 ms.date: 06/27/2023
 ms.custom:  [amqp, mqtt]
@@ -67,15 +67,15 @@ To use the MQTT protocol directly, your client *must* connect over TLS 1.2. Atte
 
 To register a device through DPS, a device should subscribe using `$dps/registrations/res/#` as a **Topic Filter**. The multi-level wildcard `#` in the Topic Filter is used only to allow the device to receive more properties in the topic name. DPS doesn't allow the usage of the `#` or `?` wildcards for filtering of subtopics. Since DPS isn't a general-purpose pub-sub messaging broker, it only supports the documented topic names and topic filters.
 
-The device should publish a register message to DPS using `$dps/registrations/PUT/iotdps-register/?$rid={request_id}` as a **Topic Name**. The payload should contain the [Device Registration](/rest/api/iot-dps/device/runtime-registration/register-device) object in JSON format.
-In a successful scenario, the device receives a response on the `$dps/registrations/res/202/?$rid={request_id}&retry-after=x` topic name where x is the retry-after value in seconds. The payload of the response contains the [RegistrationOperationStatus](/rest/api/iot-dps/device/runtime-registration/register-device#registrationoperationstatus) object in JSON format.
+The device should publish a register message to DPS using `$dps/registrations/PUT/iotdps-register/?$rid={request_id}` as a **Topic Name**. The payload should contain the [Device Registration](/azure/notification-hubs/notification-hubs-push-notification-registration-management) object in JSON format.
+In a successful scenario, the device receives a response on the `$dps/registrations/res/202/?$rid={request_id}&retry-after=x` topic name where x is the retry-after value in seconds.
 
 ## Polling for registration operation status
 
 The device must poll the service periodically to receive the result of the device registration operation. Assuming that the device has already subscribed to the `$dps/registrations/res/#` topic, it can publish a get operation status message to the `$dps/registrations/GET/iotdps-get-operationstatus/?$rid={request_id}&operationId={operationId}` topic name. The operation ID in this message should be the value received in the RegistrationOperationStatus response message in the previous step. In the successful case, the service responds on the `$dps/registrations/res/200/?$rid={request_id}` topic. The payload of the response contains the RegistrationOperationStatus object. The device should keep polling the service if the response code is 202 after a delay equal to the retry-after period. The device registration operation is successful if the service returns a 200 status code.
 
-## Connecting over Websocket
-When connecting over Websocket, specify the subprotocol as `mqtt`. Follow [RFC 6455](https://tools.ietf.org/html/rfc6455).
+## Connecting over WebSocket
+When connecting over WebSocket, specify the subprotocol as `mqtt`. Follow [RFC 6455](https://tools.ietf.org/html/rfc6455).
 
 ## Next steps
 

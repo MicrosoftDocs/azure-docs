@@ -1,16 +1,11 @@
 ---
 title: Use data flows to process data from automated machine learning (AutoML) models
 description: Learn how to use Azure Data Factory data flows to process data from automated machine learning(AutoML) models.
-services: data-factory
 author: amberz
-co-author: ATLArcht
-ms.service: data-factory
-ms.subservice: tutorials
-ms.workload: data-services
 ms.topic: conceptual
-ms.date: 07/20/2023
 ms.author: amberz
-ms.co-author: Donnana
+ms.date: 10/03/2024
+ms.subservice: data-flows
 ---
 
 # Process data from automated machine learning models by using data flows

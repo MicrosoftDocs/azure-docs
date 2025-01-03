@@ -3,10 +3,8 @@ title: Azure Integration Runtime IP addresses
 description: Learn which IP addresses you must allow inbound traffic from, in order to properly configure firewalls for securing network access to data stores.
 ms.author: lle
 author: lrtoyou1223
-ms.service: data-factory
 ms.subservice: integration-runtime
 ms.topic: conceptual
-ms.custom: seo-lt-2019
 ms.date: 01/05/2024
 ---
 
@@ -25,6 +23,8 @@ The IP addresses that Azure Integration Runtime uses depends on the region where
 
 Allow traffic from the IP addresses listed for the Azure Integration runtime in the specific Azure region where your resources are located. You can get an IP range list of service tags from the [service tags IP range download link](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files). For example, if the Azure region is **AustraliaEast**, you can get an IP range list from **DataFactory.AustraliaEast**.
 
+> [!NOTE]
+> Azure Data Factory IP range is shared across Fabric Data Factory.
 
 ## Known issue with Azure Storage
 

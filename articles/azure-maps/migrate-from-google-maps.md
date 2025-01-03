@@ -1,13 +1,12 @@
 ---
 title: 'Tutorial - Migrate from Google Maps to Azure Maps | Microsoft Azure Maps'
 description:  Tutorial on how to migrate from Google Maps to Microsoft Azure Maps. Guidance walks you through how to switch to Azure Maps APIs and SDKs.
-author: eriklindeman
-ms.author: eriklind
+author: jkebeck
+ms.author: jokebeck
 ms.date: 09/23/2020
 ms.topic: tutorial
 ms.service: azure-maps
-services: azure-maps
-ms.custom: 
+ms.subservice: general
 ---
 
 # Tutorial: Migrate from Google Maps to Azure Maps
@@ -32,17 +31,17 @@ If you don't have an Azure subscription, create a [free account] before you begi
 
 ## Azure Maps platform overview
 
-Azure Maps provides developers from all industries powerful geospatial capabilities. The capabilities are packed with regularly updated map data to provide geographic context for web, and mobile applications. Azure Maps has an Azure One API compliant set of REST APIs. The REST APIs offer Maps Rendering, Search, Routing, Traffic, Time Zones, Geolocation, Geofencing, Map Data, Weather, and Spatial Operations. Operations are accompanied by both Web and Android SDKs to make development easy, flexible, and portable across multiple platforms.
+Azure Maps provides developers from all industries powerful geospatial capabilities. The capabilities are packed with regularly updated map data to provide geographic context for web, and mobile applications. Azure Maps has an Azure One API compliant set of REST APIs. The REST APIs offer Maps Rendering, Search, Routing, Traffic, Time Zones, Geolocation, Geofencing, Map Data, and Weather. Operations are accompanied by both Web and Android SDKs to make development easy, flexible, and portable across multiple platforms.
 
 ## High-level platform comparison
 
-The table provides a high-level list of Azure Maps features, which correspond to Google Maps features. This list doesn't show all Azure Maps features. Other Azure Maps features include: accessibility, geofencing, isochrones, spatial operations, direct map tile access, batch services, and data coverage comparisons (that is, imagery coverage).
+The table provides a high-level list of Azure Maps features, which correspond to Google Maps features. This list doesn't show all Azure Maps features. Other Azure Maps features include: accessibility, geofencing, isochrones, direct map tile access, batch services, and data coverage comparisons (that is, imagery coverage).
 
 | Google Maps feature         | Azure Maps support                     |
 |-----------------------------|:--------------------------------------:|
 | Web SDK                     | ✓                                      |
-| Android SDK                 | ✓                                      |
-| iOS SDK                     | Planned                                |
+| Android SDK                 | ✓<sup>1</sup>                          |
+| iOS SDK                     | N/A<sup>2</sup>                        |
 | REST Service APIs           | ✓                                      |
 | Directions (Routing)        | ✓                                      |
 | Distance Matrix             | ✓                                      |
@@ -60,6 +59,9 @@ The table provides a high-level list of Azure Maps features, which correspond to
 | Time Zone                   | ✓                                      |
 | Maps Embedded API           | N/A                                    |
 | Map URLs                    | N/A                                    |
+
+<sup>1</sup> The Azure Maps Native SDK for Android is now deprecated and will be retired on 3/31/25. To avoid service disruptions, migrate to the Azure Maps Web SDK by 3/31/25. For more information, see [The Azure Maps Android SDK migration guide](android-sdk-migration-guide.md).
+<sup>2</sup> The Azure Maps Native SDK for iOS is now deprecated and will be retired on 3/31/25. To avoid service disruptions, migrate to the Azure Maps Web SDK by 3/31/25. For more information, see [The Azure Maps iOS SDK migration guide](ios-sdk-migration-guide.md).
 
 Google Maps provides basic key-based authentication. Azure Maps provides both basic key-based authentication and Microsoft Entra authentication. Microsoft Entra authentication provides more security features, compared to the basic key-based authentication.
 
@@ -124,7 +126,6 @@ Learn the details of how to migrate your Google Maps application with these arti
 > [!div class="nextstepaction"]
 > [Migrate a web app](migrate-from-google-maps-web-app.md)
 
-[Azure Active Directory authentication]: azure-maps-authentication.md#azure-ad-authentication
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [Azure Maps Blog]: https://aka.ms/AzureMapsBlog
 [Azure Maps developer forums]: https://aka.ms/AzureMapsForums
@@ -140,6 +141,7 @@ Learn the details of how to migrate your Google Maps application with these arti
 [Azure support options]: https://azure.microsoft.com/support/options
 [free account]: https://azure.microsoft.com/free/
 [Manage authentication in Azure Maps]: how-to-manage-authentication.md
+[Microsoft Entra authentication]: azure-maps-authentication.md#microsoft-entra-authentication
 [Microsoft learning center shows]: https://aka.ms/AzureMapsVideos
 [subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [terms of use]: https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=46

@@ -3,7 +3,7 @@ title: Manage ACLs in Azure Data Manager for Energy
 description: This article describes how to manage ACLs in Azure Data Manager for Energy.
 author: shikhagarg1
 ms.author: shikhagarg
-ms.service: energy-data-services
+ms.service: azure-data-manager-energy
 ms.topic: how-to
 ms.date: 12/11/2023
 ms.custom: template-how-to
@@ -28,9 +28,7 @@ Run the following curl command in Azure Cloud Shell to create a new data group, 
     }
 ```
 
-users.data.root entitlement group is the default member of all data groups when groups are created. If you try to remove users.data.root from any data group, you get error since this membership is enforced by OSDU. 
 
-In case, a data record has 2 ACLs, ACL_1 and ACL_2, and a given user is member of ACL_1 and users.data.root, now if you remove this given user from  ACL_1, the user remains to have access of the data record via users.data.root group. 
 
 ## Create a record with ACLs
 

@@ -6,12 +6,12 @@ description: String claims transformation examples for the Identity Experience F
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: reference
 ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As a developer using Azure AD B2C, I want to understand how to use string claims transformations, so that I can manipulate and compare string claims in my custom policies.
@@ -215,7 +215,7 @@ Determines whether a claim value is equal to the input parameter value. Check ou
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim1 | string | The claim's type, which is to be compared. |
 | InputParameter | operator | string | Possible values: `EQUAL` or `NOT EQUAL`. |
-| InputParameter | compareTo | string | String comparison, one of the values: Ordinal, OrdinalIgnoreCase. |
+| InputParameter | compareTo | string | String comparison, one of the values, that is, the string to which the input claim values must be compared to: Ordinal, OrdinalIgnoreCase. |
 | InputParameter | ignoreCase | string | Specifies whether this comparison should ignore the case of the strings being compared. |
 | OutputClaim | outputClaim | boolean | The claim that is produced after this claims transformation has been invoked. |
 

@@ -3,7 +3,6 @@ title: Dynamically add partitions to an event hub in Azure Event Hubs
 description: This article shows you how to dynamically add partitions to an event hub in Azure Event Hubs.
 ms.topic: how-to
 ms.date: 01/13/2022
-ms.custom: ignite-fall-2021
 ---
 
 # Dynamically add partitions to an event hub (Apache Kafka topic)
@@ -15,7 +14,7 @@ You can specify the number of partitions at the time of creating an event hub. I
 > Dynamic additions of partitions is available only in **premium** and **dedicated** tiers of Event Hubs. 
 
 > [!NOTE]
-> For Apache Kafka clients, an **event hub** maps to a **Kafka topic**. For more mappings between Azure Event Hubs and Apache Kafka, see [Kafka and Event Hubs conceptual mapping](azure-event-hubs-kafka-overview.md#apache-kafka-and-azure-event-hubs-conceptual-mapping)
+> For Apache Kafka clients, an **event hub** maps to a **Kafka topic**. For more mappings between Azure Event Hubs and Apache Kafka, see [Kafka and Event Hubs conceptual mapping](azure-event-hubs-apache-kafka-overview.md#apache-kafka-and-azure-event-hubs-conceptual-mapping)
 
 
 ## Update the partition count
@@ -70,7 +69,7 @@ Event Hubs provides three sender options:
 - **Round-robin sender (default)** – In this scenario, the Event Hubs service round robins the events across partitions, and also uses a load-balancing algorithm. Event Hubs service is aware of partition count changes and will send to new partitions within seconds of altering partition count.
 
 ### Receiver/consumer clients
-Event Hubs provides direct receivers and an easy consumer library called the [Event Processor Host (old SDK)](event-hubs-event-processor-host.md)  or [Event Processor (new SDK)](event-processor-balance-partition-load.md).
+Event Hubs provides direct receivers and an easy consumer library called the [Event Processor](event-processor-balance-partition-load.md).
 
 - **Direct receivers** – The direct receivers listen to specific partitions. Their runtime behavior isn't affected when partitions are scaled out for an event hub. The application that uses direct receivers needs to take care of picking up the new partitions and assigning the receivers accordingly.
 - **Event processor host** – This client doesn't automatically refresh the entity metadata. So, it wouldn't pick up on partition count increase. Recreating an event processor instance will cause an entity metadata fetch, which in turn will create new blobs for the newly added partitions. Pre-existing blobs won't be affected. Restarting all event processor instances is recommended to ensure that all instances are aware of the newly added partitions, and load-balancing is handled correctly among consumers.

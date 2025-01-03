@@ -7,7 +7,7 @@ ms.author: limingchen
 ms.date: 03/13/2023
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: power-bi-visual
 ---
 
 # Contextual on-object interaction with Azure Maps Power BI visual (preview)

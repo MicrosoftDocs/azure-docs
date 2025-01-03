@@ -3,7 +3,7 @@
  description: include file
  services: frontdoor
  author: duongau
- ms.service: frontdoor
+ ms.service: azure-frontdoor
  ms.topic: include
  ms.date: 06/01/2023
  ms.author: duau
@@ -13,7 +13,7 @@
 | Abbreviation | Location | Region |
 | --- | --- | --- |
 | AKL | Auckland, New Zealand | New Zealand North, Asia |
-| AMS | Amsterdam, Netherlands | West Europe |
+| AMS / AM | Amsterdam, Netherlands | West Europe |
 | ASH | Ashburn, Virginia, USA | EAST US, United States |
 | ATA | Atlanta, Georgia, USA | East US, United States |
 | ATH | Athens, Greece | Greece Central, Europe |
@@ -109,7 +109,7 @@
 | SAO | Sao Paulo, Brazil | South Brazil |
 | SAN | San Antonio, Texas, USA | South Central US, United States |
 | SCL | Santiago, Chile | Chile Central, Latin America |
-| SEL | Seoul, Singapore | Southeast Asia |
+| SEL | Seoul, Korea | Korea Central, Asia |
 | SG  | Singapore, Singapore | Southeast Asia |
 | SGE | Singapore, Singapore | Southeast Asia |
 | SGN | Ho Chi Minh City, Vietnam | Southeast Asia |

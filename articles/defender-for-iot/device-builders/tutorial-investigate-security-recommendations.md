@@ -18,8 +18,7 @@ In this tutorial you'll learn how to:
 > - Investigate security recommendation details
 > - Investigate recommendations in a Log Analytics workspace
 
-> [!NOTE]
-> The Microsoft Defender for IoT legacy experience under IoT Hub has been replaced by our new Defender for IoT standalone experience, in the Defender for IoT area of the Azure portal. The legacy experience under IoT Hub will not be supported after **March 31, 2023**.
+[!INCLUDE [device-agents-note](../includes/device-agents-note.md)]
 
 ## Prerequisites
 
@@ -79,7 +78,7 @@ Open each aggregated recommendation to display the detailed recommendation descr
 
     :::image type="content" source="media/how-to-configure-agent-based-solution/recommendation-alert.png" alt-text="Screenshot showing how to view a recommendation in the log analytics workspace.":::
 
-For more information on querying data from Log Analytics, see [Get started with log queries in Azure Monitor](../../azure-monitor/logs/get-started-queries.md).
+For more information on querying data from Log Analytics, see [Get started with log queries in Azure Monitor](/azure/azure-monitor/logs/get-started-queries).
 
 ## Clean up resources
 

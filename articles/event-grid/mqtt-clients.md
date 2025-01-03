@@ -54,10 +54,10 @@ Use the "Thumbprint Match" option while using self-signed certificate to authent
 
 > [!NOTE]
 > - clientCertificateAuthentication is always required with a valid value of validationScheme.
-> - authenticationName is not required, but after the first create request, authenticatioName value defaults to ARM name, and then it can not be updated.
+> - authenticationName is not required, but after the first create request, authenticationName value defaults to ARM name, and then it can not be updated.
 > - authenticationName can not be updated.
 > - If validationScheme is anything other than ThumbprintMatch, then allowedThumbprints list can not be provided.
-> - allowedThumbprints list can only be provided and must be provided if validationScheme is ThumbprintMatch with atleast one thumbprint.
+> - allowedThumbprints list can only be provided and must be provided if validationScheme is ThumbprintMatch with at least one thumbprint.
 > - allowedThumbprints can only hold maximum of 2 thumbprints.
 > - Allowed validationScheme values are SubjectMatchesAuthenticationName, DnsMatchesAuthenticationName, UriMatchesAuthenticationName, IpMatchesAuthenticationName, EmailMatchesAuthenticationName, ThumbprintMatch
 > - Using thumbprint with allow reuse of the same certificate across multiple clients.  For other types of validation, the authentication name needs to be in the chosen field of the client certificate.
@@ -156,17 +156,17 @@ Use the following commands to create/show/delete a client
 
 **Create client**
 ```azurecli-interactive
- az resource create --resource-type Microsoft.EventGrid/namespaces/clients --id /subscriptions/`Subscription ID`/resourceGroups/`Resource Group`/providers/Microsoft.EventGrid/namespaces/`Namespace Name`/clients/`Client name` --api-version 2023-06-01-preview --properties @./resources/client.json
+az eventgrid namespace client create -g myRG --namespace-name myNS -n myClient
 ```
 
 **Get client**
 ```azurecli-interactive
-az resource show --id /subscriptions/`Subscription ID`/resourceGroups/`Resource Group`/providers/Microsoft.EventGrid/namespaces/`Namespace Name`/clients/`Client name`
+az eventgrid namespace client show -g myRG --namespace-name myNS -n myClient
 ```
 
 **Delete client**
 ```azurecli-interactive
-az resource delete --id /subscriptions/`Subscription ID`/resourceGroups/`Resource Group`/providers/Microsoft.EventGrid/namespaces/`Namespace Name`/clients/`Client name`
+az eventgrid namespace client delete -g myRG --namespace-name myNS -n myClient
 ```
 
 ## Next steps

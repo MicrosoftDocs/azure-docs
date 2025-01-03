@@ -1,24 +1,14 @@
 ---
- title: include file
- description: include file
  services: vpn-gateway
  author: cherylmc
- ms.service: vpn-gateway
+ ms.service: azure-vpn-gateway
  ms.topic: include
- ms.date: 04/26/2019
+ ms.date: 05/15/2024
  ms.author: cherylmc
- ms.custom: include file
 ---
-**Azure native certificate authentication**
 
-**Deployment model/method** | **Azure portal** | **PowerShell** |
-|---|---|---|
-| Resource Manager | [Tutorial](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md) | [Tutorial](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)|
-| Classic | [Tutorial](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal.md) | Supported |
-
-**RADIUS authentication**
-
-**Deployment model/method** | **Azure portal** | **PowerShell** |
-|---|---|---|
-| Resource Manager | Supported | [Tutorial](../articles/vpn-gateway/point-to-site-how-to-radius-ps.md)|
-| Classic | Not Supported | Not Supported |
+| **Authentication method** | **Article** |
+|---|---|
+|Certificate | [Tutorial](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md)<br> [How-to](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)|
+|Microsoft Entra ID| [How-to](../articles/vpn-gateway/point-to-site-entra-gateway.md)|
+|RADIUS|[How-to](../articles/vpn-gateway/point-to-site-how-to-radius-ps.md)|

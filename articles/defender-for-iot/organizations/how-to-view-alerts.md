@@ -1,7 +1,7 @@
 ---
 title: View and manage alerts on your OT sensor - Microsoft Defender for IoT
 description: Learn about viewing and managing alerts on an OT network sensor.
-ms.date: 12/12/2022
+ms.date: 10/10/2024
 ms.topic: how-to
 ---
 
@@ -34,9 +34,10 @@ For more information, see [On-premises users and roles for OT monitoring with De
     | **Severity** | A predefined alert severity assigned by the sensor that you can modify as needed, including: *Critical*, *Major*, *Minor*, *Warning*. |
     | **Name** | The alert title |
     | **Engine** | The [Defender for IoT detection engine](architecture.md#defender-for-iot-analytics-engines) that detected the activity and triggered the alert. |
-    | **Last detection** | The last time the alert was detected. <br><br>- If an alert's status is **New**, and the same traffic is seen again, the **Last detection** time is updated for the same alert. <br>- If the alert's status is **Closed** and traffic is seen again, the **Last detection** time is *not* updated, and a new alert is triggered.  |
+    | **Last detection** | The last time the alert was detected. <br><br>- If an alert's status is **New**, and the same traffic is seen again, the **Last detection** time is updated for the same alert. <br>- If the alert's status is **Closed** and traffic is seen again, the **Last detection** time is *not* updated, and a new alert is triggered.<br><br>**Note**: While the sensor console displays an alert's **Last detection** field in real-time, Defender for IoT in the Azure portal may take up to one hour to display the updated time. This explains a scenario where the last detection time in the sensor console isn't the same as the last detection time in the Azure portal.  |
     | **Status** |The alert status: *New*, *Active*, *Closed*<br><br>For more information, see [Alert statuses and triaging options](alerts.md#alert-statuses-and-triaging-options).|
     | **Source Device** | The source device IP address, MAC, or device name. |
+    | **Id** | The unique alert ID, aligned with the ID on the Azure portal.<br><br> **Note:** If the [alert was merged with other alerts](alerts.md#alert-management-options) from sensors that detected the same alert, the Azure portal displays the alert ID of the first sensor that generated the alerts. |
 
     1. To view more details, select the :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/edit-columns-icon.png" border="false"::: **Edit Columns** button.
 
@@ -77,9 +78,7 @@ For example, while the total number of alerts appears above the grid, you may wa
 
     Use the following tabs to gain more contextual insight:
 
-    - **Map View**. View the source and destination devices in a map view with other devices connected to your sensor. For example:
-
-        :::image type="content" source="media/how-to-view-alerts/map-view.png" alt-text="Screenshot of the Map View tab on an alert details page.":::
+    - **Map View**. View the source and destination devices in a map view with other devices connected to your sensor. 
 
     - **Event Timeline**. View the event together with other recent activity on the related devices. Filter options to customize the data displayed. For example:
 

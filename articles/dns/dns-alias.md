@@ -3,15 +3,18 @@ title: Alias records overview - Azure DNS
 description: In this article, learn about support for alias records in Microsoft Azure DNS.
 services: dns
 author: greg-lindsay
-ms.service: dns
-ms.topic: article
-ms.date: 11/22/2023
+ms.service: azure-dns
+ms.topic: concept-article
+ms.date: 09/24/2024
 ms.author: greglin
 ---
 
 # Azure DNS alias records overview
 
 Azure DNS alias records are qualifications on a DNS record set. They can reference other Azure resources from within your DNS zone. For example, you can create an alias record set that references an Azure public IP address instead of an A record. Your alias record set points to an Azure public IP address service instance dynamically. As a result, the alias record set seamlessly updates itself during DNS resolution.
+
+> [!NOTE]
+> To create alias records, you must register the **Microsoft.Network** resource provider. If the DNS zone and the alias target resource are in different subscriptions, both subscriptions must be registered. For more information, see [Resolve errors for resource provider registration](/azure/azure-resource-manager/troubleshooting/error-register-resource-provider?tabs=azure-portal#solution).
 
 An alias record set is supported for the following record types in an Azure DNS zone: 
 
@@ -38,6 +41,7 @@ In the following example, an alias named **vm1** is added that points to the pub
 - **Point to a Traffic Manager profile from a DNS A/AAAA/CNAME record set** - You can create an A/AAAA or CNAME record set and use alias records to point it to a Traffic Manager profile. It's especially useful when you need to route traffic at a zone apex, as traditional CNAME records aren't supported for a zone apex. For example, say your Traffic Manager profile is myprofile.trafficmanager.net and your business DNS zone is contoso.com. You can create an alias record set of type A/AAAA for contoso.com (the zone apex) and point to myprofile.trafficmanager.net.
 - **Point to an Azure Content Delivery Network (CDN) endpoint** - This alias type is useful when you create static websites using Azure storage and Azure CDN.
 - **Point to another DNS record set within the same zone** - Alias records can reference other record sets of the same type. For example, a DNS CNAME record set can be an alias to another CNAME record set. This arrangement is useful if you want some but not all record sets to be aliases.
+- **Point to an Azure Front Door endpoint** - This allows you to create a custom domain and enable your endpoint to use this domain in the end-user request. Having a visible domain name can be convenient for your customers and useful for branding purposes.
 
 ## Scenarios
 

@@ -1,23 +1,22 @@
 ---
-title: Audit and track changes to incident tasks in Microsoft Sentinel
+title: Audit and track changes to incident tasks in Microsoft Sentinel in the Azure portal
 description: This article explains how you, as a SOC manager, can audit the history of Microsoft Sentinel incident tasks, and track changes to them, in order to gauge your task assignments and their contribution to your SOC's efficiency and effectiveness.
 author: yelevin
 ms.author: yelevin
 ms.topic: how-to
 ms.date: 05/08/2023
+appliesto: 
+  - Microsoft Sentinel in the Azure portal
+#Customer intent: As a SOC manager, I want to audit and track changes to incident tasks so that I can evaluate the effectiveness of task assignments and improve SOC efficiency.
 ---
 
-# Audit and track changes to incident tasks in Microsoft Sentinel
+# Audit and track changes to incident tasks in Microsoft Sentinel in the Azure portal
 
 [Incident tasks](incident-tasks.md) ensure comprehensive and uniform treatment of incidents across all SOC personnel. Task lists are typically defined according to determinations made by senior analysts or SOC managers, and put into practice using automation rules or playbooks.
 
 Your analysts can see the list of tasks they need to perform for a particular incident on the incident details page, and mark them complete as they go. Analysts can also create their own tasks on the spot, manually, right from within the incident.
 
 This article explains how you, as a SOC manager, can audit the history of Microsoft Sentinel incident tasks, and track the changes made to them throughout their life cycle, in order to gauge the efficacy of your task assignments and their contribution to your SOC's efficiency and proper functioning.
-
-> [!IMPORTANT]
->
-> The **Incident tasks** feature is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Structure of Tasks array in the SecurityIncident table
 
@@ -81,7 +80,7 @@ Apart from the **Incident tasks workbook**, you can audit task activity by query
 1. Let's add a task to the incident, and then we'll come back here, run the query again, and see the changes in the results.
 
     1. On the **Incidents** page, enter the incident ID number in the Search bar.
-    1. Open the incident details page and select **Tasks (Preview)** from the toolbar.
+    1. Open the incident details page and select **Tasks** from the toolbar.
     1. Add a new task, give it the name "This task is a test task!", then select **Save**. The last task shown below is what you should end up with:
 
         :::image type="content" source="media/audit-track-tasks/incident-task-list-task-added.png" alt-text="Screenshot shows incident tasks panel.":::

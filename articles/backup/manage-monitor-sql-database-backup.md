@@ -1,9 +1,9 @@
 ---
 title: Manage and monitor SQL Server DBs on an Azure VM
 description: This article describes how to manage and monitor SQL Server databases that are running on an Azure VM.
-ms.topic: conceptual
-ms.date: 09/14/2022
-ms.service: backup
+ms.topic: how-to
+ms.date: 11/30/2024
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -35,7 +35,7 @@ Azure Backup raises built-in alerts via Azure Monitor for the following SQL data
 - Workload extension unhealthy
 - Deletion of backup data
 
-For more information on the supported alert scenarios, see [Azure Monitor alerts for Azure Backup](backup-azure-monitoring-built-in-monitor.md?tabs=recovery-services-vaults#azure-monitor-alerts-for-azure-backup).
+For more information on the supported alert scenarios, see [Azure Monitor alerts for Azure Backup](monitoring-and-alerts-overview.md#azure-monitor-alerts-for-azure-backup).
 
 To monitor database backup alerts, follow these steps:
 
@@ -49,7 +49,7 @@ To monitor database backup alerts, follow these steps:
 
 1. To configure notifications for these alerts, you must create an alert processing rule.
 
-   Learn about [Configure notifications for alerts](backup-azure-monitoring-built-in-monitor.md?tabs=recovery-services-vaults#configuring-notifications-for-alerts).
+   Learn about [Configure notifications for alerts](backup-azure-monitor-alerts-notification.md#configure-notifications-for-alerts).
 
 ## Stop protection for a SQL Server database
 
@@ -93,7 +93,7 @@ To stop protection for a database:
 >For more information about the delete data option, see the FAQ below:
 >
 >- [If I delete a database from an autoprotected instance, what will happen to the backups?](faq-backup-sql-server.yml#if-i-delete-a-database-from-an-autoprotected-instance--what-will-happen-to-the-backups-)
->- [If I do stop backup operation of an autoprotected database what will be its behavior?](faq-backup-sql-server.yml#if-i-change-the-name-of-the-database-after-it-has-been-protected--what-will-be-the-behavior-)
+>- [If I do stop backup operation of an autoprotected database what will be its behavior?](faq-backup-sql-server.yml#if-i-ve-changed-the-name-of-the-database-after-it-has-been-protected--what-will-be-the-behavior-)
 >
 >
 
@@ -122,7 +122,7 @@ You can run different types of on-demand backups:
 >The retention period of this backup is determined by the type of on-demand backup you have run.
 >
 >- *On-demand full* retains backups for a minimum of *45 days* and a maximum of *99 years*.
->- *On-demand copy only full* accepts any v0alue for retaintion.
+>- *On-demand copy only full* accepts any value for retention.
 >- *On-demand differential* retains backup as per the retention of scheduled differentials set in policy.
 >- *On-demand log* retains backups as per the retention of scheduled logs set in policy.
 

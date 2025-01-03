@@ -2,10 +2,10 @@
 title: Quickstart - Submit a Job for queuing and routing
 titleSuffix: An Azure Communication Services quickstart
 description: In this quickstart, you'll learn how to create a Job Router client, Distribution Policy, Queue, and Job within your Azure Communication Services resource.
-author: jasonshave
+author: sroons
 manager: phans
 services: azure-communication-services
-ms.author: jassha
+ms.author: serooney 
 ms.date: 10/18/2021
 ms.topic: quickstart
 ms.service: azure-communication-services

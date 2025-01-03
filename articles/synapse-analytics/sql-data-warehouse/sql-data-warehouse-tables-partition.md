@@ -4,11 +4,10 @@ description: Recommendations and examples for using table partitions in dedicate
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.date: 11/02/2021
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
 ms.custom:
-  - seo-lt-2019
   - azure-synapse
 ---
 

@@ -4,6 +4,8 @@ titleSuffix: Microsoft Dev Box
 description: Learn how to enable, disable, and troubleshoot hibernation in Microsoft Dev Box. Configure hibernation settings for your image and dev box definition.
 services: dev-box
 ms.service: dev-box
+ms.custom:
+  - build-2024
 author: RoseHJM
 ms.author: rosemalcolm
 ms.date: 01/02/2024
@@ -19,10 +21,11 @@ Hibernating dev boxes at the end of the workday can help you save a substantial 
 
 With the introduction of Dev Box Hibernation (Preview), you can enable this capability on new dev boxes and hibernate and resume them. This feature provides a convenient way to manage your dev boxes while maintaining your work environment.
 
-There are two steps to enable hibernation: 
+There are three steps to enable hibernation: 
 
 1. Enable hibernation on your dev box image
 1. Enable hibernation on your dev box definition
+1. Automate hibernation of pools of dev boxes using auto-stop schedules, or stop on RDP disconnect.
 
 > [!IMPORTANT]
 > Dev Box Hibernation is currently in PREVIEW.
@@ -48,10 +51,10 @@ Before you enable hibernation on your dev box, review the following consideratio
 
 - Hibernation doesn't support hypervisor-protected code integrity (HVCI)/ Memory Integrity features. Dev box disables this feature automatically.
 
-- Auto-stop schedules still shutdown the dev boxes. If you want to hibernate your dev box, you can do it through the developer portal or by using the Azure CLI.
- 
-   > [!NOTE]
-   > The functionality to schedule dev boxes to hibernate automatically is available in preview. You can sign up for the preview at [Microsoft Dev Box - Auto-Hibernation Schedules Preview](https://aka.ms/DevBoxHibernationSchedulesPrivatePreviewSignUp). 
+- Auto-stop schedules will hibernate Dev Boxes that were created after you enabled hibernation on the associated Dev Box definition. Dev Boxes that were created before you enabled hibernation on the Dev Box definition will continue to shut down.
+
+  > [!NOTE]
+  > The functionality to schedule dev boxes to hibernate automatically is available as a public preview. You can read more about the announcement at [Microsoft Dev Box - Auto-Hibernation Schedules Preview](https://aka.ms/devbox/preview/hibernate-on-schedule). 
 
 ### Settings not compatible with hibernation
 
@@ -182,6 +185,7 @@ az devcenter admin devbox-definition update
 
 ## Related content
 
-- [Configure a dev box by using Azure VM Image Builder](how-to-customize-devbox-azure-image-builder.md)  
+
 - [How to hibernate your dev box](how-to-hibernate-your-dev-box.md)
+- [Configure a dev box by using Azure VM Image Builder](how-to-customize-devbox-azure-image-builder.md)  
 - [Azure CLI reference for az devcenter admin devbox-definition](/cli/azure/devcenter/admin/devbox-definition?view=azure-cli-latest&preserve-view=true)

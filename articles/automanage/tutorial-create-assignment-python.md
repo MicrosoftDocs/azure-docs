@@ -2,8 +2,7 @@
 title: Tutorial - python
 description: Create a virtual machine and assign an automanage best practices configuration profile to it.
 author: andrsmith
-ms.service: automanage
-ms.workload: infrastructure
+ms.service: azure-automanage
 ms.custom: devx-track-python
 ms.topic: tutorial
 ms.date: 08/25/2022

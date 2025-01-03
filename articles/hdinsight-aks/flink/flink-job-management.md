@@ -1,14 +1,17 @@
 ---
 title: Apache Flink® job management in HDInsight on AKS
-description: HDInsight on AKS provides a feature to manage and submit Apache Flink jobs directly through the Azure portal
-ms.service: hdinsight-aks
+description: HDInsight on AKS provides a feature to manage and submit Apache Flink jobs directly through the Azure portal.
+ms.service: azure-hdinsight-on-aks
 ms.topic: tutorial
-ms.date: 09/07/2023
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Apache Flink® job management in HDInsight on AKS clusters
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 HDInsight on AKS provides a feature to manage and submit Apache Flink® jobs directly through the Azure portal (user-friendly interface) and ARM Rest APIs. 
 
@@ -79,11 +82,12 @@ Portal --> HDInsight on AKS Cluster Pool --> Flink Cluster --> Settings --> Flin
    | Entry class |	Entry class for job from which job execution starts. |  | Yes |
    | Args | Argument for main program of job. Separate all arguments with spaces. |  |	No |
    | parallelism | Job Flink Parallelism. | 2	| Yes |
-   | savepoint.directory | Savepoint directory for job. It is recommended that users should create a new directory for job savepoint in storage account. |	`abfs://<container>@<account>/<deployment-ID>/savepoints` | No |
+   | savepoint.directory | Savepoint directory for job. It's recommended that users should create a new directory for job savepoint in storage account. |	`abfs://<container>@<account>/<deployment-ID>/savepoints` | No |
+
 
    Once the job is launched, the job status on the portal is **RUNNING**.
 
-- **Stop:** Stop job did not require any parameter, user can stop the job by selecting the action.
+- **Stop:** Stop job didn't require any parameter, user can stop the job by selecting the action.
 
     :::image type="image" source="./media/flink-job-management/stop-job.png" alt-text="Screenshot shows how user can stop job." border="true" lightbox="./media/flink-job-management/stop-job.png":::
 
@@ -161,7 +165,7 @@ HDInsight on AKS supports user friendly ARM Rest APIs to submit job and manage j
 
 #### Base URL format for Rest API
 
-See following URL for rest API, users need to replace subscription, resource group, cluster pool, cluster name and HDInsight on AKS API version in this before using it.
+See following URL for rest API, users need to replace subscription, resource group, cluster pool, cluster name, and HDInsight on AKS API version in this before using it.
             `https://management.azure.com/subscriptions/{{USER_SUBSCRIPTION}}/resourceGroups/{{USER_RESOURCE_GROUP}}/providers/Microsoft.HDInsight/clusterpools/{{CLUSER_POOL}}/clusters/{{FLINK_CLUSTER}}/runjob?api-version={{API_VERSION}}`
 
 Using this REST API, users can initiate new jobs, stop jobs, start jobs, create savepoints, cancel jobs, and delete jobs. The current API_VERSION is 2023-06-01-preview.
@@ -233,7 +237,8 @@ To authenticate  Flink ARM Rest API users, need to get the bearer token or acces
    |entryClass | Entry class for job from which job execution starts. |  |	Yes |
    | args | Argument for main program of job. Separate arguments with space. |	| No |
    | parallelism | Job Flink Parallelism. | 2 | Yes |
-   | savepoint.directory | Savepoint directory for job. It is recommended that users should create a new directory for job savepoint in storage account. |	`abfs://<container>@<account>/<deployment-ID>/savepoints`| No |
+   | savepoint.directory | Savepoint directory for job. It's recommended that users should create a new directory for job savepoint in storage account. |	`abfs://<container>@<account>/<deployment-ID>/savepoints`| No |
+
 
    Example:
  
@@ -300,7 +305,8 @@ To authenticate  Flink ARM Rest API users, need to get the bearer token or acces
    | jobType  | Type of Job. It should be “FlinkJob” | Yes |
    | jobName  | Job Name that is used for launching the job. | Yes |
    | action   | It should be “START” |	Yes |
-   | savePointName | Save point name to start the job. It is optional property, by default start operation take last successful savepoint. | No |
+   | savePointName | Save point name to start the job. It's optional property, by default start operation take last successful savepoint. | No |
+
 
    **Example:**
    
@@ -337,7 +343,8 @@ To authenticate  Flink ARM Rest API users, need to get the bearer token or acces
    | jobName  |	Job Name that is used for launching the job. |	| Yes |
    | action	  | It should be “UPDATE” always for new job launch. | | Yes |
    | args	  | Job JVM arguments |  | No |
-   | savePointName | Save point name to start the job. It is optional property, by default start operation will take last successful savepoint.| |	No |
+   | savePointName | Save point name to start the job. It's optional property, by default start operation will take last successful savepoint.| |	No |
+
 
    Example: 
    
@@ -377,7 +384,7 @@ To authenticate  Flink ARM Rest API users, need to get the bearer token or acces
    
    `Invoke-RestMethod -Uri $restUri -Method POST -Headers @{ Authorization = "Bearer $tok" } -Body $jsonString -ContentType "application/json"`
 
-- **Savepoint:** Rest API to trigger savepoint for job.
+- **Savepoint:** Rest APIs to trigger savepoint for job.
    
    |  Option  |  Value  |
    | -------- | ------- |

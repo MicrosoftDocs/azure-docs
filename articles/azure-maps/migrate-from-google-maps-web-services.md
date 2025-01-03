@@ -1,13 +1,12 @@
 ---
 title: 'Tutorial - Migrate web services from Google Maps | Microsoft Azure Maps'
 description: Tutorial on how to migrate web services from Google Maps to Microsoft Azure Maps
-author: eriklindeman
-ms.author: eriklind
+author: sinnypan
+ms.author: sipa
 ms.date: 09/28/2023
 ms.topic: tutorial
 ms.service: azure-maps
-services: azure-maps
-ms.custom: 
+ms.subservice: rest-api
 ---
 
 # Tutorial: Migrate web service from Google Maps
@@ -52,11 +51,6 @@ The following service APIs aren't currently available in Azure Maps:
 * Map URLs
 * Nearest Roads - Achievable using the Web SDK as demonstrated in the [Basic snap to road logic] sample, but isn't currently available as a service.
 * Static street view
-
-Azure Maps has several other REST web services that may be of interest:
-
-* [Spatial operations]: Offload complex spatial calculations and operations, such as geofencing, to a service.
-* [Traffic]: Access real-time traffic flow and incident data.
 
 ## Prerequisites
 
@@ -429,9 +423,9 @@ This table cross-references the Google Maps API parameters with the comparable A
 
 | Google Maps API parameter      | Comparable Azure Maps API parameter  |
 |--------------------------------|--------------------------------------|
-| `arrivial_time`                | `arriveAt`                           |
+| `arrival_time`                 | `arriveAt`                           |
 | `avoid`                        | `avoid`                              |
-| `depature_time`                | `departAt`                           |
+| `departure_time`               | `departAt`                           |
 | `destinations`                 | `destination` – specify in the `POST` request body as GeoJSON. |
 | `key`                          | `subscription-key` – For more information, see [Authentication with Azure Maps]. |
 | `language`                     | `language` – For more information, see [Localization support in Azure Maps].  |
@@ -504,14 +498,14 @@ Learn more about Azure Maps REST services:
 [Get Map Tile]: /rest/api/maps/render/get-map-tile
 [Get Route Directions]: /rest/api/maps/route/get-route-directions
 [Get Route Range]: /rest/api/maps/route/get-route-range
-[Get Search Address Reverse Cross Street]: /rest/api/maps/search/get-search-address-reverse-cross-street?view=rest-maps-1.0
-[Get Search Address Reverse]: /rest/api/maps/search/get-search-address-reverse?view=rest-maps-1.0
-[Get Search Address Structured]: /rest/api/maps/search/get-search-address-structured?view=rest-maps-1.0
-[Get Search Address]: /rest/api/maps/search/get-search-address?view=rest-maps-1.0
-[Get Search Fuzzy]: /rest/api/maps/search/get-search-fuzzy?view=rest-maps-1.0
-[Get Search Nearby]: /rest/api/maps/search/get-search-nearby?view=rest-maps-1.0
-[Get Search POI Category]: /rest/api/maps/search/get-search-poi-category?view=rest-maps-1.0
-[Get Search POI]: /rest/api/maps/search/get-search-poi?view=rest-maps-1.0
+[Get Search Address Reverse Cross Street]: /rest/api/maps/search/get-search-address-reverse-cross-street?view=rest-maps-1.0&preserve-view=true
+[Get Search Address Reverse]: /rest/api/maps/search/get-search-address-reverse?view=rest-maps-1.0&preserve-view=true
+[Get Search Address Structured]: /rest/api/maps/search/get-search-address-structured?view=rest-maps-1.0&preserve-view=true
+[Get Search Address]: /rest/api/maps/search/get-search-address?view=rest-maps-1.0&preserve-view=true
+[Get Search Fuzzy]: /rest/api/maps/search/get-search-fuzzy?view=rest-maps-1.0&preserve-view=true
+[Get Search Nearby]: /rest/api/maps/search/get-search-nearby?view=rest-maps-1.0&preserve-view=true
+[Get Search POI Category]: /rest/api/maps/search/get-search-poi-category?view=rest-maps-1.0&preserve-view=true
+[Get Search POI]: /rest/api/maps/search/get-search-poi?view=rest-maps-1.0&preserve-view=true
 [Get Timezone By Coordinates]: /rest/api/maps/timezone/get-timezone-by-coordinates
 [Get Timezone By ID]: /rest/api/maps/timezone/get-timezone-by-id
 [Get Timezone Enum IANA]: /rest/api/maps/timezone/get-timezone-enum-iana
@@ -525,17 +519,17 @@ Learn more about Azure Maps REST services:
 [NuGet package]: https://www.nuget.org/packages/AzureMapsRestToolkit
 [Post Route Directions Batch]: /rest/api/maps/route/post-route-directions-batch
 [Post Route Matrix]: /rest/api/maps/route/post-route-matrix
-[Post Search Address Batch]: /rest/api/maps/search/post-search-address-batch?view=rest-maps-1.0
-[Post Search Address Reverse Batch]: /rest/api/maps/search/post-search-address-reverse-batch?view=rest-maps-1.0
-[Post Search Along Route]: /rest/api/maps/search/post-search-along-route?view=rest-maps-1.0
-[Post Search Fuzzy Batch]: /rest/api/maps/search/post-search-fuzzy-batch?view=rest-maps-1.0
-[Post Search Inside Geometry]: /rest/api/maps/search/post-search-inside-geometry?view=rest-maps-1.0
+[Post Search Address Batch]: /rest/api/maps/search/post-search-address-batch?view=rest-maps-1.0&preserve-view=true
+[Post Search Address Reverse Batch]: /rest/api/maps/search/post-search-address-reverse-batch?view=rest-maps-1.0&preserve-view=true
+[Post Search Along Route]: /rest/api/maps/search/post-search-along-route?view=rest-maps-1.0&preserve-view=true
+[Post Search Fuzzy Batch]: /rest/api/maps/search/post-search-fuzzy-batch?view=rest-maps-1.0&preserve-view=true
+[Post Search Inside Geometry]: /rest/api/maps/search/post-search-inside-geometry?view=rest-maps-1.0&preserve-view=true
 [Render custom data on a raster map]: how-to-render-custom-data.md
 [Render]: /rest/api/maps/render/get-map-static-image
 [Reverse geocode a coordinate]: #reverse-geocode-a-coordinate
 [Route]: /rest/api/maps/route
 [Search for a location using Azure Maps Search services]: how-to-search-for-address.md
-[Search]: /rest/api/maps/search?view=rest-maps-1.0
+[Search]: /rest/api/maps/search?view=rest-maps-1.0&preserve-view=true
 [Spatial operations]: /rest/api/maps/spatial
 [subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [Supported map styles]: supported-map-styles.md

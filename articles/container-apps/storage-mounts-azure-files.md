@@ -3,7 +3,7 @@ title: "Tutorial: Create an Azure Files volume mount in Azure Container Apps"
 description: Learn to create an Azure Files storage mount in Azure Container Apps
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: tutorial
 ms.date: 07/19/2022
@@ -23,6 +23,9 @@ In this tutorial, you learn how to:
 > * Link the environment to the storage file share
 > * Mount the storage share in an individual container
 > * Verify the storage mount by viewing the website access log
+
+> [!NOTE]
+> Azure Container Apps supports mounting file shares using SMB and NFS protocols. This tutorial demonstrates mounting an Azure Files share using the SMB protocol. To learn more about mounting NFS shares, see [Use storage mounts in Azure Container Apps](storage-mounts.md).
 
 ## Prerequisites
 

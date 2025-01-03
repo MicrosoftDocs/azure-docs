@@ -1,9 +1,9 @@
 ---
 title: Geofencing and geospatial aggregation with Azure Stream Analytics
 description: This article describes how to use Azure Stream Analytics for geofencing and geospatial aggregation.
-ms.service: stream-analytics
-author: enkrumah
-ms.author: ebnkruma
+ms.service: azure-stream-analytics
+author: AliciaLiMicrosoft 
+ms.author: ali 
 ms.topic: how-to
 ms.date: 04/02/2019
 ---

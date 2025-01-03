@@ -1,16 +1,16 @@
 ---
 title: Manage a Confluent Cloud
 description: This article describes management of a Confluent Cloud on the Azure portal. How to set up single sign-on, delete a Confluent organization, and get support.
-
+# customerIntent: As a developer I want to learn how to manage Apache Kafka & Apache Flink on Confluent Cloud, so that I can enable single sign-on, delete a Confluent organization, and get support. 
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
-ms.date: 11/20/2023
+ms.date: 1/31/2024
 
 ---
 
 # Manage the Confluent Cloud resource
 
-This article describes how to manage your instance of Apache Kafka for Confluent Cloud on Azure. It shows how to set up single sign-on (SSO) and delete a Confluent organization.
+This article describes how to manage your instance of Apache Kafka® & Apache Flink® on Confluent Cloud™ on Azure. It shows how to set up single sign-on (SSO) and delete a Confluent organization.
 
 ## Single sign-on
 
@@ -46,9 +46,6 @@ To delete the resources in Azure:
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select **All Resources** and **Filter by the name** of the Confluent Cloud resource or the **Resource Type** _Confluent organization_. Or in the Azure portal, search for the resource name.
 1. In the resource's **Overview** select **Delete**.
-
-    :::image type="content" source="media/delete-resources-icon.png" alt-text="Resource delete icon.":::
-
 1. To confirm the deletion, type the resource name and select **Delete**.
 
     :::image type="content" source="media/delete-resources-prompt.png" alt-text="Prompt to confirm resource deletion.":::
@@ -57,7 +54,7 @@ To delete the resources in Azure:
 
 Start by preparing your environment for the Azure CLI:
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 After you sign in, use the [az confluent organization delete](/cli/azure/confluent#az-confluent-organization-delete) command to delete the organization resource by name:
 
@@ -81,6 +78,6 @@ You're billed for prorated usage up to the time of cluster deletion. After your 
 
 ## Next steps
 
-* For help with troubleshooting, see [Troubleshooting Apache Kafka on Confluent Cloud solutions](troubleshoot.md).
+* For help with troubleshooting, see [Troubleshooting Apache Kafka & Apache Flink on Confluent Cloud solutions](troubleshoot.md).
 * If you need to contact support, see [Get support for Confluent Cloud resource](get-support.md).
 * To learn about managing user permissions, go to [How to manage user permissions in a Confluent organization](manage.md).

@@ -5,11 +5,13 @@ description: Learn how to integrate Application Insights into your managed or se
 author: dlepow
 ms.author: danlep
 ms.date: 08/16/2022
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
 ---
 
 # Integrate Application Insights to developer portal
+
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2.md)]
 
 A popular feature of Azure Monitor is Application Insights. It's an extensible Application Performance Management (APM) service for developers and DevOps professionals. Use it to monitor your developer portal and detect performance anomalies. Application Insights includes powerful analytics tools to help you learn what users actually do while visiting your developer portal.
 
@@ -96,7 +98,7 @@ Follow these steps to plug Application Insights into your managed or self-hosted
     }
     ```
 
-1. After you update the configuration, [republish the portal](api-management-howto-developer-portal-customize.md#publish) for the changes to take effect.
+1. After you update the configuration, [republish the portal](developer-portal-overview.md#publish-the-portal) for the changes to take effect.
 
 ## Next steps
 

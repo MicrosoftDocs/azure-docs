@@ -3,8 +3,7 @@ title: Quickstart for Microsoft Azure Data Box Heavy| Microsoft Docs
 description: In this quickstart, learn how to deploy Azure Data Box Heavy using the Azure portal, including how to cable, configure, and copy data to upload to Azure.
 services: databox
 author: stevenmatthew
-ms.service: databox
-ms.subservice: heavy
+ms.service: azure-data-box-heavy
 ms.topic: quickstart
 ms.date: 06/13/2022
 ms.author: shaas
@@ -71,7 +70,7 @@ Once the order is created, the device is prepared for shipment.
 
 Use these Azure CLI commands to create a Data Box Heavy job.
 
-[!INCLUDE [azure-cli-prepare-your-environment-h3.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
 
 1. Run the [az group create](/cli/azure/group#az-group-create) command to create a resource group or use an existing resource group:
 

@@ -3,9 +3,9 @@ title: Add multiple Virtual Machine Scale Set instances behind one Azure Load Ba
 description: learn how to configure multiple Virtual Machine Scale Set instances behind a single Azure load Balancer.
 author: mbender-ms
 ms.author: mbender
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: how-to 
-ms.date: 12/15/2022
+ms.date: 02/14/2024
 ms.custom: template-how-to
 ---
 
@@ -19,7 +19,7 @@ In this article, you’ll learn how to configure multiple Virtual Machine Scale 
 
 - Access to the Azure portal
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- Two or more [Virtual Machine Scale Sets](../virtual-machine-scale-sets/quick-create-portal.md)
+- Two or more [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/quick-create-portal)
   - Ensure the upgrade policy is set to automatic.
     - If manual upgrade policy is used, upgrade all virtual machine instances after attaching it to the load balancer.  
 - An existing [standard SKU load balancer](quickstart-load-balancer-standard-internal-portal.md) in the same subscription and virtual network as the Virtual Machine Scale Sets.
@@ -28,7 +28,7 @@ In this article, you’ll learn how to configure multiple Virtual Machine Scale 
 # [Azure CLI](#tab/azurecli/)
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- Two or more [Virtual Machine Scale Sets](../virtual-machine-scale-sets/quick-create-portal.md)
+- Two or more [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/quick-create-portal)
   - Ensure that the upgrade policy is set to automatic.
     - If manual upgrade policy is used, upgrade all virtual machine instances after attaching it to the load balancer.  
 - An existing [standard SKU load balancer](quickstart-load-balancer-standard-internal-portal.md) in the same subscription and virtual network as the Virtual Machine Scale Sets.
@@ -39,7 +39,7 @@ In this article, you’ll learn how to configure multiple Virtual Machine Scale 
 > If you choose to use Azure CLI, you have can run AZ CLI in Azure Cloud Shell or as a local install. Review the following to ensure you are ready to use Azure CLI in the environment you choose. 
 
 - Use the Bash environment in [Azure Cloud Shell](../cloud-shell/quickstart.md)
-  [![Launch Cloud Shell in a new window](../../includes/media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com)
+  :::image type="icon" source="~/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png" alt-text="Button to launch the Azure Cloud Shell." border="false" link="https://shell.azure.com":::
 - If you prefer to run CLI reference commands locally, [install](/cli/azure/install-azure-cli) the Azure CLI. If you're running on Windows or macOS, consider running Azure CLI in a Docker container. For more information, see [How to run the Azure CLI in a Docker container](/cli/azure/run-azure-cli-docker).
 
   - If you're using a local installation, sign in to the Azure CLI by using the [az sign-in](/cli/azure/reference-index#az-login) command. To finish the authentication process, follow the steps displayed in your terminal. For other sign-in options, see [Sign in with the Azure CLI](/cli/azure/authenticate-azure-cli).
@@ -105,4 +105,4 @@ az vmss update \
 In this article, you attached multiple Virtual Machine Scale Sets behind a single Azure load balancer.
 
 - [What is Azure Load Balancer?](load-balancer-overview.md)
-- [What are Azure Virtual Machine Scale Sets?](../virtual-machine-scale-sets/overview.md)
+- [What are Azure Virtual Machine Scale Sets?](/azure/virtual-machine-scale-sets/overview)

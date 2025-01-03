@@ -12,6 +12,8 @@ ms.custom: template-how-to-pattern
 This article describes the legacy method for connecting your OT sensor or on-premises management console to Microsoft Sentinel. Stream data into Microsoft Sentinel whenever you want to use Microsoft Sentinel's advanced threat hunting, security analytics, and automation features when responding to security incidents and threats across your network.
 
 > [!IMPORTANT]
+> This feature will be deprecated in **January 2025**.
+>
 > If you're using a cloud connected sensor, we recommend that you connect Defender for IoT data using the Microsoft Sentinel solution instead of the legacy integration method. For more information, see:
 >
 > - [OT threat monitoring in enterprise SOCs](../concept-sentinel-integration.md)

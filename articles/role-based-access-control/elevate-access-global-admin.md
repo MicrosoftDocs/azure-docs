@@ -1,21 +1,19 @@
 ---
 title: Elevate access to manage all Azure subscriptions and management groups
 description: Describes how to elevate access for a Global Administrator to manage all subscriptions and management groups in Microsoft Entra ID using the Azure portal or REST API.
-services: active-directory
 author: rolyon
 manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: how-to
-ms.workload: identity
-ms.date: 03/21/2023
+ms.date: 12/10/2024
 ms.author: rolyon
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom: devx-track-azurecli
 ---
 # Elevate access to manage all Azure subscriptions and management groups
 
-As a Global Administrator in Microsoft Entra ID, you might not have access to all subscriptions and management groups in your directory. This article describes the ways that you can elevate your access to all subscriptions and management groups.
+As a Global Administrator in Microsoft Entra ID, you might not have access to all subscriptions and management groups in your tenant. This article describes the ways that you can elevate your access to all subscriptions and management groups.
 
-[!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
+[!INCLUDE [gdpr-dsr-and-stp-note](~/reusable-content/ce-skilling/azure/includes/gdpr-dsr-and-stp-note.md)]
 
 ## Why would you need to elevate your access?
 
@@ -28,27 +26,27 @@ If you are a Global Administrator, there might be times when you want to do the 
 
 ## How does elevated access work?
 
-Microsoft Entra ID and Azure resources are secured independently from one another. That is, Microsoft Entra role assignments do not grant access to Azure resources, and Azure role assignments do not grant access to Microsoft Entra ID. However, if you are a [Global Administrator](../active-directory/roles/permissions-reference.md#global-administrator) in Microsoft Entra ID, you can assign yourself access to all Azure subscriptions and management groups in your directory. Use this capability if you don't have access to Azure subscription resources, such as virtual machines or storage accounts, and you want to use your Global Administrator privilege to gain access to those resources.
+Microsoft Entra ID and Azure resources are secured independently from one another. That is, Microsoft Entra role assignments do not grant access to Azure resources, and Azure role assignments do not grant access to Microsoft Entra ID. However, if you are a [Global Administrator](/entra/identity/role-based-access-control/permissions-reference#global-administrator) in Microsoft Entra ID, you can assign yourself access to all Azure subscriptions and management groups in your tenant. Use this capability if you don't have access to Azure subscription resources, such as virtual machines or storage accounts, and you want to use your Global Administrator privilege to gain access to those resources.
 
-When you elevate your access, you will be assigned the [User Access Administrator](built-in-roles.md#user-access-administrator) role in Azure at root scope (`/`). This allows you to view all resources and assign access in any subscription or management group in the directory. User Access Administrator role assignments can be removed using Azure PowerShell, Azure CLI, or the REST API.
+When you elevate your access, you are assigned the [User Access Administrator](built-in-roles.md#user-access-administrator) role in Azure at root scope (`/`). This allows you to view all resources and assign access in any subscription or management group in the tenant. User Access Administrator role assignments can be removed using Azure PowerShell, Azure CLI, or the REST API.
 
 You should remove this elevated access once you have made the changes you need to make at root scope.
 
 ![Elevate access](./media/elevate-access-global-admin/elevate-access.png)
 
-## Azure portal
+## Perform steps at root scope
 
-### Elevate access for a Global Administrator
+# [Azure portal](#tab/azure-portal)
+
+### Step 1: Elevate access for a Global Administrator
 
 Follow these steps to elevate access for a Global Administrator using the Azure portal.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as a Global Administrator.
 
-    If you are using Microsoft Entra Privileged Identity Management, [activate your Global Administrator role assignment](../active-directory/privileged-identity-management/pim-how-to-activate-role.md).
+    If you are using Microsoft Entra Privileged Identity Management, [activate your Global Administrator role assignment](/entra/id-governance/privileged-identity-management/pim-how-to-activate-role).
 
-1. Open **Microsoft Entra ID**.
-
-1. Under **Manage**, select **Properties**.
+1. Browse to **Microsoft Entra ID** > **Manage** > **Properties**.
 
    ![Select Properties for Microsoft Entra properties - screenshot](./media/elevate-access-global-admin/azure-active-directory-properties.png)
 
@@ -56,40 +54,40 @@ Follow these steps to elevate access for a Global Administrator using the Azure 
 
    ![Access management for Azure resources - screenshot](./media/elevate-access-global-admin/aad-properties-global-admin-setting.png)
 
-   When you set the toggle to **Yes**, you are assigned the User Access Administrator role in Azure RBAC at root scope (/). This grants you permission to assign roles in all Azure subscriptions and management groups associated with this Microsoft Entra directory. This toggle is only available to users who are assigned the Global Administrator role in Microsoft Entra ID.
+   When you set the toggle to **Yes**, you are assigned the User Access Administrator role in Azure RBAC at root scope (/). This grants you permission to assign roles in all Azure subscriptions and management groups associated with this Microsoft Entra tenant. This toggle is only available to users who are assigned the Global Administrator role in Microsoft Entra ID.
 
-   When you set the toggle to **No**, the User Access Administrator role in Azure RBAC is removed from your user account. You can no longer assign roles in all Azure subscriptions and management groups that are associated with this Microsoft Entra directory. You can view and manage only the Azure subscriptions and management groups to which you have been granted access.
+   When you set the toggle to **No**, the User Access Administrator role in Azure RBAC is removed from your user account. You can no longer assign roles in all Azure subscriptions and management groups that are associated with this Microsoft Entra tenant. You can view and manage only the Azure subscriptions and management groups to which you have been granted access.
 
     > [!NOTE]
-    > If you're using [Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md), deactivating your role assignment does not change the **Access management for Azure resources** toggle to **No**. To maintain least privileged access, we recommend that you set this toggle to **No** before you deactivate your role assignment.
+    > If you're using [Privileged Identity Management](/entra/id-governance/privileged-identity-management/pim-configure), deactivating your role assignment does not change the **Access management for Azure resources** toggle to **No**. To maintain least privileged access, we recommend that you set this toggle to **No** before you deactivate your role assignment.
 
-1. Click **Save** to save your setting.
+1. Select **Save** to save your setting.
 
    This setting is not a global property and applies only to the currently signed in user. You can't elevate access for all members of the Global Administrator role.
 
 1. Sign out and sign back in to refresh your access.
 
-    You should now have access to all subscriptions and management groups in your directory. When you view the Access control (IAM) pane, you'll notice that you have been assigned the User Access Administrator role at root scope.
+    You should now have access to all subscriptions and management groups in your tenant. When you view the Access control (IAM) page, you'll notice that you have been assigned the User Access Administrator role at root scope.
 
    ![Subscription role assignments with root scope - screenshot](./media/elevate-access-global-admin/iam-root.png)
 
 1. Make the changes you need to make at elevated access.
 
-    For information about assigning roles, see [Assign Azure roles using the Azure portal](role-assignments-portal.md). If you are using Privileged Identity Management, see [Discover Azure resources to manage](../active-directory/privileged-identity-management/pim-resource-roles-discover-resources.md) or [Assign Azure resource roles](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
+    For information about assigning roles, see [Assign Azure roles using the Azure portal](role-assignments-portal.yml). If you are using Privileged Identity Management, see [Discover Azure resources to manage](/entra/id-governance/privileged-identity-management/pim-resource-roles-discover-resources) or [Assign Azure resource roles](/entra/id-governance/privileged-identity-management/pim-resource-roles-assign-roles).
 
 1. Perform the steps in the following section to remove your elevated access.
 
-### Remove elevated access
+### Step 2: Remove elevated access
 
 To remove the User Access Administrator role assignment at root scope (`/`), follow these steps.
 
 1. Sign in as the same user that was used to elevate access.
 
-1. In the navigation list, click **Microsoft Entra ID** and then click **Properties**.
+1. Browse to **Microsoft Entra ID** > **Manage** > **Properties**.
 
 1. Set the **Access management for Azure resources** toggle back to **No**. Since this is a per-user setting, you must be signed in as the same user as was used to elevate access.
 
-    If you try to remove the User Access Administrator role assignment on the Access control (IAM) pane, you'll see the following message. To remove the role assignment, you must set the toggle back to **No** or use Azure PowerShell, Azure CLI, or the REST API.
+    If you try to remove the User Access Administrator role assignment on the Access control (IAM) page, you'll see the following message. To remove the role assignment, you must set the toggle back to **No** or use Azure PowerShell, Azure CLI, or the REST API.
 
     ![Remove role assignments with root scope](./media/elevate-access-global-admin/iam-root-remove.png)
 
@@ -98,15 +96,17 @@ To remove the User Access Administrator role assignment at root scope (`/`), fol
     If you are using Privileged Identity Management, deactivate your Global Administrator role assignment.
 
     > [!NOTE]
-    > If you're using [Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md), deactivating your role assignment does not change the **Access management for Azure resources** toggle to **No**. To maintain least privileged access, we recommend that you set this toggle to **No** before you deactivate your role assignment.
+    > If you're using [Privileged Identity Management](/entra/id-governance/privileged-identity-management/pim-configure), deactivating your role assignment does not change the **Access management for Azure resources** toggle to **No**. To maintain least privileged access, we recommend that you set this toggle to **No** before you deactivate your role assignment.
 
-## Azure PowerShell
+# [PowerShell](#tab/powershell)
 
-[!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
+### Step 1: Elevate access for a Global Administrator
 
-### List role assignment at root scope (/)
+Use the Azure portal or REST API to elevate access for a Global Administrator.
 
-To list the User Access Administrator role assignment for a user at root scope (`/`), use the [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) command.
+### Step 2: List role assignment at root scope (/)
+
+Once you have elevated access, to list the User Access Administrator role assignment for a user at root scope (`/`), use the [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) command.
 
 ```azurepowershell
 Get-AzRoleAssignment | where {$_.RoleDefinitionName -eq "User Access Administrator" `
@@ -125,7 +125,7 @@ ObjectType         : User
 CanDelegate        : False
 ```
 
-### Remove elevated access
+### Step 3: Remove elevated access
 
 To remove the User Access Administrator role assignment for yourself or another user at root scope (`/`), follow these steps.
 
@@ -138,9 +138,9 @@ To remove the User Access Administrator role assignment for yourself or another 
       -RoleDefinitionName "User Access Administrator" -Scope "/"
     ```
 
-## Azure CLI
+# [Azure CLI](#tab/azure-cli)
 
-### Elevate access for a Global Administrator
+### Step 1: Elevate access for a Global Administrator
 
 Use the following basic steps to elevate access for a Global Administrator using the Azure CLI.
 
@@ -156,9 +156,9 @@ Use the following basic steps to elevate access for a Global Administrator using
 
 1. Perform the steps in a later section to remove your elevated access.
 
-### List role assignment at root scope (/)
+### Step 2: List role assignment at root scope (/)
 
-To list the User Access Administrator role assignment for a user at root scope (`/`), use the [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list) command.
+Once you have elevated access, to list the User Access Administrator role assignment for a user at root scope (`/`), use the [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list) command.
 
 ```azurecli
 az role assignment list --role "User Access Administrator" --scope "/"
@@ -182,7 +182,7 @@ az role assignment list --role "User Access Administrator" --scope "/"
 
 ```
 
-### Remove elevated access
+### Step 3: Remove elevated access
 
 To remove the User Access Administrator role assignment for yourself or another user at root scope (`/`), follow these steps.
 
@@ -194,7 +194,7 @@ To remove the User Access Administrator role assignment for yourself or another 
     az role assignment delete --assignee username@example.com --role "User Access Administrator" --scope "/"
     ```
 
-## REST API
+# [REST API](#tab/rest-api)
 
 ### Prerequisites
 
@@ -206,7 +206,7 @@ You must use the following versions:
 
 For more information, see [API versions of Azure RBAC REST APIs](/rest/api/authorization/versions).
 
-### Elevate access for a Global Administrator
+### Step 1: Elevate access for a Global Administrator
 
 Use the following basic steps to elevate access for a Global Administrator using the REST API.
 
@@ -222,9 +222,9 @@ Use the following basic steps to elevate access for a Global Administrator using
 
 1. Perform the steps in a later section to remove your elevated access.
 
-### List role assignments at root scope (/)
+### Step 2: List role assignments at root scope (/)
 
-You can list all of the role assignments for a user at root scope (`/`).
+Once you have elevated access, you can list all of the role assignments for a user at root scope (`/`).
 
 - Call [Role Assignments - List For Scope](/rest/api/authorization/role-assignments/list-for-scope) where `{objectIdOfUser}` is the object ID of the user whose role assignments you want to retrieve.
 
@@ -232,17 +232,17 @@ You can list all of the role assignments for a user at root scope (`/`).
    GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2022-04-01&$filter=principalId+eq+'{objectIdOfUser}'
    ```
 
-### List deny assignments at root scope (/)
+### Step 3: List deny assignments at root scope (/)
 
-You can list all of the deny assignments for a user at root scope (`/`).
+Once you have elevated access, you can list all of the deny assignments for a user at root scope (`/`).
 
-- Call GET denyAssignments where `{objectIdOfUser}` is the object ID of the user whose deny assignments you want to retrieve.
+- Call [Deny Assignments - List For Scope](/rest/api/authorization/deny-assignments/list-for-scope) where `{objectIdOfUser}` is the object ID of the user whose deny assignments you want to retrieve.
 
    ```http
    GET https://management.azure.com/providers/Microsoft.Authorization/denyAssignments?api-version=2022-04-01&$filter=gdprExportPrincipalId+eq+'{objectIdOfUser}'
    ```
 
-### Remove elevated access
+### Step 4: Remove elevated access
 
 When you call `elevateAccess`, you create a role assignment for yourself, so to revoke those privileges you need to remove the User Access Administrator role assignment for yourself at root scope (`/`).
 
@@ -289,17 +289,17 @@ When you call `elevateAccess`, you create a role assignment for yourself, so to 
 
     Save the ID from the `name` parameter, in this case `18d7d88d-d35e-4fb5-a5c3-7773c20a72d9`.
 
-1. You also need to list the role assignment for the directory administrator at directory scope. List all assignments at directory scope for the `principalId` of the directory administrator who made the elevate access call. This will list all assignments in the directory for the objectid.
+1. You also need to list the role assignment for the tenant administrator at tenant scope. List all assignments at tenant scope for the `principalId` of the tenant administrator who made the elevate access call. This will list all assignments in the tenant for the objectid.
 
     ```http
     GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2022-04-01&$filter=principalId+eq+'{objectid}'
     ```
 
-    >[!NOTE]
-    >A directory administrator should not have many assignments, if the previous query returns too many assignments, you can also query for all assignments just at directory scope level, then filter the results:
+    > [!NOTE]
+    > A tenant administrator should not have many assignments. If the previous query returns too many assignments, you can also query for all assignments just at tenant scope, then filter the results:
     > `GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2022-04-01&$filter=atScope()`
 
-1. The previous calls return a list of role assignments. Find the role assignment where the scope is `"/"` and the `roleDefinitionId` ends with the role name ID you found in step 1 and `principalId` matches the objectId of the directory administrator.
+1. The previous calls return a list of role assignments. Find the role assignment where the scope is `"/"` and the `roleDefinitionId` ends with the role name ID you found in step 1 and `principalId` matches the objectId of the tenant administrator.
 
     Sample role assignment:
 
@@ -333,6 +333,56 @@ When you call `elevateAccess`, you create a role assignment for yourself, so to 
     DELETE https://management.azure.com/providers/Microsoft.Authorization/roleAssignments/11111111-1111-1111-1111-111111111111?api-version=2022-04-01
     ```
 
+---
+
+## View users with elevated access
+
+If you have users with elevated access, banners are displayed in a couple locations of the Azure portal. This section describes how to determine if you have users that have elevated access in your tenant. This capability is being deployed in stages, so it might not be available yet in your tenant.
+
+### Option 1
+
+1. In the Azure portal, browse to **Microsoft Entra ID** > **Manage** > **Properties**.
+
+1. Under **Access management for Azure resources**, look for the following banner.
+
+    `You have X users with elevated access. Microsoft Security recommends deleting access for users who have unnecessary elevated access. Manage elevated access users`
+
+    :::image type="content" source="./media/elevate-access-global-admin/elevated-access-users-banner.png" alt-text="Screenshot of banner that indicates there are users with elevated access." lightbox="./media/elevate-access-global-admin/elevated-access-users-banner.png":::
+
+1. Select the **Manage elevated access users** link to view a list of users with elevated access.
+
+### Option 2
+
+1. In the Azure portal, browse to a subscription.
+
+1. Select **Access control (IAM)**.
+
+1. At the top of the page, look for the following banner.
+
+    `Action required: X users have elevated access in your tenant. You should take immediate action and remove all role assignments with elevated access. View role assignments`
+
+    :::image type="content" source="./media/elevate-access-global-admin/elevated-access-users-iam-banner.png" alt-text="Screenshot of banner on Access control (IAM) page that indicates there are users with elevated access." lightbox="./media/elevate-access-global-admin/elevated-access-users-iam-banner.png":::
+
+1. Select the **View role assignments** link to view a list of users with elevated access.
+
+## Remove elevated access for users
+
+If you have users with elevated access, you should take immediate action and remove that access. To remove these role assignments, you must also have elevated access. This section describes how to remove elevated access for users in your tenant using the Azure portal. This capability is being deployed in stages, so it might not be available yet in your tenant.
+
+1. Sign in to the [Azure portal](https://portal.azure.com) as a Global Administrator.
+
+1. Browse to **Microsoft Entra ID** > **Manage** > **Properties**.
+
+1. Under **Access management for Azure resources**, set the toggle to **Yes** as described earlier in [Step 1: Elevate access for a Global Administrator](#step-1-elevate-access-for-a-global-administrator).
+
+1. Select the **Manage elevated access users** link.
+
+    The **Users with elevated access appears** pane appears with a list of users with elevated access in your tenant.
+
+    :::image type="content" source="./media/elevate-access-global-admin/elevated-access-users-pane.png" alt-text="Screenshot of Users with elevated access pane that lists users with elevated access." lightbox="./media/elevate-access-global-admin/elevated-access-users-pane.png":::
+
+1. To remove elevated access for users, add a check mark next to the user and select **Remove**.
+
 ## View elevate access log entries in the Directory Activity logs
 
 When access is elevated, an entry is added to the logs. As a Global Administrator in Microsoft Entra ID, you might want to check when access was elevated and who did it. Elevate access log entries do not appear in the standard activity logs, but instead appear in the Directory Activity logs. This section describes different ways that you can view the elevate access log entries.
@@ -341,7 +391,7 @@ When access is elevated, an entry is added to the logs. As a Global Administrato
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as a Global Administrator.
 
-1. Open **Monitor** > **Activity log**.
+1. Browse to **Monitor** > **Activity log**.
 
 1. Change the **Activity** list to **Directory Activity**.
 
@@ -388,13 +438,13 @@ When access is elevated, an entry is added to the logs. As a Global Administrato
 
 If you want to be able to periodically get the elevate access log entries, you can delegate access to a group and then use Azure CLI.
 
-1. Open **Microsoft Entra ID** > **Groups**.
+1. Browse to **Microsoft Entra ID** > **Groups**.
 
 1. Create a new security group and note the group object ID.
 
 1. Use the [az login](/cli/azure/reference-index#az-login) command to sign in as Global Administrator.
 
-1. Use the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command to assign the [Reader](built-in-roles.md#reader) role to the group who can only read logs at the directory level, which are found at `Microsoft/Insights`.
+1. Use the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command to assign the [Reader](built-in-roles.md#reader) role to the group who can only read logs at the tenant level, which are found at `Microsoft/Insights`.
 
     ```azurecli
     az role assignment create --assignee "{groupId}" --role "Reader" --scope "/providers/Microsoft.Insights"

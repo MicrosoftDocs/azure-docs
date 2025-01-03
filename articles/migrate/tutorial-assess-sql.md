@@ -5,8 +5,8 @@ author: rashi-ms
 ms.author: rajosh
 ms.topic: tutorial
 ms.service: azure-migrate
-ms.date: 08/17/2023
-ms.custom: engagement-fy24
+ms.date: 08/13/2024
+ms.custom: engagement-fy25
 ---
 
 
@@ -40,15 +40,16 @@ Decide whether you want to run an assessment using sizing criteria based on SQL 
 **Performance-based** | Assess based on collected performance data. | Recommended Azure SQL configuration is based on performance data of SQL Server instances and databases, which includes CPU usage, core counts, database file organization and size, file IOs, and memory usage by each database. You can get optimal recommendations that are right-sized for the SQL workload.
 
 ## Run an assessment
+
 Run an assessment as follows:
-1. 1. On the **Get started** page > **Servers, databases and web apps**, select **Discover, assess and migrate**.
-    
+1. In **Servers, databases and web apps**, select **Discover, assess and migrate**.
+
     :::image type="content" source="./media/tutorial-assess-sql/assess-migrate-inline.png" alt-text="Screenshot of Overview page for Azure Migrate." lightbox="./media/tutorial-assess-sql/assess-migrate-expanded.png":::
 
 1. In **Azure Migrate: Discovery and assessment**, select **Assess** and choose the assessment type as **Azure SQL**.
-    
+
     :::image type="content" source="./media/tutorial-assess-sql/assess-inline.png" alt-text="Screenshot of Dropdown to choose assessment type as Azure SQL." lightbox="./media/tutorial-assess-sql/assess-expanded.png":::
-    
+
 1. In **Assess servers**, the assessment type is pre-selected as **Azure SQL** and the discovery source is defaulted to **Servers discovered from Azure Migrate appliance**.
 
 1. Select **Edit** to review the assessment settings.
@@ -65,7 +66,7 @@ Run an assessment as follows:
    Target and pricing settings | **Currency** | The billing currency for your account.
    Target and pricing settings | **Discount (%)** | Any subscription-specific discounts you receive on top of the Azure offer. The default setting is 0%.
    Target and pricing settings | **VM uptime** | Specify the duration (days per month/hour per day) that servers/VMs run. This is useful for computing cost estimates for SQL Server on Azure VM where you're aware that Azure VMs might not run continuously. <br/> Cost estimates for servers where recommended target is *SQL Server on Azure VM* are based on the duration specified. Default is 31 days per month/24 hours per day.
-   Target and pricing settings | **Azure Hybrid Benefit** | Specify whether you already have a Windows Server and/or SQL Server license. Azure Hybrid Benefit is a licensing benefit that helps you to significantly reduce the costs of running your workloads in the cloud. It works by letting you use your on-premises Software Assurance-enabled Windows Server and SQL Server licenses on Azure. For example, if you have a SQL Server license and they're covered with active Software Assurance of SQL Server Subscriptions, you can apply for the Azure Hybrid Benefit when you bring licenses to Azure.
+   Target and pricing settings | **Azure Hybrid Benefit** | Specify whether you already have a Windows Server and/or SQL Server license or Enterprise Linux subscription (RHEL and SLES). Azure Hybrid Benefit is a licensing benefit that helps you to significantly reduce the costs of running your workloads in the cloud. It works by letting you use your on-premises Software Assurance-enabled Windows Server and SQL Server licenses on Azure. For example, if you have a SQL Server license and they're covered with active Software Assurance of SQL Server Subscriptions, you can apply for the Azure Hybrid Benefit when you bring licenses to Azure.
    Assessment criteria | **Sizing criteria** | Set to *Performance-based* by default, which means Azure Migrate collects performance metrics pertaining to SQL instances and the databases managed by it to recommend an optimal-sized SQL Server on Azure VM and/or Azure SQL Database and/or Azure SQL Managed Instance configuration.<br/><br/> You can change this to *As on-premises* to get recommendations based on just the on-premises SQL Server configuration without the performance metric based optimizations.
    Assessment criteria | **Performance history** | Indicate the data duration on which you want to base the assessment. (Default is one day)
    Assessment criteria | **Percentile utilization** | Indicate the percentile value you want to use for the performance sample. (Default is 95th percentile)
@@ -187,23 +188,25 @@ You can review readiness reports for different migration strategies:
     - **Unknown**: Azure Migrate can't assess readiness, because the discovery is in progress or there are issues during discovery that need to be fixed from the notifications blade. If the issue persists, contact [Microsoft support](https://support.microsoft.com).
 
 1. Select the instance name and drill-down to see the number of user databases, instance details including instance properties, compute (scoped to instance) and source database storage details.
-1. Click the number of user databases to review the list of databases and their details.
-1. Click review details in the **Migration issues** column to review the migration issues and warnings for a particular target deployment type.
+1. Select the number of user databases to review the list of databases and their details.
+1. Select review details in the **Migration issues** column to review the migration issues and warnings for a particular target deployment type.
 
 ### Review cost estimates
+
 The assessment summary shows the estimated monthly compute and storage costs for Azure SQL configurations corresponding to the recommended SQL Server on Azure VM and/or Azure SQL Managed Instances and/or Azure SQL Database deployment type.
 
 1. Review the monthly total costs. Costs are aggregated for all SQL instances in the assessed group.
-    - Cost estimates are based on the recommended Azure SQL configuration for an instance/server/database.
-    - Estimated total(compute and storage) monthly costs are displayed. As an example:
-    
+    * Cost estimates are based on the recommended Azure SQL configuration for an instance/server/database.
+    * Estimated total(compute and storage) monthly costs are displayed. As an example:
+
       :::image type="content" source="./media/tutorial-assess-sql/assessment-sql-cost-inline.png" alt-text="Screenshot of cost details." lightbox="./media/tutorial-assess-sql/assessment-sql-cost-expanded.png":::
 
-    - The compute and storage costs are split in the individual cost estimates reports and at instance/server/database level.
+    * The compute and storage costs are split in the individual cost estimates reports and at instance/server/database level.
 1. You can drill down at an instance level to see Azure SQL configuration and cost estimates at an instance level.  
 1. You can also drill down to the database list to review the Azure SQL configuration and cost estimates per database when an Azure SQL Database configuration is recommended.
 
 ### Review confidence rating
+
 Azure Migrate assigns a confidence rating to all Azure SQL assessments based on the availability of the performance/utilization data points needed to compute the assessment for all the assessed SQL instances and databases. Rating is from one star (lowest) to five stars (highest).
 The confidence rating helps you estimate the reliability of size recommendations in the assessment. Confidence ratings are as follows:
 
@@ -217,8 +220,7 @@ The confidence rating helps you estimate the reliability of size recommendations
 
 [Learn more](concepts-azure-sql-assessment-calculation.md#confidence-ratings) about confidence ratings.
 
-
 ## Next steps
 
-- [Learn more](concepts-azure-sql-assessment-calculation.md) about how Azure SQL assessments are calculated.
-- Start migrating SQL instances and databases using [Azure Database Migration Service](../dms/dms-overview.md).
+* [Learn more](concepts-azure-sql-assessment-calculation.md) about how Azure SQL assessments are calculated.
+* Start migrating SQL instances and databases using [Azure Database Migration Service](/azure/dms/dms-overview).

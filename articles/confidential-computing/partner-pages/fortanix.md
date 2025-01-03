@@ -3,9 +3,8 @@ title: Fortanix
 description: Confidential computing solutions from Fortanix on Azure
 services: virtual-machines
 author: ananyagarg
-ms.service: virtual-machines
-ms.subservice: confidential-computing
-ms.workload: infrastructure
+ms.service: azure-virtual-machines
+ms.subservice: azure-confidential-computing
 ms.topic: conceptual
 ms.date: 03/29/2023
 ms.author: ananyagarg
@@ -43,4 +42,3 @@ You can learn more and get started with these [Azure Marketplace solutions, here
 - Learn more about [Fortanix](https://www.fortanix.com/).
 
 - Check out the [Azure confidential computing webinar series](https://vshow.on24.com/vshow/Azure_Confidential/exhibits/Home) for more such partners.
-

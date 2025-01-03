@@ -1,8 +1,8 @@
 ---
 title: Restore blobs in a storage account using Azure Data Protection REST API
 description: In this article, learn how to restore blobs of a storage account using REST API.
-ms.topic: conceptual
-ms.date: 09/20/2023
+ms.topic: how-to
+ms.date: 07/24/2024
 ms.custom: engagement-fy24
 ms.assetid: 9b8d21e6-3e23-4345-bb2b-e21040996afd
 author: AbhishekMallick-MS
@@ -11,22 +11,31 @@ ms.author: v-abhmallick
 
 # Restore Azure blobs to point-in-time using Azure Data Protection REST API
 
-This article describes how to restore [blobs](blob-backup-overview.md) to any point-in-time using Azure Backup.
+This article describes how to restore [blobs](blob-backup-overview.md) using Azure Backup.
 
 > [!IMPORTANT]
 > Before proceeding to restore Azure blobs using Azure Backup, see [important points](blob-restore.md#before-you-start).
 
 ## Prerequisites
 
-This article assumes that you have an operational-blob-backup configured for one or more of your storage accounts. [Learn how to configure a backup for block blob data](backup-azure-dataprotection-use-rest-api-backup-blobs.md), if not done.
+This article considers that you have a backup configured for one or more of your storage accounts. [Learn how to configure a backup for block blob data](backup-azure-dataprotection-use-rest-api-backup-blobs.md) if not configured.
 
-To illustrate the restoration steps in this article, we will refer to blobs in a storage account named `"msblobbackup-f2df34eb-5628-4570-87b2-0331d797c67d"` protected with an existing Backup vault `TestBkpVault`, under the resource group `testBkpVaultRG`.
+To illustrate the restoration steps in this article, we'll refer to blobs in a storage account named `msblobbackup-f2df34eb-5628-4570-87b2-0331d797c67d` protected with an existing Backup vault `TestBkpVault`, under the resource group `testBkpVaultRG`.
 
-## Fetching the valid time range for restore
+
+## Prepare for Azure Blobs restore
+
+You can now do the restore operation for *operational backup* and *vaulted backup* for Azure Blobs.
+
+**Choose a backup tier**:
+
+# [Operational backup](#tab/operational-backup)
+
+### Fetch the valid time range for restore
 
 As the operational backup for blobs is continuous, there are no distinct points to restore from. Instead, we need to fetch the valid time-range under which blobs can be restored to any point-in-time. In this example, let's check for valid time-ranges to restore within the last 30 days.
 
-The restorable time ranges can be listed using [find restorable time range](/rest/api/dataprotection/restorable-time-ranges/find) API. It is a *POST* API which triggers an operation to calculate the range of continuous backups for the blobs in the storage account.
+The restorable time ranges can be listed using [find restorable time range](/rest/api/dataprotection/restorable-time-ranges/find) API. It's a *POST* API, which triggers an operation to calculate the range of continuous backups for the blobs in the storage account.
 
 ```http
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataProtection/backupVaults/{vaultName}/backupInstances/{backupInstanceName}/findRestorableTimeRanges?api-version=2021-01-01
@@ -38,19 +47,19 @@ For our example, this translates to
 POST https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourceGroups/TestBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/testBkpVault/backupInstances/msblobbackup-f2df34eb-5628-4570-87b2-0331d797c67d/findRestorableTimeRanges?api-version=2021-01-01
 ```
 
-### Create the request body to fetch valid time ranges for restore
+#### Create the request body to fetch valid time ranges for restore
 
-To trigger an operation to calculate valid time ranges, following are the components of a request body
+To trigger an operation to calculate valid time ranges, following are the components of a request body.
 
 |**Name**  |**Type**  |**Description**  |
 |---------|---------|---------|
-|sourceDatastoreType     |   [RestoreSourceDataStoreType](/rest/api/dataprotection/restorable-time-ranges/find#restoresourcedatastoretype)      |    The datastore which contains the data to be restored     |
+|sourceDatastoreType     |   [RestoreSourceDataStoreType](/rest/api/dataprotection/restorable-time-ranges/find#restoresourcedatastoretype)      |    The datastore that contains the data to be restored     |
 |startTime     |    String     |  Start time for the List Restore Ranges request. ISO 8601 format.       |
 |endTime     |    String     |    End time for the List Restore Ranges request. ISO 8601 format.     |
 
 #### Example request body to fetch valid time range
 
-The following request body defines properties required to fetch the time ranges of the continuous data which can be restored. Since blob backups reside in the storage account, the datastore is 'Operational'. You can give start and end time that helps to narrow the search process and return the available time range.
+The following request body defines properties required to fetch the time ranges of the continuous data that can be restored. Since blob backups reside in the storage account, the datastore is 'Operational'. You can give start and end time that helps to narrow the search process and return the available time range.
 
 ```json
 {
@@ -106,15 +115,15 @@ X-Powered-By: ASP.NET
 
 Once the point-in-time to restore to the same storage account is fixed, there are multiple options to restore.
 
-## Option 1: Restore all the blobs to a point-in-time
+### Option 1: Restore all the blobs to a point-in-time
 
-Using this option restores all block blobs in the storage account by rolling them back to the selected point in time. Storage accounts containing large amounts of data or witnessing a high churn may take longer times to restore.
+Using this option restores all block blobs in the storage account by rolling them back to the selected point in time. Storage accounts containing large amounts of data or witnessing a high churn can take longer times to restore.
 
-### Constructing the request body for point-in-time restore of all blobs
+#### Constructing the request body for point-in-time restore of all blobs
 
 The key points to remember in this scenario are:
 
-- Restore is happening to the same storage account which means the target object for the restore is same as the source datasource. This is reflected in the restore target info section below.
+- Restore is happening to the same storage account, which means the target object for the restore is same as the source datasource. This is reflected in the restore target info section below.
 - These are continuous backups and hence the restore time is a point-in-time and not a distinct recovery point.
 - All blobs are restored
 - The source datastore that is, where the backups reside, is the same storage account. Hence the source datastore is 'Operational' datastore.
@@ -143,7 +152,7 @@ The key points to remember in this scenario are:
 }
 ```
 
-## Option 2: Restore few containers to a point-in-time
+### Option 2: Restore few containers to a point-in-time
 
 Using this option allows you to select up to 10 containers to restore or restore a subset of blobs using a prefix match. You can specify up to 10 lexicographical ranges of blobs within a single container or across multiple containers to return those blobs to their previous state at a given point in time. In case of using prefixes, here are a few things to keep in mind:
 
@@ -156,10 +165,10 @@ Using this option allows you to select up to 10 containers to restore or restore
 
 The key points to remember in this scenario are:
 
-- Restore is happening to the same storage account which means the target object for the restore is same as the source datasource. This is reflected in the restore target info section below.
+- Restore is happening to the same storage account, which means the target object for the restore is same as the source datasource. This is reflected in the restore target info section below.
 - These are continuous backups and hence the restore time is a point-in-time and not a distinct recovery point.
 - Few items within the storage account are restored. They could be containers or blobs with a prefix pattern.
-- The source datastore i.e., where the backups reside, is the same storage account. Hence the source datastore is 'Operational' datastore.
+- The source datastore, i.e., where the backups reside, is the same storage account. Hence the source datastore is 'Operational' datastore.
 
 ```json
 {
@@ -192,6 +201,12 @@ The key points to remember in this scenario are:
 }
 ```
 
+# [Vaulted backup](#tab/vaulted-backup)
+
+[!INCLUDE [blob-vaulted-backup-restore-restapi.md](../../includes/blob-vaulted-backup-restore-restapi.md)]
+
+---
+
 ## Validate restore requests
 
 Once request body is prepared, it can be validated using the [validate for restore API](/rest/api/dataprotection/backup-instances/validate-for-restore). Like the Validate-for-backup API, this is a *POST* operation.
@@ -206,7 +221,7 @@ For our example, this translates to:
 POST "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourceGroups/TestBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/testBkpVault/backupInstances/msblobbackup-f2df34eb-5628-4570-87b2-0331d797c67d/validateRestore?api-version=2021-01-01"
 ```
 
-The request body for this POST API is detailed [here](/rest/api/dataprotection/backup-instances/validate-for-restore#request-body). We have constructed the same in the  above section for [all blobs restore](#constructing-the-request-body-for-point-in-time-restore-of-all-blobs) and [few items restore](#construct-the-request-body-for-point-in-time-restore-of-selected-containers-or-few-blobs) scenarios. We will use the same to trigger a validate operation.
+The request body for this POST API is detailed [here](/rest/api/dataprotection/backup-instances/validate-for-restore#request-body). We have constructed the same in the  above section for [all blobs restore](#constructing-the-request-body-for-point-in-time-restore-of-all-blobs) and [few items restore](#construct-the-request-body-for-point-in-time-restore-of-selected-containers-or-few-blobs) scenarios. We'll use the same to trigger a validate operation.
 
 ### Response to validate restore requests
 
@@ -242,7 +257,7 @@ Location: https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxx
 X-Powered-By: ASP.NET
 ```
 
-Track the Azure-AsyncOperation header with a simple *GET* request. When the request is successful it returns 200 OK with a success status response.
+Track the Azure-AsyncOperation header with a simple *GET* request. When the request is successful, it returns 200 OK with a success status response.
 
 ```http
  GET https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/providers/Microsoft.DataProtection/locations/westus/operationStatus/ZmMzNDFmYWMtZWJlMS00NGJhLWE4YTgtMDNjYjI4Y2M5OTExOzVlNzMxZDBiLTQ3MDQtNDkzNS1hYmNjLWY4YWEzY2UzNTk1ZQ==?api-version=2021-01-01
@@ -367,7 +382,7 @@ Location: https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxx
 X-Powered-By: ASP.NET
 ```
 
-Track the Azure-AsyncOperation header with a simple *GET* request. When the request is successful it returns 200 OK with a Job ID which should be further tracked for completion of restore request.
+Track the Azure-AsyncOperation header with a simple *GET* request. When the request is successful it returns 200 OK with a Job ID, which should be further tracked for completion of restore request.
 
 ```http
 GET https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/providers/Microsoft.DataProtection/locations/westus/operationStatus/ZmMzNDFmYWMtZWJlMS00NGJhLWE4YTgtMDNjYjI4Y2M5OTExO2Q1NDIzY2VjLTczYjYtNDY5ZC1hYmRjLTc1N2Q0ZTJmOGM5OQ==?api-version=2021-01-01
@@ -387,7 +402,7 @@ GET https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx
 
 ## Track jobs
 
-The trigger restore requests triggered the restore job and the resultant Job ID should be tracking using the [GET Jobs API](/rest/api/dataprotection/jobs/get).
+The trigger restore requests starts the restore job and the resultant Job ID is tracked using the [GET Jobs API](/rest/api/dataprotection/jobs/get).
 
 Use the simple GET command to track the JobId given in the [trigger restore response](#example-response-to-trigger-restore-request) above.
 

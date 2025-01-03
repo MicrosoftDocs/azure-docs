@@ -1,10 +1,9 @@
 ---
 title: Azure Stream Analytics compatibility levels
 description: Learn how to set a compatibility level for an Azure Stream Analytics job and major changes in the latest compatibility level
-author: enkrumah
-ms.author: ebnkruma
-ms.service: stream-analytics
-ms.custom: ignite-2022
+author: AliciaLiMicrosoft 
+ms.author: ali 
+ms.service: azure-stream-analytics
 ms.topic: conceptual
 ms.date: 03/18/2021
 ---

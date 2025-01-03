@@ -3,9 +3,9 @@ title: Hive Warehouse Connector - Apache Zeppelin using Livy - Azure HDInsight
 description: Learn how to integrate Hive Warehouse Connector with Apache Zeppelin on Azure HDInsight.
 author: reachnijel
 ms.author: nijelsf 
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
-ms.date: 09/27/2023
+ms.date: 09/06/2024
 ---
 
 # Integrate Apache Zeppelin with Hive Warehouse Connector in Azure HDInsight
@@ -92,7 +92,7 @@ Following configurations are required to access hive tables from Zeppelin with t
 
     * Use [ssh command](../hdinsight-hadoop-linux-use-ssh-unix.md) to connect to your Interactive Query cluster. Look for `default_realm` parameter in the `/etc/krb5.conf` file. Replace `<AAD-DOMAIN>` with this value as an uppercase string, otherwise the credential cannot be found.
 
-        :::image type="content" source="./media/apache-hive-warehouse-connector/aad-domain.png" alt-text="hive warehouse connector AAD Domain" border="true":::
+        :::image type="content" source="./media/apache-hive-warehouse-connector/aad-domain.png" alt-text="hive warehouse connector AAD Domain." border="true":::
 
 1. Save the changes and restart the Livy interpreter.
 

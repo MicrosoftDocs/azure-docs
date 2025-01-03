@@ -6,7 +6,7 @@ services: azure-communication-services
 author: mrayyan
 manager: alexokun
 
-ms.author: t-siddiquim
+ms.author: alexokun
 ms.date: 07/20/2023
 ms.topic: quickstart
 ms.service: azure-communication-services

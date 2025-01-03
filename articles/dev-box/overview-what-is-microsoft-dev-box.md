@@ -1,6 +1,6 @@
 ---
 title: What is Microsoft Dev Box?
-description: Explore Microsoft Dev Box for self-service access to ready-to-code cloud-based workstations and developer productivity that integrates with tools like Visual Studio.
+description: Explore Microsoft Dev Box for self-service ready-to-code cloud-based workstations and developer productivity that integrates with tools like Visual Studio.
 services: dev-box
 ms.service: dev-box
 ms.topic: overview
@@ -14,7 +14,7 @@ adobe-target: true
 
 Microsoft Dev Box gives developers self-service access to ready-to-code cloud workstations called *dev boxes*. You can configure dev boxes with tools, source code, and prebuilt binaries that are specific to a project, so developers can immediately start work. You can create your own customized image, or use a preconfigured image from Azure Marketplace, complete with Visual Studio already installed. 
 
-If you're a developer, you can use multiple dev boxes in your day-to-day workflows. You can access your dev boxes through a remote desktop client, or through a web browser, like any virtual desktop.
+If you're a developer, you can use multiple dev boxes in your day-to-day workflows. You can access your dev boxes through a Remote Desktop client like Windows App, or through a web browser, like any virtual desktop.
 
 The Dev Box service was designed with three organizational roles in mind: platform engineers, development team leads, and developers.
 
@@ -64,6 +64,7 @@ After a developer team lead is assigned the DevCenter Project Admin role, they c
 
 - Create dev box pools and add appropriate dev box definitions.
 - Control costs by using auto-stop schedules.
+- Use a configuration script that invokes setup tasks from a catalog attached to the dev center. The setup tasks execute during the creation of a dev box to install and customize software specific to the project.
 
 ### Developer scenarios
 
@@ -72,6 +73,8 @@ An organization that has globally distributed development teams can configure De
 Dev Box supports developers who are working on multiple projects. Developers can create and use separate dev boxes for separate workloads, projects, or tasks. Developers can create multiple dev boxes from a predefined pool whenever they need them, and then delete those dev boxes when they're done.
 
 Organizations can even define dev boxes for various roles on a team. You might configure standard dev boxes with admin rights to give full-time developers greater control, while applying more restricted permissions for contractors.
+
+Dev boxes use [Dsv5-series virtual machines](/azure/virtual-machines/dv5-dsv5-series#dsv5-series), which have sufficient vCPUs and memory to meet the requirements associated with most general-purpose workloads. For storage, dev boxes use [Azure Premium SSDs](/azure/virtual-machines/disks-types#premium-ssds), which deliver high-performance and low-latency disk support.
 
 ## Components shared with Azure Deployment Environments
 

@@ -5,17 +5,18 @@ description: In this quickstart, you learn how to use Terraform to create an Azu
 services: application-gateway
 author: greg-lindsay
 ms.author: greglin
-ms.date: 09/26/2023
+ms.date: 05/30/2024
 ms.topic: quickstart
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.custom: devx-track-terraform
 content_well_notification: 
   - AI-contribution
+ai-usage: ai-assisted
 ---
 
 # Quickstart: Direct web traffic with Azure Application Gateway - Terraform
 
-In this quickstart, you use Terraform to create an Azure Application Gateway. Then you test the application gateway to make sure it works correctly.
+In this quickstart, you use Terraform to create an Azure Application Gateway. Then you test the application gateway to make sure it works correctly. The Standard v2 SKU is used in this example.
 
 [!INCLUDE [About Terraform](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
 
@@ -30,6 +31,11 @@ In this quickstart, you use Terraform to create an Azure Application Gateway. Th
 > * Create an Azure Windows Virtual Machine using [azurerm_windows_virtual_machine](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/windows_virtual_machine)
 > * Create an Azure Virtual Machine Extension using [azurerm_virtual_machine_extension](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_machine_extension)
 
+![Conceptual diagram of the quickstart setup.](./media/quick-create-portal/application-gateway-qs-resources.png)
+
+> [!NOTE]
+> Application Gateway frontend now supports dual-stack IP addresses (Preview). You can now create up to four frontend IP addresses: Two IPv4 addresses (public and private) and two IPv6 addresses (public and private).
+
 ## Prerequisites
 
 - [Install and configure Terraform](/azure/developer/terraform/quickstart-configure)
@@ -43,19 +49,22 @@ In this quickstart, you use Terraform to create an Azure Application Gateway. Th
 
 1. Create a directory in which to test the sample Terraform code and make it the current directory.
 
-1. Create a file named `providers.tf` and insert the following code:
+2. Create a file named `providers.tf` and insert the following code:
 
     :::code language="Terraform" source="~/terraform_samples/quickstart/101-application-gateway/providers.tf":::
 
-1. Create a file named `main.tf` and insert the following code:
+3. Create a file named `main.tf` and insert the following code:
 
     :::code language="Terraform" source="~/terraform_samples/quickstart/101-application-gateway/main.tf":::
 
-1. Create a file named `variables.tf` and insert the following code:
+> [!TIP]
+> You can modify values of the `Name` and `Tier` parameters under `resource\applicationGateWay\main\sku` to use a different SKU. For example: `Basic`.
+
+4. Create a file named `variables.tf` and insert the following code:
 
     :::code language="Terraform" source="~/terraform_samples/quickstart/101-application-gateway/variables.tf":::
 
-1. Create a file named `outputs.tf` and insert the following code:
+5. Create a file named `outputs.tf` and insert the following code:
 
     :::code language="Terraform" source="~/terraform_samples/quickstart/101-application-gateway/outputs.tf":::
 

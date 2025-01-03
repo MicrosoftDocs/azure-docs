@@ -5,7 +5,7 @@ author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: tutorial 
-ms.date: 11/01/2021
+ms.date: 12/07/2023
 ---
 
 # Tutorial: Add authentication and permissions to your application when using Azure Web PubSub
@@ -22,6 +22,8 @@ In this tutorial, you learn how to:
 > * Enable GitHub authentication
 > * Add authentication middleware to your application
 > * Add permissions to the clients
+
+[!INCLUDE [Connection string security](includes/web-pubsub-connection-string-security.md)]
 
 ## Add authentication to the chat room app
 
@@ -95,6 +97,8 @@ First, add GitHub authentication to the chat room so the user can use a GitHub a
     1. Go to OAuth Apps, and select **New OAuth App**.
     1. Fill in the application name and homepage URL (the URL can be anything you like), and set **Authorization callback URL** to `http://localhost:8080/auth/github/callback`. This URL matches the callback API you exposed in the server.
     1. After the application is registered, copy the client ID and select **Generate a new client secret**.
+
+    [!INCLUDE [Connection string security comment](includes/web-pubsub-connection-string-security-comment.md)]
 
     Run the below command to test the settings, don't forget to replace `<connection-string>`, `<client-id>`, and `<client-secret>` with your values.
 

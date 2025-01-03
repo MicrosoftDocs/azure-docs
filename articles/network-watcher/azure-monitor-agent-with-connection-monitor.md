@@ -4,11 +4,11 @@ titleSuffix: Azure Network Watcher
 description: Learn how to use Azure Monitor agent to monitor network connectivity with Network Watcher connection monitor.
 author: halkazwini
 ms.author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 11/15/2023
+ms.date: 03/12/2024
 
-#Customer intent: As an Azure administrator, I need use the Azure Monitor agent so I can monitor a connection using the Connection monitor.
+#Customer intent: As an Azure administrator, I need use the Azure Monitor agent so I can monitor a connection with a non-Azure resource using the Connection monitor.
 ---
 
 # Monitor network connectivity using Azure Monitor agent with connection monitor
@@ -22,7 +22,7 @@ Azure Monitor agent provides the following benefits:
 * Effective cost savings with efficient data collection
 * Ease of troubleshooting, with simpler data collection management for the Log Analytics agent 
 
-For more information, see [Azure Monitor agent](../azure-monitor/agents/agents-overview.md).
+For more information, see [Azure Monitor agent](/azure/azure-monitor/agents/agents-overview).
 
 To start using connection monitor for monitoring, follow these steps:
 
@@ -39,19 +39,19 @@ Connection monitor relies on lightweight executable files to run connectivity ch
 
 ### Agents for Azure virtual machines and scale sets
 
-To install agents for Azure virtual machines and Virtual Machine Scale Sets, see the "Agents for Azure virtual machines and Virtual Machine Scale Sets" section of [Monitor network connectivity using Connection monitor](connection-monitor-overview.md#agents-for-azure-virtual-machines-and-virtual-machine-scale-sets).
+To install agents for Azure virtual machines and Virtual Machine Scale Sets, see [Monitoring connectivity from Azure virtual machines and virtual machine scale sets](connection-monitor-overview.md#monitoring-connectivity-from-azure-virtual-machines-and-virtual-machine-scale-sets).
 
 ### Agents for on-premises machines
 
 To make connection monitor recognize your on-premises machines as sources for monitoring, follow these steps: 
 
-* Enable your hybrid endpoints to [Azure Arc-enabled servers](../azure-arc/overview.md).
+* Enable your hybrid endpoints to [Azure Arc-enabled servers](/azure/azure-arc/overview).
 
-* Connect hybrid machines by installing the [Azure Connected Machine agent](../azure-arc/servers/overview.md) on each machine.
+* Connect hybrid machines by installing the [Azure Connected Machine agent](/azure/azure-arc/servers/overview) on each machine.
 
   This agent doesn't deliver any other functionality, and it doesn't replace Azure Monitor agent. The Azure Connected Machine agent simply enables you to manage the Windows and Linux machines that are hosted outside of Azure on your corporate network or other cloud providers. 
 
-* [Install Azure Monitor agent](../azure-monitor/agents/agents-overview.md) to enable the Network Watcher extension.
+* [Install Azure Monitor agent](/azure/azure-monitor/agents/agents-overview) to enable the Network Watcher extension.
 
   The agent collects monitoring logs and data from the hybrid sources and delivers them to Azure Monitor.
 
@@ -61,13 +61,13 @@ To enable the Network Performance Monitor solution for on-premises machines, fol
 
 1. In the Azure portal, go to **Network Watcher**.
 
-1. Under **Monitoring**, select **Network Performance Monitor**. A list of workspaces with Network Performance Monitor solution enabled is displayed, filtered by **Subscriptions**. 
+1. Under **Monitoring**, select **Connection Monitor**.  
 
-1. To add the Network Performance Monitor solution in a new workspace, select **Add NPM**. 
+1. Select **+ Enable Non-Azure**. 
 
 1. In **Enable Non-Azure**, select the subscription and workspace in which you want to enable the solution, and then select **Create**.
    
-   After you've enabled the solution, the workspace takes a couple of minutes to be displayed.
+   After you enable the solution, the workspace takes a few minutes to be displayed.
 
 Unlike Log Analytics agents, the Network Performance Monitor solution can be configured to send data only to a single Log Analytics workspace.
 
@@ -87,6 +87,7 @@ Although this coexistence allows you to begin the transition, there are certain 
 
 * Running two telemetry agents on the same machine would result in double the resource consumption, including but not limited to CPU, memory, storage space, and network bandwidth.
 
-## Next steps 
+## Next step 
 
-- [Install the Azure Connected Machine agent](connection-monitor-connected-machine-agent.md)
+> [!div class="nextstepaction"]
+> [Install the Azure Connected Machine agent](connection-monitor-connected-machine-agent.md)

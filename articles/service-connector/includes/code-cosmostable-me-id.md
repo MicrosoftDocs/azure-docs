@@ -29,7 +29,7 @@ ms.author: wchi
     var listConnectionStringUrl = Environment.GetEnvironmentVariable("AZURE_COSMOS_LISTCONNECTIONSTRINGURL");
     var scope = Environment.GetEnvironmentVariable("AZURE_COSMOS_SCOPE");
 
-    // Uncomment the following lines according to the authentication type.
+    // Uncomment the following lines corresponding to the authentication type you want to use.
     // For system-assigned identity.
     // var tokenProvider = new DefaultAzureCredential();
 
@@ -57,7 +57,7 @@ ms.author: wchi
     var response = await httpClient.POSTAsync(listConnectionStringUrl);
     var responseBody = await response.Content.ReadAsStringAsync();
     var connectionStrings = JsonConvert.DeserializeObject<Dictionary<string, List<Dictionary<string, string>>>(responseBody);
-    var connectionString = connectionStrings["connectionStrings"][0]["connectionString"];
+    var connectionString = connectionStrings["connectionStrings"].Find(connStr => connStr["description"] == "Primary Table Connection String")["connectionString"];
 
     // Connect to Azure Cosmos DB for Table
     TableServiceClient tableServiceClient = new TableServiceClient(connectionString);
@@ -83,14 +83,14 @@ ms.author: wchi
     import javax.net.ssl.*;
     import java.net.InetSocketAddress;
     import com.azure.identity.*;
-    import com.azure.core.credentital.*;
+    import com.azure.core.credential.*;
     import java.net.http.*;
 
     String endpoint = System.getenv("AZURE_COSMOS_RESOURCEENDPOINT");
     String listConnectionStringUrl = System.getenv("AZURE_COSMOS_LISTCONNECTIONSTRINGURL");
     String scope = System.getenv("AZURE_COSMOS_SCOPE");
 
-    // Uncomment the following lines according to the authentication type.
+    // Uncomment the following lines corresponding to the authentication type you want to use.
     // For system managed identity.
     // DefaultAzureCredential defaultCredential = new DefaultAzureCredentialBuilder().build();
 
@@ -121,7 +121,13 @@ ms.author: wchi
     JSONParser parser = new JSONParser();
     JSONObject responseBody = parser.parse(response.body());
     List<Map<String, String>> connectionStrings = responseBody.get("connectionStrings");
-    String connectionString = connectionStrings[0]["connectionString"];
+    String connectionString;
+    for (Map<String, String> connStr : connectionStrings){
+        if (connStr.get("description") == "Primary Table Connection String"){
+            connectionString = connStr.get("connectionString");
+            break;
+        }
+    }
 
     // Connect to Azure Cosmos DB for Table
     TableClient tableClient = new TableClientBuilder()
@@ -139,14 +145,13 @@ ms.author: wchi
     import os
     from azure.data.tables import TableServiceClient
     import requests
-    from azure.core.pipeline.policies import BearerTokenCredentialPolicy
     from azure.identity import ManagedIdentityCredential, ClientSecretCredential
 
     endpoint = os.getenv('AZURE_COSMOS_RESOURCEENDPOINT')
-    listKeyUrl = os.getenv('AZURE_COSMOS_LISTCONNECTIONSTRINGURL')
+    listConnectionStringUrl = os.getenv('AZURE_COSMOS_LISTCONNECTIONSTRINGURL')
     scope = os.getenv('AZURE_COSMOS_SCOPE')
 
-    # Uncomment the following lines according to the authentication type.
+    # Uncomment the following lines corresponding to the authentication type you want to use.
     # For system-assigned managed identity
     # cred = ManagedIdentityCredential()
 
@@ -162,10 +167,10 @@ ms.author: wchi
 
     # Get the connection string
     session = requests.Session()
-    session = BearerTokenCredentialPolicy(cred, scope).on_request(session)
-    response = session.post(listKeyUrl)
+    token = cred.get_token(scope)
+    response = session.post(listConnectionStringUrl, headers={"Authorization": "Bearer {}".format(token.token)})
     keys_dict = response.json()
-    conn_str = keys_dict["connectionStrings"][0]["connectionString"]
+    conn_str = x["connectionString"] for x in keys_dict["connectionStrings"] if x["description"] == "Primary Table Connection String"
 
     # Connect to Azure Cosmos DB for Table
     table_service = TableServiceClient.from_connection_string(conn_str) 
@@ -194,9 +199,9 @@ ms.author: wchi
     func main() {
         endpoint = os.Getenv("AZURE_COSMOS_RESOURCEENDPOINT")
         listConnectionStringUrl = os.Getenv("AZURE_COSMOS_LISTCONNECTIONSTRINGURL")
-        scope = os.Getenv("AZUE_COSMOS_SCOPE")
+        scope = os.Getenv("AZURE_COSMOS_SCOPE")
 
-        // Uncomment the following lines according to the authentication type.
+        // Uncomment the following lines corresponding to the authentication type you want to use.
         // For system-assigned identity.
         // cred, err := azidentity.NewDefaultAzureCredential(nil)
         
@@ -226,8 +231,14 @@ ms.author: wchi
         body, err := ioutil.ReadAll(resp.Body)
         var result map[string]interface{}
         json.Unmarshal(body, &result)
-        connStr, err := result["connectionStrings"][0]["connectionString"];
-
+        connStr := ""
+        for i := range result["connectionStrings"]{
+            if result["connectionStrings"][i]["description"] == "Primary Table Connection String" {
+                connStr, err := result["connectionStrings"][i]["connectionString"]
+                break
+            }
+        }
+        
         serviceClient, err := aztables.NewServiceClientFromConnectionString(connStr, nil)
         if err != nil {
             panic(err)
@@ -251,7 +262,7 @@ ms.author: wchi
     let listConnectionStringUrl = process.env.AZURE_COSMOS_LISTCONNECTIONSTRINGURL;
     let scope = process.env.AZURE_COSMOS_SCOPE;
 
-    // Uncomment the following lines according to the authentication type.  
+    // Uncomment the following lines corresponding to the authentication type you want to use.  
     // For system-assigned identity.
     // const credential = new DefaultAzureCredential();
 
@@ -279,7 +290,7 @@ ms.author: wchi
     };
     const response = await axios(config);
     const keysDict = response.data;
-    const connectionString = keysDict["connectionStrings"][0]["connectionString"];
+    const connectionString = keysDict["connectionStrings"].find(connStr => connStr["description"] == "Primary Table Connection String")["connectionString"];
 
     // Connect to Azure Cosmos DB for Table
     const serviceClient = TableClient.fromConnectionString(connectionString);

@@ -1,5 +1,5 @@
 ---
-title: Use dynamic configuration in Python (preview)
+title: Use dynamic configuration in Python
 titleSuffix: Azure App Configuration
 description: Learn how to dynamically update configuration data for Python
 services: azure-app-configuration
@@ -7,23 +7,20 @@ author: mrm9084
 ms.service: azure-app-configuration
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 10/05/2023
+ms.date: 12/03/2024
 ms.custom: devx-track-python, devx-track-extended-python
 ms.author: mametcal
 #Customer intent: As a Python developer, I want to dynamically update my app to use the latest configuration data in Azure App Configuration.
 ---
-# Tutorial: Use dynamic configuration in Python (preview)
+# Tutorial: Use dynamic configuration in Python
 
 The Azure App Configuration Python provider includes built-in caching and refreshing capabilities. This tutorial shows how to enable dynamic configuration in Python applications.
-
-> [!NOTE]
-> Requires [azure-appconfiguration-provider](https://pypi.org/project/azure-appconfiguration-provider/1.1.0b3/) package version 1.1.0b3 or later.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
 - An Azure App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
-- Python 3.6 or later - for information on setting up Python on Windows, see the [Python on Windows documentation](/windows/python/)
+- Python 3.8 or later - for information on setting up Python on Windows, see the [Python on Windows documentation](/windows/python/)
 
 ## Add key-values
 
@@ -40,6 +37,44 @@ Add the following key-value to your Azure App Configuration store. For more info
 ## Console applications
 
 1. Create a new Python file named *app.py* and add the following code:
+
+    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
+
+    You use the `DefaultAzureCredential` to authenticate to your App Configuration store. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader** role. Be sure to allow sufficient time for the permission to propagate before running your application.
+
+    ```python
+    from azure.appconfiguration.provider import load, WatchKey
+    from azure.identity import DefaultAzureCredential
+    import os
+    import time
+
+    endpoint = os.environ.get("APPCONFIGURATION_ENDPOINT")
+
+    # Connecting to Azure App Configuration using connection string
+    # Setting up to refresh when the Sentinel key is changed.
+    config = load(
+        endpoint=endpoint,
+        credential=DefaultAzureCredential(),
+        refresh_on=[WatchKey("sentinel")],
+        refresh_interval=10, # Default value is 30 seconds, shorted for this sample
+    )
+
+    print("Update the `message` in your Azure App Configuration store using Azure portal or CLI.")
+    print("First, update the `message` value, and then update the `sentinel` key value.")
+
+    while (True):
+        # Refreshing the configuration setting
+        config.refresh()
+
+        # Current value of message
+        print(config["message"])
+
+        # Waiting before the next refresh
+        time.sleep(5)
+    ```
+
+
+    ### [Connection string](#tab/connection-string)
 
     ```python
     from azure.appconfiguration.provider import load, WatchKey
@@ -69,6 +104,7 @@ Add the following key-value to your Azure App Configuration store. For more info
         # Waiting before the next refresh
         time.sleep(5)
     ```
+    ---
 
 1. Run your script:
 
@@ -107,6 +143,7 @@ In `app.py`, set up Azure App Configuration to load your configuration values. T
 
 ```python
 from azure.appconfiguration.provider import load, WatchKey
+from azure.identity import DefaultAzureCredential
 
 azure_app_config = None  # declare azure_app_config as a global variable
 
@@ -115,7 +152,8 @@ def on_refresh_success():
 
 
 global azure_app_config
-azure_app_config = load(connection_string=os.environ.get("AZURE_APPCONFIG_CONNECTION_STRING")
+azure_app_config = load(endpoint=os.environ.get("AZURE_APPCONFIG_ENDPOINT"),
+                        credential=DefaultAzureCredential(),
                         refresh_on=[WatchKey("sentinel")],
                         on_refresh_success=on_refresh_success,
                         refresh_interval=10, # Default value is 30 seconds, shortened for this sample
@@ -167,7 +205,8 @@ def on_refresh_success():
    app.config.update(azure_app_config)
 
 AZURE_APPCONFIGURATION = load(
-        connection_string=os.environ.get("AZURE_APPCONFIG_CONNECTION_STRING"),
+        connection_string=os.environ.get(endpoint=os.environ.get("AZURE_APPCONFIG_ENDPOINT"),
+         credential=DefaultAzureCredential(),
         refresh_on=[WatchKey("sentinel")],
         on_refresh_success=on_refresh_success,
         refresh_interval=10, # Default value is 30 seconds, shortened for this sample

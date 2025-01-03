@@ -1,15 +1,14 @@
 ---
 title: Analyze and visualize your IoT data
 description: An overview of the available options to analyze and visualize data in an IoT solution.
-ms.service: iot
+ms.service: azure-iot
 services: iot
 author: dominicbetts
 ms.author: dobett
 ms.topic: overview
-ms.date: 04/11/2023
+ms.date: 02/28/2024
 ms.custom: template-overview
-
-# As a solution builder, I want a high-level overview of the options for analyzing and visualizing device data in an IoT solution.
+# Customer intent: As a solution builder, I want a high-level overview of the options for analyzing and visualizing device data in an IoT solution.
 ---
 
 # Analyze and visualize your IoT data
@@ -35,7 +34,6 @@ There are many services you can use to analyze and visualize your IoT data. Some
 [Azure Data Explorer](/azure/data-explorer/data-explorer-overview/) is a fully managed, high-performance, big-data analytics platform that makes it easy to analyze high volumes of data in near real time. The following articles and tutorials show some examples of how to use Azure Data Explorer to analyze and visualize IoT data:
 
 - [IoT Hub data connection (Azure Data Explorer)](/azure/data-explorer/ingest-data-iot-hub-overview)
-- [Explore an Azure IoT Central industrial scenario](../iot-central/core/tutorial-industrial-end-to-end.md)
 - [Export IoT data to Azure Data Explorer (IoT Central)](../iot-central/core/howto-export-to-azure-data-explorer.md)
 - [Azure Digital Twins query plugin for Azure Data Explorer](../digital-twins/concepts-data-explorer-plugin.md)
 
@@ -43,8 +41,7 @@ There are many services you can use to analyze and visualize your IoT data. Some
 
 Use [Azure Databricks](/azure/databricks/introduction/) to process, store, clean, share, analyze, model, and monetize datasets with solutions from BI to machine learning. Use the Azure Databricks platform to build and deploy data engineering workflows, machine learning models, analytics dashboards, and more.
 
-- [Use structured streaming with Azure Event Hubs and Azure Databricks clusters](/azure/databricks/structured-streaming/streaming-event-hubs/). You can connect a Databricks workspace to the Event Hubs-compatible endpoint on an IoT hub to read data from IoT devices.
-- [Extend Azure IoT Central with custom analytics](../iot-central/core/howto-create-custom-analytics.md)
+[Use structured streaming with Azure Event Hubs and Azure Databricks clusters](/azure/databricks/structured-streaming/streaming-event-hubs/). You can connect a Databricks workspace to the Event Hubs-compatible endpoint on an IoT hub to read data from IoT devices.
 
 ### Azure Stream Analytics
 
@@ -57,14 +54,14 @@ Azure Stream Analytics is a fully managed stream processing engine that is desig
 
 ### Power BI
 
-[Power BI](/power-bi/fundamentals/power-bi-overview) is a collection of software services, apps, and connectors that work together to turn your unrelated sources of data into coherent, visually immersive, and interactive insights. Power BI lets you easily connect to your data sources, visualize and discover what's important, and share that with anyone or everyone you want.
+[Power BI](/power-bi/fundamentals/power-bi-overview) is a collection of software services, apps, and connectors that work together to turn your unrelated sources of data into coherent, visually immersive, and interactive insights. Power BI lets you easily connect to your data sources, visualize and discover what's important, and share reports with anyone or everyone you want.
 
 - [Visualize real-time sensor data from Azure IoT Hub using Power BI](../iot-hub/iot-hub-live-data-visualization-in-power-bi.md)
 - [Export data from Azure IoT Central and visualize insights in Power BI](../iot-central/retail/tutorial-in-store-analytics-export-data-visualize-insights.md)
 
 ### Azure Maps
 
-[Azure Maps](../azure-maps/about-azure-maps.md) is a collection of geospatial services and SDKs that use fresh mapping data to provide geographic context to web and mobile applications. For an IoT example, see [Integrate with Azure Maps (Azure Digital Twins)](../digital-twins/how-to-integrate-maps.md)
+[Azure Maps](../azure-maps/about-azure-maps.md) is a collection of geospatial services and SDKs that use fresh mapping data to provide geographic context to web and mobile applications. For an IoT example, see [Integrate with Azure Maps (Azure Digital Twins)](../digital-twins/how-to-integrate-maps.md).
 
 ### Grafana
 
@@ -76,10 +73,3 @@ IoT Central provides a rich set of features that you can use to analyze and visu
 
 - [How to use IoT Central data explorer to analyze device data](../iot-central/core/howto-create-analytics.md)
 - [Create and manage IoT Central dashboards](../iot-central/core/howto-manage-dashboards.md)
-
-## Next steps
-
-Now that you've seen an overview of the analysis and visualization options available to your IoT solution, some suggested next steps include:
-
-- [Manage your IoT solution](./iot-overview-solution-management.md)
-- [IoT solution options](iot-introduction.md#solution-options)

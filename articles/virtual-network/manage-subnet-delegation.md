@@ -4,7 +4,7 @@ titlesuffix: Azure Virtual Network
 description: Learn how to add or remove a delegated subnet for a service in Azure.
 services: virtual-network
 author: asudbring
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: how-to
 ms.date: 08/23/2023
 ms.author: allensu 
@@ -42,7 +42,7 @@ If you choose to install and use PowerShell locally, this article requires the A
 
 - If you didn't create the subnet you would like to delegate to an Azure service, you need the following permission: `Microsoft.Network/virtualNetworks/subnets/write`. The built-in [Network Contributor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role also contains the necessary permissions.
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 - This how-to article requires version 2.31.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -196,7 +196,7 @@ Get-AzDelegation @dg
   Actions           : {Microsoft.Network/virtualNetworks/subnets/join/action}
   Name              : myDelegation
   Etag              : W/"9cba4b0e-2ceb-444b-b553-454f8da07d8a"
-  Id                : /subscriptions/3bf09329-ca61-4fee-88cb-7e30b9ee305b/resourceGroups/test-rg/providers/Microsoft.Network/virtualNetworks/vnet-1/subnets/subnet-1/delegations/myDelegation
+  Id                : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/test-rg/providers/Microsoft.Network/virtualNetworks/vnet-1/subnets/subnet-1/delegations/myDelegation
 ```
 
 # [**Azure CLI**](#tab/manage-subnet-delegation-cli)
@@ -230,7 +230,7 @@ az network vnet subnet show \
       "Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action"
     ],
     "etag": "W/\"30184721-8945-4e4f-9cc3-aa16b26589ac\"",
-    "id": "/subscriptions/23250d6d-28f0-41dd-9776-61fc80805b6e/resourceGroups/test-rg/providers/Microsoft.Network/virtualNetworks/vnet-1/subnets/subnet-1/delegations/0",
+    "id": "/subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/resourceGroups/test-rg/providers/Microsoft.Network/virtualNetworks/vnet-1/subnets/subnet-1/delegations/0",
     "name": "0",
     "provisioningState": "Succeeded",
     "resourceGroup": "test-rg",
@@ -338,7 +338,7 @@ Output from command is a null bracket:
 
 ---
 
-[!INCLUDE [portal-clean-up.md](../../includes/portal-clean-up.md)]
+[!INCLUDE [portal-clean-up.md](~/reusable-content/ce-skilling/azure/includes/portal-clean-up.md)]
 
 ## Next steps
 - Learn how to [manage subnets in Azure](virtual-network-manage-subnet.md).

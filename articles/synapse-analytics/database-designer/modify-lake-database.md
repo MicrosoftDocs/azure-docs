@@ -3,11 +3,11 @@ title: Modify a lake database using the database designer.
 description: Learn how to view, customize, and publish a lake database using the database designer.
 author: aamerril
 ms.author: aamerril
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: database-editor
 ms.topic: how-to
 ms.date: 11/02/2021
-ms.custom: template-how-to, ignite-fall-2021
+ms.custom: template-how-to
 ---
 
 

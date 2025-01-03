@@ -1,28 +1,21 @@
 ---
 title: Search backups of Azure NetApp Files volumes | Microsoft Docs
-description: Describes how to display and search backups of Azure NetApp Files volumes at the volume level and the NetApp account level. 
+description: Describes how to display and search backups of Azure NetApp Files volumes at the volume level and the NetApp account level.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 09/27/2021
+ms.date: 04/24/2024
 ms.author: anfdocs
 ---
 # Search backups of Azure NetApp Files volumes
 
 The names used for snapshots are preserved when the snapshots are backed up. Snapshot names include the prefix `daily`, `weekly`, or `monthly`. They also include the timestamp when the snapshot was created.
 
-If a volume is deleted, its backups are still retained. The backups are listed in the associated NetApp accounts, under the Backups section. This list includes all backups within the subscription (across NetApp accounts) in the region. It can be used to restore a backup to a volume in another NetApp account under the same subscription.
+If a volume is deleted, its backups are retained. The backups are listed in the associated backup vault, under the **Backups** section. This list includes all backups within the backup vault in the region. It can be used to restore a backup to a volume in another NetApp account under the same subscription.
 
 >[!IMPORTANT]
->All existing backups must be migrated to backup vaults. You can search for backups, but you will not be able to perform any operations on a backup until the backup has been migrated to a backup vault. For more information about this procedure, see [Manage a backup vault](backup-vault-manage.md).
+>All existing backups must be migrated to backup vaults. You can search for backups, but you are unable to perform any operations on a backup until the backup has been migrated to a backup vault. For more information about this procedure, see [Manage a backup vault](backup-vault-manage.md).
 
 ## Search backups from backup vault 
 
@@ -31,7 +24,7 @@ If a volume is deleted, its backups are still retained. The backups are listed i
 
     A partial search is supported; you don’t have to specify the entire backup name. The search filters the backups based on the search string.
 
-    :::image type="content" source="../media/azure-netapp-files/backup-search-vault.png" alt-text="Screenshot that shows a list of backups in a vault." lightbox="../media/azure-netapp-files/backup-search-vault.png":::
+    :::image type="content" source="./media/backup-search/backup-search-vault.png" alt-text="Screenshot that shows a list of backups in a vault." lightbox="./media/backup-search/backup-search-vault.png":::
 
 ## Search backups at volume level 
 
@@ -47,7 +40,7 @@ You can display and search backups at the volume level:
 
     A partial search is supported; you don’t have to specify the entire backup name. The search filters the backups based on the search string.
 
-    :::image type="content" source="../media/azure-netapp-files/backup-search-volume-level.png" alt-text="Screenshot that shows a list of backup for a volume." lightbox="../media/azure-netapp-files/backup-search-volume-level.png":::
+    :::image type="content" source="./media/backup-search/backup-search-volume-level.png" alt-text="Screenshot that shows a list of backup for a volume." lightbox="./media/backup-search/backup-search-volume-level.png":::
     
 ## Next steps  
 
@@ -58,7 +51,6 @@ You can display and search backups at the volume level:
 * [Configure manual backups](backup-configure-manual.md)
 * [Manage backup policies](backup-manage-policies.md)
 * [Restore a backup to a new volume](backup-restore-new-volume.md)
-* [Disable backup functionality for a volume](backup-disable.md)
 * [Delete backups of a volume](backup-delete.md)
 * [Volume backup metrics](azure-netapp-files-metrics.md#volume-backup-metrics)
 * [Azure NetApp Files backup FAQs](faq-backup.md)

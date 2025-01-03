@@ -4,12 +4,10 @@ description: In this tutorial, learn about Azure Data Box Heavy, a hybrid soluti
 services: databox
 author: stevenmatthew
 
-ms.service: databox
-ms.subservice: heavy
+ms.service: azure-data-box-heavy
 ms.topic: tutorial
 ms.date: 01/04/2022
 ms.author: shaas
-ms.custom: contperf-fy22q1
 #Customer intent: As an IT admin, I need to be able to order Data Box Heavy to upload on-premises data from my server onto Azure.
 ---
 

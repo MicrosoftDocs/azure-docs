@@ -1,17 +1,16 @@
 ---
-title: Azure Elastic SAN Preview networking concepts
-description: An overview of Azure Elastic SAN Preview networking options, including storage service endpoints, private endpoints, and iSCSI.
+title: Azure Elastic SAN networking concepts
+description: Learn about available Azure Elastic SAN networking options, including storage service endpoints, private endpoints, and iSCSI.
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: conceptual
-ms.date: 01/16/2024
+ms.date: 05/31/2024
 ms.author: rogarana
-ms.custom: references_regions
 ---
 
-# Learn about networking configurations for Elastic SAN Preview
+# Learn about networking configurations for Elastic SAN
 
-Azure Elastic storage area network (SAN) Preview allows you to secure and control the level of access to your Elastic SAN volumes that your applications and enterprise environments require. This article describes the options for allowing users and applications access to Elastic SAN volumes from an [Azure virtual network infrastructure](../../virtual-network/vnet-integration-for-azure-services.md).
+Azure Elastic storage area network (SAN) allows you to secure and control the level of access to your Elastic SAN volumes that your applications and enterprise environments require. This article describes the options for allowing users and applications access to Elastic SAN volumes from an [Azure virtual network infrastructure](../../virtual-network/vnet-integration-for-azure-services.md).
 
 You can configure Elastic SAN volume groups to only allow access over specific endpoints on specific virtual network subnets. The allowed subnets can belong to a virtual network in the same subscription, or those in a different subscription, including subscriptions belonging to a different Microsoft Entra tenant. Once network access is configured for a volume group, the configuration is inherited by all volumes belonging to the group.
 
@@ -30,9 +29,14 @@ After configuring endpoints, you can configure network rules to further control 
 
 You can enable or disable public Internet access to your Elastic SAN endpoints at the SAN level. Enabling public network access for an Elastic SAN allows you to configure public access to individual volume groups in that SAN over storage service endpoints. By default, public access to individual volume groups is denied even if you allow it at the SAN level. If you disable public access at the SAN level, access to the volume groups within that SAN is only available over private endpoints.
 
-### Regional availability
+## Data Integrity
 
-[!INCLUDE [elastic-san-regions](../../../includes/elastic-san-regions.md)]
+Data integrity is important for preventing data corruption in cloud storage. TCP provides a foundational level of data integrity through its checksum mechanism, it can be enhanced over iSCSI with more robust error detection with a cyclic redundancy check (CRC), specifically CRC-32C. CRC-32C can be used to add checksum verification for iSCSI headers and data payloads.
+
+Elastic SAN supports CRC-32C checksum verification when enabled on the client side for connections to Elastic SAN volumes. Elastic SAN also offers the ability to enforce this error detection through a property that can be set at the volume group level, which is inherited by any volume within that volume group. When you enable this property on a volume group, Elastic SAN rejects all client connections to any volumes in the volume group if CRC-32C isn't set for header or data digests on those connections. When you disable this property, Elastic SAN volume checksum verification depends on whether CRC-32C is set for header or data digests on the client, but your Elastic SAN won't reject any connections. To learn how to enable CRC protection, see [Configure networking](elastic-san-networking.md#enable-iscsi-error-detection).
+
+> [!NOTE]
+> Some operating systems may not support iSCSI header or data digests. Fedora and its downstream Linux distributions like Red Hat Enterprise Linux, CentOS, Rocky Linux, etc. don't support data digests. Don't enable CRC protection on your volume groups if your clients use operating systems like these that don't support iSCSI header or data digests because connections to the volumes will fail.
 
 ## Storage service endpoints
 
@@ -82,4 +86,4 @@ iSCSI sessions can periodically disconnect and reconnect over the course of the 
 
 ## Next steps
 
-[Configure Elastic SAN networking Preview](elastic-san-networking.md)
+[Configure Elastic SAN networking](elastic-san-networking.md)

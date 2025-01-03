@@ -33,7 +33,7 @@ Using the [Azure PowerShell](/powershell/module/az.workloads), [CLI](/cli/azure/
 Currently, you can initiate a soft stop operation from the Azure PowerShell, Azure Command-Line Interface (Azure CLI) and REST API interfaces. You must use the stop operation along with a soft stop timeout value in seconds to initiate a soft stop. Once you initiate soft stop on VIS and the operation is successfully triggered on the SAP system, then monitor the Health and Status of the VIS to check if the system has stopped. 
 
 > [!NOTE]
-> When attempting to soft stop an SAP system or applicaton server instance using Azure Center for SAP solutions, soft stop timeout value must be greater than 0 and less than 82800 seconds. 
+> When attempting to soft stop an SAP system or application server instance using Azure Center for SAP solutions, soft stop timeout value must be greater than 0 and less than 82800 seconds. 
 
 
 ### Soft stop system in PowerShell
@@ -67,7 +67,7 @@ Use the [Stop-AzWorkloadsSapApplicationInstance](/powershell/module/az.workloads
 ```
 
 ### Using CLI
-Use the [az workloads sap-application-server-instance stop](/cli/azure/workloads/sap-application-server-instance?view=azure-cli-latest#az-workloads-sap-application-server-instance-stop) command:
+Use the [az workloads sap-application-server-instance stop](/cli/azure/workloads/sap-application-server-instance#az-workloads-sap-application-server-instance-stop) command:
 
 ```azurecli-interactive
      az workloads sap-application-server-instance stop --id /subscriptions/Sub1/resourceGroups/RG1/providers/Microsoft.Workloads/sapVirtualInstances/DB0/applicationInstances/app0 --soft-stop-timeout-seconds 300
@@ -91,7 +91,7 @@ Use the [Stop-AzWorkloadsSapDatabaseInstance](/powershell/module/az.workloads/st
 ```
 
 ### Using CLI
-Use the [az workloads sap-database-instance stop](/cli/azure/workloads/sap-database-instance?view=azure-cli-latest#az-workloads-sap-database-instance-stop) command:
+Use the [az workloads sap-database-instance stop](/cli/azure/workloads/sap-database-instance#az-workloads-sap-database-instance-stop) command:
 
 ```azurecli-interactive
      az workloads sap-database-instance stop --id /subscriptions/Sub1/resourceGroups/RG1/providers/Microsoft.Workloads/sapVirtualInstances/DB0/databaseInstances/ab0 --soft-stop-timeout-seconds 300

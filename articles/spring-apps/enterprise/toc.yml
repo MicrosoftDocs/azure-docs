@@ -1,0 +1,359 @@
+items:
+- name: Azure Spring Apps Enterprise plan documentation
+  href: index.yml
+- name: Documentation for all plans
+  href: ../index.yml
+- name: Overview
+  expanded: true
+  items:
+  - name: Retirement announcement
+    href: ../basic-standard/retirement-announcement.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+  - name: What is Azure Spring Apps?
+    href: ../basic-standard/overview.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+  - name: What's new
+    href: whats-new.md
+  - name: Compare available plans
+    href: ../basic-standard/plan-comparison.md
+  - name: Manage costs
+    href: ../basic-standard/cost-management.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+  - name: Compare Java application hosting options on Azure
+    href: /azure/architecture/guide/technology-choices/service-for-java-comparison?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Launch your first app
+    href: ../basic-standard/quickstart.md?pivots=sc-enterprise&toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+  - name: Launch your first web app
+    href: ../basic-standard/quickstart-deploy-web-app.md?pivots=sc-enterprise&toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+  - name: Launch your first RESTful API app
+    href: quickstart-deploy-restful-api-app.md?pivots=sc-enterprise
+  - name: Launch your first Spring Batch app
+    href: quickstart-deploy-spring-batch-app.md?pivots=sc-enterprise
+  - name: Launch your first event-driven app
+    href: ../basic-standard/quickstart-deploy-event-driven-app.md?pivots=sc-enterprise&toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+  - name: Launch your first microservice apps
+    href: ../basic-standard/quickstart-deploy-microservice-apps.md?pivots=sc-enterprise&toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+  - name: Launch your first Java Native Image app
+    href: quickstart-deploy-java-native-image-app.md
+- name: Tutorials
+  expanded: true
+  items:
+  - name: Run polyglot apps on Enterprise plan
+    items:
+    - name: Introduction to Fitness Store sample
+      href: quickstart-sample-app-acme-fitness-store-introduction.md
+    - name: Build and deploy apps
+      href: quickstart-deploy-apps-enterprise.md
+    - name: Integrate Azure OpenAI
+      href: quickstart-fitness-store-azure-openai.md
+    - name: Configure single sign-on
+      href: quickstart-configure-single-sign-on-enterprise.md
+    - name: Integrate Azure Database for PostgreSQL and Azure Cache for Redis
+      href: quickstart-integrate-azure-database-and-redis-enterprise.md
+    - name: Load application secrets using Key Vault
+      href: quickstart-key-vault-enterprise.md
+    - name: Monitor applications end-to-end
+      href: quickstart-monitor-end-to-end-enterprise.md
+    - name: Set request rate limits
+      href: quickstart-set-request-rate-limits-enterprise.md
+    - name: Automate deployments
+      href: quickstart-automate-deployments-github-actions-enterprise.md
+  - name: Run microservice apps
+    href: ../basic-standard/quickstart-sample-app-introduction.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+  - name: Authenticate client with Spring Cloud Gateway
+    href: tutorial-authenticate-client-with-gateway.md
+- name: Concepts
+  items:
+  - name: App and deployment
+    href: ../basic-standard/concept-understand-app-and-deployment.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+  - name: Job
+    href: concept-job.md
+  - name: Version support for Java, Spring Boot, and more
+    href: ../basic-standard/concept-app-customer-responsibilities.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+  - name: Blue-green deployment strategies
+    href: ../basic-standard/concepts-blue-green-deployment-strategies.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+  - name: Zero downtime deployment
+    href: ../basic-standard/concept-zero-downtime-deployment.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+  - name: Quotas and limits
+    href: ../basic-standard/quotas.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+  - name: Understand app status
+    href: ../basic-standard/concept-app-status.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+  - name: Memory
+    items:
+    - name: Tools to troubleshoot memory issues
+      href: ../basic-standard/tools-to-troubleshoot-memory-issues.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+    - name: Fix app restart issues caused by OOM
+      href: ../basic-standard/how-to-fix-app-restart-issues-caused-by-out-of-memory.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+    - name: Containerize your Java applications
+      href: /azure/developer/java/containers/overview?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+  - name: Metrics
+    href: ../basic-standard/concept-metrics.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+  - name: Spring Boot Actuator
+    href: ../basic-standard/concept-manage-monitor-app-spring-boot-actuator.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+  - name: Customize Azure Spring Apps egress with a user-defined route
+    href: ../basic-standard/concept-outbound-type.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+  - name: Enterprise plan in Azure Marketplace
+    href: how-to-enterprise-marketplace-offer.md
+  - name: VMware Tanzu components
+    href: vmware-tanzu-components.md
+- name: Security
+  items:
+  - name: Passwordless connection to an Azure database
+    href: /azure/developer/java/spring-framework/deploy-passwordless-spring-database-app?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+  - name: Managed identity to connect Key Vault
+    href: ../basic-standard/tutorial-managed-identities-key-vault.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+  - name: Managed identity to invoke Azure Functions
+    href: ../basic-standard/tutorial-managed-identities-functions.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+  - name: Security controls
+    href: ../basic-standard/concept-security-controls.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+  - name: Security baseline
+    href: /security/benchmark/azure/baselines/azure-spring-apps-security-baseline?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+  - name: Azure Policy Security controls
+    href: ../basic-standard/security-controls-policy.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+- name: How-to guides
+  items:
+  - name: Provisioning
+    items:
+    - name: Provision using Bicep
+      href: ../basic-standard/quickstart-deploy-infrastructure-vnet-bicep.md?tabs=azure-spring-apps-enterprise&toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+    - name: Provision using an ARM template
+      href: ../basic-standard/quickstart-deploy-infrastructure-vnet.md?tabs=azure-spring-apps-enterprise&toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+    - name: Provision using Azure CLI
+      href: ../basic-standard/quickstart-deploy-infrastructure-vnet-azure-cli.md?tabs=azure-spring-apps-enterprise&toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+    - name: Provision using Terraform
+      href: ../basic-standard/quickstart-deploy-infrastructure-vnet-terraform.md?tabs=azure-spring-apps-enterprise&toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+  - name: Develop
+    items:
+    - name: Prepare a Java Spring app for deployment
+      href: ../basic-standard/how-to-prepare-app-deployment.md?tabs=enterprise-plan&toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+    - name: Manage and use jobs
+      href: how-to-manage-job.md
+    - name: Use Application Configuration Service
+      href: how-to-enterprise-application-configuration-service.md
+    - name: Use Build Service
+      href: how-to-enterprise-build-service.md
+    - name: Configure APM integration and CA certificates
+      href: how-to-enterprise-configure-apm-integration-and-ca-certificates.md
+    - name: Use Service Registry
+      href: how-to-enterprise-service-registry.md
+    - name: Set up a Config Server
+      href: ../basic-standard/how-to-config-server.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json?pivots=sc-enterprise
+    - name: Use API portal
+      href: how-to-use-enterprise-api-portal.md
+    - name: Spring Cloud Gateway
+      items:
+      - name: Manage Spring Cloud Gateway
+        href: how-to-configure-enterprise-spring-cloud-gateway.md
+      - name: Configure routes
+        href: how-to-use-enterprise-spring-cloud-gateway.md
+      - name: Configure route filters
+        href: how-to-configure-enterprise-spring-cloud-gateway-filters.md
+      - name: Troubleshoot
+        href: how-to-troubleshoot-enterprise-spring-cloud-gateway.md
+    - name: Configure Tanzu Dev Tools
+      href: how-to-use-dev-tool-portal.md
+    - name: Use VMware Tanzu Application Accelerator
+      href: how-to-use-accelerator.md
+    - name: Use Application Live View
+      href: how-to-use-application-live-view.md
+    - name: Monitor apps using Application Live View
+      href: monitor-apps-by-application-live-view.md
+  - name: Deploy
+    items:
+    - name: Set up a staging environment
+      href: ../basic-standard/how-to-staging-environment.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+    - name: Deploy apps using IntelliJ
+      href: ../basic-standard/how-to-intellij-deploy-apps.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+    - name: Deploy apps using VS Code
+      href: https://code.visualstudio.com/docs/java/java-spring-apps
+    - name: Deploy Spring apps with Maven
+      href: ../basic-standard/how-to-maven-deploy-apps.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+    - name: Deploy Spring apps with Azure PowerShell
+      href: ../basic-standard/how-to-deploy-powershell.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+    - name: Deploy polyglot enterprise applications
+      href: how-to-enterprise-deploy-polyglot-apps.md
+    - name: Deploy with a custom container
+      href: ../basic-standard/how-to-deploy-with-custom-container-image.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+    - name: Deploy web static files
+      href: how-to-enterprise-deploy-static-file.md
+    - name: Deploy large CPU and memory applications for Enterprise plan
+      href: how-to-enterprise-large-cpu-memory-applications.md
+    - name: Deploy applications at scale for Enterprise plan
+      href: how-to-enterprise-deploy-app-at-scale.md
+    - name: Configure private network access for backend storage
+      href: ../basic-standard/how-to-private-network-access-backend-storage.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+  - name: Manage
+    items:
+    - name: Start or stop a service
+      href: ../basic-standard/how-to-start-stop-service.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+    - name: Start, stop, and delete an app
+      href: ../basic-standard/how-to-start-stop-delete.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+    - name: Use custom persistent storage
+      href: ../basic-standard/how-to-custom-persistent-storage.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+    - name: Identify outbound public IP addresses
+      href: ../basic-standard/how-to-outbound-public-ip.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+    - name: Move across regions
+      href: ../basic-standard/how-to-move-across-regions.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+    - name: Configure planned maintenance
+      href: ../basic-standard/how-to-configure-planned-maintenance.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+  - name: Scale
+    items:
+    - name: Manually scale an app
+      href: ../basic-standard/how-to-scale-manual.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+    - name: Autoscale an app
+      href: ../basic-standard/how-to-setup-autoscale.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+  - name: Integrate
+    items:
+    - name: Create a service connection from the Azure portal
+      href: ../../service-connector/quickstart-portal-spring-cloud-connection.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+    - name: Azure Cosmos DB
+      href: ../basic-standard/how-to-bind-cosmos.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+    - name: Azure Cache for Redis
+      href: ../basic-standard/how-to-bind-redis.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+    - name: Azure Database for MySQL
+      href: ../basic-standard/how-to-bind-mysql.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+    - name: Azure Database for Postgres
+      href: ../basic-standard/how-to-bind-postgres.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+    - name: Azure SQL Database with Managed identity
+      href: ../basic-standard/connect-managed-identity-to-azure-sql.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+    - name: Azure Load Balance Solutions
+      href: ../basic-standard/how-to-integrate-azure-load-balancers.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+    - name: Use gRPC
+      href: ../basic-standard/how-to-use-grpc.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+  - name: Monitor
+    items:
+    - name: Alerts and action groups
+      href: ../basic-standard/tutorial-alerts-action-groups.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+    - name: Circuit Breaker Dashboard
+      href: ../basic-standard/tutorial-circuit-breaker.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+    - name: Analyze logs and metrics
+      href: ../basic-standard/diagnostic-services.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+    - name: Stream app logs in real time
+      href: ../basic-standard/how-to-log-streaming.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+    - name: Stream job logs in real time (Preview)
+      href: how-to-job-log-streaming.md
+    - name: Stream managed component logs in real time
+      href: how-to-managed-component-log-streaming.md
+    - name: Application Insights using Java In-Process Agent
+      href: ../basic-standard/how-to-application-insights.md?pivots=sc-enterprise&toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+    - name: Resilience4J Circuit Breaker Metrics
+      href: ../basic-standard/how-to-circuit-breaker-metrics.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+    - name: Structured application log
+      href: ../basic-standard/structured-app-log.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+    - name: Monitor app lifecycle events
+      href: ../basic-standard/monitor-app-lifecycle-events.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+    - name: Logback with custom persistent storage
+      href: ../basic-standard/how-to-write-log-to-custom-persistent-storage.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+    - name: Analyze logs with ELK
+      href: ../basic-standard/how-to-elastic-diagnostic-settings.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+    - name: Health probes and graceful termination
+      href: ../basic-standard/how-to-configure-health-probes-graceful-termination.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+  - name: Network
+    items:
+    - name: Custom DNS name
+      href: ../basic-standard/how-to-custom-domain.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+    - name: Deploy Azure Spring Apps in a virtual network
+      href: ../basic-standard/how-to-deploy-in-azure-virtual-network.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+    - name: Access your application in a private network
+      href: ../basic-standard/access-app-virtual-network.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+    - name: Expose applications to the internet with TLS Termination at gateway
+      href: expose-apps-gateway-tls-termination.md
+    - name: Expose applications to the internet with end-to-end TLS/SSL
+      href: ../basic-standard/expose-apps-gateway-end-to-end-tls.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+    - name: Expose applications to the internet from a public network
+      href: how-to-access-app-from-internet-virtual-network.md
+    - name: Configure Palo Alto
+      href: ../basic-standard/how-to-configure-palo-alto.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+    - name: Control egress traffic for an Azure Spring Apps instance
+      href: ../basic-standard/how-to-create-user-defined-route-instance.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+    - name: Customize the ingress configuration in Azure Spring Apps
+      href: ../basic-standard/how-to-configure-ingress.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+    - name: Customer responsibilities running Azure Spring Apps in a virtual network
+      href: ../basic-standard/vnet-customer-responsibilities.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+    - name: Troubleshooting Azure Spring Apps in virtual networks
+      href: ../basic-standard/troubleshooting-vnet.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+    - name: Map DNS names to applications in multiple Azure Spring Apps service instances in the same virtual network
+      href: ../basic-standard/how-to-map-dns-virtual-network.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+    - name: Flush DNS settings changes
+      href: ../basic-standard/how-to-use-flush-dns-settings.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+  - name: Secure
+    items:
+    - name: Secure communications end-to-end in Zero Trust
+      href: secure-communications-end-to-end.md
+    - name: Use managed identities for applications in Azure Spring Apps
+      href: ../basic-standard/how-to-use-managed-identities.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+    - name: Enable system-assigned managed identity
+      href: ../basic-standard/how-to-enable-system-assigned-managed-identity.md?pivots=sc-enterprise&toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+    - name: Manage user-assigned managed identities
+      href: ../basic-standard/how-to-manage-user-assigned-managed-identities.md?pivots=sc-enterprise&toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+    - name: Create roles and permissions
+      href: ../basic-standard/how-to-permissions.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+    - name: Use TLS/SSL certificates
+      href: ../basic-standard/how-to-use-tls-certificate.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+    - name: Enable ingress-to-app Transport Layer Security
+      href: ../basic-standard/how-to-enable-ingress-to-app-tls.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+    - name: Configure single sign-on
+      href: how-to-set-up-sso-with-azure-ad.md
+  - name: Automate
+    items:
+    - name: CI/CD with Azure DevOps
+      href: ../basic-standard/how-to-cicd.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+    - name: CI/CD with GitHub Actions
+      href: ../basic-standard/how-to-github-actions.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+    - name: Auth with Key Vault in GitHub Actions
+      href: ../basic-standard/github-actions-key-vault.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+  - name: Disaster recovery
+    items:
+    - name: Redundancy and high availability
+      href: ../../reliability/reliability-spring-apps.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+  - name: Troubleshoot
+    items:
+    - name: Self-diagnose and solve problems
+      href: ../basic-standard/how-to-self-diagnose-solve.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+    - name: Self-diagnose running in virtual networks
+      href: ../basic-standard/how-to-self-diagnose-running-in-vnet.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+    - name: Troubleshoot common issues
+      href: ../basic-standard/troubleshoot.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+    - name: Troubleshoot common exit code issues
+      href: ../basic-standard/troubleshoot-exit-code.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+    - name: Troubleshoot common build issues in Azure Spring Apps
+      href: troubleshoot-build-exit-code.md
+    - name: Capture heap/thread dump and use JFR
+      href: ../basic-standard/how-to-capture-dumps.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+    - name: Use JVM options for troubleshooting
+      href: ../basic-standard/how-to-dump-jvm-options.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+    - name: Connect to an app instance for troubleshooting
+      href: ../basic-standard/how-to-connect-to-app-instance-for-troubleshooting.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+    - name: Debug your apps remotely
+      href: ../basic-standard/how-to-remote-debugging-app-instance.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+  - name: Migrate
+    items:
+    - name: Migrate Standard and Basic to Enterprise
+      href: ../basic-standard/how-to-migrate-standard-tier-to-enterprise-tier.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+- name: Architecture
+  items:
+  - name: Architecture design
+    href: /azure/architecture/web-apps/spring-apps?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+  - name: Landing zone accelerator
+    href: /azure/cloud-adoption-framework/scenarios/app-platform/spring-apps/landing-zone-accelerator?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+  - name: Deploy to multiple regions
+    href: /azure/architecture/web-apps/spring-apps/architectures/spring-apps-multi-region?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+- name: Reference
+  items:
+  - name: API breaking changes
+    href: ../basic-standard/breaking-changes.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+  - name: Azure CLI plugin
+    href: /cli/azure/spring?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+  - name: Azure PowerShell
+    href: /powershell/module/az.springcloud?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+  - name: Azure Pipelines task
+    href: /azure/devops/pipelines/tasks/deploy/azure-spring-cloud?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+  - name: Resources
+    href: ../basic-standard/resources.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+  - name: Frequently asked questions
+    href: ../basic-standard/faq.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+  - name: REST API reference
+    href: /rest/api/azurespringcloud/?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ../basic-standard/policy-reference.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json

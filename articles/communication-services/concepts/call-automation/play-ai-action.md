@@ -5,7 +5,7 @@ description: Conceptual information about playing audio in a call using Call Aut
 author: Kunaal
 ms.service: azure-communication-services
 ms.subservice: call-automation
-ms.topic: include
+ms.topic: conceptual
 ms.date: 02/15/2023
 ms.author: kpunjabi
 ms.custom: private_preview

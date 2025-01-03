@@ -3,13 +3,11 @@ title: View and download your organization's Azure pricing
 description: Learn how to view and download pricing or estimate costs with your organization's pricing.
 author: bandersmsft
 ms.reviewer: paagraw
-tags: billing
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 12/08/2023
+ms.date: 11/14/2024
 ms.author: banders
-ms.custom: seodec18
 ---
 
 # View and download your organization's Azure pricing
@@ -26,7 +24,7 @@ Depending on the policies set for your organization by the Enterprise Admin, onl
 1. Select a billing profile. Depending on your access, you might need to select a billing account first.
 1. Select **Usage + Charges** from the navigation menu.  
     :::image type="content" source="./media/ea-pricing/ea-pricing-usage-charges-nav.png" alt-text="Screenshot that shows usage and charges under Billing." lightbox="./media/ea-pricing/ea-pricing-usage-charges-nav.png" :::
-1. Select ![Download icon.](./media/ea-pricing/download-icon.png) **Download** for the month.
+1. Select :::image type="content" border="true" source="./media/ea-pricing/download-icon.png" alt-text="Screenshot of the Download symbol."::: **Download** for the month.
 1. On the Download Usage + Charges page, under Price Sheet, select **Prepare document**. It could take a while to prepare your file.  
     :::image type="content" source="./media/ea-pricing/download-enterprise-agreement-price-sheet-01.png" alt-text="Screenshot shows the Download Usage + Charges options." lightbox="./media/ea-pricing/download-enterprise-agreement-price-sheet-01.png":::
 1. When the file is ready to download, select **Download Azure price sheet**.
@@ -37,7 +35,7 @@ Azure reservation pricing is available in the Azure Price Sheet for the current 
 
 ## Download pricing for an MCA or MPA account
 
-If you have an MCA, you must be the billing profile owner, contributor, reader, or invoice manager to view and download pricing. If you have an MPA, you must have the Global Admin and Admin Agent role in the partner organization to view and download pricing.
+If you have an MCA, you must be the billing profile owner, contributor, reader, or invoice manager to view and download pricing. If you have an MPA, you must have the Admin Agent or [billing admin](/partner-center/account-settings/permissions-overview#billing-admin-role) role in the partner organization to view and download pricing.
 
 ### Download price sheets for billed charges
 
@@ -84,7 +82,7 @@ You can also use your organization’s pricing to estimate costs with the Azure 
 ## Check your billing account type
 [!INCLUDE [billing-check-account-type](../../../includes/billing-check-account-type.md)]
 
-## Next steps
+## Related content
 
 If you're an EA customer, see:
 

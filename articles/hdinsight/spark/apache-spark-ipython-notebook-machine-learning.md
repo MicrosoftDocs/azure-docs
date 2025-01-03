@@ -1,10 +1,10 @@
 ---
 title: 'Tutorial: Build Spark machine learning app - Azure HDInsight'
 description: Tutorial - Step-by-step instructions on how to build Apache Spark machine learning application in HDInsight Spark clusters using Jupyter Notebook.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,mvc, devx-track-python
-ms.date: 09/14/2023
+ms.date: 09/06/2024
 
 # Customer intent: As a developer new to Apache Spark and to Apache Spark in Azure HDInsight, I want to learn how to create a simple machine learning Spark application.
 ---
@@ -29,11 +29,11 @@ In this tutorial, you learn how to:
 
 The application uses the sample **HVAC.csv** data that is available on all clusters by default. The file is located at `\HdiSamples\HdiSamples\SensorSampleData\hvac`. The data shows the target temperature and the actual temperature of some buildings that have HVAC systems installed. The **System** column represents the system ID and the **SystemAge** column represents the number of years the HVAC system has been in place at the building. You can predict whether a building will be hotter or colder based on the target temperature, given system ID, and system age.
 
-:::image type="content" source="./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-understand-data.png " alt-text="Snapshot of data used for Spark machine learning example" border="true":::
+:::image type="content" source="./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-understand-data.png " alt-text="Snapshot of data used for Spark machine learning example." border="true":::
 
 ## Develop a Spark machine learning application using Spark MLlib
 
-This application uses a Spark [ML pipeline](https://spark.apache.org/docs/2.2.0/ml-pipeline.html) to do a document classification. ML Pipelines provide a uniform set of high-level APIs built on top of DataFrames. The DataFrames help users create and tune practical machine learning pipelines. In the pipeline, you split the document into words, convert the words into a numerical feature vector, and finally build a prediction model using the feature vectors and labels. Do the following steps to create the application.
+This application uses a Spark [ML pipeline](https://downloads.apache.org/spark/docs/3.3.1/ml-pipeline.html) to do a document classification. ML Pipelines provide a uniform set of high-level APIs built on top of DataFrames. The DataFrames help users create and tune practical machine learning pipelines. In the pipeline, you split the document into words, convert the words into a numerical feature vector, and finally build a prediction model using the feature vectors and labels. Do the following steps to create the application.
 
 1. Create a Jupyter Notebook using the PySpark kernel. For the instructions, see [Create a Jupyter Notebook file](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook-file).
 
@@ -135,7 +135,7 @@ This application uses a Spark [ML pipeline](https://spark.apache.org/docs/2.2.0/
 
     Comparing the output against the raw CSV file. For example, the first row the CSV file has this data:
 
-    :::image type="content" source="./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-output-data.png " alt-text="Output data snapshot for Spark machine learning example" border="true":::
+    :::image type="content" source="./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-output-data.png " alt-text="Output data snapshot for Spark machine learning example." border="true":::
 
     Notice how the actual temperature is less than the target temperature suggesting the building is cold. The value for **label** in the first row is **0.0**, which means the building isn't hot.
 
@@ -196,7 +196,7 @@ If you're not going to continue to use this application, delete the cluster that
 
 1. Select **Delete**. Select **Yes**.
 
-:::image type="content" source="./media/apache-spark-ipython-notebook-machine-learning/hdinsight-azure-portal-delete-cluster.png " alt-text="Azure portal deletes an HDInsight cluster" border="true":::
+:::image type="content" source="./media/apache-spark-ipython-notebook-machine-learning/hdinsight-azure-portal-delete-cluster.png " alt-text="Azure portal deletes an HDInsight cluster." border="true":::
 
 ## Next steps
 

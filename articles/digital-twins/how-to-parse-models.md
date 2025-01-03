@@ -6,8 +6,8 @@ author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 06/29/2023
 ms.topic: how-to
-ms.service: digital-twins
-ms.custom: contperf-fy21q3, devx-track-dotnet
+ms.service: azure-digital-twins
+ms.custom: devx-track-dotnet
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -41,7 +41,7 @@ The capabilities of the parser include:
 * Determine whether a model is assignable from another model.
 
 > [!NOTE]
-> [IoT Plug and Play](../iot-develop/overview-iot-plug-and-play.md) devices use a small syntax variant to describe their functionality. This syntax variant is a semantically compatible subset of the DTDL that is used in Azure Digital Twins. When using the parser library, you do not need to know which syntax variant was used to create the DTDL for your digital twin. The parser will always, by default, return the same model for both IoT Plug and Play and Azure Digital Twins syntax.
+> [IoT Plug and Play](../iot/overview-iot-plug-and-play.md) devices use a small syntax variant to describe their functionality. This syntax variant is a semantically compatible subset of the DTDL that is used in Azure Digital Twins. When using the parser library, you do not need to know which syntax variant was used to create the DTDL for your digital twin. The parser will always, by default, return the same model for both IoT Plug and Play and Azure Digital Twins syntax.
 
 ## Code with the parser library
 

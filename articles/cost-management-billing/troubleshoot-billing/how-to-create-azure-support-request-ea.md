@@ -2,7 +2,7 @@
 title: How to create an Azure support request for an Enterprise Agreement issue
 description: Enterprise Agreement customers who need assistance can use the Azure portal to find self-service solutions and to create and manage support requests.
 ms.topic: troubleshooting
-ms.date: 04/05/2023
+ms.date: 02/13/2024
 ms.author: banders
 author: bandersmsft
 ms.reviewer: sapnakeshari
@@ -29,7 +29,7 @@ You can get to **Help + support** in the Azure portal. It's available from the A
 
 ### Azure role-based access control
 
-To create a support request for an Enterprise Agreement, you must be an Enterprise Administrator or Partner Administrator associated with an enterprise enrollment. 
+To create a support request for an Enterprise Agreement, you must be an Enterprise Administrator or Partner Administrator associated with an enterprise enrollment.
 
 ### Go to Help + support from the global header
 
@@ -59,10 +59,10 @@ We'll walk you through some steps to gather information about your problem and h
 
 ### Problem description
 
-1. Type a summary of your issue and then select **Issue type**. 
-1. In the **Issue type** list, select **Enrollment administration** for EA portal related issues.  
+1. Type a summary of your issue and then select **Issue type**.
+1. In the **Issue type** list, select **Enrollment administration** for enterprise agreement issues.  
     :::image type="content" source="./media/how-to-create-azure-support-request-ea/select-issue-type-enrollment-administration.png" alt-text="Screenshot showing Select Enrollment administration." lightbox="./media/how-to-create-azure-support-request-ea/select-issue-type-enrollment-administration.png" :::
-1. For **Enrollment number**, select the enrollment number. 
+1. For **Enrollment number**, select the enrollment number.  
     :::image type="content" source="./media/how-to-create-azure-support-request-ea/select-enrollment.png" alt-text="Screenshot showing Select Enrollment number." :::
 1. For **Problem type**, select the issue category that best describes the type of problem that you have.  
     :::image type="content" source="./media/how-to-create-azure-support-request-ea/select-problem-type.png" alt-text="Screenshot showing Select a problem type." :::
@@ -80,7 +80,7 @@ If you're still unable to resolve the issue, continue creating your support requ
 
 Next, we collect more details about the problem. Providing thorough and detailed information in this step helps us route your support request to the right engineer.
 
-1. On the Details tab, complete the **Problem details** section so that we have more information about your issue. If possible, tell us when the problem started and any steps to reproduce it. You can upload a file, such as a log file or output from diagnostics. For more information on file uploads, see [File upload guidelines](../../azure-portal/supportability/how-to-manage-azure-support-request.md#file-upload-guidelines).
+1. On the Details tab, complete the **Problem details** section so that we have more information about your issue. If possible, tell us when the problem started and any steps to reproduce it. You can upload a file, such as a log file or output from diagnostics. For more information on file uploads, see [File upload guidelines](/azure/azure-portal/supportability/how-to-manage-azure-support-request#file-upload-guidelines).
 
 1. In the **Share diagnostic information** section, select **Yes** or **No**. Selecting **Yes** allows Azure support to gather [diagnostic information](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) from your Azure resources. If you prefer not to share this information, select **No**. In some cases, there will be more options to choose from.
 
@@ -107,15 +107,15 @@ To create an Azure support ticket, an *organizational account* must have the EA 
 
 If you have an MSA, have an administrator create an organizational account for you. An enterprise administrator or partner administrator must then add your organizational account as an enterprise administrator or partner administrator. Then you can use your organizational account to file a support request.
 
-- To add an Enterprise Administrator, see [Create another enterprise administrator](../manage/ea-portal-administration.md#create-another-enterprise-administrator).
+- To add an Enterprise Administrator, see [Add another enterprise administrator](../manage/direct-ea-administration.md#add-another-enterprise-administrator).
 - To add a Partner Administrator, see [Manage partner administrators](../manage/ea-partner-portal-administration.md#manage-partner-administrators).
 
 ## Next steps
 
 Follow these links to learn more:
 
-* [How to manage an Azure support request](../../azure-portal/supportability/how-to-manage-azure-support-request.md)
+* [How to manage an Azure support request](/azure/azure-portal/supportability/how-to-manage-azure-support-request)
 * [Azure support ticket REST API](/rest/api/support)
-* Engage with us on [Twitter](https://twitter.com/azuresupport)
+* Engage with us on [X](https://x.com/azuresupport)
 * Get help from your peers in the [Microsoft Q&A question page](/answers/products/azure)
 * Learn more in [Azure Support FAQ](https://azure.microsoft.com/support/faq)

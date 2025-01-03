@@ -5,9 +5,9 @@ description: Learn how to create a DNS zone and record in Azure DNS. This articl
 services: dns
 author: greg-lindsay
 ms.author: greglin
-ms.date: 11/30/2023
+ms.date: 11/05/2024
 ms.topic: quickstart
-ms.service: dns
+ms.service: azure-dns
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 #Customer intent: As an administrator or developer, I want to learn how to configure Azure DNS using Azure ARM template so I can use Azure DNS for my name resolution.
 ---
@@ -16,11 +16,11 @@ ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 
 This quickstart describes how to use an Azure Resource Manager template (ARM Template) to create a DNS zone with an `A` record in it.
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fazure-dns-new-zone%2Fazuredeploy.json)
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fazure-dns-new-zone%2Fazuredeploy.json":::
 
 ## Prerequisites
 
@@ -86,7 +86,7 @@ Azure PowerShell is used to deploy the template. In addition to Azure PowerShell
 
     :::image type="content" source="./media/dns-getstarted-template/resource-group-dns-zone.png" alt-text="DNS zone deployment resource group":::
 
-1. Select the DNS zone with the suffix of `azurequickstart.org` to verify that the zone is created properly with an `A` record referencing the value of `1.2.3.4` and `1.2.3.5`.
+1. Select the DNS zone with the suffix of `azurequickstart.org` to verify that the zone is created properly with an `A` record referencing the value of `203.0.113.1` and `203.0.113.2`.
 
     :::image type="content" source="./media/dns-getstarted-template/dns-zone-overview.png" alt-text="DNS zone deployment":::
 
@@ -108,7 +108,7 @@ Azure PowerShell is used to deploy the template. In addition to Azure PowerShell
 
     :::image type="content" source="./media/dns-getstarted-template/dns-zone-validation.png" alt-text="DNS zone nslookup":::
 
-The host name `www.2lwynbseszpam.azurequickstart.org` resolves to `1.2.3.4` and `1.2.3.5`, just as you configured it. This result verifies that name resolution is working correctly.
+The host name `www.2lwynbseszpam.azurequickstart.org` resolves to `203.0.113.1` and `203.0.113.2`, just as you configured it. This result verifies that name resolution is working correctly.
 
 ## Clean up resources
 

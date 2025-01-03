@@ -2,17 +2,10 @@
 title: Create an SMB volume for Azure NetApp Files | Microsoft Docs
 description: This article shows you how to create an SMB3 volume in Azure NetApp Files. Learn about requirements for Active Directory connections and Domain Services.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 05/31/2023
+ms.date: 12/11/2024
 ms.author: anfdocs
 ---
 # Create an SMB volume for Azure NetApp Files
@@ -21,29 +14,15 @@ Azure NetApp Files supports creating volumes using NFS (NFSv3 or NFSv4.1), SMB3,
 
 This article shows you how to create an SMB3 volume. For NFS volumes, see [Create an NFS volume](azure-netapp-files-create-volumes.md). For dual-protocol volumes, see [Create a dual-protocol volume](create-volumes-dual-protocol.md).
 
+>[!IMPORTANT]
+>Windows Server 2025 currently doesn't work with the Azure NetApp Files SMB protocol. 
+
 ## Before you begin 
+
+[!INCLUDE [Delegated subnet permission](includes/create-volume-permission.md)]
 
 * You must have already set up a capacity pool. See [Create a capacity pool](azure-netapp-files-set-up-capacity-pool.md).     
 * A subnet must be delegated to Azure NetApp Files. See [Delegate a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md).
-* The [non-browsable shares](#non-browsable-share) and [access-based enumeration](#access-based-enumeration) features are currently in preview. You must register each feature before you can use it:
-
-1. Register the feature: 
-
-    ```azurepowershell-interactive
-    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSmbNonBrowsable
-    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSMBAccessBasedEnumeration
-    ```
-
-2. Check the status of the feature registration: 
-
-    > [!NOTE]
-    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is **Registered** before continuing.
-
-    ```azurepowershell-interactive
-    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSmbNonBrowsable
-    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSMBAccessBasedEnumeration   
-    ```
-You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
 ## Configure Active Directory connections 
 
@@ -53,7 +32,7 @@ Before creating an SMB volume, you need to create an Active Directory connection
 
 1. Select the **Volumes** blade from the Capacity Pools blade. 
 
-    ![Navigate to Volumes](../media/azure-netapp-files/azure-netapp-files-navigate-to-volumes.png)
+    ![Navigate to Volumes](./media/shared/azure-netapp-files-navigate-to-volumes.png)
 
 2. Select **+ Add volume** to create a volume.  
     The Create a Volume window appears.
@@ -73,7 +52,7 @@ Before creating an SMB volume, you need to create an Active Directory connection
         The **Available quota** field shows the amount of unused space in the chosen capacity pool that you can use towards creating a new volume. The size of the new volume must not exceed the available quota.  
 
     * **Large Volume**
-        If the quota of your volume is less than 100 TiB, select **No**. If the quota of your volume is greater than 100 TiB, select **Yes**.  
+        
         [!INCLUDE [Large volumes warning](includes/large-volumes-notice.md)]
 
     * **Throughput (MiB/S)**   
@@ -82,7 +61,7 @@ Before creating an SMB volume, you need to create an Active Directory connection
         If the volume is created in an auto QoS capacity pool, the value displayed in this field is (quota x service level throughput).   
 
     * **Enable Cool Access**, **Coolness Period**, and **Cool Access Retrieval Policy**      
-        These fields configure [standard storage with cool access in Azure NetApp Files](cool-access-introduction.md). For descriptions, see [Manage Azure NetApp Files standard storage with cool access](manage-cool-access.md). 
+        These fields configure [Azure NetApp Files storage with cool access](cool-access-introduction.md). For descriptions, see [Manage Azure NetApp Files storage with cool access](manage-cool-access.md). 
 
     * **Virtual network**  
         Specify the Azure virtual network (VNet) from which you want to access the volume.  
@@ -97,6 +76,8 @@ Before creating an SMB volume, you need to create an Active Directory connection
       
         :::image type="content" source="../media/azure-netapp-files/azure-netapp-files-create-subnet.png" alt-text="Screenshot of create new subnet interface." lightbox="../media/azure-netapp-files/azure-netapp-files-create-subnet.png":::
     
+        ![Create subnet](./media/shared/azure-netapp-files-create-subnet.png)
+
     * **Network features**  
         In supported regions, you can specify whether you want to use **Basic** or **Standard** network features for the volume. See [Configure network features for a volume](configure-network-features.md) and [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md) for details.
 
@@ -110,7 +91,7 @@ Before creating an SMB volume, you need to create an Active Directory connection
 
         For information about creating a snapshot policy, see [Manage snapshot policies](snapshots-manage-policy.md).
 
-        ![Show advanced selection](../media/azure-netapp-files/volume-create-advanced-selection.png)
+        ![Show advanced selection](./media/shared/volume-create-advanced-selection.png)
 
 4. Select **Protocol** and complete the following information:  
     * Select **SMB** as the protocol type for the volume.  
@@ -118,11 +99,11 @@ Before creating an SMB volume, you need to create an Active Directory connection
     * Select your **Active Directory** connection from the drop-down list.  
     
     * Specify a unique **share name** for the volume. This share name is used when you create mount targets. The requirements for the share name are as follows:   
-        - It must be unique within each subnet in the region. 
-        - It must start with an alphabetical character.
+        - For volumes not in an availability zone or volumes in the same availability zone, it must be unique within each subnet in the region.  
+        - For volumes in availability zones, it must be unique within each availability zone. For more information, see [Manage availability zone volume placement](manage-availability-zone-volume-placement.md#file-path-uniqueness).
         - It can contain only letters, numbers, or dashes (`-`). 
         - The length must not exceed 80 characters.   
-
+    
     * <a name="smb3-encryption"></a>If you want to enable encryption for SMB3, select **Enable SMB3 Protocol Encryption**.   
 
         This feature enables encryption for in-flight SMB3 data. SMB clients not using SMB3 encryption will not be able to access this volume.  Data at rest is encrypted regardless of this setting.   
@@ -130,14 +111,11 @@ Before creating an SMB volume, you need to create an Active Directory connection
 
     * <a name="access-based-enumeration"></a> If you want to enable access-based enumeration, select **Enable Access Based Enumeration**.
 
-        This feature will hide directories and files created under a share from users who do not have access permissions to the files or folders under the share. Users will still be able to view the share.
+        Hide directories and files created under a share from users who don't have access permissions to the files or folders under the share. Users are still able to view the share.
 
     * <a name="non-browsable-share"></a> You can enable the **non-browsable-share feature.**
 
-        This feature prevents the Windows client from browsing the share. The share does not show up in the Windows File Browser or in the list of shares when you run the `net view \\server /all` command.
-
-    > [!IMPORTANT]
-    > Both the access-based enumeration and non-browsable shares features are currently in preview. If this is your first time using either, refer to the steps in [Before you begin](#before-you-begin) to register either feature.
+        Prevent the Windows client from browsing the share. The share doesn't show up in the Windows File Browser or in the list of shares when you run the `net view \\server /all` command.
 
     * <a name="continuous-availability"></a>If you want to enable Continuous Availability for the SMB volume, select **Enable Continuous Availability**.    
       
@@ -145,7 +123,7 @@ Before creating an SMB volume, you need to create an Active Directory connection
 
         **Custom applications are not supported with SMB Continuous Availability.**
 
-    :::image type="content" source="../media/azure-netapp-files/azure-netapp-files-protocol-smb.png" alt-text="Screenshot showing the Protocol tab of creating an SMB volume." lightbox="../media/azure-netapp-files/azure-netapp-files-protocol-smb.png":::
+    :::image type="content" source="./media/azure-netapp-files-create-volumes-smb/azure-netapp-files-protocol-smb.png" alt-text="Screenshot showing the Protocol tab of creating an SMB volume." lightbox="./media/azure-netapp-files-create-volumes-smb/azure-netapp-files-protocol-smb.png":::
 
 5. Select **Review + Create** to review the volume details. Then select **Create** to create the SMB volume.
 
@@ -161,7 +139,7 @@ Access to an SMB volume is managed through permissions.
 
 You can set permissions for a file or folder by using the **Security** tab of the object's properties in the Windows SMB client.
  
-![Set file and folder permissions](../media/azure-netapp-files/set-file-folder-permissions.png) 
+![Set file and folder permissions](./media/azure-netapp-files-create-volumes-smb/set-file-folder-permissions.png) 
 
 ### Modify SMB share permissions
 

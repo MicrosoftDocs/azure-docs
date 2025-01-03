@@ -4,13 +4,15 @@ description: Learn how to plan for and manage costs for Azure API Management by 
 author: dlepow
 ms.author: danlep
 ms.custom: subject-cost-optimization
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 06/11/2021
 ---
 
 
 # Plan and manage costs for API Management
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 This article describes how you plan for and manage costs for Azure API Management. First, you use the Azure pricing calculator to help plan for API Management costs before you add any resources for the service to estimate costs. After you've started using API Management resources, use Cost Management features to set budgets and monitor costs. You can also review forecasted costs and identify spending trends to identify areas where you might want to act. 
 
@@ -60,8 +62,11 @@ When you create or use Azure resources with API Management, you'll get charged b
 
 | Tiers | Description |
 | ----- | ----------- |
-| Consumption | Incurs no fixed costs. You are billed based on the number of API calls to the service above a certain threshold. |
-| Developer, Basic, Standard, and Premium | Incur monthly costs, based on the number of [units](./api-management-capacity.md) and [self-hosted gateways](./self-hosted-gateway-overview.md). Self-hosted gateways are free for the Developer tier. [Upgrade](./upgrade-and-scale.md) to a different service tier at any time. |
+| Consumption | Incurs no fixed costs. You are billed based on the number of API requests to the service above a certain threshold. |
+| Developer, Basic, Standard, Premium | Incur monthly costs, based on the number of [units](./api-management-capacity.md), [workspaces](workspaces-overview.md), and [self-hosted gateways](./self-hosted-gateway-overview.md). Self-hosted gateways are free for the Developer tier.  |
+| Basic v2, Standard v2, Premium v2 | Incur monthly costs, based on the number of [units](./api-management-capacity.md). Above a certain threshold of API requests, additional requests are billed.  |
+
+Different [upgrade](./upgrade-and-scale.md) options are available, depending on your service tier.
 
 You may also incur additional charges when you use other Azure resources with API Management, like virtual networks, availability zones, and multi-region writes. At the end of your billing cycle, the charges for each meter are summed. Your bill or invoice shows a section for all API Management costs. There's a separate line item for each meter.
 
@@ -93,7 +98,7 @@ In the preceding example, you see the current cost for the service. Costs by Azu
 
 You can create [budgets](../cost-management-billing/costs/tutorial-acm-create-budgets.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) to manage costs and create [alerts](../cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) that automatically notify stakeholders of spending anomalies and overspending risks. Alerts are based on spending compared to budget and cost thresholds. Budgets and alerts are created for Azure subscriptions and resource groups, so they're useful as part of an overall cost monitoring strategy. 
 
-Budgets can be created with filters for specific resources or services in Azure if you want more granularity present in your monitoring. Filters help ensure that you don't accidentally create new resources that cost you additional money. For more about the filter options when you when create a budget, see [Group and filter options](../cost-management-billing/costs/group-filter.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+Budgets can be created with filters for specific resources or services in Azure if you want more granularity present in your monitoring. Filters help ensure that you don't accidentally create new resources that cost you additional money. For more about the filter options when you create a budget, see [Group and filter options](../cost-management-billing/costs/group-filter.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 
 ## Export cost data
 
@@ -103,7 +108,7 @@ You can also [export your cost data](../cost-management-billing/costs/tutorial-e
 
 ### Scale using capacity units
 
-Except in the Consumption service tier, API Management supports scaling by adding or removing [*capacity units*](api-management-capacity.md). As the load increases on an API Management instance, adding capacity units may be more economical than upgrading to a higher service tier. The maximum number of units depends on the service tier.
+Except in the Consumption and Developer service tiers, API Management supports scaling by adding or removing [*capacity units*](api-management-capacity.md). As the load increases on an API Management instance, adding capacity units may be more economical than upgrading to a higher service tier. The maximum number of units depends on the service tier.
 
 Each capacity unit has a certain request processing capability that depends on the service’s tier. For example, a unit of the Basic tier has an estimated maximum throughput of approximately 1,000 requests per second. 
 

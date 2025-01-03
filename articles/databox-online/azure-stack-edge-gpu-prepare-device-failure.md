@@ -4,8 +4,7 @@ description: Describes how to get a replacement for an Azure Stack Edge Pro fail
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: alkohli
@@ -65,7 +64,7 @@ The following third-party data protection solutions can provide a backup solutio
 |--------------------------------|---------------------------------------------------------|
 | Cohesity                       | [https://www.cohesity.com/solution/cloud/azure/](https://www.cohesity.com/solution/cloud/azure/) <br> For details, contact Cohesity.          |
 | Commvault                      | [https://www.commvault.com/azure](https://www.commvault.com/azure) <br> For details, contact Commvault.          |
-| Veritas                        | [http://veritas.com/azure](http://veritas.com/azure) <br> For details, contact Veritas.   |
+| Veritas                        | [https://www.veritas.com/partners/microsoft-azure](https://www.veritas.com/partners/microsoft-azure) <br> For details, contact Veritas.   |
 | Veeam                          | [https://www.veeam.com/kb4041](https://www.veeam.com/kb4041) <br> For details, contact Veeam. |
 
 

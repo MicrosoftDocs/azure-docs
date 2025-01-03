@@ -2,7 +2,7 @@
 title: Azure Service Bus - messaging exceptions (deprecated) | Microsoft Docs
 description: This article provides a list of Azure Service Bus messaging exceptions from the deprecated packages and suggested actions to taken when the exception occurs.
 ms.topic: article
-ms.date: 02/17/2023
+ms.date: 02/23/2024
 ---
 
 # Service Bus messaging exceptions (deprecated)

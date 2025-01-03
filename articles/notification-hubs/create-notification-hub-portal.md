@@ -6,10 +6,9 @@ author: sethmanheim
 ms.author: sethm
 manager: femila
 ms.reviewer: rebpen
-ms.date: 07/17/2023
+ms.date: 02/21/2024
 ms.topic: quickstart
-ms.service: notification-hubs
-ms.workload: mobile
+ms.service: azure-notification-hubs
 ms.custom: mode-ui
 ---
 
@@ -23,7 +22,7 @@ In this quickstart, you create a notification hub in the Azure portal. The first
 
 In this section, you create a namespace and a hub in the namespace.
 
-[!INCLUDE [notification-hubs-portal-create-new-hub.](../../includes/notification-hubs-portal-create-new-hub.md)]
+[!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
 ## Create a notification hub in an existing namespace
 
@@ -48,9 +47,6 @@ A namespace contains one or more notification hubs, so type a name for the hub i
     :::image type="content" source="./media/create-notification-hub-portal/notification-hub-details.png" alt-text="Screenshot showing notification hub details for existing namespaces." lightbox="./media/create-notification-hub-portal/notification-hub-details.png":::
 
 1. Review the [**Availability Zones**](./notification-hubs-high-availability.md#zone-redundant-resiliency) option. If you chose a region that has availability zones, the check box is selected by default. Availability Zones is a paid feature, so an additional fee is added to your tier.
-
-    > [!NOTE]
-    > The Availability Zones feature is currently in public preview. Availability Zones is available for an additional cost; however, you will not be charged while the feature is in preview. For more information, see [High availability for Azure Notification Hubs](./notification-hubs-high-availability.md).
 
 1. Choose a **Disaster recovery** option: **None**, **Paired recovery region**, or **Flexible recovery region**. If you choose **Paired recovery region**, the failover region is displayed. If you select **Flexible recovery region**, use the drop-down to choose from a list of recovery regions.
 

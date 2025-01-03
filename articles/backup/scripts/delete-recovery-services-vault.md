@@ -1,21 +1,21 @@
 ---
-title: Script Sample - Delete a Recovery Services vault
+title: Script Sample - Delete a Recovery Services vault for Azure Backup
 description: Learn about how to use a PowerShell script to delete a Recovery Services vault.
 ms.topic: sample
-ms.date: 03/06/2023
-ms.service: backup
-ms.custom: devx-track-azurepowershell
+ms.date: 03/26/2024
+ms.service: azure-backup
+ms.custom: devx-track-azurepowershell, engagement-fy24
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
 # PowerShell script to delete a Recovery Services vault
 
-This script helps you to delete a Recovery Services vault.
+This script helps you to delete a Recovery Services vault for Azure Backup.
 
 ## How to execute the script?
 
-1. Save the script in the following section on your machine with a name of your choice and _.ps1_ extension.
+1. Save the script in the following section on your machine with a name of your choice and `.ps1` extension.
 1. In the script, change the parameters (vault name, resource group name, subscription name, and subscription ID).
 1. To run it in your PowerShell environment, continue with the next steps.
 
@@ -195,7 +195,7 @@ if ($null -ne $fabricObjects) {
             $NetworkMappings = Get-AzRecoveryServicesAsrNetworkMapping -Network $PrimaryNetwork
             foreach ($networkMappingObject in $NetworkMappings)
             {
-                #Get the Neetwork Mappings
+                #Get the Network Mappings
                 $NetworkMapping = Get-AzRecoveryServicesAsrNetworkMapping -Name $networkMappingObject.Name -Network $PrimaryNetwork
                 Remove-AzRecoveryServicesAsrNetworkMapping -InputObject $NetworkMapping
             }
@@ -279,7 +279,7 @@ $authHeader = @{
 $restUri = "https://management.azure.com/subscriptions/"+$SubscriptionId+'/resourcegroups/'+$ResourceGroup+'/providers/Microsoft.RecoveryServices/vaults/'+$VaultName+'?api-version=2021-06-01&operation=DeleteVaultUsingPS'
 $response = Invoke-RestMethod -Uri $restUri -Headers $authHeader -Method DELETE
 
-$VaultDeleted = Get-AzRecoveryServicesVault -Name $VaultName -ResourceGroupName $ResourceGroup -erroraction 'silentlycontinue'
+$VaultDeleted = Get-AzRecoveryServicesVault -Name $VaultName -ResourceGroupName $ResourceGroup -ErrorAction 'SilentlyContinue'
 if ($VaultDeleted -eq $null){
 Write-Host "Recovery Services Vault" $VaultName "successfully deleted"
 }

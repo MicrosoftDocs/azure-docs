@@ -10,7 +10,6 @@ ms.date: 05/24/2022
 ms.topic: tutorial
 ms.service: azure-communication-services
 ms.subservice: teams-interop
-ms.custom: event-tier1-build-2022
 ---
 
 # Virtual appointments

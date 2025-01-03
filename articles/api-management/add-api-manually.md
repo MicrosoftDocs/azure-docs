@@ -4,7 +4,7 @@ description: This tutorial shows you how to use API Management to add an API man
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: tutorial
 ms.date: 06/30/2022
 ms.author: danlep
@@ -13,6 +13,8 @@ ms.custom: fasttrack-edit, devdivchpfy22
 ---
 
 # Add an API manually
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 This article shows steps to add an API manually to the API Management instance. When you want to mock the API, you can create a blank API or define it manually. For details about mocking an API, see [Mock API responses](mock-api-responses.md).
 
@@ -89,7 +91,7 @@ Test the operation in the Azure portal. You can also test it in the **Developer 
 This section shows how to add a wildcard operation. A wildcard operation lets you pass an arbitrary value with an API request. Instead of creating separate GET operations as shown in the previous sections, you could create a wildcard GET operation.
 
 > [!CAUTION]
-> Use care when configuring a wildcard operation. This configuration may make an API more vulnerable to certain [API security threats](mitigate-owasp-api-threats.md#improper-assets-management).
+> Use care when configuring a wildcard operation. This configuration may make an API more vulnerable to certain [API security threats](mitigate-owasp-api-threats.md#improper-inventory-management).
 
 ### Add the operation
 

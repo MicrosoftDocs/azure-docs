@@ -1,9 +1,10 @@
 ---
 title: Expose Superset to the internet
 description: Learn how to expose Superset to the internet
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: how-to 
-ms.date: 12/11/2023
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Expose Apache Superset to Internet
@@ -22,20 +23,20 @@ This article describes how to expose Apache Superset to the Internet.
 
 ## Setup ingress
 
-The following instructions add a second layer of authentication in the form of an Oauth authorization proxy using Oauth2Proxy. This layer means that no unauthorized clients reach the Superset application.
+The following instructions add a second layer of authentication in the form of an OAuth authorization proxy using Oauth2Proxy. This layer means that no unauthorized clients reach the Superset application.
 
 1. Add the following secrets to your Key Vault.
 
    |Secret Name|Description|
    |-|-|
-   |client-id|Your Azure service principal client ID. Oauth proxy requires this ID to be a secret.|
-   |oauth2proxy-redis-password|Proxy cache password. The password used by the Oauth proxy to access the back end Redis deployment instance on Kubernetes. Generate a strong password.|
+   |client-id|Your Azure service principal client ID. OAuth proxy requires this ID to be a secret.|
+   |oauth2proxy-redis-password|Proxy cache password. The password used by the OAuth proxy to access the back end Redis deployment instance on Kubernetes. Generate a strong password.|
    |oauth2proxy-cookie-secret|32 character cookie secret, used to encrypt the cookie data. This secret must be 32 characters long.|
 
 1. Add these callbacks in your Superset Azure AD application configuration.
 
    * `https://{{superset_hostname}}/oauth2/callback`
-      * for Oauth2 Proxy
+      * for OAuth2 Proxy
     * `https://{{superset_hostname}}/oauth-authorized/azure`
       * for Superset
 
@@ -156,7 +157,7 @@ The following instructions add a second layer of authentication in the form of a
          objectName: oauth2proxy-redis-password
    ```
 
-1. Create configuration for the Oauth Proxy.
+1. Create configuration for the OAuth Proxy.
 
    Update in the following yaml:
    * `{{superset_hostname}}` - the internet facing hostname chosen in [hostname selection](#hostname-selection)
@@ -172,7 +173,7 @@ The following instructions add a second layer of authentication in the form of a
    # due to the fact that it doesn't query an actual cluster
    kubeVersion:
    
-   # Oauth client configuration specifics
+   # OAuth client configuration specifics
    config:
      # OAuth client secret
      existingSecret: oauth2-secret
@@ -251,7 +252,7 @@ The following instructions add a second layer of authentication in the form of a
    checkDeprecation: true
    ```
 
-1. Deploy Oauth proxy resources.
+1. Deploy OAuth proxy resources.
 
    ```bash
    kubectl apply -f oauth2-secretprovider.yaml
@@ -282,14 +283,14 @@ The following instructions add a second layer of authentication in the form of a
 
     1. Enter the DNS name label with the `<superset-instance-name>` defined in [hostname selection](#hostname-selection).
 
-1. Verify that your ingress for Oauth is configured.
+1. Verify that your ingress for OAuth is configured.
 
       Run `kubectl get ingress` to see the two ingresses created `azure-trino-superset` and `oauth2-oauth2-proxy`. The IP address matches the Public IP from the previous step.
 
       Likewise, when running `kubectl get services` you should see that `ingress-nginx-controller` has been assigned an `EXTERNAL-IP`.
 
       > [!TIP] 
-      > You can open `http://{{superset_hostname}}/oauth2` to test that the Oauth path is working.
+      > You can open `http://{{superset_hostname}}/oauth2` to test that the OAuth path is working.
 
 1. Define an ingress to provide access to Superset, but redirect all unauthorized calls to `/oauth`.
 

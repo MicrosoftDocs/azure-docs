@@ -5,8 +5,8 @@ description: This article answers common Virtual WAN pricing questions.
 services: virtual-wan
 author: cherylmc
 
-ms.service: virtual-wan
-ms.topic: conceptual
+ms.service: azure-virtual-wan
+ms.topic: concept-article
 ms.date: 07/28/2023
 ms.author: cherylmc
 ms.custom: references_pricing

@@ -3,14 +3,14 @@ title: 'About zone-redundant virtual network gateway in Azure availability zones
 description: Learn about zone-redundant virtual network gateways in Azure availability zones.
 titleSuffix: Azure VPN Gateway
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 12/04/2023
 ms.author: cherylmc 
 ---
 # About zone-redundant virtual network gateway in Azure availability zones
 
-This article helps you create a zone-redundant virtual network gateway in Azure availability zones. This brings resiliency, scalability, and higher availability to virtual network gateways. Deploying gateways in Azure availability zones physically and logically separates gateways within a region, while protecting your on-premises network connectivity to Azure from zone-level failures. For information, see  [About zone-redundant virtual network gateways](about-zone-redundant-vnet-gateways.md) and [What are Azure regions and availability zones?](../availability-zones/az-overview.md)
+This article helps you create a zone-redundant virtual network gateway in Azure availability zones. This brings resiliency, scalability, and higher availability to virtual network gateways. Deploying gateways in Azure availability zones physically and logically separates gateways within a region, while protecting your on-premises network connectivity to Azure from zone-level failures. For information, see  [About zone-redundant virtual network gateways](about-zone-redundant-vnet-gateways.md) and [What are Azure regions and availability zones?](../reliability/availability-zones-overview.md)
 
 ### <a name="zrgw"></a>Zone-redundant gateways
 
@@ -72,15 +72,22 @@ Yes, you can use the Azure portal to deploy these SKUs. However, you see these S
 
 ### What regions are available for me to use these SKUs?
 
-These SKUs are available in Azure regions that have Azure availability zones. For more information, see [Azure regions with availability zones](../availability-zones/az-region.md#azure-regions-with-availability-zones).
+These SKUs are available in Azure regions that have Azure availability zones. For more information, see [Azure regions with availability zones](../reliability/availability-zones-region-support.md).
 
 ### Can I change/migrate/upgrade my existing virtual network gateways to zone-redundant or zonal gateways?
 
-Migrating your existing virtual network gateways to zone-redundant or zonal gateways is currently not supported. You can, however, delete your existing gateway and re-create a zone-redundant or zonal gateway.
+* VPN gateway - migrating your existing virtual network gateways to zone-redundant or zonal gateways is currently not supported. You can, however, delete your existing gateway and re-create a zone-redundant or zonal gateway.
+* ExpressRoute gateway - migrating your existing ExpressRoute virtual network gateway to a zone-redundant or zonal gateway is currently in public preview. For more information, see [Migrate to an availability zone enabled ExpressRoute virtual network gateway](../expressroute/gateway-migration.md).
 
 ### Can I deploy both VPN and ExpressRoute gateways in same virtual network?
 
 Coexistence of both VPN and ExpressRoute gateways in the same virtual network is supported. However, you should reserve a /27 IP address range for the gateway subnet.
+
+### Which configuration, zone-redundant or zonal, is recommended to achieve the highest availability for the virtual network gateway infrastructure?
+
+Zone-redundant. With this configuration, the virtual network gateway instances are spread across Azure availability zones, removing a single Azure availability zone as a single point of failure.
+
+Zonal deployments should only be configured if the target application is highly latency-sensitive and requires all Azure resources to be deployed to the same Availability zone.
 
 ## Next steps
 

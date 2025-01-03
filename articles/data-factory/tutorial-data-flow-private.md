@@ -4,11 +4,9 @@ description:  This tutorial provides step-by-step instructions for using Azure D
 author: ssabat
 ms.author: susabat
 ms.reviewer: makromer
-ms.service: data-factory
-ms.subservice: tutorials
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 08/10/2023
+ms.date: 10/03/2024
+ms.subservice: data-flows
 ---
 
 # Transform data securely by using mapping data flow

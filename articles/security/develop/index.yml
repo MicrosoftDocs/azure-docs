@@ -6,13 +6,12 @@ summary: Learn how to develop and deploy secure applications on Azure with our s
 metadata:
   title: Secure development documentation on Microsoft Azure
   description: Learn how to develop secure applications on Azure by using sample apps, best practices, and guidance.
-  services: security
-  ms.service: app-service
+  ms.service: azure-app-service
   ms.topic: landing-page
-  author: TerryLanfear
-  ms.author: terrylan
+  author: msmbaldwin
+  ms.author: mbaldwin
   manager: rkarlin
-  ms.date: 10/24/2019
+  ms.date: 10/20/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 

@@ -1,0 +1,17 @@
+items:
+- name: Azure Operator 5G Core documentation
+  href: index.yml
+- name: Overview
+  expanded: true
+- name: Concepts
+- name: Quickstarts
+  items:
+  - name: Configure the Azure Operator 5G Core extension for status monitoring
+    href: quickstart-configure-extension-for-status-monitoring.md
+  expanded: false
+- name: How-to guides
+- name: Tutorials
+- name: Reference
+  items:
+  - name: REST API Reference
+    href: /rest/api/mobilepacketcore

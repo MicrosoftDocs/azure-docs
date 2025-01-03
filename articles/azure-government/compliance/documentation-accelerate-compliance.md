@@ -1,20 +1,15 @@
 ---
-title: How to accelerate your journey to FedRAMP compliance with Azure
+title: Accelerate your journey to FedRAMP compliance with Azure
 description: Provides an overview of resources for Development, Automation, and Advisory partners to help them accelerate their path to ATO with Azure.
 titleSuffix: Azure Government
 services: azure-government
 cloud: gov
-documentationcenter: ''
 author: todorgb
 manager: vernonw
-
-ms.assetid: 
+ms.author: eliotgra
 ms.service: azure-government
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: azure-government
 ms.date: 05/30/2023
-ms.author: todorb
 ---
 
 # FedRAMP compliance program overview

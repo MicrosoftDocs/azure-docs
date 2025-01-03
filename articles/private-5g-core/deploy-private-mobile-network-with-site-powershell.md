@@ -3,8 +3,8 @@ title: Deploy a private mobile network and site - Azure PowerShell
 titleSuffix: Azure Private 5G Core
 description: Learn how to deploy a private mobile network and site using Azure PowerShell.
 author: James-Green-Microsoft
-ms.author: jamesgreen
-ms.service: private-5g-core
+ms.author: jagre
+ms.service: azure-private-5g-core
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell
 ms.date: 03/15/2023

@@ -12,13 +12,15 @@ ms.author: cephalin
 
 # Deployment Best Practices
 
+[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
+
 Every development team has unique requirements that can make implementing an efficient deployment pipeline difficult on any cloud service. This article introduces the three main components of deploying to App Service: deployment sources, build pipelines, and deployment mechanisms. This article also covers some best practices and tips for specific language stacks.
 
 ## Deployment Components
 
 ### Deployment Source
 
-A deployment source is the location of your application code. For production apps, the deployment source is usually a repository hosted by version control software such as [GitHub, BitBucket, or Azure Repos](deploy-continuous-deployment.md). For development and test scenarios, the deployment source may be [a project on your local machine](deploy-local-git.md). App Service also supports [OneDrive and Dropbox folders](deploy-content-sync.md) as deployment sources. While cloud folders can make it easy to get started with App Service, it's not typically recommended to use this source for enterprise-level production applications. 
+A deployment source is the location of your application code. For production apps, the deployment source is usually a repository hosted by version control software such as [GitHub, BitBucket, or Azure Repos](deploy-continuous-deployment.md). For development and test scenarios, the deployment source may be [a project on your local machine](deploy-local-git.md). 
 
 ### Build Pipeline
 
@@ -80,7 +82,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     # checkout the repo
-    - name: 'Checkout Github Action'
+    - name: 'Checkout GitHub Action'
       uses: actions/checkout@main
 
     - uses: azure/docker-login@v1

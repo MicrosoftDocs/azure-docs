@@ -1,14 +1,18 @@
 ---
 title: Use Azure CLI to create a Windows or Linux VM with Accelerated Networking
 description: Use Azure CLI to create and manage virtual machines that have Accelerated Networking enabled for improved network performance.
-author: steveesp
-ms.service: virtual-network
+author: mattreatMSFT
+ms.author: mareat
+ms.service: azure-virtual-network
 ms.topic: how-to
-ms.date: 04/18/2023
-ms.author: steveesp
+ms.date: 10/22/2024
 ms.custom: fasttrack-edit, devx-track-azurecli, linux-related-content
 ---
+
 # Use Azure CLI to create a Windows or Linux VM with Accelerated Networking
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 This article describes how to create a Linux or Windows virtual machine (VM) with Accelerated Networking (AccelNet) enabled by using the Azure CLI command-line interface. The article also discusses how to enable and manage Accelerated Networking on existing VMs.
 
@@ -117,7 +121,7 @@ In the following examples, you can replace the example parameters such as `<myRe
 
 ### Create a VM and attach the NIC
 
-Use [az vm create](/cli/azure/vm#az-vm-create) to create the VM, and use the `--nics` option to attach the NIC you created. Make sure to select a VM size and distribution that's listed in [Windows and Linux Accelerated Networking](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview). For a list of all VM sizes and characteristics, see [Sizes for virtual machines in Azure](../virtual-machines/sizes.md).
+Use [az vm create](/cli/azure/vm#az-vm-create) to create the VM, and use the `--nics` option to attach the NIC you created. Make sure to select a VM size and distribution that's listed in [Windows and Linux Accelerated Networking](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview). For a list of all VM sizes and characteristics, see [Sizes for virtual machines in Azure](/azure/virtual-machines/sizes).
 
 # [Windows](#tab/windows)
 
@@ -156,7 +160,7 @@ After the VM is created, you get output similar to the following example. For a 
 ```output
 {
   "fqdns": "",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVm",
+  "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVm",
   "location": "centralus",
   "macAddress": "00-0D-3A-23-9A-49",
   "powerState": "VM running",
@@ -193,6 +197,16 @@ Once you create the VM in Azure, connect to the VM and confirm that the Ethernet
    ![Mellanox ConnectX-3 Virtual Function Ethernet Adapter, new network adapter for accelerated networking, Device Manager](./media/create-vm-accelerated-networking/device-manager.png)
 
    The presence of the adapter confirms that Accelerated Networking is enabled for your VM.
+
+1. Verify the packets are flowing over the VF interface from the output of the following command:
+   ```powershell
+   PS C:\ > Get-NetAdapter | Where-Object InterfaceDescription –like "*Mellanox*Virtual*" | Get-NetAdapterStatistics
+
+   Name                             ReceivedBytes ReceivedUnicastPackets       SentBytes SentUnicastPackets
+   ----                             ------------- ----------------------       --------- ------------------
+   Ethernet 2                           492447549                 347643         7468446              34991
+
+   ```
 
 > [!NOTE]
 > If the Mellanox adapter fails to start, open an administrator command prompt on the remote VM and enter the following command:
@@ -249,6 +263,25 @@ You must run an application over the synthetic NIC to guarantee that the applica
 For more information about application binding requirements, see [How Accelerated Networking works in Linux and FreeBSD VMs](./accelerated-networking-how-it-works.md#application-usage).
 
 <a name="enable-accelerated-networking-on-existing-vms"></a>
+
+In order to ensure that your custom image or applications correctly support the dynamic binding and revocation of virtual functions, the functionality can be tested on any Windows Hyper-V server. Use a local Windows Server running Hyper-V in the following configuration:
+ - Ensure you have a physical network adapter that supports SR-IOV.
+ - An external virtual switch is created on top of this SR-IOV adapter with "Enable single-root I/O virtualization (SR-IOV)" checked.
+ - A virtual machine running your operating system image or application is created/deployed.
+ - The network adapters for this virtual machine, under Hardware Acceleration, have "Enable SR-IOV" selected.
+
+Once you've verified your virtual machine and application are leveraging a network adapter using SR-IOV, you can modify the following example commands to toggle SR-IOV off/on in order to revoke and add the virtual function which will simulate what happens during Azure host servicing:
+
+``` Powershell
+# Get the virtual network adapter to test
+$vmNic = Get-VMNetworkAdapter -VMName "myvm" | where {$_.MacAddress -eq "001122334455"}
+
+# Enable SR-IOV on a virtual network adapter
+Set-VMNetworkAdapter $vmNic -IovWeight 100 -IovQueuePairsRequested 1
+
+# Disable SR-IOV on a virtual network adapter
+Set-VMNetworkAdapter $vmNic -IovWeight 0
+```
 
 ## Manage Accelerated Networking on existing VMs
 
@@ -372,4 +405,4 @@ To confirm whether Accelerated Networking is enabled for an existing VM:
 
 - [Create a VM with Accelerated Networking by using PowerShell](../virtual-network/create-vm-accelerated-networking-powershell.md)
 
-- [Proximity placement groups](../virtual-machines/co-location.md)
+- [Proximity placement groups](/azure/virtual-machines/co-location)

@@ -2,14 +2,9 @@
 title: Tutorial for using Azure App Configuration dynamic configuration in an Azure Functions app
 description: In this tutorial, you learn how to dynamically update the configuration data for Azure Functions apps
 services: azure-app-configuration
-documentationcenter: ''
 author: zhenlan
 manager: qingye
-editor: ''
-
-ms.assetid: 
 ms.service: azure-app-configuration
-ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 09/14/2022
@@ -189,19 +184,19 @@ Azure Functions support running [in-process](../azure-functions/functions-dotnet
 1. Set an environment variable named **ConnectionString**, and set it to the access key to your app configuration store. If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
     ```console
-    setx ConnectionString "connection-string-of-your-app-configuration-store"
+    setx ConnectionString "<connection-string-of-your-app-configuration-store>"
     ```
 
     If you use Windows PowerShell, run the following command:
 
     ```powershell
-    $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
+    $Env:ConnectionString = "<connection-string-of-your-app-configuration-store>"
     ```
 
     If you use macOS or Linux, run the following command:
 
     ```console
-    export ConnectionString='connection-string-of-your-app-configuration-store'
+    export ConnectionString='<connection-string-of-your-app-configuration-store>'
     ```
 
 2. To test your function, press F5. If prompted, accept the request from Visual Studio to download and install **Azure Functions Core (CLI)** tools. You might also need to enable a firewall exception so that the tools can handle HTTP requests.

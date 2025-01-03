@@ -4,7 +4,7 @@ titleSuffix: Azure Storage
 description: Learn how to mount an Azure Blob Storage container on Linux with BlobFuse2.
 author: akashdubey-ms
 ms.author: akashdubey
-ms.reviewer: tamram
+
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 01/26/2023
@@ -64,16 +64,6 @@ sudo rpm -Uvh https://packages.microsoft.com/config/rhel/8/packages-microsoft-pr
 
 Similarly, change the URL to `.../rhel/7/...` to point to a Redhat Enterprise Linux 7 distribution.
 
-# [CentOS](#tab/CentOS)
-
-As an example, on a CentOS 8 distribution:
-
-```bash
-sudo rpm -Uvh https://packages.microsoft.com/config/centos/8/packages-microsoft-prod.rpm
-```
-
-Similarly, change the URL to `.../centos/7/...` to point to a CentOS 7 distribution.
-
 # [Ubuntu](#tab/Ubuntu)
 
 Another example on an Ubuntu 20.04 distribution:
@@ -98,11 +88,6 @@ sudo rpm -Uvh https://packages.microsoft.com/config/sles/15/packages-microsoft-p
 #### Install BlobFuse2
 
 # [RHEL](#tab/RHEL)
-
-```bash
-sudo yum install blobfuse2
-```
-# [CentOS](#tab/CentOS)
 
 ```bash
 sudo yum install blobfuse2
@@ -197,8 +182,6 @@ stream:
     max-buffers: The total number of buffers to store blocks in
     buffer-size-mb: The size for each buffer
 ```
-
-To get started quickly with some settings for a basic streaming scenario, see the [sample streaming configuration file](https://github.com/Azure/azure-storage-fuse/blob/main/sampleStreamingConfig.yaml).
 
 #### Configure caching for smaller files
 
@@ -302,12 +285,12 @@ However, you should be aware of some key [differences in functionality](blobfuse
 
 This table shows how this feature is supported in your account and the effect on support when you enable certain capabilities:
 
-| Storage account type | Blob Storage (default support) | Data Lake Storage Gen2 <sup>1</sup> | NFS 3.0 <sup>1</sup> | SFTP <sup>1</sup> |
+| Storage account type | Blob Storage (default support) | Data Lake Storage  <sup>1</sup> | NFS 3.0 <sup>1</sup> | SFTP <sup>1</sup> |
 |--|--|--|--|--|
 | Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png) |![Yes](../media/icons/yes-icon.png)              | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 | Premium block blobs          | ![Yes](../media/icons/yes-icon.png)|![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 
-<sup>1</sup> Azure Data Lake Storage Gen2, Network File System (NFS) 3.0 protocol, and SSH File Transfer Protocol (SFTP) support all require a storage account with a hierarchical namespace enabled.
+<sup>1</sup> Azure Data Lake Storage, Network File System (NFS) 3.0 protocol, and SSH File Transfer Protocol (SFTP) support all require a storage account with a hierarchical namespace enabled.
 
 ## See also
 

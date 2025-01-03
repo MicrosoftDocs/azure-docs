@@ -4,7 +4,7 @@ description: Learn how to move or migrate files to an SMB Azure file share using
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 10/23/2023
+ms.date: 05/16/2024
 ms.author: kendownie
 recommendations: false
 ---
@@ -53,11 +53,9 @@ Remember that an Azure file share is deployed in the cloud in an Azure storage a
 As a general rule, you can pool multiple Azure file shares into the same storage account if you have archival shares or you expect low day-to-day activity in them. However, if you have highly active shares (shares used by many users and/or applications), you'll want to deploy storage accounts with one file share each. These limitations don't apply to FileStorage (premium) storage accounts, where performance is explicitly provisioned and guaranteed for each share.
 
 > [!NOTE]
-> There's a limit of 250 storage accounts per subscription per Azure region. With a quota increase, you can create up to 500 storage accounts per region. For more information, see [Increase Azure Storage account quotas](../../quotas/storage-account-quota-requests.md).
+> There's a limit of 250 storage accounts per subscription per Azure region. With a quota increase, you can create up to 500 storage accounts per region. For more information, see [Increase Azure Storage account quotas](/azure/quotas/storage-account-quota-requests).
 
 Another consideration when you're deploying a storage account is redundancy. See [Azure Files redundancy](files-redundancy.md).
-
-Standard Azure file shares are created with a 5 TiB limit by default. If you need more capacity, you can create a large file share (up to 100 TiB). However, that share can use only locally redundant storage or zone-redundant storage redundancy options. Consider your storage redundancy needs before using 100 TiB file shares.
 
 If you've made a list of your shares, you should map each share to the storage account it will be created in.
 
@@ -71,8 +69,8 @@ With the information in this phase, you'll be able to decide how your servers an
 
 - **Networking:** Enable your networks to route SMB traffic.
 - **Authentication:** Configure Azure storage accounts for Kerberos authentication. Using identity-based authentication and domain joining your storage account will allow your apps and users to use their AD identity to for authentication.
-- **Authorization:** Share-level ACLs for each Azure file share will allow AD users and groups to access a given share and within an Azure file share, native NTFS ACLs will take over. Authorization based on file and folder ACLs then works like it does for on-premises SMB shares.
-- **Business continuity:** Integrating Azure file shares into an existing environment often entails preserving existing share addresses. If you aren't already using [DFS-Namespaces](files-manage-namespaces.md), consider establishing that in your environment. You'll be able to keep share addresses your users and scripts use, unchanged. DFS-N provides a namespace routing service for SMB, by redirecting clients to Azure file shares.
+- **Authorization:** Share-level ACLs for each Azure file share will allow AD users and groups to access a given share. Within an Azure file share, native NTFS ACLs will take over. Authorization based on file and folder ACLs then works like it does for on-premises SMB shares.
+- **Business continuity:** Integrating Azure file shares into an existing environment often entails preserving existing share addresses. If you aren't already using [DFS-Namespaces](files-manage-namespaces.md), consider establishing that in your environment. You'll be able to keep share addresses your users and scripts use, unchanged. DFS-N provides a namespace routing service for SMB by redirecting clients to Azure file shares.
 
 :::row:::
     :::column:::
@@ -80,10 +78,9 @@ With the information in this phase, you'll be able to decide how your servers an
     :::column-end:::
     :::column:::
         This video is a guide and demo for how to securely expose Azure file shares directly to information workers and apps in five simple steps.</br>
-        The video references dedicated documentation for some topics:
+        The video references dedicated documentation for the following topics. Note that Azure Active Directory is now Microsoft Entra ID. For more information, see [New name for Azure AD](https://aka.ms/azureadnewname).
 
-* [Identity overview](storage-files-active-directory-overview.md)
-* [How to domain join a storage account](storage-files-identity-auth-active-directory-enable.md)
+* [Identity-based authentication overview](storage-files-active-directory-overview.md)
 * [Networking overview for Azure file shares](storage-files-networking-overview.md)
 * [How to configure public and private endpoints](storage-files-networking-endpoints.md)
 * [How to configure a S2S VPN](storage-files-configure-s2s-vpn.md)
@@ -99,7 +96,7 @@ With the information in this phase, you'll be able to decide how your servers an
 Before you can use RoboCopy, you need to make the Azure file share accessible over SMB. The easiest way is to mount the share as a local network drive to the Windows Server you're planning on using for RoboCopy.
 
 > [!IMPORTANT]
-> Make sure you mount the Azure file share using the storage account access key. Don't use a domain identity. Before you can successfully mount an Azure file share to a local Windows Server, you need to have completed Phase 2: Preparing to use Azure file shares.
+> Make sure you mount the Azure file share using the storage account access key. Don't use a domain identity. Before you can successfully mount an Azure file share to a local Windows Server, you need to have completed [Phase 2: Preparing to use Azure file shares](#phase-2-preparing-to-use-azure-file-shares).
 
 Once you're ready, review [Use an Azure file share with Windows](storage-how-to-use-files-windows.md). Then mount the Azure file share you want to start the RoboCopy for.
 
@@ -170,7 +167,7 @@ Speed and success rate of a given RoboCopy run will depend on several factors:
 In this category, you need to consider abilities of the **source storage**, the **target storage**, and the **network** connecting them. The maximum possible throughput is determined by the slowest of these three components. Make sure your network infrastructure is configured to support optimal transfer speeds to its best abilities.
 
 > [!CAUTION]
-> While copying as fast as possible is often most desireable, consider the utilization of your local network and NAS appliance for other, often business-critical tasks.
+> While copying as fast as possible is often most desirable, consider the utilization of your local network and NAS appliance for other, often business-critical tasks.
 
 Copying as fast as possible might not be desirable when there's a risk that the migration could monopolize available resources.
 
@@ -214,6 +211,18 @@ You should be prepared to run multiple rounds of RoboCopy against a given namesp
 * `/W:n` n = how many seconds to wait between retries
 
 `/R:5 /W:5` is a reasonable setting that you can adjust to your liking. In this example, a failed file will be retried five times, with five-second wait time between retries. If the file still fails to copy, the next RoboCopy job will try again. Often files that failed because they are in use or because of timeout issues might eventually be copied successfully this way.
+
+### Estimating storage transaction charges
+
+As you begin your migration to Azure Files, RoboCopy copies your files and folders into Azure. Depending on your billing model for Azure Files, transaction charges might apply. See [Understanding billing](understanding-billing.md).
+
+If you're using a pay-as-you-go billing model for standard Azure file shares, it might be difficult to estimate the number of transactions your migration will generate.
+
+- It's not possible to estimate the number of transactions based on the utilized storage capacity of the source. The number of transactions scales with the number of namespace items (files and folder) and their properties that are migrated, not their size. For example, more transactions are required to migrate 1 GiB of small files than 1 GiB of larger files.
+- In order to minimize downtime, you might need to run copy operations several times from source to target. All source and target items are processed during each copy operation, though subsequent runs finish faster. After the initial operations, only the differences introduced between copy runs are transported over the network. It's important to understand that although less data is being transported, the number of transactions required might remain the same.
+- Copying the same file twice might not result in the same number of transactions. Processing an item migrated in a previous copy run might result in only a few read transactions. In contrast, changes to metadata or content between copy runs might require a larger number of transactions to update the target. Each file in your namespace might have unique requirements, resulting in a different number of transactions.
+
+It's advisable to run some initial tests on your own data to better understand how many transactions are incurred. This will give you a better idea of the total number of transactions a file migration might generate. 
 
 ## Next steps
 

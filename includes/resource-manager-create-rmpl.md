@@ -1,9 +1,9 @@
 ---
-author: tfitzmac
+author: mumian
 ms.service: azure-resource-manager
 ms.topic: include
-ms.date: 04/26/2022
-ms.author: tomfitz
+ms.date: 10/25/2024
+ms.author: jgao
 ---
 
 Private links enable you to access Azure services over a private endpoint in your virtual network. When you combine private links with Azure Resource Manager's operations, you block users who aren't at the specific endpoint from managing resources. If a malicious user gets credentials to an account in your subscription, that user can't manage the resources without being at the specific endpoint.
@@ -19,7 +19,8 @@ Private link provides the following security benefits:
 
 ## Understand architecture
 
-For this release, you can only apply private link management access at the level of the root [management group](../articles/governance/management-groups/overview.md). This limitation means private link access is applied across your tenant.
+> [!IMPORTANT]
+> For this release, you can only apply private link management access at the level of the root [management group](../articles/governance/management-groups/overview.md). This limitation means private link access is applied across your tenant.
 
 There are two resource types you'll use when implementing management through a private link.
 
@@ -50,6 +51,9 @@ After completing those steps, you can manage Azure resources that are within the
 You can monitor access to the private link. For more information, see [Logging and monitoring](../articles/private-link/private-link-overview.md#logging-and-monitoring).
 
 ## Required permissions
+
+> [!IMPORTANT]
+> For this release, you can only apply private link management access at the level of the root [management group](../articles/governance/management-groups/overview.md). This limitation means private link access is applied across your tenant.
 
 To set up the private link for resource management, you need the following access:
 

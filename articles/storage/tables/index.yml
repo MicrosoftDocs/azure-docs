@@ -7,9 +7,7 @@ metadata:
   title: Azure Table storage documentation
   description: Azure Table storage is a service that stores structured NoSQL data in the cloud, providing a key/attribute store with a schemaless design.
   ms.service: azure-table-storage
-  ms.custom: ignite-2022
   ms.topic: landing-page
-  ms.collection: collection # Optional; Remove if no collection is used.
   author: akashdubey-ms
   ms.author: akashdubey
   ms.date: 12/23/2019
@@ -26,7 +24,7 @@ landingContent:
           - text: What is Azure Table storage?
             url: table-storage-overview.md
           - text: Choose Table storage or Azure Cosmos DB for Table
-            url: ../../cosmos-db/table-support.md?toc=/azure/storage/tables/TOC.json&bc=/azure/bread/toc.json
+            url: /azure/cosmos-db/table-support?toc=/azure/storage/tables/TOC.json&bc=/azure/bread/toc.json
   # Card
   - title: Table design guidance
     linkLists:

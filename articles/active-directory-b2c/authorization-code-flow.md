@@ -3,11 +3,11 @@ title: Authorization code flow - Azure Active Directory B2C
 description: Learn how to build web apps by using Azure AD B2C and OpenID Connect authentication protocol.
 author: kengaderdus
 manager: CelesteDG
-ms.service: active-directory
-ms.topic: conceptual
+ms.service: azure-active-directory
+ms.topic: concept-article
 ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 ms.custom: fasttrack-edit
 
 # Customer intent: As a developer who is building a web app, I want to learn more about the OAuth 2.0 authorization code flow in Azure AD B2C, so that I can add sign-up, sign-in, and other identity management tasks to my app.
@@ -31,7 +31,7 @@ Azure AD B2C extends the standard OAuth 2.0 flows to do more than simple authent
 To try the HTTP requests in this article:
 
 1. Replace `{tenant}` with the name of your Azure AD B2C tenant.
-1. Replace `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` with the app ID of an application you've previously registered in your Azure AD B2C tenant.
+1. Replace `00001111-aaaa-2222-bbbb-3333cccc4444` with the app ID of an application you've previously registered in your Azure AD B2C tenant.
 1. Replace `{policy}` with the name of a policy you've created in your tenant, for example `b2c_1_sign_in`.
 
 ## Redirect URI setup required for single-page apps
@@ -46,11 +46,11 @@ The authorization code flow begins with the client directing the user to the `/a
 
 ```http
 GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/authorize?
-client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
+client_id=00001111-aaaa-2222-bbbb-3333cccc4444
 &response_type=code
 &redirect_uri=urn%3Aietf%3Awg%3Aoauth%3A2.0%3Aoob
 &response_mode=query
-&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6%20offline_access%20https://{tenant-name}/{app-id-uri}/{scope}
+&scope=00001111-aaaa-2222-bbbb-3333cccc4444%20offline_access%20https://{tenant-name}/{app-id-uri}/{scope}
 &state=arbitrary_data_you_can_receive_in_the_response
 &code_challenge=YTFjNjI1OWYzMzA3MTI4ZDY2Njg5M2RkNmVjNDE5YmEyZGRhOGYyM2IzNjdmZWFhMTQ1ODg3NDcxY2Nl
 &code_challenge_method=S256
@@ -106,7 +106,7 @@ error=access_denied
 | state |See the full description in the preceding table. If a `state` parameter is included in the request, the same value should appear in the response. The app should verify that the `state` values in the request and response are identical. |
 
 ## 2. Get an access token
-Now that you've acquired an authorization code, you can redeem the `code` for a token to the intended resource by sending a POST request to the `/token` endpoint. In Azure AD B2C, you can [request access tokens for other API's](access-tokens.md#request-a-token) as usual by specifying their scope(s) in the request.
+Now that you've acquired an authorization code, you can redeem the `code` for a token to the intended resource by sending a POST request to the `/token` endpoint. In Azure AD B2C, you can [request access tokens for other APIs](access-tokens.md#request-a-token) as usual by specifying their scope(s) in the request.
 
 You can also request an access token for your app's own back-end Web API by convention of using the app's client ID as the requested scope (which will result in an access token with that client ID as the "audience"):
 
@@ -116,8 +116,8 @@ POST https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0
 Content-Type: application/x-www-form-urlencoded
 
 grant_type=authorization_code
-&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
-&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access
+&client_id=00001111-aaaa-2222-bbbb-3333cccc4444
+&scope=00001111-aaaa-2222-bbbb-3333cccc4444 offline_access
 &code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...
 &redirect_uri=urn:ietf:wg:oauth:2.0:oob
 &code_verifier=ThisIsntRandomButItNeedsToBe43CharactersLong 
@@ -135,7 +135,7 @@ grant_type=authorization_code
 | redirect_uri |Required |The redirect URI of the application where you received the authorization code. |
 | code_verifier | recommended | The same `code_verifier` used to obtain the authorization code. Required if PKCE was used in the authorization code grant request. For more information, see the [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
 
-If you're testing this POST HTTP request, you can use any HTTP client such as [Microsoft PowerShell](/powershell/scripting/overview) or [Postman](https://www.postman.com/).
+If you're testing this POST HTTP request, you can use any HTTP client such as [Microsoft PowerShell](/powershell/scripting/overview).
 
 A successful token response looks like this:
 
@@ -144,7 +144,7 @@ A successful token response looks like this:
     "not_before": "1442340812",
     "token_type": "Bearer",
     "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...",
-    "scope": "90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access",
+    "scope": "00001111-aaaa-2222-bbbb-3333cccc4444 offline_access",
     "expires_in": "3600",
     "refresh_token": "AAQfQmvuDy8WtUv-sd0TBwWVQs1rC-Lfxa_NDkLqpg50Cxp5Dxj0VPF1mx2Z...",
 }
@@ -195,8 +195,8 @@ POST https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0
 Content-Type: application/x-www-form-urlencoded
 
 grant_type=refresh_token
-&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
-&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access
+&client_id=00001111-aaaa-2222-bbbb-3333cccc4444
+&scope=00001111-aaaa-2222-bbbb-3333cccc4444 offline_access
 &refresh_token=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...
 &redirect_uri=urn:ietf:wg:oauth:2.0:oob
 ```
@@ -219,7 +219,7 @@ A successful token response looks like this:
     "not_before": "1442340812",
     "token_type": "Bearer",
     "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...",
-    "scope": "90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access",
+    "scope": "00001111-aaaa-2222-bbbb-3333cccc4444 offline_access",
     "expires_in": "3600",
     "refresh_token": "AAQfQmvuDy8WtUv-sd0TBwWVQs1rC-Lfxa_NDkLqpg50Cxp5Dxj0VPF1mx2Z...",
 }

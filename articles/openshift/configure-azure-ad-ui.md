@@ -40,11 +40,7 @@ Provide a name for the application, for example **aro-azuread-auth**, and fill i
 
 Navigate to **Certificates & secrets** and click on **New client secret** and fill in the details. Make note of the key value, as you'll use it in a later stage. You won't be able to retrieve it again.
 
-![Create a secret](media/aro4-ad-clientsecret.png)
-
 Navigate to the **Overview** and make note of the **Application (client) ID** and **Directory (tenant) ID**. You'll need them in a later stage.
-
-![Retrieve Application (client) and Directory (tenant) IDs](media/aro4-ad-ids.png)
 
 ## Configure optional claims
 
@@ -59,8 +55,6 @@ You can use optional claims to:
 We'll configure OpenShift to use the `email` claim and fall back to `upn` to set the Preferred Username by adding the `upn` as part of the ID token returned by Microsoft Entra ID.
 
 Navigate to **Token configuration** and click on **Add optional claim**. Select **ID** then check the **email** and **upn** claims.
-
-![Screenshot that shows the email and upn claims that were added.](media/aro4-ad-tokens.png)
 
 ## Assign users and groups to the cluster (optional)
 
@@ -105,11 +99,7 @@ Scroll down to select **Add** under **Identity Providers** and select **OpenID C
 
 Fill in the name as **Microsoft Entra ID**, the **Client ID** as the **Application ID** and the **Client Secret**. The **Issuer URL** is formatted as such: `https://login.microsoftonline.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/v2.0`. Replace the placeholder with the Tenant ID you retrieved earlier.
 
-![Fill in OAuth details](media/aro4-oauth-idp-1.png)
-
 Scroll down to the **Claims** section and update the **Preferred Username** to use the value from the **upn** claim.
-
-![Fill in claims details](media/aro4-oauth-idp-2.png)
 
 <a name='verify-login-through-azure-active-directory'></a>
 
@@ -118,3 +108,7 @@ Scroll down to the **Claims** section and update the **Preferred Username** to u
 If you now logout of the OpenShift Web Console and try to login again, you'll be presented with a new option to login with **Microsoft Entra ID**. You may need to wait for a few minutes.
 
 ![Login screen with Microsoft Entra option](media/aro4-login-2.png)
+
+
+> [!NOTE]
+> If you encounter the error like "AADSTS50011: The redirect URI https\://oauth-openshift.apps.xxxxxxxxxx.xxxxxxx.aroapp.io/oauth2callback/xxxx specified in the request does not match the redirect URIs configured", you can follow the troubleshooting guide [Azure AD (OIDC) login failed when Redirect URI is not set correctly](https://access.redhat.com/solutions/7016893) to solve the issue.  

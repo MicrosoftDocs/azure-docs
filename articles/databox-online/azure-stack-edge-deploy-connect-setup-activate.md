@@ -4,14 +4,15 @@ description: Tutorial to deploy Azure Stack Edge Pro FPGA instructs you to conne
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: tutorial
-ms.date: 03/28/2019
+ms.date: 02/27/2024
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro FPGA so I can use it to transfer data to Azure. 
 ---
-# Tutorial: Connect, set up, and activate Azure Stack Edge Pro FPGA 
+# Tutorial: Connect, set up, and activate Azure Stack Edge Pro FPGA
+
+[!INCLUDE [Azure Stack Edge Pro FPGA end-of-life](../../includes/azure-stack-edge-fpga-eol.md)]
 
 This tutorial describes how you can connect to, set up, and activate your Azure Stack Edge Pro FPGA device by using the local web UI.
 
@@ -81,7 +82,7 @@ Your dashboard displays the various settings that are required to configure and 
    - You can configure your network interface as IPv4.
 
      >[!NOTE] 
-     > We recommend that you do not switch the local IP address of the network interface from static to DCHP, unless you have another IP address to connect to the device. If using one network interface and you switch to DHCP, there would be no way to determine the DHCP address. If you want to change to a DHCP address, wait until after the device has registered with the service, and then change. You can then view the IPs of all the adapters in the **Device properties** in the Azure portal for your service.
+     > We recommend that you do not switch the local IP address of the network interface from static to DHCP, unless you have another IP address to connect to the device. If using one network interface and you switch to DHCP, there would be no way to determine the DHCP address. If you want to change to a DHCP address, wait until after the device has registered with the service, and then change. You can then view the IPs of all the adapters in the **Device properties** in the Azure portal for your service.
 
 3. (Optional) In the left pane, select **Web proxy settings**, and then configure your web proxy server. Although web proxy configuration is optional, if you use a web proxy, you can configure it on this page only.
    

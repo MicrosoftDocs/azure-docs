@@ -1,13 +1,15 @@
 ---
 title: Manage roles in Azure Load Testing
+titleSuffix: Azure Load Testing
 description: Learn how to manage access to an Azure load testing resource using Azure role-based access control (Azure RBAC).
-author: ntrogh
-ms.author: nicktrog
+author: ninallam
+ms.author: ninallam
 services: load-testing
-ms.service: load-testing
+ms.service: azure-load-testing
 ms.topic: how-to 
 ms.date: 11/24/2023
 ms.custom: template-how-to
+# CustomerIntent: As an administrator, I want understand the roles and permissions for Azure Load Testing, so that I can ensure users have the access they need to interact with the service.
 ---
 
 # Manage access to Azure Load Testing
@@ -16,9 +18,13 @@ In this article, you learn how to manage access (authorization) to an Azure load
 
 ## Prerequisites
 
-To assign Azure roles, you must have:
+To assign Azure roles, your Azure account must have:
 
 * `Microsoft.Authorization/roleAssignments/write` permissions, such as [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator) or [Owner](../role-based-access-control/built-in-roles.md#owner).
+
+To create a new load testing resource, your Azure account must have:
+
+- Permission to create resources in the resource group for the load testing resource, such as the [Contributor](../role-based-access-control/built-in-roles.md#contributor) or [Owner](../role-based-access-control/built-in-roles.md#owner) role.
 
 ## Roles in Azure Load Testing
 
@@ -32,12 +38,8 @@ In Azure Load Testing, access is granted by assigning the appropriate Azure role
 
 If you have the **Owner**, **Contributor**, or **Load Test Owner** role at the subscription level, you automatically have the same permissions as the **Load Test Owner** at the resource level.
 
-You encounter this message if your account doesn't have the necessary permissions to manage tests.
-
-:::image type="content" source="media/how-to-assign-roles/azure-load-testing-not-authorized.png" lightbox="media/how-to-assign-roles/azure-load-testing-not-authorized.png" alt-text="Screenshot that shows an error message in the Azure portal that you're not authorized to use the Azure Load Testing resource.":::
-
 > [!IMPORTANT]
-> Role access can be scoped to multiple levels in Azure. For example, someone with owner access to a resource may not have owner access to the resource group that contains the resource. For more information, see [How Azure RBAC works](../role-based-access-control/overview.md#how-azure-rbac-works).
+> Role access can be scoped to multiple levels in Azure. For example, someone with owner access to a resource might not have owner access to the resource group that contains the resource. For more information, see [How Azure RBAC works](../role-based-access-control/overview.md#how-azure-rbac-works).
 
 ## Role permissions
 
@@ -162,6 +164,16 @@ You can also configure role-based access to a load testing resource using the fo
     ```azurepowershell-interactive
     Remove-AzRoleAssignment -SignInName <sign-in Id of a user you wish to remove> -RoleDefinitionName 'Load Test Reader' -Scope '/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.LoadTestService/loadtests/<Load Testing resource name>'
     ```
+
+## Troubleshooting
+
+This section lists steps to troubleshoot common problems with user access in Azure Load Testing.
+
+### Unable to create or run a test with `You are not authorized to use this resource`
+
+You encounter this message if your Azure account doesn't have the necessary permissions to manage tests. Make sure to grant the user the [Load Test Owner](#load-test-owner) or [Load Test Contributor](#load-test-contributor) role on the load testing resource.
+
+:::image type="content" source="media/how-to-assign-roles/azure-load-testing-not-authorized.png" lightbox="media/how-to-assign-roles/azure-load-testing-not-authorized.png" alt-text="Screenshot that shows an error message in the Azure portal that you're not authorized to use the Azure Load Testing resource.":::
 
 ## Related content
 

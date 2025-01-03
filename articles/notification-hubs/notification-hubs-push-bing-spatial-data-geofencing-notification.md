@@ -2,15 +2,12 @@
 title: Send push notifications with Azure Notification Hubs and Bing Spatial Data | Microsoft Docs
 description: In this tutorial, you learn how to deliver location-based push notifications with Azure Notification Hubs and Bing Spatial Data.
 services: notification-hubs
-documentationcenter: windows
 keywords: push notifications,push notifications
 author: sethmanheim
 manager: femila
 editor: jwargo
 
-ms.assetid: f41beea1-0d62-4418-9ffc-c9d70607a1b7
-ms.service: notification-hubs
-ms.workload: mobile
+ms.service: azure-notification-hubs
 ms.tgt_pltfrm: mobile-windows-phone
 ms.devlang: csharp
 ms.topic: tutorial
@@ -160,7 +157,7 @@ In this tutorial, you take the following steps:
     }
     ```
 
-    To learn more about getting the user's location in UWP apps, see[Get the user's location](/windows/uwp/maps-and-location/get-location).
+    To learn more about getting the user's location in UWP apps, see [Get the user's location](/windows/uwp/maps-and-location/get-location).
 5. To check that the location acquisition is actually working, open the code side of your main page (`MainPage.xaml.cs`). Create a new event handler for the `Loaded` event in the `MainPage` constructor.
 
     ```csharp
@@ -350,8 +347,6 @@ In this tutorial, you take the following steps:
     ![Screenshot of the Solution right-click menu with the Store and Associate App with the Store options highlighted.](./media/notification-hubs-geofence/vs-associate-with-store.png)
 3. Once you sign in to your developer account, make sure you select an existing app or create a new one and associate the package with it.
 4. Go to the Dev Center and open the app that you created. Choose **Services** > **Push Notifications** > **Live Services site**.
-
-    ![Screenshot of Windows Dev Center displaying the Push notifications page with Live Services site highlighted.](./media/notification-hubs-geofence/ms-live-services.png)
 5. On the site, take note of the **Application Secret** and the **Package SID**. You need both in the Azure portal – open your notification hub, choose **Settings** > **Notification Services** > **Windows (WNS)** and enter the information in the required fields.
 
     ![Screenshot showing the Settings page with the Notification Services and Windows (WNS) options highlighted and the Package SID and Security Key values filled in.](./media/notification-hubs-geofence/notification-hubs-wns.png)

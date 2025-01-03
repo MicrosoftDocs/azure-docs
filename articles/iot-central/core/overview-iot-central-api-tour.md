@@ -3,9 +3,9 @@ title: Take a tour of the Azure IoT Central API
 description: Become familiar with the key areas of the Azure IoT Central REST API. Use the API to create, manage, and use your IoT solution from client applications.
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/12/2023
+ms.date: 10/14/2024
 ms.topic: overview
-ms.service: iot-central
+ms.service: azure-iot-central
 services: iot-central
 ---
 
@@ -34,7 +34,7 @@ Version 2022-07-31 of the data plane API lets you manage the following resources
 - Scheduled jobs
 - Users
 
-The preview devices API also lets you [manage dashboards](howto-manage-dashboards-with-rest-api.md), [manage deployment manifests](howto-manage-deployment-manifests-with-rest-api.md), and [manage data exports](howto-manage-data-export-with-rest-api.md).
+The preview devices API also lets you [manage dashboards](howto-manage-iot-central-with-rest-api.md#dashboards), [manage deployment manifests](howto-manage-deployment-manifests-with-rest-api.md), and [manage data exports](howto-manage-data-export-with-rest-api.md).
 
 To get started with the data plane APIs, see [Tutorial: Use the REST API to manage an Azure IoT Central application](tutorial-use-rest-api.md).
 

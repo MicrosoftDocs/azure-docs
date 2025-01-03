@@ -4,10 +4,9 @@ description: The second tutorial about installing Azure Stack Edge Pro 2 involve
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: tutorial
-ms.date: 10/17/2023
+ms.date: 02/21/2024
 ms.author: alkohli
 zone_pivot_groups: azure-stack-edge-device-deployment
 # Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge Pro 2 in datacenter so I can use it to transfer data to Azure.  
@@ -273,8 +272,6 @@ On your device:
         - Two 10/1-Gbps interfaces, Port 1 and Port 2.
         - Two 100-Gbps interfaces, Port 3 and Port 4.
     
-    - A baseboard management controller (BMC).      
-
     - One network card corresponding to two high-speed ports and two built-in 10/1-GbE ports:
 
         - **Intel Ethernet X722 network adapter** - Port 1, Port 2.

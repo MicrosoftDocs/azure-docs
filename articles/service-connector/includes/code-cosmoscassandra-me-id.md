@@ -39,7 +39,7 @@ ms.author: wchi
             var listKeyUrl = Environment.GetEnvironmentVariable("AZURE_COSMOS_LISTKEYURL");
             var scope = Environment.GetEnvironmentVariable("AZURE_COSMOS_SCOPE");
     
-            // Uncomment the following lines according to the authentication type.
+            // Uncomment the following lines corresponding to the authentication type you want to use.
             // For system-assigned identity.
             // var tokenProvider = new DefaultAzureCredential();
             
@@ -132,7 +132,7 @@ ms.author: wchi
     import javax.net.ssl.*;
     import java.net.InetSocketAddress;
     import com.azure.identity.*;
-    import com.azure.core.credentital.*;
+    import com.azure.core.credential.*;
     import java.net.http.*;
     import java.net.URI;
 
@@ -143,7 +143,7 @@ ms.author: wchi
     String listKeyUrl = System.getenv("AZURE_COSMOS_LISTKEYURL");
     String scope = System.getenv("AZURE_COSMOS_SCOPE");
     
-    // Uncomment the following lines according to the authentication type.
+    // Uncomment the following lines corresponding to the authentication type you want to use.
     // For system managed identity.
     // DefaultAzureCredential defaultCredential = new DefaultAzureCredentialBuilder().build();
 
@@ -199,7 +199,6 @@ Authentication type is not supported for Spring Boot.
     from ssl import PROTOCOL_TLSv1_2, SSLContext, CERT_NONE
     from cassandra.auth import PlainTextAuthProvider
     import requests
-    from azure.core.pipeline.policies import BearerTokenCredentialPolicy
     from azure.identity import ManagedIdentityCredential, ClientSecretCredential
 
     username = os.getenv('AZURE_COSMOS_USERNAME')
@@ -209,7 +208,7 @@ Authentication type is not supported for Spring Boot.
     listKeyUrl = os.getenv('AZURE_COSMOS_LISTKEYURL')
     scope = os.getenv('AZURE_COSMOS_SCOPE')
     
-    # Uncomment the following lines according to the authentication type.
+    # Uncomment the following lines corresponding to the authentication type you want to use.
     # For system-assigned managed identity
     # cred = ManagedIdentityCredential()
 
@@ -225,8 +224,8 @@ Authentication type is not supported for Spring Boot.
     
     # Get the password 
     session = requests.Session()
-    session = BearerTokenCredentialPolicy(cred, scope).on_request(session)
-    response = session.post(listKeyUrl)
+    token = cred.get_token(scope)
+    response = session.post(listKeyUrl, headers={"Authorization": "Bearer {}".format(token.token)})
     keys_dict = response.json()
     password = keys_dict['primaryMasterKey']
     
@@ -234,7 +233,7 @@ Authentication type is not supported for Spring Boot.
     ssl_context = SSLContext(PROTOCOL_TLSv1_2)
     ssl_context.verify_mode = CERT_NONE
     auth_provider = PlainTextAuthProvider(username, password)
-    cluster = Cluster([contanctPoint], port = port, auth_provider=auth_provider,ssl_context=ssl_context)
+    cluster = Cluster([contactPoint], port = port, auth_provider=auth_provider,ssl_context=ssl_context)
     session = cluster.connect()
     ```
 
@@ -261,14 +260,14 @@ Authentication type is not supported for Spring Boot.
     )
     
     func GetSession() *gocql.Session {
-        cosmosCassandraContactPoint = os.Getenv("AAZURE_COSMOS_CONTACTPOINT")
+        cosmosCassandraContactPoint = os.Getenv("AZURE_COSMOS_CONTACTPOINT")
         cosmosCassandraPort = os.Getenv("AZURE_COSMOS_PORT")
         cosmosCassandraUser = os.Getenv("AZURE_COSMOS_USERNAME")
         cosmosCassandraKeyspace = os.Getenv("AZURE_COSMOS_KEYSPACE")
         listKeyUrl = os.Getenv("AZURE_COSMOS_LISTKEYURL")
-        scope = os.Getenv("AZUE_COSMOS_SCOPE")
+        scope = os.Getenv("AZURE_COSMOS_SCOPE")
 
-        // Uncomment the following lines according to the authentication type.
+        // Uncomment the following lines corresponding to the authentication type you want to use.
         // For system-assigned identity.
         // cred, err := azidentity.NewDefaultAzureCredential(nil)
         
@@ -339,7 +338,7 @@ Authentication type is not supported for Spring Boot.
     let listKeyUrl = process.env.AZURE_COSMOS_LISTKEYURL;
     let scope = process.env.AZURE_COSMOS_SCOPE;
     
-    // Uncomment the following lines according to the authentication type.  
+    // Uncomment the following lines corresponding to the authentication type you want to use.  
     // For system-assigned identity.
     // const credential = new DefaultAzureCredential();
     

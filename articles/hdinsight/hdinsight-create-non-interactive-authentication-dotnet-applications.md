@@ -1,7 +1,7 @@
 ---
 title: Non-interactive authentication .NET application - Azure HDInsight
 description: Learn how to create non-interactive authentication Microsoft .NET applications in Azure HDInsight.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp, devx-track-dotnet
 ms.date: 01/04/2024
@@ -25,7 +25,7 @@ An HDInsight cluster. See the [getting started tutorial](hadoop/apache-hadoop-li
 
 ## Assign a role to the Microsoft Entra application
 
-Assign your Microsoft Entra application a [role](../role-based-access-control/built-in-roles.md), to grant it permissions to perform actions. You can set the scope at the level of the subscription, resource group, or resource. The permissions are inherited to lower levels of scope. For example, adding an application to the Reader role for a resource group means that the application can read the resource group and any resources in it. In this article, you set the scope at the resource group level. For more information, see [Assign Azure roles to manage access to your Azure subscription resources](../role-based-access-control/role-assignments-portal.md).
+Assign your Microsoft Entra application a [role](../role-based-access-control/built-in-roles.md), to grant it permissions to perform actions. You can set the scope at the level of the subscription, resource group, or resource. The permissions are inherited to lower levels of scope. For example, adding an application to the Reader role for a resource group means that the application can read the resource group and any resources in it. In this article, you set the scope at the resource group level. For more information, see [Assign Azure roles to manage access to your Azure subscription resources](../role-based-access-control/role-assignments-portal.yml).
 
 **To add the Owner role to the Microsoft Entra application**
 
@@ -117,4 +117,4 @@ Assign your Microsoft Entra application a [role](../role-based-access-control/bu
 
 * [Create a Microsoft Entra application and service principal in the Azure portal](../active-directory/develop/howto-create-service-principal-portal.md).
 * Learn how to [authenticate a service principal with Azure Resource Manager](../active-directory/develop/howto-authenticate-service-principal-powershell.md).
-* Learn about [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.md).
+* Learn about [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.yml).

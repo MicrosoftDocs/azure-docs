@@ -4,15 +4,14 @@ description: Describes how to troubleshoot errors with IoT Edge on your Azure St
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: troubleshooting
-ms.date: 06/08/2021
+ms.date: 12/24/2024
 ms.author: alkohli
 ---
 # Troubleshoot IoT Edge issues on your Azure Stack Edge FPGA device 
 
-[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
+[!INCLUDE [Azure Stack Edge Pro FPGA end-of-life](../../includes/azure-stack-edge-fpga-eol.md)]
 
 This article describes how to troubleshoot compute-related errors on an Azure Stack Edge FPGA device by reviewing IoT Edge agent runtime responses.  
 

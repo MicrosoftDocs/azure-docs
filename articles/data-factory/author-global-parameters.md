@@ -1,13 +1,12 @@
 ---
 title: Global parameters
 description: Set global parameters for each of your Azure Data Factory environments
-ms.service: data-factory
 ms.subservice: authoring
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
 ms.date: 01/05/2024
-ms.custom:
+ai-usage: ai-assisted
 ---
 
 # Global parameters in Azure Data Factory
@@ -39,14 +38,15 @@ Global parameters can be used in any [pipeline expression](control-flow-expressi
 
 ## <a name="cicd"></a> Global parameters in CI/CD
 
-We recommend including global parameters in the ARM template during the CI/CD. The new mechanism of including global parameters in the ARM template (from 'Manage hub' -> 'ARM template' -> ‘Include global parameters in ARM template
-') as illustrated below, will not conflict/ override the factory-level settings as it used to do earlier, hence not requiring additional PowerShell for global parameters deployment during CI/CD.
+We recommend including global parameters in the ARM template during the CI/CD. The new mechanism of including global parameters in the ARM template (from 'Manage hub' -> 'ARM template' -> ‘Include global parameters in ARM template') as illustrated below, will not conflict/ override the factory-level settings as it used to do earlier, hence not requiring additional PowerShell for global parameters deployment during CI/CD.
 
 :::image type="content" source="media/author-global-parameters/include-arm-template.png" alt-text="Screenshot of 'Include in ARM template'.":::
 
 > [!NOTE]
 > We have moved the UI experience for including global parameters from the 'Global parameters' section to the 'ARM template' section in the manage hub. 
-If you are already using the older mechanism (from 'Manage hub' -> 'Global parameters' -> 'Include in ARM template'), you can continue. We will continue to support it. 
+If you are already using the older mechanism (from 'Manage hub' -> 'Global parameters' -> 'Include in ARM template'), you can continue. We will continue to support it.
+
+The **Parameters** folder in the downloaded ARM template contains JSON files that define the parameters used in the ARM template. Each file corresponds to a specific global parameter.
 
 If you are using the older flow of integrating global parameters in your continuous integration and deployment solution, it will continue to work:
 
@@ -62,8 +62,6 @@ We strongly recommend using the new mechanism of including global parameters in 
 
 > [!WARNING]
 >You cannot use  ‘-‘ in the parameter name. You will receive an errorcode "{"code":"BadRequest","message":"ErrorCode=InvalidTemplate,ErrorMessage=The expression >'pipeline().globalParameters.myparam-dbtest-url' is not valid: .....}". But, you can use the ‘_’ in the parameter name. 
-
-
 
 ## Related content
 

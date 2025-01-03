@@ -4,7 +4,7 @@ description: Troubleshoot installation, registration of Azure Backup Server, and
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 04/26/2022
-ms.service: backup
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---

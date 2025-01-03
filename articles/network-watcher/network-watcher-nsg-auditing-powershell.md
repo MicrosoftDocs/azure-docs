@@ -2,14 +2,11 @@
 title: Automate NSG auditing with security group view
 titleSuffix: Azure Network Watcher
 description: This page provides instructions on how to configure auditing of a Network Security Group
-services: network-watcher
 author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.date: 03/28/2023
 ms.author: halkazwini
-ms.custom: template-how-to, engagement-fy23
 ---
 
 # Automate NSG auditing with Azure Network Watcher security group view
@@ -20,8 +17,6 @@ ms.custom: template-how-to, engagement-fy23
 Customers are often faced with the challenge of verifying the security posture of their infrastructure. This challenge is no different for their VMs in Azure. It's important to have a similar security profile based on the Network Security Group (NSG) rules applied. Using the Security Group View, you can now get the list of rules applied to a VM within an NSG. You can define a golden NSG security profile and initiate Security Group View on a weekly cadence and compare the output to the golden profile and create a report. This way you can identify with ease all the VMs that don't conform to the prescribed security profile.
 
 To learn more about network security groups, see [Network security groups overview](../virtual-network/network-security-groups-overview.md).
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Prerequisites
 
@@ -59,7 +54,7 @@ The first step in this example is to work with an existing baseline. The followi
         "ProvisioningState":  "Succeeded",
         "Name":  "default-allow-rdp",
         "Etag":  "W/\"d8859256-1c4c-4b93-ba7d-73d9bf67c4f1\"",
-        "Id":  "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/Microsoft.Network/networkSecurityGroups/testvm1-nsg/securityRules/default-allow-rdp"
+        "Id":  "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/testrg/providers/Microsoft.Network/networkSecurityGroups/testvm1-nsg/securityRules/default-allow-rdp"
     },
     {
         "Description":  null,
@@ -74,7 +69,7 @@ The first step in this example is to work with an existing baseline. The followi
         "ProvisioningState":  "Succeeded",
         "Name":  "MyRuleDoNotDelete",
         "Etag":  "W/\"d8859256-1c4c-4b93-ba7d-73d9bf67c4f1\"",
-        "Id":  "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/Microsoft.Network/networkSecurityGroups/testvm1-nsg/securityRules/MyRuleDoNotDelete"
+        "Id":  "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/testrg/providers/Microsoft.Network/networkSecurityGroups/testvm1-nsg/securityRules/MyRuleDoNotDelete"
     },
     {
         "Description":  null,
@@ -89,7 +84,7 @@ The first step in this example is to work with an existing baseline. The followi
         "ProvisioningState":  "Succeeded",
         "Name":  "My2ndRuleDoNotDelete",
         "Etag":  "W/\"d8859256-1c4c-4b93-ba7d-73d9bf67c4f1\"",
-        "Id":  "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/Microsoft.Network/networkSecurityGroups/testvm1-nsg/securityRules/My2ndRuleDoNotDelete"
+        "Id":  "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/testrg/providers/Microsoft.Network/networkSecurityGroups/testvm1-nsg/securityRules/My2ndRuleDoNotDelete"
     },
     {
         "Description":  null,
@@ -104,7 +99,7 @@ The first step in this example is to work with an existing baseline. The followi
         "ProvisioningState":  "Succeeded",
         "Name":  "ThisRuleNeedsToStay",
         "Etag":  "W/\"d8859256-1c4c-4b93-ba7d-73d9bf67c4f1\"",
-        "Id":  "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/Microsoft.Network/networkSecurityGroups/testvm1-nsg/securityRules/ThisRuleNeedsToStay"
+        "Id":  "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/testrg/providers/Microsoft.Network/networkSecurityGroups/testvm1-nsg/securityRules/ThisRuleNeedsToStay"
     }
 ]
 ```

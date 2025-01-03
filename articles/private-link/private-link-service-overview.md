@@ -2,12 +2,11 @@
 title: What is Azure Private Link service?
 description: Learn about Azure Private Link service.
 services: private-link
-author: asudbring
-ms.service: private-link
-ms.topic: conceptual
-ms.date: 10/27/2022
-ms.author: allensu
-ms.custom: template-concept
+author: abell
+ms.service: azure-private-link
+ms.topic: concept-article
+ms.date: 10/15/2024
+ms.author: abell
 ---
 
 # What is Azure Private Link service?
@@ -72,7 +71,7 @@ A Private Link service specifies the following properties:
  
 - Multiple Private Link services can be created on the same Standard Load Balancer using different front-end IP configurations. There are limits to the number of Private Link services you can create per Standard Load Balancer and per subscription. For details, see [Azure limits](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
  
-- Private Link service can have more than one NAT IP configurations linked to it. Choosing more than one NAT IP configurations can help service providers to scale. Today, service providers can assign up to eight NAT IP addresses per Private Link service. With each NAT IP address, you can assign more ports for your TCP connections and thus scale out. After you add multiple NAT IP addresses to a Private Link service, you can't delete the NAT IP addresses. This restriction is in place to ensure that active connections aren't impacted while deleting the NAT IP addresses.
+- Private Link service can have more than one NAT IP configurations linked to it. Choosing more than one NAT IP configurations can help service providers to scale. Today, service providers can assign up to eight NAT IP addresses per Private Link service. With each NAT IP address, you can assign more ports for your TCP connections and thus scale out. You can add multiple NAT IP addresses to a Private Link service, but you must maintain at least one NAT IP address once configured. You will be restricted from deleting the last remaining NAT IP to ensure that active connections aren't impacted as a result of unavailable NAT IP addresses.
 
 ## Alias
 
@@ -107,6 +106,9 @@ The action of approving the connections can be automated by using the auto-appro
 Visibility controls the exposure settings whereas auto-approval controls the approval settings for your service. If a customer requests a connection from a subscription in the auto-approval list, the connection is automatically approved, and the connection is established. Service providers don’t need to manually approve the request. If a customer requests a connection from a subscription in the visibility array and not in the auto-approval array, the request will reach the service provider. The service provider must manually approve the connections.
 
 ## Getting connection Information using TCP Proxy v2
+
+> [!NOTE]
+> TCP Proxy v2 configuration on a Private Link service activates for all load balancers and their backend VMs. If TCP Proxy v2 is configured on one PLS, configure it on other PLS resources if they are sharing the same load balancer or backend pool, otherwise health probes will fail. 
 
 In the private link service, the source IP address of the packets coming from private endpoint is network address translated (NAT) on the service provider side using the NAT IP allocated from the provider's virtual network. The applications receive the allocated NAT IP address instead of actual source IP address of the service consumers. If your application needs an actual source IP address from the consumer side, you can enable proxy protocol on your service and retrieve the information from the proxy protocol header. In addition to source IP address, proxy protocol header also carries the LinkID of the private endpoint. Combination of source IP address and LinkID can help service providers uniquely identify their consumers. 
 
@@ -143,6 +145,10 @@ The following are the known limitations when using the Private Link service:
 - Supports TCP and UDP traffic only
 
 - Private Link Service has an idle timeout of ~5 minutes (300 seconds). To avoid hitting this limit, applications connecting through Private Link Service must use TCP Keepalives lower than that time.
+
+- For an Inbound NAT rule with type set to *backend pool* to operate with Azure Private Link Service, a load balancing rule must be configured.
+
+- TCP Proxy v2 configuration on a Private Link service activates for all load balancers and their backend VMs. If TCP Proxy v2 is configured on one PLS, configure it on other PLS resources if they are sharing the same load balancer or backend pool, otherwise health probes will fail.
 
 ## Next steps
 

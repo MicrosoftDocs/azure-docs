@@ -3,11 +3,14 @@ title: Microsoft Sentinel security alert schema reference
 description: This article displays the schema of security alerts in Microsoft Sentinel.
 services: sentinel
 cloud: na
-documentationcenter: na
 author: yelevin
 ms.topic: reference
 ms.date: 01/11/2022
 ms.author: yelevin
+
+
+
+#Customer intent: As a security analyst, I want to understand the SecurityAlerts table schema in my Log Analytics workspace so that I can effectively analyze and respond to security incidents.
 
 ---
 

@@ -4,7 +4,7 @@ description: Learn how to ensure application reliability in Azure Container Apps
 services: container-apps
 author: craigshoemaker
 ms.author: cshoe
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom: subject-reliability, references_regions, devx-track-azurepowershell, devx-track-azurecli
 ms.topic: reliability-article
 ms.date: 10/23/2023
@@ -29,7 +29,7 @@ By enabling Container Apps' zone redundancy feature, replicas are automatically 
 
 Azure Container Apps offers the same reliability support regardless of your plan type.
 
-Azure Container Apps uses [availability zones](availability-zones-overview.md#zonal-and-zone-redundant-services) in regions where they're available. For a list of regions that support availability zones, see [Availability zone service and regional support](availability-zones-service-support.md).
+Azure Container Apps uses [availability zones](availability-zones-overview.md#zonal-and-zone-redundant-services) in regions where they're available. For a list of regions that support availability zones, see [Azure regions with availability zones](availability-zones-region-support.md).
 
 ### SLA improvements
 
@@ -213,7 +213,7 @@ You should still use safe deployment techniques such as [blue-green deployment](
 
 If you have enabled [session affinity](../container-apps/sticky-sessions.md), and a zone goes down, clients for that zone are routed to new replicas because the previous replicas are no longer available. Any state associated with the previous replicas is lost.
 
-### Availability zone redeployment and migration
+### Availability zone migration
 
 To take advantage of availability zones, enable zone redundancy as you create the Container Apps environment. The environment must include a virtual network with an available subnet. You can't migrate an existing Container Apps environment from nonavailability zone support to availability zone support.
 

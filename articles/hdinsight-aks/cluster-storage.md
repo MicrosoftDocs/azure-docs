@@ -1,14 +1,18 @@
 ---
 title: Introduction to cluster storage
 description: Understand how Azure HDInsight on AKS integrates with Azure Storage
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
-ms.date: 08/3/2023
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Introduction to cluster storage
 
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
+
 
 Azure HDInsight on AKS can seamlessly integrate with Azure Storage, which is a general-purpose storage solution that works well with many other Azure services. 
 Azure Data Lake Storage Gen2 (ADLS Gen 2) is the default file system for the clusters. 

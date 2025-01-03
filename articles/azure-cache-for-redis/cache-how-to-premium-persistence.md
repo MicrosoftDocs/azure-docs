@@ -1,10 +1,7 @@
 ---
 title: Configure data persistence - Premium Azure Cache for Redis
 description: Learn how to configure and manage data persistence your Premium tier Azure Cache for Redis instances
-author: flang-msft
 
-ms.author: franlanglois
-ms.service: cache
 ms.custom: devx-track-azurecli
 ms.topic: conceptual
 ms.date: 04/10/2023
@@ -16,6 +13,10 @@ ms.date: 04/10/2023
 > [!WARNING]
 >
 > If you are using persistence on the Premium tier, check to see if your storage account has soft delete enabled before using the data persistence feature. Using data persistence with soft delete causes very high storage costs. For more information, see [should I enable soft delete?](#how-frequently-does-rdb-and-aof-persistence-write-to-my-blobs-and-should-i-enable-soft-delete).
+>
+
+>[!WARNING]
+> The _always write_ option for AOF persistence on the Enterprise and Enterprise Flash tiers is set to be retired on April 1, 2025. This option has significant performance limitations is no longer recommended. Using the _write every second_ option or using RDB persistence is recommended instead.
 >
 
 ## Scope of availability
@@ -60,7 +61,7 @@ On the **Enterprise** and **Enterprise Flash** tiers, data is persisted to a man
 
 ### [Using the portal (Premium tier)](#tab/premium)
 
-1. To create a Premium cache, sign in to the [Azure portal](https://portal.azure.com) and select **Create a resource**. You can create caches in the Azure portal. You can also create them using Resource Manager templates, PowerShell, or Azure CLI. For more information about creating an Azure Cache for Redis, see [Create a cache](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
+1. To create a Premium cache, sign in to the [Azure portal](https://portal.azure.com) and select **Create a resource**. You can create caches in the Azure portal. You can also create them using Resource Manager templates, PowerShell, or Azure CLI.
 
     :::image type="content" source="media/cache-how-to-premium-persistence/create-resource.png" alt-text="Screenshot that shows a form to create an Azure Cache for Redis resource.":::
   
@@ -146,6 +147,10 @@ It takes a while for the cache to create. You can monitor progress on the Azure 
 
 1. Finish creating the cache by following the rest of the instructions in the [Enterprise tier quickstart guide](quickstart-create-redis-enterprise.md).
 
+>[!WARNING]
+> The _always write_ option for AOF persistence is set to be retired on April 1, 2025. This option has significant performance limitations is no longer recommended. Using the _write every second_ option or using RDB persistence is recommended instead.
+>
+ 
 > [!NOTE]
 > You can add persistence to a previously created Enterprise tier cache at any time by navigating to the **Advanced settings** in the Resource menu.
 >
@@ -347,7 +352,9 @@ After a rewrite, two sets of AOF files exist in storage. Rewrites occur in the b
 
 ### Will having firewall exceptions on the storage account affect persistence?
 
-Using managed identity adds the cache instance to the [trusted services list](../storage/common/storage-network-security.md?tabs=azure-portal), making firewall exceptions easier to carry out. If you aren't using managed identity and instead authorizing to a storage account using a key, then having firewall exceptions on the storage account tends to break the persistence process. This only applies to persistence in the Premium tier.
+Yes. Using [firewall settings on the storage account](../storage/common/storage-network-security.md) can prevent the persistence feature from working. You can see if there are errors in persisting data by viewing the [Errors metric](monitor-cache-reference.md#azure-cache-for-redis-metrics). This metric will indicate if the cache is unable to persist data due to firewall restrictions on the storage account or other problems.
+
+In order to use data persistence with a storage account that has a firewall set up, use [managed identity based authentication](cache-managed-identity.md) to connect to storage. Using managed identity adds the cache instance to the [trusted services list](../storage/common/storage-network-security.md?tabs=azure-portal), making firewall exceptions easier to carry out. If you aren't using managed identity and instead authorizing to a storage account using a key, then having firewall exceptions on the storage account tends to break the persistence process. This only applies to persistence in the Premium tier.
 
 ### Can I have AOF persistence enabled if I have more than one replica?
 

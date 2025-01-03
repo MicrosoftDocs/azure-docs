@@ -5,10 +5,12 @@ author: dlepow
 ms.topic: troubleshooting
 ms.date: 12/04/2020
 ms.author: danlep
-ms.service: api-management
+ms.service: azure-api-management
 ---
 
 # Troubleshooting client response timeouts and errors with API Management
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 This article helps you troubleshoot intermittent connection errors and related latency issues in [Azure API Management](./api-management-key-concepts.md). Specifically, this article will provide information and troubleshooting for the exhaustion of source address network translation (SNAT) ports. If you require more help, contact the Azure experts at [Azure Community Support](https://azure.microsoft.com/support/community/) or file a support request with [Azure Support](https://azure.microsoft.com/support/options/).
 
@@ -19,7 +21,7 @@ Client applications calling APIs through your API Management (APIM) service may 
 * Intermittent HTTP 500 errors
 * Timeout error messages
 
-These symptoms manifest as instances of `BackendConnectionFailure` in your [Azure Monitor resource logs](../azure-monitor/essentials/resource-logs.md).
+These symptoms manifest as instances of `BackendConnectionFailure` in your [Azure Monitor resource logs](/azure/azure-monitor/essentials/resource-logs).
 
 ## Cause
 
@@ -74,7 +76,7 @@ For more, see [Add caching to improve performance in Azure API Management](api-m
 
 If it makes sense for your business scenario, you can implement access restriction policies for your API Management product. For example, the `rate-limit-by-key` policy can be used to prevent API usage spikes on a per key basis by limiting the call rate per a specified time period.
 
-See [API Management access restriction policies](api-management-access-restriction-policies.md) for more info.
+See [Rate limiting and quota policies](api-management-policies.md#rate-limiting-and-quotas) for more info.
 
 ## See also
 

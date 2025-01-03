@@ -2,7 +2,7 @@
 title: Link templates for deployment
 description: Describes how to use linked templates in an Azure Resource Manager template (ARM template) to create a modular template solution. Shows how to pass parameters values, specify a parameter file, and dynamically created URLs.
 ms.topic: conceptual
-ms.date: 08/22/2023
+ms.date: 09/26/2024
 ms.custom: devx-track-azurepowershell, devx-track-arm-template
 ---
 
@@ -94,7 +94,7 @@ The following example deploys a storage account through a nested template.
 }
 ```
 
-[Nested resources](./child-resource-name-type.md#within-parent-resource) can't be used in a [symbolic name](./resource-declaration.md#use-symbolic-name) template. In the following template, the nested storage account resource cannot use symbolic name:
+[Nested resources](./child-resource-name-type.md#within-parent-resource) can't be used in a [symbolic name](./resource-declaration.md#use-symbolic-name) template. In the following template, the nested storage account resource can't use symbolic name:
 
 ```json
 {
@@ -643,11 +643,11 @@ az deployment group create \
 
 ---
 
-Make sure there is no leading "?" in QueryString. The deployment adds one when assembling the URI for the deployments.
+Make sure there's no leading "?" in QueryString. The deployment adds one when assembling the URI for the deployments.
 
 ## Template specs
 
-Instead of maintaining your linked templates at an accessible endpoint, you can create a [template spec](template-specs.md) that packages the main template and its linked templates into a single entity you can deploy. The template spec is a resource in your Azure subscription. It makes it easy to securely share the template with users in your organization. You use Azure role-based access control (Azure RBAC) to grant access to the template spec. This feature is currently in preview.
+Instead of maintaining your linked templates at an accessible endpoint, you can create a [template spec](template-specs.md) that packages the main template and its linked templates into a single entity you can deploy. The template spec is a resource in your Azure subscription. It makes it easy to securely share the template with users in your organization. You use Azure role-based access control (Azure RBAC) to grant access to the template spec.
 
 For more information, see:
 

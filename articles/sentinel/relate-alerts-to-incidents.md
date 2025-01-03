@@ -1,15 +1,18 @@
 ---
-title: Relate alerts to incidents in Microsoft Sentinel | Microsoft Docs
-description: This article shows you how to relate alerts to your incidents in Microsoft Sentinel.
+title: Relate alerts to incidents in Microsoft Sentinel in the Azure portal
+description: This article shows you how to relate alerts to your incidents in Microsoft Sentinel in the Azure portal.
 author: yelevin
 ms.author: yelevin
 ms.topic: how-to
 ms.date: 01/17/2023
+appliesto: 
+  - Microsoft Sentinel in the Azure portal
+#Customer intent: As a security analyst, I want to relate alerts to incidents in Microsoft Sentinel so that I can refine and expand the scope of my investigations efficiently.
 ---
 
-# Relate alerts to incidents in Microsoft Sentinel
+# Relate alerts to incidents in Microsoft Sentinel in the Azure portal
 
-This article shows you how to relate alerts to your incidents in Microsoft Sentinel. This feature allows you to manually or automatically add alerts to, or remove them from, existing incidents as part of your investigation processes, refining the incident scope as the investigation unfolds. 
+This article shows you how to relate alerts to your incidents in Microsoft Sentinel. This feature allows you to manually or automatically add alerts to, or remove them from, existing incidents in the Azure portal as part of your investigation processes, refining the incident scope as the investigation unfolds. 
 
 > [!IMPORTANT]
 > Incident expansion is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -30,6 +33,8 @@ You can also use this automation to add alerts to [manually created incidents](c
     However, you can only add Defender alerts to Defender incidents (or remove them) in the Defender portal, not in the Sentinel portal. If you try doing this in Microsoft Sentinel, you will get an error message. You can pivot to the incident in the Microsoft Defender Portal using the link in the Microsoft Sentinel incident. Don't worry, though - any changes you make to the incident in the Microsoft Defender Portal are [synchronized](microsoft-365-defender-sentinel-integration.md#working-with-microsoft-defender-xdr-incidents-in-microsoft-sentinel-and-bi-directional-sync) with the parallel incident in Microsoft Sentinel, so you'll still see the added alerts in the incident in the Sentinel portal.
 
     You *can* add Microsoft Defender XDR alerts to non-Defender incidents, and non-Defender alerts to Defender incidents, in the Microsoft Sentinel portal.
+
+- If you onboarded Microsoft Sentinel to the unified security operations portal, you can no longer add Microsoft Sentinel alerts to incidents, or remove Microsoft Sentinel alerts from incidents, in Microsoft Sentinel (in the Azure portal). You can do this only in the Microsoft Defender portal. For more information, see [Capability differences between portals](microsoft-sentinel-defender-portal.md#capability-differences-between-portals).
 
 - An incident can contain a maximum of 150 alerts. If you try to add an alert to an incident with 150 alerts in it, you will get an error message.
 

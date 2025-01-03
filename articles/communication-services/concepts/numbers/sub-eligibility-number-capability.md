@@ -15,17 +15,21 @@ ms.custom: references_regions
 
 # Country/regional availability of telephone numbers and subscription eligibility
 
-Numbers can be purchased on eligible Azure subscriptions and in geographies where Communication Services is legally eligible to provide them. The capabilities and numbers that are available to you depend on the country that you're operating within, your use case, and the phone number type that you've selected. These capabilities vary by country due to regulatory requirements.
+Numbers can be purchased on eligible Azure subscriptions and in geographies where Communication Services is legally eligible to provide them. The capabilities and numbers that are available to you depend on the country/region that you're operating within, your use case, and the phone number type that you've selected. These capabilities vary by country/region due to regulatory requirements.
 
 
-**Use the drop-down to select the country/region where you're getting numbers. You'll find information about availability, restrictions and other related info on the country specific page**
+**Use the drop-down to select the country/region where you're getting numbers. You'll find information about availability, restrictions and other related info on the country/region specific page**
 > [!div class="op_single_selector"]
 >
+> - [Argentina](../numbers/phone-number-management-for-argentina.md)
 > - [Australia](../numbers/phone-number-management-for-australia.md)
 > - [Austria](../numbers/phone-number-management-for-austria.md)
 > - [Belgium](../numbers/phone-number-management-for-belgium.md)
+> - [Brazil](../numbers/phone-number-management-for-brazil.md)
 > - [Canada](../numbers/phone-number-management-for-canada.md)
+> - [Chile](../numbers/phone-number-management-for-chile.md)
 > - [China](../numbers/phone-number-management-for-china.md)
+> - [Colombia](../numbers/phone-number-management-for-colombia.md)
 > - [Denmark](../numbers/phone-number-management-for-denmark.md)
 > - [Estonia](../numbers/phone-number-management-for-estonia.md)
 > - [Finland](../numbers/phone-number-management-for-finland.md)
@@ -41,6 +45,7 @@ Numbers can be purchased on eligible Azure subscriptions and in geographies wher
 > - [Lithuania](../numbers/phone-number-management-for-lithuania.md)
 > - [Luxembourg](../numbers/phone-number-management-for-luxembourg.md)
 > - [Malaysia](../numbers/phone-number-management-for-malaysia.md)
+> - [Mexico](../numbers/phone-number-management-for-mexico.md)
 > - [Netherlands](../numbers/phone-number-management-for-netherlands.md)
 > - [New Zealand](../numbers/phone-number-management-for-new-zealand.md)
 > - [Norway](../numbers/phone-number-management-for-norway.md)

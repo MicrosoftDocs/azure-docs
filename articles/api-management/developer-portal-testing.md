@@ -5,11 +5,13 @@ description: Learn how to set up unit tests and end-to-end tests for your self-h
 author: dlepow
 ms.author: danlep
 ms.date: 03/25/2021
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
 ---
 
 # Test the self-hosted developer portal
+
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2.md)]
 
 This article explains how to set up unit tests and end-to-end tests for your [self-hosted portal](developer-portal-self-host.md).
 

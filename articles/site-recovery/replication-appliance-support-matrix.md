@@ -1,9 +1,9 @@
 ---
 title: Support requirements for Azure Site Recovery replication appliance
 description: This article describes support and requirements when deploying the replication appliance for VMware disaster recovery to Azure with Azure Site Recovery - Modernized
-ms.service: site-recovery
-ms.topic: conceptual
-ms.date: 12/04/2023
+ms.service: azure-site-recovery
+ms.topic: faq
+ms.date: 12/20/2024
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 ---
@@ -30,7 +30,7 @@ You deploy an on-premises replication appliance when you use [Azure Site Recover
 **Component** | **Requirement**
 --- | ---
 CPU cores | 8
-RAM | 32 GB
+RAM | 16 GB
 Number of disks | 2, including the OS disk - 80 GB and a data disk - 620 GB
 
 ### Software requirements
@@ -48,11 +48,13 @@ FIPS (Federal Information Processing Standards) | Don't enable FIPS mode|
 
 |**Component** | **Requirement**|
 |--- | ---|
-|Fully qualified domain name (FQDN) | Static|
+|Fully qualified domain name (FQDN) | Static |
 |Ports | 443 (Control channel orchestration)<br>9443 (Data transport)|
 |NIC type | VMXNET3 (if the appliance is a VMware VM)|
 |NAT | Supported |
 
+>[!NOTE]
+> To support communication between source machines and replication appliance using multiple subnets, you should select FQDN as the mode of connectivity during the appliance setup. This will allow source machines to use FQDN, along with a list of IP addresses, to communicate with replication appliance. 
 
 #### Allow URLs
 

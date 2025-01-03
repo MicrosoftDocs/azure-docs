@@ -3,6 +3,7 @@ title: include file
 description: include file
 services: load-balancer
 ms.service: sap-on-azure
+ms.custom: devx-track-azurepowershell
 ms.topic: include
 ms.date: 01/17/2024
 author: dennispadia
@@ -156,7 +157,7 @@ $loadbalancer = @{
 } 
 $lb = New-AzLoadBalancer @loadbalancer
 
-# Add ASCS and ERS VMs in backend pool of load balanceer
+# Add ASCS and ERS VMs in backend pool of load balancer
  
 $vm1_primaryip.LoadBalancerBackendAddressPools.Add($lb.BackendAddressPools[0])
 $vm2_primaryip.LoadBalancerBackendAddressPools.Add($lb.BackendAddressPools[0])

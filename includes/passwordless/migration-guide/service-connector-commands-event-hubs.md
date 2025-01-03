@@ -1,9 +1,8 @@
 ---
 title: "include file"
 description: "include file"
-services: event-hubs
 author: alexwolfmsft
-ms.service: event-hubs
+ms.service: azure-event-hubs
 ms.topic: include
 ms.date: 6/09/2023
 ms.author: alexwolf
@@ -38,10 +37,10 @@ You can use Service Connector to create a connection between an Azure compute ho
     
     # [Azure Spring Apps](#tab/spring-connector)
     
-    If you're using Azure Spring Apps, use the [az spring-cloud connection](/cli/azure/spring-cloud/connection/create) command:
+    If you're using Azure Spring Apps, use the [az spring connection](/cli/azure/spring/connection/create) command:
     
     ```azurecli
-    az spring-cloud connection create eventhub \
+    az spring connection create eventhub \
         --resource-group <resource-group-name> \
         --service <service-instance-name> \
         --app <app-name> \

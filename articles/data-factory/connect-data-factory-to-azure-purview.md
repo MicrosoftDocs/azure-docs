@@ -3,10 +3,10 @@ title: Connect a Data Factory to Microsoft Purview
 description: Learn about how to connect a Data Factory to Microsoft Purview
 ms.author: jianleishen
 author: jianleishen
-ms.service: data-factory
 ms.topic: conceptual
-ms.custom: seo-lt-2019, references_regions
-ms.date: 10/20/2023
+ms.custom: references_regions
+ms.date: 10/03/2024
+ms.subservice: orchestration
 ---
 
 # Connect Data Factory to Microsoft Purview

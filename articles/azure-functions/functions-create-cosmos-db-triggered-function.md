@@ -1,14 +1,14 @@
 ---
-title: Create a function triggered by Azure Cosmos DB 
+title: Create a function triggered by Azure Cosmos DB
 description: Use Azure Functions to create a serverless function that is invoked when data is added to a database in Azure Cosmos DB.
 ms.assetid: bc497d71-75e7-47b1-babd-a060a664adca
 ms.topic: how-to
 ms.date: 12/28/2023
-ms.custom: cc996988-fb4f-47, ignite-2022
+ms.custom: cc996988-fb4f-47
 ---
 # Create a function triggered by Azure Cosmos DB
 
-Learn how to create a function in the Azure portal that is triggered when data is added to or changed in Azure Cosmos DB. To learn more about Azure Cosmos DB, see [Azure Cosmos DB: Serverless database computing using Azure Functions](../cosmos-db/serverless-computing-database.md).
+Learn how to create a function in the Azure portal that is triggered when data is added to or changed in Azure Cosmos DB. To learn more about Azure Cosmos DB, see [Azure Cosmos DB: Serverless database computing using Azure Functions](/azure/cosmos-db/serverless-computing-database).
 
 [!INCLUDE [functions-in-portal-editing-note](../../includes/functions-in-portal-editing-note.md)]
 
@@ -29,7 +29,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) with your Azure account
 
 You must have an Azure Cosmos DB account that uses the SQL API before you create the trigger.
 
-[!INCLUDE [cosmos-db-create-dbaccount](../cosmos-db/includes/cosmos-db-create-dbaccount.md)]
+[!INCLUDE [cosmos-db-create-dbaccount](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/cosmos-db-create-dbaccount.md)]
 
 ## Create a function app in Azure
 
@@ -88,7 +88,7 @@ Next, you connect to your Azure Cosmos DB account and create the `Items` contain
     | ---|---|--- |
     | **Database ID** | Tasks |The name for your new database. This must match the name defined in your function binding. |
     | **Container ID** | Items | The name for the new container. This must match the name defined in your function binding.  |
-    | **[Partition key](../cosmos-db/partitioning-overview.md)** | /category|A partition key that distributes data evenly to each partition. Selecting the correct partition key is important in creating a performant container. | 
+    | **[Partition key](/azure/cosmos-db/partitioning-overview)** | /category|A partition key that distributes data evenly to each partition. Selecting the correct partition key is important in creating a performant container. | 
     | **Throughput** |400 RU| Use the default value. If you want to reduce latency, you can scale up the throughput later. |    
 
 1. Click **OK** to create the Items container. It may take a short time for the container to get created.

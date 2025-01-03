@@ -3,7 +3,7 @@ title: include file
 description: include file
 services: app-service
 author: ggailey777
-ms.service: app-service
+ms.service: azure-app-service
 ms.topic: include
 ms.date: 06/26/2020
 ms.author: glenga

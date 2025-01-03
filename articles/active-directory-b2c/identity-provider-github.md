@@ -6,13 +6,16 @@ description: Provide sign-up and sign-in to customers with GitHub accounts in yo
 author: garrodonnell
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: how-to
 ms.date: 03/10/2022
 ms.author: godonnell
-ms.subservice: B2C
+ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
+
+#Customer Intent: As a developer using Azure Active Directory B2C, I want to integrate GitHub as an identity provider, so that users can sign up and sign in with their GitHub accounts.
+
 ---
 
 # Set up sign-up and sign-in with a GitHub account using Azure Active Directory B2C

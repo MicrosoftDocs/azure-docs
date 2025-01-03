@@ -1,16 +1,17 @@
 ---
 title: Regulatory Compliance in initiative definitions
 description: Describes how to use an initiative definition to group policies by regulatory domain such as Access Control, Configuration Management, and others.
-ms.date: 08/17/2021
+ms.date: 03/21/2024
 ms.topic: conceptual
 ---
+
 # Regulatory Compliance in Azure Policy
 
 Regulatory Compliance in Azure Policy provides built-in initiative definitions to view a list of the
 **controls** and **compliance domains** based on responsibility (_Customer_, _Microsoft_, _Shared_).
 For Microsoft-responsible controls, we provide additional details of our audit results based on
 third-party attestation and our implementation details to achieve that compliance.
-Microsoft-responsible controls are of `type` [static](./definition-structure.md#type).
+Microsoft-responsible controls are of `policyType` [static](./definition-structure-basics.md#policy-type).
 
 > [!NOTE]
 > Regulatory Compliance is a Preview feature. For updated built-ins, the initiatives
@@ -36,7 +37,7 @@ definitions in the
 [Azure Policy GitHub repo](https://github.com/Azure/azure-policy/tree/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance).
 
 To link a custom Regulatory Compliance initiative to your Microsoft Defender for Cloud dashboard, see
-[Create custom security initiatives and policies](../../../defender-for-cloud/custom-security-policies.md).
+[Create custom security initiatives and policies](/azure/defender-for-cloud/custom-security-policies).
 
 ## Regulatory Compliance in portal
 
@@ -59,8 +60,7 @@ compliance** tab provides a granular view of each resource that's evaluated by a
 the currently viewed **control**.
 
 > [!NOTE]
-> An evaluation type of **Microsoft managed** is for a [static](./definition-structure.md#type)
-> policy definition `type`.
+> An evaluation type of **Microsoft managed** is for a [static](./definition-structure-basics.md#policy-type) policy definition `policyType`.
 
 :::image type="content" source="../media/regulatory-compliance/regulatory-compliance-policies.png" alt-text="Screenshot of the Regulatory Compliance details for the Boundary Protection control of the NIST SP 800-53 R4 built-in definition.":::
 
@@ -94,5 +94,5 @@ The following code is an example of added results from a `summarize` call:
 
 - See the [initiative definition structure](./initiative-definition-structure.md)
 - Review examples at [Azure Policy samples](../samples/index.md).
-- Review [Understanding policy effects](./effects.md).
+- Review [Understanding policy effects](./effect-basics.md).
 - Learn how to [remediate non-compliant resources](../how-to/remediate-resources.md).

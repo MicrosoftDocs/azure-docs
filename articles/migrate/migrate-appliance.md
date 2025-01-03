@@ -6,8 +6,8 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.service: azure-migrate
-ms.date: 10/23/2023
-ms.custom: engagement-fy24
+ms.date: 03/20/2024
+ms.custom: engagement-fy25
 ---
 
  
@@ -37,8 +37,9 @@ The appliance can be deployed using a couple of methods:
 - For physical or virtualized servers on-premises or any other cloud, you always deploy the appliance using a PowerShell installer script.Refer to the steps of deployment [here](how-to-set-up-appliance-physical.md).
 - Download links are available in the tables below.
 
-> [!Note]
-> Don't install any other components, such as the **Microsoft Monitoring Agent (MMA)** or **Replication appliance**, on the same server hosting the Azure Migrate appliance. If you install the MMA agent, you can face problems like **"Multiple custom attributes of the same type found"**. It's recommended to have a dedicated server to deploy the appliance.
+    > [!Note]
+    > - Don't install any other components, such as the **Microsoft Monitoring Agent (MMA)** or **Replication appliance**, on the same server hosting the Azure Migrate appliance. If you install the MMA agent, you can face problems like **"Multiple custom attributes of the same type found"**. It's recommended to have a dedicated server to deploy the appliance.
+    > - Federal Information Processing Standards (FIPS) mode is not supported for appliance deployment. 
 
 ## Appliance services
 
@@ -247,7 +248,7 @@ The appliance is upgraded as the Azure Migrate services running on the appliance
 You can turn on auto-update using either of these methods:
 
 - By deleting the AutoUpdate registry key from HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance.
-- Click on **View appliance services** from the latest update checks in the **Set up prerequisites** panel to turn on auto-update.
+- Select **View appliance services** from the latest update checks in the **Set up prerequisites** panel to turn on auto-update.
 
 To delete the registry key:
 
@@ -258,7 +259,7 @@ To delete the registry key:
 To turn on from Appliance Configuration Manager, after discovery is complete:
 
 1. On the appliance configuration manager, go to **Set up prerequisites** panel
-2. In the latest updates check, click on **View appliance services** and click on the link to turn on auto-update.
+2. In the latest updates check, select **View appliance services** and select the link to turn on auto-update.
 
     ![Image of turn on auto updates screen.](./media/migrate-appliance/autoupdate-off.png)
 
@@ -272,13 +273,13 @@ You can check the appliance services version using either of these methods:
 To check in the Appliance configuration manager:
 
 1. On the appliance configuration manager, go to **Set up prerequisites** panel
-2. In the latest updates check, click on **View appliance services**.
+2. In the latest updates check, select **View appliance services**.
 
     ![Screenshot of screen to check the version.](./media/migrate-appliance/versions.png)
 
 To check in the Control Panel:
 
-1. On the appliance, click **Start** > **Control Panel** > **Programs and Features**
+1. On the appliance, select **Start** > **Control Panel** > **Programs and Features**.
 2. Check the appliance services versions in the list.
 
     ![Screenshot of process to check version in Control Panel.](./media/migrate-appliance/programs-features.png)

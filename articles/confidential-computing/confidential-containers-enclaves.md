@@ -6,9 +6,8 @@ author: angarg05
 ms.topic: article
 ms.date: 7/15/2022
 ms.author: ananyagarg
-ms.service: virtual-machines
-ms.subservice: confidential-computing
-ms.custom: ignite-fall-2021
+ms.service: azure-virtual-machines
+ms.subservice: azure-confidential-computing
 ---
 
 # Confidential containers on Azure Kubernetes Service(AKS) with Intel SGX enclaves
@@ -94,6 +93,6 @@ Do you have questions about your implementation? Do you want to become an enable
 ## Next steps
 
 - [Deploy AKS cluster with Intel SGX Confidential VM Nodes](./confidential-enclave-nodes-aks-get-started.md)
-- [Microsoft Azure Attestation](../attestation/overview.md)
+- [Microsoft Azure Attestation](/azure/attestation/overview)
 - [Intel SGX Confidential Virtual Machines](virtual-machine-solutions-sgx.md)
-- [Azure Kubernetes Service (AKS)](../aks/intro-kubernetes.md)
+- [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes)

@@ -6,12 +6,12 @@ description: Define the identity types you can use (email, username, phone numbe
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: how-to
 ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As a developer, I want to enable phone sign-up and sign-in for user flows, so that users can sign up for my application using their phone number as an identity option.

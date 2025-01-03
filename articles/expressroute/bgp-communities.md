@@ -3,8 +3,8 @@ title: Managing complex network architectures with BGP communities - Azure Expre
 description: Learn how to manage complex networks with BGP community values.
 services: expressroute
 author: duongau
-ms.service: expressroute
-ms.topic: conceptual
+ms.service: azure-expressroute
+ms.topic: concept-article
 ms.date: 06/30/2023
 ms.author: duau
 

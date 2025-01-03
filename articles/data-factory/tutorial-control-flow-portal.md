@@ -1,16 +1,15 @@
 ---
-title: Branching and chaining activities in a pipeline using Azure portal
+title: Copy data and send email notifications on success and failure
 description: Learn how to control flow of data in Azure Data Factory pipeline by using the Azure portal.
 author: ssabat
 ms.author: susabat
 ms.reviewer: jburchel
-ms.service: data-factory
-ms.subservice: tutorials
 ms.topic: tutorial
-ms.date: 10/20/2023
+ms.date: 10/03/2024
+ms.subservice: orchestration
 ---
 
-# Branching and chaining activities in an Azure Data Factory pipeline using the Azure portal
+# Copy data and send email notifications on success and failure
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 

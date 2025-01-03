@@ -5,7 +5,9 @@ author: yelevin
 ms.topic: how-to
 ms.date: 11/09/2021
 ms.author: yelevin
-ms.custom: ignite-fall-2021
+appliesto: 
+  - Microsoft Sentinel in the Azure portal
+#Customer intent: As a security analyst, I want to use User and Entity Behavior Analytics (UEBA) data to investigate incidents so that I can identify and respond to potential security threats more effectively.
 ---
 
 # Tutorial: Investigate incidents with UEBA data
@@ -102,7 +104,7 @@ For example:
 
     ```kusto
     SigninLogs
-    | where AppDisplayName == "GithHub.Com"
+    | where AppDisplayName == "GitHub.Com"
     | join kind=inner  (
         IdentityInfo
         | summarize arg_max(TimeGenerated, *) by AccountObjectId) on $left.UserId == $right.AccountObjectId
@@ -113,7 +115,7 @@ The **IdentityInfo** table synchronizes with your Microsoft Entra workspace to c
 
 ## Identify password spray and spear phishing attempts
 
-Without multi-factor authentication (MFA) enabled, user credentials are vulnerable to attackers looking to compromise attacks with [password spraying](https://www.microsoft.com/security/blog/2020/04/23/protecting-organization-password-spray-attacks/) or [spear phishing](https://www.microsoft.com/security/blog/2019/12/02/spear-phishing-campaigns-sharper-than-you-think/) attempts.
+Without multifactor authentication (MFA) enabled, user credentials are vulnerable to attackers looking to compromise attacks with [password spraying](https://www.microsoft.com/security/blog/2020/04/23/protecting-organization-password-spray-attacks/) or [spear phishing](https://www.microsoft.com/security/blog/2019/12/02/spear-phishing-campaigns-sharper-than-you-think/) attempts.
 
 ### Investigate a password spray incident with UEBA insights
 
@@ -141,7 +143,6 @@ The Investigation graph includes a node for the detonated URL, as well as the fo
 
 - **DetonationVerdict**. The high-level, Boolean determination from detonation. For example, **Bad** means that the side was classified as hosting malware or phishing content.
 - **DetonationFinalURL**. The final, observed landing page URL, after all redirects from the original URL.
-- **DetonationScreenshot**. A screenshot of what the page looked like at the time that the alert was triggered. Select the screenshot to enlarge.
 
 For example:
 

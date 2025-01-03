@@ -1,7 +1,7 @@
 ---
 title: List of built-in policy initiatives
-description: List built-in policy initiatives for Azure Policy. Categories include Regulatory Compliance, Guest Configuration, and more.
-ms.date: 01/02/2024
+description: List built-in policy initiatives for Azure Policy. Categories include Regulatory Compliance, Azure Machine Configuration, and more.
+ms.date: 12/06/2024
 ms.topic: sample
 ms.custom: generated
 ---
@@ -49,6 +49,10 @@ The name on each built-in links to the initiative definition source on the
 
 [!INCLUDE [azure-policy-reference-policysets-network](../../../../includes/policy/reference/bycat/policysets-network.md)]
 
+## Nexus
+
+[!INCLUDE [azure-policy-reference-policysets-nexus](../../../../includes/policy/reference/bycat/policysets-nexus.md)]
+
 ## Regulatory Compliance
 
 [!INCLUDE [azure-policy-reference-policysets-regulatory-compliance](../../../../includes/policy/reference/bycat/policysets-regulatory-compliance.md)]
@@ -65,16 +69,24 @@ The name on each built-in links to the initiative definition source on the
 
 [!INCLUDE [azure-policy-reference-policysets-security-center](../../../../includes/policy/reference/bycat/policysets-security-center.md)]
 
-## Tags
+## SQL
 
-[!INCLUDE [azure-policy-reference-policysets-tags](../../../../includes/policy/reference/bycat/policysets-tags.md)]
+[!INCLUDE [azure-policy-reference-policysets-sql](../../../../includes/policy/reference/bycat/policysets-sql.md)]
+
+## Synapse
+
+[!INCLUDE [azure-policy-reference-policysets-synapse](../../../../includes/policy/reference/bycat/policysets-synapse.md)]
 
 ## Trusted Launch
 
 [!INCLUDE [azure-policy-reference-policysets-trusted-launch](../../../../includes/policy/reference/bycat/policysets-trusted-launch.md)]
 
+## VirtualEnclaves
+
+[!INCLUDE [azure-policy-reference-policysets-virtualenclaves](../../../../includes/policy/reference/bycat/policysets-virtualenclaves.md)]
+
 ## Next steps
 
 - See the built-ins on the [Azure Policy GitHub repo](https://github.com/Azure/azure-policy).
-- Review the [Azure Policy definition structure](../concepts/definition-structure.md).
-- Review [Understanding policy effects](../concepts/effects.md).
+- Review the [Azure Policy definition structure](../concepts/definition-structure-basics.md).
+- Review [Understanding policy effects](../concepts/effect-basics.md).

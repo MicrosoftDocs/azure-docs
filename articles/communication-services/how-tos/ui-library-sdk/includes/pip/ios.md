@@ -10,6 +10,9 @@ ms.service: azure-communication-services
 
 For more information, see the [open-source iOS UI Library](https://github.com/Azure/communication-ui-library-ios) and the [sample application code](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/ui-calling).
 
+### Prerequisites
+A physical iOS device to run the App. An iOS Simulator does not support Picture-in-picture functionality.
+
 ### Picture-in-picture setup
 
 To enable multitasking and picture-in-picture, use the `CallCompositeOptions` constructor parameters `enableMultitasking` and `enableSystemPiPWhenMultitasking`.
@@ -20,7 +23,7 @@ To enable multitasking and picture-in-picture, use the `CallCompositeOptions` co
 ```swift
 let callCompositeOptions = CallCompositeOptions(
             enableMultitasking: true,
-            enableSystemPiPWhenMultitasking: true)
+            enableSystemPictureInPictureWhenMultitasking: true)
 
 let callComposite = CallComposite(withOptions: callCompositeOptions)
 ```
@@ -29,14 +32,22 @@ The **Back** button appears when `enableMultitasking` is set to `true`.
 
 :::image type="content" source="media/ios-call-screen.png" alt-text="Screenshot of the iOS call screen with the Back button visible.":::
 
-To open the call UI, the user opens a call activity programmatically or by selecting the notification on the top bar. To reopen the UI programmatically, the app needs to preserve a reference to `CallComposite` and execute the `displayCallCompositeIfWasHidden` method.
+
+When user taps back button Calling UI is hidden and, if configured, Picture-in-Picture view is displayed.
+
+
+-----
+
+To enter or exit multitasking programmatically, use `isHidden` property:
+
 
 ```swift
-callComposite.displayCallCompositeIfWasHidden(context)
+// Close calling UI and display PiP
+callComposite.isHidden = true
 ```
-
-To enter multitasking programmatically, call the `hide` method.
 
 ```swift
-callComposite.hide()
+// Displaye calling UI and close PiP
+callComposite.isHidden = false
 ```
+

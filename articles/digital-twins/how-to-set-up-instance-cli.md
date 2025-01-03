@@ -6,8 +6,8 @@ author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 11/17/2022
 ms.topic: how-to
-ms.service: digital-twins
-ms.custom: contperf-fy22q2, engagement-fy23, devx-track-azurecli
+ms.service: azure-digital-twins
+ms.custom: engagement-fy23, devx-track-azurecli
 ms.devlang: azurecli
 
 # Optional fields. Don't forget to remove # if you need a field.
@@ -23,7 +23,7 @@ This article covers the steps to set up a new Azure Digital Twins instance, incl
 
 [!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 [!INCLUDE [CLI setup for Azure Digital Twins](../../includes/digital-twins-cli.md)]
 

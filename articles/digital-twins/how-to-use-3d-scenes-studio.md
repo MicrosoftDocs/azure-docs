@@ -7,8 +7,7 @@ author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 07/19/2023
 ms.topic: how-to
-ms.service: digital-twins
-ms.custom: event-tier1-build-2022
+ms.service: azure-digital-twins
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -82,7 +81,7 @@ In this section, you'll set the environment in *3D Scenes Studio* and customize 
 
 The 3D representation of an environment in 3D Scenes Studio is called a *scene*. A scene consists of a 3D file and a configuration file that's created for you automatically.
 
-To create a scene, start with a segmented 3D file in *.GLTF* or *.GLB* format. You can download and view a sample 3D file using this link: [Download RobotArms.glb](https://cardboardresources.blob.core.windows.net/public/RobotArms.glb). 
+To create a scene, start with a segmented 3D file in *.GLTF* or *.GLB* format. You can view and download a sample 3D file from this link: [RobotArms.glb](https://github.com/Azure-Samples/azure-digital-twins-getting-started/blob/main/3dscenes/RobotArms.glb). 
 
 >[!TIP]
 >3D Scenes Studio supports animation. If you use a 3D model file that contains animations, they will play in the scene.
@@ -259,6 +258,8 @@ Choose a **Display name** for the rule.
 
 Next, choose whether the rule is dependent on a **Single property** or a **Custom (advanced)** property expression. For a **Single property**, you'll get a dropdown list of numeric properties on the primary twin. For **Custom (advanced)**, you'll get a text box where you can write a custom JavaScript expression using one or more properties. The result of your expression must match the result type that you specify in the **Type** field. For more information about writing custom expressions, see [Use custom (advanced) expressions](#use-custom-advanced-expressions).
 
+[!INCLUDE [digital-twins-visual-property-error-note.md](../../includes/digital-twins-visual-property-error-note.md)]
+
 Once you've defined your property expression, select **Add condition** to define the conditional visual effects.
 
 :::image type="content" source="media/how-to-use-3d-scenes-studio/new-behavior-visual-rules-2.png" alt-text="Screenshot of the New visual rule options in 3D Scenes Studio. The described fields are highlighted." lightbox="media/how-to-use-3d-scenes-studio/new-behavior-visual-rules-2.png":::
@@ -291,7 +292,9 @@ Here are the types of widget that you can create:
 
     :::image type="content" source="media/how-to-use-3d-scenes-studio/new-behavior-widgets-gauge.png" alt-text="Screenshot of creating a new gauge-type widget in 3D Scenes Studio." lightbox="media/how-to-use-3d-scenes-studio/new-behavior-widgets-gauge.png":::
 
-* **Link**: For including externally-referenced content via a linked URL
+    [!INCLUDE [digital-twins-visual-property-error-note.md](../../includes/digital-twins-visual-property-error-note.md)]
+
+* **Link**: For including externally referenced content via a linked URL
 
     Enter a **Label** and destination **URL**.
 
@@ -301,11 +304,11 @@ Here are the types of widget that you can create:
 
 * **Value**: For directly displaying twin property values
 
-    Enter a **Display name** and select a **Property expression** that you want to display. This can be a **Single property** of the primary twin, or a **Custom (advanced)** property expression. Custom expressions should be JavaScript expressions using one or more properties of the twin, and you'll select which outcome type the expression will produce. For more information about writing custom expressions, see [Use custom (advanced) expressions](#use-custom-advanced-expressions).
+    Enter a **Display name** and select a **Property expression** that you want to display. This can be a **Single property** of the primary twin, or a **Custom (advanced)** property expression. Custom expressions should be JavaScript expressions using one or more properties of the twin, and you'll select which outcome type the expression will produce. If your custom property expression outputs a string, you can also use JavaScript's template literal syntax to include a dynamic expression in the string output. Format the dynamic expression with this syntax: `${<calculation-expression>}`. Then, wrap the whole string output with backticks (`` ` ``). For more information about writing custom expressions, see [Use custom (advanced) expressions](#use-custom-advanced-expressions).
 
     :::image type="content" source="media/how-to-use-3d-scenes-studio/new-behavior-widgets-value.png" alt-text="Screenshot of creating a new value-type widget in 3D Scenes Studio." lightbox="media/how-to-use-3d-scenes-studio/new-behavior-widgets-value.png":::
 
-    If your custom property expression outputs a string, you can also use JavaScript's template literal syntax to include a dynamic expression in the string output. Format the dynamic expression with this syntax: `${<calculation-expression>}`. Then, wrap the whole string output with backticks (`` ` ``).
+    [!INCLUDE [digital-twins-visual-property-error-note.md](../../includes/digital-twins-visual-property-error-note.md)]
 
     Below is an example of a value widget that checks if the `InFlow` value of the primary twin exceeds 99. If so, it outputs a string with an expression containing the twin's `$dtId`. Otherwise, there will be no expression in the output, so no backticks are required. 
 
@@ -320,6 +323,8 @@ Here are the types of widget that you can create:
     Enter a **Display name**, and add one or more **time series** datasets based on properties of the primary twin. You can also customize how the time series data appears in the widget chart.
 
     :::image type="content" source="media/how-to-use-3d-scenes-studio/new-behavior-widgets-data-history.png" alt-text="Screenshot of creating a new data history widget in 3D Scenes Studio." lightbox="media/how-to-use-3d-scenes-studio/new-behavior-widgets-data-history.png":::
+
+    [!INCLUDE [digital-twins-visual-property-error-note.md](../../includes/digital-twins-visual-property-error-note.md)]
 
 ### Use custom (advanced) expressions
 

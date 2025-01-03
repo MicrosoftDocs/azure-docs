@@ -1,8 +1,8 @@
 ---
 title: Deploy resources to subscription
 description: Describes how to create a resource group in an Azure Resource Manager template. It also shows how to deploy resources at the Azure subscription scope.
-ms.topic: conceptual
-ms.date: 05/22/2023
+ms.topic: how-to
+ms.date: 03/26/2024
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template
 ---
 
@@ -78,7 +78,7 @@ For security, use:
 * [autoProvisioningSettings](/azure/templates/microsoft.security/autoprovisioningsettings)
 * [connectors](/azure/templates/microsoft.security/connectors)
 * [deviceSecurityGroups](/azure/templates/microsoft.security/devicesecuritygroups)
-* [ingestionSettings](/azure/templates/microsoft.security/ingestionsettings)
+* [ingestionSettings](/javascript/api/@azure/arm-security/ingestionsettings)
 * [pricings](/azure/templates/microsoft.security/pricings)
 * [securityContacts](/azure/templates/microsoft.security/securitycontacts)
 * [settings](/azure/templates/microsoft.security/settings)
@@ -168,6 +168,8 @@ When deploying to a subscription, you can deploy resources to:
 * any subscription in the tenant
 * resource groups within the subscription or other subscriptions
 * the tenant for the subscription
+
+[!INCLUDE [Scope transitions](../../../includes/resource-manager-scope-transition.md)]
 
 An [extension resource](scope-extension-resources.md) can be scoped to a target that is different than the deployment target.
 

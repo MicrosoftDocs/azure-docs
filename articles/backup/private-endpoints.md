@@ -2,9 +2,9 @@
 title: Create and use private endpoints for Azure Backup
 description: Understand the process to creating private endpoints for Azure Backup where using private endpoints helps maintain the security of your resources.
 ms.topic: how-to
-ms.date: 04/26/2023
+ms.date: 11/20/2024
 ms.custom: devx-track-azurepowershell
-ms.service: backup
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -256,7 +256,7 @@ After you run the first backup and you're using a custom DNS server (without con
 1. Navigate to your Resource Group, and search for the private endpoint you created.
 1. Aside from the three private endpoints discussed earlier, you'll now see a fourth private endpoint with its name starting with `<the name of the private endpoint>_prot` and are suffixed with `_blob`.
 
-    ![Private endpoing with suffix "prot"](./media/private-endpoints/private-endpoint-prot.png)
+    ![Private endpoint with suffix "prot"](./media/private-endpoints/private-endpoint-prot.png)
 
 1. Navigate to this new private endpoint. In the DNS configuration option, you'll see a record with an FQDN and an IP address. Add these to your private DNS server, in addition to the ones described earlier.
 
@@ -285,8 +285,8 @@ When using the MARS Agent to back up your on-premises resources, make sure your 
 But if you remove private endpoints for the vault after a MARS agent has been registered to it, you'll need to re-register the container with the vault. You don't need to stop protection for them.
 
 >[!NOTE]
-> - Private endpoints are supported with only DPM server 2022 and later.
-> - Private endpoints are not yet supported with MABS.
+>- Private endpoints are supported with only *DPM server 2022 (10.22.123.0)* and later.
+>- Private endpoints are supported with only *MABS V4 (14.0.30.0)* and later.
 
 ## Deleting Private EndPoints
 
@@ -553,7 +553,7 @@ To configure a proxy server for Azure VM or on-premises machine, follow these st
 
 The following diagram shows a setup (while using the Azure Private DNS zones) with a proxy server, whose VNet is linked to a private DNS zone with required DNS entries. The proxy server can also have its own custom DNS server, and the above domains can be conditionally forwarded to 168.63.129.16. If you're using a custom DNS server/host file for DNS resolution, see the sections on [managing DNS entries](#manage-dns-records) and [configuring protection](#configure-backup).
 
-:::image type="content" source="./media/private-endpoints/setup-with-proxy-server-inline.png" alt-text="Diagram showing a setup with a proxy server." lightbox="./media/private-endpoints/setup-with-proxy-server-expanded.png":::
+:::image type="content" source="./media/private-endpoints/setup-with-proxy-server.png" alt-text="Diagram showing a setup with a proxy server." lightbox="./media/private-endpoints/setup-with-proxy-server.png":::
 
 ### Create DNS entries when the DNS server/DNS zone is present in another subscription
 
@@ -626,9 +626,9 @@ To set up private endpoint for Recovery Services vault correctly through this wo
 
 ## Frequently asked questions
 
-### Can I create a private endpoint for an existing Backup vault?<br>
+### Can I create a private endpoint for an existing Recovery Services vault?<br>
 
-No, private endpoints can be created for new Backup vaults only. So the vault must not have ever had any items protected to it. In fact, no attempts to protect any items to the vault can be made before creating private endpoints.
+No, private endpoints can be created for new Recovery Services Vaults only. So the vault must not have ever had any items protected to it. In fact, no attempts to protect any items to the vault can be made before creating private endpoints.
 
 ### I tried to protect an item to my vault, but it failed and the vault still doesn't contain any items protected to it. Can I create private endpoints for this vault?<br>
 

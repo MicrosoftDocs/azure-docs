@@ -1,13 +1,12 @@
 ---
 title: Zoom levels and tile grid in Microsoft Azure Maps
 description: Learn how to set zoom levels in Azure Maps. See how to convert geographic coordinates into pixel coordinates, tile coordinates, and quadkeys. View code samples.
-author: eriklindeman
-ms.author: eriklind
+author: faterceros 
+ms.author: aterceros 
 ms.date: 07/14/2020
 ms.topic: conceptual
 ms.service: azure-maps
-services: azure-maps
-
+ms.subservice: render
 ---
 
 # Zoom levels and tile grid
@@ -29,7 +28,7 @@ Each additional zoom level quad-divides the tiles of the previous one, creating 
 
 The Azure Maps interactive map controls for web and Android support 25 zoom levels, numbered 0 through 24. Although road data is only available at the zoom levels in when the tiles are available.
 
-The following table provides the full list of values for zoom levels where the tile size is **512** pixels square at latitude 0:
+The following table provides the full list of values for zoom levels where the tile size is **256** pixels square:
 
 |Zoom level|Meters/pixel|Meters/tile side|
 |--- |--- |--- |
@@ -731,7 +730,7 @@ module AzureMaps {
         /**
          * Converts a quadkey into tile XY coordinates.
          * @param quadKey Quadkey of the tile.
-         * @returns Tile XY cocorindates and zoom level for the specified quadkey.
+         * @returns Tile XY coordinates and zoom level for the specified quadkey.
          */
         public static QuadKeyToTileXY(quadKey: string): { tileX: number, tileY: number, zoom: number } {
             var tileX = 0;
@@ -774,7 +773,7 @@ module AzureMaps {
          * @param position Position coordinate in the format [longitude, latitude].
          * @param zoom Zoom level.
          * @param tileSize The size of the tiles in the tile pyramid.
-         * @returns Tiel XY coordinates.
+         * @returns Tile XY coordinates.
          */
         public static PositionToTileXY(position: number[], zoom: number, tileSize: number): { tileX: number, tileY: number } {
             var latitude = this.Clip(position[1], this.MinLatitude, this.MaxLatitude);

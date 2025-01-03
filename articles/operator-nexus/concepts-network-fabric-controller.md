@@ -1,8 +1,8 @@
 ---
 title: Azure Operator Nexus Network Fabric Controller
 description: Overview of Network Fabric Controller for Azure Operator Nexus.
-author: lnyswonger
-ms.author: lnyswonger
+author: sushantjrao
+ms.author: sushrao
 ms.reviewer: jdasari
 ms.date: 12/18/2023
 ms.service: azure-operator-nexus
@@ -75,17 +75,15 @@ Create a Network Fabric Controller:
 
 ```
 Update Network Fabric Controller with two new ExR:
+
  ```azurecli
-az networkfabric controller create \
---resource-group "NFCResourceGroupName" \
---location "eastus" \
---resource-name "nfcname" \
---ipv4-address-space "10.0.0.0/19" \
---infra-er-connections '[{"expressRouteCircuitId": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/ER-Dedicated-WUS2-AFO-Circuits/providers/Microsoft.Network/expressRouteCircuits/MSFT-ER-Dedicated-PvtPeering-WestUS2-AFO-Ckt-01", "expressRouteAuthorizationKey": "<auth-key>"}]' \
---infra-er-connections '[{"expressRouteCircuitId": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/ER-Dedicated-WUS2-AFO-Circuits/providers/Microsoft.Network/expressRouteCircuits/MSFT-ER-Dedicated-PvtPeering-WestUS2-AFO-Ckt-02", "expressRouteAuthorizationKey": "<auth-key>"}]' \
- --workload-er-connections '[{"expressRouteCircuitId": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/ER-Dedicated-WUS2-AFO-Circuits/providers/Microsoft.Network/expressRouteCircuits/MSFT-ER-Dedicated-PvtPeering-WestUS2-AFO-Ckt-03"", "expressRouteAuthorizationKey": "<auth-key>"}]'
---workload-er-connections '[{"expressRouteCircuitId": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/ER-Dedicated-WUS2-AFO-Circuits/providers/Microsoft.Network/expressRouteCircuits/MSFT-ER-Dedicated-PvtPeering-WestUS2-AFO-Ckt-04"", "expressRouteAuthorizationKey": "<auth-key>"}]'
---mrg name=<ManagedResourceGroupName> location=eastus
+az networkfabric controller update \ 
+ --resource-group "NFCResourceGroupName" \ 
+ --location "eastus"  \ 
+ --resource-name "nfcname" \ 
+ --ipv4-address-space "10.0.0.0/19" \ 
+--infra-er-connections "[{expressRouteCircuitId:'/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/ER-Dedicated-WUS2-AFO-Circuits/providers/Microsoft.Network/expressRouteCircuits/MSFT-ER-Dedicated-PvtPeering-WestUS2-AFO-Ckt-01',expressRouteAuthorizationKey:'<auth-key>'},{expressRouteCircuitId:'/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/ER-Dedicated-WUS2-AFO-Circuits/providers/Microsoft.Network/expressRouteCircuits/MSFT-ER-Dedicated-PvtPeering-WestUS2-AFO-Ckt-02',expressRouteAuthorizationKey:'<auth-key>'}]"
+--workload-er-connections "[{expressRouteCircuitId:'/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/ER-Dedicated-WUS2-AFO-Circuits/providers/Microsoft.Network/expressRouteCircuits/MSFT-ER-Dedicated-PvtPeering-WestUS2-AFO-Ckt-03',expressRouteAuthorizationKey:'<auth-key>'},{expressRouteCircuitId:'/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/ER-Dedicated-WUS2-AFO-Circuits/providers/Microsoft.Network/expressRouteCircuits/MSFT-ER-Dedicated-PvtPeering-WestUS2-AFO-Ckt-04',expressRouteAuthorizationKey:'<auth-key>'}]"
 ```
 
 >[!NOTE]
@@ -130,7 +128,7 @@ Managed Resource Group:
         ],
         "workloadExpressRouteConnections": [
             {
-                "expressRouteCircuitId": "/subscriptions/b256be71-d296-4e0e-99a1-408d9edc8718/resourceGroups/ER-Dedicated-WUS2-AFO-Circuits/providers/Microsoft.Network/expressRouteCircuits/MSFT-ER-Dedicated-PvtPeering-WestUS2-AFO-Ckt-03"
+                "expressRouteCircuitId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/ER-Dedicated-WUS2-AFO-Circuits/providers/Microsoft.Network/expressRouteCircuits/MSFT-ER-Dedicated-PvtPeering-WestUS2-AFO-Ckt-03"
             }
         ],
         "ipv4AddressSpace": "10.245.224.0/19",

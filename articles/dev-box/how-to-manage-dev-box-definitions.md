@@ -75,11 +75,11 @@ The following steps show you how to create a dev box definition by using an exis
 
    | Setting | Value | Note |
    |---|---|---|
-   | **Name** | Enter a descriptive name for your dev box definition. | You can't change the dev box definition name after it's created. |
+   | **Name** | Enter a descriptive name for your dev box definition. | You can't change the dev box definition name after creation. |
    | **Image** | Select the base operating system for the dev box. You can select an image from Azure Marketplace or from Azure Compute Gallery. </br> If you're creating a dev box definition for testing purposes, consider using the **Visual Studio 2022 Enterprise on Windows 11 Enterprise + Microsoft 365 Apps 22H2** image or **Visual Studio 2022 Pro on Windows 11 Enterprise + Microsoft 365 Apps 22H2** image. | To access custom images when you create a dev box definition, you can use Azure Compute Gallery. For more information, see [Configure Azure Compute Gallery](./how-to-configure-azure-compute-gallery.md). |
    | **Image version** | Select a specific, numbered version to ensure that all the dev boxes in the pool always use the same version of the image. Select **Latest** to ensure that new dev boxes use the latest image available. | Selecting the **Latest** image version enables the dev box pool to use the most recent version of your chosen image from the gallery. This approach ensures the created dev boxes stay up to date with the latest tools and code for your image. Existing dev boxes aren't modified when an image version is updated. |
-   | **Compute** | Select the compute combination for your dev box definition. | |
-   | **Storage** | Select the amount of storage for your dev box definition. | |
+   | **Compute** | Select the compute combination for your dev box definition. | Dev boxes use [Dsv5-series virtual machines](/azure/virtual-machines/dv5-dsv5-series#dsv5-series) for compute. |
+   | **Storage** | Select the amount of storage for your dev box definition. | Dev boxes use [Azure Premium SSDs](/azure/virtual-machines/disks-types#premium-ssds) for storage. |
    | **Enable hibernation**| Leave this checkbox unselected. | |
 
    :::image type="content" source="./media/how-to-manage-dev-box-definitions/recommended-test-image.png" alt-text="Screenshot that shows the pane for creating a dev box definition.":::
@@ -87,11 +87,16 @@ The following steps show you how to create a dev box definition by using an exis
 1. Select **Create**.
 
 > [!NOTE]
-> Dev box definitions with 4 core SKUs are no longer supported. You need to update to an 8 core SKU or delete the dev box definition.
+> Microsoft Dev Box doesn't support:
+> - Preview builds from the Windows Insider Program.
+> - Dev box definitions with 4 core SKUs.
+
 
 ## Update a dev box definition
 
 Over time, your needs for dev boxes can change. You might want to move from a Windows 10 base operating system to a Windows 11 base operating system, or increase the default compute specification for your dev boxes. Your initial dev box definitions might no longer be appropriate for your needs. You can update a dev box definition so new dev boxes use the new configuration.
+
+When you update the image used in a dev box definition, you must ensure that you have sufficient IP addresses available in your virtual network. Additional free IP addresses are necessary for the Azure Network connection health check. If the health check fails the dev box definition will not update. You need 1 additional IP address per dev box, and two IP addresses for the health check and Dev Box infrastructure.
 
 You can update the image, image version, compute, and storage settings for a dev box definition:
 

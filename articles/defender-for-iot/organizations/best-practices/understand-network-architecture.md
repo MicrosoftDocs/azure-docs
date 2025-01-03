@@ -1,7 +1,7 @@
 ---
 title: Microsoft Defender for IoT and your network architecture - Microsoft Defender for IoT
 description: Describes the Purdue reference module in relation to Microsoft Defender for IoT to help you understand more about your own OT network architecture.
-ms.date: 06/02/2022
+ms.date: 04/08/2024
 ms.topic: concept-article
 ---
 

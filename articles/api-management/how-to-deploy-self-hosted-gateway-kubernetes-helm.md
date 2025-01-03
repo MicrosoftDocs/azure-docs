@@ -3,24 +3,22 @@ title: Deploy a self-hosted gateway to Kubernetes with Helm
 description: Learn how to deploy self-hosted gateway component of Azure API Management to Kubernetes with Helm
 author: tomkerkhove
 manager: mrcarlosdev
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
 ms.date: 12/21/2021
 ms.author: tomkerkhove
 ---
 
-# Deploy to Kubernetes with Helm
+# Deploy self-hosted gateway to Kubernetes with Helm
+
+[!INCLUDE [api-management-availability-premium-dev](../../includes/api-management-availability-premium-dev.md)]
 
 [Helm][helm] is an open-source packaging tool that helps you install and manage the lifecycle of Kubernetes applications. It allows you to manage Kubernetes charts, which are packages of pre-configured Kubernetes resources.
 
 This article provides the steps for deploying self-hosted gateway component of Azure API Management to a Kubernetes cluster by using Helm.
 
-[!INCLUDE [preview](./includes/preview/preview-callout-self-hosted-gateway-deprecation.md)]
-
 > [!NOTE]
-> You can also deploy self-hosted gateway to an [Azure Arc-enabled Kubernetes cluster](how-to-deploy-self-hosted-gateway-azure-arc.md) as a [cluster extension](../azure-arc/kubernetes/extensions.md).
-
-[!INCLUDE [api-management-availability-premium-dev](../../includes/api-management-availability-premium-dev.md)]
+> You can also deploy self-hosted gateway to an [Azure Arc-enabled Kubernetes cluster](how-to-deploy-self-hosted-gateway-azure-arc.md) as a [cluster extension](/azure/azure-arc/kubernetes/extensions).
 
 ## Prerequisites
 

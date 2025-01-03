@@ -1,12 +1,13 @@
 ---
 title: Parse Protobuf
 description: This article describes how to use Azure Stream Analytics with Protobuf as data input.
-ms.service: stream-analytics
-author: enkrumah
-ms.author: ebnkruma
+ms.service: azure-stream-analytics
+author: AliciaLiMicrosoft
+ms.author: ali
 ms.topic: conceptual
-ms.date: 11/20/2023
+ms.date: 11/18/2024
 ms.custom:
+  - ignite-2024
 ---
 # Parse Protobuf in Azure Stream Analytics
 
@@ -21,7 +22,7 @@ To configure your Stream Analytics job to deserialize events in Protobuf:
 
 1. After you create your Stream Analytics job, select **Inputs**.
 1. Select **Add input**, and then select what input you want to configure to open the pane for input configuration.
-1. Select **Event serialization format** to show a dropdown list, and then select **Protobuf (preview)**.
+1. Select **Event serialization format** to show a dropdown list, and then select **Protobuf**.
 
    :::image type="content" source="./media/protobuf/protobuf-input-config.png" alt-text=" Screenshot that shows selections for configuring Protobuf for an Azure Stream Analytics job." lightbox="./media/protobuf/protobuf-input-config.png" :::
 
@@ -45,9 +46,6 @@ To learn more about Protobuf data types, see the [official Protocol Buffers docu
 
     This Protobuf definition file refers to another Protobuf definition file in its imports. Because the Protobuf deserializer would have only the current Protobuf definition file and not know what *carseat.proto* is, it would be unable to deserialize correctly.
 
-- Enumerations aren't supported. If the Protobuf definition file contains enumerations, the `enum` field is empty when the Protobuf events deserialize. This condition leads to data loss.
-
-- Maps in Protobuf aren't supported. Maps in Protobuf result in an error about missing a string key.
   
 - When a Protobuf definition file contains a namespace or package, the message type must include it. For example:
 

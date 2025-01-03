@@ -5,7 +5,8 @@ ms.topic: troubleshooting
 zone_pivot_groups: azure-virtual-desktop-windows-client-troubleshoot
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 10/12/2023
+ms.custom: "se-defect-target"
+ms.date: 09/25/2024
 ---
 
 # Basic troubleshooting for the Remote Desktop client for Windows
@@ -34,13 +35,12 @@ There are a few basic troubleshooting steps you can try if you're having issues 
 
 1. Try to connect to your desktops or applications from the Azure Virtual Desktop web client. For more information, see [Connect to Azure Virtual Desktop with the Remote Desktop web client](users/connect-web.md).
 
-1. Make sure you're using the latest version of the Remote Desktop client. By default, the client automatically updates when a new version is available. To check for updates manually, see [Update the client](users/client-features-windows.md#update-the-client).
+1. Make sure you're using the latest version of the Remote Desktop client. By default, the client automatically updates when a new version is available. To check for updates manually, see [Update the client](./users/client-features-windows.md#update-the-client).
 
 1. If the connection fails frequently or you notice performance issues, check the status of the connection. You can find connection information in the connection bar, by selecting the signal icon:
 
    :::image type="content" source="media/troubleshoot-client-windows-basic-shared/troubleshoot-windows-client-connection-information.png" alt-text="A screenshot showing the connection bar in the Remote Desktop client for Windows.":::
 
-1. Check the estimated connection round trip time (RTT) from your current location to the Azure Virtual Desktop service. For more information, see [Azure Virtual Desktop Experience Estimator](https://azure.microsoft.com/products/virtual-desktop/assessment/#estimation-tool)
 ::: zone-end
 
 ::: zone pivot="windows-365"
@@ -52,7 +52,7 @@ There are a few basic troubleshooting steps you can try if you're having issues 
 
 1. Try to connect to your Cloud PC from the Windows 365 web client. For more information, see [Access a Cloud PC](/windows-365/end-user-access-cloud-pc#home-page).
 
-1. Make sure you're using the latest version of the Remote Desktop client. By default, the client automatically updates when a new version is available. To check for updates manually, see [Update the client](users/client-features-windows.md?context=%2Fwindows-365%2Fcontext%2Fpr-context#update-the-client).
+1. Make sure you're using the latest version of the Remote Desktop client. By default, the client automatically updates when a new version is available. To check for updates manually, see [Update the client](./users/client-features-windows.md?context=%2Fwindows-365%2Fcontext%2Fpr-context#update-the-client).
 
 1. If the connection fails frequently or you notice performance issues, check the status of the connection. You can find connection information in the connection bar, by selecting the signal icon:
 
@@ -72,7 +72,7 @@ There are a few basic troubleshooting steps you can try if you're having issues 
 
 1. Try to connect to your dev box from the Dev Box developer portal. For more information, see [Connect to a dev box](../dev-box/quickstart-create-dev-box.md#connect-to-a-dev-box).
 
-1. Make sure you're using the latest version of the Remote Desktop client. By default, the client automatically updates when a new version is available. To check for updates manually, see [Update the client](users/client-features-windows.md?toc=%2Fazure%2Fdev-box%2Ftoc.json#update-the-client).
+1. Make sure you're using the latest version of the Remote Desktop client. By default, the client automatically updates when a new version is available. To check for updates manually, see [Update the client](./users/client-features-windows.md?toc=%2Fazure%2Fdev-box%2Ftoc.json#update-the-client).
 
 1. If the connection fails frequently or you notice performance issues, check the status of the connection. You can find connection information in the connection bar, by selecting the signal icon:
 
@@ -81,6 +81,20 @@ There are a few basic troubleshooting steps you can try if you're having issues 
 1. Restart your dev box from the Dev Box developer portal.
 
 1. If none of the previous steps resolved your issue, you can use the *Troubleshoot & repair* tool in the developer portal to diagnose and repair some common dev box connectivity issues. To learn how to use the Troubleshoot & repair tool, see [Troubleshoot and resolve dev box remote desktop connectivity issues](../dev-box/how-to-troubleshoot-repair-dev-box.md).
+::: zone-end
+
+## Reset password
+
+::: zone pivot="azure-virtual-desktop"
+Password resets can't be done in the product. You should follow your organization's process to reset your password. 
+::: zone-end
+
+::: zone pivot="windows-365"
+Password resets can't be done in the product. You should follow your organization's process to reset your password.
+::: zone-end
+
+::: zone pivot="dev-box"
+Password resets can't be done in the product. You should follow your organization's process to reset your password.
 ::: zone-end
 
 ## Client stops responding or can't be opened
