@@ -209,7 +209,7 @@ ms.author: xiaofanzhou
     ```bash
     npm install redis @azure/identity
     ```
-1. Get the Redis connection string from the environment variable added by Service Connectorm. For more information, see (Azure Cache for Redis: Microsoft Entra ID with node-redis client library)[https://aka.ms/redis/aad/sample-code/js-noderedis].
+1. Add the authentication logic with environment variables set by Service Connector. For more information, see (Azure Cache for Redis: Microsoft Entra ID with node-redis client library)[https://aka.ms/redis/aad/sample-code/js-noderedis].
     
     ```javascript
     import { createClient } from "redis";
