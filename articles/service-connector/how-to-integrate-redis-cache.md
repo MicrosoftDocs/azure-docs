@@ -49,6 +49,7 @@ Use the environment variable names and application properties listed below to co
 | AZURE_REDIS_HOST | Redis Endpoint | `<RedisName>.redis.cache.windows.net` |
 
 #### Sample code
+
 Refer to the steps and code below to connect to Redis using a system-assigned managed identity.
 [!INCLUDE [code sample for redis](./includes/code-redis-me-id.md)]
 
@@ -60,6 +61,7 @@ Refer to the steps and code below to connect to Redis using a system-assigned ma
 | AZURE_REDIS_CLIENTID                | managed identity client ID        | `<client-ID>`                                    |
 
 #### Sample code
+
 Refer to the steps and code below to connect to Redis using a user-assigned managed identity.
 [!INCLUDE [code sample for Redis](./includes/code-redis-me-id.md)]
 
@@ -135,6 +137,7 @@ Refer to the steps and code below to connect to Azure Cache for Redis using a co
 | AZURE_REDIS_TENANTID   | tenant ID of the service principal | `<tenant-id>` |
 
 #### Sample code
+
 Refer to the steps and code below to connect to Redis using a Service Principal.
 [!INCLUDE [code sample for Redis](./includes/code-redis-me-id.md)]
 

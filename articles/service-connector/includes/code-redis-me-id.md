@@ -274,4 +274,5 @@ ms.author: xiaofanzhou
     ```
 
 ### [Other](#tab/none)
+
 For other languages, you can use the Azure Identity client library and connection information that Service Connector sets to the environment variables to connect to Azure Cache for Redis.
