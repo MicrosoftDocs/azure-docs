@@ -1,8 +1,8 @@
 ---
 title: Discover SQL Server instances in an existing Azure Migrate project
 description: Learn how to discover SQL Server instances in an existing Azure Migrate project. 
-author: v-sreedevank
-ms.author: v-sreedevank
+author: SnehaSudhirG
+ms.author: sudhirsneha 
 ms.topic: how-to
 ms.service: azure-migrate
 ms.date: 10/14/2024
