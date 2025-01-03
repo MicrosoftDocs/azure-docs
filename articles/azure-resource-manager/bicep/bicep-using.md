@@ -3,7 +3,7 @@ title: Using statement
 description: Describes how to use the using statement in Bicep.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 01/02/2025
+ms.date: 01/06/2025
 ---
 
 # Using statement

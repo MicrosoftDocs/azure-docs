@@ -3,7 +3,7 @@ title: Data types in Bicep
 description: This article describes the data types that are available in Bicep.
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 01/02/2025
+ms.date: 01/06/2025
 ---
 
 # Data types in Bicep
