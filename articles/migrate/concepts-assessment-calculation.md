@@ -19,7 +19,7 @@ This article provides an overview of assessments in the [Azure Migrate: Discover
 An assessment with the Discovery and assessment tool measures the readiness and estimates the effect of migrating on-premises servers to Azure.
 
 > [!NOTE]
-> In Azure Government, review the [supported target](migrate-support-matrix.md#azure-government) assessment locations. Note that VM size recommendations in assessments will use the VM series specifically for Government Cloud regions. [Learn more](https://azure.microsoft.com/global-infrastructure/services/?regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia&products=virtual-machines) about VM types.
+> In Azure Government, review the [supported target](supported-geographies.md#azure-government) assessment locations. Note that VM size recommendations in assessments will use the VM series specifically for Government Cloud regions. [Learn more](https://azure.microsoft.com/global-infrastructure/services/?regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia&products=virtual-machines) about VM types.
 
 ## Types of assessments
 
