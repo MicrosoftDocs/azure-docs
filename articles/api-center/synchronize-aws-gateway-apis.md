@@ -4,7 +4,7 @@ description: Integrate an Amazon API Gateway to Azure API Center for automatic s
 author: dlepow
 ms.service: azure-api-center
 ms.topic: how-to
-ms.date: 12/23/2024
+ms.date: 01/02/2025
 ms.author: danlep 
 ms.custom: devx-track-azurecli
 # Customer intent: As an API program manager, I want to integrate my Azure API Management instance with my API center and synchronize API Management APIs to my inventory.
@@ -12,11 +12,11 @@ ms.custom: devx-track-azurecli
 
 # Synchronize APIs from Amazon API Gateway to Azure API Center (preview)
 
-This article shows how to integrate an Amazon API Gateway so that the gateway's APIs are continuously kept up to date in your [API center](overview.md) inventory. 
+This article shows how to integrate an Amazon API Gateway so that the gateway's APIs are continuously kept up to date in your [API center](overview.md) inventory.
 
 ## About integrating Amazon API Gateway
 
-Integrating Amazon API Gateway as an API source for your API center enables continuous synchronization so that the API inventory stays up to date.
+Integrating Amazon API Gateway as an API source for your API center enables continuous synchronization so that the API inventory stays up to date. Azure API Center can also synchronize APIs from sources including [Azure API Management](synchronize-api-management-apis.md). 
 
 When you integrate an Amazon API Gateway as an API source, the following happens:
 
@@ -24,27 +24,17 @@ When you integrate an Amazon API Gateway as an API source, the following happens
 1. You configure an [environment](key-concepts.md#environment) of type *Amazon API Gateway* in the API center. 
 1. An associated [deployment](key-concepts.md#deployment) is created for each synchronized API definition. 
 
-Synchronization is one-way from Amazon API Gateway to your Azure API center, meaning API updates in the API center aren't synchronized back to the API Gateway.
+Synchronization is one-way from Amazon API Gateway to your Azure API center, meaning API updates in the API center aren't synchronized back to Amazon API Gateway.
 
 > [!NOTE]
+> * Integration of Amazon API Gateway is currently in preview.
 > * There are [limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=/azure/api-center/toc.json&bc=/azure/api-center/breadcrumb/toc.json#api-center-limits) for the number of integrated API sources.
-> * APIs in your Amazon API Gateway synchronize to your API center once per hour.
+> * API updates in Amazon API Gateway synchronize to your API center once per hour.
+> * API definitions are also synchronized to the API center only if you select the option to include them during integration. Only definitions from deployed APIs are synchronized.
 
 ### Entities synchronized from Amazon API Gateway
 
-You can add or update metadata properties and documentation in your API center to help stakeholders discover, understand, and consume the synchronized APIs. Learn more about Azure API Center's [built-in and custom metadata properties](add-metadata-properties.md).
-
-The following table shows entity properties that can be modified in Azure API Center and properties that are determined based on their values in Amazon API Gateway. Also, entities' resource or system identifiers in Azure API Center are generated automatically and can't be modified.
-
-| Entity       | Properties configurable in API Center                     | Properties determined in Amazon API Gateway                                           |
-|--------------|-----------------------------------------|-----------------|
-| API          | summary<br/>lifecycleStage<br/>termsOfService<br/>license<br/>externalDocumentation<br/>customProperties    | title<br/>description<br/>kind                   |
-| API version  | lifecycleStage      | title<br/>definitions (if synchronized)                      |
-| Environment  | title<br/>description<br/>kind</br>server.managementPortalUri<br/>onboarding<br/>customProperties      | server.type
-| Deployment   |  title<br/>description<br/>server<br/>state<br/>customProperties    |      server.runtimeUri |
-
-For property details, see the [Azure API Center REST API reference](/rest/api/apicenter).
-
+[!INCLUDE [synchronized-properties-api-source](includes/synchronized-properties-api-source.md)]
 
 ## Prerequisites
 
@@ -66,7 +56,7 @@ For property details, see the [Azure API Center REST API reference](/rest/api/ap
 
 ## Create IAM user access keys
 
-To authenticate your API center with Amazon API Gateway, you need access keys for an AWS IAM user. 
+To authenticate your API center to Amazon API Gateway, you need access keys for an AWS IAM user. 
 
 To generate the required access key ID and secret key using the AWS Management Console, see [Create an access key for yourself](https://docs.aws.amazon.com/IAM/latest/UserGuide/access-key-self-managed.html#Using_CreateAccessKey) in the AWS documentation. 
 
@@ -87,8 +77,6 @@ Manually upload and securely store the two IAM user access keys in Azure Key Vau
 Take note of the **Secret identifier** URI of each secret. You'll use these identifiers in the next steps.
 
 
-## Add a managed identity in your API center
-
 [!INCLUDE [enable-managed-identity](includes/enable-managed-identity.md)]
 
 ## Assign the managed identity the Key Vault Secrets User role
@@ -108,13 +96,14 @@ You can integrate an Amazon API Gateway to your API center using the portal or t
 1. In the **Integrate your Amazon API Gateway service** page:
     1. Under **Configure AWS credentials using Azure Key Vault**, enter or select the Key Vault secret identifiers for the **AWS access key** and **AWS secret access key** you stored previously. Also, select the **AWS region** where the Amazon API Gateway is deployed.
     1. In **Integration details**, enter an identifier.
-    1. In **Environment details**, enter an **Environment title** (name), **Environment type**, and optional **Environment description**.
-    1. In **API details**, select a **Lifecycle stage** for the synchronized APIs. (You can update this value for your APIs after they're added to your API center.) Also, select whether to synchronize API definitions.
+    1. In **Environment details**, enter an **Environment title** (name), **Environment type**, and optional **Description**.
+    1. In **API Details**:
+        1. Select a **Lifecycle** for the synchronized APIs. (You can update this value for the APIs after they're added to your API center.) 
+        1. Optionally, select whether to include API definitions.
 1. Select **Create**.
 
 <!----
-:::image type="content" source="media/synchronize-api-management-apis/link-api-management-service.png" alt-text="Screenshot of linking an Azure API Management Service in the portal.":::
-
+Add image of integrating AWS g/w?
 --->
 
 #### [Azure CLI](#tab/cli)

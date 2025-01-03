@@ -11,9 +11,11 @@ ms.author: danlep
 ms.custom: Include file
 ---
 
-For this scenario, your API center uses a [managed identity](/entra/identity/managed-identities-azure-resources/overview) to access Azure resources. Depending on your needs, configure either a system-assigned or one or more user-assigned managed identities. 
+## Enable a managed identity in your API center
 
-The following examples show how to configure a system-assigned managed identity by using the Azure portal or the Azure CLI. At a high level, configuration steps are similar for a user-assigned managed identity. 
+For this scenario, your API center uses a [managed identity](/entra/identity/managed-identities-azure-resources/overview) to access Azure resources. Depending on your needs, enable either a system-assigned or one or more user-assigned managed identities. 
+
+The following examples show how to enable a system-assigned managed identity by using the Azure portal or the Azure CLI. At a high level, configuration steps are similar for a user-assigned managed identity. 
 
 #### [Portal](#tab/portal)
 

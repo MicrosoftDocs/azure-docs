@@ -4,7 +4,7 @@ description: Integrate an API Management instance to Azure API Center for automa
 author: dlepow
 ms.service: azure-api-center
 ms.topic: how-to
-ms.date: 12/23/2024
+ms.date: 01/02/2025
 ms.author: danlep 
 ms.custom: devx-track-azurecli
 # Customer intent: As an API program manager, I want to integrate my Azure API Management instance with my API center and synchronize API Management APIs to my inventory.
@@ -14,9 +14,9 @@ ms.custom: devx-track-azurecli
 
 This article shows how to integrate an API Management instance so that the instances's APIs are continuously kept up to date in your [API center](overview.md) inventory. 
 
-## About integrate an API Management instance
+## About integrating an API Management instance
 
-Although you can use the Azure CLI to [import](import-api-management-apis.md) APIs on demand from Azure API Management to Azure API Center, integrate an API Management instance enables continuous synchronization so that the API inventory stays up to date.
+Although you can use the Azure CLI to [import](import-api-management-apis.md) APIs on demand from Azure API Management to Azure API Center, integrate an API Management instance enables continuous synchronization so that the API inventory stays up to date. Azure API Center can also synchronize APIs from sources including [Amazon API Gateway](synchronize-aws-gateway-apis.md). 
 
 When you integrate an API Management instance as an API source, the following happens:
 
@@ -32,19 +32,7 @@ API Management APIs automatically synchronize to the API center whenever existin
 
 ### Entities synchronized from API Management
 
-You can add or update metadata properties and documentation in your API center to help stakeholders discover, understand, and consume the synchronized APIs. Learn more about Azure API Center's [built-in and custom metadata properties](add-metadata-properties.md).
-
-The following table shows entity properties that can be modified in Azure API Center and properties that are determined based on their values in an integrated Azure API Management instance. Also, entities' resource or system identifiers in Azure API Center are generated automatically and can't be modified.
-
-| Entity       | Properties configurable in API Center                     | Properties determined in API Management                                           |
-|--------------|-----------------------------------------|-----------------|
-| API          | summary<br/>lifecycleStage<br/>termsOfService<br/>license<br/>externalDocumentation<br/>customProperties    | title<br/>description<br/>kind                   |
-| API version  | lifecycleStage      | title<br/>definitions (if synchronized)                            |
-| Environment  | title<br/>description<br/>kind</br>server.managementPortalUri<br/>onboarding<br/>customProperties      | server.type
-| Deployment   |  title<br/>description<br/>server<br/>state<br/>customProperties    |      server.runtimeUri |
-
-For property details, see the [Azure API Center REST API reference](/rest/api/apicenter).
-
+[!INCLUDE [synchronized-properties-api-source](includes/synchronized-properties-api-source.md)]
 
 ## Prerequisites
 
@@ -60,9 +48,6 @@ For property details, see the [Azure API Center REST API reference](/rest/api/ap
     > [!NOTE]
     > Azure CLI command examples in this article can run in PowerShell or a bash shell. Where needed because of different variable syntax, separate command examples are provided for the two shells.
 
-
-## Add a managed identity in your API center
-
 [!INCLUDE [enable-managed-identity](includes/enable-managed-identity.md)]
 
 ## Assign the managed identity the API Management Service Reader role
@@ -71,7 +56,9 @@ For property details, see the [Azure API Center REST API reference](/rest/api/ap
 
 ## Integrate an API Management instance 
 
-You can integrate an API Management instance using the portal.
+You can integrate an API Management instance using the portal or the Azure CLI.
+
+#### [Portal](#tab/portal)
 
 1. In the [portal](https://portal.azure.com), navigate to your API center.
 1. Under **Assets**, select **Environments**.
@@ -79,11 +66,24 @@ You can integrate an API Management instance using the portal.
 1. In the **Integrate your Azure API Management Service** page:
     1. Select the **Subscription**, **Resource group**, and **Azure API Management service** that you want to integrate.
     1. In **Integration details**, enter an identifier.
-    1. In **Environment details**, enter an **Environment title** (name), **Environment type**, and optional **Environment description**.
-    1. In **API details**, select a **Lifecycle stage** for the synchronized APIs. (You can update this value for your APIs after they're added to your API center.) Also, select whether to synchronize API definitions.
+    1. In **Environment details**, enter an **Environment title** (name), **Environment type**, and optional **Description**.
+    1. In **API Details**:
+        1. Select a **Lifecycle** for the synchronized APIs. (You can update this value for the APIs after they're added to your API center.)
+        1. Optionally, select whether to include API definitions with the synchronized APIs.
 1. Select **Create**.
 
 :::image type="content" source="media/synchronize-api-management-apis/link-api-management-service.png" alt-text="Screenshot of integrating an Azure API Management Service in the portal.":::
+
+#### [Azure CLI](#tab/cli)
+
+Run the `az apic integration create apim` command to integrate an API Management instance to your API center. Provide the... If the API Management instance and the API center are in the same resource group, you can provide the API Management instance name as the value of `azure-apim`; otherwise, provide the Azure resource ID. 
+
+```azurecli
+az apic integration create apim --name <api-center-name> \
+    --integration-name <apim-integration-name> \
+    --azure-apim <apim-instance-name>
+``` 
+---
 
 The environment is added in your API center. The API Management APIs are imported to the API center inventory.
 
