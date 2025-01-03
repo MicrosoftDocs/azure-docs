@@ -3,7 +3,7 @@ title: Import an update to Azure Device Update for IoT Hub
 description: Learn how to import update files into Azure Device Update for IoT Hub by using the Azure portal, Azure CLI, or programmatically.
 author: andrewbrownmsft
 ms.author: andbrown
-ms.date: 01/02/2025
+ms.date: 01/03/2025
 ms.topic: how-to
 ms.service: azure-iot-hub
 ms.subservice: device-update
@@ -11,7 +11,7 @@ ms.subservice: device-update
 
 # Import an update to Azure Device Update for IoT Hub
 
-To deploy an update to devices using Azure Device Update for IoT Hub, you first import the update files into the Device Update service, which stores the imported update and deploys it to devices. In this article, you learn how to import an update into the Device Update service by using the Azure portal, Azure CLI, or Device Update APIs.
+To deploy an update to devices using Azure Device Update for IoT Hub, you first import the update files into the Device Update service, which stores the imported update for deployment to devices. In this article, you learn how to import an update into the Device Update service by using the Azure portal, Azure CLI, or Device Update APIs.
 
 ## Prerequisites
 
@@ -22,7 +22,7 @@ To deploy an update to devices using Azure Device Update for IoT Hub, you first 
 
 This section shows how to import an update using either the Azure portal or the Azure CLI. You can also [import an update by using the Device Update APIs](#import-using-the-device-update-apis) instead.
 
-To import an update, you first upload the update files and import manifest into an Azure Storage container. Then, you import the update from Azure Storage into Device Update for IoT Hub, which stores for deployment to devices.
+To import an update, you first upload the update and import manifest files into an Azure Storage container. Then, you import the update from Azure Storage into Device Update for IoT Hub, which stores it for deployment to devices.
 
 # [Azure portal](#tab/portal)
 
@@ -46,15 +46,15 @@ To import an update, you first upload the update files and import manifest into 
    :::image type="content" source="media/import-update/storage-account-ppr.png" alt-text="Screenshot that shows Storage accounts and Containers.":::
 
    > [!TIP]
-   > To avoid accidentally importing files from previous updates, use a new container each time you import an update. If you don't use a new container, be sure to delete any files from the existing container.
+   > Using a new container each time you import an update helps prevent accidentally importing files from previous updates. If you don't use a new container, be sure to delete any previous files from the existing container.
 
 1. On the container page, select **Upload**.
 
-   :::image type="content" source="media/import-update/container-ppr.png" alt-text="Screenshot that shows select Upload." lightbox="media/import-update/container-ppr.png":::
+   :::image type="content" source="media/import-update/container-ppr.png" alt-text="Screenshot that shows select Upload.":::
 
-1. On the **Upload blob** screen, select the folder icon next to the **Files**. Use the file picker to navigate to the location of your update files and import manifest, select the files, and then select **Open**. You can use the Shift key to multiselect files.
+1. On the **Upload blob** screen, select the folder icon next to the **Files**. Use the file picker to navigate to the location of your update and import manifest files, select the files, and then select **Open**. You can use the Shift key to multiselect files.
 
-   :::image type="content" source="media/import-update/container-picker-ppr.png" alt-text="Screenshot that shows selecting files to upload." lightbox="media/import-update/container-picker-ppr.png":::
+   :::image type="content" source="media/import-update/container-picker-ppr.png" alt-text="Screenshot that shows selecting files to upload.":::
 
 1. After you select all the files, select **Upload**.
 
@@ -152,9 +152,9 @@ az iot du update list \
 
 You can also import an update programmatically by using any of the following methods:
 
-- The Device Update APIs in the Azure SDKs for [.NET](/dotnet/api/azure.iot.deviceupdate), [Java](/java/api/com.azure.iot.deviceupdate), [JavaScript](/javascript/api/@azure/iot-device-update), or [Python](/python/api/azure-mgmt-deviceupdate/azure.mgmt.deviceupdate).
-- The Device Update [Import Update](/rest/api/deviceupdate/dataplane/updates/import-update) REST API.
-- Sample [PowerShell modules](https://github.com/Azure/iot-hub-device-update/tree/main/tools/AduCmdlets) (requires [PowerShell 5](/powershell/scripting/install/installing-powershell) or later for Linux, macOS, or Windows).
+- The Device Update APIs in the Azure SDKs for [.NET](/dotnet/api/azure.iot.deviceupdate), [Java](/java/api/com.azure.iot.deviceupdate), [JavaScript](/javascript/api/@azure/iot-device-update), or [Python](/python/api/azure-mgmt-deviceupdate/azure.mgmt.deviceupdate)
+- The Device Update [Import Update](/rest/api/deviceupdate/dataplane/updates/import-update) REST API
+- Sample [PowerShell modules](https://github.com/Azure/iot-hub-device-update/tree/main/tools/AduCmdlets) (requires [PowerShell 5](/powershell/scripting/install/installing-powershell) or later for Linux, macOS, or Windows)
 
 > [!NOTE]
 > See [Device Update user roles and access](device-update-control-access.md) for required API permission.

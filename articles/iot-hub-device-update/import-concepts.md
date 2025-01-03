@@ -3,7 +3,7 @@ title: Azure Device Update for IoT Hub import manifest concepts
 description: Understand the important concepts and sections in the Azure Device Update for IoT Hub import manifest.
 author: andrewbrownmsft
 ms.author: andbrown
-ms.date: 01/02/2025
+ms.date: 01/03/2025
 ms.topic: concept-article
 ms.service: azure-iot-hub
 ms.subservice: device-update
