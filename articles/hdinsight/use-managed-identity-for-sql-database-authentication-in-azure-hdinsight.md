@@ -29,7 +29,7 @@ The Managed Identity (MI) option is available for the following Databases:
 
 ## Steps to Use Managed Identity during cluster creation in Azure portal
 
-1. During cluster creation, navigate to the Storage section and select the SQL database for Ambari, Hive, Oozie, or Ranger. Choose Managed Identity as the Authentication method.
+1. During cluster creation, navigate to the Storage section and select the SQL database for Ambari/Hive/Oozie. Choose Managed Identity as the Authentication method.
   
    :::image type="content" source="./media/use-managed-identity-for-sql-database-authentication-in-azure-hdinsight/basic-tab.png" alt-text="Screenshot showing the basic tab." border="true" lightbox="./media/use-managed-identity-for-sql-database-authentication-in-azure-hdinsight/basic-tab.png":::
 
@@ -39,7 +39,7 @@ The Managed Identity (MI) option is available for the following Databases:
    
 1. Create a contained user with the Managed identity in the corresponding SQL database.
 
-   Follow these steps in the Azure SQL database query editor to create a database user and grant it read-write permissions. Perform these steps for each SQL Database you're going to use for different services such as Ambari, Hive, Oozie, or Ranger.
+   Follow these steps in the Azure SQL database query editor to create a database user and grant it read-write permissions. Perform these steps for each SQL Database you're going to use for different services such as Ambari, Hive, or Oozie.
    
 
    > [!NOTE]
