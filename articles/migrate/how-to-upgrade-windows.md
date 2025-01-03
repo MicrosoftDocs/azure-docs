@@ -15,15 +15,15 @@ This article describes how to upgrade Windows Server OS while migrating to Azure
 
 > [!NOTE]
 > - The upgrade feature only works for Windows Server Standard, Datacenter, and Enterprise editions.
-> - The upgrade feature does not work for non en-US language servers. 
-> - This feature does not work for a Windows Server with an evaluation license and needs a full license. If you have any server with an evaluation license, upgrade to full edition before starting migration to Azure.
+> - The upgrade feature doesn't work for non en-US language servers. 
+> - This feature doesn't work for a Windows Server with an evaluation license and needs a full license. If you have any server with an evaluation license, upgrade to full edition before starting migration to Azure.
 
 ## Prerequisites 
 
 - Ensure you have an existing Migrate project or [create](create-manage-projects.md) a project. 
 - Ensure you have discovered the servers according to your [VMware](tutorial-discover-vmware.md), [Hyper-V](tutorial-discover-hyper-v.md), or [physical server](tutorial-discover-physical.md) environments and replicated the servers as described in [Migrate VMware VMs](tutorial-migrate-vmware.md#replicate-vms), [Migrate Hyper-V VMs](tutorial-migrate-hyper-v.md#migrate-vms), or [Migrate Physical servers](tutorial-migrate-physical-virtual-machines.md#migrate-vms) based on your environment. 
 - Verify the operating system disk has enough [free space](/windows-server/get-started/hardware-requirements#storage-controller-and-disk-space-requirements) to perform the in-place upgrade. The minimum disk space requirement is 32 GB.   
-- If you are upgrading from Windows Server 2008 or 2008 R2, ensure you have PowerShell 3.0 installed.
+- If you're upgrading from Windows Server 2008 or 2008 R2, ensure you have PowerShell 3.0 installed.
 - To upgrade from Windows Server 2008 or 2008 R2, ensure you have Microsoft .NET Framework 4 installed on your machine. This is available by default in Windows Server 2008 SP2 and Windows Server 2008 R2 SP1.
 - Disable antivirus and anti-spyware software and firewalls. These types of software can conflict with the upgrade process. Re-enable antivirus and anti-spyware software and firewalls after the upgrade is completed.  
 - Ensure that your VM has the capability of adding another data disk as this feature requires the addition of an extra data disk temporarily for a seamless upgrade experience. 
@@ -31,7 +31,7 @@ This article describes how to upgrade Windows Server OS while migrating to Azure
 
 
 > [!NOTE]
-> In case of OS upgrade failure, Azure Migrate may download the Windows SetupDiag for error details. Ensure the VM created in Azure post the migration has access to [SetupDiag](https://go.microsoft.com/fwlink/?linkid=870142). In case there is no access to SetupDiag, you may not be able to get detailed OS upgrade failure error codes but the upgrade can still proceed.
+> In case of OS upgrade failure, Azure Migrate might download the Windows SetupDiag for error details. Ensure the VM created in Azure, post the migration has access to [SetupDiag](https://go.microsoft.com/fwlink/?linkid=870142). In case there's no access to SetupDiag, you might not be able to get detailed OS upgrade failure error codes but the upgrade can still proceed.
 
 ## Overview 
 
@@ -104,7 +104,7 @@ After you've verified that the test migration works as expected, you can migrate
 
 5. In the pane that appears, select the target OS version that you want to upgrade to and select **Apply**. 
 
-   :::image type="content" source="./media/how-to-upgrade-windows/migrate-upgrade-options.png" alt-text="Screenshot with the available servers in the Migrate screen.":::
+   :::image type="content" source="./media/how-to-upgrade-windows/migrate-upgrade-options.png" alt-text="Screenshot with the available servers in the Azure Migrate screen.":::
 
    The **Upgrade available** option changes to **Upgrade configured**.
 
