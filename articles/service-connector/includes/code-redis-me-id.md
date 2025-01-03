@@ -1,6 +1,6 @@
 ---
 author: xfz11
-description: code example
+description: Code example
 ms.service: service-connector
 ms.topic: include
 ms.date: 1/2/2025
@@ -13,7 +13,7 @@ ms.author: xiaofanzhou
     ```bash
     dotnet add package Microsoft.Azure.StackExchangeRedis --version 3.2.0
     ```
-1. Get the Redis connection string from the environment variable added by Service Connector. For more information, see [Microsoft.Azure.StackExchangeRedis Extension](https://github.com/Azure/Microsoft.Azure.StackExchangeRedis).
+1. Add the authentication logic with environment variables set by Service Connector. For more information, see [Microsoft.Azure.StackExchangeRedis Extension](https://github.com/Azure/Microsoft.Azure.StackExchangeRedis).
     
     
     ```csharp
@@ -55,7 +55,7 @@ ms.author: xiaofanzhou
         <version>5.1.0</version>  <!-- {x-version-update;redis.clients:jedis;external_dependency} -->
     </dependency>
     ```
-1. Get the Redis connection string from the environment variable added by Service Connector. For more information, see [Azure-AAD-Authentication-With-Jedis](https://aka.ms/redis/aad/sample-code/java-jedis).
+1. Add the authentication logic with environment variables set by Service Connector. For more information, see [Azure-AAD-Authentication-With-Jedis](https://aka.ms/redis/aad/sample-code/java-jedis).
     ```java
     import redis.clients.jedis.DefaultJedisClientConfig;
     import redis.clients.jedis.Jedis;
@@ -112,7 +112,7 @@ ms.author: xiaofanzhou
     ```bash
     pip install redis azure-identity
     ```
-1. Get the Redis connection string from the environment variable added by Service Connector. For more information, see [azure-aad-auth-with-redis-py](https://aka.ms/redis/aad/sample-code/python).
+1. Add the authentication logic with environment variables set by Service Connector. For more information, see [azure-aad-auth-with-redis-py](https://aka.ms/redis/aad/sample-code/python).
     ```python
     import os
     import time
