@@ -98,7 +98,7 @@ param location string = resourceGroup().location
 
 The preceding line assigns the location of the resource group to the virtual network resource. For more information about the function used in the default value, see [resourceGroup()](./bicep-functions-scope.md#resourcegroup).
 
-Add another parameter for the storage account name, which you’ll create later in the quickstart, with a default value at the top of the file:
+Add another parameter for the storage account name, which you create later in the quickstart, with a default value at the top of the file:
 
 ```bicep
 param storageAccountName string = 'store${uniqueString(resourceGroup().id)}'
@@ -147,7 +147,7 @@ When you add a space after the symbolic name, a list of resource types is displa
 
 :::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/select-resource-type.png" alt-text="Screenshot of selecting storage accounts for resource type.":::
 
-After selecting **Microsoft.Storage/storageAccounts**, you're presented with the available API versions. Select the latest version. For the following screenshot, it is **2023-05-01**.
+After selecting **Microsoft.Storage/storageAccounts**, you're presented with the available API versions. Select the latest version. For the following screenshot, it's **2023-05-01**.
 
 :::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/select-api-version.png" alt-text="Screenshot of select API version for resource type.":::
 
