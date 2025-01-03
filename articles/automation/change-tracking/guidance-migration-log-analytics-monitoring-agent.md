@@ -24,7 +24,7 @@ Using the Azure portal, you can migrate from Change Tracking & Inventory with LA
 
 Additionally, you can use a script to migrate all Virtual Machines and Arc-enabled non-Azure machines at a Log Analytics workspace level from LA version solution to Change Tracking and Inventory with AMA. This isn't possible using the Azure portal experience mentioned above.
 
-The script allows you to also migrate to the same workspace. If you are migrating to the same workspace then, the script will remove the LA(MMA/OMS) Agent from your machines. This may cause the other solutions to stop working. We therefore recommend that you plan the migration accordingly. For example, first migrate other solution and then proceed with Change Tracking migration.
+The script allows you to also migrate to the same workspace. If you are migrating to the same workspace then, the script will remove the LA(MMA/OMS) Agent from your machines. This may cause the other solutions to stop working. We therefore, recommend that you plan the migration accordingly. For example, first migrate other solution and then proceed with Change Tracking migration.
 
 > [!NOTE]
 > The removal doesn't work on MMA agents that were installed using the MSI installer. It only works on VM/Arc VM extensions.
@@ -88,7 +88,7 @@ To onboard through Azure portal, follow these steps:
 
 1. Select **Manage Activity log connection** to evaluate the incoming events and logs across LA agent and AMA version.
 
-### [Log Analytics Workspace – Powershell Script ](#tab/ps-policy)
+### [Log Analytics Workspace - Powershell Script ](#tab/ps-policy)
 
 #### Prerequisites
 
@@ -98,7 +98,8 @@ To onboard through Azure portal, follow these steps:
 - Obtain Write access for the specified workspace and machine resources.
 - [Install the latest version of the Az PowerShell module](/powershell/azure/install-azure-powershell). The **Az.Accounts** and **Az.OperationalInsights** modules are required to pull workspace agent configuration information.
 - Ensure you have Azure credentials to run `Connect-AzAccount` and `Select-AzContext` which set the script's context.
-Follow these steps to migrate using scripts.
+
+Follow these steps to migrate using scripts:
 
 #### Migration guidance
 
@@ -128,14 +129,13 @@ Follow these steps to migrate using scripts.
    1. Get list of all Azure and Arc Onboarded Non-Azure machines onboarded to Input Log Analytics Workspace for Change Tracking solution using MMA Agent. 
    1. Create the Data Collection Rule (DCR) ARM template by fetching the files, services, tracking & registry settings configured in the legacy solution and translating them to equivalent settings for the latest solution using AMA Agent and Change Tracking Extensions for the Output Log Analytics Workspace. 
    1. Deploy Change Tracking solution ARM template to Output Log Analytics Workspace. This is done only if migration to the same workspace is not done. The output workspace requires the legacy solution to create the log analytics tables for Change Tracking like ConfigurationChange & ConfigurationData. The deployment name will be DeployCTSolution_CTMig_{GUID} and it will be in same resource group as Output Log Analytics Workspace. 
-   1. Deploy the DCR ARM template created in Step b. The deployment name will be OutputDCRName_CTMig_{GUID} and it will be in same resource group as Output Log Analytics Workspace. The DCR will be created in the same location as the Output Log Analytics Workspace. 
+   1. Deploy the DCR ARM template created in Step 2. The deployment name will be OutputDCRName_CTMig_{GUID} and it will be in same resource group as Output Log Analytics Workspace. The DCR will be created in the same location as the Output Log Analytics Workspace. 
    1. Removes MMA Agent from machines list populated in Step a. This is done only if migration to the same workspace is carried out. Machines which have the MMA agent installed via the MSI, will not have the MMA agent removed. It will be removed only if the MMA Agent was installed as an extension. 
    1. Assign DCR to machines and install AMA Agent and CT Extensions. The deployment name of it will be MachineName_CTMig and it will be in same resource group as the machine. 
-       - Assign the DCR deployed in Step d to all machines populated in Step 1. 
+       - Assign the DCR deployed in Step 4 to all machines populated in Step 1. 
        - Install the AMA Agent to all machines populated in Step 1.  
        - Install the CT Agent to all machines populated in Step 1. 
 ---
-
 
 ### Compare data across Log analytics Agent and Azure Monitoring Agent version
 
