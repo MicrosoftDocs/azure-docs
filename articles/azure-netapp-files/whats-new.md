@@ -14,6 +14,8 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
+* [Flexible service level](azure-netapp-files-service-levels.md#Flexible) now supports storage with cool access
+
 * [Flexible service level](azure-netapp-files-service-levels.md#Flexible)
 
     Azure NetApp Files now support a Flexible service level for manual QoS capacity pools. 

@@ -21,8 +21,7 @@ Creating a capacity pool enables you to create volumes within it.
     >[!IMPORTANT]
     >To create a 1-TiB capacity pool with a tag, you must use API versions `2023-07-01_preview` to `2024-01-01_preview` or stable releases from `2024-01-01`.
 * If you're using the Flexible service level:
-    * Cool access is not currently supported.
-    * Only single encryption is currently supported for Flexible service level capacity pools. Double encryption is not currently supported. 
+    * Only single encryption is currently supported for Flexible service level capacity pools. Double encryption isn't currently supported. 
     * The Flexible service level is only available for manual QoS capacity pools. 
 * To use the **Flexible** service level, you must first register the feature:  
 

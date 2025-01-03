@@ -33,7 +33,7 @@ Azure NetApp Files supports four service levels: *Standard*, *Premium*, *Ultra*,
     >The Flexible service level is only supported for _manual QoS_ capacity pools. 
 
 * Storage with cool access:      
-    Cool access storage is available with the Standard, Premium, and Ultra service levels. The throughput experience for any of these service levels with cool access is the same for cool access as it is for data in the hot tier. It may differ when data that resides in the cool tier is accessed. For more information, see [Azure NetApp Files storage with cool access](cool-access-introduction.md) and [Performance considerations for storage with cool access](performance-considerations-cool-access.md). 
+    Cool access storage is available with the Standard, Premium, Ultra, and Flexible service levels. The throughput experience for any of these service levels with cool access is the same for cool access as it is for data in the hot tier. It may differ when data that resides in the cool tier is accessed. For more information, see [Azure NetApp Files storage with cool access](cool-access-introduction.md) and [Performance considerations for storage with cool access](performance-considerations-cool-access.md). 
 
 ## Throughput limits
 
