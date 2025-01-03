@@ -20,7 +20,7 @@ The Managed Identity (MI) option is available for the following Databases:
 |Ambari|✅ |✅ |
 |Hive |✅| ✅|
 |Oozie |✅ |✅ |
-|Ranger (ESP)|N | N |
+|Ranger (ESP)|❌ | ❌ |
 
 > [!NOTE]
 > 1. Managed Identity (MI) is currently available only in public regions. It will be rolled out to other regions in future releases.
@@ -45,10 +45,11 @@ The Managed Identity (MI) option is available for the following Databases:
    > [!NOTE]
    > User name must contain the original MSI name extended by a user-defined suffix. As best practice, the suffix can include an initial part of its Object ID. 
 Object ID of managed identity can be obtained from portal on the managed identity portal page.
+   >
    > For example: 
-   > MSI Name: contosoMSI 
-   > Object ID: `2ba6c-1111-2222-3333-cccccccccccc`
-   > user_name could be `contosoMSI-2ba6c`
+   > * MSI Name: contosoMSI 
+   > * Object ID: `2ba6c-1111-2222-3333-cccccccccccc`
+   > * user_name could be `contosoMSI-2ba6c`
 
 
     ``` 
