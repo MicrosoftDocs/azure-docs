@@ -29,7 +29,7 @@ The following diagram illustrates the example pipeline.
 
 ## Apache Oozie solution overview
 
-This pipeline uses Apache Oozie running on an HDInsight Hadoop cluster.
+This pipeline uses Apache Oozie running on a HDInsight Hadoop cluster.
 
 Oozie describes its pipelines in terms of *actions*, *workflows*, and *coordinators*. Actions determine the actual work to perform, such as running a Hive query. Workflows define the sequence of actions. Coordinators define the schedule for when the workflow is run. Coordinators can also wait on the availability of new data before launching an instance of the workflow.
 
@@ -39,7 +39,7 @@ The following diagram shows the high-level design of this example Oozie pipeline
 
 ## Provision Azure resources
 
-This pipeline requires an Azure SQL Database and an HDInsight Hadoop cluster in the same location. The Azure SQL Database stores both the summary data produced by the pipeline and the Oozie Metadata Store.
+This pipeline requires an Azure SQL Database and a HDInsight Hadoop cluster in the same location. The Azure SQL Database stores both the summary data produced by the pipeline and the Oozie Metadata Store.
 
 ### Provision Azure SQL Database
 
@@ -70,7 +70,7 @@ Your Azure SQL Database is now ready.
 
 ### Provision an Apache Hadoop Cluster
 
-Create an Apache Hadoop cluster with a custom metastore. During cluster creation from the portal, from the **Storage** tab, ensure you select your SQL Database under **Metastore settings**. For more information on selecting a metastore, see [Select a custom metastore during cluster creation](./hdinsight-use-external-metadata-stores.md#select-a-custom-metastore-during-cluster-creation). For more information on cluster creation, see [Get Started with HDInsight on Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md).
+Create an Apache Hadoop cluster with a custom metastore. During cluster creation from the portal, from the **Storage** tab, ensures you select your SQL Database under **Metastore settings**. For more information on selecting a metastore, see [Select a custom metastore during cluster creation](./hdinsight-use-external-metadata-stores.md#select-a-custom-metastore-during-cluster-creation). For more information on cluster creation, see [Get Started with HDInsight on Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
 ## Verify SSH tunneling set up
 

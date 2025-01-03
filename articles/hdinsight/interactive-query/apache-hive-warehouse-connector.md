@@ -60,9 +60,9 @@ Hive Warehouse Connector needs separate clusters for Spark and Interactive Query
 
 ### Create clusters
 
-1. Create an HDInsight Spark **4.0** cluster with a storage account and a custom Azure virtual network. For information on creating a cluster in an Azure virtual network, see [Add HDInsight to an existing virtual network](../../hdinsight/hdinsight-plan-virtual-network-deployment.md#existingvnet).
+1. Create a HDInsight Spark **4.0** cluster with a storage account and a custom Azure virtual network. For information on creating a cluster in an Azure virtual network, see [Add HDInsight to an existing virtual network](../../hdinsight/hdinsight-plan-virtual-network-deployment.md#existingvnet).
 
-1. Create an HDInsight Interactive Query (LLAP) **4.0** cluster with the same storage account and Azure virtual network as the Spark cluster.
+1. Create a HDInsight Interactive Query (LLAP) **4.0** cluster with the same storage account and Azure virtual network as the Spark cluster.
 
 ### Configure HWC settings
 
@@ -172,7 +172,7 @@ This is a way to run Spark interactively through a modified version of the Scala
 
 Spark-submit is a utility to submit any Spark program (or job) to Spark clusters.
 
-The spark-submit job will set up and configure Spark and Hive Warehouse Connector as per our instructions, execute the program we pass to it, then cleanly release the resources that were being used.
+The spark-submited job will set up and configure Spark and Hive Warehouse Connector as per our instructions, execute the program we pass to it, then cleanly release the resources that were being used.
 
 Once you build the scala/java code along with the dependencies into an assembly jar, use the below command to launch a Spark application. Replace `<VERSION>`, and `<APP_JAR_PATH>` with the actual values.
 

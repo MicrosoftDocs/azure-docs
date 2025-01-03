@@ -1,5 +1,5 @@
 ---
-title: Manage logs for an HDInsight cluster - Azure HDInsight 
+title: Manage logs for a HDInsight cluster - Azure HDInsight 
 description: Determine the types, sizes, and retention policies for HDInsight activity log files.
 ms.service: azure-hdinsight
 ms.topic: how-to
@@ -7,9 +7,9 @@ ms.custom: hdinsightactive
 ms.date: 01/02/2025
 ---
 
-# Manage logs for an HDInsight cluster
+# Manage logs for a HDInsight cluster
 
-An HDInsight cluster produces various log files. For example, Apache Hadoop and related services, such as Apache Spark, produce detailed job execution logs. Log file management is part of maintaining a healthy HDInsight cluster. There can also be regulatory requirements for log archiving.  Due to the number and size of log files, optimizing log storage and archiving helps with service cost management.
+a HDInsight cluster produces various log files. For example, Apache Hadoop and related services, such as Apache Spark, produce detailed job execution logs. Log file management is part of maintaining a healthy HDInsight cluster. There can also be regulatory requirements for log archiving.  Due to the number and size of log files, optimizing log storage and archiving helps with service cost management.
 
 Managing HDInsight cluster logs includes retaining information about all aspects of the cluster environment. This information includes all associated Azure Service logs, cluster configuration, job execution information, any error states, and other data as needed.
 
@@ -157,7 +157,7 @@ Alternatively, you can script log archiving with PowerShell.
 ### Accessing Azure Storage metrics
 
 Azure Storage can be configured to log storage operations and access. You can use these detailed logs for capacity monitoring and planning, and for auditing requests to storage. The logged information includes latency details, enabling you to monitor and fine-tune the performance of your solutions.
-You can use the .NET SDK for Hadoop to examine the log files generated for the Azure Storage that holds the data for an HDInsight cluster.
+You can use the .NET SDK for Hadoop to examine the log files generated for the Azure Storage that holds the data for a HDInsight cluster.
 
 ### Control the size and number of backup indexes for old log files
 

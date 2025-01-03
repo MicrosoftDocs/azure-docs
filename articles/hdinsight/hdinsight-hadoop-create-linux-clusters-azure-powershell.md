@@ -26,23 +26,23 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [delete-cluster-warning](includes/hdinsight-delete-cluster-warning.md)]
 
-To create an HDInsight cluster by using Azure PowerShell, you must complete the following procedures:
+To create a HDInsight cluster by using Azure PowerShell, you must complete the following procedures:
 
 * Create an Azure resource group
 * Create an Azure Storage account
 * Create an Azure Blob container
-* Create an HDInsight cluster
+* Create a HDInsight cluster
 
 > [!NOTE]
-> Using PowerShell to create an HDInsight cluster with Azure Data Lake Storage Gen2 is not currently supported.
+> Using PowerShell to create a HDInsight cluster with Azure Data Lake Storage Gen2 is not currently supported.
 
 The following script demonstrates how to create a new cluster:
 
-[!code-powershell[main](../../azure_powershell_scripts/hdinsight/create-cluster/create-cluster.ps1?range=5-74)]
+[!Code-powershell[main](../../azure_powershell_scripts/hdinsight/create-cluster/create-cluster.ps1?range=5-74)]
 
 The values you specify for the cluster login are used to create the Hadoop user account for the cluster. Use this account to connect to services hosted on the cluster such as web UIs or REST APIs.
 
-The values you specify for the SSH user are used to create the SSH user for the cluster. Use this account to start a remote SSH session on the cluster and run jobs. For more information, see the [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) document.
+The values you specify for the SSH user are used to create the SSH user for the cluster. Use this account to start a remote SSH session on the cluster and run jobs. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) document.
 
 > [!IMPORTANT]  
 > If you plan to use more than 32 worker nodes (either at cluster creation or by scaling the cluster after creation), you must also specify a head node size with at least 8 cores and 14 GB of RAM.
@@ -53,7 +53,7 @@ It can take up to 20 minutes to create a cluster.
 
 ## Create cluster: Configuration object
 
-You can also create an HDInsight configuration object using [`New-AzHDInsightClusterConfig`](/powershell/module/az.hdinsight/new-azhdinsightclusterconfig) cmdlet. You can then modify this configuration object to enable additional configuration options for your cluster. Finally, use the `-Config` parameter of the [`New-AzHDInsightCluster`](/powershell/module/az.hdinsight/new-azhdinsightcluster) cmdlet to use the configuration.
+You can also create a HDInsight configuration object using [`New-AzHDInsightClusterConfig`](/powershell/module/az.hdinsight/new-azhdinsightclusterconfig) cmdlet. You can then modify this configuration object to enable additional configuration options for your cluster. Finally, use the `-Config` parameter of the [`New-AzHDInsightCluster`](/powershell/module/az.hdinsight/new-azhdinsightcluster) cmdlet to use the configuration.
 
 ## Customize clusters
 
@@ -70,7 +70,7 @@ If you run into issues with creating HDInsight clusters, see [access control req
 
 ## Next steps
 
-Now that you've successfully created an HDInsight cluster, use the following resources to learn how to work with your cluster.
+Now that you've successfully created a HDInsight cluster, use the following resources to learn how to work with your cluster.
 
 ### Apache Hadoop clusters
 

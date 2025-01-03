@@ -25,7 +25,7 @@ In this article, you do the following steps.
 
 This solution is divided between this article and a Jupyter Notebook that you upload as part of this article. In this article, you complete the following steps:
 
-* Run a script action on an HDInsight Spark cluster to install Microsoft Cognitive Toolkit and Python packages.
+* Run a script action on a HDInsight Spark cluster to install Microsoft Cognitive Toolkit and Python packages.
 * Upload the Jupyter Notebook that runs the solution to the HDInsight Spark cluster.
 
 The following remaining steps are covered in the Jupyter Notebook.
