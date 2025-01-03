@@ -1,21 +1,3 @@
-<<<<<<< HEAD
---- 
-title: Azure VM assessments in Azure Migrate  
-description: Learn about assessments in Azure Migrate  
-author: rashi-ms 
-ms.author: rajosh 
-ms.manager: abhemraj 
-ms.service: azure-migrate 
-ms.topic: conceptual 
-ms.date: 09/28/2024 
-ms.custom: engagement-fy24 
---- 
- 
-# Azure VM assessment (Lift and Shift) 
- 
-In this article, you'll learn more about the Azure VM assessments. To get familiar with the general Azure Migrate assessment concepts, see the [Assessment overview](concepts-assessment-overview.md). If you want to migrate your on-premises servers to Azure quickly using the lift and shift method, you should create an Azure VM assessment to find out readiness, cost, and migration advise for your server workloads. 
- 
-=======
 ---
 title: Azure VM assessments in Azure Migrate 
 description: Learn about assessments in Azure Migrate 
@@ -243,7 +225,6 @@ If you use performance-based sizing in an Azure VM assessment, the assessment ma
 
 - The assessment considers the performance (resource utilization) history of the server along with the [processor benchmark](common-questions-discovery-assessment.md#i-see-a-banner-on-my-assessment-that-the-assessment-now-also-considers-processor-parameters-what-will-be-the-impact-of-recalculating-the-assessment) to identify the VM size and disk type in Azure.
 
->>>>>>> 917727066b6ca029227047ccaed57fad173c4f61
 > [!NOTE] 
 > All assessments you create with Azure Migrate are a point-in-time snapshot of data. The assessment results are subject to change based on aggregated server performance, data collected, or change in the source configuration. 
  
