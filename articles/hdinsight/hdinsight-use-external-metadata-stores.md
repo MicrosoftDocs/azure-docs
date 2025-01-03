@@ -94,6 +94,9 @@ You can point your cluster to a previously created Azure SQL Database at any tim
 
 * In HDInsight 4.0 if you would like to Share the metastore between Hive and Spark, you can do so by changing the property metastore.catalog.default to hive in your Spark cluster. You can find this property in Ambari Advanced spark2-hive-site-override. It’s important to understand that sharing of metastore only works for external hive tables, this will not work if you have internal/managed hive tables or ACID tables.  
 
+> [!NOTE]
+> You can use Managed Identity to authenticate with SQL database for Hive. For more information, see [Use Managed Identity for SQL Database authentication in Azure HDInsight](./use-managed-identity-for-sql-database-authentication-in-azure-hdinsight.md)
+
 ## Updating the custom Hive metastore password
 When using a custom Hive metastore database, you have the ability to change the SQL DB password. If you change the password for the custom metastore, the Hive services will not work until you update the password in the HDInsight cluster. 
 
