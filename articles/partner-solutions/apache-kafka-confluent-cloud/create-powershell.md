@@ -25,8 +25,6 @@ Use the Azure portal to find the Apache Kafka & Apache Flink on Confluent Cloud 
 
 1. If you've visited the **Marketplace** in a recent session, select the icon from the available options. Otherwise, search for _Marketplace_.
 
-    :::image type="content" source="media/marketplace.png" alt-text="Marketplace icon.":::
-
 1. From the **Marketplace** page, you have two options based on the type of plan you want. You can sign up for a pay-as-you-go plan or commitment plan. Pay-as-you-go is publicly available. The commitment plan is available to customers who have been approved for a private offer.
 
    - For **pay-as-you-go** customers, search for _Apache Kafka on Confluent Cloud_. Select the offer for Apache Kafka & Apache Flink on Confluent Cloud.

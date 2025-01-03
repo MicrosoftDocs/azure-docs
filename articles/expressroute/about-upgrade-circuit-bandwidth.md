@@ -4,7 +4,7 @@ description: In this article, learn the best practices for upgrading the Express
 services: expressroute
 author: duongau
 ms.service: azure-expressroute
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 10/16/2023
 ms.author: duau
 ---

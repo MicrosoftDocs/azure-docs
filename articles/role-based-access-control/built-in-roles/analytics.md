@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 09/20/2024
+ms.date: 12/12/2024
 ms.custom: generated
 ---
 
@@ -369,12 +369,12 @@ Grants a user/group the ability to create, delete and manage clusters within a g
 > | [Microsoft.HDInsight](../permissions/analytics.md#microsofthdinsight)/clusterPools/clusters/jobs/read | List HDInsight on AKS Cluster Jobs |
 > | [Microsoft.HDInsight](../permissions/analytics.md#microsofthdinsight)/clusterPools/clusters/runjob/action | Run HDInsight on AKS Cluster Job |
 > | [Microsoft.HDInsight](../permissions/analytics.md#microsofthdinsight)/clusterpools/clusters/serviceconfigs/read | Get details about HDInsight on AKS Cluster Service Configurations |
-> | [Microsoft.HDInsight](../permissions/analytics.md#microsofthdinsight)/clusterPools/clusters/availableupgrades/read | Get Avaliable Upgrades for HDInsight on AKS Cluster |
+> | [Microsoft.HDInsight](../permissions/analytics.md#microsofthdinsight)/clusterPools/clusters/availableupgrades/read | Get Available Upgrades for HDInsight on AKS Cluster |
 > | [Microsoft.HDInsight](../permissions/analytics.md#microsofthdinsight)/clusterPools/clusters/upgrade/action | Upgrade HDInsight on AKS Cluster |
 > | [Microsoft.HDInsight](../permissions/analytics.md#microsofthdinsight)/clusterPools/clusters/rollback/action | Rollback HDInsight on AKS Cluster Upgrade |
 > | [Microsoft.HDInsight](../permissions/analytics.md#microsofthdinsight)/clusterPools/clusters/upgradehistories/read | Read HDInsight on AKS Cluster Upgrade Histories |
-> | [Microsoft.HDInsight](../permissions/analytics.md#microsofthdinsight)/clusterPools/clusters/libraries/read | Read HDInsight on AKS Cluster Libaries |
-> | [Microsoft.HDInsight](../permissions/analytics.md#microsofthdinsight)/clusterPools/clusters/managelibraries/action | Manage HDInsight on AKS Cluster Libaries |
+> | [Microsoft.HDInsight](../permissions/analytics.md#microsofthdinsight)/clusterPools/clusters/libraries/read | Read HDInsight on AKS Cluster Libraries |
+> | [Microsoft.HDInsight](../permissions/analytics.md#microsofthdinsight)/clusterPools/clusters/managelibraries/action | Manage HDInsight on AKS Cluster Libraries |
 > | [Microsoft.ResourceHealth](../permissions/management-and-governance.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/operations/read | Gets or lists deployment operations. |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/*/read |  |
@@ -475,7 +475,7 @@ Can read, create, modify and delete HDInsight on AKS cluster pools and create cl
 > | [Microsoft.HDInsight](../permissions/analytics.md#microsofthdinsight)/clusterPools/delete | Delete a HDInsight on AKS Cluster Pool |
 > | [Microsoft.HDInsight](../permissions/analytics.md#microsofthdinsight)/clusterPools/read | Get details about HDInsight on AKS Cluster Pool |
 > | [Microsoft.HDInsight](../permissions/analytics.md#microsofthdinsight)/clusterPools/write | Create or Update HDInsight on AKS Cluster Pool |
-> | [Microsoft.HDInsight](../permissions/analytics.md#microsofthdinsight)/clusterpools/availableupgrades/read | Get Avaliable Upgrades for HDInsight on AKS Cluster Pool |
+> | [Microsoft.HDInsight](../permissions/analytics.md#microsofthdinsight)/clusterpools/availableupgrades/read | Get Available Upgrades for HDInsight on AKS Cluster Pool |
 > | [Microsoft.HDInsight](../permissions/analytics.md#microsofthdinsight)/clusterpools/upgrade/action | Upgrade HDInsight on AKS Cluster Pool |
 > | [Microsoft.HDInsight](../permissions/analytics.md#microsofthdinsight)/clusterPools/upgradehistories/read | Read HDInsight on AKS Cluster Pool Upgrade Histories |
 > | [Microsoft.ResourceHealth](../permissions/management-and-governance.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |

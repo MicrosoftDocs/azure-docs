@@ -226,7 +226,7 @@ If you're already signed in, go to the next step.
 1. Open any API request tool.
 2. Click on '+' to create a new request.
 3. Select HTTP request method as **'POST'**.
-4. Enter the url prepapred in **point 1)**, in the request URL part.
+4. Enter the url prepared in **point 1)**, in the request URL part.
 5. In Body, select raw JSON and provide request body as below(case-sensitive): 
 		{ 
 		 "integration-settings": "ADD", 

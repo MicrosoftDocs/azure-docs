@@ -481,7 +481,7 @@ try
                     $cmd = New-Object System.Data.SqlClient.SqlCommand($sql,$conn)
                     $cmd.Transaction = $transaction
                     $cmd.ExecuteNonQuery() | Out-Null
-                    # Done removing stale enteries
+                    # Done removing stale entries
 
                     # Cloud publish settings and registration details are cleaned up even if there are no paired clouds.
                     if($SCVMM2012R2Detected)

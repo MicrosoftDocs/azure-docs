@@ -7,13 +7,68 @@ author: jejackson
 ms.assetid: d0a272a9-ed01-4f4c-a0b3-bd5e841bdd77
 ms.service: azure-cloud-services-classic
 ms.topic: article
-ms.date: 09/03/2024
+ms.date: 12/11/2024
 ms.author: jejackson
 ms.custom: compute-evergreen
 ---
 
 # Azure Guest OS
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to your Guest OS. Updates always carry forward for the particular [family][family-explain] they were introduced in.
+
+## October 2024 Guest OS
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 24-10 | 5044281 | Latest Cumulative Update(LCU) | [7.46] | 08-Oct-24
+| Rel 24-10 | 5044277 | Latest Cumulative Update(LCU) | [6.76] | 08-Oct-24
+| Rel 24-10 | 5044293 | Latest Cumulative Update(LCU) | [5.100] | 08-Oct-24
+| Rel 24-10 | 5044011 | .NET Framework 3.5 Security and Quality Rollup | [2.156] | 08-Oct-24
+| Rel 24-10 | 5044019 | .NET Framework 4.7.2 Cumulative Update LKG | [2.156] | 08-Oct-24
+| Rel 24-10 | 5044012 | .NET Framework 3.5 Security and Quality Rollup LKG | [4.136] | 08-Oct-24
+| Rel 24-10 | 5044018 | .NET Framework 4.7.2 Cumulative Update LKG | [4.136] | 08-Oct-24
+| Rel 24-10 | 5044009 | .NET Framework 3.5 Security and Quality Rollup LKG | [3.144] | 08-Oct-24
+| Rel 24-10 | 5044017 | .NET Framework 4.7.2 Cumulative Update LKG | [3.144] | 08-Oct-24
+| Rel 24-10 | 5044016 | .NET Framework Dot Net | [6.76] | 08-Oct-24
+| Rel 24-10 | 5044025 | .NET Framework 4.8 Security and Quality Rollup LKG | [7.46] | 08-Oct-24
+| Rel 24-10 | 5044356 | Monthly Rollup | [2.156] | 08-Oct-24
+| Rel 24-10 | 5044342 | Monthly Rollup | [3.144] | 08-Oct-24
+| Rel 24-10 | 5044343 | Monthly Rollup | [4.136] | 08-Oct-24
+| Rel 24-10 | 5044413 | Servicing Stack Update | [3.144] | 08-Oct-24
+| Rel 24-10 | 5044411 | Servicing Stack Update | [4.136] | 08-Oct-24
+| Rel 24-10 | 5043124 | Servicing Stack Update | [5.100] | 08-Oct-24
+| Rel 24-10 | 5039339 | Servicing Stack Update LKG | [2.156] | 11-Jun-24
+| Rel 24-06 | 5043126 | Servicing Stack Update | [6.76] | 08-Oct-24
+| Rel 24-06 | 5044414 | Servicing Stack Update | [7.46] | 08-Oct-24
+| Rel 24-10 | 4494175 | January '20 Microcode | [5.100] | 1-Sep-20
+| Rel 24-10 | 4494175 | January '20 Microcode | [6.76] | 1-Sep-20
+
+[5044281]: https://support.microsoft.com/kb/5044281
+[5044277]: https://support.microsoft.com/kb/5044277
+[5044293]: https://support.microsoft.com/kb/5044293
+[5044011]: https://support.microsoft.com/kb/5044011
+[5044019]: https://support.microsoft.com/kb/5044019
+[5044012]: https://support.microsoft.com/kb/5044012
+[5044018]: https://support.microsoft.com/kb/5044018
+[5044009]: https://support.microsoft.com/kb/5044009
+[5044017]: https://support.microsoft.com/kb/5044017
+[5044016]: https://support.microsoft.com/kb/5044016
+[5044025]: https://support.microsoft.com/kb/5044025
+[5044356]: https://support.microsoft.com/kb/5044356
+[5044342]: https://support.microsoft.com/kb/5044342
+[5044343]: https://support.microsoft.com/kb/5044343
+[5044413]: https://support.microsoft.com/kb/5044413
+[5044411]: https://support.microsoft.com/kb/5044411
+[5043124]: https://support.microsoft.com/kb/5043124
+[5039339]: https://support.microsoft.com/kb/5039339
+[5043126]: https://support.microsoft.com/kb/5043126
+[5044414]: https://support.microsoft.com/kb/5044414
+[4494175]: https://support.microsoft.com/kb/4494175
+
+[2.156]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3.144]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4.136]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5.100]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.76]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[7.46]: ./cloud-services-guestos-update-matrix.md#family-7-releases
 
 ## September 2024 Guest OS
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
@@ -4352,7 +4407,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | MS15-117 |[3101722] |Security Update for NDIS to Address Elevation of Privilege |2.45 |November 10, 2015 |
 | MS15-118 |[3104507] |Security Updates for .NET Framework to Address Elevation of Privilege |4.26, 3.33, 2.45 |November 10, 2015 |
 | MS15-119 |[3104521] |Security Update for Winsock to Address Elevation of Privilege |4.26, 3.33, 2.45 |November 10, 2015 |
-| MS15-120 |[3102939] |Security Update for IPSec to Address Denial of Service |4.26, 3.33 |November 10, 2015 |
+| MS15-120 |[3102939] |Security Update for IPsec to Address Denial of Service |4.26, 3.33 |November 10, 2015 |
 | MS15-121 |[3081320] |Security Update to Schannel to Address Spoofing |4.26, 3.33, 2.45 |November 10, 2015 |
 | MS15-122 |[3105256] |Security Update for Kerberos to Address Security Feature Bypass |4.26, 3.33, 2.45 |November 10, 2015 |
 | Microsoft Security Advisory |[3097966] |Inadvertently disclosed Digital Certificates Could Allow spoofing |4.26, 3.33, 2.45 |November 10, 2015 |

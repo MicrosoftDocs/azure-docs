@@ -4,7 +4,7 @@ description: This article provides an overview of ExpressRoute Metro and how it 
 services: expressroute
 author: duongau
 ms.service: azure-expressroute
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 11/24/2024
 ms.author: duau
 ms.custom: references_regions, ai-usage

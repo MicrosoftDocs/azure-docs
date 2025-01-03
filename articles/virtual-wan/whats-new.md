@@ -3,7 +3,7 @@ title: What's new in Azure Virtual WAN?
 description: Learn what's new with Azure Virtual WAN such as the latest release notes, known issues, bug fixes, deprecated functionality, and upcoming changes.
 author: cherylmc
 ms.service: azure-virtual-wan
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/04/2024
 ms.author: cherylmc
 ---
@@ -37,7 +37,7 @@ You can also find the latest Azure Virtual WAN updates and subscribe to the RSS 
 | Type |Area |Name |Description | Date added | Limitations |
 | --- |---|---|---|---|---|
 | Feature|Network Virtual Appliances (NVAs)/Integrated Third-party solutions in Virtual WAN hubs|  Public Preview of Internet inbound/DNAT for Next-Generation Firewall NVAs| Destination NAT for Network Virtual Appliances in the Virtual WAN hub allows you to publish applications to the users in the internet without directly exposing the application or server's public IP. Consumers access applications through a public IP address assigned to a Firewall Network Virtual Appliance. |February 2024| Supported for Fortinet Next-Generation Firewall, Check Point CloudGuard. See [DNAT documentation](how-to-network-virtual-appliance-inbound.md) for the full list of limitations and considerations.|
-|Feature|Software-as-a-service|Palo Alto Networks Cloud NGFW|General Availability of [Palo Alto Networks Cloud NGFW](https://aka.ms/pancloudngfwdocs), the first software-as-a-serivce security offering deployable within the Virtual WAN hub.|July 2023|Palo Alto Networks Cloud NGFW is now deployable in all  Virtual WAN hubs (new and old). See [Limitations of Palo Alto Networks Cloud NGFW](how-to-palo-alto-cloud-ngfw.md) for a full list of limitations and regional availability. Same limitations as routing intent.|
+|Feature|Software-as-a-service|Palo Alto Networks Cloud NGFW|General Availability of [Palo Alto Networks Cloud NGFW](https://aka.ms/pancloudngfwdocs), the first software-as-a-service security offering deployable within the Virtual WAN hub.|July 2023|Palo Alto Networks Cloud NGFW is now deployable in all  Virtual WAN hubs (new and old). See [Limitations of Palo Alto Networks Cloud NGFW](how-to-palo-alto-cloud-ngfw.md) for a full list of limitations and regional availability. Same limitations as routing intent.|
 |Feature|Network Virtual Appliances (NVAs)/Integrated Third-party solutions in Virtual WAN hubs|[Fortinet NGFW](https://www.fortinet.com/products/next-generation-firewall)|General Availability of [Fortinet NGFW](https://aka.ms/fortinetngfwdocumentation) and [Fortinet SD-WAN/NGFW dual-role](https://aka.ms/fortinetdualroledocumentation) NVAs.|May 2023| Same limitations as routing intent. Doesn't support internet inbound scenario.|
 |Feature|Network Virtual Appliances (NVAs)/Integrated Third-party solutions in Virtual WAN hubs|[Check Point CloudGuard Network Security for Azure Virtual WAN](https://www.checkpoint.com/cloudguard/microsoft-azure-security/wan/) |General Availability of Check Point CloudGuard Network Security NVA deployable from Azure Marketplace within the Virtual WAN hub in all Azure regions.|May 2023|Same limitations as routing intent. Doesn't support internet inbound scenario.|
 |Feature |Network Virtual Appliances (NVAs)/Integrated Third-party solutions in Virtual WAN hubs| [Versa SD-WAN](about-nva-hub.md#partners)|Preview of Versa SD-WAN.|November 2021| |

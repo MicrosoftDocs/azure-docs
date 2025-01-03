@@ -6,7 +6,7 @@ ms.service: azure-api-management
 ms.custom:
   - build-2024
 ms.topic: how-to
-ms.date: 07/23/2024
+ms.date: 12/13/2024
 ms.author: danlep
 ms.collection: ce-skilling-ai-copilot
 ---
@@ -61,6 +61,10 @@ Configure a [backend](backends.md) resource for the embeddings API deployment wi
         ```
         https://my-aoai.openai.azure.com/openai/deployments/embeddings-deployment/embeddings
         ```
+* **Authorization credentials** - Go to **Managed Identity** tab.
+  * **Client identity** - Select *System assigned identity* or type in a User assigned managed identity client ID.
+  * **Resource ID** - Enter `https://cognitiveservices.azure.com/` for Azure OpenAI Service.
+
 ### Test backend 
 
 To test the backend, create an API operation for your Azure OpenAI Service API:
@@ -123,7 +127,6 @@ Configure the following policies to enable semantic caching for Azure OpenAI API
     <azure-openai-semantic-cache-lookup
         score-threshold="0.8"
         embeddings-backend-id="embeddings-deployment"
-        embeddings-backend-auth="system-assigned"
         ignore-system-messages="true"
         max-message-count="10">
         <vary-by>@(context.Subscription.Id)</vary-by>

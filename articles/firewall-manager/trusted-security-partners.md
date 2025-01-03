@@ -4,7 +4,7 @@ description: Learn about Azure Firewall Manager security partner providers
 author: vhorne
 ms.service: azure-firewall-manager
 services: firewall-manager
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 08/03/2021
 ms.author: victorh
 ---
@@ -23,7 +23,7 @@ The current supported security partner is **Zscaler**.
 
 See the following video by Jack Tracey for a Zscaler overview:
 
- > [!VIDEO https://www.microsoft.com/videoplayer/embed/RWI4n8]
+ > [!VIDEO https://learn-video.azurefd.net/vod/player?id=7bdbd3b7-f5a3-4bb9-a8a7-be23f0ecfec4]
 
 ## Key scenarios
 

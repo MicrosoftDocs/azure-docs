@@ -6,7 +6,7 @@ author: madsd
 ms.assetid: 073eb49c-efa1-4760-9f0c-1fecd5c251cc
 ms.service: azure-app-service
 ms.topic: article
-ms.date: 09/29/2023
+ms.date: 01/02/2025
 ms.author: madsd
 ms.custom: devx-track-azurecli, devx-track-arm-template
 ms.devlang: azurecli
@@ -37,19 +37,19 @@ With the Azure portal, you follow four steps to create and configure the setup o
 3. Configure [App Service as a back end in Application Gateway](../application-gateway/configure-web-app.md), but skip the section about restricting access.
 4. Create the [access restriction by using service endpoints](../app-service/app-service-ip-restrictions.md#set-a-service-endpoint-based-rule).
 
-You can now access App Service through Application Gateway. If you try to access App Service directly, you should receive a 403 HTTP error that says the web app has blocked your access.
+You can now access App Service through Application Gateway. If you try to access App Service directly, you should receive a 403 HTTP error that says the web app is blocking your access.
 
 :::image type="content" source="./media/overview-app-gateway-integration/website-403-forbidden.png" alt-text="Screenshot shows the text of Error 403 - Forbidden.":::
 
 ## Set up services by using an Azure Resource Manager template
 
-The [Azure Resource Manager deployment template][template-app-gateway-app-service-complete] creates a complete scenario. The scenario consists of an App Service instance that's locked down with service endpoints and an access restriction to receive traffic only from Application Gateway. The template includes many smart defaults and unique postfixes added to the resource names to keep it simple. To override them, you have to clone the repo or download the template and edit it.
+The [Azure Resource Manager deployment template][template-app-gateway-app-service-complete] creates a complete scenario. The scenario consists of an App Service instance locked down with service endpoints and an access restriction to receive traffic only from Application Gateway. The template includes many smart defaults and unique postfixes added to the resource names to keep it simple. To override them, you have to clone the repo or download the template and edit it.
 
 To apply the template, you can use the **Deploy to Azure** button in the description of the template. Or you can use appropriate PowerShell or Azure CLI code.
 
 ## Set up services by using the Azure CLI
 
-The [Azure CLI sample](../app-service/scripts/cli-integrate-app-service-with-application-gateway.md) creates an App Service instance that's locked down with service endpoints and an access restriction to receive traffic only from Application Gateway. If you only need to isolate traffic to an existing App Service instance from an existing application gateway, use the following command:
+The [Azure CLI sample](../app-service/scripts/cli-integrate-app-service-with-application-gateway.md) creates an App Service instance locked down with service endpoints and an access restriction to receive traffic only from Application Gateway. If you only need to isolate traffic to an existing App Service instance from an existing application gateway, use the following command:
 
 ```azurecli-interactive
 az webapp config access-restriction add --resource-group myRG --name myWebApp --rule-name AppGwSubnet --priority 200 --subnet mySubNetName --vnet-name myVnetName
@@ -82,7 +82,7 @@ To isolate traffic to an individual web app, you need to use IP-based access res
 
 ## Considerations for an external App Service Environment
 
-An external App Service Environment has a public-facing load balancer like multitenant App Service. Service endpoints don't work for an App Service Environment. That's why you have to use IP-based access restrictions by using the public IP address of the application gateway. To create an external App Service Environment by using the Azure portal, you can follow [this quickstart](./environment/create-external-ase.md).
+An external App Service Environment has a public-facing load balancer like multitenant App Service. Service endpoints don't work for an App Service Environment. With App Service Environment you have to use IP-based access restrictions by using the public IP address of the application gateway. To create an external App Service Environment by using the Azure portal, you can follow [this quickstart](./environment/create-external-ase.md).
 
 [template-app-gateway-app-service-complete]: https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/web-app-with-app-gateway-v2/ "Azure Resource Manager template for a complete scenario"
 
@@ -127,9 +127,15 @@ To work around the default redirect, you can configure authentication to inspect
 }
 ```
 
-### ARR affinity
+### Session affinity
 
-In multiple-instance deployments, [ARR affinity](./configure-common.md?tabs=portal#configure-general-settings) ensures that client requests are routed to the same instance for the life of the session. ARR affinity doesn't work with host name overrides. For session affinity to work, you have to configure an identical custom domain and certificate in App Service and in Application Gateway and not override the host name.
+In multiple-instance deployments, [session affinity](./configure-common.md?tabs=portal#configure-general-settings) ensures that client requests are routed to the same instance for the life of the session. Session affinity can be configured to adapt the cookie domain to the incoming header from reverse proxy. By configuring [session affinity proxy](./configure-common.md?tabs=portal#configure-general-settings) to true, session affinity looks for `X-Original-Host` or `X-Forwarded-Host` and adapt the cookie domain to the domain found in this header. As a recommended practice when enabling session affinity proxy, you should configure your access restrictions on the site to ensure that traffic is coming from your reverse proxy.
+
+You can also configure `clientAffinityProxyEnabled` by using the following command:
+
+```azurecli-interactive
+az resource update --resource-group myRG --name myWebApp --resource-type "Microsoft.Web/sites" --set properties.clientAffinityProxyEnabled=true
+```
 
 ## Next steps
 
