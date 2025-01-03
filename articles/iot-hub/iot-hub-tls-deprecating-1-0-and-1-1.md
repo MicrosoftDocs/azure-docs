@@ -36,7 +36,3 @@ IoT Hub will continue to support TLS 1.0/1.1 until further notice. However, we r
 ## TLS 1.2 cipher suites
 
 See [IoT Hub TLS 1.2 cipher suites](iot-hub-tls-support.md#cipher-suites).
- 
-## Customer feedback
-
-While the TLS 1.2 enforcement is an industry-wide best-in-class encryption choice and will be enabled as planned, we still would like to hear from customers regarding their specific deployments and difficulties adopting TLS 1.2. For this purpose, you can send your comments to [iot_tls1_deprecation@microsoft.com](mailto:iot_tls1_deprecation@microsoft.com).
