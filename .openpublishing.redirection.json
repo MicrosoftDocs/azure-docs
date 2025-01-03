@@ -2963,6 +2963,121 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/orbital/virtual-rf-tutorial.md",
+      "redirect_url": "https://azure.microsoft.com/en-us/updates?id=azure-orbital-ground-station-retirement",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/orbital/update-tle.md",
+      "redirect_url": "https://azure.microsoft.com/en-us/updates?id=azure-orbital-ground-station-retirement",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/orbital/spacecraft-object.md",
+      "redirect_url": "https://azure.microsoft.com/en-us/updates?id=azure-orbital-ground-station-retirement",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/orbital/schedule-contact.md",
+      "redirect_url": "https://azure.microsoft.com/en-us/updates?id=azure-orbital-ground-station-retirement",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/orbital/satellite-imagery-with-orbital-ground-station.md",
+      "redirect_url": "https://azure.microsoft.com/en-us/updates?id=azure-orbital-ground-station-retirement",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/orbital/sar-reference-architecture.md",
+      "redirect_url": "https://azure.microsoft.com/en-us/updates?id=azure-orbital-ground-station-retirement",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/orbital/resource-graph-samples.md",
+      "redirect_url": "https://azure.microsoft.com/en-us/updates?id=azure-orbital-ground-station-retirement",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/orbital/register-spacecraft.md",
+      "redirect_url": "https://azure.microsoft.com/en-us/updates?id=azure-orbital-ground-station-retirement",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/orbital/receive-real-time-telemetry.md",
+      "redirect_url": "https://azure.microsoft.com/en-us/updates?id=azure-orbital-ground-station-retirement",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/orbital/prepare-for-launch.md",
+      "redirect_url": "https://azure.microsoft.com/en-us/updates?id=azure-orbital-ground-station-retirement",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/orbital/modem-chain.md",
+      "redirect_url": "https://azure.microsoft.com/en-us/updates?id=azure-orbital-ground-station-retirement",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/orbital/organize-stac-data.md",
+      "redirect_url": "https://azure.microsoft.com/en-us/updates?id=azure-orbital-ground-station-retirement",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/orbital/overview.md",
+      "redirect_url": "https://azure.microsoft.com/en-us/updates?id=azure-orbital-ground-station-retirement",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/orbital/mission-phases.md",
+      "redirect_url": "https://azure.microsoft.com/en-us/updates?id=azure-orbital-ground-station-retirement",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/orbital/initiate-licensing.md",
+      "redirect_url": "https://azure.microsoft.com/en-us/updates?id=azure-orbital-ground-station-retirement",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/orbital/index.yml",
+      "redirect_url": "https://azure.microsoft.com/en-us/updates?id=azure-orbital-ground-station-retirement",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/orbital/get-started.md",
+      "redirect_url": "https://azure.microsoft.com/en-us/updates?id=azure-orbital-ground-station-retirement",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/orbital/geospatial-reference-architecture.md",
+      "redirect_url": "https://azure.microsoft.com/en-us/updates?id=azure-orbital-ground-station-retirement",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/orbital/downlink-aqua.md",
+      "redirect_url": "https://azure.microsoft.com/en-us/updates?id=azure-orbital-ground-station-retirement",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/orbital/contact-profile.md",
+      "redirect_url": "https://azure.microsoft.com/en-us/updates?id=azure-orbital-ground-station-retirement",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/orbital/concepts-contact.md",
+      "redirect_url": "https://azure.microsoft.com/en-us/updates?id=azure-orbital-ground-station-retirement",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/orbital/concepts-contact-profile.md",
+      "redirect_url": "https://azure.microsoft.com/en-us/updates?id=azure-orbital-ground-station-retirement",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/orbital/about-ground-stations.md",
+      "redirect_url": "https://azure.microsoft.com/en-us/updates?id=azure-orbital-ground-station-retirement",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/partner-twilio-cloud-services-dotnet-phone-call-web-role.md",
       "redirect_url": "https://www.twilio.com/docs/usage/tutorials/serverless-webhooks-azure-functions-and-csharp",
       "redirect_document_id": false
