@@ -1555,6 +1555,48 @@ View permissions for Microsoft Defender for Cloud. Can view recommendations, ale
   "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
+## Locks Contributor
+
+Lets you manage locks operations
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/locks/read | Gets locks at the specified scope |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/locks/write | Add locks at the specified scope |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/locks/delete | Delete locks at the specified scope |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Can Manage Locks Operations.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/28bf596f-4eb7-45ce-b5bc-6cf482fec137",
+  "name": "28bf596f-4eb7-45ce-b5bc-6cf482fec137",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/locks/read",
+        "Microsoft.Authorization/locks/write",
+        "Microsoft.Authorization/locks/delete"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Locks Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
 
 ## Next steps
 

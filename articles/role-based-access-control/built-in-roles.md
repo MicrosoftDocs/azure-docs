@@ -436,6 +436,7 @@ The following table provides a brief description of each built-in role. Click th
 > | <a name='security-assessment-contributor'></a>[Security Assessment Contributor](./built-in-roles/security.md#security-assessment-contributor) | Lets you push assessments to Microsoft Defender for Cloud | 612c2aa1-cb24-443b-ac28-3ab7272de6f5 |
 > | <a name='security-manager-legacy'></a>[Security Manager (Legacy)](./built-in-roles/security.md#security-manager-legacy) | This is a legacy role. Please use Security Admin instead. | e3d13bf0-dd5a-482e-ba6b-9b8433878d10 |
 > | <a name='security-reader'></a>[Security Reader](./built-in-roles/security.md#security-reader) | View permissions for Microsoft Defender for Cloud. Can view recommendations, alerts, a security policy, and security states, but cannot make changes.<br><br>For Microsoft Defender for IoT, see [Azure user roles for OT and Enterprise IoT monitoring](/azure/defender-for-iot/organizations/roles-azure). | 39bc4728-0917-49c7-9d2c-d95423bc2eb4 |
+> | <a name='locks-contributor'></a>[Locks Contributor](./built-in-roles/security.md#locks-contributor) | Lets you manage locks operations | 28bf596f-4eb7-45ce-b5bc-6cf482fec137 |
 
 ## DevOps
 
