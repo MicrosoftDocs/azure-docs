@@ -9,7 +9,7 @@ ms.service: azure-web-pubsub
 ms.topic: tutorial
 ---
 
-# Quickstart: Build chat app with Azure Function in Socket.IO Serverless Mode (Preview)
+# Quickstart: Build chat app with Azure Function in Socket.IO Serverless Mode
 
 In this article, you'll learn how to build a chat app using Web PubSub for Socket.IO in Serverless Mode with Azure Functions. The tutorial will guide you through securing your app with identity-based authentication, while working online.
 
