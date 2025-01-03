@@ -4,7 +4,7 @@ description: Learn about secured virtual hubs
 author: vhorne
 ms.service: azure-firewall-manager
 services: firewall-manager
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/13/2023
 ms.author: victorh
 ---

@@ -4,7 +4,7 @@ description: This article is an overview of the Application Gateway end to end T
 services: application-gateway
 author: greg-lindsay
 ms.service: azure-application-gateway
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/09/2023
 ms.author: greglin
 

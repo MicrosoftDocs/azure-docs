@@ -25,7 +25,7 @@ Review the supported geographies for [public](supported-geographies.md#public-cl
 
 ## How many servers can I discover with an appliance?
 
-You can discover up to 10,000 servers from VMware environment, up to 5,000 servers from Hyper-V environment, and up to 1000 physical servers by using a single appliance. If you have more servers, read about [scaling a Hyper-V assessment](scale-hyper-v-assessment.md), [scaling a VMware assessment](scale-vmware-assessment.md), or [scaling a physical server assessment](scale-physical-assessment.md).
+You can discover up to 10,000 servers from VMware environment, up to 5,000 servers from Hyper-V environment, and up to 1,000 physical servers by using a single appliance. If you have more servers, read about [scaling a Hyper-V assessment](scale-hyper-v-assessment.md), [scaling a VMware assessment](scale-vmware-assessment.md), or [scaling a physical server assessment](scale-physical-assessment.md).
 
 ## How do I choose the assessment type?
 
@@ -37,7 +37,11 @@ You can discover up to 10,000 servers from VMware environment, up to 5,000 serve
 
 ## Why is performance data missing for some/all servers in my Azure VM and/or AVS assessment report?
 
+<<<<<<< HEAD
 For **Performance-based** assessment, the assessment report export says 'PercentageOfCoresUtilizedMissing' or 'PercentageOfMemoryUtilizedMissing' when the Azure Migrate appliance can't collect performance data for the on-premises servers. You can check the *Resolve issues* blade on the Azure Migrate hub page for detailed issues or check the following manually:
+=======
+For "Performance-based" assessment, the assessment report export says "PercentageOfCoresUtilizedMissing" or "PercentageOfMemoryUtilizedMissing" when the Azure Migrate appliance can't collect performance data for the on-premises servers. You can check the *Resolve issues* tab on the Azure Migrate hub page for detailed issues or check the following manually:
+>>>>>>> 917727066b6ca029227047ccaed57fad173c4f61
 
 - If the servers are powered on for the duration for which you're creating the assessment
 - If only memory counters are missing and you're trying to assess servers in Hyper-V environment. In this scenario, enable dynamic memory on the servers and 'Recalculate' the assessment to reflect the latest changes. The appliance can collect memory utilization values for severs in Hyper-V environment only when the server has dynamic memory enabled.
@@ -53,15 +57,19 @@ You can now understand what errors you need to remediate to resolve performance 
 - Go to Azure Migrate > **Servers, databases and web apps** > **Migration goals**, select **Resolve issues** on the Discovery and assessment tool.
 - Select **Affected objects** next to the assessment and select the link in the error ID column to review the error details and remediation actions.
 
+<<<<<<< HEAD
 You can also review these errors/issues while creating the assessment in the **Select servers to assess** step or in the readiness tab of an existing assessment. If you don't see any errors/issues in the assessment but see nonzero errors in the resolve issues blade, recalculate the assessment to see the issues within the assessment blade. 
+=======
+You can also review these errors/issues while creating the assessment in the **Select servers to assess** step or in the readiness tab of an existing assessment. If you don't see any errors/issues in the assessment but see non-zero errors in the Resolve issues tab, recalculate the assessment to see the issues within the Assessment tab. 
+>>>>>>> 917727066b6ca029227047ccaed57fad173c4f61
 
 ## Why is performance data missing for some/all SQL instances/databases in my Azure SQL assessment?
 
 To ensure performance data is collected, check:
 
 - If the SQL Servers are powered on for the duration for which you're creating the assessment.
-- If the connection status of the SQL agent in Azure Migrate is 'Connected', and check the last heartbeat. 
-- If Azure Migrate connection status for all SQL instances is 'Connected' in the discovered SQL instance section.
+- If the connection status of the SQL agent in Azure Migrate is "Connected", and check the last heartbeat. 
+- If Azure Migrate connection status for all SQL instances is "Connected" in the discovered SQL instance section.
 - If all of the performance counters are missing, ensure that outbound connections on ports 443 (HTTPS) are allowed.
 
 If any of the performance counters are missing, Azure SQL assessment falls back to As on-premises sizing and recommends an Azure SQL configuration based on the allocated cores, memory, and total database size on-premises.
@@ -79,6 +87,7 @@ The confidence rating is calculated for **Performance-based** assessments based 
     - Servers are powered on for the duration of the assessment
     - Outbound connections on ports 443 are allowed
     - For Hyper-V Servers, dynamic memory is enabled
+<<<<<<< HEAD
     - The connection status of agents in Azure Migrate are 'Connected' and check the last heartbeat
     - For Azure SQL assessments, Azure Migrate connection status for all SQL instances is **Connected** in the discovered SQL instance section.
 
@@ -86,10 +95,19 @@ The confidence rating is calculated for **Performance-based** assessments based 
 
 - For Azure VM and AVS assessments, few servers were created after discovery had started. For example, if you're creating an assessment for the performance history of last one month, but few servers were created in the environment only a week ago. In this case, the performance data for the new servers won't be available for the entire duration and the confidence rating would be low. [Learn more](./assessment-report.md#confidence-ratings-performance-based).
 - For Azure SQL assessments, few SQL instances or databases were created after discovery had started. For example, if you're creating an assessment for the performance history of last one month, but few SQL instances or databases were created in the environment only a week ago. In this case, the performance data for the new servers won't be available for the entire duration and the confidence rating would be low. [Learn more](./assessment-report.md#confidence-ratings-performance-based).
+=======
+    - The connection status of agents in Azure Migrate is "Connected" and check the last heartbeat
+    - For Azure SQL assessments, Azure Migrate connection status for all SQL instances is "Connected" in the discovered SQL instance section.
+
+    **Recalculate** the assessment to reflect the latest changes in confidence rating.
+
+- For Azure VM and AVS assessments, few servers were created after discovery started. For example, if you're creating an assessment for the performance history of last one month, but few servers were created in the environment only a week ago. In this case, the performance data for the new servers won't be available for the entire duration and the confidence rating would be low. [Learn more](./concepts-assessment-calculation.md#confidence-ratings-performance-based).
+- For Azure SQL assessments, few SQL instances or databases were created after discovery started. For example, if you're creating an assessment for the performance history of last one month, but few SQL instances or databases were created in the environment only a week ago. In this case, the performance data for the new servers won't be available for the entire duration and the confidence rating would be low. [Learn more](./concepts-azure-sql-assessment-calculation.md#confidence-ratings).
+>>>>>>> 917727066b6ca029227047ccaed57fad173c4f61
 
 ## Why is my RAM utilization greater than 100%?
 
-By design, in Hyper-V if maximum memory provisioned is less than what is required by the VM, Assessment will show memory utilization to be more than 100%.
+By design, in Hyper-V if maximum memory provisioned is less than what the VM requires, the Assessment will show memory utilization to be more than 100%.
 
 ## I see a banner on my assessment that the assessment now also considers processor parameters. What will be the impact of recalculating the assessment?
 
@@ -205,7 +223,11 @@ The Azure SQL assessment only includes databases that are in online status. In c
 
 ## I want to compare costs for running my SQL instances on Azure VM vs Azure SQL Database/Azure SQL Managed Instance
 
+<<<<<<< HEAD
 You can create a single **Azure SQL** assessment consisting of desired SQL servers across VMware, Microsoft Hyper-V, and Physical/Bare metal environments as well as IaaS Servers of other public clouds such as AWS, GCP, etc. A single assessment covers readiness, SKUs, estimated costs and migration blockers for all the available SQL migration targets in Azure - Azure SQL Managed Instance, Azure SQL Database, and SQL Server on Azure VM. You can then compare the assessment output for the desired targets. [Learn More](./concepts-azure-sql-assessment-calculation.md)
+=======
+You can create a single **Azure SQL** assessment consisting of desired SQL servers across VMware, Microsoft Hyper-V, and Physical/Bare metal environments as well as IaaS Servers of other public clouds such as AWS, GCP, etc. A single assessment covers readiness, SKUs, estimated costs, and migration blockers for all the available SQL migration targets in Azure - Azure SQL Managed Instance, Azure SQL Database, and SQL Server on Azure VM. You can then compare the assessment output for the desired targets. [Learn More](./concepts-azure-sql-assessment-calculation.md)
+>>>>>>> 917727066b6ca029227047ccaed57fad173c4f61
 
 ## The storage cost in my Azure SQL assessment is zero
 
@@ -266,8 +288,13 @@ For example, if an on-premises server has 4 cores and 8 GB of memory at 50% CPU 
 
 Similarly, disk sizing depends on sizing criteria and storage type:
 
+<<<<<<< HEAD
 - If the sizing criterion is **performance-based** and the storage type is automatic, Azure Migrate takes the IOPS and throughput values of the disk into account when it identifies the target disk type (Standard, Premium, or Ultra disk).
 - If the sizing criterion is **as on premises** and the storage type is Premium, Azure Migrate recommends a Premium disk SKU based on the size of the on-premises disk. The same logic is applied to disk sizing when the sizing is as-on-premises and the storage type is Standard, Premium, or Ultra disk.
+=======
+- If the sizing criteria are "performance-based" and the storage type is automatic, Azure Migrate takes the IOPS and throughput values of the disk into account when it identifies the target disk type (Standard, Premium, or Ultra disk).
+- If the sizing criteria are "as on premises" and the storage type is Premium, Azure Migrate recommends a Premium disk SKU based on the size of the on-premises disk. The same logic is applied to disk sizing when the sizing is as-on-premises and the storage type is Standard, Premium, or Ultra disk.
+>>>>>>> 917727066b6ca029227047ccaed57fad173c4f61
 
 ## Does performance history and utilization affect sizing in an Azure VM assessment?
 
@@ -294,7 +321,11 @@ Using the 95th percentile value ensures that outliers are ignored. Outliers migh
 
 Import-based Azure VM assessments are assessments created with machines that are imported into Azure Migrate using a CSV file. Only four fields are mandatory to import: Server name, cores, memory, and operating system. Here are some things to note:
 
+<<<<<<< HEAD
  - The readiness criterion is less stringent in import-based assessments on the boot type parameter. If the boot type isn't provided, it's assumed the machine has BIOS boot type, and the machine isn't marked as **Conditionally Ready**. In assessments with discovery source as appliance, the readiness is marked as **Conditionally Ready** if the boot type is missing. This difference in readiness calculation is because users might not have all information on the machines in the early stages of migration planning when import-based assessments are done.
+=======
+ - The readiness criteria are less stringent in import-based assessments on the boot type parameter. If the boot type isn't provided, it's assumed the machine has BIOS boot type, and the machine isn't marked as **Conditionally Ready**. In assessments with discovery source as appliance, the readiness is marked as **Conditionally Ready** if the boot type is missing. This difference in readiness calculation is because users might not have all information on the machines in the early stages of migration planning when import-based assessments are done.
+>>>>>>> 917727066b6ca029227047ccaed57fad173c4f61
  - Performance-based import assessments use the utilization value provided by the user for right-sizing calculations. Since the utilization value is provided by the user, the **Performance history** and **Percentile utilization** options are disabled in the assessment properties. In assessments with discovery source as appliance, the chosen percentile value is picked from the performance data collected by the appliance.
 
 ## Why is the suggested migration tool in import-based AVS assessment marked as unknown?
@@ -303,4 +334,4 @@ For machines imported via a CSV file, the default migration tool in an AVS asses
 
 ## Next steps
 
-Learn more about discovering [VMware VMs](./vmware/tutorial-discover-vmware.md), [Hyper-V VMs](tutorial-discover-hyper-v.md), and [Physical servers](tutorial-discover-physical.md).
+Learn more about discovering [VMware VMs](./vmware/tutorial-discover-vmware.md?context=/azure/migrate/context/migrate-context), [Hyper-V VMs](tutorial-discover-hyper-v.md), and [Physical servers](tutorial-discover-physical.md).

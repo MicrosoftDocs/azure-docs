@@ -177,7 +177,7 @@ Read more on strongly typed hubs in the ASP.NET Core docs [here](/aspnet/core/si
 
 This SDK can communicates to Azure SignalR Service with two transport types:
 
-* Transient: Create an Http request Azure SignalR Service for each message sent. The SDK simply wraps up [Azure SignalR Service REST API](./signalr-reference-data-plane-rest-api.md) in Transient mode. It's useful when you're unable to establish a WebSockets connection.
+* Transient: Create an HTTP request Azure SignalR Service for each message sent. The SDK simply wraps up [Azure SignalR Service REST API](./signalr-reference-data-plane-rest-api.md) in Transient mode. It's useful when you're unable to establish a WebSockets connection.
 * Persistent: Create a WebSockets connection first and then send all messages in this connection. It's useful when you send large number of messages.
 
 ### Summary of serialization behaviors of the arguments in messages

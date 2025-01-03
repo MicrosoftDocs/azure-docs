@@ -7,7 +7,7 @@ ms.author: mbender
 ms.date: 11/05/2024
 ms.service: azure-virtual-network
 ms.subservice: ip-services
-ms.topic: conceptual
+ms.topic: concept-article
 ---
 
 # Private IP addresses

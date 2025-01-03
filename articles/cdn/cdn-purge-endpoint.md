@@ -4,7 +4,6 @@ description: Learn how to purge all cached content from an Azure Content Deliver
 services: cdn
 author: duongau
 manager: kumud
-ms.assetid: 0b50230b-fe82-4740-90aa-95d4dde8bd4f
 ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 03/20/2024

@@ -5,7 +5,7 @@ titleSuffix: Azure Virtual WAN
 description: Learn how to use the Route Map dashboard to monitor routes, AS Path, and BGP communities.
 author: cherylmc
 ms.service: azure-virtual-wan
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/04/2024
 ms.author: cherylmc
 

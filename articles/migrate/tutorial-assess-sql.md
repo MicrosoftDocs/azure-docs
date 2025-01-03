@@ -107,5 +107,5 @@ Run an assessment as follows:
 
 ## Next steps
 
-- [Learn more](concepts-azure-sql-assessment-calculation.md) about how Azure SQL assessments are calculated.
-- Start migrating SQL instances and databases using [Azure Database Migration Service](/azure/dms/dms-overview).
+* [Learn more](concepts-azure-sql-assessment-calculation.md) about how Azure SQL assessments are calculated.
+* Start migrating SQL instances and databases using [Azure Database Migration Service](/azure/dms/dms-overview).

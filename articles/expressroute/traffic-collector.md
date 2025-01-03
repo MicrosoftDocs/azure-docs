@@ -5,7 +5,7 @@ description: Learn about ExpressRoute Traffic Collector and the different use ca
 services: expressroute
 author: duongau
 ms.service: azure-expressroute
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 10/09/2023
 ms.author: duau
 ms.custom: references_regions
