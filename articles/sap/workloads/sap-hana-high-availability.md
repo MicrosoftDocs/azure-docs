@@ -144,7 +144,7 @@ Replace `<placeholders>` with the values for your SAP HANA installation.
    1. Run this command to list all the available disks:
 
       ```bash
-      /dev/disk/azure/scsi1/lun*
+      ls /dev/disk/azure/scsi1/lun*
       ```
 
       Example output:

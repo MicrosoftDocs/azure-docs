@@ -162,7 +162,7 @@ To set up the appliance by using an OVA template, complete these steps, which ar
 
 #### Generate the project key
 
-1. In **Migration goals**, select **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment** > **Discover**.
+1. In **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment** > **Discover**.
 1. In **Discover servers**, select **Are your servers virtualized?** > **Yes, with VMware vSphere hypervisor**.
 1. In **1:Generate project key**, provide a name for the Azure Migrate appliance that you'll set up to discover servers in your VMware environment. The name should be alphanumeric and 14 characters or fewer.
 1. To start creating the required Azure resources, select **Generate key**. Don't close the **Discover** pane while the resources are being created.

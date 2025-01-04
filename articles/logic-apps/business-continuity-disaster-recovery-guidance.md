@@ -322,7 +322,7 @@ In each Azure region, *availability zones* are physically separate locations tha
 
 To provide resiliency and distributed availability, at least three separate availability zones exist in any Azure region that supports and enables zone redundancy. The Azure Logic Apps platform distributes these zones and logic app workloads across these zones. This capability is a key requirement for enabling resilient architectures and providing high availability if datacenter failures happen in a region.
 
-Currently, this capability is preview and available for new Consumption logic apps in specific regions. For more information, see the following documentation:
+Currently, this capability is in preview and available for new Consumption logic apps in specific regions. For more information, see the following documentation:
 
 * [Protect Consumption logic apps from region failures with zone redundancy and availability zones](set-up-zone-redundancy-availability-zones.md)
 * [Azure regions and availability zones](../reliability/availability-zones-overview.md)
@@ -335,7 +335,7 @@ You can set up logging for your logic app runs and send the resulting diagnostic
 
 * If you want to use this data with Azure Log Analytics, you can make the data available for both the primary and secondary locations by setting up your logic app's **Diagnostic settings** and sending the data to multiple Log Analytics workspaces. For more information, see [Set up Azure Monitor logs and collect diagnostics data for Azure Logic Apps](../logic-apps/monitor-workflows-collect-diagnostic-data.md).
 
-* If you want to send the data to Azure Storage or Azure Event Hubs, you can make the data available for both the primary and secondary locations by setting up geo-redundancy. For more information, see these articles:<p>
+* If you want to send the data to Azure Storage or Azure Event Hubs, you can make the data available for both the primary and secondary locations by setting up geo-redundancy. For more information, see these articles:
 
   * [Azure Blob Storage disaster recovery and account failover](../storage/common/storage-disaster-recovery-guidance.md)
   * [Azure Event Hubs geo-disaster recovery](../event-hubs/event-hubs-geo-dr.md)
