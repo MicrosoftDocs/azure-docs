@@ -18,6 +18,11 @@ To deploy an update to devices using Azure Device Update for IoT Hub, you first 
 - A [Device Update account and instance configured with an IoT hub](create-device-update-account.md).
 - An IoT device or simulator [provisioned for Device Update](device-update-agent-provisioning.md) within the IoT hub.
 - Update files for your device, and an associated import manifest file created by following the instructions in [Prepare an update to import into Device Update](create-update.md).
+- An Azure Storage account and container to hold the imported files. Or, you can create a new storage account and container as part of the Azure portal based import process.
+
+  > [!IMPORTANT]
+  > Make sure the storage account you use or create doesn't have private endpoints enabled. To see if private endpoints are enabled, you can check for your Azure Storage account name under **Private endpoints** in the [Private Link Center](https://portal.azure.com/#blade/Microsoft_Azure_Network/PrivateLinkCenterBlade/overview).
+
 ## Import an update
 
 This section shows how to import an update using either the Azure portal or the Azure CLI. You can also [import an update by using the Device Update APIs](#import-using-the-device-update-apis) instead.
@@ -37,9 +42,6 @@ To import an update, you first upload the update and import manifest files into 
 1. On the **Import update** page, select **Select from storage container**.
 
 1. On the **Storage accounts** page, select an existing storage account or create a new account by selecting **Storage account**. You use the storage account for a container to stage the update files.
-
-   > [!IMPORTANT]
-   > Make sure the storage account you use or create doesn't have private endpoints enabled. To see if private endpoints are enabled, you can check for your Azure Storage account name under **Private endpoints** in the [Private Link Center](https://portal.azure.com/#blade/Microsoft_Azure_Network/PrivateLinkCenterBlade/overview).
 
 1. On the **Containers** page, select an existing container or create a new container by selecting **Container**. You use the container to stage the update files for import.
 

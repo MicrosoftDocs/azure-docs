@@ -21,7 +21,7 @@ Device Update uses [IoT Plug and Play](device-update-plug-and-play.md) to send t
 The update manifest is different from the Device Update *import manifest*.
 
 - The [import manifest](import-concepts.md) is a JSON file that describes the update to import into Device Update. Whoever creates the update for Device Update creates the corresponding import manifest file.
-- The update manifest is a JSON string object that communicates information to the Device Update agent during an update. The Device Update service automatically generates the update manifest by using some of the same properties defined in the import manifest.
+- The update manifest is a JSON string object that communicates information to the Device Update agent during an update. The Device Update service automatically generates the update manifest by including some of the same properties defined in the import manifest.
 
 Each manifest type has its own schema and schema version. For more information about the import manifest schema, see [Device Update import manifest schema](import-schema.md).
 

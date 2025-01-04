@@ -13,7 +13,7 @@ ms.subservice: device-update
 
 When you import an update into Azure Device Update for Iot Hub, you also submit an associated JSON import manifest file that defines important information about the update. This article describes the schema used to create the JSON import manifest file.
 
-To learn more about import manifest concepts and file structure, see [Azure Device Update for IoT Hub import manifest concepts](import-concepts.md). To learn how to create the file, see [Prepare an update to import into Device Update for IoT Hub](import-update.md).
+To learn more about import manifest concepts and file structure, see [Azure Device Update for IoT Hub import manifest](import-concepts.md). To learn how to create the file, see [Prepare an update to import into Device Update for IoT Hub](import-update.md).
 
 ## Schema
 
@@ -29,7 +29,7 @@ The import manifest JSON schema is hosted at [SchemaStore.org](https://json.sche
 |**instructions**|`instructions`|Update installation instructions.|Yes|
 |**files**|`file` `[0-10]`|List of update payload files. Sum of all file sizes can't exceed 2 GB. Can be empty or null if all instruction steps are reference steps.|No|
 |**manifestVersion**|`string`|Import manifest schema version. Must be 5.0.|Yes|
-|**createdDateTime**|`string`|Date and time import manifest was created in ISO 8601 format, for example `"2020-10-02T22:18:04.9446744Z"`.|Yes|
+|**createdDateTime**|`string`|Import manifest creation date and time in ISO 8601 format, for example `"2020-10-02T22:18:04.9446744Z"`.|Yes|
 
 ### Update object
 
@@ -37,8 +37,8 @@ The `updateID` object is a unique identifier for each update.
 
 |Property|Type|Description|Required|
 |---|---|---|---|
-|**provider**|`string`|Entity who is creating or directly responsible for the update. It can be a company name.<br>Pattern: `^[a-zA-Z0-9.-]+$`<br>Maximum length: 64 characters|Yes|
-|**name**|`string`|Identifier for a class of update. It can be a device class or model name.<br>Pattern: `^[a-zA-Z0-9.-]+$`<br>Maximum length: 64 characters|Yes|
+|**provider**|`string`|Entity who is creating or directly responsible for the update, such as a company name.<br>Pattern: `^[a-zA-Z0-9.-]+$`<br>Maximum length: 64 characters|Yes|
+|**name**|`string`|Identifier for a class of update, such as a device class or model name.<br>Pattern: `^[a-zA-Z0-9.-]+$`<br>Maximum length: 64 characters|Yes|
 |**version**|`string`|Two- to four-part dot-separated numerical version numbers. Each part must be a number between 0 and 2147483647, and leading zeroes are dropped.<br>Pattern: `^\d+(?:\.\d+)+$`<br>Examples: `"1.0"`, `"2021.11.8"`|Yes|
 
 No other properties are allowed.
@@ -136,12 +136,12 @@ For example:
 
 #### Reference step object
 
-A `reference` step object is an installation instruction step that installs another update.
+A `reference` step object is an installation instruction step to install another update.
 
 |Property|Type|Description|Required|
 |---|---|---|---|
 |**type**|`referenceStepType`|Instruction step type that installs another update. Must be `reference`.|Yes|
-|**description**|`stepDescription`|Optional instruction step description. Maximum length: 64 characters |No|
+|**description**|`stepDescription`|Optional instruction step description. Maximum length: 64 characters. |No|
 |**updateId**|`updateId`|Unique update identifier.|Yes|
 
 No other properties are allowed.
@@ -249,7 +249,7 @@ The `downloadHandler` object specifies how to process any related files.
 
 |Property|Type|Description|Required|
 |---|---|---|---|
-|**id**|`string`|Identifier for `downloadHandler`. Limit of 64 ASCII characters.|Yes|
+|**id**|`string`|Identifier for `downloadHandler`. Limit of 64 ASCII characters.|Yes, if using `relatedFiles`|
 
 No other properties are allowed.
 

@@ -190,7 +190,7 @@ The `files` section of the import manifest contains update payload file metadata
 
 ## Create an import manifest
 
-Once you understand the structure of an import manifest, create an import manifest to describe your update. You can author a JSON import manifest manually using a text editor, but the Azure CLI [az iot du init v5](/cli/azure/iot/du/update/init#az-iot-du-update-init-v5) command simplifies the process. For more information and instructions, see [Prepare an update to import into Device Update](create-update.md).
+Once you understand the structure of an import manifest, create an import manifest file to describe your update. You can author a JSON import manifest file manually using a text editor, but the Azure CLI [az iot du init v5](/cli/azure/iot/du/update/init#az-iot-du-update-init-v5) command simplifies the process. For more information and instructions, see [Prepare an update to import into Device Update](create-update.md).
 
 > [!IMPORTANT]
 > To import into the Azure portal, an import manifest JSON filename must end with *.importmanifest.json*.
@@ -204,6 +204,7 @@ Certain limits are enforced for Device Update instances, including import limits
 
 ## Related content
 
-- [Import manifest schema](import-schema.md).
-- [Prepare an update to import](create-update.md).
+- [Import manifest schema](import-schema.md)
+- [Device Update update manifest](update-manifest.md)
+- [Prepare an update to import](create-update.md)
 - [Import an update](import-update.md)
