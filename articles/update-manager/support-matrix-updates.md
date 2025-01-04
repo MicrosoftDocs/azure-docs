@@ -4,7 +4,7 @@ description: This article provides a summary of support for updates, one time up
 ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 01/03/2025
+ms.date: 01/4/2025
 ms.topic: overview
 zone_pivot_groups: support-matrix-updates
 ---
@@ -32,190 +32,283 @@ Update Manager supports the following operating system versions on VMs for all o
 
 Following is the list of supported images and no other marketplace images released by any other publisher are supported for use with Azure Update Manager.
 
-### Supported Windows OS versions
+### Supported Windows OS images
 
-| **Publisher**| **Offer** | **Plan** | **Unsupported image(s)** |
-| ----| --- | --- | --- |
-| Center for Internet Security Inc | cis-windows-server-2012-r2-v2-2-1-l1 | cis-ws2012-r2-l1 | |
-| |cis-windows-server-2012-r2-v2-2-1-l2 | cis-ws2012-r2-l2 | |
-| |cis-windows-server-2016-v1-0-0-l1  | cis-ws2016-l1 | |
-| |cis-windows-server-2016-v1-0-0-l2 | cis-ws2016-l2 | |
-| |cis-windows-server-2019-v1-0-0-l1 | cis-ws2019-l1 | |
-| |cis-windows-server-2019-v1-0-0-l2 | cis-ws2019-l2 | |
-| |cis-windows-server-2022-l1 | * | |
-| |cis-windows-server-2022-l2 | * | |
-| |cis-windows-server| cis-windows-server2016-l* </br> cis-windows-server2019-l* </br> cis-windows-server2022-l </br> cis-windows-server2019-stig-gen1 | cis-windows-server-l*-azure-observability |
-| |cis-win-2016-stig | cis-win-2016-stig | |
-| | cis-win-2019-stig | cis-win-2019-stig | |
-| cloud-infrastructure-services | hpc2019-windows-server-2019 | hpc2019-windows-server-2019 | |
-| microsoftsqlserver | sql2016sp1-ws2016 | standard | |
-| | sql2016sp2-ws2016 | standard | |
-| | sql2017-ws2016 | enterprise | |
-| | sql2017-ws2016 | standard | |
-| | sql2019-ws2019 | enterprise | |
-| | sql2019-ws2019 | sqldev | |
-| | sql2019-ws2019 | standard | |
-| | sql2019-ws2019 | standard-gen2 | |
-| cognosys | sql-server-2016-sp2-std-win2016-debug-utilities |sql-server-2016-sp2-std-win2016-debug-utilities | |
-| filemagellc | filemage-gateway-vm-win-001 | | | 
-| | filemage-gateway-vm-win-002 | | | 
-| github | github-enterprise | | |
-| | github-enterprise | | | 
-|  matillion | matillion | | | 
-| | matillion-etl-for-snowflake | | | 
-| microsoft-ads | windows-data-science-vm | windows2016 </br> windows2016byol | |
-| microsoft-dsvm | ubuntu-1804    | 1804-gen2 | |
-| | dsvm-windows   | * | | 
-| | dsvm-win-2019  | * | | 
-| | dsvm-win-2022  | * | | 
-| microsoftazuresiterecovery | process-server |windows-2012-r2-datacenter | |
-| microsoftbiztalkserver | biztalk-server | * | |
+| Publisher      | Offer           | Plan        | Unsupported image(s)|
+|--------------|----------------|-----------------|---------|
+| center-for-internet-security-inc | cis-windows-server-2012-r2-v2-2-1-l1  | cis-ws2012-r2-l1    ||
+|| cis-windows-server-2012-r2-v2-2-1-l2  | cis-ws2012-r2-l2    ||
+|| cis-windows-server-2016-v1-0-0-l1     | cis-ws2016-l1       ||
+|| cis-windows-server-2016-v1-0-0-l2     | cis-ws2016-l2       ||
+|| cis-windows-server-2019-v1-0-0-l1     | cis-ws2019-l1       ||
+|| cis-windows-server-2019-v1-0-0-l2     | cis-ws2019-l2       ||
+|| cis-windows-server-2022-l1            | *                   ||
+|| cis-windows-server-2022-l2            | *                   ||
+|| cis-windows-server                    | cis-windows-server2016-l*   ||
+||| cis-windows-server2019-l*  ||
+||| cis-windows-server2022-l* ||
+|| cis-windows-server2019-stig-gen1|cis-windows-server-l*-azure-observability |                                          |
+|                                  | cis-win-2016-stig | cis-win-2016-stig  |    |
+|                                  | cis-win-2019-stig | cis-win-2019-stig  |    |
+| cloud-infrastructure-services    | hpc2019-windows-server-2019 | hpc2019-windows-server-2019 | |
+|                                  | servercore-2019 | servercore-2019      |        |
+|                                  | ad-dc-2016 | ad-dc-2016  |      |
+|                                  | ad-dc-2019 | ad-dc-2019  |      |
+|                                  | ad-dc-2022 | ad-dc-2022  |  |
+|                                  | sftp-2016 | sftp-2016   |  |
+|                                  | rds-farm-2019 | rds-farm-2019 |    |
+|                                  | hmailserver | hmailserver-email-server-2016|   |
+| microsoftsqlserver               | *                                          | *             |    |
+| cognosys        | sql-server-2016-sp2-std-win2016-debug-utilities | sql-server-2016-sp2-std-win2016-debug-utilities |    |
+| filemagellc     | filemage-gateway-vm-win    | filemage-gateway-vm-win-*    |        |
+| microsoft-dsvm | dsvm-windows  | *  | |
+|                | dsvm-win-2019| *| |
+| | dsvm-win-2022| *||
+| microsoftazuresiterecovery| process-server | windows-2012-r2-datacenter |   |
+| microsoftbiztalkserver| biztalk-server | * | |
 | microsoftdynamicsax | dynamics | * | |
-| microsoftpowerbi | * | * | |
-| microsoftsharepoint | microsoftsharepointserver | * | |
-| Visualstudio | Visualstudio* |  *-ws2012r2 </br> *-ws2016-ws2019 </br> *-ws2022 | |
-| microsoftwindowsserver | windows server | windowsserver 2008 | |
+| microsoftpowerbi | *   | * |  |
+| microsoftsharepoint | microsoftsharepointserver | *| |
+| microsoftvisualstudio | visualstudio* | *-ws2012r2 | |
+| | | *-ws2016 | |
+| | | *-ws2019 | |
+| | | *-ws2022 | |
+| microsoftwindowsserver | windowsserver | * | |
+| | windowsserver-hub | 2012-r2-datacenter-hub | |
+| | | 2016-datacenter-hub | |
 | | windows-cvm | * | |
-| | windowsserver-gen2preview | * | |
 | | windowsserverdotnet | * | |
-| | microsoftwindowsserver | windowsserverupgrade | * |
-| | microsoftwindowsserverhpcpack | windowsserverhpcpack | * |
-| microsoftwindowsserver | netapp | netapp-oncommand-cloud-manager | occm-byol |
-
-### Supported Linux OS versions
-
-| **Publisher**| **Offer** | **Plan** | **Unsupported image(s)** |
-| --- | --- | --- | --- |
-| ad-dc | ad-dc-2016 | ad-dc-2016 | |
-| | ad-dc-2019 | ad-dc-2019 | |
-| | ad-dc-2022 | ad-dc-2022 | |
-| almalinux-hpc| almalinux-hpc | 8_6-hpc, 8_6-hpc-gen2 | |
-| aviatrix-companion-gateway | aviatrix-companion-gateway-v9 | aviatrix-companion-gateway-v9 | |
-| | aviatrix-companion-gateway-v10 | aviatrix-companion-gateway-v10 </br> aviatrix-companion-gateway-v10u | |
-| | aviatrix-companion-gateway-v12 | aviatrix-companion-gateway-v12 | |
-| | aviatrix-companion-gateway-v13 | aviatrix-companion-gateway-v13 </br> aviatrix-companion-gateway-v13u | |
-| | aviatrix-companion-gateway-v14 | aviatrix-companion-gateway-v14 </br> aviatrix-companion-gateway-v14u | |
-| | aviatrix-companion-gateway-v16 | aviatrix-companion-gateway-v16 | |
-| | aviatrix-copilot | avx-cplt-byol-01, avx-cplt-byol-02 | |
-| centos | centos-ci  | 7-ci | |
-| | centos-hpc | 7.1, 7.3, 7.4 | |
-| | centos-lvm | 7-lvm-gen2   | |
-| | centos-lvm | 7-lvm, 8-lvm | |
-| center-for-internet-security-inc | cis-oracle-linux-8-l1 | cis-oracle8-l1 | |
-| cis-redhat | cis-redhat7-l1-gen1 | | | 
-| | cis-redhat8-l1-gen1 | | | 
-| | cis-redhat8-l2-gen1 | | | 
-| | cis-redhat9-l1-gen1 | | | 
-| | cis-redhat9-l1-gen2 | | | 
-| cis-rhel | cis-rhel7-l2 | | |
-| | cis-rhel8-l2 | | |
-| | cis-rhel9-l1 | | |
-| | cis-rhel9-l1-gen2 | * | |
-| center-for-internet-security-inc | cis-ubuntu | cis-ubuntu1804-l1 </br> cis-ubuntulinux2004-l1-gen1 </br> cis-ubuntulinux2204-l1-gen1 </br> cis-ubuntulinux2204-l1-gen2 | * |
-| | cis-ubuntu-linux-1804-l1 | cis-ubuntu1804-l1 | * |
-| | cis-ubuntu-linux-2004-l1 | cis-ubuntu2004-l1 </br> cis-ubuntu-linux-2204-l1-gen2 | |
-| | cis-ubuntu-linux-2204-l1 | cis-ubuntu-linux-2204-l1 </br> cis-ubuntu-linux-2204-l1-gen2 | |
-| | debian-10-daily | 10 </br> 10-gen2 </br> 10-backports </br> 10-backports-gen2 | |
-| | debian-11 | 11 </br> 11-gen2 </br> 11-backports </br> 11-backports-gen2 | |
-| | debian-11-daily | 11 </br>  11-gen2 </br> 11-backports </br> 11-backports-gen2 | |
-| | dns-ubuntu-2004 | dns-ubuntu-2004 | |
-| | oracle-database | oracle_db_21 | |
-| | oracle-database-19-3 | oracle-database-19-0904 | |
-| | rhel-ha | 9_2 </br> 9_2-gen2 | |
-| | rhel-sap-apps | 9_0 </br> 90sapapps-gen2 </br> 9_2 </br> 92sapapps-gen2 | |
-| | rhel-sap-ha | 9_2 </br> 92sapha-gen2 | |
-| | servercore-2019 | servercore-2019 | |
-| | sftp-2016 | sftp-2016 | |
-| | sle-hpc-15-sp4 | gen1 </br> gen2 | |
-| | sle-hpc-15-sp4-byos | gen1 </br> gen2 | |
-| | sle-hpc-15-sp5 | gen1 </br> gen 2 | |
-| | sle-hpc-15-sp5-byos | gen1 </br> gen 2 | |
-| | sles-15-sp1-sapcal | gen1 </br> gen2 | |
-| | sles-15-sp2-basic | gen2 | |
-| | sles-15-sp2-hpc | gen2 | |
-| | sles-15-sp3-sapcal | gen1 </br> gen2 | |
-| | sles-15-sp4 | gen1 </br> gen2 | |
-| | sles-15-sp4-byos | gen1 </br> gen2 | |
-| | sles-15-sp4-chost-byos | gen1 </br> gen 2 | |
-| | sles-15-sp4-hardened-byos | gen1 </br> gen2 | |
-| | sles-15-sp5 | gen1 </br> gen2 | |
-| | sles-15-sp5-basic | gen1 </br> gen2 | |
-| | sles-15-sp5-byos | gen1 </br> gen2 | |
-| | sles-15-sp5-hardened-byos | gen1 </br> gen2 | |
-| | sles-15-sp5-sapcal | gen1 </br> gen2 | |
-| | sles-byos | 12-sp4 </br> 12-sp4-gen2 | |
-| | sles-sap | 12-sp4 </br> 12-sp4-gen2 | |
-| | sles-sap-15-sp4-byos | gen1 </br> gen2 | |
-| | sles-sap-15-sp4-hardened-byos | gen1 </br> gen2 | |
-| | sles-sap-15-sp5-byos | gen1 </br> gen2 | |
-| | sles-sap-15-sp5-hardened-byos| gen1 </br> gen2 | |
-| | sles-sap-byos | 12-sp4 </br> 12-sp4-gen2 </br> gen2-12-sp4 | |
-| | sles-sapcal | 12-sp3 | |
-| | sles-standard | 12-sp4-gen2 | |
-| | sles| 12-sp4-gen2 | |
-| | squid-ubuntu-2004 | squid-ubuntu-2004 | | 
-| | ubuntu-2004 | 2004, 2004-gen2 | |
-| | ubuntu-hpc | 1804 </br> 2004-preview-ndv5 </br> 2004 </br> 2204 </br> 2204-preview-ndv5 | |
-| sles-15-sp5-chost-byos | gen1 | | |
-| | gen2 | | |
-| almalinux | almalinux </br> | 8-gen1 </br> 8-gen2 </br> 9-gen1 </br> 9-gen2 | |
-| | almalinux-x86_64 | 8-gen1 </br> 8-gen2 </br> 8_7-gen2 </br> 9-gen1 </br> 9-gen2 | |
-| aviatrix-systems |aviatrix-bundle-payg | aviatrix-enterprise-bundle-byol | |
-| belindaczsro1588885355210 | belvmsrv01 | belvmsrv003 | | 
-| canonical | * | | |
-| cloud-infrastructure-services | rds-farm-2019 | rds-farm-2019 | |
-| cloudera | cloudera-centos-os | 7_5 | |
-| cncf-upstream | capi | ubuntu-1804-gen1 </br> ubuntu-2004-gen1 </br> ubuntu-2204-gen1 | |
-| credativ | debian | 9 </br> 9-backports | |
-| debian | debian-10 | 10 </br> 10-gen2 </br> 10-backports </br> 10-backports-gen2 | |
-| esri | arcgis-enterprise-107 | byol-1071 | |
-| | pro-byol | pro-byol-29 | |
-| | arcgis-enterprise | byol-108 </br> byol-109 </br> byol-111 </br> byol-1081 </br> byol-1091 | |
-| | esri | arcgis-enterprise-106 | byol-1061 |
-| erockyenterprisesoftwarefoundationinc1653071250513 | rockylinux | free | |
-| | rockylinux-9 | rockylinux-9 | |
-| microsoft-aks | aks | aks-engine-ubuntu-1804-202112 | |
-| microsoft-dsvm | aml-workstation | ubuntu-20 </br> ubuntu-20-gen2 | |
-| | aml-workstation | ubuntu | |
-| microsoftcblmariner | cbl-mariner | cbl-mariner-1 </br> 1-gen2 </br> cbl-mariner-2 </br> cbl-mariner-2-gen2 | |
-| | cbl-mariner-1 | | | 
-| | cbl-mariner-1-gen2 | | | 
-| | cbl-mariner-2 | | | 
-| | cbl-mariner-2-gen2 | | | 
-| microsoftsqlserver | * | * | **Offers**: sql2019-sles* </br> sql2019-rhel7 </br> sql2017-rhel 7 </br></br> Example  </br> Publisher: </br> microsoftsqlserver </br> Offer: sql2019-sles12sp5 </br> sku:webARM </br></br> Publisher: microsoftsqlserver </br> Offer: sql2019-rhel7 </br> sku: web-ARM | 
-| | * | *| **Offers**:  sql2019-sles*</br> sql2019-rhel7 </br> sql2017-rhel7 |
-| nginxinc | nginx-plus-ent-v1 | nginx-plus-ent-centos7 | |
-| ntegralinc1586961136942 | ntg_oracle_8_7 | ntg_oracle_8_7 | |
-| openlogic | centos | 7.2 </br> 7.3 </br> 7.4 </br> 7.5 </br> 7.6 </br> 7_8 </br> 7_9 </br> 7_9-gen2 | |
-| oracle | oracle-linux | 7* </br> ol7* </br> ol8* </br> ol9* </br> ol9-lvm* </br> 8 </br> 8-ci </br> 81 </br> 81-ci </br> 81-gen2 | |
-| procomputers | almalinux-8-7 | almalinux-8-7 | |
-| | rhel-8-2 | rhel-8-2 | |
-| redhat | redhat | rhel-sap | 7* |
-| | rhel | 7* </br> 8* </br> 8.1 </br> 89-gen2 </br> 8_9 </br> 9* | |
-|| rhel-byos | rhel-lvm79 </br> rhel-lvm79-gen2 </br> rhel-lvm8 </br> rhel-lvm82-gen2 </br> rhel-lvm83 </br> rhel-lvm84 </br> rhel-lvm84-gen2 </br> rhel-lvm85-gen2 </br> rhel-lvm86 </br> rhel-lvm86-gen2 </br> rhel-lvm87-gen2 </br> rhel-raw76 </br> rhel-lvm88 </br> rhel-lvm88-gent2 </br> rhel-lvm92 </br> rhel-lvm92-gen2 | |
-| | rhel-ha | 8* | 81_gen2 |
-| | rhel-raw | 7* </br> 8* </br> 9* | |
-| | rhel-sap | 7.4 </br> 7.7 | |
-| | rhel-sap* | 9_0 | |
-| | rhel-sap-apps | 90sapapps-gen2 | |
-| |rhel-sap-ha | 7* </br> 8* </br> 90sapha-gen2 | |
-| | sap-apps | 7* </br> 8* | |
-| southrivertech1586314123192 | tn-ent-payg| Tnentpayg | |
-| | tn-sftp-payg | Tnsftppayg | |
-| suse | opensuse-leap-15-* | gen* | |
-| | sles-12-sp5 | gen1 </br> gen2 | |
-| | sles-12-sp5-* | gen* | |
-| | sles-15-sp2 | gen1 </br> gen2 | |
-| | sles-15-sp5 | gen2 | * |
-| | sles-sap-12-sp5* | gen* | |
-| | sles-sap-15-* | gen* </br> Offer: sles-sap-15-\*-byos  </br></br> **Sku**: gen\* </br> Example </br> Publisher: suse </br> Offer: sles-sap-15-sp3-byos </br> sku: gen1-ARM  | |
-| | sles-sap-15-sp2-byos | gen2 | |
-| talend | talend_re_image | tlnd_re | |
-| thorntechnologiesllc | sftpgateway | Sftpgateway | |
+| | windowsserver-gen2preview | * | |
+| | windowsserversemiannual | * | |
+| | windowsserverupgrade | * | |
+| microsoftwindowsserverhpcpack | windowsserverhpcpack | * | |
 | veeam | office365backup | veeamoffice365backup | |
-| | veeam-backup-replication | veeam-backup-replication-v11| |
-| zscaler | zscaler-private-access | zpa-con-azure | |
+| | veeam-backup-replication | veeam-backup-replication-v* | |
+| microsoftdynamicsnav | dynamicsnav | 2017 | |
+| aod | win2019azpolicy | win2019azpolicy | |
+| esri | arcgis-enterprise* | byol* | |
+| | pro-byol | pro-byol-* | |
+| southrivertech1586314123192 | tn-ent-payg | tnentpayg* | |
+| | tn-sftp-payg | tnsftppayg* | |
+| belindaczsro1588885355210 | belvmsrv* | belvmsrv* | |
+| bissantechnology1583581147809 | bissan_secure_windows_server2019 | secureserver2019 | |
+| ntegralinc1586961136942 | ntg_windows_datacenter_2019 | ntg_windows_server_2019 | |
+| outsystems | os11-vm-baseimage | platformserver | |
+| tidalmediainc | windows-server-2022-datacenter | windows-server-2022-datacenter | |
 
+### Supported Linux OS images
+
+| Publisher| Offer| Plan| Unsupported image(s) |
+|--------|-----------|--------|---------|
+| github| github-enterprise| github-enterprise| |
+| matillion| matillion | matillion-etl-for-snowflake | |
+| netapp | netapp-oncommand-cloud-manager | occm-byol | |
+| almalinux | almalinux-x86_64  | 8_7-gen2 | |
+| | | 8-gen* | |
+| | | 9-gen* | |
+| almalinux-hpc | | 8_6-hpc | |
+| | | 8_6-hpc-gen2 | |
+| | | 8-hpc-gen* | |
+| | | 8_5-hpc* | |
+| | | 8_7-hpc-gen* ||
+| almalinux | | 8-gen* | |
+| | | 9-gen*| |
+| aviatrix-systems | aviatrix-bundle-payg | aviatrix-enterprise-bundle-byol | |
+| aviatrix-copilot | avx-cplt-byol-01 | | |
+| | avx-cplt-byol-02 | | |
+| aviatrix-companion-gateway-v9 | aviatrix-companion-gateway-v9 | | |
+| aviatrix-companion-gateway-v10 | aviatrix-companion-gateway-v10 | | |
+|| aviatrix-companion-gateway-v10u |||
+| aviatrix-companion-gateway-v12| aviatrix-companion-gateway-v12 | | |
+| aviatrix-companion-gateway-v13 | aviatrix-companion-gateway-v13 | | |
+| | aviatrix-companion-gateway-v13u |||
+| aviatrix-companion-gateway-v14 | aviatrix-companion-gateway-v14 | | |
+| | aviatrix-companion-gateway-v14u | | |
+| aviatrix-companion-gateway-v16 | aviatrix-companion-gateway-v16 | | |
+| openlogic | centos-hpc | * | |
+| | centos-lvm | 7-lvm | |
+| | | 7-lvm-gen2| |
+| | | 8-lvm | |
+| | centos-ci | 7-ci | |
+| centos | | 7*| |
+| | | 8* | |
+| center-for-internet-security-inc | cis-rhel | cis-redhat7-l1-gen1 | |
+| | | cis-redhat8-l*-gen1 | |
+| | | cis-redhat9-l1-gen* ||
+| | cis-rhel-7-l2 | cis-rhel7-l2 ||
+|| cis-rhel-7-v2-2-0-l1| cis-rhel7-l1||
+|| cis-rhel-7-stig| cis-rhel-7-stig||
+|| cis-rhel-8-stig| cis-rhel-8-stig||
+|| cis-oracle| cis-oraclelinux8-l1-gen1||
+||| cis-oraclelinux9-l1-gen*||
+||| cis-oracle-linux-8-l1| cis-oracle8-l1|
+|| cis-ubuntu| cis-ubuntu1804-l1||
+||| cis-ubuntulinux2004-l1-gen1||
+||| cis-ubuntulinux2204-l1-gen*||
+||| cis-ubuntu-linux-1804-l1| cis-ubuntu1804-l1|
+||| cis-ubuntu-linux-2004-l1| cis-ubuntu2004-l1|
+||| cis-ubuntu-linux-2204-l1| cis-ubuntu-linux-2204-l1 |
+||| cis-ubuntu-linux-2204-l1-gen2||
+|| cis-rhel-8-l*| cis-rhel8-l*||
+|| cis-rhel9-l1| cis-rhel9-l1*||
+| canonical| *| *||
+| cloud-infrastructure-services | dns-ubuntu-2004 | dns-ubuntu-2004 ||
+|| squid-ubuntu-2004| squid-ubuntu-2004||
+|| load-balancer-nginx | load-balancer-nginx | |
+| | gitlab-ce-ubuntu20-04 | gitlab-ce-ubuntu-20-04 | |
+| cloudera | cloudera-centos-os| 7_5| |
+| cncf-upstream | capi | ubuntu-1804-gen1||
+||| ubuntu-2004-gen1||
+||| ubuntu-2204-gen1||
+| credativ| debian| 8||
+||| 9||
+||| 9-backports||
+| debian| debian-10| 10||
+||| 10-gen2||
+||| 10-backports||
+||| 10-backports-gen2||
+|| debian-10-daily| 10||
+||| 10-gen2||
+||| 10-backports||
+||| 10-backports-gen2||
+|| debian-11| 11||
+||| 11-gen2||
+||| 11-backports||
+|| | 11-backports-gen2 ||
+|| debian-11-daily| 11| |
+||| 11-gen2||
+||| 11-backports||
+||| 11-backports-gen2||
+| erockyenterprisesoftwarefoundationinc1653071250513 | rockylinux| free||
+|| rockylinux-9| rockylinux-9||
+| microsoftcblmariner| cbl-mariner| cbl-mariner-1||
+||| 1-gen2||
+||| cbl-mariner-2||
+||| cbl-mariner-2-gen2||
+| microsoft-dsvm| aml-workstation| ubuntu||
+|| ubuntu-hpc| 1804||
+||| 2004-preview-ndv5||
+||| 2004||
+||| 2204-preview-ndv5||
+||| 2204||
+|| ubuntu-1804| 1804-gen2||
+|| ubuntu-2004| 2004||
+||| 2004-gen2||
+| nginxinc| nginx-plus-ent-v1| nginx-plus-ent-centos7||
+| ntegralinc1586961136942| ntg_oracle_8_7| ntg_oracle_8_7||
+|| ntg_ubuntu_20_04_lts| ntg_ubuntu_20_04_lts||
+|| ntg_cbl_mariner_2| ntg_cbl_mariner_2_gen2||
+| oracle| oracle-linux| 8||
+||| 8-ci||
+||| 81||
+||| 81-ci||
+||| 81-gen2||
+|| ol82|||
+|| ol8_2-gen2|||
+|| ol82-gen2|||
+|| ol83-lvm|||
+|| ol83-lvm-gen2|||
+|| ol84-lvm|||
+|| ol84-lvm-gen2|||
+| procomputers| almalinux-8-7| almalinux-8-7||
+|| rhel-8-2| rhel-8-2||
+|| rhel-8-8-gen2| rhel-8-8-gen2||
+|| rhel-8-9-gen2| rhel-8-9-gen2||
+| redhat| rhel| 7*||
+||| 8*||
+||| 9*||
+|| rhel-raw| 7*||
+||| 8*||
+||| 9*||
+|| rhel-byos| rhel-raw76||
+||| rhel-lvm7*||
+||| rhel-lvm8*||
+||| rhel-lvm92||
+||| rhel-lvm-92-gen2||
+|| rhel-ha| 8*||
+||| 81_gen2||
+||| 9_2||
+||| 9_2-gen2||
+|| rhel-sap-apps| 7*||
+||| 8*||
+||| 9_0||
+||| 90sapapps-gen2||
+||| 9_2||
+||| 92sapapps-gen2||
+|| rhel-sap-ha| 7*||
+||| 8*||
+||| 9_2||
+||| 92sapha-gen2||
+|| rhel-sap| 7*||
+||| rhel-sap-*| 9_0||
+| microsoftsqlserver| *| *||
+|| sql2019-sles*| *||
+|| sql2019-rhel7| *||
+|| sql2017-rhel7| *||
+| oracle| oracle-database| oracle_db_21||
+||| oracle-database-19-3| oracle-database-19-0904 |
+||| oracle-database-*| 18.*|
+|| oracle-linux| 7*||
+||| ol7*||
+||| ol8*||
+||| ol9*||
+||| ol9-lvm*||
+| talend| talend_re_image| tlnd_re||
+| tenable| tenablecorewas| tenablecoreol8wasbyol||
+|| tenablecorenessus| tenablecorenessusbyol||
+| thorntechnologiesllc| sftpgateway| sftpgateway||
+| zscaler| zscaler-private-access| zpa-con-azure||
+| cloudrichness| rockey_linux_image| rockylinux86||
+| openvpn| openvpnas| access_server_byol||
+| suse| sles| 12-sp4-gen2||
+||| 12-sp3||
+||| sles-12-sp5| gen1|
+|||| gen2                 |
+|| sles-12-sp5-*| gen*||
+|| sles-15-sp1-basic| gen1||
+|| sles-15-sp1-sapcal| gen*||
+|| sles-15-sp2-basic| gen1||
+||| gen2||
+|| sles-15-sp2| gen1||
+||| gen2||
+|| sles-15-sp2-hpc| gen2||
+|| sles-15-sp3-basic| gen1||
+||| gen2||
+|| sles-15-sp3-sapcal| gen*||
+|| sles-15-sp4| gen*||
+|| sles-15-sp4-basic| gen*||
+|| sles-15-sp4-sapcal| gen1||
+|| sles-15-sp4-byos| gen*||
+|| sles-15-sp4-chost-byos| gen*||
+|| sles-15-sp4-hardened-byos| gen*||
+|| sles-15-sp5-basic| gen*||
+|| sles-15-sp5-byos| gen*||
+|| sles-15-sp5-chost-byos| gen*||
+|| sles-15-sp5-hardened-byos| gen*|
+|| sles-15-sp5-sapcal| gen*||
+|| sles-15-sp5 | gen*||
+|| sles-byos| 12-sp4||
+||| 12-sp4-gen2||
+|| sles-sap| 12-sp3||
+||| 12-sp4||
+||| 12-sp4-gen2||
+||| 15||
+||| gen2-15||
+|| sles-sap-byos| 12-sp4||
+||| 12-sp4-gen2||
+||| gen2-12-sp4||
+||| 15||
+|| sles-sap-12-sp5*| gen*||
+|| sles-sap-15-*| gen*||
+|| sles-sapcal| 12-sp3||
+|| sles-standard| 12-sp4-gen2||
+|| opensuse-leap-15-*| gen*||
+|| sle-hpc-15-sp4| gen*||
+|| sle-hpc-15-sp4-byos| gen*||
+|| sle-hpc-15-sp5-byos| gen*||
+|| sle-hpc-15-sp5 | gen*||
+| rapid7| nexpose-scan-engine| nexpose-scan-engine||
+|| rapid7-vm-console| rapid7-vm-console||
 ### Custom images
 
 Custom images (including images uploaded to [Azure Compute gallery](/azure/virtual-machines/linux/tutorial-custom-images#overview)) which are created from below listed operating systems are supported for all Azure Update Manager operations except automatic VM guest patching. For instructions on how to use Azure Update Manager to manage updates on VMs created from custom images, see [Manage updates for custom images](manage-updates-customized-images.md). 
