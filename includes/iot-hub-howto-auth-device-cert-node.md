@@ -15,12 +15,12 @@ The X.509 certificate is attached to the device-to-IoT Hub connection transport.
 
 To configure a device-to-IoT Hub connection using an X.509 certificate:
 
-1. Call [fromConnectionString](/javascript/api/azure-iothub/client?#azure-iothub-client-fromconnectionstring) to add the device or module identity twin connection string, and transport type to the `Client` object. Add `x509=true` to the device or module connection string to indicate that a certificate is added to `DeviceClientOptions`. For example:
+1. Call [fromConnectionString](/javascript/api/azure-iothub/client?#azure-iothub-client-fromconnectionstring) to add the device or identity module connection string, and transport type to the `Client` object. Add `x509=true` to the connection string to indicate that a certificate is added to `DeviceClientOptions`. For example:
 
    * A **device** connection string:
    
      `HostName=xxxxx.azure-devices.net;DeviceId=Device-1;SharedAccessKey=xxxxxxxxxxxxx;x509=true`
-   * A **module identity twin** connection string:
+   * An **identity module** connection string:
    
      `HostName=xxxxx.azure-devices.net;DeviceId=Device-1;ModuleId=Module-1;SharedAccessKey=xxxxxxxxxxxxx;x509=true`
 
