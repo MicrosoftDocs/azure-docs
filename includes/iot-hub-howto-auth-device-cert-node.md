@@ -17,8 +17,12 @@ To configure a device-to-IoT Hub connection using an X.509 certificate:
 
 1. Call [fromConnectionString](/javascript/api/azure-iothub/client?#azure-iothub-client-fromconnectionstring) to add the device or module identity twin connection string, and transport type to the `Client` object. Add `x509=true` to the device or module connection string to indicate that a certificate is added to `DeviceClientOptions`. For example:
 
-* A device connection string: `HostName=xxxxx.azure-devices.net;DeviceId=Device-1;SharedAccessKey=xxxxxxxxxxxxx;x509=true`
-* A module identity twin connection string: `HostName=xxxxx.azure-devices.net;DeviceId=Device-1;ModuleId=Module-1;SharedAccessKey=xxxxxxxxxxxxx;x509=true`
+   * A **device** connection string:
+   
+     `HostName=xxxxx.azure-devices.net;DeviceId=Device-1;SharedAccessKey=xxxxxxxxxxxxx;x509=true`
+   * A **module identity twin** connection string:
+   
+     `HostName=xxxxx.azure-devices.net;DeviceId=Device-1;ModuleId=Module-1;SharedAccessKey=xxxxxxxxxxxxx;x509=true`
 
 1. Configure a JSON variable with certificate details and pass it to [DeviceClientOptions](/javascript/api/azure-iot-device/deviceclientoptions).
 1. Call [setOptions](/javascript/api/azure-iot-device/client?#azure-iot-device-client-setoptions-1) to add an X.509 certificate and key (and optionally, passphrase) to the client transport.
