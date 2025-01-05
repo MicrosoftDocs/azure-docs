@@ -460,17 +460,19 @@ az rest --url "https://management.azure.com/providers/Microsoft.Insights/eventty
 
 ## Detect elevated access using Microsoft Sentinel
 
+To detect elevated access events and gain visibility into potentially fraudulent activities, you can use Microsoft Sentinel. [Microsoft Sentinel](../sentinel/overview.md) is a security information and event management (SIEM) platform that provides security analytics and threat response capabilities. This section describes how to connect Microsoft Entra audit logs to Microsoft Sentinel so that you can detect elevated access in your organization. 
+
 ### Step 1: Enable Microsoft Sentinel
 
-To get started, add Microsoft Sentinel to an existing workspace or create a new one.
+To get started, add Microsoft Sentinel to an existing Log Analytics workspace or create a new one.
 
-1. Enable Microsoft Sentinel by following the steps at [Enable Microsoft Sentinel](../sentinel/quickstart-onboard.md#enable-microsoft-sentinel).
+- Enable Microsoft Sentinel by following the steps at [Enable Microsoft Sentinel](../sentinel/quickstart-onboard.md#enable-microsoft-sentinel).
 
     :::image type="content" source="./media/elevate-access-global-admin/sentinel-enable.png" alt-text="Screenshot of Microsoft Sentinel with a workspace." lightbox="./media/elevate-access-global-admin/sentinel-enable.png":::
 
 ### Step 2: Connect Microsoft Entra data to Microsoft Sentinel
 
-In this section, you install the **Microsoft Entra ID** solution and use the  **Microsoft Entra ID connector** to collect data from Microsoft Entra ID.
+In this step, you install the **Microsoft Entra ID** solution and use the  **Microsoft Entra ID connector** to collect data from Microsoft Entra ID.
 
 1. Install the **Microsoft Entra ID** solution by following the steps at [Discover and manage Microsoft Sentinel out-of-the-box content](../sentinel/sentinel-solutions-deploy.md#discover-content).
 
@@ -483,6 +485,8 @@ In this section, you install the **Microsoft Entra ID** solution and use the  **
     :::image type="content" source="./media/elevate-access-global-admin/sentinel-connectors-entra-id-audit-logs.png" alt-text="Screenshot of Microsoft Entra ID connector with Audit Logs selected." lightbox="./media/elevate-access-global-admin/sentinel-connectors-entra-id-audit-logs.png":::
 
 ### Step 3: Create an Elevated Access rule
+
+In this step, you create a scheduled analytics rule based on a template to examine the Microsoft Entra audit logs for elevated access events.
 
 1. Create an elevate access analytics rule by following the steps at [Create a rule from a template](../sentinel/create-analytics-rule-from-template.md#create-a-rule-from-a-template).
 
@@ -498,7 +502,9 @@ In this section, you install the **Microsoft Entra ID** solution and use the  **
 
 ### Step 4: View incidents of elevated access
 
-1. Use the **Incidents** page to view incidents of elevated access by following the steps at [Navigate and investigate incidents in Microsoft Sentinel](../sentinel/investigate-incidents.md).
+In this step, you view and investigate elevated access incidents.
+
+- Use the **Incidents** page to view incidents of elevated access by following the steps at [Navigate and investigate incidents in Microsoft Sentinel](../sentinel/investigate-incidents.md).
 
     :::image type="content" source="./media/elevate-access-global-admin/sentinel-incidents.png" alt-text="Screenshot of Incidents page with examples of elevate access incidents." lightbox="./media/elevate-access-global-admin/sentinel-incidents.png":::
 
