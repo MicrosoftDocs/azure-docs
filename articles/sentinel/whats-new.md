@@ -22,9 +22,8 @@ The listed features were released in the last three months. For information abou
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
-## November 2024
+## January 2025
 
-- [View granular solution content in the Microsoft Sentinel content hub](#view-granular-solution-content-in-the-microsoft-sentinel-content-hub)
 - [Microsoft Sentinel availability in Microsoft Defender portal](#microsoft-sentinel-availability-in-microsoft-defender-portal)
 
 ### View granular solution content in the Microsoft Sentinel content hub
@@ -38,6 +37,10 @@ This new visibility helps you understand the content available to you, and more 
 The granular solution content updates also include a generative AI-based search engine that helps you run more robust searches, diving deep into the solution content and returning results for similar terms.
 
 For more information, see [Discover content](sentinel-solutions-deploy.md#discover-content).
+
+## November 2024
+
+- [Microsoft Sentinel availability in Microsoft Defender portal](#microsoft-sentinel-availability-in-microsoft-defender-portal)
 
 ### Microsoft Sentinel availability in Microsoft Defender portal
 
