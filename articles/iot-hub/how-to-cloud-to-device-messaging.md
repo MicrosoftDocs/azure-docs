@@ -6,7 +6,7 @@ author: kgremban
 ms.author: kgremban
 ms.service: azure-iot-hub
 ms.topic: how-to
-ms.date: 06/20/2024
+ms.date: 12/19/2024
 zone_pivot_groups: iot-hub-howto-c2d-1
 ms.custom: [amqp, mqtt, "Role: Cloud Development", "Role: IoT Device"]
 ---

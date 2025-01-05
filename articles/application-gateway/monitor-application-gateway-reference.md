@@ -2,7 +2,7 @@
 title: Monitoring data reference for Azure Application Gateway
 description: This article contains important reference material you need when you monitor Azure Application Gateway.
 ms.date: 10/15/2024
-ms.custom: horz-monitor,
+ms.custom: horz-monitor
 ms.topic: reference
 author: greg-lindsay
 ms.author: greglin

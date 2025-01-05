@@ -4,7 +4,7 @@ description: This article shows you how to upgrade from an Azure Front Door Stan
 services: frontdoor
 author: duongau
 ms.service: azure-frontdoor
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 11/18/2024
 ms.author: duau
 ---

@@ -244,7 +244,7 @@ The Public FQDN can only be resolved to a CNAME with subdomain, therefore it mus
 The Private DNS zone should be able to resolve private FQDN to an IP `(privatelink.{clusterPoolName}.{subscriptionId})`. 
  
 > [!NOTE]
-> HDInsight on AKS creates private DNS zone in the cluster pool, virtual network. If your client applications are in same virtual network, you need not configure the private DNS zone again. In case you're using a client application in a different virtual network, you're required to use virutal network peering and bind to private dns zone in the cluster pool virtual network or use private endpoints in the virutal network, and private dns zones, to add the A-record to the private endpoint private IP. 
+> HDInsight on AKS creates private DNS zone in the cluster pool, virtual network. If your client applications are in same virtual network, you need not configure the private DNS zone again. In case you're using a client application in a different virtual network, you're required to use virtual network peering and bind to private dns zone in the cluster pool virtual network or use private endpoints in the virtual network, and private dns zones, to add the A-record to the private endpoint private IP. 
 
 Private FQDN： `{clusterName}.privatelink.{clusterPoolName}.{subscriptionId}.{region}.hdinsightaks.net`
 

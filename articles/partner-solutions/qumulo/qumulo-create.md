@@ -38,8 +38,6 @@ In this quickstart, you create an instance of Azure Native Qumulo Scalable File 
    >
    > Your Qumulo subnet should be in the same region as that of the Qumulo service. The subnet must be delegated to `Qumulo.Storage/fileSystems`.
 
-   :::image type="content" source="media/qumulo-create/qumulo-vnet-properties.png" alt-text="Screenshot that shows virtual network properties in the Azure portal.":::
-
 ## Subscribe to Azure Native Qumulo Scalable File Service
 
 1. Go to the Azure portal and sign in.
@@ -49,8 +47,6 @@ In this quickstart, you create an instance of Azure Native Qumulo Scalable File 
 1. In Azure Marketplace, search for **Azure Native Qumulo Scalable File Service**.
 
 1. Select **Subscribe**.
-
-:::image type="content" source="media/qumulo-create/qumulo-marketplace.png" alt-text="Screenshot that shows Azure Native Qumulo Scalable File Service in Azure Marketplace.":::
 
 ## Create an Azure Native Qumulo Scalable File Service resource
 
@@ -69,7 +65,6 @@ In this quickstart, you create an instance of Azure Native Qumulo Scalable File 
    |**Capacity (TB)** | Specify the size of the file system that needs to be created.|
    |**Pricing Plan** | A pay-as-you-go plan is selected by default. For upfront pricing plans or free trials, contact <azure@qumulo.com>. |
 
-   :::image type="content" source="media/qumulo-create/qumulo-create.png" alt-text="Screenshot of the Basics tab for creating a Qumulo resource on the working pane.":::
 
 1. On the **Networking** tab, provide the following values:
 
@@ -77,8 +72,6 @@ In this quickstart, you create an instance of Azure Native Qumulo Scalable File 
    |--|--|
    | **Virtual network** | Select the appropriate virtual network from your subscription where the Qumulo file system should be hosted.|
    | **Subnet** | Select a subnet from a list of delegated subnets already created in the virtual network. One delegated subnet can be associated with only one Qumulo file system.|
-
-   :::image type="content" source="media/qumulo-create/qumulo-networking.png" alt-text="Screenshot of the Networking tab for creating a Qumulo resource on the working pane.":::
 
     Only virtual networks in the specified region with subnets delegated to `Qumulo.Storage/fileSystems` appear on this page. If an expected virtual network isn't listed, verify that it's in the chosen region and that the virtual network includes a subnet delegated to Qumulo.
 

@@ -63,7 +63,7 @@ The resource providers for compute services are:
 
 | Resource provider namespace | Azure service |
 | --------------------------- | ------------- |
-| Microsoft.AppPlatform | [Azure Spring Apps](../../spring-apps/enterprise/overview.md) |
+| Microsoft.AppPlatform | [Azure Spring Apps](../../spring-apps/basic-standard/overview.md) |
 | Microsoft.AVS | [Azure VMware Solution](../../azure-vmware/index.yml) |
 | Microsoft.Batch | [Batch](../../batch/index.yml) |
 | Microsoft.ClassicCompute | Classic deployment model virtual machine |
@@ -73,7 +73,7 @@ The resource providers for compute services are:
 | Microsoft.HanaOnAzure | [SAP HANA on Azure Large Instances](/azure/virtual-machines/workloads/sap/hana-overview-architecture) |
 | Microsoft.LabServices | [Azure Lab Services](../../lab-services/index.yml) |
 | Microsoft.Maintenance | [Azure Maintenance](/azure/virtual-machines/maintenance-configurations) |
-| Microsoft.Microservices4Spring | [Azure Spring Apps](../../spring-apps/enterprise/overview.md) |
+| Microsoft.Microservices4Spring | [Azure Spring Apps](../../spring-apps/basic-standard/overview.md) |
 | Microsoft.Quantum | [Azure Quantum](https://azure.microsoft.com/services/quantum/) |
 | Microsoft.SerialConsole - [registered by default](#registration) | [Azure Serial Console for Windows](/troubleshoot/azure/virtual-machines/serial-console-windows) |
 | Microsoft.ServiceFabric | [Service Fabric](/azure/service-fabric/) |
@@ -135,7 +135,7 @@ The resource providers for developer tools services are:
 | Microsoft.AppConfiguration | [Azure App Configuration](../../azure-app-configuration/index.yml) |
 | Microsoft.DevCenter | [Microsoft Dev Box](../../dev-box/index.yml) |
 | Microsoft.DevSpaces | [Azure Dev Spaces](/previous-versions/azure/dev-spaces/) |
-| Microsoft.MixedReality | [Azure Spatial Anchors](../../spatial-anchors/index.yml) |
+| Microsoft.LoadTestService | [Azure Load Testing](/azure/load-testing/) |
 | Microsoft.Notebooks | [Azure Notebooks](https://notebooks.azure.com/help/introduction) |
 
 ## DevOps resource providers
@@ -267,6 +267,7 @@ The resource providers for monitoring services are:
 | Microsoft.ChangeAnalysis | [Azure Monitor](/azure/azure-monitor/) |
 | Microsoft.Insights | [Azure Monitor](/azure/azure-monitor/) |
 | Microsoft.Intune | [Azure Monitor](/azure/azure-monitor/) |
+| Microsoft.Monitor | [Azure Monitor](/azure/azure-monitor/) |
 | Microsoft.OperationalInsights | [Azure Monitor](/azure/azure-monitor/) |
 | Microsoft.OperationsManagement | [Azure Monitor](/azure/azure-monitor/) |
 | Microsoft.WorkloadMonitor | [Azure Monitor](/azure/azure-monitor/) |
@@ -337,7 +338,6 @@ The resource providers for 5G & space services are:
 | --------------------------- | ------------- |
 | Microsoft.HybridNetwork  | [Network Function Manager](../../network-function-manager/index.yml) |
 | Microsoft.MobileNetwork | [Azure Private 5G Core](../../private-5g-core/index.yml) |
-| Microsoft.Orbital | [Azure Orbital Ground Station](../../orbital/overview.md) |
 
 ## Registration
 

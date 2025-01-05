@@ -6,8 +6,8 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.service: azure-migrate
-ms.date: 10/28/2024
-ms.custom: mvc, engagement-fy24
+ms.date: 12/27/2024
+ms.custom: mvc, engagement-fy25
 ---
 
 # What's new in Azure Migrate
@@ -24,7 +24,7 @@ ms.custom: mvc, engagement-fy24
 
 ## Update (October 2024)
 
-The RVTools XLSX (preview) file import now reads storage data, when available, from vPartition and vMemory (for storage required for unreserved memory) sheets. [Learn more](vmware/tutorial-import-vmware-using-rvtools-xlsx.md#prerequisites).
+The RVTools XLSX (preview) file import now reads storage data, when available, from vPartition and vMemory (for storage required for unreserved memory) sheets. [Learn more](tutorial-import-vmware-using-rvtools-xlsx.md#prerequisites).
 
 
 ## Update (April 2024)
@@ -154,6 +154,7 @@ Learn more on how to perform [software inventory](how-to-discover-applications.m
 
 
 ## Update (December 2021)
+
 - Support to discover, assess, and migrate VMs from multiple vCenter Servers using a single Azure Migrate appliance. [Learn more](tutorial-discover-vmware.md#start-continuous-discovery).
 - Simplified [Azure VMware Solution assessment](./concepts-azure-vmware-solution-assessment-calculation.md) experience to understand sizing assumptions, resource utilization, and limiting factor for migrating on-premises VMware VMs to Azure VMware Solution. Other enhancements added:
     - Support for two new target assessment regions: Central US and Canada East

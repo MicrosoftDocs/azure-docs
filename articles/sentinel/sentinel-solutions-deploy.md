@@ -18,9 +18,7 @@ appliesto:
 
 The Microsoft Sentinel Content hub is your centralized location to discover and manage out-of-the-box (built-in) content. There you find packaged solutions for end-to-end products by domain or industry. You have access to the vast number of standalone contributions hosted in our GitHub repository and feature blades.
 
-- Discover solutions and standalone content using AI based search and filtering based on status, content type, support, provider, and category.
-
-- Expand solutions to learn more about the content items that they comprise of, to better understand the value they provide.
+- Discover solutions and standalone content with a consistent set of filtering capabilities based on status, content type, support, provider, and category.
 
 - Install content in your workspace all at once or individually. 
 
@@ -62,8 +60,15 @@ The content hub offers the best way to find new content or manage the solutions 
     For example, in the following image, the **Windows Security Events** solution indicates it includes two data connector, analytics rules, hunting queries, and playbooks.
 
     The following examples show several solutions that include content items that match the search criteria.
+1. Filter the list displayed, either by selecting specific values from the filters, or entering any part of a content name or description in the **Search** field.
 
-    #### [Azure portal](#tab/azure-portal)
+    For more information, see [Categories for Microsoft Sentinel out-of-the-box content and solutions](sentinel-solutions.md#categories-for-microsoft-sentinel-out-of-the-box-content-and-solutions).
+
+1. Select the **Card view** to view more information about a solution.
+
+   Each content item shows categories that apply to it, and solutions show the types of content included. For example, in the following image, the **Cisco Umbrella** solution lists one of its categories as **Security - Cloud Security**, and indicates it includes a data connector, analytics rules, hunting queries, playbooks, and more.
+
+   #### [Azure portal](#tab/azure-portal)
     :::image type="content" source="./media/sentinel-solutions-deploy/solutions-list.png" alt-text="Screenshot of the Microsoft Sentinel content hub in the Azure portal.":::
 
    #### [Defender portal](#tab/defender-portal)

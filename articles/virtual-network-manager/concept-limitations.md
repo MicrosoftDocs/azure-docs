@@ -4,9 +4,8 @@ description: Learn about current limitations when you're using Azure Virtual Net
 author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 11/06/2024
-ms.custom: template-concept
 #CustomerIntent: As a network admin, I want understand the limitations in Azure Virtual Network Manager so that I can properly deploy it my environment.
 ---
 

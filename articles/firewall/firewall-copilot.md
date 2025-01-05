@@ -5,7 +5,7 @@ keywords: security copilot, copilot for security, threat intelligence, IDPS, int
 author: abhinavsriram
 ms.author: asriram
 ms.date: 11/19/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-firewall
 ms.localizationpriority: high
 ms.custom:
@@ -80,7 +80,7 @@ To view the list of built-in system capabilities for Azure Firewall, use the fol
 
     > [!IMPORTANT]
     > Use of Copilot in Azure to query Azure Firewall is included with Security Copilot and requires [security compute units (SCUs)](/security-copilot/get-started-security-copilot#security-compute-units). You can provision SCUs and increase or decrease them at any time. For more information on SCUs, see [Get started with Microsoft Security Copilot](/security-copilot/get-started-security-copilot).
-    > If you do not have Security Copilot properly configured but ask a question relavent to the Azure Firewall capabilities via the Copilot in Azure experience then you will see an error message.
+    > If you do not have Security Copilot properly configured but ask a question relevant to the Azure Firewall capabilities via the Copilot in Azure experience then you will see an error message.
    
 ## Sample Azure Firewall prompts
 

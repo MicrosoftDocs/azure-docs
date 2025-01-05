@@ -4,9 +4,8 @@ description: Learn about what security admin rules are in Azure Virtual Network 
 author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 12/07/2023
-ms.custom: template-concept, engagement-fy23
 ---
 
 # Security admin rules in Azure Virtual Network Manager
@@ -44,7 +43,7 @@ Security admin rules allow or deny traffic on specific ports, protocols, and sou
 To enforce security policies across multiple virtual networks, you [create and deploy a security admin configuration](how-to-block-network-traffic-portal.md). This configuration contains a set of rule collections, and each rule collection contains one or more security admin rules. Once created, you associate the rule collection with the network groups requiring security admin rules. The rules are then applied to all virtual networks contained in the network groups when the configuration is deployed. A single configuration provides a centralized and scalable enforcement of security policies across multiple virtual networks.
 
 > [!IMPORTANT]
-> Only one security admin configuration can be deployed to a region. However, multiple connectivity configurations can exist in a region. To deploy multiple security admin configurations to a region, you can [create multiple rule collections](how-to-block-network-traffic-portal.md#add-a-rule-collection) in a security configuration instead.
+> Only one security admin configuration can be deployed to a region. However, multiple connectivity configurations can exist in a region. To deploy multiple security admin configurations to a region, you can [create multiple rule collections](how-to-block-network-traffic-portal.md#add-a-rule-collection-and-security-rule) in a security configuration instead.
 
 ### How security admin rules and network security groups (NSGs) are evaluated
 

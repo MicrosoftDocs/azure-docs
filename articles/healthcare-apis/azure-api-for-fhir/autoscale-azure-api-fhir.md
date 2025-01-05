@@ -75,7 +75,7 @@ The data size is one of several factors used in calculating the total throughput
 
 You should be able to see the Max data collection size over the time period selected. Change the "Time Range" if necessary, for example from "Last 30 minutes" to "Last 48 Hours".
 
-:::image type="content" source="media/cosmosdb/cosmosdb-collection-size.png" alt-text="Screenshot of cosdmosdb_collection_size":::
+:::image type="content" source="media/cosmosdb/cosmosdb-collection-size.png" alt-text="Screenshot of cosmosdb_collection_size":::
 
 Use the following formulas to calculate required RU/s.
 

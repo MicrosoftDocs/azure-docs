@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 11/22/2024
+ms.date: 12/11/2024
 ms.author: anfdocs
 ---
 # Create an SMB volume for Azure NetApp Files
@@ -15,7 +15,7 @@ Azure NetApp Files supports creating volumes using NFS (NFSv3 or NFSv4.1), SMB3,
 This article shows you how to create an SMB3 volume. For NFS volumes, see [Create an NFS volume](azure-netapp-files-create-volumes.md). For dual-protocol volumes, see [Create a dual-protocol volume](create-volumes-dual-protocol.md).
 
 >[!IMPORTANT]
->Windows Server 2025 does **not** work with Azure NetApp Files CIFS. 
+>Windows Server 2025 currently doesn't work with the Azure NetApp Files SMB protocol. 
 
 ## Before you begin 
 
@@ -23,7 +23,6 @@ This article shows you how to create an SMB3 volume. For NFS volumes, see [Creat
 
 * You must have already set up a capacity pool. See [Create a capacity pool](azure-netapp-files-set-up-capacity-pool.md).     
 * A subnet must be delegated to Azure NetApp Files. See [Delegate a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md).
-* [!INCLUDE [50 GiB volume preview](./includes/50-gib-volume.md)]
 
 ## Configure Active Directory connections 
 
@@ -99,7 +98,7 @@ Before creating an SMB volume, you need to create an Active Directory connection
     
     * Specify a unique **share name** for the volume. This share name is used when you create mount targets. The requirements for the share name are as follows:   
         - For volumes not in an availability zone or volumes in the same availability zone, it must be unique within each subnet in the region.  
-        - For volumes in availability zones, it must be unique within each availability zone. This feature is currently in **preview** and requires you to register the feature. For more information, see [Manage availability zone volume placement](manage-availability-zone-volume-placement.md#file-path-uniqueness).
+        - For volumes in availability zones, it must be unique within each availability zone. For more information, see [Manage availability zone volume placement](manage-availability-zone-volume-placement.md#file-path-uniqueness).
         - It can contain only letters, numbers, or dashes (`-`). 
         - The length must not exceed 80 characters.   
     

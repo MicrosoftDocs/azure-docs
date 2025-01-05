@@ -6,7 +6,7 @@ author: duongau
 ms.service: azure-expressroute
 ms.custom:
   - ignite-2023
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/28/2024
 ms.author: duau
 ---
@@ -96,6 +96,9 @@ ExpressRoute Direct supports large data ingestion scenarios into services such a
     * Must support multiple BGP sessions (VLANs) per port and device
     * IPv4 and IPv6 connectivity. *For IPv6 no extra subinterface will be created. IPv6 address will be added to existing subinterface*. 
     * Optional: [Bidirectional Forwarding Detection (BFD)](./expressroute-bfd.md) support, which is configured by default on all Private Peerings on ExpressRoute circuits
+ 
+> [!NOTE]
+> ExpressRoute Direct does not support Link Aggregation Control Protocol (LACP) or Multi-Chassis Link Aggregation (MLAG)
 
 ## VLAN Tagging
 

@@ -2199,10 +2199,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > [!div class="mx-tableFixed"]
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
-> | objectAnchorsAccounts | Yes | Yes |
-> | objectUnderstandingAccounts | Yes | Yes |
 > | remoteRenderingAccounts | Yes | Yes |
-> | spatialAnchorsAccounts | Yes | Yes |
 
 ## Microsoft.MobileNetwork
 
@@ -2491,21 +2488,6 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | workspaces / scopedPrivateLinkProxies | No | No |
 > | workspaces / storageInsightConfigs | No | No |
 > | workspaces / tables | No | No |
-
-## Microsoft.Orbital
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Supports tags | Tag in cost report |
-> | ------------- | ----------- | ----------- |
-> | contactProfiles | Yes | Yes |
-> | edgeSites | Yes | Yes |
-> | globalCommunicationsSites | No | No |
-> | groundStations | Yes | Yes |
-> | l2Connections | Yes | Yes |
-> | l3Connections | Yes | Yes |
-> | orbitalGateways | Yes | Yes |
-> | spacecrafts | Yes | Yes |
-> | spacecrafts / contacts | No | No |
 
 ## Microsoft.Peering
 

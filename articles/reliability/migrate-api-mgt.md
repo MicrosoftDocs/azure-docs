@@ -44,7 +44,7 @@ There are no downtime requirements for any of the migration options.
 
 * When you're enabling availability zones in a region, you configure API Management scale [units](../api-management/upgrade-and-scale.md) that you can distribute evenly across the zones. For example, if you configure two zones, you can configure two units, four units, or another multiple of two units. 
 
-  Adding units incurs additional costs. For details, see [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/).
+    [!INCLUDE [api-management-az-notes](../../includes/api-management-az-notes.md)]
 
 * If you configured autoscaling for your API Management instance in the primary location, you might need to adjust your autoscale settings after configuring availability zones. The number of API Management units in autoscale rules and limits must be a multiple of the number of zones.
 

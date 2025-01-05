@@ -24,7 +24,7 @@ highlightedContent:
       url: basic-standard/retirement-announcement.md
     - title: What is Azure Spring Apps?
       itemType: overview
-      url: enterprise/overview.md
+      url: basic-standard/overview.md
     # Card
     - title: Basic/Standard plan
       itemType: overview
@@ -280,12 +280,6 @@ conceptualContent:
               itemType: quickstart
             - text: Launch your first event-driven app
               url: basic-standard/quickstart-deploy-event-driven-app.md?pivots=sc-consumption-plan&toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
-              itemType: quickstart
-            - text: Provision a service instance
-              url: consumption-dedicated/quickstart-provision-standard-consumption-service-instance.md
-              itemType: quickstart
-            - text: Provision in an Azure Container Apps environment with a virtual network
-              url: consumption-dedicated/quickstart-provision-standard-consumption-app-environment-with-virtual-network.md
               itemType: quickstart
           # footerLink (Optional; Remove if not applicable.)
           footerLink:

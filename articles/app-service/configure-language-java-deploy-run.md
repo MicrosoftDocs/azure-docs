@@ -593,14 +593,14 @@ The latest versions of Tomcat have server.xml (8.5.58 and 9.0.38 onward). Older 
  ```
 * `maxHttpHeaderSize` is set to `16384`
 * `URIEncoding` is set to `UTF-8`
-* `conectionTimeout` is set to `WEBSITE_TOMCAT_CONNECTION_TIMEOUT`, which defaults to `240000`
+* `connectionTimeout` is set to `WEBSITE_TOMCAT_CONNECTION_TIMEOUT`, which defaults to `240000`
 * `maxThreads` is set to `WEBSITE_CATALINA_MAXTHREADS`, which defaults to `200`
 * `maxConnections` is set to `WEBSITE_CATALINA_MAXCONNECTIONS`, which defaults to `10000`
  
 > [!NOTE]
 > The connectionTimeout, maxThreads and maxConnections settings can be tuned with app settings
 
-Following are example CLI commands that you might use to alter the values of conectionTimeout, maxThreads, or maxConnections:
+Following are example CLI commands that you might use to alter the values of connectionTimeout, maxThreads, or maxConnections:
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group myResourceGroup --name myApp --settings WEBSITE_TOMCAT_CONNECTION_TIMEOUT=120000
@@ -631,7 +631,7 @@ az webapp config appsettings set --resource-group myResourceGroup --name myApp -
 <Valve prefix="site_access_log.${catalina.instance.name}" pattern="%h %l %u %t &quot;%r&quot; %s %b %D %{x-arr-log-id}i" directory="${site.logdir}/http/RawLogs" maxDays="${site.logRetentionDays}" className="org.apache.catalina.valves.AccessLogValve" suffix=".txt"/>
  ```
 * `directory` is set to `AZURE_LOGGING_DIR`, which defaults to `home\logFiles`
-* `maxDays` is to `WEBSITE_HTTPLOGGING_RETENTION_DAYS`, which defaults to `0` [forever]
+* `maxDays` is to `WEBSITE_HTTPLOGGING_RETENTION_DAYS`, which defaults to `7`. This aligns with the Application Logging platform default
  
 On Linux, it has all of the same customization, plus:
  
