@@ -462,22 +462,45 @@ az rest --url "https://management.azure.com/providers/Microsoft.Insights/eventty
 
 ### Step 1: Enable Microsoft Sentinel
 
-[Enable Microsoft Sentinel](../sentinel/quickstart-onboard.md#enable-microsoft-sentinel)
+To get started, add Microsoft Sentinel to an existing workspace or create a new one.
+
+1. Enable Microsoft Sentinel by following the steps at [Enable Microsoft Sentinel](../sentinel/quickstart-onboard.md#enable-microsoft-sentinel).
+
+    :::image type="content" source="./media/elevate-access-global-admin/sentinel-enable.png" alt-text="Screenshot of Microsoft Sentinel with a workspace." lightbox="./media/elevate-access-global-admin/sentinel-enable.png":::
 
 ### Step 2: Connect Microsoft Entra data to Microsoft Sentinel
 
-[Microsoft Entra ID connector](../sentinel/data-connectors/microsoft-entra-id.md)
-[Connect Microsoft Entra data to Microsoft Sentinel](../sentinel/connect-azure-active-directory.md)
+In this section, you install the **Microsoft Entra ID** solution and use the  **Microsoft Entra ID connector** to collect data from Microsoft Entra ID.
+
+1. Install the **Microsoft Entra ID** solution by following the steps at [Discover and manage Microsoft Sentinel out-of-the-box content](../sentinel/sentinel-solutions-deploy.md#discover-content).
+
+    :::image type="content" source="./media/elevate-access-global-admin/sentinel-entra-id-solution.png" alt-text="Screenshot of Content hub page with Microsoft Entra ID content selected." lightbox="./media/elevate-access-global-admin/sentinel-entra-id-solution.png":::
+
+1. Use the [Microsoft Entra ID connector](../sentinel/data-connectors/microsoft-entra-id.md) to collect data from Microsoft Entra ID by following the steps at [Connect Microsoft Entra data to Microsoft Sentinel](../sentinel/connect-azure-active-directory.md).
+
+1. On the **Data connectors** page, add a check mark for **Audit Logs**.
+
+    :::image type="content" source="./media/elevate-access-global-admin/sentinel-connectors-entra-id-audit-logs.png" alt-text="Screenshot of Microsoft Entra ID connector with Audit Logs selected." lightbox="./media/elevate-access-global-admin/sentinel-connectors-entra-id-audit-logs.png":::
 
 ### Step 3: Create an Elevated Access rule
 
-Locate and select **Elevated Access** to access the preconfigured Sentinel solution.
+1. Create an elevate access analytics rule by following the steps at [Create a rule from a template](../sentinel/create-analytics-rule-from-template.md#create-a-rule-from-a-template).
 
-[Create scheduled analytics rules from templates](../sentinel/create-analytics-rule-from-template.md)
+1. Select the **Azure RBAC (Elevate Access)** template then select the **Create rule** button on the details pane.
+
+    If you don't see the details pane, on the right edge, select the expand icon.
+ 
+   :::image type="content" source="./media/elevate-access-global-admin/sentinel-analytics-rule.png" alt-text="Screenshot of Analytics page with the Azure RBAC (Elevate Access) selected." lightbox="./media/elevate-access-global-admin/sentinel-analytics-rule.png":::
+
+1. In the **Analytics rule wizard**, use the default settings to create a new scheduled rule. 
+
+    :::image type="content" source="./media/elevate-access-global-admin/sentinel-analytics-rule-wizard.png" alt-text="Screenshot of Analytics rule wizard for Azure RBAC (Elevate Access)." lightbox="./media/elevate-access-global-admin/sentinel-analytics-rule-wizard.png":::
 
 ### Step 4: View incidents of elevated access
 
-[Navigate and investigate incidents in Microsoft Sentinel](../sentinel/investigate-incidents.md)
+1. Use the **Incidents** page to view incidents of elevated access by following the steps at [Navigate and investigate incidents in Microsoft Sentinel](../sentinel/investigate-incidents.md).
+
+    :::image type="content" source="./media/elevate-access-global-admin/sentinel-incidents.png" alt-text="Screenshot of Incidents page with examples of elevate access incidents." lightbox="./media/elevate-access-global-admin/sentinel-incidents.png":::
 
 ## Next steps
 
