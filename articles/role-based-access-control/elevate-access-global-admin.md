@@ -458,9 +458,9 @@ A user in the group can now periodically run the [az rest](/cli/azure/reference-
 az rest --url "https://management.azure.com/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '2021-09-10T20:00:00Z'" > output.txt
 ```
 
-## Detect elevated access using Microsoft Sentinel
+## Detect elevate access events using Microsoft Sentinel
 
-To detect elevated access events and gain visibility into potentially fraudulent activities, you can use Microsoft Sentinel. [Microsoft Sentinel](../sentinel/overview.md) is a security information and event management (SIEM) platform that provides security analytics and threat response capabilities. This section describes how to connect Microsoft Entra audit logs to Microsoft Sentinel so that you can detect elevated access in your organization. 
+To detect elevate access events and gain visibility into potentially fraudulent activities, you can use Microsoft Sentinel. [Microsoft Sentinel](../sentinel/overview.md) is a security information and event management (SIEM) platform that provides security analytics and threat response capabilities. This section describes how to connect Microsoft Entra audit logs to Microsoft Sentinel so that you can detect elevate access in your organization. 
 
 ### Step 1: Enable Microsoft Sentinel
 
@@ -484,9 +484,9 @@ In this step, you install the **Microsoft Entra ID** solution and use the  **Mic
 
     :::image type="content" source="./media/elevate-access-global-admin/sentinel-connectors-entra-id-audit-logs.png" alt-text="Screenshot of Microsoft Entra ID connector with Audit Logs selected." lightbox="./media/elevate-access-global-admin/sentinel-connectors-entra-id-audit-logs.png":::
 
-### Step 3: Create an Elevated Access rule
+### Step 3: Create an elevate access rule
 
-In this step, you create a scheduled analytics rule based on a template to examine the Microsoft Entra audit logs for elevated access events.
+In this step, you create a scheduled analytics rule based on a template to examine the Microsoft Entra audit logs for elevate access events.
 
 1. Create an elevate access analytics rule by following the steps at [Create a rule from a template](../sentinel/create-analytics-rule-from-template.md#create-a-rule-from-a-template).
 
@@ -500,11 +500,11 @@ In this step, you create a scheduled analytics rule based on a template to exami
 
     :::image type="content" source="./media/elevate-access-global-admin/sentinel-analytics-rule-wizard.png" alt-text="Screenshot of Analytics rule wizard for Azure RBAC (Elevate Access)." lightbox="./media/elevate-access-global-admin/sentinel-analytics-rule-wizard.png":::
 
-### Step 4: View incidents of elevated access
+### Step 4: View incidents of elevate access
 
-In this step, you view and investigate elevated access incidents.
+In this step, you view and investigate elevate access incidents.
 
-- Use the **Incidents** page to view incidents of elevated access by following the steps at [Navigate and investigate incidents in Microsoft Sentinel](../sentinel/investigate-incidents.md).
+- Use the **Incidents** page to view incidents of elevate access by following the steps at [Navigate and investigate incidents in Microsoft Sentinel](../sentinel/investigate-incidents.md).
 
     :::image type="content" source="./media/elevate-access-global-admin/sentinel-incidents.png" alt-text="Screenshot of Incidents page with examples of elevate access incidents." lightbox="./media/elevate-access-global-admin/sentinel-incidents.png":::
 
