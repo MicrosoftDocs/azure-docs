@@ -28,15 +28,15 @@ Subscribe to any Azure Native ISV Service through [Microsoft Azure Marketplace](
 
 |Partner                                                                                    |Description                                                                                                             |
 |-------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------|
-|[Apache Kafka & Apache Flink on Confluent Cloud](apache-kafka-confluent-cloud/overview.md) | Fully managed event streaming platform powered by Apache Kafka.                                                        |
-|[Qumulo Scalable File](qumulo/qumulo-overview.md)                                          |  Multi-petabyte scale, single namespace, multi-protocol file data platform with the performance, security, and simplicity to meet the most demanding enterprise workloads.                                                                                                                                                                     | 
-| [Apache Airflow on Astro](astronomer/astronomer-overview.md)                              | Deploy a fully managed and seamless Apache Airflow on Astro on Azure.                                                  | 
-| [Intelligent Data Management Cloud (Preview)](informatica/informatica-overview.md)        | A comprehensive AI-powered cloud data management platform for data and application integration, data quality, data governance, and privacy and master data management.                                                                                                                                                                  | 
+|[Confluent](apache-kafka-confluent-cloud/overview.md) | Fully managed event streaming platform powered by Apache Kafka.                                                        |
+|[Qumulo](qumulo/qumulo-overview.md)                                          |  Multi-petabyte scale, single namespace, multi-protocol file data platform with the performance, security, and simplicity to meet the most demanding enterprise workloads.                                                                                                                                                                     | 
+| [Astro](astronomer/astronomer-overview.md)                              | Deploy a fully managed and seamless Apache Airflow on Astro on Azure.                                                  | 
+| [Informatica (Preview)](informatica/informatica-overview.md)        | A comprehensive AI-powered cloud data management platform for data and application integration, data quality, data governance, and privacy and master data management.                                                                                                                                                                  | 
 | [Neon Serverless Postgres](neon/overview.md)                                              |Provides scalable and flexible database services using the principles of serverless computing.                          |
 
 ## Networking and security
 
 |Partner                                                             |Description                                                     |
 |--------------------------------------------------------------------|----------------------------------------------------------------|
-|[NGINXaaS](nginx/nginx-overview.md)                                 | Use NGINXaaS as a reverse proxy within your Azure environment. |
-|[Cloud NGFW by Palo Alto Networks](palo-alto/palo-alto-overview.md) | Use Palo Alto Networks as a firewall in the Azure environment. |
+|[NGINX](nginx/nginx-overview.md)                                 | Use NGINXaaS as a reverse proxy within your Azure environment. |
+|[Palo Alto Networks](palo-alto/palo-alto-overview.md) | Use Palo Alto Networks as a firewall in the Azure environment. |
