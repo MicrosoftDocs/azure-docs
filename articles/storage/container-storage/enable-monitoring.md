@@ -4,21 +4,21 @@ description: Enable monitoring for stateful workloads running on Azure Container
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: how-to
-ms.date: 01/03/2025
+ms.date: 01/06/2025
 ms.author: kendownie
 ---
 
-# Enable monitoring for Azure Container Storage with Prometheus (preview)
+# Enable monitoring for Azure Container Storage with managed Prometheus (preview)
 
-You can now monitor your stateful workloads running on Azure Container Storage service using Prometheus. Prometheus is a popular open-source monitoring and alerting solution that's widely used in Kubernetes environments to monitor and alert on infrastructure and workload performance.
+You can now monitor your stateful workloads running on Azure Container Storage service using managed Prometheus. Prometheus is a popular open-source monitoring and alerting solution that's widely used in Kubernetes environments to monitor and alert on infrastructure and workload performance.
 
-[Azure Monitor managed service for Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview#azure-monitor-managed-service-for-prometheus) is a component of [Azure Monitor Metrics](/azure/azure-monitor/essentials/data-platform-metrics) that provides a fully managed and scalable environment for running Prometheus. It enables collecting Prometheus metrics from your Azure Kubernetes Service (AKS) clusters to monitor your workloads.
+[Azure Monitor managed service for Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview#azure-monitor-managed-service-for-prometheus) is a component of [Azure Monitor Metrics](/azure/azure-monitor/essentials/data-platform-metrics) that provides a fully managed and scalable environment for running Prometheus. It enables collecting Prometheus metrics from your Azure Kubernetes Service (AKS) clusters to monitor your workloads.
 
-Prometheus metrics are stored in an Azure Monitor workspace, where you can analyze and visualize the data using [Azure Monitor Metrics Explorer with PromQL (preview)](/azure/azure-monitor/essentials/metrics-explorer) and [Azure Managed Grafana](/azure/managed-grafana/overview).
+Prometheus metrics are stored in an Azure Monitor workspace, where you can analyze and visualize the data using [Azure Monitor Metrics Explorer with PromQL (preview)](/azure/azure-monitor/essentials/metrics-explorer) and [Azure Managed Grafana](/azure/managed-grafana/overview).
 
 ## Prerequisites and limitations
 
-This preview feature only supports Azure Monitor managed service for Prometheus. If you have your own Prometheus instance deployed, then you must disable Azure Container Storage's Prometheus instance by running the following Azure CLI command. Replace `<cluster_name>` and `<resource_group_name>` with your own values.
+This preview feature only supports Azure Monitor managed service for Prometheus. If you have your own Prometheus instance deployed, then you must disable Azure Container Storage's Prometheus instance by running the following Azure CLI command. Replace `<cluster_name>` and `<resource_group_name>` with your own values.
 
 ```azurecli
 az k8s-extension update --cluster-type managedClusters --cluster-name <cluster_name> --resource-group <resource_group_name> --name azurecontainerstorage --config base.metrics.enablePrometheusStack=false
@@ -36,7 +36,7 @@ The default scrape frequency for all default targets and scrapes is 30 seconds.
 
 ### Metrics collected for default targets
 
-The following Azure Container Storage targets are enabled by default, which means you don't have to provide any scrape job configuration for these targets:
+The following Azure Container Storage targets are enabled by default, which means you don't have to provide any scrape job configuration for these targets:
 
 - `acstor-capacity-provisioner` (storage pool metrics)
 - `acstor-metrics-exporter` (disk metrics)
@@ -66,13 +66,13 @@ Azure Container Storage provides the following disk metrics collected from the `
 | `disk_read_operations_time_seconds_total` | The total time spent performing read operations in seconds. |
 | `disk_write_operations_time_seconds_total` | The total time spent performing write operations in seconds. |
 | `disk_errors_total` | Count of disk errors. |
-| `disk_read_bytes_total` | The total number of bytes read successfully. |
-| `disk_written_bytes_total` | The total number of bytes written successfully. |
+| `disk_read_bytes_total` | The total number of bytes read successfully. |
+| `disk_written_bytes_total` | The total number of bytes written successfully. |
 | `disk_readonly_errors_gauge` | This is a gauge metric to measure read-only volume mounts. |
 
 ## Query Azure Container Storage metrics
 
-Azure Container Storage metrics are stored in the Azure Monitor workspace that's associated with Managed Prometheus. You can query metrics directly from the workspace or through the Azure Managed Grafana instance that's connected to the workspace.
+Azure Container Storage metrics are stored in the Azure Monitor workspace that's associated with managed Prometheus. You can query metrics directly from the workspace or through the Azure Managed Grafana instance that's connected to the workspace.
 
 To view Azure Container Storage metrics, follow these steps:
 
