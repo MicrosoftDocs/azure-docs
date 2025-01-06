@@ -4,7 +4,7 @@ description: Learn about Azure Firewall preview features that are publicly avail
 services: firewall
 author: vhorne
 ms.service: azure-firewall
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 10/10/2023
 ms.author: victorh
 ---

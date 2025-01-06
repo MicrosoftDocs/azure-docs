@@ -104,6 +104,8 @@ The following sample configuration file shows you how to connect to an Azure SQL
 
 The [Static Web Apps CLI](https://github.com/Azure/static-web-apps-cli) allows you to generate a configuration file stub.
 
+[!INCLUDE [Required version](includes/static-web-apps-cli-required-version.md)]
+
 Use the `swa db init --database-type <YOUR_DATABASE_TYPE>` to generate a configuration file. By default, the CLI creates a new *staticwebapp.database.config.json* in a folder named *swa-db-connections*.
 
 Supported database types include:
