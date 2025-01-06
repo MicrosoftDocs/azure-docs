@@ -28,7 +28,7 @@ The simplest solution uses a firewall device that can control outbound traffic b
 
 See the following video for a quick overview on how this works in practice on a sample environment:
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE529Qc]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=1017969f-6450-4495-939a-60b26561f357]
 
 You can download a zip file from the [Microsoft Download Center](https://download.microsoft.com/download/0/1/3/0131e87a-c862-45f8-8ee6-31fa103a03ff/aks-azfw-protection-setup.zip) that contains a bash script file and a yaml file to automatically configure the sample environment used in the video. It configures Azure Firewall to protect both ingress and egress traffic. The following guides  walk through each step of the script in more detail so you can set up a custom configuration.
 

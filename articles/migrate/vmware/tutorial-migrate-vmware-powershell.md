@@ -5,7 +5,7 @@ author: vijain
 ms.author: vijain
 ms.manager: kmadnani
 ms.topic: tutorial
-ms.date: 01/24/2024
+ms.date: 10/20/2024
 ms.service: azure-migrate
 ms.custom: vmware-scenario-422, devx-track-azurepowershell, engagement-fy23
 ---
@@ -13,6 +13,8 @@ ms.custom: vmware-scenario-422, devx-track-azurepowershell, engagement-fy23
 # Migrate VMware VMs to Azure (agentless) - PowerShell
 
 In this article, you learn how to migrate discovered VMware virtual machines (VMs) with the agentless method by using Azure PowerShell for [Migration and modernization](../migrate-services-overview.md).
+
+[!INCLUDE [scenario-banner.md](../includes/scenario-banner.md)]
 
 You learn how to:
 

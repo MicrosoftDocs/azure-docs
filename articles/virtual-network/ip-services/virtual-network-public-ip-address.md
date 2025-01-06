@@ -8,8 +8,7 @@ ms.author: mbender
 author: mbender-ms
 ms.service: azure-virtual-network
 ms.subservice: ip-services
-ms.topic: conceptual
-ms.custom: FY23 content-maintenance
+ms.topic: concept-article
 ---
 
 # Create, change, or delete an Azure public IP address

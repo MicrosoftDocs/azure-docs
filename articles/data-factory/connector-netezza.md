@@ -6,7 +6,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 06/28/2024
+ms.date: 12/02/2024
 ms.author: jianleishen
 ---
 # Copy data from Netezza by using Azure Data Factory or Synapse Analytics
@@ -30,7 +30,11 @@ This Netezza connector is supported for the following capabilities:
 
 For a list of data stores that Copy Activity supports as sources and sinks, see [Supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).
 
-Netezza connector supports parallel copying from source. See the [Parallel copy from Netezza](#parallel-copy-from-netezza) section for details.
+This Netezza connector supports:
+
+- Parallel copying from source. See the [Parallel copy from Netezza](#parallel-copy-from-netezza) section for details.
+- Netezza Performance Server version 11.
+- Windows versions in this [article](create-self-hosted-integration-runtime.md#prerequisites).
 
 The service provides a built-in driver to enable connectivity. You don't need to manually install any driver to use this connector.
 
@@ -84,6 +88,9 @@ A typical connection string is `Server=<server>;Port=<port>;Database=<database>;
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | SecurityLevel | The level of security that the driver uses for the connection to the data store. <br>Example: `SecurityLevel=preferredUnSecured`. Supported values are:<br/>- **Only unsecured** (**onlyUnSecured**): The driver doesn't use SSL.<br/>- **Preferred unsecured (preferredUnSecured) (default)**: If the server provides a choice, the driver doesn't use SSL.  | No |
+
+> [!NOTE]
+> The connector doesn't support SSLv3 as it is [officially deprecated by Netezza](https://www.ibm.com/docs/en/netezza?topic=npssac-netezza-performance-server-client-encryption-security-1).
 
 **Example**
 
@@ -223,7 +230,7 @@ The Data Factory Netezza connector provides built-in data partitioning to copy d
 
 When you enable partitioned copy, the service runs parallel queries against your Netezza source to load data by partitions. The parallel degree is controlled by the [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) setting on the copy activity. For example, if you set `parallelCopies` to four, the service concurrently generates and runs four queries based on your specified partition option and settings, and each query retrieves a portion of data from your Netezza database.
 
-You are suggested to enable parallel copy with data partitioning especially when you load large amount of data from your Netezza database. The following are suggested configurations for different scenarios. When copying data into file-based data store, it's recommanded to write to a folder as multiple files (only specify folder name), in which case the performance is better than writing to a single file.
+You are suggested to enable parallel copy with data partitioning especially when you load large amount of data from your Netezza database. The following are suggested configurations for different scenarios. When copying data into file-based data store, it's recommended to write to a folder as multiple files (only specify folder name), in which case the performance is better than writing to a single file.
 
 | Scenario                                                     | Suggested settings                                           |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |

@@ -4,7 +4,7 @@ description: Learn about Azure Firewall features.
 services: firewall
 author: vhorne
 ms.service: azure-firewall
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 08/30/2023
 ms.author: victorh
 ---

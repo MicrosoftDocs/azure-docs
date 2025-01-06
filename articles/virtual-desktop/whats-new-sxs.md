@@ -3,7 +3,7 @@ title: What's new in the Azure Virtual Desktop SxS Network Stack? - Azure
 description: New features and product updates for the Azure Virtual Desktop SxS Network Stack.
 author: sipastak
 ms.topic: release-notes
-ms.date: 10/16/2024
+ms.date: 12/16/2024
 ms.author: sipastak
 ms.custom: references_regions
 ---
@@ -32,7 +32,17 @@ Here's information about the SxS Network Stack.
 | Release | Latest version |
 |--|--|
 | Production | 1.0.2407.05700  |
-| Validation | 1.0.2407.05700  |
+| Validation | 1.0.2409.29600  |
+
+## Version 1.0.2409.29600 
+
+*Published: November 2024*
+
+In this release, we've made the following changes:
+
+- Rearchitected RAIL server processes for better shell integration.   
+- Added EventLog for ImageQuality and Chroma settings; added graphics profile name in existing Eventlog. 
+- Fixed Battery Status redirection to show status text of battery upon mouse hover. 
 
 ## Version 1.0.2407.05700
 

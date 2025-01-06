@@ -9,7 +9,7 @@ ms.custom:
   - devx-track-js
   - devx-track-python
   - ignite-2023
-ms.date: 03/12/2023
+ms.date: 12/06/2024
 ms.author: bspendolini
 ms.reviewer: glenga
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -241,6 +241,9 @@ You can use the preview extension bundle with an update to the `pom.xml` file in
 
 ## SQL connection string
 
+> [!IMPORTANT]
+> It is strongly recommended that [managed identities](/azure/azure-sql/database/authentication-azure-ad-user-assigned-managed-identity) are used for accessing an Azure SQL Database with Azure Functions. Managed identities make your app more secure by eliminating secrets from your application deployments, such as credentials in the connection strings, server names, and ports being used. You can learn how to use managed identities in this tutorial, [Connect a function app to Azure SQL with managed identity and SQL bindings](../azure-functions/functions-identity-access-azure-sql-with-managed-identity.md). 
+
 Azure SQL bindings for Azure Functions have a required property for the connection string on all bindings and triggers. These pass the connection string to the Microsoft.Data.SqlClient library and supports the connection string as defined in the [SqlClient ConnectionString documentation](/dotnet/api/microsoft.data.sqlclient.sqlconnection.connectionstring?view=sqlclient-dotnet-core-5.0&preserve-view=true#Microsoft_Data_SqlClient_SqlConnection_ConnectionString).  Notable keywords include:
 
 - `Authentication` allows a function to connect to Azure SQL with Microsoft Entra ID, including [Active Directory Managed Identity](./functions-identity-access-azure-sql-with-managed-identity.md)
@@ -254,6 +257,8 @@ Azure SQL bindings for Azure Functions have a required property for the connecti
 - Source code for the Azure SQL bindings can be found in [this GitHub repository](https://github.com/Azure/azure-functions-sql-extension).
 - This binding requires connectivity to an Azure SQL or SQL Server database.
 - Output bindings against tables with columns of data types `NTEXT`, `TEXT`, or `IMAGE` aren't supported and data upserts will fail. These types [will be removed](/sql/t-sql/data-types/ntext-text-and-image-transact-sql) in a future version of SQL Server and aren't compatible with the `OPENJSON` function used by this Azure Functions binding.
+- Use [managed identities](/azure/azure-sql/database/authentication-azure-ad-user-assigned-managed-identity) instead of usernames and passwords.
+- Consider using an [Azure Key Value](/azure/app-service/app-service-key-vault-references) to store application settings.
 
 ## Samples
 

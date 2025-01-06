@@ -4,10 +4,9 @@ description: Learn about Azure Private Link service.
 services: private-link
 author: abell
 ms.service: azure-private-link
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 10/15/2024
 ms.author: abell
-ms.custom: template-concept
 ---
 
 # What is Azure Private Link service?
@@ -109,7 +108,7 @@ Visibility controls the exposure settings whereas auto-approval controls the app
 ## Getting connection Information using TCP Proxy v2
 
 > [!NOTE]
-> Only one connection between a PLS and Internal Load Balancer is supported when using TCP Proxy v2 
+> TCP Proxy v2 configuration on a Private Link service activates for all load balancers and their backend VMs. If TCP Proxy v2 is configured on one PLS, configure it on other PLS resources if they are sharing the same load balancer or backend pool, otherwise health probes will fail. 
 
 In the private link service, the source IP address of the packets coming from private endpoint is network address translated (NAT) on the service provider side using the NAT IP allocated from the provider's virtual network. The applications receive the allocated NAT IP address instead of actual source IP address of the service consumers. If your application needs an actual source IP address from the consumer side, you can enable proxy protocol on your service and retrieve the information from the proxy protocol header. In addition to source IP address, proxy protocol header also carries the LinkID of the private endpoint. Combination of source IP address and LinkID can help service providers uniquely identify their consumers. 
 
@@ -149,7 +148,7 @@ The following are the known limitations when using the Private Link service:
 
 - For an Inbound NAT rule with type set to *backend pool* to operate with Azure Private Link Service, a load balancing rule must be configured.
 
-- TCP Proxy v2 only supports one connection between a PLS and Internal Load Balancer
+- TCP Proxy v2 configuration on a Private Link service activates for all load balancers and their backend VMs. If TCP Proxy v2 is configured on one PLS, configure it on other PLS resources if they are sharing the same load balancer or backend pool, otherwise health probes will fail.
 
 ## Next steps
 

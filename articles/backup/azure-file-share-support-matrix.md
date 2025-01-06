@@ -2,7 +2,7 @@
 title: Support Matrix for Azure file share backup by using Azure Backup
 description: Provides a summary of support settings and limitations when backing up Azure file shares.
 ms.topic: reference
-ms.date: 11/20/2024
+ms.date: 01/06/2025
 ms.custom: references_regions, engagement-fy24
 ms.service: azure-backup
 author: AbhishekMallick-MS
@@ -28,7 +28,9 @@ Azure file shares backup is available in all regions, **except** for Germany Cen
 
 # [Vault-standard tier (preview)](#tab/vault-tier)
 
-Vaulted backup for Azure Files (preview) is available in West Central US, Southeast Asia, UK South, East Asia, UK West, India Central.
+Vaulted backup for Azure Files (preview) is available in the following regions: UK South, UK West, Southeast Asia, East Asia, West Central US, Central US, Central India, North Europe, Australia East, West US, East US, South India, France Central, Canada Central, North Central US, East US 2, Australia Southeast, Germany North, France South, West US 2, Brazil South, Japan West, Germany West Central, Canada East, Korea South, Jio India West, Korea Central, South Africa West, Japan East, Norway East, Switzerland West, Norway West, South Africa North, UAE North, West Europe, Sweden Central, Switzerland North.
+
+Cross Region Restore is currently not supported in Sweden Central, UAE North, Jio India West.
 
 ---
 
@@ -54,6 +56,10 @@ Cross Subscription Backup (CSB) for Azure File share (preview) is currently avai
 | Storage account details | Support |
 | --- | --- |
 | Account Kind | Azure Backup supports Azure file shares present in general-purpose v2, and file storage type storage accounts. |
+
+>[!Important]
+>The source Storage Account must have the **Allow storage account key access** setting enabled for successful Azure Files backup and restore.
+
 
 >[!Note]
 >Storage accounts with restricted network access aren't supported.   
@@ -97,13 +103,19 @@ Cross Subscription Backup (CSB) for Azure File share (preview) is currently avai
 
 ## Backup limits
 
+| Setting                                                      | Limit |
+| --- | --- |
+| Maximum number of discoveries of containers that can be backed up to Recovery Services Vault per day  | 50 |
+| Maximum number of inquiries for protectable items under the given container per day | 25 |
+| Maximum number of Configure backup per day | 200 |
+| Maximum number of on-demand backups per day | 10 |
+
 **Choose a backup tier**:
 
 # [Snapshot tier](#tab/snapshot-tier)
 
 | Setting                                      | Limit |
 | -------------------------------------------- | ----- |
-| Maximum  number of on-demand backups per day | 10   |
 | Maximum  number of scheduled backups per day | 6    |
 
 # [Vault-standard tier (preview)](#tab/vault-tier)
@@ -113,9 +125,16 @@ Cross Subscription Backup (CSB) for Azure File share (preview) is currently avai
 | Maximum size of file share              | 8 TB      |
 | Maximum number of files in a file share | 8 million |
 
+>[!Note]
+>If you have multiple backups scheduled per day, only the last scheduled backup of the day is transferred to the vault.
+
 ---
 
 ## Restore limits
+
+| Setting | Limit |
+| --- | --- |
+| Maximum number of restore per day                           | 20      |
 
 **Choose a backup tier**:
 
@@ -123,7 +142,6 @@ Cross Subscription Backup (CSB) for Azure File share (preview) is currently avai
 
 | Setting                                                      | Limit   |
 | ------------------------------------------------------------ | ------- |
-| Maximum number of restore per day                           | 20      |
 | Maximum size of a file (if the destination account is in a Vnet) | 1TB |
 | Maximum  number of individual files or folders per restore, if ILR (Item level recovery)                         | 99      |
 | Maximum  recommended restore size per restore for large file shares | 15  TiB |
