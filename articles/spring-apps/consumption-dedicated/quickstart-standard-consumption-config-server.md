@@ -23,7 +23,7 @@ Spring Cloud Config Server is a centralized configuration service for distribute
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - [Azure CLI](/cli/azure/install-azure-cli). Use the following command to install the Azure Spring Apps extension: `az extension add --name spring`.
 - [Git](https://git-scm.com/downloads).
-- The completion of [Quickstart: Provision an Azure Spring Apps Standard consumption and dedicated plan service instance](./quickstart-provision-standard-consumption-service-instance.md).
+- An Azure Spring Apps Standard consumption and dedicated plan service instance.
 
 ## Set up Config Server
 

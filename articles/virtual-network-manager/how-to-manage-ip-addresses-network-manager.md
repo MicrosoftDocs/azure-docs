@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: how-to
-ms.date: 10/25/2024
+ms.date: 12/11/2024
 ms.custom:  references_regions
 #customer intent: As a network administrator, I want to learn how to manage IP addresses with Azure Virtual Network Manager so that I can create and assign IP address pools to my virtual networks.
 ---
@@ -56,13 +56,7 @@ In this step, you associate an existing virtual network with an IP address pool 
 1. Browse to your network manager instance and select your IP address pool.
 2. From the left menu, select **Allocations** under **Settings** or select **Allocate**. 
 3. In the **Allocations** window, select **+ Create** > **Associate resources**. The **Associate resources** option allocates a CIDR to an existing virtual network.
-   
-    :::image type="content" source="media/how-to-manage-ip-addresses/pool-allocation-settings-associate-resource-thumb.png" alt-text="Screenshot of allocations page for associating resources." lightbox="media/how-to-manage-ip-addresses/pool-allocation-settings-associate-resource.png":::
-
 4. In the **Select resources** window, select the virtual networks you want to associate with the IP address pool and then choose **Select**.
-   
-   :::image type="content" source="media/how-to-manage-ip-addresses/associate-virtual-network-resources-thumb.png" alt-text="Screenshot of associate resources page with virtual networks selected." lightbox="media/how-to-manage-ip-addresses/associate-virtual-network-resources.png":::
-
 5. Verify the virtual network is listed.
    
    :::image type="content" source="media/how-to-manage-ip-addresses/ip-address-pool-allocation-statistics.png" alt-text="Screenshot of IP address pool allocations and statistics.":::
@@ -128,9 +122,6 @@ In this step, you delegate permissions to other users to manage IP address pools
 3. In the **Access control (IAM)** window, select **+ Add**>**Add role assignment**.
 4. Under **Role**, select **IPAM Pool User** through the search bar under the **Job function roles** tab, and then select **Next**.
 5. On the **Members** tab, select how you wish to assign access to the role. You can assign access to a user, group, or service principal, or you can use a managed identity.
-
-    :::image type="content" source="media/how-to-manage-ip-addresses/delegate-ip-address-pool-permissions.png" alt-text="Screenshot of the Add role assignment window with IPAM Pool User selected.":::
-
 6. Choose **+ Select members** and then **Select** the user, group, service principal, or managed identity that you want to assign the role to.
 7. Select **Review + assign** and then **Assign** to delegate permissions to the user.
 
@@ -154,9 +145,6 @@ In this step, you create a virtual network with a nonoverlapping CIDR range by a
  
 4. Select the **IP addresses** tab or **Next** > **Next**.
 5. On the **IP addresses** tab, select **Allocate using IP address pools** checkbox.
-   
-   :::image type="content" source="media/how-to-manage-ip-addresses/create-virtual-network-ip-address-pool.png" alt-text="Screenshot of create virtual network window with Allocate using IP address setting.":::
-
 6. In the **Select an IP address pool** window, select the IP address pool that you want to associate with the virtual network and then choose **Save**. You can select at most one IPv4 pool and one IPv6 pool for association to a single virtual network.
    
     :::image type="content" source="media/how-to-manage-ip-addresses/virtual-network-create-select-ip-address-pool-thumb.png" alt-text="Screenshot of Select an IP address pool with IP address pool selected." lightbox="media/how-to-manage-ip-addresses/virtual-network-create-select-ip-address-pool.png":::

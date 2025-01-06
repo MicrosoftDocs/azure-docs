@@ -2,7 +2,7 @@
 title: Include file - Java
 description: Java Audio Streaming quickstart
 services: azure-communication-services
-author: Alvin
+author: alvin-l-han
 ms.service: azure-communication-services
 ms.subservice: call-automation
 ms.date: 11/26/2024
@@ -27,7 +27,7 @@ You can review documentation [here](https://azure.microsoft.com/blog/introductio
 ## Receiving and sending audio streaming data
 There are multiple ways to start receiving audio stream, which can be configured using the `startMediaStreaming` flag in the `mediaStreamingOptions` setup. You can also specify the desired sample rate used for receiving or sending audio data using the `audioFormat` parameter. Currently supported formats are PCM 24K mono and PCM 16K mono, with the default being PCM 16K mono.
 
-To enable bidirectional audio streaming, where you're sending audio data into the call, you can enable the `EnableBidirectional` flag. For more details, refer to the [API specifications](https://learn.microsoft.com/rest/api/communication/callautomation/answer-call/answer-call?view=rest-communication-callautomation-2024-06-15-preview&tabs=HTTP#mediastreamingoptions).
+To enable bidirectional audio streaming, where you're sending audio data into the call, you can enable the `EnableBidirectional` flag. For more details, refer to the [API specifications](/rest/api/communication/callautomation/answer-call/answer-call?view=rest-communication-callautomation-2024-06-15-preview&preserve-view=true&tabs=HTTP#mediastreamingoptions).
 
 ### Start streaming audio to your webserver at time of answering the call
 Enable automatic audio streaming when the call is established by setting the flag `startMediaStreaming: true`.

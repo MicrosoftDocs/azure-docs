@@ -326,7 +326,6 @@ In order to use a user-assigned managed identity, you must first [create credent
 >  User-assigned Managed Identity is not currently supported in Synapse notebooks and Spark job definitions.
 
 ## Next steps
-- [Create credentials](../data-factory/credentials.md).
 
 See the following articles that introduce when and how to use managed identity:
 
@@ -334,3 +333,8 @@ See the following articles that introduce when and how to use managed identity:
 - [Copy data from/to Azure Data Lake Store using managed identities for Azure resources authentication](../data-factory/connector-azure-data-lake-store.md).
 
 See [Managed Identities for Azure Resources Overview](../active-directory/managed-identities-azure-resources/overview.md) for more background on managed identities for Azure resources, on which managed identity in Azure Synapse is based.
+
+## Related content
+
+- [Create credentials](../data-factory/credentials.md)
+- [Tutorial: Load external data using a managed identity](sql/tutorial-external-tables-using-managed-identity.md)
