@@ -136,8 +136,6 @@ All publicly available service tags are supported in access restriction rules. E
 
 1. Select **Save** to save the changes.
 
-   :::image type="content" source="media/app-service-ip-restrictions/access-restrictions-ip-edit.png?v2" alt-text="Screenshot of the 'Edit Access Restriction' pane in the Azure portal, showing the fields for an existing access restriction rule.":::
-
    > [!NOTE]
    > When you edit a rule, you can't switch between rule types.
 

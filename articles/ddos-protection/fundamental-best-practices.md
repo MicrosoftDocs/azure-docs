@@ -4,7 +4,7 @@ description: Learn the best security practices using Azure DDoS Protection.
 services: ddos-protection
 author: AbdullahBell
 ms.service: azure-ddos-protection
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 07/17/2024
 ms.author: abell
 ---

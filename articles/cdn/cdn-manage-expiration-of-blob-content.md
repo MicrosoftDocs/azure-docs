@@ -5,7 +5,6 @@ description: Learn about the options for controlling time to live for blobs in A
 services: cdn
 author: duongau
 manager: kumudd
-ms.assetid: ad4801e9-d09a-49bf-b35c-efdc4e6034e8
 ms.service: azure-cdn
 ms.devlang: csharp
 ms.topic: how-to

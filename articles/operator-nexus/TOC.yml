@@ -199,7 +199,7 @@
           href: howto-put-device-in-maintenance-mode.md
         - name: How to set up break glass access
           href: howto-set-up-break-glass-access.md
-        - name: How to use-break-glass-access.md
+        - name: How to use-break-glass-access
           href: howto-use-break-glass-access.md
         - name: How to enable-Micro-BFD on CE and PE devices.md
           href: howto-enable-micro-bfd.md
@@ -330,6 +330,10 @@
           href: troubleshoot-memory-limits.md
         - name: Troubleshoot LACP Bonding
           href: troubleshoot-lacp-bonding.md
+        - name: Troubleshoot NAKS Cluster Node Packet Loss
+          href: troubleshoot-packet-loss.md
+        - name: Troubleshoot TWAMP (UDP) not working
+          href: troubleshoot-twamp-udp-not-working.md
     - name: Tenant Workload
       expanded: false
       items:

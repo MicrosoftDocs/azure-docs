@@ -631,7 +631,7 @@ az webapp config appsettings set --resource-group myResourceGroup --name myApp -
 <Valve prefix="site_access_log.${catalina.instance.name}" pattern="%h %l %u %t &quot;%r&quot; %s %b %D %{x-arr-log-id}i" directory="${site.logdir}/http/RawLogs" maxDays="${site.logRetentionDays}" className="org.apache.catalina.valves.AccessLogValve" suffix=".txt"/>
  ```
 * `directory` is set to `AZURE_LOGGING_DIR`, which defaults to `home\logFiles`
-* `maxDays` is to `WEBSITE_HTTPLOGGING_RETENTION_DAYS`, which defaults to `0` [forever]
+* `maxDays` is to `WEBSITE_HTTPLOGGING_RETENTION_DAYS`, which defaults to `7`. This aligns with the Application Logging platform default
  
 On Linux, it has all of the same customization, plus:
  

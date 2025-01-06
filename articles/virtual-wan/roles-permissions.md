@@ -4,7 +4,7 @@ titleSuffix: Azure Virtual WAN
 description: Learn about roles and permissions for a Virtual WAN Hub.
 author: siddomala
 ms.service: azure-virtual-wan
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 12/13/2024
 ms.author: cherylmc
 
@@ -82,6 +82,20 @@ For more information, see [Scope levels](../role-based-access-control/scope-over
 
 > [!NOTE]
 > Allow sufficient time for [Azure Resource Manager cache](../role-based-access-control/troubleshooting.md) to refresh after role assignment changes.
+
+## Additional services
+
+To view roles and permissions for other services, see the following links:
+
+- [Azure Application Gateway](../application-gateway/configuration-infrastructure.md)
+
+- [Azure ExpressRoute](../expressroute/roles-permissions.md) 
+
+- [Azure Firewall](../firewall/roles-permissions.md) 
+
+- [Azure Route Server](../route-server/roles-permissions.md)
+
+- [Azure VPN Gateway](../vpn-gateway/roles-permissions.md)
 
 ## Next steps
 

@@ -450,11 +450,11 @@ Network TAP allows Operators to define destinations and encapsulation mechanism 
 | destinationTapRuleId| ARMID of the Tap rule, which needs to be applied | |True |
 
 > [!NOTE] 
-> Network Tap rules and Neighbor Groups must be created prior to refrencing them in Network Tap
+> Network Tap rules and Neighbor Groups must be created prior to referencing them in Network Tap
 
 ### NetworkTAP device programming naming conventions/ best practices:
 
-It's essential to ensure that the configurations and values within these fieldset names (vlanGroupNames, ipGroupNames, PortGroupNames) are correctly defined and do not conflict with each other.  
+It's essential to ensure that the configurations and values within these fieldset names (vlanGroupNames, ipGroupNames, PortGroupNames) are **unique** and do not conflict with each other.  
 
 - **Recommendations:** 
 
