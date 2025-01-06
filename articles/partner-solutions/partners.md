@@ -1,5 +1,5 @@
 ---
-title: Partner services
+title: Extend Azure with Azure Native ISV Services
 description: Explore Azure Native ISV Services partner solutions for observability, data, networking, and storage.
 
 ms.topic: conceptual
