@@ -461,6 +461,8 @@ Accelerated networking is enabled in the portal during virtual machine creation.
 
 ### [Portal](#tab/portal)
 
+[!INCLUDE [create-test-virtual-machine-linux.md](~/reusable-content/ce-skilling/azure/includes/create-test-virtual-machine-linux.md)]
+
 ### [PowerShell](#tab/powershell)
 
 Create a VM with [New-AzVM](/powershell/module/az.compute/new-azvm). The following example creates a VM named **vm-1** in the **vnet-1** virtual network. When prompted, enter the username and password for the virtual machine.
