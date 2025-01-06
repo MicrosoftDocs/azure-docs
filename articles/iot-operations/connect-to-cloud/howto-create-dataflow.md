@@ -991,7 +991,7 @@ The following example is a dataflow configuration that uses the MQTT endpoint fo
 
 # [Portal](#tab/portal)
 
-See Bicep or Kubernetes tabs for the configuration example.
+:::image type="content" source="media/howto-create-dataflow/dataflow-example.png" alt-text="Screenshot showing the operations experience dataflow example with a source endpoint, transforms, and a destination endpoint." lightbox="media/howto-create-dataflow/dataflow-example.png":::
 
 # [Bicep](#tab/bicep)
 
