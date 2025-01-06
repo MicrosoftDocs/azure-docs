@@ -28,7 +28,7 @@ Just like a real conversation, many things happen simultaneously in a call that 
 Azure Communication Services collects call data in the form of metrics and events. For Call Diagnostics to analyze new call data, you must enable a diagnostic setting in Azure Monitor. Azure Monitor then sends this data to a Log Analytics workspace.
 
 > [!IMPORTANT]
-> Call Diagnostics can query only data that's sent to a Log Analytics workspace. Diagnostic settings begin collecting data by a single Azure Communications Services resource ID after you enable the diagnostic setting.
+> Call Diagnostics can query only data sent to a Log Analytics workspace. Diagnostic settings begin collecting data by a single Azure Communications Services resource ID after you enable the diagnostic setting.
 
 Because Call Diagnostics is an application layer on top of data for your Azure Communications Services resource, you can query the call data and [build workbook reports on top of your data](/azure/azure-monitor/logs/data-platform-logs#built-in-insights-and-custom-dashboards-workbooks-and-reports).
 
@@ -79,7 +79,7 @@ AI can help app developers across every step of the development lifecycle: desig
 
 - How to run network diagnostics in Azure Communication Services VoIP calls.
 - How to optimize your calls for poor network conditions.
-- What are common causes of poor media streams in Azure Communication Services calls?
+- How to determine common causes of poor media streams in Azure Communication Services calls.
 - How to fix subcode 41048 if the video on a call didn't work.
 
 :::image type="content" source="./media/call-diagnostics-all-calls-copilot.png" alt-text="Screenshot of a Call Diagnostics search that shows recent calls for an Azure Communications Services resource and a response from Copilot in Azure."  lightbox="./media/call-diagnostics-all-calls-copilot.png":::
@@ -92,7 +92,7 @@ Follow instructions to add diagnostic settings for your resource in [Enable logs
 
 Your data volume, retention, and Call Diagnostics query usage in Log Analytics within Azure Monitor is billed through existing Azure data meters. We recommend that you monitor your data usage and retention policies for cost considerations as needed. For more information, see [Controlling costs](/azure/azure-monitor/essentials/diagnostic-settings#controlling-costs).
 
-If you have multiple Azure Communications Services resource IDs, you must enable these settings for each resource ID and query call details for participants within their respective resource IDs.
+If you have multiple Azure Communications Services resource IDs, you must enable these settings for each resource ID. Then you can query call details for participants within their respective resource IDs.
 
 Participants who join from other Azure Communication Services resources have limited information in Call Diagnostics. The participants who belong to the resource when you open Call Diagnostics have all available insights shown.
 
@@ -123,25 +123,25 @@ Use Copilot in Azure for Call Diagnostics to improve call quality by detailing p
 You can use your tags from `DiagnosticOptions` in three places on the Call Diagnostics interface:
 
 * Calls search:
-   :::image type="content" source="./media/uihint-call-search.png" alt-text="Screenshot of the Call Diagnostics Search view that shows the DiagnosticOptions column."  lightbox="./media/uihint-call-search.png":::
+   :::image type="content" source="./media/ui-hint-call-search.png" alt-text="Screenshot of the Call Diagnostics Search view that shows the DiagnosticOptions column."  lightbox="./media/ui-hint-call-search.png":::
 
 * Participants table in **Call Overview** section:
-   :::image type="content" source="./media/uihint-participants-table.png" alt-text="Screenshot of the Call Diagnostics Call Overview section that shows the DiagnosticOptions column."  lightbox="./media/uihint-participants-table.png":::
+   :::image type="content" source="./media/ui-hint-participants-table.png" alt-text="Screenshot of the Call Diagnostics Call Overview section that shows the DiagnosticOptions column."  lightbox="./media/ui-hint-participants-table.png":::
 
 * Timeline section in the **Participants information** side panel:
-   :::image type="content" source="./media/uihint-timeline.png" alt-text="Screenshot of the Call Diagnostics timeline section that shows the DiagnosticOptions values when exploring a participants side pane details."  lightbox="./media/uihint-timeline.png":::
+   :::image type="content" source="./media/ui-hint-timeline.png" alt-text="Screenshot of the Call Diagnostics timeline section that shows the DiagnosticOptions values when exploring a participants side pane details."  lightbox="./media/ui-hint-timeline.png":::
 
 ### View `DiagnosticOptions` information column in the tables
 
 If you can't see the `DiagnosticOptions` information column in the tables, here's how to view the information:
 
-To view the `DiagnosticOptions` columns in Call Diagnostics you need to enable them using the **Edit Columns** button located in the Call Search and Call Overview sections:
+To view the `DiagnosticOptions` columns in Call Diagnostics, you need to enable them using the **Edit Columns** button located in the Call Search and Call Overview sections:
 
-:::image type="content" source="./media/uihint-edit-columns-button.png" alt-text="Screenshot of the Call Diagnostics search view with a red rectangle around the Edit Columns icon."  lightbox="./media/uihint-edit-columns-button.png":::
+:::image type="content" source="./media/ui-hint-edit-columns-button.png" alt-text="Screenshot of the Call Diagnostics search view with a red rectangle around the Edit Columns icon."  lightbox="./media/ui-hint-edit-columns-button.png":::
 
 After clicking the **Edit Columns** button, choose the **DiagnosticOptions** option and click **Done**:
 
-:::image type="content" source="./media/uihint-choose-columns-sidepane.png" alt-text="Screenshot of the Call Diagnostics search view with the column editor opened on the right side. There are red rectangles around the DiagnosticOptions option and the Done button."  lightbox="./media/uihint-choose-columns-sidepane.png":::
+:::image type="content" source="./media/ui-hint-choose-columns-sidepane.png" alt-text="Screenshot of the Call Diagnostics search view with the column editor opened on the right side. There are red rectangles around the DiagnosticOptions option and the Done button."  lightbox="./media/ui-hint-choose-columns-sidepane.png":::
 
 You can now see the `DiagnosticOptions` column.
 
