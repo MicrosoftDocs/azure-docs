@@ -1,13 +1,13 @@
 ---
-title: Authorize test console of API Management developer portal using OAuth 2.0
+title: Authorize test console of API Management developer portal - OAuth 2.0
 titleSuffix: Azure API Management
-description: Set up OAuth 2.0 user authorization for the test console in the Azure API Management developer portal. This example uses Microsoft Entra ID as an OAuth 2.0 provider.
+description: Set up OAuth 2.0 user authorization for the test console in Azure API Management developer portal. This example uses Microsoft Entra ID as OAuth 2.0 provider.
 services: api-management
 author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 04/01/2024
+ms.date: 01/06/2025
 ms.author: danlep
 ms.custom: engagement-fy23
 ---
