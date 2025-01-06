@@ -338,7 +338,6 @@ The resource providers for 5G & space services are:
 | --------------------------- | ------------- |
 | Microsoft.HybridNetwork  | [Network Function Manager](../../network-function-manager/index.yml) |
 | Microsoft.MobileNetwork | [Azure Private 5G Core](../../private-5g-core/index.yml) |
-| Microsoft.Orbital | [Azure Orbital Ground Station](../../orbital/overview.md) |
 
 ## Registration
 

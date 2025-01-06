@@ -2,7 +2,7 @@
 title: Support Matrix for Azure file share backup by using Azure Backup
 description: Provides a summary of support settings and limitations when backing up Azure file shares.
 ms.topic: reference
-ms.date: 12/31/2024
+ms.date: 01/06/2025
 ms.custom: references_regions, engagement-fy24
 ms.service: azure-backup
 author: AbhishekMallick-MS
@@ -56,6 +56,10 @@ Cross Subscription Backup (CSB) for Azure File share (preview) is currently avai
 | Storage account details | Support |
 | --- | --- |
 | Account Kind | Azure Backup supports Azure file shares present in general-purpose v2, and file storage type storage accounts. |
+
+>[!Important]
+>The source Storage Account must have the **Allow storage account key access** setting enabled for successful Azure Files backup and restore.
+
 
 >[!Note]
 >Storage accounts with restricted network access aren't supported.   
