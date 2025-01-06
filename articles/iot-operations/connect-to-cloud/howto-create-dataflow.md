@@ -399,7 +399,7 @@ sourceSettings:
 ---
 
 
-If the instance count in the [dataflow profile](howto-configure-dataflow-profile.md) is greater than one, shared subscription is automatically enabled for all dataflows that use a message broker source. In this case, the `$shared` prefix is added and the shared subscription group name automatically generated. For example, if you have a dataflow profile with an instance count of 3, and your dataflow uses an message broker endpoint as source configured with topics `topic1` and `topic2`, they are automatically converted to shared subscriptions as `$shared/<GENERATED_GROUP_NAME>/topic1` and `$shared/<GENERATED_GROUP_NAME>/topic2`. 
+If the instance count in the [dataflow profile](howto-configure-dataflow-profile.md) is greater than one, shared subscription is automatically enabled for all dataflows that use a message broker source. In this case, the `$shared` prefix is added and the shared subscription group name automatically generated. For example, if you have a dataflow profile with an instance count of 3, and your dataflow uses a message broker endpoint as source configured with topics `topic1` and `topic2`, they are automatically converted to shared subscriptions as `$shared/<GENERATED_GROUP_NAME>/topic1` and `$shared/<GENERATED_GROUP_NAME>/topic2`. 
 
 You can explicitly create a topic named `$shared/mygroup/topic` in your configuration. However, adding the `$shared` topic explicitly isn't recommended since the `$shared` prefix is automatically added when needed. Dataflows can make optimizations with the group name if it isn't set. For example, `$share` isn't set and dataflows only has to operate over the topic name.
 
@@ -450,7 +450,7 @@ sourceSettings:
 
 ### Specify source schema
 
-When using MQTT or Kafka as the source, you can specify a [schema](concept-schema-registry.md) to display the list of data points in the operations experience portal. Note that using a schema to deserialize and validate incoming messages [isn't currently supported](../troubleshoot/known-issues.md#dataflows).
+When using MQTT or Kafka as the source, you can specify a [schema](concept-schema-registry.md) to display the list of data points in the operations experience portal. Using a schema to deserialize and validate incoming messages [isn't currently supported](../troubleshoot/known-issues.md#dataflows).
 
 If the source is an asset, the schema is automatically inferred from the asset definition.
 
