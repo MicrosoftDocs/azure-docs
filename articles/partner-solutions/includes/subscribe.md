@@ -5,9 +5,11 @@ ms.date: 01/06/2025
 ms.author: kkendrick
 ---
 
-To create resources, you must first subscribe to the service. 
+Subscribe to this service directly from the [Azure portal](#subscribe-from-azure-portal), or subscribe from [Microsoft's Azure Marketplace](#subscribe-from-azure-marketplace). 
 
-1. Open the [Azure portal](https://portal.azure.com).
+### Subscribe from Azure portal
+
+Go to the [Azure portal](https://portal.azure.com).
 
 1. From the portal menu's global search bar, search for **marketplace**. Select **Marketplace** from the **Services** results. 
 
@@ -20,3 +22,6 @@ To create resources, you must first subscribe to the service.
 1. Choose your preferred plan, then select **Subscribe**. 
 
     The **Create** resource pane displays in the working pane. 
+
+## Subscribe from Azure Marketplace
+
