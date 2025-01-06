@@ -126,19 +126,14 @@ Following is the list of supported images and no other marketplace images releas
 | openlogic | centos-hpc | |* | 
 | | centos-lvm | 7-lvm </br> 7-lvm-gen2 </br> 8-lvm | |
 | | centos-ci | 7-ci | |
-| | centos | | 7*| 8* |
-| | | 8* | |
-| center-for-internet-security-inc | cis-rhel | cis-redhat7-l1-gen1 | |
-| | | cis-redhat8-l*-gen1 | |
-| | | cis-redhat9-l1-gen* ||
+| | centos | 7* |8* |
+| center-for-internet-security-inc | cis-rhel | cis-redhat7-l1-gen1 </br> cis-redhat8-l*-gen1 </br> cis-redhat9-l1-gen* ||
 | | cis-rhel-7-l2 | cis-rhel7-l2 ||
 || cis-rhel-7-v2-2-0-l1| cis-rhel7-l1||
 || cis-rhel-7-stig| cis-rhel-7-stig||
 || cis-rhel-8-stig| cis-rhel-8-stig||
-|| cis-oracle| cis-oraclelinux8-l1-gen1||
+|| cis-oracle| cis-oraclelinux8-l1-gen1 </br> cis-oraclelinux9-l1-gen*||
 || cis-oracle-linux-8-l1 | cis-oracle8-l1||
-||| cis-oraclelinux9-l1-gen*||
-||| cis-oracle-linux-8-l1| cis-oracle8-l1|
 || cis-ubuntu| cis-ubuntu1804-l1 </br> cis-ubuntulinux2004-l1-gen1 </br> cis-ubuntulinux2204-l1-gen*||
 || cis-ubuntu-linux-1804-l1| cis-ubuntu1804-l1||
 || cis-ubuntu-linux-2004-l1| cis-ubuntu2004-l1||
@@ -297,7 +292,7 @@ Custom images (including images uploaded to [Azure Compute gallery](/azure/virtu
 
 ::: zone pivot="azure-arc-enabled-servers"
 
-### Azure Arc-enabled servers
+## Azure Arc-enabled servers
 
 The following table lists the operating systems supported on [Azure Arc-enabled servers](/azure/azure-arc/servers/overview).
 
@@ -319,7 +314,7 @@ The following table lists the operating systems supported on [Azure Arc-enabled 
 
 ::: zone pivot="win-iot-arc-servers"
 
-### Windows IoT Enterprise on Arc enabled servers (preview)
+## Windows IoT Enterprise on Arc enabled servers (preview)
 
 | Windows Enterprise systems |
 | --- |
