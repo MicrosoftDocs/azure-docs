@@ -7,7 +7,7 @@ ms.author: kgremban
 ms.service: iot-hub
 ms.devlang: csharp
 ms.topic: include
-ms.date: 11/25/2024
+ms.date: 1/6/2025
 ms.custom: amqp, mqtt, devx-track-java, devx-track-extended-java
 ---
 
