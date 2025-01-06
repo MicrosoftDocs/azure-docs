@@ -241,7 +241,7 @@ fi
 echo "{\"outputs\": $deploymentOutput}" > $ADE_OUTPUTS
 ```
 
---- 
+<!-- --- -->
 
 ::: zone-end
 
@@ -652,6 +652,8 @@ runner: "{YOUR_REGISTRY}.azurecr.io/{YOUR_REPOSITORY}:{YOUR_TAG}"
 ```
 
 To learn more about how to create environment definitions that use the ADE container images to deploy your Azure resources, see [Add and configure an environment definition](configure-environment-definition.md).
+
+---
 
 ## Related content
 
