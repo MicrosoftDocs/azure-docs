@@ -290,7 +290,7 @@ After saving the OAuth 2.0 server configuration, configure an API or APIs to use
 
 In the configuration so far, API Management doesn't validate the access token. It only passes the token in the authorization header to the backend API.
 
-To pre-authorize requests, configure a [validate-jwt](validate-jwt-policy.md) policy to validate the access token of each incoming request. If a request doesn't have a valid token, API Management blocks it. In the case of the Microsoft Entra ID provider, you can also use the `validate-azure-ad-token` policy.
+To pre-authorize requests, configure a [validate-jwt](validate-jwt-policy.md) policy to validate the access token of each incoming request. If a request doesn't have a valid token, API Management blocks it. When you use the Microsoft Entra ID provider, you can also use the [validate-azure-ad-token](validate-azure-ad-token-policy.md) policy.
 
 [!INCLUDE [api-management-configure-validate-jwt](../../includes/api-management-configure-validate-jwt.md)]
 
