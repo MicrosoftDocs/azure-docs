@@ -171,7 +171,7 @@ Consumption logic app workflows automatically support zone redundancy, so no con
 
 ### Capacity planning and management
 
-[!INCLUDE [Over-provisioning description](includes/reliability-over-provisoning-calculation-include.md)]
+[!INCLUDE [Over-provisioning description](includes/reliability-over-provisioning-calculation-include.md)]
 
 ::: zone-end
 
