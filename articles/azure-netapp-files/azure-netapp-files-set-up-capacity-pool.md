@@ -23,7 +23,7 @@ Creating a capacity pool enables you to create volumes within it.
 * If you're using the Flexible service level:
     * Only single encryption is currently supported for Flexible service level capacity pools. Double encryption isn't currently supported. 
     * The Flexible service level is only available for manual QoS capacity pools. 
-* To use the **Flexible** service level, you must first register the feature:  
+* <a name="flexible"></a> To use the **Flexible** service level, you must first register the feature:  
 
     1. Register the feature: 
         ```azurepowershell-interactive
@@ -36,7 +36,6 @@ Creating a capacity pool enables you to create volumes within it.
         Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFFlexibleServiceLevel
         ```
         You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
-
     
 ## Steps 
 

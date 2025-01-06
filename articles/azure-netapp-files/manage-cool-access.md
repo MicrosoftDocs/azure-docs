@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 11/12/2024
+ms.date: 01/06/2025
 ms.author: anfdocs
 ---
 
@@ -85,6 +85,26 @@ You must submit a waitlist request to access this feature by using the [request 
 Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFCoolAccessUltra
 ```
 
+# [Flexible](#tab/flexible)
+
+Cool access with the Flexible service level is currently in preview. You must be registered to use the [Flexible service](azure-netapp-files-set-up-capacity-pool.md#flexible) before requesting cool access with the Flexible service level. Once you have confirmed your registration in the Flexible service level preview, then register to use cool access with the Flexible service level. 
+
+1. Register the feature: 
+
+    ```azurepowershell-interactive
+    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFCoolAccessFlexible
+    ```
+
+2. Check the status of the feature registration: 
+    > [!NOTE]
+    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is **Registered** before continuing.
+
+    ```azurepowershell-interactive
+    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFCoolAccessFlexible
+    ```
+
+    You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
+    
 ---
 
 ### Configure the capacity pool for cool access
