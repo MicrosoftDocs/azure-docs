@@ -19,7 +19,7 @@ From your non-interactive .NET application, you need:
 
 ## Prerequisites
 
-An HDInsight cluster. See the [getting started tutorial](hadoop/apache-hadoop-linux-tutorial-get-started.md).
+A HDInsight cluster. See the [getting started tutorial](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
 <a name='assign-a-role-to-the-azure-ad-application'></a>
 
@@ -36,7 +36,7 @@ Assign your Microsoft Entra application a [role](../role-based-access-control/bu
 1. At the top of the page, select **+ Add**.
 1. Follow the instructions to add the Owner role to your Microsoft Entra application. After you successfully add the role, the application is listed under the Owner role.
 
-## Develop an HDInsight client application
+## Develop a HDInsight client application
 
 1. Create a C# console application.
 2. Add the following [NuGet](https://www.nuget.org/) packages:

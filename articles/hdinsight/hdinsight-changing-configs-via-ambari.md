@@ -17,7 +17,7 @@ Log in to  Ambari at `https://CLUSTERNAME.azurehdidnsight.net` with your cluster
 
 :::image type="content" source="./media/hdinsight-changing-configs-via-ambari/apache-ambari-dashboard.png" alt-text="Apache Ambari user dashboard displayed.":::
 
-The Ambari web UI is used to manage hosts, services, alerts, configurations, and views. Ambari can't be used to create an HDInsight cluster, or upgrade services. Also can't manage stacks and versions, decommission or recommission hosts, or add services to the cluster.
+The Ambari web UI is used to manage hosts, services, alerts, configurations, and views. Ambari can't be used to create a HDInsight cluster, or upgrade services. Also can't manage stacks and versions, decommission or recommission hosts, or add services to the cluster.
 
 ## Manage your cluster's configuration
 
