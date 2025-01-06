@@ -1,5 +1,5 @@
 ---
-title: 'Use variant feature flags application'
+title: 'Use variant feature flags in a Python application'
 titleSuffix: Azure App configuration
 description: In this tutorial, you learn how to use variant feature flags in an Python application
 #customerintent: As a user of Azure App Configuration, I want to learn how I can use variants and variant feature flags in my python application.
@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.date: 12/02/2024
 ---
 
-# Use variant feature flags application
+# Use variant feature flags in a Python application
 
 In this tutorial, you use a variant feature flag to manage experiences for different user segments in an example application, *Quote of the Day*. You utilize the variant feature flag created in [Use variant feature flags](./use-variant-feature-flags.md). Before proceeding, ensure you create the variant feature flag named *Greeting* in your App Configuration store.
 
@@ -36,13 +36,20 @@ In this tutorial, you use a variant feature flag to manage experiences for diffe
     .\venv\Scripts\Activate
     ```
 
-1. Install the required packages. The latest versions of `azure-appconfiguration-provider`, and `featuremanagement` are required for variant feature flags.
+1. Install the latest versions of the following packages.
 
     ```bash
-    pip install flask azure-appconfiguration-provider==2.0.0b3 azure-identity featuremanagement[AzureMonitor]==2.0.0b3 flask-login flask_sqlalchemy flask_bcrypt
+    pip install flask
+    pip install flask-login
+    pip install flask_sqlalchemy
+    pip install flask_bcrypt
+    pip install azure-appconfiguration-provider
+    pip install azure-identity featuremanagement[AzureMonitor]
     ```
 
-1. Create a new file named *app.py* in the *QuoteOfTheDay* folder. You use the `DefaultAzureCredential` to authenticate to your App Configuration store. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader** role. Be sure to allow sufficient time for the permission to propagate before running your application.
+1. Create a new file named *app.py* in the *QuoteOfTheDay* folder. 
+
+   You use the `DefaultAzureCredential` to authenticate to your App Configuration store. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader** role. Be sure to allow sufficient time for the permission to propagate before running your application.
 
     ```python
     import os
@@ -155,12 +162,12 @@ In this tutorial, you use a variant feature flag to manage experiences for diffe
         ]
     
         greeting = feature_manager.get_variant("Greeting", user)
-        show_greeting = ""
+        greeting_message = ""
         if greeting:
-            show_greeting = greeting.configuration
+            greeting_message = greeting.configuration
     
         context["model"] = {}
-        context["model"]["show_greeting"] = show_greeting
+        context["model"]["greeting_message"] = greeting_message
         context["model"]["quote"] = {}
         context["model"]["quote"] = random.choice(quotes)
         context["isAuthenticated"] = current_user.is_authenticated
@@ -211,8 +218,8 @@ In this tutorial, you use a variant feature flag to manage experiences for diffe
     {% block content %}
     <div class="quote-container">
         <div class="quote-content">
-           {% if model.show_greeting %}
-                <h3 class="greeting-content">{{model.show_greeting}}</h3>
+           {% if model.greeting_message %}
+                <h3 class="greeting-content">{{model.greeting_message}}</h3>
             {% endif %}
             <br />
             <p class="quote">“{{model.quote.message}}”</p>
@@ -228,25 +235,6 @@ In this tutorial, you use a variant feature flag to manage experiences for diffe
         <form action="/" method="post">
         </form>
     </div>
-    
-    <script>
-        function heartClicked(button) {
-            var icon = button.querySelector('i');
-            icon.classList.toggle('far');
-            icon.classList.toggle('fas');
-    
-            // If the quote is hearted
-            if (icon.classList.contains('fas')) {
-                // Send a request to the server to save the vote
-                fetch('/?handler=HeartQuote', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    }
-                });
-            }
-        }
-    </script>
     {% endblock %}
     ```
      
@@ -360,9 +348,7 @@ In this tutorial, you use a variant feature flag to manage experiences for diffe
     {% endblock %}
     ```
 
-1. Create a new folder named *static* in the *QuoteOfTheDay* folder.
-
-1. Create a new file named *site.css* in the *static* folder.
+1. Create a new folder named *static* in the *QuoteOfTheDay* folder and add a new file named *site.css* in it..
 
     ```css
     html {
@@ -461,19 +447,19 @@ In this tutorial, you use a variant feature flag to manage experiences for diffe
     If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
     ```cmd
-    setx AzureAppConfigurationEndpoint "endpoint-of-your-app-configuration-store"
+    setx AzureAppConfigurationEndpoint "<endpoint-of-your-app-configuration-store>"
     ```
 
     If you use PowerShell, run the following command:
 
     ```powershell
-    $Env:AzureAppConfigurationEndpoint = "endpoint-of-your-app-configuration-store"
+    $Env:AzureAppConfigurationEndpoint = "<endpoint-of-your-app-configuration-store>"
     ```
 
     If you use macOS or Linux, run the following command:
 
     ```bash
-    export AzureAppConfigurationEndpoint='endpoint-of-your-app-configuration-store'
+    export AzureAppConfigurationEndpoint='<endpoint-of-your-app-configuration-store'
     ```
 
 1. In the command prompt, in the *QuoteOfTheDay* folder, run: `flask run`.
