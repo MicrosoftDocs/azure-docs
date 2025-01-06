@@ -11,11 +11,11 @@ ms.custom: template-how-to, devx-track-azurecli
 
 # Enabling Micro-BFD
 
-Micro-BFD (Bidirectional Forwarding Detection) is a lightweight protocol designed to rapidly detect failures between adjacent network devices, such as routers or switches, with minimal overhead. This guide provides step-by-step instructions to enable Micro-BFD on Customer Edge (CE) and Provider Edge (PE) devices.
+Micro-BFD (Bidirectional Forwarding Detection) are a lightweight protocol designed to rapidly detect failures between adjacent network devices, such as routers or switches, with minimal overhead. This guide provides step-by-step instructions to enable Micro-BFD on Customer Edge (CE) and Provider Edge (PE) devices.
 
 ## Prerequisites
 
-Before enabling Micro-BFD, ensure the following:
+Ensure the following prerequisites are met before enabling Micro-BFD:
 
 - Both CE and PE devices are preconfigured with the required Micro-BFD settings.
 
@@ -28,7 +28,7 @@ Before enabling Micro-BFD, ensure the following:
 
 ## Configuration steps for enabling Micro-BFD
 
-Follow these steps to enable Micro-BFD, starting with the secondary devices. Once verified, proceed with the primary devices as described below.
+Follow these steps to enable Micro-BFD, starting with the secondary devices. Once verified, proceed with the primary devices using the instructions provided.
  
 ### Step 1: Place CE2 in Maintenance Mode
 
@@ -68,7 +68,7 @@ CE1: 10.30.32.65/30 & PE1: 10.30.32.66/30
 CE2: 10.30.32.69/30 & PE2: 10.30.32.70/30
 ```
 
-Confirm the changes by executing below command. 
+Verify the changes using the following command and check that the configured IP address, BFD interval, and neighbor details match the intended configuration.
 
 ```Example show output after configuring MicroBFD on CE2
 CE2#show running-config interfaces pox
@@ -82,18 +82,7 @@ CE2#show running-config interfaces pox
         bfd per-link rfc-7130
 ```
 
-### Step 3: Put device PE2 into maintenance mode
-
-Run the following command to place PE2 in maintenance mode:
-
-```Azure CLI
-az networkfabric device update-admin-state --resource-group <resource-group> --resource-name <resource-name> --state UnderMaintenance
-```
-
->[!Note]
-> For new deployments, maintenance mode is not required.
-
-### Step 4: Configure Micro-BFD on PE2
+### Step 3: Configure Micro-BFD on PE2
 
 Use the following command to configure PE2 with Micro-BFD: Consider min-links under the PE device for the respective port-channel.
 
@@ -108,7 +97,7 @@ Microsoft.ManagedNetworkFabric/NetworkDevices/<device>-AggrRack-PE2 --rw-command
     bfd per-link rfc-7130
 ```
 
-Confirm the changes by executing below command. 
+Verify the changes using the following command and check that the configured IP address, BFD interval, and neighbor details match the intended configuration.
 
 ```Example Show Output After Configuring MicroBFD on PE2
 PE2#show running-config interfaces pox
@@ -122,9 +111,9 @@ PE2#show running-config interfaces pox
         bfd per-link rfc-7130
 ```
 
-### Step 5: Move device CE2 and PE2 into enabled state
+### Step 4: Move device CE2 into enabled state
 
-Run the following command to enable the devices:
+Use the following command to re-enable the device amd make it operational after configuration.
 
 ```Azure CLI
 az networkfabric device update-admin-state --resource-group <resource-group> --resource-name <resource-name> --state Enable
@@ -133,7 +122,7 @@ az networkfabric device update-admin-state --resource-group <resource-group> --r
 >[!Note]
 > For new deployments, this step is not required.
 
-### Step 6: Verify BFD Details
+### Step 5: Verify BFD details
 
 Check BFD peer details using the following command:
 
@@ -142,23 +131,23 @@ CE2#show bfd peers dest-ip <dest-bfd-peer-ip> detail
 ```
 
 >[!NOTE] 
-> After verifying the configuration on secondary devices, repeat steps 1 to 6 for primary devices (CE1 and PE1).
+> After verifying the configuration on secondary devices, repeat steps 1 to 5 for primary devices (CE1 and PE1).
 
-### Step 7: Ensure Connectivity and BGP Sessions
+### Step 6: Ensure connectivity and BGP sessions
 
 Ensure connectivity between CE and PE devices is stable, and BGP sessions are established with the appropriate routes.
 
-### Step 8: Enable Micro-BFD Flag
+### Step 7: Enable Micro-BFD Flag
 
-**Contact Microsoft support through a support incident to enable the Micro-BFD feature flag** and this will require a full reconcile with base configuration along with the property of NPB set to true.
+**Contact Microsoft support through a support incident to enable the Micro-BFD feature flag**, and this action will require a full reconciliation with the base configuration along with the property of NPB set to true.
 
-### Step 9: Verify Connectivity and BGP Sessions
+### Step 8: Verify Connectivity and BGP Sessions
 
 After enabling the feature flag, confirm that connectivity and BGP sessions remain stable.
 
-### Step 10: Remove configuration from RW config
+### Step 9: Remove configuration from RW config
 
-After the BFD sessions are up, run the following Azure CLI command to remove BFD configurations. This ensures that every full reconcile request does not push the configurations again to the devices.
+After the BFD sessions are up, run the following Azure CLI command to remove BFD configurations. This process ensures that every full reconcile request avoids reapplying configurations to the devices.
 
 ```Azure CLI 
 az networkfabric device run-rw --ids /subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ManagedNetworkFabric/NetworkDevices/<device-name>-AggrRack-CE1\PE1\CE2\PE2 --rw-command " "
@@ -170,7 +159,7 @@ Ensure that devices are not disturbed for Micro-BFD configuration.
 
 ## Recovery steps if Micro-BFD is misconfigured
 
-In scenarios such as reconfiguration, where Micro-BFD is disabled by default, and the Provider Edge (PE) device is configured with Micro-BFD settings from a previous deployment, it is crucial to remove the Micro-BFD configuration from the PE device.
+In cases like reconfiguration, where Micro-BFD is disabled by default but the Provider Edge (PE) device still has settings from a previous deployment, it is important to remove the Micro-BFD configuration from the PE device.
 
 Follow these steps to ensure that Micro-BFD is disabled on your PE devices:
 
