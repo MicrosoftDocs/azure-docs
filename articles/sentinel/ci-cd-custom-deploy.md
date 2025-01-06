@@ -240,3 +240,4 @@ A sample repository is available demonstrating the deployment config file and al
 - [Understand the structure and syntax of Bicep files](../azure-resource-manager/bicep/file.md)
 - [Create Resource Manager parameter file](../azure-resource-manager/templates/parameter-files.md)
 - [Parameters in ARM templates](../azure-resource-manager/templates/parameters.md)
+- [Parameters in Bicep](../azure-resource-manager/bicep/parameters.md)

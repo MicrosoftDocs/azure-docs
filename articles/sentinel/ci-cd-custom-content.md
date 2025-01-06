@@ -38,14 +38,14 @@ If you find content in a public repository where you aren't a contributor, first
 
 ## Plan your repository content
 
-Repository content must be stored as [Bicep files](../azure-resource-manager/bicep/file.md) or [Azure Resource Manager (ARM) templates](../azure-resource-manager/templates/overview.md). Bicep is more intuitive and makes it easier to describe Azure resources and Microsoft Sentinel content. Deploy Bicep files alongside or instead of ARM JSON templates.
+Repository content must be stored as [Bicep files](../azure-resource-manager/bicep/file.md) or [Azure Resource Manager (ARM) templates](../azure-resource-manager/templates/overview.md). However, Bicep is more intuitive and makes it easier to describe Azure resources and Microsoft Sentinel content. 
 
-| Repository | supported formats |
-|---|---|
-| GitHub | [Bicep files](../azure-resource-manager/bicep/file.md)<br>[ARM templates](../azure-resource-manager/templates/overview.md) |
-| Azure DevOps | [Bicep files](../azure-resource-manager/bicep/file.md)<br>[ARM templates](../azure-resource-manager/templates/overview.md) |
+Deploy Bicep file templates alongside or instead of ARM JSON templates. If you're considering infrastructure as code options, we recommend looking at Bicep. For more information, see [What is Bicep?](../azure-resource-manager/bicep/overview.md).
 
-Even if your original content is an ARM template, consider converting to Bicep to make the review and update processes less complex. For more information on converting ARM templates, see [Decompiling ARM template JSON to Bicep](../azure-resource-manager/bicep/decompile.md).
+> [!IMPORTANT]
+> In order to use Bicep templates, your repositories connection needs to be updated if your connection was created before November 1st, 2024. Repositories connections must be [removed](ci-cd.md#remove-a-repository-connection) and recreated in order to update.
+
+Even if your original content is an ARM template, consider converting to Bicep to make the review and update processes less complex. Bicep is closely related to ARM because during a deployment, each Bicep file is converted to an ARM template. For more information on converting ARM templates, see [Decompiling ARM template JSON to Bicep](../azure-resource-manager/bicep/decompile.md).
 
 > [!NOTE]
 > Known Bicep limitations:
@@ -68,7 +68,7 @@ The following Microsoft Sentinel content types can be deployed through a reposit
 
 The repositories deployment doesn't validate the content except to confirm it's in the correct JSON or Bicep format. The first step to validate your content is to test it within Microsoft Sentinel. Another option is to apply the [Microsoft Sentinel GitHub validation process](https://github.com/Azure/Azure-Sentinel/wiki#test-your-contribution) and tools to complement your validation process.
 
-A sample repository is available with ARM templates for each of the content types listed above. The repo also demonstrates how to use advanced features of repository connections. For more information, see [Sentinel CICD repositories sample](https://github.com/SentinelCICD/RepositoriesSampleContent). 
+A sample repository is available with templates for each of the content types listed above. The repo also demonstrates how to use advanced features of repository connections. For more information, see [Sentinel CICD repositories sample](https://github.com/SentinelCICD/RepositoriesSampleContent). 
 
 
 :::image type="content" source="media/ci-cd-custom-content/repositories-connection-success.png" alt-text="Screenshot of a successful repository connection. The RepositoriesSampleContent is shown. This screenshot is after the sample was imported from the SentinelCICD repo to a private GitHub repo in the FourthCoffee organization." lightbox="media/ci-cd-custom-content/repositories-connection-success.png":::
@@ -77,7 +77,7 @@ A sample repository is available with ARM templates for each of the content type
 ### Maximum connections and deployments
 
 - Each Microsoft Sentinel workspace is currently limited to **five repository connections**.
-- Each Azure resource group is limited to **800 deployments** in its deployment history. If you have a high volume of ARM template deployments in your resource group(s), you may see the `Deployment QuotaExceeded` error. For more information, see [DeploymentQuotaExceeded](/azure/azure-resource-manager/templates/deployment-quota-exceeded) in the Azure Resource Manager templates documentation.
+- Each Azure resource group is limited to **800 deployments** in its deployment history. If you have a high volume of template deployments in your resource group(s), you may see the `Deployment QuotaExceeded` error. For more information, see [DeploymentQuotaExceeded](/azure/azure-resource-manager/templates/deployment-quota-exceeded) in the Azure Resource Manager templates documentation.
 
 
 ## Improve performance with smart deployments
