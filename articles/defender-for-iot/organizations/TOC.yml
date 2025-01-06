@@ -58,7 +58,7 @@
 - name: Deploy OT monitoring
   items:
   - name: OT deployment path
-    href: ot-deploy/ot-deploy-path.md  
+    href: ot-deploy/ot-deploy-path.md
   - name: Plan and prepare for an OT deployment
     items:
     - name: Plan your OT monitoring system
@@ -97,7 +97,7 @@
       - name: Traffic mirroring overview
         href: traffic-mirroring/traffic-mirroring-overview.md
       - name: Set up traffic mirroring
-        href: traffic-mirroring/set-up-traffic-mirroring.md 
+        href: traffic-mirroring/set-up-traffic-mirroring.md
       - name: Configure a switch SPAN port
         href: traffic-mirroring/configure-mirror-span.md
       - name: Configure a remote SPAN (RSPAN)
@@ -135,14 +135,13 @@
   - name: Hybrid or air-gapped environments
     items:
     - name: Deploy hybrid or air-gapped
-      href: ot-deploy/air-gapped-deploy.md   
+      href: ot-deploy/air-gapped-deploy.md
     - name: On-premises management console
       items:
       - name: On-premises management console retirement
         href: ot-deploy/on-premises-management-console-retirement.md
       - name: Transition to the cloud
         href: ot-deploy/transition-on-premises-management-console-to-cloud.md
-        
 - name: Tutorials
   items:
   - name: Onboard and activate a virtual OT sensor
@@ -456,18 +455,6 @@
       - name: Vulnerability management
         href: api/sensor-vulnerability-apis.md
     - name: General management API reference
-      items:
-      - name: Authentication and password management
-        href: api/management-auth-apis.md
-      - name: Appliance management
-        href: api/management-appliances-apis.md
-      - name: Alert management
-        displayName: alerts
-        href: api/management-alert-apis.md
-      - name: Inventory management
-        href: api/management-inventory-apis.md
-      - name: Partner integration
-        href: api/management-integration-apis.md
 - name: Resources
   items:
   - name: Frequently asked questions
