@@ -528,21 +528,21 @@ az vm create \
 
 Results:
     
-    <!-- expected_similarity=0.3 --> 
+<!-- expected_similarity=0.3 --> 
 
-    ```json
-    {
-        "fqdns": "",
-        "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/test-rg69e367/providers/Microsoft.Compute/virtualMachines/vm-169e367",
-        "location": "eastus2",
-        "macAddress": "60-45-BD-84-F0-D5",
-        "powerState": "VM running",
-        "privateIpAddress": "10.0.0.4",
-        "publicIpAddress": "",
-        "resourceGroup": "test-rg69e367",
-        "zones": ""
-    }
-    ```
+```json
+{
+    "fqdns": "",
+    "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/test-rg69e367/providers/Microsoft.Compute/virtualMachines/vm-169e367",
+    "location": "eastus2",
+    "macAddress": "60-45-BD-84-F0-D5",
+    "powerState": "VM running",
+    "privateIpAddress": "10.0.0.4",
+    "publicIpAddress": "",
+    "resourceGroup": "test-rg69e367",
+    "zones": ""
+}
+```
 
 ---
 

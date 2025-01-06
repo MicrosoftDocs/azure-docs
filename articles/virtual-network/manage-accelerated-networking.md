@@ -128,7 +128,7 @@ To confirm whether Accelerated Networking is enabled for an existing VM:
    $nic | Set-AzNetworkInterface
    ```
 
-3. Restart your VM, or all the VMs in the availability set, and [confirm that Accelerated Networking is enabled](#confirm-the-ethernet-controller-is-installed).
+3. Restart your VM, or all the VMs in the availability set, and [confirm that Accelerated Networking is enabled](./create-virtual-machine-accelerated-networking.md#confirm-that-accelerated-networking-is-enabled).
 
    ```azurepowershell
    Start-AzVM -ResourceGroup "<myResourceGroup>" -Name "<myVM>"
@@ -194,7 +194,7 @@ Azure Virtual Machine Scale Sets is slightly different but follows the same work
      --accelerated-networking true
    ```
 
-1. Restart your VM, or all the VMs in the availability set, and [confirm that Accelerated Networking is enabled](#confirm-that-accelerated-networking-is-enabled).
+1. Restart your VM, or all the VMs in the availability set, and [confirm that Accelerated Networking is enabled](./create-virtual-machine-accelerated-networking.md#confirm-that-accelerated-networking-is-enabled).
 
    ```azurecli
    az vm start --resource-group <myResourceGroup> \
@@ -252,22 +252,7 @@ You can resize VMs with Accelerated Networking enabled only to sizes that also s
 
 1. Move the VM or VMs to a new size that doesn't support Accelerated Networking, and restart them.
 
+## Related content
 
+* [Create an Azure Virtual Machine with Accelerated Networking](create-virtual-machine-accelerated-networking.md)
 
-
-
-
-
-
-
-
-## Next step -or- Related content
-
-> [!div class="nextstepaction"]
-> [Next sequential article title](link.md)
-
--or-
-
-* [Related article title](link.md)
-* [Related article title](link.md)
-* [Related article title](link.md)
