@@ -187,7 +187,7 @@ Following is the list of supported images and no other marketplace images releas
 | ntegralinc1586961136942| ntg_oracle_8_7| ntg_oracle_8_7||
 || ntg_ubuntu_20_04_lts| ntg_ubuntu_20_04_lts||
 || ntg_cbl_mariner_2| ntg_cbl_mariner_2_gen2||
-| oracle| oracle-linux| 8 </br> 8-ci </br> 81 </br> 81-ci| </br> 81-gen2 </br> ol82 </br> ol8_2-gen2 </br> ol82-gen2 </br> ol83-lvm </br> ol83-lvm-gen2 </br> ol84-lvm </br> ol84-lvm-gen2|||
+| oracle| oracle-linux| 8 </br> 8-ci </br> 81 </br> 81-ci </br> 81-gen2 </br> ol82 </br> ol8_2-gen2 </br> ol82-gen2 </br> ol83-lvm </br> ol83-lvm-gen2 </br> ol84-lvm </br> ol84-lvm-gen2||
 | procomputers| almalinux-8-7| almalinux-8-7||
 || rhel-8-2| rhel-8-2||
 || rhel-8-8-gen2| rhel-8-8-gen2||
@@ -195,12 +195,8 @@ Following is the list of supported images and no other marketplace images releas
 | redhat| rhel| 7* </br> 8* </br> 9*||
 || rhel-raw| 7* </br> 8* </br> 9*||
 || rhel-byos| rhel-raw76 </br> rhel-lvm7* </br> rhel-lvm8* </br> rhel-lvm92 </br> rhel-lvm-92-gen2||
-|| rhel-ha| 8*|81_gen2|
-||| 9_2||
-||| 9_2-gen2||
-|| rhel-sap-apps| 7* </br> 8* </br> 9_0 </br> 90sapapps-gen2||
-||| 9_2||
-||| 92sapapps-gen2||
+|| rhel-ha| 8* </br> 9_2 </br> 9_2-gen2 |81_gen2|
+|| rhel-sap-apps| 7* </br> 8* </br> 9_0 </br> 90sapapps-gen2 </br> 9_2 </br> 92sapapps-gen2||
 || rhel-sap-ha| 7* </br> 8* </br> 9_2 </br> 92sapha-gen2||
 || rhel-sap| 7*||
 || rhel-sap-*| 9_0||
@@ -211,11 +207,7 @@ Following is the list of supported images and no other marketplace images releas
 | oracle| oracle-database| oracle_db_21||
 || oracle-database-19-3| oracle-database-19-0904 |
 || oracle-database-*| 18.*||
-|| oracle-linux| 7*||
-||| ol7*||
-||| ol8*||
-||| ol9*||
-||| ol9-lvm*||
+|| oracle-linux| 7* </br> ol7* </br> ol8* </br> ol9* </br> ol9-lvm*||
 | talend| talend_re_image| tlnd_re||
 | tenable| tenablecorewas| tenablecoreol8wasbyol||
 || tenablecorenessus| tenablecorenessusbyol||
@@ -223,19 +215,15 @@ Following is the list of supported images and no other marketplace images releas
 | zscaler| zscaler-private-access| zpa-con-azure||
 | cloudrichness| rockey_linux_image| rockylinux86||
 | openvpn| openvpnas| access_server_byol||
-| suse| sles| 12-sp4-gen2||
-||| 12-sp3||
+| suse| sles| 12-sp4-gen2 </br> 12-sp3||
 || sles-12-sp5| gen1 </br> gen2 ||
 || sles-12-sp5-*| gen*||
 || sles-15-sp1-basic| gen1||
 || sles-15-sp1-sapcal| gen*||
-|| sles-15-sp2-basic| gen1||
-||| gen2||
-|| sles-15-sp2| gen1||
-||| gen2||
+|| sles-15-sp2-basic| gen1 </br> gen2||
+|| sles-15-sp2| gen1 </br> gen2||
 || sles-15-sp2-hpc| gen2||
-|| sles-15-sp3-basic| gen1||
-||| gen2||
+|| sles-15-sp3-basic| gen1 </br> gen2||
 || sles-15-sp3-sapcal| gen*||
 || sles-15-sp4| gen*||
 || sles-15-sp4-basic| gen*||
