@@ -3,7 +3,7 @@ title: Basic Load balancer deprecation - Guidelines for Azure HDInsight
 description: Guidelines to transition to standard load balancer for Azure HDInsight.
 ms.service: azure-hdinsight
 ms.topic: how-to
-ms.date: 01/03/2025
+ms.date: 01/06/2025
 ---
 
 # Basic Load balancer deprecation: Guidelines for Azure HDInsight
@@ -72,7 +72,7 @@ NAT gateway provides outbound network connectivity for the cluster. NSG controls
 
         Follow these steps:
 
-         1. Create a new NAT gateway and a new Network Security Group(NSG) or use the existing ones. NAT gateway provides outbound network connectivity for the cluster. NSG controls both the inbound and outbound traffic, which is required by the standard load balancer.
+         1. Create a new NAT gateway and a new Network Security Group (NSG) or use the existing ones. NAT gateway provides outbound network connectivity for the cluster. NSG controls both the inbound and outbound traffic, which is required by the standard load balancer.
 
             > [!NOTE]
             > You could use an existing NAT gateway and NSG.
@@ -104,7 +104,7 @@ NAT gateway provides outbound network connectivity for the cluster. NSG controls
 
               1. Delete all the existing HDInsight clusters with Azure basic load balancers in this subnet.
         
-              1. Create a new NAT gateway and a new Network Security Group(NSG) or use the existing ones.
+              1. Create a new NAT gateway and a new Network Security Group (NSG) or use the existing ones.
          
                  > [!NOTE]
                  > You could use an existing NAT gateway and NSG.
