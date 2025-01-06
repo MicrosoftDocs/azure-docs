@@ -60,7 +60,7 @@ landingContent:
             url: elastic-san-aks-options.md
       - linkListType: how-to-guide
         links:
-          - text: Use Kubernetes iSCSI CSI driver
-            url: elastic-san-connect-aks.md
           - text: Use Azure Container Storage
             url: ../container-storage/use-container-storage-with-elastic-san.md?toc=/azure/storage/elastic-san/toc.json&bc=/azure/storage/elastic-san/breadcrumb/toc.json
+          - text: Use Kubernetes iSCSI CSI driver
+            url: elastic-san-connect-aks.md
