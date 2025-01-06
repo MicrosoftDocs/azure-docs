@@ -9,7 +9,7 @@ ms.custom: mode-ui, devx-track-bicep
 
 # Quickstart: Create Bicep files with Visual Studio Code
 
-This quickstart guides you through the steps to create a [Bicep file](overview.md) with Visual Studio Code. You create a storage account and a virtual network. You also learn how the Bicep extension simplifies development by providing type safety, syntax validation, and autocompletion.
+This quickstart guides you through the steps to create a [Bicep file](overview.md) with Visual Studio Code. You create a virtual network and a storage account. You also learn how the Bicep extension simplifies development by providing type safety, syntax validation, and autocompletion.
 
 Similar authoring experience is also supported in Visual Studio. See [Quickstart: Create Bicep files with Visual Studio](./quickstart-create-bicep-use-visual-studio.md).
 
@@ -25,7 +25,7 @@ VS Code with the Bicep extension simplifies development by providing predefined 
 
 Launch Visual Studio Code and create a new file named **main.bicep**.
 
-In *main.bicep*, type **vnet**, and then select **res-vnet** from the list, and then press [TAB] or [ENTER].
+In *main.bicep*, type **vnet**, and then select **res-vnet** from the list, and then press <kbd>TAB</kbd> or <kbd>ENTER</kbd>.
 
 :::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/add-snippet.png" alt-text="Screenshot of adding snippet for virtual network.":::
 
@@ -62,9 +62,9 @@ resource virtualNetwork 'Microsoft.Network/virtualNetworks@2019-11-01' = {
 }
 ```
 
-Within this snippet, you find all the necessary values for defining a virtual network. You may notice two curly underlines. A yellow one denotes a warning related to an outdated API version, while a red curly underline signals an error caused by a missing parameter definition.
+Within this snippet, you find all the necessary values for defining a virtual network. You may notice two curly underlines. A yellow one denotes a warning related to an outdated API version, while a red curly underline signals an error caused by a missing parameter definition. The [Bicep linter](./linter.md) checks Bicep files for syntax errors and best practice violations. Hover your cursor over `@2019-11-01`, a popup pane shows **Use more recent API version for 'Microsoft.Network/virtualNetworks'**. Select **Quick fix** from the popup pane, and then select **Replace with 2024-05-01** to update the API version.
 
-Remove `@2019-11-01`, and replace it with `@`. Select the latest API version.
+Alternatively, remove `@2019-11-01`, and replace it with `@`. Select the latest API version.
 
 :::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/update-api-version.png" alt-text="Screenshot of updating API version.":::
 
@@ -241,13 +241,13 @@ The visualizer shows the resources defined in the Bicep file with the resource d
 
     :::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/vscode-bicep-deploy.png" alt-text="Screenshot of the Deploy Bicep File option.":::
 
-1. In the **Please enter name for deployment** text box, type **deployStorageAndVNet**, and then press **[ENTER]**.
+1. In the **Please enter name for deployment** text box, type **deployStorageAndVNet**, and then press <kbd>ENTER</kbd>.
 
     :::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/vscode-bicep-deploy-name.png" alt-text="Screenshot of entering the deployment name.":::
 
 1. From the **Select Resource Group** listbox on the top, select **Create new Resource Group**.
-1. Enter **exampleRG** as the resource group name, and then press **[ENTER]**.
-1. Select a location for the resource group, select **Central US** or a location of your choice, and then press **[ENTER]**.
+1. Enter **exampleRG** as the resource group name, and then press <kbd>ENTER</kbd>.
+1. Select a location for the resource group, select **Central US** or a location of your choice, and then press <kbd>ENTER</kbd>.
 1. From **Select a parameters file**, select **None**.
 
 It takes a few moments to create the resources. For more information, see [Deploy Bicep files with Visual Studio Code](./deploy-vscode.md).
