@@ -4,10 +4,9 @@ description: Learn what's new with Azure Load Balancer, such as the latest relea
 services: load-balancer
 author: mbender-ms
 ms.service: azure-load-balancer
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 12/06/2024
 ms.author: mbender
-ms.custom: template-concept, engagement-fy23
 ---
 
 # What's new in Azure Load Balancer?

@@ -8,7 +8,7 @@ manager: lizross
 ms.service: azure-iot-hub
 ms.devlang: csharp
 ms.topic: how-to
-ms.date: 09/03/2024
+ms.date: 01/03/2025
 zone_pivot_groups: iot-hub-howto-c2d-2
 ms.custom: mqtt, devx-track-csharp, devx-track-dotnet
 ---

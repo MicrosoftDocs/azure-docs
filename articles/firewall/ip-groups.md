@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: azure-firewall
 ms.custom: devx-track-azurepowershell
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 10/10/2023
 ms.author: victorh
 ---

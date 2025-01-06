@@ -5,7 +5,7 @@ description: Learn about Point-to-Site VPN.
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.custom: linux-related-content
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 09/18/2024
 ms.author: cherylmc
 ---

@@ -4,7 +4,7 @@ description: This article provides a summary of supported regions and operating 
 ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 09/13/2024
+ms.date: 01/03/2024
 ms.topic: overview
 ms.custom: references_regions
 ---
@@ -21,15 +21,16 @@ This article details the Windows and Linux operating systems supported and syste
 >[!NOTE]
 > - Only x64 operating systems are currently supported. Neither ARM64 nor x86 are supported for any operating system.
 
+## Support for Updates/One time Updates/Periodic assessments and Scheduled patching
 
-### Support for automatic VM Guest patching
+For Updates/One time Updates/Periodic assessments and Scheduled patching, see the list of [supported OS images](support-matrix-updates.md).
+
+## Support for automatic VM Guest patching
 
 If [automatic VM guest patching](/azure/virtual-machines/automatic-vm-guest-patching) is enabled on a VM, then the available Critical and Security patches are downloaded and applied automatically on the VM.
 
 - For marketplace images, see the list of [supported OS images](/azure/virtual-machines/automatic-vm-guest-patching#supported-os-images).
 - For VMs created from customized images even if the Patch orchestration mode is set to `Azure Orchestrated/AutomaticByPlatform`, automatic VM guest patching doesn't work. We recommend that you use scheduled patching to patch the machines by defining your own schedules or install updates on-demand.
-
-Learn more about [support for Updates, Periodic assessment, and Scheduled patching](support-matrix-updates.md).
 
 
 ## Unsupported workloads

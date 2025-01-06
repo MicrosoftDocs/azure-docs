@@ -58,7 +58,6 @@ You can select up to 10 VMs at once for replication. If you want to migrate more
 | **IPv6** | Not supported.|
 | **NIC teaming** | Not supported.|
 | **Azure Site Recovery and/or Hyper-V** | You can't replicate using Migration and modernization if the VM is enabled for replication with Azure Site Recovery or with Hyper-V replica.|
-| **Ports** | Outbound connections on HTTPS port 443 to send VM replication data.|
 
 
 ### URL access (public cloud)
