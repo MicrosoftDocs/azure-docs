@@ -11,14 +11,13 @@ ai-usage: ai-assisted
 
 # Move Azure resources to a new resource group or subscription
 
-This article explains how to move Azure resources between resource groups. These resource groups can either be in the same subscription or in different subscriptions. If the move is across subscriptions, then these subscriptions must belong to the same Azure Active Directory (AAD) tenant. You can use Azure portal, Azure PowerShell, Azure CLI, or the REST API to move resources.
+This article explains how to move Azure resources between resource groups, whether they are within the same subscription or across different subscriptions. If the move involves different subscriptions, both subscriptions must be part of the same Microsoft Entra ID tenant. You can perform the move using tools like the [Azure portal](#use-the-portal), [Azure PowerShell](#use-azure-powershell), [Azure CLI](#use-azure-cli), the [REST API](#use-rest-api), or [Python](#use-python).
 
-During a move operation, both the source and target resource groups are locked: within each resource group, you can't create a resource, delete a resource, or update a resource’s properties. However, the existing resources stay fully operational. For example, when a virtual machine (VM) is being moved from one resource group to another, the VM can't be deleted and the VM’s properties (for example, VM size) can't be updated. However, the VM itself stays fully operational and services that use it experiences no additional downtime because of the resource move. The lock can last for a maximum of four hours, but most moves are completed in much less time and the lock is removed sooner.
+During the move operation, both the source and target resource groups are locked. This means you cannot create, delete, or update resources within these resource groups while the move is in progress. However, existing resources remain fully operational. For instance, if you move a virtual machine (VM) from one resource group to another, the VM can't be deleted, and its properties (such as VM size) can't be modified during the move. Despite this, the VM continues to operate normally, and services relying on it will not experience any additional downtime. The lock can last up to four hours, but most moves are completed much faster, and the lock is removed accordingly.
 
-Only top-level (parent) resources should be included in the move request. Child resources are moved alongside a parent, but they can't be moved independently. For example, Microsoft.Compute/virtualMachines is a parent resource and can be moved. Its child resource, Microsoft.Compute/virtualMachines/extensions, will be moved alongside the parent. However, the child resource can't be moved by itself.  
+Only top-level (parent) resources should be specified in the move request. Child resources are automatically moved along with their parent but cannot be moved independently. For example, a parent resource like `Microsoft.Compute/virtualMachines` can be moved, and its child resource, such as `Microsoft.Compute/virtualMachines/extensions`, will be moved with it. However, the child resource cannot be moved on its own.
 
-Moving a resource preserves its dependencies with child resources, but its dependencies with other resources may break and need to be reconfigured.
-Moving a resource only changes its resource group, not its physical region.  
+While moving a resource preserves its dependencies with child resources, dependencies with other resources may break and require reconfiguration. Note that moving a resource only changes its associated resource group, it does not alter the physical region of the resource.
 
 > [!NOTE]  
 > Azure resources can't be moved if a read-only lock exists on the source or destination resource group or subscription.
@@ -433,11 +432,11 @@ The following image shows an error message from the Azure portal when a user tri
 
 :::image type="content" source="./media/move-resource-group-and-subscription/move-error-delete.png" alt-text="Screenshot of the Azure portal showing an error message when trying to delete a resource group involved in an ongoing move operation.":::
 
-In the following image, the VM resource is part of a resource group (“TestB”) that is going through a move operation. An error message is returned from the Azure portal when a user tries to update a property (VM size) of the VM.  
+In the image below, the VM resource belongs to a resource group ("TestB") that is currently undergoing a move operation. When a user attempts to update a property of the VM, such as its size, the Azure portal returns an error message. This occurs because the resource group is locked during the move, preventing any modifications to its resources.
 
 :::image type="content" source="./media/move-resource-group-and-subscription/move-error-delete-2.png" alt-text="Screenshot of the Azure portal showing an error message when a user tries to update a property (VM size) of the VM.":::
 
-Furthermore, during a resource move, both the source and destination resource groups can't be part of move operations with other resource groups. (for example. If there's an ongoing resource move from resource group A to resource group B, then neither group could partake in move operations with resource group C at the same time.)  
+Additionally, during a resource move, neither the source nor the destination resource group can participate in other move operations simultaneously. For example, if resources are being moved from Resource Group A to Resource Group B, neither Group A nor Group B can be involved in another move operation, such as moving resources to or from Resource Group C, at the same time. This restriction ensures that resource groups are not locked by multiple conflicting operations during the move process.
 
 ### What does the error code "MissingMoveDependentResources" mean?
 
