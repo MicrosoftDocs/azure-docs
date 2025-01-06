@@ -32,7 +32,7 @@ Microsoft Sentinel repositories require careful planning to ensure you have the 
 - Actions must be enabled for GitHub.
 - Pipelines must be enabled for Azure DevOps. 
 
-Repositories require an **Owner** role in the resource group that contains your Microsoft Sentinel workspace. This role is required to create the connection between Microsoft Sentinel and your source control repository. If you're unable to use the Owner role in your environment, use the combination of **User Access Administrator** and **Sentinel Contributor** roles to create the connection.
+Creating a connection to a repository requires an **Owner** role in the resource group that contains your Microsoft Sentinel workspace. If you're unable to use the Owner role in your environment, use the combination of **User Access Administrator** and **Sentinel Contributor** roles to create the connection.
 
 If you find content in a public repository where you aren't a contributor, first import, fork, or clone the content to a repo where you're a contributor. Then connect your repo to your Microsoft Sentinel workspace. For more information, see [Deploy custom content from your repository](ci-cd.md).
 
@@ -66,7 +66,7 @@ The following Microsoft Sentinel content types can be deployed through a reposit
 > This article does *not* describe how to create these types of content from scratch. For more information, see the relevant [Microsoft Sentinel GitHub wiki](https://github.com/Azure/Azure-Sentinel/wiki#get-started) for each content type.
 >
 
-The repositories deployment doesn't validate the content except to confirm it's in the correct JSON or Bicep format. The first step to validate your content is to test it within Microsoft Sentinel. Another option is to apply the [Microsoft Sentinel GitHub validation process](https://github.com/Azure/Azure-Sentinel/wiki#test-your-contribution) and tools to complement your validation process.
+The repositories deployment doesn't validate the content except to confirm it's in the correct JSON or Bicep format. Be sure to test your content within Microsoft Sentinel before deploying.
 
 A sample repository is available with templates for each of the content types listed. The repo also demonstrates how to use advanced features of repository connections. For more information, see [Microsoft Sentinel CI/CD repositories sample](https://github.com/SentinelCICD/RepositoriesSampleContent). 
 
