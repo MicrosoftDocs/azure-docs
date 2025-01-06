@@ -55,6 +55,8 @@ In the Defender portal, select **SOC optimization**.
 
 :::image type="content" source="media/soc-optimization-access/soc-optimization-xdr.png" alt-text="Screenshot of the SOC optimization page in the Defender portal." lightbox="media/soc-optimization-access/soc-optimization-xdr.png":::
 
+When your workspace is onboarded for unified security operations, SOC optimizations include coverage from across Microsoft security services.
+
 ---
 
 ## Understand SOC optimization overview metrics
@@ -77,9 +79,11 @@ Select **See all threat scenarios** to view the full list of relevant threats, a
 |Title  | Description |
 |---------|---------|
 |**Recent optimization value**    | Shows value gained based on recommendations you recently implemented |
-|**Ingested data**     | Shows the total data ingested in your workspace over the last 90 days. |
-|**Threat-based coverage optimizations**     |   Shows coverage levels for relevant threats. <br>Coverage levels are based on the number of analytics rules found in your workspace, compared with the number of rules recommended by the Microsoft research team. <br><br>Supported coverage levels include:<br>- **Best**: 	90% to 100% of recommended rules are found<br>- **Better**: 60% to 89% of recommended rules were created<br>- **Good**: 40% to 59% of recommended rules were created<br>- **Moderate**: 20% to 39% of recommended rules were created<br>- **None**: 0% to 19% of recommended rules were created<br><br>Select **View all threat scenarios** to view the full list of relevant threats, active and recommended detections, and coverage levels.    |
+|**Data ingested**     | Shows the total data ingested in your workspace over the last 90 days. |
+|**Threat-based coverage optimizations**     |   Shows a **High**, **Medium**, and **Low** coverage indicator, based on the number of analytics rules (detections) found in your workspace, compared with the number of rules recommended by the Microsoft research team.<br>The metrics show a ratio of your active detections, and if you're onboarded to the unified security operations platform, the ratio of active security services in your environment.<br><br>Select **View all threat scenarios** to view the full list of relevant to view the full list of relevant threats, active and recommended detections, and coverage levels. Select a threat scenario to drill down for more details about the recommendation. |
 |**Optimization status**     | Shows the number of recommended optimizations that are currently active, completed, and dismissed.        |
+
+<!--do we have an indication of what low med high mean? we use to have best, better, good, moderate, none-->
 
 ---
 
@@ -102,10 +106,7 @@ In the Defender portal, SOC optimization recommendations are listed in the **You
 
 ---
 
-Each optimization card includes the status, title, the date it was created, a high-level description, and the workspace it applies to.
-
-> [!NOTE]
-> SOC optimization recommendations are calculated every 24 hours.
+SOC optimization recommendations are calculated every 24 hours. Each optimization card includes the status, title, the date it was created, a high-level description, and the workspace it applies to.
 
 ### Filter optimizations
 
@@ -117,14 +118,22 @@ Filter the optimizations based on optimization type, or search for a specific op
 
 ### View optimization details and take action
 
-In each optimization card, select **View full details** to see a full description of the observation that led to the recommendation, and the value you see in your environment when that recommendation is implemented.
+1. In each optimization card, select **View  details** to see a full description of the observation that led to the recommendation, and the value you see in your environment when that recommendation is implemented.
 
-Scroll down to the bottom of the details pane for a link to where you can take the recommended actions. For example:
+1. For threat-based coverage optimizations:
+
+    - Toggle between the spider charts to understand your coverage across different tactics and techniques, based on the user-defined and out-of-the-box detections active in your environment.
+    - Select **View threat scenario in MITRE ATT&CK** to jump to the [**MITRE ATT&CK** page in Microsoft Sentinel](../mitre-coverage.md&tabs=defender-portal), pre-filtered for your threat scenario. For more information, see [Understand security coverage by the MITRE ATT&CK® framework].
+
+1. Scroll down to the bottom of the details pane for a link to where you can take the recommended actions. For example:
 
 - If an optimization includes recommendations to add analytics rules, select **Go to Content Hub**.
 - If an optimization includes recommendations to move a table to basic logs, select **Change plan**.
+- For threat-based coverage optimizations, select **View full threat scenario** to see the full list of relevant threats, active and recommended detections, and coverage levels. From there you can jump directly to the **Content hub** to activate any recommended detections, or to the **MITRE ATT&CK** page to view the [full MITRE ATT&CK coverage for the selected scenario](../mitre-coverage.md&tabs=defender-portal). For example:
 
-If you choose to install an analytics rule template from the Content Hub, and you don't already have the solution installed, only the analytics rule template that you install is shown in the solution when you're done. Install the full solution to see all available content items from the selected solution. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](../sentinel-solutions-deploy.md).
+    :::image type="content" source="media/soc-optimization-access/threat-scenario-page.png" alt-text="Screenshot of the SOC optimization threat scenario page.":::
+
+If you choose to install an analytics rule template from the Content hub, and you don't already have the solution installed, only the analytics rule template that you install is shown in the solution when you're done. Install the full solution to see all available content items from the selected solution. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](../sentinel-solutions-deploy.md).
 
 ### Manage optimizations
 

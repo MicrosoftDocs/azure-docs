@@ -40,9 +40,25 @@ Microsoft Sentinel is currently aligned to The MITRE ATT&CK framework, version 1
 
 ##  View current MITRE coverage
 
-1. In Microsoft Sentinel, under **Threat management**, select **MITRE ATTA&CK (Preview)**. By default, both currently active scheduled query and near real-time (NRT) rules are indicated in the coverage matrix.
+By default, both currently active scheduled query and near real-time (NRT) rules are indicated in the coverage matrix.
 
-    :::image type="content" source="media/mitre-coverage/mitre-coverage.png" alt-text="Screenshot of the MITRE coverage page with both active and simulated indicators selected.":::
+1. Do one of the following, depending on the portal you're using:
+ 
+    ### [Azure portal](#tab/azure-portal)
+
+    In the Azure portal, under **Threat management**, select **MITRE ATT&CK (Preview)**.
+
+    :::image type="content" source="media/mitre-coverage/mitre-coverage.png" alt-text="Screenshot of the MITRE coverage page.":::
+
+    ### [Defender portal](#tab/defender-portal)
+
+    In the Defender portal, select **Microsoft Sentinel > Threat management > MITRE ATT&CK**.
+
+    :::image type="content" source="media/soc-optimization-access/soc-optimization-overview-defender.png" alt-text="Screenshot of the SOC optimization Overview tab in the Defender portal." lightbox="media/soc-optimization-access/soc-optimization-overview-defender.png":::
+
+    To filter the page by a specific threat scenario, toggle the **View MITRE by threat scenario** option on, and then select a threat scenario from the drop down. The page is updated accordingly.
+
+    ---
 
 1. Do any of the following:
 
@@ -58,6 +74,9 @@ Microsoft Sentinel is currently aligned to The MITRE ATT&CK framework, version 1
 
         For example, select **Hunting queries** to jump to the **Hunting** page. There, you see a filtered list of the hunting queries that are associated with the selected technique, and available for you to configure in your workspace.
 
+## Filter by threat scenario
+
+Use Filter the entire **MITRE ATT&CK** page by threat scenario
 ## Simulate possible coverage with available detections
 
 In the MITRE coverage matrix, *simulated* coverage refers to detections that are available, but not currently configured in your Microsoft Sentinel workspace. View your simulated coverage to understand your organization's possible security status, were you to configure all detections available to you.
