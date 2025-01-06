@@ -34,7 +34,7 @@ Add the following key-value to your Azure App Configuration store. For more info
 > [!NOTE]
 > A *sentinel key* is a key that you update after you complete the change of all other keys. Your app monitors the sentinel key. When a change is detected, your app refreshes all configuration values. This approach helps to ensure the consistency of configuration in your app and reduces the overall number of requests made to your Azure App Configuration store, compared to monitoring all keys for changes.
 
-## Reload data from App Configuration
+## Console applications
 
 The following examples show how to use refreshable configuration values in console applications.
 Choose the following instructions based on how your application consumes configuration data loaded from App Configuration, either as a `Map` or a configuration object.
@@ -181,8 +181,6 @@ You can connect to App Configuration using either Microsoft Entra ID (recommende
 
     ---
 
-## Run the application
-
 1. Run your script:
 
     ```console
@@ -208,6 +206,108 @@ You can connect to App Configuration using either Microsoft Entra ID (recommende
     ```console
     Hello World - Updated!
     ```
+
+## Web applications
+
+The following example shows how to update an existing http server to use refreshable configuration values.
+
+1. Create a new javascript file named `server.js` and add the following code:
+
+    ``` javascript
+    const http = require('http');
+
+    function startServer() {
+        const server = http.createServer((req, res) => {
+            res.statusCode = 200;
+            res.setHeader('Content-Type', 'text/plain');
+            res.end("Hello World!");
+        });
+
+        const hostname = "localhost";
+        const port = 3000;
+        server.listen(port, hostname, () => {
+        console.log(`Server running at http://localhost:${port}/`);
+        });
+    }
+
+    startServer()
+    ```
+
+1. Run your script:
+
+    ``` console
+    node server.js
+    ```
+    
+1. Visit `http://localhost:3000` and you will see the response:
+
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot of browser with a message.](./media/dynamic-refresh-javascript/http-server.png)
+
+1. Update the `server.js` to use App Configuration and enable dynamic refresh:
+
+    ``` javascript
+    const http = require('http');
+
+    const { load } = require("@azure/app-configuration-provider");
+    const { DefaultAzureCredential } = require("@azure/identity");
+    const endpoint = process.env.AZURE_APPCONFIG_ENDPOINT;
+    const credential = new DefaultAzureCredential(); // For more information, see https://learn.microsoft.com/azure/developer/javascript/sdk/credential-chains#use-defaultazurecredential-for-flexibility
+
+    let settings;
+    async function initializeConfig() {
+        settings = await load(endpoint, credential, {
+            refreshOptions: {
+                enabled: true,
+                watchedSettings: [{ key: "sentinel" }], // Watch for changes to the key "sentinel" and refreshes the configuration when it changes
+                refreshIntervalInMs: 15_000 // Set the refresh interval
+            }
+        });
+    }
+
+    function startServer() {
+        const server = http.createServer((req, res) => {
+            // refresh the configuration setting whenever a request comes in
+            settings.refresh();
+            res.statusCode = 200;
+            res.setHeader('Content-Type', 'text/plain');
+            res.end(settings.get("message"));
+        });
+
+        const hostname = "localhost";
+        const port = 3000;
+        server.listen(port, hostname, () => {
+        console.log(`Server running at http://localhost:${port}/`);
+        });
+    }
+
+    // Initialize the configuration and then start the server
+    initializeConfig()
+        .then(() => startServer());
+    ```
+
+1. Relaunch your http server:
+
+    ``` console
+    node server.js
+    ```
+
+1. Visit `http://localhost:3000` and verify the response which is the `message` key in your App Configuration store.
+
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot of browser with a message.](./media/dynamic-refresh-javascript/http-server.png)
+
+1. Update the following key-values to the Azure App Configuration store. Update value of the key `message` first and then `sentinel`.
+
+    | Key            | Value                     | Label       | Content type       |
+    |----------------|---------------------------|-------------|--------------------|
+    | *message*      | *Hello World - Updated!*  | Leave empty | Leave empty        |
+    | *sentinel*     | *2*                       | Leave empty | Leave empty        |
+
+1. After about 15 seconds, refresh the page and the message should be updated.
+
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot of browser with a message.](./media/dynamic-refresh-javascript/http-server-refreshed.png)
 
 ## Clean up resources
 
