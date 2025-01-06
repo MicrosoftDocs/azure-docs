@@ -31,7 +31,7 @@ The template used in this quickstart is from [Azure Quickstart Templates](https:
 Two Azure resources are defined in the template:
 
 * [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts): create an Azure Storage Account.
-* [Microsoft.HDInsight/cluster](/azure/templates/microsoft.hdinsight/clusters): create a HDInsight cluster.
+* [Microsoft.HDInsight/cluster](/azure/templates/microsoft.hdinsight/clusters): create an HDInsight cluster.
 
 ### Deploy the template
 
@@ -62,7 +62,7 @@ Once the cluster is created, you'll receive a **Deployment succeeded** notificat
 
 ## Clean up resources
 
-After you complete the quickstart, you may want to delete the cluster. With HDInsight, your data is stored in Azure Storage, so you can safely delete a cluster when it isn't in use. You're also charged for a HDInsight cluster, even when it isn't in use. Since the charges for the cluster are many times more than the charges for storage, it makes economic sense to delete clusters when they aren't in use.
+After you complete the quickstart, you may want to delete the cluster. With HDInsight, your data is stored in Azure Storage, so you can safely delete a cluster when it isn't in use. You're also charged for an HDInsight cluster, even when it isn't in use. Since the charges for the cluster are many times more than the charges for storage, it makes economic sense to delete clusters when they aren't in use.
 
 From the Azure portal, navigate to your cluster, and select **Delete**.
 

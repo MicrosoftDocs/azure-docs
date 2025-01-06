@@ -6,18 +6,18 @@ ms.service: azure-hdinsight
 ms.custom: hdinsightactive, mode-other
 ms.topic: quickstart
 ms.date: 01/02/2025
-#Customer intent: As a HBase user, I want learn HBase shell so that I can run queries.
+#Customer intent: As an HBase user, I want learn HBase shell so that I can run queries.
 ---
 
 # Quickstart: Query Apache HBase in Azure HDInsight with HBase Shell
 
-In this quickstart, you learn how to use Apache HBase Shell to create a HBase table, insert data, and then query the table.
+In this quickstart, you learn how to use Apache HBase Shell to create an HBase table, insert data, and then query the table.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
-* An Apache HBase cluster. See [Create cluster](../hadoop/apache-hadoop-linux-tutorial-get-started.md) to create a HDInsight cluster.  Ensure you choose the **HBase** cluster type.
+* An Apache HBase cluster. See [Create cluster](../hadoop/apache-hadoop-linux-tutorial-get-started.md) to create an HDInsight cluster.  Ensure you choose the **HBase** cluster type.
 
 * An SSH client. For more information, see [Connect to HDInsight (Apache Hadoop) using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -45,7 +45,7 @@ You can use SSH to connect to HBase clusters, and then use Apache HBase Shell to
     hbase shell
     ```
 
-3. Use `create` command to create a HBase table with two-column families. Enter the following command:
+3. Use `create` command to create an HBase table with two-column families. Enter the following command:
 
     ```hbase
     create 'Contacts', 'Personal', 'Office'
@@ -110,11 +110,11 @@ For more information about the HBase table schema, see [Introduction to Apache H
 
 After you complete the quickstart, you may want to delete the cluster. With HDInsight, your data is stored in Azure Storage, so you can safely delete a cluster when it is not in use. You are also charged for a HDInsight cluster, even when it is not in use. Since the charges for the cluster are many times more than the charges for storage, it makes economic sense to delete clusters when they are not in use.
 
-To delete a cluster, see [Delete a HDInsight cluster using your browser, PowerShell, or the Azure CLI](../hdinsight-delete-cluster.md).
+To delete a cluster, see [Delete an HDInsight cluster using your browser, PowerShell, or the Azure CLI](../hdinsight-delete-cluster.md).
 
 ## Next steps
 
-In this quickstart, you learned how to use Apache HBase Shell to create a HBase table, insert data, and then query the table. To learn more about data stored in HBase, the next article will show you how to execute queries with Apache Spark.
+In this quickstart, you learned how to use Apache HBase Shell to create an HBase table, insert data, and then query the table. To learn more about data stored in HBase, the next article will show you how to execute queries with Apache Spark.
 
 > [!div class="nextstepaction"]
 > [Use Apache Spark to read and write Apache HBase data](../hdinsight-using-spark-query-hbase.md)

@@ -13,13 +13,13 @@ The most important aspect of [Apache Phoenix](https://phoenix.apache.org/) perfo
 
 ## Table schema design
 
-When you create a table in Phoenix, that table is stored in a HBase table. The HBase table contains groups of columns (column families) that are accessed together. A row in the Phoenix table is a row in the HBase table, where each row consists of versioned cells associated with one or more columns. Logically, a single HBase row is a collection of key-value pairs, each having the same rowkey value. That is, each key-value pair has a rowkey attribute, and the value of that rowkey attribute is the same for a particular row.
+When you create a table in Phoenix, that table is stored in an HBase table. The HBase table contains groups of columns (column families) that are accessed together. A row in the Phoenix table is a row in the HBase table, where each row consists of versioned cells associated with one or more columns. Logically, a single HBase row is a collection of key-value pairs, each having the same rowkey value. That is, each key-value pair has a rowkey attribute, and the value of that rowkey attribute is the same for a particular row.
 
 The schema design of a Phoenix table includes the primary key design, column family design, individual column design, and how the data is partitioned.
 
 ### Primary key design
 
-The primary key defined on a table in Phoenix determines how data is stored within the rowkey of the underlying HBase table. In HBase, the only way to access a particular row is with the rowkey. In addition, data stored in a HBase table is sorted by the rowkey. Phoenix builds the rowkey value by concatenating the values of each of the columns in the row, in the order they're defined in the primary key.
+The primary key defined on a table in Phoenix determines how data is stored within the rowkey of the underlying HBase table. In HBase, the only way to access a particular row is with the rowkey. In addition, data stored in an HBase table is sorted by the rowkey. Phoenix builds the rowkey value by concatenating the values of each of the columns in the row, in the order they're defined in the primary key.
 
 For example, a table for contacts has the first name, last name, phone number, and address, all in the same column family. You could define a primary key based on an increasing sequence number:
 
@@ -88,7 +88,7 @@ CREATE TABLE CONTACTS (...) SPLIT ON ('CS','EU','NA')
 
 ## Index design
 
-A Phoenix index is a HBase table that stores a copy of some or all of the data from the indexed table. An index improves performance for specific types of queries.
+A Phoenix index is an HBase table that stores a copy of some or all of the data from the indexed table. An index improves performance for specific types of queries.
 
 When you have multiple indexes defined and then query a table, Phoenix automatically selects the best index for the query. The primary index is created automatically based on the primary keys you select.
 
