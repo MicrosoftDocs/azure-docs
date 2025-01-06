@@ -9,14 +9,14 @@ To create resources, you must first subscribe to the service.
 
 1. Open the [Azure portal](https://portal.azure.com).
 
-1. In the Portal menu's global search bar, search for **marketplace**. Select **Marketplace** from the **Services** results. 
+1. From the portal menu's global search bar, search for **marketplace**. Select **Marketplace** from the **Services** results. 
 
     > [!TIP]
     > If you visited Azure Marketplace in a recent session, the icon appears on the home page under **Azure services**. Select the icon to go directly to the Marketplace. 
 
     The Marketplace's **Get Started** page displays in the Azure portal's working pane. 
 
-1. In the command bar, type the name of the service into the **Search the Marketplace** search bar.
+1. From the command bar, type the name of the service into the **Search the Marketplace** search bar.
 
 1. Choose the provider from the search results displayed in the working pane.
 
