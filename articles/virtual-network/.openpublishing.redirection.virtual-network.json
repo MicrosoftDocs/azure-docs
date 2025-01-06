@@ -771,6 +771,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/virtual-network/virtual-network-deploy-static-pip-arm-cli.md",
+            "redirect_url": "/azure/virtual-network/ip-services/virtual-network-static-public-ip",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/virtual-network/virtual-networks-static-private-ip-arm-ps.md",
             "redirect_url": "/azure/virtual-network/ip-services/virtual-networks-static-private-ip",
             "redirect_document_id": false
