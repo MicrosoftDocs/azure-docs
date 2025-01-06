@@ -1,28 +1,28 @@
 {
     "redirections": [
         {
-            "source_path_from_root": "articles/partner-solutions/astronomer/astronomer-create.md",
-            "redirect_url": "astro/create",
+            "source_path_from_root": "/articles/partner-solutions/astronomer/astronomer-create.md",
+            "redirect_url": "/azure/partner-solutions/astro/create",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "articles/partner-solutions/astronomer/astronomer-manage.md",
-            "redirect_url": "astro/manage",
+            "source_path_from_root": "/articles/partner-solutions/astronomer/astronomer-manage.md",
+            "redirect_url": "/azure/partner-solutions/astro/manage",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "articles/partner-solutions/astronomer/astronomer-overview.md",
-            "redirect_url": "astro/overview",
+            "source_path_from_root": "/articles/partner-solutions/astronomer/astronomer-overview.md",
+            "redirect_url": "/azure/partner-solutions/astro/overview",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "articles/partner-solutions/astronomer/astronomer-tools.md",
-            "redirect_url": "astro/tools",
+            "source_path_from_root": "/articles/partner-solutions/astronomer/astronomer-tools.md",
+            "redirect_url": "/azure/partner-solutions/astro/tools",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "articles/partner-solutions/astronomer/astronomer-troubleshoot.md",
-            "redirect_url": "astro/troubleshoot",
+            "source_path_from_root": "/articles/partner-solutions/astronomer/astronomer-troubleshoot.md",
+            "redirect_url": "/azure/partner-solutions/astro/troubleshoot",
             "redirect_document_id": false
         }
     ]
