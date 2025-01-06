@@ -1,8 +1,8 @@
 ---
 title: Overview of Azure Native ISV Services
 description: Learn about the Azure Native ISV Services' features and benefits, including unified operations and integrations.
-ms. topic: conceptual
-ms. date: 10/30/2024
+ms.topic: conceptual
+ms.date: 10/30/2024
 
 ---
 
