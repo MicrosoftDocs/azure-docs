@@ -54,7 +54,7 @@ If SSO isn't working for the Astronomer portal, verify you're using the correct 
 > [!NOTE]
 > If you are seeing an Admin consent screen along with the User consent during your first-time login using the SSO Url, then please check your [tenant consent settings](/azure/active-directory/manage-apps/configure-user-consent?pivots=portal).
 
-For more information, see the [single sign-on guidance](astronomer-manage.md#single-sign-on).
+For more information, see the [single sign-on guidance](manage.md#single-sign-on).
 
 ### Unable to install Astro using a personal email
 
@@ -62,8 +62,8 @@ Installing Apache Airflow on Astro from the Azure Marketplace using a personal e
 
 ## Next steps
 
-- Learn about [managing your instance](astronomer-manage.md) of Astro.
-- Get started with Apache Airflow on Astro – An Azure Native ISV Service on
+- Learn about [managing your instance](manage.md) of Astro.
+- Get started with Apache Airflow on Astro on
 
     > [!div class="nextstepaction"]
     > [Azure portal](https://ms.portal.azure.com/?Azure_Marketplace_Astronomer_assettypeoptions=%7B%22Astronomer%22%3A%7B%22options%22%3A%22%22%7D%7D#browse/Astronomer.Astro%2Forganizations)

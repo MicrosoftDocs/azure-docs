@@ -19,11 +19,11 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Apache Airflow on Astro?
-            url: astronomer-overview.md
+            url: overview.md
       - linkListType: how-to-guide
         links:
           - text: Manage your Apache Airflow on Astro resource
-            url: astronomer-manage.md
+            url: manage.md
 
   # Card
   - title: Create an Apache Airflow on Astro deployment
@@ -31,18 +31,18 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Get started with Apache Airflow on Astro
-            url: astronomer-create.md
+            url: create.md
       - linkListType: how-to-guide
         links:
           - text: Troubleshooting Apache Airflow on Astro 
-            url: astronomer-troubleshoot.md
+            url: troubleshoot.md
   #Card
   - title: SDKs and tools
     linkLists:
       - linkListType: reference 
         links:
         - text: Astro developer tools 
-          url: astronomer-tools.md#developer-tools
+          url: tools.md#developer-tools
         - text: Azure CLI
           url: /cli/azure/service-page/astronomer
         - text: Go

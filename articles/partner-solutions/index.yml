@@ -85,7 +85,7 @@ productDirectory:
     - title: Astro
       imageSrc: ./media/index/astronomer.svg
       links:
-        - url: ./astronomer/astronomer-overview.md
+        - url: ./astro/overview.md
           text: Deploy a fully managed and seamless Apache Airflow on Astro on Azure.
   # Card 11
     - title: Informatica

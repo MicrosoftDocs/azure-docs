@@ -85,8 +85,8 @@ You can specify custom tags for the new Astro resource in Azure by adding custom
 
 ## Next steps
 
-- [Manage the Astro resource](astronomer-manage.md)
-- Get started with Apache Airflow on Astro – An Azure Native ISV Service on
+- [Manage the Astro resource](manage.md)
+- Get started with Apache Airflow on Astro on
 
     > [!div class="nextstepaction"]
     > [Azure portal](https://ms.portal.azure.com/?Azure_Marketplace_Astronomer_assettypeoptions=%7B%22Astronomer%22%3A%7B%22options%22%3A%22%22%7D%7D#browse/Astronomer.Astro%2Forganizations)

@@ -46,8 +46,8 @@ Once the Astro resource is deleted, all billing stops for that resource through 
 
 ## Next steps
 
-- For help with troubleshooting, see [Troubleshooting Astro integration with Azure](astronomer-troubleshoot.md).
-- Get started with Apache Airflow on Astro – An Azure Native ISV Service on
+- For help with troubleshooting, see [Troubleshooting Astro integration with Azure](troubleshoot.md).
+- Get started with Apache Airflow on Astro on
 
     > [!div class="nextstepaction"]
     > [Azure portal](https://ms.portal.azure.com/?Azure_Marketplace_Astronomer_assettypeoptions=%7B%22Astronomer%22%3A%7B%22options%22%3A%22%22%7D%7D#browse/Astronomer.Astro%2Forganizations)
