@@ -105,7 +105,7 @@ Secondary indexes can improve read performance by turning what would be a full t
 
 ### Use covered indexes
 
-Covered indexes are indexes that include data from the row in addition to the values that are indexed. After finding the desired index entry, there's no need to access the primary table.
+Covered indexes are indexes that include data from the row in addition to the values that are indexed. After you find the desired index entry, there's no need to access the primary table.
 
 For example, in the example contact table you could create a secondary index on just the socialSecurityNum column. This secondary index would speed up queries that filter by socialSecurityNum values, but retrieving other field values require another read against the main table.
 

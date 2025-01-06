@@ -11,7 +11,7 @@ ms.date: 01/02/2025
 
 # Quickstart: Query Apache HBase in Azure HDInsight with HBase Shell
 
-In this quickstart, you learn how to use Apache HBase Shell to create an HBase table, insert data, and then query the table.
+In this quickstart, you learn how to use Apache HBase Shell to create a HBase table, insert data, and then query the table.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -45,7 +45,7 @@ You can use SSH to connect to HBase clusters, and then use Apache HBase Shell to
     hbase shell
     ```
 
-3. Use `create` command to create an HBase table with two-column families. Enter the following command:
+3. Use `create` command to create a HBase table with two-column families. Enter the following command:
 
     ```hbase
     create 'Contacts', 'Personal', 'Office'
@@ -114,7 +114,7 @@ To delete a cluster, see [Delete a HDInsight cluster using your browser, PowerSh
 
 ## Next steps
 
-In this quickstart, you learned how to use Apache HBase Shell to create an HBase table, insert data, and then query the table. To learn more about data stored in HBase, the next article will show you how to execute queries with Apache Spark.
+In this quickstart, you learned how to use Apache HBase Shell to create a HBase table, insert data, and then query the table. To learn more about data stored in HBase, the next article will show you how to execute queries with Apache Spark.
 
 > [!div class="nextstepaction"]
 > [Use Apache Spark to read and write Apache HBase data](../hdinsight-using-spark-query-hbase.md)
