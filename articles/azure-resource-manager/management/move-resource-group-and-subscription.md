@@ -2,7 +2,7 @@
 title: Move resources to a new subscription or resource group
 description: Describes how to move resources to a new resource group or subscription, and the steps to take to ensure a successful move operation.
 ms.topic: conceptual
-ms.date: 05/31/2024
+ms.date: 01/06/2025
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-arm-template, devx-track-python
 content_well_notification: 
   - AI-contribution
@@ -11,13 +11,14 @@ ai-usage: ai-assisted
 
 # Move Azure resources to a new resource group or subscription
 
-This article shows you how to move Azure resources to either another Azure subscription or another resource group under the same subscription. You can use the Azure portal, Azure PowerShell, Azure CLI, or the REST API to move resources.
+This article explains how to move Azure resources between resource groups. These resource groups can either be in the same subscription or in different subscriptions. If the move is across subscriptions, then these subscriptions must belong to the same Azure Active Directory (AAD) tenant. You can use Azure portal, Azure PowerShell, Azure CLI, or the REST API to move resources.
 
-Both the source group and the target group are locked during the move operation. Write and delete operations are blocked on the resource groups until the move completes. This lock means you can't add, update, or delete resources in the resource groups. It doesn't mean the resources are frozen. For example, if you move an Azure SQL logical server, its databases and other dependent resources to a new resource group or subscription, applications that use the databases experience no downtime. They can still read and write to the databases. The lock can last for a maximum of four hours, but most moves complete in much less time.
+During a move operation, both the source and target resource groups are locked: within each resource group, you can't create a resource, delete a resource, or update a resource’s properties. However, the existing resources stay fully operational. For example, when a virtual machine (VM) is being moved from one resource group to another, the VM can't be deleted and the VM’s properties (for example, VM size) can't be updated. However, the VM itself stays fully operational and services that use it experiences no additional downtime because of the resource move. The lock can last for a maximum of four hours, but most moves are completed in much less time and the lock is removed sooner.
 
-If your move requires setting up new dependent resources, you'll experience an interruption in those services until they've been reconfigured.
+Only top-level (parent) resources should be included in the move request. Child resources are moved alongside a parent, but they can't be moved independently. For example, Microsoft.Compute/virtualMachines is a parent resource and can be moved. Its child resource, Microsoft.Compute/virtualMachines/extensions, will be moved alongside the parent. However, the child resource can't be moved by itself.  
 
-Moving a resource only moves it to a new resource group or subscription. It doesn't change the location of the resource.
+Moving a resource preserves its dependencies with child resources, but its dependencies with other resources may break and need to be reconfigured.
+Moving a resource only changes its resource group, not its physical region.  
 
 > [!NOTE]  
 > Azure resources can't be moved if a read-only lock exists on the source or destination resource group or subscription.
@@ -26,7 +27,7 @@ Moving a resource only moves it to a new resource group or subscription. It does
 
 When you move a resource, you change its resource ID. The standard format for a resource ID is `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}`. When you move a resource to a new resource group or subscription, you change one or more values in that path.
 
-If you use the resource ID anywhere, you'll need to change that value. For example, if you have a [custom dashboard](/azure/azure-portal/quickstart-portal-dashboard-azure-cli) in the portal that references a resource ID, you'll need to update that value. Look for any scripts or templates that need to be updated for the new resource ID.
+If you use the resource ID anywhere, you need to change that value. For example, if you have a [custom dashboard](/azure/azure-portal/quickstart-portal-dashboard-azure-cli) in the portal that references a resource ID, you need to update that value. Look for any scripts or templates that need to be updated for the new resource ID.
 
 ## Checklist before moving resources
 
@@ -99,7 +100,7 @@ There are some important steps to do before moving a resource. By verifying thes
    az provider register --namespace Microsoft.Batch
    ```
 
-1. Before moving the resources, check the subscription quotas for the subscription you're moving the resources to. If moving the resources means the subscription will exceed its limits, you need to review whether you can request an increase in the quota. For a list of limits and how to request an increase, see [Azure subscription and service limits, quotas, and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md).
+1. Before moving the resources, check the subscription quotas for the subscription you're moving the resources to. If moving the resources means the subscription exceeds its limits, you need to review whether you can request an increase in the quota. For a list of limits and how to request an increase, see [Azure subscription and service limits, quotas, and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 1. The account moving the resources must have at least the following permissions:
 
@@ -342,7 +343,7 @@ resource_client.resources.begin_move_resources(
 
 ### Validate
 
-The [validate move operation](/rest/api/resources/resources/validate-move-resources) lets you test your move scenario without actually moving the resources. Use this operation to check if the move will succeed. Validation is automatically called when you send a move request. Use this operation only when you need to predetermine the results. To run this operation, you need the:
+The [validate move operation](/rest/api/resources/resources/validate-move-resources) lets you test your move scenario without actually moving the resources. Use this operation to check if the move succeeds. Validation is automatically called when you send a move request. Use this operation only when you need to predetermine the results. To run this operation, you need the:
 
 * Name of the source resource group
 * Resource ID of the target resource group
@@ -426,11 +427,17 @@ If a resource can't be moved within four hours, Resource Manager unlocks both re
 
 ### What are the implications of the source and destination resource groups being locked during the resource move?
 
-The lock prevents you from deleting either resource group, creating a new resource in either resource group, or deleting any of the resources involved in the move.
+The lock prevents you from deleting either resource group. Secondly, within each resource group, the lock prevents you from creating a new resource, deleting a resource, or updating a resource’s properties (for example, changing the size of a VM).
 
 The following image shows an error message from the Azure portal when a user tries to delete a resource group that is part of an ongoing move.
 
 :::image type="content" source="./media/move-resource-group-and-subscription/move-error-delete.png" alt-text="Screenshot of the Azure portal showing an error message when trying to delete a resource group involved in an ongoing move operation.":::
+
+In the following image, the VM resource is part of a resource group (“TestB”) that is going through a move operation. An error message is returned from the Azure portal when a user tries to update a property (VM size) of the VM.  
+
+:::image type="content" source="./media/move-resource-group-and-subscription/move-error-delete-2.png" alt-text="Screenshot of the Azure portal showing an error message when a user tries to update a property (VM size) of the VM.":::
+
+Furthermore, during a resource move, both the source and destination resource groups can't be part of move operations with other resource groups. (for example. If there's an ongoing resource move from resource group A to resource group B, then neither group could partake in move operations with resource group C at the same time.)  
 
 ### What does the error code "MissingMoveDependentResources" mean?
 
@@ -455,7 +462,7 @@ In general, a virtual network gateway must always be in the same resource group 
 
 ### What does the error code "RequestDisallowedByPolicy" mean?
 
-Resource Manager validates your move request before attempting the move. This validation includes checking policies defined on the resources involved in the move. For example, if you're attempting to move a key vault but your organization has a policy to deny the creation of a key vault in the target resource group, validation fails and the move is blocked. The returned error code is **RequestDisallowedByPolicy**. 
+Resource Manager validates your move request before attempting the move. This validation includes checking policies defined on the resources involved in the move. For example, if you're attempting to move a key vault but your organization has a policy to deny the creation of a key vault in the target resource group, validation fails and the move is blocked. The returned error code is **RequestDisallowedByPolicy**.
 
 For more information about policies, see [What is Azure Policy?](../../governance/policy/overview.md).
 
@@ -478,10 +485,6 @@ When you receive this error, you have two options. Either move your resources to
 ### Can I move a resource group to a different subscription?
 
 No, you can't move a resource group to a new subscription. But, you can move all of the resources in the resource group to a resource group in another subscription. Settings such as tags, role assignments, and policies aren't automatically transferred from the original resource group to the destination resource group. You need to reapply these settings to the new resource group. For more information, see [Move resources to new resource group or subscription](./move-support-resources.md).
-
-### Unsupported scenarios
-
-The platform blocks a scenario where resources from Subscription A are migrated to Subscription B when *at the same time* resources from Subscription B are migrated to Subscription C. This is by design.
 
 ## Next steps
 
