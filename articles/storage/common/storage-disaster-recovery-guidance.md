@@ -7,7 +7,7 @@ author: stevenmatthew
 
 ms.service: azure-storage
 ms.topic: conceptual
-ms.date: 08/05/2024
+ms.date: 01/06/2025
 ms.author: shaas
 ms.subservice: storage-common-concepts
 ms.custom: references_regions
@@ -66,7 +66,7 @@ Each type of failover has a unique set of use cases, corresponding expectations 
 | Type                                   | Failover Scope  | Use case | Expected data loss | Hierarchical Namespace (HNS) supported |
 |----------------------------------------|-----------------|----------|--------------------|----------------------------------------|
 | Customer-managed planned failover (preview) | Storage account | The storage service endpoints for the primary and secondary regions are available, and you want to perform disaster recovery testing. <br></br> The storage service endpoints for the primary region are available, but another service is preventing your workloads from functioning properly.<br><br>To proactively prepare for large-scale disasters, such as a hurricane, that might affect a region. | [No](#anticipate-data-loss-and-inconsistencies)  | [Yes <br> *(In preview)*](#hierarchical-namespace-hns) |
-| Customer-managed (unplanned) failover              | Storage account | The storage service endpoints for the primary region become unavailable, but the secondary region is available. <br></br> You received an Azure Advisory in which Microsoft advises you to perform a failover operation of storage accounts potentially affected by an outage. | [Yes](#anticipate-data-loss-and-inconsistencies) | [Yes <br> *(In preview)*](#hierarchical-namespace-hns) |
+| Customer-managed (unplanned) failover              | Storage account | The storage service endpoints for the primary region become unavailable, but the secondary region is available. <br></br> You received an Azure Advisory in which Microsoft advises you to perform a failover operation of storage accounts potentially affected by an outage. | [Yes](#anticipate-data-loss-and-inconsistencies) | [Yes](#hierarchical-namespace-hns) |
 | Microsoft-managed                      | Entire region   | The primary region becomes unavailable due to a significant disaster, but the secondary region is available. | [Yes](#anticipate-data-loss-and-inconsistencies) | [Yes](#hierarchical-namespace-hns) |
 
 The following table compares a storage account's redundancy state after each type of failover:
@@ -199,10 +199,6 @@ All geo-redundant offerings support Microsoft-managed failover. In addition, som
 > Customer-managed failover is only supported for storage accounts deployed using the Azure Resource Manager (ARM) deployment model. The Azure Service Manager (ASM) deployment model, also known as the *classic* model, isn't supported. To make classic storage accounts eligible for customer-managed account failover, they must first be [migrated to the ARM model](classic-account-migration-overview.md). Your storage account must be accessible to perform the upgrade, so the primary region can't currently be in a failed state.
 >
 > During a disaster that affects the primary region, Microsoft will manage the failover for classic storage accounts. For more information, see [Microsoft-managed failover](#microsoft-managed-failover).
-
-#### Hierarchical namespace (HNS)
-
-[!INCLUDE [updated-for-az](../../../includes/storage-failover-unplanned-hns-preview-include.md)]
 
 ### Unsupported features and services
 
