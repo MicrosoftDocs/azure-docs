@@ -168,7 +168,7 @@ To invoke a direct method on a device:
 1. Create a [CloudToDeviceMethod](/python/api/azure-iot-hub/azure.iot.hub.protocol.models.cloudtodevicemethod) object. Supply the method name and payload as parameters.
 1. Call [invoke_device_method](/python/api/azure-iot-hub/azure.iot.hub.iothub_registry_manager.iothubregistrymanager?#azure-iot-hub-iothub-registry-manager-iothubregistrymanager-invoke-device-method) to invoke a direct method on a device. Supply the device ID and `CloudToDeviceMethod` payload object as parameters.
 
-This example calls `CloudToDeviceMethod` to invoke a direct method named "rebootDevice" on a device. After the direct method has been successfully invoked, the direct method response payload is displayed.
+This example calls `CloudToDeviceMethod` to invoke a direct method named "rebootDevice" on a device. After the direct method is successfully invoked, the direct method response payload is displayed.
 
 ```python
 CONNECTION_STRING = "{IoTHubConnectionString}"
