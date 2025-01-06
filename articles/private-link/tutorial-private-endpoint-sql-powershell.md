@@ -6,7 +6,7 @@ author: abell
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to create a private endpoint on a SQL server so that I can securely connect to it.
 ms.service: azure-private-link
 ms.topic: tutorial
-ms.date: 10/31/2020
+ms.date: 01/06/2025
 ms.author: abell
 ms.custom: template-tutorial, fasttrack-edit, devx-track-azurepowershell
 ---
@@ -285,7 +285,7 @@ In this section, you'll use the virtual machine you created in the previous step
 
     ```powershell
     Server:  UnKnown
-    Address:  168.63.129.16
+    Address:  172.63.129.16
 
     Non-authoritative answer:
     Name:    mysqlserver8675.privatelink.database.windows.net

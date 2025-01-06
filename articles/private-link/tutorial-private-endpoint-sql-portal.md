@@ -129,8 +129,8 @@ In this section, you use the virtual machine you created in the previous steps t
     You receive a message similar to the following example. The IP address returned is the private IP address of the private endpoint.
 
     ```output
-    Server:    127.0.0.53
-    Address:   127.0.0.53#53
+    Server:    unknown
+    Address:   172.0.0.53
 
     Non-authoritative answer:
     sql-server-8675.database.windows.netcanonical name = sql-server-8675.privatelink.database.windows.net.
