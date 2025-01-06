@@ -1,5 +1,5 @@
 ---
-title: Azure Automation limits and quotas
+title: Manage Azure Automation subscription limits and quotas
 description: This article provides information on how to view automation limits and request for quota increase or decrease.
 services: automation
 ms.topic: how-to
@@ -7,7 +7,7 @@ ms.date: 01/06/2025
 ms.service: azure-automation
 ---
 
-# Manage Azure Automation limits and quotas
+# Manage Azure Automation subscription limits and quotas
 
 This article provides steps to view the current limits and request for quota increase or decrease.
 
