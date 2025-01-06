@@ -57,6 +57,10 @@ Cross Subscription Backup (CSB) for Azure File share (preview) is currently avai
 | --- | --- |
 | Account Kind | Azure Backup supports Azure file shares present in general-purpose v2, and file storage type storage accounts. |
 
+>[!Important]
+>The source Storage Account must have the **Allow storage account key access** setting enabled for successful Azure Files backup and restore.
+
+
 >[!Note]
 >Storage accounts with restricted network access aren't supported.   
 
