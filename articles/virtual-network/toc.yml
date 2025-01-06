@@ -218,13 +218,14 @@
       items:
       - name: Accelerated Networking overview
         href: accelerated-networking-overview.md
-      - name: Creating a virutal machine with accelerated networking
+      - name: Create a virutal machine with accelerated networking
         href: create-virtual-machine-accelerated-networking.md
-        items:
-        - name: How Accelerated Networking works
-          href: accelerated-networking-how-it-works.md
-        - name: Setup DPDK
-          href: setup-dpdk.md
+      - name: Manage accelerated networking
+        href: manage-accelerated-networking.md
+      - name: How Accelerated Networking works
+        href: accelerated-networking-how-it-works.md
+      - name: Setup DPDK
+        href: setup-dpdk.md
       - name: Microsoft Azure Network Adapter (MANA)
         items:
         - name: Microsoft Azure Network Adapter (MANA) overview

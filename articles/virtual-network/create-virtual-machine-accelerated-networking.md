@@ -630,10 +630,10 @@ Once you create the VM in Azure, connect to the VM and confirm that the Ethernet
 
    ```
 
-> [!NOTE]
-> If the Mellanox adapter fails to start, open an administrator command prompt on the remote VM and enter the following command:
->
-> `netsh int tcp set global rss = enabled`
+    > [!NOTE]
+    > If the Mellanox adapter fails to start, open an administrator command prompt on the remote VM and enter the following command:
+    >
+    > `netsh int tcp set global rss = enabled`
 
 
 1. Close the Bastion connection to the VM.
