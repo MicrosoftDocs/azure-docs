@@ -11,7 +11,7 @@ To create resources, you must first subscribe to the service.
 
 1. From the portal menu's global search bar, search for **marketplace**. Select **Marketplace** from the **Services** results. 
 
-    The Marketplace's **Get Started** page displays in the Azure portal's working pane. 
+    The Marketplace's **Get Started** page displays in the working pane. 
 
 1. From the command bar, type the name of the service into the **Search the Marketplace** search bar.
 
@@ -19,4 +19,4 @@ To create resources, you must first subscribe to the service.
 
 1. Choose your preferred plan, then select **Subscribe**. 
 
-    The **Create** resource pane displays in the Azure portal's working pane. 
+    The **Create** resource pane displays in the working pane. 
