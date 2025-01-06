@@ -25,7 +25,6 @@ You can view your current usage and limits, request for quota increase/decrease 
 
 Follow the steps to view your current quota and request for changes in quota:
 
-1. Sign into the [Azure portal](https://portal.azure.com).
 1. Select [**Help+support**](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/NewSupportRequestV3Blade/callerWorkflowId/01133068-af18-43c8-baa4-a54f5fa7c684/callerName/Microsoft_Azure_Support%2FHelpPane.ReactView/productId/06bfd9d3-516b-d5c6-5802-169c800dec89/issueType/quota), and then select **New support request**.
 1. In the **New support request** page, select the **Problem description** tab, and provide the following details:
     - In **Issue type**, select *Service and subscription limits (quotas)*.
