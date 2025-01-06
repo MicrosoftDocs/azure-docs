@@ -1,0 +1,15 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "diskName": {
+      "value": "myNexusDataDisk"
+    },
+    "location": {
+      "value": "eastus"
+    },
+    "extendedLocation": {
+      "value": "/subscriptions/<subscription>/resourcegroups/<cluster-managed-resource-group>/providers/microsoft.extendedlocation/customlocations/<custom-location-name>"
+    }
+  }
+}
