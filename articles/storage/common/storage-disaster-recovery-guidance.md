@@ -71,7 +71,7 @@ Each type of failover has a unique set of use cases, corresponding expectations 
 
 The following table compares a storage account's redundancy state after each type of failover:
 
-| Result of failover on...                | Customer-managed planned failover (preview)  | Customer-managed (unplanned) failover                                               |
+| Result of failover on...                | Customer-managed planned failover (preview)  | Customer-managed (unplanned) failover                                   |
 |-----------------------------------------|----------------------------------------------|-------------------------------------------------------------------------|
 | ...the secondary region                 | The secondary region becomes the new primary | The secondary region becomes the new primary                            |
 | ...the original primary region          | The original primary region becomes the new secondary |The copy of the data in the original primary region is deleted  |
@@ -213,10 +213,10 @@ The following table can be used to reference feature support.
 
 |                                  | Planned failover    | Unplanned failover  |
 |----------------------------------|---------------------|---------------------|
-| **Azure Data Lake Storage**                    | Supported (preview) | Supported (preview) |
+| **Azure Data Lake Storage**                    | Supported (preview) | Supported |
 | **Change Feed**                  | Unsupported         | Supported           |
 | **Object Replication**           | Unsupported         | Unsupported         |
-| **SFTP**                         | Supported (preview) | Supported (preview) |
+| **SFTP**                         | Supported (preview) | Supported           |
 | **NFSv3**                        | GRS is unsupported  | GRS is unsupported  |
 | **Storage Actions**              | Supported<sup>1</sup> | Supported<sup>1</sup> | 
 | **Point-in-time restore (PITR)** | Unsupported         | Supported           |
