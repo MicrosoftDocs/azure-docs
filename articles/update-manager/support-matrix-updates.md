@@ -107,12 +107,12 @@ Following is the list of supported images and no other marketplace images releas
 | almalinux | almalinux-x86_64  | 8_7-gen2 | |
 | | | 8-gen* | |
 | | | 9-gen* | |
-| |almalinux-hpc | | 8_6-hpc | |
+| |almalinux-hpc | 8_6-hpc | |
 | | | 8_6-hpc-gen2 | |
 | | | 8-hpc-gen* | |
-| | | 8_5-hpc* | |
+| | | 8_5-hpc* |  |
 | | | 8_7-hpc-gen* ||
-| |almalinux | | 8-gen* | |
+| |almalinux | 8-gen* | |
 | | | 9-gen*| |
 | aviatrix-systems | aviatrix-bundle-payg | aviatrix-enterprise-bundle-byol | |
 | |aviatrix-copilot | avx-cplt-byol-01 | | 
