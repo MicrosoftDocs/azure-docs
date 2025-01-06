@@ -24,7 +24,7 @@ Ensure the following prerequisites are met before enabling Micro-BFD:
 >[!Note]
 > It is required to contact Microsoft support through a support incident to enable the feature flag once necessary configurations has been performed to devices as explained in this article.
 
-- It is necessary to [put the device in maintenance mode](.\howto-put-device-in-maintenance-mode.md) to apply below the configuration changes. 
+- It's necessary to [put the device in maintenance mode](.\howto-put-device-in-maintenance-mode.md) to apply below the configuration changes. 
 
 ## Configuration steps for enabling Micro-BFD
 
@@ -113,7 +113,7 @@ PE2#show running-config interfaces pox
 
 ### Step 4: Move device CE2 into enabled state
 
-Use the following command to re-enable the device amd make it operational after configuration.
+Use the following command to re-enable the device and make it operational after configuration.
 
 ```Azure CLI
 az networkfabric device update-admin-state --resource-group <resource-group> --resource-name <resource-name> --state Enable
@@ -139,7 +139,7 @@ Ensure connectivity between CE and PE devices is stable, and BGP sessions are es
 
 ### Step 7: Enable Micro-BFD Flag
 
-**Contact Microsoft support through a support incident to enable the Micro-BFD feature flag**, and this action will require a full reconciliation with the base configuration along with the property of NPB set to true.
+Contact Microsoft support through a support incident to enable the Micro-BFD feature flag. After enabling the feature flag, a full reconciliation with the base configuration is required, ensuring the NPB property is set to true.
 
 ### Step 8: Verify Connectivity and BGP Sessions
 
@@ -155,7 +155,7 @@ az networkfabric device run-rw --ids /subscriptions/<subscription-id>/resourceGr
 
 ### Step 11: Ensure devices are not disturbed
 
-Ensure that devices are not disturbed for Micro-BFD configuration.
+Ensure that devices are'nt disturbed for Micro-BFD configuration.
 
 ## Recovery steps if Micro-BFD is misconfigured
 
@@ -173,4 +173,4 @@ Access the configuration settings of each identified PE device and remove any ex
 
 ### Verify configuration
 
-Ensure that the Micro-BFD settings have been successfully removed and that the PE device is operating without Micro-BFD enabled.
+Ensure that the Micro-BFD settings has been successfully removed and that the PE device is operating without Micro-BFD enabled.
