@@ -1,11 +1,11 @@
 ---
 title: Manage accelerated networking for Azure Virtual Machines
-description: Learn how to manager the accelerated networking feature of Azure Virtual Machines. Use the Azure portal, Azure CLI, or PowerShell to enable or disable accelerated networking.
+description: Learn how to manage the accelerated networking feature of Azure Virtual Machines. Use the Azure portal, Azure CLI, or PowerShell to enable or disable accelerated networking.
 author: asudbring
 ms.author: allensu
 ms.service: azure-virtual-network
 ms.topic: how-to #Don't change
-ms.date: 12/19/2024
+ms.date: 01/06/2025
 
 #customer intent: As a network or virtual machine administrator, I want to manage the accelerated networking feature of my Azure Virtual Machines. I want to enable or disable accelerated networking using the Azure portal, Azure CLI, or PowerShell.
 
@@ -13,15 +13,29 @@ ms.date: 12/19/2024
 
 # Manage accelerated networking for Azure Virtual Machines
 
-[Introduce and explain the purpose of the article.]
+The article discusses how to enable and manage Accelerated Networking on existing Azure Virtual Machines.
 
 ## Prerequisites
 
 ### [Portal](#tab/portal)
 
+- An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
 ### [PowerShell](#tab/powershell)
 
+- An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+[!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
+
+If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 1.0.0 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+
 ### [CLI](#tab/cli)
+
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+
+- This article requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ---
 

@@ -5,13 +5,13 @@ author: asudbring
 ms.author: allensu
 ms.service: azure-virtual-network
 ms.topic: how-to
-ms.date: 12/17/2024
+ms.date: 01/06/2025
 ms.custom: fasttrack-edit, devx-track-azurecli, linux-related-content, innovation-engine
 ---
 
 # Create an Azure Virtual Machine with Accelerated Networking
 
-This article describes how to create a Linux or Windows virtual machine (VM) with Accelerated Networking (AccelNet) enabled by using the Azure CLI command-line interface. The article also discusses how to enable and manage Accelerated Networking on existing VMs.
+This article describes how to create a Linux or Windows virtual machine (VM) with Accelerated Networking (AccelNet) enabled by using the Azure CLI command-line interface. 
 
 ## Prerequisites
 
