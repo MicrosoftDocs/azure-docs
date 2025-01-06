@@ -1,0 +1,29 @@
+{
+    "redirections": [
+        {
+            "source_path": "astronomer-create.md",
+            "redirect_url": "/azure/partner-services/astronomer/create",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "astronomer-manage.md",
+            "redirect_url": "/azure/partner-services/astronomer/manage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "astronomer-overview.md",
+            "redirect_url": "/azure/partner-services/astronomer/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "astronomer-tools.md",
+            "redirect_url": "/azure/partner-services/astronomer/tools",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "astronomer-troubleshoot.md",
+            "redirect_url": "/azure/partner-services/astronomer/troubleshoot",
+            "redirect_document_id": false
+        }
+    ]
+}
