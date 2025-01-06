@@ -69,7 +69,7 @@ Deployments are in progress and your patience during the transition period is ap
 
 ### How do I check my current usage and limits?
 
-You can check the current usage and limits for Automation accounts and concurrently running jobs while creating a support request under the category *Service and Subscription limits (Quotas) -> Azure Automation*.[Learn more](automation-limits-quotas.md)
+You can check the current usage and limits for Automation accounts and concurrently running jobs while creating a support request under the category *Service and Subscription limits (Quotas) -> Azure Automation*. [Learn more](automation-limits-quotas.md)
 
 ### My current usage is more than the revised limits.  What should I do?
 
