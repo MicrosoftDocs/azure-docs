@@ -22,7 +22,7 @@ Before enabling Micro-BFD, ensure the following:
 - The feature flag `MicroBFDEnabled` is turned off by default.
 
 >[!Note]
-> Contact Microsoft support through a support incident to enable the feature flag.
+> It is required to contact Microsoft support through a support incident to enable the feature flag once necessary configurations has been performed to devices as explained in this article.
 
 - It is necessary to [put the device in maintenance mode](.\howto-put-device-in-maintenance-mode.md) to apply below the configuration changes. 
 
