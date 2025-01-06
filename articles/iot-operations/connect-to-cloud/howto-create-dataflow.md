@@ -173,26 +173,27 @@ To configure a source for the dataflow, specify the endpoint reference and a lis
 
 If the default endpoint isn't used as the source, it must be used as the [destination](#destination). To learn more about, see [Dataflows must use local MQTT broker endpoint](./howto-configure-dataflow-endpoint.md#dataflows-must-use-local-mqtt-broker-endpoint).
 
-### Option 1: Use default MQTT endpoint as source
+### Option 1: Use default message broker endpoint as source
 
 # [Portal](#tab/portal)
 
-1. Under **Source details**, select **MQTT**.
+1. Under **Source details**, select **Message broker**.
 
-    :::image type="content" source="media/howto-create-dataflow/dataflow-source-mqtt.png" alt-text="Screenshot using operations experience to select MQTT as the source endpoint.":::
+    :::image type="content" source="media/howto-create-dataflow/dataflow-source-mqtt.png" alt-text="Screenshot using operations experience to select message broker as the source endpoint.":::
 
-1. Enter the following settings for the MQTT source:
+1. Enter the following settings for the message broker source:
 
     | Setting              | Description                                                                                       |
     | -------------------- | ------------------------------------------------------------------------------------------------- |
-    | MQTT topic           | The MQTT topic filter to subscribe to for incoming messages. See [Configure MQTT or Kafka topics](#configure-data-sources-mqtt-or-kafka-topics). |
+    | Dataflow endpoint    | Select *default* to use the default MQTT message broker endpoint. |
+    | Topic                | The topic filter to subscribe to for incoming messages. See [Configure MQTT or Kafka topics](#configure-data-sources-mqtt-or-kafka-topics). |
     | Message schema       | The schema to use to deserialize the incoming messages. See [Specify schema to deserialize data](#specify-source-schema). |
 
 1. Select **Apply**.
 
 # [Bicep](#tab/bicep)
 
-The MQTT endpoint is configured in the Bicep template file. For example, the following endpoint is a source for the dataflow.
+The message broker endpoint is configured in the Bicep template file. For example, the following endpoint is a source for the dataflow.
 
 ```bicep
 sourceSettings: {
@@ -208,7 +209,7 @@ Here, `dataSources` allow you to specify multiple MQTT or Kafka topics without n
 
 # [Kubernetes (preview)](#tab/kubernetes)
 
-For example, to configure a source using an MQTT endpoint and two MQTT topic filters, use the following configuration:
+For example, to configure a source using a message broker endpoint and two topic filters, use the following configuration:
 
 ```yaml
 sourceSettings:
@@ -256,13 +257,25 @@ Once configured, the data from the asset reached the dataflow via the local MQTT
 
 If you created a custom MQTT or Kafka dataflow endpoint (for example, to use with Event Grid or Event Hubs), you can use it as the source for the dataflow. Remember that storage type endpoints, like Data Lake or Fabric OneLake, can't be used as source.
 
-To configure, use Kubernetes YAML or Bicep. Replace placeholder values with your custom endpoint name and topics.
-
 # [Portal](#tab/portal)
 
-Using a custom MQTT or Kafka endpoint as a source is currently not supported in the operations experience.
+1. Under **Source details**, select **Message broker**.
+
+    :::image type="content" source="media/howto-create-dataflow/dataflow-source-custom.png" alt-text="Screenshot using operations experience to select a custom message broker as the source endpoint.":::
+
+1. Enter the following settings for the message broker source:
+
+    | Setting              | Description                                                                                       |
+    | -------------------- | ------------------------------------------------------------------------------------------------- |
+    | Dataflow endpoint    | Use the **Reselect** button to select a custom MQTT or Kafka dataflow endpoint. For more information, see [Configure MQTT dataflow endpoints](howto-configure-mqtt-endpoint.md) or [Configure Azure Event Hubs and Kafka dataflow endpoints](howto-configure-kafka-endpoint.md).|
+    | Topic                | The topic filter to subscribe to for incoming messages. See [Configure MQTT or Kafka topics](#configure-data-sources-mqtt-or-kafka-topics). |
+    | Message schema       | The schema to use to deserialize the incoming messages. See [Specify schema to deserialize data](#specify-source-schema). |
+
+1. Select **Apply**.
 
 # [Bicep](#tab/bicep)
+
+Replace placeholder values with your custom endpoint name and topics.
 
 ```bicep
 sourceSettings: {
@@ -276,6 +289,8 @@ sourceSettings: {
 ```
 
 # [Kubernetes (preview)](#tab/kubernetes)
+
+Replace placeholder values with your custom endpoint name and topics.
 
 ```yaml
 sourceSettings:
@@ -298,20 +313,20 @@ When the source is an MQTT (Event Grid included) endpoint, you can use the MQTT 
 
 # [Portal](#tab/portal)
 
-In the operations experience dataflow **Source details**, select **MQTT**, then use the **MQTT topic** field to specify the MQTT topic filter to subscribe to for incoming messages.
+In the operations experience dataflow **Source details**, select **Message broker**, then use the **Topic** field to specify the MQTT topic filter to subscribe to for incoming messages.
 
 > [!NOTE]
-> Only one MQTT topic filter can be specified in the operations experience. To use multiple MQTT topic filters, use Bicep or Kubernetes.
+> Only one topic filter can be specified in the operations experience. To use multiple topic filters, use Bicep or Kubernetes.
 
 # [Bicep](#tab/bicep)
 
 ```bicep
 sourceSettings: {
-  endpointRef: '<MQTT_ENDPOINT_NAME>'
+  endpointRef: '<MESSAGE_BROKER_ENDPOINT_NAME>'
   dataSources: [
-    '<MQTT_TOPIC_FILTER_1>'
-    '<MQTT_TOPIC_FILTER_2>'
-    // Add more MQTT topic filters as needed
+    '<TOPIC_FILTER_1>'
+    '<TOPIC_FILTER_2>'
+    // Add more topic filters as needed
   ]
 }
 ```
@@ -334,14 +349,14 @@ Here, the wildcard `+` is used to select all devices under the `thermostats` and
   
 ```yaml
 sourceSettings:
-  endpointRef: <MQTT_ENDPOINT_NAME>
+  endpointRef: <ENDPOINT_NAME>
   dataSources:
-    - <MQTT_TOPIC_FILTER_1>
-    - <MQTT_TOPIC_FILTER_2>
-    # Add more MQTT topic filters as needed
+    - <TOPIC_FILTER_1>
+    - <TOPIC_FILTER_2>
+    # Add more topic filters as needed
 ```
 
-Example with multiple MQTT topic filters with wildcards:
+Example with multiple topic filters with wildcards:
 
 ```yaml
 sourceSettings:
@@ -357,11 +372,11 @@ Here, the wildcard `+` is used to select all devices under the `thermostats` and
 
 ##### Shared subscriptions
 
-To use shared subscriptions with MQTT sources, you can specify the shared subscription topic in the form of `$shared/<GROUP_NAME>/<TOPIC_FILTER>`.
+To use shared subscriptions with message broker sources, you can specify the shared subscription topic in the form of `$shared/<GROUP_NAME>/<TOPIC_FILTER>`.
 
 # [Portal](#tab/portal)
 
-In operations experience dataflow **Source details**, select **MQTT** and use the **MQTT topic** field to specify the shared subscription group and topic.
+In operations experience dataflow **Source details**, select **Message broker** and use the **Topic** field to specify the shared subscription group and topic.
 
 # [Bicep](#tab/bicep)
 
@@ -384,7 +399,7 @@ sourceSettings:
 ---
 
 
-If the instance count in the [dataflow profile](howto-configure-dataflow-profile.md) is greater than one, shared subscription is automatically enabled for all dataflows that use MQTT source. In this case, the `$shared` prefix is added and the shared subscription group name automatically generated. For example, if you have a dataflow profile with an instance count of 3, and your dataflow uses an MQTT endpoint as source configured with topics `topic1` and `topic2`, they are automatically converted to shared subscriptions as `$shared/<GENERATED_GROUP_NAME>/topic1` and `$shared/<GENERATED_GROUP_NAME>/topic2`. 
+If the instance count in the [dataflow profile](howto-configure-dataflow-profile.md) is greater than one, shared subscription is automatically enabled for all dataflows that use a message broker source. In this case, the `$shared` prefix is added and the shared subscription group name automatically generated. For example, if you have a dataflow profile with an instance count of 3, and your dataflow uses an message broker endpoint as source configured with topics `topic1` and `topic2`, they are automatically converted to shared subscriptions as `$shared/<GENERATED_GROUP_NAME>/topic1` and `$shared/<GENERATED_GROUP_NAME>/topic2`. 
 
 You can explicitly create a topic named `$shared/mygroup/topic` in your configuration. However, adding the `$shared` topic explicitly isn't recommended since the `$shared` prefix is automatically added when needed. Dataflows can make optimizations with the group name if it isn't set. For example, `$share` isn't set and dataflows only has to operate over the topic name.
 
@@ -402,7 +417,10 @@ To configure the Kafka topics:
 
 # [Portal](#tab/portal)
 
-Using a Kafka endpoint as a source is currently not supported in the operations experience.
+In the operations experience dataflow **Source details**, select **Message broker**, then use the **Topic** field to specify the Kafka topic filter to subscribe to for incoming messages.
+
+> [!NOTE]
+> Only one topic filter can be specified in the operations experience. To use multiple topic filters, use Bicep or Kubernetes.
 
 # [Bicep](#tab/bicep)
 
@@ -443,7 +461,7 @@ To configure the schema used to deserialize the incoming messages from a source:
 
 # [Portal](#tab/portal)
 
-In operations experience dataflow **Source details**, select **MQTT** and use the **Message schema** field to specify the schema. You can use the **Upload** button to upload a schema file first. To learn more, see [Understand message schemas](concept-schema-registry.md).
+In operations experience dataflow **Source details**, select **Message broker** and use the **Message schema** field to specify the schema. You can use the **Upload** button to upload a schema file first. To learn more, see [Understand message schemas](concept-schema-registry.md).
 
 # [Bicep](#tab/bicep)
 
