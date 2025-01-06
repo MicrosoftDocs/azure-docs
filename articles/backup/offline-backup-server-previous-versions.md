@@ -196,7 +196,7 @@ The *AzureOfflineBackupDiskPrep* utility is used to prepare the SATA drives that
 
     When you run the command, the utility requests the selection of the Azure import job that corresponds to the drives that need to be prepared. If only a single import job is associated with the provided staging location, you see a page like this one.
 
-    ![Screenshot shows how to add xthe Azure disk preparation tool input.](./media/offline-backup-dpm-mabs-previous-versions/azure-disk-preparation-tool-drive-input.png) <br/>
+    ![Screenshot shows how to add the Azure disk preparation tool input.](./media/offline-backup-dpm-mabs-previous-versions/azure-disk-preparation-tool-drive-input.png) <br/>
 
 1. Enter the drive letter without the trailing colon for the mounted disk that you want to prepare for transfer to Azure. When prompted, provide confirmation for the formatting of the drive.
 

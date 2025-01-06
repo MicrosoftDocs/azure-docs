@@ -5,7 +5,7 @@ ms.service: azure-hdinsight
 ms.topic: how-to
 ms.tool: azure-powershell
 ms.custom: hdinsightactive, devx-track-azurepowershell, linux-related-content
-ms.date: 01/29/2024
+ms.date: 01/02/2025
 ---
 
 # Create Linux-based clusters in HDInsight using Azure PowerShell
@@ -38,11 +38,11 @@ To create an HDInsight cluster by using Azure PowerShell, you must complete the 
 
 The following script demonstrates how to create a new cluster:
 
-[!code-powershell[main](../../azure_powershell_scripts/hdinsight/create-cluster/create-cluster.ps1?range=5-74)]
+[!Code-powershell[main](../../azure_powershell_scripts/hdinsight/create-cluster/create-cluster.ps1?range=5-74)]
 
 The values you specify for the cluster login are used to create the Hadoop user account for the cluster. Use this account to connect to services hosted on the cluster such as web UIs or REST APIs.
 
-The values you specify for the SSH user are used to create the SSH user for the cluster. Use this account to start a remote SSH session on the cluster and run jobs. For more information, see the [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) document.
+The values you specify for the SSH user are used to create the SSH user for the cluster. Use this account to start a remote SSH session on the cluster and run jobs. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 > [!IMPORTANT]  
 > If you plan to use more than 32 worker nodes (either at cluster creation or by scaling the cluster after creation), you must also specify a head node size with at least 8 cores and 14 GB of RAM.

@@ -31,7 +31,7 @@ All functions in a function app must share the same language. You choose the lan
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
 
-For information about the language versions of previously supported versions of the Functions runtime, see [Retired runtime versions](language-support-policy.md#retired-runtime-versions).
+For information about the language versions of previously supported versions of the Functions runtime, see [Retired runtime versions](language-support-policy.md#language-support-related-resources).
 
 ## <a name="creating-1x-apps"></a>Run on a specific version
 

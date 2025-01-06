@@ -44,9 +44,6 @@ The following options are available:
 
 5. Choose the distribution mode and then select **Save**.
 
-:::image type="content" source="./media/load-balancer-distribution-mode/session-persistence.png" alt-text="Change session persistence on load balancer rule." border="true" lightbox="./media/load-balancer-distribution-mode/session-persistence.png":::
-
-
 # [**PowerShell**](#tab/azure-powershell)
 
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]

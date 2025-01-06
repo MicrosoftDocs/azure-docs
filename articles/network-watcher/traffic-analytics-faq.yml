@@ -16,11 +16,6 @@ sections:
   - name: Ignored
     questions:
       - question: |
-          What prerequisites are needed to use traffic analytics?
-        answer: |
-          See [Traffic analytics prerequisites](traffic-analytics.md#prerequisites) for a list of the required prerequisites.
-
-      - question: |
           How can I check if I have the required roles?
         answer: |
           To learn how to check roles assigned to a user for a subscription, see [List Azure role assignments using the Azure portal](../role-based-access-control/role-assignments-list-portal.yml). If you can't see the role assignments, contact the respective subscription admin.

@@ -76,7 +76,7 @@ The command lists all the available definitions in the specified resource group,
 The following command parses the output to show only the definition name and resource group name. You use the names when you deploy the managed application.
 
 ```azurecli
-az managedapp definition list --resource-group bicepDefinitionGroup --query "[].{Name:name, ResourcGroup:resourceGroup}"
+az managedapp definition list --resource-group bicepDefinitionGroup --query "[].{Name:name, ResourceGroup:resourceGroup}"
 ```
 
 ---
