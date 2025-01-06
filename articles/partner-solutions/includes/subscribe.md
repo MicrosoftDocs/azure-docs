@@ -5,13 +5,9 @@ ms.date: 01/06/2025
 ms.author: kkendrick
 ---
 
-Subscribe to this service directly from the [Azure portal](#subscribe-from-azure-portal), or subscribe from [Microsoft's Azure Marketplace](#subscribe-from-azure-marketplace). 
+You can subscribe to this service directly from the [Azure portal](#subscribe-from-azure-portal). 
 
-### Subscribe from Azure portal
-
-Go to the [Azure portal](https://portal.azure.com).
-
-1. From the portal menu's global search bar, search for **marketplace**. Select **Marketplace** from the **Services** results. 
+1. From the Azure portal menu's global search bar, search for **marketplace**. Select **Marketplace** from the **Services** results. 
 
     The Marketplace's **Get Started** page displays in the working pane. 
 
@@ -22,6 +18,4 @@ Go to the [Azure portal](https://portal.azure.com).
 1. Choose your preferred plan, then select **Subscribe**. 
 
     The **Create** resource pane displays in the working pane. 
-
-## Subscribe from Azure Marketplace
 
