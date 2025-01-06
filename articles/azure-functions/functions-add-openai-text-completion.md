@@ -19,7 +19,7 @@ During this tutorial, you learn how to accomplish these tasks:
 
 > [!div class="checklist"]
 > * Create resources in Azure OpenAI.
-> * Deploy a model in OpenAI the resource.
+> * Deploy a model in the OpenAI resource.
 > * Set access permissions to the model resource.
 > * Enable your function app to connect to OpenAI.
 > * Add OpenAI bindings to your HTTP triggered function.
