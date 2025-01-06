@@ -1,7 +1,7 @@
 ---
 title: Azure Container Apps hosting of Azure Functions 
 description: Learn about how you can use Azure Functions on Azure Container Apps to host and manage containerized function apps in Azure.
-ms.date: 11/05/2024
+ms.date: 01/05/2025
 ms.topic: conceptual
 ms.custom: build-2024, linux-related-content
 # Customer intent: As a cloud developer, I want to learn more about hosting my function apps in Linux containers managed by Azure Container Apps.
@@ -27,7 +27,7 @@ Container Apps hosting of containerized function apps is supported in all [regio
 
 If your app doesn't have specific hardware requirements, you can run your environment either in a Consumption plan or in a Dedicated plan using the default Consumption workload profile. When running functions on Container Apps, you're charged only for the Container Apps usage. For more information, see the [Azure Container Apps pricing page](https://azure.microsoft.com/pricing/details/container-apps/). 
 
-Azure Functions on Azure Container Apps supports GPU-enabled hosting in the Dedicated plan with workload profiles. 
+Azure Functions on Azure Container Apps support GPU-enabled hosting in the Dedicated plan with workload profiles. 
 
 To learn how to create and deploy a function app container to Container Apps in the default Consumption plan, see [Create your first containerized functions on Azure Container Apps](functions-deploy-container-apps.md). 
 
@@ -58,11 +58,38 @@ Azure Functions currently supports the following methods of deploying a containe
 + [GitHub Actions](https://github.com/Azure/azure-functions-on-container-apps/tree/main/samples/GitHubActions)
 + [Visual Studio Code](https://github.com/Azure/azure-functions-on-container-apps/tree/main/samples/VSCode%20Sample)
 
+## Managed identity authorization
+
+For the best security, you should connect to remote services using Microsoft Entra authentication and managed identity authorization. You can use managed identities for these connections:
+
++ [Default storage account (`AzureWebJobsStorage`)](./functions-reference.md#connections) 
++ [Azure Container Registry](functions-deploy-container-apps.md?tabs=acr#create-and-configure-a-function-app-on-azure-with-the-image)
+
+Currently, only these binding extensions support managed identities when running in Container Apps:
+
++ Azure Event Hubs
++ Azure Queue Storage
++ Azure Service Bus
+
+For more information, see the [Functions developer guide](./functions-reference.md#connections).
+
 ## Virtual network integration
 
 When you host your function apps in a Container Apps environment, your functions are able to take advantage of both internally and externally accessible virtual networks. To learn more about environment networks, see [Networking in Azure Container Apps environment](../container-apps/networking.md).  
 
-## Configure scale rules
+## Event-driven scaling
+
+All Functions triggers can be used in your containerized function app. However, only these triggers can dynamically scale (from zero instances) based on received events when running in a Container Apps environment:  
+
++ Azure Event Grid 
++ Azure Event Hubs 
++ Azure Blob Storage (event-based)
++ Azure Queue Storage 
++ Azure Service Bus 
++ Durable Functions (MSSQL storage provider)
++ HTTP 
++ Kafka  
++ Timer 
 
 Azure Functions on Container Apps is designed to configure the scale parameters and rules as per the event target. You don't need to worry about configuring the KEDA scaled objects. You can still set minimum and maximum replica count when creating or modifying your function app. The following Azure CLI command sets the minimum and maximum replica count when creating a new function app in a Container Apps environment from an Azure Container Registry: 
 
@@ -86,23 +113,19 @@ A managed resource group gets removed automatically after all function app conta
 
 If you run into any issues with these managed resource groups, you should contact support.       
 
+## Application logging
+
+You can monitor your containerized function app hosted in Container Apps using Azure Monitor Application Insights in the same way you do with apps hosted by Azure Functions. For more information, see [Monitor Azure Functions](./monitor-functions.md). 
+
+For bindings that support event-driven scaling, scale events are also logged by Application Insights to your workspace. For more information, see [Scale controller logs](functions-monitoring.md#scale-controller-logs). 
+
 ## Considerations for Container Apps hosting
 
 Keep in mind the following considerations when deploying your function app containers to Container Apps:
  
-+ While all triggers can be used, only the following triggers can dynamically scale (from zero instances) when running in a Container Apps environment:
-    + Azure Event Grid 
-    + Azure Event Hubs 
-    + Azure Blob storage (event-based)
-    + Azure Queue Storage 
-    + Azure Service Bus 
-    + Durable Functions (MSSQL storage provider)
-    + HTTP 
-    + Kafka  
-    + Timer  
 + These limitations apply to Kafka triggers:
     + The protocol value of `ssl` isn't supported when hosted on Container Apps. Use a [different protocol value](functions-bindings-kafka-trigger.md?pivots=programming-language-csharp#attributes). 
-    + For a Kafka trigger to dynamically scale when connected to Event Hubs, the `username` property must resolve to an application setting that contains the actual username value. When the default `$ConnectionString` value is used, the Kafka trigger won't be able to cause the app to scale dynamically.  
+    + For a Kafka trigger to dynamically scale when connected to Event Hubs, the `username` property must resolve to an application setting that contains the actual username value. When the default `$ConnectionString` value is used, the Kafka trigger isn't able to cause the app to scale dynamically.  
 + For the built-in Container Apps [policy definitions](../container-apps/policy-reference.md#policy-definitions), currently only environment-level policies apply to Azure Functions containers.
 + You can use managed identities for these connections:
     + [Deployment from an Azure Container Registry](functions-deploy-container-apps.md?tabs=acr#create-and-configure-a-function-app-on-azure-with-the-image)
@@ -113,7 +136,7 @@ Keep in mind the following considerations when deploying your function app conta
 + When using Container Apps, you don't have direct access to the lower-level Kubernetes APIs. 
 + The `containerapp` extension conflicts with the `appservice-kube` extension in Azure CLI. If you have previously published apps to Azure Arc, run `az extension list` and make sure that `appservice-kube` isn't installed. If it is, you can remove it by running `az extension remove -n appservice-kube`.  
 
-## Next steps
+## Related articles
 
 + [Hosting and scale](./functions-scale.md)
 + [Create your first containerized functions on Container Apps](./functions-deploy-container-apps.md)
