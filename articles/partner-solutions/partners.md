@@ -12,7 +12,7 @@ ms.date: 01/06/2025
 
 Partner organizations use Azure Native ISV Services to offer solutions which are fully integrated with Azure to enhance your cloud infrastructure. Use a resource provider, resource types, and SDKs to manage the solution as you would with other solutions from Microsoft.
 
-Azure Native ISV Services are available through Azure Marketplace.
+Azure Native ISV Services are available through [Azure Marketplace](https://azuremarketplace.microsoft.com/).
 
 ## Observability
 
