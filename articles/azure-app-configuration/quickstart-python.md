@@ -79,7 +79,7 @@ Add the following key-value to the App Configuration store and leave **Label** a
     To run the app locally using the Windows command prompt, run the following command and replace `<app-configuration-store-connection-string>` with the connection string of your app configuration store:
 
     ```cmd
-    setx AZURE_APPCONFIG_CONNECTION_STRING "connection-string-of-your-app-configuration-store"
+    setx AZURE_APPCONFIG_CONNECTION_STRING "<connection-string-of-your-app-configuration-store>"
     ```
 
     ### [PowerShell](#tab/powershell)

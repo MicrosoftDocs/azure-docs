@@ -169,7 +169,7 @@ A claim provides temporary storage of data during an Azure AD B2C policy executi
 </ClaimType>
 ```
 ## Add the RESTful API technical profile 
-A [Restful technical profile](restful-technical-profile.md) provides support for interfacing with your own RESTful service. Azure AD B2C sends data to the RESTful service in an `InputClaims` collection and receives data back in an `OutputClaims` collection. Find the **ClaimsProviders** element in your <em>**`TrustFrameworkExtensions.xml`**</em> file and add a new claims provider as follows:
+A [RESTful technical profile](restful-technical-profile.md) provides support for interfacing with your own RESTful service. Azure AD B2C sends data to the RESTful service in an `InputClaims` collection and receives data back in an `OutputClaims` collection. Find the **ClaimsProviders** element in your <em>**`TrustFrameworkExtensions.xml`**</em> file and add a new claims provider as follows:
 ```xml
 <ClaimsProvider>
   <DisplayName>REST APIs</DisplayName>

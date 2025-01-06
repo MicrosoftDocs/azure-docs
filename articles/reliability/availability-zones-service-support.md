@@ -4,7 +4,7 @@ description: Learn which Azure services offer availability zone support.
 ms.service: azure
 ms.subservice: azure-availability-zones
 ms.topic: conceptual
-ms.date: 11/20/2024
+ms.date: 12/10/2024
 ms.author: anaharris
 author: anaharris-ms
 ms.custom: references_regions, subject-reliability
@@ -17,6 +17,7 @@ Azure availability zones are physically separate locations within each Azure reg
 For more information on availability zones and regions, see [What are Azure regions and availability zones?](availability-zones-overview.md),
 
 Azure is continually expanding the number of services that support availability zones, including zonal and zone-redundant offerings.
+
 
 ## Types of availability zone support
 
@@ -160,7 +161,7 @@ In the Product Catalog, always-available services are listed as "non-regional" s
 
 | **Product**   | **Reliability**   |
 | --- | --- |
-| [Azure Monitor: Log Analytics](./migrate-monitor-log-analytics.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
+| [Azure Monitor Logs]((/azure/azure-monitor/logs/availability-zones) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 
 ### Hybrid and multicloud
 

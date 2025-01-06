@@ -4,7 +4,7 @@ description: Learn how to create and manage virtual network support for your Pre
 
 
 ms.topic: conceptual
-ms.date: 08/29/2023
+ms.date: 12/17/2024
 
 ---
 
@@ -28,16 +28,17 @@ ms.date: 08/29/2023
   - potential data loss
   - failure of management operations like scaling
   - intermittent or complete SSL/TLS failures
+  - failure to apply updates, including important security and reliability improvements
   - in the most severe scenarios, loss of availability
+- When using a VNet injected cache, you must keep your VNet updated to allow access to cache dependencies, such as Certificate Revocation Lists, Public Key Infrastructure, Azure Key Vault, Azure Storage, Azure Monitor, and more.
 - VNet injected caches are only available for Premium-tier Azure Cache for Redis, not other tiers.
-- When using a VNet injected cache, you must change your VNet to cache dependencies such as Certificate Revocation Lists/Public Key Instructure, Azure Key Vault, Azure Storage, Azure Monitor, and more.
 - You can't inject an existing Azure Cache for Redis instance into a Virtual Network. You must select this option when you _create_ the cache.
 
 ## Set up virtual network support
 
 Virtual network support is configured on the **New Azure Cache for Redis** pane during cache creation.
 
-1. To create a Premium-tier cache, sign in to the [Azure portal](https://portal.azure.com) and select **Create a resource**.  You can also create them by using Resource Manager templates, PowerShell, or the Azure CLI. For more information about how to create an Azure Cache for Redis instance, see [Create a cache](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
+1. To create a Premium-tier cache, sign in to the [Azure portal](https://portal.azure.com) and select **Create a resource**.  You can also create them by using Resource Manager templates, PowerShell, or the Azure CLI.
 
     :::image type="content" source="media/cache-private-link/1-create-resource.png" alt-text="Screenshot that shows Create a resource.":::
 
@@ -118,13 +119,16 @@ When Azure Cache for Redis is hosted in a virtual network, the ports in the foll
 
 #### Outbound port requirements
 
-There are nine outbound port requirements. Outbound requests in these ranges are either: a) outbound to other services necessary for the cache to function, or b) internal to the Redis subnet for internode communication. For geo-replication, other outbound requirements exist for communication between subnets of the primary and replica cache.
+There are network connectivity requirements for Azure Cache for Redis needed for outbound connectivity to other dependency services necessary for the cache to function, or even internal to the Redis subnet for inter-node communication.
 
 | Ports | Direction | Transport protocol | Purpose | Local IP | Remote IP |
 | --- | --- | --- | --- | --- | --- |
-| 80, 443 |Outbound |TCP |Redis dependencies on Azure Storage/PKI (internet) | (Redis subnet) |* <sup>4</sup> |
+| 80, 443 |Outbound |TCP |Redis dependencies on Azure Storage, PKI (internet), operating system, infrastructure, and the antivirus | (Redis subnet) |* <sup>4</sup> |
 | 443 | Outbound | TCP | Redis dependency on Azure Key Vault and Azure Monitor | (Redis subnet) | AzureKeyVault, AzureMonitor <sup>1</sup> |
-| 53 |Outbound |TCP/UDP |Redis dependencies on DNS (internet/virtual network) | (Redis subnet) | 168.63.129.16 and 169.254.169.254 <sup>2</sup> and any custom DNS server for the subnet <sup>3</sup> |
+| 12000 | Outbound | TCP | Redis dependency on Azure Monitor | (Redis subnet) |  AzureMonitor <sup>1</sup> |
+| 53 |Outbound |TCP/UDP | Redis dependencies on DNS (internet/virtual network) | (Redis subnet) | 168.63.129.16 and 169.254.169.254 <sup>2</sup> and any custom DNS server for the subnet <sup>3</sup> |
+| 123 | Outbound | UDP | Operating system dependency on NTP | (Redis subnet) | * |
+| 1688 | Outbound | TCP | Operating system dependency for activation | (Redis subnet) | * |
 | 8443 |Outbound |TCP |Internal communications for Redis | (Redis subnet) | (Redis subnet) |
 | 10221-10231 |Outbound |TCP |Internal communications for Redis | (Redis subnet) | (Redis subnet) |
 | 20226 |Outbound |TCP |Internal communications for Redis | (Redis subnet) |(Redis subnet) |
@@ -163,13 +167,53 @@ There are eight inbound port range requirements. Inbound requests in these range
 
 #### Additional virtual network connectivity requirements
 
-There are network connectivity requirements for Azure Cache for Redis that might not be initially met in a virtual network. Azure Cache for Redis requires all the following items to function properly when used within a virtual network:
+There are network connectivity requirements for Azure Cache for Redis needed for outbound connectivity to other dependency services necessary for the cache to function, or even internal to the Redis subnet for internode communication.  
 
-- Outbound network connectivity to Azure Key Vault endpoints worldwide. Azure Key Vault endpoints resolve under the DNS domain `vault.azure.net`.
-- Outbound network connectivity to Azure Storage endpoints worldwide. Endpoints located in the same region as the Azure Cache for Redis instance and storage endpoints located in _other_ Azure regions are included. Azure Storage endpoints resolve under the following DNS domains: `table.core.windows.net`, `blob.core.windows.net`, `queue.core.windows.net`, and `file.core.windows.net`.
-- Outbound network connectivity to `ocsp.digicert.com`, `crl4.digicert.com`, `ocsp.msocsp.com`, `mscrl.microsoft.com`, `crl3.digicert.com`, `cacerts.digicert.com`, `oneocsp.microsoft.com`, and `crl.microsoft.com`, `cacerts.geotrust.com`, `www.microsoft.com`, `cdp.geotrust.com`, `status.geotrust.com`. This connectivity is needed to support TLS/SSL functionality.
-- The DNS configuration for the virtual network must be able to resolve all of the endpoints and domains mentioned in the earlier points. These DNS requirements can be met by ensuring a valid DNS infrastructure is configured and maintained for the virtual network.
-- Outbound network connectivity to the following Azure Monitor endpoints, which resolve under the following DNS domains: `shoebox3.prod.microsoftmetrics.com`, `shoebox3-red.prod.microsoftmetrics.com`, `shoebox3-black.prod.microsoftmetrics.com`, `azredis.prod.microsoftmetrics.com`, `azredis-red.prod.microsoftmetrics.com`, and `azredis-black.prod.microsoftmetrics.com`.
+Azure Cache for Redis requires all the following outbound connectivity items to function properly when used within a virtual network:
+
+| Host name | Protocol | Outbound port | Purpose | Service tag |
+|--|--|--|--|--|
+| *.vault.azure.net | HTTPS | 443 | Azure Key Vault | AzureKeyVault |
+| *.table.core.windows.net | HTTPS | 443 | Azure Storage | Storage |
+| *.blob.core.windows.net | HTTPS | 443 | Azure Storage | Storage |
+| *.queue.core.windows.net | HTTPS | 443 | Azure Storage | Storage |
+| *.file.core.windows.net | HTTPS | 443 | Azure Storage | Storage |
+| ocsp.digicert.com | HTTP | 80 | Azure Public Key Infrastructure | N/A |
+| crl4.digicert.com | HTTP | 80 | Azure Public Key Infrastructure | N/A |
+| ocsp.msocsp.com | HTTP | 80 | Azure Public Key Infrastructure | N/A |
+| mscrl.microsoft.com | HTTP | 80 | Azure Public Key Infrastructure | N/A |
+| crl3.digicert.com | HTTP | 80 | Azure Public Key Infrastructure | N/A |
+| cacerts.digicert.com | HTTP | 80 | Azure Public Key Infrastructure | N/A |
+| oneocsp.microsoft.com | HTTP | 80 | Azure Public Key Infrastructure | N/A |
+| crl.microsoft.com | HTTP | 80 | Azure Public Key Infrastructure | N/A |
+| cacerts.geotrust.com | HTTP | 80 | Azure Public Key Infrastructure | N/A |
+| www.microsoft.com | HTTP | 80 | Azure Public Key Infrastructure | N/A |
+| cdp.geotrust.com | HTTP | 80 | Azure Public Key Infrastructure | N/A |
+| status.geotrust.com | HTTP | 80 | Azure Public Key Infrastructure | N/A |
+| shoebox3.prod.microsoftmetrics.com | HTTPS | 443 | Azure Monitor | AzureMonitor |
+| shoebox3-red.prod.microsoftmetrics.com | HTTPS | 443 | Azure Monitor | AzureMonitor |
+| shoebox3-black.prod.microsoftmetrics.com | HTTPS | 443 | Azure Monitor | AzureMonitor |
+| azredis.prod.microsoftmetrics.com | HTTPS | 443 | Azure Monitor | AzureMonitor |
+| azredis-red.prod.microsoftmetrics.com | HTTPS | 443 | Azure Monitor | AzureMonitor |
+| azredis-black.prod.microsoftmetrics.com | HTTPS | 443 | Azure Monitor | AzureMonitor |
+| global.prod.microsoftmetrics.com | HTTPS | 443 | Azure Monitor | AzureMonitor |
+| gcs.prod.monitoring.core.windows.net | HTTPS | 443 | Azure Monitor | AzureMonitor |
+| *.prod.warm.ingest.monitor.core.windows.net | HTTPS | 443 | Azure Monitor | AzureMonitor |
+| *.servicebus.windows.net | HTTPS | 443 | Azure Monitor | EventHub |
+| *.update.microsoft.com | HTTPS | 443 | Operating system update service | AzureCloud |
+| *.windowsupdate.com | HTTP/HTTPS | 80, 443 | Operating system update service | N/A |
+| *.delivery.mp.microsoft.com | HTTP/HTTPS | 80, 443 | Operating system update service | AzureCloud |
+| go.microsoft.com | HTTP/HTTPS | 80, 443 | Antivirus | N/A |
+| *.wdcp.microsoft.com | HTTPS | 443 | Antivirus | AzureCloud |
+| *.wdcpalt.microsoft.com | HTTPS | 443 | Antivirus | AzureCloud |
+| *.wd.microsoft.com | HTTPS | 443 | Antivirus | AzureCloud |
+| definitionupdates.microsoft.com | HTTPS | 443 | Antivirus | N/A |
+| azurewatsonanalysis-prod.core.windows.net | HTTPS | 443 | Internal diagnostics | AzureCloud |
+| shavamanifestazurecdnprod1.azureedge.net | HTTPS | 443 | Internal diagnostics | N/A |
+| shavamanifestcdnprod1.azureedge.net | HTTPS | 443 | Internal diagnostics | N/A |
+| *.data.microsoft.com | HTTPS | 443 | Internal diagnostics | AzureCloud |
+
+- The DNS configuration for the virtual network must be able to resolve all of the endpoints and domains mentioned in the earlier table entries. These DNS requirements can be met by ensuring a valid DNS infrastructure is configured and maintained for the virtual network.
 
 ### How can I verify that my cache is working in a virtual network?
 
