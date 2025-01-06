@@ -25,7 +25,7 @@ The [DeviceClient](/java/api/com.microsoft.azure.sdk.iot.device.deviceclient) cl
 
 [!INCLUDE [iot-authentication-device-connection-string.md](iot-authentication-device-connection-string.md)]
 
-### Device import statement
+### Device import statements
 
 Use the following device import statements to access the Azure IoT SDK for Java.
 
