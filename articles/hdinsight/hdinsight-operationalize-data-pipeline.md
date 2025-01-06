@@ -159,7 +159,7 @@ The sample data is now available. However, the pipeline requires two Hive tables
 
 5. Select **Execute** to create the table.
 
-    :::image type="content" source="./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive-query.png" alt-text="Screebshot of HDInsight Ambari services hive query.":::
+    :::image type="content" source="./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive-query.png" alt-text="Screenshot of HDInsight Ambari services hive query.":::
 
 6. To create the `flights` table, replace the text in the query text area with the following statements. The `flights` table is a Hive-managed table that partitions data loaded into it by year, month, and day of month. This table will contain all historical flight data, with the lowest granularity present in the source data of one row per flight.
 
