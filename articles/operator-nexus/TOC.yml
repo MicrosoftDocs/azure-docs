@@ -18,6 +18,8 @@
           href: concepts-storage.md
         - name: Storage for Nexus Kubernetes
           href: concepts-storage-kubernetes.md
+        - name: Storage for Nexus Virtual Machines
+          href: concepts-storage-virtual-machine.md
     - name: Cluster deployment and upgrades
       expanded: false
       items:

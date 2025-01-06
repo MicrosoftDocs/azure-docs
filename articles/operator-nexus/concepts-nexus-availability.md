@@ -59,7 +59,7 @@ Go through the following steps to help plan an Operator Nexus deployment.
 
 6.  Operator Nexus supports between 1 and 8 racks per site inclusive, with each rack containing 4, 8, 12 or 16 servers. All racks must be identical in terms of number of servers. See [here](./reference-near-edge-compute.md) for specifics of the resource available for workloads. See the following diagram, and also [this article](./reference-limits-and-quotas.md) for other limits and quotas that might have an impact.
 
-7.  Operator Nexus supports one or two storage appliances. These arrays are available to workload NFs running as Kubernetes nodes. Workloads running as VMs can either use local storage from the server they're instantiated on, or persistent storage provided by the storage appliance. See [here](./concepts-storage-virtual-machine.md) for further information.
+7.  Operator Nexus supports one or two storage appliances. These arrays are available to workload NFs running as Kubernetes nodes. Workloads running as VMs can either use local storage from the server they're instantiated on, or persistent storage provided by the storage appliance. See [here](./concepts-storage-virtual-machine.md) for further information. Note that, while persistent storage enables migrations of stopped VMs to an alternative BMM when their host BMM is stopped, it does not provide resiliency to unexpected BMM hardware failures.
 
 8.  Other factors to consider are the number of available physical sites, and any per-site limitations such as bandwidth or power.
 
