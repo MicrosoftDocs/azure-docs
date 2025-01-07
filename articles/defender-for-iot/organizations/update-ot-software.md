@@ -182,7 +182,7 @@ This procedure describes how to update OT sensor software via the CLI, directly 
 
 1. Use SFTP or SCP to copy the update package you'd downloaded from the Azure portal to the OT sensor machine.
 
-1. Sign in to the sensor as the `support` user, access the system shell and copy the update file to a location accessible for the update process. For example:
+1. Sign in to the sensor as the `cyberx_host` user, and copy the update file to a location accessible for the update process. For example:
 
     ```bash
     cd /var/host-logs/ 
@@ -197,9 +197,7 @@ This procedure describes how to update OT sensor software via the CLI, directly 
 
     At some point during the update process, your SSH connection will disconnect. This is a good indication that your update is running.
 
-1. Continue to monitor the update process by checking the `install.log` file.
-
-    Sign into the sensor as the `cyberx_host` user and run:
+1. Continue to monitor the update process by checking the `install.log` file, as follows:
 
     ```bash
     tail -f /opt/sensor/logs/install.log
