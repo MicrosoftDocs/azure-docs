@@ -75,14 +75,14 @@ The following sections provide details about properties that are used to define 
 
 ## Linked service properties
 
-The Teradata connector now supports 2.0 version. Refer to this [section](#upgrade-the-teradata-connector) to upgrade your Azure SQL Database connector version from 1.0 version. For the property details, see the corresponding sections.
+The Teradata connector now supports version 2.0. Refer to this [section](#upgrade-the-teradata-connector) to upgrade your Teradata connector version from version 1.0. For the property details, see the corresponding sections.
 
-- [2.0 version](#20-version)
-- [1.0 version](#10-version)
+- [Version 2.0](#version-20)
+- [Version 1.0](#version-10)
 
-### 2.0 version
+### Version 2.0
 
-The Teradata linked service 2.0 version supports the following properties:
+The Teradata linked service supports the following properties when apply version 2.0:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -134,9 +134,9 @@ More connection properties you can set in connection string per your case:
     }
 }
 ```
-### 1.0 version
+### Version 1.0 
 
-The Teradata linked service 1.0 version supports the following properties:
+The Teradata linked service supports the following properties when apply version 1.0:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -445,9 +445,9 @@ To learn details about the properties, check [Lookup activity](control-flow-look
 
 Here are steps that help you upgrade the Teradata connector:
 
-1. In **Edit linked service** page, select **2.0 (Preview)** under **Version** and configure the linked service by referring to [linked service 2.0 version properties](#20-version).
+1. In **Edit linked service** page, select **2.0 (Preview)** under **Version** and configure the linked service by referring to [linked service version 2.0 properties](#version-20).
 
-2. The data type mapping for the Teradata linked service 2.0 version is different from that for the 1.0 version. To learn the latest data type mapping, see [Data type mapping for Teradata](#data-type-mapping-for-teradata).
+2. The data type mapping for the Teradata linked service version 2.0 is different from that for the version 1.0. To learn the latest data type mapping, see [Data type mapping for Teradata](#data-type-mapping-for-teradata).
 
 
 ## Related content
