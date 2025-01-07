@@ -27,7 +27,7 @@ Container Apps hosting of containerized function apps is supported in all [regio
 
 If your app doesn't have specific hardware requirements, you can run your environment either in a Consumption plan or in a Dedicated plan using the default Consumption workload profile. When running functions on Container Apps, you're charged only for the Container Apps usage. For more information, see the [Azure Container Apps pricing page](https://azure.microsoft.com/pricing/details/container-apps/). 
 
-Azure Functions on Azure Container Apps support GPU-enabled hosting in the Dedicated plan with workload profiles. 
+Azure Functions on Azure Container Apps supports GPU-enabled hosting in the Dedicated plan with workload profiles. 
 
 To learn how to create and deploy a function app container to Container Apps in the default Consumption plan, see [Create your first containerized functions on Azure Container Apps](functions-deploy-container-apps.md). 
 
