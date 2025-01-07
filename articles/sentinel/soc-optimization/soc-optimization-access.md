@@ -19,11 +19,9 @@ appliesto:
 
 # Optimize your security operations
 
-Security operations center (SOC) teams actively look for opportunities to optimize both processes and outcomes. You want to ensure that you have all the data you need to take action against risks in your environment, while also ensuring that you're not paying to ingest *more* data than you need. At the same time, your teams must regularly adjust security controls as threat landscapes and business priorities change, adjusting quickly and efficiently to keep your return on investments high.
+Security operations center (SOC) teams look for ways to improve processes and outcomes and ensure you have the data needed to address risks without extra ingestion costs. SOC teams want to make sure that you have all the necessary data to act against risks, without paying for *more* data than needed. At the same time, SOC teams must also adjust security controls as threats and business priorities change, doing so quickly and efficiently to maximize your return on investment.
 
-SOC optimization surfaces ways you can optimize your security controls, gaining more value from Microsoft security services as time goes on.
-
-SOC optimizations are high-fidelity and actionable recommendations to help you identify areas where you can reduce costs, without affecting SOC needs or coverage, or where you can add security controls and data where its found to be missing. SOC optimizations are tailored to your environment and based on your current coverage and threat landscape.
+SOC optimizations are actionable recommendations that surface ways that you can optimize your security controls, gaining more value from Microsoft security services as time goes on.  Recommendations help you reduce costs without affecting SOC needs or coverage, and can help you add security controls and data where needed. These optimizations are tailored to your environment and based on your current coverage and threat landscape.
 
 Use SOC optimization recommendations to help you close coverage gaps against specific threats and tighten your ingestion rates against data that doesn't provide security value. SOC optimizations help you optimize your Microsoft Sentinel workspace, without having your SOC teams spend time on manual analysis and research.
 
@@ -71,7 +69,7 @@ Supported metrics at the top of the **Overview** tab include:
 | **Ingested data over the last 3 months** | Shows the total data ingested in your workspace over the last three months. |
 |**Optimizations status**    | Shows the number of recommended optimizations that are currently active, completed, and dismissed.        |
 
-Select **See all threat scenarios** to view the full list of relevant threats, active and recommended detections, and coverage levels.
+Select **See all threat scenarios** to view the full list of relevant threats, percentages of active and recommended analytics rules, and coverage levels.
 
 ### [Defender portal](#tab/defender-portal)
 
@@ -79,10 +77,8 @@ Select **See all threat scenarios** to view the full list of relevant threats, a
 |---------|---------|
 |**Recent optimization value**    | Shows value gained based on recommendations you recently implemented |
 |**Data ingested**     | Shows the total data ingested in your workspace over the last 90 days. |
-|**Threat-based coverage optimizations**     |   Shows a **High**, **Medium**, and **Low** coverage indicator, based on the number of analytics rules (detections) found in your workspace, compared with the number of rules recommended by the Microsoft research team.<br><br>The metrics show a ratio of your active detections and the ratio of active security services in your environment.<br><br>Select **View all threat scenarios** to view the full list of relevant threats, active and recommended detections, and coverage levels. Then, select a threat scenario to drill down for more details about the recommendation on a separate, threat scenario details page. |
+|**Threat-based coverage optimizations**     |  Shows one of the following coverage indicators, based on the number of analytics rules found in your workspace, compared with the number of rules recommended by the Microsoft research team: <br>- **High**: Over 75% of recommended rules are activated <br>- **Medium**: 30%-74% of recommended rules are activated <br>- **Low**: 0%-29% of recommended rules are activated. <br><br>Select **View all threat scenarios** to view the full list of relevant threats, active and recommended detections, and coverage levels. Then, select a threat scenario to drill down for more details about the recommendation on a separate, threat scenario details page. |
 |**Optimization status**     | Shows the number of recommended optimizations that are currently active, completed, and dismissed.        |
-
-<!--do we have an indication of what low med high mean? we use to have best, better, good, moderate, none-->
 
 ---
 
@@ -135,7 +131,7 @@ Scroll down to the bottom of the details pane for a link to where you can take t
 1. For threat-based coverage optimizations:
 
     - Toggle between the spider charts to understand your coverage across different tactics and techniques, based on the user-defined and out-of-the-box detections active in your environment.
-    - Select **View threat scenario in MITRE ATT&CK** to jump to the [**MITRE ATT&CK** page in Microsoft Sentinel](../mitre-coverage.md?tabs=defender-portal), pre-filtered for your threat scenario. For more information, see [Understand security coverage by the MITRE ATT&CK® framework].
+    - Select **View threat scenario in MITRE ATT&CK** to jump to the [**MITRE ATT&CK** page in Microsoft Sentinel](../mitre-coverage.md?tabs=defender-portal), prefiltered for your threat scenario. For more information, see [Understand security coverage by the MITRE ATT&CK® framework].
 
 1. Scroll down to the bottom of the details pane for a link to where you can take the recommended actions. For example:
 
@@ -147,7 +143,7 @@ Scroll down to the bottom of the details pane for a link to where you can take t
 
 ---
 
-If you choose to install an analytics rule template from the Content hub, and you don't already have the solution installed, only the analytics rule template that you install is shown in the solution when you're done. 
+If you install an analytics rule template from the Content hub without the solution installed, only the installed template appears in the solution.
 
 Install the full solution to see all available content items from the selected solution. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](../sentinel-solutions-deploy.md).
 
@@ -166,7 +162,7 @@ Either select the options menu or select **View details** to take one of the fol
 
 ## View completed and dismissed optimizations
 
-If you marked a specific optimization as *Completed* or *Dismissed*, or if an optimization was automatically completed, it's listed on the **Completed** and **Dismissed** tabs, respectively.
+If you marked a specific optimization as *Completed* or *Dismissed*, or if an optimization is automatically completed, it's listed on the **Completed** and **Dismissed** tabs, respectively.
 
 From here, either select the options menu or select **View full details** to take one of the following actions:
 
@@ -189,7 +185,7 @@ This section provides a sample flow for using SOC optimizations, from either the
 
       - Add analytics rules to use the table for enhanced protection. To use this option, select **Go to the Content Hub** to view and configure specific out-of-the-box analytic rule templates that use the selected table. In the Content hub, you don't need to search for the relevant rule, as you're taken directly to the relevant rule.
 
-        If new analytic rules require additional log sources, consider ingesting them to improve threat coverage.
+        If new analytic rules require extra log sources, consider ingesting them to improve threat coverage.
 
         For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](../sentinel-solutions-deploy.md) and [Detect threats out-of-the-box](../detect-threats-built-in.md).
 

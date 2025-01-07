@@ -19,14 +19,14 @@ appliesto:
 
 Microsoft Sentinel analyzes ingested data, not only to [detect threats](detect-threats-built-in.md) and help you [investigate](investigate-cases.md), but also to visualize the nature and coverage of your organization's security status.
 
-This article describes how to use the **MITRE** page in Microsoft Sentinel to view the detections already active in your workspace, and those available for you to configure, to understand your organization's security coverage, based on the tactics and techniques from the MITRE ATT&CK® framework.
+This article describes how to use the **MITRE** page in Microsoft Sentinel to view the analytics rules (detections) already active in your workspace, and the detections available for you to configure, to understand your organization's security coverage, based on the tactics and techniques from the MITRE ATT&CK® framework.
 
 > [!IMPORTANT]
-> The MITRE page in Microsoft Sentinel is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> The MITRE page in Microsoft Sentinel is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Prerequisites
 
-Before you can view the MITRE coverage for your organization in Microsoft Sentinel, ensure you have the following:
+Before you can view the MITRE coverage for your organization in Microsoft Sentinel, ensure you have the following prerequisites:
 
 - An active Microsoft Sentinel instance.
 - Necessary permissions to view content in Microsoft Sentinel. For more information, see [Roles and permissions in Microsoft Sentinel](roles.md).
@@ -56,13 +56,13 @@ By default, both currently active scheduled query and near real-time (NRT) rules
 
     :::image type="content" source="media/mitre-coverage/mitre-coverage-defender.png" alt-text="Screenshot of the MITRE ATT&CK page in the Defender portal." lightbox="media/mitre-coverage/mitre-coverage-defender.png":::
 
-    To filter the page by a specific threat scenario, toggle the **View MITRE by threat scenario** option on, and then select a threat scenario from the drop down. The page is updated accordingly. For example:
+    To filter the page by a specific threat scenario, toggle the **View MITRE by threat scenario** option on, and then select a threat scenario from the drop-down menu. The page is updated accordingly. For example:
 
     :::image type="content" source="media/mitre-coverage/mitre-by-threat-scenario.png" alt-text="Screenshot of the MITRE ATT&CK page filtered by a specific threat scenario.":::
 
     ---
 
-1. Do any of the following:
+1. Use any of the following methods:
 
     - **Use the legend** to understand how many detections are currently active in your workspace for specific technique.
 
@@ -106,9 +106,9 @@ Having a scheduled rule with MITRE techniques applied running regularly in your 
 
 - **Threat hunting**:
 
-    - When creating a new hunting query, select the specific tactics and techniques to apply to your query.
-    - When searching for active hunting queries, filter the queries displayed by tactics by selecting an item from the list above the grid. Select a query to see tactic and technique details on the right.
-    - When creating bookmarks, either use the technique mapping inherited from the hunting query, or create your own mapping.
+    - When you're creating a new hunting query, select the specific tactics and techniques to apply to your query.
+    - When searching for active hunting queries, filter the queries displayed by tactics by selecting an item from the list above the grid. Select a query to see tactic and technique details in the details pane on the side
+    - When you're creating bookmarks, either use the technique mapping inherited from the hunting query, or create your own mapping.
 
     For more information, see [Hunt for threats with Microsoft Sentinel](hunting.md) and [Keep track of data during hunting with Microsoft Sentinel](bookmarks.md).
 
