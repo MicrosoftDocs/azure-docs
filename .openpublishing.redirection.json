@@ -4608,32 +4608,32 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "articles/app-spaces/how-to-add-components.md",
+      "source_path_from_root": "/articles/app-spaces/how-to-add-components.md",
       "redirect_url": "/azure/container-apps/",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "articles/app-spaces/how-to-manage-components.md",
+      "source_path_from_root": "/articles/app-spaces/how-to-manage-components.md",
       "redirect_url": "/azure/container-apps/",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "articles/app-spaces/index.yml",
+      "source_path_from_root": "/articles/app-spaces/index.yml",
       "redirect_url": "/azure/container-apps/",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "articles/app-spaces/overview.md",
+      "source_path_from_root": "/articles/app-spaces/overview.md",
       "redirect_url": "/azure/container-apps/",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "articles/app-spaces/quickstart-deploy-starter-app.md",
+      "source_path_from_root": "/articles/app-spaces/quickstart-deploy-starter-app.md",
       "redirect_url": "/azure/container-apps/",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "articles/app-spaces/quickstart-deploy-your-app.md",
+      "source_path_from_root": "/articles/app-spaces/quickstart-deploy-your-app.md",
       "redirect_url": "/azure/container-apps/",
       "redirect_document_id": false
     }
