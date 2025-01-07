@@ -101,9 +101,11 @@ Include at least one subscription in the subscription list that the customer run
 
 ### Scenario: Azure Resource Graph fields not being updated immediately
 
+#### Issue
+
 There are specific fields, when using Azure Resource Graph, that are updated at a slower cadence. These fields will converge to true values over time, provided there are no updates in between. 
 
-#### List of fields affected
+##### List of fields affected
 
 > [!IMPORTANT]
 > - This concept is not limited to specific properties. The following list are examples that you might find delayed, but eventually become updated.
@@ -113,6 +115,13 @@ There are specific fields, when using Azure Resource Graph, that are updated at 
 - properties.extended.instanceView.osVersion
 - properties.extended.instanceView.computerName
 
+#### Cause
+
+Some fields are coming from agent blobs that don't have notification coverage, therefore updates to these fields are delayed.
+
+#### Resolution
+
+These fields update at a slower cadence today, but will converge to true values over time, provided there are no updates in between.
 
 ## Next steps
 
