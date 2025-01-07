@@ -53,15 +53,5 @@ For single sign-on, the Tenant Admin would need to enable _Allow User Consent fo
 
 ## Next steps
 
-- To create an instance of Informatica Intelligent Data Management Cloud - Azure Native ISV Service, see [QuickStart: Get started with Informatica](informatica-create.md).
-<!-- 
-- Get started with Apache Airflow on Astro – An Azure Native ISV Service on
+- To create an instance of Informatica Intelligent Data Management Cloud - Azure Native ISV Service, see [QuickStart: Get started with Informatica](create.md).
 
-fix  links when marketplace links work.
-
-    > [!div class="nextstepaction"]
-    > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/informatica.informaticaPLUS%2FinformaticaDeployments)
-
-    > [!div class="nextstepaction"]
-    > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-informatica-for-azure?tab=Overview) 
--->

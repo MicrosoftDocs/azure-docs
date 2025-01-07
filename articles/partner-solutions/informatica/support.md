@@ -9,7 +9,7 @@ ms.date: 07/05/2024
 
 # Get support for Informatica Intelligent Data Management Cloud
 
-In this article, you learn how to contact support when working with an Informatica Intelligent Data Management Cloud organization. Before contacting support, see [Fix common errors](informatica-troubleshoot.md).
+In this article, you learn how to contact support when working with an Informatica Intelligent Data Management Cloud organization. Before contacting support, see [Fix common errors](troubleshoot.md).
 
 ## How to contact support
 
@@ -23,15 +23,4 @@ In this article, you learn how to contact support when working with an Informati
 
 ## Related content
 
-- Get help with troubleshooting, see [Troubleshooting Informatica integration with Azure](informatica-troubleshoot.md).
-<!--
-- Get started with Informatica – An Azure Native ISV Service on
- 
-fix  links when marketplace links work.
-
-    > [!div class="nextstepaction"]
-    > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/informatica.informaticaPLUS%2FinformaticaDeployments)
-
-    > [!div class="nextstepaction"]
-    > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-informatica-for-azure?tab=Overview) 
--->
+- Get help with troubleshooting, see [Troubleshooting Informatica integration with Azure](troubleshoot.md).

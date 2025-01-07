@@ -46,15 +46,5 @@ Once the Astro resource is deleted, all billing stops for that resource through 
 
 ## Next steps
 
-- Get help with troubleshooting, see [Troubleshooting Informatica integration with Azure](informatica-troubleshoot.md).
-<!--
-- Get started with Informatica – An Azure Native ISV Service on
- 
-fix  links when marketplace links work.
+- Get help with troubleshooting, see [Troubleshooting Informatica integration with Azure](troubleshoot.md).
 
-    > [!div class="nextstepaction"]
-    > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/informatica.informaticaPLUS%2FinformaticaDeployments)
-
-    > [!div class="nextstepaction"]
-    > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-informatica-for-azure?tab=Overview) 
--->
