@@ -173,6 +173,13 @@ sections:
         answer: |
           There's currently a regional boundary when an endpoint uses Azure Monitor and Arc agents with the associated Log Analytics workspace. As a result to this limitation, the associated Log Analytics workspace must be in the same region as the Arc endpoint. Data ingested into individual workspaces can be unionized for a single view, see [Query data across Log Analytics workspaces, applications, and resources in Azure Monitor](/azure/azure-monitor/logs/cross-workspace-query).
 
+  - name: Diagnostic tools
+    questions:
+      - question: | 
+          Are there limitations with diagnostics tools with private-only Application Gateways?
+        answer: |
+          Yes. Private-only applicaton gateways do not currently support Connection Troubleshoot or NSG Diagnostic operations. See additional information on [Private Application Gateway deployment (preview) - Azure Application Gateway](https://learn.microsoft.com/azure/application-gateway/application-gateway-private-deployment?tabs=portal#network-watcher-integration)
+  
   - name: Flow logs
     questions:
       - question: |
