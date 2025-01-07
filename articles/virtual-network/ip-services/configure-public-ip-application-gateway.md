@@ -104,13 +104,8 @@ In this section, you create an Application Gateway resource. You select the IP a
 
 Application gateway doesn't support changing the public IP address after creation.
 
-## More information
-
-* If a dynamic Basic git c IP is associated with an Application Gateway frontend, it only changes when the gateway is stopped or started. The DNS name associated with an Application Gateway frontend doesn't change. 
-
-## Caveats
-
-* Azure Application Gateway support for a [frontend public IPv6 address](../../application-gateway/ipv6-application-gateway-portal.md) is currently in public preview. 
+> [!NOTE]
+> If a dynamic Basic IP is associated with an Application Gateway frontend, it only changes when the gateway is stopped or started. The DNS name associated with an Application Gateway frontend doesn't change. 
 
 ## Next steps
 
