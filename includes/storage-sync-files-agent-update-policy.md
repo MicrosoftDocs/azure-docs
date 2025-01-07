@@ -2,15 +2,15 @@
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: include
-ms.date: 06/05/2024
+ms.date: 01/07/2025
 ms.author: kendownie
 ---
 The Azure File Sync agent is updated on a regular basis to add new functionality and to address issues. We recommend updating the Azure File Sync agent as new versions are available.
 
 #### Major vs. minor agent versions
 
-* Major agent versions often contain new features and have an increasing number as the first part of the version number. For example: 17.0.0.0
-* Minor agent versions are also called "patches" and are released more frequently than major versions. They often contain bug fixes and smaller improvements but no new features. For example: 17.2.0.0
+* Major agent versions often contain new features and have an increasing number as the first part of the version number. For example: 18.0.0.0
+* Minor agent versions are also called "patches" and are released more frequently than major versions. They often contain bug fixes and smaller improvements but no new features. For example: 18.2.0.0
 
 #### Upgrade paths
 
@@ -68,10 +68,10 @@ Set-StorageSyncAgentAutoUpdatePolicy -PolicyMode InstallLatest -Day <day> -Hour 
 
 Azure File Sync is a cloud service which continuously introduces new features and improvements. This means that a specific Azure File Sync agent version can only be supported for a limited time. To facilitate your deployment, the following rules guarantee you have enough time and notification to accommodate agent updates/upgrades in your change management process:
 
-- Major agent versions are supported for at least six months from the date of initial release.
+- Major agent versions are supported for at least twelve months from the date of initial release.
 - We guarantee there is an overlap of at least three months between the support of major agent versions.
 - Warnings are issued for registered servers using a soon-to-be expired agent at least three months prior to expiration. You can check if a registered server is using an older version of the agent under the registered servers section of a Storage Sync Service.
-- The lifetime of a minor agent version is bound to the associated major version. For example, when agent version 17.0.0.0 is set to expire, agent versions 17.\*.\*.\* will all be set to expire together.
+- The lifetime of a minor agent version is bound to the associated major version. For example, when agent version 18.0.0.0 is set to expire, agent versions 18.\*.\*.\* will all be set to expire together.
 
 > [!NOTE]
 > Installing an agent version with an expiration warning will display a warning but succeed. Attempting to install or connect with an expired agent version isn't supported and will be blocked.
