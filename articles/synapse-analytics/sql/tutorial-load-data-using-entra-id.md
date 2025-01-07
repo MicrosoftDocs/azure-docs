@@ -30,7 +30,7 @@ To enable access to data on Azure Data Lake Storage (ADLS) Gen2 accounts, you ne
 1. Select **Data storage** -> **Containers**, and navigate to the folder where the source data the external table needs access to is.
 1. Select **Access control (IAM)**.
 1. Select **Add -> Add role assignment**.
-1. In the list of job function roles, select **Storage Blob Data Reader** and select **Next**.
+1. In the list of job function roles, select **Storage Blob Data Reader** and select **Next**. If write permissions are needed, select **Storage Blob Data Contributor**. 
 1. In the **Add role assignment** page, select **+ Select members**. The **Select members** pane opens in the right-hand corner.
 1. Type the name of the desired Microsoft Entra ID account. When displayed, pick your desired account and chose **Select**.
 1. In the **Add role assignment** page, make sure the list of Members include your desired Microsoft Entra ID account. Once verified, select **Review + assign**.
@@ -42,7 +42,7 @@ The Microsoft Entra ID account or group is now a member of the Storage Blob Data
 
 The `COPY INTO` T-SQL statement provides flexible, high-throughput data ingestion into your tables, and is the primary strategy to ingest data into your dedicated SQL pool tables. It allows users to ingest data from external locations without having to create any of the extra database objects that are required for external tables.
 
-The `COPY INTO` statement uses the `CREDENTIAL` argument to specify the authentication method used to connect to the source account. However, when authenticating using Microsoft Entra ID or to a public storage account, `CREDENTIAL` doesn't need to be specified. To run the `COPY INTO` statement using a workspace managed identity for authentication, use the following T-SQL command:
+The `COPY INTO` statement uses the `CREDENTIAL` argument to specify the authentication method used to connect to the source account. However, when authenticating using Microsoft Entra ID or to a public storage account, `CREDENTIAL` doesn't need to be specified. To run the `COPY INTO` statement using Entra ID authentication, use the following T-SQL command:
 
 ```sql
 COPY INTO <TableName>
