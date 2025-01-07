@@ -48,7 +48,7 @@ In any cloud transformation journey, a comprehensive current-state analysis of t
 
 Choose the workload for which you wish to view the tags assigned.
 
-![Screenshot of workloads.](./media/resource-tagging/choose-workload.png)
+![Screenshot of choose workloads screen.](./media/resource-tagging/choose-workload.png)
 
 ## Filter using tags
 
