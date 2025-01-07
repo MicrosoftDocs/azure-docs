@@ -77,7 +77,7 @@ When an error occurs and control jumps to the `on-error` policy section, the err
 | `Message`  | string | Human-readable error description.                                                                         | Yes      |
 | `Scope`    | string | Name of the [scope](api-management-howto-policies.md#scopes) where the error occurred. | No       |
 | `Section`  | string | Section name where error occurred. Possible values: "inbound", "backend", "outbound", or "on-error".      | No       |
-| `Path`     | string | Specifies nested policy hierarchy, for example "choose\\otherwise\\choose[3]\\when[2]". Multiple instances of a nested policy are indexed from 1.                                         | No       |
+| `Path`     | string | Specifies nested policy hierarchy, for example "choose[3]\\when[2]". Multiple instances of a nested policy are indexed from 1.                                         | No       |
 | `PolicyId` | string | Value of the `id` attribute, if specified by the customer, on the policy where error occurred             | No       |
 
 > [!TIP]
