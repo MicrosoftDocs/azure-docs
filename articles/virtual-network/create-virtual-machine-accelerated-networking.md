@@ -483,7 +483,7 @@ Accelerated networking is enabled in the portal during virtual machine creation.
 
 1. Use [Set-AzVMOperatingSystem](/powershell/module/az.compute/set-azvmoperatingsystem) and [Set-AzVMSourceImage](/powershell/module/az.compute/set-azvmsourceimage) to create the rest of the VM configuration. The following example creates a Ubuntu Server virtual machine:
 
-  ```azurepowershell
+    ```azurepowershell
     $osParams = @{
         VM = $vmConfig
         ComputerName = "vm-1"
