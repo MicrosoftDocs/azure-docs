@@ -15,7 +15,7 @@ In this document you will learn how to use BICEP to deploy a data disk on Azure 
 
 ## Review the BICEP file
 
-Use Visual Studio Code or your favorite editor to create a file with the following content and name it **main.bicep**:
+Use Visual Studio Code or your favorite editor to create a file with the following content and name it **data-disk-bicep-template.bicep**:
 
 :::code language="bicep" source="includes/virtual-machine/data-disk-bicep-template.bicep":::
 
