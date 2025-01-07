@@ -1,7 +1,7 @@
 {
     "redirections": [
         {
-            "source_path_from_root": "/articles/partner-solutions/dynatrace/dynatrace-configure-prereqs.md",
+            "source_path_from_root": "/articles/partner-solutions/dynatrace/dynatrace-how-to-configure-prereqs.md",
             "redirect_url": "/azure/partner-solutions/dynatrace/configure-prerequisites",
             "redirect_document_id": true
         },

@@ -113,7 +113,7 @@ If you would like to reconfigure single sign-on, select **Single sign-on** in th
 
 If single sign-on was already configured, you can disable it.
 
-To establish single sign-on or change the application, select **Enable single sign-on through Microsoft Entra ID**. The portal retrieves  Dynatrace application from Microsoft Entra ID. The app comes from the enterprise app name selected during the [preconfiguration steps](dynatrace-how-to-configure-prereqs.md).
+To establish single sign-on or change the application, select **Enable single sign-on through Microsoft Entra ID**. The portal retrieves  Dynatrace application from Microsoft Entra ID. The app comes from the enterprise app name selected during the [preconfiguration steps](configure-prerequisites.md).
 
 ## Delete Dynatrace resource
 
