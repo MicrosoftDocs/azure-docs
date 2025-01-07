@@ -3,7 +3,7 @@ title: Minimum initial host deployment
 description: The minimum initial deployment is three hosts. 
 ms.topic: include
 ms.service: azure-vmware
-ms.date: 5/15/2024
+ms.date: 1/7/2025
 author: suzizuber
 ms.author: v-szuber
 ms.custom: engagement-fy23
@@ -14,6 +14,8 @@ ms.custom: engagement-fy23
 For each private cloud created, there's one vSAN cluster by default. You can add, delete, and scale clusters. The minimum number of hosts per cluster and the initial deployment is three. 
 
 You use vCenter Server and NSX Manager to manage most aspects of cluster configuration and operation. All local storage of each host in a cluster is under the control of VMware vSAN.
+
+Azure VMware Solution configures each cluster for n+1 availability through vSphere High Availability (HA) percentage-based Admission Control to protect workloads from the failure of a single node. **Cluster-1** of each Azure VMware Solution private cloud has a Resource Pool (**MGT-ResourcePool**) configured for the management and control plane components (vCenter Server, NSX Manager cluster, NSX Edges, HCX Manager Add-On, SRM Manager Add-On, vSphere Replication Add-On). The **MGT-ResourcePool** is configured to reserve 46 GHz CPU and 171.88 GB Memory, which cannot be changed by the customer. For a 3-node cluster, this means 2-nodes are dedicated to customer workloads, excluding the **MGT-ResourcePool** CPU and Memory resources reserved for management & control and 1-node of resources is held in reserve to protect against node failure.
 
 The Azure VMware Solution management and control plane have the following resource requirements that need to be accounted for during solution sizing of a **standard private cloud**.
 
