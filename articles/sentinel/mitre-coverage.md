@@ -56,7 +56,9 @@ By default, both currently active scheduled query and near real-time (NRT) rules
 
     :::image type="content" source="media/mitre-coverage/mitre-coverage-defender.png" alt-text="Screenshot of the MITRE ATT&CK page in the Defender portal." lightbox="media/mitre-coverage/mitre-coverage-defender.png":::
 
-    To filter the page by a specific threat scenario, toggle the **View MITRE by threat scenario** option on, and then select a threat scenario from the drop down. The page is updated accordingly.
+    To filter the page by a specific threat scenario, toggle the **View MITRE by threat scenario** option on, and then select a threat scenario from the drop down. The page is updated accordingly. For example:
+
+    :::image type="content" source="media/mitre-coverage/mitre-by-threat-scenario.png" alt-text="Screenshot of the MITRE ATT&CK page filtered by a specific threat scenario.":::
 
     ---
 
@@ -73,6 +75,9 @@ By default, both currently active scheduled query and near real-time (NRT) rules
         - Scroll down in the pane and select links to any of the active items to jump to the relevant area in Microsoft Sentinel.
 
         For example, select **Hunting queries** to jump to the **Hunting** page. There, you see a filtered list of the hunting queries that are associated with the selected technique, and available for you to configure in your workspace.
+
+    On the Defender portal, the details pane also shows recommended coverage details, including the ratio of active detections and security services (products) out of all recommended detections and services for the selected technique.
+
 
 ## Simulate possible coverage with available detections
 
