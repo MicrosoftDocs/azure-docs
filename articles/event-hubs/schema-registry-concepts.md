@@ -9,7 +9,7 @@ ms.author: spelluru
 
 #  Schema Registry in Azure Event Hubs
 
-Schema Registry is crucial in loosely coupled and event streaming workflows for maintaining data consistency, simplifying schema evolution, enhancing interoperability, and reducing development effort. It ensures highly reliable data processing and governance with very little operational overhead in very large distributed organizations with a centralized repository for schemas.
+Schema Registry is crucial in loosely coupled and event streaming workflows for maintaining data consistency, simplifying schema evolution, enhancing interoperability, and reducing development effort. It ensures highly reliable data processing and governance with little operational overhead in large distributed organizations with a centralized repository for schemas.
 
 Schema Registry in Azure Event Hubs fulfills multiple roles in schema-driven event streaming scenarios -
    * Provides a repository where multiple schemas can be registered, managed, and evolved.
@@ -19,12 +19,12 @@ Schema Registry in Azure Event Hubs fulfills multiple roles in schema-driven eve
    * Improves network throughput efficiency by passing schema ID instead of the schema definition for every payload.
 
 > [!NOTE]
-> Schema Registry is supported on Standard, Premium and Dedicated tiers.
+> Schema Registry is supported on Standard, Premium, and Dedicated tiers.
 >
 
 ## Schema Registry components
 
-The Schema Registry lives in the context of the Event Hubs namespace, but it can be used with all Azure messaging service or other message or events broker. It comprises multiple schema groups which acts as a logical grouping of schemas and can be managed independent of other schema groups. 
+The Schema Registry lives in the context of the Event Hubs namespace, but it can be used with all Azure messaging service or other message or events broker. It comprises multiple schema groups which act as a logical grouping of schemas and can be managed independent of other schema groups. 
 
 :::image type="content" source="./media/schema-registry-overview/elements.png" alt-text="Diagram that shows the components of Schema Registry in Azure Event Hubs." border="false":::
 
@@ -33,9 +33,9 @@ The Schema Registry lives in the context of the Event Hubs namespace, but it can
 In any loosely coupled system, there are multiple applications communicating with each other, primarily through data. Schemas act as a declarative way to define the structure of the data so that the contract between these producer and consumer applications is well defined, ensuring reliable processing at scale.
 
 A schema definition includes -
-   * Fields - name of the individual data elements (i.e. first/last name, book title, address).
-   * Data types - the kind of data that can be stored in each field (e.g. string, date-time, array).
-   * Structure - the organization of the different fields (i.e. nested structures or arrays).
+   * Fields - name of the individual data elements (that is, first/last name, book title, address).
+   * Data types - the kind of data that can be stored in each field (for example, string, date-time, array).
+   * Structure - the organization of the different fields (that is, nested structures or arrays).
 
 Schemas define the contract between producers and consumers. A schema defined in an Event Hubs schema registry helps manage the contract outside of event data, thus removing the payload overhead.
 
@@ -57,16 +57,16 @@ To learn more about using JSON schema format with Event Hubs Schema Registry, se
 
 ##### Protobuf
 
-[Protocol Buffers](https://protobuf.dev/) is a language-neutral, platform-neutral, extensible mechanism for serializing structured data. It is used for efficiently defining data structures and serializing them into a compact binary format.
+[Protocol Buffers](https://protobuf.dev/) is a language-neutral, platform-neutral, extensible mechanism for serializing structured data. It's used for efficiently defining data structures and serializing them into a compact binary format.
 
 ### Schema groups
 
 Schema groups are logical groups of similar schemas based on your business criteria. A schema group holds 
-   * multiple schema definitons, 
+   * multiple schema definition, 
    * multiple versions of a specific schema, and 
    * metadata regarding the schema type and compatibility for all schemas in the group.
 
-A schema groups can be thought of as a subset of the schema registry, aligned with a particular application or organizational unit, with a separate authorization model. This additional security boundary ensures that in the shared services model, metadata and trade secrets are not leaked. It also allows for application owners to manage schemas independent of other applications that share the same namespace.
+A schema groups can be thought of as a subset of the schema registry, aligned with a particular application or organizational unit, with a separate authorization model. This extra security boundary ensures that in the shared services model, metadata, and trade secrets aren't leaked. It also allows for application owners to manage schemas independent of other applications that share the same namespace.
 
 ## Schema evolution 
 Schemas need to evolve with the business requirement of producers and consumers. Azure Schema Registry supports schema evolution by introducing compatibility modes at the schema group level. When you create a schema group, you can specify the compatibility mode of the schemas that you include in that schema group. When you update a schema, the change should  comply with the assigned compatibility mode and then only it creates a new version of the schema. 
@@ -110,7 +110,7 @@ For limits (for example: number of schema groups in a namespace) of Event Hubs, 
 To access a schema registry programmatically, follow these steps:
 
 1. [Register your application in Microsoft Entra ID](../active-directory/develop/quickstart-register-app.md)
-1. Add the security principal of the application to one of the following Azure role-based access control (Azure RBAC) roles at the **namespace** level. 
+1. Add the security principal of the application to one of the following Azure RBAC(role-based access control) roles at the **namespace** level. 
 
 | Role | Description | 
 | ---- | ----------- | 
