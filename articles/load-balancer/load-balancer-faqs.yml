@@ -137,7 +137,13 @@ sections:
           Can I ping my load balancer?
         answer: |
           Yes, you can ping the frontend of your Standard Public Load Balancer. For more information, see [how to ping the frontend of your load balancer.](load-balancer-test-frontend-reachability.md) 
-          
+
+      - question: |
+          Can I ping from a backend VM behind a load balancer to a public IP?
+        answer: |
+          No, this will not work. Azure Load Balancer does not support ICMP for outbound NAT. Only TCP and UDP are supported protocols for outbound connections. ICMP will only function for outbound connections if the backend VM has an Instance-Level Public IP 
+         (ILPIP). Without an ILPIP, ICMP outbound packets will be discarded.
+      
       - question: |
           Can I include On-premises IPs in the backend pool of Azure Load Balancer?
         answer: |
