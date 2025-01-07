@@ -20,13 +20,13 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Azure Native New Relic Service?
-            url: new-relic-overview.md
+            url: overview.md
       - linkListType: how-to-guide
         links:
           - text: Complete the prerequisites
-            url: new-relic-how-to-configure-prereqs.md
+            url: configure-prerequisites.md
           - text: Manage a resource by using the portal
-            url: new-relic-how-to-manage.md
+            url: manage.md
 
   # Card
   - title: Create an Azure Native New Relic Service resource
@@ -34,13 +34,13 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Create a new resource
-            url: new-relic-create.md
+            url: create.md
           - text: Link to an existing New Relic account
-            url: new-relic-link-to-existing.md
+            url: link-to-existing-resources.md
       - linkListType: how-to-guide
         links:
           - text: Troubleshoot a resource
-            url: new-relic-troubleshoot.md
+            url: troubleshoot.md
 
   # Card
   # - title: Explore reference content
