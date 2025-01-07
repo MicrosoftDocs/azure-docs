@@ -17,7 +17,7 @@ The Azure File Sync agent is updated on a regularly to add new functionality and
 There are five approved and tested ways to install the Azure File Sync agent updates.
 
 1. **Use Azure File Sync agent auto-upgrade feature to install agent updates.**
-    The Azure File Sync agent will auto-upgrade. You can select to install the latest agent version when available or update when the currently installed agent is near expiration. To learn more, see [Automatic agent lifecycle management](#automatic-agent-lifecycle-management).
+    The Azure File Sync agent auto-upgrades. You can select to install the latest agent version when available or update when the currently installed agent is near expiration. To learn more, see [Automatic agent lifecycle management](#automatic-agent-lifecycle-management).
 2. **Configure Microsoft Update to automatically download and install agent updates.**
     We recommend installing every Azure File Sync update to ensure you have access to the latest fixes for the server agent. Microsoft Update makes this process seamless by automatically downloading and installing updates for you.
 3. **Use AfsUpdater.exe to download and install agent updates.**
@@ -25,7 +25,7 @@ There are five approved and tested ways to install the Azure File Sync agent upd
 4. **Patch an existing Azure File Sync agent by using a Microsoft Update patch file, or a .msp executable. The latest Azure File Sync update package can be downloaded from the [Microsoft Update Catalog](https://www.catalog.update.microsoft.com/Search.aspx?q=Azure%20File%20Sync).**
     Running an .msp executable upgrades your Azure File Sync installation with the same method used automatically by Microsoft Update. Applying a Microsoft Update patch performs an in-place upgrade of an Azure File Sync installation.
 5. **Download the newest Azure File Sync agent installer from the [Microsoft Download Center](https://go.microsoft.com/fwlink/?linkid=858257).**
-    To upgrade an existing Azure File Sync agent installation, uninstall the older version and then install the latest version from the downloaded installer. The server registration, sync groups, and any other settings are maintained by the Azure File Sync installer.
+    To upgrade an existing Azure File Sync agent installation, uninstall the older version and then install the latest version from the downloaded installer. Agent settings (server registration, server endpoints, etc.) are maintained when the Azure File Sync agent is uninstalled.
 
 > [!NOTE]
 > The downgrade of Azure File Sync agent isn't supported. The new versions often include breaking changes when compared to the old versions, making the downgrade process unsupported. In case you encounter any problems with your current agent version, reach out to support or upgrade to the latest available release.
@@ -71,7 +71,7 @@ Azure File Sync is a cloud service which continuously introduces new features an
 - Major agent versions are supported for at least twelve months from the date of initial release.
 - We guarantee there is an overlap of at least three months between the support of major agent versions.
 - Warnings are issued for registered servers using a soon-to-be expired agent at least three months prior to expiration. You can check if a registered server is using an older version of the agent under the registered servers section of a Storage Sync Service.
-- The lifetime of a minor agent version is bound to the associated major version. For example, when agent version 18.0.0.0 is set to expire, agent versions 18.\*.\*.\* will all be set to expire together.
+- The lifetime of a minor agent version is bound to the associated major version. For example, when agent version 18.0.0.0 is set to expire, agent versions 18.\*.\*.\* will all expire together.
 
 > [!NOTE]
 > Installing an agent version with an expiration warning displays a warning but will succeed. Attempting to install or connect with an expired agent version isn't supported and will be blocked.
