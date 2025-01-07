@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 12/12/2024
+ms.date: 01/07/2025
 ms.custom: generated
 ---
 
@@ -536,6 +536,14 @@ The following table provides a brief description of each built-in role. Click th
 > | <a name='azure-stack-hci-vm-reader'></a>[Azure Stack HCI VM Reader](./built-in-roles/hybrid-multicloud.md#azure-stack-hci-vm-reader) | Grants permissions to view VMs | 4b3fe76c-f777-4d24-a2d7-b027b0f7b273 |
 > | <a name='azure-stack-registration-owner'></a>[Azure Stack Registration Owner](./built-in-roles/hybrid-multicloud.md#azure-stack-registration-owner) | Lets you manage Azure Stack registrations. | 6f12a6df-dd06-4f3e-bcb1-ce8be600526a |
 > | <a name='hybrid-server-resource-administrator'></a>[Hybrid Server Resource Administrator](./built-in-roles/hybrid-multicloud.md#hybrid-server-resource-administrator) | Can read, write, delete, and re-onboard Hybrid servers to the Hybrid Resource Provider. | 48b40c6e-82e0-4eb3-90d5-19e40f49b624 |
+
+
+## Quantum
+
+> [!div class="mx-tableFixed"]
+> | Built-in role | Description | ID |
+> | --- | --- | --- |
+> | <a name='quantum-workspace-data-contributor'></a>[Quantum Workspace Data Contributor](./built-in-roles/quantum.md#quantum-workspace-data-contributor) | Lets you submit and view jobs in the workspace. | 3df8b902-2a6f-47c7-8cc5-360e9b272a7e |
 
 ## Next steps
 

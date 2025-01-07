@@ -211,6 +211,8 @@
       href: built-in-roles/management-and-governance.md
     - name: Hybrid + multicloud
       href: built-in-roles/hybrid-multicloud.md
+    - name: Quantum
+      href: built-in-roles/quantum.md
   - name: Permissions
     items:
     - name: Permissions
@@ -253,6 +255,8 @@
       href: permissions/management-and-governance.md
     - name: Hybrid + multicloud
       href: permissions/hybrid-multicloud.md
+    - name: Quantum
+      href: permissions/quantum.md
   - name: Azure RBAC limits
     href: ../azure-resource-manager/management/azure-subscription-service-limits.md#azure-rbac-limits
   - name: Azure PowerShell
