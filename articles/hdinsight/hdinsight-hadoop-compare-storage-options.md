@@ -21,7 +21,7 @@ The following table summarizes the Azure Storage services that are supported wit
 
 | Storage service | Account type | Namespace Type | Supported services | Supported performance tiers | Supported access tiers | HDInsight Version | Cluster type |
 |---|---|---|---|---|---|---|---|
-|Azure Data Lake Storage Gen2| General-purpose V2 | Hierarchical (filesystem) | Blob | Standard | Hot, Cool, Archive | All | All except Spark 2.1 and 2.2|
+|Azure Data Lake Storage Gen2| General-purpose V2 | Hierarchical (filesystem) | Blob | Standard | Hot, Cool, Archive | All | |
 |Azure Storage| General-purpose V2 | Object | Blob | Standard | Hot, Cool, Archive | All | All |
 |Azure Storage| General-purpose V1 | Object | Blob | Standard | N/A | All | All |
 |Azure Storage| Blob Storage** | Object | Block Blob | Standard | Hot, Cool, Archive | All | All |
