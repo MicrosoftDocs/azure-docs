@@ -36,26 +36,26 @@ There are some important steps to do before moving a resource. By verifying thes
 
 1. The source and destination subscriptions must exist within the same [Microsoft Entra tenant](../../active-directory/develop/quickstart-create-new-tenant.md). To check that both subscriptions have the same tenant ID, use Azure PowerShell or Azure CLI.
 
-  # [CLI](#tab/CLI)
-  
-  ```azurecli-interactive
-  az account show --subscription <your-source-subscription> --query tenantId
-  az account show --subscription <your-destination-subscription> --query tenantId
-  ```
-  
-  # [PowerShell](#tab/PowerShell)
-  
-  ```azurepowershell-interactive
-  (Get-AzSubscription -SubscriptionName <your-source-subscription>).TenantId
-  (Get-AzSubscription -SubscriptionName <your-destination-subscription>).TenantId
-  ```
-  
-  ---
-  
-  If the tenant IDs for the source and destination subscriptions aren't the same, use the following methods to reconcile the tenant IDs:
-  
-  * [Transfer ownership of an Azure subscription to another account](../../cost-management-billing/manage/billing-subscription-transfer.md)
-  * [How to associate or add an Azure subscription to Microsoft Entra ID](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
+    # [CLI](#tab/CLI)
+    
+    ```azurecli-interactive
+    az account show --subscription <your-source-subscription> --query tenantId
+    az account show --subscription <your-destination-subscription> --query tenantId
+    ```
+    
+    # [PowerShell](#tab/PowerShell)
+    
+    ```azurepowershell-interactive
+    (Get-AzSubscription -SubscriptionName <your-source-subscription>).TenantId
+    (Get-AzSubscription -SubscriptionName <your-destination-subscription>).TenantId
+    ```
+    
+    ---
+    
+    If the tenant IDs for the source and destination subscriptions aren't the same, use the following methods to reconcile the tenant IDs:
+    
+    * [Transfer ownership of an Azure subscription to another account](../../cost-management-billing/manage/billing-subscription-transfer.md)
+    * [How to associate or add an Azure subscription to Microsoft Entra ID](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
 1. If you're attempting to move resources to or from a Cloud Solution Provider (CSP) partner, see [Transfer Azure subscriptions between subscribers and CSPs](../../cost-management-billing/manage/transfer-subscriptions-subscribers-csp.yml).
 
@@ -63,66 +63,66 @@ There are some important steps to do before moving a resource. By verifying thes
 
 1. Some services have specific limitations or requirements when moving resources. If you're moving any of the following services, check that guidance before moving.
 
-  * If you're using Azure Stack Hub, you can't move resources between groups.
-  * [App Services move guidance](./move-limitations/app-service-move-limitations.md)
-  * [Azure DevOps Services move guidance](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json)
-  * [Classic deployment model move guidance](./move-limitations/classic-model-move-limitations.md) - Classic Compute, Classic Storage, Classic Virtual Networks, and Cloud Services
-  * [Cloud Services (extended support) move guidance](./move-limitations/classic-model-move-limitations.md)
-  * [Networking move guidance](./move-limitations/networking-move-limitations.md)
-  * [Recovery Services move guidance](../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)
-  * [Virtual Machines move guidance](./move-limitations/virtual-machines-move-limitations.md)
-  * To move an Azure subscription to a new management group, see [Move subscriptions](../../governance/management-groups/manage.md#move-management-groups-and-subscriptions).
+    * If you're using Azure Stack Hub, you can't move resources between groups.
+    * [App Services move guidance](./move-limitations/app-service-move-limitations.md)
+    * [Azure DevOps Services move guidance](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json)
+    * [Classic deployment model move guidance](./move-limitations/classic-model-move-limitations.md) - Classic Compute, Classic Storage, Classic Virtual Networks, and Cloud Services
+    * [Cloud Services (extended support) move guidance](./move-limitations/classic-model-move-limitations.md)
+    * [Networking move guidance](./move-limitations/networking-move-limitations.md)
+    * [Recovery Services move guidance](../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)
+    * [Virtual Machines move guidance](./move-limitations/virtual-machines-move-limitations.md)
+    * To move an Azure subscription to a new management group, see [Move subscriptions](../../governance/management-groups/manage.md#move-management-groups-and-subscriptions).
 
 1. The destination subscription must be registered for the resource provider of the resource being moved. If not, you receive an error stating that the **subscription is not registered for a resource type**. You might see this error when moving a resource to a new subscription, but that subscription has never been used with that resource type.
 
-  # [CLI](#tab/CLI)
-  
-  To get the registration status:
-  
-  ```azurecli-interactive
-  az account set -s <destination-subscription-name-or-id>
-  az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table
-  ```
-  
-  To register a resource provider:
-  
-  ```azurecli-interactive
-  az provider register --namespace Microsoft.Batch
-  ```
-  
-  # [PowerShell](#tab/PowerShell)
-  
-  To get the registration status:
-  
-  ```azurepowershell-interactive
-  Set-AzContext -Subscription <destination-subscription-name-or-id>
-  Get-AzResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
-  ```
-  
-  To register a resource provider:
-  
-  ```azurepowershell-interactive
-  Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
-  ```
-  
-  ---
+    # [CLI](#tab/CLI)
+    
+    To get the registration status:
+    
+    ```azurecli-interactive
+    az account set -s <destination-subscription-name-or-id>
+    az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table
+    ```
+    
+    To register a resource provider:
+    
+    ```azurecli-interactive
+    az provider register --namespace Microsoft.Batch
+    ```
+    
+    # [PowerShell](#tab/PowerShell)
+    
+    To get the registration status:
+    
+    ```azurepowershell-interactive
+    Set-AzContext -Subscription <destination-subscription-name-or-id>
+    Get-AzResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
+    ```
+    
+    To register a resource provider:
+    
+    ```azurepowershell-interactive
+    Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
+    ```
+    
+    ---
 
 1. Before moving the resources, check the subscription quotas for the subscription you're moving the resources to. If moving the resources means the subscription exceeds its limits, you need to review whether you can request an increase in the quota. For a list of limits and how to request an increase, see [Azure subscription and service limits, quotas, and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 1. The account moving the resources must have at least the following permissions:
 
-  * **Microsoft.Resources/subscriptions/resourceGroups/moveResources/action** on the source resource group.
-  * **Microsoft.Resources/subscriptions/resourceGroups/write** on the destination resource group.
+    * **Microsoft.Resources/subscriptions/resourceGroups/moveResources/action** on the source resource group.
+    * **Microsoft.Resources/subscriptions/resourceGroups/write** on the destination resource group.
 
 1. If you move a resource that has an Azure role assigned directly to the resource (or a child resource), the role assignment isn't moved and becomes orphaned. After the move, you must re-create the role assignment. Eventually, the orphaned role assignment is automatically removed, but we recommend removing the role assignment before the move.
 
-  For information about how to manage role assignments, see [List Azure role assignments](../../role-based-access-control/role-assignments-list-portal.yml#list-role-assignments-at-a-scope) and [Assign Azure roles](../../role-based-access-control/role-assignments-portal.yml).
+    For information about how to manage role assignments, see [List Azure role assignments](../../role-based-access-control/role-assignments-list-portal.yml#list-role-assignments-at-a-scope) and [Assign Azure roles](../../role-based-access-control/role-assignments-portal.yml).
 
 1. **For a move across subscriptions, the resource and its dependent resources must be located in the same resource group and they must be moved together.** For example, a VM with managed disks would require the VM and the managed disks to be moved together, along with other dependent resources.
 
-  If you're moving a resource to a new subscription, check to see whether the resource has any dependent resources, and whether they're located in the same resource group. If the resources aren't in the same resource group, check to see whether the resources can be combined into the same resource group. If so, bring all these resources into the same resource group by using a move operation across resource groups.
-  
-  For more information, see [Scenario for move across subscriptions](#scenario-for-move-across-subscriptions).
+    If you're moving a resource to a new subscription, check to see whether the resource has any dependent resources, and whether they're located in the same resource group. If the resources aren't in the same resource group, check to see whether the resources can be combined into the same resource group. If so, bring all these resources into the same resource group by using a move operation across resource groups.
+    
+    For more information, see [Scenario for move across subscriptions](#scenario-for-move-across-subscriptions).
 
 ## Scenario for move across subscriptions
 
