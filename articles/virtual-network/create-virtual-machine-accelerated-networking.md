@@ -5,7 +5,7 @@ author: asudbring
 ms.author: allensu
 ms.service: azure-virtual-network
 ms.topic: how-to
-ms.date: 01/06/2025
+ms.date: 01/07/2025
 ms.custom: fasttrack-edit, devx-track-azurecli, linux-related-content, innovation-engine
 ---
 
@@ -465,38 +465,71 @@ Accelerated networking is enabled in the portal during virtual machine creation.
 
 ### [PowerShell](#tab/powershell)
 
-Create a VM with [New-AzVM](/powershell/module/az.compute/new-azvm). The following example creates a VM named **vm-1** in the **vnet-1** virtual network. When prompted, enter the username and password for the virtual machine.
+1. Use [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential) to set a user name and password for the VM and store them in the `$cred` variable.
 
-```azurepowershell-interactive
-# Create a credential object
-$cred = Get-Credential
+    ```azurepowershell
+    $cred = Get-Credential
+    ```
 
-# Define the network interface parameters
-$nicParams = @{
-    ResourceGroupName = "test-rg"
-    Name = "nic-1"
-}
+1. Use [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig) to define a VM with a VM size that supports accelerated networking, as listed in [Windows Accelerated Networking](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview). For a list of all Windows VM sizes and characteristics, see [Windows VM sizes](/azure/virtual-machines/sizes).
 
-# Get the network interface object
-$nic = Get-AzNetworkInterface @nicParams
+    ```azurepowershell
+    $vmConfigParams = @{
+        VMName = "vm-1"
+        VMSize = "Standard_DS4_v2"
+        }
+    $vmConfig = New-AzVMConfig @vmConfigParams
+    ```
 
-# Define the VM parameters
-$vmParams = @{
-    ResourceGroupName = "test-rg"
-    Location = "EastUS2"
-    Name = "vm-1"
-    ImageName = "Canonical:ubuntu-24_04-lts:server-gen1:latest"
-    Size = "Standard_DS1_v2"
-    Credential = $cred
-    VirtualNetworkName = "vnet-1"
-    SubnetName = "subnet-1"
-    PublicIpAddressName = $null
-    NetworkInterfaceIds = @($nic.Id)
-}
+1. Use [Set-AzVMOperatingSystem](/powershell/module/az.compute/set-azvmoperatingsystem) and [Set-AzVMSourceImage](/powershell/module/az.compute/set-azvmsourceimage) to create the rest of the VM configuration. The following example creates a Ubuntu Server virtual machine:
 
-# Create the VM
-New-AzVM @vmParams
-```
+  ```azurepowershell
+    $osParams = @{
+        VM = $vmConfig
+        ComputerName = "vm-1"
+        Credential = $cred
+        ProvisionVMAgent = $true
+        EnableAutoUpdate = $true
+    }
+    $vmConfig = Set-AzVMOperatingSystem @osParams -Linux
+
+    $imageParams = @{
+        VM = $vmConfig
+        PublisherName = "Canonical"
+        Offer = "ubuntu-24_04-lts"
+        Skus = "server"
+        Version = "latest"
+    }
+    $vmConfig = Set-AzVMSourceImage @imageParams
+    ```
+
+1. Use [Add-AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface) to attach the NIC that you previously created to the VM.
+
+    ```azurepowershell
+    # Get the network interface object
+    $nicParams = @{
+        ResourceGroupName = "test-rg"
+        Name = "nic-1"
+    }
+    $nic = Get-AzNetworkInterface @nicParams
+
+    $vmConfigParams = @{
+        VM = $vmConfig
+        Id = $nic.Id
+    }
+    $vmConfig = Add-AzVMNetworkInterface @vmConfigParams
+    ```
+
+1. Use [New-AzVM](/powershell/module/az.compute/new-azvm) to create the VM with Accelerated Networking enabled.
+
+    ```azurepowershell
+    $vmParams = @{
+        VM = $vmConfig
+        ResourceGroupName = "test-rg"
+        Location = "eastus2"
+    }
+    New-AzVM @vmParams
+    ```
 
 ### [CLI](#tab/cli)
 
