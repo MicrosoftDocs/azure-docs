@@ -16,11 +16,6 @@
             "redirect_document_id": true
         },
         {
-            "source_path_from_root": "/articles/partner-solutions/dynatrace/dynatrace-how-to-configure-prereqs.md",
-            "redirect_url": "/azure/partner-solutions/dynatrace/configure-prerequisites",
-            "redirect_document_id": true
-        },
-        {
             "source_path_from_root": "/articles/partner-solutions/dynatrace/dynatrace-link-to-existing.md",
             "redirect_url": "/azure/partner-solutions/dynatrace/link-to-existing-resources",
             "redirect_document_id": true
