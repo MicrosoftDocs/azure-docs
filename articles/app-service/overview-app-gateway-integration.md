@@ -66,6 +66,8 @@ To isolate traffic to an individual web app, you need to use IP-based access res
 
 An external App Service Environment has a public-facing load balancer like multitenant App Service apps. Service endpoints don't work for an App Service Environment. With App Service Environment you can use IP-based access restrictions by using the public IP address of the application gateway. To create an external App Service Environment by using the Azure portal, you can follow [this quickstart](./environment/creation.md).
 
+You can also [add private endpoints to apps hosted on an external App Service Environment](./environment/configure-network-settings.md#allow-new-private-endpoint-connections).
+
 ## Considerations for a Kudu/SCM site
 
 The SCM site, also known as Kudu, is an admin site that exists for every web app. It isn't possible to use reverse proxy for the SCM site. You most likely also want to lock it down to individual IP addresses or a specific subnet.

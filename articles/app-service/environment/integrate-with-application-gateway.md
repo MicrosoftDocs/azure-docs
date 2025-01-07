@@ -36,7 +36,7 @@ To integrate your application gateway with your ILB App Service Environment, you
 * A public DNS name for your application gateway.
 * If you need to use TLS encryption to the application gateway, a valid public certificate that's used to bind to your application gateway is required.
 
-### ILB App Service environment
+### ILB App Service Environment
 
 For details on how to create an ILB App Service Environment, see [Create an App Service Environment in the Azure portal](./creation.md) and [Create an App Service Environment with Azure Resource Manager template](./create-from-template.md).
 
@@ -83,7 +83,7 @@ The certificate file should have a private key and save in `.pfx` format. The ce
 
 For the basic application gateway creation, refer to [Tutorial: Create an application gateway with a Web Application Firewall using the Azure portal](../../web-application-firewall/ag/application-gateway-web-application-firewall-portal.md).
 
-In this tutorial, we use Azure portal to create an application gateway with ILB App Service environment.
+In this tutorial, we use Azure portal to create an application gateway with ILB App Service Environment.
 
 In the Azure portal, select **New** > **Network** > **Application Gateway** to create an application gateway.
 
