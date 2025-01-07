@@ -32,6 +32,7 @@ Microsoft Sentinel currently supports connections to GitHub and Azure DevOps rep
 - Collaborator access to your GitHub repository or Project Administrator access to your Azure DevOps repository
 - Actions enabled for GitHub and Pipelines enabled for Azure DevOps
 - Third-party application access via OAuth enabled for Azure DevOps [application connection policies](/azure/devops/organizations/accounts/change-application-access-policies#manage-a-policy).
+- An Azure DevOps connection must be in the same tenant as your Microsoft Sentinel workspace
 - Ensure custom content files you want to deploy to your workspaces are in a supported format. For supported formats, see [Plan your repository content](ci-cd-custom-content.md#plan-your-repository-content).
 
 For more information, see [Validate your content](ci-cd-custom-content.md#validate-your-content).
@@ -82,7 +83,7 @@ You can't create duplicate connections, with the same repository and branch, in 
 
     # [Azure DevOps](#tab/azure-devops)
 
-    You're automatically authorized to Azure DevOps using your current Azure credentials. [Verify that you're authorized to the same Azure DevOps organization](https://aex.dev.azure.com/) that you're connecting to from Microsoft Sentinel or use an InPrivate browser window to create your connection.
+    You're automatically authorized to Azure DevOps using your current Azure credentials. [Verify that you're authorized to the same Azure DevOps tenant](https://aex.dev.azure.com/) that you're connecting to from Microsoft Sentinel or use an InPrivate browser window to create your connection.
 
     Due to cross-tenant limitations, if you're creating a connection as a [guest user](../active-directory/external-identities/what-is-b2b.md) on the workspace, your Azure DevOps URL doesn't appear in the dropdown. Enter it manually instead.
     
