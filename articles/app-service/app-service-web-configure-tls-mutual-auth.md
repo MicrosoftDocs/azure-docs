@@ -93,6 +93,9 @@ For ARM templates, modify the properties `clientCertEnabled`, `clientCertMode`, 
 
 When you enable mutual auth for your application, all paths under the root of your app require a client certificate for access. To remove this requirement for certain paths, define exclusion paths as part of your application configuration.
 
+> [!NOTE]
+> Using any client certificate exclusion path will trigger TLS renegotiation for the app.
+
 1. From the left navigation of your app's management page, select **Configuration** > **General Settings**.
 
 1. Next to **Certificate exclusion paths**, select the edit icon.
@@ -105,6 +108,26 @@ In the following screenshot, any path for your app that starts with `/public` do
 
 ![Certificate Exclusion Paths][exclusion-paths]
 
+## Client certificate and TLS renegotiation
+App Service requires TLS renegotiation to read a request before knowing whether to prompt for a client certificate. Any of the following settings below will trigger TLS renegotiation:
+1. Use "Optional Interactive User" client certificate mode.
+1. Use [client certificate exclusion path](#exclusion-paths).
+
+To disable TLS renegotiation and to have the app negotiate client certificates during TLS handshake, you must configure your app with *all* the settings below:
+1. Set client certificate mode to "Required" or "Optional"
+2. Remove all client certificate exclusion paths
+
+### Uploading large files with TLS renegotiation
+Client certificate configurations that uses TLS renegotiation cannot support incoming requests with large files greater than 100kb. TLS renegotiation will fail any POST or PUT requests using large files with a 403 error.
+
+To resolve the error due to large files greater than 100kb due to TLS renegotiation, here are known alternative solutions to address the limitations:
+
+1. Update your app's client certificate configuration to meet _all_ requirements below:
+  1. Set client certificate mode to either "Required" or "Optional"
+  1. Remove all client certificate exclusion paths
+1. Send a HEAD request before the PUT/POST request. The HEAD request will handle the client certificate.
+1. Add the header `Expect: 100-Continue` to your request. This will cause the client to wait until the server responds with a `100 Continue` before sending the request body, which bypasses the buffers.
+
 ## Access client certificate
 
 In App Service, TLS termination of the request happens at the frontend load balancer. When App Service forwards the request to your app code with [client certificates enabled](#enable-client-certificates), it injects an `X-ARR-ClientCert` request header with the client certificate. App Service doesn't do anything with this client certificate other than forwarding it to your app. Your app code is responsible for validating the client certificate.
@@ -112,26 +135,6 @@ In App Service, TLS termination of the request happens at the frontend load bala
 For ASP.NET, the client certificate is available through the **HttpRequest.ClientCertificate** property.
 
 For other application stacks (Node.js, PHP, etc.), the client cert is available in your app through a base64 encoded value in the `X-ARR-ClientCert` request header.
-
-## Client certificate limitation
-Certain client certificate configurations cannot support incoming requests with large files greater than 100kb. TLS renegotiation will fail any POST or PUT requests using large files with a 403 error. App Service uses TLS renegotiation to retrieve the client certificates. These configurations below will trigger TLS renegotiation:
-
-1. Using client certificate mode "Optional Interactive User"
-2. Using client certificate exclusion paths regardless of client certificate mode
-
-### Resolving large files limitation
-To resolve the error due to large files greater than 100kb due to TLS renegotiation, here are known alternative solutions to address the limitations:
-
-#### Changing client certificate configurations
-Update your app's client certificate configuration to meet _all_ requirements below:
-1. Set client certificate mode to either "Required" or "Optional"
-2. Remove all client certificate exclusion paths
-
-#### Sending HEAD requests
-Send a HEAD request before the PUT/POST request. The HEAD request will handle the client certificate.
-
-### Adding "Expect:100-Continue" header
-Add the header `Expect: 100-Continue` to your request. This will cause the client to wait until the server responds with a `100 Continue` before sending the request body, which bypasses the buffers.
 
 ## ASP.NET Core sample
 
