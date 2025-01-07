@@ -141,19 +141,21 @@ Scroll down to the bottom of the details pane for a link to where you can take t
 
 - If an optimization includes recommendations to add analytics rules, select **Go to Content Hub**.
 - If an optimization includes recommendations to move a table to basic logs, select **Change plan**.
-- For threat-based coverage optimizations, select **View full threat scenario** to see the full list of relevant threats, active and recommended detections, and coverage levels. From there you can jump directly to the **Content hub** to activate any recommended detections, or to the **MITRE ATT&CK** page to view the [full MITRE ATT&CK coverage for the selected scenario](../mitre-coverage.md?tabs=defender-portal). For example:
+- For threat-based coverage optimizations, select **View full threat scenario** to see the full list of relevant threats, active and recommended detections, and coverage levels. From there you can jump directly to the **Content hub** to activate any recommended detections, or to the **MITRE ATT&CK** page to view the [full MITRE ATT&CK coverage for the selected scenario](../mitre-coverage.md?tabs=defender-portal#view-current-mitre-coverage). For example:
 
-    :::image type="content" source="media/soc-optimization-access/threat-scenario-page.png" alt-text="Screenshot of the SOC optimization threat scenario page.":::
+    :::image type="content" source="media/soc-optimization-access/threat-scenario-page.png" alt-text="Screenshot of the SOC optimization threat scenario page." lightbox="media/soc-optimization-access/threat-scenario-page.png":::
 
 ---
 
-If you choose to install an analytics rule template from the Content hub, and you don't already have the solution installed, only the analytics rule template that you install is shown in the solution when you're done. Install the full solution to see all available content items from the selected solution. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](../sentinel-solutions-deploy.md).
+If you choose to install an analytics rule template from the Content hub, and you don't already have the solution installed, only the analytics rule template that you install is shown in the solution when you're done. 
+
+Install the full solution to see all available content items from the selected solution. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](../sentinel-solutions-deploy.md).
 
 ### Manage optimizations
 
 By default, optimization statuses are **Active**. Change their statuses as your teams progress through triaging and implementing recommendations. 
 
-Either select the options menu or select **View full details** to take one of the following actions:
+Either select the options menu or select **View details** to take one of the following actions:
 
 |Action |Description  |
 |---------|---------|

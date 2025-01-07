@@ -48,13 +48,13 @@ By default, both currently active scheduled query and near real-time (NRT) rules
 
     In the Azure portal, under **Threat management**, select **MITRE ATT&CK (Preview)**.
 
-    :::image type="content" source="media/mitre-coverage/mitre-coverage.png" alt-text="Screenshot of the MITRE coverage page.":::
+    :::image type="content" source="media/mitre-coverage/mitre-coverage.png" alt-text="Screenshot of the MITRE coverage page." lightbox="media/mitre-coverage/mitre-coverage.png":::
 
     ### [Defender portal](#tab/defender-portal)
 
     In the Defender portal, select **Microsoft Sentinel > Threat management > MITRE ATT&CK**.
 
-    :::image type="content" source="media/mitre-coverage/mitre-coverage-defender.png" alt-text="Screenshot of the MITRE ATT&CK page in the Defender portal.":::
+    :::image type="content" source="media/mitre-coverage/mitre-coverage-defender.png" alt-text="Screenshot of the MITRE ATT&CK page in the Defender portal." lightbox="media/mitre-coverage/mitre-coverage-defender.png":::
 
     To filter the page by a specific threat scenario, toggle the **View MITRE by threat scenario** option on, and then select a threat scenario from the drop down. The page is updated accordingly.
 
