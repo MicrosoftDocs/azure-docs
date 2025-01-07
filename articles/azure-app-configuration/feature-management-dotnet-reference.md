@@ -3,14 +3,13 @@ title: .NET feature flag management
 titleSuffix: Azure App Configuration
 description: Learn to implement feature flags in your .NET and ASP.NET Core applications using feature management and Azure App Configuration. Dynamically manage feature rollouts, conduct A/B testing, and control feature visibility without redeploying the app.
 services: azure-app-configuration
-author: zhiyuanliang-ms
-ms.author: zhiyuanliang
+author: rossgrambo
+ms.author: rossgrambo
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-dotnet
 ms.topic: tutorial
-ms.date: 05/22/2024
-zone_pivot_groups: feature-management
+ms.date: 01/07/2024
 #Customer intent: I want to control feature availability in my app by using the Feature Management library.
 ---
 

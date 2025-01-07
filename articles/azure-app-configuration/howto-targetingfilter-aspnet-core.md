@@ -138,9 +138,8 @@ In this section, you create a web application that allows users to sign in and u
     // ... ...
     ```
 
-    > [!NOTE]
-    > For Blazor applications, see [instructions](./faq.yml#how-to-enable-feature-management-in-blazor-applications-or-as-scoped-services-in--net-applications) for enabling feature management as scoped services.
-    
+    ---
+
 1. Enable configuration and feature flag refresh from Azure App Configuration with the App Configuration middleware.
 
     Update Program.cs withe the following code.
@@ -202,11 +201,11 @@ In this section, you create a web application that allows users to sign in and u
 
 The targeting filter evaluates a user's feature state based on the user's targeting context, which comprises the user ID and the groups the user belongs to. In this example, you can use the signed-in user's email address as the user ID and the domain name of the email address as the group.
 
-To get targeting context for users automatically (instead of manually constructing a targeting context each time), an implementation of `ITargetingContextAccessor` is required. There's two options for adding an `ITargetingContextAccessor` to your application:
+To get targeting context for users automatically (instead of manually constructing a targeting context each time), an implementation of [ITargetingContextAccessor](./feature-management-dotnet-reference.md#itargetingcontextaccessor) is required.
 
 ### Default Targeting Accessor
 
-To add a default implementation of `ITargetingContextAccessor` use the `WithTargeting()` extension on the feature management builder as seen below. The default uses `HttpContext.User.Identity.Name` as `UserId` and uses `HttpContext.User.Claims` of type `Role` for `Groups`. You can see how the accessor works by looking at the [DefaultHttpTargetingContextAccessor](https://github.com/microsoft/FeatureManagement-Dotnet/blob/main/src/Microsoft.FeatureManagement.AspNetCore/DefaultHttpTargetingContextAccessor.cs).
+To add the default implementation of `ITargetingContextAccessor` use the `WithTargeting()` extension on the feature management builder as seen below. The default uses `HttpContext.User.Identity.Name` as `UserId` and uses `HttpContext.User.Claims` of type `Role` for `Groups`. You can see how the accessor works by looking at the [DefaultHttpTargetingContextAccessor](https://github.com/microsoft/FeatureManagement-Dotnet/blob/main/src/Microsoft.FeatureManagement.AspNetCore/DefaultHttpTargetingContextAccessor.cs).
 
 ``` C#
 // Existing code in Program.cs
@@ -240,11 +239,6 @@ builder.Services.AddFeatureManagement()
     > ![User logged in and Beta item displayed](./media/feature-filters/beta-targeted-by-user.png)
 
     Now sign in as `testuser@contoso.com`, using the password you set when registering the account. The **Beta** item doesn't appear on the toolbar, because `testuser@contoso.com` is specified as an excluded user.
-
-    If you used the `ExampleTargetingContextAccessor`
-    
-    * You can create more users with `@contoso.com` and `@contoso-xyz.com` email addresses to see the behavior of the group settings.
-    * Users with `contoso-xyz.com` email addresses won't see the **Beta** item. While 50% of users with `@contoso.com` email addresses will see the **Beta** item, the other 50% won't see the **Beta** item.
 
 ## Next steps
 
