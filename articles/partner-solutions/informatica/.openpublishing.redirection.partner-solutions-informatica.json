@@ -16,7 +16,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/partner-solutions/informatica/informatica-how-to-manage.md",
+            "source_path_from_root": "/articles/partner-solutions/informatica/informatica-manage.md",
             "redirect_url": "/azure/partner-services/informatica/manage",
             "redirect_document_id": false
         },
