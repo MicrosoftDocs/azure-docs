@@ -22,7 +22,7 @@ items:
     expanded: true
     items:
     - name: Get support for an Informatica IDMC organization
-      href: get-support.md
+      href: support.md
     - name: Fix common errors with an Informatica IDMC organization
       href: troubleshoot.md
 - name: Reference
