@@ -40,20 +40,21 @@ Follow these steps to create a public IPv4 address with a Standard SKU named myS
 1. On the **Public IP addresses** page, select **Create**.
 
 1. On the **Basics** tab of the **Create public IP address** screen, enter or select the following values:
-
-   - **Subscription**: Keep the default or select a different subscription.
-   - **Resource group**: Select **Create new**, and then name the group *TestRG*.
-   - **Region**: Select **(US) East US 2**.
-   - **Name**: Enter *myStandardPublicIP*.
-   - **IP Version**: Select **IPv4**.
-   - **SKU**: Select **Standard**.
-   - **Availability zone**: Select **No Zone**.
-   - **Tier**: Select **Regional**.
-   - **IP address assignment**: Only option is **Static**.
-   - **Routing preference**: Select **Microsoft network**.
-   - **Idle timeout (minutes)**: Keep the default of **4**.
-   - **DNS name label**: Leave the value blank.
-   - **Domain name label scope (preview)**: Leave the value blank.
+| **Setting**                        | **Value**                          |
+|--------------------------------|--------------------------------|
+| Subscription                   | Keep the default or select a different subscription. |
+| Resource group                 | Select **Create new**, and then name the group *TestRG*. |
+| Region                         | Select **(US) East US 2**.         |
+| Name                           | Enter *myStandardPublicIP*.        |
+| IP Version                     | Select **IPv4**.                   |
+| SKU                            | Select **Standard**.               |
+| Availability zone              | Select **No Zone**.                |
+| Tier                           | Select **Regional**.               |
+| IP address assignment          | Only option is **Static**.         |
+| Routing preference             | Select **Microsoft network**.      |
+| Idle timeout (minutes)         | Keep the default of **4**.         |
+| DNS name label                 | Leave the value blank.             |
+| Domain name label scope (preview) | Leave the value blank.             |
 
    :::image type="content" source="./media/create-public-ip-portal/create-standard-ip.png" alt-text="Screenshot that shows the Create public IP address Basics tab settings for a Standard SKU.":::
 
@@ -79,15 +80,17 @@ Follow these steps to create a public IPv4 address with a Basic SKU named myBasi
 
 1. On the **Basics** tab of the **Create public IP address** screen, enter or select the following values:
 
-   - **Subscription**: Keep the default or select a different subscription.
-   - **Resource group**: Select **Create new**, and then name the group *TestRG*.
-   - **Region**: Select **(US) East US 2**.
-   - **Name**: Enter *myBasicPublicIP*.
-   - **IP Version**: Select **IPv4**.
-   - **SKU**: Select **Basic**.
-   - **IP address assignment**: Select **Static**.
-   - **Idle timeout (minutes)**: Keep the default of **4**.
-   - **Domain name label scope (preview)**: Leave the value blank.
+    | **Setting** | **Value** |
+    |-------------|-----------|
+    | Subscription | Keep the default or select a different subscription. |
+    | Resource group | Select **Create new**, and then name the group *TestRG*. |
+    | Region | Select **(US) East US 2**.         |
+    | Name | Enter *myBasicPublicIP*.        |
+    | IP Version | Select **IPv4**.                   |
+    | SKU | Select **Basic**.               |
+    | IP address assignment | Select **Static**.         |
+    | Idle timeout (minutes) | Keep the default of **4**.         |
+    | Domain name label scope (preview) | Leave the value blank.             |
 
    :::image type="content" source="./media/create-public-ip-portal/create-basic-ip.png" alt-text="Screenshot that shows the Create public IP address Basics tab settings for a Basic SKU.":::
 
@@ -119,19 +122,21 @@ Follow these steps to create a public IPv4 address with a Standard SKU and routi
 
 1. On the **Basics** tab of the **Create public IP address** screen, enter or select the following values:
 
-   - **Subscription**: Keep the default or select a different subscription.
-   - **Resource group**: Select **Create new**, and then name the group *TestRG*.
-   - **Region**: Select **(US) East US 2**.
-   - **Name**: Enter *myStandardPublicIP-RP*.
-   - **IP Version**: Select **IPv4**.
-   - **SKU**: Select **Standard**.
-   - **Availability zone**: Select **Zone-redundant**.
-   - **Tier**: Select **Regional**.
-   - **IP address assignment**: Only option is **Static**.
-   - **Routing preference**: Select **Internet**.
-   - **Idle timeout (minutes)**: Keep the default of **4**.
-   - **DNS name label**: Leave the value blank.
-   - **Domain name label scope (preview)**: Leave the value blank.
+    | **Setting**                   | **Value**                          |
+    |-------------------------------|------------------------------------|
+    | Subscription                  | Keep the default or select a different subscription. |
+    | Resource group                | Select **Create new**, and then name the group *TestRG*. |
+    | Region                        | Select **(US) East US 2**.         |
+    | Name                          | Enter *myStandardPublicIP-RP*.     |
+    | IP Version                    | Select **IPv4**.                   |
+    | SKU                           | Select **Standard**.               |
+    | Availability zone             | Select **Zone-redundant**.         |
+    | Tier                          | Select **Regional**.               |
+    | IP address assignment         | Only option is **Static**.         |
+    | Routing preference            | Select **Internet**.               |
+    | Idle timeout (minutes)        | Keep the default of **4**.         |
+    | DNS name label                | Leave the value blank.             |
+    | Domain name label scope (preview) | Leave the value blank.             |
 
 1. Select **Review + create**. After validation succeeds, select **Create**.
 
@@ -154,23 +159,25 @@ Follow these steps to create a public IPv4 address with a Standard SKU and a glo
 
 1. On the **Basics** tab of the **Create public IP address** screen, enter or select the following values:
 
-   - **Subscription**: Keep the default or select a different subscription.
-   - **Resource group**: Select **Create new**, and then name the group *TestRG*.
-   - **Region**: Select **(US) East US 2**.
-   - **Name**: Enter *myStandardPublicIP-Global*.
-   - **IP Version**: Select **IPv4**.
-   - **SKU**: Select **Standard**.
-   - **Availability zone**: Select **Zone-redundant**.
-   - **Tier**: Select **Global**.
-   - **IP address assignment**: Only option is **Static**.
-   - **Routing preference**: Select **Microsoft network**.
-   - **Idle timeout (minutes)**: Keep the default of **4**.
-   - **DNS name label**: Leave the value blank.
-   - **Domain name label scope (preview)**: Leave the value blank.
+   | **Setting**                   | **Value**                          |
+   |-------------------------------|------------------------------------|
+   | Subscription                  | Keep the default or select a different subscription. |
+   | Resource group                | Select **Create new**, and then name the group *TestRG*. |
+   | Region                        | Select **(US) East US 2**.         |
+   | Name                          | Enter *myStandardPublicIP-Global*. |
+   | IP Version                    | Select **IPv4**.                   |
+   | SKU                           | Select **Standard**.               |
+   | Availability zone             | Select **Zone-redundant**.         |
+   | Tier                          | Select **Global**.                 |
+   | IP address assignment         | Only option is **Static**.         |
+   | Routing preference            | Select **Microsoft network**.      |
+   | Idle timeout (minutes)        | Keep the default of **4**.         |
+   | DNS name label                | Leave the value blank.             |
+   | Domain name label scope (preview) | Leave the value blank.             |
 
 1. Select **Review + create**. After validation succeeds, select **Create**.
 
-You can associate the IP address you created with a cross-region load balancer. For more information, see [Tutorial: Create a cross-region load balancer using the Azure portal](../../load-balancer/tutorial-cross-region-portal.md).
+   You can associate the IP address you created with a cross-region load balancer. For more information, see [Tutorial: Create a cross-region load balancer using the Azure portal](../../load-balancer/tutorial-cross-region-portal.md).
 
 ---
 
