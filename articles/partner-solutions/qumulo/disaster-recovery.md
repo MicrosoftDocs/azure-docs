@@ -54,7 +54,7 @@ Qumulo replication is configured for both ANQ service instances, each of which s
 
 In this scenario, the primary Qumulo storage is either on-premises or hosted on another cloud provider. Data on the primary Qumulo cluster is replicated to two separate ANQ service instances in two Azure regions. If you have a primary site failure or region-wide outage on Azure, you have more options for recovering critical services.
 
-:::image type="content" source="media/qumulo-disaster-recovery/disaster-recovery-architecture-multi-region.png" alt-text="Conceptual diagram that show solution architecture for multi region replication." lightbox="media/qumulo-disaster-recovery/disaster-recovery-architecture-multi-region-2.png":::
+:::image type="content" source="media/qumulo-disaster-recovery/disaster-recovery-architecture-multi-region.png" alt-text="Conceptual diagram that shows solution architecture for multi region replication." lightbox="media/qumulo-disaster-recovery/disaster-recovery-architecture-multi-region-2.png":::
 
 ## Solution workflow
 
