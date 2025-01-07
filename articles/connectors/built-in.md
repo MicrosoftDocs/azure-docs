@@ -466,7 +466,7 @@ For more information, review the following documentation:
     :::column:::
         [![SWIFT icon][swift-icon]][swift-doc]
         <br><br>[**SWIFT**][swift-doc]<br>(*Standard workflow only*)
-        <br><br>Encode and decode Society for Worldwide Interbank Financial Telecommuncation (SIWFT) transactions in flat-file XML message format.
+        <br><br>Encode and decode Society for Worldwide Interbank Financial Telecommunication (SWIFT) transactions in flat-file XML message format.
     :::column-end:::
     :::column:::
         [![X12 icon][x12-icon]][x12-doc]

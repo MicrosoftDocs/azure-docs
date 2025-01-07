@@ -272,7 +272,7 @@ When you configure a NAT Gateway on your subnet, the NAT Gateway provides a stat
 
 ### <a name="public-network-access"></a>Public network access (preview)
 
-The public network access setting determines whether your container apps environment is accesible from the public Internet. Whether you can change this setting after creating your environment depends on the environment's virtual IP configuration. The following table shows valid values for public network access, depending on your environment's virtual IP configuration.
+The public network access setting determines whether your container apps environment is accessible from the public Internet. Whether you can change this setting after creating your environment depends on the environment's virtual IP configuration. The following table shows valid values for public network access, depending on your environment's virtual IP configuration.
 
 | Virtual IP | Supported public network access | Description |
 |--|--|--|
