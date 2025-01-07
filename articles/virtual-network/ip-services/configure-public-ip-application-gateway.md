@@ -43,7 +43,7 @@ In this section, you create an Application Gateway resource. You select the IP a
     | ------- | ----- |
     | **Project details** |   |
     | Subscription | Select your subscription. |
-    | Resource group | Select **Create new**.<ul><li>Enter **myResourceGroupAppGW**.</li></ul>Select **OK**. |
+    | Resource group | Select **Create new**.</br>Enter **myResourceGroupAppGW**.</br>Select **OK**. |
     | **Instance details** |   |
     | Application gateway name | Enter **myAppGateway**. |
     | Region | Select **(US) West US 2**. |
@@ -55,7 +55,7 @@ In this section, you create an Application Gateway resource. You select the IP a
     | IP address type | Select **IPv4 only**. |
     | HTTP2 | Leave the default of **Enabled**. |
     | **Configure virtual network** |   |
-    | Virtual network | Select **Create new**. <ul><li>In **Create virtual network**, enter **myVNet** for name.</li><li>Leave the default address space in **ADDRESS SPACE**.</li><li>In **SUBNETS**, change **default** to **myAGSubnet**.</li></ul>Select **OK**.|
+    | Virtual network | Select **Create new**.</br>In **Create virtual network**, enter **myVNet** for name.</br>Leave the default address space in **ADDRESS SPACE**.</br>In **SUBNETS**, change **default** to **myAGSubnet**.</br>Select **OK**.|
 
 6. Select **Next: Frontends**.
 
@@ -87,7 +87,7 @@ In this section, you create an Application Gateway resource. You select the IP a
     | **Backend targets** tab |    |
     | Target type | Leave the default of **Backend pool**. |
     | Backend target | Select **myBackendPool**. |
-    | HTTP settings | Select **Add new**.<ul><li>Enter **myHTTPsetting** in **Name**.</li><li>Leave the other settings at the defaults.</li></ul>Select **Add**.|
+    | HTTP settings | Select **Add new**.</br>Enter **myHTTPsetting** in **Name**.</br>Leave the other settings at the defaults.</br>Select **Add**.|
 
 13. Select **Add**.
 
