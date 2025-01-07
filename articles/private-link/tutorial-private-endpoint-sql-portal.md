@@ -47,7 +47,7 @@ In this section, you create a SQL server in Azure.
 
 1. In **SQL databases**, select **+ Create**.
 
-1. In the **Basics** tab of **Create SQL Database**, enter or select the following information:
+1. In the **Basics** tab of **Create SQL Database**, enter, or select the following information:
 
     | Setting | Value |
     |---|---|
@@ -64,7 +64,7 @@ In this section, you create a SQL server in Azure.
 
 1. Select **Next: Networking**.
 
-1. In the **Networking** tab of **Create SQL Database**, enter or select the following information:
+1. In the **Networking** tab of **Create SQL Database**, enter, or select the following information:
 
     | Setting | Value |
     |---|---|
@@ -92,7 +92,7 @@ In this section, you create a SQL server in Azure.
 1. Select **Create**.
 
 > [!IMPORTANT]
-> When adding a Private endpoint connection, public routing to your Azure SQL server is not blocked by default. The setting "Deny public network access" under the "Firewall and virtual networks" blade is left unchecked by default. To disable public network access ensure this is checked.
+> When adding a Private endpoint connection, public routing to your Azure SQL server isn't blocked by default. The setting "Deny public network access" under the "Firewall and virtual networks" blade is left unchecked by default. To disable public network access, ensure this is checked.
  
 ## Disable public access to Azure SQL logical server
 
@@ -169,6 +169,6 @@ In this tutorial, you learned how to create:
 
 You used the virtual machine to test connectivity privately and securely to the SQL server across the private endpoint.
 
-As a next step, you may also be interested in the **Web app with private connectivity to Azure SQL Database** architecture scenario, which connects a web application outside of the virtual network to the private endpoint of a database.
+As a next step, review the **Web app with private connectivity to Azure SQL Database** architecture scenario, which connects a web application outside of the virtual network to the private endpoint of a database.
 > [!div class="nextstepaction"]
 > [Web app with private connectivity to Azure SQL Database](/azure/architecture/example-scenario/private-web-app/private-web-app)

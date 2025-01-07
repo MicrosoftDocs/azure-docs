@@ -50,12 +50,12 @@ If you experience connectivity problems with your private link setup, review the
 
      - If the state is **Pending**, select it and approve it.
 
-    - Select the private endpoint you are connecting from by clicking on its name. Ensure the connection status is **Approved**.
+    - Select the private endpoint you're connecting from by clicking on its name. Ensure the connection status is **Approved**.
 
      - After both sides are approved, try the connectivity again.
 
     e. Review **Alias** on the **Overview** tab and **Resource ID** on the **Properties** tab.
-    - Ensure that the **Alias** and **Resource ID** details match the ones you are using to create a private endpoint for this service.
+    - Ensure that the **Alias** and **Resource ID** details match the ones you're using to create a private endpoint for this service.
 
     f. Review **Visibility** information on the **Overview** tab. Select **See more** in the overview pane to see the details.
 
@@ -65,7 +65,7 @@ If you experience connectivity problems with your private link setup, review the
 
      - View the load balancer by selecting the load balancer link in the *Overview* pane.
       
-     -Confirm the load balancer settings are configured as per your requirements.
+     - Confirm the load balancer settings are configured as per your requirements.
 
        - Review **Frontend IP configuration**.
 
@@ -75,9 +75,9 @@ If you experience connectivity problems with your private link setup, review the
 
      - Confirm load balancer is working as per the previous settings.
 
-      - Choose a VM located in a subnet different from the one where the load balancer back-end pool resides.  
+      - Choose a virtual machine located in a subnet different from the one where the load balancer back-end pool resides.  
       
-      - Access the load balancer front end from the previous VM.
+      - Access the load balancer front end from the previous virtual machine.
 
       - If the connection reaches the back-end pool according to the load-balancing rules, then your load balancer is functioning correctly.    
 
@@ -109,6 +109,6 @@ Contact the [Azure Support](https://portal.azure.com/#blade/Microsoft_Azure_Supp
 
 ## Next steps
 
- * [Create a private link service (CLI)](./create-private-link-service-cli.md)
+* [Create a private link service (CLI)](./create-private-link-service-cli.md)
  
 * [Azure Private Endpoint troubleshooting guide](troubleshoot-private-endpoint-connectivity.md)
