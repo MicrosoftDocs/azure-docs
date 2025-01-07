@@ -24,7 +24,7 @@ When creating custom content, you can manage it from your own Microsoft Sentinel
 > - The Microsoft Sentinel **Repositories** feature is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 > - [!INCLUDE [unified-soc-preview](includes/unified-soc-preview-without-alert.md)]
 
-## Prerequisites and scope
+## Prerequisites
 
 Microsoft Sentinel currently supports connections to GitHub and Azure DevOps repositories. Before connecting your Microsoft Sentinel workspace to your source control repository, make sure that you have:
 
@@ -35,7 +35,7 @@ Microsoft Sentinel currently supports connections to GitHub and Azure DevOps rep
 - An Azure DevOps connection must be in the same tenant as your Microsoft Sentinel workspace
 - Ensure custom content files you want to deploy to your workspaces are in a supported format. For supported formats, see [Plan your repository content](ci-cd-custom-content.md#plan-your-repository-content).
 
-For more information, see [Validate your content](ci-cd-custom-content.md#validate-your-content).
+For more information on deployable content types, see [Validate your content](ci-cd-custom-content.md#validate-your-content).
 
 ## Connect a repository
 

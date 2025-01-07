@@ -29,16 +29,16 @@ There are two primary ways to customize the deployment of your repository conten
 > The Microsoft Sentinel **Repositories** feature is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for more legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 
-## Prerequisites and scope
+## Prerequisites
 
-Microsoft Sentinel supports connections to GitHub and Azure DevOps repositories. Before connecting your Microsoft Sentinel workspace to your source control repository, make sure that you have:
+In order to customize a repositories deployment, a repository connection must exist. For more information on creating the connection, see [Deploy custom content from your repository](ci-cd.md#prerequisites).
+After the connection is made, the following prerequisites apply:
 
-- An **Owner** role in the resource group that contains your Microsoft Sentinel workspace *or* a combination of **User Access Administrator** and **Sentinel Contributor** roles to create the connection
 - Collaborator access to your GitHub repository or Project Administrator access to your Azure DevOps repository
 - Actions enabled for GitHub and Pipelines enabled for Azure DevOps
 - Ensure custom content files you want to deploy to your workspaces are in a supported format. For supported formats, see [Plan your repository content](ci-cd-custom-content.md#plan-your-repository-content).
 
-For more information, see [Validate your content](ci-cd-custom-content.md#validate-your-content).
+For more information on deployable content types, see [Validate your content](ci-cd-custom-content.md#validate-your-content).
 
 ## Customize the workflow or pipeline
 
