@@ -54,7 +54,7 @@ By default, both currently active scheduled query and near real-time (NRT) rules
 
     In the Defender portal, select **Microsoft Sentinel > Threat management > MITRE ATT&CK**.
 
-    :::image type="content" source="media/soc-optimization-access/soc-optimization-overview-defender.png" alt-text="Screenshot of the SOC optimization Overview tab in the Defender portal." lightbox="media/soc-optimization-access/soc-optimization-overview-defender.png":::
+    :::image type="content" source="media/mitre-coverage/mitre-coverage-defender.png" alt-text="Screenshot of the MITRE ATT&CK page in the Defender portal.":::
 
     To filter the page by a specific threat scenario, toggle the **View MITRE by threat scenario** option on, and then select a threat scenario from the drop down. The page is updated accordingly.
 
