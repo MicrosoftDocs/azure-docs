@@ -19,9 +19,9 @@ This overview introduces the key concepts around developing assets and devices t
 
 The following diagram shows a high-level view of the components in a typical edge-based IoT solution. This article focuses on the assets and connectors shown in the diagram:
 
-:::image type="content" source="media/iot-overview-device-development/iot-edge-architecture.svg" alt-text="Diagram that shows the high-level IoT solution architecture highlighting asset connectivity areas." border="false":::
+:::image type="content" source="media/iot-overview-device-development/iot-edge-device-architecture.svg" alt-text="Diagram that shows the high-level IoT solution architecture highlighting asset connectivity areas." border="false":::
 
-Assets typically have built-in firmware that that implements standard protocols. For example, a robotic arm might be an OPC UA client and a security video camera might implement ONVIF. Azure IoT Operations includes various connectors that can use these protocols to communicate with assets and translate messages from the assets into MQTT messages. Some assets can receive messages enabling you to perform operations on them such as:
+Assets typically have built-in firmware that implements standard protocols. For example, a robotic arm might be an OPC UA client and a security video camera might implement ONVIF. Azure IoT Operations includes various connectors that can use these protocols to communicate with assets and translate messages from the assets into MQTT messages. Some assets can receive messages enabling you to perform operations on them such as:
 
 - Pan or tilt a security camera.
 - Change the logging level on a robotic arm.
@@ -33,7 +33,7 @@ You can create your own, custom connectors to connect to assets that use protoco
 
 The following diagram shows a high-level view of the components in a typical cloud-based IoT solution. This article focuses on the devices and gateway shown in the diagram:
 
-:::image type="content" source="media/iot-overview-device-development/iot-cloud-architecture.svg" alt-text="Diagram that shows the high-level IoT solution architecture highlighting device connectivity areas." border="false":::
+:::image type="content" source="media/iot-overview-device-development/iot-cloud-device-architecture.svg" alt-text="Diagram that shows the high-level IoT solution architecture highlighting device connectivity areas." border="false":::
 
 In Azure IoT, a device developer writes the code to run on the devices in the solution. This code typically:
 
@@ -86,7 +86,7 @@ Examples of specialized hardware and operating systems include:
 
 [Eclipse ThreadX](https://github.com/eclipse-threadx/rtos-docs) is a real time operating system for IoT and edge devices powered by MCUs. Eclipse ThreadX is designed to support highly constrained devices that are battery powered and have less than 64 KB of flash memory.
 
-[Azure Sphere (Integrated)](/azure-sphere/product-overview/what-is-azure-sphere?view=azure-sphere-integrated) is a secure, high-level application platform with built-in communication and security features for internet-connected devices. It comprises a secured, connected, crossover MCU, a custom high-level Linux-based operating system, and a cloud-based security service that provides continuous, renewable security.
+[Azure Sphere (Integrated)](/azure-sphere/product-overview/what-is-azure-sphere?view=azure-sphere-integrated&preserve-view=true) is a secure, high-level application platform with built-in communication and security features for internet-connected devices. It comprises a secured, connected, crossover MCU, a custom high-level Linux-based operating system, and a cloud-based security service that provides continuous, renewable security.
 
 ### Device primitives
 
@@ -179,7 +179,7 @@ Containerization is a way to package and run your code in a lightweight, isolate
 
 # [Edge-based solution](#tab/edge)
 
-Azure IoT Operations containerizes all its connectors, brokers, and other components that run on the edge. Azure IoT Edge deploys to a Kubernetes cluster, which is a container orchestration platform. Deploy any custom connectors or other components that you create to the Kubernetes cluster.
+Azure IoT Operations containerizes all its connectors, brokers, and other components that run on the edge. Azure IoT Operations deploys to a Kubernetes cluster, which is a container orchestration platform. Deploy any custom connectors or other components that you create to the Kubernetes cluster.
 
 You can view a solution that uses Azure IoT Edge as an edge-based gateway to IoT Hub as a hybrid solution that includes elements of both edge-based and cloud-based solutions.
 
