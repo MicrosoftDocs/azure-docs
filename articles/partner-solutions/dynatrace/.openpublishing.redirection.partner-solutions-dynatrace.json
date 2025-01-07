@@ -21,6 +21,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/partner-solutions/dynatrace/dynatrace-link-to-existing.md",
+            "redirect_url": "/azure/partner-services/dynatrace/link-to-existing-resources",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/partner-solutions/dynatrace/dynatrace-how-to-manage.md",
             "redirect_url": "/azure/partner-services/dynatrace/manage",
             "redirect_document_id": false
