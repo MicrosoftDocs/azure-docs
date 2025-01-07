@@ -49,11 +49,11 @@ There are some important steps to do before moving a resource. By verifying thes
   (Get-AzSubscription -SubscriptionName <your-source-subscription>).TenantId
   (Get-AzSubscription -SubscriptionName <your-destination-subscription>).TenantId
   ```
-
+  
   ---
-
+  
   If the tenant IDs for the source and destination subscriptions aren't the same, use the following methods to reconcile the tenant IDs:
-
+  
   * [Transfer ownership of an Azure subscription to another account](../../cost-management-billing/manage/billing-subscription-transfer.md)
   * [How to associate or add an Azure subscription to Microsoft Entra ID](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
@@ -78,14 +78,14 @@ There are some important steps to do before moving a resource. By verifying thes
   # [CLI](#tab/CLI)
   
   To get the registration status:
-
+  
   ```azurecli-interactive
   az account set -s <destination-subscription-name-or-id>
   az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table
   ```
-
+  
   To register a resource provider:
-
+  
   ```azurecli-interactive
   az provider register --namespace Microsoft.Batch
   ```
@@ -93,18 +93,18 @@ There are some important steps to do before moving a resource. By verifying thes
   # [PowerShell](#tab/PowerShell)
   
   To get the registration status:
-
+  
   ```azurepowershell-interactive
   Set-AzContext -Subscription <destination-subscription-name-or-id>
   Get-AzResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
   ```
-
+  
   To register a resource provider:
-
+  
   ```azurepowershell-interactive
   Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
   ```
-
+  
   ---
 
 1. Before moving the resources, check the subscription quotas for the subscription you're moving the resources to. If moving the resources means the subscription exceeds its limits, you need to review whether you can request an increase in the quota. For a list of limits and how to request an increase, see [Azure subscription and service limits, quotas, and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md).
@@ -121,7 +121,7 @@ There are some important steps to do before moving a resource. By verifying thes
 1. **For a move across subscriptions, the resource and its dependent resources must be located in the same resource group and they must be moved together.** For example, a VM with managed disks would require the VM and the managed disks to be moved together, along with other dependent resources.
 
   If you're moving a resource to a new subscription, check to see whether the resource has any dependent resources, and whether they're located in the same resource group. If the resources aren't in the same resource group, check to see whether the resources can be combined into the same resource group. If so, bring all these resources into the same resource group by using a move operation across resource groups.
-
+  
   For more information, see [Scenario for move across subscriptions](#scenario-for-move-across-subscriptions).
 
 ## Scenario for move across subscriptions
@@ -248,7 +248,7 @@ Invoke-AzResourceAction -Action validateMoveResources `
   }
 ```
 
-If the validation is successful, no output is displayed. However, if the validation fails, an error message will appear, explaining the reasons why the resources cannot be moved.
+If the validation is successful, no output is displayed. However, if the validation fails, an error message appears, explaining the reasons why the resources can't be moved.
 
 #### Move
 
@@ -306,7 +306,7 @@ validate_move_resources_result = resource_client.resources.begin_validate_move_r
 print("Validate move resources result: {}".format(validate_move_resources_result))
 ```
 
-If the validation is successful, no output is displayed. However, if the validation fails, an error message will appear, explaining the reasons why the resources cannot be moved.
+If the validation is successful, no output is displayed. However, if the validation fails, an error message appears, explaining the reasons why the resources can't be moved.
 
 #### Move
 
