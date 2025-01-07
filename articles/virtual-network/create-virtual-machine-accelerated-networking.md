@@ -503,6 +503,34 @@ $imageParams = @{
 $vmConfig = Set-AzVMSourceImage @imageParams
 ```
 
+Use [Add-AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface) to attach the NIC that you previously created to the VM.
+
+```azurepowershell
+# Get the network interface object
+$nicParams = @{
+    ResourceGroupName = "test-rg"
+    Name = "nic-1"
+    }
+$nic = Get-AzNetworkInterface @nicParams
+
+$vmConfigParams = @{
+    VM = $vmConfig
+    Id = $nic.Id
+    }
+$vmConfig = Add-AzVMNetworkInterface @vmConfigParams
+```
+
+Use [New-AzVM](/powershell/module/az.compute/new-azvm) to create the VM with Accelerated Networking enabled.
+
+```azurepowershell
+$vmParams = @{
+    VM = $vmConfig
+    ResourceGroupName = "test-rg"
+    Location = "eastus2"
+    }
+New-AzVM @vmParams
+```
+
 ### [CLI](#tab/cli)
 
 Use [az vm create](/cli/azure/vm#az-vm-create) to create the VM, and use the `--nics` option to attach the NIC you created. Make sure to select a VM size and distribution that's listed in [Windows and Linux Accelerated Networking](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview). For a list of all VM sizes and characteristics, see [Sizes for virtual machines in Azure](/azure/virtual-machines/sizes).
