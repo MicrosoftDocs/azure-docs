@@ -1,13 +1,3 @@
---- 
-title: Cost estimation of assessments in Azure Migrate  
-description: Learn about cost estimation in assessments in Azure Migrate  
-author: v-sreedevank
-ms.service: azure-migrate 
-ms.topic: conceptual 
-ms.date: 10/24/2024 
-ms.custom: engagement-fy24 
----
-
 # Cost estimation 
 
 Azure Migrate assessments provide you with an estimated cost of hosting the recommended targets on Azure. These costs are identified for each right-sized target on Azure. The cost estimates are dependent on the rates in the specified region, any applicable offers, and the licensing program selected by you. 

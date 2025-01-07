@@ -1,13 +1,3 @@
---- 
-title: Overview of Confidence ratings in Azure Migrate assessments
-description: Learn about confidence ratings
-author: v-sreedevank
-ms.author: v-sreedevank
-ms.service: azure-migrate 
-ms.topic: conceptual 
-ms.date: 10/24/2024 
----
-
 # Confidence ratings (performance-based) 
 
 Each performance-based Azure VM assessment in Azure Migrate is associated with a confidence rating. The rating ranges from one (lowest) to five (highest) stars. The confidence rating helps you estimate the reliability of the size recommendations Azure Migrate provides. 
