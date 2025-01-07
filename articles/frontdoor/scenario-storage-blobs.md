@@ -4,7 +4,7 @@ description: Learn how to use Front Door with storage blobs for accelerating con
 services: front-door
 author: duongau
 ms.service: azure-frontdoor
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 11/13/2024
 ms.author: duau
 ---

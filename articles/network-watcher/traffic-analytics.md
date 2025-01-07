@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: concept-article
-ms.date: 12/29/2024
+ms.date: 12/31/2024
 ms.custom: references_regions
 
 #CustomerIntent: As an Azure administrator, I want to use Traffic analytics to analyze Network Watcher flow logs so that I can view network activity, secure my networks, and optimize performance.
@@ -93,13 +93,11 @@ To use traffic analytics, you need the following components:
 > | ---------------- | ---- |
 > | Resource Manager | [Owner](../role-based-access-control/built-in-roles.md?toc=/azure/network-watcher/toc.json#owner) |
 > |                  | [Contributor](../role-based-access-control/built-in-roles.md?toc=/azure/network-watcher/toc.json#contributor) |
-> |                  | [Network contributor](../role-based-access-control/built-in-roles.md?toc=/azure/network-watcher/toc.json#network-contributor) <sup>1</sup> and [Monitoring contributor](../role-based-access-control/built-in-roles.md?toc=/azure/network-watcher/toc.json#monitoring-contributor) <sup>2</sup> |
+> |                  | [Network contributor](../role-based-access-control/built-in-roles.md?toc=/azure/network-watcher/toc.json#network-contributor) <sup>1</sup> and [Monitoring contributor](../role-based-access-control/built-in-roles.md?toc=/azure/network-watcher/toc.json#monitoring-contributor) |
 > 
 > <sup>1</sup> Network contributor doesn't cover `Microsoft.OperationalInsights/workspaces/*` actions.
 > 
-> <sup>2</sup> Only required when using traffic analytics to analyze virtual network flow logs.
-> 
->  If none of the preceding built-in roles are assigned to your account, assign a [custom role](../role-based-access-control/custom-roles.md?toc=/azure/network-watcher/toc.json) that supports the actions listed in [Traffic analytics permissions](required-rbac-permissions.md#traffic-analytics).
+>  If none of the preceding built-in roles are assigned to your account, assign a [custom role](../role-based-access-control/custom-roles.md?toc=/azure/network-watcher/toc.json) that supports the actions listed in [Flow logs](required-rbac-permissions.md#flow-logs) and [Traffic analytics](required-rbac-permissions.md#traffic-analytics) permissions.
 
 ## How traffic analytics works
 
@@ -115,7 +113,7 @@ Reduced logs are enhanced with geography, security, and topology information and
 
 The following tables list the supported regions where you can enable traffic analytics for your flow logs and the Log Analytics workspaces that you can use.
 
-#### [North America / South America](#tab/Americas)
+# [North America / South America](#tab/Americas)
 
 > [!div class="mx-tableFixed"]
 > | Region  | Network security group flow logs | Virtual network flow logs | Traffic analytics | Log Analytics workspace |
@@ -135,7 +133,7 @@ The following tables list the supported regions where you can enable traffic ana
 > | West US 2 | ✓ | ✓ | ✓ | ✓ |
 > | West US 3 | ✓ | ✓ | ✓ | ✓ |
 
-#### [Europe](#tab/Europe)
+# [Europe](#tab/Europe)
 
 > [!div class="mx-tableFixed"]
 > | Region  | Network security group flow logs | Virtual network flow logs | Traffic analytics | Log Analytics workspace |
@@ -157,7 +155,7 @@ The following tables list the supported regions where you can enable traffic ana
 > | UK West | ✓ | ✓ | ✓ | ✓ |
 > | West Europe | ✓ | ✓ | ✓ | ✓ |
 
-#### [Australia / Asia / Pacific](#tab/APAC)
+# [Australia / Asia / Pacific](#tab/APAC)
 
 > [!div class="mx-tableFixed"]
 > | Region  | Network security group flow logs | Virtual network flow logs | Traffic analytics | Log Analytics workspace |
@@ -186,7 +184,7 @@ The following tables list the supported regions where you can enable traffic ana
 > | Taiwan Northwest | ✓ | ✓ |  |  |
 > | West India | ✓ | ✓ |  |  |
 
-#### [Middle East / Africa](#tab/MiddleEast)
+# [Middle East / Africa](#tab/MiddleEast)
 
 > [!div class="mx-tableFixed"]
 > | Region  | Network security group flow logs | Virtual network flow logs | Traffic analytics | Log Analytics workspace |
@@ -198,7 +196,7 @@ The following tables list the supported regions where you can enable traffic ana
 > | UAE Central | ✓ | ✓ | ✓ | ✓ |
 > | UAE North | ✓ | ✓ | ✓ | ✓ |
 
-#### [Azure Government](#tab/AzGov)
+# [Azure Government](#tab/AzGov)
 
 > [!div class="mx-tableFixed"]
 > | Region  | Network security group flow logs | Virtual network flow logs | Traffic analytics | Log Analytics workspace |

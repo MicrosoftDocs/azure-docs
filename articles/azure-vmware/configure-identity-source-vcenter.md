@@ -100,7 +100,7 @@ If you need multiple certificates, upload each one individually and generate an 
 > Remember to copy all SAS URL strings. The strings aren't accessible after you leave the page.
 
 > [!TIP]
-> An alternative method to consolidate certificates involves storing all the certificate chains in one file, as detailed in a [VMware knowledge base article](https://kb.vmware.com/s/article/2041378). Then, generate a single SAS URL for the file that contains all the certificates.
+> An alternative method to consolidate certificates involves storing all the certificate chains in one file, as detailed in a [VMware knowledge base article](https://knowledge.broadcom.com/external/article?legacyId=2041378). Then, generate a single SAS URL for the file that contains all the certificates.
 
 ## Set up NSX-T DNS for Windows Server Active Directory domain resolution
 
@@ -312,4 +312,3 @@ To remove all existing external identity sources at once, run the Remove-Externa
 - [Create a storage policy](configure-storage-policy.md)
 - [Azure VMware Solution identity architecture](architecture-identity.md)
 - [Set an external identity source for NSX](configure-external-identity-source-nsx-t.md)
-- [VMware product documentation](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.1/administration/GUID-DB5A44F1-6E1D-4E5C-8B50-D6161FFA5BD2.html)
