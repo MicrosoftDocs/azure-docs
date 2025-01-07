@@ -5,7 +5,7 @@ author: asudbring
 ms.author: allensu
 ms.service: azure-virtual-network
 ms.topic: how-to #Don't change
-ms.date: 01/06/2025
+ms.date: 01/07/2025
 
 #customer intent: As a network or virtual machine administrator, I want to manage the accelerated networking feature of my Azure Virtual Machines. I want to enable or disable accelerated networking using the Azure portal, Azure CLI, or PowerShell.
 
@@ -41,13 +41,15 @@ If you choose to install and use PowerShell locally, this article requires the A
 
 ## Handle dynamic binding and revocation of virtual function
 
-Binding to the synthetic NIC that's exposed in the VM is a mandatory requirement for all applications that take advantage of Accelerated Networking. If an application runs directly over the VF NIC, it doesn't receive all packets that are destined to the VM, because some packets show up over the synthetic interface.
+Binding to the synthetic network interface exposed in the virtual machine is a mandatory requirement for all applications that take advantage of Accelerated Networking. 
 
-You must run an application over the synthetic NIC to guarantee that the application receives all packets that are destined to it. Binding to the synthetic NIC also ensures that the application keeps running even if the VF is revoked during host servicing.
+Applications running directly over the virtual function network interface miss some packets destined for the virtual machine. These packets appear over the synthetic interface instead.
+
+You must run an application over the synthetic network interface to guarantee that the application receives all packets that are destined to it. Binding to the synthetic network interface also ensures that the application keeps running even if the virtual function is revoked during host servicing.
 
 For more information about application binding requirements, see [How Accelerated Networking works in Linux and FreeBSD VMs](./accelerated-networking-how-it-works.md#application-usage).
 
-In order to ensure that your custom image or applications correctly support the dynamic binding and revocation of virtual functions, the functionality can be tested on any Windows Hyper-V server. Use a local Windows Server running Hyper-V in the following configuration:
+Test the functionality on any Windows Hyper-V server to ensure that your custom image or applications correctly support the dynamic binding and revocation of virtual functions. Use a local Windows Server running Hyper-V in the following configuration:
 
  - Ensure you have a physical network adapter that supports SR-IOV.
 

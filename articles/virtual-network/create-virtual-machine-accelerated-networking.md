@@ -1,6 +1,6 @@
 ---
 title: Create an Azure Virtual Machine with Accelerated Networking
-description: Use Azure portal, Azure CLI, or PowerShell to create Linux or Windows virtual machines that have Accelerated Networking enabled for improved network performance.
+description: Use Azure portal, Azure CLI, or PowerShell to create Linux or Windows virtual machines with Accelerated Networking enabled for improved network performance.
 author: asudbring
 ms.author: allensu
 ms.service: azure-virtual-network
@@ -126,7 +126,7 @@ New-AzBastion @bastionParams -AsJob
 
 ### [CLI](#tab/cli)
 
-1. Use [az group create](/cli/azure/group#az-group-create) to create a resource group to contain the resources. Be sure to select a supported Windows or Linux region as listed in [Windows and Linux Accelerated Networking](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview).
+1. Use [az group create](/cli/azure/group#az-group-create) to create a resource group that contains the resources. Be sure to select a supported Windows or Linux region as listed in [Windows and Linux Accelerated Networking](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview).
 
     ```bash
     export RANDOM_SUFFIX=$(openssl rand -hex 3)
@@ -367,7 +367,7 @@ New-AzBastion @bastionParams -AsJob
 
 ### [Portal](#tab/portal)
 
-Accelerated networking is enabled in the portal during virtual machine creation. Proceed to the next section to create a VM.
+Accelerated networking is enabled in the portal during virtual machine creation. Create a virtual machine in the following section.
 
 ### [PowerShell](#tab/powershell)
 
@@ -481,7 +481,7 @@ $vmConfigParams = @{
 $vmConfig = New-AzVMConfig @vmConfigParams
 ```
 
-Use [Set-AzVMOperatingSystem](/powershell/module/az.compute/set-azvmoperatingsystem) and [Set-AzVMSourceImage](/powershell/module/az.compute/set-azvmsourceimage) to create the rest of the VM configuration. The following example creates a Ubuntu Server virtual machine:
+Use [Set-AzVMOperatingSystem](/powershell/module/az.compute/set-azvmoperatingsystem) and [Set-AzVMSourceImage](/powershell/module/az.compute/set-azvmsourceimage) to create the rest of the VM configuration. The following example creates an Ubuntu Server virtual machine:
 
 ```azurepowershell
 $osParams = @{
@@ -531,7 +531,7 @@ New-AzVM @vmParams
 
 ### [CLI](#tab/cli)
 
-Use [az vm create](/cli/azure/vm#az-vm-create) to create the VM, and use the `--nics` option to attach the NIC you created. Make sure to select a VM size and distribution that's listed in [Windows and Linux Accelerated Networking](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview). For a list of all VM sizes and characteristics, see [Sizes for virtual machines in Azure](/azure/virtual-machines/sizes).
+Use [az vm create](/cli/azure/vm#az-vm-create) to create the VM, and use the `--nics` option to attach the NIC you created. Ensure you select a VM size and distribution listed in [Windows and Linux Accelerated Networking](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview). For a list of all VM sizes and characteristics, see [Sizes for virtual machines in Azure](/azure/virtual-machines/sizes).
 
 
 The following example creates a VM with a size that supports Accelerated Networking, Standard_DS4_v2.
@@ -589,7 +589,7 @@ Results:
 
 1. Enter the username and password you used when you created the VM, and then select **Connect**.
 
-1. A new browser window will open with the Bastion connection to your VM.
+1. A new browser window opens with the Bastion connection to your VM.
 
 1. From a shell on the remote VM, enter `uname -r` and confirm that the kernel version is one of the following versions, or greater:
 
@@ -598,7 +598,7 @@ Results:
    - **RHEL**: 3.10.0-693, 2.6.32-573. RHEL 6.7-6.10 are supported if the Mellanox VF version 4.5+ is installed before Linux Integration Services 4.3+.
 
    > [!NOTE]
-   > Other kernel versions may be supported. For an updated list, see the compatibility tables for each distribution at [Supported Linux and FreeBSD virtual machines for Hyper-V](/windows-server/virtualization/hyper-v/supported-linux-and-freebsd-virtual-machines-for-hyper-v-on-windows), and confirm that SR-IOV is supported. You can find more details in the release notes for [Linux Integration Services for Hyper-V and Azure](https://www.microsoft.com/download/details.aspx?id=55106). *
+   > Other kernel versions might be supported. For an updated list, see the compatibility tables for each distribution at [Supported Linux and FreeBSD virtual machines for Hyper-V](/windows-server/virtualization/hyper-v/supported-linux-and-freebsd-virtual-machines-for-hyper-v-on-windows), and confirm that SR-IOV is supported. You can find more details in the release notes for [Linux Integration Services for Hyper-V and Azure](https://www.microsoft.com/download/details.aspx?id=55106). *
 
 1. Use the `lspci` command to confirm that the Mellanox VF device is exposed to the VM. The returned output should be similar to the following example:
 
@@ -631,15 +631,11 @@ Once you create the VM in Azure, connect to the VM and confirm that the Ethernet
 
 1. On the **Virtual machines** page, select your new VM.
 
-1. On the VM's **Overview** page, select **Connect**.
-
-1. On the **Connect** screen, select **Bastion**.
-
-1. On the **Bastion** screen, select **Use Bastion**.
+1. On the VM's **Overview** page, select **Connect** then **Connect via Bastion**.
 
 1. Enter the credentials you used when you created the VM, and then select **Connect**.
 
-1. A new browser window will open with the Bastion connection to your VM.
+1. A new browser window opens with the Bastion connection to your VM.
 
 1. On the remote VM, right-click **Start** and select **Device Manager**.
 
