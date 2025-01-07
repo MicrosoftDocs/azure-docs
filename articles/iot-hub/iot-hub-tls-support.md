@@ -46,14 +46,14 @@ Root CA migrations are extremely rare, you should always prepare your IoT soluti
 
 ## Cipher Suites
 To comply with Azure security policy for a secure connection, IoT Hub supports the following RSA and ECDSA cipher suites for TLS 1.2:
-   * `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`
-   * `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`
-   * `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256`
-   * `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384`
-   * `TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256`
-   * `TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`
-   * `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256`
-   * `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384`
+   * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+   * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+   * TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
+   * TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
+   * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+   * TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+   * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
+   * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 
 The following cipher suites are currently allowed in IoT Hub, however these cipher suites are no longer recommended by the Azure security guidelines. 
 
