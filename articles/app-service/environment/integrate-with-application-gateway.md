@@ -42,7 +42,7 @@ For details on how to create an ILB App Service Environment, see [Create an App 
 
 * After ILB App Service Environment is created, the default domain is `<YourAseName>.appserviceenvironment.net`.
 
-    :::image type="content" source="./media/integrate-with-application-gateway/ilb-ase.png" alt-text="Screenshot of ILB App Service Environment Overview":::
+    :::image type="content" source="./media/integrate-with-application-gateway/ilb-ase.png" alt-text="Screenshot of ILB App Service Environment Overview.":::
 
 * An internal load balancer is provisioned for inbound access. You can check the Inbound address in the IP addresses under App Service Environment Settings. You can create a private DNS zone mapped to this IP address later.
 
@@ -50,7 +50,7 @@ For details on how to create an ILB App Service Environment, see [Create an App 
 
 ### A private DNS zone
 
-You need a [private DNS zone](../../dns/private-dns-overview.md)for internal name resolution. Create it using the App Service Environment name using the record sets shown in the following table (for instructions, see [Quickstart - Create an Azure private DNS zone using the Azure portal](../../dns/private-dns-getstarted-portal.md)).
+You need a [private DNS zone](../../dns/private-dns-overview.md) for internal name resolution. Create it using the App Service Environment name using the record sets shown in the following table (for instructions, see [Quickstart - Create an Azure private DNS zone using the Azure portal](../../dns/private-dns-getstarted-portal.md)).
 
 | Name  | Type | Value               |
 | ----- | ---- | ------------------- |
@@ -128,7 +128,7 @@ In the Azure portal, select **New** > **Network** > **Application Gateway** to c
         
         :::image type="content" source="./media/integrate-with-application-gateway/http-routing-rule.png" alt-text="Screenshot of HTTP Listener of the application gateway Routing Rule.":::
     
-    * To connect to the application gateway with TLS encryption, you can create a listener with following settings,
+    * To connect to the application gateway with TLS encryption, you can create a listener with following settings:
     
         | Parameter      | Value                             | Description                                                  |
         | -------------- | --------------------------------- | ------------------------------------------------------------ |

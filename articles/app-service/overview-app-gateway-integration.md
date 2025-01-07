@@ -6,7 +6,7 @@ author: madsd
 ms.assetid: 073eb49c-efa1-4760-9f0c-1fecd5c251cc
 ms.service: azure-app-service
 ms.topic: article
-ms.date: 01/02/2025
+ms.date: 01/07/2025
 ms.author: madsd
 ms.custom: devx-track-azurecli, devx-track-arm-template
 ms.devlang: azurecli
@@ -20,7 +20,7 @@ This article walks through how to configure Application Gateway with App Service
 
 You can use private endpoints to secure traffic between Application Gateway and your App Service app. You need to ensure that Application Gateway can use DNS to resolve the private IP address of the App Service apps. Alternatively, you can use the private IP address in the back-end pool and override the host name in the HTTP settings.
 
-:::image type="content" source="./media/overview-app-gateway-integration/private-endpoint-appgw.png" alt-text="Diagram that shows traffic flowing to an application gateway in an Azure virtual network and then flowing through a private endpoint to instances of apps in App Service.":::
+:::image type="content" source="./media/overview-app-gateway-integration/private-endpoint-appgw.png" alt-text="Diagram that shows traffic flowing to an application gateway through a private endpoint to instances of apps in App Service.":::
 
 Application Gateway caches the DNS lookup results. If you use fully qualified domain names (FQDNs) and rely on DNS lookup to get the private IP address, you might need to restart the application gateway if the DNS update or the link to an Azure private DNS zone happened after you configured the back-end pool.
 
