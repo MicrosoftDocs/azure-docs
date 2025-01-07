@@ -371,20 +371,20 @@ Accelerated networking is enabled in the portal during virtual machine creation.
 
 ### [PowerShell](#tab/powershell)
 
-1. Use [New-AzNetworkInterface](/powershell/module/az.Network/New-azNetworkInterface) to create a network interface (NIC) with Accelerated Networking enabled, and assign the public IP address to the NIC.
+Use [New-AzNetworkInterface](/powershell/module/az.Network/New-azNetworkInterface) to create a network interface (NIC) with Accelerated Networking enabled, and assign the public IP address to the NIC.
 
-    ```azurepowershell
-    $vnet = Get-AzVirtualNetwork -ResourceGroupName "test-rg" -Name "vnet-1"
+```azurepowershell
+$vnet = Get-AzVirtualNetwork -ResourceGroupName "test-rg" -Name "vnet-1"
 
-    $nicParams = @{
-        ResourceGroupName = "test-rg"
-        Name = "nic-1"
-        Location = "eastus2"
-        SubnetId = $vnet.Subnets[0].Id
-        EnableAcceleratedNetworking = $true
+$nicParams = @{
+    ResourceGroupName = "test-rg"
+    Name = "nic-1"
+    Location = "eastus2"
+    SubnetId = $vnet.Subnets[0].Id
+    EnableAcceleratedNetworking = $true
     }
-    $nic = New-AzNetworkInterface @nicParams
-    ```
+$nic = New-AzNetworkInterface @nicParams
+```
 
 ### [CLI](#tab/cli)
 
@@ -488,8 +488,6 @@ $osParams = @{
     VM = $vmConfig
     ComputerName = "vm-1"
     Credential = $cred
-    ProvisionVMAgent = $true
-    EnableAutoUpdate = $true
     }
 $vmConfig = Set-AzVMOperatingSystem @osParams -Linux
 
