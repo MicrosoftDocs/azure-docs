@@ -513,8 +513,7 @@ We also improved the out-of-box dashboards both at the cluster-level. There's a 
 
     * Microsoft will not patch the Azure Monitor integration (preview) clusters except for critical security issues. 
 
-> [!NOTE]
-> `HDInsightGatewayAuditLogs_CL` table will no longer be functional from September 14, 2026, as The [Azure Monitor HTTP Data Collector API](/previous-versions/azure/azure-monitor/logs/data-collector-api?tabs=powershell) is being deprecated.
+* `HDInsightGatewayAuditLogs_CL` table will no longer be functional from September 14, 2026, as The [Azure Monitor HTTP Data Collector API](/previous-versions/azure/azure-monitor/logs/data-collector-api?tabs=powershell) is being deprecated.
   
 ## Appendix: Table mapping
 
