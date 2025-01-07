@@ -79,8 +79,6 @@
   - name: Guidance for throttled requests
     displayName: pagination, batching, throttling, parallel
     href: ./concepts/guidance-for-throttled-requests.md
-  - name: Azure Resource Graph fields that have slower update
-    href: ./concepts/fields-slow-updates.md
   - name: Security
     items:
     - name: Security baseline for Azure Security Benchmark
