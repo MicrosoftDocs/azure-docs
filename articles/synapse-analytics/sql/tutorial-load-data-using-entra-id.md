@@ -30,7 +30,7 @@ To enable access to data on Azure Data Lake Storage (ADLS) Gen2 accounts, you ne
 1. Select **Data storage** -> **Containers**, and navigate to the folder where the source data the external table needs access to is.
 1. Select **Access control (IAM)**.
 1. Select **Add -> Add role assignment**.
-1. In the list of job function roles, select **Storage Blob Data Reader** and select **Next**.
+1. In the list of job function roles, select **Storage Blob Data Reader** and select **Next**. If write permissions are needed, select **Storage Blob Data Contributor**. 
 1. In the **Add role assignment** page, select **+ Select members**. The **Select members** pane opens in the right-hand corner.
 1. Type the name of the desired Microsoft Entra ID account. When displayed, pick your desired account and chose **Select**.
 1. In the **Add role assignment** page, make sure the list of Members include your desired Microsoft Entra ID account. Once verified, select **Review + assign**.
@@ -42,7 +42,7 @@ The Microsoft Entra ID account or group is now a member of the Storage Blob Data
 
 The `COPY INTO` T-SQL statement provides flexible, high-throughput data ingestion into your tables, and is the primary strategy to ingest data into your dedicated SQL pool tables. It allows users to ingest data from external locations without having to create any of the extra database objects that are required for external tables.
 
-The `COPY INTO` statement uses the `CREDENTIAL` argument to specify the authentication method used to connect to the source account. However, when authenticating using Microsoft Entra ID or to a public storage account, `CREDENTIAL` doesn't need to be specified. To run the `COPY INTO` statement using a workspace managed identity for authentication, use the following T-SQL command:
+The `COPY INTO` statement uses the `CREDENTIAL` argument to specify the authentication method used to connect to the source account. However, when authenticating using Microsoft Entra ID or to a public storage account, `CREDENTIAL` doesn't need to be specified. To run the `COPY INTO` statement using Entra ID authentication, use the following T-SQL command:
 
 ```sql
 COPY INTO <TableName>
@@ -63,7 +63,13 @@ Where:
 
 To learn more and explore the full syntax, see [COPY INTO (Transact-SQL)](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true).
 
-## Create the required database objects
+## Query data on ADLS Gen2 using external tables
+
+External tables allow users to query data from Azure Data Lake Storage (ADLS) Gen2 accounts without the need to ingest data first. Users can create an external table which points to files on an ADLS Gen2 container, and query it just like a regular user table.
+
+The following steps describe the process to create a new external table pointing to data on ADLS Gen2, using Entra ID authentication.
+
+### Create the required database objects
 
 External tables require the following objects to be created:
 
@@ -73,7 +79,7 @@ External tables require the following objects to be created:
 
 To follow these steps, you need to use the SQL editor in the Azure Synapse Workspace, or your preferred SQL client connected to your dedicated SQL pool. Let's look at these steps in detail.
 
-### Create the external data source
+#### Create the external data source
 
 The next step is to create an external data source that specifies where the source data used by the external table resides.
 
@@ -96,7 +102,7 @@ Where:
 
 To learn more about external data sources, see [CREATE EXTERNAL DATA SOURCE (Transact-SQL)](/sql/t-sql/statements/create-external-data-source-transact-sql?view=azure-sqldw-latest&preserve-view=true&tabs=dedicated).
 
-### Create the external file format
+#### Create the external file format
 
 The next step is to create the external file format. It specifies the actual layout of the data referenced by the external table.
 
@@ -117,7 +123,7 @@ WITH (
 
 In this example, adjust parameters such as `FIELD_TERMINATOR`, `STRING_DELIMITER`, `FIRST_ROW`, and others as needed in accordance with your source data. For more formatting options and to learn more, see [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest&preserve-view=true&tabs=delimited).
 
-### Create the external table
+#### Create the external table
 
 Now that the necessary objects that hold the metadata to securely access external data are created, it's time to create the external table. To create the external table, use the following T-SQL command:
 
@@ -144,6 +150,8 @@ Where:
 - `<FileFormatName>` is the name of [the external file format you created](#create-the-external-file-format).
 
 Make sure to adjust the table name and schema to the desired name and the schema of the data in your source files.
+
+### Query the external table
 
 At this point, all the metadata required to access the external table are created. To test your external table, use a query such as the following T-SQL sample to validate your work:
 
