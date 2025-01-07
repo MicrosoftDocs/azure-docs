@@ -6,7 +6,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/partner-solutions/nginx/nginx-how-to-manage.md",
+            "source_path_from_root": "/articles/partner-solutions/nginx/nginx-manage.md",
             "redirect_url": "/azure/partner-services/nginx/manage",
             "redirect_document_id": false
         },
