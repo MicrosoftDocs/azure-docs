@@ -35,7 +35,7 @@ For successful creation of a Qumulo service, custom role-based access control (R
 
 ## Next steps
 
-- [Manage Azure Native Qumulo Scalable File Service](qumulo-how-to-manage.md)
+- [Manage Azure Native Qumulo Scalable File Service](manage.md)
 - Get started with Azure Native Qumulo Scalable File Service on
 
     > [!div class="nextstepaction"]
