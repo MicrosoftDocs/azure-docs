@@ -83,8 +83,8 @@ You can specify custom tags for the new NGINXaaS resource in Azure by adding cus
 
 ## Next steps
 
-- [Manage the NGINXaaS resource](nginx-manage.md)
-- Get started with NGINXaaS – An Azure Native ISV Service on
+- [Manage the NGINXaaS resource](manage.md)
+- Get started with NGINXaaS on
 
     > [!div class="nextstepaction"]
     > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/NGINX.NGINXPLUS%2FnginxDeployments)

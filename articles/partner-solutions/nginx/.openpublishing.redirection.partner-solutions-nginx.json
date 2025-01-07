@@ -1,0 +1,24 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/partner-solutions/nginx/nginx-create.md",
+            "redirect_url": "/azure/partner-services/nginx/create",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/partner-solutions/nginx/nginx-how-to-manage.md",
+            "redirect_url": "/azure/partner-services/nginx/manage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/partner-solutions/nginx/nginx-overview.md",
+            "redirect_url": "/azure/partner-services/nginx/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/partner-solutions/nginx/nginx-troubleshoot.md",
+            "redirect_url": "/azure/partner-services/nginx/troubleshoot",
+            "redirect_document_id": false
+        }
+    ]
+}
