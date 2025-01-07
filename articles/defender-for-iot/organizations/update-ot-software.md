@@ -189,7 +189,7 @@ This procedure describes how to update OT sensor software via the CLI, directly 
     mv <filename> /var/cyberx/media/device-info/update_agent.tar
     ```
 
-1. Start running the software update. Run:
+1. Sign into the sensor as the `cyberx` user and start running the software update. Run:
 
     ```bash
     curl -H "X-Auth-Token: $(python3 -c 'from cyberx.credentials.credentials_wrapper import CredentialsWrapper;creds_wrapper = CredentialsWrapper();print(creds_wrapper.get("api.token"))')" -X POST http://127.0.0.1:9090/core/api/v1/configuration/agent
@@ -197,7 +197,9 @@ This procedure describes how to update OT sensor software via the CLI, directly 
 
     At some point during the update process, your SSH connection will disconnect. This is a good indication that your update is running.
 
-1. Continue to monitor the update process by checking the `install.log` file, as follows:
+1. Continue to monitor the update process by checking the `install.log` file.
+
+    Sign back into the sensor as the `cyberx_host` user and run:
 
     ```bash
     tail -f /opt/sensor/logs/install.log
