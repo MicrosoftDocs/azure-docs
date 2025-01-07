@@ -122,7 +122,7 @@ Use Copilot in Azure for Call Diagnostics to improve call quality by detailing p
 
 You can use your tags from `DiagnosticOptions` in three places on the Call Diagnostics interface:
 
-* Calls search:
+* Calls search: You can search, view, and sort 
    :::image type="content" source="./media/ui-hint-call-search.png" alt-text="Screenshot of the Call Diagnostics Search view that shows the DiagnosticOptions column."  lightbox="./media/ui-hint-call-search.png":::
 
 * Participants table in **Call Overview** section:
