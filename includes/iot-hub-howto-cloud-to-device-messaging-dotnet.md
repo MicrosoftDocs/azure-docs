@@ -41,8 +41,6 @@ A device app can authenticate with IoT Hub using the following methods:
 
 The [DeviceClient](/dotnet/api/microsoft.azure.devices.client.deviceclient) class exposes all the methods required to receive messages on the device.
 
-### Supply the connection parameters
-
 Supply the IoT Hub primary connection string and Device ID to `DeviceClient` using the [CreateFromConnectionString](/dotnet/api/microsoft.azure.devices.client.deviceclient.createfromconnectionstring) method. In addition to the required IoT Hub primary connection string, the `CreateFromConnectionString` method can be overloaded to include these *optional* parameters:
 
 * `transportType` - The transport protocol: variations of HTTP version 1, AMQP, or MQTT. `AMQP` is the default. To see all available values, see [TransportType Enum](/dotnet/api/microsoft.azure.devices.client.transporttype).
@@ -183,8 +181,6 @@ You can connect a backend service to IoT Hub using the following methods:
 [!INCLUDE [iot-authentication-service-connection-string.md](iot-authentication-service-connection-string.md)]
 
 #### Connect using a shared access policy
-
-##### Supply the connection string
 
 Connect a backend application to a device using [CreateFromConnectionString](/dotnet/api/microsoft.azure.devices.serviceclient.createfromconnectionstring). In addition to the required IoT Hub primary connection string, the `CreateFromConnectionString` method can be overloaded to include these *optional* parameters:
 
