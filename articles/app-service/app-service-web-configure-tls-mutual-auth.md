@@ -113,14 +113,17 @@ App Service requires TLS renegotiation to read a request before knowing whether 
 1. Use "Optional Interactive User" client certificate mode.
 1. Use [client certificate exclusion path](#exclude-paths-from-requiring-authentication).
 
+> [!NOTE]
+> TLS 1.3 and HTTP 2.0 don't support TLS renegotiation. If you configure your app with these protocols, they won't work with client certificate settings that use TLS renegotiation.
+
 To disable TLS renegotiation and to have the app negotiate client certificates during TLS handshake, you must configure your app with *all* the settings below:
 1. Set client certificate mode to "Required" or "Optional"
 2. Remove all client certificate exclusion paths
 
 ### Uploading large files with TLS renegotiation
-Client certificate configurations that uses TLS renegotiation cannot support incoming requests with large files greater than 100kb. TLS renegotiation will fail any POST or PUT requests using large files with a 403 error.
+Client certificate configurations that uses TLS renegotiation cannot support incoming requests with large files greater than 100kb due to buffer size limitations. In this scenario, any POST or PUT requests over 100kb will fail with a 403 error. This limit is not configurable and cannot be increased.
 
-To resolve the error due to large files greater than 100kb due to TLS renegotiation, here are known alternative solutions to address the limitations:
+Below are the only available alternative solutions to address the 100kb limit:
 
 1. Update your app's client certificate configuration to meet _all_ requirements below:
   1. Set client certificate mode to either "Required" or "Optional"
