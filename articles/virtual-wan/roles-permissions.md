@@ -150,7 +150,7 @@ Depending on your Virtual WAN configuration, the user or service principal that 
 | p2sVpnGateways/p2sConnectionConfigurations  | Microsoft.Network/virtualHubs/hubRouteTables/read <br>Microsoft.Network/virtualHubs/routeMaps/read | 
 | vpnGateways  | Microsoft.Network/virtualHubs/read  <br>Microsoft.Network/virtualHubs/hubRouteTables/read <br>Microsoft.Network/virtualHubs/routeMaps/read <br>Microsoft.Network/vpnGateways/vpnConnections/read | 
 | vpnsites  | Microsoft.Network/virtualWans/read  | 
-| vpnGateways/vpnConnections | Microsoft.Network/virtualHubs/hubRouteTables/read <br>Microsoft.Network/virtualHubs/routeMaps/read |
+| vpnGateways/vpnConnections | Microsoft.Network/virtualHubs/read <br>Microsoft.Network/virtualHubs/hubRouteTables/read <br>Microsoft.Network/virtualHubs/routeMaps/read |
 
 ### NVA resources
 
