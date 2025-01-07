@@ -11,8 +11,10 @@ ms.author: spelluru
 
 Schema Registry in Azure Event Hubs fulfills multiple roles in schema-driven event streaming scenarios -
    * Provides a repository where multiple schemas can be registered, managed, and evolved.
+   * Managed schema evolution with multiple compatibility rules.
    * Performs data validation for all schematized data.
    * Provides client-side libraries (serializers and deserializers) for producers and consumers.
+   * Improves network throughput efficiency by passing schema ID instead of the schema definition for every payload.
 
 > [!NOTE]
 > Schema Registry is supported on Standard, Premium and Dedicated tiers.
@@ -53,8 +55,7 @@ To learn more about using JSON schema format with Event Hubs Schema Registry, se
 
 ##### Protobuf
 
-TODO
- 
+[Protocol Buffers](https://protobuf.dev/) is a language-neutral, platform-neutral, extensible mechanism for serializing structured data. It is used for efficiently defining data structures and serializing them into a compact binary format.
 
 ### Schema groups
 
