@@ -40,7 +40,7 @@ Only users who have Owner access can set up a Palo Alto resource on the Azure su
 
 ## Next steps
 
-- Learn about [managing your instance](palo-alto-manage.md) of Palo Alto.
+- Learn about [managing your instance](manage.md) of Palo Alto.
 
 - Get Started with Cloud Next-Generation Firewall by Palo Alto Networks on
 
