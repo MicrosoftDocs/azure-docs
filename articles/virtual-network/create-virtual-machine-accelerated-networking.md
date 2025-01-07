@@ -673,6 +673,4 @@ Once you create the VM in Azure, connect to the VM and confirm that the Ethernet
 
 - [How Accelerated Networking works in Linux and FreeBSD VMs](./accelerated-networking-how-it-works.md)
 
-- [Create a VM with Accelerated Networking by using PowerShell](../virtual-network/create-vm-accelerated-networking-powershell.md)
-
 - [Proximity placement groups](/azure/virtual-machines/co-location)
