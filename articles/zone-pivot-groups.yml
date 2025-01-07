@@ -1799,3 +1799,14 @@ groups:
     title: Data connector agent
   - id: connection-agentless
     title: Agentless data connector (limited preview)
+# Owner: jodowns
+- id: logic-app-hosting-types
+  title: Azure Logic Apps hosting model
+  prompt: Choose an Azure Logic Apps hosting model
+  pivots:
+  - id: consumption
+    title: Consumption
+  - id: standard-workflow-service-plan
+    title: Standard (Workflow Service Plan)
+  - id: standard-app-service-environment
+    title: Standard (App Service Environment v3)
