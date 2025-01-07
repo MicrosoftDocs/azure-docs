@@ -106,7 +106,7 @@ Application gateway doesn't support changing the public IP address after creatio
 
 ## More information
 
-* If a dynamic Basic SKU IP is associated with an Application Gateway frontend, it only changes when the gateway is stopped or started. The DNS name associated with an Application Gateway frontend doesn't change. 
+* If a dynamic Basic git c IP is associated with an Application Gateway frontend, it only changes when the gateway is stopped or started. The DNS name associated with an Application Gateway frontend doesn't change. 
 
 ## Caveats
 
