@@ -3,47 +3,47 @@
         {
             "source_path_from_root": "/articles/partner-solutions/qumulo/qumulo-create.md",
             "redirect_url": "/azure/partner-services/qumulo/create",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path_from_root": "/articles/partner-solutions/qumulo/qumulo-disaster-recovery.md",
             "redirect_url": "/azure/partner-services/qumulo/disaster-recovery",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path_from_root": "/articles/partner-solutions/qumulo/qumulo-how-to-setup-features.md",
             "redirect_url": "/azure/partner-services/qumulo/features",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path_from_root": "/articles/partner-solutions/qumulo/qumulo-how-to-manage.md",
             "redirect_url": "/azure/partner-services/qumulo/manage",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path_from_root": "/articles/partner-solutions/qumulo/qumulo-overview.md",
             "redirect_url": "/azure/partner-services/qumulo/overview",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path_from_root": "/articles/partner-solutions/qumulo/qumulo-troubleshoot.md",
             "redirect_url": "/azure/partner-services/qumulo/troubleshoot",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path_from_root": "/articles/partner-solutions/qumulo/qumulo-vendor-neutral-archive.md",
             "redirect_url": "/azure/partner-services/qumulo/vendor-neutral-archive",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path_from_root": "/articles/partner-solutions/qumulo/qumulo-video-editing.md",
             "redirect_url": "/azure/partner-services/qumulo/video-editing",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path_from_root": "/articles/partner-solutions/qumulo/qumulo-virtual-desktop.md",
             "redirect_url": "/azure/partner-services/qumulo/virtual-desktop",
-            "redirect_document_id": false
+            "redirect_document_id": true
         }
     ]
 }
