@@ -14,7 +14,7 @@ This how-to guide provides an overview of Azure Web PubSub resource logs and tip
 
 ## What are resource logs?
 
-There are three types of resource logs: _Connectivity_, _Messaging_, and _HTTP requests_.
+There are three types of resource logs: _Connectivity_, _Messaging_, and _HTTP request_.
 
 - **Connectivity** logs provide detailed information for Azure Web PubSub hub connections. They might include basic information like user ID and connection ID, or event information like connect and disconnect.
 - **Messaging** logs provide tracing information for hub messages that are sent or received via Azure Web PubSub service, like the tracing ID or message type.
@@ -124,7 +124,7 @@ Currently Azure Web PubSub supports integration with [Azure Storage](/azure/azur
 
 ### Archive to an Azure Storage Account
 
-Logs are stored in the storage account that's configured in the **Diagnostics setting** pane. A container named `insights-logs-<CATEGORY_NAME>` is automatically created to store resource logs. Inside the container, logs are stored in the file `resourceId=/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/RESOURCEGROUPS/XXXX/PROVIDERS/MICROSOFT.SIGNALRSERVICE/SIGNALR/XXX/y=YYYY/m=MM/d=DD/h=HH/m=00/PT1H.json`. The path is combined by `resource ID` and `Date Time`. The log files are split by `hour`. The minute value is always `m=00`.
+Logs are stored in the storage account configured in the **Diagnostics setting** pane. A container named `insights-logs-<CATEGORY_NAME>` is automatically created to store resource logs. Inside the container, logs are stored in the file `resourceId=/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/RESOURCEGROUPS/XXXX/PROVIDERS/MICROSOFT.SIGNALRSERVICE/SIGNALR/XXX/y=YYYY/m=MM/d=DD/h=HH/m=00/PT1H.json`. The path is combined by `resource ID` and `Date Time`. The log files are split by `hour`. The minute value is always `m=00`.
 
 All logs are stored in JavaScript Object Notation (JSON) format. Each entry has string fields that use the format described in the following sections.
 
@@ -194,7 +194,7 @@ To view the resource logs, follow these steps:
 
    :::image type="content" alt-text="Log Analytics menu item" source="./media/howto-troubleshoot-diagnostic-logs/log-analytics-menu-item.png" lightbox="./media/howto-troubleshoot-diagnostic-logs/log-analytics-menu-item.png":::
 
-1. Enter `WebPubSubConnectivity`, `WebPubSubMessaging`, or `WebPubSubHttpRequest`, and then select the time range to query the log. For advanced queries, see [Get started with Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-tutorial).
+1. To query the log, enter `WebPubSubConnectivity`, `WebPubSubMessaging`, or `WebPubSubHttpRequest`, and then select the time range. For advanced queries, see [Get started with Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-tutorial).
 
    :::image type="content" alt-text="Query log in Log Analytics" source="./media/howto-troubleshoot-diagnostic-logs/query-log-in-log-analytics.png" lightbox="./media/howto-troubleshoot-diagnostic-logs/query-log-in-log-analytics.png":::
 
@@ -232,7 +232,7 @@ If you find unexpected increases or decreases in the number of connections, you 
 
 If a connection disconnects, the resource logs record the disconnection event with `ConnectionAborted` or `ConnectionEnded` in `operationName`.
 
-The difference between `ConnectionAborted` and `ConnectionEnded` is that `ConnectionEnded` is an expected disconnection that is triggered by the client or server side. By contrast, `ConnectionAborted` usually refers to an event in which a connection unexpectedly drops, and the reason for disconnection is provided in `message`.
+The difference between `ConnectionAborted` and `ConnectionEnded` is that `ConnectionEnded` is an expected disconnection that's triggered by the client or server side. By contrast, `ConnectionAborted` usually refers to an event in which a connection unexpectedly drops, and the reason for disconnection is provided in `message`.
 
 Reasons for an unexpected disconnection are listed in the following table.
 
