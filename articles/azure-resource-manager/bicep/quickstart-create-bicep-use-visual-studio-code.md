@@ -186,7 +186,7 @@ param location string = resourceGroup().location
 
 resource virtualNetwork 'Microsoft.Network/virtualNetworks@2024-03-01' = {
   name: 'exampleVNet'
-  location: resourceGroup().location
+  location: location
   properties: {
     addressSpace: {
       addressPrefixes: [
@@ -212,7 +212,7 @@ resource virtualNetwork 'Microsoft.Network/virtualNetworks@2024-03-01' = {
 
 resource exampleStorage 'Microsoft.Storage/storageAccounts@2023-05-01' = {
   name: storageAccountName
-  location: 'eastus'
+  location: location
   sku: {
     name: 'Standard_LRS'
   }
