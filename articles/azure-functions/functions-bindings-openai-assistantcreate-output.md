@@ -10,7 +10,7 @@ ms.custom:
   - devx-track-ts
 ms.collection: 
   - ce-skilling-ai-copilot
-ms.date: 0/07/2025
+ms.date: 01/07/2025
 zone_pivot_groups: programming-languages-set-functions
 ---
 
