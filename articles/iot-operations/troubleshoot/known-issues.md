@@ -6,7 +6,7 @@ ms.author: dobett
 ms.topic: troubleshooting-known-issue
 ms.custom:
   - ignite-2023
-ms.date: 12/12/2024
+ms.date: 01/07/2025
 ---
 
 # Known issues: Azure IoT Operations
