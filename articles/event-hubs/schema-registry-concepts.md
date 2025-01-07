@@ -9,6 +9,8 @@ ms.author: spelluru
 
 #  Schema Registry in Azure Event Hubs
 
+Schema Registry is crucial in loosely coupled and event streaming workflows for maintaining data consistency, simplifying schema evolution, enhancing interoperability, and reducing development effort. It ensures highly reliable data processing and governance with very little operational overhead in very large distributed organizations with a centralized repository for schemas.
+
 Schema Registry in Azure Event Hubs fulfills multiple roles in schema-driven event streaming scenarios -
    * Provides a repository where multiple schemas can be registered, managed, and evolved.
    * Managed schema evolution with multiple compatibility rules.
