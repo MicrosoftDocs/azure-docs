@@ -18,29 +18,29 @@ There are three types of resource logs: _Connectivity_, _Messaging_, and _HTTP r
 
 - **Connectivity** logs provide detailed information for Azure Web PubSub hub connections. They might include basic information like user ID and connection ID, or event information like connect and disconnect.
 - **Messaging** logs provide tracing information for hub messages that are sent or received via Azure Web PubSub service, like the tracing ID or message type.
-- **HTTP request** logs provide tracing information for HTTP requests to the Azure Web PubSub service, like HTTP method or status code. Typically a HTTP request is recorded when it arrives at or leaves from the service.
+- **HTTP request** logs provide tracing information for HTTP requests to the Azure Web PubSub service, like HTTP method or status code. Typically, an HTTP request is recorded when it arrives at or leaves from the service.
 
 ## Capture resource logs with the live trace tool
 
 The Azure Web PubSub service live trace tool can collect resource logs in real time, which is helpful for troubleshooting problems in your development environment. The live trace tool can capture connectivity logs, messaging logs, and HTTP request logs.
 
 > [!NOTE]
-> You should consider the following when using the live trace tool:
+> You should consider the following factors when using the live trace tool:
 >
 > - The real-time resource logs captured by the live trace tool are billed as messages (outbound traffic).
 > - The Azure Web PubSub service Free tier instance has a daily limit of 20,000 messages (outbound traffic). You can unexpectedly reach the daily limit by using live trace.
-> - The live trace tool does not currently support Microsoft Entra authorization. You must enable access keys to use live trace. Under **Settings**, select **Keys**, and then enable **Access Key**.
+> - The live trace tool doesn't currently support Microsoft Entra authorization. You must enable access keys to use live trace. Under **Settings**, select **Keys**, and then enable **Access Key**.
 
 ## Launch the live trace tool
 
-When you enable an access key, you'll use the access token to authenticate the live trace tool. Otherwise, you'll use Microsoft Entra ID to authenticate the live trace tool. You can find out if the access key is enabled by going to your Azure SignalR Service's Keys pane in the Azure portal.
+When you enable an access key, you use the access token to authenticate the live trace tool. Otherwise, you use Microsoft Entra ID to authenticate the live trace tool. You can find out if the access key is enabled by going to your Azure SignalR Service's Keys pane in the Azure portal.
 
 ### Launch the live trace when the access key is enabled
 
 1. Go to the Azure portal and your SignalR Service pane.
 1. From the menu on the left, under **Monitoring**, select **Live trace settings**.
 1. Select **Enable Live Trace**.
-1. Select the **Save** button. It will take a moment for the changes to take effect.
+1. Select the **Save** button. It takes a moment for the changes to take effect.
 1. When updating is complete, select **Open Live Trace Tool**.
 
     :::image type="content" source="./media/howto-troubleshoot-diagnostic-logs/diagnostic-logs-with-live-trace-tool.png" alt-text="Screenshot of launching the live trace tool.":::
@@ -61,7 +61,7 @@ When you enable an access key, you'll use the access token to authenticate the l
 1. Go to the Azure portal and your SignalR Service pane.
 1. From the menu on the left, under **Monitoring**, select **Live trace settings**.
 1. Select **Enable Live Trace**.
-1. Select the **Save** button. It will take a moment for the changes to take effect.
+1. Select the **Save** button. It takes a moment for the changes to take effect.
 1. When updating is complete, select **Open Live Trace Tool**.
 
     :::image type="content" source="./media/howto-troubleshoot-diagnostic-logs/diagnostic-logs-with-live-trace-tool.png" alt-text="Screenshot of launching the live trace tool.":::
@@ -75,10 +75,10 @@ When you enable an access key, you'll use the access token to authenticate the l
 
 The live trace tool can help you capture the resource logs for troubleshooting.
 
-- **Capture**: This begins to capture the real-time resource logs from Azure Web PubSub.
-- **Clear**: This clears the captured real-time resource logs.
-- **Log filter**: This filters the captured real-time resource logs with one specific keyword. The common separators like space, comma, and semicolon are treated as part of the keyword.
-- **Status**: The status shows whether the live trace tool is connected or disconnected with the specific instance.
+- **Capture** begins to capture the real-time resource logs from Azure Web PubSub.
+- **Clear** clears the captured real-time resource logs.
+- **Log filter** filters the captured real-time resource logs with one specific keyword. The common separators like space, comma, and semicolon are treated as part of the keyword.
+- **Status** shows whether the live trace tool is connected or disconnected with the specific instance.
 
 :::image type="content" source="./media/howto-troubleshoot-diagnostic-logs/live-trace-tool-capture.png" alt-text="Screenshot of capturing resource logs with the live trace tool.":::
 
@@ -87,7 +87,7 @@ The real-time resource logs captured by the live trace tool contain detailed inf
 | Name           | Description                                                                                     |
 | -------------- | ----------------------------------------------------------------------------------------------- |
 | Time           | Log event time                                                                                  |
-| Log Level      | Log event level, can be [Trace \| Debug \| Informational \| Warning \| Error]                   |
+| Log Level      | Log event level can be [Trace \| Debug \| Informational \| Warning \| Error]                   |
 | Event Name     | Operation name of the event                                                                     |
 | Message        | Detailed message for the event                                                                  |
 | Exception      | The run-time exception of Azure Web PubSub service                                              |
@@ -198,7 +198,7 @@ To view the resource logs, follow these steps:
 
    :::image type="content" alt-text="Query log in Log Analytics" source="./media/howto-troubleshoot-diagnostic-logs/query-log-in-log-analytics.png" lightbox="./media/howto-troubleshoot-diagnostic-logs/query-log-in-log-analytics.png":::
 
-To use a sample query for SignalR service, follow the steps below.
+To use a sample query for SignalR service, follow these steps:
 
 1. Select `Logs` in your target Log Analytics.
 1. Select `Queries` to open query explorer.
@@ -230,7 +230,7 @@ If you find unexpected increases or decreases in the number of connections, you 
 
 #### Unexpected disconnection events
 
-If a connection disconnects, the resource logs will record the disconnection event with `ConnectionAborted` or `ConnectionEnded` in `operationName`.
+If a connection disconnects, the resource logs record the disconnection event with `ConnectionAborted` or `ConnectionEnded` in `operationName`.
 
 The difference between `ConnectionAborted` and `ConnectionEnded` is that `ConnectionEnded` is an expected disconnection that is triggered by the client or server side. By contrast, `ConnectionAborted` usually refers to an event in which a connection unexpectedly drops, and the reason for disconnection is provided in `message`.
 
