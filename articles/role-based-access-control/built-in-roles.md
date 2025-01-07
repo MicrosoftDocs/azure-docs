@@ -543,7 +543,7 @@ The following table provides a brief description of each built-in role. Click th
 > [!div class="mx-tableFixed"]
 > | Built-in role | Description | ID |
 > | --- | --- | --- |
-> | <a name='quantum-workspace-data-contributor'></a>[Quantum Workspace Data Contributor](./built-in-roles/quantum.md#quantum-workspace-data-contributor) | Lets you submit and view jobs in the workspace. | 3df8b902-2a6f-47c7-8cc5-360e9b272a7e |
+> | <a name='quantum-workspace-data-contributor'></a>[Quantum Workspace Data Contributor](./built-in-roles/quantum.md#quantum-workspace-data-contributor) | Lets you submit and view jobs in the workspace. | c1410b24-3e69-4857-8f86-4d0a2e603250 |
 
 ## Next steps
 

@@ -20,7 +20,12 @@ This article lists the permissions for the Azure resource providers in the Quant
 > [!div class="mx-tableFixed"]
 > | Action | Description |
 > | --- | --- |
+> | Microsoft.Quantum/locations/register/action | Registers the subscription for the quantum resource provider and enables the creation of quantum workspaces. |
 > | Microsoft.Quantum/Workspaces/read | Read workspace properties. |
+> | Microsoft.Quantum/Workspaces/write | Writes Workspace. |
+> | Microsoft.Quantum/Workspaces/delete | Deletes Workspace. |
+> | Microsoft.Quantum/Workspaces/regenerateKey/action | Regenerate workspace api key. |
+> | Microsoft.Quantum/Workspaces/listKeys/action | List workspace api keys. |
 > | Microsoft.Quantum/locations/offerings/read | Read providers supported. |
 > | **DataAction** | **Description** |
 > | Microsoft.Quantum/Workspaces/jobs/read | Read jobs and other data |
