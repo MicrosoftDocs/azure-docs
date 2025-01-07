@@ -576,6 +576,7 @@ If the app was scaled to the maximum replica count of 20, scaling goes through t
 
 - If you're using [Dapr actors](https://docs.dapr.io/developing-applications/building-blocks/actors/actors-overview/) to manage states, you should keep in mind that scaling to zero isn't supported. Dapr uses virtual actors to manage asynchronous calls, which means their in-memory representation isn't tied to their identity or lifetime.
 
+- Changing KEDA proxies through the [proxies](https://keda.sh/docs/2.16/operate/cluster/#http-proxies) settings are not supported. Consider using Workload Profiles with a NAT Gateway or User Defined Route (UDR) to send traffic to a network appliance, where traffic can be inspected or proxied from there.
 ## Next steps
 
 > [!div class="nextstepaction"]

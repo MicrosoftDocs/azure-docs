@@ -1,8 +1,8 @@
 ---
 title: Set the scope for discovery of servers on VMware vSphere with Azure Migrate
 description: Describes how to set the discovery scope for servers hosted on VMware vSphere assessment and migration with Azure Migrate.
-author: v-sreedevank
-ms.author: v-sreedevank
+author: SnehaSudhirG
+ms.author: sudhirsneha 
 ms.topic: how-to
 ms.service: azure-migrate
 ms.date: 11/07/2024
@@ -17,6 +17,8 @@ This article describes how to limit the scope of discovery for servers in VMware
 - Discovering servers with the [Azure Migrate appliance](../migrate-appliance-architecture.md) when you're using the Migration and modernization tool, for agentless migration of servers from VMware vSphere environment to Azure.
 
 When you set up the appliance, it connects to vCenter Server and starts discovery. Before you connect the appliance to vCenter Server, you can limit discovery to vCenter Server datacenters, clusters, a folder of clusters, hosts, a folder of hosts, or individual servers. To set the scope, you assign permissions on the account that the appliance uses to access the vCenter Server.
+
+[!INCLUDE [scenario-banner.md](../includes/scenario-banner.md)]
 
 ## Before you start
 

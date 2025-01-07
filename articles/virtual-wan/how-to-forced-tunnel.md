@@ -72,7 +72,7 @@ The steps to configure forced-tunneling are different, depending on the operatin
 
 1. Connect to the newly added connection. You are now force-tunneling all traffic to Azure Virtual WAN.
 
-### MacOS clients
+### macOS clients
 
 Once a macOS client learns the default route from Azure, forced tunneling is automatically configured on the client device. There are no extra steps to take. For instructions on how to use the macOS Azure VPN client to connect to the Virtual WAN Point-to-site VPN gateway, see the [macOS Configuration Guide](openvpn-azure-ad-client-mac.md).
 
@@ -257,7 +257,7 @@ Below is a sample EAP XML file. Change the *TrustedRootCA* field to the thumbpri
                 <TLSExtensions xmlns="http://www.microsoft.com/provisioning/EapTlsConnectionPropertiesV2">
                     <FilteringInfo xmlns="http://www.microsoft.com/provisioning/EapTlsConnectionPropertiesV3">
                         <CAHashList Enabled="true">
-                            <IssuerHash> ROOT CERTIFCATE THUMBPRINT  </IssuerHash>
+                            <IssuerHash> ROOT CERTIFICATE THUMBPRINT  </IssuerHash>
                         </CAHashList>
                     </FilteringInfo>
                 </TLSExtensions>

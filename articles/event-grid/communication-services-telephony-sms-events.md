@@ -71,7 +71,8 @@ This section contains an example of what that data would look like for each even
     "From": "15555555555",
     "To": "15555555555",
     "Message": "Great to connect with Azure Communication Services events",
-    "ReceivedTimestamp": "2020-09-18T00:27:45.32Z"
+    "ReceivedTimestamp": "2020-09-18T00:27:45.32Z",
+    "SegmentCount": 1
   },
   "eventType": "Microsoft.Communication.SMSReceived",
   "dataVersion": "1.0",

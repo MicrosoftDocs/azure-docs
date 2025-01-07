@@ -88,7 +88,7 @@ To learn more about the Azure Resource Manager and Classic deployment models, se
 >[!NOTE]
 >Azure Cloud Solution Provider (CSP) subscriptions support only the Azure Resource Manager model. Non-Azure Resource Manager services are not available in the program. When you are using a CSP subscription, the Azure Classic Run As account is not created, but the Azure Run As account is created. To learn more about CSP subscriptions, see [Available services in CSP subscriptions](/azure/cloud-solution-provider/overview/azure-csp-available-services).
 
-> [!VIDEO https://www.microsoft.com/videoplayer/embed/RWwtF3]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=5584e967-5b9f-474b-91cd-4e4342b19812]
 
 ## Role-based access control
 
