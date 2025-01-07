@@ -465,6 +465,44 @@ Accelerated networking is enabled in the portal during virtual machine creation.
 
 ### [PowerShell](#tab/powershell)
 
+1. Use [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential) to set a user name and password for the VM and store them in the `$cred` variable.
+
+    ```azurepowershell
+    $cred = Get-Credential
+    ```
+
+1. Use [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig) to define a VM with a VM size that supports accelerated networking, as listed in [Windows Accelerated Networking](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview). For a list of all Windows VM sizes and characteristics, see [Windows VM sizes](/azure/virtual-machines/sizes).
+
+    ```azurepowershell
+    $vmConfigParams = @{
+        VMName = "vm-1"
+        VMSize = "Standard_DS4_v2"
+        }
+    $vmConfig = New-AzVMConfig @vmConfigParams
+    ```
+
+1. Use [Set-AzVMOperatingSystem](/powershell/module/az.compute/set-azvmoperatingsystem) and [Set-AzVMSourceImage](/powershell/module/az.compute/set-azvmsourceimage) to create the rest of the VM configuration. The following example creates a Ubuntu Server virtual machine:
+
+  ```azurepowershell
+    $osParams = @{
+        VM = $vmConfig
+        ComputerName = "vm-1"
+        Credential = $cred
+        ProvisionVMAgent = $true
+        EnableAutoUpdate = $true
+    }
+    $vmConfig = Set-AzVMOperatingSystem @osParams -Linux
+
+    $imageParams = @{
+        VM = $vmConfig
+        PublisherName = "Canonical"
+        Offer = "ubuntu-24_04-lts"
+        Skus = "server"
+        Version = "latest"
+    }
+    $vmConfig = Set-AzVMSourceImage @imageParams
+    ```
+
 ### [CLI](#tab/cli)
 
 Use [az vm create](/cli/azure/vm#az-vm-create) to create the VM, and use the `--nics` option to attach the NIC you created. Make sure to select a VM size and distribution that's listed in [Windows and Linux Accelerated Networking](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview). For a list of all VM sizes and characteristics, see [Sizes for virtual machines in Azure](/azure/virtual-machines/sizes).
