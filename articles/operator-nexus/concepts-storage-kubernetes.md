@@ -11,10 +11,10 @@ ms.custom: template-concept
 
 # Azure Operator Nexus storage for Kubernetes
 
-Each Azure Operator Nexus cluster uses a single storage appliance to provide persistent storage to tenant workloads. The Azure Operator Nexus software Kubernetes stack offers two types of persistent storage. Operators select them through the Kubernetes StorageClass mechanism.
+Each Azure Operator Nexus cluster uses a single storage appliance to provide persistent storage to Nexus Kubernetes cluster tenant workloads. The Azure Operator Nexus software Kubernetes stack offers two types of persistent storage. Operators select them through the Kubernetes StorageClass mechanism.
 
 > [!IMPORTANT]
-> Azure Operator Nexus does not support ephemeral volumes. Nexus recommends that the persistent volume storage mechanisms described in this document are used for all workload volumes as these provide the highest levels of performance and availability. All storage in Azure Operator Nexus is provided by the storage appliance. There is no support for storage provided by baremetal machine disks.
+> Azure Operator Nexus does not support ephemeral volumes. Nexus recommends that the persistent volume storage mechanisms described in this document are used for all Nexus Kubernetes cluster workload volumes as these provide the highest levels of performance and availability. All storage in Azure Operator Nexus is provided by the storage appliance. There is no support for storage provided by baremetal machine disks.
 
 ## Kubernetes storage classes
 
