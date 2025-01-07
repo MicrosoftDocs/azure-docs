@@ -1,3 +1,13 @@
+---
+title: Review an application assessment
+description: Learn about the concepts in an application assessment created using Azure Migrate.
+author: ankitsurkar06
+ms.author: ankitsurkar
+ms.service: azure-migrate
+ms.topic: conceptual
+ms.date: 11/05/2024
+---
+
 # Review an application assessment
 
 In this article, you will learn about the concepts of an application/cross-workload assessment. This article will briefly talk about the characteristics of application assessment, how to review an application/cross-workload assessment, and different migration strategies.

@@ -1,4 +1,14 @@
-# Create an Application Assessment
+---
+title: Create an application assessment
+description: Learn how to create an application assessment using Azure Migrate.
+author: ankitsurkar06
+ms.author: ankitsurkar
+ms.service: azure-migrate
+ms.topic: conceptual
+ms.date: 11/05/2024
+---
+
+# Create an application assessment
 
 This article shows you how to create an application assessment to migrate or modernize your application workloads using Azure Migrate. Creating an application assessment for your application provides you the multiple migration strategies that you can use to migrate your workloads identify the recommended as well as alternative targets and key insights such as **readiness**, **target right-sizing**, and **cost** to host and run these workloads on Azure month over month.  
 
@@ -18,7 +28,7 @@ In this article, you’ll learn how to: 
 
 - You resolved any data collection issues that your workloads are flagged for. 
 
-Learn about the assessment prerequisites and how to implement them. <link to pre-requisites article> 
+Learn about the assessment prerequisites and how to implement them.
 
 ## Create an application assessment 
 

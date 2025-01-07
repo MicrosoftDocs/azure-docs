@@ -1,6 +1,14 @@
-# Tagging in Azure Migrate
+---
+title: Resource tagging
+description: Learn how to tag resources to manage their migration journey using Azure Migrate.
+author: ankitsurkar06
+ms.author: ankitsurkar
+ms.service: azure-migrate
+ms.topic: conceptual
+ms.date: 11/05/2024
+---
 
-## Overview
+# Tagging in Azure Migrate
 
 In any cloud transformation journey, a comprehensive current-state analysis of the IT landscape—including infrastructure, workloads, applications, and dependencies—is essential. Azure Migrate's new tagging feature enhances this analysis by enabling customers to group and visualize related resources based on specific properties. Tags, such as environment, department, or criticality, allow customers to create meaningful groupings known as **tags** to manage resources throughout their migration journey and beyond.
 

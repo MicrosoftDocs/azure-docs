@@ -1,3 +1,13 @@
+---
+title: Customise VM assessment properties
+description: Describes using VM assessment properties to customize the assessment to fit specific requirements.
+author: ankitsurkar06
+ms.author: ankitsurkar
+ms.service: azure-migrate
+ms.topic: conceptual
+ms.date: 11/05/2024
+---
+
 # Customize VM assessment properties 
 
 This article describes VM assessment properties that you can use to customize the assessment to fit your requirements. Also see the [general assessment properties](assessment-properties.md) that is applicable for all workloads in cross-workload assessment at: general assessment properties.  
