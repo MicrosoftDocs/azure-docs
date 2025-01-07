@@ -125,7 +125,7 @@ You can use your tags from `DiagnosticOptions` in three places on the Call Diagn
 * Main **calls search** page: You can search, apply a filter, and view by specific `DiagnosticOptions` attributes.
    :::image type="content" source="./media/ui-hint-call-search.png" alt-text="Screenshot of the Call Diagnostics Search view that shows the DiagnosticOptions column."  lightbox="./media/ui-hint-call-search.png":::
 
-* Participants table in **Call Overview** section: You can view and sort by DiagnosticOptions
+* Participants table in **Call Overview** section: You can view and sort by `DiagnosticOptions`
    :::image type="content" source="./media/ui-hint-participants-table.png" alt-text="Screenshot of the Call Diagnostics Call Overview section that shows the DiagnosticOptions column."  lightbox="./media/ui-hint-participants-table.png":::
 
 * **Timeline section**:  You can search by a specific `DiagnosticOptions` attribute and view the `DiagnosticOptions` in the participants information side panel
