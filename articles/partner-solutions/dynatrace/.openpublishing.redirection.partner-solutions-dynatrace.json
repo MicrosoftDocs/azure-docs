@@ -1,0 +1,44 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/partner-solutions/dynatrace/dynatrace-configure-prereqs.md",
+            "redirect_url": "/azure/partner-services/dynatrace/configure-prerequisites",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/partner-solutions/dynatrace/dynatrace-create.md",
+            "redirect_url": "/azure/partner-services/dynatrace/create",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/partner-solutions/dynatrace/dynatrace-free-trial.md",
+            "redirect_url": "/azure/partner-services/dynatrace/free-trial",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/partner-solutions/dynatrace/dynatrace-how-to-configure-prereqs.md",
+            "redirect_url": "/azure/partner-services/dynatrace/configure-prerequisites",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/partner-solutions/dynatrace/dynatrace-how-to-manage.md",
+            "redirect_url": "/azure/partner-services/dynatrace/manage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/partner-solutions/dynatrace/dynatrace-overview.md",
+            "redirect_url": "/azure/partner-services/dynatrace/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/partner-solutions/dynatrace/dynatrace-get-support.md",
+            "redirect_url": "/azure/partner-services/dynatrace/support",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/partner-solutions/dynatrace/dynatrace-troubleshoot.md",
+            "redirect_url": "/azure/partner-services/dynatrace/troubleshoot",
+            "redirect_document_id": false
+        }
+    ]
+}
