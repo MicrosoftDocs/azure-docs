@@ -105,9 +105,9 @@ There are specific fields, when using Azure Resource Graph, that are updated at 
 
 #### List of fields affected
 
-> ![IMPORTANT]
-> This concept is not limited to specific properties. The following list are examples that you might find delayed, but eventually become updated.
-> For virtual machines, VMs are updated asynchronously, which means that the current state does not match the "goal state" (desired state set by customers). However, these VM fields will converge over time.**
+> [!IMPORTANT]
+> - This concept is not limited to specific properties. The following list are examples that you might find delayed, but eventually become updated.
+> - For virtual machines, VMs are updated asynchronously, which means that the current state does not match the "goal state" (desired state set by customers). However, these VM fields will converge over time.
 
 - properties.extended.instanceView.osName
 - properties.extended.instanceView.osVersion
