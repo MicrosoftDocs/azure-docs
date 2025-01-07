@@ -5,7 +5,7 @@
  author: kgremban
  ms.service: azure-iot-hub
  ms.topic: conceptual
- ms.date: 11/15/2024
+ ms.date: 1/7/2025
  ms.author: kgremban
 ---
 
@@ -45,37 +45,34 @@ For links to download these certificates, see [Azure Certificate Authority detai
 Root CA migrations are extremely rare, you should always prepare your IoT solution for the unlikely event that a root CA is compromised and an emergency root CA migration is necessary.
 
 ## Cipher Suites
-To comply with Azure security policy for a secure connection, IoT Hub supports the following cipher suites:
+To comply with Azure security policy for a secure connection, IoT Hub supports the following RSA and ECDSA cipher suites for TLS 1.2:
+   * `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`
+   * `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`
+   * `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256`
+   * `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384`
+   * `TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256`
+   * `TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`
+   * `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256`
+   * `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384`
 
-| Cipher Suites                             | Description                 |
-|-------------------------------------------|------------------------------|
-| `TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256`   | TLS 1.2, 1.3 RSA cipher suites |
-| `TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`   | TLS 1.2, 1.3 RSA cipher suites |
-| `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256`   | TLS 1.2, 1.3 RSA cipher suites |
-| `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384`   | TLS 1.2, 1.3 RSA cipher suites |
-| `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256` | TLS 1.2, 1.3 ECDSA cipher suites  |
-| `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384` | TLS 1.2, 1.3 ECDSA cipher suites  |
-| `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256` | TLS 1.2, 1.3 ECDSA cipher suites  |
-| `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384` | TLS 1.2, 1.3 ECDSA cipher suites  |
+The following cipher suites are currently allowed in IoT Hub, however these cipher suites are no longer recommended by the Azure security guidelines. 
 
-The following cipher suites are weak and no longer recommended, and these cipher suites will be retired in accordance with the Azure TLS end of support. 
-
-| Cipher Suites                         | TLS Version                        |
+| Cipher Suites                         | TLS Version support                |
 |---------------------------------------|------------------------------------|
-| TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256 | TLS 1.2 Weak Cipher Suites         |
-| TLS_DHE_RSA_WITH_AES_256_GCM_SHA384   | TLS 1.2 Weak Cipher Suites         |
-| TLS_DHE_RSA_WITH_AES_128_GCM_SHA256   | TLS 1.2 Weak Cipher Suites         |
-| TLS_RSA_WITH_AES_256_GCM_SHA384       | TLS 1.2 Weak Cipher Suites         |
-| TLS_RSA_WITH_AES_128_GCM_SHA256       | TLS 1.2 Weak Cipher Suites         |
-| TLS_RSA_WITH_AES_256_CBC_SHA256       | TLS 1.2 Weak Cipher Suites         |
-| TLS_RSA_WITH_AES_128_CBC_SHA256       | TLS 1.2 Weak Cipher Suites         |
-| TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA    | TLS 1.0/1.1/1.2 Weak Cipher Suites |
-| TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA    | TLS 1.0/1.1/1.2 Weak Cipher Suites |
-| TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA    | TLS 1.0/1.1/1.2 Weak Cipher Suites |
-| TLS_RSA_WITH_3DES_EDE_CBC_SHA         | TLS 1.0/1.1/1.2 Weak Cipher Suites |
-| TLS_RSA_WITH_3DES_EDE_CBC_SHA         | TLS 1.0/1.1/1.2 Weak Cipher Suites |
-| TLS_RSA_WITH_AES_128_CBC_SHA          | TLS 1.0/1.1/1.2 Weak Cipher Suites |
-| TLS_RSA_WITH_AES_256_CBC_SHA          | TLS 1.0/1.1/1.2 Weak Cipher Suites |
+| TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256 | TLS 1.2        |
+| TLS_DHE_RSA_WITH_AES_256_GCM_SHA384   | TLS 1.2        |
+| TLS_DHE_RSA_WITH_AES_128_GCM_SHA256   | TLS 1.2        |
+| TLS_RSA_WITH_AES_256_GCM_SHA384       | TLS 1.2        |
+| TLS_RSA_WITH_AES_128_GCM_SHA256       | TLS 1.2        |
+| TLS_RSA_WITH_AES_256_CBC_SHA256       | TLS 1.2        |
+| TLS_RSA_WITH_AES_128_CBC_SHA256       | TLS 1.2        |
+| TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA    | TLS 1.0/1.1/1.2|
+| TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA    | TLS 1.0/1.1/1.2|
+| TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA    | TLS 1.0/1.1/1.2|
+| TLS_RSA_WITH_3DES_EDE_CBC_SHA         | TLS 1.0/1.1/1.2|
+| TLS_RSA_WITH_3DES_EDE_CBC_SHA         | TLS 1.0/1.1/1.2|
+| TLS_RSA_WITH_AES_128_CBC_SHA          | TLS 1.0/1.1/1.2|
+| TLS_RSA_WITH_AES_256_CBC_SHA          | TLS 1.0/1.1/1.2|
 
 A client can suggest a list of higher cipher suites to use during `ClientHello`. However, some of them might not be supported by IoT Hub (for example, `ECDHE-ECDSA-AES256-GCM-SHA384`). In this case, IoT Hub will try to follow the preference of the client, but eventually negotiate down the cipher suite with `ServerHello`. 
 
