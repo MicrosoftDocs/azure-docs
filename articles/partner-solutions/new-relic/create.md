@@ -121,7 +121,7 @@ You can also skip this step and go directly to the **Review and Create** tab.
 
 ## Next steps
 
-- [Manage the New Relic resource](new-relic-how-to-manage.md)
+- [Manage the New Relic resource](manage.md)
 - [Setting up your New Relic account config](https://docs.newrelic.com/docs/infrastructure/microsoft-azure-integrations/get-started/azure-native/#view-your-data-in-new-relic)
 - Get started with Azure Native New Relic Service on
 
