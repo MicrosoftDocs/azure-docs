@@ -774,43 +774,6 @@ builtInTransformationSettings:
 
 To learn more, see [Map data by using dataflows](concept-dataflow-mapping.md) and [Convert data by using dataflows](concept-dataflow-conversions.md).
 
-<!-- TODO: DOE content for this -->
-
-<!-- #### Passthrough operation
-
-Using map, you can apply a passthrough operation that takes all the input fields and maps them to the output field, essentially passing through all fields. 
-
-# [Portal](#tab/portal)
-
-TBD
-
-# [Bicep](#tab/bicep)
-
-```bicep
-builtInTransformationSettings: {
-  map: [
-    {
-      inputs: [ '*' ]
-      output: '*'
-    }
-  ]
-}
-```
-
-# [Kubernetes (preview)](#tab/kubernetes)
-
-```yaml
-builtInTransformationSettings:
-  map:
-    - inputs:
-      - '*'
-      output: '*'
-```
-
----
-
- -->
-
 ### Serialize data according to a schema
 
 If you want to serialize the data before sending it to the destination, you need to specify a schema and serialization format. Otherwise, the data is serialized in JSON with the types inferred. Storage endpoints like Microsoft Fabric or Azure Data Lake require a schema to ensure data consistency. Supported serialization formats are Parquet and Delta.
