@@ -9,7 +9,7 @@ ms.date: 08/05/2024
 ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.custom: devx-track-azurepowershell
-ms.topic: conceptual
+ms.topic: concept-article
 
 ---
 
@@ -151,7 +151,7 @@ The operation is asynchronous. You can check the status by reviewing the **Commi
 To fully remove a custom IP prefix, it must be deprovisioned and then deleted. 
 
 > [!IMPORTANT]
-> It is strongly reccomended to decommission the range **prior** to modifying/deleting the Route Origin Authorization (ROA) you created with your Routing Internet Registry. Failure to do this will mean Microsoft will still be advertising your range when not authrorized to do so. Please see the [creation documentation](create-custom-ip-address-prefix-powershell.md) for more information about ROAs.
+> It is strongly recommended to decommission the range **prior** to modifying/deleting the Route Origin Authorization (ROA) you created with your Routing Internet Registry. Failure to do this will mean Microsoft will still be advertising your range when not authorized to do so. Please see the [creation documentation](create-custom-ip-address-prefix-powershell.md) for more information about ROAs.
 
 > [!NOTE]
 > If there is a requirement to migrate an provisioned range from one region to the other, the original custom IP prefix must be fully removed from the first region before a new custom IP prefix with the same address range can be created in another region.

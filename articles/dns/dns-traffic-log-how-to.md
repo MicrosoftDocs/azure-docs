@@ -4,7 +4,7 @@ description: Learn how to filter and view Azure DNS traffic
 author: greg-lindsay
 ms.service: azure-dns
 ms.topic: how-to
-ms.date: 11/19/2024
+ms.date: 01/06/2025
 ms.author: greglin
 ---
 
@@ -15,7 +15,7 @@ This article shows you how to view and filter DNS traffic at the virtual network
 > [!NOTE]
 > DNS security policy is in PREVIEW.<br> 
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.<br><br>
-> This DNS security policy preview is offered without a requirement to enroll in a pre-release feature preview. However, to access the Azure portal user interface for this policy prior to the next portal update, you must use the [Azure portal preview-enabled link](https://ms.portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_DnsSecurityPolicy=staging&microsoft_azure_marketplace_ItemHideKey=Microsoft_Azure_DnsSecurityPolicyHidden#browse/Microsoft.Network%2FdnsResolverDomainLists).
+> This DNS security policy preview is offered without a requirement to enroll in a pre-release feature preview.
 
 ## Prerequisites
 

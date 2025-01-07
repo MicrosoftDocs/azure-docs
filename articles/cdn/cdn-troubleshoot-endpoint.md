@@ -4,7 +4,6 @@ description: Learn how to troubleshoot issues with Azure Content Delivery Networ
 services: cdn
 author: duongau
 manager: kumudd
-ms.assetid: b588a1eb-ab69-4fc7-ae4d-157c3e46f4a8
 ms.service: azure-cdn
 ms.topic: troubleshooting
 ms.date: 03/20/2024

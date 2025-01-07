@@ -10,11 +10,13 @@ ms.custom: vmware-scenario-422
 #Customer intent: As an VMware admin, I want to import my on-premises servers running in a VMware environment.
 ---
 
-# Tutorial: Import servers running in a VMware environment with RVTools XLSX (preview)
+# Import servers running in a VMware environment with RVTools XLSX (preview)
 
 As part of your migration journey to Azure, you discover your on-premises inventory and workloads.
 
-This tutorial shows you how to discover the servers that are running in your VMware environment by using RVTools XLSX (preview). When you use this tool, you can control the data shared in the file and there's no need to set up the Azure Migrate appliance to discover servers. [Learn more](migrate-support-matrix-vmware.md#import-servers-by-using-rvtools-xlsx-preview).
+This tutorial shows you how to discover the servers that are running in your VMware environment by using RVTools XLSX (preview). When you use this tool, you can control the data shared in the file and there's no need to set up the Azure Migrate appliance to discover servers. [Learn more](../migrate-support-matrix-vmware.md#import-servers-using-rvtools-xlsx-preview).
+
+[!INCLUDE [scenario-banner.md](../includes/scenario-banner.md)]
 
 
 In this tutorial, you learn how to:
@@ -50,7 +52,7 @@ Before you begin this tutorial, ensure that you have the following prerequisites
 
 To create a project and register the Azure Migrate appliance, you must have an Azure user account that has the following permissions:
 
-- Contributor or Owner permissions in Azure subscription. Complete the procedure to [set Contributor or Owner permissions in the Azure subscription](tutorial-discover-vmware.md#prepare-an-azure-user-account)
+- Contributor or Owner permissions in Azure subscription. Complete the procedure to [set Contributor or Owner permissions in the Azure subscription](../tutorial-discover-vmware.md#prepare-an-azure-user-account)
 - Permissions to register Microsoft Entra apps.
 - Owner or Contributor and User Access Administrator permission at subscription level to create an instance of Azure Key Vault, which is used during the agentless server migration.
 
@@ -59,14 +61,16 @@ To create a project and register the Azure Migrate appliance, you must have an A
 
 Follow the instructions on [how to set up an Azure Migrate project](../tutorial-discover-import.md#set-up-a-project).
 
+> [!NOTE]
+> Import using RVTools is not supported for Migrate projects configured with private endpoints.
 
 ## Import the servers using the RVTools XLSX file (preview)
 
 To import the servers using RVTools XLSX (preview) file, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to **Azure Migrate**.
-1. Under **Migration goals**, select **Servers, databases and web apps**.
-1. On **Azure Migrate | Servers, databases and web apps** page, under **Assessment tools**, select **Discover** and then select **Using import**.
+1. Select **Servers, databases and web apps**.
+1. On **Servers, databases and web apps** page, under **Assessment tools**, select **Discover** and then select **Using import**.
 
     :::image type="content" source="../media/tutorial-import-vmware-using-rvtools-xlsx/navigation-using-import.png" alt-text="Screenshot that shows how to navigate to the RVTools import option." lightbox="../media/tutorial-import-vmware-using-rvtools-xlsx/navigation-using-import.png":::
 
@@ -109,4 +113,4 @@ To verify that the servers appear in the Azure portal after importing, follow th
 
 ## Next steps
 
-- Learn on [key benefits and limitations of using RVTools.XLSX](migrate-support-matrix-vmware.md#import-servers-by-using-rvtools-xlsx-preview).
+- Learn on [key benefits and limitations of using RVTools.XLSX](../migrate-support-matrix-vmware.md#import-servers-using-rvtools-xlsx-preview).

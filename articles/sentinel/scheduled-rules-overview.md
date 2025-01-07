@@ -92,15 +92,18 @@ Everything you type into the rule query window is instantly validated, so you fi
 
 - We recommend you use an [Advanced Security Information Model (ASIM) parser](normalization-about-parsers.md) as your query source, instead of using a native table. This will ensure that the query supports any current or future relevant data source or family of data sources, rather than relying on a single data source.
 
-- The query length should be between 1 and 10,000 characters and cannot contain "`search *`" or "`union *`". You can use [user-defined functions](/azure/data-explorer/kusto/query/functions/user-defined-functions) to overcome the query length limitation, as a single function can replace dozens of lines of code.
+- The query length should be between 1 and 10,000 characters and cannot contain "`search *`" or "`union *`". You can use [user-defined functions](/kusto/query/functions/user-defined-functions?view=microsoft-sentinel&preserve-view=true) to overcome the query length limitation, as a single function can replace dozens of lines of code.
 
 - Using ADX functions to create Azure Data Explorer queries inside the Log Analytics query window **is not supported**.
 
-- When using the **`bag_unpack`** function in a query, if you [project the columns](/azure/data-explorer/kusto/query/projectoperator) as fields using "`project field1`" and the column doesn't exist, the query will fail. To guard against this happening, you must [project the column](/azure/data-explorer/kusto/query/projectoperator) as follows:
+- When using the **`bag_unpack`** function in a query, if you [project the columns](/kusto/query/project-operator?view=microsoft-sentinel&preserve-view=true) as fields using "`project field1`" and the column doesn't exist, the query will fail. To guard against this happening, you must [project the column](/kusto/query/project-operator?view=microsoft-sentinel&preserve-view=true) as follows:
 
    `project field1 = column_ifexists("field1","")`
 
-For more help building Kusto queries, see [Kusto Query Language in Microsoft Sentinel](kusto-overview.md) and [Best practices for Kusto Query Language queries](/azure/data-explorer/kusto/query/best-practices?toc=%2Fazure%2Fsentinel%2FTOC.json&bc=%2Fazure%2Fsentinel%2Fbreadcrumb%2Ftoc.json).
+For more help building Kusto queries, see the following articles:
+- [Kusto Query Language in Microsoft Sentinel](kusto-overview.md)
+- [KQL quick reference guide](/kusto/query/kql-quick-reference?view=microsoft-sentinel&preserve-view=true&toc=%2Fazure%2Fsentinel%2FTOC.json&bc=%2Fazure%2Fsentinel%2Fbreadcrumb%2Ftoc.json)
+- [Best practices for Kusto Query Language queries](/kusto/query/best-practices?view=microsoft-sentinel&preserve-view=true&toc=%2Fazure%2Fsentinel%2FTOC.json&bc=%2Fazure%2Fsentinel%2Fbreadcrumb%2Ftoc.json)
 
 ### Alert enhancement
 

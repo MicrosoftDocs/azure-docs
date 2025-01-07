@@ -94,6 +94,14 @@ Azure Firewall provides the FQDN tag `AzureKubernetesService` to simplify the fo
 
 You need to open some outgoing ports in your server's firewall to allow the Application Insights SDK or the Application Insights Agent to send data to the portal. For more information, see the [Outgoing ports](/azure/azure-monitor/ip-addresses#outgoing-ports) section of [IP addresses used by Azure Monitor](/azure/azure-monitor/ip-addresses).
 
+## VirtualNetwork service tag
+
+Azure network security groups can filter network traffic within an Azure virtual network. When you enable inbound network traffic using the `VirtualNetwork` service tag, it automatically includes all IP address ranges of the workload virtual network and any peered transit virtual networks.
+
+For Azure Spring Apps running on Azure Kubernetes Service (AKS), the AKS infrastructure manages the IP address prefixes for workloads on all AKS node pools. These prefixes are implicitly included in the `VirtualNetwork` service tag. This design ensures that applications remain accessible within the virtual network, even if their IP addresses fall outside the defined IP range of the virtual network.
+
+If you decide not to allow traffic using the `VirtualNetwork` service tag, you must configure specific rules to allow communication between the Azure Spring Apps service runtime subnet and the apps subnet. Furthermore, you need to explicitly allow traffic from the Azure Spring Apps reserved Classless Inter-Domain Routing (CIDR) range, which is used by the underlying AKS infrastructure. You can't add only part of the CIDR range to the allow list because the address prefix for workloads is dynamic.
+
 ## Next steps
 
 - [Access your application in a private network](access-app-virtual-network.md)

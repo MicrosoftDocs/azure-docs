@@ -35,11 +35,12 @@ The following tables show support of recording for specific call type and identi
 
 |Identities                   | Teams meeting | Room | 1:1 call | Group call | 1:1 Teams interop call | Group Teams interop call |
 |-----------------------------|---------------|------|----------|------------|------------------------|--------------------------|
-|Communication Services user	| ✔️[1] |✔️[2]| ✔️[2]|✔️[2]|✔️[1]|✔️[1][2]|
-|Microsoft 365 user	          | ✔️[1] || ✔️[2]||✔️[1]|✔️[1][2]|
+|Communication Services user	 | ✔️[1][2]     |✔️[3]|          |✔️[3]       |                        |✔️[2][3]|
+|Microsoft 365 user	          | ✔️[1][2]     |      |         |            |                         |✔️[2][3]|
 
-[1] These call types support Teams cloud and compliance recording.  
-[2] These call types support Azure Communication Services recording.
+[1] These call types support Teams cloud.
+[2] These call types support Teams compliance recording.  
+[3] These call types support Azure Communication Services recording.
  
 ### Operations
 The following tables show support of individual APIs in calling SDK to individual identity types.
@@ -52,7 +53,7 @@ The following tables show support of individual APIs in calling SDK to individua
 |Learn whether explicit consent is required | ✔️[2]	| ✔️[2]  |
 |Give explicit consent for being recorded | ✔️[2]	| ✔️[2]  |
 
-[1] The user is not notified that recording is available. You can get Teams cloud recording via Microsoft Graph API. You can subscribe to notification in Azure Communication Services when recording is available.  
+[1] A user is not notified that recording is available. You can subscribe to Microsoft Graph's change notifications for notification about availability of Teams cloud recording or you can subscribe to `Microsoft.Communication.RecordingFileStatusUpdated` event in Azure Communication Services to be notified when Azure Communication Services recording is available.
   
 [2] This functionality is available only in Teams meetings and group Teams interoperability calls.
  
@@ -80,26 +81,6 @@ The following tables show support of recording in individual Azure Communication
 ::: zone pivot="platform-windows"
 [!INCLUDE [Record calls client-side Windows](./includes/record-calls/record-calls-windows.md)]
 ::: zone-end
-
-## Compliance recording
-
-Compliance recording is recording that's based on Microsoft Teams policy. You can enable it by using this tutorial: [Introduction to Teams policy-based recording for callings](/microsoftteams/teams-recording-policy).
-
-Policy-based recording starts automatically when a user who has the policy joins a call. To get a notification from Azure Communication Services about recording, use the following code:
-
-```js
-const callRecordingApi = call.feature(Features.Recording);
-
-const isComplianceRecordingActive = callRecordingApi.isRecordingActive;
-
-const isComplianceRecordingActiveChangedHandler = () => {
-    console.log(callRecordingApi.isRecordingActive);
-};
-
-callRecordingApi.on('isRecordingActiveChanged', isComplianceRecordingActiveChangedHandler);
-```
-
-You can also implement compliance recording by using a custom recording bot. See the [GitHub example](https://github.com/microsoftgraph/microsoft-graph-comms-samples/tree/a3943bafd73ce0df780c0e1ac3428e3de13a101f/Samples/BetaSamples/LocalMediaSamples/ComplianceRecordingBot).
 
 ## Next steps
 

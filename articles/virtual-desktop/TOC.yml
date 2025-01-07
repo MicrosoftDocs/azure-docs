@@ -136,17 +136,20 @@
             - name: Active Directory Federation Services
               items:
                 - name: Configure single sign-on using AD FS
-                  displayName: identity, sso
+                  displayName: identity, sso, adfs
                   href: configure-adfs-sso.md
-                - name: Use a KDC proxy
-                  displayName: identity, key distribution center
-                  href: key-distribution-center-proxy.md
         - name: Enforce Microsoft Entra multifactor authentication
           displayName: identity, multi-factor authentication, multifactor, multi factor, mfa, two-factor authentication, two factor, 2fa
           href: set-up-mfa.md
+        - name: Configure session lock behavior
+          displayName: identity, sso, lock screen
+          href: configure-session-lock-behavior.md
         - name: Delegated access
           displayName: identity
           href: delegated-access-virtual-desktop.md
+        - name: Use a KDC proxy
+          displayName: identity, key distribution center
+          href: key-distribution-center-proxy.md
     - name: Network connectivity
       items:
         - name: FQDNs and endpoints
@@ -349,7 +352,7 @@
           href: delete-host-pool.md
     - name: Session hosts
       items:
-        - name: Manage session hosts
+        - name: Management
           items:
             - name: Management overview
               displayName: virtual machines, vms, intune, gpo, group policy, configuration manager, configmgr, sccm

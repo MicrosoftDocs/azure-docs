@@ -279,9 +279,9 @@ Try the new cross-platform PowerShell https://aka.ms/pscore6
 PS C:\WINDOWS\system32> $templateFile = "C:\12-09-2020\ExtensionTemplates\addGPUextensiontoVM.json"
 PS C:\WINDOWS\system32> $templateParameterFile = "C:\12-09-2020\ExtensionTemplates\addGPUExtLinuxVM.parameters.json"
 PS C:\WINDOWS\system32> $RGName = "rg2"
-PS C:\WINDOWS\system32> New-AzureRmResourceGroupDeployment -ResourceGroupName $RGName -TemplateFile $templateFile -TemplateParameterFile $templateParameterFile -Name "delpoyment7"
+PS C:\WINDOWS\system32> New-AzureRmResourceGroupDeployment -ResourceGroupName $RGName -TemplateFile $templateFile -TemplateParameterFile $templateParameterFile -Name "deployment7"
 
-DeploymentName          : delpoyment7
+DeploymentName          : deployment7
 ResourceGroupName       : rg2
 ProvisioningState       : Succeeded
 Timestamp               : 12/10/2020 10:43:23 PM

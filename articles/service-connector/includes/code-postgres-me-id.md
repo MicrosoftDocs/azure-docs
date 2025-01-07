@@ -269,6 +269,7 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for PostgreSQL
     // const tenantId = process.env.AZURE_POSTGRESQL_TENANTID;
     // const clientId = process.env.AZURE_POSTGRESQL_CLIENTID;
     // const clientSecret = process.env.AZURE_POSTGRESQL_CLIENTSECRET;
+    // const credential = new ClientSecretCredential(tenantId, clientId, clientSecret);
 
     // Acquire the access token.
     var accessToken = await credential.getToken('https://ossrdbms-aad.database.windows.net/.default');

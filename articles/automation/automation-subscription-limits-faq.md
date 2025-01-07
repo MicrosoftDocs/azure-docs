@@ -14,7 +14,7 @@ Azure Automation will soon revise its service and subscription limits to ensure 
 
 ## Revised limits
 
-For more information on the current service and subscription limits, see [Automation limits](https://learn.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#process-automation).
+For more information on the current service and subscription limits, see [Automation limits](../azure-resource-manager/management/azure-subscription-service-limits.md#process-automation).
 
 The following limits would be changed:
 - Maximum number of active Automation accounts in a subscription in a region. 
