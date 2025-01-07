@@ -185,6 +185,8 @@ Where:
 
 Make sure to adjust the table name and schema to the desired name and the schema of the data in your source files.
 
+### Query the external table
+
 At this point, all the metadata required to access the external table are created. To test your external table, use a query such as the following T-SQL sample to validate your work:
 
 ```sql

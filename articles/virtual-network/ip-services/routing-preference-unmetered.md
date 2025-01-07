@@ -2,7 +2,7 @@
 title: What is routing preference unmetered?
 titleSuffix: Azure Virtual Network
 description: Learn about how you can configure routing preference for your resources egressing data to CDN provider.
-ms.date: 08/24/2023
+ms.date: 01/07/2025
 ms.author: mbender
 author: mbender-ms
 ms.service: azure-virtual-network
