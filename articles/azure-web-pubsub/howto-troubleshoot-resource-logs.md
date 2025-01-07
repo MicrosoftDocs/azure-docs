@@ -20,7 +20,7 @@ There are three types of resource logs: _Connectivity_, _Messaging_, and _HTTP r
 - **Messaging** logs provide tracing information for hub messages that are sent or received via Azure Web PubSub service, like the tracing ID or message type.
 - **HTTP request** logs provide tracing information for HTTP requests to the Azure Web PubSub service, like HTTP method or status code. Typically, an HTTP request is recorded when it arrives at or leaves from the service.
 
-## Capture resource logs with the live trace tool
+## Capture resource logs by using the live trace tool
 
 The Azure Web PubSub service live trace tool can collect resource logs in real time, which is helpful for troubleshooting problems in your development environment. The live trace tool can capture connectivity logs, messaging logs, and HTTP request logs.
 
