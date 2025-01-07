@@ -38,8 +38,10 @@ Based on whether you use the MQ managed connector (Consumption or Standard workf
 
 | Authentication | Supported logic app type and MQ connector | Process |
 |----------------|-------------------------------------------|---------|
-| Server only <br>(one-way) | - Consumption: Managed only <br><br>- Standard: Managed or built-in | For server authentication, your MQ server sends a private key certificate, either publicly trusted or non-publicly trusted, to your logic app client for validation. The MQ connector validates the incoming server certificate for authenticity against public key certificates, known also as a "signer" certificates, by using standard .NET SSL stream validation. <br><br>The logic app doesn't send a client certificate. |
+| Server only <br>(one-way) | - Consumption: Managed only <br><br>- Standard: Managed or built-in | For server authentication, your MQ server sends a private key certificate, either publicly trusted or non-publicly trusted, to your logic app client for validation. The MQ connector validates the incoming server certificate for authenticity against public key certificates, also known as *signer certificates*, by using standard .NET SSL stream validation. <br><br>The logic app workflow doesn't send a client certificate. |
 | Server-client <br>(two-way) | - Consumption: Not supported <br><br>- Standard: Built-in only | For server authentication, see the previous row. <br><br>For client authentication, the logic app client sends a private key certificate to your MQ server for validation. The MQ server validates the incoming client certificate for authenticity also by using a public key certificate. |
+
+[!INCLUDE [secrets-guidance](../logic-apps/includes/secrets-guidance.md)]
 
 ### Notes about private key and public key certificates
 
@@ -266,8 +268,6 @@ To check that the thumbprints for the required public key certificates exist on 
 
 Follow these steps to add a public key certificate to the Trusted Root CA Store on the virtual machine host where your Standard logic app runs.
 
-[!INCLUDE [secrets-guidance](../logic-apps/includes/secrets-guidance.md)]
-
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource. On the logic app resource menu, under **Settings**, select **Certificates**.
 
 1. Select the **Public key certificates (.cer)** tab, and then select **Add certificate**.
@@ -297,8 +297,6 @@ Follow these steps to add a public key certificate to the Trusted Root CA Store 
 ## Add a private key certificate
 
 Follow these steps to add a private key certificate to the Trusted Root CA Store on virtual machine host where your Standard logic app runs.
-
-[!INCLUDE [secrets-guidance](../logic-apps/includes/secrets-guidance.md)]
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource. On the logic app resource menu, under **Settings**, select **Certificates**.
 
