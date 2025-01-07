@@ -74,9 +74,6 @@ By default, both currently active scheduled query and near real-time (NRT) rules
 
         For example, select **Hunting queries** to jump to the **Hunting** page. There, you see a filtered list of the hunting queries that are associated with the selected technique, and available for you to configure in your workspace.
 
-## Filter by threat scenario
-
-Use Filter the entire **MITRE ATT&CK** page by threat scenario
 ## Simulate possible coverage with available detections
 
 In the MITRE coverage matrix, *simulated* coverage refers to detections that are available, but not currently configured in your Microsoft Sentinel workspace. View your simulated coverage to understand your organization's possible security status, were you to configure all detections available to you.

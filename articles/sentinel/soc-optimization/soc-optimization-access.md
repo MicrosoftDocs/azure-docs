@@ -123,13 +123,13 @@ Filter the optimizations based on optimization type, or search for a specific op
 1. For threat-based coverage optimizations:
 
     - Toggle between the spider charts to understand your coverage across different tactics and techniques, based on the user-defined and out-of-the-box detections active in your environment.
-    - Select **View threat scenario in MITRE ATT&CK** to jump to the [**MITRE ATT&CK** page in Microsoft Sentinel](../mitre-coverage.md&tabs=defender-portal), pre-filtered for your threat scenario. For more information, see [Understand security coverage by the MITRE ATT&CK® framework].
+    - Select **View threat scenario in MITRE ATT&CK** to jump to the [**MITRE ATT&CK** page in Microsoft Sentinel](../mitre-coverage.md?tabs=defender-portal), pre-filtered for your threat scenario. For more information, see [Understand security coverage by the MITRE ATT&CK® framework].
 
 1. Scroll down to the bottom of the details pane for a link to where you can take the recommended actions. For example:
 
 - If an optimization includes recommendations to add analytics rules, select **Go to Content Hub**.
 - If an optimization includes recommendations to move a table to basic logs, select **Change plan**.
-- For threat-based coverage optimizations, select **View full threat scenario** to see the full list of relevant threats, active and recommended detections, and coverage levels. From there you can jump directly to the **Content hub** to activate any recommended detections, or to the **MITRE ATT&CK** page to view the [full MITRE ATT&CK coverage for the selected scenario](../mitre-coverage.md&tabs=defender-portal). For example:
+- For threat-based coverage optimizations, select **View full threat scenario** to see the full list of relevant threats, active and recommended detections, and coverage levels. From there you can jump directly to the **Content hub** to activate any recommended detections, or to the **MITRE ATT&CK** page to view the [full MITRE ATT&CK coverage for the selected scenario](../mitre-coverage.md?tabs=defender-portal). For example:
 
     :::image type="content" source="media/soc-optimization-access/threat-scenario-page.png" alt-text="Screenshot of the SOC optimization threat scenario page.":::
 
