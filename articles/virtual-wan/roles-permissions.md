@@ -180,7 +180,7 @@ For more information, see [Scope levels](../role-based-access-control/scope-over
 
 If you see an error in the following format, then please make sure you have the above permissions properly configured. 
 
-Error Message Format: "The client with object id {} does not have authorization to perform action {} over scope {} or the scope is invalid. If access was recently granted, please refresh your credentials."
+Error message format: "The client with object id {} does not have authorization to perform action {} over scope {} or the scope is invalid. If access was recently granted, please refresh your credentials."
 
 ## Additional services
 
