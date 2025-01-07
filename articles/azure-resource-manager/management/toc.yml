@@ -41,7 +41,7 @@
       href: move-resource-group-and-subscription.md
     - name: Move across regions
       href: ../../resource-mover/move-region-within-resource-group.md?toc=/azure/azure-resource-manager/management/toc.json
-    - name: Resource supported for move
+    - name: Resources supported for move
       href: move-support-resources.md
     - name: Azure services
       items:
