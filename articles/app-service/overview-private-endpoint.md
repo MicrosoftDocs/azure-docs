@@ -14,7 +14,7 @@ ms.custom: msangapu
 [!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
 
 > [!IMPORTANT]
-> Private endpoint is available for Windows and Linux apps, containerized or not, hosted on these App Service plans : **Basic**, **Standard**, **PremiumV2**, **PremiumV3**, **IsolatedV2**, **Functions Premium** (sometimes referred to as the Elastic Premium plan).
+> Private endpoint is available for Windows and Linux apps, containerized or not, hosted on these App Service plans: **Basic**, **Standard**, **PremiumV2**, **PremiumV3**, **IsolatedV2**, **Functions Premium** (sometimes referred to as the Elastic Premium plan).
 
 You can use private endpoint for your App Service apps to allow clients located in your private network to securely access the app over Azure Private Link. The private endpoint uses an IP address from your Azure virtual network address space. Network traffic between a client on your private network and the app traverses over the virtual network and a Private Link on the Microsoft backbone network, eliminating exposure from the public Internet.
 
@@ -36,7 +36,7 @@ The subnet where you plug the private endpoint can have other resources in it, y
 You can also deploy the private endpoint in a different region than your app. 
 
 > [!NOTE]
-> The virtual network integration feature cannot use the same subnet as private endpoint, this is a limitation of the virtual network integration feature.
+> The virtual network integration feature can't use the same subnet as private endpoint.
 
 From a security perspective:
 
@@ -90,7 +90,7 @@ After this DNS configuration, you can reach your app privately with the default 
 If you need to use a custom DNS name, you must add the custom name in your app and you must validate the custom name like any custom name, using public DNS resolution. 
 For more information, see [custom DNS validation](./app-service-web-tutorial-custom-domain.md).
 
-For the Kudu console, or Kudu REST API (deployment with Azure DevOps Services self-hosted agents for example) you must create two records pointing to the private endpoint IP in your Azure DNS private zone or your custom DNS server. The first is for your app, the second is for the SCM of your app.
+For the Kudu console, or Kudu REST API (deployment with Azure DevOps Services self-hosted agents for example) you must create two records pointing to the private endpoint IP in your Azure DNS private zone or your custom DNS server. The first is for your app and the second is for the SCM of your app.
 
 | Name | Type | Value |
 |-----|-----|-----|
@@ -122,7 +122,7 @@ For pricing details, see [Azure Private Link pricing](https://azure.microsoft.co
 * You can connect up to 100 private endpoints to a particular app.
 * Remote Debugging functionality isn't available through the private endpoint. The recommendation is to deploy the code to a slot and remote debug it there.
 * FTP access is provided through the inbound public IP address. Private endpoint doesn't support FTP access to the app.
-* IP-Based SSL isn't supported with private endpoints.
+* IP-Based TLS isn't supported with private endpoints.
 * Apps that you configure with private endpoints can't receive public traffic coming from subnets with `Microsoft.Web` service endpoint enabled and can't use [service endpoint-based access restriction rules](./overview-access-restrictions.md#access-restriction-rules-based-on-service-endpoints).
 * Private endpoint naming must follow the rules defined for resources of type `Microsoft.Network/privateEndpoints`. Naming rules can be found [here](../azure-resource-manager/management/resource-name-rules.md#microsoftnetwork). 
 

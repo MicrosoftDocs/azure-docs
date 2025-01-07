@@ -64,7 +64,7 @@ To isolate traffic to an individual web app, you need to use IP-based access res
 
 ## Considerations for an external App Service Environment
 
-An external App Service Environment has a public-facing load balancer like multi-tenant App Service apps. Service endpoints don't work for an App Service Environment. With App Service Environment you can use IP-based access restrictions by using the public IP address of the application gateway. To create an external App Service Environment by using the Azure portal, you can follow [this quickstart](./environment/creation.md).
+An external App Service Environment has a public-facing load balancer like multitenant App Service apps. Service endpoints don't work for an App Service Environment. With App Service Environment you can use IP-based access restrictions by using the public IP address of the application gateway. To create an external App Service Environment by using the Azure portal, you can follow [this quickstart](./environment/creation.md).
 
 ## Considerations for a Kudu/SCM site
 
