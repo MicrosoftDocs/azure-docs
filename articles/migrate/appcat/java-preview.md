@@ -10,7 +10,7 @@ ms.date: 01/08/2025
 #customer intent: As a developer, I want to assess my Java application so that I can understand its readiness for migration to Azure.
 ---
 
-# Azure Migrate application and code assessment for Java
+# Azure Migrate application and code assessment for Java version 7 (Preview)
 
    > [!Note]
    > This documentation is for the next generation of _Azure Migrate application and code assessment for Java_ **version 7.x**. This version is in **preview**.
@@ -43,13 +43,12 @@ The tool contains rules for helping you replatform your applications so you can 
 
 The rules used by Azure Migrate application and code assessment are grouped based on a *target*. A target is where or how the application runs, and general needs and expectations. When assessing an application, you can choose multiple targets. The following table describes the available targets:
 
-| Target                   | Description                                                            | ID                     |
+| Target Name              | Description                                                            | Target                 |
 |--------------------------|------------------------------------------------------------------------|------------------------|
 | Azure App Service        | Best practices for deploying an app to Azure App Service.              | `azure-appservice`     |
 | Azure Kubernetes Service | Best practices for deploying an app to Azure Kubernetes Service.       | `azure-aks`            |
 | Azure Container Apps     | Best practices for deploying an app to Azure Container Apps.           | `azure-container-apps` |
 | Cloud Readiness          | General best practices for making an application Cloud (Azure) ready.  | `cloud-readiness`      |
-| Discovery                | Identifies technology usage such as libraries and frameworks.          | `discovery`            |
 | Linux                    | General best practices for making an application Linux ready.          | `linux`                |
 | OpenJDK 11               | General best practices for running a Java 8 application with Java 11.  | `openjdk11`            |
 | OpenJDK 17               | General best practices for running a Java 11 application with Java 17. | `openjdk17`            |
@@ -104,7 +103,7 @@ For the JDK requirement, we recommend you use the [Microsoft Build of OpenJDK](/
 ### Prerequisites
 
 - [Download](/java/openjdk/download#openjdk-17) and [install Microsoft Build of OpenJDK 17](/java/openjdk/install). Ensure that the **JAVA_HOME** environment variable is set.
-- [Download Apache Maven](https://maven.apache.org/download.cgi) and [install locally](https://maven.apache.org/install.html).
+- [Download Apache Maven](https://maven.apache.org/download.cgi) and [install locally](https://maven.apache.org/install.html). Ensure that the Maven binary (`mvn`) is reachable through `PATH` environment variable.
 - [Download and install Python 3](https://www.python.org/downloads/).
 
 ### Installation
@@ -150,12 +149,12 @@ On Windows, this is `%USERPROFILE%/.appcat` and on Linux/Mac, this is `$HOME/.ap
 
 Add the `.appcat` folder to your PATH environment variable so you can run the tool from any folder in the terminal.
 
-    - **Linux / macOS:**
+- **Linux / macOS:**
 ```sh
 mv /path/to/extracted/azure-migrate-appcat-for-java-cli-<OS>-<architecture>-<release-version>-preview/ $HOME/.appcat
 ```
 
-    - **Windows:**
+- **Windows:**
 ```psh
 move /path/to/extracted/azure-migrate-appcat-for-java-cli-<OS>-<architecture>-<release-version>-preview/ %USERPROFILE%/.appcat
 ```
