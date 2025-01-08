@@ -37,7 +37,7 @@ Before you begin, [install or configure IoT Operations](../get-started-end-to-en
 
 The first option is to connect from within the cluster. This option uses the default configuration and requires no extra updates. The following examples show how to connect from within the cluster using plain Alpine Linux and a commonly used MQTT client, using the service account and default root CA certificate.
 
-Download `client.yaml` deployment from the GitHub sample repository.
+Download `mqtt-client.yaml` deployment from the GitHub sample repository.
 
 > [!IMPORTANT]
 > Don't use the MQTT client in production. The client is for testing purposes only.
