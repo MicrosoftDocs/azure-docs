@@ -66,7 +66,7 @@ Do *not* use an IoT hub in preview mode for production. Preview mode is intended
 - We can't guarantee the normal [IoT Hub SLA](https://azure.microsoft.com/support/legal/sla/iot-hub/v1_2/) - do not use for production.
 
 > [!TIP]
-> Preview mode isn't required for [device streams](iot-hub-device-streams-overview.md) and [distributed tracing](iot-hub-distributed-tracing.md). To use these older preview features, follow the their documentation as normal. 
+> Preview mode isn't required for [device streams](iot-hub-device-streams-overview.md) and [distributed tracing](iot-hub-distributed-tracing.md). To use these older preview features, follow their documentation as normal. 
 
 ## Next steps
 
