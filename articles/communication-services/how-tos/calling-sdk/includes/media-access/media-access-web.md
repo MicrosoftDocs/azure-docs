@@ -89,7 +89,7 @@ Microsoft Teams meetings support API that allows participants with role organize
 
 Use method `forbidOthersAudio()` to set meeting option `Allow mic for attendees` to `false` that will mute all attendees and deny them to unmute. You can also use method `forbidOthersVideo()` to set meeting option `Allow mic for attendees` to `false` that will turn of video for all attendees and deny them to turn on video.
 
-These methods serve as batch processing and can always be overridden with `forbidAudio` and `forbidVideo` or `permitAudio` and `permitVideo`.
+Participants with appropriate roles can override methods `permitOthersAudio` ,`permitOthersVideo`, `forbidOthersAudio` ,`forbidOthersVideo` with methods `forbidAudio` and `forbidVideo` or `permitAudio` and `permitVideo`. Change of media access for all attendees triggers `mediaAccessChanged` event for all participants that are impacted. 
 
 ```js
 // Allow all attendees to unmute
