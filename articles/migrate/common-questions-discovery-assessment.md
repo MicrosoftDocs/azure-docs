@@ -42,7 +42,7 @@ For "Performance-based" assessment, the assessment report export says "Percentag
 - If the servers are powered on for the duration for which you're creating the assessment
 - If only memory counters are missing and you're trying to assess servers in Hyper-V environment. In this scenario, enable dynamic memory on the servers and 'Recalculate' the assessment to reflect the latest changes. The appliance can collect memory utilization values for severs in Hyper-V environment only when the server has dynamic memory enabled.
 
-- If all of the performance counters are missing, ensure that outbound connections on ports 443 (HTTPS) are allowed.
+- If all the performance counters are missing, ensure that outbound connections on ports 443 (HTTPS) are allowed.
 
     > [!Note]
     > If any of the performance counters are missing, Azure Migrate: Server Assessment falls back to the allocated cores/memory on-premises and recommends a VM size accordingly.
@@ -50,6 +50,7 @@ For "Performance-based" assessment, the assessment report export says "Percentag
 ## How can I understand details of errors causing performance data collection issues?
 
 You can now understand what errors you need to remediate to resolve performance data collection issues in Azure VM and Azure VMware Solution assessments. Follow these steps:
+
 - Go to Azure Migrate > **Servers, databases and web apps** > **Migration goals**, select **Resolve issues** on the Discovery and assessment tool.
 - Select **Affected objects** next to the assessment and select the link in the error ID column to review the error details and remediation actions.
 
