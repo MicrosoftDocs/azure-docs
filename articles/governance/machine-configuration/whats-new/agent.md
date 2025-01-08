@@ -38,7 +38,7 @@ For information on release notes for the connected machine agent, see
 #### New Features
 
 - Announcing the general availability of User Asigned Identities for Azure Machine Configuration, enhancing security and simplifying at-scale server management by allowing private access to configuration packages in Azure Storage.
- [User-Assigned Identity-based Access for Machine Configuration Packages][11].
+ [User-Assigned Identity-based Access for Machine Configuration Packages][10].
 
 
 ## Extension for Linux extension release notes
@@ -63,7 +63,7 @@ For information on release notes for the connected machine agent, see
 #### New Features
 
 - Announcing the general availability of User Asigned Identities for Azure Machine Configuration, enhancing security and simplifying at-scale server management by allowing private access to configuration packages in Azure Storage.
- [User-Assigned Identity-based Access for Machine Configuration Packages][04].
+ [User-Assigned Identity-based Access for Machine Configuration Packages][10].
 
 ### Version 1.26.48 - January 2023
 
@@ -135,5 +135,4 @@ az vm extension set \
 [07]: ../how-to/create-policy-definition.md
 [08]: ../../policy/assign-policy-portal.md
 [09]: ../../policy/how-to/determine-non-compliance.md
-[10]: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-38098
-[11]: https://techcommunity.microsoft.com/blog/azuregovernanceandmanagementblog/user-assigned-identity-based-access-for-machine-configuration-packages-%E2%80%93-general/4305594
+[10]: https://techcommunity.microsoft.com/blog/azuregovernanceandmanagementblog/user-assigned-identity-based-access-for-machine-configuration-packages-%E2%80%93-general/4305594
