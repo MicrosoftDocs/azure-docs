@@ -64,7 +64,7 @@ The following table shows support for individual APIs in the calling SDK related
 | Permit video of all attendees |	✔️[1] [2]           |     ✔️[1] [2]                    | Meeting option: Enable camera for all attendees |
 | Forbid video of all attendees |	✔️[1] [2]           |     ✔️[1] [2]                     | Meeting option: Disable camera for all attendees |
 | Get media access of other participants | ✔️           |✔️                        ||
-| Get media access of all attendees | ✔️[2]           |✔️[2]                        ||
+| Get media access of Teams meeting | ✔️[2]           |✔️[2]                        ||
 | Get notification that media access changed          | ✔️           |✔️                        ||
 | Get notification that Teams meeting's media access changed    | ✔️[2]           |    ✔️[2]                      ||
 
