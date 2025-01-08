@@ -6,7 +6,7 @@ ms.author: patricka
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: tutorial
-ms.date: 01/07/2025
+ms.date: 01/08/2025
 
 #CustomerIntent: As an operator, I want to understand how to create a bi-directional MQTT bridge to Azure Event Grid so that I can send and receive messages between devices and services.
 ---
@@ -171,8 +171,8 @@ Write-Output $PRINCIPAL_ID
 
 Take note of the output value for `identity.principalId`, which is a GUID value with the following format:
 
-```output
-d84481ae-9181-xxxx-xxxx-xxxxxxxxxxxx
+```Output
+aaaaaaaa-bbbb-cccc-1111-222222222222
 ```
 
 Then, use Azure CLI to assign publisher and subscriber roles to Azure IoT Operations MQTT for the topic space you created.
