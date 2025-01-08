@@ -18,9 +18,9 @@ You can use [Azure Backup](./backup-overview.md) to help protect Azure Kubernete
 
 ## Supported regions
 
-- Operational Tier support for AKS backup is supported in all the following Azure public cloud regions: East US, North Europe, West Europe, South East Asia, West US 2, East US 2, West US, North Central US, Central US, France Central, Korea Central, Australia East, UK South, East Asia, West Central US, Japan East, South Central US, West US 3, Canada Central, Canada East, Australia South East, Central India, Norway East, Germany West Central, Switzerland North, Sweden Central, Japan West, UK West, Korea South, South Africa North, South India, France South, Brazil South, UAE North, China East 2, China East 3, China North 2, China North 3, USGov Virginia, USGov Arizona and USGov Texas.
+- Operational Tier support for AKS backup is supported in all the following Azure public cloud regions: East US, North Europe, West Europe, South East Asia, West US 2, East US 2, West US, North Central US, Central US, France Central, Korea Central, Australia East, UK South, East Asia, West Central US, Japan East, South Central US, West US 3, Canada Central, Canada East, Australia South East, Central India, Norway East, Germany West Central, Switzerland North, Sweden Central, Japan West, UK West, Korea South, South Africa North, South India, France South, Brazil South, UAE North, China East 2, China East 3, China North 2, China North 3, USGov Virginia, USGov Arizona, and USGov Texas.
 
-- Vault Tier and Cross Region Restore support for AKS backup are available in the following regions: East US, West US, West US 3, North Europe, West Europe, North Central US, South Central US, West Central US, East US 2, Central US, UK South, UK West, East Asia, South-East Asia, Japan East South India, Central India, Canada Central and Norway East.
+- Vault Tier and Cross Region Restore support for AKS backup are available in the following regions: East US, West US, West US 3, North Europe, West Europe, North Central US, South Central US, West Central US, East US 2, Central US, UK South, UK West, East Asia, South-East Asia, Japan East South India, Central India, Canada Central, and Norway East.
 
 
   >[!Note]
@@ -28,7 +28,7 @@ You can use [Azure Backup](./backup-overview.md) to help protect Azure Kubernete
 
 ## Limitations
 
-- AKS backup supports AKS clusters with Kubernetes version *1.22* or later. This version has Container Storage Interface (CSI) drivers installed.
+- Azure Backup won't address failures occurring during backup or restore operations for Kubernetes clusters running unsupported Kubernetes versions. While backup operations continue to run, please upgrade your clusters to a supported version, validate the backup operations, and reach out if the issue persists. [Here's the list of the supported Kubernetes versions](/azure/aks/supported-kubernetes-versions.md)
 
 - Before you install the backup extension in an AKS cluster, ensure that the CSI drivers and snapshot are enabled for your cluster. If they're disabled, [enable these settings](/azure/aks/csi-storage-drivers#enable-csi-storage-drivers-on-an-existing-cluster).
 
@@ -51,6 +51,8 @@ You can use [Azure Backup](./backup-overview.md) to help protect Azure Kubernete
 - Don't install AKS Backup Extension along with Velero or other Velero-based backup services. This could lead to disruption of backup service during any future Velero upgrades driven by you or AKS backup  
 
 - You must install the backup extension in the AKS cluster. If you're using Azure CLI to install the backup extension, ensure that the version is 2.41 or later. Use `az upgrade` command to upgrade the Azure CLI.
+
+- In case you're using Terraform to enable Azure Backup for AKS, ensure that the Terraform version being used in 3.99 or above.
 
 - The blob container provided as input during installation of the backup extension should be in the same region and subscription as that of the AKS cluster. Only blob containers in a General-purpose V2 Storage Account are supported and Premium Storage Account aren't supported.   
 
@@ -81,22 +83,25 @@ You can use [Azure Backup](./backup-overview.md) to help protect Azure Kubernete
 - Configuration of a storage account with private endpoint is supported.
 - To enable Azure Backup for AKS via Terraform, its version should be >= 3.99.
 
-### Additional limitations for Vaulted backup and Cross Region Restore
+### Other limitations for Vaulted backup and Cross Region Restore
 
-- Only Azure Disk with Persistent Volumes of size <= 1 TB are eligible to be moved to the Vault Tier; disks with the higher size are skipped in the backup data moved to the Vault Tier. 
+- Currently, Azure Disks with Persistent Volumes of size <= 1 TB are eligible to be moved to the Vault Tier; disks with the higher size are skipped in the backup data moved to the Vault Tier. 
+
+- Currently, backup instances with <= 100 disks attached as persistent volume are supported. Backup and restore operations might fail if number of disks are higher than the limit. 
+
+- Only Azure Disks with public access enabled from all networks are eligible to be moved to the Vault Tier; if their are disks with network access apart from public access, tiering operation will fail. 
 
 - *Disaster Recovery* feature is only available between Azure Paired Regions (if backup is configured in a Geo Redundant Backup vault). The backup data is only available in an Azure paired region. For example, if you have an AKS cluster in East US that is backed up in a Geo Redundant Backup vault, the backup data is also available in West US for restore.
 
 - Only one scheduled recovery point is available in Vault Tier per day that is providing an RPO of 24 hours in the primary region. For secondary region, the recovery point can take up to 12 hours, thus providing an RPO of 36 hours.
 
-- During restore from Vault Tier, the hydrated resources in the staging location which includes a storage account and a resource group aren't cleaned after restore. They will have to be deleted manually.
+- During restore from Vault Tier, the hydrated resources in the staging location which includes a storage account and a resource group aren't cleaned after restore. They have to be deleted manually.
 
-- In case the target cluster is within a virtual network, enable a private endpoint between the cluster and the 
- staging storage account.
+- In case the target cluster is within a virtual network, enable a private endpoint between the cluster and the staging storage account.
 
 - If the target AKS cluster version differs from the version used during backup, the restore operation may fail or complete with warnings for various scenarios like deprecated resources in the newer cluster version. In case of restoring from Vault tier, you can use the hydrated resources in the staging location to restore application resources to the target cluster.
 
-- Currently Vault Tier based backup is not supported with Terraform deployment.
+- Currently Vault Tier based backup isn't supported with Terraform deployment.
 
 ## Next steps
 
