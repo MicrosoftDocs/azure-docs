@@ -1,12 +1,12 @@
 ---
-title: Azure Migrate application and code assessment for Java
-description: Learn how to use the Azure Migrate application and code assessment tool to determine readiness to migrate any type of Java application to Azure.
+title: Azure Migrate application and code assessment for Java version 7
+description: Learn how to use the next generation of Azure Migrate application and code assessment tool to determine readiness to migrate any type of Java application to Azure.
 author: brborges
 ms.author: brborges
 ms.service: azure
 ms.custom: devx-track-java, devx-track-extended-java
 ms.topic: overview
-ms.date: 31/12/2024
+ms.date: 01/08/2025
 #customer intent: As a developer, I want to assess my Java application so that I can understand its readiness for migration to Azure.
 ---
 
@@ -103,32 +103,32 @@ For the JDK requirement, we recommend you use the [Microsoft Build of OpenJDK](/
 
 ### Prerequisites
 
-- [Download](https://learn.microsoft.com/en-us/java/openjdk/download#openjdk-17) and [install Microsoft Build of OpenJDK 17](https://learn.microsoft.com/en-us/java/openjdk/install). Ensure that the **JAVA_HOME** environment variable is set.
+- [Download](/java/openjdk/download#openjdk-17) and [install Microsoft Build of OpenJDK 17](/java/openjdk/install). Ensure that the **JAVA_HOME** environment variable is set.
 - [Download Apache Maven](https://maven.apache.org/download.cgi) and [install locally](https://maven.apache.org/install.html).
 - [Download and install Python 3](https://www.python.org/downloads/).
 
 ### Installation
 
-To install `appcat`, download the appropriate zip file for [your platform](hhttps://learn.microsoft.com/en-us/azure/migrate/appcat/).
+To install `appcat`, download the appropriate zip file for [your platform](/azure/migrate/appcat/).
 Once you've downloaded the file, depending on your operating system, you should find either a **.tar.gz** (Linux/macOS) or **.zip** file (Windows).
 Please proceed to extract the binary from the downloaded file. 
 
 You should see a folder structure similar to the following:
 
-    ```
-    /azure-migrate-appcat-for-java-cli-<OS>-<architecture>-<release-version>-preview/
-    ├── appcat.exe (Windows) / appcat (Linux/macOS)
-    ├── samples/
-    ├── fernflower.jar
-    ├── LICENSE
-    ├── NOTICE.txt
-    ├── maven.default.index
-    ├── jdtls/
-    ├── static-report/
-    ├── rulesets/   
-    ├── readme.md
-    └── readme.html
-    ```
+```
+/azure-migrate-appcat-for-java-cli-<OS>-<architecture>-<release-version>-preview/
+├── appcat.exe (Windows) / appcat (Linux/macOS)
+├── samples/
+├── fernflower.jar
+├── LICENSE
+├── NOTICE.txt
+├── maven.default.index
+├── jdtls/
+├── static-report/
+├── rulesets/   
+├── readme.md
+└── readme.html
+```
 
 ### Running the tool
 
@@ -136,10 +136,10 @@ You should see a folder structure similar to the following:
 
 Change the directory to the extracted folder:
 
-    ```sh
-    cd /azure-migrate-appcat-for-java-cli-<OS>-<architecture>-<release-version>-preview/
-    ./appcat --help
-    ```
+```sh
+cd /azure-migrate-appcat-for-java-cli-<OS>-<architecture>-<release-version>-preview/
+./appcat --help
+```
 
 __Note:__ `appcat` binary will first look for its dependencies in the current directory where it is running from, and will fall back to the scenario below if not found.
 
@@ -151,13 +151,14 @@ On Windows, this is `%USERPROFILE%/.appcat` and on Linux/Mac, this is `$HOME/.ap
 Add the `.appcat` folder to your PATH environment variable so you can run the tool from any folder in the terminal.
 
     - **Linux / macOS:**
-        ```sh
-        mv /path/to/extracted/azure-migrate-appcat-for-java-cli-<OS>-<architecture>-<release-version>-preview/ $HOME/.appcat
-        ```
+```sh
+mv /path/to/extracted/azure-migrate-appcat-for-java-cli-<OS>-<architecture>-<release-version>-preview/ $HOME/.appcat
+```
+
     - **Windows:**
-        ```psh
-        move /path/to/extracted/azure-migrate-appcat-for-java-cli-<OS>-<architecture>-<release-version>-preview/ %USERPROFILE%/.appcat
-        ```
+```psh
+move /path/to/extracted/azure-migrate-appcat-for-java-cli-<OS>-<architecture>-<release-version>-preview/ %USERPROFILE%/.appcat
+```
 
 __Note:__ In this context, when `appcat` binary is called from a different folder than where it is actually installed, it willlook for its dependencies on the `.appcat` folder in the user's home directory.
 
