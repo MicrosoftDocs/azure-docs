@@ -29,7 +29,7 @@ The following comparison matrix shows basic functionality, and comparison of mig
 | **Supported Sources**      | Any NAS, S3, PFS, and Swift   | Any NAS, and S3 | Any NAS, Cloud File Storage, or S3 |Any Block storage               |
 
 > [!TIP]
->  As Cirrus Data specializes in SAN / Block data migrations, we have omitted them from the remainder of this document, which compares file migration features. For more information about Cirrus Data and their Migrate Cloud solution, please review the [Cirrus Data getting Started Guide](/azure/storage/solution-integration/validated-partners/data-management/cirrus-data-migration-guide).
+>  As Cirrus Data specializes in SAN / Block data migrations, we have omitted them from the remainder of this document, which compares file data migration features. For more information about Cirrus Data and their Migrate Cloud solution, please review the [Cirrus Data getting Started Guide](/azure/storage/solution-integration/validated-partners/data-management/cirrus-data-migration-guide).
 
 ## Supported protocols (source / destination)
 
