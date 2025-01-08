@@ -109,7 +109,7 @@ For the JDK requirement, we recommend you use the [Microsoft Build of OpenJDK](/
 
 ### Installation
 
-To install `appcat`, download the appropriate zip file for [your platform](/azure/migrate/appcat/).
+To install `appcat`, download the appropriate zip file for your platform.
 Once you've downloaded the file, depending on your operating system, you should find either a **.tar.gz** (Linux/macOS) or **.zip** file (Windows).
 Please proceed to extract the binary from the downloaded file. 
 
