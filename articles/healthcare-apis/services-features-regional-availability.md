@@ -6,7 +6,7 @@ author: KendalBond007
 ms.service: azure-health-data-services
 ms.topic: overview
 ms.date: 11/01/2024
-ms.author: ketki.sheth
+ms.author: kesheth
 ---
 
 # Regional availability of services and features 
