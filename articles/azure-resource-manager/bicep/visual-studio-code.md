@@ -221,7 +221,7 @@ Select the `identity` line from the code, and then select the yellow light bulb 
 
   :::image type="content" source="./media/visual-studio-code/visual-studio-code-azure-variable-parameter-type-extract-variable.png" alt-text="Screenshot of extracting variable.":::
 
-- **Extract parameter of a simple data type**: create a new parameter with a simple data type, such as string, int, etc, and give you an option to update the parameter name:
+- **Extract parameter of a simple data type**: create a new parameter with a simple data type, such as string, int, etc., and give you an option to update the parameter name:
 
   :::image type="content" source="./media/visual-studio-code/visual-studio-code-azure-variable-parameter-type-extract-parameter.png" alt-text="Screenshot of extracting parameter.":::
 
