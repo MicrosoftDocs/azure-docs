@@ -87,7 +87,7 @@ Class `MediaAccess` has the following properties:
 ### Control access to send audio or video of all attendees
 Microsoft Teams meetings support API that allows participants with role organizer, co-organizers, or presenters to change meeting options `Allow mic for attendees` or `Allow camera for attendees`. You can use those APIs to change the value of those meeting options, which will result in allowing or denying all attendees to send audio or video. You can use method `permitOthersAudio()` to set meeting option `Allow mic for attendees` to `true` and allow all attendees to unmute. You can also use method `permitOthersVideo()` to set meeting option `Allow camera for attendees` to `true` and allow all attendees to turn on video. These actions don't automatically unmute or turn on video. They only allow attendees to perform these actions. 
 
-Use method `forbidOthersAudio()` to disallow all attendees to unmute or method `forbidOthersVideo()` to disallow all attendees to turn on video and these actions disable mic or camera for selected attendees.
+Use method `forbidOthersAudio()` to set meeting option `Allow mic for attendees` to `false` that will mute all attendees and deny them to unmute. You can also use method `forbidOthersVideo()` to set meeting option `Allow mic for attendees` to `false` that will turn of video for all attendees and deny them to turn on video.
 
 These methods serve as batch processing and can always be overridden with `forbidAudio` and `forbidVideo` or `permitAudio` and `permitVideo`.
 
