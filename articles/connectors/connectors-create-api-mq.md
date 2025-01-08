@@ -272,11 +272,11 @@ Follow these steps to add a public key certificate to the Trusted Root CA Store 
 
 1. Select the **Public key certificates (.cer)** tab, and then select **Add certificate**.
 
-1. On the **Add public key certificate** pane that opens, find and select the public key certificate file (.cer) to add. Eenter a friendly name to describe the certificate. When you're done, select **Add**.
+1. On the **Add public key certificate** pane that opens, find and select the public key certificate file (.cer) to add. Enter a friendly name to describe the certificate. When you're done, select **Add**.
 
 1. After you add the certificate, from the **Thumbprint** column, copy the certificate's thumbprint value.
 
-   ![Screenshot shows Azure portal and Standard logic resource with following items selected: TLS/SSL settings (classic), Public Key Certificates (.cer), and Upload Public Key Certificate.](media/connectors-create-api-mq/add-public-key-certificate.png)
+   ![Screenshot shows Standard logic app with selected items: Certificates, Public key certificates, and Add certificate.](media/connectors-create-api-mq/add-public-key-certificate.png)
 
 1.	On the logic app resource menu, select **Configuration**.
 
@@ -302,7 +302,7 @@ Follow these steps to add a private key certificate to the Trusted Root CA Store
 
 1. Select the **Bring your own certificates (.pfx)** tab, and then select **Add certificate**.
 
-   ![Screenshot shows Azure portal and Standard logic app resource with following options selected: Certificates, Bring your own certificates (.pfx), and Add certificate.](media/connectors-create-api-mq/add-private-key-certificate.png)
+   ![Screenshot shows Standard logic app with selected options: Certificates, Bring your own certificates, and Add certificate.](media/connectors-create-api-mq/add-private-key-certificate.png)
 
 1. On the **Add private key certificate** pane that opens, under **Source**, select one of the following options:
 
@@ -344,7 +344,7 @@ Follow these steps to add a private key certificate to the Trusted Root CA Store
 
 1. In the **Client Cert Thumbprint** property, enter the previously copied thumbprint value for the private key certificate, which enables server-client (two-way) authentication. If you don't enter a thumbprint value, the connector uses server-only (one-way) authentication.
 
-   ![Screenshot shows Standard workflow designer, MQ built-in connection box with selected option named Use TLS and property named Client Cert Thumbprint with private key certificate thumbprint.](media/connectors-create-api-mq/client-private-key-certificate-thumbprint.png)
+   ![Screenshot shows Standard workflow, MQ built-in connection box, Use TLS property selected, and Client Cert Thumbprint property with thumbprint value.](media/connectors-create-api-mq/client-private-key-certificate-thumbprint.png)
 
 ## Troubleshoot problems
 
