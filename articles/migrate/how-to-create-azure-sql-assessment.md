@@ -30,8 +30,10 @@ You can create an Azure SQL assessment with sizing criteria as **Performance-bas
 [Learn more](concepts-azure-sql-assessment-calculation.md) about Azure SQL assessments.
 
 ## Run an assessment
+
 Run an assessment as follows:
-1. On the **Overview** page > **Servers, databases and web apps**, select **Assess and migrate servers**.
+
+1. In **Servers, databases and web apps**, select **Assess and migrate servers**.
     
     :::image type="content" source="./media/tutorial-assess-sql/assess-migrate-inline.png" alt-text="Screenshot of Overview page for Azure Migrate." lightbox="./media/tutorial-assess-sql/assess-migrate-expanded.png":::
 

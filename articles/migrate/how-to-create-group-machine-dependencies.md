@@ -17,22 +17,22 @@ This article describes how to set up agent-based dependency analysis in Azure Mi
 ## Before you start
 
 - Review the support and deployment requirements for agent-based dependency analysis for:
-    - [Servers in VMware environment](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agent-based)
-    - [Physical servers](migrate-support-matrix-physical.md#agent-based-dependency-analysis-requirements)
-    - [Servers in Hyper-V environment](migrate-support-matrix-hyper-v.md#agent-based-dependency-analysis-requirements)
+  - [Servers in VMware environment](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agent-based)
+  - [Physical servers](migrate-support-matrix-physical.md#agent-based-dependency-analysis-requirements)
+  - [Servers in Hyper-V environment](migrate-support-matrix-hyper-v.md#agent-based-dependency-analysis-requirements)
 - Make sure you:
-    - Have an Azure Migrate project. If you don't, [create](./create-manage-projects.md) one now.
-    - Check that you've [added](how-to-assess.md) the Azure Migrate: Discovery and assessment tool to the project.
-    - Set up an [Azure Migrate appliance](migrate-appliance.md) to discover on-premises servers. The appliance discovers on-premises servers, and sends metadata and performance data to Azure Migrate: Discovery and assessment. Set up an appliance for:
-        - [Servers in VMware environment](how-to-set-up-appliance-vmware.md)
-        - [Servers in Hyper-V environment](how-to-set-up-appliance-hyper-v.md)
-        - [Physical servers](how-to-set-up-appliance-physical.md)
+  - Have an Azure Migrate project. If you don't, [create](./create-manage-projects.md) one now.
+  - Check that you've [added](how-to-assess.md) the Azure Migrate: Discovery and assessment tool to the project.
+  - Set up an [Azure Migrate appliance](migrate-appliance.md) to discover on-premises servers. The appliance discovers on-premises servers, and sends metadata and performance data to Azure Migrate: Discovery and assessment. Set up an appliance for:
+    - [Servers in VMware environment](how-to-set-up-appliance-vmware.md)
+    - [Servers in Hyper-V environment](how-to-set-up-appliance-hyper-v.md)
+    - [Physical servers](how-to-set-up-appliance-physical.md)
 - To use dependency visualization, you associate a [Log Analytics workspace](/azure/azure-monitor/logs/manage-access) with an Azure Migrate project:
-    - You can attach a workspace only after setting up the Azure Migrate appliance, and discovering servers in the Azure Migrate project.
-    - Make sure you have a workspace in the subscription that contains the Azure Migrate project.
-    - The workspace must reside in the East US, Southeast Asia, or West Europe regions. Workspaces in other regions can't be associated with a project.
-    - The workspace must be in a region in which [Service Map is supported](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&regions=all). You can monitor Azure VMs in any region. The VMs themselves aren't limited to the regions supported by the Log Analytics workspace.
-    - You attach the workspace the first time that you set up dependency visualization for a server. The workspace for an Azure Migrate project can't be modified after it's added.
+  - You can attach a workspace only after setting up the Azure Migrate appliance, and discovering servers in the Azure Migrate project.
+  - Make sure you have a workspace in the subscription that contains the Azure Migrate project.
+  - The workspace must reside in the East US, Southeast Asia, or West Europe regions. Workspaces in other regions can't be associated with a project.
+  - The workspace must be in a region in which [Service Map is supported](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&regions=all). You can monitor Azure VMs in any region. The VMs themselves aren't limited to the regions supported by the Log Analytics workspace.
+  - You attach the workspace the first time that you set up dependency visualization for a server. The workspace for an Azure Migrate project can't be modified after it's added.
     - In Log Analytics, the workspace associated with Azure Migrate is tagged with the Migration Project key, and the project name.
 
 ## Associate a workspace
@@ -114,10 +114,9 @@ To install the MMA on a Linux server:
 - [Learn more](/azure/azure-monitor/vm/vminsights-dependency-agent-maintenance#install-or-upgrade-dependency-agent) about how you can use scripts to install the Dependency agent.
 - [Learn more](/azure/azure-monitor/vm/vminsights-enable-overview#supported-operating-systems) about the operating systems supported by the Dependency agent.
 
-
 ## Create a group using dependency visualization
 
-Now create a group for assessment. 
+Now create a group for assessment.
 
 
 > [!NOTE]

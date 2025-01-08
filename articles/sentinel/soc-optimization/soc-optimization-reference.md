@@ -43,8 +43,8 @@ The following table lists the available data value SOC optimization recommendati
 
 | Observation | Action |
 |---------|---------|
-| The table wasn’t used by analytics rules or detections in the last 30 days but was used by other sources, such as workbooks, log queries, hunting queries.     | Turn on analytics rule templates <br>OR<br>Move to basic logs if the table is eligible.    |
-| The table wasn’t used at all in the last 30 days.     | Turn on analytics rule templates <br>OR<br> Stop data ingestion or archive the table.       |
+| The table wasn’t used by analytics rules or detections in the last 30 days but was used by other sources, such as workbooks, log queries, hunting queries.     | Turn on analytics rule templates <br>OR<br>Move to [auxiliary logs (Preview) or basic logs](../billing.md#auxiliary-logs-and-basic-logs) if the table is eligible.   |
+| The table wasn’t used at all in the last 30 days.     | Turn on analytics rule templates <br>OR<br> Stop data ingestion and remove the table or move the table to long term retention.       |
 | The table was only used by Azure Monitor.     | Turn on any relevant analytics rule templates for tables with security value <br>OR<br>Move to a non-security Log Analytics workspace.       |
 
 If a table is chosen for [UEBA](/azure/sentinel/enable-entity-behavior-analytics) or a [threat intelligence matching analytics rule](/azure/sentinel/use-matching-analytics-to-detect-threats), SOC optimization doesn't recommend any changes in ingestion.
