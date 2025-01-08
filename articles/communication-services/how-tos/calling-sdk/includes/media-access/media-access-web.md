@@ -106,7 +106,7 @@ mediaAccessFeature.forbidOthersVideo();
 ```
 
 ### Get Teams meeting media access setting
-You can use the `getMeetingMediaAccess` API to get information about Teams meeting media access setting on current call.
+You can use the `getMeetingMediaAccess` API to get values of `Allow mic for attendees` or `Allow camera for attendees` Teams meeting options. The fact that meeting options are set to `true` or `false` don't guarantee that all attendees have permitted or forbid audio or video, because those calls can be overridden with methods `forbidAudio`, `forbidVideo`, `permitAudio` and `permitVideo`.
 Here's an example of how to use the `getMeetingMediaAccess` API:
 ```js
 let meetingMediaAccess = mediaAccessHandFeature.getMeetingMediaAccess()
