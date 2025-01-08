@@ -21,8 +21,6 @@ To plan for business continuity, you must identify, understand, classify, and ma
 
 *Disaster recovery* is about planning how you deal with catastrophic outages and uncommon risks.
 
-
-
 ## Business continuity
 
 Business continuity is defined by what makes sense to your organization. Before determining the specific business continuity risks, it's important to understand the consequences of failures that result from an unavailable workload.
