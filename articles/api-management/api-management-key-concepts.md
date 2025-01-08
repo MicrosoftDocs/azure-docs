@@ -6,7 +6,7 @@ author: dlepow
  
 ms.service: azure-api-management
 ms.topic: overview
-ms.date: 10/23/2024
+ms.date: 01/08/2025
 ms.author: danlep
 ms.custom: mvc
 ---
@@ -33,6 +33,7 @@ APIs enable digital experiences, simplify application integration, underpin new 
 
 Azure API Management helps customers meet these challenges:
 
+* Provide an API platform for different stakeholders to produce, manage, and consume APIs 
 * Abstract backend architecture diversity and complexity from API consumers
 * Securely expose services hosted on and outside of Azure as APIs
 * Protect, accelerate, and observe APIs
@@ -99,6 +100,12 @@ Using the developer portal, developers can:
   * Access analytics on their own usage
   * Download API definitions
   * Manage API keys
+
+## API platform deployment models
+
+Azure API Management supports three deployment models: centralized, siloed, and federated. Each model is suitable for different organizational structures and requirements.
+
+[!INCLUDE [api-management-platform-deployment-models](../../includes/api-management-platform-deployment-models.md)]
 
 ## API Management tiers
 
