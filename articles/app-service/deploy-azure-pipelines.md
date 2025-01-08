@@ -383,7 +383,6 @@ The Azure Web App task (`AzureWebApp`) is the simplest way to deploy to an Azure
 
 The [Azure App Service Deploy task (`AzureRmWebAppDeployment`)](/azure/devops/pipelines/tasks/deploy/azure-rm-web-app-deployment) can handle more custom scenarios, such as:
 
-- [Modify configuration settings](#example-make-variable-substitutions) inside web packages and XML parameters files. 
 - [Deploy with Web Deploy](#example-deploy-using-web-deploy), if you're used to the IIS deployment process.
 - [Deploy to virtual applications](#example-deploy-to-a-virtual-application).
 - Deploy to other app types, like Container apps, Function apps, WebJobs, or API and Mobile apps.
