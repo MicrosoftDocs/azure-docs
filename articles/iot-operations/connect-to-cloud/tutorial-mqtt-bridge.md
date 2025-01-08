@@ -520,7 +520,7 @@ Currently, Bicep doesn't apply to deploy MQTT client.
 
 # [Kubernetes (preview)](#tab/kubernetes)
 
-Download `client.yaml` deployment from the GitHub sample repository.
+Download `mqtt-client.yaml` deployment from the GitHub sample repository.
 
 > [!IMPORTANT]
 > Don't use the MQTT client in production. The client is for testing purposes only.
