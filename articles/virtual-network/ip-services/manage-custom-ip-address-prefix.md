@@ -113,7 +113,7 @@ To view a custom IP prefix, the following commands can be used in Azure CLI and 
 A custom IP prefix must be decommissioned to turn off advertisements.
 
 > [!NOTE]
-> All public IP prefixes created from an provisioned custom IP prefix must be deleted before a custom IP prefix can be decommissioned.  If this could potentially cause an issue as part of a migration, see the following section on regional commissioning.
+> All public IP prefixes created from a provisioned custom IP prefix must be deleted before a custom IP prefix can be decommissioned.  If this could potentially cause an issue as part of a migration, see the following section on regional commissioning.
 > 
 > The estimated time to fully complete the decommissioning process is 3-4 hours.
 
@@ -150,7 +150,7 @@ To fully remove a custom IP prefix, it must be deprovisioned and then deleted.
 > It is strongly recommended to decommission the range **prior** to modifying/deleting the Route Origin Authorization (ROA) you created with your Routing Internet Registry. Failure to do this will mean Microsoft will still be advertising your range when not authorized to do so. Please see the [creation documentation](create-custom-ip-address-prefix-powershell.md) for more information about ROAs.
 
 > [!NOTE]
-> If there is a requirement to migrate an provisioned range from one region to the other, the original custom IP prefix must be fully removed from the first region before a new custom IP prefix with the same address range can be created in another region.
+> If there is a requirement to migrate a provisioned range from one region to the other, the original custom IP prefix must be fully removed from the first region before a new custom IP prefix with the same address range can be created in another region.
 >
 > The estimated time to complete the deprovisioning process is anywhere from 30 to 60 minutes.
 
