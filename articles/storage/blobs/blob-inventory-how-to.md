@@ -226,7 +226,7 @@ You can suscribe to blob inventory completed event to receive information on the
 
 7. Under **ENDPOINT DETAILS**, choose Storage Queue as the Endpoint Type and select **Configure an endpoint**.
   
-8. In the **Queues** page. Choose the subscription, the storage account and create a new queue, name your queue then click **Create**.
+8. In the **Queues** page, choose the subscription, the storage account and create a new queue. Name your queue then click **Create**.
 
 9. Optionally, select the **Filters** tab if you want to filter the subject of the event or its attributes.
 
