@@ -15,7 +15,7 @@ ms.date: 01/06/2025
 > information yourself. To set up a managed identity for Azure Logic Apps, see [Authenticate access and connections to Azure resources with managed identities in Azure Logic Apps](/azure/logic-apps/authenticate-with-managed-identity).
 >
 > If you have to use a different authentication type, use the next highest level security option available. 
-> For example, suppose that you have create a connection by using a connection string instead. A connection 
+> For example, suppose that you have to create a connection by using a connection string instead. A connection 
 > string includes the authorization information required for your app to access a specific resource, service, 
 > or system. The access key in the connection string is similar to a root password.
 >
