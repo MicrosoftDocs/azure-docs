@@ -16,7 +16,8 @@ ms.subservice: mqtt
 Azure Event Grid's MQTT broker supports the following authentication modes. 
 
 - Certificate-based authentication
-- Microsoft Entra ID authentication 
+- Microsoft Entra ID authentication
+- Custom JWT authentication
 
 ## Certificate-based authentication
 You can use Certificate Authority (CA) signed certificates or self-signed certificates to authenticate clients. For more information, see [MQTT Client authentication using certificates](mqtt-client-certificate-authentication.md).
@@ -27,4 +28,5 @@ You can authenticate MQTT clients with Microsoft Entra JWT to connect to Event G
 ## Next steps
 - Learn how to [authenticate clients using certificate chain](mqtt-certificate-chain-client-authentication.md)
 - Learn how to [authenticate client using Microsoft Entra ID token](mqtt-client-azure-ad-token-and-rbac.md)
+- Learn how to [authenticate client using custom JWT](mqtt-client-custom-jwt.md)
 - See [Transport layer security with MQTT broker](mqtt-transport-layer-security-flow.md)
