@@ -153,8 +153,6 @@ Scalability and elasticity are the abilities of a system to handle increased loa
  
 Scalability is a key factor to consider during partial or complete malfunction. If a replica or compute instance is unavailable, the remaining components might need to bear more load to handle the load that was previously being handled by the faulted node.
 
-<!-- TODO include file -->
-
 Consider *overprovisioning* if your system cannot scale quick enough to handle your expected changes in load. For more information on how to design a scalable and elastic system, see [Recommendations for designing a reliable scaling strategy](/azure/well-architected/reliability/scaling).
 
 #### Zero-downtime deployment techniques
