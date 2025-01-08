@@ -28,6 +28,8 @@
     href: architecture.md
   - name: Subscription billing
     href: billing.md
+  - name: Licenses and the trial license
+    href: license-and-trial-license-extention.md
   - name: Roles and permissions
     items:
     - name: Overview
@@ -56,7 +58,7 @@
 - name: Deploy OT monitoring
   items:
   - name: OT deployment path
-    href: ot-deploy/ot-deploy-path.md
+    href: ot-deploy/ot-deploy-path.md  
   - name: Plan and prepare for an OT deployment
     items:
     - name: Plan your OT monitoring system
@@ -130,8 +132,17 @@
       href: ot-deploy/update-device-inventory.md
     - name: Create a learned baseline of OT alerts
       href: ot-deploy/create-learned-baseline.md
-  - name: Deploy in hybrid or air-gapped environments
-    href: ot-deploy/air-gapped-deploy.md
+  - name: Hybrid or air-gapped environments
+    items:
+    - name: Deploy hybrid or air-gapped
+      href: ot-deploy/air-gapped-deploy.md   
+    - name: On-premises management console
+      items:
+      - name: On-premises management console retirement
+        href: ot-deploy/on-premises-management-console-retirement.md
+      - name: Transition to the cloud
+        href: ot-deploy/transition-on-premises-management-console-to-cloud.md
+        
 - name: Tutorials
   items:
   - name: Onboard and activate a virtual OT sensor

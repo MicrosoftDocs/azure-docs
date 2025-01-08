@@ -70,7 +70,7 @@ If you build locally, download and install the [Azure CLI](/cli/azure/install-az
     To build and run the app locally using the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
     
     ```console
-        setx ConnectionString "connection-string-of-your-app-configuration-store"
+        setx ConnectionString "<connection-string-of-your-app-configuration-store>"
     ```
     
     ### [PowerShell](#tab/powershell)
@@ -78,7 +78,7 @@ If you build locally, download and install the [Azure CLI](/cli/azure/install-az
     If you use Windows PowerShell, run the following command:
     
     ```powershell
-        $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
+        $Env:ConnectionString = "<connection-string-of-your-app-configuration-store>"
     ```
     
     ### [macOS](#tab/unix)
@@ -86,7 +86,7 @@ If you build locally, download and install the [Azure CLI](/cli/azure/install-az
     If you use macOS, run the following command:
     
     ```console
-        export ConnectionString='connection-string-of-your-app-configuration-store'
+        export ConnectionString='<connection-string-of-your-app-configuration-store>'
     ```
     
     ### [Linux](#tab/linux)
@@ -94,7 +94,7 @@ If you build locally, download and install the [Azure CLI](/cli/azure/install-az
     If you use Linux, run the following command:
     
     ```console
-        export ConnectionString='connection-string-of-your-app-configuration-store'
+        export ConnectionString='<connection-string-of-your-app-configuration-store>'
     ```
     
     ---

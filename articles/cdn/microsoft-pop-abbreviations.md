@@ -4,7 +4,7 @@ description: This article lists Microsoft POP locations, sorted by POP abbreviat
 services: cdn
 author: duongau
 ms.service: azure-cdn
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/20/2024
 ms.author: duau
 ms.custom: references_regions

@@ -244,7 +244,7 @@ For the configuration to take effect, commit the configuration to the target reg
 az network manager post-commit \
     --network-manager-name "myAVNM" \
     --commit-type "Connectivity" \
-    --configuration-ids "/subscriptions/<subscription_id>/resourceGroups/myANVMResourceGroup/providers/Microsoft.Network/networkManagers/myAVNM/connectivityConfigurations/connectivityconfig" \
+    --configuration-ids "/subscriptions/<subscription_id>/resourceGroups/myAVNMResourceGroup/providers/Microsoft.Network/networkManagers/myAVNM/connectivityConfigurations/connectivityconfig" \
     --target-locations "westus" \
     --resource-group "myAVNMResourceGroup"
 ```
