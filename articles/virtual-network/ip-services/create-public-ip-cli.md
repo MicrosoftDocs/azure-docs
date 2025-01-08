@@ -28,12 +28,12 @@ In this quickstart, you learn how to create an Azure public IP address. Public I
 
 An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
-Create a resource group with [az group create](/cli/azure/group#az-group-create) named **QuickStartCreateIP-rg** in the **eastus2** location.
+Create a resource group with [az group create](/cli/azure/group#az-group-create) named **QuickStartCreateIP-rg** in the **westus2** location.
 
 ```azurecli-interactive
   az group create \
     --name QuickStartCreateIP-rg \
-    --location eastus2
+    --location westus2
 ```
 ## Create public IP
 
@@ -95,7 +95,7 @@ To create an IPv6 address, modify the **`--version`** parameter to **IPv6**.
 
 ```azurecli-interactive
   az network public-ip create \
-    --resource-group QuickStartCreateIP-rgLB \
+    --resource-group QuickStartCreateIP-rg \
     --name myStandardPublicIP-zonal \
     --version IPv4 \
     --sku Standard \
@@ -167,7 +167,7 @@ The following command creates a global IPv4 address. This address can be associa
     --name myStandardPublicIP-Global \
     --version IPv4 \
     --tier global \
-    --sku Standard \
+    --sku Standard
 ```
 >[!NOTE]
 >Global tier addresses don't support Availability Zones.
