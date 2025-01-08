@@ -114,7 +114,7 @@ items:
     - name: Application assessment
       items:
         - name: Create assessment
-          href: create-an-application-assessment.md
+          href: create-application-assessment.md
         - name: Customize assessment settings
           href: assessment-properties.md
         - name: Review assessment report
@@ -123,7 +123,7 @@ items:
             href: assessment-report.md
           - name: Migration preference # talk about what each preference is and how that will identify recommended strategy
           - name: Compare assessment strategies
-            href: review-an-application-assessment.md
+            href: review-application-assessment.md
     - name: Workload specific assessments
       items:
       - name: Azure VM assessment
