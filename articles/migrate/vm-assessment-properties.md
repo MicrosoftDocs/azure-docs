@@ -1,6 +1,6 @@
 ---
-title: VM Assessment properties
-description: Describes the components of an Azure VM assessment in Azure Migrate
+title: Customize VM assessment properties
+description: Describes using VM assessment properties to customize the assessment to fit specific requirements.
 author: ankitsurkar06
 ms.author: ankitsurkar
 ms.service: azure-migrate
