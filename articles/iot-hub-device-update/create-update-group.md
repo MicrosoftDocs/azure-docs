@@ -202,7 +202,12 @@ To be deleted, a group must meet the following requirements:
 > [!NOTE]
 > If you're unable to delete a group that meets the preceding requirements, check whether you have any *unhealthy* devices tagged as part of the group. Unhealthy devices can't receive a deployment, so they don't appear directly in the list of member devices in a group.
 > 
-> To check whether you have any unhealthy devices, go to **Find missing devices** on the **Diagnostics** tab in the Device Update portal. If you have unhealthy devices tagged as part of the group, you need to modify the tag value or delete the device before you can delete your group.
+> To check whether you have any unhealthy devices:
+> 1. In the Azure portal, navigate to your IoT hub.
+> 1. Select **Updates** from the left navigation and then select the **Diagnostics** tab.
+> 1. Expand the **Find missing devices** section.
+> 
+> If you have unhealthy devices tagged as part of the group, you need to modify the tag value or delete the device before you can delete your group.
 
 If a device is ever assigned to this deleted group name again, the group is automatically recreated, but there's no associated device or deployment history.
 
