@@ -531,7 +531,7 @@ wget https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main
 Apply the deployment file with kubectl.
 
 ```bash
-kubectl apply -f client.yaml
+kubectl apply -f mqtt-client.yaml
 ```
 
 ```output
@@ -584,7 +584,27 @@ mosquitto_pub -h aio-broker -p 18883 \
 
 In the subscriber shell, you see the messages you published.
 
-<!-- TODO: add actual mosquitto output -->
+```Output
+Client null sending CONNECT
+Client $server-generated/0000aaaa-11bb-cccc-dd22-eeeeee333333 received CONNACK (0)
+Client $server-generated/0000aaaa-11bb-cccc-dd22-eeeeee333333 sending SUBSCRIBE (Mid: 1, Topic: tutorial/#, QoS: 0, Options: 0x00)
+Client $server-generated/0000aaaa-11bb-cccc-dd22-eeeeee333333 received SUBACK
+Subscribed (mid: 1): 0
+Client $server-generated/0000aaaa-11bb-cccc-dd22-eeeeee333333 sending PINGREQ
+Client $server-generated/0000aaaa-11bb-cccc-dd22-eeeeee333333 received PINGRESP
+Client $server-generated/0000aaaa-11bb-cccc-dd22-eeeeee333333 received PUBLISH (d0, q0, r0, m0, 'tutorial/local', ... (52 bytes))
+This message goes all the way to the cloud and back!
+Client $server-generated/0000aaaa-11bb-cccc-dd22-eeeeee333333 received PUBLISH (d0, q0, r0, m0, 'tutorial/local', ... (52 bytes))
+This message goes all the way to the cloud and back!
+Client $server-generated/0000aaaa-11bb-cccc-dd22-eeeeee333333 received PUBLISH (d0, q0, r0, m0, 'tutorial/local', ... (52 bytes))
+This message goes all the way to the cloud and back!
+Client $server-generated/0000aaaa-11bb-cccc-dd22-eeeeee333333 received PUBLISH (d0, q0, r0, m0, 'tutorial/local', ... (52 bytes))
+This message goes all the way to the cloud and back!
+Client $server-generated/0000aaaa-11bb-cccc-dd22-eeeeee333333 received PUBLISH (d0, q0, r0, m0, 'tutorial/local', ... (52 bytes))
+This message goes all the way to the cloud and back!
+Client $server-generated/0000aaaa-11bb-cccc-dd22-eeeeee333333 sending PINGREQ
+Client $server-generated/0000aaaa-11bb-cccc-dd22-eeeeee333333 received PINGRESP
+```
 
 Here, you see the messages are published to the local Azure IoT Operations broker to the `tutorial/local` topic, bridged to Event Grid MQTT broker, and then bridged back to the local Azure IoT Operations broker again on the `tutorial/cloud` topic. The messages are then delivered to the subscriber. In this example, the round trip time is about 80 ms.
 
