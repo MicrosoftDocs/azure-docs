@@ -35,7 +35,7 @@ Your Azure subscription is disabled and can no longer be used to create or manag
 - Your credit expired.
 - You reached your spending limit.
 - Your bill is past due.
-- Your credit card limit was exceeded. Or, it was explicitly disabled or canceled. Depending on the subscription type, a subscription might remain disabled between 1 - 90 days. After which, gets permanently deleted. For more information, see [Reactivate a disabled Azure subscription](subscription-disabled.md).
+- Your credit card limit was exceeded. Or, it was explicitly disabled or canceled. Depending on the subscription type, a subscription might remain disabled between 1 - 90 days. After which, it gets permanently deleted. For more information, see [Reactivate a disabled Azure subscription](subscription-disabled.md).
 
 Operations to create or update resources (PUT, PATCH) are disabled. Operations that take an action (POST) are also disabled. Your resources are still available, so you can retrieve or delete them (GET, DELETE). Transferring ownership of the subscription is disabled.
 
