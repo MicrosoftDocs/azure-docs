@@ -37,54 +37,22 @@ Before you begin, [install or configure IoT Operations](../get-started-end-to-en
 
 The first option is to connect from within the cluster. This option uses the default configuration and requires no extra updates. The following examples show how to connect from within the cluster using plain Alpine Linux and a commonly used MQTT client, using the service account and default root CA certificate.
 
-First, create a file named `client.yaml` with the following configuration:
+Download `client.yaml` deployment from the GitHub sample repository.
 
-```yaml
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: mqtt-client
-  namespace: azure-iot-operations
----
-apiVersion: v1
-kind: Pod
-metadata:
-  name: mqtt-client
-  # Namespace must match MQTT broker BrokerListener's namespace
-  # Otherwise use the long hostname: aio-broker.azure-iot-operations.svc.cluster.local
-  namespace: azure-iot-operations
-spec:
-  # Use the "mqtt-client" service account created from above
-  # Otherwise create it with `kubectl create serviceaccount mqtt-client -n azure-iot-operations`
-  serviceAccountName: mqtt-client
-  containers:
-    # Mosquitto and mqttui on Alpine
-  - image: alpine
-    name: mqtt-client
-    command: ["sh", "-c"]
-    args: ["apk add mosquitto-clients mqttui && sleep infinity"]
-    volumeMounts:
-    - name: broker-sat
-      mountPath: /var/run/secrets/tokens
-    - name: trust-bundle
-      mountPath: /var/run/certs
-  volumes:
-  - name: broker-sat
-    projected:
-      sources:
-      - serviceAccountToken:
-          path: broker-sat
-          audience: aio-internal # Must match audience in BrokerAuthentication
-          expirationSeconds: 86400
-  - name: trust-bundle
-    configMap:
-      name: azure-iot-operations-aio-ca-trust-bundle # Default root CA cert
-```
-
-Then, use `kubectl` to deploy the configuration. It should only take a few seconds to start.
+> [!IMPORTANT]
+> Don't use the MQTT client in production. The client is for testing purposes only.
 
 ```bash
-kubectl apply -f client.yaml
+wget https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/quickstarts/mqtt-client.yaml -O mqtt-client.yaml
+```
+Apply the deployment file with kubectl.
+
+```bash
+kubectl apply -f mqtt-client.yaml
+```
+
+```output
+pod/mqtt-client created
 ```
 
 Once the pod is running, use `kubectl exec` to run commands inside the pod.
