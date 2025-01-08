@@ -12,7 +12,7 @@ ms.custom: devx-track-csharp, devx-track-extended-java, devx-track-js, devx-trac
 ---
 # Configure TLS mutual authentication for Azure App Service
 
-You can restrict access to your Azure App Service app by enabling different types of authentication for it. One way to do it is to request a client certificate when the client request is over TLS/SSL and validate the certificate. This mechanism is called TLS mutual authentication or client certificate authentication. This article shows how to set up your app to use client certificate authentication.
+You can restrict access to your Azure App Service app by enabling different types of authentication for it. One way to do it is to request a client certificate when the client request is over TLS/SSL and validate the certificate. This mechanism is called Transport Layer Security (TLS) mutual authentication or client certificate authentication. This article shows how to set up your app to use client certificate authentication.
 
 > [!NOTE]
 > Your app code is responsible for validating the client certificate. App Service doesn't do anything with this client certificate other than forwarding it to your app.
@@ -125,11 +125,11 @@ Client certificate configurations that use TLS renegotiation cannot support inco
 
 To address the 100 kb limit, consider these alternative solutions:
 
-1. Update your app's client certificate configuration with _all_ these settings:
+1. Update your app's client certificate configurations with _all_ these settings:
     - Set client certificate mode to either "Required" or "Optional"
     - Remove all client certificate exclusion paths
-1. Send a HEAD request before the PUT/POST request. The HEAD request will handle the client certificate.
-1. Add the header `Expect: 100-Continue` to your request. This will cause the client to wait until the server responds with a `100 Continue` before sending the request body, which bypasses the buffers.
+1. Send a HEAD request before the PUT/POST request. The HEAD request handles the client certificate.
+1. Add the header `Expect: 100-Continue` to your request. This causes the client to wait until the server responds with a `100 Continue` before sending the request body, which bypasses the buffers.
 
 ## Access client certificate
 
