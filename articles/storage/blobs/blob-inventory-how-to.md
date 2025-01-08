@@ -244,7 +244,7 @@ You can suscribe to blob inventory completed event to receive information on the
 
 3. Select the message for the desired inventory run time to access the message properties the review the message body for the event status.
 
-For more methods on how to subscribe to blob storage events, see [Azure Blob Storage as Event Grid source - Azure Event Grid | Microsoft Learn](https://learn.microsoft.com/en-us/azure/event-grid/event-schema-blob-storage?tabs=event-grid-event-schema#tutorials-and-how-tos)
+For more methods on how to subscribe to blob storage events, see [Azure Blob Storage as Event Grid source - Azure Event Grid | Microsoft Learn](../../event-grid/event-schema-blob-storage.md)
  
 ## Optionally enable access time tracking
 
