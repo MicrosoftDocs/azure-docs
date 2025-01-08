@@ -5,7 +5,7 @@ services: firewall-manager
 author: vhorne
 ms.service: azure-firewall-manager
 ms.topic: how-to
-ms.date: 06/19/2023
+ms.date: 01/08/2025
 ms.author: victorh
 ---
 
@@ -126,15 +126,9 @@ In most cases, one of the following issues causes these problems:
 
 1. Verify *Security configuration* in the firewall policy associated with the Azure Firewall deployed in the secured virtual hub. Make sure under the **PRIVATE TRAFFIC** column it shows as **Secured by Azure Firewall** for all the virtual network and branches connections you want to filter traffic for.
 
-   :::image type="content" source="./media/private-link-inspection-secure-virtual-hub/firewall-policy-private-traffic-configuration.png" alt-text="Private Traffic Secured by Azure Firewall" border="true":::
-
 2. Verify **Security configuration** in the firewall policy associated with the Azure Firewall deployed in the secured virtual hub. In case traffic destined to private endpoints isn't being logged in the firewall, try adding the /32 prefix for each private endpoint to the list of **Private Traffic Prefixes**.
 
-   :::image type="content" source="./media/private-link-inspection-secure-virtual-hub/firewall-manager-security-configuration.png" alt-text="Firewall Manager Security Configuration - Private Traffic Prefixes" border="true":::
-
-3. In the secured virtual hub under virtual WAN, inspect effective routes for the route tables associated with the virtual networks and branches connections you want to filter traffic for. If /32 entries were added for each private endpoint you want to inspect traffic for, make sure these are listed in the effective routes.
-
-   :::image type="content" source="./media/private-link-inspection-secure-virtual-hub/secured-virtual-hub-effective-routes.png" alt-text="Secured Virtual Hub Effective Routes" border="true":::
+ 3. In the secured virtual hub under virtual WAN, inspect effective routes for the route tables associated with the virtual networks and branches connections you want to filter traffic for. If /32 entries were added for each private endpoint you want to inspect traffic for, make sure these are listed in the effective routes.
 
 4. Inspect the effective routes on the NICs attached to the virtual machines deployed in the virtual networks you want to filter traffic for. Make sure there are /32 entries for each private endpoint private IP address you want to filter traffic for (if added).
  
