@@ -24,7 +24,7 @@ landingContent:
           - text: Manage your Informatica organization
             url: informatica-manage.md
           - text: Manage your advanced serverless runtime and Informatica IDMC organization
-            url: informatica-manage-serverless.md
+            url: manage-serverless.md
 
   # Card
   - title: Create an Informatica organization

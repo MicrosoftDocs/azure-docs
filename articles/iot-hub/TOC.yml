@@ -424,10 +424,6 @@
       displayName: certificate authority (CA), subordinate CA, certificate versions, unique identifier, key identifier, binary certificate, PEM certificate, PKCS, X.509 certificates, OpenSSL, CSR, thumbprint 
       href: reference-x509-certificates.md
     - name: Feature and API retirement
-      items:
-        - name: TLS 1.0 and 1.1 deprecation
-          displayName: Transport Layer Security 
-          href: iot-hub-tls-deprecating-1-0-and-1-1.md
     - name: Monitoring data reference
       href: monitor-iot-hub-reference.md
 - name: Resources

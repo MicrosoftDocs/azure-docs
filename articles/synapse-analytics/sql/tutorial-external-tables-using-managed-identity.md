@@ -121,7 +121,7 @@ To create the external data source, use the following T-SQL command:
 CREATE EXTERNAL DATA SOURCE <ExternalDataSourceName>
 WITH (
     TYPE = HADOOP,
-    LOCATION = 'abfss://<Container>@<AccountName>.dfs.core.windows.net/<Folder>/,
+    LOCATION = 'abfss://<Container>@<AccountName>.dfs.core.windows.net/<Folder>/',
     CREDENTIAL = <CredentialName>
 );
 ```

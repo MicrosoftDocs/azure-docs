@@ -4611,6 +4611,16 @@
       "source_path_from_root": "/articles/sentinel/data-connectors/threat-intelligence-upload-indicators-api.md",
       "redirect_url": "/azure/sentinel/data-connectors/threat-intelligence-upload-api",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/create-vm-accelerated-networking-cli.md",
+      "redirect_url": "/azure/virtual-network/create-virtual-machine-accelerated-networking",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/create-vm-accelerated-networking-powershell.md",
+      "redirect_url": "/azure/virtual-network/create-virtual-machine-accelerated-networking",
+      "redirect_document_id": false
     }
   ]
 }
