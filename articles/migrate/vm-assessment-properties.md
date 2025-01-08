@@ -1,5 +1,5 @@
 ---
-title: Customise VM assessment properties
+title: Customize VM assessment properties
 description: Describes using VM assessment properties to customize the assessment to fit specific requirements.
 author: ankitsurkar06
 ms.author: ankitsurkar

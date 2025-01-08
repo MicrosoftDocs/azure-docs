@@ -14,13 +14,13 @@ In any cloud transformation journey, a comprehensive current-state analysis of t
 
 ## Key benefits
 
-1. **Enhanced resource grouping and organization:** By tagging resources with relevant attributes, customers can easily categorize, track, and manage their assets. For example, resources tagged by department (for example, HR or Finance) can be collectively managed and analyzed, improving oversight and streamlining operations.
+- **Enhanced resource grouping and organization:** By tagging resources with relevant attributes, customers can easily categorize, track, and manage their assets. For example, resources tagged by department (for example, HR or Finance) can be collectively managed and analyzed, improving oversight and streamlining operations.
 
-2. **Improved visibility and control:** Customers gain an organized view of how resources interrelate, supporting better management of resources that share a common purpose, application, or organizational unit.
+- **Improved visibility and control:** Customers gain an organized view of how resources interrelate, supporting better management of resources that share a common purpose, application, or organizational unit.
 
-3. **Resource management and governance:** Tags enable easy filtering and sorting of resources, allowing IT administrators to quickly find and manage assets. Tags also support governance practices, helping enforce consistent management practices and resource tracking.
+- **Resource management and governance:** Tags enable easy filtering and sorting of resources, allowing IT administrators to quickly find and manage assets. Tags also support governance practices, helping enforce consistent management practices and resource tracking.
 
-4. **Simplified migration planning:** Tags can be used as selection filters when customers create their reports – business cases and assessments.
+- **Simplified migration planning:** Tags can be used as selection filters when customers create their reports – business cases and assessments.
 
 ## Tagging use cases
 

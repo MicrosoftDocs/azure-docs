@@ -24,24 +24,23 @@ The Action Center can be accessed directly from the Azure Migrate dashboard, pro
 
 ## Key features
 
-1. **Centralized issue management:** Action Center provides a single interface to manage issues across discovery, dependency visualization, and assessment stages. This reduces the need to switch between different tools or sections, offering users a holistic view of all issues within their migration projects.
+- **Centralized issue management:** Action Center provides a single interface to manage issues across discovery, dependency visualization, and assessment stages. This reduces the need to switch between different tools or sections, offering users a holistic view of all issues within their migration projects.
 
     ![Screenshot of Action Center.](./media/centralized-issue-tracking/action-center.png)
 
-2. **Comprehensive issue tracking:** Users can see detailed information for each issue, including **severity level, affected workloads, affected features,** and **timestamps**. Each issue is accompanied by specific messages, allowing users to understand the nature of the problem and respond accordingly. Users can also sort and filter issues based on **severity, affected workload(s), timestamps**, and other parameters, enabling efficient prioritization of tasks and quick identification of high-severity issues that require immediate attention. Moreover, users can also have a view by affected workloads, where they can identify different issues by workloads.
+- **Comprehensive issue tracking:** Users can see detailed information for each issue, including **severity level, affected workloads, affected features,** and **timestamps**. Each issue is accompanied by specific messages, allowing users to understand the nature of the problem and respond accordingly. Users can also sort and filter issues based on **severity, affected workload(s), timestamps**, and other parameters, enabling efficient prioritization of tasks and quick identification of high-severity issues that require immediate attention. Moreover, users can also have a view by affected workloads, where they can identify different issues by workloads.
 
-    ![Screenshot of affected workloads view.](./media/centralized-issue-tracking/view-affected-workloads.png)
+    [ ![Screenshot of affected workloads view.](./media/centralized-issue-tracking/view-affected-workloads-inline.png) ](./media/centralized-issue-tracking/view-affected-workloads-expanded.png#lightbox)
 
-3. **Easy accessibility from Azure Migrate dashboard:** Action Center is accessible directly from the Azure Migrate dashboard, ensuring a seamless experience for users managing their migration projects.
+- **Easy accessibility from Azure Migrate dashboard:** Action Center is accessible directly from the Azure Migrate dashboard, ensuring a seamless experience for users managing their migration projects.
 
-    ![Screenshot of Azure Migrate dashboard with Action Center tile.](./media/centralized-issue-tracking/migrate-dashboard.png)
+    [ ![Screenshot of Azure Migrate dashboard with Action Center tile.](./media/centralized-issue-tracking/migrate-dashboard-inline.png) ](./media/centralized-issue-tracking/migrate-dashboard-expanded.png#lightbox)
 
-4. **Actionable insights and notifications:** Action Center offers real-time alerts for critical issues, enabling users to take timely action on tasks that require immediate attention. Users can also view real-time job statuses, pending actions, and alerts, making it easier to monitor the overall health of their migration project.
+- **Actionable insights and notifications:** Action Center offers real-time alerts for critical issues, enabling users to take timely action on tasks that require immediate attention. Users can also view real-time job statuses, pending actions, and alerts, making it easier to monitor the overall health of their migration project.
 
-    ![Screenshot of Action Center alerts and notifications.](./media/centralized-issue-tracking/view-action-center-alerts.png)
+    [ ![Screenshot of Action Center alerts and notifications.](./media/centralized-issue-tracking/view-action-center-alerts-inline.png) ](./media/centralized-issue-tracking/view-action-center-alerts-expanded.png#lightbox)
 
-
-5. **Integrated remediation resources:** The Action Center provides links to resources and troubleshooting documentation for specific issue types:
+- **Integrated remediation resources:** The Action Center provides links to resources and troubleshooting documentation for specific issue types:
 
    - **Discovery issues:** [Troubleshoot Discovery Issues in Azure Migrate](/azure/migrate/troubleshoot-discovery).
   
