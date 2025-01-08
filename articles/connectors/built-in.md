@@ -106,8 +106,8 @@ You can use the following built-in connectors to perform general tasks, for exam
     :::column:::
         [![Request trigger icon][http-request-icon]][http-request-doc]
         <br><br>[**Request**][http-request-doc]
-        <br><br>[**When a HTTP request is received**][http-request-doc]: Wait for a request from another workflow, app, or service. This trigger makes your workflow callable without having to be checked or polled on a schedule.
-        <br><br>[**Response**][http-request-doc]: Respond to a request received by the **When a HTTP request is received** trigger in the same workflow.
+        <br><br>[**When an HTTP request is received**][http-request-doc]: Wait for a request from another workflow, app, or service. This trigger makes your workflow callable without having to be checked or polled on a schedule.
+        <br><br>[**Response**][http-request-doc]: Respond to a request received by the **When an HTTP request is received** trigger in the same workflow.
     :::column-end:::
     :::column:::
         [![Batch icon][batch-icon]][batch-doc]
@@ -209,7 +209,7 @@ You can use the following built-in connectors to access specific services and sy
     :::column:::
         [![Azure Logic Apps icon][azure-logic-apps-icon]][nested-logic-app-doc]
         <br><br>[**Azure Logic Apps**][nested-logic-app-doc]<br>(*Consumption workflow*) <br><br>-or-<br><br>**Workflow Operations**<br>(*Standard workflow*)
-        <br><br>Call other workflows that start with the Request trigger named **When a HTTP request is received**.
+        <br><br>Call other workflows that start with the Request trigger named **When an HTTP request is received**.
     :::column-end:::
     :::column:::
         [![Azure OpenAI icon][azure-openai-icon]][azure-openai-doc]
@@ -478,7 +478,7 @@ For more information, review the following documentation:
         <br><br>[**XML Operations**][xml-operations-doc]
         <br><br>Perform operations with XML.
         <br><br>**Compose XML with schema**: Create XML from JSON using a schema for a Standard workflow.
-        <br><br>**Parse XML with schema**: Parse XML using a schema for a Standard workflow..
+        <br><br>**Parse XML with schema**: Parse XML using a schema for a Standard workflow.
         <br><br>**Transform XML**: Convert XML using a map.
         <br><br>**Validate XML**: Validate inbound or outbound XML using a schema.
     :::column-end:::
