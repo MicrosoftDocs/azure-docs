@@ -94,7 +94,7 @@ Creating or updating Virtual WAN resources requires you to have the proper permi
 
 ### Example 1
 
-When a connection is created between a Virtual WAN hub and a spoke Virtual Network, Virtual WAN's control plane creates a Virutal Network peering between the Virtual WAN hub and your spoke Virtual Network. You can also specify the Virtual WAN route tables to which the Virtual Network connection is associating to or propagating to.
+When a connection is created between a Virtual WAN hub and a spoke Virtual Network, Virtual WAN's control plane creates a Virtual Network peering between the Virtual WAN hub and your spoke Virtual Network. You can also specify the Virtual WAN route tables to which the Virtual Network connection is associating to or propagating to.
 
 Therefore, to create a Virtual Network connection to the Virtual WAN hub, you must have the following permissions:
 
@@ -110,7 +110,7 @@ If you want to associate an inbound or out-bound route map is associated with th
 
 To create or modify routing intent, a routing intent resource is created with a reference to the next hop resources specified in the routing intent's routing policy. This means that to create or modify routing intent, you need permissions over any referenced Azure Firewall or Network Virtual Appliance resource(s).
 
-If the next hop for a hub's private routing intent policy is a Network Virtual Appliance  and the next hop for a hub's internet policy is an Azure Firewall, creating or updating a routing intent resource requires the following permisisons.
+If the next hop for a hub's private routing intent policy is a Network Virtual Appliance and the next hop for a hub's internet policy is an Azure Firewall, creating or updating a routing intent resource requires the following permissions.
 
 * Create routing intent resource. (Microsoft.Network/virtualhubs/routingIntents/write)
 * Reference (read) the Network Virtual Appliance resource (Microsoft.Network/networkVirtualAppliances/read)
@@ -120,9 +120,9 @@ In this example, you do **not** need permissions to read Microsoft.Network/secur
 
 ## Additional permissions required due to referenced resources
 
-The following section describes the set of possible permisisons that are needed to create or modify Virtual WAN resources.
+The following section describes the set of possible permissions that are needed to create or modify Virtual WAN resources.
 
-Depending on your Virtual WAN configuration, the user or service principal that is managing your Virtual WAN deploymentes may need all, a subset or none of the below permissions. 
+Depending on your Virtual WAN configuration, the user or service principal that is managing your Virtual WAN deployments may need all, a subset or none of the below permissions. 
 
 ### Virtual hub resources
 
