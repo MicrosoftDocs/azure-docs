@@ -118,7 +118,7 @@ You observe no outbound connectivity on your NAT gateway.
 
 **Troubleshooting steps**
 
-* Check that NAT gateway is configured with at least one public IP address or prefix and attached to a subnet. NAT gateway isn't operational until a public IP and subnet attached. For more information, see [NAT gateway configuration basics](/azure/nat-gateway/troubleshoot-nat#nat-gateway-configuration-basics).
+* Check that NAT gateway is configured with at least one public IP address or prefix and attached to a subnet. NAT gateway isn't operational until a public IP and subnet are attached. For more information, see [NAT gateway configuration basics](/azure/nat-gateway/troubleshoot-nat#nat-gateway-configuration-basics).
 
 * Check the routing table of the subnet attached to NAT gateway. Any 0.0.0.0/0 traffic being force-tunneled to a Network Virtual Appliance (NVA), ExpressRoute, or VPN Gateway will take priority over NAT gateway. For more information, see [how Azure selects a route](/azure/virtual-network/virtual-networks-udr-overview#how-azure-selects-a-route).
 
@@ -156,7 +156,7 @@ NAT gateway is deployed in your Azure virtual network but unexpected IP addresse
 
 * NAT gateway misconfiguration.
 
-* Active connection with another Azure outbound connectivity method such as Azure Load balancer or instance-level public IPs on virtual machines. Active connection flows continue to use the previous public IP address that was assigned when the connection was established. When NAT gateway is deployed, new connections start using NAT gateway right away.
+* Active connection with another Azure outbound connectivity method such as Azure Load balancer or instance-level public IPs on virtual machines or default outbound access. Active connection flows continue to use the previous public IP address that was assigned when the connection was established. When NAT gateway is deployed, **new** connections start using NAT gateway right away.
 
 * Private IPs are used to connect to Azure services by service endpoints or Private Link.
 
@@ -174,21 +174,19 @@ NAT gateway is deployed in your Azure virtual network but unexpected IP addresse
 
 * Check if you have [Private Link](/azure/private-link/manage-private-endpoint?tabs=manage-private-link-powershell#manage-private-endpoint-connections-on-azure-paas-resources) or [service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md#logging-and-troubleshooting) enabled for connecting to other Azure services.
 
-* Ensure that your virtual machine is located in the same region as the Azure storage when making a storage connection.
-
+* Check if your virtual machine is located in the same region as the Azure storage when making a storage connection.
 
 * Verify if the public IP address used for connections is originating from another Azure service within your Azure virtual network, such as a Network Virtual Appliance (NVA).
-
 
 ### Possible solutions for NAT gateway public IP not used to connect outbound
 
 * Attach a public IP address or prefix to NAT gateway. Ensure that NAT gateway is attached to subnets from the same virtual network. [Validate that NAT gateway can connect outbound](/azure/nat-gateway/troubleshoot-nat#how-to-validate-connectivity).
 
-* Test and resolve issues with VMs holding on to old SNAT IP addresses from another outbound connectivity method by:
+* Test and resolve issues with VMs holding on to Public IP addresses from another outbound connectivity method, including Load balancer, instance-level public IPs or default outbound access by:
 
   * Ensure you establish a new connection and that existing connections aren't being reused in the OS or that the browser is caching the connections. For example, when using curl in PowerShell, make sure to specify the -DisableKeepalive parameter to force a new connection. If you're using a browser, connections can also be pooled.
 
-  * It isn't necessary to reboot a virtual machine in a subnet configured to NAT gateway. However, if a virtual machine is rebooted, the connection state is flushed. When the connection state is flushed, all connections begin using the NAT gateway resource's IP address or addresses. This behavior is a side effect of the virtual machine reboot and not an indicator that a reboot is required.
+  * Reboot the virtual machine (perform a STOP / START) in a subnet configured to NAT gateway. If a virtual machine is rebooted, the connection state is flushed. When the connection state is flushed, all new connections begin using the NAT gateway resource's IP address or addresses. Keep in mind that if the VM has any active connections at the time that you reboot, those connections will be dropped.
 
   * If your investigation is inconclusive, open a support case to [further troubleshoot](#more-troubleshooting-guidance).
 
