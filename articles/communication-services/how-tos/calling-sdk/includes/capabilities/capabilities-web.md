@@ -73,7 +73,7 @@ capabilitiesFeature.on('capabilitiesChanged', (capabilitiesChangeInfo) => {
 
 **Capabilities Exposed**
 - *turnVideoOn*: Ability to turn on video
-- *unmuteMic*: Ability to turn on mic
+- *unmuteMic*: Ability to send audio
 - *shareScreen*: Ability to share screen
 - *removeParticipant*: Ability to remove a participant
 - *hangUpForEveryOne*: Ability to hang up for everyone
